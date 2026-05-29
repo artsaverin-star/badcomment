@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model App {
+  id           String   @id @default(cuid())
+  store        String // "google" | "apple"
+  storeAppId   String // package name (google) or numeric id (apple)
+  country      String   @default("us")
+  title        String
+  icon         String?
+  createdAt    DateTime @default(now())
+  lastScrapedAt DateTime?
+
+  reviews Review[]
+
+  @@unique([store, storeAppId, country])
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  app        App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  appId      String
+  externalId String
+  author     String?
+  rating     Int
+  title      String?
+  text       String
+  version    String?
+  themes     String   @default("[]") // JSON array of theme keys
+  postedAt   DateTime?
+  createdAt  DateTime @default(now())
+
+  @@unique([appId, externalId])
+  @@index([appId, rating])
+}
