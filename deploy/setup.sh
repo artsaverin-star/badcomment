@@ -26,8 +26,8 @@ npx prisma generate
 npx prisma db push
 npm run build
 
-echo ">> Installing systemd service..."
-sudo cp deploy/badcomment.service /etc/systemd/system/badcomment.service
+echo ">> Installing systemd service (running as ${USER})..."
+sed "s/^User=.*/User=${USER}/" deploy/badcomment.service | sudo tee /etc/systemd/system/badcomment.service >/dev/null
 sudo systemctl daemon-reload
 sudo systemctl enable --now badcomment
 
