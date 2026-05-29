@@ -1,0 +1,17 @@
+[Unit]
+Description=badcomment (Next.js)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/opt/badcomment
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=DATABASE_URL=file:/opt/badcomment/data/prod.db
+ExecStart=/usr/bin/npm run start
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
