@@ -8,11 +8,22 @@ export type IdeaGap = {
   quote: string; // one representative real quote (RU, lightly cleaned)
 };
 
+// The primary kind of opening an indie could exploit. Drives the deck's
+// opportunity-type filter chips. One per app — the dominant angle.
+export type OpportunityType =
+  | "design" // UX/visual quality is the weak point — a better-designed clone wins
+  | "features" // missing capabilities users keep asking for
+  | "reliability" // works badly: stability, accuracy, performance
+  | "pricing" // value/monetization is the sore spot — fairer model wins
+  | "content" // thin/poor content, data, or catalog
+  | "support"; // trust, support, moderation, safety gaps
+
 // LLM-generated idea-card analysis. Cached on Product.summary as JSON.
 export type IdeaSummary = {
   tagline: string; // one line, RU: what this app actually is (plain language)
   verdict: string; // one-line take on the opportunity
   opportunity: string; // the unique unmet-need angle, 1-2 sentences
+  opportunityType?: OpportunityType; // dominant angle for filtering (optional on legacy summaries)
   gaps: IdeaGap[]; // 3-5 specific, app-unique, fixable gaps
   loved: string[]; // what genuinely works and must be kept
   monetization: string | null; // ads/price gripe, quarantined out of `gaps`
