@@ -64,26 +64,42 @@ const LARGE_APP_BYTES = 200 * 1024 * 1024; // 200 MB
 // pointless to "rebuild" because they're a thin client for a real-world
 // business (fast-food chains, banks, carriers, retailers). The LLM judges
 // this unreliably, so we detect it deterministically from the store
-// description. A genuine indie-buildable app won't hit two of these.
-const STOREFRONT_SIGNALS: RegExp[] = [
-  /\b(mobile order|order ahead|order (online|now)|drive[\s-]?thru|skip the line|curbside|order .{0,24}(delivery|pickup)|pickup option)\b/i,
-  /\b(rewards?|loyalty|earn points|redeem|exclusive (deals|offers|coupons)|mobile coupons|member (deals|offers))\b/i,
-  /\b(pay (your )?bill|manage (your )?(account|devices?)|data (plan|usage)|wireless|prepaid|(new|your) plan)\b/i,
-  /\b(nearest (restaurant|store|location)|find (your )?nearest|store locator|locations? near|find a (store|restaurant|location))\b/i,
+// description.
+
+// HARD signals: each is alone-sufficient — language that only ever describes
+// a thin client for a physical chain / regulated account, never a standalone
+// product an indie could meaningfully recreate.
+const HARD_BRAND: RegExp[] = [
+  // Physical-location ordering (fast food / retail)
+  /\b(mobile order|order ahead|order (online|now)|re[\s-]?order|drive[\s-]?thru|curb[\s-]?side|carry[\s-]?out|order .{0,40}(delivery|pickup)|pickup option|in[\s-]the[\s-]restaurant)\b/i,
+  // Carrier / device account
+  /\b(data (plan|usage)|wireless (carrier|plan|account)|prepaid plan|switch to (t[\s-]?mobile|at&t|verizon|sprint)|t[\s-]?mobile tuesday)\b/i,
+  // Store / restaurant locator
+  /\b(nearest (restaurant|store|location)|find (your )?nearest|store locator|find a (store|restaurant|location))\b/i,
+  // Regulated bank / money account
+  /\b(member fdic|not a bank|fee[\s-]free banking|deposit checks?|mobile (banking|deposit)|routing number)\b/i,
+  // Airline
+  /\b(boarding pass|book (a )?flights?|baggage|frequent flyer|admirals club)\b/i,
+  // Hotel
+  /\b(book (a )?hotels?|earn points when you stay|digital key)\b/i,
+  // Ticketing marketplace
+  /\b(buy,? (and )?sell[^.]{0,15}tickets|tickets to (live|events|concerts|sports))\b/i,
 ];
 
-// True if the store description shows two or more brand-storefront signals,
-// i.e. the app is a companion to a physical chain/account, not a standalone
-// product an indie could meaningfully recreate.
+// SOFT signals: weaker brand tells. Two or more (or one HARD) flags the app.
+const SOFT_BRAND: RegExp[] = [
+  /\b(rewards?|loyalty|earn points|redeem (your )?points|exclusive (deals|offers|coupons)|mobile coupons|member[\s-]only)\b/i,
+  /\b(footlong|combo meal|whopper|nuggets|value menu)\b/i,
+  /\bmanage (your )?account\b/i,
+];
+
+// True if the app is a companion to a physical chain/account rather than a
+// standalone product worth rebuilding.
 export function isBrandStorefront(description: string | null | undefined): boolean {
   const text = description ?? "";
   if (!text) return false;
-  let hits = 0;
-  for (const re of STOREFRONT_SIGNALS) {
-    if (re.test(text)) hits++;
-    if (hits >= 2) return true;
-  }
-  return false;
+  if (HARD_BRAND.some((re) => re.test(text))) return true;
+  return SOFT_BRAND.filter((re) => re.test(text)).length >= 2;
 }
 
 export function scoreCloneability(input: {
