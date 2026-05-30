@@ -66,6 +66,7 @@ type Dict = {
   categoryLabels: Record<string, string>;
   themeLabels: Record<string, string>;
   lovedLabels: Record<string, string>;
+  opportunityTypeLabels: Record<string, string>;
 };
 
 const DICT: Record<Locale, Dict> = {
@@ -164,6 +165,14 @@ const DICT: Record<Locale, Dict> = {
       reliable: "Reliable",
       support: "Great support",
     },
+    opportunityTypeLabels: {
+      design: "Design",
+      features: "Features",
+      reliability: "Reliability",
+      pricing: "Pricing",
+      content: "Content",
+      support: "Support",
+    },
   },
   ru: {
     nav: {
@@ -260,6 +269,14 @@ const DICT: Record<Locale, Dict> = {
       reliable: "Надёжно",
       support: "Отличная поддержка",
     },
+    opportunityTypeLabels: {
+      design: "Дизайн",
+      features: "Функции",
+      reliability: "Надёжность",
+      pricing: "Цена",
+      content: "Контент",
+      support: "Поддержка",
+    },
   },
 };
 
@@ -273,3 +290,5 @@ export const themeLabelL = (locale: Locale, key: string) =>
   DICT[locale].themeLabels[key] ?? key;
 export const lovedLabelL = (locale: Locale, key: string) =>
   DICT[locale].lovedLabels[key] ?? key;
+export const opportunityTypeLabelL = (locale: Locale, key: string) =>
+  DICT[locale].opportunityTypeLabels[key] ?? key;

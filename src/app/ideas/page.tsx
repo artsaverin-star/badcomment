@@ -1,10 +1,20 @@
 import Link from "next/link";
 import IdeaCardList from "@/components/IdeaCardList";
 import { getIdeaCards } from "@/lib/queries";
-import { getLocale, t, categoryLabelL } from "@/lib/i18n";
+import { getLocale, t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
 import { CATEGORIES } from "@/lib/categories";
+import type { OpportunityType } from "@/lib/summarize";
 
 export const dynamic = "force-dynamic";
+
+const TYPE_ORDER: OpportunityType[] = [
+  "design",
+  "features",
+  "reliability",
+  "pricing",
+  "content",
+  "support",
+];
 
 function tabClass(active: boolean) {
   return `rounded-full px-3 py-1 text-sm transition-colors ${
@@ -14,14 +24,22 @@ function tabClass(active: boolean) {
   }`;
 }
 
+function ideasHref(params: { cat?: string | null; type?: string | null }) {
+  const sp = new URLSearchParams();
+  if (params.cat) sp.set("cat", params.cat);
+  if (params.type) sp.set("type", params.type);
+  const q = sp.toString();
+  return q ? `/ideas?${q}` : "/ideas";
+}
+
 export default async function IdeasPage({
   searchParams,
 }: {
-  searchParams: Promise<{ cat?: string }>;
+  searchParams: Promise<{ cat?: string; type?: string }>;
 }) {
   const locale = await getLocale();
   const tr = t(locale);
-  const { cat } = await searchParams;
+  const { cat, type } = await searchParams;
 
   // Fetch the whole buildable deck once; derive tabs from what's actually
   // present and slice/filter for display without a second query.
@@ -31,8 +49,21 @@ export default async function IdeasPage({
   );
   const tabs = CATEGORIES.filter((c) => present.has(c.key));
 
-  const active = cat && present.has(cat) ? cat : null;
-  const cards = active ? all.filter((c) => c.category === active) : all.slice(0, 60);
+  const presentTypes = new Set(
+    all
+      .map((c) => c.summary?.opportunityType)
+      .filter((ty): ty is OpportunityType => ty != null)
+  );
+  const typeTabs = TYPE_ORDER.filter((ty) => presentTypes.has(ty));
+
+  const activeCat = cat && present.has(cat) ? cat : null;
+  const activeType =
+    type && presentTypes.has(type as OpportunityType) ? (type as OpportunityType) : null;
+
+  let filtered = all;
+  if (activeCat) filtered = filtered.filter((c) => c.category === activeCat);
+  if (activeType) filtered = filtered.filter((c) => c.summary?.opportunityType === activeType);
+  const cards = activeCat || activeType ? filtered : filtered.slice(0, 60);
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">
@@ -45,16 +76,37 @@ export default async function IdeasPage({
         <p className="text-sm text-neutral-500">{tr.ideas.desc}</p>
       </header>
 
-      <nav className="mb-8 flex flex-wrap gap-2">
-        <Link href="/ideas" className={tabClass(!active)}>
+      <nav className="mb-3 flex flex-wrap gap-2">
+        <Link href={ideasHref({ type: activeType })} className={tabClass(!activeCat)}>
           {tr.ideas.all}
         </Link>
         {tabs.map((c) => (
-          <Link key={c.key} href={`/ideas?cat=${c.key}`} className={tabClass(active === c.key)}>
+          <Link
+            key={c.key}
+            href={ideasHref({ cat: c.key, type: activeType })}
+            className={tabClass(activeCat === c.key)}
+          >
             {categoryLabelL(locale, c.key)}
           </Link>
         ))}
       </nav>
+
+      {typeTabs.length > 0 && (
+        <nav className="mb-8 flex flex-wrap gap-2">
+          <Link href={ideasHref({ cat: activeCat })} className={tabClass(!activeType)}>
+            {tr.ideas.all}
+          </Link>
+          {typeTabs.map((ty) => (
+            <Link
+              key={ty}
+              href={ideasHref({ cat: activeCat, type: ty })}
+              className={tabClass(activeType === ty)}
+            >
+              {opportunityTypeLabelL(locale, ty)}
+            </Link>
+          ))}
+        </nav>
+      )}
 
       {cards.length === 0 ? (
         <p className="text-sm text-neutral-500">{tr.ideas.empty}</p>
