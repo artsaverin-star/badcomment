@@ -88,11 +88,53 @@ export default function IdeaCardList({
           {card.summary?.verdict && (
             <div className="rounded-xl border border-red-200 bg-red-50/60 p-3 dark:border-red-900 dark:bg-red-950/30">
               <p className="text-sm font-medium">{card.summary.verdict}</p>
-              {card.summary.whyClone && (
-                <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
-                  {card.summary.whyClone}
-                </p>
+              {card.summary.opportunity && (
+                <>
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-wide text-red-600">
+                    {tr.card.opportunity}
+                  </p>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                    {card.summary.opportunity}
+                  </p>
+                </>
               )}
+            </div>
+          )}
+
+          {card.summary && card.summary.gaps.length > 0 && (
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-red-600">
+                {tr.card.gaps}
+              </p>
+              <ul className="flex flex-col gap-3">
+                {card.summary.gaps.map((gap) => (
+                  <li
+                    key={gap.title}
+                    className="rounded-xl border border-black/5 bg-black/[0.02] p-3 dark:border-white/10 dark:bg-white/[0.03]"
+                  >
+                    <p className="text-sm font-semibold">{gap.title}</p>
+                    {gap.evidence && (
+                      <p className="mt-0.5 text-sm text-neutral-600 dark:text-neutral-300">
+                        {gap.evidence}
+                      </p>
+                    )}
+                    {gap.quote && (
+                      <p className="mt-1 text-sm italic text-neutral-500">“{gap.quote}”</p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {card.summary?.monetization && (
+            <div>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-amber-600">
+                {tr.card.monetization}
+              </p>
+              <p className="text-sm text-neutral-600 dark:text-neutral-300">
+                {card.summary.monetization}
+              </p>
             </div>
           )}
 
@@ -163,19 +205,30 @@ export default function IdeaCardList({
             </ul>
           </div>
 
-          {card.summary && card.summary.howToWin.length > 0 && (
+          {card.summary && card.summary.wedge.length > 0 && (
             <div className="rounded-xl bg-green-50 p-3 dark:bg-green-950/30">
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400">
                 {tr.card.howToBeat}
               </p>
               <ul className="flex flex-col gap-1 text-sm text-neutral-700 dark:text-neutral-200">
-                {card.summary.howToWin.map((move) => (
+                {card.summary.wedge.map((move) => (
                   <li key={move} className="flex gap-1.5">
                     <span className="text-green-600">→</span>
                     <span>{move}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {card.summary && card.summary.cloneable === false && card.summary.buildNote && (
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm dark:border-amber-900 dark:bg-amber-950/30">
+              <p className="font-semibold text-amber-700 dark:text-amber-400">
+                {tr.card.cantClone}
+              </p>
+              <p className="mt-0.5 text-neutral-600 dark:text-neutral-300">
+                {card.summary.buildNote}
+              </p>
             </div>
           )}
 

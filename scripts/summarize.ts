@@ -50,7 +50,7 @@ async function run() {
       data: { summary: JSON.stringify(summary), summaryHash: hash },
     });
     generated++;
-    console.log(`[ok] ${card.name} — ${summary.howToWin.length} moves to win`);
+    console.log(`[ok] ${card.name} — ${summary.gaps.length} gaps, ${summary.wedge.length} moves`);
     await sleep(700); // gentle on the model API
   }
 

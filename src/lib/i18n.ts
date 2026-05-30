@@ -46,6 +46,10 @@ type Dict = {
     improve: string;
     howHard: string;
     howToBeat: string;
+    opportunity: string;
+    gaps: string;
+    monetization: string;
+    cantClone: string;
   };
   category: {
     subtitle: string;
@@ -107,6 +111,10 @@ const DICT: Record<Locale, Dict> = {
       improve: "What to improve",
       howHard: "How hard to rebuild",
       howToBeat: "How to beat them",
+      opportunity: "The opening",
+      gaps: "Specific gaps to close",
+      monetization: "Monetization pain",
+      cantClone: "Hard to rebuild solo",
     },
     category: {
       subtitle: "Top apps in this direction and what users complain about.",
@@ -198,6 +206,10 @@ const DICT: Record<Locale, Dict> = {
       improve: "Что улучшить",
       howHard: "Насколько сложно повторить",
       howToBeat: "Как обойти оригинал",
+      opportunity: "В чём возможность",
+      gaps: "Конкретные пробелы",
+      monetization: "Боль монетизации",
+      cantClone: "В одиночку не повторить",
     },
     category: {
       subtitle: "Топовые приложения этого направления и на что жалуются пользователи.",

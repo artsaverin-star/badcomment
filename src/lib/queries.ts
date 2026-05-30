@@ -228,16 +228,45 @@ export type IdeaCard = {
   conQuote: string | null;
   pros: ThemeStat[];
   proQuote: string | null;
+  // Raw review samples fed to the LLM for app-specific gap extraction.
+  conSamples: string[];
+  proSamples: string[];
   // Cached LLM analysis (null until `npm run summarize` runs / no API key).
   summary: IdeaSummary | null;
 };
 
 const MIN_COMPLAINTS = 4; // skip apps without a clear, fixable pain signal
 
+// Reviews containing these tend to carry a concrete feature ask / broken
+// workflow (the real insight) rather than a generic gripe.
+const WISH = /(wish|need|should|can'?t|cannot|no way|unable|missing|doesn'?t|lacks?|would be|if only|please add|add an option|hope they|не хвата|хотелось бы|нет возможност|было бы|не могу|добавьте|почему нельзя|отсутству|нельзя)/i;
+
+// Curate a sample of raw review texts for the model: prefer ones with a
+// concrete ask, then the longest (most substantive), deduped and length-capped.
+function pickSamples(texts: string[], n: number): string[] {
+  const seen = new Set<string>();
+  const clean = texts
+    .map((t) => t.replace(/\s+/g, " ").trim())
+    .filter((t) => t.length >= 20)
+    .filter((t) => {
+      const k = t.slice(0, 40).toLowerCase();
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+  const withSignal = clean.filter((t) => WISH.test(t));
+  const rest = clean.filter((t) => !WISH.test(t)).sort((a, b) => b.length - a.length);
+  return [...withSignal, ...rest].slice(0, n).map((t) => (t.length > 280 ? `${t.slice(0, 279)}…` : t));
+}
+
+// Only accept the new (v2) summary shape; old cached summaries lack `gaps` and
+// are treated as absent so the card cleanly falls back until regenerated.
 function parseSummary(raw: string | null): IdeaSummary | null {
   if (!raw) return null;
   try {
-    return JSON.parse(raw) as IdeaSummary;
+    const o = JSON.parse(raw) as IdeaSummary;
+    if (!Array.isArray(o.gaps)) return null;
+    return o;
   } catch {
     return null;
   }
@@ -260,6 +289,18 @@ function mergeHistograms(raws: (string | null)[]): Record<string, number> | null
     }
   }
   return any ? out : null;
+}
+
+// Demand as an inverted-U over popularity: peaks for mid-tier apps (proven
+// demand, ~1M–50M) and falls off for untouchable giants (Pinterest/YouTube)
+// and for unproven small apps. This stops 1B-install apps from auto-dominating.
+function demandCurve(popProxy: number | null, rank: number | null): number {
+  if (!popProxy) return rank ? Math.max(1, 6 - Math.min(rank, 10) / 2) : 2;
+  const x = Math.log10(popProxy);
+  const peak = 6.8; // ~6M installs = the sweet spot
+  const sigma = 1.8;
+  const g = Math.exp(-((x - peak) ** 2) / (2 * sigma * sigma)); // 0..1
+  return 1 + 7 * g;
 }
 
 export function formatCount(n: number): string {
@@ -318,11 +359,7 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
     const ratingCount =
       p.listings.reduce((s, l) => s + (l.ratingCount ?? 0), 0) || null;
     const popProxy = installs ?? (ratingCount ? ratingCount * 100 : null);
-    const demand = popProxy
-      ? Math.min(Math.max(Math.log10(popProxy) - 2, 1), 8)
-      : rank
-        ? 11 - Math.min(Math.max(rank, 1), 10)
-        : 2;
+    const demand = demandCurve(popProxy, rank);
 
     // Satisfaction: rating-count-weighted average star score across stores.
     const scored = p.listings.filter((l) => l.score != null);
@@ -350,7 +387,14 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
       sizeBytes: Math.max(0, ...p.listings.map((l) => Number(l.sizeBytes ?? 0))) || null,
     });
 
-    const score = (demand * improvability) / clone.score;
+    const conSamples = pickSamples(negTexts.map((r) => r.text), 32);
+    const proSamples = pickSamples(posTexts.map((r) => r.text), 10);
+    const summary = parseSummary(p.summary);
+
+    // Heavily demote apps the model judged not realistically cloneable
+    // (brand/chain/network/infra lock-in) so they sink below buildable ideas.
+    const cloneablePenalty = summary && summary.cloneable === false ? 0.2 : 1;
+    const score = ((demand * improvability) / clone.score) * cloneablePenalty;
 
     const topCon = cons[0];
     const conQuote =
@@ -393,7 +437,9 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
       conQuote: conQuote ? trimQuote(conQuote) : null,
       pros,
       proQuote: proQuote ? trimQuote(proQuote) : null,
-      summary: parseSummary(p.summary),
+      conSamples,
+      proSamples,
+      summary,
     });
   }
 

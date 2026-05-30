@@ -1,23 +1,35 @@
 import { createHash } from "node:crypto";
 import type { IdeaCard } from "./queries";
 
-// LLM-generated idea-card summary. Cached on Product.summary as JSON.
+// A single concrete, buildable gap mined from the reviews — the core insight.
+export type IdeaGap = {
+  title: string; // short, app-specific (e.g. "No offline mode for saved recipes")
+  evidence: string; // synthesized: how often / in what context users ask
+  quote: string; // one representative real quote (RU, lightly cleaned)
+};
+
+// LLM-generated idea-card analysis. Cached on Product.summary as JSON.
 export type IdeaSummary = {
-  verdict: string; // one-line take on whether it's worth cloning
-  whyClone: string; // proven-demand argument
-  loved: string[]; // what genuinely works, synthesized from reviews
-  painPoints: string[]; // what's bad, ranked
-  howToWin: string[]; // concrete moves to beat the incumbent
+  verdict: string; // one-line take on the opportunity
+  opportunity: string; // the unique unmet-need angle, 1-2 sentences
+  gaps: IdeaGap[]; // 3-5 specific, app-unique, fixable gaps
+  loved: string[]; // what genuinely works and must be kept
+  monetization: string | null; // ads/price gripe, quarantined out of `gaps`
+  wedge: string[]; // concrete moves to beat the incumbent
+  cloneable: boolean; // is this a real standalone app an indie can rebuild?
+  buildNote: string | null; // why (not) cloneable — brand/network/infra lock-in
 };
 
 const ENDPOINT = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion";
 
-// Stable fingerprint of the review signal: if this is unchanged we skip the
-// model call entirely (the dominant cost lever).
+// Stable fingerprint of the review signal: if unchanged we skip the model call
+// entirely (the dominant cost lever). Includes the raw sample so switching the
+// extraction engine forces regeneration.
 export function summaryHash(card: IdeaCard): string {
   const sig = JSON.stringify({
-    cons: card.cons.map((c) => `${c.key}:${c.count}`),
-    pros: card.pros.map((p) => p.key),
+    v: 2, // bump when the engine/prompt changes
+    cons: card.conSamples.map((t) => t.slice(0, 60)),
+    pros: card.proSamples.map((t) => t.slice(0, 40)),
     n: card.negativeCount,
     clone: card.cloneLabel,
   });
@@ -25,31 +37,53 @@ export function summaryHash(card: IdeaCard): string {
 }
 
 function buildDigest(card: IdeaCard): string {
-  const cons = card.cons.map((c) => `${c.label} (${c.count})`).join(", ") || "—";
-  const pros = card.pros.map((p) => p.label).join(", ") || "—";
   const lines = [
-    `App: ${card.name}`,
-    `Category: ${card.categoryLabel}`,
-    `Popularity: ${card.demandLabel}${card.avgRating != null ? `, avg rating ${card.avgRating.toFixed(1)}` : ""}`,
-    `How hard to rebuild: ${card.cloneLabel} — ${card.cloneReasons.join("; ")}`,
-    `Top complaints (by frequency): ${cons}`,
-    `What users love: ${pros}`,
+    `Приложение: ${card.name}`,
+    `Категория: ${card.categoryLabel}`,
+    `Популярность: ${card.demandLabel}${
+      card.avgRating != null ? `, средняя оценка ${card.avgRating.toFixed(1)}` : ""
+    }`,
+    `Сложность повторения (грубая эвристика): ${card.cloneLabel} — ${card.cloneReasons.join("; ")}`,
+    "",
+    "НЕГАТИВНЫЕ ОТЗЫВЫ (выборка, изучи их внимательно):",
+    ...card.conSamples.map((t) => `- ${t}`),
   ];
-  if (card.conQuote) lines.push(`Complaint quote: "${card.conQuote}"`);
-  if (card.proQuote) lines.push(`Praise quote: "${card.proQuote}"`);
+  if (card.proSamples.length) {
+    lines.push("", "ПОЗИТИВНЫЕ ОТЗЫВЫ (что хвалят):", ...card.proSamples.map((t) => `- ${t}`));
+  }
   return lines.join("\n");
 }
 
-const SYSTEM_PROMPT =
-  "Ты продуктовый аналитик. По сводке об приложении (популярность, жалобы и похвалы из отзывов, сложность повторения) дай разбор для инди-разработчика, который думает сделать похожее приложение и перебить оригинал. " +
-  "Отвечай СТРОГО валидным JSON без markdown и без обрамляющих кавычек, ровно с такими ключами: " +
-  '{"verdict": строка, "whyClone": строка, "loved": [строки], "painPoints": [строки], "howToWin": [строки]}. ' +
-  "verdict — одно предложение, стоит ли повторять. whyClone — 1–2 предложения о доказанном спросе. " +
-  "loved — 3–5 пунктов, что реально хорошо. painPoints — 3–5 пунктов, что плохо, по убыванию боли. " +
-  "howToWin — 3–5 конкретных, реализуемых шагов, чтобы перебить оригинал. Пиши по-русски, кратко и по делу.";
+const SYSTEM_PROMPT = `Ты продуктовый аналитик. На входе — данные о приложении и ВЫБОРКА реальных отзывов. Твоя задача: найти КОНКРЕТНЫЕ, уникальные для этого приложения пробелы, которые инди-разработчик мог бы закрыть и перебить оригинал.
+
+Главное правило: НЕ выдавай общие банальности. Запрещено выносить в gaps такие вещи как «много рекламы», «дорого/подписка», «вылеты», «баги», «тормозит», «неудобный интерфейс» — они есть у всех и не являются инсайтом. Ищи СПЕЦИФИКУ: какой конкретной фичи не хватает, какой сценарий сломан, что пользователи постоянно просят и не получают именно в ЭТОМ приложении.
+
+Анализируй текст отзывов, а не общие темы. Каждый gap должен опираться на то, что реально написали люди.
+
+Отвечай СТРОГО валидным JSON без markdown, ровно с такими ключами:
+{
+  "verdict": строка,
+  "opportunity": строка,
+  "gaps": [{"title": строка, "evidence": строка, "quote": строка}],
+  "loved": [строки],
+  "monetization": строка или null,
+  "wedge": [строки],
+  "cloneable": true/false,
+  "buildNote": строка или null
+}
+
+- verdict — одно предложение: стоит ли за это браться и почему.
+- opportunity — 1-2 предложения про незакрытую потребность, на которой можно выехать.
+- gaps — 3-5 штук. title: 3-7 слов, конкретно. evidence: синтез — как часто и в каком контексте это всплывает в отзывах. quote: одна реальная цитата из отзывов, ОБЯЗАТЕЛЬНО на русском (если отзыв на другом языке — переведи) и слегка причеши. Если конкретики мало — дай меньше gaps, не выдумывай.
+- loved — 2-4 пункта, что реально хорошо и это надо сохранить.
+- monetization — если основная боль в рекламе/цене, опиши её одной строкой ЗДЕСЬ (не в gaps), иначе null.
+- wedge — 3-5 конкретных шагов, как сделать лучше оригинала.
+- cloneable — true только если это самостоятельный продукт, который небольшая команда реально может пересобрать. false, если приложение завязано на бренд/физическую сеть/инфраструктуру/сетевой эффект (например аппы ресторанных сетей, банков, операторов, YouTube/Pinterest) — такое в одиночку не повторить.
+- buildNote — если cloneable=false, объясни почему одной фразой; иначе null.
+
+Пиши по-русски, кратко и по делу.`;
 
 function parseSummary(text: string): IdeaSummary | null {
-  // Model sometimes wraps JSON in ```json fences — strip them.
   const cleaned = text
     .replace(/^\s*```(?:json)?/i, "")
     .replace(/```\s*$/i, "")
@@ -65,26 +99,41 @@ function parseSummary(text: string): IdeaSummary | null {
   const str = (v: unknown) => (typeof v === "string" ? v.trim() : "");
   const arr = (v: unknown) =>
     Array.isArray(v) ? v.map((x) => str(x)).filter(Boolean) : [];
+  const gaps: IdeaGap[] = Array.isArray(o.gaps)
+    ? o.gaps
+        .map((g) => {
+          const gg = (g ?? {}) as Record<string, unknown>;
+          return { title: str(gg.title), evidence: str(gg.evidence), quote: str(gg.quote) };
+        })
+        .filter((g) => g.title)
+    : [];
+  const monetization = str(o.monetization);
+  const buildNote = str(o.buildNote);
   const summary: IdeaSummary = {
     verdict: str(o.verdict),
-    whyClone: str(o.whyClone),
+    opportunity: str(o.opportunity),
+    gaps,
     loved: arr(o.loved),
-    painPoints: arr(o.painPoints),
-    howToWin: arr(o.howToWin),
+    monetization: monetization || null,
+    wedge: arr(o.wedge),
+    cloneable: o.cloneable !== false, // default true unless explicitly false
+    buildNote: buildNote || null,
   };
-  if (!summary.verdict && summary.howToWin.length === 0) return null;
+  if (!summary.verdict && summary.gaps.length === 0) return null;
   return summary;
 }
 
-// Call YandexGPT Lite once for one product. Returns null on any failure so the
+// Call YandexGPT once for one product. Returns null on any failure so the
 // caller can gracefully fall back to keyword chips. Requires YAGPT_API_KEY and
-// YAGPT_FOLDER_ID in the environment.
+// YAGPT_FOLDER_ID. Defaults to the Pro model for real insight extraction;
+// override with YAGPT_MODEL.
 export async function generateSummary(card: IdeaCard): Promise<IdeaSummary | null> {
   const apiKey = process.env.YAGPT_API_KEY;
   const folderId = process.env.YAGPT_FOLDER_ID;
   if (!apiKey || !folderId) return null;
+  if (card.conSamples.length === 0) return null;
 
-  const model = process.env.YAGPT_MODEL ?? "yandexgpt-lite";
+  const model = process.env.YAGPT_MODEL ?? "yandexgpt";
   try {
     const res = await fetch(ENDPOINT, {
       method: "POST",
@@ -94,7 +143,7 @@ export async function generateSummary(card: IdeaCard): Promise<IdeaSummary | nul
       },
       body: JSON.stringify({
         modelUri: `gpt://${folderId}/${model}/latest`,
-        completionOptions: { temperature: 0.3, maxTokens: 600 },
+        completionOptions: { temperature: 0.3, maxTokens: 2000 },
         messages: [
           { role: "system", text: SYSTEM_PROMPT },
           { role: "user", text: buildDigest(card) },
