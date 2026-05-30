@@ -1,0 +1,91 @@
+[
+  {
+    "id": "cmpst2coe0aumug8piofu7ojm",
+    "opportunityType": "reliability",
+    "cloneable": true,
+    "buildability": 5,
+    "profit": 4,
+    "ru": {
+      "tagline": "Трекер статуса иммиграционных дел USCIS и NVC",
+      "verdict": "Стоит браться: люди реально платят за спокойствие, а лидер превратил полезный инструмент в рекламную помойку с неработающим Pro — честная версия заберёт аудиторию.",
+      "opportunity": "Заявителям нужен быстрый, надёжный статус дела с уведомлениями на каждом этапе. Вместо этого они получают приложение, которое отстаёт от сайта USCIS на дни и прячет всё за рекламой и подпиской, которая не открывает обещанного.",
+      "gaps": [
+        {
+          "title": "Статус отстаёт от сайта USCIS на дни",
+          "evidence": "Пользователи видят обновление дела на uscis.gov за несколько дней до того, как оно появится в приложении; ручное обновление не помогает — для тревожного ожидания решения это критично.",
+          "quote": "Моё дело одобрили 7 дней назад, а приложение всё ещё показывает «на рассмотрении»."
+        },
+        {
+          "title": "Оплаченный Pro не открывает обещанное",
+          "evidence": "Люди покупают Pro ради отключения рекламы и доступа к функциям, но после оплаты всё остаётся заблокированным, а реклама — на месте.",
+          "quote": "Я оплатил Pro-версию, чтобы открыть функции и убрать рекламу, — всё по-прежнему заблокировано."
+        },
+        {
+          "title": "Ничего сверх бесплатного сайта USCIS",
+          "evidence": "Приложение не даёт никакой добавленной ценности поверх данных, которые и так бесплатно доступны на сайте USCIS, — только перерисованный экран.",
+          "quote": "Не показывает ничего сверх того, что я и так вижу на сайте USCIS."
+        },
+        {
+          "title": "Нет надёжных уведомлений о смене этапа",
+          "evidence": "Заявители хотят получать пуш в момент смены этапа (биометрия, интервью, одобрение), а вынуждены заходить и проверять вручную, потому что push приходит с задержкой или не приходит.",
+          "quote": "Доступ к делу занимает кучу времени из-за рекламы, а синхронизация не в реальном времени — обновления появляются спустя пару дней."
+        }
+      ],
+      "loved": [
+        "Помогает понять процесс и этапы дела простым языком",
+        "Даёт надежду и ориентир по срокам на основе статистики похожих дел",
+        "Быстрее, чем стоять в очереди или ждать ответа офицера"
+      ],
+      "monetization": "Завалено рекламой: после каждого тапа — полноэкранный ролик на 2–3 минуты без возможности пропустить. Pro-подписка (~8$) обещает убрать рекламу и открыть функции, но после оплаты ничего не разблокируется.",
+      "wedge": [
+        "Честно и без рекламы; одна понятная подписка, которая реально открывает функции",
+        "Настоящая синхронизация с USCIS в реальном времени и пуш на каждой смене этапа",
+        "Прогноз сроков по статистике похожих дел (форма, сервисный центр, тип визы)",
+        "Несколько дел семьи на одном экране с наглядным таймлайном",
+        "Импорт номера дела и автоматическое отслеживание без ручных проверок"
+      ],
+      "buildNote": null
+    },
+    "en": {
+      "tagline": "USCIS & NVC immigration case status tracker",
+      "verdict": "Worth building: people genuinely pay for peace of mind, but the leader turned a useful tool into an ad-choked app with a Pro tier that unlocks nothing — an honest version takes the audience.",
+      "opportunity": "Applicants want a fast, reliable case status with alerts at every stage. Instead they get an app that lags days behind the USCIS site and buries everything behind ads and a subscription that doesn't deliver what it promises.",
+      "gaps": [
+        {
+          "title": "Status lags days behind the USCIS site",
+          "evidence": "Users see their case update on uscis.gov days before it shows in the app, and refreshing doesn't help — for an anxious wait on a decision, that delay is the whole problem.",
+          "quote": "My case was approved 7 days ago and this app still shows it under process."
+        },
+        {
+          "title": "Paid Pro unlocks nothing",
+          "evidence": "People buy Pro to remove ads and access features, but after paying everything stays locked and the ads remain.",
+          "quote": "I paid for the Pro version to unlock the features and remove ads — everything is still locked."
+        },
+        {
+          "title": "Nothing beyond the free USCIS site",
+          "evidence": "The app adds no value on top of data already available for free on the USCIS website — just a re-skinned screen.",
+          "quote": "Doesn't show anything other than what I already see on my USCIS website."
+        },
+        {
+          "title": "No reliable stage-change alerts",
+          "evidence": "Applicants want a push the moment the case changes stage (biometrics, interview, approval), but have to open and check manually because pushes are delayed or never arrive.",
+          "quote": "Takes forever to access your case because of the ads, and it doesn't sync near real time — updates show up days later."
+        }
+      ],
+      "loved": [
+        "Explains the case process and stages in plain language",
+        "Gives hope and a timeline expectation based on statistics from similar cases",
+        "Faster than waiting in line or for an officer to respond"
+      ],
+      "monetization": "Drowning in ads: every tap triggers a 2–3 minute full-screen video you can't skip. The Pro subscription (~$8) promises no ads and unlocked features, but after paying nothing actually unlocks.",
+      "wedge": [
+        "Honest and ad-free; one clear subscription that genuinely unlocks features",
+        "Real-time sync with USCIS and a push on every stage change",
+        "Timeline predictions from statistics of similar cases (form, service center, visa type)",
+        "Multiple family cases on one screen with a clear visual timeline",
+        "Import a case number and auto-track it without manual checking"
+      ],
+      "buildNote": null
+    }
+  }
+]
