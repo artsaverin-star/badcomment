@@ -1,6 +1,7 @@
 import { prisma } from "./prisma";
 import { THEMES, LOVED_THEMES } from "./themes";
-import { CATEGORIES, categoryLabel, categoryComplexity, complexityLabel } from "./categories";
+import { CATEGORIES, categoryLabel } from "./categories";
+import { scoreCloneability } from "./cloneability";
 import type { Store } from "./scrapers";
 
 export type ThemeStat = { key: string; label: string; count: number };
@@ -210,9 +211,17 @@ export type IdeaCard = {
   rank: number | null;
   stores: Store[];
   score: number;
-  complexity: number;
-  complexityLabel: "Low" | "Medium" | "High";
+  // Cloneability ("how easy to rebuild")
+  cloneScore: number;
+  cloneLabel: "Low" | "Medium" | "High";
+  cloneReasons: string[];
+  // Popularity / satisfaction
   demandLabel: string;
+  installs: number | null;
+  avgRating: number | null;
+  ratingCount: number | null;
+  histogram: Record<string, number> | null;
+  // Review-mined signal
   negativeCount: number;
   cons: ThemeStat[];
   conQuote: string | null;
@@ -222,9 +231,35 @@ export type IdeaCard = {
 
 const MIN_COMPLAINTS = 4; // skip apps without a clear, fixable pain signal
 
-// Rank products as buildable opportunities: proven demand (store rank) times
-// how much there is to fix (volume + how concentrated the top complaint is),
-// divided by category build-complexity. Returns a deck for the swipe UI.
+function mergeHistograms(raws: (string | null)[]): Record<string, number> | null {
+  const out: Record<string, number> = {};
+  let any = false;
+  for (const raw of raws) {
+    if (!raw) continue;
+    try {
+      const h = JSON.parse(raw) as Record<string, number>;
+      for (const star of ["1", "2", "3", "4", "5"]) {
+        const n = Number(h[star]) || 0;
+        if (n > 0) any = true;
+        out[star] = (out[star] ?? 0) + n;
+      }
+    } catch {
+      // skip malformed histogram
+    }
+  }
+  return any ? out : null;
+}
+
+export function formatCount(n: number): string {
+  if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(n % 1_000_000_000 ? 1 : 0)}B`;
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(n % 1_000_000 ? 1 : 0)}M`;
+  if (n >= 1_000) return `${Math.round(n / 1_000)}K`;
+  return String(n);
+}
+
+// Rank products as buildable opportunities: proven demand (installs/ratings)
+// times how much there is to fix (complaint volume + concentration), divided by
+// how hard the app is to rebuild (real cloneability, not just category).
 export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
   const products = await prisma.product.findMany({
     where: { category: { not: null } },
@@ -233,6 +268,13 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
         select: {
           store: true,
           rank: true,
+          score: true,
+          ratingCount: true,
+          installs: true,
+          histogram: true,
+          offersIAP: true,
+          sizeBytes: true,
+          description: true,
           reviews: { select: { themes: true, text: true } },
           positives: { select: { loved: true, text: true } },
         },
@@ -254,11 +296,47 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
     const ranks = p.listings.map((l) => l.rank).filter((r): r is number => r != null);
     const rank = p.rank ?? (ranks.length ? Math.min(...ranks) : null);
 
-    const demand = rank ? 11 - Math.min(Math.max(rank, 1), 10) : 3;
+    // Popularity: prefer real Google installs; fall back to an installs proxy
+    // from total rating counts (ratings ≈ 1% of installs) so Apple-only apps
+    // still get a demand signal.
+    const installsVals = p.listings.map((l) => l.installs).filter((v): v is number => v != null);
+    const installs = installsVals.length ? Math.max(...installsVals) : null;
+    const ratingCount =
+      p.listings.reduce((s, l) => s + (l.ratingCount ?? 0), 0) || null;
+    const popProxy = installs ?? (ratingCount ? ratingCount * 100 : null);
+    const demand = popProxy
+      ? Math.min(Math.max(Math.log10(popProxy) - 2, 1), 8)
+      : rank
+        ? 11 - Math.min(Math.max(rank, 1), 10)
+        : 2;
+
+    // Satisfaction: rating-count-weighted average star score across stores.
+    const scored = p.listings.filter((l) => l.score != null);
+    const weightSum = scored.reduce((s, l) => s + (l.ratingCount ?? 1), 0);
+    const avgRating = scored.length
+      ? scored.reduce((s, l) => s + (l.score as number) * (l.ratingCount ?? 1), 0) /
+        (weightSum || scored.length)
+      : null;
+    const histogram = mergeHistograms(p.listings.map((l) => l.histogram));
+
+    // How much is there to fix: log-scaled volume × concentration of top theme.
     const clarity = cons.length ? cons[0].count / negativeCount : 0;
     const improvability = Math.log2(negativeCount + 1) * (0.6 + clarity);
-    const complexity = categoryComplexity(p.category);
-    const score = (demand * improvability) / complexity;
+
+    // How hard to rebuild: real cloneability from description + monetization +
+    // size, preferring a Google listing's richer signals.
+    const detail =
+      p.listings.find((l) => l.store === "google" && l.description) ??
+      p.listings.find((l) => l.description) ??
+      p.listings[0];
+    const clone = scoreCloneability({
+      category: p.category,
+      description: detail?.description ?? null,
+      offersIAP: p.listings.some((l) => l.offersIAP),
+      sizeBytes: Math.max(0, ...p.listings.map((l) => l.sizeBytes ?? 0)) || null,
+    });
+
+    const score = (demand * improvability) / clone.score;
 
     const topCon = cons[0];
     const conQuote =
@@ -270,6 +348,14 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
       posTexts.find((r) => topPro && parseKeys(r.loved).includes(topPro.key) && r.text.trim())
         ?.text ?? posTexts.find((r) => r.text.trim())?.text ?? null;
 
+    const demandLabel = installs
+      ? `${formatCount(installs)}+ installs`
+      : ratingCount
+        ? `${formatCount(ratingCount)} ratings`
+        : rank
+          ? `#${rank} in ${categoryLabel(p.category ?? "")}`
+          : categoryLabel(p.category ?? "");
+
     cards.push({
       id: p.id,
       name: p.name,
@@ -280,11 +366,14 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
       rank,
       stores: [...new Set(p.listings.map((l) => l.store as Store))],
       score,
-      complexity,
-      complexityLabel: complexityLabel(complexity),
-      demandLabel: rank
-        ? `#${rank} in ${categoryLabel(p.category ?? "")}`
-        : categoryLabel(p.category ?? ""),
+      cloneScore: clone.score,
+      cloneLabel: clone.label,
+      cloneReasons: clone.reasons,
+      demandLabel,
+      installs,
+      avgRating,
+      ratingCount,
+      histogram,
       negativeCount,
       cons,
       conQuote: conQuote ? trimQuote(conQuote) : null,

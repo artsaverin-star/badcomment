@@ -2,11 +2,36 @@ import Link from "next/link";
 import type { IdeaCard } from "@/lib/queries";
 
 const STORE_LABEL: Record<string, string> = { google: "Google Play", apple: "App Store" };
-const COMPLEXITY_STYLE: Record<string, string> = {
+const CLONE_STYLE: Record<string, string> = {
   Low: "bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300",
   Medium: "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
   High: "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300",
 };
+
+function StarBars({ histogram }: { histogram: Record<string, number> }) {
+  const total = ["1", "2", "3", "4", "5"].reduce((s, k) => s + (histogram[k] ?? 0), 0);
+  if (total === 0) return null;
+  return (
+    <div className="flex flex-col gap-0.5">
+      {["5", "4", "3", "2", "1"].map((star) => {
+        const pct = Math.round(((histogram[star] ?? 0) / total) * 100);
+        const good = star === "5" || star === "4";
+        return (
+          <div key={star} className="flex items-center gap-2 text-[11px] text-neutral-500">
+            <span className="w-3 tabular-nums">{star}★</span>
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-black/5 dark:bg-white/10">
+              <div
+                className={`h-full ${good ? "bg-green-500" : "bg-red-400"}`}
+                style={{ width: `${pct}%` }}
+              />
+            </div>
+            <span className="w-8 text-right tabular-nums">{pct}%</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
   return (
@@ -25,13 +50,18 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
             )}
             <div className="min-w-0">
               <p className="truncate text-lg font-bold">{card.name}</p>
-              <p className="truncate text-sm text-neutral-500">{card.demandLabel}</p>
+              <p className="truncate text-sm text-neutral-500">
+                {card.demandLabel}
+                {card.avgRating != null && (
+                  <> · {card.avgRating.toFixed(1)}★</>
+                )}
+              </p>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-2 text-xs">
-            <span className={`rounded-full px-2 py-0.5 font-medium ${COMPLEXITY_STYLE[card.complexityLabel]}`}>
-              {card.complexityLabel} complexity
+            <span className={`rounded-full px-2 py-0.5 font-medium ${CLONE_STYLE[card.cloneLabel]}`}>
+              {card.cloneLabel} to rebuild
             </span>
             {card.stores.map((s) => (
               <span key={s} className="rounded-full bg-black/5 px-2 py-0.5 dark:bg-white/10">
@@ -43,9 +73,18 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
             </span>
           </div>
 
+          {card.histogram && (
+            <div>
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+                Rating spread
+              </p>
+              <StarBars histogram={card.histogram} />
+            </div>
+          )}
+
           <div>
             <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-green-600">
-              Why build it
+              What people love
             </p>
             {card.pros.length > 0 ? (
               <div className="mb-1 flex flex-wrap gap-1">
@@ -85,6 +124,20 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
             {card.conQuote && (
               <p className="mt-1 text-sm italic text-neutral-500">“{card.conQuote}”</p>
             )}
+          </div>
+
+          <div>
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+              How hard to rebuild
+            </p>
+            <ul className="flex flex-col gap-0.5 text-sm text-neutral-600 dark:text-neutral-300">
+              {card.cloneReasons.map((r) => (
+                <li key={r} className="flex gap-1.5">
+                  <span className="text-neutral-400">·</span>
+                  <span>{r}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <Link

@@ -13,11 +13,38 @@ export type RawReview = {
   postedAt: Date | null;
 };
 
+export type AppMetrics = {
+  score: number | null;
+  ratingCount: number | null;
+  installs: number | null;
+  histogram: Record<string, number> | null;
+  free: boolean | null;
+  offersIAP: boolean | null;
+  sizeBytes: number | null;
+  description: string | null;
+  storeUpdatedAt: Date | null;
+  releasedAt: Date | null;
+};
+
 export type AppMeta = {
   title: string;
   icon: string | null;
   developer: string | null;
+  metrics: AppMetrics;
 };
+
+function parseDate(v: unknown): Date | null {
+  if (v == null) return null;
+  if (typeof v === "number") return new Date(v); // epoch ms (google updated)
+  const d = new Date(String(v));
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function toInt(v: unknown): number | null {
+  if (v == null) return null;
+  const n = typeof v === "number" ? v : parseInt(String(v), 10);
+  return Number.isFinite(n) ? n : null;
+}
 
 // A store listing as returned by search / top-list endpoints.
 export type StoreListing = {
@@ -34,11 +61,43 @@ export async function fetchAppMeta(
   country: string
 ): Promise<AppMeta> {
   if (store === "google") {
-    const app = await gplay.app({ appId, country });
-    return { title: app.title, icon: app.icon ?? null, developer: app.developer ?? null };
+    const app: Record<string, unknown> = await gplay.app({ appId, country });
+    return {
+      title: String(app.title ?? ""),
+      icon: (app.icon as string) ?? null,
+      developer: (app.developer as string) ?? null,
+      metrics: {
+        score: typeof app.score === "number" ? app.score : null,
+        ratingCount: toInt(app.ratings),
+        installs: toInt(app.minInstalls),
+        histogram: (app.histogram as Record<string, number>) ?? null,
+        free: typeof app.free === "boolean" ? app.free : null,
+        offersIAP: typeof app.offersIAP === "boolean" ? app.offersIAP : null,
+        sizeBytes: null,
+        description: (app.description as string) ?? null,
+        storeUpdatedAt: parseDate(app.updated),
+        releasedAt: parseDate(app.released),
+      },
+    };
   }
-  const app = await appStore.app({ id: appId, country });
-  return { title: app.title, icon: app.icon ?? null, developer: app.developer ?? null };
+  const app: Record<string, unknown> = await appStore.app({ id: appId, country });
+  return {
+    title: String(app.title ?? ""),
+    icon: (app.icon as string) ?? null,
+    developer: (app.developer as string) ?? null,
+    metrics: {
+      score: typeof app.score === "number" ? app.score : null,
+      ratingCount: toInt(app.reviews),
+      installs: null,
+      histogram: null,
+      free: typeof app.free === "boolean" ? app.free : null,
+      offersIAP: null,
+      sizeBytes: toInt(app.size),
+      description: (app.description as string) ?? null,
+      storeUpdatedAt: parseDate(app.updated),
+      releasedAt: parseDate(app.released),
+    },
+  };
 }
 
 // Top free apps in a store category. `category` is the store-specific enum
