@@ -16,6 +16,16 @@ export type RawReview = {
 export type AppMeta = {
   title: string;
   icon: string | null;
+  developer: string | null;
+};
+
+// A store listing as returned by search / top-list endpoints.
+export type StoreListing = {
+  store: Store;
+  storeAppId: string;
+  title: string;
+  icon: string | null;
+  developer: string | null;
 };
 
 export async function fetchAppMeta(
@@ -25,10 +35,65 @@ export async function fetchAppMeta(
 ): Promise<AppMeta> {
   if (store === "google") {
     const app = await gplay.app({ appId, country });
-    return { title: app.title, icon: app.icon ?? null };
+    return { title: app.title, icon: app.icon ?? null, developer: app.developer ?? null };
   }
   const app = await appStore.app({ id: appId, country });
-  return { title: app.title, icon: app.icon ?? null };
+  return { title: app.title, icon: app.icon ?? null, developer: app.developer ?? null };
+}
+
+// Top free apps in a store category. `category` is the store-specific enum
+// value (string for google, numeric id for apple) from src/lib/categories.ts.
+export async function topByCategory(
+  store: Store,
+  category: string | number,
+  country: string,
+  num = 10
+): Promise<StoreListing[]> {
+  if (store === "google") {
+    const list = await gplay.list({
+      category,
+      collection: gplay.collection.TOP_FREE,
+      num,
+      country,
+    });
+    return list.map((a: Record<string, unknown>) => ({
+      store: "google" as const,
+      storeAppId: String(a.appId),
+      title: String(a.title ?? ""),
+      icon: (a.icon as string) ?? null,
+      developer: (a.developer as string) ?? null,
+    }));
+  }
+  const list = await appStore.list({
+    category,
+    collection: appStore.collection.TOP_FREE_IOS,
+    num,
+    country,
+  });
+  return list.map((a: Record<string, unknown>) => ({
+    store: "apple" as const,
+    storeAppId: String(a.id),
+    title: String(a.title ?? ""),
+    icon: (a.icon as string) ?? null,
+    developer: (a.developer as string) ?? null,
+  }));
+}
+
+// Search apps by name. Google Play's scraper search is currently broken
+// (returns 0 results against live markup), so search is App Store only.
+export async function searchApps(
+  term: string,
+  country: string,
+  num = 10
+): Promise<StoreListing[]> {
+  const list = await appStore.search({ term, num, country });
+  return list.map((a: Record<string, unknown>) => ({
+    store: "apple" as const,
+    storeAppId: String(a.id),
+    title: String(a.title ?? ""),
+    icon: (a.icon as string) ?? null,
+    developer: (a.developer as string) ?? null,
+  }));
 }
 
 // Fetch up to `max` most-recent reviews, paginating across pages.

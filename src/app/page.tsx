@@ -1,12 +1,15 @@
 import Link from "next/link";
-import AddAppForm from "@/components/AddAppForm";
+import SearchBox from "@/components/SearchBox";
 import ThemeBars from "@/components/ThemeBars";
-import { getApps, getGlobalThemeStats } from "@/lib/queries";
+import { getCategoriesOverview, getGlobalThemeStats } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const [apps, globalThemes] = await Promise.all([getApps(), getGlobalThemeStats()]);
+  const [categories, globalThemes] = await Promise.all([
+    getCategoriesOverview(),
+    getGlobalThemeStats(),
+  ]);
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">
@@ -15,54 +18,42 @@ export default async function Home() {
           bad<span className="text-red-600">comment</span>
         </h1>
         <p className="mt-1 text-neutral-500">
-          Pull negative reviews from popular apps and see what people complain about.
+          What people hate about popular apps — negative reviews from Google Play
+          and the App Store, merged and themed. Find the gaps worth building.
         </p>
       </header>
 
       <section className="mb-10">
-        <AddAppForm />
+        <SearchBox />
+      </section>
+
+      <section className="mb-10">
+        <h2 className="mb-3 text-lg font-semibold">Browse by direction</h2>
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((c) => (
+            <li key={c.key}>
+              <Link
+                href={`/category/${c.key}`}
+                className="flex h-full flex-col justify-between rounded-xl border border-black/10 bg-white p-4 transition hover:border-red-400 dark:border-white/10 dark:bg-neutral-900"
+              >
+                <span className="font-medium">{c.label}</span>
+                <span className="mt-2 text-sm text-neutral-500">
+                  {c.productCount > 0
+                    ? `${c.productCount} apps · ${c.reviewCount} complaints`
+                    : "Not crawled yet"}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {globalThemes.length > 0 && (
-        <section className="mb-10">
+        <section>
           <h2 className="mb-3 text-lg font-semibold">Top complaint themes (all apps)</h2>
           <ThemeBars stats={globalThemes} />
         </section>
       )}
-
-      <section>
-        <h2 className="mb-3 text-lg font-semibold">Tracked apps</h2>
-        {apps.length === 0 ? (
-          <p className="text-sm text-neutral-500">
-            No apps yet. Add one above to start collecting negative reviews.
-          </p>
-        ) : (
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {apps.map((app) => (
-              <li key={app.id}>
-                <Link
-                  href={`/app/${app.id}`}
-                  className="flex items-center gap-3 rounded-xl border border-black/10 bg-white p-4 transition hover:border-red-400 dark:border-white/10 dark:bg-neutral-900"
-                >
-                  {app.icon ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={app.icon} alt="" className="h-12 w-12 rounded-lg" />
-                  ) : (
-                    <div className="h-12 w-12 rounded-lg bg-black/10 dark:bg-white/10" />
-                  )}
-                  <div className="min-w-0">
-                    <p className="truncate font-medium">{app.title}</p>
-                    <p className="text-sm text-neutral-500">
-                      {app.store === "google" ? "Google Play" : "App Store"} ·{" "}
-                      {app._count.reviews} negative reviews
-                    </p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
     </main>
   );
 }

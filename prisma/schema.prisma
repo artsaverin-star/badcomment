@@ -7,24 +7,48 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// A canonical product groups per-store listings of the "same" app
+// (e.g. Spotify on Google Play + Spotify on the App Store).
+model Product {
+  id        String   @id @default(cuid())
+  slug      String   @unique // normalized name, used to match across stores
+  name      String
+  developer String?
+  icon      String?
+  category  String? // canonical category key (see src/lib/categories.ts)
+  rank      Int? // best rank across stores within the category
+  createdAt DateTime @default(now())
+
+  listings App[]
+
+  @@index([category, rank])
+}
+
+// A single per-store listing of a product.
 model App {
-  id           String   @id @default(cuid())
-  store        String // "google" | "apple"
-  storeAppId   String // package name (google) or numeric id (apple)
-  country      String   @default("us")
-  title        String
-  icon         String?
-  createdAt    DateTime @default(now())
+  id            String    @id @default(cuid())
+  store         String // "google" | "apple"
+  storeAppId    String // package name (google) or numeric id (apple)
+  country       String    @default("us")
+  title         String
+  icon          String?
+  category      String? // canonical category key for this listing
+  rank          Int? // position in the store's category top-list
+  createdAt     DateTime  @default(now())
   lastScrapedAt DateTime?
+
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
 
   reviews Review[]
 
   @@unique([store, storeAppId, country])
+  @@index([productId])
 }
 
 model Review {
-  id         String   @id @default(cuid())
-  app        App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+  id         String    @id @default(cuid())
+  app        App       @relation(fields: [appId], references: [id], onDelete: Cascade)
   appId      String
   externalId String
   author     String?
@@ -32,9 +56,9 @@ model Review {
   title      String?
   text       String
   version    String?
-  themes     String   @default("[]") // JSON array of theme keys
+  themes     String    @default("[]") // JSON array of theme keys
   postedAt   DateTime?
-  createdAt  DateTime @default(now())
+  createdAt  DateTime  @default(now())
 
   @@unique([appId, externalId])
   @@index([appId, rating])
