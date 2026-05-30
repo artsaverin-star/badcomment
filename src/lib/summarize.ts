@@ -30,6 +30,14 @@ export type IdeaSummary = {
   wedge: string[]; // concrete moves to beat the incumbent
   cloneable: boolean; // is this a real standalone app an indie can rebuild?
   buildNote: string | null; // why (not) cloneable — brand/network/infra lock-in
+  // Authored (hand-judged, not a formula) deck-curation scores, 1-5. Optional on
+  // legacy summaries. buildability: how realistically a small team ships a real
+  // rival (5 = weekend project, 1 = needs billion-$ infra/network/data like Grok
+  // or Uber). profit: how much WE could actually earn (5 = clear paying demand we
+  // can capture; 1 = users only want it free, nothing left to monetize). The deck
+  // ranks by buildability*profit and only shows cards strong on both.
+  buildability?: number;
+  profit?: number;
 };
 
 const ENDPOINT = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion";

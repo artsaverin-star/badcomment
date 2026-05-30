@@ -233,6 +233,10 @@ export type IdeaCard = {
   proSamples: string[];
   // Cached LLM analysis (null until `npm run summarize` runs / no API key).
   summary: IdeaSummary | null;
+  // Authored deck-curation scores (1-5), lifted from the summary for ranking /
+  // display. null on cards not yet hand-scored.
+  buildability: number | null;
+  profit: number | null;
 };
 
 const MIN_COMPLAINTS = 4; // skip apps without a clear, fixable pain signal
@@ -420,13 +424,23 @@ export async function getIdeaCards(
     const proSamples = pickSamples(posTexts.map((r) => r.text), 10);
     const summary = parseSummary(p.summary);
 
+    // Authored (hand-judged) curation scores. Present only on re-scored cards;
+    // until then a card keeps its legacy behavior so nothing vanishes silently.
+    const buildability =
+      typeof summary?.buildability === "number" ? summary.buildability : null;
+    const profit = typeof summary?.profit === "number" ? summary.profit : null;
+    const hasScores = buildability != null && profit != null;
+
     // Drop apps that aren't a real standalone product worth rebuilding:
-    // single-brand storefronts/chains/carriers, get-paid-to reward farms, or
-    // anything the model flagged as not cloneable (network/infra lock-in).
+    // single-brand storefronts/chains/carriers, get-paid-to reward farms,
+    // anything flagged not cloneable, or — once hand-scored — anything weak on
+    // buildability or profit (a billion-$ rival, or a "just make it free" gripe
+    // we couldn't earn from). Unscored cards fall back to the cloneable flag.
     if (
       isBrandStorefront(detail?.description) ||
       isRewardFarm(detail?.description) ||
       summary?.cloneable === false ||
+      (hasScores && (buildability < 3 || profit < 3)) ||
       (requireSummary && summary === null)
     )
       continue;
@@ -477,8 +491,17 @@ export async function getIdeaCards(
       conSamples,
       proSamples,
       summary,
+      buildability,
+      profit,
     });
   }
 
-  return cards.sort((a, b) => b.score - a.score).slice(0, limit);
+  // Hand-scored cards lead, ranked by buildability×profit (our authored bet on
+  // what's worth building); everything not yet scored falls back to the computed
+  // demand/fixability/cloneability score beneath them.
+  const opp = (c: IdeaCard) =>
+    c.buildability != null && c.profit != null ? c.buildability * c.profit : -1;
+  return cards
+    .sort((a, b) => opp(b) - opp(a) || b.score - a.score)
+    .slice(0, limit);
 }

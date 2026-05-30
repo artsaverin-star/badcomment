@@ -50,6 +50,10 @@ type Dict = {
     gaps: string;
     monetization: string;
     cantClone: string;
+    buildScore: string;
+    profitScore: string;
+    buildHint: string;
+    profitHint: string;
   };
   category: {
     subtitle: string;
@@ -117,6 +121,10 @@ const DICT: Record<Locale, Dict> = {
       gaps: "Specific gaps to close",
       monetization: "Monetization pain",
       cantClone: "Hard to rebuild solo",
+      buildScore: "Build",
+      profitScore: "Profit",
+      buildHint: "How realistically a small team could rebuild it (1-5)",
+      profitHint: "How much you could realistically earn from a better version (1-5)",
     },
     category: {
       subtitle: "Top apps in this direction and what users complain about.",
@@ -221,6 +229,10 @@ const DICT: Record<Locale, Dict> = {
       gaps: "Конкретные пробелы",
       monetization: "Боль монетизации",
       cantClone: "В одиночку не повторить",
+      buildScore: "Повтор",
+      profitScore: "Профит",
+      buildHint: "Насколько реально повторить небольшой командой (1–5)",
+      profitHint: "Сколько реально на этом заработать улучшенной версией (1–5)",
     },
     category: {
       subtitle: "Топовые приложения этого направления и на что жалуются пользователи.",

@@ -13,6 +13,13 @@ const CLONE_LABEL: Record<Locale, Record<string, string>> = {
   ru: { Low: "Низкая", Medium: "Средняя", High: "Высокая" },
 };
 
+// Color a 1-5 authored score: strong (4-5) green, decent (3) amber, weak red.
+function scoreStyle(n: number): string {
+  if (n >= 4) return "bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300";
+  if (n === 3) return "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300";
+  return "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300";
+}
+
 function StarBars({ histogram }: { histogram: Record<string, number> }) {
   const total = ["1", "2", "3", "4", "5"].reduce((s, k) => s + (histogram[k] ?? 0), 0);
   if (total === 0) return null;
@@ -86,12 +93,29 @@ export default function IdeaCardList({
                 <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between gap-2">
                     <p className="truncate text-lg font-bold">{card.name}</p>
-                    <span
-                      className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${CLONE_STYLE[card.cloneLabel]}`}
-                      title={tr.card.toRebuild}
-                    >
-                      {CLONE_LABEL[locale][card.cloneLabel]}
-                    </span>
+                    {card.buildability != null && card.profit != null ? (
+                      <div className="flex shrink-0 flex-col items-end gap-1">
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-xs font-medium ${scoreStyle(card.buildability)}`}
+                          title={tr.card.buildHint}
+                        >
+                          {tr.card.buildScore} {card.buildability}/5
+                        </span>
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-xs font-medium ${scoreStyle(card.profit)}`}
+                          title={tr.card.profitHint}
+                        >
+                          {tr.card.profitScore} {card.profit}/5
+                        </span>
+                      </div>
+                    ) : (
+                      <span
+                        className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${CLONE_STYLE[card.cloneLabel]}`}
+                        title={tr.card.toRebuild}
+                      >
+                        {CLONE_LABEL[locale][card.cloneLabel]}
+                      </span>
+                    )}
                   </div>
                   {s?.tagline && (
                     <p className="mt-0.5 text-sm text-neutral-600 dark:text-neutral-300">
