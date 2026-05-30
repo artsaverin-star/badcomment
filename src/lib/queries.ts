@@ -337,7 +337,11 @@ export function formatCount(n: number): string {
 // how hard the app is to rebuild (real cloneability, not just category).
 export async function getIdeaCards(
   limit = 60,
-  category?: string | null
+  category?: string | null,
+  // Display path passes true so the deck only shows cards backed by a real LLM
+  // summary (tagline + insight). The summarize script passes false so it can
+  // still see never-summarized apps and generate their first summary.
+  requireSummary = false
 ): Promise<IdeaCard[]> {
   const products = await prisma.product.findMany({
     where: category ? { category } : { category: { not: null } },
@@ -422,7 +426,8 @@ export async function getIdeaCards(
     if (
       isBrandStorefront(detail?.description) ||
       isRewardFarm(detail?.description) ||
-      summary?.cloneable === false
+      summary?.cloneable === false ||
+      (requireSummary && summary === null)
     )
       continue;
 

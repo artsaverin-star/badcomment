@@ -25,7 +25,7 @@ export default async function IdeasPage({
 
   // Fetch the whole buildable deck once; derive tabs from what's actually
   // present and slice/filter for display without a second query.
-  const all = await getIdeaCards(500);
+  const all = await getIdeaCards(500, null, true);
   const present = new Set(
     all.map((c) => c.category).filter((c): c is string => c != null)
   );
