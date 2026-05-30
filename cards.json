@@ -87,5 +87,181 @@
       ],
       "buildNote": null
     }
+  },
+  {
+    "id": "cmpsts56r1smiug8pyjg4j61q",
+    "opportunityType": "design",
+    "cloneable": true,
+    "buildability": 3,
+    "profit": 4,
+    "ru": {
+      "tagline": "Определитель видов по фото: растения, птицы, насекомые, грибы",
+      "verdict": "Стоит браться: спрос на определители доказан (PictureThis зарабатывает на одних растениях), а лидер — научный инструмент с кривым, вылетающим приложением. Удобный потребительский аналог заберёт массовую аудиторию.",
+      "opportunity": "Людям нужен быстрый и надёжный определитель любого вида по обычному фото с телефона. Вместо этого они получают приложение для энтузиастов-учёных, которое еле работает и просит идеальный снимок, прежде чем хотя бы попытаться угадать.",
+      "gaps": [
+        {
+          "title": "Просит выбрать вид вместо того, чтобы определить",
+          "evidence": "Пользователи ждут, что приложение само назовёт растение или животное, а оно перекладывает выбор на человека — предлагает список и просит указать, что именно снято.",
+          "quote": "Мне нужно приложение, которое определит растение, а не спросит, какое из них я, по его мнению, сфотографировал."
+        },
+        {
+          "title": "Распознаёт только по идеальному фото",
+          "evidence": "На обычных снимках с телефона определение просто гадает; чтобы получить вид, нужен почти студийный кадр высокого разрешения.",
+          "quote": "Пока фото не в 8K, оно ничего не распознаёт и просто угадывает наугад."
+        },
+        {
+          "title": "В приложении нельзя смотреть чужие наблюдения",
+          "evidence": "Через приложение можно только публиковать свои находки; чтобы посмотреть посты других, уведомления или определения — приходится идти на сайт.",
+          "quote": "В приложении я могу только выкладывать наблюдения, а посмотреть чужие посты или уведомления почти невозможно."
+        },
+        {
+          "title": "Фото годами грузятся в неправильной ориентации",
+          "evidence": "Снимки загружаются перевёрнутыми, и эту ошибку не чинят буквально годами — мелочь, но бьёт по базовому сценарию.",
+          "quote": "Почините уже загрузку фото в неправильной ориентации — это тянется годами."
+        }
+      ],
+      "loved": [
+        "По хорошему фото отлично и точно определяет вид",
+        "Огромное сообщество натуралистов и вклад в реальную науку",
+        "Покрывает не только растения, но птиц, насекомых, грибов — всё живое"
+      ],
+      "monetization": null,
+      "wedge": [
+        "Мгновенное определение по обычному фото, без требования идеального кадра",
+        "Удобная лента: смотреть чужие находки, карты и определения прямо в приложении",
+        "Тёмная тема и чистый потребительский интерфейс вместо научной панели",
+        "Офлайн-определение частых видов и подсказки «как доснять» для точности",
+        "Честная подписка в духе PictureThis, но по всем видам, а не только растениям"
+      ],
+      "buildNote": null
+    },
+    "en": {
+      "tagline": "Photo species identifier: plants, birds, insects, fungi",
+      "verdict": "Worth building: demand for identifiers is proven (PictureThis earns on plants alone), while the leader is a scientific tool wrapped in a clunky, crashing app. A polished consumer version takes the mass audience.",
+      "opportunity": "People want to point their phone at anything and instantly, reliably get the species. Instead they get an app built for scientist-hobbyists that barely runs and demands a perfect photo before it will even guess.",
+      "gaps": [
+        {
+          "title": "Asks you to pick the species instead of identifying it",
+          "evidence": "Users expect the app to name the plant or animal, but it pushes the choice back onto them — offering a list and asking which one they think they photographed.",
+          "quote": "I need an app that identifies the plant I see, not one that asks me to check which one I think I took a photo of."
+        },
+        {
+          "title": "Only recognizes from a perfect photo",
+          "evidence": "On ordinary phone snapshots the ID just guesses; getting a real result requires an almost studio-grade high-resolution shot.",
+          "quote": "Unless it's 8K it doesn't recognize anything and just guesses with whatever."
+        },
+        {
+          "title": "Can't browse others' observations in the app",
+          "evidence": "The app only lets you post your own finds; to see other people's posts, notifications, or IDs you have to go to the website.",
+          "quote": "I can essentially only post observations — seeing other posts or checking notifications is nearly impossible."
+        },
+        {
+          "title": "Photos upload in the wrong orientation for years",
+          "evidence": "Images load rotated wrong, and the bug has gone unfixed for literally years — small, but it breaks the core flow.",
+          "quote": "Fix the photos-uploading-in-the-wrong-orientation problem that has been going on for literal YEARS."
+        }
+      ],
+      "loved": [
+        "From a good photo it identifies the species accurately",
+        "A huge naturalist community and real contribution to science",
+        "Covers not just plants but birds, insects, fungi — all living things"
+      ],
+      "monetization": null,
+      "wedge": [
+        "Instant ID from an ordinary photo, no perfect shot required",
+        "A proper feed: browse others' finds, maps and IDs right in the app",
+        "Dark mode and a clean consumer UI instead of a scientific dashboard",
+        "Offline ID for common species and 'reshoot like this' tips for accuracy",
+        "A fair PictureThis-style subscription, but across all species, not just plants"
+      ],
+      "buildNote": null
+    }
+  },
+  {
+    "id": "cmpst3fuj0d8bug8pzf4uxy77",
+    "opportunityType": "support",
+    "cloneable": true,
+    "buildability": 3,
+    "profit": 4,
+    "ru": {
+      "tagline": "Менеджер подписок: находит лишние списания и помогает их отменить",
+      "verdict": "Стоит браться: доверие в категории убито (сам сервис — ловушка), а честный аналог реально зарабатывает, как Rocket Money. Главный товар здесь — честность.",
+      "opportunity": "Люди хотят найти и убрать забытые подписки, которые тихо тянут деньги. Вместо этого они получают приложение, которое ничего не отменяет, само списывает деньги и которое невозможно отключить.",
+      "gaps": [
+        {
+          "title": "Обещает отмену в один клик, а лишь даёт инструкции",
+          "evidence": "Сервис рекламируют как отмену подписок «одной кнопкой», но на деле он просто показывает, как отменить самому на сайте — то, что человек и так умеет.",
+          "quote": "Должно отменять подписки «в один клик», а на деле отправляет делать это самому."
+        },
+        {
+          "title": "Саму подписку MonoBoost отменить нельзя",
+          "evidence": "Приложение, которое должно помогать избавляться от подписок, не даёт отменить собственную подписку в своём же интерфейсе.",
+          "quote": "Приложение должно помогать отменять подписки, но саму MonoBoost в её же панели отменить невозможно."
+        },
+        {
+          "title": "Списывает деньги мимо подписок Apple",
+          "evidence": "Платежи уходят с карты в обход App Store, поэтому их не видно в подписках Apple и невозможно остановить штатными средствами.",
+          "quote": "С меня берут $39, хотя в подписках Apple этого сервиса вообще нет."
+        },
+        {
+          "title": "Не находит банк и не видит подписки",
+          "evidence": "Если банка нет в Plaid, сервис не подтягивает траты и не находит ни одной подписки — но деньги за себя при этом всё равно берёт.",
+          "quote": "Моего банка нет в списке Plaid, а деньги за приложение всё равно списали."
+        }
+      ],
+      "loved": [
+        "Сама идея собрать все подписки в одном месте и навести порядок",
+        "Понятные пошаговые инструкции со ссылками на страницы отмены"
+      ],
+      "monetization": "Само приложение — и есть ловушка: берёт $9.99 за «триал», затем списывает суммы вроде $39 мимо App Store, а отменить эти списания негде.",
+      "wedge": [
+        "Честный поиск подписок по банку и почте, без ложного обещания магической отмены",
+        "Понятный список всех списаний с суммами и датами следующего платежа",
+        "Реальные ссылки на отмену плюс напоминания до даты продления",
+        "Опциональный живой консьерж для подписок, которые сложно отменить",
+        "Отмена самого сервиса в один тап — доверие как главное отличие"
+      ],
+      "buildNote": null
+    },
+    "en": {
+      "tagline": "Subscription manager: finds hidden charges and helps cancel them",
+      "verdict": "Worth building: trust in this category is destroyed (the service itself is the trap), while an honest version genuinely earns, like Rocket Money. Honesty is the product here.",
+      "opportunity": "People want to find and kill forgotten subscriptions quietly draining money. Instead they get an app that cancels nothing, charges them itself, and can't even be turned off.",
+      "gaps": [
+        {
+          "title": "Promises one-click cancel, only gives instructions",
+          "evidence": "It's marketed as canceling subscriptions with one button, but it just shows you how to cancel them yourself on each site — something users already know how to do.",
+          "quote": "It's supposed to cancel subscriptions with one click, but it just sends you to do it yourself."
+        },
+        {
+          "title": "You can't cancel MonoBoost itself",
+          "evidence": "An app meant to help you escape subscriptions gives you no way to cancel its own subscription from within its dashboard.",
+          "quote": "The app is supposed to help cancel subscriptions, but you can't cancel MonoBoost in its own dashboard."
+        },
+        {
+          "title": "Charges you outside Apple's subscriptions",
+          "evidence": "Payments are taken from your card outside the App Store, so they don't appear in Apple subscriptions and can't be stopped the normal way.",
+          "quote": "They're taking $39 from me even though this service doesn't appear in my Apple subscriptions."
+        },
+        {
+          "title": "Can't find your bank or see any subscriptions",
+          "evidence": "If your bank isn't on Plaid it pulls no spending and finds no subscriptions at all — yet it still charges you for itself.",
+          "quote": "My bank isn't listed with Plaid, and the money I spent on the app was still taken."
+        }
+      ],
+      "loved": [
+        "The core idea of gathering every subscription in one place to clean house",
+        "Clear step-by-step directions with links to the cancellation pages"
+      ],
+      "monetization": "The app itself is the trap: it charges $9.99 for a 'trial', then takes amounts like $39 outside the App Store, with nowhere to stop the charges.",
+      "wedge": [
+        "Honest subscription discovery via bank and email, with no fake promise of magic cancellation",
+        "A clear list of every charge with amounts and next-billing dates",
+        "Real cancellation links plus reminders before each renewal",
+        "An optional human concierge for subscriptions that are hard to cancel",
+        "Cancel the service itself in one tap — trust as the core differentiator"
+      ],
+      "buildNote": null
+    }
   }
 ]
