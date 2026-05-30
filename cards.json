@@ -421,5 +421,94 @@
       ],
       "buildNote": "Essentially a UI over a local per-state question bank — buildable in a weekend; the value is reliability and accuracy, not technology."
     }
+  },
+  {
+    "id": "cmpst81890l10ug8pwey46we2",
+    "opportunityType": "reliability",
+    "cloneable": true,
+    "buildability": 3,
+    "profit": 4,
+    "ru": {
+      "tagline": "Документируемое общение разведённых родителей по решению суда",
+      "verdict": "Стоит браться: суд обязывает людей платить, а лидер, по словам пользователей, правит и теряет записи — рушит единственное, ради чего приложение существует. Честный, проверяемо-неизменяемый журнал заберёт доверие.",
+      "opportunity": "Разведённым родителям нужен надёжный, неизменяемый и принимаемый судом журнал переписки, звонков и расписания. Вместо этого они получают приложение, которое теряет сообщения, не отдаёт PDF записей в нужный момент и, по отзывам, само редактирует историю.",
+      "gaps": [
+        {
+          "title": "Записи невозможно выгрузить в нужный момент",
+          "evidence": "Пользователи не могут получить PDF своих записей: система пишет, что всё отправлено, но на почту ничего не приходит — а от этого напрямую зависит исход дела об опеке.",
+          "quote": "Пытаюсь получить PDF своих записей: пишет, что всё ушло, но я так ничего и не получаю на почту."
+        },
+        {
+          "title": "Новые сообщения не видны без переустановки",
+          "evidence": "Чтобы прочитать актуальное сообщение, приложение приходится удалять и ставить заново — и это при том, что оно единственный канал связи с со-родителем.",
+          "quote": "Каждую неделю удаляю и переустанавливаю приложение — иначе текущее сообщение просто не видно."
+        },
+        {
+          "title": "Нельзя понять, подключён ли второй родитель",
+          "evidence": "Человек платит за подписку по решению суда, но приложение не показывает, активна ли вторая сторона — можно месяцами писать в пустоту.",
+          "quote": "Деньги за подписку берут, но подтвердить, что второй родитель вообще подключён, не могут — будто сам себе пишешь."
+        },
+        {
+          "title": "Нет живой поддержки, когда на кону опека",
+          "evidence": "Телефона поддержки нет, на сообщения в приложении не отвечают, а от этих данных зависит судебное решение — людям некуда обратиться, когда что-то ломается.",
+          "quote": "Телефона техподдержки нет, в приложении не отвечают — а мне эти записи нужны для дела об опеке."
+        }
+      ],
+      "loved": [
+        "Документирует всё общение и сдерживает конфликтного со-родителя",
+        "Даёт спокойствие: вся переписка и звонки зафиксированы и их не подделать",
+        "Несколько каналов и общий календарь держат всё в порядке"
+      ],
+      "monetization": "Бесплатного режима фактически нет: всё, кроме регистрации, перебрасывает в мобильный браузер, а цена растёт год за годом (с 4 до 13 $ в месяц и выше) плюс комиссия за переводы. Прозрачная фиксированная цена для тех, кого обязал суд, сама станет преимуществом.",
+      "wedge": [
+        "Криптографически подписанные записи, неизменяемость которых может проверить и родитель, и суд",
+        "Выгрузка готового к суду PDF в один тап — всегда срабатывает, с подтверждением доставки",
+        "Надёжная доставка сообщений и уведомлений без переустановки приложения",
+        "Явный индикатор, подключён ли и активен ли второй родитель",
+        "Фиксированная честная цена для обязанных судом и реальная живая поддержка"
+      ],
+      "buildNote": "Ядро — это обмен сообщениями плюс защищённый от подделки журнал и экспорт; технология посильная, ключевое отличие — проверяемая неизменяемость и надёжность, а не сложный стек."
+    },
+    "en": {
+      "tagline": "Court-ordered co-parenting communication with a tamper-proof record",
+      "verdict": "Worth building: the court forces people to pay, yet users say the leader alters and loses records — destroying the one thing the app exists for. An honest, verifiably tamper-proof log wins the trust.",
+      "opportunity": "Separated parents need a reliable, unalterable, court-admissible log of messages, calls and schedules. Instead they get an app that loses messages, won't hand over the records PDF when it matters, and — per reviews — edits the history itself.",
+      "gaps": [
+        {
+          "title": "Records you can't download when you need them",
+          "evidence": "Users can't retrieve the PDF of their records: the app says it sent, but it never arrives by email — and a custody outcome rides directly on it.",
+          "quote": "I've been trying to access the PDF of my records; it says it should go through and I never receive them."
+        },
+        {
+          "title": "New messages don't appear without reinstalling",
+          "evidence": "To read the current message users have to delete and reinstall the app — even though it's their only channel to the co-parent.",
+          "quote": "Weekly I uninstall and reinstall the app; the only way to see the current message is to delete it and reinstall."
+        },
+        {
+          "title": "No way to tell if the other parent has joined",
+          "evidence": "People pay a court-ordered subscription, but the app never shows whether the other side is active — you can message into the void for months.",
+          "quote": "It takes your money but can't confirm the other parent is even active. You're talking to yourself the entire time."
+        },
+        {
+          "title": "No human support when custody is on the line",
+          "evidence": "There's no support phone number, in-app help goes unanswered, and a court ruling depends on the data — people have nowhere to turn when something breaks.",
+          "quote": "They do not provide a phone number for technical support; when it comes to child custody, I need this information."
+        }
+      ],
+      "loved": [
+        "Documents all communication and deters a high-conflict co-parent",
+        "Brings peace of mind: every message and call is recorded and can't be faked",
+        "Multiple channels and a shared calendar keep everything organized"
+      ],
+      "monetization": "There's effectively no free tier: everything past registration redirects to a mobile browser, and the price keeps climbing year over year ($4 to $13/month and up) plus a fee to send money. A transparent flat price for court-mandated users becomes an advantage on its own.",
+      "wedge": [
+        "Cryptographically signed records whose integrity both the parent and a court can verify",
+        "One-tap, court-ready PDF export that always succeeds, with delivery confirmation",
+        "Reliable message and notification delivery without reinstalling the app",
+        "A clear indicator of whether the other parent has joined and is active",
+        "A flat, honest price for court-mandated users and real human support"
+      ],
+      "buildNote": "The core is messaging plus a tamper-evident log and export; the technology is manageable — the differentiator is verifiable integrity and reliability, not a complex stack."
+    }
   }
 ]
