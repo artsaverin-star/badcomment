@@ -29,9 +29,9 @@ export default async function Home() {
           className="flex items-center justify-between gap-4 rounded-2xl border border-red-200 bg-red-50 p-5 transition hover:border-red-400 dark:border-red-900 dark:bg-red-950/40"
         >
           <div>
-            <p className="text-lg font-semibold">Swipe the idea deck →</p>
+            <p className="text-lg font-semibold">Browse the idea deck →</p>
             <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
-              Tinder for app ideas: proven apps with obvious gaps, pros & cons
+              App ideas worth building: proven apps with obvious gaps, pros & cons
               pulled from real reviews.
             </p>
           </div>

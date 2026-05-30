@@ -1,5 +1,5 @@
 import Link from "next/link";
-import IdeaSwiper from "@/components/IdeaSwiper";
+import IdeaCardList from "@/components/IdeaCardList";
 import { getIdeaCards } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
@@ -16,8 +16,8 @@ export default async function IdeasPage() {
       <header className="mb-8 mt-4">
         <h1 className="text-2xl font-bold">Idea deck</h1>
         <p className="text-sm text-neutral-500">
-          Swipe through proven apps that still have obvious gaps. Right = worth
-          building, left = skip. Sorted by demand vs. how much there is to fix.
+          Proven apps that still have obvious gaps, sorted by demand vs. how much
+          there is to fix. Each card shows what users love and what to improve.
         </p>
       </header>
 
@@ -26,7 +26,7 @@ export default async function IdeasPage() {
           No ideas yet — run the ingest to collect reviews first.
         </p>
       ) : (
-        <IdeaSwiper cards={cards} />
+        <IdeaCardList cards={cards} />
       )}
     </main>
   );
