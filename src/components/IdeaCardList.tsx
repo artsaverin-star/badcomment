@@ -60,7 +60,7 @@ export default function IdeaCardList({
 }) {
   const tr = t(locale);
   return (
-    <ul className="grid gap-4 sm:grid-cols-2">
+    <ul className="gap-4 sm:columns-2">
       {cards.map((card) => {
         const s = card.summary;
         const hasDetails =
@@ -72,7 +72,7 @@ export default function IdeaCardList({
         return (
           <li
             key={card.id}
-            className="flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-white dark:border-white/10 dark:bg-neutral-900"
+            className="mb-4 flex break-inside-avoid flex-col overflow-hidden rounded-2xl border border-black/10 bg-white dark:border-white/10 dark:bg-neutral-900"
           >
             {/* ── Identity ───────────────────────────────── */}
             <div className="flex flex-col gap-3 p-5">
@@ -182,7 +182,7 @@ export default function IdeaCardList({
 
             {/* ── Supporting detail (muted, aligned) ───────── */}
             {hasDetails && (
-              <dl className="mt-auto divide-y divide-black/5 border-t border-black/5 bg-black/[0.015] px-5 dark:divide-white/5 dark:border-white/5 dark:bg-white/[0.02]">
+              <dl className="divide-y divide-black/5 border-t border-black/5 bg-black/[0.015] px-5 dark:divide-white/5 dark:border-white/5 dark:bg-white/[0.02]">
                 {(card.pros.length > 0 || card.proQuote) && (
                   <DetailRow label={tr.card.love}>
                     {card.pros.length > 0 ? (
@@ -230,7 +230,7 @@ export default function IdeaCardList({
               </dl>
             )}
 
-            <div className={`px-5 py-3 ${hasDetails ? "" : "mt-auto"}`}>
+            <div className="px-5 py-3">
               <Link
                 href={`/product/${card.id}`}
                 className="text-sm text-neutral-400 hover:text-red-600 hover:underline"
