@@ -2,8 +2,9 @@ import { prisma } from "./prisma";
 import { THEMES, LOVED_THEMES } from "./themes";
 import { CATEGORIES, categoryLabel } from "./categories";
 import { scoreCloneability, isBrandStorefront, isRewardFarm } from "./cloneability";
-import type { IdeaSummary } from "./summarize";
+import type { IdeaSummary, IdeaGap } from "./summarize";
 import type { Store } from "./scrapers";
+import type { Locale } from "./i18n";
 
 export type ThemeStat = { key: string; label: string; count: number };
 
@@ -286,16 +287,49 @@ function isBanalGap(title: string): boolean {
   return BANAL_GAP_TITLE.some((re) => re.test(title));
 }
 
-function parseSummary(raw: string | null): IdeaSummary | null {
+// Pick the prose block for a locale. New bilingual summaries nest prose under
+// `ru` / `en`; legacy summaries are flat (prose at the top level, Russian). We
+// fall back across locales, then to the flat object, so nothing 404s mid-migration.
+function resolveProse(o: Record<string, unknown>, locale: Locale): Record<string, unknown> {
+  const ru = o.ru as Record<string, unknown> | undefined;
+  const en = o.en as Record<string, unknown> | undefined;
+  if (ru || en) return (locale === "en" ? en : ru) ?? ru ?? en ?? o;
+  return o;
+}
+
+// Normalize a stored summary (bilingual or legacy-flat) to a single-language
+// IdeaSummary for rendering. Language-neutral scalars (opportunityType,
+// cloneable, buildability, profit) are always read from the top level; prose is
+// taken from the locale block. Returns null if there's no usable gap list.
+function parseSummary(raw: string | null, locale: Locale = "ru"): IdeaSummary | null {
   if (!raw) return null;
+  let o: Record<string, unknown>;
   try {
-    const o = JSON.parse(raw) as IdeaSummary;
-    if (!Array.isArray(o.gaps)) return null;
-    o.gaps = o.gaps.filter((g) => g?.title && !isBanalGap(g.title));
-    return o;
+    o = JSON.parse(raw) as Record<string, unknown>;
   } catch {
     return null;
   }
+  const p = resolveProse(o, locale);
+  if (!Array.isArray(p.gaps)) return null;
+  const str = (v: unknown) => (typeof v === "string" ? v : "");
+  const arr = (v: unknown) =>
+    Array.isArray(v) ? (v as unknown[]).filter((x): x is string => typeof x === "string") : [];
+  const gaps = (p.gaps as IdeaGap[]).filter((g) => g?.title && !isBanalGap(g.title));
+  const opportunityType = o.opportunityType as IdeaSummary["opportunityType"] | undefined;
+  return {
+    tagline: str(p.tagline),
+    verdict: str(p.verdict),
+    opportunity: str(p.opportunity),
+    opportunityType: opportunityType ?? undefined,
+    gaps,
+    loved: arr(p.loved),
+    monetization: str(p.monetization) || null,
+    wedge: arr(p.wedge),
+    cloneable: o.cloneable !== false,
+    buildNote: str(p.buildNote) || null,
+    buildability: typeof o.buildability === "number" ? o.buildability : undefined,
+    profit: typeof o.profit === "number" ? o.profit : undefined,
+  };
 }
 
 function mergeHistograms(raws: (string | null)[]): Record<string, number> | null {
@@ -345,7 +379,10 @@ export async function getIdeaCards(
   // Display path passes true so the deck only shows cards backed by a real LLM
   // summary (tagline + insight). The summarize script passes false so it can
   // still see never-summarized apps and generate their first summary.
-  requireSummary = false
+  requireSummary = false,
+  // Which language's prose to resolve from bilingual summaries (scalars are
+  // language-neutral). Defaults to Russian for script/back-compat callers.
+  locale: Locale = "ru"
 ): Promise<IdeaCard[]> {
   const products = await prisma.product.findMany({
     where: category ? { category } : { category: { not: null } },
@@ -422,7 +459,7 @@ export async function getIdeaCards(
 
     const conSamples = pickSamples(negTexts.map((r) => r.text), 32);
     const proSamples = pickSamples(posTexts.map((r) => r.text), 10);
-    const summary = parseSummary(p.summary);
+    const summary = parseSummary(p.summary, locale);
 
     // Authored (hand-judged) curation scores. Present only on re-scored cards;
     // until then a card keeps its legacy behavior so nothing vanishes silently.

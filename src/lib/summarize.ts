@@ -40,6 +40,31 @@ export type IdeaSummary = {
   profit?: number;
 };
 
+// Prose fields that exist per-language in a bilingual stored summary.
+export type SummaryProse = {
+  tagline: string;
+  verdict: string;
+  opportunity: string;
+  gaps: IdeaGap[];
+  loved: string[];
+  monetization: string | null;
+  wedge: string[];
+  buildNote: string | null;
+};
+
+// On-disk shape of Product.summary. Language-neutral scalars sit flat; prose
+// lives under `ru` / `en`. Legacy summaries are flat (prose at the top level,
+// implicitly Russian). parseSummary() in queries.ts normalizes both shapes to a
+// single-language IdeaSummary for rendering.
+export type StoredSummary = Partial<SummaryProse> & {
+  opportunityType?: OpportunityType;
+  cloneable?: boolean;
+  buildability?: number;
+  profit?: number;
+  ru?: SummaryProse;
+  en?: SummaryProse;
+};
+
 const ENDPOINT = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion";
 
 // Stable fingerprint of the review signal: if unchanged we skip the model call
