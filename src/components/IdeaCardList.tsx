@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { IdeaCard } from "@/lib/queries";
-import { t, themeLabelL, lovedLabelL, type Locale } from "@/lib/i18n";
+import { t, lovedLabelL, type Locale } from "@/lib/i18n";
 
 const STORE_LABEL: Record<string, string> = { google: "Google Play", apple: "App Store" };
 const CLONE_STYLE: Record<string, string> = {
@@ -63,13 +63,19 @@ export default function IdeaCardList({
             <div className="min-w-0">
               <p className="truncate text-lg font-bold">{card.name}</p>
               <p className="truncate text-sm text-neutral-500">
-                {card.demandLabel}
+                {card.categoryLabel} · {card.demandLabel}
                 {card.avgRating != null && (
                   <> · {card.avgRating.toFixed(1)}★</>
                 )}
               </p>
             </div>
           </div>
+
+          {card.summary?.tagline && (
+            <p className="-mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+              {card.summary.tagline}
+            </p>
+          )}
 
           <div className="flex flex-wrap gap-2 text-xs">
             <span className={`rounded-full px-2 py-0.5 font-medium ${CLONE_STYLE[card.cloneLabel]}`}>
@@ -169,25 +175,6 @@ export default function IdeaCardList({
             )}
             {card.proQuote && (
               <p className="mt-1 text-sm italic text-neutral-500">“{card.proQuote}”</p>
-            )}
-          </div>
-
-          <div>
-            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-red-600">
-              {tr.card.improve}
-            </p>
-            <div className="mb-1 flex flex-wrap gap-1">
-              {card.cons.map((c) => (
-                <span
-                  key={c.key}
-                  className="rounded-full bg-red-100 px-2 py-0.5 text-xs text-red-700 dark:bg-red-950 dark:text-red-300"
-                >
-                  {themeLabelL(locale, c.key)} · {c.count}
-                </span>
-              ))}
-            </div>
-            {card.conQuote && (
-              <p className="mt-1 text-sm italic text-neutral-500">“{card.conQuote}”</p>
             )}
           </div>
 

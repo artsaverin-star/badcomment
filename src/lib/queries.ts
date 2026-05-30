@@ -1,7 +1,7 @@
 import { prisma } from "./prisma";
 import { THEMES, LOVED_THEMES } from "./themes";
 import { CATEGORIES, categoryLabel } from "./categories";
-import { scoreCloneability, isBrandStorefront } from "./cloneability";
+import { scoreCloneability, isBrandStorefront, isRewardFarm } from "./cloneability";
 import type { IdeaSummary } from "./summarize";
 import type { Store } from "./scrapers";
 
@@ -313,9 +313,12 @@ export function formatCount(n: number): string {
 // Rank products as buildable opportunities: proven demand (installs/ratings)
 // times how much there is to fix (complaint volume + concentration), divided by
 // how hard the app is to rebuild (real cloneability, not just category).
-export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
+export async function getIdeaCards(
+  limit = 60,
+  category?: string | null
+): Promise<IdeaCard[]> {
   const products = await prisma.product.findMany({
-    where: { category: { not: null } },
+    where: category ? { category } : { category: { not: null } },
     include: {
       listings: {
         select: {
@@ -391,11 +394,15 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
     const proSamples = pickSamples(posTexts.map((r) => r.text), 10);
     const summary = parseSummary(p.summary);
 
-    // Drop apps that aren't a real standalone product an indie could rebuild:
-    // single-brand storefronts/chains/carriers (detected from the description)
-    // or anything the model flagged as not cloneable (network/infra lock-in).
-    // These have no place in a deck of "apps worth rebuilding".
-    if (isBrandStorefront(detail?.description) || summary?.cloneable === false) continue;
+    // Drop apps that aren't a real standalone product worth rebuilding:
+    // single-brand storefronts/chains/carriers, get-paid-to reward farms, or
+    // anything the model flagged as not cloneable (network/infra lock-in).
+    if (
+      isBrandStorefront(detail?.description) ||
+      isRewardFarm(detail?.description) ||
+      summary?.cloneable === false
+    )
+      continue;
 
     const score = (demand * improvability) / clone.score;
 

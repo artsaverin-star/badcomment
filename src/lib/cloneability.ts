@@ -102,6 +102,26 @@ export function isBrandStorefront(description: string | null | undefined): boole
   return SOFT_BRAND.filter((re) => re.test(text)).length >= 2;
 }
 
+// "Get-paid-to" / play-and-earn reward farms: low-quality apps whose whole
+// pitch is earning gift cards / cash for games & surveys. They flood the deck
+// (lots of ads + payout complaints = high "improvability") but are not real
+// product ideas worth rebuilding.
+const REWARD_FARM: RegExp[] = [
+  /\bget paid to\b/i,
+  /\bpaypal payouts?\b/i,
+  /\bpaid surveys?\b/i,
+  /\breal money games?\b/i,
+  /\bcash out (instantly|via|to)\b/i,
+  /\bearn (gift cards?|real (money|cash|rewards))\b/i,
+  /\bplay (games? )?(and |& )?earn\b/i,
+  /\bredeem [^.]{0,30}(gift cards?|paypal)\b/i,
+];
+
+export function isRewardFarm(description: string | null | undefined): boolean {
+  const text = description ?? "";
+  return REWARD_FARM.some((re) => re.test(text));
+}
+
 export function scoreCloneability(input: {
   category: string | null | undefined;
   description: string | null | undefined;

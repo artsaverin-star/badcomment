@@ -10,6 +10,7 @@ export type IdeaGap = {
 
 // LLM-generated idea-card analysis. Cached on Product.summary as JSON.
 export type IdeaSummary = {
+  tagline: string; // one line, RU: what this app actually is (plain language)
   verdict: string; // one-line take on the opportunity
   opportunity: string; // the unique unmet-need angle, 1-2 sentences
   gaps: IdeaGap[]; // 3-5 specific, app-unique, fixable gaps
@@ -27,7 +28,7 @@ const ENDPOINT = "https://llm.api.cloud.yandex.net/foundationModels/v1/completio
 // extraction engine forces regeneration.
 export function summaryHash(card: IdeaCard): string {
   const sig = JSON.stringify({
-    v: 2, // bump when the engine/prompt changes
+    v: 3, // bump when the engine/prompt changes
     cons: card.conSamples.map((t) => t.slice(0, 60)),
     pros: card.proSamples.map((t) => t.slice(0, 40)),
     n: card.negativeCount,
@@ -56,12 +57,13 @@ function buildDigest(card: IdeaCard): string {
 
 const SYSTEM_PROMPT = `Ты продуктовый аналитик. На входе — данные о приложении и ВЫБОРКА реальных отзывов. Твоя задача: найти КОНКРЕТНЫЕ, уникальные для этого приложения пробелы, которые инди-разработчик мог бы закрыть и перебить оригинал.
 
-Главное правило: НЕ выдавай общие банальности. Запрещено выносить в gaps такие вещи как «много рекламы», «дорого/подписка», «вылеты», «баги», «тормозит», «неудобный интерфейс» — они есть у всех и не являются инсайтом. Ищи СПЕЦИФИКУ: какой конкретной фичи не хватает, какой сценарий сломан, что пользователи постоянно просят и не получают именно в ЭТОМ приложении.
+Главное правило: НЕ выдавай общие банальности. КАТЕГОРИЧЕСКИ запрещено выносить в gaps такие вещи как «много рекламы», «навязчивая реклама», «дорого/подписка/цена», «вылеты», «баги», «тормозит», «неудобный интерфейс» — они есть у всех и не являются инсайтом. Жалобы на рекламу и цену идут ТОЛЬКО в поле monetization (и больше нигде), жалобы на стабильность/баги вообще не выноси. Если после этого конкретики не осталось — дай меньше gaps или пустой массив, но НЕ заполняй его банальностями.
 
-Анализируй текст отзывов, а не общие темы. Каждый gap должен опираться на то, что реально написали люди.
+Ищи СПЕЦИФИКУ: какой конкретной фичи не хватает, какой сценарий сломан, что пользователи постоянно просят и не получают именно в ЭТОМ приложении. Анализируй текст отзывов, а не общие темы. Каждый gap должен опираться на то, что реально написали люди.
 
 Отвечай СТРОГО валидным JSON без markdown, ровно с такими ключами:
 {
+  "tagline": строка,
   "verdict": строка,
   "opportunity": строка,
   "gaps": [{"title": строка, "evidence": строка, "quote": строка}],
@@ -72,6 +74,7 @@ const SYSTEM_PROMPT = `Ты продуктовый аналитик. На вхо
   "buildNote": строка или null
 }
 
+- tagline — одна короткая фраза по-русски: что это за приложение простыми словами (например «Трекер артериального давления» или «Приложение для изучения слов по карточкам»). Без маркетинга, нейтрально.
 - verdict — одно предложение: стоит ли за это браться и почему.
 - opportunity — 1-2 предложения про незакрытую потребность, на которой можно выехать.
 - gaps — 3-5 штук. title: 3-7 слов, конкретно. evidence: синтез — как часто и в каком контексте это всплывает в отзывах. quote: одна реальная цитата из отзывов, ОБЯЗАТЕЛЬНО на русском (если отзыв на другом языке — переведи) и слегка причеши. Если конкретики мало — дай меньше gaps, не выдумывай.
@@ -110,6 +113,7 @@ function parseSummary(text: string): IdeaSummary | null {
   const monetization = str(o.monetization);
   const buildNote = str(o.buildNote);
   const summary: IdeaSummary = {
+    tagline: str(o.tagline),
     verdict: str(o.verdict),
     opportunity: str(o.opportunity),
     gaps,

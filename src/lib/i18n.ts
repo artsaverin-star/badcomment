@@ -36,7 +36,7 @@ type Dict = {
     analyzeFailed: string;
   };
   themes: { empty: string };
-  ideas: { title: string; desc: string; empty: string };
+  ideas: { title: string; desc: string; empty: string; all: string };
   card: {
     toRebuild: string;
     complaints: (n: number) => string;
@@ -101,6 +101,7 @@ const DICT: Record<Locale, Dict> = {
       title: "Idea deck",
       desc: "Proven apps that still have obvious gaps, sorted by demand vs. how much there is to fix. Each card shows what users love and what to improve.",
       empty: "No ideas yet — run the ingest to collect reviews first.",
+      all: "All",
     },
     card: {
       toRebuild: "to rebuild",
@@ -196,6 +197,7 @@ const DICT: Record<Locale, Dict> = {
       title: "Колода идей",
       desc: "Проверенные приложения, у которых всё ещё есть явные пробелы. Отсортированы по спросу и тому, сколько в них можно улучшить. На каждой карточке — что нравится пользователям и что стоит исправить.",
       empty: "Идей пока нет — сначала запустите сбор отзывов.",
+      all: "Все",
     },
     card: {
       toRebuild: "повторить",
