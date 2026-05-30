@@ -23,6 +23,22 @@ export default async function Home() {
         </p>
       </header>
 
+      <section className="mb-8">
+        <Link
+          href="/ideas"
+          className="flex items-center justify-between gap-4 rounded-2xl border border-red-200 bg-red-50 p-5 transition hover:border-red-400 dark:border-red-900 dark:bg-red-950/40"
+        >
+          <div>
+            <p className="text-lg font-semibold">Swipe the idea deck →</p>
+            <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+              Tinder for app ideas: proven apps with obvious gaps, pros & cons
+              pulled from real reviews.
+            </p>
+          </div>
+          <span className="hidden text-4xl sm:block">🔥</span>
+        </Link>
+      </section>
+
       <section className="mb-10">
         <SearchBox />
       </section>

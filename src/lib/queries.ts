@@ -1,24 +1,34 @@
 import { prisma } from "./prisma";
-import { THEMES } from "./themes";
-import { CATEGORIES } from "./categories";
+import { THEMES, LOVED_THEMES } from "./themes";
+import { CATEGORIES, categoryLabel, categoryComplexity, complexityLabel } from "./categories";
 import type { Store } from "./scrapers";
 
 export type ThemeStat = { key: string; label: string; count: number };
 
-function countThemes(themeArrays: string[]): ThemeStat[] {
-  const counts = new Map<string, number>();
-  for (const raw of themeArrays) {
-    let keys: string[] = [];
-    try {
-      keys = JSON.parse(raw);
-    } catch {
-      keys = [];
-    }
-    for (const k of keys) counts.set(k, (counts.get(k) ?? 0) + 1);
+function parseKeys(raw: string): string[] {
+  try {
+    const v = JSON.parse(raw);
+    return Array.isArray(v) ? v : [];
+  } catch {
+    return [];
   }
-  return THEMES.map((t) => ({ key: t.key, label: t.label, count: counts.get(t.key) ?? 0 }))
+}
+
+function tally(arrays: string[], defs: { key: string; label: string }[]): ThemeStat[] {
+  const counts = new Map<string, number>();
+  for (const raw of arrays) for (const k of parseKeys(raw)) counts.set(k, (counts.get(k) ?? 0) + 1);
+  return defs
+    .map((t) => ({ key: t.key, label: t.label, count: counts.get(t.key) ?? 0 }))
     .filter((s) => s.count > 0)
     .sort((a, b) => b.count - a.count);
+}
+
+const countThemes = (arrays: string[]) => tally(arrays, THEMES);
+const countLoved = (arrays: string[]) => tally(arrays, LOVED_THEMES);
+
+function trimQuote(text: string, max = 180): string {
+  const clean = text.replace(/\s+/g, " ").trim();
+  return clean.length > max ? `${clean.slice(0, max - 1).trimEnd()}…` : clean;
 }
 
 export type CategoryOverview = {
@@ -188,4 +198,100 @@ export async function getProductDetail(id: string): Promise<ProductDetail | null
     byStore,
     reviews,
   };
+}
+
+export type IdeaCard = {
+  id: string;
+  name: string;
+  icon: string | null;
+  developer: string | null;
+  category: string | null;
+  categoryLabel: string;
+  rank: number | null;
+  stores: Store[];
+  score: number;
+  complexity: number;
+  complexityLabel: "Low" | "Medium" | "High";
+  demandLabel: string;
+  negativeCount: number;
+  cons: ThemeStat[];
+  conQuote: string | null;
+  pros: ThemeStat[];
+  proQuote: string | null;
+};
+
+const MIN_COMPLAINTS = 4; // skip apps without a clear, fixable pain signal
+
+// Rank products as buildable opportunities: proven demand (store rank) times
+// how much there is to fix (volume + how concentrated the top complaint is),
+// divided by category build-complexity. Returns a deck for the swipe UI.
+export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
+  const products = await prisma.product.findMany({
+    where: { category: { not: null } },
+    include: {
+      listings: {
+        select: {
+          store: true,
+          rank: true,
+          reviews: { select: { themes: true, text: true } },
+          positives: { select: { loved: true, text: true } },
+        },
+      },
+    },
+  });
+
+  const cards: IdeaCard[] = [];
+
+  for (const p of products) {
+    const negTexts = p.listings.flatMap((l) => l.reviews);
+    const posTexts = p.listings.flatMap((l) => l.positives);
+    const negativeCount = negTexts.length;
+    if (negativeCount < MIN_COMPLAINTS) continue;
+
+    const cons = countThemes(negTexts.map((r) => r.themes)).slice(0, 4);
+    const pros = countLoved(posTexts.map((r) => r.loved)).slice(0, 4);
+
+    const ranks = p.listings.map((l) => l.rank).filter((r): r is number => r != null);
+    const rank = p.rank ?? (ranks.length ? Math.min(...ranks) : null);
+
+    const demand = rank ? 11 - Math.min(Math.max(rank, 1), 10) : 3;
+    const clarity = cons.length ? cons[0].count / negativeCount : 0;
+    const improvability = Math.log2(negativeCount + 1) * (0.6 + clarity);
+    const complexity = categoryComplexity(p.category);
+    const score = (demand * improvability) / complexity;
+
+    const topCon = cons[0];
+    const conQuote =
+      negTexts.find((r) => topCon && parseKeys(r.themes).includes(topCon.key) && r.text.trim())
+        ?.text ?? negTexts.find((r) => r.text.trim())?.text ?? null;
+
+    const topPro = pros[0];
+    const proQuote =
+      posTexts.find((r) => topPro && parseKeys(r.loved).includes(topPro.key) && r.text.trim())
+        ?.text ?? posTexts.find((r) => r.text.trim())?.text ?? null;
+
+    cards.push({
+      id: p.id,
+      name: p.name,
+      icon: p.icon,
+      developer: p.developer,
+      category: p.category,
+      categoryLabel: categoryLabel(p.category ?? ""),
+      rank,
+      stores: [...new Set(p.listings.map((l) => l.store as Store))],
+      score,
+      complexity,
+      complexityLabel: complexityLabel(complexity),
+      demandLabel: rank
+        ? `#${rank} in ${categoryLabel(p.category ?? "")}`
+        : categoryLabel(p.category ?? ""),
+      negativeCount,
+      cons,
+      conQuote: conQuote ? trimQuote(conQuote) : null,
+      pros,
+      proQuote: proQuote ? trimQuote(proQuote) : null,
+    });
+  }
+
+  return cards.sort((a, b) => b.score - a.score).slice(0, limit);
 }

@@ -1,9 +1,11 @@
 import { prisma } from "./prisma";
 import { fetchAppMeta, fetchReviews, type Store, type StoreListing } from "./scrapers";
-import { productSlug } from "./match";
-import { tagThemes } from "./themes";
+import { productSlug, productName } from "./match";
+import { tagThemes, tagLoved } from "./themes";
 
 export const NEGATIVE_MAX_RATING = 2;
+export const POSITIVE_MIN_RATING = 4;
+export const POSITIVE_SAMPLE_MAX = 50;
 
 export type IngestResult = {
   productId: string;
@@ -29,12 +31,11 @@ type ListingMeta = {
 // the same app across both stores collapses into one entity.
 async function resolveProduct(meta: ListingMeta) {
   const slug = productSlug(meta.title);
-  const head = meta.title.split(/[:\-–—|]/)[0].trim() || meta.title;
   return prisma.product.upsert({
     where: { slug },
     create: {
       slug,
-      name: head,
+      name: productName(meta.title),
       developer: meta.developer,
       icon: meta.icon,
       category: meta.category ?? null,
@@ -102,6 +103,29 @@ async function ingestForMeta(meta: ListingMeta, max: number): Promise<IngestResu
       update: { themes: JSON.stringify(themes) },
     });
     stored++;
+  }
+
+  // Keep a sample of positive reviews to surface what users love.
+  const positives = reviews
+    .filter((r) => r.rating >= POSITIVE_MIN_RATING && r.text.trim().length > 0)
+    .slice(0, POSITIVE_SAMPLE_MAX);
+
+  for (const r of positives) {
+    const loved = tagLoved(`${r.title ?? ""} ${r.text}`);
+    await prisma.positiveReview.upsert({
+      where: { appId_externalId: { appId: app.id, externalId: r.externalId } },
+      create: {
+        appId: app.id,
+        externalId: r.externalId,
+        author: r.author,
+        rating: r.rating,
+        title: r.title,
+        text: r.text,
+        postedAt: r.postedAt,
+        loved: JSON.stringify(loved),
+      },
+      update: { loved: JSON.stringify(loved) },
+    });
   }
 
   await prisma.app.update({

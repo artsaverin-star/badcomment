@@ -40,7 +40,8 @@ model App {
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
 
-  reviews Review[]
+  reviews   Review[]
+  positives PositiveReview[]
 
   @@unique([store, storeAppId, country])
   @@index([productId])
@@ -62,4 +63,24 @@ model Review {
 
   @@unique([appId, externalId])
   @@index([appId, rating])
+}
+
+// A sample of 4-5 star reviews, kept to surface what users LOVE about an app
+// (the "why it works" side of an idea card). Separate from Review so all the
+// negative-complaint queries stay untouched.
+model PositiveReview {
+  id         String    @id @default(cuid())
+  app        App       @relation(fields: [appId], references: [id], onDelete: Cascade)
+  appId      String
+  externalId String
+  author     String?
+  rating     Int
+  title      String?
+  text       String
+  loved      String    @default("[]") // JSON array of loved-theme keys
+  postedAt   DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@unique([appId, externalId])
+  @@index([appId])
 }
