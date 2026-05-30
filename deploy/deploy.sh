@@ -10,7 +10,7 @@ export DATABASE_URL="file:${APP_DIR}/data/prod.db"
 git pull --ff-only origin main
 npm ci
 npx prisma generate
-npx prisma db push
+npx prisma db push --accept-data-loss
 npm run build
 sudo systemctl restart badcomment
 echo ">> Deployed. Status:"

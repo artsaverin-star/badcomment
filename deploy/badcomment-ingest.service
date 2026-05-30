@@ -1,0 +1,13 @@
+[Unit]
+Description=badcomment category ingest (top apps -> negative reviews)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/opt/badcomment
+Environment=NODE_ENV=production
+Environment=DATABASE_URL=file:/opt/badcomment/data/prod.db
+Environment=INGEST_MAX_REVIEWS=80
+ExecStart=/usr/bin/npm run ingest

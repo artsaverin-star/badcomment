@@ -23,13 +23,22 @@ echo ">> Installing dependencies and building..."
 npm ci
 export DATABASE_URL="file:${APP_DIR}/data/prod.db"
 npx prisma generate
-npx prisma db push
+npx prisma db push --accept-data-loss
 npm run build
 
 echo ">> Installing systemd service (running as ${USER})..."
 sed "s/^User=.*/User=${USER}/" deploy/badcomment.service | sudo tee /etc/systemd/system/badcomment.service >/dev/null
 sudo systemctl daemon-reload
 sudo systemctl enable --now badcomment
+
+echo ">> Installing ingest service + daily timer (running as ${USER})..."
+sed "s/^User=.*/User=${USER}/" deploy/badcomment-ingest.service | sudo tee /etc/systemd/system/badcomment-ingest.service >/dev/null
+sudo cp deploy/badcomment-ingest.timer /etc/systemd/system/badcomment-ingest.timer
+sudo systemctl daemon-reload
+sudo systemctl enable --now badcomment-ingest.timer
+
+echo ">> Running first ingest in the background (this takes a while)..."
+sudo systemctl start --no-block badcomment-ingest.service
 
 echo ">> Installing nginx site..."
 sudo cp deploy/nginx-badcomment.conf /etc/nginx/sites-available/badcomment
