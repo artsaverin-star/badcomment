@@ -1,7 +1,7 @@
 import { prisma } from "./prisma";
 import { THEMES, LOVED_THEMES } from "./themes";
 import { CATEGORIES, categoryLabel } from "./categories";
-import { scoreCloneability } from "./cloneability";
+import { scoreCloneability, isBrandStorefront } from "./cloneability";
 import type { IdeaSummary } from "./summarize";
 import type { Store } from "./scrapers";
 
@@ -391,10 +391,13 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
     const proSamples = pickSamples(posTexts.map((r) => r.text), 10);
     const summary = parseSummary(p.summary);
 
-    // Heavily demote apps the model judged not realistically cloneable
-    // (brand/chain/network/infra lock-in) so they sink below buildable ideas.
-    const cloneablePenalty = summary && summary.cloneable === false ? 0.2 : 1;
-    const score = ((demand * improvability) / clone.score) * cloneablePenalty;
+    // Drop apps that aren't a real standalone product an indie could rebuild:
+    // single-brand storefronts/chains/carriers (detected from the description)
+    // or anything the model flagged as not cloneable (network/infra lock-in).
+    // These have no place in a deck of "apps worth rebuilding".
+    if (isBrandStorefront(detail?.description) || summary?.cloneable === false) continue;
+
+    const score = (demand * improvability) / clone.score;
 
     const topCon = cons[0];
     const conQuote =

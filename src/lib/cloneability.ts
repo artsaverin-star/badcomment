@@ -60,6 +60,32 @@ const SIGNALS: Signal[] = [
 const MAX_BUMP = 2.5;
 const LARGE_APP_BYTES = 200 * 1024 * 1024; // 200 MB
 
+// Single-brand storefront / loyalty / carrier apps: technically simple but
+// pointless to "rebuild" because they're a thin client for a real-world
+// business (fast-food chains, banks, carriers, retailers). The LLM judges
+// this unreliably, so we detect it deterministically from the store
+// description. A genuine indie-buildable app won't hit two of these.
+const STOREFRONT_SIGNALS: RegExp[] = [
+  /\b(mobile order|order ahead|order (online|now)|drive[\s-]?thru|skip the line|curbside|order .{0,24}(delivery|pickup)|pickup option)\b/i,
+  /\b(rewards?|loyalty|earn points|redeem|exclusive (deals|offers|coupons)|mobile coupons|member (deals|offers))\b/i,
+  /\b(pay (your )?bill|manage (your )?(account|devices?)|data (plan|usage)|wireless|prepaid|(new|your) plan)\b/i,
+  /\b(nearest (restaurant|store|location)|find (your )?nearest|store locator|locations? near|find a (store|restaurant|location))\b/i,
+];
+
+// True if the store description shows two or more brand-storefront signals,
+// i.e. the app is a companion to a physical chain/account, not a standalone
+// product an indie could meaningfully recreate.
+export function isBrandStorefront(description: string | null | undefined): boolean {
+  const text = description ?? "";
+  if (!text) return false;
+  let hits = 0;
+  for (const re of STOREFRONT_SIGNALS) {
+    if (re.test(text)) hits++;
+    if (hits >= 2) return true;
+  }
+  return false;
+}
+
 export function scoreCloneability(input: {
   category: string | null | undefined;
   description: string | null | undefined;
