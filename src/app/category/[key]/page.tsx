@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategoryProducts } from "@/lib/queries";
 import { getCategory } from "@/lib/categories";
+import { getLocale, t, categoryLabelL, themeLabelL } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -16,25 +17,23 @@ export default async function CategoryPage({
   const category = getCategory(key);
   if (!category) notFound();
 
+  const locale = await getLocale();
+  const tr = t(locale);
   const products = await getCategoryProducts(key);
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">
       <Link href="/" className="text-sm text-neutral-500 hover:underline">
-        ← All directions
+        {tr.nav.allDirections}
       </Link>
 
       <header className="mb-8 mt-4">
-        <h1 className="text-2xl font-bold">{category.label}</h1>
-        <p className="text-sm text-neutral-500">
-          Top apps in this direction and what users complain about.
-        </p>
+        <h1 className="text-2xl font-bold">{categoryLabelL(locale, key)}</h1>
+        <p className="text-sm text-neutral-500">{tr.category.subtitle}</p>
       </header>
 
       {products.length === 0 ? (
-        <p className="text-sm text-neutral-500">
-          Nothing crawled here yet. Run the category ingest to populate it.
-        </p>
+        <p className="text-sm text-neutral-500">{tr.category.empty}</p>
       ) : (
         <ul className="flex flex-col gap-3">
           {products.map((p) => (
@@ -65,16 +64,16 @@ export default async function CategoryPage({
                         {STORE_LABEL[s]}
                       </span>
                     ))}
-                    <span>{p.negativeCount} complaints</span>
+                    <span>{tr.category.complaints(p.negativeCount)}</span>
                   </div>
                   {p.topThemes.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-1">
-                      {p.topThemes.map((t) => (
+                      {p.topThemes.map((theme) => (
                         <span
-                          key={t.key}
+                          key={theme.key}
                           className="rounded-full bg-red-100 px-2 py-0.5 text-xs text-red-700 dark:bg-red-950 dark:text-red-300"
                         >
-                          {t.label} · {t.count}
+                          {themeLabelL(locale, theme.key)} · {theme.count}
                         </span>
                       ))}
                     </div>

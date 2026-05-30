@@ -2,8 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ThemeBars from "@/components/ThemeBars";
 import { getProductDetail } from "@/lib/queries";
-import { themeLabel } from "@/lib/themes";
-import { categoryLabel } from "@/lib/categories";
+import { getLocale, t, categoryLabelL, themeLabelL } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -15,13 +14,15 @@ export default async function ProductDetail({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const locale = await getLocale();
+  const tr = t(locale);
   const data = await getProductDetail(id);
   if (!data) notFound();
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-10">
       <Link href="/" className="text-sm text-neutral-500 hover:underline">
-        ← Back
+        {tr.nav.back}
       </Link>
 
       <header className="mb-8 mt-4 flex items-center gap-4">
@@ -36,12 +37,12 @@ export default async function ProductDetail({
           <p className="text-sm text-neutral-500">
             {data.developer ? `${data.developer} · ` : ""}
             {data.stores.map((s) => STORE_LABEL[s]).join(" + ")} ·{" "}
-            {data.totalNegative} negative reviews
+            {tr.product.negativeReviews(data.totalNegative)}
             {data.category ? (
               <>
                 {" · "}
                 <Link href={`/category/${data.category}`} className="hover:underline">
-                  {categoryLabel(data.category)}
+                  {categoryLabelL(locale, data.category)}
                 </Link>
               </>
             ) : null}
@@ -50,8 +51,8 @@ export default async function ProductDetail({
       </header>
 
       <section className="mb-10">
-        <h2 className="mb-3 text-lg font-semibold">Complaint themes (both stores)</h2>
-        <ThemeBars stats={data.themeStats} />
+        <h2 className="mb-3 text-lg font-semibold">{tr.product.themesBoth}</h2>
+        <ThemeBars stats={data.themeStats} locale={locale} />
       </section>
 
       {data.stores.length > 1 && (
@@ -59,16 +60,16 @@ export default async function ProductDetail({
           {data.byStore.map((b) => (
             <div key={b.store}>
               <h3 className="mb-3 text-sm font-semibold text-neutral-500">
-                {STORE_LABEL[b.store]} · {b.count} reviews
+                {tr.product.storeReviews(STORE_LABEL[b.store], b.count)}
               </h3>
-              <ThemeBars stats={b.themeStats} />
+              <ThemeBars stats={b.themeStats} locale={locale} />
             </div>
           ))}
         </section>
       )}
 
       <section>
-        <h2 className="mb-3 text-lg font-semibold">Negative reviews</h2>
+        <h2 className="mb-3 text-lg font-semibold">{tr.product.negativeHeading}</h2>
         <ul className="flex flex-col gap-3">
           {data.reviews.map((r) => (
             <li
@@ -81,7 +82,7 @@ export default async function ProductDetail({
                   {"☆".repeat(5 - r.rating)}
                 </span>
                 <span className="text-xs text-neutral-400">
-                  {STORE_LABEL[r.store]} · {r.author ?? "anon"}
+                  {STORE_LABEL[r.store]} · {r.author ?? tr.product.anon}
                   {r.postedAt ? ` · ${r.postedAt.toISOString().slice(0, 10)}` : ""}
                 </span>
               </div>
@@ -89,12 +90,12 @@ export default async function ProductDetail({
               <p className="text-sm text-neutral-600 dark:text-neutral-300">{r.text}</p>
               {r.themes.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-1">
-                  {r.themes.map((t) => (
+                  {r.themes.map((themeKey) => (
                     <span
-                      key={t}
+                      key={themeKey}
                       className="rounded-full bg-red-100 px-2 py-0.5 text-xs text-red-700 dark:bg-red-950 dark:text-red-300"
                     >
-                      {themeLabel(t)}
+                      {themeLabelL(locale, themeKey)}
                     </span>
                   ))}
                 </div>

@@ -2,10 +2,13 @@ import Link from "next/link";
 import SearchBox from "@/components/SearchBox";
 import ThemeBars from "@/components/ThemeBars";
 import { getCategoriesOverview, getGlobalThemeStats } from "@/lib/queries";
+import { getLocale, t, categoryLabelL } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
+  const locale = await getLocale();
+  const tr = t(locale);
   const [categories, globalThemes] = await Promise.all([
     getCategoriesOverview(),
     getGlobalThemeStats(),
@@ -17,10 +20,7 @@ export default async function Home() {
         <h1 className="text-3xl font-bold tracking-tight">
           bad<span className="text-red-600">comment</span>
         </h1>
-        <p className="mt-1 text-neutral-500">
-          What people hate about popular apps — negative reviews from Google Play
-          and the App Store, merged and themed. Find the gaps worth building.
-        </p>
+        <p className="mt-1 text-neutral-500">{tr.home.tagline}</p>
       </header>
 
       <section className="mb-8">
@@ -29,10 +29,9 @@ export default async function Home() {
           className="flex items-center justify-between gap-4 rounded-2xl border border-red-200 bg-red-50 p-5 transition hover:border-red-400 dark:border-red-900 dark:bg-red-950/40"
         >
           <div>
-            <p className="text-lg font-semibold">Browse the idea deck →</p>
+            <p className="text-lg font-semibold">{tr.home.ideaDeckCta}</p>
             <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
-              App ideas worth building: proven apps with obvious gaps, pros & cons
-              pulled from real reviews.
+              {tr.home.ideaDeckDesc}
             </p>
           </div>
           <span className="hidden text-4xl sm:block">🔥</span>
@@ -40,11 +39,11 @@ export default async function Home() {
       </section>
 
       <section className="mb-10">
-        <SearchBox />
+        <SearchBox labels={tr.search} />
       </section>
 
       <section className="mb-10">
-        <h2 className="mb-3 text-lg font-semibold">Browse by direction</h2>
+        <h2 className="mb-3 text-lg font-semibold">{tr.home.browseByDirection}</h2>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((c) => (
             <li key={c.key}>
@@ -52,11 +51,11 @@ export default async function Home() {
                 href={`/category/${c.key}`}
                 className="flex h-full flex-col justify-between rounded-xl border border-black/10 bg-white p-4 transition hover:border-red-400 dark:border-white/10 dark:bg-neutral-900"
               >
-                <span className="font-medium">{c.label}</span>
+                <span className="font-medium">{categoryLabelL(locale, c.key)}</span>
                 <span className="mt-2 text-sm text-neutral-500">
                   {c.productCount > 0
-                    ? `${c.productCount} apps · ${c.reviewCount} complaints`
-                    : "Not crawled yet"}
+                    ? tr.home.appsComplaints(c.productCount, c.reviewCount)
+                    : tr.home.notCrawled}
                 </span>
               </Link>
             </li>
@@ -66,8 +65,8 @@ export default async function Home() {
 
       {globalThemes.length > 0 && (
         <section>
-          <h2 className="mb-3 text-lg font-semibold">Top complaint themes (all apps)</h2>
-          <ThemeBars stats={globalThemes} />
+          <h2 className="mb-3 text-lg font-semibold">{tr.home.topThemes}</h2>
+          <ThemeBars stats={globalThemes} locale={locale} />
         </section>
       )}
     </main>

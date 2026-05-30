@@ -47,11 +47,11 @@ model App {
   // store-specific (installs/histogram/IAP: google only; size: apple only).
   score          Float? // average star rating
   ratingCount    Int? // number of ratings (google `ratings`, apple `reviews`)
-  installs       Int? // google minInstalls; apple has none
+  installs       BigInt? // google minInstalls (can exceed 2^31, e.g. 5B); apple has none
   histogram      String? // JSON {1..5: count}, google only
   free           Boolean?
   offersIAP      Boolean? // google only
-  sizeBytes      Int? // apple only
+  sizeBytes      BigInt? // apple only (apps >2GB exceed 2^31)
   description    String? // store description, used for cloneability heuristics
   storeUpdatedAt DateTime?
   releasedAt     DateTime?

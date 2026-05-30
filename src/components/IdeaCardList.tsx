@@ -1,11 +1,16 @@
 import Link from "next/link";
 import type { IdeaCard } from "@/lib/queries";
+import { t, themeLabelL, lovedLabelL, type Locale } from "@/lib/i18n";
 
 const STORE_LABEL: Record<string, string> = { google: "Google Play", apple: "App Store" };
 const CLONE_STYLE: Record<string, string> = {
   Low: "bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-300",
   Medium: "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
   High: "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300",
+};
+const CLONE_LABEL: Record<Locale, Record<string, string>> = {
+  en: { Low: "Low", Medium: "Medium", High: "High" },
+  ru: { Low: "Низкая", Medium: "Средняя", High: "Высокая" },
 };
 
 function StarBars({ histogram }: { histogram: Record<string, number> }) {
@@ -33,7 +38,14 @@ function StarBars({ histogram }: { histogram: Record<string, number> }) {
   );
 }
 
-export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
+export default function IdeaCardList({
+  cards,
+  locale,
+}: {
+  cards: IdeaCard[];
+  locale: Locale;
+}) {
+  const tr = t(locale);
   return (
     <ul className="grid gap-4 sm:grid-cols-2">
       {cards.map((card) => (
@@ -61,7 +73,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
 
           <div className="flex flex-wrap gap-2 text-xs">
             <span className={`rounded-full px-2 py-0.5 font-medium ${CLONE_STYLE[card.cloneLabel]}`}>
-              {card.cloneLabel} to rebuild
+              {CLONE_LABEL[locale][card.cloneLabel]} · {tr.card.toRebuild}
             </span>
             {card.stores.map((s) => (
               <span key={s} className="rounded-full bg-black/5 px-2 py-0.5 dark:bg-white/10">
@@ -69,7 +81,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
               </span>
             ))}
             <span className="rounded-full bg-black/5 px-2 py-0.5 dark:bg-white/10">
-              {card.negativeCount} complaints
+              {tr.card.complaints(card.negativeCount)}
             </span>
           </div>
 
@@ -87,7 +99,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
           {card.histogram && (
             <div>
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-                Rating spread
+                {tr.card.ratingSpread}
               </p>
               <StarBars histogram={card.histogram} />
             </div>
@@ -95,7 +107,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
 
           <div>
             <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-green-600">
-              What people love
+              {tr.card.love}
             </p>
             {card.pros.length > 0 ? (
               <div className="mb-1 flex flex-wrap gap-1">
@@ -104,13 +116,13 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
                     key={p.key}
                     className="rounded-full bg-green-100 px-2 py-0.5 text-xs text-green-700 dark:bg-green-950 dark:text-green-300"
                   >
-                    {p.label}
+                    {lovedLabelL(locale, p.key)}
                   </span>
                 ))}
               </div>
             ) : (
               <p className="text-sm text-neutral-600 dark:text-neutral-300">
-                Proven demand — {card.demandLabel}. An engaged user base already exists.
+                {tr.card.provenDemand(card.demandLabel)}
               </p>
             )}
             {card.proQuote && (
@@ -120,7 +132,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
 
           <div>
             <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-red-600">
-              What to improve
+              {tr.card.improve}
             </p>
             <div className="mb-1 flex flex-wrap gap-1">
               {card.cons.map((c) => (
@@ -128,7 +140,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
                   key={c.key}
                   className="rounded-full bg-red-100 px-2 py-0.5 text-xs text-red-700 dark:bg-red-950 dark:text-red-300"
                 >
-                  {c.label} · {c.count}
+                  {themeLabelL(locale, c.key)} · {c.count}
                 </span>
               ))}
             </div>
@@ -139,7 +151,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
 
           <div>
             <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-              How hard to rebuild
+              {tr.card.howHard}
             </p>
             <ul className="flex flex-col gap-0.5 text-sm text-neutral-600 dark:text-neutral-300">
               {card.cloneReasons.map((r) => (
@@ -154,7 +166,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
           {card.summary && card.summary.howToWin.length > 0 && (
             <div className="rounded-xl bg-green-50 p-3 dark:bg-green-950/30">
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400">
-                How to beat them
+                {tr.card.howToBeat}
               </p>
               <ul className="flex flex-col gap-1 text-sm text-neutral-700 dark:text-neutral-200">
                 {card.summary.howToWin.map((move) => (
@@ -171,7 +183,7 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
             href={`/product/${card.id}`}
             className="mt-auto text-sm text-neutral-400 hover:text-red-600 hover:underline"
           >
-            See all reviews →
+            {tr.nav.seeAllReviews}
           </Link>
         </li>
       ))}

@@ -11,7 +11,17 @@ type Result = {
   developer: string | null;
 };
 
-export default function SearchBox() {
+type Labels = {
+  placeholder: string;
+  search: string;
+  searching: string;
+  analyze: string;
+  analyzing: string;
+  searchFailed: string;
+  analyzeFailed: string;
+};
+
+export default function SearchBox({ labels }: { labels: Labels }) {
   const router = useRouter();
   const [q, setQ] = useState("");
   const [results, setResults] = useState<Result[]>([]);
@@ -28,10 +38,10 @@ export default function SearchBox() {
     try {
       const res = await fetch(`/api/search?q=${encodeURIComponent(q.trim())}`);
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Search failed");
+      if (!res.ok) throw new Error(data.error ?? labels.searchFailed);
       setResults(data.results ?? []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Search failed");
+      setError(err instanceof Error ? err.message : labels.searchFailed);
     } finally {
       setSearching(false);
     }
@@ -47,10 +57,10 @@ export default function SearchBox() {
         body: JSON.stringify({ store: r.store, appId: r.storeAppId, country: "us" }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Analyze failed");
+      if (!res.ok) throw new Error(data.error ?? labels.analyzeFailed);
       router.push(`/product/${data.productId}`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Analyze failed");
+      setError(err instanceof Error ? err.message : labels.analyzeFailed);
       setAnalyzingId(null);
     }
   }
@@ -61,7 +71,7 @@ export default function SearchBox() {
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search an app by name, e.g. Spotify"
+          placeholder={labels.placeholder}
           className="flex-1 rounded-md border border-black/15 bg-transparent px-3 py-2 dark:border-white/15"
         />
         <button
@@ -69,7 +79,7 @@ export default function SearchBox() {
           disabled={searching}
           className="rounded-md bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-700 disabled:opacity-50"
         >
-          {searching ? "Searching…" : "Search"}
+          {searching ? labels.searching : labels.search}
         </button>
       </form>
 
@@ -99,7 +109,7 @@ export default function SearchBox() {
                 disabled={analyzingId !== null}
                 className="shrink-0 rounded-md bg-red-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-red-700 disabled:opacity-50"
               >
-                {analyzingId === r.storeAppId ? "Analyzing…" : "Analyze"}
+                {analyzingId === r.storeAppId ? labels.analyzing : labels.analyze}
               </button>
             </li>
           ))}

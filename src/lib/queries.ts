@@ -311,7 +311,9 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
     // Popularity: prefer real Google installs; fall back to an installs proxy
     // from total rating counts (ratings ≈ 1% of installs) so Apple-only apps
     // still get a demand signal.
-    const installsVals = p.listings.map((l) => l.installs).filter((v): v is number => v != null);
+    const installsVals = p.listings
+      .map((l) => (l.installs == null ? null : Number(l.installs)))
+      .filter((v): v is number => v != null);
     const installs = installsVals.length ? Math.max(...installsVals) : null;
     const ratingCount =
       p.listings.reduce((s, l) => s + (l.ratingCount ?? 0), 0) || null;
@@ -345,7 +347,7 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
       category: p.category,
       description: detail?.description ?? null,
       offersIAP: p.listings.some((l) => l.offersIAP),
-      sizeBytes: Math.max(0, ...p.listings.map((l) => l.sizeBytes ?? 0)) || null,
+      sizeBytes: Math.max(0, ...p.listings.map((l) => Number(l.sizeBytes ?? 0))) || null,
     });
 
     const score = (demand * improvability) / clone.score;

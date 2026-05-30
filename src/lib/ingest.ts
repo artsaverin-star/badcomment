@@ -34,15 +34,18 @@ type ListingMeta = {
   metrics: AppMetrics;
 };
 
+const toBigInt = (n: number | null) =>
+  n == null ? null : BigInt(Math.trunc(n));
+
 function metricColumns(m: AppMetrics) {
   return {
     score: m.score,
     ratingCount: m.ratingCount,
-    installs: m.installs,
+    installs: toBigInt(m.installs),
     histogram: m.histogram ? JSON.stringify(m.histogram) : null,
     free: m.free,
     offersIAP: m.offersIAP,
-    sizeBytes: m.sizeBytes,
+    sizeBytes: toBigInt(m.sizeBytes),
     description: m.description,
     storeUpdatedAt: m.storeUpdatedAt,
     releasedAt: m.releasedAt,

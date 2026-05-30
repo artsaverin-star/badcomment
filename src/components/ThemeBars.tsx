@@ -1,15 +1,26 @@
 import type { ThemeStat } from "@/lib/queries";
+import { themeLabelL, type Locale } from "@/lib/i18n";
 
-export default function ThemeBars({ stats }: { stats: ThemeStat[] }) {
+export default function ThemeBars({
+  stats,
+  locale,
+}: {
+  stats: ThemeStat[];
+  locale: Locale;
+}) {
   if (stats.length === 0) {
-    return <p className="text-sm text-neutral-500">No complaint themes detected yet.</p>;
+    return (
+      <p className="text-sm text-neutral-500">
+        {locale === "ru" ? "Темы жалоб пока не найдены." : "No complaint themes detected yet."}
+      </p>
+    );
   }
   const max = stats[0].count;
   return (
     <ul className="flex flex-col gap-2">
       {stats.map((s) => (
         <li key={s.key} className="flex items-center gap-3">
-          <span className="w-40 shrink-0 text-sm">{s.label}</span>
+          <span className="w-40 shrink-0 text-sm">{themeLabelL(locale, s.key)}</span>
           <div className="h-5 flex-1 overflow-hidden rounded bg-black/5 dark:bg-white/10">
             <div
               className="h-full rounded bg-red-500"
