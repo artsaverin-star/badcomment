@@ -2,6 +2,7 @@ import { prisma } from "./prisma";
 import { THEMES, LOVED_THEMES } from "./themes";
 import { CATEGORIES, categoryLabel } from "./categories";
 import { scoreCloneability } from "./cloneability";
+import type { IdeaSummary } from "./summarize";
 import type { Store } from "./scrapers";
 
 export type ThemeStat = { key: string; label: string; count: number };
@@ -227,9 +228,20 @@ export type IdeaCard = {
   conQuote: string | null;
   pros: ThemeStat[];
   proQuote: string | null;
+  // Cached LLM analysis (null until `npm run summarize` runs / no API key).
+  summary: IdeaSummary | null;
 };
 
 const MIN_COMPLAINTS = 4; // skip apps without a clear, fixable pain signal
+
+function parseSummary(raw: string | null): IdeaSummary | null {
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as IdeaSummary;
+  } catch {
+    return null;
+  }
+}
 
 function mergeHistograms(raws: (string | null)[]): Record<string, number> | null {
   const out: Record<string, number> = {};
@@ -379,6 +391,7 @@ export async function getIdeaCards(limit = 60): Promise<IdeaCard[]> {
       conQuote: conQuote ? trimQuote(conQuote) : null,
       pros,
       proQuote: proQuote ? trimQuote(proQuote) : null,
+      summary: parseSummary(p.summary),
     });
   }
 

@@ -19,6 +19,12 @@ model Product {
   rank      Int? // best rank across stores within the category
   createdAt DateTime @default(now())
 
+  // Cached LLM idea-card summary (JSON: verdict/whyClone/loved/painPoints/
+  // howToWin). summaryHash gates regeneration so we only call the model when
+  // the underlying review signal actually changed.
+  summary     String?
+  summaryHash String?
+
   listings App[]
 
   @@index([category, rank])

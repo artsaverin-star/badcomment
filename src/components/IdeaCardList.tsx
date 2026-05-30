@@ -73,6 +73,17 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
             </span>
           </div>
 
+          {card.summary?.verdict && (
+            <div className="rounded-xl border border-red-200 bg-red-50/60 p-3 dark:border-red-900 dark:bg-red-950/30">
+              <p className="text-sm font-medium">{card.summary.verdict}</p>
+              {card.summary.whyClone && (
+                <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-300">
+                  {card.summary.whyClone}
+                </p>
+              )}
+            </div>
+          )}
+
           {card.histogram && (
             <div>
               <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-neutral-500">
@@ -139,6 +150,22 @@ export default function IdeaCardList({ cards }: { cards: IdeaCard[] }) {
               ))}
             </ul>
           </div>
+
+          {card.summary && card.summary.howToWin.length > 0 && (
+            <div className="rounded-xl bg-green-50 p-3 dark:bg-green-950/30">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-green-700 dark:text-green-400">
+                How to beat them
+              </p>
+              <ul className="flex flex-col gap-1 text-sm text-neutral-700 dark:text-neutral-200">
+                {card.summary.howToWin.map((move) => (
+                  <li key={move} className="flex gap-1.5">
+                    <span className="text-green-600">→</span>
+                    <span>{move}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <Link
             href={`/product/${card.id}`}
