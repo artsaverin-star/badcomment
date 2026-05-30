@@ -261,11 +261,33 @@ function pickSamples(texts: string[], n: number): string[] {
 
 // Only accept the new (v2) summary shape; old cached summaries lack `gaps` and
 // are treated as absent so the card cleanly falls back until regenerated.
+// Gap titles that are universal banalities, not app-specific insight. The model
+// is told to keep ads/price in `monetization` and skip stability complaints, but
+// for ad-heavy apps (streaming, drama-shorts) it ignores that and floods gaps
+// with "слишком много рекламы". We strip those deterministically at read time so
+// even stale (pre-prompt) summaries get cleaned without regeneration. Title-only:
+// legit gaps whose evidence merely mentions a crash in passing are kept.
+const BANAL_GAP_TITLE: RegExp[] = [
+  /реклам/i, // any ad complaint -> belongs in monetization, never a gap
+  /монетиз/i,
+  /вылет|краш|\bcrash/i,
+  /тормоз|зависа|подвиса|тупит|\bлаг(?:ает|и|\b)/i,
+  /глюч|глюк/i,
+  /нестабильн|нестаб\b/i,
+  /\bбаги?\b/i,
+  /(слишком )?дорог|завышенн?ая цена|высокая цена/i,
+];
+
+function isBanalGap(title: string): boolean {
+  return BANAL_GAP_TITLE.some((re) => re.test(title));
+}
+
 function parseSummary(raw: string | null): IdeaSummary | null {
   if (!raw) return null;
   try {
     const o = JSON.parse(raw) as IdeaSummary;
     if (!Array.isArray(o.gaps)) return null;
+    o.gaps = o.gaps.filter((g) => g?.title && !isBanalGap(g.title));
     return o;
   } catch {
     return null;
