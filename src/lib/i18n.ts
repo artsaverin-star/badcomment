@@ -37,6 +37,7 @@ type Dict = {
   };
   themes: { empty: string };
   ideas: { title: string; desc: string; empty: string; all: string };
+  deck: { prev: string; next: string };
   card: {
     toRebuild: string;
     complaints: (n: number) => string;
@@ -108,6 +109,7 @@ const DICT: Record<Locale, Dict> = {
       empty: "No ideas yet — run the ingest to collect reviews first.",
       all: "All",
     },
+    deck: { prev: "Previous", next: "Next" },
     card: {
       toRebuild: "to rebuild",
       complaints: (n) => `${n} complaints`,
@@ -216,6 +218,7 @@ const DICT: Record<Locale, Dict> = {
       empty: "Идей пока нет — сначала запустите сбор отзывов.",
       all: "Все",
     },
+    deck: { prev: "Назад", next: "Вперёд" },
     card: {
       toRebuild: "повторить",
       complaints: (n) => `${n} жалоб`,

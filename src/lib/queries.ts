@@ -207,6 +207,7 @@ export type IdeaCard = {
   id: string;
   name: string;
   icon: string | null;
+  screenshots: string[];
   developer: string | null;
   category: string | null;
   categoryLabel: string;
@@ -405,6 +406,7 @@ export async function getIdeaCards(
           offersIAP: true,
           sizeBytes: true,
           description: true,
+          screenshots: true,
           reviews: { select: { themes: true, text: true } },
           positives: { select: { loved: true, text: true } },
         },
@@ -464,6 +466,14 @@ export async function getIdeaCards(
       sizeBytes: Math.max(0, ...p.listings.map((l) => Number(l.sizeBytes ?? 0))) || null,
     });
 
+    // App Store shots are vertical phone frames (best for the hero); prefer
+    // them, fall back to any listing that has screenshots. Cap to keep payload
+    // small on the force-dynamic homepage.
+    const shotListing =
+      p.listings.find((l) => l.store === "apple" && l.screenshots) ??
+      p.listings.find((l) => l.screenshots);
+    const screenshots = parseKeys(shotListing?.screenshots ?? "[]").slice(0, 4);
+
     const conSamples = pickSamples(negTexts.map((r) => r.text), 32);
     const proSamples = pickSamples(posTexts.map((r) => r.text), 10);
     const summary = parseSummary(p.summary, locale);
@@ -513,6 +523,7 @@ export async function getIdeaCards(
       id: p.id,
       name: p.name,
       icon: p.icon,
+      screenshots,
       developer: p.developer,
       category: p.category,
       categoryLabel: categoryLabel(p.category ?? ""),

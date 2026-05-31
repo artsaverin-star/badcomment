@@ -1,5 +1,6 @@
 import Link from "next/link";
-import IdeaCardList from "@/components/IdeaCardList";
+import IdeaDeck from "@/components/IdeaDeck";
+import IdeaCardExploded from "@/components/IdeaCardExploded";
 import { getIdeaCards } from "@/lib/queries";
 import { getLocale, t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
 import { CATEGORIES } from "@/lib/categories";
@@ -41,8 +42,6 @@ export default async function Home({
   const tr = t(locale);
   const { cat, type } = await searchParams;
 
-  // Fetch the whole buildable deck once; derive tabs from what's actually
-  // present and slice/filter for display without a second query.
   const all = await getIdeaCards(500, null, true, locale);
   const present = new Set(
     all.map((c) => c.category).filter((c): c is string => c != null)
@@ -63,16 +62,23 @@ export default async function Home({
   let filtered = all;
   if (activeCat) filtered = filtered.filter((c) => c.category === activeCat);
   if (activeType) filtered = filtered.filter((c) => c.summary?.opportunityType === activeType);
-  const cards = activeCat || activeType ? filtered : filtered.slice(0, 60);
+
+  // Render each card to its exploded layout on the server, then hand the slides
+  // to the client swiper (keeps all i18n server-side; client only flips index).
+  // Cap the rendered slides so a single force-dynamic request doesn't serialize
+  // the whole deck; the strongest cards lead, so the top slice is the good stuff.
+  const slides = filtered
+    .slice(0, 50)
+    .map((card) => <IdeaCardExploded key={card.id} card={card} locale={locale} />);
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <header className="mb-6">
+    <main className="mx-auto max-w-5xl px-4 py-10">
+      <header className="mb-6 text-center">
         <h1 className="text-2xl font-bold">{tr.ideas.title}</h1>
-        <p className="text-sm text-neutral-500">{tr.ideas.desc}</p>
+        <p className="mx-auto max-w-xl text-sm text-neutral-500">{tr.ideas.desc}</p>
       </header>
 
-      <nav className="mb-3 flex flex-wrap gap-2">
+      <nav className="mb-3 flex flex-wrap justify-center gap-2">
         <Link href={deckHref({ type: activeType })} className={tabClass(!activeCat)}>
           {tr.ideas.all}
         </Link>
@@ -88,7 +94,7 @@ export default async function Home({
       </nav>
 
       {typeTabs.length > 0 && (
-        <nav className="mb-8 flex flex-wrap gap-2">
+        <nav className="mb-8 flex flex-wrap justify-center gap-2">
           <Link href={deckHref({ cat: activeCat })} className={tabClass(!activeType)}>
             {tr.ideas.all}
           </Link>
@@ -104,10 +110,10 @@ export default async function Home({
         </nav>
       )}
 
-      {cards.length === 0 ? (
-        <p className="text-sm text-neutral-500">{tr.ideas.empty}</p>
+      {slides.length === 0 ? (
+        <p className="text-center text-sm text-neutral-500">{tr.ideas.empty}</p>
       ) : (
-        <IdeaCardList cards={cards} locale={locale} />
+        <IdeaDeck slides={slides} prevLabel={tr.deck.prev} nextLabel={tr.deck.next} />
       )}
     </main>
   );

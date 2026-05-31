@@ -53,6 +53,7 @@ model App {
   offersIAP      Boolean? // google only
   sizeBytes      BigInt? // apple only (apps >2GB exceed 2^31)
   description    String? // store description, used for cloneability heuristics
+  screenshots    String? // JSON array of store screenshot URLs
   storeUpdatedAt DateTime?
   releasedAt     DateTime?
 

@@ -22,9 +22,17 @@ export type AppMetrics = {
   offersIAP: boolean | null;
   sizeBytes: number | null;
   description: string | null;
+  screenshots: string[] | null;
   storeUpdatedAt: Date | null;
   releasedAt: Date | null;
 };
+
+// Pull a clean string[] of screenshot URLs from a raw store app response.
+function toScreenshots(v: unknown): string[] | null {
+  if (!Array.isArray(v)) return null;
+  const urls = v.filter((s): s is string => typeof s === "string" && s.length > 0);
+  return urls.length ? urls : null;
+}
 
 export type AppMeta = {
   title: string;
@@ -75,6 +83,7 @@ export async function fetchAppMeta(
         offersIAP: typeof app.offersIAP === "boolean" ? app.offersIAP : null,
         sizeBytes: null,
         description: (app.description as string) ?? null,
+        screenshots: toScreenshots(app.screenshots),
         storeUpdatedAt: parseDate(app.updated),
         releasedAt: parseDate(app.released),
       },
@@ -94,6 +103,7 @@ export async function fetchAppMeta(
       offersIAP: null,
       sizeBytes: toInt(app.size),
       description: (app.description as string) ?? null,
+      screenshots: toScreenshots(app.screenshots),
       storeUpdatedAt: parseDate(app.updated),
       releasedAt: parseDate(app.released),
     },

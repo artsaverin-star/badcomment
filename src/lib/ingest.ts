@@ -47,6 +47,7 @@ function metricColumns(m: AppMetrics) {
     offersIAP: m.offersIAP,
     sizeBytes: toBigInt(m.sizeBytes),
     description: m.description,
+    screenshots: m.screenshots ? JSON.stringify(m.screenshots) : null,
     storeUpdatedAt: m.storeUpdatedAt,
     releasedAt: m.releasedAt,
   };
@@ -219,6 +220,7 @@ export async function ingestListing(
     offersIAP: null,
     sizeBytes: null,
     description: null,
+    screenshots: null,
     storeUpdatedAt: null,
     releasedAt: null,
   };

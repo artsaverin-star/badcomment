@@ -48,3 +48,10 @@ dev.db-journal
 
 # claude local settings
 .claude/settings.local.json
+
+# authoring-pipeline scratch dumps (generated, regenerable, not source)
+/batch*.json
+/cards.jsonl
+/harvest.json
+/scores.json
+/selected.json
