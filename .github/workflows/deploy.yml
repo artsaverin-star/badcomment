@@ -1,0 +1,54 @@
+name: Deploy
+
+# CI on every push/PR; deploy to the prod VM only on push to main, and only
+# once the box is wired up (set repo variable DEPLOY_ENABLED=true + the secrets
+# listed below). Until then the deploy job is skipped, so merging is always safe.
+#
+# Required to enable deploys (Settings → Secrets and variables → Actions):
+#   Variable  DEPLOY_ENABLED     = true
+#   Secret    DEPLOY_HOST        = 51.250.11.225
+#   Secret    DEPLOY_USER        = ubuntu
+#   Secret    DEPLOY_SSH_KEY     = <private key whose public half is in the box's authorized_keys>
+#   Secret    DEPLOY_KNOWN_HOSTS = <output of: ssh-keyscan -t ed25519 51.250.11.225>
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: false
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx prisma generate
+      - run: npx tsc --noEmit
+
+  deploy:
+    needs: ci
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true' }}
+    environment: production
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: Run deploy.sh on the VM
+        run: |
+          ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            'cd /opt/badcomment && bash deploy/deploy.sh'
