@@ -7,7 +7,7 @@ name: Deploy
 # Required to enable deploys (Settings → Secrets and variables → Actions):
 #   Variable  DEPLOY_ENABLED     = true
 #   Secret    DEPLOY_HOST        = 51.250.11.225
-#   Secret    DEPLOY_USER        = ubuntu
+#   Secret    DEPLOY_USER        = artsaverin
 #   Secret    DEPLOY_SSH_KEY     = <private key whose public half is in the box's authorized_keys>
 #   Secret    DEPLOY_KNOWN_HOSTS = <output of: ssh-keyscan -t ed25519 51.250.11.225>
 
@@ -22,6 +22,10 @@ concurrency:
   group: deploy-main
   cancel-in-progress: false
 
+env:
+  # Run JS-based actions on Node 24 (silences the Node 20 deprecation warning).
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -34,6 +38,7 @@ jobs:
       - run: npm ci
       - run: npx prisma generate
       - run: npx tsc --noEmit
+      - run: npm run lint
 
   deploy:
     needs: ci
