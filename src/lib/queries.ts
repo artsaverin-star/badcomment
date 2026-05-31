@@ -385,7 +385,14 @@ export async function getIdeaCards(
   locale: Locale = "ru"
 ): Promise<IdeaCard[]> {
   const products = await prisma.product.findMany({
-    where: category ? { category } : { category: { not: null } },
+    where: {
+      ...(category ? { category } : { category: { not: null } }),
+      // Display path (requireSummary) only ever keeps summary-bearing products,
+      // so filter them in SQL instead of loading every product's reviews and
+      // discarding the unsummarized ~85% in JS — that full scan made the
+      // force-dynamic homepage take ~30s once the DB grew to thousands of apps.
+      ...(requireSummary ? { summary: { not: null } } : {}),
+    },
     include: {
       listings: {
         select: {
