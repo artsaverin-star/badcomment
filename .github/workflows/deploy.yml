@@ -38,7 +38,7 @@ jobs:
   deploy:
     needs: ci
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true' }}
+    if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true' }}
     environment: production
     steps:
       - name: Configure SSH
