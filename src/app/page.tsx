@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { Header } from "@saverin/ui-web";
 import IdeaDeck from "@/components/IdeaDeck";
-import IdeaCardExploded from "@/components/IdeaCardExploded";
+import IdeaCardDeck from "@/components/IdeaCardDeck";
 import { getIdeaCards } from "@/lib/queries";
 import { getLocale, t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
 import { CATEGORIES } from "@/lib/categories";
@@ -18,10 +19,10 @@ const TYPE_ORDER: OpportunityType[] = [
 ];
 
 function tabClass(active: boolean) {
-  return `rounded-full px-3 py-1 text-sm transition-colors ${
+  return `rounded-full px-3 py-1 text-[13px] font-medium transition-colors [font-family:var(--brand-font-family)] ${
     active
-      ? "bg-red-600 text-white"
-      : "bg-black/5 text-neutral-600 hover:bg-black/10 dark:bg-white/10 dark:text-neutral-300 dark:hover:bg-white/20"
+      ? "bg-[var(--color-accent-brand)] text-[var(--color-button-primary-text)]"
+      : "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
   }`;
 }
 
@@ -69,14 +70,18 @@ export default async function Home({
   // the whole deck; the strongest cards lead, so the top slice is the good stuff.
   const slides = filtered
     .slice(0, 50)
-    .map((card) => <IdeaCardExploded key={card.id} card={card} locale={locale} />);
+    .map((card) => <IdeaCardDeck key={card.id} card={card} locale={locale} />);
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
-      <header className="mb-6 text-center">
-        <h1 className="text-2xl font-bold">{tr.ideas.title}</h1>
-        <p className="mx-auto max-w-xl text-sm text-neutral-500">{tr.ideas.desc}</p>
-      </header>
+      <Header
+        size="L"
+        as="h1"
+        className="mb-6 items-center text-center"
+        title={tr.ideas.title}
+        description={<span className="mx-auto block max-w-xl">{tr.ideas.desc}</span>}
+      />
+
 
       <nav className="mb-3 flex flex-wrap justify-center gap-2">
         <Link href={deckHref({ type: activeType })} className={tabClass(!activeCat)}>
@@ -111,7 +116,7 @@ export default async function Home({
       )}
 
       {slides.length === 0 ? (
-        <p className="text-center text-sm text-neutral-500">{tr.ideas.empty}</p>
+        <p className="text-center text-[15px] text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
         <IdeaDeck slides={slides} prevLabel={tr.deck.prev} nextLabel={tr.deck.next} />
       )}

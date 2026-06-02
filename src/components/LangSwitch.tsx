@@ -19,7 +19,7 @@ export default function LangSwitch({ locale }: { locale: Locale }) {
 
   return (
     <div
-      className="flex items-center rounded-full border border-black/10 p-0.5 text-xs font-medium dark:border-white/15"
+      className="flex items-center rounded-full border border-[var(--color-border-default)] p-0.5 text-[13px] font-medium [font-family:var(--brand-font-family)]"
       aria-busy={pending}
     >
       {(["en", "ru"] as Locale[]).map((l) => (
@@ -27,10 +27,10 @@ export default function LangSwitch({ locale }: { locale: Locale }) {
           key={l}
           onClick={() => set(l)}
           aria-pressed={l === locale}
-          className={`rounded-full px-2.5 py-1 transition ${
+          className={`rounded-full px-2.5 py-1 transition-colors ${
             l === locale
-              ? "bg-red-600 text-white"
-              : "text-neutral-500 hover:text-neutral-900 dark:hover:text-white"
+              ? "bg-[var(--color-accent-brand)] text-[var(--color-button-primary-text)]"
+              : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
           }`}
         >
           {LABELS[l]}

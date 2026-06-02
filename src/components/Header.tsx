@@ -4,10 +4,13 @@ import type { Locale } from "@/lib/i18n";
 
 export default function Header({ locale }: { locale: Locale }) {
   return (
-    <header className="sticky top-0 z-10 border-b border-black/10 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-neutral-950/80">
-      <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
-        <Link href="/" className="text-lg font-bold tracking-tight">
-          bad<span className="text-red-600">comment</span>
+    <header className="sticky top-0 z-20 border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-page)]/85 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
+        <Link
+          href="/"
+          className="text-[20px] font-bold tracking-[-0.3px] text-[var(--color-text-primary)] [font-family:var(--brand-font-family)]"
+        >
+          bad<span className="text-[var(--color-text-brand)]">comment</span>
         </Link>
         <LangSwitch locale={locale} />
       </div>

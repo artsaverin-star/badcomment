@@ -140,16 +140,25 @@ export type ProductDetail = {
   icon: string | null;
   developer: string | null;
   category: string | null;
+  categoryLabel: string;
   stores: Store[];
   totalNegative: number;
   themeStats: ThemeStat[];
   byStore: StoreBreakdown[];
   reviews: ReviewView[];
+  // Store screenshots (Apple-first) + the authored idea summary, so the detail
+  // page can render the curated "what's broken / loved / how to beat" breakdown.
+  screenshots: string[];
+  summary: IdeaSummary | null;
 };
 
 // Full cross-store view of one product: merged complaint themes, a per-store
-// breakdown, and the combined negative-review stream from both stores.
-export async function getProductDetail(id: string): Promise<ProductDetail | null> {
+// breakdown, the combined negative-review stream, plus store screenshots and the
+// authored idea summary for the curated breakdown.
+export async function getProductDetail(
+  id: string,
+  locale: Locale = "ru"
+): Promise<ProductDetail | null> {
   const product = await prisma.product.findUnique({
     where: { id },
     include: {
@@ -189,17 +198,26 @@ export async function getProductDetail(id: string): Promise<ProductDetail | null
       })(),
     }));
 
+  // Apple shots are vertical phone frames (best for the hero); prefer them.
+  const shotListing =
+    product.listings.find((l) => l.store === "apple" && l.screenshots) ??
+    product.listings.find((l) => l.screenshots);
+  const screenshots = parseKeys(shotListing?.screenshots ?? "[]").slice(0, 4);
+
   return {
     id: product.id,
     name: product.name,
     icon: product.icon,
     developer: product.developer,
     category: product.category,
+    categoryLabel: categoryLabel(product.category ?? ""),
     stores: [...new Set(product.listings.map((l) => l.store as Store))],
     totalNegative: allReviews.length,
     themeStats: countThemes(allReviews.map((r) => r.themes)),
     byStore,
     reviews,
+    screenshots,
+    summary: parseSummary(product.summary, locale),
   };
 }
 

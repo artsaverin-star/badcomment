@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
 import { getLocale } from "@/lib/i18n";
@@ -29,6 +30,8 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
+      data-theme="light"
+      data-brand="saverin"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">

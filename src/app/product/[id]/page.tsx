@@ -1,12 +1,26 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ThemeBars from "@/components/ThemeBars";
+import { Card, Header, TextBlock, Quote, ListRow, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
-import { getLocale, t, categoryLabelL, themeLabelL } from "@/lib/i18n";
+import { getLocale, t, categoryLabelL, lovedLabelL } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
 const STORE_LABEL: Record<string, string> = { google: "Google Play", apple: "App Store" };
+
+function Check() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M5 13l4 4L19 7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export default async function ProductDetail({
   params,
@@ -16,94 +30,131 @@ export default async function ProductDetail({
   const { id } = await params;
   const locale = await getLocale();
   const tr = t(locale);
-  const data = await getProductDetail(id);
+  const data = await getProductDetail(id, locale);
   if (!data) notFound();
 
+  const s = data.summary;
+  const metaLine = [
+    data.developer,
+    data.stores.map((st) => STORE_LABEL[st]).join(" + "),
+    tr.product.negativeReviews(data.totalNegative),
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
-      <Link href="/" className="text-sm text-neutral-500 hover:underline">
+    <main className="mx-auto max-w-4xl px-4 py-8">
+      <Link
+        href="/"
+        className={cn(buttonVariants({ variant: "ghost", size: "S" }), "mb-6")}
+      >
         {tr.nav.back}
       </Link>
 
-      <header className="mb-8 mt-4 flex items-center gap-4">
-        {data.icon ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={data.icon} alt="" className="h-16 w-16 rounded-xl" />
-        ) : (
-          <div className="h-16 w-16 rounded-xl bg-black/10 dark:bg-white/10" />
-        )}
-        <div className="min-w-0">
-          <h1 className="text-2xl font-bold">{data.name}</h1>
-          <p className="text-sm text-neutral-500">
-            {data.developer ? `${data.developer} · ` : ""}
-            {data.stores.map((s) => STORE_LABEL[s]).join(" + ")} ·{" "}
-            {tr.product.negativeReviews(data.totalNegative)}
-            {data.category ? (
-              <>
-                {" · "}
-                <Link href={`/category/${data.category}`} className="hover:underline">
-                  {categoryLabelL(locale, data.category)}
-                </Link>
-              </>
-            ) : null}
-          </p>
-        </div>
-      </header>
-
-      <section className="mb-10">
-        <h2 className="mb-3 text-lg font-semibold">{tr.product.themesBoth}</h2>
-        <ThemeBars stats={data.themeStats} locale={locale} />
-      </section>
-
-      {data.stores.length > 1 && (
-        <section className="mb-10 grid gap-6 sm:grid-cols-2">
-          {data.byStore.map((b) => (
-            <div key={b.store}>
-              <h3 className="mb-3 text-sm font-semibold text-neutral-500">
-                {tr.product.storeReviews(STORE_LABEL[b.store], b.count)}
-              </h3>
-              <ThemeBars stats={b.themeStats} locale={locale} />
-            </div>
+      {/* ── Promo: screenshots + identity ───────────────── */}
+      {data.screenshots.length > 0 && (
+        <div className="mb-6 flex gap-3 overflow-x-auto">
+          {data.screenshots.map((src) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={src}
+              src={src}
+              alt=""
+              className="h-[300px] w-[145px] shrink-0 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] object-cover object-top"
+            />
           ))}
-        </section>
+        </div>
       )}
 
-      <section>
-        <h2 className="mb-3 text-lg font-semibold">{tr.product.negativeHeading}</h2>
-        <ul className="flex flex-col gap-3">
-          {data.reviews.map((r) => (
-            <li
-              key={r.id}
-              className="rounded-xl border border-black/10 bg-white p-4 dark:border-white/10 dark:bg-neutral-900"
-            >
-              <div className="mb-1 flex items-center justify-between gap-2">
-                <span className="text-sm font-medium text-red-600">
-                  {"★".repeat(r.rating)}
-                  {"☆".repeat(5 - r.rating)}
-                </span>
-                <span className="text-xs text-neutral-400">
-                  {STORE_LABEL[r.store]} · {r.author ?? tr.product.anon}
-                  {r.postedAt ? ` · ${r.postedAt.toISOString().slice(0, 10)}` : ""}
-                </span>
-              </div>
-              {r.title && <p className="font-medium">{r.title}</p>}
-              <p className="text-sm text-neutral-600 dark:text-neutral-300">{r.text}</p>
-              {r.themes.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-1">
-                  {r.themes.map((themeKey) => (
-                    <span
-                      key={themeKey}
-                      className="rounded-full bg-red-100 px-2 py-0.5 text-xs text-red-700 dark:bg-red-950 dark:text-red-300"
-                    >
-                      {themeLabelL(locale, themeKey)}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </li>
+      <Card className="mb-6">
+        <div className="flex items-center gap-4">
+          {data.icon ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={data.icon} alt="" className="h-16 w-16 shrink-0 rounded-[var(--radius-lg)]" />
+          ) : (
+            <div className="h-16 w-16 shrink-0 rounded-[var(--radius-lg)] bg-[var(--color-surface-card-subtle)]" />
+          )}
+          <Header
+            size="M"
+            as="h1"
+            className="min-w-0"
+            title={data.name}
+            description={metaLine}
+          />
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {data.category && (
+            <Link href={`/category/${data.category}`}>
+              <Tag tone="brand" size="M">
+                {categoryLabelL(locale, data.category)}
+              </Tag>
+            </Link>
+          )}
+          {data.stores.map((st) => (
+            <Tag key={st} tone="neutral" size="M">
+              {STORE_LABEL[st]}
+            </Tag>
           ))}
-        </ul>
-      </section>
+        </div>
+        {s?.opportunity && (
+          <TextBlock size="M" title={s.verdict || s.tagline || data.name} description={s.opportunity} />
+        )}
+      </Card>
+
+      <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
+        {/* ── What's broken ───────────────────────────── */}
+        <Card>
+          <Header size="S" as="h2" title={tr.card.gaps} />
+          <div className="flex flex-col gap-6">
+            {s && s.gaps.length > 0
+              ? s.gaps.map((gap) => (
+                  <div key={gap.title} className="flex flex-col gap-2">
+                    <TextBlock size="M" title={gap.title} description={gap.evidence} />
+                    {gap.quote && <Quote size="S">{gap.quote}</Quote>}
+                  </div>
+                ))
+              : data.reviews.slice(0, 8).map((r) => (
+                  <div key={r.id} className="flex flex-col gap-2">
+                    <TextBlock
+                      size="M"
+                      title={`${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}`}
+                      description={`${STORE_LABEL[r.store]} · ${r.author ?? tr.product.anon}`}
+                    />
+                    <Quote size="S">{r.text}</Quote>
+                  </div>
+                ))}
+          </div>
+        </Card>
+
+        {/* ── Side column: loved + how to beat ─────────── */}
+        <div className="flex flex-col gap-6">
+          {s && s.loved.length > 0 && (
+            <Card>
+              <Header size="S" as="h2" title={tr.card.love} />
+              <div className="flex flex-col gap-3">
+                {s.loved.map((key) => (
+                  <ListRow key={key} size="M" icon={<Check />}>
+                    {lovedLabelL(locale, key)}
+                  </ListRow>
+                ))}
+              </div>
+            </Card>
+          )}
+
+          {s && s.wedge.length > 0 && (
+            <Card>
+              <Header size="S" as="h2" title={tr.card.howToBeat} />
+              <div className="flex flex-col gap-3">
+                {s.wedge.map((move) => (
+                  <ListRow key={move} size="M" icon={<Check />}>
+                    {move}
+                  </ListRow>
+                ))}
+              </div>
+            </Card>
+          )}
+        </div>
+      </div>
     </main>
   );
 }
