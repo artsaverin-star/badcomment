@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Card,
   Header,
@@ -90,7 +90,6 @@ export default function IdeaCardDeck({
   // unmount on transitionEnd.
   const [mounted, setMounted] = useState(expanded);
   const [shown, setShown] = useState(expanded);
-  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!expanded) {
@@ -102,10 +101,7 @@ export default function IdeaCardDeck({
     setMounted(true);
     let r2 = 0;
     const r1 = requestAnimationFrame(() => {
-      r2 = requestAnimationFrame(() => {
-        setShown(true);
-        panelRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      });
+      r2 = requestAnimationFrame(() => setShown(true));
     });
     return () => {
       cancelAnimationFrame(r1);
@@ -173,7 +169,7 @@ export default function IdeaCardDeck({
       {card.screenshots.length > 0 && (
         <div
           className={cn(
-            "flex w-full items-center justify-center gap-2 overflow-hidden transition-all duration-500",
+            "flex w-full items-center justify-center gap-2 overflow-hidden transition-[height,margin] duration-500",
             EASE,
             expanded ? "h-[422px] -mx-4 sm:-mx-8" : "h-[280px]",
           )}
@@ -211,9 +207,8 @@ export default function IdeaCardDeck({
         >
           <div className="min-h-0 overflow-hidden">
             <div
-              ref={panelRef}
               className={cn(
-                "scroll-mt-20 transition-opacity duration-500 ease-out",
+                "transition-opacity duration-500 ease-out",
                 shown ? "opacity-100" : "opacity-0",
               )}
             >
