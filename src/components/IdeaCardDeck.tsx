@@ -13,22 +13,9 @@ import { t, categoryLabelL, type Locale } from "@/lib/i18n";
 
 function BookmarkIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 13.6667 17" fill="none" aria-hidden="true">
       <path
-        d="M6 4h12a1 1 0 0 1 1 1v15l-7-4-7 4V5a1 1 0 0 1 1-1z"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function PersonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"
+        d="M12.6667 16L6.83333 11.8333L1 16V2.66667C1 2.22464 1.17559 1.80072 1.48816 1.48816C1.80072 1.17559 2.22464 1 2.66667 1H11C11.442 1 11.866 1.17559 12.1785 1.48816C12.4911 1.80072 12.6667 2.22464 12.6667 2.66667V16Z"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
@@ -38,10 +25,30 @@ function PersonIcon() {
   );
 }
 
+function PersonIcon() {
+  return (
+    <svg viewBox="0 0 10.5003 11.667" fill="none" aria-hidden="true">
+      <path
+        d="M9.91683 11.0835V9.91683C9.91683 9.29799 9.671 8.7045 9.23342 8.26692C8.79583 7.82933 8.20234 7.5835 7.5835 7.5835H2.91683C2.29799 7.5835 1.7045 7.82933 1.26692 8.26692C0.829333 8.7045 0.5835 9.29799 0.5835 9.91683V11.0835M7.5835 2.91683C7.5835 4.2055 6.53883 5.25017 5.25017 5.25017C3.9615 5.25017 2.91683 4.2055 2.91683 2.91683C2.91683 1.62817 3.9615 0.5835 5.25017 0.5835C6.53883 0.5835 7.5835 1.62817 7.5835 2.91683Z"
+        stroke="currentColor"
+        strokeWidth="1.167"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function StarIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 8.9l6.9-.6L12 2z" />
+    <svg viewBox="0 0 12.8337 12.262" fill="none" aria-hidden="true">
+      <path
+        d="M6.41685 0.5835L8.21935 4.23517L12.2502 4.82433L9.33352 7.66517L10.0219 11.6785L6.41685 9.78267L2.81185 11.6785L3.50018 7.66517L0.583517 4.82433L4.61435 4.23517L6.41685 0.5835Z"
+        stroke="currentColor"
+        strokeWidth="1.167"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -66,7 +73,7 @@ export default function IdeaCardDeck({
       : null;
 
   return (
-    <Card className="h-full w-full gap-4">
+    <Card className="w-full gap-4 p-4 sm:p-8">
       {/* Brand block: topbar (logo + name + bookmark) and the full-width tagline */}
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full items-start gap-4">
@@ -148,7 +155,10 @@ export default function IdeaCardDeck({
 
       <Link
         href={`/product/${card.id}`}
-        className={cn(buttonVariants({ variant: "primary", size: "L" }), "w-full")}
+        className={cn(
+          buttonVariants({ variant: "primary", size: "L" }),
+          "h-[54px] w-full text-[17px] leading-[22px]",
+        )}
       >
         {tr.nav.seeAllReviews}
       </Link>

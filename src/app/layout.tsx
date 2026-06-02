@@ -29,7 +29,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      data-theme="light"
+      data-theme="dark"
       data-brand="saverin"
       className={`${nunito.variable} h-full antialiased`}
     >

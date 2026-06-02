@@ -114,7 +114,7 @@ export default async function Home({
       {cards.length === 0 ? (
         <p className="text-center text-[15px] text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
-        <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2">
+        <div className="mx-auto grid max-w-[784px] grid-cols-1 items-start gap-4 sm:grid-cols-2">
           {cards.map((card) => (
             <IdeaCardDeck key={card.id} card={card} locale={locale} />
           ))}
