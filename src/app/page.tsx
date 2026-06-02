@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Header } from "@saverin/ui-web";
-import IdeaCardDeck from "@/components/IdeaCardDeck";
+import IdeaFeed from "@/components/IdeaFeed";
 import { getIdeaCards } from "@/lib/queries";
-import { getLocale, t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
+import { t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
+import { getLocale } from "@/lib/i18n.server";
 import { CATEGORIES } from "@/lib/categories";
 import type { OpportunityType } from "@/lib/summarize";
 
@@ -114,11 +115,7 @@ export default async function Home({
       {cards.length === 0 ? (
         <p className="text-center text-[15px] text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
-        <div className="mx-auto grid max-w-[784px] grid-cols-1 items-start gap-4 sm:grid-cols-2">
-          {cards.map((card) => (
-            <IdeaCardDeck key={card.id} card={card} locale={locale} />
-          ))}
-        </div>
+        <IdeaFeed cards={cards} locale={locale} />
       )}
     </main>
   );

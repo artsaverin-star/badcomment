@@ -8,8 +8,11 @@ import {
   buttonVariants,
   cn,
 } from "@saverin/ui-web";
-import { formatCount, type IdeaCard } from "@/lib/queries";
+import type { IdeaCard } from "@/lib/queries";
+import { formatCount } from "@/lib/format";
 import { t, categoryLabelL, type Locale } from "@/lib/i18n";
+
+const CTA_CLASS = "h-[54px] w-full text-[17px] leading-[22px]";
 
 function BookmarkIcon() {
   return (
@@ -60,9 +63,15 @@ function StarIcon() {
 export default function IdeaCardDeck({
   card,
   locale,
+  onOpen,
+  expanded = false,
 }: {
   card: IdeaCard;
   locale: Locale;
+  // When provided (feed context), the CTA toggles an inline detail view instead
+  // of navigating to /product/[id]. Omitted elsewhere → CTA stays a real link.
+  onOpen?: () => void;
+  expanded?: boolean;
 }) {
   const tr = t(locale);
   const s = card.summary;
@@ -153,15 +162,23 @@ export default function IdeaCardDeck({
         />
       )}
 
-      <Link
-        href={`/product/${card.id}`}
-        className={cn(
-          buttonVariants({ variant: "primary", size: "L" }),
-          "h-[54px] w-full text-[17px] leading-[22px]",
-        )}
-      >
-        {tr.nav.seeAllReviews}
-      </Link>
+      {onOpen ? (
+        <button
+          type="button"
+          onClick={onOpen}
+          aria-expanded={expanded}
+          className={cn(buttonVariants({ variant: "primary", size: "L" }), CTA_CLASS)}
+        >
+          {expanded ? tr.nav.collapse : tr.nav.more}
+        </button>
+      ) : (
+        <Link
+          href={`/product/${card.id}`}
+          className={cn(buttonVariants({ variant: "primary", size: "L" }), CTA_CLASS)}
+        >
+          {tr.nav.more}
+        </Link>
+      )}
     </Card>
   );
 }

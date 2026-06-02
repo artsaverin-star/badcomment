@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategoryProducts } from "@/lib/queries";
 import { getCategory } from "@/lib/categories";
-import { getLocale, t, categoryLabelL, themeLabelL } from "@/lib/i18n";
+import { t, categoryLabelL, themeLabelL } from "@/lib/i18n";
+import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 

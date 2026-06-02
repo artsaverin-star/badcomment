@@ -2,7 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Card, Header, TextBlock, Quote, ListRow, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
-import { getLocale, t, categoryLabelL, lovedLabelL } from "@/lib/i18n";
+import { t, categoryLabelL, lovedLabelL } from "@/lib/i18n";
+import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 

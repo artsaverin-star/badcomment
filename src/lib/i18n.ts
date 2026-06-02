@@ -1,14 +1,10 @@
-import { cookies } from "next/headers";
-
+// Pure, client-safe i18n. The cookie-reading getLocale() lives in i18n.server.ts
+// so this module can be imported from client components (feed/detail) without
+// pulling in next/headers.
 export type Locale = "en" | "ru";
 export const LOCALES: Locale[] = ["en", "ru"];
 export const DEFAULT_LOCALE: Locale = "en";
 export const LOCALE_COOKIE = "locale";
-
-export async function getLocale(): Promise<Locale> {
-  const v = (await cookies()).get(LOCALE_COOKIE)?.value;
-  return v === "ru" ? "ru" : "en";
-}
 
 type Dict = {
   nav: {
@@ -16,6 +12,8 @@ type Dict = {
     allDirections: string;
     back: string;
     seeAllReviews: string;
+    more: string;
+    collapse: string;
   };
   home: {
     tagline: string;
@@ -81,6 +79,8 @@ const DICT: Record<Locale, Dict> = {
       allDirections: "← All directions",
       back: "← Back",
       seeAllReviews: "See all reviews →",
+      more: "Details",
+      collapse: "Collapse",
     },
     home: {
       tagline:
@@ -190,6 +190,8 @@ const DICT: Record<Locale, Dict> = {
       allDirections: "← Все направления",
       back: "← Назад",
       seeAllReviews: "Все отзывы →",
+      more: "Подробнее",
+      collapse: "Свернуть",
     },
     home: {
       tagline:

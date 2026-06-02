@@ -3,7 +3,7 @@ import { Nunito } from "next/font/google";
 import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
-import { getLocale } from "@/lib/i18n";
+import { getLocale } from "@/lib/i18n.server";
 
 // The @saverin design system's brand font is "SF Compact Rounded" (Apple-only,
 // not distributable on the web). Nunito is the closest free rounded face and is

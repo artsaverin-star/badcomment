@@ -1,4 +1,5 @@
 import { prisma } from "./prisma";
+import { formatCount } from "./format";
 import { THEMES, LOVED_THEMES } from "./themes";
 import { CATEGORIES, categoryLabel } from "./categories";
 import { scoreCloneability, isBrandStorefront, isRewardFarm } from "./cloneability";
@@ -382,12 +383,7 @@ function demandCurve(popProxy: number | null, rank: number | null): number {
   return 1 + 7 * g;
 }
 
-export function formatCount(n: number): string {
-  if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(n % 1_000_000_000 ? 1 : 0)}B`;
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(n % 1_000_000 ? 1 : 0)}M`;
-  if (n >= 1_000) return `${Math.round(n / 1_000)}K`;
-  return String(n);
-}
+export { formatCount } from "./format";
 
 // Rank products as buildable opportunities: proven demand (installs/ratings)
 // times how much there is to fix (complaint volume + concentration), divided by

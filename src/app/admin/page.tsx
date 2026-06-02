@@ -1,7 +1,8 @@
 import Link from "next/link";
 import IdeaCardList from "@/components/IdeaCardList";
 import { getIdeaCards } from "@/lib/queries";
-import { getLocale, t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
+import { t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
+import { getLocale } from "@/lib/i18n.server";
 import { CATEGORIES } from "@/lib/categories";
 import type { OpportunityType } from "@/lib/summarize";
 
