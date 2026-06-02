@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Card,
   Header,
@@ -92,7 +92,6 @@ export default function IdeaCardDeck({
   // unmount on transitionEnd.
   const [mounted, setMounted] = useState(expanded);
   const [shown, setShown] = useState(expanded);
-  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!expanded) {
@@ -108,14 +107,13 @@ export default function IdeaCardDeck({
       return;
     }
     // Mount collapsed, then flip open next frame so grid-rows transitions.
+    // No scrollIntoView: the card grows in place and overflow-anchor:none keeps
+    // the viewport put, so nothing yanks the page.
     setMounted(true);
     let r2 = 0;
     const r1 = requestAnimationFrame(() => {
       r2 = requestAnimationFrame(() => {
         setShown(true);
-        // Anchor the viewport to the top of the card so the user reads the
-        // expanded card from its start, never gets dragged to its end.
-        rootRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
     return () => {
@@ -125,7 +123,7 @@ export default function IdeaCardDeck({
   }, [expanded, othersOpen]);
 
   return (
-    <Card ref={rootRef} className="w-full scroll-mt-24 gap-4 border-transparent p-4 shadow-none sm:p-8">
+    <Card className="w-full gap-4 border-transparent p-4 shadow-none sm:p-8">
       {/* Brand block: topbar (logo + name + bookmark) and the full-width tagline */}
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full items-start gap-4">
