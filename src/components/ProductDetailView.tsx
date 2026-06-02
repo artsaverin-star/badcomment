@@ -68,7 +68,7 @@ export default function ProductDetailView({
       {/* Hero: overlapping screenshots + floating identity card */}
       <div className="flex flex-col">
         {card.screenshots.length > 0 && (
-          <div className="relative z-0 -mb-8 flex items-start justify-center gap-2 px-2">
+          <div className="relative z-0 -mb-8 flex items-start justify-center gap-2 overflow-hidden px-2">
             {card.screenshots.slice(0, 4).map((src) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img

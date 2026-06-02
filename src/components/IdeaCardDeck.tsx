@@ -139,7 +139,7 @@ export default function IdeaCardDeck({
 
       {/* Store screenshots */}
       {card.screenshots.length > 0 && (
-        <div className="flex h-[160px] w-full items-center gap-2 overflow-hidden">
+        <div className="flex h-[280px] w-full items-center gap-2 overflow-hidden">
           {card.screenshots.slice(0, 4).map((src) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
