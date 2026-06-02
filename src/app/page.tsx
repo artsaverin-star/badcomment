@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Header } from "@saverin/ui-web";
-import IdeaDeck from "@/components/IdeaDeck";
 import IdeaCardDeck from "@/components/IdeaCardDeck";
 import { getIdeaCards } from "@/lib/queries";
 import { getLocale, t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
@@ -64,13 +63,10 @@ export default async function Home({
   if (activeCat) filtered = filtered.filter((c) => c.category === activeCat);
   if (activeType) filtered = filtered.filter((c) => c.summary?.opportunityType === activeType);
 
-  // Render each card to its exploded layout on the server, then hand the slides
-  // to the client swiper (keeps all i18n server-side; client only flips index).
-  // Cap the rendered slides so a single force-dynamic request doesn't serialize
-  // the whole deck; the strongest cards lead, so the top slice is the good stuff.
-  const slides = filtered
-    .slice(0, 50)
-    .map((card) => <IdeaCardDeck key={card.id} card={card} locale={locale} />);
+  // The feed renders each card server-side. Cap the count so a single
+  // force-dynamic request doesn't serialize the whole deck on the small prod box;
+  // the strongest cards lead, so the top slice is the good stuff.
+  const cards = filtered.slice(0, 60);
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
@@ -115,10 +111,14 @@ export default async function Home({
         </nav>
       )}
 
-      {slides.length === 0 ? (
+      {cards.length === 0 ? (
         <p className="text-center text-[15px] text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
-        <IdeaDeck slides={slides} prevLabel={tr.deck.prev} nextLabel={tr.deck.next} />
+        <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2">
+          {cards.map((card) => (
+            <IdeaCardDeck key={card.id} card={card} locale={locale} />
+          ))}
+        </div>
       )}
     </main>
   );

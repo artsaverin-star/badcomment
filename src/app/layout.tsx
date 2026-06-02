@@ -1,18 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
 import { getLocale } from "@/lib/i18n";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+// The @saverin design system's brand font is "SF Compact Rounded" (Apple-only,
+// not distributable on the web). Nunito is the closest free rounded face and is
+// wired in as the cross-platform fallback (see --brand-font-family in
+// globals.css). Cyrillic subset is required for the Russian UI.
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ export default async function RootLayout({
       lang={locale}
       data-theme="light"
       data-brand="saverin"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${nunito.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header locale={locale} />

@@ -4,28 +4,20 @@
    utilities the DS atoms reference (bg-[var(--…)], rounded-[var(--…)], etc.). */
 @source "../../node_modules/@saverin/ui-web/src";
 
+/* The DS sets --brand-font-family to "SF Compact Rounded" (Apple-only, not
+   web-loadable) with no fallback, so atoms render in a system serif everywhere
+   off-Apple. Redefine it as a real stack: genuine SF Rounded on Apple
+   (ui-rounded), the loaded Nunito webfont everywhere else. Scoped to :root so the
+   yandex brand override still wins for that brand. */
+:root {
+  --brand-font-family: "SF Compact Rounded", "SF Pro Rounded", ui-rounded,
+    var(--font-nunito), system-ui, sans-serif;
+}
+
 /* Page chrome is fully token-driven; theme/brand swap via data-theme/data-brand
    on <html> (set in layout.tsx). No hardcoded colors here. */
 body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
-  font-family: var(--brand-font-family), ui-rounded, system-ui, sans-serif;
-}
-
-/* ── Idea deck: a card "explodes" its complaints outward on each flip ── */
-@keyframes deck-in-next {
-  from { opacity: 0; transform: translateX(36px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes deck-in-prev {
-  from { opacity: 0; transform: translateX(-36px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-.deck-stage.deck-next { animation: deck-in-next 0.35s ease-out both; }
-.deck-stage.deck-prev { animation: deck-in-prev 0.35s ease-out both; }
-
-@media (prefers-reduced-motion: reduce) {
-  .deck-stage {
-    animation: none;
-  }
+  font-family: var(--brand-font-family);
 }
