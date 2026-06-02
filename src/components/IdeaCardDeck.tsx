@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Card,
   Header,
@@ -90,6 +90,7 @@ export default function IdeaCardDeck({
   // unmount on transitionEnd.
   const [mounted, setMounted] = useState(expanded);
   const [shown, setShown] = useState(expanded);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!expanded) {
@@ -101,7 +102,12 @@ export default function IdeaCardDeck({
     setMounted(true);
     let r2 = 0;
     const r1 = requestAnimationFrame(() => {
-      r2 = requestAnimationFrame(() => setShown(true));
+      r2 = requestAnimationFrame(() => {
+        setShown(true);
+        // Anchor the viewport to the top of the card so the user reads the
+        // expanded card from its start, never gets dragged to its end.
+        rootRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     });
     return () => {
       cancelAnimationFrame(r1);
@@ -110,7 +116,7 @@ export default function IdeaCardDeck({
   }, [expanded]);
 
   return (
-    <Card className="w-full gap-4 overflow-hidden p-4 sm:p-8">
+    <Card ref={rootRef} className="w-full scroll-mt-24 gap-4 p-4 sm:p-8">
       {/* Brand block: topbar (logo + name + bookmark) and the full-width tagline */}
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full items-start gap-4">
@@ -169,9 +175,9 @@ export default function IdeaCardDeck({
       {card.screenshots.length > 0 && (
         <div
           className={cn(
-            "flex w-full items-center justify-center gap-2 overflow-hidden transition-[height,margin] duration-500",
+            "flex w-full items-center justify-center gap-2 transition-[height] duration-500",
             EASE,
-            expanded ? "h-[422px] -mx-4 sm:-mx-8" : "h-[280px]",
+            expanded ? "h-[422px]" : "h-[280px]",
           )}
         >
           {card.screenshots.slice(0, 4).map((src) => (

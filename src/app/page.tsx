@@ -70,7 +70,7 @@ export default async function Home({
   const cards = filtered.slice(0, 60);
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
+    <main className="mx-auto max-w-5xl overflow-x-clip px-4 py-10">
       <Header
         size="L"
         as="h1"
