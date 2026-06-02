@@ -1,4 +1,6 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import {
   Card,
   Header,
@@ -8,11 +10,13 @@ import {
   buttonVariants,
   cn,
 } from "@saverin/ui-web";
+import ProductDetailView from "./ProductDetailView";
 import type { IdeaCard } from "@/lib/queries";
 import { formatCount } from "@/lib/format";
 import { t, categoryLabelL, type Locale } from "@/lib/i18n";
 
 const CTA_CLASS = "h-[54px] w-full text-[17px] leading-[22px]";
+const EASE = "ease-[cubic-bezier(0.22,1,0.36,1)]";
 
 function BookmarkIcon() {
   return (
@@ -56,22 +60,22 @@ function StarIcon() {
   );
 }
 
-// Figma "Promo card" (node 2115:7814): brand topbar with logo + name + bookmark,
-// a full-width tagline, info tags (category / installs / rating), a strip of store
-// screenshots, the insight TextBlock, and a CTA into the detail page. Rendered in
-// the homepage feed grid; the full breakdown lives on /product/[id].
+// Figma "Promo card" (collapsed 2172:21360, expanded 2172:21592): one card that
+// grows in place. Tapping the CTA enlarges the store-screenshot strip (130×280 →
+// it bleeds to the card edges and grows to 422 tall) and unfolds the full
+// breakdown — reviews, what's loved, how to beat — right inside the same card,
+// above a "Свернуть" CTA. All detail content comes from the IdeaCard already in
+// memory, so opening is instant.
 export default function IdeaCardDeck({
   card,
   locale,
   onOpen,
-  expanded = false,
+  expanded,
 }: {
   card: IdeaCard;
   locale: Locale;
-  // When provided (feed context), the CTA toggles an inline detail view instead
-  // of navigating to /product/[id]. Omitted elsewhere → CTA stays a real link.
-  onOpen?: () => void;
-  expanded?: boolean;
+  onOpen: () => void;
+  expanded: boolean;
 }) {
   const tr = t(locale);
   const s = card.summary;
@@ -81,8 +85,36 @@ export default function IdeaCardDeck({
       ? formatCount(card.ratingCount)
       : null;
 
+  // mounted keeps the detail in the DOM through the closing transition; shown is
+  // the animation target. They diverge so the panel can animate shut, then
+  // unmount on transitionEnd.
+  const [mounted, setMounted] = useState(expanded);
+  const [shown, setShown] = useState(expanded);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!expanded) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setShown(false);
+      return;
+    }
+    // Mount collapsed, then flip open next frame so grid-rows transitions.
+    setMounted(true);
+    let r2 = 0;
+    const r1 = requestAnimationFrame(() => {
+      r2 = requestAnimationFrame(() => {
+        setShown(true);
+        panelRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+    return () => {
+      cancelAnimationFrame(r1);
+      cancelAnimationFrame(r2);
+    };
+  }, [expanded]);
+
   return (
-    <Card className="w-full gap-4 p-4 sm:p-8">
+    <Card className="w-full gap-4 overflow-hidden p-4 sm:p-8">
       {/* Brand block: topbar (logo + name + bookmark) and the full-width tagline */}
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full items-start gap-4">
@@ -137,9 +169,15 @@ export default function IdeaCardDeck({
         )}
       </div>
 
-      {/* Store screenshots */}
+      {/* Store screenshots — grow and bleed to the card edges when expanded */}
       {card.screenshots.length > 0 && (
-        <div className="flex h-[280px] w-full items-center gap-2 overflow-hidden">
+        <div
+          className={cn(
+            "flex w-full items-center justify-center gap-2 overflow-hidden transition-all duration-500",
+            EASE,
+            expanded ? "h-[422px] -mx-4 sm:-mx-8" : "h-[280px]",
+          )}
+        >
           {card.screenshots.slice(0, 4).map((src) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -162,23 +200,37 @@ export default function IdeaCardDeck({
         />
       )}
 
-      {onOpen ? (
-        <button
-          type="button"
-          onClick={onOpen}
-          aria-expanded={expanded}
-          className={cn(buttonVariants({ variant: "primary", size: "L" }), CTA_CLASS)}
+      {/* The breakdown, unfolded inline */}
+      {mounted && (
+        <div
+          className={cn("grid transition-[grid-template-rows] duration-500", EASE)}
+          style={{ gridTemplateRows: shown ? "1fr" : "0fr" }}
+          onTransitionEnd={(e) => {
+            if (e.propertyName === "grid-template-rows" && !shown) setMounted(false);
+          }}
         >
-          {expanded ? tr.nav.collapse : tr.nav.more}
-        </button>
-      ) : (
-        <Link
-          href={`/product/${card.id}`}
-          className={cn(buttonVariants({ variant: "primary", size: "L" }), CTA_CLASS)}
-        >
-          {tr.nav.more}
-        </Link>
+          <div className="min-h-0 overflow-hidden">
+            <div
+              ref={panelRef}
+              className={cn(
+                "scroll-mt-20 transition-opacity duration-500 ease-out",
+                shown ? "opacity-100" : "opacity-0",
+              )}
+            >
+              <ProductDetailView card={card} locale={locale} />
+            </div>
+          </div>
+        </div>
       )}
+
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-expanded={expanded}
+        className={cn(buttonVariants({ variant: "primary", size: "L" }), CTA_CLASS)}
+      >
+        {expanded ? tr.nav.collapse : tr.nav.more}
+      </button>
     </Card>
   );
 }
