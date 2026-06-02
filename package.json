@@ -7,13 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "vendor:ds": "bash scripts/vendor-ds.sh",
+    "ds:link": "npm install --no-save ../portfolio/packages/tokens ../portfolio/packages/ui-web",
     "ingest": "tsx scripts/ingest-categories.ts",
     "summarize": "tsx scripts/summarize.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
-    "@saverin/tokens": "file:../portfolio/packages/tokens",
-    "@saverin/ui-web": "file:../portfolio/packages/ui-web",
+    "@saverin/tokens": "file:vendor/saverin-tokens-0.0.0.tgz",
+    "@saverin/ui-web": "file:vendor/saverin-ui-web-0.0.0.tgz",
     "app-store-scraper": "^0.18.0",
     "dotenv": "^17.4.2",
     "google-play-scraper": "^10.1.2",
