@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Nunito } from "next/font/google";
 import "@saverin/tokens/css";
 import "./globals.css";
@@ -26,15 +27,18 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
+  // The DS ships light as :root and dark under [data-theme="dark"]; default to
+  // dark (the established look) and let the header's ThemeSwitch flip the cookie.
+  const theme = (await cookies()).get("theme")?.value === "light" ? "light" : "dark";
   return (
     <html
       lang={locale}
-      data-theme="dark"
+      data-theme={theme}
       data-brand="saverin"
       className={`${nunito.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header locale={locale} />
+        <Header locale={locale} theme={theme} />
         {children}
       </body>
     </html>

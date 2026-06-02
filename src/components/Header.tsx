@@ -1,18 +1,36 @@
 import Link from "next/link";
+import { Button } from "@saverin/ui-web";
 import LangSwitch from "./LangSwitch";
-import type { Locale } from "@/lib/i18n";
+import ThemeSwitch from "./ThemeSwitch";
+import { t, type Locale } from "@/lib/i18n";
 
-export default function Header({ locale }: { locale: Locale }) {
+// Figma "Menu" (2020:6402): a surface-card top bar — wordmark on the left,
+// language + theme segmented switches and the sign-in button on the right.
+export default function Header({
+  locale,
+  theme,
+}: {
+  locale: Locale;
+  theme: "light" | "dark";
+}) {
+  const tr = t(locale);
   return (
-    <header className="sticky top-0 z-20 border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-page)]/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
+    <header className="sticky top-0 z-20 bg-[var(--color-surface-card)]">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link
           href="/"
-          className="text-[20px] font-bold tracking-[-0.3px] text-[var(--color-text-primary)] [font-family:var(--brand-font-family)]"
+          className="text-[22px] font-bold tracking-[-0.2px] [font-family:var(--brand-font-family)]"
         >
-          bad<span className="text-[var(--color-text-brand)]">comment</span>
+          <span className="text-[var(--color-text-brand)]">Bad</span>
+          <span className="text-[var(--color-text-primary)]">Comment</span>
         </Link>
-        <LangSwitch locale={locale} />
+        <div className="flex items-center gap-3">
+          <LangSwitch locale={locale} />
+          <ThemeSwitch theme={theme} />
+          <Button variant="primary" size="M">
+            {tr.nav.signIn}
+          </Button>
+        </div>
       </div>
     </header>
   );

@@ -14,6 +14,7 @@ type Dict = {
     seeAllReviews: string;
     more: string;
     collapse: string;
+    signIn: string;
   };
   home: {
     tagline: string;
@@ -47,6 +48,8 @@ type Dict = {
     howToBeat: string;
     opportunity: string;
     gaps: string;
+    dislikes: string;
+    installs: (formatted: string) => string;
     monetization: string;
     cantClone: string;
     buildScore: string;
@@ -81,6 +84,7 @@ const DICT: Record<Locale, Dict> = {
       seeAllReviews: "See all reviews →",
       more: "Details",
       collapse: "Collapse",
+      signIn: "Sign in",
     },
     home: {
       tagline:
@@ -121,6 +125,8 @@ const DICT: Record<Locale, Dict> = {
       howToBeat: "How to beat them",
       opportunity: "The opening",
       gaps: "Specific gaps to close",
+      dislikes: "What's wrong",
+      installs: (formatted) => `${formatted}+ installs`,
       monetization: "Monetization pain",
       cantClone: "Hard to rebuild solo",
       buildScore: "Build",
@@ -192,6 +198,7 @@ const DICT: Record<Locale, Dict> = {
       seeAllReviews: "Все отзывы →",
       more: "Подробнее",
       collapse: "Свернуть",
+      signIn: "Войти",
     },
     home: {
       tagline:
@@ -232,6 +239,8 @@ const DICT: Record<Locale, Dict> = {
       howToBeat: "Как обойти оригинал",
       opportunity: "В чём возможность",
       gaps: "Конкретные пробелы",
+      dislikes: "Что не нравится",
+      installs: (formatted) => `${formatted}+ установок`,
       monetization: "Боль монетизации",
       cantClone: "В одиночку не повторить",
       buildScore: "Повтор",

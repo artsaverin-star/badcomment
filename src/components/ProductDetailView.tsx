@@ -17,20 +17,6 @@ function BookmarkIcon() {
   );
 }
 
-function PersonIcon() {
-  return (
-    <svg viewBox="0 0 10.5003 11.667" fill="none" aria-hidden="true">
-      <path
-        d="M9.91683 11.0835V9.91683C9.91683 9.29799 9.671 8.7045 9.23342 8.26692C8.79583 7.82933 8.20234 7.5835 7.5835 7.5835H2.91683C2.29799 7.5835 1.7045 7.82933 1.26692 8.26692C0.829333 8.7045 0.5835 9.29799 0.5835 9.91683V11.0835M7.5835 2.91683C7.5835 4.2055 6.53883 5.25017 5.25017 5.25017C3.9615 5.25017 2.91683 4.2055 2.91683 2.91683C2.91683 1.62817 3.9615 0.5835 5.25017 0.5835C6.53883 0.5835 7.5835 1.62817 7.5835 2.91683Z"
-        stroke="currentColor"
-        strokeWidth="1.167"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function StarIcon() {
   return (
     <svg viewBox="0 0 12.8337 12.262" fill="none" aria-hidden="true">
@@ -60,11 +46,12 @@ function CheckIcon() {
   );
 }
 
-// Figma "BetterMe — Desktop" detail (node 2172:20058): an overlapping screenshot
-// strip above a floating identity card, then the "what's wrong / what's loved /
-// how to beat" sections laid directly on the page background. Rendered both in the
-// homepage feed's inline expansion and (potentially) the standalone product route,
-// entirely from the IdeaCard the feed already loaded — no extra fetch.
+// Figma "BetterMe — Desktop (rebuilt)" detail (node 2172:20706): an overlapping
+// screenshot strip above a floating identity card, then three bare sections laid
+// on the page background — "Что не нравится" (gaps + quotes), "Что нравится"
+// (monetization prose), and "Как обойти оригинал" (the wedge list). Rendered in
+// the homepage feed's inline expansion, entirely from the IdeaCard the feed
+// already loaded — no extra fetch.
 export default function ProductDetailView({
   card,
   locale,
@@ -74,27 +61,27 @@ export default function ProductDetailView({
 }) {
   const tr = t(locale);
   const s = card.summary;
-  const installLabel = card.installs ? `${formatCount(card.installs)}+` : null;
+  const showLoved = !s?.monetization && s != null && s.loved.length > 0;
 
   return (
     <div className="flex w-full flex-col gap-6">
       {/* Hero: overlapping screenshots + floating identity card */}
       <div className="flex flex-col">
         {card.screenshots.length > 0 && (
-          <div className="z-0 -mb-8 flex items-end justify-center gap-2 overflow-hidden px-2">
+          <div className="relative z-0 -mb-8 flex items-start justify-center gap-2 px-2">
             {card.screenshots.slice(0, 4).map((src) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={src}
                 src={src}
                 alt=""
-                className="aspect-[195/420] h-[240px] shrink-0 rounded-[var(--radius-xl)] object-cover object-top sm:h-[380px]"
+                className="aspect-[195/420] h-[260px] shrink-0 rounded-[var(--radius-lg)] object-cover object-top sm:h-[420px]"
               />
             ))}
           </div>
         )}
 
-        <div className="relative z-10 flex w-full flex-col gap-6 rounded-[var(--radius-3xl)] bg-[var(--color-surface-card)] p-6 shadow-[0px_16px_32px_0px_rgba(0,0,0,0.12),0px_2px_4px_0px_rgba(0,0,0,0.06)] sm:p-8">
+        <div className="relative z-10 flex w-full flex-col gap-6 overflow-hidden rounded-[var(--radius-3xl)] bg-[var(--color-surface-card)] p-6 shadow-[0px_16px_32px_0px_rgba(0,0,0,0.12),0px_2px_4px_0px_rgba(0,0,0,0.06)] sm:p-8">
           <div className="flex w-full items-start gap-4">
             <div className="flex min-w-0 flex-1 items-start gap-4">
               {card.icon ? (
@@ -129,9 +116,9 @@ export default function ProductDetailView({
                 {categoryLabelL(locale, card.category)}
               </Tag>
             )}
-            {installLabel && (
-              <Tag tone="neutral" size="M" iconLeft={<PersonIcon />}>
-                {installLabel}
+            {card.installs != null && (
+              <Tag tone="neutral" size="M">
+                {tr.card.installs(formatCount(card.installs))}
               </Tag>
             )}
             {card.avgRating != null && (
@@ -157,10 +144,10 @@ export default function ProductDetailView({
         </div>
       </div>
 
-      {/* What's wrong: each gap with its representative quote */}
+      {/* Что не нравится: each gap with its representative quote */}
       {s && s.gaps.length > 0 && (
         <section className="flex w-full flex-col gap-4">
-          <Header size="M" as="h3" title={tr.card.gaps} />
+          <Header size="M" as="h3" title={tr.card.dislikes} />
           <div className="flex flex-col gap-6">
             {s.gaps.map((gap) => (
               <div key={gap.title} className="flex flex-col gap-2">
@@ -172,25 +159,31 @@ export default function ProductDetailView({
         </section>
       )}
 
-      {/* What's loved: keep these when rebuilding */}
-      {s && s.loved.length > 0 && (
+      {/* Что нравится: the monetization read (prose), or a loved-tags fallback */}
+      {(s?.monetization || showLoved) && (
         <section className="flex w-full flex-col gap-4">
           <Header size="M" as="h3" title={tr.card.love} />
-          <div className="flex flex-col gap-3">
-            {s.loved.map((key) => (
-              <ListRow key={key} size="M" icon={<CheckIcon />}>
-                {lovedLabelL(locale, key)}
-              </ListRow>
-            ))}
-          </div>
+          {s?.monetization ? (
+            <p className="w-full [font-family:var(--brand-font-family)] text-[17px] leading-[22px] text-[var(--color-text-secondary)]">
+              {s.monetization}
+            </p>
+          ) : (
+            <div className="flex flex-col gap-3">
+              {s?.loved.map((key) => (
+                <ListRow key={key} size="M" icon={<CheckIcon />}>
+                  {lovedLabelL(locale, key)}
+                </ListRow>
+              ))}
+            </div>
+          )}
         </section>
       )}
 
-      {/* How to beat the incumbent */}
+      {/* Как обойти оригинал */}
       {s && s.wedge.length > 0 && (
         <section className="flex w-full flex-col gap-4">
           <Header size="M" as="h3" title={tr.card.howToBeat} />
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             {s.wedge.map((move) => (
               <ListRow key={move} size="M" icon={<CheckIcon />}>
                 {move}
