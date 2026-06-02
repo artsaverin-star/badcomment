@@ -26,6 +26,7 @@ export default function IdeaFeed({
           card={card}
           locale={locale}
           expanded={openId === card.id}
+          othersOpen={openId !== null && openId !== card.id}
           onOpen={() => setOpenId((prev) => (prev === card.id ? null : card.id))}
         />
       ))}

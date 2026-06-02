@@ -71,11 +71,13 @@ export default function IdeaCardDeck({
   locale,
   onOpen,
   expanded,
+  othersOpen,
 }: {
   card: IdeaCard;
   locale: Locale;
   onOpen: () => void;
   expanded: boolean;
+  othersOpen: boolean;
 }) {
   const tr = t(locale);
   const s = card.summary;
@@ -94,8 +96,15 @@ export default function IdeaCardDeck({
 
   useEffect(() => {
     if (!expanded) {
+      // When another card is being opened, collapse this one instantly instead of
+      // running the 500ms close animation — otherwise this card shrinks above the
+      // newly-opened one while that card scrolls to top, and the moving layout
+      // makes the scroll overshoot downward.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setShown(false);
+      if (othersOpen) {
+        setMounted(false);
+      }
       return;
     }
     // Mount collapsed, then flip open next frame so grid-rows transitions.
@@ -113,10 +122,10 @@ export default function IdeaCardDeck({
       cancelAnimationFrame(r1);
       cancelAnimationFrame(r2);
     };
-  }, [expanded]);
+  }, [expanded, othersOpen]);
 
   return (
-    <Card ref={rootRef} className="w-full scroll-mt-24 gap-4 p-4 sm:p-8">
+    <Card ref={rootRef} className="w-full scroll-mt-24 gap-4 border-transparent p-4 shadow-none sm:p-8">
       {/* Brand block: topbar (logo + name + bookmark) and the full-width tagline */}
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full items-start gap-4">
