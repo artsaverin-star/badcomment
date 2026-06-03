@@ -26,9 +26,11 @@ function CheckIcon() {
 export default function ProductDetailView({
   card,
   locale,
+  size = "M",
 }: {
   card: FeedCard;
   locale: Locale;
+  size?: "S" | "M";
 }) {
   const tr = t(locale);
   const s = card.summary;
@@ -40,12 +42,12 @@ export default function ProductDetailView({
       {/* Что не нравится: each gap with its representative quote */}
       {s.gaps.length > 0 && (
         <section className="flex w-full flex-col gap-4">
-          <Header size="M" as="h3" title={tr.card.dislikes} />
+          <Header size={size} as="h3" title={tr.card.dislikes} />
           <div className="flex flex-col gap-6">
             {s.gaps.map((gap) => (
               <div key={gap.title} className="flex flex-col gap-2">
-                <TextBlock size="M" title={gap.title} description={gap.evidence} />
-                {gap.quote && <Quote size="M">{gap.quote}</Quote>}
+                <TextBlock size={size} title={gap.title} description={gap.evidence} />
+                {gap.quote && <Quote size={size}>{gap.quote}</Quote>}
               </div>
             ))}
           </div>
@@ -55,7 +57,7 @@ export default function ProductDetailView({
       {/* Что нравится: the monetization read (prose), or a loved-tags fallback */}
       {(s.monetization || showLoved) && (
         <section className="flex w-full flex-col gap-4">
-          <Header size="M" as="h3" title={tr.card.love} />
+          <Header size={size} as="h3" title={tr.card.love} />
           {s.monetization ? (
             <p className="w-full [font-family:var(--brand-font-family)] text-[17px] leading-[22px] text-[var(--color-text-secondary)]">
               {s.monetization}
@@ -63,7 +65,7 @@ export default function ProductDetailView({
           ) : (
             <div className="flex flex-col gap-3">
               {s.loved.map((key) => (
-                <ListRow key={key} size="M" icon={<CheckIcon />}>
+                <ListRow key={key} size={size} icon={<CheckIcon />}>
                   {lovedLabelL(locale, key)}
                 </ListRow>
               ))}
@@ -75,10 +77,10 @@ export default function ProductDetailView({
       {/* Как обойти оригинал */}
       {s.wedge.length > 0 && (
         <section className="flex w-full flex-col gap-4">
-          <Header size="M" as="h3" title={tr.card.howToBeat} />
+          <Header size={size} as="h3" title={tr.card.howToBeat} />
           <div className="flex flex-col gap-4">
             {s.wedge.map((move) => (
-              <ListRow key={move} size="M" icon={<CheckIcon />}>
+              <ListRow key={move} size={size} icon={<CheckIcon />}>
                 {move}
               </ListRow>
             ))}

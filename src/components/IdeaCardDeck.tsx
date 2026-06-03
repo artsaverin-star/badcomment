@@ -15,8 +15,9 @@ import ProductDetailView from "./ProductDetailView";
 import type { FeedCard } from "@/lib/deck";
 import { formatCount } from "@/lib/format";
 import { t, categoryLabelL, type Locale } from "@/lib/i18n";
+import { useIsMobile } from "@/lib/useIsMobile";
 
-const CTA_CLASS = "h-[54px] w-full text-[17px] leading-[22px]";
+const CTA_CLASS = "h-10 w-full text-[17px] leading-[22px] sm:h-[54px]";
 const EASE = "ease-[cubic-bezier(0.22,1,0.36,1)]";
 
 function BookmarkIcon() {
@@ -81,6 +82,11 @@ export default function IdeaCardDeck({
   othersOpen: boolean;
 }) {
   const tr = t(locale);
+  const isMobile = useIsMobile();
+  // Figma 2175:23002: on mobile the card's DS atoms drop to S while the CTA
+  // sits at M (vs. M/L on desktop).
+  const compSize = isMobile ? "S" : "M";
+  const ctaSize = isMobile ? "M" : "L";
   const s = card.summary;
   const installLabel = card.installs
     ? `${formatCount(card.installs)}+`
@@ -164,7 +170,7 @@ export default function IdeaCardDeck({
               <div className="size-10 shrink-0 rounded-[var(--radius-lg)] bg-[var(--color-surface-card-subtle)]" />
             )}
             <Header
-              size="M"
+              size={compSize}
               as="h2"
               className="min-w-0"
               title={<span className="block truncate">{card.name}</span>}
@@ -172,7 +178,7 @@ export default function IdeaCardDeck({
           </div>
           <IconButton
             variant="secondary"
-            size="M"
+            size={compSize}
             aria-label={tr.nav.seeAllReviews}
             icon={<BookmarkIcon />}
           />
@@ -187,17 +193,17 @@ export default function IdeaCardDeck({
       {/* Info tags: category, install volume, average rating */}
       <div className="flex w-full flex-wrap gap-2">
         {card.category && (
-          <Tag tone="neutral" size="M">
+          <Tag tone="neutral" size={compSize}>
             {categoryLabelL(locale, card.category)}
           </Tag>
         )}
         {installLabel && (
-          <Tag tone="neutral" size="M" iconLeft={<PersonIcon />}>
+          <Tag tone="neutral" size={compSize} iconLeft={<PersonIcon />}>
             {installLabel}
           </Tag>
         )}
         {card.avgRating != null && (
-          <Tag tone="neutral" size="M" iconLeft={<StarIcon />}>
+          <Tag tone="neutral" size={compSize} iconLeft={<StarIcon />}>
             {card.avgRating.toFixed(1)}
           </Tag>
         )}
@@ -227,7 +233,7 @@ export default function IdeaCardDeck({
       {/* The single insight: verdict + the opening */}
       {(s?.verdict || s?.opportunity) && (
         <TextBlock
-          size="M"
+          size={compSize}
           className="w-full"
           title={s?.verdict || s?.tagline || card.name}
           description={s?.opportunity}
@@ -250,7 +256,7 @@ export default function IdeaCardDeck({
                 shown ? "opacity-100" : "opacity-0",
               )}
             >
-              <ProductDetailView card={card} locale={locale} />
+              <ProductDetailView card={card} locale={locale} size={compSize} />
             </div>
           </div>
         </div>
@@ -260,7 +266,7 @@ export default function IdeaCardDeck({
         type="button"
         onClick={handleClick}
         aria-expanded={expanded}
-        className={cn(buttonVariants({ variant: "primary", size: "L" }), CTA_CLASS)}
+        className={cn(buttonVariants({ variant: "primary", size: ctaSize }), CTA_CLASS)}
       >
         {expanded ? tr.nav.collapse : tr.nav.more}
       </button>
