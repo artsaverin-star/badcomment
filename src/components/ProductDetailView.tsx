@@ -35,12 +35,11 @@ export default function ProductDetailView({
   const tr = t(locale);
   const s = card.summary;
   if (!s) return null;
-  const showLoved = !s.monetization && s.loved.length > 0;
 
   return (
     <div className="flex w-full flex-col gap-6">
-      {/* Что не нравится: each gap with its representative quote */}
-      {s.gaps.length > 0 && (
+      {/* Что не нравится: each gap with its quote, then the pricing/ads pain */}
+      {(s.gaps.length > 0 || s.monetization) && (
         <section className="flex w-full flex-col gap-4">
           <Header size={size} as="h3" title={tr.card.dislikes} />
           <div className="flex flex-col gap-6">
@@ -50,27 +49,26 @@ export default function ProductDetailView({
                 {gap.quote && <Quote size={size}>{gap.quote}</Quote>}
               </div>
             ))}
+            {s.monetization && (
+              <p className="w-full [font-family:var(--brand-font-family)] text-[17px] leading-[22px] text-[var(--color-text-secondary)]">
+                {s.monetization}
+              </p>
+            )}
           </div>
         </section>
       )}
 
-      {/* Что нравится: the monetization read (prose), or a loved-tags fallback */}
-      {(s.monetization || showLoved) && (
+      {/* Что нравится: what users genuinely like and a clone must keep */}
+      {s.loved.length > 0 && (
         <section className="flex w-full flex-col gap-4">
           <Header size={size} as="h3" title={tr.card.love} />
-          {s.monetization ? (
-            <p className="w-full [font-family:var(--brand-font-family)] text-[17px] leading-[22px] text-[var(--color-text-secondary)]">
-              {s.monetization}
-            </p>
-          ) : (
-            <div className="flex flex-col gap-3">
-              {s.loved.map((key) => (
-                <ListRow key={key} size={size} icon={<CheckIcon />}>
-                  {lovedLabelL(locale, key)}
-                </ListRow>
-              ))}
-            </div>
-          )}
+          <div className="flex flex-col gap-3">
+            {s.loved.map((key) => (
+              <ListRow key={key} size={size} icon={<CheckIcon />}>
+                {lovedLabelL(locale, key)}
+              </ListRow>
+            ))}
+          </div>
         </section>
       )}
 
