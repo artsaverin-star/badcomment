@@ -3,6 +3,7 @@ import { formatCount } from "./format";
 import { THEMES, LOVED_THEMES } from "./themes";
 import { CATEGORIES, categoryLabel } from "./categories";
 import { scoreCloneability, isBrandStorefront, isRewardFarm } from "./cloneability";
+import { stripVerdictLabel } from "./summarize";
 import type { IdeaSummary, IdeaGap } from "./summarize";
 import type { Store } from "./scrapers";
 import type { Locale } from "./i18n";
@@ -338,7 +339,7 @@ function parseSummary(raw: string | null, locale: Locale = "ru"): IdeaSummary | 
   const opportunityType = o.opportunityType as IdeaSummary["opportunityType"] | undefined;
   return {
     tagline: str(p.tagline),
-    verdict: str(p.verdict),
+    verdict: stripVerdictLabel(str(p.verdict)),
     opportunity: str(p.opportunity),
     opportunityType: opportunityType ?? undefined,
     gaps,

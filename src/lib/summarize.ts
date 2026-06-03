@@ -65,6 +65,17 @@ export type StoredSummary = Partial<SummaryProse> & {
   en?: SummaryProse;
 };
 
+// Authored verdicts open with a "Стоит браться:" / "Worth building:" label, but
+// the card already frames the verdict as its headline, so the label is
+// redundant. Strip the colon form (the label) and re-capitalize what's left.
+// The comma/space forms ("Стоит браться, если…") are genuine prose, left as-is.
+export function stripVerdictLabel(v: string): string {
+  const m = v.match(/^\s*(?:стоит браться|worth building)\s*:\s*/i);
+  if (!m) return v;
+  const rest = v.slice(m[0].length);
+  return rest.charAt(0).toLocaleUpperCase() + rest.slice(1);
+}
+
 const ENDPOINT = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion";
 
 // Stable fingerprint of the review signal: if unchanged we skip the model call
@@ -158,7 +169,7 @@ function parseSummary(text: string): IdeaSummary | null {
   const buildNote = str(o.buildNote);
   const summary: IdeaSummary = {
     tagline: str(o.tagline),
-    verdict: str(o.verdict),
+    verdict: stripVerdictLabel(str(o.verdict)),
     opportunity: str(o.opportunity),
     gaps,
     loved: arr(o.loved),
