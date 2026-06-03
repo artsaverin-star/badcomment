@@ -96,8 +96,9 @@ type Dict = {
     gapsHeading: string;
     demand: string;
     verdictOpen: string;
-    verdictClosed: string;
+    verdictNarrow: string;
     verdictThin: string;
+    painIn: (x: number, y: number) => string;
     bestApp: (name: string) => string;
     noneClose: string;
     complaintsLabel: (n: number) => string;
@@ -247,8 +248,9 @@ const DICT: Record<Locale, Dict> = {
       gapsHeading: "Needs, worst-served first",
       demand: "mentions in reviews",
       verdictOpen: "Open",
-      verdictClosed: "Closed",
+      verdictNarrow: "App-specific",
       verdictThin: "Thin signal",
+      painIn: (x, y) => `a top complaint in ${x} of ${y} apps`,
       bestApp: (name) => `Best: ${name}`,
       noneClose: "No app closes it",
       complaintsLabel: (n) => `${n} in complaints`,
@@ -464,8 +466,9 @@ const DICT: Record<Locale, Dict> = {
       gapsHeading: "Потребности, сначала худшие",
       demand: "упоминаний в отзывах",
       verdictOpen: "Открыто",
-      verdictClosed: "Закрыто",
+      verdictNarrow: "Точечно",
       verdictThin: "Мало сигнала",
+      painIn: (x, y) => `топ-жалоба у ${x} из ${y} приложений`,
       bestApp: (name) => `Лучше всех: ${name}`,
       noneClose: "Никто не закрывает",
       complaintsLabel: (n) => `${n} в жалобах`,

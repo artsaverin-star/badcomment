@@ -12,7 +12,7 @@ export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale:
         <Header size="S" as="h2" title={tr.gapsHeading} />
         <div className="flex flex-col gap-3">
           {view.needs.map((need) => (
-            <NeedRow key={need.key} need={need} max={view.maxComplaints} tr={tr} />
+            <NeedRow key={need.key} need={need} max={view.maxFail} tr={tr} />
           ))}
         </div>
       </section>
@@ -38,10 +38,10 @@ export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale:
 
 function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
   const open = need.verdict === "open";
-  const tone = open ? "danger" : need.verdict === "closed" ? "info" : "neutral";
+  const tone = open ? "danger" : need.verdict === "narrow" ? "warning" : "neutral";
   const verdictLabel =
-    need.verdict === "open" ? tr.verdictOpen : need.verdict === "closed" ? tr.verdictClosed : tr.verdictThin;
-  const pct = Math.max(3, Math.round((need.complaintMentions / max) * 100));
+    need.verdict === "open" ? tr.verdictOpen : need.verdict === "narrow" ? tr.verdictNarrow : tr.verdictThin;
+  const pct = Math.max(3, Math.round((need.failApps / max) * 100));
   const barColor = open ? "var(--color-accent-danger)" : "var(--color-text-tertiary)";
 
   return (
@@ -56,7 +56,7 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
               </Tag>
             </span>
             <span className="text-[12px] text-[var(--color-text-tertiary)]">
-              {need.bestApp ? tr.bestApp(need.bestApp.name) : tr.noneClose}
+              {tr.painIn(need.failApps, need.totalApps)}
             </span>
           </span>
 
@@ -70,6 +70,10 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
               {need.complaintMentions} {tr.demand}
             </span>
           </span>
+
+          {need.bestApp && (
+            <span className="text-[12px] text-[var(--color-text-tertiary)]">{tr.bestApp(need.bestApp.name)}</span>
+          )}
         </summary>
 
         {need.apps.length > 0 && (
