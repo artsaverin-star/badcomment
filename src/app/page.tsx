@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import IdeaFeed from "@/components/IdeaFeed";
-import { getIdeaCards } from "@/lib/queries";
+import { getFullDeck, filterDeck, PAGE_SIZE } from "@/lib/deck";
 import { t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import { CATEGORIES } from "@/lib/categories";
@@ -43,14 +43,14 @@ export default async function Home({
   const tr = t(locale);
   const { cat, type } = await searchParams;
 
-  const all = await getIdeaCards(500, null, true, locale);
+  const deck = await getFullDeck(locale);
   const present = new Set(
-    all.map((c) => c.category).filter((c): c is string => c != null)
+    deck.map((c) => c.category).filter((c): c is string => c != null)
   );
   const tabs = CATEGORIES.filter((c) => present.has(c.key));
 
   const presentTypes = new Set(
-    all
+    deck
       .map((c) => c.summary?.opportunityType)
       .filter((ty): ty is OpportunityType => ty != null)
   );
@@ -60,14 +60,13 @@ export default async function Home({
   const activeType =
     type && presentTypes.has(type as OpportunityType) ? (type as OpportunityType) : null;
 
-  let filtered = all;
-  if (activeCat) filtered = filtered.filter((c) => c.category === activeCat);
-  if (activeType) filtered = filtered.filter((c) => c.summary?.opportunityType === activeType);
+  const filtered = filterDeck(deck, activeCat, activeType);
 
-  // The feed renders each card server-side. Cap the count so a single
-  // force-dynamic request doesn't serialize the whole deck on the small prod box;
-  // the strongest cards lead, so the top slice is the good stuff.
-  const cards = filtered.slice(0, 60);
+  // Render only the first page server-side; the feed lazy-loads the rest as the
+  // user scrolls (see IdeaFeed), so there's no cap — the whole deck is reachable
+  // without serializing it all on one request.
+  const cards = filtered.slice(0, PAGE_SIZE);
+  const nextOffset = filtered.length > PAGE_SIZE ? PAGE_SIZE : null;
 
   return (
     <main className="mx-auto max-w-5xl overflow-x-clip px-4 py-10">
@@ -115,7 +114,14 @@ export default async function Home({
       {cards.length === 0 ? (
         <p className="text-center text-[15px] text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
-        <IdeaFeed cards={cards} locale={locale} />
+        <IdeaFeed
+          key={`${activeCat ?? "all"}-${activeType ?? "all"}`}
+          cards={cards}
+          locale={locale}
+          cat={activeCat}
+          type={activeType}
+          initialNextOffset={nextOffset}
+        />
       )}
     </main>
   );

@@ -1,5 +1,5 @@
 import { Header, Quote, ListRow, TextBlock } from "@saverin/ui-web";
-import type { IdeaCard } from "@/lib/queries";
+import type { FeedCard } from "@/lib/deck";
 import { t, lovedLabelL, type Locale } from "@/lib/i18n";
 
 function CheckIcon() {
@@ -27,7 +27,7 @@ export default function ProductDetailView({
   card,
   locale,
 }: {
-  card: IdeaCard;
+  card: FeedCard;
   locale: Locale;
 }) {
   const tr = t(locale);

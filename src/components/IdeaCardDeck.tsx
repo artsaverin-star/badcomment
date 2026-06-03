@@ -12,7 +12,7 @@ import {
   cn,
 } from "@saverin/ui-web";
 import ProductDetailView from "./ProductDetailView";
-import type { IdeaCard } from "@/lib/queries";
+import type { FeedCard } from "@/lib/deck";
 import { formatCount } from "@/lib/format";
 import { t, categoryLabelL, type Locale } from "@/lib/i18n";
 
@@ -74,7 +74,7 @@ export default function IdeaCardDeck({
   expanded,
   othersOpen,
 }: {
-  card: IdeaCard;
+  card: FeedCard;
   locale: Locale;
   onOpen: () => void;
   expanded: boolean;
