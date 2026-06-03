@@ -108,8 +108,8 @@ const DICT: Record<Locale, Dict> = {
     },
     themes: { empty: "No complaint themes detected yet." },
     ideas: {
-      title: "Idea deck",
-      desc: "Proven apps that still have obvious gaps, sorted by demand vs. how much there is to fix. Each card shows what users love and what to improve.",
+      title: "App ideas",
+      desc: "We analyzed popular apps and real user reviews on the App Store and Google Play, and found fixable flaws in proven products you can address to take part of their audience. Building on demand that's already proven beats guessing.",
       empty: "No ideas yet — run the ingest to collect reviews first.",
       all: "All",
     },
@@ -222,8 +222,8 @@ const DICT: Record<Locale, Dict> = {
     },
     themes: { empty: "Темы жалоб пока не найдены." },
     ideas: {
-      title: "Колода идей",
-      desc: "Проверенные приложения, у которых всё ещё есть явные пробелы. Отсортированы по спросу и тому, сколько в них можно улучшить. На каждой карточке — что нравится пользователям и что стоит исправить.",
+      title: "Идеи приложений",
+      desc: "Мы проанализировали популярные приложения и отзывы реальных пользователей в App Store и Google Play и нашли в проверенных продуктах ошибки, которые можно исправить и забрать часть их аудитории. Делать приложение с уже доказанным спросом — надёжнее, чем угадывать.",
       empty: "Идей пока нет — сначала запустите сбор отзывов.",
       all: "Все",
     },
