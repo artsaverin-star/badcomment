@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Card, Header, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { formatCount } from "@/lib/format";
 import { t, opportunityTypeLabelL, type Locale } from "@/lib/i18n";
-import type { GenreStat } from "@/lib/marketStats";
+import type { GenreStat, GenreMember } from "@/lib/marketStats";
 import type { OpportunityType } from "@/lib/summarize";
 
 const OPP_COLORS: Record<OpportunityType, string> = {
@@ -113,6 +113,68 @@ function OppChip({ type, locale }: { type: OpportunityType; locale: Locale }) {
       <span className="mr-1 inline-block size-2 rounded-full align-middle" style={{ background: OPP_COLORS[type] }} />
       {opportunityTypeLabelL(locale, type)}
     </Tag>
+  );
+}
+
+// One competitor in the genre, read as: how big a slice (share bar + %), how
+// hated (★ rating, warned when low), real scale when known (installs), and the
+// kind of opening (oppType). Tap through to the full idea card.
+function MemberRow({
+  m,
+  tr,
+  locale,
+}: {
+  m: GenreMember;
+  tr: ReturnType<typeof t>["marketDash"];
+  locale: Locale;
+}) {
+  const pct = Math.round(m.share * 100);
+  const lowRating = m.avgRating != null && m.avgRating < 4.0;
+  return (
+    <Link
+      href={`/product/${m.id}`}
+      className="flex items-start gap-3 rounded-[var(--radius-md)] px-2 py-2.5 hover:bg-[var(--color-bg-muted)]"
+    >
+      {m.icon && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={m.icon} alt="" className="mt-0.5 size-9 shrink-0 rounded-[var(--radius-md)] object-cover" />
+      )}
+      <span className="flex min-w-0 flex-1 flex-col gap-1">
+        <span className="flex items-center gap-1.5">
+          <span className="truncate text-[14px] text-[var(--color-text-primary)]">{m.name}</span>
+          {m.isLeader && (
+            <Tag tone="brand" size="S">
+              {tr.leader}
+            </Tag>
+          )}
+        </span>
+        {m.tagline && <span className="truncate text-[12px] text-[var(--color-text-tertiary)]">{m.tagline}</span>}
+        <span className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] text-[var(--color-text-tertiary)]">
+          {pct > 0 && (
+            <span className="flex items-center gap-1.5">
+              <span className="inline-block h-1.5 w-10 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
+                <span
+                  className="block h-full rounded-full bg-[var(--color-text-secondary)]"
+                  style={{ width: `${Math.max(3, pct)}%` }}
+                />
+              </span>
+              <span className="tabular-nums">{tr.sharePct(pct)}</span>
+            </span>
+          )}
+          {m.avgRating != null && (
+            <span
+              className="tabular-nums"
+              style={lowRating ? { color: "var(--color-accent-warning)" } : undefined}
+            >
+              ★ {m.avgRating.toFixed(1)}
+              {m.ratingCount ? ` (${formatCount(m.ratingCount)})` : ""}
+            </span>
+          )}
+          {m.installs != null && <span className="tabular-nums">{formatCount(m.installs)}+</span>}
+        </span>
+      </span>
+      {m.oppType && <OppChip type={m.oppType} locale={locale} />}
+    </Link>
   );
 }
 
@@ -254,21 +316,7 @@ function GenreCard({
             </summary>
             <div className="mt-3 flex flex-col">
               {g.members.map((m) => (
-                <Link
-                  key={m.id}
-                  href={`/product/${m.id}`}
-                  className="flex items-center gap-3 rounded-[var(--radius-md)] px-2 py-2 hover:bg-[var(--color-bg-muted)]"
-                >
-                  {m.icon && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={m.icon} alt="" className="size-9 shrink-0 rounded-[var(--radius-md)] object-cover" />
-                  )}
-                  <span className="flex min-w-0 flex-1 flex-col">
-                    <span className="truncate text-[14px] text-[var(--color-text-primary)]">{m.name}</span>
-                    {m.tagline && <span className="truncate text-[12px] text-[var(--color-text-tertiary)]">{m.tagline}</span>}
-                  </span>
-                  {m.oppType && <OppChip type={m.oppType} locale={locale} />}
-                </Link>
+                <MemberRow key={m.id} m={m} tr={tr} locale={locale} />
               ))}
             </div>
           </details>
