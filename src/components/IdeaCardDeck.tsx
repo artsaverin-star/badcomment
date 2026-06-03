@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 import {
   Card,
   Header,
@@ -92,6 +93,30 @@ export default function IdeaCardDeck({
   // unmount on transitionEnd.
   const [mounted, setMounted] = useState(expanded);
   const [shown, setShown] = useState(expanded);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Switching to another card: this one is being closed *because* a sibling
+  // opened. Collapse it with no animation so the layout settles in a single
+  // synchronous step — that lets the click handler measure the real post-switch
+  // position and pin the viewport (see handleClick).
+  const collapsingForSwitch = othersOpen && !expanded;
+
+  // Keep the tapped card's top exactly where it was on screen. Opening a card
+  // below an already-open one makes that open card collapse above it, which would
+  // otherwise shift this card up and dump the viewport near its end. flushSync
+  // commits the open+sibling-collapse synchronously, so measuring top before and
+  // after gives the exact shift to undo. The card then grows downward in place.
+  const handleClick = () => {
+    const el = rootRef.current;
+    if (!el) {
+      onOpen();
+      return;
+    }
+    const before = el.getBoundingClientRect().top;
+    flushSync(() => onOpen());
+    const after = el.getBoundingClientRect().top;
+    if (after !== before) window.scrollBy(0, after - before);
+  };
 
   useEffect(() => {
     if (!expanded) {
@@ -123,7 +148,7 @@ export default function IdeaCardDeck({
   }, [expanded, othersOpen]);
 
   return (
-    <Card className="w-full gap-4 border-transparent p-4 shadow-none sm:p-8">
+    <Card ref={rootRef} className="w-full gap-4 border-transparent p-4 shadow-none sm:p-8">
       {/* Brand block: topbar (logo + name + bookmark) and the full-width tagline */}
       <div className="flex w-full flex-col gap-2">
         <div className="flex w-full items-start gap-4">
@@ -182,8 +207,8 @@ export default function IdeaCardDeck({
       {card.screenshots.length > 0 && (
         <div
           className={cn(
-            "flex w-full items-center justify-center gap-2 transition-[height] duration-500",
-            EASE,
+            "flex w-full items-center justify-center gap-2",
+            collapsingForSwitch ? "" : cn("transition-[height] duration-500", EASE),
             expanded ? "h-[422px]" : "h-[280px]",
           )}
         >
@@ -210,7 +235,7 @@ export default function IdeaCardDeck({
       )}
 
       {/* The breakdown, unfolded inline */}
-      {mounted && (
+      {mounted && !collapsingForSwitch && (
         <div
           className={cn("grid transition-[grid-template-rows] duration-500", EASE)}
           style={{ gridTemplateRows: shown ? "1fr" : "0fr" }}
@@ -233,7 +258,7 @@ export default function IdeaCardDeck({
 
       <button
         type="button"
-        onClick={onOpen}
+        onClick={handleClick}
         aria-expanded={expanded}
         className={cn(buttonVariants({ variant: "primary", size: "L" }), CTA_CLASS)}
       >
