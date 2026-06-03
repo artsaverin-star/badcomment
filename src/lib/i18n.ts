@@ -51,37 +51,44 @@ type Dict = {
   marketDash: {
     title: string;
     subtitle: string;
-    disclaimer: string;
     // summary band
     apps: string;
     genres: string;
     installBase: string;
     ratings: string;
-    estRevenue: string;
-    perYear: string;
-    // assumptions panel
-    assumptions: string;
-    activeRate: string;
-    conversion: string;
-    storeCut: string;
-    reset: string;
     // opportunity map
     mapTitle: string;
     mapHint: string;
     axisScale: string;
     axisGap: string;
     bubbleHint: string;
-    // genre table
-    tableTitle: string;
-    colGenre: string;
-    colApps: string;
-    colScale: string;
-    colRevenue: string;
-    colRating: string;
-    colLeader: string;
-    colOpp: string;
+    // sorting
+    sortBy: string;
+    sortScale: string;
+    sortGap: string;
+    sortOpen: string;
+    sortBuild: string;
+    // the five launch questions (card strip)
+    qMarket: string;
+    qCompetition: string;
+    qGap: string;
+    qBuild: string;
+    qMoney: string;
+    // value labels
+    players: (n: number) => string;
+    leaderPct: (pct: number) => string;
+    concFragmented: string;
+    concSome: string;
+    concCrowded: string;
+    buildOf5: (v: string) => string;
+    perMonth: string;
+    noData: string;
     tiers: { niche: string; small: string; mid: string; large: string; giant: string };
-    leaderShare: (pct: number) => string;
+    // nested detail sections
+    details: string;
+    whatHated: string;
+    howToWin: string;
+    appsInGenre: (n: number) => string;
   };
   deck: { prev: string; next: string };
   card: {
@@ -173,35 +180,40 @@ const DICT: Record<Locale, Dict> = {
       backToMarket: "← Back to the market map",
     },
     marketDash: {
-      title: "Market at a glance",
-      subtitle: "The whole catalog as one picture: how big each genre is, how unhappy its users are, and a rough read on the money in play.",
-      disclaimer: "Revenue is an estimate, not a fact — modeled from the install base and the assumptions below. Drag the sliders to fit your own read.",
+      title: "Pick a market to build in",
+      subtitle: "Each genre as a launch brief: is the demand proven, is it taken, where's the opening, how hard to build, and how they make money — go deeper on any one.",
       apps: "apps tracked",
       genres: "genres",
       installBase: "est. install base",
       ratings: "ratings mined",
-      estRevenue: "est. annual market",
-      perYear: "/yr",
-      assumptions: "Assumptions",
-      activeRate: "Active users (of installs)",
-      conversion: "Pay conversion",
-      storeCut: "Store cut",
-      reset: "Reset",
       mapTitle: "Opportunity map",
-      mapHint: "Up and to the right = big market, unhappy users. Bubble size = est. revenue; color = where the opening is.",
+      mapHint: "Up and to the right = big market, unhappy users. Bubble size = number of players; color = where the opening is.",
       axisScale: "Market scale →",
       axisGap: "Dissatisfaction →",
-      bubbleHint: "Each bubble is a genre.",
-      tableTitle: "Genres",
-      colGenre: "Genre",
-      colApps: "Apps",
-      colScale: "Install base",
-      colRevenue: "Est. revenue",
-      colRating: "Avg rating",
-      colLeader: "Leader",
-      colOpp: "Opening",
+      bubbleHint: "Each bubble is a genre — tap to jump to it.",
+      sortBy: "Sort by",
+      sortScale: "Market size",
+      sortGap: "Dissatisfaction",
+      sortOpen: "Least crowded",
+      sortBuild: "Easiest to build",
+      qMarket: "Is there a market?",
+      qCompetition: "Taken?",
+      qGap: "Where's the opening?",
+      qBuild: "Hard to build?",
+      qMoney: "How they earn",
+      players: (n) => `${n} ${n === 1 ? "player" : "players"}`,
+      leaderPct: (pct) => `leader ${pct}%`,
+      concFragmented: "fragmented — room to enter",
+      concSome: "a few leaders",
+      concCrowded: "dominated",
+      buildOf5: (v) => `${v}/5`,
+      perMonth: "/mo",
+      noData: "—",
       tiers: { niche: "Niche", small: "Small", mid: "Mid", large: "Large", giant: "Giant" },
-      leaderShare: (pct) => `${pct}% of base`,
+      details: "Details",
+      whatHated: "What users hate",
+      howToWin: "How to win",
+      appsInGenre: (n) => `Apps (${n})`,
     },
     deck: { prev: "Previous", next: "Next" },
     card: {
@@ -340,35 +352,60 @@ const DICT: Record<Locale, Dict> = {
       backToMarket: "← Назад к карте рынка",
     },
     marketDash: {
-      title: "Рынок в одном экране",
-      subtitle: "Весь каталог как одна картина: насколько крупный каждый жанр, насколько недовольны пользователи и грубая оценка денег в игре.",
-      disclaimer: "Выручка — оценка, а не факт: смоделирована из базы установок и допущений ниже. Двигай ползунки под свою картину рынка.",
+      title: "Выбери рынок для запуска",
+      subtitle: "Каждый жанр — бриф для запуска: доказан ли спрос, занято ли, в чём щель, сложно ли строить и как зарабатывают. По любому можно провалиться глубже.",
       apps: "приложений",
       genres: "жанров",
       installBase: "оценка базы установок",
       ratings: "оценок собрано",
-      estRevenue: "оценка объёма рынка",
-      perYear: "/год",
-      assumptions: "Допущения",
-      activeRate: "Активные (от установок)",
-      conversion: "Конверсия в платящих",
-      storeCut: "Комиссия стора",
-      reset: "Сбросить",
       mapTitle: "Карта возможностей",
-      mapHint: "Вверх и вправо = большой рынок, недовольные пользователи. Размер пузыря — оценка выручки; цвет — где возможность.",
+      mapHint: "Вверх и вправо = большой рынок, недовольные пользователи. Размер пузыря — число игроков; цвет — где щель.",
       axisScale: "Масштаб рынка →",
       axisGap: "Недовольство →",
-      bubbleHint: "Каждый пузырь — жанр.",
-      tableTitle: "Жанры",
-      colGenre: "Жанр",
-      colApps: "Прил.",
-      colScale: "База установок",
-      colRevenue: "Оценка выручки",
-      colRating: "Ср. оценка",
-      colLeader: "Лидер",
-      colOpp: "Возможность",
+      bubbleHint: "Каждый пузырь — жанр, нажми чтобы перейти.",
+      sortBy: "Сортировка",
+      sortScale: "Объём рынка",
+      sortGap: "Недовольство",
+      sortOpen: "Меньше конкурентов",
+      sortBuild: "Проще строить",
+      qMarket: "Есть рынок?",
+      qCompetition: "Занято?",
+      qGap: "В чём щель?",
+      qBuild: "Сложно строить?",
+      qMoney: "Как зарабатывают",
+      players: (n) => {
+        const mod10 = n % 10;
+        const mod100 = n % 100;
+        const word =
+          mod10 === 1 && mod100 !== 11
+            ? "игрок"
+            : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+              ? "игрока"
+              : "игроков";
+        return `${n} ${word}`;
+      },
+      leaderPct: (pct) => `лидер ${pct}%`,
+      concFragmented: "раздроблено — есть куда зайти",
+      concSome: "пара лидеров",
+      concCrowded: "занято",
+      buildOf5: (v) => `${v}/5`,
+      perMonth: "/мес",
+      noData: "—",
       tiers: { niche: "Ниша", small: "Малый", mid: "Средний", large: "Крупный", giant: "Гигант" },
-      leaderShare: (pct) => `${pct}% базы`,
+      details: "Подробнее",
+      whatHated: "Что ненавидят",
+      howToWin: "Как выиграть",
+      appsInGenre: (n) => {
+        const mod10 = n % 10;
+        const mod100 = n % 100;
+        const word =
+          mod10 === 1 && mod100 !== 11
+            ? "приложение"
+            : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+              ? "приложения"
+              : "приложений";
+        return `${word} (${n})`;
+      },
     },
     deck: { prev: "Назад", next: "Вперёд" },
     card: {
