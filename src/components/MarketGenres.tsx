@@ -150,7 +150,6 @@ function MemberRow({
         </span>
         {m.tagline && <span className="truncate text-[12px] text-[var(--color-text-tertiary)]">{m.tagline}</span>}
         <span className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] text-[var(--color-text-tertiary)]">
-          {m.installs != null && <span className="tabular-nums">{tr.mInstalls(formatCount(m.installs))}</span>}
           {m.avgRating != null && (
             <span
               className="tabular-nums"
@@ -160,6 +159,7 @@ function MemberRow({
               {m.ratingCount ? ` · ${tr.mRatings(formatCount(m.ratingCount))}` : ""}
             </span>
           )}
+          {m.installs != null && <span className="tabular-nums">{tr.mInstalls(formatCount(m.installs))}</span>}
         </span>
       </span>
       {m.oppType && <OppChip type={m.oppType} locale={locale} />}
