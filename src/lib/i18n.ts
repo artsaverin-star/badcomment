@@ -56,12 +56,6 @@ type Dict = {
     genres: string;
     installBase: string;
     ratings: string;
-    // opportunity map
-    mapTitle: string;
-    mapHint: string;
-    axisScale: string;
-    axisGap: string;
-    bubbleHint: string;
     // sorting
     sortBy: string;
     sortScale: string;
@@ -186,11 +180,6 @@ const DICT: Record<Locale, Dict> = {
       genres: "genres",
       installBase: "est. install base",
       ratings: "ratings mined",
-      mapTitle: "Opportunity map",
-      mapHint: "Up and to the right = big market, unhappy users. Bubble size = number of players; color = where the opening is.",
-      axisScale: "Market scale →",
-      axisGap: "Dissatisfaction →",
-      bubbleHint: "Each bubble is a genre — tap to jump to it.",
       sortBy: "Sort by",
       sortScale: "Market size",
       sortGap: "Dissatisfaction",
@@ -358,11 +347,6 @@ const DICT: Record<Locale, Dict> = {
       genres: "жанров",
       installBase: "оценка базы установок",
       ratings: "оценок собрано",
-      mapTitle: "Карта возможностей",
-      mapHint: "Вверх и вправо = большой рынок, недовольные пользователи. Размер пузыря — число игроков; цвет — где щель.",
-      axisScale: "Масштаб рынка →",
-      axisGap: "Недовольство →",
-      bubbleHint: "Каждый пузырь — жанр, нажми чтобы перейти.",
       sortBy: "Сортировка",
       sortScale: "Объём рынка",
       sortGap: "Недовольство",
