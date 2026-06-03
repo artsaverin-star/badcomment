@@ -100,12 +100,15 @@ type Dict = {
     verdictThin: string;
     painIn: (x: number, y: number) => string;
     bestApp: (name: string) => string;
+    bestCloser: string;
     noneClose: string;
     complaintsLabel: (n: number) => string;
     praiseLabel: (n: number) => string;
     appsBreakdown: string;
     whitespaceHeading: string;
     whitespaceNote: string;
+    voicesLabel: string;
+    voiceCount: (n: number) => string;
     scanned: (n: number) => string;
   };
   deck: { prev: string; next: string };
@@ -252,12 +255,15 @@ const DICT: Record<Locale, Dict> = {
       verdictThin: "Thin signal",
       painIn: (x, y) => `a top complaint in ${x} of ${y} apps`,
       bestApp: (name) => `Best: ${name}`,
+      bestCloser: "Closes it best",
       noneClose: "No app closes it",
       complaintsLabel: (n) => `${n} in complaints`,
       praiseLabel: (n) => `${n} in praise`,
       appsBreakdown: "By app",
       whitespaceHeading: "White space",
       whitespaceNote: "Hypotheses — not from the data, our guess at needs no app attempts yet.",
+      voicesLabel: "From reviews",
+      voiceCount: (n) => `${n} ${n === 1 ? "person asks" : "people ask"} for this`,
       scanned: (n) => `Scored from ${n} reviews`,
     },
     deck: { prev: "Previous", next: "Next" },
@@ -470,12 +476,15 @@ const DICT: Record<Locale, Dict> = {
       verdictThin: "Мало сигнала",
       painIn: (x, y) => `топ-жалоба у ${x} из ${y} приложений`,
       bestApp: (name) => `Лучше всех: ${name}`,
-      noneClose: "Никто не закрывает",
+      bestCloser: "Лучше всех закрывает",
+      noneClose: "Пока никто не закрывает",
       complaintsLabel: (n) => `${n} в жалобах`,
       praiseLabel: (n) => `${n} в похвале`,
       appsBreakdown: "По приложениям",
       whitespaceHeading: "Белые пятна",
       whitespaceNote: "Гипотезы — не из данных, а наша догадка о потребностях, которые пока никто не закрывает.",
+      voicesLabel: "Из отзывов",
+      voiceCount: (n) => `об этом просят в отзывах: ${n}`,
       scanned: (n) => `Посчитано по ${n} отзывам`,
     },
     deck: { prev: "Назад", next: "Вперёд" },

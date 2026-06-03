@@ -1,6 +1,6 @@
 import { prisma } from "./prisma";
 import { getSegmentBySlug } from "./segments";
-import { resolveNeeds, resolveWhitespace } from "./needs";
+import { resolveNeeds, resolveWhitespace, type ResolvedWhitespace } from "./needs";
 import type { Locale } from "./i18n";
 
 // How well a genre serves each of its authored "needs", scored from real reviews.
@@ -20,7 +20,22 @@ export type NeedAppStat = {
   complaints: number;
   praises: number;
   sharePct: number; // complaints on this need / app's total negatives
+  margin: number; // praise-rate minus complaint-rate on this need (comparative, never absolute)
   quotes: string[];
+  praiseQuotes: string[];
+};
+
+// Who closes the need best. This is the *weak* direction of the data: praise is a
+// small, curated sample, so we only ever name a closer when its praise clearly
+// outweighs its own complaints on the topic AND a real review backs it. For open
+// gaps the honest answer is null ("nobody") — and that is the point, not a hole.
+export type BestCloser = {
+  id: string;
+  name: string;
+  icon: string | null;
+  praises: number;
+  complaints: number;
+  quote: string;
 };
 
 export type NeedGap = {
@@ -31,14 +46,14 @@ export type NeedGap = {
   failApps: number; // apps where this is a top complaint
   totalApps: number; // apps with any reviews
   verdict: "open" | "narrow" | "thin";
-  bestApp: { id: string; name: string } | null; // net-praised hint
+  bestApp: BestCloser | null;
   apps: NeedAppStat[];
 };
 
 export type NeedsGapView = {
   slug: string;
   needs: NeedGap[];
-  whitespace: string[];
+  whitespace: ResolvedWhitespace[];
   maxFail: number;
   reviewsScanned: number;
 };
@@ -49,6 +64,7 @@ const QUOTE_MAX = 220;
 const TOP_NEEDS_PER_APP = 3; // a need ranking this high in an app counts as a top pain
 const THIN_FAIL = 2; // fewer than this many apps failing = not enough signal
 const OPEN_BREADTH = 0.4; // top pain in >= 40% of the genre = genre-wide gap
+const MIN_PRAISE = 3; // fewer praise mentions than this = too thin to name anyone the closer
 
 function matches(textLower: string, keywords: string[]): boolean {
   for (const k of keywords) if (textLower.includes(k)) return true;
@@ -95,6 +111,7 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     totalApps++;
     reviewsScanned += negTotal;
 
+    const posTotal = positives.length;
     const stats: (NeedAppStat & { _i: number })[] = needs.map((_, i) => {
       const kws = keywordSets[i];
       let complaints = 0;
@@ -106,7 +123,15 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
         }
       }
       let praises = 0;
-      for (const r of positives) if (matches(r.text.toLowerCase(), kws)) praises++;
+      const praiseQuotes: string[] = [];
+      for (const r of positives) {
+        if (matches(r.text.toLowerCase(), kws)) {
+          praises++;
+          if (praiseQuotes.length < 2 && r.text.trim().length > 12) praiseQuotes.push(trimQuote(r.text));
+        }
+      }
+      const complaintRate = complaints / negTotal;
+      const praiseRate = posTotal ? praises / posTotal : 0;
       return {
         _i: i,
         id: p.id,
@@ -114,8 +139,10 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
         icon: p.icon,
         complaints,
         praises,
-        sharePct: Math.round((complaints / negTotal) * 100),
+        sharePct: Math.round(complaintRate * 100),
+        margin: praiseRate - complaintRate,
         quotes,
+        praiseQuotes,
       };
     });
 
@@ -139,14 +166,12 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     const apps = [...perNeed[i].values()].sort((a, b) => b.complaints - a.complaints);
     const complaintMentions = apps.reduce((s, a) => s + a.complaints, 0);
 
+    // Best closer: highest praise-over-complaint margin, but only if praise is
+    // backed by enough mentions and a real quote. No qualifier => nobody closes it.
     let best: NeedAppStat | null = null;
-    let bestNet = 0;
     for (const a of apps) {
-      const net = a.praises - a.complaints;
-      if (net > bestNet) {
-        bestNet = net;
-        best = a;
-      }
+      if (a.praises < MIN_PRAISE || a.margin <= 0 || a.praiseQuotes.length === 0) continue;
+      if (!best || a.margin > best.margin) best = a;
     }
 
     const breadth = totalApps ? failApps[i] / totalApps : 0;
@@ -161,7 +186,9 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
       failApps: failApps[i],
       totalApps,
       verdict,
-      bestApp: best ? { id: best.id, name: best.name } : null,
+      bestApp: best
+        ? { id: best.id, name: best.name, icon: best.icon, praises: best.praises, complaints: best.complaints, quote: best.praiseQuotes[0] }
+        : null,
       apps,
     };
   });

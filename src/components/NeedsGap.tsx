@@ -24,9 +24,22 @@ export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale:
             {view.whitespace.map((w, i) => (
               <div
                 key={i}
-                className="rounded-[var(--radius-xl)] border border-dashed border-[var(--color-border-subtle)] p-4"
+                className="flex flex-col gap-3 rounded-[var(--radius-xl)] border border-dashed border-[var(--color-border-subtle)] p-4"
               >
-                <p className="text-[14px] leading-[20px] text-[var(--color-text-secondary)]">{w}</p>
+                <p className="text-[14px] leading-[20px] text-[var(--color-text-secondary)]">{w.text}</p>
+                {w.voices.length > 0 && (
+                  <div className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] pt-3">
+                    <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
+                      {tr.voicesLabel} · {tr.voiceCount(w.voices.length)}
+                    </span>
+                    {w.voices.map((v, j) => (
+                      <div key={j} className="flex flex-col gap-0.5">
+                        <Quote size="S">{v.quote}</Quote>
+                        {v.app && <span className="text-[11px] text-[var(--color-text-tertiary)]">{v.app}</span>}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -71,16 +84,42 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
             </span>
           </span>
 
-          {need.bestApp && (
-            <span className="text-[12px] text-[var(--color-text-tertiary)]">{tr.bestApp(need.bestApp.name)}</span>
-          )}
+          <span className="text-[12px] text-[var(--color-text-tertiary)]">
+            {need.bestApp ? tr.bestApp(need.bestApp.name) : tr.noneClose}
+          </span>
         </summary>
 
-        {need.apps.length > 0 && (
+        {(need.bestApp || need.apps.length > 0) && (
           <div className="flex flex-col gap-4 border-t border-[var(--color-border-subtle)] px-4 py-4">
-            <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
-              {tr.appsBreakdown}
-            </span>
+            {need.bestApp && (
+              <div className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3">
+                <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                  <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
+                    {tr.bestCloser}
+                  </span>
+                  {need.bestApp.icon && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={need.bestApp.icon}
+                      alt=""
+                      className="size-6 shrink-0 rounded-[var(--radius-md)] object-cover"
+                    />
+                  )}
+                  <span className="text-[14px] font-semibold text-[var(--color-text-primary)]">
+                    {need.bestApp.name}
+                  </span>
+                  <span className="tabular-nums text-[12px] text-[var(--color-text-tertiary)]">
+                    {tr.praiseLabel(need.bestApp.praises)}
+                  </span>
+                </span>
+                <Quote size="S">{need.bestApp.quote}</Quote>
+              </div>
+            )}
+            {need.apps.length > 0 && (
+              <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
+                {tr.appsBreakdown}
+              </span>
+            )}
             {need.apps.slice(0, 8).map((app) => (
               <div key={app.id} className="flex flex-col gap-1.5">
                 <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">

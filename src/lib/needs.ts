@@ -15,9 +15,15 @@ export type Need = {
   ru: { label: string; desc: string };
 };
 
+// A white space is a need we think no app attempts. `voices` are real, individual
+// reviews asking for exactly that — existence proofs, not trends. They are sparse
+// by nature (nobody serves the need, so there's little to review), so here a single
+// voice is legitimate. Curated in-session from the dump-ideas harvest; junk excluded.
+export type Voice = { quote: string; app: string | null };
+
 export type GenreNeeds = {
   needs: Need[];
-  whitespace: { en: string; ru: string }[];
+  whitespace: { en: string; ru: string; voices?: Voice[] }[];
 };
 
 export const GENRE_NEEDS: Record<string, GenreNeeds> = {
@@ -105,6 +111,7 @@ export const GENRE_NEEDS: Record<string, GenreNeeds> = {
 };
 
 export type ResolvedNeed = { key: string; label: string; desc: string; keywords: string[] };
+export type ResolvedWhitespace = { text: string; voices: Voice[] };
 
 export function resolveNeeds(slug: string, locale: Locale): ResolvedNeed[] | null {
   const g = GENRE_NEEDS[slug];
@@ -112,8 +119,8 @@ export function resolveNeeds(slug: string, locale: Locale): ResolvedNeed[] | nul
   return g.needs.map((n) => ({ key: n.key, keywords: n.keywords, ...(locale === "ru" ? n.ru : n.en) }));
 }
 
-export function resolveWhitespace(slug: string, locale: Locale): string[] {
+export function resolveWhitespace(slug: string, locale: Locale): ResolvedWhitespace[] {
   const g = GENRE_NEEDS[slug];
   if (!g) return [];
-  return g.whitespace.map((w) => (locale === "ru" ? w.ru : w.en));
+  return g.whitespace.map((w) => ({ text: locale === "ru" ? w.ru : w.en, voices: w.voices ?? [] }));
 }
