@@ -55,14 +55,18 @@ export async function getFullDeck(locale: Locale): Promise<FeedCard[]> {
   return cached();
 }
 
-// Category / opportunity-type filtering over the cached deck. Cheap in-memory
-// pass so the homepage tabs don't fragment the cache by query string.
+// Category / opportunity-type / segment filtering over the cached deck. Cheap
+// in-memory pass so the homepage tabs don't fragment the cache by query string.
+// `memberIds` restricts to a market segment's apps (resolved by the caller from
+// src/lib/segments); deck order (ranking) is preserved.
 export function filterDeck(
   deck: FeedCard[],
   cat: string | null,
   type: string | null,
+  memberIds: Set<string> | null = null,
 ): FeedCard[] {
   let f = deck;
+  if (memberIds) f = f.filter((c) => memberIds.has(c.id));
   if (cat) f = f.filter((c) => c.category === cat);
   if (type) f = f.filter((c) => c.summary?.opportunityType === type);
   return f;

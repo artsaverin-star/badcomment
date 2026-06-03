@@ -15,12 +15,14 @@ export default function IdeaFeed({
   locale,
   cat,
   type,
+  seg,
   initialNextOffset,
 }: {
   cards: FeedCard[];
   locale: Locale;
   cat: string | null;
   type: string | null;
+  seg: string | null;
   initialNextOffset: number | null;
 }) {
   const [cards, setCards] = useState(initial);
@@ -36,7 +38,7 @@ export default function IdeaFeed({
       (entries) => {
         if (!entries[0].isIntersecting || pending || nextOffset === null) return;
         startTransition(async () => {
-          const res = await loadDeckPage(locale, cat, type, nextOffset);
+          const res = await loadDeckPage(locale, cat, type, seg, nextOffset);
           setCards((prev) => [...prev, ...res.cards]);
           setNextOffset(res.nextOffset);
         });
@@ -47,7 +49,7 @@ export default function IdeaFeed({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [nextOffset, pending, locale, cat, type]);
+  }, [nextOffset, pending, locale, cat, type, seg]);
 
   return (
     <div className="mx-auto flex max-w-[608px] flex-col items-stretch gap-4">

@@ -15,6 +15,8 @@ type Dict = {
     more: string;
     collapse: string;
     signIn: string;
+    ideas: string;
+    market: string;
   };
   home: {
     tagline: string;
@@ -36,6 +38,16 @@ type Dict = {
   };
   themes: { empty: string };
   ideas: { title: string; desc: string; empty: string; all: string };
+  market: {
+    title: string;
+    desc: string;
+    pricing: string;
+    audience: string;
+    problems: string;
+    apps: (n: number) => string;
+    viewApps: string;
+    backToMarket: string;
+  };
   deck: { prev: string; next: string };
   card: {
     toRebuild: string;
@@ -85,6 +97,8 @@ const DICT: Record<Locale, Dict> = {
       more: "Details",
       collapse: "Collapse",
       signIn: "Sign in",
+      ideas: "Ideas",
+      market: "Market",
     },
     home: {
       tagline:
@@ -112,6 +126,16 @@ const DICT: Record<Locale, Dict> = {
       desc: "We analyzed popular apps and real user reviews on the App Store and Google Play, and found fixable flaws in proven products you can address to take part of their audience. Building on demand that's already proven beats guessing.",
       empty: "No ideas yet — run the ingest to collect reviews first.",
       all: "All",
+    },
+    market: {
+      title: "Market map",
+      desc: "Apps grouped into market genres — with the pricing, audience and shared problems of each. Pick a genre to see the specific apps behind it.",
+      pricing: "Pricing",
+      audience: "Audience",
+      problems: "Shared problems",
+      apps: (n) => `${n} ${n === 1 ? "app" : "apps"}`,
+      viewApps: "View the apps →",
+      backToMarket: "← Back to the market map",
     },
     deck: { prev: "Previous", next: "Next" },
     card: {
@@ -199,6 +223,8 @@ const DICT: Record<Locale, Dict> = {
       more: "Подробнее",
       collapse: "Свернуть",
       signIn: "Войти",
+      ideas: "Идеи",
+      market: "Рынок",
     },
     home: {
       tagline:
@@ -226,6 +252,26 @@ const DICT: Record<Locale, Dict> = {
       desc: "Мы проанализировали популярные приложения и отзывы реальных пользователей в App Store и Google Play и нашли в проверенных продуктах ошибки, которые можно исправить и забрать часть их аудитории. Делать приложение с уже доказанным спросом — надёжнее, чем угадывать.",
       empty: "Идей пока нет — сначала запустите сбор отзывов.",
       all: "Все",
+    },
+    market: {
+      title: "Карта рынка",
+      desc: "Приложения, сгруппированные в рыночные жанры — с ценообразованием, аудиторией и общими болями каждого. Выбери жанр, чтобы увидеть конкретные приложения за ним.",
+      pricing: "Ценообразование",
+      audience: "Аудитория",
+      problems: "Общие проблемы",
+      apps: (n) => {
+        const mod10 = n % 10;
+        const mod100 = n % 100;
+        const word =
+          mod10 === 1 && mod100 !== 11
+            ? "приложение"
+            : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+              ? "приложения"
+              : "приложений";
+        return `${n} ${word}`;
+      },
+      viewApps: "Смотреть приложения →",
+      backToMarket: "← Назад к карте рынка",
     },
     deck: { prev: "Назад", next: "Вперёд" },
     card: {

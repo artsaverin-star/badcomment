@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import IdeaFeed from "@/components/IdeaFeed";
 import { getFullDeck, filterDeck, PAGE_SIZE } from "@/lib/deck";
+import { getSegmentBySlug } from "@/lib/segments";
 import { t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import { CATEGORIES } from "@/lib/categories";
@@ -37,11 +38,14 @@ function deckHref(params: { cat?: string | null; type?: string | null }) {
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ cat?: string; type?: string }>;
+  searchParams: Promise<{ cat?: string; type?: string; seg?: string }>;
 }) {
   const locale = await getLocale();
   const tr = t(locale);
-  const { cat, type } = await searchParams;
+  const { cat, type, seg } = await searchParams;
+
+  const segment = seg ? getSegmentBySlug(seg, locale) : null;
+  const memberIds = segment ? new Set(segment.appIds) : null;
 
   const deck = await getFullDeck(locale);
   const present = new Set(
@@ -60,7 +64,7 @@ export default async function Home({
   const activeType =
     type && presentTypes.has(type as OpportunityType) ? (type as OpportunityType) : null;
 
-  const filtered = filterDeck(deck, activeCat, activeType);
+  const filtered = filterDeck(deck, activeCat, activeType, memberIds);
 
   // Render only the first page server-side; the feed lazy-loads the rest as the
   // user scrolls (see IdeaFeed), so there's no cap — the whole deck is reachable
@@ -74,8 +78,16 @@ export default async function Home({
         size="L"
         as="h1"
         className="mb-6 items-center text-center"
-        title={tr.ideas.title}
-        description={<span className="mx-auto block max-w-xl">{tr.ideas.desc}</span>}
+        title={segment ? segment.name : tr.ideas.title}
+        description={
+          segment ? (
+            <Link href="/market" className="mx-auto block text-[var(--color-text-brand)]">
+              {tr.market.backToMarket}
+            </Link>
+          ) : (
+            <span className="mx-auto block max-w-xl">{tr.ideas.desc}</span>
+          )
+        }
       />
 
 
@@ -115,11 +127,12 @@ export default async function Home({
         <p className="text-center text-[15px] text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
         <IdeaFeed
-          key={`${activeCat ?? "all"}-${activeType ?? "all"}`}
+          key={`${activeCat ?? "all"}-${activeType ?? "all"}-${segment?.slug ?? "all"}`}
           cards={cards}
           locale={locale}
           cat={activeCat}
           type={activeType}
+          seg={segment?.slug ?? null}
           initialNextOffset={nextOffset}
         />
       )}
