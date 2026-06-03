@@ -2,6 +2,7 @@ import { Card, Header } from "@saverin/ui-web";
 import { getFullDeck } from "@/lib/deck";
 import { getSegments } from "@/lib/segments";
 import { computeMarketStats } from "@/lib/marketStats";
+import { getDataFreshness } from "@/lib/queries";
 import { formatCount } from "@/lib/format";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
@@ -21,16 +22,26 @@ export default async function Market() {
   const segments = getSegments(locale);
   const deck = await getFullDeck(locale);
   const stats = computeMarketStats(deck, segments);
+  const fresh = await getDataFreshness();
+  const freshDate = fresh.latest
+    ? new Intl.DateTimeFormat(locale, { month: "short", year: "numeric" }).format(fresh.latest)
+    : null;
 
   return (
     <main className="mx-auto max-w-5xl overflow-x-clip px-4 py-10">
       <Header
         size="L"
         as="h1"
-        className="mb-8 items-center text-center"
+        className="mb-4 items-center text-center"
         title={tr.marketDash.title}
         description={<span className="mx-auto block max-w-2xl">{tr.marketDash.subtitle}</span>}
       />
+
+      {freshDate && (
+        <p className="mb-8 text-center text-[13px] text-[var(--color-text-tertiary)]">
+          {tr.marketDash.dataFresh(freshDate, formatCount(fresh.reviews))}
+        </p>
+      )}
 
       <div className="mb-12 flex flex-col gap-6">
         <SummaryBand tr={tr.marketDash} totals={stats.totals} />

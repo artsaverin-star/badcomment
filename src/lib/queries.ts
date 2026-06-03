@@ -148,6 +148,15 @@ export type ProductDetail = {
   themeStats: ThemeStat[];
   byStore: StoreBreakdown[];
   reviews: ReviewView[];
+  // Real store signal, surfaced as the page's proof: scale + satisfaction +
+  // the full rating distribution, plus the span of dates the negative reviews
+  // were posted (so the page can honestly stamp how fresh the evidence is).
+  installs: number | null;
+  ratingCount: number | null;
+  avgRating: number | null;
+  histogram: Record<string, number> | null;
+  dateFrom: Date | null;
+  dateTo: Date | null;
   // Store screenshots (Apple-first) + the authored idea summary, so the detail
   // page can render the curated "what's broken / loved / how to beat" breakdown.
   screenshots: string[];
@@ -206,6 +215,28 @@ export async function getProductDetail(
     product.listings.find((l) => l.screenshots);
   const screenshots = parseKeys(shotListing?.screenshots ?? "[]").slice(0, 4);
 
+  // Real scale + satisfaction, read off the loaded listings (same conventions
+  // as the deck: max installs, summed ratings, rating-count-weighted average).
+  const installsVals = product.listings
+    .map((l) => (l.installs == null ? null : Number(l.installs)))
+    .filter((v): v is number => v != null);
+  const installs = installsVals.length ? Math.max(...installsVals) : null;
+  const ratingCount =
+    product.listings.reduce((s, l) => s + (l.ratingCount ?? 0), 0) || null;
+  const scored = product.listings.filter((l) => l.score != null);
+  const weightSum = scored.reduce((s, l) => s + (l.ratingCount ?? 1), 0);
+  const avgRating = scored.length
+    ? scored.reduce((s, l) => s + (l.score as number) * (l.ratingCount ?? 1), 0) /
+      (weightSum || scored.length)
+    : null;
+  const histogram = mergeHistograms(product.listings.map((l) => l.histogram));
+
+  const postedTimes = allReviews
+    .map((r) => r.postedAt?.getTime())
+    .filter((t): t is number => t != null);
+  const dateFrom = postedTimes.length ? new Date(Math.min(...postedTimes)) : null;
+  const dateTo = postedTimes.length ? new Date(Math.max(...postedTimes)) : null;
+
   return {
     id: product.id,
     name: product.name,
@@ -218,9 +249,26 @@ export async function getProductDetail(
     themeStats: countThemes(allReviews.map((r) => r.themes)),
     byStore,
     reviews,
+    installs,
+    ratingCount,
+    avgRating,
+    histogram,
+    dateFrom,
+    dateTo,
     screenshots,
     summary: parseSummary(product.summary, locale),
   };
+}
+
+// A single honest freshness stamp for the whole catalog: when the most recent
+// review we hold was posted, and how many reviews back the analysis. One cheap
+// aggregate — safe to call from a force-dynamic page on the small prod box.
+export async function getDataFreshness(): Promise<{ latest: Date | null; reviews: number }> {
+  const agg = await prisma.review.aggregate({
+    _max: { postedAt: true },
+    _count: { _all: true },
+  });
+  return { latest: agg._max.postedAt ?? null, reviews: agg._count._all };
 }
 
 export type IdeaCard = {

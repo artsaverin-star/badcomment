@@ -2,7 +2,9 @@ import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import IdeaFeed from "@/components/IdeaFeed";
 import { getFullDeck, filterDeck, PAGE_SIZE } from "@/lib/deck";
+import { getDataFreshness } from "@/lib/queries";
 import { getSegmentBySlug } from "@/lib/segments";
+import { formatCount } from "@/lib/format";
 import { t, categoryLabelL, opportunityTypeLabelL } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import { CATEGORIES } from "@/lib/categories";
@@ -48,6 +50,10 @@ export default async function Home({
   const memberIds = segment ? new Set(segment.appIds) : null;
 
   const deck = await getFullDeck(locale);
+  const fresh = await getDataFreshness();
+  const freshDate = fresh.latest
+    ? new Intl.DateTimeFormat(locale, { month: "short", year: "numeric" }).format(fresh.latest)
+    : null;
   const present = new Set(
     deck.map((c) => c.category).filter((c): c is string => c != null)
   );
@@ -90,6 +96,11 @@ export default async function Home({
         }
       />
 
+      {!segment && freshDate && (
+        <p className="mb-6 text-center text-[13px] text-[var(--color-text-tertiary)]">
+          {tr.marketDash.dataFresh(freshDate, formatCount(fresh.reviews))}
+        </p>
+      )}
 
       <nav className="mb-3 flex flex-wrap justify-center gap-2">
         <Link href={deckHref({ type: activeType })} className={tabClass(!activeCat)}>

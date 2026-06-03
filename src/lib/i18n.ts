@@ -74,6 +74,7 @@ type Dict = {
     leader: string;
     mInstalls: (v: string) => string;
     mRatings: (v: string) => string;
+    dataFresh: (date: string, reviews: string) => string;
     concFragmented: string;
     concSome: string;
     concCrowded: string;
@@ -119,6 +120,14 @@ type Dict = {
     storeReviews: (store: string, n: number) => string;
     negativeHeading: string;
     anon: string;
+    // proof-first detail page
+    realComplaints: (n: number) => string;
+    ratingDist: string;
+    complaintPattern: string;
+    buildTitle: string;
+    showingOf: (shown: number, total: number) => string;
+    reviewSpan: (from: string, to: string) => string;
+    ratingsScale: (count: string) => string;
   };
   categoryLabels: Record<string, string>;
   themeLabels: Record<string, string>;
@@ -198,6 +207,7 @@ const DICT: Record<Locale, Dict> = {
       leader: "leader",
       mInstalls: (v) => `${v}+ installs`,
       mRatings: (v) => `${v} ratings`,
+      dataFresh: (date, reviews) => `Reviews through ${date} · ${reviews} analyzed`,
       concFragmented: "fragmented — room to enter",
       concSome: "a few leaders",
       concCrowded: "dominated",
@@ -242,6 +252,13 @@ const DICT: Record<Locale, Dict> = {
       storeReviews: (store, n) => `${store} · ${n} reviews`,
       negativeHeading: "Negative reviews",
       anon: "anon",
+      realComplaints: (n) => `Real complaints (${n})`,
+      ratingDist: "Rating distribution",
+      complaintPattern: "What they complain about",
+      buildTitle: "How hard to build",
+      showingOf: (shown, total) => `showing ${shown} of ${total}`,
+      reviewSpan: (from, to) => (from === to ? from : `${from} – ${to}`),
+      ratingsScale: (count) => `${count} ratings`,
     },
     categoryLabels: {
       social: "Social",
@@ -378,6 +395,7 @@ const DICT: Record<Locale, Dict> = {
       leader: "лидер",
       mInstalls: (v) => `${v}+ установок`,
       mRatings: (v) => `${v} оценок`,
+      dataFresh: (date, reviews) => `Отзывы по ${date} · проанализировано ${reviews}`,
       concFragmented: "раздроблено — есть куда зайти",
       concSome: "пара лидеров",
       concCrowded: "занято",
@@ -432,6 +450,13 @@ const DICT: Record<Locale, Dict> = {
       storeReviews: (store, n) => `${store} · ${n} отзывов`,
       negativeHeading: "Негативные отзывы",
       anon: "аноним",
+      realComplaints: (n) => `Реальные жалобы (${n})`,
+      ratingDist: "Распределение оценок",
+      complaintPattern: "На что жалуются",
+      buildTitle: "Насколько сложно собрать",
+      showingOf: (shown, total) => `показано ${shown} из ${total}`,
+      reviewSpan: (from, to) => (from === to ? from : `${from} – ${to}`),
+      ratingsScale: (count) => `${count} оценок`,
     },
     categoryLabels: {
       social: "Соцсети",
