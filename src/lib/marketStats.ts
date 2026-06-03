@@ -11,11 +11,10 @@ export type GenreMember = {
   tagline: string;
   oppType: OpportunityType | null;
   buildability: number | null;
-  // Competitive read, scoped to the genre.
-  // share = this app's slice of the genre install base (estimate, mirrors the
-  // genre-level proxy); installs is real Google installs only (null = unknown,
-  // never a proxy); avgRating/ratingCount drive the dissatisfaction signal.
-  share: number;
+  // Honest competitive read: installs is real Google installs only (null =
+  // unknown, never a proxy); avgRating/ratingCount are real store numbers and
+  // double as the scale + dissatisfaction signal. No derived "market share" —
+  // our app set is a curated subset, so any share % would be fiction.
   installs: number | null;
   ratingCount: number | null;
   avgRating: number | null;
@@ -160,22 +159,18 @@ export function computeMarketStats(deck: FeedCard[], segments: Segment[]): Marke
       gapTitles: dedupeCap(gaps, 10),
       wedge: dedupeCap(wedge, 8),
       icons: members.filter((c) => c.icon).slice(0, 5).map((c) => c.icon as string),
-      members: members.map((c, i) => {
-        const pop = popProxy(c);
-        return {
-          id: c.id,
-          name: c.name,
-          icon: c.icon,
-          tagline: c.summary?.tagline ?? "",
-          oppType: c.summary?.opportunityType ?? null,
-          buildability: typeof c.summary?.buildability === "number" ? c.summary.buildability : null,
-          share: installBase ? pop / installBase : 0,
-          installs: c.installs ?? null,
-          ratingCount: c.ratingCount ?? null,
-          avgRating: c.avgRating ?? null,
-          isLeader: i === 0 && pop > 0,
-        };
-      }),
+      members: members.map((c, i) => ({
+        id: c.id,
+        name: c.name,
+        icon: c.icon,
+        tagline: c.summary?.tagline ?? "",
+        oppType: c.summary?.opportunityType ?? null,
+        buildability: typeof c.summary?.buildability === "number" ? c.summary.buildability : null,
+        installs: c.installs ?? null,
+        ratingCount: c.ratingCount ?? null,
+        avgRating: c.avgRating ?? null,
+        isLeader: i === 0 && popProxy(c) > 0,
+      })),
     };
   });
 

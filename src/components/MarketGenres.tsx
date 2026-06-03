@@ -116,9 +116,10 @@ function OppChip({ type, locale }: { type: OpportunityType; locale: Locale }) {
   );
 }
 
-// One competitor in the genre, read as: how big a slice (share bar + %), how
-// hated (★ rating, warned when low), real scale when known (installs), and the
-// kind of opening (oppType). Tap through to the full idea card.
+// One competitor in the genre, read from honest store numbers only: real
+// installs when known, ★ rating with review volume (flagged when low = a big
+// hated app worth attacking), a leader badge, and the kind of opening (oppType).
+// No "market share" — our app set is a curated subset. Tap through to the card.
 function MemberRow({
   m,
   tr,
@@ -128,7 +129,6 @@ function MemberRow({
   tr: ReturnType<typeof t>["marketDash"];
   locale: Locale;
 }) {
-  const pct = Math.round(m.share * 100);
   const lowRating = m.avgRating != null && m.avgRating < 4.0;
   return (
     <Link
@@ -150,27 +150,16 @@ function MemberRow({
         </span>
         {m.tagline && <span className="truncate text-[12px] text-[var(--color-text-tertiary)]">{m.tagline}</span>}
         <span className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] text-[var(--color-text-tertiary)]">
-          {pct > 0 && (
-            <span className="flex items-center gap-1.5">
-              <span className="inline-block h-1.5 w-10 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-                <span
-                  className="block h-full rounded-full bg-[var(--color-text-secondary)]"
-                  style={{ width: `${Math.max(3, pct)}%` }}
-                />
-              </span>
-              <span className="tabular-nums">{tr.sharePct(pct)}</span>
-            </span>
-          )}
+          {m.installs != null && <span className="tabular-nums">{tr.mInstalls(formatCount(m.installs))}</span>}
           {m.avgRating != null && (
             <span
               className="tabular-nums"
               style={lowRating ? { color: "var(--color-accent-warning)" } : undefined}
             >
               ★ {m.avgRating.toFixed(1)}
-              {m.ratingCount ? ` (${formatCount(m.ratingCount)})` : ""}
+              {m.ratingCount ? ` · ${tr.mRatings(formatCount(m.ratingCount))}` : ""}
             </span>
           )}
-          {m.installs != null && <span className="tabular-nums">{formatCount(m.installs)}+</span>}
         </span>
       </span>
       {m.oppType && <OppChip type={m.oppType} locale={locale} />}

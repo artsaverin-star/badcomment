@@ -72,7 +72,8 @@ type Dict = {
     players: (n: number) => string;
     leaderPct: (pct: number) => string;
     leader: string;
-    sharePct: (pct: number) => string;
+    mInstalls: (v: string) => string;
+    mRatings: (v: string) => string;
     concFragmented: string;
     concSome: string;
     concCrowded: string;
@@ -195,7 +196,8 @@ const DICT: Record<Locale, Dict> = {
       players: (n) => `${n} ${n === 1 ? "player" : "players"}`,
       leaderPct: (pct) => `leader ${pct}%`,
       leader: "leader",
-      sharePct: (pct) => `${pct}% share`,
+      mInstalls: (v) => `${v}+ installs`,
+      mRatings: (v) => `${v} ratings`,
       concFragmented: "fragmented — room to enter",
       concSome: "a few leaders",
       concCrowded: "dominated",
@@ -374,7 +376,8 @@ const DICT: Record<Locale, Dict> = {
       },
       leaderPct: (pct) => `лидер ${pct}%`,
       leader: "лидер",
-      sharePct: (pct) => `${pct}% рынка`,
+      mInstalls: (v) => `${v}+ установок`,
+      mRatings: (v) => `${v} оценок`,
       concFragmented: "раздроблено — есть куда зайти",
       concSome: "пара лидеров",
       concCrowded: "занято",
