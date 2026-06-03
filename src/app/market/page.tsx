@@ -2,8 +2,10 @@ import Link from "next/link";
 import { Card, Header, Tag, ListRow, buttonVariants, cn } from "@saverin/ui-web";
 import { getFullDeck } from "@/lib/deck";
 import { getSegments } from "@/lib/segments";
+import { computeMarketStats } from "@/lib/marketStats";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
+import MarketDashboard from "@/components/MarketDashboard";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +30,7 @@ export default async function Market() {
   const segments = getSegments(locale);
   const deck = await getFullDeck(locale);
   const byId = new Map(deck.map((c) => [c.id, c]));
+  const stats = computeMarketStats(deck, segments);
 
   return (
     <main className="mx-auto max-w-5xl overflow-x-clip px-4 py-10">
@@ -38,6 +41,8 @@ export default async function Market() {
         title={tr.market.title}
         description={<span className="mx-auto block max-w-xl">{tr.market.desc}</span>}
       />
+
+      <MarketDashboard stats={stats} locale={locale} />
 
       <div className="mx-auto flex max-w-[608px] flex-col items-stretch gap-4">
         {segments.map((seg) => {

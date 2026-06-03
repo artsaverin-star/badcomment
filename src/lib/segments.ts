@@ -13,19 +13,25 @@ type SegmentProse = {
   problems: string[];
 };
 
+// Language-neutral monthly price band (USD) for the genre, derived from its
+// pricing prose. Feeds the market dashboard's revenue estimate; one-time-purchase
+// genres are modeled as a blended monthly equivalent.
+export type PriceBand = { low: number; high: number };
+
 type RawSegment = {
   slug: string;
   appIds: string[];
+  price: PriceBand;
   ru: SegmentProse;
   en: SegmentProse;
 };
 
-export type Segment = { slug: string; appIds: string[] } & SegmentProse;
+export type Segment = { slug: string; appIds: string[]; price: PriceBand } & SegmentProse;
 
 const SEGMENTS = segmentsData as RawSegment[];
 
 function resolve(s: RawSegment, locale: Locale): Segment {
-  return { slug: s.slug, appIds: s.appIds, ...(locale === "ru" ? s.ru : s.en) };
+  return { slug: s.slug, appIds: s.appIds, price: s.price, ...(locale === "ru" ? s.ru : s.en) };
 }
 
 export function getSegments(locale: Locale): Segment[] {

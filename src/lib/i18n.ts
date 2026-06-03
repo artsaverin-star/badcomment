@@ -48,6 +48,41 @@ type Dict = {
     viewApps: string;
     backToMarket: string;
   };
+  marketDash: {
+    title: string;
+    subtitle: string;
+    disclaimer: string;
+    // summary band
+    apps: string;
+    genres: string;
+    installBase: string;
+    ratings: string;
+    estRevenue: string;
+    perYear: string;
+    // assumptions panel
+    assumptions: string;
+    activeRate: string;
+    conversion: string;
+    storeCut: string;
+    reset: string;
+    // opportunity map
+    mapTitle: string;
+    mapHint: string;
+    axisScale: string;
+    axisGap: string;
+    bubbleHint: string;
+    // genre table
+    tableTitle: string;
+    colGenre: string;
+    colApps: string;
+    colScale: string;
+    colRevenue: string;
+    colRating: string;
+    colLeader: string;
+    colOpp: string;
+    tiers: { niche: string; small: string; mid: string; large: string; giant: string };
+    leaderShare: (pct: number) => string;
+  };
   deck: { prev: string; next: string };
   card: {
     toRebuild: string;
@@ -136,6 +171,37 @@ const DICT: Record<Locale, Dict> = {
       apps: (n) => `${n} ${n === 1 ? "app" : "apps"}`,
       viewApps: "View the apps →",
       backToMarket: "← Back to the market map",
+    },
+    marketDash: {
+      title: "Market at a glance",
+      subtitle: "The whole catalog as one picture: how big each genre is, how unhappy its users are, and a rough read on the money in play.",
+      disclaimer: "Revenue is an estimate, not a fact — modeled from the install base and the assumptions below. Drag the sliders to fit your own read.",
+      apps: "apps tracked",
+      genres: "genres",
+      installBase: "est. install base",
+      ratings: "ratings mined",
+      estRevenue: "est. annual market",
+      perYear: "/yr",
+      assumptions: "Assumptions",
+      activeRate: "Active users (of installs)",
+      conversion: "Pay conversion",
+      storeCut: "Store cut",
+      reset: "Reset",
+      mapTitle: "Opportunity map",
+      mapHint: "Up and to the right = big market, unhappy users. Bubble size = est. revenue; color = where the opening is.",
+      axisScale: "Market scale →",
+      axisGap: "Dissatisfaction →",
+      bubbleHint: "Each bubble is a genre.",
+      tableTitle: "Genres",
+      colGenre: "Genre",
+      colApps: "Apps",
+      colScale: "Install base",
+      colRevenue: "Est. revenue",
+      colRating: "Avg rating",
+      colLeader: "Leader",
+      colOpp: "Opening",
+      tiers: { niche: "Niche", small: "Small", mid: "Mid", large: "Large", giant: "Giant" },
+      leaderShare: (pct) => `${pct}% of base`,
     },
     deck: { prev: "Previous", next: "Next" },
     card: {
@@ -272,6 +338,37 @@ const DICT: Record<Locale, Dict> = {
       },
       viewApps: "Смотреть приложения →",
       backToMarket: "← Назад к карте рынка",
+    },
+    marketDash: {
+      title: "Рынок в одном экране",
+      subtitle: "Весь каталог как одна картина: насколько крупный каждый жанр, насколько недовольны пользователи и грубая оценка денег в игре.",
+      disclaimer: "Выручка — оценка, а не факт: смоделирована из базы установок и допущений ниже. Двигай ползунки под свою картину рынка.",
+      apps: "приложений",
+      genres: "жанров",
+      installBase: "оценка базы установок",
+      ratings: "оценок собрано",
+      estRevenue: "оценка объёма рынка",
+      perYear: "/год",
+      assumptions: "Допущения",
+      activeRate: "Активные (от установок)",
+      conversion: "Конверсия в платящих",
+      storeCut: "Комиссия стора",
+      reset: "Сбросить",
+      mapTitle: "Карта возможностей",
+      mapHint: "Вверх и вправо = большой рынок, недовольные пользователи. Размер пузыря — оценка выручки; цвет — где возможность.",
+      axisScale: "Масштаб рынка →",
+      axisGap: "Недовольство →",
+      bubbleHint: "Каждый пузырь — жанр.",
+      tableTitle: "Жанры",
+      colGenre: "Жанр",
+      colApps: "Прил.",
+      colScale: "База установок",
+      colRevenue: "Оценка выручки",
+      colRating: "Ср. оценка",
+      colLeader: "Лидер",
+      colOpp: "Возможность",
+      tiers: { niche: "Ниша", small: "Малый", mid: "Средний", large: "Крупный", giant: "Гигант" },
+      leaderShare: (pct) => `${pct}% базы`,
     },
     deck: { prev: "Назад", next: "Вперёд" },
     card: {
