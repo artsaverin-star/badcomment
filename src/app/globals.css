@@ -16,12 +16,17 @@
 
 /* Page chrome is fully token-driven; theme/brand swap via data-theme/data-brand
    on <html> (set in layout.tsx). No hardcoded colors here. */
+/* Expanding a card inserts a tall block mid-page; without this the browser's
+   scroll anchoring pins a node below the growth (the CTA/footer) and pushes the
+   viewport down toward the bottom of the now-tall card. The viewport must stay
+   put — the card just grows in place. The viewport's scroll container is the
+   root element, so the rule has to live on html (on body it doesn't take). */
+html {
+  overflow-anchor: none;
+}
+
 body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   font-family: var(--brand-font-family);
-  /* Expanding a card inserts a tall block mid-page; without this the browser's
-     scroll anchoring pins the tapped CTA and yanks the viewport to the bottom of
-     the now-tall card. The card manages its own scroll target instead. */
-  overflow-anchor: none;
 }
