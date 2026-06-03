@@ -61,6 +61,23 @@ export const GENRE_NEEDS: Record<string, GenreNeeds> = {
         ru: { label: "Дойти до реального уровня, а не топтаться", desc: "Глубина, грамматика и сложные уровни вместо одних и тех же фраз по кругу." },
       },
       {
+        key: "retention",
+        // Deliberately avoids the bare "review"/"repetitive"/"повтор" stems: "review"
+        // matches every review's own text, and "repetitive"/"повтор" belong to the
+        // motivation need. This set targets forgetting and spaced reinforcement only.
+        keywords: [
+          "forget", "forgot", "forgetting", "doesn't stick", "didn't stick", "won't stick",
+          "don't remember", "can't remember", "hard to remember", "remember the word", "remember words",
+          "retention", "retain", "spaced repetition", "repetition", "not enough review", "no review",
+          "review previously", "reviewing previously", "flashcard", "flash card", "memoriz", "memoris",
+          "reinforce", "revision",
+          "забыва", "забыл", "забуд", "не запомина", "не запомнил", "запомнить слов", "интервальн",
+          "закреп", "карточк", "не помню слов",
+        ],
+        en: { label: "Remember it, don't just cram", desc: "Built-in review and spaced repetition so words actually stick instead of evaporating after the lesson." },
+        ru: { label: "Запомнить, а не зазубрить", desc: "Встроенное повторение и интервальные тренировки, чтобы слова закреплялись, а не выветривались после урока." },
+      },
+      {
         key: "offline",
         keywords: [
           "offline", "no internet", "without internet", "download lesson", "on the go",
