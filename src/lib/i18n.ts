@@ -17,6 +17,7 @@ type Dict = {
     signIn: string;
     ideas: string;
     market: string;
+    market2: string;
   };
   home: {
     tagline: string;
@@ -88,6 +89,24 @@ type Dict = {
     howToWin: string;
     appsInGenre: (n: number) => string;
   };
+  market2: {
+    title: string;
+    subtitle: string;
+    pilotNote: (genre: string) => string;
+    gapsHeading: string;
+    demand: string;
+    verdictOpen: string;
+    verdictClosed: string;
+    verdictThin: string;
+    bestApp: (name: string) => string;
+    noneClose: string;
+    complaintsLabel: (n: number) => string;
+    praiseLabel: (n: number) => string;
+    appsBreakdown: string;
+    whitespaceHeading: string;
+    whitespaceNote: string;
+    scanned: (n: number) => string;
+  };
   deck: { prev: string; next: string };
   card: {
     toRebuild: string;
@@ -147,6 +166,7 @@ const DICT: Record<Locale, Dict> = {
       signIn: "Sign in",
       ideas: "Ideas",
       market: "Market",
+      market2: "Market 2",
     },
     home: {
       tagline:
@@ -219,6 +239,24 @@ const DICT: Record<Locale, Dict> = {
       whatHated: "What users hate",
       howToWin: "How to win",
       appsInGenre: (n) => `Apps (${n})`,
+    },
+    market2: {
+      title: "What the market doesn't close",
+      subtitle: "The jobs people hire these apps for — ranked by where every app still fails.",
+      pilotNote: (genre) => `Pilot on one genre (${genre}). Scored live from real reviews.`,
+      gapsHeading: "Needs, worst-served first",
+      demand: "mentions in reviews",
+      verdictOpen: "Open",
+      verdictClosed: "Closed",
+      verdictThin: "Thin signal",
+      bestApp: (name) => `Best: ${name}`,
+      noneClose: "No app closes it",
+      complaintsLabel: (n) => `${n} in complaints`,
+      praiseLabel: (n) => `${n} in praise`,
+      appsBreakdown: "By app",
+      whitespaceHeading: "White space",
+      whitespaceNote: "Hypotheses — not from the data, our guess at needs no app attempts yet.",
+      scanned: (n) => `Scored from ${n} reviews`,
     },
     deck: { prev: "Previous", next: "Next" },
     card: {
@@ -315,6 +353,7 @@ const DICT: Record<Locale, Dict> = {
       signIn: "Войти",
       ideas: "Идеи",
       market: "Рынок",
+      market2: "Рынок 2",
     },
     home: {
       tagline:
@@ -417,6 +456,24 @@ const DICT: Record<Locale, Dict> = {
               : "приложений";
         return `${word} (${n})`;
       },
+    },
+    market2: {
+      title: "Что рынок не закрывает",
+      subtitle: "Задачи, ради которых ставят эти приложения — отсортированы по тому, где проваливаются все.",
+      pilotNote: (genre) => `Пилот на одном жанре (${genre}). Скоринг вживую из реальных отзывов.`,
+      gapsHeading: "Потребности, сначала худшие",
+      demand: "упоминаний в отзывах",
+      verdictOpen: "Открыто",
+      verdictClosed: "Закрыто",
+      verdictThin: "Мало сигнала",
+      bestApp: (name) => `Лучше всех: ${name}`,
+      noneClose: "Никто не закрывает",
+      complaintsLabel: (n) => `${n} в жалобах`,
+      praiseLabel: (n) => `${n} в похвале`,
+      appsBreakdown: "По приложениям",
+      whitespaceHeading: "Белые пятна",
+      whitespaceNote: "Гипотезы — не из данных, а наша догадка о потребностях, которые пока никто не закрывает.",
+      scanned: (n) => `Посчитано по ${n} отзывам`,
     },
     deck: { prev: "Назад", next: "Вперёд" },
     card: {

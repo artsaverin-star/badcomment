@@ -13,7 +13,8 @@ export default function MainNav({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const items = [
     { href: "/", label: tr.nav.ideas, active: pathname === "/" },
-    { href: "/market", label: tr.nav.market, active: pathname.startsWith("/market") },
+    { href: "/market", label: tr.nav.market, active: pathname === "/market" || pathname.startsWith("/market/") },
+    { href: "/market2", label: tr.nav.market2, active: pathname.startsWith("/market2") },
   ];
   return (
     <nav className="flex items-center gap-1">
