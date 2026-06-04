@@ -22,7 +22,7 @@ export type NeedAppStat = {
   icon: string | null;
   complaints: number;
   sharePct: number; // complaints on this need / app's classified reviews
-  quotes: string[];
+  forks: NeedForkStat[]; // which sub-threads this app hits, as tags (raw text lives in the popup)
 };
 
 // A sub-thread inside a need (a taxonomy fork), with how many reviews hit it.
@@ -125,7 +125,7 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     reviewsScanned += total;
 
     const appComplaints = needs.map(() => 0);
-    const appQuotes: string[][] = needs.map(() => []);
+    const appForks: Map<string, number>[] = needs.map(() => new Map());
     const appEvidence = needs.map(() => 0);
 
     for (const r of reviews) {
@@ -151,14 +151,16 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
       for (const k of hitFork) {
         const ni = keyToNeed.get(k)!;
         // Only forks are sub-threads; a bare-need hit is the need itself.
-        if (k !== needs[ni].key) forkCounts[ni].set(k, (forkCounts[ni].get(k) ?? 0) + 1);
+        if (k !== needs[ni].key) {
+          forkCounts[ni].set(k, (forkCounts[ni].get(k) ?? 0) + 1);
+          appForks[ni].set(k, (appForks[ni].get(k) ?? 0) + 1);
+        }
       }
 
       for (const [ni, trigger] of hitNeed) {
         appComplaints[ni]++;
         const clean = r.text.trim();
         if (clean.length > 12) {
-          if (appQuotes[ni].length < 2) appQuotes[ni].push(trimQuote(clean));
           if (appEvidence[ni] < EVIDENCE_PER_APP) {
             appEvidence[ni]++;
             evidencePerNeed[ni].push({
@@ -184,13 +186,19 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
 
     for (let i = 0; i < needs.length; i++) {
       if (appComplaints[i] > 0) {
+        const appForkStats: NeedForkStat[] = [];
+        for (const [k, c] of appForks[i]) {
+          const f = needs[i].forks.find((f) => f.key === k);
+          appForkStats.push({ key: k, label: f ? (locale === "ru" ? f.ru : f.en) : k, mentions: c });
+        }
+        appForkStats.sort((a, b) => b.mentions - a.mentions);
         perNeed[i].set(p.id, {
           id: p.id,
           name: p.name,
           icon: p.icon,
           complaints: appComplaints[i],
           sharePct: Math.round((appComplaints[i] / total) * 100),
-          quotes: appQuotes[i],
+          forks: appForkStats,
         });
       }
     }

@@ -1,4 +1,4 @@
-import { Header, Tag, Quote } from "@saverin/ui-web";
+import { Header, Tag } from "@saverin/ui-web";
 import { t, type Locale } from "@/lib/i18n";
 import type { NeedsGapView, NeedGap } from "@/lib/needsGap";
 import EvidenceDialog from "./EvidenceDialog";
@@ -99,11 +99,19 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
                     {tr.complaintsLabel(app.complaints)}
                   </span>
                 </span>
-                {app.quotes.map((q, i) => (
-                  <Quote key={i} size="S">
-                    {q}
-                  </Quote>
-                ))}
+                {app.forks.length > 0 && (
+                  <span className="flex flex-wrap gap-1.5">
+                    {app.forks.map((f) => (
+                      <span
+                        key={f.key}
+                        className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)]"
+                      >
+                        {f.label}
+                        <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
+                      </span>
+                    ))}
+                  </span>
+                )}
               </div>
             ))}
           </div>
