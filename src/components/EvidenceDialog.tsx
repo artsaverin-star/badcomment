@@ -61,7 +61,9 @@ function FilterRow({
   selected: string | null;
   onSelect: (v: string | null) => void;
 }) {
-  if (options.length < 2) return null;
+  // Hide a row only when there's nothing to choose; keep it if a value is
+  // selected so the user can always clear back to "All".
+  if (options.length < 2 && selected === null) return null;
   return (
     <div className="flex flex-col gap-1">
       <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">{label}</span>
@@ -109,11 +111,25 @@ export default function EvidenceDialog({
   const [app, setApp] = useState<string | null>(null);
   const [fork, setFork] = useState<string | null>(null);
 
-  const apps = useMemo(() => countBy(evidence.map((e) => e.app).filter(Boolean)), [evidence]);
-  const forks = useMemo(() => countBy(evidence.map((e) => e.fork).filter(Boolean)), [evidence]);
+  // Each filter's options are counted within the OTHER active filter, so a chip
+  // never advertises a count that yields nothing once both are applied. (With
+  // independent counts you could pick an app + a problem that don't intersect
+  // and land on "0 shown" while both chips still showed non-zero numbers.)
+  const apps = useMemo(
+    () => countBy(evidence.filter((e) => !fork || e.fork === fork).map((e) => e.app).filter(Boolean)),
+    [evidence, fork],
+  );
+  const forks = useMemo(
+    () => countBy(evidence.filter((e) => !app || e.app === app).map((e) => e.fork).filter(Boolean)),
+    [evidence, app],
+  );
 
   const filtered = evidence.filter((e) => (!app || e.app === app) && (!fork || e.fork === fork));
-  const hasFilters = apps.length > 1 || forks.length > 1;
+  // Whether a control is worth showing at all: more than one distinct value
+  // across the whole evidence set (independent of the current narrowing).
+  const appValues = useMemo(() => new Set(evidence.map((e) => e.app).filter(Boolean)), [evidence]);
+  const forkValues = useMemo(() => new Set(evidence.map((e) => e.fork).filter(Boolean)), [evidence]);
+  const hasFilters = appValues.size > 1 || forkValues.size > 1;
 
   return (
     <>
