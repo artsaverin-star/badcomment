@@ -42,9 +42,11 @@ function NeedRow({ need, max, slug, tr }: { need: NeedGap; max: number; slug: st
     <div className="overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
       <details className="group">
         <summary className="flex cursor-pointer list-none flex-col gap-1.5 px-3.5 py-2.5">
-          <span className="flex items-center justify-between gap-3">
+          <span className="flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
             <span className="flex min-w-0 items-center gap-2">
-              <span className="truncate text-[14px] font-semibold text-[var(--color-text-primary)]">{need.label}</span>
+              <span className="text-[14px] font-semibold text-[var(--color-text-primary)] sm:truncate">
+                {need.label}
+              </span>
             </span>
             <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
               {tr.painIn(need.failApps, need.totalApps)}

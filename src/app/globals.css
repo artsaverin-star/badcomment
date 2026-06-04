@@ -38,3 +38,24 @@ body {
   color: var(--color-text-primary);
   font-family: var(--brand-font-family);
 }
+
+/* Mobile bottom-sheet entrance for the evidence dialog: slide the panel up from
+   below the fold and fade the backdrop in. Scoped via max-sm: utilities in the
+   component, so it only animates when the dialog is anchored to the bottom. */
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes sheet-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

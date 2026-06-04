@@ -283,9 +283,9 @@ export default function EvidenceDialog({
         onClick={(e) => {
           if (e.target === ref.current) ref.current?.close();
         }}
-        className="m-auto w-[calc(100vw-2rem)] max-w-2xl rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-0 text-[var(--color-text-primary)] backdrop:bg-black/60"
+        className="mx-0 mb-0 mt-auto w-full max-w-none rounded-[var(--radius-xl)] rounded-b-none border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-0 text-[var(--color-text-primary)] backdrop:bg-black/60 max-sm:animate-[sheet-up_0.28s_cubic-bezier(0.32,0.72,0,1)] max-sm:backdrop:animate-[sheet-backdrop-in_0.28s_ease-out] sm:mx-auto sm:mb-auto sm:w-[calc(100vw-2rem)] sm:max-w-2xl sm:rounded-b-[var(--radius-xl)]"
       >
-        <div className="flex max-h-[80vh] flex-col">
+        <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
           <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
             <div className="flex flex-col gap-0.5">
               <span className="text-[15px] font-semibold">{title}</span>
@@ -296,9 +296,17 @@ export default function EvidenceDialog({
             <button
               type="button"
               onClick={() => ref.current?.close()}
-              className="shrink-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] px-3 py-1.5 text-[12px] font-medium hover:bg-[var(--color-bg-muted)]"
+              aria-label={closeLabel}
+              className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
             >
-              {closeLabel}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path
+                  d="M4 4l8 8M12 4l-8 8"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+              </svg>
             </button>
           </div>
 

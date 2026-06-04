@@ -48,7 +48,7 @@ export default async function Home({
   const [view, apps] = await Promise.all([getNeedsGap(seg, locale), getSegmentApps(seg, locale)]);
 
   return (
-    <main className="mx-auto w-full max-w-4xl overflow-x-clip px-4 py-6">
+    <main className="mx-auto w-full max-w-[640px] overflow-x-clip px-4 py-6">
       <div className="mb-4">
         <Link
           href="/"
