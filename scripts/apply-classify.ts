@@ -11,7 +11,9 @@ import { validKeys, TAXONOMY_VERSION } from "../src/lib/taxonomy";
 //
 //  - key must be in the taxonomy (else dropped, counted as rejected)
 //  - stance must be pain | praise | neutral
-//  - trigger must be a non-empty verbatim span (no trigger => label dropped)
+//  - trigger must be a non-empty span that appears VERBATIM in the review text
+//    (checked against the DB, not trusted — a quote the model can't actually
+//    point to in the review is dropped)
 //  - confidence clamped to 0..1
 //
 // An empty surviving label set is stored as "[]" (honest abstention) and still
@@ -47,6 +49,7 @@ async function main() {
   let abstained = 0;
   let labelsKept = 0;
   let labelsRejected = 0;
+  let triggerMismatch = 0;
   let idsNotFound = 0;
   let badFiles = 0;
   const rejectedKeys = new Map<string, number>();
@@ -68,6 +71,12 @@ async function main() {
 
     for (const rev of parsed.reviews ?? []) {
       if (!rev.id) continue;
+      const review = await prisma.review.findUnique({ where: { id: rev.id }, select: { text: true } });
+      if (!review) {
+        idsNotFound++;
+        continue;
+      }
+
       const clean: Clean[] = [];
       for (const l of rev.labels ?? []) {
         const key = l.key?.trim() ?? "";
@@ -78,19 +87,20 @@ async function main() {
           if (key && !keys.has(key)) rejectedKeys.set(key, (rejectedKeys.get(key) ?? 0) + 1);
           continue;
         }
+        if (!review.text.includes(trigger)) {
+          labelsRejected++;
+          triggerMismatch++;
+          continue;
+        }
         const confidence = Math.max(0, Math.min(1, Number(l.confidence ?? 0)));
         clean.push({ key, stance, confidence, trigger });
         labelsKept++;
       }
 
-      const res = await prisma.review.updateMany({
+      await prisma.review.update({
         where: { id: rev.id },
         data: { needs: JSON.stringify(clean), needsVersion: TAXONOMY_VERSION },
       });
-      if (res.count === 0) {
-        idsNotFound++;
-        continue;
-      }
       applied++;
       if (clean.length === 0) abstained++;
     }
@@ -98,7 +108,7 @@ async function main() {
 
   console.log(`files: ${files.length} (${badFiles} bad)`);
   console.log(`reviews classified: ${applied} (of which ${abstained} abstained)`);
-  console.log(`labels kept: ${labelsKept}, rejected: ${labelsRejected}, ids not found: ${idsNotFound}`);
+  console.log(`labels kept: ${labelsKept}, rejected: ${labelsRejected} (of which ${triggerMismatch} unquotable), ids not found: ${idsNotFound}`);
   if (rejectedKeys.size > 0) {
     console.log(`rejected unknown keys:`, JSON.stringify(Object.fromEntries(rejectedKeys)));
   }
