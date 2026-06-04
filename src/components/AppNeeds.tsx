@@ -69,6 +69,7 @@ function NeedRow({ need, max, locale, productId }: { need: AppNeed; max: number;
         methodNote={tr.evidenceMethodNote}
         loadingLabel={tr.evidenceLoading}
         emptyLabel={tr.evidenceEmpty}
+        errorLabel={tr.evidenceError}
         translatedLabel={tr.evidenceTranslated}
         closeLabel={tr.close}
       />

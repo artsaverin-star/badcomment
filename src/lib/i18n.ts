@@ -112,6 +112,7 @@ type Dict = {
     evidenceMethodNote: string;
     evidenceLoading: string;
     evidenceEmpty: string;
+    evidenceError: string;
     evidenceTranslated: string;
     close: string;
     indexSubtitle: string;
@@ -284,6 +285,7 @@ const DICT: Record<Locale, Dict> = {
       evidenceMethodNote: "Matched by meaning — the highlighted phrase is the exact quote that earned the label.",
       evidenceLoading: "Loading reviews…",
       evidenceEmpty: "No reviews match this combination.",
+      evidenceError: "Couldn’t load reviews — try again.",
       evidenceTranslated: "translated from English",
       close: "Close",
       indexSubtitle: "Every day we analyze hundreds of thousands of negative reviews. The positive ones are almost always faked and easily bought — the real insights are only in the complaints.",
@@ -528,6 +530,7 @@ const DICT: Record<Locale, Dict> = {
       evidenceMethodNote: "Совпадение по смыслу — подсвеченная фраза это точная цитата, на которой основана метка.",
       evidenceLoading: "Загружаем отзывы…",
       evidenceEmpty: "Под это сочетание фильтров отзывов нет.",
+      evidenceError: "Не удалось загрузить отзывы — попробуйте ещё раз.",
       evidenceTranslated: "переведено с английского",
       close: "Закрыть",
       indexSubtitle: "Каждый день анализируем сотни тысяч негативных отзывов. Позитивные почти всегда накручены и легко покупаются — настоящие инсайты только в боли.",

@@ -80,6 +80,7 @@ function NeedRow({ need, max, slug, tr }: { need: NeedGap; max: number; slug: st
               methodNote={tr.evidenceMethodNote}
               loadingLabel={tr.evidenceLoading}
               emptyLabel={tr.evidenceEmpty}
+              errorLabel={tr.evidenceError}
               translatedLabel={tr.evidenceTranslated}
               closeLabel={tr.close}
             />

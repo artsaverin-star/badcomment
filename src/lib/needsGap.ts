@@ -397,13 +397,17 @@ export async function getSegmentEvidence(
     for (const r of reviews) {
       const top = topPainPerNeed(r.needs, keyToNeed).get(ni);
       if (!top) continue;
-      if (forkKey && top.key !== forkKey) continue;
+      // Dedupe across ALL forks of this need (as the aggregation does), THEN
+      // filter to the requested fork — otherwise a verbatim duplicate filed
+      // under a different fork would be re-counted here and the per-fork count
+      // would exceed the chip.
       const c = clean(r.text);
       if (c.length > 12) {
         const k = c.toLowerCase();
         if (seen.has(k)) continue;
         seen.add(k);
       }
+      if (forkKey && top.key !== forkKey) continue;
       const d = display(r, top.trigger, locale);
       out.push({
         r: { app: p.name, icon: p.icon, rating: r.rating, ...d },
@@ -462,13 +466,15 @@ export async function getAppEvidence(
     if (r.needsVersion !== version) continue;
     const top = topPainPerNeed(r.needs, keyToNeed).get(ni);
     if (!top) continue;
-    if (forkKey && top.key !== forkKey) continue;
+    // Dedupe across ALL forks of this need (as the aggregation does), THEN
+    // filter to the requested fork — so the per-fork count matches the chip.
     const c = clean(r.text);
     if (c.length > 12) {
       const k = c.toLowerCase();
       if (seen.has(k)) continue;
       seen.add(k);
     }
+    if (forkKey && top.key !== forkKey) continue;
     const d = display(r, top.trigger, locale);
     out.push({
       r: { app: "", icon: null, rating: r.rating, ...d },

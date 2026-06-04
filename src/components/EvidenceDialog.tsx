@@ -105,6 +105,7 @@ export default function EvidenceDialog({
   methodNote,
   loadingLabel,
   emptyLabel,
+  errorLabel,
   translatedLabel,
   closeLabel,
 }: {
@@ -124,6 +125,7 @@ export default function EvidenceDialog({
   methodNote: string;
   loadingLabel: string;
   emptyLabel: string;
+  errorLabel: string;
   translatedLabel: string;
   closeLabel: string;
 }) {
@@ -132,6 +134,7 @@ export default function EvidenceDialog({
   const [fork, setFork] = useState<string | null>(null);
   const [reviews, setReviews] = useState<EvidenceReview[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [visible, setVisible] = useState(WINDOW);
   const [opened, setOpened] = useState(false); // gate the fetch until first open
 
@@ -153,10 +156,19 @@ export default function EvidenceDialog({
     if (app) params.set("app", app);
 
     fetch(`/api/evidence?${params.toString()}`, { signal: ctrl.signal })
-      .then((r) => r.json())
-      .then((data: { reviews?: EvidenceReview[] }) => setReviews(data.reviews ?? []))
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .then((data: { reviews?: EvidenceReview[] }) => {
+        setReviews(data.reviews ?? []);
+        setError(false);
+      })
       .catch((err) => {
-        if (err?.name !== "AbortError") setReviews([]);
+        if (err?.name !== "AbortError") {
+          setReviews([]);
+          setError(true);
+        }
       })
       .finally(() => {
         if (!ctrl.signal.aborted) setLoading(false);
@@ -312,6 +324,8 @@ export default function EvidenceDialog({
           <div className="flex flex-col gap-3 overflow-y-auto p-4">
             {loading ? (
               <span className="py-6 text-center text-[13px] text-[var(--color-text-tertiary)]">{loadingLabel}</span>
+            ) : error ? (
+              <span className="py-6 text-center text-[13px] text-[var(--color-accent-danger)]">{errorLabel}</span>
             ) : reviews.length === 0 ? (
               <span className="py-6 text-center text-[13px] text-[var(--color-text-tertiary)]">{emptyLabel}</span>
             ) : (
