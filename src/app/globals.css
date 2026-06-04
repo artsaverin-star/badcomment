@@ -23,6 +23,10 @@
    root element, so the rule has to live on html (on body it doesn't take). */
 html {
   overflow-anchor: none;
+  /* Reserve the scrollbar's width even when the page doesn't overflow, so
+     expanding a card (which adds a scrollbar) can't narrow the viewport and
+     shove the centered layout sideways. */
+  scrollbar-gutter: stable;
 }
 
 body {

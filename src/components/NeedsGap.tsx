@@ -11,7 +11,9 @@ export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale:
     <section className="flex flex-col gap-2">
       <div className="flex flex-col gap-0.5">
         <Header size="S" as="h2" title={tr.gapsHeading} />
-        <p className="text-[13px] text-[var(--color-text-tertiary)]">{tr.gapsCaption}</p>
+        <p className="text-[13px] text-[var(--color-text-tertiary)]">
+          {tr.gapsCaption} {tr.scanned(view.reviewsScanned)}
+        </p>
       </div>
       <div className="flex flex-col gap-1.5">
         {view.needs.map((need) => (

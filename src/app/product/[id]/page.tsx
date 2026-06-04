@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Card, Header, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
@@ -7,6 +6,7 @@ import { formatCount } from "@/lib/format";
 import { t, categoryLabelL, type Locale } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import AppNeeds from "@/components/AppNeeds";
+import BackLink from "@/components/BackLink";
 
 export const dynamic = "force-dynamic";
 
@@ -71,9 +71,9 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
-      <Link href="/" className={cn(buttonVariants({ variant: "ghost", size: "S" }), "mb-6")}>
+      <BackLink fallback="/" className={cn(buttonVariants({ variant: "ghost", size: "S" }), "mb-6")}>
         {tr.nav.back}
-      </Link>
+      </BackLink>
 
       {/* ── Promo: screenshots + identity ───────────────── */}
       {data.screenshots.length > 0 && (

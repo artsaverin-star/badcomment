@@ -68,12 +68,7 @@ export default async function Home({
       {apps.length > 0 && <SegmentApps apps={apps} locale={locale} />}
 
       {view ? (
-        <>
-          <p className="mb-4 text-center text-[13px] text-[var(--color-text-tertiary)]">
-            {tr.market2.scanned(view.reviewsScanned)}
-          </p>
-          <NeedsGap view={view} locale={locale} />
-        </>
+        <NeedsGap view={view} locale={locale} />
       ) : (
         <div className="mt-8 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-8 text-center">
           <Header size="S" as="h2" className="items-center" title={tr.market2.stubHeading} />
