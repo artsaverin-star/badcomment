@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import LangSwitch from "./LangSwitch";
 import ThemeSwitch from "./ThemeSwitch";
-import MainNav from "./MainNav";
 import { t, type Locale } from "@/lib/i18n";
 
 // Figma "Menu" (2020:6402): a surface-card top bar — wordmark on the left,
@@ -26,7 +25,6 @@ export default function Header({
             <span className="text-[var(--color-text-brand)]">Bad</span>
             <span className="text-[var(--color-text-primary)]">Comment</span>
           </Link>
-          <MainNav locale={locale} />
         </div>
         <div className="flex items-center gap-3">
           <LangSwitch locale={locale} />

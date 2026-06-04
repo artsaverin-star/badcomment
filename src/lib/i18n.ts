@@ -155,6 +155,8 @@ type Dict = {
     realComplaints: (n: number) => string;
     ratingDist: string;
     complaintPattern: string;
+    needsHeading: string;
+    needsCaption: string;
     buildTitle: string;
     showingOf: (shown: number, total: number) => string;
     reviewSpan: (from: string, to: string) => string;
@@ -253,10 +255,10 @@ const DICT: Record<Locale, Dict> = {
       appsInGenre: (n) => `Apps (${n})`,
     },
     market2: {
-      title: "What the market doesn't close",
+      title: "We break down app complaints, every day",
       subtitle: "The jobs people hire these apps for — ranked by where every app still fails.",
       pilotNote: (genre) => `Pilot on one genre (${genre}). Scored live from real reviews.`,
-      gapsHeading: "Needs, worst-served first",
+      gapsHeading: "What people dislike across the apps",
       demand: "mentions in reviews",
       verdictOpen: "Open",
       verdictNarrow: "App-specific",
@@ -270,7 +272,7 @@ const DICT: Record<Locale, Dict> = {
       evidenceShownOf: (shown, total) => `Showing ${shown} of ${total}`,
       evidenceMethodNote: "Matched by meaning — the highlighted phrase is the exact quote that earned the label.",
       close: "Close",
-      indexSubtitle: "Every segment we collect, with the real review pile behind it. The labeled ones open into a needs gap; the rest are stubs until they're classified.",
+      indexSubtitle: "Every day we collect, classify and process negative reviews across apps — to see what's broken and what to fix.",
       segReviewsApps: (reviews, apps) =>
         `${reviews.toLocaleString("en-US")} reviews across ${apps} ${apps === 1 ? "app" : "apps"}`,
       segClassified: "Classified",
@@ -316,6 +318,8 @@ const DICT: Record<Locale, Dict> = {
       negativeHeading: "Negative reviews",
       anon: "anon",
       realComplaints: (n) => `Real complaints (${n})`,
+      needsHeading: "What people dislike",
+      needsCaption: "Grouped by meaning from this app's reviews.",
       ratingDist: "Rating distribution",
       complaintPattern: "What they complain about",
       buildTitle: "How hard to build",
@@ -483,10 +487,10 @@ const DICT: Record<Locale, Dict> = {
       },
     },
     market2: {
-      title: "Что рынок не закрывает",
+      title: "Каждый день разбираем негатив приложений",
       subtitle: "Задачи, ради которых ставят эти приложения — отсортированы по тому, где проваливаются все.",
       pilotNote: (genre) => `Пилот на одном жанре (${genre}). Скоринг вживую из реальных отзывов.`,
-      gapsHeading: "Потребности, сначала худшие",
+      gapsHeading: "Что не нравится людям во всех приложениях",
       demand: "упоминаний в отзывах",
       verdictOpen: "Открыто",
       verdictNarrow: "Точечно",
@@ -500,7 +504,7 @@ const DICT: Record<Locale, Dict> = {
       evidenceShownOf: (shown, total) => `Показано ${shown} из ${total}`,
       evidenceMethodNote: "Совпадение по смыслу — подсвеченная фраза это точная цитата, на которой основана метка.",
       close: "Закрыть",
-      indexSubtitle: "Все собранные сегменты и реальная стопка отзывов под каждым. Размеченные открываются в разрыв потребностей; остальные — заглушки, пока не разметим.",
+      indexSubtitle: "Каждый день собираем, классифицируем и обрабатываем негативные отзывы всех приложений — чтобы видеть, что не так и что чинить.",
       segReviewsApps: (reviews, apps) => {
         const pl = (n: number, forms: [string, string, string]) => {
           const m10 = n % 10;
@@ -563,6 +567,8 @@ const DICT: Record<Locale, Dict> = {
       negativeHeading: "Негативные отзывы",
       anon: "аноним",
       realComplaints: (n) => `Реальные жалобы (${n})`,
+      needsHeading: "Что людям не нравится",
+      needsCaption: "Сгруппировано по смыслу из отзывов этого приложения.",
       ratingDist: "Распределение оценок",
       complaintPattern: "На что жалуются",
       buildTitle: "Насколько сложно собрать",

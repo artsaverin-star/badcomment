@@ -1,6 +1,6 @@
 import { prisma } from "./prisma";
 import { getSegmentBySlug } from "./segments";
-import { getTaxonomy, taxonomyVersion, type ClassNeed } from "./taxonomy";
+import { getTaxonomy, taxonomyVersion, TAXONOMIES, type ClassNeed, type GenreTaxonomy } from "./taxonomy";
 import type { Locale } from "./i18n";
 
 // How well a genre serves each authored need, scored from reviews classified by
@@ -234,5 +234,127 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     needs: gaps,
     maxFail,
     reviewsScanned,
+  };
+}
+
+// ── Per-app semantic needs (product detail page) ──────────────────────────────
+// The single-app cousin of getNeedsGap: instead of breadth across a genre, it
+// just ranks an app's own pains by how many of its reviews hit each need. Same
+// pain-only, verbatim-trigger evidence — every count opens to the real reviews.
+
+export type AppNeed = {
+  key: string;
+  label: string;
+  mentions: number;
+  forks: NeedForkStat[];
+  evidence: NeedEvidence[];
+};
+
+export type AppNeedsView = {
+  needs: AppNeed[];
+  maxMentions: number;
+  reviewsClassified: number;
+};
+
+const APP_EVIDENCE_CAP = 24;
+
+export async function getAppNeeds(productId: string, locale: Locale): Promise<AppNeedsView | null> {
+  const product = await prisma.product.findUnique({
+    where: { id: productId },
+    select: {
+      listings: {
+        select: {
+          reviews: {
+            where: { needsVersion: { not: null } },
+            select: { needs: true, needsVersion: true, text: true, rating: true, title: true },
+            orderBy: { postedAt: "desc" },
+          },
+        },
+      },
+    },
+  });
+  if (!product) return null;
+
+  const reviews = product.listings.flatMap((l) => l.reviews);
+  if (reviews.length === 0) return null;
+
+  // Pick the taxonomy from the version stamped on the app's reviews.
+  const version = reviews.find((r) => r.needsVersion)?.needsVersion;
+  const taxonomy: GenreTaxonomy | undefined = Object.values(TAXONOMIES).find((t) => t.version === version);
+  if (!taxonomy) return null;
+
+  const needs = taxonomy.needs;
+  const label = (n: ClassNeed) => (locale === "ru" ? n.ru : n.en);
+  const keyToNeed = new Map<string, number>();
+  needs.forEach((n, i) => {
+    keyToNeed.set(n.key, i);
+    for (const f of n.forks) keyToNeed.set(f.key, i);
+  });
+
+  const mentions = needs.map(() => 0);
+  const forkCounts: Map<string, number>[] = needs.map(() => new Map());
+  const evidence: NeedEvidence[][] = needs.map(() => []);
+  let reviewsClassified = 0;
+
+  for (const r of reviews) {
+    if (r.needsVersion !== version) continue;
+    let labels: StoredLabel[];
+    try {
+      labels = JSON.parse(r.needs || "[]");
+    } catch {
+      continue;
+    }
+    reviewsClassified++;
+
+    const hitNeed = new Map<number, string>();
+    const hitFork = new Set<string>();
+    for (const l of labels) {
+      if (l.stance !== "pain") continue;
+      const ni = keyToNeed.get(l.key);
+      if (ni === undefined) continue;
+      if (!hitNeed.has(ni)) hitNeed.set(ni, l.trigger);
+      hitFork.add(l.key);
+    }
+
+    for (const k of hitFork) {
+      const ni = keyToNeed.get(k)!;
+      if (k !== needs[ni].key) forkCounts[ni].set(k, (forkCounts[ni].get(k) ?? 0) + 1);
+    }
+
+    for (const [ni, trigger] of hitNeed) {
+      mentions[ni]++;
+      const clean = r.text.trim();
+      if (clean.length > 12 && evidence[ni].length < APP_EVIDENCE_CAP) {
+        evidence[ni].push({
+          app: "",
+          icon: null,
+          rating: r.rating,
+          title: r.title?.trim() || null,
+          text: trimQuote(clean),
+          match: trigger,
+        });
+      }
+    }
+  }
+
+  const appNeeds: AppNeed[] = needs
+    .map((n, i): AppNeed => {
+      const forks: NeedForkStat[] = [];
+      for (const [k, c] of forkCounts[i]) {
+        const f = n.forks.find((f) => f.key === k);
+        forks.push({ key: k, label: f ? (locale === "ru" ? f.ru : f.en) : k, mentions: c });
+      }
+      forks.sort((a, b) => b.mentions - a.mentions);
+      return { key: n.key, label: label(n), mentions: mentions[i], forks, evidence: evidence[i] };
+    })
+    .filter((n) => n.mentions > 0)
+    .sort((a, b) => b.mentions - a.mentions);
+
+  if (appNeeds.length === 0) return null;
+
+  return {
+    needs: appNeeds,
+    maxMentions: Math.max(1, ...appNeeds.map((n) => n.mentions)),
+    reviewsClassified,
   };
 }

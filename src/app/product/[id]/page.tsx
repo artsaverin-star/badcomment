@@ -1,30 +1,19 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Card, Header, TextBlock, Quote, ListRow, Tag, buttonVariants, cn } from "@saverin/ui-web";
+import { Card, Header, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
+import { getAppNeeds } from "@/lib/needsGap";
 import { formatCount } from "@/lib/format";
-import { t, categoryLabelL, lovedLabelL, themeLabelL, type Locale } from "@/lib/i18n";
+import { t, categoryLabelL, type Locale } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
+import AppNeeds from "@/components/AppNeeds";
 
 export const dynamic = "force-dynamic";
 
 const STORE_LABEL: Record<string, string> = { google: "Google Play", apple: "App Store" };
 
-const STREAM_LIMIT = 14;
-
 function fmtMonth(d: Date, locale: Locale): string {
   return new Intl.DateTimeFormat(locale, { month: "short", year: "numeric" }).format(d);
-}
-function fmtDate(d: Date, locale: Locale): string {
-  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" }).format(d);
-}
-
-function Check() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
 }
 
 // The full rating distribution straight from the store — the most irrefutable
@@ -59,44 +48,13 @@ function Histogram({ hist }: { hist: Record<string, number> }) {
   );
 }
 
-// Aggregated complaint themes — shows the pattern is real and shared, not one
-// loud reviewer.
-function ThemeBars({
-  themes,
-  locale,
-}: {
-  themes: { key: string; label: string; count: number }[];
-  locale: Locale;
-}) {
-  const max = Math.max(1, ...themes.map((th) => th.count));
-  return (
-    <div className="flex flex-col gap-2">
-      {themes.map((th) => (
-        <div key={th.key} className="flex flex-col gap-1">
-          <span className="flex items-center justify-between text-[13px] text-[var(--color-text-secondary)]">
-            <span>{themeLabelL(locale, th.key)}</span>
-            <span className="tabular-nums text-[var(--color-text-tertiary)]">{th.count}</span>
-          </span>
-          <span className="h-1.5 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-            <span
-              className="block h-full rounded-full bg-[var(--color-text-secondary)]"
-              style={{ width: `${Math.max(4, (th.count / max) * 100)}%` }}
-            />
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const locale = await getLocale();
   const tr = t(locale);
-  const data = await getProductDetail(id, locale);
+  const [data, needs] = await Promise.all([getProductDetail(id, locale), getAppNeeds(id, locale)]);
   if (!data) notFound();
 
-  const s = data.summary;
   const metaLine = [data.developer, data.stores.map((st) => STORE_LABEL[st]).join(" + ")]
     .filter(Boolean)
     .join(" · ");
@@ -110,8 +68,6 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
       ? tr.product.reviewSpan(fmtMonth(data.dateFrom, locale), fmtMonth(data.dateTo, locale))
       : null,
   ].filter(Boolean);
-
-  const stream = data.reviews.slice(0, STREAM_LIMIT);
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
@@ -157,11 +113,9 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
 
         <div className="flex flex-wrap gap-2">
           {data.category && (
-            <Link href={`/category/${data.category}`}>
-              <Tag tone="brand" size="M">
-                {categoryLabelL(locale, data.category)}
-              </Tag>
-            </Link>
+            <Tag tone="brand" size="M">
+              {categoryLabelL(locale, data.category)}
+            </Tag>
           )}
           {data.stores.map((st) => (
             <Tag key={st} tone="neutral" size="M">
@@ -169,115 +123,26 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
             </Tag>
           ))}
         </div>
-        {s?.opportunity && <TextBlock size="M" title={s.verdict || s.tagline || data.name} description={s.opportunity} />}
       </Card>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
-        {/* ── Main column: synthesis, then the receipts ── */}
+        {/* ── Main column: the app's pains, by meaning ── */}
         <div className="flex flex-col gap-6">
-          {s && s.gaps.length > 0 && (
+          {needs ? (
+            <AppNeeds view={needs} locale={locale} />
+          ) : (
             <Card>
-              <Header size="S" as="h2" title={tr.card.gaps} />
-              <div className="flex flex-col gap-6">
-                {s.gaps.map((gap) => (
-                  <div key={gap.title} className="flex flex-col gap-2">
-                    <TextBlock size="M" title={gap.title} description={gap.evidence} />
-                    {gap.quote && <Quote size="S">{gap.quote}</Quote>}
-                  </div>
-                ))}
-              </div>
-            </Card>
-          )}
-
-          {/* The proof: real, dated complaints behind the synthesis above. */}
-          {stream.length > 0 && (
-            <Card>
-              <Header size="S" as="h2" title={tr.product.realComplaints(data.totalNegative)} />
-              <div className="flex flex-col gap-5">
-                {stream.map((r) => (
-                  <div key={r.id} className="flex flex-col gap-1.5">
-                    <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[12px] text-[var(--color-text-tertiary)]">
-                      <span className="text-[var(--color-accent-danger)]">
-                        {"★".repeat(r.rating)}
-                        {"☆".repeat(5 - r.rating)}
-                      </span>
-                      <span>·</span>
-                      <span>{STORE_LABEL[r.store]}</span>
-                      <span>·</span>
-                      <span>{r.author ?? tr.product.anon}</span>
-                      {r.postedAt && (
-                        <>
-                          <span>·</span>
-                          <span>{fmtDate(r.postedAt, locale)}</span>
-                        </>
-                      )}
-                    </span>
-                    <Quote size="S">{r.text}</Quote>
-                  </div>
-                ))}
-              </div>
-              {data.totalNegative > stream.length && (
-                <p className="text-[12px] text-[var(--color-text-tertiary)]">
-                  {tr.product.showingOf(stream.length, data.totalNegative)}
-                </p>
-              )}
+              <p className="text-[14px] text-[var(--color-text-secondary)]">{tr.market2.stubNote}</p>
             </Card>
           )}
         </div>
 
-        {/* ── Side column: distribution, pattern, loved, how to beat ── */}
+        {/* ── Side column: rating distribution ── */}
         <div className="flex flex-col gap-6">
           {data.histogram && (
             <Card>
               <Header size="S" as="h2" title={tr.product.ratingDist} />
               <Histogram hist={data.histogram} />
-            </Card>
-          )}
-
-          {data.themeStats.length > 0 && (
-            <Card>
-              <Header size="S" as="h2" title={tr.product.complaintPattern} />
-              <ThemeBars themes={data.themeStats.slice(0, 7)} locale={locale} />
-            </Card>
-          )}
-
-          {s && typeof s.buildability === "number" && (
-            <Card>
-              <Header size="S" as="h2" title={tr.product.buildTitle} />
-              <div className="flex flex-col gap-2">
-                <span className="text-[15px] font-semibold tabular-nums text-[var(--color-text-primary)]">
-                  {s.buildability.toFixed(1)}/5
-                </span>
-                {s.buildNote && (
-                  <p className="text-[14px] leading-[20px] text-[var(--color-text-secondary)]">{s.buildNote}</p>
-                )}
-              </div>
-            </Card>
-          )}
-
-          {s && s.loved.length > 0 && (
-            <Card>
-              <Header size="S" as="h2" title={tr.card.love} />
-              <div className="flex flex-col gap-3">
-                {s.loved.map((key) => (
-                  <ListRow key={key} size="M" icon={<Check />}>
-                    {lovedLabelL(locale, key)}
-                  </ListRow>
-                ))}
-              </div>
-            </Card>
-          )}
-
-          {s && s.wedge.length > 0 && (
-            <Card>
-              <Header size="S" as="h2" title={tr.card.howToBeat} />
-              <div className="flex flex-col gap-3">
-                {s.wedge.map((move) => (
-                  <ListRow key={move} size="M" icon={<Check />}>
-                    {move}
-                  </ListRow>
-                ))}
-              </div>
             </Card>
           )}
         </div>

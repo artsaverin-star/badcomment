@@ -36,31 +36,32 @@ export async function getSegmentCards(locale: Locale): Promise<SegmentCard[]> {
     ]),
   );
 
-  const cards = segments.map((seg): SegmentCard => {
-    let appCount = 0;
-    let reviewCount = 0;
-    const icons: string[] = [];
-    for (const id of seg.appIds) {
-      const p = info.get(id);
-      if (!p) continue;
-      appCount++;
-      reviewCount += p.reviews;
-      if (p.icon && icons.length < 5) icons.push(p.icon);
-    }
-    return {
-      slug: seg.slug,
-      name: seg.name,
-      appCount,
-      reviewCount,
-      icons,
-      classified: getTaxonomy(seg.slug) != null,
-    };
-  });
+  // Only the classified genres get a card — the rest aren't public yet.
+  const cards = segments
+    .filter((seg) => getTaxonomy(seg.slug) != null)
+    .map((seg): SegmentCard => {
+      let appCount = 0;
+      let reviewCount = 0;
+      const icons: string[] = [];
+      for (const id of seg.appIds) {
+        const p = info.get(id);
+        if (!p) continue;
+        appCount++;
+        reviewCount += p.reviews;
+        if (p.icon && icons.length < 5) icons.push(p.icon);
+      }
+      return {
+        slug: seg.slug,
+        name: seg.name,
+        appCount,
+        reviewCount,
+        icons,
+        classified: true,
+      };
+    });
 
-  // Classified genres lead; within each band, biggest review pile first.
-  cards.sort(
-    (a, b) => Number(b.classified) - Number(a.classified) || b.reviewCount - a.reviewCount,
-  );
+  // Biggest review pile first.
+  cards.sort((a, b) => b.reviewCount - a.reviewCount);
   return cards;
 }
 
