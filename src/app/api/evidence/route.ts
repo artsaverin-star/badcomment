@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getSegmentEvidence, getAppEvidence } from "@/lib/needsGap";
+import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
@@ -17,17 +18,19 @@ export async function GET(req: Request) {
 
   if (!need) return NextResponse.json({ reviews: [], total: 0 });
 
+  const locale = await getLocale();
+
   try {
     if (kind === "segment") {
       const slug = url.searchParams.get("slug")?.trim();
       const app = url.searchParams.get("app")?.trim() || null;
       if (!slug) return NextResponse.json({ reviews: [], total: 0 });
-      return NextResponse.json(await getSegmentEvidence(slug, need, fork, app));
+      return NextResponse.json(await getSegmentEvidence(slug, need, fork, app, locale));
     }
     if (kind === "app") {
       const product = url.searchParams.get("product")?.trim();
       if (!product) return NextResponse.json({ reviews: [], total: 0 });
-      return NextResponse.json(await getAppEvidence(product, need, fork));
+      return NextResponse.json(await getAppEvidence(product, need, fork, locale));
     }
     return NextResponse.json({ reviews: [], total: 0 });
   } catch (err) {

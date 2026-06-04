@@ -12,7 +12,9 @@
     "ingest": "tsx scripts/ingest-categories.ts",
     "summarize": "tsx scripts/summarize.ts",
     "classify:dump": "tsx scripts/dump-classify.ts",
-    "classify:apply": "tsx scripts/apply-classify.ts"
+    "classify:apply": "tsx scripts/apply-classify.ts",
+    "translate:dump": "tsx scripts/dump-translate.ts",
+    "translate:apply": "tsx scripts/apply-translate.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",

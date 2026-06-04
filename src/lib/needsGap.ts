@@ -62,6 +62,7 @@ export type EvidenceReview = {
   title: string | null;
   text: string;
   match: string;
+  translated: boolean; // text is a Russian translation of a non-Russian original
 };
 
 export type EvidencePage = { reviews: EvidenceReview[]; total: number };
@@ -337,11 +338,27 @@ export async function getAppNeeds(productId: string, locale: Locale): Promise<Ap
 // always equals the count shown on the chip. Optional fork/app filters narrow it
 // (fork === the need's own key means the "Other" catch-all bucket). Newest first.
 
+// On the RU UI a non-Russian review is shown in its Russian translation (with a
+// "translated" badge) when one exists; the highlight is dropped because the
+// matched trigger is a verbatim span of the ORIGINAL text. Dedupe always keys on
+// the original so it stays stable whether or not a translation is present.
+function display(
+  r: { text: string; title: string | null; textRu: string | null; titleRu: string | null },
+  match: string,
+  locale: Locale,
+): { title: string | null; text: string; match: string; translated: boolean } {
+  if (locale === "ru" && r.textRu) {
+    return { title: r.titleRu?.trim() || null, text: clean(r.textRu), match: "", translated: true };
+  }
+  return { title: r.title?.trim() || null, text: clean(r.text), match, translated: false };
+}
+
 export async function getSegmentEvidence(
   slug: string,
   needKey: string,
   forkKey: string | null,
   appId: string | null,
+  locale: Locale,
 ): Promise<EvidencePage> {
   const segment = getSegmentBySlug(slug, "en");
   const taxonomy = getTaxonomy(slug);
@@ -364,7 +381,7 @@ export async function getSegmentEvidence(
         select: {
           reviews: {
             where: { needsVersion: version },
-            select: { needs: true, text: true, rating: true, title: true, postedAt: true },
+            select: { needs: true, text: true, textRu: true, rating: true, title: true, titleRu: true, postedAt: true },
             take: REVIEWS_PER_APP,
             orderBy: { postedAt: "desc" },
           },
@@ -387,8 +404,9 @@ export async function getSegmentEvidence(
         if (seen.has(k)) continue;
         seen.add(k);
       }
+      const d = display(r, top.trigger, locale);
       out.push({
-        r: { app: p.name, icon: p.icon, rating: r.rating, title: r.title?.trim() || null, text: c, match: top.trigger },
+        r: { app: p.name, icon: p.icon, rating: r.rating, ...d },
         at: r.postedAt?.getTime() ?? 0,
       });
     }
@@ -398,7 +416,12 @@ export async function getSegmentEvidence(
   return { reviews, total: reviews.length };
 }
 
-export async function getAppEvidence(productId: string, needKey: string, forkKey: string | null): Promise<EvidencePage> {
+export async function getAppEvidence(
+  productId: string,
+  needKey: string,
+  forkKey: string | null,
+  locale: Locale,
+): Promise<EvidencePage> {
   const product = await prisma.product.findUnique({
     where: { id: productId },
     select: {
@@ -406,7 +429,16 @@ export async function getAppEvidence(productId: string, needKey: string, forkKey
         select: {
           reviews: {
             where: { needsVersion: { not: null } },
-            select: { needs: true, needsVersion: true, text: true, rating: true, title: true, postedAt: true },
+            select: {
+              needs: true,
+              needsVersion: true,
+              text: true,
+              textRu: true,
+              rating: true,
+              title: true,
+              titleRu: true,
+              postedAt: true,
+            },
             orderBy: { postedAt: "desc" },
           },
         },
@@ -437,8 +469,9 @@ export async function getAppEvidence(productId: string, needKey: string, forkKey
       if (seen.has(k)) continue;
       seen.add(k);
     }
+    const d = display(r, top.trigger, locale);
     out.push({
-      r: { app: "", icon: null, rating: r.rating, title: r.title?.trim() || null, text: c, match: top.trigger },
+      r: { app: "", icon: null, rating: r.rating, ...d },
       at: r.postedAt?.getTime() ?? 0,
     });
   }

@@ -85,6 +85,15 @@ model Review {
   // so a re-run only touches rows from an older version (idempotent, gated).
   needs        String?
   needsVersion String?
+  // Russian translation of a non-Russian review's title/text, produced by the
+  // same keyless dump -> Claude -> apply loop as the classification (see
+  // dump-translate.ts). Shown on the RU UI in the evidence popup with a
+  // "translated from English" badge; null means not translated (the review is
+  // already Russian, or hasn't been run yet). translationVersion stamps the run
+  // so re-runs only touch rows from an older version (idempotent, gated).
+  titleRu            String?
+  textRu             String?
+  translationVersion String?
   postedAt   DateTime?
   createdAt  DateTime  @default(now())
 

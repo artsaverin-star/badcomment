@@ -105,6 +105,7 @@ export default function EvidenceDialog({
   methodNote,
   loadingLabel,
   emptyLabel,
+  translatedLabel,
   closeLabel,
 }: {
   source: Source;
@@ -123,6 +124,7 @@ export default function EvidenceDialog({
   methodNote: string;
   loadingLabel: string;
   emptyLabel: string;
+  translatedLabel: string;
   closeLabel: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -329,6 +331,11 @@ export default function EvidenceDialog({
                         {"★".repeat(e.rating)}
                         {"☆".repeat(Math.max(0, 5 - e.rating))}
                       </span>
+                      {e.translated && (
+                        <span className="rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] text-[var(--color-text-tertiary)]">
+                          {translatedLabel}
+                        </span>
+                      )}
                     </span>
                     {e.title && <span className="text-[13px] font-medium">{e.title}</span>}
                     <p className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">
