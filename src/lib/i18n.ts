@@ -114,6 +114,10 @@ type Dict = {
     backToIndex: string;
     stubHeading: string;
     stubNote: string;
+    appsHeading: string;
+    appsCaption: string;
+    negativeCount: (n: number) => string;
+    gapsCaption: string;
   };
   deck: { prev: string; next: string };
   card: {
@@ -274,6 +278,10 @@ const DICT: Record<Locale, Dict> = {
       backToIndex: "All segments",
       stubHeading: "Not classified yet",
       stubNote: "We've collected the reviews for this segment but haven't labeled them by meaning yet. Once they're classified, the needs gap shows up here.",
+      appsHeading: "Apps in this segment",
+      appsCaption: "How much negativity each one carries — open any to read its complaints.",
+      negativeCount: (n) => `${n.toLocaleString("en-US")} negative ${n === 1 ? "review" : "reviews"}`,
+      gapsCaption: "Shared across the whole segment, not any single app.",
     },
     deck: { prev: "Previous", next: "Next" },
     card: {
@@ -508,6 +516,19 @@ const DICT: Record<Locale, Dict> = {
       backToIndex: "Все сегменты",
       stubHeading: "Пока не размечено",
       stubNote: "Отзывы для этого сегмента собраны, но ещё не размечены по смыслу. Как только разметим — разрыв потребностей появится здесь.",
+      appsHeading: "Приложения сегмента",
+      appsCaption: "Сколько негатива в каждом — откройте любое, чтобы почитать жалобы.",
+      negativeCount: (n) => {
+        const pl = (k: number, forms: [string, string, string]) => {
+          const m10 = k % 10;
+          const m100 = k % 100;
+          if (m10 === 1 && m100 !== 11) return forms[0];
+          if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return forms[1];
+          return forms[2];
+        };
+        return `${n.toLocaleString("ru-RU")} ${pl(n, ["негативный отзыв", "негативных отзыва", "негативных отзывов"])}`;
+      },
+      gapsCaption: "Общие для всего сегмента, а не отдельного приложения.",
     },
     deck: { prev: "Назад", next: "Вперёд" },
     card: {

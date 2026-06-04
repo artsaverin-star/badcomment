@@ -2,12 +2,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import { getNeedsGap } from "@/lib/needsGap";
-import { getSegmentCards } from "@/lib/segmentCards";
+import { getSegmentCards, getSegmentApps } from "@/lib/segmentCards";
 import { getSegmentBySlug } from "@/lib/segments";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import NeedsGap from "@/components/NeedsGap";
 import SegmentCards from "@/components/SegmentCards";
+import SegmentApps from "@/components/SegmentApps";
 
 export const dynamic = "force-dynamic";
 
@@ -45,7 +46,7 @@ export default async function Market2({
   const segment = getSegmentBySlug(seg, locale);
   if (!segment) notFound();
 
-  const view = await getNeedsGap(seg, locale);
+  const [view, apps] = await Promise.all([getNeedsGap(seg, locale), getSegmentApps(seg, locale)]);
 
   return (
     <main className="mx-auto max-w-4xl overflow-x-clip px-4 py-10">
@@ -60,10 +61,12 @@ export default async function Market2({
       <Header
         size="L"
         as="h1"
-        className="mb-3 items-center text-center"
+        className="mb-8 items-center text-center"
         title={segment.name}
         description={<span className="mx-auto block max-w-2xl">{tr.market2.subtitle}</span>}
       />
+
+      {apps.length > 0 && <SegmentApps apps={apps} locale={locale} />}
 
       {view ? (
         <>

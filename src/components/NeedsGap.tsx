@@ -9,7 +9,10 @@ export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale:
   const tr = t(locale).market2;
   return (
     <section className="flex flex-col gap-3">
-      <Header size="S" as="h2" title={tr.gapsHeading} />
+      <div className="flex flex-col gap-0.5">
+        <Header size="S" as="h2" title={tr.gapsHeading} />
+        <p className="text-[13px] text-[var(--color-text-tertiary)]">{tr.gapsCaption}</p>
+      </div>
       <div className="flex flex-col gap-3">
         {view.needs.map((need) => (
           <NeedRow key={need.key} need={need} max={view.maxFail} tr={tr} />

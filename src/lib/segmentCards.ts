@@ -1,5 +1,5 @@
 import { prisma } from "./prisma";
-import { getSegments } from "./segments";
+import { getSegments, getSegmentBySlug } from "./segments";
 import { getTaxonomy } from "./taxonomy";
 import type { Locale } from "./i18n";
 
@@ -62,4 +62,38 @@ export async function getSegmentCards(locale: Locale): Promise<SegmentCard[]> {
     (a, b) => Number(b.classified) - Number(a.classified) || b.reviewCount - a.reviewCount,
   );
   return cards;
+}
+
+// One app inside a segment, with its raw negative-review volume — the drill-down
+// strip on a segment page. `negative` is the count of Review rows (negatives)
+// across the product's listings; tap through to /product/<id> to read them.
+export type SegmentApp = {
+  id: string;
+  name: string;
+  icon: string | null;
+  negative: number;
+};
+
+export async function getSegmentApps(slug: string, locale: Locale): Promise<SegmentApp[]> {
+  const segment = getSegmentBySlug(slug, locale);
+  if (!segment) return [];
+
+  const products = await prisma.product.findMany({
+    where: { id: { in: segment.appIds } },
+    select: {
+      id: true,
+      name: true,
+      icon: true,
+      listings: { select: { _count: { select: { reviews: true } } } },
+    },
+  });
+
+  const apps = products.map((p): SegmentApp => ({
+    id: p.id,
+    name: p.name,
+    icon: p.icon,
+    negative: p.listings.reduce((s, l) => s + l._count.reviews, 0),
+  }));
+  apps.sort((a, b) => b.negative - a.negative);
+  return apps;
 }
