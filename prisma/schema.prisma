@@ -78,6 +78,13 @@ model Review {
   text       String
   version    String?
   themes     String    @default("[]") // JSON array of theme keys
+  // Semantic needs-classification (offline, Claude-authored). JSON array of
+  // labels: [{ key, stance, confidence, trigger }] against src/lib/taxonomy.ts.
+  // An empty array means "classified, nothing fit" (honest abstention); null
+  // means "not yet classified". needsVersion stamps the taxonomy+prompt version
+  // so a re-run only touches rows from an older version (idempotent, gated).
+  needs        String?
+  needsVersion String?
   postedAt   DateTime?
   createdAt  DateTime  @default(now())
 

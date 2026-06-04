@@ -10,7 +10,9 @@
     "vendor:ds": "bash scripts/vendor-ds.sh",
     "ds:link": "npm install --no-save ../portfolio/packages/tokens ../portfolio/packages/ui-web",
     "ingest": "tsx scripts/ingest-categories.ts",
-    "summarize": "tsx scripts/summarize.ts"
+    "summarize": "tsx scripts/summarize.ts",
+    "classify:dump": "tsx scripts/dump-classify.ts",
+    "classify:apply": "tsx scripts/apply-classify.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.19.3",
