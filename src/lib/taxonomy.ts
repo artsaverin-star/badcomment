@@ -414,6 +414,109 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
     ],
   },
+
+  // Document scanner apps (CamScanner, Adobe Scan, Microsoft Lens, Scanner Pro, etc.).
+  // Authored from the dominant pains: OCR garbles text, auto-crop/edge-detection fails,
+  // fax never arrives, PDF export locked or corrupt, ads on top of document,
+  // billing traps, and subscription can't be cancelled inside the app.
+  "scanners-docs": {
+    slug: "scanners-docs",
+    version: "scanners-docs-1",
+    en: "Document scanner apps",
+    ru: "Сканеры документов",
+    needs: [
+      {
+        key: "ocr",
+        en: "OCR / text recognition fails",
+        ru: "OCR не читает текст",
+        forks: [
+          { key: "ocr.garbled", en: "Garbled characters or wrong words", ru: "Каракули или неверные слова" },
+          { key: "ocr.wrong-language", en: "Wrong language detected / letters scrambled", ru: "Не тот язык / перепутал буквы" },
+          { key: "ocr.formatting", en: "Destroys layout / columns / tables", ru: "Ломает разметку / колонки / таблицы" },
+        ],
+      },
+      {
+        key: "camera",
+        en: "Scan / capture quality broken",
+        ru: "Качество сканирования сломано",
+        forks: [
+          { key: "camera.blurry", en: "Output is blurry, dark, or pixelated", ru: "На выходе размытость, темно или пиксели" },
+          { key: "camera.auto-broken", en: "Auto-capture / edge detection misfires", ru: "Авто-захват / определение краёв мажет" },
+          { key: "camera.shadow", en: "Can't handle shadows, glare, or curved pages", ru: "Не справляется с тенями, бликами, изогнутыми страницами" },
+        ],
+      },
+      {
+        key: "pdf",
+        en: "PDF export or handling broken",
+        ru: "Экспорт в PDF или работа с ним сломана",
+        forks: [
+          { key: "pdf.corrupt", en: "Exported PDF is corrupt or won't open", ru: "Экспортированный PDF повреждён или не открывается" },
+          { key: "pdf.quality", en: "Image quality in the PDF is terrible", ru: "Качество изображения в PDF ужасное" },
+          { key: "pdf.merge-broken", en: "Merging pages into one PDF fails", ru: "Объединение страниц в PDF не работает" },
+        ],
+      },
+      {
+        key: "fax",
+        en: "Fax delivery fails",
+        ru: "Факс не доходит",
+        forks: [
+          { key: "fax.undelivered", en: "Shows sent but the recipient never got it", ru: "Показывает «отправлено», но адресат не получил" },
+          { key: "fax.credits", en: "Credits consumed without successful delivery", ru: "Кредиты списаны, но факс не дошёл" },
+        ],
+      },
+      {
+        key: "try-before-pay",
+        en: "Can't try before paying",
+        ru: "Не попробовать до оплаты",
+        forks: [
+          { key: "try-before-pay.core-locked", en: "Scan or export locked after N free uses", ru: "Сканирование или экспорт заперты после N бесплатных" },
+          { key: "try-before-pay.fake-free", en: "Listed as free but forces payment to use", ru: "Заявлен бесплатным, но заставляет платить" },
+          { key: "try-before-pay.forced-sub", en: "Forced to subscribe before scanning anything", ru: "Заставляет подписаться до первого сканирования" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Billing traps",
+        ru: "Биллинг-ловушки",
+        forks: [
+          { key: "billing.trial-trap", en: "'Free trial' charges immediately or auto-subscribes", ru: "«Бесплатный период» сразу списывает или сам оформляет подписку" },
+          { key: "billing.cant-cancel", en: "Can't find where to cancel or cancel button is broken", ru: "Не найти, как отменить, или кнопка отмены сломана" },
+          { key: "billing.no-refund", en: "No refund given", ru: "Не возвращают деньги" },
+          { key: "billing.was-onetime", en: "One-time purchase turned into a subscription", ru: "Разовую покупку превратили в подписку" },
+          { key: "billing.charged-full", en: "Charged a full year instead of the expected amount", ru: "Списали за год вместо ожидаемой суммы" },
+        ],
+      },
+      {
+        key: "ads",
+        en: "Ads bury the app",
+        ru: "Реклама топит приложение",
+        forks: [
+          { key: "ads.gates-export", en: "Ad shown before every scan or export", ru: "Реклама перед каждым сканом или экспортом" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "Broken and buggy",
+        ru: "Не работает, глючит",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes or freezes during scan", ru: "Крэш или зависание во время сканирования" },
+          { key: "reliability.slow", en: "Very slow to process", ru: "Очень долго обрабатывает" },
+          { key: "reliability.errors", en: "Generic errors / stops working after update", ru: "Общие ошибки / перестало работать после обновления" },
+        ],
+      },
+      {
+        key: "cloud",
+        en: "Cloud sync or storage broken",
+        ru: "Облачная синхронизация сломана",
+        forks: [
+          { key: "cloud.lost", en: "Scanned documents disappeared from cloud", ru: "Отсканированные документы исчезли из облака" },
+          { key: "cloud.no-sync", en: "Sync with Google Drive / Dropbox / iCloud stopped working", ru: "Синхронизация с Google Drive / Dropbox / iCloud не работает" },
+        ],
+      },
+      { key: "support", en: "Support that ignores you", ru: "Поддержка не отвечает", forks: [] },
+      { key: "notifications", en: "Notification spam", ru: "Спам уведомлений", forks: [] },
+    ],
+  },
 };
 
 export function getTaxonomy(slug: string): GenreTaxonomy | null {
