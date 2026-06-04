@@ -58,22 +58,10 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
 
         {(need.apps.length > 0 || need.evidence.length > 0 || need.forks.length > 0) && (
           <div className="flex flex-col gap-4 border-t border-[var(--color-border-subtle)] px-4 py-4">
-            {need.forks.length > 0 && (
-              <span className="flex flex-wrap gap-1.5">
-                {need.forks.map((f) => (
-                  <span
-                    key={f.key}
-                    className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)]"
-                  >
-                    {f.label}
-                    <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
-                  </span>
-                ))}
-              </span>
-            )}
             {need.evidence.length > 0 && (
               <EvidenceDialog
-                buttonLabel={tr.seeReviews(need.complaintMentions)}
+                forks={need.forks}
+                seeAllLabel={tr.seeReviews(need.complaintMentions)}
                 title={tr.evidenceTitle(need.label)}
                 total={need.complaintMentions}
                 shownWord={tr.evidenceShownWord}

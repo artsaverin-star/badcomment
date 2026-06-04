@@ -1,14 +1,14 @@
 "use client";
 
 import { useMemo, useRef, useState, type ReactNode } from "react";
-import type { NeedEvidence } from "@/lib/needsGap";
+import type { NeedEvidence, NeedForkStat } from "@/lib/needsGap";
 
-// The proof layer: a button that opens the real reviews behind a need's number.
-// Every count must be traceable to readable reviews with the exact phrase that
-// put each one there (highlighted) — so nothing on screen is taken on faith.
-// The popup is a capped sample of the total; filters narrow it by app and by
-// sub-problem. Strings are precomputed on the server (i18n functions don't
-// cross the client boundary); only plain data is passed in.
+// The proof layer: the sub-problem tags themselves are the triggers — clicking
+// one opens the real reviews behind that count, pre-filtered to it. Needs with
+// no sub-threads fall back to a single "see reviews" button. Every count must
+// be traceable to readable reviews with the exact phrase that put each one there
+// (highlighted), so nothing on screen is taken on faith. Strings are precomputed
+// on the server (i18n functions don't cross the client boundary).
 
 function highlight(text: string, match: string): ReactNode {
   if (!match) return text;
@@ -81,9 +81,10 @@ function FilterRow({
 }
 
 export default function EvidenceDialog({
-  buttonLabel,
   title,
   total,
+  seeAllLabel,
+  forks,
   shownWord,
   ofWord,
   allLabel,
@@ -93,9 +94,10 @@ export default function EvidenceDialog({
   closeLabel,
   evidence,
 }: {
-  buttonLabel: string;
   title: string;
   total: number;
+  seeAllLabel: string; // fallback trigger when the need has no sub-threads
+  forks: NeedForkStat[]; // sub-problem tags that double as the triggers
   shownWord: string;
   ofWord: string;
   allLabel: string;
@@ -109,27 +111,48 @@ export default function EvidenceDialog({
   const [app, setApp] = useState<string | null>(null);
   const [fork, setFork] = useState<string | null>(null);
 
-  // Chip counts are GLOBAL: each shows how many reviews in the sample carry that
-  // problem / app, regardless of the current selection — so a number never
-  // shifts when you pick a filter ("'Free trial' charges immediately" stays 13).
-  const apps = useMemo(() => countBy(evidence.map((e) => e.app).filter(Boolean)), [evidence]);
-  const forks = useMemo(() => countBy(evidence.map((e) => e.fork).filter(Boolean)), [evidence]);
+  // In-modal filter options, counted across the whole evidence sample so a chip
+  // number never shifts with the current selection.
+  const appOptions = useMemo(() => countBy(evidence.map((e) => e.app).filter(Boolean)), [evidence]);
+  const forkOptions = useMemo(() => countBy(evidence.map((e) => e.fork).filter(Boolean)), [evidence]);
 
   // One dimension at a time: picking a problem clears the app filter and vice
-  // versa. This keeps "Showing N" equal to the picked chip's count and makes an
-  // empty (non-intersecting) combination unreachable.
+  // versa, so "Showing N" equals the picked chip's count and an empty
+  // (non-intersecting) combination is unreachable.
   const filtered = evidence.filter((e) => (!app || e.app === app) && (!fork || e.fork === fork));
-  const hasFilters = apps.length > 1 || forks.length > 1;
+  const hasFilters = appOptions.length > 1 || forkOptions.length > 1;
+
+  const openWith = (f: string | null) => {
+    setApp(null);
+    setFork(f);
+    ref.current?.showModal();
+  };
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => ref.current?.showModal()}
-        className="self-start rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-1.5 text-[12px] font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]"
-      >
-        {buttonLabel}
-      </button>
+      {forks.length > 0 ? (
+        <div className="flex flex-wrap gap-1.5">
+          {forks.map((f) => (
+            <button
+              key={f.key}
+              type="button"
+              onClick={() => openWith(f.label)}
+              className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+            >
+              {f.label}
+              <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
+            </button>
+          ))}
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => openWith(null)}
+          className="self-start rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-1.5 text-[12px] font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]"
+        >
+          {seeAllLabel}
+        </button>
+      )}
 
       <dialog
         ref={ref}
@@ -160,7 +183,7 @@ export default function EvidenceDialog({
               <FilterRow
                 label={byProblemLabel}
                 allLabel={allLabel}
-                options={forks}
+                options={forkOptions}
                 selected={fork}
                 onSelect={(v) => {
                   setFork(v);
@@ -170,7 +193,7 @@ export default function EvidenceDialog({
               <FilterRow
                 label={byAppLabel}
                 allLabel={allLabel}
-                options={apps}
+                options={appOptions}
                 selected={app}
                 onSelect={(v) => {
                   setApp(v);

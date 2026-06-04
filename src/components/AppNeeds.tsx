@@ -28,58 +28,39 @@ function NeedRow({ need, max, locale }: { need: AppNeed; max: number; locale: Lo
   const pct = Math.max(3, Math.round((need.mentions / max) * 100));
 
   return (
-    <div className="overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
-      <details className="group">
-        <summary className="flex cursor-pointer list-none flex-col gap-2 p-4">
-          <span className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-            <span className="text-[15px] font-semibold text-[var(--color-text-primary)]">{need.label}</span>
-            <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
-              {need.mentions} {tr.demand}
-            </span>
-          </span>
+    <div className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4">
+      <span className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+        <span className="text-[15px] font-semibold text-[var(--color-text-primary)]">{need.label}</span>
+        <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
+          {need.mentions} {tr.demand}
+        </span>
+      </span>
 
-          <span className="mt-0.5 flex items-center gap-2">
-            <span className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-              <span
-                className="block h-full rounded-full"
-                style={{ width: `${pct}%`, background: "var(--color-accent-danger)" }}
-              />
-            </span>
-          </span>
+      <span className="mt-0.5 flex items-center gap-2">
+        <span className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
+          <span
+            className="block h-full rounded-full"
+            style={{ width: `${pct}%`, background: "var(--color-accent-danger)" }}
+          />
+        </span>
+      </span>
 
-          {need.forks.length > 0 && (
-            <span className="flex flex-wrap gap-1.5">
-              {need.forks.map((f) => (
-                <span
-                  key={f.key}
-                  className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)]"
-                >
-                  {f.label}
-                  <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
-                </span>
-              ))}
-            </span>
-          )}
-        </summary>
-
-        {need.evidence.length > 0 && (
-          <div className="border-t border-[var(--color-border-subtle)] px-4 py-4">
-            <EvidenceDialog
-              buttonLabel={tr.seeReviews(need.mentions)}
-              title={tr.evidenceTitle(need.label)}
-              total={need.mentions}
-              shownWord={tr.evidenceShownWord}
-              ofWord={tr.evidenceOfWord}
-              allLabel={tr.evidenceAll}
-              byAppLabel={tr.evidenceByApp}
-              byProblemLabel={tr.evidenceByProblem}
-              methodNote={tr.evidenceMethodNote}
-              closeLabel={tr.close}
-              evidence={need.evidence}
-            />
-          </div>
-        )}
-      </details>
+      {need.evidence.length > 0 && (
+        <EvidenceDialog
+          forks={need.forks}
+          seeAllLabel={tr.seeReviews(need.mentions)}
+          title={tr.evidenceTitle(need.label)}
+          total={need.mentions}
+          shownWord={tr.evidenceShownWord}
+          ofWord={tr.evidenceOfWord}
+          allLabel={tr.evidenceAll}
+          byAppLabel={tr.evidenceByApp}
+          byProblemLabel={tr.evidenceByProblem}
+          methodNote={tr.evidenceMethodNote}
+          closeLabel={tr.close}
+          evidence={need.evidence}
+        />
+      )}
     </div>
   );
 }
