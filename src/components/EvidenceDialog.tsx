@@ -138,24 +138,22 @@ export default function EvidenceDialog({
   const [visible, setVisible] = useState(WINDOW);
   const [opened, setOpened] = useState(false); // gate the fetch until first open
 
-  // Filter options cross-filter: each chip's number reflects the OTHER axis's
-  // current selection, so the by-app counts always reconcile with the picked
-  // problem (and vice versa). With a fork picked, an app shows how many of that
-  // fork's reviews it carries (apps[].forks holds the per-app × per-fork matrix);
-  // with an app picked, a problem shows its count within that app. Options that
-  // drop to zero under the active filter are hidden — except the selected one, so
-  // it stays toggleable.
+  // The two facets are asymmetric on purpose. The problem (fork) breakdown is the
+  // need's stable headline — its counts are always the global per-fork totals and
+  // never shift with the app selection (picking an app must NOT shrink "59" to
+  // that app's slice). The app breakdown is the dependent facet: when a problem is
+  // picked, each app shows how many of THAT problem's reviews it carries, so the
+  // by-app numbers reconcile with the selected problem (apps[].forks holds the
+  // per-app × per-fork matrix); with no problem picked it shows the app's global
+  // total for the need. Apps that drop to zero under the picked problem are hidden,
+  // except the selected one so it stays toggleable.
   const allApps = apps ?? [];
   const appCount = (a: EvidenceApp) =>
     fork ? (a.forks.find((f) => f.key === fork)?.mentions ?? 0) : a.complaints;
-  const forkCount = (f: NeedForkStat) =>
-    app ? (allApps.find((a) => a.id === app)?.forks.find((af) => af.key === f.key)?.mentions ?? 0) : f.mentions;
   const appOptions = allApps
     .map((a) => ({ value: a.id, label: a.name, count: appCount(a) }))
     .filter((o) => o.count > 0 || o.value === app);
-  const forkOptions = forks
-    .map((f) => ({ value: f.key, label: f.label, count: forkCount(f) }))
-    .filter((o) => o.count > 0 || o.value === fork);
+  const forkOptions = forks.map((f) => ({ value: f.key, label: f.label, count: f.mentions }));
 
   // Fetch the reviews behind the current app×fork combination on demand. The
   // server applies the same dedupe/primary-fork logic as the aggregation, so the
