@@ -29,8 +29,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
     needs: [
       {
         key: "method",
-        en: "Actually teaches the language",
-        ru: "Реально учит языку",
+        en: "Doesn't actually teach",
+        ru: "Не учит языку",
         forks: [
           { key: "method.no-grammar", en: "No grammar, structure or explanation", ru: "Нет грамматики, структуры, объяснений" },
           { key: "method.flashcards", en: "Flashcard drilling without real context", ru: "Зубрёжка карточек без контекста" },
@@ -40,8 +40,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "speak",
-        en: "Speak and be understood",
-        ru: "Заговорить и быть понятым",
+        en: "Can't speak or be understood",
+        ru: "Не заговорить, не понимают",
         forks: [
           { key: "speak.practice", en: "Speaking / conversation practice itself", ru: "Сама разговорная практика" },
           { key: "speak.recognition", en: "Speech recognition marks correct as wrong / can't hear", ru: "Распознавание речи: верное считает ошибкой / не слышит" },
@@ -51,8 +51,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "ai-tutor",
-        en: "AI tutor / conversation partner",
-        ru: "AI-собеседник / разговорный партнёр",
+        en: "AI tutor falls flat",
+        ru: "AI-собеседник не тянет",
         forks: [
           { key: "ai-tutor.no-adapt", en: "Doesn't adapt, repeats the same question", ru: "Не подстраивается, повторяет один вопрос" },
           { key: "ai-tutor.fake-approval", en: "Fake approval — says 'perfect' to anything", ru: "Фальшивое одобрение — на всё «perfect»" },
@@ -65,8 +65,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "level",
-        en: "Right level and adaptivity",
-        ru: "Правильный уровень и адаптивность",
+        en: "Wrong level, no adaptivity",
+        ru: "Не тот уровень, нет адаптивности",
         forks: [
           { key: "level.says-advanced", en: "Says advanced, gives basics", ru: "Заявлен advanced — даёт базу" },
           { key: "level.too-fast", en: "Too fast for a beginner", ru: "Слишком быстро для новичка" },
@@ -77,8 +77,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "retention",
-        en: "Remember it, not just cram",
-        ru: "Запомнить, а не зазубрить",
+        en: "Forget it, just cramming",
+        ru: "Всё забывается, только зубрёжка",
         forks: [
           { key: "retention.forget", en: "Forget what was learned, no built-in review", ru: "Забываешь пройденное, нет встроенного повторения" },
           { key: "retention.broken-repeat", en: "Broken repeat / review mechanic", ru: "Сломанный механизм повторения" },
@@ -88,8 +88,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "content-accuracy",
-        en: "Correct, trustworthy content",
-        ru: "Достоверный, выверенный контент",
+        en: "Wrong, untrustworthy content",
+        ru: "Ошибки в контенте, нельзя доверять",
         forks: [
           { key: "content-accuracy.wrong-definitions", en: "Wrong definitions / translations taught", ru: "Неверные определения / переводы" },
           { key: "content-accuracy.misspelled", en: "Misspelled words", ru: "Слова с опечатками" },
@@ -100,8 +100,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "coverage",
-        en: "Language and dialect coverage",
-        ru: "Покрытие языков и диалектов",
+        en: "Missing languages and dialects",
+        ru: "Нет нужных языков и диалектов",
         forks: [
           { key: "coverage.missing-language", en: "Missing the language wanted", ru: "Нет нужного языка" },
           { key: "coverage.wrong-dialect", en: "Wrong dialect / penalized for mixing variants", ru: "Не тот диалект / штрафует за смешение вариантов" },
@@ -119,11 +119,11 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
           { key: "gamification.app-blocking", en: "Forced attention / app-blocking", ru: "Навязчивый перехват внимания / блокировка" },
         ],
       },
-      { key: "motivation", en: "Stay motivated, not bored", ru: "Не бросить, не заскучать", forks: [] },
+      { key: "motivation", en: "Boring, easy to quit", ru: "Скучно, легко бросить", forks: [] },
       {
         key: "billing",
-        en: "Honest billing, no trial traps",
-        ru: "Честный биллинг, без ловушек",
+        en: "Billing traps",
+        ru: "Биллинг-ловушки",
         forks: [
           { key: "billing.trial-trap", en: "'Free trial' charges immediately", ru: "«Бесплатный период» списывает сразу" },
           { key: "billing.charged-full", en: "Charged a full year unexpectedly", ru: "Неожиданно списали за год" },
@@ -135,19 +135,19 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "try-before-pay",
-        en: "Try before you pay",
-        ru: "Попробовать до оплаты",
+        en: "Can't try before paying",
+        ru: "Не попробовать до оплаты",
         forks: [
           { key: "try-before-pay.paywall-lesson-1", en: "Paywalled from the first lesson", ru: "Пейволл с первого урока" },
           { key: "try-before-pay.no-free-eval", en: "No free way to evaluate it", ru: "Нет бесплатного способа оценить" },
           { key: "try-before-pay.all-locked", en: "Everything locked behind subscription", ru: "Всё заперто за подпиской" },
         ],
       },
-      { key: "ads", en: "Ads don't interrupt lessons", ru: "Реклама не рвёт урок", forks: [] },
+      { key: "ads", en: "Ads interrupt lessons", ru: "Реклама рвёт урок", forks: [] },
       {
         key: "reliability",
-        en: "The app just works",
-        ru: "Приложение просто работает",
+        en: "Broken and buggy",
+        ru: "Не работает, глючит",
         forks: [
           { key: "reliability.updates-break", en: "Updates break it / lessons disappear", ru: "Обновления ломают / уроки исчезают" },
           { key: "reliability.crashes", en: "Crashes / won't open / stuck loading", ru: "Крэши / не открывается / зависает на загрузке" },
@@ -157,27 +157,27 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "progress",
-        en: "Don't lose my progress or access",
-        ru: "Не терять прогресс и доступ",
+        en: "Lost progress and access",
+        ru: "Теряется прогресс и доступ",
         forks: [
           { key: "progress.reverted", en: "Progress reverted / reset", ru: "Прогресс откатился / сбросился" },
           { key: "progress.purchase-not-recognized", en: "Lifetime / purchase not recognized", ru: "Lifetime / покупка не признаётся" },
           { key: "progress.cant-login-paid", en: "Can't log in despite paying", ru: "Не пускает, хотя оплачено" },
         ],
       },
-      { key: "support", en: "Support that responds", ru: "Поддержка, которая отвечает", forks: [] },
+      { key: "support", en: "Support that ignores you", ru: "Поддержка не отвечает", forks: [] },
       {
         key: "offline",
-        en: "Learn offline and on the go",
-        ru: "Учить оффлайн и в дороге",
+        en: "No offline learning",
+        ru: "Не работает оффлайн",
         forks: [
           { key: "offline.removed", en: "Offline mode removed", ru: "Убрали оффлайн-режим" },
           { key: "offline.logs-out", en: "Logs out / breaks without a connection", ru: "Разлогинивает / ломается без сети" },
           { key: "offline.none", en: "No offline support at all", ru: "Оффлайна нет вообще" },
         ],
       },
-      { key: "notifications", en: "No notification spam", ru: "Без спама уведомлений", forks: [] },
-      { key: "accessibility", en: "Accessible (text size, sight-impaired)", ru: "Доступность (размер текста, слабовидящие)", forks: [] },
+      { key: "notifications", en: "Notification spam", ru: "Спам уведомлений", forks: [] },
+      { key: "accessibility", en: "Not accessible (text size, sight-impaired)", ru: "Проблемы с доступностью (размер текста, слабовидящие)", forks: [] },
     ],
   },
 
@@ -192,8 +192,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
     needs: [
       {
         key: "accuracy",
-        en: "Accurate, trustworthy translation",
-        ru: "Точный, достоверный перевод",
+        en: "Inaccurate, wrong translation",
+        ru: "Неточный, неверный перевод",
         forks: [
           { key: "accuracy.nonsense", en: "Output is nonsense / wrong meaning", ru: "На выходе бессмыслица / неверный смысл" },
           { key: "accuracy.voice-wrong", en: "Voice translation wrong (text may be ok)", ru: "Голосовой перевод врёт (текстовый может быть ок)" },
@@ -202,8 +202,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "speech",
-        en: "Hears and transcribes speech",
-        ru: "Слышит и распознаёт речь",
+        en: "Doesn't hear or transcribe speech",
+        ru: "Не слышит и не распознаёт речь",
         forks: [
           { key: "speech.not-recognized", en: "Doesn't recognize / transcribe spoken words", ru: "Не распознаёт / не расшифровывает речь" },
           { key: "speech.conversation-broken", en: "Two-way conversation mode breaks", ru: "Двусторонний режим разговора ломается" },
@@ -211,16 +211,16 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "camera",
-        en: "Camera / photo translation works",
-        ru: "Перевод по фото / с камеры",
+        en: "Camera / photo translation broken",
+        ru: "Не переводит по фото / с камеры",
         forks: [
           { key: "camera.no-translate", en: "OCR returns the same text / no translation", ru: "OCR возвращает тот же текст / без перевода" },
         ],
       },
       {
         key: "coverage",
-        en: "Language and direction coverage",
-        ru: "Покрытие языков и направлений",
+        en: "Missing languages and directions",
+        ru: "Нет нужных языков и направлений",
         forks: [
           { key: "coverage.missing-language", en: "Wanted language not available", ru: "Нужного языка нет" },
           { key: "coverage.one-direction", en: "Only one direction works (A→B but not B→A)", ru: "Работает только одно направление (A→B, но не B→A)" },
@@ -229,8 +229,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "reliability",
-        en: "The app just works",
-        ru: "Приложение просто работает",
+        en: "Broken and buggy",
+        ru: "Не работает, глючит",
         forks: [
           { key: "reliability.errors", en: "Generic errors / does nothing / broke immediately", ru: "Общие ошибки / ничего не делает / сломалось сразу" },
           { key: "reliability.crashes", en: "Crashes / freezes", ru: "Крэши / зависает" },
@@ -241,16 +241,16 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "offline",
-        en: "Works offline and abroad",
-        ru: "Работает офлайн и в поездке",
+        en: "Doesn't work offline or abroad",
+        ru: "Не работает оффлайн и в поездке",
         forks: [
           { key: "offline.fails-traveling", en: "Stops working while traveling / needs a connection", ru: "Перестаёт работать в поездке / нужен интернет" },
         ],
       },
       {
         key: "try-before-pay",
-        en: "Try before you pay",
-        ru: "Попробовать до оплаты",
+        en: "Can't try before paying",
+        ru: "Не попробовать до оплаты",
         forks: [
           { key: "try-before-pay.core-locked", en: "The translation itself is paywalled (pay after N uses)", ru: "Сам перевод заперт (платить после N раз)" },
           { key: "try-before-pay.fake-free", en: "Listed as free but forces payment to use", ru: "Заявлен бесплатным, но заставляет платить" },
@@ -259,8 +259,8 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "billing",
-        en: "Honest billing, no traps",
-        ru: "Честный биллинг, без ловушек",
+        en: "Billing traps",
+        ru: "Биллинг-ловушки",
         forks: [
           { key: "billing.trial-trap", en: "'Free trial' charges / auto-subscribes", ru: "«Бесплатный период» списывает / сам оформляет подписку" },
           { key: "billing.charged-full", en: "Charged a full year instead of month", ru: "Списали за год вместо месяца" },
@@ -272,14 +272,14 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
       {
         key: "ads",
-        en: "Ads don't bury the app",
-        ru: "Реклама не топит приложение",
+        en: "Ads bury the app",
+        ru: "Реклама топит приложение",
         forks: [
           { key: "ads.gates-translation", en: "An ad before each translation", ru: "Реклама перед каждым переводом" },
         ],
       },
-      { key: "support", en: "Support that responds", ru: "Поддержка, которая отвечает", forks: [] },
-      { key: "notifications", en: "No notification spam", ru: "Без спама уведомлений", forks: [] },
+      { key: "support", en: "Support that ignores you", ru: "Поддержка не отвечает", forks: [] },
+      { key: "notifications", en: "Notification spam", ru: "Спам уведомлений", forks: [] },
     ],
   },
 };

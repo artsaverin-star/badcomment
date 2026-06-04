@@ -138,10 +138,24 @@ export default function EvidenceDialog({
   const [visible, setVisible] = useState(WINDOW);
   const [opened, setOpened] = useState(false); // gate the fetch until first open
 
-  // App filter options (segment only): value = product id, count from aggregation
-  // so a chip number never shifts with the current selection.
-  const appOptions = (apps ?? []).map((a) => ({ value: a.id, label: a.name, count: a.complaints }));
-  const forkOptions = forks.map((f) => ({ value: f.key, label: f.label, count: f.mentions }));
+  // Filter options cross-filter: each chip's number reflects the OTHER axis's
+  // current selection, so the by-app counts always reconcile with the picked
+  // problem (and vice versa). With a fork picked, an app shows how many of that
+  // fork's reviews it carries (apps[].forks holds the per-app × per-fork matrix);
+  // with an app picked, a problem shows its count within that app. Options that
+  // drop to zero under the active filter are hidden — except the selected one, so
+  // it stays toggleable.
+  const allApps = apps ?? [];
+  const appCount = (a: EvidenceApp) =>
+    fork ? (a.forks.find((f) => f.key === fork)?.mentions ?? 0) : a.complaints;
+  const forkCount = (f: NeedForkStat) =>
+    app ? (allApps.find((a) => a.id === app)?.forks.find((af) => af.key === f.key)?.mentions ?? 0) : f.mentions;
+  const appOptions = allApps
+    .map((a) => ({ value: a.id, label: a.name, count: appCount(a) }))
+    .filter((o) => o.count > 0 || o.value === app);
+  const forkOptions = forks
+    .map((f) => ({ value: f.key, label: f.label, count: forkCount(f) }))
+    .filter((o) => o.count > 0 || o.value === fork);
 
   // Fetch the reviews behind the current app×fork combination on demand. The
   // server applies the same dedupe/primary-fork logic as the aggregation, so the
@@ -175,6 +189,21 @@ export default function EvidenceDialog({
       });
     return () => ctrl.abort();
   }, [opened, source, needKey, app, fork]);
+
+  // Lock the page behind the dialog while it's open. A native <dialog> doesn't
+  // stop the underlying page from scrolling (most visible as a bottom sheet on
+  // mobile, where the page peeks above the sheet). The viewport's scroll container
+  // is the root element, so the lock has to live on <html>; globals.css keeps
+  // scrollbar-gutter stable, so hiding overflow doesn't shift the layout sideways.
+  useEffect(() => {
+    if (!opened) return;
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    return () => {
+      root.style.overflow = prev;
+    };
+  }, [opened]);
 
   // Autoloader: reveal another window when the sentinel scrolls into view.
   const sentinel = useRef<HTMLDivElement>(null);
