@@ -1,4 +1,4 @@
-import { Header, Tag } from "@saverin/ui-web";
+import { Header } from "@saverin/ui-web";
 import { t, type Locale } from "@/lib/i18n";
 import type { NeedsGapView, NeedGap } from "@/lib/needsGap";
 import EvidenceDialog from "./EvidenceDialog";
@@ -26,9 +26,6 @@ export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale:
 
 function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
   const open = need.verdict === "open";
-  const tone = open ? "danger" : need.verdict === "narrow" ? "warning" : "neutral";
-  const verdictLabel =
-    need.verdict === "open" ? tr.verdictOpen : need.verdict === "narrow" ? tr.verdictNarrow : tr.verdictThin;
   const pct = Math.max(3, Math.round((need.failApps / max) * 100));
   const barColor = open ? "var(--color-accent-danger)" : "var(--color-text-tertiary)";
 
@@ -39,9 +36,6 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
           <span className="flex items-center justify-between gap-3">
             <span className="flex min-w-0 items-center gap-2">
               <span className="truncate text-[14px] font-semibold text-[var(--color-text-primary)]">{need.label}</span>
-              <Tag tone={tone} size="S">
-                {verdictLabel}
-              </Tag>
             </span>
             <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
               {tr.painIn(need.failApps, need.totalApps)}

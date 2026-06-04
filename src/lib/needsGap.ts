@@ -64,16 +64,16 @@ export type NeedsGapView = {
 type StoredLabel = { key: string; stance: string; confidence: number; trigger: string };
 
 const REVIEWS_PER_APP = 600;
-const QUOTE_MAX = 220;
 const TOP_NEEDS_PER_APP = 3; // a need ranking this high in an app counts as a top pain
 const THIN_FAIL = 2; // fewer than this many apps failing = not enough signal
 const OPEN_BREADTH = 0.4; // top pain in >= 40% of the genre = genre-wide gap
 const EVIDENCE_PER_APP = 3; // reviews kept per app per need, so the popup spans the genre
 const EVIDENCE_CAP = 48; // total reviews shown in the popup per need
 
+// Reviews are shown in full — a clipped complaint is a half-told one. We only
+// collapse runs of whitespace so the verbatim quote reads as one clean block.
 function trimQuote(text: string): string {
-  const t = text.replace(/\s+/g, " ").trim();
-  return t.length > QUOTE_MAX ? t.slice(0, QUOTE_MAX - 1).trimEnd() + "…" : t;
+  return text.replace(/\s+/g, " ").trim();
 }
 
 // The sub-thread label a review is filed under: the fork's own label, or a
@@ -138,8 +138,9 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     const appComplaints = needs.map(() => 0);
     const appForks: Map<string, number>[] = needs.map(() => new Map());
     const appEvidence = needs.map(() => 0);
-    // Reviews are often stored verbatim under several ids; dedupe evidence by
-    // text so the popup doesn't show the same complaint three times.
+    // Reviews are often stored verbatim under several ids. The same complaint
+    // text is one complaint: dedupe by text so it neither inflates the count nor
+    // shows up twice in the popup (otherwise "2 reviews" could open to just 1).
     const appSeen: Set<string>[] = needs.map(() => new Set());
 
     for (const r of reviews) {
@@ -164,13 +165,16 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
       }
 
       for (const [ni, top] of topPerNeed) {
+        const clean = r.text.trim();
+        const dedupeKey = clean.toLowerCase().replace(/\s+/g, " ");
+        const dedupable = clean.length > 12;
+        if (dedupable && appSeen[ni].has(dedupeKey)) continue; // verbatim duplicate: already counted
+        if (dedupable) appSeen[ni].add(dedupeKey);
+
         appComplaints[ni]++;
         forkCounts[ni].set(top.key, (forkCounts[ni].get(top.key) ?? 0) + 1);
         appForks[ni].set(top.key, (appForks[ni].get(top.key) ?? 0) + 1);
-        const clean = r.text.trim();
-        const dedupeKey = clean.toLowerCase().replace(/\s+/g, " ");
-        if (clean.length > 12 && appEvidence[ni] < EVIDENCE_PER_APP && !appSeen[ni].has(dedupeKey)) {
-          appSeen[ni].add(dedupeKey);
+        if (dedupable && appEvidence[ni] < EVIDENCE_PER_APP) {
           appEvidence[ni]++;
           evidencePerNeed[ni].push({
             app: p.name,
@@ -340,12 +344,15 @@ export async function getAppNeeds(productId: string, locale: Locale): Promise<Ap
     }
 
     for (const [ni, top] of topPerNeed) {
-      mentions[ni]++;
-      forkCounts[ni].set(top.key, (forkCounts[ni].get(top.key) ?? 0) + 1);
       const clean = r.text.trim();
       const dedupeKey = clean.toLowerCase().replace(/\s+/g, " ");
-      if (clean.length > 12 && evidence[ni].length < APP_EVIDENCE_CAP && !evidenceSeen[ni].has(dedupeKey)) {
-        evidenceSeen[ni].add(dedupeKey);
+      const dedupable = clean.length > 12;
+      if (dedupable && evidenceSeen[ni].has(dedupeKey)) continue; // verbatim duplicate: count once
+      if (dedupable) evidenceSeen[ni].add(dedupeKey);
+
+      mentions[ni]++;
+      forkCounts[ni].set(top.key, (forkCounts[ni].get(top.key) ?? 0) + 1);
+      if (dedupable && evidence[ni].length < APP_EVIDENCE_CAP) {
         evidence[ni].push({
           app: "",
           icon: null,
