@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { prisma } from "../src/lib/prisma";
-import { validKeys, TAXONOMY_VERSION } from "../src/lib/taxonomy";
+import { validKeys, taxonomyVersion } from "../src/lib/taxonomy";
 
 // Applies the classification JSON produced by Claude/Sonnet (one file per dumped
 // batch, saved to classify/out/) back onto Review.needs. This is the enforcement
@@ -39,6 +39,7 @@ async function main() {
     console.error(`no taxonomy for slug "${SLUG}"`);
     process.exit(1);
   }
+  const version = taxonomyVersion(SLUG);
   if (!existsSync(OUT_DIR)) {
     console.error(`no ${OUT_DIR}/ directory — save the chat replies there first`);
     process.exit(1);
@@ -63,8 +64,8 @@ async function main() {
       badFiles++;
       continue;
     }
-    if (parsed.version && parsed.version !== TAXONOMY_VERSION) {
-      console.error(`! ${file}: version "${parsed.version}" != "${TAXONOMY_VERSION}", skipped`);
+    if (parsed.version && parsed.version !== version) {
+      console.error(`! ${file}: version "${parsed.version}" != "${version}", skipped`);
       badFiles++;
       continue;
     }
@@ -99,7 +100,7 @@ async function main() {
 
       await prisma.review.update({
         where: { id: rev.id },
-        data: { needs: JSON.stringify(clean), needsVersion: TAXONOMY_VERSION },
+        data: { needs: JSON.stringify(clean), needsVersion: version },
       });
       applied++;
       if (clean.length === 0) abstained++;

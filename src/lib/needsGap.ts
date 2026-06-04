@@ -1,48 +1,38 @@
 import { prisma } from "./prisma";
 import { getSegmentBySlug } from "./segments";
-import { resolveNeeds, resolveWhitespace, type ResolvedWhitespace } from "./needs";
+import { resolveWhitespace, type ResolvedWhitespace } from "./needs";
+import { getTaxonomy, taxonomyVersion, type ClassNeed } from "./taxonomy";
 import type { Locale } from "./i18n";
 
-// How well a genre serves each of its authored "needs", scored from real reviews.
+// How well a genre serves each authored need, scored from reviews classified by
+// MEANING (Review.needs — see taxonomy.ts / apply-classify.ts), not keywords.
 //
 // The honest signal is complaint *breadth*: with hundreds of reviews per app, a
-// keyword shows up somewhere for almost everyone, so raw counts mean little.
+// theme shows up somewhere for almost everyone, so raw counts mean little.
 // Instead we ask, per app, which needs are its *top* complaints (relative to its
 // own complaint mix), then count how many apps share each as a top pain. A need
-// that's a top complaint across most of the genre is an open gap nobody closes;
-// one that only bites a few apps is app-specific. Praise (a small sample) is a
-// weak secondary hint, never the verdict.
+// that's a top complaint across most of the genre is an open gap nobody closes.
+//
+// Only PAIN labels count — there is no "who closes it best" verdict. Praise is a
+// manipulable sample (a positive review is easy to plant), so it is never a
+// signal here: the page measures where every app fails, full stop.
 
 export type NeedAppStat = {
   id: string;
   name: string;
   icon: string | null;
   complaints: number;
-  praises: number;
-  sharePct: number; // complaints on this need / app's total negatives
-  margin: number; // praise-rate minus complaint-rate on this need (comparative, never absolute)
+  sharePct: number; // complaints on this need / app's classified reviews
   quotes: string[];
-  praiseQuotes: string[];
 };
 
-// Who closes the need best. This is the *weak* direction of the data: praise is a
-// small, curated sample, so we only ever name a closer when its praise clearly
-// outweighs its own complaints on the topic AND a real review backs it. For open
-// gaps the honest answer is null ("nobody") — and that is the point, not a hole.
-export type BestCloser = {
-  id: string;
-  name: string;
-  icon: string | null;
-  praises: number;
-  complaints: number;
-  quote: string;
-};
+// A sub-thread inside a need (a taxonomy fork), with how many reviews hit it.
+// Forks are shown explicitly, never collapsed into the parent need.
+export type NeedForkStat = { key: string; label: string; mentions: number };
 
-// One real review behind a need's number, with the exact phrase that put it
-// there (the trigger). The popup shows these so every count is auditable: no
-// number on screen exists without the reviews under it. Today `match` is the
-// matched keyword (keyword era); once reviews are classified by meaning it
-// becomes the semantic trigger span — the UI doesn't change.
+// One real review behind a need's number, with the exact verbatim phrase the
+// classifier quoted (the trigger). The popup shows these so every count is
+// auditable: no number on screen exists without the reviews under it.
 export type NeedEvidence = {
   app: string;
   icon: string | null;
@@ -55,12 +45,11 @@ export type NeedEvidence = {
 export type NeedGap = {
   key: string;
   label: string;
-  desc: string;
   complaintMentions: number;
   failApps: number; // apps where this is a top complaint
-  totalApps: number; // apps with any reviews
+  totalApps: number; // apps with any classified reviews
   verdict: "open" | "narrow" | "thin";
-  bestApp: BestCloser | null;
+  forks: NeedForkStat[];
   apps: NeedAppStat[];
   evidence: NeedEvidence[]; // real reviews behind the count, capped for the popup
 };
@@ -73,22 +62,15 @@ export type NeedsGapView = {
   reviewsScanned: number;
 };
 
+type StoredLabel = { key: string; stance: string; confidence: number; trigger: string };
+
 const REVIEWS_PER_APP = 600;
-const POSITIVES_PER_APP = 300;
 const QUOTE_MAX = 220;
 const TOP_NEEDS_PER_APP = 3; // a need ranking this high in an app counts as a top pain
 const THIN_FAIL = 2; // fewer than this many apps failing = not enough signal
 const OPEN_BREADTH = 0.4; // top pain in >= 40% of the genre = genre-wide gap
-const MIN_PRAISE = 3; // fewer praise mentions than this = too thin to name anyone the closer
-const EVIDENCE_PER_APP = 3; // matched reviews kept per app per need, so the popup spans the genre
+const EVIDENCE_PER_APP = 3; // reviews kept per app per need, so the popup spans the genre
 const EVIDENCE_CAP = 48; // total reviews shown in the popup per need
-
-// Returns the first keyword that matched, or null. The matched phrase is the
-// trigger the popup highlights — proof of why the review was counted.
-function firstMatch(textLower: string, keywords: string[]): string | null {
-  for (const k of keywords) if (textLower.includes(k)) return k;
-  return null;
-}
 
 function trimQuote(text: string): string {
   const t = text.replace(/\s+/g, " ").trim();
@@ -97,10 +79,19 @@ function trimQuote(text: string): string {
 
 export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGapView | null> {
   const segment = getSegmentBySlug(slug, locale);
-  const needs = resolveNeeds(slug, locale);
-  if (!segment || !needs) return null;
+  const taxonomy = getTaxonomy(slug);
+  if (!segment || !taxonomy) return null;
 
-  const keywordSets = needs.map((n) => n.keywords.map((k) => k.toLowerCase()));
+  const version = taxonomyVersion(slug);
+  const needs = taxonomy.needs;
+  const label = (n: ClassNeed) => (locale === "ru" ? n.ru : n.en);
+
+  // Every emittable key (bare need + forks) maps back to its need's index.
+  const keyToNeed = new Map<string, number>();
+  needs.forEach((n, i) => {
+    keyToNeed.set(n.key, i);
+    for (const f of n.forks) keyToNeed.set(f.key, i);
+  });
 
   const products = await prisma.product.findMany({
     where: { id: { in: segment.appIds } },
@@ -111,11 +102,11 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
       listings: {
         select: {
           reviews: {
-            select: { text: true, rating: true, title: true },
+            where: { needsVersion: version },
+            select: { needs: true, text: true, rating: true, title: true },
             take: REVIEWS_PER_APP,
             orderBy: { postedAt: "desc" },
           },
-          positives: { select: { text: true }, take: POSITIVES_PER_APP },
         },
       },
     },
@@ -123,81 +114,86 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
 
   const perNeed: Map<string, NeedAppStat>[] = needs.map(() => new Map());
   const evidencePerNeed: NeedEvidence[][] = needs.map(() => []);
+  const forkCounts: Map<string, number>[] = needs.map(() => new Map()); // fork key -> reviews hitting it
   const failApps = needs.map(() => 0);
   let reviewsScanned = 0;
   let totalApps = 0;
 
   for (const p of products) {
-    const negatives = p.listings.flatMap((l) => l.reviews);
-    const positives = p.listings.flatMap((l) => l.positives);
-    const negTotal = negatives.length;
-    if (negTotal === 0) continue;
+    const reviews = p.listings.flatMap((l) => l.reviews);
+    const total = reviews.length;
+    if (total === 0) continue;
     totalApps++;
-    reviewsScanned += negTotal;
+    reviewsScanned += total;
 
-    const posTotal = positives.length;
-    const stats: (NeedAppStat & { _i: number })[] = needs.map((_, i) => {
-      const kws = keywordSets[i];
-      let complaints = 0;
-      let evHere = 0;
-      const quotes: string[] = [];
-      for (const r of negatives) {
-        const hit = firstMatch(r.text.toLowerCase(), kws);
-        if (hit) {
-          complaints++;
-          const clean = r.text.trim();
-          if (clean.length > 12) {
-            if (quotes.length < 2) quotes.push(trimQuote(clean));
-            if (evHere < EVIDENCE_PER_APP) {
-              evHere++;
-              evidencePerNeed[i].push({
-                app: p.name,
-                icon: p.icon,
-                rating: r.rating,
-                title: r.title?.trim() || null,
-                text: trimQuote(clean),
-                match: hit,
-              });
-            }
+    const appComplaints = needs.map(() => 0);
+    const appQuotes: string[][] = needs.map(() => []);
+    const appEvidence = needs.map(() => 0);
+
+    for (const r of reviews) {
+      let labels: StoredLabel[];
+      try {
+        labels = JSON.parse(r.needs || "[]");
+      } catch {
+        continue;
+      }
+
+      // Per review: which needs it complains about (first trigger per need), and
+      // the distinct fork keys it hit (each counted once per review).
+      const hitNeed = new Map<number, string>();
+      const hitFork = new Set<string>();
+      for (const l of labels) {
+        if (l.stance !== "pain") continue;
+        const ni = keyToNeed.get(l.key);
+        if (ni === undefined) continue;
+        if (!hitNeed.has(ni)) hitNeed.set(ni, l.trigger);
+        hitFork.add(l.key);
+      }
+
+      for (const k of hitFork) {
+        const ni = keyToNeed.get(k)!;
+        // Only forks are sub-threads; a bare-need hit is the need itself.
+        if (k !== needs[ni].key) forkCounts[ni].set(k, (forkCounts[ni].get(k) ?? 0) + 1);
+      }
+
+      for (const [ni, trigger] of hitNeed) {
+        appComplaints[ni]++;
+        const clean = r.text.trim();
+        if (clean.length > 12) {
+          if (appQuotes[ni].length < 2) appQuotes[ni].push(trimQuote(clean));
+          if (appEvidence[ni] < EVIDENCE_PER_APP) {
+            appEvidence[ni]++;
+            evidencePerNeed[ni].push({
+              app: p.name,
+              icon: p.icon,
+              rating: r.rating,
+              title: r.title?.trim() || null,
+              text: trimQuote(clean),
+              match: trigger,
+            });
           }
         }
       }
-      let praises = 0;
-      const praiseQuotes: string[] = [];
-      for (const r of positives) {
-        if (firstMatch(r.text.toLowerCase(), kws)) {
-          praises++;
-          if (praiseQuotes.length < 2 && r.text.trim().length > 12) praiseQuotes.push(trimQuote(r.text));
-        }
-      }
-      const complaintRate = complaints / negTotal;
-      const praiseRate = posTotal ? praises / posTotal : 0;
-      return {
-        _i: i,
-        id: p.id,
-        name: p.name,
-        icon: p.icon,
-        complaints,
-        praises,
-        sharePct: Math.round(complaintRate * 100),
-        margin: praiseRate - complaintRate,
-        quotes,
-        praiseQuotes,
-      };
-    });
+    }
 
     // This app's top pains: highest-complaint needs, relative to its own mix.
-    const top = [...stats]
-      .filter((s) => s.complaints > 0)
-      .sort((a, b) => b.complaints - a.complaints)
+    const ranked = appComplaints
+      .map((c, i) => ({ i, c }))
+      .filter((x) => x.c > 0)
+      .sort((a, b) => b.c - a.c)
       .slice(0, TOP_NEEDS_PER_APP);
-    for (const s of top) failApps[s._i]++;
+    for (const x of ranked) failApps[x.i]++;
 
-    for (const s of stats) {
-      if (s.complaints > 0 || s.praises > 0) {
-        const { _i, ...stat } = s;
-        void _i;
-        perNeed[s._i].set(p.id, stat);
+    for (let i = 0; i < needs.length; i++) {
+      if (appComplaints[i] > 0) {
+        perNeed[i].set(p.id, {
+          id: p.id,
+          name: p.name,
+          icon: p.icon,
+          complaints: appComplaints[i],
+          sharePct: Math.round((appComplaints[i] / total) * 100),
+          quotes: appQuotes[i],
+        });
       }
     }
   }
@@ -206,13 +202,12 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     const apps = [...perNeed[i].values()].sort((a, b) => b.complaints - a.complaints);
     const complaintMentions = apps.reduce((s, a) => s + a.complaints, 0);
 
-    // Best closer: highest praise-over-complaint margin, but only if praise is
-    // backed by enough mentions and a real quote. No qualifier => nobody closes it.
-    let best: NeedAppStat | null = null;
-    for (const a of apps) {
-      if (a.praises < MIN_PRAISE || a.margin <= 0 || a.praiseQuotes.length === 0) continue;
-      if (!best || a.margin > best.margin) best = a;
+    const forks: NeedForkStat[] = [];
+    for (const [k, c] of forkCounts[i]) {
+      const f = n.forks.find((f) => f.key === k);
+      forks.push({ key: k, label: f ? (locale === "ru" ? f.ru : f.en) : k, mentions: c });
     }
+    forks.sort((a, b) => b.mentions - a.mentions);
 
     const breadth = totalApps ? failApps[i] / totalApps : 0;
     const verdict: NeedGap["verdict"] =
@@ -220,15 +215,12 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
 
     return {
       key: n.key,
-      label: n.label,
-      desc: n.desc,
+      label: label(n),
       complaintMentions,
       failApps: failApps[i],
       totalApps,
       verdict,
-      bestApp: best
-        ? { id: best.id, name: best.name, icon: best.icon, praises: best.praises, complaints: best.complaints, quote: best.praiseQuotes[0] }
-        : null,
+      forks,
       apps,
       evidence: evidencePerNeed[i].slice(0, EVIDENCE_CAP),
     };

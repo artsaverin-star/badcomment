@@ -2,7 +2,7 @@ import "dotenv/config";
 import { mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { prisma } from "../src/lib/prisma";
 import { getSegmentBySlug } from "../src/lib/segments";
-import { getTaxonomy, renderTaxonomy, TAXONOMY_VERSION } from "../src/lib/taxonomy";
+import { getTaxonomy, renderTaxonomy, taxonomyVersion } from "../src/lib/taxonomy";
 
 // Keyless semantic-classification harvest. Dumps a stratified, id-tagged sample
 // of NOT-YET-classified negative reviews and writes each batch as a SELF-CONTAINED
@@ -16,6 +16,7 @@ import { getTaxonomy, renderTaxonomy, TAXONOMY_VERSION } from "../src/lib/taxono
 // Usage: DATABASE_URL=file:/opt/badcomment/data/prod.db npx tsx scripts/dump-classify.ts <slug>
 
 const SLUG = process.argv[2] ?? "language-learning";
+
 const NEG_PER_APP = Number(process.env.CLASSIFY_PER_APP ?? 60);
 const NEG_WINDOW = Number(process.env.CLASSIFY_WINDOW ?? 600);
 const BATCH_SIZE = Number(process.env.CLASSIFY_BATCH ?? 40);
@@ -37,9 +38,9 @@ function trim(text: string): string {
   return t.length > TEXT_MAX ? t.slice(0, TEXT_MAX - 1).trimEnd() + "…" : t;
 }
 
-function promptFor(batch: Row[]): string {
+function promptFor(batch: Row[], genre: string, version: string): string {
   const reviews = batch.map((r) => ({ id: r.id, app: r.app, rating: r.rating, title: r.title, text: r.text }));
-  return `You are classifying real app-store reviews of LANGUAGE-LEARNING apps against a FIXED taxonomy of user needs. Your output is consumed by a program — follow the schema exactly and output JSON only.
+  return `You are classifying real app-store reviews of ${genre.toUpperCase()} against a FIXED taxonomy of user needs. Your output is consumed by a program — follow the schema exactly and output JSON only.
 
 TAXONOMY (you may ONLY use these keys):
 ${renderTaxonomy(SLUG)}
@@ -55,7 +56,7 @@ RULES — quality over coverage:
 8. Output ONE JSON object only. No prose, no markdown fences.
 
 OUTPUT SCHEMA:
-{"version":"${TAXONOMY_VERSION}","reviews":[{"id":"<review id>","labels":[{"key":"speak.recognition","stance":"pain","confidence":0.9,"trigger":"it never understands me"}]}]}
+{"version":"${version}","reviews":[{"id":"<review id>","labels":[{"key":"speak.recognition","stance":"pain","confidence":0.9,"trigger":"it never understands me"}]}]}
 
 Every review id below MUST appear exactly once in "reviews", even when its "labels" is empty.
 
@@ -72,14 +73,16 @@ async function main() {
     process.exit(1);
   }
 
+  const version = taxonomyVersion(SLUG);
+  const appIds = segment.appIds;
   const products = await prisma.product.findMany({
-    where: { id: { in: segment.appIds } },
+    where: { id: { in: appIds } },
     select: {
       name: true,
       listings: {
         select: {
           reviews: {
-            where: { OR: [{ needsVersion: null }, { needsVersion: { not: TAXONOMY_VERSION } }] },
+            where: { OR: [{ needsVersion: null }, { needsVersion: { not: version } }] },
             select: { id: true, rating: true, title: true, text: true },
             take: NEG_WINDOW,
             orderBy: { postedAt: "desc" },
@@ -104,18 +107,18 @@ async function main() {
   const batches: { file: string; count: number }[] = [];
   for (let i = 0; i < rows.length; i += BATCH_SIZE) {
     const batch = rows.slice(i, i + BATCH_SIZE);
-    const file = `lang-${String(batches.length + 1).padStart(3, "0")}.txt`;
-    writeFileSync(`${IN_DIR}/${file}`, promptFor(batch));
+    const file = `${SLUG}-${String(batches.length + 1).padStart(3, "0")}.txt`;
+    writeFileSync(`${IN_DIR}/${file}`, promptFor(batch, tax.en, version));
     batches.push({ file, count: batch.length });
   }
 
   writeFileSync(
     "classify/manifest.json",
-    JSON.stringify({ slug: SLUG, version: TAXONOMY_VERSION, totalReviews: rows.length, batches }, null, 2)
+    JSON.stringify({ slug: SLUG, version, totalReviews: rows.length, batches }, null, 2)
   );
 
   console.log(`wrote ${batches.length} prompt batches (${rows.length} reviews) to ${IN_DIR}/`);
-  console.log(`taxonomy version: ${TAXONOMY_VERSION}`);
+  console.log(`taxonomy version: ${version}`);
   console.log(`next: paste each classify/in/*.txt into a fresh Claude/Sonnet chat,`);
   console.log(`save the JSON reply to classify/out/<same-name>.json, then run apply-classify.`);
 }

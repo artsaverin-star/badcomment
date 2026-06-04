@@ -13,15 +13,17 @@
 // view and popup. The keyword-based src/lib/needs.ts stays in use for the live
 // page until enough reviews are classified to switch over.
 
-export const TAXONOMY_VERSION = "lang-learning-1";
-
 export type Fork = { key: string; en: string; ru: string };
 export type ClassNeed = { key: string; en: string; ru: string; forks: Fork[] };
-export type GenreTaxonomy = { slug: string; en: string; ru: string; needs: ClassNeed[] };
+// Each genre carries its own taxonomy version: a re-run only re-touches rows whose
+// needsVersion differs from its genre's version, so the two product types (learning
+// vs translators) are classified and re-classified independently.
+export type GenreTaxonomy = { slug: string; version: string; en: string; ru: string; needs: ClassNeed[] };
 
 export const TAXONOMIES: Record<string, GenreTaxonomy> = {
   "language-learning": {
     slug: "language-learning",
+    version: "lang-learning-1",
     en: "Language-learning apps",
     ru: "Приложения для изучения языка",
     needs: [
@@ -178,10 +180,121 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       { key: "accessibility", en: "Accessible (text size, sight-impaired)", ru: "Доступность (размер текста, слабовидящие)", forks: [] },
     ],
   },
+
+  // Translator apps (text / voice / camera). A different product than learning:
+  // the job is one accurate translation, not a course. Authored from reading real
+  // reviews of iTranslate, Translate Now, Translator GO, Speak & Translate, etc.
+  translators: {
+    slug: "translators",
+    version: "translator-1",
+    en: "Translator apps",
+    ru: "Приложения-переводчики",
+    needs: [
+      {
+        key: "accuracy",
+        en: "Accurate, trustworthy translation",
+        ru: "Точный, достоверный перевод",
+        forks: [
+          { key: "accuracy.nonsense", en: "Output is nonsense / wrong meaning", ru: "На выходе бессмыслица / неверный смысл" },
+          { key: "accuracy.voice-wrong", en: "Voice translation wrong (text may be ok)", ru: "Голосовой перевод врёт (текстовый может быть ок)" },
+          { key: "accuracy.worse-than-free", en: "Worse than Google / just a wrapper, no added value", ru: "Хуже Google / просто обёртка, без ценности" },
+        ],
+      },
+      {
+        key: "speech",
+        en: "Hears and transcribes speech",
+        ru: "Слышит и распознаёт речь",
+        forks: [
+          { key: "speech.not-recognized", en: "Doesn't recognize / transcribe spoken words", ru: "Не распознаёт / не расшифровывает речь" },
+          { key: "speech.conversation-broken", en: "Two-way conversation mode breaks", ru: "Двусторонний режим разговора ломается" },
+        ],
+      },
+      {
+        key: "camera",
+        en: "Camera / photo translation works",
+        ru: "Перевод по фото / с камеры",
+        forks: [
+          { key: "camera.no-translate", en: "OCR returns the same text / no translation", ru: "OCR возвращает тот же текст / без перевода" },
+        ],
+      },
+      {
+        key: "coverage",
+        en: "Language and direction coverage",
+        ru: "Покрытие языков и направлений",
+        forks: [
+          { key: "coverage.missing-language", en: "Wanted language not available", ru: "Нужного языка нет" },
+          { key: "coverage.one-direction", en: "Only one direction works (A→B but not B→A)", ru: "Работает только одно направление (A→B, но не B→A)" },
+          { key: "coverage.wrong-dialect", en: "Wrong / unsupported dialect or variant", ru: "Не тот / неподдерживаемый диалект или вариант" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "The app just works",
+        ru: "Приложение просто работает",
+        forks: [
+          { key: "reliability.errors", en: "Generic errors / does nothing / broke immediately", ru: "Общие ошибки / ничего не делает / сломалось сразу" },
+          { key: "reliability.crashes", en: "Crashes / freezes", ru: "Крэши / зависает" },
+          { key: "reliability.slow", en: "Slow to load", ru: "Долго грузится" },
+          { key: "reliability.device", en: "Broken on a device (Watch, etc.)", ru: "Не работает на устройстве (часы и т.п.)" },
+          { key: "reliability.not-as-advertised", en: "Works nothing like the demo / ad", ru: "Работает совсем не как в демо / рекламе" },
+        ],
+      },
+      {
+        key: "offline",
+        en: "Works offline and abroad",
+        ru: "Работает офлайн и в поездке",
+        forks: [
+          { key: "offline.fails-traveling", en: "Stops working while traveling / needs a connection", ru: "Перестаёт работать в поездке / нужен интернет" },
+        ],
+      },
+      {
+        key: "try-before-pay",
+        en: "Try before you pay",
+        ru: "Попробовать до оплаты",
+        forks: [
+          { key: "try-before-pay.core-locked", en: "The translation itself is paywalled (pay after N uses)", ru: "Сам перевод заперт (платить после N раз)" },
+          { key: "try-before-pay.fake-free", en: "Listed as free but forces payment to use", ru: "Заявлен бесплатным, но заставляет платить" },
+          { key: "try-before-pay.forced-sub", en: "Forced to subscribe before using (hidden X)", ru: "Заставляет подписаться до использования (спрятанный крестик)" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Honest billing, no traps",
+        ru: "Честный биллинг, без ловушек",
+        forks: [
+          { key: "billing.trial-trap", en: "'Free trial' charges / auto-subscribes", ru: "«Бесплатный период» списывает / сам оформляет подписку" },
+          { key: "billing.charged-full", en: "Charged a full year instead of month", ru: "Списали за год вместо месяца" },
+          { key: "billing.cant-cancel", en: "Can't cancel the subscription / trial", ru: "Нельзя отменить подписку / пробный период" },
+          { key: "billing.no-refund", en: "No refund given", ru: "Не возвращают деньги" },
+          { key: "billing.price-mismatch", en: "Charged a different amount than advertised", ru: "Списали не ту сумму, что в рекламе" },
+          { key: "billing.was-onetime", en: "One-time purchase turned into a subscription", ru: "Разовую покупку превратили в подписку" },
+        ],
+      },
+      {
+        key: "ads",
+        en: "Ads don't bury the app",
+        ru: "Реклама не топит приложение",
+        forks: [
+          { key: "ads.gates-translation", en: "An ad before each translation", ru: "Реклама перед каждым переводом" },
+        ],
+      },
+      { key: "support", en: "Support that responds", ru: "Поддержка, которая отвечает", forks: [] },
+      { key: "notifications", en: "No notification spam", ru: "Без спама уведомлений", forks: [] },
+    ],
+  },
 };
 
 export function getTaxonomy(slug: string): GenreTaxonomy | null {
   return TAXONOMIES[slug] ?? null;
+}
+
+// The taxonomy version for a genre — stamped onto Review.needsVersion so each
+// product type is (re)classified independently. Throws for an unknown slug so a
+// typo can't silently stamp the wrong version.
+export function taxonomyVersion(slug: string): string {
+  const tax = TAXONOMIES[slug];
+  if (!tax) throw new Error(`no taxonomy for slug "${slug}"`);
+  return tax.version;
 }
 
 // The allow-list of every emittable label key (bare needs + forks). apply-classify

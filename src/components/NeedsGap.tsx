@@ -74,8 +74,6 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
             </span>
           </span>
 
-          <span className="text-[13px] leading-[18px] text-[var(--color-text-secondary)]">{need.desc}</span>
-
           <span className="mt-0.5 flex items-center gap-2">
             <span className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
               <span className="block h-full rounded-full" style={{ width: `${pct}%`, background: barColor }} />
@@ -85,12 +83,22 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
             </span>
           </span>
 
-          <span className="text-[12px] text-[var(--color-text-tertiary)]">
-            {need.bestApp ? tr.bestApp(need.bestApp.name) : tr.noneClose}
-          </span>
+          {need.forks.length > 0 && (
+            <span className="flex flex-wrap gap-1.5">
+              {need.forks.map((f) => (
+                <span
+                  key={f.key}
+                  className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)]"
+                >
+                  {f.label}
+                  <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
+                </span>
+              ))}
+            </span>
+          )}
         </summary>
 
-        {(need.bestApp || need.apps.length > 0 || need.evidence.length > 0) && (
+        {(need.apps.length > 0 || need.evidence.length > 0) && (
           <div className="flex flex-col gap-4 border-t border-[var(--color-border-subtle)] px-4 py-4">
             {need.evidence.length > 0 && (
               <EvidenceDialog
@@ -101,30 +109,6 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
                 closeLabel={tr.close}
                 evidence={need.evidence}
               />
-            )}
-            {need.bestApp && (
-              <div className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3">
-                <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
-                    {tr.bestCloser}
-                  </span>
-                  {need.bestApp.icon && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={need.bestApp.icon}
-                      alt=""
-                      className="size-6 shrink-0 rounded-[var(--radius-md)] object-cover"
-                    />
-                  )}
-                  <span className="text-[14px] font-semibold text-[var(--color-text-primary)]">
-                    {need.bestApp.name}
-                  </span>
-                  <span className="tabular-nums text-[12px] text-[var(--color-text-tertiary)]">
-                    {tr.praiseLabel(need.bestApp.praises)}
-                  </span>
-                </span>
-                <Quote size="S">{need.bestApp.quote}</Quote>
-              </div>
             )}
             {need.apps.length > 0 && (
               <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
@@ -142,11 +126,6 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
                   <span className="tabular-nums text-[12px] text-[var(--color-accent-danger)]">
                     {tr.complaintsLabel(app.complaints)}
                   </span>
-                  {app.praises > 0 && (
-                    <span className="tabular-nums text-[12px] text-[var(--color-text-tertiary)]">
-                      {tr.praiseLabel(app.praises)}
-                    </span>
-                  )}
                 </span>
                 {app.quotes.map((q, i) => (
                   <Quote key={i} size="S">

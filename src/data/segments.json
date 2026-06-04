@@ -196,7 +196,8 @@
       "cmpstpcww1mo8ug8pweb9qlcu",
       "cmpsuiqhy3c1yug8p3qm76lct",
       "cmpszcgaq30kfughvpq0sdg0e",
-      "cmpsy40y10h1oughvk84bmok7"
+      "cmpsy40y10h1oughvk84bmok7",
+      "cmpstby3p0tj0ug8pk4adq181"
     ],
     "price": {
       "low": 10,
@@ -743,21 +744,14 @@
       "cmps5z7db0db8ugu7cjs1ox61",
       "cmps5z96o0delugu79oh4xyw8",
       "cmps5zoii0ef7ugu72nbduaa7",
-      "cmpstuujc1ygnug8pblxgmrn6",
-      "cmpst7unf0kojug8pycy6cij9",
-      "cmpst7ynx0kwtug8pzi0a6m8q",
       "cmpstqfl91p2aug8pmm3ti0pv",
       "cmpstrt3k1rznug8pjfcjlwfs",
-      "cmpstby3p0tj0ug8pk4adq181",
-      "cmpstchez0uqrug8px0rcc1ws",
       "cmpsto0831jqfug8pi1rmequx",
       "cmpsylojs1ialughv2x23hff1",
       "cmpsynf4a1m3bughvnhzoeh00",
       "cmpsyl2oc1h0xughvrtp5un60",
       "cmpsynxg41n4vughvawku2cie",
-      "cmpsz8lh02snaughvn9w0xks6",
       "cmpstp5we1m9aug8p2iuekyhq",
-      "cmpsyoqid1owwughvbl30vjug",
       "cmpsttij31vm2ug8p1wbpm5x5",
       "cmpsyl0x31gwyughv0yaz6nor",
       "cmpsyqv8q1tdzughvnrp4pxgg",
@@ -770,24 +764,61 @@
     },
     "ru": {
       "name": "Изучение языков",
-      "pricing": "Подписка ~10–15$/мес или 60–100$/год; на бесплатном — система «энергии», режущая уроки. Пробная подписка продлевается без обещанного напоминания. У переводчиков каждый перевод нередко заперт за 15-секундным роликом.",
-      "audience": "Самоучки и путешественники: игровые уроки языка, разговорная практика с ИИ, курсы от носителей, плюс переводчики текста, голоса и по фото.",
+      "pricing": "Подписка ~10–15$/мес или 60–100$/год; на бесплатном — система «энергии», режущая уроки. Пробная подписка продлевается без обещанного напоминания.",
+      "audience": "Самоучки и путешественники: игровые уроки языка, разговорная практика с ИИ, курсы от носителей.",
       "problems": [
         "Система «энергии» режет бесплатные уроки; пробная подписка молча продлевается.",
         "Контент бедный: одни и те же фразы по кругу, выдуманные слова, нет уровней сложности.",
         "Не работает офлайн, хотя уроки скачаны; постоянно выкидывает из аккаунта.",
-        "У переводчиков сам перевод заперт за платной стеной или 15-секундной рекламой."
+        "Разговорная практика с ИИ ломается: не распознаёт речь или звучит неестественно."
       ]
     },
     "en": {
       "name": "Language learning",
-      "pricing": "A subscription (~$10–15/mo or $60–100/yr); the free tier runs on an \"energy\" system that throttles lessons. The trial renews without the promised reminder. With translators, each translation is often locked behind a 15-second ad.",
-      "audience": "Self-learners and travelers: gamified language lessons, conversation practice with AI, courses from native speakers, plus text, voice and photo translators.",
+      "pricing": "A subscription (~$10–15/mo or $60–100/yr); the free tier runs on an \"energy\" system that throttles lessons. The trial renews without the promised reminder.",
+      "audience": "Self-learners and travelers: gamified language lessons, conversation practice with AI, courses from native speakers.",
       "problems": [
         "An \"energy\" system throttles free lessons; the trial silently renews.",
         "Thin content: the same phrases on a loop, made-up words, no difficulty levels.",
         "It doesn't work offline even with lessons downloaded; it keeps logging you out.",
-        "With translators, the translation itself is locked behind a paywall or a 15-second ad."
+        "Conversation practice with AI breaks down: it mishears your speech or sounds unnatural."
+      ]
+    }
+  },
+  {
+    "slug": "translators",
+    "appIds": [
+      "cmpstuujc1ygnug8pblxgmrn6",
+      "cmpst7unf0kojug8pycy6cij9",
+      "cmpst7ynx0kwtug8pzi0a6m8q",
+      "cmpstchez0uqrug8px0rcc1ws",
+      "cmpsz8lh02snaughvn9w0xks6",
+      "cmpsyoqid1owwughvbl30vjug"
+    ],
+    "price": {
+      "low": 5,
+      "high": 30
+    },
+    "ru": {
+      "name": "Переводчики",
+      "pricing": "Подписка ~5–30$/мес или 30–60$/год за то, что Google Translate и DeepL отдают бесплатно. Каждый перевод нередко заперт за платной стеной или 15-секундной рекламой; разовая покупка тихо превращается в подписку, пробный период автопродлевается, отменить и вернуть деньги тяжело.",
+      "audience": "Путешественники и все, кто оказался между языками: быстрый перевод текста, голоса и по фото, офлайн-разговорники, режим живого диалога.",
+      "problems": [
+        "Переводит с ошибками и бессмыслицей — хуже бесплатных Google Translate и DeepL.",
+        "Голосовой ввод не распознаёт речь, а режим диалога обрывается на середине.",
+        "Сам перевод, камера или офлайн заперты за платной стеной или рекламным роликом.",
+        "Разовая покупка оборачивается подпиской: пробный период автопродлевается, отменить и вернуть деньги нельзя."
+      ]
+    },
+    "en": {
+      "name": "Translators",
+      "pricing": "A subscription (~$5–30/mo or $30–60/yr) for what Google Translate and DeepL give away free. Each translation is often locked behind a paywall or a 15-second ad; a one-time purchase quietly turns into a subscription, the trial auto-renews, and cancelling or getting a refund is hard.",
+      "audience": "Travelers and anyone caught between languages: quick text, voice and photo translation, offline phrasebooks, live conversation mode.",
+      "problems": [
+        "It mistranslates and spits out nonsense — worse than the free Google Translate and DeepL.",
+        "Voice input doesn't recognize speech, and conversation mode cuts off mid-dialogue.",
+        "The translation itself, the camera, or offline use is locked behind a paywall or an ad.",
+        "A one-time purchase turns into a subscription: the trial auto-renews and you can't cancel or get a refund."
       ]
     }
   },

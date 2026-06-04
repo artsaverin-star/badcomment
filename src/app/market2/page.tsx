@@ -8,8 +8,9 @@ import NeedsGap from "@/components/NeedsGap";
 
 export const dynamic = "force-dynamic";
 
-// Pilot: the needs-gap view runs on one hand-authored genre for now (see
-// src/lib/needs.ts). Add a genre there and it becomes reachable via ?seg=.
+// The needs-gap view runs on any genre that has a taxonomy in src/lib/taxonomy.ts
+// with classified reviews (currently language-learning and translators). Reachable
+// via ?seg=<slug>; defaults to language-learning.
 const PILOT_SLUG = "language-learning";
 
 export default async function Market2({

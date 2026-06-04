@@ -99,11 +99,7 @@ type Dict = {
     verdictNarrow: string;
     verdictThin: string;
     painIn: (x: number, y: number) => string;
-    bestApp: (name: string) => string;
-    bestCloser: string;
-    noneClose: string;
     complaintsLabel: (n: number) => string;
-    praiseLabel: (n: number) => string;
     appsBreakdown: string;
     whitespaceHeading: string;
     whitespaceNote: string;
@@ -259,11 +255,7 @@ const DICT: Record<Locale, Dict> = {
       verdictNarrow: "App-specific",
       verdictThin: "Thin signal",
       painIn: (x, y) => `a top complaint in ${x} of ${y} apps`,
-      bestApp: (name) => `Best: ${name}`,
-      bestCloser: "Closes it best",
-      noneClose: "No app closes it",
       complaintsLabel: (n) => `${n} in complaints`,
-      praiseLabel: (n) => `${n} in praise`,
       appsBreakdown: "By app",
       whitespaceHeading: "White space",
       whitespaceNote: "Hypotheses — not from the data, our guess at needs no app attempts yet.",
@@ -273,7 +265,7 @@ const DICT: Record<Locale, Dict> = {
       seeReviews: (n) => `See the reviews · ${n}`,
       evidenceTitle: (label) => `Reviews behind “${label}”`,
       evidenceShownOf: (shown, total) => `Showing ${shown} of ${total}`,
-      evidenceMethodNote: "Matched by keyword (highlighted). Becomes a meaning-based match once reviews are classified.",
+      evidenceMethodNote: "Matched by meaning — the highlighted phrase is the exact quote that earned the label.",
       close: "Close",
     },
     deck: { prev: "Previous", next: "Next" },
@@ -485,11 +477,7 @@ const DICT: Record<Locale, Dict> = {
       verdictNarrow: "Точечно",
       verdictThin: "Мало сигнала",
       painIn: (x, y) => `топ-жалоба у ${x} из ${y} приложений`,
-      bestApp: (name) => `Лучше всех: ${name}`,
-      bestCloser: "Лучше всех закрывает",
-      noneClose: "Пока никто не закрывает",
       complaintsLabel: (n) => `${n} в жалобах`,
-      praiseLabel: (n) => `${n} в похвале`,
       appsBreakdown: "По приложениям",
       whitespaceHeading: "Белые пятна",
       whitespaceNote: "Гипотезы — не из данных, а наша догадка о потребностях, которые пока никто не закрывает.",
@@ -499,7 +487,7 @@ const DICT: Record<Locale, Dict> = {
       seeReviews: (n) => `Показать отзывы · ${n}`,
       evidenceTitle: (label) => `Отзывы за «${label}»`,
       evidenceShownOf: (shown, total) => `Показано ${shown} из ${total}`,
-      evidenceMethodNote: "Совпадение по ключевому слову (подсвечено). Станет смысловым после классификации отзывов.",
+      evidenceMethodNote: "Совпадение по смыслу — подсвеченная фраза это точная цитата, на которой основана метка.",
       close: "Закрыть",
     },
     deck: { prev: "Назад", next: "Вперёд" },
