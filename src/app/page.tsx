@@ -48,8 +48,8 @@ export default async function Home({
   const [view, apps] = await Promise.all([getNeedsGap(seg, locale), getSegmentApps(seg, locale)]);
 
   return (
-    <main className="mx-auto max-w-4xl overflow-x-clip px-4 py-10">
-      <div className="mb-6">
+    <main className="mx-auto max-w-4xl overflow-x-clip px-4 py-6">
+      <div className="mb-4">
         <Link
           href="/"
           className="text-[13px] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
@@ -60,7 +60,7 @@ export default async function Home({
       <Header
         size="L"
         as="h1"
-        className="mb-8 items-center text-center"
+        className="mb-5 items-center text-center"
         title={segment.name}
         description={<span className="mx-auto block max-w-2xl">{tr.market2.subtitle}</span>}
       />
@@ -69,7 +69,7 @@ export default async function Home({
 
       {view ? (
         <>
-          <p className="mb-8 text-center text-[13px] text-[var(--color-text-tertiary)]">
+          <p className="mb-4 text-center text-[13px] text-[var(--color-text-tertiary)]">
             {tr.market2.scanned(view.reviewsScanned)}
           </p>
           <NeedsGap view={view} locale={locale} />

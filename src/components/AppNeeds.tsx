@@ -67,7 +67,12 @@ function NeedRow({ need, max, locale }: { need: AppNeed; max: number; locale: Lo
             <EvidenceDialog
               buttonLabel={tr.seeReviews(need.mentions)}
               title={tr.evidenceTitle(need.label)}
-              shownOf={tr.evidenceShownOf(need.evidence.length, need.mentions)}
+              total={need.mentions}
+              shownWord={tr.evidenceShownWord}
+              ofWord={tr.evidenceOfWord}
+              allLabel={tr.evidenceAll}
+              byAppLabel={tr.evidenceByApp}
+              byProblemLabel={tr.evidenceByProblem}
               methodNote={tr.evidenceMethodNote}
               closeLabel={tr.close}
               evidence={need.evidence}

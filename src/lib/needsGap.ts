@@ -39,6 +39,7 @@ export type NeedEvidence = {
   title: string | null;
   text: string;
   match: string;
+  fork: string; // localized label of the sub-thread this review was filed under (for in-popup filtering)
 };
 
 export type NeedGap = {
@@ -73,6 +74,16 @@ const EVIDENCE_CAP = 48; // total reviews shown in the popup per need
 function trimQuote(text: string): string {
   const t = text.replace(/\s+/g, " ").trim();
   return t.length > QUOTE_MAX ? t.slice(0, QUOTE_MAX - 1).trimEnd() + "…" : t;
+}
+
+// The sub-thread label a review is filed under: the fork's own label, or a
+// catch-all bucket when the review only hit the bare need (no fork). The
+// catch-all lets the displayed tags partition the reviews and sum to the
+// headline without inventing a sub-problem that the classifier didn't assign.
+function forkLabelOf(need: ClassNeed, key: string, locale: Locale): string {
+  const f = need.forks.find((f) => f.key === key);
+  if (f) return locale === "ru" ? f.ru : f.en;
+  return locale === "ru" ? "Прочее" : "Other";
 }
 
 export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGapView | null> {
@@ -136,42 +147,35 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
         continue;
       }
 
-      // Per review: which needs it complains about (first trigger per need), and
-      // the distinct fork keys it hit (each counted once per review).
-      const hitNeed = new Map<number, string>();
-      const hitFork = new Set<string>();
+      // Per review, per need: file the review under its SINGLE strongest label
+      // (highest confidence). One review counts once toward a need, and lands in
+      // exactly one sub-thread bucket — so the fork tags partition the reviews
+      // and sum to the headline instead of double-counting overlaps.
+      const topPerNeed = new Map<number, StoredLabel>();
       for (const l of labels) {
         if (l.stance !== "pain") continue;
         const ni = keyToNeed.get(l.key);
         if (ni === undefined) continue;
-        if (!hitNeed.has(ni)) hitNeed.set(ni, l.trigger);
-        hitFork.add(l.key);
+        const cur = topPerNeed.get(ni);
+        if (!cur || l.confidence > cur.confidence) topPerNeed.set(ni, l);
       }
 
-      for (const k of hitFork) {
-        const ni = keyToNeed.get(k)!;
-        // Only forks are sub-threads; a bare-need hit is the need itself.
-        if (k !== needs[ni].key) {
-          forkCounts[ni].set(k, (forkCounts[ni].get(k) ?? 0) + 1);
-          appForks[ni].set(k, (appForks[ni].get(k) ?? 0) + 1);
-        }
-      }
-
-      for (const [ni, trigger] of hitNeed) {
+      for (const [ni, top] of topPerNeed) {
         appComplaints[ni]++;
+        forkCounts[ni].set(top.key, (forkCounts[ni].get(top.key) ?? 0) + 1);
+        appForks[ni].set(top.key, (appForks[ni].get(top.key) ?? 0) + 1);
         const clean = r.text.trim();
-        if (clean.length > 12) {
-          if (appEvidence[ni] < EVIDENCE_PER_APP) {
-            appEvidence[ni]++;
-            evidencePerNeed[ni].push({
-              app: p.name,
-              icon: p.icon,
-              rating: r.rating,
-              title: r.title?.trim() || null,
-              text: trimQuote(clean),
-              match: trigger,
-            });
-          }
+        if (clean.length > 12 && appEvidence[ni] < EVIDENCE_PER_APP) {
+          appEvidence[ni]++;
+          evidencePerNeed[ni].push({
+            app: p.name,
+            icon: p.icon,
+            rating: r.rating,
+            title: r.title?.trim() || null,
+            text: trimQuote(clean),
+            match: top.trigger,
+            fork: forkLabelOf(needs[ni], top.key, locale),
+          });
         }
       }
     }
@@ -186,12 +190,15 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
 
     for (let i = 0; i < needs.length; i++) {
       if (appComplaints[i] > 0) {
+        // Forkless needs show no sub-thread tags; forked needs show every bucket
+        // (incl. the "Прочее"/"Other" catch-all) so the tags sum to the count.
         const appForkStats: NeedForkStat[] = [];
-        for (const [k, c] of appForks[i]) {
-          const f = needs[i].forks.find((f) => f.key === k);
-          appForkStats.push({ key: k, label: f ? (locale === "ru" ? f.ru : f.en) : k, mentions: c });
+        if (needs[i].forks.length > 0) {
+          for (const [k, c] of appForks[i]) {
+            appForkStats.push({ key: k, label: forkLabelOf(needs[i], k, locale), mentions: c });
+          }
+          appForkStats.sort((a, b) => b.mentions - a.mentions);
         }
-        appForkStats.sort((a, b) => b.mentions - a.mentions);
         perNeed[i].set(p.id, {
           id: p.id,
           name: p.name,
@@ -209,11 +216,12 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     const complaintMentions = apps.reduce((s, a) => s + a.complaints, 0);
 
     const forks: NeedForkStat[] = [];
-    for (const [k, c] of forkCounts[i]) {
-      const f = n.forks.find((f) => f.key === k);
-      forks.push({ key: k, label: f ? (locale === "ru" ? f.ru : f.en) : k, mentions: c });
+    if (n.forks.length > 0) {
+      for (const [k, c] of forkCounts[i]) {
+        forks.push({ key: k, label: forkLabelOf(n, k, locale), mentions: c });
+      }
+      forks.sort((a, b) => b.mentions - a.mentions);
     }
-    forks.sort((a, b) => b.mentions - a.mentions);
 
     const breadth = totalApps ? failApps[i] / totalApps : 0;
     const verdict: NeedGap["verdict"] =
@@ -314,23 +322,20 @@ export async function getAppNeeds(productId: string, locale: Locale): Promise<Ap
     }
     reviewsClassified++;
 
-    const hitNeed = new Map<number, string>();
-    const hitFork = new Set<string>();
+    // File each review under its single strongest label per need (see getNeedsGap):
+    // one count per need, one sub-thread bucket, so tags sum to the headline.
+    const topPerNeed = new Map<number, StoredLabel>();
     for (const l of labels) {
       if (l.stance !== "pain") continue;
       const ni = keyToNeed.get(l.key);
       if (ni === undefined) continue;
-      if (!hitNeed.has(ni)) hitNeed.set(ni, l.trigger);
-      hitFork.add(l.key);
+      const cur = topPerNeed.get(ni);
+      if (!cur || l.confidence > cur.confidence) topPerNeed.set(ni, l);
     }
 
-    for (const k of hitFork) {
-      const ni = keyToNeed.get(k)!;
-      if (k !== needs[ni].key) forkCounts[ni].set(k, (forkCounts[ni].get(k) ?? 0) + 1);
-    }
-
-    for (const [ni, trigger] of hitNeed) {
+    for (const [ni, top] of topPerNeed) {
       mentions[ni]++;
+      forkCounts[ni].set(top.key, (forkCounts[ni].get(top.key) ?? 0) + 1);
       const clean = r.text.trim();
       if (clean.length > 12 && evidence[ni].length < APP_EVIDENCE_CAP) {
         evidence[ni].push({
@@ -339,7 +344,8 @@ export async function getAppNeeds(productId: string, locale: Locale): Promise<Ap
           rating: r.rating,
           title: r.title?.trim() || null,
           text: trimQuote(clean),
-          match: trigger,
+          match: top.trigger,
+          fork: forkLabelOf(needs[ni], top.key, locale),
         });
       }
     }
@@ -348,11 +354,12 @@ export async function getAppNeeds(productId: string, locale: Locale): Promise<Ap
   const appNeeds: AppNeed[] = needs
     .map((n, i): AppNeed => {
       const forks: NeedForkStat[] = [];
-      for (const [k, c] of forkCounts[i]) {
-        const f = n.forks.find((f) => f.key === k);
-        forks.push({ key: k, label: f ? (locale === "ru" ? f.ru : f.en) : k, mentions: c });
+      if (n.forks.length > 0) {
+        for (const [k, c] of forkCounts[i]) {
+          forks.push({ key: k, label: forkLabelOf(n, k, locale), mentions: c });
+        }
+        forks.sort((a, b) => b.mentions - a.mentions);
       }
-      forks.sort((a, b) => b.mentions - a.mentions);
       return { key: n.key, label: label(n), mentions: mentions[i], forks, evidence: evidence[i] };
     })
     .filter((n) => n.mentions > 0)

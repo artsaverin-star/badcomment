@@ -104,7 +104,11 @@ type Dict = {
     scanned: (n: number) => string;
     seeReviews: (n: number) => string;
     evidenceTitle: (label: string) => string;
-    evidenceShownOf: (shown: number, total: number) => string;
+    evidenceShownWord: string;
+    evidenceOfWord: string;
+    evidenceAll: string;
+    evidenceByApp: string;
+    evidenceByProblem: string;
     evidenceMethodNote: string;
     close: string;
     indexSubtitle: string;
@@ -255,7 +259,7 @@ const DICT: Record<Locale, Dict> = {
       appsInGenre: (n) => `Apps (${n})`,
     },
     market2: {
-      title: "We break down app complaints, every day",
+      title: "The most powerful aggregator of negative app reviews — with conclusions",
       subtitle: "The jobs people hire these apps for — ranked by where every app still fails.",
       pilotNote: (genre) => `Pilot on one genre (${genre}). Scored live from real reviews.`,
       gapsHeading: "What matters to people across the apps",
@@ -264,15 +268,19 @@ const DICT: Record<Locale, Dict> = {
       verdictNarrow: "App-specific",
       verdictThin: "Thin signal",
       painIn: (x, y) => `a top complaint in ${x} of ${y} apps`,
-      complaintsLabel: (n) => `${n} in complaints`,
+      complaintsLabel: (n) => `${n} ${n === 1 ? "review" : "reviews"}`,
       appsBreakdown: "By app",
       scanned: (n) => `Scored from ${n} reviews`,
       seeReviews: (n) => `See the reviews · ${n}`,
       evidenceTitle: (label) => `Reviews behind “${label}”`,
-      evidenceShownOf: (shown, total) => `Showing ${shown} of ${total}`,
+      evidenceShownWord: "Showing",
+      evidenceOfWord: "of",
+      evidenceAll: "All",
+      evidenceByApp: "By app",
+      evidenceByProblem: "By problem",
       evidenceMethodNote: "Matched by meaning — the highlighted phrase is the exact quote that earned the label.",
       close: "Close",
-      indexSubtitle: "Every day we collect, classify and process negative reviews across apps — to see what's broken and what to fix.",
+      indexSubtitle: "Every day we analyze hundreds of thousands of negative reviews. The positive ones are almost always faked and easily bought — the real insights are only in the complaints.",
       segReviewsApps: (reviews, apps) =>
         `${reviews.toLocaleString("en-US")} reviews across ${apps} ${apps === 1 ? "app" : "apps"}`,
       segClassified: "Classified",
@@ -487,7 +495,7 @@ const DICT: Record<Locale, Dict> = {
       },
     },
     market2: {
-      title: "Каждый день разбираем негатив приложений",
+      title: "Самый мощный агрегатор негативных отзывов о приложениях — с выводами",
       subtitle: "Задачи, ради которых ставят эти приложения — отсортированы по тому, где проваливаются все.",
       pilotNote: (genre) => `Пилот на одном жанре (${genre}). Скоринг вживую из реальных отзывов.`,
       gapsHeading: "Что людям важно во всех приложениях",
@@ -496,15 +504,24 @@ const DICT: Record<Locale, Dict> = {
       verdictNarrow: "Точечно",
       verdictThin: "Мало сигнала",
       painIn: (x, y) => `топ-жалоба у ${x} из ${y} приложений`,
-      complaintsLabel: (n) => `${n} в жалобах`,
+      complaintsLabel: (n) => {
+        const m10 = n % 10;
+        const m100 = n % 100;
+        const w = m10 === 1 && m100 !== 11 ? "отзыв" : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14) ? "отзыва" : "отзывов";
+        return `${n} ${w}`;
+      },
       appsBreakdown: "По приложениям",
       scanned: (n) => `Посчитано по ${n} отзывам`,
       seeReviews: (n) => `Показать отзывы · ${n}`,
       evidenceTitle: (label) => `Отзывы за «${label}»`,
-      evidenceShownOf: (shown, total) => `Показано ${shown} из ${total}`,
+      evidenceShownWord: "Показано",
+      evidenceOfWord: "из",
+      evidenceAll: "Все",
+      evidenceByApp: "По приложению",
+      evidenceByProblem: "По проблеме",
       evidenceMethodNote: "Совпадение по смыслу — подсвеченная фраза это точная цитата, на которой основана метка.",
       close: "Закрыть",
-      indexSubtitle: "Каждый день собираем, классифицируем и обрабатываем негативные отзывы всех приложений — чтобы видеть, что не так и что чинить.",
+      indexSubtitle: "Каждый день анализируем сотни тысяч негативных отзывов. Позитивные почти всегда накручены и легко покупаются — настоящие инсайты только в боли.",
       segReviewsApps: (reviews, apps) => {
         const pl = (n: number, forms: [string, string, string]) => {
           const m10 = n % 10;
