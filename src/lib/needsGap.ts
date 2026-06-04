@@ -38,6 +38,20 @@ export type BestCloser = {
   quote: string;
 };
 
+// One real review behind a need's number, with the exact phrase that put it
+// there (the trigger). The popup shows these so every count is auditable: no
+// number on screen exists without the reviews under it. Today `match` is the
+// matched keyword (keyword era); once reviews are classified by meaning it
+// becomes the semantic trigger span — the UI doesn't change.
+export type NeedEvidence = {
+  app: string;
+  icon: string | null;
+  rating: number;
+  title: string | null;
+  text: string;
+  match: string;
+};
+
 export type NeedGap = {
   key: string;
   label: string;
@@ -48,6 +62,7 @@ export type NeedGap = {
   verdict: "open" | "narrow" | "thin";
   bestApp: BestCloser | null;
   apps: NeedAppStat[];
+  evidence: NeedEvidence[]; // real reviews behind the count, capped for the popup
 };
 
 export type NeedsGapView = {
@@ -65,10 +80,14 @@ const TOP_NEEDS_PER_APP = 3; // a need ranking this high in an app counts as a t
 const THIN_FAIL = 2; // fewer than this many apps failing = not enough signal
 const OPEN_BREADTH = 0.4; // top pain in >= 40% of the genre = genre-wide gap
 const MIN_PRAISE = 3; // fewer praise mentions than this = too thin to name anyone the closer
+const EVIDENCE_PER_APP = 3; // matched reviews kept per app per need, so the popup spans the genre
+const EVIDENCE_CAP = 48; // total reviews shown in the popup per need
 
-function matches(textLower: string, keywords: string[]): boolean {
-  for (const k of keywords) if (textLower.includes(k)) return true;
-  return false;
+// Returns the first keyword that matched, or null. The matched phrase is the
+// trigger the popup highlights — proof of why the review was counted.
+function firstMatch(textLower: string, keywords: string[]): string | null {
+  for (const k of keywords) if (textLower.includes(k)) return k;
+  return null;
 }
 
 function trimQuote(text: string): string {
@@ -91,7 +110,11 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
       icon: true,
       listings: {
         select: {
-          reviews: { select: { text: true }, take: REVIEWS_PER_APP, orderBy: { postedAt: "desc" } },
+          reviews: {
+            select: { text: true, rating: true, title: true },
+            take: REVIEWS_PER_APP,
+            orderBy: { postedAt: "desc" },
+          },
           positives: { select: { text: true }, take: POSITIVES_PER_APP },
         },
       },
@@ -99,6 +122,7 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
   });
 
   const perNeed: Map<string, NeedAppStat>[] = needs.map(() => new Map());
+  const evidencePerNeed: NeedEvidence[][] = needs.map(() => []);
   const failApps = needs.map(() => 0);
   let reviewsScanned = 0;
   let totalApps = 0;
@@ -115,17 +139,33 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     const stats: (NeedAppStat & { _i: number })[] = needs.map((_, i) => {
       const kws = keywordSets[i];
       let complaints = 0;
+      let evHere = 0;
       const quotes: string[] = [];
       for (const r of negatives) {
-        if (matches(r.text.toLowerCase(), kws)) {
+        const hit = firstMatch(r.text.toLowerCase(), kws);
+        if (hit) {
           complaints++;
-          if (quotes.length < 2 && r.text.trim().length > 12) quotes.push(trimQuote(r.text));
+          const clean = r.text.trim();
+          if (clean.length > 12) {
+            if (quotes.length < 2) quotes.push(trimQuote(clean));
+            if (evHere < EVIDENCE_PER_APP) {
+              evHere++;
+              evidencePerNeed[i].push({
+                app: p.name,
+                icon: p.icon,
+                rating: r.rating,
+                title: r.title?.trim() || null,
+                text: trimQuote(clean),
+                match: hit,
+              });
+            }
+          }
         }
       }
       let praises = 0;
       const praiseQuotes: string[] = [];
       for (const r of positives) {
-        if (matches(r.text.toLowerCase(), kws)) {
+        if (firstMatch(r.text.toLowerCase(), kws)) {
           praises++;
           if (praiseQuotes.length < 2 && r.text.trim().length > 12) praiseQuotes.push(trimQuote(r.text));
         }
@@ -190,6 +230,7 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
         ? { id: best.id, name: best.name, icon: best.icon, praises: best.praises, complaints: best.complaints, quote: best.praiseQuotes[0] }
         : null,
       apps,
+      evidence: evidencePerNeed[i].slice(0, EVIDENCE_CAP),
     };
   });
 

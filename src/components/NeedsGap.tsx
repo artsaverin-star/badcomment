@@ -1,6 +1,7 @@
 import { Header, Tag, Quote } from "@saverin/ui-web";
 import { t, type Locale } from "@/lib/i18n";
 import type { NeedsGapView, NeedGap } from "@/lib/needsGap";
+import EvidenceDialog from "./EvidenceDialog";
 
 type M2 = ReturnType<typeof t>["market2"];
 
@@ -89,8 +90,18 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
           </span>
         </summary>
 
-        {(need.bestApp || need.apps.length > 0) && (
+        {(need.bestApp || need.apps.length > 0 || need.evidence.length > 0) && (
           <div className="flex flex-col gap-4 border-t border-[var(--color-border-subtle)] px-4 py-4">
+            {need.evidence.length > 0 && (
+              <EvidenceDialog
+                buttonLabel={tr.seeReviews(need.complaintMentions)}
+                title={tr.evidenceTitle(need.label)}
+                shownOf={tr.evidenceShownOf(need.evidence.length, need.complaintMentions)}
+                methodNote={tr.evidenceMethodNote}
+                closeLabel={tr.close}
+                evidence={need.evidence}
+              />
+            )}
             {need.bestApp && (
               <div className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3">
                 <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">

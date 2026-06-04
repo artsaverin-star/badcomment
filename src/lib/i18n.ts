@@ -110,6 +110,11 @@ type Dict = {
     voicesLabel: string;
     voiceCount: (n: number) => string;
     scanned: (n: number) => string;
+    seeReviews: (n: number) => string;
+    evidenceTitle: (label: string) => string;
+    evidenceShownOf: (shown: number, total: number) => string;
+    evidenceMethodNote: string;
+    close: string;
   };
   deck: { prev: string; next: string };
   card: {
@@ -265,6 +270,11 @@ const DICT: Record<Locale, Dict> = {
       voicesLabel: "From reviews",
       voiceCount: (n) => `${n} ${n === 1 ? "person asks" : "people ask"} for this`,
       scanned: (n) => `Scored from ${n} reviews`,
+      seeReviews: (n) => `See the reviews · ${n}`,
+      evidenceTitle: (label) => `Reviews behind “${label}”`,
+      evidenceShownOf: (shown, total) => `Showing ${shown} of ${total}`,
+      evidenceMethodNote: "Matched by keyword (highlighted). Becomes a meaning-based match once reviews are classified.",
+      close: "Close",
     },
     deck: { prev: "Previous", next: "Next" },
     card: {
@@ -486,6 +496,11 @@ const DICT: Record<Locale, Dict> = {
       voicesLabel: "Из отзывов",
       voiceCount: (n) => `об этом просят в отзывах: ${n}`,
       scanned: (n) => `Посчитано по ${n} отзывам`,
+      seeReviews: (n) => `Показать отзывы · ${n}`,
+      evidenceTitle: (label) => `Отзывы за «${label}»`,
+      evidenceShownOf: (shown, total) => `Показано ${shown} из ${total}`,
+      evidenceMethodNote: "Совпадение по ключевому слову (подсвечено). Станет смысловым после классификации отзывов.",
+      close: "Закрыть",
     },
     deck: { prev: "Назад", next: "Вперёд" },
     card: {
