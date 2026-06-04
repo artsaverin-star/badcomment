@@ -129,7 +129,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
         {/* ── Main column: the app's pains, by meaning ── */}
         <div className="flex flex-col gap-6">
           {needs ? (
-            <AppNeeds view={needs} locale={locale} />
+            <AppNeeds view={needs} locale={locale} productId={id} />
           ) : (
             <Card>
               <p className="text-[14px] text-[var(--color-text-secondary)]">{tr.market2.stubNote}</p>

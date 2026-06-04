@@ -1,7 +1,7 @@
 import { Header } from "@saverin/ui-web";
 import { t, type Locale } from "@/lib/i18n";
 import type { NeedsGapView, NeedGap } from "@/lib/needsGap";
-import EvidenceDialog from "./EvidenceDialog";
+import EvidenceDialog, { type EvidenceApp } from "./EvidenceDialog";
 
 type M2 = ReturnType<typeof t>["market2"];
 
@@ -17,17 +17,26 @@ export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale:
       </div>
       <div className="flex flex-col gap-1.5">
         {view.needs.map((need) => (
-          <NeedRow key={need.key} need={need} max={view.maxFail} tr={tr} />
+          <NeedRow key={need.key} need={need} max={view.maxFail} slug={view.slug} tr={tr} />
         ))}
       </div>
     </section>
   );
 }
 
-function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
+function NeedRow({ need, max, slug, tr }: { need: NeedGap; max: number; slug: string; tr: M2 }) {
   const open = need.verdict === "open";
   const pct = Math.max(3, Math.round((need.failApps / max) * 100));
   const barColor = open ? "var(--color-accent-danger)" : "var(--color-text-tertiary)";
+
+  const apps: EvidenceApp[] = need.apps.slice(0, 8).map((a) => ({
+    id: a.id,
+    name: a.name,
+    icon: a.icon,
+    complaints: a.complaints,
+    complaintsText: tr.complaintsLabel(a.complaints),
+    forks: a.forks,
+  }));
 
   return (
     <div className="overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
@@ -52,56 +61,27 @@ function NeedRow({ need, max, tr }: { need: NeedGap; max: number; tr: M2 }) {
           </span>
         </summary>
 
-        {(need.apps.length > 0 || need.evidence.length > 0 || need.forks.length > 0) && (
+        {(need.apps.length > 0 || need.forks.length > 0) && (
           <div className="flex flex-col gap-4 border-t border-[var(--color-border-subtle)] px-4 py-4">
-            {need.evidence.length > 0 && (
-              <EvidenceDialog
-                forks={need.forks}
-                seeAllLabel={tr.seeReviews(need.complaintMentions)}
-                title={tr.evidenceTitle(need.label)}
-                total={need.complaintMentions}
-                shownWord={tr.evidenceShownWord}
-                ofWord={tr.evidenceOfWord}
-                allLabel={tr.evidenceAll}
-                byAppLabel={tr.evidenceByApp}
-                byProblemLabel={tr.evidenceByProblem}
-                methodNote={tr.evidenceMethodNote}
-                closeLabel={tr.close}
-                evidence={need.evidence}
-              />
-            )}
-            {need.apps.length > 0 && (
-              <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
-                {tr.appsBreakdown}
-              </span>
-            )}
-            {need.apps.slice(0, 8).map((app) => (
-              <div key={app.id} className="flex flex-col gap-1.5">
-                <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  {app.icon && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={app.icon} alt="" className="size-6 shrink-0 rounded-[var(--radius-md)] object-cover" />
-                  )}
-                  <span className="text-[14px] text-[var(--color-text-primary)]">{app.name}</span>
-                  <span className="tabular-nums text-[12px] text-[var(--color-accent-danger)]">
-                    {tr.complaintsLabel(app.complaints)}
-                  </span>
-                </span>
-                {app.forks.length > 0 && (
-                  <span className="flex flex-wrap gap-1.5">
-                    {app.forks.map((f) => (
-                      <span
-                        key={f.key}
-                        className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)]"
-                      >
-                        {f.label}
-                        <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
-                      </span>
-                    ))}
-                  </span>
-                )}
-              </div>
-            ))}
+            <EvidenceDialog
+              source={{ kind: "segment", slug }}
+              needKey={need.key}
+              title={tr.evidenceTitle(need.label)}
+              total={need.complaintMentions}
+              forks={need.forks}
+              apps={apps}
+              seeAllLabel={tr.seeReviews(need.complaintMentions)}
+              appsBreakdownLabel={tr.appsBreakdown}
+              shownWord={tr.evidenceShownWord}
+              ofWord={tr.evidenceOfWord}
+              allLabel={tr.evidenceAll}
+              byAppLabel={tr.evidenceByApp}
+              byProblemLabel={tr.evidenceByProblem}
+              methodNote={tr.evidenceMethodNote}
+              loadingLabel={tr.evidenceLoading}
+              emptyLabel={tr.evidenceEmpty}
+              closeLabel={tr.close}
+            />
           </div>
         )}
       </details>

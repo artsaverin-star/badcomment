@@ -6,7 +6,15 @@ import EvidenceDialog from "./EvidenceDialog";
 // Per-app semantic needs, in the same shape as the segment needs-gap: each need
 // is a row with its mention count, a relative bar, fork sub-threads, and a popup
 // of the verbatim reviews behind the number.
-export default function AppNeeds({ view, locale }: { view: AppNeedsView; locale: Locale }) {
+export default function AppNeeds({
+  view,
+  locale,
+  productId,
+}: {
+  view: AppNeedsView;
+  locale: Locale;
+  productId: string;
+}) {
   const tr = t(locale);
   return (
     <section className="flex flex-col gap-3">
@@ -16,14 +24,14 @@ export default function AppNeeds({ view, locale }: { view: AppNeedsView; locale:
       </div>
       <div className="flex flex-col gap-3">
         {view.needs.map((need) => (
-          <NeedRow key={need.key} need={need} max={view.maxMentions} locale={locale} />
+          <NeedRow key={need.key} need={need} max={view.maxMentions} locale={locale} productId={productId} />
         ))}
       </div>
     </section>
   );
 }
 
-function NeedRow({ need, max, locale }: { need: AppNeed; max: number; locale: Locale }) {
+function NeedRow({ need, max, locale, productId }: { need: AppNeed; max: number; locale: Locale; productId: string }) {
   const tr = t(locale).market2;
   const pct = Math.max(3, Math.round((need.mentions / max) * 100));
 
@@ -45,22 +53,24 @@ function NeedRow({ need, max, locale }: { need: AppNeed; max: number; locale: Lo
         </span>
       </span>
 
-      {need.evidence.length > 0 && (
-        <EvidenceDialog
-          forks={need.forks}
-          seeAllLabel={tr.seeReviews(need.mentions)}
-          title={tr.evidenceTitle(need.label)}
-          total={need.mentions}
-          shownWord={tr.evidenceShownWord}
-          ofWord={tr.evidenceOfWord}
-          allLabel={tr.evidenceAll}
-          byAppLabel={tr.evidenceByApp}
-          byProblemLabel={tr.evidenceByProblem}
-          methodNote={tr.evidenceMethodNote}
-          closeLabel={tr.close}
-          evidence={need.evidence}
-        />
-      )}
+      <EvidenceDialog
+        source={{ kind: "app", productId }}
+        needKey={need.key}
+        title={tr.evidenceTitle(need.label)}
+        total={need.mentions}
+        forks={need.forks}
+        seeAllLabel={tr.seeReviews(need.mentions)}
+        appsBreakdownLabel={tr.appsBreakdown}
+        shownWord={tr.evidenceShownWord}
+        ofWord={tr.evidenceOfWord}
+        allLabel={tr.evidenceAll}
+        byAppLabel={tr.evidenceByApp}
+        byProblemLabel={tr.evidenceByProblem}
+        methodNote={tr.evidenceMethodNote}
+        loadingLabel={tr.evidenceLoading}
+        emptyLabel={tr.evidenceEmpty}
+        closeLabel={tr.close}
+      />
     </div>
   );
 }

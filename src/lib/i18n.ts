@@ -110,6 +110,8 @@ type Dict = {
     evidenceByApp: string;
     evidenceByProblem: string;
     evidenceMethodNote: string;
+    evidenceLoading: string;
+    evidenceEmpty: string;
     close: string;
     indexSubtitle: string;
     segReviewsApps: (reviews: number, apps: number) => string;
@@ -279,6 +281,8 @@ const DICT: Record<Locale, Dict> = {
       evidenceByApp: "By app",
       evidenceByProblem: "By problem",
       evidenceMethodNote: "Matched by meaning — the highlighted phrase is the exact quote that earned the label.",
+      evidenceLoading: "Loading reviews…",
+      evidenceEmpty: "No reviews match this combination.",
       close: "Close",
       indexSubtitle: "Every day we analyze hundreds of thousands of negative reviews. The positive ones are almost always faked and easily bought — the real insights are only in the complaints.",
       segReviewsApps: (reviews, apps) =>
@@ -520,6 +524,8 @@ const DICT: Record<Locale, Dict> = {
       evidenceByApp: "По приложению",
       evidenceByProblem: "По проблеме",
       evidenceMethodNote: "Совпадение по смыслу — подсвеченная фраза это точная цитата, на которой основана метка.",
+      evidenceLoading: "Загружаем отзывы…",
+      evidenceEmpty: "Под это сочетание фильтров отзывов нет.",
       close: "Закрыть",
       indexSubtitle: "Каждый день анализируем сотни тысяч негативных отзывов. Позитивные почти всегда накручены и легко покупаются — настоящие инсайты только в боли.",
       segReviewsApps: (reviews, apps) => {

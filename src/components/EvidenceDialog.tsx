@@ -1,14 +1,26 @@
 "use client";
 
-import { useMemo, useRef, useState, type ReactNode } from "react";
-import type { NeedEvidence, NeedForkStat } from "@/lib/needsGap";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import type { EvidenceReview, NeedForkStat } from "@/lib/needsGap";
 
-// The proof layer: the sub-problem tags themselves are the triggers — clicking
-// one opens the real reviews behind that count, pre-filtered to it. Needs with
-// no sub-threads fall back to a single "see reviews" button. Every count must
-// be traceable to readable reviews with the exact phrase that put each one there
-// (highlighted), so nothing on screen is taken on faith. Strings are precomputed
-// on the server (i18n functions don't cross the client boundary).
+// The proof layer. Sub-problem tags and per-app rows double as triggers: clicking
+// one opens the real reviews behind that count, pre-filtered to it. Inside, the
+// app and problem filters combine freely — every count traces to readable reviews
+// with the exact phrase that earned the label (highlighted), so nothing is taken
+// on faith. The reviews are fetched on demand (/api/evidence) so a page never
+// ships more than the aggregate numbers. Strings are precomputed on the server
+// (i18n functions don't cross the client boundary).
+
+export type EvidenceApp = {
+  id: string;
+  name: string;
+  icon: string | null;
+  complaints: number;
+  complaintsText: string; // precomputed complaintsLabel(complaints)
+  forks: NeedForkStat[];
+};
+
+const WINDOW = 20; // reviews rendered per page of the autoloader
 
 function highlight(text: string, match: string): ReactNode {
   if (!match) return text;
@@ -23,12 +35,6 @@ function highlight(text: string, match: string): ReactNode {
       {text.slice(idx + match.length)}
     </>
   );
-}
-
-function countBy(values: string[]): { value: string; count: number }[] {
-  const m = new Map<string, number>();
-  for (const v of values) m.set(v, (m.get(v) ?? 0) + 1);
-  return [...m.entries()].map(([value, count]) => ({ value, count })).sort((a, b) => b.count - a.count);
 }
 
 function Chip({ active, onClick, children }: { active: boolean; onClick: () => void; children: ReactNode }) {
@@ -57,7 +63,7 @@ function FilterRow({
 }: {
   label: string;
   allLabel: string;
-  options: { value: string; count: number }[];
+  options: { value: string; label: string; count: number }[];
   selected: string | null;
   onSelect: (v: string | null) => void;
 }) {
@@ -71,7 +77,7 @@ function FilterRow({
         </Chip>
         {options.map((o) => (
           <Chip key={o.value} active={selected === o.value} onClick={() => onSelect(o.value)}>
-            {o.value}
+            {o.label}
             <span className="tabular-nums opacity-70">{o.count}</span>
           </Chip>
         ))}
@@ -80,53 +86,117 @@ function FilterRow({
   );
 }
 
+type Source = { kind: "segment"; slug: string } | { kind: "app"; productId: string };
+
 export default function EvidenceDialog({
+  source,
+  needKey,
   title,
   total,
-  seeAllLabel,
   forks,
+  apps,
+  seeAllLabel,
+  appsBreakdownLabel,
   shownWord,
   ofWord,
   allLabel,
   byAppLabel,
   byProblemLabel,
   methodNote,
+  loadingLabel,
+  emptyLabel,
   closeLabel,
-  evidence,
 }: {
+  source: Source;
+  needKey: string;
   title: string;
   total: number;
+  forks: NeedForkStat[]; // need-level sub-problems that double as triggers
+  apps?: EvidenceApp[]; // per-app breakdown (segment view only)
   seeAllLabel: string; // fallback trigger when the need has no sub-threads
-  forks: NeedForkStat[]; // sub-problem tags that double as the triggers
+  appsBreakdownLabel: string;
   shownWord: string;
   ofWord: string;
   allLabel: string;
   byAppLabel: string;
   byProblemLabel: string;
   methodNote: string;
+  loadingLabel: string;
+  emptyLabel: string;
   closeLabel: string;
-  evidence: NeedEvidence[];
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const [app, setApp] = useState<string | null>(null);
   const [fork, setFork] = useState<string | null>(null);
+  const [reviews, setReviews] = useState<EvidenceReview[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(WINDOW);
+  const [opened, setOpened] = useState(false); // gate the fetch until first open
 
-  // In-modal filter options, counted across the whole evidence sample so a chip
-  // number never shifts with the current selection.
-  const appOptions = useMemo(() => countBy(evidence.map((e) => e.app).filter(Boolean)), [evidence]);
-  const forkOptions = useMemo(() => countBy(evidence.map((e) => e.fork).filter(Boolean)), [evidence]);
+  // App filter options (segment only): value = product id, count from aggregation
+  // so a chip number never shifts with the current selection.
+  const appOptions = (apps ?? []).map((a) => ({ value: a.id, label: a.name, count: a.complaints }));
+  const forkOptions = forks.map((f) => ({ value: f.key, label: f.label, count: f.mentions }));
 
-  // One dimension at a time: picking a problem clears the app filter and vice
-  // versa, so "Showing N" equals the picked chip's count and an empty
-  // (non-intersecting) combination is unreachable.
-  const filtered = evidence.filter((e) => (!app || e.app === app) && (!fork || e.fork === fork));
-  const hasFilters = appOptions.length > 1 || forkOptions.length > 1;
+  // Fetch the reviews behind the current app×fork combination on demand. The
+  // server applies the same dedupe/primary-fork logic as the aggregation, so the
+  // returned count matches the chips. AbortController drops stale responses.
+  useEffect(() => {
+    if (!opened) return;
+    const ctrl = new AbortController();
+    const params = new URLSearchParams({ kind: source.kind, need: needKey });
+    if (source.kind === "segment") params.set("slug", source.slug);
+    else params.set("product", source.productId);
+    if (fork) params.set("fork", fork);
+    if (app) params.set("app", app);
 
-  const openWith = (f: string | null) => {
-    setApp(null);
-    setFork(f);
+    fetch(`/api/evidence?${params.toString()}`, { signal: ctrl.signal })
+      .then((r) => r.json())
+      .then((data: { reviews?: EvidenceReview[] }) => setReviews(data.reviews ?? []))
+      .catch((err) => {
+        if (err?.name !== "AbortError") setReviews([]);
+      })
+      .finally(() => {
+        if (!ctrl.signal.aborted) setLoading(false);
+      });
+    return () => ctrl.abort();
+  }, [opened, source, needKey, app, fork]);
+
+  // Autoloader: reveal another window when the sentinel scrolls into view.
+  const sentinel = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = sentinel.current;
+    if (!el) return;
+    const io = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) setVisible((v) => v + WINDOW);
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [reviews.length, loading]);
+
+  // Setting the loading flag and resetting the autoloader live in the handlers
+  // (not the effect) so the effect only synchronizes with the network.
+  const selectApp = (v: string | null) => {
+    setLoading(true);
+    setVisible(WINDOW);
+    setApp(v);
+  };
+  const selectFork = (v: string | null) => {
+    setLoading(true);
+    setVisible(WINDOW);
+    setFork(v);
+  };
+  const open = (nextApp: string | null, nextFork: string | null) => {
+    setLoading(true);
+    setVisible(WINDOW);
+    setApp(nextApp);
+    setFork(nextFork);
+    setOpened(true);
     ref.current?.showModal();
   };
+
+  const hasFilters = appOptions.length > 1 || forkOptions.length > 1;
+  const shown = Math.min(visible, reviews.length);
 
   return (
     <>
@@ -136,7 +206,7 @@ export default function EvidenceDialog({
             <button
               key={f.key}
               type="button"
-              onClick={() => openWith(f.label)}
+              onClick={() => open(null, f.key)}
               className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
             >
               {f.label}
@@ -147,15 +217,55 @@ export default function EvidenceDialog({
       ) : (
         <button
           type="button"
-          onClick={() => openWith(null)}
+          onClick={() => open(null, null)}
           className="self-start rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-1.5 text-[12px] font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]"
         >
           {seeAllLabel}
         </button>
       )}
 
+      {apps && apps.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
+            {appsBreakdownLabel}
+          </span>
+          {apps.map((a) => (
+            <div key={a.id} className="flex flex-col gap-1.5">
+              <button
+                type="button"
+                onClick={() => open(a.id, null)}
+                className="flex flex-wrap items-center gap-x-2 gap-y-0.5 self-start text-left transition-opacity hover:opacity-70"
+              >
+                {a.icon && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={a.icon} alt="" className="size-6 shrink-0 rounded-[var(--radius-md)] object-cover" />
+                )}
+                <span className="text-[14px] text-[var(--color-text-primary)]">{a.name}</span>
+                <span className="tabular-nums text-[12px] text-[var(--color-accent-danger)]">{a.complaintsText}</span>
+              </button>
+              {a.forks.length > 0 && (
+                <span className="flex flex-wrap gap-1.5">
+                  {a.forks.map((f) => (
+                    <button
+                      key={f.key}
+                      type="button"
+                      onClick={() => open(a.id, f.key)}
+                      className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+                    >
+                      {f.label}
+                      <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
+                    </button>
+                  ))}
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
       <dialog
         ref={ref}
+        onClose={() => setOpened(false)}
         onClick={(e) => {
           if (e.target === ref.current) ref.current?.close();
         }}
@@ -166,7 +276,7 @@ export default function EvidenceDialog({
             <div className="flex flex-col gap-0.5">
               <span className="text-[15px] font-semibold">{title}</span>
               <span className="text-[12px] text-[var(--color-text-tertiary)]">
-                {shownWord} {filtered.length} {ofWord} {total}
+                {shownWord} {reviews.length} {ofWord} {total}
               </span>
             </div>
             <button
@@ -185,47 +295,50 @@ export default function EvidenceDialog({
                 allLabel={allLabel}
                 options={forkOptions}
                 selected={fork}
-                onSelect={(v) => {
-                  setFork(v);
-                  setApp(null);
-                }}
+                onSelect={selectFork}
               />
               <FilterRow
                 label={byAppLabel}
                 allLabel={allLabel}
                 options={appOptions}
                 selected={app}
-                onSelect={(v) => {
-                  setApp(v);
-                  setFork(null);
-                }}
+                onSelect={selectApp}
               />
             </div>
           )}
 
           <div className="flex flex-col gap-3 overflow-y-auto p-4">
-            {filtered.map((e, i) => (
-              <div
-                key={i}
-                className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3"
-              >
-                <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  {e.icon && (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={e.icon} alt="" className="size-5 shrink-0 rounded-[var(--radius-md)] object-cover" />
-                  )}
-                  {e.app && <span className="text-[13px] font-medium">{e.app}</span>}
-                  <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
-                    {"★".repeat(e.rating)}
-                    {"☆".repeat(Math.max(0, 5 - e.rating))}
-                  </span>
-                </span>
-                {e.title && <span className="text-[13px] font-medium">{e.title}</span>}
-                <p className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">
-                  {highlight(e.text, e.match)}
-                </p>
-              </div>
-            ))}
+            {loading ? (
+              <span className="py-6 text-center text-[13px] text-[var(--color-text-tertiary)]">{loadingLabel}</span>
+            ) : reviews.length === 0 ? (
+              <span className="py-6 text-center text-[13px] text-[var(--color-text-tertiary)]">{emptyLabel}</span>
+            ) : (
+              <>
+                {reviews.slice(0, shown).map((e, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3"
+                  >
+                    <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                      {e.icon && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={e.icon} alt="" className="size-5 shrink-0 rounded-[var(--radius-md)] object-cover" />
+                      )}
+                      {e.app && <span className="text-[13px] font-medium">{e.app}</span>}
+                      <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
+                        {"★".repeat(e.rating)}
+                        {"☆".repeat(Math.max(0, 5 - e.rating))}
+                      </span>
+                    </span>
+                    {e.title && <span className="text-[13px] font-medium">{e.title}</span>}
+                    <p className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">
+                      {highlight(e.text, e.match)}
+                    </p>
+                  </div>
+                ))}
+                {shown < reviews.length && <div ref={sentinel} className="h-1" />}
+              </>
+            )}
           </div>
 
           <div className="border-t border-[var(--color-border-subtle)] p-3">
