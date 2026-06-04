@@ -8,45 +8,14 @@ type M2 = ReturnType<typeof t>["market2"];
 export default function NeedsGap({ view, locale }: { view: NeedsGapView; locale: Locale }) {
   const tr = t(locale).market2;
   return (
-    <div className="flex flex-col gap-10">
-      <section className="flex flex-col gap-3">
-        <Header size="S" as="h2" title={tr.gapsHeading} />
-        <div className="flex flex-col gap-3">
-          {view.needs.map((need) => (
-            <NeedRow key={need.key} need={need} max={view.maxFail} tr={tr} />
-          ))}
-        </div>
-      </section>
-
-      {view.whitespace.length > 0 && (
-        <section className="flex flex-col gap-3">
-          <Header size="S" as="h2" title={tr.whitespaceHeading} description={tr.whitespaceNote} />
-          <div className="flex flex-col gap-2">
-            {view.whitespace.map((w, i) => (
-              <div
-                key={i}
-                className="flex flex-col gap-3 rounded-[var(--radius-xl)] border border-dashed border-[var(--color-border-subtle)] p-4"
-              >
-                <p className="text-[14px] leading-[20px] text-[var(--color-text-secondary)]">{w.text}</p>
-                {w.voices.length > 0 && (
-                  <div className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] pt-3">
-                    <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
-                      {tr.voicesLabel} · {tr.voiceCount(w.voices.length)}
-                    </span>
-                    {w.voices.map((v, j) => (
-                      <div key={j} className="flex flex-col gap-0.5">
-                        <Quote size="S">{v.quote}</Quote>
-                        {v.app && <span className="text-[11px] text-[var(--color-text-tertiary)]">{v.app}</span>}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-    </div>
+    <section className="flex flex-col gap-3">
+      <Header size="S" as="h2" title={tr.gapsHeading} />
+      <div className="flex flex-col gap-3">
+        {view.needs.map((need) => (
+          <NeedRow key={need.key} need={need} max={view.maxFail} tr={tr} />
+        ))}
+      </div>
+    </section>
   );
 }
 

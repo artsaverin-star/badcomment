@@ -1,6 +1,5 @@
 import { prisma } from "./prisma";
 import { getSegmentBySlug } from "./segments";
-import { resolveWhitespace, type ResolvedWhitespace } from "./needs";
 import { getTaxonomy, taxonomyVersion, type ClassNeed } from "./taxonomy";
 import type { Locale } from "./i18n";
 
@@ -57,7 +56,6 @@ export type NeedGap = {
 export type NeedsGapView = {
   slug: string;
   needs: NeedGap[];
-  whitespace: ResolvedWhitespace[];
   maxFail: number;
   reviewsScanned: number;
 };
@@ -234,7 +232,6 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
   return {
     slug,
     needs: gaps,
-    whitespace: resolveWhitespace(slug, locale),
     maxFail,
     reviewsScanned,
   };

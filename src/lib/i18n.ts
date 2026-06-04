@@ -101,10 +101,6 @@ type Dict = {
     painIn: (x: number, y: number) => string;
     complaintsLabel: (n: number) => string;
     appsBreakdown: string;
-    whitespaceHeading: string;
-    whitespaceNote: string;
-    voicesLabel: string;
-    voiceCount: (n: number) => string;
     scanned: (n: number) => string;
     seeReviews: (n: number) => string;
     evidenceTitle: (label: string) => string;
@@ -257,10 +253,6 @@ const DICT: Record<Locale, Dict> = {
       painIn: (x, y) => `a top complaint in ${x} of ${y} apps`,
       complaintsLabel: (n) => `${n} in complaints`,
       appsBreakdown: "By app",
-      whitespaceHeading: "White space",
-      whitespaceNote: "Hypotheses — not from the data, our guess at needs no app attempts yet.",
-      voicesLabel: "From reviews",
-      voiceCount: (n) => `${n} ${n === 1 ? "person asks" : "people ask"} for this`,
       scanned: (n) => `Scored from ${n} reviews`,
       seeReviews: (n) => `See the reviews · ${n}`,
       evidenceTitle: (label) => `Reviews behind “${label}”`,
@@ -479,10 +471,6 @@ const DICT: Record<Locale, Dict> = {
       painIn: (x, y) => `топ-жалоба у ${x} из ${y} приложений`,
       complaintsLabel: (n) => `${n} в жалобах`,
       appsBreakdown: "По приложениям",
-      whitespaceHeading: "Белые пятна",
-      whitespaceNote: "Гипотезы — не из данных, а наша догадка о потребностях, которые пока никто не закрывает.",
-      voicesLabel: "Из отзывов",
-      voiceCount: (n) => `об этом просят в отзывах: ${n}`,
       scanned: (n) => `Посчитано по ${n} отзывам`,
       seeReviews: (n) => `Показать отзывы · ${n}`,
       evidenceTitle: (label) => `Отзывы за «${label}»`,
