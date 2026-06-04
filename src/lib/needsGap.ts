@@ -138,6 +138,9 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
     const appComplaints = needs.map(() => 0);
     const appForks: Map<string, number>[] = needs.map(() => new Map());
     const appEvidence = needs.map(() => 0);
+    // Reviews are often stored verbatim under several ids; dedupe evidence by
+    // text so the popup doesn't show the same complaint three times.
+    const appSeen: Set<string>[] = needs.map(() => new Set());
 
     for (const r of reviews) {
       let labels: StoredLabel[];
@@ -165,7 +168,9 @@ export async function getNeedsGap(slug: string, locale: Locale): Promise<NeedsGa
         forkCounts[ni].set(top.key, (forkCounts[ni].get(top.key) ?? 0) + 1);
         appForks[ni].set(top.key, (appForks[ni].get(top.key) ?? 0) + 1);
         const clean = r.text.trim();
-        if (clean.length > 12 && appEvidence[ni] < EVIDENCE_PER_APP) {
+        const dedupeKey = clean.toLowerCase().replace(/\s+/g, " ");
+        if (clean.length > 12 && appEvidence[ni] < EVIDENCE_PER_APP && !appSeen[ni].has(dedupeKey)) {
+          appSeen[ni].add(dedupeKey);
           appEvidence[ni]++;
           evidencePerNeed[ni].push({
             app: p.name,
@@ -310,6 +315,7 @@ export async function getAppNeeds(productId: string, locale: Locale): Promise<Ap
   const mentions = needs.map(() => 0);
   const forkCounts: Map<string, number>[] = needs.map(() => new Map());
   const evidence: NeedEvidence[][] = needs.map(() => []);
+  const evidenceSeen: Set<string>[] = needs.map(() => new Set()); // dedupe verbatim duplicate reviews
   let reviewsClassified = 0;
 
   for (const r of reviews) {
@@ -337,7 +343,9 @@ export async function getAppNeeds(productId: string, locale: Locale): Promise<Ap
       mentions[ni]++;
       forkCounts[ni].set(top.key, (forkCounts[ni].get(top.key) ?? 0) + 1);
       const clean = r.text.trim();
-      if (clean.length > 12 && evidence[ni].length < APP_EVIDENCE_CAP) {
+      const dedupeKey = clean.toLowerCase().replace(/\s+/g, " ");
+      if (clean.length > 12 && evidence[ni].length < APP_EVIDENCE_CAP && !evidenceSeen[ni].has(dedupeKey)) {
+        evidenceSeen[ni].add(dedupeKey);
         evidence[ni].push({
           app: "",
           icon: null,
