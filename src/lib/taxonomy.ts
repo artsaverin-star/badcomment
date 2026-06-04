@@ -282,6 +282,138 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       { key: "notifications", en: "Notification spam", ru: "Спам уведомлений", forks: [] },
     ],
   },
+
+  // Period & cycle trackers (Flo, Clue, Natural Cycles, Stardust, Lively, etc.).
+  // Authored from reading real 1-2 star reviews: the dominant pains are wrong
+  // predictions, basic tracking locked behind a paywall, abusive billing,
+  // endless-loading / crashes, lost data + lockouts, relentless upgrade nags,
+  // broken partner sync, marathon onboarding, rigid logging, alienating tone,
+  // no offline, dead support, and privacy worries in an intimate app.
+  "period-trackers": {
+    slug: "period-trackers",
+    version: "period-trackers-1",
+    en: "Period & cycle trackers",
+    ru: "Трекеры месячных и цикла",
+    needs: [
+      {
+        key: "predictions",
+        en: "Predictions don't match reality",
+        ru: "Прогнозы не сходятся с реальностью",
+        forks: [
+          { key: "predictions.dates-off", en: "Period dates are always off", ru: "Даты месячных всегда мимо" },
+          { key: "predictions.ovulation", en: "Ovulation date wrong or missed", ru: "Овуляцию определяет неверно или пропускает" },
+          { key: "predictions.ignores-cycle", en: "Forces a 28-day cycle, ignores mine", ru: "Навязывает 28-дневный цикл, игнорирует мой" },
+          { key: "predictions.irregular", en: "Useless for irregular cycles", ru: "Бесполезно при нерегулярном цикле" },
+          { key: "predictions.changed-after", en: "Quietly changes the prediction after the fact", ru: "Задним числом меняет прогноз" },
+        ],
+      },
+      {
+        key: "paywall",
+        en: "Can't track without paying",
+        ru: "Не потрекать без оплаты",
+        forks: [
+          { key: "paywall.basics-locked", en: "Basic period tracking is behind premium", ru: "Базовый трекинг заперт за премиумом" },
+          { key: "paywall.setup-then-pay", en: "Long setup, then a surprise paywall at the end", ru: "Долгая настройка, а в конце внезапный пейволл" },
+          { key: "paywall.no-free", en: "No free way to actually use it", ru: "Нет бесплатного способа реально пользоваться" },
+          { key: "paywall.was-free", en: "Used to be free, now locked", ru: "Раньше было бесплатно, теперь заперто" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Billing traps",
+        ru: "Биллинг-ловушки",
+        forks: [
+          { key: "billing.trial-trap", en: "'Free trial' charges anyway", ru: "«Бесплатный период» всё равно списывает" },
+          { key: "billing.cant-cancel", en: "Can't cancel the subscription", ru: "Нельзя отменить подписку" },
+          { key: "billing.after-cancel", en: "Charged after cancelling", ru: "Списывают после отмены" },
+          { key: "billing.no-refund", en: "No refund, even the same day", ru: "Не возвращают деньги, даже в тот же день" },
+          { key: "billing.price-hike", en: "Sudden, steep price increase", ru: "Резкое повышение цены" },
+          { key: "billing.charged-unexpected", en: "Charged a full year / an unexpected charge", ru: "Списали за год / неожиданное списание" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "Broken and buggy",
+        ru: "Не работает, глючит",
+        forks: [
+          { key: "reliability.wont-open", en: "Endless loading screen / won't open", ru: "Бесконечная загрузка / не открывается" },
+          { key: "reliability.crashes", en: "Crashes, especially after an update", ru: "Крэшится, особенно после обновления" },
+          { key: "reliability.slow", en: "Slow and laggy", ru: "Тормозит, лагает" },
+          { key: "reliability.update-broke", en: "An update broke it", ru: "Обновление сломало" },
+        ],
+      },
+      {
+        key: "data-loss",
+        en: "Loses your data, locks you out",
+        ru: "Теряет данные, не пускает",
+        forks: [
+          { key: "data-loss.data-gone", en: "Logged data disappeared or reset", ru: "Введённые данные пропали или сбросились" },
+          { key: "data-loss.cant-login", en: "Can't log in / locked out on a new phone", ru: "Не войти / заблокировало на новом телефоне" },
+          { key: "data-loss.lapse-wipes", en: "Letting premium lapse deletes everything", ru: "Кончилась подписка — всё стёрло" },
+          { key: "data-loss.account-gone", en: "Account suddenly gone", ru: "Аккаунт внезапно исчез" },
+        ],
+      },
+      {
+        key: "upsell",
+        en: "Buried in upgrade nags",
+        ru: "Завалено попапами «купи премиум»",
+        forks: [
+          { key: "upsell.popups", en: "A premium popup on every tap", ru: "Попап про премиум на каждый тап" },
+          { key: "upsell.ads", en: "Third-party ads in a tracker", ru: "Сторонняя реклама в трекере" },
+        ],
+      },
+      {
+        key: "partner",
+        en: "Partner tracking is broken",
+        ru: "Парный трекинг сломан",
+        forks: [
+          { key: "partner.desync", en: "Partner sync keeps breaking", ru: "Синхронизация с партнёром постоянно рвётся" },
+          { key: "partner.mirror-broken", en: "Can't see a partner's cycle details", ru: "Не видно деталей цикла партнёра" },
+        ],
+      },
+      {
+        key: "onboarding",
+        en: "Endless setup before you can start",
+        ru: "Бесконечная настройка до старта",
+        forks: [
+          { key: "onboarding.too-many-questions", en: "A barrage of questions before you can use it", ru: "Гора вопросов, прежде чем начать" },
+          { key: "onboarding.rate-too-early", en: "Asks you to rate it before you've used it", ru: "Просит оценить ещё до использования" },
+        ],
+      },
+      {
+        key: "logging",
+        en: "Can't log or fix what you need",
+        ru: "Нельзя внести или исправить нужное",
+        forks: [
+          { key: "logging.cant-edit", en: "Can't fix or remove a wrong entry", ru: "Нельзя исправить или удалить ошибочную запись" },
+          { key: "logging.missing-fields", en: "Missing what you need (postpartum, etc.)", ru: "Нет нужного (постпартум и т.п.)" },
+          { key: "logging.removed-feature", en: "Removed or changed a feature you relied on", ru: "Убрали или изменили нужную функцию" },
+        ],
+      },
+      {
+        key: "notifications",
+        en: "Notifications out of control",
+        ru: "Уведомления вышли из-под контроля",
+        forks: [
+          { key: "notifications.spam", en: "Way too many notifications", ru: "Слишком много уведомлений" },
+          { key: "notifications.embarrassing", en: "Exposes private info at the wrong moment", ru: "Светит личное в неподходящий момент" },
+          { key: "notifications.cant-control", en: "Can't control timing or turn them off", ru: "Нельзя настроить время или отключить" },
+        ],
+      },
+      { key: "tone", en: "Preachy, unhelpful messaging", ru: "Поучает вместо пользы", forks: [] },
+      { key: "offline", en: "Won't work offline", ru: "Не работает оффлайн", forks: [] },
+      { key: "support", en: "Support that ignores you", ru: "Поддержка не отвечает", forks: [] },
+      {
+        key: "privacy",
+        en: "Privacy worries in an intimate app",
+        ru: "Тревога за приватность в интимном приложении",
+        forks: [
+          { key: "privacy.partner-notify", en: "Tells a partner you peeked", ru: "Сообщает партнёру, что ты заглянул" },
+          { key: "privacy.forced-link", en: "Forces a Google / account link to use", ru: "Заставляет привязать Google / аккаунт" },
+        ],
+      },
+    ],
+  },
 };
 
 export function getTaxonomy(slug: string): GenreTaxonomy | null {
