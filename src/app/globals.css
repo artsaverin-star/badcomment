@@ -23,9 +23,13 @@
    root element, so the rule has to live on html (on body it doesn't take). */
 html {
   overflow-anchor: none;
-  /* Reserve the scrollbar's width even when the page doesn't overflow, so
-     expanding a card (which adds a scrollbar) can't narrow the viewport and
-     shove the centered layout sideways. */
+  /* Keep the vertical scrollbar present at all times. Otherwise a page that
+     just fits gains a scrollbar the moment a card is expanded, which narrows
+     the viewport and shoves the centered layout sideways ("jumps in width").
+     overflow-y:scroll forces it for classic scrollbars; scrollbar-gutter holds
+     the gutter for browsers that honor it. (scrollbar-gutter alone was a no-op
+     here because the root's overflow was visible, so it wasn't a scroll box.) */
+  overflow-y: scroll;
   scrollbar-gutter: stable;
 }
 
