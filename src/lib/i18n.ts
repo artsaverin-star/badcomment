@@ -107,6 +107,13 @@ type Dict = {
     evidenceShownOf: (shown: number, total: number) => string;
     evidenceMethodNote: string;
     close: string;
+    indexSubtitle: string;
+    segReviewsApps: (reviews: number, apps: number) => string;
+    segClassified: string;
+    segPending: string;
+    backToIndex: string;
+    stubHeading: string;
+    stubNote: string;
   };
   deck: { prev: string; next: string };
   card: {
@@ -259,6 +266,14 @@ const DICT: Record<Locale, Dict> = {
       evidenceShownOf: (shown, total) => `Showing ${shown} of ${total}`,
       evidenceMethodNote: "Matched by meaning — the highlighted phrase is the exact quote that earned the label.",
       close: "Close",
+      indexSubtitle: "Every segment we collect, with the real review pile behind it. The labeled ones open into a needs gap; the rest are stubs until they're classified.",
+      segReviewsApps: (reviews, apps) =>
+        `${reviews.toLocaleString("en-US")} reviews across ${apps} ${apps === 1 ? "app" : "apps"}`,
+      segClassified: "Classified",
+      segPending: "Not yet classified",
+      backToIndex: "All segments",
+      stubHeading: "Not classified yet",
+      stubNote: "We've collected the reviews for this segment but haven't labeled them by meaning yet. Once they're classified, the needs gap shows up here.",
     },
     deck: { prev: "Previous", next: "Next" },
     card: {
@@ -477,6 +492,22 @@ const DICT: Record<Locale, Dict> = {
       evidenceShownOf: (shown, total) => `Показано ${shown} из ${total}`,
       evidenceMethodNote: "Совпадение по смыслу — подсвеченная фраза это точная цитата, на которой основана метка.",
       close: "Закрыть",
+      indexSubtitle: "Все собранные сегменты и реальная стопка отзывов под каждым. Размеченные открываются в разрыв потребностей; остальные — заглушки, пока не разметим.",
+      segReviewsApps: (reviews, apps) => {
+        const pl = (n: number, forms: [string, string, string]) => {
+          const m10 = n % 10;
+          const m100 = n % 100;
+          if (m10 === 1 && m100 !== 11) return forms[0];
+          if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return forms[1];
+          return forms[2];
+        };
+        return `${reviews.toLocaleString("ru-RU")} ${pl(reviews, ["отзыв", "отзыва", "отзывов"])} по ${apps} ${pl(apps, ["приложению", "приложениям", "приложениям"])}`;
+      },
+      segClassified: "Размечено",
+      segPending: "Пока не размечено",
+      backToIndex: "Все сегменты",
+      stubHeading: "Пока не размечено",
+      stubNote: "Отзывы для этого сегмента собраны, но ещё не размечены по смыслу. Как только разметим — разрыв потребностей появится здесь.",
     },
     deck: { prev: "Назад", next: "Вперёд" },
     card: {
