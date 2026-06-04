@@ -27,7 +27,7 @@ export default async function Home({
   if (!seg) {
     const cards = await getSegmentCards(locale);
     return (
-      <main className="mx-auto max-w-4xl overflow-x-clip px-4 py-10">
+      <main className="mx-auto w-full max-w-4xl overflow-x-clip px-4 py-10">
         <Header
           size="L"
           as="h1"
@@ -48,7 +48,7 @@ export default async function Home({
   const [view, apps] = await Promise.all([getNeedsGap(seg, locale), getSegmentApps(seg, locale)]);
 
   return (
-    <main className="mx-auto max-w-4xl overflow-x-clip px-4 py-6">
+    <main className="mx-auto w-full max-w-4xl overflow-x-clip px-4 py-6">
       <div className="mb-4">
         <Link
           href="/"

@@ -70,7 +70,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
   ].filter(Boolean);
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-8">
+    <main className="mx-auto w-full max-w-4xl px-4 py-8">
       <BackLink fallback="/" className={cn(buttonVariants({ variant: "ghost", size: "S" }), "mb-6")}>
         {tr.nav.back}
       </BackLink>
