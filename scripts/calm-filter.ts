@@ -1,19 +1,27 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
-// Pre-filter the raw Calm review dump before qualitative extraction. The goal
-// is to drop reviews that physically cannot carry an insight (too short, exact
-// duplicates, pure rage with no content) WITHOUT discarding anything ambiguous.
-// The extract LLM gets the survivors and decides per-review whether to emit.
+// Pre-filter the raw Calm review dump before qualitative extraction. Drops
+// reviews that physically cannot carry an insight (too short, exact dupes,
+// pure rage with no content) WITHOUT discarding anything ambiguous. The
+// extract LLM gets the survivors and decides per-review whether to emit.
 //
-// Conservative on purpose: false negatives here are real lost signal, false
-// positives just cost a few extract calls. Lean toward keeping.
+// Modes (positional second arg):
+//   - "<N>"      : keep latest N reviews after filter (e.g. "1000")
+//   - "days=<D>" : keep only reviews from the last D days
+//   - omitted    : keep everything that passes the noise filter
 //
-// Usage: npx tsx scripts/calm-filter.ts <productId>
+// Usage: npx tsx scripts/calm-filter.ts <productId> [N | days=D]
 
 const PRODUCT_ID = process.argv[2];
-const DAYS = process.argv[3] ? Number(process.argv[3]) : null;
+const MODE = process.argv[3] ?? null;
+let LATEST_N: number | null = null;
+let DAYS: number | null = null;
+if (MODE) {
+  if (MODE.startsWith("days=")) DAYS = Number(MODE.slice(5));
+  else LATEST_N = Number(MODE);
+}
 if (!PRODUCT_ID) {
-  console.error("usage: calm-filter.ts <productId> [days]");
+  console.error("usage: calm-filter.ts <productId> [N | days=D]");
   process.exit(1);
 }
 
@@ -74,8 +82,18 @@ function main() {
     if (score(r) > score(existing)) byText.set(key, r);
   }
 
-  const filtered = [...byText.values()];
+  let filtered = [...byText.values()];
   console.log(`after dedup + min-length + noise filter${cutoff ? " + time window" : ""}: ${filtered.length}`);
+
+  if (LATEST_N) {
+    filtered.sort((a, b) => {
+      const ta = a.postedAt ? new Date(a.postedAt).getTime() : 0;
+      const tb = b.postedAt ? new Date(b.postedAt).getTime() : 0;
+      return tb - ta;
+    });
+    filtered = filtered.slice(0, LATEST_N);
+    console.log(`after latest-${LATEST_N} cap: ${filtered.length}`);
+  }
 
   // Rating distribution after filter
   const by = [1, 2, 3, 4, 5].map((n) => ({ rating: n, count: filtered.filter((r) => r.rating === n).length }));
