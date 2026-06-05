@@ -1,102 +1,31 @@
-import { notFound } from "next/navigation";
-import Link from "next/link";
 import { Header } from "@saverin/ui-web";
-import { getNeedsGap } from "@/lib/needsGap";
-import { getSegmentCards, getSegmentApps } from "@/lib/segmentCards";
-import { getSegmentBySlug } from "@/lib/segments";
-import { getSegmentInsights } from "@/lib/segmentInsights";
-import { prisma } from "@/lib/prisma";
+import { getSegmentCards } from "@/lib/segmentCards";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
-import NeedsGap from "@/components/NeedsGap";
 import SegmentCards from "@/components/SegmentCards";
-import SegmentApps from "@/components/SegmentApps";
-import SegmentInsightGap from "@/components/SegmentInsightGap";
 
 export const dynamic = "force-dynamic";
 
-// The home page is a directory of the classified segments. ?seg=<slug> drills
-// into one: the per-app negativity strip plus the segment-wide needs gap, both
-// scored from reviews labeled by meaning. Unknown slugs 404.
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ seg?: string }>;
-}) {
+// Directory of classified segments. Each card links to /segment/<slug>.
+// The legacy /?seg=<slug> querystring is gone — segment pages are now
+// proper /segment/<slug> routes.
+export default async function Home() {
   const locale = await getLocale();
   const tr = t(locale);
-  const { seg } = await searchParams;
-
-  if (!seg) {
-    const cards = await getSegmentCards(locale);
-    return (
-      <main className="mx-auto w-full max-w-4xl overflow-x-clip px-4 py-10">
-        <Header
-          size="L"
-          as="h1"
-          className="mb-3 items-center text-center"
-          title={tr.market2.title}
-          description={<span className="mx-auto block max-w-2xl">{tr.market2.indexSubtitle}</span>}
-        />
-        <div className="mt-8">
-          <SegmentCards cards={cards} locale={locale} />
-        </div>
-      </main>
-    );
-  }
-
-  const segment = getSegmentBySlug(seg, locale);
-  if (!segment) notFound();
-
-  // Qualitative-extraction path takes priority over taxonomy classification:
-  // if the segment has an authored insight-meta-themes mapping, render that.
-  // The needs-gap (taxonomy) view is the fallback for segments not yet
-  // through the insights pipeline.
-  const products = await prisma.product.findMany({
-    where: { id: { in: segment.appIds } },
-    select: { id: true, name: true, icon: true },
-  });
-  const nameById = new Map(products.map((p) => [p.id, p.name]));
-  const iconById = new Map(products.map((p) => [p.id, p.icon]));
-  const insightView = getSegmentInsights(seg, segment.appIds, nameById, iconById, locale);
-
-  const [view, apps] = await Promise.all([
-    insightView ? Promise.resolve(null) : getNeedsGap(seg, locale),
-    getSegmentApps(seg, locale),
-  ]);
+  const cards = await getSegmentCards(locale);
 
   return (
-    <main className="mx-auto w-full max-w-[640px] overflow-x-clip px-4 py-6">
-      <div className="mb-4">
-        <Link
-          href="/"
-          className="text-[13px] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
-        >
-          ← {tr.market2.backToIndex}
-        </Link>
-      </div>
+    <main className="mx-auto w-full max-w-4xl overflow-x-clip px-4 py-10">
       <Header
         size="L"
         as="h1"
-        className="mb-5 items-center text-center"
-        title={segment.name}
-        description={<span className="mx-auto block max-w-2xl">{tr.market2.subtitle}</span>}
+        className="mb-3 items-center text-center"
+        title={tr.market2.title}
+        description={<span className="mx-auto block max-w-2xl">{tr.market2.indexSubtitle}</span>}
       />
-
-      {apps.length > 0 && <SegmentApps apps={apps} locale={locale} />}
-
-      {insightView ? (
-        <SegmentInsightGap view={insightView} locale={locale} />
-      ) : view ? (
-        <NeedsGap view={view} locale={locale} />
-      ) : (
-        <div className="mt-8 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-8 text-center">
-          <Header size="S" as="h2" className="items-center" title={tr.market2.stubHeading} />
-          <p className="mx-auto mt-2 max-w-md text-[14px] text-[var(--color-text-secondary)]">
-            {tr.market2.stubNote}
-          </p>
-        </div>
-      )}
+      <div className="mt-8">
+        <SegmentCards cards={cards} locale={locale} />
+      </div>
     </main>
   );
 }

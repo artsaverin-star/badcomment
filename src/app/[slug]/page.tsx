@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Card, Header, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
 import { getProductInsights, THEME_LABEL, THEME_ORDER } from "@/lib/insights";
+import { getProductIdBySlug } from "@/lib/appSlugs";
 import { formatCount } from "@/lib/format";
 import { t, categoryLabelL } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
@@ -12,10 +13,10 @@ export const dynamic = "force-dynamic";
 
 const STORE_LABEL: Record<string, string> = { google: "Google Play", apple: "App Store" };
 
-// Same visual chassis as /product/[id]: hero card, needs list, histogram side.
-// The only difference is the SOURCE of the needs — qualitative extraction
-// (mechanism-level observations) instead of tag-aggregation (commodity buckets).
-// Page reads at the same density as the classical view; no prose blocks.
+// Canonical app insights page. Slug-based URLs (/calm, /headspace, …) keep
+// the path readable; the slug→productId map lives in src/data/app-slugs.json.
+// Unknown slugs 404 — this catch-all route handles every top-level path that
+// isn't claimed by a static folder.
 
 function Histogram({ hist }: { hist: Record<string, number> }) {
   const rows = [5, 4, 3, 2, 1];
@@ -47,8 +48,11 @@ function Histogram({ hist }: { hist: Record<string, number> }) {
   );
 }
 
-export default async function ProductInsightsPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function AppInsightsPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const id = getProductIdBySlug(slug);
+  if (!id) notFound();
+
   const locale = await getLocale();
   const tr = t(locale);
   const [data, insights] = await Promise.all([getProductDetail(id, locale), Promise.resolve(getProductInsights(id))]);
@@ -72,7 +76,7 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
 
   return (
     <main className="mx-auto w-full max-w-4xl px-4 py-8">
-      <BackLink fallback={`/product/${id}`} className={cn(buttonVariants({ variant: "ghost", size: "S" }), "mb-6")}>
+      <BackLink fallback="/" className={cn(buttonVariants({ variant: "ghost", size: "S" }), "mb-6")}>
         {tr.nav.back}
       </BackLink>
 
@@ -111,7 +115,6 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
                 </Tag>
               ))}
             </div>
-
           </div>
 
           {insights && (

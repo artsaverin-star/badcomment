@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import { t, type Locale } from "@/lib/i18n";
+import { getSlugByProductId } from "@/lib/appSlugs";
 import type { SegmentApp } from "@/lib/segmentCards";
 
 export default function SegmentApps({ apps, locale }: { apps: SegmentApp[]; locale: Locale }) {
@@ -15,7 +16,7 @@ export default function SegmentApps({ apps, locale }: { apps: SegmentApp[]; loca
         {apps.map((a) => (
           <Link
             key={a.id}
-            href={`/product/${a.id}`}
+            href={getSlugByProductId(a.id) ? `/${getSlugByProductId(a.id)}` : `/`}
             className="flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1 pl-1 pr-2.5 transition-colors hover:border-[var(--color-text-tertiary)]"
           >
             {a.icon ? (

@@ -9,7 +9,7 @@ export default function SegmentCards({ cards, locale }: { cards: SegmentCard[]; 
       {cards.map((c) => (
         <Link
           key={c.slug}
-          href={`/?seg=${c.slug}`}
+          href={`/segment/${c.slug}`}
           className="flex flex-col gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 transition-colors hover:border-[var(--color-text-tertiary)]"
         >
           {c.icons.length > 0 && (

@@ -1,6 +1,7 @@
 import { Header } from "@saverin/ui-web";
 import Link from "next/link";
 import { t, type Locale } from "@/lib/i18n";
+import { getSlugByProductId } from "@/lib/appSlugs";
 import type { SegmentInsightsView, SegmentInsightTheme } from "@/lib/segmentInsights";
 
 // Cross-app "Top problems" view powered by the qualitative-extraction insights
@@ -67,7 +68,7 @@ function ThemeRow({ theme, max, locale }: { theme: SegmentInsightTheme; max: num
               {theme.apps.map((a) => (
                 <Link
                   key={a.productId}
-                  href={`/product/${a.productId}/insights`}
+                  href={getSlugByProductId(a.productId) ? `/${getSlugByProductId(a.productId)}` : "/"}
                   className="flex items-start gap-2.5 rounded-[var(--radius-md)] px-2 py-1.5 transition-colors hover:bg-[var(--color-bg-muted)]"
                 >
                   {a.appIcon ? (
