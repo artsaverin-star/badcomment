@@ -18,30 +18,20 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-export default function InsightRow({ insight, max }: { insight: Insight; max: number }) {
+export default function InsightRow({ insight }: { insight: Insight; max: number }) {
   const ref = useRef<HTMLDialogElement>(null);
-  const pct = Math.max(3, Math.round((insight.evidence.length / max) * 100));
 
   return (
     <>
       <button
         type="button"
         onClick={() => ref.current?.showModal()}
-        className="flex w-full flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
+        className="flex w-full flex-col gap-1 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
       >
         <span className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
           <span className="text-[15px] font-semibold text-[var(--color-text-primary)]">{insight.title}</span>
           <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
             {insight.evidence.length} {insight.evidence.length === 1 ? "наблюдение" : "наблюдений"}
-          </span>
-        </span>
-
-        <span className="mt-0.5 flex items-center gap-2">
-          <span className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
-            <span
-              className="block h-full rounded-full"
-              style={{ width: `${pct}%`, background: "var(--color-accent-danger)" }}
-            />
           </span>
         </span>
       </button>
