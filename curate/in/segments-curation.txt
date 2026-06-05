@@ -1,0 +1,6709 @@
+You are auditing a list of 100 app-store-review research categories with 962 unique apps. The list was authored quickly off-the-top-of-head and needs curation. Your job is to produce a cleaner, more research-valuable structure.
+
+GOAL
+We're collecting negative app-store reviews and extracting product-level insights. We need:
+1. The CORRECT category boundaries (not too many, not redundant, mappable to real product domains).
+2. Per category, the BEST apps to analyze — deduplicated (same brand multi-listed) and biased toward apps likely to yield rich product insights (mainstream / large user base / common pain patterns).
+
+THE PROBLEM (CONCRETE)
+Multi-listing of the same brand. Example in "accounting-software":
+  - Intuit QuickBooks for Business (228 reviews)
+  - QuickBooks Self-Employed (188)
+  - QuickBooks Workforce (127)
+  - QuickBooks Business Accounting (114)
+  - QBSE (98)  ← just an abbreviation
+  - QuickBooks Small Business (75)
+  - QuickBooks Online Accounting (61)
+That's 7 listings for what's basically ONE product line (QuickBooks). Plus 4 Xero listings.
+Similar issues likely in other categories (multi-region/multi-platform/multi-variant of one brand).
+
+YOUR DELIVERABLE — ONE JSON OBJECT
+
+{
+  "merges": [
+    { "into": "<canonical-slug>", "absorb": ["<slug1>", "<slug2>"], "reason": "..." }
+  ],
+  "drops": [
+    { "slug": "<slug>", "reason": "too niche / no signal / not really a category" }
+  ],
+  "renames": [
+    { "slug": "<old>", "newSlug": "<new>", "newRu": "...", "newEn": "...", "reason": "..." }
+  ],
+  "categories": [
+    {
+      "slug": "<existing-or-merged-slug>",
+      "ru": "<russian name>",
+      "en": "<english name>",
+      "kicker": { "ru": "<one-line description, what's actually inside>", "en": "..." },
+      "priority": "high" | "medium" | "low",
+      "priorityReason": "<one line>",
+      "canonicalApps": [
+        {
+          "label": "<the canonical brand/product name>",
+          "ids": ["<dbId>", "<dbId>", ...],  // all DB ids that should consolidate into this one brand
+          "primaryId": "<dbId>",              // the listing to use as the "main"
+          "isLeader": true | false,           // is this a leading app worth deep analysis
+          "rationale": "<why this is the canonical / why these listings collapse>"
+        }
+      ]
+    }
+  ]
+}
+
+CURATION RULES
+
+1. **Within-category dedup**: If 3+ listings share a brand prefix (QuickBooks, Xero, Photo Lab, Picsart) or come from the same developer with very similar names, collapse them into ONE canonicalApp with all ids. Use the highest-review listing as primaryId. Sub-products (e.g. "Workforce" vs "Self-Employed") that target genuinely different use cases CAN stay separate IF distinct enough — but err on the side of merging.
+
+2. **Cross-category merges**: 
+   - "ai-chat" vs "ai-chatbot-assistant" — these are the same domain, merge.
+   - "fitness-workout" vs "gym-fitness-apps" — likely overlap, evaluate.
+   - "books-reading" vs "language-exchange-apps" — likely distinct, don't merge.
+   - "kids-learning" vs "language-kids-apps" — overlap, evaluate.
+   - "finance-personal" vs "budget-tracking-apps" — likely overlap, evaluate.
+   - "smb-invoicing" vs "accounting-software" — likely overlap for the small-biz angle, evaluate.
+   - "ai-face-photo" vs "ai-video-creation" vs "ai-generators" — three flavors of generative AI media, evaluate.
+   - Look for other obvious overlaps. Be honest — if two categories have heavily overlapping apps, merge them.
+
+3. **Drop categories** that are: too small to give signal (under ~3 unique brands after dedup), too niche to matter, or just don't form a coherent product category. Examples: "ticketing-events" (4 apps), "email-apps" (2 apps), "language-exchange-apps" (2 apps), "ai-video-creation" (2 apps). Drop unless they're strategically interesting.
+
+4. **Re-categorize misclassified apps**: Sometimes an app sits in the wrong category. If you see one, note it in canonicalApps with a moved-from note in rationale.
+
+5. **Priority** = how rich the insights will be:
+   - high = mainstream consumer app domain with rich app-store complaint patterns (sleep, fitness, finance, AI, dating, period-tracking)
+   - medium = useful but more niche (HR, specific utilities, specific kids apps)
+   - low = small or contractual (mobile-carrier apps, airline apps, government services, theme parks) — keep but flag
+
+6. **Leaders inside a category**: Mark `isLeader: true` for the 2-5 most insight-valuable apps in each category (large user base, frequent updates, deep product surface area). Keep the others as long-tail.
+
+7. **Aim for ~50-70 final categories** after merges/drops — that's a sweet spot between coverage and signal density. Don't be afraid to merge.
+
+TARGET QUALITY
+- Russian + English names should be precise (not "Apps for X" — just "X").
+- Kicker should describe what's INSIDE the category in one line so a reader knows what kinds of apps they'll see.
+- Don't invent apps not in the input. Only consolidate / re-label / move what's already there.
+
+INPUT FORMAT
+Below is the audit JSON: 100 categories, each with `slug`, `ru` (name), `en` (name), `totalReviews`, and `apps` (array of {id, n=name, d=developer, r=reviewCount}, sorted by reviews desc).
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/curate/out/segments-curation.json
+- Nothing else. No markdown fences, no prose.
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INPUT:
+[
+ {
+  "slug": "scanners-docs",
+  "ru": "Сканеры и документы",
+  "en": "Scanners & documents",
+  "totalReviews": 6355,
+  "apps": [
+   {
+    "id": "cmpst95nk0nh1ug8p5lomigjv",
+    "n": "1Password",
+    "d": "AgileBits Inc.",
+    "r": 470
+   },
+   {
+    "id": "cmpstdm6g0x33ug8p1ahflqrj",
+    "n": "LastPass Password Manager",
+    "d": "LastPass US LP",
+    "r": 325
+   },
+   {
+    "id": "cmpst9x3l0p32ug8psc5cr1d8",
+    "n": "SignNow",
+    "d": "airSlate, Inc.",
+    "r": 318
+   },
+   {
+    "id": "cmps5uznm02skugu7uc0iswnp",
+    "n": "PDF Reader",
+    "d": "Kunshan Shengqichang Electromechanical Equipment",
+    "r": 257
+   },
+   {
+    "id": "cmpst92lb0n9pug8pqsfcca53",
+    "n": "Dashlane Password Manager",
+    "d": "Dashlane",
+    "r": 227
+   },
+   {
+    "id": "cmpsukfb93frlug8p215ix48h",
+    "n": "FAX App",
+    "d": "Municorn",
+    "r": 224
+   },
+   {
+    "id": "cmpsuopb63p4kug8pjjxr5i4h",
+    "n": "PDF Editor ®",
+    "d": "SMM service, s.r.o.",
+    "r": 212
+   },
+   {
+    "id": "cmpst8ccj0lp2ug8pqshen0wi",
+    "n": "Docusign",
+    "d": "Docusign",
+    "r": 208
+   },
+   {
+    "id": "cmpsy8oa30qxwughvb3i8k2e0",
+    "n": "NordPass Password Manager",
+    "d": "Nord Security",
+    "r": 204
+   },
+   {
+    "id": "cmpst8tyb0mrsug8pfp31kndh",
+    "n": "Listen AI",
+    "d": "Deep Flow Apps",
+    "r": 203
+   },
+   {
+    "id": "cmpsy0aj60975ughvg9fx4459",
+    "n": "Printer App & Document Scanner",
+    "d": "FIRE Ltd",
+    "r": 200
+   },
+   {
+    "id": "cmpsuq32g3s2rug8pszql8f2b",
+    "n": "Scan Hero",
+    "d": "Mosaic S.r.l.",
+    "r": 199
+   },
+   {
+    "id": "cmpstd50o0w4hug8pdwvgystc",
+    "n": "PDF Expert",
+    "d": "Readdle Technologies Limited",
+    "r": 194
+   },
+   {
+    "id": "cmpsy32o20f0aughvbtmerkax",
+    "n": "NaturalReader",
+    "d": "Naturalsoft Limited",
+    "r": 183
+   },
+   {
+    "id": "cmpsukwy13gszug8phaiideen",
+    "n": "FaxFree",
+    "d": "BPMobile",
+    "r": 182
+   },
+   {
+    "id": "cmpszjf2q3fdkughv2rccdang",
+    "n": "Fill and Sign Docs",
+    "d": "Glykka LLC (dba SignEasy)",
+    "r": 180
+   },
+   {
+    "id": "cmpstjopy1aauug8pbemsdhy4",
+    "n": "Photo Scan App by Photomyne",
+    "d": "Photomyne Ltd.",
+    "r": 175
+   },
+   {
+    "id": "cmpsuovk83pglug8psu9x2ivt",
+    "n": "Scanner",
+    "d": "Luni",
+    "r": 165
+   },
+   {
+    "id": "cmpsy7lml0otvughvssv7q9uf",
+    "n": "PDF Maker",
+    "d": "Battery Stats Saver",
+    "r": 164
+   },
+   {
+    "id": "cmpsuryzm3w7tug8phsicain4",
+    "n": "pdfFiller",
+    "d": "airSlate, Inc.",
+    "r": 163
+   },
+   {
+    "id": "cmpsuqojd3tdtug8pcinvak25",
+    "n": "Fax.Plus",
+    "d": "Alohi",
+    "r": 160
+   },
+   {
+    "id": "cmpszgolu39jsughveeedcddt",
+    "n": "iFax",
+    "d": "Crowded Road",
+    "r": 152
+   },
+   {
+    "id": "cmpst4kus0flyug8pxs60cmmd",
+    "n": "iScanner",
+    "d": "BPMobile",
+    "r": 148
+   },
+   {
+    "id": "cmpsulhqq3i33ug8pxwfhk10z",
+    "n": "Tiny Scanner",
+    "d": "TinyWork Apps",
+    "r": 144
+   },
+   {
+    "id": "cmpsuk3i23f1fug8pfonodlac",
+    "n": "FAX from iPhone",
+    "d": "DevMeApp",
+    "r": 134
+   },
+   {
+    "id": "cmpsy5d840jwvughvc812eup1",
+    "n": "PDF Reader & Editor",
+    "d": "Apryse Software Inc.",
+    "r": 132
+   },
+   {
+    "id": "cmpsuls2u3iprug8prt2fp8f3",
+    "n": "ScanGuru",
+    "d": "GM UniverseApps Limited",
+    "r": 121
+   },
+   {
+    "id": "cmpst8vlb0mw3ug8pw2j6m41z",
+    "n": "PDF Converter",
+    "d": "Minimodev Technologies LTD",
+    "r": 116
+   },
+   {
+    "id": "cmpst8s7n0mntug8p0ju6au84",
+    "n": "Word Document",
+    "d": "iKame Applications - Begamob Global",
+    "r": 112
+   },
+   {
+    "id": "cmpsupivz3qwoug8p1c0s4x4x",
+    "n": "Tiny Fax",
+    "d": "TinyWork Apps",
+    "r": 100
+   },
+   {
+    "id": "cmpsus8js3ws2ug8pkp9omqnf",
+    "n": "iFax App Send Fax From iPhone",
+    "d": "Crowded Road",
+    "r": 90
+   },
+   {
+    "id": "cmpszkn9a3i1aughv88o8qai7",
+    "n": "Simple Scan",
+    "d": "Easy inc.",
+    "r": 75
+   },
+   {
+    "id": "cmpsupd643qjvug8p5s66yftn",
+    "n": "FAX from iPhone・Send & Receive",
+    "d": "Plekmin Trade, S.L.",
+    "r": 69
+   },
+   {
+    "id": "cmpsy810c0pqmughv68gh03q0",
+    "n": "PDF Document Scanner",
+    "d": "Fan Technology Limited",
+    "r": 64
+   },
+   {
+    "id": "cmpsumcfw3jxkug8p4ws1r8qy",
+    "n": "Scan to PDF－Document Scanner",
+    "d": "Scanner App PDF Tool",
+    "r": 63
+   },
+   {
+    "id": "cmpsur5223uemug8piiy0sib4",
+    "n": "MobiOffice・Word Docs・Excel・PDF",
+    "d": "MobiSystems, Inc.",
+    "r": 58
+   },
+   {
+    "id": "cmpszi3gs3cimughvu9vkw293",
+    "n": "FAX",
+    "d": "Dingtone Phone",
+    "r": 50
+   },
+   {
+    "id": "cmpstbs1m0t6xug8pbjudi1pc",
+    "n": "Office Word",
+    "d": "BEGAMOB GLOBAL LIMITED",
+    "r": 46
+   },
+   {
+    "id": "cmpsy5vsv0kz9ughvxcrom3jo",
+    "n": "Mobi PDF・Editor・Scanner・Reader",
+    "d": "MobiSystems",
+    "r": 38
+   },
+   {
+    "id": "cmpsulmyr3idkug8pvzqsp303",
+    "n": "Scanner App. JPG, Photo to PDF",
+    "d": "Municorn Limited",
+    "r": 17
+   },
+   {
+    "id": "cmpsunufj3n67ug8pudqdsjyd",
+    "n": "Scanner Pro・Scan PDF Documents",
+    "d": "Readdle Technologies Limited",
+    "r": 13
+   }
+  ]
+ },
+ {
+  "slug": "photo-editors",
+  "ru": "Фоторедакторы",
+  "en": "Photo editors",
+  "totalReviews": 5610,
+  "apps": [
+   {
+    "id": "cmpsthyjx16ksug8pvnogezy0",
+    "n": "Tezza",
+    "d": "Tezza App LLC",
+    "r": 454
+   },
+   {
+    "id": "cmpsth7ra1505ug8pgcfe6317",
+    "n": "VSCO",
+    "d": "Visual Supply Company",
+    "r": 418
+   },
+   {
+    "id": "cmpstg3zb12n1ug8ps7b6w6nq",
+    "n": "Facetune",
+    "d": "Lightricks Ltd.",
+    "r": 407
+   },
+   {
+    "id": "cmpstj6rl1982ug8pe84vfpah",
+    "n": "Meitu- AI Photo & Video Editor",
+    "d": "Xiamen Meitu Technology Co., Ltd.",
+    "r": 346
+   },
+   {
+    "id": "cmpstilms17xxug8polgu6vyn",
+    "n": "YouCam Makeup",
+    "d": "PERFECT MOBILE CORP.",
+    "r": 283
+   },
+   {
+    "id": "cmpsyedbu139sughvay108cmv",
+    "n": "BeautyCam-AI Photo Editor",
+    "d": "Xiamen Meitu Technology Co., Ltd.",
+    "r": 274
+   },
+   {
+    "id": "cmpsthi4v15mdug8piivmijf8",
+    "n": "Remini",
+    "d": "Bending Spoons Apps ApS",
+    "r": 263
+   },
+   {
+    "id": "cmpstjsgc1aiqug8pqvggnrcu",
+    "n": "YouCam Perfect",
+    "d": "PERFECT MOBILE CORP.",
+    "r": 262
+   },
+   {
+    "id": "cmpstgszt145zug8parq697ek",
+    "n": "Airbrush",
+    "d": "PIXOCIAL TECHNOLOGY (SINGAPORE) PTE. LTD.",
+    "r": 256
+   },
+   {
+    "id": "cmps5xhoa08wiugu7dtivpqom",
+    "n": "Pix Editor",
+    "d": "Signature EXP",
+    "r": 251
+   },
+   {
+    "id": "cmpsthv0e16dcug8psrra81jh",
+    "n": "PicCollage",
+    "d": "Cardinal Blue",
+    "r": 245
+   },
+   {
+    "id": "cmpstfvqf124kug8prkzqz96z",
+    "n": "Photoroom",
+    "d": "Photoroom",
+    "r": 221
+   },
+   {
+    "id": "cmpstn5ys1hxwug8phu9c9yjc",
+    "n": "Persona",
+    "d": "Ticket To The Moon, Inc.",
+    "r": 215
+   },
+   {
+    "id": "cmpstn4bk1htlug8pxmenijb2",
+    "n": "Luminar",
+    "d": "Skylum Software",
+    "r": 205
+   },
+   {
+    "id": "cmpstlhvm1e9aug8prm4qceyh",
+    "n": "Fotor–AI Photo Editor&Enhancer",
+    "d": "AI Art Photo Editor | Everimaging Ltd.",
+    "r": 204
+   },
+   {
+    "id": "cmpsyf67v14zfughvk6yu0lzf",
+    "n": "Photoleap",
+    "d": "Lightricks Ltd.",
+    "r": 174
+   },
+   {
+    "id": "cmpsyhncw1a18ughvs0nnmb30",
+    "n": "Artplay",
+    "d": "Hideaway Technology Limited",
+    "r": 150
+   },
+   {
+    "id": "cmpstljnb1edhug8p47x0swmv",
+    "n": "AI Photo Editor",
+    "d": "Magic Photo Collage & Photo Editor - CollageArt",
+    "r": 142
+   },
+   {
+    "id": "cmpstjfi219rjug8p6hnu50ty",
+    "n": "BeautyPlus-Selfie Photo Editor",
+    "d": "PIXOCIAL TECHNOLOGY (SINGAPORE) PTE. LTD.",
+    "r": 121
+   },
+   {
+    "id": "cmpsyjf2k1dpfughv46y1ar9b",
+    "n": "Photo Editor by BeFunky",
+    "d": "BeFunky",
+    "r": 112
+   },
+   {
+    "id": "cmpsyepzb13zaughvjhps0ods",
+    "n": "PrettyUp-Portrait Editor Video",
+    "d": "Pixl Concerto Technology Limited",
+    "r": 86
+   },
+   {
+    "id": "cmpsygzg518nxughvysvq2uzf",
+    "n": "Photo Eraser",
+    "d": "AI Photo Editor Lab SRL",
+    "r": 68
+   },
+   {
+    "id": "cmpstmrqv1h0iug8p0dmfish9",
+    "n": "Photo Collage",
+    "d": "IRONTECH LIMITED",
+    "r": 67
+   },
+   {
+    "id": "cmpsyf4el14vuughvael74147",
+    "n": "Cut and Paste Photo Editor",
+    "d": "Daily Joy Studio",
+    "r": 64
+   },
+   {
+    "id": "cmpsygqua187yughv51750csz",
+    "n": "Retouch Me",
+    "d": "Good Retouch LP",
+    "r": 53
+   },
+   {
+    "id": "cmpsygi6g17olughv2ry2pllc",
+    "n": "Photo Retouch-Object Removal",
+    "d": "Shenzhen Tushi Technology Co.,Ltd",
+    "r": 51
+   },
+   {
+    "id": "cmpstj0ut18vsug8pmc7lvpd2",
+    "n": "Photo Collage Maker PicJointer",
+    "d": "Mosaic S.r.l.",
+    "r": 48
+   },
+   {
+    "id": "cmpsydga7118zughvn256gvmx",
+    "n": "Perfect365 Makeup Photo Editor",
+    "d": "Perfect365, Inc.",
+    "r": 47
+   },
+   {
+    "id": "cmpsyem1413qeughvq0xawl65",
+    "n": "Glowify",
+    "d": "Flarial Interactive",
+    "r": 46
+   },
+   {
+    "id": "cmpstma101fy4ug8pnushj3tz",
+    "n": "Wink",
+    "d": "Xiamen Meitu Technology Co., Ltd.",
+    "r": 41
+   },
+   {
+    "id": "cmpstkj2h1c5bug8pzo98okg5",
+    "n": "Collage Maker",
+    "d": "Photo Editor & Collage Maker",
+    "r": 36
+   }
+  ]
+ },
+ {
+  "slug": "ai-generators",
+  "ru": "ИИ-генераторы фото и видео",
+  "en": "AI photo & video generators",
+  "totalReviews": 1673,
+  "apps": [
+   {
+    "id": "cmpst9rzj0orbug8pd4j8zd6z",
+    "n": "Runway ML",
+    "d": "runwayml",
+    "r": 407
+   },
+   {
+    "id": "cmpstgamq132bug8plwrvntz4",
+    "n": "AI Video",
+    "d": "HUBX",
+    "r": 271
+   },
+   {
+    "id": "cmpstlxvm1f93ug8pyxtbzt4h",
+    "n": "Photify AI",
+    "d": "Ex-human, Inc",
+    "r": 260
+   },
+   {
+    "id": "cmpsyge8017gdughvuamwxo1a",
+    "n": "invideo AI",
+    "d": "Invideo Inc",
+    "r": 131
+   },
+   {
+    "id": "cmpsyf0lm14oiughv9g03sdge",
+    "n": "VideoGPT",
+    "d": "ElevenThirteen LLC",
+    "r": 105
+   },
+   {
+    "id": "cmpsygvul18g5ughvgc32bol7",
+    "n": "AI Catch",
+    "d": "Prominent Fortune PTE. LTD",
+    "r": 104
+   },
+   {
+    "id": "cmpsyinzf1c4vughvi2k7tq7x",
+    "n": "Pixelup",
+    "d": "Codeway Dijital",
+    "r": 100
+   },
+   {
+    "id": "cmpsyj9pv1ddsughvpce91rm6",
+    "n": "AI Image Generator & AI Video",
+    "d": "VIDEOSHOW Video Editor & Maker & AI Chat Generator",
+    "r": 90
+   },
+   {
+    "id": "cmpstl2nv1d9zug8pp51gzlqj",
+    "n": "AI Photo Video Editor, Enhance",
+    "d": "COOL SUMMER LIMITED",
+    "r": 78
+   },
+   {
+    "id": "cmpstn2ed1hpcug8pyu83qfie",
+    "n": "HeyGen",
+    "d": "HeyGen Technology Inc",
+    "r": 68
+   },
+   {
+    "id": "cmpsyfvg716acughvii9e9g5n",
+    "n": "ReelMe AI",
+    "d": "TPC INVEST PTE.LTD",
+    "r": 59
+   }
+  ]
+ },
+ {
+  "slug": "ai-chat",
+  "ru": "ИИ-чаты и ассистенты",
+  "en": "AI chat & assistants",
+  "totalReviews": 4663,
+  "apps": [
+   {
+    "id": "cmpszd9hm32amughvj7l1l5qu",
+    "n": "Character AI",
+    "d": "Character.AI",
+    "r": 545
+   },
+   {
+    "id": "cmpsz9vwn2v52ughvf1e10nr7",
+    "n": "Chai",
+    "d": "Chai Research Corp.",
+    "r": 501
+   },
+   {
+    "id": "cmpst4o4i0ft0ug8p4o09rd4d",
+    "n": "Perplexity",
+    "d": "Perplexity AI, Inc.",
+    "r": 405
+   },
+   {
+    "id": "cmpsuj3dg3ct1ug8p16fys2on",
+    "n": "PolyBuzz",
+    "d": "CLOUD WHALE INTERACTIVE TECHNOLOGY LLC.",
+    "r": 384
+   },
+   {
+    "id": "cmpstby3p0tj0ug8pk4adq181",
+    "n": "Chatbot AI Assistant",
+    "d": "APPNATION YAZILIM HIZMETLERI TICARET ANONIM SIRKETI",
+    "r": 324
+   },
+   {
+    "id": "cmpsu1vcg2djhug8p66kz69a1",
+    "n": "Replika",
+    "d": "Luka, Inc",
+    "r": 308
+   },
+   {
+    "id": "cmpszooar3qteughvx20vyfpn",
+    "n": "Linky AI",
+    "d": "SKYWORK AI PTE LTD",
+    "r": 295
+   },
+   {
+    "id": "cmpsta9v00ptxug8pgg465pok",
+    "n": "Wispr Flow",
+    "d": "Wispr AI, Inc.",
+    "r": 288
+   },
+   {
+    "id": "cmpsuiqhy3c1yug8p3qm76lct",
+    "n": "Tipsy Chat",
+    "d": "LIGHTSPEED INTELLIGENCE LTD",
+    "r": 205
+   },
+   {
+    "id": "cmpst88yi0lh2ug8p2d893z4g",
+    "n": "Chatbot AI",
+    "d": "Appsolut Limited",
+    "r": 199
+   },
+   {
+    "id": "cmpst8qjl0mjcug8pf9rvvfs4",
+    "n": "ChatOn",
+    "d": "AIBY Inc.",
+    "r": 177
+   },
+   {
+    "id": "cmpst6ta20iinug8p8k1b25z1",
+    "n": "Chat AI",
+    "d": "DEEP FLOW SOFTWARE SERVICES",
+    "r": 162
+   },
+   {
+    "id": "cmpst8aso0llbug8pex8ah9og",
+    "n": "Grammarly-AI Writing Assistant",
+    "d": "Grammarly, Inc.",
+    "r": 148
+   },
+   {
+    "id": "cmpszcgaq30kfughvpq0sdg0e",
+    "n": "zeta",
+    "d": "Scatter Lab, Inc.",
+    "r": 141
+   },
+   {
+    "id": "cmpstpcww1mo8ug8pweb9qlcu",
+    "n": "Gauth",
+    "d": "GAUTHTECH PTE. LTD.",
+    "r": 138
+   },
+   {
+    "id": "cmpszdr3s33duughvrl0bv67c",
+    "n": "Crushie Al",
+    "d": "SoulZ AI Inc.",
+    "r": 136
+   },
+   {
+    "id": "cmpst7s4a0kktug8p375qdod5",
+    "n": "Open Chat",
+    "d": "AceTools Team",
+    "r": 94
+   },
+   {
+    "id": "cmpsy40y10h1oughvk84bmok7",
+    "n": "AI Chatbot & Design Assistant",
+    "d": "SevenSeas AI Studio",
+    "r": 87
+   },
+   {
+    "id": "cmpst6byj0hiyug8pv60anc7d",
+    "n": "Grammarly",
+    "d": "Grammarly, Inc",
+    "r": 70
+   },
+   {
+    "id": "cmpst50ap0gkhug8pw3jfxzx7",
+    "n": "ChatOn AI",
+    "d": "AIBY",
+    "r": 56
+   }
+  ]
+ },
+ {
+  "slug": "video-editors",
+  "ru": "Видеоредакторы",
+  "en": "Video editors",
+  "totalReviews": 1072,
+  "apps": [
+   {
+    "id": "cmpstigdi17n4ug8pra0vigb0",
+    "n": "Prequel",
+    "d": "Prequel Inc.",
+    "r": 186
+   },
+   {
+    "id": "cmpstjdpb19ngug8puhtve8gu",
+    "n": "Captions",
+    "d": "Captions, LLC (US)",
+    "r": 155
+   },
+   {
+    "id": "cmpsti5ol1718ug8pbgd98005",
+    "n": "GoPro Quik",
+    "d": "GoPro, Inc.",
+    "r": 141
+   },
+   {
+    "id": "cmpstnglv1ikoug8pk4uwpcs6",
+    "n": "BIGVU Teleprompter Captions AI",
+    "d": "BIGVU INC",
+    "r": 140
+   },
+   {
+    "id": "cmpsy39g90ff6ughvr7grb30l",
+    "n": "Teleprompter.com",
+    "d": "Teleprompter LLC",
+    "r": 125
+   },
+   {
+    "id": "cmpsy8l2b0qqkughvcvymmdb1",
+    "n": "Teleprompter",
+    "d": "App Kitchen",
+    "r": 108
+   },
+   {
+    "id": "cmpsyfs5u1662ughv7hmu6uno",
+    "n": "Video Star",
+    "d": "Frontier Design Group",
+    "r": 80
+   },
+   {
+    "id": "cmpstgr24142cug8p8z7bdefo",
+    "n": "Splice",
+    "d": "Bending Spoons Apps ApS",
+    "r": 69
+   },
+   {
+    "id": "cmps5xmow0981ugu7kgarfvmq",
+    "n": "Video Editor & Maker",
+    "d": "InShot Video Editor",
+    "r": 55
+   },
+   {
+    "id": "cmpstm2x41fl8ug8pri36tli3",
+    "n": "SlideShow Maker Photo to Video",
+    "d": "Mosaic S.r.l.",
+    "r": 13
+   }
+  ]
+ },
+ {
+  "slug": "social-content",
+  "ru": "Контент для соцсетей",
+  "en": "Social media content",
+  "totalReviews": 1527,
+  "apps": [
+   {
+    "id": "cmpsyg5p916xeughvcrgba70s",
+    "n": "Unfold",
+    "d": "Squarespace, Inc.",
+    "r": 366
+   },
+   {
+    "id": "cmpstk5c31bccug8pzs9d98cy",
+    "n": "Instories",
+    "d": "Ylee Studio LTD",
+    "r": 224
+   },
+   {
+    "id": "cmpstmmg51gpjug8p2ns5viom",
+    "n": "PhotoGrid",
+    "d": "JUPITER PALACE PTE. LTD.",
+    "r": 185
+   },
+   {
+    "id": "cmpstkdag1bsgug8pcducauic",
+    "n": "InstaSize",
+    "d": "Instasize, Inc.",
+    "r": 181
+   },
+   {
+    "id": "cmpstiz3f18rhug8porc3w6iv",
+    "n": "PREQUEL AI Filter Photo Editor",
+    "d": "Prequel Inc.",
+    "r": 180
+   },
+   {
+    "id": "cmpsyir4x1cbtughvdqyd3lmx",
+    "n": "InStories AI Reels Story Maker",
+    "d": "Ylee Studio LTD",
+    "r": 98
+   },
+   {
+    "id": "cmpstmbw31g2fug8pb54cb8nr",
+    "n": "Esti",
+    "d": "Prequel Inc.",
+    "r": 93
+   },
+   {
+    "id": "cmpszke353hg7ughvsuuoi3zq",
+    "n": "Manychat",
+    "d": "Manychat",
+    "r": 74
+   },
+   {
+    "id": "cmpsxwvuc01qsughv5zrqse32",
+    "n": "Fonts Art",
+    "d": "AIBY",
+    "r": 72
+   },
+   {
+    "id": "cmpsz4svy2ksfughvbi12jjts",
+    "n": "Roamy",
+    "d": "LOGOS STUDIO INC.",
+    "r": 54
+   }
+  ]
+ },
+ {
+  "slug": "calorie-diet",
+  "ru": "Счётчики калорий и питание",
+  "en": "Calorie & nutrition trackers",
+  "totalReviews": 6335,
+  "apps": [
+   {
+    "id": "cmps5x7v90880ugu7jg5d2emv",
+    "n": "MyFitnessPal",
+    "d": "MyFitnessPal, Inc.",
+    "r": 674
+   },
+   {
+    "id": "cmpstzhsq28dqug8pvj2mqsgu",
+    "n": "BitePal",
+    "d": "Reface Lithuania UAB",
+    "r": 374
+   },
+   {
+    "id": "cmpsyuwwo21oiughv43pnqggi",
+    "n": "Lifesum",
+    "d": "Lifesum",
+    "r": 347
+   },
+   {
+    "id": "cmpsu0fl52ahlug8pjba2xt8g",
+    "n": "Foodvisor",
+    "d": "Foodvisor",
+    "r": 292
+   },
+   {
+    "id": "cmpstz0cp27b0ug8pimi0mkn5",
+    "n": "Weight Watchers Program",
+    "d": "WW INTERNATIONAL, INC",
+    "r": 278
+   },
+   {
+    "id": "cmps5x4x90804ugu78k8599f6",
+    "n": "Cal AI",
+    "d": "Viral Development LLC",
+    "r": 277
+   },
+   {
+    "id": "cmpsyssz91xdkughvls4kvd38",
+    "n": "Yazio",
+    "d": "Yazio",
+    "r": 253
+   },
+   {
+    "id": "cmpstx4rw235xug8ptzkbqfjn",
+    "n": "MacroFactor",
+    "d": "Stronger By Science Technologies LLC",
+    "r": 251
+   },
+   {
+    "id": "cmpsywvkd25vwughvetp64mcg",
+    "n": "Fastic Weight Loss & Fasting",
+    "d": "Fastic GmbH",
+    "r": 241
+   },
+   {
+    "id": "cmpsxyza506dhughvlqd1ic8v",
+    "n": "Print Master",
+    "d": "PHOMEMO PTE. LTD.",
+    "r": 236
+   },
+   {
+    "id": "cmpstz4lp27icug8p06l3fsgd",
+    "n": "BetterMe",
+    "d": "BetterMe Limited",
+    "r": 232
+   },
+   {
+    "id": "cmpstxkrm245wug8pacaz164y",
+    "n": "Cronometer",
+    "d": "Cronometer Software Inc",
+    "r": 227
+   },
+   {
+    "id": "cmpsu8d7z2qvlug8pkrcwptrm",
+    "n": "Eatr・AI Healthy Meal Plan・Diet",
+    "d": "Eatr - MealPlans",
+    "r": 217
+   },
+   {
+    "id": "cmpstx8fg23e3ug8p60xu4ve7",
+    "n": "Calorie Counter by Lose It!",
+    "d": "FitNow, Inc.",
+    "r": 215
+   },
+   {
+    "id": "cmpsyyx7d2a84ughv5bzpel16",
+    "n": "Real Plans",
+    "d": "Holistic Squid, LLC",
+    "r": 208
+   },
+   {
+    "id": "cmpsu0qrs2b5yug8p9x4z13fu",
+    "n": "Liftoff",
+    "d": "GymBros Inc.",
+    "r": 175
+   },
+   {
+    "id": "cmpsu42wk2ia7ug8p3n8pmi4x",
+    "n": "Simple・AI Weight Loss & Health",
+    "d": "Simple.Life Apps Inc",
+    "r": 166
+   },
+   {
+    "id": "cmpsu2nmf2fatug8pmf4sljuu",
+    "n": "Noom Weight Loss, Food Tracker",
+    "d": "Noom, Inc.",
+    "r": 165
+   },
+   {
+    "id": "cmps5wq3406y0ugu7zofy3aib",
+    "n": "Yuka",
+    "d": "Yuca",
+    "r": 163
+   },
+   {
+    "id": "cmpsuc7h12ye3ug8pq5ad9kew",
+    "n": "Eatr",
+    "d": "Eatr",
+    "r": 144
+   },
+   {
+    "id": "cmpsu117u2bt0ug8p66uspa4v",
+    "n": "Weight Loss Walking",
+    "d": "WELLTECH APPS LIMITED",
+    "r": 140
+   },
+   {
+    "id": "cmpsty6x525etug8pikm4qu53",
+    "n": "Lose It!",
+    "d": "FitNow",
+    "r": 127
+   },
+   {
+    "id": "cmpsu0a0i2a5cug8pbyyflqa3",
+    "n": "Calorie Counter & Food Tracker",
+    "d": "Municorn Limited",
+    "r": 126
+   },
+   {
+    "id": "cmpstxod624dmug8p2wnysaeo",
+    "n": "Calorie Counter",
+    "d": "Have a nice day",
+    "r": 122
+   },
+   {
+    "id": "cmpsyy86s28tmughvpmwhx0ij",
+    "n": "RP Diet Coach & Planner",
+    "d": "RP Strength, LLC",
+    "r": 82
+   },
+   {
+    "id": "cmpsu303v2g1gug8pjq3cije7",
+    "n": "Carb Manager–Keto Diet Tracker",
+    "d": "Wombat Apps LLC",
+    "r": 78
+   },
+   {
+    "id": "cmpsyu9np20c1ughv9izaz57m",
+    "n": "MacrosFirst",
+    "d": "MacrosFirst, Inc.",
+    "r": 74
+   },
+   {
+    "id": "cmpsu4ufg2jp3ug8pw94kg43b",
+    "n": "1st Phorm",
+    "d": "First Phorm",
+    "r": 73
+   },
+   {
+    "id": "cmpsyvp0923dgughv5g5xu82u",
+    "n": "Zero",
+    "d": "Zero Longevity Science, Inc.",
+    "r": 66
+   },
+   {
+    "id": "cmpsu8ibv2r6uug8p2cawq7cx",
+    "n": "MealPrepPro Planner & Recipes",
+    "d": "Nibble Apps Ltd",
+    "r": 63
+   },
+   {
+    "id": "cmpsu4q3s2jgzug8pp49rk9jm",
+    "n": "LeanBites",
+    "d": "Chorus Labs LLC (CA)",
+    "r": 63
+   },
+   {
+    "id": "cmpsys1wv1vszughv5eosr9oi",
+    "n": "Fig",
+    "d": "Fig - Food Is Good",
+    "r": 55
+   },
+   {
+    "id": "cmpsu1b6t2cf4ug8pkd0vqu5b",
+    "n": "Bevel",
+    "d": "Finerpoint, Inc",
+    "r": 48
+   },
+   {
+    "id": "cmpsyxvf5282kughv6y7peh73",
+    "n": "Noom",
+    "d": "Noom, Inc.",
+    "r": 43
+   },
+   {
+    "id": "cmpsu3x0j2hxgug8pj3wtwmfk",
+    "n": "Fitia",
+    "d": "Fitia Technologies",
+    "r": 40
+   }
+  ]
+ },
+ {
+  "slug": "fitness-workout",
+  "ru": "Фитнес и тренировки",
+  "en": "Fitness & workouts",
+  "totalReviews": 6781,
+  "apps": [
+   {
+    "id": "cmpstzbd627yeug8pmghq47lu",
+    "n": "Liven",
+    "d": "Chesmint limited",
+    "r": 457
+   },
+   {
+    "id": "cmpstx9x323iaug8p6tz8lnhw",
+    "n": "Runna",
+    "d": "Strava, Inc.",
+    "r": 367
+   },
+   {
+    "id": "cmpsylqaf1if0ughvwo74bygt",
+    "n": "ELSA Speak",
+    "d": "Elsa Corp",
+    "r": 365
+   },
+   {
+    "id": "cmpsyuf1t20mqughvyhyzpiqi",
+    "n": "TrainingPeaks",
+    "d": "Peaksware, LLC",
+    "r": 359
+   },
+   {
+    "id": "cmpsyvlsr235sughv7aeqo335",
+    "n": "Stronglifts 5x5 Workout",
+    "d": "StrongLifts",
+    "r": 312
+   },
+   {
+    "id": "cmpsu2k8y2f2xug8poxrxcfql",
+    "n": "JustFit",
+    "d": "Enerjoy Pte. Ltd.",
+    "r": 269
+   },
+   {
+    "id": "cmps5zdoq0dpiugu7z06x2b9b",
+    "n": "Elevate",
+    "d": "The Mind Company",
+    "r": 252
+   },
+   {
+    "id": "cmpstxdp223qmug8pmfh0p5ue",
+    "n": "Fitbod",
+    "d": "Fitbod",
+    "r": 250
+   },
+   {
+    "id": "cmpsu3d6a2guqug8pwq0edb7f",
+    "n": "Alive by Whitney Simmons",
+    "d": "Whitney Simmons App, LLC",
+    "r": 250
+   },
+   {
+    "id": "cmpsu39r22gmqug8pvzcnv9lq",
+    "n": "Welltory",
+    "d": "Welltory: heart-rate monitor & blood pressure log",
+    "r": 229
+   },
+   {
+    "id": "cmpsu2ecn2eqoug8pj7n84cqy",
+    "n": "MadMuscles",
+    "d": "AMO Apps",
+    "r": 218
+   },
+   {
+    "id": "cmpstyhp2262bug8pkaqnfn5d",
+    "n": "Impulse",
+    "d": "GMRD Apps Limited",
+    "r": 210
+   },
+   {
+    "id": "cmpstwm2921zsug8put543aep",
+    "n": "Jumpspeak",
+    "d": "Rype",
+    "r": 197
+   },
+   {
+    "id": "cmpsysl9c1wxoughvl94t419m",
+    "n": "JEFIT Gym Workout Tracker",
+    "d": "Jefit Inc.",
+    "r": 196
+   },
+   {
+    "id": "cmps5wl6e06mhugu7y51zbipq",
+    "n": "Blood Pressure Log",
+    "d": "Sharon Evans",
+    "r": 194
+   },
+   {
+    "id": "cmps5wmyh06quugu7fo056kwb",
+    "n": "Arise",
+    "d": "Golden Gate Media",
+    "r": 187
+   },
+   {
+    "id": "cmpsylxvx1ivkughvxebprbmr",
+    "n": "AdaptedMind Math",
+    "d": "AdaptedMind",
+    "r": 184
+   },
+   {
+    "id": "cmpsto7ul1k6hug8pghpimgux",
+    "n": "Finelo",
+    "d": "Finelo Limited",
+    "r": 177
+   },
+   {
+    "id": "cmpstzvu3299sug8pftuc6i0m",
+    "n": "Mindbody",
+    "d": "MINDBODY Inc",
+    "r": 175
+   },
+   {
+    "id": "cmpsu0xpx2bm8ug8pjgi4pshy",
+    "n": "Bend",
+    "d": "Bend Health & Fitness, Inc.",
+    "r": 166
+   },
+   {
+    "id": "cmpstpgdv1mviug8pd71cb9q9",
+    "n": "Speak",
+    "d": "Speakeasy Labs",
+    "r": 163
+   },
+   {
+    "id": "cmpsywdop24veughvptg0xeyy",
+    "n": "ZOZOFIT",
+    "d": "ZOZO Apparel USA, Inc.",
+    "r": 162
+   },
+   {
+    "id": "cmpsu4djt2iq8ug8pld6kschh",
+    "n": "StepsApp",
+    "d": "StepsApp",
+    "r": 152
+   },
+   {
+    "id": "cmpsypwtl1rf4ughvhzn03w59",
+    "n": "Vocal Image",
+    "d": "Vocal Image OU",
+    "r": 143
+   },
+   {
+    "id": "cmpsu2i1a2ez0ug8pxuiy9l9q",
+    "n": "Zwift",
+    "d": "Zwift, Inc",
+    "r": 130
+   },
+   {
+    "id": "cmpsts8ii1stuug8ph3mi3aji",
+    "n": "BetterSpeak",
+    "d": "HubX",
+    "r": 126
+   },
+   {
+    "id": "cmpsu4sks2jlcug8pld4q47e1",
+    "n": "Yoga-Go Pilates & Yoga Workout",
+    "d": "WELLTECH APPS LIMITED",
+    "r": 124
+   },
+   {
+    "id": "cmpsym3zw1j7nughvlyvxa8zs",
+    "n": "Fluzy",
+    "d": "Mall Collections",
+    "r": 111
+   },
+   {
+    "id": "cmpsu1etn2cmoug8pnxcjgnrc",
+    "n": "Lyfta",
+    "d": "Lindberg Development AS",
+    "r": 109
+   },
+   {
+    "id": "cmpsu04tp29tvug8p4nzyajlb",
+    "n": "INTVL",
+    "d": "INTVL PTY LTD",
+    "r": 108
+   },
+   {
+    "id": "cmpsu1t982dfgug8p5p4jlv6s",
+    "n": "Gymverse",
+    "d": "FITNESS22 LTD",
+    "r": 107
+   },
+   {
+    "id": "cmpsu25372e6pug8p57psl26h",
+    "n": "WalkFit",
+    "d": "WELLTECH APPS LIMITED",
+    "r": 81
+   },
+   {
+    "id": "cmpsty8m125j0ug8pj48r3246",
+    "n": "Chair Workout",
+    "d": "BLUEBASE",
+    "r": 80
+   },
+   {
+    "id": "cmpsu1rc22db5ug8pyea4jfze",
+    "n": "Nike Run Club",
+    "d": "Nike, Inc.",
+    "r": 71
+   },
+   {
+    "id": "cmpsu2auw2eiiug8pztp59ovz",
+    "n": "RaceJoy",
+    "d": "TriPerta LLC",
+    "r": 38
+   },
+   {
+    "id": "cmpsu3uuy2ht7ug8pwcbs19ja",
+    "n": "SuppCo",
+    "d": "Supple Stack Inc",
+    "r": 31
+   },
+   {
+    "id": "cmpsu4mur2ja3ug8px5by1z8f",
+    "n": "Medbridge GO for Patients",
+    "d": "MedBridge Education LLC",
+    "r": 31
+   }
+  ]
+ },
+ {
+  "slug": "recipes-cooking",
+  "ru": "Рецепты и готовка",
+  "en": "Recipes & cooking",
+  "totalReviews": 5342,
+  "apps": [
+   {
+    "id": "cmpsubb4u2wnzug8pcigwptwe",
+    "n": "Mob",
+    "d": "Mouth Group Limited",
+    "r": 457
+   },
+   {
+    "id": "cmpsz2fy92gdvughvby6dzf3e",
+    "n": "Annabel Karmel Kids Recipes",
+    "d": "Annabel Karmel Group Holdings Limited",
+    "r": 307
+   },
+   {
+    "id": "cmpsu4ydb2jwvug8puqrigf2z",
+    "n": "ReciMe",
+    "d": "ReciMe Pty Ltd",
+    "r": 290
+   },
+   {
+    "id": "cmpsu55ku2kcjug8pxe6e8ec1",
+    "n": "Meal Planner & Recipe Keeper",
+    "d": "Stashcook",
+    "r": 284
+   },
+   {
+    "id": "cmpsu594l2kktug8pp3zdzeoi",
+    "n": "Gronda",
+    "d": "Gronda GmbH",
+    "r": 265
+   },
+   {
+    "id": "cmpsu867r2qg1ug8pf8qu6l69",
+    "n": "Sidekick by Sorted Food",
+    "d": "Sorted Food",
+    "r": 261
+   },
+   {
+    "id": "cmpsucvix2zu0ug8pxgugpy18",
+    "n": "KitchenPal",
+    "d": "iCuisto Pte Ltd",
+    "r": 260
+   },
+   {
+    "id": "cmpsu9m1g2th0ug8pxoq13446",
+    "n": "Mixel",
+    "d": "Cool Font",
+    "r": 235
+   },
+   {
+    "id": "cmpsu66xp2mgxug8pp8ni96tg",
+    "n": "Mealime Meal Plans & Recipes",
+    "d": "Mealime Meal Plans Inc",
+    "r": 230
+   },
+   {
+    "id": "cmpsu79c82on4ug8p20kb33ya",
+    "n": "CookShelf",
+    "d": "CookShelf Inc",
+    "r": 215
+   },
+   {
+    "id": "cmpsudxl231ztug8pqgrxphp5",
+    "n": "Cocktail Flow",
+    "d": "Cocktai Flow",
+    "r": 202
+   },
+   {
+    "id": "cmps5xbf608gcugu7d9fduuyu",
+    "n": "MenuFit",
+    "d": "Kosco Digital LLC",
+    "r": 199
+   },
+   {
+    "id": "cmpsu6si72nmpug8ps1x6dlpr",
+    "n": "Epicurious",
+    "d": "Advance Magazine Publishers Inc.",
+    "r": 188
+   },
+   {
+    "id": "cmpsyx1rk269wughvvlbozdlo",
+    "n": "Centr",
+    "d": "CH Digital Pty Ltd",
+    "r": 188
+   },
+   {
+    "id": "cmpsu5l1v2l9zug8ph1ptlhgc",
+    "n": "Honeydew",
+    "d": "Red Honey LLC",
+    "r": 174
+   },
+   {
+    "id": "cmpsu7w7o2pv8ug8pr6zjwfg4",
+    "n": "Delish",
+    "d": "Hearst Communications, Inc.",
+    "r": 138
+   },
+   {
+    "id": "cmpsu92cy2sfbug8p8kqtrwyt",
+    "n": "Flavorish",
+    "d": "Flavorish",
+    "r": 132
+   },
+   {
+    "id": "cmpsud4re30e7ug8ppjznvvkk",
+    "n": "CookBook",
+    "d": "CookBook Co. Pty Ltd",
+    "r": 130
+   },
+   {
+    "id": "cmpsu5yzp2m0hug8pkljz5ewt",
+    "n": "America's Test Kitchen",
+    "d": "America's Test Kitchen LP",
+    "r": 126
+   },
+   {
+    "id": "cmpsu7mli2pa3ug8p7cxdhv4x",
+    "n": "Cooklist",
+    "d": "Cooklist, Inc",
+    "r": 122
+   },
+   {
+    "id": "cmpsu7e7s2oucug8pp326ddkm",
+    "n": "Recipe Keeper",
+    "d": "Appable Yazilim Hizmetleri Limited Sirketi",
+    "r": 119
+   },
+   {
+    "id": "cmpsubrry2xm2ug8pyy0pxxef",
+    "n": "Just the Recipe",
+    "d": "Streamliners",
+    "r": 107
+   },
+   {
+    "id": "cmpsuemtt33c2ug8pwmlvhv1s",
+    "n": "Tasty",
+    "d": "BuzzFeed",
+    "r": 107
+   },
+   {
+    "id": "cmpsublz72x9tug8poip12erw",
+    "n": "RecipeBox",
+    "d": "RecipeBox, LLC",
+    "r": 99
+   },
+   {
+    "id": "cmpsucl912z7yug8p2q2mx2iu",
+    "n": "My Recipe Box",
+    "d": "CmonApp",
+    "r": 87
+   },
+   {
+    "id": "cmpsudtzf31t9ug8pnv7kl234",
+    "n": "Umami",
+    "d": "Strange Quark LLC",
+    "r": 78
+   },
+   {
+    "id": "cmpsu9dtl2t0xug8ppv76l6lb",
+    "n": "Paprika Recipe Manager 3",
+    "d": "Hindsight Labs LLC",
+    "r": 70
+   },
+   {
+    "id": "cmpsu9sr12tvkug8pwle5fb4p",
+    "n": "Brewfather",
+    "d": "Warpkode AS",
+    "r": 66
+   },
+   {
+    "id": "cmpsu8wp82s2kug8ptlzbc3z8",
+    "n": "Starbucks Secret Menu Plus",
+    "d": "Anthem Ventures LLC",
+    "r": 53
+   },
+   {
+    "id": "cmpsucopu2zesug8pkv30a7zh",
+    "n": "Zest",
+    "d": "Culi, Inc.",
+    "r": 39
+   },
+   {
+    "id": "cmpsu960d2smzug8p435z5s0b",
+    "n": "Stashcook",
+    "d": "Stashbox Ltd",
+    "r": 33
+   },
+   {
+    "id": "cmpsu5uan2lsiug8pwfzrjzlo",
+    "n": "Inspo",
+    "d": "Pinecone Labs LLC",
+    "r": 33
+   },
+   {
+    "id": "cmpsuad4f2uzsug8pu7dc24k2",
+    "n": "Deglaze",
+    "d": "Deglazed LLC",
+    "r": 28
+   },
+   {
+    "id": "cmpsz3szg2j3mughvlipqjrd0",
+    "n": "Fruit Juice Recipes",
+    "d": "Wallet Passes Alliance",
+    "r": 20
+   }
+  ]
+ },
+ {
+  "slug": "sleep-meditation",
+  "ru": "Сон и медитации",
+  "en": "Sleep & meditation",
+  "totalReviews": 7327,
+  "apps": [
+   {
+    "id": "cmpstwzc422tyug8p31xzftzd",
+    "n": "Calm",
+    "d": "Calm.com",
+    "r": 4193
+   },
+   {
+    "id": "cmpstya2j25mnug8pu6hduhdd",
+    "n": "Headspace",
+    "d": "Headspace Inc.",
+    "r": 519
+   },
+   {
+    "id": "cmpsysgvm1wpvughvnwye3jom",
+    "n": "Sleep Cycle",
+    "d": "Sleep Cycle AB",
+    "r": 476
+   },
+   {
+    "id": "cmpsyu4de1zzqughvmj7c2gr5",
+    "n": "RISE",
+    "d": "Rise Science Inc",
+    "r": 389
+   },
+   {
+    "id": "cmpsu21ir2dybug8p81rb6pq1",
+    "n": "Endel",
+    "d": "Endel",
+    "r": 354
+   },
+   {
+    "id": "cmpsu0u142bdmug8pcnfs16i6",
+    "n": "BetterSleep",
+    "d": "Ipnos Software Inc.",
+    "r": 342
+   },
+   {
+    "id": "cmpsyxx2d286lughvftme82bd",
+    "n": "pliability",
+    "d": "pliability",
+    "r": 292
+   },
+   {
+    "id": "cmpsyonj71oqyughv3fvxdcuk",
+    "n": "Mindvalley",
+    "d": "Mindvalley Inc",
+    "r": 247
+   },
+   {
+    "id": "cmpstz7vj27q4ug8pwvnuqcuj",
+    "n": "Insight Timer",
+    "d": "Insight Network Inc",
+    "r": 220
+   },
+   {
+    "id": "cmpsta3270pfjug8pulfwmw09",
+    "n": "Alarmy",
+    "d": "Delight Room Co., Ltd.",
+    "r": 205
+   },
+   {
+    "id": "cmpsyvyap23y9ughv6v5ezi34",
+    "n": "SleepWatch",
+    "d": "Bodymatter, Inc.",
+    "r": 90
+   }
+  ]
+ },
+ {
+  "slug": "period-trackers",
+  "ru": "Трекеры цикла",
+  "en": "Period trackers",
+  "totalReviews": 1022,
+  "apps": [
+   {
+    "id": "cmpstzzp429i0ug8p02j7ma97",
+    "n": "Clue Cycle & Period Tracker",
+    "d": "Clue Period Tracker by BioWink",
+    "r": 263
+   },
+   {
+    "id": "cmpsyrqzt1v7lughvt4zqs1u9",
+    "n": "Lively",
+    "d": "Lively Cycle, LLC",
+    "r": 246
+   },
+   {
+    "id": "cmpsu1m272cziug8pr94xkugp",
+    "n": "Stardust Period Tracker",
+    "d": "Stardust App Inc",
+    "r": 223
+   },
+   {
+    "id": "cmpsu1czf2cipug8pajrmcafu",
+    "n": "Clue Period & Cycle Tracker",
+    "d": "BioWink GmbH",
+    "r": 159
+   },
+   {
+    "id": "cmpstzsj2291mug8p5jwyxnfw",
+    "n": "Natural Cycles Fertility App",
+    "d": "NaturalCycles Nordic AB",
+    "r": 69
+   },
+   {
+    "id": "cmps5x3ob07wpugu7k3wncehj",
+    "n": "Flo Cycle & Period Tracker",
+    "d": "FLO HEALTH UK LIMITED",
+    "r": 62
+   }
+  ]
+ },
+ {
+  "slug": "habit-trackers",
+  "ru": "Привычки и самопомощь",
+  "en": "Habits & self-care",
+  "totalReviews": 628,
+  "apps": [
+   {
+    "id": "cmps5wrhx071nugu72etihfy9",
+    "n": "Finch",
+    "d": "Finch Care Public Benefit Corporation",
+    "r": 217
+   },
+   {
+    "id": "cmpsu4jdj2j2hug8pac8w2fon",
+    "n": "I am",
+    "d": "Monkey Taps",
+    "r": 112
+   },
+   {
+    "id": "cmpsytur71zjiughveltqj5d9",
+    "n": "The Tapping Solution",
+    "d": "The Tapping Solution, LLC",
+    "r": 100
+   },
+   {
+    "id": "cmpstba9v0s1xug8pxo4laet0",
+    "n": "Opal",
+    "d": "Opal OS",
+    "r": 96
+   },
+   {
+    "id": "cmpsu3fvx2gysug8p69bt7z5j",
+    "n": "DAWG",
+    "d": "DWG Labs",
+    "r": 57
+   },
+   {
+    "id": "cmpsu2pcz2feeug8p4qhx7qae",
+    "n": "Motivation",
+    "d": "Monkey Taps",
+    "r": 46
+   }
+  ]
+ },
+ {
+  "slug": "identifiers",
+  "ru": "Определители по фото",
+  "en": "Photo identifiers",
+  "totalReviews": 5632,
+  "apps": [
+   {
+    "id": "cmps5zh0p0dwsugu7abjdyled",
+    "n": "Plant App",
+    "d": "ScaleUp",
+    "r": 422
+   },
+   {
+    "id": "cmpszd35831xpughv1t5z9db9",
+    "n": "Digital Grading Co",
+    "d": "HOBBY LABS LTD",
+    "r": 388
+   },
+   {
+    "id": "cmpstsvek1u6rug8phewkfvdl",
+    "n": "Plantum",
+    "d": "AIBY",
+    "r": 384
+   },
+   {
+    "id": "cmps5z4fs0d34ugu7nwtb67hw",
+    "n": "PictureThis",
+    "d": "Glority Global Group Ltd.",
+    "r": 370
+   },
+   {
+    "id": "cmpstqajf1oqbug8pisx6emir",
+    "n": "PlantIn Plant Identifier, Care",
+    "d": "PlantIn",
+    "r": 312
+   },
+   {
+    "id": "cmpstehmi0z1gug8pinyh4o39",
+    "n": "Plant Parent",
+    "d": "Glority Global Group Ltd.",
+    "r": 297
+   },
+   {
+    "id": "cmpsts56r1smiug8pyjg4j61q",
+    "n": "iNaturalist",
+    "d": "iNaturalist",
+    "r": 290
+   },
+   {
+    "id": "cmpstsf771t8uug8pa224982v",
+    "n": "Plant Identifier",
+    "d": "Appixi",
+    "r": 290
+   },
+   {
+    "id": "cmpszwphe480jughvwusemase",
+    "n": "Blossom",
+    "d": "Blossom Social Inc.",
+    "r": 284
+   },
+   {
+    "id": "cmpstu3uh1wx2ug8p97k7mk7v",
+    "n": "Seek by iNaturalist",
+    "d": "iNaturalist",
+    "r": 264
+   },
+   {
+    "id": "cmpsttp8c1w0yug8pa6gouzdi",
+    "n": "Bird Sound Identifier Bird ID",
+    "d": "Identifier Studio",
+    "r": 237
+   },
+   {
+    "id": "cmpstsbqp1t10ug8pmlgdmgbc",
+    "n": "Picture Insect",
+    "d": "Next Vision Limited",
+    "r": 235
+   },
+   {
+    "id": "cmpstqvo71q2tug8peqd7sjjc",
+    "n": "Rock Identifier",
+    "d": "Next Vision Limited",
+    "r": 215
+   },
+   {
+    "id": "cmpsszcgv04c6ug8phnlmpzua",
+    "n": "HoloDex",
+    "d": "Mavelli",
+    "r": 196
+   },
+   {
+    "id": "cmpstteuw1ve2ug8p6084d5aj",
+    "n": "SkyView® Lite",
+    "d": "Terminal Eleven LLC",
+    "r": 162
+   },
+   {
+    "id": "cmpssy2vg01hxug8pv3uycf7b",
+    "n": "CoinSnap",
+    "d": "Next Vision Limited",
+    "r": 160
+   },
+   {
+    "id": "cmpsyqqf91t3gughv7uo0fywn",
+    "n": "BirdID",
+    "d": "AI Identifier CO., LTD",
+    "r": 156
+   },
+   {
+    "id": "cmpsxxh59031qughvipbfchwa",
+    "n": "Picture Bird",
+    "d": "Next Vision Limited",
+    "r": 120
+   },
+   {
+    "id": "cmpsz7vzw2r62ughvjgrxbz1k",
+    "n": "PeakFinder",
+    "d": "PeakFinder GmbH",
+    "r": 113
+   },
+   {
+    "id": "cmpsylidg1hyaughvwbv575t1",
+    "n": "Plant Identification－Plantaria",
+    "d": "Grotem Limited",
+    "r": 105
+   },
+   {
+    "id": "cmpsy9zr40tt7ughvhnitfiok",
+    "n": "Planta",
+    "d": "Planta AB",
+    "r": 101
+   },
+   {
+    "id": "cmpstpxig1nxqug8prlf5ktli",
+    "n": "PlantLush",
+    "d": "Umut Koray Melek",
+    "r": 101
+   },
+   {
+    "id": "cmpstv7g51z5oug8ptqt743c6",
+    "n": "PlantNet Plant Identification",
+    "d": "PlantNet",
+    "r": 92
+   },
+   {
+    "id": "cmpstoven1lkaug8pxxo2j510",
+    "n": "PlantIn",
+    "d": "Vortemol Limited",
+    "r": 84
+   },
+   {
+    "id": "cmpst2jd50b7cug8pb4b2n443",
+    "n": "Lens Scan",
+    "d": "EvenEdge",
+    "r": 75
+   },
+   {
+    "id": "cmpsxxxno040xughvcq3l3ow2",
+    "n": "Coin ID",
+    "d": "AIBY Inc.",
+    "r": 57
+   },
+   {
+    "id": "cmpst3bc60cxsug8pa8vompuq",
+    "n": "HeriBase",
+    "d": "HeritCoin",
+    "r": 56
+   },
+   {
+    "id": "cmpstunhu1y2hug8p4oqqewn0",
+    "n": "Stellarium Mobile",
+    "d": "Noctua Software",
+    "r": 49
+   },
+   {
+    "id": "cmpstsyy21ufdug8pqsh304tt",
+    "n": "Plant Identifier & Care App",
+    "d": "Botan App Limited LLC",
+    "r": 17
+   }
+  ]
+ },
+ {
+  "slug": "kids-learning",
+  "ru": "Обучение для детей",
+  "en": "Kids' learning",
+  "totalReviews": 3303,
+  "apps": [
+   {
+    "id": "cmpstqs3f1pudug8pn0gkygwa",
+    "n": "Kiddopia",
+    "d": "Kiddopia, Inc.",
+    "r": 324
+   },
+   {
+    "id": "cmpstq3ho1oa7ug8pq4opjgho",
+    "n": "Epic",
+    "d": "Epic Creations, Inc.",
+    "r": 301
+   },
+   {
+    "id": "cmpstpl9y1n7rug8p3c2ar860",
+    "n": "Simply Draw",
+    "d": "Simply Ltd",
+    "r": 252
+   },
+   {
+    "id": "cmpstu2821wsvug8p8uw3k3h8",
+    "n": "IXL",
+    "d": "IXL Learning",
+    "r": 244
+   },
+   {
+    "id": "cmpstnq8c1j5hug8pizrf966i",
+    "n": "Colorify",
+    "d": "Yoya Mobile",
+    "r": 228
+   },
+   {
+    "id": "cmpstpqlq1nj4ug8pdwn8dczn",
+    "n": "Learn to Read",
+    "d": "Readability Reading Tutor",
+    "r": 216
+   },
+   {
+    "id": "cmpsyci8f0z7hughvnau3xdmy",
+    "n": "Qustodio Parental Control App",
+    "d": "Qustodio",
+    "r": 214
+   },
+   {
+    "id": "cmpstobcq1kdnug8p8jsiv3no",
+    "n": "Lingokids",
+    "d": "Lingokids - Games, Shows & Songs for Kids",
+    "r": 209
+   },
+   {
+    "id": "cmps5ymfj0buhugu7am74nqw3",
+    "n": "Loopit",
+    "d": "SeedLeap Intelligent Technology Co., Ltd.",
+    "r": 207
+   },
+   {
+    "id": "cmpstvlpy1zwpug8pbn55t0un",
+    "n": "Pok Pok",
+    "d": "Pok Pok",
+    "r": 203
+   },
+   {
+    "id": "cmpstp0wd1lwtug8pu7xbdee2",
+    "n": "Solid Starts",
+    "d": "SolidStarts LLC",
+    "r": 143
+   },
+   {
+    "id": "cmpsykn5l1g65ughv6l61d8i3",
+    "n": "Sago Mini World",
+    "d": "Piknik",
+    "r": 123
+   },
+   {
+    "id": "cmpstwb7t21dgug8pr9c5e3g8",
+    "n": "Hooked on Phonics Learning",
+    "d": "Hooked on Phonics",
+    "r": 102
+   },
+   {
+    "id": "cmpstu9k71x8lug8p6fbek5uh",
+    "n": "Speech Blubs",
+    "d": "Blub Blub Inc.",
+    "r": 85
+   },
+   {
+    "id": "cmpsyqyse1tmdughvjk3frhl1",
+    "n": "HOMER",
+    "d": "Begin Learning",
+    "r": 81
+   },
+   {
+    "id": "cmpsttbj01v5gug8p1t8w4hkk",
+    "n": "Early Learning Academy",
+    "d": "Age of Learning, Inc.",
+    "r": 66
+   },
+   {
+    "id": "cmpt03dfm0admugfe3xiazwdu",
+    "n": "Parental Control Kids360",
+    "d": "ANKO SOLUTIONS LLC",
+    "r": 64
+   },
+   {
+    "id": "cmpstuxnr1ymnug8pzvjgtp6h",
+    "n": "SplashLearn",
+    "d": "StudyPad, Inc.",
+    "r": 50
+   },
+   {
+    "id": "cmpstve9r1zkwug8p3gqwcd0m",
+    "n": "Starfall",
+    "d": "Starfall Education Foundation",
+    "r": 50
+   },
+   {
+    "id": "cmpszfpc537koughvh6nt7u9n",
+    "n": "Color Pop",
+    "d": "MWM - AI Music and Creative Apps",
+    "r": 49
+   },
+   {
+    "id": "cmpsyqktw1srbughva4kmblvs",
+    "n": "Pinkfong Baby Shark Phone Game",
+    "d": "The Pinkfong Company",
+    "r": 34
+   },
+   {
+    "id": "cmpstvsq720c5ug8pse4n85ca",
+    "n": "Bebi",
+    "d": "Bebi Family Games",
+    "r": 33
+   },
+   {
+    "id": "cmpstv5cf1z1zug8p1abo8d6f",
+    "n": "Coloring Games for Kids 2-6!",
+    "d": "KidloLand Kids & Toddler Games",
+    "r": 15
+   },
+   {
+    "id": "cmpstqc9l1ousug8pihtik6s9",
+    "n": "Keiki Learning games for Kids",
+    "d": "BENIPOL LIMITED",
+    "r": 10
+   }
+  ]
+ },
+ {
+  "slug": "language-learning",
+  "ru": "Изучение языков",
+  "en": "Language learning",
+  "totalReviews": 3697,
+  "apps": [
+   {
+    "id": "cmpsto0831jqfug8pi1rmequx",
+    "n": "Babbel",
+    "d": "Babbel GmbH",
+    "r": 448
+   },
+   {
+    "id": "cmps5zoii0ef7ugu72nbduaa7",
+    "n": "Vocabulary",
+    "d": "Monkey Taps",
+    "r": 394
+   },
+   {
+    "id": "cmpsttij31vm2ug8p1wbpm5x5",
+    "n": "Language Learning",
+    "d": "Pingo AI, Inc.",
+    "r": 339
+   },
+   {
+    "id": "cmpsynf4a1m3bughvnhzoeh00",
+    "n": "Promova",
+    "d": "Unlimited Promova Limited",
+    "r": 288
+   },
+   {
+    "id": "cmps5z7db0db8ugu7cjs1ox61",
+    "n": "Duolingo",
+    "d": "Duolingo",
+    "r": 284
+   },
+   {
+    "id": "cmpsyma7z1jk8ughvmigkxqyb",
+    "n": "Memrise",
+    "d": "Memrise",
+    "r": 276
+   },
+   {
+    "id": "cmpsyl0x31gwyughv0yaz6nor",
+    "n": "Mondly",
+    "d": "ATi Studios",
+    "r": 269
+   },
+   {
+    "id": "cmpstqfl91p2aug8pmm3ti0pv",
+    "n": "Praktika",
+    "d": "Praktika.ai Company",
+    "r": 254
+   },
+   {
+    "id": "cmpsynxg41n4vughvawku2cie",
+    "n": "EWA",
+    "d": "Lithium Lab Pte Ltd",
+    "r": 237
+   },
+   {
+    "id": "cmpsylojs1ialughv2x23hff1",
+    "n": "Lernix",
+    "d": "AppLock Inc.",
+    "r": 189
+   },
+   {
+    "id": "cmpstp5we1m9aug8p2iuekyhq",
+    "n": "Lingvano",
+    "d": "Lingvano GmbH",
+    "r": 170
+   },
+   {
+    "id": "cmpsyou9n1p4mughv8ud46ke5",
+    "n": "Talkpal",
+    "d": "Talkpal, Inc.",
+    "r": 168
+   },
+   {
+    "id": "cmpstrt3k1rznug8pjfcjlwfs",
+    "n": "Busuu",
+    "d": "Busuu Limited",
+    "r": 146
+   },
+   {
+    "id": "cmps5z96o0delugu79oh4xyw8",
+    "n": "Pimsleur",
+    "d": "Simon & Schuster",
+    "r": 96
+   },
+   {
+    "id": "cmpsyqv8q1tdzughvnrp4pxgg",
+    "n": "Learn Korean, Hangul",
+    "d": "Language Skills Studio",
+    "r": 88
+   },
+   {
+    "id": "cmpsyl2oc1h0xughvrtp5un60",
+    "n": "Parrot",
+    "d": "Parrot Learning Inc.",
+    "r": 51
+   }
+  ]
+ },
+ {
+  "slug": "translators",
+  "ru": "Переводчики",
+  "en": "Translators",
+  "totalReviews": 679,
+  "apps": [
+   {
+    "id": "cmpst7ynx0kwtug8pzi0a6m8q",
+    "n": "iTranslate Translator",
+    "d": "Mosaic Srl",
+    "r": 207
+   },
+   {
+    "id": "cmpstuujc1ygnug8pblxgmrn6",
+    "n": "Translate Now",
+    "d": "Sparktonic, LLC",
+    "r": 131
+   },
+   {
+    "id": "cmpst7unf0kojug8pycy6cij9",
+    "n": "Translator GO",
+    "d": "MATdev",
+    "r": 120
+   },
+   {
+    "id": "cmpsz8lh02snaughvn9w0xks6",
+    "n": "iTranslate Converse",
+    "d": "Mosaic S.r.l.",
+    "r": 92
+   },
+   {
+    "id": "cmpstchez0uqrug8px0rcc1ws",
+    "n": "Speak & Translate",
+    "d": "Mosaic S.r.l.",
+    "r": 90
+   },
+   {
+    "id": "cmpsyoqid1owwughvbl30vjug",
+    "n": "Spanish English Translator",
+    "d": "San Seeen Developers",
+    "r": 39
+   }
+  ]
+ },
+ {
+  "slug": "driving-exam",
+  "ru": "Подготовка к экзамену ПДД",
+  "en": "Driving-test prep",
+  "totalReviews": 269,
+  "apps": [
+   {
+    "id": "cmps5zwe10ezcugu7ips90xem",
+    "n": "Zutobi",
+    "d": "Zutobi AB",
+    "r": 98
+   },
+   {
+    "id": "cmpstrri61rvoug8pp664bl2f",
+    "n": "DMV Permit Practice Test 2026",
+    "d": "Sentinel Dev",
+    "r": 75
+   },
+   {
+    "id": "cmpsttnoc1vwlug8pjuo3ging",
+    "n": "Driver Written Test",
+    "d": "DMV Written Test",
+    "r": 40
+   },
+   {
+    "id": "cmps5zy4m0f3pugu7uldluvj3",
+    "n": "DMV Practice Test 2026 myDMV",
+    "d": "Kain Suite Pte. Ltd.",
+    "r": 36
+   },
+   {
+    "id": "cmpstvcu81zhlug8p9anpstsa",
+    "n": "Pocket Prep EMS 2026",
+    "d": "Pocket Prep, Inc.",
+    "r": 20
+   }
+  ]
+ },
+ {
+  "slug": "flashcards-study",
+  "ru": "Карточки и помощь с учёбой",
+  "en": "Flashcards & study help",
+  "totalReviews": 926,
+  "apps": [
+   {
+    "id": "cmpstr8jv1qv4ug8pa1c5u48r",
+    "n": "Deepstash",
+    "d": "Brainstash, Inc",
+    "r": 390
+   },
+   {
+    "id": "cmpstnx191jinug8ptrq7afuu",
+    "n": "Quizlet",
+    "d": "Quizlet Inc",
+    "r": 262
+   },
+   {
+    "id": "cmpstv95w1z9fug8pnsquutyc",
+    "n": "AnkiMobile Flashcards",
+    "d": "Anki Software, LLC",
+    "r": 105
+   },
+   {
+    "id": "cmpsylzwx1izvughvlrezhhtl",
+    "n": "Brainly",
+    "d": "Brainly sp. z o o",
+    "r": 73
+   },
+   {
+    "id": "cmpstwiyq21tcug8pbaid4js8",
+    "n": "AnkiDroid Flashcards",
+    "d": "AnkiDroid Open Source Team",
+    "r": 64
+   },
+   {
+    "id": "cmpstu7qm1x4mug8pyh7xp098",
+    "n": "Question.AI",
+    "d": "D3 DIMENSION TECHNOLOGY PTE.LTD.",
+    "r": 32
+   }
+  ]
+ },
+ {
+  "slug": "online-courses",
+  "ru": "Онлайн-курсы и микрообучение",
+  "en": "Online courses & micro-learning",
+  "totalReviews": 735,
+  "apps": [
+   {
+    "id": "cmpstr12s1qe4ug8pc8pcsmrg",
+    "n": "Imprint",
+    "d": "Polywise, Inc.",
+    "r": 406
+   },
+   {
+    "id": "cmpsttx5y1wi0ug8p3g7jo3aq",
+    "n": "Brilliant",
+    "d": "Brilliant.org",
+    "r": 207
+   },
+   {
+    "id": "cmpsykx0p1gowughvxzm4zcrs",
+    "n": "Khan Academy",
+    "d": "Khan Academy",
+    "r": 90
+   },
+   {
+    "id": "cmpsyq4bv1ruwughv0hdobt8e",
+    "n": "Skillshare",
+    "d": "Skillshare, Inc",
+    "r": 32
+   }
+  ]
+ },
+ {
+  "slug": "games",
+  "ru": "Игры и квизы",
+  "en": "Games & quizzes",
+  "totalReviews": 631,
+  "apps": [
+   {
+    "id": "cmpstug0c1xlrug8pf7u6owm5",
+    "n": "Nibble",
+    "d": "Kremital Limited",
+    "r": 338
+   },
+   {
+    "id": "cmpstr50v1qmuug8pk7zbwy7a",
+    "n": "Kahoot! Play & Create Quizzes",
+    "d": "Kahoot ASA",
+    "r": 261
+   },
+   {
+    "id": "cmpstrwl51s67ug8p3xm2uluu",
+    "n": "IQ Boost",
+    "d": "Guazzini Andrea",
+    "r": 32
+   }
+  ]
+ },
+ {
+  "slug": "music",
+  "ru": "Музыка и медиа",
+  "en": "Music & media",
+  "totalReviews": 1802,
+  "apps": [
+   {
+    "id": "cmpszbu192z7nughvz2mm5qjn",
+    "n": "Plex",
+    "d": "Plex, Inc.",
+    "r": 349
+   },
+   {
+    "id": "cmpsylbec1hjyughvpac1fpv5",
+    "n": "flowkey",
+    "d": "flowkey GmbH",
+    "r": 328
+   },
+   {
+    "id": "cmpstqkju1pedug8p6r7y4icu",
+    "n": "Simply Guitar",
+    "d": "Simply Ltd",
+    "r": 323
+   },
+   {
+    "id": "cmpstpzrx1o23ug8plcmh77nx",
+    "n": "Yousician",
+    "d": "Yousician Ltd",
+    "r": 285
+   },
+   {
+    "id": "cmpsynldw1meyughvjwb8yx2n",
+    "n": "Fender Play",
+    "d": "Fender Musical Instruments Corporation",
+    "r": 272
+   },
+   {
+    "id": "cmpstv1321yulug8p27gygpnu",
+    "n": "Justin Guitar Lessons & Songs",
+    "d": "Musopia",
+    "r": 197
+   },
+   {
+    "id": "cmpstl61j1dhhug8pfaegcmju",
+    "n": "VLC media player",
+    "d": "VideoLAN",
+    "r": 33
+   },
+   {
+    "id": "cmpst8fpu0lwcug8pyvmjyrb3",
+    "n": "Ringtones Maker",
+    "d": "苏娟 陈",
+    "r": 15
+   }
+  ]
+ },
+ {
+  "slug": "books-reading",
+  "ru": "Книги и чтение",
+  "en": "Books & reading",
+  "totalReviews": 1449,
+  "apps": [
+   {
+    "id": "cmpst4x420gc7ug8pnsnjdr3h",
+    "n": "Speechify",
+    "d": "Speechify Inc.",
+    "r": 539
+   },
+   {
+    "id": "cmpsuig2w3bdsug8pcz7494xj",
+    "n": "Quinn",
+    "d": "Quinn Inc",
+    "r": 365
+   },
+   {
+    "id": "cmpstqohc1plzug8px2jwu31h",
+    "n": "Headway",
+    "d": "GTHW App Limited",
+    "r": 259
+   },
+   {
+    "id": "cmpstptwq1nq0ug8paqhg51qp",
+    "n": "Blinkist",
+    "d": "Blinks Labs",
+    "r": 240
+   },
+   {
+    "id": "cmpst39ng0cu3ug8p45pck0rd",
+    "n": "Shelf",
+    "d": "Koodos, Inc.",
+    "r": 46
+   }
+  ]
+ },
+ {
+  "slug": "smb-invoicing",
+  "ru": "Счета и бизнес-инструменты",
+  "en": "Invoicing & business tools",
+  "totalReviews": 4162,
+  "apps": [
+   {
+    "id": "cmpsukpel3gc9ug8pwj8mxev7",
+    "n": "Invoice2go",
+    "d": "Invoice2go.com",
+    "r": 290
+   },
+   {
+    "id": "cmpszhr903bpxughvc83abjsu",
+    "n": "Hours Tracker Time Tracking",
+    "d": "cribasoft, LLC",
+    "r": 280
+   },
+   {
+    "id": "cmpsunb7k3m2hug8pg3289lvr",
+    "n": "Wave",
+    "d": "Wave Financial Inc",
+    "r": 249
+   },
+   {
+    "id": "cmpsujoyp3e5dug8pzyuhptfd",
+    "n": "Invoice Simple",
+    "d": "Zenvoice Inc.",
+    "r": 248
+   },
+   {
+    "id": "cmpsuon083p0bug8powjaeuij",
+    "n": "FreshBooks Invoicing App",
+    "d": "FreshBooks",
+    "r": 247
+   },
+   {
+    "id": "cmpsuwjsd46biug8p4jq4u022",
+    "n": "Invoice Maker & Estimate App",
+    "d": "Bookipi Pty Ltd",
+    "r": 236
+   },
+   {
+    "id": "cmpsujscx3edbug8p8bex0pis",
+    "n": "Intuit QuickBooks for Business",
+    "d": "Intuit Inc",
+    "r": 228
+   },
+   {
+    "id": "cmpsupyfp3ru7ug8pp8obrzrc",
+    "n": "Connecteam Team Management App",
+    "d": "Connecteam Inc.",
+    "r": 199
+   },
+   {
+    "id": "cmpsunqvp3mybug8pzxzakc5n",
+    "n": "Bakesy",
+    "d": "Bakesy",
+    "r": 187
+   },
+   {
+    "id": "cmpszghh4394sughvyh7d64zw",
+    "n": "Quo (formerly OpenPhone)",
+    "d": "OpenPhone Technologies Inc",
+    "r": 185
+   },
+   {
+    "id": "cmpsuqzsh3u33ug8p8i8xaa5m",
+    "n": "Paycor Mobile",
+    "d": "Paycor, Inc.",
+    "r": 152
+   },
+   {
+    "id": "cmpsuqceh3sn4ug8pzz8dy89k",
+    "n": "HoneyBook",
+    "d": "HoneyBook Inc.",
+    "r": 151
+   },
+   {
+    "id": "cmpszm0963kxhughvtfbf19b1",
+    "n": "BambooHR",
+    "d": "BambooHR LLC",
+    "r": 144
+   },
+   {
+    "id": "cmpsupbc23qg2ug8ptr94jqru",
+    "n": "Invoice Maker Tofu & Receipts",
+    "d": "GetPaid Inc.",
+    "r": 128
+   },
+   {
+    "id": "cmpsup7q03q82ug8pwqsif9zp",
+    "n": "Invoice Maker by Billdu",
+    "d": "Billdu LTD",
+    "r": 124
+   },
+   {
+    "id": "cmpsumgdv3k68ug8p5sqylxce",
+    "n": "MyPerfectResume Builder",
+    "d": "Bold Limited",
+    "r": 121
+   },
+   {
+    "id": "cmpsujxzp3eq0ug8pjoum5m7o",
+    "n": "Invoice Maker",
+    "d": "BILLDU LTD",
+    "r": 118
+   },
+   {
+    "id": "cmpsul0qp3h1pug8pyvm6ub1o",
+    "n": "Invoice Maker by Invoice Home",
+    "d": "Invoice Home Inc.",
+    "r": 116
+   },
+   {
+    "id": "cmpt0azo40q6fugfejvb5r66y",
+    "n": "wac",
+    "d": "Work and Communications Ltd",
+    "r": 101
+   },
+   {
+    "id": "cmpsuogat3okrug8pb57lgu90",
+    "n": "Time Clock",
+    "d": "Time Squared (TSQ Publishing Corp.)",
+    "r": 88
+   },
+   {
+    "id": "cmpsulclx3hs8ug8pyh0k2sc3",
+    "n": "Blinq",
+    "d": "Blinq Technologies Pty Ltd",
+    "r": 87
+   },
+   {
+    "id": "cmpsuqkq83t5zug8paalz2z9r",
+    "n": "SINC",
+    "d": "SINC",
+    "r": 80
+   },
+   {
+    "id": "cmpsulosx3ihdug8p716vpco5",
+    "n": "Paylocity",
+    "d": "Paylocity",
+    "r": 75
+   },
+   {
+    "id": "cmpsuorqo3p91ug8pxkw3i7tj",
+    "n": "Popl",
+    "d": "Popl Co",
+    "r": 72
+   },
+   {
+    "id": "cmpsuwwgq472jug8pifh5r84i",
+    "n": "Grant Cash Advance",
+    "d": "Kikoff Inc.",
+    "r": 66
+   },
+   {
+    "id": "cmpsuk9og3fegug8pbuxy1niz",
+    "n": "Joist",
+    "d": "Joist Software Inc.",
+    "r": 64
+   },
+   {
+    "id": "cmpszm9383lgkughvvq51kxdi",
+    "n": "TeamLive",
+    "d": "Harri",
+    "r": 64
+   },
+   {
+    "id": "cmpssz8h4043iug8pw8jr4zvd",
+    "n": "Sideline",
+    "d": "Pinger, Inc.",
+    "r": 36
+   },
+   {
+    "id": "cmpszjgtq3fhzughvd8who1ss",
+    "n": "Tiny Invoice",
+    "d": "TinyWork Apps",
+    "r": 26
+   }
+  ]
+ },
+ {
+  "slug": "recording-transcription",
+  "ru": "Запись и расшифровка",
+  "en": "Recording & transcription",
+  "totalReviews": 1689,
+  "apps": [
+   {
+    "id": "cmpsunxue3ne5ug8pyx354q4a",
+    "n": "TapeACall",
+    "d": "Mosaic S.r.l.",
+    "r": 516
+   },
+   {
+    "id": "cmpst7wlb0kssug8poo640q6o",
+    "n": "OtterAI Transcribe Voice Notes",
+    "d": "Otter.ai",
+    "r": 285
+   },
+   {
+    "id": "cmpstcz8o0vs0ug8p4xr6c8iq",
+    "n": "Minutes",
+    "d": "Minutes AI",
+    "r": 220
+   },
+   {
+    "id": "cmpst75k70j9oug8pzmahp5lk",
+    "n": "Summary",
+    "d": "Labhouse Mobile",
+    "r": 172
+   },
+   {
+    "id": "cmpst73r10j5rug8pr6pbmw7d",
+    "n": "Otter Transcribe Voice Notes",
+    "d": "Otter.ai, Inc.",
+    "r": 147
+   },
+   {
+    "id": "cmpst7ofi0ke9ug8pfrcmk90g",
+    "n": "Plaud",
+    "d": "PLAUD LLC",
+    "r": 97
+   },
+   {
+    "id": "cmpsusdhw3x49ug8przjocxi7",
+    "n": "Call Recorder iCall",
+    "d": "AppInnovations",
+    "r": 88
+   },
+   {
+    "id": "cmpsunott3mtwug8ptu52fc0p",
+    "n": "Call Recorder for iPhone.",
+    "d": "JatApp LLC",
+    "r": 61
+   },
+   {
+    "id": "cmpsy3m260g5jughvs84cwwqa",
+    "n": "Smart AI Note Taker",
+    "d": "Joyolabs Dijital Hizmetler Anonim Sirketi",
+    "r": 32
+   },
+   {
+    "id": "cmpsy34ay0f4fughvhgadvccf",
+    "n": "Notee",
+    "d": "GM UniverseApps Limited",
+    "r": 30
+   },
+   {
+    "id": "cmpsxy8ef04r7ughvpkvna7ud",
+    "n": "Owll",
+    "d": "VOCALBEATS.AI PTE. LTD.",
+    "r": 27
+   },
+   {
+    "id": "cmpsy5op10kkdughvs7zxuohg",
+    "n": "HyNote",
+    "d": "Tuling Network Limited",
+    "r": 14
+   }
+  ]
+ },
+ {
+  "slug": "planners-productivity",
+  "ru": "Планировщики и продуктивность",
+  "en": "Planners & productivity",
+  "totalReviews": 2844,
+  "apps": [
+   {
+    "id": "cmpst6jmh0hziug8pgprh6i1z",
+    "n": "Evernote",
+    "d": "Evernote Corporation",
+    "r": 580
+   },
+   {
+    "id": "cmpstbmnd0sugug8p2z1y4bk4",
+    "n": "Notion",
+    "d": "Notion Labs, Incorporated",
+    "r": 319
+   },
+   {
+    "id": "cmpstd13b0vw3ug8puq4ala48",
+    "n": "Todoist",
+    "d": "Doist Inc.",
+    "r": 275
+   },
+   {
+    "id": "cmpstt7kh1uwmug8pjcz33u5c",
+    "n": "Chegg Study",
+    "d": "Chegg, Inc.",
+    "r": 218
+   },
+   {
+    "id": "cmpsybe0r0wvbughvn1tsncrv",
+    "n": "Planner 5D",
+    "d": "Planner5D, UAB",
+    "r": 210
+   },
+   {
+    "id": "cmpsy621r0lctughve94w03j7",
+    "n": "IFTTT",
+    "d": "IFTTT, Inc",
+    "r": 198
+   },
+   {
+    "id": "cmpstbj5d0sneug8pc9fyzknb",
+    "n": "TimeTree",
+    "d": "TimeTree, Inc.",
+    "r": 175
+   },
+   {
+    "id": "cmpst7g040jvmug8pri29r9xf",
+    "n": "Cozi Family Organizer",
+    "d": "Cozi Inc.",
+    "r": 174
+   },
+   {
+    "id": "cmpst7c9o0jokug8pf6mrfe9r",
+    "n": "Manus",
+    "d": "BUTTERFLY EFFECT PTE. LTD.",
+    "r": 110
+   },
+   {
+    "id": "cmpsy454j0h8eughvnzaaiz5z",
+    "n": "Inkpad Notepad & To do list",
+    "d": "Workpail",
+    "r": 80
+   },
+   {
+    "id": "cmpsy5eos0k0gughvzv4ya9np",
+    "n": "Notability",
+    "d": "Ginger Labs",
+    "r": 80
+   },
+   {
+    "id": "cmpstujuq1xu7ug8ptfya6bz8",
+    "n": "Nerd AI",
+    "d": "DEEP FLOW SOFTWARE SERVICES",
+    "r": 79
+   },
+   {
+    "id": "cmpst1d1g08q9ug8pmczovllz",
+    "n": "Countdown",
+    "d": "App Forgeron",
+    "r": 73
+   },
+   {
+    "id": "cmpsy4qmp0ikcughvp52ih8jr",
+    "n": "Structured",
+    "d": "unorderly GmbH",
+    "r": 64
+   },
+   {
+    "id": "cmpsurjob3v8qug8pc9v2mzxr",
+    "n": "Calendly Mobile",
+    "d": "Calendly",
+    "r": 46
+   },
+   {
+    "id": "cmpstw7vz215mug8pjokur7q7",
+    "n": "Quiz AI",
+    "d": "INTSIG PTE. LTD.",
+    "r": 46
+   },
+   {
+    "id": "cmpsynu791mznughvetj847z4",
+    "n": "Quizard AI",
+    "d": "Quizard AI, Inc.",
+    "r": 44
+   },
+   {
+    "id": "cmpstvow52041ug8puzw0kg22",
+    "n": "Socratic AI",
+    "d": "Chengdu BiFang AI Tech Co., Ltd.",
+    "r": 42
+   },
+   {
+    "id": "cmpsts3e41sibug8p1x75c1up",
+    "n": "Question.AI-Math Calculator",
+    "d": "3HOUSE",
+    "r": 31
+   }
+  ]
+ },
+ {
+  "slug": "finance-personal",
+  "ru": "Личные финансы",
+  "en": "Personal finance",
+  "totalReviews": 2182,
+  "apps": [
+   {
+    "id": "cmpszwicp47k1ughvifts3hog",
+    "n": "Smart Receipts",
+    "d": "REACTIVE APPS CORP.",
+    "r": 364
+   },
+   {
+    "id": "cmpsztcof40yvughv0hmgpkvd",
+    "n": "Splitwise",
+    "d": "Splitwise, Inc.",
+    "r": 306
+   },
+   {
+    "id": "cmpsuw6h145i3ug8pvwisffqw",
+    "n": "Webull",
+    "d": "Webull Technologies Pte. Ltd.",
+    "r": 280
+   },
+   {
+    "id": "cmpszsils3z6iughv59xxrjju",
+    "n": "Quicken",
+    "d": "Quicken Inc.",
+    "r": 241
+   },
+   {
+    "id": "cmpsuv52n437iug8pzcuwdwxb",
+    "n": "Monarch",
+    "d": "Monarch Money, Inc.",
+    "r": 201
+   },
+   {
+    "id": "cmpsuwfri462uug8plcszvi56",
+    "n": "Solo",
+    "d": "WorkSolo",
+    "r": 135
+   },
+   {
+    "id": "cmpsuwsge46ubug8p3nf7xhk3",
+    "n": "Payout",
+    "d": "PAYOUT LLC",
+    "r": 108
+   },
+   {
+    "id": "cmpszx0gx48m2ughv1i73v8ty",
+    "n": "VectorVest Stock Advisory",
+    "d": "VectorVest, Inc.",
+    "r": 106
+   },
+   {
+    "id": "cmpsuv13842zaug8p41g2uybi",
+    "n": "Rocket Money",
+    "d": "Rocket Money",
+    "r": 87
+   },
+   {
+    "id": "cmpsuvl41446hug8pehdw41nt",
+    "n": "EveryDollar",
+    "d": "The Lampo Group Incorporated",
+    "r": 85
+   },
+   {
+    "id": "cmpszwukf48cqughvxd1ww140",
+    "n": "Dollarwise",
+    "d": "Hammer Media LLC",
+    "r": 85
+   },
+   {
+    "id": "cmpst3fuj0d8bug8pzf4uxy77",
+    "n": "MonoBoost Cancel Subscriptions",
+    "d": "Mnboost Corp",
+    "r": 62
+   },
+   {
+    "id": "cmpsuvogc44ejug8pylaynsuw",
+    "n": "Everlance",
+    "d": "Everlance Mileage Tracker",
+    "r": 53
+   },
+   {
+    "id": "cmpsuusoy42ipug8p0rp5xdkm",
+    "n": "MileIQ",
+    "d": "MileIQ Inc.",
+    "r": 47
+   },
+   {
+    "id": "cmpsuuza742v9ug8p9ib2dkyb",
+    "n": "Copilot",
+    "d": "Copilot Money, Inc.",
+    "r": 22
+   }
+  ]
+ },
+ {
+  "slug": "passwords-storage",
+  "ru": "Пароли и хранилища",
+  "en": "Passwords & storage",
+  "totalReviews": 1481,
+  "apps": [
+   {
+    "id": "cmpst6wgv0ipnug8p02pl4pls",
+    "n": "Keeper Password Manager",
+    "d": "Callpod Inc.",
+    "r": 465
+   },
+   {
+    "id": "cmpst78px0jgeug8p7ab0e5dv",
+    "n": "MEGA",
+    "d": "Mega Limited",
+    "r": 361
+   },
+   {
+    "id": "cmpstbfit0sequg8pj642hz8o",
+    "n": "TeraBox",
+    "d": "FLEXTECH INC.",
+    "r": 278
+   },
+   {
+    "id": "cmpstg7dy12vjug8pzcl2l4y7",
+    "n": "Private Photo Vault",
+    "d": "Legendary Software Labs LLC",
+    "r": 158
+   },
+   {
+    "id": "cmpsy7tv20pccughvb75gsrgq",
+    "n": "MobiDrive Cloud Storage & Sync",
+    "d": "MobiSystems",
+    "r": 81
+   },
+   {
+    "id": "cmpsy6dne0m3wughvyre0bonk",
+    "n": "G Cloud Backup",
+    "d": "Genie9 LTD",
+    "r": 76
+   },
+   {
+    "id": "cmpstk7h31bgnug8p1zg27ajr",
+    "n": "Secret Photo Vault",
+    "d": "KeepSafe Software, Inc",
+    "r": 62
+   }
+  ]
+ },
+ {
+  "slug": "phone-utilities",
+  "ru": "Телефонные утилиты",
+  "en": "Phone utilities",
+  "totalReviews": 3948,
+  "apps": [
+   {
+    "id": "cmpsukbpz3filug8p4hlz6mnr",
+    "n": "Package Tracker",
+    "d": "DARADDO APPS LTD",
+    "r": 369
+   },
+   {
+    "id": "cmpszhy7w3c6nughv3woqnl8i",
+    "n": "Email Aqua Mail",
+    "d": "Aqua Mail Inc",
+    "r": 272
+   },
+   {
+    "id": "cmpstmyy11hguug8pwsy3vczm",
+    "n": "Polycam",
+    "d": "Polycam",
+    "r": 248
+   },
+   {
+    "id": "cmpst4dca0f4sug8pi86fam9g",
+    "n": "AR Ruler App",
+    "d": "Grymala apps",
+    "r": 245
+   },
+   {
+    "id": "cmpsug4p936iuug8pg8rhxu94",
+    "n": "Flight Tracker－Live Air Radar",
+    "d": "Negroni",
+    "r": 240
+   },
+   {
+    "id": "cmpsxzg1r07bdughvgb9r8kh9",
+    "n": "AR Plan 3D Tape Measure, Ruler",
+    "d": "Grymala apps",
+    "r": 230
+   },
+   {
+    "id": "cmpsxwbb300h2ughv5w7ygdyo",
+    "n": "TopScan",
+    "d": "TopDon HK",
+    "r": 225
+   },
+   {
+    "id": "cmpstivbo18jvug8p4denxkf4",
+    "n": "Blackmagic Camera",
+    "d": "Blackmagic Design Inc.",
+    "r": 210
+   },
+   {
+    "id": "cmpst679y0hbcug8pyh50wk5p",
+    "n": "Yahoo Mail",
+    "d": "Yahoo",
+    "r": 206
+   },
+   {
+    "id": "cmpst5fty0gshug8ppv9z68qe",
+    "n": "WeTransfer",
+    "d": "Wetransfer B.V.",
+    "r": 195
+   },
+   {
+    "id": "cmpsz4wis2kyxughvqdc7u4oz",
+    "n": "Flightsky",
+    "d": "Ocean Float Mobile",
+    "r": 173
+   },
+   {
+    "id": "cmpsz8cjh2s2fughvclwbpc8r",
+    "n": "FlightAware Flight Tracker",
+    "d": "FlightAware",
+    "r": 163
+   },
+   {
+    "id": "cmpst24u30ad6ug8prfyy0nl6",
+    "n": "Construction Master Pro Calc",
+    "d": "Calculated Industries",
+    "r": 162
+   },
+   {
+    "id": "cmpszjxcs3gfmughvgepsvktx",
+    "n": "Fully Kiosk Browser & Lockdown",
+    "d": "Fully Factory Kiosk Solutions",
+    "r": 140
+   },
+   {
+    "id": "cmpszjo8t3fx3ughvhquefnpi",
+    "n": "CamCard AI Business Assistant",
+    "d": "INTSIG Information Co., Ltd",
+    "r": 130
+   },
+   {
+    "id": "cmpsughvq378iug8ph9jujv5y",
+    "n": "Going",
+    "d": "Scott's Cheap Flights, Inc. DBA Going",
+    "r": 126
+   },
+   {
+    "id": "cmpsz5pmf2mohughvbm8vw6yl",
+    "n": "StaffTraveler",
+    "d": "StaffTraveler Solutions B.V.",
+    "r": 113
+   },
+   {
+    "id": "cmpszj9v23f1bughv47k5a60k",
+    "n": "Index",
+    "d": "Pinger, Inc.",
+    "r": 87
+   },
+   {
+    "id": "cmpstc39r0tuvug8p4zeundet",
+    "n": "Park Smarter",
+    "d": "IPS Group Inc",
+    "r": 73
+   },
+   {
+    "id": "cmpsun1ep3li0ug8p7xg55995",
+    "n": "TrapCall",
+    "d": "Mosaic S.r.l.",
+    "r": 68
+   },
+   {
+    "id": "cmpsuf4eq34dqug8pi2rye3nw",
+    "n": "Flightradar24",
+    "d": "Flightradar24 AB",
+    "r": 64
+   },
+   {
+    "id": "cmpsu49pd2iiuug8p86kjjyoq",
+    "n": "Find My Fitbit ++",
+    "d": "Sunny Studio",
+    "r": 57
+   },
+   {
+    "id": "cmpstnm3u1ix7ug8p4uvl3ek9",
+    "n": "Polycam 3D Scans & Floor Plans",
+    "d": "Polycam Inc.",
+    "r": 57
+   },
+   {
+    "id": "cmpst2coe0aumug8piofu7ojm",
+    "n": "Case Tracker for USCIS & NVC",
+    "d": "ImmiVision, LLC",
+    "r": 40
+   },
+   {
+    "id": "cmpt01v6k07dkugfeep5e1o9v",
+    "n": "Brave Browser & Private Web",
+    "d": "Brave Software",
+    "r": 31
+   },
+   {
+    "id": "cmpsy0g8o09geughvmfkaj2na",
+    "n": "Lawfully Case Tracker",
+    "d": "Lawfully Inc.",
+    "r": 24
+   }
+  ]
+ },
+ {
+  "slug": "maps-navigation",
+  "ru": "Карты и путешествия",
+  "en": "Maps & travel",
+  "totalReviews": 2869,
+  "apps": [
+   {
+    "id": "cmpsyveug22qsughv7vxdh8jx",
+    "n": "komoot",
+    "d": "komoot GmbH",
+    "r": 320
+   },
+   {
+    "id": "cmpsuform35krug8p6m7yv80i",
+    "n": "iOverlander",
+    "d": "iOverlander, LLC",
+    "r": 305
+   },
+   {
+    "id": "cmpsu5o352lftug8p96enzzye",
+    "n": "Seed Oil Scout",
+    "d": "Seed Oil Scout",
+    "r": 300
+   },
+   {
+    "id": "cmpsz6gxz2o94ughv7136ntsq",
+    "n": "MAPS.ME",
+    "d": "Convexity Holdings AG",
+    "r": 284
+   },
+   {
+    "id": "cmpsu1o3v2d33ug8pnyeo4kkb",
+    "n": "Ride with GPS",
+    "d": "Ride with GPS",
+    "r": 248
+   },
+   {
+    "id": "cmpsul5it3hbmug8pw698isoc",
+    "n": "Jobber",
+    "d": "Jobber Software",
+    "r": 248
+   },
+   {
+    "id": "cmpsufbr434uiug8pvp0h0cxw",
+    "n": "Wanderlog",
+    "d": "Vacation and Travel Planner App LLC",
+    "r": 225
+   },
+   {
+    "id": "cmpsz51ln2l9cughvl31jiy0u",
+    "n": "Randonautica",
+    "d": "Randonauts Co.",
+    "r": 212
+   },
+   {
+    "id": "cmpsuf0h9345sug8pf05fhhiq",
+    "n": "RV LIFE",
+    "d": "Social Knowledge, LLC",
+    "r": 205
+   },
+   {
+    "id": "cmpsufv0q35xgug8puonqc83n",
+    "n": "Roadtrippers",
+    "d": "Roadtrippers",
+    "r": 203
+   },
+   {
+    "id": "cmpsuf8f334m0ug8pbs2wjztx",
+    "n": "The Dyrt",
+    "d": "The Dyrt",
+    "r": 148
+   },
+   {
+    "id": "cmpstct7i0vfsug8p4mtvexrl",
+    "n": "Land id®",
+    "d": "MapRight, LLC",
+    "r": 110
+   },
+   {
+    "id": "cmpsu577s2kgcug8pdwd1mpmf",
+    "n": "Localize",
+    "d": "OnePace LLC",
+    "r": 42
+   },
+   {
+    "id": "cmpsz593j2lq4ughvoy6t04y0",
+    "n": "Parkwolf",
+    "d": "Parkwolf LLC",
+    "r": 19
+   }
+  ]
+ },
+ {
+  "slug": "hobby-collections",
+  "ru": "Хобби и коллекции",
+  "en": "Hobbies & collections",
+  "totalReviews": 1334,
+  "apps": [
+   {
+    "id": "cmpsy9pep0t63ughv626yva8f",
+    "n": "Co–Star Personalized Astrology",
+    "d": "Co-Star Astrology Society",
+    "r": 391
+   },
+   {
+    "id": "cmpsttr331w5hug8phr8443wj",
+    "n": "Woofz",
+    "d": "nove8",
+    "r": 268
+   },
+   {
+    "id": "cmpsxwua901mrughv5o4euisq",
+    "n": "ManaBox MTG",
+    "d": "SkillDevs SC",
+    "r": 172
+   },
+   {
+    "id": "cmpsu8pz32rmwug8puo2t7lkt",
+    "n": "Untappd",
+    "d": "Untappd, Inc",
+    "r": 146
+   },
+   {
+    "id": "cmpsuaqms2vmbug8pxpyrbvzt",
+    "n": "Oeni",
+    "d": "Oeni",
+    "r": 85
+   },
+   {
+    "id": "cmpsu84cv2qbyug8pblacca5d",
+    "n": "WineRatings+ by Wine Spectator",
+    "d": "M. Shanken Communications, Inc.",
+    "r": 84
+   },
+   {
+    "id": "cmpsxzj1z07jbughvq4ejvxcg",
+    "n": "MTG Life Counter",
+    "d": "Studio Mythic",
+    "r": 62
+   },
+   {
+    "id": "cmpsu6j5w2n42ug8psjjuoc71",
+    "n": "OnlyDrams",
+    "d": "OnlyDrams, LLC",
+    "r": 54
+   },
+   {
+    "id": "cmpsu71xw2o74ug8p0mpcwgqr",
+    "n": "CellarTracker",
+    "d": "CellarTracker",
+    "r": 38
+   },
+   {
+    "id": "cmpsu6wah2nv5ug8pwpiwcuma",
+    "n": "InVintory",
+    "d": "InVintory Wines Incorporated",
+    "r": 34
+   }
+  ]
+ },
+ {
+  "slug": "parenting-family",
+  "ru": "Семья и со-родительство",
+  "en": "Family & co-parenting",
+  "totalReviews": 665,
+  "apps": [
+   {
+    "id": "cmps5zrit0emrugu78y1u9z8u",
+    "n": "Remind",
+    "d": "ParentSquare",
+    "r": 177
+   },
+   {
+    "id": "cmpst8ke50m7hug8pi6qtudtt",
+    "n": "OurFamilyWizard Co-Parent App",
+    "d": "OurFamilyWizard, LLC",
+    "r": 161
+   },
+   {
+    "id": "cmpstb4i30rq0ug8ppbjfnsr5",
+    "n": "AppClose",
+    "d": "AppClose, Inc",
+    "r": 147
+   },
+   {
+    "id": "cmps5zunx0ev3ugu7a539sj25",
+    "n": "ParentSquare",
+    "d": "ParentSquare",
+    "r": 97
+   },
+   {
+    "id": "cmpst81890l10ug8pwey46we2",
+    "n": "TalkingParents",
+    "d": "Monitored Communications LLC",
+    "r": 83
+   }
+  ]
+ },
+ {
+  "slug": "wallpapers-custom",
+  "ru": "Виджеты и кастомизация",
+  "en": "Widgets & customization",
+  "totalReviews": 313,
+  "apps": [
+   {
+    "id": "cmpssyxby03eyug8punxmjlx0",
+    "n": "myCar",
+    "d": "DOFUapps",
+    "r": 150
+   },
+   {
+    "id": "cmpstakqa0qizug8pxbug33nm",
+    "n": "Fontmaker",
+    "d": "Sociaaal LLC",
+    "r": 111
+   },
+   {
+    "id": "cmpsz8pe12suuughv8p94yy0i",
+    "n": "Currency Converter Plus Rates",
+    "d": "Digitalchemy, LLC",
+    "r": 52
+   }
+  ]
+ },
+ {
+  "slug": "food-delivery",
+  "ru": "Приложения доставки еды",
+  "en": "Food Delivery Apps",
+  "totalReviews": 2585,
+  "apps": [
+   {
+    "id": "cmps60xoy0hkrugu7wkboeztv",
+    "n": "DoorDash",
+    "d": "DoorDash, Inc.",
+    "r": 1162
+   },
+   {
+    "id": "cmps60z580hp2ugu7cjhc60dk",
+    "n": "Uber Eats",
+    "d": "Uber Technologies, Inc.",
+    "r": 553
+   },
+   {
+    "id": "cmps61a340ii5ugu7o0clj2cc",
+    "n": "Instacart",
+    "d": "Maplebear Inc",
+    "r": 240
+   },
+   {
+    "id": "cmpt24cwm4fdlugfeckzc8axm",
+    "n": "JustEat",
+    "d": "Just-Eat Holding Limited",
+    "r": 174
+   },
+   {
+    "id": "cmpt242x94euiugfelwmttgwh",
+    "n": "Deliveroo",
+    "d": "Deliveroo",
+    "r": 153
+   },
+   {
+    "id": "cmpsuqhe03sxpug8pwjbcutm7",
+    "n": "Grubhub for Drivers",
+    "d": "GrubHub.com",
+    "r": 120
+   },
+   {
+    "id": "cmpsub0to2w4bug8pbai9lmag",
+    "n": "Grubhub",
+    "d": "GrubHub.com",
+    "r": 117
+   },
+   {
+    "id": "cmpt2zv1i6317ugfe7ni9cfin",
+    "n": "Deliveroo Rider",
+    "d": "Deliveroo",
+    "r": 35
+   },
+   {
+    "id": "cmpsulvit3ixrug8pdvmoce2w",
+    "n": "Instacart Shopper",
+    "d": "Maplebear Inc",
+    "r": 31
+   }
+  ]
+ },
+ {
+  "slug": "fast-food-chains",
+  "ru": "Приложения сетей быстрого питания",
+  "en": "Fast Food Chain Apps",
+  "totalReviews": 3555,
+  "apps": [
+   {
+    "id": "cmps60w7q0hgeugu7d1mgbtmo",
+    "n": "McDonald's",
+    "d": "McDonald's USA",
+    "r": 564
+   },
+   {
+    "id": "cmps615n70i5yugu7pin38tfj",
+    "n": "Subway®",
+    "d": "SUBWAY Restaurants",
+    "r": 505
+   },
+   {
+    "id": "cmps6141a0i1vugu7368vp1uv",
+    "n": "Domino's Pizza USA",
+    "d": "Domino's Pizza LLC",
+    "r": 269
+   },
+   {
+    "id": "cmps612ki0hxougu70rn4q9zy",
+    "n": "Wendy’s",
+    "d": "Wendy's Int'l., LLC",
+    "r": 227
+   },
+   {
+    "id": "cmps61q7x0jiwugu7rdoo9a6k",
+    "n": "Chipotle",
+    "d": "Chipotle Mexican Grill",
+    "r": 203
+   },
+   {
+    "id": "cmpsu73u52ob1ug8p2xrq8k0g",
+    "n": "Dairy Queen® Food & Treats",
+    "d": "International Dairy Queen®️",
+    "r": 164
+   },
+   {
+    "id": "cmpsu8ysa2s6vug8pv8nqmao2",
+    "n": "KFC US",
+    "d": "Kentucky Fried Chicken",
+    "r": 131
+   },
+   {
+    "id": "cmps617660iadugu7n892v85h",
+    "n": "Starbucks",
+    "d": "Starbucks Coffee Company",
+    "r": 125
+   },
+   {
+    "id": "cmps610y10ht9ugu7xbsqqo0b",
+    "n": "BURGER KING® App",
+    "d": "Burger King, Inc.",
+    "r": 122
+   },
+   {
+    "id": "cmps61frl0iukugu7kds6mtlo",
+    "n": "Taco Bell Fast Food & Delivery",
+    "d": "Taco Bell",
+    "r": 105
+   },
+   {
+    "id": "cmpsu6y6d2nzcug8pneq53btf",
+    "n": "Dunkin’",
+    "d": "Dunkin' Donuts",
+    "r": 96
+   },
+   {
+    "id": "cmpt60yn14i0mugw6iyfiozix",
+    "n": "Taco Bell Canada",
+    "d": "Tictuk Technologies Ltd",
+    "r": 81
+   },
+   {
+    "id": "cmpt24xnx4gmhugfeu71ks9or",
+    "n": "Starbucks UK",
+    "d": "Starbucks Coffee Company",
+    "r": 80
+   },
+   {
+    "id": "cmpt5wjd94ahgugw6d4vdqr0n",
+    "n": "A&W",
+    "d": "A&W Canada",
+    "r": 78
+   },
+   {
+    "id": "cmpt5xz7p4cvlugw6eq8h9wey",
+    "n": "Skip",
+    "d": "Skip Canada",
+    "r": 69
+   },
+   {
+    "id": "cmpt24sio4gdgugfe75futyeg",
+    "n": "KFC UKI",
+    "d": "Kentucky Fried Chicken Limited (Great Britain)",
+    "r": 67
+   },
+   {
+    "id": "cmpt257684h55ugfewx8mmmv7",
+    "n": "Burger King UK",
+    "d": "Burger King, Inc.",
+    "r": 65
+   },
+   {
+    "id": "cmpt5xtrf4cmougw6ove6l3lb",
+    "n": "BURGER KING Canada",
+    "d": "Burger King, Inc.",
+    "r": 65
+   },
+   {
+    "id": "cmpta5y0y39lfugx3bbfk45kx",
+    "n": "Subway® Australia",
+    "d": "Simplicity Loyalty",
+    "r": 63
+   },
+   {
+    "id": "cmps61hl90iyhugu7rtlv9m29",
+    "n": "Wingstop",
+    "d": "Wingstop Restaurants, Inc.",
+    "r": 63
+   },
+   {
+    "id": "cmpsu7kyq2p62ug8plqajkcom",
+    "n": "Little Caesars",
+    "d": "Little Caesar Enterprises, Inc.",
+    "r": 63
+   },
+   {
+    "id": "cmpt23hvl4do8ugfea3q9obic",
+    "n": "McDonald’s UK",
+    "d": "McDonald's UK",
+    "r": 59
+   },
+   {
+    "id": "cmps61l3a0j73ugu7d5bpt0im",
+    "n": "Chick-fil-A",
+    "d": "Chick-fil-A, Inc.",
+    "r": 56
+   },
+   {
+    "id": "cmpsu7uhf2pqvug8pkjqnrbhd",
+    "n": "Jack in the Box®",
+    "d": "Jack in the Box Inc.",
+    "r": 51
+   },
+   {
+    "id": "cmpsz2uu12h9eughvum8fdjqt",
+    "n": "McDonald's Offers and Delivery",
+    "d": "Arcos Dorados",
+    "r": 48
+   },
+   {
+    "id": "cmpt24zex4gqsugfettr1ejch",
+    "n": "Domino's Pizza Delivery UK&ROI",
+    "d": "DOMINO'S PIZZA UK & IRELAND LIMITED",
+    "r": 41
+   },
+   {
+    "id": "cmpsu8nxs2rj3ug8pb47jkrds",
+    "n": "Little Caesars Pizza",
+    "d": "Little Caesar Enterprises, Inc.",
+    "r": 38
+   },
+   {
+    "id": "cmpsuc5id2y9sug8pre876tyb",
+    "n": "Jack in the Box® Order App",
+    "d": "Jack in the Box, Inc.",
+    "r": 31
+   },
+   {
+    "id": "cmpt5xh7i4c0vugw6hojp5mjy",
+    "n": "Domino's Canada",
+    "d": "Domino's Canada",
+    "r": 26
+   }
+  ]
+ },
+ {
+  "slug": "restaurant-discovery",
+  "ru": "Приложения поиска ресторанов",
+  "en": "Restaurant Discovery & Review Apps",
+  "totalReviews": 1604,
+  "apps": [
+   {
+    "id": "cmpsu8t4k2rtuug8p09jze940",
+    "n": "Anova Culinary",
+    "d": "Anova Culinary",
+    "r": 493
+   },
+   {
+    "id": "cmpsu5cpp2kt9ug8pea6fy7tg",
+    "n": "Vivino",
+    "d": "Vivino ApS",
+    "r": 290
+   },
+   {
+    "id": "cmps61ogs0jehugu7n7pf4i9d",
+    "n": "Yelp",
+    "d": "Yelp, Inc",
+    "r": 247
+   },
+   {
+    "id": "cmpsu7qh52pihug8psm0ov8lj",
+    "n": "Wine-Searcher",
+    "d": "Wine-Searcher Ltd",
+    "r": 202
+   },
+   {
+    "id": "cmps61rvg0jn1ugu7o28hf4wp",
+    "n": "Too Good To Go",
+    "d": "Too Good To Go",
+    "r": 160
+   },
+   {
+    "id": "cmpt2fi614yi4ugfeggae6q7u",
+    "n": "Zomato",
+    "d": "Zomato",
+    "r": 90
+   },
+   {
+    "id": "cmpsu8eze2r00ug8p0zfozufu",
+    "n": "OpenTable",
+    "d": "OpenTable",
+    "r": 66
+   },
+   {
+    "id": "cmpsusfai3x8sug8pcklzwui6",
+    "n": "Yelp for Business",
+    "d": "Yelp, Inc",
+    "r": 56
+   }
+  ]
+ },
+ {
+  "slug": "job-search",
+  "ru": "Приложения поиска работы",
+  "en": "Job Search Apps",
+  "totalReviews": 1477,
+  "apps": [
+   {
+    "id": "cmps637ms0nhfugu737hhz04v",
+    "n": "LinkedIn",
+    "d": "LinkedIn Corporation",
+    "r": 522
+   },
+   {
+    "id": "cmpszheao3axwughvmxrugxhh",
+    "n": "LinkedIn Sales Navigator",
+    "d": "LinkedIn Corporation",
+    "r": 319
+   },
+   {
+    "id": "cmps62nev0m0augu77qgzukwu",
+    "n": "Indeed Job Search",
+    "d": "Indeed Inc.",
+    "r": 318
+   },
+   {
+    "id": "cmpsyndk81lzmughvcp42nssc",
+    "n": "LinkedIn Learning",
+    "d": "LinkedIn",
+    "r": 141
+   },
+   {
+    "id": "cmpszittd3e0cughvpqg2ksv6",
+    "n": "Indeed Flex",
+    "d": "Indeed Flex",
+    "r": 116
+   },
+   {
+    "id": "cmpsume8y3k23ug8pgd4qfj1j",
+    "n": "ZipRecruiter Job Search",
+    "d": "ZipRecruiter, Inc.",
+    "r": 43
+   },
+   {
+    "id": "cmpsul3so3h8nug8p1ybeq90g",
+    "n": "Job Search by ZipRecruiter",
+    "d": "ZipRecruiter, Inc.",
+    "r": 18
+   }
+  ]
+ },
+ {
+  "slug": "hr-workforce",
+  "ru": "Приложения HR и управления персоналом",
+  "en": "HR & Workforce Management Apps",
+  "totalReviews": 1438,
+  "apps": [
+   {
+    "id": "cmps62ux20mjdugu7n9u76jsu",
+    "n": "ADP Mobile Solutions",
+    "d": "ADP, Inc",
+    "r": 430
+   },
+   {
+    "id": "cmps63h5z0o77ugu7c28w5g9s",
+    "n": "UKG Pro",
+    "d": "UKG INC.",
+    "r": 404
+   },
+   {
+    "id": "cmps63fty0o36ugu7667xebib",
+    "n": "Workday",
+    "d": "Workday",
+    "r": 336
+   },
+   {
+    "id": "cmpsupnrq3r5rug8pq106c5j3",
+    "n": "UKG Ready",
+    "d": "UKG, Inc.",
+    "r": 149
+   },
+   {
+    "id": "cmptb4nlr4hssugx3y3evi4ll",
+    "n": "Humanforce (legacy)",
+    "d": "Humanforce",
+    "r": 69
+   },
+   {
+    "id": "cmptazfsd49x7ugx3chzultbe",
+    "n": "Humanforce Work",
+    "d": "Humanforce",
+    "r": 50
+   }
+  ]
+ },
+ {
+  "slug": "accounting-software",
+  "ru": "Бухгалтерские приложения для бизнеса",
+  "en": "Small Business Accounting Apps",
+  "totalReviews": 1565,
+  "apps": [
+   {
+    "id": "cmpsujscx3edbug8p8bex0pis",
+    "n": "Intuit QuickBooks for Business",
+    "d": "Intuit Inc",
+    "r": 228
+   },
+   {
+    "id": "cmpt7nyv36udhugw60xis8t64",
+    "n": "QuickBooks Self-Employed",
+    "d": "Intuit Inc.",
+    "r": 188
+   },
+   {
+    "id": "cmpt2wtwn5wxhugfe8fnulnz7",
+    "n": "Xero Accounting for business",
+    "d": "Xero Ltd",
+    "r": 146
+   },
+   {
+    "id": "cmpt2x9pe5xuqugfebf1mddf9",
+    "n": "Xero Accounting & Invoices",
+    "d": "Xero Accounting",
+    "r": 128
+   },
+   {
+    "id": "cmpt2z06k61ayugfelrybfd2d",
+    "n": "Xero Verify",
+    "d": "Xero Accounting",
+    "r": 128
+   },
+   {
+    "id": "cmpstbc5o0s66ug8p85u53kas",
+    "n": "QuickBooks Workforce",
+    "d": "Intuit Inc",
+    "r": 127
+   },
+   {
+    "id": "cmpt6zsd65p7ougw6p0hhxmlc",
+    "n": "QuickBooks Business Accounting",
+    "d": "Intuit Inc.",
+    "r": 114
+   },
+   {
+    "id": "cmpt2zd5f61ytugfe9if2tsgg",
+    "n": "Xero Me",
+    "d": "Xero Accounting",
+    "r": 114
+   },
+   {
+    "id": "cmpt2wg4e5w4mugfe65tw03cb",
+    "n": "Sage HR",
+    "d": "Sage Global Services",
+    "r": 108
+   },
+   {
+    "id": "cmpt7nrhs6tx3ugw63te2xq44",
+    "n": "QBSE",
+    "d": "Intuit Inc",
+    "r": 98
+   },
+   {
+    "id": "cmpt2w0y25v9eugfekghy7254",
+    "n": "QuickBooks Small Business",
+    "d": "Intuit Inc.",
+    "r": 75
+   },
+   {
+    "id": "cmpt6zqd15p3dugw6648gfkvm",
+    "n": "QuickBooks Online Accounting",
+    "d": "Intuit Inc",
+    "r": 61
+   },
+   {
+    "id": "cmptayvs648ycugx3xgxuyd7b",
+    "n": "Reckon Payroll",
+    "d": "Reckon Limited",
+    "r": 50
+   }
+  ]
+ },
+ {
+  "slug": "video-conferencing",
+  "ru": "Приложения для видеоконференций",
+  "en": "Video Conferencing Apps",
+  "totalReviews": 964,
+  "apps": [
+   {
+    "id": "cmps62tgw0mf4ugu77q47locy",
+    "n": "Zoom Workplace",
+    "d": "Zoom Communications, Inc.",
+    "r": 360
+   },
+   {
+    "id": "cmpsums7d3kwhug8p1xbc4ke2",
+    "n": "Webex",
+    "d": "Cisco Systems, Inc.",
+    "r": 230
+   },
+   {
+    "id": "cmps62oxp0m3lugu7ja7f4x91",
+    "n": "Microsoft Teams",
+    "d": "Microsoft Corporation",
+    "r": 204
+   },
+   {
+    "id": "cmps5ujnf01riugu7wh6tvcz1",
+    "n": "Google Meet",
+    "d": "Google",
+    "r": 67
+   },
+   {
+    "id": "cmpszhjwy3ba9ughvs4jra6px",
+    "n": "Zoom Workplace for Chromebook",
+    "d": "zoom.com",
+    "r": 53
+   },
+   {
+    "id": "cmpszk18s3go0ughv0gj7kaom",
+    "n": "Webex Meetings",
+    "d": "Cisco Systems, Inc.",
+    "r": 50
+   }
+  ]
+ },
+ {
+  "slug": "logistics-courier",
+  "ru": "Приложения логистики и доставки",
+  "en": "Shipping & Logistics Apps",
+  "totalReviews": 1289,
+  "apps": [
+   {
+    "id": "cmps62wfv0mnsugu7346kblva",
+    "n": "FedEx Mobile",
+    "d": "FedEx",
+    "r": 369
+   },
+   {
+    "id": "cmps6316w0n0fugu74esvsbkc",
+    "n": "UPS",
+    "d": "UPS",
+    "r": 349
+   },
+   {
+    "id": "cmpt2xel25y4rugfenr4gtqg8",
+    "n": "DHL Express Mobile",
+    "d": "DHL Express",
+    "r": 195
+   },
+   {
+    "id": "cmpt9hvqs0ekhuglh57afuogw",
+    "n": "Spark Driver",
+    "d": "Walmart",
+    "r": 193
+   },
+   {
+    "id": "cmps62y9s0ms1ugu7svgt0o0e",
+    "n": "Amazon Flex",
+    "d": "Amazon Mobile LLC",
+    "r": 183
+   }
+  ]
+ },
+ {
+  "slug": "streaming-video",
+  "ru": "Видеостриминговые сервисы",
+  "en": "Video Streaming Services",
+  "totalReviews": 2867,
+  "apps": [
+   {
+    "id": "cmpt2h7v951vxugfegfc9so5c",
+    "n": "Hayu",
+    "d": "Universal Pictures Subscription Television Limited",
+    "r": 421
+   },
+   {
+    "id": "cmps5ykw50bq8ugu7i5fvzim7",
+    "n": "Netflix",
+    "d": "Netflix, Inc.",
+    "r": 409
+   },
+   {
+    "id": "cmpsuhk5t39h1ug8pal1i5mq5",
+    "n": "discovery+",
+    "d": "Rogers Media",
+    "r": 349
+   },
+   {
+    "id": "cmpsuhxid3aaeug8p2oy6y8js",
+    "n": "PlutoTV",
+    "d": "Pluto, Inc.",
+    "r": 259
+   },
+   {
+    "id": "cmpt9dtm808dfuglhsdqcofaf",
+    "n": "Peacock TV",
+    "d": "Peacock TV LLC",
+    "r": 169
+   },
+   {
+    "id": "cmpt6jhoz4u6vugw6gs4n2g8v",
+    "n": "Crave",
+    "d": "Bell Media Inc.",
+    "r": 149
+   },
+   {
+    "id": "cmps5yezp0bb8ugu7gt4ukypr",
+    "n": "Tubi",
+    "d": "Tubi TV",
+    "r": 130
+   },
+   {
+    "id": "cmpsuhgmk398hug8phlqzdqd6",
+    "n": "ViX",
+    "d": "Univision Communications Inc.",
+    "r": 126
+   },
+   {
+    "id": "cmpt2gy6i51bcugfel6euwpxh",
+    "n": "Channel 4",
+    "d": "Channel 4",
+    "r": 123
+   },
+   {
+    "id": "cmps5ysnm0cafugu7uzf8uapu",
+    "n": "Amazon Prime Video",
+    "d": "AMZN Mobile LLC",
+    "r": 122
+   },
+   {
+    "id": "cmptamaje3xgqugx3wxugbt73",
+    "n": "Binge",
+    "d": "Hubbl Pty Ltd",
+    "r": 114
+   },
+   {
+    "id": "cmpt6kiid4wa0ugw612cnlahv",
+    "n": "CBC Gem",
+    "d": "CBC",
+    "r": 105
+   },
+   {
+    "id": "cmpt2g3u04zhgugfewx93glkg",
+    "n": "ITVX",
+    "d": "ITV",
+    "r": 101
+   },
+   {
+    "id": "cmpsuhtvo3a2cug8pujfo9doh",
+    "n": "Sling",
+    "d": "Sling Incorporated",
+    "r": 92
+   },
+   {
+    "id": "cmps5z1b00cuwugu7zmwinhok",
+    "n": "Paramount+",
+    "d": "CBS Interactive",
+    "r": 89
+   },
+   {
+    "id": "cmptan5o73yklugx3s6dvlau4",
+    "n": "SBS On Demand",
+    "d": "SBS Corporation",
+    "r": 62
+   },
+   {
+    "id": "cmpt6jxw44v5uugw6umhewbq6",
+    "n": "ICI TOU.TV",
+    "d": "Radio-Canada",
+    "r": 47
+   }
+  ]
+ },
+ {
+  "slug": "short-drama-apps",
+  "ru": "Приложения коротких сериалов",
+  "en": "Short Drama & Reel Series Apps",
+  "totalReviews": 1679,
+  "apps": [
+   {
+    "id": "cmps5ygjs0bepugu75iigigmu",
+    "n": "DramaBox",
+    "d": "STORYMATRIX",
+    "r": 342
+   },
+   {
+    "id": "cmpsuhq2q39tqug8pfw53t50d",
+    "n": "ShortMax",
+    "d": "SHORTTV LIMITED",
+    "r": 326
+   },
+   {
+    "id": "cmps5ydim0b71ugu7cv8rn37s",
+    "n": "ReelShort",
+    "d": "NewLeaf Publishing",
+    "r": 244
+   },
+   {
+    "id": "cmpsui1653aioug8pn73kmyc6",
+    "n": "DramaWave",
+    "d": "SKYWORK AI PTE LTD",
+    "r": 233
+   },
+   {
+    "id": "cmps5yi3j0bisugu7rjm1p9t2",
+    "n": "HotMiniDrama",
+    "d": "Tasawq",
+    "r": 169
+   },
+   {
+    "id": "cmps5yjel0bmdugu7tugvx5w2",
+    "n": "Rips by Triumph",
+    "d": "Triumph Labs Inc.",
+    "r": 112
+   },
+   {
+    "id": "cmps5yalo0aybugu7q41nqdhs",
+    "n": "XScroll",
+    "d": "TEYRON LTD",
+    "r": 105
+   },
+   {
+    "id": "cmps5y99q0av2ugu73g1ufu6f",
+    "n": "FreeReels",
+    "d": "SKYWORK AI PTE.LTD.",
+    "r": 90
+   },
+   {
+    "id": "cmps5yc3h0b2sugu7sh22anmq",
+    "n": "PineDrama",
+    "d": "TikTok Pte. Ltd.",
+    "r": 58
+   }
+  ]
+ },
+ {
+  "slug": "live-streaming-apps",
+  "ru": "Приложения прямых трансляций",
+  "en": "Live Streaming Apps",
+  "totalReviews": 1891,
+  "apps": [
+   {
+    "id": "cmpsusklt3xknug8pf7ng2khu",
+    "n": "Clapper",
+    "d": "CLAPPER MEDIA GROUP INC.",
+    "r": 331
+   },
+   {
+    "id": "cmpsustx53y50ug8pajmw1abx",
+    "n": "Yubo",
+    "d": "Twelve APP",
+    "r": 250
+   },
+   {
+    "id": "cmps5u5sq00vuugu7ipogd9gy",
+    "n": "Tango",
+    "d": "Tango",
+    "r": 192
+   },
+   {
+    "id": "cmpsutd0t3zd9ug8ptuvara58",
+    "n": "Poppo Live",
+    "d": "Vshow PTE. LTD.",
+    "r": 184
+   },
+   {
+    "id": "cmpsutt0w40dmug8p85eo9vro",
+    "n": "BuzzCast",
+    "d": "BuzzCast LIVE",
+    "r": 152
+   },
+   {
+    "id": "cmpsutlbu3zweug8p31i1ubhz",
+    "n": "Plamfy",
+    "d": "Plamfy",
+    "r": 148
+   },
+   {
+    "id": "cmpsusic13xggug8ppn3b9m8t",
+    "n": "BIGO LIVE-Live Stream, Go Live",
+    "d": "Bigo Technology Pte. Ltd.",
+    "r": 138
+   },
+   {
+    "id": "cmpsuss5p3y1bug8pec9aa2qn",
+    "n": "Chamet",
+    "d": "Chamet Team",
+    "r": 107
+   },
+   {
+    "id": "cmpsutg703zktug8ph2oj5560",
+    "n": "Gaze",
+    "d": "VLMedia Inc.",
+    "r": 100
+   },
+   {
+    "id": "cmpsut7o13z1eug8p6krzydia",
+    "n": "SuperLive- Live Stream & Chat",
+    "d": "Superlive Tech",
+    "r": 95
+   },
+   {
+    "id": "cmps5u0xr00k1ugu7zj60arud",
+    "n": "Bigo Live",
+    "d": "Bigo Technology Pte. Ltd.",
+    "r": 91
+   },
+   {
+    "id": "cmpsuu7gx416rug8pv3yyuy92",
+    "n": "TopLive",
+    "d": "Aligosta Limited",
+    "r": 63
+   },
+   {
+    "id": "cmpt7e8hm6em0ugw6zdij57yx",
+    "n": "BIGO LIVE, Live Streaming",
+    "d": "BIGO TECHNOLOGY PTE. LTD.",
+    "r": 40
+   }
+  ]
+ },
+ {
+  "slug": "ticketing-events",
+  "ru": "Приложения продажи билетов на события",
+  "en": "Event Ticketing Apps",
+  "totalReviews": 359,
+  "apps": [
+   {
+    "id": "cmpsuh99x38tfug8p7zgtbixo",
+    "n": "Fandango at Home",
+    "d": "VUDU, Inc.",
+    "r": 122
+   },
+   {
+    "id": "cmpsui7y23ax4ug8peshwohwu",
+    "n": "AMC Theatres",
+    "d": "American Multi-Cinema, Inc",
+    "r": 95
+   },
+   {
+    "id": "cmps5yugp0ceougu7vusqh3p8",
+    "n": "Ticketmaster－Buy, Sell Tickets",
+    "d": "Ticketmaster",
+    "r": 90
+   },
+   {
+    "id": "cmpt6jsgh4uthugw682lwq93h",
+    "n": "Cineplex Entertainment",
+    "d": "Cineplex Entertainment",
+    "r": 52
+   }
+  ]
+ },
+ {
+  "slug": "messaging-apps",
+  "ru": "Приложения для мессенджеров",
+  "en": "Messaging & Chat Apps",
+  "totalReviews": 1609,
+  "apps": [
+   {
+    "id": "cmpsusz473ygpug8pjnqx5aez",
+    "n": "Text Me",
+    "d": "TextMe, Inc.",
+    "r": 344
+   },
+   {
+    "id": "cmps5uhvh01n3ugu7ks24sq31",
+    "n": "Telegram Messenger",
+    "d": "Telegram FZ-LLC",
+    "r": 226
+   },
+   {
+    "id": "cmpsut9cc3z4zug8p6pywk8kq",
+    "n": "Text Free",
+    "d": "Pinger, Inc.",
+    "r": 221
+   },
+   {
+    "id": "cmps5ug4e01iuugu7dlj605je",
+    "n": "Discord",
+    "d": "Discord Inc.",
+    "r": 210
+   },
+   {
+    "id": "cmpsutr8p4099ug8puylp8bj6",
+    "n": "Telegram X",
+    "d": "Telegram FZ-LLC",
+    "r": 189
+   },
+   {
+    "id": "cmps5ub0b0173ugu7h73xvy99",
+    "n": "WhatsApp Messenger",
+    "d": "WhatsApp Inc.",
+    "r": 150
+   },
+   {
+    "id": "cmps5uo7n023lugu74z8686bz",
+    "n": "TextNow",
+    "d": "TextNow, Inc.",
+    "r": 149
+   },
+   {
+    "id": "cmps5uld101vlugu7kovne0u0",
+    "n": "GroupMe",
+    "d": "Skype Communications S.a.r.l",
+    "r": 69
+   },
+   {
+    "id": "cmpuot36x0nymugj2917rjpq2",
+    "n": "WhatsApp Business",
+    "d": "WhatsApp Inc.",
+    "r": 51
+   }
+  ]
+ },
+ {
+  "slug": "dating-apps",
+  "ru": "Приложения знакомств",
+  "en": "Dating Apps",
+  "totalReviews": 2636,
+  "apps": [
+   {
+    "id": "cmpsuujxa41zuug8p2i6pe1ol",
+    "n": "SCRUFF",
+    "d": "Perry Street Software, Inc",
+    "r": 543
+   },
+   {
+    "id": "cmpszpzyg3traughvo132shyv",
+    "n": "Muzz",
+    "d": "MUZZ LTD",
+    "r": 512
+   },
+   {
+    "id": "cmpsut2gj3ypfug8p0bp7nnpv",
+    "n": "Taimi",
+    "d": "Social Impact Inc.",
+    "r": 325
+   },
+   {
+    "id": "cmpste3x80y8xug8prus90dxv",
+    "n": "Feeld",
+    "d": "Feeld Ltd",
+    "r": 193
+   },
+   {
+    "id": "cmpste21a0y4oug8pmy2kihaj",
+    "n": "Raya",
+    "d": "Raya App Inc",
+    "r": 184
+   },
+   {
+    "id": "cmpste9pw0yliug8pb2c26cal",
+    "n": "Aveola",
+    "d": "Pepitama Ltd",
+    "r": 184
+   },
+   {
+    "id": "cmpste7pb0yhbug8p94gr6ajm",
+    "n": "PURE",
+    "d": "Online Classifieds AG",
+    "r": 170
+   },
+   {
+    "id": "cmps62ha90ljeugu7g0bzh0dw",
+    "n": "Tinder Dating App",
+    "d": "Tinder LLC",
+    "r": 150
+   },
+   {
+    "id": "cmps62ino0lnlugu76p60yd66",
+    "n": "Hinge Dating App",
+    "d": "Hinge, Inc.",
+    "r": 137
+   },
+   {
+    "id": "cmpsusxju3ycwug8puvhq9cam",
+    "n": "Joi",
+    "d": "VLMedia A.Ş.",
+    "r": 88
+   },
+   {
+    "id": "cmpt0ozna1ie3ugfee3bmlvsn",
+    "n": "Match",
+    "d": "Match.com International Limited",
+    "r": 77
+   },
+   {
+    "id": "cmpt7fdcg6gypugw6q8uz8y9q",
+    "n": "Match™",
+    "d": "Match Group Americas, LLC",
+    "r": 73
+   }
+  ]
+ },
+ {
+  "slug": "social-networks",
+  "ru": "Приложения социальных сетей",
+  "en": "Social Network Apps",
+  "totalReviews": 3101,
+  "apps": [
+   {
+    "id": "cmpsusovb3xt3ug8p6spliujf",
+    "n": "Wizz App",
+    "d": "VLB",
+    "r": 499
+   },
+   {
+    "id": "cmpsuu3rq40ynug8p065lsjz3",
+    "n": "FET",
+    "d": "Ideawise Ltd.",
+    "r": 463
+   },
+   {
+    "id": "cmps5txko00blugu7k4ribvzd",
+    "n": "Facebook",
+    "d": "Meta Platforms, Inc.",
+    "r": 444
+   },
+   {
+    "id": "cmps5u2k000nougu7nhqngkhc",
+    "n": "Reddit",
+    "d": "reddit Inc.",
+    "r": 417
+   },
+   {
+    "id": "cmpsuu0au40qrug8pfs58lypp",
+    "n": "Letterboxd",
+    "d": "Letterboxd",
+    "r": 391
+   },
+   {
+    "id": "cmpsutvp140hvug8pznq19szi",
+    "n": "rednote",
+    "d": "Xingin",
+    "r": 384
+   },
+   {
+    "id": "cmps5tza200g2ugu7mbxn8yms",
+    "n": "Threads",
+    "d": "Instagram, Inc.",
+    "r": 282
+   },
+   {
+    "id": "cmps5u46t00rzugu74wnic658",
+    "n": "Facebook Lite",
+    "d": "Meta Platforms, Inc.",
+    "r": 162
+   },
+   {
+    "id": "cmps5u7g100zfugu7u8x1ly5m",
+    "n": "BAND",
+    "d": "NAVER Corp.",
+    "r": 59
+   }
+  ]
+ },
+ {
+  "slug": "rideshare-taxi",
+  "ru": "Приложения такси и совместных поездок",
+  "en": "Rideshare & Taxi Apps",
+  "totalReviews": 534,
+  "apps": [
+   {
+    "id": "cmps60gtc0gb2ugu7hbanp2yj",
+    "n": "Uber",
+    "d": "Uber Technologies, Inc.",
+    "r": 442
+   },
+   {
+    "id": "cmps60jo40gj2ugu7jc64esqj",
+    "n": "Lyft",
+    "d": "Lyft, Inc.",
+    "r": 92
+   }
+  ]
+ },
+ {
+  "slug": "vpn-apps",
+  "ru": "VPN-приложения",
+  "en": "VPN Apps",
+  "totalReviews": 517,
+  "apps": [
+   {
+    "id": "cmps63ox20oosugu77izfsj00",
+    "n": "Proton VPN",
+    "d": "Proton AG",
+    "r": 141
+   },
+   {
+    "id": "cmps63j280obeugu79j5tjkif",
+    "n": "JumpJumpVPN",
+    "d": "SOON BODYWERKZ AUTO PTE. LTD.",
+    "r": 137
+   },
+   {
+    "id": "cmpssyzlz03jdug8p4jdxnxim",
+    "n": "Npv Tunnel V2ray/SSH",
+    "d": "Vonmatrix Co. Ltd",
+    "r": 88
+   },
+   {
+    "id": "cmps63ued0p2kugu7umrfpwms",
+    "n": "X-VPN",
+    "d": "LIGHTNINGLINK NETWORKS PTE. LTD.",
+    "r": 62
+   },
+   {
+    "id": "cmps63qfa0osdugu7rxfpamla",
+    "n": "Man VPN",
+    "d": "Rowan Saturnin",
+    "r": 45
+   },
+   {
+    "id": "cmps63ner0olfugu7gsj53i8h",
+    "n": "BD NET VPN",
+    "d": "SulitNet Solutions",
+    "r": 44
+   }
+  ]
+ },
+ {
+  "slug": "tv-remote-cast",
+  "ru": "Приложения пульта дистанционного управления",
+  "en": "TV Remote Control Apps",
+  "totalReviews": 1713,
+  "apps": [
+   {
+    "id": "cmps646p60ptzugu75w2lc11i",
+    "n": "TV Remote",
+    "d": "EVOLLY.APP",
+    "r": 533
+   },
+   {
+    "id": "cmpssytpq036sug8pc91por84",
+    "n": "Universal TV Remote Control・",
+    "d": "toggle apps",
+    "r": 397
+   },
+   {
+    "id": "cmps6452n0ppougu72ow6m7bt",
+    "n": "Universal Remote TV Control ·",
+    "d": "BEGAMOB GLOBAL LIMITED",
+    "r": 265
+   },
+   {
+    "id": "cmps5yzyf0cr3ugu7jyi1jvhu",
+    "n": "The Roku App (Official)",
+    "d": "ROKU INC",
+    "r": 126
+   },
+   {
+    "id": "cmps5yp9e0c27ugu7kiob4gi4",
+    "n": "Amazon Fire TV",
+    "d": "Amazon Mobile LLC",
+    "r": 112
+   },
+   {
+    "id": "cmps5z2re0cyxugu728uaw65y",
+    "n": "VIZIO",
+    "d": "VIZIO",
+    "r": 73
+   },
+   {
+    "id": "cmpssxvo8011tug8ptnvnv7d5",
+    "n": "Castly -Roku, Chromecast,DLNA",
+    "d": "Castly",
+    "r": 63
+   },
+   {
+    "id": "cmpssykvu02mzug8pxn0ojd61",
+    "n": "TV Remote & Universal Control™",
+    "d": "To Ngoc Mai",
+    "r": 52
+   },
+   {
+    "id": "cmpt0660j0fvrugfeh016jkxz",
+    "n": "Fire TV Remote",
+    "d": "Remote Control TV LLC",
+    "r": 47
+   },
+   {
+    "id": "cmpssz6qn03zdug8pkuqhfchm",
+    "n": "Universal TV Remote ·",
+    "d": "KRAFTWERK 9 LTD",
+    "r": 45
+   }
+  ]
+ },
+ {
+  "slug": "telecom-carrier",
+  "ru": "Приложения мобильных операторов",
+  "en": "Mobile Carrier & ISP Apps",
+  "totalReviews": 837,
+  "apps": [
+   {
+    "id": "cmps64dro0qazugu7x0s9qx0y",
+    "n": "Xfinity",
+    "d": "Comcast",
+    "r": 238
+   },
+   {
+    "id": "cmps64c690q6ougu7r5tcqquk",
+    "n": "AT&T",
+    "d": "AT&T Services, Inc.",
+    "r": 171
+   },
+   {
+    "id": "cmpstfdop112kug8p31sm1rm4",
+    "n": "My Verizon",
+    "d": "Verizon Wireless",
+    "r": 89
+   },
+   {
+    "id": "cmpt7wv6900z5ugx3tkvuvgu8",
+    "n": "My Telstra",
+    "d": "Telstra Limited",
+    "r": 85
+   },
+   {
+    "id": "cmpt3pa2k00xbugw6wp4dqe7f",
+    "n": "Rogers Xfinity",
+    "d": "Rogers Communications Inc.",
+    "r": 79
+   },
+   {
+    "id": "cmpt0bwyc0s6qugfe6mkiumx1",
+    "n": "My Vodafone",
+    "d": "Vodafone Limited",
+    "r": 71
+   },
+   {
+    "id": "cmpt7x96c01v1ugx3sgg1uegt",
+    "n": "My Optus",
+    "d": "Optus Mobile Pty Ltd",
+    "r": 52
+   },
+   {
+    "id": "cmpssydrj026dug8ph63yksyb",
+    "n": "My Spectrum",
+    "d": "Charter Communications",
+    "r": 52
+   }
+  ]
+ },
+ {
+  "slug": "security-antivirus",
+  "ru": "Приложения безопасности и антивируса",
+  "en": "Security & Antivirus Apps",
+  "totalReviews": 638,
+  "apps": [
+   {
+    "id": "cmpssxet20000ug8ptyef3yfy",
+    "n": "Malwarebytes Mobile Security",
+    "d": "Malwarebytes",
+    "r": 194
+   },
+   {
+    "id": "cmpsuvqa544iuug8p2ei1admh",
+    "n": "Aura",
+    "d": "Get Aura Inc.",
+    "r": 161
+   },
+   {
+    "id": "cmpssymwd02r8ug8pn8cbhrrt",
+    "n": "AT&T ActiveArmor®",
+    "d": "AT&T Services, Inc.",
+    "r": 124
+   },
+   {
+    "id": "cmpst0brm06fmug8p8l068ugd",
+    "n": "Malwarebytes",
+    "d": "Malwarebytes",
+    "r": 107
+   },
+   {
+    "id": "cmpssxgff0045ug8p7tchknf8",
+    "n": "Robokiller",
+    "d": "Mosaic S.r.l.",
+    "r": 52
+   }
+  ]
+ },
+ {
+  "slug": "smart-home-iot",
+  "ru": "Приложения умного дома",
+  "en": "Smart Home & IoT Apps",
+  "totalReviews": 651,
+  "apps": [
+   {
+    "id": "cmps620xn0kazugu78hiphe7c",
+    "n": "Ring",
+    "d": "Ring.com",
+    "r": 225
+   },
+   {
+    "id": "cmps6274t0kqvugu7gkyh5j1f",
+    "n": "Amazon Alexa",
+    "d": "Amazon Mobile LLC",
+    "r": 157
+   },
+   {
+    "id": "cmps62bp40l38ugu77t3rawng",
+    "n": "SmartThings",
+    "d": "Samsung Electronics Co., Ltd.",
+    "r": 119
+   },
+   {
+    "id": "cmpssxtok00xiug8p4gu327p8",
+    "n": "VicoHome",
+    "d": "PHOTON SAIL TECHNOLOGIES PTE. LTD.",
+    "r": 100
+   },
+   {
+    "id": "cmptbrjm202mlugc3gneuromr",
+    "n": "MagicLight",
+    "d": "MAGICLIGHT(HK)LIMITED",
+    "r": 50
+   }
+  ]
+ },
+ {
+  "slug": "fitness-wearables",
+  "ru": "Приложения фитнес-трекеров и носимых устройств",
+  "en": "Fitness Tracker & Wearable Apps",
+  "totalReviews": 2101,
+  "apps": [
+   {
+    "id": "cmps5wwkz07daugu7hk0akcaj",
+    "n": "Google Health (Fitbit)",
+    "d": "Google LLC",
+    "r": 449
+   },
+   {
+    "id": "cmps5wuvd079bugu7lp5lunzk",
+    "n": "Strava",
+    "d": "Strava, Inc.",
+    "r": 433
+   },
+   {
+    "id": "cmpstytcc26u2ug8pi769m2fn",
+    "n": "iFIT Workouts",
+    "d": "ICON Health & Fitness, Inc.",
+    "r": 415
+   },
+   {
+    "id": "cmpstywnr272mug8pasjtqpt7",
+    "n": "WeWard",
+    "d": "WEWARD",
+    "r": 367
+   },
+   {
+    "id": "cmps5xctz08klugu7rvt0iwjr",
+    "n": "Garmin Connect™",
+    "d": "Garmin",
+    "r": 226
+   },
+   {
+    "id": "cmpstyq2626maug8p2dehe1pu",
+    "n": "Oura",
+    "d": "Oura Health Oy",
+    "r": 123
+   },
+   {
+    "id": "cmpstxh8i23youg8pu2b8vqc5",
+    "n": "Step Counter",
+    "d": "Health Applines",
+    "r": 81
+   },
+   {
+    "id": "cmpsyy2am28i0ughv7lsx2k1w",
+    "n": "iFIT Personal Trainer",
+    "d": "iFit",
+    "r": 7
+   }
+  ]
+ },
+ {
+  "slug": "gym-fitness-apps",
+  "ru": "Приложения спортзалов и тренировок",
+  "en": "Gym & Fitness Streaming Apps",
+  "totalReviews": 1487,
+  "apps": [
+   {
+    "id": "cmpstww2j22lwug8p6p5q17ha",
+    "n": "Peloton",
+    "d": "Peloton Interactive, Inc.",
+    "r": 419
+   },
+   {
+    "id": "cmpstxdp223qmug8pmfh0p5ue",
+    "n": "Fitbod",
+    "d": "Fitbod",
+    "r": 250
+   },
+   {
+    "id": "cmpsu01gl29ltug8pqiik759e",
+    "n": "ClassPass",
+    "d": "ClassPass, LLC",
+    "r": 231
+   },
+   {
+    "id": "cmps5wjfp06i2ugu7ct0xmfsm",
+    "n": "Planet Fitness",
+    "d": "Planet Fitness Holdings, LLC",
+    "r": 163
+   },
+   {
+    "id": "cmpstzng628qrug8paye4qihm",
+    "n": "Life Time Digital",
+    "d": "Life Time, Inc.",
+    "r": 115
+   },
+   {
+    "id": "cmpt1r9vy3o54ugfe2up0x7u4",
+    "n": "Fitbod Workout & Gym Planner",
+    "d": "Fitbod Inc.",
+    "r": 83
+   },
+   {
+    "id": "cmpt1pryj3l1jugfeqxw9z9bh",
+    "n": "PureGym",
+    "d": "Pure Gym Ltd",
+    "r": 75
+   },
+   {
+    "id": "cmpt9te3m2qrwugx3ncrpx16h",
+    "n": "Revo Fitness",
+    "d": "EGYM",
+    "r": 59
+   },
+   {
+    "id": "cmpt1pxbb3ld6ugfec0iraamk",
+    "n": "Everyone Active",
+    "d": "Sports & Leisure Management Limited",
+    "r": 52
+   },
+   {
+    "id": "cmpt9xi5f2uznugx3mbw9397w",
+    "n": "Planet Fitness Australia",
+    "d": "Virtuagym Professional",
+    "r": 33
+   },
+   {
+    "id": "cmpta2kr7335uugx38vowv1nb",
+    "n": "Planet Fitness AU",
+    "d": "PERFECT GYM SOLUTIONS SP. Z O. O.",
+    "r": 7
+   }
+  ]
+ },
+ {
+  "slug": "heart-blood-health",
+  "ru": "Приложения мониторинга сердца и давления",
+  "en": "Heart & Blood Pressure Monitor Apps",
+  "totalReviews": 1259,
+  "apps": [
+   {
+    "id": "cmpsyut2j21fwughv1ebzxni6",
+    "n": "Withings",
+    "d": "Withings",
+    "r": 373
+   },
+   {
+    "id": "cmpstzeqb2868ug8peth56gmr",
+    "n": "Blood Pressure",
+    "d": "P & L Studio",
+    "r": 196
+   },
+   {
+    "id": "cmps5wl6e06mhugu7y51zbipq",
+    "n": "Blood Pressure Log",
+    "d": "Sharon Evans",
+    "r": 194
+   },
+   {
+    "id": "cmpsu03b829q2ug8pxaz90dod",
+    "n": "Heart Rate Monitor",
+    "d": "Vision Wizard",
+    "r": 189
+   },
+   {
+    "id": "cmpstxzjs250kug8pnajmg5fl",
+    "n": "Blood Pressure App",
+    "d": "Green Rose Dev",
+    "r": 130
+   },
+   {
+    "id": "cmpstzla828maug8pdld7jyy2",
+    "n": "iCardiac",
+    "d": "BEGAMOB GLOBAL LIMITED",
+    "r": 81
+   },
+   {
+    "id": "cmpsysczh1wh5ughv4mtxyzrq",
+    "n": "Blood Pressure App-BP Tracker",
+    "d": "AKRURA PTE. LTD",
+    "r": 76
+   },
+   {
+    "id": "cmpt5rh7340f4ugw6y45yr5sr",
+    "n": "Blood Pressure App Pro",
+    "d": "Hitchhike Tech",
+    "r": 19
+   },
+   {
+    "id": "cmpt8opja1d7jugx339yjelzx",
+    "n": "Heart Rate Monitor & BPM Pulse",
+    "d": "NarrativeLab OU",
+    "r": 1
+   }
+  ]
+ },
+ {
+  "slug": "outdoor-trail-apps",
+  "ru": "Приложения для активного отдыха и треккинга",
+  "en": "Outdoor & Trail GPS Apps",
+  "totalReviews": 681,
+  "apps": [
+   {
+    "id": "cmps5woih06u5ugu769np0f3g",
+    "n": "AllTrails",
+    "d": "AllTrails, Inc.",
+    "r": 240
+   },
+   {
+    "id": "cmpt1q9nr3m1vugfeykavrekd",
+    "n": "OutDoors GPS",
+    "d": "RoadTour LLC",
+    "r": 148
+   },
+   {
+    "id": "cmpsty3uw257fug8px16gx77b",
+    "n": "Geocaching®",
+    "d": "Groundspeak Inc.",
+    "r": 108
+   },
+   {
+    "id": "cmpt2pj7z5j0pugfe9hejujon",
+    "n": "UK Hidden Gems",
+    "d": "UK Hidden Gems Limited",
+    "r": 99
+   },
+   {
+    "id": "cmpt2oc2p5gl9ugfeir1rnzcj",
+    "n": "Outdooractive. Hike and Ride",
+    "d": "Outdooractive AG",
+    "r": 58
+   },
+   {
+    "id": "cmpt2ol6g5h5ougfex6piu577",
+    "n": "Outdooractive",
+    "d": "Outdooractive AG",
+    "r": 28
+   }
+  ]
+ },
+ {
+  "slug": "health-insurance-apps",
+  "ru": "Приложения медицинского страхования",
+  "en": "Health Insurance & GP Apps",
+  "totalReviews": 318,
+  "apps": [
+   {
+    "id": "cmps5wsuw0756ugu79b72inb0",
+    "n": "healow",
+    "d": "eClinicalWorks LLC",
+    "r": 88
+   },
+   {
+    "id": "cmpt1r4j63nspugfesay3udou",
+    "n": "My Bupa",
+    "d": "BupaUK",
+    "r": 71
+   },
+   {
+    "id": "cmpt9tmcy2qw4ugx3q20hlrno",
+    "n": "HCF My Membership App",
+    "d": "HCF Australia",
+    "r": 57
+   },
+   {
+    "id": "cmpt9s0op2osgugx3f714v5x3",
+    "n": "My Medibank",
+    "d": "Medibank Private Limited",
+    "r": 54
+   },
+   {
+    "id": "cmpt9span2pw7ugx3llrk807i",
+    "n": "nib",
+    "d": "nib Health",
+    "r": 48
+   }
+  ]
+ },
+ {
+  "slug": "payment-transfer-apps",
+  "ru": "Приложения для платежей и денежных переводов",
+  "en": "Payment & Money Transfer Apps",
+  "totalReviews": 1523,
+  "apps": [
+   {
+    "id": "cmps5vrs704mxugu7ed5uozp9",
+    "n": "Venmo",
+    "d": "Venmo",
+    "r": 521
+   },
+   {
+    "id": "cmps5vpxx04iiugu7gtk2m87m",
+    "n": "PayPal",
+    "d": "PayPal, Inc.",
+    "r": 381
+   },
+   {
+    "id": "cmps5vm8c04a2ugu712qbyt0x",
+    "n": "Cash App",
+    "d": "Block, Inc.",
+    "r": 258
+   },
+   {
+    "id": "cmps5w1iq05alugu7co954ubo",
+    "n": "Google Wallet",
+    "d": "Google LLC",
+    "r": 180
+   },
+   {
+    "id": "cmps5vy5v052hugu7nojll1mo",
+    "n": "Klarna",
+    "d": "Klarna Bank AB (publ)",
+    "r": 121
+   },
+   {
+    "id": "cmpt3kl5878j3ugfei75vz1yf",
+    "n": "Wise",
+    "d": "Tree Kings",
+    "r": 62
+   }
+  ]
+ },
+ {
+  "slug": "mobile-banking",
+  "ru": "Мобильные банковские приложения",
+  "en": "Mobile Banking Apps",
+  "totalReviews": 1460,
+  "apps": [
+   {
+    "id": "cmps5vwoj04yougu7k707gfio",
+    "n": "Capital One Mobile",
+    "d": "Capital One",
+    "r": 193
+   },
+   {
+    "id": "cmps5vv8k04v9ugu741btf44w",
+    "n": "Chime®",
+    "d": "Chime Financial, Inc.",
+    "r": 177
+   },
+   {
+    "id": "cmpt3gyn371amugfeoany9vvx",
+    "n": "ClearScore",
+    "d": "Clear Score Technology Ltd.",
+    "r": 169
+   },
+   {
+    "id": "cmps5webu0657ugu7blvhqvai",
+    "n": "Chase Mobile®",
+    "d": "JPMorgan Chase & Co.",
+    "r": 129
+   },
+   {
+    "id": "cmpt7ojvh6vk6ugw6rof2lboc",
+    "n": "CIBC Mobile Banking®",
+    "d": "CIBC",
+    "r": 81
+   },
+   {
+    "id": "cmpt7p4ee6wpqugw6ujxjl4cc",
+    "n": "BMO Mobile Banking",
+    "d": "BMO",
+    "r": 75
+   },
+   {
+    "id": "cmpt7o0xv6uhmugw6jz7skds0",
+    "n": "Wealthsimple",
+    "d": "Wealthsimple",
+    "r": 68
+   },
+   {
+    "id": "cmpt7nt4c6u16ugw61xnm1s25",
+    "n": "RBC Mobile",
+    "d": "Royal Bank of Canada",
+    "r": 66
+   },
+   {
+    "id": "cmptbhnt1531dugx358aglevy",
+    "n": "Westpac",
+    "d": "Westpac Banking Corporation",
+    "r": 66
+   },
+   {
+    "id": "cmptbh0ha51y2ugx34mdg05gz",
+    "n": "CommBank",
+    "d": "Commonwealth Bank of Australia",
+    "r": 64
+   },
+   {
+    "id": "cmptbjxnk53qougx31l5q7xr5",
+    "n": "ANZ Australia",
+    "d": "Australia and New Zealand Banking Group Limited",
+    "r": 64
+   },
+   {
+    "id": "cmpt3gmag70ijugfecpwjd388",
+    "n": "Revolut",
+    "d": "Revolut Ltd",
+    "r": 60
+   },
+   {
+    "id": "cmpt7opuk6vwtugw6t2u76pbv",
+    "n": "Scotiabank Mobile Banking",
+    "d": "Scotiabank",
+    "r": 52
+   },
+   {
+    "id": "cmpt7p2af6wlfugw67u02u76o",
+    "n": "KOHO",
+    "d": "KOHO Financial",
+    "r": 50
+   },
+   {
+    "id": "cmptbi35b53f5ugx3p1zawuqw",
+    "n": "ANZ Plus",
+    "d": "Australia and New Zealand Banking Group Limited",
+    "r": 48
+   },
+   {
+    "id": "cmptbhjcm52squgx3cf5ya250",
+    "n": "NAB Mobile Banking",
+    "d": "NAB",
+    "r": 41
+   },
+   {
+    "id": "cmpt7qqyy700eugw615rwurs8",
+    "n": "Capital One Canada",
+    "d": "Capital One Services, LLC",
+    "r": 39
+   },
+   {
+    "id": "cmpt3jl5a76q6ugfexzs4084x",
+    "n": "Capital One UK",
+    "d": "Capital One (Europe) PLC",
+    "r": 18
+   }
+  ]
+ },
+ {
+  "slug": "rewards-cashback",
+  "ru": "Приложения кэшбэка и вознаграждений",
+  "en": "Rewards & Cashback Apps",
+  "totalReviews": 1015,
+  "apps": [
+   {
+    "id": "cmps5vo1o04e7ugu774osc0c6",
+    "n": "Freecash",
+    "d": "Freecash",
+    "r": 369
+   },
+   {
+    "id": "cmps622kq0kf6ugu7zd1mo5a0",
+    "n": "Playful Rewards",
+    "d": "Playful Rewards",
+    "r": 207
+   },
+   {
+    "id": "cmps624a00kjfugu7lo0xaafq",
+    "n": "Cash Giraffe",
+    "d": "Cash Giraffe",
+    "r": 172
+   },
+   {
+    "id": "cmps61z350k6mugu70d2su7ls",
+    "n": "KashKick",
+    "d": "Besitos Corporation LLC",
+    "r": 122
+   },
+   {
+    "id": "cmps61xiz0k2vugu7e380ddf7",
+    "n": "DailyGift",
+    "d": "DailyGift Team",
+    "r": 73
+   },
+   {
+    "id": "cmpt0oai31gxnugfeh05ih5wi",
+    "n": "Nectar",
+    "d": "Nectar360 Ltd",
+    "r": 72
+   }
+  ]
+ },
+ {
+  "slug": "budget-tracking-apps",
+  "ru": "Приложения бюджетирования и учёта финансов",
+  "en": "Budget & Finance Tracker Apps",
+  "totalReviews": 880,
+  "apps": [
+   {
+    "id": "cmpsuvajz43ihug8pr9dgypx7",
+    "n": "YNAB",
+    "d": "You Need A Budget LLC",
+    "r": 285
+   },
+   {
+    "id": "cmpsuuqw642eiug8phc19ef3u",
+    "n": "Mileage Tracker & Log",
+    "d": "MileIQ",
+    "r": 228
+   },
+   {
+    "id": "cmps5vtht04raugu7jquj9was",
+    "n": "OnePay",
+    "d": "ONE Finance, Inc.",
+    "r": 174
+   },
+   {
+    "id": "cmpszwdld47d2ughvrqt0g5te",
+    "n": "Mileage Tracker by Driversnote",
+    "d": "Driversnote Mileage Tracker",
+    "r": 141
+   },
+   {
+    "id": "cmpsuw4rm45esug8pe3yot46d",
+    "n": "Mileage Tracker by Everlance",
+    "d": "Everlance Inc.",
+    "r": 29
+   },
+   {
+    "id": "cmpt3gvbc712sugfedca3521l",
+    "n": "Mileage Tracker by MileIQ",
+    "d": "MileIQ Inc.",
+    "r": 23
+   }
+  ]
+ },
+ {
+  "slug": "investment-trading",
+  "ru": "Приложения для инвестиций и трейдинга",
+  "en": "Investment & Trading Apps",
+  "totalReviews": 501,
+  "apps": [
+   {
+    "id": "cmpsuuvre42nvug8pw6uehdps",
+    "n": "TradingView",
+    "d": "TradingView",
+    "r": 171
+   },
+   {
+    "id": "cmpsuvueb44r4ug8p5gpmzl47",
+    "n": "Lenme",
+    "d": "Lenme Inc.",
+    "r": 122
+   },
+   {
+    "id": "cmps5wb6205wnugu76i43qzeq",
+    "n": "Kalshi",
+    "d": "KalshiEX LLC",
+    "r": 121
+   },
+   {
+    "id": "cmpuomtwj0688ugj2uypj15by",
+    "n": "Polymarket",
+    "d": "Polymarket",
+    "r": 87
+   }
+  ]
+ },
+ {
+  "slug": "travel-booking",
+  "ru": "Платформы бронирования путешествий",
+  "en": "Travel Booking Platforms",
+  "totalReviews": 1560,
+  "apps": [
+   {
+    "id": "cmpsz5k3o2mbuughv3eysx2sh",
+    "n": "Couchsurfing Travel App",
+    "d": "CouchSurfing International Inc.",
+    "r": 523
+   },
+   {
+    "id": "cmps605bi0fjfugu7iepvkc6l",
+    "n": "Booking.com",
+    "d": "Booking.com",
+    "r": 301
+   },
+   {
+    "id": "cmps60t560h84ugu762dtfxhv",
+    "n": "Hilton Honors",
+    "d": "Hilton Worldwide Holdings Inc.",
+    "r": 215
+   },
+   {
+    "id": "cmps603da0ffgugu704vcrt4l",
+    "n": "Expedia",
+    "d": "Expedia, Inc.",
+    "r": 208
+   },
+   {
+    "id": "cmps5zzun0f80ugu76cgd9cvn",
+    "n": "Airbnb",
+    "d": "Airbnb, Inc.",
+    "r": 193
+   },
+   {
+    "id": "cmps60byb0fzfugu7iavw1iuz",
+    "n": "Vrbo Vacation Rentals",
+    "d": "Vrbo",
+    "r": 120
+   }
+  ]
+ },
+ {
+  "slug": "airline-apps",
+  "ru": "Приложения авиакомпаний",
+  "en": "Airline Apps",
+  "totalReviews": 868,
+  "apps": [
+   {
+    "id": "cmpt2ofke5gtfugfe1mf3vkba",
+    "n": "Ryanair",
+    "d": "Ryanair Limited",
+    "r": 219
+   },
+   {
+    "id": "cmps60afc0fvcugu7mx6dmuor",
+    "n": "Fly Delta",
+    "d": "Delta Air Lines, Inc.",
+    "r": 183
+   },
+   {
+    "id": "cmpsug14436aoug8psy6znkae",
+    "n": "United Airlines",
+    "d": "United Airlines",
+    "r": 159
+   },
+   {
+    "id": "cmpt2p6ff5i7sugfepqzzcpqi",
+    "n": "easyJet",
+    "d": "easyJet Airline Company Limited",
+    "r": 77
+   },
+   {
+    "id": "cmps609280frxugu7jpuas4tu",
+    "n": "American Airlines",
+    "d": "American Airlines",
+    "r": 70
+   },
+   {
+    "id": "cmpt6sc0n5bo0ugw661axfg8b",
+    "n": "Air Canada + Aeroplan",
+    "d": "Air Canada",
+    "r": 54
+   },
+   {
+    "id": "cmptagofk3octugx3bot1xewb",
+    "n": "Qantas Airways",
+    "d": "Qantas Airways Limited",
+    "r": 54
+   },
+   {
+    "id": "cmpt6t1fw5d3zugw6ebvurx22",
+    "n": "Porter Airlines",
+    "d": "Porter Airlines",
+    "r": 52
+   }
+  ]
+ },
+ {
+  "slug": "camping-travel",
+  "ru": "Приложения кемпинга и путешествий",
+  "en": "Camping & Outdoor Travel Apps",
+  "totalReviews": 545,
+  "apps": [
+   {
+    "id": "cmpt2rap75mopugfebrwtie9x",
+    "n": "ACSI Campsites Europe",
+    "d": "ACSI Publishing BV",
+    "r": 137
+   },
+   {
+    "id": "cmpt2pbat5ikfugfej7vszeff",
+    "n": "CampingCard ACSI",
+    "d": "ACSI Publishing BV",
+    "r": 119
+   },
+   {
+    "id": "cmptagegm3nvgugx3mhu7r2gz",
+    "n": "WikiCamps Australia",
+    "d": "WikiCamps pty ltd",
+    "r": 103
+   },
+   {
+    "id": "cmpt2oh965gxwugfe9qf6emcv",
+    "n": "park4night",
+    "d": "BFichter",
+    "r": 97
+   },
+   {
+    "id": "cmptagh0w3nzuugx3wtl60dus",
+    "n": "CAMPS",
+    "d": "Camps Australia Wide Pty Ltd",
+    "r": 89
+   }
+  ]
+ },
+ {
+  "slug": "ai-face-photo",
+  "ru": "ИИ-приложения для обработки лица и фото",
+  "en": "AI Face & Photo Enhancement Apps",
+  "totalReviews": 2730,
+  "apps": [
+   {
+    "id": "cmpsthpet1617ug8pu3l2cjkt",
+    "n": "AI Mirror",
+    "d": "POLYVERSE ENTERTAINMENT INC.",
+    "r": 490
+   },
+   {
+    "id": "cmpstgliu13q3ug8pd8hl2ooj",
+    "n": "Hailuo Al",
+    "d": "MiniMax AI",
+    "r": 269
+   },
+   {
+    "id": "cmpstgwra14dpug8p1cy30nic",
+    "n": "Pixi Ai：Photo Magic&Ai Video",
+    "d": "INSTANOVA",
+    "r": 254
+   },
+   {
+    "id": "cmpstgpbr13xvug8pimdakz0j",
+    "n": "Retake AI",
+    "d": "Deep Flow Apps",
+    "r": 240
+   },
+   {
+    "id": "cmpstfywz12bwug8pcz8m88tq",
+    "n": "FaceApp",
+    "d": "FaceApp Technology Limited",
+    "r": 233
+   },
+   {
+    "id": "cmpsti95r177wug8py72zpv02",
+    "n": "FaceLab",
+    "d": "IRONTECH LIMITED",
+    "r": 213
+   },
+   {
+    "id": "cmpstjh9319viug8puagygh8u",
+    "n": "Glam AI",
+    "d": "Glam Labs, Inc.",
+    "r": 195
+   },
+   {
+    "id": "cmpstiicz17r1ug8palyz3azl",
+    "n": "Dance AI",
+    "d": "DeePix AI",
+    "r": 181
+   },
+   {
+    "id": "cmpsti3zz16x1ug8prxv2bzio",
+    "n": "BeautyPlus",
+    "d": "PIXOCIAL TECHNOLOGY (SINGAPORE) PTE. LTD.",
+    "r": 158
+   },
+   {
+    "id": "cmpstjfi219rjug8p6hnu50ty",
+    "n": "BeautyPlus-Selfie Photo Editor",
+    "d": "PIXOCIAL TECHNOLOGY (SINGAPORE) PTE. LTD.",
+    "r": 121
+   },
+   {
+    "id": "cmpstj58p194lug8pi5ykq9oa",
+    "n": "PhotoBoost",
+    "d": "Tap AI",
+    "r": 104
+   },
+   {
+    "id": "cmpsthntu15xwug8pddr86ywt",
+    "n": "AI Photo Studio",
+    "d": "ZANKHANA PTE LTD",
+    "r": 58
+   },
+   {
+    "id": "cmpstgyso14i0ug8pem14hasu",
+    "n": "Retake AI Face & Selfie Editor",
+    "d": "DEEP FLOW SOFTWARE SERVICES",
+    "r": 57
+   },
+   {
+    "id": "cmpt8v1gs1iafugx3qhxcygfk",
+    "n": "AI Art Magic",
+    "d": "JOYBOY STAR LLC",
+    "r": 57
+   },
+   {
+    "id": "cmpt4s5i422lrugw604qdghfa",
+    "n": "FaceLab Aging App, Gender Swap",
+    "d": "Lyrebird Studio",
+    "r": 50
+   },
+   {
+    "id": "cmpt8yd9p1nlfugx3zbvz49dn",
+    "n": "FaceLab Aging, Ageing Face App",
+    "d": "Lyrebird Studio",
+    "r": 50
+   }
+  ]
+ },
+ {
+  "slug": "photo-social-apps",
+  "ru": "Социальные платформы для фото и видео",
+  "en": "Photo & Video Social Platforms",
+  "totalReviews": 1775,
+  "apps": [
+   {
+    "id": "cmps5tvqx007eugu7holm5yzu",
+    "n": "Instagram",
+    "d": "Instagram, Inc.",
+    "r": 394
+   },
+   {
+    "id": "cmps5y0vr0aafugu7a7mrvdp4",
+    "n": "KICK",
+    "d": "Kick Streaming",
+    "r": 385
+   },
+   {
+    "id": "cmps5xy780a2hugu7847fdc3a",
+    "n": "Snapchat",
+    "d": "Snap, Inc.",
+    "r": 274
+   },
+   {
+    "id": "cmpstjacj19g0ug8ps19w7d9m",
+    "n": "Retro",
+    "d": "Lone Palm Labs",
+    "r": 221
+   },
+   {
+    "id": "cmps5y5s10amuugu7zdjs0f09",
+    "n": "Twitch",
+    "d": "Twitch Interactive, Inc.",
+    "r": 195
+   },
+   {
+    "id": "cmps5xwor09y6ugu7x8cftvq3",
+    "n": "YouTube",
+    "d": "Google",
+    "r": 185
+   },
+   {
+    "id": "cmpuonty6094dugj2gis6isyc",
+    "n": "Hypic",
+    "d": "Bytedance Pte. Ltd.",
+    "r": 84
+   },
+   {
+    "id": "cmpstht4r169tug8pmskykufn",
+    "n": "SCRL",
+    "d": "Appostrophe AB",
+    "r": 37
+   }
+  ]
+ },
+ {
+  "slug": "cloud-storage-apps",
+  "ru": "Приложения облачного хранилища",
+  "en": "Cloud Storage Apps",
+  "totalReviews": 854,
+  "apps": [
+   {
+    "id": "cmpst4h4o0fdgug8pup99qzxf",
+    "n": "Dropbox",
+    "d": "Dropbox, Inc.",
+    "r": 420
+   },
+   {
+    "id": "cmpsth4iu14szug8p2aftmdxk",
+    "n": "Frameo",
+    "d": "Frameo A/S",
+    "r": 181
+   },
+   {
+    "id": "cmps5xpbj09epugu74dugjv4e",
+    "n": "Google Photos",
+    "d": "Google",
+    "r": 144
+   },
+   {
+    "id": "cmps5vixu0430ugu7pujj7cl0",
+    "n": "Google Drive",
+    "d": "Google",
+    "r": 63
+   },
+   {
+    "id": "cmps5xedq08oqugu70odi56df",
+    "n": "Amazon Photos",
+    "d": "Amazon Mobile LLC",
+    "r": 46
+   }
+  ]
+ },
+ {
+  "slug": "ai-chatbot-assistant",
+  "ru": "ИИ-ассистенты и чат-боты",
+  "en": "AI Assistant & Chatbot Apps",
+  "totalReviews": 2450,
+  "apps": [
+   {
+    "id": "cmpst6fpo0hquug8phiuw5jwo",
+    "n": "AI Chatbot",
+    "d": "44pixels",
+    "r": 420
+   },
+   {
+    "id": "cmps5v4w2033bugu7w6zgi14i",
+    "n": "Grok",
+    "d": "X Corp.",
+    "r": 401
+   },
+   {
+    "id": "cmps5usrs02eeugu7hy1qn657",
+    "n": "Claude by Anthropic",
+    "d": "Anthropic PBC",
+    "r": 255
+   },
+   {
+    "id": "cmps5uu5r02i1ugu72pi8wzw0",
+    "n": "Google Gemini",
+    "d": "Google",
+    "r": 221
+   },
+   {
+    "id": "cmpst8hfw0lzvug8plkrdm8x8",
+    "n": "Chat Smith",
+    "d": "Vulcan Labs Company Limited",
+    "r": 218
+   },
+   {
+    "id": "cmpst8mkx0mbcug8p1loie2kl",
+    "n": "DeepSeek",
+    "d": "DeepSeek",
+    "r": 202
+   },
+   {
+    "id": "cmps5urfc02b3ugu7gfzipuzs",
+    "n": "Meta AI",
+    "d": "Meta Platforms, Inc.",
+    "r": 160
+   },
+   {
+    "id": "cmpst7jeg0k30ug8p9qj73h0y",
+    "n": "ChatBox AI",
+    "d": "FLORATE LIMITED",
+    "r": 155
+   },
+   {
+    "id": "cmps5uq1t0282ugu7az4nr8r0",
+    "n": "ChatGPT",
+    "d": "OpenAI OpCo, LLC",
+    "r": 131
+   },
+   {
+    "id": "cmpst7mqh0kakug8pjlz3hkv8",
+    "n": "Chatbot App",
+    "d": "TAPSUITE YAZILIM HIZMETLERI ANONIM SIRKETI",
+    "r": 118
+   },
+   {
+    "id": "cmpst65o60h7vug8ptagcj72b",
+    "n": "Manus AI",
+    "d": "BUTTERFLY EFFECT PTE. LTD.",
+    "r": 107
+   },
+   {
+    "id": "cmpstazij0rfdug8pmlyx7igh",
+    "n": "AI ChatBot Assistant",
+    "d": "Alfinardimen",
+    "r": 62
+   }
+  ]
+ },
+ {
+  "slug": "ai-video-creation",
+  "ru": "Приложения создания видео с ИИ",
+  "en": "AI Video Creation Apps",
+  "totalReviews": 332,
+  "apps": [
+   {
+    "id": "cmpstjmxq1a6tug8puxz0zn2c",
+    "n": "ETM",
+    "d": "ArtVibe Labs",
+    "r": 186
+   },
+   {
+    "id": "cmpstggkg13equg8pfqdp4fd7",
+    "n": "PixVerse",
+    "d": "PixVerse",
+    "r": 146
+   }
+  ]
+ },
+ {
+  "slug": "office-documents",
+  "ru": "Офисные приложения и работа с документами",
+  "en": "Office & Document Apps",
+  "totalReviews": 236,
+  "apps": [
+   {
+    "id": "cmps5uvp102lkugu78dvfoaxn",
+    "n": "Microsoft Word",
+    "d": "Microsoft Corporation",
+    "r": 112
+   },
+   {
+    "id": "cmps5vcub03n2ugu79305wuc2",
+    "n": "Gmail",
+    "d": "Google",
+    "r": 89
+   },
+   {
+    "id": "cmps5vhge03zbugu7ebvfyt6w",
+    "n": "Microsoft Outlook",
+    "d": "Microsoft Corporation",
+    "r": 35
+   }
+  ]
+ },
+ {
+  "slug": "smart-printer-apps",
+  "ru": "Приложения умной и беспроводной печати",
+  "en": "Smart Printer & Wireless Printing Apps",
+  "totalReviews": 1457,
+  "apps": [
+   {
+    "id": "cmpsukihf3fwbug8p33jgl175",
+    "n": "All Document Reader",
+    "d": "One Stop Apps",
+    "r": 292
+   },
+   {
+    "id": "cmpssxk3200chug8prpw8bjlx",
+    "n": "Smart Printer",
+    "d": "Astraler",
+    "r": 252
+   },
+   {
+    "id": "cmpsuk5cy3f5uug8pg16ng8xa",
+    "n": "PDF Scanner app",
+    "d": "SMART MEDIA INTERNET MARKETING LTD",
+    "r": 237
+   },
+   {
+    "id": "cmpsukkay3g0oug8p0h7ielem",
+    "n": "Scanner App",
+    "d": "JatApp LLC",
+    "r": 233
+   },
+   {
+    "id": "cmpsul79s3hfzug8pizv0nee5",
+    "n": "Smart Printer App & Scan",
+    "d": "Kain Suite Pte. Ltd.",
+    "r": 135
+   },
+   {
+    "id": "cmpsun3jg3lmfug8p2uyqr790",
+    "n": "Smart Printer App & Scanner",
+    "d": "On Hand Apps - FZCO",
+    "r": 114
+   },
+   {
+    "id": "cmpt2xgk35y8uugfe4dyod4qj",
+    "n": "Printerly Smart Printer App",
+    "d": "Kain Suite Pte. Ltd.",
+    "r": 73
+   },
+   {
+    "id": "cmpsumn103km4ug8phw7cu0ba",
+    "n": "Smart Printer App",
+    "d": "Rhythmix OU",
+    "r": 67
+   },
+   {
+    "id": "cmpszidyr3d4iughvxx1ac23w",
+    "n": "Smart Printer App for HP *",
+    "d": "Netsis Mobile FZCO",
+    "r": 37
+   },
+   {
+    "id": "cmpsulmyr3idkug8pvzqsp303",
+    "n": "Scanner App. JPG, Photo to PDF",
+    "d": "Municorn Limited",
+    "r": 17
+   },
+   {
+    "id": "cmpt3599o6daxugfekvzu6xb1",
+    "n": "HP Smart Printer App  ™",
+    "d": "HP Smart Printer App : iPrint",
+    "r": 0
+   }
+  ]
+ },
+ {
+  "slug": "parcel-tracking",
+  "ru": "Приложения отслеживания посылок",
+  "en": "Parcel & Delivery Tracking Apps",
+  "totalReviews": 585,
+  "apps": [
+   {
+    "id": "cmps61tjm0jqsugu7poe8l4k1",
+    "n": "T-Life",
+    "d": "T-Mobile",
+    "r": 335
+   },
+   {
+    "id": "cmpt0o2fo1gg9ugfe37y7xj7a",
+    "n": "Royal Mail",
+    "d": "Royal Mail Group",
+    "r": 87
+   },
+   {
+    "id": "cmpt0ol0p1hklugfec1mtg3ji",
+    "n": "DPD",
+    "d": "DPD UK",
+    "r": 77
+   },
+   {
+    "id": "cmpt0oxyl1i9qugfebiccmyk5",
+    "n": "Yodel Parcel Tracker & Returns",
+    "d": "Yodel Delivery Network",
+    "r": 50
+   },
+   {
+    "id": "cmpt0p1jt1iikugfe9p4w16v5",
+    "n": "Evri",
+    "d": "EVRI LIMITED",
+    "r": 36
+   }
+  ]
+ },
+ {
+  "slug": "real-estate-apps",
+  "ru": "Приложения для недвижимости",
+  "en": "Real Estate & Property Apps",
+  "totalReviews": 345,
+  "apps": [
+   {
+    "id": "cmptbbxi94txeugx3px2qnb3c",
+    "n": "RSVP",
+    "d": "RSVP.com.au",
+    "r": 124
+   },
+   {
+    "id": "cmps62ed30lasugu7n9223kdz",
+    "n": "Zillow Real Estate & Rentals",
+    "d": "Zillow.com",
+    "r": 96
+   },
+   {
+    "id": "cmpt0tema1rh8ugfe4wg90we0",
+    "n": "Zoopla home property search UK",
+    "d": "Zoopla",
+    "r": 71
+   },
+   {
+    "id": "cmpt0qszv1m63ugfe45m06xw9",
+    "n": "Rightmove Property Search",
+    "d": "Rightmove",
+    "r": 54
+   }
+  ]
+ },
+ {
+  "slug": "family-safety-apps",
+  "ru": "Приложения семейной безопасности",
+  "en": "Family Safety & Location Apps",
+  "totalReviews": 602,
+  "apps": [
+   {
+    "id": "cmps5uctp01bcugu7jtkn1g0n",
+    "n": "Life360",
+    "d": "Life360",
+    "r": 359
+   },
+   {
+    "id": "cmpsyafrx0utmughvisnt7o2g",
+    "n": "FamilyWall",
+    "d": "Family & Co",
+    "r": 155
+   },
+   {
+    "id": "cmpstebi70ypxug8p69w4ycp4",
+    "n": "Nanit",
+    "d": "Udisense inc.",
+    "r": 88
+   }
+  ]
+ },
+ {
+  "slug": "digital-photo-frames",
+  "ru": "Приложения цифровых фоторамок",
+  "en": "Digital Photo Frame Apps",
+  "totalReviews": 750,
+  "apps": [
+   {
+    "id": "cmpstlfw51e59ug8p8xi5b2n2",
+    "n": "Skylight",
+    "d": "Skylight Frame",
+    "r": 275
+   },
+   {
+    "id": "cmpstisr818e5ug8ppe9hkmor",
+    "n": "Nixplay App",
+    "d": "Nixplay",
+    "r": 162
+   },
+   {
+    "id": "cmpsth0yk14m9ug8p00t0c40t",
+    "n": "PhotoCircle",
+    "d": "PhotoCircle, Inc.",
+    "r": 120
+   },
+   {
+    "id": "cmpstmx5m1hcjug8ppqbh2mvu",
+    "n": "Nixplay",
+    "d": "nixplay",
+    "r": 79
+   },
+   {
+    "id": "cmpstgnka13ugug8p1hyr9su0",
+    "n": "Skylight App",
+    "d": "Skylight Frame",
+    "r": 62
+   },
+   {
+    "id": "cmpstj2mh1909ug8p69agc2s8",
+    "n": "Emberly",
+    "d": "ATQ - AI Lab",
+    "r": 52
+   }
+  ]
+ },
+ {
+  "slug": "baby-monitor-apps",
+  "ru": "Приложения видеонянь и мониторинга младенцев",
+  "en": "Baby & Infant Monitor Apps",
+  "totalReviews": 569,
+  "apps": [
+   {
+    "id": "cmpstxw7e24soug8p1b8k4r3e",
+    "n": "Hatch Sleep",
+    "d": "Hatch Baby, Inc.",
+    "r": 301
+   },
+   {
+    "id": "cmpstykzl269vug8paog6r15x",
+    "n": "Owlet Dream",
+    "d": "Owlet Baby Care, Inc.",
+    "r": 268
+   }
+  ]
+ },
+ {
+  "slug": "device-finder-apps",
+  "ru": "Приложения для поиска устройств и предметов",
+  "en": "Device & Item Finder Apps",
+  "totalReviews": 440,
+  "apps": [
+   {
+    "id": "cmpssyqd902zgug8p5vcixvni",
+    "n": "Poke Genie -Remote Raid IV PvP",
+    "d": "Poke Genie Inc.",
+    "r": 223
+   },
+   {
+    "id": "cmpstedbq0yu8ug8ps2q4m5yp",
+    "n": "Tile",
+    "d": "Tile, Inc.",
+    "r": 159
+   },
+   {
+    "id": "cmpssz1dp03mwug8pro3xhj3y",
+    "n": "Find Air",
+    "d": "Air Apps Systems",
+    "r": 58
+   }
+  ]
+ },
+ {
+  "slug": "grocery-loyalty-apps",
+  "ru": "Приложения супермаркетов и продуктовых магазинов",
+  "en": "Grocery & Supermarket Apps",
+  "totalReviews": 124,
+  "apps": [
+   {
+    "id": "cmpt0b62a0ql3ugfew95vdoyu",
+    "n": "Tesco Mobile",
+    "d": "Tesco Mobile UK",
+    "r": 66
+   },
+   {
+    "id": "cmpt83uah0djnugx3lpvh3fyh",
+    "n": "Everyday Mobile (Woolworths)",
+    "d": "Woolworths Group",
+    "r": 55
+   },
+   {
+    "id": "cmpt31cd265qhugfe1jgx3n7n",
+    "n": "My Tesco",
+    "d": "Tesco Colleague App",
+    "r": 3
+   }
+  ]
+ },
+ {
+  "slug": "theme-park-apps",
+  "ru": "Приложения тематических парков",
+  "en": "Theme Park & Attraction Apps",
+  "totalReviews": 456,
+  "apps": [
+   {
+    "id": "cmps60nrq0gvnugu7ea59ll3c",
+    "n": "Six Flags",
+    "d": "Six Flags Entertainment Corporation",
+    "r": 208
+   },
+   {
+    "id": "cmpsuglce37h0ug8ps6yay4ca",
+    "n": "Disneyland®",
+    "d": "Disney",
+    "r": 164
+   },
+   {
+    "id": "cmpt0rvra1oh1ugfewrnbus5e",
+    "n": "Disneyland® Paris",
+    "d": "Disneyland Paris",
+    "r": 84
+   }
+  ]
+ },
+ {
+  "slug": "bible-prayer-apps",
+  "ru": "Приложения для чтения Библии и молитв",
+  "en": "Bible & Prayer Apps",
+  "totalReviews": 117,
+  "apps": [
+   {
+    "id": "cmpsymflj1jx7ughvxlh8e9w4",
+    "n": "Bible App for Kids",
+    "d": "Life.Church",
+    "r": 51
+   },
+   {
+    "id": "cmpsy0w7d0aguughv12tbz07w",
+    "n": "Daily KJV Bible",
+    "d": "2OWLS MONCH",
+    "r": 36
+   },
+   {
+    "id": "cmps5zis70e15ugu7peyq36u9",
+    "n": "Simple Bible Daily Verse Alarm",
+    "d": "Reminders & Alarms",
+    "r": 30
+   }
+  ]
+ },
+ {
+  "slug": "email-apps",
+  "ru": "Почтовые клиенты",
+  "en": "Email Client Apps",
+  "totalReviews": 308,
+  "apps": [
+   {
+    "id": "cmpt0l4t41acxugfes3w7ze20",
+    "n": "Spark Mail",
+    "d": "Spark Mail App",
+    "r": 197
+   },
+   {
+    "id": "cmpsy4fv80hweughv69cal4nq",
+    "n": "Proton Mail",
+    "d": "Proton AG",
+    "r": 111
+   }
+  ]
+ },
+ {
+  "slug": "photo-collage-apps",
+  "ru": "Приложения коллажей и редактирования фото",
+  "en": "Photo Collage & Editing Apps",
+  "totalReviews": 764,
+  "apps": [
+   {
+    "id": "cmps5xfr608s9ugu7sed72op7",
+    "n": "Picsart AI Photo Editor, Video",
+    "d": "PicsArt, Inc.",
+    "r": 303
+   },
+   {
+    "id": "cmpsthgh715j0ug8p3maq5oet",
+    "n": "Photo Collage Maker",
+    "d": "Appostrophe AB",
+    "r": 108
+   },
+   {
+    "id": "cmps5xzlg0a6sugu7yt6w6n0y",
+    "n": "Canva",
+    "d": "Canva",
+    "r": 80
+   },
+   {
+    "id": "cmpt4nn1c1t1uugw6l8rewrvu",
+    "n": "Picsart",
+    "d": "PicsArt, Inc.",
+    "r": 75
+   },
+   {
+    "id": "cmpt0xthl20i3ugfed66vlri4",
+    "n": "Collage Maker Grid Pic Jointer",
+    "d": "Mosaic S.r.l.",
+    "r": 52
+   },
+   {
+    "id": "cmpstj0ut18vsug8pmc7lvpd2",
+    "n": "Photo Collage Maker PicJointer",
+    "d": "Mosaic S.r.l.",
+    "r": 48
+   },
+   {
+    "id": "cmpstkj2h1c5bug8pzo98okg5",
+    "n": "Collage Maker",
+    "d": "Photo Editor & Collage Maker",
+    "r": 36
+   },
+   {
+    "id": "cmpt4r8ma20qeugw6g5jgi3uf",
+    "n": "Collage Maker Edit Pic Jointer",
+    "d": "Mosaic S.r.l.",
+    "r": 30
+   },
+   {
+    "id": "cmpsyhxl41aluughvufk3euts",
+    "n": "Collage Maker & Photo Editor",
+    "d": "Pic Collage Maker & Photo Editor",
+    "r": 18
+   },
+   {
+    "id": "cmpt90wbs1rp5ugx3aqzb2d41",
+    "n": "Photo Collage Maker & Editor",
+    "d": "TarrySoft",
+    "r": 14
+   }
+  ]
+ },
+ {
+  "slug": "wifi-network-tools",
+  "ru": "Приложения сетевых инструментов и Wi-Fi",
+  "en": "WiFi & Network Tool Apps",
+  "totalReviews": 372,
+  "apps": [
+   {
+    "id": "cmpsy8wqa0rezughvy3waq7wu",
+    "n": "eero wifi system",
+    "d": "eero LLC",
+    "r": 232
+   },
+   {
+    "id": "cmps63vt30p6nugu70n2auhnl",
+    "n": "Network WiFi Scan",
+    "d": "Appora studio",
+    "r": 90
+   },
+   {
+    "id": "cmpsz8r3c2sy9ughv7q58lqmz",
+    "n": "WiFi Map",
+    "d": "WiFi Map LLC",
+    "r": 50
+   }
+  ]
+ },
+ {
+  "slug": "finance-tax-apps",
+  "ru": "Налоговые и финансовые приложения",
+  "en": "Tax & Finance Apps",
+  "totalReviews": 126,
+  "apps": [
+   {
+    "id": "cmpt3h6ga71pkugfe27co8mqr",
+    "n": "HMRC",
+    "d": "HM Revenue & Customs",
+    "r": 69
+   },
+   {
+    "id": "cmpt87mxk0loaugx3421b7f0b",
+    "n": "myGov",
+    "d": "Services Australia",
+    "r": 57
+   }
+  ]
+ },
+ {
+  "slug": "government-services-apps",
+  "ru": "Приложения государственных услуг",
+  "en": "Government Services Apps",
+  "totalReviews": 310,
+  "apps": [
+   {
+    "id": "cmpt426vo0quvugw6f9ncx5b5",
+    "n": "BC Services Card",
+    "d": "Province of British Columbia, Canada",
+    "r": 79
+   },
+   {
+    "id": "cmpt88to00ni2ugx3h3uzowco",
+    "n": "Express Plus Centrelink",
+    "d": "Services Australia",
+    "r": 69
+   },
+   {
+    "id": "cmpszyd680000ugfe9zozd97f",
+    "n": "GOV.UK One Login",
+    "d": "Government Digital Service",
+    "r": 67
+   },
+   {
+    "id": "cmptc81g50jp2ugc347avuh5r",
+    "n": "DigiLocker",
+    "d": "National eGovernance Division, Government of India",
+    "r": 53
+   },
+   {
+    "id": "cmpszyrfm00ueugfe30brs4c7",
+    "n": "GOV.UK ID Check",
+    "d": "Government Digital Service",
+    "r": 42
+   }
+  ]
+ },
+ {
+  "slug": "insurance-apps",
+  "ru": "Страховые приложения",
+  "en": "Insurance Apps",
+  "totalReviews": 292,
+  "apps": [
+   {
+    "id": "cmps5vzt30568ugu7n76dsw9c",
+    "n": "Progressive",
+    "d": "Progressive Insurance",
+    "r": 116
+   },
+   {
+    "id": "cmpt2wrtj5wt0ugfeb98pi637",
+    "n": "Admiral Insurance",
+    "d": "Admiral Insurance Services",
+    "r": 76
+   },
+   {
+    "id": "cmpt3hvda7368ugfegsrv8wkc",
+    "n": "Hastings Direct Insurance",
+    "d": "Hastings Direct",
+    "r": 63
+   },
+   {
+    "id": "cmpt8lw5e18cxugx3uan3lbjw",
+    "n": "RACV",
+    "d": "RACV",
+    "r": 37
+   }
+  ]
+ },
+ {
+  "slug": "event-social-apps",
+  "ru": "Приложения поиска событий и знакомств",
+  "en": "Event & Social Discovery Apps",
+  "totalReviews": 664,
+  "apps": [
+   {
+    "id": "cmpsutn78400nug8p0b99225i",
+    "n": "Meetup",
+    "d": "Meetup LLC",
+    "r": 613
+   },
+   {
+    "id": "cmps62d3r0l7hugu7oil4oo86",
+    "n": "Partiful",
+    "d": "Partiful",
+    "r": 51
+   }
+  ]
+ },
+ {
+  "slug": "salon-booking-apps",
+  "ru": "Приложения бронирования салонов красоты",
+  "en": "Beauty & Salon Booking Apps",
+  "totalReviews": 94,
+  "apps": [
+   {
+    "id": "cmps62k0q0lrougu7y54i33mv",
+    "n": "Booksy for Customers",
+    "d": "Booksy",
+    "r": 50
+   },
+   {
+    "id": "cmpsum0ja3j8sug8p6pvxi5ej",
+    "n": "Booksy Biz",
+    "d": "Booksy",
+    "r": 44
+   }
+  ]
+ },
+ {
+  "slug": "screen-recording-apps",
+  "ru": "Приложения записи экрана",
+  "en": "Screen Recording & Capture Apps",
+  "totalReviews": 538,
+  "apps": [
+   {
+    "id": "cmpssxnm300ldug8pbn8uau5j",
+    "n": "Camtro",
+    "d": "DigitalConverge Intellect Limited",
+    "r": 308
+   },
+   {
+    "id": "cmpt0a7iy0om6ugfe5cryl99u",
+    "n": "StayFree",
+    "d": "ST Pulse",
+    "r": 139
+   },
+   {
+    "id": "cmptbqd2s00leugc3iqjruscc",
+    "n": "DiskWala",
+    "d": "DISKWALA LLC",
+    "r": 91
+   }
+  ]
+ },
+ {
+  "slug": "food-recipe-apps",
+  "ru": "Приложения рецептов и планирования питания",
+  "en": "Food Recipe & Meal Planning Apps",
+  "totalReviews": 838,
+  "apps": [
+   {
+    "id": "cmpsu51sl2k53ug8pnh0ccjy3",
+    "n": "NYT Cooking",
+    "d": "The New York Times Company",
+    "r": 353
+   },
+   {
+    "id": "cmpsu6fo92mw2ug8pulbpbgiz",
+    "n": "Pepper",
+    "d": "Pepper App Inc",
+    "r": 221
+   },
+   {
+    "id": "cmpta5q0l3991ugx3zufdek2e",
+    "n": "taste.com.au recipes",
+    "d": "News Digital Media",
+    "r": 90
+   },
+   {
+    "id": "cmpt23eqo4dgiugfedlrh93xo",
+    "n": "Mealia",
+    "d": "Mealia",
+    "r": 88
+   },
+   {
+    "id": "cmpt24i7b4fq4ugfev9lwpa78",
+    "n": "Cherrypick",
+    "d": "lollipopai",
+    "r": 86
+   }
+  ]
+ },
+ {
+  "slug": "language-kids-apps",
+  "ru": "Детские приложения для изучения языков",
+  "en": "Kids Language Learning Apps",
+  "totalReviews": 476,
+  "apps": [
+   {
+    "id": "cmps5z5vg0d7jugu7agw9d8n5",
+    "n": "Learn English, Spanish",
+    "d": "Deep Flow Apps",
+    "r": 174
+   },
+   {
+    "id": "cmps5zavx0diqugu79zwe97z8",
+    "n": "ABCmouse",
+    "d": "Age of Learning, Inc.",
+    "r": 157
+   },
+   {
+    "id": "cmps5zc9m0dm9ugu7p8xjvxs8",
+    "n": "Buddy.ai",
+    "d": "AI Buddy Inc.",
+    "r": 73
+   },
+   {
+    "id": "cmps5zlxr0e7lugu7j861rb7z",
+    "n": "Speak & Learn English",
+    "d": "DEEP FLOW SOFTWARE SERVICES",
+    "r": 72
+   }
+  ]
+ },
+ {
+  "slug": "screen-mirroring-cast",
+  "ru": "Приложения зеркалирования экрана",
+  "en": "Screen Mirroring & Cast Apps",
+  "totalReviews": 2351,
+  "apps": [
+   {
+    "id": "cmpst34fh0chaug8pk1qzftv2",
+    "n": "TV Cast for Chromecast",
+    "d": "EVOLLY.APP",
+    "r": 523
+   },
+   {
+    "id": "cmpst0fcl06nqug8pz808dbt1",
+    "n": "Screen Mirroring",
+    "d": "Level Clash Apps S.L.",
+    "r": 402
+   },
+   {
+    "id": "cmpsxzd02073pughv7bc4spo7",
+    "n": "Screen Mirroring Z",
+    "d": "EVOLLY.APP",
+    "r": 328
+   },
+   {
+    "id": "cmpsxx4jn029rughvcwy6qghj",
+    "n": "Screen Mirroring App",
+    "d": "Desidari Holding Ltd.",
+    "r": 188
+   },
+   {
+    "id": "cmpst1tzq09o6ug8px544rzkb",
+    "n": "Smart TV Cast",
+    "d": "Technoline Apps",
+    "r": 167
+   },
+   {
+    "id": "cmpstdtgy0xjnug8pp5pw1f30",
+    "n": "Roku Screen Mirror & Cast TV",
+    "d": "AirBeamTV BV",
+    "r": 144
+   },
+   {
+    "id": "cmpt3spu407lhugw6nk1yus9s",
+    "n": "Screen Mirror・Smart View Cast",
+    "d": "toggle apps",
+    "r": 124
+   },
+   {
+    "id": "cmpt3snnn07h2ugw68mpbx45w",
+    "n": "Cast for Chromecast & TV Cast",
+    "d": "iKame Applications - Begamob Global",
+    "r": 98
+   },
+   {
+    "id": "cmpsxypt105slughvzop8ygsu",
+    "n": "Screen Mirroring・Smart View TV",
+    "d": "toggle apps",
+    "r": 94
+   },
+   {
+    "id": "cmpt7aduk6821ugw6ecr57cpx",
+    "n": "Cast Phone to TV, Chromecast",
+    "d": "Generation z apps",
+    "r": 64
+   },
+   {
+    "id": "cmpt859o50gp9ugx3vu9ws3gu",
+    "n": "Cast to TV & Screen Mirroring",
+    "d": "iKame Applications - Begamob Global",
+    "r": 63
+   },
+   {
+    "id": "cmpt03qdm0b2pugfeijf24bf4",
+    "n": "TV Cast for Chromecast Remote",
+    "d": "iKame Applications - Begamob Global",
+    "r": 49
+   },
+   {
+    "id": "cmptbvk3i08ytugc3rfz0d31e",
+    "n": "TV Cast",
+    "d": "Generation z apps",
+    "r": 48
+   },
+   {
+    "id": "cmptbvv1a09fqugc36s1eild7",
+    "n": "Cast to TV for Chromecast",
+    "d": "iKame Applications - Begamob Global",
+    "r": 48
+   },
+   {
+    "id": "cmpt82ymb0bsougx3lsc5ab8k",
+    "n": "Screen Mirror · Smart TV Cast",
+    "d": "Aquin",
+    "r": 11
+   }
+  ]
+ },
+ {
+  "slug": "astrology-apps",
+  "ru": "Приложения астрологии и гороскопов",
+  "en": "Astrology & Horoscope Apps",
+  "totalReviews": 944,
+  "apps": [
+   {
+    "id": "cmpsyaj3g0v1eughv15x8q22a",
+    "n": "Astra",
+    "d": "Vert Ventures",
+    "r": 413
+   },
+   {
+    "id": "cmpsyant00va4ughv65g7yvil",
+    "n": "The Pattern",
+    "d": "Pattern Home, Inc.",
+    "r": 407
+   },
+   {
+    "id": "cmptctlu913mlugc3q5kxdw3e",
+    "n": "AstroSage Kundli",
+    "d": "Ojas Softech Pvt Ltd",
+    "r": 51
+   },
+   {
+    "id": "cmpsyadt30uprughv8ndaz9ba",
+    "n": "Astrotalk",
+    "d": "Astrology & Horoscope",
+    "r": 41
+   },
+   {
+    "id": "cmpsya6xm0u9xughv65uqmekn",
+    "n": "Daily Horoscope Launcher",
+    "d": "AtomApplications",
+    "r": 24
+   },
+   {
+    "id": "cmptbts4606apugc3zka4b9w8",
+    "n": "Cosmic Insights Astrology",
+    "d": "GMan Labs",
+    "r": 8
+   }
+  ]
+ },
+ {
+  "slug": "regional-streaming",
+  "ru": "Региональные стриминговые сервисы",
+  "en": "Regional & Niche Streaming Apps",
+  "totalReviews": 3412,
+  "apps": [
+   {
+    "id": "cmpszaz2l2xcrughvwwl5towu",
+    "n": "MBC Shahid",
+    "d": "MBC Group",
+    "r": 498
+   },
+   {
+    "id": "cmpszdgam32qaughv3r4shnww",
+    "n": "CandyJarTV",
+    "d": "Inkitt",
+    "r": 496
+   },
+   {
+    "id": "cmpszfcr536sdughv9t2h7uvq",
+    "n": "Globoplay",
+    "d": "GLOBO COM. E PART. S/A",
+    "r": 374
+   },
+   {
+    "id": "cmpsujah53d9hug8pd8gsicm3",
+    "n": "VibeShort",
+    "d": "AGILE QUADRANT MEDIA LIMITED",
+    "r": 370
+   },
+   {
+    "id": "cmpszam9r2wm6ughvmvce7nir",
+    "n": "StardustTV",
+    "d": "Hongxing Media Co., Limited",
+    "r": 367
+   },
+   {
+    "id": "cmpszeobh35bbughvqd00rnpo",
+    "n": "MiniShorts",
+    "d": "NOVENTURE PTE. LTD.",
+    "r": 364
+   },
+   {
+    "id": "cmpszb96z2xyxughv0i2l6ry8",
+    "n": "BritBox",
+    "d": "BritBox, LLC",
+    "r": 322
+   },
+   {
+    "id": "cmpszdng13356ughv9qj0h5jq",
+    "n": "Kalos TV-Short Dramas & Reels",
+    "d": "Storyverse Co., Limited",
+    "r": 314
+   },
+   {
+    "id": "cmpszbhly2ygoughvxe9am3ck",
+    "n": "iDrama",
+    "d": "HK Good Drama Technology Limited",
+    "r": 269
+   },
+   {
+    "id": "cmps5yyn20cn8ugu74kwro1mg",
+    "n": "HBO Max",
+    "d": "WarnerMedia Global Digital Services, LLC",
+    "r": 38
+   }
+  ]
+ },
+ {
+  "slug": "flight-tracking-apps",
+  "ru": "Приложения отслеживания рейсов",
+  "en": "Flight Tracker Apps",
+  "totalReviews": 1190,
+  "apps": [
+   {
+    "id": "cmpsugc1k36vrug8pe8wvptz7",
+    "n": "Planes Live",
+    "d": "Mosaic S.r.l.",
+    "r": 449
+   },
+   {
+    "id": "cmpsz6khz2ohoughvr3mh7kw5",
+    "n": "RatePunk",
+    "d": "Yard Venture",
+    "r": 297
+   },
+   {
+    "id": "cmpsufy89365wug8p3pa7j9fr",
+    "n": "Flight Tracker",
+    "d": "Oleksandr Vynnyk",
+    "r": 136
+   },
+   {
+    "id": "cmpsz6psy2otxughvh1b4jj6h",
+    "n": "Plane Finder ⁃ Flight Tracker",
+    "d": "pinkfroot limited",
+    "r": 94
+   },
+   {
+    "id": "cmpsuewqb33y0ug8p04jyffzc",
+    "n": "Flighty",
+    "d": "Flighty LLC",
+    "r": 86
+   },
+   {
+    "id": "cmpsuetn433r2ug8pfn2a6zzx",
+    "n": "Flightradar24 Flight Tracker",
+    "d": "Flightradar24 AB",
+    "r": 71
+   },
+   {
+    "id": "cmpsz5cjy2lxwughvwkq0btgj",
+    "n": "Track My Flight Now",
+    "d": "East End Technologies Ltd.",
+    "r": 27
+   },
+   {
+    "id": "cmpsz9f3s2ubbughvntlgccvi",
+    "n": "FlightRadar",
+    "d": "SaverHub Apps",
+    "r": 12
+   },
+   {
+    "id": "cmpt2ttcl5r82ugfe6gliysnf",
+    "n": "Flight Radar Airplane Tracker",
+    "d": "CODINYX LTD",
+    "r": 11
+   },
+   {
+    "id": "cmptalp3w3wheugx36q7mvv55",
+    "n": "Live Flight Tracker™",
+    "d": "Fast Tour Booking - Flights & Hotels",
+    "r": 7
+   }
+  ]
+ },
+ {
+  "slug": "smart-security-cameras",
+  "ru": "Приложения умных камер безопасности",
+  "en": "Smart Security Camera Apps",
+  "totalReviews": 1034,
+  "apps": [
+   {
+    "id": "cmpstexdy102dug8pcaiocfvc",
+    "n": "eufy",
+    "d": "Power Mobile Life LLC",
+    "r": 506
+   },
+   {
+    "id": "cmpstbqbm0t2mug8pkdkve1pn",
+    "n": "Swann Security",
+    "d": "Swann Communications Pty Ltd",
+    "r": 355
+   },
+   {
+    "id": "cmpstk0wa1b2rug8pqmuut8td",
+    "n": "EseeCloud(IP Pro, VR Cam)",
+    "d": "Guangdong Juan Intelligent Technology Joint Stock Co., Ltd",
+    "r": 173
+   }
+  ]
+ },
+ {
+  "slug": "language-exchange-apps",
+  "ru": "Приложения языкового обмена",
+  "en": "Language Exchange Apps",
+  "totalReviews": 699,
+  "apps": [
+   {
+    "id": "cmpstrdqi1r3uug8pb7qylnl4",
+    "n": "HelloTalk",
+    "d": "HELLOTALK FOREIGN LANGUAGE EXCHANGE LEARNING TALK CHAT APP",
+    "r": 485
+   },
+   {
+    "id": "cmpsyq7m01s2cughvjswu8qoz",
+    "n": "Tandem",
+    "d": "Tripod Technology GmbH",
+    "r": 214
+   }
+  ]
+ },
+ {
+  "slug": "sleep-tracker-apps",
+  "ru": "Приложения трекинга сна и мониторинга храпа",
+  "en": "Sleep Tracker & Snore Monitor Apps",
+  "totalReviews": 814,
+  "apps": [
+   {
+    "id": "cmpsys78r1w5cughvicsr5iec",
+    "n": "ShutEye®",
+    "d": "Enerjoy Pte. Ltd.",
+    "r": 439
+   },
+   {
+    "id": "cmpsyxld127hrughvs0smbl52",
+    "n": "Sleep Tracker & Sound by Remly",
+    "d": "Deep Flow Apps",
+    "r": 174
+   },
+   {
+    "id": "cmpsyrw9p1vj0ughvi78mgrb8",
+    "n": "SnoreLab",
+    "d": "Reviva Softworks Ltd",
+    "r": 148
+   },
+   {
+    "id": "cmpt1wb0v3yimugfewvucndot",
+    "n": "Sleep Tracker",
+    "d": "Rise Science Inc",
+    "r": 53
+   }
+  ]
+ }
+]
