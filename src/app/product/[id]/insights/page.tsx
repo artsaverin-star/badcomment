@@ -119,36 +119,21 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
               ))}
             </div>
 
-            {insights && (
-              <div className="text-[13px] text-[var(--color-text-secondary)]">
-                Просканировано{" "}
-                <span className="font-medium text-[var(--color-text-primary)] tabular-nums">
-                  {formatCount(insights.reviewsScanned)}
-                </span>{" "}
-                отзывов · размечено вручную как образец{" "}
-                <span className="font-medium text-[var(--color-text-primary)] tabular-nums">{insights.sampleSize}</span>
-              </div>
-            )}
           </div>
 
-          {data.histogram && (
+          {insights && (
             <div className="flex flex-col gap-2">
               <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
-                {tr.product.ratingDist}
+                Просканировано {formatCount(insights.reviewsScanned)} отзывов
               </span>
-              <Histogram hist={data.histogram} />
+              <Histogram hist={insights.ratingBreakdown} />
             </div>
           )}
         </div>
       </Card>
 
       <section className="flex flex-col gap-3">
-        <div className="flex flex-col gap-0.5">
-          <Header size="S" as="h2" title="Конкретные паттерны (β)" />
-          <p className="text-[13px] text-[var(--color-text-tertiary)]">
-            Извлечено из 1-5★ — конкретные механики, не теги категорий
-          </p>
-        </div>
+        <Header size="S" as="h2" title="Основные инсайты" />
         {insights ? (
           <div className="flex flex-col gap-3">
             {sorted.map((i) => (
