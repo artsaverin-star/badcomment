@@ -1,12 +1,13 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef } from "react";
 import type { Insight } from "@/lib/insights";
 
 // Compact insight row in the same visual grammar as AppNeeds.NeedRow: title,
-// mention count, relative bar, click → modal with verbatim review(s). The text
-// blocks (story, implies) live in the modal, not the row, so the page reads at
-// the same density as the tag-aggregation view.
+// mention count, relative bar, click → modal with verbatim review(s). Metadata
+// (feature area, persona, trial path) is preserved in JSON for downstream use
+// but not surfaced on the row — keeps the page reading like the tag-aggregation
+// view.
 
 function Stars({ n }: { n: number }) {
   return (
@@ -17,20 +18,9 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-function Chip({ children, tone = "neutral" }: { children: ReactNode; tone?: "neutral" | "info" | "danger" }) {
-  const cls =
-    tone === "danger"
-      ? "bg-[var(--color-accent-danger)]/15 text-[var(--color-accent-danger)]"
-      : tone === "info"
-        ? "bg-[var(--color-accent-info)]/15 text-[var(--color-accent-info)]"
-        : "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)]";
-  return <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] ${cls}`}>{children}</span>;
-}
-
 export default function InsightRow({ insight, max }: { insight: Insight; max: number }) {
   const ref = useRef<HTMLDialogElement>(null);
   const pct = Math.max(3, Math.round((insight.evidence.length / max) * 100));
-  const noveltyTone = insight.novelty === "high" ? "danger" : "neutral";
 
   return (
     <>
@@ -53,14 +43,6 @@ export default function InsightRow({ insight, max }: { insight: Insight; max: nu
               style={{ width: `${pct}%`, background: "var(--color-accent-danger)" }}
             />
           </span>
-        </span>
-
-        <span className="flex flex-wrap gap-1.5">
-          <Chip tone={noveltyTone}>{insight.featureArea}</Chip>
-          {insight.trialPath && <Chip tone="info">{insight.trialPath}</Chip>}
-          {insight.who.slice(0, 2).map((w) => (
-            <Chip key={w}>{w}</Chip>
-          ))}
         </span>
       </button>
 
