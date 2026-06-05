@@ -1,31 +1,26 @@
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from "node:fs";
+import appStore from "app-store-scraper";
 
-// Resolve every app name in src/data/categories.json to canonical metadata
-// (Apple ID, canonical name, artwork URL) via the public iTunes Search API.
-// Output is src/data/categories-meta.json: a map keyed by "<categorySlug>:<appName>"
-// → { name, icon, appleId, bundleId }.
+// Resolve every app name in src/data/categories.json to Apple App Store
+// canonical metadata (track id, name, artwork URL). Uses the app-store-scraper
+// package which goes through Apple's frontend endpoints — more permissive than
+// the public itunes.apple.com/search API that blanket-blocks scrapers.
 //
-// The resolver is RESUMABLE — already-resolved entries are skipped on re-run.
-// Use case: author categories.json with hand-typed app names; run this once;
-// commit the meta file; pages render from the meta without doing live fetches.
+// Resumable — already-resolved entries are skipped. Writes to
+// src/data/categories-meta.json after every fetch.
 //
 // Usage: npx tsx scripts/resolve-category-apps.ts
 
-type Category = {
-  slug: string;
-  ru: { name: string; kicker: string };
-  en: { name: string; kicker: string };
-  tier: string;
-  apps: string[];
-};
+type Category = { slug: string; apps: string[] };
 
 type AppMeta = {
-  query: string; // original hand-typed query
-  name: string; // canonical store name
-  icon: string; // 512x512 artwork URL
-  appleId: number; // iTunes trackId
+  query: string;
+  name: string;
+  icon: string;
+  appleId: number;
   bundleId: string | null;
   developer: string | null;
+  productId?: string; // populated by resolve-from-db.ts
 };
 
 const META_PATH = "src/data/categories-meta.json";
@@ -40,31 +35,33 @@ function looksReasonable(query: string, name: string): boolean {
   const q = normalize(query);
   const n = normalize(name);
   if (n === q || n.startsWith(q) || q.startsWith(n)) return true;
-  // Try first significant word match
   const qFirst = q.split(" ")[0];
   if (qFirst.length >= 3 && n.split(" ")[0] === qFirst) return true;
-  // Brand name embedded in either
   if (n.includes(q) || q.includes(n)) return true;
   return false;
 }
 
+type StoreResult = {
+  id: number;
+  title: string;
+  icon: string;
+  developer: string;
+  bundleId?: string;
+  appId?: string;
+};
+
 async function search(term: string): Promise<AppMeta | null> {
-  const url = `https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=software&country=us&limit=5`;
   try {
-    const res = await fetch(url);
-    if (!res.ok) return null;
-    const data = (await res.json()) as { results: Array<{ trackId: number; trackName: string; artworkUrl512?: string; artworkUrl100?: string; bundleId?: string; artistName?: string }> };
-    const results = data.results ?? [];
-    // Pick the first result whose name reasonably matches the query
-    const best = results.find((r) => looksReasonable(term, r.trackName)) ?? results[0];
-    if (!best) return null;
+    const results = (await appStore.search({ term, country: "us", num: 5, lang: "en-us" })) as StoreResult[];
+    if (!results.length) return null;
+    const best = results.find((r) => looksReasonable(term, r.title)) ?? results[0];
     return {
       query: term,
-      name: best.trackName,
-      icon: best.artworkUrl512 ?? best.artworkUrl100 ?? "",
-      appleId: best.trackId,
-      bundleId: best.bundleId ?? null,
-      developer: best.artistName ?? null,
+      name: best.title,
+      icon: best.icon,
+      appleId: best.id,
+      bundleId: best.appId ?? best.bundleId ?? null,
+      developer: best.developer ?? null,
     };
   } catch {
     return null;
@@ -84,12 +81,16 @@ async function main() {
     for (const app of cat.apps) {
       total++;
       const key = `${cat.slug}:${app}`;
-      if (existing[key]) {
+      // Skip if we already have a real appleId (productId-only matches still
+      // want iTunes meta to get a stable canonical name + icon)
+      if (existing[key]?.appleId && existing[key].appleId > 0) {
         skipped++;
         continue;
       }
       const meta = await search(app);
       if (meta) {
+        // Preserve productId if previously matched
+        if (existing[key]?.productId) meta.productId = existing[key].productId;
         existing[key] = meta;
         resolved++;
         console.log(`  ✓ ${cat.slug}/${app} → ${meta.name} (${meta.appleId})`);
@@ -97,7 +98,6 @@ async function main() {
         failed++;
         console.log(`  ✗ ${cat.slug}/${app}`);
       }
-      // Persist after every fetch so killing the script doesn't lose progress
       writeFileSync(META_PATH, JSON.stringify(existing, null, 2));
       await sleep(SLEEP_MS);
     }
