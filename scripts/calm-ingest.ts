@@ -3,7 +3,6 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import gplay from "google-play-scraper";
 import appStore from "app-store-scraper";
 import { prisma } from "../src/lib/prisma";
-import { tagThemes } from "../src/lib/themes";
 
 // Maximum-fidelity ingest for ONE product across both stores, all countries,
 // all sort modes, ratings 1-5, paginated as deep as the stores allow. Built
@@ -146,32 +145,10 @@ async function run() {
     console.log(`  → total ${reviews.length} unique reviews\n`);
   }
 
-  // Persist to DB. We use upsert keyed by (appId, externalId) so re-runs are
-  // idempotent and never duplicate. Existing rows (1-2★ already in DB) are
-  // untouched on the create-side; the update is empty.
-  let written = 0;
-  for (const r of all) {
-    const themes = tagThemes(`${r.title ?? ""} ${r.text}`);
-    await prisma.review.upsert({
-      where: { appId_externalId: { appId: r.appId, externalId: r.externalId } },
-      create: {
-        appId: r.appId,
-        externalId: r.externalId,
-        author: r.author,
-        rating: r.rating,
-        title: r.title,
-        text: r.text,
-        version: r.version,
-        postedAt: r.postedAt,
-        themes: JSON.stringify(themes),
-      },
-      update: {},
-    });
-    written++;
-  }
-  console.log(`upserted ${written} reviews to DB`);
-
-  // Also dump a snapshot for the prototype pipeline (independent of DB schema).
+  // JSON dump for the prototype pipeline. We skip DB upsert here on purpose —
+  // the live site holds the SQLite write lock and bulk upserts timeout against
+  // it. The prototype works off the JSON snapshot; if we later want this in
+  // the DB we'll run a separate backfill while the service is stopped.
   mkdirSync("data", { recursive: true });
   const out = all.map((r) => ({
     appId: r.appId,
