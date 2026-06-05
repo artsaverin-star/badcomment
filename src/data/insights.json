@@ -2,191 +2,2731 @@
   {
     "productId": "cmpstwzc422tyug8p31xzftzd",
     "reviewsScanned": 892,
-    "ratingBreakdown": { "1": 261, "2": 68, "3": 76, "4": 66, "5": 421 },
+    "ratingBreakdown": {
+      "1": 261,
+      "2": 68,
+      "3": 76,
+      "4": 66,
+      "5": 421
+    },
     "pipeline": "qualitative extraction · последние 90 дней · 1-5★",
     "asOf": "2026-06-05",
-    "sampleSize": 24,
+    "sampleSize": 892,
     "insights": [
       {
-        "id": "marketing-funnel-disconnect",
+        "id": "story-loop-after-693",
         "category": "strategic",
-        "title": "Маркетинговая воронка не узнаёт уже подписанных",
-        "story": "Calm запускает Instagram-кампании с лид-магнитом (квиз про EMDR, генерирующий персональный план). Квиз спроектирован под пробных юзеров — нет пути привязать сгенерированный план к существующей Premium-подписке. Платящий клиент кликает рекламу, проходит квиз, упирается в тупик.",
-        "who": ["Existing subscriber", "Engaged with marketing"],
-        "trialPath": "subscribed-after-trial",
-        "featureArea": "Marketing × Product",
+        "title": "После апдейта 6.93/6.94 Sleep Story зацикливается и перезапускает peppy-интро вместо перехода в soundscape",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-04-29",
+            "reviewId": "14008559072",
+            "quote": "Why are all my sleep stories now playing on repeat instead of gently fading to soft rain through the night as per my settings?! This keeps waking me up. There is no double arrow circle symbol. Cannot send a bug report or ask a question. About ready to delete this app I once loved."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-20",
+            "reviewId": "13976659950",
+            "quote": "In the last three days stories have started looping instead of switching to a scene. Since the beginning of the stories are often peppy this wakes me up."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-05",
+            "reviewId": "4bb42c3b-440d-4252-89f9-4248d4740b06",
+            "quote": "recently, regardless of what it says in the settings, the app auto plays whatever is next until you stop it manually."
+          }
+        ],
+        "observationCount": 8,
+        "implies": ""
+      },
+      {
+        "id": "cancel-confirmed-but-charged",
+        "category": "strategic",
+        "title": "Отмена подтверждена письмом/экраном, но годовая подписка всё равно списывается",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-18",
+            "reviewId": "b329e371-4f27-47de-9f40-390de138149b",
+            "quote": "I canceled my subscription during the trail phase through the application. I was still charged for the annual subscription fee."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-16",
+            "reviewId": "20b5a73e-28fa-4666-80b1-76537165ecf5",
+            "quote": "ALTHOUGH....on day 29 I canceled the free trial to keep from being charged, it showed being canceled. Day 30 it shows being canceled for 2027."
+          },
+          {
+            "rating": 4,
+            "date": "2026-04-21",
+            "reviewId": "13981599519",
+            "quote": "I canceled their month “free trial” after two weeks and they billed me for the year. I was thinking about trying their monthly charge but I’ll never use this app again. I haven’t been able to get a refund within the 24 hours of billing."
+          }
+        ],
+        "observationCount": 12,
+        "implies": ""
+      },
+      {
+        "id": "payment-captured-no-entitlement",
+        "category": "strategic",
+        "title": "Apple/банк подтверждают оплату, но в Calm Premium не активируется и тикет молчит",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-06-02",
+            "reviewId": "14133800339",
+            "quote": "Paid for premium subscription, yet when I followed the link and signed in I had no access to it.  Kept trying to get me to sign up again"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-17",
+            "reviewId": "14073578666",
+            "quote": "I renewed my subscription $79.99 for the App days ago and my bank account shows payment yet App does not let me have access. It wants me to pay another $79.99. There is nothing to direct to obtain support."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-21",
+            "reviewId": "13980274448",
+            "quote": "I was charged for a premium account, but after I signed up my account never switched over to premium and I haven’t received a response on my customer support request in over a week"
+          }
+        ],
+        "observationCount": 15,
+        "implies": ""
+      },
+      {
+        "id": "trial-instant-yearly-charge",
+        "category": "strategic",
+        "title": "Кнопка «7-day trial» сразу списывает полную годовую подписку без отсрочки",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-14",
+            "reviewId": "14064257236",
+            "quote": "If you cancel the subscription, they will offer you a free 7 day trial again and not give you the trial and instead immediately charge you. Apple will deny your refund request and point the finger at the developer and the developer will tell you to contact apple."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-23",
+            "reviewId": "14098314072",
+            "quote": "Thought I was signing up for a 7-day free trial since that was what the app told me I was doing. Upon confirming my purchase I realised that I had been immediately charged the full amount for the yearly subscription."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-30",
+            "reviewId": "13902285555",
+            "quote": "Received an email for a free 14 day trial, the link just takes me to calm main page, nothing about trials, but when I dig around the app there is only a 7 day trial."
+          }
+        ],
+        "observationCount": 13,
+        "implies": ""
+      },
+      {
+        "id": "splash-dead-end",
+        "category": "strategic",
+        "title": "Splash «Take a deep breath» зависает или редиректит в Microsoft Edge на оплаченных аккаунтах",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-27",
+            "reviewId": "1af784e8-9238-4d02-bf94-cc9a808224cd",
+            "quote": "I am canceling the monthly subscription I just bought yesterday because I open the app, and it redirects me to get website after the take a deep breath loading screen. and it opens in the edge browser that isn't my default browser."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-27",
+            "reviewId": "14110003673",
+            "quote": "The next day less than 24 hours later it redirects me to a website on a browser that isn’t default or in use, after the take a deep breath loading screen."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-30",
+            "reviewId": "5392119d-b0b0-419d-9862-2efdc984e338",
+            "quote": "I hate that when I try to open this app to calm my child when I'm totally exhausted it just freezes on a blue screen for infinity saying 'take a deep breath', or some such infuriating nonsense."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "ai-bot-support-deadend",
+        "category": "strategic",
+        "title": "AI-чатбот вместо саппорта галлюцинирует UI и зацикливает пользователя без эскалации",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-18",
+            "reviewId": "13969956253",
+            "quote": "I already used all the methods the AI chat bot gave me to try to get the app working again and at this point it’s useless. I’ve had an email sent to calm customer service as well. Nothing is working to get ahold of anyone and I’m unable to fix the problem myself."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-01",
+            "reviewId": "14016351119",
+            "quote": "The AI support says there is a repeat button in the full screen player next to the forward icon, but there isn't... The support AI bot just keeps going round in circles asking me what the problem is regardless of what I say"
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-17",
+            "reviewId": "13856274866",
+            "quote": "It logged me in on my iPhone with no issues. But same login and password on iPad gets that error message."
+          }
+        ],
+        "observationCount": 12,
+        "implies": ""
+      },
+      {
+        "id": "emdr-bait-and-switch",
+        "category": "strategic",
+        "title": "EMDR/бинауральный квиз обещает персональный clinical-план, а отдаёт generic-плейлист без импорта в приложение",
+        "story": "",
+        "who": [],
+        "featureArea": "",
         "novelty": "high",
         "evidence": [
           {
             "rating": 4,
             "date": "2026-06-02",
             "reviewId": "ac7ade16-ab61-4078-82cc-0700937fe608",
-            "quote": "I got an ad on Instagram to do the quiz for the EMDR stuff which I'm really interested in. but I already have a subscription. I'm unsure how to loggin on the quiz to say I have a subscription and if it's possible to use the \"plan\" it made for me with my current sub? id really like to give it a try."
-          }
-        ],
-        "implies": "Маркетинг и core-product работают по разным data-моделям. Лид-магнит — отдельная воронка без single-sign-on. Это упускает upsell-возможность с самой engaged частью базы — теми кто реагирует на маркетинг будучи уже клиентами."
-      },
-      {
-        "id": "promo-code-leak",
-        "category": "strategic",
-        "title": "Промокоды на бесплатный Premium расходятся вирусно",
-        "story": "Платящий 5★ юзер открыто рекомендует промокод дающий бесплатный Premium. Прямо признаёт «они теряют деньги» — но кладёт код в публичный отзыв. Имплицитно: Calm раздаёт коды через партнёрские/wellness-каналы, которые персистентны и широко шарятся.",
-        "who": ["Power user", "Years tenure"],
-        "trialPath": "lifetime-buyer",
-        "featureArea": "Pricing / Promo",
-        "novelty": "high",
-        "evidence": [
-          {
-            "rating": 5,
-            "date": "2026-05-29",
-            "reviewId": "cdba2efa-aae0-475d-bcbe-d576f3d8fe11",
-            "quote": "Very good. You can access premium for free by doing a code, which makes them lose money, but even without premium it is a very good app for meditation."
-          }
-        ],
-        "implies": "Если такие коды попадают в публичный отзыв — они в чатах, на форумах, в Reddit. Revenue-leak. Требует или ротации кодов, или однократности, или принятия что это growth-канал."
-      },
-      {
-        "id": "splash-screen-irony",
-        "category": "strategic",
-        "title": "Загрузочный экран «take a deep breath» зависает в момент стресса",
-        "story": "У Calm экран-заставка показывает миролюбивое «take a deep breath» во время загрузки. Когда приложение виснет (Android, blue-screen freeze) — это сообщение показывается бесконечно. Юзер открыл Calm чтобы успокоить вымотанного ребёнка ночью; вместо успокоения получает таунт от продукта в самый острый момент.",
-        "who": ["Stressed parent", "Year+ user", "Yearly subscriber"],
-        "featureArea": "Reliability × UX copy",
-        "novelty": "high",
-        "evidence": [
+            "quote": "I'm unsure how to loggin on the quiz to say I have a subscription and if it's possible to use the \"plan\" it made for me with my current sub? id really like to give it a try."
+          },
           {
             "rating": 1,
-            "date": "2026-05-30",
-            "reviewId": "5392119d-b0b0-419d-9862-2efdc984e338",
-            "quote": "I hate that when I try to open this app to calm my child when I'm totally exhausted it just freezes on a blue screen for infinity saying 'take a deep breath', or some such infuriating nonsense. I can't describe how much I hate this feature. Regret getting a yearly membership."
+            "date": "2026-05-26",
+            "reviewId": "4511fdbc-d34e-4302-b4e3-e349fa788eb4",
+            "quote": "The ads running on FB and Instagram imply that they will give a specific plan, as opposed to what you actually get, which is a couple of binaural tracks and then a bunch of celebrity sleep podcast experiences."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-11",
+            "reviewId": "7cef3146-ee60-404e-9205-0efa2a68bd15",
+            "quote": "I filled in a questionnaire on bilateral stimulation to set up a customised \"plan\", and when I paid and logged on all I got is generic recommendations."
           }
         ],
-        "implies": "Это не баг про надёжность — это баг про message-tone-под-нагрузкой. Загрузочные экраны критичных приложений должны быть нейтральны: тёплое сообщение становится оскорблением при таймауте. Тот же JTBD что у панических атак — escape route быстро."
+        "observationCount": 15,
+        "implies": ""
       },
       {
-        "id": "ambient-bleed",
-        "category": "workflow",
-        "title": "Эмбиент с главного экрана не глушится в медитации",
-        "story": "На discovery-экранах Calm играют фоновые эмбиент-звуки (сверчки). Когда юзер запускает медитацию — этот эмбиент продолжает звучать поверх. Глобальной кнопки заглушить ambient layer нет. Юзеры закрывают приложение чтобы это остановить.",
-        "who": ["Regular user", "Meditation-primary"],
-        "featureArea": "Audio player",
-        "novelty": "medium",
+        "id": "audio-session-leak-android",
+        "category": "strategic",
+        "title": "Аудио-сессия (cricket bed, paused track) выживает stop+kill приложения, лечится только перезагрузкой телефона",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
         "evidence": [
           {
             "rating": 3,
             "date": "2026-06-01",
             "reviewId": "20c98ba4-8ef5-460d-ab56-4faa5676666e",
-            "quote": "for some reason this app always freezes when I open it. Also, I hate the background sound effects of the crickets and I can't find a way to turn that off. When I play a meditation that same sound effects will remain in the background, so I just close the app because it bothers me so much."
-          }
-        ],
-        "implies": "Audio architecture: scene-audio и session-audio считаются разными слоями, не митируют друг друга. Должен быть либо глобальный mute, либо session-start автоматически глушит scene."
-      },
-      {
-        "id": "timer-freeze-1958",
-        "category": "workflow",
-        "title": "Таймер медитации стабильно зависает на 19:58",
-        "story": "Воспроизводимый freeze в одной и той же точке таймера: 19:58 (≈20-минутная сессия). Версия 6.96.1. Один и тот же юзер ловит это раз за разом — значит это не тайминговый race, а переход между фазами сессии (intro→main или main→closing) на конкретной длительности.",
-        "who": ["Regular user"],
-        "featureArea": "Reliability / Timer",
-        "novelty": "medium",
-        "evidence": [
+            "quote": "When I play a meditation that same sound effects will remain in the background, so I just close the app because it bothers me so much."
+          },
           {
             "rating": 4,
-            "date": "2026-05-31",
-            "reviewId": "e710a18c-bead-4b5c-a08d-8aa47fb0633e",
-            "quote": "timer keeps freezing at the same time 19:58"
+            "date": "2026-04-21",
+            "reviewId": "cdcebea1-e226-4af9-ba93-20a64eb863a0",
+            "quote": "When I open calm and try to play something, it won't play and the sound of the crickets keep playing. I've tried different sounds and playlists, clearing caches, logging in and out, etc. The only thing that temporarily works is restarting the phone."
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-08",
+            "reviewId": "14041840514",
+            "quote": "The annoying thing about the app though is if the scene you’re listening to gets paused you have to completely close out of the app to get it to play again. Otherwise you’ll press play and it stays frozen."
           }
         ],
-        "implies": "4★ юзер сообщает баг — он лоялен, но баг ловит. Это самый ценный bug report: воспроизводимый, привязан к версии. Стоит передать в QA как regression-кейс."
+        "observationCount": 6,
+        "implies": ""
       },
       {
-        "id": "soundscape-regression",
-        "category": "workflow",
-        "title": "Кастомизация эмбиента раньше была бесплатной — теперь убрана или платная",
-        "story": "Год+ юзер раньше микшировал дождь, гром и другие фоновые звуки. Сейчас функция либо удалена, либо за подпиской. Жалуется не на сам Premium — на регрессию: то что было привычным workflow несколько лет, отняли. Удалил приложение.",
-        "who": ["Year+ lapsed user", "Ambient-primary"],
-        "trialPath": "post-cancel",
-        "featureArea": "Soundscape × Premium gating",
+        "id": "story-to-scene-handoff-broken",
+        "category": "strategic",
+        "title": "Переход «история → ночной soundscape/fade-to-rain» сломан: либо тишина, либо одновременное воспроизведение двух треков",
+        "story": "",
+        "who": [],
+        "featureArea": "",
         "novelty": "high",
         "evidence": [
           {
-            "rating": 2,
-            "date": "2026-06-01",
-            "reviewId": "a4fbd5a5-b92a-433e-bab0-4b6e532fa9ca",
-            "quote": "when this app first came out I used to use it all the time but now it's more difficult you can't adjust like before with the rain sounds thunder adding or maybe you can fit a fee now so I uninstalled it"
+            "rating": 3,
+            "date": "2026-05-07",
+            "reviewId": "14038950323",
+            "quote": "Except they set it up so the app starts another track after your selected one ends & keeps going. Invariably, you’re jolted awake by some jarring sound or upbeat tempo from something that comes after, that you would never have selected because that’s not a sound that sends one off to sleep."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-02",
+            "reviewId": "14021039023",
+            "quote": "I usually find a story to listen to & after it switches over to ambient sounds, such as a thunder storm which plays all night, blocking out noise from outside."
+          },
+          {
+            "rating": 3,
+            "date": "2026-04-17",
+            "reviewId": "13966515173",
+            "quote": "Now it still does it but the story starts over again..with the soundscape at the same time."
           }
         ],
-        "implies": "Bait-and-switch на привычной механике. Юзеры воспринимают это сильнее чем обычный paywall — это потеря того, чем они уже пользовались. Триггерит отток среди long-tail лояльных."
+        "observationCount": 5,
+        "implies": ""
       },
       {
-        "id": "captcha-blocks-install",
-        "category": "onboarding",
-        "title": "CAPTCHA блокирует первый запуск",
-        "story": "Бот-проверка при регистрации проваливается у легитимных юзеров на первой установке. Юзер пробует, получает «try again», пробует ещё, удаляет приложение — не доходя до контента.",
-        "who": ["Pre-trial evaluator"],
-        "trialPath": "pre-trial",
-        "featureArea": "Onboarding / Auth",
-        "novelty": "medium",
+        "id": "captcha-blocks-first-launch",
+        "category": "strategic",
+        "title": "Бот-чек/CAPTCHA на регистрации не пропускает живого пользователя и убивает первый запуск",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
         "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-11",
+            "reviewId": "6a46e198-22c9-4b40-85a3-aea67f33eb1e",
+            "quote": "I can't prove I'm a human and not a robot. unable to even create an account as a result."
+          },
           {
             "rating": 1,
             "date": "2026-06-03",
             "reviewId": "3ecad3d2-9819-41b1-a5eb-32c48ab6de21",
             "quote": "can't get past the bot test. keeps saying try again. uninstalled."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-28",
+            "reviewId": "a8ce5f16-5b26-4c7c-9a9e-020c8080936c",
+            "quote": "couldn't get pass the robot catcher process. not very calming."
           }
         ],
-        "implies": "Conversion-leak до первого touch'a продукта. Anti-abuse механизм работает агрессивнее чем должен — false positives = lost installs."
+        "observationCount": 3,
+        "implies": ""
       },
       {
-        "id": "account-gate-kills-eval",
-        "category": "onboarding",
-        "title": "Аккаунт требуется до того как покажут контент",
-        "story": "Calm требует создания аккаунта перед доступом к любому контенту. Юзеры сообщают что удалили приложение мгновенно как только увидели account-gate — они хотели сначала оценить контент, потом committь личные данные.",
-        "who": ["Pre-trial evaluator"],
-        "trialPath": "pre-trial",
-        "featureArea": "Onboarding / Conversion",
+        "id": "gift-paypal-parallel-billing",
+        "category": "strategic",
+        "title": "Gift-sub конвертируется в параллельную PayPal-подписку, переживающую Google Play-отмену",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-14",
+            "reviewId": "d24921b9-0683-4509-aed8-7a74b7602ab1",
+            "quote": "I have paid for annual subscription and they keep direct debiting $23 each month for nothing. no matter how many times I contact support, they won't stop charging me for something I've already paid for."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-22",
+            "reviewId": "13986160983",
+            "quote": "I purchased the app for a year and sent it to my daughter on my family plan to try it out. Then I got charged for the whole year AGAIN even more!!!! No way to contact anyone about this."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-10",
+            "reviewId": "e3516e47-c0e6-4426-be8d-9061e7eb1deb",
+            "quote": "Paypal won't help you, Google won't help you and Calm won't even respond to you."
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "promo-tier-stacks-secondary-charge",
+        "category": "strategic",
+        "title": "Промо «40% off» подсаживает скрытый месячный add-on или сбрасывает Premium до paywall-обрубка",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-29",
+            "reviewId": "14119902243",
+            "quote": "I had a promo offer on renewal and it took a week to get things straightened out as my premium membership expired and I couldn’t access features."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-21",
+            "reviewId": "14087745626",
+            "quote": "I paid the 13.99 deal that they were offering to try it out for one month. There’s literally nothing you can do on this app for 13.99 you have to upgrade to the 79.99 one to literally do anything, the only thing you get is a “scene with nature sounds” Waste of money don’t let them trick you with their “deals”"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-04",
+            "reviewId": "14029024085",
+            "quote": "So I clicked on that and the dates aligned with my renewal date etc only again I now have no premium access despite them taking £50 off me."
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "narrator-as-filter-missing",
+        "category": "strategic",
+        "title": "Поиск/фильтр по конкретному narrator (Erik Braa, Tamara, Chike Okonkwo) сломан или удалён",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-05-05",
+            "reviewId": "88a157b0-8770-43f0-97fd-9c9ed0d53e15",
+            "quote": "One thing that keeps me from subscribing is the primary narrator voices are very annoying. Jay feels like he's shouting at me, it's grating. And the main woman - I forget her name - reads with a sort of condescending vocal fry affectation, like she is reading to children."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-08",
+            "reviewId": "13826200947",
+            "quote": "way to many non native English speakers. That do not speak words correctly... Who was speaking so fast that it was like it was a race to get a 40 minute story done in 20 minutes"
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-08",
+            "reviewId": "14040386770",
+            "quote": "It is also lacking some features such as the ability to filter search for say meditation with/without music or by narrator."
+          }
+        ],
+        "observationCount": 12,
+        "implies": ""
+      },
+      {
+        "id": "free-tier-throttled-per-track",
+        "category": "strategic",
+        "title": "Free-трек глохнет после N прослушиваний и уходит за paywall — счётчик listens вместо честной free-границы",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-07",
+            "reviewId": "13930729742",
+            "quote": "It used to be that there were free songs you could listen to how ever many times you wanted to. Now you get three listens then you have to subscribe."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-13",
+            "reviewId": "13844472800",
+            "quote": "Recently, I noticed that many of the bedtime stories and features that were previously included with the annual subscription are now offered à la carte."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-12",
+            "reviewId": "13839130637",
+            "quote": "I’ve had this app for years and I used to listen to the thunderstorm sound to sleep and then they started charging for that one so I had to switch to the heavy rain then they started charging for that one too! Absolute racket."
+          }
+        ],
+        "observationCount": 9,
+        "implies": ""
+      },
+      {
+        "id": "sos-emergency-content-paywalled",
+        "category": "strategic",
+        "title": "Контент для острой паники (SOS for anxiety, breathwork) перенесён за paywall — «реклама перед видео CPR»",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-06",
+            "reviewId": "41153a67-09b4-422f-87da-611a70d35fef",
+            "quote": "it's like having an ad before showing a video of how to perform CPR."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-20",
+            "reviewId": "7a13a3d2-1524-4fd7-90c3-471d19c5e7d5",
+            "quote": "An 'SOS for anxiety' meditation being blocked behind a paywall tells you everything you need to know about the ethical standing of this company."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-19",
+            "reviewId": "e82bd9ee-cca4-46d9-966a-ea211f228bab",
+            "quote": "browsing through actually made me more irritated and on edge."
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "post-purchase-promo-spam-paid",
+        "category": "strategic",
+        "title": "Платный/Lifetime подписчик всё равно ловит ad-баннеры на Family/Calm Sleep без dismiss и опт-аута",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-05-25",
+            "reviewId": "14106108436",
+            "quote": "The worst part is I usually open it when I really need it and the friction screens make me close out and open an Apple Music shortcut playlist instead."
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-19",
+            "reviewId": "14083629134",
+            "quote": "Today after I started a meditation session, they served me a popup model with a X that doesn’t work and no way to escape, hiding the content controls. It forced me to have to quit the entire app to get out of it to return to controls and navigation."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-05",
+            "reviewId": "13925527577",
+            "quote": "I’m a paying subscriber. I shouldn’t have to constantly see ads. On EVERY tab no less... how about an offer ONCE that I can DISMISS. \n\nI don’t want a family plan. I don’t want the sleep app"
+          }
+        ],
+        "observationCount": 12,
+        "implies": ""
+      },
+      {
+        "id": "post-session-survey-forced",
+        "category": "strategic",
+        "title": "После каждой медитации форс-survey с задержанной кнопкой close, переживающий force-quit",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-31",
+            "reviewId": "13906065449",
+            "quote": "Just put me where I left off. I may listen to same sleep story a lot and it is very in-calming to have to x out of surveys when I am trying to get to my calming content."
+          },
+          {
+            "rating": 2,
+            "date": "2026-03-26",
+            "reviewId": "13889206755",
+            "quote": "It wants users to take a survey after every single meditation. There’s no option to turn it off, even with a paid subscription. If you don’t force-quit the app to skip it, the survey is still waiting for you before you can start your next meditation, and it starts with this slow fade before the close button is offer…"
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-29",
+            "reviewId": "f3b558c9-bf4e-4363-8d0a-683db913f8e6",
+            "quote": "very frustrating when, after listening to a story at 1 am to get to sleep, the app chimes me at 2 to see if the story helped me get some sleep!!"
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "celebrity-narrator-loyalty-anchor",
+        "category": "strategic",
+        "title": "Конкретный знаменитый narrator (LeBron, Harry Styles, McConaughey, P!nk) — основной retention-якорь и halo на их музыку/спорт",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-04-20",
+            "reviewId": "13978130104",
+            "quote": "Though I wish he knew that God is the true source of love in this life, Jeff’s meditations daily are insightful and help calm my heart."
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-23",
+            "reviewId": "13879203223",
+            "quote": "It seems to be getting so caught up in having celebrities on that’s it’s much less interesting now. There are fewer new stories than there used to be and I’ve listened to my favorite stories so many times that they’ve lost their appeal."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-09",
+            "reviewId": "14043619930",
+            "quote": "It seems this app is more obsessed with celebrities than mental health. As a therapist, I will never ever recommend this app to anyone."
+          }
+        ],
+        "observationCount": 15,
+        "implies": ""
+      },
+      {
+        "id": "ai-narration-perception-cliff",
+        "category": "strategic",
+        "title": "Перцепция AI/TTS-озвучки Daily Calm воспринимается как качественный обрыв и pre-purchase trust-fail",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-29",
+            "reviewId": "d700fc23-a725-4de4-8602-02bb00b052d6",
+            "quote": "deleted the app and changed my mind immediately about purchasing a subscription when I saw the amount of AI generated content"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-14",
+            "reviewId": "9fd64f29-84f2-49f2-9172-02cfff8c7f41",
+            "quote": "You are generating really bad daily calm with ai, the sound is robotic I really loved the daily calm, but i can't concentrate anymore, every second word pulls you oyt Please check the meditation sound before releasing to the world"
+          },
+          {
+            "rating": 3,
+            "date": "2026-06-04",
+            "reviewId": "14141828881",
+            "quote": "helpful resources are buried in \"recommendations\" and I can't find courses in a clear lorcatuob \"daily Jay\" sounds like a Jay Shetty robot and seems inauthentic, and once I listen to one my feed turns into a recommendation page for only his content"
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "captions-volume-accessibility-gap",
+        "category": "strategic",
+        "title": "Нет captions/транскриптов, max volume ниже системного, шрифты не подхватывают Dynamic Type",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-16",
+            "reviewId": "13962233182",
+            "quote": "And though I love the sounds from calm the volume will not go loud enough for me to hear without my hearing aids. I can certainly play music and talk on the phone with speakers but cannot increase volume enough for calm."
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-28",
+            "reviewId": "14114197010",
+            "quote": "I don't enjoy it when there is overpowering music alongside the narrative... I have tinnitus, which exacerbates the issue too"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-19",
+            "reviewId": "14083376309",
+            "quote": "No captioning or transcript provided for each audio. How is a deaf person supposed to use this to meditate? It’s worthless."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "streak-mechanic-broken-or-gameable",
+        "category": "strategic",
+        "title": "Streak считается midnight-to-midnight, ломается у sleep-юзеров и trivially gameable пропуском на конец Sleep Story",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-17",
+            "reviewId": "14074190943",
+            "quote": "PLEASE give me the ability to set my streak timing. 8am to 8am makes WAY more sense for my schedule than midnight to midnight."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-24",
+            "reviewId": "13990836515",
+            "quote": "Look I get that things happen but this is going on too long! Yes you were responsive to my inquiry and suggested using the browser to access Calm great BUT here’s the problems with that. Scenes don’t work reliably, I have to toggle between scenes to get them to play at all, then if I go to the sleep tab they sop pla…"
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-23",
+            "reviewId": "14095439250",
+            "quote": "your “calm streak only works for sleep stories “but you can just skip through  the whole story  and it counts anyways"
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "interrupt-resume-lost",
+        "category": "strategic",
+        "title": "Любое прерывание (звонок, app-switch, refresh для AirPods, ротация в landscape) полностью сбрасывает позицию в сессии",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-02",
+            "reviewId": "14019126387",
+            "quote": "If you do get lucky enough for it to play then hope to God you don’t move your hand and put your phone in landscape because that will stop the scenes from playing again."
+          },
+          {
+            "rating": 4,
+            "date": "2026-04-01",
+            "reviewId": "13910535360",
+            "quote": "It’s frustrating when I wake, go to my phone in another room (protocol), choose a sleep story, only to return to bed, get settled, push play on my AirPods, and the app has refreshed and lost my story."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-31",
+            "reviewId": "13906065449",
+            "quote": "Just put me where I left off. I may listen to same sleep story a lot and it is very in-calming to have to x out of surveys when I am trying to get to my calming content."
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "wake-up-reentry-jtbd",
+        "category": "strategic",
+        "title": "Mid-night re-entry (проснулся в 3am, нужно вернуться в сон) — отдельный JTBD от bedtime-onset",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-24",
+            "reviewId": "14099545588",
+            "quote": "Suffer with being wide awake in the night but a sleep story on and I go back to sleep!!"
+          },
+          {
+            "rating": 4,
+            "date": "2026-06-03",
+            "reviewId": "14138423235",
+            "quote": "I also listen if I wake up in the middle of the night and can’t go back to sleep."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-28",
+            "reviewId": "14116937728",
+            "quote": "Calm app is a great app as it has many songs that are calm to listen too and it has a daily move which is great to get you moving anover reason I would get calm is that it has improved my sleep by miles even if you wake up in the middle of the night however you do have to pay to get a lot of the resources but I woul…"
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "narrator-script-microcopy-churn",
+        "category": "strategic",
+        "title": "Конкретная фраза/слово в скрипте narrator («thoughts pass away», «nostril» ×6) выбрасывает пользователя из релакса и триггерит отмену",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-07",
+            "reviewId": "14037153944",
+            "quote": "But at times the Buddhist/ New Age/ self-centred therapeutic elements might make it hard for Christians to listen to."
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-07",
+            "reviewId": "14038950323",
+            "quote": "Every time she says, “Thoughts pass away”, it’s jarring to me. To pass away is to die. Thoughts pass."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-20",
+            "reviewId": "13978130104",
+            "quote": "Though I wish he knew that God is the true source of love in this life, Jeff’s meditations daily are insightful and help calm my heart."
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "trauma-loaded-sleep-content",
+        "category": "strategic",
+        "title": "Sleep Stories открываются tough-факт-ремаркой (manatees endangered, AIDS, Malala-trauma) и активируют, а не успокаивают PTSD/trauma-чувствительных",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-06-03",
+            "reviewId": "14137640301",
+            "quote": "Manatee sleep story  - beginning with how they are endangered & why. \n\nAfrican sleep story - starting with info about AIDS"
+          },
+          {
+            "rating": 5,
+            "date": "2026-06-01",
+            "reviewId": "14129987084",
+            "quote": "I have so much anxiety, every time I would try to sleep I would see vivid gore images in my head but now I put on my meditation or a simple story and fall right asleep."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-13",
+            "reviewId": "14058805699",
+            "quote": "going to sleep would be way easier with the shouts of my parents arguing wouldn't be so much of a nuisance. Even when my dad hits my mom calm blocks it all out so nicely"
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "narrator-follow-notifications-missing",
+        "category": "strategic",
+        "title": "Нет follow-narrator → notify-on-new-release и series-subscription для «Humphrey/Minor Mysteries/Lionwood»",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-03-19",
+            "reviewId": "13865749595",
+            "quote": "it would be nice to have other chapters of Wind in Willows, Anne of Green Gables…please don't start a book and not carry it on"
+          },
+          {
+            "rating": 5,
+            "date": "2026-03-18",
+            "reviewId": "13860259332",
+            "quote": "My favourite sleep stories are the Humphrey the cat sleep stories and am hoping there will be more to come."
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-17",
+            "reviewId": "14073520317",
+            "quote": "Many of the readers I like only have a few stories to listen to.  I continue to hope for more releases"
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "lifetime-tier-degraded",
+        "category": "strategic",
+        "title": "Lifetime-подписчики получают тот же promo-spam, удалённый контент и просьбу доплатить за add-on, что и monthly",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-08",
+            "reviewId": "0f1b6006-3aa0-4984-92ae-21fa445343cd",
+            "quote": "Paid for a lifetime subscription. It costs more than 12 monthly payments. Apparently that option was removed and they are forcing me to pay again."
+          },
+          {
+            "rating": 1,
+            "date": "2026-06-02",
+            "reviewId": "14133992051",
+            "quote": "Apparently I can add premium for $79, but I already spent $49. Wouldn’t it make sense that I could just add premium for like $30."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-31",
+            "reviewId": "13906065449",
+            "quote": "Pops up ad for other Calm apps regularly and survey after every sleep story. This is after turning off all notifications and ad settings."
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "calm-sleep-second-app-confusion",
+        "category": "strategic",
+        "title": "Funnel «Calm Sleep» оказывается отдельным приложением/SKU iOS-only с собственным billing — после оплаты выясняется устройство-несовместимость",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-03-09",
+            "reviewId": "9f46db03-d76e-4ee9-a08d-d00da8b7a35b",
+            "quote": "But now I see that they have created a whole new app, and of course, a whole new subscription dedicated to sleep. That's half of the reason I got this app in the first place and now they want to charge for an additional subscription."
+          },
+          {
+            "rating": 2,
+            "date": "2026-03-09",
+            "reviewId": "13830377003",
+            "quote": "I joined because they addressed sleep stories would be exclusive to the Calm Sleep app for several would before going to the Calm app. It is the middle of March and so far this year only 4 or 5 stories have released."
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-09",
+            "reviewId": "13829129600",
+            "quote": "When I saw the new “Sleep” add-on subscription, I hoped it might include new storytelling content. Unfortunately it seems focused on sleep tracking and coaching instead, and it doesn’t appear to add new Sleep Stories."
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "anti-productivity-corporate-framing",
+        "category": "strategic",
+        "title": "«Corporate mindfulness» и productivity-as-mindfulness фрейминг отчуждает анти-productivity и ND/религиозный сегмент",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-15",
+            "reviewId": "5c84db73-c7aa-41d2-9ddb-99816a7b11ef",
+            "quote": "huge pay wall and upon looking there's nothing geared towards ND persons. Everything is a little generic and when you're diagnosed with ASD and severe anxiety, that requires a flexible yet accurate tool set."
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-28",
+            "reviewId": "6318a7cd-256b-4c72-8c54-bf5910114f8c",
+            "quote": "Too many of the meditations focused on mindfulness as a pathway to productivity. I am not looking to be more productive through meditation, I'm seeking peace and connection."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-07",
+            "reviewId": "14037153944",
+            "quote": "But at times the Buddhist/ New Age/ self-centred therapeutic elements might make it hard for Christians to listen to."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "playlist-builder-restrictions",
+        "category": "strategic",
+        "title": "Playlist-builder требует play-чтобы-add, не даёт reorder/duplicate, и не принимает soundscapes",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-04-09",
+            "reviewId": "13938109123",
+            "quote": "I have to start a sleep story or music to add it to a playlist, and then I can’t rearrange or add anything new to a playlist except for adding it to the end."
+          },
+          {
+            "rating": 4,
+            "date": "2026-06-02",
+            "reviewId": "14134753758",
+            "quote": "add a option to make a playlist like chose some of your favourite sleep story's or meditation's and put it in a list"
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-23",
+            "reviewId": "14096650068",
+            "quote": "I wish they could include an autoplay to their music so you don’t have to select each song in an album or series if that makes sense."
+          }
+        ],
+        "observationCount": 8,
+        "implies": ""
+      },
+      {
+        "id": "search-broken-or-removed",
+        "category": "strategic",
+        "title": "Поиск возвращает Daily-Calm-шум, игнорирует фильтр длительности и удалён natural-language mood-search",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-03-18",
+            "reviewId": "fcbdbfbc-f272-42b3-bb67-d5171231ac25",
+            "quote": "I just spent so long going around in circles trying to find a soundscape of a thunderstorm that I just gave up and listened to rain on leaves like I always end up doing."
+          },
+          {
+            "rating": 2,
+            "date": "2026-03-10",
+            "reviewId": "56d99302-1184-4800-96b2-51b2aee9ba9c",
+            "quote": "Searching mindfulness returns 7000 \"daily calm\". Filtering by time to remove the short meditation (30+ mins) still results in short meditations (<10 mins)."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-09",
+            "reviewId": "13937611278",
+            "quote": "If I search for something like “deep meditation 30 minutes,” all that comes up are sleep tracks. The algorithms constantly push sleep content, and it takes way too long to find what I actually need."
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "duration-filter-and-custom-length",
+        "category": "strategic",
+        "title": "Нет sub-10-min sleep-meditations, custom-длительности и playback-speed slider для медленной narration",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-03-26",
+            "reviewId": "13887424094",
+            "quote": "Can you make shorter sleep meditations? Like 10-15 min? Sometimes you don’t have time to listen to 30-40 minutes for each one"
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-04",
+            "reviewId": "13922893728",
+            "quote": "The fact that I can’t change audio speed or put a sleep timer on story or a playlist makes this frustrating experience"
+          },
+          {
+            "rating": 2,
+            "date": "2026-05-26",
+            "reviewId": "14109283044",
+            "quote": "Please read the stories slower or include a functionality to slow them down."
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "downloads-need-online-revalidation",
+        "category": "strategic",
+        "title": "Скачанный offline-контент рвётся вечером — приложение перепроверяет лицензию против сервера даже для downloads",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-03-23",
+            "reviewId": "9ab0984d-80ec-4da2-ad17-564846feca8d",
+            "quote": "App is slow to load and play favorites. Please you help ensure that all favorites are downloaded."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-14",
+            "reviewId": "13956041100",
+            "quote": "You can't access downloads unless you're initially online - so what's the point"
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-10",
+            "reviewId": "03fd72df-58b1-4d8d-a283-82d9a3886f50",
+            "quote": "This only happens in the evening with wifi and downloaded content."
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "platform-version-specific-crashes",
+        "category": "strategic",
+        "title": "Crash-on-launch привязан к конкретной iOS (17.7.1), iPad-build 6.93, iPhone 13/14 Pro Max, Pixel 10",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-08",
+            "reviewId": "da351a8e-45aa-426e-a28a-0672e6c00770",
+            "quote": "edit since getting New Google Pixel 10 I've had nothing but issues with the sound on the app. sounds like the audio is stuttering which makes it hard to meditate."
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-13",
+            "reviewId": "cacb8307-e35d-4693-8b9d-2e60b340d134",
+            "quote": "up until two days ago this app worked fine on my tablet. now it's trying to open and then error message and it closes the app???? I've uninstalled and re installed, not working."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-24",
+            "reviewId": "13990417002",
+            "quote": "The app will no longer open after the latest update. It just pops up and immediately minimizes. Reinstalling doesn't do a thing"
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "version-specific-feature-regression",
+        "category": "strategic",
+        "title": "Update-цикл выпиливает базовые контролы: timer на soundscape, sleep-timer-на-playlist, scene visualisation, Sonos, Shortcuts",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-21",
+            "reviewId": "14089857238",
+            "quote": "Unfortunately, bugs are introduced and existing features are broken (eg, shortcuts support). They know about the bugs but won’t fix them because they’re “low priority.” I deducted one star for the slow animation and lack of holistic design and a second star for not fixing know bugs."
+          },
+          {
+            "rating": 2,
+            "date": "2026-05-27",
+            "reviewId": "14113430528",
+            "quote": "you now can't see how long you have left when using the timer function unless you tap on the timer icon, why put in another step"
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-29",
+            "reviewId": "14118264847",
+            "quote": "Recently the sleep timer on the sleep soundscapes disappeared. Can t have the sound on all night however calming it is."
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "battery-heat-overhead",
+        "category": "strategic",
+        "title": "Calm-аудио греет iPhone и жрёт батарею кратно сильнее Apple Music на той же длительности",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-06-02",
+            "reviewId": "14133628057",
+            "quote": "I have been using this on my iPhone 14 and my phone would get extremely hit after playing music for just 20 minutes. I just upgraded to an iPhone 17 and I have the exact same problem, so it’s definitely not an issue with the power of the hardware."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-30",
+            "reviewId": "14014434545",
+            "quote": "2) I love the Calm music offerings but playing the music dramatically consumes battery - especially relative to apple music which I listen to all day."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "sleep-timer-undershoots",
+        "category": "strategic",
+        "title": "Sleep-timer/long-duration-таймер тихо обрезает воспроизведение раньше заявленного (7h → 2-3h)",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-09",
+            "reviewId": "13940692496",
+            "quote": "The time function doesn't work, request 7 hours it cuts out after 2 or 3."
+          },
+          {
+            "rating": 2,
+            "date": "2026-03-15",
+            "reviewId": "13849956487",
+            "quote": "If music puts me to sleep it will wake me up in the middle of the night."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "autoplay-next-jolts-awake",
+        "category": "strategic",
+        "title": "Autoplay-next после Sleep Story включает peppy/громкий следующий трек игнорируя toggle и будит пользователя",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-07",
+            "reviewId": "14038950323",
+            "quote": "Except they set it up so the app starts another track after your selected one ends & keeps going. Invariably, you’re jolted awake by some jarring sound or upbeat tempo from something that comes after, that you would never have selected because that’s not a sound that sends one off to sleep."
+          },
+          {
+            "rating": 4,
+            "date": "2026-03-22",
+            "reviewId": "13875346534",
+            "quote": "Please change the default soundscape from Jasper Lake to something else because the chirping bird sound wakes us up."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-05",
+            "reviewId": "4bb42c3b-440d-4252-89f9-4248d4740b06",
+            "quote": "recently, regardless of what it says in the settings, the app auto plays whatever is next until you stop it manually."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "partner-code-redemption-broken",
+        "category": "strategic",
+        "title": "Партнёрские/B2B коды (Kaiser, BCBS-MI, SWEAT, Wells Fargo, employer) не привязываются и блокируют доступ",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-02",
+            "reviewId": "df0a4f42-1e00-4966-bb4f-3c99d7432894",
+            "quote": "then it tells you that you can't provide code because you have paid membership. then it auto rejected the code provided by BCBS of Michigan because it wants you to pay!"
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-22",
+            "reviewId": "5784e390-e091-4e23-a68c-f80c57a29b3f",
+            "quote": "It just sent me back to the Google app store where I could open the app up but it did not show anywhere on the app that I was on the family plan."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-27",
+            "reviewId": "14001621307",
+            "quote": "I get a steady stream of notifications of the Calm app subscription as one of the free benefits offered at work ... It can’t log in or link subscriptions or even work correctly"
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "ip-asd-nd-religious-segments",
+        "category": "strategic",
+        "title": "ND/ASD, христианский/евангелический, atheist-cycling сегменты ищут tone-аккомодации, которой нет",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-15",
+            "reviewId": "5c84db73-c7aa-41d2-9ddb-99816a7b11ef",
+            "quote": "huge pay wall and upon looking there's nothing geared towards ND persons. Everything is a little generic and when you're diagnosed with ASD and severe anxiety, that requires a flexible yet accurate tool set."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-07",
+            "reviewId": "14037153944",
+            "quote": "But at times the Buddhist/ New Age/ self-centred therapeutic elements might make it hard for Christians to listen to."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-20",
+            "reviewId": "13978130104",
+            "quote": "Though I wish he knew that God is the true source of love in this life, Jeff’s meditations daily are insightful and help calm my heart."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "no-personalisation-after-quiz",
+        "category": "strategic",
+        "title": "Длинный onboarding-quiz собирает данные для маркетинга, но не персонализирует домашнюю ленту",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-02",
+            "reviewId": "48968d1a-cbdf-4067-a67f-41639ddf0612",
+            "quote": "Makes you go through a long onboarding process just to tell you that you need to pay to use the app and then it signs you up to the email list and spams your email."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-11",
+            "reviewId": "7cef3146-ee60-404e-9205-0efa2a68bd15",
+            "quote": "I filled in a questionnaire on bilateral stimulation to set up a customised \"plan\", and when I paid and logged on all I got is generic recommendations."
+          },
+          {
+            "rating": 3,
+            "date": "2026-06-04",
+            "reviewId": "14141828881",
+            "quote": "helpful resources are buried in \"recommendations\" and I can't find courses in a clear lorcatuob \"daily Jay\" sounds like a Jay Shetty robot and seems inauthentic, and once I listen to one my feed turns into a recommendation page for only his content"
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "content-recycled-detected",
+        "category": "strategic",
+        "title": "Daily-Calm и Jeff Warren сессии переиспользуют куски word-for-word, что замечают многолетние пользователи",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-05-01",
+            "reviewId": "14017616955",
+            "quote": "hear \"Just the other day I…\" and I'm thinking you told this story word for word two years ago"
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-20",
+            "reviewId": "13978130104",
+            "quote": "I know that Jeff’s sessions are repeats sometimes too often, because I’ve been listening for over two years.  I love it when I hear a brand new one.  Even the repeats are good, but not too often"
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-29",
+            "reviewId": "13900634832",
+            "quote": "I have returned back after a year and I see no improvement in the content in a year! Other than the three consistent dailies there’s hardly anything new. No new masterclass, very few new artists. Also, I feel there should be a section where we can search for the people whom we like to hear."
+          }
+        ],
+        "observationCount": 11,
+        "implies": ""
+      },
+      {
+        "id": "removed-titles-break-routine",
+        "category": "strategic",
+        "title": "Удаление конкретных треков (Lin-Manuel Miranda, Tanama Lake, Gently Back to Sleep, Liquid Glass, Post Malone) тихо ломает многолетний ритуал",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-05-29",
+            "reviewId": "14119855396",
+            "quote": "His sleep story and Tamara’s gently back to sleep have been the Cornerstone of my sleep over the last year and they are now gone.  This is the reason i purchased this product"
+          },
+          {
+            "rating": 4,
+            "date": "2026-04-08",
+            "reviewId": "13934585952",
+            "quote": "Also PLEASE bring back the sleep songs!!!! I remember they had like hour long remixes of Post Malone and Ariana Grande and they were really well made, but they removed all of them after a month or 2."
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-11",
+            "reviewId": "14052590205",
+            "quote": "Cannot find soundscape Tanama Lake Journey"
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "home-screen-discovery-feed-vs-launcher",
+        "category": "strategic",
+        "title": "Home-экран превратился в discovery-карусель и cross-promo, прячет timer/breathing/courses в Discover→Tools",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-03-13",
+            "reviewId": "13843880343",
+            "quote": "Now when I open the app, I need to scroll down to the content I want to access. A large New Content Just For You has taken over the screen along with an ad for Calm Sleep."
+          },
+          {
+            "rating": 2,
+            "date": "2026-05-02",
+            "reviewId": "14020043912",
+            "quote": "I am not able to simply navigate to meditations and then to all the dailies; there's no clear menu, I am just bombarded with suggested content"
+          },
+          {
+            "rating": 1,
+            "date": "2026-06-02",
+            "reviewId": "14135845278",
+            "quote": "Instead, one’s anxiety level goes up higher than it already is by all the excess content instead of making it very easy to go straight to Calm options."
+          }
+        ],
+        "observationCount": 6,
+        "implies": ""
+      },
+      {
+        "id": "ad-to-content-discoverability-gap",
+        "category": "strategic",
+        "title": "Музыка/тема из ТВ/IG-рекламы не находится внутри приложения после установки",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-26",
+            "reviewId": "4511fdbc-d34e-4302-b4e3-e349fa788eb4",
+            "quote": "The ads running on FB and Instagram imply that they will give a specific plan, as opposed to what you actually get, which is a couple of binaural tracks and then a bunch of celebrity sleep podcast experiences."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-23",
+            "reviewId": "13988330835",
+            "quote": "Chose to get the Calm app because of music heard on their ad. Once I obtained the app, I was unable to find the music."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-02",
+            "reviewId": "594e6962-feca-4f48-ad11-947e24bc70af",
+            "quote": "This app is hyped in commercials, but it's never mentioned that there's a cost associated with it."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "favorited-not-prefetched",
+        "category": "strategic",
+        "title": "Favorites не подкачиваются заранее и не имеют папок/тегов — flat-список ломает power-user библиотеку",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-03-23",
+            "reviewId": "9ab0984d-80ec-4da2-ad17-564846feca8d",
+            "quote": "App is slow to load and play favorites. Please you help ensure that all favorites are downloaded."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-24",
+            "reviewId": "13882009451",
+            "quote": "It was really good when I first subscribed but it’s got really glitchy and slow, no useful updates to organise your favourites and they haven’t done a new story in months."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "narration-mix-too-loud",
+        "category": "strategic",
+        "title": "Background music/ambience в Sleep Stories смикширован громче narration без пользовательского регулятора",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-05-28",
+            "reviewId": "14114197010",
+            "quote": "I don't enjoy it when there is overpowering music alongside the narrative... I have tinnitus, which exacerbates the issue too"
+          },
+          {
+            "rating": 3,
+            "date": "2026-04-04",
+            "reviewId": "b4f8a251-d26c-4cb2-b049-40006722dca4",
+            "quote": "However, I'm noticing that the background nature sounds (rain and birds) are quite loud and drown out the speaker's voice."
+          },
+          {
+            "rating": 2,
+            "date": "2026-05-27",
+            "reviewId": "14111463136",
+            "quote": "the background music, sounds,  ambiance noise is too agressive and repetitive. It becomes so counter to inducing sleep"
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "story-endings-untouched-surface",
+        "category": "strategic",
+        "title": "Sleep Story endings почти никто не слышит — long-tail с dead-air и непрослушанной концовкой",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-04-02",
+            "reviewId": "13913295057",
+            "quote": "Between the white noise uninterrupted and the endless sleep stories, most of which I have never heard the ending of because I am out like a Mike Tyson opponent."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-12",
+            "reviewId": "13949497534",
+            "quote": "Sleep stories have too much dead air at the end.  This makes layering even 2 different stories rather jarring"
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-07",
+            "reviewId": "c1d3ccc3-fc30-4c70-9682-8a5914893224",
+            "quote": "so i pick a story to listen to and I'm usually asleep before the story ends."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "settings-toggle-ignored",
+        "category": "strategic",
+        "title": "Setting-toggle (autoplay, sleep-timer, ad-promo opt-out) игнорируется приложением",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-05",
+            "reviewId": "13925527577",
+            "quote": "I’m a paying subscriber. I shouldn’t have to constantly see ads. On EVERY tab no less... how about an offer ONCE that I can DISMISS. \n\nI don’t want a family plan. I don’t want the sleep app"
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-31",
+            "reviewId": "13906065449",
+            "quote": "Pops up ad for other Calm apps regularly and survey after every sleep story. This is after turning off all notifications and ad settings."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-05",
+            "reviewId": "4bb42c3b-440d-4252-89f9-4248d4740b06",
+            "quote": "recently, regardless of what it says in the settings, the app auto plays whatever is next until you stop it manually."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "support-only-resolution-is-cancel-refund",
+        "category": "strategic",
+        "title": "Саппорт умеет только cancel-as-refund, отказывает в restore-service или partial-refund по дубль-оплате",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-04",
+            "reviewId": "4c669981-275f-46b6-b14f-7f9865e9274b",
+            "quote": "I have found the app useful but poor tech support around trying to upgrade to a family subscription has meant that they cancelled my subscription and failed to solve the issue so I have been without it for several weeks involuntarily."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-11",
+            "reviewId": "13837786805",
+            "quote": "To get support you have to start with a chatbot followed by emailing with incompetent support that ultimately cancelled my account to issue a refund after very clear instruction that I want to keep my account but need the double charge reversed."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-10",
+            "reviewId": "13834815304",
+            "quote": "one mass email offering a refund. No personal reply. No fix... I don't want a refund — I want the service I paid for"
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "duplicate-charge-via-family-upgrade",
+        "category": "strategic",
+        "title": "Family Plan upgrade/share срабатывает как полная вторая годовая подписка, а не upgrade",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-04",
+            "reviewId": "4c669981-275f-46b6-b14f-7f9865e9274b",
+            "quote": "I have found the app useful but poor tech support around trying to upgrade to a family subscription has meant that they cancelled my subscription and failed to solve the issue so I have been without it for several weeks involuntarily."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-14",
+            "reviewId": "d24921b9-0683-4509-aed8-7a74b7602ab1",
+            "quote": "I have paid for annual subscription and they keep direct debiting $23 each month for nothing. no matter how many times I contact support, they won't stop charging me for something I've already paid for."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-22",
+            "reviewId": "13986160983",
+            "quote": "I purchased the app for a year and sent it to my daughter on my family plan to try it out. Then I got charged for the whole year AGAIN even more!!!! No way to contact anyone about this."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "google-fit-watch-sync-broken",
+        "category": "strategic",
+        "title": "Calm не пишет медитации в Google Fit/Apple Watch и не подтягивает обратно sleep-данные",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-15",
+            "reviewId": "b7d3c611-7754-4382-95d1-fb34508598eb",
+            "quote": "I have granted calm permission to write health activities to Google fit, but it doesn't write my meditating sessions to my Google fit account despite having the permission to do so."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-17",
+            "reviewId": "615bf1c0-27a7-4bd1-9c1a-bcbe95eb773c",
+            "quote": "The watch version of the daily calm may sound very good in theory but in reality the app is very unresponsive and freezes every minute and when you restart it freeze at the same point."
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-07",
+            "reviewId": "14037979388",
+            "quote": "Please allow Apple Watch to sync sleep data. Such a bridge could help so much with intervention yet has been completely overlooked"
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "feedback-blackhole",
+        "category": "strategic",
+        "title": "In-app feedback и contact-support undiscoverable, ответы идут шаблонами на недели",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-07",
+            "reviewId": "14038950323",
+            "quote": "There were things I did not like, so I sent feedback at the end of meditations or bedtime stories. Kept doing that for some time. No response. No changes made. Those niggling little things are significant in that they impacted my ability to relax or wind down in order to meditate or drift to sleep."
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-16",
+            "reviewId": "13965145207",
+            "quote": "I keep getting the same auto generated response which I have tried to follow . They refuse to look at the evidence that they are charging my account and they are not providing a subscription."
+          },
+          {
+            "rating": 2,
+            "date": "2026-05-03",
+            "reviewId": "14024194754",
+            "quote": "I wish there was a way to send feedback."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "account-recovery-email-never-sent",
+        "category": "strategic",
+        "title": "Password-reset email тихо не доставляется, и нет человеческой эскалации — годами locked-out",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-26",
+            "reviewId": "14106577977",
+            "quote": "Ironic- calm app doesn’t have anyone to help you stay calm when the app logs you out and won’t sent a password reset, since Feb 26 (it’s May 26)."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-27",
+            "reviewId": "13892894212",
+            "quote": "As a paid member with a current subscription I expect to be able to reset my password, the app starting playing up and kicked me out , I have been unable to reset my forgotten password as every time I request it I do NOT get an email to reset it , I contacted support and it took a while for them to get back to me in…"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-19",
+            "reviewId": "9623b4b0-496e-46ec-b975-3e28b8bc82a7",
+            "quote": "Had to change my password, now I can't log back into the app!! Plus there is no support mechanism in the app for support help!!"
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "pre-content-paywall-triple-gate",
+        "category": "strategic",
+        "title": "Перед home-screen стоит цепочка из 3-10 paywall/share/notification-prompts, обязательная для dismiss",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-05-22",
+            "reviewId": "14091732174",
+            "quote": "“Sign up for notifications! Sign up for a subscription! Sale ends tomorrow! Rate this app! Rate this content! Here’s three emails a day!” Like seriously this is supposed to lower my anxiety? The content on the app is good but accessing it requires me to trudge through like five engagement prompts every time I open i…"
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-25",
+            "reviewId": "de20de05-f373-46b5-b2e9-ddf361afc8d5",
+            "quote": "Hard to navigate and find things and constantly trying to get you to upgrade or share, so you have to click a bunch of times to get to a meditation. By then, my blood pressure is up, so it sort of defeats the calming."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-22",
+            "reviewId": "e7673f44-4314-4c59-8c0c-860df0a6e553",
+            "quote": "Please remove splash screen that I have to dismiss everytime I open app."
+          }
+        ],
+        "observationCount": 9,
+        "implies": ""
+      },
+      {
+        "id": "free-tier-undiscoverable",
+        "category": "strategic",
+        "title": "Нет фильтра «free only», бесплатная поверхность скукоживается до Rain — evaluator не понимает что вообще даром",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-29",
+            "reviewId": "04bc3560-0ded-4896-a1e9-4c96cda853bf",
+            "quote": "About app says one can use the app for free but some things are paid use only. I found nothing here I could use without giving my payment info first."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-03",
+            "reviewId": "4be07b5f-cb07-4085-97b1-bd9d95edffff",
+            "quote": "Everything I clicked on was behind the paywall, with no way of sorting/finding free content? This was confusing and frustrating."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-18",
+            "reviewId": "f67bf7bd-2c6e-44ce-837c-ad5029aee634",
+            "quote": "so you need to open up more free services as you used to do during covid."
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "ad-vs-listing-price-gap",
+        "category": "strategic",
+        "title": "Реклама/листинг говорят «free» или $X, IAP-чек на $X+tax/forex или иной тир",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-26",
+            "reviewId": "4511fdbc-d34e-4302-b4e3-e349fa788eb4",
+            "quote": "The ads running on FB and Instagram imply that they will give a specific plan, as opposed to what you actually get, which is a couple of binaural tracks and then a bunch of celebrity sleep podcast experiences."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-19",
+            "reviewId": "13865030685",
+            "quote": "The subscription amount I agreed to use this app for the year was 79.99 for the year... I was billed$ 84.79"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-29",
+            "reviewId": "04bc3560-0ded-4896-a1e9-4c96cda853bf",
+            "quote": "About app says one can use the app for free but some things are paid use only. I found nothing here I could use without giving my payment info first."
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "no-undo-cancellation",
+        "category": "strategic",
+        "title": "Нет реверса отмены — те, кто передумал, не могут продолжить подписку без re-subscribe по новой цене",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-04-20",
+            "reviewId": "25b6a211-9b84-4575-a727-cb59f1702b3b",
+            "quote": "I was unable to manage my subscription by reversing my request to cancel"
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-15",
+            "reviewId": "14065594518",
+            "quote": "NEW SUBSCRIBERS the price was lower than what you’re signing up for"
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "review-gaming-meta",
+        "category": "strategic",
+        "title": "Пользователи ставят 5-star с негативным текстом, считая что 1-star скрываются Calm-алгоритмом",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-03-31",
+            "reviewId": "ac426e63-cb1b-4d2b-ad10-3ed16b75f88a",
+            "quote": "only giving this many stars so people will see, check the negative reviews, this is a disgusting, sneaky, scamming app, they are thieves who know nothing of the word calm"
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-29",
+            "reviewId": "cdba2efa-aae0-475d-bcbe-d576f3d8fe11",
+            "quote": "You can access premium for free by doing a code, which makes them lose money, but even without premium it is a very good app for meditation."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "calmling-character-ip-merch",
+        "category": "strategic",
+        "title": "Calmling/Humphrey/Mr-sleep-in-the-water — character-IP с merch-спросом (плюшевые), которым не пользуются",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-04-18",
+            "reviewId": "816e34b3-d069-4431-ae69-7e23295ae7a6",
+            "quote": "I actually need to get me a new CALM book, mine is wore out, lol."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-08",
+            "reviewId": "ad755986-30d0-48ea-8f10-d788900d731a",
+            "quote": "My daughter loves the kids stories, can you make the calmling into plushies we can buy? I'm sure lots of people would buy"
+          },
+          {
+            "rating": 5,
+            "date": "2026-03-29",
+            "reviewId": "f7b6eaff-213b-4dd5-b125-c2cf3f4ad12d",
+            "quote": "I love the meditation and yoga and Mr sleep in the water is awesome"
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "binaural-frequency-segment",
+        "category": "strategic",
+        "title": "Hz/alpha/theta/EMDR-frequency контент — отдельный wellness-сегмент с собственным discovery-сценарием",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-09",
+            "reviewId": "13831712564",
+            "quote": "The songs themselves might be different, but the actual bilateral tone through all of them is the same deep gong noise; theres no variation and it’s awful and boring."
+          },
+          {
+            "rating": 2,
+            "date": "2026-03-17",
+            "reviewId": "13858552396",
+            "quote": "I cannot find any EMDR that doesn't have piano layered into low frequency EMDR."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-18",
+            "reviewId": "13971688987",
+            "quote": "I am new to calm, I’ve always hear a lot of positive feedback from people about it, and I am giving it a try, I really like the platform and that they use hertz levels within their sessions to help calm the nervous system. I love the alpha rain reset session."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "kids-age-and-segregation",
+        "category": "strategic",
+        "title": "Calm Kids: нет age-range фильтра, adult-юзеры не могут отфильтровать kid-контент из рекомендаций, тин-сегмент 12+ обделён",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-12",
+            "reviewId": "e9134088-5c05-44d7-b1e5-c465e3c52962",
+            "quote": "Could put age ranges on kids' stories to save tired parents time hunting for appropriate ones."
+          },
+          {
+            "rating": 2,
+            "date": "2026-03-21",
+            "reviewId": "13871103909",
+            "quote": "When you get a meditation app you want to meditate or relax right? But you have to pay for everything literally and their plans cost up to $100-200 and not everyone can afford or is willing to pay that much.so this is my review as a 12 year old"
+          },
+          {
+            "rating": 4,
+            "date": "2026-04-16",
+            "reviewId": "13962558361",
+            "quote": "I just wish they'd scrap the kiddie stories. The stories with calm voiced narrators are the best"
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "ambient-only-segment-overserved",
+        "category": "strategic",
+        "title": "Сегмент «just rain + timer» хочет stripped-down альтернативу — feature-сплавл его выдавливает",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-08",
+            "reviewId": "14041840514",
+            "quote": "I miss when the app was simple where it just had soundscapes and a few guided meditations. I only use it for the rain or ocean noises tbh."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-17",
+            "reviewId": "8e2be269-ba7e-4307-9570-398d03f1948c",
+            "quote": "all I'm looking for is white noise type stuff to sleep to, not all the rest of this BS. good luck finding that."
+          },
+          {
+            "rating": 2,
+            "date": "2026-06-01",
+            "reviewId": "a4fbd5a5-b92a-433e-bab0-4b6e532fa9ca",
+            "quote": "when this app first came out I used to use it all the time but now it's more difficult you can't adjust like before with the rain sounds thunder adding or maybe you can fit a fee now so I uninstalled it....918"
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "b2b-distribution-channels",
+        "category": "strategic",
+        "title": "B2B/insurer/employer (Kaiser, Wells Fargo, county, BCBS-MI, gift, clinician comp) — главный распределительный канал retention",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-20",
+            "reviewId": "14084276188",
+            "quote": "This application is among the free digital tools provided to Wells Fargo employees through the company’s internal software platform."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-30",
+            "reviewId": "14012223842",
+            "quote": "I received Calm as a Holiday gift from my longest,  dearest friend, Kirsten. She knew i was struggling with sleep issues, at the time, i was upward to 60-70mg of melatonin a night ... 107 or 108 days of listening to your Sleep Stories and no melatonin"
+          },
+          {
+            "rating": 1,
+            "date": "2026-04-17",
+            "reviewId": "13966660163",
+            "quote": "Most of what is offered on this app used to be available on Kaiser Permanente’s website for free. The webpage that once hosted these meditations is still there, but now completely blank."
+          }
+        ],
+        "observationCount": 14,
+        "implies": ""
+      },
+      {
+        "id": "use-case-non-sleep",
+        "category": "strategic",
+        "title": "Calm используется off-label: коммут, фокус-работа, screen-break, кладбищенский ASMR, dog-music, pregnancy, brain-rehab",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-04-03",
+            "reviewId": "cf72b6a3-bb40-4312-9978-ab721a997ae8",
+            "quote": "I love the 'Just One Step' daily activities—they are short enough to fit between meetings but effective enough to reset my mood."
+          },
+          {
+            "rating": 4,
+            "date": "2026-04-14",
+            "reviewId": "2fdb21cd-6aec-436c-8aa6-68f59d21fa8f",
+            "quote": "I love this app I have a hard time falling asleep without background noise such as rain because of constant brain chatter and I live in a basement apartment so theres really not much of a chance for me to hear rain sounds at all so this helps alot."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-16",
+            "reviewId": "14072334701",
+            "quote": "I now have Parkinson’s disease, and I am challenged by this very difficult and stressful illness. I don’t know what I would do if I didn’t have calm, as it makes me manage all kinds of things that I never thought I could manage before."
+          }
+        ],
+        "observationCount": 17,
+        "implies": ""
+      },
+      {
+        "id": "course-progression-broken",
+        "category": "strategic",
+        "title": "Структурный курс (Mindfulness for Beginners, серия Wind-in-the-Willows) не advance-ит к Day 2 и обрывается на полу-серии",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-20",
+            "reviewId": "14085983547",
+            "quote": "Returning to the breath is the core of every single one of these meditations, and they don’t really allow maturation of the users mindfulness meditation practices."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-03",
+            "reviewId": "14024115060",
+            "quote": "The 30 day Jeff Warren meditation course helped get me through cancer treatment 5 years ago and I'm returning to that course now"
+          },
+          {
+            "rating": 5,
+            "date": "2026-03-19",
+            "reviewId": "13865749595",
+            "quote": "it would be nice to have other chapters of Wind in Willows, Anne of Green Gables…please don't start a book and not carry it on"
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "price-discrimination-grandfathered",
+        "category": "strategic",
+        "title": "Новые подписчики получают цену ниже, чем grandfathered — renewal-цена loyal-юзеров растёт",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-04-16",
+            "reviewId": "5ac64171-705a-48a3-b57c-40ecb0bdcb41",
+            "quote": "I liked calm app a lot and can pay in monthly payments of $6.66 a month 4 a yearly sub. 4 a yr. starting on May 4 th. for sure. I've asked numerous times to do this with o response."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-08",
+            "reviewId": "c74cf053-b6d7-4748-b3fb-6f672cecac18",
+            "quote": "I have been avoiding it for a long time thinking it is too expensive to add into my life but I am enjoying exploring the app and learning more about me and what it has to give."
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-15",
+            "reviewId": "14065594518",
+            "quote": "NEW SUBSCRIBERS the price was lower than what you’re signing up for"
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "privacy-data-shared-financial",
+        "category": "strategic",
+        "title": "Google Play data-safety раскрывает sharing «financial information» с третьими сторонами без opt-out",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-04-28",
+            "reviewId": "6ccbdb9a-4768-47e8-9081-b1e430190874",
+            "quote": "Great music and great that it's free but the details say that they share your financial information and I think that is insane."
+          }
+        ],
+        "observationCount": 1,
+        "implies": ""
+      },
+      {
+        "id": "earbud-bluetooth-routing",
+        "category": "strategic",
+        "title": "Bluetooth-роутинг на наушники/earbuds глючит — неравный volume, обрывы",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-04-26",
+            "reviewId": "13997359828",
+            "quote": "Il y a de plus en plus de pépins qui ne sont jamais réparés (son inégal sur Bluetooth, arrêt des méditations au milieu, les scènes en fond ne fonctionnent plus, etc.) je préfèrerais qu’ils réparent tous ces problèmes plutôt qu’ajouter des gadgets et nouvelles méditations et nouvelles applus payantes."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-28",
+            "reviewId": "14114280210",
+            "quote": "The combination of Calm’s sleep stories and relaxing audio features, along with using noise-cancelling sleep earbuds, has made a huge difference for me. I’m able to fully focus on the stories and block out distractions like my husband snoring next to me."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-14",
+            "reviewId": "7594809e-f65f-4379-a8c4-ace6bc6939dc",
+            "quote": "Cannot use with ear buds."
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "widget-and-ios-api-gaps",
+        "category": "strategic",
+        "title": "Home Screen widget белый в tinted-mode, Shortcuts отвалились — Calm не подхватывает iOS-API уровня widgetAccentable",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-21",
+            "reviewId": "14089857238",
+            "quote": "Unfortunately, bugs are introduced and existing features are broken (eg, shortcuts support). They know about the bugs but won’t fix them because they’re “low priority.” I deducted one star for the slow animation and lack of holistic design and a second star for not fixing know bugs."
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-28",
+            "reviewId": "13894618622",
+            "quote": "the Home Screen widget renders as a completely blank white box when using iOS's tinted or clear icon mode"
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "cold-start-and-perf-decay",
+        "category": "strategic",
+        "title": "Cold-start медленный, swipe лагает на iPhone 14 Pro Max, app тяжелеет с месяцами и лечится reinstall",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-19",
+            "reviewId": "13864013406",
+            "quote": "All choices of music and sleep load great but the mediations loading take up to 5 mins"
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-30",
+            "reviewId": "14014434545",
+            "quote": "I love it but there are two problems: 1) over time the app seems to get slower and slower. Deleting the app and reinstalling seems to help."
+          },
+          {
+            "rating": 3,
+            "date": "2026-05-21",
+            "reviewId": "14089857238",
+            "quote": "However, a lot of attention has been paid to slow animation that, over time, has become annoying."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "sleep-app-stack-competitors",
+        "category": "strategic",
+        "title": "Calm — один тул в стеке: Slumber/Insight Timer/Moshi/YouTube ASMR/Alexa/Apple Music — substitute-альтернативы названы поимённо",
+        "story": "",
+        "who": [],
+        "featureArea": "",
         "novelty": "medium",
         "evidence": [
           {
             "rating": 1,
             "date": "2026-05-30",
-            "reviewId": "f5ba0aac-e766-4b06-8254-f694a75294ef",
-            "quote": "Requires that you make an account to use it, so uninstalled straight away."
+            "reviewId": "14121939737",
+            "quote": "These days there is very little new content for sleep stories. Mostly random meditative stuff, soundscapes and so much of the content is just weird."
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-25",
+            "reviewId": "14106108436",
+            "quote": "The worst part is I usually open it when I really need it and the friction screens make me close out and open an Apple Music shortcut playlist instead."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-02",
+            "reviewId": "14019190460",
+            "quote": "I have tried many sleep apps and after about 6 months of not comfortably falling to sleep. I re-signed up for Calm."
           }
         ],
-        "implies": "Sign-up wall до first value — известный antipattern, но Calm с ним живёт. Возможно осознанный trade-off (account нужен для cross-device sync), но цена в installs может быть выше осознанной."
+        "observationCount": 10,
+        "implies": ""
       },
       {
-        "id": "calm-body-depth-gap",
-        "category": "depth",
-        "title": "Calm Body слишком поверхностный для тех кто реально тянется ежедневно",
-        "story": "5★ engaged юзер делает стретчинг каждый день. Calm Body даёт одну 7-минутную сессию в день — для daily stretcher'а это слишком мало и слишком легко. Они любят приложение, но хотят больше контента в Body, не как complement к медитации а как полноценную практику.",
-        "who": ["Power user", "Daily stretcher", "Years tenure"],
-        "featureArea": "Calm Body",
+        "id": "ambient-no-narration-segment",
+        "category": "strategic",
+        "title": "Insomnia/тиннитус/ND-сегмент хочет no-voice/no-music режим — narration-forward бьёт по anti-fit",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-05-28",
+            "reviewId": "14114197010",
+            "quote": "I don't enjoy it when there is overpowering music alongside the narrative... I have tinnitus, which exacerbates the issue too"
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-25",
+            "reviewId": "14103403761",
+            "quote": "It needs more asmr with no talking and tingles that reach my brain, partner with an asmr person pls calm I neeeeeeed this"
+          },
+          {
+            "rating": 4,
+            "date": "2026-03-09",
+            "reviewId": "13829203249",
+            "quote": "I would love to see more ASMR-style/whispered sleep audios (think Celebrities Try ASMR) and maybe even some hypnotic visual options for relaxation to go with soundscapes."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "mood-checkin-rigidity",
+        "category": "strategic",
+        "title": "Mood check-in допускает один entry в окно без edit и multi-entry — модель данных rigid",
+        "story": "",
+        "who": [],
+        "featureArea": "",
         "novelty": "medium",
         "evidence": [
           {
             "rating": 5,
-            "date": "2026-05-29",
-            "reviewId": "cdba2efa-aae0-475d-bcbe-d576f3d8fe11",
-            "quote": "Just wish it had yoga or stretching more in the app, rather than a 7 min stretch once a day, I find it a bit too easy! Overall, a lovely app helping me to fall asleep quickly."
+            "date": "2026-03-23",
+            "reviewId": "13879334804",
+            "quote": "Journaling how I'm feeling before going into an exercise, a meditation or a sleep story is brilliant. I'm able to keep track of how I'm feeling and the mood I feel afterwards"
+          },
+          {
+            "rating": 4,
+            "date": "2026-04-08",
+            "reviewId": "13934585952",
+            "quote": "A good thing they should add is to the mood check ins, have it where I can add multiple check-ins or even edit previous ones if I want to add something."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-02",
+            "reviewId": "14019058572",
+            "quote": "The check ins and journals provide an opportunity for introspection and the categories are helpful to determine best usage of the app for the moment you are experiencing."
           }
         ],
-        "implies": "Calm Body — отдельная JTBD-категория, не add-on к meditation. Power users этого формата запрашивают depth — это рынок-сегмент, который Calm обслуживает поверхностно, пока юзеры остаются на смежных продуктах (Down Dog, Yoga Studio) для глубины."
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "title-vs-content-mismatch",
+        "category": "strategic",
+        "title": "Singing-bowl/EMDR трек по таймингу не содержит обещанного контента (пара минут bowl на 30-min трек)",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-04-14",
+            "reviewId": "13955755173",
+            "quote": "I really enjoy singing bowls, but I have found that the pure singing bowls sound tracks only run for a short few minutes. But there are a couple of much longer options, curated by calm, but there is very little singing bowls in it."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-24",
+            "reviewId": "13882009451",
+            "quote": "For a while the stories were good but they ended up just sounding like paid travelogues."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "ghost-subscription-apple-mismatch",
+        "category": "strategic",
+        "title": "Подписка не показывается в Apple Subscriptions, но списания продолжаются — SKU вне Apple IAP pipeline",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-20",
+            "reviewId": "13977138132",
+            "quote": "I canceled my subscription over 5 months ago and deleted the app. Yet I’m still getting billed for it, when I log in it to my Apple account it says I had canceled it ... There’s no stored payment anywhere and I can’t dispute it through Apple"
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-30",
+            "reviewId": "13902210076",
+            "quote": "The subscription for this app does not show or display in your App Store account.  I didn’t know I signed up.  Paid for it twice"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-19",
+            "reviewId": "e7b83825-a435-4598-bcfd-e9147363e15d",
+            "quote": "please be careful with this app I deleted because I did not use...... and there a hidden recurring subscription......"
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "stale-narrator-content",
+        "category": "strategic",
+        "title": "Конкретный любимый narrator не выпускает новое больше года — content velocity by-narrator стагнирует",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-04-21",
+            "reviewId": "13980729256",
+            "quote": "Minor Mysteries, Overnight Oats and Mama Bear come to mind, but it's been a long time since you've had a new sleep story that was any good"
+          },
+          {
+            "rating": 3,
+            "date": "2026-06-01",
+            "reviewId": "14132923911",
+            "quote": "The only issue I have is the lack of sleep story updates. I'm considering going elsewhere and cancelling subscription"
+          },
+          {
+            "rating": 5,
+            "date": "2026-03-17",
+            "reviewId": "13858407576",
+            "quote": "Only one suggestion please increase the time it seams now is small the time provided on you sessions."
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "named-favourite-content",
+        "category": "strategic",
+        "title": "Поименованный контент (Hummingbird, Daily Trip, Just One Step, Little Women, Pride & Prejudice, JVKE-track) — конкретные unlock-моменты конверсии",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-04-03",
+            "reviewId": "cf72b6a3-bb40-4312-9978-ab721a997ae8",
+            "quote": "I love the 'Just One Step' daily activities—they are short enough to fit between meetings but effective enough to reset my mood."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-21",
+            "reviewId": "91949f32-50af-40fd-bbac-a7029e11bed4",
+            "quote": "Jeff Warren's 30 day begginers guide of how to meditate and Daily Trips have changed my perspective and bettered my life."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-26",
+            "reviewId": "14106231872",
+            "quote": "Me gustan las series de 7 días que avanzan progresivamente en un tema a meditar, día tras día"
+          }
+        ],
+        "observationCount": 10,
+        "implies": ""
+      },
+      {
+        "id": "lapsed-and-pre-purchase-deliberation",
+        "category": "strategic",
+        "title": "Top-of-funnel: годы pre-purchase deliberation о цене, return-to-default после sleep-app-shopping, COVID/госпитализация как conversion-trigger",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-02",
+            "reviewId": "14019190460",
+            "quote": "I have tried many sleep apps and after about 6 months of not comfortably falling to sleep. I re-signed up for Calm."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-08",
+            "reviewId": "c74cf053-b6d7-4748-b3fb-6f672cecac18",
+            "quote": "I have been avoiding it for a long time thinking it is too expensive to add into my life but I am enjoying exploring the app and learning more about me and what it has to give."
+          },
+          {
+            "rating": 5,
+            "date": "2026-03-31",
+            "reviewId": "13905816312",
+            "quote": "I have been using this app since 2020, when covid hit. Experiencing difficulties falling asleep, i was introduced to Calm."
+          }
+        ],
+        "observationCount": 8,
+        "implies": ""
+      },
+      {
+        "id": "good-support-anti-pattern",
+        "category": "strategic",
+        "title": "Tech-литературные пользователи ценят support, который НЕ просит reinstall первой репликой (Monica)",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-02",
+            "reviewId": "14021039023",
+            "quote": "jumped on it & it was fixed within days. As someone who works in the tech industry this is great service to get a bug identified unresolved in such a quick time frame without lots of \"have you tried uninstalling it & reinstalling it?\" back & forths"
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-03",
+            "reviewId": "d432bd16-2c3e-4ab1-a278-bf6536d21cb2",
+            "quote": "I expected hoops to jump through for a refund, but a few clicks and a few minutes later all was well."
+          },
+          {
+            "rating": 4,
+            "date": "2026-03-12",
+            "reviewId": "f955234b-aa30-4b1d-89bd-439ea9edf60e",
+            "quote": "Does not process your refund UPDATE: Refund request was processed but took 1 month"
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "household-shared-listening",
+        "category": "strategic",
+        "title": "Shared/household listening: дочь, партнёр, кошка, собака слушают параллельно или к одному устройству",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-03-08",
+            "reviewId": "50e8b3d7-08ff-4a53-a1fd-ec6478e5e956",
+            "quote": "Harry Styles tells the BEST sleep-story ever! Even my cat came up to cuddle into the nook of my arm to sleep as well."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-25",
+            "reviewId": "13995811781",
+            "quote": "I didn’t realize how much we relied on it for sleep until we couldn’t use it."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-06",
+            "reviewId": "13928993529",
+            "quote": "My kids love listing to stories while I listen to calming music!"
+          }
+        ],
+        "observationCount": 5,
+        "implies": ""
+      },
+      {
+        "id": "calm-as-therapy-substitute",
+        "category": "strategic",
+        "title": "Calm позиционируется пользователями как substitute для cognitive therapy и prescription sleep meds — healthcare-economics talking point",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-06-02",
+            "reviewId": "14136341318",
+            "quote": "Being in therapy is wonderful, for the hour a week I get. But, having this app whenever it’s needed helps fill in the gaps."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-08",
+            "reviewId": "14040238132",
+            "quote": "I was able to get off of my prescription sleep meds with a combination of this app and better before sleep habits."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-07",
+            "reviewId": "14037053188",
+            "quote": "Plus it’s way more affordable than cognitive therapy and just like that a couple of phone taps and I have an entire library of stories, music, soundscapes, meditation, ideas, and so much more."
+          }
+        ],
+        "observationCount": 3,
+        "implies": ""
+      },
+      {
+        "id": "instructional-microcopy-out-of-sync",
+        "category": "strategic",
+        "title": "In-app микрокопия (empty-state «use playlist button») ссылается на отсутствующие в UI элементы",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-04-26",
+            "reviewId": "13997291080",
+            "quote": "No playlist button but it says use playlist button to make playlist."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-13",
+            "reviewId": "3b065365-d533-4fd2-a546-ce69afcafa84",
+            "quote": "tbf haven't used since my Sound Maskers couldn't sinc up to wind down."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-25",
+            "reviewId": "9be44afe-2978-4fe8-a318-23722b9d03e7",
+            "quote": "I just want an alarm for 2am medication"
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "video-pipeline-cross-platform-regression",
+        "category": "strategic",
+        "title": "Видео в Daily Move/Moment of Calm сломано одновременно на Android и Windows 11 — серверная регрессия pipeline",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-12",
+            "reviewId": "cebb2c70-2baf-45ef-b189-a0bb02a22dc8",
+            "quote": "Recently video content not working in Daily Move and Moment of Calm on multiple devices on Android and Windows 11."
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-20",
+            "reviewId": "14085931503",
+            "quote": "I want to love this recording but the sound has degraded so much that every 5th word is missing."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "tv-ad-cost-disclosure",
+        "category": "strategic",
+        "title": "TV/IG-реклама Calm не раскрывает subscription cost — install-моментально нарушает free-product expectation",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-04-02",
+            "reviewId": "594e6962-feca-4f48-ad11-947e24bc70af",
+            "quote": "This app is hyped in commercials, but it's never mentioned that there's a cost associated with it."
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-27",
+            "reviewId": "14001099224",
+            "quote": "Calm showed up on my TV commercials and so I get it and it helps wonders! I love this app so much"
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "brand-tone-amplifies-glitch-rage",
+        "category": "strategic",
+        "title": "Бренд calmness повышает планку: глитч/upsell в Calm раздражает сильнее, чем тот же глитч в чужом приложении",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-04-11",
+            "reviewId": "13947722781",
+            "quote": "I’m at the point I might just cancel my credit card. Super frustrating and any benefit I originally wanted to ease anxiety has been squashed with the annoyance of trying to cancel my subscription."
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-28",
+            "reviewId": "75d78d1a-c658-45c5-839c-a014ed5562eb",
+            "quote": "nothing calm about trying to figure out how to test it without a free trial I'll forget to cancel and give me more anxiety than I already have."
+          },
+          {
+            "rating": 1,
+            "date": "2026-03-28",
+            "reviewId": "13897855756",
+            "quote": "Unnecessary animations, hiding what’s happening in the app, making interaction with the app feel like hell."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "stack-pattern-meditation-then-story",
+        "category": "strategic",
+        "title": "Power-юзеры строят nightly stack: meditation → story → ambient-mask, требующий seamless handoff",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-02",
+            "reviewId": "14021039023",
+            "quote": "I usually find a story to listen to & after it switches over to ambient sounds, such as a thunder storm which plays all night, blocking out noise from outside."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-23",
+            "reviewId": "14095534494",
+            "quote": "Capping my nights by reflecting on my day, listing what I am grateful for, tracking my sleep hours and tracking what I did or didn't do that improve or hampered my quest for a better sleep"
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-22",
+            "reviewId": "14092553311",
+            "quote": "Now I put on a 10 minute meditation to wind down, followed by a sleep story to keep my brain occupied."
+          }
+        ],
+        "observationCount": 7,
+        "implies": ""
+      },
+      {
+        "id": "lucid-dream-side-effect",
+        "category": "strategic",
+        "title": "Lucid-dreaming и снижение nightmare/bad-dreams — неожиданный side-outcome Calm-юзеров",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-03-12",
+            "reviewId": "13839577232",
+            "quote": "Really helps with my sleep and I wake up refreshed and helps enormously with my bad dreams."
+          },
+          {
+            "rating": 5,
+            "date": "2026-05-14",
+            "reviewId": "14061790423",
+            "quote": "This app help me go to sleep, have good dreams (sometimes Lucids) and has great stories."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
+      },
+      {
+        "id": "session-crashes-mid-meditation",
+        "category": "strategic",
+        "title": "Приложение крашится посреди медитации (Bluetooth dropouts, generic crash) — continuous-audio core ломается годами",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-04-26",
+            "reviewId": "13997359828",
+            "quote": "Il y a de plus en plus de pépins qui ne sont jamais réparés (son inégal sur Bluetooth, arrêt des méditations au milieu, les scènes en fond ne fonctionnent plus, etc.) je préfèrerais qu’ils réparent tous ces problèmes plutôt qu’ajouter des gadgets et nouvelles méditations et nouvelles applus payantes."
+          },
+          {
+            "rating": 2,
+            "date": "2026-04-26",
+            "reviewId": "13999808550",
+            "quote": "It’s become rare that a sleep story will play uninterrupted without stopping multiple times."
+          },
+          {
+            "rating": 3,
+            "date": "2026-03-24",
+            "reviewId": "13883279084",
+            "quote": "Unfortunately for about the last year it’ll crash while I’m using it. Sometimes twice during one meditation."
+          }
+        ],
+        "observationCount": 4,
+        "implies": ""
+      },
+      {
+        "id": "sticker-vs-actual-charge",
+        "category": "strategic",
+        "title": "Sticker $79.99 → фактический charge $84.79 (tax/forex/price-hike at renewal) — формально не bait-and-switch, но триггерит fraud-обвинения",
+        "story": "",
+        "who": [],
+        "featureArea": "",
+        "novelty": "low",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-03-19",
+            "reviewId": "13865030685",
+            "quote": "The subscription amount I agreed to use this app for the year was 79.99 for the year... I was billed$ 84.79"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-16",
+            "reviewId": "327f5cb7-ac36-41a4-b4c0-3f9343ec26b4",
+            "quote": "was great & they issued me a refund, but due to conversions I still got charged £2.76."
+          }
+        ],
+        "observationCount": 2,
+        "implies": ""
       }
     ],
-    "personaPatterns": [
-      { "label": "Years user · sleep-primary · power", "share": "~30% of 5★", "note": "ритуал: сон + утренняя медитация; чувствительны к контент-перестановкам" },
-      { "label": "Pre-trial evaluator", "share": "~20% of 1★ install reviews", "note": "блокированы CAPTCHA или account-gate, не доходят до touchpoint" },
-      { "label": "Year+ lapsed user", "share": "~15% of 2★", "note": "паттерн «used to use, now don't» — регрессии и paywall на привычной механике" },
-      { "label": "Mid-trial → charged after cancel", "share": "~10% of 1★", "note": "временные конфликты cancellation flow vs billing" },
-      { "label": "Existing subscriber engaged with marketing", "share": "rare, but high-signal", "note": "уже платит, реагирует на ads, упирается в funnel-disconnect" }
-    ],
-    "commodityBaseline": [
-      { "label": "Subscription too expensive", "approx": "~32% of 1★", "note": "ожидаемо, не differentiating" },
-      { "label": "Hard to cancel / charged after trial", "approx": "~28% of 1★", "note": "industry-wide, известно" },
-      { "label": "Generic 'crashed' / 'freezes' (без specifics)", "approx": "~14% of 1-2★", "note": "сигнал есть, но без mechanism — для дискавери бесполезно" },
-      { "label": "Pure praise («great app», «love it»)", "approx": "~45% of 5★", "note": "non-information; держим для total volume но не surface'им" }
-    ]
+    "personaPatterns": [],
+    "commodityBaseline": []
   }
 ]

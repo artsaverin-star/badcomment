@@ -31,7 +31,8 @@ export default function InsightRow({ insight }: { insight: Insight; max: number 
         <span className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
           <span className="text-[15px] font-semibold text-[var(--color-text-primary)]">{insight.title}</span>
           <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
-            {insight.evidence.length} {insight.evidence.length === 1 ? "наблюдение" : "наблюдений"}
+            {insight.observationCount ?? insight.evidence.length}{" "}
+            {(insight.observationCount ?? insight.evidence.length) === 1 ? "наблюдение" : "наблюдений"}
           </span>
         </span>
       </button>

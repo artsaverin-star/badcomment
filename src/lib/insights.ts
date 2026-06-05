@@ -25,6 +25,7 @@ export type Insight = {
   featureArea: string;
   novelty: InsightNovelty;
   evidence: InsightEvidence[];
+  observationCount?: number; // full cluster size; evidence shows only top-3 quotes
   implies: string;
 };
 
