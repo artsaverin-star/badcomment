@@ -1,5 +1,6 @@
 import { Header } from "@saverin/ui-web";
 import Link from "next/link";
+import { t, type Locale } from "@/lib/i18n";
 import type { SegmentInsightsView, SegmentInsightTheme } from "@/lib/segmentInsights";
 
 // Cross-app "Top problems" view powered by the qualitative-extraction insights
@@ -8,26 +9,28 @@ import type { SegmentInsightsView, SegmentInsightTheme } from "@/lib/segmentInsi
 // open panel lists every app with its mention count and that app's most-cited
 // matching insight title — linking to the app's full insights page.
 
-export default function SegmentInsightGap({ view }: { view: SegmentInsightsView }) {
+export default function SegmentInsightGap({ view, locale }: { view: SegmentInsightsView; locale: Locale }) {
+  const tr = t(locale).market2;
   const total = view.themes.reduce((s, t) => s + t.mentions, 0);
   return (
     <section className="flex flex-col gap-2">
       <div className="flex flex-col gap-0.5">
-        <Header size="S" as="h2" title="Топ проблем во всех приложениях" />
+        <Header size="S" as="h2" title={tr.gapsHeading} />
         <p className="text-[13px] text-[var(--color-text-tertiary)]">
-          Общее для всего сегмента — чем чаще жалуются, тем выше. Посчитано по {total} упоминаниям из {view.appsCount} приложений.
+          {tr.gapsCaption} {tr.scanned(total)}
         </p>
       </div>
       <div className="flex flex-col gap-1.5">
-        {view.themes.map((t) => (
-          <ThemeRow key={t.key} theme={t} max={view.maxFail} />
+        {view.themes.map((th) => (
+          <ThemeRow key={th.key} theme={th} max={view.maxFail} locale={locale} />
         ))}
       </div>
     </section>
   );
 }
 
-function ThemeRow({ theme, max }: { theme: SegmentInsightTheme; max: number }) {
+function ThemeRow({ theme, max, locale }: { theme: SegmentInsightTheme; max: number; locale: Locale }) {
+  const tr = t(locale).market2;
   const open = theme.failApps / theme.totalApps >= 0.4;
   const pct = Math.max(3, Math.round((theme.failApps / max) * 100));
   const barColor = open ? "var(--color-accent-danger)" : "var(--color-text-tertiary)";
@@ -43,7 +46,7 @@ function ThemeRow({ theme, max }: { theme: SegmentInsightTheme; max: number }) {
               </span>
             </span>
             <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
-              топ-жалоба у {theme.failApps} из {theme.totalApps} приложений
+              {tr.painIn(theme.failApps, theme.totalApps)}
             </span>
           </span>
 
@@ -52,7 +55,7 @@ function ThemeRow({ theme, max }: { theme: SegmentInsightTheme; max: number }) {
               <span className="block h-full rounded-full" style={{ width: `${pct}%`, background: barColor }} />
             </span>
             <span className="shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
-              {theme.mentions} упоминаний в отзывах
+              {theme.mentions} {tr.demand}
             </span>
           </span>
         </summary>
