@@ -8,7 +8,11 @@ import type { Locale } from "./i18n";
 // src/data/categories-meta.json by scripts/resolve-category-apps.ts +
 // scripts/resolve-from-db.ts. This file is the read-only loader.
 
-export type Tier = "high" | "medium" | "low";
+// `buildable` = solo/small-team can ship a real competitor (no network effects,
+// no content rights, no regulated infra, no hardware moat). `wedge` = buildable
+// only if you pick a vertical/niche. `reference` = mastodons whose pain is
+// useful to learn but where cloning isn't the play.
+export type Tier = "buildable" | "wedge" | "reference";
 
 type RawCategory = {
   slug: string;
@@ -81,7 +85,7 @@ export function getResearchCategory(slug: string, locale: Locale): CategoryView 
   };
 }
 
-const TIER_ORDER: Record<Tier, number> = { high: 0, medium: 1, low: 2 };
+const TIER_ORDER: Record<Tier, number> = { buildable: 0, wedge: 1, reference: 2 };
 
 export function sortByPriority(cats: CategoryView[]): CategoryView[] {
   return [...cats].sort((a, b) => {
@@ -89,4 +93,13 @@ export function sortByPriority(cats: CategoryView[]): CategoryView[] {
     if (t !== 0) return t;
     return b.apps.length - a.apps.length;
   });
+}
+
+export function groupByTier(cats: CategoryView[]): Record<Tier, CategoryView[]> {
+  const groups: Record<Tier, CategoryView[]> = { buildable: [], wedge: [], reference: [] };
+  for (const c of cats) groups[c.tier].push(c);
+  for (const k of Object.keys(groups) as Tier[]) {
+    groups[k].sort((a, b) => b.apps.length - a.apps.length);
+  }
+  return groups;
 }
