@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Card, Header, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
 import { getAppNeeds } from "@/lib/needsGap";
+import { getProductInsights } from "@/lib/insights";
 import { formatCount } from "@/lib/format";
 import { t, categoryLabelL, type Locale } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
@@ -54,6 +56,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
   const tr = t(locale);
   const [data, needs] = await Promise.all([getProductDetail(id, locale), getAppNeeds(id, locale)]);
   if (!data) notFound();
+  const hasInsights = getProductInsights(id) != null;
 
   const metaLine = [data.developer, data.stores.map((st) => STORE_LABEL[st]).join(" + ")]
     .filter(Boolean)
@@ -123,6 +126,15 @@ export default async function ProductDetail({ params }: { params: Promise<{ id: 
             </Tag>
           ))}
         </div>
+
+        {hasInsights && (
+          <Link
+            href={`/product/${id}/insights`}
+            className={cn(buttonVariants({ variant: "secondary", size: "M" }), "self-start")}
+          >
+            Качественный разбор (β)
+          </Link>
+        )}
       </Card>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_340px]">

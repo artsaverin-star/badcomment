@@ -1,0 +1,192 @@
+[
+  {
+    "productId": "cmpstwzc422tyug8p31xzftzd",
+    "reviewsScanned": 8279,
+    "ratingBreakdown": { "1": 2119, "2": 623, "3": 588, "4": 612, "5": 4337 },
+    "pipeline": "qualitative extraction over 1-5★ reviews (sample, hand-validated)",
+    "asOf": "2026-06-05",
+    "sampleSize": 24,
+    "insights": [
+      {
+        "id": "marketing-funnel-disconnect",
+        "category": "strategic",
+        "title": "Маркетинговая воронка не узнаёт уже подписанных",
+        "story": "Calm запускает Instagram-кампании с лид-магнитом (квиз про EMDR, генерирующий персональный план). Квиз спроектирован под пробных юзеров — нет пути привязать сгенерированный план к существующей Premium-подписке. Платящий клиент кликает рекламу, проходит квиз, упирается в тупик.",
+        "who": ["Existing subscriber", "Engaged with marketing"],
+        "trialPath": "subscribed-after-trial",
+        "featureArea": "Marketing × Product",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-06-02",
+            "reviewId": "ac7ade16-ab61-4078-82cc-0700937fe608",
+            "quote": "I got an ad on Instagram to do the quiz for the EMDR stuff which I'm really interested in. but I already have a subscription. I'm unsure how to loggin on the quiz to say I have a subscription and if it's possible to use the \"plan\" it made for me with my current sub? id really like to give it a try."
+          }
+        ],
+        "implies": "Маркетинг и core-product работают по разным data-моделям. Лид-магнит — отдельная воронка без single-sign-on. Это упускает upsell-возможность с самой engaged частью базы — теми кто реагирует на маркетинг будучи уже клиентами."
+      },
+      {
+        "id": "promo-code-leak",
+        "category": "strategic",
+        "title": "Промокоды на бесплатный Premium расходятся вирусно",
+        "story": "Платящий 5★ юзер открыто рекомендует промокод дающий бесплатный Premium. Прямо признаёт «они теряют деньги» — но кладёт код в публичный отзыв. Имплицитно: Calm раздаёт коды через партнёрские/wellness-каналы, которые персистентны и широко шарятся.",
+        "who": ["Power user", "Years tenure"],
+        "trialPath": "lifetime-buyer",
+        "featureArea": "Pricing / Promo",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-29",
+            "reviewId": "cdba2efa-aae0-475d-bcbe-d576f3d8fe11",
+            "quote": "Very good. You can access premium for free by doing a code, which makes them lose money, but even without premium it is a very good app for meditation."
+          }
+        ],
+        "implies": "Если такие коды попадают в публичный отзыв — они в чатах, на форумах, в Reddit. Revenue-leak. Требует или ротации кодов, или однократности, или принятия что это growth-канал."
+      },
+      {
+        "id": "splash-screen-irony",
+        "category": "strategic",
+        "title": "Загрузочный экран «take a deep breath» зависает в момент стресса",
+        "story": "У Calm экран-заставка показывает миролюбивое «take a deep breath» во время загрузки. Когда приложение виснет (Android, blue-screen freeze) — это сообщение показывается бесконечно. Юзер открыл Calm чтобы успокоить вымотанного ребёнка ночью; вместо успокоения получает таунт от продукта в самый острый момент.",
+        "who": ["Stressed parent", "Year+ user", "Yearly subscriber"],
+        "featureArea": "Reliability × UX copy",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-30",
+            "reviewId": "5392119d-b0b0-419d-9862-2efdc984e338",
+            "quote": "I hate that when I try to open this app to calm my child when I'm totally exhausted it just freezes on a blue screen for infinity saying 'take a deep breath', or some such infuriating nonsense. I can't describe how much I hate this feature. Regret getting a yearly membership."
+          }
+        ],
+        "implies": "Это не баг про надёжность — это баг про message-tone-под-нагрузкой. Загрузочные экраны критичных приложений должны быть нейтральны: тёплое сообщение становится оскорблением при таймауте. Тот же JTBD что у панических атак — escape route быстро."
+      },
+      {
+        "id": "ambient-bleed",
+        "category": "workflow",
+        "title": "Эмбиент с главного экрана не глушится в медитации",
+        "story": "На discovery-экранах Calm играют фоновые эмбиент-звуки (сверчки). Когда юзер запускает медитацию — этот эмбиент продолжает звучать поверх. Глобальной кнопки заглушить ambient layer нет. Юзеры закрывают приложение чтобы это остановить.",
+        "who": ["Regular user", "Meditation-primary"],
+        "featureArea": "Audio player",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-06-01",
+            "reviewId": "20c98ba4-8ef5-460d-ab56-4faa5676666e",
+            "quote": "for some reason this app always freezes when I open it. Also, I hate the background sound effects of the crickets and I can't find a way to turn that off. When I play a meditation that same sound effects will remain in the background, so I just close the app because it bothers me so much."
+          }
+        ],
+        "implies": "Audio architecture: scene-audio и session-audio считаются разными слоями, не митируют друг друга. Должен быть либо глобальный mute, либо session-start автоматически глушит scene."
+      },
+      {
+        "id": "timer-freeze-1958",
+        "category": "workflow",
+        "title": "Таймер медитации стабильно зависает на 19:58",
+        "story": "Воспроизводимый freeze в одной и той же точке таймера: 19:58 (≈20-минутная сессия). Версия 6.96.1. Один и тот же юзер ловит это раз за разом — значит это не тайминговый race, а переход между фазами сессии (intro→main или main→closing) на конкретной длительности.",
+        "who": ["Regular user"],
+        "featureArea": "Reliability / Timer",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-05-31",
+            "reviewId": "e710a18c-bead-4b5c-a08d-8aa47fb0633e",
+            "quote": "timer keeps freezing at the same time 19:58"
+          }
+        ],
+        "implies": "4★ юзер сообщает баг — он лоялен, но баг ловит. Это самый ценный bug report: воспроизводимый, привязан к версии. Стоит передать в QA как regression-кейс."
+      },
+      {
+        "id": "soundscape-regression",
+        "category": "workflow",
+        "title": "Кастомизация эмбиента раньше была бесплатной — теперь убрана или платная",
+        "story": "Год+ юзер раньше микшировал дождь, гром и другие фоновые звуки. Сейчас функция либо удалена, либо за подпиской. Жалуется не на сам Premium — на регрессию: то что было привычным workflow несколько лет, отняли. Удалил приложение.",
+        "who": ["Year+ lapsed user", "Ambient-primary"],
+        "trialPath": "post-cancel",
+        "featureArea": "Soundscape × Premium gating",
+        "novelty": "high",
+        "evidence": [
+          {
+            "rating": 2,
+            "date": "2026-06-01",
+            "reviewId": "a4fbd5a5-b92a-433e-bab0-4b6e532fa9ca",
+            "quote": "when this app first came out I used to use it all the time but now it's more difficult you can't adjust like before with the rain sounds thunder adding or maybe you can fit a fee now so I uninstalled it"
+          }
+        ],
+        "implies": "Bait-and-switch на привычной механике. Юзеры воспринимают это сильнее чем обычный paywall — это потеря того, чем они уже пользовались. Триггерит отток среди long-tail лояльных."
+      },
+      {
+        "id": "captcha-blocks-install",
+        "category": "onboarding",
+        "title": "CAPTCHA блокирует первый запуск",
+        "story": "Бот-проверка при регистрации проваливается у легитимных юзеров на первой установке. Юзер пробует, получает «try again», пробует ещё, удаляет приложение — не доходя до контента.",
+        "who": ["Pre-trial evaluator"],
+        "trialPath": "pre-trial",
+        "featureArea": "Onboarding / Auth",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-06-03",
+            "reviewId": "3ecad3d2-9819-41b1-a5eb-32c48ab6de21",
+            "quote": "can't get past the bot test. keeps saying try again. uninstalled."
+          }
+        ],
+        "implies": "Conversion-leak до первого touch'a продукта. Anti-abuse механизм работает агрессивнее чем должен — false positives = lost installs."
+      },
+      {
+        "id": "account-gate-kills-eval",
+        "category": "onboarding",
+        "title": "Аккаунт требуется до того как покажут контент",
+        "story": "Calm требует создания аккаунта перед доступом к любому контенту. Юзеры сообщают что удалили приложение мгновенно как только увидели account-gate — они хотели сначала оценить контент, потом committь личные данные.",
+        "who": ["Pre-trial evaluator"],
+        "trialPath": "pre-trial",
+        "featureArea": "Onboarding / Conversion",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-30",
+            "reviewId": "f5ba0aac-e766-4b06-8254-f694a75294ef",
+            "quote": "Requires that you make an account to use it, so uninstalled straight away."
+          }
+        ],
+        "implies": "Sign-up wall до first value — известный antipattern, но Calm с ним живёт. Возможно осознанный trade-off (account нужен для cross-device sync), но цена в installs может быть выше осознанной."
+      },
+      {
+        "id": "calm-body-depth-gap",
+        "category": "depth",
+        "title": "Calm Body слишком поверхностный для тех кто реально тянется ежедневно",
+        "story": "5★ engaged юзер делает стретчинг каждый день. Calm Body даёт одну 7-минутную сессию в день — для daily stretcher'а это слишком мало и слишком легко. Они любят приложение, но хотят больше контента в Body, не как complement к медитации а как полноценную практику.",
+        "who": ["Power user", "Daily stretcher", "Years tenure"],
+        "featureArea": "Calm Body",
+        "novelty": "medium",
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-29",
+            "reviewId": "cdba2efa-aae0-475d-bcbe-d576f3d8fe11",
+            "quote": "Just wish it had yoga or stretching more in the app, rather than a 7 min stretch once a day, I find it a bit too easy! Overall, a lovely app helping me to fall asleep quickly."
+          }
+        ],
+        "implies": "Calm Body — отдельная JTBD-категория, не add-on к meditation. Power users этого формата запрашивают depth — это рынок-сегмент, который Calm обслуживает поверхностно, пока юзеры остаются на смежных продуктах (Down Dog, Yoga Studio) для глубины."
+      }
+    ],
+    "personaPatterns": [
+      { "label": "Years user · sleep-primary · power", "share": "~30% of 5★", "note": "ритуал: сон + утренняя медитация; чувствительны к контент-перестановкам" },
+      { "label": "Pre-trial evaluator", "share": "~20% of 1★ install reviews", "note": "блокированы CAPTCHA или account-gate, не доходят до touchpoint" },
+      { "label": "Year+ lapsed user", "share": "~15% of 2★", "note": "паттерн «used to use, now don't» — регрессии и paywall на привычной механике" },
+      { "label": "Mid-trial → charged after cancel", "share": "~10% of 1★", "note": "временные конфликты cancellation flow vs billing" },
+      { "label": "Existing subscriber engaged with marketing", "share": "rare, but high-signal", "note": "уже платит, реагирует на ads, упирается в funnel-disconnect" }
+    ],
+    "commodityBaseline": [
+      { "label": "Subscription too expensive", "approx": "~32% of 1★", "note": "ожидаемо, не differentiating" },
+      { "label": "Hard to cancel / charged after trial", "approx": "~28% of 1★", "note": "industry-wide, известно" },
+      { "label": "Generic 'crashed' / 'freezes' (без specifics)", "approx": "~14% of 1-2★", "note": "сигнал есть, но без mechanism — для дискавери бесполезно" },
+      { "label": "Pure praise («great app», «love it»)", "approx": "~45% of 5★", "note": "non-information; держим для total volume но не surface'им" }
+    ]
+  }
+]
