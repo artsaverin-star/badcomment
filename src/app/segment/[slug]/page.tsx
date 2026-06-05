@@ -49,21 +49,16 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         as="h1"
         className="mb-5 items-center text-center"
         title={segment.name}
-        description={<span className="mx-auto block max-w-2xl">{tr.market2.subtitle}</span>}
+        description={
+          insightView ? (
+            <span className="mx-auto block max-w-2xl">{tr.market2.subtitle}</span>
+          ) : null
+        }
       />
 
       {apps.length > 0 && <SegmentApps apps={apps} locale={locale} />}
 
-      {insightView ? (
-        <SegmentInsightGap view={insightView} locale={locale} />
-      ) : (
-        <div className="mt-8 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-8 text-center">
-          <Header size="S" as="h2" className="items-center" title={tr.market2.stubHeading} />
-          <p className="mx-auto mt-2 max-w-md text-[14px] text-[var(--color-text-secondary)]">
-            {tr.market2.stubNote}
-          </p>
-        </div>
-      )}
+      {insightView && <SegmentInsightGap view={insightView} locale={locale} />}
     </main>
   );
 }

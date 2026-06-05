@@ -45,30 +45,29 @@ export async function getSegmentCards(locale: Locale): Promise<SegmentCard[]> {
     ]),
   );
 
-  // Only segments with real signal get a card — either a taxonomy (semantic
-  // classification) or an authored insight-meta-themes mapping (qualitative).
-  const cards = segments
-    .filter((seg) => hasSegmentSignal(seg.slug))
-    .map((seg): SegmentCard => {
-      let appCount = 0;
-      let reviewCount = 0;
-      const icons: string[] = [];
-      for (const id of seg.appIds) {
-        const p = info.get(id);
-        if (!p) continue;
-        appCount++;
-        reviewCount += p.reviews;
-        if (p.icon && icons.length < 5) icons.push(p.icon);
-      }
-      return {
-        slug: seg.slug,
-        name: seg.name,
-        appCount,
-        reviewCount,
-        icons,
-        classified: true,
-      };
-    });
+  // Every segment is listed — even ones still being researched. `classified`
+  // marks the few that already have an insights or taxonomy view ready; the
+  // rest open into the stub apps-grid until they're filled in.
+  const cards = segments.map((seg): SegmentCard => {
+    let appCount = 0;
+    let reviewCount = 0;
+    const icons: string[] = [];
+    for (const id of seg.appIds) {
+      const p = info.get(id);
+      if (!p) continue;
+      appCount++;
+      reviewCount += p.reviews;
+      if (p.icon && icons.length < 5) icons.push(p.icon);
+    }
+    return {
+      slug: seg.slug,
+      name: seg.name,
+      appCount,
+      reviewCount,
+      icons,
+      classified: hasSegmentSignal(seg.slug),
+    };
+  });
 
   // Biggest review pile first.
   cards.sort((a, b) => b.reviewCount - a.reviewCount);
