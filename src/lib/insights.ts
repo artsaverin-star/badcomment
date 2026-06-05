@@ -15,6 +15,36 @@ export type InsightEvidence = {
   quote: string;
 };
 
+export type Theme =
+  | "payment"
+  | "content"
+  | "playback"
+  | "ui"
+  | "reliability"
+  | "support"
+  | "strategy";
+
+export const THEME_LABEL: Record<Theme, string> = {
+  payment: "Подписка и оплата",
+  content: "Контент и каталог",
+  playback: "Аудио и воспроизведение",
+  ui: "Интерфейс и навигация",
+  reliability: "Стабильность и устройства",
+  support: "Поддержка и аккаунт",
+  strategy: "Стратегия и сегменты",
+};
+
+// Display order of themes on the page.
+export const THEME_ORDER: Theme[] = [
+  "strategy",
+  "payment",
+  "content",
+  "ui",
+  "playback",
+  "reliability",
+  "support",
+];
+
 export type Insight = {
   id: string;
   category: InsightCategory;
@@ -26,6 +56,7 @@ export type Insight = {
   novelty: InsightNovelty;
   evidence: InsightEvidence[];
   observationCount?: number; // full cluster size; evidence shows only top-3 quotes
+  theme?: Theme;
   implies: string;
 };
 

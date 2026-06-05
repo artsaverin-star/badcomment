@@ -25,6 +25,115 @@ type ClusterIn = {
   observation_ids: number[];
 };
 
+type Theme = "payment" | "content" | "playback" | "ui" | "reliability" | "support" | "strategy";
+
+// Hand-assigned theme per cluster id. Edit here if a cluster needs to move.
+const THEMES: Record<string, Theme> = {
+  // ── Подписка и оплата ──────────────────────────────────────────────────
+  "payment-captured-no-entitlement": "payment",
+  "trial-instant-yearly-charge": "payment",
+  "cancel-confirmed-but-charged": "payment",
+  "post-purchase-promo-spam-paid": "payment",
+  "free-tier-throttled-per-track": "payment",
+  "lifetime-tier-degraded": "payment",
+  "gift-paypal-parallel-billing": "payment",
+  "promo-tier-stacks-secondary-charge": "payment",
+  "calm-sleep-second-app-confusion": "payment",
+  "ad-vs-listing-price-gap": "payment",
+  "partner-code-redemption-broken": "payment",
+  "duplicate-charge-via-family-upgrade": "payment",
+  "ghost-subscription-apple-mismatch": "payment",
+  "price-discrimination-grandfathered": "payment",
+  "sticker-vs-actual-charge": "payment",
+  "no-undo-cancellation": "payment",
+  "sos-emergency-content-paywalled": "payment",
+  "support-only-resolution-is-cancel-refund": "payment",
+  "tv-ad-cost-disclosure": "payment",
+
+  // ── Контент и каталог ──────────────────────────────────────────────────
+  "celebrity-narrator-loyalty-anchor": "content",
+  "content-recycled-detected": "content",
+  "named-favourite-content": "content",
+  "narrator-script-microcopy-churn": "content",
+  "narrator-follow-notifications-missing": "content",
+  "duration-filter-and-custom-length": "content",
+  "trauma-loaded-sleep-content": "content",
+  "removed-titles-break-routine": "content",
+  "story-endings-untouched-surface": "content",
+  "ai-narration-perception-cliff": "content",
+  "course-progression-broken": "content",
+  "stale-narrator-content": "content",
+  "kids-age-and-segregation": "content",
+  "title-vs-content-mismatch": "content",
+  "calmling-character-ip-merch": "content",
+
+  // ── Аудио и воспроизведение ────────────────────────────────────────────
+  "story-loop-after-693": "playback",
+  "audio-session-leak-android": "playback",
+  "story-to-scene-handoff-broken": "playback",
+  "interrupt-resume-lost": "playback",
+  "autoplay-next-jolts-awake": "playback",
+  "narration-mix-too-loud": "playback",
+  "sleep-timer-undershoots": "playback",
+  "earbud-bluetooth-routing": "playback",
+  "downloads-need-online-revalidation": "playback",
+
+  // ── Интерфейс и навигация ──────────────────────────────────────────────
+  "narrator-as-filter-missing": "ui",
+  "search-broken-or-removed": "ui",
+  "free-tier-undiscoverable": "ui",
+  "home-screen-discovery-feed-vs-launcher": "ui",
+  "playlist-builder-restrictions": "ui",
+  "streak-mechanic-broken-or-gameable": "ui",
+  "post-session-survey-forced": "ui",
+  "no-personalisation-after-quiz": "ui",
+  "settings-toggle-ignored": "ui",
+  "captcha-blocks-first-launch": "ui",
+  "instructional-microcopy-out-of-sync": "ui",
+  "ad-to-content-discoverability-gap": "ui",
+  "captions-volume-accessibility-gap": "ui",
+  "mood-checkin-rigidity": "ui",
+  "pre-content-paywall-triple-gate": "ui",
+  "favorited-not-prefetched": "ui",
+
+  // ── Стабильность и устройства ──────────────────────────────────────────
+  "platform-version-specific-crashes": "reliability",
+  "version-specific-feature-regression": "reliability",
+  "session-crashes-mid-meditation": "reliability",
+  "splash-dead-end": "reliability",
+  "cold-start-and-perf-decay": "reliability",
+  "video-pipeline-cross-platform-regression": "reliability",
+  "battery-heat-overhead": "reliability",
+  "widget-and-ios-api-gaps": "reliability",
+  "google-fit-watch-sync-broken": "reliability",
+
+  // ── Поддержка и аккаунт ────────────────────────────────────────────────
+  "ai-bot-support-deadend": "support",
+  "feedback-blackhole": "support",
+  "account-recovery-email-never-sent": "support",
+  "good-support-anti-pattern": "support",
+
+  // ── Стратегия и сегменты ───────────────────────────────────────────────
+  "use-case-non-sleep": "strategy",
+  "emdr-bait-and-switch": "strategy",
+  "b2b-distribution-channels": "strategy",
+  "sleep-app-stack-competitors": "strategy",
+  "lapsed-and-pre-purchase-deliberation": "strategy",
+  "stack-pattern-meditation-then-story": "strategy",
+  "wake-up-reentry-jtbd": "strategy",
+  "anti-productivity-corporate-framing": "strategy",
+  "binaural-frequency-segment": "strategy",
+  "ambient-only-segment-overserved": "strategy",
+  "ambient-no-narration-segment": "strategy",
+  "household-shared-listening": "strategy",
+  "ip-asd-nd-religious-segments": "strategy",
+  "brand-tone-amplifies-glitch-rage": "strategy",
+  "calm-as-therapy-substitute": "strategy",
+  "review-gaming-meta": "strategy",
+  "lucid-dream-side-effect": "strategy",
+  "privacy-data-shared-financial": "strategy",
+};
+
 type ClusterOutput = { clusters: ClusterIn[] };
 
 type Observation = {
@@ -309,6 +418,7 @@ const insights = sortedClusters.map((c) => ({
   novelty: c.novelty,
   evidence: buildEvidence(c.observation_ids),
   observationCount: c.observation_ids.length,
+  theme: THEMES[c.id],
   implies: "",
 }));
 
@@ -332,10 +442,20 @@ else allInsights.push(next);
 writeFileSync("src/data/insights.json", JSON.stringify(allInsights, null, 2));
 
 const missing = sortedClusters.filter((c) => !REWRITES[c.title]);
+const noTheme = insights.filter((i) => !i.theme);
 console.log(`built ${insights.length} insights from ${sortedClusters.length} clusters (no trim)`);
 console.log(`evidence quotes per insight: avg ${(insights.reduce((s, i) => s + i.evidence.length, 0) / insights.length).toFixed(1)}, max ${Math.max(...insights.map((i) => i.evidence.length))}`);
 console.log(`reviewsScanned: ${reviewsScanned}, distribution: ${Object.entries(ratingBreakdown).map(([k, v]) => `${k}★=${v}`).join(" ")}`);
+
+const byTheme: Record<string, number> = {};
+for (const i of insights) byTheme[i.theme ?? "<no theme>"] = (byTheme[i.theme ?? "<no theme>"] ?? 0) + 1;
+console.log(`themes:`, byTheme);
+
 if (missing.length > 0) {
-  console.log(`\nWARN: ${missing.length} clusters have no rewrite — original title is shown:`);
+  console.log(`\nWARN: ${missing.length} clusters have no title rewrite:`);
   for (const m of missing) console.log(`  · ${m.title}`);
+}
+if (noTheme.length > 0) {
+  console.log(`\nWARN: ${noTheme.length} clusters have no theme — fix THEMES map in scripts/calm-assemble.ts:`);
+  for (const i of noTheme) console.log(`  · ${i.id} : ${i.title}`);
 }

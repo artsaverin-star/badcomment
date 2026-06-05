@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { Card, Header, Tag, buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
-import { getProductInsights } from "@/lib/insights";
+import { getProductInsights, THEME_LABEL, THEME_ORDER } from "@/lib/insights";
 import { formatCount } from "@/lib/format";
-import { t, categoryLabelL, type Locale } from "@/lib/i18n";
+import { t, categoryLabelL } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import BackLink from "@/components/BackLink";
 import InsightRow from "@/components/InsightRow";
@@ -11,10 +11,6 @@ import InsightRow from "@/components/InsightRow";
 export const dynamic = "force-dynamic";
 
 const STORE_LABEL: Record<string, string> = { google: "Google Play", apple: "App Store" };
-
-function fmtMonth(d: Date, locale: Locale): string {
-  return new Intl.DateTimeFormat(locale, { month: "short", year: "numeric" }).format(d);
-}
 
 // Same visual chassis as /product/[id]: hero card, needs list, histogram side.
 // The only difference is the SOURCE of the needs — qualitative extraction
@@ -129,22 +125,50 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
         </div>
       </Card>
 
-      <section className="flex flex-col gap-3">
-        <Header size="S" as="h2" title="Основные инсайты" />
-        {insights ? (
-          <div className="flex flex-col gap-3">
-            {sorted.map((i) => (
-              <InsightRow key={i.id} insight={i} max={maxMentions} />
-            ))}
-          </div>
-        ) : (
-          <Card>
-            <p className="text-[14px] text-[var(--color-text-secondary)]">
-              Качественный разбор для этого приложения ещё не запущен.
-            </p>
-          </Card>
-        )}
-      </section>
+      {insights ? (
+        <div className="flex flex-col gap-8">
+          {THEME_ORDER.map((theme) => {
+            const inTheme = sorted.filter((i) => i.theme === theme);
+            if (inTheme.length === 0) return null;
+            return (
+              <section key={theme} className="flex flex-col gap-3">
+                <div className="flex items-baseline justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-2">
+                  <h2 className="text-[17px] font-semibold text-[var(--color-text-primary)]">{THEME_LABEL[theme]}</h2>
+                  <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
+                    {inTheme.length} {inTheme.length === 1 ? "инсайт" : inTheme.length < 5 ? "инсайта" : "инсайтов"}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-3">
+                  {inTheme.map((i) => (
+                    <InsightRow key={i.id} insight={i} max={maxMentions} />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+          {sorted.filter((i) => !i.theme).length > 0 && (
+            <section className="flex flex-col gap-3">
+              <div className="flex items-baseline justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-2">
+                <h2 className="text-[17px] font-semibold text-[var(--color-text-primary)]">Без темы</h2>
+                <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
+                  {sorted.filter((i) => !i.theme).length}
+                </span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {sorted.filter((i) => !i.theme).map((i) => (
+                  <InsightRow key={i.id} insight={i} max={maxMentions} />
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      ) : (
+        <Card>
+          <p className="text-[14px] text-[var(--color-text-secondary)]">
+            Качественный разбор для этого приложения ещё не запущен.
+          </p>
+        </Card>
+      )}
     </main>
   );
 }
