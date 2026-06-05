@@ -15,7 +15,7 @@ export default async function Home() {
   const cards = await getSegmentCards(locale);
 
   return (
-    <main className="mx-auto w-full max-w-4xl overflow-x-clip px-4 py-10">
+    <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       <Header
         size="L"
         as="h1"
