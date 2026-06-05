@@ -11,8 +11,9 @@ import { readFileSync, writeFileSync } from "node:fs";
 // Usage: npx tsx scripts/calm-filter.ts <productId>
 
 const PRODUCT_ID = process.argv[2];
+const DAYS = process.argv[3] ? Number(process.argv[3]) : null;
 if (!PRODUCT_ID) {
-  console.error("usage: calm-filter.ts <productId>");
+  console.error("usage: calm-filter.ts <productId> [days]");
   process.exit(1);
 }
 
@@ -49,6 +50,11 @@ function main() {
   const raw: Row[] = JSON.parse(readFileSync(`data/${PRODUCT_ID}-reviews.json`, "utf8"));
   console.log(`raw: ${raw.length}`);
 
+  const cutoff = DAYS ? Date.now() - DAYS * 86_400_000 : null;
+  if (cutoff) {
+    console.log(`time window: postedAt >= ${new Date(cutoff).toISOString().slice(0, 10)} (last ${DAYS} days)`);
+  }
+
   // Dedup by normalized text content. Reviews syndicated across countries
   // (same English text in us/gb/ca/au) collapse to one row. Keep the row with
   // the most metadata (rating, dated, longest title preferred).
@@ -56,6 +62,7 @@ function main() {
   for (const r of raw) {
     if (!r.text || r.text.trim().length < MIN_LEN) continue;
     if (looksPureNoise(r.text)) continue;
+    if (cutoff && (!r.postedAt || new Date(r.postedAt).getTime() < cutoff)) continue;
     const key = normText(r.text);
     const existing = byText.get(key);
     if (!existing) {
@@ -68,7 +75,7 @@ function main() {
   }
 
   const filtered = [...byText.values()];
-  console.log(`after dedup + min-length + noise filter: ${filtered.length}`);
+  console.log(`after dedup + min-length + noise filter${cutoff ? " + time window" : ""}: ${filtered.length}`);
 
   // Rating distribution after filter
   const by = [1, 2, 3, 4, 5].map((n) => ({ rating: n, count: filtered.filter((r) => r.rating === n).length }));

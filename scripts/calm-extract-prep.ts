@@ -9,11 +9,11 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
 // Usage: npx tsx scripts/calm-extract-prep.ts <productId> [batchSize] [sample]
 
 const PRODUCT_ID = process.argv[2];
-const BATCH_SIZE = Number(process.argv[3] ?? 30);
+const BATCH_SIZE = Number(process.argv[3] ?? 50);
 const SAMPLE = process.argv[4] ? Number(process.argv[4]) : null;
 
 if (!PRODUCT_ID) {
-  console.error("usage: calm-extract-prep.ts <productId> [batchSize=30] [sample=ALL]");
+  console.error("usage: calm-extract-prep.ts <productId> [batchSize=50] [sample=ALL]");
   process.exit(1);
 }
 
