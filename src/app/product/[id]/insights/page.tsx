@@ -84,73 +84,85 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
       </BackLink>
 
       <Card className="mb-6">
-        <div className="flex items-center gap-4">
-          {data.icon ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={data.icon} alt="" className="h-16 w-16 shrink-0 rounded-[var(--radius-lg)]" />
-          ) : (
-            <div className="h-16 w-16 shrink-0 rounded-[var(--radius-lg)] bg-[var(--color-surface-card-subtle)]" />
-          )}
-          <Header size="M" as="h1" className="min-w-0" title={data.name} description={metaLine} />
-        </div>
+        <div className="grid gap-6 sm:grid-cols-[1fr_280px]">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-4">
+              {data.icon ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={data.icon} alt="" className="h-16 w-16 shrink-0 rounded-[var(--radius-lg)]" />
+              ) : (
+                <div className="h-16 w-16 shrink-0 rounded-[var(--radius-lg)] bg-[var(--color-surface-card-subtle)]" />
+              )}
+              <Header size="M" as="h1" className="min-w-0" title={data.name} description={metaLine} />
+            </div>
 
-        {evidence.length > 0 && (
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-[var(--color-text-secondary)]">
-            {evidence.map((e, i) => (
-              <span key={i} className="tabular-nums">
-                {e}
-              </span>
-            ))}
+            {evidence.length > 0 && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-[var(--color-text-secondary)]">
+                {evidence.map((e, i) => (
+                  <span key={i} className="tabular-nums">
+                    {e}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-2">
+              {data.category && (
+                <Tag tone="brand" size="M">
+                  {categoryLabelL(locale, data.category)}
+                </Tag>
+              )}
+              {data.stores.map((st) => (
+                <Tag key={st} tone="neutral" size="M">
+                  {STORE_LABEL[st]}
+                </Tag>
+              ))}
+            </div>
+
+            {insights && (
+              <div className="text-[13px] text-[var(--color-text-secondary)]">
+                Просканировано{" "}
+                <span className="font-medium text-[var(--color-text-primary)] tabular-nums">
+                  {formatCount(insights.reviewsScanned)}
+                </span>{" "}
+                отзывов · размечено вручную как образец{" "}
+                <span className="font-medium text-[var(--color-text-primary)] tabular-nums">{insights.sampleSize}</span>
+              </div>
+            )}
           </div>
-        )}
 
-        <div className="flex flex-wrap gap-2">
-          {data.category && (
-            <Tag tone="brand" size="M">
-              {categoryLabelL(locale, data.category)}
-            </Tag>
+          {data.histogram && (
+            <div className="flex flex-col gap-2">
+              <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
+                {tr.product.ratingDist}
+              </span>
+              <Histogram hist={data.histogram} />
+            </div>
           )}
-          {data.stores.map((st) => (
-            <Tag key={st} tone="neutral" size="M">
-              {STORE_LABEL[st]}
-            </Tag>
-          ))}
         </div>
       </Card>
 
-      <div className="grid gap-6 lg:grid-cols-[1fr_340px]">
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-col gap-0.5">
-            <Header size="S" as="h2" title="Конкретные паттерны (β)" />
-            <p className="text-[13px] text-[var(--color-text-tertiary)]">
-              Извлечено из 1-5★ — конкретные механики, не теги категорий.
-              {insights && ` Sample: ${insights.sampleSize} из ${formatCount(insights.reviewsScanned)} отзывов.`}
-            </p>
+      <section className="flex flex-col gap-3">
+        <div className="flex flex-col gap-0.5">
+          <Header size="S" as="h2" title="Конкретные паттерны (β)" />
+          <p className="text-[13px] text-[var(--color-text-tertiary)]">
+            Извлечено из 1-5★ — конкретные механики, не теги категорий
+          </p>
+        </div>
+        {insights ? (
+          <div className="flex flex-col gap-3">
+            {sorted.map((i) => (
+              <InsightRow key={i.id} insight={i} max={maxMentions} />
+            ))}
           </div>
-          {insights ? (
-            <div className="flex flex-col gap-3">
-              {sorted.map((i) => (
-                <InsightRow key={i.id} insight={i} max={maxMentions} />
-              ))}
-            </div>
-          ) : (
-            <Card>
-              <p className="text-[14px] text-[var(--color-text-secondary)]">
-                Качественный разбор для этого приложения ещё не запущен.
-              </p>
-            </Card>
-          )}
-        </div>
-
-        <div className="flex flex-col gap-6">
-          {data.histogram && (
-            <Card>
-              <Header size="S" as="h2" title={tr.product.ratingDist} />
-              <Histogram hist={data.histogram} />
-            </Card>
-          )}
-        </div>
-      </div>
+        ) : (
+          <Card>
+            <p className="text-[14px] text-[var(--color-text-secondary)]">
+              Качественный разбор для этого приложения ещё не запущен.
+            </p>
+          </Card>
+        )}
+      </section>
     </main>
   );
 }
