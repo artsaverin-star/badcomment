@@ -1,0 +1,42 @@
+{
+  "_comment": "Copy this file to app-context/<slug>.json and fill in. See docs/INSIGHTS_PIPELINE.md for usage.",
+
+  "productId": "REPLACE-WITH-DB-PRODUCT-ID",
+  "slug": "headspace",
+  "name": "Headspace",
+  "domain": "медитация / mindfulness / сон",
+  "oneLiner": "медитация и осознанность, iOS+Android, основной конкурент Calm",
+  "pricing": "REPLACE: цены/тарифы — годовая, месячная, family, lifetime если есть",
+
+  "keyFeatures": [
+    "REPLACE: список основных продуктовых поверхностей",
+    "например: guided meditations, sleep sounds, focus music, courses"
+  ],
+
+  "competitors": [
+    "REPLACE: список конкурентов которые скорее всего будут упоминаться в отзывах"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": "REPLACE",
+      "trigger": "REPLACE: verbatim span из реального отзыва (короткий)",
+      "observation": "REPLACE: 1-2 предложения на русском, mechanism-level, что РЕАЛЬНО происходит",
+      "specificity": "high"
+    },
+    {
+      "_note": "Нужно 4-6 GOOD примеров, специфичных к продукту. Если их нет — берите из первых дней extract-прогона и переписывайте в плане «вот это GOOD»."
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}
