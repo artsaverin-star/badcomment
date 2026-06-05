@@ -125,41 +125,83 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
         </div>
       </Card>
 
+      {data.screenshots.length > 0 && (
+        <div className="-mx-4 mb-6 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-3">
+            {data.screenshots.map((src, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={i}
+                src={src}
+                alt=""
+                className="h-72 w-auto shrink-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] object-cover"
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
       {insights ? (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-2">
           {THEME_ORDER.map((theme) => {
             const inTheme = sorted.filter((i) => i.theme === theme);
             if (inTheme.length === 0) return null;
             return (
-              <section key={theme} className="flex flex-col gap-3">
-                <div className="flex items-baseline justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-2">
-                  <h2 className="text-[17px] font-semibold text-[var(--color-text-primary)]">{THEME_LABEL[theme]}</h2>
-                  <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
-                    {inTheme.length} {inTheme.length === 1 ? "инсайт" : inTheme.length < 5 ? "инсайта" : "инсайтов"}
+              <details
+                key={theme}
+                open
+                className="group overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]"
+              >
+                <summary className="flex cursor-pointer list-none items-baseline justify-between gap-3 px-3.5 py-2.5 [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-center gap-2">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open:rotate-90"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <h2 className="text-[14px] font-semibold text-[var(--color-text-primary)]">{THEME_LABEL[theme]}</h2>
                   </span>
-                </div>
-                <div className="flex flex-col gap-3">
+                  <span className="shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+                    {inTheme.length} {inTheme.length === 1 ? "инсайт" : inTheme.length >= 2 && inTheme.length <= 4 ? "инсайта" : "инсайтов"}
+                  </span>
+                </summary>
+                <div className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] p-2">
                   {inTheme.map((i) => (
                     <InsightRow key={i.id} insight={i} max={maxMentions} />
                   ))}
                 </div>
-              </section>
+              </details>
             );
           })}
           {sorted.filter((i) => !i.theme).length > 0 && (
-            <section className="flex flex-col gap-3">
-              <div className="flex items-baseline justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-2">
-                <h2 className="text-[17px] font-semibold text-[var(--color-text-primary)]">Без темы</h2>
-                <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
+            <details className="group overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
+              <summary className="flex cursor-pointer list-none items-baseline justify-between gap-3 px-3.5 py-2.5 [&::-webkit-details-marker]:hidden">
+                <span className="flex items-center gap-2">
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open:rotate-90"
+                    aria-hidden="true"
+                  >
+                    <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <h2 className="text-[14px] font-semibold text-[var(--color-text-primary)]">Без темы</h2>
+                </span>
+                <span className="shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
                   {sorted.filter((i) => !i.theme).length}
                 </span>
-              </div>
-              <div className="flex flex-col gap-3">
+              </summary>
+              <div className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] p-2">
                 {sorted.filter((i) => !i.theme).map((i) => (
                   <InsightRow key={i.id} insight={i} max={maxMentions} />
                 ))}
               </div>
-            </section>
+            </details>
           )}
         </div>
       ) : (

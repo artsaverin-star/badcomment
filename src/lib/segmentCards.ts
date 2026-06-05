@@ -2,6 +2,15 @@ import { prisma } from "./prisma";
 import { getSegments, getSegmentBySlug } from "./segments";
 import { getTaxonomy } from "./taxonomy";
 import type { Locale } from "./i18n";
+import themesData from "@/data/segment-insight-themes.json";
+
+// Segments with an authored insight-meta-themes mapping (qualitative-extraction
+// path), in addition to the classical taxonomy path.
+const INSIGHT_SEGMENTS = new Set(Object.keys(themesData as Record<string, unknown>));
+
+export function hasSegmentSignal(slug: string): boolean {
+  return getTaxonomy(slug) != null || INSIGHT_SEGMENTS.has(slug);
+}
 
 // The /market2 landing: one card per app segment, showing how much real review
 // signal sits behind it ("N reviews across M apps"). `classified` flags the few
@@ -36,9 +45,10 @@ export async function getSegmentCards(locale: Locale): Promise<SegmentCard[]> {
     ]),
   );
 
-  // Only the classified genres get a card — the rest aren't public yet.
+  // Only segments with real signal get a card — either a taxonomy (semantic
+  // classification) or an authored insight-meta-themes mapping (qualitative).
   const cards = segments
-    .filter((seg) => getTaxonomy(seg.slug) != null)
+    .filter((seg) => hasSegmentSignal(seg.slug))
     .map((seg): SegmentCard => {
       let appCount = 0;
       let reviewCount = 0;

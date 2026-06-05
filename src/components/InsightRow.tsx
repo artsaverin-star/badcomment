@@ -3,15 +3,13 @@
 import { useRef } from "react";
 import type { Insight } from "@/lib/insights";
 
-// Compact insight row in the same visual grammar as AppNeeds.NeedRow: title,
-// mention count, relative bar, click → modal with verbatim review(s). Metadata
-// (feature area, persona, trial path) is preserved in JSON for downstream use
-// but not surfaced on the row — keeps the page reading like the tag-aggregation
-// view.
+// Compact insight row: title + mention count, click → modal with the full
+// evidence (verbatim review quotes). Density tuned to match the segment
+// "Top problems" rhythm so the page scans like a list, not a feed.
 
 function Stars({ n }: { n: number }) {
   return (
-    <span className="tabular-nums text-[12px] text-[var(--color-text-tertiary)]">
+    <span className="tabular-nums text-[11px] text-[var(--color-text-tertiary)]">
       {"★".repeat(n)}
       {"☆".repeat(Math.max(0, 5 - n))}
     </span>
@@ -20,20 +18,19 @@ function Stars({ n }: { n: number }) {
 
 export default function InsightRow({ insight }: { insight: Insight; max: number }) {
   const ref = useRef<HTMLDialogElement>(null);
+  const count = insight.observationCount ?? insight.evidence.length;
+  const word = count === 1 ? "наблюдение" : count >= 2 && count <= 4 ? "наблюдения" : "наблюдений";
 
   return (
     <>
       <button
         type="button"
         onClick={() => ref.current?.showModal()}
-        className="flex w-full flex-col gap-1 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
+        className="flex w-full items-baseline justify-between gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
       >
-        <span className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-          <span className="text-[15px] font-semibold text-[var(--color-text-primary)]">{insight.title}</span>
-          <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
-            {insight.observationCount ?? insight.evidence.length}{" "}
-            {(insight.observationCount ?? insight.evidence.length) === 1 ? "наблюдение" : "наблюдений"}
-          </span>
+        <span className="text-[13px] leading-[18px] text-[var(--color-text-primary)]">{insight.title}</span>
+        <span className="shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+          {count} {word}
         </span>
       </button>
 

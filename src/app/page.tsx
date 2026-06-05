@@ -4,11 +4,14 @@ import { Header } from "@saverin/ui-web";
 import { getNeedsGap } from "@/lib/needsGap";
 import { getSegmentCards, getSegmentApps } from "@/lib/segmentCards";
 import { getSegmentBySlug } from "@/lib/segments";
+import { getSegmentInsights } from "@/lib/segmentInsights";
+import { prisma } from "@/lib/prisma";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import NeedsGap from "@/components/NeedsGap";
 import SegmentCards from "@/components/SegmentCards";
 import SegmentApps from "@/components/SegmentApps";
+import SegmentInsightGap from "@/components/SegmentInsightGap";
 
 export const dynamic = "force-dynamic";
 
@@ -47,6 +50,21 @@ export default async function Home({
 
   const [view, apps] = await Promise.all([getNeedsGap(seg, locale), getSegmentApps(seg, locale)]);
 
+  // Qualitative-extraction path: if the segment has an authored insight-meta-
+  // themes mapping, render the cross-app insight aggregation instead of the
+  // taxonomy-based stub. Names + icons for the per-theme expanded view come
+  // from the DB (insights.json has only productIds).
+  let insightView = null;
+  if (!view) {
+    const products = await prisma.product.findMany({
+      where: { id: { in: segment.appIds } },
+      select: { id: true, name: true, icon: true },
+    });
+    const nameById = new Map(products.map((p) => [p.id, p.name]));
+    const iconById = new Map(products.map((p) => [p.id, p.icon]));
+    insightView = getSegmentInsights(seg, segment.appIds, nameById, iconById);
+  }
+
   return (
     <main className="mx-auto w-full max-w-[640px] overflow-x-clip px-4 py-6">
       <div className="mb-4">
@@ -69,6 +87,8 @@ export default async function Home({
 
       {view ? (
         <NeedsGap view={view} locale={locale} />
+      ) : insightView ? (
+        <SegmentInsightGap view={insightView} />
       ) : (
         <div className="mt-8 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-8 text-center">
           <Header size="S" as="h2" className="items-center" title={tr.market2.stubHeading} />
