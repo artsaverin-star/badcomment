@@ -1,0 +1,39 @@
+{
+  "productId": "cmpsyvyap23y9ughv6v5ezi34",
+  "slug": "sleepwatch",
+  "name": "SleepWatch",
+  "domain": "трекинг сна / Apple Watch",
+  "oneLiner": "трекер сна для Apple Watch с аналитикой сердечного ритма и циклов сна, iOS",
+  "pricing": "freemium + ~$20/year Premium",
+  "keyFeatures": [
+    "automatic sleep tracking via Apple Watch",
+    "sleep stages analysis (light/deep/REM estimate)",
+    "heart rate variability during sleep",
+    "sleep consistency score",
+    "readiness score",
+    "blood oxygen tracking",
+    "Apple Health integration",
+    "weekly/monthly trends"
+  ],
+  "competitors": ["AutoSleep", "Pillow", "Sleep Cycle", "RISE", "Oura"],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "it only detects sleep if I wear the watch the whole night",
+      "observation": "Трекер не определяет сон если Watch снимается ночью хотя бы на час — нет возможности вручную отметить время сна или объединить несколько отрезков",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the readiness score contradicts Apple Health data",
+      "observation": "Оценка готовности SleepWatch расходится с данными Apple Health о том же сне — пользователь не понимает которому источнику доверять, алгоритм не объяснён",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says SleepWatch is too expensive (commodity)",
+    "User loves the data (non-information)",
+    "Hard to cancel subscription (commodity unless specific friction)",
+    "Battery drain (commodity unless specific Watch model/scenario)"
+  ]
+}

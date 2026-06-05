@@ -12,6 +12,7 @@ if (!SLUG) {
   console.error("usage: app-extract-prep.ts <slug> [batchSize=50] [sample=ALL]");
   process.exit(1);
 }
+// Per-product subdirectory so multiple apps can coexist in extract/in/
 
 const contextPath = `app-context/${SLUG}.json`;
 if (!existsSync(contextPath)) {
@@ -36,7 +37,7 @@ const ctx = JSON.parse(readFileSync(contextPath, "utf8")) as {
   badObservationExamples: string[];
 };
 const PRODUCT_ID = ctx.productId;
-const IN_DIR = "extract/in";
+const IN_DIR = `extract/in/${PRODUCT_ID}`;
 
 type Row = {
   externalId: string;
@@ -147,7 +148,7 @@ function main() {
   }
 
   writeFileSync(
-    `extract/manifest.json`,
+    `${IN_DIR}/manifest.json`,
     JSON.stringify(
       { productId: PRODUCT_ID, app: ctx.name, totalReviews: pool.length, batches: batchNum, batchSize: BATCH_SIZE },
       null,

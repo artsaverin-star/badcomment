@@ -1,0 +1,50 @@
+{
+  "productId": "cmpsta3270pfjug8pulfwmw09",
+  "slug": "alarmy",
+  "name": "Alarmy",
+  "domain": "будильник / утренние ритуалы / пробуждение",
+  "oneLiner": "будильник с миссиями для тяжелопросыпающихся (фото, задачи, QR-код), iOS+Android",
+  "pricing": "freemium + ~$30/year Premium, отдельные миссии платные",
+  "keyFeatures": [
+    "alarm with missions to dismiss (photo spot, math, shake, QR/barcode)",
+    "gradual volume increase",
+    "sleep tracking",
+    "weather on alarm screen",
+    "challenge missions (squats, steps)",
+    "Alarmy Stories (sleep audio)",
+    "widget support"
+  ],
+  "competitors": ["Clock (system)", "Sleep Cycle", "I Can't Wake Up", "Galarm", "BetterSleep"],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the photo mission stopped recognizing my registered photo",
+      "observation": "Миссия «сфотографировать точку» перестала распознавать зарегистрированное место — будильник нельзя выключить без перенастройки, пользователь не смог выйти из аларма",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "alarm didn't go off when the phone was on silent",
+      "observation": "Будильник не срабатывает в режиме «беззвучный» или «не беспокоить» — системное разрешение на переопределение DND не запрошено или не сохранено после обновления",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the free missions are behind a subscription now",
+      "observation": "Миссии, ранее доступные бесплатно (математика, встряхивание), переехали в Premium — ключевая дифференцирующая функция продукта оказалась за платным барьером",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "keeps crashing before the alarm time",
+      "observation": "Приложение падает в фоне до срабатывания будильника — на некоторых Android-устройствах система убивает процесс, и алармы не срабатывают вовремя",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says Alarmy is too expensive (commodity)",
+    "User loves the missions (non-information)",
+    "Hard to cancel subscription (commodity unless specific friction)",
+    "Too many notifications (commodity)"
+  ]
+}

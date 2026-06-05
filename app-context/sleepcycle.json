@@ -1,0 +1,52 @@
+{
+  "productId": "cmpsysgvm1wpvughvnwye3jom",
+  "slug": "sleepcycle",
+  "name": "Sleep Cycle",
+  "domain": "сон / sleep tracking / smart alarm",
+  "oneLiner": "умный будильник и трекер сна, просыпается в лёгкую фазу, iOS+Android",
+  "pricing": "freemium + ~$30/year Premium, 7-day trial",
+  "keyFeatures": [
+    "sleep tracking (microphone/accelerometer)",
+    "smart alarm (wakes in light sleep phase)",
+    "sleep quality graphs and trends",
+    "snore detection",
+    "sleep notes (caffeine, exercise, mood)",
+    "sleep aid sounds",
+    "heart rate monitoring",
+    "Apple Health / Google Fit integration"
+  ],
+  "competitors": ["SleepWatch", "AutoSleep", "Pillow", "RISE", "Oura", "Fitbit", "Whoop"],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the alarm went off 30 minutes early",
+      "observation": "Умный будильник сработал на 30 минут раньше заданного времени — алгоритм определил «лёгкую фазу» слишком рано, разбудив пользователя задолго до нужного времени",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it recorded me as awake all night",
+      "observation": "Sleep tracking зафиксировал всю ночь как «бодрствование» — пользователь спал нормально, но алгоритм по микрофону не смог отличить тихий сон от бодрствования",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "stopped syncing with Apple Health after the update",
+      "observation": "После обновления прекратилась синхронизация с Apple Health — данные о сне перестали поступать в Health-приложение, нарушив общую картину здоровья",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "microphone kept the phone hot all night",
+      "observation": "Постоянная запись через микрофон перегревает телефон и разряжает батарею за ночь — трекинг сна несовместим с зарядкой от слабого зарядника",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says Sleep Cycle is too expensive (commodity)",
+    "User says the app crashed (no mechanism)",
+    "User loves the app (non-information)",
+    "Hard to cancel subscription (commodity unless specific friction)",
+    "App uses too much battery (commodity unless tied to specific feature)"
+  ]
+}

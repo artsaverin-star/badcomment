@@ -1,0 +1,60 @@
+{
+  "productId": "cmpstya2j25mnug8pu6hduhdd",
+  "slug": "headspace",
+  "name": "Headspace",
+  "domain": "медитация / mindfulness / сон",
+  "oneLiner": "медитация, осознанность и сон, iOS+Android, главный конкурент Calm",
+  "pricing": "~$70/year Premium, 7-day free trial, student discount ~$10/year",
+  "keyFeatures": [
+    "guided meditations",
+    "sleepcasts (sleep audio stories)",
+    "focus music",
+    "move (yoga/stretching)",
+    "wind-down exercises",
+    "daily mindfulness reminders",
+    "Headspace for Work (B2B)",
+    "kids content"
+  ],
+  "competitors": ["Calm", "Insight Timer", "Balance", "Ten Percent Happier", "Waking Up", "Aura"],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "my streak was gone after the update",
+      "observation": "После обновления история прогресса и страйки обнулились — долгосрочные пользователи потеряли мотивационные метрики, которые формировали привычку",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "charged me after I cancelled during the trial",
+      "observation": "Списание произошло несмотря на отмену в период trial — пользователь утверждает, что отменил подписку в срок, но деньги были сняты; поддержка не ответила",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "can't download for offline without premium",
+      "observation": "Офлайн-загрузка медитаций заблокирована для freemium — пользователь использовал приложение в самолёте и обнаружил что весь контент требует сети",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the meditation I do every morning disappeared",
+      "observation": "Конкретная медитация которую пользователь использовал ежедневно исчезла из библиотеки без предупреждения — bait-and-switch на привычном контенте",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "keeps asking me to upgrade on every screen",
+      "observation": "Каждый экран приложения содержит upsell-попапы на Premium — пользователь бесплатного тарифа не может открыть раздел без предложения купить подписку",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says Headspace is too expensive (commodity)",
+    "User says the app crashed (no mechanism, no when, no what)",
+    "User loves Headspace (non-information)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken (commodity unless reproducible mechanism with device/timing)"
+  ]
+}
