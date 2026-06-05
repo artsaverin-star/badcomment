@@ -9,7 +9,7 @@ import {
 import { productSlug, productName } from "./match";
 import { tagThemes, tagLoved } from "./themes";
 
-export const NEGATIVE_MAX_RATING = 2;
+export const NEGATIVE_MAX_RATING = 3;
 export const POSITIVE_MIN_RATING = 4;
 export const POSITIVE_SAMPLE_MAX = 50;
 
