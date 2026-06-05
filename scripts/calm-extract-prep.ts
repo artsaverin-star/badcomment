@@ -79,6 +79,8 @@ BAD examples — DO NOT emit (return empty observations):
 - "Hard to cancel." → commodity unless they describe the specific friction flow.
 - "App is good for sleep." → non-information.
 - "Calm helped my anxiety." → non-information (good for them, but no product insight).
+- "Won't let me sign in." / "Login broken." / "Feature X doesn't work for me." → commodity unless they describe a reproducible mechanism (when, after what, on which device/version).
+- "Uses too much battery." → commodity unless tied to a specific scenario (e.g., "Sleep Stories running overnight keep the screen on / drain 40% by morning").
 
 EDGE CASES
 - A review may yield 2-3 distinct observations if it touches multiple things. Emit each separately. Don't combine.
@@ -92,10 +94,13 @@ META SIGNALS (extract if discernible from the text)
 - persona.tenure: "years" | "year+" | "months" | "weeks" | "trial" | "first-day" | null
 - persona.primary_use: "sleep" | "anxiety" | "meditation" | "kids" | "ambient" | "stress" | "other" | null
 - persona.engagement: "power" | "regular" | "casual" | "lapsed" | "evaluating" | null
+- persona.trial_path: "pre-trial" | "mid-trial" | "post-trial-charged" | "post-cancel" | "lifetime-buyer" | "subscribed-after-trial" | null  (conversion-stage signal; null if not discernible)
 - competitor_mentions: array of {name, context_quote}
 - emotional_tone: "rage" | "disappointment" | "regret" | "wistful" | "matter-of-fact" | "enthusiastic" | "calm" | null
 
 If you can't tell a signal from the text, use null. Do not guess.
+
+PERSONA-ONLY EMISSIONS ARE VALID. Many 5★ reviews ("On my phone for years, predominately for sleep") give zero product observations but rich persona data. That's a useful outcome — emit the persona, leave observations empty, move on. Don't fabricate an observation just because persona is rich.
 
 OUTPUT SCHEMA (one JSON object, no prose, no markdown fences)
 
