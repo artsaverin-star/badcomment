@@ -58,7 +58,7 @@ export default async function Home({
   });
   const nameById = new Map(products.map((p) => [p.id, p.name]));
   const iconById = new Map(products.map((p) => [p.id, p.icon]));
-  const insightView = getSegmentInsights(seg, segment.appIds, nameById, iconById);
+  const insightView = getSegmentInsights(seg, segment.appIds, nameById, iconById, locale);
 
   const [view, apps] = await Promise.all([
     insightView ? Promise.resolve(null) : getNeedsGap(seg, locale),

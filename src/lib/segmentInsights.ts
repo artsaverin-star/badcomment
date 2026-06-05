@@ -2,6 +2,7 @@ import insightsData from "@/data/insights.json";
 import themesData from "@/data/segment-insight-themes.json";
 import sleepMappings from "@/data/segment-meta-sleep-meditation.json";
 import type { ProductInsights } from "./insights";
+import type { Locale } from "./i18n";
 
 // Cross-app aggregation: read the per-product insights, the segment's authored
 // meta-themes, and the agent-assigned mapping from insight → meta-theme, and
@@ -13,8 +14,9 @@ import type { ProductInsights } from "./insights";
 // reads the same whether the underlying signal is semantic-classified reviews
 // or qualitative-extracted insights.
 
-type ThemeDef = { key: string; label: string; desc: string };
-type SegmentThemes = { name: string; themes: ThemeDef[] };
+type LangBlock = { label: string; desc: string };
+type ThemeDef = { key: string; ru: LangBlock; en: LangBlock };
+type SegmentThemes = { name: { ru: string; en: string }; themes: ThemeDef[] };
 type MappingFile = { mappings: Record<string, string | null> };
 
 const THEMES = themesData as Record<string, SegmentThemes>;
@@ -56,6 +58,7 @@ export function getSegmentInsights(
   appIds: string[],
   appNameById: Map<string, string> = new Map(),
   appIconById: Map<string, string | null> = new Map(),
+  locale: Locale = "ru",
 ): SegmentInsightsView | null {
   const segThemes = THEMES[slug];
   const mappings = MAPPINGS[slug];
@@ -123,10 +126,11 @@ export function getSegmentInsights(
       }))
       .sort((a, b) => b.mentions - a.mentions);
     const mentions = apps.reduce((s, a) => s + a.mentions, 0);
+    const block = locale === "en" ? td.en : td.ru;
     return {
       key: td.key,
-      label: td.label,
-      desc: td.desc,
+      label: block.label,
+      desc: block.desc,
       failApps: fMap.size,
       totalApps,
       mentions,
@@ -139,7 +143,7 @@ export function getSegmentInsights(
 
   return {
     slug,
-    segmentName: segThemes.name,
+    segmentName: locale === "en" ? segThemes.name.en : segThemes.name.ru,
     themes,
     maxFail,
     reviewsScanned,
