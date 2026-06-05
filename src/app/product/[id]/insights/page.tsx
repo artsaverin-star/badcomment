@@ -66,9 +66,6 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
     data.avgRating != null ? `★ ${data.avgRating.toFixed(1)}` : null,
     data.installs != null ? tr.marketDash.mInstalls(formatCount(data.installs)) : null,
     data.ratingCount != null ? tr.product.ratingsScale(formatCount(data.ratingCount)) : null,
-    data.dateFrom && data.dateTo
-      ? tr.product.reviewSpan(fmtMonth(data.dateFrom, locale), fmtMonth(data.dateTo, locale))
-      : null,
   ].filter(Boolean);
 
   const maxMentions = Math.max(1, ...(insights?.insights.map((i) => i.evidence.length) ?? [1]));
@@ -124,7 +121,7 @@ export default async function ProductInsightsPage({ params }: { params: Promise<
           {insights && (
             <div className="flex flex-col gap-2">
               <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
-                Просканировано {formatCount(insights.reviewsScanned)} отзывов
+                Просканировано {formatCount(insights.reviewsScanned)} отзывов за последние 3 месяца
               </span>
               <Histogram hist={insights.ratingBreakdown} />
             </div>
