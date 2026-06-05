@@ -2557,6 +2557,3025 @@ export const TAXONOMIES: Record<string, GenreTaxonomy> = {
       },
     ],
   },
+
+  "food-delivery": {
+    slug: "food-delivery",
+    version: "food-delivery-1",
+    en: "Food Delivery Apps",
+    ru: "Приложения доставки еды",
+    needs: [
+      {
+        key: "delivery-speed",
+        en: "Order arrives late or never",
+        ru: "Заказ приходит поздно или не приходит совсем",
+        forks: [
+          { key: "delivery-speed.no-show", en: "Driver marked delivered but nothing arrived", ru: "Курьер отметил «доставлено», но ничего нет" },
+          { key: "delivery-speed.extreme-delay", en: "Order delayed 1+ hours beyond estimate", ru: "Заказ опаздывает на час и больше" },
+        ],
+      },
+      {
+        key: "missing-items",
+        en: "Wrong or missing items in order",
+        ru: "В заказе не то или чего-то не хватает",
+        forks: [
+          { key: "missing-items.wrong-order", en: "Completely wrong order delivered", ru: "Привезли чужой заказ" },
+          { key: "missing-items.partial", en: "Items missing from the bag", ru: "Часть позиций отсутствует в пакете" },
+        ],
+      },
+      {
+        key: "refund-support",
+        en: "No refund for bad or missing orders",
+        ru: "Не возвращают деньги за плохой или неполный заказ",
+        forks: [
+          { key: "refund-support.auto-denied", en: "Refund request automatically denied", ru: "Заявка на возврат автоматически отклонена" },
+          { key: "refund-support.no-human", en: "Can't reach a human agent", ru: "Невозможно дозвониться до живого оператора" },
+        ],
+      },
+      {
+        key: "driver-issues",
+        en: "Rude, late or unsafe drivers",
+        ru: "Грубые, опаздывающие или опасные курьеры",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Wrong charges or hidden fees",
+        ru: "Списали не ту сумму или неожиданные комиссии",
+        forks: [
+          { key: "billing.double-charged", en: "Charged twice for the same order", ru: "Списали дважды за один заказ" },
+          { key: "billing.hidden-fees", en: "Service fees revealed only at checkout", ru: "Сервисный сбор появляется только при оформлении" },
+        ],
+      },
+      {
+        key: "ads",
+        en: "Push notification spam and upsell",
+        ru: "Спам-уведомления и навязчивые предложения",
+        forks: [],
+      },
+    ],
+  },
+
+  "fast-food-chains": {
+    slug: "fast-food-chains",
+    version: "fast-food-chains-1",
+    en: "Fast Food Chain Apps",
+    ru: "Приложения сетей быстрого питания",
+    needs: [
+      {
+        key: "order-errors",
+        en: "Wrong order placed through app",
+        ru: "Через приложение оформился неправильный заказ",
+        forks: [
+          { key: "order-errors.cant-modify", en: "Can't edit or cancel after placing", ru: "Нельзя изменить или отменить после оформления" },
+        ],
+      },
+      {
+        key: "rewards-loyalty",
+        en: "Broken points and coupons",
+        ru: "Баллы и купоны не работают",
+        forks: [
+          { key: "rewards-loyalty.points-missing", en: "Points not credited after purchase", ru: "Баллы не начислились после покупки" },
+          { key: "rewards-loyalty.coupon-invalid", en: "Coupon rejected at checkout", ru: "Купон отклоняется при оплате" },
+        ],
+      },
+      {
+        key: "app-crashes",
+        en: "App doesn't open or crashes on launch",
+        ru: "Приложение не открывается или вылетает при запуске",
+        forks: [],
+      },
+      {
+        key: "payment",
+        en: "Payment fails at checkout",
+        ru: "Оплата не проходит при оформлении",
+        forks: [],
+      },
+      {
+        key: "availability",
+        en: "Items shown as available but unavailable in store",
+        ru: "Товары показаны как доступные, но в ресторане их нет",
+        forks: [],
+      },
+      {
+        key: "kiosk-pickup",
+        en: "Staff can't find mobile order at counter",
+        ru: "Персонал не находит мобильный заказ на кассе",
+        forks: [],
+      },
+    ],
+  },
+
+  "restaurant-discovery": {
+    slug: "restaurant-discovery",
+    version: "restaurant-discovery-1",
+    en: "Restaurant Discovery & Review Apps",
+    ru: "Приложения поиска ресторанов",
+    needs: [
+      {
+        key: "fake-reviews",
+        en: "Businesses gaming ratings with fake reviews",
+        ru: "Рестораны накручивают рейтинг поддельными отзывами",
+        forks: [
+          { key: "fake-reviews.paid-removal", en: "Bad reviews removed after payment", ru: "Плохие отзывы удаляются после оплаты ресторану" },
+        ],
+      },
+      {
+        key: "paywall",
+        en: "Useful results hidden behind paywall",
+        ru: "Полезные результаты спрятаны за платным доступом",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Too many ads obscuring results",
+        ru: "Слишком много рекламы — результаты теряются",
+        forks: [],
+      },
+      {
+        key: "listing-accuracy",
+        en: "Wrong hours, menus or addresses",
+        ru: "Неверное время работы, меню или адрес",
+        forks: [
+          { key: "listing-accuracy.closed", en: "Restaurant shown as open but is closed", ru: "Заведение помечено открытым, но оно закрыто" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "App crashes or fails to load",
+        ru: "Приложение вылетает или не загружается",
+        forks: [],
+      },
+    ],
+  },
+
+  "job-search": {
+    slug: "job-search",
+    version: "job-search-1",
+    en: "Job Search Apps",
+    ru: "Приложения поиска работы",
+    needs: [
+      {
+        key: "fake-jobs",
+        en: "Scam or ghost job listings",
+        ru: "Фиктивные вакансии и вакансии-призраки",
+        forks: [
+          { key: "fake-jobs.scam", en: "Listing is a phishing or payment scam", ru: "Вакансия — фишинг или вымогательство денег" },
+          { key: "fake-jobs.already-filled", en: "Job listed but position already filled", ru: "Вакансия опубликована, но место уже занято" },
+        ],
+      },
+      {
+        key: "spam-outreach",
+        en: "Irrelevant recruiter spam and no responses",
+        ru: "Спам от рекрутеров и отсутствие ответов",
+        forks: [
+          { key: "spam-outreach.ghosted", en: "Applied but never heard back", ru: "Откликнулся, но ответа нет" },
+        ],
+      },
+      {
+        key: "paywall",
+        en: "Visibility boost requires payment",
+        ru: "Чтобы вакансии видели — нужно платить",
+        forks: [],
+      },
+      {
+        key: "data-privacy",
+        en: "Personal data sold to recruiters",
+        ru: "Личные данные продаются рекрутерам",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App broken or won't load listings",
+        ru: "Приложение сломано или вакансии не загружаются",
+        forks: [],
+      },
+    ],
+  },
+
+  "hr-workforce": {
+    slug: "hr-workforce",
+    version: "hr-workforce-1",
+    en: "HR & Workforce Management Apps",
+    ru: "Приложения HR и управления персоналом",
+    needs: [
+      {
+        key: "clock-in-broken",
+        en: "Can't punch in or out",
+        ru: "Не удаётся отметить приход или уход",
+        forks: [
+          { key: "clock-in-broken.gps-fail", en: "GPS check-in fails at the workplace", ru: "GPS-отметка не срабатывает на рабочем месте" },
+          { key: "clock-in-broken.no-load", en: "Clock screen won't load", ru: "Экран отметки не загружается" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "App crashes constantly",
+        ru: "Приложение постоянно падает",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes when opening or mid-action", ru: "Вылетает при открытии или в процессе работы" },
+        ],
+      },
+      {
+        key: "payroll-errors",
+        en: "Wrong pay or hours recorded",
+        ru: "Неверно записаны часы или начислена зарплата",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "IT and vendor support ignores issues",
+        ru: "IT и поддержка вендора игнорируют проблемы",
+        forks: [],
+      },
+      {
+        key: "performance",
+        en: "Extremely slow, unusable on shift",
+        ru: "Очень медленное, невозможно пользоваться в смену",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Unexpected price hikes for employer plan",
+        ru: "Неожиданные повышения цен на корпоративный тариф",
+        forks: [],
+      },
+    ],
+  },
+
+  "accounting-software": {
+    slug: "accounting-software",
+    version: "accounting-software-1",
+    en: "Small Business Accounting Apps",
+    ru: "Бухгалтерские приложения для бизнеса",
+    needs: [
+      {
+        key: "billing",
+        en: "Surprise price hikes and forced upgrades",
+        ru: "Неожиданные повышения цен и принудительные апгрейды",
+        forks: [
+          { key: "billing.price-hike", en: "Price raised without notice", ru: "Цена повышена без предупреждения" },
+          { key: "billing.cant-cancel", en: "Hard to cancel subscription", ru: "Подписку трудно отменить" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "Syncing fails and data is lost",
+        ru: "Синхронизация ломается и данные теряются",
+        forks: [
+          { key: "reliability.crashes", en: "App crashes during data entry", ru: "Приложение падает при вводе данных" },
+        ],
+      },
+      {
+        key: "support",
+        en: "Chatbots replaced real support",
+        ru: "Живую поддержку заменили чат-боты",
+        forks: [],
+      },
+      {
+        key: "features-removed",
+        en: "Features moved to a paid tier",
+        ru: "Функции перенесены на платный тариф",
+        forks: [],
+      },
+      {
+        key: "data-sync",
+        en: "Bank feeds break and require manual fix",
+        ru: "Банковские фиды ломаются и требуют ручного исправления",
+        forks: [],
+      },
+      {
+        key: "subscription",
+        en: "Basic features locked behind subscription",
+        ru: "Базовые функции заперты за подпиской",
+        forks: [],
+      },
+    ],
+  },
+
+  "video-conferencing": {
+    slug: "video-conferencing",
+    version: "video-conferencing-1",
+    en: "Video Conferencing Apps",
+    ru: "Приложения для видеоконференций",
+    needs: [
+      {
+        key: "reliability",
+        en: "Drops, freezes and disconnects",
+        ru: "Обрывы, зависания и разрывы соединения",
+        forks: [
+          { key: "reliability.audio", en: "Audio drops out mid-call", ru: "Звук пропадает в середине звонка" },
+          { key: "reliability.video", en: "Video freezes or turns black", ru: "Видео зависает или чернеет" },
+          { key: "reliability.disconnects", en: "Kicked out of call without warning", ru: "Выбрасывает из звонка без предупреждения" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Forced upgrade to continue a meeting",
+        ru: "Принудительный апгрейд для продолжения встречи",
+        forks: [
+          { key: "billing.time-limit", en: "Meeting cut off at free tier time limit", ru: "Встреча обрывается по лимиту бесплатного тарифа" },
+        ],
+      },
+      {
+        key: "performance",
+        en: "Lags on reasonable hardware",
+        ru: "Тормозит на нормальном железе",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Support unresponsive for enterprise issues",
+        ru: "Поддержка не отвечает на корпоративные проблемы",
+        forks: [],
+      },
+    ],
+  },
+
+  "logistics-courier": {
+    slug: "logistics-courier",
+    version: "logistics-courier-1",
+    en: "Shipping & Logistics Apps",
+    ru: "Приложения логистики и доставки",
+    needs: [
+      {
+        key: "tracking-accuracy",
+        en: "Location stale or completely wrong",
+        ru: "Местоположение устарело или полностью неверно",
+        forks: [
+          { key: "tracking-accuracy.stuck", en: "Tracking shows same status for days", ru: "Статус не меняется несколько дней" },
+        ],
+      },
+      {
+        key: "notifications",
+        en: "No alerts when parcel is out for delivery",
+        ru: "Нет уведомлений, когда посылка уже едет",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App doesn't load or crashes",
+        ru: "Приложение не загружается или падает",
+        forks: [],
+      },
+      {
+        key: "delivery-issues",
+        en: "Packages lost or damaged",
+        ru: "Посылки теряются или приходят повреждёнными",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Billing disputes with no resolution",
+        ru: "Споры по счетам без решения",
+        forks: [],
+      },
+    ],
+  },
+
+  "streaming-video": {
+    slug: "streaming-video",
+    version: "streaming-video-1",
+    en: "Video Streaming Services",
+    ru: "Видеостриминговые сервисы",
+    needs: [
+      {
+        key: "billing",
+        en: "Surprise charges and price hikes",
+        ru: "Неожиданные списания и повышение цен",
+        forks: [
+          { key: "billing.price-hike", en: "Price raised without adequate notice", ru: "Цена повышена без нормального предупреждения" },
+          { key: "billing.charged-after-cancel", en: "Charged after cancelling subscription", ru: "Списали деньги после отмены подписки" },
+        ],
+      },
+      {
+        key: "content-removed",
+        en: "Shows and movies disappear without warning",
+        ru: "Сериалы и фильмы исчезают без предупреждения",
+        forks: [],
+      },
+      {
+        key: "streaming-quality",
+        en: "Constant buffering and low video quality",
+        ru: "Постоянные буферизации и низкое качество видео",
+        forks: [
+          { key: "streaming-quality.buffering", en: "Buffers every few minutes", ru: "Буферизация каждые несколько минут" },
+          { key: "streaming-quality.forced-low", en: "Forced to low resolution despite fast connection", ru: "Принудительно низкое разрешение при быстром интернете" },
+        ],
+      },
+      {
+        key: "offline-download",
+        en: "Downloaded content disappears or won't play",
+        ru: "Скачанный контент исчезает или не воспроизводится",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Excessive or unskippable ads",
+        ru: "Слишком много рекламы или её нельзя пропустить",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes or login fails",
+        ru: "Приложение вылетает или не удаётся войти",
+        forks: [],
+      },
+    ],
+  },
+
+  "short-drama-apps": {
+    slug: "short-drama-apps",
+    version: "short-drama-apps-1",
+    en: "Short Drama & Reel Series Apps",
+    ru: "Приложения коротких сериалов",
+    needs: [
+      {
+        key: "paywall",
+        en: "Pay per episode to continue watching",
+        ru: "Каждый эпизод нужно оплачивать отдельно",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged immediately after starting trial",
+        ru: "Деньги списываются сразу после начала пробного периода",
+        forks: [
+          { key: "billing.charged-trial", en: "Trial charge appeared before trial ended", ru: "Списание произошло до окончания пробного периода" },
+        ],
+      },
+      {
+        key: "content-quality",
+        en: "Badly dubbed or low production quality",
+        ru: "Плохая озвучка или низкое качество производства",
+        forks: [],
+      },
+      {
+        key: "cliffhanger-paywall",
+        en: "Forced to pay mid-episode at cliffhanger",
+        ru: "Приходится платить в середине эпизода на самом интересном месте",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Ad interruptions between every scene",
+        ru: "Реклама прерывает каждую сцену",
+        forks: [],
+      },
+    ],
+  },
+
+  "live-streaming-apps": {
+    slug: "live-streaming-apps",
+    version: "live-streaming-apps-1",
+    en: "Live Streaming Apps",
+    ru: "Приложения прямых трансляций",
+    needs: [
+      {
+        key: "moderation",
+        en: "Harassment and NSFW content not moderated",
+        ru: "Домогательства и неприемлемый контент не модерируются",
+        forks: [],
+      },
+      {
+        key: "account-banned",
+        en: "Account wrongfully banned",
+        ru: "Аккаунт заблокирован без причины",
+        forks: [
+          { key: "account-banned.no-reason", en: "Banned with no explanation given", ru: "Заблокировали без каких-либо объяснений" },
+          { key: "account-banned.no-appeal", en: "No way to appeal the ban", ru: "Невозможно обжаловать блокировку" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Gifts and coins feel like a scam",
+        ru: "Подарки и монеты ощущаются как мошенничество",
+        forks: [],
+      },
+      {
+        key: "fake-profiles",
+        en: "Bots flood chats and streams",
+        ru: "Боты заполняют чаты и трансляции",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Too many ads interrupting streams",
+        ru: "Слишком много рекламы, прерывающей трансляции",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Stream drops or app crashes",
+        ru: "Трансляция прерывается или приложение падает",
+        forks: [],
+      },
+    ],
+  },
+
+  "ticketing-events": {
+    slug: "ticketing-events",
+    version: "ticketing-events-1",
+    en: "Event Ticketing Apps",
+    ru: "Приложения продажи билетов на события",
+    needs: [
+      {
+        key: "hidden-fees",
+        en: "Service fees revealed only at final checkout",
+        ru: "Сервисный сбор появляется только на последнем шаге оплаты",
+        forks: [],
+      },
+      {
+        key: "ticket-delivery",
+        en: "Tickets don't arrive or can't be found",
+        ru: "Билеты не приходят или их не удаётся найти",
+        forks: [],
+      },
+      {
+        key: "payment-fails",
+        en: "Payment repeatedly fails during checkout",
+        ru: "Оплата раз за разом не проходит",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged twice or refund refused",
+        ru: "Списали дважды или отказали в возврате",
+        forks: [
+          { key: "billing.double-charge", en: "Charged twice for same tickets", ru: "За одни билеты списали дважды" },
+          { key: "billing.no-refund", en: "Refund refused for cancelled event", ru: "Отказали в возврате за отменённое мероприятие" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during high-demand checkout",
+        ru: "Приложение падает при ажиотажной продаже",
+        forks: [],
+      },
+      {
+        key: "scalpers-bots",
+        en: "Tickets sold out to bots instantly",
+        ru: "Билеты моментально скупают боты",
+        forks: [],
+      },
+    ],
+  },
+
+  "messaging-apps": {
+    slug: "messaging-apps",
+    version: "messaging-apps-1",
+    en: "Messaging & Chat Apps",
+    ru: "Приложения для мессенджеров",
+    needs: [
+      {
+        key: "reliability",
+        en: "Messages not delivered",
+        ru: "Сообщения не доставляются",
+        forks: [
+          { key: "reliability.messages-lost", en: "Messages disappear or never arrive", ru: "Сообщения пропадают или вообще не доходят" },
+          { key: "reliability.notifications", en: "Notifications don't fire", ru: "Уведомления не приходят" },
+        ],
+      },
+      {
+        key: "spam",
+        en: "Spam and phishing messages",
+        ru: "Спам и фишинговые сообщения",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Data surveillance and metadata collection",
+        ru: "Слежка и сбор метаданных",
+        forks: [],
+      },
+      {
+        key: "features-removed",
+        en: "Features locked or removed",
+        ru: "Функции заблокированы или удалены",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Paid features feel useless",
+        ru: "Платные функции не оправдывают цены",
+        forks: [],
+      },
+      {
+        key: "account-banned",
+        en: "Account banned without reason",
+        ru: "Аккаунт заблокирован без объяснений",
+        forks: [],
+      },
+    ],
+  },
+
+  "dating-apps": {
+    slug: "dating-apps",
+    version: "dating-apps-1",
+    en: "Dating Apps",
+    ru: "Приложения знакомств",
+    needs: [
+      {
+        key: "paywall",
+        en: "Must pay to see who liked you",
+        ru: "Чтобы увидеть, кто поставил лайк — нужно платить",
+        forks: [],
+      },
+      {
+        key: "fake-profiles",
+        en: "Bots and catfish profiles",
+        ru: "Боты и поддельные анкеты",
+        forks: [
+          { key: "fake-profiles.bots", en: "Bots send scripted messages", ru: "Боты шлют шаблонные сообщения" },
+          { key: "fake-profiles.scam", en: "Profile leads to external scam site", ru: "Анкета ведёт на сторонний мошеннический сайт" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Charged immediately on free trial",
+        ru: "Деньги списывают сразу с пробного периода",
+        forks: [
+          { key: "billing.charged-trial", en: "Trial auto-converts to paid without clear warning", ru: "Пробный период автоматически превращается в платный без предупреждения" },
+        ],
+      },
+      {
+        key: "moderation",
+        en: "Harassment not removed",
+        ru: "На домогательства не реагируют",
+        forks: [],
+      },
+      {
+        key: "matches-quality",
+        en: "Algorithm shows poor or irrelevant matches",
+        ru: "Алгоритм подбирает неподходящих людей",
+        forks: [],
+      },
+      {
+        key: "account-banned",
+        en: "Account banned with no explanation",
+        ru: "Аккаунт заблокирован без объяснений",
+        forks: [],
+      },
+    ],
+  },
+
+  "social-networks": {
+    slug: "social-networks",
+    version: "social-networks-1",
+    en: "Social Network Apps",
+    ru: "Приложения социальных сетей",
+    needs: [
+      {
+        key: "moderation",
+        en: "Inconsistent bans and content removal",
+        ru: "Непоследовательная блокировка и удаление контента",
+        forks: [
+          { key: "moderation.wrong-ban", en: "Legitimate posts removed, harmful ones stay", ru: "Нормальные посты удаляют, а вредоносные оставляют" },
+        ],
+      },
+      {
+        key: "algorithm",
+        en: "Feed shows irrelevant content instead of followed accounts",
+        ru: "Лента показывает нерелевантный контент вместо подписок",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Crashes and outages",
+        ru: "Сбои и падения сервиса",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Excessive data collection and sharing",
+        ru: "Чрезмерный сбор и передача данных",
+        forks: [],
+      },
+      {
+        key: "features-removed",
+        en: "Popular features removed or paywalled",
+        ru: "Популярные функции удалили или перенесли за paywall",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Excessive ads drowning organic content",
+        ru: "Слишком много рекламы — она вытесняет живой контент",
+        forks: [],
+      },
+    ],
+  },
+
+  "rideshare-taxi": {
+    slug: "rideshare-taxi",
+    version: "rideshare-taxi-1",
+    en: "Rideshare & Taxi Apps",
+    ru: "Приложения такси и совместных поездок",
+    needs: [
+      {
+        key: "surge-pricing",
+        en: "Excessive surge pricing during peak times",
+        ru: "Запредельная динамическая цена в часы пик",
+        forks: [],
+      },
+      {
+        key: "driver-issues",
+        en: "Bad drivers, no-shows and wrong routes",
+        ru: "Плохие водители, не приезжают и едут не туда",
+        forks: [
+          { key: "driver-issues.no-show", en: "Driver accepts ride then cancels repeatedly", ru: "Водитель принимает заказ и многократно отменяет" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Charged wrong amount after ride",
+        ru: "После поездки списали не ту сумму",
+        forks: [
+          { key: "billing.extra-charges", en: "Extra unexplained charges added after trip", ru: "После поездки добавлены необъяснённые списания" },
+        ],
+      },
+      {
+        key: "support",
+        en: "Billing disputes ignored",
+        ru: "Споры по оплате игнорируются",
+        forks: [],
+      },
+      {
+        key: "safety",
+        en: "Safety concerns with drivers",
+        ru: "Проблемы с безопасностью при поездках",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes when booking",
+        ru: "Приложение падает при оформлении заказа",
+        forks: [],
+      },
+    ],
+  },
+
+  "vpn-apps": {
+    slug: "vpn-apps",
+    version: "vpn-apps-1",
+    en: "VPN Apps",
+    ru: "VPN-приложения",
+    needs: [
+      {
+        key: "connection-speed",
+        en: "Severely reduces internet speed",
+        ru: "Сильно снижает скорость интернета",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Drops connection without warning",
+        ru: "Соединение обрывается без предупреждения",
+        forks: [
+          { key: "reliability.disconnects", en: "VPN disconnects every few minutes", ru: "VPN отключается каждые несколько минут" },
+        ],
+      },
+      {
+        key: "billing",
+        en: "Hard to cancel, auto-renews",
+        ru: "Трудно отменить, автоматически продлевается",
+        forks: [
+          { key: "billing.cant-cancel", en: "Cancellation buried in settings", ru: "Отмена спрятана в глубине настроек" },
+        ],
+      },
+      {
+        key: "privacy",
+        en: "Logs user data despite no-log claims",
+        ru: "Ведёт логи, несмотря на заявления об обратном",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Support doesn't resolve connection issues",
+        ru: "Поддержка не помогает с проблемами соединения",
+        forks: [],
+      },
+      {
+        key: "compatibility",
+        en: "Doesn't work on certain networks or routers",
+        ru: "Не работает в некоторых сетях или за роутерами",
+        forks: [],
+      },
+    ],
+  },
+
+  "tv-remote-cast": {
+    slug: "tv-remote-cast",
+    version: "tv-remote-cast-1",
+    en: "TV Remote Control Apps",
+    ru: "Приложения пульта дистанционного управления",
+    needs: [
+      {
+        key: "device-compatibility",
+        en: "Doesn't detect the TV on the network",
+        ru: "Не находит телевизор в сети",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Buttons stop responding",
+        ru: "Кнопки перестают реагировать",
+        forks: [],
+      },
+      {
+        key: "setup-issues",
+        en: "Can't pair with TV despite same WiFi",
+        ru: "Не удаётся подключиться к ТВ даже в одной Wi-Fi сети",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Constant ads in a utility app",
+        ru: "Постоянная реклама в утилитарном приложении",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Basic remote functions behind paywall",
+        ru: "Базовые функции пульта заперты за paywall",
+        forks: [],
+      },
+    ],
+  },
+
+  "telecom-carrier": {
+    slug: "telecom-carrier",
+    version: "telecom-carrier-1",
+    en: "Mobile Carrier & ISP Apps",
+    ru: "Приложения мобильных операторов",
+    needs: [
+      {
+        key: "billing-errors",
+        en: "Wrong charges appearing on bill",
+        ru: "В счёте появляются ошибочные начисления",
+        forks: [
+          { key: "billing-errors.mystery-charge", en: "Unrecognized charge with no explanation", ru: "Непонятное списание без объяснений" },
+        ],
+      },
+      {
+        key: "support",
+        en: "Can't reach a human agent",
+        ru: "Невозможно дозвониться до живого оператора",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes constantly",
+        ru: "Приложение постоянно вылетает",
+        forks: [],
+      },
+      {
+        key: "outage-alerts",
+        en: "No notice of network outages",
+        ru: "Нет уведомлений об авариях в сети",
+        forks: [],
+      },
+      {
+        key: "data-tracking",
+        en: "Data usage shown is inaccurate",
+        ru: "Показания расхода трафика неточные",
+        forks: [],
+      },
+    ],
+  },
+
+  "security-antivirus": {
+    slug: "security-antivirus",
+    version: "security-antivirus-1",
+    en: "Security & Antivirus Apps",
+    ru: "Приложения безопасности и антивируса",
+    needs: [
+      {
+        key: "billing",
+        en: "Auto-renew traps and hard cancellation",
+        ru: "Ловушки автопродления и сложная отмена",
+        forks: [
+          { key: "billing.auto-renew", en: "Auto-renewed at higher price without warning", ru: "Автоматически продлили по более высокой цене без предупреждения" },
+        ],
+      },
+      {
+        key: "false-positives",
+        en: "Blocks legitimate apps and files",
+        ru: "Блокирует нормальные приложения и файлы",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Crashes or fails to run scans",
+        ru: "Вылетает или не запускает проверку",
+        forks: [],
+      },
+      {
+        key: "performance",
+        en: "Significantly slows down phone",
+        ru: "Заметно тормозит телефон",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "No help resolving false positives",
+        ru: "Нет помощи с ложными срабатываниями",
+        forks: [],
+      },
+    ],
+  },
+
+  "smart-home-iot": {
+    slug: "smart-home-iot",
+    version: "smart-home-iot-1",
+    en: "Smart Home & IoT Apps",
+    ru: "Приложения умного дома",
+    needs: [
+      {
+        key: "device-offline",
+        en: "Devices randomly go offline",
+        ru: "Устройства периодически уходят оффлайн",
+        forks: [
+          { key: "device-offline.after-update", en: "Devices offline after app update", ru: "Устройства пропадают после обновления приложения" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "App disconnects from devices",
+        ru: "Приложение теряет связь с устройствами",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Key features moved to subscription",
+        ru: "Ключевые функции перенесены на подписку",
+        forks: [],
+      },
+      {
+        key: "setup-issues",
+        en: "Hard to set up and pair devices",
+        ru: "Сложно настроить и подключить устройства",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Extensive data collection concerns",
+        ru: "Опасения по поводу чрезмерного сбора данных",
+        forks: [],
+      },
+      {
+        key: "geofencing",
+        en: "Location-based automation broken",
+        ru: "Автоматизация по геолокации не работает",
+        forks: [],
+      },
+    ],
+  },
+
+  "fitness-wearables": {
+    slug: "fitness-wearables",
+    version: "fitness-wearables-1",
+    en: "Fitness Tracker & Wearable Apps",
+    ru: "Приложения фитнес-трекеров и носимых устройств",
+    needs: [
+      {
+        key: "data-accuracy",
+        en: "Heart rate and step counts are wrong",
+        ru: "Пульс и количество шагов определяются неверно",
+        forks: [
+          { key: "data-accuracy.heart-rate", en: "Heart rate readings wildly inaccurate", ru: "Показания пульса сильно расходятся с реальностью" },
+          { key: "data-accuracy.steps", en: "Step count double-counts or misses steps", ru: "Счётчик шагов дублирует или пропускает шаги" },
+        ],
+      },
+      {
+        key: "sync-issues",
+        en: "Data doesn't sync with wearable device",
+        ru: "Данные не синхронизируются с носимым устройством",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription required for basic statistics",
+        ru: "Базовая статистика доступна только по подписке",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Disconnects from device frequently",
+        ru: "Часто теряет связь с устройством",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Health data shared with third parties",
+        ru: "Данные о здоровье передаются третьим лицам",
+        forks: [],
+      },
+      {
+        key: "battery-drain",
+        en: "App drains phone battery excessively",
+        ru: "Приложение слишком быстро разряжает телефон",
+        forks: [],
+      },
+    ],
+  },
+
+  "gym-fitness-apps": {
+    slug: "gym-fitness-apps",
+    version: "gym-fitness-apps-1",
+    en: "Gym & Fitness Streaming Apps",
+    ru: "Приложения спортзалов и тренировок",
+    needs: [
+      {
+        key: "billing",
+        en: "Hard to cancel subscription",
+        ru: "Подписку сложно отменить",
+        forks: [
+          { key: "billing.cant-cancel", en: "Cancel option buried or non-functional", ru: "Кнопка отмены спрятана или не работает" },
+        ],
+      },
+      {
+        key: "content-access",
+        en: "Classes unavailable or removed mid-subscription",
+        ru: "Занятия недоступны или удаляются в период подписки",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Streams buffer during workout",
+        ru: "Трансляция буферизуется во время тренировки",
+        forks: [],
+      },
+      {
+        key: "device-compatibility",
+        en: "Doesn't work on TV or Chromecast",
+        ru: "Не работает на телевизоре или Chromecast",
+        forks: [],
+      },
+      {
+        key: "cancellation",
+        en: "Cancellation process deliberately hidden",
+        ru: "Процесс отмены намеренно скрыт",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Support unresponsive for billing issues",
+        ru: "Поддержка не отвечает на вопросы по оплате",
+        forks: [],
+      },
+    ],
+  },
+
+  "heart-blood-health": {
+    slug: "heart-blood-health",
+    version: "heart-blood-health-1",
+    en: "Heart & Blood Pressure Monitor Apps",
+    ru: "Приложения мониторинга сердца и давления",
+    needs: [
+      {
+        key: "accuracy",
+        en: "Readings differ from medical equipment",
+        ru: "Показания расходятся с медицинскими приборами",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Ads shown before every health reading",
+        ru: "Реклама показывается перед каждым измерением",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Historical data locked behind paywall",
+        ru: "История измерений заперта за paywall",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes mid-measurement",
+        ru: "Приложение падает во время измерения",
+        forks: [],
+      },
+      {
+        key: "data-privacy",
+        en: "Sensitive health data sold to third parties",
+        ru: "Чувствительные данные о здоровье продаются третьим лицам",
+        forks: [],
+      },
+      {
+        key: "sync",
+        en: "Won't connect or sync with monitor device",
+        ru: "Не подключается и не синхронизируется с монитором",
+        forks: [],
+      },
+    ],
+  },
+
+  "outdoor-trail-apps": {
+    slug: "outdoor-trail-apps",
+    version: "outdoor-trail-apps-1",
+    en: "Outdoor & Trail GPS Apps",
+    ru: "Приложения для активного отдыха и треккинга",
+    needs: [
+      {
+        key: "paywall",
+        en: "Offline maps locked behind subscription",
+        ru: "Офлайн-карты доступны только по подписке",
+        forks: [],
+      },
+      {
+        key: "offline-accuracy",
+        en: "GPS position wrong without cell signal",
+        ru: "GPS показывает неверное положение без сотовой связи",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription auto-renews at higher price",
+        ru: "Подписка автоматически продлевается по более высокой цене",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes on the trail",
+        ru: "Приложение падает прямо во время похода",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes when starting navigation offline", ru: "Падает при запуске навигации без сети" },
+        ],
+      },
+      {
+        key: "outdated-trails",
+        en: "Trail data wrong or missing",
+        ru: "Данные о маршрутах устарели или отсутствуют",
+        forks: [],
+      },
+      {
+        key: "battery-drain",
+        en: "GPS tracking drains battery too fast",
+        ru: "GPS-трекинг слишком быстро разряжает батарею",
+        forks: [],
+      },
+    ],
+  },
+
+  "health-insurance-apps": {
+    slug: "health-insurance-apps",
+    version: "health-insurance-apps-1",
+    en: "Health Insurance & GP Apps",
+    ru: "Приложения медицинского страхования",
+    needs: [
+      {
+        key: "access-broken",
+        en: "Can't book appointment or view results",
+        ru: "Не удаётся записаться на приём или посмотреть результаты",
+        forks: [
+          { key: "access-broken.no-slots", en: "No available appointments shown despite availability", ru: "Нет доступных слотов, хотя они есть" },
+        ],
+      },
+      {
+        key: "billing-errors",
+        en: "Wrong coverage or benefit information shown",
+        ru: "Показана неверная информация о покрытии или льготах",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes frequently",
+        ru: "Приложение часто падает",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes when accessing medical records", ru: "Падает при попытке открыть медицинские записи" },
+        ],
+      },
+      {
+        key: "support",
+        en: "No response from insurer through app",
+        ru: "Страховщик не отвечает через приложение",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Data breaches and security concerns",
+        ru: "Утечки данных и проблемы с безопасностью",
+        forks: [],
+      },
+      {
+        key: "features",
+        en: "Key features missing or non-functional",
+        ru: "Ключевые функции отсутствуют или не работают",
+        forks: [],
+      },
+    ],
+  },
+
+  "payment-transfer-apps": {
+    slug: "payment-transfer-apps",
+    version: "payment-transfer-apps-1",
+    en: "Payment & Money Transfer Apps",
+    ru: "Приложения для платежей и денежных переводов",
+    needs: [
+      {
+        key: "account-frozen",
+        en: "Account frozen without warning",
+        ru: "Счёт заморожен без предупреждения",
+        forks: [
+          { key: "account-frozen.no-explanation", en: "Frozen with no reason given", ru: "Заморожен без каких-либо объяснений" },
+        ],
+      },
+      {
+        key: "transfer-delays",
+        en: "Money stuck in limbo for days",
+        ru: "Деньги зависают в обработке на несколько дней",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Hidden transaction and conversion fees",
+        ru: "Скрытые комиссии за транзакции и конвертацию",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Disputes ignored or never resolved",
+        ru: "Споры игнорируются или так и не решаются",
+        forks: [],
+      },
+      {
+        key: "security",
+        en: "Unauthorized transactions not reversed",
+        ru: "Несанкционированные транзакции не отменяются",
+        forks: [],
+      },
+    ],
+  },
+
+  "mobile-banking": {
+    slug: "mobile-banking",
+    version: "mobile-banking-1",
+    en: "Mobile Banking Apps",
+    ru: "Мобильные банковские приложения",
+    needs: [
+      {
+        key: "account-locked",
+        en: "Locked out of account without warning",
+        ru: "Аккаунт заблокирован без предупреждения",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App won't load or is down frequently",
+        ru: "Приложение не загружается или часто недоступно",
+        forks: [],
+      },
+      {
+        key: "biometric-login",
+        en: "Face ID or fingerprint login broken",
+        ru: "Вход по Face ID или отпечатку пальца не работает",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Can't reach bank through app",
+        ru: "Через приложение не удаётся связаться с банком",
+        forks: [],
+      },
+      {
+        key: "billing-errors",
+        en: "Wrong or duplicate transactions shown",
+        ru: "Отображаются ошибочные или задвоенные транзакции",
+        forks: [],
+      },
+      {
+        key: "notification-spam",
+        en: "Marketing notifications can't be turned off",
+        ru: "Маркетинговые уведомления нельзя отключить",
+        forks: [],
+      },
+    ],
+  },
+
+  "rewards-cashback": {
+    slug: "rewards-cashback",
+    version: "rewards-cashback-1",
+    en: "Rewards & Cashback Apps",
+    ru: "Приложения кэшбэка и вознаграждений",
+    needs: [
+      {
+        key: "payout-denied",
+        en: "Won't pay out earned rewards",
+        ru: "Не выплачивают заработанные вознаграждения",
+        forks: [
+          { key: "payout-denied.threshold-raised", en: "Payout threshold raised after earnings", ru: "Порог выплаты повышают уже после накопления" },
+        ],
+      },
+      {
+        key: "fake-offers",
+        en: "Offers impossible to complete",
+        ru: "Задания невозможно выполнить",
+        forks: [],
+      },
+      {
+        key: "account-banned",
+        en: "Account banned just before payout",
+        ru: "Аккаунт блокируют прямо перед выплатой",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Support ignores earning disputes",
+        ru: "Поддержка игнорирует споры о начислениях",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged for premium membership to earn",
+        ru: "Нужно платить за премиум, чтобы зарабатывать",
+        forks: [],
+      },
+    ],
+  },
+
+  "budget-tracking-apps": {
+    slug: "budget-tracking-apps",
+    version: "budget-tracking-apps-1",
+    en: "Budget & Finance Tracker Apps",
+    ru: "Приложения бюджетирования и учёта финансов",
+    needs: [
+      {
+        key: "billing",
+        en: "Subscription too expensive for core features",
+        ru: "Подписка слишком дорогая за базовые функции",
+        forks: [],
+      },
+      {
+        key: "sync-issues",
+        en: "Bank connections break and require re-linking",
+        ru: "Связь с банком прерывается и нужно заново подключать",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Data disappears after update",
+        ru: "Данные пропадают после обновления",
+        forks: [],
+      },
+      {
+        key: "data-accuracy",
+        en: "Transactions miscategorized automatically",
+        ru: "Транзакции автоматически попадают не в те категории",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Bank credentials exposed or shared",
+        ru: "Банковские данные попадают к третьим лицам",
+        forks: [],
+      },
+    ],
+  },
+
+  "investment-trading": {
+    slug: "investment-trading",
+    version: "investment-trading-1",
+    en: "Investment & Trading Apps",
+    ru: "Приложения для инвестиций и трейдинга",
+    needs: [
+      {
+        key: "billing",
+        en: "Hidden fees and commissions",
+        ru: "Скрытые комиссии",
+        forks: [
+          { key: "billing.hidden-fees", en: "Fees not disclosed until after trade", ru: "Комиссии раскрываются только после сделки" },
+        ],
+      },
+      {
+        key: "reliability",
+        en: "App freezes during active trading",
+        ru: "Приложение зависает во время активной торговли",
+        forks: [],
+      },
+      {
+        key: "data-accuracy",
+        en: "Prices and charts show wrong data",
+        ru: "Цены и графики показывают неверные данные",
+        forks: [],
+      },
+      {
+        key: "regulatory",
+        en: "Identity verification blocks account access",
+        ru: "Верификация личности блокирует доступ к счёту",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Disputes with trades ignored",
+        ru: "Споры по сделкам игнорируются",
+        forks: [],
+      },
+    ],
+  },
+
+  "travel-booking": {
+    slug: "travel-booking",
+    version: "travel-booking-1",
+    en: "Travel Booking Platforms",
+    ru: "Платформы бронирования путешествий",
+    needs: [
+      {
+        key: "listing-accuracy",
+        en: "Property not as described or shown",
+        ru: "Жильё не соответствует описанию или фото",
+        forks: [],
+      },
+      {
+        key: "cancellation",
+        en: "Refund refused despite cancellation policy",
+        ru: "Отказывают в возврате вопреки политике отмены",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Fees added at final checkout",
+        ru: "Дополнительные сборы появляются на последнем шаге",
+        forks: [
+          { key: "billing.hidden-fees", en: "Resort or cleaning fees added at last step", ru: "Курортный сбор или уборка добавляются в последний момент" },
+        ],
+      },
+      {
+        key: "support",
+        en: "Disputes with hosts ignored",
+        ru: "Споры с хозяевами игнорируются",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during booking",
+        ru: "Приложение падает при оформлении",
+        forks: [],
+      },
+      {
+        key: "payment-fails",
+        en: "Payment fails repeatedly",
+        ru: "Оплата раз за разом не проходит",
+        forks: [],
+      },
+    ],
+  },
+
+  "airline-apps": {
+    slug: "airline-apps",
+    version: "airline-apps-1",
+    en: "Airline Apps",
+    ru: "Приложения авиакомпаний",
+    needs: [
+      {
+        key: "boarding-pass",
+        en: "Can't retrieve or display boarding pass",
+        ru: "Не удаётся получить или показать посадочный талон",
+        forks: [],
+      },
+      {
+        key: "booking-errors",
+        en: "Seats wrong or double-charged",
+        ru: "Места оказались не теми или списали дважды",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during check-in",
+        ru: "Приложение падает во время регистрации",
+        forks: [],
+      },
+      {
+        key: "customer-service",
+        en: "Support unresponsive for flight issues",
+        ru: "Поддержка не реагирует на проблемы с рейсом",
+        forks: [],
+      },
+      {
+        key: "notifications",
+        en: "No gate change or delay alerts",
+        ru: "Нет уведомлений о смене ворот или задержке",
+        forks: [],
+      },
+      {
+        key: "loyalty-points",
+        en: "Miles and points not credited",
+        ru: "Мили и бонусы не начисляются",
+        forks: [],
+      },
+    ],
+  },
+
+  "camping-travel": {
+    slug: "camping-travel",
+    version: "camping-travel-1",
+    en: "Camping & Outdoor Travel Apps",
+    ru: "Приложения кемпинга и путешествий",
+    needs: [
+      {
+        key: "paywall",
+        en: "Maps and campsite listings behind paywall",
+        ru: "Карты и списки кемпингов за платным доступом",
+        forks: [],
+      },
+      {
+        key: "offline-access",
+        en: "No offline mode for remote areas",
+        ru: "Нет офлайн-режима для удалённых мест",
+        forks: [],
+      },
+      {
+        key: "listing-accuracy",
+        en: "Sites shown as available but full",
+        ru: "Места показаны как свободные, но уже заняты",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription auto-renews unexpectedly",
+        ru: "Подписка автоматически продлевается без предупреждения",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes in remote areas",
+        ru: "Приложение падает в удалённых местах",
+        forks: [],
+      },
+    ],
+  },
+
+  "ai-face-photo": {
+    slug: "ai-face-photo",
+    version: "ai-face-photo-1",
+    en: "AI Face & Photo Enhancement Apps",
+    ru: "ИИ-приложения для обработки лица и фото",
+    needs: [
+      {
+        key: "paywall",
+        en: "Results locked behind paywall after processing",
+        ru: "Результат доступен только после оплаты",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged immediately after trial start",
+        ru: "Деньги списывают сразу после начала пробного периода",
+        forks: [
+          { key: "billing.charged-trial", en: "Trial converts to paid without clear warning", ru: "Пробный период незаметно переходит в платный" },
+        ],
+      },
+      {
+        key: "results-quality",
+        en: "Output looks fake or obviously edited",
+        ru: "Результат выглядит неестественно или явно обработанным",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Face data uploaded and retained",
+        ru: "Данные лица загружаются и хранятся",
+        forks: [],
+      },
+      {
+        key: "watermark",
+        en: "Watermark on free output",
+        ru: "На бесплатном результате стоит водяной знак",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during processing",
+        ru: "Приложение падает во время обработки",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes after upload or mid-processing", ru: "Падает после загрузки или в процессе обработки" },
+        ],
+      },
+    ],
+  },
+
+  "photo-social-apps": {
+    slug: "photo-social-apps",
+    version: "photo-social-apps-1",
+    en: "Photo & Video Social Platforms",
+    ru: "Социальные платформы для фото и видео",
+    needs: [
+      {
+        key: "account-banned",
+        en: "Wrongful shadowban or account ban",
+        ru: "Аккаунт теневой блокировки или полной блокировки без причины",
+        forks: [
+          { key: "account-banned.shadowban", en: "Content hidden from followers without notice", ru: "Контент скрыт от подписчиков без предупреждения" },
+        ],
+      },
+      {
+        key: "algorithm",
+        en: "Content not shown to followers",
+        ru: "Контент не показывается подписчикам",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes or won't load feed",
+        ru: "Приложение падает или не загружает ленту",
+        forks: [],
+      },
+      {
+        key: "features-removed",
+        en: "Popular features removed or changed",
+        ru: "Популярные функции удалили или изменили",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Data harvesting and targeted ads",
+        ru: "Сбор данных и таргетированная реклама",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Excessive ads in the feed",
+        ru: "Слишком много рекламы в ленте",
+        forks: [],
+      },
+    ],
+  },
+
+  "cloud-storage-apps": {
+    slug: "cloud-storage-apps",
+    version: "cloud-storage-apps-1",
+    en: "Cloud Storage Apps",
+    ru: "Приложения облачного хранилища",
+    needs: [
+      {
+        key: "billing",
+        en: "Storage quota suddenly full, forced upgrade",
+        ru: "Хранилище неожиданно заполняется, принудительный апгрейд",
+        forks: [],
+      },
+      {
+        key: "sync-issues",
+        en: "Files don't sync across devices",
+        ru: "Файлы не синхронизируются между устройствами",
+        forks: [],
+      },
+      {
+        key: "data-loss",
+        en: "Files deleted without user action",
+        ru: "Файлы удаляются без действий пользователя",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Upload fails or app won't connect",
+        ru: "Загрузка не работает или приложение не подключается",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Concerns about data sharing and scanning",
+        ru: "Опасения по поводу передачи и сканирования данных",
+        forks: [],
+      },
+    ],
+  },
+
+  "ai-chatbot-assistant": {
+    slug: "ai-chatbot-assistant",
+    version: "ai-chatbot-assistant-1",
+    en: "AI Assistant & Chatbot Apps",
+    ru: "ИИ-ассистенты и чат-боты",
+    needs: [
+      {
+        key: "paywall",
+        en: "Free tier too limited to be useful",
+        ru: "Бесплатный уровень слишком ограничен",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged immediately after trial",
+        ru: "Деньги списывают сразу после пробного периода",
+        forks: [
+          { key: "billing.charged-trial", en: "Trial auto-converts to paid subscription", ru: "Пробный период автоматически переходит в платный" },
+        ],
+      },
+      {
+        key: "response-quality",
+        en: "Wrong or hallucinated answers",
+        ru: "Неверные или выдуманные ответы",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Server errors and downtime",
+        ru: "Ошибки сервера и простои",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Conversations stored or sold",
+        ru: "Разговоры хранятся или продаются",
+        forks: [],
+      },
+      {
+        key: "rate-limiting",
+        en: "Throttled too aggressively on free tier",
+        ru: "Слишком жёсткое ограничение на бесплатном уровне",
+        forks: [],
+      },
+    ],
+  },
+
+  "ai-video-creation": {
+    slug: "ai-video-creation",
+    version: "ai-video-creation-1",
+    en: "AI Video Creation Apps",
+    ru: "Приложения создания видео с ИИ",
+    needs: [
+      {
+        key: "paywall",
+        en: "Generation credits locked behind paywall",
+        ru: "Кредиты на генерацию заперты за платным доступом",
+        forks: [],
+      },
+      {
+        key: "results-quality",
+        en: "Generated video poor or incorrect",
+        ru: "Сгенерированное видео плохого качества или с ошибками",
+        forks: [],
+      },
+      {
+        key: "watermark",
+        en: "Watermark on all free output",
+        ru: "На всех бесплатных результатах водяной знак",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Credits consumed without usable result",
+        ru: "Кредиты тратятся без получения результата",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during generation",
+        ru: "Приложение падает в процессе генерации",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and credits lost", ru: "Приложение падает и кредиты сгорают" },
+        ],
+      },
+    ],
+  },
+
+  "office-documents": {
+    slug: "office-documents",
+    version: "office-documents-1",
+    en: "Office & Document Apps",
+    ru: "Офисные приложения и работа с документами",
+    needs: [
+      {
+        key: "billing",
+        en: "Subscription required to open or edit files",
+        ru: "Для открытия и редактирования файлов нужна подписка",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Crashes and loses unsaved work",
+        ru: "Падает и теряет несохранённую работу",
+        forks: [],
+      },
+      {
+        key: "sync",
+        en: "Cloud sync breaks and loses files",
+        ru: "Синхронизация с облаком ломается и теряет файлы",
+        forks: [],
+      },
+      {
+        key: "compatibility",
+        en: "Formatting broken when opening other formats",
+        ru: "Форматирование ломается при открытии сторонних форматов",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Support unresponsive for data loss",
+        ru: "Поддержка не реагирует на потерю данных",
+        forks: [],
+      },
+    ],
+  },
+
+  "smart-printer-apps": {
+    slug: "smart-printer-apps",
+    version: "smart-printer-apps-1",
+    en: "Smart Printer & Wireless Printing Apps",
+    ru: "Приложения умной и беспроводной печати",
+    needs: [
+      {
+        key: "device-compatibility",
+        en: "App can't detect printer on the network",
+        ru: "Приложение не находит принтер в сети",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Connection drops mid-print",
+        ru: "Соединение обрывается во время печати",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Ink subscription scam or unexpected charges",
+        ru: "Мошенническая подписка на чернила или неожиданные списания",
+        forks: [],
+      },
+      {
+        key: "setup-issues",
+        en: "Initial pairing with printer fails",
+        ru: "Первоначальное подключение к принтеру не работает",
+        forks: [],
+      },
+      {
+        key: "print-quality",
+        en: "Output quality worse than expected",
+        ru: "Качество печати хуже ожидаемого",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Ads in a printing utility app",
+        ru: "Реклама в утилите для печати",
+        forks: [],
+      },
+    ],
+  },
+
+  "parcel-tracking": {
+    slug: "parcel-tracking",
+    version: "parcel-tracking-1",
+    en: "Parcel & Delivery Tracking Apps",
+    ru: "Приложения отслеживания посылок",
+    needs: [
+      {
+        key: "tracking-accuracy",
+        en: "Location not updated for days",
+        ru: "Местоположение не обновляется несколько дней",
+        forks: [],
+      },
+      {
+        key: "notifications",
+        en: "No delivery alerts sent",
+        ru: "Уведомления о доставке не приходят",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App won't load tracking info",
+        ru: "Приложение не загружает информацию об отслеживании",
+        forks: [],
+      },
+      {
+        key: "delivery-issues",
+        en: "Parcel marked delivered but not received",
+        ru: "Посылка помечена как доставленная, но не получена",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "No response for lost parcel claims",
+        ru: "Нет ответа на заявки о потере посылки",
+        forks: [],
+      },
+    ],
+  },
+
+  "real-estate-apps": {
+    slug: "real-estate-apps",
+    version: "real-estate-apps-1",
+    en: "Real Estate & Property Apps",
+    ru: "Приложения для недвижимости",
+    needs: [
+      {
+        key: "listing-accuracy",
+        en: "Sold or rented properties still shown as available",
+        ru: "Проданные или сданные объекты показываются как доступные",
+        forks: [
+          { key: "listing-accuracy.wrong-price", en: "Listed price differs from actual asking price", ru: "Цена в объявлении отличается от реальной" },
+        ],
+      },
+      {
+        key: "ads",
+        en: "Ads before every listing",
+        ru: "Реклама перед каждым объявлением",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes or fails to load listings",
+        ru: "Приложение падает или не загружает объявления",
+        forks: [],
+      },
+      {
+        key: "data-outdated",
+        en: "Listings not refreshed, stale data",
+        ru: "Объявления не обновляются, устаревшие данные",
+        forks: [],
+      },
+      {
+        key: "agent-contact",
+        en: "Agents unresponsive via in-app contact",
+        ru: "Агенты не отвечают через внутренний мессенджер",
+        forks: [],
+      },
+    ],
+  },
+
+  "family-safety-apps": {
+    slug: "family-safety-apps",
+    version: "family-safety-apps-1",
+    en: "Family Safety & Location Apps",
+    ru: "Приложения семейной безопасности",
+    needs: [
+      {
+        key: "location-accuracy",
+        en: "Location shown is way off",
+        ru: "Местоположение отображается с большой погрешностью",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Key safety features locked behind subscription",
+        ru: "Ключевые функции безопасности доступны только по подписке",
+        forks: [],
+      },
+      {
+        key: "battery-drain",
+        en: "Kills phone battery on tracked device",
+        ru: "Быстро разряжает батарею на отслеживаемом устройстве",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Location freezes or stops updating",
+        ru: "Местоположение зависает и перестаёт обновляться",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Location data shared with third parties",
+        ru: "Данные о местоположении передаются третьим лицам",
+        forks: [],
+      },
+    ],
+  },
+
+  "digital-photo-frames": {
+    slug: "digital-photo-frames",
+    version: "digital-photo-frames-1",
+    en: "Digital Photo Frame Apps",
+    ru: "Приложения цифровых фоторамок",
+    needs: [
+      {
+        key: "setup-issues",
+        en: "Can't connect frame to app",
+        ru: "Не удаётся подключить рамку к приложению",
+        forks: [],
+      },
+      {
+        key: "sync",
+        en: "Photos don't arrive on the frame",
+        ru: "Фотографии не появляются на рамке",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription required for basic use",
+        ru: "Базовое использование требует подписки",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Frame goes offline frequently",
+        ru: "Рамка часто уходит оффлайн",
+        forks: [],
+      },
+      {
+        key: "app-quality",
+        en: "App crashes constantly",
+        ru: "Приложение постоянно падает",
+        forks: [],
+      },
+    ],
+  },
+
+  "baby-monitor-apps": {
+    slug: "baby-monitor-apps",
+    version: "baby-monitor-apps-1",
+    en: "Baby & Infant Monitor Apps",
+    ru: "Приложения видеонянь и мониторинга младенцев",
+    needs: [
+      {
+        key: "reliability",
+        en: "Disconnects during the night",
+        ru: "Связь прерывается ночью",
+        forks: [
+          { key: "reliability.disconnects", en: "Monitor disconnects and doesn't alert parent", ru: "Монитор отключается и не уведомляет родителя" },
+        ],
+      },
+      {
+        key: "accuracy",
+        en: "False alerts wake parents unnecessarily",
+        ru: "Ложные тревоги будят родителей без причины",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Monthly fee for basic monitoring function",
+        ru: "Ежемесячная плата за базовую функцию мониторинга",
+        forks: [],
+      },
+      {
+        key: "setup-issues",
+        en: "Can't connect device to app",
+        ru: "Не удаётся подключить устройство к приложению",
+        forks: [],
+      },
+      {
+        key: "battery-drain",
+        en: "Drains battery on both parent and baby device",
+        ru: "Быстро разряжает батарею на обоих устройствах",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Video feed security concerns",
+        ru: "Опасения по поводу безопасности видеопотока",
+        forks: [],
+      },
+    ],
+  },
+
+  "craft-diy-apps": {
+    slug: "craft-diy-apps",
+    version: "craft-diy-apps-1",
+    en: "Craft & DIY Design Apps",
+    ru: "Приложения для рукоделия и дизайна",
+    needs: [
+      {
+        key: "connectivity",
+        en: "Cutting machine won't connect to app",
+        ru: "Режущий плоттер не подключается к приложению",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription required to access design library",
+        ru: "Доступ к библиотеке дизайнов требует подписки",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during project",
+        ru: "Приложение падает в процессе работы над проектом",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and loses unsaved design", ru: "Падает и теряет несохранённый дизайн" },
+        ],
+      },
+      {
+        key: "features",
+        en: "Basic editing features behind paywall",
+        ru: "Базовые функции редактирования за paywall",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Support unresponsive for machine connectivity",
+        ru: "Поддержка не помогает с подключением оборудования",
+        forks: [],
+      },
+    ],
+  },
+
+  "device-finder-apps": {
+    slug: "device-finder-apps",
+    version: "device-finder-apps-1",
+    en: "Device & Item Finder Apps",
+    ru: "Приложения для поиска устройств и предметов",
+    needs: [
+      {
+        key: "location-accuracy",
+        en: "Location shown is wrong or outdated",
+        ru: "Показанное местоположение неверное или устаревшее",
+        forks: [],
+      },
+      {
+        key: "battery-drain",
+        en: "Tracker drains phone battery fast",
+        ru: "Трекер быстро разряжает батарею телефона",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription required for location history",
+        ru: "История местоположения доступна только по подписке",
+        forks: [],
+      },
+      {
+        key: "range",
+        en: "Bluetooth range too short to be useful",
+        ru: "Дальность Bluetooth слишком мала для практического применения",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App doesn't show tracker or loses connection",
+        ru: "Приложение не видит трекер или теряет с ним связь",
+        forks: [],
+      },
+    ],
+  },
+
+  "grocery-loyalty-apps": {
+    slug: "grocery-loyalty-apps",
+    version: "grocery-loyalty-apps-1",
+    en: "Grocery & Supermarket Apps",
+    ru: "Приложения супермаркетов и продуктовых магазинов",
+    needs: [
+      {
+        key: "coupons-missing",
+        en: "Offers disappear at checkout",
+        ru: "Акции пропадают при оплате",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes in-store",
+        ru: "Приложение падает прямо в магазине",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes when scanning or at checkout", ru: "Падает при сканировании или на кассе" },
+        ],
+      },
+      {
+        key: "scanning",
+        en: "Barcode scanner broken or slow",
+        ru: "Сканер штрихкодов не работает или слишком медленный",
+        forks: [],
+      },
+      {
+        key: "loyalty-points",
+        en: "Points don't appear after purchase",
+        ru: "Баллы не начисляются после покупки",
+        forks: [],
+      },
+      {
+        key: "billing-errors",
+        en: "Wrong price charged versus app price",
+        ru: "На кассе списывают не ту цену, что в приложении",
+        forks: [],
+      },
+      {
+        key: "account-issues",
+        en: "Account locked or card not linked",
+        ru: "Аккаунт заблокирован или карта не привязывается",
+        forks: [],
+      },
+    ],
+  },
+
+  "theme-park-apps": {
+    slug: "theme-park-apps",
+    version: "theme-park-apps-1",
+    en: "Theme Park & Attraction Apps",
+    ru: "Приложения тематических парков",
+    needs: [
+      {
+        key: "virtual-queue",
+        en: "Virtual queue system broken or unfair",
+        ru: "Система виртуальной очереди сломана или несправедлива",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes inside the park",
+        ru: "Приложение падает на территории парка",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Surprise in-app charges for reserved experiences",
+        ru: "Неожиданные платежи за бронирование аттракционов",
+        forks: [],
+      },
+      {
+        key: "wait-times",
+        en: "Wait times shown are wrong",
+        ru: "Показанное время ожидания не соответствует реальному",
+        forks: [],
+      },
+      {
+        key: "pass-access",
+        en: "Season or annual pass not loading",
+        ru: "Сезонный или годовой абонемент не отображается",
+        forks: [],
+      },
+    ],
+  },
+
+  "audio-podcast-apps": {
+    slug: "audio-podcast-apps",
+    version: "audio-podcast-apps-1",
+    en: "Audio & Podcast Apps",
+    ru: "Приложения для аудио и подкастов",
+    needs: [
+      {
+        key: "billing",
+        en: "Subscription required for basic listening",
+        ru: "Базовое прослушивание требует подписки",
+        forks: [],
+      },
+      {
+        key: "offline-download",
+        en: "Downloaded episodes disappear",
+        ru: "Скачанные эпизоды пропадают",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Playback stops randomly",
+        ru: "Воспроизведение прерывается без причины",
+        forks: [],
+      },
+      {
+        key: "sync",
+        en: "Listening progress not synced across devices",
+        ru: "Прогресс прослушивания не синхронизируется между устройствами",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Too many ads between podcast episodes",
+        ru: "Слишком много рекламы между эпизодами",
+        forks: [],
+      },
+    ],
+  },
+
+  "bible-prayer-apps": {
+    slug: "bible-prayer-apps",
+    version: "bible-prayer-apps-1",
+    en: "Bible & Prayer Apps",
+    ru: "Приложения для чтения Библии и молитв",
+    needs: [
+      {
+        key: "paywall",
+        en: "Reading plans and devotionals locked",
+        ru: "Планы чтения и назидательные материалы закрыты",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Ads shown during Bible reading",
+        ru: "Реклама показывается во время чтения Библии",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during reading",
+        ru: "Приложение падает во время чтения",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and loses reading position", ru: "Падает и теряет место в тексте" },
+        ],
+      },
+      {
+        key: "offline-access",
+        en: "Offline Bible requires internet connection",
+        ru: "Офлайн-библия требует подключения к интернету",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription for spiritual content",
+        ru: "Духовный контент требует оплаты",
+        forks: [],
+      },
+    ],
+  },
+
+  "news-media-apps": {
+    slug: "news-media-apps",
+    version: "news-media-apps-1",
+    en: "News & Media Apps",
+    ru: "Новостные приложения и медиа",
+    needs: [
+      {
+        key: "paywall",
+        en: "Articles behind metered paywall",
+        ru: "Статьи за платным доступом",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Autoplay video ads interrupt reading",
+        ru: "Видеореклама с автовоспроизведением мешает читать",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes or fails to load articles",
+        ru: "Приложение падает или не загружает статьи",
+        forks: [],
+      },
+      {
+        key: "bias",
+        en: "Perceived editorial bias in coverage",
+        ru: "Воспринимаемая редакционная предвзятость",
+        forks: [],
+      },
+      {
+        key: "notifications",
+        en: "Notification spam from breaking news",
+        ru: "Спам-уведомления о срочных новостях",
+        forks: [],
+      },
+    ],
+  },
+
+  "email-apps": {
+    slug: "email-apps",
+    version: "email-apps-1",
+    en: "Email Client Apps",
+    ru: "Почтовые клиенты",
+    needs: [
+      {
+        key: "billing",
+        en: "Subscription required to send and receive email",
+        ru: "Для отправки и получения писем нужна подписка",
+        forks: [],
+      },
+      {
+        key: "sync",
+        en: "Emails don't sync in real time",
+        ru: "Письма не синхронизируются в реальном времени",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Push notifications broken",
+        ru: "Push-уведомления не работают",
+        forks: [],
+      },
+      {
+        key: "spam-filter",
+        en: "Spam filter lets too much through",
+        ru: "Спам-фильтр пропускает слишком много",
+        forks: [],
+      },
+      {
+        key: "privacy",
+        en: "Email content scanned for advertising",
+        ru: "Содержимое писем сканируется для рекламы",
+        forks: [],
+      },
+    ],
+  },
+
+  "sports-fan-apps": {
+    slug: "sports-fan-apps",
+    version: "sports-fan-apps-1",
+    en: "Sports Tracking & Fan Apps",
+    ru: "Спортивные и фанатские приложения",
+    needs: [
+      {
+        key: "live-scores",
+        en: "Scores delayed or wrong",
+        ru: "Счёт с задержкой или отображается неверно",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during matches",
+        ru: "Приложение падает во время матчей",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Detailed stats locked behind paywall",
+        ru: "Подробная статистика за платным доступом",
+        forks: [],
+      },
+      {
+        key: "notifications",
+        en: "Goal and match alerts arrive late or wrong",
+        ru: "Уведомления о голах и матчах приходят с опозданием или содержат ошибки",
+        forks: [],
+      },
+      {
+        key: "data-accuracy",
+        en: "Wrong lineups or statistics shown",
+        ru: "Показаны неверные составы или статистика",
+        forks: [],
+      },
+    ],
+  },
+
+  "photo-collage-apps": {
+    slug: "photo-collage-apps",
+    version: "photo-collage-apps-1",
+    en: "Photo Collage & Editing Apps",
+    ru: "Приложения коллажей и редактирования фото",
+    needs: [
+      {
+        key: "paywall",
+        en: "Most templates locked behind subscription",
+        ru: "Большинство шаблонов за подпиской",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged immediately on free trial",
+        ru: "Деньги списываются сразу после начала пробного периода",
+        forks: [
+          { key: "billing.charged-trial", en: "Trial converts to paid without warning", ru: "Пробный период переходит в платный без предупреждения" },
+        ],
+      },
+      {
+        key: "watermark",
+        en: "Watermark on free exports",
+        ru: "На бесплатном экспорте стоит водяной знак",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes and loses edits",
+        ru: "Приложение падает и теряет изменения",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and loses unsaved collage", ru: "Падает и теряет несохранённый коллаж" },
+        ],
+      },
+      {
+        key: "ads",
+        en: "Ads interrupt every editing step",
+        ru: "Реклама прерывает каждый шаг редактирования",
+        forks: [],
+      },
+    ],
+  },
+
+  "wifi-network-tools": {
+    slug: "wifi-network-tools",
+    version: "wifi-network-tools-1",
+    en: "WiFi & Network Tool Apps",
+    ru: "Приложения сетевых инструментов и Wi-Fi",
+    needs: [
+      {
+        key: "accuracy",
+        en: "Wrong network information shown",
+        ru: "Показывается неверная информация о сети",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Scan fails or returns no results",
+        ru: "Сканирование не работает или ничего не находит",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Excessive ads in utility app",
+        ru: "Слишком много рекламы в утилитарном приложении",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Paid version offers nothing over free alternatives",
+        ru: "Платная версия ничем не превосходит бесплатные аналоги",
+        forks: [],
+      },
+      {
+        key: "compatibility",
+        en: "Doesn't scan on newer Android versions",
+        ru: "Не работает на новых версиях Android",
+        forks: [],
+      },
+    ],
+  },
+
+  "finance-tax-apps": {
+    slug: "finance-tax-apps",
+    version: "finance-tax-apps-1",
+    en: "Tax & Finance Apps",
+    ru: "Налоговые и финансовые приложения",
+    needs: [
+      {
+        key: "billing",
+        en: "Unexpected charge to actually file return",
+        ru: "Неожиданная плата в самый момент подачи декларации",
+        forks: [],
+      },
+      {
+        key: "accuracy",
+        en: "Wrong tax calculation or refund estimate",
+        ru: "Неверный расчёт налога или оценка возврата",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during filing",
+        ru: "Приложение падает во время заполнения",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and loses filled data", ru: "Падает и теряет введённые данные" },
+        ],
+      },
+      {
+        key: "support",
+        en: "No human support during tax season",
+        ru: "В налоговый сезон нет живой поддержки",
+        forks: [],
+      },
+      {
+        key: "data-import",
+        en: "Bank and brokerage import broken",
+        ru: "Импорт из банков и брокеров не работает",
+        forks: [],
+      },
+    ],
+  },
+
+  "government-services-apps": {
+    slug: "government-services-apps",
+    version: "government-services-apps-1",
+    en: "Government Services Apps",
+    ru: "Приложения государственных услуг",
+    needs: [
+      {
+        key: "reliability",
+        en: "App crashes frequently",
+        ru: "Приложение часто падает",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes during document submission", ru: "Падает при подаче документов" },
+        ],
+      },
+      {
+        key: "login-broken",
+        en: "Can't log in with government credentials",
+        ru: "Не удаётся войти с государственными учётными данными",
+        forks: [],
+      },
+      {
+        key: "data-sync",
+        en: "Records not updated in the app",
+        ru: "Записи не обновляются в приложении",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "No technical support for app issues",
+        ru: "Нет технической поддержки по вопросам приложения",
+        forks: [],
+      },
+      {
+        key: "verification",
+        en: "Identity verification fails for valid users",
+        ru: "Верификация личности не проходит у реальных пользователей",
+        forks: [],
+      },
+    ],
+  },
+
+  "insurance-apps": {
+    slug: "insurance-apps",
+    version: "insurance-apps-1",
+    en: "Insurance Apps",
+    ru: "Страховые приложения",
+    needs: [
+      {
+        key: "billing-errors",
+        en: "Wrong premium or payment charged",
+        ru: "Неверная страховая премия или ошибочное списание",
+        forks: [],
+      },
+      {
+        key: "claim-issues",
+        en: "Claim submission process broken in app",
+        ru: "Процесс подачи заявки на выплату сломан",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes when accessing policy",
+        ru: "Приложение падает при доступе к полису",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Bot replaces human claims support",
+        ru: "Живую поддержку по страховым случаям заменил чат-бот",
+        forks: [],
+      },
+      {
+        key: "data-access",
+        en: "Can't view policy details or documents",
+        ru: "Нельзя просмотреть детали полиса или документы",
+        forks: [],
+      },
+    ],
+  },
+
+  "event-social-apps": {
+    slug: "event-social-apps",
+    version: "event-social-apps-1",
+    en: "Event & Social Discovery Apps",
+    ru: "Приложения поиска событий и знакомств",
+    needs: [
+      {
+        key: "fake-events",
+        en: "Ghost events and fake organizers",
+        ru: "События-призраки и фиктивные организаторы",
+        forks: [],
+      },
+      {
+        key: "paywall",
+        en: "Pay to see who's attending",
+        ru: "Нужно платить, чтобы увидеть список участников",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Subscription for basic event creation",
+        ru: "Создание базовых мероприятий требует подписки",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes or events fail to load",
+        ru: "Приложение падает или мероприятия не загружаются",
+        forks: [],
+      },
+      {
+        key: "spam",
+        en: "Spam invites from unknown organizers",
+        ru: "Спам-приглашения от незнакомых организаторов",
+        forks: [],
+      },
+    ],
+  },
+
+  "salon-booking-apps": {
+    slug: "salon-booking-apps",
+    version: "salon-booking-apps-1",
+    en: "Beauty & Salon Booking Apps",
+    ru: "Приложения бронирования салонов красоты",
+    needs: [
+      {
+        key: "booking-reliability",
+        en: "Bookings disappear or are not confirmed",
+        ru: "Бронирования пропадают или не подтверждаются",
+        forks: [],
+      },
+      {
+        key: "notifications",
+        en: "No booking confirmation received",
+        ru: "Подтверждение бронирования не приходит",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged after cancelling appointment",
+        ru: "Списывают деньги после отмены записи",
+        forks: [],
+      },
+      {
+        key: "support",
+        en: "Disputes over charges ignored",
+        ru: "Споры по оплате игнорируются",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes when booking",
+        ru: "Приложение падает при бронировании",
+        forks: [],
+      },
+    ],
+  },
+
+  "screen-recording-apps": {
+    slug: "screen-recording-apps",
+    version: "screen-recording-apps-1",
+    en: "Screen Recording & Capture Apps",
+    ru: "Приложения записи экрана",
+    needs: [
+      {
+        key: "watermark",
+        en: "Watermark on all free recordings",
+        ru: "На всех бесплатных записях стоит водяной знак",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Basic screen recording requires subscription",
+        ru: "Базовая запись экрана требует подписки",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes mid-recording",
+        ru: "Приложение падает во время записи",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and loses the recording", ru: "Падает и теряет запись" },
+        ],
+      },
+      {
+        key: "quality",
+        en: "Recording quality poor or degraded",
+        ru: "Качество записи плохое или ухудшенное",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Ads interrupt recording sessions",
+        ru: "Реклама прерывает сеансы записи",
+        forks: [],
+      },
+    ],
+  },
+
+  "food-recipe-apps": {
+    slug: "food-recipe-apps",
+    version: "food-recipe-apps-1",
+    en: "Food Recipe & Meal Planning Apps",
+    ru: "Приложения рецептов и планирования питания",
+    needs: [
+      {
+        key: "paywall",
+        en: "Recipes locked behind subscription",
+        ru: "Рецепты заперты за подпиской",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Ads between recipe steps",
+        ru: "Реклама между шагами рецепта",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes mid-recipe",
+        ru: "Приложение падает прямо в процессе готовки",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and loses place in recipe", ru: "Падает и теряет место в рецепте" },
+        ],
+      },
+      {
+        key: "offline-access",
+        en: "Saved recipes need internet connection",
+        ru: "Сохранённые рецепты требуют интернета",
+        forks: [],
+      },
+      {
+        key: "content-quality",
+        en: "Recipes inaccurate or poorly tested",
+        ru: "Рецепты неточные или плохо проверенные",
+        forks: [],
+      },
+    ],
+  },
+
+  "language-kids-apps": {
+    slug: "language-kids-apps",
+    version: "language-kids-apps-1",
+    en: "Kids Language Learning Apps",
+    ru: "Детские приложения для изучения языков",
+    needs: [
+      {
+        key: "paywall",
+        en: "Most content locked from first session",
+        ru: "Большая часть контента закрыта с первого сеанса",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Expensive subscription for children's app",
+        ru: "Дорогая подписка за детское приложение",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes during lessons",
+        ru: "Приложение падает во время занятий",
+        forks: [
+          { key: "reliability.crashes", en: "Crashes and resets lesson progress", ru: "Падает и сбрасывает прогресс урока" },
+        ],
+      },
+      {
+        key: "ads",
+        en: "Ads shown to children",
+        ru: "Реклама показывается детям",
+        forks: [],
+      },
+      {
+        key: "content-quality",
+        en: "Wrong pronunciation or poor content quality",
+        ru: "Неверное произношение или низкое качество контента",
+        forks: [],
+      },
+    ],
+  },
+
+  "screen-mirroring-cast": {
+    slug: "screen-mirroring-cast",
+    version: "screen-mirroring-cast-1",
+    en: "Screen Mirroring & Cast Apps",
+    ru: "Приложения зеркалирования экрана",
+    needs: [
+      {
+        key: "device-compatibility",
+        en: "Can't find TV or Chromecast on network",
+        ru: "Не находит телевизор или Chromecast в сети",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "Connection drops mid-stream",
+        ru: "Соединение прерывается во время трансляции",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Ads interrupt casting session",
+        ru: "Реклама прерывает сеанс трансляции",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Basic cast requires paid subscription",
+        ru: "Базовое зеркалирование требует подписки",
+        forks: [],
+      },
+      {
+        key: "setup-issues",
+        en: "Pairing with TV broken",
+        ru: "Сопряжение с телевизором не работает",
+        forks: [],
+      },
+    ],
+  },
+
+  "astrology-apps": {
+    slug: "astrology-apps",
+    version: "astrology-apps-1",
+    en: "Astrology & Horoscope Apps",
+    ru: "Приложения астрологии и гороскопов",
+    needs: [
+      {
+        key: "paywall",
+        en: "Birth chart and readings locked",
+        ru: "Натальная карта и расшифровки закрыты",
+        forks: [],
+      },
+      {
+        key: "billing",
+        en: "Charged immediately on free trial",
+        ru: "Деньги списываются сразу после начала пробного периода",
+        forks: [
+          { key: "billing.charged-trial", en: "Trial auto-converts to full subscription", ru: "Пробный период автоматически переходит в полную подписку" },
+        ],
+      },
+      {
+        key: "accuracy",
+        en: "Readings too generic or obviously wrong",
+        ru: "Предсказания слишком общие или явно неверные",
+        forks: [],
+      },
+      {
+        key: "ads",
+        en: "Excessive ads before every reading",
+        ru: "Реклама перед каждым гороскопом",
+        forks: [],
+      },
+      {
+        key: "data-privacy",
+        en: "Personal birth data sold to third parties",
+        ru: "Личные данные о дате рождения передаются третьим лицам",
+        forks: [],
+      },
+      {
+        key: "spam-notifications",
+        en: "Daily notification spam disguised as horoscopes",
+        ru: "Ежедневный спам уведомлений под видом гороскопов",
+        forks: [],
+      },
+    ],
+  },
+
+  "regional-streaming": {
+    slug: "regional-streaming",
+    version: "regional-streaming-1",
+    en: "Regional & Niche Streaming Apps",
+    ru: "Региональные стриминговые сервисы",
+    needs: [
+      {
+        key: "billing",
+        en: "Subscription issues and hard cancellation",
+        ru: "Проблемы с подпиской и сложная отмена",
+        forks: [],
+      },
+      {
+        key: "content-removed",
+        en: "Episodes removed mid-season",
+        ru: "Эпизоды удаляются в середине сезона",
+        forks: [],
+      },
+      {
+        key: "streaming-quality",
+        en: "Constant buffering and low quality",
+        ru: "Постоянная буферизация и низкое качество",
+        forks: [],
+      },
+      {
+        key: "geo-blocking",
+        en: "Content blocked in wrong region",
+        ru: "Контент заблокирован не в том регионе",
+        forks: [],
+      },
+      {
+        key: "reliability",
+        en: "App crashes frequently",
+        ru: "Приложение часто падает",
+        forks: [],
+      },
+      {
+        key: "subtitles",
+        en: "Wrong, missing or out-of-sync subtitles",
+        ru: "Субтитры неверные, отсутствуют или не синхронизированы",
+        forks: [],
+      },
+    ],
+  },
+  "flight-tracking-apps": {
+    slug: "flight-tracking-apps",
+    version: "flight-tracking-apps-1",
+    en: "Flight Tracker Apps",
+    ru: "Приложения отслеживания рейсов",
+    needs: [
+      { key: "data-accuracy", en: "Delays, gate changes or status shown wrong", ru: "Неверно отображаются задержки, изменения выходов или статус", forks: [] },
+      { key: "billing", en: "Subscription required for basic tracking", ru: "Базовое отслеживание требует подписки", forks: [
+        { key: "billing.charged-trial", en: "Charged immediately on free trial", ru: "Сняли деньги сразу при пробном периоде" },
+      ]},
+      { key: "notifications", en: "No alerts for gate changes or delays", ru: "Нет уведомлений об изменении выходов или задержках", forks: [] },
+      { key: "reliability", en: "App crashes or freezes", ru: "Приложение вылетает или зависает", forks: [] },
+      { key: "ads", en: "Excessive ads between every search", ru: "Реклама после каждого поиска", forks: [] },
+    ],
+  },
+  "language-exchange-apps": {
+    slug: "language-exchange-apps",
+    version: "language-exchange-apps-1",
+    en: "Language Exchange Apps",
+    ru: "Приложения языкового обмена",
+    needs: [
+      { key: "partner-matching", en: "Can't find partners or only bots respond", ru: "Нельзя найти партнёра или отвечают только боты", forks: [] },
+      { key: "paywall", en: "Most interactions locked behind premium", ru: "Большинство функций заблокированы за платным доступом", forks: [
+        { key: "paywall.messages", en: "Can't reply without subscription", ru: "Нельзя отвечать без подписки" },
+      ]},
+      { key: "reliability", en: "App crashes or messages not delivered", ru: "Приложение вылетает или сообщения не доходят", forks: [] },
+      { key: "fake-profiles", en: "Fake profiles and scammers", ru: "Фейковые профили и мошенники", forks: [] },
+      { key: "billing", en: "Subscription auto-renewed without warning", ru: "Подписка автоматически продлевается без предупреждения", forks: [] },
+    ],
+  },
+  "sleep-tracker-apps": {
+    slug: "sleep-tracker-apps",
+    version: "sleep-tracker-apps-1",
+    en: "Sleep Tracker & Snore Monitor Apps",
+    ru: "Приложения трекинга сна и мониторинга храпа",
+    needs: [
+      { key: "accuracy", en: "Sleep stages or snore detection wildly wrong", ru: "Фазы сна или детекция храпа сильно расходятся с реальностью", forks: [
+        { key: "accuracy.false-snore", en: "Reports snoring when silent", ru: "Сообщает о храпе при тишине" },
+      ]},
+      { key: "billing", en: "Detailed data locked behind subscription", ru: "Подробные данные скрыты за подпиской", forks: [] },
+      { key: "reliability", en: "App stops recording mid-night", ru: "Приложение прекращает запись в середине ночи", forks: [] },
+      { key: "battery-drain", en: "Drains phone battery overnight", ru: "За ночь разряжает батарею телефона", forks: [] },
+      { key: "ads", en: "Ads interrupt sleep analysis", ru: "Реклама прерывает анализ сна", forks: [] },
+    ],
+  },
+  "smart-security-cameras": {
+    slug: "smart-security-cameras",
+    version: "smart-security-cameras-1",
+    en: "Smart Security Camera Apps",
+    ru: "Приложения умных камер безопасности",
+    needs: [
+      { key: "connectivity", en: "Camera goes offline frequently", ru: "Камера часто уходит в оффлайн", forks: [
+        { key: "connectivity.local-only", en: "Only works on same WiFi, not remote", ru: "Работает только в той же сети, не удалённо" },
+      ]},
+      { key: "billing", en: "Cloud storage or features require subscription", ru: "Облачное хранение или функции требуют подписки", forks: [
+        { key: "billing.cant-cancel", en: "Subscription hard to cancel", ru: "Подписку сложно отменить" },
+      ]},
+      { key: "reliability", en: "App crashes or shows black screen", ru: "Приложение вылетает или показывает чёрный экран", forks: [] },
+      { key: "notifications", en: "Motion alerts too frequent or missing", ru: "Уведомления о движении слишком частые или не приходят", forks: [] },
+      { key: "privacy", en: "Footage accessible to third parties", ru: "Записи доступны третьим лицам", forks: [] },
+    ],
+  },
 };
 
 export function getTaxonomy(slug: string): GenreTaxonomy | null {
