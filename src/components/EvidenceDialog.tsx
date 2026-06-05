@@ -380,6 +380,9 @@ export default function EvidenceDialog({
                         {"★".repeat(e.rating)}
                         {"☆".repeat(Math.max(0, 5 - e.rating))}
                       </span>
+                      {e.postedAt && (
+                        <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{e.postedAt}</span>
+                      )}
                       {e.translated && (
                         <span className="rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] text-[var(--color-text-tertiary)]">
                           {translatedLabel}

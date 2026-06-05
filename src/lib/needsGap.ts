@@ -63,6 +63,7 @@ export type EvidenceReview = {
   text: string;
   match: string;
   translated: boolean; // text is a Russian translation of a non-Russian original
+  postedAt: string | null; // ISO date string
 };
 
 export type EvidencePage = { reviews: EvidenceReview[]; total: number };
@@ -409,9 +410,10 @@ export async function getSegmentEvidence(
       }
       if (forkKey && top.key !== forkKey) continue;
       const d = display(r, top.trigger, locale);
+      const at = r.postedAt?.getTime() ?? 0;
       out.push({
-        r: { app: p.name, icon: p.icon, rating: r.rating, ...d },
-        at: r.postedAt?.getTime() ?? 0,
+        r: { app: p.name, icon: p.icon, rating: r.rating, ...d, postedAt: r.postedAt?.toISOString().slice(0, 10) ?? null },
+        at,
       });
     }
   }
@@ -477,7 +479,7 @@ export async function getAppEvidence(
     if (forkKey && top.key !== forkKey) continue;
     const d = display(r, top.trigger, locale);
     out.push({
-      r: { app: "", icon: null, rating: r.rating, ...d },
+      r: { app: "", icon: null, rating: r.rating, ...d, postedAt: r.postedAt?.toISOString().slice(0, 10) ?? null },
       at: r.postedAt?.getTime() ?? 0,
     });
   }
