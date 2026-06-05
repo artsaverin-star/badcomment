@@ -12,13 +12,12 @@ import type { SegmentInsightsView, SegmentInsightTheme } from "@/lib/segmentInsi
 
 export default function SegmentInsightGap({ view, locale }: { view: SegmentInsightsView; locale: Locale }) {
   const tr = t(locale).market2;
-  const total = view.themes.reduce((s, t) => s + t.mentions, 0);
   return (
     <section className="flex flex-col gap-2">
       <div className="flex flex-col gap-0.5">
         <Header size="S" as="h2" title={tr.gapsHeading} />
         <p className="text-[13px] text-[var(--color-text-tertiary)]">
-          {tr.gapsCaption} {tr.scanned(total)}
+          {tr.gapsCaption} {tr.scanned(view.reviewsScanned)}
         </p>
       </div>
       <div className="flex flex-col gap-1.5">
