@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import { getResearchCategory } from "@/lib/researchCategories";
-import { getSegmentBySlug } from "@/lib/segments";
 import { getSegmentInsightsByTheme } from "@/lib/segmentInsightsByTheme";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { prisma } from "@/lib/prisma";
@@ -23,16 +22,17 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const cat = getResearchCategory(slug, locale);
   if (!cat) notFound();
 
-  // Theme-bucketed insight view powered by insights.json. Only renders for
-  // segments whose apps have been through the qualitative pipeline.
+  // Derive insight scope directly from the curated category's apps. The
+  // legacy segments.json mapping is gone — categories.json is the source of
+  // truth for which apps live in a sub-category.
+  const appIds = cat.apps.map((a) => a.productId).filter((id): id is string => !!id);
   let themeView = null;
   let productMeta: ProductMetaMap = {};
-  const legacy = getSegmentBySlug(slug, locale);
-  if (legacy) {
-    themeView = getSegmentInsightsByTheme(slug, legacy.appIds);
+  if (appIds.length > 0) {
+    themeView = getSegmentInsightsByTheme(slug, appIds);
     if (themeView) {
       const products = await prisma.product.findMany({
-        where: { id: { in: legacy.appIds } },
+        where: { id: { in: appIds } },
         select: { id: true, name: true, icon: true },
       });
       productMeta = Object.fromEntries(products.map((p) => [p.id, { name: p.name, icon: p.icon }]));
