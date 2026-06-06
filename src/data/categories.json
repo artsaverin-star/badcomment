@@ -1,466 +1,1629 @@
 [
   {
     "slug": "sleep-meditation",
-    "ru": { "name": "Сон и медитации", "kicker": "Засыпание, mindfulness, sleep-трекеры, мобильность" },
-    "en": { "name": "Sleep & meditation", "kicker": "Sleep onset, mindfulness, sleep trackers, mobility" },
+    "ru": {
+      "name": "Сон и медитации",
+      "kicker": "Засыпание, mindfulness, sleep-трекеры, мобильность"
+    },
+    "en": {
+      "name": "Sleep & meditation",
+      "kicker": "Sleep onset, mindfulness, sleep trackers, mobility"
+    },
     "categories": [
       {
         "slug": "meditation-mindfulness",
-        "ru": { "name": "Медитация и осознанность", "kicker": "Управляемые медитации, breathwork — Calm/Headspace" },
-        "en": { "name": "Meditation & mindfulness", "kicker": "Guided meditations, breathwork — Calm/Headspace" },
-        "apps": ["Calm", "Headspace", "Insight Timer", "Aura", "Balance", "Mindvalley", "Smiling Mind", "Waking Up", "Ten Percent Happier", "Simple Habit", "Healthy Minds Program", "Plum Village"]
+        "ru": {
+          "name": "Медитация и осознанность",
+          "kicker": "Управляемые медитации, breathwork — Calm/Headspace"
+        },
+        "en": {
+          "name": "Meditation & mindfulness",
+          "kicker": "Guided meditations, breathwork — Calm/Headspace"
+        },
+        "apps": [
+          "Calm",
+          "Headspace",
+          "Insight Timer",
+          "Aura",
+          "Balance",
+          "Mindvalley",
+          "Smiling Mind",
+          "Waking Up",
+          "Ten Percent Happier",
+          "Simple Habit",
+          "Healthy Minds Program",
+          "Plum Village"
+        ]
       },
       {
         "slug": "sleep-audio",
-        "ru": { "name": "Звуки сна и AI-саундскейпы", "kicker": "Sleep stories, white noise, генеративная музыка" },
-        "en": { "name": "Sleep audio & soundscapes", "kicker": "Sleep stories, white noise, generative music" },
-        "apps": ["BetterSleep", "Endel", "Brain.fm", "Slumber", "Loóna", "Pzizz", "Noisli", "Dark Noise", "Atmosphere", "myNoise", "Hatch Sleep", "Relax Sounds"]
+        "ru": {
+          "name": "Звуки сна и AI-саундскейпы",
+          "kicker": "Sleep stories, white noise, генеративная музыка"
+        },
+        "en": {
+          "name": "Sleep audio & soundscapes",
+          "kicker": "Sleep stories, white noise, generative music"
+        },
+        "apps": [
+          "BetterSleep",
+          "Endel",
+          "Brain.fm",
+          "Slumber",
+          "Loóna",
+          "Pzizz",
+          "Noisli",
+          "Dark Noise",
+          "Atmosphere",
+          "myNoise",
+          "Hatch Sleep",
+          "Relax Sounds"
+        ]
       },
       {
         "slug": "sleep-tracking",
-        "ru": { "name": "Трекеры сна и будильники", "kicker": "Фазы сна, смарт-будильник, храп, sleep debt" },
-        "en": { "name": "Sleep tracking & smart alarms", "kicker": "Sleep stages, smart alarms, snoring, sleep debt" },
-        "apps": ["Sleep Cycle", "SleepWatch", "AutoSleep", "Pillow", "RISE Sleep Tracker", "Alarmy", "Sleep++", "ShutEye", "Sleep as Android", "Pokémon Sleep", "SnoreLab", "Sleepwave"]
+        "ru": {
+          "name": "Трекеры сна и будильники",
+          "kicker": "Фазы сна, смарт-будильник, храп, sleep debt"
+        },
+        "en": {
+          "name": "Sleep tracking & smart alarms",
+          "kicker": "Sleep stages, smart alarms, snoring, sleep debt"
+        },
+        "apps": [
+          "Sleep Cycle",
+          "SleepWatch",
+          "AutoSleep",
+          "Pillow",
+          "RISE Sleep Tracker",
+          "Alarmy",
+          "Sleep++",
+          "ShutEye",
+          "Pokémon Sleep",
+          "SnoreLab",
+          "Sleepwave"
+        ]
       },
       {
         "slug": "stretching-mobility-yoga",
-        "ru": { "name": "Стретчинг, мобильность, йога", "kicker": "Растяжка, mobility WOD, домашняя йога, recovery" },
-        "en": { "name": "Stretching, mobility & yoga", "kicker": "Stretching, mobility WOD, home yoga, recovery" },
-        "apps": ["pliability", "GOWOD Mobility for Athletes", "StretchIt", "Flexibility App", "Down Dog Yoga", "Daily Yoga", "Yoga Studio: Mind & Body", "Alo Moves", "Glo", "Pocket Yoga", "Asana Rebel: Get in Shape", "FitOn Workouts & Fitness Plans"]
+        "ru": {
+          "name": "Стретчинг, мобильность, йога",
+          "kicker": "Растяжка, mobility WOD, домашняя йога, recovery"
+        },
+        "en": {
+          "name": "Stretching, mobility & yoga",
+          "kicker": "Stretching, mobility WOD, home yoga, recovery"
+        },
+        "apps": [
+          "pliability",
+          "StretchIt",
+          "Flexibility App",
+          "Down Dog Yoga",
+          "Daily Yoga",
+          "Yoga Studio: Mind & Body",
+          "Alo Moves",
+          "Glo",
+          "Pocket Yoga",
+          "Asana Rebel: Get in Shape",
+          "FitOn Workouts & Fitness Plans"
+        ]
       }
     ]
   },
   {
     "slug": "mind-self-help",
-    "ru": { "name": "Психика и самопомощь", "kicker": "AI-компаньоны, дневники, привычки, фокус, бросить" },
-    "en": { "name": "Mind & self-help", "kicker": "AI companions, journaling, habits, focus, quit-apps" },
+    "ru": {
+      "name": "Психика и самопомощь",
+      "kicker": "AI-компаньоны, дневники, привычки, фокус, бросить"
+    },
+    "en": {
+      "name": "Mind & self-help",
+      "kicker": "AI companions, journaling, habits, focus, quit-apps"
+    },
     "categories": [
       {
         "slug": "mental-health-chatbots",
-        "ru": { "name": "Чат-боты и AI-компаньоны", "kicker": "Wysa, Replika, Pi — AI-разговоры, мини-CBT" },
-        "en": { "name": "Mental health chatbots", "kicker": "Wysa, Replika, Pi — AI conversations, mini-CBT" },
-        "apps": ["Wysa", "Replika", "Sanvello", "Finch: Self-Care Pet", "Earkick", "Bloom", "Youper", "Pi, your personal AI", "Mindsera", "Slay With AI", "Headway", "Nuna AI"]
+        "ru": {
+          "name": "Чат-боты и AI-компаньоны",
+          "kicker": "Wysa, Replika, Pi — AI-разговоры, мини-CBT"
+        },
+        "en": {
+          "name": "Mental health chatbots",
+          "kicker": "Wysa, Replika, Pi — AI conversations, mini-CBT"
+        },
+        "apps": [
+          "Wysa",
+          "Replika",
+          "Sanvello",
+          "Finch: Self-Care Pet",
+          "Earkick",
+          "Bloom",
+          "Pi, your personal AI",
+          "Mindsera",
+          "Slay With AI",
+          "Headway",
+          "Nuna AI"
+        ]
       },
       {
         "slug": "mood-journaling",
-        "ru": { "name": "Дневники настроения", "kicker": "Day One, Stoic, Daylio — текст/визуал дневники" },
-        "en": { "name": "Mood journaling", "kicker": "Day One, Stoic, Daylio — text/visual diaries" },
-        "apps": ["Day One Journal", "Stoic. Self-Care, Journal & AI", "Daylio Journal", "Reflectly", "Bearable: Symptom Tracker", "How We Feel", "Moodfit", "MoodKit", "Diarium", "Journey: Diary, Journal", "Mood Patterns", "Five Minute Journal"]
+        "ru": {
+          "name": "Дневники настроения",
+          "kicker": "Day One, Stoic, Daylio — текст/визуал дневники"
+        },
+        "en": {
+          "name": "Mood journaling",
+          "kicker": "Day One, Stoic, Daylio — text/visual diaries"
+        },
+        "apps": [
+          "Day One Journal",
+          "Stoic. Self-Care, Journal & AI",
+          "Daylio Journal",
+          "Reflectly",
+          "Bearable: Symptom Tracker",
+          "How We Feel",
+          "Moodfit",
+          "MoodKit",
+          "Diarium",
+          "Journey: Diary, Journal",
+          "Mood Patterns",
+          "Five Minute Journal"
+        ]
       },
       {
         "slug": "habit-tracking",
-        "ru": { "name": "Привычки и стрики", "kicker": "Streaks, Habitica — каноничная solo-территория" },
-        "en": { "name": "Habit tracking", "kicker": "Streaks, Habitica — canonical solo territory" },
-        "apps": ["Streaks", "Habitica", "Productive — Habit Tracker", "HabitNow Daily Routine Planner", "Way of Life", "Strides — Habit Tracker", "Routinery: Daily Routine", "Done: A Simple Habit Tracker", "HabitMinder", "Habit Tracker"]
+        "ru": {
+          "name": "Привычки и стрики",
+          "kicker": "Streaks, Habitica — каноничная solo-территория"
+        },
+        "en": {
+          "name": "Habit tracking",
+          "kicker": "Streaks, Habitica — canonical solo territory"
+        },
+        "apps": [
+          "Streaks",
+          "Habitica",
+          "Productive — Habit Tracker",
+          "Way of Life",
+          "Strides — Habit Tracker",
+          "Routinery: Daily Routine",
+          "HabitMinder",
+          "Loop Habit Tracker",
+          "Tally - Habit Tracker",
+          "Beeminder",
+          "Habits Garden"
+        ]
       },
       {
         "slug": "sobriety",
-        "ru": { "name": "Бросить пить, курить, скроллить", "kicker": "Sobriety, smoking quit, recovery-сообщества" },
-        "en": { "name": "Sobriety & quit apps", "kicker": "Sobriety, smoking quit, recovery communities" },
-        "apps": ["I Am Sober", "Reframe: Drink Less, Live More", "Sunnyside: Mindful Drinking", "QuitNow!", "Loosid", "Sober Time", "Sober Grid", "EasyQuit Stop Smoking", "Drinkaware Track", "Smoke Free - quit smoking now"]
+        "ru": {
+          "name": "Бросить пить, курить, скроллить",
+          "kicker": "Sobriety, smoking quit, recovery-сообщества"
+        },
+        "en": {
+          "name": "Sobriety & quit apps",
+          "kicker": "Sobriety, smoking quit, recovery communities"
+        },
+        "apps": [
+          "I Am Sober",
+          "Reframe: Drink Less, Live More",
+          "Sunnyside: Mindful Drinking",
+          "QuitNow!",
+          "Loosid",
+          "Sober Time",
+          "EasyQuit Stop Smoking",
+          "Smoke Free - quit smoking now",
+          "Try Dry: the Dry January app",
+          "Quit Genius"
+        ]
       },
       {
         "slug": "focus-screentime",
-        "ru": { "name": "Фокус и контроль экранного времени", "kicker": "Pomodoro, блок соцсетей, deep work" },
-        "en": { "name": "Focus & screen-time", "kicker": "Pomodoro, social blockers, deep work" },
-        "apps": ["Forest: Focus for Productivity", "Opal: Screen Time for Focus", "Focus Plant", "Bear Focus Timer", "ScreenZen", "one sec — Take a Deep Breath", "Jomo - Screen Time & Blocker", "Be Focused - Focus Timer", "Flora - Green Focus", "Freedom: Block Websites & Apps"]
+        "ru": {
+          "name": "Фокус и контроль экранного времени",
+          "kicker": "Pomodoro, блок соцсетей, deep work"
+        },
+        "en": {
+          "name": "Focus & screen-time",
+          "kicker": "Pomodoro, social blockers, deep work"
+        },
+        "apps": [
+          "Forest: Focus for Productivity",
+          "Opal: Screen Time for Focus",
+          "Focus Plant",
+          "Bear Focus Timer",
+          "ScreenZen",
+          "one sec — Take a Deep Breath",
+          "Jomo - Screen Time & Blocker",
+          "Be Focused - Focus Timer",
+          "Flora - Green Focus",
+          "Freedom: Block Websites & Apps"
+        ]
       }
     ]
   },
   {
     "slug": "women-family",
-    "ru": { "name": "Женское здоровье и родительство", "kicker": "Цикл, беременность, младенцы, семья" },
-    "en": { "name": "Women's health & parenting", "kicker": "Cycle, pregnancy, babies, family" },
+    "ru": {
+      "name": "Женское здоровье и родительство",
+      "kicker": "Цикл, беременность, младенцы, семья"
+    },
+    "en": {
+      "name": "Women's health & parenting",
+      "kicker": "Cycle, pregnancy, babies, family"
+    },
     "categories": [
       {
         "slug": "period-cycle",
-        "ru": { "name": "Месячные и фертильность", "kicker": "Цикл, овуляция, симптомы — privacy-wedge" },
-        "en": { "name": "Period & cycle tracking", "kicker": "Cycle, ovulation, symptoms — privacy wedge" },
-        "apps": ["Flo Period & Ovulation Tracker", "Clue Period Tracker", "Natural Cycles", "Glow", "Ovia Fertility & Cycle", "Stardust Period Tracker", "Cycles", "Period Tracker by GP Apps", "Premom Ovulation Tracker", "WomanLog", "Eve by Glow"]
+        "ru": {
+          "name": "Месячные и фертильность",
+          "kicker": "Цикл, овуляция, симптомы — privacy-wedge"
+        },
+        "en": {
+          "name": "Period & cycle tracking",
+          "kicker": "Cycle, ovulation, symptoms — privacy wedge"
+        },
+        "apps": [
+          "Flo Period & Ovulation Tracker",
+          "Clue Period Tracker",
+          "Natural Cycles",
+          "Glow",
+          "Ovia Fertility & Cycle",
+          "Stardust Period Tracker",
+          "Cycles",
+          "Period Tracker by GP Apps",
+          "Premom Ovulation Tracker",
+          "WomanLog",
+          "Eve by Glow"
+        ]
       },
       {
         "slug": "pregnancy-baby",
-        "ru": { "name": "Беременность и младенцы", "kicker": "Недели, кормление, сон младенца, фото-альбомы" },
-        "en": { "name": "Pregnancy & baby tracking", "kicker": "Weeks, feeding, infant sleep, photo albums" },
-        "apps": ["Huckleberry — Baby Tracker", "BabyCenter", "Glow Baby", "The Wonder Weeks", "Pampers Club", "What to Expect", "Pregnancy + by Philips", "Hello Belly Pregnancy Tracker", "Cozi Family Organizer", "FamilyAlbum: Photo & Video", "Tinybeans: Family Memories"]
+        "ru": {
+          "name": "Беременность и младенцы",
+          "kicker": "Недели, кормление, сон младенца, фото-альбомы"
+        },
+        "en": {
+          "name": "Pregnancy & baby tracking",
+          "kicker": "Weeks, feeding, infant sleep, photo albums"
+        },
+        "apps": [
+          "Huckleberry — Baby Tracker",
+          "BabyCenter",
+          "Glow Baby",
+          "The Wonder Weeks",
+          "Pampers Club",
+          "What to Expect",
+          "Pregnancy + by Philips",
+          "Hello Belly Pregnancy Tracker",
+          "Cozi Family Organizer",
+          "FamilyAlbum: Photo & Video",
+          "Tinybeans: Family Memories"
+        ]
       }
     ]
   },
   {
     "slug": "fitness-nutrition",
-    "ru": { "name": "Фитнес и питание", "kicker": "Силовая, бег, классы, велик, калории" },
-    "en": { "name": "Fitness & nutrition", "kicker": "Strength, running, classes, cycling, calories" },
+    "ru": {
+      "name": "Фитнес и питание",
+      "kicker": "Силовая, бег, классы, велик, калории"
+    },
+    "en": {
+      "name": "Fitness & nutrition",
+      "kicker": "Strength, running, classes, cycling, calories"
+    },
     "categories": [
       {
         "slug": "nutrition-calories",
-        "ru": { "name": "Калории и питание", "kicker": "MyFitnessPal победил базой еды; вертикали — wedge" },
-        "en": { "name": "Nutrition & calorie tracking", "kicker": "MyFitnessPal won on food DB; verticals — wedge" },
-        "apps": ["MyFitnessPal", "Lose It!", "Cronometer", "Lifesum", "Yazio", "Carb Manager: Keto Diet App", "MacroFactor", "Noom", "Fooducate", "Yuka", "Calorie Counter by FatSecret", "WW Weight Watchers", "MyNetDiary"]
+        "ru": {
+          "name": "Калории и питание",
+          "kicker": "MyFitnessPal победил базой еды; вертикали — wedge"
+        },
+        "en": {
+          "name": "Nutrition & calorie tracking",
+          "kicker": "MyFitnessPal won on food DB; verticals — wedge"
+        },
+        "apps": [
+          "MyFitnessPal",
+          "Lose It!",
+          "Cronometer",
+          "Lifesum",
+          "Yazio",
+          "Carb Manager: Keto Diet App",
+          "MacroFactor",
+          "Noom",
+          "Fooducate",
+          "Yuka",
+          "Calorie Counter by FatSecret",
+          "WW Weight Watchers",
+          "MyNetDiary"
+        ]
       },
       {
         "slug": "strength-training",
-        "ru": { "name": "Силовая и зал", "kicker": "Strong/Hevy/Fitbod — программы, прогрессия" },
-        "en": { "name": "Strength training & gym", "kicker": "Strong/Hevy/Fitbod — programs, progression" },
-        "apps": ["Strong Workout Tracker", "Fitbod Workout & Gym Planner", "Hevy", "JEFIT Workout Planner", "Caliber Strength Training", "Stronglifts 5x5", "FitNotes", "RP Hypertrophy App", "Iron - Workout Log", "BodySpace Bodybuilding"]
+        "ru": {
+          "name": "Силовая и зал",
+          "kicker": "Strong/Hevy/Fitbod — программы, прогрессия"
+        },
+        "en": {
+          "name": "Strength training & gym",
+          "kicker": "Strong/Hevy/Fitbod — programs, progression"
+        },
+        "apps": [
+          "Strong Workout Tracker",
+          "Fitbod Workout & Gym Planner",
+          "Hevy",
+          "JEFIT Workout Planner",
+          "Caliber Strength Training",
+          "Stronglifts 5x5",
+          "FitNotes",
+          "RP Hypertrophy App",
+          "Iron - Workout Log",
+          "BodySpace Bodybuilding"
+        ]
       },
       {
         "slug": "running",
-        "ru": { "name": "Бег и кардио", "kicker": "Strava, Nike Run Club, Runna — пробежки, планы" },
-        "en": { "name": "Running & cardio tracking", "kicker": "Strava, Nike Run Club, Runna — runs, plans" },
-        "apps": ["Strava", "Nike Run Club", "Runna", "MapMyRun by Under Armour", "adidas Running", "Couch to 5K", "Runkeeper - GPS Run Tracker", "Garmin Connect", "Polar Flow", "Runtopia: Outdoor Run Tracker"]
+        "ru": {
+          "name": "Бег и кардио",
+          "kicker": "Strava, Nike Run Club, Runna — пробежки, планы"
+        },
+        "en": {
+          "name": "Running & cardio tracking",
+          "kicker": "Strava, Nike Run Club, Runna — runs, plans"
+        },
+        "apps": [
+          "Strava",
+          "Nike Run Club",
+          "Runna",
+          "MapMyRun by Under Armour",
+          "adidas Running",
+          "Couch to 5K",
+          "Runkeeper - GPS Run Tracker",
+          "Garmin Connect",
+          "Polar Flow",
+          "Runtopia: Outdoor Run Tracker"
+        ]
       },
       {
         "slug": "home-fitness-classes",
-        "ru": { "name": "Домашние тренировки и классы", "kicker": "Peloton, Apple Fitness+, Future, ClassPass" },
-        "en": { "name": "Home fitness & group classes", "kicker": "Peloton, Apple Fitness+, Future, ClassPass" },
-        "apps": ["Peloton", "Apple Fitness+", "Future: Personal Training", "Centr by Chris Hemsworth", "Sweat: Fitness App For Women", "adidas Training", "ClassPass", "Freeletics", "Daily Burn", "obé Fitness"]
+        "ru": {
+          "name": "Домашние тренировки и классы",
+          "kicker": "Peloton, Apple Fitness+, Future, ClassPass"
+        },
+        "en": {
+          "name": "Home fitness & group classes",
+          "kicker": "Peloton, Apple Fitness+, Future, ClassPass"
+        },
+        "apps": [
+          "Peloton",
+          "Apple Fitness+",
+          "Future: Personal Training",
+          "Centr by Chris Hemsworth",
+          "Sweat: Fitness App For Women",
+          "ClassPass",
+          "Freeletics",
+          "Daily Burn",
+          "obé Fitness",
+          "Beachbody"
+        ]
       },
       {
         "slug": "cycling",
-        "ru": { "name": "Велоспорт и тренировки", "kicker": "Zwift, Wahoo, TrainerRoad — структурированные тренировки" },
-        "en": { "name": "Cycling apps", "kicker": "Zwift, Wahoo, TrainerRoad — structured workouts" },
-        "apps": ["Zwift", "Wahoo Fitness", "TrainerRoad", "Komoot - Hike, Bike & Run", "Ride with GPS", "Cyclemeter Cycling Tracker", "Bkool Cycling Simulator", "Rouvy AR", "Cycling: Bike Tracker", "Bike Computer GPS Cyclemeter"]
+        "ru": {
+          "name": "Велоспорт и тренировки",
+          "kicker": "Zwift, Wahoo, TrainerRoad — структурированные тренировки"
+        },
+        "en": {
+          "name": "Cycling apps",
+          "kicker": "Zwift, Wahoo, TrainerRoad — structured workouts"
+        },
+        "apps": [
+          "Zwift",
+          "Wahoo Fitness",
+          "TrainerRoad",
+          "Komoot - Hike, Bike & Run",
+          "Ride with GPS",
+          "Cyclemeter Cycling Tracker",
+          "Bkool Cycling Simulator",
+          "Rouvy AR",
+          "Cycling: Bike Tracker",
+          "Bike Computer GPS Cyclemeter"
+        ]
       }
     ]
   },
   {
     "slug": "learning",
-    "ru": { "name": "Учёба и языки", "kicker": "Языки, дети, курсы, флэшкарты" },
-    "en": { "name": "Learning & languages", "kicker": "Languages, kids, courses, flashcards" },
+    "ru": {
+      "name": "Учёба и языки",
+      "kicker": "Языки, дети, курсы, флэшкарты"
+    },
+    "en": {
+      "name": "Learning & languages",
+      "kicker": "Languages, kids, courses, flashcards"
+    },
     "categories": [
       {
         "slug": "language-learning",
-        "ru": { "name": "Изучение языков", "kicker": "Duolingo-style не построить; вертикали — wedge" },
-        "en": { "name": "Language learning", "kicker": "Duolingo clone unreal; verticals — wedge" },
-        "apps": ["Duolingo", "Babbel — Language Learning", "Memrise: speak a new language", "Pimsleur", "Busuu: Learn Languages", "Mondly: Learn Languages", "Drops: Language Learning", "Lingoda", "italki", "Rosetta Stone: Learn Languages", "ELSA Speak: AI English Coach", "Cake — Learn English & Korean", "Lingvist", "LingQ", "HelloTalk", "Tandem"]
+        "ru": {
+          "name": "Изучение языков",
+          "kicker": "Duolingo-style не построить; вертикали — wedge"
+        },
+        "en": {
+          "name": "Language learning",
+          "kicker": "Duolingo clone unreal; verticals — wedge"
+        },
+        "apps": [
+          "Duolingo",
+          "Babbel — Language Learning",
+          "Memrise: speak a new language",
+          "Pimsleur",
+          "Busuu: Learn Languages",
+          "Mondly: Learn Languages",
+          "Drops: Language Learning",
+          "Lingoda",
+          "italki",
+          "Rosetta Stone: Learn Languages",
+          "ELSA Speak: AI English Coach",
+          "Cake — Learn English & Korean",
+          "Lingvist",
+          "LingQ",
+          "HelloTalk",
+          "Tandem"
+        ]
       },
       {
         "slug": "kids-learning",
-        "ru": { "name": "Обучение для детей", "kicker": "Один концепт, один возраст — solo territory" },
-        "en": { "name": "Kids learning", "kicker": "One concept, one age — solo territory" },
-        "apps": ["ABCmouse.com", "Khan Academy Kids", "Endless Alphabet", "Lingumi", "Lingokids", "Sago Mini World", "Toca Boca World", "Duolingo ABC", "Hopster Kids TV Shows", "DragonBox Numbers"]
+        "ru": {
+          "name": "Обучение для детей",
+          "kicker": "Один концепт, один возраст — solo territory"
+        },
+        "en": {
+          "name": "Kids learning",
+          "kicker": "One concept, one age — solo territory"
+        },
+        "apps": [
+          "ABCmouse.com",
+          "Khan Academy Kids",
+          "Endless Alphabet",
+          "Lingumi",
+          "Lingokids",
+          "Sago Mini World",
+          "Toca Boca World",
+          "Duolingo ABC",
+          "Hopster Kids TV Shows",
+          "DragonBox Numbers"
+        ]
       },
       {
         "slug": "online-courses",
-        "ru": { "name": "Онлайн-курсы", "kicker": "MOOC-маркетплейсы — reference. Single-creator — wedge" },
-        "en": { "name": "Online courses", "kicker": "MOOC marketplaces — reference. Single-creator — wedge" },
-        "apps": ["Coursera", "Udemy Online Courses", "Skillshare", "MasterClass", "edX: Courses by Harvard & MIT", "Khan Academy", "Domestika", "LinkedIn Learning", "FutureLearn", "Pluralsight"]
+        "ru": {
+          "name": "Онлайн-курсы",
+          "kicker": "MOOC-маркетплейсы — reference. Single-creator — wedge"
+        },
+        "en": {
+          "name": "Online courses",
+          "kicker": "MOOC marketplaces — reference. Single-creator — wedge"
+        },
+        "apps": [
+          "Coursera",
+          "Udemy Online Courses",
+          "Skillshare",
+          "MasterClass",
+          "edX: Courses by Harvard & MIT",
+          "Khan Academy",
+          "Domestika",
+          "LinkedIn Learning",
+          "Pluralsight",
+          "DataCamp: Learn Coding Skills",
+          "Mind Luster"
+        ]
       },
       {
         "slug": "study-aids",
-        "ru": { "name": "Карточки и помощники в учёбе", "kicker": "Anki, Photomath, Brilliant — AI-tutor вертикали" },
-        "en": { "name": "Flashcards & study aids", "kicker": "Anki, Photomath, Brilliant — AI tutor verticals" },
-        "apps": ["AnkiMobile Flashcards", "Quizlet", "RemNote", "Photomath", "Microsoft Math Solver", "Brainly", "Chegg Study", "Course Hero", "Brilliant", "Mimo: Learn Coding/Programming", "Sololearn: Learn to Code", "Socratic by Google"]
+        "ru": {
+          "name": "Карточки и помощники в учёбе",
+          "kicker": "Anki, Photomath, Brilliant — AI-tutor вертикали"
+        },
+        "en": {
+          "name": "Flashcards & study aids",
+          "kicker": "Anki, Photomath, Brilliant — AI tutor verticals"
+        },
+        "apps": [
+          "AnkiMobile Flashcards",
+          "Quizlet",
+          "RemNote",
+          "Photomath",
+          "Brainly",
+          "Chegg Study",
+          "Course Hero",
+          "Brilliant",
+          "Mimo: Learn Coding/Programming",
+          "Sololearn: Learn to Code",
+          "Socratic by Google"
+        ]
       }
     ]
   },
   {
     "slug": "productivity",
-    "ru": { "name": "Продуктивность", "kicker": "Заметки, тексты, календари, тайм-трекинг, голос, сканеры" },
-    "en": { "name": "Productivity", "kicker": "Notes, writing, calendars, time, voice, scanners" },
+    "ru": {
+      "name": "Продуктивность",
+      "kicker": "Заметки, тексты, календари, тайм-трекинг, голос, сканеры"
+    },
+    "en": {
+      "name": "Productivity",
+      "kicker": "Notes, writing, calendars, time, voice, scanners"
+    },
     "categories": [
       {
         "slug": "notes-pkm",
-        "ru": { "name": "Заметки и PKM", "kicker": "Notion, Obsidian, Heptabase, Bear — second brain" },
-        "en": { "name": "Notes & PKM", "kicker": "Notion, Obsidian, Heptabase, Bear — second brain" },
-        "apps": ["Notion", "Obsidian", "Apple Notes", "Bear - Markdown Notes", "Heptabase", "Craft", "Microsoft OneNote", "Logseq", "Capacities", "Tana", "Reflect", "Evernote", "Goodnotes", "Mem"]
+        "ru": {
+          "name": "Заметки и PKM",
+          "kicker": "Notion, Obsidian, Heptabase, Bear — second brain"
+        },
+        "en": {
+          "name": "Notes & PKM",
+          "kicker": "Notion, Obsidian, Heptabase, Bear — second brain"
+        },
+        "apps": [
+          "Notion",
+          "Obsidian",
+          "Apple Notes",
+          "Bear - Markdown Notes",
+          "Heptabase",
+          "Craft",
+          "Microsoft OneNote",
+          "Logseq",
+          "Capacities",
+          "Tana",
+          "Reflect",
+          "Evernote",
+          "Goodnotes",
+          "Mem"
+        ]
       },
       {
         "slug": "writing-tools",
-        "ru": { "name": "Тексты и AI-writing", "kicker": "iA Writer, Ulysses, Sudowrite — софт для авторов" },
-        "en": { "name": "Writing tools & AI writing", "kicker": "iA Writer, Ulysses, Sudowrite — software for writers" },
-        "apps": ["iA Writer", "Ulysses", "Drafts", "Scrivener 3", "Pages", "Hemingway Editor", "Grammarly: Spelling & Grammar", "ProWritingAid", "Sudowrite", "Lex by Every", "Novlr", "Microsoft Word"]
+        "ru": {
+          "name": "Тексты и AI-writing",
+          "kicker": "iA Writer, Ulysses, Sudowrite — софт для авторов"
+        },
+        "en": {
+          "name": "Writing tools & AI writing",
+          "kicker": "iA Writer, Ulysses, Sudowrite — software for writers"
+        },
+        "apps": [
+          "iA Writer",
+          "Ulysses",
+          "Drafts",
+          "Scrivener 3",
+          "Pages",
+          "Hemingway Editor",
+          "Grammarly: Spelling & Grammar",
+          "ProWritingAid",
+          "Sudowrite",
+          "Lex by Every",
+          "Novlr",
+          "Microsoft Word"
+        ]
       },
       {
         "slug": "calendars-tasks",
-        "ru": { "name": "Календари и задачи", "kicker": "Todoist, Things, Fantastical — to-do, time-blocking" },
-        "en": { "name": "Calendars & tasks", "kicker": "Todoist, Things, Fantastical — to-do, time-blocking" },
-        "apps": ["Todoist", "Things 3", "TickTick:To Do List & Calendar", "Fantastical — Calendar & Tasks", "Sunsama: Daily Planner", "Notion Calendar", "Microsoft To Do", "Apple Reminders", "Akiflow", "Amie", "OmniFocus 4", "Any.do", "Cron", "Google Calendar"]
+        "ru": {
+          "name": "Календари и задачи",
+          "kicker": "Todoist, Things, Fantastical — to-do, time-blocking"
+        },
+        "en": {
+          "name": "Calendars & tasks",
+          "kicker": "Todoist, Things, Fantastical — to-do, time-blocking"
+        },
+        "apps": [
+          "Todoist",
+          "Things 3",
+          "TickTick:To Do List & Calendar",
+          "Fantastical — Calendar & Tasks",
+          "Sunsama: Daily Planner",
+          "Notion Calendar",
+          "Microsoft To Do",
+          "Apple Reminders",
+          "Akiflow",
+          "Amie",
+          "OmniFocus 4",
+          "Any.do",
+          "Google Calendar"
+        ]
       },
       {
         "slug": "time-tracking",
-        "ru": { "name": "Учёт времени", "kicker": "Toggl, Timing, Tyme — фрилансер-рынок" },
-        "en": { "name": "Time tracking", "kicker": "Toggl, Timing, Tyme — freelancer market" },
-        "apps": ["Toggl Track: Work Hours Tracker", "Timing - Automatic Time Tracking", "Tyme — Time Tracking", "RescueTime", "Hours Tracker Time Tracking", "Clockify Time Tracker", "Harvest", "ATracker - Daily Task Tracker", "Now Then Time Tracker", "Timely - Automatic Tracking"]
+        "ru": {
+          "name": "Учёт времени",
+          "kicker": "Toggl, Timing, Tyme — фрилансер-рынок"
+        },
+        "en": {
+          "name": "Time tracking",
+          "kicker": "Toggl, Timing, Tyme — freelancer market"
+        },
+        "apps": [
+          "Toggl Track: Work Hours Tracker",
+          "Tyme — Time Tracking",
+          "RescueTime",
+          "Hours Tracker Time Tracking",
+          "Clockify Time Tracker",
+          "Harvest",
+          "ATracker - Daily Task Tracker",
+          "Now Then Time Tracker",
+          "Timely - Automatic Tracking",
+          "Tweek Calendar: Tasks & Plans"
+        ]
       },
       {
         "slug": "voice-notes-transcription",
-        "ru": { "name": "Голос-заметки и транскрипция", "kicker": "Whisper + LLM. Otter, AudioPen, Granola, Plaud" },
-        "en": { "name": "Voice notes & transcription", "kicker": "Whisper + LLM. Otter, AudioPen, Granola, Plaud" },
-        "apps": ["Otter: Transcribe Voice Notes", "AudioPen", "Granola AI Notetaker", "Letterly: AI voice-to-text journal", "Voicenotes", "Plaud Note", "Rev Voice Recorder", "Trint", "Notta - AI Note Taker", "MacWhisper", "Apple Voice Memos", "Just Press Record", "Fireflies.ai", "Whisper Memos"]
+        "ru": {
+          "name": "Голос-заметки и транскрипция",
+          "kicker": "Whisper + LLM. Otter, AudioPen, Granola, Plaud"
+        },
+        "en": {
+          "name": "Voice notes & transcription",
+          "kicker": "Whisper + LLM. Otter, AudioPen, Granola, Plaud"
+        },
+        "apps": [
+          "Otter: Transcribe Voice Notes",
+          "AudioPen",
+          "Granola AI Notetaker",
+          "Letterly: AI voice-to-text journal",
+          "Voicenotes",
+          "Plaud Note",
+          "Rev Voice Recorder",
+          "Trint",
+          "Notta - AI Note Taker",
+          "MacWhisper",
+          "Apple Voice Memos",
+          "Just Press Record",
+          "Fireflies.ai",
+          "Whisper Memos"
+        ]
       },
       {
         "slug": "document-scanners",
-        "ru": { "name": "Сканеры документов", "kicker": "OCR, PDF, подписи — индюшная утилит-территория" },
-        "en": { "name": "Document scanners", "kicker": "OCR, PDF, signatures — indie utility territory" },
-        "apps": ["CamScanner", "Microsoft Lens - PDF Scanner", "Adobe Scan: PDF Scanner", "Scanner Pro by Readdle", "Genius Scan - PDF Scanner", "vFlat Scan", "SwiftScan: Scanner App", "TinyScanner — PDF Scanner App", "Office Lens", "Smart PDF Scanner"]
+        "ru": {
+          "name": "Сканеры документов",
+          "kicker": "OCR, PDF, подписи — индюшная утилит-территория"
+        },
+        "en": {
+          "name": "Document scanners",
+          "kicker": "OCR, PDF, signatures — indie utility territory"
+        },
+        "apps": [
+          "CamScanner",
+          "Adobe Scan: PDF Scanner",
+          "Scanner Pro by Readdle",
+          "Genius Scan - PDF Scanner",
+          "vFlat Scan",
+          "SwiftScan: Scanner App",
+          "TinyScanner — PDF Scanner App",
+          "Office Lens",
+          "Smart PDF Scanner",
+          "FineScanner AI",
+          "Image to text - OCR Scanner"
+        ]
       }
     ]
   },
   {
     "slug": "reading-podcasts",
-    "ru": { "name": "Чтение и подкасты", "kicker": "Read-it-later, трекеры чтения, подкаст-плееры" },
-    "en": { "name": "Reading & podcasts", "kicker": "Read-it-later, reading trackers, podcast players" },
+    "ru": {
+      "name": "Чтение и подкасты",
+      "kicker": "Read-it-later, трекеры чтения, подкаст-плееры"
+    },
+    "en": {
+      "name": "Reading & podcasts",
+      "kicker": "Read-it-later, reading trackers, podcast players"
+    },
     "categories": [
       {
         "slug": "read-it-later",
-        "ru": { "name": "Read-it-later и хайлайты", "kicker": "Matter, Readwise Reader, Omnivore — статьи и цитаты" },
-        "en": { "name": "Read-it-later & highlights", "kicker": "Matter, Readwise Reader, Omnivore — articles & quotes" },
-        "apps": ["Matter — Read Smarter", "Readwise Reader", "Pocket: Save. Read. Grow.", "Instapaper", "GoodLinks", "Raindrop.io: Bookmark Manager", "Readwise", "Refind", "Reeder 5", "Curio - Listen to Articles"]
+        "ru": {
+          "name": "Read-it-later и хайлайты",
+          "kicker": "Matter, Readwise Reader, Omnivore — статьи и цитаты"
+        },
+        "en": {
+          "name": "Read-it-later & highlights",
+          "kicker": "Matter, Readwise Reader, Omnivore — articles & quotes"
+        },
+        "apps": [
+          "Matter — Read Smarter",
+          "Readwise Reader",
+          "Instapaper",
+          "GoodLinks",
+          "Raindrop.io: Bookmark Manager",
+          "Readwise",
+          "Refind",
+          "Reeder 5",
+          "Curio - Listen to Articles",
+          "Omnivore: Read-it-Later App",
+          "Curio - Listen to Articles Bookmark Manager"
+        ]
       },
       {
         "slug": "reading-tracker",
-        "ru": { "name": "Трекеры чтения", "kicker": "Bookly, StoryGraph, Goodreads — прогресс и сообщества" },
-        "en": { "name": "Reading trackers", "kicker": "Bookly, StoryGraph, Goodreads — progress & communities" },
-        "apps": ["Bookly — Reading Tracker", "Goodreads", "The StoryGraph", "Fable: Book Reading Community", "Literal: Book Tracker", "Hardcover", "BookSloth", "Basmo - Book Tracker & Reader", "Bookshelf", "Readsy - Reading Tracker"]
+        "ru": {
+          "name": "Трекеры чтения",
+          "kicker": "Bookly, StoryGraph, Goodreads — прогресс и сообщества"
+        },
+        "en": {
+          "name": "Reading trackers",
+          "kicker": "Bookly, StoryGraph, Goodreads — progress & communities"
+        },
+        "apps": [
+          "Bookly — Reading Tracker",
+          "Goodreads",
+          "The StoryGraph",
+          "Fable: Book Reading Community",
+          "Hardcover",
+          "Basmo - Book Tracker & Reader",
+          "Bookshelf",
+          "Readsy - Reading Tracker",
+          "Bookshelf - Reading Tracker",
+          "BookBuddy Pro: Book Library"
+        ]
       },
       {
         "slug": "podcasts",
-        "ru": { "name": "Подкаст-плееры", "kicker": "Overcast = 1 dev. RSS открыт. AI-конспекты — wedge" },
-        "en": { "name": "Podcast players", "kicker": "Overcast = 1 dev. RSS is open. AI summaries — wedge" },
-        "apps": ["Apple Podcasts", "Pocket Casts", "Overcast", "Castro", "Snipd", "Podcast Addict", "Goodpods", "Castbox: Podcast & Audiobook", "Player FM Podcast App", "Stitcher Podcasts"]
+        "ru": {
+          "name": "Подкаст-плееры",
+          "kicker": "Overcast = 1 dev. RSS открыт. AI-конспекты — wedge"
+        },
+        "en": {
+          "name": "Podcast players",
+          "kicker": "Overcast = 1 dev. RSS is open. AI summaries — wedge"
+        },
+        "apps": [
+          "Apple Podcasts",
+          "Pocket Casts",
+          "Overcast",
+          "Castro",
+          "Snipd",
+          "Podcast Addict",
+          "Goodpods",
+          "Castbox: Podcast & Audiobook",
+          "Player FM Podcast App",
+          "Downcast"
+        ]
       }
     ]
   },
   {
     "slug": "media-streaming",
-    "ru": { "name": "Медиа и стриминг", "kicker": "Музыка, видео, аудиокниги, новости" },
-    "en": { "name": "Media & streaming", "kicker": "Music, video, audiobooks, news" },
+    "ru": {
+      "name": "Медиа и стриминг",
+      "kicker": "Музыка, видео, аудиокниги, новости"
+    },
+    "en": {
+      "name": "Media & streaming",
+      "kicker": "Music, video, audiobooks, news"
+    },
     "categories": [
       {
         "slug": "music-streaming",
-        "ru": { "name": "Стриминг музыки", "kicker": "Spotify, Apple Music — контентные права. Reference" },
-        "en": { "name": "Music streaming", "kicker": "Spotify, Apple Music — content rights. Reference" },
-        "apps": ["Spotify", "Apple Music", "YouTube Music", "TIDAL Music", "Amazon Music", "Deezer", "Pandora", "SoundCloud", "Shazam", "Bandcamp"]
+        "ru": {
+          "name": "Стриминг музыки",
+          "kicker": "Spotify, Apple Music — контентные права. Reference"
+        },
+        "en": {
+          "name": "Music streaming",
+          "kicker": "Spotify, Apple Music — content rights. Reference"
+        },
+        "apps": [
+          "Spotify",
+          "Apple Music",
+          "YouTube Music",
+          "TIDAL Music",
+          "Amazon Music",
+          "Deezer",
+          "Pandora",
+          "SoundCloud",
+          "Shazam",
+          "Bandcamp"
+        ]
       },
       {
         "slug": "video-streaming",
-        "ru": { "name": "Видео-стриминг", "kicker": "Netflix/Disney/Apple TV — контентные права" },
-        "en": { "name": "Video streaming", "kicker": "Netflix/Disney/Apple TV — content rights" },
-        "apps": ["Netflix", "Disney+", "Max", "Amazon Prime Video", "Apple TV", "Hulu", "Paramount+", "Peacock TV", "YouTube", "Crunchyroll", "Plex", "MUBI"]
+        "ru": {
+          "name": "Видео-стриминг",
+          "kicker": "Netflix/Disney/Apple TV — контентные права"
+        },
+        "en": {
+          "name": "Video streaming",
+          "kicker": "Netflix/Disney/Apple TV — content rights"
+        },
+        "apps": [
+          "Netflix",
+          "Disney+",
+          "Max",
+          "Amazon Prime Video",
+          "Apple TV",
+          "Hulu",
+          "Paramount+",
+          "Peacock TV",
+          "YouTube",
+          "Crunchyroll",
+          "Plex",
+          "MUBI"
+        ]
       },
       {
         "slug": "reading-audiobooks",
-        "ru": { "name": "Электронные книги и аудиокниги", "kicker": "Kindle, Audible, Apple Books — контентные права" },
-        "en": { "name": "E-readers & audiobooks", "kicker": "Kindle, Audible, Apple Books — content rights" },
-        "apps": ["Amazon Kindle", "Apple Books", "Audible", "Libby, by OverDrive", "Scribd: Audiobooks & ebooks", "Hoopla Digital", "Wattpad", "Storytel", "Kobo Books", "Speechify"]
+        "ru": {
+          "name": "Электронные книги и аудиокниги",
+          "kicker": "Kindle, Audible, Apple Books — контентные права"
+        },
+        "en": {
+          "name": "E-readers & audiobooks",
+          "kicker": "Kindle, Audible, Apple Books — content rights"
+        },
+        "apps": [
+          "Amazon Kindle",
+          "Apple Books",
+          "Audible",
+          "Libby, by OverDrive",
+          "Scribd: Audiobooks & ebooks",
+          "Hoopla Digital",
+          "Wattpad",
+          "Storytel",
+          "Kobo Books",
+          "Speechify"
+        ]
       },
       {
         "slug": "news-magazines",
-        "ru": { "name": "Новости и RSS-читалки", "kicker": "Агрегаторы — wedge. NYT app — reference" },
-        "en": { "name": "News & RSS readers", "kicker": "Aggregators — wedge. NYT app — reference" },
-        "apps": ["The New York Times", "BBC News", "The Guardian", "The Washington Post", "Apple News", "Reuters News", "Flipboard", "Substack", "Ground News", "Feedly. Smart News Reader", "Bloomberg: Business News", "The Wall Street Journal"]
+        "ru": {
+          "name": "Новости и RSS-читалки",
+          "kicker": "Агрегаторы — wedge. NYT app — reference"
+        },
+        "en": {
+          "name": "News & RSS readers",
+          "kicker": "Aggregators — wedge. NYT app — reference"
+        },
+        "apps": [
+          "BBC News",
+          "The Guardian",
+          "The Washington Post",
+          "Apple News",
+          "Reuters News",
+          "Flipboard",
+          "Substack",
+          "Ground News",
+          "Feedly. Smart News Reader",
+          "Bloomberg: Business News",
+          "The Wall Street Journal"
+        ]
       }
     ]
   },
   {
     "slug": "photo-video",
-    "ru": { "name": "Фото и видео", "kicker": "Редакторы, организация, AI-генерация" },
-    "en": { "name": "Photo & video", "kicker": "Editors, organization, AI generation" },
+    "ru": {
+      "name": "Фото и видео",
+      "kicker": "Редакторы, организация, AI-генерация"
+    },
+    "en": {
+      "name": "Photo & video",
+      "kicker": "Editors, organization, AI generation"
+    },
     "categories": [
       {
         "slug": "photo-editing",
-        "ru": { "name": "Фоторедакторы", "kicker": "Lightroom не повторить; вертикали — wedge" },
-        "en": { "name": "Photo editing", "kicker": "Can't clone Lightroom; vertical — wedge" },
-        "apps": ["Adobe Lightroom", "Snapseed", "VSCO", "Facetune", "Picsart AI Photo Editor", "Photoshop Express", "Pixelmator Pro", "Photoroom Photo Editor", "Affinity Photo 2", "Darkroom — Photo & Video Editor", "Polarr Photo Editor", "Halide Mark II - Pro Camera"]
+        "ru": {
+          "name": "Фоторедакторы",
+          "kicker": "Lightroom не повторить; вертикали — wedge"
+        },
+        "en": {
+          "name": "Photo editing",
+          "kicker": "Can't clone Lightroom; vertical — wedge"
+        },
+        "apps": [
+          "Adobe Lightroom",
+          "Snapseed",
+          "VSCO",
+          "Facetune",
+          "Picsart AI Photo Editor",
+          "Photoshop Express",
+          "Pixelmator Pro",
+          "Photoroom Photo Editor",
+          "Affinity Photo 2",
+          "Darkroom — Photo & Video Editor",
+          "Polarr Photo Editor",
+          "Halide Mark II - Pro Camera"
+        ]
       },
       {
         "slug": "photo-organization",
-        "ru": { "name": "Организация фото-библиотеки", "kicker": "Mylio, Excire — pro-фотограф рынок" },
-        "en": { "name": "Photo library organization", "kicker": "Mylio, Excire — pro-photographer market" },
-        "apps": ["Mylio Photos", "Excire Foto", "Photos by Apple", "Google Photos", "Slidebox", "Synology Photos", "Adobe Bridge", "Photo Library Manager", "Peakto Photo Manager", "Photo Sense"]
+        "ru": {
+          "name": "Организация фото-библиотеки",
+          "kicker": "Mylio, Excire — pro-фотограф рынок"
+        },
+        "en": {
+          "name": "Photo library organization",
+          "kicker": "Mylio, Excire — pro-photographer market"
+        },
+        "apps": [
+          "Mylio Photos",
+          "Excire Foto",
+          "Photos by Apple",
+          "Google Photos",
+          "Slidebox",
+          "Synology Photos",
+          "Photo Library Manager",
+          "Peakto Photo Manager",
+          "Photo Sense",
+          "Tonfotos"
+        ]
       },
       {
         "slug": "ai-image-generation",
-        "ru": { "name": "AI-генерация изображений", "kicker": "Lensa, Midjourney, headshots, beauty AI" },
-        "en": { "name": "AI image generation", "kicker": "Lensa, Midjourney, headshots, beauty AI" },
-        "apps": ["Midjourney", "Lensa AI", "Wonder - AI Art Generator", "Remini - AI Photo Enhancer", "Reface", "FaceApp: Perfect Face Editor", "YouCam Makeup", "Dream by WOMBO", "Photoleap by Lightricks", "Aragon AI Headshot Generator"]
+        "ru": {
+          "name": "AI-генерация изображений",
+          "kicker": "Lensa, Midjourney, headshots, beauty AI"
+        },
+        "en": {
+          "name": "AI image generation",
+          "kicker": "Lensa, Midjourney, headshots, beauty AI"
+        },
+        "apps": [
+          "Midjourney",
+          "Lensa AI",
+          "Wonder - AI Art Generator",
+          "Remini - AI Photo Enhancer",
+          "Reface",
+          "FaceApp: Perfect Face Editor",
+          "YouCam Makeup",
+          "Dream by WOMBO",
+          "Photoleap by Lightricks",
+          "Aragon AI Headshot Generator"
+        ]
       },
       {
         "slug": "ai-video-creation",
-        "ru": { "name": "AI-видео и видео-редакторы", "kicker": "Runway, CapCut, Pika — генерация и edit" },
-        "en": { "name": "AI video & video editing", "kicker": "Runway, CapCut, Pika — generation and editing" },
-        "apps": ["Runway", "CapCut - Video Editor", "Pika", "InShot - Video Editor & Maker", "VivaVideo - Video Editor", "Splice - Video Editor & Maker", "Quik - GoPro Video Editor", "Filmora: Video Editor & Maker", "VSCO", "VN Video Editor Maker VlogNow"]
+        "ru": {
+          "name": "AI-видео и видео-редакторы",
+          "kicker": "Runway, CapCut, Pika — генерация и edit"
+        },
+        "en": {
+          "name": "AI video & video editing",
+          "kicker": "Runway, CapCut, Pika — generation and editing"
+        },
+        "apps": [
+          "Runway",
+          "CapCut - Video Editor",
+          "Pika",
+          "InShot - Video Editor & Maker",
+          "VivaVideo - Video Editor",
+          "Splice - Video Editor & Maker",
+          "Quik - GoPro Video Editor",
+          "Filmora: Video Editor & Maker",
+          "VN Video Editor Maker VlogNow",
+          "Adobe Premiere Rush",
+          "iMovie"
+        ]
       }
     ]
   },
   {
     "slug": "ai-tools",
-    "ru": { "name": "AI и переводчики", "kicker": "AI-чаты и language tools" },
-    "en": { "name": "AI tools & translators", "kicker": "AI chats and language tools" },
+    "ru": {
+      "name": "AI и переводчики",
+      "kicker": "AI-чаты и language tools"
+    },
+    "en": {
+      "name": "AI tools & translators",
+      "kicker": "AI chats and language tools"
+    },
     "categories": [
       {
         "slug": "ai-chat-assistants",
-        "ru": { "name": "AI-чаты и ассистенты", "kicker": "ChatGPT не построить; вертикальные wrapper'ы — wedge" },
-        "en": { "name": "AI chat & assistants", "kicker": "Can't build ChatGPT; vertical wrappers — wedge" },
-        "apps": ["ChatGPT", "Claude by Anthropic", "Google Gemini", "Perplexity - Ask Anything", "Microsoft Copilot", "Character AI", "Poe - Fast AI Chat", "Grok", "Meta AI", "Le Chat", "DeepSeek", "You.com"]
+        "ru": {
+          "name": "AI-чаты и ассистенты",
+          "kicker": "ChatGPT не построить; вертикальные wrapper'ы — wedge"
+        },
+        "en": {
+          "name": "AI chat & assistants",
+          "kicker": "Can't build ChatGPT; vertical wrappers — wedge"
+        },
+        "apps": [
+          "ChatGPT",
+          "Claude by Anthropic",
+          "Google Gemini",
+          "Perplexity - Ask Anything",
+          "Microsoft Copilot",
+          "Character AI",
+          "Poe - Fast AI Chat",
+          "Grok",
+          "Meta AI",
+          "Le Chat",
+          "DeepSeek",
+          "You.com"
+        ]
       },
       {
         "slug": "translators",
-        "ru": { "name": "Переводчики", "kicker": "Google/DeepL — LLM-wrapper в нише" },
-        "en": { "name": "Translators", "kicker": "Google/DeepL win; LLM-wrapper in a niche" },
-        "apps": ["Google Translate", "DeepL Translate", "Yandex Translate", "iTranslate Translator", "Reverso Translate and Learn", "Microsoft Translator", "Papago - AI Translator", "SayHi Translate", "U-Dictionary: Translate & Learn", "Lingvanex Translator"]
+        "ru": {
+          "name": "Переводчики",
+          "kicker": "Google/DeepL — LLM-wrapper в нише"
+        },
+        "en": {
+          "name": "Translators",
+          "kicker": "Google/DeepL win; LLM-wrapper in a niche"
+        },
+        "apps": [
+          "Google Translate",
+          "DeepL Translate",
+          "Yandex Translate",
+          "iTranslate Translator",
+          "Reverso Translate and Learn",
+          "Microsoft Translator",
+          "SayHi Translate",
+          "Lingvanex Translator",
+          "Naver Papago - AI Translator",
+          "Linguee — translation dictionary"
+        ]
       }
     ]
   },
   {
     "slug": "communication",
-    "ru": { "name": "Связь и общение", "kicker": "Мессенджеры, соцсети, email, видео, знакомства" },
-    "en": { "name": "Communication & social", "kicker": "Messaging, social, email, video, dating" },
+    "ru": {
+      "name": "Связь и общение",
+      "kicker": "Мессенджеры, соцсети, email, видео, знакомства"
+    },
+    "en": {
+      "name": "Communication & social",
+      "kicker": "Messaging, social, email, video, dating"
+    },
     "categories": [
       {
         "slug": "messaging",
-        "ru": { "name": "Мессенджеры", "kicker": "Network effect — нужны N друзей" },
-        "en": { "name": "Messaging", "kicker": "Network effect — needs N friends" },
-        "apps": ["WhatsApp Messenger", "Telegram", "Discord", "Signal - Private Messenger", "Slack", "Viber Messenger", "WeChat", "Facebook Messenger", "LINE", "KakaoTalk"]
+        "ru": {
+          "name": "Мессенджеры",
+          "kicker": "Network effect — нужны N друзей"
+        },
+        "en": {
+          "name": "Messaging",
+          "kicker": "Network effect — needs N friends"
+        },
+        "apps": [
+          "WhatsApp Messenger",
+          "Telegram",
+          "Discord",
+          "Signal - Private Messenger",
+          "Slack",
+          "Viber Messenger",
+          "WeChat",
+          "Facebook Messenger",
+          "LINE",
+          "KakaoTalk"
+        ]
       },
       {
         "slug": "social-networks",
-        "ru": { "name": "Социальные сети", "kicker": "Network effect — Facebook/TikTok не повторить" },
-        "en": { "name": "Social networks", "kicker": "Network effect — can't clone Facebook/TikTok" },
-        "apps": ["Instagram", "X", "Reddit", "Threads, an Instagram app", "Mastodon", "Bluesky", "LinkedIn", "TikTok", "Facebook", "BeReal. Your friends for real.", "Pinterest", "YouTube"]
+        "ru": {
+          "name": "Социальные сети",
+          "kicker": "Network effect — Facebook/TikTok не повторить"
+        },
+        "en": {
+          "name": "Social networks",
+          "kicker": "Network effect — can't clone Facebook/TikTok"
+        },
+        "apps": [
+          "Instagram",
+          "X",
+          "Reddit",
+          "Threads, an Instagram app",
+          "Mastodon",
+          "Bluesky",
+          "LinkedIn",
+          "TikTok",
+          "Facebook",
+          "BeReal. Your friends for real.",
+          "Pinterest"
+        ]
       },
       {
         "slug": "email",
-        "ru": { "name": "Почтовые клиенты", "kicker": "IMAP-инфра тяжёлая; workflow-wedge — да но трудный" },
-        "en": { "name": "Email clients", "kicker": "Email infra heavy; workflow wedge — yes but hard" },
-        "apps": ["Apple Mail", "Gmail - Email by Google", "Microsoft Outlook", "Spark – Email App by Readdle", "Superhuman", "Hey", "Edison Mail", "Proton Mail", "Tuta Mail", "Skiff Mail"]
+        "ru": {
+          "name": "Почтовые клиенты",
+          "kicker": "IMAP-инфра тяжёлая; workflow-wedge — да но трудный"
+        },
+        "en": {
+          "name": "Email clients",
+          "kicker": "Email infra heavy; workflow wedge — yes but hard"
+        },
+        "apps": [
+          "Apple Mail",
+          "Gmail - Email by Google",
+          "Microsoft Outlook",
+          "Spark – Email App by Readdle",
+          "Superhuman",
+          "Hey",
+          "Edison Mail",
+          "Proton Mail",
+          "Tuta Mail",
+          "Skiff Mail"
+        ]
       },
       {
         "slug": "video-conferencing",
-        "ru": { "name": "Видеоконференции", "kicker": "TURN/codec инфра + enterprise sales" },
-        "en": { "name": "Video conferencing", "kicker": "TURN/codec infra + enterprise sales" },
-        "apps": ["Zoom - One Platform to Connect", "Google Meet", "FaceTime", "Microsoft Teams", "Webex by Cisco", "Skype", "Whereby Meetings", "Around", "GoToMeeting", "Jitsi Meet"]
+        "ru": {
+          "name": "Видеоконференции",
+          "kicker": "TURN/codec инфра + enterprise sales"
+        },
+        "en": {
+          "name": "Video conferencing",
+          "kicker": "TURN/codec infra + enterprise sales"
+        },
+        "apps": [
+          "Zoom - One Platform to Connect",
+          "Google Meet",
+          "FaceTime",
+          "Microsoft Teams",
+          "Webex by Cisco",
+          "Skype",
+          "Whereby Meetings",
+          "Around",
+          "GoToMeeting",
+          "Jitsi Meet"
+        ]
       },
       {
         "slug": "dating",
-        "ru": { "name": "Знакомства", "kicker": "Network effect — нужны N людей на платформе" },
-        "en": { "name": "Dating", "kicker": "Network effect — needs N people" },
-        "apps": ["Tinder", "Hinge Dating App", "Bumble", "Coffee Meets Bagel", "OkCupid", "Feeld", "Grindr - Gay Dating & Chat", "Match", "Hily Dating App", "Plenty of Fish", "Boo: Dating. Friends. Chat.", "Lex"]
+        "ru": {
+          "name": "Знакомства",
+          "kicker": "Network effect — нужны N людей на платформе"
+        },
+        "en": {
+          "name": "Dating",
+          "kicker": "Network effect — needs N people"
+        },
+        "apps": [
+          "Tinder",
+          "Hinge Dating App",
+          "Bumble",
+          "Coffee Meets Bagel",
+          "OkCupid",
+          "Feeld",
+          "Grindr - Gay Dating & Chat",
+          "Match",
+          "Hily Dating App",
+          "Plenty of Fish",
+          "Boo: Dating. Friends. Chat.",
+          "Lex"
+        ]
       }
     ]
   },
   {
     "slug": "travel-places",
-    "ru": { "name": "Места, путешествия, еда", "kicker": "Карты, отели, рестораны, доставка, рецепты" },
-    "en": { "name": "Places, travel, food", "kicker": "Maps, hotels, restaurants, delivery, recipes" },
+    "ru": {
+      "name": "Места, путешествия, еда",
+      "kicker": "Карты, отели, рестораны, доставка, рецепты"
+    },
+    "en": {
+      "name": "Places, travel, food",
+      "kicker": "Maps, hotels, restaurants, delivery, recipes"
+    },
     "categories": [
       {
         "slug": "maps-navigation",
-        "ru": { "name": "Карты и навигация", "kicker": "Google maps + UGC moats — reference" },
-        "en": { "name": "Maps & navigation", "kicker": "Google maps + UGC moats — reference" },
-        "apps": ["Google Maps", "Apple Maps", "Waze", "Komoot - Hike, Bike & Run", "Maps.me", "Citymapper: All Live Transit", "OsmAnd Maps Travel & Navigate", "Gaia GPS: Offroad Hiking Maps", "AllTrails: Hike, Bike & Run", "onX Backcountry", "HERE WeGo", "Sygic GPS Navigation & Maps"]
+        "ru": {
+          "name": "Карты и навигация",
+          "kicker": "Google maps + UGC moats — reference"
+        },
+        "en": {
+          "name": "Maps & navigation",
+          "kicker": "Google maps + UGC moats — reference"
+        },
+        "apps": [
+          "Google Maps",
+          "Apple Maps",
+          "Waze",
+          "Maps.me",
+          "Citymapper: All Live Transit",
+          "OsmAnd Maps Travel & Navigate",
+          "Gaia GPS: Offroad Hiking Maps",
+          "AllTrails: Hike, Bike & Run",
+          "onX Backcountry",
+          "HERE WeGo",
+          "Sygic GPS Navigation & Maps"
+        ]
       },
       {
         "slug": "travel-booking",
-        "ru": { "name": "Бронирование путешествий", "kicker": "OTA = inventory deals с отелями" },
-        "en": { "name": "Travel booking", "kicker": "OTA = inventory deals with hotels" },
-        "apps": ["Booking.com: Hotels & Travel", "Airbnb", "Expedia: Hotels, Flights & Car", "Hotels.com: Travel Booking", "KAYAK Flights, Hotels & Cars", "Skyscanner – travel deals", "Hopper: Flights, Hotels & Cars", "Google Travel", "Trip.com: Book Flights & Hotels", "Agoda: Cheap Flights & Hotels", "Tripadvisor: Plan & Book Trips"]
+        "ru": {
+          "name": "Бронирование путешествий",
+          "kicker": "OTA = inventory deals с отелями"
+        },
+        "en": {
+          "name": "Travel booking",
+          "kicker": "OTA = inventory deals with hotels"
+        },
+        "apps": [
+          "Booking.com: Hotels & Travel",
+          "Airbnb",
+          "Expedia: Hotels, Flights & Car",
+          "Hotels.com: Travel Booking",
+          "KAYAK Flights, Hotels & Cars",
+          "Skyscanner – travel deals",
+          "Hopper: Flights, Hotels & Cars",
+          "Google Travel",
+          "Trip.com: Book Flights & Hotels",
+          "Agoda: Cheap Flights & Hotels",
+          "Tripadvisor: Plan & Book Trips"
+        ]
       },
       {
         "slug": "restaurant-discovery",
-        "ru": { "name": "Поиск ресторанов", "kicker": "Yelp/TripAdvisor — UGC moat" },
-        "en": { "name": "Restaurant discovery", "kicker": "Yelp/TripAdvisor — UGC moat" },
-        "apps": ["Yelp: Food, Delivery & Reviews", "OpenTable", "Resy", "Tock", "Beli: The Restaurant List App", "The Infatuation", "Zomato", "TheFork", "Eater", "HappyCow Find Vegan Food"]
+        "ru": {
+          "name": "Поиск ресторанов",
+          "kicker": "Yelp/TripAdvisor — UGC moat"
+        },
+        "en": {
+          "name": "Restaurant discovery",
+          "kicker": "Yelp/TripAdvisor — UGC moat"
+        },
+        "apps": [
+          "Yelp: Food, Delivery & Reviews",
+          "OpenTable",
+          "Resy",
+          "Tock",
+          "Beli: The Restaurant List App",
+          "The Infatuation",
+          "Zomato",
+          "TheFork",
+          "Eater",
+          "HappyCow Find Vegan Food"
+        ]
       },
       {
         "slug": "food-delivery",
-        "ru": { "name": "Доставка еды", "kicker": "Операционка с курьерами и ресторанами" },
-        "en": { "name": "Food delivery", "kicker": "Operations with couriers and restaurants" },
-        "apps": ["DoorDash - Food Delivery", "Uber Eats: Food Delivery", "Grubhub: Food Delivery", "Postmates - Food Delivery", "Deliveroo - food delivery", "Just Eat - Food Delivery", "Wolt: Food and More", "GoPuff - Alcohol & Food Delivery", "Instacart-Get Grocery Delivery", "Bolt Food"]
+        "ru": {
+          "name": "Доставка еды",
+          "kicker": "Операционка с курьерами и ресторанами"
+        },
+        "en": {
+          "name": "Food delivery",
+          "kicker": "Operations with couriers and restaurants"
+        },
+        "apps": [
+          "DoorDash - Food Delivery",
+          "Uber Eats: Food Delivery",
+          "Grubhub: Food Delivery",
+          "Postmates - Food Delivery",
+          "Deliveroo - food delivery",
+          "Just Eat - Food Delivery",
+          "Wolt: Food and More",
+          "GoPuff - Alcohol & Food Delivery",
+          "Instacart-Get Grocery Delivery",
+          "Bolt Food"
+        ]
       },
       {
         "slug": "recipes-cooking",
-        "ru": { "name": "Рецепты и готовка", "kicker": "Paprika — power-user wedge. NYT Cooking — контент" },
-        "en": { "name": "Recipes & cooking", "kicker": "Paprika — power-user wedge. NYT Cooking — content" },
-        "apps": ["NYT Cooking", "Tasty", "Yummly Recipes & Cooking Tools", "Mealime Meal Plans & Recipes", "Whisk: Recipe & Meal Planner", "Paprika Recipe Manager 3", "Eat This Much - Meal Planner", "Kitchen Stories Recipes", "Crouton: Cooking Companion", "Plant Jammer"]
+        "ru": {
+          "name": "Рецепты и готовка",
+          "kicker": "Paprika — power-user wedge. NYT Cooking — контент"
+        },
+        "en": {
+          "name": "Recipes & cooking",
+          "kicker": "Paprika — power-user wedge. NYT Cooking — content"
+        },
+        "apps": [
+          "NYT Cooking",
+          "Tasty",
+          "Yummly Recipes & Cooking Tools",
+          "Mealime Meal Plans & Recipes",
+          "Whisk: Recipe & Meal Planner",
+          "Paprika Recipe Manager 3",
+          "Eat This Much - Meal Planner",
+          "Kitchen Stories Recipes",
+          "Crouton: Cooking Companion",
+          "Plant Jammer"
+        ]
       }
     ]
   },
   {
     "slug": "money",
-    "ru": { "name": "Деньги", "kicker": "Бюджеты и инвестиции" },
-    "en": { "name": "Money", "kicker": "Budgets and investing" },
+    "ru": {
+      "name": "Деньги",
+      "kicker": "Бюджеты и инвестиции"
+    },
+    "en": {
+      "name": "Money",
+      "kicker": "Budgets and investing"
+    },
     "categories": [
       {
         "slug": "personal-finance",
-        "ru": { "name": "Личные финансы", "kicker": "YNAB, Monarch, Copilot — бюджеты, агрегаторы" },
-        "en": { "name": "Personal finance & budget", "kicker": "YNAB, Monarch, Copilot — budgets, aggregators" },
-        "apps": ["YNAB", "Monarch Money", "Copilot — Track & Budget Money", "Rocket Money: Bills & Budget", "Cleo: Budget & Cash Advance", "Empower Personal Dashboard", "PocketGuard: Budget Tracker", "Goodbudget Budget Planner", "Spendee Money & Budget Tracker", "Quicken Simplifi: Budget Tool"]
+        "ru": {
+          "name": "Личные финансы",
+          "kicker": "YNAB, Monarch, Copilot — бюджеты, агрегаторы"
+        },
+        "en": {
+          "name": "Personal finance & budget",
+          "kicker": "YNAB, Monarch, Copilot — budgets, aggregators"
+        },
+        "apps": [
+          "YNAB",
+          "Monarch Money",
+          "Copilot — Track & Budget Money",
+          "Rocket Money: Bills & Budget",
+          "Cleo: Budget & Cash Advance",
+          "Empower Personal Dashboard",
+          "PocketGuard: Budget Tracker",
+          "Goodbudget Budget Planner",
+          "Spendee Money & Budget Tracker",
+          "Quicken Simplifi: Budget Tool"
+        ]
       },
       {
         "slug": "investing-trading",
-        "ru": { "name": "Инвестиции и трейдинг", "kicker": "Регулировка KYC + брокерская лицензия" },
-        "en": { "name": "Investing & trading", "kicker": "KYC regulation + broker license" },
-        "apps": ["Robinhood: Investing for All", "Coinbase: Buy Bitcoin & Ether", "Webull: Investing & Trading", "Public Investing: Stocks & More", "eToro: Trade. Invest. Connect.", "Fidelity Investments", "Charles Schwab", "Wealthfront", "Acorns: Invest Spare Change", "Stash: Investing & Banking", "M1 Finance", "Trading 212"]
+        "ru": {
+          "name": "Инвестиции и трейдинг",
+          "kicker": "Регулировка KYC + брокерская лицензия"
+        },
+        "en": {
+          "name": "Investing & trading",
+          "kicker": "KYC regulation + broker license"
+        },
+        "apps": [
+          "Robinhood: Investing for All",
+          "Coinbase: Buy Bitcoin & Ether",
+          "Webull: Investing & Trading",
+          "Public Investing: Stocks & More",
+          "eToro: Trade. Invest. Connect.",
+          "Fidelity Investments",
+          "Charles Schwab",
+          "Wealthfront",
+          "Acorns: Invest Spare Change",
+          "Stash: Investing & Banking",
+          "M1 Finance",
+          "Trading 212"
+        ]
       }
     ]
   },
   {
     "slug": "utilities",
-    "ru": { "name": "Утилиты и сервисы", "kicker": "Пароли, VPN, облако, умный дом, работа" },
-    "en": { "name": "Utilities & services", "kicker": "Passwords, VPN, cloud, smart home, jobs" },
+    "ru": {
+      "name": "Утилиты и сервисы",
+      "kicker": "Пароли, VPN, облако, умный дом, работа"
+    },
+    "en": {
+      "name": "Utilities & services",
+      "kicker": "Passwords, VPN, cloud, smart home, jobs"
+    },
     "categories": [
       {
         "slug": "password-managers",
-        "ru": { "name": "Менеджеры паролей", "kicker": "Bitwarden = OSS solo. Вертикали — wedge" },
-        "en": { "name": "Password managers", "kicker": "Bitwarden = OSS solo. Verticals — wedge" },
-        "apps": ["1Password: Password Manager", "LastPass Password Manager", "Dashlane Password Manager", "Bitwarden Password Manager", "Apple Passwords", "Proton Pass: Password Manager", "Keeper Password Manager", "Enpass Password Manager", "NordPass: Password Manager", "RoboForm Password Manager"]
+        "ru": {
+          "name": "Менеджеры паролей",
+          "kicker": "Bitwarden = OSS solo. Вертикали — wedge"
+        },
+        "en": {
+          "name": "Password managers",
+          "kicker": "Bitwarden = OSS solo. Verticals — wedge"
+        },
+        "apps": [
+          "1Password: Password Manager",
+          "LastPass Password Manager",
+          "Dashlane Password Manager",
+          "Bitwarden Password Manager",
+          "Apple Passwords",
+          "Proton Pass: Password Manager",
+          "Keeper Password Manager",
+          "Enpass Password Manager",
+          "NordPass: Password Manager",
+          "RoboForm Password Manager"
+        ]
       },
       {
         "slug": "vpns",
-        "ru": { "name": "VPN", "kicker": "Инфраструктура серверов = $/мес" },
-        "en": { "name": "VPNs", "kicker": "Server fleet costs" },
-        "apps": ["NordVPN: VPN Fast & Secure", "ExpressVPN: VPN Fast & Secure", "Surfshark: Secure VPN service", "Proton VPN: Fast & Secure VPN", "Mullvad VPN", "Atlas VPN: secure & fast VPN", "CyberGhost VPN: Fast & Secure", "Windscribe VPN", "Private Internet Access VPN", "IPVanish VPN"]
+        "ru": {
+          "name": "VPN",
+          "kicker": "Инфраструктура серверов = $/мес"
+        },
+        "en": {
+          "name": "VPNs",
+          "kicker": "Server fleet costs"
+        },
+        "apps": [
+          "NordVPN: VPN Fast & Secure",
+          "ExpressVPN: VPN Fast & Secure",
+          "Surfshark: Secure VPN service",
+          "Proton VPN: Fast & Secure VPN",
+          "Mullvad VPN",
+          "Atlas VPN: secure & fast VPN",
+          "CyberGhost VPN: Fast & Secure",
+          "Windscribe VPN",
+          "Private Internet Access VPN",
+          "IPVanish VPN"
+        ]
       },
       {
         "slug": "cloud-storage",
-        "ru": { "name": "Облачные хранилища", "kicker": "Storage cost + sync infra" },
-        "en": { "name": "Cloud storage", "kicker": "Storage cost + sync infra" },
-        "apps": ["Dropbox: Cloud Files Storage", "Apple iCloud", "Google Drive", "Microsoft OneDrive", "pCloud", "Box: Cloud Content Management", "MEGA", "Sync.com Cloud Storage", "Backblaze", "Tresorit"]
+        "ru": {
+          "name": "Облачные хранилища",
+          "kicker": "Storage cost + sync infra"
+        },
+        "en": {
+          "name": "Cloud storage",
+          "kicker": "Storage cost + sync infra"
+        },
+        "apps": [
+          "Dropbox: Cloud Files Storage",
+          "Apple iCloud",
+          "Google Drive",
+          "Microsoft OneDrive",
+          "pCloud",
+          "Box: Cloud Content Management",
+          "MEGA",
+          "Sync.com Cloud Storage",
+          "Backblaze",
+          "Tresorit"
+        ]
       },
       {
         "slug": "smart-home",
-        "ru": { "name": "Умный дом", "kicker": "Зависит от железа Apple/Google/Amazon" },
-        "en": { "name": "Smart home", "kicker": "Depends on Apple/Google/Amazon hardware" },
-        "apps": ["Apple Home", "Google Home", "Amazon Alexa", "SmartThings", "Home Assistant", "Philips Hue", "Tuya Smart", "Aqara Home", "IKEA Home smart", "Lutron App"]
+        "ru": {
+          "name": "Умный дом",
+          "kicker": "Зависит от железа Apple/Google/Amazon"
+        },
+        "en": {
+          "name": "Smart home",
+          "kicker": "Depends on Apple/Google/Amazon hardware"
+        },
+        "apps": [
+          "Apple Home",
+          "Google Home",
+          "Amazon Alexa",
+          "SmartThings",
+          "Home Assistant",
+          "Philips Hue",
+          "Tuya Smart",
+          "Aqara Home",
+          "IKEA Home smart",
+          "Lutron App"
+        ]
       },
       {
         "slug": "job-career",
-        "ru": { "name": "Работа и карьера", "kicker": "LinkedIn-моаты, inventory of jobs" },
-        "en": { "name": "Job search & career", "kicker": "LinkedIn moats, job inventory" },
-        "apps": ["LinkedIn: Network & Job Finder", "Indeed Job Search", "Glassdoor Job Search", "Handshake-The #1 Way to Get Hired", "ZipRecruiter Job Search", "Welcome to the Jungle", "Wellfound (AngelList)", "Lensa Jobs", "JobToday", "Monster Job Search"]
+        "ru": {
+          "name": "Работа и карьера",
+          "kicker": "LinkedIn-моаты, inventory of jobs"
+        },
+        "en": {
+          "name": "Job search & career",
+          "kicker": "LinkedIn moats, job inventory"
+        },
+        "apps": [
+          "Indeed Job Search",
+          "Glassdoor Job Search",
+          "Handshake-The #1 Way to Get Hired",
+          "ZipRecruiter Job Search",
+          "Welcome to the Jungle",
+          "Lensa Jobs",
+          "JobToday",
+          "Monster Job Search",
+          "Snagajob - Hourly Jobs App",
+          "Hired Talent Search"
+        ]
       }
     ]
   },
   {
     "slug": "hobbies-lifestyle",
-    "ru": { "name": "Хобби и лайфстайл", "kicker": "Астрология, идентификаторы, растения, питомцы" },
-    "en": { "name": "Hobbies & lifestyle", "kicker": "Astrology, identifiers, plants, pets" },
+    "ru": {
+      "name": "Хобби и лайфстайл",
+      "kicker": "Астрология, идентификаторы, растения, питомцы"
+    },
+    "en": {
+      "name": "Hobbies & lifestyle",
+      "kicker": "Astrology, identifiers, plants, pets"
+    },
     "categories": [
       {
         "slug": "astrology",
-        "ru": { "name": "Астрология и гороскопы", "kicker": "Co-Star = микро-команда. Нишевая WTP" },
-        "en": { "name": "Astrology & spirituality", "kicker": "Co-Star = micro-team. Niche WTP" },
-        "apps": ["Co-Star Personalized Astrology", "The Pattern", "Sanctuary World", "Chani", "Stellium", "Nebula: Horoscope & Astrology", "Wisdom: Astrology Birth Chart", "Time Passages Astrology", "AstroMatrix Birth Chart", "TimeNomad Astrology"]
+        "ru": {
+          "name": "Астрология и гороскопы",
+          "kicker": "Co-Star = микро-команда. Нишевая WTP"
+        },
+        "en": {
+          "name": "Astrology & spirituality",
+          "kicker": "Co-Star = micro-team. Niche WTP"
+        },
+        "apps": [
+          "Co-Star Personalized Astrology",
+          "The Pattern",
+          "Sanctuary World",
+          "Chani",
+          "Stellium",
+          "Nebula: Horoscope & Astrology",
+          "Wisdom: Astrology Birth Chart",
+          "Time Passages Astrology",
+          "AstroMatrix Birth Chart",
+          "TimeNomad Astrology"
+        ]
       },
       {
         "slug": "identifiers",
-        "ru": { "name": "Распознаватели по фото", "kicker": "Растения, птицы, звёзды — ML-вертикали" },
-        "en": { "name": "Photo identifiers", "kicker": "Plants, birds, stars — ML verticals" },
-        "apps": ["PictureThis: Identify Plant", "PlantNet Plant Identification", "Plantum - AI Plant Identifier", "iNaturalist", "Merlin Bird ID by Cornell Lab", "Seek by iNaturalist", "Sky Guide", "Star Walk 2", "Picture Bird - Bird Identifier", "Picture Insect: Bug Identifier"]
+        "ru": {
+          "name": "Распознаватели по фото",
+          "kicker": "Растения, птицы, звёзды — ML-вертикали"
+        },
+        "en": {
+          "name": "Photo identifiers",
+          "kicker": "Plants, birds, stars — ML verticals"
+        },
+        "apps": [
+          "PictureThis: Identify Plant",
+          "PlantNet Plant Identification",
+          "Plantum - AI Plant Identifier",
+          "iNaturalist",
+          "Merlin Bird ID by Cornell Lab",
+          "Seek by iNaturalist",
+          "Sky Guide",
+          "Star Walk 2",
+          "Picture Bird - Bird Identifier",
+          "Picture Insect: Bug Identifier"
+        ]
       },
       {
         "slug": "plant-care",
-        "ru": { "name": "Уход за растениями", "kicker": "Planta, Greg, Vera — comeback-rate жуткий" },
-        "en": { "name": "Plant care", "kicker": "Planta, Greg, Vera — high churn but loved" },
-        "apps": ["Planta - Care for your plants", "Greg - Personal Plant Care", "Vera — Plant Care Reminder", "Blossom — Plant Identifier", "Plant Parent", "Florish - Plant Care Companion", "Waterbug: Plant Care Reminder", "Plant Daddy", "PlantSnap - Identify Plants", "From Seed to Spoon Vegetable Garden"]
+        "ru": {
+          "name": "Уход за растениями",
+          "kicker": "Planta, Greg, Vera — comeback-rate жуткий"
+        },
+        "en": {
+          "name": "Plant care",
+          "kicker": "Planta, Greg, Vera — high churn but loved"
+        },
+        "apps": [
+          "Planta - Care for your plants",
+          "Greg - Personal Plant Care",
+          "Blossom — Plant Identifier",
+          "Plant Parent",
+          "Plant Daddy",
+          "PlantSnap - Identify Plants",
+          "From Seed to Spoon Vegetable Garden",
+          "Plant Care Reminder Watering",
+          "Plant Identifier - GardenAnswer",
+          "Smart Plant: Plant Identifier"
+        ]
       },
       {
         "slug": "pet-care",
-        "ru": { "name": "Уход за питомцами", "kicker": "11pets, Whistle, Tractive — паттерн baby tracking" },
-        "en": { "name": "Pet care", "kicker": "11pets, Whistle, Tractive — like baby tracking" },
-        "apps": ["11pets: Pet care", "Whistle GO", "Tractive GPS for Dogs and Cats", "PetDesk", "BabelBark", "FitBark Dog Activity Monitor", "Pawtrack: Cat GPS Tracker", "Furbo", "Pawsibly - Pet Care Tracker", "Pet First Aid by American Red Cross"]
+        "ru": {
+          "name": "Уход за питомцами",
+          "kicker": "11pets, Whistle, Tractive — паттерн baby tracking"
+        },
+        "en": {
+          "name": "Pet care",
+          "kicker": "11pets, Whistle, Tractive — like baby tracking"
+        },
+        "apps": [
+          "11pets: Pet care",
+          "Whistle GO",
+          "Tractive GPS for Dogs and Cats",
+          "PetDesk",
+          "BabelBark",
+          "FitBark Dog Activity Monitor",
+          "Pawtrack: Cat GPS Tracker",
+          "Furbo",
+          "Pawsibly - Pet Care Tracker",
+          "Pet First Aid by American Red Cross"
+        ]
       }
     ]
   }
