@@ -1,0 +1,56 @@
+{
+  "productId": "cmpsu1wzm2dnqug8pml67extr",
+  "slug": "waking-up",
+  "name": "Waking Up",
+  "domain": "медитация / mindfulness / осознанность",
+  "oneLiner": "медитация и осознанность от Sam Harris, iOS+Android, акцент на теории и практике mindfulness",
+  "pricing": "годовая подписка ~$100/год; есть программа помощи (30 дней бесплатно по запросу для тех кто не может оплатить)",
+
+  "keyFeatures": [
+    "guided meditations от Sam Harris и других учителей",
+    "Theory: лекции и беседы о сознании и философии mindfulness",
+    "Daily Meditation: короткие утренние сессии",
+    "Courses: многонедельные программы для новичков и продвинутых",
+    "conversations: интервью с учёными, философами, практиками",
+    "Children's course: медитации для детей"
+  ],
+
+  "competitors": [
+    "Calm", "Headspace", "Ten Percent Happier", "Insight Timer"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "subscription renewed without warning",
+      "observation": "Подписка продлилась без уведомления — пользователь думал, что успел отменить до даты списания, но платёж прошёл; поддержка отказала в возврате",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app stopped working after update",
+      "observation": "После последнего обновления приложение перестало открываться или зависает на загрузке — регрессия, которой раньше не было",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "can't find the meditation I was doing",
+      "observation": "После редизайна пользователь не может найти медитацию, которую слушал раньше — нет истории, поиск не работает по названию",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "free trial charged immediately",
+      "observation": "Триал закончился раньше обозначенного срока, или списание произошло сразу после начала триала, не дав использовать бесплатный период",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "Too expensive (commodity complaint without mechanism)",
+    "Best meditation app ever (praise without specifics)",
+    "App crashed (no reproducible details)",
+    "Doesn't work on my phone (no details)",
+    "I love Sam Harris's voice (sentiment without mechanism)"
+  ]
+}
