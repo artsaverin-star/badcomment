@@ -263,7 +263,7 @@ const DICT: Record<Locale, Dict> = {
       appsInGenre: (n) => `Apps (${n})`,
     },
     market2: {
-      title: "The most powerful aggregator of app reviews — with conclusions",
+      title: "The most powerful aggregator of app reviews and insights",
       subtitle: "What people complain about across these apps — ranked by what comes up most.",
       pilotNote: (genre) => `Pilot on one genre (${genre}). Scored live from real reviews.`,
       gapsHeading: "Top problems across the apps",
@@ -503,7 +503,7 @@ const DICT: Record<Locale, Dict> = {
       },
     },
     market2: {
-      title: "Самый мощный агрегатор отзывов о приложениях — с выводами",
+      title: "Самый мощный агрегатор отзывов и выводов о приложениях",
       subtitle: "На что жалуются во всех этих приложениях — отсортировано по тому, что встречается чаще.",
       pilotNote: (genre) => `Пилот на одном жанре (${genre}). Скоринг вживую из реальных отзывов.`,
       gapsHeading: "Топ проблем во всех приложениях",
