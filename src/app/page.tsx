@@ -1,30 +1,18 @@
 import { Header } from "@saverin/ui-web";
 import Link from "next/link";
-import { listResearchCategories, groupByTier, type CategoryView, type Tier } from "@/lib/researchCategories";
-import { t, type Locale } from "@/lib/i18n";
+import { listDomains, type DomainView, type CategoryView } from "@/lib/researchCategories";
+import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 
-const TIER_HEADINGS: Record<Tier, { ru: { title: string; sub: string }; en: { title: string; sub: string } }> = {
-  buildable: {
-    ru: { title: "🛠 Можно повторить", sub: "Solo-разработчик или мини-команда выкатит конкурента — нет network effects, контентных прав, регулировки или железа" },
-    en: { title: "🛠 Buildable", sub: "Solo dev or small team can ship a real competitor — no network effects, content rights, regulation, or hardware moat" },
-  },
-  wedge: {
-    ru: { title: "🪓 С вертикалью можно", sub: "Полный рынок взять не выйдет, но конкретный вертикаль/нишу — да" },
-    en: { title: "🪓 Buildable in a wedge", sub: "Won't take the whole market, but a vertical/niche slice is doable" },
-  },
-  reference: {
-    ru: { title: "📚 Мастодонты — для опыта", sub: "Повторить не получится, но боль пользователей в них полезно знать как контекст" },
-    en: { title: "📚 Mastodons — reference", sub: "Cloning isn't the play, but their pain is useful context" },
-  },
-};
-
+// Homepage: every life-domain (Sleep & meditation, Productivity, …) with its
+// sub-categories of 10+ leader apps. Each sub-category links to its
+// /segment/<slug> page where the actual app grid + cross-app insights live.
 export default async function Home() {
   const locale = await getLocale();
   const tr = t(locale);
-  const groups = groupByTier(listResearchCategories(locale));
+  const domains = listDomains(locale);
 
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
@@ -36,35 +24,27 @@ export default async function Home() {
         description={<span className="mx-auto block max-w-2xl">{tr.market2.indexSubtitle}</span>}
       />
 
-      <TierSection tier="buildable" cats={groups.buildable} locale={locale} />
-      <TierSection tier="wedge" cats={groups.wedge} locale={locale} />
-      <TierSection tier="reference" cats={groups.reference} locale={locale} />
+      <div className="mt-10 flex flex-col gap-10">
+        {domains.map((d) => (
+          <DomainSection key={d.slug} domain={d} />
+        ))}
+      </div>
     </main>
   );
 }
 
-function TierSection({ tier, cats, locale }: { tier: Tier; cats: CategoryView[]; locale: Locale }) {
-  if (cats.length === 0) return null;
-  const h = TIER_HEADINGS[tier][locale === "en" ? "en" : "ru"];
-  const isReference = tier === "reference";
+function DomainSection({ domain }: { domain: DomainView }) {
   return (
-    <section className="mt-10">
-      <details open={!isReference} className="group">
-        <summary className="mb-3 flex cursor-pointer list-none items-baseline justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-2 [&::-webkit-details-marker]:hidden">
-          <div className="flex min-w-0 flex-col gap-0.5">
-            <h2 className="text-[16px] font-semibold text-[var(--color-text-primary)]">{h.title}</h2>
-            <p className="text-[12px] text-[var(--color-text-tertiary)]">{h.sub}</p>
-          </div>
-          <span className="shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
-            {cats.length}
-          </span>
-        </summary>
-        <div className={`grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 ${isReference ? "opacity-60" : ""}`}>
-          {cats.map((c) => (
-            <CategoryCard key={c.slug} cat={c} />
-          ))}
-        </div>
-      </details>
+    <section className="flex flex-col gap-3">
+      <div className="flex flex-col gap-0.5 border-b border-[var(--color-border-subtle)] pb-2">
+        <h2 className="text-[20px] font-semibold text-[var(--color-text-primary)]">{domain.name}</h2>
+        <p className="text-[12px] text-[var(--color-text-tertiary)]">{domain.kicker}</p>
+      </div>
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+        {domain.categories.map((c) => (
+          <CategoryCard key={c.slug} cat={c} />
+        ))}
+      </div>
     </section>
   );
 }

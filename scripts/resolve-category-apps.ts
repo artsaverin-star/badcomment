@@ -12,6 +12,7 @@ import appStore from "app-store-scraper";
 // Usage: npx tsx scripts/resolve-category-apps.ts
 
 type Category = { slug: string; apps: string[] };
+type Domain = { slug: string; categories: Category[] };
 
 type AppMeta = {
   query: string;
@@ -69,7 +70,8 @@ async function search(term: string): Promise<AppMeta | null> {
 }
 
 async function main() {
-  const categories = JSON.parse(readFileSync("src/data/categories.json", "utf8")) as Category[];
+  const domains = JSON.parse(readFileSync("src/data/categories.json", "utf8")) as Domain[];
+  const categories = domains.flatMap((d) => d.categories);
   if (!existsSync("src/data")) mkdirSync("src/data", { recursive: true });
 
   const existing: Record<string, AppMeta> = existsSync(META_PATH)

@@ -13,6 +13,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 type Category = { slug: string; apps: string[] };
+type Domain = { slug: string; categories: Category[] };
 type AppMeta = {
   query: string;
   name: string;
@@ -57,7 +58,8 @@ function score(query: string, candidate: string): number {
 }
 
 async function main() {
-  const categories = JSON.parse(readFileSync("src/data/categories.json", "utf8")) as Category[];
+  const domains = JSON.parse(readFileSync("src/data/categories.json", "utf8")) as Domain[];
+  const categories = domains.flatMap((d) => d.categories);
   const existing: Record<string, AppMeta> = JSON.parse(readFileSync(META_PATH, "utf8") || "{}");
 
   const products = await prisma.product.findMany({
