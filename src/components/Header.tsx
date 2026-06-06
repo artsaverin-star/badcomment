@@ -22,8 +22,8 @@ export default function Header({
             href="/"
             className="shrink-0 text-[22px] font-bold tracking-[-0.2px] [font-family:var(--brand-font-family)]"
           >
-            <span className="text-[var(--color-text-brand)]">Bad</span>
-            <span className="text-[var(--color-text-primary)]">Comment</span>
+            <span className="text-[var(--color-text-brand)]">in</span>
+            <span className="text-[var(--color-text-primary)]">App</span>
           </Link>
         </div>
         <div className="flex items-center gap-3">

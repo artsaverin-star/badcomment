@@ -16,9 +16,9 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "badcomment — what people hate about popular apps",
+  title: "inApp — reviews from popular apps, with conclusions",
   description:
-    "Negative reviews from Google Play and the App Store, merged and themed. Find the gaps worth building.",
+    "An aggregator of app-store reviews with conclusions. Find the gaps worth building.",
 };
 
 export default async function RootLayout({
