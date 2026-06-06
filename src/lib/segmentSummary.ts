@@ -23,6 +23,13 @@ export type SegmentSummaryItem = {
   evidence: SegmentSummaryEvidence[];
 };
 
+export type SegmentSummarySection = {
+  id: string;
+  heading: string;
+  dek: string;
+  items: SegmentSummaryItem[];
+};
+
 export type SegmentSummary = {
   slug: string;
   lead: string;
@@ -30,6 +37,7 @@ export type SegmentSummary = {
   appsCount: number;
   reviewsScanned: number;
   items: SegmentSummaryItem[];
+  sections: SegmentSummarySection[];
 };
 
 export function getSegmentSummary(slug: string): SegmentSummary | null {

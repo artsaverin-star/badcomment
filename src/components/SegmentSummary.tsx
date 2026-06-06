@@ -3,9 +3,11 @@
 import { useRef } from "react";
 import { themeLabel, type SegmentSummary } from "@/lib/segmentSummary";
 
-// Category-level synthesis block, rendered at the very end of a segment page.
-// Each item is a cross-app mechanism with a real aggregated observation count
-// and verbatim evidence from the apps that exhibit it.
+// Category-level editorial synthesis ("инсайты категории"), rendered at the end
+// of a segment page as a magazine-style long-read: a lede, then narrative
+// cross-app sections (authored heading + dek), each followed by the mechanisms
+// as hairline rows. Every figure traces to real reviews — see
+// scripts/build-segment-insights.ts.
 
 function pluralizeNabludenie(n: number): string {
   const d = n % 10;
@@ -18,25 +20,41 @@ function pluralizeNabludenie(n: number): string {
 
 export default function SegmentSummaryView({ summary }: { summary: SegmentSummary }) {
   return (
-    <section className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
-      <h2 className="text-[20px] font-semibold leading-tight text-[var(--color-text-primary)]">
+    <section className="mt-12 border-t border-[var(--color-border-strong)] pt-9">
+      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
         Инсайты категории
-      </h2>
-      <p className="mt-2 text-[13px] leading-[19px] text-[var(--color-text-secondary)]">{summary.lead}</p>
-      <p className="mt-1.5 text-[11px] text-[var(--color-text-tertiary)]">
+      </p>
+      <p className="mt-3 max-w-[52ch] text-[15px] leading-[24px] text-[var(--color-text-secondary)]">
+        {summary.lead}
+      </p>
+      <p className="mt-3 text-[11px] text-[var(--color-text-tertiary)]">
         {summary.appsCount} приложений · {summary.reviewsScanned.toLocaleString("ru-RU")} отзывов · обновлено {summary.asOf}
       </p>
 
-      <div className="mt-5 flex flex-col gap-2.5">
-        {summary.items.map((item) => (
-          <CategoryInsightCard key={item.id} item={item} />
+      <div className="mt-10 flex flex-col gap-11">
+        {summary.sections.map((section) => (
+          <div key={section.id}>
+            <h3 className="text-[20px] font-semibold leading-[26px] tracking-[-0.01em] text-[var(--color-text-primary)]">
+              {section.heading}
+            </h3>
+            {section.dek && (
+              <p className="mt-2.5 max-w-[58ch] text-[14px] leading-[22px] text-[var(--color-text-secondary)]">
+                {section.dek}
+              </p>
+            )}
+            <div className="mt-4 border-t border-[var(--color-border-subtle)]">
+              {section.items.map((item) => (
+                <CategoryInsightRow key={item.id} item={item} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </section>
   );
 }
 
-function CategoryInsightCard({ item }: { item: SegmentSummary["items"][number] }) {
+function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] }) {
   const ref = useRef<HTMLDialogElement>(null);
   const count = item.observationCount;
 
@@ -45,17 +63,14 @@ function CategoryInsightCard({ item }: { item: SegmentSummary["items"][number] }
       <button
         type="button"
         onClick={() => ref.current?.showModal()}
-        className="flex w-full flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-3.5 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
+        className="flex w-full flex-col gap-1 border-b border-[var(--color-border-subtle)] py-3.5 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
       >
-        <span className="flex items-center gap-2">
-          <span className="rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[10px] uppercase tracking-wide text-[var(--color-text-tertiary)]">
-            {themeLabel(item.theme)}
-          </span>
+        <span className="flex items-baseline gap-3">
+          <span className="text-[15px] font-medium leading-snug text-[var(--color-text-primary)]">{item.title}</span>
           <span className="ml-auto shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
             {count} {pluralizeNabludenie(count)}
           </span>
         </span>
-        <span className="text-[15px] font-semibold leading-snug text-[var(--color-text-primary)]">{item.title}</span>
         <span className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">{item.body}</span>
         <span className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">
           {item.apps.join(" · ")}

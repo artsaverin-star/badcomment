@@ -3,10 +3,11 @@ import { buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
 import { getProductInsights } from "@/lib/insights";
 import { getProductIdBySlug } from "@/lib/appSlugs";
+import { getAppMetaByProductId } from "@/lib/researchCategories";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import BackLink from "@/components/BackLink";
-import InsightLanding from "@/components/InsightLanding";
+import InsightLanding, { type LandingProduct } from "@/components/InsightLanding";
 
 export const dynamic = "force-dynamic";
 
@@ -22,7 +23,29 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
 
   const locale = await getLocale();
   const tr = t(locale);
-  const [data, insights] = await Promise.all([getProductDetail(id, locale), Promise.resolve(getProductInsights(id))]);
+  const [detail, insights] = await Promise.all([
+    getProductDetail(id, locale).catch(() => null),
+    Promise.resolve(getProductInsights(id)),
+  ]);
+
+  // Scraped apps (ext-*) have insights but no DB Product row; dress the hero
+  // from the curated catalog so the long-read still renders.
+  let data: LandingProduct | null = detail;
+  if (!data && insights) {
+    const m = getAppMetaByProductId(id);
+    if (m) {
+      data = {
+        name: m.name,
+        developer: null,
+        stores: ["apple"],
+        icon: m.icon || null,
+        screenshots: [],
+        avgRating: null,
+        installs: null,
+        ratingCount: null,
+      };
+    }
+  }
   if (!data) notFound();
 
   return (

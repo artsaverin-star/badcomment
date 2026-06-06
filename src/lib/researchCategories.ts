@@ -98,3 +98,13 @@ export function getCategoryBySlug(slug: string, locale: Locale): CategoryView | 
 
 // Back-compat name for places still calling the old API.
 export const getResearchCategory = getCategoryBySlug;
+
+// Name + icon for a scraped (non-DB) productId, read off the curated catalog.
+// Lets the canonical insight page dress its hero for ext-* apps that have no
+// Product row in the database.
+export function getAppMetaByProductId(productId: string): { name: string; icon: string } | null {
+  for (const m of Object.values(META)) {
+    if (m.productId === productId) return { name: m.name, icon: m.icon };
+  }
+  return null;
+}

@@ -20,6 +20,12 @@ const OUT = "src/data/segment-insights.json";
 
 type CatItemDef = { id: string; theme: string; title: string; body: string; members: string[] };
 type SegmentDef = { slug: string; lead: string; items: CatItemDef[] };
+// Narrative editorial sections that thread the category insights into a
+// magazine-style long-read instead of a flat theme-bucketed card grid. Each
+// section has an authored heading + dek (lede paragraph) and a list of category
+// item ids; the items themselves still carry real obs counts + verbatim
+// evidence, so the prose is narrative but every figure stays traceable.
+type SectionDef = { id: string; heading: string; dek: string; itemIds: string[] };
 
 // --- meditation-mindfulness synthesis ---------------------------------------
 // Aura ("Aura: Meditation & Sleep, CBT") is excluded on purpose: its linked
@@ -29,7 +35,7 @@ const DEFS: SegmentDef[] = [
   {
     slug: "meditation-mindfulness",
     lead:
-      "Сведено из реальных отзывов 1–5★ по приложениям категории. Ниже — механизмы, которые повторяются у разных брендов: люди уходят не из-за «плохих медитаций», а из-за биллинга-ловушек, обновлений, ломающих ритуал, и аудио, которое будит вместо того чтобы усыплять.",
+      "Сведено из реальных отзывов 1–5★ по приложениям категории. В этих отзывах виден не только повод уйти — биллинг-ловушки, обновления, ломающие ритуал, аудио, которое будит вместо сна, — но и то, что удерживает людей годами: конкретные голоса, привычка перед сном, помощь при тревоге и бессоннице. Ниже — механизмы, которые повторяются у разных брендов, а не придирки к одному приложению.",
     items: [
       {
         id: "mm-billing-trap",
@@ -225,6 +231,53 @@ const DEFS: SegmentDef[] = [
   },
 ];
 
+const SECTIONS: Record<string, SectionDef[]> = {
+  "meditation-mindfulness": [
+    {
+      id: "sec-money",
+      heading: "Деньги: где спокойствие превращается в ловушку",
+      dek: "Платёж — самая частая точка, где доверие к категории даёт трещину. Отмена, подтверждённая письмом и экраном, не останавливает списания; «бесплатный пробный период» снимает полную годовую сумму в момент нажатия; а оплата, уведённая мимо Apple через сайт или PayPal, лишает человека штатной кнопки «отменить». Это не разовые сбои отдельных брендов, а повторяющийся по всей категории сценарий.",
+      itemIds: ["mm-billing-trap", "mm-fake-trial", "mm-bypass-apple"],
+    },
+    {
+      id: "sec-ritual",
+      heading: "Ритуал, который ломает само приложение",
+      dek: "Медитация живёт как привычка — и тем заметнее, когда приложение рвёт собственный ритуал. Обновления зависают на заставке или вырезают таймеры и интеграции; редизайны стирают годами собранные коллекции и встречают обязательными анкетами; главный экран превращается в карусель апселла вместо «нажал и начал»; счётчик серии вместо поддержки внушает вину; а сломанный вход выбивает из аккаунта в самый уязвимый момент — при засыпании.",
+      itemIds: ["mm-update-breaks", "mm-lost-collections", "mm-home-clutter", "mm-onboarding-gate", "mm-streak-guilt", "mm-notification-spam", "mm-auth-broken"],
+    },
+    {
+      id: "sec-night-audio",
+      heading: "Звук, который должен усыплять, — будит",
+      dek: "Категория обещает держать сон до утра, но аудио ведёт себя наоборот: длинные sleep-истории обрываются среди ночи, зацикливают бодрое вступление или включают громкий следующий трек. Любое прерывание — звонок, переключение приложения, наушники — сбрасывает сессию в начало, а скачанный «офлайн» всё равно требует сети. Непрерывность звука — фундамент продукта — оказывается самой хрупкой его частью.",
+      itemIds: ["mm-night-cutout", "mm-resume-reset", "mm-no-offline"],
+    },
+    {
+      id: "sec-content",
+      heading: "Чем держат — и что теряют, когда это убирают",
+      dek: "Подписку удерживает не «каталог вообще», а конкретные голоса и записи: знаменитости-рассказчики, любимые истории, отдельные треки. Это самая сильная позитивная привязка в категории — и одновременно самый незаметный риск: тихое удаление этих записей ломает многолетний ритуал, при ежедневном использовании каталог быстро ощущается застойным, а замена живых рассказчиков на синтетические AI-голоса подрывает то самое доверие, ради которого люди и остаются.",
+      itemIds: ["mm-content-anchors", "mm-stale-catalog", "mm-ai-voices"],
+    },
+    {
+      id: "sec-jobs",
+      heading: "Зачем приходят на самом деле",
+      dek: "За «сном и медитацией» скрывается куда более широкий список задач: люди слушают на работе и в поездках, восстанавливаются после травм, успокаивают ребёнка или собаку, включают на двоих с одного устройства. Приходят чаще через работодателя или страховку, чем сами, а до самостоятельной покупки годами сравнивают цену. И есть устойчивый недообслуженный спрос — на минимализм «просто звук плюс таймер» и режим без речи для тех, кому голос мешает.",
+      itemIds: ["mm-real-jobs", "mm-acquisition-b2b", "mm-underserved"],
+    },
+    {
+      id: "sec-trust",
+      heading: "Когда что-то ломается — по ту сторону тишина",
+      dek: "Замыкает картину поддержка и доверие к данным: на обращение отвечает бот, описывающий кнопки, которых в приложении нет, и не передающий живому оператору; формы «связаться» отвечают шаблонами неделями или не работают вовсе; а чувствительные данные о психическом здоровье собираются без понятной возможности отказаться. В категории про заботу о себе этот контраст пользователи замечают особенно остро.",
+      itemIds: ["mm-bot-support", "mm-data-privacy"],
+    },
+    {
+      id: "sec-infra",
+      heading: "Инфраструктурный фон",
+      dek: "Базовая гигиена, которую ждут от любого приложения и без которой остальное не имеет значения: стабильный запуск и работа на планшете.",
+      itemIds: ["mm-crash-on-launch", "mm-tablet-landscape"],
+    },
+  ],
+};
+
 // Member additions synthesized across the full app set (see
 // scripts/build-segment-insights — the new apps' titles assigned to category
 // insights, produced by an Opus synthesis pass over segment-meta/mm-new-titles).
@@ -305,6 +358,28 @@ function main() {
       };
     });
 
+    // Thread the resolved items into narrative editorial sections. Items are
+    // sorted loudest-first within a section; any item not placed in a section
+    // falls into a trailing catch-all so nothing is silently dropped.
+    const itemById = new Map(items.map((it) => [it.id, it]));
+    const placed = new Set<string>();
+    const sectionDefs = SECTIONS[def.slug] ?? [];
+    const sections = sectionDefs
+      .map((s) => {
+        const secItems = s.itemIds
+          .map((id) => itemById.get(id))
+          .filter((it): it is (typeof items)[number] => Boolean(it))
+          .sort((a, b) => b.observationCount - a.observationCount);
+        for (const id of s.itemIds) placed.add(id);
+        return { id: s.id, heading: s.heading, dek: s.dek, items: secItems };
+      })
+      .filter((s) => s.items.length > 0);
+    const orphans = items.filter((it) => !placed.has(it.id));
+    if (orphans.length) {
+      console.log(`  [${def.slug}] ${orphans.length} item(s) not in any section: ${orphans.map((o) => o.id).join(", ")}`);
+      sections.push({ id: "sec-other", heading: "Прочие наблюдения", dek: "", items: orphans.sort((a, b) => b.observationCount - a.observationCount) });
+    }
+
     out[def.slug] = {
       slug: def.slug,
       lead: def.lead,
@@ -312,6 +387,7 @@ function main() {
       appsCount: inScope.length,
       reviewsScanned,
       items,
+      sections,
     };
     const totalObs = items.reduce((s, i) => s + i.observationCount, 0);
     console.log(`[${def.slug}] ${items.length} category insights · ${inScope.length} apps · ${reviewsScanned} reviews · ${totalObs} obs aggregated`);
