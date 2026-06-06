@@ -1,0 +1,37 @@
+{
+  "productId": "ext-515118602",
+  "slug": "headspace-care",
+  "name": "Headspace Care",
+  "domain": "ментальное здоровье / коучинг / терапия / mindfulness",
+  "oneLiner": "приложение (бывш. Ginger) с текстовым коучингом, терапией и психиатрией по запросу, доступ обычно через работодателя/страховку; чат-коучинг 24/7, iOS+Android",
+  "pricing": "доступ через работодателя или план медстраховки (B2B2C); напрямую не подписка, активация по коду/email от работодателя",
+  "keyFeatures": [
+    "on-demand text-based coaching 24/7",
+    "video therapy and psychiatry",
+    "self-care activities and content",
+    "employer / insurance eligibility access",
+    "scheduling and appointments",
+    "progress check-ins"
+  ],
+  "competitors": ["Lyra", "Spring Health", "Talkspace", "BetterHelp", "Calm Health"],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "my employer code is accepted but then I get locked out",
+      "observation": "Код работодателя проходит активацию, но доступ затем блокируется при проверке eligibility — пользователь не может войти в оплаченный работодателем сервис",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the coach changes every time I open the chat",
+      "observation": "Каждый сеанс назначается новый коуч без истории переписки — теряется непрерывность сопровождения, нужно пересказывать всё заново",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "Coach was nice (praise)",
+    "Hard to access (commodity unless specific flow)",
+    "Great app (no mechanism)",
+    "Doesn't work (no detail)"
+  ]
+}
