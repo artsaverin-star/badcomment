@@ -263,7 +263,7 @@ const DICT: Record<Locale, Dict> = {
       appsInGenre: (n) => `Apps (${n})`,
     },
     market2: {
-      title: "Just an aggregator of app reviews — with conclusions",
+      title: "The most powerful aggregator of app reviews — with conclusions",
       subtitle: "What people complain about across these apps — ranked by what comes up most.",
       pilotNote: (genre) => `Pilot on one genre (${genre}). Scored live from real reviews.`,
       gapsHeading: "Top problems across the apps",
@@ -288,7 +288,7 @@ const DICT: Record<Locale, Dict> = {
       evidenceError: "Couldn’t load reviews — try again.",
       evidenceTranslated: "translated from English",
       close: "Close",
-      indexSubtitle: "",
+      indexSubtitle: "Every day we analyze hundreds of thousands of reviews.",
       segReviewsApps: (reviews, apps) =>
         `${reviews.toLocaleString("en-US")} reviews across ${apps} ${apps === 1 ? "app" : "apps"}`,
       segClassified: "Classified",
@@ -503,7 +503,7 @@ const DICT: Record<Locale, Dict> = {
       },
     },
     market2: {
-      title: "Простой агрегатор отзывов о приложениях — с выводами",
+      title: "Самый мощный агрегатор отзывов о приложениях — с выводами",
       subtitle: "На что жалуются во всех этих приложениях — отсортировано по тому, что встречается чаще.",
       pilotNote: (genre) => `Пилот на одном жанре (${genre}). Скоринг вживую из реальных отзывов.`,
       gapsHeading: "Топ проблем во всех приложениях",
@@ -533,7 +533,7 @@ const DICT: Record<Locale, Dict> = {
       evidenceError: "Не удалось загрузить отзывы — попробуйте ещё раз.",
       evidenceTranslated: "переведено с английского",
       close: "Закрыть",
-      indexSubtitle: "",
+      indexSubtitle: "Каждый день анализируем сотни тысяч отзывов.",
       segReviewsApps: (reviews, apps) => {
         const pl = (n: number, forms: [string, string, string]) => {
           const m10 = n % 10;
