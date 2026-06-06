@@ -225,7 +225,29 @@ const DEFS: SegmentDef[] = [
   },
 ];
 
+// Member additions synthesized across the full app set (see
+// scripts/build-segment-insights — the new apps' titles assigned to category
+// insights, produced by an Opus synthesis pass over segment-meta/mm-new-titles).
+const ADDITIONS = "src/data/segment-defs-additions.json";
+type Additions = { extend: Record<string, string[]>; new: CatItemDef[] };
+
+function applyAdditions(defs: SegmentDef[]) {
+  let raw: string;
+  try { raw = readFileSync(ADDITIONS, "utf8"); } catch { return; }
+  const add = JSON.parse(raw) as Additions;
+  const mm = defs.find((d) => d.slug === "meditation-mindfulness");
+  if (!mm) return;
+  for (const it of mm.items) {
+    const extra = add.extend[it.id];
+    if (extra) it.members.push(...extra);
+  }
+  for (const ni of add.new) {
+    if (!mm.items.some((i) => i.id === ni.id)) mm.items.push(ni);
+  }
+}
+
 function main() {
+  applyAdditions(DEFS);
   const products = JSON.parse(readFileSync(INSIGHTS, "utf8")) as ProductInsights[];
   const domains = JSON.parse(readFileSync(CATS, "utf8")) as { categories: { slug: string; apps: string[] }[] }[];
   const meta = JSON.parse(readFileSync(META, "utf8")) as Meta;
