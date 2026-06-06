@@ -45,6 +45,12 @@ export const THEME_ORDER: Theme[] = [
   "support",
 ];
 
+export type InsightGroup = {
+  id: string;
+  name: string;
+  sentiment?: "praise" | "criticism" | "suggestion";
+};
+
 export type Insight = {
   id: string;
   category: InsightCategory;
@@ -57,6 +63,7 @@ export type Insight = {
   evidence: InsightEvidence[];
   observationCount?: number; // full cluster size; evidence shows only top-3 quotes
   theme?: Theme;
+  group?: InsightGroup; // natural semantic group (theme-free clustering)
   implies: string;
 };
 

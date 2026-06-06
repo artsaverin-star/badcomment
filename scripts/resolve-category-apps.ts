@@ -32,13 +32,30 @@ function normalize(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 }
 
+// Generic words that, on their own, don't identify an app. A shared generic
+// first word ("Plant Jammer" vs "Plant Buddi", "Adobe Lightroom" vs "Adobe
+// Photoshop") must NOT count as a match — that was how wrong-but-popular apps
+// slipped through.
+const GENERIC = new Set([
+  "the", "app", "pro", "free", "plus", "lite", "ai", "photo", "video", "editor", "maker",
+  "plant", "identifier", "sleep", "fitness", "gym", "tracker", "planner", "scanner", "pdf",
+  "vpn", "mail", "email", "calendar", "tasks", "music", "piano", "chess", "food", "recipe",
+  "recipes", "screen", "focus", "habit", "journal", "period", "cycle", "baby", "pregnancy",
+  "language", "learning", "budget", "money", "kids", "game", "games", "online", "courses",
+  "note", "notes", "voice", "ride", "electric", "cycling", "bike", "yoga", "alarm", "clock",
+  "search", "engine", "chat", "assistant", "daily", "smart", "my",
+]);
+
 function looksReasonable(query: string, name: string): boolean {
   const q = normalize(query);
   const n = normalize(name);
-  if (n === q || n.startsWith(q) || q.startsWith(n)) return true;
-  const qFirst = q.split(" ")[0];
-  if (qFirst.length >= 3 && n.split(" ")[0] === qFirst) return true;
-  if (n.includes(q) || q.includes(n)) return true;
+  if (n === q) return true;
+  // Full-brand prefix: "Calm" → "Calm Meditation Sleep", or vice versa.
+  if (n.startsWith(q + " ") || q.startsWith(n + " ")) return true;
+  // Every distinctive (non-generic) word of the query appears in the name.
+  const nTokens = new Set(n.split(" ").filter(Boolean));
+  const distinct = q.split(" ").filter((t) => t.length >= 3 && !GENERIC.has(t));
+  if (distinct.length > 0 && distinct.every((t) => nTokens.has(t))) return true;
   return false;
 }
 
@@ -55,7 +72,12 @@ async function search(term: string): Promise<AppMeta | null> {
   try {
     const results = (await appStore.search({ term, country: "us", num: 5, lang: "en-us" })) as StoreResult[];
     if (!results.length) return null;
-    const best = results.find((r) => looksReasonable(term, r.title)) ?? results[0];
+    // Only accept a result that actually resembles the query. Falling back to
+    // the top hit silently grabbed the most-popular app for that keyword and
+    // produced cross-category garbage (e.g. "Aura" → Aura Frames in meditation,
+    // "Codeium" → Podium). An unresolved entry is honest; a wrong one is not.
+    const best = results.find((r) => looksReasonable(term, r.title));
+    if (!best) return null;
     return {
       query: term,
       name: best.title,

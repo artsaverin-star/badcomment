@@ -8,6 +8,8 @@ import { prisma } from "@/lib/prisma";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import SegmentThemeView, { type ProductMetaMap } from "@/components/SegmentThemeView";
+import SegmentSummaryView from "@/components/SegmentSummary";
+import { getSegmentSummary } from "@/lib/segmentSummary";
 
 export const dynamic = "force-dynamic";
 
@@ -26,16 +28,22 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   // legacy segments.json mapping is gone — categories.json is the source of
   // truth for which apps live in a sub-category.
   const appIds = cat.apps.map((a) => a.productId).filter((id): id is string => !!id);
+  const summary = getSegmentSummary(slug);
   let themeView = null;
-  let productMeta: ProductMetaMap = {};
+  const productMeta: ProductMetaMap = {};
   if (appIds.length > 0) {
     themeView = getSegmentInsightsByTheme(slug, appIds);
     if (themeView) {
+      // Seed labels from the curated catalog so insight rows render names/icons
+      // even where the DB product row is missing; overlay canonical DB meta.
+      for (const a of cat.apps) {
+        if (a.productId) productMeta[a.productId] = { name: a.name, icon: a.icon ?? null };
+      }
       const products = await prisma.product.findMany({
         where: { id: { in: appIds } },
         select: { id: true, name: true, icon: true },
       });
-      productMeta = Object.fromEntries(products.map((p) => [p.id, { name: p.name, icon: p.icon }]));
+      for (const p of products) productMeta[p.id] = { name: p.name, icon: p.icon };
     }
   }
 
@@ -91,6 +99,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {themeView && <SegmentThemeView view={themeView} productMeta={productMeta} />}
+
+      {summary && <SegmentSummaryView summary={summary} />}
     </main>
   );
 }

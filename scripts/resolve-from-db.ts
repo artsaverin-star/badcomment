@@ -40,21 +40,28 @@ function score(query: string, candidate: string): number {
   const c = norm(candidate);
   if (!q || !c) return 0;
   if (c === q) return 1000;
-  // Strip trailing/leading: "Mod" vs "Mod: A Free App" etc.
-  const qFirst = q.split(/[:\-—|]/)[0].trim();
-  const cFirst = c.split(/[:\-—|]/)[0].trim();
-  if (cFirst === qFirst) return 950;
-  if (c.startsWith(q + " ") || c.startsWith(q + ":")) return 900;
-  if (q.startsWith(c + " ") || q.startsWith(c + ":")) return 850;
-  if (c.includes(" " + q + " ") || c.endsWith(" " + q)) return 700;
-  if (cFirst.startsWith(qFirst + " ") || cFirst.startsWith(qFirst + ":")) return 600;
-  // Token overlap
-  const qTokens = new Set(q.split(" ").filter((t) => t.length >= 3));
-  const cTokens = new Set(c.split(" ").filter((t) => t.length >= 3));
-  let overlap = 0;
-  for (const t of qTokens) if (cTokens.has(t)) overlap++;
-  if (overlap === 0) return 0;
-  return 300 + 50 * overlap;
+
+  const qTokens = q.split(" ").filter(Boolean);
+  const cTokens = c.split(" ").filter(Boolean);
+  const qSet = new Set(qTokens);
+  const cSet = new Set(cTokens);
+
+  // Same set of words, any order ("Notion Calendar" vs "Calendar Notion").
+  if (qTokens.length === cTokens.length && qTokens.every((t) => cSet.has(t))) return 950;
+
+  // Brand containment: every word of the SHORTER name appears in the longer one.
+  // Require the shorter name to carry >=2 words so generic single tokens
+  // ("Google", "AI", "VPN", "Sleep", "Calm") can't swallow every "<word> X"
+  // query into one product.
+  const [shortT, longSet] = qTokens.length <= cTokens.length ? [qTokens, cSet] : [cTokens, qSet];
+  if (shortT.length >= 2 && shortT.every((t) => longSet.has(t))) return 800;
+
+  // Strong Jaccard overlap as a last resort.
+  const inter = [...qSet].filter((t) => cSet.has(t)).length;
+  const union = new Set([...qSet, ...cSet]).size;
+  if (union > 0 && inter / union >= 0.6) return 700;
+
+  return 0;
 }
 
 async function main() {

@@ -3,9 +3,9 @@
 import { useRef } from "react";
 import type { Insight } from "@/lib/insights";
 
-// Compact insight row: title + mention count, click → modal with the full
-// evidence (verbatim review quotes). Density tuned to match the segment
-// "Top problems" rhythm so the page scans like a list, not a feed.
+// Editorial insight entry: a typographic row (no card chrome) whose only
+// affordances are the title and a quiet observation-count figure. Click opens
+// a modal with the verbatim review quotes.
 
 function Stars({ n }: { n: number }) {
   return (
@@ -16,26 +16,33 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-export default function InsightRow({ insight }: { insight: Insight; max: number }) {
+export default function InsightRow({ insight }: { insight: Insight; max?: number }) {
   const ref = useRef<HTMLDialogElement>(null);
   const count = insight.observationCount ?? insight.evidence.length;
-  const word = count === 1 ? "наблюдение" : count >= 2 && count <= 4 ? "наблюдения" : "наблюдений";
+
+  const open = () => {
+    document.body.style.overflow = "hidden";
+    ref.current?.showModal();
+  };
 
   return (
     <>
       <button
         type="button"
-        onClick={() => ref.current?.showModal()}
-        className="flex w-full items-baseline justify-between gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
+        onClick={open}
+        className="group flex w-full items-baseline justify-between gap-4 border-b border-[var(--color-border-subtle)] py-2.5 text-left last:border-0"
       >
-        <span className="text-[13px] leading-[18px] text-[var(--color-text-primary)]">{insight.title}</span>
-        <span className="shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
-          {count} {word}
+        <span className="text-[14px] leading-[20px] text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)]">
+          {insight.title}
         </span>
+        <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{count}</span>
       </button>
 
       <dialog
         ref={ref}
+        onClose={() => {
+          document.body.style.overflow = "";
+        }}
         onClick={(e) => {
           if (e.target === ref.current) ref.current?.close();
         }}
@@ -43,7 +50,7 @@ export default function InsightRow({ insight }: { insight: Insight; max: number 
       >
         <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
           <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
-            <span className="text-[15px] font-semibold">{insight.title}</span>
+            <span className="text-[15px] font-semibold leading-snug">{insight.title}</span>
             <button
               type="button"
               onClick={() => ref.current?.close()}
