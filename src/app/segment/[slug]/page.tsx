@@ -3,18 +3,17 @@ import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import { getResearchCategory } from "@/lib/researchCategories";
 import { getSegmentBySlug } from "@/lib/segments";
-import { getSegmentInsights } from "@/lib/segmentInsights";
+import { getSegmentInsightsByTheme } from "@/lib/segmentInsightsByTheme";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { prisma } from "@/lib/prisma";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
-import SegmentInsightGap from "@/components/SegmentInsightGap";
+import SegmentThemeView, { type ProductMetaMap } from "@/components/SegmentThemeView";
 
 export const dynamic = "force-dynamic";
 
 // Category page: apps grid (icon + name from the curated meta) + cross-app
-// insight view if available. Sleep-meditation is the only category with the
-// insights pipeline currently completed.
+// theme-bucketed insights (the real per-app insights aggregated by theme).
 
 export default async function SegmentPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -24,18 +23,20 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const cat = getResearchCategory(slug, locale);
   if (!cat) notFound();
 
-  // Insight gap (cross-app top problems) — only renders if the category has
-  // a meta-themes mapping + the underlying insights.json data.
-  let insightView = null;
+  // Theme-bucketed insight view powered by insights.json. Only renders for
+  // segments whose apps have been through the qualitative pipeline.
+  let themeView = null;
+  let productMeta: ProductMetaMap = {};
   const legacy = getSegmentBySlug(slug, locale);
   if (legacy) {
-    const products = await prisma.product.findMany({
-      where: { id: { in: legacy.appIds } },
-      select: { id: true, name: true, icon: true },
-    });
-    const nameById = new Map(products.map((p) => [p.id, p.name]));
-    const iconById = new Map(products.map((p) => [p.id, p.icon]));
-    insightView = getSegmentInsights(slug, legacy.appIds, nameById, iconById, locale);
+    themeView = getSegmentInsightsByTheme(slug, legacy.appIds);
+    if (themeView) {
+      const products = await prisma.product.findMany({
+        where: { id: { in: legacy.appIds } },
+        select: { id: true, name: true, icon: true },
+      });
+      productMeta = Object.fromEntries(products.map((p) => [p.id, { name: p.name, icon: p.icon }]));
+    }
   }
 
   return (
@@ -90,7 +91,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {insightView && <SegmentInsightGap view={insightView} locale={locale} />}
+      {themeView && <SegmentThemeView view={themeView} productMeta={productMeta} />}
     </main>
   );
 }
