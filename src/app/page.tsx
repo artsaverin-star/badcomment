@@ -36,10 +36,9 @@ export default async function Home() {
 function DomainSection({ domain }: { domain: DomainView }) {
   return (
     <section className="flex flex-col gap-3">
-      <div className="flex flex-col gap-0.5 border-b border-[var(--color-border-subtle)] pb-2">
-        <h2 className="text-[20px] font-semibold text-[var(--color-text-primary)]">{domain.name}</h2>
-        <p className="text-[12px] text-[var(--color-text-tertiary)]">{domain.kicker}</p>
-      </div>
+      <h2 className="border-b border-[var(--color-border-subtle)] pb-2 text-[20px] font-semibold text-[var(--color-text-primary)]">
+        {domain.name}
+      </h2>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {domain.categories.map((c) => (
           <CategoryCard key={c.slug} cat={c} />

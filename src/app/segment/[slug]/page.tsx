@@ -54,7 +54,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         as="h1"
         className="mb-5 items-center text-center"
         title={cat.name}
-        description={<span className="mx-auto block max-w-2xl">{cat.kicker}</span>}
       />
 
       <section className="mb-6 flex flex-col gap-2">
