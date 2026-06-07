@@ -4,6 +4,11 @@ name: Deploy
 # once the box is wired up (set repo variable DEPLOY_ENABLED=true + the secrets
 # listed below). Until then the deploy job is skipped, so merging is always safe.
 #
+# The prod box has only 2GB RAM and OOM-kills `next build`, which also corrupts
+# the live .next mid-build. So the build runs HERE (on the runner, plenty of
+# RAM); the box only receives the finished .next and restarts. Nothing is built
+# on the box.
+#
 # Required to enable deploys (Settings → Secrets and variables → Actions):
 #   Variable  DEPLOY_ENABLED     = true
 #   Secret    DEPLOY_HOST        = 51.250.11.225
@@ -39,6 +44,19 @@ jobs:
       - run: npx prisma generate
       - run: npx tsc --noEmit
       - run: npm run lint
+      - name: Build (.next) on the runner, not the prod box
+        run: npm run build
+        env:
+          # Build never connects to the DB (all pages are force-dynamic), but a
+          # valid-looking URL keeps PrismaClient construction at import happy.
+          DATABASE_URL: "file:./ci.db"
+      - name: Package the build for the box
+        run: tar -czf next-build.tgz --exclude='.next/cache' .next
+      - uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: next-build.tgz
+          retention-days: 2
 
   deploy:
     needs: ci
@@ -46,13 +64,21 @@ jobs:
     if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true' }}
     environment: production
     steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: next-build
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh
           printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
           printf '%s\n' "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-      - name: Run deploy.sh on the VM
+      - name: Upload the prebuilt .next to the box
+        run: |
+          scp -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
+            next-build.tgz \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/badcomment/next-build.tgz"
+      - name: Swap in the build and restart (no build on the box)
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
