@@ -50,11 +50,8 @@ function DomainSection({ domain }: { domain: DomainView }) {
 
 function CategoryCard({ cat }: { cat: CategoryView }) {
   const icons = cat.apps.filter((a) => a.icon).slice(0, 4);
-  return (
-    <Link
-      href={`/segment/${cat.slug}`}
-      className="flex items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2.5 transition-colors hover:border-[var(--color-text-tertiary)]"
-    >
+  const body = (
+    <>
       <div className="flex -space-x-1.5 shrink-0">
         {icons.map((a, i) => (
           // eslint-disable-next-line @next/next/no-img-element
@@ -62,16 +59,41 @@ function CategoryCard({ cat }: { cat: CategoryView }) {
             key={i}
             src={a.icon}
             alt=""
-            className="size-7 rounded-[var(--radius-sm)] object-cover ring-2 ring-[var(--color-surface-card)]"
+            className={`size-7 rounded-[var(--radius-sm)] object-cover ring-2 ring-[var(--color-surface-card)] ${
+              cat.deprioritized ? "opacity-40 grayscale" : ""
+            }`}
           />
         ))}
       </div>
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-        <span className="truncate text-[14px] font-semibold text-[var(--color-text-primary)]">{cat.name}</span>
+        <span
+          className={`truncate text-[14px] font-semibold ${
+            cat.deprioritized ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"
+          }`}
+        >
+          {cat.name}
+        </span>
         <span className="truncate text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
           {cat.apps.length} {appsWord(cat.apps.length)}
         </span>
       </span>
+    </>
+  );
+
+  if (cat.deprioritized) {
+    return (
+      <div className="flex items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-3 py-2.5">
+        {body}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      href={`/segment/${cat.slug}`}
+      className="flex items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2.5 transition-colors hover:border-[var(--color-text-tertiary)]"
+    >
+      {body}
     </Link>
   );
 }

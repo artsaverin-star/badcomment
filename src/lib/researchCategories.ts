@@ -1,5 +1,6 @@
 import categories from "@/data/categories.json";
 import meta from "@/data/categories-meta.json";
+import deprioritized from "@/data/deprioritized-categories.json";
 import type { Locale } from "./i18n";
 
 // Two-level taxonomy: top-level life domain ("Sleep & meditation") → sub
@@ -36,6 +37,13 @@ type RawAppMeta = {
 
 const RAW_DOMAINS = categories as RawDomain[];
 const META = meta as Record<string, RawAppMeta>;
+// Categories parked as not-worth-processing (junk/storefront/network-effect):
+// kept in the catalog but greyed out and skipped by the pipeline.
+const DEPRIORITIZED = new Set(deprioritized as string[]);
+
+export function isDeprioritizedCategory(slug: string): boolean {
+  return DEPRIORITIZED.has(slug);
+}
 
 export type CategoryAppView = {
   query: string;
@@ -50,6 +58,7 @@ export type CategoryView = {
   name: string;
   kicker: string;
   apps: CategoryAppView[];
+  deprioritized: boolean;
 };
 
 export type DomainView = {
@@ -77,6 +86,7 @@ function buildCategory(c: RawCategory, locale: Locale): CategoryView {
     name: locale === "en" ? c.en.name : c.ru.name,
     kicker: locale === "en" ? c.en.kicker : c.ru.kicker,
     apps: c.apps.map((a) => resolveApp(c.slug, a)),
+    deprioritized: DEPRIORITIZED.has(c.slug),
   };
 }
 
