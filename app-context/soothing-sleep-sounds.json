@@ -1,0 +1,42 @@
+{
+  "productId": "ext-880195209",
+  "slug": "soothing-sleep-sounds",
+  "name": "Soothing Sleep Sounds",
+  "domain": "white noise / sleep / relax",
+  "oneLiner": "простое приложение успокаивающих звуков для сна с таймером и фоновым воспроизведением, iOS",
+  "pricing": "freemium + in-app unlock / subscription",
+  "keyFeatures": [
+    "catalog of soothing sleep sounds (rain, ocean, fan, white noise)",
+    "simple one-tap playback",
+    "sleep timer",
+    "background playback",
+    "looping ambient tracks"
+  ],
+  "competitors": ["White Noise Lite", "Rain Rain", "BetterSleep", "Sleep Pillow", "Bedtime Fan"],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "you can only play one sound, not mix them",
+      "observation": "Нельзя комбинировать звуки — только один трек за раз, что отрезает пользователей, привыкших к миксу дождя с вентилятором",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "an ad plays with sound when I open it at bedtime",
+      "observation": "Реклама со звуком при ночном запуске будит вместо подготовки ко сну",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the timer max is 60 minutes so it dies before I'm asleep",
+      "observation": "Максимум таймера 60 минут — пользователю с долгим засыпанием звук отключается слишком рано",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User loves it (non-information)",
+    "Too expensive (commodity)",
+    "Helps me sleep (generic praise)",
+    "Wants more sounds (generic request)"
+  ]
+}
