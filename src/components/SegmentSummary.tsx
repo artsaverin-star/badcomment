@@ -33,12 +33,23 @@ export default function SegmentSummaryView({ summary }: { summary: SegmentSummar
 
       <div className="mt-10 flex flex-col gap-11">
         {summary.sections.map((section) => (
-          <div key={section.id}>
-            <h3 className="text-[20px] font-semibold leading-[26px] tracking-[-0.01em] text-[var(--color-text-primary)]">
-              {section.heading}
-            </h3>
+          <details key={section.id} open className="group/sec">
+            <summary className="flex cursor-pointer list-none items-baseline gap-2 [&::-webkit-details-marker]:hidden">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 10 10"
+                className="shrink-0 translate-y-px text-[var(--color-text-tertiary)] transition-transform group-open/sec:rotate-90"
+                aria-hidden="true"
+              >
+                <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <h3 className="text-[20px] font-semibold leading-[26px] tracking-[-0.01em] text-[var(--color-text-primary)]">
+                {section.heading}
+              </h3>
+            </summary>
             {section.dek && (
-              <p className="mt-2.5 max-w-[58ch] text-[14px] leading-[22px] text-[var(--color-text-secondary)]">
+              <p className="mt-2.5 max-w-[58ch] pl-[19px] text-[14px] leading-[22px] text-[var(--color-text-secondary)]">
                 {section.dek}
               </p>
             )}
@@ -47,7 +58,7 @@ export default function SegmentSummaryView({ summary }: { summary: SegmentSummar
                 <CategoryInsightRow key={item.id} item={item} />
               ))}
             </div>
-          </div>
+          </details>
         ))}
       </div>
     </section>

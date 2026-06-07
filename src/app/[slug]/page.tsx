@@ -36,10 +36,10 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
     if (m) {
       data = {
         name: m.name,
-        developer: null,
+        developer: m.developer,
         stores: ["apple"],
         icon: m.icon || null,
-        screenshots: [],
+        screenshots: m.screenshots,
         avgRating: null,
         installs: null,
         ratingCount: null,

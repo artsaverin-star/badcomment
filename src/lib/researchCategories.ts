@@ -31,6 +31,7 @@ type RawAppMeta = {
   bundleId: string | null;
   developer: string | null;
   productId?: string;
+  screenshots?: string[];
 };
 
 const RAW_DOMAINS = categories as RawDomain[];
@@ -102,9 +103,12 @@ export const getResearchCategory = getCategoryBySlug;
 // Name + icon for a scraped (non-DB) productId, read off the curated catalog.
 // Lets the canonical insight page dress its hero for ext-* apps that have no
 // Product row in the database.
-export function getAppMetaByProductId(productId: string): { name: string; icon: string } | null {
+export function getAppMetaByProductId(
+  productId: string,
+): { name: string; icon: string; developer: string | null; screenshots: string[] } | null {
   for (const m of Object.values(META)) {
-    if (m.productId === productId) return { name: m.name, icon: m.icon };
+    if (m.productId === productId)
+      return { name: m.name, icon: m.icon, developer: m.developer ?? null, screenshots: m.screenshots ?? [] };
   }
   return null;
 }
