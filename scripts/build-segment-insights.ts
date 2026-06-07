@@ -643,8 +643,24 @@ function applyAdditions(defs: SegmentDef[]) {
   }
 }
 
+// Additional segment syntheses authored after the original two, kept in an
+// external JSON file (one entry per category slug) so the giant authored prose
+// stays out of this source. Same shape as the hardcoded DEFS/SECTIONS above.
+const EXTRA = "src/data/segment-defs-extra.json";
+type ExtraEntry = { def: SegmentDef; sections: SectionDef[] };
+function applyExtra(defs: SegmentDef[]) {
+  let raw: string;
+  try { raw = readFileSync(EXTRA, "utf8"); } catch { return; }
+  const extra = JSON.parse(raw) as Record<string, ExtraEntry>;
+  for (const [slug, entry] of Object.entries(extra)) {
+    if (!defs.some((d) => d.slug === slug)) defs.push(entry.def);
+    SECTIONS[slug] = entry.sections;
+  }
+}
+
 function main() {
   applyAdditions(DEFS);
+  applyExtra(DEFS);
   const products = JSON.parse(readFileSync(INSIGHTS, "utf8")) as ProductInsights[];
   const domains = JSON.parse(readFileSync(CATS, "utf8")) as { categories: { slug: string; apps: string[] }[] }[];
   const meta = JSON.parse(readFileSync(META, "utf8")) as Meta;
