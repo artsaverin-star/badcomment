@@ -56,6 +56,10 @@ if (!cluster.clusters || !Array.isArray(cluster.clusters)) {
 for (const c of cluster.clusters as Array<ClusterIn & { obs_ids?: number[] }>) {
   if (!c.observation_ids && Array.isArray(c.obs_ids)) c.observation_ids = c.obs_ids;
 }
+// Same tolerance for groups: some passes emit `title` instead of `name`.
+for (const g of (cluster.groups ?? []) as Array<GroupIn & { title?: string }>) {
+  if (!g.name && g.title) g.name = g.title;
+}
 
 const obsData = JSON.parse(readFileSync(`data/${PRODUCT_ID}-observations.json`, "utf8")) as { flat: Observation[] };
 const flatNonCommodity = obsData.flat.filter((o) => !o.is_commodity);
