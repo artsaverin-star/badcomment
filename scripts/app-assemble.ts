@@ -66,9 +66,19 @@ const flatNonCommodity = obsData.flat.filter((o) => !o.is_commodity);
 const reviews = JSON.parse(readFileSync(`data/${PRODUCT_ID}-filtered.json`, "utf8")) as Review[];
 const reviewById = new Map(reviews.map((r) => [r.externalId, r]));
 
-const reviewsScanned = reviews.length;
+// We only EXTRACT observations from the first N reviews (the sample the extract
+// step actually scanned — recorded in the manifest). reviewsScanned and the
+// rating histogram must reflect that scanned sample, not the full filtered pool,
+// or the page claims to have analysed reviews it never saw.
+const manifestPath = `extract/in/${PRODUCT_ID}/manifest.json`;
+const scannedCount = existsSync(manifestPath)
+  ? (JSON.parse(readFileSync(manifestPath, "utf8")) as { totalReviews?: number }).totalReviews ?? reviews.length
+  : reviews.length;
+const scanned = reviews.slice(0, scannedCount);
+
+const reviewsScanned = scanned.length;
 const ratingBreakdown: Record<string, number> = { "1": 0, "2": 0, "3": 0, "4": 0, "5": 0 };
-for (const r of reviews) ratingBreakdown[String(r.rating)]++;
+for (const r of scanned) ratingBreakdown[String(r.rating)]++;
 
 // ── Quote extraction ──────────────────────────────────────────────────────
 function quoteForObservation(o: Observation): { rating: number; date: string; reviewId: string; quote: string } {
