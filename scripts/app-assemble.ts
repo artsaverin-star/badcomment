@@ -51,6 +51,11 @@ const cluster = JSON.parse(stripped) as ClusterOutput;
 if (!cluster.clusters || !Array.isArray(cluster.clusters)) {
   throw new Error("cluster output missing 'clusters' array");
 }
+// Tolerate the Sonnet agent occasionally emitting `obs_ids` instead of the
+// expected `observation_ids` key — normalize so the sort below can't crash.
+for (const c of cluster.clusters as Array<ClusterIn & { obs_ids?: number[] }>) {
+  if (!c.observation_ids && Array.isArray(c.obs_ids)) c.observation_ids = c.obs_ids;
+}
 
 const obsData = JSON.parse(readFileSync(`data/${PRODUCT_ID}-observations.json`, "utf8")) as { flat: Observation[] };
 const flatNonCommodity = obsData.flat.filter((o) => !o.is_commodity);

@@ -147,7 +147,7 @@ OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
       "title": "<plain Russian one-line title, mechanism-level>",
       "theme": "payment" | "content" | "playback" | "ui" | "reliability" | "support" | "strategy",
       "novelty": "high" | "medium" | "low",
-      "observation_ids": [<obs_id>, ...]
+      "observation_ids": [<obs_id>, ...]   // KEY MUST BE EXACTLY "observation_ids" — never "obs_ids"
     }
   ],
   "groups": [
