@@ -126,7 +126,7 @@ export default function InsightLanding({
         </div>
 
         <p className="max-w-xl text-[16px] leading-[24px] text-[var(--color-text-secondary)]">
-          За последние 90 дней — <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов,{" "}
+          Прочитано <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов,{" "}
           <span className="tabular-nums text-[var(--color-text-primary)]">{lowPct}%</span> из них 1–2★. Ниже —{" "}
           <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> механизмов, которые пользователи называют сами,
           сгруппированных по <span className="tabular-nums text-[var(--color-text-primary)]">{themeCount}</span> темам.

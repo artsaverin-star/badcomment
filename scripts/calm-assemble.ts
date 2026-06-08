@@ -428,7 +428,7 @@ const next = {
   productId: PRODUCT_ID,
   reviewsScanned,
   ratingBreakdown,
-  pipeline: "qualitative extraction · последние 90 дней · 1-5★",
+  pipeline: `qualitative extraction · ${reviewsScanned} отзывов · 1-5★`,
   asOf: new Date().toISOString().slice(0, 10),
   sampleSize: reviewsScanned,
   insights,

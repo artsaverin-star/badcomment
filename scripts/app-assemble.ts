@@ -189,7 +189,7 @@ const next = {
   productId: PRODUCT_ID,
   reviewsScanned,
   ratingBreakdown,
-  pipeline: `qualitative extraction · последние 90 дней · 1-5★ · ${ctx.name}`,
+  pipeline: `qualitative extraction · ${reviewsScanned} отзывов · 1-5★ · ${ctx.name}`,
   asOf: new Date().toISOString().slice(0, 10),
   sampleSize: reviewsScanned,
   // Marks a разбор built by the polarity-balanced pipeline (positives + negatives,
