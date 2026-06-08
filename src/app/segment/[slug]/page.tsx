@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import { getResearchCategory } from "@/lib/researchCategories";
 import { getSlugByProductId } from "@/lib/appSlugs";
+import { hasInsight } from "@/lib/readyApps";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import SegmentSummaryView from "@/components/SegmentSummary";
@@ -44,20 +45,32 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3 md:grid-cols-4">
           {cat.apps.map((a) => {
             const linkSlug = a.productId ? getSlugByProductId(a.productId) : null;
+            // Colour only apps that have a shipped разбор; the rest stay greyscale.
+            const ready = hasInsight(a.productId);
             const tileClass =
               "flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1 pl-1 pr-2.5";
             const inner = (
               <>
                 {a.icon ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={a.icon} alt="" className="size-6 shrink-0 rounded-full object-cover" />
+                  <img
+                    src={a.icon}
+                    alt=""
+                    className={`size-6 shrink-0 rounded-full object-cover ${ready ? "" : "opacity-40 grayscale"}`}
+                  />
                 ) : (
                   <div className="size-6 shrink-0 rounded-full bg-[var(--color-bg-muted)]" />
                 )}
-                <span className="truncate text-[12px] text-[var(--color-text-primary)]">{a.name}</span>
+                <span
+                  className={`truncate text-[12px] ${
+                    ready ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"
+                  }`}
+                >
+                  {a.name}
+                </span>
               </>
             );
-            return linkSlug ? (
+            return ready && linkSlug ? (
               <Link
                 key={a.query}
                 href={`/${linkSlug}`}

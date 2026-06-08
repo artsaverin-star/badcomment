@@ -29,7 +29,8 @@ type ClusterIn = {
   novelty: "high" | "medium" | "low";
   observation_ids: number[];
 };
-type ClusterOutput = { clusters: ClusterIn[] };
+type GroupIn = { id: string; name: string; cluster_ids: string[] };
+type ClusterOutput = { clusters: ClusterIn[]; groups?: GroupIn[] };
 
 type Observation = {
   review_id: string;
@@ -102,7 +103,22 @@ const sortedClusters = [...cluster.clusters].sort(
   (a, b) => b.observation_ids.length - a.observation_ids.length,
 );
 
-const insights = sortedClusters.map((c) => ({
+type AssembledInsight = {
+  id: string;
+  category: "strategic";
+  title: string;
+  story: string;
+  who: unknown[];
+  featureArea: string;
+  novelty: ClusterIn["novelty"];
+  evidence: ReturnType<typeof buildEvidence>;
+  observationCount: number;
+  theme: ClusterIn["theme"];
+  implies: string;
+  group?: { id: string; name: string };
+};
+
+let insights: AssembledInsight[] = sortedClusters.map((c) => ({
   id: c.id,
   category: "strategic" as const,
   title: c.title,
@@ -115,6 +131,38 @@ const insights = sortedClusters.map((c) => ({
   theme: c.theme,
   implies: "",
 }));
+
+// Fold the bespoke parent themes from the same Sonnet pass directly into the
+// insights (id + name), in group order — eliminating a separate regroup wave.
+if (cluster.groups && cluster.groups.length) {
+  const byId = new Map(insights.map((i) => [i.id, i]));
+  const assigned = new Set<string>();
+  const reordered: AssembledInsight[] = [];
+  for (const g of cluster.groups) {
+    for (const cid of g.cluster_ids) {
+      const ins = byId.get(cid);
+      if (!ins) {
+        console.warn(`  unknown cluster id in group ${g.id}: ${cid}`);
+        continue;
+      }
+      if (assigned.has(cid)) continue;
+      ins.group = { id: g.id, name: g.name };
+      assigned.add(cid);
+      reordered.push(ins);
+    }
+  }
+  for (const ins of insights) {
+    if (!assigned.has(ins.id)) {
+      delete ins.group;
+      reordered.push(ins);
+    }
+  }
+  const ungrouped = insights.length - assigned.size;
+  if (ungrouped > 0) console.warn(`WARN: ${ungrouped} clusters not assigned to any group`);
+  insights = reordered;
+  console.log(`stamped ${cluster.groups.length} bespoke groups:`);
+  for (const g of cluster.groups) console.log(`  ${g.cluster_ids.length.toString().padStart(2)} · ${g.name}`);
+}
 
 const allInsights = JSON.parse(readFileSync("src/data/insights.json", "utf8")) as Record<string, unknown>[];
 const idx = allInsights.findIndex((p) => p.productId === PRODUCT_ID);

@@ -62,10 +62,18 @@ const badBlock = ctx.badObservationExamples.map((e) => `- ${e}`).join("\n");
 const TEMPLATE = `You are reading real app-store reviews of ${ctx.name} — ${ctx.oneLiner}. ${ctx.name} offers: ${ctx.keyFeatures.join(", ")}. Pricing: ${ctx.pricing}.
 
 YOUR JOB
-For each review below, extract ZERO or MORE specific, non-obvious observations about how this user actually uses the product or where it falls short. Most reviews will yield zero observations — they're rage, praise, or generic friction. That's correct and expected. Returning empty observations is the right answer for the majority. Do not invent insight.
+For each review below, extract ZERO or MORE specific, non-obvious observations about how this user actually uses the product. An observation is NEUTRAL: it can describe something that WORKS (a mechanism that earns loyalty, a feature that delivered unexpected value, the moment the product proved itself) just as much as something that fails. Do NOT hunt only for complaints. A 5★ review explaining WHY someone stays for years is exactly as valuable as a 1★ review explaining why someone left. Most reviews will still yield zero observations — generic praise ("love it!") and generic rage ("terrible, waste of money") are both commodity. That's correct and expected. Do not invent insight.
+
+POLARITY BALANCE — read this, it's the most-missed rule
+We are NOT a complaint scraper. The goal is a true picture of the product, so positive mechanisms must be captured with the SAME rigor as negative ones. For every batch, actively look for:
+- what specifically keeps long-tenure users loyal (the feature/habit/moment, not "it's great")
+- a capability that worked better than the user expected, and why
+- a real job the product nails for a specific kind of person
+- strengths a competitor lacks, named by the user
+If you find yourself emitting only negative observations across a batch, you are almost certainly missing the positive mechanisms — re-read for them.
 
 WHAT COUNTS AS AN OBSERVATION
-An observation is a SPECIFIC mechanism or moment. Not a complaint category, not a sentiment, not a star rating restated in prose. It tells someone who builds products something they probably couldn't have guessed.
+An observation is a SPECIFIC mechanism or moment, positive OR negative. Not a complaint category, not a sentiment, not a star rating restated in prose. It tells someone who builds products something they probably couldn't have guessed.
 
 GOOD examples (each one specific, mechanism-level):
 
@@ -80,16 +88,16 @@ EDGE CASES
 - If a review is in a non-English language and an observation is clear, emit it; write the observation in Russian but keep the trigger in the original language.
 - If a review mentions a competitor (${ctx.competitors.join(", ")}, etc.), record the mention regardless of whether you extract an observation.
 - The trigger must be a VERBATIM span from the review text. If you can't quote, don't emit.
-- Lean toward EMPTY. Half the corpus should return zero observations.
+- Lean toward EMPTY for COMMODITY reviews (generic praise or generic rage with no mechanism). But never skip a substantive positive mechanism just to keep the empty rate high — a specific "what works and why" is a real observation, not noise.
 
 META SIGNALS (extract if discernible from the text)
 
 - persona.tenure: "years" | "year+" | "months" | "weeks" | "trial" | "first-day" | null
-- persona.primary_use: "sleep" | "anxiety" | "meditation" | "kids" | "ambient" | "stress" | "other" | null
+- persona.primary_use: free text — the specific job THIS user uses ${ctx.name} for, in 1-4 words, in their own framing (e.g. for a focus app "deep work blocks", for a journal "tracking moods", for a sobriety app "counting sober days"). Do NOT force a fixed list. null if not discernible.
 - persona.engagement: "power" | "regular" | "casual" | "lapsed" | "evaluating" | null
 - persona.trial_path: "pre-trial" | "mid-trial" | "post-trial-charged" | "post-cancel" | "lifetime-buyer" | "subscribed-after-trial" | null
 - competitor_mentions: array of {name, context_quote}
-- emotional_tone: "rage" | "disappointment" | "regret" | "wistful" | "matter-of-fact" | "enthusiastic" | "calm" | null
+- emotional_tone: "rage" | "disappointment" | "regret" | "wistful" | "matter-of-fact" | "enthusiastic" | "calm" | "grateful" | null
 
 If you can't tell a signal from the text, use null. Do not guess.
 

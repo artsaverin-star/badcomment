@@ -75,6 +75,24 @@ const GOOD_EXAMPLES = [
     observation: "Значимая доля пользователей мигрирует из таблиц/заметок ради мобильного доступа, а не ради уникальных фич.",
     specificity: "medium",
   },
+  {
+    rating: 5,
+    trigger: "the offline mode is the only reason I still use it on the subway",
+    observation: "Полноценная работа без сети удерживает пользователей в сценарии «в метро/самолёте» — это конкретная причина лояльности, а не общая похвала.",
+    specificity: "high",
+  },
+  {
+    rating: 5,
+    trigger: "I've kept five years of history and it still opens instantly",
+    observation: "Многолетняя история не тормозит приложение — сохранность и скорость на большом архиве названы причиной, по которой человек не уходит к конкуренту.",
+    specificity: "high",
+  },
+  {
+    rating: 4,
+    trigger: "the widget shows my next thing without opening the app",
+    observation: "Виджет на экране закрывает основной сценарий без захода в приложение — пользователь ценит именно это как ежедневную пользу.",
+    specificity: "medium",
+  },
 ];
 
 const BAD_EXAMPLES = [

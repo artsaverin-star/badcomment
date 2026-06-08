@@ -1,6 +1,7 @@
 import { Header } from "@saverin/ui-web";
 import Link from "next/link";
 import { listDomains, type DomainView, type CategoryView } from "@/lib/researchCategories";
+import { isCategoryReady } from "@/lib/readyApps";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 
@@ -50,6 +51,9 @@ function DomainSection({ domain }: { domain: DomainView }) {
 
 function CategoryCard({ cat }: { cat: CategoryView }) {
   const icons = cat.apps.filter((a) => a.icon).slice(0, 4);
+  // Greyscale until the category has at least one shipped разбор; deprioritized
+  // categories are always dimmed.
+  const dim = cat.deprioritized || !isCategoryReady(cat.apps);
   const body = (
     <>
       <div className="flex -space-x-1.5 shrink-0">
@@ -60,7 +64,7 @@ function CategoryCard({ cat }: { cat: CategoryView }) {
             src={a.icon}
             alt=""
             className={`size-7 rounded-[var(--radius-sm)] object-cover ring-2 ring-[var(--color-surface-card)] ${
-              cat.deprioritized ? "opacity-40 grayscale" : ""
+              dim ? "opacity-40 grayscale" : ""
             }`}
           />
         ))}
@@ -68,7 +72,7 @@ function CategoryCard({ cat }: { cat: CategoryView }) {
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span
           className={`truncate text-[14px] font-semibold ${
-            cat.deprioritized ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"
+            dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"
           }`}
         >
           {cat.name}
