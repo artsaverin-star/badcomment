@@ -173,6 +173,10 @@ const next = {
   pipeline: `qualitative extraction · последние 90 дней · 1-5★ · ${ctx.name}`,
   asOf: new Date().toISOString().slice(0, 10),
   sampleSize: reviewsScanned,
+  // Marks a разбор built by the polarity-balanced pipeline (positives + negatives,
+  // bespoke groups). Only `balanced` разборы render in colour on the catalog;
+  // older negative-only ones stay greyscale until rebuilt.
+  balanced: true,
   insights,
   personaPatterns: [],
   commodityBaseline: [],

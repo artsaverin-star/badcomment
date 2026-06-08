@@ -4,9 +4,12 @@ import insights from "@/data/insights.json";
 // segment pages render ready apps/categories in full colour and everything else
 // (no разбор yet) in greyscale, so the catalog visibly shows what's done.
 
+// "Done" now means rebuilt by the polarity-balanced pipeline (`balanced: true`),
+// not merely "has any insights". Older negative-only разборы stay greyscale until
+// re-extracted with positives.
 const READY = new Set(
-  (insights as Array<{ productId?: string; insights?: unknown[] }>)
-    .filter((p) => p.productId && Array.isArray(p.insights) && p.insights.length > 0)
+  (insights as Array<{ productId?: string; insights?: unknown[]; balanced?: boolean }>)
+    .filter((p) => p.balanced === true && p.productId && Array.isArray(p.insights) && p.insights.length > 0)
     .map((p) => p.productId as string),
 );
 
