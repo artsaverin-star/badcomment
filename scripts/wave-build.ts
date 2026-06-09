@@ -83,6 +83,9 @@ for (const d of domains) {
       } catch {
         continue;
       }
+      // A present-but-empty data file (`[]`) is not extract-ready — there are no
+      // reviews to analyse. Skip so empty apps can't pad a wave with 0-batch preps.
+      if (reviews === 0) continue;
       seen.add(pid);
       ready.push({ pid, ctx, category: c.slug, name, reviews });
     }
