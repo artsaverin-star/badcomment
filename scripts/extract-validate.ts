@@ -55,8 +55,18 @@ for (const pid of pids) {
     totalProblems++;
     continue;
   }
-  const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as { batches?: number; batchSize?: number };
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
+    batches?: number;
+    batchSize?: number;
+    totalReviews?: number;
+  };
   const batches = manifest.batches ?? 0;
+  const batchSize = manifest.batchSize ?? 0;
+  const totalReviews = manifest.totalReviews ?? 0;
+  // The final batch is a legitimate short tail (totalReviews % batchSize). Its
+  // floor is the real tail size, not the flat MIN — otherwise a valid 12-review
+  // last batch reads as a truncation.
+  const tailReviews = batchSize > 0 && totalReviews > 0 ? totalReviews - (batches - 1) * batchSize : batchSize;
   const problems: BatchProblem[] = [];
 
   for (let n = 1; n <= batches; n++) {
@@ -78,8 +88,9 @@ for (const pid of pids) {
     }
     const reviews = parsed.results.length;
     const obs = parsed.results.reduce((s, r) => s + (r.observations?.length ?? 0), 0);
-    if (reviews < MIN_REVIEWS_PER_BATCH) {
-      problems.push({ batch: n, reason: `truncated (${reviews} reviews)` });
+    const floor = n === batches ? Math.min(MIN_REVIEWS_PER_BATCH, tailReviews) : MIN_REVIEWS_PER_BATCH;
+    if (reviews < floor) {
+      problems.push({ batch: n, reason: `truncated (${reviews}/${floor} reviews)` });
       continue;
     }
     if (obs === 0) {
