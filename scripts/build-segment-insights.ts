@@ -678,6 +678,25 @@ function main() {
     }
     const inScope = products.filter((p) => pidName.has(p.productId));
 
+    // Publication gate: a category synthesis ships ONLY when every one of the
+    // 10 catalog apps has a processed разбор fed by the full review sample
+    // (500 per app, the pipeline cap). Partial data must never be synthesized.
+    const MIN_APPS = 10;
+    const MIN_REVIEWS_PER_APP = 500;
+    const fullApps = inScope.filter(
+      (p) => Array.isArray(p.insights) && p.insights.length > 0 && (p.reviewsScanned ?? 0) >= MIN_REVIEWS_PER_APP,
+    );
+    if (fullApps.length < MIN_APPS) {
+      const short = inScope
+        .filter((p) => (p.reviewsScanned ?? 0) < MIN_REVIEWS_PER_APP)
+        .map((p) => `${pidName.get(p.productId)}(${p.reviewsScanned ?? 0})`);
+      console.log(
+        `[${def.slug}] GATED: ${fullApps.length}/${MIN_APPS} apps with ${MIN_REVIEWS_PER_APP}+ reviews — synthesis withheld` +
+          (short.length ? ` (short: ${short.join(", ")})` : ""),
+      );
+      continue;
+    }
+
     // title → {obs, appName, evidence}
     const byTitle = new Map<string, { obs: number; app: string; evidence: Evidence[] }>();
     let reviewsScanned = 0;
