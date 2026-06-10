@@ -3,6 +3,7 @@ import { buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
 import { getProductInsights } from "@/lib/insights";
 import { getProductIdBySlug } from "@/lib/appSlugs";
+import { isPublishable } from "@/lib/readyApps";
 import { getAppMetaByProductId } from "@/lib/researchCategories";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
@@ -20,6 +21,10 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
   const { slug } = await params;
   const id = getProductIdBySlug(slug);
   if (!id) notFound();
+
+  // Only publishable разборы render: polarity-balanced ones and hand-authored
+  // gems. Legacy negative-only разборы 404 until re-extracted.
+  if (!isPublishable(id)) notFound();
 
   const locale = await getLocale();
   const tr = t(locale);

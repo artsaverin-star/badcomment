@@ -40,10 +40,17 @@ export type Idea = {
 
 const ideas = ideasData as Idea[];
 
+// An idea is publishable only while its category's synthesis is published —
+// the synthesis gate (10 balanced разборы × 500 reviews each) is the single
+// source of truth for "this category's data is complete". If a synthesis is
+// withheld, the idea derived from the same data is withheld with it.
+import segmentInsights from "@/data/segment-insights.json";
+const PUBLISHED_CATEGORIES = new Set(Object.keys(segmentInsights as Record<string, unknown>));
+
 export function listIdeas(): Idea[] {
-  return ideas;
+  return ideas.filter((i) => PUBLISHED_CATEGORIES.has(i.category));
 }
 
 export function getIdea(slug: string): Idea | null {
-  return ideas.find((i) => i.slug === slug) ?? null;
+  return listIdeas().find((i) => i.slug === slug) ?? null;
 }
