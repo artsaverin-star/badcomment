@@ -9,9 +9,20 @@ import metaData from "@/data/categories-meta.json";
 // "Done" now means rebuilt by the polarity-balanced pipeline (`balanced: true`),
 // not merely "has any insights". Older negative-only разборы stay greyscale until
 // re-extracted with positives.
+// Publication standard: a разбор ships only when it digests the full review
+// sample — 500 reviews minimum. Anything thinner is not a credible разбор and
+// stays greyscale/unpublished until the app is re-fed or replaced.
+const MIN_REVIEWS = 500;
 const READY = new Set(
-  (insights as Array<{ productId?: string; insights?: unknown[]; balanced?: boolean }>)
-    .filter((p) => p.balanced === true && p.productId && Array.isArray(p.insights) && p.insights.length > 0)
+  (insights as Array<{ productId?: string; insights?: unknown[]; balanced?: boolean; reviewsScanned?: number }>)
+    .filter(
+      (p) =>
+        p.balanced === true &&
+        p.productId &&
+        Array.isArray(p.insights) &&
+        p.insights.length > 0 &&
+        (p.reviewsScanned ?? 0) >= MIN_REVIEWS,
+    )
     .map((p) => p.productId as string),
 );
 
@@ -40,8 +51,17 @@ for (const d of categoriesData as Array<{ categories: Array<{ slug: string; apps
   }
 }
 
-// Direct /<slug> pages: publishable = balanced разбор OR hand-authored gem.
-// Legacy negative-only разборы 404 until re-extracted.
+// Direct /<slug> pages: publishable = (balanced разбор OR hand-authored gem)
+// AND the 500-review sample standard. Legacy negative-only and thin разборы
+// 404 until re-fed or the app is replaced in the catalog.
+const SCANNED = new Map(
+  (insights as Array<{ productId?: string; reviewsScanned?: number }>).map((p) => [
+    p.productId as string,
+    p.reviewsScanned ?? 0,
+  ]),
+);
 export function isPublishable(productId: string | null | undefined): boolean {
-  return !!productId && (READY.has(productId) || GEM_PIDS.has(productId));
+  if (!productId) return false;
+  if ((SCANNED.get(productId) ?? 0) < MIN_REVIEWS) return false;
+  return READY.has(productId) || GEM_PIDS.has(productId);
 }
