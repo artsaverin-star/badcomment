@@ -27,6 +27,70 @@ Wall clock per app, sub-agent budget only (no API key):
 For Calm: 892 reviews → 493 observations → 90 clusters → 7 themes.
 For smaller apps (200-500 reviews) expect ~50-100 observations and ~20-40 clusters.
 
+## Current status & session handoff (2026-06-10)
+
+State of the polarity-balanced back-catalog rebuild (task #99/#104):
+
+- **~190 balanced разборы live.** Each carries `balanced:true` in
+  `src/data/insights.json` and renders in colour on the catalog.
+- **162 of 182 resolving non-gem catalog apps are done.** The remaining **20**
+  (finch, wysa, woebot, daylio, claude, meta-ai, quitnow, …) are **blocked on
+  empty review data** — their `data/<pid>-filtered.json` is `[]`.
+- **407 catalog names don't resolve to a productId** at all — they'd need slug
+  resolution + an app-context file + a data harvest before they can enter a wave.
+- **`extract/wave.tsv` is empty (extract-ready pool = 0).** The pipeline only
+  *transforms* existing reviews; it never fetches them. Every app with real
+  local review data has now been processed.
+
+**Blocker for the next wave:** a **review-data harvest/fetch step must run first**
+to populate `data/<pid>-filtered.json` for the 20 empty-data apps (and/or onboard
+new apps). Running the existing pipeline again will prep 0 batches — `wave-build.ts`
+now skips empty-data apps, so an empty pool reports 0 cleanly instead of padding
+with dead apps.
+
+### Canonical script chain (use the `app-*` scripts, not `calm-*`)
+
+The `calm-*` scripts are Calm-specific (hardcoded THEMES, label everything
+"Calm", no bespoke groups). The generic/canonical chain that stamps `balanced:true`
+and produces per-app bespoke `group.name` headers is:
+
+```
+wave-build.ts --prep        # select extract-ready apps → extract/wave.tsv, prep batches
+  → launch Haiku extract agents
+  → extract-validate.ts --wave <pids-one-per-line>   # gate; cut -f1 wave.tsv first
+  → calm-extract-merge.ts <pid>                       # merge extract/out → observations
+  → app-cluster-prep.ts <ctx-slug>                    # NOT calm-cluster-prep
+  → launch Sonnet cluster agents (in batches of 4-6, never 12 at once)
+  → cluster-validate.ts --wave extract/wave.tsv       # gate (col 1 = pid)
+  → app-assemble.ts <ctx-slug>                         # stamps balanced:true + group.name
+  → lint / tsc → git push origin main
+```
+
+### Sub-agent model routing & launch discipline
+
+- **Extract → Haiku. Cluster/repair → Sonnet** (NOT Opus — hits the rate limit).
+- Launch heavy Sonnet agents in **batches of 4-6**. Launching ~12 at once causes
+  "socket connection closed unexpectedly" (`total_tokens:0`) failures.
+
+### Fixes made this session (committed + pushed)
+
+- **extract-validate.ts** — the final batch is a legitimate short tail
+  (`totalReviews % batchSize`); floor it at the real tail size, not the flat
+  MIN_REVIEWS_PER_BATCH=20, so a valid short last batch no longer reads as a
+  truncation.
+- **wave-build.ts** — a present-but-empty data file (`[]`) is no longer
+  extract-ready (`if (reviews === 0) continue;`), so empty apps can't pad a wave
+  with 0-batch preps.
+
+### Deploy — IMPORTANT (supersedes Phase 7 below)
+
+The current deploy is **`git push origin main` → GitHub Actions "Deploy" workflow**
+(gated on lint), which uploads the prebuilt `.next` to the prod box (2vCPU/1.9GB
+Yandex Cloud VM), ~2 min. The ssh / `npm run build` / `systemctl restart` steps in
+Phase 7 below are **outdated** — do not run them manually.
+
+---
+
 ## Per-app prerequisites
 
 Two things must exist before running:
