@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import LangSwitch from "./LangSwitch";
+import NavTabs from "./NavTabs";
 import ThemeSwitch from "./ThemeSwitch";
 import { t, type Locale } from "@/lib/i18n";
 
@@ -25,6 +26,7 @@ export default function Header({
             <span className="text-[var(--color-text-brand)]">in</span>
             <span className="text-[var(--color-text-primary)]">App</span>
           </Link>
+          <NavTabs catalogLabel={tr.nav.catalog} ideasLabel={tr.nav.ideas} />
         </div>
         <div className="flex items-center gap-3">
           <LangSwitch locale={locale} />

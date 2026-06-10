@@ -16,6 +16,7 @@ type Dict = {
     collapse: string;
     signIn: string;
     ideas: string;
+    catalog: string;
     market: string;
     market2: string;
   };
@@ -187,6 +188,7 @@ const DICT: Record<Locale, Dict> = {
       collapse: "Collapse",
       signIn: "Sign in",
       ideas: "Ideas",
+      catalog: "Catalog",
       market: "Market",
       market2: "Market 2",
     },
@@ -397,6 +399,7 @@ const DICT: Record<Locale, Dict> = {
       collapse: "Свернуть",
       signIn: "Войти",
       ideas: "Идеи",
+      catalog: "Каталог",
       market: "Рынок",
       market2: "Рынок 2",
     },
