@@ -684,7 +684,11 @@ function main() {
     const MIN_APPS = 10;
     const MIN_REVIEWS_PER_APP = 500;
     const fullApps = inScope.filter(
-      (p) => Array.isArray(p.insights) && p.insights.length > 0 && (p.reviewsScanned ?? 0) >= MIN_REVIEWS_PER_APP,
+      (p) =>
+        (p as { balanced?: boolean }).balanced === true &&
+        Array.isArray(p.insights) &&
+        p.insights.length > 0 &&
+        (p.reviewsScanned ?? 0) >= MIN_REVIEWS_PER_APP,
     );
     if (fullApps.length < MIN_APPS) {
       const short = inScope
