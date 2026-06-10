@@ -1,0 +1,114 @@
+You are grouping 13 mechanism-level insight clusters from Scroll to Sleep (wind-down / anti-doomscrolling / sleep) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Scroll to Sleep, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 13 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Scroll to Sleep — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Scroll to Sleep>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1090959661.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "scroll-speed-fixed-too-fast",
+  "title": "Скорость движения зафиксирована и слишком высока — нет настройки под индивидуальный ритм",
+  "obs": 3
+ },
+ {
+  "id": "content-repetitive-single-scene",
+  "title": "Единственный пейзаж быстро становится однообразным — те же объекты повторяются и расслабляющий эффект снижается",
+  "obs": 2
+ },
+ {
+  "id": "scroll-gesture-tiring",
+  "title": "Скроллинг требует непрерывного движения большим пальцем — физическая нагрузка мешает расслаблению",
+  "obs": 2
+ },
+ {
+  "id": "timer-no-device-sleep",
+  "title": "Таймер гасит экран, но не переводит телефон в режим сна — приложение продолжает работать",
+  "obs": 1
+ },
+ {
+  "id": "sound-silent-dnd-mode",
+  "title": "Звук не воспроизводится, когда телефон в режиме «Не беспокоить» с отключённым звонком",
+  "obs": 1
+ },
+ {
+  "id": "audio-broken-persistent",
+  "title": "Звук не работает даже после переустановки приложения — стойкая проблема с аудио",
+  "obs": 1
+ },
+ {
+  "id": "screen-numbers-distracting",
+  "title": "Числовой счётчик на экране отвлекает внимание — нет опции скрыть его",
+  "obs": 1
+ },
+ {
+  "id": "screen-too-bright-min",
+  "title": "Минимальная яркость смартфона выше необходимой для комфортного использования в тёмной комнате",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-no-instructions",
+  "title": "Механика приложения не очевидна с первого запуска — пользователю нужна инструкция или обучение",
+  "obs": 1
+ },
+ {
+  "id": "interaction-only-scroll",
+  "title": "Единственный способ взаимодействия — скроллинг, хотя некоторым удобнее касание или удержание экрана",
+  "obs": 1
+ },
+ {
+  "id": "scroll-activates-competition",
+  "title": "Механика погони за числами активирует соревновательное поведение вместо расслабления",
+  "obs": 1
+ },
+ {
+  "id": "ineffective-for-acute-stress",
+  "title": "Приложение не помогает при сильном стрессе перед важным событием — концентрация на скроллинге не отвлекает",
+  "obs": 1
+ },
+ {
+  "id": "slow-pace-amplifies-anxiety",
+  "title": "Слишком медленный темп скроллинга не отвлекает от тревожных мыслей — пользователь просит ускорение",
+  "obs": 1
+ }
+]

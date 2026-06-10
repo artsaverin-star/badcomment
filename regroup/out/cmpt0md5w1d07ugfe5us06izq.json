@@ -1,0 +1,116 @@
+{
+  "groups": [
+    {
+      "id": "ai-ne-planiruet",
+      "name": "ИИ-планировщик, который не умеет планировать",
+      "insight_ids": [
+        "ai-wrong-date-time",
+        "ai-freezes-stops-responding",
+        "ai-skips-tasks",
+        "ai-excessive-confirmations",
+        "ai-cannot-edit-existing-tasks",
+        "ai-slow-response",
+        "ai-cannot-schedule-weekly",
+        "ai-wrong-category-for-task",
+        "ai-loses-context",
+        "ai-no-time-slots",
+        "ai-brain-dump-fails",
+        "ai-data-loss-on-sync"
+      ]
+    },
+    {
+      "id": "slomannyy-rezhim-sdvg",
+      "name": "Сломанные сценарии для СДВГ: тайм-блоки, routines, стрики",
+      "insight_ids": [
+        "timed-routines-removed",
+        "routine-no-delete",
+        "task-reorder-compact-mode",
+        "drag-drop-timeline-difficult",
+        "task-drag-to-calendar-loses-priority",
+        "routine-order-resets",
+        "streak-breaks-incorrectly",
+        "recurrence-sync-broken",
+        "schedule-not-shifting-overrun",
+        "task-duration-auto-changes",
+        "pomodoro-split-missing"
+      ]
+    },
+    {
+      "id": "prilozhenie-zabiraet-kontrol",
+      "name": "Приложение перехватывает управление: чат вместо drag-drop, авто-действия, навязчивые экраны",
+      "insight_ids": [
+        "ai-replaces-direct-editing",
+        "ai-auto-icons-tags",
+        "review-prompt-every-action",
+        "promo-dialog-before-action",
+        "app-forces-to-foreground",
+        "focus-music-autostarts",
+        "focus-music-stops-after-2min",
+        "focus-mode-auto-activates",
+        "navigation-complexity",
+        "app-limited-to-calendar"
+      ]
+    },
+    {
+      "id": "billing-i-paywall",
+      "name": "Подписка, триал и расползающийся paywall",
+      "insight_ids": [
+        "subscription-cancel-hidden",
+        "features-locked-behind-paywall",
+        "subscription-not-recognized",
+        "trial-hidden-no-reminder",
+        "subscription-charged-after-cancel",
+        "trial-reminder-proactive",
+        "price-increase",
+        "registration-required-before-trial"
+      ]
+    },
+    {
+      "id": "sinkhronizaciya-rasypaetsya",
+      "name": "Синхронизация рассыпается: календари, часы, офлайн",
+      "insight_ids": [
+        "offline-mode-missing",
+        "calendar-sync-slow",
+        "calendar-disconnects-daily",
+        "watch-sync-broken",
+        "calendar-sync-duplicates",
+        "live-activity-invisible",
+        "lock-screen-task-completion"
+      ]
+    },
+    {
+      "id": "padeniya-i-poteri-zadach",
+      "name": "Падения, лаги и исчезающие задачи",
+      "insight_ids": [
+        "tasks-deleted-by-app",
+        "app-crashes",
+        "ipad-lag",
+        "scroll-lag",
+        "app-overall-reliability",
+        "subtask-save-fails",
+        "speech-to-task-fails",
+        "app-opens-wrong-date",
+        "time-categorization-wrong"
+      ]
+    },
+    {
+      "id": "upravlenie-spiskami-buksuet",
+      "name": "Управление списками буксует: подзадачи, массовые операции, уборка",
+      "insight_ids": [
+        "add-subtask-button-hidden",
+        "bulk-task-operations-missing",
+        "completed-tasks-no-cleanup"
+      ]
+    },
+    {
+      "id": "chto-realno-rabotaet",
+      "name": "Что реально держит людей с СДВГ в Tiimo",
+      "insight_ids": [
+        "adhd-time-gap-display",
+        "adhd-countdown-timer-value",
+        "adhd-structure-flexibility-balance",
+        "multi-list-organization"
+      ]
+    }
+  ]
+}

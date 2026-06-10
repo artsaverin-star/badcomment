@@ -1,0 +1,71 @@
+{
+  "groups": [
+    {
+      "id": "raspoznavanie-po-zvuku",
+      "name": "Распознавание по звуку: регионы, хор птиц и обрывы",
+      "insight_ids": [
+        "sound-id-geographic-mismatch",
+        "sound-id-cant-isolate-single-bird",
+        "sound-id-broken-entirely",
+        "sound-id-inconsistent-results",
+        "sound-id-no-prerecorded-upload"
+      ]
+    },
+    {
+      "id": "biling-lovushki-i-paywall",
+      "name": "Биллинг-ловушки: ранние списания, отмена и невидимый крестик",
+      "insight_ids": [
+        "early-charge-before-trial-ends",
+        "paywall-before-value",
+        "cancel-fails-charged-anyway",
+        "wrong-plan-charged",
+        "dark-pattern-close-subscription",
+        "location-filter-paywalled",
+        "unskippable-intro-video"
+      ]
+    },
+    {
+      "id": "tochnost-foto-opredeleniya",
+      "name": "Точность определения по фото: одна птица — разные виды",
+      "insight_ids": [
+        "photo-id-systematic-wrong-class",
+        "photo-id-wrong-species-specific"
+      ]
+    },
+    {
+      "id": "v-pole-poka-ptica-ne-uletela",
+      "name": "В поле, пока птица не улетела: скорость, зум и спугнутые птицы",
+      "insight_ids": [
+        "app-slow-load-bird-flies",
+        "camera-zoom-insufficient",
+        "startup-audio-scares-birds"
+      ]
+    },
+    {
+      "id": "spravochnik-i-baza-vidov",
+      "name": "Справочник и база видов: чему приложение учит",
+      "insight_ids": [
+        "species-db-missing-regional",
+        "reference-images-blurry",
+        "gender-id-missing"
+      ]
+    },
+    {
+      "id": "istoriya-i-platformy",
+      "name": "История поиска и работа на разных платформах",
+      "insight_ids": [
+        "search-history-no-selective-delete",
+        "photo-deletion-too-many-taps",
+        "mac-photo-picker-broken"
+      ]
+    },
+    {
+      "id": "bolshe-chem-opredelenie",
+      "name": "Больше, чем определение: приманка голосом и спасённые загадки",
+      "insight_ids": [
+        "bird-calls-attract-birds",
+        "instant-id-long-mystery-bird"
+      ]
+    }
+  ]
+}

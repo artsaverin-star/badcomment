@@ -1,0 +1,93 @@
+{
+  "groups": [
+    {
+      "id": "drip-fees-and-shrinking-limits",
+      "name": "Аванс по каплям: дробление выводов, комиссии и тающие лимиты",
+      "insight_ids": [
+        "advance-split-into-daily-doses",
+        "split-to-multiply-fees",
+        "limit-shrinks-after-on-time-repay",
+        "fees-equal-or-exceed-advance",
+        "instant-withdrawal-fee",
+        "opaque-fee-structure",
+        "limit-reset-unpredictable",
+        "fees-higher-than-competitors",
+        "min-limit-too-small",
+        "limit-grows-with-on-time-repay",
+        "debt-spiral-design"
+      ]
+    },
+    {
+      "id": "bait-advertised-vs-real",
+      "name": "Обещали $400, дали $30: приманка рекламного лимита и обязательная подписка",
+      "insight_ids": [
+        "advertised-limit-vs-real",
+        "subscription-no-benefit",
+        "upfront-fee-before-access",
+        "bait-then-cut-limit",
+        "push-promises-vs-real-limit",
+        "multi-step-payment-gates"
+      ]
+    },
+    {
+      "id": "crashes-and-blocked-advances",
+      "name": "Краши на входе, зависший Plaid и аванс, который никак не выдаётся",
+      "insight_ids": [
+        "plaid-bank-connect-hangs",
+        "update-breaks-login",
+        "app-freezes-on-launch",
+        "advance-request-error",
+        "advance-processing-stuck",
+        "card-balance-locked",
+        "spontaneous-logout",
+        "crash-blocks-repayment",
+        "requires-traditional-bank-ach"
+      ]
+    },
+    {
+      "id": "unauthorized-charges-and-no-refund",
+      "name": "Списания без спроса: платежи после отмены и неотдаваемые возвраты",
+      "insight_ids": [
+        "charges-continue-after-cancel",
+        "unexplained-random-charges",
+        "no-refund-same-day-cancel",
+        "early-debit-before-schedule",
+        "withdrawals-after-disconnect",
+        "unauthorized-account-debits",
+        "referral-reward-not-credited"
+      ]
+    },
+    {
+      "id": "trapped-no-exit",
+      "name": "Из приложения не выйти: нельзя отвязать банк, удалить аккаунт или вернуть деньги",
+      "insight_ids": [
+        "no-bank-disconnect-option",
+        "no-account-deletion",
+        "card-replacement-removed",
+        "no-control-over-payment-method",
+        "no-cleo-to-bank-transfer",
+        "removed-extended-repay-period",
+        "no-repay-extension-mechanism"
+      ]
+    },
+    {
+      "id": "tone-support-and-broken-extras",
+      "name": "Роастинг вместо помощи, бот вместо поддержки и нерабочие функции",
+      "insight_ids": [
+        "support-bot-no-human",
+        "roast-feature-vs-finance-tone",
+        "credit-builder-needs-capital",
+        "custom-categories-ignored",
+        "buffer-before-payday"
+      ]
+    },
+    {
+      "id": "shadow-credit-and-data-leaks",
+      "name": "Теневая оценка кредита и утечка заявок к спамерам",
+      "insight_ids": [
+        "hidden-credit-check",
+        "data-shared-with-third-parties"
+      ]
+    }
+  ]
+}

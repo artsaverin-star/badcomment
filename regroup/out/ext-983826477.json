@@ -1,0 +1,117 @@
+{
+  "groups": [
+    {
+      "id": "paywall-i-cennik",
+      "name": "Платный вход: пейволл на запуске и обман на ценнике",
+      "insight_ids": [
+        "upsell-modal-on-every-launch",
+        "free-tier-too-restricted",
+        "charge-after-cancel",
+        "price-increase-silent",
+        "web-subscription-not-recognized-mobile",
+        "trial-billing-deceptive",
+        "billing-amount-mismatch",
+        "custom-habits-paywalled",
+        "free-positioning-deceptive",
+        "lifetime-license-invalidated",
+        "store-listing-no-iap-but-has-iap",
+        "duplicate-charge-confusion",
+        "no-lifetime-purchase-option",
+        "no-account-management-web",
+        "login-broken-after-purchase"
+      ]
+    },
+    {
+      "id": "strik-pod-ugrozoy",
+      "name": "Стрик под угрозой: потерянная история и порванные цепочки",
+      "insight_ids": [
+        "completion-freeze-bug",
+        "cross-device-sync-broken",
+        "data-lost-on-update",
+        "data-lost-monetization-change",
+        "no-export-data",
+        "no-editable-habit-start-date",
+        "streak-drops-randomly",
+        "missing-dates-in-calendar",
+        "edit-habit-creates-new-loses-history",
+        "cloud-sync-removed",
+        "web-mobile-sync-absent",
+        "cross-platform-auth-broken",
+        "google-sso-broken-ios"
+      ]
+    },
+    {
+      "id": "zhestkiy-scenariy",
+      "name": "Жёсткий трекинг: расписание, частичный прогресс и вредные привычки",
+      "insight_ids": [
+        "max-recurrence-two-weeks",
+        "no-partial-progress-visualization",
+        "no-explicit-skip-fail-marking",
+        "no-undo-skip",
+        "no-negative-habit-tracking",
+        "no-exact-time-window-scheduling",
+        "complex-recurrence-not-supported",
+        "binary-completion-no-percentage",
+        "no-custom-measurement-units",
+        "no-notes-for-habits"
+      ]
+    },
+    {
+      "id": "chuzhie-presety",
+      "name": "Принудительный онбординг и чужие пресеты привычек",
+      "insight_ids": [
+        "forced-onboarding-quiz",
+        "forced-predefined-habit-list",
+        "stale-preset-habits",
+        "missing-icons",
+        "irresponsible-alcohol-preset"
+      ]
+    },
+    {
+      "id": "polomki-posle-obnovleniy",
+      "name": "Поломки после обновлений: краши, виджеты, таймеры, уведомления",
+      "insight_ids": [
+        "app-stuck-on-update-screen",
+        "notifications-stop-working",
+        "swipe-wrong-habit-touch-target",
+        "widget-not-updating",
+        "widget-broken-support-refuses",
+        "widget-announced-but-missing",
+        "app-crash-specific-device",
+        "general-slowness-performance",
+        "completion-not-obvious",
+        "background-timer-stops",
+        "timer-count-limit"
+      ]
+    },
+    {
+      "id": "temnyy-tesnyy-interfeys",
+      "name": "Тёмный, тесный и недоступный интерфейс",
+      "insight_ids": [
+        "no-light-theme",
+        "motivational-design-weak",
+        "no-habit-reordering",
+        "layout-density-too-low",
+        "overcrowded-ui",
+        "no-arabic-localization",
+        "no-font-size-accessibility",
+        "ipad-iphone-layout",
+        "no-in-app-volume-control",
+        "stats-misleading-metrics",
+        "stats-section-poor",
+        "calendar-view-removed"
+      ]
+    },
+    {
+      "id": "zamknutaya-ekosistema",
+      "name": "Замкнутая экосистема: ни Health, ни Watch, ни семьи, ни поддержки",
+      "insight_ids": [
+        "no-apple-health-integration",
+        "apple-watch-requires-iphone",
+        "family-profiles-missing",
+        "no-developer-contact",
+        "support-unresponsive"
+      ]
+    }
+  ]
+}

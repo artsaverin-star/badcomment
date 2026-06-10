@@ -1,0 +1,101 @@
+{
+  "groups": [
+    {
+      "id": "ostyvshaya-eda",
+      "name": "Остывшая еда: сроки, маршруты и пропавшие водители",
+      "insight_ids": [
+        "promised-time-violated",
+        "multi-stop-routing",
+        "priority-delivery-not-faster",
+        "no-realtime-tracking",
+        "fake-gps-driver-location",
+        "driver-cancels-order",
+        "order-delivered-wrong-address",
+        "pedestrian-assigned-for-delivery",
+        "insufficient-drivers-peak",
+        "delivery-notification-unreliable",
+        "inaccurate-order-status"
+      ]
+    },
+    {
+      "id": "den-go-net-edy-net",
+      "name": "Деньги списали — а возврата нет",
+      "insight_ids": [
+        "refund-denied-cancelled-order",
+        "refund-as-voucher-not-cash",
+        "refund-denied-quality",
+        "voucher-burned-prematurely",
+        "charge-without-order",
+        "payment-method-blocked-after-refund",
+        "subscription-auto-upgraded"
+      ]
+    },
+    {
+      "id": "tolko-boty",
+      "name": "На том конце — только боты",
+      "insight_ids": [
+        "support-bots-no-human",
+        "support-apology-only",
+        "impossible-photo-proof-required",
+        "driver-fake-delivery-proof",
+        "rude-support-missing-items",
+        "quality-not-verified"
+      ]
+    },
+    {
+      "id": "skrytye-natsenki",
+      "name": "Скрытые наценки и капризы оплаты",
+      "insight_ids": [
+        "prices-higher-than-menu",
+        "delivery-fee-disproportionate",
+        "card-payment-rejected",
+        "cash-only-no-card"
+      ]
+    },
+    {
+      "id": "lovushka-pandapro",
+      "name": "Ловушка pandapro: подписка, что отбирает",
+      "insight_ids": [
+        "pandapro-restricts-restaurants",
+        "pro-vouchers-disappear",
+        "pandapro-spotify-code-broken"
+      ]
+    },
+    {
+      "id": "padaet-pri-zapuske",
+      "name": "Падает при запуске, виснет в корзине",
+      "insight_ids": [
+        "app-broken-at-launch",
+        "app-crashes-after-update",
+        "app-freeze-checkout",
+        "home-tab-error",
+        "sms-otp-not-sent",
+        "international-phone-blocked",
+        "update-too-large",
+        "120hz-not-supported"
+      ]
+    },
+    {
+      "id": "fantomnyy-katalog",
+      "name": "Фантомный каталог: рестораны закрыты, заказ подменён",
+      "insight_ids": [
+        "system-cancels-without-reason",
+        "cancel-button-unavailable",
+        "order-substituted",
+        "items-disappear-from-catalog",
+        "restaurants-all-unavailable",
+        "closed-restaurant-orderable",
+        "delivery-area-not-expanding"
+      ]
+    },
+    {
+      "id": "reklama-i-dannye",
+      "name": "Реклама, спам и слитые данные",
+      "insight_ids": [
+        "ad-notifications-undisableable",
+        "app-slow-excessive-ads",
+        "survey-data-sold"
+      ]
+    }
+  ]
+}

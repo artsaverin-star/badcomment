@@ -1,0 +1,524 @@
+You are grouping 95 mechanism-level insight clusters from Sleepiest (сон / sleep stories / meditation / sounds) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sleepiest, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 95 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sleepiest — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sleepiest>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1244690083.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "strategy-sleep-onset-extreme-effectiveness",
+  "title": "Пользователи засыпают до конца истории каждый раз — никогда не слышат концовку, считают это доказательством эффективности",
+  "obs": 52
+ },
+ {
+  "id": "content-narrator-voice-retention",
+  "title": "Конкретный голос рассказчика становится условным рефлексом ко сну — пользователи слушают одного и того же годами",
+  "obs": 27
+ },
+ {
+  "id": "reliability-playback-failed-resource-unavailable",
+  "title": "Массовая ошибка «playback failed: resource unavailable» делает приложение полностью нерабочим на несколько дней",
+  "obs": 20
+ },
+ {
+  "id": "strategy-family-and-children-use",
+  "title": "Приложение используется всей семьёй — дети засыпают под истории, родители слушают звуки; долгосрочная лояльность",
+  "obs": 19
+ },
+ {
+  "id": "strategy-anxiety-and-adhd-use-case",
+  "title": "Приложение особенно эффективно для людей с ADHD и ночной тревожностью — специализированный сегмент пользователей",
+  "obs": 18
+ },
+ {
+  "id": "strategy-ads-destroy-sleep-onset",
+  "title": "Громкие рекламные вставки перед контентом и в середине ночи нарушают засыпание — монетизация противоречит продукту",
+  "obs": 17
+ },
+ {
+  "id": "ui-update-broke-navigation",
+  "title": "Полная переработка интерфейса скрыла любимые разделы, замедлила навигацию и ухудшила опыт перед сном",
+  "obs": 16
+ },
+ {
+  "id": "strategy-sleep-story-as-cognitive-distraction",
+  "title": "Истории помогают засыпать не содержанием, а занятостью мозга — отвлечение от навязчивых мыслей и румиации",
+  "obs": 16
+ },
+ {
+  "id": "content-limited-free-catalogue",
+  "title": "Бесплатный контент исчерпывается за несколько дней — слишком мало, чтобы оценить приложение перед покупкой",
+  "obs": 15
+ },
+ {
+  "id": "playback-mixer-not-loading",
+  "title": "Функция микшера не загружает звуки — основной инструмент кастомизации недоступен",
+  "obs": 13
+ },
+ {
+  "id": "strategy-gamification-unwanted",
+  "title": "Большинство пользователей не хотят геймификацию в приложении для сна — они пришли спать, а не играть",
+  "obs": 12
+ },
+ {
+  "id": "ui-gamification-clutters-sleep-app",
+  "title": "Новые игровые элементы — квесты, стрики, сундуки, значки — загромождают интерфейс и противоречат назначению приложения для сна",
+  "obs": 11
+ },
+ {
+  "id": "reliability-sleep-tracker-wrong-data",
+  "title": "Трекер сна показывает неправильные данные — 1-2 часа вместо полной ночи, или данные не обновляются месяцами",
+  "obs": 11
+ },
+ {
+  "id": "payment-free-content-paywalled",
+  "title": "Контент, годами доступный бесплатно, переходит за платный барьер без предупреждения",
+  "obs": 9
+ },
+ {
+  "id": "playback-sounds-stop-midnight",
+  "title": "Звуки останавливаются в середине ночи без видимой причины и требуют ручного перезапуска",
+  "obs": 9
+ },
+ {
+  "id": "strategy-free-tier-sufficient",
+  "title": "Часть пользователей годами эффективно использует только бесплатный контент и не видит смысла платить",
+  "obs": 9
+ },
+ {
+  "id": "content-new-stories-too-slow",
+  "title": "Пользователи прошли весь доступный контент и просят более быстрый выпуск новых историй от любимых рассказчиков",
+  "obs": 8
+ },
+ {
+  "id": "reliability-post-update-content-broken",
+  "title": "После крупного обновления основная функция воспроизведения перестаёт работать — помогает только ожидание или откат",
+  "obs": 8
+ },
+ {
+  "id": "strategy-streak-habit-formation",
+  "title": "Механика streak и счётчик дней мотивирует ежедневное использование и формирует привычку сна",
+  "obs": 8
+ },
+ {
+  "id": "content-story-quality-writing",
+  "title": "Часть историй плохо написана или содержит фактические ошибки, которые мешают засыпанию",
+  "obs": 7
+ },
+ {
+  "id": "strategy-streak-punishes-legitimate-breaks",
+  "title": "Пропуск одного дня из-за обновления приложения или отпуска уничтожает многомесячный стрик полностью",
+  "obs": 7
+ },
+ {
+  "id": "strategy-skeptic-converted",
+  "title": "Скептически настроенные пользователи, которым ничего не помогало, находят приложение эффективным — сильный конверсионный сигнал",
+  "obs": 7
+ },
+ {
+  "id": "payment-surprise-charge-trial",
+  "title": "После отклонения или завершения пробного периода приложение списывает полную годовую подписку без явного согласия",
+  "obs": 6
+ },
+ {
+  "id": "content-sleep-wave-meditation-specific",
+  "title": "Медитации Sleep Wave и Sleep Magic выделяются как самый эффективный контент для хронических инсомников",
+  "obs": 6
+ },
+ {
+  "id": "support-no-response",
+  "title": "Служба поддержки не отвечает на запросы о критических проблемах — пользователи не могут получить помощь",
+  "obs": 6
+ },
+ {
+  "id": "strategy-tinnitus-masking",
+  "title": "Приложение служит инструментом маскировки звука при тиннитусе и шуме соседей — специфический use case",
+  "obs": 6
+ },
+ {
+  "id": "playback-shuffle-repeat-broken",
+  "title": "После обновления режимы shuffle и repeat перестали работать в комбинации для ночного прослушивания",
+  "obs": 5
+ },
+ {
+  "id": "payment-gems-opaque-currency",
+  "title": "Система gems не объясняет, на что тратить валюту, — пользователь узнаёт о механике только после использования",
+  "obs": 4
+ },
+ {
+  "id": "content-narrator-pace-too-fast",
+  "title": "Голос рассказчика читает слишком быстро или с раздражающими паузами — темп не способствует засыпанию",
+  "obs": 4
+ },
+ {
+  "id": "playback-combine-sounds-stories",
+  "title": "После обновления нельзя одновременно микшировать звуки с историями — ключевая функция удалена",
+  "obs": 4
+ },
+ {
+  "id": "playback-playlist-broken",
+  "title": "Плейлисты зависают на первом треке или не переходят к следующему",
+  "obs": 4
+ },
+ {
+  "id": "ui-saved-playlists-deleted-after-update",
+  "title": "После обновления все сохранённые плейлисты удалены без возможности восстановления",
+  "obs": 4
+ },
+ {
+  "id": "reliability-mixer-slow-or-broken",
+  "title": "Функция микшера загружается 20+ секунд или зависает — единственный бесплатный инструмент не работает",
+  "obs": 4
+ },
+ {
+  "id": "strategy-sleep-tracker-insight-value",
+  "title": "Трекер сна впервые помогает пользователям осознать их реальный график и качество сна",
+  "obs": 4
+ },
+ {
+  "id": "payment-gems-unlock-alternative",
+  "title": "Система gems позволяет разблокировать истории через квесты и стрики без денег — альтернативная монетизация",
+  "obs": 3
+ },
+ {
+  "id": "payment-cancel-dark-pattern",
+  "title": "Экран отмены подписки показывает цепочку уговоров и скрывает финальную кнопку отмены",
+  "obs": 3
+ },
+ {
+  "id": "content-kids-vs-adult-imbalance",
+  "title": "Библиотека перегружена детскими историями — взрослые пользователи не находят подходящего контента",
+  "obs": 3
+ },
+ {
+  "id": "content-no-french-language",
+  "title": "Приложение заявляет о поддержке французского, но истории и медитации только на английском",
+  "obs": 3
+ },
+ {
+  "id": "playback-offline-content-disappears",
+  "title": "Скачанный офлайн-контент внезапно становится недоступным, хотя загрузка была выполнена",
+  "obs": 3
+ },
+ {
+  "id": "reliability-battery-drain-overheating",
+  "title": "Приложение сильно разряжает батарею и перегревает телефон за ночь",
+  "obs": 3
+ },
+ {
+  "id": "reliability-alarm-malfunction",
+  "title": "Будильник срабатывает в случайное время или не отключается при нажатии Stop",
+  "obs": 3
+ },
+ {
+  "id": "strategy-daytime-meditation-use",
+  "title": "Часть пользователей применяет медитации и звуки днём для релаксации без сна — расширенный use case",
+  "obs": 3
+ },
+ {
+  "id": "strategy-content-velocity-vs-price",
+  "title": "Частота выпуска нового контента снизилась, а цена подписки выросла — лояльные пользователи уходят",
+  "obs": 3
+ },
+ {
+  "id": "payment-post-unsub-charge",
+  "title": "После отписки и удаления приложения компания продолжает списывать деньги с карты",
+  "obs": 2
+ },
+ {
+  "id": "payment-trial-deceptive",
+  "title": "Пробный период требует сначала оформить подписку, а потом отменять — обратный порядок противоречит ожиданиям",
+  "obs": 2
+ },
+ {
+  "id": "payment-offline-downloads-paywalled",
+  "title": "Офлайн-загрузки, бывшие бесплатными, переведены в премиум — ключевая функция для старых пользователей исчезла",
+  "obs": 2
+ },
+ {
+  "id": "payment-price-vs-content-ratio",
+  "title": "Подписка дороже Netflix, а контента значительно меньше — ценность под сомнением",
+  "obs": 2
+ },
+ {
+  "id": "payment-referral-broken",
+  "title": "Система рекомендаций на друзей не засчитывает переход, награда не приходит",
+  "obs": 2
+ },
+ {
+  "id": "content-story-length-too-short",
+  "title": "Истории слишком короткие — пользователям с долгим засыпанием нужны истории от 45 минут",
+  "obs": 2
+ },
+ {
+  "id": "content-white-noise-gap",
+  "title": "В приложении мало специализированного белого шума — пользователи не могут найти нужный вариант",
+  "obs": 2
+ },
+ {
+  "id": "playback-loop-pause-audible",
+  "title": "В режиме loop между повторами слышна заметная пауза — непрерывное прослушивание нарушается",
+  "obs": 2
+ },
+ {
+  "id": "ui-search-missing",
+  "title": "Функция поиска по контенту отсутствует — нельзя найти нужного рассказчика или историю напрямую",
+  "obs": 2
+ },
+ {
+  "id": "ui-playback-controls-imprecise",
+  "title": "Кнопки управления воспроизведением требуют точных нажатий — в постели перед сном это создаёт лишние препятствия",
+  "obs": 2
+ },
+ {
+  "id": "ui-sleep-tracker-complex-setup",
+  "title": "Функция отслеживания сна требует сложной настройки — пользователь не смог её активировать за час попыток",
+  "obs": 2
+ },
+ {
+  "id": "ui-filter-by-narrator-removed",
+  "title": "Раздел «Рассказчики» скрыт или удалён — нельзя отфильтровать все записи любимого голоса",
+  "obs": 2
+ },
+ {
+  "id": "ui-privacy-consent-before-reveal",
+  "title": "Приложение требует согласия на сбор данных о здоровье и геолокации ещё до того, как раскрывает свои функции",
+  "obs": 2
+ },
+ {
+  "id": "reliability-app-slow-after-update",
+  "title": "После обновления приложение стало значительно медленнее — то, что занимало 10 секунд, теперь требует намного больше",
+  "obs": 2
+ },
+ {
+  "id": "reliability-login-blocked-after-update",
+  "title": "После обновления приложение блокирует вход в профиль — доступ к данным и оплаченному контенту потерян",
+  "obs": 2
+ },
+ {
+  "id": "payment-apple-health-hides-price",
+  "title": "Apple Health рекомендует приложение, но скрывает, что это платная подписка — сюрприз при установке",
+  "obs": 1
+ },
+ {
+  "id": "payment-no-family-plan",
+  "title": "Семейный план отсутствует — каждый член семьи платит отдельно",
+  "obs": 1
+ },
+ {
+  "id": "payment-serialized-podcast-split",
+  "title": "Сериализованный подкаст обрывается на середине: вторая часть требует премиум",
+  "obs": 1
+ },
+ {
+  "id": "payment-alternative-purchase-model",
+  "title": "Пользователь готов платить за отдельные треки или подписку на конкретного рассказчика — модель подписки не подходит",
+  "obs": 1
+ },
+ {
+  "id": "content-podcast-no-date",
+  "title": "Подкасты не показывают дату выпуска — сложно найти свежий контент в большой библиотеке",
+  "obs": 1
+ },
+ {
+  "id": "content-preview-sounds-misleading",
+  "title": "Пробные версии звуков сильно отличаются от полных — оценить качество до покупки невозможно",
+  "obs": 1
+ },
+ {
+  "id": "playback-sound-max-2h-limit",
+  "title": "Максимальное время звука в плейлисте — 2 часа, тогда как белые шумы нужны на всю ночь",
+  "obs": 1
+ },
+ {
+  "id": "playback-volume-transitions",
+  "title": "Между треками в плейлисте нет выравнивания громкости — спокойная история внезапно переходит в громкий звук",
+  "obs": 1
+ },
+ {
+  "id": "playback-autoplay-after-story",
+  "title": "Приложение не запускает следующий контент автоматически — пользователь ценит, что сон не нарушается",
+  "obs": 1
+ },
+ {
+  "id": "playback-sleep-timer-broken",
+  "title": "Таймер сна прерывается случайно или не держит установленное время",
+  "obs": 1
+ },
+ {
+  "id": "playback-story-expands-layout",
+  "title": "При запуске истории она монополизирует плейлист и разворачивается до 5x, ломая обзор остальных",
+  "obs": 1
+ },
+ {
+  "id": "playback-fire-crackling-click",
+  "title": "Звук потрескивающего костра содержит громкий артефактный щелчок каждые несколько секунд",
+  "obs": 1
+ },
+ {
+  "id": "playback-alexa-casting-unavailable",
+  "title": "Контент нельзя воспроизвести через Alexa или внешний динамик — только через телефон",
+  "obs": 1
+ },
+ {
+  "id": "playback-screen-on-all-night",
+  "title": "После обновления экран остаётся включённым всю ночь и пропускает свет, нарушая сон",
+  "obs": 1
+ },
+ {
+  "id": "ui-share-progress-popup-blocking",
+  "title": "Принудительное всплывающее окно «поделись прогрессом» перед прослушиванием блокирует доступ к контенту",
+  "obs": 1
+ },
+ {
+  "id": "ui-onboarding-pact-forced",
+  "title": "При начале пробного периода приложение требует выбрать обязательство (pact), не давая пропустить шаг",
+  "obs": 1
+ },
+ {
+  "id": "ui-rating-prompt-before-content",
+  "title": "Приложение принуждает оставить рейтинг перед первым просмотром контента",
+  "obs": 1
+ },
+ {
+  "id": "ui-declined-offer-lost",
+  "title": "После отклонения предложения пользователь не может найти его снова — альтернативный путь отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "ui-back-button-broken",
+  "title": "Кнопка «назад» расположена частично за пределами экрана и не срабатывает с первого нажатия",
+  "obs": 1
+ },
+ {
+  "id": "ui-sleep-timer-hidden-after-update",
+  "title": "После обновления удобный таймер сна скрыт — доступ к нему стал значительно сложнее",
+  "obs": 1
+ },
+ {
+  "id": "ui-12h-format-missing",
+  "title": "В журнале сна отсутствует опция 12-часового формата времени",
+  "obs": 1
+ },
+ {
+  "id": "ui-custom-theme-removed",
+  "title": "Возможность менять тему оформления удалена в новом интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "ui-landscape-ipad-broken",
+  "title": "Приложение работает только в портретной ориентации — на iPad в пейзаже опыт сломан",
+  "obs": 1
+ },
+ {
+  "id": "ui-weekday-vs-weekend-schedule",
+  "title": "Расписание напоминаний о сне не различает рабочие дни и выходные",
+  "obs": 1
+ },
+ {
+  "id": "ui-save-mix-requires-login",
+  "title": "Сохранение созданного звукового микса требует входа в аккаунт, что мешает быстрому повторному использованию",
+  "obs": 1
+ },
+ {
+  "id": "ui-registration-required-to-try",
+  "title": "Приложение требует регистрацию и подписку перед любой возможностью попробовать контент",
+  "obs": 1
+ },
+ {
+  "id": "reliability-app-crashes-on-open",
+  "title": "Приложение закрывается сразу при открытии — переустановка не помогает",
+  "obs": 1
+ },
+ {
+  "id": "reliability-apple-watch-not-working",
+  "title": "Версия приложения для Apple Watch не работает",
+  "obs": 1
+ },
+ {
+  "id": "reliability-ipad-broken-week",
+  "title": "Приложение полностью не работает на iPad целую неделю после обновления",
+  "obs": 1
+ },
+ {
+  "id": "reliability-server-overload-evening",
+  "title": "Серверы перегружены в вечернее время — контент недоступен именно тогда, когда он нужен",
+  "obs": 1
+ },
+ {
+  "id": "reliability-ios-downtime-misclassification",
+  "title": "Приложение классифицировано как «Здоровье и Фитнес» и блокируется при включённом iOS Downtime",
+  "obs": 1
+ },
+ {
+  "id": "reliability-streaming-drops-child-distress",
+  "title": "Приложение теряет соединение при трансляции — особенно критично во время укладывания ребёнка",
+  "obs": 1
+ },
+ {
+  "id": "reliability-gems-not-credited",
+  "title": "Система gems не засчитывает заработанные очки, а поддержка не реагирует на сообщения",
+  "obs": 1
+ },
+ {
+  "id": "support-no-bug-report-path",
+  "title": "Справочные статьи не содержат инструкций по отправке багрепорта — нет пути для сообщения о проблемах",
+  "obs": 1
+ },
+ {
+  "id": "strategy-app-recommendation-from-ad",
+  "title": "Пользователи узнают о приложении через YouTube-рекламу и сразу находят его эффективным — быстрая окупаемость",
+  "obs": 1
+ },
+ {
+  "id": "strategy-screen-time-paradox",
+  "title": "Приложение для сна увеличивает экранное время — противоречие между назначением и механикой",
+  "obs": 1
+ },
+ {
+  "id": "strategy-sleep-habit-distraction-screen",
+  "title": "Система блокировки приложений не работает по расписанию — пользователь остаётся на Netflix вместо отхода ко сну",
+  "obs": 1
+ }
+]

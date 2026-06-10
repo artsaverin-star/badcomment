@@ -1,0 +1,107 @@
+{
+  "groups": [
+    {
+      "id": "padaet-tormozit-ne-otkryvaetsya",
+      "name": "Падает, тормозит и не открывается — заказ так и не доходит до кассы",
+      "insight_ids": [
+        "reliability-app-slow",
+        "ui-combo-screen-blank",
+        "reliability-app-crash",
+        "ui-popups-slow-flow",
+        "reliability-update-regression",
+        "reliability-mandatory-update-blocks",
+        "ui-add-to-cart-missing",
+        "reliability-overheating",
+        "reliability-combo-stuck-after-breakfast",
+        "ui-location-loading-stuck",
+        "strategy-slow-app-vs-competition"
+      ]
+    },
+    {
+      "id": "baly-ischezayut-skidki-tayut",
+      "name": "Баллы исчезают, скидки тают: программа лояльности обесценивается",
+      "insight_ids": [
+        "rewards-offers-degraded",
+        "rewards-points-lost-on-logout",
+        "rewards-no-combined-use",
+        "rewards-receipt-upload-broken",
+        "rewards-points-devalued",
+        "rewards-points-disappear",
+        "reliability-offers-not-loading",
+        "rewards-points-lost-on-cancel",
+        "rewards-fake-discount-used-error",
+        "rewards-receipt-limit",
+        "rewards-expiry-hidden",
+        "rewards-points-delayed"
+      ]
+    },
+    {
+      "id": "vykidyvaet-iz-akkaunta",
+      "name": "Вечно выкидывает из аккаунта: вход, пароли и привязка к слежке",
+      "insight_ids": [
+        "auth-constant-logout",
+        "auth-tracking-permission-forced",
+        "auth-facebook-captcha-broken",
+        "auth-email-link-login",
+        "auth-password-manager-unsupported",
+        "auth-no-email-change",
+        "auth-no-password-reset",
+        "auth-forced-login-switch",
+        "reliability-account-deleted"
+      ]
+    },
+    {
+      "id": "kod-ne-rabotaet-na-kasse",
+      "name": "Код не сработал у стойки: разрыв между приложением и кухней",
+      "insight_ids": [
+        "reliability-order-not-synced-kitchen",
+        "reliability-code-invalid-in-store",
+        "reliability-order-auto-cancelled",
+        "reliability-wrong-item-prepared",
+        "reliability-app-not-available-in-store",
+        "ui-kiosk-code-incompatible",
+        "payment-conversion-error-overpay",
+        "reliability-qr-location-conflict"
+      ]
+    },
+    {
+      "id": "platezhi-i-vozvraty",
+      "name": "Деньги списали, заказа нет: оплата и невозможные возвраты",
+      "insight_ids": [
+        "payment-all-methods-rejected",
+        "payment-gift-card-unsupported",
+        "payment-double-charge",
+        "payment-lost-order",
+        "payment-in-app-broken",
+        "payment-no-refund-doordash",
+        "payment-no-refund-wrong-order"
+      ]
+    },
+    {
+      "id": "geolokaciya-zalozhnik",
+      "name": "Заложник геолокации: без точных координат нет ни кода, ни заказа",
+      "insight_ids": [
+        "reliability-location-needed-for-code",
+        "reliability-location-required-ordering",
+        "reliability-no-nearest-restaurant-ordering",
+        "ui-search-location-blocks-order",
+        "ui-location-picker-wrong",
+        "ui-curbside-no-parking-number",
+        "ui-wrong-address-confirmation"
+      ]
+    },
+    {
+      "id": "kazhdoe-obnovlenie-uslozhnyaet",
+      "name": "Каждое обновление усложняет: лишние шаги и пропавшие удобства",
+      "insight_ids": [
+        "ui-menu-browsing-restricted",
+        "ui-more-steps-per-update",
+        "ui-repeat-order-steps",
+        "ui-offers-navigation-confusing",
+        "ui-receipt-checkout-steps",
+        "ui-remove-ingredient-gone",
+        "ui-wrong-menu-time"
+      ]
+    }
+  ]
+}

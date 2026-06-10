@@ -1,0 +1,319 @@
+You are grouping 54 mechanism-level insight clusters from Brainly: Your Personal Tutor (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Brainly: Your Personal Tutor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 54 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Brainly: Your Personal Tutor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Brainly: Your Personal Tutor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsylzwx1izvughvlrezhhtl.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "auto-renewal-no-refund",
+  "title": "Годовая подписка продлевается автоматически — письма с предупреждением попадают в спам, возврат денег компания отказывает",
+  "obs": 4
+ },
+ {
+  "id": "billing-after-cancellation",
+  "title": "Система продолжает списывать деньги спустя месяцы и даже годы после отмены подписки",
+  "obs": 4
+ },
+ {
+  "id": "ai-gives-wrong-answers",
+  "title": "ИИ выдаёт неправильные ответы включая элементарные арифметические ошибки и не исправляет их при указании пользователя",
+  "obs": 4
+ },
+ {
+  "id": "community-replaced-by-ai",
+  "title": "Обновление заменило ответы сообщества на ИИ-генерированные — пользователи лишились проверенных человеческих ответов",
+  "obs": 4
+ },
+ {
+  "id": "expert-verified-answers-wrong",
+  "title": "Ответы помеченные как проверенные экспертом оказываются неправильными — метка доверия не соответствует качеству",
+  "obs": 3
+ },
+ {
+  "id": "ai-offtopic-generic-answers",
+  "title": "ИИ отвечает на другой вопрос или даёт общие объяснения по теме вместо решения конкретной поставленной задачи",
+  "obs": 3
+ },
+ {
+  "id": "slow-performance-vs-competitors",
+  "title": "Загрузка ответов занимает до 30 минут или существенно дольше чем у конкурентов при срочном выполнении заданий",
+  "obs": 3
+ },
+ {
+  "id": "scan-broken-errors",
+  "title": "Функция сканирования вопросов возвращает ошибку или прерывается после нескольких вопросов и требует перезапуска",
+  "obs": 3
+ },
+ {
+  "id": "free-limit-reduced-weekly",
+  "title": "Обновление снизило лимит бесплатных ответов с ежедневного до 10 в неделю одновременно усилив рекламу",
+  "obs": 3
+ },
+ {
+  "id": "app-only-answers-known-questions",
+  "title": "Приложение не может ответить на новые вопросы — работает только если вопрос уже задавался раньше в базе",
+  "obs": 3
+ },
+ {
+  "id": "long-explanation-instead-direct",
+  "title": "Вместо прямого ответа приложение предлагает многостраничное объяснение — быстро найти нужный вариант для теста невозможно",
+  "obs": 2
+ },
+ {
+  "id": "account-creation-blocked",
+  "title": "Приложение полностью блокирует вход и создание аккаунта выдавая ошибку при любых попытках",
+  "obs": 2
+ },
+ {
+  "id": "account-blocked-no-reason",
+  "title": "Аккаунт блокируется без объяснения причины и без нарушения правил — поддержка не отвечает на запросы",
+  "obs": 2
+ },
+ {
+  "id": "ads-every-question",
+  "title": "Обновление добавило обязательную рекламу перед каждым ответом — приложение стало практически неиспользуемым",
+  "obs": 2
+ },
+ {
+  "id": "cancellation-fails-inapp",
+  "title": "Кнопка отмены подписки внутри приложения не работает, хотя подписка продолжает действовать",
+  "obs": 1
+ },
+ {
+  "id": "cancellation-without-device",
+  "title": "После потери телефона нет способа отменить подписку — компания продолжает снимать деньги",
+  "obs": 1
+ },
+ {
+  "id": "charged-unordered-plan",
+  "title": "Через год после отмены списывается оплата за годовой план, который пользователь никогда не заказывал",
+  "obs": 1
+ },
+ {
+  "id": "forced-trial-subscription",
+  "title": "Приложение позиционируется как бесплатное но навязывает пробный период с обязательным переходом на платную подписку",
+  "obs": 1
+ },
+ {
+  "id": "refund-refused-unused",
+  "title": "Возврат средств за неиспользованную подписку отклоняется со ссылкой на политику отсутствия возвратов",
+  "obs": 1
+ },
+ {
+  "id": "subscription-invisible-apple",
+  "title": "Подписка списывается через Apple но не отображается в разделе управления подписками — отследить и отменить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "trial-end-day-charge",
+  "title": "Оплата списывается в день окончания пробного периода даже при отмене в тот же день — поддержка отказывает в возврате",
+  "obs": 1
+ },
+ {
+  "id": "price-not-shown-appstore",
+  "title": "Цена подписки не отображается в App Store до установки приложения",
+  "obs": 1
+ },
+ {
+  "id": "photo-to-text-removed",
+  "title": "Обновление удалило функцию распознавания текста с фото, которую пользователи считали главным инструментом",
+  "obs": 1
+ },
+ {
+  "id": "community-answers-mixed-quality",
+  "title": "Пользователи сообщества намеренно дают неправильные или избыточно длинные ответы что снижает качество базы",
+  "obs": 1
+ },
+ {
+  "id": "web-app-answer-discrepancy",
+  "title": "Мобильное приложение выдаёт неправильные ответы на те же вопросы на которые веб-версия отвечает правильно",
+  "obs": 1
+ },
+ {
+  "id": "navigation-complex-after-update",
+  "title": "Обновление усложнило навигацию и заменило прежние учебные инструменты на ИИ без сохранения привычного сценария",
+  "obs": 1
+ },
+ {
+  "id": "scan-misclassifies-clear-image",
+  "title": "Приложение считает чёткую фотографию вопроса размытой и отказывается её обрабатывать",
+  "obs": 1
+ },
+ {
+  "id": "camera-only-front",
+  "title": "Приложение принудительно использует фронтальную камеру и не позволяет переключиться на основную",
+  "obs": 1
+ },
+ {
+  "id": "camera-crops-too-much",
+  "title": "Камера приложения слишком сильно увеличивает и обрезает изображение — страницу учебника нельзя снять целиком",
+  "obs": 1
+ },
+ {
+  "id": "other-answers-goes-to-camera",
+  "title": "Кнопка просмотра других ответов открывает камеру вместо альтернативных вариантов ответа",
+  "obs": 1
+ },
+ {
+  "id": "login-required-for-basic",
+  "title": "Приложение требует авторизацию даже для базовых операций — без аккаунта нельзя ничего сделать",
+  "obs": 1
+ },
+ {
+  "id": "answer-hard-to-find-in-response",
+  "title": "Правильный ответ не выделен в тексте и его нужно искать в прокручиваемом контенте — срочные задания усложняются",
+  "obs": 1
+ },
+ {
+  "id": "ai-response-no-copy",
+  "title": "Из ответа ИИ нельзя скопировать текст для редактирования больших заданий",
+  "obs": 1
+ },
+ {
+  "id": "no-photo-deletion",
+  "title": "Приложение не предоставляет возможности удалить сохранённые фото домашних заданий — возникают вопросы приватности",
+  "obs": 1
+ },
+ {
+  "id": "age-gate-blocks-valid-age",
+  "title": "Возрастная проверка блокирует детей в возрасте 10-12 лет несмотря на заявленный рейтинг приложения 4+",
+  "obs": 1
+ },
+ {
+  "id": "registration-blocked-for-teen",
+  "title": "Приложение блокирует регистрацию пользователя 15 лет без объяснения причины",
+  "obs": 1
+ },
+ {
+  "id": "intrusive-tutoring-audio",
+  "title": "Приложение навязывает навязчивое аудиосообщение с предложением live-репетиторства мешающее основному сценарию",
+  "obs": 1
+ },
+ {
+  "id": "ginny-ai-disappeared",
+  "title": "ИИ-помощник исчез из интерфейса после обновления несмотря на то что был доступен в предыдущей версии",
+  "obs": 1
+ },
+ {
+  "id": "ai-regression-after-update",
+  "title": "Добавление ИИ в приложение сломало базовую функциональность которая раньше работала корректно",
+  "obs": 1
+ },
+ {
+  "id": "app-stuck-on-tab",
+  "title": "Приложение зависает на открывающейся вкладке и не позволяет перейти к основным функциям",
+  "obs": 1
+ },
+ {
+  "id": "scan-needs-many-retries",
+  "title": "Функция ИИ-сканирования требует 10-15 повторных попыток перед тем как корректно обработать фотографию",
+  "obs": 1
+ },
+ {
+  "id": "scan-wrong-after-permission",
+  "title": "После включения разрешения для камеры по требованию приложения сканирование начало выдавать неверные ответы",
+  "obs": 1
+ },
+ {
+  "id": "app-freezes-on-launch",
+  "title": "Приложение зависает при запуске и перестаёт реагировать на касания полностью блокируя доступ",
+  "obs": 1
+ },
+ {
+  "id": "errors-in-russia",
+  "title": "В России приложение загружается очень медленно и постоянно выдаёт ошибки при использовании",
+  "obs": 1
+ },
+ {
+  "id": "session-logout-unexpectedly",
+  "title": "Приложение самостоятельно выходит из аккаунта и не позволяет войти снова",
+  "obs": 1
+ },
+ {
+  "id": "virus-warning-normal-use",
+  "title": "При обычном использовании приложение показывает предупреждение о вирусе",
+  "obs": 1
+ },
+ {
+  "id": "answer-not-shown-after-ad",
+  "title": "После просмотра рекламы приложение зависает и ответ не отображается — бесплатные попытки тратятся впустую",
+  "obs": 1
+ },
+ {
+  "id": "ai-loads-intermittently",
+  "title": "ИИ-функция периодически не загружается хотя когда работает — даёт правильные результаты",
+  "obs": 1
+ },
+ {
+  "id": "camera-autofocus-broken",
+  "title": "Автофокус камеры работает некорректно и приводит к неправильным ответам независимо от содержания вопроса",
+  "obs": 1
+ },
+ {
+  "id": "bot-detection-false-positive",
+  "title": "Приложение принимает активного пользователя за робота и блокирует аккаунт из-за быстрого просмотра контента",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-broken",
+  "title": "Смена пароля требует многошагового процесса и не срабатывает в течение длительного времени после подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "paid-tutor-rude",
+  "title": "Платный репетитор груб с пользователем и утверждает что тот должен знать материал сам несмотря на оплату помощи",
+  "obs": 1
+ },
+ {
+  "id": "ad-vs-payment-unclear",
+  "title": "Неясно по какому критерию приложение требует просмотр рекламы или оплату — логика переключения между режимами не объяснена",
+  "obs": 1
+ },
+ {
+  "id": "paid-sub-has-ads-ai-free-elsewhere",
+  "title": "Платная подписка содержит рекламу и предлагает ИИ-ответы которые доступны бесплатно в других приложениях",
+  "obs": 1
+ }
+]

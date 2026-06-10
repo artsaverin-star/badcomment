@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from Femometer Fertility Tracker (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Femometer Fertility Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Femometer Fertility Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Femometer Fertility Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1269972832.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-crashes-on-launch-login",
+  "title": "Приложение вылетает при запуске или входе в аккаунт — платная подписка становится недоступной",
+  "obs": 10
+ },
+ {
+  "id": "ovulation-prediction-inaccurate",
+  "title": "Предсказания овуляции не точны для конкретных пользователей — пропускают реальное фертильное окно на несколько дней",
+  "obs": 8
+ },
+ {
+  "id": "core-prediction-locked",
+  "title": "Предсказание фертильного окна — главная функция — полностью скрыто за платной подпиской",
+  "obs": 5
+ },
+ {
+  "id": "premium-upgrade-ads-interrupt",
+  "title": "Реклама апгрейда и всплывающие напоминания о подписке прерывают процесс ввода данных",
+  "obs": 4
+ },
+ {
+  "id": "ring-manual-reconnect-daily",
+  "title": "Кольцо-термометр требует ручного переподключения каждый день — автоматической синхронизации нет",
+  "obs": 4
+ },
+ {
+  "id": "data-lost-after-update",
+  "title": "После обновления приложения исчезает история данных — недели или годы записей пропадают безвозвратно",
+  "obs": 3
+ },
+ {
+  "id": "pregnancy-achieved-via-tracking",
+  "title": "Сочетание термометра и предсказаний приложения помогает забеременеть после длительных попыток",
+  "obs": 3
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Кнопка «7 дней бесплатно» сразу списывает полную сумму подписки без пробного периода",
+  "obs": 2
+ },
+ {
+  "id": "auto-subscribe-without-consent",
+  "title": "Приложение автоматически подписывает пользователя на платный тариф без явного согласия при регистрации",
+  "obs": 2
+ },
+ {
+  "id": "charge-exceeds-advertised-price",
+  "title": "Сумма списания превышает рекламную цену и продолжается после отмены подписки",
+  "obs": 2
+ },
+ {
+  "id": "history-locked-after-free-era",
+  "title": "Доступ к истории циклов закрыт за платную подписку после лет бесплатного использования",
+  "obs": 2
+ },
+ {
+  "id": "export-limited-weekly-only",
+  "title": "Экспорт данных доступен только за неделю — нельзя выгрузить месячные или годовые отчёты для врача",
+  "obs": 2
+ },
+ {
+  "id": "apple-health-sync-incomplete",
+  "title": "Синхронизация с Apple Health работает не для всех данных или требует ручных исправлений",
+  "obs": 2
+ },
+ {
+  "id": "navigation-complex-after-redesign",
+  "title": "После редизайна навигация усложнилась — базовые данные цикла стало труднее находить",
+  "obs": 2
+ },
+ {
+  "id": "lh-scan-hangs-or-fails",
+  "title": "Загрузка фото LH-теста зависает или не сохраняет результат — основной рабочий процесс блокируется",
+  "obs": 2
+ },
+ {
+  "id": "app-slows-down-with-updates",
+  "title": "Приложение становится заметно медленнее с каждым обновлением — долгая загрузка снижает желание открывать его",
+  "obs": 2
+ },
+ {
+  "id": "server-error-blocks-login",
+  "title": "Внутренняя ошибка сервера блокирует вход в аккаунт и доступ ко всем данным",
+  "obs": 2
+ },
+ {
+  "id": "lh-strip-visual-analysis",
+  "title": "Визуализация интенсивности линии LH-теста позволяет отслеживать гормональный подъём точнее ответа «да/нет»",
+  "obs": 2
+ },
+ {
+  "id": "partner-sharing-use-case",
+  "title": "Доступ партнёра к данным цикла через отдельный вход — устойчивый паттерн совместного использования",
+  "obs": 2
+ },
+ {
+  "id": "multiple-pregnancy-not-supported",
+  "title": "Многоплодная беременность и редкие осложнения (пузырный занос) не поддерживаются — пользователь вынужден выбирать неточный вариант",
+  "obs": 2
+ },
+ {
+  "id": "premium-paid-no-access",
+  "title": "Подписка оплачена, но приложение не открывает доступ к премиальным функциям",
+  "obs": 1
+ },
+ {
+  "id": "partner-tracking-paywalled",
+  "title": "Совместное отслеживание беременности с партнёром перенесено за платный доступ",
+  "obs": 1
+ },
+ {
+  "id": "export-feature-nonfunctional",
+  "title": "Функция экспорта данных в премиум-тарифе не работает — основная причина покупки недоступна",
+  "obs": 1
+ },
+ {
+  "id": "ios-android-feature-disparity",
+  "title": "На iOS больше функций закрыто за платный доступ, чем на Android — платформенное неравенство",
+  "obs": 1
+ },
+ {
+  "id": "gamification-blocks-core-tracking",
+  "title": "Выполнение заданий и накопление очков обязательно для доступа к основным функциям трекинга",
+  "obs": 1
+ },
+ {
+  "id": "community-feed-default-on",
+  "title": "Лента сообщества показывается по умолчанию и не отключается — вызывает тревогу у пользователей",
+  "obs": 1
+ },
+ {
+  "id": "historical-notes-not-retrievable",
+  "title": "Записанные заметки нельзя просмотреть повторно — история наблюдений недоступна после ввода",
+  "obs": 1
+ },
+ {
+  "id": "log-entry-order-broken",
+  "title": "Пользовательский порядок записей в журнале нельзя настроить — функция сортировки не работает",
+  "obs": 1
+ },
+ {
+  "id": "no-medication-tracking",
+  "title": "Приложение не позволяет фиксировать приём лекарств и медицинские процедуры рядом с данными цикла",
+  "obs": 1
+ },
+ {
+  "id": "no-import-from-competitor-apps",
+  "title": "Импорт истории циклов из других приложений (например, Clue) недоступен",
+  "obs": 1
+ },
+ {
+  "id": "bmi-calculator-offensive",
+  "title": "Встроенный расчёт ИМТ по росту и весу называет спортсменов «с избыточным весом» — устаревшая формула",
+  "obs": 1
+ },
+ {
+  "id": "app-overlay-hides-raw-data",
+  "title": "Метки фертильного окна и фаз цикла перекрывают данные и мешают самостоятельной интерпретации",
+  "obs": 1
+ },
+ {
+  "id": "temperature-data-disappears-silently",
+  "title": "Введённые данные температуры исчезают между сессиями без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "mode-switch-causes-instability",
+  "title": "Переключение из режима беременности в трекинг цикла вызывает нестабильность приложения",
+  "obs": 1
+ },
+ {
+  "id": "reminder-notification-stops-working",
+  "title": "Ежедневное напоминание о записи температуры перестаёт приходить без объяснения — настройки включены",
+  "obs": 1
+ },
+ {
+  "id": "phone-verification-fails",
+  "title": "Код подтверждения по телефону не принимается — создать аккаунт невозможно",
+  "obs": 1
+ },
+ {
+  "id": "random-logout-blocks-data",
+  "title": "Приложение произвольно выходит из аккаунта и блокирует повторный вход — история трекинга недоступна",
+  "obs": 1
+ },
+ {
+  "id": "account-data-lost-subscription-active",
+  "title": "Данные аккаунта и доступ к приложению утеряны при активной подписке — поддержка не помогает",
+  "obs": 1
+ },
+ {
+  "id": "period-entry-blocked",
+  "title": "Приложение блокирует ввод данных о менструации — основная функция трекинга недоступна",
+  "obs": 1
+ },
+ {
+  "id": "no-personalized-insights",
+  "title": "Платная версия даёт только ввод данных и базовые отчёты — персонализированные инсайты по данным пользователя отсутствуют",
+  "obs": 1
+ },
+ {
+  "id": "app-blames-user-for-anomalies",
+  "title": "Приложение обвиняет пользователя в аномальных температурах вместо медицинского объяснения — усиливает тревогу",
+  "obs": 1
+ },
+ {
+  "id": "spelling-errors-undermine-credibility",
+  "title": "Орфографические ошибки по всему интерфейсу подрывают доверие к медицинскому приложению",
+  "obs": 1
+ },
+ {
+  "id": "daily-articles-build-habit",
+  "title": "Ежедневные статьи и курсы формируют привычку изучать информацию о своём цикле",
+  "obs": 1
+ },
+ {
+  "id": "mood-tracking-linked-to-phase",
+  "title": "Детальное отслеживание настроения привязано к фазе цикла и даёт более полную картину, чем простые приложения",
+  "obs": 1
+ },
+ {
+  "id": "fam-method-education",
+  "title": "Приложение обучает методу осознанной фертильности через ежедневные изменения и паттерны цикла",
+  "obs": 1
+ },
+ {
+  "id": "cycle-phase-body-education",
+  "title": "Подробная информация о физических и эмоциональных изменениях по фазам цикла доступна в приложении",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Служба поддержки не отвечает на письма и не оказывает техническую помощь",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-notifications",
+  "title": "Приложение присылает дублирующиеся уведомления каждый день — напоминание превращается в помеху",
+  "obs": 1
+ },
+ {
+  "id": "limited-skin-tone-baby-viz",
+  "title": "Визуализация ребёнка в трекере беременности предлагает только ограниченный набор оттенков кожи",
+  "obs": 1
+ },
+ {
+  "id": "temperature-reading-duration",
+  "title": "Запись температуры занимает несколько минут утром — пользователь успевает заснуть повторно",
+  "obs": 1
+ }
+]

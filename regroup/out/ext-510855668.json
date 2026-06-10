@@ -1,0 +1,110 @@
+{
+  "groups": [
+    {
+      "id": "crashes-and-platform-instability",
+      "name": "Вылеты, тормоза и нестабильность на всех экранах",
+      "insight_ids": [
+        "app-crashes-frequently",
+        "app-extremely-slow",
+        "daily-reinstall-required",
+        "high-battery-drain",
+        "xbox-app-crashes-on-playback",
+        "app-crashes-on-navigation",
+        "unstable-on-all-platforms",
+        "app-fails-to-launch",
+        "library-data-loss-after-update",
+        "wrong-album-art-after-update",
+        "mixed-playlist-stopped-working"
+      ]
+    },
+    {
+      "id": "free-plan-coercion",
+      "name": "Бесплатный план как ловушка: shuffle, паузы и допросы",
+      "insight_ids": [
+        "prime-free-tier-downgraded-shuffle-only",
+        "are-you-still-listening-prompt",
+        "playlists-locked-after-subscription-expires",
+        "free-plan-skip-limit",
+        "free-plan-artificial-restrictions",
+        "free-plan-auto-stop-on-idle",
+        "shuffle-not-random-same-start"
+      ]
+    },
+    {
+      "id": "prime-value-erosion-and-paywalls",
+      "name": "Эрозия Prime: апсейл, рост цены и замки на свою же музыку",
+      "insight_ids": [
+        "purchased-songs-locked-behind-subscription",
+        "upsell-popups-constant-interruption",
+        "personal-uploads-require-subscription",
+        "prime-benefits-shrunk-price-raised",
+        "prime-music-value-erosion",
+        "in-app-music-purchase-ux",
+        "account-frozen-ad-injected",
+        "family-plan-single-stream",
+        "family-plan-invite-loop"
+      ]
+    },
+    {
+      "id": "playback-misbehaves",
+      "name": "Плеер живёт своей жизнью: чужие треки, заикания и перезапуски",
+      "insight_ids": [
+        "playlist-plays-wrong-songs",
+        "audio-glitch-skip-stutter",
+        "offline-requires-internet",
+        "track-restarts-after-20sec",
+        "podcast-playback-error-specific-episodes",
+        "volume-changes-between-tracks",
+        "song-frozen-after-30sec",
+        "song-skip-resume-wrong-position",
+        "app-hijacks-audio-stream",
+        "album-playback-inserts-other-artists",
+        "auto-added-songs-pollute-playlist"
+      ]
+    },
+    {
+      "id": "discovery-search-recommendations",
+      "name": "Найти и подобрать: поиск, рекомендации и неполный каталог",
+      "insight_ids": [
+        "algorithm-ignores-preferences",
+        "catalog-gaps-missing-songs",
+        "cover-versions-instead-of-original",
+        "ai-playlist-creation-adds-unwanted",
+        "ai-playlist-creation-works-well",
+        "specific-artist-plays-wrong-artist",
+        "genre-switch-does-not-work",
+        "search-returns-wrong-results",
+        "podcast-dominates-music-search",
+        "explicit-content-filter-misses-podcasts",
+        "no-music-video-or-comments"
+      ]
+    },
+    {
+      "id": "library-playlist-management",
+      "name": "Невозможно навести порядок в плейлистах и библиотеке",
+      "insight_ids": [
+        "album-nav-blocked-during-playback",
+        "playlist-panel-ordering-wrong",
+        "playlist-tap-hits-wrong-item",
+        "no-bulk-delete-playlist-management",
+        "no-liked-songs-sorting",
+        "no-batch-download",
+        "playlist-manager-disorganized",
+        "playlist-delete-re-adds-song"
+      ]
+    },
+    {
+      "id": "ecosystem-integrations-broken",
+      "name": "Экосистема не дружит: Alexa, Siri, CarPlay, Apple TV и наушники",
+      "insight_ids": [
+        "cross-device-sync-unstable",
+        "push-notification-permission-loop",
+        "playback-controls-disappear-apple-tv",
+        "carplay-wifi-only-no-cellular",
+        "alexa-integration-drops-playback",
+        "siri-integration-broken",
+        "headset-integration-partial"
+      ]
+    }
+  ]
+}

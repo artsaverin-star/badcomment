@@ -1,0 +1,92 @@
+{
+  "groups": [
+    {
+      "id": "refund-wall",
+      "name": "Стена возвратов: $4 за украденный ужин",
+      "insight_ids": [
+        "support-no-resolution",
+        "refund-denied-wrong-order",
+        "substitution-overcharge-no-refund",
+        "refund-policy-tightened",
+        "refund-denied-subscription-exception",
+        "refund-stolen-order-minimal",
+        "refund-qualification-categories",
+        "tip-nonrefundable-after-bad-service",
+        "sauce-refund-minimal",
+        "support-ai-only-minimal-refund"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Цена, которая растёт по дороге к корзине",
+      "insight_ids": [
+        "gift-card-payment-method-lock",
+        "double-charge-redirect",
+        "billing-inflated-price",
+        "billing-overcharge-credit-not-refund",
+        "dashpass-price-gap",
+        "fee-escalation-pattern"
+      ]
+    },
+    {
+      "id": "dashpass-cage",
+      "name": "DashPass: подписка, из которой не выйти",
+      "insight_ids": [
+        "dashpass-subscription-cancel-hidden",
+        "dashpass-cancel-resubscribe-discount-exploit",
+        "dashpass-forced-resubscribe-to-order",
+        "dashpass-express-surcharge"
+      ]
+    },
+    {
+      "id": "courier-roulette",
+      "name": "Рулетка доставщиков: остывшая еда и пропавшие заказы",
+      "insight_ids": [
+        "multi-stop-routing-cold-food",
+        "eta-inflation",
+        "wrong-restaurant-routing",
+        "driver-identity-mismatch",
+        "driver-theft-no-consequence",
+        "multiple-drivers-same-pickup",
+        "delivery-instructions-ignored",
+        "contactless-delivery-left-on-ground",
+        "missing-ingredients-inedible"
+      ]
+    },
+    {
+      "id": "phantom-orders",
+      "name": "Заказы-призраки: приложение решает за тебя",
+      "insight_ids": [
+        "cancel-order-impossible",
+        "auto-load-last-order",
+        "rating-timeout-ghost-order",
+        "ghost-order-from-bug",
+        "ai-reco-crash",
+        "debit-card-lock-broken",
+        "drone-delivery-technical-failure",
+        "order-blocked-no-reason"
+      ]
+    },
+    {
+      "id": "ui-erosion",
+      "name": "Редизайн, который спрятал нужное",
+      "insight_ids": [
+        "delivery-address-not-updatable",
+        "navigation-redesign-hides-filters",
+        "payment-ui-unclear-save-button",
+        "small-font-cluttered-ui",
+        "delivery-instructions-small-text",
+        "restaurant-blocked-no-explanation",
+        "double-dash-removed"
+      ]
+    },
+    {
+      "id": "trust-and-habit",
+      "name": "Чему верить и как привыкаешь",
+      "insight_ids": [
+        "restaurant-ratings-inflated",
+        "habitual-replacement-of-cooking"
+      ]
+    }
+  ]
+}

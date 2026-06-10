@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from VN: Video Editor (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO VN: Video Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to VN: Video Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to VN: Video Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1343581380.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-project-limit",
+  "title": "Бесплатная версия ограничена 100 проектами — активным пользователям этого не хватает",
+  "obs": 4
+ },
+ {
+  "id": "project-load-failure-after-update",
+  "title": "После обновления проекты не открываются — загрузка зависает на бесконечном спиннере",
+  "obs": 2
+ },
+ {
+  "id": "crash-data-loss",
+  "title": "Приложение крашится при работе над длинными проектами и теряет несохранённые правки",
+  "obs": 2
+ },
+ {
+  "id": "subscription-price-mismatch",
+  "title": "При покупке подписки списывается сумма, отличающаяся от объявленной на экране",
+  "obs": 1
+ },
+ {
+  "id": "feature-usage-cap",
+  "title": "Приложение ограничивает число использований отдельных функций и требует оплату для снятия лимита",
+  "obs": 1
+ },
+ {
+  "id": "export-hdr-format-missing",
+  "title": "Приложение не поддерживает экспорт в форматах HDR и Dolby Vision — профессиональные форматы недоступны",
+  "obs": 1
+ },
+ {
+  "id": "lut-import-feature",
+  "title": "Приложение поддерживает импорт пользовательских таблиц цветовой коррекции, чего нет у большинства конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "text-animation-presets-lacking",
+  "title": "Набор анимаций текста ограничен — не хватает эффектов вроде печатающейся строки, пользователи уходят в сторонние приложения",
+  "obs": 1
+ },
+ {
+  "id": "effects-quality-mediocre",
+  "title": "Визуальные эффекты воспринимаются как недостаточно профессиональные, хотя и не критично",
+  "obs": 1
+ },
+ {
+  "id": "reverse-clip-audio-lost",
+  "title": "При реверсе клипа приложение удаляет весь звук из него",
+  "obs": 1
+ },
+ {
+  "id": "rewind-audio-silent",
+  "title": "Во время перемотки назад звук клипа не воспроизводится",
+  "obs": 1
+ },
+ {
+  "id": "audio-track-cuts-video-length",
+  "title": "Добавление аудиотрека автоматически обрезает длину видео до длины аудио",
+  "obs": 1
+ },
+ {
+  "id": "music-sync-regression",
+  "title": "После обновления выбор точки вхождения музыки не работает — трек всегда начинается с начала",
+  "obs": 1
+ },
+ {
+  "id": "timeline-audio-desync",
+  "title": "Воспроизведение видео в таймлайне отстаёт от аудио, что делает синхронное редактирование невозможным",
+  "obs": 1
+ },
+ {
+  "id": "preview-black-screen",
+  "title": "При воспроизведении превью экран периодически чернеет без видимых причин",
+  "obs": 1
+ },
+ {
+  "id": "clip-min-length-resize",
+  "title": "Минимальная длина клипа слишком короткая по умолчанию — интуитивное растягивание не работает так, как ожидают пользователи",
+  "obs": 1
+ },
+ {
+  "id": "curved-text-missing",
+  "title": "В приложении нет функции изгибания текста по кривой",
+  "obs": 1
+ },
+ {
+  "id": "text-layer-limit-pip",
+  "title": "Ограничение в 5 текстовых слоёв и невозможность переносить их между треками мешают сложному многослойному монтажу",
+  "obs": 1
+ },
+ {
+  "id": "touch-gesture-sensitivity",
+  "title": "Сенсорные жесты слишком чувствительны — точные правки на таймлайне выполнить сложно",
+  "obs": 1
+ },
+ {
+  "id": "auto-caption-missing",
+  "title": "Автоматическая генерация субтитров отсутствует — в CapCut эта функция уже есть",
+  "obs": 1
+ },
+ {
+  "id": "cut-sidebar-text",
+  "title": "Нет боковой панели для текста и удобного инструмента нарезки — пользователи хотят более быстрый доступ",
+  "obs": 1
+ },
+ {
+  "id": "text-out-animation-bug",
+  "title": "Анимация выхода текста автоматически переключается на анимацию входа — выбранный эффект не применяется",
+  "obs": 1
+ },
+ {
+  "id": "fade-overlay-bug",
+  "title": "Эффект затухания не работает для элементов, наложенных поверх изображений — нужно добавлять вручную",
+  "obs": 1
+ },
+ {
+  "id": "spotify-import-missing",
+  "title": "Импорт музыки из Spotify не поддерживается — библиотека подписчика недоступна",
+  "obs": 1
+ },
+ {
+  "id": "keyframe-curve-custom-missing",
+  "title": "Кастомизация кривой скорости между ключевыми кадрами недоступна — только предустановленные варианты",
+  "obs": 1
+ },
+ {
+  "id": "text-element-disappears",
+  "title": "Текстовый элемент случайно смещается или исчезает при попытке отрегулировать его на таймлайне",
+  "obs": 1
+ },
+ {
+  "id": "audio-extract-naming-ux",
+  "title": "Имя для извлечённого аудиофайла задаётся до извлечения, но опция не видна; после извлечения файл нельзя переименовать или удалить",
+  "obs": 1
+ },
+ {
+  "id": "autocorrect-text-input",
+  "title": "Автокоррекция подменяет символы при вводе текста в редакторе — каждый элемент приходится исправлять вручную",
+  "obs": 1
+ },
+ {
+  "id": "bulk-clip-management-missing",
+  "title": "Нет массового выбора и удаления фрагментов проекта — управлять большим числом клипов неудобно",
+  "obs": 1
+ },
+ {
+  "id": "tts-voice-changer-missing",
+  "title": "Функции синтеза речи и изменения голоса отсутствуют — полноценная озвучка невозможна",
+  "obs": 1
+ },
+ {
+  "id": "voiceover-mic-permission-missing",
+  "title": "Опция разрешения микрофона для записи голоса отсутствует даже в настройках приложения",
+  "obs": 1
+ },
+ {
+  "id": "export-quality-degradation",
+  "title": "Видео при экспорте становится размытым и пиксельным, даже при установке высокого битрейта",
+  "obs": 1
+ },
+ {
+  "id": "import-speed-regression",
+  "title": "После обновления импорт видео из галереи занимает десятки минут вместо мгновенной загрузки",
+  "obs": 1
+ },
+ {
+  "id": "export-hang-reset",
+  "title": "Экспорт зависает на финальном этапе или сбрасывает прогресс — приходится повторять несколько раз",
+  "obs": 1
+ },
+ {
+  "id": "gallery-access-lost-after-update",
+  "title": "После обновления приложение потеряло доступ к фотогалерее и экспорт перестал работать",
+  "obs": 1
+ },
+ {
+  "id": "login-crash-after-reinstall",
+  "title": "После переустановки приложение вылетает при попытке авторизоваться — войти в аккаунт невозможно",
+  "obs": 1
+ },
+ {
+  "id": "update-corrupts-existing-projects",
+  "title": "Последовательные обновления повреждают уже готовые проекты: переэкспозиция видео и искажения звука во всех старых работах",
+  "obs": 1
+ },
+ {
+  "id": "storage-leak-deleted-projects",
+  "title": "Удаление проектов не освобождает место на устройстве — хранилище продолжает расти",
+  "obs": 1
+ },
+ {
+  "id": "crop-black-artifact",
+  "title": "Инструмент обрезки иногда делает видео чёрным вместо корректного кадрирования",
+  "obs": 1
+ },
+ {
+  "id": "image-insert-contrast-artifact",
+  "title": "Вставка изображения в проект автоматически задаёт ему очень высокий контраст; видеоклипы добавляют эхо",
+  "obs": 1
+ },
+ {
+  "id": "keyframe-edit-deletes-project",
+  "title": "Редактирование ключевых кадров текста случайно удаляет весь проект без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "cutout-sticker-buffering",
+  "title": "Функция вырезания объекта зависала при использовании — проблема устранена в последующем обновлении",
+  "obs": 1
+ },
+ {
+  "id": "denoise-voiceover-removed",
+  "title": "Функция шумоподавления для озвучивания удалена из приложения после обновления",
+  "obs": 1
+ },
+ {
+  "id": "memory-footprint-large",
+  "title": "Приложение занимает слишком много памяти на устройствах с 32 ГБ хранилища",
+  "obs": 1
+ },
+ {
+  "id": "app-launch-slow",
+  "title": "Запуск приложения заметно медленный, хотя не настолько критичный, чтобы уйти к конкурентам",
+  "obs": 1
+ }
+]

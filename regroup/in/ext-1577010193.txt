@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from Sleep Sounds - Relax & Sleep (sleep sounds / white noise / relax) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sleep Sounds - Relax & Sleep, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sleep Sounds - Relax & Sleep — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sleep Sounds - Relax & Sleep>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1577010193.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "loop-boundary-audible",
+  "title": "Граница цикла звука слышна — мозг начинает фиксировать паузу и она мешает уснуть",
+  "obs": 14
+ },
+ {
+  "id": "sleep-latency-reduction",
+  "title": "Приложение резко сокращает время засыпания — с часов до 5-20 минут",
+  "obs": 11
+ },
+ {
+  "id": "mixing-as-creative-process",
+  "title": "Создание миксов воспринимается как творческий процесс — пользователи описывают его как работу диджея",
+  "obs": 9
+ },
+ {
+  "id": "anxiety-intrusive-thoughts-use-case",
+  "title": "Приложение используют для подавления тревоги и навязчивых мыслей — не только для сна",
+  "obs": 7
+ },
+ {
+  "id": "long-term-retention",
+  "title": "Приложение удерживает пользователей годами — трёх-четырёхлетний стаж без усталости от звуков",
+  "obs": 7
+ },
+ {
+  "id": "playback-stops-screen-off",
+  "title": "Воспроизведение останавливается при выключении экрана — приложение непригодно для сна",
+  "obs": 5
+ },
+ {
+  "id": "random-interruption-during-night",
+  "title": "Звуки случайно прерываются посреди ночи без видимой причины",
+  "obs": 5
+ },
+ {
+  "id": "nature-soundscape-immersion",
+  "title": "Многослойные звуки природы создают эффект присутствия в конкретном месте (кемпинг, лес, кафе)",
+  "obs": 5
+ },
+ {
+  "id": "sleep-duration-improvement",
+  "title": "Пользователи сообщают о значительном увеличении продолжительности сна",
+  "obs": 5
+ },
+ {
+  "id": "app-crashes-instability",
+  "title": "Приложение падает и требует переустановки каждые несколько дней",
+  "obs": 4
+ },
+ {
+  "id": "loop-artifact-volume-dip",
+  "title": "При зацикливании звук теряет громкость на мгновение и восстанавливается — создаёт ритмический артефакт",
+  "obs": 3
+ },
+ {
+  "id": "custom-mix-save-bug",
+  "title": "Баг не даёт сохранить кастомный микс — функция недоступна",
+  "obs": 3
+ },
+ {
+  "id": "wide-sound-variety-valued",
+  "title": "Широкий выбор звуков и нестандартные варианты (пылесос, кафе) — ценность для удержания пользователей",
+  "obs": 3
+ },
+ {
+  "id": "phone-overheating-avoided",
+  "title": "Приложение не перегревает телефон и не разряжает батарею — в отличие от музыкальных плееров",
+  "obs": 3
+ },
+ {
+  "id": "travel-unfamiliar-sleep",
+  "title": "Приложение решает проблему сна в незнакомой обстановке — гостиницы, гости, поездки",
+  "obs": 3
+ },
+ {
+  "id": "competitor-switcher",
+  "title": "Пользователи приходят из других приложений (BetterSleep, Calm, Alexa) после их деградации",
+  "obs": 3
+ },
+ {
+  "id": "one-time-payment-preference",
+  "title": "Пользователи целенаправленно ищут приложение с единоразовым платежом вместо подписки",
+  "obs": 2
+ },
+ {
+  "id": "premium-free-satisfaction",
+  "title": "Бесплатная версия достаточна — пользователи не видят смысла переходить на премиум",
+  "obs": 2
+ },
+ {
+  "id": "low-monetization-pressure",
+  "title": "Минимальный напор на монетизацию — причина выбора в пользу этого приложения",
+  "obs": 2
+ },
+ {
+  "id": "locked-sound-friction",
+  "title": "Конкретный нужный звук (мурлыканье кошки) закрыт платным контентом — пользователь не готов платить за одну позицию",
+  "obs": 2
+ },
+ {
+  "id": "sleep-timer-limited-options",
+  "title": "Таймер сна не позволяет задать произвольное время — шаг фиксирован, минимум завышен",
+  "obs": 2
+ },
+ {
+  "id": "app-ux-unfriendly",
+  "title": "Интерфейс воспринимается как неудобный и базовый — низкое первое впечатление",
+  "obs": 2
+ },
+ {
+  "id": "specific-niche-sounds-missing",
+  "title": "Пользователи ищут очень специфичные звуки (винтажный увлажнитель, поющие чаши), которых нет в библиотеке",
+  "obs": 2
+ },
+ {
+  "id": "post-update-regression-screen-lock",
+  "title": "После обновления сломалось воспроизведение с заблокированным экраном — функция работала раньше",
+  "obs": 2
+ },
+ {
+  "id": "ios-android-loop-disparity",
+  "title": "Слышимый цикл есть только на iOS, на Android той же версии его нет",
+  "obs": 2
+ },
+ {
+  "id": "porn-ads-in-app",
+  "title": "В приложении показываются порнографические объявления — пользователи теряют доверие",
+  "obs": 2
+ },
+ {
+  "id": "horror-ad-wakes-child",
+  "title": "Реклама страшного фильма воспроизводится ночью и будит ребёнка — даже у платного пользователя",
+  "obs": 2
+ },
+ {
+  "id": "tinnitus-use-case",
+  "title": "Приложение используется как медицинский инструмент для маскировки тиннитуса",
+  "obs": 2
+ },
+ {
+  "id": "adhd-neurological-use-case",
+  "title": "Пользователи с ADHD и неврологическими нарушениями используют приложение для управления сном",
+  "obs": 2
+ },
+ {
+  "id": "children-sleep-use-case",
+  "title": "Приложение используют для укладывания детей спать",
+  "obs": 2
+ },
+ {
+  "id": "daytime-sleep-shift-workers",
+  "title": "Сменные работники используют приложение для маскировки дневных шумов и дневного сна",
+  "obs": 2
+ },
+ {
+  "id": "study-focus-use-case",
+  "title": "Приложение используют для улучшения концентрации во время учёбы — не только для сна",
+  "obs": 2
+ },
+ {
+  "id": "youtube-vs-app-preference",
+  "title": "Пользователи осознанно выбирают приложение вместо YouTube — оно удобнее и эффективнее",
+  "obs": 2
+ },
+ {
+  "id": "app-dependency-formed",
+  "title": "У пользователей формируется зависимость — без приложения они не могут уснуть",
+  "obs": 2
+ },
+ {
+  "id": "pre-sleep-relaxation-ritual",
+  "title": "Приложение используют как ритуал подготовки ко сну, а не только в момент засыпания",
+  "obs": 2
+ },
+ {
+  "id": "nightmare-prevention",
+  "title": "Многолетние пользователи не испытывают кошмаров — приложение связывают с их отсутствием",
+  "obs": 2
+ },
+ {
+  "id": "sleep-normalization",
+  "title": "Приложение нормализует время засыпания — пользователи перестают засыпать в 3 ночи и начинают в 9 вечера",
+  "obs": 2
+ },
+ {
+  "id": "lifetime-restore-failure",
+  "title": "Пожизненная подписка не восстанавливается при смене телефона",
+  "obs": 1
+ },
+ {
+  "id": "trial-cancel-request",
+  "title": "Пользователь не почувствовал эффекта за пробный период и просит отменить подписку",
+  "obs": 1
+ },
+ {
+  "id": "ad-watch-for-content",
+  "title": "Просмотр рекламы вместо подписки воспринимается как справедливый обмен",
+  "obs": 1
+ },
+ {
+  "id": "premium-unlocks-no-ads-mixing",
+  "title": "Премиум даёт главное — отсутствие рекламы и полная свобода кастомизации звуков",
+  "obs": 1
+ },
+ {
+  "id": "mixing-masks-loop",
+  "title": "Комбинирование нескольких звуков скрывает слышимый цикл и делает звучание естественнее",
+  "obs": 1
+ },
+ {
+  "id": "volume-drops-mid-night",
+  "title": "Громкость самопроизвольно падает на минимум посреди ночи при длинном таймере",
+  "obs": 1
+ },
+ {
+  "id": "timer-no-default",
+  "title": "Таймер не запоминает последнее значение — при ночном пробуждении приходится настраивать заново",
+  "obs": 1
+ },
+ {
+  "id": "fade-out-timer-valued",
+  "title": "Мягкое затухание звука по таймеру — ключевой элемент комфорта засыпания",
+  "obs": 1
+ },
+ {
+  "id": "timer-as-sleep-measurement",
+  "title": "Пользователи используют таймер как инструмент измерения времени засыпания",
+  "obs": 1
+ },
+ {
+  "id": "sound-randomly-switches",
+  "title": "После обновления выбранный звук самопроизвольно переключается на похожий",
+  "obs": 1
+ },
+ {
+  "id": "melodic-instruments-clash",
+  "title": "Мелодичные инструменты нельзя наслаивать вместе — они играют разные мелодии и звучат дисгармонично",
+  "obs": 1
+ },
+ {
+  "id": "volume-control-ui-overlap",
+  "title": "Кнопки воспроизведения перекрывают слайдеры громкости — управление отдельными слоями недоступно",
+  "obs": 1
+ },
+ {
+  "id": "max-simultaneous-sounds-limit",
+  "title": "Лимит одновременных звуков слишком низкий — пользователи не могут создать нужную комбинацию",
+  "obs": 1
+ },
+ {
+  "id": "unbalanced-volume-levels",
+  "title": "Громкость разных звуков несбалансирована — животные тихие, техника оглушительная",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-sync-missing",
+  "title": "Нет синхронизации между устройствами — настройки не переносятся с телефона на планшет",
+  "obs": 1
+ },
+ {
+  "id": "screen-reader-accessibility",
+  "title": "Приложение полностью совместимо с экранным чтением — доступность реализована корректно",
+  "obs": 1
+ },
+ {
+  "id": "ad-accessibility-issue",
+  "title": "Реклама недоступна для экранного чтения — нельзя закрыть объявление без зрения",
+  "obs": 1
+ },
+ {
+  "id": "popup-browser-redirect",
+  "title": "Всплывающее окно открывает Safari — пользователи воспринимают это как мошенничество",
+  "obs": 1
+ },
+ {
+  "id": "user-created-sounds-missing",
+  "title": "Пользователи хотят создавать звуки с нуля, а не только комбинировать готовые",
+  "obs": 1
+ },
+ {
+  "id": "short-loops-no-science",
+  "title": "Короткие повторяющиеся записи без научного обоснования воспринимаются как неценный продукт",
+  "obs": 1
+ },
+ {
+  "id": "bluetooth-compatibility",
+  "title": "Приложение не работает с некоторыми Bluetooth-устройствами",
+  "obs": 1
+ },
+ {
+  "id": "custom-mix-controls-broken",
+  "title": "В кастомных миксах кнопка паузы не восстанавливает воспроизведение",
+  "obs": 1
+ },
+ {
+  "id": "influencer-discovery-channel",
+  "title": "Пользователи узнают о приложении через YouTube-каналы по саморазвитию",
+  "obs": 1
+ },
+ {
+  "id": "no-health-tracking-preference",
+  "title": "Пользователи ценят простоту — не хотят отслеживание сна, синхронизацию с Health и будильники",
+  "obs": 1
+ }
+]

@@ -1,0 +1,117 @@
+{
+ "groups": [
+  {
+   "id": "background-playback-reliability",
+   "name": "Фоновое воспроизведение ломается — и пользователь просыпается",
+   "insight_ids": [
+    "background-playback-stops-on-switch",
+    "random-stops-overnight",
+    "screen-lock-stops-audio",
+    "notifications-interrupt-playback",
+    "app-hijacks-audio-focus",
+    "app-runs-after-timer",
+    "random-sound-switching",
+    "app-wont-stop-or-uninstall",
+    "app-crashes-on-launch",
+    "ios-incompatibility"
+   ]
+  },
+  {
+   "id": "who-uses-white-noise-and-why",
+   "name": "Кто и зачем использует белый шум: младенцы, тиннитус, офис, дорога",
+   "insight_ids": [
+    "infant-sleep-use-case",
+    "tinnitus-core-segment",
+    "noise-masking-neighbors-traffic",
+    "anxiety-mental-health-use-case",
+    "travel-portable-use-case",
+    "office-focus-use-case",
+    "replaces-physical-equipment",
+    "conditioned-sleep-reflex",
+    "adhd-children-sleep",
+    "sounds-trigger-opposite-effect"
+   ]
+  },
+  {
+   "id": "ad-module-harm",
+   "name": "Рекламный модуль будит и пугает — фишинг, звук и принудительный App Store",
+   "insight_ids": [
+    "audio-ads-interrupt-playback",
+    "malicious-phishing-ads",
+    "deceptive-ad-consent-button",
+    "ad-breaks-playback-requires-reboot",
+    "review-prompt-too-frequent",
+    "rating-gate-manipulation"
+   ]
+  },
+  {
+   "id": "sound-catalog-and-mixing",
+   "name": "Каталог звуков и миксование: находки, ограничения и запросы",
+   "insight_ids": [
+    "catalog-ideal-sound-discovery",
+    "creative-mix-experimentation",
+    "catalog-breadth-unexpected-sounds",
+    "catalog-new-sounds-request",
+    "mix-management-ux",
+    "no-custom-audio-upload",
+    "user-sound-creation-ecosystem",
+    "no-sound-search",
+    "catalog-download-broken",
+    "catalog-download-requires-account",
+    "sound-artifacts-loops"
+   ]
+  },
+  {
+   "id": "billing-and-free-tier",
+   "name": "Бесплатная версия как конкурентное оружие — и как её подрывают",
+   "insight_ids": [
+    "free-version-competitive-advantage",
+    "background-play-paywalled",
+    "free-features-moved-to-paid",
+    "aggressive-upsell-prompts",
+    "unexpected-charge-free-app",
+    "in-app-purchase-broken",
+    "cancel-subscription-hidden",
+    "purchase-unavailable-on-device",
+    "ios-built-in-competes"
+   ]
+  },
+  {
+   "id": "battery-and-hardware-impact",
+   "name": "Батарея, перегрев и аппаратные конфликты за ночь",
+   "insight_ids": [
+    "battery-drain-critical",
+    "charging-blocked",
+    "storage-footprint-large",
+    "facebook-permission-unrevokable"
+   ]
+  },
+  {
+   "id": "timer-alarm-and-settings-persistence",
+   "name": "Таймер, будильник и настройки, которые не запоминаются",
+   "insight_ids": [
+    "timer-settings-not-persisted",
+    "volume-resets-between-sessions",
+    "no-fade-on-exit",
+    "max-volume-insufficient",
+    "alarm-needs-active-window",
+    "alarm-fires-early",
+    "multi-app-use-clock-alarm",
+    "night-mode-screen-too-dark",
+    "screen-brightness-spike-sleep-mode"
+   ]
+  },
+  {
+   "id": "ui-and-support-friction",
+   "name": "Онбординг, интерфейс и мёртвые ссылки поддержки",
+   "insight_ids": [
+    "onboarding-too-complex",
+    "ui-regression-after-update",
+    "feature-regression-updates",
+    "support-links-dead",
+    "no-siri-integration",
+    "language-locked"
+   ]
+  }
+ ]
+}

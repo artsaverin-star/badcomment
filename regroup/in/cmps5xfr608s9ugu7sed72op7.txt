@@ -1,0 +1,304 @@
+You are grouping 51 mechanism-level insight clusters from Picsart AI Photo Editor, Video (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Picsart AI Photo Editor, Video, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 51 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Picsart AI Photo Editor, Video — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Picsart AI Photo Editor, Video>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps5xfr608s9ugu7sed72op7.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "charged-full-year-no-trial",
+  "title": "Кнопка пробного периода сразу списывает полную годовую подписку, без обещанного триала",
+  "obs": 5
+ },
+ {
+  "id": "ads-during-active-editing",
+  "title": "Реклама всплывает каждые 10-30 секунд прямо во время редактирования, делая работу невозможной",
+  "obs": 5
+ },
+ {
+  "id": "trial-reminder-never-sent",
+  "title": "Обещанное напоминание перед концом пробного периода не приходит — пользователю молча списывают полный год",
+  "obs": 4
+ },
+ {
+  "id": "charged-after-cancel-no-refund",
+  "title": "После отмены подписки платёж всё равно списывается и в возврате отказывают",
+  "obs": 3
+ },
+ {
+  "id": "ai-credits-on-top-of-subscription",
+  "title": "Сверх оплаченной подписки AI-функции требуют отдельной покупки кредитов",
+  "obs": 3
+ },
+ {
+  "id": "free-tool-moved-behind-paywall",
+  "title": "Раньше бесплатные базовые инструменты (текст на фото) теперь требуют платную подписку",
+  "obs": 3
+ },
+ {
+  "id": "majority-features-paywalled",
+  "title": "Больше половины функций заблокированы за платежами, спокойно работать не дают",
+  "obs": 3
+ },
+ {
+  "id": "paywall-before-any-use",
+  "title": "Приложение требует подписку ещё до открытия редактора, не давая попробовать бесплатно",
+  "obs": 2
+ },
+ {
+  "id": "cannot-save-without-payment",
+  "title": "Без подписки нельзя сохранить готовую работу — заблокирован даже скриншот",
+  "obs": 2
+ },
+ {
+  "id": "save-during-edit-blocked-by-pay",
+  "title": "Платный замок всплывает посреди многослойного проекта — несохранённую работу приходится переделывать с нуля",
+  "obs": 2
+ },
+ {
+  "id": "explicit-content-accessible",
+  "title": "На платформе доступен контент сексуального характера, включая для детей",
+  "obs": 2
+ },
+ {
+  "id": "no-autosave-work-lost",
+  "title": "Нет автосохранения — при сбое или закрытии теряются часы работы",
+  "obs": 2
+ },
+ {
+  "id": "post-update-tools-relocated",
+  "title": "После обновления знакомые инструменты исчезают или переезжают, вернуть прежний интерфейс нельзя",
+  "obs": 2
+ },
+ {
+  "id": "forced-account-creation",
+  "title": "Приложение требует регистрацию или вход через Google, не давая попробовать без аккаунта",
+  "obs": 2
+ },
+ {
+  "id": "support-cannot-restore-features",
+  "title": "При оплаченной подписке доступ к AI-функциям пропадает, а поддержка не может его вернуть",
+  "obs": 2
+ },
+ {
+  "id": "weekly-sub-disguised-as-onetime",
+  "title": "Разовая правка оформлена как еженедельная подписка $9.99 вместо разовой покупки",
+  "obs": 1
+ },
+ {
+  "id": "paid-feature-not-delivered",
+  "title": "Деньги за покупку списались, но купленная функция так и не открылась",
+  "obs": 1
+ },
+ {
+  "id": "extra-charges-after-yearly-pay",
+  "title": "После оплаты годовой подписки приложение продолжает требовать новые платежи",
+  "obs": 1
+ },
+ {
+  "id": "accidental-tap-charge",
+  "title": "Случайное или непреднамеренное нажатие кнопки приводит к списанию денег",
+  "obs": 1
+ },
+ {
+  "id": "billing-continues-after-uninstall",
+  "title": "После удаления приложения счета за подписку продолжают приходить, отмена изнутри не работает",
+  "obs": 1
+ },
+ {
+  "id": "fake-storage-full-paywall",
+  "title": "Приложение выдаёт ложную ошибку переполнения памяти и требует подписку для очистки места",
+  "obs": 1
+ },
+ {
+  "id": "hidden-free-tier-short-trial",
+  "title": "Заявленный бесплатный режим скрыт, а трёхдневный пробный период слишком короткий для оценки",
+  "obs": 1
+ },
+ {
+  "id": "ai-features-not-worth-cost",
+  "title": "AI-фильтры, бесплатные десять лет назад, теперь требуют дорогую подписку и работают не лучше ручной обработки",
+  "obs": 1
+ },
+ {
+  "id": "limited-free-projects",
+  "title": "Перед требованием оплаты разрешено создать всего три работы — мало для знакомства с приложением",
+  "obs": 1
+ },
+ {
+  "id": "sub-limits-not-disclosed",
+  "title": "Об ограничениях годовой подписки (например, число фонов) не предупреждают до покупки",
+  "obs": 1
+ },
+ {
+  "id": "core-edit-tools-require-sub",
+  "title": "Базовые правки для разовых задач (текст, фон) заперты за подпиской, отсекая случайных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "removed-body-shaping-tool",
+  "title": "Разработчик убрал популярный инструмент коррекции силуэта, не предложив замены",
+  "obs": 1
+ },
+ {
+  "id": "ai-pivot-displaced-tools",
+  "title": "Приложение переориентировали на AI-генерацию, вытеснив традиционные инструменты редактирования",
+  "obs": 1
+ },
+ {
+  "id": "weak-ai-image-generation",
+  "title": "Генерация изображений даёт мало разнообразия и низкое качество визуалов",
+  "obs": 1
+ },
+ {
+  "id": "lack-of-diverse-faces",
+  "title": "Набор причёсок и черт лица не отражает разнообразие внешности пользователей",
+  "obs": 1
+ },
+ {
+  "id": "limited-instagram-templates",
+  "title": "Мало шаблонов для раздельных композиций в Instagram под реальные нужды",
+  "obs": 1
+ },
+ {
+  "id": "mixed-quality-template-library",
+  "title": "Библиотека работ мешает любительские и профессиональные шаблоны, качественные найти трудно",
+  "obs": 1
+ },
+ {
+  "id": "ai-erase-only-flat-bg",
+  "title": "Инструмент AI-стирания работает только на плоском фоне, в реальных сценариях бесполезен",
+  "obs": 1
+ },
+ {
+  "id": "remove-brush-leaves-artifacts",
+  "title": "Премиум-кисть удаления объектов оставляет артефакты или лишь снижает непрозрачность вместо стирания",
+  "obs": 1
+ },
+ {
+  "id": "soundtrack-switches-on-photo-add",
+  "title": "При добавлении фото к видео музыка переключается на ранее использованный трек, ломая проект",
+  "obs": 1
+ },
+ {
+  "id": "back-button-loses-project",
+  "title": "Нажатие «назад» в многослойном проекте теряет всю работу без восстановления",
+  "obs": 1
+ },
+ {
+  "id": "search-whitescreen",
+  "title": "Экран белеет при поиске и загрузке картинок по названию, блокируя составление коллажей",
+  "obs": 1
+ },
+ {
+  "id": "complex-navigation-many-clicks",
+  "title": "Интерфейс запутан, простые операции требуют много кликов",
+  "obs": 1
+ },
+ {
+  "id": "slow-photo-import",
+  "title": "Загрузка фото из галереи занимает непропорционально долго, замедляя старт работы",
+  "obs": 1
+ },
+ {
+  "id": "cannot-save-to-camera-roll",
+  "title": "Отредактированное изображение не сохраняется обратно в фотобиблиотеку телефона",
+  "obs": 1
+ },
+ {
+  "id": "repeated-rating-prompts",
+  "title": "Приложение часто просит оценку прямо во время активного редактирования, прерывая работу",
+  "obs": 1
+ },
+ {
+  "id": "repeated-permission-prompts",
+  "title": "Приложение повторно запрашивает одно и то же разрешение, не запоминая выбор между сеансами",
+  "obs": 1
+ },
+ {
+  "id": "aggressive-upsell-on-launch",
+  "title": "При первом запуске агрессивно навязывают премиум, создавая впечатление обязательности оплаты",
+  "obs": 1
+ },
+ {
+  "id": "false-no-internet-error",
+  "title": "Приложение ложно сообщает об отсутствии интернета при рабочем соединении, блокируя функции",
+  "obs": 1
+ },
+ {
+  "id": "edit-load-error",
+  "title": "При попытке редактирования постоянно выдаётся ошибка загрузки, делая основной сценарий невозможным",
+  "obs": 1
+ },
+ {
+  "id": "video-edit-crashes",
+  "title": "Редактор видео зависает несмотря на оплаченную подписку, тогда как фоторедактор работает стабильно",
+  "obs": 1
+ },
+ {
+  "id": "drawing-tool-buggy",
+  "title": "Раздел рисования содержит постоянные баги при активном использовании",
+  "obs": 1
+ },
+ {
+  "id": "bg-blur-edge-broken",
+  "title": "Размытие фона годами неправильно сглаживает края и требует исправления",
+  "obs": 1
+ },
+ {
+  "id": "reinstall-icloud-painful",
+  "title": "Переустановка требует перезагрузки устройства и многократной загрузки из iCloud, превращаясь в мучение",
+  "obs": 1
+ },
+ {
+  "id": "login-methods-fail",
+  "title": "Вход не работает ни одним из предложенных способов аутентификации",
+  "obs": 1
+ },
+ {
+  "id": "children-images-in-ads",
+  "title": "В рекламе используются изображения детей без явного согласия, вызывая правовые и моральные вопросы",
+  "obs": 1
+ }
+]

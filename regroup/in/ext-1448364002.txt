@@ -1,0 +1,169 @@
+You are grouping 24 mechanism-level insight clusters from Daily Astrology Horoscope (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Daily Astrology Horoscope, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 24 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Daily Astrology Horoscope — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Daily Astrology Horoscope>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1448364002.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "accidental-charge-no-confirm",
+  "title": "Кнопка покупки списывает деньги сразу без диалога подтверждения — случайный клик стоит полной суммы",
+  "obs": 6
+ },
+ {
+  "id": "cancel-shows-success-charges-continue",
+  "title": "Отмена в приложении показывает статус «отменено», но платежи продолжаются",
+  "obs": 6
+ },
+ {
+  "id": "cancel-multi-step-dark-pattern",
+  "title": "Процесс отмены состоит из множества экранов-предупреждений — пользователь думает, что отменил, но платежи продолжаются",
+  "obs": 4
+ },
+ {
+  "id": "cancel-unclear-no-info",
+  "title": "В приложении нет инструкции по отмене подписки — стандартная опция iOS тоже не помогает",
+  "obs": 4
+ },
+ {
+  "id": "daily-advice-personalized",
+  "title": "Ежедневные советы ощущаются персонализированными и совпадают с конкретной ситуацией пользователя",
+  "obs": 4
+ },
+ {
+  "id": "cancel-hidden-email-step",
+  "title": "Для остановки платежей нужен дополнительный шаг по электронной почте — приложение об этом не сообщает",
+  "obs": 3
+ },
+ {
+  "id": "cancel-requires-support-escalation",
+  "title": "Реальная отмена подписки происходит только после эскалации в поддержку — самостоятельно отменить невозможно",
+  "obs": 3
+ },
+ {
+  "id": "trial-price-hidden",
+  "title": "Цена триала в рекламе не совпадает с фактической — при покупке списывается полная сумма без предупреждения",
+  "obs": 2
+ },
+ {
+  "id": "advisor-timer-forces-payment",
+  "title": "Таймер сессии с советником истекает до получения ответа — нужно платить за продление, чтобы получить результат",
+  "obs": 2
+ },
+ {
+  "id": "web-subscription-no-app-cancel",
+  "title": "Подписка через веб-сайт не отменяется внутри iOS-приложения — каналы оплаты разделены",
+  "obs": 2
+ },
+ {
+  "id": "upgrade-breaks-access",
+  "title": "При переходе на скидочный план или смене тарифа оригинальная подписка аннулируется — пользователь теряет оплаченный доступ",
+  "obs": 2
+ },
+ {
+  "id": "double-charge",
+  "title": "За одну покупку списывается двойная сумма — разрешить можно только через банк, не через поддержку",
+  "obs": 2
+ },
+ {
+  "id": "lunar-phase-planning",
+  "title": "Гайды по лунным фазам достаточно конкретны для ежедневного планирования важных дел",
+  "obs": 2
+ },
+ {
+  "id": "birth-chart-self-diagnosis",
+  "title": "Натальная карта помогает диагностировать паттерны коммуникации и эмоциональные закономерности в отношениях",
+  "obs": 2
+ },
+ {
+  "id": "fake-free-trial",
+  "title": "«Бесплатный триал» требует покупки монет для продолжения — без доплаты триал невозможен",
+  "obs": 1
+ },
+ {
+  "id": "purchase-no-access",
+  "title": "После покупки годовой подписки контент недоступен — восстановление покупки и переустановка не помогают",
+  "obs": 1
+ },
+ {
+  "id": "content-not-delivered",
+  "title": "Заявленный основной контент в приложении отсутствует — вместо него предлагается бесплатный ИИ-чат",
+  "obs": 1
+ },
+ {
+  "id": "auto-subscribe-on-any-transaction",
+  "title": "Любая транзакция автоматически подписывает на план — явного согласия на конкретный тариф нет",
+  "obs": 1
+ },
+ {
+  "id": "palm-scan-button-overlap",
+  "title": "Кнопка в функции сканирования ладони перекрывается рукой пользователя — нажать на неё физически неудобно",
+  "obs": 1
+ },
+ {
+  "id": "navigation-quick-vs-deep",
+  "title": "Интерфейс позволяет легко переключаться между кратким гороскопом и подробным гайдом без перегрузки",
+  "obs": 1
+ },
+ {
+  "id": "biorhythm-planning",
+  "title": "Функция биоритмов используется для активного планирования важных дней по уровню энергии",
+  "obs": 1
+ },
+ {
+  "id": "astrocartography-location-decisions",
+  "title": "Диаграмма астрокартографии объясняет эмоциональный дискомфорт в конкретных местах и влияет на крупные жизненные решения",
+  "obs": 1
+ },
+ {
+  "id": "daily-emotional-checkin",
+  "title": "Приложение используется как ежедневная эмоциональная проверка состояния — элемент психической гигиены",
+  "obs": 1
+ },
+ {
+  "id": "stress-prevention-guidance",
+  "title": "Раздел предупреждений используется для превентивного планирования и избегания стресса",
+  "obs": 1
+ }
+]

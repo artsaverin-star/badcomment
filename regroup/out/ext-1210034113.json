@@ -1,0 +1,83 @@
+{
+  "groups": [
+    {
+      "id": "paywall-traps",
+      "name": "Платная стена в середине работы: скрытые лимиты и подмена модели",
+      "insight_ids": [
+        "hidden-free-quota",
+        "paywall-after-workflow",
+        "store-description-mismatch",
+        "share-email-behind-paywall",
+        "model-change-no-migration",
+        "export-save-behind-paywall",
+        "page-limit-hidden",
+        "org-deployment-licensing-shock",
+        "tts-degraded-to-force-payment",
+        "accidental-subscription"
+      ]
+    },
+    {
+      "id": "real-workflows",
+      "name": "Где сканер реально живёт: стройка, учёба, замена железного сканера",
+      "insight_ids": [
+        "construction-site-usecase",
+        "free-tier-retention-driver",
+        "multipage-pdf-differentiator",
+        "student-academic-usecase",
+        "mobile-vs-physical-scanner",
+        "job-search-document-prep",
+        "niche-physical-project-archive"
+      ]
+    },
+    {
+      "id": "pro-license-broken",
+      "name": "Pro куплен, но не распознаётся: повторные списания и потерянная лицензия",
+      "insight_ids": [
+        "lifetime-license-not-restored",
+        "repeated-pro-restore-prompt",
+        "double-billing-confusion",
+        "share-not-available-after-pro",
+        "long-term-pro-user-trust"
+      ]
+    },
+    {
+      "id": "scan-quality",
+      "name": "Качество распознавания страницы: углы, границы, чистый «сканированный» вид",
+      "insight_ids": [
+        "auto-scan-corner-distortion",
+        "multi-page-detection-fails",
+        "auto-crop-clean-output",
+        "photo-cleanup-request",
+        "bulk-photo-compression-tradeoff"
+      ]
+    },
+    {
+      "id": "editing-library-controls",
+      "name": "Чего не хватает при сборке PDF: порядок страниц, массовый выбор, поиск, настройки",
+      "insight_ids": [
+        "no-page-reorder",
+        "no-select-all-batch",
+        "no-library-search",
+        "flash-preference-not-saved"
+      ]
+    },
+    {
+      "id": "files-stuck-inside",
+      "name": "Файл не вынуть наружу: сохранение, отправка и метаданные ломаются",
+      "insight_ids": [
+        "save-share-ios-unavailable",
+        "large-file-send-fails",
+        "email-no-timestamp-metadata"
+      ]
+    },
+    {
+      "id": "data-loss-platform-gaps",
+      "name": "Потеря архива и дыры платформы: нет бэкапа, нет iPad, не работает поддержка",
+      "insight_ids": [
+        "no-cloud-backup",
+        "ipad-not-supported",
+        "support-button-broken"
+      ]
+    }
+  ]
+}

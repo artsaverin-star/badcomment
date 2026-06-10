@@ -1,0 +1,159 @@
+You are grouping 22 mechanism-level insight clusters from Free VPN by Free VPN .org™ (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Free VPN by Free VPN .org™, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 22 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Free VPN by Free VPN .org™ — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Free VPN by Free VPN .org™>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1050171910.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "reliability-connection-failure",
+  "title": "VPN подключается лишь в малой доле попыток — большинство попыток заканчиваются отказом",
+  "obs": 6
+ },
+ {
+  "id": "reliability-ad-watch-no-connect",
+  "title": "После просмотра множества объявлений VPN всё равно не подключается",
+  "obs": 4
+ },
+ {
+  "id": "payment-unexpected-charge",
+  "title": "После пробного периода приложение начинает списывать деньги автоматически — служба поддержки отказывает в возврате",
+  "obs": 3
+ },
+ {
+  "id": "reliability-disconnect-mid-use",
+  "title": "VPN самопроизвольно обрывает соединение во время активного использования, в том числе при просмотре видео",
+  "obs": 3
+ },
+ {
+  "id": "reliability-russia-stopped-working",
+  "title": "VPN перестал работать в России — ни один из доступных регионов не помогает",
+  "obs": 2
+ },
+ {
+  "id": "payment-subscription-not-activate",
+  "title": "После оплаты подписка Premium не активируется в приложении — повторная покупка невозможна, система сообщает что подписка уже куплена",
+  "obs": 1
+ },
+ {
+  "id": "payment-disguised-as-free",
+  "title": "Приложение позиционируется как бесплатное, но при первом использовании сразу требует оплату",
+  "obs": 1
+ },
+ {
+  "id": "payment-iran-no-card",
+  "title": "В Иране банковские карты не принимаются — оплатить подписку невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ui-ad-close-button-mishit",
+  "title": "Кнопка закрытия объявления расположена слишком близко к кнопке покупки Premium — случайные нажатия на платную кнопку",
+  "obs": 1
+ },
+ {
+  "id": "ui-ad-no-swipe",
+  "title": "Объявления нельзя закрыть свайпом или крестиком — навигация между ними неудобна",
+  "obs": 1
+ },
+ {
+  "id": "ui-ad-reward-slashed",
+  "title": "Награда за просмотр видеообъявлений резко снизилась: раньше 6 видео давали час, теперь 4 видео дают одну минуту",
+  "obs": 1
+ },
+ {
+  "id": "ui-ad-viewer-broken",
+  "title": "Функция просмотра видеообъявлений перестала работать после переустановки приложения",
+  "obs": 1
+ },
+ {
+  "id": "ui-ad-long-wait",
+  "title": "Бесплатный режим требует просмотра 12 объявлений за 24 часа доступа, и между объявлениями долгое ожидание",
+  "obs": 1
+ },
+ {
+  "id": "reliability-regression-new-version",
+  "title": "После обновления приложения успешное подключение стало возможным лишь в 1-2% попыток — раньше работало нормально",
+  "obs": 1
+ },
+ {
+  "id": "reliability-server-rotation-required",
+  "title": "Для подключения приходится вручную перебирать более 10 серверов и регионов, и даже тогда большинство сайтов не открываются",
+  "obs": 1
+ },
+ {
+  "id": "reliability-slow-speed",
+  "title": "Скорость соединения настолько низкая, что отправка одного сообщения занимает час",
+  "obs": 1
+ },
+ {
+  "id": "reliability-slow-app-load",
+  "title": "Само приложение запускается очень медленно, несмотря на короткую длительность объявлений",
+  "obs": 1
+ },
+ {
+  "id": "strategy-iran-effective",
+  "title": "Приложение особенно востребовано в Иране как инструмент обхода блокировок",
+  "obs": 1
+ },
+ {
+  "id": "strategy-iran-filter-shaker-gap",
+  "title": "Фильтр-шейкер не работает в Иране — конкуренты с этой задачей справляются лучше",
+  "obs": 1
+ },
+ {
+  "id": "strategy-ip-leak-risk",
+  "title": "При обрыве VPN-соединения реальный IP пользователя утекает в социальные приложения, что ставит под угрозу аккаунт",
+  "obs": 1
+ },
+ {
+  "id": "strategy-traffic-interception-risk",
+  "title": "Двухфакторный код пришёл через фишинговый сервис — возможна перехватка или логирование трафика VPN",
+  "obs": 1
+ },
+ {
+  "id": "strategy-fake-reviews-suspicion",
+  "title": "Пользователи подозревают, что положительные отзывы накручены ботами, а само приложение может содержать вредоносное ПО",
+  "obs": 1
+ }
+]

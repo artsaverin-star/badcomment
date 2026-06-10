@@ -1,0 +1,128 @@
+{
+ "groups": [
+  {
+   "id": "app-connectivity-crashes",
+   "name": "Приложение не слушается: потери соединения, зависания и падения",
+   "insight_ids": [
+    "app-device-connection-unstable",
+    "app-loading-too-slow",
+    "app-crashes-frequently",
+    "app-breaks-after-update",
+    "forced-update-before-use",
+    "firmware-update-hangs",
+    "login-broken-blocks-device",
+    "password-reset-broken",
+    "app-quality-not-improved-years",
+    "app-battery-drain",
+    "rolling-update-no-docs"
+   ]
+  },
+  {
+   "id": "alarm-schedule-failures",
+   "name": "Будильник и расписание — главная функция, которая ломается",
+   "insight_ids": [
+    "alarm-save-fails-repeatedly",
+    "alarm-not-firing-reliably",
+    "deleted-alarm-keeps-firing",
+    "no-skip-alarm-one-day",
+    "alarm-duration-not-configurable",
+    "alarm-fields-interfere",
+    "dst-timezone-alarm-wrong",
+    "no-alarm-snooze-duration",
+    "sunrise-disabled-at-alarm"
+   ]
+  },
+  {
+   "id": "subscription-paywall-aggression",
+   "name": "Подписочная ловушка: замки везде, деньги списываются без согласия",
+   "insight_ids": [
+    "90-percent-sounds-behind-paywall",
+    "subscription-content-too-limited",
+    "mandatory-trial-credit-card",
+    "free-features-moved-to-paywall",
+    "expensive-device-app-quality-mismatch",
+    "basic-alarm-requires-subscription",
+    "content-monetization-erodes-trust",
+    "upsell-locks-clutter-ui",
+    "cancel-subscription-blocked",
+    "unauthorized-subscription-charge",
+    "editing-locked-after-cancel",
+    "onboarding-blocked-on-subscription"
+   ]
+  },
+  {
+   "id": "device-cloud-dependency",
+   "name": "Железо без кнопок: устройство умирает вместе с облаком или приложением",
+   "insight_ids": [
+    "device-fully-app-dependent",
+    "no-offline-mode",
+    "server-outage-blocks-alarm",
+    "hardware-failure",
+    "second-gen-worse-than-first",
+    "no-power-restore-schedule",
+    "first-pairing-fails",
+    "two-devices-switching-broken",
+    "delete-device-requires-support",
+    "app-size-excessive"
+   ]
+  },
+  {
+   "id": "sound-routine-ux-friction",
+   "name": "Звук и рутина — слишком много шагов для простого действия",
+   "insight_ids": [
+    "sound-stops-mid-night",
+    "volume-slider-imprecise",
+    "inconsistent-audio-volume",
+    "volume-jump-between-segments",
+    "routine-schedule-system-confusing",
+    "mandatory-routine-for-single-sound",
+    "light-control-requires-routine",
+    "no-continuous-story-playlist",
+    "routine-stops-on-edit",
+    "cannot-edit-routine-while-running",
+    "sound-search-broken",
+    "no-gradual-volume-fade",
+    "no-timer-display",
+    "mandatory-sleep-step-in-routine",
+    "saved-data-wiped",
+    "sound-quality-degrading",
+    "sound-library-deleted-or-replaced",
+    "childrens-stories-not-calming",
+    "playlist-single-song-loop",
+    "tap-ring-programming-fiddly",
+    "content-locked-to-device-model",
+    "sleep-advice-contradicts-science",
+    "onboarding-personal-data-required"
+   ]
+  },
+  {
+   "id": "interface-navigation-bugs",
+   "name": "Интерфейс мешает: кнопки не там, ИИ вместо управления, устаревший дизайн",
+   "insight_ids": [
+    "three-dots-button-triggers-routine",
+    "widget-broken",
+    "main-control-buried-by-ai",
+    "interface-outdated",
+    "swipe-gesture-accidental-hit",
+    "settings-buried-deep",
+    "sleep-tracking-broken",
+    "app-requires-account-no-reason",
+    "no-voice-control",
+    "multi-user-not-supported",
+    "device-plays-wrong-sound",
+    "screen-too-bright-minimum"
+   ]
+  },
+  {
+   "id": "ecosystem-support-gaps",
+   "name": "Умный дом, поддержка и совместимость — где Hatch не достаёт",
+   "insight_ids": [
+    "smart-home-integration-missing",
+    "no-bluetooth-airplay-streaming",
+    "support-ignores-refunds",
+    "chatbot-wrong-instructions",
+    "no-live-support"
+   ]
+  }
+ ]
+}

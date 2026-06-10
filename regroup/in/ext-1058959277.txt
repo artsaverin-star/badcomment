@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from Uber Eats: Food & Groceries (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Uber Eats: Food & Groceries, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Uber Eats: Food & Groceries — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Uber Eats: Food & Groceries>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1058959277.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "refund-denied-with-evidence",
+  "title": "Служба поддержки отклоняет обоснованные требования возврата даже при наличии фотодоказательств",
+  "obs": 15
+ },
+ {
+  "id": "no-human-agent-access",
+  "title": "Система поддержки не даёт доступа к живому агенту — только чатбот с фиксированными вариантами",
+  "obs": 9
+ },
+ {
+  "id": "driver-theft-false-delivery",
+  "title": "Водитель забирает заказ или заявляет ложную доставку — рефунд не выдаётся, служба не реагирует",
+  "obs": 9
+ },
+ {
+  "id": "cancel-edit-locked",
+  "title": "Заказ нельзя отменить или изменить адрес даже в первые секунды после оформления",
+  "obs": 8
+ },
+ {
+  "id": "cancellation-fee-platform-fault",
+  "title": "Комиссия за отмену взимается даже когда задержку или ошибку вызвала сама платформа",
+  "obs": 6
+ },
+ {
+  "id": "hidden-fees-checkout",
+  "title": "Комиссии за доставку, сервис и налоги скрыты и раскрываются только в момент подтверждения заказа",
+  "obs": 5
+ },
+ {
+  "id": "double-charge",
+  "title": "За один заказ списывается двойная сумма, счёт уходит в минус и появляются комиссии овердрафта",
+  "obs": 5
+ },
+ {
+  "id": "uber-one-no-real-discount",
+  "title": "Uber One не снижает реальную итоговую стоимость — другие комиссии компенсируют скидку на доставку",
+  "obs": 5
+ },
+ {
+  "id": "eta-grows-after-confirm",
+  "title": "Расчётное время доставки растёт после подтверждения заказа и остаётся непредсказуемым",
+  "obs": 5
+ },
+ {
+  "id": "promised-refund-never-arrives",
+  "title": "Рефунд обещан в чате, но на счёт поступает частичная сумма или не поступает вовсе",
+  "obs": 5
+ },
+ {
+  "id": "agents-close-chat-no-resolution",
+  "title": "Агенты поддержки закрывают чат без решения и игнорируют просьбы о переводе к супервизору",
+  "obs": 4
+ },
+ {
+  "id": "driver-stacking-delays",
+  "title": "Водители принимают несколько заказов подряд — еда остывает, опоздание достигает 1,5 часа",
+  "obs": 4
+ },
+ {
+  "id": "promo-code-fails",
+  "title": "Промо-коды не применяются или меняются в процессе оформления заказа",
+  "obs": 3
+ },
+ {
+  "id": "promo-credit-not-credited",
+  "title": "Обещанный промо-кредит не зачисляется или блокируется после выполнения условий акции",
+  "obs": 3
+ },
+ {
+  "id": "unauthorized-subscription-charge",
+  "title": "Подписка Uber One списывается ежемесячно без явного согласия пользователя",
+  "obs": 3
+ },
+ {
+  "id": "gift-card-blocked-or-capped",
+  "title": "Подарочная карта заблокирована в системе или расходуется по 5 долларов за заказ вместо полного баланса",
+  "obs": 3
+ },
+ {
+  "id": "payment-methods-inactive",
+  "title": "Платёжные методы отображаются на чекауте, но недоступны для выбора или не принимаются",
+  "obs": 3
+ },
+ {
+  "id": "map-wrong-address",
+  "title": "Карта в приложении направляет водителей к соседнему зданию, а не к указанному адресу",
+  "obs": 3
+ },
+ {
+  "id": "app-crash-address",
+  "title": "Сбой приложения подставляет неверный адрес доставки, после чего изменение блокируется",
+  "obs": 3
+ },
+ {
+  "id": "missing-items-systematic",
+  "title": "Позиции систематически пропускаются или заменяются — проблема повторяется при каждом заказе",
+  "obs": 3
+ },
+ {
+  "id": "support-requires-screenshots-unavailable",
+  "title": "Поддержка требует скриншоты оригинального заказа, которые приложение не хранит",
+  "obs": 3
+ },
+ {
+  "id": "convenience-use-cases",
+  "title": "Приложение незаменимо для доставки в офис, в поздние часы и в период переезда",
+  "obs": 3
+ },
+ {
+  "id": "price-inflates-after-confirm",
+  "title": "Итоговая сумма заказа вырастает на 8–11 долларов после подтверждения без объяснений",
+  "obs": 2
+ },
+ {
+  "id": "dark-patterns-checkout",
+  "title": "Тёмные паттерны при оформлении: поп-ап Uber One воспринимается как кнопка отмены заказа",
+  "obs": 2
+ },
+ {
+  "id": "popups-every-open",
+  "title": "Всплывающие окна появляются при каждом открытии приложения и перекрывают контент",
+  "obs": 2
+ },
+ {
+  "id": "orders-auto-cancelled",
+  "title": "Заказы самопроизвольно отменяются платформой — клиент заряжен, еда не получена, рефунд не выдан",
+  "obs": 2
+ },
+ {
+  "id": "ai-chat-technical-error",
+  "title": "AI-чатбот поддержки сразу выдаёт техническую ошибку при попытке описать проблему",
+  "obs": 2
+ },
+ {
+  "id": "chatbot-closes-on-refusal",
+  "title": "Чатбот закрывает диалог, если пользователь не выбирает предложенный вариант (скидка или отмена)",
+  "obs": 2
+ },
+ {
+  "id": "async-support-mismatch",
+  "title": "Поддержка требует мгновенного ответа от клиента, сама отвечает часами — процесс неудобен",
+  "obs": 2
+ },
+ {
+  "id": "restaurant-price-markup",
+  "title": "Рестораны ставят завышенные цены специально для платформы, а рекламируемые скидки лишь отражают реальную цену",
+  "obs": 2
+ },
+ {
+  "id": "free-trial-charges-full",
+  "title": "При оформлении триал показывает $0, но сразу списывается полная стоимость подписки",
+  "obs": 1
+ },
+ {
+  "id": "subscription-cancel-hidden",
+  "title": "Интерфейс не предоставляет очевидного пути отмены подписки",
+  "obs": 1
+ },
+ {
+  "id": "tip-locked",
+  "title": "Сумму чаевых нельзя уменьшить после оформления — только добавить",
+  "obs": 1
+ },
+ {
+  "id": "charges-mismatch-bank",
+  "title": "История транзакций в приложении не совпадает с банковскими выписками — комиссии не поддаются расшифровке",
+  "obs": 1
+ },
+ {
+  "id": "ads-in-paid-subscription",
+  "title": "Платные подписчики Uber One видят рекламу внутри приложения",
+  "obs": 1
+ },
+ {
+  "id": "closed-restaurants-in-search",
+  "title": "Закрытые или недоступные рестораны отображаются в поиске без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "sponsored-suppress-relevant",
+  "title": "Спонсированные позиции вытесняют релевантные результаты поиска ресторанов",
+  "obs": 1
+ },
+ {
+  "id": "no-favorites-section",
+  "title": "Нет отдельного раздела для избранных ресторанов — пользователь ищет их каждый раз заново",
+  "obs": 1
+ },
+ {
+  "id": "no-dark-mode",
+  "title": "Нет тёмного режима — приложение недоступно для пользователей с фотосенсибильностью",
+  "obs": 1
+ },
+ {
+  "id": "notification-hidden-on-open",
+  "title": "Уведомление о доставке скрывается за диалогами при открытии приложения и не находится позже",
+  "obs": 1
+ },
+ {
+  "id": "distance-sort-broken",
+  "title": "Сортировка ресторанов по расстоянию перестала работать после обновления",
+  "obs": 1
+ },
+ {
+  "id": "ipad-screen-cut",
+  "title": "Нижняя часть экрана обрезается на iPad — невозможно добавить позицию или пройти чекаут",
+  "obs": 1
+ },
+ {
+  "id": "driver-rerouted-mid-delivery",
+  "title": "Платформа назначает водителю новый маршрут в последние минуты доставки текущего заказа",
+  "obs": 1
+ },
+ {
+  "id": "photo-upload-broken",
+  "title": "Загрузка фотографий через приложение не работает — невозможно подтвердить жалобу",
+  "obs": 1
+ },
+ {
+  "id": "robot-stuck",
+  "title": "Робот-доставщик застревает, поддержка не может переназначить курьера или отменить заказ",
+  "obs": 1
+ },
+ {
+  "id": "specialist-callback-never-comes",
+  "title": "Поддержка обещает звонок специалиста через 6–12 часов, но он не поступает и неделю спустя",
+  "obs": 1
+ },
+ {
+  "id": "tos-changed-refund-denied",
+  "title": "Условия обслуживания меняются после покупки, и служба отказывает в возврате за неправильную рекламу",
+  "obs": 1
+ },
+ {
+  "id": "family-accounts-blocked",
+  "title": "При попытке нескольких членов семьи создать аккаунты все они блокируются без объяснений",
+  "obs": 1
+ },
+ {
+  "id": "platform-only-delivery-channel",
+  "title": "Uber Eats — единственный способ получить доставку из ресторанов без собственной курьерской службы",
+  "obs": 1
+ },
+ {
+  "id": "uber-eats-shows-restaurant-promos",
+  "title": "Uber Eats отображает текущие акции ресторанов (McDonald's), тогда как конкуренты этого не делают",
+  "obs": 1
+ },
+ {
+  "id": "promos-as-budget-tool",
+  "title": "Промо-коды и скидки служат основным инструментом ценовой доступности для бюджетных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "platform-degradation-fees",
+  "title": "Комиссии за доставку выросли настолько, что малые заказы стали экономически невыгодными",
+  "obs": 1
+ }
+]

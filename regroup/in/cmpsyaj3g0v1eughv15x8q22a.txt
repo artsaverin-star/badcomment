@@ -1,0 +1,209 @@
+You are grouping 32 mechanism-level insight clusters from Astra - Life Advice (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Astra - Life Advice, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 32 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Astra - Life Advice — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Astra - Life Advice>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyaj3g0v1eughv15x8q22a.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paywall-no-close-button",
+  "title": "При входе в приложение появляется экран подписки без кнопки закрытия — пользователь не может получить доступ к функциям",
+  "obs": 12
+ },
+ {
+  "id": "ai-truncates-responses",
+  "title": "ИИ обрывает ответ на середине предложения и требует дополнительного запроса для продолжения — это происходит постоянно",
+  "obs": 10
+ },
+ {
+  "id": "ai-generic-shallow-advice",
+  "title": "ИИ даёт поверхностные общие советы, которые не отличаются от бесплатного ChatGPT с загруженной картой",
+  "obs": 7
+ },
+ {
+  "id": "ai-wrong-astrological-facts",
+  "title": "ИИ допускает фактические ошибки в базовых астрологических расчётах — неверно определяет дома, транзиты и восходящий знак",
+  "obs": 6
+ },
+ {
+  "id": "freemium-to-paid-shift",
+  "title": "Приложение без предупреждения перешло с бесплатной модели на полностью платную, лишив существующих пользователей доступа",
+  "obs": 5
+ },
+ {
+  "id": "no-preview-before-payment",
+  "title": "Приложение не позволяет увидеть ни одну функцию до оформления подписки — нет возможности оценить ценность",
+  "obs": 5
+ },
+ {
+  "id": "ai-freezes-mid-conversation",
+  "title": "ИИ зависает во время диалога и не может возобновить разговор с того же места — нужен полный перезапуск",
+  "obs": 4
+ },
+ {
+  "id": "onboarding-freeze",
+  "title": "Приложение зависает на экране настройки при вводе данных рождения и не позволяет завершить первоначальную настройку",
+  "obs": 4
+ },
+ {
+  "id": "data-bait-then-paywall",
+  "title": "Приложение собирает персональные данные при регистрации, а затем показывает платежный экран — данные используются как приманка",
+  "obs": 3
+ },
+ {
+  "id": "marketing-hides-payment",
+  "title": "Реклама и описание в магазине приложений скрывают обязательный платеж — пользователь узнаёт об этом только после установки",
+  "obs": 3
+ },
+ {
+  "id": "trial-blocked-shortened",
+  "title": "Обещанный бесплатный пробный период недоступен или короче заявленного — пройти его невозможно",
+  "obs": 3
+ },
+ {
+  "id": "app-black-screen",
+  "title": "При открытии приложение показывает чёрный экран и не реагирует на действия пользователя",
+  "obs": 3
+ },
+ {
+  "id": "soulmate-drawing-broken",
+  "title": "Функция рисования силуэта партнёра генерирует копию самого пользователя или случайных людей вместо уникального результата",
+  "obs": 3
+ },
+ {
+  "id": "advertised-feature-removed-after-purchase",
+  "title": "Функция, анонсированная в рекламе, удалена или недоступна после оформления платной подписки",
+  "obs": 2
+ },
+ {
+  "id": "app-broken-after-payment",
+  "title": "После оплаты подписки приложение несколько дней показывает только ошибки и недоступно для использования",
+  "obs": 2
+ },
+ {
+  "id": "data-lost-after-update",
+  "title": "После обновления приложение не сохраняет ранее введённые данные и требует повторного ввода при каждом открытии",
+  "obs": 2
+ },
+ {
+  "id": "ai-loses-context-between-sessions",
+  "title": "ИИ не запоминает контекст разговора между сессиями и при переключении вкладок — весь прогресс диалога теряется",
+  "obs": 2
+ },
+ {
+  "id": "ai-fabricates-people",
+  "title": "ИИ придумывает имена несуществующих людей и приписывает данные из других сессий текущему пользователю",
+  "obs": 2
+ },
+ {
+  "id": "confusing-pricing-tiers",
+  "title": "Приложение одновременно показывает несколько разных цен на подписку без объяснения различий между тарифами",
+  "obs": 1
+ },
+ {
+  "id": "daily-horoscope-broken",
+  "title": "Функция ежедневного гороскопа не работает должным образом",
+  "obs": 1
+ },
+ {
+  "id": "wrong-app-update-link",
+  "title": "Ссылка на обновление приложения ведёт на совершенно другое приложение из магазина",
+  "obs": 1
+ },
+ {
+  "id": "login-failure-during-onboarding",
+  "title": "Пользователь не может войти в приложение — экран настройки зависает или не проходит авторизация в пробный период",
+  "obs": 1
+ },
+ {
+  "id": "no-conversation-history",
+  "title": "В разделе вопросов нет функции сохранения и архивирования диалогов — информация теряется после закрытия",
+  "obs": 1
+ },
+ {
+  "id": "tarot-quality-degraded-after-update",
+  "title": "После обновления раздел Таро даёт менее подробный и менее точный анализ, чем раньше",
+  "obs": 1
+ },
+ {
+  "id": "ai-wrong-dates-predictions",
+  "title": "ИИ называет неправильные даты для астрологических событий и не предупреждает, что прогнозы неточны",
+  "obs": 1
+ },
+ {
+  "id": "ai-argues-when-corrected",
+  "title": "ИИ спорит с пользователем, когда тот указывает на ошибки в астрологической карте, вместо того чтобы исправиться",
+  "obs": 1
+ },
+ {
+  "id": "ai-sycophantic",
+  "title": "ИИ говорит пользователю то, что тот хочет услышать, а не честные инсайты — как настоящий астролог",
+  "obs": 1
+ },
+ {
+  "id": "ai-fragile-to-phrasing",
+  "title": "ИИ даёт противоречивые ответы при малейшем изменении формулировки вопроса",
+  "obs": 1
+ },
+ {
+  "id": "ai-ignores-user-feedback",
+  "title": "ИИ игнорирует явные возражения и пожелания пользователя — продолжает давать те же рекомендации несмотря на повторные коррекции",
+  "obs": 1
+ },
+ {
+  "id": "ai-negative-loops",
+  "title": "ИИ повторно возвращается к негативным темам и требует напоминаний, создавая ощущение психологического давления",
+  "obs": 1
+ },
+ {
+  "id": "manipulative-push-notifications",
+  "title": "Приложение отправляет тревожные расплывчатые уведомления, чтобы вынудить пользователя открыть приложение",
+  "obs": 1
+ },
+ {
+  "id": "privacy-unsolicited-personal-data",
+  "title": "Приложение упоминает в уведомлении имя человека, которое пользователь никогда не вводил — возможен несанкционированный доступ к данным",
+  "obs": 1
+ }
+]

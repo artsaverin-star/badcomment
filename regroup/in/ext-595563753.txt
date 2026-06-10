@@ -1,0 +1,119 @@
+You are grouping 14 mechanism-level insight clusters from Tiny Scanner - PDF Scanner App (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Tiny Scanner - PDF Scanner App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 14 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Tiny Scanner - PDF Scanner App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Tiny Scanner - PDF Scanner App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-595563753.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "autocrop-cuts-document-edges",
+  "title": "Автоматическое кадрирование непредсказуемо обрезает края документа — особенно критично для удостоверений и государственных бумаг",
+  "obs": 2
+ },
+ {
+  "id": "paid-sub-shows-free-mode",
+  "title": "После оплаты годовой подписки приложение продолжает отображать бесплатный режим и блокирует премиум-функции",
+  "obs": 1
+ },
+ {
+  "id": "cancel-sub-no-server-effect",
+  "title": "Отмена подписки через интерфейс приложения не останавливает списания — сервер продолжает взимать платёж",
+  "obs": 1
+ },
+ {
+  "id": "free-feature-locked-behind-paywall",
+  "title": "Ранее бесплатная отправка документа на почту теперь требует платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "sub-not-transferred-new-phone",
+  "title": "Подписка и сохранённые файлы не переносятся на новый телефон — пользователю приходится покупать заново",
+  "obs": 1
+ },
+ {
+  "id": "freemium-expectation-mismatch",
+  "title": "Пользователи ожидают полностью бесплатное приложение и разочарованы платными ограничениями",
+  "obs": 1
+ },
+ {
+  "id": "fullscreen-unskippable-ad",
+  "title": "Полноэкранная реклама со звуком появляется без возможности закрыть или пропустить",
+  "obs": 1
+ },
+ {
+  "id": "extra-steps-basic-scan",
+  "title": "Новые функции увеличили количество шагов для базового сканирования и усложнили интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "no-intrusive-ads-advantage",
+  "title": "Приложение не показывает рекламу каждые несколько минут — это выгодно отличает его от конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "update-corrupts-files-undeletable",
+  "title": "После обновления отсканированные файлы отображаются как пустые страницы и не поддаются удалению",
+  "obs": 1
+ },
+ {
+  "id": "update-deletes-all-files",
+  "title": "Обновление приложения полностью удаляет все сохранённые документы пользователя",
+  "obs": 1
+ },
+ {
+  "id": "files-lost-corrupted-no-recovery",
+  "title": "Приложение теряет или портит файлы во время длительных сессий — восстановить потерянные данные невозможно",
+  "obs": 1
+ },
+ {
+  "id": "slow-file-loading",
+  "title": "Сохранённые файлы и документы открываются медленно, что замедляет рабочий процесс",
+  "obs": 1
+ },
+ {
+  "id": "scan-quality-depends-on-lighting",
+  "title": "При плохом освещении на скане появляются тени, которые снижают качество итогового документа",
+  "obs": 1
+ }
+]

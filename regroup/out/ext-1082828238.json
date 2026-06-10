@@ -1,0 +1,99 @@
+{
+  "groups": [
+    {
+      "id": "vhod-bez-vhoda",
+      "name": "Вход, который не пускает: 2FA, пароли и вылеты из сессии",
+      "insight_ids": [
+        "2fa-required-every-action",
+        "app-session-expiry-frequent",
+        "account-required-barrier",
+        "2fa-code-not-arriving",
+        "login-invalid-password-false-error",
+        "password-reset-broken",
+        "password-change-unavailable",
+        "devices-lost-after-logout",
+        "login-enter-key-not-working",
+        "device-reconnect-after-new-phone"
+      ]
+    },
+    {
+      "id": "raspisanie-zhivet-svoey-zhiznyu",
+      "name": "Расписание живёт своей жизнью: закат, полночь и таймеры наоборот",
+      "insight_ids": [
+        "schedule-fires-wrong-time",
+        "schedule-no-turn-on",
+        "dusk-dawn-broken",
+        "schedule-toggle-bug",
+        "schedule-midnight-conflict",
+        "schedule-create-for-smart-plug-timeout"
+      ]
+    },
+    {
+      "id": "ustroystva-sryvayutsya",
+      "name": "Лампы срываются с сети: отключения, обновления и переподключения",
+      "insight_ids": [
+        "devices-disconnect-randomly",
+        "app-update-breaks-connection",
+        "device-pairing-fails-repeatedly",
+        "wifi-sync-fails-despite-good-signal",
+        "reconnect-after-power-loss",
+        "firmware-update-hangs",
+        "add-device-requires-app-restart"
+      ]
+    },
+    {
+      "id": "prilozhenie-zavisaet",
+      "name": "Зависает, падает, чёрный экран: приложение само по себе",
+      "insight_ids": [
+        "app-freezes-general",
+        "app-not-improved-years",
+        "app-crashes-on-settings",
+        "app-freezes-black-screen-after-move",
+        "server-not-found-error",
+        "camera-load-delay",
+        "trueimage-broken",
+        "ios-freeze-color-brightness",
+        "music-sync-requires-multiple-taps",
+        "bulb-flicker-safety-risk"
+      ]
+    },
+    {
+      "id": "muki-pervoy-lampochki",
+      "name": "Муки первой лампочки: Wi-Fi 2,4 ГГц, циклы установки и капканы онбординга",
+      "insight_ids": [
+        "wifi-scan-fails-in-setup",
+        "wifi-only-2-4ghz-undisclosed",
+        "onboarding-too-many-steps",
+        "wifi-password-loop",
+        "no-back-button-stuck",
+        "keyboard-missing-in-setup",
+        "bulb-naming-no-text-input"
+      ]
+    },
+    {
+      "id": "navigatsiya-labirint",
+      "name": "Навигация-лабиринт: лишние касания и кнопки, что не похожи на кнопки",
+      "insight_ids": [
+        "next-button-invisible",
+        "scroll-accidentally-changes-brightness",
+        "too-many-taps-to-navigate",
+        "settings-navigation-confusing"
+      ]
+    },
+    {
+      "id": "ekosistema-i-pobeg",
+      "name": "HomeKit, Google Home и бегство к Hue: чужие экосистемы и приватность",
+      "insight_ids": [
+        "homekit-integration-broken",
+        "no-local-control-requires-internet",
+        "third-party-integration-unreliable",
+        "google-home-not-seeing-devices",
+        "apple-shortcuts-no-support",
+        "home-assistant-data-consent",
+        "no-multi-admin-shared-home",
+        "competitors-more-reliable",
+        "support-resolved-quickly"
+      ]
+    }
+  ]
+}

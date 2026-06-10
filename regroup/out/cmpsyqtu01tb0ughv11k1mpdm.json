@@ -1,0 +1,95 @@
+{
+  "groups": [
+    {
+      "id": "podpiska-nichego-ne-otkryvaet",
+      "name": "Подписка куплена — а документы всё равно за платной стеной",
+      "insight_ids": [
+        "subscription-no-full-access",
+        "paid-content-still-locked",
+        "free-content-behind-paywall",
+        "unlock-limit-hidden-before-purchase",
+        "scan-paywall-revealed-after-solving",
+        "no-one-time-unlock",
+        "pay-per-question-removed-mid-flow"
+      ]
+    },
+    {
+      "id": "spisaniya-i-nevozvrat",
+      "name": "Списывают не ту сумму, не дают отменить и не возвращают деньги",
+      "insight_ids": [
+        "wrong-charge-amount",
+        "charges-after-cancellation",
+        "no-refund-on-error-or-cancel",
+        "cancel-button-broken",
+        "plan-auto-upgraded-without-consent",
+        "early-cancel-still-charged",
+        "student-discount-rejected"
+      ]
+    },
+    {
+      "id": "otvety-kotorym-nelzya-doveryat",
+      "name": "Ответам нельзя доверять: ошибки, отписки и плавающие решения",
+      "insight_ids": [
+        "wrong-answers-tutors-ai",
+        "incomplete-answers",
+        "inconsistent-answers",
+        "notes-quality-poor",
+        "solution-images-not-viewable"
+      ]
+    },
+    {
+      "id": "ekonomika-kreditov-i-razblokirovok",
+      "name": "Экономика разблокировок: обещанные кредиты не приходят и тают",
+      "insight_ids": [
+        "upload-unlock-credits-not-credited",
+        "unlocks-disappear-on-update-or-cancel",
+        "unlocks-not-synced-across-devices",
+        "unlock-earning-via-content-rating",
+        "promised-reward-not-paid"
+      ]
+    },
+    {
+      "id": "vhod-akkaunt-blokirovki",
+      "name": "Не войти и не удержаться в аккаунте: верификация, сессии и бан-капканы",
+      "insight_ids": [
+        "mobile-app-login-broken",
+        "sms-verification-broken",
+        "session-bug-user-already-logged-in",
+        "account-banned-for-old-allowed-question",
+        "false-copyright-ban",
+        "school-name-not-saved",
+        "search-login-excess-confirmations"
+      ]
+    },
+    {
+      "id": "platnyy-prepodavatel-i-podderzhka",
+      "name": "Живой преподаватель и поддержка: молчание против редких звёздных разборов",
+      "insight_ids": [
+        "paid-tutor-no-answer-no-refund",
+        "tutor-response-time-false-promise",
+        "support-ignores-or-repeats-loop",
+        "tutor-deep-math-explanations"
+      ]
+    },
+    {
+      "id": "skaner-kamera-zависания",
+      "name": "Сканер, камера и вечные зависания вместо ответа",
+      "insight_ids": [
+        "scan-processing-hangs",
+        "camera-autofocus-broken",
+        "ghost-update-notification",
+        "intermittent-load-failure",
+        "search-field-no-edit",
+        "question-auto-recategorized"
+      ]
+    },
+    {
+      "id": "baza-eto-pochti-tolko-matematika",
+      "name": "База — это почти одна математика, а обещанных курсов нет",
+      "insight_ids": [
+        "non-math-coverage-gap",
+        "advertised-content-absent"
+      ]
+    }
+  ]
+}

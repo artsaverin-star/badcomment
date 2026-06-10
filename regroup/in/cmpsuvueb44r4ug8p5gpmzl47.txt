@@ -1,0 +1,254 @@
+You are grouping 41 mechanism-level insight clusters from Lenme: Investing and Borrowing (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Lenme: Investing and Borrowing, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 41 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Lenme: Investing and Borrowing — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Lenme: Investing and Borrowing>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsuvueb44r4ug8p5gpmzl47.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "pay-first-no-loan-ever",
+  "title": "Подписку списывают вперёд, но заём так и не выдают — деньги берут за услугу, которой нет",
+  "obs": 8
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Пробный период списывает полную подписку сразу или в первые дни — без честного триала",
+  "obs": 5
+ },
+ {
+  "id": "advertised-cash-advance-is-application",
+  "title": "Реклама обещает мгновенный аванс на $200, а по факту это лишь заявка инвесторам без гарантии займа",
+  "obs": 5
+ },
+ {
+  "id": "external-offers-only-no-p2p",
+  "title": "Вместо обещанного P2P-займа выдают только внешние ссылки на чужих кредиторов и кредитные карты",
+  "obs": 4
+ },
+ {
+  "id": "charges-continue-after-cancel",
+  "title": "После отмены подписки деньги продолжают списывать — возврат возможен только через спор с банком",
+  "obs": 3
+ },
+ {
+  "id": "is-broker-not-lender",
+  "title": "Приложение работает только как посредник — у него нет своих кредиторов и фондов, оно перенаправляет заявки третьим лицам",
+  "obs": 3
+ },
+ {
+  "id": "subprime-shark-rates",
+  "title": "Под видом «предложений» перенаправляют к субпрайм-кредиторам со ставками 300%+ и казино-займам",
+  "obs": 3
+ },
+ {
+  "id": "id-scan-broken",
+  "title": "Сканирование ID при верификации не работает даже при хорошем освещении — регистрацию не пройти",
+  "obs": 3
+ },
+ {
+  "id": "ssn-email-conflict-locks-account",
+  "title": "SSN привязан к одному email и блокирует другой аккаунт того же человека — верификацию не пройти",
+  "obs": 3
+ },
+ {
+  "id": "no-account-deletion-data-retained",
+  "title": "Удалить аккаунт нельзя — банковские данные и SSN остаются на сервере навсегда после отказа",
+  "obs": 3
+ },
+ {
+  "id": "bank-connect-fails-oops",
+  "title": "Подключение банковского счёта падает с ошибкой для любого банка — процесс прерывается на этом шаге",
+  "obs": 3
+ },
+ {
+  "id": "support-ai-bot-only",
+  "title": "В поддержке отвечают только ИИ-ассистенты — живого оператора нет, проблему не решить",
+  "obs": 3
+ },
+ {
+  "id": "support-unreachable",
+  "title": "Поддержка молчит и не отвечает на обращения по техническим сбоям",
+  "obs": 3
+ },
+ {
+  "id": "partner-data-spam-calls",
+  "title": "Данные заявки уходят партнёрам, которые засыпают пользователя спам-звонками и письмами",
+  "obs": 3
+ },
+ {
+  "id": "advertised-price-mismatch",
+  "title": "Объявленная цена подписки не совпадает с реально списанной суммой — расхождение видно только после оплаты",
+  "obs": 2
+ },
+ {
+  "id": "refund-blocked-loop",
+  "title": "Компания отказывает в возврате и отправляет к Apple, а Apple — обратно, замыкая пользователя без денег",
+  "obs": 2
+ },
+ {
+  "id": "verification-rejected-after-pay",
+  "title": "Подписку берут до верификации, затем отклоняют, ссылаясь на неверные данные, без повторной попытки",
+  "obs": 2
+ },
+ {
+  "id": "onboarding-harder-than-rivals",
+  "title": "Регистрация и интерфейс заметно сложнее и непонятнее, чем у конкурентов вроде Solo",
+  "obs": 2
+ },
+ {
+  "id": "bank-not-supported",
+  "title": "Небольшие банки (Varo, SoFi) отсутствуют в списке — их клиенты вообще не могут начать пользоваться",
+  "obs": 2
+ },
+ {
+  "id": "support-blames-third-party",
+  "title": "Поддержка снимает с себя ответственность, ссылаясь на третью сторону, и блокирует возврат",
+  "obs": 2
+ },
+ {
+  "id": "middleman-slows-down",
+  "title": "Роль посредника между заёмщиком и несколькими кредиторами удлиняет ожидание против прямого приложения",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-charge-new-account",
+  "title": "Новый аккаунт с другим email сразу списывает подписку повторно — возврат за дубль не дают",
+  "obs": 1
+ },
+ {
+  "id": "repeated-withdrawal-attempts",
+  "title": "Приложение раз за разом пытается снять деньги со счёта — похоже на баг или агрессивный биллинг",
+  "obs": 1
+ },
+ {
+  "id": "data-collection-for-resale",
+  "title": "Плату берут только за сбор персональных данных — заём не выдают, данные похожи на сбор для перепродажи",
+  "obs": 1
+ },
+ {
+  "id": "fake-stale-loan-listings",
+  "title": "В списке заёмщиков висят одни и те же старые имена — реальной новой активности по займам нет",
+  "obs": 1
+ },
+ {
+  "id": "high-default-rate-investor-loss",
+  "title": "Высокая доля дефолтов по займам без механизма возмещения — инвестор теряет весь вложенный капитал",
+  "obs": 1
+ },
+ {
+  "id": "credit-score-filters-out-borrowers",
+  "title": "Кредиторам показывают рейтинг заёмщика — заявки с низким баллом отсеиваются, заём не получить",
+  "obs": 1
+ },
+ {
+  "id": "id-verify-more-friction-upfront",
+  "title": "ID-верификация требует больше данных вперёд, чем стандартные кредитные приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-way-to-cancel-loan-request",
+  "title": "Ошибочный запрос на заём нельзя закрыть или изменить — приходится ждать 30 дней автозакрытия",
+  "obs": 1
+ },
+ {
+  "id": "reports-only-on-28th",
+  "title": "Финансовые отчёты доступны только 28-го числа месяца — данные нельзя получить по требованию",
+  "obs": 1
+ },
+ {
+  "id": "buttons-dont-work-after-pay",
+  "title": "После оплаты кнопки в интерфейсе не работают — принять предложение невозможно",
+  "obs": 1
+ },
+ {
+  "id": "offer-notification-link-dead",
+  "title": "Приходит уведомление о предложении займа, но ссылка не открывается при нажатии",
+  "obs": 1
+ },
+ {
+  "id": "external-lender-login-loop",
+  "title": "Внешние ссылки на кредиторов зависают в цикле входа — заявку через них не завершить",
+  "obs": 1
+ },
+ {
+  "id": "suspicious-bank-login-attempts",
+  "title": "После ввода данных в приложение начинаются подозрительные попытки входа в онлайн-банк пользователя",
+  "obs": 1
+ },
+ {
+  "id": "support-cant-update-phone",
+  "title": "При смене номера телефона поддержка отказывается обновить данные, оставляя старый номер в системе",
+  "obs": 1
+ },
+ {
+  "id": "instant-advance-needs-investor-wait",
+  "title": "Обещают мгновенный аванс, но нужно ждать инвестора 30+ минут — срочный сценарий ломается",
+  "obs": 1
+ },
+ {
+  "id": "lender-borrower-imbalance",
+  "title": "Кредиторов на платформе намного меньше заёмщиков — совпадений нет, подписка оплачена впустую",
+  "obs": 1
+ },
+ {
+  "id": "p2p-model-never-worked-long-term",
+  "title": "За годы использования встроенный P2P-заём не получен ни разу — 90% предложений внешние",
+  "obs": 1
+ },
+ {
+  "id": "hard-inquiry-hurts-credit",
+  "title": "Проверка кредита идёт жёстким запросом и портит кредитный рейтинг, а ставки предлагают завышенные",
+  "obs": 1
+ },
+ {
+  "id": "upfront-fee-vs-rivals",
+  "title": "Берут плату до подачи заявки, тогда как у других платформ заём доступен без предоплаты",
+  "obs": 1
+ },
+ {
+  "id": "redirect-to-second-app",
+  "title": "Для получения средств заставляют скачать отдельное стороннее приложение вместо основного",
+  "obs": 1
+ }
+]

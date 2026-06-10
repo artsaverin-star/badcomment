@@ -1,0 +1,214 @@
+You are grouping 33 mechanism-level insight clusters from Mango Languages: Learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Mango Languages: Learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 33 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Mango Languages: Learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Mango Languages: Learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsypp6d1qz3ughv37pmlcqw.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "voice-record-needs-multiple-taps",
+  "title": "Кнопка записи голоса срабатывает только с нескольких попыток на современных устройствах",
+  "obs": 4
+ },
+ {
+  "id": "voice-record-fully-broken",
+  "title": "Запись голоса не работает совсем — упражнение недоступно, а после выхода перестаёт играть весь урок",
+  "obs": 3
+ },
+ {
+  "id": "test-audio-stops-blocks-assessment",
+  "title": "Аудио в проверочных и вступительных тестах обрывается после первой фразы и блокирует прохождение оценки",
+  "obs": 2
+ },
+ {
+  "id": "no-playback-speed-control",
+  "title": "Нет регулировки скорости и замедления озвучки, поэтому трудно различать звуки и наращивать темп понимания",
+  "obs": 2
+ },
+ {
+  "id": "autoplay-passive-background-learning",
+  "title": "Автовоспроизведение позволяет учить язык фоном во время других дел вместо активной практики",
+  "obs": 2
+ },
+ {
+  "id": "autoplay-missing-vocab-and-text",
+  "title": "В режиме автовоспроизведения не работают карточки словаря и не показывается текст для отслеживания написания",
+  "obs": 2
+ },
+ {
+  "id": "japanese-no-kanji-display",
+  "title": "В японском курсе нет показа иероглифов, из-за чего возникает двусмысленность и нельзя читать настоящий текст",
+  "obs": 2
+ },
+ {
+  "id": "verb-conjugation-paradigm-missing",
+  "title": "При вводе нового глагола не показывают все его спряжения и нет справочных таблиц",
+  "obs": 2
+ },
+ {
+  "id": "dark-mode-incomplete",
+  "title": "Тёмная тема есть только в уроках, но не в навигации и разделах словаря",
+  "obs": 2
+ },
+ {
+  "id": "too-much-english-no-immersion",
+  "title": "Большая часть курса — объяснения на английском, без погружения и интерактивной практики уровня конкурентов",
+  "obs": 2
+ },
+ {
+  "id": "subscription-locked-after-account-delete",
+  "title": "После удаления аккаунта и создания нового система не даёт оформить подписку — пишет, что подписка уже активна",
+  "obs": 1
+ },
+ {
+  "id": "unnatural-japanese-phrases",
+  "title": "В японском курсе учат неестественные фразы, которые не совпадают с речью носителей",
+  "obs": 1
+ },
+ {
+  "id": "ancient-languages-modern-pronunciation",
+  "title": "Древние языки озвучены современным произношением вместо реконструированного исторического",
+  "obs": 1
+ },
+ {
+  "id": "ukrainian-kyiv-pronounced-kiev",
+  "title": "В украинском курсе город Киев произносится на русский манер, что подрывает доверие к остальной озвучке",
+  "obs": 1
+ },
+ {
+  "id": "text-audio-mismatch-errors",
+  "title": "Написанный текст не совпадает с озвучкой и встречаются ошибки в числе слов",
+  "obs": 1
+ },
+ {
+  "id": "arabic-emergency-phrases-depth",
+  "title": "Курс ливанского арабского даёт фразы для экстренных ситуаций, но без разговорных названий болезней",
+  "obs": 1
+ },
+ {
+  "id": "no-offline-mode-requires-wifi",
+  "title": "Без подключения к WiFi приложение не работает — учиться в транспорте или без сети нельзя",
+  "obs": 1
+ },
+ {
+  "id": "vpn-blocks-app",
+  "title": "При включённом VPN приложение блокируется, что мешает учиться в поездках на ненадёжных сетях",
+  "obs": 1
+ },
+ {
+  "id": "iphone-se-cropped-ui",
+  "title": "На маленьком экране iPhone SE первый экран обрезан и нижняя кнопка недоступна",
+  "obs": 1
+ },
+ {
+  "id": "cant-mute-voice-for-own-music",
+  "title": "Нельзя приглушить голос приложения, чтобы одновременно слушать свою музыку или другое аудио",
+  "obs": 1
+ },
+ {
+  "id": "native-volume-too-loud-vs-recording",
+  "title": "Голос носителя при сравнении произношения звучит намного громче записи пользователя",
+  "obs": 1
+ },
+ {
+  "id": "grammar-slides-no-index",
+  "title": "Слайды с объяснением грамматики разбросаны по курсу и нет указателя для быстрого возврата к ним",
+  "obs": 1
+ },
+ {
+  "id": "quiz-too-strict-word-order-gender",
+  "title": "Тесты не засчитывают верный ответ при другой расстановке слов или несовпадении рода",
+  "obs": 1
+ },
+ {
+  "id": "tested-on-untaught-vocabulary",
+  "title": "Приложение проверяет словарь, который ещё не объясняли, превращая проверку в угадывание",
+  "obs": 1
+ },
+ {
+  "id": "daily-review-forgets-foundational",
+  "title": "Ежедневное повторение охватывает только недавний словарь, а ранние базовые слова забываются",
+  "obs": 1
+ },
+ {
+  "id": "listen-read-new-vocab-no-practice",
+  "title": "Раздел в конце юнита вводит новый словарь без отработки, в отличие от обычных уроков",
+  "obs": 1
+ },
+ {
+  "id": "vocab-cards-no-context-for-synonyms",
+  "title": "Карточки словаря в конце юнита не объясняют разницу между похожими фразами",
+  "obs": 1
+ },
+ {
+  "id": "progress-not-saved-after-review",
+  "title": "После ежедневного повторения приложение теряет место в уроке — где остановиться, приходится помнить самому",
+  "obs": 1
+ },
+ {
+  "id": "no-systematic-reading-phonetics",
+  "title": "Нет систематического введения чтения и звуков букв — начинающему приходится угадывать произношение",
+  "obs": 1
+ },
+ {
+  "id": "accent-marks-not-taught",
+  "title": "Диакритические знаки почти не объясняют, поэтому разница между похожими словами остаётся непонятной",
+  "obs": 1
+ },
+ {
+  "id": "mango-movies-not-on-mobile",
+  "title": "Просмотр фильмов с двойными субтитрами недоступен в мобильном приложении, хотя это один из лучших инструментов обучения",
+  "obs": 1
+ },
+ {
+  "id": "first-unit-weak-trial-for-hard-languages",
+  "title": "Первый юнит — слабый пробник для сложных языков: оценить качество обучения произношению по нему нельзя",
+  "obs": 1
+ },
+ {
+  "id": "longer-phrase-recording-would-help",
+  "title": "Для длинных фраз перевода удобнее было бы записывать ответ, а не держать его в памяти до показа правильного",
+  "obs": 1
+ }
+]

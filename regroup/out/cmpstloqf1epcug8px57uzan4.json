@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "id": "platish-no-tolku",
+      "name": "Заплатил — и всё равно стена: подписка, лимиты и отобранный lifetime",
+      "insight_ids": [
+        "limit-blocks-paid-users",
+        "lifetime-revoked-to-subscription",
+        "charges-after-cancel",
+        "cloud-sync-loses-projects"
+      ]
+    },
+    {
+      "id": "cenzor-bezobidnyh-foto",
+      "name": "Цензор принимает обычные снимки за запрещёнку",
+      "insight_ids": [
+        "classifier-blocks-innocent-photos"
+      ]
+    },
+    {
+      "id": "zavisaniya-i-poterya-raboty",
+      "name": "Зависает, падает и съедает часы работы",
+      "insight_ids": [
+        "project-open-freezes",
+        "objects-turn-into-rectangles",
+        "batch-edit-crashes-over-six"
+      ]
+    },
+    {
+      "id": "kachestvo-na-vyhode",
+      "name": "На выходе хуже, чем на входе: разрешение, шрифты и видео",
+      "insight_ids": [
+        "highres-downscaled-in-collage",
+        "fonts-not-applied-as-chosen",
+        "video-quality-below-competitors"
+      ]
+    },
+    {
+      "id": "potolok-dlya-avtorov",
+      "name": "Потолок для авторов контента: 20 фото и нет пути назад",
+      "insight_ids": [
+        "video-photo-limit-blocks-long-form",
+        "no-return-to-previous-edits"
+      ]
+    }
+  ]
+}

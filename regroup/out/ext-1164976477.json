@@ -1,0 +1,64 @@
+{
+  "groups": [
+    {
+      "id": "paywall-traps",
+      "name": "Платный экран врасплох: сломанный триал и запертые записи",
+      "insight_ids": [
+        "trial-period-broken-mechanics",
+        "free-to-paid-data-locked",
+        "hidden-paywall-after-registration",
+        "apple-pay-trial-unusable"
+      ]
+    },
+    {
+      "id": "post-update-breakage",
+      "name": "После обновления: падения при логировании, тормоза и мёртвые виджеты",
+      "insight_ids": [
+        "widgets-broken",
+        "app-slowdown-after-update",
+        "crash-on-meal-logging",
+        "long-term-performance-degradation"
+      ]
+    },
+    {
+      "id": "ai-food-judge",
+      "name": "ИИ-судья по фото еды: придирается и не даёт себя исправить",
+      "insight_ids": [
+        "ai-analysis-inaccurate",
+        "ai-analysis-only-critical",
+        "ai-editor-loses-data",
+        "ai-misidentification-no-correction"
+      ]
+    },
+    {
+      "id": "diary-continuity",
+      "name": "Дневник, который теряет историю: новый телефон, второе устройство, переустановка",
+      "insight_ids": [
+        "cross-device-sync-broken",
+        "data-lost-on-device-upgrade",
+        "no-health-import",
+        "no-account-creation-option",
+        "no-account-deletion-contact"
+      ]
+    },
+    {
+      "id": "navigation-and-depth",
+      "name": "Жёсткая лента и куцая аналитика: не вернуться назад, не увидеть закономерности",
+      "insight_ids": [
+        "insights-window-too-short",
+        "date-navigation-limited",
+        "rigid-linear-navigation",
+        "emotions-missing-from-summary"
+      ]
+    },
+    {
+      "id": "social-features-dead",
+      "name": "Друзья и шеринг молчат: вход, публикация и уведомления не работают",
+      "insight_ids": [
+        "facebook-share-broken",
+        "facebook-login-broken",
+        "friend-notifications-stopped"
+      ]
+    }
+  ]
+}

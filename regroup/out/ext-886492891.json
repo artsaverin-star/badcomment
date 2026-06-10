@@ -1,0 +1,84 @@
+{
+  "groups": [
+    {
+      "id": "skorost-i-obryvy",
+      "name": "Тормозит, отваливается, не подключается: цена за туннель",
+      "insight_ids": [
+        "reliability-speed-degradation",
+        "reliability-vpn-stopped-working",
+        "reliability-server-unreachable",
+        "reliability-slow-connection",
+        "reliability-specific-server-unavailable",
+        "reliability-mobile-degradation",
+        "reliability-china-unusable",
+        "reliability-home-wifi-apple",
+        "reliability-kill-switch-false-trigger",
+        "strategy-rural-quality-boost"
+      ]
+    },
+    {
+      "id": "voyna-s-blokirovkami",
+      "name": "Война с блокировками: стриминг, капчи и недоскрытый IP",
+      "insight_ids": [
+        "reliability-site-blocks-vpn",
+        "strategy-streaming-geobypass",
+        "reliability-streaming-detection",
+        "ui-ip-mask-incomplete",
+        "support-fast-detection-fix"
+      ]
+    },
+    {
+      "id": "zachem-vobsche-vpn",
+      "name": "Зачем берут ExpressVPN: реклама, путешествия и страх слежки",
+      "insight_ids": [
+        "strategy-ad-blocking-usecase",
+        "strategy-travel-usecase",
+        "strategy-discovery-path",
+        "strategy-low-tech-users",
+        "strategy-privacy-surveillance"
+      ]
+    },
+    {
+      "id": "interfeys-i-funkcii",
+      "name": "Интерфейс и функции: пропавшие локации, серые протоколы, бонусные инструменты",
+      "insight_ids": [
+        "ui-missing-locations",
+        "ui-password-tools",
+        "ui-version-check",
+        "ui-language-lock",
+        "ui-laggy-interface",
+        "ui-protocols-grayed-out"
+      ]
+    },
+    {
+      "id": "obnovlenie-vse-slomalo",
+      "name": "Обновление всё сломало (и редкие истории, когда всё ровно)",
+      "insight_ids": [
+        "reliability-crash-after-update",
+        "reliability-update-install-fail",
+        "reliability-ios-conflict-after-update",
+        "reliability-cross-platform-stable"
+      ]
+    },
+    {
+      "id": "oplata-akkaunt-podderzhka",
+      "name": "Деньги, вход и поддержка: отказ в возврате и циклы верификации",
+      "insight_ids": [
+        "payment-refund-denied",
+        "payment-new-device-issues",
+        "payment-subscription-redirect",
+        "payment-price-multidevice",
+        "support-login-after-reinstall",
+        "support-verification-loop"
+      ]
+    },
+    {
+      "id": "pochemu-vybirayut-imenno-ego",
+      "name": "Почему выбирают именно его: победа в сравнении и охват серверов",
+      "insight_ids": [
+        "strategy-comparative-advantage",
+        "strategy-server-coverage"
+      ]
+    }
+  ]
+}

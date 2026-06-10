@@ -1,0 +1,394 @@
+You are grouping 69 mechanism-level insight clusters from Astro Future - Daily Horoscope (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Astro Future - Daily Horoscope, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 69 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Astro Future - Daily Horoscope — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Astro Future - Daily Horoscope>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1119123378.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paywall-free-to-paid-migration",
+  "title": "Ранее бесплатные функции (транзиты, аспекты, интерпретации) переведены за paywall — давние пользователи теряют доступ без предупреждения",
+  "obs": 19
+ },
+ {
+  "id": "app-freeze-on-launch",
+  "title": "Приложение зависает на экране запуска и не загружается — проблема сохраняется месяцами после переустановки",
+  "obs": 9
+ },
+ {
+  "id": "notification-content-missing-in-app",
+  "title": "Дневной гороскоп виден в уведомлении, но при открытии приложения содержание отсутствует или открывается другой экран",
+  "obs": 7
+ },
+ {
+  "id": "restore-purchase-broken",
+  "title": "Восстановление покупок после смены устройства не работает — пользователь теряет оплаченный доступ",
+  "obs": 5
+ },
+ {
+  "id": "ascendant-calculation-wrong",
+  "title": "Приложение рассчитывает Асцендент неверно — знак не совпадает с данными профессиональных астрологов",
+  "obs": 5
+ },
+ {
+  "id": "one-time-purchase-invalidated",
+  "title": "Давно купленные расширения и пакеты перестают работать после обновления — приложение требует повторной оплаты за те же функции",
+  "obs": 4
+ },
+ {
+  "id": "subscription-price-mismatch",
+  "title": "Рекламируемая цена подписки не совпадает с реально списанной суммой при оплате",
+  "obs": 4
+ },
+ {
+  "id": "natal-sign-calculation-wrong",
+  "title": "Приложение показывает неверные знаки зодиака (Солнце, Луна, другие планеты) при правильно введённых данных рождения",
+  "obs": 4
+ },
+ {
+  "id": "data-lost-after-update",
+  "title": "После обновления приложения все сохранённые диаграммы и данные пользователя полностью исчезают",
+  "obs": 4
+ },
+ {
+  "id": "data-lost-after-payment",
+  "title": "После оплаты подписки все сохранённые диаграммы других людей исчезают из приложения",
+  "obs": 4
+ },
+ {
+  "id": "scroll-auto-resets-date",
+  "title": "При прокрутке вниз для просмотра деталей планет дата автоматически прокручивается назад — функция транзитов непригодна для использования",
+  "obs": 4
+ },
+ {
+  "id": "notification-horoscope-not-delivered",
+  "title": "Уведомления о дневном гороскопе не приходят в заданное время или не приходят вовсе",
+  "obs": 2
+ },
+ {
+  "id": "birthdate-cannot-be-edited",
+  "title": "После первоначального ввода дату рождения нельзя отредактировать в приложении",
+  "obs": 2
+ },
+ {
+  "id": "location-input-blocks-chart-creation",
+  "title": "Приложение не принимает ввод названий местоположений — создание новых диаграмм заблокировано",
+  "obs": 2
+ },
+ {
+  "id": "saved-profiles-no-search-sort",
+  "title": "Список сохранённых диаграмм нельзя отсортировать или найти нужный профиль по имени при большой коллекции",
+  "obs": 2
+ },
+ {
+  "id": "chart-too-cluttered-to-read",
+  "title": "Диаграмма перегружена планетами и звёздами, мелким шрифтом и цветами — её трудно читать",
+  "obs": 2
+ },
+ {
+  "id": "transit-only-view-missing",
+  "title": "Нет возможности просмотреть только коллективные транзиты текущего дня без наложения на натальную диаграмму",
+  "obs": 2
+ },
+ {
+  "id": "payment-confirmed-access-not-granted",
+  "title": "Оплата прошла, но доступ к премиум-функциям не активирован",
+  "obs": 1
+ },
+ {
+  "id": "accidental-purchase-no-refund",
+  "title": "Случайная покупка подписки — служба поддержки отказывает в возврате средств",
+  "obs": 1
+ },
+ {
+  "id": "feature-moved-to-separate-paywall",
+  "title": "Функция синастрии совместимости вынесена в отдельный платёж поверх уже действующей годовой подписки",
+  "obs": 1
+ },
+ {
+  "id": "tiktok-feature-advertised-free-costs-money",
+  "title": "Функция, показанная в рекламе в социальных сетях как бесплатная, на деле требует дополнительной оплаты",
+  "obs": 1
+ },
+ {
+  "id": "subscription-charges-after-cancellation",
+  "title": "После отмены подписки приложение продолжает списывать деньги, переключаясь на другой платёжный метод",
+  "obs": 1
+ },
+ {
+  "id": "aspect-calculation-errors",
+  "title": "Приложение ошибочно определяет тип аспекта (например, сообщает квадратуру вместо соединения)",
+  "obs": 1
+ },
+ {
+  "id": "synastry-calculation-inconsistent",
+  "title": "Синастрия показывает разные аспекты в зависимости от порядка сравнения профилей; нет интерпретаций для отдельных аспектов",
+  "obs": 1
+ },
+ {
+  "id": "synastry-interpretation-errors",
+  "title": "Интерпретация синастрии содержит астрологические ошибки: аспекты описаны с противоположным значением",
+  "obs": 1
+ },
+ {
+  "id": "calculation-precision-differs-from-professional-tools",
+  "title": "Расчёты небесной механики (Асцендент, Луна, дома Placidus) расходятся с профессиональными астрологическими программами на несколько минут",
+  "obs": 1
+ },
+ {
+  "id": "same-chart-for-different-people",
+  "title": "Приложение показывает одинаковую диаграмму рождения для двух разных людей с разными датами и местом рождения",
+  "obs": 1
+ },
+ {
+  "id": "special-dates-random-not-calculated",
+  "title": "Страница важных дат каждый раз показывает разные даты для одного события — расчёт не астрологический",
+  "obs": 1
+ },
+ {
+  "id": "daily-content-static-repeating",
+  "title": "Ежедневные информационные сообщения не обновляются месяцами — одно и то же содержание каждый день",
+  "obs": 1
+ },
+ {
+  "id": "transit-aspects-shown-already-separated",
+  "title": "Приложение показывает уже разошедшиеся аспекты; уведомления приходят после пика, а медленные планеты отображаются с чрезмерно большим орбисом",
+  "obs": 1
+ },
+ {
+  "id": "missing-retrograde-view",
+  "title": "В приложении нет отдельного представления для ретроградных планет — важный пробел для практикующих астрологов",
+  "obs": 1
+ },
+ {
+  "id": "missing-pluto-transit-aspects",
+  "title": "Транзитный Плутон не отображает аспекты к натальным планетам, несмотря на наличие оппозиций",
+  "obs": 1
+ },
+ {
+  "id": "missing-south-node-and-orb-settings",
+  "title": "В диаграмме нет Южного узла, вершины и Части судьбы; нельзя настроить личный орбис для аспектов",
+  "obs": 1
+ },
+ {
+  "id": "asteroid-menu-incomplete",
+  "title": "Меню выбора астероидов отображает не все доступные объекты",
+  "obs": 1
+ },
+ {
+  "id": "no-vedic-astrology",
+  "title": "Приложение поддерживает только западную (тропическую) астрологию и не предлагает Ведическую систему",
+  "obs": 1
+ },
+ {
+  "id": "interpretation-negative-framing",
+  "title": "Интерпретация гороскопа начинается с перечисления дефицитов в диаграмме вместо сбалансированного описания",
+  "obs": 1
+ },
+ {
+  "id": "phase-interpretations-generic",
+  "title": "Интерпретации фаз и транзитов обобщены и не персонализированы под конкретного пользователя",
+  "obs": 1
+ },
+ {
+  "id": "content-quality-praised",
+  "title": "Пользователи ценят приложение за ясные, неповерхностные интерпретации в сравнении с конкурентами",
+  "obs": 1
+ },
+ {
+  "id": "no-aspect-interpretation-per-aspect",
+  "title": "Нет способа нажать на отдельный аспект и прочитать его интерпретацию — интерфейс не позволяет выбрать конкретный аспект",
+  "obs": 1
+ },
+ {
+  "id": "transit-aspect-order-not-standard",
+  "title": "Аспекты транзитов перечислены по натальным планетам, а не по транзитным — это не стандарт астрологической литературы",
+  "obs": 1
+ },
+ {
+  "id": "system-settings-not-applied-to-solar-view",
+  "title": "Выбранная система домов (sidereal, porphyry) не применяется к виду солнечной системы — там всегда tropical whole house",
+  "obs": 1
+ },
+ {
+  "id": "whole-sign-not-default",
+  "title": "Система домов whole sign доступна только за дополнительную плату и не установлена по умолчанию",
+  "obs": 1
+ },
+ {
+  "id": "no-free-content-for-beginners",
+  "title": "Образовательный раздел (планеты, дома, элементы) перемещён за paywall — приложение перестало быть инструментом для обучения новичков",
+  "obs": 1
+ },
+ {
+  "id": "birthdate-input-saves-wrong-date",
+  "title": "При вводе даты рождения приложение сохраняет искажённую дату — другой год и месяц",
+  "obs": 1
+ },
+ {
+  "id": "birthdate-year-field-shows-one-digit",
+  "title": "Поле года рождения отображает только первую цифру — невозможно ввести полный год при регистрации",
+  "obs": 1
+ },
+ {
+  "id": "location-suggestions-missing-onboarding",
+  "title": "При вводе места рождения во время онбординга не появляются подсказки — прохождение регистрации блокируется",
+  "obs": 1
+ },
+ {
+  "id": "personal-chart-hidden-no-unhide",
+  "title": "Личная диаграмма скрыта в интерфейсе и нет кнопки для её отображения — приходится искать обходные пути",
+  "obs": 1
+ },
+ {
+  "id": "saved-profiles-list-broken",
+  "title": "Список сохранённых профилей других людей перестал отображаться после обновления",
+  "obs": 1
+ },
+ {
+  "id": "add-chart-button-broken",
+  "title": "Функция добавления новой диаграммы не работает — создать новый профиль невозможно",
+  "obs": 1
+ },
+ {
+  "id": "special-dates-no-date-shown",
+  "title": "На странице важных дат не отображается дата предстоящего события — список бесполезен без дат",
+  "obs": 1
+ },
+ {
+  "id": "gender-nonbinary-wrong-pronouns",
+  "title": "При выборе гендера nonbinary приложение использует женские местоимения в интерпретациях вместо нейтральных",
+  "obs": 1
+ },
+ {
+  "id": "no-delete-account-option",
+  "title": "В приложении нет функции удаления аккаунта или выхода; компания не реагирует на запросы об удалении данных",
+  "obs": 1
+ },
+ {
+  "id": "birthday-reminders-missing",
+  "title": "Нет автоматических уведомлений о днях рождениях из сохранённых профилей",
+  "obs": 1
+ },
+ {
+  "id": "hide-birthplace-time-privacy",
+  "title": "Пользователь хочет скрыть место и время рождения в сохранённых диаграммах для защиты чувствительных данных",
+  "obs": 1
+ },
+ {
+  "id": "profile-randomly-switches-to-celebrity",
+  "title": "Параметры и выбор профиля самопроизвольно меняются — приложение переключается на профиль знаменитости (Gwyneth Paltrow)",
+  "obs": 1
+ },
+ {
+  "id": "asteroid-addition-crashes-app",
+  "title": "При попытке добавить астероиды к диаграмме приложение немедленно закрывается",
+  "obs": 1
+ },
+ {
+  "id": "widget-stopped-working",
+  "title": "Виджет персонализированного гороскопа на главном экране перестал отображать содержание",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-sync-broken",
+  "title": "Данные, добавленные вручную на одном устройстве, не синхронизируются на другое",
+  "obs": 1
+ },
+ {
+  "id": "app-broken-after-update-no-fix",
+  "title": "После обновления приложение перестаёт работать на несколько недель без исправления",
+  "obs": 1
+ },
+ {
+  "id": "paywall-blocks-access-even-when-trying-to-pay",
+  "title": "После введения paywall опция покупки недоступна — пользователь не может оплатить и открыть заблокированные диаграммы",
+  "obs": 1
+ },
+ {
+  "id": "music-quality-degraded",
+  "title": "Приложение добавило фоновую музыку низкого качества, ухудшающую общий пользовательский опыт",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Служба поддержки не отвечает на письма и запросы о восстановлении данных или подписки",
+  "obs": 1
+ },
+ {
+  "id": "no-data-export-before-paywall",
+  "title": "Пользовательские диаграммы, созданные за годы, стали недоступны после введения paywall без возможности экспортировать данные",
+  "obs": 1
+ },
+ {
+  "id": "competitor-comparison-prefer-depth",
+  "title": "Пользователи выбирают приложение за глубину интерпретаций, отвергая Co-Star и The Pattern как поверхностные",
+  "obs": 1
+ },
+ {
+  "id": "offline-use-case",
+  "title": "Пользователь платит за премиум ради офлайн-доступа в регионах с нестабильным интернетом",
+  "obs": 1
+ },
+ {
+  "id": "social-realtime-use-case",
+  "title": "Пользователь использует приложение в спонтанных социальных ситуациях — быстро проверяет транзиты друзей и рассказывает об их энергии дня",
+  "obs": 1
+ },
+ {
+  "id": "no-new-features-for-paying-users",
+  "title": "За годы платной подписки разработчик не выпускал новых функций или улучшений",
+  "obs": 1
+ },
+ {
+  "id": "no-localization",
+  "title": "Приложение полностью на английском языке без локализации — пользователи не могут разобраться в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "date-range-limited-pre-1900",
+  "title": "Невозможно ввести даты рождения ранее 1900 года — инструмент непригоден для исторического анализа",
+  "obs": 1
+ }
+]

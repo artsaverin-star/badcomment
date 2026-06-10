@@ -1,0 +1,219 @@
+You are grouping 34 mechanism-level insight clusters from VivaVideo - Video Cut & Editor (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO VivaVideo - Video Cut & Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 34 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to VivaVideo - Video Cut & Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to VivaVideo - Video Cut & Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt98p4k1vccugx32cg1xj9w.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-charges-full-annual",
+  "title": "Кнопка пробного периода сразу списывает полную стоимость годовой подписки без предупреждения",
+  "obs": 4
+ },
+ {
+  "id": "better-than-competitors",
+  "title": "Приложение быстрее и функциональнее конкурентов для коротких форматов, но цена выросла",
+  "obs": 4
+ },
+ {
+  "id": "filters-stickers-removed",
+  "title": "Популярные фильтры и стикеры удалены в обновлениях без возможности вернуть их",
+  "obs": 3
+ },
+ {
+  "id": "app-performance-degradation",
+  "title": "Приложение работает медленнее после обновлений — запуск и загрузка занимают десятки минут",
+  "obs": 3
+ },
+ {
+  "id": "mobile-replaces-desktop-production",
+  "title": "Приложение заменяет десктопный монтаж на мобильном устройстве для профессионального 4K-контента",
+  "obs": 3
+ },
+ {
+  "id": "vip-requires-extra-payments",
+  "title": "VIP-подписка не включает базовые функции редактирования — каждый элемент требует отдельной доплаты",
+  "obs": 2
+ },
+ {
+  "id": "free-became-paid",
+  "title": "Приложение перешло с полностью бесплатной модели на подписку — весь контент стал платным",
+  "obs": 2
+ },
+ {
+  "id": "free-version-blocks-export",
+  "title": "Бесплатная версия блокирует экспорт, ошибочно считая использованными платные функции",
+  "obs": 2
+ },
+ {
+  "id": "no-free-content-to-evaluate",
+  "title": "Почти нет бесплатного контента для оценки приложения до покупки — пробный период бесполезен",
+  "obs": 2
+ },
+ {
+  "id": "keyframes-and-transitions-paywalled",
+  "title": "Ключевые функции анимации и переходы доступны только в платной версии, длина видео ограничена",
+  "obs": 2
+ },
+ {
+  "id": "effects-stickers-library-repetitive",
+  "title": "Библиотека эффектов и стикеров ограничена — одно и то же содержимое повторяется, шаблонов мало",
+  "obs": 2
+ },
+ {
+  "id": "ai-filters-impressive-results",
+  "title": "AI-фильтры создают убедительные кино- и фантазийные эффекты из обычных селфи",
+  "obs": 2
+ },
+ {
+  "id": "accessible-interface-for-novices",
+  "title": "Интерфейс понятен пользователям без технических навыков и снижает барьер входа в видеомонтаж",
+  "obs": 2
+ },
+ {
+  "id": "clips-disappear-from-project",
+  "title": "Клипы исчезают из проекта автоматически — сохранённые правки не сохраняются при долгом сеансе",
+  "obs": 2
+ },
+ {
+  "id": "monthly-search-leads-to-annual",
+  "title": "При выборе месячной подписки система оформляет годовую без явного предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "ai-function-charged-per-use",
+  "title": "За каждое использование AI-функции списывается отдельная плата поверх годовой подписки",
+  "obs": 1
+ },
+ {
+  "id": "paid-ai-features-unavailable",
+  "title": "После оплаты AI-переходов функции недоступны или не работают",
+  "obs": 1
+ },
+ {
+  "id": "previously-included-features-now-vip",
+  "title": "Функции из первоначальной покупки переведены в платный VIP-доступ без компенсации",
+  "obs": 1
+ },
+ {
+  "id": "vip-missing-half-features",
+  "title": "Активная VIP-подписка не даёт доступа к половине заявленных функций",
+  "obs": 1
+ },
+ {
+  "id": "subscription-tiers-unclear",
+  "title": "Различия между уровнями подписки не объяснены внутри приложения",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-access-fear",
+  "title": "Пользователи опасаются, что опция пожизненного доступа за разовый платёж будет убрана",
+  "obs": 1
+ },
+ {
+  "id": "music-library-limited",
+  "title": "Музыкальная библиотека ограничена — недостаточно вариантов для добавления музыки к видео",
+  "obs": 1
+ },
+ {
+  "id": "ai-video-lacks-diversity",
+  "title": "AI-видео не представляет многокультурное население, что противоречит позиционированию",
+  "obs": 1
+ },
+ {
+  "id": "itunes-music-inaccessible",
+  "title": "Ранее купленная музыка из внешних магазинов не загружается и не отображается в приложении",
+  "obs": 1
+ },
+ {
+  "id": "autocut-simplifies-workflow",
+  "title": "Функция автоматической нарезки значительно упрощает процесс монтажа",
+  "obs": 1
+ },
+ {
+  "id": "easy-clip-combining",
+  "title": "Приложение позволяет легко соединять клипы и добавлять музыку или обучающий контент",
+  "obs": 1
+ },
+ {
+  "id": "all-in-one-social-media-toolset",
+  "title": "Все инструменты для создания контента в социальных сетях собраны в одном приложении",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes",
+  "title": "Приложение падает при работе даже после оплаты полного набора функций",
+  "obs": 1
+ },
+ {
+  "id": "freeze-on-image-add",
+  "title": "При добавлении изображения в существующий проект приложение зависает и не завершает операцию",
+  "obs": 1
+ },
+ {
+  "id": "background-removal-broken",
+  "title": "Функция удаления фона закрашивает всё видео чёрным или белым цветом вместо удаления фона",
+  "obs": 1
+ },
+ {
+  "id": "4k-export-downgrades-quality",
+  "title": "Экспорт 4K-видео уменьшает качество ниже записанного — 4K-режим съёмки теряет смысл",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-sufficient-for-casual",
+  "title": "Базовых бесплатных инструментов достаточно большинству пользователей без покупки премиума",
+  "obs": 1
+ },
+ {
+  "id": "needs-desktop-version",
+  "title": "Профессиональные пользователи ждут настольную версию для работы на основных производственных машинах",
+  "obs": 1
+ },
+ {
+  "id": "ad-catalog-music-as-feature",
+  "title": "Музыка из рекламного каталога воспринимается как полезная функция для обогащения видео",
+  "obs": 1
+ }
+]

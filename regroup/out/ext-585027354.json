@@ -1,0 +1,108 @@
+{
+  "groups": [
+    {
+      "id": "routes-lead-astray",
+      "name": "Маршруты, которые ведут не туда: крюки, объезды и навязанный путь",
+      "insight_ids": [
+        "route-algo-long",
+        "route-detours-unnecessary",
+        "route-wrong-destination",
+        "route-illegal-maneuvers",
+        "voice-nav-wrong-directions",
+        "route-user-choice-ignored",
+        "route-no-alternatives",
+        "route-multileg-missing",
+        "avoid-tolls-ignored",
+        "route-change-no-warning",
+        "route-multimodal-broken",
+        "route-car-option-missing",
+        "route-unsafe-night"
+      ]
+    },
+    {
+      "id": "ai-ads-take-over",
+      "name": "Gemini, реклама и спонсоры захватывают экран — а навигация уходит на второй план",
+      "insight_ids": [
+        "ai-gemini-distracting",
+        "preview-route-replaced-ai",
+        "search-sponsored-wrong",
+        "app-crash-freeze-navigation",
+        "shake-new-ui-distraction",
+        "map-home-button-hidden",
+        "reviews-hidden-negative",
+        "hotel-prices-fake"
+      ]
+    },
+    {
+      "id": "address-search-buried",
+      "name": "Адрес спрятан, а поиск выдаёт не то — до главной информации не докопаться",
+      "insight_ids": [
+        "address-hidden-deep",
+        "search-name-wrong-results",
+        "search-radius-too-wide",
+        "address-copy-disabled"
+      ]
+    },
+    {
+      "id": "stale-wrong-map-data",
+      "name": "Данные не сходятся с реальностью: устаревшие карты, ложные пробки и кривое расписание",
+      "insight_ids": [
+        "transit-schedule-wrong",
+        "map-data-outdated",
+        "geo-names-wrong",
+        "road-closure-status-wrong",
+        "traffic-data-false",
+        "speed-limits-wrong",
+        "eta-inaccurate",
+        "carplay-timezone-eta"
+      ]
+    },
+    {
+      "id": "screen-during-drive",
+      "name": "За рулём ничего не видно: масштаб, названия улиц и пробки прячутся в дороге",
+      "insight_ids": [
+        "map-zoom-navigation",
+        "map-street-names-lights-missing",
+        "map-traffic-no-nav",
+        "map-contrast-palette",
+        "map-exit-numbers-missing",
+        "map-orientation"
+      ]
+    },
+    {
+      "id": "features-removed-redesign",
+      "name": "Любимые функции вырезали в редизайне: спутник, Street View, офлайн-карты",
+      "insight_ids": [
+        "map-complex-ui-hidden-features",
+        "satellite-mode-removed",
+        "streetview-removed",
+        "offline-maps-removed",
+        "map-alerts-only-removed",
+        "saved-places-favorites",
+        "transit-stop-switch"
+      ]
+    },
+    {
+      "id": "gps-sync-resets",
+      "name": "GPS врёт, обновления сбрасывают настройки, синхронизация съедает данные",
+      "insight_ids": [
+        "audio-interruption-background",
+        "gps-positioning-inaccurate",
+        "updates-reset-settings",
+        "saved-places-frequently-visited",
+        "bookmarks-sync-google",
+        "server-auth-error-false"
+      ]
+    },
+    {
+      "id": "what-still-works",
+      "name": "За что Карты всё ещё любят: транзит, Street View и свежие данные",
+      "insight_ids": [
+        "strategy-maps-positive-transit",
+        "strategy-maps-updates-positive",
+        "strategy-streetview-value",
+        "strategy-emergency-alerts"
+      ]
+    }
+  ]
+}

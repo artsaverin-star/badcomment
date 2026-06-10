@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from Microsoft To Do (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Microsoft To Do, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Microsoft To Do — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Microsoft To Do>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1212616790.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "widget-white-blank-glass",
+  "title": "Виджет показывает пустой белый экран при тонированных или прозрачных темах и эффектах стекла на iOS",
+  "obs": 10
+ },
+ {
+  "id": "reorder-dragdrop-removed",
+  "title": "Перетаскивание для ручного упорядочивания задач убрали — теперь нужно открывать меню и двигать по одному элементу",
+  "obs": 7
+ },
+ {
+  "id": "accidental-complete-on-scroll",
+  "title": "Отметка о завершении срабатывает случайно при прокрутке или удержании телефона, и откатить действие нельзя",
+  "obs": 5
+ },
+ {
+  "id": "subtask-promotion-nesting",
+  "title": "При перемещении подзадача случайно выскакивает в основной список или создаёт лишнюю вложенность, иногда с дублированием",
+  "obs": 4
+ },
+ {
+  "id": "crash-on-view-switch",
+  "title": "Переключение между списками и разделами Planned или All роняет приложение",
+  "obs": 4
+ },
+ {
+  "id": "recurring-not-auto-myday",
+  "title": "Повторяющиеся задачи не попадают в My Day автоматически — каждый экземпляр приходится добавлять вручную",
+  "obs": 3
+ },
+ {
+  "id": "sync-unreliable-cross-device",
+  "title": "Синхронизация между устройствами и облаком неустойчива и не восстанавливается даже после переавторизации",
+  "obs": 3
+ },
+ {
+  "id": "sync-outlook-broken",
+  "title": "Синхронизация с Outlook и веб-приложением периодически рвётся и требует ручного выхода и входа",
+  "obs": 3
+ },
+ {
+  "id": "crash-on-list-creation",
+  "title": "Создание нового списка или задачи вызывает крах приложения",
+  "obs": 3
+ },
+ {
+  "id": "input-lag-wrong-task",
+  "title": "Задержка отклика на касания приводит к отметке не той задачи и тормозит добавление",
+  "obs": 3
+ },
+ {
+  "id": "2fa-codes-never-arrive",
+  "title": "Коды двухфакторной аутентификации и верификации не приходят, без вариантов восстановления доступа",
+  "obs": 3
+ },
+ {
+  "id": "shared-lists-household-use",
+  "title": "Общие списки используют для семейных покупок и совместного выбора, а не только для работы",
+  "obs": 3
+ },
+ {
+  "id": "account-required-no-offline",
+  "title": "Приложение требует учётную запись Microsoft и не работает офлайн или с чужой почтой",
+  "obs": 2
+ },
+ {
+  "id": "wunderlist-feature-loss",
+  "title": "После покупки Wunderlist компанией Microsoft часть функций удалили или ослабили",
+  "obs": 2
+ },
+ {
+  "id": "widget-removed-or-limited",
+  "title": "Из виджета убрали возможность отмечать и добавлять задачи без открытия приложения, а размеры виджета не масштабируются",
+  "obs": 2
+ },
+ {
+  "id": "completed-tasks-revert",
+  "title": "Завершённые задачи снова становятся незавершёнными или дублируются после синхронизации",
+  "obs": 2
+ },
+ {
+  "id": "crash-freezes-phone",
+  "title": "Приложение вылетает в первые минуты использования и подвешивает весь телефон",
+  "obs": 2
+ },
+ {
+  "id": "data-loss-on-crash-or-switch",
+  "title": "Несохранённые данные пропадают при крахе или при переключении на другое приложение",
+  "obs": 2
+ },
+ {
+  "id": "cold-reload-on-resume",
+  "title": "После переключения на другое приложение To Do полностью перезагружается вместо сохранения состояния",
+  "obs": 2
+ },
+ {
+  "id": "search-multistep-navigation",
+  "title": "Поиск спрятан за несколькими шагами навигации и доступен только с верхнего уровня списков",
+  "obs": 1
+ },
+ {
+  "id": "search-incomplete-index",
+  "title": "Поиск по ключевым словам индексирует задачи неполно — известные задачи не находятся",
+  "obs": 1
+ },
+ {
+  "id": "all-tasks-folder-grouping",
+  "title": "Вид «Все задачи» группирует по папкам вместо плоского списка всех задач",
+  "obs": 1
+ },
+ {
+  "id": "list-into-group-extra-step",
+  "title": "Список нельзя добавить прямо в группу — сначала создаёшь, потом перетаскиваешь",
+  "obs": 1
+ },
+ {
+  "id": "no-priority-ranking",
+  "title": "Нет приоритизации задач числовыми рангами для управления очередью",
+  "obs": 1
+ },
+ {
+  "id": "category-sort-missing-mobile",
+  "title": "Сортировка по категориям есть на планшете и ПК, но отсутствует в версии для iPhone и iPad",
+  "obs": 1
+ },
+ {
+  "id": "no-week-planning-subcategories",
+  "title": "Нет планирования на неделю и подкатегорий — есть только My Day",
+  "obs": 1
+ },
+ {
+  "id": "no-sort-completed-no-undo",
+  "title": "Завершённые задачи нельзя отсортировать по дате выполнения, а отмены случайного завершения нет",
+  "obs": 1
+ },
+ {
+  "id": "no-bulk-delete-mobile",
+  "title": "На мобильной версии нельзя удалить несколько задач сразу — приходится по одной",
+  "obs": 1
+ },
+ {
+  "id": "steps-added-to-bottom",
+  "title": "Новые шаги задачи всегда добавляются в конец, и при длинных чек-листах приходится прокручивать, а иногда шаги пропадают",
+  "obs": 1
+ },
+ {
+  "id": "photo-attach-too-many-steps",
+  "title": "Добавление фото к задаче требует четырёх шагов и долгой загрузки",
+  "obs": 1
+ },
+ {
+  "id": "default-name-edit-inconsistent",
+  "title": "Удаление имени по умолчанию у новых элементов работает по-разному на разных экранах",
+  "obs": 1
+ },
+ {
+  "id": "capitalization-inconsistent",
+  "title": "Автоматическая заглавная буква при вводе имени включается непоследовательно на разных экранах",
+  "obs": 1
+ },
+ {
+  "id": "no-multiple-accounts",
+  "title": "На iOS нельзя держать несколько учётных записей и переключаться между рабочим и личным профилем",
+  "obs": 1
+ },
+ {
+  "id": "subtasks-not-collapsing",
+  "title": "Подзадачи не схлопываются при завершении, в отличие от обычных задач",
+  "obs": 1
+ },
+ {
+  "id": "shared-lists-no-reorder",
+  "title": "Общие списки нельзя переупорядочить, а единственный доступный тег — звезда",
+  "obs": 1
+ },
+ {
+  "id": "no-due-date-parsing-mac",
+  "title": "На Mac приложение не разбирает текст задачи, чтобы автоматически проставить срок",
+  "obs": 1
+ },
+ {
+  "id": "open-trash-buttons-adjacent",
+  "title": "Кнопки «Открыть» и «Удалить» стоят вплотную и приводят к случайным нажатиям",
+  "obs": 1
+ },
+ {
+  "id": "no-myday-recolor",
+  "title": "Виджет нельзя перекрасить под цветовую схему домашнего экрана",
+  "obs": 1
+ },
+ {
+  "id": "completion-sound-too-loud",
+  "title": "Звук завершения задачи слишком громкий",
+  "obs": 1
+ },
+ {
+  "id": "shared-list-sync-broken",
+  "title": "Синхронизация общих списков рвётся и постоянно разлогинивает, ломая совместный доступ",
+  "obs": 1
+ },
+ {
+  "id": "app-blank-white-glass",
+  "title": "Само приложение рендерится пустым белым прямоугольником при включённых эффектах размытия iOS 26",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-list-on-create",
+  "title": "Нажатие «Создать список» делает два списка вместо одного",
+  "obs": 1
+ },
+ {
+  "id": "slow-open-after-microsoft",
+  "title": "Приложение стало медленно открываться при частом использовании в течение дня",
+  "obs": 1
+ },
+ {
+  "id": "wrong-date-displayed",
+  "title": "Приложение показывает вчерашнюю дату и блокирует добавление и удаление задач",
+  "obs": 1
+ },
+ {
+  "id": "list-deleted-without-action",
+  "title": "Приложение само удаляет основной список, оставляя дубли без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "sync-dropped-old-ios",
+  "title": "Синхронизация отключается на старых версиях iOS, хотя другие приложения экосистемы работают",
+  "obs": 1
+ },
+ {
+  "id": "reauth-loop-lockout",
+  "title": "Приложение требует переавторизации при каждом запуске и блокирует вход сообщением о превышении попыток",
+  "obs": 1
+ },
+ {
+  "id": "share-flow-kicks-to-browser",
+  "title": "Совместный доступ к списку выкидывает в браузер и заново запрашивает вход вместо потока внутри приложения",
+  "obs": 1
+ },
+ {
+  "id": "adhd-no-distraction",
+  "title": "Простота без геймификации и счётчиков делает приложение пригодным для людей с СДВГ",
+  "obs": 1
+ },
+ {
+  "id": "ios-version-driven-churn",
+  "title": "Сбои приложения толкают пользователей на встроенные Reminders и поиск альтернатив",
+  "obs": 1
+ }
+]

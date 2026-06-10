@@ -1,0 +1,65 @@
+{
+  "groups": [
+    {
+      "id": "vhod-i-dostup",
+      "name": "Не пустить к ответу: cookie-плашка, вылетающие сессии и вход",
+      "insight_ids": [
+        "cookie-banner-blocks-answer",
+        "session-expires-on-switch",
+        "subscription-no-device-transfer",
+        "sms-verification-broken",
+        "ipad-split-screen"
+      ]
+    },
+    {
+      "id": "padaet-i-belyi-ekran",
+      "name": "Падает на любой задаче: ошибки, белый экран и вылеты прямо в решении",
+      "insight_ids": [
+        "generic-error-any-input",
+        "app-wont-launch",
+        "crash-mid-session",
+        "premium-breaks-functionality",
+        "crash-with-relogin-loop"
+      ]
+    },
+    {
+      "id": "kamera-ne-vidit-zadachu",
+      "name": "Камера, которая не хочет видеть задачу",
+      "insight_ids": [
+        "camera-inconsistent-many-attempts",
+        "camera-never-works",
+        "camera-broke-after-update",
+        "camera-misreads-content"
+      ]
+    },
+    {
+      "id": "matematika-podvodit",
+      "name": "Математика подводит: неверные ответы и шаги без объяснений",
+      "insight_ids": [
+        "calculus-trig-wrong",
+        "word-problems-unsupported",
+        "steps-no-explanation",
+        "solver-deflects-task"
+      ]
+    },
+    {
+      "id": "podpiska-kapkan",
+      "name": "Подписка-капкан: не отменить, списывают месяцами, поддержка молчит",
+      "insight_ids": [
+        "cancel-blocked",
+        "billing-after-cancel",
+        "trial-immediate-charge",
+        "support-unresponsive"
+      ]
+    },
+    {
+      "id": "reklama-i-apsell",
+      "name": "Реклама и навязчивый апсейл поверх каждой задачи",
+      "insight_ids": [
+        "trial-modal-fullscreen",
+        "intrusive-ads",
+        "ad-after-every-photo"
+      ]
+    }
+  ]
+}

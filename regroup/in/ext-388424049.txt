@@ -1,0 +1,214 @@
+You are grouping 33 mechanism-level insight clusters from Avenza Maps: Offline Mapping (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Avenza Maps: Offline Mapping, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 33 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Avenza Maps: Offline Mapping — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Avenza Maps: Offline Mapping>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-388424049.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "store-search-irrelevant",
+  "title": "Поиск карт в магазине возвращает много нерелевантных результатов и требует долгой прокрутки",
+  "obs": 4
+ },
+ {
+  "id": "point-workflow-more-steps",
+  "title": "Размещение, именование и сохранение точек после обновления требует значительно больше шагов",
+  "obs": 4
+ },
+ {
+  "id": "purchased-maps-deleted-no-refund",
+  "title": "Купленные карты удалены или не доставлены, деньги списаны повторно без возмещения",
+  "obs": 3
+ },
+ {
+  "id": "web-app-account-mismatch",
+  "title": "Учётные данные на сайте и в приложении различаются, покупки с сайта не появляются в приложении",
+  "obs": 3
+ },
+ {
+  "id": "retroactive-paywall-maps",
+  "title": "Ранее бесплатные функции и уже загруженные карты заблокированы за платной подпиской",
+  "obs": 2
+ },
+ {
+  "id": "new-ui-less-logical",
+  "title": "Новый интерфейс стал менее логичным: навигация, именование слоёв и скорость работы ухудшились",
+  "obs": 2
+ },
+ {
+  "id": "update-deletes-map-library",
+  "title": "Обновления приложения удаляют всю библиотеку загруженных и купленных карт",
+  "obs": 2
+ },
+ {
+  "id": "map-download-no-background",
+  "title": "Загрузка карты прерывается при блокировке экрана, приложение не поддерживает фоновую загрузку и возобновление",
+  "obs": 2
+ },
+ {
+  "id": "cross-device-map-sync-missing",
+  "title": "Купленные карты не синхронизируются между устройствами одного пользователя",
+  "obs": 2
+ },
+ {
+  "id": "map-open-crash",
+  "title": "Открытие определённых карт вызывает зависание приложения",
+  "obs": 2
+ },
+ {
+  "id": "autozoom-switches-map",
+  "title": "При приближении карты приложение автоматически переключается на другую карту, охватывающую ту же область",
+  "obs": 2
+ },
+ {
+  "id": "qr-import-broken",
+  "title": "QR-код для импорта карты не сканируется или открывает страницу магазина вместо загрузки",
+  "obs": 2
+ },
+ {
+  "id": "silent-limit-downgrade",
+  "title": "Лимит импортов молча снижен с неограниченного до 20, существующие подписки переклассифицированы без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "sharing-tier-upgrade",
+  "title": "Функция общего доступа к картам перенесена на более дорогой уровень подписки",
+  "obs": 1
+ },
+ {
+  "id": "store-maps-low-detail",
+  "title": "Платные карты в магазине содержат слишком мало деталей для реальной навигации",
+  "obs": 1
+ },
+ {
+  "id": "upsell-popups-frequent",
+  "title": "Всплывающие окна с предложением платной подписки появляются каждые несколько секунд при наличии более трёх карт",
+  "obs": 1
+ },
+ {
+  "id": "map-sort-distance-inaccurate",
+  "title": "Сортировка карт в магазине по расстоянию работает неточно: близкие карты оказываются внизу списка",
+  "obs": 1
+ },
+ {
+  "id": "collections-no-navigation",
+  "title": "Коллекции карт переделаны в папки — переход между картами внутри коллекции удалён",
+  "obs": 1
+ },
+ {
+  "id": "line-editing-too-small",
+  "title": "Редактирование начерченных маршрутов на телефоне неудобно из-за мелкого размера элементов управления",
+  "obs": 1
+ },
+ {
+  "id": "paste-coordinates-removed",
+  "title": "Функция вставки координат удалена из приложения без документации",
+  "obs": 1
+ },
+ {
+  "id": "map-list-scroll-reset",
+  "title": "Список карт при повторной загрузке сбрасывается в начало при случайном касании во время прокрутки",
+  "obs": 1
+ },
+ {
+  "id": "rating-requires-full-review",
+  "title": "Система не позволяет поставить оценку карте без написания полного текста отзыва",
+  "obs": 1
+ },
+ {
+  "id": "import-free-broken",
+  "title": "Импорт пользовательских карт сломан в бесплатной версии и требует скрытых настроек для восстановления",
+  "obs": 1
+ },
+ {
+  "id": "update-breaks-specialized-maps",
+  "title": "Обновление нарушает совместимость со специализированными картами, созданными для конкретных приложений",
+  "obs": 1
+ },
+ {
+  "id": "import-counter-wrong",
+  "title": "Счётчик импортированных карт показывает ошибку превышения лимита при фактически меньшем количестве карт",
+  "obs": 1
+ },
+ {
+  "id": "purchase-error-no-resolution",
+  "title": "Попытка купить карту завершается ошибкой, очистка кэша и переустановка не помогают",
+  "obs": 1
+ },
+ {
+  "id": "session-logout-frequent",
+  "title": "Приложение периодически выбрасывает пользователя из аккаунта и требует повторного входа",
+  "obs": 1
+ },
+ {
+  "id": "inconsistent-behavior-same-hardware",
+  "title": "Приложение работает у одних пользователей и не работает у других на одинаковом оборудовании",
+  "obs": 1
+ },
+ {
+  "id": "altimeter-wrong-values",
+  "title": "Алтиметр на размещённых точках показывает неверные значения высоты",
+  "obs": 1
+ },
+ {
+  "id": "speed-display-overcalculated",
+  "title": "Скорость движения отображается с завышенным коэффициентом относительно реальной",
+  "obs": 1
+ },
+ {
+  "id": "compass-portrait-only",
+  "title": "После обновления компас работает только в портретной ориентации, перемещение точек требует перезагрузки приложения",
+  "obs": 1
+ },
+ {
+  "id": "new-account-cant-zoom",
+  "title": "После создания аккаунта приложение не позволяет приблизить карту или исследовать её",
+  "obs": 1
+ },
+ {
+  "id": "developer-reply-lost",
+  "title": "Ответ разработчика на отзыв теряется среди сотен других ответов на нерелевантные проблемы",
+  "obs": 1
+ }
+]

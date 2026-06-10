@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from Baby Tracker - Newborn Log (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Baby Tracker - Newborn Log, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Baby Tracker - Newborn Log — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Baby Tracker - Newborn Log>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-779656557.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "lockscreen-timer-wrong",
+  "title": "Таймер на заблокированном экране показывает неправильное время и сбрасывается, требуя разблокировки",
+  "obs": 14
+ },
+ {
+  "id": "ui-buttons-moved-each-update",
+  "title": "Каждое обновление переставляет кнопки интерфейса и ломает мышечную память уставших родителей",
+  "obs": 5
+ },
+ {
+  "id": "ads-near-buttons-misclick",
+  "title": "Реклама стоит вплотную к кнопкам и в центре экрана, провоцируя случайные нажатия при логировании",
+  "obs": 4
+ },
+ {
+  "id": "nav-bar-moved-top",
+  "title": "Панель навигации перенесли вниз или вверх, ломая управление одной рукой когда вторая занята ребёнком",
+  "obs": 3
+ },
+ {
+  "id": "sync-broken-across-devices",
+  "title": "Синхронизация между устройствами после обновления работает ненадёжно и не доносит данные с одного устройства на другое",
+  "obs": 3
+ },
+ {
+  "id": "no-tummy-time-section",
+  "title": "Нет отдельного раздела для времени на животе, приходится писать в раздел прочее",
+  "obs": 2
+ },
+ {
+  "id": "no-pumped-volume-units",
+  "title": "Нет ввода объёма сцеженного молока в нужных единицах измерения",
+  "obs": 2
+ },
+ {
+  "id": "no-wake-time-sleep",
+  "title": "Нельзя записать время пробуждения, есть только начало сна без его завершения",
+  "obs": 2
+ },
+ {
+  "id": "lockscreen-activity-gone",
+  "title": "После обновления данные о кормлении и сне перестали показываться на заблокированном экране",
+  "obs": 2
+ },
+ {
+  "id": "no-hide-sections",
+  "title": "На главном экране нельзя скрыть ненужные разделы без удаления и переустановки приложения",
+  "obs": 2
+ },
+ {
+  "id": "dark-mode-icons-monochrome",
+  "title": "В ночном режиме иконки становятся чёрно-белыми и их трудно различать на ощупь в темноте",
+  "obs": 2
+ },
+ {
+  "id": "daily-log-view-removed",
+  "title": "После обновления пропал общий просмотр всех событий за день в одном месте",
+  "obs": 2
+ },
+ {
+  "id": "review-prompts-spam",
+  "title": "Приложение слишком часто показывает всплывающие запросы оценки и прерывает работу",
+  "obs": 2
+ },
+ {
+  "id": "no-voice-shortcuts",
+  "title": "Нет быстрого ввода через голосового ассистента и часы для логирования без открытия приложения",
+  "obs": 2
+ },
+ {
+  "id": "widget-broke-after-update",
+  "title": "После обновления виджеты на главном экране телефона исчезли или почернели и стали бесполезными",
+  "obs": 2
+ },
+ {
+  "id": "paywall-removed-only-feature",
+  "title": "Обновление убрало единственную функцию которой пользовался человек и сделало её платной",
+  "obs": 1
+ },
+ {
+  "id": "widget-purchase-no-restore",
+  "title": "Виджет куплен отдельно но не работает, а при переустановке покупку нельзя восстановить",
+  "obs": 1
+ },
+ {
+  "id": "feeding-block-fake-purchase",
+  "title": "Приложение блокирует запись времени кормления и создаёт впечатление что требует покупку",
+  "obs": 1
+ },
+ {
+  "id": "no-supply-per-child",
+  "title": "При нескольких детях запасы молока не разделяются по детям и путаются",
+  "obs": 1
+ },
+ {
+  "id": "no-combo-feeding",
+  "title": "Нельзя записать смешанное вскармливание грудь плюс бутылка одной записью",
+  "obs": 1
+ },
+ {
+  "id": "no-stool-tracking",
+  "title": "Нет отслеживания цвета и консистенции стула для контроля здоровья ребёнка",
+  "obs": 1
+ },
+ {
+  "id": "no-bath-tracking",
+  "title": "Нет отслеживания купания, для нескольких детей приходится вести его отдельно",
+  "obs": 1
+ },
+ {
+  "id": "milestones-no-date",
+  "title": "В разделе вех нельзя сохранить дату события, вехи остаются без временной привязки",
+  "obs": 1
+ },
+ {
+  "id": "no-feeding-start-end",
+  "title": "Нельзя отметить отдельно начало и конец кормления, запись хранит только общую длительность",
+  "obs": 1
+ },
+ {
+  "id": "countdown-timer-removed",
+  "title": "Таймер обратного отсчёта исчез из приложения после обновления",
+  "obs": 1
+ },
+ {
+  "id": "feeding-timer-stops-logging",
+  "title": "Через время после установки приложение перестаёт записывать длительность кормления грудью",
+  "obs": 1
+ },
+ {
+  "id": "no-parallel-tracking",
+  "title": "Нельзя одновременно вести таймер кормления и записывать смену подгузника",
+  "obs": 1
+ },
+ {
+  "id": "dst-inconsistent",
+  "title": "При переходе на летнее или зимнее время кормление и сон считаются неверно, а подгузник правильно",
+  "obs": 1
+ },
+ {
+  "id": "ads-mandatory-interaction",
+  "title": "Рекламу нельзя закрыть без запуска игры или другого приложения",
+  "obs": 1
+ },
+ {
+  "id": "ads-appeared-clean-ui",
+  "title": "Приложение начало показывать рекламу, нарушив прежний чистый интерфейс без неё",
+  "obs": 1
+ },
+ {
+  "id": "homescreen-time-since-removed",
+  "title": "После обновления с главного экрана пропало время прошедшее с последнего кормления или сна",
+  "obs": 1
+ },
+ {
+  "id": "low-contrast-home",
+  "title": "Низкий контраст главной страницы мешает быстро прочитать последние действия ребёнка",
+  "obs": 1
+ },
+ {
+  "id": "settings-icon-gone",
+  "title": "Значок настроек исчез, лишив доступа к параметрам и резервному копированию",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-gender",
+  "title": "При регистрации обязателен выбор пола ребёнка без возможности пропустить",
+  "obs": 1
+ },
+ {
+  "id": "data-not-saving-after-update",
+  "title": "После крупного обновления приложение перестало сохранять введённые данные о кормлении и подгузниках",
+  "obs": 1
+ },
+ {
+  "id": "sync-data-loss",
+  "title": "При разрыве и повторном подключении синхронизация удаляет все данные кроме основного устройства",
+  "obs": 1
+ },
+ {
+  "id": "widget-not-realtime",
+  "title": "Виджет на главном экране не обновляется в реальном времени при записи новых событий",
+  "obs": 1
+ },
+ {
+  "id": "buggy-update-multiple-failures",
+  "title": "Последнее обновление принесло потерю фото, сбой логирования и пропажу иконок без ответа разработчика",
+  "obs": 1
+ },
+ {
+  "id": "photo-edit-not-saving",
+  "title": "Редактирование фото не сохраняет выбранное изображение несмотря на нажатие сохранить",
+  "obs": 1
+ },
+ {
+  "id": "wrong-counts-displayed",
+  "title": "Приложение показывает завышенное количество записей, например сотни кормлений вместо реального числа",
+  "obs": 1
+ },
+ {
+  "id": "wrong-time-since-last",
+  "title": "Приложение показывает неверное время с последнего кормления, вызывая панику у родителя",
+  "obs": 1
+ },
+ {
+  "id": "wrong-breast-side-time",
+  "title": "Время кормления грудью отображается неправильно по сторонам груди",
+  "obs": 1
+ },
+ {
+  "id": "watch-no-face-data",
+  "title": "Приложение на часах требует открытия и не показывает данные ребёнка прямо на циферблате",
+  "obs": 1
+ },
+ {
+  "id": "watch-timer-no-sync",
+  "title": "Запущенный на часах таймер сна не стартует на телефоне, разбивая единое отслеживание",
+  "obs": 1
+ },
+ {
+  "id": "dynamic-island-hides-time",
+  "title": "Живая активность на заблокированном экране растягивается и закрывает часы телефона",
+  "obs": 1
+ },
+ {
+  "id": "phone-overheating",
+  "title": "Приложение сильно перегревает телефон при использовании, что указывает на утечку ресурсов",
+  "obs": 1
+ },
+ {
+  "id": "backup-easy-data-loss",
+  "title": "Резервное копирование можно случайно отключить, а удаление данных идёт одним свайпом без подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "no-single-app-as-child-grows",
+  "title": "Приложение только для новорождённых, при взрослении ребёнка данные надо переносить вручную в другое приложение",
+  "obs": 1
+ },
+ {
+  "id": "partner-sharing-unclear",
+  "title": "Совместное использование с супругом не очевидно и не имеет встроенного руководства",
+  "obs": 1
+ }
+]

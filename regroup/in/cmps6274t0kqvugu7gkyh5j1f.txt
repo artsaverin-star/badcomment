@@ -1,0 +1,334 @@
+You are grouping 57 mechanism-level insight clusters from Amazon Alexa (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Amazon Alexa, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 57 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Amazon Alexa — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Amazon Alexa>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps6274t0kqvugu7gkyh5j1f.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "new-ui-navigation-broken",
+  "title": "Переработанный интерфейс приложения делает невозможным найти привычные функции",
+  "obs": 10
+ },
+ {
+  "id": "devices-disconnect-constantly",
+  "title": "Устройства постоянно отваливаются от системы и требуют переустановки заново",
+  "obs": 7
+ },
+ {
+  "id": "wifi-change-full-reset",
+  "title": "При смене Wi-Fi или провайдера нужно переустанавливать все устройства вручную",
+  "obs": 7
+ },
+ {
+  "id": "update-breaks-automations",
+  "title": "Обновление без предупреждения сбрасывает настройки устройств и ломает работавшие автоматизации",
+  "obs": 7
+ },
+ {
+  "id": "device-unresponsive-specific",
+  "title": "Конкретные устройства в доме перестают отвечать, хотя другие Echo в тех же комнатах работают",
+  "obs": 7
+ },
+ {
+  "id": "voice-recognition-degraded",
+  "title": "Распознавание голоса резко деградировало после обновления — приходится говорить медленно и по слову",
+  "obs": 6
+ },
+ {
+  "id": "multiroom-playback-broken",
+  "title": "Воспроизведение на нескольких динамиках одновременно часто не срабатывает или переключается на один",
+  "obs": 5
+ },
+ {
+  "id": "wrong-song-plays",
+  "title": "Система проигрывает не запрошенные треки или исполнителей",
+  "obs": 5
+ },
+ {
+  "id": "location-update-multi-place",
+  "title": "Обновление адреса нужно вносить в нескольких местах, но система продолжает использовать старый",
+  "obs": 5
+ },
+ {
+  "id": "app-crashes-on-launch",
+  "title": "Приложение падает или выдаёт ошибку сервера при каждом запуске",
+  "obs": 5
+ },
+ {
+  "id": "device-setup-complex",
+  "title": "Подключение нового умного устройства (лампочки, розетки, камеры) требует слишком много шагов",
+  "obs": 5
+ },
+ {
+  "id": "automation-creation-complex",
+  "title": "Создание автоматизаций сложно, а новая рутина применяется ко всем розеткам вместо одной",
+  "obs": 4
+ },
+ {
+  "id": "ring-camera-integration-broken",
+  "title": "Интеграция с камерами Ring и датчиками движения деградировала после обновления",
+  "obs": 4
+ },
+ {
+  "id": "drop-in-broken",
+  "title": "Drop-in перестал работать, хотя устройства онлайн; камерные разрешения блокируют даже устройства без камер",
+  "obs": 4
+ },
+ {
+  "id": "skills-removed-from-menu",
+  "title": "Скиллы убраны из меню приложения и доступны только через AI-чатбот",
+  "obs": 3
+ },
+ {
+  "id": "kindle-assistive-reader-broken",
+  "title": "Функция чтения Kindle вслух зависает при навигации по главам и кнопки перемотки не работают надёжно",
+  "obs": 3
+ },
+ {
+  "id": "clock-removed-echo-show",
+  "title": "Echo Show почти перестал показывать время — экран занят рекламой и контентом",
+  "obs": 3
+ },
+ {
+  "id": "apple-music-switches-to-amazon",
+  "title": "При запросе Apple Music или Spotify система переключается на Amazon Music или Pandora",
+  "obs": 3
+ },
+ {
+  "id": "playback-stops-randomly",
+  "title": "Музыка произвольно прерывается или устройство останавливает воспроизведение без команды",
+  "obs": 3
+ },
+ {
+  "id": "shopping-list-buried",
+  "title": "Список покупок убран в глубину меню и больше не открывается одним нажатием",
+  "obs": 3
+ },
+ {
+  "id": "notification-management-broken",
+  "title": "Уведомления и напоминания нельзя отключить или удалить — интерфейс управления ими не работает",
+  "obs": 3
+ },
+ {
+  "id": "alexa-controls-device-unauthorized",
+  "title": "Alexa самостоятельно переключает каналы, регулирует громкость или подключается к ТВ без команды",
+  "obs": 3
+ },
+ {
+  "id": "privacy-presence-detection-removed",
+  "title": "Ограничения приватности Alexa сломали автоматизацию по обнаружению присутствия, которая ранее работала",
+  "obs": 3
+ },
+ {
+  "id": "screensaver-content-uncontrollable",
+  "title": "Новости и музыку из заставки экрана нельзя убрать — родители не могут защитить детей от контента",
+  "obs": 3
+ },
+ {
+  "id": "update-removed-skills-voice",
+  "title": "Обновление удалило скиллы и изменило голос Alexa на неприятный",
+  "obs": 2
+ },
+ {
+  "id": "personal-music-library-hidden",
+  "title": "Личная медиатека музыки не отображается в разделе «Музыка» приложения",
+  "obs": 2
+ },
+ {
+  "id": "now-playing-removed",
+  "title": "Из приложения удалён экран текущего воспроизведения с треком и позицией в подкасте",
+  "obs": 2
+ },
+ {
+  "id": "alarm-cancel-impossible",
+  "title": "Активный будильник нельзя отменить ни голосом, ни через приложение, ни касанием экрана",
+  "obs": 2
+ },
+ {
+  "id": "app-stuck-loop",
+  "title": "Приложение зависает в меню и требует полного перезапуска для продолжения работы",
+  "obs": 2
+ },
+ {
+  "id": "thermostat-integration-broken",
+  "title": "Интеграция с термостатом и Google Nest перестала работать после обновлений",
+  "obs": 2
+ },
+ {
+  "id": "sonos-integration-broken",
+  "title": "Интеграция с Sonos периодически разрывается и требует повторного ручного подключения",
+  "obs": 2
+ },
+ {
+  "id": "car-bluetooth-broken",
+  "title": "Интеграция Alexa с автомобилем и Bluetooth-соединениями работает нестабильно",
+  "obs": 2
+ },
+ {
+  "id": "echo-dot-orange-light-stuck",
+  "title": "Устройство застревает в режиме оранжевого света и не подключается повторно",
+  "obs": 2
+ },
+ {
+  "id": "ai-assistant-wrong-instructions",
+  "title": "AI-ассистент даёт инструкции о кнопках и меню, которых нет в приложении",
+  "obs": 2
+ },
+ {
+  "id": "text-reminders-removed",
+  "title": "Обновление отключило SMS-оповещения для напоминаний на iPhone; одно напоминание уходит только на один телефон",
+  "obs": 2
+ },
+ {
+  "id": "alexa-plus-ai-forced",
+  "title": "Alexa Plus навязан по умолчанию — пользователи хотят только голосовой контроль без AI-ассистента",
+  "obs": 2
+ },
+ {
+  "id": "alexa-plus-forced-subscription",
+  "title": "Alexa Plus берёт ежемесячную плату за функции, которые были включены в устройство при покупке",
+  "obs": 1
+ },
+ {
+  "id": "payment-dispute-device-lockout",
+  "title": "Спор по карте с Amazon лишает пользователя доступа ко всем устройствам Alexa в доме",
+  "obs": 1
+ },
+ {
+  "id": "voice-purchase-unauthorized",
+  "title": "Голосовые покупки включаются без разрешения пользователя и не отключаются голосом",
+  "obs": 1
+ },
+ {
+  "id": "music-repeat-removed",
+  "title": "Обновление убрало функцию повтора песни для бесплатных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "no-sleep-timer-audio",
+  "title": "В приложении нет таймера сна для прослушивания аудиокниг перед сном",
+  "obs": 1
+ },
+ {
+  "id": "spotify-playlist-alarm",
+  "title": "Нельзя установить конкретный плейлист Spotify в перемешку в качестве будильника",
+  "obs": 1
+ },
+ {
+  "id": "child-music-contaminates-account",
+  "title": "Музыка, которую слушают дети на своём устройстве, попадает в личный аккаунт Apple Music родителя",
+  "obs": 1
+ },
+ {
+  "id": "no-local-bluetooth-playback",
+  "title": "Устройство не может играть музыку по Bluetooth без интернета — нет режима локального воспроизведения",
+  "obs": 1
+ },
+ {
+  "id": "alarms-timers-access-blocked",
+  "title": "Новый интерфейс блокирует доступ к будильникам и таймерам — AI-ассистент мешает добраться до них",
+  "obs": 1
+ },
+ {
+  "id": "device-group-name-conflict",
+  "title": "Имена групп и устройств не могут совпадать, хотя технического обоснования этому нет",
+  "obs": 1
+ },
+ {
+  "id": "shopping-list-migrated-silently",
+  "title": "Списки покупок перенесены в Amazon Wish Lists без предупреждения и больше не синхронизируются между членами семьи",
+  "obs": 1
+ },
+ {
+  "id": "wallpaper-subset-impossible",
+  "title": "Нельзя выбрать подмножество фотографий для обоев — система берёт всю коллекцию",
+  "obs": 1
+ },
+ {
+  "id": "night-mode-stuck",
+  "title": "Режим ночи нельзя отключить через приложение",
+  "obs": 1
+ },
+ {
+  "id": "ios-min-version-blocks-app",
+  "title": "Требование iOS 17 делает приложение недоступным на старых устройствах",
+  "obs": 1
+ },
+ {
+  "id": "profile-auto-created-undeletable",
+  "title": "Система автоматически создаёт профиль, который невозможно удалить",
+  "obs": 1
+ },
+ {
+  "id": "device-announcement-noisy-night",
+  "title": "Объявления о новых подключённых устройствах нельзя отключить — они громко включаются ночью",
+  "obs": 1
+ },
+ {
+  "id": "radio-station-playback-gone",
+  "title": "Конкретная радиостанция, ранее работавшая, больше не запускается по запросу",
+  "obs": 1
+ },
+ {
+  "id": "kids-integration-confusing",
+  "title": "Интеграция Amazon Kids с Alexa работает непредсказуемо и не распознаёт детские голосовые команды",
+  "obs": 1
+ },
+ {
+  "id": "drop-in-kids-wakeup",
+  "title": "Drop-in используют для удалённого пробуждения детей по утрам как замену будильнику",
+  "obs": 1
+ },
+ {
+  "id": "wake-word-alternatives-help",
+  "title": "Альтернативные слова активации помогают избежать ложных срабатываний в доме",
+  "obs": 1
+ },
+ {
+  "id": "microphone-permission-missing",
+  "title": "Приложение запрашивает доступ к микрофону, но опция включения не появляется в системных настройках",
+  "obs": 1
+ }
+]

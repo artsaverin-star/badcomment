@@ -1,0 +1,319 @@
+You are grouping 54 mechanism-level insight clusters from Soothing Sleep Sounds (white noise / sleep / relax) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Soothing Sleep Sounds, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 54 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Soothing Sleep Sounds — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Soothing Sleep Sounds>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-880195209.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ad-clutters-menu",
+  "title": "Реклама и перенаправления на другие приложения заполняют меню и мешают доступу к основным функциям",
+  "obs": 10
+ },
+ {
+  "id": "sound-quality-unrealistic",
+  "title": "Звуки звучат искусственно или агрессивно и не соответствуют природным оригиналам, которые знает пользователь",
+  "obs": 5
+ },
+ {
+  "id": "no-stop-button",
+  "title": "В приложении нет очевидной кнопки остановки — пользователи не могут выключить звук, не выключив телефон",
+  "obs": 5
+ },
+ {
+  "id": "sound-discovery-navigation",
+  "title": "Звуки трудно найти в нужной категории — пользователи ищут случайно вместо логической навигации",
+  "obs": 4
+ },
+ {
+  "id": "ui-navigation-unintuitive",
+  "title": "Интерфейс воспринимается как запутанный и неинтуитивный — требует времени на привыкание",
+  "obs": 4
+ },
+ {
+  "id": "niche-sound-requests",
+  "title": "Пользователи запрашивают очень конкретные звуковые варианты (сухая гроза, снег на хвойных, дождь с меньшим числом машин), которых нет в каталоге",
+  "obs": 3
+ },
+ {
+  "id": "voice-podcast-content-request",
+  "title": "Пользователи хотят добавить успокаивающие разговорные подкасты или мягкие голоса как альтернативу звукам природы",
+  "obs": 3
+ },
+ {
+  "id": "timer-stops-early",
+  "title": "Приложение прерывает воспроизведение за несколько часов до истечения таймера и будит пользователя",
+  "obs": 3
+ },
+ {
+  "id": "timer-does-not-stop",
+  "title": "Таймер не останавливает воспроизведение в установленное время — звук продолжает играть всю ночь",
+  "obs": 3
+ },
+ {
+  "id": "volume-slider-tied-to-system",
+  "title": "Ползунок громкости приложения меняет общую системную громкость, что мешает слушать звуки параллельно с другими источниками",
+  "obs": 3
+ },
+ {
+  "id": "crash-after-update",
+  "title": "После крупного обновления приложение перестаёт запускаться — крэш не исчезает после переустановки",
+  "obs": 3
+ },
+ {
+  "id": "privacy-tracking-consent",
+  "title": "Приложение требует согласия на отслеживание от ~200 организаций без возможности выборочного отказа",
+  "obs": 3
+ },
+ {
+  "id": "tinnitus-use-case",
+  "title": "Пользователи с тиннитусом используют звуки природы как маску для постоянного звона в ушах и способ заснуть",
+  "obs": 3
+ },
+ {
+  "id": "fake-free-forced-payment",
+  "title": "Приложение описано как бесплатное, но сразу перенаправляет на платную версию или захватывает экран с требованием оплаты",
+  "obs": 2
+ },
+ {
+  "id": "sound-count-mismatch",
+  "title": "Заявленные 300+ звуков на деле оказываются около 20 дополнительных треков в подписке — каталог гораздо меньше обещанного",
+  "obs": 2
+ },
+ {
+  "id": "fade-out-on-end",
+  "title": "Звук плавно затухает в конце вместо резкого отключения — пользователи ценят эту деталь",
+  "obs": 2
+ },
+ {
+  "id": "ad-interrupts-playback",
+  "title": "Реклама приостанавливает воспроизведение звука в момент засыпания",
+  "obs": 2
+ },
+ {
+  "id": "background-playback-battery",
+  "title": "Приложение можно свернуть и звук продолжает играть, экономя батарею — но это неочевидно новым пользователям",
+  "obs": 2
+ },
+ {
+  "id": "ipad-layout-issues",
+  "title": "Интерфейс не оптимизирован для большого экрана iPad — текст и элементы управления неудобны",
+  "obs": 2
+ },
+ {
+  "id": "too-many-sounds-choice-overload",
+  "title": "Большой каталог звуков перегружает пользователя при выборе — сложно остановиться на подходящем варианте",
+  "obs": 2
+ },
+ {
+  "id": "ad-battery-data-drain",
+  "title": "Фоновая загрузка рекламы истощает батарею и мобильный трафик",
+  "obs": 2
+ },
+ {
+  "id": "noise-masking-urban",
+  "title": "Городские жители используют приложение для маскировки шума соседей — альтернатива недостижимой тишине",
+  "obs": 2
+ },
+ {
+  "id": "concentration-use-case",
+  "title": "Приложение используется для улучшения концентрации при работе или учёбе, а не только для засыпания",
+  "obs": 2
+ },
+ {
+  "id": "spa-recreation-at-home",
+  "title": "Пользователь воссоздаёт в приложении микс любимого спа — получает тот же опыт дома",
+  "obs": 2
+ },
+ {
+  "id": "sleep-effectiveness",
+  "title": "Пользователи отмечают значительное улучшение сна — засыпают без пробуждений после начала использования приложения",
+  "obs": 2
+ },
+ {
+  "id": "safety-warning-driving",
+  "title": "Пользователи предупреждают, что приложение нельзя использовать за рулём — звуки слишком эффективно усыпляют",
+  "obs": 2
+ },
+ {
+  "id": "timer-as-sleep-tool",
+  "title": "Пользователи с хронической бессонницей подбирают оптимальное время таймера методом проб — ключевой инструмент засыпания",
+  "obs": 2
+ },
+ {
+  "id": "cancel-not-in-app",
+  "title": "Отмена подписки недоступна внутри приложения — пользователь не может найти механизм отписки",
+  "obs": 1
+ },
+ {
+  "id": "loop-click-artifacts",
+  "title": "На стыках циклов слышны щелчки, которые будят пользователя из лёгкого сна",
+  "obs": 1
+ },
+ {
+  "id": "human-voice-in-nature-sound",
+  "title": "В записи природного звука неожиданно слышны посторонние голоса людей, которые будят пользователя",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-sounds-across-categories",
+  "title": "Одни и те же звуки повторяются в разных категориях, что затрудняет открытие новых треков",
+  "obs": 1
+ },
+ {
+  "id": "continuous-thunder-preference",
+  "title": "Прерывистые грозовые звуки (с молнией) будят пользователя — нужна непрерывная версия без резких вспышек",
+  "obs": 1
+ },
+ {
+  "id": "custom-sound-upload",
+  "title": "Нет возможности загрузить собственные звуки — пользователи хотят использовать специфичные для них записи",
+  "obs": 1
+ },
+ {
+  "id": "mixing-feature-advantage",
+  "title": "Возможность миксовать несколько звуков и добавлять собственную музыку отличает приложение от платных конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "individual-sound-volume-in-mix",
+  "title": "При редактировании микса нельзя отрегулировать громкость отдельного звука без его полного отключения",
+  "obs": 1
+ },
+ {
+  "id": "cyclic-sound-scheduling",
+  "title": "Пользователи хотят функцию цикла для автоматического включения и отключения отдельных звуков по расписанию",
+  "obs": 1
+ },
+ {
+  "id": "screen-stays-on",
+  "title": "Экран остаётся ярко включённым при воспроизведении, что мешает засыпанию и разряжает батарею",
+  "obs": 1
+ },
+ {
+  "id": "volume-slider-visibility",
+  "title": "Ползунок громкости плохо виден в новой версии — управление звуком стало сложнее",
+  "obs": 1
+ },
+ {
+  "id": "replay-mix-unclear",
+  "title": "После первого использования неясно, как повторно запустить сохранённый микс",
+  "obs": 1
+ },
+ {
+  "id": "siri-voice-control-missing",
+  "title": "Нет управления через голосовой ассистент — пользователь вынужден искать телефон в темноте для остановки или изменения громкости",
+  "obs": 1
+ },
+ {
+  "id": "website-navigation-problems",
+  "title": "Веб-сайт приложения неудобен для навигации и поиска информации",
+  "obs": 1
+ },
+ {
+  "id": "review-request-popups",
+  "title": "Приложение постоянно запрашивает оценку пользователя, что раздражает и отвлекает",
+  "obs": 1
+ },
+ {
+  "id": "data-loss-after-update",
+  "title": "После обновления пользователь теряет все скачанные звуки и созданные миксы",
+  "obs": 1
+ },
+ {
+  "id": "app-freezes",
+  "title": "Приложение часто зависает во время использования",
+  "obs": 1
+ },
+ {
+  "id": "ipad-layout-fixed-by-update",
+  "title": "Обновление исправило проблемы с вёрсткой на iPad Air",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-sync",
+  "title": "Приложение синхронизирует миксы и настройки между устройствами — данные сохраняются после переустановки",
+  "obs": 1
+ },
+ {
+  "id": "support-email-broken",
+  "title": "Ссылка на электронную почту в разделе помощи не открывает письмо — телефон вибрирует как при копировании текста",
+  "obs": 1
+ },
+ {
+  "id": "extra-app-required-onboarding",
+  "title": "Перед регистрацией приложение требует установить дополнительное приложение, что воспринимается как обман",
+  "obs": 1
+ },
+ {
+  "id": "calm-competitor-displacement",
+  "title": "Пользователи отказываются от платной подписки на конкурентов ради бесплатных чистых звуков без голосовых элементов",
+  "obs": 1
+ },
+ {
+  "id": "chronic-pain-relaxation",
+  "title": "Звуки воды помогают людям с хронической болью вспомнить приятные воспоминания и расслабиться",
+  "obs": 1
+ },
+ {
+  "id": "irregular-sleep-patterns",
+  "title": "Пользователи с нерегулярными циклами сна чередуют разные звуки для нормализации засыпания",
+  "obs": 1
+ },
+ {
+  "id": "yoga-video-request",
+  "title": "Пользователи хотят видеоконтент с упражнениями йоги в дополнение к звукам для подготовки ко сну",
+  "obs": 1
+ },
+ {
+  "id": "music-to-nature-switch",
+  "title": "Пользователи переходят от прослушивания музыки к звукам природы как способу быстрее заснуть",
+  "obs": 1
+ },
+ {
+  "id": "nature-sounds-only-preference",
+  "title": "Часть пользователей хочет только чистые звуки природы без какой-либо фоновой музыки",
+  "obs": 1
+ }
+]

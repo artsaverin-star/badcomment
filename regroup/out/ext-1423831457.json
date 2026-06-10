@@ -1,0 +1,115 @@
+{
+  "groups": [
+    {
+      "id": "kamery-datchiki-podvodyat",
+      "name": "Камеры и датчики подводят: ложные тревоги и пропуски событий",
+      "insight_ids": [
+        "camera-disconnects",
+        "false-alarms",
+        "camera-misses-motion",
+        "camera-crash-on-view",
+        "camera-quality-poor",
+        "continuous-recording-missing",
+        "camera-false-positive-person",
+        "camera-cold-failure",
+        "door-lock-unreliable",
+        "thermostat-multi-control",
+        "emergency-button-fails",
+        "siren-no-remote",
+        "panel-camera-privacy"
+      ]
+    },
+    {
+      "id": "prilozhenie-ne-zhivet",
+      "name": "Приложение не открывается и врёт о состоянии системы",
+      "insight_ids": [
+        "app-wont-open",
+        "state-mismatch",
+        "ios-update-breaks-app",
+        "app-slow-response",
+        "wifi-connect-issue",
+        "camera-switch-regression",
+        "arm-remotely-fails",
+        "worse-than-adt-pulse",
+        "widget-removed"
+      ]
+    },
+    {
+      "id": "labirint-naviga-i-skrytye-funkcii",
+      "name": "Лабиринт интерфейса: ничего не найти, важное спрятано",
+      "insight_ids": [
+        "navigation-poor",
+        "cluttered-interface",
+        "emergency-access-buried",
+        "device-status-hidden",
+        "trigger-info-missing",
+        "dark-mode-missing",
+        "scenes-unexplained",
+        "text-too-small",
+        "video-controls-overlap",
+        "no-live-camera-autoplay",
+        "doorbell-volume-max-default",
+        "video-storage-management",
+        "schedule-automation-missing",
+        "mastercode-visible"
+      ]
+    },
+    {
+      "id": "schet-tolko-cherez-sajt-i-kapkany-otmeny",
+      "name": "Платить только через сайт, а отменить — целый квест",
+      "insight_ids": [
+        "billing-not-in-app",
+        "payment-method-no-change",
+        "payment-no-pay-in-app",
+        "billing-errors-cancellation-penalty",
+        "cancellation-endless-transfers",
+        "notifications-after-cancel",
+        "region-blocks-features",
+        "tech-installed-oversized-system",
+        "alarm-cert-unavailable"
+      ]
+    },
+    {
+      "id": "vse-cherez-tehnika",
+      "name": "Заперто за платным техником: ни добавить, ни настроить",
+      "insight_ids": [
+        "features-locked-behind-tech",
+        "advanced-features-blocked-in-app",
+        "wifi-reconfigure-requires-reset",
+        "cant-remove-devices",
+        "sensor-rename-only",
+        "sensor-add-button-broken",
+        "user-permissions-incomplete",
+        "z-wave-not-supported",
+        "doorbell-extra-hardware",
+        "google-home-blocked",
+        "multi-account-hard"
+      ]
+    },
+    {
+      "id": "bot-vmesto-cheloveka",
+      "name": "Бот вместо человека и тревоги, которые опаздывают",
+      "insight_ids": [
+        "chatbot-replaced-live-agent",
+        "notifications-delayed",
+        "no-support-contact-visible",
+        "support-chat-timeout",
+        "chat-no-autoscroll",
+        "support-instructions-wrong",
+        "email-only-alerts"
+      ]
+    },
+    {
+      "id": "vooruzhit-bez-paniki",
+      "name": "Вооружить и снять без беготни к панели",
+      "insight_ids": [
+        "disarm-fails",
+        "arm-button-layout-mismatch",
+        "zone-bypass-missing",
+        "multi-tap-arm",
+        "quick-exit-missing",
+        "sleep-arm-delay-forced"
+      ]
+    }
+  ]
+}

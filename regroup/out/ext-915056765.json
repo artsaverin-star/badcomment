@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "id": "routes-that-mislead",
+      "name": "Маршруты, которые ведут не туда",
+      "insight_ids": [
+        "wrong-entrance-routing",
+        "suboptimal-route",
+        "toll-avoidance-ignored",
+        "silent-reroute",
+        "eta-inaccurate",
+        "highway-avoidance-ignored",
+        "rural-navigation-poor",
+        "partner-gas-detour"
+      ]
+    },
+    {
+      "id": "ads-hijack-the-wheel",
+      "name": "Реклама за рулём и платный апсейл",
+      "insight_ids": [
+        "ads-block-navigation",
+        "ad-dismiss-impossible",
+        "sponsored-search-results",
+        "notifications-no-control"
+      ]
+    },
+    {
+      "id": "lost-position-broken-sensors",
+      "name": "Где я и куда смотрю: подводят GPS, компас и направление",
+      "insight_ids": [
+        "gps-location-wrong",
+        "heading-init-slow",
+        "compass-inconsistent",
+        "speed-limit-display",
+        "satellite-imagery-blurry"
+      ]
+    },
+    {
+      "id": "freezes-crashes-bloat",
+      "name": "Зависания, ежедневные вылеты и 20 ГБ мусора",
+      "insight_ids": [
+        "app-lag-freeze",
+        "storage-bloat",
+        "daily-crashes",
+        "add-stop-freezes",
+        "post-update-regression",
+        "interruption-error-state",
+        "carplay-sleep-stops"
+      ]
+    },
+    {
+      "id": "stops-that-vanish",
+      "name": "Остановки, которые невозможно поставить и которые исчезают",
+      "insight_ids": [
+        "along-route-poi-search",
+        "no-stops-bike-routes",
+        "siri-stop-no-address",
+        "route-lost-on-switch",
+        "more-taps-than-competitor",
+        "copy-address-missing"
+      ]
+    },
+    {
+      "id": "wrong-map-stale-places",
+      "name": "Карта врёт: пустые регионы, устаревшие адреса, чужие результаты поиска",
+      "insight_ids": [
+        "geographic-data-errors",
+        "business-address-stale",
+        "wrong-search-results",
+        "lebanon-map-gap",
+        "offline-maps-broken"
+      ]
+    },
+    {
+      "id": "voice-and-view-disobey",
+      "name": "Голос замолкает, а карта живёт своей жизнью",
+      "insight_ids": [
+        "voice-guidance-drops",
+        "tts-pronunciation-wrong",
+        "auto-map-controls",
+        "view-mode-reset",
+        "product-outdated-vs-competitors"
+      ]
+    }
+  ]
+}

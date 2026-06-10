@@ -1,0 +1,219 @@
+You are grouping 34 mechanism-level insight clusters from CamScanner - PDF Scanner App (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO CamScanner - PDF Scanner App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 34 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to CamScanner - PDF Scanner App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to CamScanner - PDF Scanner App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpst4tiv0g4xug8pxo8x0s7e.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-charge-no-warning",
+  "title": "Приложение обещает напомнить перед окончанием пробного периода, но уведомление не приходит, и деньги списываются без предупреждения",
+  "obs": 4
+ },
+ {
+  "id": "trial-button-full-charge",
+  "title": "Кнопка пробного периода или удаления водяного знака сразу списывает полную годовую сумму, а не запускает пробный доступ",
+  "obs": 3
+ },
+ {
+  "id": "email-send-broken",
+  "title": "Функция отправки по электронной почте неработоспособна: файлы не отправляются ни на один адрес",
+  "obs": 3
+ },
+ {
+  "id": "free-version-sufficient",
+  "title": "Бесплатная версия покрывает базовые сценарии сканирования и отправки документов без необходимости платить",
+  "obs": 3
+ },
+ {
+  "id": "refund-blocked",
+  "title": "После нежелательного списания ни приложение, ни Apple не возвращают деньги — механизм возврата фактически заблокирован",
+  "obs": 2
+ },
+ {
+  "id": "free-pdf-export-paywalled",
+  "title": "Экспорт в PDF, который раньше был бесплатным, после обновления переехал за платную подписку",
+  "obs": 2
+ },
+ {
+  "id": "multipage-pdf-reorder-paywalled",
+  "title": "Сборка многостраничного PDF и переупорядочение страниц перенесены за платёж — базовая редакционная функция стала недоступна без подписки",
+  "obs": 2
+ },
+ {
+  "id": "monthly-charged-as-annual",
+  "title": "Пользователь выбирает ежемесячную подписку, но приложение списывает полную годовую сумму",
+  "obs": 1
+ },
+ {
+  "id": "cancel-trial-hard-to-find",
+  "title": "Функция отмены пробного периода скрыта — пользователи не могут её найти и успеть отменить до списания",
+  "obs": 1
+ },
+ {
+  "id": "silent-upsell-price-hike",
+  "title": "Приложение незаметно разлогинивает пользователя и предлагает «продлить» подписку по якобы той же цене, которая на деле выше прежней",
+  "obs": 1
+ },
+ {
+  "id": "no-trial-no-demo",
+  "title": "Приложение требует оплату без пробного периода или демонстрации — невозможно оценить качество до покупки",
+  "obs": 1
+ },
+ {
+  "id": "russia-payment-blocked",
+  "title": "Российские банковские карты не принимаются ни напрямую, ни через App Store — подписку оплатить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "batch-scan-paywalled-uneven",
+  "title": "Пакетное сканирование внезапно стало платным, но у части пользователей оно остаётся бесплатным — возникает ощущение несправедливого доступа",
+  "obs": 1
+ },
+ {
+  "id": "daily-scan-limit",
+  "title": "Бесплатная версия ограничивает количество сканов в сутки — лимит исчерпывается в один день и блокирует срочные задачи",
+  "obs": 1
+ },
+ {
+  "id": "email-send-paywalled",
+  "title": "Отправка отсканированного документа по электронной почте заблокирована в бесплатной версии и требует подписки",
+  "obs": 1
+ },
+ {
+  "id": "watermark-hidden-until-export",
+  "title": "Водяной знак не виден в интерфейсе при сканировании, но появляется на итоговом файле — пользователь узнаёт о нём только после экспорта",
+  "obs": 1
+ },
+ {
+  "id": "send-to-pc-flow-complicated",
+  "title": "После обновления отправка PDF на компьютер превратилась из одного шага в многоступенчатый процесс",
+  "obs": 1
+ },
+ {
+  "id": "import-folder-placement",
+  "title": "При импорте документа нельзя сразу выбрать папку — приходится сохранять во временное место и перемещать вручную",
+  "obs": 1
+ },
+ {
+  "id": "email-send-flow-complex",
+  "title": "Отправка документа по электронной почте требует неочевидной последовательности действий",
+  "obs": 1
+ },
+ {
+  "id": "crop-tool-alignment",
+  "title": "Инструмент кадрирования не выравнивает края ровно даже в режиме увеличения — одна из страниц не загружается при мультистраничном кадрировании",
+  "obs": 1
+ },
+ {
+  "id": "ai-auto-processes-without-consent",
+  "title": "После обновления ИИ-инструмент автоматически обрабатывает каждый документ без разрешения пользователя и без возможности отключить это",
+  "obs": 1
+ },
+ {
+  "id": "pdf-export-white-screen",
+  "title": "При попытке экспорта в PDF приложение показывает белый экран и полностью зависает — перезагрузка устройства не помогает",
+  "obs": 1
+ },
+ {
+  "id": "pdf-export-broken-general",
+  "title": "Экспорт в PDF не работает: файл не создаётся и недоступен на диске устройства",
+  "obs": 1
+ },
+ {
+  "id": "archive-access-lost-after-update",
+  "title": "После обновления пользователь теряет доступ к ранее сохранённым документам в архиве",
+  "obs": 1
+ },
+ {
+  "id": "multipage-project-lost-between-sessions",
+  "title": "Многостраничный проект полностью исчезает между сеансами — данные не сохраняются",
+  "obs": 1
+ },
+ {
+  "id": "large-pdf-slow-transfer",
+  "title": "Передача большого PDF-файла на компьютер занимает очень долгое время — оптимизации для больших файлов нет",
+  "obs": 1
+ },
+ {
+  "id": "scan-quality-blurry",
+  "title": "Приложение выдаёт размытые сканы даже на устройствах с современной камерой",
+  "obs": 1
+ },
+ {
+  "id": "shadow-removal-bleaches-signatures",
+  "title": "Удаление теней обесцвечивает синие рукописные подписи — элементы оригинального документа разрушаются",
+  "obs": 1
+ },
+ {
+  "id": "scan-removes-handwritten-notes",
+  "title": "При сканировании линованной бумаги приложение удаляет рукописные пометки и аннотации",
+  "obs": 1
+ },
+ {
+  "id": "collate-auto-sort-missing",
+  "title": "Функция автоматической сортировки и подборки страниц не работает или отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "translation-scan-blurry-lossy",
+  "title": "Сканирование с переводом даёт размытые изображения, часть изображений теряется при обработке",
+  "obs": 1
+ },
+ {
+  "id": "id-photo-face-distortion",
+  "title": "Функция фото для удостоверения личности деформирует черты лица — результат неприемлем для официальных документов",
+  "obs": 1
+ },
+ {
+  "id": "file-compression-missing",
+  "title": "Приложение не позволяет сжать размер файла — документы не проходят лимит загрузки на веб-сайтах",
+  "obs": 1
+ },
+ {
+  "id": "support-no-contact-method",
+  "title": "После потери всех документов в приложении нет способа связаться со службой поддержки",
+  "obs": 1
+ }
+]

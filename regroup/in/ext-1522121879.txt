@@ -1,0 +1,404 @@
+You are grouping 71 mechanism-level insight clusters from Habit Rabbit: Habit Tracker (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Habit Rabbit: Habit Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 71 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Habit Rabbit: Habit Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Habit Rabbit: Habit Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1522121879.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "reliability-ads-frequency-core-loop-broken",
+  "title": "Частота рекламы выросла после обновления до одного объявления на каждое действие или каждые несколько секунд — основной цикл использования сломан",
+  "obs": 32
+ },
+ {
+  "id": "ui-onboarding-insufficient-guidance",
+  "title": "Обучение не охватывает базовые операции — пользователь вынужден случайно нажимать кнопки, чтобы разобраться в функциях",
+  "obs": 9
+ },
+ {
+  "id": "strategy-ads-drive-churn-not-conversion",
+  "title": "Избыток рекламы вызывает отказ от приложения вместо конверсии в платящих пользователей — агрессивная монетизация разрушает retention",
+  "obs": 6
+ },
+ {
+  "id": "ui-initial-confusion-overcomes-with-use",
+  "title": "Первоначальная запутанность интерфейса преодолевается самостоятельно — после освоения пользователи высоко оценивают приложение",
+  "obs": 5
+ },
+ {
+  "id": "ui-edit-delete-habit-not-working",
+  "title": "Кнопки редактирования и удаления привычек не работают — нажатие «tap to edit» ничего не делает",
+  "obs": 5
+ },
+ {
+  "id": "reliability-room-trash-display-bug",
+  "title": "После обновления мусор в комнате кролика появляется по одному вместо полного списка — механизм уборки сломан",
+  "obs": 4
+ },
+ {
+  "id": "strategy-gamification-outperforms-todo-lists",
+  "title": "Геймификация делает приложение более мотивирующим, чем обычные списки дел — пользователи впервые удерживаются на трекере привычек",
+  "obs": 4
+ },
+ {
+  "id": "payment-freemium-limits-hidden",
+  "title": "Ограничения свободной версии не объясняются при установке — пользователь обнаруживает платёжную стену только при первом столкновении",
+  "obs": 3
+ },
+ {
+  "id": "payment-priority-limit-one-high",
+  "title": "Свободная версия позволяет только один высокоприоритетный пункт — блокирует базовые сценарии вроде лекарств и регулярных дел",
+  "obs": 3
+ },
+ {
+  "id": "ui-habit-limit-in-free-version",
+  "title": "Лимит на количество привычек в свободной версии не объяснён заранее и вынуждает удалять приложение",
+  "obs": 3
+ },
+ {
+  "id": "ui-nonstandard-recurrence-missing",
+  "title": "Приложение поддерживает только еженедельное повторение — двухнедельные и месячные циклы недоступны",
+  "obs": 3
+ },
+ {
+  "id": "reliability-rabbit-flies-off-screen",
+  "title": "Кролик выскакивает за пределы экрана при касании и исчезает — основной визуальный элемент становится недоступен",
+  "obs": 3
+ },
+ {
+  "id": "strategy-gamification-vs-simple-tracker",
+  "title": "Геймифицированный интерфейс отталкивает пользователей, ищущих простой трекер — сложность воспринимается как препятствие",
+  "obs": 3
+ },
+ {
+  "id": "strategy-energy-mechanic-opaque",
+  "title": "Механика энергии и её восстановления непонятна пользователю — нет объяснения, как она работает и пополняется",
+  "obs": 3
+ },
+ {
+  "id": "payment-premium-still-shows-ads",
+  "title": "Платёж за удаление рекламы не работает — приложение продолжает показывать объявления несмотря на оплату",
+  "obs": 2
+ },
+ {
+  "id": "payment-premium-requires-repurchase",
+  "title": "Уже оплаченный премиум-доступ требует повторной покупки при следующем входе или для каждой новой функции",
+  "obs": 2
+ },
+ {
+  "id": "payment-no-trial-period",
+  "title": "Нет пробного периода для премиума — пользователь не может оценить приложение перед тем, как заплатить",
+  "obs": 2
+ },
+ {
+  "id": "payment-cloud-sync-opaque-unlock",
+  "title": "Условие разблокировки облачной синхронизации непрозрачно — любая покупка открывает доступ, но нигде не объяснено",
+  "obs": 2
+ },
+ {
+  "id": "payment-upsell-popup-on-every-entry",
+  "title": "При каждом входе в приложение появляется всплывающее окно с предложением купить подписку",
+  "obs": 2
+ },
+ {
+  "id": "payment-energy-carrot-paywall",
+  "title": "Ресурсы (морковка, энергия) истощаются и восстанавливаются только через покупку — бесплатные пользователи быстро упираются в стену",
+  "obs": 2
+ },
+ {
+  "id": "payment-free-version-uncompetitive",
+  "title": "Функциональность свободной версии настолько ограничена, что приложение неконкурентоспособно даже при сравнении с бесплатными альтернативами",
+  "obs": 2
+ },
+ {
+  "id": "content-app-for-kids-habit-formation",
+  "title": "Геймификация с кроликом формирует у детей привычки к учёбе и уборке без принуждения родителей",
+  "obs": 2
+ },
+ {
+  "id": "content-rabbit-psychological-binding",
+  "title": "Механика заботы о кролике создаёт психологическое связывание — пользователь выполняет привычки, чтобы не подвести питомца",
+  "obs": 2
+ },
+ {
+  "id": "content-gamification-vs-habit-realism",
+  "title": "Приложение работает как виртуальный питомец, а не как реальный трекер привычек — геймификация подменяет саму цель",
+  "obs": 2
+ },
+ {
+  "id": "content-rabbit-room-progression-ceiling",
+  "title": "Система вознаграждений заканчивается — когда все предметы для комнаты куплены или уровень достигает 300, мотивация исчезает",
+  "obs": 2
+ },
+ {
+  "id": "content-offending-honesty-message",
+  "title": "При отметке привычки появляется сообщение «Будь честен. Это нельзя отменить» — пользователи воспринимают его как оскорбительное",
+  "obs": 2
+ },
+ {
+  "id": "content-no-one-time-tasks",
+  "title": "Приложение не поддерживает одноразовые задачи — только регулярные привычки, что ограничивает использование для ежедневных дел",
+  "obs": 2
+ },
+ {
+  "id": "playback-background-music-broken",
+  "title": "Встроенная фоновая музыка приложения перестала работать и не восстанавливается переустановкой",
+  "obs": 2
+ },
+ {
+  "id": "ui-mood-tracker-mandatory",
+  "title": "Обязательный ввод настроения при входе нельзя отключить — пользователи, не желающие его заполнять, получают барьер",
+  "obs": 2
+ },
+ {
+  "id": "reliability-offline-mode-removed",
+  "title": "Поддержка офлайн-режима убрана в одном из обновлений — вернувшийся пользователь обнаружил ломающее изменение",
+  "obs": 2
+ },
+ {
+  "id": "reliability-battery-drain-overheating",
+  "title": "Приложение быстро расходует батарею и перегревает устройство — за 10 минут заряд падает с 80% до 30%",
+  "obs": 2
+ },
+ {
+  "id": "reliability-login-auth-failure",
+  "title": "Сбой авторизации при входе — приложение отклоняет верные учётные данные несколько раз подряд",
+  "obs": 2
+ },
+ {
+  "id": "strategy-free-trial-barrier-to-paid",
+  "title": "Отсутствие пробного периода и непригодная для оценки свободная версия создают барьер для потенциальных платящих пользователей",
+  "obs": 2
+ },
+ {
+  "id": "strategy-app-competes-with-social-media",
+  "title": "Приложение конкурирует с социальными сетями за внимание — используется как инструмент выхода из цикла прокрастинации",
+  "obs": 2
+ },
+ {
+  "id": "strategy-everyday-memory-aid",
+  "title": "Приложение помогает вспомнить мелкие повседневные дела, которые обычно упускаются из виду",
+  "obs": 2
+ },
+ {
+  "id": "strategy-ads-as-reward-mechanism-contradictory",
+  "title": "Просмотр рекламы предлагается как способ заработать вознаграждение — это противоречит цели формирования реальных привычек",
+  "obs": 2
+ },
+ {
+  "id": "strategy-rabbit-limited-interactions",
+  "title": "Кролик не интерактивен — нельзя его погладить, покормить или услышать звуковую обратную связь, что снижает вовлечённость",
+  "obs": 2
+ },
+ {
+  "id": "strategy-ads-barrier-for-children",
+  "title": "Дети без доступа к платежам не могут избавиться от рекламы — реклама создаёт непреодолимый барьер для этой аудитории",
+  "obs": 2
+ },
+ {
+  "id": "payment-cloud-sync-lost-on-restore",
+  "title": "После сброса устройства весь прогресс теряется — облачное резервное копирование требует платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "content-rabbit-accessories-overpriced",
+  "title": "Цены на аксессуары и одежду для кролика завышены, что создаёт барьер для персонализации",
+  "obs": 1
+ },
+ {
+  "id": "content-no-subtask-hierarchy",
+  "title": "Нет поддержки вложенных подзадач и иерархии привычек — нельзя привязать дочернюю привычку к родительской",
+  "obs": 1
+ },
+ {
+  "id": "content-journal-repurposed-for-food",
+  "title": "Пользователь переиспользует журнал как трекер питания — функция работает не по назначению",
+  "obs": 1
+ },
+ {
+  "id": "content-two-apps-no-shared-account",
+  "title": "Два приложения от одного разработчика не синхронизированы и не делят единый аккаунт или кролика",
+  "obs": 1
+ },
+ {
+  "id": "playback-background-music-interrupted",
+  "title": "Приложение прерывает фоновое воспроизведение музыки из других приложений при открытии",
+  "obs": 1
+ },
+ {
+  "id": "playback-habit-timer-no-background",
+  "title": "Таймер привычки останавливается при переключении на другое приложение или выключении экрана — требует постоянного внимания к устройству",
+  "obs": 1
+ },
+ {
+  "id": "ui-onboarding-unskippable-blocks-entry",
+  "title": "Обязательное обучение при первом запуске нельзя пропустить — пользователи, желающие сразу попробовать, немедленно удаляют приложение",
+  "obs": 1
+ },
+ {
+  "id": "ui-onboarding-bug-blocks-habit-selection",
+  "title": "Баг в обучении — нельзя выбрать привычку во время онбординга, что полностью блокирует прохождение",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-missed-habit-marking",
+  "title": "Нет возможности явно отметить пропущенную привычку — пустая ячейка не позволяет различить «не выполнено» и «не отслежено»",
+  "obs": 1
+ },
+ {
+  "id": "ui-habit-archive-no-history",
+  "title": "Удаление привычки необратимо уничтожает всю её историю — нет механизма архивирования",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-selective-schedule-per-habit",
+  "title": "Нельзя назначить привычку на конкретные дни недели — приходится создавать дублирующие записи для нестандартных графиков",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-multiple-completions-per-day",
+  "title": "Нет поддержки многократного выполнения одной привычки в день — нельзя отметить чистку зубов утром и вечером в одной записи",
+  "obs": 1
+ },
+ {
+  "id": "ui-rabbit-room-interaction-limited",
+  "title": "Предметы в комнате кролика сложно переставить — интерфейс не позволяет свободно управлять расстановкой",
+  "obs": 1
+ },
+ {
+  "id": "ui-task-list-requires-scroll",
+  "title": "После завершения задачи следующая не видна без прокрутки вверх — нет автоматической прокрутки к следующему пункту",
+  "obs": 1
+ },
+ {
+  "id": "ui-login-requires-account-no-reason",
+  "title": "Приложение требует регистрации аккаунта без объяснения, зачем он нужен",
+  "obs": 1
+ },
+ {
+  "id": "ui-invite-link-redirects-to-website",
+  "title": "Ссылка для приглашения друга ведёт на сайт вместо приложения, что мешает совместному использованию",
+  "obs": 1
+ },
+ {
+  "id": "ui-partner-shared-rabbit",
+  "title": "Приложение поддерживает совместное использование — двое пользователей синхронизируют прогресс по одному кролику",
+  "obs": 1
+ },
+ {
+  "id": "ui-screen-layout-broken-after-update",
+  "title": "После обновления приложение не заполняет экран — по краям остаются чёрные полосы",
+  "obs": 1
+ },
+ {
+  "id": "reliability-ad-reward-fails-to-load",
+  "title": "Механизм просмотра рекламы за вознаграждение выдаёт ошибку — пользователь не может заработать морковку несмотря на стабильное соединение",
+  "obs": 1
+ },
+ {
+  "id": "reliability-ad-cant-close-forces-exit",
+  "title": "Закрыть рекламный баннер штатным способом невозможно — единственный выход это принудительное закрытие приложения",
+  "obs": 1
+ },
+ {
+  "id": "reliability-app-crash-on-open",
+  "title": "Приложение вылетает при открытии, полностью блокируя использование",
+  "obs": 1
+ },
+ {
+  "id": "reliability-streak-not-saved-late-checkin",
+  "title": "Полоса выполнения не сохраняется при поздней отметке привычки — пользователь теряет стрик несмотря на фактическое выполнение",
+  "obs": 1
+ },
+ {
+  "id": "reliability-challenge-mode-resets-all-progress",
+  "title": "В режиме вызова полная потеря здоровья сбрасывает весь прогресс — уровень и имущество обнуляются, если пользователь не включил режим отпуска",
+  "obs": 1
+ },
+ {
+  "id": "reliability-email-verification-blocks-access",
+  "title": "Система проверки электронной почты заблокировала пользователя — разработчики решили проблему, разрешив повтор с другого устройства",
+  "obs": 1
+ },
+ {
+  "id": "support-no-support-channel",
+  "title": "Нет работающего канала поддержки — проблема с рекламой не была исправлена два года несмотря на постоянные жалобы пользователей",
+  "obs": 1
+ },
+ {
+  "id": "strategy-setup-cost-acceptable",
+  "title": "Начальная настройка требует времени, но это единовременные затраты — после этого трение при ежедневном использовании низкое",
+  "obs": 1
+ },
+ {
+  "id": "strategy-ad-content-misaligned-with-audience",
+  "title": "Показываемая реклама противоречит аудитории приложения — школьникам показывают объявления сервисов для списывания домашних заданий",
+  "obs": 1
+ },
+ {
+  "id": "strategy-notifications-overload",
+  "title": "Частые уведомления о выполнении задач помогают одним, но раздражают других — механизм не адаптируется к предпочтениям пользователя",
+  "obs": 1
+ },
+ {
+  "id": "strategy-onboarding-popup-overload",
+  "title": "Первые минуты в приложении перегружены всплывающими окнами — первое впечатление разрушается несмотря на привлекательный дизайн",
+  "obs": 1
+ },
+ {
+  "id": "strategy-todo-reward-disconnected",
+  "title": "Выполнение списка дел не приносит игровых вознаграждений — система поощрений интегрирована только с привычками",
+  "obs": 1
+ },
+ {
+  "id": "strategy-boring-longterm-premium",
+  "title": "Даже в премиум-версии приложение становится скучным на длительной дистанции — функциональность не мотивирует продолжать",
+  "obs": 1
+ },
+ {
+  "id": "strategy-room-cleanup-ocd-trigger",
+  "title": "Реклама перед уборкой комнаты нарушает ритуал для пользователей с ОКР — геймифицированная уборка становится источником стресса",
+  "obs": 1
+ }
+]

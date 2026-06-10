@@ -1,0 +1,289 @@
+You are grouping 48 mechanism-level insight clusters from Fastic Weight Loss & Fasting (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Fastic Weight Loss & Fasting, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 48 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Fastic Weight Loss & Fasting — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Fastic Weight Loss & Fasting>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsywvkd25vwughvetp64mcg.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ads-on-every-action",
+  "title": "Реклама без пропуска появляется при каждом действии, растягивая минутную задачу на минуты",
+  "obs": 9
+ },
+ {
+  "id": "billing-continues-after-cancel",
+  "title": "Деньги продолжают списываться после отмены подписки — остановить списания невозможно",
+  "obs": 7
+ },
+ {
+  "id": "food-scanner-inaccurate",
+  "title": "Сканер еды систематически ошибается в калориях и макросах, требуя ручных исправлений",
+  "obs": 5
+ },
+ {
+  "id": "crash-after-update-or-purchase",
+  "title": "Приложение крашится при открытии после обновления или покупки подписки",
+  "obs": 5
+ },
+ {
+  "id": "onboarding-before-paywall",
+  "title": "Долгая анкета на десятки вопросов обязательна до того, как откроется paywall",
+  "obs": 5
+ },
+ {
+  "id": "trial-charged-despite-cancel",
+  "title": "Отмена пробного периода не срабатывает — деньги всё равно списываются как за полную подписку",
+  "obs": 4
+ },
+ {
+  "id": "promo-wheel-trap",
+  "title": "Колесо рулетки со скидкой нельзя закрыть — кнопка закрытия возвращает на экран подписки",
+  "obs": 4
+ },
+ {
+  "id": "refund-promised-denied",
+  "title": "Возврат денег обещан в приложении и на сайте, но поддержка отказывает шаблонными ответами",
+  "obs": 3
+ },
+ {
+  "id": "free-positioning-misleading",
+  "title": "Приложение рекламируется как бесплатное, но все существенные функции закрыты подпиской",
+  "obs": 3
+ },
+ {
+  "id": "was-free-now-paywalled",
+  "title": "Раньше был бесплатный режим-трекер, теперь его полностью убрали за подписку",
+  "obs": 3
+ },
+ {
+  "id": "ads-degraded-free-version",
+  "title": "Бесплатную версию завалили рекламой, испортив прежний простой таймер голодания",
+  "obs": 3
+ },
+ {
+  "id": "subscription-blocks-account",
+  "title": "Экран подписки нельзя пропустить — без оплаты невозможно даже создать аккаунт",
+  "obs": 3
+ },
+ {
+  "id": "scanner-fails-vegan",
+  "title": "Сканирование макросов неточно для веганских продуктов и заменителей мяса",
+  "obs": 2
+ },
+ {
+  "id": "ai-unsafe-fasting-advice",
+  "title": "AI даёт небезопасные рекомендации по голоданию и советует напитки с калориями, нарушающие пост",
+  "obs": 2
+ },
+ {
+  "id": "removed-friends-feature",
+  "title": "Убрали социальную функцию слежения за прогрессом друзей, которая мотивировала пользователей",
+  "obs": 2
+ },
+ {
+  "id": "notifications-toggle-broken",
+  "title": "Включение уведомлений о голодании их отключает — основной сценарий напоминаний не работает",
+  "obs": 2
+ },
+ {
+  "id": "notifications-cant-disable",
+  "title": "Уведомления продолжают приходить даже после отключения в настройках и удаления аккаунта",
+  "obs": 2
+ },
+ {
+  "id": "no-apple-watch-support",
+  "title": "Нет синхронизации с Apple Watch — пользователи уходят к конкурентам",
+  "obs": 2
+ },
+ {
+  "id": "no-history-transfer-new-phone",
+  "title": "При смене телефона нельзя войти в аккаунт и восстановить историю — приходится начинать заново",
+  "obs": 2
+ },
+ {
+  "id": "calendar-events-persist",
+  "title": "События голодания остаются в календаре навсегда даже после удаления аккаунта и приложения",
+  "obs": 2
+ },
+ {
+  "id": "dashboard-not-customizable",
+  "title": "Нельзя настроить, какие питательные вещества показывает дашборд",
+  "obs": 2
+ },
+ {
+  "id": "ui-bloated-degraded",
+  "title": "Интерфейс стал перегруженным и неинтуитивным по сравнению с прежней простотой",
+  "obs": 2
+ },
+ {
+  "id": "game-ad-on-fasting-complete",
+  "title": "Завершение голодания обязательно сопровождается рекламой игры без пропуска",
+  "obs": 2
+ },
+ {
+  "id": "manipulative-upsell-design",
+  "title": "Раздражающая реклама и уведомления намеренно сделаны так, чтобы заставить купить премиум",
+  "obs": 2
+ },
+ {
+  "id": "age-gate-mismatch",
+  "title": "Приложение требует возраст 18+, хотя в App Store указан минимум 12-13 лет, блокируя подростков",
+  "obs": 2
+ },
+ {
+  "id": "privacy-data-sharing",
+  "title": "Приложение детально собирает данные и делится ими со множеством третьих сторон",
+  "obs": 2
+ },
+ {
+  "id": "app-became-sales-machine",
+  "title": "Приложение превратилось в инструмент продаж — каждое действие ведёт к рекламе и покупке",
+  "obs": 2
+ },
+ {
+  "id": "advertised-monthly-charges-yearly",
+  "title": "Показывают месячную цену, а списывают полную годовую подписку без подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "trial-charges-during-period",
+  "title": "Счёт за подписку выставляется во время пробного периода, а не после его окончания",
+  "obs": 1
+ },
+ {
+  "id": "trial-requires-payment-info",
+  "title": "Для пробного периода обязательно вводить платёжные данные — нельзя сначала выбрать базовую версию",
+  "obs": 1
+ },
+ {
+  "id": "subscription-bypasses-ios-management",
+  "title": "Подписка не отображается в стандартном управлении подписками iOS — её легко забыть отменить",
+  "obs": 1
+ },
+ {
+  "id": "wants-one-time-payment",
+  "title": "Пользователь хочет простой одноразовый платёж вместо подписки с коучингом и сканером",
+  "obs": 1
+ },
+ {
+  "id": "paid-but-app-unusable",
+  "title": "Подписка оплачена, но приложение не открывается месяцами — функциональности нет",
+  "obs": 1
+ },
+ {
+  "id": "no-ready-recipes",
+  "title": "Нет готовых рецептов и автоматических расписаний — всё приходится вводить вручную",
+  "obs": 1
+ },
+ {
+  "id": "custom-recipes-paywalled",
+  "title": "Создание своих рецептов с поиском ингредиентов доступно только в платной версии",
+  "obs": 1
+ },
+ {
+  "id": "no-fasting-day-flexibility",
+  "title": "Нет гибкости в выборе дней голодания, хотя отзывы обещают такую возможность",
+  "obs": 1
+ },
+ {
+  "id": "extended-fast-capped",
+  "title": "Расширенное голодание ограничено семью днями — более длинные посты отследить нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-eating-window-alert",
+  "title": "Приложение не уведомляет об окончании окна голодания — приходится проверять вручную",
+  "obs": 1
+ },
+ {
+  "id": "reminders-after-timer-stop",
+  "title": "После остановки таймера приложение ещё часами шлёт напоминания начать голодание",
+  "obs": 1
+ },
+ {
+  "id": "fasting-state-tracking-bug",
+  "title": "Приложение путает статус голодания — после завершения считает что пост идёт и наоборот",
+  "obs": 1
+ },
+ {
+  "id": "widgets-broken",
+  "title": "Виджеты показывают пустые текстовые метки и не работают на последней версии iOS",
+  "obs": 1
+ },
+ {
+  "id": "wheelchair-not-tracked",
+  "title": "Движение на инвалидной коляске не засчитывается как физическая активность и расход калорий",
+  "obs": 1
+ },
+ {
+  "id": "timer-moved-from-home",
+  "title": "Таймер голодания убрали с главного экрана во вложенное меню — нужен лишний тап",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-deal-payment-loop",
+  "title": "Огромное предложение пожизненной сделки ведёт в оплату без возможности выхода",
+  "obs": 1
+ },
+ {
+  "id": "delete-account-forces-payment",
+  "title": "При попытке удалить аккаунт приложение требует повторного входа и сразу запрашивает оплату",
+  "obs": 1
+ },
+ {
+  "id": "no-support-channel",
+  "title": "Нет работающего канала поддержки — при поломке приложения связаться не с кем",
+  "obs": 1
+ },
+ {
+  "id": "fasting-good-calories-weak",
+  "title": "Для голодания приложение лучшее, но в подсчёте калорий уступает специализированным трекерам",
+  "obs": 1
+ },
+ {
+  "id": "app-improved-after-break",
+  "title": "Вернувшийся после перерыва пользователь отмечает улучшения и новые функции",
+  "obs": 1
+ }
+]

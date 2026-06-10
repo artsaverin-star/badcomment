@@ -1,0 +1,99 @@
+{
+  "groups": [
+    {
+      "id": "input-editing-friction",
+      "name": "Ввод и правка задач: что мешает занести дело",
+      "insight_ids": [
+        "keyboard-dismisses-on-input",
+        "tasks-not-editable-after-entry",
+        "no-rapid-task-entry-mode",
+        "no-manual-task-reordering",
+        "color-tap-loses-new-task",
+        "char-width-render-glitch",
+        "no-task-notes"
+      ]
+    },
+    {
+      "id": "reminders-broken",
+      "name": "Напоминания, которые не напоминают",
+      "insight_ids": [
+        "reminders-do-not-fire",
+        "alarm-can-only-be-set-to-later-error",
+        "notifications-not-on-lock-screen",
+        "notification-sound-too-quiet",
+        "badge-on-all-tasks-not-due-today",
+        "lock-screen-reminder-not-findable"
+      ]
+    },
+    {
+      "id": "sync-and-data-loss",
+      "name": "Синхронизация между устройствами и потеря данных",
+      "insight_ids": [
+        "cross-device-sync-broken",
+        "purchase-not-restored-new-device",
+        "data-lost-after-ios-update",
+        "no-apple-watch-support"
+      ]
+    },
+    {
+      "id": "ads-and-paywall",
+      "name": "Маскированная реклама и платный лимит на списки",
+      "insight_ids": [
+        "intrusive-ad-popups",
+        "hidden-ads-open-safari",
+        "free-version-2-list-limit"
+      ]
+    },
+    {
+      "id": "recurring-and-date-planning",
+      "name": "Повторы и планирование по датам: куда не дотянуться",
+      "insight_ids": [
+        "recurring-interval-limits",
+        "recurring-not-in-today-view",
+        "date-picker-two-weeks-only",
+        "no-tasks-by-date-overview",
+        "recurring-task-discoverability",
+        "japanese-only-no-multiday"
+      ]
+    },
+    {
+      "id": "app-changes-things-itself",
+      "name": "Приложение живёт своей жизнью: сдвиги дат, дубли, перестановки",
+      "insight_ids": [
+        "dates-shift-back-one-day",
+        "spontaneous-folder-duplication",
+        "lists-reorder-themselves",
+        "recurring-tasks-wrong-days-undeletable",
+        "task-order-not-as-added"
+      ]
+    },
+    {
+      "id": "daily-rollover-and-today",
+      "name": "Список «Сегодня» и перенос несделанного на завтра",
+      "insight_ids": [
+        "completed-tasks-no-auto-rollover",
+        "non-today-tasks-clutter-main",
+        "incomplete-tasks-no-carryover",
+        "evening-anxiety-planning-usecase"
+      ]
+    },
+    {
+      "id": "widgets-groups-and-housekeeping",
+      "name": "Виджеты, группы и ручная уборка интерфейса",
+      "insight_ids": [
+        "widget-blank-white-box",
+        "widget-shows-completed-tasks",
+        "widget-10-task-cap",
+        "global-sort-not-per-group",
+        "empty-group-manual-cleanup",
+        "cannot-rename-group",
+        "colors-meaning-unclear",
+        "onboarding-swipe-confusing",
+        "no-share-or-print-lists",
+        "no-sound-effect-toggle",
+        "support-unresponsive",
+        "no-signup-as-advantage"
+      ]
+    }
+  ]
+}

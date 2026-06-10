@@ -1,0 +1,96 @@
+{
+  "groups": [
+    {
+      "id": "crash-sync-dataloss",
+      "name": "Падает, рвёт синхронизацию и теряет задачи",
+      "insight_ids": [
+        "crash-on-view-switch",
+        "sync-unreliable-cross-device",
+        "sync-outlook-broken",
+        "crash-on-list-creation",
+        "completed-tasks-revert",
+        "crash-freezes-phone",
+        "data-loss-on-crash-or-switch",
+        "cold-reload-on-resume",
+        "shared-list-sync-broken",
+        "duplicate-list-on-create",
+        "slow-open-after-microsoft",
+        "wrong-date-displayed",
+        "list-deleted-without-action",
+        "sync-dropped-old-ios",
+        "ios-version-driven-churn"
+      ]
+    },
+    {
+      "id": "lost-ordering-structure",
+      "name": "Куда делось ручное упорядочивание и работа со структурой задач",
+      "insight_ids": [
+        "reorder-dragdrop-removed",
+        "subtask-promotion-nesting",
+        "steps-added-to-bottom",
+        "subtasks-not-collapsing",
+        "shared-lists-no-reorder",
+        "list-into-group-extra-step"
+      ]
+    },
+    {
+      "id": "missing-planning-features",
+      "name": "Чего не хватает для планирования и наведения порядка",
+      "insight_ids": [
+        "recurring-not-auto-myday",
+        "search-multistep-navigation",
+        "search-incomplete-index",
+        "all-tasks-folder-grouping",
+        "no-priority-ranking",
+        "category-sort-missing-mobile",
+        "no-week-planning-subcategories",
+        "no-sort-completed-no-undo",
+        "no-bulk-delete-mobile",
+        "photo-attach-too-many-steps",
+        "default-name-edit-inconsistent",
+        "capitalization-inconsistent",
+        "no-due-date-parsing-mac",
+        "wunderlist-feature-loss"
+      ]
+    },
+    {
+      "id": "widget-glass-rendering",
+      "name": "Виджет и стеклянные эффекты iOS: белый пустой экран",
+      "insight_ids": [
+        "widget-white-blank-glass",
+        "widget-removed-or-limited",
+        "no-myday-recolor",
+        "app-blank-white-glass"
+      ]
+    },
+    {
+      "id": "accidental-taps",
+      "name": "Случайные нажатия: задача отмечается и удаляется сама",
+      "insight_ids": [
+        "accidental-complete-on-scroll",
+        "input-lag-wrong-task",
+        "open-trash-buttons-adjacent",
+        "completion-sound-too-loud"
+      ]
+    },
+    {
+      "id": "account-lockin-auth",
+      "name": "Привязка к учётке Microsoft и блокировки на входе",
+      "insight_ids": [
+        "2fa-codes-never-arrive",
+        "account-required-no-offline",
+        "no-multiple-accounts",
+        "reauth-loop-lockout"
+      ]
+    },
+    {
+      "id": "sharing-and-real-use",
+      "name": "Как им реально пользуются: семейные списки, шеринг, СДВГ",
+      "insight_ids": [
+        "shared-lists-household-use",
+        "share-flow-kicks-to-browser",
+        "adhd-no-distraction"
+      ]
+    }
+  ]
+}

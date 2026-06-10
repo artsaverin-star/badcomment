@@ -1,0 +1,364 @@
+You are grouping 63 mechanism-level insight clusters from Credit Genie: Get Cash Advance (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Credit Genie: Get Cash Advance, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 63 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Credit Genie: Get Cash Advance — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Credit Genie: Get Cash Advance>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpszvljb45ntughvftyl0kzr.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "subscription-charges-after-cancel",
+  "title": "После отмены подписки и отвязки банка списания продолжаются",
+  "obs": 9
+ },
+ {
+  "id": "double-debit-one-repayment",
+  "title": "За одно погашение система списывает деньги дважды или несколько раз",
+  "obs": 7
+ },
+ {
+  "id": "unauthorized-debits-no-service",
+  "title": "Несанкционированные списания со счёта при том, что услугами не пользовались",
+  "obs": 7
+ },
+ {
+  "id": "error-on-advance-request",
+  "title": "Любая попытка получить аванс заканчивается ошибкой 'something went wrong'",
+  "obs": 6
+ },
+ {
+  "id": "debit-after-full-repayment",
+  "title": "После полного погашения аванса система снова списывает ту же сумму со счёта",
+  "obs": 5
+ },
+ {
+  "id": "charges-after-account-closed",
+  "title": "Списания продолжаются после удаления или закрытия аккаунта",
+  "obs": 5
+ },
+ {
+  "id": "subscription-debit-no-access",
+  "title": "Подписку списывают, пока доступ к аккаунту заблокирован",
+  "obs": 5
+ },
+ {
+  "id": "support-no-response",
+  "title": "Служба поддержки не отвечает на обращения неделями или вовсе",
+  "obs": 5
+ },
+ {
+  "id": "support-template-replies",
+  "title": "Поддержка отправляет только шаблонные автоответы и не решает проблему",
+  "obs": 5
+ },
+ {
+  "id": "extra-amount-then-clawback",
+  "title": "Система выдаёт лишнюю сумму сверх запроса, а потом забирает всё, оставляя долг",
+  "obs": 4
+ },
+ {
+  "id": "second-advance-blocked-error",
+  "title": "Повторный аванс не выдаётся: приложение зависает на ошибке неделями",
+  "obs": 4
+ },
+ {
+  "id": "app-broken-weeks-no-function",
+  "title": "Приложение неработоспособно неделями, ни одна функция не открывается",
+  "obs": 4
+ },
+ {
+  "id": "account-frozen-no-reason",
+  "title": "Аккаунт замораживают без объяснения, кроме ссылки на условия обслуживания",
+  "obs": 4
+ },
+ {
+  "id": "early-debit-overdraft",
+  "title": "Списание аванса раньше согласованной даты вызывает овердрафт",
+  "obs": 3
+ },
+ {
+  "id": "advance-taken-back-next-day",
+  "title": "Выданный аванс система забирает обратно на следующий день, оставляя пользователя в долгу",
+  "obs": 3
+ },
+ {
+  "id": "approved-advance-never-arrives",
+  "title": "Одобренный аванс не приходит на счёт, а приложение сразу ведёт на экран погашения",
+  "obs": 3
+ },
+ {
+  "id": "card-rejected-after-first-use",
+  "title": "Тот же способ оплаты, что сработал в первый раз, потом отклоняется как непроверенный",
+  "obs": 3
+ },
+ {
+  "id": "slow-advance-and-repayment",
+  "title": "Выдача и погашение обрабатываются днями, что блокирует повторный заём",
+  "obs": 3
+ },
+ {
+  "id": "login-error-locked-out",
+  "title": "Приложение выдаёт ошибку при входе и не пускает в аккаунт",
+  "obs": 3
+ },
+ {
+  "id": "bank-disconnected-no-reconnect",
+  "title": "Приложение само отключает привязку банка и не даёт переподключить его",
+  "obs": 3
+ },
+ {
+  "id": "ai-chat-no-human",
+  "title": "В поддержке только AI-чат 'genie' с 24-часовым ожиданием, выйти на человека нельзя",
+  "obs": 3
+ },
+ {
+  "id": "no-refund-on-dispute",
+  "title": "Возврат ошибочно списанных денег не оформляется даже после многократных жалоб",
+  "obs": 2
+ },
+ {
+  "id": "fake-debt-after-cancel",
+  "title": "Система требует погасить аванс, который пользователь не получал",
+  "obs": 2
+ },
+ {
+  "id": "advance-becomes-subscription",
+  "title": "Выданный аванс тут же возвращается как платёж за подписку, которую не активировали",
+  "obs": 2
+ },
+ {
+  "id": "cannot-cancel-app-broken",
+  "title": "Отменить подписку невозможно, потому что приложение не загружается",
+  "obs": 2
+ },
+ {
+  "id": "balance-not-updated-after-pay",
+  "title": "Платёж списан, но баланс аккаунта и статус долга не обновляются",
+  "obs": 2
+ },
+ {
+  "id": "manual-repayment-rejected",
+  "title": "Ручное погашение аванса отклоняется ошибкой раз за разом",
+  "obs": 2
+ },
+ {
+  "id": "debit-card-misclassified",
+  "title": "Дебетовую карту приложение ошибочно принимает за подарочную и отклоняет",
+  "obs": 2
+ },
+ {
+  "id": "game-earnings-not-saved",
+  "title": "Заработок в игре внутри приложения не сохраняется и обнуляется",
+  "obs": 2
+ },
+ {
+  "id": "bank-link-load-error",
+  "title": "Ошибка загрузки данных банка месяцами, какой банк ни выбери",
+  "obs": 2
+ },
+ {
+  "id": "payments-blocked-by-errors",
+  "title": "Ошибки месяцами блокируют сам платёж по погашению",
+  "obs": 2
+ },
+ {
+  "id": "support-button-missing",
+  "title": "Приложение советует обратиться в поддержку, но кнопка контакта не появляется",
+  "obs": 2
+ },
+ {
+  "id": "blocked-for-tos-on-first-advance",
+  "title": "Аккаунт блокируют за нарушение условий при первой же попытке взять аванс",
+  "obs": 2
+ },
+ {
+  "id": "cannot-disconnect-bank",
+  "title": "Отвязать банк и удалить данные невозможно — поддержка не помогает",
+  "obs": 2
+ },
+ {
+  "id": "limit-unstable",
+  "title": "Лимит аванса нестабилен: его повышают, а после первого возврата понижают",
+  "obs": 2
+ },
+ {
+  "id": "region-availability-contradiction",
+  "title": "Поддержка говорит, что сервис доступен в штате, а приложение отклоняет заявку как недоступную",
+  "obs": 2
+ },
+ {
+  "id": "fee-hike-no-explanation",
+  "title": "Комиссию повышают без объяснения, за какую функцию берут деньги",
+  "obs": 1
+ },
+ {
+  "id": "hidden-partial-charges",
+  "title": "Скрытые частичные списания со счёта без согласия при активной подписке",
+  "obs": 1
+ },
+ {
+  "id": "instant-fee-no-payout",
+  "title": "Берут плату за мгновенный аванс, но деньги так и не поступают",
+  "obs": 1
+ },
+ {
+  "id": "weekly-debit-scam-feel",
+  "title": "Еженедельные списания при полном отсутствии услуг — ощущение мошенничества",
+  "obs": 1
+ },
+ {
+  "id": "manual-repayment-wanted",
+  "title": "Пользователи хотят кнопку ручного погашения для полного контроля над выплатой",
+  "obs": 1
+ },
+ {
+  "id": "advertised-amount-mismatch",
+  "title": "Рекламируют аванс до $150, а выдают только $50",
+  "obs": 1
+ },
+ {
+  "id": "overdraft-fee-on-advance",
+  "title": "Овердрафт начисляется в день выдачи аванса, пока деньги ещё не дошли",
+  "obs": 1
+ },
+ {
+  "id": "saved-method-blocked-slow-transfer",
+  "title": "Сохранённый способ оплаты не принимается, вместо него навязывают перевод на 4 дня",
+  "obs": 1
+ },
+ {
+  "id": "card-update-30day-wait",
+  "title": "Обновление данных карты упирается в 30-дневный период ожидания",
+  "obs": 1
+ },
+ {
+  "id": "slow-approval-status",
+  "title": "После обновления статус одобрения заявки отображается с большой задержкой",
+  "obs": 1
+ },
+ {
+  "id": "no-otp-code",
+  "title": "Код подтверждения для входа не приходит на телефон",
+  "obs": 1
+ },
+ {
+  "id": "no-compatible-banks-listed",
+  "title": "Не указано, какие банки совместимы, — подключение обрывается ошибкой",
+  "obs": 1
+ },
+ {
+  "id": "login-required-for-support",
+  "title": "Форма поддержки требует входа в аккаунт, в который как раз нельзя войти",
+  "obs": 1
+ },
+ {
+  "id": "delete-account-hidden-30day",
+  "title": "Правило 30-дневного ожидания при удалении аккаунта скрыто за обещанием 24 часов",
+  "obs": 1
+ },
+ {
+  "id": "delete-blocks-recreate",
+  "title": "После удаления аккаунта нельзя создать новый и вернуться в приложение",
+  "obs": 1
+ },
+ {
+  "id": "cannot-find-account-email",
+  "title": "Пользователь не может узнать, на какой email привязан его платящий аккаунт",
+  "obs": 1
+ },
+ {
+  "id": "password-changed-on-logout",
+  "title": "При выходе пароль меняется сам, и повторный вход становится невозможен",
+  "obs": 1
+ },
+ {
+  "id": "support-asks-old-phone",
+  "title": "Для смены номера поддержка требует помнить старый номер, к которому нет доступа",
+  "obs": 1
+ },
+ {
+  "id": "support-repeat-verification",
+  "title": "Поддержка снова и снова требует подтверждения email вместо решения вопроса",
+  "obs": 1
+ },
+ {
+  "id": "support-denies-problem",
+  "title": "Поддержка отрицает наличие проблемы, пока списания продолжаются",
+  "obs": 1
+ },
+ {
+  "id": "support-suggests-nonexistent-option",
+  "title": "Поддержка предлагает нажать опцию, которой в приложении нет",
+  "obs": 1
+ },
+ {
+  "id": "blocked-30day-after-bank-reconnect",
+  "title": "После переподключения банка аккаунт блокируют на 30 дней",
+  "obs": 1
+ },
+ {
+  "id": "false-multiple-accounts",
+  "title": "Поддержка ложно заявляет о нескольких аккаунтах и блокирует доступ к банку",
+  "obs": 1
+ },
+ {
+  "id": "blocked-for-disputing-charge",
+  "title": "Аккаунт блокируют в наказание за успешное оспаривание ошибочного платежа",
+  "obs": 1
+ },
+ {
+  "id": "good-repayer-rejected",
+  "title": "Дисциплинированному плательщику отказывают в новых заявках, лимит не растёт при росте дохода",
+  "obs": 1
+ },
+ {
+  "id": "competitors-instant-transfer",
+  "title": "Конкуренты дают мгновенные переводы, на фоне которых задержки выглядят неприемлемо",
+  "obs": 1
+ },
+ {
+  "id": "value-unclear-credit-claim",
+  "title": "Непонятно, за что платишь и как функция якобы повышает кредитный рейтинг",
+  "obs": 1
+ }
+]

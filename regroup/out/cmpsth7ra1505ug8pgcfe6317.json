@@ -1,0 +1,49 @@
+{
+  "groups": [
+    {
+      "id": "freezes-lags-friction",
+      "name": "Зависания, лаги и интерфейс, мешающий просто доредактировать",
+      "insight_ids": [
+        "save-freeze-infinite-loop",
+        "lag-editing-multiple-photos",
+        "general-slowness-vs-other-apps",
+        "repeated-confirmations-for-one-task"
+      ]
+    },
+    {
+      "id": "studio-import-data-loss",
+      "name": "Studio теряет фото: импорт, синхронизация и пропавшие черновики",
+      "insight_ids": [
+        "gallery-import-fails-crash",
+        "drafts-deleted-no-recovery",
+        "iphoto-sync-unstable",
+        "imported-photos-disappear-studio"
+      ]
+    },
+    {
+      "id": "paywall-popups-subscription",
+      "name": "Платная стена, всплывающие окна и невозможность отменить подписку",
+      "insight_ids": [
+        "cancel-subscription-blocked",
+        "free-features-moved-behind-paywall",
+        "excessive-popups-block-ui"
+      ]
+    },
+    {
+      "id": "presets-quality",
+      "name": "Пресеты и качество кадра: выцветший превью и потеря на масштабировании",
+      "insight_ids": [
+        "washed-out-preview-and-similar-presets",
+        "auto-rescale-quality-loss"
+      ]
+    },
+    {
+      "id": "account-privacy-rights",
+      "name": "Аккаунт и права на фото: вход на новом устройстве и обучение ИИ на снимках",
+      "insight_ids": [
+        "no-password-recovery-new-device",
+        "tos-ai-training-data-sale"
+      ]
+    }
+  ]
+}

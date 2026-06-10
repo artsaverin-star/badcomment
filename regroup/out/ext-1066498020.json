@@ -1,0 +1,95 @@
+{
+  "groups": [
+    {
+      "id": "paywall-traps-and-billing",
+      "name": "Платная стена и ловушки подписки: за что и сколько берут",
+      "insight_ids": [
+        "paywall-feed-overwhelming",
+        "publisher-behind-extra-paywall",
+        "share-link-broken",
+        "price-hike-value-drop",
+        "trial-cancel-kills-access",
+        "paywall-indicator-removed",
+        "bundle-vs-standalone",
+        "paywall-blocks-free-content",
+        "linked-article-auth-fail"
+      ]
+    },
+    {
+      "id": "algorithm-and-feed-control",
+      "name": "Лента живёт своей жизнью: алгоритм и потеря контроля над подборкой",
+      "insight_ids": [
+        "algo-ignores-dislike",
+        "blocked-sources-still-show",
+        "headline-disappear-replace",
+        "algo-overfit-topic",
+        "content-freshness",
+        "algo-no-discovery",
+        "content-niche-topics",
+        "content-political-imbalance",
+        "no-content-type-filter",
+        "no-aggregated-feed",
+        "headline-duplicate"
+      ]
+    },
+    {
+      "id": "reading-and-navigation-friction",
+      "name": "Чтение через силу: скачки прокрутки, навигация, поиск и доступность",
+      "insight_ids": [
+        "scroll-position-jump",
+        "search-broken",
+        "session-restore-lost",
+        "navigation-too-many-taps",
+        "content-tts-limited",
+        "accessibility-voiceover",
+        "accessibility-font-size",
+        "reading-progress-lost",
+        "no-ai-summary",
+        "no-print",
+        "notifications-sports-flood"
+      ]
+    },
+    {
+      "id": "ads-everywhere",
+      "name": "Реклама поверх всего: прыгающий текст и баннеры даже у платных",
+      "insight_ids": [
+        "ads-layout-jump",
+        "ads-on-paid-tier",
+        "interface-ad-optimized",
+        "ad-quality-low"
+      ]
+    },
+    {
+      "id": "crashes-and-post-update-breakage",
+      "name": "Падения и поломки после обновлений",
+      "insight_ids": [
+        "crash-general",
+        "crash-after-ios-update",
+        "puzzle-glitch-after-update",
+        "notification-duplicates",
+        "post-update-scroll-delay",
+        "articles-not-loading",
+        "unexplained-error-messages",
+        "session-reload-on-open"
+      ]
+    },
+    {
+      "id": "content-degradation",
+      "name": "Скатывание контента: кликбейт, сплетни и AI вместо журналистики",
+      "insight_ids": [
+        "content-clickbait-quality",
+        "content-gossip-vs-news",
+        "content-ai-generated"
+      ]
+    },
+    {
+      "id": "network-throttling-and-geo-block",
+      "name": "Ложные ошибки сети, замедление и блокировки по гео/VPN",
+      "insight_ids": [
+        "offline-error-false",
+        "throttle-vpn-geo-block",
+        "artificial-throttling"
+      ]
+    }
+  ]
+}

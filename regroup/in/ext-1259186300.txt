@@ -1,0 +1,319 @@
+You are grouping 54 mechanism-level insight clusters from Atmosphere (relaxing sounds / nature / sleep / focus) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Atmosphere, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 54 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Atmosphere — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Atmosphere>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1259186300.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "timer-broken-plays-all-night",
+  "title": "Таймер не останавливает воспроизведение — звуки играют всю ночь, разряжая батарею",
+  "obs": 20
+ },
+ {
+  "id": "background-audio-stops",
+  "title": "После блокировки экрана приложение перестаёт воспроизводиться в фоновом режиме",
+  "obs": 8
+ },
+ {
+  "id": "ios-android-feature-gap",
+  "title": "iOS версия отстаёт от Android по функциям: нет Deep Sleep, вибраций и загрузки личных записей",
+  "obs": 6
+ },
+ {
+  "id": "sound-loops-too-short",
+  "title": "Звуки имеют короткую заметную петлю повторения, которая ухом считывается как цикл и мешает сну",
+  "obs": 5
+ },
+ {
+  "id": "timer-stops-on-screen-lock",
+  "title": "Таймер не работает при заблокированном экране — экран должен оставаться включённым",
+  "obs": 4
+ },
+ {
+  "id": "no-airplay-support",
+  "title": "Приложение не поддерживает AirPlay для воспроизведения на умных колонках",
+  "obs": 4
+ },
+ {
+  "id": "inauthentic-nature-sounds",
+  "title": "Ряд звуков природы неаутентичны: неверные птицы, дождь как водопад, ориентальные инструменты звучат фальшиво",
+  "obs": 4
+ },
+ {
+  "id": "intrusive-ads-in-relaxation-app",
+  "title": "Неприемлемая и политическая реклама в приложении для расслабления заставляет пользователей удалять его",
+  "obs": 4
+ },
+ {
+  "id": "app-stops-on-alarm",
+  "title": "Будильник останавливает воспроизведение и приложение не возобновляется автоматически",
+  "obs": 3
+ },
+ {
+  "id": "background-stops-when-switching",
+  "title": "При переключении на другое приложение звуки отключаются в большинстве случаев",
+  "obs": 3
+ },
+ {
+  "id": "no-pause-button-accessible",
+  "title": "Нет кнопки паузы с экрана блокировки — нужно открывать приложение чтобы остановить звуки",
+  "obs": 3
+ },
+ {
+  "id": "bright-ads-before-sleep",
+  "title": "Яркая реклама появляется прямо перед сном — нарушает расслабляющую атмосферу",
+  "obs": 3
+ },
+ {
+  "id": "no-ad-free-purchase-option",
+  "title": "Нет платного варианта для удаления рекламы — пользователи готовы платить, но такой опции не существует",
+  "obs": 2
+ },
+ {
+  "id": "timer-broken-after-update",
+  "title": "После обновления таймер перестал отключать звуки",
+  "obs": 2
+ },
+ {
+  "id": "no-master-volume-slider",
+  "title": "Нет общего слайдера громкости для всей комбинации — каждый звук нужно регулировать отдельно",
+  "obs": 2
+ },
+ {
+  "id": "app-crashes-during-sleep",
+  "title": "Приложение падает во время сна — пользователь просыпается несколько раз за ночь для перезапуска",
+  "obs": 2
+ },
+ {
+  "id": "app-silently-stops-overnight",
+  "title": "Приложение останавливается посреди ночи без видимой причины — интерфейс показывает работу, но звука нет",
+  "obs": 2
+ },
+ {
+  "id": "app-broken-on-new-device",
+  "title": "После переустановки на новом устройстве приложение перестаёт воспроизводить любые звуки",
+  "obs": 2
+ },
+ {
+  "id": "ads-cover-bottom-sounds",
+  "title": "Рекламный баннер внизу экрана перекрывает звуки в нижнем ряду — ими невозможно управлять",
+  "obs": 2
+ },
+ {
+  "id": "multistep-timer-setup",
+  "title": "Выбор звука и установка таймера требуют нескольких шагов назад-вперёд, что неудобно перед сном",
+  "obs": 2
+ },
+ {
+  "id": "animal-sounds-too-frequent",
+  "title": "Звуки животных повторяются слишком часто и без естественных пауз — нельзя настроить частоту отдельно от громкости",
+  "obs": 2
+ },
+ {
+  "id": "thunder-volume-dips",
+  "title": "Громкость приглушается при ударе грома — создаётся неестественный эффект",
+  "obs": 2
+ },
+ {
+  "id": "premium-sounds-still-locked",
+  "title": "После оплаты премиума лимит в 6 звуков остаётся заблокирован — функция не разблокируется",
+  "obs": 1
+ },
+ {
+  "id": "android-paid-no-ios-ad-free",
+  "title": "Пользователь платил за премиум на Android, но на iOS нет версии без рекламы",
+  "obs": 1
+ },
+ {
+  "id": "timer-abrupt-cutoff",
+  "title": "Таймер резко обрывает звуки без плавного затухания — пользователь просыпается от тишины",
+  "obs": 1
+ },
+ {
+  "id": "sounds-stop-after-ad",
+  "title": "После показа рекламы звуки полностью отключаются и не возобновляются",
+  "obs": 1
+ },
+ {
+  "id": "app-wakes-full-volume",
+  "title": "Приложение внезапно включается на полной громкости после нескольких минут тишины — будит пользователя",
+  "obs": 1
+ },
+ {
+  "id": "audio-stream-breaks",
+  "title": "Аудиопоток периодически прерывается и разрывается во время воспроизведения",
+  "obs": 1
+ },
+ {
+  "id": "headphone-disconnect-continues-speaker",
+  "title": "При отключении наушников звук продолжает играть через динамик телефона без возможности остановить",
+  "obs": 1
+ },
+ {
+  "id": "cant-mix-with-other-audio",
+  "title": "Нельзя использовать приложение одновременно с другими аудиоприложениями — звук отключается",
+  "obs": 1
+ },
+ {
+  "id": "share-mix-crashes",
+  "title": "Кнопка «поделиться» миксом закрывает приложение и выбрасывает на главный экран",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-after-update",
+  "title": "После обновления приложение начинает произвольно отключаться",
+  "obs": 1
+ },
+ {
+  "id": "ios-compatibility-broken",
+  "title": "Приложение перестаёт работать после обновления операционной системы",
+  "obs": 1
+ },
+ {
+  "id": "android-battery-drain",
+  "title": "На Android приложение случайным образом разряжает батарею, на iPhone такой проблемы нет",
+  "obs": 1
+ },
+ {
+  "id": "speaker-damage-from-loud-sounds",
+  "title": "Длительное использование на высокой громкости (особенно гром) повредило динамик телефона",
+  "obs": 1
+ },
+ {
+  "id": "volume-control-imprecise",
+  "title": "Регулировка громкости отдельного звука часто случайно листает страницу вместо изменения уровня",
+  "obs": 1
+ },
+ {
+  "id": "no-active-sounds-overview",
+  "title": "Нет экрана со всеми активными звуками сразу — нужно прокручивать страницы чтобы проверить каждый",
+  "obs": 1
+ },
+ {
+  "id": "cant-save-volumes-with-mix",
+  "title": "При сохранении комбинации уровни громкости не сохраняются — после загрузки нужно всё выставлять заново",
+  "obs": 1
+ },
+ {
+  "id": "keyboard-doesnt-close-on-save",
+  "title": "Клавиатура не закрывается при сохранении комбинации в избранном",
+  "obs": 1
+ },
+ {
+  "id": "max-simultaneous-sounds-limit",
+  "title": "Есть лимит на количество одновременно воспроизводимых звуков — нельзя смешать больше определённого числа",
+  "obs": 1
+ },
+ {
+  "id": "no-frequency-explanation",
+  "title": "Нет объяснения для каких состояний предназначены разные частотные диапазоны",
+  "obs": 1
+ },
+ {
+  "id": "silent-mode-blocks-background",
+  "title": "Приложение не воспроизводится с заблокированным экраном в режиме вибрации — нужно включить звук уведомлений",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-sound-upload",
+  "title": "Нельзя загружать собственные звуки — функция есть на Android, но отсутствует на iOS",
+  "obs": 1
+ },
+ {
+  "id": "accessibility-voiceover",
+  "title": "VoiceOver работает, но есть возможности для улучшения доступности для слабовидящих",
+  "obs": 1
+ },
+ {
+  "id": "binaural-only-partial-stereo",
+  "title": "Только первые несколько бинауральных ритмов звучат в стерео, остальные в монофоническом режиме",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-sounds-across-categories",
+  "title": "Каталог дублирует одни и те же звуки в разных категориях, создавая иллюзию большего разнообразия",
+  "obs": 1
+ },
+ {
+  "id": "binaural-causes-discomfort",
+  "title": "Бинауральные и изохронные частоты вызывают физическую боль в ушах и головную боль",
+  "obs": 1
+ },
+ {
+  "id": "sound-deep-sleep-disappears",
+  "title": "Звук Deep Sleep периодически исчезает из каталога и снова появляется",
+  "obs": 1
+ },
+ {
+  "id": "unwanted-voice-prompts-added",
+  "title": "После обновления добавились голосовые подсказки в стиле другого приложения — их нельзя отключить",
+  "obs": 1
+ },
+ {
+  "id": "mobile-vs-desktop-feature-gap",
+  "title": "Десктопная версия содержит в разы больше звуков — мобильная воспринимается как урезанный клон",
+  "obs": 1
+ },
+ {
+  "id": "app-effective-for-sleep-focus",
+  "title": "Приложение работает как инструмент совмещения сна и фокусировки, а также как слой поверх аффирмаций",
+  "obs": 1
+ },
+ {
+  "id": "realistic-sounds-cause-startle",
+  "title": "Реалистичность звуков иногда пугает пользователя, забывшего что играет приложение",
+  "obs": 1
+ },
+ {
+  "id": "specific-species-sound-accuracy",
+  "title": "Часть пользователей ценит точность в звуках конкретных видов животных как уникальное свойство приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-support-contact",
+  "title": "Нет способа связаться с поддержкой — пользователи не могут решить проблемы с оплатой или функционалом",
+  "obs": 1
+ }
+]

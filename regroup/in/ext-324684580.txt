@@ -1,0 +1,254 @@
+You are grouping 41 mechanism-level insight clusters from Spotify: Music and Podcasts (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Spotify: Music and Podcasts, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 41 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Spotify: Music and Podcasts — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Spotify: Music and Podcasts>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-324684580.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-tier-song-limit",
+  "title": "Бесплатная версия обрывает прослушивание после 10–15 песен и требует купить премиум",
+  "obs": 4
+ },
+ {
+  "id": "free-tier-forced-shuffle",
+  "title": "Бесплатная версия принудительно включает перемешивание и не даёт выбрать конкретный трек",
+  "obs": 4
+ },
+ {
+  "id": "ads-frequency-high",
+  "title": "Реклама занимает больше времени, чем музыка: объявления идут каждые 5 минут и иногда подряд несколько штук",
+  "obs": 4
+ },
+ {
+  "id": "basic-controls-paywalled",
+  "title": "Базовые функции — повтор, перемотка назад, перемотка к нужному месту — доступны только в премиуме",
+  "obs": 2
+ },
+ {
+  "id": "lyrics-missing-some-songs",
+  "title": "Тексты песен пропали для части треков после последнего обновления",
+  "obs": 2
+ },
+ {
+  "id": "payment-not-activated",
+  "title": "Платёж прошёл, но аккаунт не активировался и сервис недоступен",
+  "obs": 1
+ },
+ {
+  "id": "trial-card-blocked",
+  "title": "Активация пробного периода не работает из-за проблем с добавлением карты",
+  "obs": 1
+ },
+ {
+  "id": "subscription-management-external",
+  "title": "Управление подпиской вынесено на внешний сайт — нельзя изменить план прямо в приложении",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-degraded-after-update",
+  "title": "После обновления бесплатная версия лишилась возможностей, которые раньше были доступны",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-lyrics-recommendations-cut",
+  "title": "Тексты песен и рекомендации урезаны в бесплатной версии, чтобы подтолкнуть к покупке премиума",
+  "obs": 1
+ },
+ {
+  "id": "forced-shuffle-after-trial",
+  "title": "После окончания пробного периода приложение принудительно включает перемешивание и блокирует выбор треков",
+  "obs": 1
+ },
+ {
+  "id": "shuffle-repeats-same-songs",
+  "title": "Перемешивание повторяет одни и те же треки, несмотря на пропуски — реальной случайности нет",
+  "obs": 1
+ },
+ {
+  "id": "forced-shuffle-against-user-will",
+  "title": "Приложение самостоятельно включает режим перемешивания вопреки настройке пользователя",
+  "obs": 1
+ },
+ {
+  "id": "playback-interrupted-by-notification",
+  "title": "Любое прерывание — уведомление или звонок — ставит музыку на паузу, и возобновление занимает несколько минут",
+  "obs": 1
+ },
+ {
+  "id": "algorithm-ignores-artist-request",
+  "title": "Алгоритм переключается на другую музыку через несколько треков, игнорируя запрос на конкретного исполнителя",
+  "obs": 1
+ },
+ {
+  "id": "playlist-auto-adds-songs",
+  "title": "Приложение самостоятельно добавляет рекомендованные треки в плейлист во время воспроизведения",
+  "obs": 1
+ },
+ {
+  "id": "volume-abnormally-low",
+  "title": "Громкость воспроизведения аномально тихая даже на современном устройстве",
+  "obs": 1
+ },
+ {
+  "id": "offline-playback-unstable-old-devices",
+  "title": "На старых устройствах приложение работает медленно при воспроизведении загруженных песен без интернета",
+  "obs": 1
+ },
+ {
+  "id": "ads-mid-song",
+  "title": "Реклама прерывает трек на середине, а не между песнями",
+  "obs": 1
+ },
+ {
+  "id": "ads-promised-30min-broken",
+  "title": "Приложение обещает 30 минут без рекламы после одного объявления, но реклама продолжает идти между треками",
+  "obs": 1
+ },
+ {
+  "id": "ads-repeat-same",
+  "title": "Одни и те же объявления повторяются снова и снова",
+  "obs": 1
+ },
+ {
+  "id": "ads-contextually-inappropriate",
+  "title": "Контекстная реклама подбирается неудачно: объявление о пластической хирургии появляется во время грустной музыки",
+  "obs": 1
+ },
+ {
+  "id": "recommendations-not-novel",
+  "title": "Рекомендованные плейлисты содержат уже слышанные треки вместо нового контента для открытия",
+  "obs": 1
+ },
+ {
+  "id": "homepage-recommendations-biased",
+  "title": "Главная страница продвигает контент, выгодный Spotify, а не тот, что соответствует вкусу пользователя",
+  "obs": 1
+ },
+ {
+  "id": "ai-features-forced-no-opt-out",
+  "title": "Сгенерированные ИИ радиостанции и описания треков нельзя отключить — они встроены принудительно",
+  "obs": 1
+ },
+ {
+  "id": "podcast-creator-block-missing",
+  "title": "Нет возможности заблокировать контент конкретного создателя подкастов в ленте рекомендаций",
+  "obs": 1
+ },
+ {
+  "id": "ipad-playback-controls-broken",
+  "title": "На iPad новый интерфейс сломал перемотку и изменение порядка воспроизведения",
+  "obs": 1
+ },
+ {
+  "id": "icon-change-forced",
+  "title": "Логотип приложения изменили без предупреждения и без возможности вернуть прежний вид",
+  "obs": 1
+ },
+ {
+  "id": "music-import-missing",
+  "title": "Нет возможности импортировать музыкальную библиотеку из других стриминговых сервисов",
+  "obs": 1
+ },
+ {
+  "id": "personal-uploads-no-cloud-sync",
+  "title": "Загруженные пользователем треки хранятся только локально — с другого устройства их не послушать",
+  "obs": 1
+ },
+ {
+  "id": "performance-degraded-after-update",
+  "title": "После обновлений приложение долго загружает музыку, случайно прерывает воспроизведение и выдаёт ошибки при добавлении в плейлист",
+  "obs": 1
+ },
+ {
+  "id": "ai-features-suspected-slowdown",
+  "title": "Пользователи подозревают, что добавление ИИ-функций замедлило работу приложения",
+  "obs": 1
+ },
+ {
+  "id": "video-content-slowdown",
+  "title": "После добавления видеоконтента приложение резко замедлилось и требует перезагрузки для базовых функций",
+  "obs": 1
+ },
+ {
+  "id": "crash-shuffle-large-library",
+  "title": "Приложение падает при попытке перемешать большой список лайкнутых песен",
+  "obs": 1
+ },
+ {
+  "id": "premium-extreme-load-delay",
+  "title": "Платный подписчик ждёт 3–4 минуты, чтобы открыть список любимых треков",
+  "obs": 1
+ },
+ {
+  "id": "carplay-icons-too-small",
+  "title": "В CarPlay иконки управления стали очень мелкими и неудобными для использования за рулём",
+  "obs": 1
+ },
+ {
+  "id": "carplay-wrong-track-latency",
+  "title": "CarPlay показывает неверный трек и работает с заметной задержкой после последнего обновления",
+  "obs": 1
+ },
+ {
+  "id": "downloads-deleted-silently",
+  "title": "Приложение удаляет загруженные пользователем песни без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "country-change-blocks-login",
+  "title": "При смене страны приложение блокирует вход и не позволяет повторно авторизоваться",
+  "obs": 1
+ },
+ {
+  "id": "support-bot-loops-no-human",
+  "title": "Автоматическая поддержка зацикливается на одинаковых ответах и не передаёт обращение живому оператору",
+  "obs": 1
+ },
+ {
+  "id": "no-support-after-payment-failure",
+  "title": "После оплаты премиума приложение перестало работать, но получить помощь от поддержки невозможно",
+  "obs": 1
+ }
+]

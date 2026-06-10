@@ -1,0 +1,279 @@
+You are grouping 46 mechanism-level insight clusters from Sweepy: Home Cleaning Schedule (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sweepy: Home Cleaning Schedule, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 46 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sweepy: Home Cleaning Schedule — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sweepy: Home Cleaning Schedule>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1498897320.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "family-sharing-paywalled",
+  "title": "Добавление даже одного члена семьи заблокировано за подпиской — базовый сценарий распределения дел недоступен бесплатно",
+  "obs": 6
+ },
+ {
+  "id": "trial-too-short",
+  "title": "Трёхдневный пробный период слишком короток, чтобы оценить построение привычек или совместное использование с семьёй",
+  "obs": 3
+ },
+ {
+  "id": "sync-across-devices-broken",
+  "title": "Синхронизация между iPhone, iPad и Apple Watch нестабильна — задачи иногда обновляются, иногда нет",
+  "obs": 3
+ },
+ {
+  "id": "vacation-mode-broken",
+  "title": "Режим отпуска не замораживает задачи: при включении они продолжают деградировать, при отключении — всё становится красным; выйти из режима иногда невозможно",
+  "obs": 3
+ },
+ {
+  "id": "no-global-task-list-view",
+  "title": "Главный экран показывает только комнаты — нет единого списка всех задач на день в порядке выполнения",
+  "obs": 3
+ },
+ {
+  "id": "streak-counter-broken",
+  "title": "Счётчик стрика внезапно сбрасывается и перестаёт отслеживаться корректно",
+  "obs": 2
+ },
+ {
+  "id": "widgets-broken",
+  "title": "Виджеты на экране блокировки и домашнем экране показывают чёрный квадрат или ошибку подключения при работающем интернете",
+  "obs": 2
+ },
+ {
+  "id": "progress-bar-labels-wrong",
+  "title": "Фразы прогресс-бара не соответствуют реальному состоянию: «Чисто» показывается когда ещё грязно, «Грязно» — когда уже чисто",
+  "obs": 2
+ },
+ {
+  "id": "no-cancel-in-customize-flow",
+  "title": "В окне настройки комнаты нет кнопки отмены — случайное нажатие требует перезапуска всего процесса создания",
+  "obs": 2
+ },
+ {
+  "id": "review-prompt-too-early-frequent",
+  "title": "Запрос на отзыв появляется в первый же день использования и слишком часто — отвлекает от работы",
+  "obs": 2
+ },
+ {
+  "id": "notification-generic-no-task-detail",
+  "title": "Пуш-уведомление не указывает конкретную задачу — нужно открывать приложение, чтобы узнать, что делать",
+  "obs": 2
+ },
+ {
+  "id": "midnight-task-reset",
+  "title": "Список задач сбрасывается в полночь — пользователи, работающие после полуночи, теряют прогресс незавершённой уборки",
+  "obs": 2
+ },
+ {
+  "id": "no-calendar-export",
+  "title": "Нет экспорта расписания уборки в Google Calendar или другие календарные приложения",
+  "obs": 2
+ },
+ {
+  "id": "algorithm-ignores-available-time",
+  "title": "Алгоритм распределяет задачи без учёта реально доступного времени в день — может предложить трёхчасовую уборку при одном свободном часе",
+  "obs": 2
+ },
+ {
+  "id": "no-per-member-schedule",
+  "title": "Нет возможности задать индивидуальное расписание для каждого члена семьи — один и тот же график для всех",
+  "obs": 2
+ },
+ {
+  "id": "shop-no-new-items",
+  "title": "Магазин декора долго не обновляется — отсутствие новых предметов снижает мотивацию регулярно открывать приложение",
+  "obs": 2
+ },
+ {
+  "id": "custom-notes-adhd-use-case",
+  "title": "Пользовательские текстовые поля с пошаговыми инструкциями помогают людям с ADHD и аутизмом отслеживать сложные задачи",
+  "obs": 2
+ },
+ {
+  "id": "daily-view-paywalled",
+  "title": "Просмотр дневных задач требует премиум-подписки, хотя это основная функция приложения",
+  "obs": 1
+ },
+ {
+  "id": "premium-ui-broken",
+  "title": "Интерфейс показывает список премиум-функций без возможности их купить, хотя раньше покупка работала",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-on-reinstall",
+  "title": "Домашний профиль теряется при переустановке приложения и не восстанавливается, даже при активной подписке в App Store",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-no-account",
+  "title": "Создание профиля без авторизации приводит к безвозвратной потере всех данных при последующем входе",
+  "obs": 1
+ },
+ {
+  "id": "data-not-persisted-restart",
+  "title": "Данные о комнатах и профиле не сохраняются между перезапусками приложения",
+  "obs": 1
+ },
+ {
+  "id": "recurring-task-scheduling-fails",
+  "title": "При большом количестве повторяющихся задач в комнате расписание ломается — задача не появляется вовремя без ручного обновления",
+  "obs": 1
+ },
+ {
+  "id": "add-task-button-disappears",
+  "title": "Кнопка добавления задачи исчезает непредсказуемо; QR-коды для приглашения не сканируются; приложение требует частых перезагрузок",
+  "obs": 1
+ },
+ {
+  "id": "algorithm-rebalance-slow",
+  "title": "Перераспределение задач при смене расписания семьи занимает до 24 часов",
+  "obs": 1
+ },
+ {
+  "id": "task-completion-ui-blocks",
+  "title": "При добавлении задачи в комнату информационное поле перекрывает нужную область и не убирается — редактирование невозможно",
+  "obs": 1
+ },
+ {
+  "id": "large-family-task-reassignment",
+  "title": "При большой семье приложение самостоятельно меняет назначения задач без запроса пользователя",
+  "obs": 1
+ },
+ {
+  "id": "invite-link-creates-new-home",
+  "title": "Ссылка приглашения не добавляет пользователя в существующий дом — дети создают новый профиль и теряют данные",
+  "obs": 1
+ },
+ {
+  "id": "family-sync-login-issues",
+  "title": "Синхронизация аккаунтов членов семьи нестабильна: повторный вход при каждом открытии, ссылка приглашения работает только для одного человека",
+  "obs": 1
+ },
+ {
+  "id": "authenticated-user-asked-to-login",
+  "title": "Авторизованный пользователь с активной подпиской получает запрос на создание аккаунта при попытке редактировать задачи",
+  "obs": 1
+ },
+ {
+  "id": "progress-bar-wrong-color-new-task",
+  "title": "После добавления одноразовой задачи прогресс-бар сразу становится зелёным — красный появляется только через 24 часа",
+  "obs": 1
+ },
+ {
+  "id": "no-undo-task-completion",
+  "title": "Нет возможности отменить случайное отмечание задачи как выполненной",
+  "obs": 1
+ },
+ {
+  "id": "last-cleaned-date-no-year",
+  "title": "Дата последней уборки отображается без года — невозможно определить, была ли задача выполнена в этом или прошлом году",
+  "obs": 1
+ },
+ {
+  "id": "room-decor-navigation",
+  "title": "Нет единого экрана для просмотра и редактирования декора всех комнат — навигация разрозненная",
+  "obs": 1
+ },
+ {
+  "id": "task-setup-requires-multiple-edits",
+  "title": "Настройка задачи требует многократного редактирования — не все опции доступны при создании",
+  "obs": 1
+ },
+ {
+  "id": "no-delete-preset-tasks",
+  "title": "Нет возможности удалить ненужные задачи из предустановленного списка",
+  "obs": 1
+ },
+ {
+  "id": "no-account-deletion",
+  "title": "Нет функции удаления аккаунта и очистки данных с серверов",
+  "obs": 1
+ },
+ {
+  "id": "support-account-recovery",
+  "title": "Поддержка справляется с восстановлением доступа к аккаунту",
+  "obs": 1
+ },
+ {
+  "id": "no-skip-auto-tasks",
+  "title": "При автоматическом расписании нельзя пропустить или отложить предложенные задачи — только ждать следующего дня",
+  "obs": 1
+ },
+ {
+  "id": "algorithm-no-specific-day-assignment",
+  "title": "Алгоритм не позволяет привязать конкретную задачу к определённому дню недели или месяца",
+  "obs": 1
+ },
+ {
+  "id": "no-family-completion-notifications",
+  "title": "Нет уведомлений о завершении задач членами семьи — родители не видят, кто и когда завершил дело",
+  "obs": 1
+ },
+ {
+  "id": "no-multiple-daily-executions",
+  "title": "Нет поддержки задач, которые выполняются несколько раз в день; нет истории выполнения по каждому члену семьи",
+  "obs": 1
+ },
+ {
+  "id": "no-plan-tomorrow",
+  "title": "Нельзя запланировать задачи на завтра — только на сегодня; нельзя назначить задачу конкретному члену семьи",
+  "obs": 1
+ },
+ {
+  "id": "gamification-virtual-only",
+  "title": "Система наград использует только виртуальные монеты для декора — реальные награды мотивировали бы детей и взрослых сильнее",
+  "obs": 1
+ },
+ {
+  "id": "no-photo-evidence",
+  "title": "Нет функции фотографии-примера и фотодоказательства выполнения — родители не могут показать эталон, дети не могут подтвердить результат",
+  "obs": 1
+ },
+ {
+  "id": "app-complexity-vs-simplicity",
+  "title": "Сложность приложения может быть контрпродуктивной для пользователей, предпочитающих простой подход к уборке",
+  "obs": 1
+ }
+]

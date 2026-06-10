@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from PhotoApp - AI Photo Enhancer (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO PhotoApp - AI Photo Enhancer, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to PhotoApp - AI Photo Enhancer — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to PhotoApp - AI Photo Enhancer>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsye9oa131sughvln5yamsg.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ad-feature-fails-loop",
+  "title": "После просмотра рекламы обещанная функция не выполняется, и приложение возвращает на главный экран по кругу",
+  "obs": 17
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "При запуске бесплатного пробного периода деньги списываются сразу, без отсрочки до конца триала",
+  "obs": 11
+ },
+ {
+  "id": "enhance-distorts-faces",
+  "title": "Улучшение лиц искажает черты до неузнаваемости — добавляет очки, волосы, гнилые зубы, демонический вид",
+  "obs": 8
+ },
+ {
+  "id": "maintenance-downtime",
+  "title": "Приложение регулярно уходит на многочасовое техобслуживание и недоступно даже платным подписчикам",
+  "obs": 8
+ },
+ {
+  "id": "cancel-impossible",
+  "title": "Отменить подписку невозможно — опция спрятана или отсутствует и в приложении, и на сайте",
+  "obs": 6
+ },
+ {
+  "id": "charges-after-cancel",
+  "title": "После отмены подписки приложение продолжает списывать платежи еженедельно",
+  "obs": 5
+ },
+ {
+  "id": "unblur-no-effect",
+  "title": "Функция убирания размытия не меняет фото — результат выглядит как исходник",
+  "obs": 5
+ },
+ {
+  "id": "charges-after-trial-cancel",
+  "title": "Пробный период отменён в первые дни, но списание всё равно проходит позже",
+  "obs": 3
+ },
+ {
+  "id": "process-cant-complete-error",
+  "title": "Обработка стабильно падает с ошибкой «process couldn't be completed» без возможности повторить",
+  "obs": 3
+ },
+ {
+  "id": "cancel-paddle-loop",
+  "title": "Отмена требует хождения по кругу между чат-ботом Paddle.net, поддержкой и личной почтой, пока платежи продолжаются",
+  "obs": 2
+ },
+ {
+  "id": "wrong-billing-period",
+  "title": "Списывают за другой период чем выбрал пользователь — за месяц вместо недели или за год вместо месяца бесплатно",
+  "obs": 2
+ },
+ {
+  "id": "subscription-forced-no-credits",
+  "title": "При первом запуске приложение объявляет бесплатные кредиты исчерпанными и вынуждает оформить подписку вместо разовой оплаты",
+  "obs": 2
+ },
+ {
+  "id": "multi-face-partial",
+  "title": "На фото с несколькими людьми обрабатывается только одно лицо, остальные остаются размытыми",
+  "obs": 2
+ },
+ {
+  "id": "colorize-wrong-skin",
+  "title": "Колоризация даёт неправдоподобный цвет кожи — розовые лица на всех снимках",
+  "obs": 2
+ },
+ {
+  "id": "age-progression-unrelated",
+  "title": "Видео старения создаёт человека совсем не похожего на загруженные фото — другое лицо и цвет кожи",
+  "obs": 2
+ },
+ {
+  "id": "support-unreachable",
+  "title": "Связаться с поддержкой невозможно — форма не работает или ответов нет",
+  "obs": 2
+ },
+ {
+  "id": "ads-but-no-result",
+  "title": "Приложение показывает только рекламу и никогда не выполняет действий над загруженными фото",
+  "obs": 2
+ },
+ {
+  "id": "ads-show-fake-features",
+  "title": "Реклама в соцсетях обещает функции и причёски, которых в приложении нет",
+  "obs": 2
+ },
+ {
+  "id": "named-free-not-free",
+  "title": "Приложение названо бесплатным, но без платной подписки не даёт даже загрузить фото",
+  "obs": 2
+ },
+ {
+  "id": "hidden-paddle-subscription",
+  "title": "Появляются регулярные списания от Paddle.net без явной подписки в приложении",
+  "obs": 1
+ },
+ {
+  "id": "charges-during-trial",
+  "title": "Во время заявленного пробного периода система всё равно списывает деньги без согласия",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-charges-no-refund",
+  "title": "Деньги списываются несколько раз в месяц без согласия, а в возврате поддержка отказывает",
+  "obs": 1
+ },
+ {
+  "id": "trial-exhausted-never-used",
+  "title": "Приложение сообщает что пробный период исчерпан, хотя пользователь им ни разу не пользовался",
+  "obs": 1
+ },
+ {
+  "id": "icon-tap-charges",
+  "title": "Касание значка выгруженного из памяти приложения мгновенно списывает деньги, и отмена не блокирует повторное списание",
+  "obs": 1
+ },
+ {
+  "id": "intro-price-jumps",
+  "title": "После символического первого платежа система сразу переходит на дорогую еженедельную подписку без согласия",
+  "obs": 1
+ },
+ {
+  "id": "lost-paid-subscription-after-update",
+  "title": "После обновления оплаченная годовая подписка исчезает из аккаунта вместе с деньгами",
+  "obs": 1
+ },
+ {
+  "id": "lost-ownership-recognition",
+  "title": "Через год после покупки приложение перестаёт распознавать владение и заливает рекламой",
+  "obs": 1
+ },
+ {
+  "id": "age-progression-needs-multiple",
+  "title": "Функция старения требует несколько фотографий и не работает с одним снимком",
+  "obs": 1
+ },
+ {
+  "id": "enhance-degrades-quality",
+  "title": "Улучшение ухудшает качество исходной фотографии вместо его восстановления",
+  "obs": 1
+ },
+ {
+  "id": "overprocessed-unrealistic",
+  "title": "Приложение обрабатывает фото слишком сильно, делая результат нереалистичным",
+  "obs": 1
+ },
+ {
+  "id": "upscale-washes-colors",
+  "title": "При увеличении изображения цвета становятся блёклыми и теряют насыщенность",
+  "obs": 1
+ },
+ {
+  "id": "quality-drops-after-few",
+  "title": "Первые несколько снимков обрабатываются хорошо, потом качество резко падает",
+  "obs": 1
+ },
+ {
+  "id": "fallout-mode-worse",
+  "title": "Атмосферный режим «Fallout» стал давать худший результат чем в старой версии приложения",
+  "obs": 1
+ },
+ {
+  "id": "sharpen-text-garbles",
+  "title": "Заострение текста превращает чёткие буквы в нечитаемую кашу и добавляет водяной знак",
+  "obs": 1
+ },
+ {
+  "id": "light-defect-not-fixed",
+  "title": "Приложение не исправляет дефекты освещения на фотографиях",
+  "obs": 1
+ },
+ {
+  "id": "watermark-on-results",
+  "title": "На бесплатные результаты добавляется водяной знак, о чём не сказано в маркетинге",
+  "obs": 1
+ },
+ {
+  "id": "no-original-recovery",
+  "title": "После обработки нет способа вернуть исходное изображение",
+  "obs": 1
+ },
+ {
+  "id": "select-photo-returns-home",
+  "title": "При выборе фотографии приложение возвращает в главное меню вместо обработки",
+  "obs": 1
+ },
+ {
+  "id": "subscription-popup-on-exit",
+  "title": "При попытке выйти приложение многократно показывает всплывающее окно подписки",
+  "obs": 1
+ },
+ {
+  "id": "clunky-interface",
+  "title": "Интерфейс неудобен для простого сценария загрузка → нажатие → результат",
+  "obs": 1
+ },
+ {
+  "id": "long-unskippable-ads",
+  "title": "В пробном периоде идёт двухминутная реклама без пропуска, а после неё ещё множество экранов закрытия",
+  "obs": 1
+ },
+ {
+  "id": "rate-limit-block",
+  "title": "При нескольких попытках использовать функцию подряд приложение блокирует доступ пользователя",
+  "obs": 1
+ },
+ {
+  "id": "feature-then-crash",
+  "title": "Функция не срабатывает с первого раза, а со второй попытки приложение само закрывается",
+  "obs": 1
+ },
+ {
+  "id": "crash-after-signup",
+  "title": "Приложение падает сразу после регистрации, а кнопка отправки в форме поддержки не работает",
+  "obs": 1
+ },
+ {
+  "id": "broken-after-ios-update",
+  "title": "После обновления iOS обработка любого фото перестаёт работать с ошибкой",
+  "obs": 1
+ },
+ {
+  "id": "photo-access-missing",
+  "title": "После обновления приложение просит доступ к фото, но в настройках iOS нет опции его выдать",
+  "obs": 1
+ },
+ {
+  "id": "stuck-looking-duplicates",
+  "title": "Обработка зависает на этапе «looking for duplicates» на пять минут при появлении человека в кадре",
+  "obs": 1
+ },
+ {
+  "id": "unreliable-with-waits",
+  "title": "Функция работает через раз и при сбое требует часовых ожиданий",
+  "obs": 1
+ },
+ {
+  "id": "ad-bypass-works",
+  "title": "При пропуске оплаты функции всё же доступны бесплатно через просмотр рекламы",
+  "obs": 1
+ }
+]

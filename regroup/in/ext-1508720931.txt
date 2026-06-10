@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from Meditation by Soothing Pod (медитация / sleep / guided / sounds) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Meditation by Soothing Pod, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Meditation by Soothing Pod — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Meditation by Soothing Pod>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1508720931.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-wide-content-loading-failure",
+  "title": "Приложение зависает на экране загрузки и не показывает никакой контент — переустановка не помогает",
+  "obs": 60
+ },
+ {
+  "id": "shuffle-broken-same-song",
+  "title": "Функция перемешивания музыки не работает — всегда воспроизводится одна и та же песня",
+  "obs": 10
+ },
+ {
+  "id": "support-completely-gone",
+  "title": "Служба поддержки полностью недоступна — ссылки ведут на сломанные страницы, ответов нет",
+  "obs": 10
+ },
+ {
+  "id": "story-interrupts-midway",
+  "title": "История прерывается в середине воспроизведения без видимой причины, разрушая засыпание",
+  "obs": 8
+ },
+ {
+  "id": "app-crashes-breaks-habit",
+  "title": "Приложение крашится или зависает во время сессии, прерывая расслабление и ломая привычку",
+  "obs": 7
+ },
+ {
+  "id": "reminder-popup-mid-session",
+  "title": "Всплывающее окно с предложением установить напоминание появляется посередине сессии и не отключается",
+  "obs": 6
+ },
+ {
+  "id": "see-more-button-empty-screen",
+  "title": "Кнопка «Ещё» для просмотра дополнительных историй открывает пустой экран",
+  "obs": 5
+ },
+ {
+  "id": "narrator-choice-limited",
+  "title": "Нельзя выбрать предпочитаемого рассказчика для историй — только один голос на весь раздел",
+  "obs": 4
+ },
+ {
+  "id": "abrupt-audio-end",
+  "title": "Звук обрывается резко в конце медитации вместо плавного затухания",
+  "obs": 4
+ },
+ {
+  "id": "app-not-updated-two-years",
+  "title": "Приложение не обновлялось два года — риск удаления из магазина и отсутствие исправлений",
+  "obs": 4
+ },
+ {
+  "id": "developer-abandoned-app",
+  "title": "Признаки того, что разработчик забросил приложение: нет обновлений, нет поддержки, контент только на YouTube",
+  "obs": 4
+ },
+ {
+  "id": "content-not-synced-from-youtube",
+  "title": "Новый контент публикуется на YouTube и в подкастах, но не попадает в приложение",
+  "obs": 3
+ },
+ {
+  "id": "music-repeat-broken",
+  "title": "Функция повтора музыки перестала работать — воспроизведение обрывается через несколько минут",
+  "obs": 3
+ },
+ {
+  "id": "background-playback-stops",
+  "title": "При выключении экрана или переключении приложения воспроизведение останавливается",
+  "obs": 3
+ },
+ {
+  "id": "app-broken-after-ios-update",
+  "title": "После обновления iOS или самого приложения контент перестаёт загружаться",
+  "obs": 3
+ },
+ {
+  "id": "app-abandonment-to-competitor",
+  "title": "Пользователи уходят на другие приложения из-за стабильных сбоев загрузки контента",
+  "obs": 3
+ },
+ {
+  "id": "premium-ads-still-showing",
+  "title": "После оплаты премиума реклама продолжает появляться, а поддержка не помогает",
+  "obs": 2
+ },
+ {
+  "id": "content-library-exhausted",
+  "title": "После года использования весь контент прослушан — новые истории добавляются редко",
+  "obs": 2
+ },
+ {
+  "id": "narrator-voice-unnatural",
+  "title": "Голоса некоторых рассказчиков звучат неестественно или не подходят для расслабления",
+  "obs": 2
+ },
+ {
+  "id": "timer-stops-story-early",
+  "title": "Таймер отключает историю посередине, когда пользователь ещё не заснул",
+  "obs": 2
+ },
+ {
+  "id": "no-autoplay-next-session",
+  "title": "После завершения одной сессии следующая не запускается автоматически — нужно нажимать вручную",
+  "obs": 2
+ },
+ {
+  "id": "long-background-music-use-case",
+  "title": "Пользователи запускают фоновую музыку на 7–8 часов ночью для улучшения качества сна",
+  "obs": 2
+ },
+ {
+  "id": "settings-not-saved",
+  "title": "Настройки напоминаний и фоновых звуков не сохраняются и сбрасываются при каждом открытии",
+  "obs": 2
+ },
+ {
+  "id": "no-timer-for-ambient-sounds",
+  "title": "Таймер автоотключения недоступен для фоновых звуков и музыки — только для историй и медитаций",
+  "obs": 2
+ },
+ {
+  "id": "no-error-reporting",
+  "title": "Форма отправки отчётов об ошибках тоже не работает — нет никакого канала обратной связи",
+  "obs": 2
+ },
+ {
+  "id": "app-sleep-effectiveness",
+  "title": "Приложение настолько эффективно для засыпания, что пользователи не могут проснуться после дневного сна",
+  "obs": 2
+ },
+ {
+  "id": "ads-removed-retention",
+  "title": "Удаление рекламы значительно улучшило удержание — пользователи отмечают это как ключевое изменение",
+  "obs": 2
+ },
+ {
+  "id": "marketing-free-vs-actual-price",
+  "title": "Описание заявляет «100% бесплатно», но приложение стоит $14.99 — маркетинг противоречит реальности",
+  "obs": 1
+ },
+ {
+  "id": "free-trial-not-activatable",
+  "title": "Приложение рекламирует бесплатный пробный период, но нет способа его активировать",
+  "obs": 1
+ },
+ {
+  "id": "narrator-too-much-talking",
+  "title": "Рассказчик говорит слишком много, мешая самостоятельной медитации",
+  "obs": 1
+ },
+ {
+  "id": "stories-too-long",
+  "title": "Рассказы длиннее 40 минут — пользователь засыпает раньше окончания, нужны короткие версии",
+  "obs": 1
+ },
+ {
+  "id": "removed-favourite-sound",
+  "title": "Любимый звук удалён из библиотеки без предупреждения и без возможности обратной связи",
+  "obs": 1
+ },
+ {
+  "id": "content-limited-vs-competitors",
+  "title": "Контент беднее конкурентов — нет статистики, интеграции с Apple Health, системы наград",
+  "obs": 1
+ },
+ {
+  "id": "breathing-exercises-hard",
+  "title": "Дыхательные упражнения в медитациях недоступны пользователям с проблемами дыхания",
+  "obs": 1
+ },
+ {
+  "id": "no-playlist-on-wakeup",
+  "title": "Нет плейлиста: при пробуждении ночью нужно вручную выбирать следующий трек",
+  "obs": 1
+ },
+ {
+  "id": "meditation-interrupted-by-achievement",
+  "title": "Во время медитации всплывает поздравление с завершением другой сессии, прерывая текущую",
+  "obs": 1
+ },
+ {
+  "id": "music-narrator-imbalance",
+  "title": "Приложение воспроизводит музыку без голоса нарратора, нарушая целостность медитации",
+  "obs": 1
+ },
+ {
+  "id": "story-misclassified-as-meditation",
+  "title": "При выборе истории приложение переводит её в режим медитативного упражнения вместо рассказа",
+  "obs": 1
+ },
+ {
+  "id": "alarm-integration-workaround",
+  "title": "Совместное использование с будильником требует многошагового обходного пути через две системы громкости",
+  "obs": 1
+ },
+ {
+  "id": "narrator-voice-reset-after-reinstall",
+  "title": "После переустановки предпочитаемый голос рассказчика сбрасывается, а опция смены исчезает",
+  "obs": 1
+ },
+ {
+  "id": "offline-download-page-broken",
+  "title": "Страница офлайн-загрузок не открывается, хотя функция заявлена",
+  "obs": 1
+ },
+ {
+  "id": "offline-download-limit",
+  "title": "Лимит в 10 скачанных историй недостаточен для путешествий без интернета",
+  "obs": 1
+ },
+ {
+  "id": "app-slow-to-open-loses-position",
+  "title": "Приложение долго загружается и не запоминает последнее место в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "ipad-landscape-unsupported",
+  "title": "Приложение не поддерживает ландшафтную ориентацию на iPad, хотя заявляет совместимость",
+  "obs": 1
+ },
+ {
+  "id": "help-docs-wrong-info",
+  "title": "Справочные инструкции в приложении содержат неверную информацию о скачивании контента",
+  "obs": 1
+ },
+ {
+  "id": "favourite-meditation-lost-after-update",
+  "title": "После обновления нельзя найти любимую медитацию — визуальный ориентир исчез",
+  "obs": 1
+ },
+ {
+  "id": "sharing-crashes-app",
+  "title": "Попытка поделиться медитацией по электронной почте вызывает зависание приложения",
+  "obs": 1
+ },
+ {
+  "id": "siri-integration-broken",
+  "title": "Управление воспроизведением через Сири перестало работать",
+  "obs": 1
+ },
+ {
+  "id": "offline-mode-broken",
+  "title": "Офлайн-режим не работает на борту самолёта, несмотря на заявленную функцию скачивания",
+  "obs": 1
+ },
+ {
+  "id": "willing-to-pay-for-restoration",
+  "title": "Часть пользователей готова платить за восстановление работоспособности приложения",
+  "obs": 1
+ }
+]

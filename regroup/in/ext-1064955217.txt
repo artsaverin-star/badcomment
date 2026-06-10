@@ -1,0 +1,324 @@
+You are grouping 55 mechanism-level insight clusters from Life Cycle - Track Your Time (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Life Cycle - Track Your Time, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 55 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Life Cycle - Track Your Time — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Life Cycle - Track Your Time>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1064955217.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ios-update-breaks-location-tracking",
+  "title": "После обновления iOS отслеживание локации полностью перестаёт работать, штатные способы исправления не помогают",
+  "obs": 15
+ },
+ {
+  "id": "tracking-stops-spontaneously",
+  "title": "Приложение самопроизвольно прекращает записывать локации на дни или недели, а перезагрузка не помогает",
+  "obs": 8
+ },
+ {
+  "id": "backup-restore-fails-data-loss",
+  "title": "Резервная копия не восстанавливается на новом устройстве и данные нескольких лет теряются безвозвратно",
+  "obs": 6
+ },
+ {
+  "id": "wfh-app-useless-no-room-differentiation",
+  "title": "Для работающих из дома приложение бесполезно: разные комнаты неразличимы, вся активность сваливается в «дом»",
+  "obs": 6
+ },
+ {
+  "id": "premium-status-lost-after-payment",
+  "title": "Премиум-статус самопроизвольно сбрасывается в течение суток после оплаты, несмотря на успешную транзакцию",
+  "obs": 5
+ },
+ {
+  "id": "geofence-radius-too-large-nearby-confusion",
+  "title": "Радиус геозоны слишком велик: приложение путает соседние здания и локации через дорогу",
+  "obs": 5
+ },
+ {
+  "id": "phantom-visits-while-sleeping",
+  "title": "Приложение фиксирует визиты в магазины среди ночи, когда пользователь спит дома",
+  "obs": 5
+ },
+ {
+  "id": "history-data-deleted",
+  "title": "Многолетняя история отслеживания внезапно обнуляется или сокращается до нескольких последних месяцев",
+  "obs": 4
+ },
+ {
+  "id": "null-phantom-activities-unremovable",
+  "title": "Импортированные из Apple Watch и Apple Health данные создают «null»-активности, которые невозможно удалить",
+  "obs": 4
+ },
+ {
+  "id": "location-edit-blocked-by-lock",
+  "title": "Рядом с локацией появляется значок замка, который полностью блокирует любое редактирование",
+  "obs": 4
+ },
+ {
+  "id": "no-support-channel-available",
+  "title": "Способа связаться с поддержкой нет: сайт разработчика не работает, контактов не найти",
+  "obs": 4
+ },
+ {
+  "id": "app-stuck-on-one-location",
+  "title": "Приложение застревает на одной локации и не фиксирует переход на другую до перезапуска",
+  "obs": 3
+ },
+ {
+  "id": "duplicate-locations-cannot-merge",
+  "title": "Одна и та же точка создаётся дважды, а объединить или удалить дубликаты невозможно",
+  "obs": 3
+ },
+ {
+  "id": "no-overlapping-activity-tracking",
+  "title": "Одновременно происходящие действия нельзя записать как пересекающиеся — приложение требует выбрать одно",
+  "obs": 3
+ },
+ {
+  "id": "learning-period-blocks-trial-use",
+  "title": "Период «обучения» длиной 36–48 часов блокирует полноценное использование во время триала и нигде не описан",
+  "obs": 3
+ },
+ {
+  "id": "features-locked-despite-active-subscription",
+  "title": "Оплаченные функции остаются заблокированными, хотя платёж прошёл успешно и подписка активна",
+  "obs": 2
+ },
+ {
+  "id": "wrong-duration-stuck-timer",
+  "title": "Приложение записывает нереальную продолжительность визита — 15–17 часов вместо нескольких минут",
+  "obs": 2
+ },
+ {
+  "id": "permission-not-recognized",
+  "title": "Приложение не распознаёт уже выданное разрешение на геолокацию и блокирует основной функционал",
+  "obs": 2
+ },
+ {
+  "id": "activity-category-stuck-after-context-change",
+  "title": "При смене контекста приложение продолжает назначать старую категорию той же локации и не предлагает интуитивного способа смены",
+  "obs": 2
+ },
+ {
+  "id": "default-categories-cannot-remove",
+  "title": "Стандартные категории активности нельзя удалить или переименовать, даже если они никогда не используются",
+  "obs": 2
+ },
+ {
+  "id": "forces-always-on-location-permission",
+  "title": "Приложение отказывается открываться без постоянно включённой геолокации и не даёт оценить функционал до выдачи разрешения",
+  "obs": 2
+ },
+ {
+  "id": "chain-branch-disambiguation-fails",
+  "title": "Разные филиалы одной сети (например, разные кофейни) определяются как одна локация и не поддаются разделению",
+  "obs": 2
+ },
+ {
+  "id": "trial-button-charges-full-year",
+  "title": "Кнопка «пробный период» сразу списывает полную годовую подписку вместо запуска бесплатного триала",
+  "obs": 1
+ },
+ {
+  "id": "price-tripled-no-grandfathering",
+  "title": "Цена подписки выросла втрое, старые пользователи не защищены и вынуждены платить по новому тарифу",
+  "obs": 1
+ },
+ {
+  "id": "sleep-tracking-paywalled",
+  "title": "Отслеживание сна перенесено в платную подписку — функция, которая годами была бесплатной",
+  "obs": 1
+ },
+ {
+  "id": "backup-requires-repayment",
+  "title": "Доступ к резервной копии требует повторной оплаты за уже оплаченную функцию",
+  "obs": 1
+ },
+ {
+  "id": "app-freezes-charges-continue-refund-denied",
+  "title": "Приложение зависает намертво, платежи продолжают списываться, а возврат средств отклоняется",
+  "obs": 1
+ },
+ {
+  "id": "app-freeze-hang-on-startup",
+  "title": "Приложение зависает на экране «сбора данных» на несколько часов без возможности войти",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-complication-removed-after-update",
+  "title": "После обновления приложение удаляет усложнение Apple Watch и вернуть его в интерфейс невозможно",
+  "obs": 1
+ },
+ {
+  "id": "watchos-compatibility-broken",
+  "title": "Приложение перестало работать с актуальной версией watchOS, и поддержка не реагирует",
+  "obs": 1
+ },
+ {
+  "id": "edit-not-saved",
+  "title": "Исправления категорий и локаций не сохраняются — приложение игнорирует ручные правки",
+  "obs": 1
+ },
+ {
+  "id": "limited-icons-for-activities",
+  "title": "Иконки активностей почти не различаются — большинство спортивных занятий показываются одинаковой гантелью",
+  "obs": 1
+ },
+ {
+  "id": "no-map-view-for-uncategorized-places",
+  "title": "Нет способа увидеть все посещённые места на карте без обязательной категоризации",
+  "obs": 1
+ },
+ {
+  "id": "export-lacks-coordinates-and-duration",
+  "title": "Экспорт данных содержит только названия и даты — без координат и времени пребывания",
+  "obs": 1
+ },
+ {
+  "id": "cannot-add-location-manually",
+  "title": "Когда GPS не определяет место, добавить локацию вручную невозможно",
+  "obs": 1
+ },
+ {
+  "id": "monthly-stats-not-normalized-by-days",
+  "title": "Месячная статистика считается в общих часах, а не в среднем за день, и сравнение месяцев искажается",
+  "obs": 1
+ },
+ {
+  "id": "only-pie-charts-no-bar-charts",
+  "title": "Все данные отображаются только круговыми диаграммами, других вариантов визуализации нет",
+  "obs": 1
+ },
+ {
+  "id": "weekly-progress-not-realtime",
+  "title": "Еженедельные и ежемесячные отчёты обновляются только в конце периода — прогресс в реальном времени не виден",
+  "obs": 1
+ },
+ {
+  "id": "calendar-view-only-current-year",
+  "title": "Календарный вид показывает только текущий год — история прошлых лет недоступна",
+  "obs": 1
+ },
+ {
+  "id": "no-chronological-timeline-for-editing",
+  "title": "Нет хронологического представления дня по времени, из-за чего редактировать пробелы неудобно",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-geofence-zones",
+  "title": "Нельзя нарисовать пользовательскую зону на карте, чтобы объединить несколько точек в одну рабочую область",
+  "obs": 1
+ },
+ {
+  "id": "single-mislabel-forces-full-history-delete",
+  "title": "Исправить одну ошибочную метку без удаления всей истории локации невозможно",
+  "obs": 1
+ },
+ {
+  "id": "inconsistent-totals-across-views",
+  "title": "Итоговые цифры в круговой диаграмме и в детальном просмотре расходятся между собой",
+  "obs": 1
+ },
+ {
+  "id": "retail-work-categorized-as-shopping",
+  "title": "Работа в розничном магазине автоматически записывается как «покупки» и исправить это внутри приложения нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-realtime-task-timer",
+  "title": "Встроенного таймера для текущих задач нет — пользователь вынужден записывать время постфактум по памяти",
+  "obs": 1
+ },
+ {
+  "id": "app-does-not-learn-patterns",
+  "title": "Приложение не запоминает повторяющиеся паттерны и требует ручного ввода каждый раз заново",
+  "obs": 1
+ },
+ {
+  "id": "no-altitude-floor-differentiation",
+  "title": "Приложение не различает этажи и высоту: упражнения в подвале и работа наверху определяются как одно место",
+  "obs": 1
+ },
+ {
+  "id": "misleading-insight-correlations",
+  "title": "Алгоритм корреляций выдаёт абсурдные выводы — например, худший сон на кладбище, — подрывая доверие к данным",
+  "obs": 1
+ },
+ {
+  "id": "app-abandoned-no-updates-privacy-concerns",
+  "title": "Приложение не обновлялось более года, что вызывает подозрения о конфиденциальности и сборе данных",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-health-step-sync",
+  "title": "Шаги из Apple Health не импортируются — часть физической активности выпадает из общей картины",
+  "obs": 1
+ },
+ {
+  "id": "no-screen-time-integration",
+  "title": "Приложение не видит экранное время из Apple Screen Time, оставляя неполную картину для домашних пользователей",
+  "obs": 1
+ },
+ {
+  "id": "sleep-cycle-integration-broken",
+  "title": "Интеграция с приложением Sleep Cycle не работает, и данные о качестве сна не связываются с локациями",
+  "obs": 1
+ },
+ {
+  "id": "wifi-required-slow-learning",
+  "title": "Без постоянно включённого Wi-Fi приложение обучается медленнее, и точность в первые дни крайне низкая",
+  "obs": 1
+ },
+ {
+  "id": "developer-unresponsive-years-no-updates",
+  "title": "Разработчик не отвечает на запросы годами, обновления выходят с разрывом в несколько лет с минимальными изменениями",
+  "obs": 1
+ },
+ {
+  "id": "broken-verification-email-links",
+  "title": "Письмо верификации приходит с нерабочей ссылкой и способа обойти это нет",
+  "obs": 1
+ }
+]

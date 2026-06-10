@@ -1,0 +1,404 @@
+You are grouping 71 mechanism-level insight clusters from Streaks (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Streaks, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 71 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Streaks — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Streaks>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-963034692.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "streak-limit-24-cap",
+  "title": "Жёсткий лимит в 24 привычки не объяснён в описании и не меняется даже за доплату",
+  "obs": 17
+ },
+ {
+  "id": "habits-vanish-spontaneously",
+  "title": "Привычки и их история периодически исчезают сами по себе без предупреждения",
+  "obs": 12
+ },
+ {
+  "id": "grid-6-per-page-density",
+  "title": "Сетка 6 иконок на странице не масштабируется — нельзя увидеть больше задач без прокрутки",
+  "obs": 6
+ },
+ {
+  "id": "data-loss-on-update",
+  "title": "Обновление приложения стирает все пользовательские данные и историю без возможности восстановления",
+  "obs": 6
+ },
+ {
+  "id": "icloud-sync-breaks-data",
+  "title": "Синхронизация через iCloud перезаписывает новые изменения старыми или дублирует удалённые привычки",
+  "obs": 5
+ },
+ {
+  "id": "mark-done-not-obvious",
+  "title": "Новые пользователи не понимают, как отметить задачу выполненной — справка не объясняет",
+  "obs": 4
+ },
+ {
+  "id": "widget-no-inline-check",
+  "title": "Виджет не позволяет отметить привычку выполненной без открытия приложения",
+  "obs": 4
+ },
+ {
+  "id": "apple-watch-complication-broken",
+  "title": "Осложнение Apple Watch показывает пустой виджет или не работает как усложнение",
+  "obs": 4
+ },
+ {
+  "id": "apple-watch-sync-broken",
+  "title": "Синхронизация выполненных задач между Apple Watch и iPhone не работает или сильно задерживается",
+  "obs": 4
+ },
+ {
+  "id": "widget-settings-reset",
+  "title": "Настройки виджетов сбрасываются случайно — выбранная задача исчезает и требует переконфигурации",
+  "obs": 4
+ },
+ {
+  "id": "add-habit-button-hidden",
+  "title": "Кнопка добавления новой привычки скрыта в настройках и не видна на главном экране",
+  "obs": 3
+ },
+ {
+  "id": "categories-unsortable",
+  "title": "Категории задач существуют, но сортировка и фильтрация по ним недоступны",
+  "obs": 3
+ },
+ {
+  "id": "undo-shake-gesture",
+  "title": "Отмена действия требует встряхнуть телефон — вместо кнопки в меню",
+  "obs": 3
+ },
+ {
+  "id": "widget-stale-no-update",
+  "title": "Виджет не обновляется в реальном времени и требует открыть приложение для актуализации данных",
+  "obs": 3
+ },
+ {
+  "id": "timer-countdown-only",
+  "title": "Таймер считает только обратный отсчёт — нет секундомера для отслеживания переполнения времени",
+  "obs": 3
+ },
+ {
+  "id": "weekly-mode-no-day-history",
+  "title": "Режим «N раз в неделю» не показывает, в какие конкретные дни задача была выполнена",
+  "obs": 2
+ },
+ {
+  "id": "habit-reorder-broken",
+  "title": "Перемещение привычки между страницами случайно сдвигает другие позиции",
+  "obs": 2
+ },
+ {
+  "id": "color-theme-broken",
+  "title": "Выбранный цвет темы применяется неправильно: жёлтый становится коричневым, виджеты сбрасываются на белый",
+  "obs": 2
+ },
+ {
+  "id": "annual-single-habit-view",
+  "title": "Нет годовой визуализации одной привычки — только агрегированная годовая статистика",
+  "obs": 2
+ },
+ {
+  "id": "stats-notes-export",
+  "title": "Нельзя просматривать и экспортировать заметки по задачам или по дате",
+  "obs": 2
+ },
+ {
+  "id": "notification-settings-scattered",
+  "title": "Настройки уведомлений разбросаны по разным экранам — нет единого переключателя «всё выключить»",
+  "obs": 2
+ },
+ {
+  "id": "apple-watch-too-many-taps",
+  "title": "Отметить задачу на Apple Watch требует слишком много нажатий — проще сделать задачу, чем отметить",
+  "obs": 2
+ },
+ {
+  "id": "notification-unreliable",
+  "title": "Уведомления приходят нестабильно: иногда не приходят вовсе, иногда показывают вчерашний статус",
+  "obs": 2
+ },
+ {
+  "id": "smart-reminder-wrong-time",
+  "title": "«Умные напоминания» отправляют уведомление на час позже запланированного времени",
+  "obs": 2
+ },
+ {
+  "id": "streak-break-motivation-loss",
+  "title": "После разрыва полосы пользователи теряют мотивацию — нет механизма восстановления после 1-2 пропусков",
+  "obs": 2
+ },
+ {
+  "id": "pause-feature-reduces-pressure",
+  "title": "Функция паузы позволяет прерваться без психологического давления провала — это главное конкурентное преимущество",
+  "obs": 2
+ },
+ {
+  "id": "no-one-off-tasks",
+  "title": "Приложение работает только с повторяющимися привычками — одноразовые задачи не поддерживаются",
+  "obs": 2
+ },
+ {
+  "id": "support-slow-unresponsive",
+  "title": "Служба поддержки не отвечает на письма несколько дней; живого оператора нет",
+  "obs": 2
+ },
+ {
+  "id": "icon-library-small",
+  "title": "Пользователи хотят больше иконок для выбора, включая личные фотографии",
+  "obs": 2
+ },
+ {
+  "id": "log-yesterday-no-option",
+  "title": "Нет способа задним числом отметить привычку вчерашнего дня — пропуск сразу обнуляет полосу",
+  "obs": 2
+ },
+ {
+  "id": "all-caps-text-readability",
+  "title": "Названия задач автоматически переводятся в верхний регистр, что затрудняет чтение",
+  "obs": 1
+ },
+ {
+  "id": "partial-progress-invisible",
+  "title": "Прогресс частичного выполнения (1 из 2 раз в день) не отображается в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "char-limit-name",
+  "title": "Лимит в 28 символов для названия задачи не позволяет написать понятное описание",
+  "obs": 1
+ },
+ {
+  "id": "font-size-small",
+  "title": "Шрифт маленький и нет возможности изменить его размер",
+  "obs": 1
+ },
+ {
+  "id": "mac-window-resize-ui",
+  "title": "Mac-версия ломает раскладку при изменении размера окна",
+  "obs": 1
+ },
+ {
+  "id": "future-task-edit",
+  "title": "Редактировать задачи можно только на текущий день — изменения на будущие даты недоступны",
+  "obs": 1
+ },
+ {
+  "id": "widget-order-ignored",
+  "title": "Виджет не учитывает пользовательский порядок привычек и показывает их в произвольном порядке",
+  "obs": 1
+ },
+ {
+  "id": "widget-capacity-reduced",
+  "title": "Обновление уменьшило количество видимых задач в виджете с 12 до 4",
+  "obs": 1
+ },
+ {
+  "id": "cpu-battery-drain",
+  "title": "Приложение потребляет 500% процессора и критически разряжает батарею",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-open",
+  "title": "Приложение падает при каждом запуске после обновления",
+  "obs": 1
+ },
+ {
+  "id": "install-freeze-notifications",
+  "title": "Приложение зависает при запросе разрешения на уведомления во время установки",
+  "obs": 1
+ },
+ {
+  "id": "old-data-ghost-reinstall",
+  "title": "После переустановки приложение воспроизводит старые удалённые задачи и уведомления из предыдущей установки",
+  "obs": 1
+ },
+ {
+  "id": "live-activities-wrong-task",
+  "title": "Live Activities появляются для задач, которых нет у пользователя",
+  "obs": 1
+ },
+ {
+  "id": "auto-completes-days",
+  "title": "Приложение автоматически засчитывает дни как выполненные, если пользователь не зашёл и не изменил вручную",
+  "obs": 1
+ },
+ {
+  "id": "music-pauses-on-checkin",
+  "title": "При отметке привычки приложение автоматически ставит на паузу музыку",
+  "obs": 1
+ },
+ {
+  "id": "widget-interactive-ios17",
+  "title": "Интерактивные виджеты перестали работать на iOS 17.0 и требуют обновить систему",
+  "obs": 1
+ },
+ {
+  "id": "notification-subask-incomplete",
+  "title": "Уведомления для задач с несколькими подзадачами приходят не для всех подзадач",
+  "obs": 1
+ },
+ {
+  "id": "health-app-integration-unreliable",
+  "title": "Интеграция с Apple Health через Apple Watch работает непоследовательно и ненадёжно",
+  "obs": 1
+ },
+ {
+  "id": "restore-backup-all-or-nothing",
+  "title": "Восстановление из резервной копии перезаписывает все данные — нельзя восстановить только одну задачу",
+  "obs": 1
+ },
+ {
+  "id": "streak-negative-framing",
+  "title": "Напоминания угрожают потерей полосы вместо того чтобы мотивировать позитивно",
+  "obs": 1
+ },
+ {
+  "id": "adhd-use-case",
+  "title": "Пользователи с ADHD используют приложение как внешний исполнительный контроль и упираются в лимит привычек",
+  "obs": 1
+ },
+ {
+  "id": "family-child-use",
+  "title": "Приложение используют для детей начиная с 7 лет — семейный сценарий не поддерживается официально",
+  "obs": 1
+ },
+ {
+  "id": "negative-habit-tracking",
+  "title": "Пользователи применяют приложение для отслеживания избегания вредных привычек через отрицательный режим",
+  "obs": 1
+ },
+ {
+  "id": "alternative-exercise-streak",
+  "title": "Нельзя настроить взаимозаменяемые варианты задачи (бежать или ехать на велосипеде) без разрыва полосы",
+  "obs": 1
+ },
+ {
+  "id": "no-trial-hard-to-evaluate",
+  "title": "Нет пробного периода — покупатель не может оценить приложение до оплаты",
+  "obs": 1
+ },
+ {
+  "id": "ai-steps-no-manual",
+  "title": "Функция «Разбить на этапы» работает только через AI — добавить шаги вручную нельзя",
+  "obs": 1
+ },
+ {
+  "id": "biweekly-schedule-missing",
+  "title": "Нет поддержки двухнедельного расписания — только ежедневное и еженедельное",
+  "obs": 1
+ },
+ {
+  "id": "calendar-view-tiny",
+  "title": "Календарный вид мелкий и больше напоминает временную шкалу, чем полноценный месячный календарь",
+  "obs": 1
+ },
+ {
+  "id": "completed-task-hides-streak",
+  "title": "После отметки выполненной задача скрывается и не показывает текущую длину полосы",
+  "obs": 1
+ },
+ {
+  "id": "auto-icon-matching",
+  "title": "Приложение автоматически подбирает релевантную иконку для задачи по названию",
+  "obs": 1
+ },
+ {
+  "id": "apple-reminders-calendar-integration",
+  "title": "Нет интеграции с Apple Reminders и Calendars для синхронизации системных задач",
+  "obs": 1
+ },
+ {
+  "id": "health-batch-actions",
+  "title": "Нельзя отметить несколько похожих задач (например, несколько витаминов) одним действием в Apple Health",
+  "obs": 1
+ },
+ {
+  "id": "repeating-counter-task",
+  "title": "Нет кнопки-счётчика для повторяющихся действий в течение дня (например, стакан воды 5 раз)",
+  "obs": 1
+ },
+ {
+  "id": "backfill-history-no-option",
+  "title": "Нельзя загрузить историю предыдущих дней при новой установке или начать привычку с произвольной даты",
+  "obs": 1
+ },
+ {
+  "id": "action-button-single-action",
+  "title": "Action Button поддерживает только одно действие — нельзя одновременно запустить шортkat и таймер",
+  "obs": 1
+ },
+ {
+  "id": "quick-checkin-without-opening",
+  "title": "Чтобы отметить привычку, нужно открыть приложение — нет быстрого логирования через Siri, виджет или жест",
+  "obs": 1
+ },
+ {
+  "id": "notification-disturbs-sleep-meditation",
+  "title": "Уведомления приходят во время медитации или отхода ко сну — Focus mode не решает проблему",
+  "obs": 1
+ },
+ {
+  "id": "sync-cross-device-slow",
+  "title": "Синхронизация между устройствами работает, но медленнее чем у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "notification-checkin-fixed-fast",
+  "title": "Разработчики исправили отметку задачи через уведомления в течение нескольких недель после жалоб",
+  "obs": 1
+ },
+ {
+  "id": "data-loss-reputation-risk",
+  "title": "Концентрация жалоб на потерю данных в отзывах подрывает доверие даже у новых пользователей",
+  "obs": 1
+ },
+ {
+  "id": "settings-deeply-buried",
+  "title": "Нужные настройки скрыты глубоко в меню, но всё необходимое есть — вопрос обнаруживаемости",
+  "obs": 1
+ }
+]

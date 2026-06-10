@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "id": "spisaniya-vopreki-otmene",
+      "name": "Списывают вопреки отмене: пробный период и повторные списания",
+      "insight_ids": ["trial-cancel-still-charged", "recharge-after-cancel"]
+    },
+    {
+      "id": "otmena-po-krugu",
+      "name": "Отмена по кругу: из приложения в помощь и обратно, без выхода",
+      "insight_ids": ["cancel-loop-no-exit"]
+    },
+    {
+      "id": "ii-kredity-i-urezannye-limity",
+      "name": "Платим за то, что было бесплатным: ИИ-кредиты на тени и урезанный лимит фото",
+      "insight_ids": ["shadows-now-cost-ai-credits", "photo-limit-halved"]
+    },
+    {
+      "id": "ii-buksuet-na-fonah",
+      "name": "ИИ буксует: десятки попыток ради приемлемого фона",
+      "insight_ids": ["ai-background-many-tries"]
+    },
+    {
+      "id": "neob-yasnimye-blokirovki",
+      "name": "Без объяснений: блокировка ИИ-моделей в определённой одежде",
+      "insight_ids": ["clothing-blocked-no-reason"]
+    },
+    {
+      "id": "slomalos-posle-obnovleniy",
+      "name": "Сломалось после обновлений: удаление фона с прозрачностью больше не работает",
+      "insight_ids": ["transparent-bg-removal-broken"]
+    }
+  ]
+}

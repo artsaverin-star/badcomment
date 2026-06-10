@@ -1,0 +1,179 @@
+You are grouping 26 mechanism-level insight clusters from TurboScan™ Pro: PDF scanner (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO TurboScan™ Pro: PDF scanner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 26 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to TurboScan™ Pro: PDF scanner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to TurboScan™ Pro: PDF scanner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-342548956.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "fieldwork-contracts",
+  "title": "Приложение используется для заключения контрактов и обмена документами прямо на встрече с клиентом",
+  "obs": 4
+ },
+ {
+  "id": "mobile-vs-desktop-scanner",
+  "title": "Приложение полностью вытесняет настольный сканер — пользователи перестают пользоваться физическим оборудованием",
+  "obs": 3
+ },
+ {
+  "id": "personal-document-vault",
+  "title": "Приложение служит постоянным хранилищем важных личных документов вместо физических папок",
+  "obs": 2
+ },
+ {
+  "id": "receipt-scanning-workflow",
+  "title": "Сканирование чеков с автоматической обрезкой и загрузкой в облако — ключевой бизнес-сценарий",
+  "obs": 2
+ },
+ {
+  "id": "longterm-loyalty",
+  "title": "Пользователи остаются с приложением десятилетиями — 13-15 лет использования без смены инструмента",
+  "obs": 2
+ },
+ {
+  "id": "email-broken-after-update",
+  "title": "Отправка документов по email и интеграция с Gmail перестали работать после обновления",
+  "obs": 2
+ },
+ {
+  "id": "no-cross-device-sync",
+  "title": "Документы не синхронизируются между устройствами — архив доступен только на одном девайсе",
+  "obs": 2
+ },
+ {
+  "id": "price-increase-subscription",
+  "title": "Цена выросла в четыре раза и появилась годовая подписка вместо единоразовой оплаты",
+  "obs": 1
+ },
+ {
+  "id": "small-volume-optimal",
+  "title": "Приложение оптимально для сканирования нескольких страниц на месте, при больших объёмах уступает настольному сканеру",
+  "obs": 1
+ },
+ {
+  "id": "fax-preparation",
+  "title": "Приложение используется для подготовки документов к отправке по факсу",
+  "obs": 1
+ },
+ {
+  "id": "large-format-docs",
+  "title": "Приложение обрабатывает чертежи большого формата (60×90 см) пригодные для использования на стройке",
+  "obs": 1
+ },
+ {
+  "id": "photo-to-pdf-unique",
+  "title": "Приложение единственное конвертирует уже отснятые фотографии в PDF без повторного сканирования",
+  "obs": 1
+ },
+ {
+  "id": "autocrop-key-feature",
+  "title": "Автоматическое кадрирование и обработка документов воспринимается как главная отличительная функция",
+  "obs": 1
+ },
+ {
+  "id": "batch-send-drops-items",
+  "title": "При массовой отправке квитанций по email доходит только последняя — остальные теряются",
+  "obs": 1
+ },
+ {
+  "id": "long-term-stability",
+  "title": "Приложение стабильно и ускоряется с каждым обновлением на протяжении многих лет — регрессий нет",
+  "obs": 1
+ },
+ {
+  "id": "white-background-edge-detection",
+  "title": "Автоматическое определение краёв документа не работает на белом фоне — требуется ручная коррекция",
+  "obs": 1
+ },
+ {
+  "id": "crumpled-docs-handling",
+  "title": "Приложение успешно сканирует помятые и потёртые документы без повторной съёмки",
+  "obs": 1
+ },
+ {
+  "id": "email-send-delay",
+  "title": "Отправка PDF по email иногда задерживается на несколько минут",
+  "obs": 1
+ },
+ {
+  "id": "no-folder-search",
+  "title": "Поиск по названию папки отсутствует — найти нужную папку можно только свайпом по горизонтальной полосе",
+  "obs": 1
+ },
+ {
+  "id": "search-no-add-to-folder",
+  "title": "Из результатов поиска папки нельзя добавить в неё новый документ — только просмотр",
+  "obs": 1
+ },
+ {
+  "id": "no-multi-photo-select",
+  "title": "Нельзя выбрать несколько фотографий одновременно — загружать приходится по одной",
+  "obs": 1
+ },
+ {
+  "id": "no-nested-folders",
+  "title": "Вложенные папки не поддерживаются, иерархическая организация документов недоступна",
+  "obs": 1
+ },
+ {
+  "id": "document-grouping-archive",
+  "title": "Группировка документов в файлы позволяет строить расширяемый архив с быстрым поиском",
+  "obs": 1
+ },
+ {
+  "id": "default-apple-mail",
+  "title": "Приложение по умолчанию открывает Apple Mail — переключение на другой почтовый клиент требует лишнего шага",
+  "obs": 1
+ },
+ {
+  "id": "contrast-levels-insufficient",
+  "title": "Пять фиксированных уровней контрастности недостаточно — при сканировании нот просвечивает оборотная сторона, нужна плавная шкала",
+  "obs": 1
+ },
+ {
+  "id": "icloud-only-backup",
+  "title": "Резервное копирование работает только через iCloud — Google Drive и Outlook не поддерживаются",
+  "obs": 1
+ }
+]

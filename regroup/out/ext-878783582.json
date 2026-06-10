@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "id": "obnovleniya-lomayut-i-stirayut",
+      "name": "Обновления, которые ломают функции и стирают работу",
+      "insight_ids": [
+        "ai-features-break-after-update",
+        "ai-masking-bug-mobile",
+        "update-destroyed-photos",
+        "update-lost-custom-presets",
+        "lost-delete-across-folders",
+        "web-presets-broken-months",
+        "recommended-presets-broken-windows"
+      ]
+    },
+    {
+      "id": "padeniya-tormoza-stabilnost",
+      "name": "Падения, тормоза и внезапная нестабильность",
+      "insight_ids": [
+        "crashes-on-new-iphone",
+        "sudden-crash-wont-load",
+        "app-broken-weeks",
+        "gradual-lag-and-crashes",
+        "slow-edits-desktop",
+        "slow-load-first-use",
+        "green-highlight-glitch"
+      ]
+    },
+    {
+      "id": "podpiska-vozvraty-otslezhivanie",
+      "name": "Подписка-ловушка: отмена, регионы, отказ в возврате",
+      "insight_ids": [
+        "ios-no-partial-cancel",
+        "yearly-instead-of-monthly",
+        "subscription-per-device",
+        "region-change-lockout",
+        "paid-sub-lost-no-restore",
+        "refund-refused-feature-missing",
+        "data-tracking-paid-editor"
+      ]
+    },
+    {
+      "id": "mobil-slabee-kompyutera",
+      "name": "Мобильная версия беднее компьютера, бесплатная — как встроенный редактор",
+      "insight_ids": [
+        "free-version-equals-builtin",
+        "mobile-missing-pro-tools",
+        "resolution-cap-12mp",
+        "no-sony-camera-profiles",
+        "no-bracketing-panorama",
+        "no-video-transitions-mobile"
+      ]
+    },
+    {
+      "id": "ai-instrumenty-udaleniya-i-retushi",
+      "name": "AI-удаление и ретушь: зависает, стирает лишнее, отнимает контроль",
+      "insight_ids": [
+        "heal-weaker-than-apple",
+        "no-object-transform-tools",
+        "too-much-ai-no-manual",
+        "remove-tool-freezes-mobile",
+        "remove-tool-overdeletes",
+        "remove-blocked-by-policy"
+      ]
+    },
+    {
+      "id": "sinkhronizaciya-mezhdu-ustroistvami",
+      "name": "Синхронизация между устройствами: медленно, повреждает, теряет видео",
+      "insight_ids": [
+        "slow-sync-videos-dont-transfer",
+        "sync-corrupts-photos",
+        "classic-multi-library-sync",
+        "device-tab-jumps-to-first-photo"
+      ]
+    },
+    {
+      "id": "presety-navigaciya-i-podderzhka",
+      "name": "Пресеты, навигация по библиотеке и недоступная поддержка",
+      "insight_ids": [
+        "presets-not-useful-social",
+        "preset-scroll-jumps-top",
+        "no-in-app-bug-report"
+      ]
+    }
+  ]
+}

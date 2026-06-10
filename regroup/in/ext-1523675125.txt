@@ -1,0 +1,219 @@
+You are grouping 34 mechanism-level insight clusters from myNoise (калиброванный шум / soundscapes / focus / tinnitus) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO myNoise, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 34 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to myNoise — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to myNoise>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1523675125.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "multigens-removed",
+  "title": "Функция одновременного смешивания нескольких звуков удалена в новой версии приложения",
+  "obs": 11
+ },
+ {
+  "id": "app-hangs-on-splash",
+  "title": "Приложение зависает на экране заставки и не запускается",
+  "obs": 8
+ },
+ {
+  "id": "migration-repay-full-price",
+  "title": "Переход на новую версию требует повторной полной оплаты — существующие покупки не переносятся",
+  "obs": 7
+ },
+ {
+  "id": "downloaded-sounds-broken-after-update",
+  "title": "После обновления загруженные звуки перестают воспроизводиться — нужна полная переустановка библиотеки",
+  "obs": 5
+ },
+ {
+  "id": "sounds-stop-playing-mid-session",
+  "title": "Загруженные звуки перестают воспроизводиться через несколько минут — приложение ненадёжно для ночного использования",
+  "obs": 3
+ },
+ {
+  "id": "free-sounds-blocked-mid-use",
+  "title": "Звуки, которые пользователь слушал бесплатно, внезапно блокируются платёжной стеной в процессе использования",
+  "obs": 2
+ },
+ {
+  "id": "new-app-harder-to-navigate",
+  "title": "Новое приложение сложнее в навигации и поиске звуков, чем старая версия",
+  "obs": 2
+ },
+ {
+  "id": "autoplay-interrupts-listening",
+  "title": "Автозапуск в новом приложении прерывает то, что уже слушаешь",
+  "obs": 2
+ },
+ {
+  "id": "crash-after-hours-of-play",
+  "title": "Приложение падает после нескольких часов непрерывного воспроизведения — прерывает ночной сон",
+  "obs": 2
+ },
+ {
+  "id": "sounds-freeze-on-playback-screen",
+  "title": "Звуки зависают на экране воспроизведения и не запускаются даже после манипуляций с наушниками и слайдерами",
+  "obs": 2
+ },
+ {
+  "id": "update-broke-everything",
+  "title": "Очередное обновление полностью сломало основную функциональность приложения",
+  "obs": 2
+ },
+ {
+  "id": "new-version-monetization-driven",
+  "title": "Новая версия переориентирована на монетизацию в ущерб удобству и миссии приложения",
+  "obs": 2
+ },
+ {
+  "id": "web-vs-app-feature-gap",
+  "title": "Веб-версия значительно богаче функциями, чем мобильное приложение — пользователи вынуждены переключаться",
+  "obs": 2
+ },
+ {
+  "id": "web-purchases-not-in-app",
+  "title": "Покупки на сайте не переносятся в приложение — пользователь платит дважды за один и тот же контент",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-lost-on-device-change",
+  "title": "Пожизненный доступ не восстанавливается при смене устройства — нужно платить заново",
+  "obs": 1
+ },
+ {
+  "id": "unlock-all-crashes-app",
+  "title": "Попытка разблокировать весь контент вызывает критическую ошибку приложения",
+  "obs": 1
+ },
+ {
+  "id": "paywall-surprise-no-limit-shown",
+  "title": "Платёжная стена появляется внезапно после ознакомительной сессии без указания лимита пробного периода",
+  "obs": 1
+ },
+ {
+  "id": "store-icon-says-no-ads-but-paywall",
+  "title": "Иконка в магазине обещает отсутствие рекламы и подписки, а первый экран требует покупку",
+  "obs": 1
+ },
+ {
+  "id": "sounds-moved-or-removed",
+  "title": "Звуки, которые пользователь использовал годами, удалены или стали недоступны после обновления",
+  "obs": 1
+ },
+ {
+  "id": "meditation-bell-removed",
+  "title": "Медитационный колокольчик для отслеживания временных интервалов удалён из приложения, хотя есть на сайте",
+  "obs": 1
+ },
+ {
+  "id": "calibration-tool-removed",
+  "title": "Функция калибровки слуха удалена в новой версии — без неё нельзя полноценно использовать некоторые генераторы",
+  "obs": 1
+ },
+ {
+  "id": "frequency-generator-missing-in-app",
+  "title": "Генератор частот есть на сайте, но отсутствует в мобильном приложении",
+  "obs": 1
+ },
+ {
+  "id": "slider-modes-removed",
+  "title": "Вспомогательные режимы движения слайдеров удалены в новой версии — потеря инструментов для глубокой кастомизации",
+  "obs": 1
+ },
+ {
+  "id": "custom-audio-upload-missing",
+  "title": "Невозможно загрузить собственные аудиофайлы для воспроизведения через приложение",
+  "obs": 1
+ },
+ {
+  "id": "global-slider-sync-removed",
+  "title": "Функция одновременного управления всеми слайдерами удалена — нельзя быстро менять общую интенсивность",
+  "obs": 1
+ },
+ {
+  "id": "button-controls-buggy",
+  "title": "Базовые кнопки управления работают непредсказуемо",
+  "obs": 1
+ },
+ {
+  "id": "timer-max-reduced",
+  "title": "Максимальное время таймера в новой версии сокращено с двух часов до одного",
+  "obs": 1
+ },
+ {
+  "id": "stereo-left-channel-drops",
+  "title": "Левый канал стереозвука внезапно пропадает в процессе воспроизведения",
+  "obs": 1
+ },
+ {
+  "id": "airpods-incompatible",
+  "title": "Приложение не воспроизводит звук через беспроводные наушники",
+  "obs": 1
+ },
+ {
+  "id": "mynoise-conflicts-with-apple-music",
+  "title": "myNoise нельзя слушать одновременно с Apple Music — приложения конфликтуют",
+  "obs": 1
+ },
+ {
+  "id": "sound-quality-regression",
+  "title": "После обновления в динамиках появляются трески — регрессия качества звука",
+  "obs": 1
+ },
+ {
+  "id": "server-connection-fails",
+  "title": "Приложение не может подключиться к серверу — доступ к контенту заблокирован",
+  "obs": 1
+ },
+ {
+  "id": "data-loss-deleted-downloads",
+  "title": "Баги удаляют загруженные звуки и блокируют доступ к части контента",
+  "obs": 1
+ },
+ {
+  "id": "tinnitus-masking-self-discovery",
+  "title": "Приложение эффективно маскирует тиннитус, но пользователь находит это самостоятельно — нет онбординга для этого сценария",
+  "obs": 1
+ }
+]

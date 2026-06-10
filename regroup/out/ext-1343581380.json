@@ -1,0 +1,97 @@
+{
+  "groups": [
+    {
+      "id": "obnovleniya-lomayut",
+      "name": "Каждое обновление что-нибудь ломает",
+      "insight_ids": [
+        "project-load-failure-after-update",
+        "music-sync-regression",
+        "import-speed-regression",
+        "gallery-access-lost-after-update",
+        "update-corrupts-existing-projects",
+        "denoise-voiceover-removed",
+        "cutout-sticker-buffering"
+      ]
+    },
+    {
+      "id": "platish-za-snyatie-limitov",
+      "name": "Сто проектов и не больше: лимиты и сюрпризы в чеке",
+      "insight_ids": [
+        "free-project-limit",
+        "feature-usage-cap",
+        "subscription-price-mismatch"
+      ]
+    },
+    {
+      "id": "tekst-zhivyot-svoey-zhiznyu",
+      "name": "Текст живёт своей жизнью",
+      "insight_ids": [
+        "text-animation-presets-lacking",
+        "curved-text-missing",
+        "text-layer-limit-pip",
+        "text-out-animation-bug",
+        "text-element-disappears",
+        "autocorrect-text-input",
+        "keyframe-edit-deletes-project"
+      ]
+    },
+    {
+      "id": "zvuk-propadaet-i-rasezzhaetsya",
+      "name": "Звук пропадает, рассинхронится и обрезает видео",
+      "insight_ids": [
+        "reverse-clip-audio-lost",
+        "rewind-audio-silent",
+        "audio-track-cuts-video-length",
+        "timeline-audio-desync",
+        "spotify-import-missing",
+        "audio-extract-naming-ux",
+        "tts-voice-changer-missing",
+        "voiceover-mic-permission-missing"
+      ]
+    },
+    {
+      "id": "eksport-kak-loterea",
+      "name": "Экспорт как лотерея: зависает, мылит и теряет качество",
+      "insight_ids": [
+        "export-hdr-format-missing",
+        "export-quality-degradation",
+        "export-hang-reset",
+        "preview-black-screen",
+        "crop-black-artifact",
+        "image-insert-contrast-artifact"
+      ]
+    },
+    {
+      "id": "taymlayn-ne-slushaetsya-paltsev",
+      "name": "Таймлайн не слушается пальцев",
+      "insight_ids": [
+        "clip-min-length-resize",
+        "touch-gesture-sensitivity",
+        "cut-sidebar-text",
+        "bulk-clip-management-missing",
+        "keyframe-curve-custom-missing",
+        "fade-overlay-bug"
+      ]
+    },
+    {
+      "id": "krashi-i-poteryannye-pravki",
+      "name": "Крашится и забирает несохранённое с собой",
+      "insight_ids": [
+        "crash-data-loss",
+        "login-crash-after-reinstall",
+        "storage-leak-deleted-projects",
+        "memory-footprint-large",
+        "app-launch-slow"
+      ]
+    },
+    {
+      "id": "do-capcut-ne-dotyagivaet",
+      "name": "До CapCut по части AI и эффектов не дотягивает",
+      "insight_ids": [
+        "lut-import-feature",
+        "effects-quality-mediocre",
+        "auto-caption-missing"
+      ]
+    }
+  ]
+}

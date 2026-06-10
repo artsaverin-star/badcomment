@@ -1,0 +1,70 @@
+{
+  "groups": [
+    {
+      "id": "cenovye-syurprizy-dvoynye-spisaniya",
+      "name": "Цена на экране и цена в чеке — две большие разницы",
+      "insight_ids": [
+        "payment-double-charge-ride",
+        "payment-price-lower-than-actual",
+        "payment-price-rises-while-waiting",
+        "payment-asymmetric-dynamic-price",
+        "payment-bait-and-switch-price",
+        "payment-double-tip-bug",
+        "payment-advertised-discount-not-applied"
+      ]
+    },
+    {
+      "id": "ozhidanie-otmeny-sorvannye-bronie",
+      "name": "Ждёшь, платишь — и остаёшься без машины: отмены и сорванные брони",
+      "insight_ids": [
+        "payment-wait-discount-program",
+        "payment-priority-fare-no-refund",
+        "payment-long-wait-no-compensation",
+        "reliability-advance-booking-fails",
+        "reliability-driver-cancels-reservation",
+        "reliability-overseas-booking-substitution"
+      ]
+    },
+    {
+      "id": "karty-eta-marshruty-otorvany-ot-realnosti",
+      "name": "Карты, время прибытия и маршруты живут отдельно от реальности",
+      "insight_ids": [
+        "reliability-outdated-maps",
+        "reliability-inaccurate-eta",
+        "reliability-no-traffic-routing",
+        "strategy-gps-inflates-driver-distance"
+      ]
+    },
+    {
+      "id": "polomki-posle-obnovleniy-zavisaniya",
+      "name": "После обновления что-нибудь да отвалится: кнопки, верификация, зависания",
+      "insight_ids": [
+        "reliability-destination-button-broken",
+        "reliability-identity-verification-loop",
+        "reliability-share-ride-freeze",
+        "reliability-ride-option-disappears",
+        "reliability-apple-pay-eats"
+      ]
+    },
+    {
+      "id": "interfeys-kotoryy-sbivaet-s-tolku",
+      "name": "Интерфейс, который путает и заставляет переучиваться каждый раз",
+      "insight_ids": [
+        "ui-interface-changes-between-sessions",
+        "ui-tip-button-next-to-rating",
+        "ui-preferences-not-passed-to-driver",
+        "ui-no-order-for-friend-dialog",
+        "ui-wrong-airport-terminal-no-call"
+      ]
+    },
+    {
+      "id": "eats-aeroport-podderzhka-kotoraya-brosaet",
+      "name": "Eats, аэропорт и поддержка-бот, которая отказывает вместо помощи",
+      "insight_ids": [
+        "support-ai-eats-refund-denial",
+        "strategy-no-advance-airport-booking",
+        "strategy-eats-delivery-errors-uber-cash"
+      ]
+    }
+  ]
+}

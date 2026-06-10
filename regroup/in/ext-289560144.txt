@@ -1,0 +1,149 @@
+You are grouping 20 mechanism-level insight clusters from What to Expect Pregnancy App (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO What to Expect Pregnancy App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 20 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to What to Expect Pregnancy App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to What to Expect Pregnancy App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-289560144.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-core-vs-paywall-competitors",
+  "title": "Базовая информация о беременности бесплатна — это главная причина перехода с приложений, которые прячут её за платный доступ",
+  "obs": 4
+ },
+ {
+  "id": "pregnancy-to-postpartum-continuity",
+  "title": "Приложение продолжает работать после родов — это удерживает пользователей от перехода на другие приложения",
+  "obs": 3
+ },
+ {
+  "id": "feeding-tracker-saves-feeding-history",
+  "title": "Трекер кормлений и сцеживаний хранит историю, чтобы быстро ответить врачу — память матери в первые недели не справляется",
+  "obs": 2
+ },
+ {
+  "id": "feeding-tracker-error-wipes-session",
+  "title": "Запуск сеанса кормления почти всегда обрывается ошибкой, которая стирает данные и сбрасывает таймер",
+  "obs": 2
+ },
+ {
+  "id": "anxiety-reduction-older-mothers",
+  "title": "Приложение снижает тревожность у позднородящих первоиспытательниц, объясняя норму изменений лучше, чем стандартная медицинская информация",
+  "obs": 1
+ },
+ {
+  "id": "data-sold-to-third-parties",
+  "title": "Приложение передаёт имя и адрес пользователей третьим сторонам для целевой рекламы",
+  "obs": 1
+ },
+ {
+  "id": "data-not-updated-after-loss",
+  "title": "После потери беременности данные не обновляются — мать продолжает получать рекламные образцы смесей в самый болезненный момент",
+  "obs": 1
+ },
+ {
+  "id": "size-comparisons-outdated",
+  "title": "Сравнения размера плода взяты из старых десятилетий и непонятны современной аудитории",
+  "obs": 1
+ },
+ {
+  "id": "3d-fetal-videos-engagement",
+  "title": "Еженедельные трёхмерные видео развития плода создают эмоциональную связь и притягивают новых пользователей",
+  "obs": 1
+ },
+ {
+  "id": "diary-vitamin-reminders-workflow",
+  "title": "Дневник беременности связан с напоминаниями о витаминах — единый рабочий процесс побуждает вести более подробные заметки",
+  "obs": 1
+ },
+ {
+  "id": "summaries-too-generic",
+  "title": "Сводки о беременности слишком общие и не дают конкретных рекомендаций молодым родителям",
+  "obs": 1
+ },
+ {
+  "id": "feeding-tracker-loss-undermines-trust",
+  "title": "Отказ трекера кормлений подрывает доверие у матерей, которые отслеживали недобор веса ребёнка",
+  "obs": 1
+ },
+ {
+  "id": "signup-loop-bug",
+  "title": "При регистрации приложение возвращает пользователя на форму вместо продолжения входа",
+  "obs": 1
+ },
+ {
+  "id": "2fa-code-window-too-short",
+  "title": "Двухфакторный код нужно ввести за минуту — при медленной доставке почты вход полностью блокируется",
+  "obs": 1
+ },
+ {
+  "id": "feeding-session-resets-on-app-switch",
+  "title": "Сеанс кормления закрывается при переключении на другое приложение и требует ручного ввода данных",
+  "obs": 1
+ },
+ {
+  "id": "no-multiple-pregnancy-support",
+  "title": "Нет режима для многоплодной беременности — матери близнецов и двойни пользуются приложением как одноплодным",
+  "obs": 1
+ },
+ {
+  "id": "no-tracking-for-someone-else",
+  "title": "Нельзя указать, чья это беременность — помогать близкому отслеживать беременность невозможно",
+  "obs": 1
+ },
+ {
+  "id": "non-inclusive-gendered-language",
+  "title": "Плод называют местоимением «он» ещё до того, как пол стал известен — это воспринимается как предвзятость",
+  "obs": 1
+ },
+ {
+  "id": "content-is-website-links",
+  "title": "Контент в основном состоит из ссылок на сайт компании, выданных за основной материал, а неорганизованный интерфейс отвлекает от трекера",
+  "obs": 1
+ },
+ {
+  "id": "clickable-profiles-stalking-risk",
+  "title": "Профили в сообществе стали кликабельными — видны все посты пользователя, что повышает риск преследования беременных женщин",
+  "obs": 1
+ }
+]

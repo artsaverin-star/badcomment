@@ -1,0 +1,85 @@
+{
+  "groups": [
+    {
+      "id": "ads-wall",
+      "name": "Реклама как стена: видео за каждый скан и перекрытый интерфейс",
+      "insight_ids": [
+        "popup-ads-blocking-ui",
+        "unskippable-video-ads-per-action",
+        "app-charges-without-working",
+        "ads-after-paying",
+        "inappropriate-ad-content",
+        "ads-drain-battery",
+        "overexposed-scan-output"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Списания, отмены и замаскированные платежи",
+      "insight_ids": [
+        "charges-after-cancellation",
+        "trial-charges-immediately",
+        "premium-not-activated",
+        "wrong-cancellation-instructions",
+        "price-too-high"
+      ]
+    },
+    {
+      "id": "forced-paywall",
+      "name": "Принудительная подписка с порога: ни скана без оплаты",
+      "insight_ids": [
+        "forced-trial-no-skip",
+        "multiple-forced-trials",
+        "payment-screen-no-close",
+        "subscription-required-to-save",
+        "10-page-free-limit",
+        "ocr-locked-behind-paywall",
+        "feature-regression-over-time"
+      ]
+    },
+    {
+      "id": "free-version-crippled",
+      "name": "Урезанная бесплатная версия: водяные знаки и качество ниже камеры",
+      "insight_ids": [
+        "watermark-on-free-scans",
+        "auto-crop-cuts-text",
+        "free-image-quality-below-camera",
+        "bw-mode-removed"
+      ]
+    },
+    {
+      "id": "scan-quality",
+      "name": "Само сканирование подводит: границы, экспозиция, неподвижность",
+      "insight_ids": [
+        "edge-detection-poor",
+        "camera-requires-perfect-stillness",
+        "inconsistent-page-sizes",
+        "ocr-handwriting-fails"
+      ]
+    },
+    {
+      "id": "crashes-failures",
+      "name": "Вылеты, ошибки и потеря готовой работы",
+      "insight_ids": [
+        "crash-on-large-batch",
+        "app-broken-after-update",
+        "constant-scan-error",
+        "app-severely-slowed",
+        "document-not-saved",
+        "email-not-delivered",
+        "qr-code-not-working"
+      ]
+    },
+    {
+      "id": "editing-broken",
+      "name": "Кадрирование и редактирование не работают",
+      "insight_ids": [
+        "crop-button-frozen",
+        "crop-handles-unresponsive",
+        "minimal-editing-tools",
+        "cover-generation-missing",
+        "no-external-scanner-source"
+      ]
+    }
+  ]
+}

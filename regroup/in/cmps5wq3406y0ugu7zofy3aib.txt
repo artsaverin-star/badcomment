@@ -1,0 +1,269 @@
+You are grouping 44 mechanism-level insight clusters from Yuka - Food & Cosmetic Scanner (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Yuka - Food & Cosmetic Scanner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 44 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Yuka - Food & Cosmetic Scanner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Yuka - Food & Cosmetic Scanner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps5wq3406y0ugu7zofy3aib.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "in-store-behavior-change",
+  "title": "Быстрый разбор продукта в магазине без чтения мелкого шрифта меняет покупательское поведение на здоровое",
+  "obs": 6
+ },
+ {
+  "id": "dose-ignored-presence-only",
+  "title": "Оценка строится только на наличии ингредиента и игнорирует дозу — безопасные количества штрафуются как опасные",
+  "obs": 5
+ },
+ {
+  "id": "identical-products-different-scores",
+  "title": "Два продукта с одинаковым составом получают совершенно разные оценки",
+  "obs": 4
+ },
+ {
+  "id": "search-behind-paywall",
+  "title": "Текстовый поиск по названию работает только по платной подписке, хотя сканирование бесплатно",
+  "obs": 3
+ },
+ {
+  "id": "seed-oils-not-flagged",
+  "title": "Промышленные масла-основы не учитываются как минус и даже попадают в рекомендации «здоровых» аналогов",
+  "obs": 3
+ },
+ {
+  "id": "health-anxiety-from-labels",
+  "title": "Пугающие ярлыки на повседневных продуктах вызывают пищевую тревогу и нездоровое отношение к еде",
+  "obs": 3
+ },
+ {
+  "id": "scores-drift-over-time",
+  "title": "Оценки продуктов меняются со временем без изменения состава, что подрывает доверие",
+  "obs": 3
+ },
+ {
+  "id": "calorie-overweighting",
+  "title": "Алгоритм слишком сильно штрафует калории и жиры, занижая оценку питательных продуктов",
+  "obs": 2
+ },
+ {
+  "id": "safe-ingredients-flagged-bad",
+  "title": "Заведомо безопасные вещества помечаются как вредные",
+  "obs": 2
+ },
+ {
+  "id": "ratings-contradict-reality",
+  "title": "Рейтинги расходятся с реальными реакциями кожи и здоровья и с оценками конкурентов",
+  "obs": 2
+ },
+ {
+  "id": "barcode-requires-physical-pack",
+  "title": "Сканирование требует физическую упаковку со штрихкодом — найти продукт по остаткам или онлайн нельзя",
+  "obs": 2
+ },
+ {
+  "id": "no-photo-ocr-ingredients",
+  "title": "Нет распознавания списка ингредиентов по фото для продуктов, которых нет в базе",
+  "obs": 2
+ },
+ {
+  "id": "cannot-scan-unpackaged",
+  "title": "Базовые продукты без штрихкода — мёд, сироп, лечебное питание — отсканировать невозможно",
+  "obs": 2
+ },
+ {
+  "id": "account-banned-no-reason",
+  "title": "Учётную запись блокируют без объяснения, и разблокировать её не получается",
+  "obs": 2
+ },
+ {
+  "id": "family-cosmetics-switch",
+  "title": "Сканирование косметики открывает семье опасности продуктов и меняет покупки для близких",
+  "obs": 2
+ },
+ {
+  "id": "premium-oil-filter-missing",
+  "title": "Премиум не даёт фильтра по маслам-основам — пользователь ждал эту настройку именно за деньги",
+  "obs": 1
+ },
+ {
+  "id": "premium-upgrade-path-hidden",
+  "title": "Уведомления зовут перейти на премиум, но как именно подключить — нигде не объяснено",
+  "obs": 1
+ },
+ {
+  "id": "missing-vitamins-minerals",
+  "title": "Рейтинг не учитывает витамины и минералы, поэтому не показывает полноценность питания",
+  "obs": 1
+ },
+ {
+  "id": "contradictory-recommendations",
+  "title": "Приложение советует аналог с худшим по сути составом, но более высокой оценкой",
+  "obs": 1
+ },
+ {
+  "id": "no-portion-context",
+  "title": "Всё сводится к одному числу без учёта размера порции и общего рациона",
+  "obs": 1
+ },
+ {
+  "id": "calorie-baseline-unknown",
+  "title": "Непонятно, относительно какой нормы калорийности и порции продукт получает штраф",
+  "obs": 1
+ },
+ {
+  "id": "greenwashing-rewarded",
+  "title": "Экологичная упаковка поднимает оценку, хотя вредные ингредиенты при этом игнорируются",
+  "obs": 1
+ },
+ {
+  "id": "regional-bias-cosmetics",
+  "title": "Азиатскую косметику метят как высокорисковую по ингредиентам не из этикетки, а местную с теми же веществами пропускают",
+  "obs": 1
+ },
+ {
+  "id": "no-keto-diabetic-mode",
+  "title": "Нет режима для диабета и кето — углеводы и гликемический индекс не учитываются в рейтинге",
+  "obs": 1
+ },
+ {
+  "id": "no-allergy-personalization",
+  "title": "Рекомендации не учитывают личные аллергии пользователя",
+  "obs": 1
+ },
+ {
+  "id": "sweeteners-not-warned",
+  "title": "Искусственные подсластители не получают предупреждений, несмотря на спорное влияние на здоровье",
+  "obs": 1
+ },
+ {
+  "id": "refined-sugar-ignored",
+  "title": "Рафинированный сахар не влияет на оценку, хотя пользователь считает его ключевым риском",
+  "obs": 1
+ },
+ {
+  "id": "cosmetic-functional-ingredients",
+  "title": "Низко оцениваются консерванты и эмульгаторы, без которых косметика просто не работает",
+  "obs": 1
+ },
+ {
+  "id": "binary-not-reliable-overall",
+  "title": "Приложение хорошо разбирает отдельные ингредиенты, но не даёт надёжной оценки продукта в целом",
+  "obs": 1
+ },
+ {
+  "id": "no-protein-category",
+  "title": "Не покрывается категория протеиновых и спортивных продуктов",
+  "obs": 1
+ },
+ {
+  "id": "photo-scan-unreliable",
+  "title": "Сканирование по фото срабатывает не всегда, заставляя дублировать поиск вручную",
+  "obs": 1
+ },
+ {
+  "id": "favorites-no-sorting",
+  "title": "Вкладка избранного не поддерживает сортировку и навигацию по большому списку",
+  "obs": 1
+ },
+ {
+  "id": "forced-registration",
+  "title": "Сканирование требует обязательной регистрации, хотя технически она не нужна",
+  "obs": 1
+ },
+ {
+  "id": "no-arabic-language",
+  "title": "Нет арабского языка, и большая часть информации о продуктах недоступна для понимания",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-after-update",
+  "title": "Обновление стёрло всю историю сканирований и активную подписку",
+  "obs": 1
+ },
+ {
+  "id": "app-broken-after-update",
+  "title": "После обновления приложение полностью перестаёт открываться и даже не удаляется",
+  "obs": 1
+ },
+ {
+  "id": "scanner-black-screen",
+  "title": "Экран сканера штрихкода становится чёрным и функция перестаёт работать",
+  "obs": 1
+ },
+ {
+  "id": "requires-cellular-in-store",
+  "title": "Без сотового сигнала приложение не работает, а в супермаркетах приём часто слабый",
+  "obs": 1
+ },
+ {
+  "id": "user-submissions-stuck",
+  "title": "Отправленные пользователем новые продукты месяцами не оцениваются и остаются без ответа",
+  "obs": 1
+ },
+ {
+  "id": "unwanted-recipe-emails",
+  "title": "Приложение шлёт рецепты на почту без запроса и без возможности отписаться",
+  "obs": 1
+ },
+ {
+  "id": "email-spam-after-signup",
+  "title": "Сразу после регистрации на почту начинает идти спам — похоже на утечку адресов",
+  "obs": 1
+ },
+ {
+  "id": "shock-everyday-foods",
+  "title": "Низкая оценка привычного повседневного продукта шокирует и запускает пересмотр питания",
+  "obs": 1
+ },
+ {
+  "id": "diabetic-low-gi-management",
+  "title": "Диабетик ведёт через приложение список продуктов с низким гликемическим индексом для управления сахаром",
+  "obs": 1
+ },
+ {
+  "id": "works-abroad-traveling",
+  "title": "Сканирование по фото выручает за границей при выборе незнакомых продуктов",
+  "obs": 1
+ }
+]

@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from Albert: Budgeting and Banking (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Albert: Budgeting and Banking, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Albert: Budgeting and Banking — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Albert: Budgeting and Banking>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1057771088.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "subscription-charges-without-consent",
+  "title": "Подписка списывает деньги хотя пользователь её не оформлял и не активировал аккаунт",
+  "obs": 14
+ },
+ {
+  "id": "no-in-app-cancel-keeps-charging",
+  "title": "В приложении нет кнопки отмены подписки — списания продолжаются пока не закроешь весь аккаунт",
+  "obs": 7
+ },
+ {
+  "id": "cancellation-dark-pattern-maze",
+  "title": "Отмена подписки спрятана за множеством экранов с меняющими цвет и место кнопками",
+  "obs": 7
+ },
+ {
+  "id": "close-account-zero-balance-trap",
+  "title": "Закрытие аккаунта требует ровно нулевого баланса, но система оставляет копейки и не даёт обнулить",
+  "obs": 7
+ },
+ {
+  "id": "smart-money-auto-withdrawal-overdraft",
+  "title": "Функция Smart Money ночью снимает произвольные суммы без предупреждения и создаёт овердрафт",
+  "obs": 5
+ },
+ {
+  "id": "refund-denied-after-cancel",
+  "title": "После отмены поддержка отказывает в возврате и списывает ещё один платёж в день отмены",
+  "obs": 4
+ },
+ {
+  "id": "forced-savings-cannot-disable",
+  "title": "Пока есть активный аванс, нельзя отключить принудительное ежедневное пополнение накопительного счёта",
+  "obs": 4
+ },
+ {
+  "id": "close-account-21-questions",
+  "title": "Закрытие аккаунта прогоняет через десятки вопросов с давлением на чувство вины",
+  "obs": 4
+ },
+ {
+  "id": "price-creep-without-consent",
+  "title": "Цена подписки тихо растёт — с обещанных $7-10 до $20-40 в месяц без уведомления",
+  "obs": 3
+ },
+ {
+  "id": "advance-repayment-cycle-mismatch",
+  "title": "Срок погашения аванса не совпадает с зарплатным циклом и датой получения денег",
+  "obs": 3
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Обещанный пробный период списывает полную сумму на следующий день",
+  "obs": 2
+ },
+ {
+  "id": "savings-withdrawal-delay",
+  "title": "Вывод денег из накопительного счёта занимает 5-7 дней дважды подряд при срочной нужде",
+  "obs": 2
+ },
+ {
+  "id": "requalification-after-payoff-fails",
+  "title": "После досрочного погашения аванса пользователь теряет право на новый без объяснения",
+  "obs": 2
+ },
+ {
+  "id": "advance-payment-not-reflected",
+  "title": "Платёж по авансу с дебет-карты не отражается больше 5 дней, новый аванс недоступен",
+  "obs": 2
+ },
+ {
+  "id": "direct-debit-enables-theft",
+  "title": "Система прямого списания для подписки облегчает несанкционированный увод денег у неактивных пользователей",
+  "obs": 2
+ },
+ {
+  "id": "charge-on-bank-connect-fail",
+  "title": "Плата за подписку списывается при попытке подключить банк, даже если подключение не сработало",
+  "obs": 1
+ },
+ {
+  "id": "delayed-then-overdraft-charge",
+  "title": "Отложенный платёж внезапно списывается спустя месяцы и вызывает овердрафт, возврата нет",
+  "obs": 1
+ },
+ {
+  "id": "predatory-advance-rate",
+  "title": "Аванс выдают под 65% годовых плюс ежемесячная комиссия $19.99",
+  "obs": 1
+ },
+ {
+  "id": "subscription-mandatory-for-advance",
+  "title": "Доступ к авансам невозможен без оформления подписки, хотя её называют необязательной",
+  "obs": 1
+ },
+ {
+  "id": "abroad-cant-cancel",
+  "title": "Из-за границы подписку отменить нельзя — списания продолжаются",
+  "obs": 1
+ },
+ {
+  "id": "charged-without-approval",
+  "title": "Аванс не одобрен, а абонентскую плату продолжают списывать полгода",
+  "obs": 1
+ },
+ {
+  "id": "advance-too-small-vs-deposits",
+  "title": "Аванс выдают крайне маленьким несмотря на крупные депозиты в аккаунте",
+  "obs": 1
+ },
+ {
+  "id": "instant-withdrawal-fee-trap",
+  "title": "Мгновенный вывод заявлен бесплатным, но способа использовать его без комиссии нет",
+  "obs": 1
+ },
+ {
+  "id": "payment-status-lag",
+  "title": "Статус платежа обновляется в приложении с задержкой после фактической обработки",
+  "obs": 1
+ },
+ {
+  "id": "delete-app-keeps-charging",
+  "title": "Удаление приложения не отменяет членство — годовая плата продолжает списываться",
+  "obs": 1
+ },
+ {
+  "id": "negative-savings-balance-to-close",
+  "title": "При выводе сбережений начисляется комиссия и показывается долг $140 для закрытия счёта",
+  "obs": 1
+ },
+ {
+  "id": "one-tap-subscribe-hard-cancel",
+  "title": "Подписку оформляют одним нажатием при просмотре услуг, а отмена занимает часы",
+  "obs": 1
+ },
+ {
+  "id": "account-frozen-funds-confiscated",
+  "title": "Аккаунт закрывают и удерживают средства, ссылаясь на нарушение правил без объяснения",
+  "obs": 1
+ },
+ {
+  "id": "merchant-transaction-blocked",
+  "title": "Карта Albert отклоняет оплату у части магазинов без объяснения причины на кассе",
+  "obs": 1
+ },
+ {
+  "id": "verification-code-not-sent",
+  "title": "Код подтверждения не приходит — завершить регистрацию невозможно",
+  "obs": 1
+ },
+ {
+  "id": "verification-too-slow-for-urgent",
+  "title": "Проверка аккаунта занимает 2-3 дня, и срочный аванс приходит слишком поздно",
+  "obs": 1
+ },
+ {
+  "id": "genius-plus-benefits-unusable",
+  "title": "Преимущества подписки Genius+ так и не работают за годы оплаты",
+  "obs": 1
+ },
+ {
+  "id": "support-evasive-chat-cancel",
+  "title": "Поддержка в чате уводит от темы и размытым языком вынуждает бросить попытку отмены",
+  "obs": 1
+ },
+ {
+  "id": "forced-ai-subscription-screen",
+  "title": "После подключения банка приложение запирает на экране подписки на ИИ без возможности выйти",
+  "obs": 1
+ },
+ {
+  "id": "marketing-promises-10k-no-approval",
+  "title": "Реклама обещает аванс до $10 000, но систему на такую сумму никого не одобряет",
+  "obs": 1
+ },
+ {
+  "id": "advances-pay-off-credit-cards",
+  "title": "Авансы используют для гашения кредитных карт и роста кредитного рейтинга, а не личных трат",
+  "obs": 1
+ }
+]

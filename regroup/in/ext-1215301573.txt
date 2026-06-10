@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from Home Fitness for Weight Loss (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Home Fitness for Weight Loss, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Home Fitness for Weight Loss — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Home Fitness for Weight Loss>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1215301573.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "age-rating-mismatch",
+  "title": "В магазине указано 4+, но при регистрации требуется 16+, и подростки не могут войти",
+  "obs": 10
+ },
+ {
+  "id": "free-label-but-paywalled",
+  "title": "Приложение объявлено бесплатным, но без оплаты не работает ни одна функция",
+  "obs": 8
+ },
+ {
+  "id": "cannot-exclude-unsafe-exercises",
+  "title": "Нельзя исключить опасные при травмах упражнения или заменить их безопасными аналогами",
+  "obs": 7
+ },
+ {
+  "id": "no-trial-pay-blind",
+  "title": "Нельзя посмотреть контент до оплаты — приходится платить вслепую, чтобы понять, подходит ли приложение",
+  "obs": 6
+ },
+ {
+  "id": "difficulty-too-high-for-beginners",
+  "title": "Стартовая программа слишком тяжёлая для новичков и людей в плохой форме",
+  "obs": 6
+ },
+ {
+  "id": "gradual-progression-builds-fitness",
+  "title": "Упражнения постепенно усложняются по мере укрепления, давая видимый прогресс",
+  "obs": 6
+ },
+ {
+  "id": "short-workouts-fit-busy-schedule",
+  "title": "Короткие тренировки легко встраиваются в плотный график и дают видимые результаты",
+  "obs": 6
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Кнопка пробного периода сразу списывает полную подписку в первый день вместо обещанной недели",
+  "obs": 4
+ },
+ {
+  "id": "cancel-broken-charges-continue",
+  "title": "Отмена подписки не срабатывает, и списания продолжаются месяцами",
+  "obs": 4
+ },
+ {
+  "id": "low-pressure-pace-for-overweight-beginners",
+  "title": "Свой темп позволяет новичкам с большим весом тренироваться без отчаяния",
+  "obs": 4
+ },
+ {
+  "id": "consistency-and-visible-results",
+  "title": "Приложение обеспечивает стабильность тренировок и заметный результат, которого не давали другие",
+  "obs": 4
+ },
+ {
+  "id": "payment-required-before-pricing-disclosed",
+  "title": "Требование оплаты появляется только после ввода персональных данных и анкеты",
+  "obs": 3
+ },
+ {
+  "id": "high-impact-despite-low-impact-promise",
+  "title": "Обещаны низкоударные упражнения, но программа содержит высокоударные движения, опасные для спины",
+  "obs": 3
+ },
+ {
+  "id": "level-selection-ignored",
+  "title": "Выбор уровня подготовки игнорируется — приложение всё равно выдаёт продвинутую тренировку",
+  "obs": 3
+ },
+ {
+  "id": "app-crashes-on-launch",
+  "title": "Приложение зависает или закрывается при каждом запуске, переустановка не помогает",
+  "obs": 3
+ },
+ {
+  "id": "app-wont-open-after-payment",
+  "title": "После оплаты приложение перестаёт открываться, и приходится требовать возврат через Apple",
+  "obs": 3
+ },
+ {
+  "id": "not-suitable-for-older-users",
+  "title": "Программа не адаптирована для пожилых пользователей и людей с возрастными проблемами суставов",
+  "obs": 3
+ },
+ {
+  "id": "constant-upgrade-popups",
+  "title": "Почти каждое нажатие открывает всплывающее окно с предложением купить подписку",
+  "obs": 2
+ },
+ {
+  "id": "was-free-now-paid",
+  "title": "Раньше функции были бесплатными, теперь за них требуют оплату",
+  "obs": 2
+ },
+ {
+  "id": "single-muscle-group-only",
+  "title": "Программа работает только с одной группой мышц за раз, а нужна нагрузка на все сразу",
+  "obs": 2
+ },
+ {
+  "id": "advertised-gamified-content-missing",
+  "title": "Реклама показывает игровые упражнения, которых в приложении нет",
+  "obs": 2
+ },
+ {
+  "id": "missing-warmup-cooldown-content",
+  "title": "Разминка и заминка отсутствуют или срезаны, несмотря на выбор этих опций",
+  "obs": 2
+ },
+ {
+  "id": "no-calorie-intake-logging",
+  "title": "Можно отслеживать только сожжённые калории, но не съеденные",
+  "obs": 2
+ },
+ {
+  "id": "auto-adjust-missed-days",
+  "title": "Пропущенные дни автоматически корректируются, и не нужно навёрстывать",
+  "obs": 2
+ },
+ {
+  "id": "hydration-reminders",
+  "title": "Напоминания о питье воды помогают выработать привычку пить достаточно",
+  "obs": 2
+ },
+ {
+  "id": "motivational-reminders",
+  "title": "Ежедневные мотивирующие напоминания удерживают пользователя в режиме тренировок",
+  "obs": 2
+ },
+ {
+  "id": "developer-replies-to-reviews",
+  "title": "Разработчик отвечает на каждый отзыв и корректирует сложность по обратной связи",
+  "obs": 2
+ },
+ {
+  "id": "unrealistic-weight-loss-promise",
+  "title": "Реклама обещает нереалистичную и потенциально опасную потерю веса за короткий срок",
+  "obs": 2
+ },
+ {
+  "id": "kids-stay-active-at-home",
+  "title": "Дети используют приложение, чтобы оставаться активными дома",
+  "obs": 2
+ },
+ {
+  "id": "wrong-amount-charged",
+  "title": "Списывают сумму больше выбранной подписки",
+  "obs": 1
+ },
+ {
+  "id": "no-tiered-pricing",
+  "title": "Нет уровневой подписки — нельзя платить только за нужные функции",
+  "obs": 1
+ },
+ {
+  "id": "payment-method-required-for-trial",
+  "title": "Для входа в пробный период обязательно привязать способ оплаты",
+  "obs": 1
+ },
+ {
+  "id": "double-subscription-for-walk-and-fitness",
+  "title": "Фитнес и ходьба требуют две отдельные подписки",
+  "obs": 1
+ },
+ {
+  "id": "limited-meal-variety",
+  "title": "Мало разнообразия блюд — новые рецепты не появляются",
+  "obs": 1
+ },
+ {
+  "id": "vegan-diet-option",
+  "title": "Веганская диета поддерживает пользователей с этическими ограничениями в питании",
+  "obs": 1
+ },
+ {
+  "id": "breathing-technique-guidance",
+  "title": "Приложение объясняет технику дыхания и делает паузы во время упражнений",
+  "obs": 1
+ },
+ {
+  "id": "muscle-group-targeting",
+  "title": "Можно выбрать целевую группу мышц, и упражнения строятся под этот выбор",
+  "obs": 1
+ },
+ {
+  "id": "no-strength-training",
+  "title": "Нет силовых упражнений с отягощением",
+  "obs": 1
+ },
+ {
+  "id": "no-gym-equipment-mode",
+  "title": "Обещанный режим упражнений со снарядами в зале не реализован",
+  "obs": 1
+ },
+ {
+  "id": "music-during-workout-removed",
+  "title": "Прослушивание музыки во время тренировки больше не работает, свои треки подключить нельзя",
+  "obs": 1
+ },
+ {
+  "id": "pause-too-short-between-exercises",
+  "title": "Пауза между упражнениями слишком коротка, чтобы безопасно занять нужную позицию",
+  "obs": 1
+ },
+ {
+  "id": "no-next-exercise-preview",
+  "title": "Во время паузы не показывают следующее упражнение и нужный инвентарь",
+  "obs": 1
+ },
+ {
+  "id": "no-exercise-type-personalization",
+  "title": "Нет персонализации предпочтений — нельзя выбрать упражнения на полу или другой тип",
+  "obs": 1
+ },
+ {
+  "id": "single-workout-per-session-limit",
+  "title": "В сессии доступна только одна тренировка из трёх — остальные закрываются после первой",
+  "obs": 1
+ },
+ {
+  "id": "no-external-workout-logging",
+  "title": "Нельзя засчитать тренировки вне приложения и сохранить непрерывность",
+  "obs": 1
+ },
+ {
+  "id": "weight-limit-600lbs",
+  "title": "Приложение не принимает вес выше 600 фунтов и исключает людей с экстремальным ожирением",
+  "obs": 1
+ },
+ {
+  "id": "age-range-caps-at-60",
+  "title": "Возрастные диапазоны заканчиваются на 60 годах и не поддерживают пожилых",
+  "obs": 1
+ },
+ {
+  "id": "customizable-duration-time",
+  "title": "Можно индивидуально настроить длительность и время тренировок",
+  "obs": 1
+ },
+ {
+  "id": "crash-loses-workout-progress",
+  "title": "Приложение зависает в конце тренировки и не сохраняет прогресс",
+  "obs": 1
+ },
+ {
+  "id": "platform-inconsistency-warmup",
+  "title": "Разминка и заминка есть на одном устройстве, но отсутствуют на другом при тех же настройках",
+  "obs": 1
+ },
+ {
+  "id": "settings-not-synced-across-devices",
+  "title": "Настройки не синхронизируются между устройствами",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-sync-broken",
+  "title": "Синхронизация с часами перестала работать",
+  "obs": 1
+ },
+ {
+  "id": "exercises-require-long-download",
+  "title": "Упражнения требуют долгой загрузки в несколько минут перед стартом",
+  "obs": 1
+ },
+ {
+  "id": "subscription-popup-wont-load-blocks-workout",
+  "title": "Окно подписки не загружается и блокирует продолжение тренировки",
+  "obs": 1
+ },
+ {
+  "id": "continue-button-broken-on-payment",
+  "title": "Кнопка продолжения не работает на экране оплаты и блокирует выбор плана",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-cancellation",
+  "title": "Поддержка не отвечает на запросы об отмене и возврате",
+  "obs": 1
+ },
+ {
+  "id": "no-app-name-inside-interface",
+  "title": "Внутри интерфейса нигде нет названия приложения — нечем поделиться рекомендацией",
+  "obs": 1
+ },
+ {
+  "id": "cheaper-than-group-classes",
+  "title": "Приложение экономит деньги по сравнению с платными групповыми классами",
+  "obs": 1
+ },
+ {
+  "id": "high-engagement-streak-attachment",
+  "title": "Пропуск дня тренировки раздражает пользователя — признак высокой вовлечённости",
+  "obs": 1
+ },
+ {
+  "id": "instagram-ad-misrepresents-as-game",
+  "title": "Реклама в соцсети представляет приложение как игру, а это обычный тренажёр",
+  "obs": 1
+ },
+ {
+  "id": "opaque-data-sharing-consent",
+  "title": "Требуется безусловное согласие на передачу данных третьим лицам без раскрытия получателей",
+  "obs": 1
+ }
+]

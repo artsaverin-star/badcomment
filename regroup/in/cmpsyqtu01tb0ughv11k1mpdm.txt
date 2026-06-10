@@ -1,0 +1,264 @@
+You are grouping 43 mechanism-level insight clusters from Course Hero: AI Homework Help (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Course Hero: AI Homework Help, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 43 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Course Hero: AI Homework Help — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Course Hero: AI Homework Help>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyqtu01tb0ughv11k1mpdm.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "subscription-no-full-access",
+  "title": "Подписка не даёт полный доступ — большинство документов требует дополнительных платежей",
+  "obs": 15
+ },
+ {
+  "id": "upload-unlock-credits-not-credited",
+  "title": "Система «загрузи документ — получи разблокировку» не начисляет обещанные кредиты",
+  "obs": 7
+ },
+ {
+  "id": "wrong-answers-tutors-ai",
+  "title": "Преподаватели и ИИ систематически дают неправильные ответы по математике и другим предметам",
+  "obs": 7
+ },
+ {
+  "id": "paid-content-still-locked",
+  "title": "После оплаты подписки контент остаётся заблокированным или недоступным",
+  "obs": 6
+ },
+ {
+  "id": "wrong-charge-amount",
+  "title": "Приложение списывает сумму, отличную от заявленной, или не тот тариф",
+  "obs": 6
+ },
+ {
+  "id": "charges-after-cancellation",
+  "title": "Деньги продолжают списываться после явной отмены подписки",
+  "obs": 5
+ },
+ {
+  "id": "paid-tutor-no-answer-no-refund",
+  "title": "Оплаченный вопрос преподавателю остаётся без ответа, а возврат денег отклоняется",
+  "obs": 5
+ },
+ {
+  "id": "mobile-app-login-broken",
+  "title": "Вход в аккаунт не работает в мобильном приложении, хотя веб-версия доступна с теми же данными",
+  "obs": 5
+ },
+ {
+  "id": "unlock-limit-hidden-before-purchase",
+  "title": "Лимит разблокировок не раскрыт до покупки подписки",
+  "obs": 3
+ },
+ {
+  "id": "unlocks-disappear-on-update-or-cancel",
+  "title": "Накопленные разблокировки исчезают при обновлении приложения или отмене плана",
+  "obs": 3
+ },
+ {
+  "id": "no-refund-on-error-or-cancel",
+  "title": "Возврат денег невозможен даже при очевидной ошибке приложения или своевременной отмене",
+  "obs": 3
+ },
+ {
+  "id": "free-content-behind-paywall",
+  "title": "Контент, который пользователь считает бесплатным, скрыт за paywall без предупреждения",
+  "obs": 3
+ },
+ {
+  "id": "cancel-button-broken",
+  "title": "Кнопка отмены подписки в приложении не работает или перенаправляет на другой экран",
+  "obs": 3
+ },
+ {
+  "id": "incomplete-answers",
+  "title": "Ответы неполные или просто повторяют вопрос без решения",
+  "obs": 3
+ },
+ {
+  "id": "sms-verification-broken",
+  "title": "SMS-верификация телефонного номера постоянно не срабатывает, блокируя доступ к аккаунту",
+  "obs": 3
+ },
+ {
+  "id": "tutor-response-time-false-promise",
+  "title": "Преподаватели отвечают в разы дольше заявленного срока или не отвечают вовсе",
+  "obs": 3
+ },
+ {
+  "id": "scan-paywall-revealed-after-solving",
+  "title": "Цена за просмотр ответа раскрывается только после того, как вопрос уже отсканирован и решён",
+  "obs": 2
+ },
+ {
+  "id": "inconsistent-answers",
+  "title": "Повторное сканирование одного и того же вопроса возвращает разные ответы",
+  "obs": 2
+ },
+ {
+  "id": "non-math-coverage-gap",
+  "title": "База материалов практически ограничена математикой — другие предметы почти не представлены",
+  "obs": 2
+ },
+ {
+  "id": "advertised-content-absent",
+  "title": "Приложение рекламирует материалы по конкретным курсам, которых нет в базе",
+  "obs": 2
+ },
+ {
+  "id": "ghost-update-notification",
+  "title": "Приложение постоянно требует обновления, которого нет в магазине приложений",
+  "obs": 2
+ },
+ {
+  "id": "scan-processing-hangs",
+  "title": "Функция сканирования вопроса зависает при обработке и не возвращает ответ",
+  "obs": 2
+ },
+ {
+  "id": "camera-autofocus-broken",
+  "title": "Камера при сканировании вопроса не фокусируется автоматически, требуя обходных путей",
+  "obs": 2
+ },
+ {
+  "id": "student-discount-rejected",
+  "title": "Студенческая скидка отклонена несмотря на загруженные подтверждающие документы",
+  "obs": 1
+ },
+ {
+  "id": "plan-auto-upgraded-without-consent",
+  "title": "Приложение автоматически переключает выбранный план на более дорогой без явного согласия",
+  "obs": 1
+ },
+ {
+  "id": "no-one-time-unlock",
+  "title": "Разовая разблокировка документа без оформления подписки недоступна",
+  "obs": 1
+ },
+ {
+  "id": "early-cancel-still-charged",
+  "title": "Отмена за пределами установленного окна всё равно вызывает дополнительный сбор",
+  "obs": 1
+ },
+ {
+  "id": "pay-per-question-removed-mid-flow",
+  "title": "Опция оплаты за один вопрос исчезает в середине процесса, вынуждая покупать подписку",
+  "obs": 1
+ },
+ {
+  "id": "unlocks-not-synced-across-devices",
+  "title": "Разблокировки не синхронизируются между устройствами одного пользователя",
+  "obs": 1
+ },
+ {
+  "id": "promised-reward-not-paid",
+  "title": "Платформа не выплатила обещанное денежное вознаграждение за участие в интервью",
+  "obs": 1
+ },
+ {
+  "id": "tutor-deep-math-explanations",
+  "title": "Преподаватели дают развёрнутые объяснения по математике, превосходящие уровень школьного преподавания",
+  "obs": 1
+ },
+ {
+  "id": "notes-quality-poor",
+  "title": "Материалы в базе содержат ошибки и не пригодны для подготовки к экзаменам",
+  "obs": 1
+ },
+ {
+  "id": "search-field-no-edit",
+  "title": "Поле поиска не позволяет редактировать текст — при опечатке нужно стирать всё заново",
+  "obs": 1
+ },
+ {
+  "id": "question-auto-recategorized",
+  "title": "Приложение автоматически переклассифицирует загруженный вопрос в другую дисциплину",
+  "obs": 1
+ },
+ {
+  "id": "solution-images-not-viewable",
+  "title": "Изображения в решениях не отображаются, что делает их непригодными для заданий с графиками",
+  "obs": 1
+ },
+ {
+  "id": "search-login-excess-confirmations",
+  "title": "Поиск и вход требуют избыточных подтверждений, замедляя доступ к материалам",
+  "obs": 1
+ },
+ {
+  "id": "school-name-not-saved",
+  "title": "Название школы не сохраняется при настройке аккаунта — приходится вводить повторно",
+  "obs": 1
+ },
+ {
+  "id": "session-bug-user-already-logged-in",
+  "title": "Баг сессии выбрасывает пользователя и блокирует повторный вход с ошибкой «уже вошёл»",
+  "obs": 1
+ },
+ {
+  "id": "intermittent-load-failure",
+  "title": "Приложение периодически не загружается по несколько минут без видимой причины",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-or-repeats-loop",
+  "title": "Служба поддержки игнорирует запросы или требует многократно повторять одну и ту же информацию",
+  "obs": 1
+ },
+ {
+  "id": "account-banned-for-old-allowed-question",
+  "title": "Аккаунт заблокирован за вопрос, который был разрешён ранее, без предупреждения об изменении правил",
+  "obs": 1
+ },
+ {
+  "id": "false-copyright-ban",
+  "title": "Аккаунт заблокирован за нарушение авторских прав на контент, который пользователь никогда не загружал",
+  "obs": 1
+ },
+ {
+  "id": "unlock-earning-via-content-rating",
+  "title": "За оценку чужих загруженных документов можно получить дополнительные разблокировки",
+  "obs": 1
+ }
+]

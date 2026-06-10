@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from Alive by Whitney Simmons (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Alive by Whitney Simmons, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Alive by Whitney Simmons — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Alive by Whitney Simmons>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsu3d6a2guqug8pwq0edb7f.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "music-paused-throughout-workout",
+  "title": "Приложение постоянно ставит фоновую музыку на паузу в течение всей тренировки",
+  "obs": 11
+ },
+ {
+  "id": "completed-workouts-not-saved-as-rest",
+  "title": "Завершённые тренировки не сохраняются и позже показываются как дни отдыха, стирая историю",
+  "obs": 4
+ },
+ {
+  "id": "session-kicks-out-losing-progress",
+  "title": "Приложение выбрасывает из сессии тренировки и стирает весь несохранённый прогресс",
+  "obs": 4
+ },
+ {
+  "id": "manual-save-data-loss",
+  "title": "Тренировку нужно сохранять вручную, и при случайном закрытии или сбое данные теряются",
+  "obs": 4
+ },
+ {
+  "id": "apple-watch-sync-inconsistent",
+  "title": "Синхронизация с часами Apple ломается — пульс не отслеживается, данные часов и приложения расходятся",
+  "obs": 3
+ },
+ {
+  "id": "cannot-substitute-exercise-in-log",
+  "title": "Альтернативное упражнение нельзя выбрать и заменить в логе текущей сессии при недоступном оборудовании",
+  "obs": 3
+ },
+ {
+  "id": "weight-logged-once-per-exercise",
+  "title": "Приложение логирует один вес на всё упражнение и не даёт записать разный вес по подходам",
+  "obs": 3
+ },
+ {
+  "id": "skipped-day-locks-workout",
+  "title": "После пропущенного дня его тренировка блокируется как день отдыха и её нельзя выполнить позже",
+  "obs": 3
+ },
+ {
+  "id": "pregnancy-program-tied-to-due-date",
+  "title": "Программа беременности жёстко привязана к дате родов и не даёт выбрать день начала недели",
+  "obs": 3
+ },
+ {
+  "id": "music-paused-unpredictable",
+  "title": "Приложение непредсказуемо отказывается воспроизводить фоновую музыку — иногда работает, иногда нет",
+  "obs": 2
+ },
+ {
+  "id": "robot-voice-vs-trainer",
+  "title": "Пользователи хотят слышать живой голос тренера вместо синтезированного робо-голоса",
+  "obs": 2
+ },
+ {
+  "id": "exercise-videos-not-loading",
+  "title": "Видео упражнений перестали загружаться, и технику выполнения невозможно посмотреть",
+  "obs": 2
+ },
+ {
+  "id": "resume-restarts-workout",
+  "title": "Приложение не возобновляет тренировку с текущего места и запускает её заново",
+  "obs": 2
+ },
+ {
+  "id": "cannot-edit-reps-after-set",
+  "title": "Количество повторений нельзя отредактировать после выполнения упражнения",
+  "obs": 2
+ },
+ {
+  "id": "schedule-workout-not-enrolled",
+  "title": "Запуск тренировки из расписания не записывает её в историю программы без отдельного шага зачисления",
+  "obs": 2
+ },
+ {
+  "id": "subscription-per-platform-accounts",
+  "title": "Регистрация на сайте, в приложении и через Apple создаёт разные аккаунты, а отмена подписки доступна не на всех платформах",
+  "obs": 1
+ },
+ {
+  "id": "restore-purchase-loop",
+  "title": "Через неделю после оплаты приложение снова требует подтвердить покупку, хотя платёж прошёл",
+  "obs": 1
+ },
+ {
+  "id": "music-volume-ducking-inconsistent",
+  "title": "Громкость фоновой музыки понижается при голосовых подсказках непредсказуемо",
+  "obs": 1
+ },
+ {
+  "id": "voice-cues-not-triggering",
+  "title": "Голосовые подсказки не срабатывают даже при включённой опции — приходится держать телефон, чтобы видеть следующее упражнение",
+  "obs": 1
+ },
+ {
+  "id": "audio-seek-mutes",
+  "title": "Перемотка вперёд в аудиоинструкциях отключает звук и требует перезапуска тренировки",
+  "obs": 1
+ },
+ {
+  "id": "simultaneous-music-and-voice",
+  "title": "Приложение умеет одновременно играть личную музыку и голос тренера — редкая для фитнес-приложений возможность",
+  "obs": 1
+ },
+ {
+  "id": "timer-stops-when-app-backgrounded",
+  "title": "Счётчик времени тренировки останавливается при выходе из приложения, искажая статистику",
+  "obs": 1
+ },
+ {
+  "id": "completion-status-desync-widget",
+  "title": "Статус завершения тренировки не синхронизируется между приложением, виджетом и уведомлениями",
+  "obs": 1
+ },
+ {
+  "id": "weight-rep-not-saved",
+  "title": "Приложение периодически не сохраняет введённый вес и количество повторений",
+  "obs": 1
+ },
+ {
+  "id": "enroll-error-blocks-all-programs",
+  "title": "При попытке записаться на любую программу приложение выдаёт ошибку и блокирует доступ ко всем программам",
+  "obs": 1
+ },
+ {
+  "id": "login-delay-30min",
+  "title": "Вход в приложение задерживается на полчаса, не давая быстро начать тренировку",
+  "obs": 1
+ },
+ {
+  "id": "spotify-blocked-after-os-update",
+  "title": "Обновление операционной системы Apple заблокировало воспроизведение музыки из Spotify через приложение",
+  "obs": 1
+ },
+ {
+  "id": "no-search-in-exercise-library",
+  "title": "В библиотеке упражнений нет поиска — приходится прокручивать сотни элементов",
+  "obs": 1
+ },
+ {
+  "id": "alternatives-shown-too-late",
+  "title": "Альтернативные упражнения показываются только после завершения подхода, без возможности подготовиться заранее",
+  "obs": 1
+ },
+ {
+  "id": "no-rest-day-or-alt-activity",
+  "title": "Нельзя отметить день отдыха или альтернативную активность, из-за чего сбивается текущий день программы",
+  "obs": 1
+ },
+ {
+  "id": "rest-timer-default-too-long",
+  "title": "Пауза между подходами по умолчанию слишком длинная и её приходится менять вручную каждый раз",
+  "obs": 1
+ },
+ {
+  "id": "rest-time-too-short",
+  "title": "Время отдыха между упражнениями слишком короткое и заставляет спешить с подготовкой",
+  "obs": 1
+ },
+ {
+  "id": "no-auto-progress-between-sets",
+  "title": "После каждого подхода нужно нажимать вручную — нет автоперехода к следующему",
+  "obs": 1
+ },
+ {
+  "id": "phone-must-stay-on-as-display",
+  "title": "Приложение требует держать телефон включённым как дисплей всю тренировку, мешая запоминать упражнения или записывать данные позже",
+  "obs": 1
+ },
+ {
+  "id": "end-workout-button-misplaced",
+  "title": "Кнопка завершения тренировки внизу экрана нажимается случайно во время упражнения",
+  "obs": 1
+ },
+ {
+  "id": "substitution-not-update-sets",
+  "title": "При замене упражнения приложение не всегда обновляет число подходов для двухсторонних движений",
+  "obs": 1
+ },
+ {
+  "id": "no-weight-history-per-exercise",
+  "title": "Нет истории веса по каждому упражнению — прогресс приходится искать вручную в прошлых тренировках",
+  "obs": 1
+ },
+ {
+  "id": "cannot-reorder-mid-workout",
+  "title": "Упражнения нельзя переупорядочить после начала тренировки, если оборудование занято",
+  "obs": 1
+ },
+ {
+  "id": "edit-weight-cancels-rest-timer",
+  "title": "Редактирование веса предыдущего упражнения отключает таймер отдыха между подходами",
+  "obs": 1
+ },
+ {
+  "id": "inaccurate-duration-estimate",
+  "title": "Расчётное время тренировки в разы меньше реального",
+  "obs": 1
+ },
+ {
+  "id": "no-cast-to-tv",
+  "title": "Тренировки нельзя транслировать на телевизор для домашних занятий",
+  "obs": 1
+ },
+ {
+  "id": "requires-internet-no-offline",
+  "title": "Приложение требует интернет и не работает офлайн — недоступно в поездках и без WiFi",
+  "obs": 1
+ },
+ {
+  "id": "account-age-gate-error",
+  "title": "Приложение ошибочно отклоняет создание аккаунта, требуя возраст от 16 лет",
+  "obs": 1
+ },
+ {
+  "id": "repetitive-program-content",
+  "title": "Программы содержат повторяющиеся упражнения и быстро надоедают опытным спортсменам",
+  "obs": 1
+ },
+ {
+  "id": "structure-helps-adhd",
+  "title": "Структурированный план помогает пользователям с СДВГ преодолеть паралич выбора",
+  "obs": 1
+ }
+]

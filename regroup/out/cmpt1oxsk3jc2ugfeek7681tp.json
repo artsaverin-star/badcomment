@@ -1,0 +1,55 @@
+{
+  "groups": [
+    {
+      "id": "obnovleniya-styorli-dannye",
+      "name": "Обновления стирают историю и ломают экраны",
+      "insight_ids": [
+        "data-loss-after-update",
+        "cycle-phase-hidden-after-update",
+        "promo-screen-loop",
+        "weekly-insights-broken"
+      ]
+    },
+    {
+      "id": "paywall-na-baze",
+      "name": "Базовое отслеживание заперто за подпиской",
+      "insight_ids": [
+        "core-logging-behind-paywall"
+      ]
+    },
+    {
+      "id": "predskazaniya-vrut",
+      "name": "Прогноз цикла промахивается мимо реальных дат",
+      "insight_ids": [
+        "inaccurate-period-prediction"
+      ]
+    },
+    {
+      "id": "glyuchit-na-bolshoy-istorii",
+      "name": "На большой истории приложение тормозит и портит записи",
+      "insight_ids": [
+        "instability-large-history",
+        "daily-log-duplication"
+      ]
+    },
+    {
+      "id": "nestandartnye-cikly-i-zhiznennye-etapy",
+      "name": "Нестандартные циклы, беременность и менопауза не поддержаны",
+      "insight_ids": [
+        "abnormal-cycle-not-tracked",
+        "no-pregnancy-mode-switch",
+        "no-menopause-support"
+      ]
+    },
+    {
+      "id": "neudobnoe-logirovanie",
+      "name": "Внести запись в день неудобно: лишние тапы, даты задним числом, яркий экран",
+      "insight_ids": [
+        "onboarding-requires-unknown-data",
+        "past-date-logging-broken",
+        "note-logging-too-many-taps",
+        "bright-ui-uncomfortable"
+      ]
+    }
+  ]
+}

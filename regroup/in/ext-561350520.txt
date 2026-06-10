@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from GoPro Quik (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO GoPro Quik, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to GoPro Quik — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to GoPro Quik>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-561350520.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "oblako-ne-zagruzhaet-teryaet-fayly",
+  "title": "Облачная загрузка видео ненадёжна: файлы не загружаются, зависают или теряются при передаче",
+  "obs": 5
+ },
+ {
+  "id": "sopryazhenie-trebuet-mnozhestvennykh-popytok",
+  "title": "Сопряжение камеры с приложением требует многократных попыток или полного цикла сброса обоих устройств",
+  "obs": 5
+ },
+ {
+  "id": "macos-prekrashchena-bez-preduprezhdeniya",
+  "title": "GoPro прекратила поддержку macOS без предупреждения покупателей, оставив только мобильную версию",
+  "obs": 5
+ },
+ {
+  "id": "zavisan-i-krashy-pri-redaktirovanii",
+  "title": "Приложение зависает и падает при редактировании или воспроизведении видео",
+  "obs": 4
+ },
+ {
+  "id": "pravki-ne-sohranayutsya",
+  "title": "Правки в редакторе не сохраняются несмотря на подтверждающее сообщение",
+  "obs": 4
+ },
+ {
+  "id": "interfeys-davit-na-podpisku",
+  "title": "Интерфейс и push-уведомления агрессивно продвигают подписку и мешают основному функционалу",
+  "obs": 3
+ },
+ {
+  "id": "upravlenie-faylami-ne-rabotaet",
+  "title": "Базовые операции с файлами (переименование, сортировка по дате, обрезка без дублей) не работают или ведут себя непредсказуемо",
+  "obs": 3
+ },
+ {
+  "id": "oblako-est-pamyat-ustroistva",
+  "title": "Приложение и облако не освобождают память устройства несмотря на наличие облачного хранилища",
+  "obs": 3
+ },
+ {
+  "id": "medlennaya-peredacha-s-kamery",
+  "title": "Передача видео с камеры на телефон занимает десятки минут при любом качестве соединения",
+  "obs": 3
+ },
+ {
+  "id": "pryamaya-translyatsiya-slomana",
+  "title": "Функция прямой трансляции сломана или регрессировала до ручного ввода RTMP-ссылки",
+  "obs": 3
+ },
+ {
+  "id": "muzykalnaya-biblioteka-odnoobrazna",
+  "title": "Встроенная музыкальная библиотека однообразна, а интеграция с Apple Music отсутствует",
+  "obs": 2
+ },
+ {
+  "id": "ai-primenjaetsya-prinuditelno",
+  "title": "Автовыделение и AI-изменения применяются принудительно и не поддаются отключению",
+  "obs": 2
+ },
+ {
+  "id": "eksport-ne-obiasnyon",
+  "title": "Экспорт видео на компьютер или в фотоальбом не объяснён и требует повторных попыток",
+  "obs": 2
+ },
+ {
+  "id": "obnovleniya-lomayut-redaktor",
+  "title": "После обновлений приложения стабилизация, предпросмотр и POV-режим перестают работать",
+  "obs": 2
+ },
+ {
+  "id": "bt-razryvaetsya-vo-vremya-raboty",
+  "title": "Bluetooth-соединение с камерой нестабильно и периодически разрывается во время активной работы",
+  "obs": 2
+ },
+ {
+  "id": "sinhronizatsiya-mezhdu-ustroistvami",
+  "title": "Синхронизация и передача медиафайлов между устройствами ненадёжна или полностью не работает",
+  "obs": 2
+ },
+ {
+  "id": "prilozhenie-medlenno-i-artefakty",
+  "title": "Приложение работает медленно и при переходах между клипами появляются визуальные артефакты",
+  "obs": 2
+ },
+ {
+  "id": "bt-sbrasываetsya-posle-obnovleniy",
+  "title": "Обновления приложения сбрасывают сохранённые Bluetooth-сопряжения с камерой",
+  "obs": 2
+ },
+ {
+  "id": "gps-udalyon-iz-max",
+  "title": "Телеметрия GPS удалена или недоступна для 360-камер после обновления",
+  "obs": 2
+ },
+ {
+  "id": "publikatsiya-i-sharing-slomany",
+  "title": "Публикация и шаринг видео работают ненадёжно или ограничены по максимальной длине клипа",
+  "obs": 2
+ },
+ {
+  "id": "parametry-360-ne-sohranayutsya",
+  "title": "Настройки 360-видео (стабилизация, точка обзора) не сохраняются при обрезке или загрузке",
+  "obs": 2
+ },
+ {
+  "id": "novaya-kamera-ne-podklyuchaetsya",
+  "title": "Приложение не подключается к новой камере, а обновление прошивки зависает на начальном проценте",
+  "obs": 2
+ },
+ {
+  "id": "fayly-propadayut-ili-nedostupny",
+  "title": "Медиафайлы в локальном хранилище приложения пропадают через некоторое время или не поддаются извлечению",
+  "obs": 2
+ },
+ {
+  "id": "360-workflow-slishkom-slozhnyy",
+  "title": "Рабочий процесс с 360-контентом требует нескольких устройств и приложений, что вынуждает переходить на конкурентов",
+  "obs": 2
+ },
+ {
+  "id": "platnyy-eksport",
+  "title": "Сохранение и экспорт отредактированного видео заблокированы без активной подписки",
+  "obs": 1
+ },
+ {
+  "id": "effekty-muzyka-za-podpisku",
+  "title": "Функции эффектов и музыки, ранее доступные бесплатно, переведены в платную подписку",
+  "obs": 1
+ },
+ {
+  "id": "vosstanovlenie-pokupok-zavisaet",
+  "title": "Восстановление покупок зависает в бесконечном цикле, приложение продолжает предлагать переподписку",
+  "obs": 1
+ },
+ {
+  "id": "podpiska-oplachena-oblako-ne-rabotaet",
+  "title": "После оплаты годовой подписки облачная загрузка не работает, а приложение предлагает оформить подписку повторно",
+  "obs": 1
+ },
+ {
+  "id": "podpiska-teryaetsya-pri-smene-ustroistva",
+  "title": "Подписка не переносится на новое устройство при замене телефона, поддержка отказывает в восстановлении",
+  "obs": 1
+ },
+ {
+  "id": "skrytye-rashody",
+  "title": "Стоимость владения скрыта: сверх цены камеры требуется отдельная оплата базового и расширенного редактора",
+  "obs": 1
+ },
+ {
+  "id": "preview-360-stabilizatsiya-dolgo",
+  "title": "Предпросмотр 360-видео требует 3–10 минут на стабилизацию перед началом работы",
+  "obs": 1
+ },
+ {
+  "id": "navigatsiya-slishkom-slozhnaya",
+  "title": "Навигация и выполнение базовых операций (монтаж, объединение клипов, шаринг) чрезмерно сложны",
+  "obs": 1
+ },
+ {
+  "id": "avtoуdalenie-bez-preduprezhdenia",
+  "title": "Приложение автоматически удаляет медиафайлы без предупреждения при достижении лимита хранилища",
+  "obs": 1
+ },
+ {
+  "id": "net-regulirovki-zvuka",
+  "title": "Нет независимого регулирования громкости оригинального звука и наложенной музыки",
+  "obs": 1
+ },
+ {
+  "id": "ekspozitsiya-360-ne-menyaetsya",
+  "title": "При редактировании 360-видео невозможно изменить экспозицию и освещение для отдельных фрагментов",
+  "obs": 1
+ },
+ {
+  "id": "avtovydelenie-neprozrachno",
+  "title": "Механизм автоматического выбора лучших моментов непрозрачен: непонятно, по каким критериям выбираются фрагменты",
+  "obs": 1
+ },
+ {
+  "id": "sessiya-zavershaetsya-pri-vyhode",
+  "title": "Сессия завершается при каждом выходе из приложения и требует повторной авторизации",
+  "obs": 1
+ },
+ {
+  "id": "net-optsii-bluetooth-v-interfeyse",
+  "title": "В интерфейсе нет опции для включения Bluetooth, хотя приложение требует его для подключения камеры",
+  "obs": 1
+ },
+ {
+  "id": "prinuditelnyy-dostup-k-fotobibliотеке",
+  "title": "Приложение требует обязательного доступа к фотобиблиотеке без возможности отказа",
+  "obs": 1
+ },
+ {
+  "id": "funktsiya-dublirovaniya-otsutstvovala",
+  "title": "Критическая функция дублирования видеоклипа отсутствовала в приложении более года",
+  "obs": 1
+ },
+ {
+  "id": "foto-video-ne-sohranayutsya-posle-obnovleniya",
+  "title": "После обновления приложения фотографии и видео перестают сохраняться на телефон",
+  "obs": 1
+ },
+ {
+  "id": "eksport-perezhat",
+  "title": "Экспортированное видео содержит избыточное сжатие несмотря на нормальные настройки качества",
+  "obs": 1
+ },
+ {
+  "id": "android-versiya-nerabotosposobna",
+  "title": "Android-версия приложения нефункциональна по сравнению с iOS: не обновляет камеру и не воспроизводит видео",
+  "obs": 1
+ },
+ {
+  "id": "pereснimka-360-ne-sohranyaet-fayl",
+  "title": "При переснимке 360-видео результат не сохраняется как отдельный файл",
+  "obs": 1
+ },
+ {
+  "id": "razreshenie-snizheno-pri-zagruzke",
+  "title": "Медиафайлы загружаются с камеры в сниженном разрешении независимо от настроек",
+  "obs": 1
+ },
+ {
+  "id": "forma-podderzhki-ne-otpravlyaetsya",
+  "title": "Форма отправки запроса в службу поддержки не отправляется",
+  "obs": 1
+ },
+ {
+  "id": "podderzhka-pereoshla-na-ai",
+  "title": "Служба поддержки перешла на AI-ответы и предлагает купить новую камеру вместо решения проблемы",
+  "obs": 1
+ },
+ {
+  "id": "net-dokumentatsii",
+  "title": "Документация и ресурсы для самопомощи отсутствуют, сайт GoPro не даёт полезных ответов",
+  "obs": 1
+ },
+ {
+  "id": "funktsionalnyy-regress-vs-studio",
+  "title": "Возможности редактирования значительно деградировали по сравнению со старым настольным приложением GoPro Studio",
+  "obs": 1
+ },
+ {
+  "id": "kamera-trebuet-telefon-dlya-upravleniya",
+  "title": "Камера не управляется самостоятельно: для включения и настройки требуется телефонное приложение",
+  "obs": 1
+ }
+]

@@ -1,0 +1,94 @@
+{
+  "groups": [
+    {
+      "id": "post-update-breakage",
+      "name": "Поломки после обновлений: ввод, сохранение, удаление событий",
+      "insight_ids": [
+        "location-freeze-on-create",
+        "edit-time-tap-dead",
+        "edit-not-saved",
+        "events-disappear",
+        "cursor-jumps-to-end",
+        "delete-button-fails",
+        "multiday-events-broken",
+        "ipad-edit-blank",
+        "birthday-sync-broken",
+        "illustrations-gone"
+      ]
+    },
+    {
+      "id": "stripped-interactivity",
+      "name": "Урезанная интерактивность: телефон, копирование, контакты, виды",
+      "insight_ids": [
+        "phone-not-tappable",
+        "copy-partial-text-removed",
+        "contacts-participants-removed",
+        "view-toggle-removed",
+        "email-events-not-editable",
+        "accidental-edit-no-guard"
+      ]
+    },
+    {
+      "id": "reminders-sync-fail",
+      "name": "Напоминания и синхронизация, которым нельзя доверять",
+      "insight_ids": [
+        "keep-notes-manual-sync",
+        "notifications-unreliable",
+        "open-app-clears-notifications",
+        "no-auto-sync",
+        "email-reminders-unreliable"
+      ]
+    },
+    {
+      "id": "widget-and-icon",
+      "name": "Виджет и значок: расписание с главного экрана сломано",
+      "insight_ids": [
+        "icon-stuck-31",
+        "widget-broken-black",
+        "widget-too-small-order",
+        "widget-removed",
+        "icon-recognizability",
+        "widget-task-scroll-parity"
+      ]
+    },
+    {
+      "id": "recurring-and-moving-events",
+      "name": "Повторения, серии и перенос между календарями",
+      "insight_ids": [
+        "recurring-weekdays",
+        "recurring-update-all-deletes",
+        "duplicate-then-edit",
+        "recurring-task-stops",
+        "shared-calendar-duplicates",
+        "move-event-between-calendars",
+        "drag-drop-move",
+        "integration-events-wrong-calendar"
+      ]
+    },
+    {
+      "id": "mobile-vs-web-gaps",
+      "name": "Чего лишили мобильную версию по сравнению с вебом",
+      "insight_ids": [
+        "import-calendars",
+        "calendar-management-mobile",
+        "shared-calendars-mobile",
+        "focus-block-mobile",
+        "hide-weekends",
+        "tasks-day-view-cap"
+      ]
+    },
+    {
+      "id": "views-and-customization",
+      "name": "Виды, цвета и настройки под себя",
+      "insight_ids": [
+        "color-limits",
+        "month-view-no-vertical-scroll",
+        "custom-duration-fixed",
+        "holidays-unmanageable",
+        "theme-tied-to-system",
+        "landscape-week-scroll",
+        "start-time-shifts-end"
+      ]
+    }
+  ]
+}

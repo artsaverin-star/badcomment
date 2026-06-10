@@ -1,0 +1,69 @@
+{
+  "groups": [
+    {
+      "id": "connected-but-dead",
+      "name": "Подключено — а интернета нет",
+      "insight_ids": [
+        "ip-stays-usa",
+        "connect-disconnect-loop",
+        "update-breaks-connection",
+        "freeze-on-login",
+        "zero-speed-connected",
+        "false-connection-status",
+        "weak-wifi-no-connect",
+        "connection-drops-frequently"
+      ]
+    },
+    {
+      "id": "subscription-trap",
+      "name": "Подписка-капкан: окна, списания и платный платный",
+      "insight_ids": [
+        "popup-blocks-free-access",
+        "paid-sub-stops-working",
+        "early-trial-charge",
+        "free-label-false",
+        "extra-paid-options-in-paid-plan",
+        "trial-reset-reinstall",
+        "forced-ad-video-paid"
+      ]
+    },
+    {
+      "id": "where-the-wall-holds",
+      "name": "Где обход проходит, а где упирается в стену",
+      "insight_ids": [
+        "geo-bypass-success",
+        "china-blocked",
+        "russia-not-working",
+        "iran-low-speed"
+      ]
+    },
+    {
+      "id": "hijacks-the-phone",
+      "name": "Захватывает телефон и не даёт уйти",
+      "insight_ids": [
+        "system-conflict-ios-appstore",
+        "ios-screen-flicker",
+        "cant-uninstall",
+        "forced-review-prompt",
+        "login-glitch-gaming"
+      ]
+    },
+    {
+      "id": "rare-stable-beast",
+      "name": "Редкий зверь — соединение, что держится месяцами",
+      "insight_ids": [
+        "stable-allday-connection",
+        "competitor-comparison"
+      ]
+    },
+    {
+      "id": "silent-support-shady-privacy",
+      "name": "Молчащая поддержка и тень над приватностью",
+      "insight_ids": [
+        "support-no-response",
+        "support-form-rejects-email",
+        "privacy-policy-suspicion"
+      ]
+    }
+  ]
+}

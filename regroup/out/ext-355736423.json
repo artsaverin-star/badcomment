@@ -1,0 +1,70 @@
+{
+  "groups": [
+    {
+      "id": "vhod-nedostupen",
+      "name": "Не войти, когда нужнее всего: таймауты, разлогины и недоступность",
+      "insight_ids": [
+        "login-timeout-and-errors",
+        "session-expires-spontaneously",
+        "slow-app-launch-and-connection",
+        "server-side-change-breaks-service",
+        "support-cannot-resolve-login-issues",
+        "app-useless-when-offline-main-system-works"
+      ]
+    },
+    {
+      "id": "kamery-trebuyut-ruk",
+      "name": "Камеры, к которым приходится идти ногами",
+      "insight_ids": [
+        "camera-feed-offline-requires-physical-reset",
+        "camera-clips-stop-recording",
+        "no-remote-camera-reset"
+      ]
+    },
+    {
+      "id": "vosstanovlenie-dostupa-tupik",
+      "name": "Восстановление доступа: тупики аутентификации и чужие телефоны",
+      "insight_ids": [
+        "apple-watch-requires-relogin-every-time",
+        "duplicate-device-name-error",
+        "touch-id-resets-to-password",
+        "password-reset-email-not-delivered",
+        "mfa-code-sent-to-wrong-family-member",
+        "email-unrecognized-in-mobile-but-works-on-web",
+        "app-not-in-ios-settings"
+      ]
+    },
+    {
+      "id": "ada-ubrala-funktsii",
+      "name": "ADT забирает обратно: вырезанные интеграции и исчезнувшие функции",
+      "insight_ids": [
+        "alexa-google-home-support-dropped",
+        "geo-block-international-access",
+        "ios-update-breaks-app",
+        "floor-plan-feature-removed",
+        "carplay-widget-missing",
+        "separate-apps-for-alarm-and-cameras"
+      ]
+    },
+    {
+      "id": "panel-umeet-app-net",
+      "name": "Панель умеет, приложение — нет: пропавшие кнопки и слепые датчики",
+      "insight_ids": [
+        "panic-button-missing-in-app",
+        "z-wave-devices-slow-and-unresponsive",
+        "alarm-zone-shows-number-not-name",
+        "no-motion-sensor-test",
+        "battery-level-only-on-critical"
+      ]
+    },
+    {
+      "id": "ohrana-nenadyozhna",
+      "name": "Когда от ответа зависит безопасность: охрана, тревоги и ложные вызовы",
+      "insight_ids": [
+        "arm-command-requires-multiple-retries",
+        "alarm-state-sync-delay-causes-false-police-dispatch",
+        "alert-type-text-only-no-call"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+You are grouping 15 mechanism-level insight clusters from VSCO: Photo & Video Editor (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO VSCO: Photo & Video Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 15 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to VSCO: Photo & Video Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to VSCO: Photo & Video Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsth7ra1505ug8pgcfe6317.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "save-freeze-infinite-loop",
+  "title": "При сохранении фото приложение зависает в бесконечном цикле и блокирует дальнейшую работу",
+  "obs": 3
+ },
+ {
+  "id": "repeated-confirmations-for-one-task",
+  "title": "Интерфейс заставляет повторять действия и подтверждать условия несколько раз ради одной задачи",
+  "obs": 2
+ },
+ {
+  "id": "lag-editing-multiple-photos",
+  "title": "Приложение лагает и зависает при редактировании нескольких фотографий подряд в одной сессии",
+  "obs": 2
+ },
+ {
+  "id": "cancel-subscription-blocked",
+  "title": "Отменить подписку трудно или невозможно — пользователь вынужден платить бессрочно",
+  "obs": 1
+ },
+ {
+  "id": "free-features-moved-behind-paywall",
+  "title": "Ранее бесплатные инструменты перенесены за платную стену — привычные функции теперь требуют оплаты",
+  "obs": 1
+ },
+ {
+  "id": "washed-out-preview-and-similar-presets",
+  "title": "При входе в редактор фото показывается выцветшим до правок, а многие пресеты дают тот же эффект",
+  "obs": 1
+ },
+ {
+  "id": "excessive-popups-block-ui",
+  "title": "Всплывающие окна появляются так часто, что управлять интерфейсом становится невозможно",
+  "obs": 1
+ },
+ {
+  "id": "gallery-import-fails-crash",
+  "title": "Импорт фотографий из галереи телефона не работает или вызывает сбой приложения",
+  "obs": 1
+ },
+ {
+  "id": "drafts-deleted-no-recovery",
+  "title": "Черновики удаляются при переустановке, смене устройства или сбое без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "iphoto-sync-unstable",
+  "title": "Синхронизация с фото-библиотекой iPhoto работает нестабильно",
+  "obs": 1
+ },
+ {
+  "id": "auto-rescale-quality-loss",
+  "title": "Редактор автоматически масштабирует из исходника, игнорирует кадрирование при съёмке и теряет качество",
+  "obs": 1
+ },
+ {
+  "id": "general-slowness-vs-other-apps",
+  "title": "Приложение работает с задержкой и долго загружает изображения по сравнению с другими на телефоне",
+  "obs": 1
+ },
+ {
+  "id": "imported-photos-disappear-studio",
+  "title": "Импортированные фото исчезают при добавлении новых в Studio — для возврата нужна переустановка",
+  "obs": 1
+ },
+ {
+  "id": "no-password-recovery-new-device",
+  "title": "На новом устройстве нельзя восстановить аккаунт по паролю — вход только через внешний веб-сервис",
+  "obs": 1
+ },
+ {
+  "id": "tos-ai-training-data-sale",
+  "title": "Условия дают компании лицензию обучать ИИ на фото пользователя и продавать данные третьим лицам",
+  "obs": 1
+ }
+]

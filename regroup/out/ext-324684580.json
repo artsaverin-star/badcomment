@@ -1,0 +1,87 @@
+{
+  "groups": [
+    {
+      "id": "free-tier-shuffle-cage",
+      "name": "Клетка бесплатного тарифа: лимиты, принудительный шафл и платные базовые кнопки",
+      "insight_ids": [
+        "free-tier-song-limit",
+        "free-tier-forced-shuffle",
+        "basic-controls-paywalled",
+        "free-tier-degraded-after-update",
+        "free-tier-lyrics-recommendations-cut",
+        "forced-shuffle-after-trial",
+        "forced-shuffle-against-user-will"
+      ]
+    },
+    {
+      "id": "ad-onslaught",
+      "name": "Реклама громче музыки: частота, обрывы и сломанные обещания",
+      "insight_ids": [
+        "ads-frequency-high",
+        "ads-mid-song",
+        "ads-promised-30min-broken",
+        "ads-repeat-same",
+        "ads-contextually-inappropriate"
+      ]
+    },
+    {
+      "id": "device-library-betrayal",
+      "name": "Машина, iPad и своя фонотека: где Spotify ломается и стирает скачанное",
+      "insight_ids": [
+        "ipad-playback-controls-broken",
+        "icon-change-forced",
+        "music-import-missing",
+        "personal-uploads-no-cloud-sync",
+        "carplay-icons-too-small",
+        "carplay-wrong-track-latency",
+        "downloads-deleted-silently"
+      ]
+    },
+    {
+      "id": "algorithm-vs-listener",
+      "name": "Подсунутые рекомендации и навязанный ИИ против вкуса слушателя",
+      "insight_ids": [
+        "lyrics-missing-some-songs",
+        "recommendations-not-novel",
+        "homepage-recommendations-biased",
+        "ai-features-forced-no-opt-out",
+        "podcast-creator-block-missing"
+      ]
+    },
+    {
+      "id": "post-update-rot",
+      "name": "После обновлений: тормоза, вылеты и минуты ожидания трека",
+      "insight_ids": [
+        "offline-playback-unstable-old-devices",
+        "performance-degraded-after-update",
+        "ai-features-suspected-slowdown",
+        "video-content-slowdown",
+        "crash-shuffle-large-library",
+        "premium-extreme-load-delay"
+      ]
+    },
+    {
+      "id": "playback-disobeys",
+      "name": "Плеер живёт своей жизнью: чужой шафл, паузы и тихий звук",
+      "insight_ids": [
+        "shuffle-repeats-same-songs",
+        "playback-interrupted-by-notification",
+        "algorithm-ignores-artist-request",
+        "playlist-auto-adds-songs",
+        "volume-abnormally-low"
+      ]
+    },
+    {
+      "id": "payment-account-deadends",
+      "name": "Оплатил — и застрял: активация, смена страны и поддержка-тупик",
+      "insight_ids": [
+        "payment-not-activated",
+        "trial-card-blocked",
+        "subscription-management-external",
+        "country-change-blocks-login",
+        "support-bot-loops-no-human",
+        "no-support-after-payment-failure"
+      ]
+    }
+  ]
+}

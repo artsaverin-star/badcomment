@@ -1,0 +1,344 @@
+You are grouping 59 mechanism-level insight clusters from Tinybeans Private Family Album (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Tinybeans Private Family Album, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 59 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Tinybeans Private Family Album — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Tinybeans Private Family Album>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-521633042.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "uploads-fail-silently",
+  "title": "Загрузка фотографий молча срывается, дублируется или сбрасывает порядок, заставляя повторять работу по несколько раз в неделю",
+  "obs": 8
+ },
+ {
+  "id": "downgrade-locks-old-photos",
+  "title": "При переходе на бесплатный тариф приложение запирает за оплатой ранее загруженные фотографии, доступ к собственному архиву пропадает",
+  "obs": 7
+ },
+ {
+  "id": "upload-crashes-loses-captions",
+  "title": "При пакетной загрузке фотографий с подписями приложение падает или зависает и теряет все введённые данные",
+  "obs": 7
+ },
+ {
+  "id": "ads-despite-premium",
+  "title": "Реклама показывается даже после оплаты премиума, отключить её нельзя",
+  "obs": 6
+ },
+ {
+  "id": "non-owner-upload-cap",
+  "title": "Бабушки и другие приглашённые ограничены 20 загрузками в месяц и должны платить отдельно, чтобы пополнять уже оплаченный альбом",
+  "obs": 6
+ },
+ {
+  "id": "photo-order-scrambled",
+  "title": "После обновлений приложение случайно переставляет фотографии и ломает хронологический порядок архива за годы",
+  "obs": 6
+ },
+ {
+  "id": "deceptive-ads-confuse-elderly",
+  "title": "Обманчивые и неуместные объявления вводят в заблуждение, пожилые случайно нажимают на них и теряют интерфейс",
+  "obs": 4
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Поддержка отвечает только по почте и неделями молчит даже по срочным проблемам, оставляя пользователя без решения",
+  "obs": 4
+ },
+ {
+  "id": "free-tier-monthly-limit",
+  "title": "Бесплатный тариф разрешает только 20 фотографий в месяц — меньше одной в день, мало для ежедневных обновлений семье",
+  "obs": 3
+ },
+ {
+  "id": "premium-not-activated",
+  "title": "После оплаты премиум-функции не активируются на аккаунте, рекомендации поддержки не помогают",
+  "obs": 3
+ },
+ {
+  "id": "lifestyle-pivot-degrades-core",
+  "title": "Приложение превратилось из фотоальбома в лайфстайл-платформу со статьями и рекламой в ущерб надёжности основной функции",
+  "obs": 3
+ },
+ {
+  "id": "no-grid-only-scroll",
+  "title": "Просмотр фотографий дня доступен только прокруткой — сетки, списка и быстрого поиска по архиву нет",
+  "obs": 3
+ },
+ {
+  "id": "invite-by-email-only",
+  "title": "Пригласить человека в альбом можно только зная его email — других способов добавления нет",
+  "obs": 3
+ },
+ {
+  "id": "ipad-broken",
+  "title": "На планшете приложение работает крайне нестабильно или вовсе не работает, хотя на телефоне исправно",
+  "obs": 3
+ },
+ {
+  "id": "video-upload-fails",
+  "title": "Видеоролики загружаются очень долго, падают с ошибкой или не воспроизводятся",
+  "obs": 3
+ },
+ {
+  "id": "cross-device-sync-broken",
+  "title": "Фотографии не синхронизируются между устройствами семьи — другие видят их только после очистки кеша или вовсе не видят",
+  "obs": 3
+ },
+ {
+  "id": "post-update-regressions",
+  "title": "Каждый новый релиз приносит новые ошибки в порядке фото, видео-редактировании и восстановлении состояния",
+  "obs": 3
+ },
+ {
+  "id": "scroll-stutters-no-preload",
+  "title": "Приложение не предзагружает фотографии, прокрутка дёргается и подтормаживает, реклама дополнительно замедляет просмотр",
+  "obs": 3
+ },
+ {
+  "id": "photo-book-customization-limited",
+  "title": "Встроенная печать фотокниг почти не поддаётся настройке — нельзя менять размер фото, текст смещается, много пустого места",
+  "obs": 2
+ },
+ {
+  "id": "day-scroll-jumps",
+  "title": "При прокрутке серии фотографий одного дня экран случайно перепрыгивает на другие, последовательный просмотр сбивается",
+  "obs": 2
+ },
+ {
+  "id": "notification-controls-broken",
+  "title": "Отключить уведомления невозможно — приложения нет в системных настройках, веб-форма не грузится, каждое действие шлёт отдельное письмо",
+  "obs": 2
+ },
+ {
+  "id": "repeated-permission-nag",
+  "title": "Приложение при каждом открытии снова требует включить уведомления, хотя пользователь их уже отклонил",
+  "obs": 2
+ },
+ {
+  "id": "batch-caption-only-first",
+  "title": "При пакетной загрузке описание добавляется только к первой фотографии, остальные приходится подписывать по одной",
+  "obs": 2
+ },
+ {
+  "id": "uploads-vanish-after-restart",
+  "title": "Загруженные фотографии видны в интерфейсе, но исчезают из библиотеки после перезапуска приложения",
+  "obs": 2
+ },
+ {
+  "id": "inconsistent-invite-flow",
+  "title": "Разные приглашённые получают совершенно разный процесс регистрации — часть попадает в изолированный аккаунт без связи с альбомом",
+  "obs": 2
+ },
+ {
+  "id": "price-per-day-too-high",
+  "title": "Чтобы делиться одной фотографией в день с дальними родственниками, приложение требует около ста долларов в год",
+  "obs": 1
+ },
+ {
+  "id": "paid-still-capped",
+  "title": "Несмотря на платную подписку приложение не разрешает загружать больше фотографий, чем на бесплатном плане",
+  "obs": 1
+ },
+ {
+  "id": "cancel-button-frozen",
+  "title": "В окне отмены подписки сначала предлагают скидку, а кнопка отмены не работает — отменить можно только через веб-версию",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-revoked",
+  "title": "Приложение отменило пожизненную подписку и перевело пользователя на ежегодную оплату",
+  "obs": 1
+ },
+ {
+  "id": "silent-downgrade-no-notice",
+  "title": "После окончания подписки тариф молча понизили с платного на бесплатный без уведомления",
+  "obs": 1
+ },
+ {
+  "id": "cannot-remove-card",
+  "title": "Нельзя удалить платёжный метод или посмотреть данные карты, чтобы остановить продление приходится отменять карту в банке",
+  "obs": 1
+ },
+ {
+  "id": "price-hike-no-notice",
+  "title": "Цену почти удвоили без явного уведомления, спрятав предупреждение в конце письма",
+  "obs": 1
+ },
+ {
+  "id": "charged-after-cancel",
+  "title": "Приложение списало плату уже после отмены подписки, связаться с поддержкой не удаётся",
+  "obs": 1
+ },
+ {
+  "id": "export-zip-empty",
+  "title": "Экспорт воспоминаний обещан в подписке, но месяцами выдаёт пустой архив",
+  "obs": 1
+ },
+ {
+  "id": "yearbook-no-captions",
+  "title": "Годовая книга не переносит подписи к фотографиям автоматически, каждую приходится вписывать вручную",
+  "obs": 1
+ },
+ {
+  "id": "chatbooks-integration-dropped",
+  "title": "Убрали интеграцию со сторонним сервисом печати, оставив только слабую встроенную печать",
+  "obs": 1
+ },
+ {
+  "id": "home-feed-hides-own-uploads",
+  "title": "На главной ленте видны только чужие загрузки, свои фотографии приходится искать в отдельном разделе",
+  "obs": 1
+ },
+ {
+  "id": "calendar-should-be-default",
+  "title": "Календарное представление воспоминаний удобнее ленты для навигации, особенно пожилым, но не стоит по умолчанию",
+  "obs": 1
+ },
+ {
+  "id": "memories-tab-hard-to-navigate",
+  "title": "Вкладка воспоминаний требует ручного обновления и плохо навигируется — сохранённые записи трудно найти",
+  "obs": 1
+ },
+ {
+  "id": "share-popup-empty",
+  "title": "Окно «Поделиться» открывается пустым и полностью блокирует отправку фотографии",
+  "obs": 1
+ },
+ {
+  "id": "single-album-per-user",
+  "title": "Один аккаунт не даёт удобно следить за двумя разными семьями или альбомами одновременно",
+  "obs": 1
+ },
+ {
+  "id": "ipad-no-landscape",
+  "title": "Приложение на планшете не поддерживает альбомную ориентацию, мешая работать с клавиатурой",
+  "obs": 1
+ },
+ {
+  "id": "follow-only-nag",
+  "title": "Приложение постоянно навязывает создание своего альбома тем, кто только следит за чужими детьми",
+  "obs": 1
+ },
+ {
+  "id": "post-update-refresh-loop",
+  "title": "После обновления приложение зацикливается на ошибке обновления и полностью теряет доступ к фотографиям",
+  "obs": 1
+ },
+ {
+  "id": "freezes-on-home-return",
+  "title": "Приложение зависает при возврате в главное меню и требует перезагрузки",
+  "obs": 1
+ },
+ {
+  "id": "update-incompatible-device",
+  "title": "Обязательное обновление сообщает о несовместимости с устройством, и приложение перестаёт открываться",
+  "obs": 1
+ },
+ {
+  "id": "large-album-scalability",
+  "title": "На больших многолетних альбомах приложение глючит, что указывает на проблему масштабируемости при тысячах фотографий",
+  "obs": 1
+ },
+ {
+  "id": "ios-gallery-upload-friction",
+  "title": "Загрузка с галереи телефона глючит — фото повторяются при прокрутке, личные альбомы недоступны, загрузка через меню обмена не работает",
+  "obs": 1
+ },
+ {
+  "id": "android-fixes-lag-ios",
+  "title": "Ошибки на Android исправляют медленнее, чем на iOS",
+  "obs": 1
+ },
+ {
+  "id": "no-dynamic-island-progress",
+  "title": "Индикатор хода загрузки не отображается в Dynamic Island на новых iPhone, прогресс не виден",
+  "obs": 1
+ },
+ {
+  "id": "random-logout-invited",
+  "title": "Приглашённый член семьи периодически случайно выходит из аккаунта, и его приходится добавлять заново",
+  "obs": 1
+ },
+ {
+  "id": "comment-broken",
+  "title": "Пользователь не может оставить комментарий к фото семьи без технической помощи",
+  "obs": 1
+ },
+ {
+  "id": "push-stopped-after-paid",
+  "title": "После перехода на платный план семья перестала получать push-уведомления о новых фотографиях",
+  "obs": 1
+ },
+ {
+  "id": "silent-quality-downscale",
+  "title": "Приложение молча снижает качество загруженных фотографий и видео без уведомления",
+  "obs": 1
+ },
+ {
+  "id": "cannot-edit-or-delete-new-account",
+  "title": "Сразу после регистрации приложение не даёт ничего редактировать или удалить аккаунт и полно ошибок",
+  "obs": 1
+ },
+ {
+  "id": "data-retained-after-delete",
+  "title": "После удаления аккаунта фотографии остаются на сервере и доступны спустя годы",
+  "obs": 1
+ },
+ {
+  "id": "weekly-email-link-insecure",
+  "title": "Фотографии детей из еженедельной рассылки доступны по ссылке кому угодно — данные не защищены от посторонних",
+  "obs": 1
+ },
+ {
+  "id": "core-friction-kills-referrals",
+  "title": "После семи лет пользования человек перестал рекомендовать приложение из-за трения в базовой загрузке",
+  "obs": 1
+ },
+ {
+  "id": "lost-free-features-after-paywall",
+  "title": "После введения платной модели пропала ранее бесплатная функциональность, например ежедневные письма семье",
+  "obs": 1
+ }
+]

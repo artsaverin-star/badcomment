@@ -1,0 +1,78 @@
+{
+  "groups": [
+    {
+      "id": "ads-paywall-traps",
+      "name": "Реклама поверх календаря и платёжные ловушки",
+      "insight_ids": [
+        "ads-block-calendar-on-open",
+        "trial-button-charges-full-subscription",
+        "ads-block-input-during-meetings",
+        "paid-still-shows-ads",
+        "recurring-events-paywalled",
+        "ad-close-button-tiny-hidden"
+      ]
+    },
+    {
+      "id": "sync-across-devices",
+      "name": "Синхронизация между устройствами и Mac, которые подводят",
+      "insight_ids": [
+        "cross-device-sync-missing-events",
+        "macos-version-broken",
+        "app-badges-missing-macos",
+        "google-sync-selective",
+        "colors-not-syncing-new-device"
+      ]
+    },
+    {
+      "id": "glanceable-views",
+      "name": "Вид месяца и недели: увидеть всё расписание с первого взгляда",
+      "insight_ids": [
+        "monthly-view-text-events",
+        "quick-view-switch-day-week-month",
+        "week-view-truncates-event-text",
+        "color-coding-organization",
+        "time-in-title-workaround",
+        "no-auto-jump-to-today"
+      ]
+    },
+    {
+      "id": "widget-icon-crutch",
+      "name": "Костыли вместо виджета и иконки: держат второе приложение",
+      "insight_ids": [
+        "second-app-for-readable-widget",
+        "widget-shows-stale-or-missing-events",
+        "icon-no-current-date"
+      ]
+    },
+    {
+      "id": "planner-reminder-gaps",
+      "name": "Чего не хватает планировщику: задачи, повторы, напоминания",
+      "insight_ids": [
+        "notifications-only-when-unlocked",
+        "all-day-toggle-friction",
+        "no-daily-task-checklist",
+        "no-recurring-events",
+        "daily-reliance-for-reminders"
+      ]
+    },
+    {
+      "id": "update-breakage-crashes",
+      "name": "Обновления ломают вёрстку, события и редактирование",
+      "insight_ids": [
+        "ios-update-wiped-events-into-system-calendar",
+        "update-broke-monthly-layout-lost-shifts",
+        "crash-loop-needs-reinstall",
+        "birthday-editing-broken"
+      ]
+    },
+    {
+      "id": "data-loss-history",
+      "name": "Исчезающие события, заметки и недоступная история",
+      "insight_ids": [
+        "events-auto-deleted-after-weeks",
+        "notes-vanished-no-backup",
+        "import-multiyear-history-google"
+      ]
+    }
+  ]
+}

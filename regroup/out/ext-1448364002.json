@@ -1,0 +1,58 @@
+{
+  "groups": [
+    {
+      "id": "cancel-maze",
+      "name": "Лабиринт отмены: «отменено», а деньги всё списываются",
+      "insight_ids": [
+        "cancel-shows-success-charges-continue",
+        "cancel-multi-step-dark-pattern",
+        "cancel-unclear-no-info",
+        "cancel-hidden-email-step",
+        "cancel-requires-support-escalation",
+        "web-subscription-no-app-cancel"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Списания без спроса: случайный клик, фейковый триал и двойные платежи",
+      "insight_ids": [
+        "accidental-charge-no-confirm",
+        "trial-price-hidden",
+        "advisor-timer-forces-payment",
+        "upgrade-breaks-access",
+        "double-charge",
+        "fake-free-trial",
+        "auto-subscribe-on-any-transaction",
+        "purchase-no-access",
+        "content-not-delivered"
+      ]
+    },
+    {
+      "id": "daily-ritual",
+      "name": "Ежедневный ритуал: совет дня как эмоциональная гигиена",
+      "insight_ids": [
+        "daily-advice-personalized",
+        "daily-emotional-checkin",
+        "stress-prevention-guidance"
+      ]
+    },
+    {
+      "id": "cosmic-planning",
+      "name": "Планирование по звёздам: луна, биоритмы и места силы",
+      "insight_ids": [
+        "lunar-phase-planning",
+        "biorhythm-planning",
+        "astrocartography-location-decisions",
+        "birth-chart-self-diagnosis"
+      ]
+    },
+    {
+      "id": "interface-friction",
+      "name": "Мелкая механика экранов: от сканера ладони до быстрого гороскопа",
+      "insight_ids": [
+        "palm-scan-button-overlap",
+        "navigation-quick-vs-deep"
+      ]
+    }
+  ]
+}

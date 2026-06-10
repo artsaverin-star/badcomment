@@ -1,0 +1,88 @@
+{
+  "groups": [
+    {
+      "id": "subscription-paywall-traps",
+      "name": "Подписка-капкан: платный вход и навязчивый апсейл",
+      "insight_ids": [
+        "auto-id-became-manual-paid",
+        "autocharge-on-purchase",
+        "subscription-popup-every-action",
+        "paywall-no-exit",
+        "mandatory-subscription-setup",
+        "family-sharing-paywalled",
+        "double-charge",
+        "subscription-transfer-broken",
+        "subscription-disclosure-missing",
+        "cancel-accounts-not-linked",
+        "cluttered-interface"
+      ]
+    },
+    {
+      "id": "ai-identification-fails",
+      "name": "AI не узнаёт птиц: ошибки, низкая уверенность и невозможность поправить",
+      "insight_ids": [
+        "ai-id-accuracy-low",
+        "cannot-edit-id-after-save",
+        "no-manual-id",
+        "naming-limited-by-species",
+        "ai-regression-after-update",
+        "correction-doesnt-train-model"
+      ]
+    },
+    {
+      "id": "camera-misses-the-birds",
+      "name": "Камера пропускает самое главное — визиты птиц",
+      "insight_ids": [
+        "camera-misses-visits",
+        "livestream-unstable",
+        "livestream-no-audio",
+        "video-loads-slow",
+        "no-auto-refresh",
+        "bb2-narrow-fov",
+        "deep-sleep-not-disableable",
+        "price-vs-cheap-cameras"
+      ]
+    },
+    {
+      "id": "hardware-wifi-firmware",
+      "name": "Железо и подключение: Wi-Fi, прошивка, питание, аксессуары",
+      "insight_ids": [
+        "wifi-range-limited",
+        "wifi-pairing-issues",
+        "hardware-accessory-incompatibility",
+        "firmware-update-fails",
+        "device-power-issues",
+        "no-sd-card-slot",
+        "app-crashes",
+        "collection-add-freeze"
+      ]
+    },
+    {
+      "id": "collection-feed-multi-feeder",
+      "name": "Коллекция и лента: где мои птицы среди чужих и нескольких кормушек",
+      "insight_ids": [
+        "save-to-collection-unclear",
+        "own-feed-mixed-with-community",
+        "no-filter-by-feeder",
+        "community-photos-duplicate",
+        "species-filter-still-records",
+        "species-filter-global-not-per-feeder",
+        "family-name-sync",
+        "no-visit-log",
+        "postcard-status-wrong",
+        "photo-editing-removed"
+      ]
+    },
+    {
+      "id": "notifications-privacy-support",
+      "name": "Уведомления, принудительное облако и глухая поддержка",
+      "insight_ids": [
+        "notification-control-limited",
+        "marketing-notifications",
+        "unread-badge-stuck",
+        "forced-cloud-upload",
+        "support-bot-only"
+      ]
+    }
+  ]
+}

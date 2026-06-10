@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from The Pattern: Astrology (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO The Pattern: Astrology, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to The Pattern: Astrology — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to The Pattern: Astrology>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyant00va4ughv65g7yvil.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-as-emotional-support-tool",
+  "title": "Приложение используется как инструмент эмоциональной поддержки, принятия решений и саморефлексии — заменяя терапию или доверительное общение с близкими",
+  "obs": 12
+ },
+ {
+  "id": "ai-replaces-authored-content",
+  "title": "Переход на ИИ-генерируемый контент заменил ручной авторский инсайт — пользователи замечают повторяющиеся шаблонные фразы и потерю персонализации",
+  "obs": 7
+ },
+ {
+  "id": "forced-audio-instead-of-text",
+  "title": "Приложение принудительно воспроизводит аудио вместо текста, лишая пользователей, которые предпочитают читать, доступа к полному контенту",
+  "obs": 7
+ },
+ {
+  "id": "community-feature-removed",
+  "title": "Функция сообщества, где пользователи обсуждали влияние текущих транзитов на свою жизнь, была удалена без замены",
+  "obs": 7
+ },
+ {
+  "id": "ai-chatbot-as-therapist",
+  "title": "AI-чатбот на основе натальной карты конкурирует по глубине с профессиональным психологическим консультированием и помогает проработать личные проблемы",
+  "obs": 6
+ },
+ {
+  "id": "redesigns-worsen-usability",
+  "title": "Частые редизайны превратили простой и минималистичный интерфейс в визуально перегруженный и когнитивно сложный",
+  "obs": 6
+ },
+ {
+  "id": "daily-routine-use-pattern",
+  "title": "Пользователи встраивают приложение в ежедневную утреннюю рутину как инструмент ориентации и планирования дня",
+  "obs": 6
+ },
+ {
+  "id": "catastrophic-negative-tone",
+  "title": "Описания транзитов и инсайты сформулированы в катастрофическом, пессимистичном тоне, вызывающем тревогу вместо поддержки",
+  "obs": 5
+ },
+ {
+  "id": "visual-aesthetics-degraded",
+  "title": "Приложение потеряло насыщенную графику и визуальную различимость секций — интерфейс стал скучным и неразличимым",
+  "obs": 5
+ },
+ {
+  "id": "incremental-content-lock",
+  "title": "Приложение показывает начало инсайта, затем блокирует полный текст за подпиской, создавая ощущение намеренной манипуляции",
+  "obs": 4
+ },
+ {
+  "id": "educational-discovery-content",
+  "title": "Раздел обучения астрологии служит образовательным ресурсом для углубления знаний — от начинающего до эксперта",
+  "obs": 4
+ },
+ {
+  "id": "navigation-complexity-vs-content",
+  "title": "Новый интерфейс сложнее в навигации, а детализированный контент доступен только за платёж, создавая разрыв между удобством и ценностью",
+  "obs": 4
+ },
+ {
+  "id": "time-travel-feature-removed",
+  "title": "Функция просмотра транзитов в прошлое и будущее была удалена, хотя служила ключевым инструментом планирования и анализа циклов",
+  "obs": 4
+ },
+ {
+  "id": "transformation-to-ai-audio-platform",
+  "title": "Приложение трансформировалось из инструмента персонального астрологического самопознания в платформу с принудительным аудио и AI-подпиской, что разочаровывает давних пользователей",
+  "obs": 4
+ },
+ {
+  "id": "freemium-to-paywall-shift",
+  "title": "Переход с бесплатной модели на платный доступ разочаровал давних пользователей, которые воспринимают это как нарушение оригинального обещания",
+  "obs": 3
+ },
+ {
+  "id": "push-leads-to-paywall",
+  "title": "Пуш-уведомления создают ожидание бесплатного контента, но при нажатии открывают платный аудиоэкран",
+  "obs": 3
+ },
+ {
+  "id": "audio-positive-experience",
+  "title": "Аудиоконтент на основе натальной карты воспринимается как медитативный опыт и помогает пользователям с психологическими трудностями",
+  "obs": 3
+ },
+ {
+  "id": "audio-voice-quality",
+  "title": "Голос в аудиоконтенте воспринимается как неприятный или раздражающий, а темп — слишком быстрый без пауз, что затрудняет восприятие",
+  "obs": 3
+ },
+ {
+  "id": "house-system-changed-silently",
+  "title": "Система домов натальной карты изменилась без предупреждения пользователей, что сделало все прежние интерпретации неактуальными и убрало опцию выбора системы",
+  "obs": 3
+ },
+ {
+  "id": "synastry-bonds-core-value",
+  "title": "Функция анализа совместимости натальных карт служит главным инструментом для понимания романтических, семейных и рабочих отношений",
+  "obs": 3
+ },
+ {
+  "id": "ai-data-privacy-concerns",
+  "title": "Интеграция AI вызывает беспокойство пользователей по поводу сбора данных третьими сторонами и экологических последствий больших языковых моделей",
+  "obs": 3
+ },
+ {
+  "id": "subscription-not-activated",
+  "title": "После оплаты подписка не активируется внутри приложения и получить помощь от поддержки невозможно",
+  "obs": 2
+ },
+ {
+  "id": "ai-chatbot-transit-restriction",
+  "title": "AI-чатбот отказывается обсуждать будущие транзиты под предлогом запрета предиктивной астрологии, хотя это противоречит основному назначению приложения",
+  "obs": 2
+ },
+ {
+  "id": "bond-birth-date-save-error",
+  "title": "При добавлении связи с человеком дата и время рождения не сохраняются из-за ошибки, требуя многократного ввода",
+  "obs": 2
+ },
+ {
+  "id": "natal-chart-date-input-error",
+  "title": "При вводе точных данных рождения приложение автоматически сбрасывает дату, делая расчёт натальной карты невозможным",
+  "obs": 2
+ },
+ {
+  "id": "feedback-ignored-by-devs",
+  "title": "Разработчики продолжают вносить изменения в направлении, противоположном запросам сообщества, игнорируя системный пользовательский фидбэк",
+  "obs": 2
+ },
+ {
+  "id": "competitors-offer-more-free",
+  "title": "Конкурирующие приложения предоставляют более специализированный контент о натальной карте без платежей, в отличие от Pattern",
+  "obs": 2
+ },
+ {
+  "id": "no-flexible-subscription",
+  "title": "Приложение долгое время предлагало только квартальные или годовые подписки без гибких вариантов",
+  "obs": 1
+ },
+ {
+  "id": "gift-subscription-conflict",
+  "title": "Если приложение подарено через один Apple ID, купить собственную подписку через тот же аккаунт невозможно",
+  "obs": 1
+ },
+ {
+  "id": "refund-not-processed",
+  "title": "Поддержка обещала возврат денег за неточный контент, но возврат так и не был выполнен",
+  "obs": 1
+ },
+ {
+  "id": "paid-content-not-unique",
+  "title": "Платный контент приложения дублирует информацию, доступную бесплатно в интернете, делая подписку бессмысленной",
+  "obs": 1
+ },
+ {
+  "id": "inaccurate-interpretations-after-ai",
+  "title": "После внедрения ИИ астрологические интерпретации стали неточными, что снизило ценность приложения для опытных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "bonds-accuracy-issues",
+  "title": "Функция анализа совместимости дала противоречивые результаты: высокая совместимость в контролирующих отношениях и несовместимость в здоровых",
+  "obs": 1
+ },
+ {
+  "id": "go-deeper-tab-chaotic",
+  "title": "Вкладка для углублённых инсайтов стала хаотичной и неэстетичной после редизайна, навигация по истории инсайтов невозможна",
+  "obs": 1
+ },
+ {
+  "id": "font-size-too-small",
+  "title": "Размер шрифта в приложении слишком мал для комфортного чтения без вспомогательных инструментов",
+  "obs": 1
+ },
+ {
+  "id": "notifications-wrong-destination",
+  "title": "Пуш-уведомления не доставляют пользователя в нужное место — вместо этого запускается аудиоэкран",
+  "obs": 1
+ },
+ {
+  "id": "ai-promo-on-app-open",
+  "title": "При открытии приложения показывается реклама платного AI-чатбота вместо астрологического инсайта",
+  "obs": 1
+ },
+ {
+  "id": "no-polyamory-support",
+  "title": "Приложение не позволяет установить несколько текущих романтических партнёров, исключая пользователей полиаморных отношений",
+  "obs": 1
+ },
+ {
+  "id": "chat-feature-broken",
+  "title": "Функция чата не работает: сообщения не отправляются, экран остаётся пустым",
+  "obs": 1
+ },
+ {
+  "id": "app-stuck-on-loading",
+  "title": "Приложение зависает на экране загрузки и становится полностью неиспользуемым",
+  "obs": 1
+ },
+ {
+  "id": "bond-data-lost-on-update",
+  "title": "Данные о партнёрской связи удалены без предупреждения во время обновления",
+  "obs": 1
+ },
+ {
+  "id": "dating-feature-nonviable",
+  "title": "Функция поиска партнёров через астрологическое сопоставление не работает на практике: пользователи не получают совпадений",
+  "obs": 1
+ },
+ {
+  "id": "connect-feature-abandoned",
+  "title": "Функция Connect для поиска сообщества остаётся мёртвой несколько лет — в FAQ до сих пор написано «coming soon»",
+  "obs": 1
+ },
+ {
+  "id": "peak-dates-planning-tool",
+  "title": "Функция пиковых дат помогает пользователям заранее предвидеть и планировать сложные периоды в жизненных циклах",
+  "obs": 1
+ },
+ {
+  "id": "house-system-accuracy-concern",
+  "title": "Расчёт домов в натальной карте не совпадает со стандартными астрологическими калькуляторами, что снижает доверие к интерпретациям",
+  "obs": 1
+ }
+]

@@ -1,0 +1,319 @@
+You are grouping 54 mechanism-level insight clusters from talabat: Food, grocery & more (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO talabat: Food, grocery & more, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 54 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to talabat: Food, grocery & more — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to talabat: Food, grocery & more>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsz20ri2fp3ughvpkv8h6cc.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "inadequate-compensation-missing-items",
+  "title": "Компенсация за отсутствующие или испорченные товары не соответствует реальным потерям",
+  "obs": 5
+ },
+ {
+  "id": "advertised-discount-not-applied",
+  "title": "Скидка, объявленная в интерфейсе ресторана или при входе, не применяется при оформлении заказа",
+  "obs": 4
+ },
+ {
+  "id": "coupon-promo-not-working",
+  "title": "Купоны и промокоды не срабатывают при оформлении заказа или содержат скрытые условия",
+  "obs": 4
+ },
+ {
+  "id": "refund-refused-missing-items",
+  "title": "Служба поддержки отказывает в возврате за отсутствующие, неправильные или некачественные товары",
+  "obs": 4
+ },
+ {
+  "id": "missing-items-in-order",
+  "title": "Товары из заказа регулярно отсутствуют при получении",
+  "obs": 4
+ },
+ {
+  "id": "phone-verification-broken",
+  "title": "Система не принимает корректный номер телефона и блокирует завершение заказа или регистрацию",
+  "obs": 4
+ },
+ {
+  "id": "support-no-phone-contact",
+  "title": "В приложении нет номера телефона или прямого способа связаться со службой поддержки",
+  "obs": 4
+ },
+ {
+  "id": "wrong-order-delivered",
+  "title": "Заказ перепутывают с чужим или доставляют не то, что было заказано",
+  "obs": 3
+ },
+ {
+  "id": "delivery-coverage-limited",
+  "title": "Ограниченная зона доставки не позволяет охватить всех потенциальных клиентов или достичь конкретного адреса",
+  "obs": 3
+ },
+ {
+  "id": "refund-delay-no-status",
+  "title": "Возврат средств занимает 5-17 дней вместо заявленных, без статус-обновлений",
+  "obs": 2
+ },
+ {
+  "id": "misleading-discount-math",
+  "title": "Объявленная скидка (30-50%) применяется некорректно: максимум возврата не соответствует заявленному проценту",
+  "obs": 2
+ },
+ {
+  "id": "prices-higher-than-restaurant",
+  "title": "Цены в приложении выше, чем напрямую в ресторане, несмотря на комиссии за доставку",
+  "obs": 2
+ },
+ {
+  "id": "double-charge",
+  "title": "Система списывает деньги дважды за один заказ",
+  "obs": 2
+ },
+ {
+  "id": "loyalty-points-low-value",
+  "title": "Накопленные баллы лояльности не дают значимых преимуществ: доступные награды несопоставимы с потраченным",
+  "obs": 2
+ },
+ {
+  "id": "systematic-delivery-delays",
+  "title": "Доставка постоянно опаздывает на 2+ часа, делая сервис ненадёжным",
+  "obs": 2
+ },
+ {
+  "id": "support-ends-chat-unilaterally",
+  "title": "Поддержка прерывает разговор или закрывает чат без решения проблемы",
+  "obs": 2
+ },
+ {
+  "id": "subscription-hidden-recurring",
+  "title": "При оформлении заказа по умолчанию выбрана подписка — обязательство повторной оплаты скрыто",
+  "obs": 1
+ },
+ {
+  "id": "pro-subscription-tax-negates-benefit",
+  "title": "Подписка Pro обещает экономию на доставке, но налог на доставку сводит выгоду на нет",
+  "obs": 1
+ },
+ {
+  "id": "pro-subscription-extra-payments",
+  "title": "Подписка Pro требует дополнительных платежей внутри приложения, что противоречит её назначению",
+  "obs": 1
+ },
+ {
+  "id": "pro-subscription-high-minimum",
+  "title": "Бесплатная доставка по подписке требует высокого минимума заказа, а отмена и возврат недоступны",
+  "obs": 1
+ },
+ {
+  "id": "hidden-fees-service-delivery-tax",
+  "title": "Итоговая стоимость заказа скрыта за сборами (сервис, доставка, налог), которые добавляются после показа базовой цены",
+  "obs": 1
+ },
+ {
+  "id": "unauthorized-card-charge",
+  "title": "Приложение списывает средства с карты без явного разрешения пользователя",
+  "obs": 1
+ },
+ {
+  "id": "digital-wallet-cancel-refund-delay",
+  "title": "При оплате через электронный кошелёк и отмене заказа возврат затягивается на 14+ дней без гарантий",
+  "obs": 1
+ },
+ {
+  "id": "refund-unavailable-by-region",
+  "title": "Возврат средств технически недоступен для пользователей из некоторых стран",
+  "obs": 1
+ },
+ {
+  "id": "restaurant-cancel-after-payment-no-refund",
+  "title": "Ресторан отменяет заказ после оплаты, а приложение закрывает тикет без возврата средств",
+  "obs": 1
+ },
+ {
+  "id": "cross-border-order-cancel-no-refund",
+  "title": "Заказ из другой страны автоматически отменяется и деньги не возвращаются",
+  "obs": 1
+ },
+ {
+  "id": "compensation-voucher-delivery-fee",
+  "title": "При использовании компенсационного купона система снова взимает комиссию за доставку",
+  "obs": 1
+ },
+ {
+  "id": "free-delivery-vouchers-disappear",
+  "title": "Выданные бесплатные доставки исчезают из приложения без объяснения",
+  "obs": 1
+ },
+ {
+  "id": "refund-case-closed-without-resolution",
+  "title": "Дело о возврате закрывается автоматически без выплаты и без возможности продолжить общение",
+  "obs": 1
+ },
+ {
+  "id": "order-cancelled-late",
+  "title": "Заказ отменяется спустя час-полтора после подтверждения без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "delivery-time-inaccurate",
+  "title": "Таймер доставки отсчитывает минуты, но не отражает реальное время — заказ приходит на 1-2 часа позже",
+  "obs": 1
+ },
+ {
+  "id": "fake-internet-error",
+  "title": "Приложение постоянно показывает ошибку отсутствия интернета при работающем соединении",
+  "obs": 1
+ },
+ {
+  "id": "app-general-bugs",
+  "title": "Приложение содержит технические ошибки, мешающие использованию",
+  "obs": 1
+ },
+ {
+  "id": "account-lost-after-update",
+  "title": "После обновления приложение теряет аккаунт пользователя, восстановление невозможно",
+  "obs": 1
+ },
+ {
+  "id": "account-blocked-without-explanation",
+  "title": "Аккаунт долгосрочного пользователя блокируется без предупреждения и объяснения, средства заморожены",
+  "obs": 1
+ },
+ {
+  "id": "restaurant-availability-false",
+  "title": "Ресторан отображается как доступный, но при каждом заказе сообщает о недоступности",
+  "obs": 1
+ },
+ {
+  "id": "grocery-stores-closed",
+  "title": "Все магазины в разделе продуктов закрыты без объяснения причин",
+  "obs": 1
+ },
+ {
+  "id": "driver-messaging-removed",
+  "title": "Функция отправки сообщений водителю перестала работать в новых версиях",
+  "obs": 1
+ },
+ {
+  "id": "counterfeit-expired-products",
+  "title": "Доставляются контрафактные, просроченные или ненадлежащим образом упакованные товары",
+  "obs": 1
+ },
+ {
+  "id": "cart-not-cleared-after-order",
+  "title": "Товары остаются в корзине после оформления заказа и требуют ручного удаления",
+  "obs": 1
+ },
+ {
+  "id": "customization-missing",
+  "title": "Нельзя удалить нежелательные ингредиенты или оставить комментарий к заказу",
+  "obs": 1
+ },
+ {
+  "id": "restaurant-search-limited",
+  "title": "Поиск показывает только около 10 ресторанов, хотя поблизости есть другие варианты",
+  "obs": 1
+ },
+ {
+  "id": "auto-restaurant-selection-wrong",
+  "title": "Приложение автоматически выбирает ресторан с противоположной стороны города вместо ближайшего",
+  "obs": 1
+ },
+ {
+  "id": "no-dark-mode",
+  "title": "В приложении отсутствует тёмная тема, что вызывает дискомфорт при использовании в темноте",
+  "obs": 1
+ },
+ {
+  "id": "excessive-ads",
+  "title": "Реклама в приложении мешает навигации и использованию основных функций",
+  "obs": 1
+ },
+ {
+  "id": "accessibility-blind-users",
+  "title": "Приложение не поддерживает работу незрячих пользователей: изображения без описаний, навигация затруднена",
+  "obs": 1
+ },
+ {
+  "id": "low-rating-feedback-no-detail",
+  "title": "При низкой оценке нет возможности указать конкретный товар или детально описать проблему",
+  "obs": 1
+ },
+ {
+  "id": "app-closes-at-midnight",
+  "title": "Приложение прекращает приём заказов в полночь, тогда как конкуренты работают до 3 ночи",
+  "obs": 1
+ },
+ {
+  "id": "no-tip-option-abroad",
+  "title": "При заказе из другой страны нет опции оставить чаевые водителю",
+  "obs": 1
+ },
+ {
+  "id": "driver-calls-for-address",
+  "title": "Водители звонят и просят повторить адрес, хотя он уже введён; нет чата для общения с иностранцами",
+  "obs": 1
+ },
+ {
+  "id": "false-promotions",
+  "title": "Рестораны публикуют акции, которых нет на деле или которые распространяются только на отдельные позиции",
+  "obs": 1
+ },
+ {
+  "id": "support-template-responses",
+  "title": "Поддержка отвечает только шаблонными извинениями, не предлагая реального решения проблемы",
+  "obs": 1
+ },
+ {
+  "id": "support-slow-unresponsive",
+  "title": "Поддержка медленно отвечает и не реагирует на повторные обращения",
+  "obs": 1
+ },
+ {
+  "id": "driver-fraud-no-resolution",
+  "title": "Водитель похищает деньги или имущество клиента, а компания отказывается разрешать ситуацию",
+  "obs": 1
+ }
+]

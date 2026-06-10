@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from Remini - AI Photo Enhancer (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Remini - AI Photo Enhancer, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Remini - AI Photo Enhancer — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Remini - AI Photo Enhancer>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsthi4v15mdug8piivmijf8.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "update-makes-faces-cartoonish",
+  "title": "После обновления алгоритм лиц делает кожу мультяшной и кукольной вместо естественного результата",
+  "obs": 7
+ },
+ {
+  "id": "update-overprocessed-artificial",
+  "title": "После обновления результат стал переобработанным и искусственным, тогда как раньше выглядел естественно",
+  "obs": 5
+ },
+ {
+  "id": "excessive-ad-count-per-edit",
+  "title": "Чтобы отредактировать или сохранить одно фото, нужно посмотреть множество видеороликов подряд",
+  "obs": 5
+ },
+ {
+  "id": "no-control-over-enhancement-intensity",
+  "title": "Усиление нельзя отключить или уменьшить — эффект применяется принудительно и необратимо",
+  "obs": 3
+ },
+ {
+  "id": "ads-at-every-step",
+  "title": "Реклама показывается на каждом этапе редактирования — при запуске, выборе, улучшении и сохранении",
+  "obs": 3
+ },
+ {
+  "id": "low-quality-photos-not-improved",
+  "title": "Приложение почти не улучшает пиксельные и низкокачественные фотографии",
+  "obs": 2
+ },
+ {
+  "id": "generator-ignores-user-face",
+  "title": "Генератор создаёт чужие AI-лица, едва похожие на загруженное селфи пользователя",
+  "obs": 2
+ },
+ {
+  "id": "watermark-unremovable",
+  "title": "Приложение добавляет водяной знак Remini, который не убрать ни в самом приложении, ни сторонними инструментами",
+  "obs": 2
+ },
+ {
+  "id": "app-is-mostly-ads",
+  "title": "Приложение состоит в основном из рекламы при минимуме реальных функций",
+  "obs": 2
+ },
+ {
+  "id": "ad-freezes-forces-restart",
+  "title": "Реклама зависает без кнопки закрытия, заставляя перезапускать приложение и начинать заново",
+  "obs": 2
+ },
+ {
+  "id": "more-ads-than-promised",
+  "title": "Приложение показывает больше рекламы, чем обещало для разблокировки функции",
+  "obs": 2
+ },
+ {
+  "id": "ad-length-excessive",
+  "title": "Видеореклама длится по минуте и больше вместо обычных нескольких секунд",
+  "obs": 2
+ },
+ {
+  "id": "fraudulent-charges-no-refund",
+  "title": "Приложение списывает деньги без согласия и не даёт отменить подписку или вернуть средства",
+  "obs": 1
+ },
+ {
+  "id": "subscription-popup-blocks-app",
+  "title": "Всплывающее окно подписки нельзя закрыть — оно блокирует доступ к основным функциям",
+  "obs": 1
+ },
+ {
+  "id": "auto-color-boost-beyond-settings",
+  "title": "Приложение автоматически усиливает цвет сверх выставленных пользователем настроек",
+  "obs": 1
+ },
+ {
+  "id": "double-enhancement-layer",
+  "title": "Приложение накладывает второй слой усиления поверх уже отредактированных элементов",
+  "obs": 1
+ },
+ {
+  "id": "face-lighting-imbalance",
+  "title": "Усиление делает лицо слишком ярким и оставляет контрастную линию на шее",
+  "obs": 1
+ },
+ {
+  "id": "only-sharpens-face-not-rest",
+  "title": "Приложение повышает резкость только лица, не обрабатывая остальную часть фотографии",
+  "obs": 1
+ },
+ {
+  "id": "distorts-landscape-background",
+  "title": "Приложение деформирует ландшафт и фон вместо их улучшения",
+  "obs": 1
+ },
+ {
+  "id": "enhance-does-nothing",
+  "title": "Функция улучшения не меняет фотографию вообще, несмотря на заявленные возможности",
+  "obs": 1
+ },
+ {
+  "id": "main-tool-worse-than-other-ai",
+  "title": "Главный инструмент повышения чёткости даёт результат хуже других встроенных AI-инструментов",
+  "obs": 1
+ },
+ {
+  "id": "ai-capabilities-reduced-after-update",
+  "title": "После обновления возможности AI заметно урезали по сравнению с прежней версией",
+  "obs": 1
+ },
+ {
+  "id": "removed-text-editing-feature",
+  "title": "Приложение убрало функцию текстового редактирования, ради которой им пользовались",
+  "obs": 1
+ },
+ {
+  "id": "no-age-segmented-options",
+  "title": "Нет возрастных режимов улучшения — для младенцев и пожилых результат не настраивается",
+  "obs": 1
+ },
+ {
+  "id": "batch-cannot-change-source",
+  "title": "В пакетной AI-генерации нельзя выбрать другое исходное фото, если результат не устроил",
+  "obs": 1
+ },
+ {
+  "id": "braces-not-recognized",
+  "title": "Приложение не распознаёт и не улучшает ортодонтические скобы на зубах",
+  "obs": 1
+ },
+ {
+  "id": "data-deletion-blocked-by-ads",
+  "title": "Удаление личных данных невозможно — навязчивая реклама перекрывает доступ к нужным ID-ключам",
+  "obs": 1
+ },
+ {
+  "id": "ads-increased-after-update",
+  "title": "После обновления рекламы стало заметно больше, чем было раньше",
+  "obs": 1
+ },
+ {
+  "id": "cannot-watch-ads-for-free-access",
+  "title": "Приложение не даёт посмотреть рекламу, чтобы получить бесплатный доступ к функциям",
+  "obs": 1
+ },
+ {
+  "id": "ads-watched-but-still-blocked",
+  "title": "Даже после просмотра всей рекламы основные функции редактирования остаются заблокированы",
+  "obs": 1
+ },
+ {
+  "id": "background-ad-audio-keeps-playing",
+  "title": "Звук фоновой рекламы продолжает играть и мешает загрузке фото и редактированию",
+  "obs": 1
+ },
+ {
+  "id": "inappropriate-and-repetitive-ads",
+  "title": "Приложение крутит однообразную рекламу и навязывает скачивание клавиатуры, иногда показывает контент 18+",
+  "obs": 1
+ },
+ {
+  "id": "crashes-overheating-after-update",
+  "title": "После обновления приложение зависает при открытии, тормозит сохранение и перегревает устройство",
+  "obs": 1
+ },
+ {
+  "id": "ai-profiles-disappear-reindex",
+  "title": "AI-профили сами исчезают, переиндексируются или теряют картинку без действий пользователя",
+  "obs": 1
+ },
+ {
+  "id": "false-no-internet-error",
+  "title": "Приложение постоянно выдаёт ошибку отсутствия интернета при работающем соединении",
+  "obs": 1
+ },
+ {
+  "id": "slow-photo-upload",
+  "title": "Загрузка фотографий идёт медленно и тормозит весь процесс редактирования",
+  "obs": 1
+ }
+]

@@ -1,0 +1,149 @@
+You are grouping 20 mechanism-level insight clusters from SoundCloud: The Music You Love (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO SoundCloud: The Music You Love, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 20 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to SoundCloud: The Music You Love — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to SoundCloud: The Music You Love>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-336353151.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "excessive-video-ads-block-listening",
+  "title": "Три видеорекламы подряд прерывают каждые две песни — нормально прослушать альбом на бесплатной версии невозможно",
+  "obs": 3
+ },
+ {
+  "id": "subscription-mobile-management-blocked",
+  "title": "Подписка оформляется через браузер, но управлять ею с iPhone невозможно — экран настроек заблокирован",
+  "obs": 1
+ },
+ {
+  "id": "premium-online-loading-broken",
+  "title": "После покупки премиума часть треков перестаёт загружаться онлайн с ошибками",
+  "obs": 1
+ },
+ {
+  "id": "mainstream-tracks-paywalled",
+  "title": "Большинство популярных треков доступны только в платной подписке — бесплатная версия не позволяет слушать мейнстрим",
+  "obs": 1
+ },
+ {
+  "id": "geo-restrictions-songs",
+  "title": "Часть треков недоступна в определённых странах, хотя альтернативы на платформе есть",
+  "obs": 1
+ },
+ {
+  "id": "ai-tracks-in-autoplay",
+  "title": "Сгенерированные нейросетью треки появляются в автоплее и неотличимы от настоящей музыки",
+  "obs": 1
+ },
+ {
+  "id": "recommendations-repetitive",
+  "title": "Рекомендации утратили разнообразие и показывают одни и те же треки вместо новых открытий",
+  "obs": 1
+ },
+ {
+  "id": "ads-force-stay-in-app",
+  "title": "Во время рекламного ролика приложение не позволяет переключиться на другие задачи — пользователь вынужден ждать окончания",
+  "obs": 1
+ },
+ {
+  "id": "shuffle-repeats-same-songs",
+  "title": "Перемешивание в плейлисте повторяет одни и те же треки вместо случайного разнообразия",
+  "obs": 1
+ },
+ {
+  "id": "track-click-erases-queue",
+  "title": "При клике на трек текущая очередь воспроизведения полностью стирается",
+  "obs": 1
+ },
+ {
+  "id": "track-loops-cant-switch",
+  "title": "После выбора трека приложение зацикливает его и не позволяет выбрать другую песню без перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "forced-autoplaylist-track",
+  "title": "Приложение принудительно ставит определённый трек в автоплейлист, и удалить его невозможно",
+  "obs": 1
+ },
+ {
+  "id": "play-count-hidden-from-list",
+  "title": "Счётчик прослушиваний убран из списка треков — для просмотра популярности нужно открывать каждый трек отдельно",
+  "obs": 1
+ },
+ {
+  "id": "saved-songs-category-limit",
+  "title": "Категории сохранённых треков показывают не более 20 позиций — раньше лимит был выше",
+  "obs": 1
+ },
+ {
+  "id": "battery-drain-wifi",
+  "title": "Приложение интенсивно разряжает батарею при использовании по Wi-Fi",
+  "obs": 1
+ },
+ {
+  "id": "android-tv-poor-quality",
+  "title": "Версия для телевизора работает нестабильно и значительно хуже мобильной",
+  "obs": 1
+ },
+ {
+  "id": "saved-tracks-comments-fail-to-load",
+  "title": "Приложение перестаёт загружать сохранённые треки и отображать комментарии к музыке",
+  "obs": 1
+ },
+ {
+  "id": "apple-signin-connection-error",
+  "title": "Вход через Apple выдаёт ошибку соединения, которая не устраняется переустановкой и блокирует доступ к сохранённой музыке",
+  "obs": 1
+ },
+ {
+  "id": "new-iphone-account-inaccessible",
+  "title": "После перехода на новый iPhone аккаунт становится недоступным — войти можно только через старое устройство",
+  "obs": 1
+ },
+ {
+  "id": "downloaded-tracks-vanish-after-relogin",
+  "title": "После принудительного повторного входа все загруженные треки исчезают и не восстанавливаются даже после переустановки",
+  "obs": 1
+ }
+]

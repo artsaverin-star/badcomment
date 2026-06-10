@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from Bedtime Bible (christian / sleep stories / scripture audio / faith) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Bedtime Bible, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Bedtime Bible — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Bedtime Bible>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1672878800.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ai-narrator-synthetic-voice",
+  "title": "Приложение использует синтезированный голос вместо живого чтеца — ощущение духовного руководства теряется",
+  "obs": 4
+ },
+ {
+  "id": "no-bible-version-choice",
+  "title": "Приложение поддерживает только один перевод Библии — нет KJV или ESV для привычных верующих",
+  "obs": 4
+ },
+ {
+  "id": "no-narrator-voice-choice",
+  "title": "Нет возможности выбрать голос нарратора — монотонный или неподходящий голос мешает расслабиться",
+  "obs": 4
+ },
+ {
+  "id": "no-playback-speed-control",
+  "title": "Нет регулировки скорости воспроизведения — фиксированный темп мешает слушать в удобном ритме",
+  "obs": 4
+ },
+ {
+  "id": "app-freezes-on-launch",
+  "title": "Приложение замерзает при открытии и не реагирует — переустановка не помогает",
+  "obs": 4
+ },
+ {
+  "id": "free-trial-immediate-charge",
+  "title": "Реклама обещает бесплатный пробный период, но списание происходит сразу после установки",
+  "obs": 3
+ },
+ {
+  "id": "background-sounds-battery-drain",
+  "title": "Фоновые звуки воспроизводятся всю ночь и разряжают батарею даже при подключённом зарядном",
+  "obs": 3
+ },
+ {
+  "id": "no-auto-chapter-advance",
+  "title": "После окончания главы приложение не переключается на следующую автоматически",
+  "obs": 3
+ },
+ {
+  "id": "content-not-downloading",
+  "title": "Некоторые главы не загружаются — функция скачивания работает непостоянно",
+  "obs": 3
+ },
+ {
+  "id": "trial-auto-charge-surprise",
+  "title": "Пробный период автоматически списывает деньги без предупреждения — система отмены работает неправильно",
+  "obs": 2
+ },
+ {
+  "id": "hidden-price-before-onboarding",
+  "title": "Приложение не раскрывает реальную стоимость до входа в интерфейс — скрытые платежи раздражают",
+  "obs": 2
+ },
+ {
+  "id": "community-features-paywalled",
+  "title": "Ранее бесплатные функции — молитвы за других и чат — перенесены в платный функционал",
+  "obs": 2
+ },
+ {
+  "id": "no-stories-just-chapters",
+  "title": "Заявленные «истории» в приложении оказываются просто чтением глав без нарратива",
+  "obs": 2
+ },
+ {
+  "id": "female-voice-breaks-sleep",
+  "title": "Голос нарратора меняется в середине сессии и пробуждает пользователя вместо расслабления",
+  "obs": 2
+ },
+ {
+  "id": "no-replay-chapter",
+  "title": "Нет кнопки повтора главы и навигации назад — пользователь не может вернуться к прослушанному",
+  "obs": 2
+ },
+ {
+  "id": "audio-not-playing-after-first-use",
+  "title": "Звук пропадает при повторном запуске — аудио не инициализируется корректно",
+  "obs": 2
+ },
+ {
+  "id": "no-text-mode-for-deaf",
+  "title": "Приложение поддерживает только аудиоформат без текста и субтитров — глухие пользователи исключены",
+  "obs": 2
+ },
+ {
+  "id": "double-billing-different-companies",
+  "title": "Платёж проходит дважды через разные юридические лица, но подписка в системе не активируется",
+  "obs": 1
+ },
+ {
+  "id": "trial-promo-intrusion",
+  "title": "Постоянные напоминания о пробном периоде нарушают священный характер приложения",
+  "obs": 1
+ },
+ {
+  "id": "scripture-editing-accuracy",
+  "title": "В тексте писания удалена или изменена фраза — точность перевода вызывает вопросы у пользователя",
+  "obs": 1
+ },
+ {
+  "id": "reflection-only-once",
+  "title": "Ежедневное резюме и молитва воспроизводятся только один раз и недоступны для повторного прослушивания",
+  "obs": 1
+ },
+ {
+  "id": "ai-assistant-heterodox-answers",
+  "title": "Встроенный ИИ-помощник предлагает различные толкования вместо православного авторитета",
+  "obs": 1
+ },
+ {
+  "id": "ai-assistant-broken",
+  "title": "ИИ-помощник не работает — приложение воспроизводит только фоновые звуки без нарратива",
+  "obs": 1
+ },
+ {
+  "id": "continuous-chapters-regression",
+  "title": "Раньше приложение воспроизводило несколько глав подряд — после обновления эта функция исчезла",
+  "obs": 1
+ },
+ {
+  "id": "reflection-only-last-chapter",
+  "title": "При выборе нескольких глав подряд отражение появляется только для последней главы",
+  "obs": 1
+ },
+ {
+  "id": "no-pause-button",
+  "title": "Запущенное воспроизведение невозможно остановить — кнопка паузы недоступна",
+  "obs": 1
+ },
+ {
+  "id": "screen-locked-no-audio",
+  "title": "Приложение перестаёт воспроизводить контент при заблокированном экране",
+  "obs": 1
+ },
+ {
+  "id": "background-sounds-unpleasant",
+  "title": "Фоновые звуки для сна звучат неприятно и не способствуют расслаблению",
+  "obs": 1
+ },
+ {
+  "id": "ipad-layout-broken",
+  "title": "На iPad интерфейс растянут и кнопка продолжения недостижима — адаптивный дизайн не работает",
+  "obs": 1
+ },
+ {
+  "id": "no-color-theme-option",
+  "title": "Нет выбора цветовой темы интерфейса — синий цвет фиксирован",
+  "obs": 1
+ },
+ {
+  "id": "no-streak-widget",
+  "title": "Серия чтений доступна только внутри приложения — нет виджета для быстрого отслеживания на главном экране",
+  "obs": 1
+ },
+ {
+  "id": "ai-chat-responses-too-long",
+  "title": "Ответы ИИ-помощника в чате слишком длинные — краткие ответы были бы удобнее",
+  "obs": 1
+ },
+ {
+  "id": "content-download-slow",
+  "title": "Загрузка контента занимает много времени — пользователь ожидает предзагруженный контент",
+  "obs": 1
+ },
+ {
+  "id": "crash-during-daily-devotion",
+  "title": "Приложение падает в конце ежедневного стиха и молитвы",
+  "obs": 1
+ },
+ {
+  "id": "app-name-morning-evening-mismatch",
+  "title": "Название «Bedtime Bible» скрывает утренний сценарий — позиционирование не отражает полную ценность",
+  "obs": 1
+ },
+ {
+  "id": "english-accent-pronunciation",
+  "title": "Акцент читателя искажает произношение английских слов и отвлекает от содержания",
+  "obs": 1
+ }
+]

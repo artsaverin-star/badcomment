@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "id": "connection-roulette",
+      "name": "Рулетка подключения: коннектится через раз",
+      "insight_ids": ["unstable-connection", "connection-hangs-silently", "wifi-calling-required"]
+    },
+    {
+      "id": "speed-and-dead-servers",
+      "name": "Минуты вместо секунд: медленные и мёртвые серверы",
+      "insight_ids": ["slow-connection-time", "slow-servers", "ads-slow-connection"]
+    },
+    {
+      "id": "blocked-where-needed",
+      "name": "Перестал пробивать блокировки там, где раньше работал",
+      "insight_ids": ["blocked-regions"]
+    },
+    {
+      "id": "fake-free-paywall",
+      "name": "Мнимая бесплатность: триал на 3 дня и платный пейволл",
+      "insight_ids": ["free-servers-broken", "free-label-misleading"]
+    },
+    {
+      "id": "privacy-betrayal-dirty-ads",
+      "name": "VPN, который сливает данные и крутит взрослую рекламу",
+      "insight_ids": ["data-sold-to-100-parties", "adult-ads-age-mismatch"]
+    },
+    {
+      "id": "session-killers-os-conflicts",
+      "name": "Убийцы сессий и конфликты с системой",
+      "insight_ids": ["vpn-disconnects-after-timer", "mac-blocks-other-apps"]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "id": "vpn-vs-internet",
+      "name": "VPN против интернета: тормозит, режет доступ, сам отваливается",
+      "insight_ids": ["vpn-speed-degradation", "vpn-blocks-apps", "vpn-drops-connection"]
+    },
+    {
+      "id": "billing-trap",
+      "name": "Трёхлетка, что продлевается сама: автосписание и отказ в возврате",
+      "insight_ids": ["subscription-renewal-trap"]
+    },
+    {
+      "id": "protocols-cleanweb",
+      "name": "Протоколы и CleanWeb — заявленные фишки, которые не включаются",
+      "insight_ids": ["protocol-switching-broken", "cleanweb-not-working"]
+    },
+    {
+      "id": "update-regressions",
+      "name": "После апдейтов хуже: редизайн, переустановки и вылеты",
+      "insight_ids": ["ui-redesign-harder-to-use", "reinstall-loop", "app-crashes"]
+    },
+    {
+      "id": "apple-carplay-tv-gaps",
+      "name": "Дыры экосистемы: урезанная защита Apple, мимо CarPlay и ТВ",
+      "insight_ids": ["apple-platform-missing-features", "carplay-tv-not-supported"]
+    }
+  ]
+}

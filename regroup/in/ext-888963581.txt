@@ -1,0 +1,334 @@
+You are grouping 57 mechanism-level insight clusters from White Noise HQ (white noise / sound machine / sleep) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO White Noise HQ, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 57 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to White Noise HQ — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to White Noise HQ>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-888963581.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "playback-continuous-night-dropout",
+  "title": "Приложение самопроизвольно останавливается посреди ночи несмотря на настройку непрерывного воспроизведения",
+  "obs": 7
+ },
+ {
+  "id": "strategy-focus-work-study",
+  "title": "Приложение используется для концентрации на работе или учёбе в шумных офисах, классах и многолюдных домах",
+  "obs": 7
+ },
+ {
+  "id": "payment-aggressive-upsell-popups",
+  "title": "При каждом запуске приложение показывает всплывающее окно с предложением купить премиум или другие приложения разработчика",
+  "obs": 6
+ },
+ {
+  "id": "playback-ad-interrupts-sound",
+  "title": "Рекламный попап или видео останавливают воспроизведение и будят пользователя ночью",
+  "obs": 6
+ },
+ {
+  "id": "content-sound-quality-natural",
+  "title": "Звуки воспринимаются как настоящие полевые записи, а не синтетика — это главное преимущество перед конкурентами",
+  "obs": 5
+ },
+ {
+  "id": "strategy-tinnitus-masking",
+  "title": "Белый и коричневый шум используются как средство маскировки тиннитуса, позволяя засыпать без лекарств",
+  "obs": 5
+ },
+ {
+  "id": "content-color-noise-variety",
+  "title": "Наличие белого, розового и коричневого шума позволяет подобрать оптимальный вариант под индивидуальное восприятие",
+  "obs": 4
+ },
+ {
+  "id": "content-nature-sounds-variety",
+  "title": "Разнообразие природных звуков — ручьи, дождь, конкретные географические места — создаёт эффект присутствия и повышает расслабление",
+  "obs": 4
+ },
+ {
+  "id": "playback-background-audio-mix",
+  "title": "Приложение воспроизводит звук в фоне одновременно с другими аудиоприложениями, не прерывая их",
+  "obs": 4
+ },
+ {
+  "id": "playback-sound-mixer",
+  "title": "Функция микширования нескольких звуков позволяет создать персональный бленд, более эффективный чем отдельные треки",
+  "obs": 4
+ },
+ {
+  "id": "reliability-app-crash-on-launch",
+  "title": "Приложение падает при каждой попытке открытия и не запускается вообще",
+  "obs": 4
+ },
+ {
+  "id": "strategy-travel-use-case",
+  "title": "Приложение заменяет домашний физический генератор шума в путешествиях — привычный звук в незнакомой среде",
+  "obs": 4
+ },
+ {
+  "id": "strategy-neighbor-noise-blocking",
+  "title": "Приложение блокирует непредсказуемый внешний шум — соседей, строительство, уличное движение — создавая звуковой барьер",
+  "obs": 4
+ },
+ {
+  "id": "content-scary-voices-in-sounds",
+  "title": "В записанных звуках природы слышны голоса людей, смех или звуки боли, нарушающие атмосферу расслабления",
+  "obs": 3
+ },
+ {
+  "id": "playback-affirmation-recording-cut",
+  "title": "Запись собственного голоса обрезается, не воспроизводится или не сохраняется после закрытия приложения",
+  "obs": 3
+ },
+ {
+  "id": "ui-timer-hard-to-find",
+  "title": "После первоначальной настройки пользователь не может найти таймер сна в интерфейсе",
+  "obs": 3
+ },
+ {
+  "id": "reliability-crash-during-playback",
+  "title": "Приложение крашится среди ночи во время воспроизведения, будя пользователя или ребёнка",
+  "obs": 3
+ },
+ {
+  "id": "reliability-battery-drain-screen-on",
+  "title": "Приложение не позволяет заблокировать экран во время воспроизведения, из-за чего батарея разряжается за ночь",
+  "obs": 3
+ },
+ {
+  "id": "strategy-replace-physical-device",
+  "title": "Приложение заменяет физический прибор — вентилятор, кондиционер, звуковую машину — без потери качества и с экономией денег",
+  "obs": 3
+ },
+ {
+  "id": "payment-free-content-limited",
+  "title": "Бесплатная версия предоставляет доступ лишь к минимуму функций — большинство контента заблокировано подпиской",
+  "obs": 2
+ },
+ {
+  "id": "payment-no-iap-advantage",
+  "title": "Отсутствие встроенных покупок и рекламы выделяет приложение на фоне конкурентов с агрессивной монетизацией",
+  "obs": 2
+ },
+ {
+  "id": "payment-conversion-ad-tolerance",
+  "title": "Пользователь готов заплатить за удаление рекламы, как только её количество превышает личный порог терпимости",
+  "obs": 2
+ },
+ {
+  "id": "content-unexpected-sound-preferences",
+  "title": "Пользователи обнаруживают неожиданные любимые звуки — стиральная машина, промышленный водонагреватель — которые работают лучше классического белого шума",
+  "obs": 2
+ },
+ {
+  "id": "content-affirmation-audio-voiced",
+  "title": "Приложение предлагает озвученные аффирмации для прослушивания и повтора, а не только текст на экране",
+  "obs": 2
+ },
+ {
+  "id": "playback-audio-artifacts",
+  "title": "Приложение издаёт прерывистый писк или громкий треск через динамики, нарушая сон",
+  "obs": 2
+ },
+ {
+  "id": "playback-offline-works",
+  "title": "Приложение работает без интернета — звуки можно загрузить заранее для использования в самолёте или за рубежом",
+  "obs": 2
+ },
+ {
+  "id": "ui-rating-prompt-too-early",
+  "title": "Запрос оценки появляется в первые минуты использования, до того как пользователь успел оценить функциональность",
+  "obs": 2
+ },
+ {
+  "id": "ui-screen-stays-on",
+  "title": "Экран не гаснет автоматически во время воспроизведения, ускоряя разряд батареи",
+  "obs": 2
+ },
+ {
+  "id": "ui-custom-affirmation-not-saved",
+  "title": "Пользовательские аффирмации и плейлисты не сохраняются даже после создания учётной записи",
+  "obs": 2
+ },
+ {
+  "id": "reliability-fraudulent-ads",
+  "title": "При запуске появляются мошеннические объявления о выигрыше iPhone, которые невозможно закрыть",
+  "obs": 2
+ },
+ {
+  "id": "strategy-snoring-partner",
+  "title": "Приложение решает проблему совместного сна — маскирует храп партнёра или позволяет обоим спать при разных потребностях",
+  "obs": 2
+ },
+ {
+  "id": "strategy-sleep-medication-replacement",
+  "title": "Пользователи, принимавшие снотворные, заменили таблетки на приложение белого шума",
+  "obs": 2
+ },
+ {
+  "id": "strategy-conditioned-sleep-reflex",
+  "title": "После регулярного использования нажатие кнопки приложения вызывает засыпание как условный рефлекс",
+  "obs": 2
+ },
+ {
+  "id": "strategy-privacy-noise-masking",
+  "title": "Белый шум используется для маскировки разговоров и защиты приватности, а не только для сна",
+  "obs": 2
+ },
+ {
+  "id": "payment-ads-after-purchase",
+  "title": "После оплаты подписки приложение продолжает показывать рекламу вопреки обещанию об её отсутствии",
+  "obs": 1
+ },
+ {
+  "id": "content-fan-sound-degraded",
+  "title": "Звук вентилятора изменился после обновления — теперь содержит щелчки, нарушающие его непрерывность",
+  "obs": 1
+ },
+ {
+  "id": "content-affirmation-tone-pressure",
+  "title": "Аффирмации создают давление на выполнение вместо принятия, что противоречит их расслабляющему назначению",
+  "obs": 1
+ },
+ {
+  "id": "content-typos-quality",
+  "title": "В текстовом контенте много опечаток, что снижает доверие к приложению",
+  "obs": 1
+ },
+ {
+  "id": "playback-resume-after-call",
+  "title": "После входящего звонка приложение не возобновляет воспроизведение автоматически и требует ручного перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "playback-loop-seamless",
+  "title": "Звуки воспроизводятся без слышимого шва на стыке петли, что критично для фоновых звуков",
+  "obs": 1
+ },
+ {
+  "id": "playback-affirmation-audio-broken",
+  "title": "Функция воспроизведения аффирмаций не работает — визуальный элемент есть, но звук отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "ui-landscape-forced-portrait",
+  "title": "Приложение принудительно использует портретную ориентацию, не поддерживая альбомный режим",
+  "obs": 1
+ },
+ {
+  "id": "ui-favorites-save",
+  "title": "Возможность сохранять предпочитаемые звуки для быстрого доступа ускоряет повторное использование приложения",
+  "obs": 1
+ },
+ {
+  "id": "ui-intuitive-onboarding",
+  "title": "Интерфейс понятен с первых минут — новый пользователь сразу находит микшер и таймер без обучения",
+  "obs": 1
+ },
+ {
+  "id": "ui-stop-button-unclear",
+  "title": "Пользователь не может остановить воспроизведение через стандартные элементы управления",
+  "obs": 1
+ },
+ {
+  "id": "ui-widget-affirmation-no-color",
+  "title": "Виджет аффирмаций на домашнем экране не позволяет менять цвет оформления",
+  "obs": 1
+ },
+ {
+  "id": "reliability-bluetooth-dropped",
+  "title": "Обновление отменило поддержку Bluetooth, сломав сценарий использования с беспроводной колонкой",
+  "obs": 1
+ },
+ {
+  "id": "reliability-app-stops-working-silently",
+  "title": "Приложение перестаёт работать без видимой причины и без сообщения об ошибке",
+  "obs": 1
+ },
+ {
+  "id": "reliability-system-settings-tampered",
+  "title": "Приложение несанкционированно изменяет системные настройки телефона без разрешения пользователя",
+  "obs": 1
+ },
+ {
+  "id": "reliability-clipboard-read",
+  "title": "Приложение читает содержимое буфера обмена устройства без ведома пользователя",
+  "obs": 1
+ },
+ {
+  "id": "reliability-app-hijacks-other-media",
+  "title": "Приложение самопроизвольно включает видео или музыку из других приложений и открывает рекламу без действий пользователя",
+  "obs": 1
+ },
+ {
+  "id": "reliability-launch-friction-child",
+  "title": "При открытии приложения появляются вопросы и задержки — критично, когда нужно мгновенно успокоить плачущего ребёнка",
+  "obs": 1
+ },
+ {
+  "id": "support-developer-responsive",
+  "title": "Разработчик оперативно отвечает на проблемы пользователей и помогает их решить",
+  "obs": 1
+ },
+ {
+  "id": "strategy-infant-soothing",
+  "title": "Приложение используется ежедневно с рождения ребёнка как инструмент мгновенного успокоения младенца",
+  "obs": 1
+ },
+ {
+  "id": "strategy-airplay-outdoor",
+  "title": "Пользователи выводят звук через AirPlay на стереосистему для создания звукового оазиса на открытом воздухе",
+  "obs": 1
+ },
+ {
+  "id": "strategy-music-vs-noise-sleep",
+  "title": "Пользователи переходят с музыки на белый шум, обнаружив, что музыка отвлекает при засыпании",
+  "obs": 1
+ },
+ {
+  "id": "strategy-hypersensitivity-sleep",
+  "title": "Пользователи с гиперчувствительностью к звукам используют приложение как единственный способ засыпать",
+  "obs": 1
+ }
+]

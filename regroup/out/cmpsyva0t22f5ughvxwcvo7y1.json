@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "id": "predictions-miss-the-real-baby",
+      "name": "Прогноз скачков мимо живого ребёнка",
+      "insight_ids": [
+        "leap-timing-mismatch-no-adjust",
+        "predictions-inverted",
+        "predictions-accurate-within-days",
+        "everything-labeled-fussy",
+        "prediction-window-too-wide",
+        "premature-gestational-age-ignored",
+        "ignores-other-fussiness-causes",
+        "non-standard-cycle-manual-tuning"
+      ]
+    },
+    {
+      "id": "billing-traps-and-blocked-access",
+      "name": "Платная стена: оплати вслепую, доступ не гарантирован",
+      "insight_ids": [
+        "payment-required-before-trying",
+        "paywall-hidden-after-data-collection",
+        "free-label-but-paid",
+        "subscription-replaced-onetime-purchase",
+        "no-refund-after-blocked-access",
+        "unresponsive-after-purchase",
+        "cannot-login-after-purchase"
+      ]
+    },
+    {
+      "id": "baby-dates-corrupt-and-reset",
+      "name": "Даты ребёнка ломаются и сбивают весь прогноз",
+      "insight_ids": [
+        "birthdate-corrupts-on-save",
+        "data-corrupt-after-reinstall",
+        "due-date-resets-on-open"
+      ]
+    },
+    {
+      "id": "thin-and-broken-content",
+      "name": "Контент пустой, статичный и сделан небрежно",
+      "insight_ids": [
+        "static-content-during-phase",
+        "first-month-thin-content",
+        "vague-phases-no-checkpoints",
+        "no-motor-milestones",
+        "milestone-age-ranges-unrealistic",
+        "video-music-too-loud",
+        "video-mismatch-description",
+        "label-placeholders-readmore-broken",
+        "grammar-translation-errors",
+        "confusing-redesigned-ui"
+      ]
+    },
+    {
+      "id": "account-login-lockouts",
+      "name": "Аккаунт выкидывает: входы, сессии и второе устройство",
+      "insight_ids": [
+        "no-multi-device-one-account",
+        "frequent-forced-relogin",
+        "cannot-delete-account",
+        "logout-on-add-story-photo",
+        "password-reset-blocked-attempts",
+        "change-email-needs-support",
+        "community-posts-broken"
+      ]
+    },
+    {
+      "id": "family-shapes-not-supported",
+      "name": "Не для всех семей: пары, опекуны, приёмные дети",
+      "insight_ids": [
+        "due-date-required-excludes-adopted",
+        "partner-code-broken",
+        "max-two-caregivers"
+      ]
+    },
+    {
+      "id": "horoscope-not-science",
+      "name": "Гороскоп вместо науки и лишняя родительская тревога",
+      "insight_ids": [
+        "leaps-not-scientific",
+        "creates-parental-anxiety"
+      ]
+    }
+  ]
+}

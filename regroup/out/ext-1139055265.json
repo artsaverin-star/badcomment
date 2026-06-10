@@ -1,0 +1,50 @@
+{
+  "groups": [
+    {
+      "id": "downloads-vanish",
+      "name": "Скачанное исчезает: загрузки и плейлисты сгорают после апдейтов",
+      "insight_ids": [
+        "downloads-deleted-after-update",
+        "downloads-deleted-periodically",
+        "offline-wrong-song-substitution",
+        "downloads-shown-in-ui-unwanted"
+      ]
+    },
+    {
+      "id": "playback-breaks-mid-listen",
+      "name": "Прослушивание рвётся на третьей песне: зависания и вылеты",
+      "insight_ids": [
+        "offline-freeze-after-update",
+        "continuous-play-crash",
+        "crash-on-open-or-select",
+        "playback-controls-freeze",
+        "headphone-skip-kills-audio"
+      ]
+    },
+    {
+      "id": "update-roulette",
+      "name": "Обновление как рулетка: ломает всё до переустановки",
+      "insight_ids": [
+        "catastrophic-update-regression",
+        "search-broken-after-update"
+      ]
+    },
+    {
+      "id": "favorites-gone-haywire",
+      "name": "Избранное живёт своей жизнью: пустые экраны и рассинхрон",
+      "insight_ids": [
+        "favorites-blank-after-update",
+        "favorites-state-desync",
+        "favorites-reorder-removed"
+      ]
+    },
+    {
+      "id": "login-and-video-friction",
+      "name": "Каждый вход заново и музыка только через видео",
+      "insight_ids": [
+        "session-lost-on-exit",
+        "no-direct-audio-only-video"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+You are grouping 67 mechanism-level insight clusters from Routine Planner, Habit Tracker (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Routine Planner, Habit Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 67 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Routine Planner, Habit Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Routine Planner, Habit Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1450486923.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "morning-improvement-measurable",
+  "title": "Пользователи измеримо сокращают время утренней рутины (например, с 1 часа до 30 минут) благодаря таймерам",
+  "obs": 7
+ },
+ {
+  "id": "voice-quality-synthetic",
+  "title": "Синтезированный голос звучит неестественно и навязчиво — пользователи отключают его полностью",
+  "obs": 6
+ },
+ {
+  "id": "timer-start-end-time",
+  "title": "Таймеры с временем начала и окончания позволяют точно спланировать длительность каждой задачи и всей рутины",
+  "obs": 6
+ },
+ {
+  "id": "timer-beats-adhd-task-initiation",
+  "title": "Таймер создаёт давление «обогнать счётчик», которое преодолевает паралич инициирования задач у людей с ADHD",
+  "obs": 6
+ },
+ {
+  "id": "app-freeze-crash-on-task",
+  "title": "Приложение зависает или закрывается при отметке задачи, редактировании рутины или переходе между задачами",
+  "obs": 5
+ },
+ {
+  "id": "time-blindness-awareness",
+  "title": "Таймеры помогают людям с time blindness впервые осознать реальную длительность задач и скорректировать расписание",
+  "obs": 5
+ },
+ {
+  "id": "free-tier-two-routine-limit",
+  "title": "Бесплатная версия ограничена двумя рутинами — добавить третью (дневную) можно только с подпиской",
+  "obs": 4
+ },
+ {
+  "id": "infinite-push-notifications-bug",
+  "title": "Приложение отправляет бесконечный поток одинаковых уведомлений каждую секунду — остановить можно только отключив разрешения в настройках системы",
+  "obs": 4
+ },
+ {
+  "id": "checklist-access-during-routine",
+  "title": "Нельзя открыть встроенный список (например, список вещей для упаковки) прямо во время шага рутины",
+  "obs": 4
+ },
+ {
+  "id": "aesthetics-as-motivation",
+  "title": "Визуальный дизайн и тактильная отдача мотивируют использовать приложение регулярно — как новая спортивная форма",
+  "obs": 4
+ },
+ {
+  "id": "long-term-streak-retention",
+  "title": "Часть пользователей поддерживает streak сотни дней подряд — приложение становится единственным, которое они используют постоянно",
+  "obs": 4
+ },
+ {
+  "id": "notifications-as-routine-anchor",
+  "title": "Уведомления в установленное время служат якорем, запускающим рутину даже без желания её выполнять",
+  "obs": 4
+ },
+ {
+  "id": "ads-in-premium",
+  "title": "Премиум-версия показывает рекламные баннеры и полноэкранные объявления о новых функциях, а также требует просмотра рекламы для архивирования",
+  "obs": 3
+ },
+ {
+  "id": "duplicate-notifications",
+  "title": "Приложение отправляет дублирующиеся уведомления и продолжает их слать после завершения рутины",
+  "obs": 3
+ },
+ {
+  "id": "routine-end-time-visibility",
+  "title": "Отображение предполагаемого времени окончания рутины помогает не опаздывать и планировать утро",
+  "obs": 3
+ },
+ {
+  "id": "decision-fatigue-reduction",
+  "title": "Автоматический выбор следующей задачи устраняет усталость от принятия решений утром",
+  "obs": 3
+ },
+ {
+  "id": "safety-net-anxiety-reduction",
+  "title": "Автоматизированная рутина служит «сетью безопасности» — пользователь расслабляется, зная что ничего не забудет",
+  "obs": 3
+ },
+ {
+  "id": "trial-too-short",
+  "title": "Семидневного пробного периода недостаточно, чтобы освоить приложение, настроить рутины и почувствовать результат",
+  "obs": 2
+ },
+ {
+  "id": "breathing-exercise-at-start",
+  "title": "Дыхательное упражнение в начале рутины помогает пользователю психологически настроиться перед началом",
+  "obs": 2
+ },
+ {
+  "id": "voice-unstable-switches-type",
+  "title": "Голосовые уведомления самопроизвольно переключаются между синтезированным голосом и звуком без команды пользователя",
+  "obs": 2
+ },
+ {
+  "id": "voice-volume-ignores-phone-volume",
+  "title": "Громкость голосовых объявлений игнорирует общую громкость телефона и не регулируется отдельно от музыки",
+  "obs": 2
+ },
+ {
+  "id": "voice-hands-free-next-task",
+  "title": "Голосовое объявление о переходе к следующей задаче позволяет положить телефон и работать без зрительного контроля",
+  "obs": 2
+ },
+ {
+  "id": "routine-resets-after-update",
+  "title": "После обновления рутины сбрасываются или перезагружаются сами по себе, теряя прогресс пользователя",
+  "obs": 2
+ },
+ {
+  "id": "no-transition-buffer",
+  "title": "После окончания одной задачи следующая начинается мгновенно — нет буферного времени на переход",
+  "obs": 2
+ },
+ {
+  "id": "view-other-routines-during-active",
+  "title": "Нельзя просматривать другие рутины во время выполнения активной рутины или на паузе",
+  "obs": 2
+ },
+ {
+  "id": "social-tab-unwanted",
+  "title": "Социальная лента занимает место в интерфейсе и не нужна большинству пользователей — её нельзя скрыть",
+  "obs": 2
+ },
+ {
+  "id": "sub-routine-nesting",
+  "title": "Нет поддержки вложенных рутин — нельзя вызвать одну рутину из шага другой",
+  "obs": 2
+ },
+ {
+  "id": "adhd-hyperfocus-prevention",
+  "title": "Таймер ограничивает гипер-фокус на одной задаче и помогает переключаться между делами в течение дня",
+  "obs": 2
+ },
+ {
+  "id": "adhd-flexibility-no-penalty",
+  "title": "Пользователи с ADHD ценят отсутствие штрафа за пропуск шагов — главное попытка, а не совершенство",
+  "obs": 2
+ },
+ {
+  "id": "iterative-routine-optimization",
+  "title": "Пользователи итеративно улучшают порядок задач на основе того, какие задачи они пропускают",
+  "obs": 2
+ },
+ {
+  "id": "family-routine-management",
+  "title": "Родители с ADHD используют голосовые объявления для управления утренним расписанием всей семьи без ручного контроля",
+  "obs": 2
+ },
+ {
+  "id": "trial-billing-mismatch",
+  "title": "Вход в старый аккаунт при оформлении нового триала автоматически списывает годовую подписку вместо активации пробного периода",
+  "obs": 1
+ },
+ {
+  "id": "trial-auto-charge",
+  "title": "Приложение списывает деньги в день окончания пробного периода, даже если пользователь установил напоминание об отмене",
+  "obs": 1
+ },
+ {
+  "id": "free-year-promise-broken",
+  "title": "Приложение обещало бесплатный год до декабря 2026, но выставило счёт на год раньше",
+  "obs": 1
+ },
+ {
+  "id": "cancel-button-leads-to-upsell",
+  "title": "Кнопка отмены подписки ведёт на форму оплаты вместо отмены, делая выход из подписки невозможным",
+  "obs": 1
+ },
+ {
+  "id": "upsell-prompts-in-app",
+  "title": "Приложение регулярно показывает подсказки о платных функциях, которые нельзя отключить",
+  "obs": 1
+ },
+ {
+  "id": "plant-streak-gamification",
+  "title": "Система выращивания растений визуально мотивирует поддерживать streak выполнения рутин",
+  "obs": 1
+ },
+ {
+  "id": "voice-no-media-autopause",
+  "title": "При голосовом объявлении приложение не приостанавливает подкасты и аудиокниги — голоса накладываются",
+  "obs": 1
+ },
+ {
+  "id": "notifications-wrong-time",
+  "title": "Уведомления срабатывают в неправильное время — например, в 2:27 ночи вместо установленных 6 утра",
+  "obs": 1
+ },
+ {
+  "id": "update-restores-old-routine",
+  "title": "Обновление случайно восстановило старую версию рутины, а новый интерфейс обрезает описания задач и не даёт восстановить данные",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-sync-broken",
+  "title": "Apple Watch нестабильно синхронизируется с телефоном: прерывает рутины, пропускает шаги и не фиксирует завершение",
+  "obs": 1
+ },
+ {
+  "id": "archived-routines-deleted",
+  "title": "Приложение случайно удалило архивированные рутины без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "false-routine-completed-state",
+  "title": "После года использования приложение стало сообщать, что рутина уже выполнена при открытии, и перестало отслеживать прогресс",
+  "obs": 1
+ },
+ {
+  "id": "notification-enable-button-broken",
+  "title": "Кнопка включения уведомлений на стартовом экране не работает",
+  "obs": 1
+ },
+ {
+  "id": "task-reorder-bug",
+  "title": "После обновления перемещение задачи вверх помечает её как пропущенную вместо изменения порядка",
+  "obs": 1
+ },
+ {
+  "id": "skip-task-marks-all-intermediate",
+  "title": "Нажатие на задачу не по порядку помечает все промежуточные задачи как пропущенные",
+  "obs": 1
+ },
+ {
+  "id": "end-time-display-broken-after-update",
+  "title": "После обновления перестало отображаться время завершения рутины — ключевая функция для утреннего планирования",
+  "obs": 1
+ },
+ {
+  "id": "no-time-for-one-time-tasks",
+  "title": "Установить время для одноразовой задачи или встречи невозможно — функция работает только для повторяющихся задач",
+  "obs": 1
+ },
+ {
+  "id": "task-without-timer-mode",
+  "title": "Нет режима выполнения задачи без таймера — только кнопка «Готово» без обратного отсчёта",
+  "obs": 1
+ },
+ {
+  "id": "go-back-to-previous-task",
+  "title": "Функция возврата к предыдущей задаче либо скрыта, либо недостаточно очевидна",
+  "obs": 1
+ },
+ {
+  "id": "pause-without-reminder",
+  "title": "Приложение отправляет напоминания при паузе рутины, создавая давление вместо снижения стресса",
+  "obs": 1
+ },
+ {
+  "id": "dark-mode-request",
+  "title": "Отсутствует тёмный режим интерфейса для ночных рутин",
+  "obs": 1
+ },
+ {
+  "id": "registration-not-required-unclear",
+  "title": "Приложение создаёт впечатление обязательной регистрации, хотя на самом деле она не нужна",
+  "obs": 1
+ },
+ {
+  "id": "android-layout-cramped",
+  "title": "Интерфейс оптимизирован под большие экраны и выглядит тесным на Android-устройствах",
+  "obs": 1
+ },
+ {
+  "id": "analytics-long-term-trends",
+  "title": "Аналитика показывает данные только за неделю — нет графика среднего времени задач за весь период использования",
+  "obs": 1
+ },
+ {
+  "id": "auto-optimize-task-times",
+  "title": "Нет автоматической настройки длительности задач на основе реального времени выполнения из истории",
+  "obs": 1
+ },
+ {
+  "id": "combined-streak-all-routines",
+  "title": "Приложение не объединяет streak разных рутин — нет общего показателя последовательности",
+  "obs": 1
+ },
+ {
+  "id": "unsubscribable-feature-tips",
+  "title": "Случайные подсказки о функциях приходят как уведомления и не поддаются отключению",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-routine-management",
+  "title": "Apple Watch позволяет управлять рутинами без телефона, включая запуск по времени, дублирование и игровой интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "routine-vs-todo-list",
+  "title": "Приложение воспринимается как план действий с временным компонентом, а не список дел",
+  "obs": 1
+ },
+ {
+  "id": "competitor-migration-tiimo",
+  "title": "Пользователи перешли с конкурирующего приложения после того, как оно убрало функцию рутин",
+  "obs": 1
+ },
+ {
+  "id": "privacy-profile-photo-sharing",
+  "title": "Приложение позволяет детям делиться фотографиями профиля, видимыми другим пользователям, создавая проблему приватности",
+  "obs": 1
+ },
+ {
+  "id": "app-size-too-large",
+  "title": "Пользователи просят уменьшить размер приложения на устройстве",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-learning-curve",
+  "title": "Приложение требует времени для обучения, но после освоения помогает оставаться сосредоточенным",
+  "obs": 1
+ },
+ {
+  "id": "active-development-positive",
+  "title": "Активное добавление функций и исправление багов командой разработчиков воспринимается как признак качества продукта",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-fully-functional",
+  "title": "Часть пользователей ценит, что приложение полноценно работает без подписки — не в freemium-режиме",
+  "obs": 1
+ },
+ {
+  "id": "timer-rigidity-causes-stress",
+  "title": "Жёсткая система таймеров создаёт давление вместо структуры — переупорядочение задач требует постоянной ручной реорганизации",
+  "obs": 1
+ }
+]

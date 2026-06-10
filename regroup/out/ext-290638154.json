@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "id": "efir-rvyotsya",
+      "name": "Эфир рвётся: остановки, буферизация и пропавший прямой звук",
+      "insight_ids": [
+        "continuous-stream-stops",
+        "podcast-autoplay-next-broken",
+        "playback-fails-weak-signal",
+        "buffering-and-skipping",
+        "playback-fails-no-network",
+        "after-update-playback-broken",
+        "podcast-playback-broken-days",
+        "playback-start-repeat-20sec",
+        "playback-speed-half",
+        "live-stream-archive-substitution",
+        "vpn-blocks-content"
+      ]
+    },
+    {
+      "id": "reklama-glushit-efir",
+      "name": "Реклама громче эфира: блоки без возврата, чужой язык и подмена новостей",
+      "insight_ids": [
+        "ad-louder-than-content",
+        "ad-nonstop-no-auto-stop",
+        "ad-double-layered",
+        "ads-wrong-language",
+        "ad-interrupts-mid-sentence",
+        "ad-before-every-launch",
+        "ad-keeps-screen-on",
+        "local-news-replaced-by-ads",
+        "android-ipad-music-over-ad",
+        "ads-geographically-irrelevant",
+        "podcast-preview-interrupts"
+      ]
+    },
+    {
+      "id": "greet-vyletaet-saryazhaet",
+      "name": "Греет телефон, вылетает и съедает заряд за полтора часа",
+      "insight_ids": [
+        "battery-drain-excessive",
+        "app-crash-on-launch",
+        "station-switch-crash",
+        "app-crashes-general",
+        "carplay-freezes",
+        "history-crash",
+        "device-overheating"
+      ]
+    },
+    {
+      "id": "kto-reshaet-chto-igrat",
+      "name": "Кто решает, что играть: цензура, чужие треки и предсказуемая ротация",
+      "insight_ids": [
+        "censored-music-no-override",
+        "wrong-song-played",
+        "artist-station-diluted",
+        "song-rotation-repetitive",
+        "skip-limit-per-hour",
+        "repeat-track-missing",
+        "no-equalizer",
+        "playlist-unwanted-auto-add"
+      ]
+    },
+    {
+      "id": "podkasty-ne-slushayutsya",
+      "name": "Подкасты не догонишь: задержки, потерянная позиция и порядок наоборот",
+      "insight_ids": [
+        "podcast-episode-delay",
+        "podcast-position-not-saved",
+        "podcast-episodes-reverse-order"
+      ]
+    },
+    {
+      "id": "lovushki-akkaunta-i-deneg",
+      "name": "Ловушки аккаунта и денег: отмена спрятана, выходы из сессии, гео-блок и конкурсы",
+      "insight_ids": [
+        "session-logout-unexpected",
+        "geo-restriction-local-stations",
+        "contest-website-broken",
+        "subscription-cancel-missing",
+        "apple-pay-subscription-broken",
+        "account-delete-impossible"
+      ]
+    },
+    {
+      "id": "za-rulyom-i-v-poiske",
+      "name": "За рулём и в поиске: лишние нажатия, обрезанный экран и навязчивые уведомления",
+      "insight_ids": [
+        "search-not-visible",
+        "search-song-playlist-hard",
+        "favorites-hard-to-find",
+        "navigation-too-many-taps",
+        "like-dislike-buttons-too-close",
+        "push-notification-double-tap",
+        "popup-notifications-persist",
+        "ios-shortcuts-integration-missing"
+      ]
+    }
+  ]
+}

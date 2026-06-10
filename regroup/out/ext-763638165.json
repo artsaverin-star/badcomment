@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Подписка-капкан: списания не прекращаются, отмена не работает",
+      "insight_ids": ["charges-after-cancel", "cancel-button-broken", "trial-charges-full"]
+    },
+    {
+      "id": "dead-on-devices",
+      "name": "Не запускается на половине устройств: iPad, Firestick, macOS",
+      "insight_ids": ["ipad-broken", "firestick-broken", "macos-broken"]
+    },
+    {
+      "id": "tunnel-fails",
+      "name": "Туннель есть, защиты нет: обрывы, мёртвый трафик, тормоза",
+      "insight_ids": ["disconnects-silent", "connected-no-traffic", "slow-login-servers"]
+    },
+    {
+      "id": "account-banned",
+      "name": "Аккаунт заблокирован без объяснений",
+      "insight_ids": ["account-terminated-no-reason"]
+    }
+  ]
+}

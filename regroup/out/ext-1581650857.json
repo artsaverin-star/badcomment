@@ -1,0 +1,75 @@
+{
+  "groups": [
+    {
+      "id": "reading-feed-built-for-selling",
+      "name": "Лента и чтение: устроено под продажу, а не под читателя",
+      "insight_ids": [
+        "content-type-filtering-feed",
+        "subscription-navigation-hard",
+        "navigation-slow-loading",
+        "inbox-no-bulk-read",
+        "reading-position-not-saved",
+        "copy-article-title-friction"
+      ]
+    },
+    {
+      "id": "mobile-authoring-broken",
+      "name": "Публикация с телефона: полноценно писать нельзя, а что есть — глючит",
+      "insight_ids": [
+        "authoring-mobile-limited",
+        "publish-error-empty-draft-lost",
+        "last-post-auto-loads-editor",
+        "gif-not-playing-after-publish",
+        "post-order-and-audio-duplicates",
+        "publish-article-bugs-media"
+      ]
+    },
+    {
+      "id": "playback-comments-crashes",
+      "name": "Зависает, перезапускается, ломается: плеер, комментарии, трансляции",
+      "insight_ids": [
+        "app-crash-freeze-ios",
+        "live-stream-freezes",
+        "video-plays-when-phone-off",
+        "video-freezes-headphone-unplug",
+        "player-bar-swipe-conflict",
+        "comment-editor-text-disappears",
+        "comment-like-reply-broken"
+      ]
+    },
+    {
+      "id": "ipad-gestures-navigation",
+      "name": "Жесты, иконки и iPad: интерфейс мешает перемещаться",
+      "insight_ids": [
+        "unknown-icons-no-help",
+        "deep-link-opens-home-not-article",
+        "ipad-layout-wasted-space",
+        "ipad-splitview-navigation-lost",
+        "no-swipe-back-archive-hidden",
+        "left-handed-not-supported"
+      ]
+    },
+    {
+      "id": "onboarding-login-billing-walls",
+      "name": "Стены на входе: регистрация, бан, код и платёж",
+      "insight_ids": [
+        "no-login-button-onboarding",
+        "verification-code-expires",
+        "account-banned-no-appeal",
+        "onboarding-wall-to-read-one-article",
+        "auto-follow-contacts-without-consent",
+        "upgrade-button-active-subscriber",
+        "access-revoked-before-billing-end"
+      ]
+    },
+    {
+      "id": "notifications-out-of-control",
+      "name": "Уведомления вышли из-под контроля: сотни пушей и нельзя выключить",
+      "insight_ids": [
+        "notification-from-unsubscribed",
+        "notification-cannot-disable-all",
+        "notification-volume-overwhelming"
+      ]
+    }
+  ]
+}

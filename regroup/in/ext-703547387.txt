@@ -1,0 +1,239 @@
+You are grouping 38 mechanism-level insight clusters from Life - Period Tracker Calendar (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Life - Period Tracker Calendar, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 38 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Life - Period Tracker Calendar — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Life - Period Tracker Calendar>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-703547387.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "update-wipes-years-of-data",
+  "title": "Обновление приложения безвозвратно удаляет многолетнюю историю периодов без предупреждения и без механизма восстановления",
+  "obs": 16
+ },
+ {
+  "id": "app-loops-to-onboarding-after-update",
+  "title": "После обновления приложение при каждом запуске показывает экран начальной настройки и блокирует доступ к уже введённым данным",
+  "obs": 9
+ },
+ {
+  "id": "pregnancy-planning-success-use-case",
+  "title": "Точность прогноза овуляции за несколько лет позволила пользователям спланировать беременности, включая случаи после 40 лет",
+  "obs": 6
+ },
+ {
+  "id": "icloud-backup-restore-broken",
+  "title": "Восстановление из iCloud-резервной копии не работает — приложение возвращается на главный экран или перезаписывает свежие данные старыми",
+  "obs": 4
+ },
+ {
+  "id": "cluttered-interface-with-ads",
+  "title": "Новый интерфейс перегружен рекламными блоками и «инсайтами», визуально захламлён и отвлекает от основного функционала трекера",
+  "obs": 4
+ },
+ {
+  "id": "perimenopause-tracking-use-case",
+  "title": "Пользователи в перименопаузе отслеживают нерегулярные циклы, чтобы определить наступление менопаузы — потеря данных делает приложение бесполезным для этого сценария",
+  "obs": 4
+ },
+ {
+  "id": "long-term-self-knowledge-use-case",
+  "title": "Многолетнее отслеживание раскрывает корреляции между стрессом, питанием и циклом — пользователи используют данные для самопознания и управления здоровьем",
+  "obs": 4
+ },
+ {
+  "id": "free-functions-paywalled",
+  "title": "Функции, которые раньше были бесплатными (отслеживание овуляции, веса, анализ тегов), внезапно переместились за платную подписку без предупреждения",
+  "obs": 3
+ },
+ {
+  "id": "own-data-locked-behind-paywall",
+  "title": "Многолетняя личная история циклов, которую пользователь сам вносил, теперь требует платной подписки для доступа",
+  "obs": 3
+ },
+ {
+  "id": "update-deletes-data-and-forces-subscription",
+  "title": "Обновление одновременно удаляет накопленные данные и вводит обязательную подписку — двойной удар по давним пользователям",
+  "obs": 3
+ },
+ {
+  "id": "prediction-algorithm-inaccurate-after-update",
+  "title": "После обновления алгоритм прогнозирования цикла стал ошибаться в датах — пользователи получают неверные прогнозы менструации",
+  "obs": 3
+ },
+ {
+  "id": "period-countdown-removed-from-home",
+  "title": "С главного экрана убран обратный отсчёт до следующего периода и дата последней менструации — для получения этих данных теперь нужна лишняя навигация",
+  "obs": 3
+ },
+ {
+  "id": "premium-upsell-popups-every-session",
+  "title": "Всплывающее предложение купить премиум появляется при каждом открытии и несколько раз за сессию, несмотря на нажатие «Отказаться»",
+  "obs": 3
+ },
+ {
+  "id": "ovulation-window-wrong-contraception-risk",
+  "title": "Алгоритм окна овуляции после обновления сдвигает фертильные дни в начало цикла — результат: ошибочная контрацепция и незапланированные беременности",
+  "obs": 2
+ },
+ {
+  "id": "data-not-displayed-on-launch",
+  "title": "После запуска приложение открывается, но не отображает сохранённые данные — экран пустой, хотя история существует",
+  "obs": 2
+ },
+ {
+  "id": "data-lost-spontaneously-without-update",
+  "title": "Приложение систематически теряет введённые данные вне связи с обновлением — пользователи вынуждены дублировать записи в бумажном журнале",
+  "obs": 2
+ },
+ {
+  "id": "notifications-broken-after-update",
+  "title": "После обновления уведомления о приближающемся периоде перестают приходить — основной сценарий напоминаний сломан",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-data-entry",
+  "title": "Приложение падает при попытке ввести данные о цикле, делая основной сценарий логирования ненадёжным",
+  "obs": 2
+ },
+ {
+  "id": "crash-scrolling-history",
+  "title": "При прокрутке истории циклов приложение тормозит или закрывается — длинная история не помещается в интерфейс",
+  "obs": 2
+ },
+ {
+  "id": "cross-device-sync-incomplete",
+  "title": "Синхронизация между телефоном и планшетом неполная — часть данных недоступна на втором устройстве; у обладателей пожизненной подписки функция работает нестабильно",
+  "obs": 2
+ },
+ {
+  "id": "calendar-layout-changed-mon-sun",
+  "title": "Новая раскладка календаря начинается с понедельника вместо воскресенья — пользователи ошибаются при подсчёте дней цикла",
+  "obs": 2
+ },
+ {
+  "id": "pregnancy-message-shown-to-minors",
+  "title": "Приложение показывает сообщение «Высокая вероятность беременности» 12-летним пользователям — нет проверки возраста или контекстной логики",
+  "obs": 2
+ },
+ {
+  "id": "irregular-cycles-not-supported",
+  "title": "Приложение не поддерживает нерегулярные циклы короче 28 дней и не позволяет вручную отметить овуляцию — первый экран настройки блокирует таких пользователей",
+  "obs": 2
+ },
+ {
+  "id": "endometriosis-life-management",
+  "title": "Женщины с эндометриозом используют историю циклов для планирования жизни вокруг болей — потеря данных полностью нарушает управление хроническим состоянием",
+  "obs": 2
+ },
+ {
+  "id": "export-backup-valued-for-migration",
+  "title": "Экспорт данных и облачное резервное копирование ценятся как инструмент переноса многолетней истории при смене телефона",
+  "obs": 2
+ },
+ {
+  "id": "free-analysis-features-retention-driver",
+  "title": "Функции анализа в бесплатной версии воспринимаются как редкость и удерживают пользователей без перехода в премиум",
+  "obs": 2
+ },
+ {
+  "id": "biodata-sold-back-as-insights",
+  "title": "Приложение превращает бесплатно введённые данные пользователя в платные «инсайты» и продаёт их обратно владельцу этих данных",
+  "obs": 1
+ },
+ {
+  "id": "apple-health-sync-broken",
+  "title": "Данные из Apple Health (вариабельность сердечного ритма и другие показатели) не импортируются в приложение корректно",
+  "obs": 1
+ },
+ {
+  "id": "vpn-required-some-regions",
+  "title": "В ряде стран приложение требует подключения через VPN — часть пользователей теряет доступ без технической настройки",
+  "obs": 1
+ },
+ {
+  "id": "sharing-feature-one-directional",
+  "title": "Функция совместного доступа работает в одну сторону: пользователь не видит данные партнёра, хотя партнёр данные вводит",
+  "obs": 1
+ },
+ {
+  "id": "app-installed-without-user-action",
+  "title": "Приложение появилось на телефоне без явной установки пользователем — вызывает подозрение в несанкционированной инсталляции",
+  "obs": 1
+ },
+ {
+  "id": "symptom-logging-too-many-steps",
+  "title": "В новом интерфейсе логирование симптомов требует трёх и более шагов вместо одного-двух, и введённые данные часто не сохраняются",
+  "obs": 1
+ },
+ {
+  "id": "no-free-text-notes-for-symptoms",
+  "title": "В новой версии нельзя добавлять произвольный текст к симптомам дня — исчезло поле свободного комментария, которое было в старой версии",
+  "obs": 1
+ },
+ {
+  "id": "ai-features-add-no-value-raise-privacy-concerns",
+  "title": "Добавленные функции генеративного ИИ не дают практической пользы и вызывают беспокойство о конфиденциальности репродуктивных данных",
+  "obs": 1
+ },
+ {
+  "id": "layout-does-not-fit-small-screen",
+  "title": "На iPhone mini новый интерфейс не помещается на экран, и часть настроек и опций календаря становится недоступной",
+  "obs": 1
+ },
+ {
+  "id": "discreet-app-name-as-differentiator",
+  "title": "Нейтральное название «Life» позволяет использовать трекер без смущения на публике — это ценится как функция дискретности",
+  "obs": 1
+ },
+ {
+  "id": "community-feature-for-peer-sharing",
+  "title": "Встроенная функция сообщества позволяет обсуждать опыт менструации с другими пользователями прямо внутри приложения",
+  "obs": 1
+ },
+ {
+  "id": "competitor-flo-users-return-to-life",
+  "title": "Пользователи, переходившие на конкурирующее приложение Flo, возвращаются обратно, считая Life более удобным для своих задач",
+  "obs": 1
+ }
+]

@@ -1,0 +1,239 @@
+You are grouping 38 mechanism-level insight clusters from Reface: Face Edit AI Photo App (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Reface: Face Edit AI Photo App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 38 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Reface: Face Edit AI Photo App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Reface: Face Edit AI Photo App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstlb901dt8ug8phz04brf1.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "initial-payment-unlocks-only-download",
+  "title": "Первый платёж даёт только скачивание приложения — все функции, включая рекламируемые причёски, требуют отдельную подписку",
+  "obs": 7
+ },
+ {
+  "id": "nsfw-filter-false-positives",
+  "title": "Фильтр NSFW ошибочно блокирует обычные одетые фотографии без объяснения причины и возможности апелляции",
+  "obs": 5
+ },
+ {
+  "id": "trial-silent-jump-to-full-price",
+  "title": "Дешёвый пробный период автоматически переходит на полную еженедельную подписку $19.99 без явного уведомления о цене и дате",
+  "obs": 4
+ },
+ {
+  "id": "preview-haircut-before-stylist",
+  "title": "Люди используют приложение, чтобы заранее примерить стрижку и обсудить желаемый стиль с мастером перед визитом",
+  "obs": 4
+ },
+ {
+  "id": "hidden-subscription-cannot-cancel",
+  "title": "Подписка скрыта из системы биллинга Apple и из приложения, но продолжает списывать $19.99 в неделю без способа отмены",
+  "obs": 3
+ },
+ {
+  "id": "moderation-tightened-after-update",
+  "title": "Новая AI-модерация стала чрезмерно строгой и блокирует ранее допустимый контент, отпугивая давних пользователей",
+  "obs": 3
+ },
+ {
+  "id": "errors-without-recovery-path",
+  "title": "После нескольких удачных генераций приложение начинает выдавать неопределённые ошибки без сообщения и пути восстановления",
+  "obs": 3
+ },
+ {
+  "id": "fun-content-with-friends-and-partner",
+  "title": "Приложение служит развлечением — пользователи делятся смешными трансформациями лиц друзей и близких",
+  "obs": 3
+ },
+ {
+  "id": "lifetime-or-onetime-has-hidden-limit",
+  "title": "«Пожизненный» или разовый доступ имеет скрытый лимит — после нескольких редактирований приложение молча переводит на еженедельную подписку",
+  "obs": 2
+ },
+ {
+  "id": "single-free-generation-then-paywall",
+  "title": "Бесплатно доступна только одна генерация, после чего требуется подписка — это неочевидно во время загрузки фото",
+  "obs": 2
+ },
+ {
+  "id": "no-short-hairstyles",
+  "title": "Алгоритм генерирует только длинные и средние причёски и почти не предлагает короткие стрижки",
+  "obs": 2
+ },
+ {
+  "id": "social-media-content-tool",
+  "title": "Активные пользователи делают приложение основным фильтром для контента в соцсетях, включая видео с анимированными лицами",
+  "obs": 2
+ },
+ {
+  "id": "hair-style-color-exploration",
+  "title": "Пользователи итеративно подбирают цвет и стиль волос, чтобы найти подходящий своей внешности",
+  "obs": 2
+ },
+ {
+  "id": "upgrade-prompts-after-paying",
+  "title": "Приложение показывает модальные окна с предложением апгрейда даже тем, кто уже оплатил годовую подписку",
+  "obs": 1
+ },
+ {
+  "id": "support-confirms-charge-refuses-refund",
+  "title": "Поддержка подтверждает неправомерность списания, но отказывает в возврате, ссылаясь на процедурный срок",
+  "obs": 1
+ },
+ {
+  "id": "hidden-real-annual-cost",
+  "title": "После разового платежа $7.99 приложение списывает ежеквартально $21.59 — более $1100 в год, реальная стоимость скрыта до оплаты",
+  "obs": 1
+ },
+ {
+  "id": "offstore-billing-double-charge",
+  "title": "Платежи идут мимо App Store, поэтому отмена подписки в Apple не останавливает списания с карты — двойная точка биллинга",
+  "obs": 1
+ },
+ {
+  "id": "paid-but-no-access-at-all",
+  "title": "Годовая подписка не даёт доступа к приложению — пользователь оплатил, но не может пользоваться ни платной, ни бесплатной версией",
+  "obs": 1
+ },
+ {
+  "id": "celebrity-photos-now-blocked",
+  "title": "После обновления приложение блокирует фотографии знаменитостей и политиков, что было возможно ранее",
+  "obs": 1
+ },
+ {
+  "id": "too-few-hairstyle-variants",
+  "title": "Вместо обещанного разнообразия приложение даёт лишь несколько вариантов причёсок по умолчанию без выбора и комбинирования",
+  "obs": 1
+ },
+ {
+  "id": "result-ignores-user-selection",
+  "title": "Приложение выдаёт результаты, не соответствующие выбранной пользователем причёске",
+  "obs": 1
+ },
+ {
+  "id": "fantasy-instead-of-professional",
+  "title": "Вместо профессиональных фото профиля пользователь получает фэнтези-трансформации (викинг, пират), не соответствующие заявленному",
+  "obs": 1
+ },
+ {
+  "id": "low-quality-hair-rendering",
+  "title": "AI рендерит волосы как приклеенные куски без реалистичного вида, несмотря на привлекательную рекламу",
+  "obs": 1
+ },
+ {
+  "id": "diverse-skin-tones-inaccurate",
+  "title": "AI генерирует лица представителей меньшинств с недостаточной точностью по оттенкам кожи и чертам лица",
+  "obs": 1
+ },
+ {
+  "id": "hair-type-rendered-wrong",
+  "title": "Алгоритм неточен с типом волос — прямые волосы рендерятся как кудрявые, не соответствуя исходному фото",
+  "obs": 1
+ },
+ {
+  "id": "generation-stalls-at-99",
+  "title": "Процесс генерации зависает на 99%, создавая ощущение задержки и неопределённости",
+  "obs": 1
+ },
+ {
+  "id": "slow-generation-vs-daily-limit",
+  "title": "Каждая генерация занимает около минуты, а при дневном лимите в 20 попыток большинство уходит на ошибки, делая подписку неэффективной",
+  "obs": 1
+ },
+ {
+  "id": "failed-attempts-count-toward-limit",
+  "title": "Дневной лимит в 20 попыток засчитывает и неудачные генерации, сокращая реально доступный контент",
+  "obs": 1
+ },
+ {
+  "id": "marketing-promises-hairstyles-app-routes-elsewhere",
+  "title": "Реклама позиционирует приложение как примерку причёсок, но интерфейс направляет к редакторам лиц и аватарам",
+  "obs": 1
+ },
+ {
+  "id": "hairstyle-feature-hard-to-find",
+  "title": "Функция примерки причёсок спрятана и трудна для обнаружения при первом использовании",
+  "obs": 1
+ },
+ {
+  "id": "no-face-shape-detection",
+  "title": "Приложение не определяет форму лица и не показывает все результаты с выбранной причёской, как обещано в рекламе",
+  "obs": 1
+ },
+ {
+  "id": "reauth-on-saved-styles",
+  "title": "При возврате к сохранённым стилям интерфейс требует повторной аутентификации, прерывая работу",
+  "obs": 1
+ },
+ {
+  "id": "biometric-data-not-deleted",
+  "title": "Приложение хранит данные биометрического распознавания лиц даже после запроса на их удаление",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-broken",
+  "title": "Восстановление пароля не работает — письмо со ссылкой не приходит, пользователь теряет доступ к оплаченному аккаунту",
+  "obs": 1
+ },
+ {
+  "id": "support-silent-on-undelivered-photos",
+  "title": "После оплаты пользователь не получает обработанные фото, а поддержка не отвечает на запросы о возврате",
+  "obs": 1
+ },
+ {
+  "id": "more-free-faces-boosts-conversion",
+  "title": "Расширение числа бесплатных вариантов лиц могло бы повысить конверсию за счёт большего образца результатов перед оплатой",
+  "obs": 1
+ },
+ {
+  "id": "visualize-hair-growth-target",
+  "title": "Пользователь в период отращивания волос после повреждений визуализирует целевую длину и стиль",
+  "obs": 1
+ },
+ {
+  "id": "want-makeup-color-codes",
+  "title": "Пользователи хотят знать точные названия и коды цветов макияжа, применённого AI, чтобы воспроизвести результат в реальности",
+  "obs": 1
+ }
+]

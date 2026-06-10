@@ -1,0 +1,107 @@
+{
+  "groups": [
+    {
+      "id": "login-vortex",
+      "name": "Воронка входа: аккаунт есть, но войти нельзя",
+      "insight_ids": [
+        "ui-login-loop-no-signin-option",
+        "reliability-update-breaks-login",
+        "reliability-login-code-never-arrives",
+        "ui-login-code-field-mismatch",
+        "ui-email-change-not-allowed",
+        "ui-login-code-timeout-too-short",
+        "ui-login-apple-id-blocked",
+        "ui-paste-code-fails",
+        "ui-login-forced-first-screen",
+        "reliability-session-lost-daily",
+        "reliability-rewards-lost-on-account-switch"
+      ]
+    },
+    {
+      "id": "checkout-crashes",
+      "name": "Заказ не доходит до кассы: падения, ошибки и пропавший экран оплаты",
+      "insight_ids": [
+        "reliability-app-crashes-on-launch",
+        "reliability-general-ordering-errors",
+        "reliability-cart-stuck-with-phantom-order",
+        "payment-no-checkout-screen",
+        "ui-cart-overflow-no-scroll",
+        "ui-menu-load-fails",
+        "reliability-crash-on-large-order",
+        "reliability-items-responsive-broken",
+        "ui-keyboard-doesnt-close",
+        "ui-order-notes-button-disappears"
+      ]
+    },
+    {
+      "id": "payment-traps",
+      "name": "Платёжные ловушки: отклонённые карты, двойные списания и навязанные чаевые",
+      "insight_ids": [
+        "payment-card-declined-all-methods",
+        "payment-card-error-clears-cart",
+        "payment-promo-code-not-applied",
+        "payment-apple-pay-blocked",
+        "payment-tip-calculation-wrong",
+        "payment-tip-prompt-on-takeout",
+        "payment-card-info-not-saved",
+        "payment-paypal-shown-but-cash-required",
+        "reliability-deals-trigger-errors"
+      ]
+    },
+    {
+      "id": "lost-on-update",
+      "name": "Что отняло обновление: повтор заказа, заметки и стёртая корзина",
+      "insight_ids": [
+        "ui-order-history-missing",
+        "reliability-update-clears-cart",
+        "ui-reorder-removed",
+        "ui-order-notes-field-removed",
+        "ui-schedule-delivery-time-removed",
+        "reliability-cart-clears-on-app-switch",
+        "ui-combo-config-lost-between-items",
+        "reliability-topping-removal-fails",
+        "content-wrong-sauce-in-receipt",
+        "ui-schedule-time-picker-broken"
+      ]
+    },
+    {
+      "id": "wrong-place-wrong-time",
+      "name": "Не тот магазин, не то время: доставка против самовывоза и поиск ресторана",
+      "insight_ids": [
+        "strategy-tracking-inaccurate-delivered-early",
+        "reliability-order-sent-to-wrong-location",
+        "reliability-wrong-order-type-displayed",
+        "ui-order-type-default-wrong",
+        "ui-switch-order-type-unintuitive",
+        "ui-delivery-time-not-shown",
+        "ui-location-by-zip-not-distance",
+        "ui-no-location-found",
+        "ui-location-requires-gps",
+        "ui-store-hours-wrong",
+        "reliability-delivery-type-preference-not-saved",
+        "strategy-delivery-notification-missing"
+      ]
+    },
+    {
+      "id": "menu-and-deals",
+      "name": "Меню и акции: спрятанные предложения и закрытый каталог",
+      "insight_ids": [
+        "content-deals-not-shown-in-app",
+        "content-menu-unavailable-when-closed",
+        "content-item-availability-hidden",
+        "ui-order-total-hard-to-find"
+      ]
+    },
+    {
+      "id": "marketing-pressure",
+      "name": "Маркетинговое давление: апсейл, спам-уведомления и бонусы мимо счёта",
+      "insight_ids": [
+        "reliability-notification-settings-all-or-nothing",
+        "ui-subscriptions-shown-after-order",
+        "ui-rewards-balance-wrong",
+        "ui-promo-email-opens-browser",
+        "reliability-spam-notifications-after-update"
+      ]
+    }
+  ]
+}

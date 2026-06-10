@@ -1,0 +1,82 @@
+{
+  "groups": [
+    {
+      "id": "freezes-crashes-export",
+      "name": "Зависания, вылеты и сорванный экспорт",
+      "insight_ids": [
+        "freeze-during-editing",
+        "kicked-out-of-editor",
+        "crash-loses-work-no-autosave",
+        "export-freezes-screen",
+        "freeze-with-many-layers",
+        "export-takes-too-long",
+        "crash-opening-saved-projects",
+        "export-crashes-high-fps",
+        "group-export-kicks-out",
+        "dialog-button-crash",
+        "gallery-freezes",
+        "crop-tool-freezes"
+      ]
+    },
+    {
+      "id": "unsafe-content-moderation",
+      "name": "Порнография, несовершеннолетние и бессильная модерация",
+      "insight_ids": [
+        "explicit-content-in-elements",
+        "explicit-content-on-open",
+        "minors-targeted-groups",
+        "moderation-ignores-reports"
+      ]
+    },
+    {
+      "id": "lost-projects-accounts",
+      "name": "Пропавшие проекты, видео и заблокированные аккаунты",
+      "insight_ids": [
+        "lost-saved-progress",
+        "account-videos-deleted",
+        "message-history-deleted",
+        "account-suspended-no-reason"
+      ]
+    },
+    {
+      "id": "paywall-billing-pro",
+      "name": "Понедельная подписка, водяной знак и платный шантаж",
+      "insight_ids": [
+        "only-weekly-subscription",
+        "watermark-cannot-remove",
+        "deliberate-glitches-paywall",
+        "pro-limits-quality",
+        "pro-15-second-limit"
+      ]
+    },
+    {
+      "id": "export-quality-render",
+      "name": "Картинка на выходе: размытие, рассинхрон, деградация качества",
+      "insight_ids": [
+        "preview-export-mismatch",
+        "zoom-blurry",
+        "quality-degraded-over-years"
+      ]
+    },
+    {
+      "id": "editing-tools-precision",
+      "name": "Капризы инструментов: кадрирование, зум, кейфреймы, velocity",
+      "insight_ids": [
+        "keyframe-graphs-unstable",
+        "velocity-short-clip-error",
+        "zoom-nonlinear-curve",
+        "crop-stretches-video",
+        "3d-animation-hard",
+        "performance-forces-external-apps"
+      ]
+    },
+    {
+      "id": "broken-ui-ai-community",
+      "name": "Сломанный после обновлений интерфейс и AI, разогнавший сообщество",
+      "insight_ids": [
+        "ui-broken-after-update",
+        "ai-killed-community"
+      ]
+    }
+  ]
+}

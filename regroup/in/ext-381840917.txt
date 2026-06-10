@@ -1,0 +1,234 @@
+You are grouping 37 mechanism-level insight clusters from Seamless: Local Food Delivery (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Seamless: Local Food Delivery, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 37 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Seamless: Local Food Delivery — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Seamless: Local Food Delivery>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-381840917.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "delivery-time-inflated-after-confirm",
+  "title": "После подтверждения заказа расчётное время доставки увеличивается на 30-60 минут без возможности отмены",
+  "obs": 4
+ },
+ {
+  "id": "app-wide-lag",
+  "title": "Поиск, загрузка меню и оформление заказа тормозят независимо от качества соединения",
+  "obs": 3
+ },
+ {
+  "id": "driver-wrong-location",
+  "title": "Водитель не забирает заказ из ресторана или уезжает в другой район",
+  "obs": 3
+ },
+ {
+  "id": "hidden-fees-markup",
+  "title": "Приложение накручивает цены на блюда выше, чем на сайте ресторана, и скрывает разницу",
+  "obs": 2
+ },
+ {
+  "id": "promo-code-not-applied",
+  "title": "Промокоды показываются как применённые, но скидка не засчитывается; повторное использование блокируется",
+  "obs": 2
+ },
+ {
+  "id": "payment-lag-uncertainty",
+  "title": "При оформлении платежа приложение зависает — пользователь не понимает, прошла ли оплата",
+  "obs": 2
+ },
+ {
+  "id": "sponsored-results-replace-relevant",
+  "title": "Спонсируемые ссылки вытеснили релевантные результаты поиска ресторанов",
+  "obs": 2
+ },
+ {
+  "id": "no-cancel-no-address-change",
+  "title": "Сразу после размещения заказа нельзя ни отменить его, ни изменить адрес доставки",
+  "obs": 2
+ },
+ {
+  "id": "driver-ignores-instructions",
+  "title": "Водители игнорируют специальные инструкции доставки, введённые в приложение",
+  "obs": 2
+ },
+ {
+  "id": "double-service-fee-tips",
+  "title": "Приложение начисляет отдельную комиссию обслуживания и чаевые поверх стоимости заказа",
+  "obs": 1
+ },
+ {
+  "id": "promo-code-silently-removed",
+  "title": "Приложение удаляет промокод из корзины без предупреждения, поддержка отрицает его существование",
+  "obs": 1
+ },
+ {
+  "id": "promo-code-cutoff-window",
+  "title": "Промокод с ограниченным сроком нельзя применить позже чем за 15 минут до истечения",
+  "obs": 1
+ },
+ {
+  "id": "fake-coupons",
+  "title": "Платформа рассылает купоны, которые не работают при оформлении заказа",
+  "obs": 1
+ },
+ {
+  "id": "hidden-final-fees",
+  "title": "После показа итоговой стоимости приложение добавляет скрытые комиссии при подтверждении",
+  "obs": 1
+ },
+ {
+  "id": "credit-split-refund",
+  "title": "Возврат разбивается на несколько кредитов, которые можно использовать только по частям в разных заказах",
+  "obs": 1
+ },
+ {
+  "id": "accidental-pickup-tips",
+  "title": "Повторный заказ незаметно переключается на самовывоз и всё равно списывает чаевые",
+  "obs": 1
+ },
+ {
+  "id": "grubhub-upsell-every-screen",
+  "title": "На каждом экране приложение навязывает переход на платную подписку вместо основного функционала",
+  "obs": 1
+ },
+ {
+  "id": "no-receipt-email",
+  "title": "В приложении нет отправки чека на почту и нельзя скачать квитанцию",
+  "obs": 1
+ },
+ {
+  "id": "ai-photos-mislead",
+  "title": "Приложение показывает сгенерированные фотографии блюд вместо реальных",
+  "obs": 1
+ },
+ {
+  "id": "closed-restaurant-shown-open",
+  "title": "Рестораны показываются как работающие и с доставкой, хотя фактически недоступны",
+  "obs": 1
+ },
+ {
+  "id": "favorites-broken",
+  "title": "После обновления избранные рестораны не сохраняются — при добавлении появляется ошибка",
+  "obs": 1
+ },
+ {
+  "id": "no-favorites-organization",
+  "title": "В приложении нет способа категоризировать избранные рестораны или оставлять заметки",
+  "obs": 1
+ },
+ {
+  "id": "no-special-instructions-field",
+  "title": "В форме заказа отсутствует поле для специальных пожеланий к блюду",
+  "obs": 1
+ },
+ {
+  "id": "group-order-mobile-blocked",
+  "title": "К групповому заказу нельзя присоединиться через мобильное приложение — только через сайт после регистрации",
+  "obs": 1
+ },
+ {
+  "id": "address-change-after-order",
+  "title": "Появилась функция изменения адреса доставки после размещения заказа — без звонка в поддержку",
+  "obs": 1
+ },
+ {
+  "id": "refund-buried-login-loop",
+  "title": "Форма возврата спрятана глубоко в интерфейсе; вход зависает в бесконечном цикле",
+  "obs": 1
+ },
+ {
+  "id": "cannot-delete-profile-data",
+  "title": "Из профиля нельзя удалить старые номера телефонов и адреса",
+  "obs": 1
+ },
+ {
+  "id": "map-update-wrong-address",
+  "title": "После обновления карты заказы уходят не по указанному адресу",
+  "obs": 1
+ },
+ {
+  "id": "delivery-confirmation-code-inconvenient",
+  "title": "Код подтверждения при получении заказа запрашивается в неудобный момент и нарушает сон",
+  "obs": 1
+ },
+ {
+  "id": "help-section-error",
+  "title": "Раздел справки выдаёт ошибку о стране и остаётся недоступным даже в США",
+  "obs": 1
+ },
+ {
+  "id": "driver-notification-missing",
+  "title": "Водитель не получает номер телефона и номер квартиры, оставляет еду на земле",
+  "obs": 1
+ },
+ {
+  "id": "driver-photographs-user",
+  "title": "Водители фотографируют получателей без согласия при оформлении доставки",
+  "obs": 1
+ },
+ {
+  "id": "support-deleted-cards",
+  "title": "Техподдержка случайно удалила сохранённые карты пользователя",
+  "obs": 1
+ },
+ {
+  "id": "ai-bot-no-escalation",
+  "title": "Чат-бот поддержки не переключает на живого оператора и замолкает при сложных вопросах",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-no-support",
+  "title": "Бесплатная версия приложения не предоставляет доступа к поддержке при ошибках в заказе",
+  "obs": 1
+ },
+ {
+  "id": "no-refund-closed-restaurant",
+  "title": "Заказ принят у закрытого ресторана, возврат отклонён — вместо денег выдан кредит на несуществующую карту",
+  "obs": 1
+ },
+ {
+  "id": "no-compensation-driver-fail",
+  "title": "При провале доставки по вине водителя поддержка отказывает в компенсации",
+  "obs": 1
+ }
+]

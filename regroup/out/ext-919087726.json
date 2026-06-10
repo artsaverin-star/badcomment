@@ -1,0 +1,67 @@
+{
+  "groups": [
+    {
+      "id": "math-just-wrong",
+      "name": "Решает с ошибками: выдуманные числа и провалы на простой математике",
+      "insight_ids": [
+        "wrong-answers-basic-math",
+        "hallucinated-numbers-operations",
+        "accuracy-degraded-over-time",
+        "unpredictable-quality-by-problem-type",
+        "wrong-answers-fractions-calculator",
+        "no-error-reporting"
+      ]
+    },
+    {
+      "id": "stopped-solving-itself",
+      "name": "Перестал решать сам: чужие фото вместо ответа и отправка в Google",
+      "insight_ids": [
+        "matched-solutions-wrong-problem",
+        "redirect-to-google-ai",
+        "ai-replaced-direct-solve",
+        "competitor-ai-apps-better"
+      ]
+    },
+    {
+      "id": "paid-walls-and-billing",
+      "name": "Шаги ушли за платную стену, а деньги списывают дважды",
+      "insight_ids": [
+        "paywall-basic-steps",
+        "premium-steps-not-delivered",
+        "subscription-recharged-active",
+        "trial-charged-immediately"
+      ]
+    },
+    {
+      "id": "camera-cant-read",
+      "name": "Камера не справляется: неверное распознавание, углы и зависшая загрузка",
+      "insight_ids": [
+        "ocr-misreads-content",
+        "app-broken-after-update",
+        "photo-angle-crop-constraints",
+        "loading-freeze-no-exit",
+        "photo-multiple-equations-one-solved",
+        "calculator-camera-access",
+        "camera-overheats-device"
+      ]
+    },
+    {
+      "id": "beyond-its-reach",
+      "name": "Не по зубам: старшие классы, геометрия, графики и текстовые задачи",
+      "insight_ids": [
+        "advanced-math-not-covered",
+        "geometry-not-supported",
+        "graphs-not-supported",
+        "word-problems-not-solved"
+      ]
+    },
+    {
+      "id": "was-better-before",
+      "name": "Раньше было лучше: испорченные объяснения и удалённая история",
+      "insight_ids": [
+        "explanation-quality-degraded",
+        "solution-history-removed"
+      ]
+    }
+  ]
+}

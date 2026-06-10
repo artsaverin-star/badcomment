@@ -1,0 +1,109 @@
+You are grouping 12 mechanism-level insight clusters from Focus To-Do: Focus Timer&Tasks (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Focus To-Do: Focus Timer&Tasks, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 12 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Focus To-Do: Focus Timer&Tasks — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Focus To-Do: Focus Timer&Tasks>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-966057213.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-features-paywalled",
+  "title": "Базовые функции, которые раньше были бесплатны, переводят за платную подписку без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "widget-shows-wrong-time",
+  "title": "Виджет подписан «оставшееся время», но отображает использованное — пользователь видит обратную информацию",
+  "obs": 1
+ },
+ {
+  "id": "annoying-default-sounds",
+  "title": "Звуки уведомлений и щелчки в полноэкранном режиме раздражают и не поддаются отключению по умолчанию",
+  "obs": 1
+ },
+ {
+  "id": "timer-signal-silent-background",
+  "title": "Сигнал таймера не срабатывает, когда пользователь работает в другом приложении",
+  "obs": 1
+ },
+ {
+  "id": "timer-signal-silent-always",
+  "title": "Сигнал таймера не звучит вообще — приложение не выполняет свою основную функцию оповещения",
+  "obs": 1
+ },
+ {
+  "id": "session-time-miscalculated",
+  "title": "Приложение записывает меньше времени, чем прошло на самом деле — прогресс занижен",
+  "obs": 1
+ },
+ {
+  "id": "score-drops-on-long-sessions",
+  "title": "При длительных рабочих сессиях рейтинг пользователя падает вместо роста",
+  "obs": 1
+ },
+ {
+  "id": "app-blocker-bypassed-by-pause",
+  "title": "Блокировка приложений обходится через паузу таймера — защита не работает",
+  "obs": 1
+ },
+ {
+  "id": "app-lag-unresponsive",
+  "title": "Приложение тормозит и не реагирует на действия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-on-time-change",
+  "title": "При переходе на зимнее время все задачи и заметки удаляются без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "task-duplicate-on-complete",
+  "title": "При отметке задачи выполненной приложение создаёт её дубликат в списке",
+  "obs": 1
+ },
+ {
+  "id": "support-slow-generic",
+  "title": "Поддержка отвечает через шесть дней и предлагает стандартные решения, игнорируя детали обращения",
+  "obs": 1
+ }
+]

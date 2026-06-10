@@ -1,0 +1,96 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps-paywall",
+      "name": "Платные стены и ловушки подписки",
+      "insight_ids": [
+        "free-ops-hard-limit",
+        "trial-to-paid-silent-charge",
+        "two-step-hidden-cost",
+        "cancel-trial-still-charged",
+        "refund-denied-tos",
+        "refund-requires-evidence",
+        "paywall-after-editing",
+        "merge-image-free-once",
+        "premium-no-editing",
+        "no-cc-required",
+        "rating-prompt-every-action"
+      ]
+    },
+    {
+      "id": "crashes-data-loss-broken",
+      "name": "Падения, потеря работы и сломанные кнопки",
+      "insight_ids": [
+        "crash-data-loss",
+        "crash-large-pdf-offline",
+        "compress-blank-pages",
+        "large-pdf-split-silent-fail",
+        "qr-code-opens-appstore",
+        "update-removes-features",
+        "high-cpu-suspected-mining",
+        "login-broken-iphone",
+        "download-button-broken-ios"
+      ]
+    },
+    {
+      "id": "text-editing-limits",
+      "name": "Редактирование текста: ожидания против реальности",
+      "insight_ids": [
+        "direct-text-edit-missing",
+        "text-size-control-missing",
+        "text-editing-confusing-no-guide",
+        "web-pdf-not-editable-in-app",
+        "drawing-tool-low-precision",
+        "toolbar-not-movable"
+      ]
+    },
+    {
+      "id": "ocr-scan-quality",
+      "name": "OCR и сканирование — то спасает, то подводит",
+      "insight_ids": [
+        "ocr-failure-rate",
+        "ocr-quality-errors",
+        "skew-correction-missing",
+        "ocr-non-english-success",
+        "ocr-to-searchable-text",
+        "export-format-limited"
+      ]
+    },
+    {
+      "id": "navigation-viewing-friction",
+      "name": "Неудобная навигация и просмотр документов",
+      "insight_ids": [
+        "no-zoom-print",
+        "each-action-new-tab-new-file",
+        "thumbnail-panel-accidental-nav",
+        "no-default-view-mode",
+        "no-doc-structure-navigation"
+      ]
+    },
+    {
+      "id": "real-world-workflows",
+      "name": "Как iLovePDF реально встраивают в работу",
+      "insight_ids": [
+        "word-to-pdf-sign-workflow",
+        "compress-quality-preserved",
+        "canva-merge-workflow",
+        "mobile-editing-away-from-pc",
+        "b2b-catalog-compression",
+        "editorial-manuscript-workflow",
+        "scholarship-text-edit-usecase",
+        "bank-watermark-removal"
+      ]
+    },
+    {
+      "id": "cross-platform-integration",
+      "name": "Mac, iPad и интеграции — разный опыт на разных устройствах",
+      "insight_ids": [
+        "annotation-mac-extra-steps",
+        "ipad-experience-inconsistent",
+        "ios-share-sheet-integration",
+        "ipad-multiapp-integration",
+        "server-side-processing-no-warning"
+      ]
+    }
+  ]
+}

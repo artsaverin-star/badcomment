@@ -1,0 +1,98 @@
+{
+  "groups": [
+    {
+      "id": "migration-aftermath",
+      "name": "Слияние Personal Capital и Mint в Empower: что сломалось при переезде",
+      "insight_ids": [
+        "sync-unreliable-after-empower",
+        "merge-lost-old-dashboard",
+        "migration-lost-accounts",
+        "login-locked-out-months",
+        "login-long-process"
+      ]
+    },
+    {
+      "id": "login-auth-wall",
+      "name": "Вход как полоса препятствий: переаутентификация, 2FA и редиректы по кругу",
+      "insight_ids": [
+        "login-loop-reauth",
+        "vpn-blocks-app",
+        "session-timeout-midview",
+        "mobile-app-broken-browser-ok",
+        "web-app-redirect-loop",
+        "constant-2fa",
+        "password-reset-crash",
+        "login-flaky-multiple-attempts",
+        "no-face-id",
+        "outdated-2fa-methods",
+        "login-popup-method-choice",
+        "hidden-logout"
+      ]
+    },
+    {
+      "id": "sync-broken",
+      "name": "Связь со счетами рвётся: устаревшие балансы, зависшая синхронизация, потерянные транзакции",
+      "insight_ids": [
+        "sync-freezes-needs-reconnect",
+        "bank-link-drops-session",
+        "contributions-held-not-posted",
+        "partial-sync-missing-transactions",
+        "credit-union-link-fails",
+        "ira-data-not-loading",
+        "data-freshness-unclear"
+      ]
+    },
+    {
+      "id": "money-held-hostage",
+      "name": "Деньги под замком: блокировка переноса IRA, займов и зарплатных удержаний",
+      "insight_ids": [
+        "ira-rollover-blocked",
+        "loan-process-broken",
+        "payroll-deduction-changed",
+        "contribution-slider-imprecise",
+        "beneficiary-save-fails",
+        "rebalance-confusing",
+        "allocation-config-broken",
+        "edit-contribution-beneficiary-removed"
+      ]
+    },
+    {
+      "id": "gutted-overview",
+      "name": "Обновления выпотрошили обзор портфеля: пропали итоги, графики и калькуляторы",
+      "insight_ids": [
+        "consolidated-view-removed",
+        "totals-removed-home",
+        "graphs-not-loading",
+        "performance-trend-missing",
+        "retirement-calculator-removed",
+        "fees-not-shown",
+        "confusing-account-category"
+      ]
+    },
+    {
+      "id": "app-shell-frustrations",
+      "name": "Приложение-обрубок: всё уводит на сайт, тормозит и принуждает обновляться",
+      "insight_ids": [
+        "freeze-loses-unsaved",
+        "no-search-cluttered-menus",
+        "forced-update-on-open",
+        "slow-load",
+        "forced-app-download",
+        "horizontal-scroll-cutoff",
+        "feature-needs-website"
+      ]
+    },
+    {
+      "id": "support-and-marketing-trap",
+      "name": "Шаблонная поддержка, навязчивый апсейл и невозможность уйти",
+      "insight_ids": [
+        "delete-account-blocked-marketing",
+        "no-error-no-troubleshooting",
+        "support-template-only",
+        "nag-update-info",
+        "phone-spam",
+        "app-becomes-marketing"
+      ]
+    }
+  ]
+}

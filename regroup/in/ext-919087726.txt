@@ -1,0 +1,184 @@
+You are grouping 27 mechanism-level insight clusters from Photomath (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Photomath, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 27 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Photomath — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Photomath>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-919087726.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paywall-basic-steps",
+  "title": "Базовые пошаговые объяснения доступны только по платной подписке, хотя раньше были бесплатными",
+  "obs": 20
+ },
+ {
+  "id": "matched-solutions-wrong-problem",
+  "title": "Механизм «совпадение решений» возвращает чужую задачу вместо загруженной",
+  "obs": 20
+ },
+ {
+  "id": "wrong-answers-basic-math",
+  "title": "Приложение даёт неправильные ответы на простые и средние задачи",
+  "obs": 16
+ },
+ {
+  "id": "ocr-misreads-content",
+  "title": "OCR неправильно читает цифры и символы задачи, подменяя содержание",
+  "obs": 16
+ },
+ {
+  "id": "redirect-to-google-ai",
+  "title": "Вместо решения задачи приложение перенаправляет пользователя в Google или внешний AI",
+  "obs": 13
+ },
+ {
+  "id": "hallucinated-numbers-operations",
+  "title": "Приложение подменяет числа и операции в задаче, выдумывая собственные математические выражения",
+  "obs": 7
+ },
+ {
+  "id": "premium-steps-not-delivered",
+  "title": "Функция пошагового разбора не работает или зависает даже в платной подписке",
+  "obs": 6
+ },
+ {
+  "id": "advanced-math-not-covered",
+  "title": "Задачи уровня старших классов, AP и колледжа не поддерживаются или решаются с ошибками",
+  "obs": 6
+ },
+ {
+  "id": "accuracy-degraded-over-time",
+  "title": "Точность ответов заметно упала по сравнению с более ранними версиями приложения",
+  "obs": 5
+ },
+ {
+  "id": "geometry-not-supported",
+  "title": "Геометрические задачи и доказательства решаются неправильно или не поддерживаются",
+  "obs": 4
+ },
+ {
+  "id": "graphs-not-supported",
+  "title": "Задачи с графиками и параметрами трансформаций не распознаются или решаются неверно",
+  "obs": 3
+ },
+ {
+  "id": "app-broken-after-update",
+  "title": "После обновления приложение перестаёт сканировать или решать задачи",
+  "obs": 3
+ },
+ {
+  "id": "subscription-recharged-active",
+  "title": "Приложение повторно требует оплату, несмотря на действующую подписку",
+  "obs": 2
+ },
+ {
+  "id": "trial-charged-immediately",
+  "title": "Вместо обещанного пробного периода сразу списывается полная стоимость подписки",
+  "obs": 2
+ },
+ {
+  "id": "explanation-quality-degraded",
+  "title": "Качество пошаговых объяснений ухудшилось — методы усложнились, формат ответов непоследователен",
+  "obs": 2
+ },
+ {
+  "id": "unpredictable-quality-by-problem-type",
+  "title": "Качество решений непредсказуемо варьируется в зависимости от типа задачи",
+  "obs": 2
+ },
+ {
+  "id": "solution-history-removed",
+  "title": "Функция истории решений удалена в обновлении без замены",
+  "obs": 2
+ },
+ {
+  "id": "photo-angle-crop-constraints",
+  "title": "Приложение отвергает фото под углом и не позволяет обрезать снимок внутри приложения",
+  "obs": 2
+ },
+ {
+  "id": "loading-freeze-no-exit",
+  "title": "При неудачном распознавании загрузка зависает без возможности выйти",
+  "obs": 2
+ },
+ {
+  "id": "wrong-answers-fractions-calculator",
+  "title": "Встроенный калькулятор неправильно выполняет умножение и деление дробей",
+  "obs": 1
+ },
+ {
+  "id": "word-problems-not-solved",
+  "title": "Текстовые задачи не решаются или решаются с очень низкой точностью",
+  "obs": 1
+ },
+ {
+  "id": "photo-multiple-equations-one-solved",
+  "title": "При нескольких уравнениях на фото приложение решает только одно из них",
+  "obs": 1
+ },
+ {
+  "id": "calculator-camera-access",
+  "title": "Встроенный калькулятор вынуждает запрашивать доступ к камере, хотя она не нужна",
+  "obs": 1
+ },
+ {
+  "id": "no-error-reporting",
+  "title": "В приложении нет механизма сообщить об ошибочном ответе — неверные решения остаются в базе",
+  "obs": 1
+ },
+ {
+  "id": "camera-overheats-device",
+  "title": "Камера не отключается, когда не нужна, и перегревает телефон",
+  "obs": 1
+ },
+ {
+  "id": "ai-replaced-direct-solve",
+  "title": "Приложение заменило собственный решатель поиском чужих фотографий — механизм работает хуже",
+  "obs": 1
+ },
+ {
+  "id": "competitor-ai-apps-better",
+  "title": "Новые AI-приложения воспринимаются как лучшая альтернатива устаревшему продукту",
+  "obs": 1
+ }
+]

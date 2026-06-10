@@ -1,0 +1,224 @@
+You are grouping 35 mechanism-level insight clusters from Co–Star Personalized Astrology (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Co–Star Personalized Astrology, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 35 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Co–Star Personalized Astrology — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Co–Star Personalized Astrology>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsy9pep0t63ughv626yva8f.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "content-negative-tone",
+  "title": "Контент и уведомления приобрели исключительно негативный и тревожащий тон",
+  "obs": 27
+ },
+ {
+  "id": "content-you-page-removed",
+  "title": "Страница \"You\" с подробным дневным разбором удалена или урезана в обновлении",
+  "obs": 25
+ },
+ {
+  "id": "payment-features-moved-behind-paywall",
+  "title": "Функции, которые раньше были бесплатными, переносятся за платёж подписки в каждом обновлении",
+  "obs": 18
+ },
+ {
+  "id": "reliability-signup-crash",
+  "title": "Приложение падает на этапе создания аккаунта при любых условиях сети",
+  "obs": 13
+ },
+ {
+  "id": "content-ai-generated-low-quality",
+  "title": "Гороскопы генерируются AI и содержат клише, бессмыслицу и структуру без редактуры",
+  "obs": 10
+ },
+ {
+  "id": "content-depth-categories-removed",
+  "title": "Детализированные категории (Power, Pressure, Trouble) удалены или переработаны в менее информативные",
+  "obs": 7
+ },
+ {
+  "id": "content-overcommercialized-loss-of-identity",
+  "title": "Приложение утратило образовательную и персонализированную ценность в пользу монетизации",
+  "obs": 7
+ },
+ {
+  "id": "content-horoscopes-repetitive",
+  "title": "Ежедневные гороскопы повторяют одни и те же фразы несколько дней подряд",
+  "obs": 6
+ },
+ {
+  "id": "content-relationship-advice-not-relevant",
+  "title": "Гороскопы сосредоточены на романтических советах, неуместных для пользователей в отношениях или без интереса к ним",
+  "obs": 5
+ },
+ {
+  "id": "content-friend-updates-removed",
+  "title": "Функция ежедневных обновлений друзей удалена или заменена статичным графиком совместимости",
+  "obs": 5
+ },
+ {
+  "id": "ui-app-redesign-worse",
+  "title": "Новый интерфейс запутан и неудобен; старый макет был понятнее",
+  "obs": 5
+ },
+ {
+  "id": "content-inaccurate-predictions",
+  "title": "Прогнозы и категории не соответствуют реальному положению планет или жизненной ситуации пользователя",
+  "obs": 4
+ },
+ {
+  "id": "content-birth-chart-wrong",
+  "title": "Приложение показывает неправильный восходящий знак или другие поля натальной карты",
+  "obs": 4
+ },
+ {
+  "id": "payment-premium-no-access",
+  "title": "Платёж за премиум прошёл, но обещанные функции или контент не открываются",
+  "obs": 3
+ },
+ {
+  "id": "content-horoscope-timeline-removed",
+  "title": "Возможность просматривать гороскопы на несколько дней вперёд или назад удалена",
+  "obs": 3
+ },
+ {
+  "id": "reliability-login-error",
+  "title": "При попытке войти в аккаунт система выводит ошибку и не пускает",
+  "obs": 3
+ },
+ {
+  "id": "payment-subscription-charged-after-cancel",
+  "title": "Подписка продолжает списывать деньги после отмены; возврат недоступен",
+  "obs": 2
+ },
+ {
+  "id": "payment-paid-report-too-short",
+  "title": "Платные отчёты о совместимости содержат 2-3 предложения вместо обещанного подробного анализа",
+  "obs": 2
+ },
+ {
+  "id": "content-saved-tab-no-save-function",
+  "title": "Раздел \"Saved\" отображается, но кнопки сохранения гороскопов не существует",
+  "obs": 2
+ },
+ {
+  "id": "support-ai-bot-no-resolution",
+  "title": "Служба поддержки отвечает AI-ботом и не решает реальные проблемы при многократных обращениях",
+  "obs": 2
+ },
+ {
+  "id": "strategy-aggressive-monetization-user-loss",
+  "title": "Агрессивная монетизация отталкивает долгосрочных пользователей и разрушает конкурентное преимущество",
+  "obs": 2
+ },
+ {
+  "id": "payment-ask-void-not-in-pro",
+  "title": "Функция \"Спроси пустоту\" требует отдельной платы даже при активной подписке Pro",
+  "obs": 1
+ },
+ {
+  "id": "content-other-signs-unavailable",
+  "title": "Приложение не позволяет просматривать гороскопы других знаков зодиака",
+  "obs": 1
+ },
+ {
+  "id": "content-horoscope-delayed",
+  "title": "Гороскоп не обновляется в реальном времени и часто отстаёт на один день",
+  "obs": 1
+ },
+ {
+  "id": "ui-notification-badge-stale",
+  "title": "Уведомление о новом контенте приходит, хотя гороскоп не изменился",
+  "obs": 1
+ },
+ {
+  "id": "ui-font-size-no-control",
+  "title": "Шрифт слишком мелкий, опции изменения размера нет",
+  "obs": 1
+ },
+ {
+  "id": "ui-friend-profile-navigation-blocked",
+  "title": "После обновления переход на страницы друзей и другие разделы заблокирован",
+  "obs": 1
+ },
+ {
+  "id": "ui-message-future-self-wrong-name",
+  "title": "В функции сообщения будущему себе отображается имя отправителя вместо получателя",
+  "obs": 1
+ },
+ {
+  "id": "ui-unblock-contact-impossible",
+  "title": "После случайной блокировки контакта нет способа его разблокировать",
+  "obs": 1
+ },
+ {
+  "id": "ui-planet-visualization-static",
+  "title": "Визуализация планет остаётся статичной независимо от описания текущего транзита",
+  "obs": 1
+ },
+ {
+  "id": "ui-deep-content-button-broken",
+  "title": "Кнопка доступа к бесплатному глубокому чтению не реагирует на нажатие",
+  "obs": 1
+ },
+ {
+  "id": "reliability-app-crash-on-use",
+  "title": "Приложение крашится при использовании любых функций, кроме главной страницы",
+  "obs": 1
+ },
+ {
+  "id": "reliability-cross-device-profile-mix",
+  "title": "После смены телефона приложение показывает данные профиля друга вместо собственных",
+  "obs": 1
+ },
+ {
+  "id": "reliability-horoscope-wrong-device",
+  "title": "Полная версия гороскопа доступна на iPad, но отсутствует на iPhone",
+  "obs": 1
+ },
+ {
+  "id": "strategy-signup-data-collection",
+  "title": "Для регистрации требуется много личных данных (день рождения, время, город, телефон)",
+  "obs": 1
+ }
+]

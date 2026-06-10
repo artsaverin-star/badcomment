@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from Monarch: Budget & Track Money (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Monarch: Budget & Track Money, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Monarch: Budget & Track Money — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Monarch: Budget & Track Money>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsuv52n437iug8pzcuwdwxb.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "duplicate-transactions",
+  "title": "Приложение регулярно плодит дублирующиеся транзакции, которые приходится вычищать вручную",
+  "obs": 9
+ },
+ {
+  "id": "sync-breaks-needs-reconnect",
+  "title": "Синхронизация со счетами постоянно рвётся и требует ручного переподключения раз в неделю-месяц",
+  "obs": 9
+ },
+ {
+  "id": "balance-transactions-lag",
+  "title": "Баланс и транзакции отстают на часы или дни — даже после успешной синхронизации цифры неверны до переподключения",
+  "obs": 5
+ },
+ {
+  "id": "cannot-connect-specific-banks",
+  "title": "Конкретные банки и инвестсчета вообще не подключаются (Chase, Navy Federal, 401k, брокерские)",
+  "obs": 5
+ },
+ {
+  "id": "trial-charge-no-warning",
+  "title": "Полная подписка списывается после пробного периода без предупреждения — даже когда пользователь уже отписался",
+  "obs": 4
+ },
+ {
+  "id": "crashes-and-freezes",
+  "title": "Платное приложение падает, зависает и показывает пустой экран при запуске",
+  "obs": 4
+ },
+ {
+  "id": "auto-categorization-unreliable",
+  "title": "Автокатегоризация ошибается и со временем деградирует — приходится всё чаще править вручную",
+  "obs": 4
+ },
+ {
+  "id": "support-no-human-agent",
+  "title": "Поддержка отвечает только FAQ или с задержкой в недели — выхода на живого оператора нет",
+  "obs": 4
+ },
+ {
+  "id": "direct-billing-no-downgrade-upgrade",
+  "title": "После перехода на прямое выставление счетов нельзя сменить тариф, не дождавшись конца года или не потеряв оплаченное время",
+  "obs": 3
+ },
+ {
+  "id": "recurring-not-in-budget",
+  "title": "Категоризированные повторяющиеся платежи не попадают в бюджет автоматически — каждый нужно добавлять руками",
+  "obs": 3
+ },
+ {
+  "id": "goals-manual-only",
+  "title": "Цели не отслеживают расходы и переводы автоматически — всё вводится вручную и без деталей по погашению долга",
+  "obs": 3
+ },
+ {
+  "id": "merchant-split-impossible",
+  "title": "Несколько услуг или подписок от одного продавца нельзя разнести по разным категориям",
+  "obs": 3
+ },
+ {
+  "id": "price-hike-paywalled-features",
+  "title": "Базовые функции бюджета переносят в новый дорогой тариф — обещанные бесплатно нововведения становятся платными",
+  "obs": 2
+ },
+ {
+  "id": "categorization-lost-on-resync",
+  "title": "При переподключении счета все прежние категоризации теряются, а история грузится лишь за 3 месяца",
+  "obs": 2
+ },
+ {
+  "id": "budget-not-copyable-months",
+  "title": "Бюджет нельзя скопировать на будущие месяцы и нельзя перенести остаток при перерасходе",
+  "obs": 2
+ },
+ {
+  "id": "transfers-clunky-workflow",
+  "title": "Перевод между счетами требует двух отдельных операций на разных экранах вместо одного выбора счёта",
+  "obs": 2
+ },
+ {
+  "id": "subscription-settings-hidden",
+  "title": "Управление подпиской спрятано в мобильной веб-версии и недоступно в приложении — отписаться трудно",
+  "obs": 2
+ },
+ {
+  "id": "mobile-feature-parity",
+  "title": "Ключевые функции есть только в веб-версии — приходится постоянно переключаться между приложением и сайтом",
+  "obs": 2
+ },
+ {
+  "id": "card-required-before-trial",
+  "title": "Приложение требует данные карты до старта пробного периода",
+  "obs": 1
+ },
+ {
+  "id": "upsell-ads-for-paying-users",
+  "title": "Уже платящему пользователю показывают рекламу более дорогого тарифа",
+  "obs": 1
+ },
+ {
+  "id": "add-payment-method-fails",
+  "title": "Добавление карты ломается: карта показывается отклонённой, а деньги при этом не списываются",
+  "obs": 1
+ },
+ {
+  "id": "all-features-locked-without-sub",
+  "title": "Без подписки нельзя даже открыть вкладки и осмотреть приложение",
+  "obs": 1
+ },
+ {
+  "id": "bank-verification-stuck",
+  "title": "Подтверждение банка зависает на сопоставлении картинок без выхода на живого человека",
+  "obs": 1
+ },
+ {
+  "id": "crashes-ipad",
+  "title": "Приложение нестабильно на iPad — для надёжности приходится открывать веб-версию",
+  "obs": 1
+ },
+ {
+  "id": "google-login-broken",
+  "title": "Вход через Google на iPhone не работает месяцами и блокирует доступ",
+  "obs": 1
+ },
+ {
+  "id": "fake-transactions",
+  "title": "Приложение придумывает фиктивные транзакции, которых нет в банке",
+  "obs": 1
+ },
+ {
+  "id": "missing-transactions",
+  "title": "Не все транзакции подтягиваются из привязанных счетов",
+  "obs": 1
+ },
+ {
+  "id": "transfer-tracking-breaks",
+  "title": "Переводы между своими счетами не распознаются: при малейшем изменении транзакции система записывает их как доход и расход",
+  "obs": 1
+ },
+ {
+  "id": "ai-renames-merchants",
+  "title": "AI самовольно переименовывает торговцев и ломает настроенные правила категоризации",
+  "obs": 1
+ },
+ {
+  "id": "history-lost-resubscribe",
+  "title": "При повторной подписке теряется вся история счетов",
+  "obs": 1
+ },
+ {
+  "id": "no-new-transaction-alerts",
+  "title": "После обновления перестали приходить уведомления о новых транзакциях для проверки",
+  "obs": 1
+ },
+ {
+  "id": "ai-broke-sync",
+  "title": "После перехода на AI счета почти перестали подключаться, а ассистент даёт неверные советы и сам меняет язык",
+  "obs": 1
+ },
+ {
+  "id": "accounts-stop-after-trial",
+  "title": "После оплаты половина добавленных счетов перестаёт работать без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "pending-transactions-hidden",
+  "title": "Невыполненные транзакции не отражаются в балансе, создавая расхождение с реальным счётом",
+  "obs": 1
+ },
+ {
+  "id": "debt-payoff-manual",
+  "title": "Планирование погашения долга требует слишком много ручного труда, чтобы быть полезным",
+  "obs": 1
+ },
+ {
+  "id": "no-credit-card-payment-balance",
+  "title": "Приложение не показывает остаток к оплате по кредитной карте — управлять долгом по картам невозможно",
+  "obs": 1
+ },
+ {
+  "id": "month-boundary-categorization",
+  "title": "Транзакции на стыке месяцев (зарплата 29-го числа) не относятся к нужному учётному месяцу и требуют ручной пересортировки",
+  "obs": 1
+ },
+ {
+  "id": "export-impossible",
+  "title": "Экспорт данных практически невозможен — нельзя продолжить анализ в Excel",
+  "obs": 1
+ },
+ {
+  "id": "no-shortcuts-automation",
+  "title": "Нет поддержки системных Shortcuts — ввод транзакций не автоматизировать",
+  "obs": 1
+ },
+ {
+  "id": "charts-without-numbers",
+  "title": "Графики красивые, но без цифр — для реального анализа расходов бесполезны",
+  "obs": 1
+ },
+ {
+  "id": "keyboard-blocks-ai",
+  "title": "Клавиатура перекрывает AI-ассистента, и экран нельзя сдвинуть выше",
+  "obs": 1
+ },
+ {
+  "id": "cannot-switch-login-method",
+  "title": "После входа через Apple нельзя переключиться на вход по почте без удаления и переустановки приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-native-mac-app",
+  "title": "На Mac доступна только веб-версия, хотя пользователь планировал работать в основном на компьютере",
+  "obs": 1
+ },
+ {
+  "id": "iphone-layout-unoptimized",
+  "title": "Интерфейс не оптимизирован под iPhone — кажется медленным и хрупким",
+  "obs": 1
+ },
+ {
+  "id": "auto-ai-optin-no-consent",
+  "title": "Система сама включает AI-анализ данных, несмотря на отказы пользователя",
+  "obs": 1
+ },
+ {
+  "id": "facebook-tracker-embedded",
+  "title": "В платное приложение встроен трекер Facebook, собирающий данные пользователя",
+  "obs": 1
+ },
+ {
+  "id": "goals-update-regressed",
+  "title": "Последнее обновление целей стало багованным и менее полезным, чем прежняя версия",
+  "obs": 1
+ },
+ {
+  "id": "investment-tracking-positioning",
+  "title": "Приложение заточено под отслеживание инвестиций и денежных потоков, а не под бюджет по долгам",
+  "obs": 1
+ },
+ {
+  "id": "switched-back-to-excel",
+  "title": "Обучение интерфейсу занимает столько времени, что пользователи возвращаются к Excel",
+  "obs": 1
+ }
+]

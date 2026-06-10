@@ -1,0 +1,369 @@
+You are grouping 64 mechanism-level insight clusters from Cronometer: Calorie Counter (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Cronometer: Calorie Counter, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 64 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Cronometer: Calorie Counter — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Cronometer: Calorie Counter>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstxkrm245wug8pacaz164y.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ads-block-logging",
+  "title": "Полноэкранная реклама выскакивает прямо во время ввода еды и блокирует основной сценарий логирования",
+  "obs": 10
+ },
+ {
+  "id": "search-stops-working",
+  "title": "Поиск продуктов внезапно перестаёт возвращать результаты и работает только сканер штрихкодов — приложение становится бесполезным",
+  "obs": 7
+ },
+ {
+  "id": "ads-escalate-after-trial",
+  "title": "В первые дни рекламы почти нет, но затем её частота и длительность резко растут — давление нарастает чем дольше пользуешься",
+  "obs": 6
+ },
+ {
+  "id": "food-database-gaps",
+  "title": "В базе нет даже базовых продуктов — почти ежедневно приходится создавать кастомную запись вручную",
+  "obs": 6
+ },
+ {
+  "id": "ads-wont-close-crash",
+  "title": "Реклама не закрывается по крестику и зависает приложение — требуется перезапуск телефона",
+  "obs": 5
+ },
+ {
+  "id": "no-meal-totals-view",
+  "title": "Нельзя посмотреть суммарные калории и макросы за один приём пищи — приходится складывать продукты вручную",
+  "obs": 5
+ },
+ {
+  "id": "false-no-internet-error",
+  "title": "Приложение ложно сообщает об отсутствии интернета и выкидывает из аккаунта, хотя сеть работает — похоже на конфликт сетевой проверки",
+  "obs": 5
+ },
+ {
+  "id": "apple-health-sync-broken",
+  "title": "Синхронизация с Apple Health не работает или ввозит неверные данные — например удваивает длительность сна",
+  "obs": 5
+ },
+ {
+  "id": "custom-recipe-deep-menus",
+  "title": "Создание кастомного рецепта тонет в вложенных меню, а импорт приносит ошибки в ингредиентах и количествах",
+  "obs": 4
+ },
+ {
+  "id": "favorites-recipes-disappear",
+  "title": "После обновления любимые продукты и сохранённые рецепты исчезают, а метки времени ломаются",
+  "obs": 4
+ },
+ {
+  "id": "barcode-scanner-best",
+  "title": "Точный сканер штрихкодов распознаёт продукт даже под углом и заметно ускоряет логирование упаковок",
+  "obs": 4
+ },
+ {
+  "id": "nutrient-gap-awareness",
+  "title": "Приложение показывает дефицит конкретных нутриентов и продукты, которые их восполняют",
+  "obs": 4
+ },
+ {
+  "id": "eating-awareness-weight-loss",
+  "title": "Логирование делает людей осознаннее в еде и помогает достигать целей по снижению веса",
+  "obs": 4
+ },
+ {
+  "id": "ads-malicious-fake-alerts",
+  "title": "Реклама имитирует системные предупреждения о вирусах и блокировке Apple ID — социальная инженерия ради кликов",
+  "obs": 3
+ },
+ {
+  "id": "nutrient-data-inaccurate",
+  "title": "Данные о питательных веществах зависят от сообщества, содержат пропуски и неточности — падает доверие к цифрам",
+  "obs": 3
+ },
+ {
+  "id": "ui-worse-than-competitors",
+  "title": "Интерфейс сложнее и менее интуитивен, чем у бесплатных конкурентов — трудно найти нужные функции",
+  "obs": 3
+ },
+ {
+  "id": "apple-watch-broken",
+  "title": "Добавление еды через часы рекламируется, но не работает даже после оплаты — баг известен и лежит в бэклоге",
+  "obs": 3
+ },
+ {
+  "id": "support-fast-fixes",
+  "title": "Поддержка быстро отвечает и исправляет ошибки в данных и базе — иногда за полчаса",
+  "obs": 3
+ },
+ {
+  "id": "custom-meals-quick-log",
+  "title": "Группировка продуктов в кастомные блюда позволяет логировать привычные комбинации одним нажатием",
+  "obs": 3
+ },
+ {
+  "id": "ads-many-after-update",
+  "title": "После обновления рекламы стало заметно больше, что испортило ранее хороший опыт",
+  "obs": 2
+ },
+ {
+  "id": "restaurant-local-foods-missing",
+  "title": "База ресторанных и местных блюд сильно отстаёт от конкурентов — трудно логировать еду вне дома",
+  "obs": 2
+ },
+ {
+  "id": "custom-food-not-editable",
+  "title": "Кастомную еду нельзя отредактировать после создания — при ошибке приходится начинать заново",
+  "obs": 2
+ },
+ {
+  "id": "no-fractional-portions",
+  "title": "Нельзя указать дробную порцию (например четверть чашки) — приходится считать вручную",
+  "obs": 2
+ },
+ {
+  "id": "macos-wont-launch",
+  "title": "На macOS приложение зависает после логотипа и не запускается — десктоп непригоден",
+  "obs": 2
+ },
+ {
+  "id": "data-wiped-on-failure",
+  "title": "Приложение внезапно перестаёт распознавать продукты и все залогированные данные пропадают",
+  "obs": 2
+ },
+ {
+  "id": "photo-logging-habit",
+  "title": "Логирование по фото снижает усилия и помогает вести дневник каждый день месяцами, повышая дисциплину",
+  "obs": 2
+ },
+ {
+  "id": "core-tracking-stronger-than-rivals",
+  "title": "Несмотря на шероховатый интерфейс, базовая функциональность трекинга сильнее, чем у конкурентов",
+  "obs": 2
+ },
+ {
+  "id": "pregnancy-medical-use-case",
+  "title": "Приложение особенно полезно для контроля нутриентов при беременности и медицинских состояниях",
+  "obs": 2
+ },
+ {
+  "id": "ads-non-intrusive-ok",
+  "title": "Реклама ненавязчива и не мешает нормально работать с трекером",
+  "obs": 1
+ },
+ {
+  "id": "photo-log-locked-free",
+  "title": "Логирование еды по фото закрыто в бесплатной версии — нельзя оценить ключевую функцию перед покупкой",
+  "obs": 1
+ },
+ {
+  "id": "recipe-import-paywalled",
+  "title": "Импорт рецептов закрыт за подпиской, хотя у конкурентов он бесплатный",
+  "obs": 1
+ },
+ {
+  "id": "personal-data-before-pricing",
+  "title": "Приложение требует личные данные раньше, чем раскрывает реальную цену — создаёт ложное ожидание бесплатности",
+  "obs": 1
+ },
+ {
+  "id": "charged-for-gold-on-reregister",
+  "title": "При повторной регистрации списали деньги за платную версию, хотя пользователь хотел только бесплатную",
+  "obs": 1
+ },
+ {
+  "id": "free-version-full-featured",
+  "title": "Бесплатная версия настолько полнофункциональна, что люди ведут логирование сотни дней подряд",
+  "obs": 1
+ },
+ {
+  "id": "supplements-tracking-unique",
+  "title": "Единственный трекер, который логирует пищевые добавки наравне с едой и напитками",
+  "obs": 1
+ },
+ {
+  "id": "net-carbs-unique",
+  "title": "Подсчёт чистых углеводов для кето есть здесь, но отсутствует у конкурентов с пожизненной подпиской",
+  "obs": 1
+ },
+ {
+  "id": "no-hdl-ldl-breakdown",
+  "title": "Холестерин не делится на отдельные значения, что критично для тех кто следит за сердцем",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-entries-database",
+  "title": "В базе много дублей одного и того же продукта с мелкими различиями — мешает выбирать",
+  "obs": 1
+ },
+ {
+  "id": "custom-food-unintuitive",
+  "title": "Создание кастомных продуктов неинтуитивно и требует лишних шагов, единицы измерения непоследовательны",
+  "obs": 1
+ },
+ {
+  "id": "repeat-search-each-ingredient",
+  "title": "Каждый ингредиент многокомпонентного блюда нужно искать заново — логирование становится очень трудоёмким",
+  "obs": 1
+ },
+ {
+  "id": "no-copy-meal-across-days",
+  "title": "Нельзя скопировать уже залогированные блюда на другие дни — повторное логирование однотипного приходится делать заново",
+  "obs": 1
+ },
+ {
+  "id": "high-learning-curve",
+  "title": "Высокий порог входа по навигации, при этом нет понятной документации",
+  "obs": 1
+ },
+ {
+  "id": "no-snack-category",
+  "title": "Нет категории «перекус» между приёмами пищи — сложно организовать дневник по времени суток",
+  "obs": 1
+ },
+ {
+  "id": "energy-settings-nested",
+  "title": "После обновления настройки энергии стали слишком вложенными — труднее быстро менять часто используемые параметры",
+  "obs": 1
+ },
+ {
+  "id": "search-exact-match-only",
+  "title": "Поиск требует точного совпадения с базой и не понимает нечёткие запросы",
+  "obs": 1
+ },
+ {
+  "id": "no-voice-logging",
+  "title": "Нет голосового логирования, которое было бы удобно при занятых руках",
+  "obs": 1
+ },
+ {
+  "id": "custom-goals-good",
+  "title": "Можно задать собственные цели по микронутриентам под конкретную программу здоровья вместо стандартных значений",
+  "obs": 1
+ },
+ {
+  "id": "login-blocked-after-update",
+  "title": "После обновления вход блокируется на мобильной и веб-версиях — пропадает доступ ко всем сохранённым данным",
+  "obs": 1
+ },
+ {
+  "id": "logs-out-constantly",
+  "title": "Приложение постоянно выкидывает из аккаунта и требует повторного входа, прерывая работу",
+  "obs": 1
+ },
+ {
+  "id": "ipad-not-functional",
+  "title": "Версия для планшета нефункциональна",
+  "obs": 1
+ },
+ {
+  "id": "barcode-scan-photo-flaky",
+  "title": "Сканирование штрихкода часто не срабатывает, а функция фото требует доработки",
+  "obs": 1
+ },
+ {
+  "id": "recipe-not-saved-reliably",
+  "title": "Приложение периодически не сохраняет кастомный рецепт в дневник и не обновляет сохранённый элемент",
+  "obs": 1
+ },
+ {
+  "id": "recent-foods-missing-bug",
+  "title": "Старые баги не чинятся — недавно добавленные продукты не появляются в списке «недавнее»",
+  "obs": 1
+ },
+ {
+  "id": "third-party-sync-broken",
+  "title": "Синхронизация с другими фитнес-приложениями требует сложных действий или невозможна",
+  "obs": 1
+ },
+ {
+  "id": "offline-not-supported",
+  "title": "Все операции требуют интернета — нельзя логировать без сигнала, например в самолёте или зале",
+  "obs": 1
+ },
+ {
+  "id": "white-screen-flicker",
+  "title": "Периодически мелькает белый экран, что дезориентирует в момент работы",
+  "obs": 1
+ },
+ {
+  "id": "app-hangs-loading",
+  "title": "Приложение часто зависает на загрузке с бесконечным спиннером",
+  "obs": 1
+ },
+ {
+  "id": "vpn-blocked",
+  "title": "Приложение принудительно требует отключать VPN при каждом использовании — ломает сценарий работы с критичными данными",
+  "obs": 1
+ },
+ {
+  "id": "privacy-block-logs-out",
+  "title": "При попытке запретить передачу персональных данных рекламодателям приложение выходит из аккаунта и блокирует доступ даже платящим",
+  "obs": 1
+ },
+ {
+  "id": "calories-burned-added-not-subtracted",
+  "title": "Сожжённые калории прибавляются к лимиту вместо вычитания — дефицит считается неверно и мешает худеть",
+  "obs": 1
+ },
+ {
+  "id": "workout-burn-inaccurate",
+  "title": "Расчёт сожжённых на тренировке калорий сильно расходится с реальностью и искажает дефицит",
+  "obs": 1
+ },
+ {
+  "id": "external-memory-patterns",
+  "title": "Приложение служит внешней памятью — помогает вспомнить что ел и как это влияло на самочувствие",
+  "obs": 1
+ },
+ {
+  "id": "saves-time-vs-manual",
+  "title": "Приложение заметно облегчает раньше утомительный ручной учёт питания, экономя время занятым людям",
+  "obs": 1
+ },
+ {
+  "id": "whoop-recovery-integration",
+  "title": "Интеграция с фитнес-браслетом объединяет учёт питания с отслеживанием восстановления",
+  "obs": 1
+ }
+]

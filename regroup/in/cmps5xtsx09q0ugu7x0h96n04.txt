@@ -1,0 +1,344 @@
+You are grouping 59 mechanism-level insight clusters from CapCut: Photo & Video Editor (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO CapCut: Photo & Video Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 59 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to CapCut: Photo & Video Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to CapCut: Photo & Video Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps5xtsx09q0ugu7x0h96n04.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "tools-moved-to-paywall",
+  "title": "Ранее бесплатные инструменты редактирования массово переходят в платную подписку",
+  "obs": 13
+ },
+ {
+  "id": "remove-bg-disappears-from-ui",
+  "title": "Функция удаления фона постоянно исчезает из интерфейса и возвращается только после переустановки приложения",
+  "obs": 10
+ },
+ {
+  "id": "subscription-paid-not-activated",
+  "title": "Подписка оплачена и подтверждена платёжной системой, но приложение не активирует доступ",
+  "obs": 6
+ },
+ {
+  "id": "export-publish-behind-paywall",
+  "title": "Экспорт видео и публикация требуют платной подписки — создавать можно, выпустить нельзя",
+  "obs": 4
+ },
+ {
+  "id": "tts-not-visible-in-ui",
+  "title": "Кнопка преобразования текста в речь не отображается в интерфейсе редактирования, хотя функция должна быть доступна",
+  "obs": 3
+ },
+ {
+  "id": "crashes-regressions-after-updates",
+  "title": "После обновлений приложение начинает ежедневно зависать и работать нестабильно там, где раньше всё работало быстро",
+  "obs": 3
+ },
+ {
+  "id": "false-no-internet-error",
+  "title": "Приложение сообщает об отсутствии интернета, хотя соединение есть и другие приложения работают нормально",
+  "obs": 3
+ },
+ {
+  "id": "reinstall-impossible-after-delete",
+  "title": "После удаления приложения для освобождения памяти его невозможно переустановить — загрузка зависает или отказывает",
+  "obs": 3
+ },
+ {
+  "id": "features-removed-post-subscription",
+  "title": "Функции, включённые в подписку при оформлении, позже удаляют или переносят за более высокий уровень",
+  "obs": 2
+ },
+ {
+  "id": "subscription-revoked-without-reason",
+  "title": "Активная подписка отзывается до истечения срока без объяснения причин",
+  "obs": 2
+ },
+ {
+  "id": "price-mismatch-escalation",
+  "title": "Цена при покупке не совпадает с заявленной, а уровни подписки постоянно дорожают",
+  "obs": 2
+ },
+ {
+  "id": "ai-credits-on-top-of-subscription",
+  "title": "Инструменты на основе искусственного интеллекта требуют отдельные кредиты поверх оплаченной подписки",
+  "obs": 2
+ },
+ {
+  "id": "library-music-copyright-conflicts",
+  "title": "Музыка из встроенной библиотеки принадлежит сторонним правообладателям и вызывает нарушения авторских прав при публикации",
+  "obs": 2
+ },
+ {
+  "id": "bots-steal-templates",
+  "title": "Боты автоматически переиздают оригинальные шаблоны авторов и получают больше просмотров, чем создатели",
+  "obs": 2
+ },
+ {
+  "id": "favorites-disappear-after-update",
+  "title": "Вкладка с сохранёнными любимыми эффектами и переходами исчезает после обновления приложения",
+  "obs": 2
+ },
+ {
+  "id": "templates-unavailable-server-overload",
+  "title": "Шаблоны недоступны из-за перегрузки серверов — приложение просит повторить попытку позже",
+  "obs": 2
+ },
+ {
+  "id": "project-lost-no-autosave",
+  "title": "Проект полностью теряется при прерывании сеанса редактирования — автосохранение не срабатывает",
+  "obs": 2
+ },
+ {
+  "id": "disk-space-excessive-for-export",
+  "title": "Экспорт видео и хранение проектов требуют чрезмерно много свободного места, приложение навязывает платное хранилище",
+  "obs": 2
+ },
+ {
+  "id": "card-only-payment-barrier",
+  "title": "Оплатить подписку можно только банковской картой — пользователи без счёта полностью отрезаны от функций",
+  "obs": 1
+ },
+ {
+  "id": "subscription-hidden-from-ios-cancel",
+  "title": "Подписка не видна в списке отмены на iOS, но деньги продолжают списываться",
+  "obs": 1
+ },
+ {
+  "id": "creator-monetization-removed",
+  "title": "Система вознаграждения авторов за конкурсы исчезла — теперь они сами платят за доступ к инструментам",
+  "obs": 1
+ },
+ {
+  "id": "ai-voice-disappears-between-sessions",
+  "title": "Выбранный голос для озвучки исчезает после использования и не сохраняется между сессиями",
+  "obs": 1
+ },
+ {
+  "id": "ai-video-moderation-overblocks",
+  "title": "Система модерации блокирует безобидный контент в генераторе видео, не объясняя причину отказа",
+  "obs": 1
+ },
+ {
+  "id": "comment-moderation-inverted",
+  "title": "Модерация удаляет комментарии с выражением грусти и разочарования, но пропускает оскорбительные высказывания",
+  "obs": 1
+ },
+ {
+  "id": "explicit-content-in-main-feed",
+  "title": "Порнографический контент без ограничений по возрасту появляется в основной ленте редактора",
+  "obs": 1
+ },
+ {
+  "id": "templates-no-age-labels",
+  "title": "Шаблоны содержат материал, неприемлемый для детей, при этом возрастные предупреждения отсутствуют",
+  "obs": 1
+ },
+ {
+  "id": "voice-isolation-karaoke",
+  "title": "Инструмент изоляции голоса позволяет удалить оригинальный вокал и получить чистую инструментальную версию",
+  "obs": 1
+ },
+ {
+  "id": "audio-stutters-during-editing",
+  "title": "Музыка прерывается и зависает во время воспроизведения в редакторе без каких-либо действий пользователя",
+  "obs": 1
+ },
+ {
+  "id": "subscription-popup-during-volume",
+  "title": "Всплывающее окно с предложением подписки появляется при регулировке громкости и прерывает процесс редактирования",
+  "obs": 1
+ },
+ {
+  "id": "not-interested-button-broken",
+  "title": "Кнопка «Не интересует» в рекомендациях не работает — нежелательный контент продолжает появляться",
+  "obs": 1
+ },
+ {
+  "id": "chroma-key-hidden-or-removed",
+  "title": "Кнопка замены цвета фона скрыта или полностью удалена из меню редактирования",
+  "obs": 1
+ },
+ {
+  "id": "screen-record-templates-blocked",
+  "title": "Видео, записанные через запись экрана, нельзя публиковать как шаблоны для других пользователей",
+  "obs": 1
+ },
+ {
+  "id": "creator-status-no-updates",
+  "title": "Заявка на статус автора обрабатывается неделями без каких-либо уведомлений о ходе рассмотрения",
+  "obs": 1
+ },
+ {
+  "id": "nickname-change-timer-broken",
+  "title": "Система смены никнейма нарушает заявленный срок ожидания и продолжает запрещать изменение после его истечения",
+  "obs": 1
+ },
+ {
+  "id": "full-photo-library-access-required",
+  "title": "Приложение требует полный доступ ко всем фотоальбомам и не позволяет ограничить его отдельными папками",
+  "obs": 1
+ },
+ {
+  "id": "edit-button-disappears",
+  "title": "Кнопка редактирования периодически пропадает из интерфейса и появляется только после переустановки приложения",
+  "obs": 1
+ },
+ {
+  "id": "ai-labs-tab-disappears-wastes-credits",
+  "title": "Вкладка экспериментальных функций постоянно исчезает и списывает кредиты даже когда не создаёт результат",
+  "obs": 1
+ },
+ {
+  "id": "laptop-requires-connected-iphone",
+  "title": "Для работы приложения на ноутбуке требуется подключённый iPhone — использование на одном устройстве невозможно",
+  "obs": 1
+ },
+ {
+  "id": "no-live-camera-during-editing",
+  "title": "В приложении нет возможности записать себя на камеру прямо во время процесса редактирования",
+  "obs": 1
+ },
+ {
+  "id": "remove-bg-crashes-app",
+  "title": "Открытие инструмента удаления фона вызывает зависание и принудительное закрытие приложения",
+  "obs": 1
+ },
+ {
+  "id": "split-chain-reaction-errors",
+  "title": "При разрезании одного клипа нарушаются соседние разрезы — изменения распространяются цепной реакцией",
+  "obs": 1
+ },
+ {
+  "id": "clip-jumps-to-timeline-start",
+  "title": "Клип автоматически перемещается в начало тайм-лайна при разделении или попытке перестановки",
+  "obs": 1
+ },
+ {
+  "id": "split-flips-clip",
+  "title": "При разрезании видео каждый получившийся фрагмент автоматически переворачивается и требует повторного исправления",
+  "obs": 1
+ },
+ {
+  "id": "split-causes-crash-session-exit",
+  "title": "Операция разрезания видео вызывает сбой и исключает пользователя из текущего сеанса редактирования",
+  "obs": 1
+ },
+ {
+  "id": "video-import-stuck-at-zero",
+  "title": "Загрузка видео в редактор зависает на нулевом проценте и не запускается",
+  "obs": 1
+ },
+ {
+  "id": "voiceover-not-saved",
+  "title": "Записи голосового сопровождения регулярно не сохраняются, что вынуждает повторять работу заново",
+  "obs": 1
+ },
+ {
+  "id": "audio-reset-on-session-interrupt",
+  "title": "Звуковая дорожка проекта сбрасывается или удаляется при прерывании сеанса редактирования",
+  "obs": 1
+ },
+ {
+  "id": "autocaptions-wrong-names",
+  "title": "Автоматические субтитры неправильно распознают имена и зависают при генерации",
+  "obs": 1
+ },
+ {
+  "id": "screen-record-black-screen",
+  "title": "Запись экрана высококачественного видео выдаёт чёрный экран — функция блокируется для защищённого контента",
+  "obs": 1
+ },
+ {
+  "id": "device-overheating",
+  "title": "Устройство перегревается даже без активного использования приложения",
+  "obs": 1
+ },
+ {
+  "id": "profile-changes-rolled-back",
+  "title": "Изменения профиля автоматически откатываются на старые значения сразу после сохранения",
+  "obs": 1
+ },
+ {
+  "id": "login-blocked-24h",
+  "title": "При попытке войти в аккаунт система блокирует доступ на сутки даже при наличии активного аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "remove-bg-degrades-video-quality",
+  "title": "Инструмент удаления фона ухудшает качество видео вместо того, чтобы его улучшить",
+  "obs": 1
+ },
+ {
+  "id": "music-check-lies-audio-muted-on-publish",
+  "title": "Проверка совместимости музыки сообщает, что трек пройдёт, но при публикации звук автоматически отключается",
+  "obs": 1
+ },
+ {
+  "id": "4k-export-looks-artificial",
+  "title": "Экспорт в высоком разрешении создаёт чрезмерно обработанный, неестественный вид видео",
+  "obs": 1
+ },
+ {
+  "id": "auto-cut-hangs",
+  "title": "Функция автоматического вырезания зависает при выборе темы и требует начать процесс с нуля",
+  "obs": 1
+ },
+ {
+  "id": "support-silent-on-paid-access-issues",
+  "title": "Служба поддержки не отвечает на запросы пользователей с активной подпиской, которые не могут скачать готовое видео",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-sync-works",
+  "title": "Проекты синхронизируются между телефоном и планшетом — начать на одном устройстве и продолжить на другом можно без потерь",
+  "obs": 1
+ },
+ {
+  "id": "audio-extract-restored-to-free",
+  "title": "После критики команда вернула функцию извлечения аудио в бесплатный доступ",
+  "obs": 1
+ }
+]

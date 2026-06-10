@@ -1,0 +1,92 @@
+{
+  "groups": [
+    {
+      "id": "logging-falls-apart",
+      "name": "Когда залогировать еду просто невозможно",
+      "insight_ids": [
+        "search-broken-no-results",
+        "logging-broken-cant-add",
+        "search-logging-slow",
+        "save-meal-shows-saved-but-lost",
+        "barcode-scan-misses",
+        "scan-macros-mismatch",
+        "scan-no-manual-fallback",
+        "crashes-on-load"
+      ]
+    },
+    {
+      "id": "broken-untrustworthy-database",
+      "name": "База продуктов: дыры и дикие цифры калорий",
+      "insight_ids": [
+        "no-custom-food-entry",
+        "missing-common-foods",
+        "wrong-calorie-values-database",
+        "no-regional-ethnic-foods",
+        "removed-restaurant-foods",
+        "portion-size-math-broken",
+        "wrong-portion-classification",
+        "no-sodium-micronutrients"
+      ]
+    },
+    {
+      "id": "app-decides-not-you",
+      "name": "Считает по-своему — свои цели и продукты задать нельзя",
+      "insight_ids": [
+        "no-manual-calorie-goal",
+        "no-saved-frequent-foods",
+        "no-recipe-creation",
+        "no-metric-units",
+        "no-custom-units",
+        "water-only-fixed-steps",
+        "no-other-beverages",
+        "no-custom-workout-calories",
+        "no-carb-cycling-by-day",
+        "scale-workflow-impossible",
+        "saved-feature-unfindable",
+        "progress-bars-confusing"
+      ]
+    },
+    {
+      "id": "paywall-and-billing-traps",
+      "name": "Триал-ловушки, навязчивый премиум и списания после отмены",
+      "insight_ids": [
+        "premium-popup-every-open",
+        "hidden-trial-true-cost",
+        "paywall-revealed-after-data-entry",
+        "no-exit-on-premium-screen",
+        "charges-continue-after-cancel",
+        "multiple-charges-same-period",
+        "core-features-behind-paywall-teens",
+        "weight-gain-goal-paid-only",
+        "ads-on-every-open",
+        "spam-after-install"
+      ]
+    },
+    {
+      "id": "wrong-and-unsafe-coaching",
+      "name": "Опасные советы тренера: завышенные лимиты и игнор цели",
+      "insight_ids": [
+        "wrong-calorie-recommendation",
+        "goal-ignored-in-recommendation",
+        "unsafe-protein-recommendation",
+        "menstrual-tracking-forced",
+        "unfit-for-diabetes",
+        "recipes-exotic-ingredients",
+        "missing-shopping-lists",
+        "recipe-boosters-broken"
+      ]
+    },
+    {
+      "id": "devices-and-sync-gaps",
+      "name": "Шаги, часы и синхронизация: оторван от экосистемы",
+      "insight_ids": [
+        "apple-health-partial-sync",
+        "no-step-tracking",
+        "no-wearable-integration",
+        "no-apple-watch",
+        "ipad-not-adapted",
+        "developer-rarely-responds"
+      ]
+    }
+  ]
+}

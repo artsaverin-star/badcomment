@@ -1,0 +1,49 @@
+{
+  "groups": [
+    {
+      "id": "kamery-baza-pokrytie",
+      "name": "База камер: устаревшие координаты и дыры в покрытии",
+      "insight_ids": [
+        "mobile-camera-data-outdated",
+        "incomplete-camera-database",
+        "no-coverage-in-region",
+        "user-added-cameras-deleted"
+      ]
+    },
+    {
+      "id": "golosovye-opoveshcheniya",
+      "name": "Голосовые предупреждения, которые подводят за рулём",
+      "insight_ids": [
+        "voice-alert-broken",
+        "voice-alerts-english-only",
+        "voice-alert-volume-low"
+      ]
+    },
+    {
+      "id": "nastroyki-kontrol",
+      "name": "Чего не хватает в настройках: дистанция, трассы, история, время",
+      "insight_ids": [
+        "alert-distance-by-vehicle-type",
+        "no-highway-alert-disable",
+        "no-speed-history",
+        "time-format-locked-24h"
+      ]
+    },
+    {
+      "id": "detekt-vs-konkurenty",
+      "name": "Где Radarbot обгоняет и где уступает конкурентам",
+      "insight_ids": [
+        "better-detection-than-competitors",
+        "no-realtime-police-data"
+      ]
+    },
+    {
+      "id": "carplay-paywall",
+      "name": "CarPlay за отдельную плату и с урезанной навигацией",
+      "insight_ids": [
+        "carplay-paid-subscription",
+        "carplay-navigation-limited"
+      ]
+    }
+  ]
+}

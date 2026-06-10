@@ -1,0 +1,199 @@
+You are grouping 30 mechanism-level insight clusters from Uber - Request a ride (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Uber - Request a ride, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 30 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Uber - Request a ride — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Uber - Request a ride>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-368677368.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "payment-wait-discount-program",
+  "title": "Программы «подождать и сэкономить» не оправдывают ожидания: ждёшь долго, скидка минимальна или водитель далеко и отменяет",
+  "obs": 2
+ },
+ {
+  "id": "payment-double-charge-ride",
+  "title": "За одну поездку или один день поездок система списывает деньги дважды",
+  "obs": 2
+ },
+ {
+  "id": "reliability-outdated-maps",
+  "title": "Карты в приложении устарелые — маршруты проходят через несуществующие дороги и парковки",
+  "obs": 2
+ },
+ {
+  "id": "reliability-inaccurate-eta",
+  "title": "Время прибытия водителя в приложении не соответствует реальности — реальное ожидание в несколько раз дольше",
+  "obs": 2
+ },
+ {
+  "id": "payment-price-lower-than-actual",
+  "title": "Цена в приложении оказывается ниже итоговой суммы к оплате",
+  "obs": 1
+ },
+ {
+  "id": "payment-price-rises-while-waiting",
+  "title": "Цена поездки растёт пока пассажир ждёт назначенного водителя",
+  "obs": 1
+ },
+ {
+  "id": "payment-asymmetric-dynamic-price",
+  "title": "Цены на одинаковый маршрут туда и обратно существенно различаются без видимой причины",
+  "obs": 1
+ },
+ {
+  "id": "payment-bait-and-switch-price",
+  "title": "Приложение показывает низкую цену, затем отменяет поездку и предлагает более дорогую альтернативу",
+  "obs": 1
+ },
+ {
+  "id": "payment-priority-fare-no-refund",
+  "title": "Платишь надбавку за приоритетную подачу, но при отмене водителя доплату не возвращают",
+  "obs": 1
+ },
+ {
+  "id": "payment-double-tip-bug",
+  "title": "Повторный ввод суммы чаевых приводит к двойному списанию из-за бага интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "payment-advertised-discount-not-applied",
+  "title": "Рекламируемая скидка за оплату через партнёрский сервис не применяется при фактическом списании",
+  "obs": 1
+ },
+ {
+  "id": "payment-long-wait-no-compensation",
+  "title": "Пассажир ждёт водителя полтора часа, заплатив полную цену, но компенсации за ожидание нет",
+  "obs": 1
+ },
+ {
+  "id": "reliability-advance-booking-fails",
+  "title": "Заранее подтверждённая бронь срывается в последний момент — в момент отправления водитель не найден",
+  "obs": 1
+ },
+ {
+  "id": "reliability-driver-cancels-reservation",
+  "title": "Водители отменяют предварительно забронированные поездки без каких-либо штрафных санкций",
+  "obs": 1
+ },
+ {
+  "id": "reliability-overseas-booking-substitution",
+  "title": "За рубежом при бронировании трансфера система заменяет водителя и штрафует пассажира за отказ принять замену",
+  "obs": 1
+ },
+ {
+  "id": "reliability-no-traffic-routing",
+  "title": "Маршруты не обновляются по дорожной обстановке — расчётное время в пути не отражает реальные пробки",
+  "obs": 1
+ },
+ {
+  "id": "reliability-destination-button-broken",
+  "title": "После обновления приложения кнопка ввода адреса назначения перестаёт реагировать на нажатие",
+  "obs": 1
+ },
+ {
+  "id": "reliability-identity-verification-loop",
+  "title": "Система верификации личности зацикливается и блокирует завершение бронирования — ссылки в диалоге не работают",
+  "obs": 1
+ },
+ {
+  "id": "reliability-share-ride-freeze",
+  "title": "Функция «поделиться поездкой» зависает у получателя и не передаёт данные",
+  "obs": 1
+ },
+ {
+  "id": "reliability-ride-option-disappears",
+  "title": "Выбранный тип транспорта исчезает из интерфейса после перезапуска приложения",
+  "obs": 1
+ },
+ {
+  "id": "reliability-apple-pay-eats",
+  "title": "Apple Pay не работает при оплате в разделе доставки еды",
+  "obs": 1
+ },
+ {
+  "id": "ui-interface-changes-between-sessions",
+  "title": "Интерфейс меняется от запуска к запуску — привычные элементы перемещаются, и пользователю приходится переучиваться",
+  "obs": 1
+ },
+ {
+  "id": "ui-tip-button-next-to-rating",
+  "title": "Кнопка чаевых расположена вплотную к кнопке оценки — пользователи случайно нажимают и добавляют чаевые",
+  "obs": 1
+ },
+ {
+  "id": "ui-preferences-not-passed-to-driver",
+  "title": "Предпочтения пассажира по тишине и температуре не передаются водителю, а функция их настройки скрыта в меню",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-order-for-friend-dialog",
+  "title": "При заказе поездки для другого человека приложение не показывает диалог ввода его контактов и адреса",
+  "obs": 1
+ },
+ {
+  "id": "ui-wrong-airport-terminal-no-call",
+  "title": "Водителей отправляют на неверный терминал аэропорта, а позвонить им напрямую нельзя — только текстовое сообщение",
+  "obs": 1
+ },
+ {
+  "id": "support-ai-eats-refund-denial",
+  "title": "Искусственный интеллект в поддержке Eats отказывает в возмещении при ошибке заказа, оставляя пользователя без еды и денег",
+  "obs": 1
+ },
+ {
+  "id": "strategy-gps-inflates-driver-distance",
+  "title": "GPS завышает дистанцию маршрута — водитель несёт дополнительные расходы, пока пассажир платит справедливую цену",
+  "obs": 1
+ },
+ {
+  "id": "strategy-no-advance-airport-booking",
+  "title": "Нельзя забронировать аэропортный трансфер за несколько дней — функция отсутствует, поддержка не предлагает решения",
+  "obs": 1
+ },
+ {
+  "id": "strategy-eats-delivery-errors-uber-cash",
+  "title": "Eats доставляет еду холодной или на неверный адрес, а возврат средств возможен только в виде внутреннего кредита",
+  "obs": 1
+ }
+]

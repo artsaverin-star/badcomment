@@ -1,0 +1,254 @@
+You are grouping 41 mechanism-level insight clusters from Scanner Pro・Scan PDF Documents (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Scanner Pro・Scan PDF Documents, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 41 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Scanner Pro・Scan PDF Documents — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Scanner Pro・Scan PDF Documents>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-333710667.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "lifetime-to-subscription-forced",
+  "title": "Пользователи с пожизненной лицензией принудительно переводятся на подписку и теряют доступ к ранее оплаченным функциям",
+  "obs": 13
+ },
+ {
+  "id": "professional-daily-workflow",
+  "title": "Риэлторы и офисные сотрудники используют приложение как основной инструмент для ежедневного документооборота в полевых условиях",
+  "obs": 8
+ },
+ {
+  "id": "watermark-paywall",
+  "title": "После обновления в бесплатной версии появились агрессивные водяные знаки по всему документу, делающие его нечитаемым",
+  "obs": 5
+ },
+ {
+  "id": "auto-shadow-removal",
+  "title": "Приложение автоматически убирает тени при сканировании — качество лучше, чем у коммерческих настольных сканеров",
+  "obs": 5
+ },
+ {
+  "id": "over-automation-removes-manual-control",
+  "title": "Новая версия слишком агрессивно автоматизирует сканирование и убирает опции ручного управления фокусом и границами документа",
+  "obs": 4
+ },
+ {
+  "id": "auto-edge-detection",
+  "title": "Приложение автоматически определяет и выравнивает границы документа даже при неровной съёмке или под углом",
+  "obs": 4
+ },
+ {
+  "id": "feature-moved-behind-paywall-silently",
+  "title": "Функции, доступные в предыдущей версии, перемещены за paywall без предупреждения в примечаниях к обновлению",
+  "obs": 3
+ },
+ {
+  "id": "crashes-freezes-after-update",
+  "title": "После обновлений приложение падает, зависает и вызывает фриз всего телефона при обычных операциях",
+  "obs": 3
+ },
+ {
+  "id": "mobile-replaces-physical-scanner",
+  "title": "Мобильное сканирование полностью заменяет стационарный сканер и копировальный аппарат в повседневной работе",
+  "obs": 3
+ },
+ {
+  "id": "paperless-archiving",
+  "title": "Пользователи переходят с бумажных копий на цифровое хранилище — визитки, квитанции, инструкции, подписанные документы",
+  "obs": 3
+ },
+ {
+  "id": "auto-image-correction",
+  "title": "Функция автоматической коррекции изображений упростила пост-обработку сканов",
+  "obs": 3
+ },
+ {
+  "id": "restore-purchases-broken",
+  "title": "Функция восстановления покупок не работает — приложение не распознаёт историю оплаты при повторной установке",
+  "obs": 2
+ },
+ {
+  "id": "fax-feature-unreliable",
+  "title": "Функция отправки факсов периодически недоступна и требует многократных повторных попыток перед успешной доставкой",
+  "obs": 2
+ },
+ {
+  "id": "app-data-loss-on-update",
+  "title": "После обновления приложение удаляет всю накопленную библиотеку отсканированных документов без возможности восстановления",
+  "obs": 2
+ },
+ {
+  "id": "cloud-sync-broken-after-update",
+  "title": "После обновления автоматическая синхронизация с Dropbox и Google Drive перестаёт работать",
+  "obs": 2
+ },
+ {
+  "id": "false-clean-lens-error",
+  "title": "Приложение показывает ложное предупреждение «Очистите объектив» даже когда камера чистая и в фокусе",
+  "obs": 2
+ },
+ {
+  "id": "scan-quality-regression-sheet-music",
+  "title": "После обновления качество сканирования нотных партитур деградировало — линии нотного стана исчезают или появляются нечитаемые артефакты",
+  "obs": 2
+ },
+ {
+  "id": "scan-workflow-extra-clicks",
+  "title": "После обновления базовые операции (сканирование, переименование) требуют вдвое больше нажатий, чем раньше",
+  "obs": 2
+ },
+ {
+  "id": "filename-restrictions",
+  "title": "В названиях файлов нельзя использовать пунктуацию и специальные символы — имена получаются слишком короткими для содержательного описания",
+  "obs": 2
+ },
+ {
+  "id": "sheet-music-use-case",
+  "title": "Музыканты используют приложение для сканирования нотных партитур и обмена ими внутри ансамбля",
+  "obs": 2
+ },
+ {
+  "id": "pdf-as-professional-standard",
+  "title": "Пользователи выбирают PDF вместо JPEG, потому что компании и клиенты ожидают именно PDF-вложения",
+  "obs": 2
+ },
+ {
+  "id": "long-term-retention",
+  "title": "Значительная часть пользователей остаётся с приложением 10+ лет — оно встроено в повседневный рабочий процесс настолько, что замена не рассматривается",
+  "obs": 2
+ },
+ {
+  "id": "cloud-sync-multi-device",
+  "title": "Синхронизация между устройствами и восстановление документов при переустановке работают надёжно — данные сохраняются после смены телефона",
+  "obs": 2
+ },
+ {
+  "id": "simple-scan-to-email",
+  "title": "Приложение позволяет отправить документ по email в несколько касаний — даже малотехнически подкованным пользователям",
+  "obs": 2
+ },
+ {
+  "id": "trial-period-mismatch",
+  "title": "Обещанный пробный период не соответствует реальности — вместо заявленного срока предоставляется более короткий или сразу списывается платёж",
+  "obs": 1
+ },
+ {
+  "id": "bulk-scan-overheating",
+  "title": "При сканировании крупных партий документов (100+ страниц) устройство перегревается, батарея быстро разряжается, приложение падает",
+  "obs": 1
+ },
+ {
+  "id": "settings-lost-periodically",
+  "title": "Приложение периодически теряет сохранённые настройки — пользователь вынужден переустанавливать его для восстановления работы",
+  "obs": 1
+ },
+ {
+  "id": "visual-glitches-suspected-intentional",
+  "title": "Приложение содержит визуальные глюки, которые усугубляются с новыми версиями — пользователи подозревают намеренную деградацию для продвижения подписки",
+  "obs": 1
+ },
+ {
+  "id": "perspective-distortion-broken",
+  "title": "Автоматическое исправление перспективы захватывает только часть страницы вместо целого документа",
+  "obs": 1
+ },
+ {
+  "id": "camera-broken-after-update",
+  "title": "После обновления встроенная камера в приложении перестаёт работать, ломая основной сценарий быстрого сканирования",
+  "obs": 1
+ },
+ {
+  "id": "controls-out-of-reach-ipad",
+  "title": "На iPad кнопки управления сканированием расположены за строкой статуса и недостижимы для нажатия",
+  "obs": 1
+ },
+ {
+  "id": "animations-slow-workflow",
+  "title": "Добавленные анимации замедляют сканирование и экспорт документов без видимой пользы",
+  "obs": 1
+ },
+ {
+  "id": "cloud-files-ui-confusing",
+  "title": "Интерфейс поиска старых файлов запутан — пользователь не может разобраться с отображением облачных синхронизаций и предпочёл бы локальное хранилище",
+  "obs": 1
+ },
+ {
+  "id": "markup-one-page-limit",
+  "title": "Разметку можно добавить только на одну страницу документа — чтобы добавить на другую, нужно удалить предыдущую",
+  "obs": 1
+ },
+ {
+  "id": "workflows-no-icloud-auto-save",
+  "title": "Функция Workflows не поддерживает автоматическое сохранение в iCloud Drive — документы можно сохранить туда только вручную",
+  "obs": 1
+ },
+ {
+  "id": "print-removed",
+  "title": "После обновления из приложения убрали функцию печати, что сломало рабочий процесс «сканировать на месте — печатать дома»",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Разработчики перестали отвечать на обращения платящих пользователей в службу поддержки",
+  "obs": 1
+ },
+ {
+  "id": "tax-season-batch-use",
+  "title": "Часть пользователей использует приложение только в налоговый сезон для массового сканирования документов за короткий срок",
+  "obs": 1
+ },
+ {
+  "id": "ios-scanner-gap",
+  "title": "При переходе с Android на iOS пользователи не находят эквивалентного сканера — Scanner Pro закрывает этот дефицит",
+  "obs": 1
+ },
+ {
+  "id": "ai-image-cleanup",
+  "title": "Инструменты на основе ИИ удаляют артефакты и посторонние объекты со сканов быстрее и точнее ожидаемого",
+  "obs": 1
+ },
+ {
+  "id": "multipage-ocr-workflow",
+  "title": "Приложение поддерживает полный рабочий процесс для многостраничных документов с OCR за считанные минуты",
+  "obs": 1
+ }
+]

@@ -1,0 +1,95 @@
+{
+  "groups": [
+    {
+      "id": "sync-i-bankovskie-svyazi",
+      "name": "Связь с банками рвётся: синхронизация, дубли и фантомные транзакции",
+      "insight_ids": [
+        "duplicate-transactions",
+        "sync-breaks-needs-reconnect",
+        "balance-transactions-lag",
+        "cannot-connect-specific-banks",
+        "fake-transactions",
+        "missing-transactions",
+        "transfer-tracking-breaks",
+        "pending-transactions-hidden",
+        "bank-verification-stuck",
+        "accounts-stop-after-trial"
+      ]
+    },
+    {
+      "id": "kategorizaciya-i-pravila",
+      "name": "Категоризация и ручная правка: автоматика ошибается, настройки слетают",
+      "insight_ids": [
+        "auto-categorization-unreliable",
+        "merchant-split-impossible",
+        "categorization-lost-on-resync",
+        "ai-renames-merchants",
+        "month-boundary-categorization",
+        "recurring-not-in-budget"
+      ]
+    },
+    {
+      "id": "billing-lovushki-i-podpiska",
+      "name": "Биллинг-ловушки: списания без предупреждения и спрятанная отписка",
+      "insight_ids": [
+        "trial-charge-no-warning",
+        "direct-billing-no-downgrade-upgrade",
+        "price-hike-paywalled-features",
+        "subscription-settings-hidden",
+        "card-required-before-trial",
+        "upsell-ads-for-paying-users",
+        "add-payment-method-fails",
+        "all-features-locked-without-sub",
+        "history-lost-resubscribe"
+      ]
+    },
+    {
+      "id": "byudzhet-celi-i-dolgi",
+      "name": "Бюджет, цели и долги: всё держится на ручном труде",
+      "insight_ids": [
+        "goals-manual-only",
+        "budget-not-copyable-months",
+        "transfers-clunky-workflow",
+        "debt-payoff-manual",
+        "no-credit-card-payment-balance",
+        "goals-update-regressed",
+        "investment-tracking-positioning"
+      ]
+    },
+    {
+      "id": "padeniya-i-polomki-posle-obnovleniy",
+      "name": "Падения, зависания и поломки входа после обновлений",
+      "insight_ids": [
+        "crashes-and-freezes",
+        "crashes-ipad",
+        "google-login-broken",
+        "no-new-transaction-alerts",
+        "ai-broke-sync",
+        "cannot-switch-login-method"
+      ]
+    },
+    {
+      "id": "web-only-i-ubogiy-interfeys",
+      "name": "Всё лучшее в вебе: нет паритета с мобильным и Mac, интерфейс хрупкий",
+      "insight_ids": [
+        "mobile-feature-parity",
+        "no-native-mac-app",
+        "iphone-layout-unoptimized",
+        "keyboard-blocks-ai",
+        "charts-without-numbers",
+        "switched-back-to-excel",
+        "export-impossible",
+        "no-shortcuts-automation"
+      ]
+    },
+    {
+      "id": "ai-bez-soglasiya-i-slezhka",
+      "name": "Навязанный AI и слежка: анализ данных без согласия и трекеры",
+      "insight_ids": [
+        "auto-ai-optin-no-consent",
+        "facebook-tracker-embedded",
+        "support-no-human-agent"
+      ]
+    }
+  ]
+}

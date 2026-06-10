@@ -1,0 +1,239 @@
+You are grouping 38 mechanism-level insight clusters from iClicker Student (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO iClicker Student, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 38 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to iClicker Student — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to iClicker Student>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-899690067.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-expires-no-warning",
+  "title": "Пробный период заканчивается без уведомления — требование оплаты появляется прямо во время занятия",
+  "obs": 9
+ },
+ {
+  "id": "ipad-no-native-app",
+  "title": "На iPad нет нативной версии — интерфейс масштабируется неправильно или не работает",
+  "obs": 9
+ },
+ {
+  "id": "session-disconnect-mid-class",
+  "title": "Приложение теряет соединение с сессией и выходит из класса в середине занятия",
+  "obs": 9
+ },
+ {
+  "id": "gps-wrong-location",
+  "title": "Геолокация неверно определяет местоположение студента и отказывает в посещаемости",
+  "obs": 9
+ },
+ {
+  "id": "crash-on-launch",
+  "title": "Приложение падает при запуске и не открывается",
+  "obs": 8
+ },
+ {
+  "id": "attendance-wrong-no-gps",
+  "title": "Посещаемость записывается неверно — студент числится отсутствующим, хотя был на занятии",
+  "obs": 7
+ },
+ {
+  "id": "white-screen-load-fail",
+  "title": "Приложение зависает на белом или загрузочном экране и не загружается",
+  "obs": 6
+ },
+ {
+  "id": "server-unstable",
+  "title": "Серверы недоступны или работают нестабильно во время занятия",
+  "obs": 6
+ },
+ {
+  "id": "questions-not-loading",
+  "title": "Вопросы не появляются в приложении или зависают при загрузке",
+  "obs": 5
+ },
+ {
+  "id": "clicker-double-payment",
+  "title": "Владельцы физического пульта обязаны отдельно платить за подписку в приложении",
+  "obs": 4
+ },
+ {
+  "id": "ipad-no-split-landscape",
+  "title": "iPad не поддерживает горизонтальную ориентацию и режим split view — одновременно использовать с конспектами нельзя",
+  "obs": 4
+ },
+ {
+  "id": "cant-join-class",
+  "title": "Приложение не позволяет войти в класс — участие полностью заблокировано",
+  "obs": 4
+ },
+ {
+  "id": "credentials-not-saved",
+  "title": "Учётные данные не сохраняются между запусками — каждый раз нужно входить заново",
+  "obs": 4
+ },
+ {
+  "id": "location-surveillance",
+  "title": "Приложение отслеживает местоположение и поведение студентов и передаёт данные преподавателю",
+  "obs": 4
+ },
+ {
+  "id": "subscription-not-recognized",
+  "title": "Приложение не распознаёт уже совершённую покупку и снова запрашивает оплату",
+  "obs": 3
+ },
+ {
+  "id": "subscription-min-duration",
+  "title": "Минимальный период подписки — полгода, оплата за один семестр или курс невозможна",
+  "obs": 3
+ },
+ {
+  "id": "promo-codes-broken",
+  "title": "Коды доступа и промокоды нельзя активировать в приложении — нужен сайт",
+  "obs": 3
+ },
+ {
+  "id": "no-question-notification",
+  "title": "Приложение не уведомляет о появлении нового вопроса — студент пропускает его",
+  "obs": 3
+ },
+ {
+  "id": "review-prompt-loop",
+  "title": "Приложение постоянно просит оставить отзыв и повторяет запрос после отказа",
+  "obs": 3
+ },
+ {
+  "id": "answer-not-registered",
+  "title": "Нажатие на вариант ответа не регистрируется — балл не засчитывается",
+  "obs": 3
+ },
+ {
+  "id": "general-slowness",
+  "title": "Приложение очень медленно реагирует на действия во время занятия",
+  "obs": 3
+ },
+ {
+  "id": "crashes-with-multitasking",
+  "title": "Приложение вылетает если открыты другие приложения — требует монопольного использования телефона",
+  "obs": 3
+ },
+ {
+  "id": "intermittent-glitches",
+  "title": "Периодические необъяснимые сбои нарушают занятие и влияют на оценки",
+  "obs": 3
+ },
+ {
+  "id": "paywall-mid-question",
+  "title": "Платёжный экран открывается в момент ответа на вопрос — студент теряет баллы",
+  "obs": 2
+ },
+ {
+  "id": "campus-portal-login-broken",
+  "title": "Вход через портал университета работает непредсказуемо или не направляет пользователя куда нужно",
+  "obs": 2
+ },
+ {
+  "id": "account-creation-broken",
+  "title": "Создание аккаунта или первый вход не работают",
+  "obs": 2
+ },
+ {
+  "id": "saved-questions-study-tool",
+  "title": "Сохранённые вопросы из занятий используются для самостоятельной подготовки к экзаменам",
+  "obs": 2
+ },
+ {
+  "id": "recurring-charge-unexpected",
+  "title": "Приложение списывает ежемесячные платежи вместо единоразового",
+  "obs": 1
+ },
+ {
+  "id": "apple-pay-unavailable",
+  "title": "Оплата через Apple Pay недоступна",
+  "obs": 1
+ },
+ {
+  "id": "payment-flow-difficult",
+  "title": "Процесс оформления подписки трудный и запутанный",
+  "obs": 1
+ },
+ {
+  "id": "three-class-limit-silent",
+  "title": "Приложение блокирует участие после трёх бесплатных занятий — ограничение не объявлено заранее",
+  "obs": 1
+ },
+ {
+  "id": "post-trial-subscribe-error",
+  "title": "После окончания триала подписку оформить невозможно — при попытке возникает ошибка",
+  "obs": 1
+ },
+ {
+  "id": "app-focus-lock",
+  "title": "Во время занятия нельзя использовать другие приложения и блокировать экран",
+  "obs": 1
+ },
+ {
+  "id": "no-correct-answer-timer",
+  "title": "После закрытия опроса не показывается правильный ответ и нет обратного отсчёта времени",
+  "obs": 1
+ },
+ {
+  "id": "extra-confirm-button",
+  "title": "Для отправки ответа нужно нажать дополнительную кнопку подтверждения — одного касания недостаточно",
+  "obs": 1
+ },
+ {
+  "id": "attendance-poll-two-steps",
+  "title": "Отметка посещаемости и ответ на вопрос — два отдельных шага, что создаёт лишнее трение",
+  "obs": 1
+ },
+ {
+  "id": "freeze-on-answer-edit",
+  "title": "Приложение зависает при попытке изменить ответ на викторине",
+  "obs": 1
+ },
+ {
+  "id": "app-preferred-over-clicker",
+  "title": "Студенты предпочитают приложение физическому пульту из-за удобства",
+  "obs": 1
+ }
+]

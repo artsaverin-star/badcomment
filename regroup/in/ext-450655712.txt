@@ -1,0 +1,419 @@
+You are grouping 74 mechanism-level insight clusters from Brainwaves (бинауральные ритмы / focus / sleep / meditation) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Brainwaves, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 74 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Brainwaves — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Brainwaves>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-450655712.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paywall-all-content-locked",
+  "title": "Практически весь контент скрыт за платёжным барьером — бесплатного контента для оценки нет",
+  "obs": 12
+ },
+ {
+  "id": "sleep-onset-use-case",
+  "title": "Основной сценарий — засыпание: пользователи отмечают ускорение засыпания и улучшение качества сна",
+  "obs": 12
+ },
+ {
+  "id": "random-playback-interruption",
+  "title": "Воспроизведение внезапно прерывается посередине сеанса и не возобновляется автоматически",
+  "obs": 9
+ },
+ {
+  "id": "adhd-focus-use-case",
+  "title": "Бинауральные ритмы значительно улучшают концентрацию при СДВГ — пользователи замечают эффект быстрее, чем от лекарств",
+  "obs": 8
+ },
+ {
+  "id": "cancel-impossible",
+  "title": "Отменить подписку через интерфейс приложения невозможно — кнопки нет или она не работает",
+  "obs": 7
+ },
+ {
+  "id": "premium-still-shows-upsell",
+  "title": "Платящий подписчик видит рекламу и попапы с предложением доп. покупки — будто подписка не активна",
+  "obs": 7
+ },
+ {
+  "id": "price-mismatch-shown-vs-charged",
+  "title": "Цена в интерфейсе и цена при фактической оплате не совпадают — разница достигает $20–30",
+  "obs": 7
+ },
+ {
+  "id": "anxiety-stress-relief-use-case",
+  "title": "10-минутный сеанс снижает острую тревогу — используется как неотложный инструмент управления симптомами",
+  "obs": 7
+ },
+ {
+  "id": "long-term-loyalty",
+  "title": "Значительная доля пользователей остаётся верна приложению 5–10 лет — один из самых высоких показателей удержания",
+  "obs": 7
+ },
+ {
+  "id": "persistent-upsell-popups",
+  "title": "При каждом открытии приложения появляется всплывающее окно с предложением покупки — даже для подписчиков",
+  "obs": 6
+ },
+ {
+  "id": "app-crashes-device-specific",
+  "title": "Приложение не открывается или постоянно падает на конкретных устройствах (iPhone 15, iPad)",
+  "obs": 6
+ },
+ {
+  "id": "support-nonresponsive",
+  "title": "Служба поддержки не отвечает на обращения — письма игнорируются или отскакивают",
+  "obs": 6
+ },
+ {
+  "id": "pain-relief-use-case",
+  "title": "Приложение применяется для снижения хронической боли — эффект описывается как сравнимый с медикаментозным",
+  "obs": 6
+ },
+ {
+  "id": "multi-use-daily-integration",
+  "title": "Пользователи встраивают приложение в ежедневную рутину для разных целей: перед работой, при стрессе, перед сном",
+  "obs": 6
+ },
+ {
+  "id": "vulnerable-user-segments",
+  "title": "Среди пользователей — люди с хронической болью, зависимостью, детьми с аутизмом и родители в истощении",
+  "obs": 6
+ },
+ {
+  "id": "skeptic-to-convert-first-session",
+  "title": "Скептически настроенные пользователи конвертируются после первого сеанса — эффект оказывается сильнее ожиданий",
+  "obs": 5
+ },
+ {
+  "id": "wellness-app-creates-stress-paradox",
+  "title": "Приложение для снижения стресса само создаёт стресс: уведомления об оплате и обратные отсчёты — прямо в сеансе",
+  "obs": 5
+ },
+ {
+  "id": "scientific-credibility-question",
+  "title": "Часть пользователей ссылается на исследования NIH, другие считают эффект плацебо — доверие делится пополам",
+  "obs": 5
+ },
+ {
+  "id": "trial-immediate-charge",
+  "title": "Кнопка «бесплатный пробный период» немедленно списывает полную стоимость годовой подписки",
+  "obs": 4
+ },
+ {
+  "id": "playlist-management-limited",
+  "title": "Нельзя переставить треки в плейлисте или добавить сеанс целиком — только по одному файлу",
+  "obs": 4
+ },
+ {
+  "id": "unexpected-behavioral-side-effects",
+  "title": "Регулярное применение неожиданно влияет на аппетит, интенсивность снов и мотивацию к спорту",
+  "obs": 4
+ },
+ {
+  "id": "no-trial-end-notification",
+  "title": "Уведомления о скором завершении пробного периода не приходят — пользователь узнаёт о списании постфактум",
+  "obs": 3
+ },
+ {
+  "id": "purchases-lost-after-reinstall",
+  "title": "Ранее купленный контент исчезает после переустановки — функция «восстановить покупки» не работает",
+  "obs": 3
+ },
+ {
+  "id": "audio-glitch-click-artifact",
+  "title": "В треках слышны щелчки или постоянное потрескивание, нарушающие медитативное состояние",
+  "obs": 3
+ },
+ {
+  "id": "headphone-requirement-unclear",
+  "title": "Требование наушников для бинауральных битов нигде не объяснено — пользователи открывают это случайно",
+  "obs": 3
+ },
+ {
+  "id": "isochronic-as-no-headphone-alternative",
+  "title": "Изохронные тоны работают без наушников и воспринимаются мягче бинауральных — отдельная ниша",
+  "obs": 3
+ },
+ {
+  "id": "playlist-same-track-loops",
+  "title": "Плейлист повторяет один и тот же трек вместо перехода к следующему",
+  "obs": 3
+ },
+ {
+  "id": "timer-stops-no-loop",
+  "title": "Воспроизведение обрывается по истечении таймера вместо зацикливания — прерывает сон",
+  "obs": 3
+ },
+ {
+  "id": "flashing-banners-disrupt-session",
+  "title": "Мигающие баннеры и флэш-реклама появляются прямо в начале сеанса, нарушая состояние расслабления",
+  "obs": 3
+ },
+ {
+  "id": "notifications-uncontrollable",
+  "title": "Уведомления приходят даже после удаления приложения — отключить их невозможно",
+  "obs": 3
+ },
+ {
+  "id": "onboarding-quiz-hides-paywall",
+  "title": "Серия вводных вопросов о духовности завершается неожиданным запросом оплаты — пейволл скрыт в онбординге",
+  "obs": 3
+ },
+ {
+  "id": "ipad-freeze-hang",
+  "title": "Интерфейс замерзает и зависает на iPad, требуя перезагрузки",
+  "obs": 3
+ },
+ {
+  "id": "experienced-meditators-complement",
+  "title": "Опытные медитирующие используют звуки приложения как усилитель практики, а не замену ей",
+  "obs": 3
+ },
+ {
+  "id": "competitor-comparison",
+  "title": "Пользователи сравнивают приложение с Insight Timer и YouTube — платный продукт должен превосходить бесплатные аналоги",
+  "obs": 3
+ },
+ {
+  "id": "wrong-content-for-frequency",
+  "title": "Запрошенная частота (963 Гц, чакры) не соответствует фактическому звуку — контент не тот",
+  "obs": 2
+ },
+ {
+  "id": "track-title-opposite-effect",
+  "title": "Название трека обещает энергию или подъём настроения, а звучание — траурное или тревожащее",
+  "obs": 2
+ },
+ {
+  "id": "no-real-binaural-in-app",
+  "title": "Приложение называет треки бинауральными, но содержит только успокаивающую музыку без настоящих битов",
+  "obs": 2
+ },
+ {
+  "id": "tracks-too-short-for-full-sleep",
+  "title": "Отдельные треки слишком коротки для полного ночного сна — пользователи вручную зацикливают через таймер",
+  "obs": 2
+ },
+ {
+  "id": "no-audio-mix-other-apps",
+  "title": "Нельзя слушать биты приложения одновременно с аудиокнигой или музыкой из другого приложения",
+  "obs": 2
+ },
+ {
+  "id": "sleep-timer-absent-or-broken",
+  "title": "Таймер отключения отсутствует или перестал работать после обновления",
+  "obs": 2
+ },
+ {
+  "id": "harsh-end-of-session-sound",
+  "title": "Резкий звонок в конце сеанса пробуждает пользователя и вызывает тревогу вместо плавного выхода",
+  "obs": 2
+ },
+ {
+  "id": "no-seek-scrub",
+  "title": "Невозможно перемотать трек вперёд или назад — при случайном нажатии приходится начинать заново",
+  "obs": 2
+ },
+ {
+  "id": "search-navigation-broken",
+  "title": "Поиск по названию трека не находит нужный контент — приходится листать вручную",
+  "obs": 2
+ },
+ {
+  "id": "countdown-timer-stress-inducing",
+  "title": "Таймер обратного отсчёта на экране создаёт ощущение спешки и тревоги, противоречащее назначению приложения",
+  "obs": 2
+ },
+ {
+  "id": "platform-gaps-macos-watch",
+  "title": "Приложение недоступно для macOS и Apple Watch, что исключает интеграцию в рабочий процесс",
+  "obs": 2
+ },
+ {
+  "id": "ui-regression-after-update",
+  "title": "Крупные обновления ухудшают интерфейс и ломают привычные функции у долгих пользователей",
+  "obs": 2
+ },
+ {
+  "id": "purchase-restore-broken",
+  "title": "После переустановки ранее купленный контент не восстанавливается через встроенную функцию",
+  "obs": 2
+ },
+ {
+  "id": "support-hidden-no-contact",
+  "title": "Нет способа связаться с поддержкой напрямую — кнопки скрыты или отсутствуют",
+  "obs": 2
+ },
+ {
+  "id": "practitioner-recommendation-channel",
+  "title": "Специалисты по интегративному здоровью рекомендуют приложение своим клиентам — канал профессиональных рефералов",
+  "obs": 2
+ },
+ {
+  "id": "background-playback-while-reading",
+  "title": "Фоновое воспроизведение во время чтения или работы — востребованный и недооценённый сценарий использования",
+  "obs": 2
+ },
+ {
+  "id": "post-cancel-charge",
+  "title": "После подтверждённой отмены подписки система продолжает списывать деньги в следующем цикле",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-charge-no-face-id",
+  "title": "Двойное списание за подписку происходит без запроса Face ID или пароля — без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "individual-tracks-discontinued",
+  "title": "Покупка отдельных треков больше недоступна — теперь только полные пакеты",
+  "obs": 1
+ },
+ {
+  "id": "dynamic-rising-price",
+  "title": "Цена подписки поднимается с каждой повторной проверкой в течение одного сеанса",
+  "obs": 1
+ },
+ {
+  "id": "review-gated-trial",
+  "title": "Бесплатный пробный период выдаётся только в обмен на оценку в магазине приложений",
+  "obs": 1
+ },
+ {
+  "id": "music-too-loud-over-tones",
+  "title": "Фоновая музыка заглушает бинауральные тоны — пики громкости пробуждают вместо расслабления",
+  "obs": 1
+ },
+ {
+  "id": "pure-tones-without-music-wanted",
+  "title": "Пользователи хотят чистые бинауральные тоны без наложенной музыки",
+  "obs": 1
+ },
+ {
+  "id": "no-usage-guidance-for-tracks",
+  "title": "Треки не содержат рекомендаций: когда слушать (утро/вечер) и как комбинировать волновые типы",
+  "obs": 1
+ },
+ {
+  "id": "misleading-spiritual-content-description",
+  "title": "Описания контента (шаманские записи, общение с духами) воспринимаются как обман и подрывают доверие",
+  "obs": 1
+ },
+ {
+  "id": "name-confusion-brainwave-vs-brainwaves",
+  "title": "Brainwaves путают с Brainwave — приложением, которое рекомендовал доктор Хуберман",
+  "obs": 1
+ },
+ {
+  "id": "sequential-playlist-regression",
+  "title": "После обновления плейлисты перестали воспроизводиться последовательно — регрессия для давних пользователей",
+  "obs": 1
+ },
+ {
+  "id": "notifications-stop-playback",
+  "title": "Любое входящее уведомление останавливает воспроизведение и не возобновляет его автоматически",
+  "obs": 1
+ },
+ {
+  "id": "countdown-timer-removed-progress-bar",
+  "title": "После обновления убрали прогресс-бар трека, заменив обратным отсчётом — нельзя вернуть оба",
+  "obs": 1
+ },
+ {
+  "id": "no-filter-by-wave-type",
+  "title": "Нет фильтра по типу волн (альфа, бета, дельта, тета) — выбор трека под конкретную цель затруднён",
+  "obs": 1
+ },
+ {
+  "id": "track-duration-hidden",
+  "title": "После обновления длительность трека скрыта в интерфейсе — нужно запустить трек, чтобы узнать время",
+  "obs": 1
+ },
+ {
+  "id": "notification-deep-link-broken",
+  "title": "Уведомление с рекомендацией открывает главный экран, а не конкретный контент",
+  "obs": 1
+ },
+ {
+  "id": "ipad-landscape-unsupported",
+  "title": "Горизонтальная ориентация на iPad не поддерживается",
+  "obs": 1
+ },
+ {
+  "id": "large-icon-grid-too-much-scrolling",
+  "title": "Сетка из крупных иконок (4 на экране) заставляет много прокручивать для навигации по библиотеке",
+  "obs": 1
+ },
+ {
+  "id": "content-paywalled-after-update",
+  "title": "После обновления ранее доступный контент перешёл за пейволл — давние пользователи теряют доступ",
+  "obs": 1
+ },
+ {
+  "id": "offline-playback-blocked",
+  "title": "Скачивание контента для офлайн-воспроизведения недоступно — в зонах без интернета приложение бесполезно",
+  "obs": 1
+ },
+ {
+  "id": "ads-block-offline-content",
+  "title": "Рекламный экран в обновлении зависает при отсутствии сети и блокирует воспроизведение купленного контента",
+  "obs": 1
+ },
+ {
+  "id": "app-flagged-by-router",
+  "title": "Приложение блокируется домашним роутером как угроза безопасности",
+  "obs": 1
+ },
+ {
+  "id": "support-chat-confusing",
+  "title": "Чат поддержки не подтверждает отправку — непонятно, дошло ли сообщение до разработчика",
+  "obs": 1
+ },
+ {
+  "id": "fake-reviews-trust-damage",
+  "title": "Отзывы приложения выглядят неаутентично — это снижает доверие к продукту у потенциальных покупателей",
+  "obs": 1
+ }
+]

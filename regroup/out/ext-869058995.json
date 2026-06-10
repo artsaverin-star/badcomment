@@ -1,0 +1,102 @@
+{
+  "groups": [
+    {
+      "id": "billing-trap",
+      "name": "Деньги после отмены: списания, которые не остановить",
+      "insight_ids": [
+        "logged-out-asks-resubscribe",
+        "billing-after-cancel",
+        "price-mismatch-charge",
+        "trial-charges-immediately",
+        "price-hike-elite",
+        "billing-blames-bank",
+        "cancel-blocked",
+        "double-charge",
+        "no-refund-guarantee",
+        "plan-switch-double-bill"
+      ]
+    },
+    {
+      "id": "progress-erased",
+      "name": "Прогресс, который испаряется: незасчитанные тренировки",
+      "insight_ids": [
+        "workout-completion-not-saved",
+        "finish-button-error",
+        "program-stuck-last-seconds",
+        "ai-coach-not-tracking",
+        "completed-not-shown-on-day",
+        "metrics-tracking-removed",
+        "save-favorites-broken"
+      ]
+    },
+    {
+      "id": "audio-needs-eyes",
+      "name": "Аудио, которому нужны глаза: видео против голоса тренера",
+      "insight_ids": [
+        "video-out-of-sync-with-voice",
+        "video-wrong-exercise",
+        "movement-video-removed",
+        "video-not-ahead-of-timer",
+        "audio-only-needs-video",
+        "beginner-plan-too-hard"
+      ]
+    },
+    {
+      "id": "update-took-it-away",
+      "name": "Обновление всё спрятало: исчезнувшие функции и экраны",
+      "insight_ids": [
+        "workout-details-removed",
+        "plan-hidden-in-coach",
+        "enrolled-programs-hidden",
+        "extra-steps-before-start",
+        "location-resets-default",
+        "weight-required-before-browse",
+        "birthdate-field-broken"
+      ]
+    },
+    {
+      "id": "watch-and-health",
+      "name": "Часы и здоровье: синхронизация, которая всё ломает",
+      "insight_ids": [
+        "apple-watch-no-sync",
+        "apple-watch-broken-each-update",
+        "watch-workouts-incompatible",
+        "location-tracking-after-workout",
+        "bluetooth-prompt-loop",
+        "watch-sleep-mode-override",
+        "health-integrations-removed"
+      ]
+    },
+    {
+      "id": "music-vs-coach",
+      "name": "Музыка против инструктора: пропавшие звуки и синтетика",
+      "insight_ids": [
+        "custom-music-mutes-coach",
+        "music-options-removed",
+        "reduce-volume-broken",
+        "music-stopped-playing",
+        "ai-synthetic-voice-hated",
+        "coaches-leaving-no-new-content"
+      ]
+    },
+    {
+      "id": "crashes-and-ai",
+      "name": "Падения и капризный ИИ-тренер",
+      "insight_ids": [
+        "crash-on-select-or-search",
+        "crash-mid-workout",
+        "ai-plan-server-error"
+      ]
+    },
+    {
+      "id": "broken-promises-support",
+      "name": "Невыполненные обещания: залы, поддержка, доступ за деньги",
+      "insight_ids": [
+        "gym-network-benefit-missing",
+        "support-phone-is-apple",
+        "login-blocked-after-payment",
+        "employer-portal-mismatch"
+      ]
+    }
+  ]
+}

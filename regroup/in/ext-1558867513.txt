@@ -1,0 +1,199 @@
+You are grouping 30 mechanism-level insight clusters from Grief Works (grief support / mental health / courses / journaling) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Grief Works, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 30 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Grief Works — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Grief Works>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1558867513.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "grief-intensity-too-high-early",
+  "title": "Сеансы активируют сильные эмоции, но нет механики снижения интенсивности для пользователей в остром шоке",
+  "obs": 4
+ },
+ {
+  "id": "content-wall-after-28-days",
+  "title": "Курс заканчивается за 28 дней, а горе продолжается годами — после прохождения нет нового контента",
+  "obs": 2
+ },
+ {
+  "id": "exploitation-perception",
+  "title": "Пользователи воспринимают монетизацию как эксплуатацию уязвимых людей в момент максимальной боли",
+  "obs": 2
+ },
+ {
+  "id": "generic-grief-no-specialization",
+  "title": "Контент остаётся общим и не адаптирован к специфике горя после самоубийства близкого",
+  "obs": 2
+ },
+ {
+  "id": "audio-abrupt-music-cutoff",
+  "title": "Фоновая музыка резко обрывается вместо плавного затухания в конце сеанса",
+  "obs": 2
+ },
+ {
+  "id": "billing-charges-after-cancel",
+  "title": "Платёж списывается после явной отмены подписки, добавляя стресс в момент уязвимости",
+  "obs": 1
+ },
+ {
+  "id": "trial-too-short-to-evaluate",
+  "title": "Бесплатный пробный период слишком короткий, чтобы оценить ценность приложения перед покупкой",
+  "obs": 1
+ },
+ {
+  "id": "subscription-pace-mismatch",
+  "title": "Жёсткие временные рамки подписки заставляют торопиться с курсом или терять доступ к оплаченному контенту",
+  "obs": 1
+ },
+ {
+  "id": "generic-grief-family-dynamics",
+  "title": "Контент предлагает только базовые советы и не охватывает семейную динамику горевания",
+  "obs": 1
+ },
+ {
+  "id": "pet-loss-excluded",
+  "title": "Горе по домашним животным не предусмотрено — такие пользователи исключены уже на первом экране выбора типа утраты",
+  "obs": 1
+ },
+ {
+  "id": "personalization-by-loss-type",
+  "title": "Персонализация контента по типу утраты (ребёнок, родитель, супруг, брат) повышает релевантность",
+  "obs": 1
+ },
+ {
+  "id": "sleep-content-insufficient",
+  "title": "Раздел для сна содержит мало историй — недостаточно для пользователей с ночными пробуждениями",
+  "obs": 1
+ },
+ {
+  "id": "repetitive-daily-quotes",
+  "title": "Ежедневные напоминания повторяют одни и те же цитаты, что снижает их мотивирующий эффект",
+  "obs": 1
+ },
+ {
+  "id": "sessions-seem-shallow",
+  "title": "Некоторые сеансы кажутся поверхностными на первый слух, но раскрывают глубину при повторном прохождении",
+  "obs": 1
+ },
+ {
+  "id": "anticipatory-grief-complex-loss",
+  "title": "Приложение не подходит для одновременного горя нескольких утрат и ухода за умирающим",
+  "obs": 1
+ },
+ {
+  "id": "session-ends-abruptly",
+  "title": "Сеансы заканчиваются внезапно, не давая пользователю завершить эмоциональный опыт",
+  "obs": 1
+ },
+ {
+  "id": "audio-to-text-break-in-flow",
+  "title": "Переход с озвучки к текстовым вопросам внутри сеанса нарушает погружение и концентрацию",
+  "obs": 1
+ },
+ {
+  "id": "senior-navigation-difficulty",
+  "title": "Пожилые пользователи испытывают трудности с навигацией из-за сложного интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "unlock-notification-missing",
+  "title": "Приложение не сообщает пользователю, какой именно инструмент был разблокирован системой",
+  "obs": 1
+ },
+ {
+  "id": "mobile-text-input-hard",
+  "title": "Текстовый ввод в дневнике на мобильном устройстве неудобен и не позволяет легко исправлять ошибки",
+  "obs": 1
+ },
+ {
+  "id": "dark-mode-missing",
+  "title": "Приложение не поддерживает тёмный режим — пользователи с нарушением зрения не могут им пользоваться",
+  "obs": 1
+ },
+ {
+  "id": "registration-bug-blocks-access",
+  "title": "Критический баг при регистрации замораживает форму и не пускает пользователя в приложение",
+  "obs": 1
+ },
+ {
+  "id": "progress-lost-on-restart",
+  "title": "Весь прогресс курса сбрасывается при перезагрузке приложения — баг повторяется несколько раз",
+  "obs": 1
+ },
+ {
+  "id": "journal-data-loss",
+  "title": "Все личные записи, дневник и прогресс исчезают без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "zoom-session-not-started",
+  "title": "Онлайн-встреча поддержки по видеосвязи не запускается — пользователь не получает доступ и чувствует изоляцию",
+  "obs": 1
+ },
+ {
+  "id": "zoom-review-triggers-pain",
+  "title": "Напоминания о пропущенных групповых встречах вызывают дополнительную боль у тех, кто не смог присутствовать",
+  "obs": 1
+ },
+ {
+  "id": "email-support-slow-impersonal",
+  "title": "Поддержка по электронной почте медленная и обезличенная — недопустимо для аудитории в состоянии горя",
+  "obs": 1
+ },
+ {
+  "id": "counselor-rotation-no-history",
+  "title": "Каждый раз назначается новый консультант без истории — пользователю приходится заново рассказывать о травме",
+  "obs": 1
+ },
+ {
+  "id": "pause-subscription-missing",
+  "title": "Нет возможности поставить подписку на паузу — пользователь в состоянии шока получает уведомления, вызывающие чувство вины",
+  "obs": 1
+ },
+ {
+  "id": "traumatic-grief-underserved",
+  "title": "Пользователи с острой психологической травмой — не целевая аудитория стандартного курса горевания",
+  "obs": 1
+ }
+]

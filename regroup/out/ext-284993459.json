@@ -1,0 +1,73 @@
+{
+  "groups": [
+    {
+      "id": "recognition-failing",
+      "name": "Главное умение сломалось: песни перестали узнаваться",
+      "insight_ids": [
+        "recognition-regression-after-update",
+        "low-accuracy-general",
+        "recognition-accuracy-degraded-years",
+        "wrong-song-returned"
+      ]
+    },
+    {
+      "id": "blind-spots-of-the-database",
+      "name": "Слепые зоны: напел, кавер, инди и неанглийские треки",
+      "insight_ids": [
+        "humming-singing-not-supported",
+        "indie-unknown-tracks-gap",
+        "no-multilanguage-recognition",
+        "live-cover-recognition-fail",
+        "beat-confusion-similar-rhythm"
+      ]
+    },
+    {
+      "id": "when-conditions-arent-perfect",
+      "name": "Когда условия не идеальны: шум, видео, фон",
+      "insight_ids": [
+        "noisy-environment-recognition-fail",
+        "unusual-conditions-smoke",
+        "no-background-video-recognition"
+      ]
+    },
+    {
+      "id": "wall-before-first-shazam",
+      "name": "Стена до первого распознавания: аккаунт, триал, реклама",
+      "insight_ids": [
+        "forced-signup-before-use",
+        "trial-no-dismiss",
+        "ad-blocks-main-flow",
+        "account-email-change-impossible"
+      ]
+    },
+    {
+      "id": "one-tap-ritual-broken",
+      "name": "Жест в одно касание сломали: автослушание, кнопка, виджет",
+      "insight_ids": [
+        "autostart-listen-on-open",
+        "manual-button-required",
+        "slow-response-button-tap",
+        "widget-previous-song-blocks-new-search",
+        "playback-interrupted-by-shazam"
+      ]
+    },
+    {
+      "id": "after-the-match",
+      "name": "Что после метки: история, плейлисты и привязка к Apple Music",
+      "insight_ids": [
+        "song-history-positive",
+        "apple-music-lock-in",
+        "song-not-saved-after-recognition",
+        "add-to-playlist-fails-15pct"
+      ]
+    },
+    {
+      "id": "slow-and-losing-to-google",
+      "name": "Тормозит и проигрывает Google в скорости",
+      "insight_ids": [
+        "google-faster-competitor",
+        "app-slow-requires-restart"
+      ]
+    }
+  ]
+}

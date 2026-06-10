@@ -1,0 +1,114 @@
+You are grouping 13 mechanism-level insight clusters from VPN - Secure Proxy & WIFI (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO VPN - Secure Proxy & WIFI, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 13 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to VPN - Secure Proxy & WIFI — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to VPN - Secure Proxy & WIFI>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1320373866.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "forced-review-prompt",
+  "title": "Приложение показывает обязательное окно с просьбой оставить отзыв при каждом входе — закрыть без оценки невозможно",
+  "obs": 7
+ },
+ {
+  "id": "misleading-trial-charge",
+  "title": "Экран пробного периода списывает деньги сразу — пользователь думает, что получает бесплатные дни",
+  "obs": 2
+ },
+ {
+  "id": "vpn-drops-wifi",
+  "title": "После включения VPN приложение отключает Wi-Fi и показывает ошибку отсутствия интернета",
+  "obs": 2
+ },
+ {
+  "id": "recurring-unexpected-charges",
+  "title": "Подписка требует повторной оплаты каждые несколько недель вместо заявленного годового доступа",
+  "obs": 1
+ },
+ {
+  "id": "whitelisting-blocks-new-users",
+  "title": "Приложение требует предварительного одобрения перед использованием — новые пользователи заблокированы",
+  "obs": 1
+ },
+ {
+  "id": "vpn-connection-drops",
+  "title": "VPN постоянно обрывает соединение, автоматическое переподключение не работает",
+  "obs": 1
+ },
+ {
+  "id": "vpn-profile-persists-after-delete",
+  "title": "После удаления приложения VPN-профиль остаётся в системных настройках и включается каждые 10 минут",
+  "obs": 1
+ },
+ {
+  "id": "contradictory-privacy-warning",
+  "title": "Второе системное окно разрешений предупреждает, что сеть может быть перехвачена — это противоречит обещанию приватности",
+  "obs": 1
+ },
+ {
+  "id": "ip-not-masked",
+  "title": "После подключения к VPN IP-адрес пользователя не изменяется — основная функция маскирования не работает",
+  "obs": 1
+ },
+ {
+  "id": "ip-exposed-on-disconnect",
+  "title": "При разрыве соединения VPN раскрывает реальный IP-адрес — приватность нарушается автоматически",
+  "obs": 1
+ },
+ {
+  "id": "netflix-blocked",
+  "title": "Приложение не позволяет смотреть стриминговые сервисы при активном VPN — основной сценарий недоступен",
+  "obs": 1
+ },
+ {
+  "id": "crypto-drained-after-vpn",
+  "title": "После активации VPN с криптокошелька произошёл несанкционированный перевод средств",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-unusable",
+  "title": "Бесплатная версия практически неработоспособна — скрытое соединение недоступно без платной подписки",
+  "obs": 1
+ }
+]

@@ -1,0 +1,224 @@
+You are grouping 35 mechanism-level insight clusters from Substack (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Substack, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 35 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Substack — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Substack>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1581650857.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "content-type-filtering-feed",
+  "title": "Лента не даёт выбрать формат: видео вытесняет тексты, а частые авторы заглушают редких — без фильтров по типу или частоте",
+  "obs": 3
+ },
+ {
+  "id": "authoring-mobile-limited",
+  "title": "Редактирование и публикация статей доступны только через веб: мобильное приложение не поддерживает полноценный авторский процесс",
+  "obs": 3
+ },
+ {
+  "id": "notification-from-unsubscribed",
+  "title": "Пуши приходят от авторов и комментаторов, на которых пользователь не подписан",
+  "obs": 2
+ },
+ {
+  "id": "notification-cannot-disable-all",
+  "title": "Отключить все уведомления нельзя: отключение пушей переключает платформу на email, который отдельно не отключается",
+  "obs": 2
+ },
+ {
+  "id": "unknown-icons-no-help",
+  "title": "Иконки навигации не объяснены, подсказки отсутствуют, местоположение сохранённых постов неочевидно",
+  "obs": 2
+ },
+ {
+  "id": "app-crash-freeze-ios",
+  "title": "Приложение регулярно зависает и требует принудительного перезапуска на iOS",
+  "obs": 2
+ },
+ {
+  "id": "navigation-slow-loading",
+  "title": "Навигация между рассылками тормозит, а при смене контента приложение начинает сначала вместо возобновления с места",
+  "obs": 2
+ },
+ {
+  "id": "deep-link-opens-home-not-article",
+  "title": "Переход по внешней ссылке на статью открывает главную страницу приложения, а не саму статью",
+  "obs": 2
+ },
+ {
+  "id": "upgrade-button-active-subscriber",
+  "title": "Кнопка «Оформить подписку» остаётся видна подписчикам высшего уровня, создавая ощущение что платёж не прошёл",
+  "obs": 1
+ },
+ {
+  "id": "access-revoked-before-billing-end",
+  "title": "Доступ к оплаченному контенту и чатам отзывается в момент отмены, а не в конце оплаченного периода",
+  "obs": 1
+ },
+ {
+  "id": "notification-volume-overwhelming",
+  "title": "Сотни пушей в день от подписок невозможно сократить без отключения всего канала уведомлений",
+  "obs": 1
+ },
+ {
+  "id": "inbox-no-bulk-read",
+  "title": "Нет способа разом отметить всё как прочитанное — каждый пост нужно архивировать вручную",
+  "obs": 1
+ },
+ {
+  "id": "subscription-navigation-hard",
+  "title": "Найти и перелистать собственные подписки внутри приложения сложно — навигация устроена под продажу, а не под чтение",
+  "obs": 1
+ },
+ {
+  "id": "ipad-layout-wasted-space",
+  "title": "На iPad текст не адаптируется к системному размеру шрифта и оставляет 40–60 % экрана пустыми",
+  "obs": 1
+ },
+ {
+  "id": "ipad-splitview-navigation-lost",
+  "title": "В режиме Slide Over на iPad нижние кнопки навигации перемещаются наверх и делают переключение разделов невозможным",
+  "obs": 1
+ },
+ {
+  "id": "no-swipe-back-archive-hidden",
+  "title": "Жест «назад» отсутствует, кнопка архивирования спрятана в меню, скролл-бар не захватывается мышью",
+  "obs": 1
+ },
+ {
+  "id": "copy-article-title-friction",
+  "title": "Скопировать заголовок статьи требует многих шагов, если он не продублирован в тексте",
+  "obs": 1
+ },
+ {
+  "id": "left-handed-not-supported",
+  "title": "Интерфейс не адаптирован для левшей",
+  "obs": 1
+ },
+ {
+  "id": "no-login-button-onboarding",
+  "title": "На экране входа нет кнопки «Войти в существующий аккаунт» — только создание нового",
+  "obs": 1
+ },
+ {
+  "id": "publish-error-empty-draft-lost",
+  "title": "При ошибке публикации сообщение об ошибке пустое, а весь набранный текст теряется без сохранения черновика",
+  "obs": 1
+ },
+ {
+  "id": "last-post-auto-loads-editor",
+  "title": "При создании новой записи редактор автоматически загружает последний опубликованный пост и не позволяет его закрыть",
+  "obs": 1
+ },
+ {
+  "id": "comment-editor-text-disappears",
+  "title": "В редакторе комментариев первое предложение пропадает, текст дублируется, отправленный комментарий невидим",
+  "obs": 1
+ },
+ {
+  "id": "comment-like-reply-broken",
+  "title": "Лайки и ответы на комментарии глючат после обновления и требуют перезапуска приложения",
+  "obs": 1
+ },
+ {
+  "id": "gif-not-playing-after-publish",
+  "title": "Gif-анимация перестала воспроизводиться после публикации, хотя раньше работала",
+  "obs": 1
+ },
+ {
+  "id": "post-order-and-audio-duplicates",
+  "title": "Второй по дате пост отображается как новейший, а платформа генерирует дублирующийся аудиофайл",
+  "obs": 1
+ },
+ {
+  "id": "publish-article-bugs-media",
+  "title": "Публикация с медиа содержит баги: нет тегов, глючат подписи к фото, отсутствует кнопка-подсказка как на сайте",
+  "obs": 1
+ },
+ {
+  "id": "verification-code-expires",
+  "title": "Код подтверждения при входе приходит с опозданием больше 10 минут и успевает устареть",
+  "obs": 1
+ },
+ {
+  "id": "live-stream-freezes",
+  "title": "Прямые трансляции зависают или не запускаются",
+  "obs": 1
+ },
+ {
+  "id": "video-plays-when-phone-off",
+  "title": "Видео продолжает воспроизводиться в фоне после выключения экрана телефона",
+  "obs": 1
+ },
+ {
+  "id": "video-freezes-headphone-unplug",
+  "title": "Видеоплеер зависает при извлечении наушника и требует перезагрузки приложения",
+  "obs": 1
+ },
+ {
+  "id": "player-bar-swipe-conflict",
+  "title": "Нижняя панель плеера перехватывает жест возврата на домашний экран и случайно перематывает контент",
+  "obs": 1
+ },
+ {
+  "id": "reading-position-not-saved",
+  "title": "После закрытия и повторного открытия приложение начинает статью с начала, игнорируя сохранённое место чтения",
+  "obs": 1
+ },
+ {
+  "id": "account-banned-no-appeal",
+  "title": "Аккаунт блокируется сразу после создания без объяснений, и нет способа подать апелляцию",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-wall-to-read-one-article",
+  "title": "Прочитать одну статью требует регистрации, подтверждения почты и установки приложения — до 15 минут до первого слова",
+  "obs": 1
+ },
+ {
+  "id": "auto-follow-contacts-without-consent",
+  "title": "Платформа автоматически подписывает пользователя на знакомых без его согласия и без синхронизации контактов",
+  "obs": 1
+ }
+]

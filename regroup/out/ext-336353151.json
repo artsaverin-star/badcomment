@@ -1,0 +1,60 @@
+{
+  "groups": [
+    {
+      "id": "ads-and-paywall-squeeze",
+      "name": "Реклама на бесплатной версии: три ролика на каждые две песни",
+      "insight_ids": [
+        "excessive-video-ads-block-listening",
+        "ads-force-stay-in-app",
+        "mainstream-tracks-paywalled"
+      ]
+    },
+    {
+      "id": "broken-playback-control",
+      "name": "Плеер живёт своей жизнью: очередь стирается, трек зацикливается",
+      "insight_ids": [
+        "track-click-erases-queue",
+        "track-loops-cant-switch",
+        "forced-autoplaylist-track",
+        "shuffle-repeats-same-songs"
+      ]
+    },
+    {
+      "id": "lost-library-and-downloads",
+      "name": "Пропавшая фонотека: загрузки и сохранёнки исчезают при перевходе",
+      "insight_ids": [
+        "downloaded-tracks-vanish-after-relogin",
+        "saved-tracks-comments-fail-to-load",
+        "premium-online-loading-broken",
+        "saved-songs-category-limit"
+      ]
+    },
+    {
+      "id": "login-and-account-lockout",
+      "name": "Запертый аккаунт: вход через Apple и переезд на новый iPhone",
+      "insight_ids": [
+        "apple-signin-connection-error",
+        "new-iphone-account-inaccessible",
+        "subscription-mobile-management-blocked"
+      ]
+    },
+    {
+      "id": "feed-recommendations-and-ai",
+      "name": "Лента крутит одно и то же — и подмешивает нейросетевые треки",
+      "insight_ids": [
+        "recommendations-repetitive",
+        "ai-tracks-in-autoplay",
+        "geo-restrictions-songs",
+        "play-count-hidden-from-list"
+      ]
+    },
+    {
+      "id": "device-performance-drain",
+      "name": "Цена прослушивания: батарея, Wi-Fi и слабый Android TV",
+      "insight_ids": [
+        "battery-drain-wifi",
+        "android-tv-poor-quality"
+      ]
+    }
+  ]
+}

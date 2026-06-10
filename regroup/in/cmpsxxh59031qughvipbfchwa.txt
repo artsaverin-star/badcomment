@@ -1,0 +1,174 @@
+You are grouping 25 mechanism-level insight clusters from Picture Bird: Bird identifier (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Picture Bird: Bird identifier, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 25 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Picture Bird: Bird identifier — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Picture Bird: Bird identifier>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsxxh59031qughvipbfchwa.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-slow-load-bird-flies",
+  "title": "Приложение загружается слишком долго в полевых условиях — птица успевает улететь до начала распознавания",
+  "obs": 4
+ },
+ {
+  "id": "photo-id-systematic-wrong-class",
+  "title": "Модель систематически ошибается в распознавании по фото: одна и та же птица получает несколько совершенно разных определений",
+  "obs": 4
+ },
+ {
+  "id": "early-charge-before-trial-ends",
+  "title": "Подписка списывается в первые часы или сутки после скачивания — до истечения заявленного пробного периода",
+  "obs": 3
+ },
+ {
+  "id": "paywall-before-value",
+  "title": "Приложение показывает ценообразование или экран подписки до того, как пользователь увидел хоть одну функцию",
+  "obs": 3
+ },
+ {
+  "id": "camera-zoom-insufficient",
+  "title": "Камера приложения не позволяет снимать птиц на расстоянии — встроенное увеличение телефона не используется",
+  "obs": 3
+ },
+ {
+  "id": "photo-id-wrong-species-specific",
+  "title": "Приложение неверно определяет конкретные виды: воробьёв принимает за северного кардинала, цыплят — за фазана",
+  "obs": 3
+ },
+ {
+  "id": "sound-id-geographic-mismatch",
+  "title": "Распознавание по звуку возвращает птиц из неправильных регионов — тропические виды вместо местных певчих птиц",
+  "obs": 3
+ },
+ {
+  "id": "cancel-fails-charged-anyway",
+  "title": "Отмена пробного периода не останавливает списание — деньги снимаются даже после подтверждённой отмены",
+  "obs": 2
+ },
+ {
+  "id": "species-db-missing-regional",
+  "title": "Отдельные виды птиц отсутствуют в базе данных приложения и не могут быть определены корректно",
+  "obs": 2
+ },
+ {
+  "id": "sound-id-cant-isolate-single-bird",
+  "title": "При нескольких поющих птицах приложение распознаёт только доминирующий голос и не может изолировать отдельную птицу",
+  "obs": 2
+ },
+ {
+  "id": "wrong-plan-charged",
+  "title": "Вместо выбранного месячного плана списывается полная годовая подписка без подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "dark-pattern-close-subscription",
+  "title": "Кнопка закрытия экрана подписки почти невидима — тёмный фон, маленький серый крестик",
+  "obs": 1
+ },
+ {
+  "id": "location-filter-paywalled",
+  "title": "Фильтрация результатов по географическому местоположению доступна только в платной версии",
+  "obs": 1
+ },
+ {
+  "id": "reference-images-blurry",
+  "title": "Справочные изображения птиц в приложении размытые или показывают не ту птицу, что снижает обучающую ценность",
+  "obs": 1
+ },
+ {
+  "id": "gender-id-missing",
+  "title": "Определение пола птицы заявлено в описании, но фактически не работает",
+  "obs": 1
+ },
+ {
+  "id": "startup-audio-scares-birds",
+  "title": "Приложение автоматически воспроизводит громкую музыку при запуске и пугает птиц рядом с пользователем",
+  "obs": 1
+ },
+ {
+  "id": "bird-calls-attract-birds",
+  "title": "Пользователи воспроизводят записи птичьих голосов через приложение, чтобы привлечь птиц — сценарий за пределами простого распознавания",
+  "obs": 1
+ },
+ {
+  "id": "unskippable-intro-video",
+  "title": "Вводное видео при первом запуске нельзя пропустить — оно занимает значительное время до начала работы",
+  "obs": 1
+ },
+ {
+  "id": "search-history-no-selective-delete",
+  "title": "История поиска не позволяет удалять отдельные записи — только полная очистка или загромождённый список",
+  "obs": 1
+ },
+ {
+  "id": "photo-deletion-too-many-taps",
+  "title": "Удаление одной фотографии из истории требует трёх нажатий — массовая очистка становится крайне медленной",
+  "obs": 1
+ },
+ {
+  "id": "mac-photo-picker-broken",
+  "title": "На Mac нельзя выбрать фото из системного приложения с помощью мыши — основной сценарий недоступен",
+  "obs": 1
+ },
+ {
+  "id": "sound-id-broken-entirely",
+  "title": "Функция распознавания по звуку не работает совсем — результат не возвращается или приложение зависает",
+  "obs": 1
+ },
+ {
+  "id": "sound-id-inconsistent-results",
+  "title": "Одна и та же запись птичьего голоса даёт разные виды при каждом повторном распознавании",
+  "obs": 1
+ },
+ {
+  "id": "sound-id-no-prerecorded-upload",
+  "title": "Распознавание по звуку принимает только запись через микрофон в реальном времени — загрузить готовый аудиофайл нельзя",
+  "obs": 1
+ },
+ {
+  "id": "instant-id-long-mystery-bird",
+  "title": "Приложение за 15 секунд определяет птицу, которую пользователь безуспешно искал два года — высокая ценность для сложных случаев",
+  "obs": 1
+ }
+]

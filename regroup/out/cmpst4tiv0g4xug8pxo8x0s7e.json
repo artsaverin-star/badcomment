@@ -1,0 +1,74 @@
+{
+  "groups": [
+    {
+      "id": "trial-billing-traps",
+      "name": "Ловушки пробного периода и принудительные списания",
+      "insight_ids": [
+        "trial-charge-no-warning",
+        "trial-button-full-charge",
+        "refund-blocked",
+        "monthly-charged-as-annual",
+        "cancel-trial-hard-to-find",
+        "silent-upsell-price-hike",
+        "no-trial-no-demo",
+        "russia-payment-blocked"
+      ]
+    },
+    {
+      "id": "free-features-behind-paywall",
+      "name": "Базовые функции уехали за подписку",
+      "insight_ids": [
+        "free-version-sufficient",
+        "free-pdf-export-paywalled",
+        "multipage-pdf-reorder-paywalled",
+        "batch-scan-paywalled-uneven",
+        "daily-scan-limit",
+        "email-send-paywalled",
+        "watermark-hidden-until-export"
+      ]
+    },
+    {
+      "id": "export-send-broken",
+      "name": "Экспорт и отправка PDF не работают",
+      "insight_ids": [
+        "email-send-broken",
+        "send-to-pc-flow-complicated",
+        "email-send-flow-complex",
+        "pdf-export-white-screen",
+        "pdf-export-broken-general",
+        "large-pdf-slow-transfer"
+      ]
+    },
+    {
+      "id": "scan-degrades-documents",
+      "name": "Сканы портят оригинал: размытость, потеря подписей и пометок",
+      "insight_ids": [
+        "scan-quality-blurry",
+        "shadow-removal-bleaches-signatures",
+        "scan-removes-handwritten-notes",
+        "translation-scan-blurry-lossy",
+        "id-photo-face-distortion",
+        "crop-tool-alignment"
+      ]
+    },
+    {
+      "id": "data-loss-after-update",
+      "name": "После обновлений документы и проекты пропадают",
+      "insight_ids": [
+        "archive-access-lost-after-update",
+        "multipage-project-lost-between-sessions",
+        "ai-auto-processes-without-consent",
+        "support-no-contact-method"
+      ]
+    },
+    {
+      "id": "missing-organizing-tools",
+      "name": "Не хватает инструментов сортировки, папок и сжатия",
+      "insight_ids": [
+        "import-folder-placement",
+        "collate-auto-sort-missing",
+        "file-compression-missing"
+      ]
+    }
+  ]
+}

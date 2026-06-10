@@ -1,0 +1,374 @@
+You are grouping 65 mechanism-level insight clusters from White Noise Lite (белый шум / sound machine / sleep aid) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO White Noise Lite, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 65 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to White Noise Lite — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to White Noise Lite>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-292987597.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "background-playback-stops-on-switch",
+  "title": "Звук останавливается при переключении на другое приложение или блокировке экрана — фоновый режим не работает",
+  "obs": 49
+ },
+ {
+  "id": "random-stops-overnight",
+  "title": "Приложение случайно останавливает воспроизведение среди ночи без видимой причины",
+  "obs": 22
+ },
+ {
+  "id": "infant-sleep-use-case",
+  "title": "Укладывание младенцев и детей — крупнейший сценарий использования, распространяется на всю семью",
+  "obs": 22
+ },
+ {
+  "id": "sound-artifacts-loops",
+  "title": "В звуках слышны артефакты петли повтора, пропуски или посторонние голоса, мешающие расслаблению",
+  "obs": 17
+ },
+ {
+  "id": "travel-portable-use-case",
+  "title": "Приложение используется как портативная замена машины белого шума в путешествиях",
+  "obs": 14
+ },
+ {
+  "id": "tinnitus-core-segment",
+  "title": "Пользователи с тиннитусом — ядровой сегмент: подбирают звук на частоте звона и используют каждую ночь",
+  "obs": 13
+ },
+ {
+  "id": "noise-masking-neighbors-traffic",
+  "title": "Маскирование бытового шума (соседи, трафик, храп партнёра) — ключевой сценарий использования",
+  "obs": 12
+ },
+ {
+  "id": "creative-mix-experimentation",
+  "title": "Пользователи создают экспериментальные и медитативные миксы из нескольких звуков одновременно",
+  "obs": 11
+ },
+ {
+  "id": "catalog-ideal-sound-discovery",
+  "title": "Пользователи находят идеальный звук среди каталога и не могут обходиться без него",
+  "obs": 10
+ },
+ {
+  "id": "battery-drain-critical",
+  "title": "Приложение критически разряжает батарею за ночь — регрессия по сравнению с прежними версиями",
+  "obs": 10
+ },
+ {
+  "id": "audio-ads-interrupt-playback",
+  "title": "Реклама со звуком прерывает белый шум среди ночи и будит пользователя",
+  "obs": 9
+ },
+ {
+  "id": "malicious-phishing-ads",
+  "title": "Рекламный модуль показывает фишинговые предупреждения о вирусах и пытается открыть App Store без разрешения",
+  "obs": 8
+ },
+ {
+  "id": "anxiety-mental-health-use-case",
+  "title": "Пользователи с тревожностью и психическими расстройствами используют приложение как альтернативу снотворному",
+  "obs": 6
+ },
+ {
+  "id": "conditioned-sleep-reflex",
+  "title": "Долгосрочные пользователи развивают условный рефлекс сна — не могут засыпать без приложения",
+  "obs": 6
+ },
+ {
+  "id": "free-version-competitive-advantage",
+  "title": "Бесплатная версия без ограничений по времени и скрытых платежей — главное конкурентное преимущество",
+  "obs": 6
+ },
+ {
+  "id": "mix-management-ux",
+  "title": "Создание миксов: нельзя давать имена, добавлять иконки или сохранять более пяти звуков одновременно",
+  "obs": 5
+ },
+ {
+  "id": "catalog-breadth-unexpected-sounds",
+  "title": "Неожиданные звуки (пылесос, посудомойка, самолет) оказываются эффективны для сна",
+  "obs": 4
+ },
+ {
+  "id": "screen-lock-stops-audio",
+  "title": "После обновления звук прекращается при выключении экрана — регрессия фонового воспроизведения",
+  "obs": 4
+ },
+ {
+  "id": "no-custom-audio-upload",
+  "title": "Нельзя загрузить собственный аудиофайл с телефона или добавить его в микс",
+  "obs": 4
+ },
+ {
+  "id": "office-focus-use-case",
+  "title": "Белый шум для концентрации в open-space офисе — альтернатива музыке, которая не отвлекает",
+  "obs": 4
+ },
+ {
+  "id": "replaces-physical-equipment",
+  "title": "Приложение заменяет физическое оборудование: вентилятор, кондиционер, шумовую машину",
+  "obs": 4
+ },
+ {
+  "id": "multi-app-use-clock-alarm",
+  "title": "Приложение используется одновременно как источник звука, будильник и часы — многофункциональный инструмент",
+  "obs": 4
+ },
+ {
+  "id": "aggressive-upsell-prompts",
+  "title": "Агрессивные подсказки об обновлении до платной версии отталкивают от покупки",
+  "obs": 3
+ },
+ {
+  "id": "background-play-paywalled",
+  "title": "Фоновое воспроизведение заблокировано за платной версией — базовая функция недоступна бесплатно",
+  "obs": 3
+ },
+ {
+  "id": "free-features-moved-to-paid",
+  "title": "Функции из бесплатной версии переехали в платную Pro — долгосрочные пользователи теряют доступ",
+  "obs": 3
+ },
+ {
+  "id": "onboarding-too-complex",
+  "title": "Onboarding требует множества шагов перед первым звуком, а ограничения пробного периода не сообщаются заранее",
+  "obs": 3
+ },
+ {
+  "id": "support-links-dead",
+  "title": "Ссылки на справку и отправку предложений не работают — мёртвые ссылки без реакции поддержки",
+  "obs": 3
+ },
+ {
+  "id": "unexpected-charge-free-app",
+  "title": "Пользователь ожидает бесплатное приложение, но при загрузке происходит неожиданное списание",
+  "obs": 2
+ },
+ {
+  "id": "in-app-purchase-broken",
+  "title": "Покупка в приложении не выполняется: деньги списаны, функция не активируется",
+  "obs": 2
+ },
+ {
+  "id": "catalog-new-sounds-request",
+  "title": "Пользователи просят добавить конкретные звуки в каталог и хотят расширения библиотеки",
+  "obs": 2
+ },
+ {
+  "id": "volume-resets-between-sessions",
+  "title": "Громкость сбрасывается к настройкам по умолчанию при каждом открытии приложения",
+  "obs": 2
+ },
+ {
+  "id": "timer-settings-not-persisted",
+  "title": "Настройки таймера и fade не сохраняются между сессиями — приходится переустанавливать каждый раз",
+  "obs": 2
+ },
+ {
+  "id": "random-sound-switching",
+  "title": "Приложение самопроизвольно переключает звуки или случайный свайп меняет трек во время сна",
+  "obs": 2
+ },
+ {
+  "id": "no-fade-on-exit",
+  "title": "При выходе из приложения или переключении звук резко обрывается без плавного затухания",
+  "obs": 2
+ },
+ {
+  "id": "max-volume-insufficient",
+  "title": "Максимальная громкость приложения недостаточна для заглушения плача младенца",
+  "obs": 2
+ },
+ {
+  "id": "deceptive-ad-consent-button",
+  "title": "Кнопка «Посмотрите, что нового» активирует постоянные рекламные баннеры без предупреждения",
+  "obs": 2
+ },
+ {
+  "id": "alarm-needs-active-window",
+  "title": "Будильник работает только при открытом приложении — при закрытии не срабатывает",
+  "obs": 2
+ },
+ {
+  "id": "night-mode-screen-too-dark",
+  "title": "Экран в ночном режиме слишком тёмный — нельзя видеть время при ночном использовании",
+  "obs": 2
+ },
+ {
+  "id": "feature-regression-updates",
+  "title": "Обновление убирает работавшие функции: часы на экране блокировки, режим альбома, скачивание звуков",
+  "obs": 2
+ },
+ {
+  "id": "app-wont-stop-or-uninstall",
+  "title": "Приложение невозможно остановить обычным способом — единственный выход через удаление",
+  "obs": 2
+ },
+ {
+  "id": "ios-built-in-competes",
+  "title": "Встроенный белый шум в iOS Control Center вытесняет приложение из ценностного предложения",
+  "obs": 2
+ },
+ {
+  "id": "user-sound-creation-ecosystem",
+  "title": "Пользователи участвуют в экосистеме создания звуков и публикуют собственные записи в каталог",
+  "obs": 2
+ },
+ {
+  "id": "cancel-subscription-hidden",
+  "title": "Кнопка отмены подписки скрыта или не видна в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "catalog-download-broken",
+  "title": "После обновления скачивание новых звуков из каталога сломано — библиотеку нельзя пополнить",
+  "obs": 1
+ },
+ {
+  "id": "catalog-download-requires-account",
+  "title": "Загрузка дополнительных звуков требует регистрации — барьер для попробования функции",
+  "obs": 1
+ },
+ {
+  "id": "notifications-interrupt-playback",
+  "title": "Входящие звонки и уведомления мгновенно прерывают воспроизведение и будят пользователя",
+  "obs": 1
+ },
+ {
+  "id": "app-hijacks-audio-focus",
+  "title": "После закрытия приложение захватывает аудиофокус и автоматически запускается при воспроизведении музыки",
+  "obs": 1
+ },
+ {
+  "id": "app-runs-after-timer",
+  "title": "После срабатывания таймера приложение продолжает работать в фоне и потреблять мобильный трафик",
+  "obs": 1
+ },
+ {
+  "id": "alarm-fires-early",
+  "title": "Будильник срабатывает раньше установленного времени при открытии приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-sound-search",
+  "title": "Каталог без поиска — найти любимый звук можно только долгой прокруткой списка",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-too-frequent",
+  "title": "Приложение слишком часто просит оставить оценку — пользователи дают одну звезду только из-за этого",
+  "obs": 1
+ },
+ {
+  "id": "ui-regression-after-update",
+  "title": "После обновления элементы управления стали большими и размытыми — привычный интерфейс изменён к худшему",
+  "obs": 1
+ },
+ {
+  "id": "no-siri-integration",
+  "title": "Нет интеграции с голосовым ассистентом — нужно встать с кровати, чтобы запустить приложение",
+  "obs": 1
+ },
+ {
+  "id": "rating-gate-manipulation",
+  "title": "Встроенный рейтинг не позволяет поставить три звезды — перенаправляет в email, создавая впечатление манипуляции",
+  "obs": 1
+ },
+ {
+  "id": "language-locked",
+  "title": "Приложение установилось на неправильном языке без возможности переключения в настройках",
+  "obs": 1
+ },
+ {
+  "id": "screen-brightness-spike-sleep-mode",
+  "title": "После обновления iOS при включении режима сна приложение повышает яркость экрана с нуля до максимума",
+  "obs": 1
+ },
+ {
+  "id": "purchase-unavailable-on-device",
+  "title": "UI показывает опцию покупки, которая недоступна на конкретном устройстве пользователя",
+  "obs": 1
+ },
+ {
+  "id": "charging-blocked",
+  "title": "При работающем приложении телефон перестаёт заряжаться — батарея стоит на месте при подключённом кабеле",
+  "obs": 1
+ },
+ {
+  "id": "ios-incompatibility",
+  "title": "Новая версия приложения несовместима со старыми версиями iOS и исключает пользователей устаревших устройств",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-on-launch",
+  "title": "Приложение вообще не запускается — мгновенно возвращает на главный экран",
+  "obs": 1
+ },
+ {
+  "id": "storage-footprint-large",
+  "title": "Приложение занимает неожиданно большое место на диске",
+  "obs": 1
+ },
+ {
+  "id": "ad-breaks-playback-requires-reboot",
+  "title": "Рекламный модуль вызывает отказ воспроизведения, требующий перезагрузки приложения",
+  "obs": 1
+ },
+ {
+  "id": "facebook-permission-unrevokable",
+  "title": "Пользователь случайно предоставил доступ к профилю Facebook и не может его отозвать",
+  "obs": 1
+ },
+ {
+  "id": "sounds-trigger-opposite-effect",
+  "title": "Часть пользователей испытывает тревогу и стресс от звуков, которые должны успокаивать",
+  "obs": 1
+ },
+ {
+  "id": "adhd-children-sleep",
+  "title": "Дети с ADHD засыпают значительно быстрее при использовании белого шума",
+  "obs": 1
+ }
+]

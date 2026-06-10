@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from iMovie (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO iMovie, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to iMovie — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to iMovie>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-377298193.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "custom-music-only-builtin",
+  "title": "Собственную музыку нельзя добавить — доступен только встроенный каталог треков",
+  "obs": 9
+ },
+ {
+  "id": "no-vertical-video",
+  "title": "Приложение поддерживает только горизонтальный формат — вертикальное видео для мобильного контента недоступно",
+  "obs": 8
+ },
+ {
+  "id": "permission-overreach",
+  "title": "Приложение запрашивает полный доступ к фото и музыке и не принимает ограниченные разрешения",
+  "obs": 6
+ },
+ {
+  "id": "feature-regression",
+  "title": "С каждым обновлением исчезают функции которые раньше работали — приложение деградирует",
+  "obs": 6
+ },
+ {
+  "id": "export-fails",
+  "title": "Экспорт видео зависает или завершается ошибкой — сохранить готовую работу невозможно",
+  "obs": 5
+ },
+ {
+  "id": "performance-slowdown",
+  "title": "Приложение сильно тормозит при длинных видео и при накоплении нескольких проектов",
+  "obs": 4
+ },
+ {
+  "id": "no-updates",
+  "title": "Мобильная версия приложения практически не получала новых функций за 10-15 лет",
+  "obs": 4
+ },
+ {
+  "id": "audio-split",
+  "title": "Аудиотрек нельзя разделить на части или обрезать независимо от видео",
+  "obs": 3
+ },
+ {
+  "id": "text-placement-fixed",
+  "title": "Текст размещается только в предустановленных позициях — произвольное позиционирование на экране недоступно",
+  "obs": 3
+ },
+ {
+  "id": "template-not-customizable",
+  "title": "Шаблон видео нельзя настроить — время элементов фиксировано и автоматически подбирается неподходящий тип",
+  "obs": 3
+ },
+ {
+  "id": "icloud-broken",
+  "title": "Интеграция с облачным хранилищем нестабильна — видео зависает при выгрузке или не загружается обратно, экспорт требует облачного места",
+  "obs": 3
+ },
+ {
+  "id": "ipad-mac-gap",
+  "title": "На iPad доступна значительно меньшая часть функционала чем в версии для Mac",
+  "obs": 3
+ },
+ {
+  "id": "text-animation-glitch",
+  "title": "Текстовая анимация работает через раз — интерфейс сбрасывает позицию или не открывает поле ввода",
+  "obs": 2
+ },
+ {
+  "id": "ken-burns-per-photo",
+  "title": "Эффект автоматического движения камеры нельзя отключить сразу для всех фото — только по одному",
+  "obs": 2
+ },
+ {
+  "id": "photo-fitting",
+  "title": "Фото всегда обрезается по краям — нельзя вписать его целиком в кадр и выбрать переход",
+  "obs": 2
+ },
+ {
+  "id": "min-clip-duration",
+  "title": "Клип нельзя обрезать короче минимального порога — точная нарезка недоступна",
+  "obs": 2
+ },
+ {
+  "id": "source-deleted-project-loses",
+  "title": "При удалении исходного файла из галереи он исчезает и из видеопроекта — копирование в проект не происходит",
+  "obs": 2
+ },
+ {
+  "id": "long-clip-blocked",
+  "title": "Длинный видеоклип блокируется при добавлении или зависает приложение — лимит не объясняется",
+  "obs": 2
+ },
+ {
+  "id": "add-video-freezes",
+  "title": "При добавлении видеоклипов или выборе медиафайлов приложение зависает и требует перезапуска",
+  "obs": 2
+ },
+ {
+  "id": "music-fails-silently",
+  "title": "Функция добавления музыки не работает без объяснения — ничего не происходит или появляется ошибка воспроизведения",
+  "obs": 2
+ },
+ {
+  "id": "audio-across-scenes",
+  "title": "Один аудиотрек нельзя продолжить через несколько разнотипных сцен без разрыва",
+  "obs": 1
+ },
+ {
+  "id": "speed-pitch",
+  "title": "Изменение скорости клипа автоматически меняет тон аудио — независимое редактирование невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ipad-portrait-panels",
+  "title": "На iPad в вертикальной ориентации панели инструментов перекрывают половину области просмотра",
+  "obs": 1
+ },
+ {
+  "id": "rotate-not-found",
+  "title": "Поворот видеоклипа не удаётся найти в интерфейсе — функция скрыта",
+  "obs": 1
+ },
+ {
+  "id": "notification-spam",
+  "title": "Уведомление о загрузке отображается постоянно и не несёт полезной информации",
+  "obs": 1
+ },
+ {
+  "id": "voiceover-cutoff",
+  "title": "Запись голосовой озвучки обрезается после нескольких секунд без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "text-not-found",
+  "title": "Функция добавления текста не обнаруживается в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "only-titles",
+  "title": "Приложение предлагает только добавление заголовков — полноценных инструментов монтажа нет",
+  "obs": 1
+ },
+ {
+  "id": "video-too-long-share",
+  "title": "Приложение блокирует отправку видео с сообщением что оно слишком длинное",
+  "obs": 1
+ },
+ {
+  "id": "audio-desync",
+  "title": "Аудио рассинхронизируется с видеорядом на несколько секунд",
+  "obs": 1
+ },
+ {
+  "id": "project-lost-freeze",
+  "title": "После многочасовой работы приложение замерзает и полностью теряет файл проекта",
+  "obs": 1
+ },
+ {
+  "id": "permission-loop-after-update",
+  "title": "После обновления приложение зависает в петле запроса разрешения — дальнейшая работа невозможна",
+  "obs": 1
+ },
+ {
+  "id": "magic-movie-crash",
+  "title": "Автоматическое создание видео зависает на полпути и возвращает пользователя на главный экран",
+  "obs": 1
+ },
+ {
+  "id": "clip-order-scrambles",
+  "title": "Порядок клипов сбивается самостоятельно во время редактирования",
+  "obs": 1
+ },
+ {
+  "id": "export-corrupts",
+  "title": "Экспорт повреждает видео — результат выглядит как однотонный зелёный экран",
+  "obs": 1
+ },
+ {
+  "id": "export-length-limit",
+  "title": "При экспорте длина видео ограничивается без объяснения причины и лимита",
+  "obs": 1
+ },
+ {
+  "id": "project-open-freeze",
+  "title": "Приложение зависает при попытке открыть наполовину отредактированный проект",
+  "obs": 1
+ },
+ {
+  "id": "launch-loop",
+  "title": "Приложение зависает на экране настроек при запуске и не переходит к редактированию даже после переустановки",
+  "obs": 1
+ },
+ {
+  "id": "stopmotion-black",
+  "title": "В стоп-моушн проекте добавленное видео отображается чёрным экраном вместо предпросмотра",
+  "obs": 1
+ },
+ {
+  "id": "black-flash-join",
+  "title": "В точке стыка двух склеенных клипов появляется чёрная вспышка",
+  "obs": 1
+ },
+ {
+  "id": "gif-static",
+  "title": "Анимированные изображения в видео не воспроизводятся — остаются статичными картинками",
+  "obs": 1
+ },
+ {
+  "id": "false-deleted-error",
+  "title": "Приложение ошибочно сообщает что клип удалён, хотя он по-прежнему находится в галерее",
+  "obs": 1
+ },
+ {
+  "id": "clips-locked",
+  "title": "Видеоклипы автоматически блокируются во время редактирования и препятствуют завершению проекта",
+  "obs": 1
+ },
+ {
+  "id": "photos-not-in-template",
+  "title": "Добавленные фото не отображаются в шаблоне фильма после импорта",
+  "obs": 1
+ },
+ {
+  "id": "random-video-unavailable",
+  "title": "Отдельное видео недоступно в приложении без видимой причины при идентичных условиях",
+  "obs": 1
+ },
+ {
+  "id": "beginner-friendly",
+  "title": "Для новичков без опыта монтажа приложение достаточно для простого объединения клипов в социальные сети",
+  "obs": 1
+ },
+ {
+  "id": "no-cloud-sync",
+  "title": "Прогресс проекта не синхронизируется в облако — при удалении приложения вся работа теряется",
+  "obs": 1
+ },
+ {
+  "id": "outdated-ui",
+  "title": "Интерфейс приложения не соответствует современным визуальным стандартам операционной системы",
+  "obs": 1
+ },
+ {
+  "id": "mobile-data",
+  "title": "Приложение потребляет значительный объём мобильных данных при работе",
+  "obs": 1
+ },
+ {
+  "id": "ipad-storage",
+  "title": "Приложение занимает много места на устройстве при том что функционал значительно уступает конкурентам",
+  "obs": 1
+ }
+]

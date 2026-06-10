@@ -1,0 +1,114 @@
+{
+  "groups": [
+    {
+      "id": "camera-watch-fails",
+      "name": "Камера, которая не успевает показать главное",
+      "insight_ids": [
+        "camera-video-load-slow",
+        "camera-history-broken",
+        "camera-offline-random",
+        "camera-unavailable-on-alert",
+        "multi-camera-view-lost",
+        "video-zoom-reset",
+        "camera-names-removed",
+        "video-preview-iphone-broken",
+        "camera-battery-drain",
+        "camera-wifi-jamming",
+        "false-motion-notifications",
+        "face-recognition-unreliable",
+        "third-party-cameras-lost",
+        "adt-integration-broken"
+      ]
+    },
+    {
+      "id": "wifi-reconnect-hell",
+      "name": "Wi-Fi и переподключение: проще снести и поставить заново",
+      "insight_ids": [
+        "wifi-reconfigure-painful",
+        "no-wifi-update-option",
+        "device-connection-lost-partial",
+        "devices-go-offline-daily",
+        "speaker-offline-monthly",
+        "wifi-band-no-choice",
+        "qr-add-device-broken",
+        "wifi-reset-instructions-mismatch",
+        "remote-ac-needs-local-wifi"
+      ]
+    },
+    {
+      "id": "updates-break-everything",
+      "name": "Каждое обновление что-нибудь ломает",
+      "insight_ids": [
+        "app-crash-on-use",
+        "multiroom-audio-sync-broken",
+        "update-breaks-cameras",
+        "update-resets-settings",
+        "light-control-broken-after-update",
+        "notification-thumbnail-zoom",
+        "license-screen-blocks-features",
+        "version-feature-inconsistency",
+        "nest-google-home-migration-regression",
+        "nest-requires-separate-app"
+      ]
+    },
+    {
+      "id": "gemini-voice-downgrade",
+      "name": "Голос и Gemini: ассистент, который стал хуже понимать",
+      "insight_ids": [
+        "gemini-ai-regression",
+        "assistant-misunderstands-commands",
+        "gemini-setup-no-dismiss",
+        "voice-profile-weekly-reauth",
+        "broadcast-voice-broken",
+        "radio-streaming-broken"
+      ]
+    },
+    {
+      "id": "music-audio-hijack",
+      "name": "Музыка, которая глохнет и перехватывается",
+      "insight_ids": [
+        "music-service-cast-broken",
+        "music-service-disconnects",
+        "audio-interrupted-by-camera",
+        "speaker-reauth-random",
+        "tv-control-slow",
+        "lights-turn-on-randomly"
+      ]
+    },
+    {
+      "id": "thermostat-climate-quirks",
+      "name": "Термостат живёт своей жизнью",
+      "insight_ids": [
+        "thermostat-sync-broken",
+        "hvac-mode-self-switches",
+        "hvac-schedule-no-log",
+        "celsius-no-fahrenheit",
+        "hvac-fan-automation",
+        "home-away-auto-broken"
+      ]
+    },
+    {
+      "id": "notifications-noise",
+      "name": "Уведомления: то с задержкой, то по три зараз, то навязчиво",
+      "insight_ids": [
+        "notification-delay",
+        "duplicate-notifications",
+        "promo-notifications-no-off",
+        "battery-low-notification-loop"
+      ]
+    },
+    {
+      "id": "billing-ui-friction",
+      "name": "Подписка, интерфейс и мелочи, до которых не достучаться",
+      "insight_ids": [
+        "subscription-price-hike",
+        "camera-subscription-cancel",
+        "app-navigation-hard",
+        "device-list-scroll-reset",
+        "widget-contrast-bad",
+        "app-menu-incomplete",
+        "family-sharing-state-mismatch"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "groups": [
+    {
+      "id": "carplay-black-screen",
+      "name": "Чёрный экран в CarPlay: карта пропадает за рулём",
+      "insight_ids": [
+        "carplay-map-lost-after-update",
+        "carplay-blank-on-alt-route",
+        "carplay-map-lost-after-interruption",
+        "app-screen-blank-no-carplay",
+        "carplay-general-lag",
+        "carplay-shortcut-broken"
+      ]
+    },
+    {
+      "id": "distraction-and-safety",
+      "name": "Отвлекает, а не помогает: подсказки и кнопки, опасные в движении",
+      "insight_ids": [
+        "no-visual-lane-guidance",
+        "audio-alerts-too-quiet",
+        "user-messages-overlay",
+        "no-advance-turn-preview",
+        "alert-button-precise-tap",
+        "app-asks-questions-while-driving",
+        "no-pause-navigation"
+      ]
+    },
+    {
+      "id": "routing-and-positioning",
+      "name": "Маршруты в обход и мимо: объезды длиннее, точка не та",
+      "insight_ids": [
+        "route-quality-worse",
+        "single-stop-limit",
+        "excessive-data-no-offline",
+        "location-accuracy"
+      ]
+    },
+    {
+      "id": "update-wipes-data",
+      "name": "Обновление как откат: пропадают аккаунт и привычные настройки",
+      "insight_ids": [
+        "account-data-lost-on-update",
+        "speedometer-moved-center"
+      ]
+    },
+    {
+      "id": "wont-launch-wont-leave",
+      "name": "Не запускается и не удаляется: зависания на пустом экране",
+      "insight_ids": [
+        "keyboard-search-freeze",
+        "app-crash-on-startup",
+        "app-cannot-be-deleted"
+      ]
+    },
+    {
+      "id": "fading-into-google",
+      "name": "Waze растворяется в Google: исчезающие фишки и отставание от конкурентов",
+      "insight_ids": [
+        "crowdsourced-comments-gone",
+        "no-dynamic-island-lockscreen",
+        "google-degrading-waze"
+      ]
+    }
+  ]
+}

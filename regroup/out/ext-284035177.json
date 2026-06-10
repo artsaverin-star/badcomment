@@ -1,0 +1,90 @@
+{
+  "groups": [
+    {
+      "id": "ads-punish-listening",
+      "name": "Реклама как наказание: штрафы за пропуск и разорванное прослушивание",
+      "insight_ids": [
+        "ad-between-every-song",
+        "skip-triggers-ad",
+        "free-tier-double-restriction",
+        "ad-skip-grant-too-short",
+        "video-ads-before-playlist",
+        "warning-before-every-song",
+        "artist-interludes-break-instrumental",
+        "ads-on-sleep-relaxation-channels",
+        "repeat-button-broken"
+      ]
+    },
+    {
+      "id": "playback-breaks-after-update",
+      "name": "Воспроизведение рассыпается: зависания, перезапуски и поломки после обновлений",
+      "insight_ids": [
+        "streaming-buffering-issues",
+        "app-slow-performance-regression",
+        "station-switches-every-3-seconds",
+        "unstable-album-stream",
+        "playback-requires-restart-after-each-song",
+        "playback-interrupted-by-call-no-resume",
+        "ui-playback-state-desync",
+        "app-crashes-ios"
+      ]
+    },
+    {
+      "id": "algorithm-misfires",
+      "name": "Алгоритм Pandora: и сильная сторона, и предмет претензий",
+      "insight_ids": [
+        "artist-station-plays-others",
+        "algorithm-strength-seed-discovery",
+        "mood-based-discovery-strength",
+        "algorithm-only-hits-no-deep-cuts",
+        "algorithm-irrelevant-recommendations",
+        "genre-catalog-repetition",
+        "search-ignores-user-selection"
+      ]
+    },
+    {
+      "id": "data-vanishes",
+      "name": "Исчезающие данные: станции, плейлисты, аккаунты и оффлайн-файлы",
+      "insight_ids": [
+        "stations-lost-after-update",
+        "offline-files-corrupted-deleted",
+        "offline-unstable-low-signal",
+        "offline-slow-switchover",
+        "playlists-disappear-on-create",
+        "account-deleted-years-of-history-lost",
+        "logout-on-device-power-cycle",
+        "logout-popup-annoyance"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Подписка как ловушка: трудная отмена и потеря старого тарифа",
+      "insight_ids": [
+        "subscription-cancel-friction",
+        "playlist-locked-after-trial",
+        "subscription-price-lost-on-device-switch"
+      ]
+    },
+    {
+      "id": "missing-control-and-features",
+      "name": "Чего не хватает: контроль над прослушиванием и функции конкурентов",
+      "insight_ids": [
+        "no-album-sequential-play",
+        "like-system-no-granularity",
+        "playlist-mix-no-controls",
+        "album-art-removed",
+        "fewer-features-than-competitors",
+        "no-new-features-stagnation"
+      ]
+    },
+    {
+      "id": "wrong-metadata",
+      "name": "Несовпадающие данные: чужие названия, тексты и обложки",
+      "insight_ids": [
+        "song-metadata-wrong-title",
+        "lyrics-metadata-errors",
+        "lyrics-loading-unreliable"
+      ]
+    }
+  ]
+}

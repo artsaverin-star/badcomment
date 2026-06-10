@@ -1,0 +1,209 @@
+You are grouping 32 mechanism-level insight clusters from Tiny Calendar: Planner & Tasks (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Tiny Calendar: Planner & Tasks, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 32 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Tiny Calendar: Planner & Tasks — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Tiny Calendar: Planner & Tasks>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-514917848.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ads-block-calendar-on-open",
+  "title": "Полноэкранная реклама блокирует календарь при открытии — нельзя сразу увидеть расписание",
+  "obs": 5
+ },
+ {
+  "id": "cross-device-sync-missing-events",
+  "title": "Синхронизация между устройствами не работает — на вторичных устройствах отсутствуют события с главного",
+  "obs": 5
+ },
+ {
+  "id": "trial-button-charges-full-subscription",
+  "title": "Кнопка пробного периода сразу списывает полную подписку вместо бесплатного триала",
+  "obs": 4
+ },
+ {
+  "id": "monthly-view-text-events",
+  "title": "Месячный вид показывает текст событий, а не точки — весь месяц виден с первого взгляда",
+  "obs": 4
+ },
+ {
+  "id": "ads-block-input-during-meetings",
+  "title": "Реклама перекрывает поле ввода во время встреч — нельзя записать информацию по ходу разговора",
+  "obs": 3
+ },
+ {
+  "id": "second-app-for-readable-widget",
+  "title": "Пользователи держат отдельное приложение ради читаемого виджета, которого нет в Tiny Calendar",
+  "obs": 3
+ },
+ {
+  "id": "paid-still-shows-ads",
+  "title": "Пользователь оплатил премиум за удаление рекламы, но объявления продолжают появляться",
+  "obs": 1
+ },
+ {
+  "id": "recurring-events-paywalled",
+  "title": "Повторяющиеся многолетние события (дни рождения) доступны только в платной версии",
+  "obs": 1
+ },
+ {
+  "id": "events-auto-deleted-after-weeks",
+  "title": "События автоматически удаляются через 2-3 недели — нельзя посмотреть прошлые встречи",
+  "obs": 1
+ },
+ {
+  "id": "notes-vanished-no-backup",
+  "title": "Все заметки внезапно исчезли без действий пользователя и нет резервной копии для восстановления",
+  "obs": 1
+ },
+ {
+  "id": "import-multiyear-history-google",
+  "title": "Нельзя просмотреть записи Google Calendar за прошлые годы — давно обещанная функция не реализована",
+  "obs": 1
+ },
+ {
+  "id": "notifications-only-when-unlocked",
+  "title": "Уведомления приходят только при разблокированном телефоне — на заблокированном экране напоминания подавляются",
+  "obs": 1
+ },
+ {
+  "id": "quick-view-switch-day-week-month",
+  "title": "Быстрое переключение день/неделя/месяц показывает всю картину расписания на одном экране",
+  "obs": 1
+ },
+ {
+  "id": "no-auto-jump-to-today",
+  "title": "При открытии приложение не переходит автоматически на сегодняшний день — нужно навигировать вручную",
+  "obs": 1
+ },
+ {
+  "id": "all-day-toggle-friction",
+  "title": "При создании события приходится вручную выключать переключатель «весь день» даже для событий с конкретным временем",
+  "obs": 1
+ },
+ {
+  "id": "ad-close-button-tiny-hidden",
+  "title": "Кнопка закрытия рекламы слишком маленькая и затемнена самой рекламой — её трудно найти",
+  "obs": 1
+ },
+ {
+  "id": "no-daily-task-checklist",
+  "title": "Нет ежедневного чек-листа задач с отметкой выполнения — текущих видов день/неделя/месяц недостаточно для планировщика",
+  "obs": 1
+ },
+ {
+  "id": "no-recurring-events",
+  "title": "Нет функции повторяющихся событий — базовый сценарий управления календарём не работает",
+  "obs": 1
+ },
+ {
+  "id": "week-view-truncates-event-text",
+  "title": "Недельный вид обрезает текст события — полное описание не отображается для каждого дня",
+  "obs": 1
+ },
+ {
+  "id": "color-coding-organization",
+  "title": "Цветовая кодировка видов деятельности помогает пользователю снизить когнитивную нагрузку при организации",
+  "obs": 1
+ },
+ {
+  "id": "time-in-title-workaround",
+  "title": "Пользователи вписывают время в заголовок события, чтобы оно было читаемо в месячной сетке на iPad",
+  "obs": 1
+ },
+ {
+  "id": "widget-shows-stale-or-missing-events",
+  "title": "Виджет на главном экране показывает удалённые или устаревшие события вместо актуального списка дня",
+  "obs": 1
+ },
+ {
+  "id": "macos-version-broken",
+  "title": "Версия для Mac полностью неработоспособна и не синхронизирует календарь, хотя iOS работает исправно",
+  "obs": 1
+ },
+ {
+  "id": "app-badges-missing-macos",
+  "title": "Значки уведомлений не отображаются на рабочем столе macOS несмотря на включённые настройки",
+  "obs": 1
+ },
+ {
+  "id": "ios-update-wiped-events-into-system-calendar",
+  "title": "Обновление iOS стёрло события и перенесло их в стандартный календарь без возможности вернуть разделение",
+  "obs": 1
+ },
+ {
+  "id": "update-broke-monthly-layout-lost-shifts",
+  "title": "Обновление потеряло смены и сломало месячный вид, сдвинув события и закрыв дату",
+  "obs": 1
+ },
+ {
+  "id": "crash-loop-needs-reinstall",
+  "title": "Приложение входит в цикл крашей и требует переустановки — признак нестабильных данных или утечки памяти",
+  "obs": 1
+ },
+ {
+  "id": "google-sync-selective",
+  "title": "Синхронизация с Google Calendar избирательна — часть событий добавляется, часть пропадает",
+  "obs": 1
+ },
+ {
+  "id": "colors-not-syncing-new-device",
+  "title": "Цвета календарей не синхронизируются на новый iPhone и нет способа переопределить их вручную",
+  "obs": 1
+ },
+ {
+  "id": "birthday-editing-broken",
+  "title": "Редактирование событий дня рождения сломалось — нельзя исправить дату или удалить дубликаты",
+  "obs": 1
+ },
+ {
+  "id": "icon-no-current-date",
+  "title": "Иконка приложения не показывает текущую дату — пользователь держит второе приложение только для проверки даты",
+  "obs": 1
+ },
+ {
+  "id": "daily-reliance-for-reminders",
+  "title": "Приложение стало основным ежедневным инструментом напоминаний, эффективнее конкурентов",
+  "obs": 1
+ }
+]

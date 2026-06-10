@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from WOMBO Dream - AI Art Generator (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO WOMBO Dream - AI Art Generator, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to WOMBO Dream - AI Art Generator — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to WOMBO Dream - AI Art Generator>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1586366816.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "gallery-wiped",
+  "title": "Вся галерея работ пользователя удаляется без предупреждения и не восстанавливается",
+  "obs": 9
+ },
+ {
+  "id": "server-outage-prolonged",
+  "title": "Сервис не работает неделями — сервер недоступен большую часть времени без сроков восстановления",
+  "obs": 6
+ },
+ {
+  "id": "active-sub-not-recognized",
+  "title": "Apple подтверждает активную подписку, но приложение её не видит и требует новую оплату",
+  "obs": 5
+ },
+ {
+  "id": "prompt-ignored",
+  "title": "Модель игнорирует текстовый промпт и рисует не то, что просят, при любой формулировке",
+  "obs": 5
+ },
+ {
+  "id": "quality-degraded",
+  "title": "Качество генерации деградировало при тех же промптах — результаты стали безличными и шаблонными",
+  "obs": 5
+ },
+ {
+  "id": "app-wont-launch",
+  "title": "Приложение не загружается — белый или чёрный экран, краш после логотипа, бесконечный спиннер",
+  "obs": 5
+ },
+ {
+  "id": "community-feed-broken",
+  "title": "Лента сообщества и публикация работ не работают даже у премиум-пользователей",
+  "obs": 5
+ },
+ {
+  "id": "lifetime-membership-revoked",
+  "title": "Купленный «пожизненный» доступ перестаёт признаваться — приложение снова требует оплату через кредиты",
+  "obs": 4
+ },
+ {
+  "id": "premium-benefits-not-delivered",
+  "title": "Оплаченные премиум-функции не выдаются — приложение выдаёт уведомления о монетах вместо обещанных генераций",
+  "obs": 4
+ },
+ {
+  "id": "reference-image-influence-broken",
+  "title": "Регулировка влияния исходного изображения не работает — результат игнорирует загруженную картинку",
+  "obs": 4
+ },
+ {
+  "id": "generation-errors-broken",
+  "title": "Генерация постоянно возвращает ошибки или работает несколько раз и ломается",
+  "obs": 4
+ },
+ {
+  "id": "support-unresponsive-billing",
+  "title": "Поддержка неделями не отвечает на запросы о двойном списании и сбоях при активной подписке",
+  "obs": 4
+ },
+ {
+  "id": "styles-removed-or-changed",
+  "title": "Привычные стили удалены или изменены до неузнаваемости, ломая рабочий процесс пользователей",
+  "obs": 3
+ },
+ {
+  "id": "reference-feature-paywalled",
+  "title": "Загрузка референсного изображения убрана из бесплатного доступа и спрятана за платную стену",
+  "obs": 3
+ },
+ {
+  "id": "content-filter-blocks-innocuous",
+  "title": "Фильтр контента блокирует безобидные промпты — «щенки на солнце», «kiss», персонажи 13+",
+  "obs": 3
+ },
+ {
+  "id": "free-trial-instant-charge",
+  "title": "Подписка на «бесплатный» пробный период мгновенно списывает полную сумму",
+  "obs": 2
+ },
+ {
+  "id": "negative-prompts-missing",
+  "title": "Нет отрицательных промптов — нельзя исключить нежелательные элементы, как умеют конкуренты",
+  "obs": 2
+ },
+ {
+  "id": "styles-stopped-updating",
+  "title": "Обновления стилей прекратились — набор не меняется месяцами, пока конкуренты добавляют новые",
+  "obs": 2
+ },
+ {
+  "id": "transformation-video-removed",
+  "title": "Видео-рендер процесса diffusion удалён — нельзя скачивать ролики трансформации для соцсетей",
+  "obs": 2
+ },
+ {
+  "id": "watermark-removal-broken",
+  "title": "Отключение водяного знака не работает — знак остаётся на экспортах даже у премиум-пользователей",
+  "obs": 2
+ },
+ {
+  "id": "generation-stuck-creating",
+  "title": "Генерация бесконечно зависает на «Creating» и не выдаёт результат",
+  "obs": 2
+ },
+ {
+  "id": "daily-generation-limit",
+  "title": "Жёсткий дневной лимит в 5 генераций обрывает итерацию вместо доработки результата",
+  "obs": 2
+ },
+ {
+  "id": "prompt-paste-and-length",
+  "title": "Нельзя вставить промпт из буфера и лимит длины не вмещает подробное описание — итерация замедляется",
+  "obs": 2
+ },
+ {
+  "id": "saved-prompts-lost",
+  "title": "Сохранённые промпты и их история исчезают — приходится писать всё заново каждый раз",
+  "obs": 2
+ },
+ {
+  "id": "create-publish-buttons-dead",
+  "title": "Кнопки «Create» и «Publish» не реагируют на нажатие",
+  "obs": 2
+ },
+ {
+  "id": "dark-mode-removed-paywalled",
+  "title": "Тёмный режим удалён или заперт за подпиской вместе с базовыми функциями",
+  "obs": 2
+ },
+ {
+  "id": "account-creation-fails",
+  "title": "Создание аккаунта не проходит — все имена отклоняются, порталы выдают ошибку без повтора",
+  "obs": 2
+ },
+ {
+  "id": "gallery-save-sync-broken",
+  "title": "Созданные работы не сохраняются и не синхронизируются с облаком — галерея остаётся пустой",
+  "obs": 2
+ },
+ {
+  "id": "v4-styles-fail",
+  "title": "Новые стили v4 не запускаются — запрос истекает по таймауту",
+  "obs": 2
+ },
+ {
+  "id": "abandoned-no-updates",
+  "title": "Приложение фактически заброшено — разработчик объявил о прекращении поддержки, обновлений нет",
+  "obs": 2
+ },
+ {
+  "id": "account-deletion-error-barrier",
+  "title": "Удаление аккаунта выдаёт ошибку, а форма поддержки требует согласия на удаление как условие помощи",
+  "obs": 2
+ },
+ {
+  "id": "scam-and-adult-ads",
+  "title": "Внутри приложения показывают скам-рекламу с требованием денег и рекламу для взрослых без контроля",
+  "obs": 2
+ },
+ {
+  "id": "competitor-feature-gap",
+  "title": "Пользователи прямо сравнивают с конкурентами (PixAI) — WOMBO отстаёт по контролю и качеству",
+  "obs": 2
+ },
+ {
+  "id": "paid-for-removed-feature",
+  "title": "Функция, ради которой покупали подписку, удалена — деньги за неё уже списаны",
+  "obs": 1
+ },
+ {
+  "id": "blocked-gen-still-burns-credits",
+  "title": "Заблокированная фильтром генерация всё равно списывает кредиты, хотя результат не создан",
+  "obs": 1
+ },
+ {
+  "id": "coins-system-removed",
+  "title": "Отмена системы монет лишила пользователей привычного способа получать доступ к стилям",
+  "obs": 1
+ },
+ {
+  "id": "free-edit-no-credit-cost",
+  "title": "Инструмент редактирования миксует элементы без расхода кредитов — пользователи дорожат этим как ключевым преимуществом",
+  "obs": 1
+ },
+ {
+  "id": "anatomy-errors",
+  "title": "Модель выдаёт анатомические ошибки — лишние конечности, размытые лица — независимо от промпта",
+  "obs": 1
+ },
+ {
+  "id": "specific-attributes-fail",
+  "title": "Модель теряется на специфических деталях и необычных пропорциях, выдавая обычные изображения",
+  "obs": 1
+ },
+ {
+  "id": "avatar-generator-removed",
+  "title": "Удалён фирменный генератор аватаров с подсказками",
+  "obs": 1
+ },
+ {
+  "id": "nsfw-locked-despite-payment",
+  "title": "Функция NSFW заблокирована несмотря на оплаченный пожизненный премиум",
+  "obs": 1
+ },
+ {
+  "id": "generated-images-not-shown",
+  "title": "Сгенерированные изображения не отображаются — визуальный вывод скрыт от пользователя",
+  "obs": 1
+ },
+ {
+  "id": "reference-image-cannot-remove",
+  "title": "Загруженное референсное изображение нельзя удалить — оно остаётся привязанным между проектами",
+  "obs": 1
+ },
+ {
+  "id": "search-not-working",
+  "title": "Поиск по приложению не работает — при попытке ничего не происходит",
+  "obs": 1
+ },
+ {
+  "id": "undismissable-banner-blocks-ui",
+  "title": "Незакрываемый баннер «бесплатный подарок» перекрывает основной интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "no-free-decline-onboarding",
+  "title": "При первом запуске нельзя отказаться от подписки — только подписаться или закрыть приложение",
+  "obs": 1
+ },
+ {
+  "id": "ipad-android-feature-parity",
+  "title": "Функция текстового редактирования генераций с iPad отсутствует на Android",
+  "obs": 1
+ },
+ {
+  "id": "support-button-is-promo",
+  "title": "Кнопка «поддержка» открывает промо вместо реального способа получить помощь",
+  "obs": 1
+ },
+ {
+  "id": "discord-bans-for-questions",
+  "title": "Discord-поддержка банит на 30 дней за повторный вопрос без права на апелляцию",
+  "obs": 1
+ }
+]

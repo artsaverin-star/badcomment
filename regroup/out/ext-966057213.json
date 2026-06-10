@@ -1,0 +1,40 @@
+{
+  "groups": [
+    {
+      "id": "timer-ne-zvonit",
+      "name": "Таймер не звонит: главное обещание помодоро не срабатывает",
+      "insight_ids": [
+        "timer-signal-silent-always",
+        "timer-signal-silent-background",
+        "annoying-default-sounds"
+      ]
+    },
+    {
+      "id": "lozhnaya-statistika",
+      "name": "Прогресс и стрики врут: чем дольше работаешь, тем хуже счёт",
+      "insight_ids": [
+        "session-time-miscalculated",
+        "score-drops-on-long-sessions",
+        "widget-shows-wrong-time"
+      ]
+    },
+    {
+      "id": "zadachi-ischezayut",
+      "name": "Задачи исчезают и двоятся: данным нельзя доверять",
+      "insight_ids": [
+        "data-lost-on-time-change",
+        "task-duplicate-on-complete",
+        "app-lag-unresponsive"
+      ]
+    },
+    {
+      "id": "paywall-blokirovka-podderzhka",
+      "name": "Платишь за бывшее бесплатным, блокировка обходится, поддержка молчит",
+      "insight_ids": [
+        "free-features-paywalled",
+        "app-blocker-bypassed-by-pause",
+        "support-slow-generic"
+      ]
+    }
+  ]
+}

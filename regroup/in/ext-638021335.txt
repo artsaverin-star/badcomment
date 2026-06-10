@@ -1,0 +1,124 @@
+You are grouping 15 mechanism-level insight clusters from Glow Ovulation & Period App (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Glow Ovulation & Period App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 15 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Glow Ovulation & Period App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Glow Ovulation & Period App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-638021335.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-crash-no-launch",
+  "title": "Приложение не открывается и требует переустановки, лишая доступа к данным и оплаченным функциям",
+  "obs": 2
+ },
+ {
+  "id": "retroactive-paywall-on-own-data",
+  "title": "Исторические данные, введённые когда приложение было бесплатным, закрываются платным экраном после смены политики",
+  "obs": 1
+ },
+ {
+  "id": "inactivity-paywall-block",
+  "title": "После нескольких дней неиспользования приложение показывает блокирующий экран с требованием купить премиум",
+  "obs": 1
+ },
+ {
+  "id": "hardware-support-no-replacement",
+  "title": "Служба поддержки отказалась заменить фирменный термометр, который не был доставлен",
+  "obs": 1
+ },
+ {
+  "id": "icloud-data-deletion-blocked",
+  "title": "Пользователи, зарегистрировавшиеся через iCloud, не могут удалить свои данные — поддержка не отвечает",
+  "obs": 1
+ },
+ {
+  "id": "ai-generated-content-distrust",
+  "title": "Контент приложения выглядит сгенерированным ИИ, что снижает доверие и эмоциональное воздействие",
+  "obs": 1
+ },
+ {
+  "id": "bbt-hardware-lock-no-manual-entry",
+  "title": "Базальная температура отслеживается только через фирменный термометр — ручной ввод температуры не предусмотрен",
+  "obs": 1
+ },
+ {
+  "id": "period-reminders-after-mode-switch",
+  "title": "После переключения статуса на отслеживание беременности приложение продолжает отправлять напоминания о менструации",
+  "obs": 1
+ },
+ {
+  "id": "period-mode-shows-pregnancy-content",
+  "title": "Режим «только отслеживание периода» не скрывает контент о планировании беременности",
+  "obs": 1
+ },
+ {
+  "id": "age-gate-inconsistency",
+  "title": "Приложение требует возраст 16+ при входе, хотя в магазине приложений указано ограничение 13+",
+  "obs": 1
+ },
+ {
+  "id": "registration-form-validation-loop",
+  "title": "Форма регистрации зацикливается на поле имени из-за ошибки валидации и не пускает дальше",
+  "obs": 1
+ },
+ {
+  "id": "button-lag-performance",
+  "title": "При нажатии кнопок приложение зависает на 5–10 секунд в большинстве случаев",
+  "obs": 1
+ },
+ {
+  "id": "widget-stopped-working",
+  "title": "Виджеты приложения внезапно перестают работать без видимой причины",
+  "obs": 1
+ },
+ {
+  "id": "notes-input-drops-characters",
+  "title": "При быстром вводе текста в поле «Заметки» часть символов не регистрируется",
+  "obs": 1
+ },
+ {
+  "id": "ovulation-prediction-inaccuracy",
+  "title": "Прогнозы овуляции и менструации остаются неточными даже после года накопленных данных пользователя",
+  "obs": 1
+ }
+]

@@ -1,0 +1,184 @@
+You are grouping 27 mechanism-level insight clusters from Shazam: Find Music & Concerts (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Shazam: Find Music & Concerts, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 27 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Shazam: Find Music & Concerts — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Shazam: Find Music & Concerts>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-284993459.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "recognition-regression-after-update",
+  "title": "После последних обновлений качество распознавания резко ухудшилось — функция перестаёт работать",
+  "obs": 4
+ },
+ {
+  "id": "low-accuracy-general",
+  "title": "Приложение не распознаёт от 15% до 50% запросов даже при хороших условиях прослушивания",
+  "obs": 3
+ },
+ {
+  "id": "humming-singing-not-supported",
+  "title": "Приложение не распознаёт напетую или спетую пользователем мелодию — работает только с воспроизводимой записью",
+  "obs": 3
+ },
+ {
+  "id": "forced-signup-before-use",
+  "title": "Приложение требует регистрацию или вход до первого распознавания — основная функция недоступна без аккаунта",
+  "obs": 2
+ },
+ {
+  "id": "google-faster-competitor",
+  "title": "Google распознаёт песни быстрее и точнее — пользователи переходят к конкуренту прямо во время сессии",
+  "obs": 2
+ },
+ {
+  "id": "indie-unknown-tracks-gap",
+  "title": "Независимые и малоизвестные треки часто не распознаются — база данных охватывает только мейнстрим",
+  "obs": 2
+ },
+ {
+  "id": "recognition-accuracy-degraded-years",
+  "title": "Точность распознавания постепенно снижалась на протяжении последних лет — приложение работает хуже, чем раньше",
+  "obs": 2
+ },
+ {
+  "id": "wrong-song-returned",
+  "title": "Алгоритм возвращает совершенно другую песню, не совпадающую с источником ни по ритму, ни по вступлению",
+  "obs": 2
+ },
+ {
+  "id": "app-slow-requires-restart",
+  "title": "Приложение работает медленно и требует частых перезагрузок для продолжения работы",
+  "obs": 2
+ },
+ {
+  "id": "trial-no-dismiss",
+  "title": "При открытии приложения навязывается триал без кнопки отклонения — пользователь не может войти без согласия",
+  "obs": 1
+ },
+ {
+  "id": "apple-music-lock-in",
+  "title": "Добавление найденных песен в плейлист работает только через Apple Music — другие сервисы заблокированы",
+  "obs": 1
+ },
+ {
+  "id": "song-history-positive",
+  "title": "История найденных песен и создание плейлистов — причина продолжать пользоваться приложением",
+  "obs": 1
+ },
+ {
+  "id": "no-multilanguage-recognition",
+  "title": "Приложение распознаёт только песни на английском — треки на других языках не идентифицируются",
+  "obs": 1
+ },
+ {
+  "id": "live-cover-recognition-fail",
+  "title": "Живые исполнения и каверы с похожими аранжировками не распознаются или определяются неверно",
+  "obs": 1
+ },
+ {
+  "id": "playback-interrupted-by-shazam",
+  "title": "Запуск распознавания прерывает текущее воспроизведение музыки в других приложениях",
+  "obs": 1
+ },
+ {
+  "id": "no-background-video-recognition",
+  "title": "Приложение не распознаёт музыку из видео и обрывается при попытке фонового распознавания",
+  "obs": 1
+ },
+ {
+  "id": "autostart-listen-on-open",
+  "title": "Автоматическое начало прослушивания при открытии нельзя отключить через настройки",
+  "obs": 1
+ },
+ {
+  "id": "manual-button-required",
+  "title": "Приложение перестало автоматически начинать слушать при открытии — теперь требуется нажать кнопку",
+  "obs": 1
+ },
+ {
+  "id": "ad-blocks-main-flow",
+  "title": "Реклама при открытии требует ответа пользователя и блокирует немедленный запуск распознавания",
+  "obs": 1
+ },
+ {
+  "id": "song-not-saved-after-recognition",
+  "title": "Найденные песни не сохраняются в истории — нельзя вернуться к результату после закрытия",
+  "obs": 1
+ },
+ {
+  "id": "widget-previous-song-blocks-new-search",
+  "title": "Виджет открывает последнюю найденную песню — нужно вручную закрыть её перед новым поиском",
+  "obs": 1
+ },
+ {
+  "id": "add-to-playlist-fails-15pct",
+  "title": "Около 15% успешно распознанных песен не удаётся добавить в плейлист Apple Music",
+  "obs": 1
+ },
+ {
+  "id": "beat-confusion-similar-rhythm",
+  "title": "Алгоритм путает песни с похожим ритмом — распознавание работает по биту, а не по мелодии или тексту",
+  "obs": 1
+ },
+ {
+  "id": "noisy-environment-recognition-fail",
+  "title": "В шумной обстановке приложение не справляется с распознаванием — требуется низкий фоновый шум",
+  "obs": 1
+ },
+ {
+  "id": "unusual-conditions-smoke",
+  "title": "Качество распознавания падает в нестандартных условиях окружающей среды",
+  "obs": 1
+ },
+ {
+  "id": "slow-response-button-tap",
+  "title": "Кнопка запуска распознавания реагирует с задержкой — пользователь ожидает мгновенного отклика",
+  "obs": 1
+ },
+ {
+  "id": "account-email-change-impossible",
+  "title": "Нельзя изменить адрес электронной почты, привязанный к аккаунту",
+  "obs": 1
+ }
+]

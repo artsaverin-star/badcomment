@@ -1,0 +1,284 @@
+You are grouping 47 mechanism-level insight clusters from Cleo AI: Cash Advance & Budget (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Cleo AI: Cash Advance & Budget, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 47 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Cleo AI: Cash Advance & Budget — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Cleo AI: Cash Advance & Budget>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1447274646.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "advance-split-into-daily-doses",
+  "title": "Одобренный аванс выдаётся не целиком, а мелкими дневными порциями с задержками между выводами",
+  "obs": 8
+ },
+ {
+  "id": "plaid-bank-connect-hangs",
+  "title": "Экран подключения банка через Plaid зависает на загрузке и не открывает форму авторизации, блокируя регистрацию",
+  "obs": 7
+ },
+ {
+  "id": "split-to-multiply-fees",
+  "title": "Аванс намеренно разбивают на несколько дней, чтобы взять комиссию за каждый вывод по отдельности",
+  "obs": 6
+ },
+ {
+  "id": "limit-shrinks-after-on-time-repay",
+  "title": "После своевременного погашения лимит авансов не растёт, а падает — ответственных плательщиков система штрафует",
+  "obs": 6
+ },
+ {
+  "id": "fees-equal-or-exceed-advance",
+  "title": "Сумма комиссий приближается к размеру самого авансу или превышает его — заём теряет экономический смысл",
+  "obs": 6
+ },
+ {
+  "id": "advertised-limit-vs-real",
+  "title": "Рекламируемый крупный лимит ($200–500) после оплаты оказывается $20–30 — реальную сумму скрывают до платежа",
+  "obs": 5
+ },
+ {
+  "id": "subscription-no-benefit",
+  "title": "Платная подписка обязательна для авансов, но обещанных преимуществ и больших лимитов не даёт",
+  "obs": 5
+ },
+ {
+  "id": "update-breaks-login",
+  "title": "Свежее обновление вызывает краш при входе и открытии — переустановка не помогает",
+  "obs": 4
+ },
+ {
+  "id": "charges-continue-after-cancel",
+  "title": "После отмены подписки приложение продолжает списывать ежемесячный платёж без авторизации",
+  "obs": 3
+ },
+ {
+  "id": "support-bot-no-human",
+  "title": "Поддержка полностью автоматизирована — бот ходит по кругу и не передаёт живому оператору",
+  "obs": 3
+ },
+ {
+  "id": "unexplained-random-charges",
+  "title": "На счёт прилетают мелкие случайные комиссии, которые поддержка не объясняет и не возвращает",
+  "obs": 2
+ },
+ {
+  "id": "instant-withdrawal-fee",
+  "title": "Мгновенный вывод авансу стоит отдельную дорогую комиссию, дешёвый вариант — ждать три дня",
+  "obs": 2
+ },
+ {
+  "id": "opaque-fee-structure",
+  "title": "Структура комиссий непрозрачна — за аванс $20 в итоге нужно вернуть $25 из-за скрытых сборов",
+  "obs": 2
+ },
+ {
+  "id": "upfront-fee-before-access",
+  "title": "Приложение берёт авансовую плату за регистрацию или членство ещё до доступа к самим авансам",
+  "obs": 2
+ },
+ {
+  "id": "no-refund-same-day-cancel",
+  "title": "Возврат не дают даже при отмене в день подписки — деньги после погашения удерживают",
+  "obs": 2
+ },
+ {
+  "id": "limit-reset-unpredictable",
+  "title": "Новый лимит после погашения пересчитывается без понятной логики — иногда выше, иногда ниже выплаченной суммы",
+  "obs": 2
+ },
+ {
+  "id": "roast-feature-vs-finance-tone",
+  "title": "Функция язвительного «роастинга» трат бьёт по пользователю в момент финансового кризиса вместо поддержки",
+  "obs": 2
+ },
+ {
+  "id": "card-balance-locked",
+  "title": "Интерфейс показывает доступный баланс, но в выводе отказывает без объяснения",
+  "obs": 2
+ },
+ {
+  "id": "app-freezes-on-launch",
+  "title": "Приложение зависает на спиннере и вылетает, требуя многократного переоткрытия за сессию",
+  "obs": 2
+ },
+ {
+  "id": "advance-request-error",
+  "title": "Запрос авансу постоянно отбивается ошибкой «не прошло» без технической причины при активной подписке",
+  "obs": 2
+ },
+ {
+  "id": "advance-processing-stuck",
+  "title": "Запрос авансу висит больше девяти дней без денег и без статуса о причине задержки",
+  "obs": 2
+ },
+ {
+  "id": "fees-higher-than-competitors",
+  "title": "Комиссии в разы выше, чем у конкурирующих сервисов авансов",
+  "obs": 1
+ },
+ {
+  "id": "min-limit-too-small",
+  "title": "Минимальный одобренный аванс ($20–30) слишком мал, чтобы оправдать затраты на регистрацию",
+  "obs": 1
+ },
+ {
+  "id": "early-debit-before-schedule",
+  "title": "Приложение пытается списать платёж раньше расписания и отрицает попытку, хотя она видна в выписке",
+  "obs": 1
+ },
+ {
+  "id": "referral-reward-not-credited",
+  "title": "Реферальное вознаграждение не зачисляют, несмотря на выполнение всех условий программы",
+  "obs": 1
+ },
+ {
+  "id": "buffer-before-payday",
+  "title": "Приложение реально помогает дотянуть до зарплаты, работая буфером между выплатами",
+  "obs": 1
+ },
+ {
+  "id": "limit-grows-with-on-time-repay",
+  "title": "При регулярных своевременных погашениях доступный лимит авансов постепенно растёт",
+  "obs": 1
+ },
+ {
+  "id": "removed-extended-repay-period",
+  "title": "Убрали расширенный 13-дневный срок погашения, критичный для двухнедельного зарплатного цикла",
+  "obs": 1
+ },
+ {
+  "id": "no-repay-extension-mechanism",
+  "title": "Нет встроенного способа продлить срок погашения авансу",
+  "obs": 1
+ },
+ {
+  "id": "credit-builder-needs-capital",
+  "title": "Кредит-билдер требует уже иметь деньги на счёте, что противоречит его смыслу для людей без капитала",
+  "obs": 1
+ },
+ {
+  "id": "multi-step-payment-gates",
+  "title": "Доступ к авансам и кредит-билдеру требует экспорта данных, Plaid и подписки — платёж на каждом шаге",
+  "obs": 1
+ },
+ {
+  "id": "custom-categories-ignored",
+  "title": "Визуализация трат в чате игнорирует созданные пользователем категории, работает только со стандартными",
+  "obs": 1
+ },
+ {
+  "id": "no-bank-disconnect-option",
+  "title": "Из приложения нельзя отвязать банковский счёт — связь возвращается сама, нужно вносить Cleo в чёрный список через банк",
+  "obs": 1
+ },
+ {
+  "id": "no-account-deletion",
+  "title": "Нельзя удалить аккаунт или погасить аванс уже подключённой картой — система зацикливается на обработке",
+  "obs": 1
+ },
+ {
+  "id": "card-replacement-removed",
+  "title": "Карта Cleo внезапно закрывается, а опцию перевыпуска физической карты убрали из интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "no-control-over-payment-method",
+  "title": "Нельзя выбрать платёжный метод или сумму вывода — приложение само решает за пользователя",
+  "obs": 1
+ },
+ {
+  "id": "no-cleo-to-bank-transfer",
+  "title": "Деньги можно завести на карту Cleo, но нельзя вывести обратно на свой банковский счёт",
+  "obs": 1
+ },
+ {
+  "id": "spontaneous-logout",
+  "title": "Приложение спорадически выкидывает из аккаунта после успешного входа при верных учётных данных",
+  "obs": 1
+ },
+ {
+  "id": "crash-blocks-repayment",
+  "title": "В момент оплаты приложение перестаёт открываться, блокируя своевременное погашение авансу",
+  "obs": 1
+ },
+ {
+  "id": "requires-traditional-bank-ach",
+  "title": "Приложение требует традиционный банк с ACH и отказывает пользователям онлайн-банков",
+  "obs": 1
+ },
+ {
+  "id": "withdrawals-after-disconnect",
+  "title": "После отключения банковского счёта приложение продолжает снимать деньги спустя недели",
+  "obs": 1
+ },
+ {
+  "id": "unauthorized-account-debits",
+  "title": "Приложение списывает деньги с неавторизованных счетов, доступ к которым пользователь не открывал",
+  "obs": 1
+ },
+ {
+  "id": "hidden-credit-check",
+  "title": "Реклама «без проверки кредита» скрывает теневую оценку рисков по альтернативным базам с кредитной историей",
+  "obs": 1
+ },
+ {
+  "id": "data-shared-with-third-parties",
+  "title": "После установки данные заявок утекают сторонним кредитным сервисам — на пользователя сыплется спам",
+  "obs": 1
+ },
+ {
+  "id": "bait-then-cut-limit",
+  "title": "Высокий лимит дают в первый раз ради подписки, а на следующий месяц резко срезают",
+  "obs": 1
+ },
+ {
+  "id": "push-promises-vs-real-limit",
+  "title": "Пуши и SMS обещают аванс $400, но в приложении реальный лимит $30–40",
+  "obs": 1
+ },
+ {
+  "id": "debt-spiral-design",
+  "title": "Структура комиссий замыкает пользователя в растущий цикл расходов, из которого трудно выйти",
+  "obs": 1
+ }
+]

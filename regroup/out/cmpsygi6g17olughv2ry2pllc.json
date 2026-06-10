@@ -1,0 +1,82 @@
+{
+  "groups": [
+    {
+      "id": "trial-paywall-traps",
+      "name": "Триал-ловушки и платный замок: списания и невозможность отмены",
+      "insight_ids": [
+        "trial-charges-immediately",
+        "cancel-trial-still-charged",
+        "pay-after-editing-trap",
+        "everything-behind-paywall",
+        "cancel-impossible-no-refund",
+        "trial-usage-limit-too-tight",
+        "ads-or-pay-to-test",
+        "pay-per-edit-not-once",
+        "cant-cancel-trial-in-app",
+        "refund-hidden-email-only",
+        "price-too-high",
+        "no-charge-warning-on-install",
+        "cancel-screen-freezes"
+      ]
+    },
+    {
+      "id": "object-removal-quality",
+      "name": "Удаление объектов: размытие, артефакты и фон, который не восстанавливается",
+      "insight_ids": [
+        "object-removal-blurry",
+        "object-removal-artifacts",
+        "object-removal-fails",
+        "large-object-removal-unnatural",
+        "removal-affects-neighbors",
+        "clothing-removal-blurry",
+        "ai-quality-below-ads"
+      ]
+    },
+    {
+      "id": "crashes-freezes-performance",
+      "name": "Краши, зависания и тормоза вместо обещанного AI",
+      "insight_ids": [
+        "crashes-loading-photos",
+        "edits-have-no-effect",
+        "app-freezes-on-edit",
+        "freeze-on-background-removal",
+        "clone-stamp-zoom-broke",
+        "auto-lasso-network-error",
+        "ai-jerky-performance",
+        "video-removal-slow",
+        "low-light-poor"
+      ]
+    },
+    {
+      "id": "save-loss-and-quality",
+      "name": "Потеря работы при сохранении и ухудшение качества готового фото",
+      "insight_ids": [
+        "cant-save-edits",
+        "save-quality-degraded"
+      ]
+    },
+    {
+      "id": "face-portrait-retouch",
+      "name": "Ретушь лиц и портретов: неестественная кожа, жуткие глаза и групповые фото",
+      "insight_ids": [
+        "face-retouch-unnatural",
+        "edit-all-faces-not-one",
+        "group-photo-worse",
+        "eye-color-tool-creepy",
+        "slim-tools-poor"
+      ]
+    },
+    {
+      "id": "shallow-tools-and-clumsy-ux",
+      "name": "Скудный набор инструментов и неудобный поток редактирования",
+      "insight_ids": [
+        "tools-shallow-vs-builtin",
+        "confusing-interface",
+        "no-onboarding-tutorial",
+        "no-support-channel",
+        "workflow-requires-exit-reenter",
+        "remove-blur-wish"
+      ]
+    }
+  ]
+}

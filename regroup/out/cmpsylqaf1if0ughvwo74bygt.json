@@ -1,0 +1,89 @@
+{
+  "groups": [
+    {
+      "id": "raspoznavanie-rechi-podvodit",
+      "name": "Когда микрофон не слышит, а балл врёт: ядро движка буксует",
+      "insight_ids": [
+        "speech-recognition-slow",
+        "speech-recognition-fails-detect",
+        "inaccurate-pronunciation-scoring",
+        "mic-button-unreliable",
+        "connection-error-stable-internet",
+        "interrupts-speech",
+        "recognition-degraded-after-update",
+        "no-error-reporting",
+        "processing-never-returns",
+        "recording-click-artifact"
+      ]
+    },
+    {
+      "id": "zависания-i-poteryannyy-progress",
+      "name": "Зависло посреди урока — и прогресс сгорел",
+      "insight_ids": [
+        "app-freezes-loses-progress",
+        "audio-drops-needs-restart",
+        "crash-after-update",
+        "random-logout",
+        "certificate-courses-disappear",
+        "slow-lesson-loading",
+        "crashes-specific-sections"
+      ]
+    },
+    {
+      "id": "ai-nastavnik-vytesnil-foniku",
+      "name": "AI-наставник пришёл — отработка звуков ушла",
+      "insight_ids": [
+        "3d-avatar-clutters-ui",
+        "removed-pronunciation-tool",
+        "removed-playback-self-record",
+        "ai-replaced-phonics",
+        "robotic-ai-voice",
+        "removed-single-word-drill",
+        "ai-greeting-instead-of-lessons",
+        "ai-conversation-pace",
+        "roleplay-no-volume-control"
+      ]
+    },
+    {
+      "id": "oplatil-no-ne-poluchil",
+      "name": "Заплатил, а приложение не признаёт: подписки, триалы и молчащая поддержка",
+      "insight_ids": [
+        "subscription-not-recognized",
+        "trial-charges-immediately",
+        "premium-upgrade-prompts",
+        "upgrade-button-broken",
+        "lifetime-stops-working",
+        "cannot-change-level-after-purchase",
+        "support-bot-no-resolution",
+        "lesson-count-overstated"
+      ]
+    },
+    {
+      "id": "vhod-registraciya-ustroystva",
+      "name": "Спотыкания на пороге: вход, регистрация, наушники и второе устройство",
+      "insight_ids": [
+        "headphones-incompatible",
+        "email-verification-loop",
+        "no-target-language-choice",
+        "incomplete-native-language-list",
+        "no-ipad-support",
+        "cross-device-sync",
+        "social-login-fails",
+        "ipad-small-buttons"
+      ]
+    },
+    {
+      "id": "navyazannyy-plan-i-nepoznavaemyy-progress",
+      "name": "Учиться по чужому сценарию: навязанный план и спрятанный прогресс",
+      "insight_ids": [
+        "forced-lesson-plan",
+        "hard-to-resume-progress",
+        "no-completion-marking",
+        "repeated-questions",
+        "leaderboard-gameable",
+        "dated-interface",
+        "wrong-stress-content"
+      ]
+    }
+  ]
+}

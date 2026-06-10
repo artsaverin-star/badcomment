@@ -1,0 +1,344 @@
+You are grouping 59 mechanism-level insight clusters from Sleep (sleep sounds / white noise / relax) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sleep, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 59 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sleep — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sleep>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1447478883.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "playback-stops-on-screen-lock",
+  "title": "Звуки прерываются при блокировке экрана — приложение не работает с выключённым дисплеем",
+  "obs": 52
+ },
+ {
+  "id": "background-playback-broken-after-update",
+  "title": "После обновления фоновое воспроизведение перестало работать — звуки прерываются при заблокированном экране",
+  "obs": 28
+ },
+ {
+  "id": "paid-model-replaced-free",
+  "title": "Приложение ранее предлагало контент бесплатно, после обновления всё переместилось за платёжную стену",
+  "obs": 26
+ },
+ {
+  "id": "freemium-wall-no-free-content",
+  "title": "Приложение позиционируется как бесплатное, но без подписки недоступна ни одна функция",
+  "obs": 25
+ },
+ {
+  "id": "mandatory-trial-blocks-access",
+  "title": "Приложение требует оформить пробную подписку перед первым использованием — обойти экран оплаты невозможно",
+  "obs": 20
+ },
+ {
+  "id": "free-content-reduced-to-minimum",
+  "title": "Бесплатная версия ограничена одним-тремя звуками — набор слишком мал, чтобы оценить приложение перед покупкой",
+  "obs": 18
+ },
+ {
+  "id": "narrator-voice-creepy",
+  "title": "Голоса рассказчиков звучат пугающе или раздражающе вместо расслабляющего эффекта",
+  "obs": 13
+ },
+ {
+  "id": "sounds-not-relaxing",
+  "title": "Звуки и истории вызывают стресс или раздражение вместо расслабления",
+  "obs": 9
+ },
+ {
+  "id": "sleep-onset-improvement",
+  "title": "Пользователи сообщают о реальном сокращении времени засыпания после регулярного использования",
+  "obs": 8
+ },
+ {
+  "id": "cancel-subscription-impossible",
+  "title": "Отменить подписку через стандартный интерфейс невозможно — списания продолжаются несмотря на попытки",
+  "obs": 7
+ },
+ {
+  "id": "volume-control-broken",
+  "title": "Регулировка громкости зависает или игнорируется — приложение возвращает громкость на максимум или не реагирует",
+  "obs": 7
+ },
+ {
+  "id": "playback-crashes-repeatedly",
+  "title": "Приложение самопроизвольно прерывает воспроизведение каждые несколько минут без видимой причины",
+  "obs": 6
+ },
+ {
+  "id": "paywall-screen-cant-dismiss",
+  "title": "Экран с предложением купить подписку невозможно закрыть — приложение захватывает управление и блокирует навигацию",
+  "obs": 6
+ },
+ {
+  "id": "reinstall-loses-free-access",
+  "title": "После переустановки приложения ранее бесплатный контент требует подписку — доступ теряется при смене устройства",
+  "obs": 5
+ },
+ {
+  "id": "app-crashes-on-launch",
+  "title": "Приложение падает при запуске или во время воспроизведения — не удаётся пользоваться стабильно",
+  "obs": 5
+ },
+ {
+  "id": "marketing-sleep-instant-false",
+  "title": "Реклама обещает мгновенное засыпание, но функция в приложении недоступна или не работает",
+  "obs": 5
+ },
+ {
+  "id": "sound-mixing-core-value",
+  "title": "Возможность создавать кастомные миксы звуков с регулировкой громкости — главная причина выбирать приложение",
+  "obs": 5
+ },
+ {
+  "id": "price-disproportionate",
+  "title": "Цена подписки несоразмерна функциональности простого приложения для засыпания",
+  "obs": 4
+ },
+ {
+  "id": "onboarding-quiz-errors",
+  "title": "Вопросы при первом входе вызывают ошибки или зависают — пользователи пропускают профиль или не могут завершить настройку",
+  "obs": 4
+ },
+ {
+  "id": "subscription-charged-without-consent",
+  "title": "Подписка начисляется автоматически при открытии или без явного согласия пользователя",
+  "obs": 3
+ },
+ {
+  "id": "timer-max-one-hour",
+  "title": "Максимальное время таймера ограничено одним часом — нельзя слушать всю ночь без повторного касания",
+  "obs": 3
+ },
+ {
+  "id": "focus-use-case-not-sleep",
+  "title": "Приложение активно используют для фокусировки при учёбе и работе, а не только для сна",
+  "obs": 3
+ },
+ {
+  "id": "billing-continues-after-uninstall",
+  "title": "Списание средств продолжается после удаления приложения — биллинг не прекращается при деинсталляции",
+  "obs": 2
+ },
+ {
+  "id": "no-preview-before-purchase",
+  "title": "Премиум-контент нельзя предпросмотреть перед покупкой — пользователь покупает вслепую",
+  "obs": 2
+ },
+ {
+  "id": "kids-stories-behind-paywall",
+  "title": "Детские истории для засыпания почти полностью заблокированы подпиской — бесплатный доступ крайне ограничен",
+  "obs": 2
+ },
+ {
+  "id": "favorite-content-removed",
+  "title": "Любимый контент (сцены, медитации) удалён из приложения — пользователи теряют главный мотив оставаться",
+  "obs": 2
+ },
+ {
+  "id": "playback-works-with-screen-off",
+  "title": "Приложение корректно воспроизводит звуки с выключённым экраном — ключевое преимущество перед конкурентами",
+  "obs": 2
+ },
+ {
+  "id": "no-stop-after-story-ends",
+  "title": "После завершения рассказа приложение автоматически запускает следующий контент вместо полного отключения",
+  "obs": 2
+ },
+ {
+  "id": "no-sleep-timer",
+  "title": "Нет таймера автоматического отключения при засыпании — приложение работает всю ночь и разряжает батарею",
+  "obs": 2
+ },
+ {
+  "id": "no-narrator-exclusion",
+  "title": "Нельзя исключить конкретного рассказчика из ротации — неприятные голоса появляются снова и снова",
+  "obs": 2
+ },
+ {
+  "id": "no-alarm-with-sleep-sounds",
+  "title": "Нет будильника с расслабляющими звуками — утреннее пробуждение происходит через стандартный громкий будильник",
+  "obs": 2
+ },
+ {
+  "id": "manipulative-insomnia-marketing",
+  "title": "Приложение запугивает пользователя последствиями бессонницы, чтобы продать подписку",
+  "obs": 2
+ },
+ {
+  "id": "app-effective-free-tier",
+  "title": "Бесплатной версии достаточно для регулярного ночного использования — пользователи не видят смысла платить",
+  "obs": 2
+ },
+ {
+  "id": "subscription-no-new-content",
+  "title": "Пользователь платит за подписку, но контент не обновляется — одни и те же истории и звуки неделями",
+  "obs": 1
+ },
+ {
+  "id": "sounds-lost-after-subscription",
+  "title": "После оформления подписки большинство звуков исчезли из приложения — контент недоступен несмотря на оплату",
+  "obs": 1
+ },
+ {
+  "id": "subscription-status-unclear",
+  "title": "Пользователь не может понять, активна ли подписка — нет понятного управления статусом внутри приложения",
+  "obs": 1
+ },
+ {
+  "id": "background-music-overpowers-narrator",
+  "title": "Фоновые звуки громче голоса рассказчика и разрушают расслабляющий эффект истории",
+  "obs": 1
+ },
+ {
+  "id": "stories-too-short",
+  "title": "Истории слишком короткие — пользователи, засыпающие долго, не успевают уснуть до конца",
+  "obs": 1
+ },
+ {
+  "id": "stories-too-long",
+  "title": "Истории слишком длинные — пользователь слушает несколько подряд вместо того чтобы заснуть",
+  "obs": 1
+ },
+ {
+  "id": "meditation-section-has-stories",
+  "title": "Раздел «Медитации» содержит рассказы вместо управляемых медитаций — ярлыки вводят пользователей в заблуждение",
+  "obs": 1
+ },
+ {
+  "id": "app-shifted-to-video",
+  "title": "Приложение переориентировалось на видеоконтент вместо аудио, что противоречит ожиданиям аудитории",
+  "obs": 1
+ },
+ {
+  "id": "story-audio-glitchy",
+  "title": "В аудио рассказов слова пропадают — повествование звучит прерывисто и нарушает погружение",
+  "obs": 1
+ },
+ {
+  "id": "water-sounds-trigger-urge",
+  "title": "Бесплатные звуки — только звуки воды, что вызывает позыв в туалет вместо расслабления",
+  "obs": 1
+ },
+ {
+  "id": "audio-sync-lag",
+  "title": "На середине рассказа возникает заметное рассогласование между фоновым звуком и голосом рассказчика",
+  "obs": 1
+ },
+ {
+  "id": "free-sounds-short-loop",
+  "title": "Бесплатные звуки имеют короткий цикл повтора — слышно склейку, что мешает длительному ночному прослушиванию",
+  "obs": 1
+ },
+ {
+  "id": "no-language-switch",
+  "title": "Интерфейс приложения зафиксирован на одном языке — нет опции сменить язык в настройках",
+  "obs": 1
+ },
+ {
+  "id": "no-lock-screen-controls",
+  "title": "Управление паузой и громкостью недоступно с заблокированного экрана",
+  "obs": 1
+ },
+ {
+  "id": "persistent-premium-ads",
+  "title": "Реклама премиума появляется постоянно во время использования и мешает расслаблению",
+  "obs": 1
+ },
+ {
+  "id": "no-wake-time-suggestion",
+  "title": "Приложение не подсказывает рекомендуемое время отхода ко сну исходя из установленного будильника",
+  "obs": 1
+ },
+ {
+  "id": "customization-removed",
+  "title": "После обновления убрана возможность создавать и редактировать кастомные треки — только воспроизведение последнего",
+  "obs": 1
+ },
+ {
+  "id": "save-livephoto-error",
+  "title": "Попытка сохранить фоновое изображение как Live Photo завершается ошибкой",
+  "obs": 1
+ },
+ {
+  "id": "ipad-incompatibility",
+  "title": "Приложение не работает или не запускается на iPad — кроссплатформная проблема совместимости",
+  "obs": 1
+ },
+ {
+  "id": "removed-from-ios-background-apps",
+  "title": "После обновления приложение исчезло из списка фоновых приложений iOS — переустановка не помогает",
+  "obs": 1
+ },
+ {
+  "id": "excessive-battery-drain",
+  "title": "Приложение значительно разряжает батарею устройства при ночном использовании",
+  "obs": 1
+ },
+ {
+  "id": "timer-screen-conflict",
+  "title": "Экран устройства выключается, даже когда установлен таймер приложения — таймер не удерживает дисплей активным",
+  "obs": 1
+ },
+ {
+  "id": "app-session-logout",
+  "title": "Приложение неожиданно выгружает пользователя из сеанса во время медитации — прогресс теряется",
+  "obs": 1
+ },
+ {
+  "id": "shared-room-audio-only",
+  "title": "Пользователи в общей комнате используют только фоновые звуки и отключают рассказы, чтобы не мешать соседям",
+  "obs": 1
+ },
+ {
+  "id": "sleep-paralysis-side-effect",
+  "title": "Часть пользователей сообщает о появлении паралича сна при регулярном использовании приложения",
+  "obs": 1
+ },
+ {
+  "id": "nostalgia-sound-recreation",
+  "title": "Пользователи воссоздают звуки детства и ностальгические воспоминания через комбинирование звуков",
+  "obs": 1
+ }
+]

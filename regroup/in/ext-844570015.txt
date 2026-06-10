@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from Funimate Video & Motion Editor (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Funimate Video & Motion Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Funimate Video & Motion Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Funimate Video & Motion Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-844570015.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "freeze-during-editing",
+  "title": "Приложение постоянно зависает во время редактирования и требует перезапуска",
+  "obs": 9
+ },
+ {
+  "id": "explicit-content-in-elements",
+  "title": "В разделе переходов и оверлеев попадается порнография и обнажённое тело — модерации загружаемого контента нет",
+  "obs": 6
+ },
+ {
+  "id": "kicked-out-of-editor",
+  "title": "Приложение повторно выбрасывает из режима редактирования, и при возврате это происходит снова",
+  "obs": 4
+ },
+ {
+  "id": "crash-loses-work-no-autosave",
+  "title": "Краш в середине редактирования теряет всю работу — автосохранения нет",
+  "obs": 4
+ },
+ {
+  "id": "export-freezes-screen",
+  "title": "При экспорте экран зависает и не даёт завершить сохранение",
+  "obs": 4
+ },
+ {
+  "id": "only-weekly-subscription",
+  "title": "Подписка предлагается только понедельно — месячный и годовой тарифы убрали или недоступны",
+  "obs": 3
+ },
+ {
+  "id": "lost-saved-progress",
+  "title": "Приложение само теряет или удаляет сохранённый прогресс редактирования без согласия пользователя",
+  "obs": 3
+ },
+ {
+  "id": "freeze-with-many-layers",
+  "title": "После добавления множества слоёв или эффектов приложение зависает и срывает экспорт",
+  "obs": 3
+ },
+ {
+  "id": "export-takes-too-long",
+  "title": "Экспорт и сохранение видео занимают чрезвычайно долго или не завершаются вовсе",
+  "obs": 3
+ },
+ {
+  "id": "preview-export-mismatch",
+  "title": "После экспорта элементы размываются, пропадают или сбивается синхронизация — хотя в предпросмотре всё правильно",
+  "obs": 3
+ },
+ {
+  "id": "account-videos-deleted",
+  "title": "При входе в старый аккаунт все видео оказываются удалёнными без объяснения причины",
+  "obs": 3
+ },
+ {
+  "id": "crash-opening-saved-projects",
+  "title": "Приложение крашится при открытии сохранённых проектов даже после переустановки",
+  "obs": 2
+ },
+ {
+  "id": "quality-degraded-over-years",
+  "title": "После долгого использования качество приложения упало — видео выводится хуже и телефон зависает",
+  "obs": 2
+ },
+ {
+  "id": "zoom-blurry",
+  "title": "При увеличении видео в кадрировании или зуме картинка становится размытой и деформированной",
+  "obs": 2
+ },
+ {
+  "id": "watermark-cannot-remove",
+  "title": "Большой логотип на записях экрана и водяной знак нельзя убрать без оплаты, что мешает публикации",
+  "obs": 2
+ },
+ {
+  "id": "deliberate-glitches-paywall",
+  "title": "Бесплатную версию намеренно делают глючной после времени редактирования, чтобы вынудить оформить подписку",
+  "obs": 1
+ },
+ {
+  "id": "pro-limits-quality",
+  "title": "Без Pro-подписки качественное видео не сделать — ключевые возможности заблокированы",
+  "obs": 1
+ },
+ {
+  "id": "explicit-content-on-open",
+  "title": "Неприемлемый контент с обнажёнными людьми показывается сразу при открытии приложения",
+  "obs": 1
+ },
+ {
+  "id": "minors-targeted-groups",
+  "title": "В приложении есть группы, целенаправленно вовлекающие несовершеннолетних в отправку компрометирующих материалов",
+  "obs": 1
+ },
+ {
+  "id": "moderation-ignores-reports",
+  "title": "Модерация не реагирует на жалобы — оскорбительные и расистские комментарии остаются без последствий",
+  "obs": 1
+ },
+ {
+  "id": "export-crashes-high-fps",
+  "title": "Экспорт при 50 FPS крашит приложение — приходится откатываться на 30 FPS и терять качество",
+  "obs": 1
+ },
+ {
+  "id": "group-export-kicks-out",
+  "title": "Группировка элементов многократно выбрасывает из редактора и теряет прогресс",
+  "obs": 1
+ },
+ {
+  "id": "dialog-button-crash",
+  "title": "Нажатие кнопок диалога «Maybe Later» или «Resume» выбрасывает из приложения и блокирует доступ",
+  "obs": 1
+ },
+ {
+  "id": "gallery-freezes",
+  "title": "Галерея зависает при добавлении ролика, делая функцию практически непригодной",
+  "obs": 1
+ },
+ {
+  "id": "crop-tool-freezes",
+  "title": "Инструмент кадрирования зависает и не даёт завершить операцию",
+  "obs": 1
+ },
+ {
+  "id": "keyframe-graphs-unstable",
+  "title": "Ключевые кадры и графики анимации работают нестабильно и требуют постоянного перезапуска интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "velocity-short-clip-error",
+  "title": "Эффект velocity нельзя применить к фрагменту короче 0,5 секунды — система выдаёт ошибку даже после увеличения длительности",
+  "obs": 1
+ },
+ {
+  "id": "performance-forces-external-apps",
+  "title": "Из-за тормозов пользователи вынуждены заранее обрабатывать видео в других приложениях перед импортом",
+  "obs": 1
+ },
+ {
+  "id": "zoom-nonlinear-curve",
+  "title": "Зум идёт по нелинейной кривой — медленно в начале и резко в конце, движение выглядит неестественно",
+  "obs": 1
+ },
+ {
+  "id": "crop-stretches-video",
+  "title": "Инструмент кадрирования растягивает видео при использовании",
+  "obs": 1
+ },
+ {
+  "id": "pro-15-second-limit",
+  "title": "Несмотря на Pro-подписку, нельзя создать видео длиннее 15 секунд",
+  "obs": 1
+ },
+ {
+  "id": "ui-broken-after-update",
+  "title": "После обновления элементы интерфейса отображаются неправильно — биографии и описания обрезаны и смещены",
+  "obs": 1
+ },
+ {
+  "id": "3d-animation-hard",
+  "title": "3D-анимация имеет крутую кривую обучения и сложна для новичков",
+  "obs": 1
+ },
+ {
+  "id": "message-history-deleted",
+  "title": "Приложение удалило многолетнюю историю переписки со всеми контактами",
+  "obs": 1
+ },
+ {
+  "id": "account-suspended-no-reason",
+  "title": "Аккаунт приостановили без указания причины, закрыв доступ к контенту",
+  "obs": 1
+ },
+ {
+  "id": "ai-killed-community",
+  "title": "Добавление AI-функций разрушило сообщество — друзья уходят, взаимодействие упало, несмотря на лучший редактор",
+  "obs": 1
+ }
+]

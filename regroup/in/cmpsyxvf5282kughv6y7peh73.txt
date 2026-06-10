@@ -1,0 +1,329 @@
+You are grouping 56 mechanism-level insight clusters from Noom Weight Loss, Food Tracker (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Noom Weight Loss, Food Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 56 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Noom Weight Loss, Food Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Noom Weight Loss, Food Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyxvf5282kughv6y7peh73.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "mandatory-gamification-no-disable",
+  "title": "Обязательная геймификация с семенами, сериями и звуками не отключается и мешает спокойному использованию",
+  "obs": 10
+ },
+ {
+  "id": "app-freezes-on-launch",
+  "title": "Приложение зависает на экране загрузки и открывается только после нескольких перезапусков",
+  "obs": 8
+ },
+ {
+  "id": "refund-after-cancel-denied",
+  "title": "После отмены подписки списывают полную сумму повторно, а в возврате денег отказывают",
+  "obs": 4
+ },
+ {
+  "id": "food-database-too-small",
+  "title": "База продуктов меньше чем у конкурентов — популярные и брендовые блюда приходится добавлять вручную",
+  "obs": 4
+ },
+ {
+  "id": "no-edit-past-logs",
+  "title": "Нельзя просматривать или редактировать логи еды за прошлые дни — ошибки не исправить",
+  "obs": 3
+ },
+ {
+  "id": "education-shallow-coach-canned",
+  "title": "Образовательные статьи поверхностны, а ответы тренера выглядят скопированными вместо персональных",
+  "obs": 2
+ },
+ {
+  "id": "today-tab-freezes",
+  "title": "Вкладка с дневной сводкой и рекомендациями зависает, не давая логировать еду",
+  "obs": 2
+ },
+ {
+  "id": "step-goal-autoincrement-removed",
+  "title": "Обновление убрало автоматический рост цели по шагам — теперь её нужно повышать вручную",
+  "obs": 2
+ },
+ {
+  "id": "streak-reset-by-update",
+  "title": "Обновление обнулило многолетнюю серию логирования, что демотивирует пользователя",
+  "obs": 2
+ },
+ {
+  "id": "no-rest-day-mechanic",
+  "title": "Нет безопасного дня отдыха — чтобы передохнуть, приходится пропускать логирование и терять серию",
+  "obs": 2
+ },
+ {
+  "id": "no-weight-loss-menopause",
+  "title": "Год ежедневного логирования не дал результата — приложение неэффективно для определённых групп",
+  "obs": 2
+ },
+ {
+  "id": "pivot-to-ai-from-psychology",
+  "title": "Приложение превратилось из психологической платформы в ИИ-чат-бота, уйдя от прежнего позиционирования",
+  "obs": 2
+ },
+ {
+  "id": "manual-logging-now-paywalled",
+  "title": "Ручной ввод еды закрыли за подписку — остаётся только менее точный ввод фото или голосом",
+  "obs": 1
+ },
+ {
+  "id": "signup-loop-broken-account",
+  "title": "При оформлении платного плана опросник заставляют проходить заново, а аккаунт остаётся несозданным",
+  "obs": 1
+ },
+ {
+  "id": "signup-wrong-program",
+  "title": "Запутанная регистрация подписывает на неправильную программу и требует отмены и повторного оформления",
+  "obs": 1
+ },
+ {
+  "id": "medication-restart-repay",
+  "title": "Переход на программу с лекарствами требует начать заново — оплата заново и потеря прогресса",
+  "obs": 1
+ },
+ {
+  "id": "generic-praise-no-feedback",
+  "title": "Приложение хвалит любой выбор еды общими фразами вместо конкретных советов по макросам",
+  "obs": 1
+ },
+ {
+  "id": "vegan-misclassification",
+  "title": "Классификация еды занижает бобовые и продвигает мясо, перекашивая рекомендации против веганов",
+  "obs": 1
+ },
+ {
+  "id": "color-classification-unstable",
+  "title": "Цветовая категория одного и того же продукта меняется день ото дня, подрывая доверие к системе",
+  "obs": 1
+ },
+ {
+  "id": "ai-clickbait-recipes",
+  "title": "Рекомендуемые рецепты выглядят как сгенерированный ИИ кликбейт без проверки пригодности",
+  "obs": 1
+ },
+ {
+  "id": "missing-micronutrients",
+  "title": "Нельзя отслеживать клетчатку, сахар или кальций — только базовые макронутриенты",
+  "obs": 1
+ },
+ {
+  "id": "logging-screen-hangs",
+  "title": "При логировании веса или еды приложение зависает и требует перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "weight-history-broken",
+  "title": "После обновления перестал открываться график веса — нельзя посмотреть историю прогресса",
+  "obs": 1
+ },
+ {
+  "id": "daily-reinstall-required",
+  "title": "Приложение деградировало и требует ежедневной переустановки, чтобы вообще работать",
+  "obs": 1
+ },
+ {
+  "id": "barcode-scan-broken",
+  "title": "Сканирование штрихкода перестало работать после обновления и не восстанавливается",
+  "obs": 1
+ },
+ {
+  "id": "update-wiped-progress",
+  "title": "Обновление безвозвратно стёрло весь накопленный прогресс пользователя без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "device-migration-data-loss",
+  "title": "При переносе на новый телефон не переносятся пользовательские меню и история веса",
+  "obs": 1
+ },
+ {
+  "id": "family-wide-instability",
+  "title": "Технические сбои возникают одновременно у нескольких членов семьи, указывая на системную проблему",
+  "obs": 1
+ },
+ {
+  "id": "freezes-on-popups",
+  "title": "Приложение зависает на всплывающих окнах, пока их не закроешь или не перезапустишь",
+  "obs": 1
+ },
+ {
+  "id": "branded-meal-sync-broken",
+  "title": "Готовые брендовые блюда не синхронизируются — приходится сканировать и добавлять ингредиенты заново каждый раз",
+  "obs": 1
+ },
+ {
+  "id": "day-starts-at-midnight",
+  "title": "День жёстко начинается в полночь, поэтому поздний ночной приём пищи нельзя отнести к предыдущему дню",
+  "obs": 1
+ },
+ {
+  "id": "no-favorite-foods",
+  "title": "Нельзя сохранить часто употребляемые продукты в избранное — каждый раз нужен повторный поиск",
+  "obs": 1
+ },
+ {
+  "id": "recipe-no-direct-log",
+  "title": "Рекомендуемые рецепты нельзя залогировать целиком — приходится искать и вносить каждый ингредиент вручную",
+  "obs": 1
+ },
+ {
+  "id": "recipe-create-no-barcode",
+  "title": "При создании своего рецепта недоступно сканирование штрихкода — каждый ингредиент ищется вручную",
+  "obs": 1
+ },
+ {
+  "id": "recipe-list-resets-position",
+  "title": "После открытия одного рецепта список прокручивается в начало и теряет позицию",
+  "obs": 1
+ },
+ {
+  "id": "vibration-on-log-no-disable",
+  "title": "Вибрацию при логировании нельзя отключить ни в приложении, ни в настройках телефона",
+  "obs": 1
+ },
+ {
+  "id": "notifications-all-or-nothing",
+  "title": "Уведомления приходят около десяти раз в день и настраиваются только по принципу всё или ничего",
+  "obs": 1
+ },
+ {
+  "id": "speech-logging-harder",
+  "title": "Новый ввод еды через речь усложнил логирование по сравнению с прежней версией",
+  "obs": 1
+ },
+ {
+  "id": "fullscreen-animations-slow-logging",
+  "title": "Полноэкранные анимации при каждом логировании замедляют процесс и заставляют ждать",
+  "obs": 1
+ },
+ {
+  "id": "nonlinear-calorie-scale",
+  "title": "Шкала калорий нелинейна — последние калории дня визуально искажены",
+  "obs": 1
+ },
+ {
+  "id": "subscription-management-cluttered",
+  "title": "Управление подпиской спрятано среди отвлекающих элементов и нерелевантной информации",
+  "obs": 1
+ },
+ {
+  "id": "camera-calorie-inaccurate",
+  "title": "Распознавание еды камерой неточно определяет калории и размер порции",
+  "obs": 1
+ },
+ {
+  "id": "steps-manual-tap-required",
+  "title": "Шаги засчитываются только при ручном открытии приложения, несмотря на синхронизацию с часами",
+  "obs": 1
+ },
+ {
+  "id": "no-manual-step-entry",
+  "title": "Нельзя добавить шаги вручную — функция недоступна без телефона или дорогих часов",
+  "obs": 1
+ },
+ {
+  "id": "seeds-no-reward",
+  "title": "После накопления семян подарочную карту не выдают, а связаться с компанией невозможно",
+  "obs": 1
+ },
+ {
+  "id": "med-history-shows-only-last-dose",
+  "title": "История лекарств показывает только последнюю дозировку — прошлые дозы посмотреть нельзя",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-account-access",
+  "title": "Поддержка полностью игнорирует запросы на восстановление доступа к аккаунту",
+  "obs": 1
+ },
+ {
+  "id": "support-channel-bouncing",
+  "title": "Поддержка перекидывает между разными чатами, не решая проблему с заказом или доставкой",
+  "obs": 1
+ },
+ {
+  "id": "no-doctor-messaging",
+  "title": "В приложении нельзя написать врачу, хотя уведомления о сообщениях приходят на почту",
+  "obs": 1
+ },
+ {
+  "id": "clinician-coach-mismatch",
+  "title": "Тренер и врач сообщают разные сроки контакта, указывая на сбой коммуникации между отделами",
+  "obs": 1
+ },
+ {
+  "id": "facescan-false-diagnosis",
+  "title": "Сканирование лица по ИМТ ставит ложные метаболические диагнозы и подталкивает к дорогому лечению",
+  "obs": 1
+ },
+ {
+  "id": "glp1-ads-after-optout",
+  "title": "Реклама препаратов продолжает показываться после многократного отказа от интереса к ним",
+  "obs": 1
+ },
+ {
+  "id": "medication-changed-without-consent",
+  "title": "Врача и препарат сменили без согласия, новое лекарство не работало — пользователь застрял на плато",
+  "obs": 1
+ },
+ {
+  "id": "medication-delivery-unreliable",
+  "title": "Доставка лекарств ненадёжна — задержки создают риск пропустить дозу",
+  "obs": 1
+ },
+ {
+  "id": "no-pause-medication-delivery",
+  "title": "Нельзя приостановить доставку лекарства при изменении планов пользователя",
+  "obs": 1
+ },
+ {
+  "id": "refill-requires-monthly-doctor",
+  "title": "Пополнение рецепта требует ежемесячного контакта с врачом вопреки обещанному долгому перерыву",
+  "obs": 1
+ }
+]

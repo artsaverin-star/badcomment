@@ -1,0 +1,289 @@
+You are grouping 48 mechanism-level insight clusters from Google Calendar: Get Organized (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Google Calendar: Get Organized, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 48 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Google Calendar: Get Organized — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Google Calendar: Get Organized>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-909319292.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "location-freeze-on-create",
+  "title": "Добавление места к событию при создании замораживает или роняет приложение — данные события теряются",
+  "obs": 16
+ },
+ {
+  "id": "phone-not-tappable",
+  "title": "Номер телефона в событии больше нельзя нажать для звонка или SMS — интерактивность убрана",
+  "obs": 12
+ },
+ {
+  "id": "copy-partial-text-removed",
+  "title": "Из описания события больше нельзя скопировать отдельный фрагмент — копируется только весь блок целиком",
+  "obs": 8
+ },
+ {
+  "id": "icon-stuck-31",
+  "title": "Значок приложения всегда показывает число 31 вместо текущей даты",
+  "obs": 6
+ },
+ {
+  "id": "edit-time-tap-dead",
+  "title": "После обновления тап по полям времени и даты не срабатывает — событие нельзя отредактировать",
+  "obs": 5
+ },
+ {
+  "id": "keep-notes-manual-sync",
+  "title": "Напоминания из Google Keep срабатывают только если вручную открыть Календарь — без этого уведомления не приходят",
+  "obs": 4
+ },
+ {
+  "id": "widget-broken-black",
+  "title": "Виджет на главном экране ломается после обновления — чёрный квадрат, неверная дата, не показывает события",
+  "obs": 4
+ },
+ {
+  "id": "color-limits",
+  "title": "Палитра цветов ограничена и непостоянна между устройствами, а задачам доступен только один цвет",
+  "obs": 4
+ },
+ {
+  "id": "edit-not-saved",
+  "title": "Изменения даты, времени и часового пояса события не сохраняются после редактирования",
+  "obs": 3
+ },
+ {
+  "id": "notifications-unreliable",
+  "title": "Push-напоминания приходят ненадёжно или только после недавнего открытия приложения — встречи пропускаются",
+  "obs": 3
+ },
+ {
+  "id": "birthday-sync-broken",
+  "title": "После обновления синхронизация дней рождения из контактов перестаёт работать",
+  "obs": 3
+ },
+ {
+  "id": "events-disappear",
+  "title": "Сохранённые события и старые записи внезапно исчезают или перестают загружаться",
+  "obs": 3
+ },
+ {
+  "id": "recurring-weekdays",
+  "title": "Нельзя создать повторение события по выбранным дням недели — приходится дублировать вручную",
+  "obs": 3
+ },
+ {
+  "id": "month-view-no-vertical-scroll",
+  "title": "Месячный вид прокручивается вбок вместо вертикального листания, а месяцы сливаются в один блок",
+  "obs": 3
+ },
+ {
+  "id": "import-calendars",
+  "title": "Нельзя добавить календарь по ссылке или импортировать ICS-файл в выбранный календарь",
+  "obs": 3
+ },
+ {
+  "id": "calendar-management-mobile",
+  "title": "Создание и переключение видимости календарей заблокированы на мобильном — приходится идти в браузер",
+  "obs": 3
+ },
+ {
+  "id": "widget-too-small-order",
+  "title": "Виджет показывает мало событий, в неверном хронологическом порядке, а многодневные события дробятся",
+  "obs": 3
+ },
+ {
+  "id": "open-app-clears-notifications",
+  "title": "Открытие приложения стирает все накопленные уведомления из центра уведомлений iOS",
+  "obs": 2
+ },
+ {
+  "id": "no-auto-sync",
+  "title": "Синхронизация между устройствами не происходит автоматически, на iOS нет даже кнопки ручной синхронизации",
+  "obs": 2
+ },
+ {
+  "id": "accidental-edit-no-guard",
+  "title": "Слишком легко случайно изменить или создать событие — нет защиты от ошибочных касаний",
+  "obs": 2
+ },
+ {
+  "id": "recurring-update-all-deletes",
+  "title": "Опция «обновить все события» в серии безвозвратно удаляет их данные без кнопки отмены",
+  "obs": 2
+ },
+ {
+  "id": "cursor-jumps-to-end",
+  "title": "При редактировании описания курсор перескакивает в конец текста после каждой буквы",
+  "obs": 2
+ },
+ {
+  "id": "custom-duration-fixed",
+  "title": "Длительность задач и событий нельзя задать точно — только перетаскиванием, задачи зафиксированы на 30 минут",
+  "obs": 2
+ },
+ {
+  "id": "holidays-unmanageable",
+  "title": "Праздники добавляются и удаляются непредсказуемо, а скрыть ненужные из календаря нельзя",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-then-edit",
+  "title": "Скопированное событие нельзя перенести на другие календари или отредактировать его расписание",
+  "obs": 2
+ },
+ {
+  "id": "view-toggle-removed",
+  "title": "Переключение на вид расписания убрано — тап по дате открывает дневной вид вместо списка",
+  "obs": 2
+ },
+ {
+  "id": "widget-removed",
+  "title": "Функция виджета убрана из приложения — расписание с главного экрана недоступно",
+  "obs": 2
+ },
+ {
+  "id": "illustrations-gone",
+  "title": "После обновления иллюстрации событий перестали отображаться на всех устройствах",
+  "obs": 1
+ },
+ {
+  "id": "email-reminders-unreliable",
+  "title": "Email-напоминания о событиях приходят нестабильно — часть пропадает без причины",
+  "obs": 1
+ },
+ {
+  "id": "delete-button-fails",
+  "title": "Кнопка удаления не работает — меню закрывается, но событие остаётся в календаре",
+  "obs": 1
+ },
+ {
+  "id": "recurring-task-stops",
+  "title": "Ежедневное повторяющееся задание без даты окончания перестаёт повторяться через несколько недель",
+  "obs": 1
+ },
+ {
+  "id": "multiday-events-broken",
+  "title": "Создание и редактирование многодневных событий перестало работать",
+  "obs": 1
+ },
+ {
+  "id": "shared-calendar-duplicates",
+  "title": "В общем календаре редактирование события случайно создаёт его дубликат",
+  "obs": 1
+ },
+ {
+  "id": "shared-calendars-mobile",
+  "title": "На мобильном нельзя полноценно делиться календарями и просматривать чужие общие календари",
+  "obs": 1
+ },
+ {
+  "id": "move-event-between-calendars",
+  "title": "Событие нельзя перенести в другой календарь или аккаунт через редактирование — только пересоздать",
+  "obs": 1
+ },
+ {
+  "id": "tasks-day-view-cap",
+  "title": "Дневной вид показывает максимум 30 задач, тогда как вкладка расписания показывает все",
+  "obs": 1
+ },
+ {
+  "id": "focus-block-mobile",
+  "title": "Блоки концентрации времени нельзя создать на мобильном — только в веб-версии",
+  "obs": 1
+ },
+ {
+  "id": "drag-drop-move",
+  "title": "Нельзя перетащить событие на другой день стандартным жестом drag-and-drop",
+  "obs": 1
+ },
+ {
+  "id": "email-events-not-editable",
+  "title": "События, созданные из писем, нельзя редактировать на мобильном — название, участники, заметки",
+  "obs": 1
+ },
+ {
+  "id": "theme-tied-to-system",
+  "title": "Тема интерфейса жёстко привязана к системному режиму — нельзя выбрать светлый UI при тёмной системе",
+  "obs": 1
+ },
+ {
+  "id": "landscape-week-scroll",
+  "title": "В горизонтальной ориентации вертикальная прокрутка недели случайно переключает на другую неделю",
+  "obs": 1
+ },
+ {
+  "id": "hide-weekends",
+  "title": "В недельном виде нельзя скрыть выходные, в отличие от веб-версии",
+  "obs": 1
+ },
+ {
+  "id": "start-time-shifts-end",
+  "title": "Изменение времени начала события автоматически сдвигает время окончания",
+  "obs": 1
+ },
+ {
+  "id": "ipad-edit-blank",
+  "title": "При редактировании описания на iPad открывается клавиатура, но само событие на экране не видно",
+  "obs": 1
+ },
+ {
+  "id": "contacts-participants-removed",
+  "title": "Интеграция контактов убрана — нельзя быстро добавить участников при создании события",
+  "obs": 1
+ },
+ {
+  "id": "icon-recognizability",
+  "title": "Новый значок приложения хуже узнаётся среди других на экране — календарь труднее найти",
+  "obs": 1
+ },
+ {
+  "id": "widget-task-scroll-parity",
+  "title": "На Android-виджете задачи можно прокручивать, на iOS такой функции нет",
+  "obs": 1
+ },
+ {
+  "id": "integration-events-wrong-calendar",
+  "title": "События от интеграций вроде Zoom попадают в неправильный календарь, и переназначить поток нельзя",
+  "obs": 1
+ }
+]

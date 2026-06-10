@@ -1,0 +1,73 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Подписка-капкан: скрытая отмена, неожиданные тарифы и сбои списаний",
+      "insight_ids": [
+        "cancel-subscription-hidden",
+        "trial-charge-after-cancel",
+        "weekly-rate-surprise",
+        "quadruple-billing-cycle",
+        "trial-conversion-cap",
+        "sharing-page-cap-hidden"
+      ]
+    },
+    {
+      "id": "broken-export-share-print",
+      "name": "Не доходит до выхода: печать, экспорт и отправка документов ломаются",
+      "insight_ids": [
+        "print-hangs-or-blank",
+        "print-stuck-on-print-screen",
+        "dropbox-export-crash",
+        "multi-file-export-broken",
+        "pdf-transfer-compatibility",
+        "email-sharing-broken",
+        "evernote-integration-breaks-editing"
+      ]
+    },
+    {
+      "id": "update-regressions",
+      "name": "После обновления стало хуже: сканирование и импорт сломались",
+      "insight_ids": [
+        "auto-scan-speed-regression",
+        "manual-scan-mode-harder",
+        "photos-app-shortcut-broken",
+        "gallery-import-broken",
+        "inactivity-crash-loop"
+      ]
+    },
+    {
+      "id": "rating-nag-and-review-block",
+      "name": "Назойливые просьбы оценить и заблокированные отзывы",
+      "insight_ids": [
+        "rating-prompt-interrupts-work",
+        "rating-prompt-before-first-use",
+        "five-star-rating-blocked"
+      ]
+    },
+    {
+      "id": "where-scan-hero-wins",
+      "name": "За что выбирают Scan Hero вместо сканера iPhone и железа",
+      "insight_ids": [
+        "mobile-replaces-hardware-scanner",
+        "crop-from-library-advantage",
+        "freemium-pay-as-you-go"
+      ]
+    },
+    {
+      "id": "lost-scans-and-docs-gap",
+      "name": "Сканы пропадают, а документация врёт про интерфейс",
+      "insight_ids": [
+        "no-account-login-sync",
+        "docs-ui-mismatch"
+      ]
+    },
+    {
+      "id": "scan-quality-physical-limits",
+      "name": "Где скан портится: скрепки и загнутые углы",
+      "insight_ids": [
+        "stapled-document-scan-quality"
+      ]
+    }
+  ]
+}

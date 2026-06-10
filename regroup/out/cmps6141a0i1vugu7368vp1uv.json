@@ -1,0 +1,101 @@
+{
+  "groups": [
+    {
+      "id": "redesign-otobral-privychnoe",
+      "name": "Редизайн, который отобрал привычное",
+      "insight_ids": [
+        "ui-order-history-removed",
+        "strategy-ui-redesign-regression",
+        "ui-reorder-removed",
+        "ui-customization-half-cheese-removed",
+        "ui-font-accessibility-regression",
+        "ui-pinpoint-delivery-removed",
+        "ui-customization-removed-toppings",
+        "ui-topping-scroll-ui-regression",
+        "ui-bacon-option-removed"
+      ]
+    },
+    {
+      "id": "padenie-pri-oformlenii",
+      "name": "Падает на самом важном — при оформлении заказа",
+      "insight_ids": [
+        "reliability-app-freeze-crash",
+        "reliability-internal-error-ordering",
+        "reliability-order-not-submitted",
+        "reliability-slow-loading-after-update",
+        "reliability-old-device-blocked",
+        "reliability-forced-daily-updates",
+        "reliability-large-update-size",
+        "reliability-google-dependency"
+      ]
+    },
+    {
+      "id": "dengi-spisany-zakaza-net",
+      "name": "Деньги списаны, акции ломаются, баллы пропадают",
+      "insight_ids": [
+        "payment-loyalty-points-lost",
+        "payment-charge-no-order",
+        "payment-promo-apply-broken",
+        "payment-gift-card-unusable",
+        "payment-promo-price-mismatch",
+        "payment-card-loop",
+        "payment-loyalty-redeem-broken",
+        "payment-saved-payment-lost",
+        "payment-deal-logged-in-disappears",
+        "payment-promo-online-only-refused",
+        "ui-deals-section-error",
+        "ui-promo-code-invalid"
+      ]
+    },
+    {
+      "id": "vrut-pro-dostavku",
+      "name": "Трекер и кухня врут про доставку",
+      "insight_ids": [
+        "reliability-tracker-false-delivered",
+        "reliability-estimated-time-inflates",
+        "reliability-wrong-toppings-transmitted",
+        "reliability-order-tracker-stale",
+        "reliability-live-activity-stuck",
+        "strategy-store-kitchen-errors"
+      ]
+    },
+    {
+      "id": "korzina-zhivet-svoey-zhiznyu",
+      "name": "Корзина и конструктор пиццы живут своей жизнью",
+      "insight_ids": [
+        "ui-cart-auto-add-auto-edit",
+        "ui-cart-wrong-item-deleted",
+        "ui-customization-half-topping-bug",
+        "ui-curbside-not-saved",
+        "ui-store-selection-wrong-default",
+        "ui-delivery-vs-pickup-switch",
+        "ui-menu-browse-before-order-type",
+        "ui-delivery-instruction-field",
+        "ui-address-management"
+      ]
+    },
+    {
+      "id": "navyazchivost-i-tseny-vyshe",
+      "name": "Навязчивость, скрытые цены и переплата против сайта",
+      "insight_ids": [
+        "notification-promo-toggle-broken",
+        "payment-price-hidden-before-cart",
+        "payment-price-app-vs-web",
+        "payment-charity-auto-add",
+        "payment-cash-unavailable",
+        "ui-video-ads-on-home",
+        "strategy-app-worse-than-web"
+      ]
+    },
+    {
+      "id": "zaperty-snaruzhi",
+      "name": "Заперты снаружи: вход, пароль и бесполезная поддержка",
+      "insight_ids": [
+        "support-password-reset-loop",
+        "support-password-reset-ad-blocker",
+        "support-account-locked-no-recovery",
+        "support-automated-helpless"
+      ]
+    }
+  ]
+}

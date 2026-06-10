@@ -1,0 +1,189 @@
+You are grouping 28 mechanism-level insight clusters from Plant Identifier - PlantMe (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Plant Identifier - PlantMe, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 28 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Plant Identifier - PlantMe — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Plant Identifier - PlantMe>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1532875668.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "inconsistent-scan-results",
+  "title": "Повторное сканирование одного растения выдаёт разные названия при каждой попытке — алгоритм не воспроизводит свой же результат",
+  "obs": 7
+ },
+ {
+  "id": "low-overall-accuracy",
+  "title": "Приложение правильно определяет менее одного растения из пяти при систематическом тестировании среди известных пользователю видов",
+  "obs": 6
+ },
+ {
+  "id": "specific-taxa-not-recognized",
+  "title": "Приложение не различает отдельные разновидности внутри рода — все кактусы, сорняки или травы сводятся к одному обобщённому виду",
+  "obs": 5
+ },
+ {
+  "id": "manipulative-pricing-weekly-discount",
+  "title": "При отмене подписки приложение предлагает 98% скидку — это значит, что обычная недельная цена была завышена намеренно",
+  "obs": 3
+ },
+ {
+  "id": "same-diagnosis-all-plants",
+  "title": "Диагностика болезней выдаёт один и тот же результат для любого растения — приложение не различает виды при постановке диагноза",
+  "obs": 3
+ },
+ {
+  "id": "poisonous-plant-misidentified-as-safe",
+  "title": "Приложение определяет ядовитые растения как безопасные — ошибка опасна для детей и домашних животных",
+  "obs": 3
+ },
+ {
+  "id": "no-gallery-import",
+  "title": "Приложение принимает только снимки, сделанные через встроенную камеру — фотографии из галереи телефона загрузить нельзя",
+  "obs": 3
+ },
+ {
+  "id": "core-id-behind-paywall",
+  "title": "Основная функция определения растений закрыта подпиской — пользователю дают только один бесплатный скан до требования оплаты",
+  "obs": 2
+ },
+ {
+  "id": "charge-after-deletion",
+  "title": "Приложение продолжает списывать деньги после его удаления и нескольких попыток отмены подписки",
+  "obs": 2
+ },
+ {
+  "id": "camera-crash-on-open",
+  "title": "Функция камеры закрывает приложение через секунду после открытия, остальные разделы работают нормально",
+  "obs": 2
+ },
+ {
+  "id": "only-common-plants-recognized",
+  "title": "Приложение распознаёт только самые распространённые виды, которые легко найти без приложения — редкие и местные растения не определяются",
+  "obs": 2
+ },
+ {
+  "id": "sick-plant-identified-as-healthy",
+  "title": "Приложение определяет явно больные растения с опадающими листьями как абсолютно здоровые",
+  "obs": 2
+ },
+ {
+  "id": "disease-detected-no-treatment",
+  "title": "Приложение сообщает, что растение больно, но не объясняет причину и не предлагает способов лечения",
+  "obs": 2
+ },
+ {
+  "id": "cancellation-hidden-in-phone-settings",
+  "title": "Отмена подписки спрятана в настройках телефона, а не в самом приложении — пользователь тратит 20 минут на её поиск",
+  "obs": 1
+ },
+ {
+  "id": "cheaper-plan-change-unavailable",
+  "title": "Разработчик упоминает смену тарифа в ответе на отзыв, но пользователь не может найти эту опцию в приложении",
+  "obs": 1
+ },
+ {
+  "id": "app-blocks-device-navigation",
+  "title": "Приложение блокирует переход к другим экранам устройства, пока его не откроешь — нельзя пользоваться телефоном в обход",
+  "obs": 1
+ },
+ {
+  "id": "gallery-import-not-working",
+  "title": "Фотографии, загруженные внутри приложения, не отображаются после загрузки — импорт из внутреннего хранилища не работает",
+  "obs": 1
+ },
+ {
+  "id": "camera-and-support-both-broken",
+  "title": "Камера не работает, и одновременно нет способа связаться с поддержкой или отменить подписку",
+  "obs": 1
+ },
+ {
+  "id": "contradictory-plant-info",
+  "title": "Описание растения содержит взаимоисключающие утверждения — одно и то же растение названо одновременно ядовитым и съедобным",
+  "obs": 1
+ },
+ {
+  "id": "flower-misclassified-as-other-plant",
+  "title": "Приложение относит цветок к совершенно другому растению — проблема категоризации в базе данных",
+  "obs": 1
+ },
+ {
+  "id": "regional-inaccuracy",
+  "title": "Приложение предлагает виды растений, которые не растут в регионе пользователя — результаты не учитывают географию",
+  "obs": 1
+ },
+ {
+  "id": "bark-distance-id-fails",
+  "title": "Приложение не может определить дерево только по коре или с расстояния — нужны листья и ветви крупным планом",
+  "obs": 1
+ },
+ {
+  "id": "limited-to-flowers-no-vegetables",
+  "title": "Приложение работает только с цветами и комнатными растениями — овощи и фрукты не распознаются",
+  "obs": 1
+ },
+ {
+  "id": "inaccurate-care-advice",
+  "title": "Советы по уходу за растением противоречат общедоступной информации и требуют нескольких попыток сканирования для получения хоть какого-то результата",
+  "obs": 1
+ },
+ {
+  "id": "search-by-plant-name-broken",
+  "title": "Поиск по названию растения не находит распространённые виды — рододендрон недоступен через поиск",
+  "obs": 1
+ },
+ {
+  "id": "manual-scrolling-instead-of-auto-id",
+  "title": "Вместо автоматического определения приложение предлагает бесконечный список для ручного угадывания — функция не выполняет своё назначение",
+  "obs": 1
+ },
+ {
+  "id": "watering-reminders-missing",
+  "title": "Обещанные напоминания о поливе отсутствуют — приложение не отслеживает потребности каждого растения в воде",
+  "obs": 1
+ },
+ {
+  "id": "watering-notifications-uncontrollable",
+  "title": "Приложение шлёт слишком много напоминаний о поливе, и отключить уведомления негде",
+  "obs": 1
+ }
+]

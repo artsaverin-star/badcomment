@@ -1,0 +1,98 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps-cancel-loop",
+      "name": "Подписка, которую не отменить: списания после отмены и платный «бесплатный» вход",
+      "insight_ids": [
+        "billing-continues-after-cancellation",
+        "cancel-button-does-nothing",
+        "app-listed-free-but-requires-payment",
+        "cancellation-flow-deliberately-complex",
+        "no-free-trial-for-students",
+        "support-refuses-refund",
+        "trial-button-charges-immediately",
+        "ads-on-paid-subscription",
+        "subscription-charged-but-never-activated",
+        "double-charge-same-month",
+        "payment-card-data-leaked",
+        "cannot-remove-saved-payment-method",
+        "single-device-limit-forces-multiple-subscriptions",
+        "app-cant-solve-basic-problems-requires-payment-first"
+      ]
+    },
+    {
+      "id": "ai-took-over-from-experts",
+      "name": "AI вместо живых экспертов: ответы стали бесполезными, а откатиться нельзя",
+      "insight_ids": [
+        "ai-answers-mostly-wrong",
+        "ai-replaced-experts-no-opt-out",
+        "ai-transition-degraded-product-quality",
+        "ai-shows-similar-problem-not-solution",
+        "search-replaced-by-mandatory-ai-chat",
+        "archive-solutions-better-than-new-ai"
+      ]
+    },
+    {
+      "id": "study-tools-vanished",
+      "name": "Учёба разъехалась по версиям: карточки, решения учебников и ответы остались на сайте",
+      "insight_ids": [
+        "answer-shows-status-but-no-content",
+        "textbook-solutions-mobile-missing",
+        "flashcard-data-lost-after-update",
+        "photo-upload-feature-removed",
+        "flashcard-feature-removed-or-hidden",
+        "new-interface-hides-browse-solutions",
+        "flashcard-deck-size-limited",
+        "flashcard-migration-broken",
+        "textbook-search-missing-on-mobile",
+        "solution-view-narrow-column-desktop",
+        "cannot-edit-solution-text-mobile",
+        "search-result-opens-expert-queue-not-solution",
+        "mobile-app-vs-web-feature-gap",
+        "rented-textbook-inaccessible",
+        "link-from-search-opens-app-without-answer",
+        "monthly-question-quota-does-not-reset"
+      ]
+    },
+    {
+      "id": "broken-after-update",
+      "name": "После обновления всё встаёт: зависания, мёртвая камера и многоминутная загрузка",
+      "insight_ids": [
+        "app-broken-after-update",
+        "app-freezes-on-question-input",
+        "ocr-stopped-working-after-update",
+        "ocr-returns-wrong-subject",
+        "systematic-error-on-most-requests",
+        "slow-load-times",
+        "questions-stuck-under-review",
+        "ipad-input-completely-broken"
+      ]
+    },
+    {
+      "id": "locked-out-honor-code",
+      "name": "Кодекс честности и блокировки: оплатил — и не пускают в собственный аккаунт",
+      "insight_ids": [
+        "honor-code-blocks-legitimate-use",
+        "account-blocked-right-after-payment",
+        "account-auto-blocked-normal-use",
+        "session-timeout-interrupts-study",
+        "2fa-random-triggers-logout",
+        "account-privacy-data-shared-without-consent"
+      ]
+    },
+    {
+      "id": "experts-and-support-ghost",
+      "name": "Эксперты копируют ChatGPT, а поддержка молчит: вопросы тонут, лимиты сгорают",
+      "insight_ids": [
+        "experts-copy-paste-chatgpt",
+        "expert-answer-never-arrives",
+        "experts-skip-hard-questions",
+        "expert-answer-slow-hours-to-days",
+        "experts-ignore-user-explanation-format",
+        "expert-uses-extra-quota-for-clarification",
+        "support-slow-or-no-response",
+        "support-bot-unhelpful-no-human-escalation"
+      ]
+    }
+  ]
+}

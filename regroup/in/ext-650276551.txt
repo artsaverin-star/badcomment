@@ -1,0 +1,104 @@
+You are grouping 11 mechanism-level insight clusters from Seven: 7 Minute Workout (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Seven: 7 Minute Workout, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 11 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Seven: 7 Minute Workout — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Seven: 7 Minute Workout>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-650276551.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-requires-payment-upfront",
+  "title": "Чтобы начать бесплатный пробный период, нужно сразу оформить подписку и указать платёжные данные",
+  "obs": 1
+ },
+ {
+  "id": "subscription-nag-no-never",
+  "title": "Напоминания о подписке нельзя отключить навсегда — есть только «не сейчас», и они появляются снова",
+  "obs": 1
+ },
+ {
+  "id": "fullscreen-promo-after-every-exercise",
+  "title": "После каждого завершённого упражнения показывается полноэкранная реклама платного клуба",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-single-repetitive-exercise",
+  "title": "После пробного периода без подписки остаётся только одно однообразное упражнение, и заниматься быстро надоедает",
+  "obs": 1
+ },
+ {
+  "id": "rest-timer-faster-than-human",
+  "title": "Отсчёт между упражнениями не учитывает время на смену позы — анимированный тренер успевает быстрее, чем живой человек",
+  "obs": 1
+ },
+ {
+  "id": "no-search-in-modification-tool",
+  "title": "В инструменте замены упражнений нет поиска, поэтому трудно исключить недоступные движения",
+  "obs": 1
+ },
+ {
+  "id": "reminder-single-snooze",
+  "title": "Напоминание о тренировке можно отложить только один раз — людям с непредсказуемым графиком этого мало",
+  "obs": 1
+ },
+ {
+  "id": "forced-schedule-blocks-onboarding",
+  "title": "Завершить первоначальную настройку нельзя без обязательного расписания тренировок, и это блокирует тех, у кого графика нет",
+  "obs": 1
+ },
+ {
+  "id": "airplay-button-broken",
+  "title": "Кнопка трансляции на телевизор присутствует, но не работает и вызывает предупреждения безопасности от провайдера",
+  "obs": 1
+ },
+ {
+  "id": "ios-update-removed-ipad-sidebar",
+  "title": "После обновления системы на планшете пропала боковая панель со списком упражнений — навигация требует лишних действий",
+  "obs": 1
+ },
+ {
+  "id": "no-variants-for-confined-spaces",
+  "title": "Нет вариантов упражнений для стеснённых условий — людям в дороге, например водителям, приходится придумывать замену самим",
+  "obs": 1
+ }
+]

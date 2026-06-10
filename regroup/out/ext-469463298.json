@@ -1,0 +1,80 @@
+{
+  "groups": [
+    {
+      "id": "live-promise-broken",
+      "name": "Обещание реального времени, которое не сбывается",
+      "insight_ids": [
+        "arrival-time-inaccurate",
+        "geolocation-inaccurate",
+        "data-quality-degraded",
+        "bus-not-reaching-destination",
+        "weekend-schedule-missing",
+        "delays-not-tracked",
+        "vehicle-position-not-updated",
+        "false-on-train-detection",
+        "wrong-platform"
+      ]
+    },
+    {
+      "id": "where-the-map-ends",
+      "name": "Там, где карта заканчивается: дыры в покрытии и закрытые выходы",
+      "insight_ids": [
+        "regional-data-quality",
+        "closed-exits-routing",
+        "small-city-coverage-gap",
+        "metro-entrance-map-confusing",
+        "no-oyster-balance"
+      ]
+    },
+    {
+      "id": "crashes-hangs-rogue-integrations",
+      "name": "Падения, зависания и самовольные интеграции",
+      "insight_ids": [
+        "crash-or-state-loss",
+        "apple-watch-broken",
+        "audio-interruption",
+        "poor-signal-instability",
+        "live-activity-unauthorized",
+        "share-route-hangs",
+        "error-report-hangs",
+        "green-screen-city-search",
+        "unwanted-notifications"
+      ]
+    },
+    {
+      "id": "planner-too-dumb",
+      "name": "Планировщик, который не умеет планировать день",
+      "insight_ids": [
+        "no-route-personalization",
+        "no-first-last-mile-preference",
+        "no-multistop-planning",
+        "suboptimal-route-algorithm",
+        "no-budget-routes",
+        "paid-options-not-default",
+        "special-routing-needs"
+      ]
+    },
+    {
+      "id": "barriers-for-everyone",
+      "name": "Барьеры для тех, кому труднее: доступность и читаемость",
+      "insight_ids": [
+        "dark-mode-missing",
+        "no-elevator-accessibility",
+        "time-format-fixed",
+        "no-onboarding",
+        "font-size-ignored",
+        "location-tracking-hard-to-disable"
+      ]
+    },
+    {
+      "id": "where-citymapper-wins",
+      "name": "За что всё-таки прощают: где Citymapper обходит конкурентов",
+      "insight_ids": [
+        "accessibility-competitive-advantage",
+        "urban-canyon-gps",
+        "pedestrian-route-update",
+        "uninterrupted-guidance"
+      ]
+    }
+  ]
+}

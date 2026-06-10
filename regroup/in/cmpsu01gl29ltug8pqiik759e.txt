@@ -1,0 +1,334 @@
+You are grouping 57 mechanism-level insight clusters from ClassPass: Fitness, Spa, Salon (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO ClassPass: Fitness, Spa, Salon, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 57 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to ClassPass: Fitness, Spa, Salon — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to ClassPass: Fitness, Spa, Salon>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsu01gl29ltug8pqiik759e.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-locks-most-classes",
+  "title": "На пробном периоде большинство классов и локаций требуют сразу перейти на платную подписку — попробовать сервис толком нельзя",
+  "obs": 9
+ },
+ {
+  "id": "forced-rating-blocks-booking",
+  "title": "Приложение блокирует бронирование следующего класса, пока не оставишь оценку предыдущему — пропустить нельзя",
+  "obs": 7
+ },
+ {
+  "id": "silent-auto-conversion",
+  "title": "После пробного периода подписка включается автоматически, без явного подтверждения и предупреждения о списании",
+  "obs": 5
+ },
+ {
+  "id": "cancel-keeps-charging",
+  "title": "Отмена подписки подтверждается письмом, но платежи продолжают списываться следующие месяцы",
+  "obs": 4
+ },
+ {
+  "id": "dynamic-pricing-loyalty-penalty",
+  "title": "Алгоритм поднимает цену в кредитах именно на те классы, которые пользователь посещает регулярно — наказание за лояльность",
+  "obs": 3
+ },
+ {
+  "id": "dynamic-pricing-per-user-unfair",
+  "title": "Один и тот же класс стоит разное число кредитов разным людям при одинаковых условиях",
+  "obs": 3
+ },
+ {
+  "id": "double-charge-no-refund",
+  "title": "Система списывает плату дважды и отказывает в возврате даже после признания ошибки",
+  "obs": 3
+ },
+ {
+  "id": "trial-credits-unspendable",
+  "title": "Выданные пробные кредиты невозможно потратить — они числятся, но функционально недоступны",
+  "obs": 3
+ },
+ {
+  "id": "favorites-schedule-broken-after-update",
+  "title": "После обновления объединённое расписание избранных студий перестаёт работать — приходится листать каждую студию отдельно",
+  "obs": 3
+ },
+ {
+  "id": "app-studio-sync-fails",
+  "title": "Бронирование подтверждено в приложении, но студия не получает уведомление — пользователю отказывают и снимают кредит",
+  "obs": 3
+ },
+ {
+  "id": "support-refuses-refund-for-app-error",
+  "title": "Когда бронирование срывается из-за ошибки приложения, поддержка отказывает в возврате кредитов и предлагает доплатить",
+  "obs": 3
+ },
+ {
+  "id": "group-booking-blocked",
+  "title": "Сервис не даёт нескольким друзьям забронировать один класс — доступность класса различается между участниками группы",
+  "obs": 3
+ },
+ {
+  "id": "upgrade-wipes-trial-credits",
+  "title": "При переходе с пробного на платный план все пробные кредиты сгорают без предупреждения, а поддержка отказывает в возврате",
+  "obs": 2
+ },
+ {
+  "id": "max-credits-still-charged",
+  "title": "При достижении максимума кредитов система продолжает списывать платежи, не выдавая кредитов",
+  "obs": 2
+ },
+ {
+  "id": "pause-freezes-paid-credits",
+  "title": "При паузе подписки уже оплаченные кредиты замораживаются и недоступны даже после возобновления",
+  "obs": 2
+ },
+ {
+  "id": "credits-tied-to-billing-cycle",
+  "title": "Бронирование на дату после конца цикла списывает кредиты следующего месяца, а текущие сгорают",
+  "obs": 2
+ },
+ {
+  "id": "cancel-trial-conflicting-rules",
+  "title": "Сайт и письмо дают противоречивые правила отмены пробного периода: одно стирает период сразу, другое нет",
+  "obs": 2
+ },
+ {
+  "id": "cancel-fee-disproportionate",
+  "title": "Штраф за позднюю отмену многократно превышает стоимость самого класса",
+  "obs": 2
+ },
+ {
+  "id": "late-arrival-credit-lost",
+  "title": "Опоздание на пару минут засчитывается как неявка: пользователь заблокирован, кредит снят, поддержка отказывает",
+  "obs": 2
+ },
+ {
+  "id": "marketplace-no-refund-for-undelivered",
+  "title": "Когда заказанная еда или услуга не доставлена, кредиты не возвращают — единственный выход оставить отзыв",
+  "obs": 2
+ },
+ {
+  "id": "favorites-incomplete-list",
+  "title": "Избранные студии показывают неполный список классов на день — все занятия видны только при заходе в студию",
+  "obs": 2
+ },
+ {
+  "id": "schedule-no-filters",
+  "title": "В объединённом расписании нет фильтров по времени и типу услуги — приходится прокручивать десятки предложений",
+  "obs": 2
+ },
+ {
+  "id": "fullscreen-popups-on-open",
+  "title": "При каждом открытии приложение показывает полноэкранные окна оценки и реферала, мешая быстро забронировать",
+  "obs": 2
+ },
+ {
+  "id": "support-ai-bot-useless",
+  "title": "Поддержку полностью ведёт бот, который не решает проблемы и подталкивает к более дорогому плану",
+  "obs": 2
+ },
+ {
+  "id": "credits-expire-monthly",
+  "title": "Неиспользованные кредиты сгорают каждый месяц — пользователь платит, но теряет всё накопленное",
+  "obs": 1
+ },
+ {
+  "id": "carryover-cap-too-low",
+  "title": "Лимит переноса кредитов слишком мал, накопить на дорогую услугу практически невозможно",
+  "obs": 1
+ },
+ {
+  "id": "carryover-loses-purchased-credits",
+  "title": "Платно докупленные кредиты сверх лимита переноса сгорают, хотя обычные кредиты переносятся",
+  "obs": 1
+ },
+ {
+  "id": "downgrade-loses-credits",
+  "title": "При переходе на более дешёвый план накопленные кредиты сверх лимита плана теряются",
+  "obs": 1
+ },
+ {
+  "id": "payment-no-credits-issued",
+  "title": "Платёж проходит, но кредиты или подписка не выдаются, и поддержка не может это исправить",
+  "obs": 1
+ },
+ {
+  "id": "cancel-window-loses-credits",
+  "title": "При отмене подписки оставшиеся оплаченные кредиты текущего цикла нельзя потратить — они сгорают",
+  "obs": 1
+ },
+ {
+  "id": "pause-limited-three-months",
+  "title": "Паузу подписки нельзя продлить дольше трёх месяцев — при долгой болезни поддержка предлагает только отмену",
+  "obs": 1
+ },
+ {
+  "id": "dormant-account-reactivates",
+  "title": "Неактивный год аккаунт сам реактивируется и начинает списывать платежи без согласия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "credits-promise-vs-reality",
+  "title": "Реальная стоимость классов в кредитах оказывается вдвое выше обещанной в рекламе",
+  "obs": 1
+ },
+ {
+  "id": "payment-method-change-penalty",
+  "title": "Смена способа оплаты в день платежа наказывается удалением кредитов, хотя платёж проходит нормально",
+  "obs": 1
+ },
+ {
+  "id": "hsa-payment-wipes-account",
+  "title": "Оплата медицинской картой даёт сбой, который стирает все кредиты и аккаунт целиком",
+  "obs": 1
+ },
+ {
+  "id": "gifted-credits-lost-on-cancel",
+  "title": "Подаренные друзьями кредиты сгорают при отмене подписки, хотя были явно переданы в дар",
+  "obs": 1
+ },
+ {
+  "id": "renewal-date-in-past",
+  "title": "Письмо о возобновлении подписки указывает дату в прошлом, запутывая пользователя",
+  "obs": 1
+ },
+ {
+  "id": "studio-cancel-user-penalized",
+  "title": "Студия отменяет класс, но штраф за отмену списывается с пользователя",
+  "obs": 1
+ },
+ {
+  "id": "ios-cancel-doesnt-work",
+  "title": "Отмена пробного периода через системное меню подписок не срабатывает — отменить можно только в самом приложении",
+  "obs": 1
+ },
+ {
+  "id": "marketplace-partners-closed",
+  "title": "Участвующие в программе заведения часто закрыты или не работают, хотя показаны как доступные",
+  "obs": 1
+ },
+ {
+  "id": "third-party-perks-broken",
+  "title": "Сторонние услуги за кредиты не доводятся до конца — билеты в кино не приходят после списания",
+  "obs": 1
+ },
+ {
+  "id": "search-broken-state",
+  "title": "Поле поиска зависает и не реагирует на ввод или очистку запроса",
+  "obs": 1
+ },
+ {
+  "id": "search-truncates-input",
+  "title": "Поле поиска обрезает вводимый текст, заставляя набирать запрос по нескольку раз",
+  "obs": 1
+ },
+ {
+  "id": "search-mixes-food-results",
+  "title": "Поиск классов выдаёт нерелевантные результаты еды и напитков",
+  "obs": 1
+ },
+ {
+  "id": "rating-screen-before-order",
+  "title": "При заказе еды экран оценки показывается до получения заказа — номер заказа не увидеть, пока не оценишь",
+  "obs": 1
+ },
+ {
+  "id": "public-review-identity",
+  "title": "Отзывы публикуются с именем и фото пользователя, что отпугивает от честных оценок",
+  "obs": 1
+ },
+ {
+  "id": "trial-classes-false-availability",
+  "title": "На пробном периоде классы помечены доступными, но при бронировании оказываются недоступны",
+  "obs": 1
+ },
+ {
+  "id": "wrong-class-addresses",
+  "title": "Адреса классов в приложении указывают на несуществующие места, пользователи едут впустую",
+  "obs": 1
+ },
+ {
+  "id": "rating-loop-stuck",
+  "title": "После бронирования приложение зависает в цикле на экране оценки и требует перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "constant-crashes",
+  "title": "Приложение постоянно падает при попытке открыть его и забронировать класс",
+  "obs": 1
+ },
+ {
+  "id": "update-resets-settings",
+  "title": "Обновление приложения сбрасывает избранные студии и геолокацию без действий пользователя",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-health-sync",
+  "title": "Приложение не синхронизируется с системным трекером здоровья, хотя позиционируется как фитнес-сервис",
+  "obs": 1
+ },
+ {
+  "id": "booking-window-double-charge",
+  "title": "Окно бронирования закрывается во время транзакции, уведомление запаздывает — пользователь теряет и класс, и платёж",
+  "obs": 1
+ },
+ {
+  "id": "referral-link-broken",
+  "title": "Создание реферальной ссылки даёт сбой во всех версиях приложения и сайта",
+  "obs": 1
+ },
+ {
+  "id": "support-leaks-other-user-data",
+  "title": "Поддержка при проблеме с регистрацией выдаёт контактные данные постороннего пользователя",
+  "obs": 1
+ },
+ {
+  "id": "phone-verification-blocks-carriers",
+  "title": "Верификация телефона требует определённого оператора и блокирует доступ пользователям с другими операторами",
+  "obs": 1
+ },
+ {
+  "id": "multi-trial-account-lock",
+  "title": "Несколько попыток создать пробный аккаунт приводят к блокировке, хотя первый триал не был использован",
+  "obs": 1
+ }
+]

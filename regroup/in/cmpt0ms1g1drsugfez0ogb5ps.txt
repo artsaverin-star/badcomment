@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from iLovePDF - PDF Editor & Scan (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO iLovePDF - PDF Editor & Scan, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to iLovePDF - PDF Editor & Scan — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to iLovePDF - PDF Editor & Scan>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt0ms1g1drsugfez0ogb5ps.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "crash-data-loss",
+  "title": "При сбое приложения все несохранённые правки и аннотации теряются безвозвратно — автосохранения нет",
+  "obs": 4
+ },
+ {
+  "id": "direct-text-edit-missing",
+  "title": "Прямое редактирование существующего текста в PDF недоступно — только добавление текстовых полей поверх документа",
+  "obs": 3
+ },
+ {
+  "id": "compress-quality-preserved",
+  "title": "Сжатие PDF до нужного размера с сохранением качества работает лучше Acrobat Pro — в том числе для защищённых паролем файлов",
+  "obs": 3
+ },
+ {
+  "id": "free-ops-hard-limit",
+  "title": "Бесплатная версия ограничена тремя операциями за сеанс — лимит не раскрывается заранее",
+  "obs": 2
+ },
+ {
+  "id": "toolbar-not-movable",
+  "title": "Панель инструментов нельзя переместить, а интерфейс не поддерживает прямое редактирование содержимого",
+  "obs": 2
+ },
+ {
+  "id": "no-zoom-print",
+  "title": "Приложение не поддерживает масштабирование и печать масштабированных страниц",
+  "obs": 2
+ },
+ {
+  "id": "each-action-new-tab-new-file",
+  "title": "Каждая операция создаёт новый файл и открывает его в новой вкладке — составные рабочие процессы невозможны",
+  "obs": 2
+ },
+ {
+  "id": "word-to-pdf-sign-workflow",
+  "title": "Пользователи конвертируют Word в PDF и сразу подписывают его внутри одного приложения",
+  "obs": 2
+ },
+ {
+  "id": "trial-to-paid-silent-charge",
+  "title": "После пробного периода деньги списываются без предупреждения — переход от триала к платежу непрозрачен",
+  "obs": 1
+ },
+ {
+  "id": "two-step-hidden-cost",
+  "title": "Подписка списывается в два этапа: сначала символичная сумма, затем полная годовая стоимость — реальная цена скрыта",
+  "obs": 1
+ },
+ {
+  "id": "cancel-trial-still-charged",
+  "title": "Отмена подписки во время пробного периода не останавливает последующие списания",
+  "obs": 1
+ },
+ {
+  "id": "refund-denied-tos",
+  "title": "Компания отказывает в возврате средств через день после покупки, ссылаясь на условия обслуживания",
+  "obs": 1
+ },
+ {
+  "id": "refund-requires-evidence",
+  "title": "Для возврата денег за неработающую функцию требуется предоставить доказательства — автоматического возврата нет",
+  "obs": 1
+ },
+ {
+  "id": "paywall-after-editing",
+  "title": "Редактирование текста доступно бесплатно, но сохранение результата — только по подписке; пользователь узнаёт об этом после часа работы",
+  "obs": 1
+ },
+ {
+  "id": "merge-image-free-once",
+  "title": "Слияние PDF и добавление изображений бесплатны только один-два раза, после чего требуется подписка",
+  "obs": 1
+ },
+ {
+  "id": "premium-no-editing",
+  "title": "Премиум-подписка не открывает редактирование PDF — заявленная функция недоступна после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "no-cc-required",
+  "title": "Базовые операции доступны без привязки карты — критерий выбора для пользователей, скептичных к платёжным системам",
+  "obs": 1
+ },
+ {
+  "id": "text-size-control-missing",
+  "title": "Невозможно задать точный размер добавляемого текста в соответствии с исходным документом",
+  "obs": 1
+ },
+ {
+  "id": "rating-prompt-every-action",
+  "title": "Приложение запрашивает оценку после каждого действия, прерывая основной сценарий работы",
+  "obs": 1
+ },
+ {
+  "id": "thumbnail-panel-accidental-nav",
+  "title": "Панель миниатюр внизу экрана нельзя скрыть — случайные касания переключают страницы",
+  "obs": 1
+ },
+ {
+  "id": "no-default-view-mode",
+  "title": "Нельзя сохранить режим просмотра по умолчанию — каждый раз нужно настраивать заново",
+  "obs": 1
+ },
+ {
+  "id": "download-button-broken-ios",
+  "title": "Кнопка «Скачать» на iPhone не работает видимым образом — отсутствует предпросмотр и прямой экспорт как у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "annotation-mac-extra-steps",
+  "title": "На Mac аннотация PDF требует открытия отдельного инструмента и лишнего шага сохранения — на iPhone так не работает",
+  "obs": 1
+ },
+ {
+  "id": "no-doc-structure-navigation",
+  "title": "Навигация по заголовкам документа (H1–H4) отсутствует — работа с PDF на 25–1000+ страниц крайне неудобна",
+  "obs": 1
+ },
+ {
+  "id": "text-editing-confusing-no-guide",
+  "title": "Редактирование текста запутано и не сопровождается подсказками или встроенной инструкцией",
+  "obs": 1
+ },
+ {
+  "id": "crash-large-pdf-offline",
+  "title": "Приложение падает при аннотировании многостраничного PDF (200+ страниц) в режиме офлайн",
+  "obs": 1
+ },
+ {
+  "id": "compress-blank-pages",
+  "title": "При сжатии PDF часть страниц становится пустой — требуется повторная обработка",
+  "obs": 1
+ },
+ {
+  "id": "ocr-failure-rate",
+  "title": "OCR даёт сбой примерно в четверти случаев и требует перезапуска приложения с потерей работы",
+  "obs": 1
+ },
+ {
+  "id": "large-pdf-split-silent-fail",
+  "title": "При работе с PDF на 1200+ страниц операции split/delete молча игнорируют диапазоны больше 50 страниц и возвращают исходный файл без сообщения об ошибке",
+  "obs": 1
+ },
+ {
+  "id": "qr-code-opens-appstore",
+  "title": "QR-код для быстрого сканирования открывает App Store вместо приложения — проблема повторяется ежедневно",
+  "obs": 1
+ },
+ {
+  "id": "update-removes-features",
+  "title": "Обновление приложения удалило ранее доступный функционал без предупреждения пользователей",
+  "obs": 1
+ },
+ {
+  "id": "high-cpu-suspected-mining",
+  "title": "При открытии нескольких экземпляров приложение занимает 98% процессора часами — пользователи подозревают майнинг",
+  "obs": 1
+ },
+ {
+  "id": "ipad-experience-inconsistent",
+  "title": "На iPad приложение неудобно, хотя на телефоне работает хорошо — опыт между платформами несогласован",
+  "obs": 1
+ },
+ {
+  "id": "login-broken-iphone",
+  "title": "Вход в аккаунт не работает на iPhone — приложение отклоняет корректные данные даже после смены пароля",
+  "obs": 1
+ },
+ {
+  "id": "export-format-limited",
+  "title": "Экспорт после OCR поддерживает только DOCX, и даже он открывается не с первой попытки",
+  "obs": 1
+ },
+ {
+  "id": "web-pdf-not-editable-in-app",
+  "title": "PDF, созданные в веб-версии, нельзя редактировать в приложении — доступна только конвертация",
+  "obs": 1
+ },
+ {
+  "id": "drawing-tool-low-precision",
+  "title": "Инструмент рисования имеет низкую точность и качество линий",
+  "obs": 1
+ },
+ {
+  "id": "ocr-quality-errors",
+  "title": "OCR систематически искажает буквы (перестановки, лишние символы) — хуже встроенного распознавания macOS",
+  "obs": 1
+ },
+ {
+  "id": "skew-correction-missing",
+  "title": "Коррекция перекоса страниц при сканировании недоступна — наклонный текст остаётся наклонным",
+  "obs": 1
+ },
+ {
+  "id": "ocr-non-english-success",
+  "title": "OCR успешно обрабатывает большие PDF на неанглийских языках (телугу) там, где Adobe и Google не справляются",
+  "obs": 1
+ },
+ {
+  "id": "ocr-to-searchable-text",
+  "title": "OCR превращает отсканированные PDF в документы, доступные для поиска",
+  "obs": 1
+ },
+ {
+  "id": "server-side-processing-no-warning",
+  "title": "Файлы обрабатываются на серверах компании без явного предупреждения пользователя до загрузки конфиденциальных данных",
+  "obs": 1
+ },
+ {
+  "id": "canva-merge-workflow",
+  "title": "Пользователи Canva используют приложение для слияния PDF при массовом экспорте дизайнов — Canva не умеет это делать нативно",
+  "obs": 1
+ },
+ {
+  "id": "mobile-editing-away-from-pc",
+  "title": "Ключевой сценарий — редактирование документов вне офиса и без доступа к компьютеру",
+  "obs": 1
+ },
+ {
+  "id": "ios-share-sheet-integration",
+  "title": "Интеграция с iOS Share sheet позволяет обрабатывать файлы из других приложений без переключения контекста",
+  "obs": 1
+ },
+ {
+  "id": "b2b-catalog-compression",
+  "title": "B2B-владельцы магазинов сжимают PDF-каталоги для асинхронного обмена с клиентами — критический инструмент логистики",
+  "obs": 1
+ },
+ {
+  "id": "editorial-manuscript-workflow",
+  "title": "Авторы художественной литературы используют приложение как критический инструмент подготовки рукописи к публикации",
+  "obs": 1
+ },
+ {
+  "id": "ipad-multiapp-integration",
+  "title": "Интеграция между приложением, Notability и Google Drive значительно ускоряет обработку документов на iPad",
+  "obs": 1
+ },
+ {
+  "id": "scholarship-text-edit-usecase",
+  "title": "Пользователи редактируют запечённый текст стипендиальных заявлений в PDF, экономя много времени",
+  "obs": 1
+ },
+ {
+  "id": "bank-watermark-removal",
+  "title": "Банковские и ипотечные процессы требуют удаления водяных знаков со сканированных документов для подачи",
+  "obs": 1
+ }
+]

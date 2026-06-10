@@ -1,0 +1,123 @@
+{
+  "groups": [
+    {
+      "id": "data-loss-and-update-breakage",
+      "name": "Обновления стирают задачи и ломают приложение",
+      "insight_ids": [
+        "data-wiped-on-app-update",
+        "data-wiped-on-subscription-transition",
+        "ipad-broken-after-update",
+        "crash-on-move-or-large-collection",
+        "graphics-flicker-on-scroll",
+        "subtasks-deleted-on-folder-move",
+        "add-item-extra-steps-instability",
+        "yippee-deletes-completed-tasks",
+        "my-day-drops-unfinished-tasks",
+        "notes-tied-to-tasks-become-useless",
+        "support-restores-lost-tasks"
+      ]
+    },
+    {
+      "id": "billing-traps-and-aggressive-upsell",
+      "name": "Биллинг-ловушки, исчезнувший бесплатный режим и навязчивый апсейл",
+      "insight_ids": [
+        "free-trial-charges-full-year-immediately",
+        "cancel-and-account-delete-error",
+        "upsell-banners-for-paying-users",
+        "free-tier-hidden-only-premium-offered",
+        "feature-moved-behind-paywall",
+        "silent-charge-no-email-notice",
+        "family-plan-hard-limits",
+        "apple-login-creates-new-free-account",
+        "blocking-upgrade-modal",
+        "marketing-promises-missing-ai-planning",
+        "family-plan-screen-freezes"
+      ]
+    },
+    {
+      "id": "sync-calendar-reliability",
+      "name": "Синхронизация и календарь, которым нельзя доверять",
+      "insight_ids": [
+        "cross-device-sync-unreliable",
+        "calendar-events-wrong-or-stale",
+        "calendar-swipe-jumps-months",
+        "calendar-shows-past-year-on-add",
+        "priority-not-shown-in-calendar",
+        "week-view-huge-tiles",
+        "desktop-only-google-calendar",
+        "ipad-list-only-no-kanban",
+        "home-screen-widget-unreliable",
+        "background-customization-web-only"
+      ]
+    },
+    {
+      "id": "reminders-recurring-tasks-fail",
+      "name": "Напоминания и повторяющиеся задачи срывают важные дела",
+      "insight_ids": [
+        "recurring-tasks-disappear-or-skip-notifications",
+        "recurring-reschedule-from-due-not-completion",
+        "completed-reminders-show-overdue",
+        "reminder-date-only-time-shown",
+        "reminder-past-date-autofill",
+        "two-recurring-interfaces-limit",
+        "recurring-task-failure-misses-rent",
+        "weak-fit-for-medication-reminders",
+        "auto-time-added-to-new-tasks",
+        "unwanted-motivational-push"
+      ]
+    },
+    {
+      "id": "task-editing-and-input-broken",
+      "name": "Ввод и редактирование задач превратились в борьбу",
+      "insight_ids": [
+        "text-input-only-first-char",
+        "edit-task-requires-full-delete",
+        "forced-autocorrect-no-disable",
+        "chinese-input-not-recognized",
+        "delete-item-no-visible-control",
+        "done-button-double-purpose",
+        "task-auto-reorder-ignores-priority",
+        "categorization-removed-from-shopping-list",
+        "auto-categorize-shopping-list",
+        "rename-and-delete-board-broken"
+      ]
+    },
+    {
+      "id": "interface-clutter-and-readability",
+      "name": "Спрятанный список дел и нечитаемый интерфейс",
+      "insight_ids": [
+        "todo-list-buried-under-ui",
+        "font-too-small-or-inconsistent",
+        "theme-and-darkmode-not-applied",
+        "low-contrast-grey-text",
+        "list-name-truncated",
+        "image-no-thumbnail-preview"
+      ]
+    },
+    {
+      "id": "sharing-accounts-and-privacy",
+      "name": "Общие списки, чужие аккаунты и утечки приватности",
+      "insight_ids": [
+        "shared-list-invite-ui-removed-or-broken",
+        "shared-lists-converted-or-cross-os-missing",
+        "share-requires-all-contacts",
+        "chat-messages-not-editable",
+        "calendar-share-leaks-work-events",
+        "forced-signup-imports-and-clean-slate",
+        "forced-third-party-auth-privacy",
+        "login-defaults-to-new-account",
+        "no-2fa-two-way-calendar-risk",
+        "support-slow-chat-email-only"
+      ]
+    },
+    {
+      "id": "loyalty-and-churn",
+      "name": "За что любят и почему уходят к конкурентам",
+      "insight_ids": [
+        "versatility-many-list-types",
+        "speed-of-adding-tasks-loved",
+        "ux-degradation-drives-to-competitors"
+      ]
+    }
+  ]
+}

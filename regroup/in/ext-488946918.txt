@@ -1,0 +1,249 @@
+You are grouping 40 mechanism-level insight clusters from TimePassages Astrology (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO TimePassages Astrology, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 40 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to TimePassages Astrology — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to TimePassages Astrology>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-488946918.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "daily-horoscope-load-failure",
+  "title": "Дневной гороскоп не загружается месяцами — ошибка загрузки сохраняется несмотря на оплату",
+  "obs": 8
+ },
+ {
+  "id": "subscription-migration-destroys-purchases",
+  "title": "Переход с разовой покупки на подписку лишает пользователя уже оплаченных функций без компенсации",
+  "obs": 7
+ },
+ {
+  "id": "session-logout-loop",
+  "title": "После обновления приложение выходит из аккаунта при каждом запуске и требует повторного входа",
+  "obs": 7
+ },
+ {
+  "id": "migration-data-loss",
+  "title": "Миграция на новую версию приложения уничтожает сохранённые карты без возможности восстановления",
+  "obs": 6
+ },
+ {
+  "id": "repeated-charges-same-content",
+  "title": "Приложение требует повторной оплаты за уже купленные карты и функции",
+  "obs": 5
+ },
+ {
+  "id": "daily-horoscope-navigation-friction",
+  "title": "Доступ к дневному гороскопу теперь требует вдвое больше нажатий, чем в предыдущей версии",
+  "obs": 5
+ },
+ {
+  "id": "color-coding-removed",
+  "title": "Цветовое кодирование планет и знаков заменено плоской фиолетовой темой, делая карту нечитаемой",
+  "obs": 3
+ },
+ {
+  "id": "font-size-inaccessible",
+  "title": "Размер шрифта уменьшился после обновления, и пользователь не может его увеличить в настройках",
+  "obs": 3
+ },
+ {
+  "id": "free-feature-paywalled",
+  "title": "Дневной гороскоп, ранее бесплатный, теперь требует отдельную оплату за каждый просмотр",
+  "obs": 2
+ },
+ {
+  "id": "power-user-workarounds",
+  "title": "Опытные пользователи заменяют деградировавшие функции самодельными инструментами — таблицами и скриншотами",
+  "obs": 2
+ },
+ {
+  "id": "ipad-layout-broken",
+  "title": "На iPad текст выходит за границы полей, а градусы на бивиле нечитаемы в любой ориентации",
+  "obs": 2
+ },
+ {
+  "id": "city-database-incomplete",
+  "title": "Многие города отсутствуют в справочнике локаций, не позволяя точно ввести место рождения",
+  "obs": 2
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Кнопка пробного периода сразу списывает полную годовую сумму вместо запуска триала",
+  "obs": 1
+ },
+ {
+  "id": "cancellation-not-honored",
+  "title": "Подтверждённая отмена подписки не предотвращает следующее списание",
+  "obs": 1
+ },
+ {
+  "id": "charts-lost-on-update",
+  "title": "После обновления сохранённые пары для анализа совместимости и профили исчезают",
+  "obs": 1
+ },
+ {
+  "id": "data-loss-on-auth-cycle",
+  "title": "При повторном входе в аккаунт все сохранённые карты рождения удаляются",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-restore-failure",
+  "title": "При смене телефона восстановить сохранённые карты невозможно, поддержка даёт нерабочие инструкции",
+  "obs": 1
+ },
+ {
+  "id": "crash-opening-others-charts",
+  "title": "Приложение падает почти каждый раз при попытке открыть карту другого человека",
+  "obs": 1
+ },
+ {
+  "id": "chart-duplication-on-relogin",
+  "title": "После выхода и повторного входа сохранённые карты дублируются",
+  "obs": 1
+ },
+ {
+  "id": "offline-regression",
+  "title": "Приложение теперь требует подключения к интернету там, где раньше работало офлайн",
+  "obs": 1
+ },
+ {
+  "id": "future-transit-chart-errors",
+  "title": "Генерация графика будущих транзитов выдаёт ошибки и задержки",
+  "obs": 1
+ },
+ {
+  "id": "daily-horoscope-glitch-phone",
+  "title": "Функция дневного гороскопа регулярно глючит на телефоне",
+  "obs": 1
+ },
+ {
+  "id": "app-launch-crash-on-early-tap",
+  "title": "Нажатие на элементы сразу после запуска приложения приводит к краху — нужно ждать",
+  "obs": 1
+ },
+ {
+  "id": "migration-value-absent",
+  "title": "Принудительная миграция на новую платформу не даёт пользователю ничего нового взамен потерянного",
+  "obs": 1
+ },
+ {
+  "id": "saved-charts-as-retention",
+  "title": "Возможность хранить карты рождения без повторного ввода — главная причина возврата в приложение",
+  "obs": 1
+ },
+ {
+  "id": "saved-chart-search-missing",
+  "title": "Поиска по сохранённым картам нет — пользователь вынужден листать весь список вручную",
+  "obs": 1
+ },
+ {
+  "id": "aggressive-upgrade-popups",
+  "title": "Старое приложение показывает всплывающее окно с требованием обновиться каждые две секунды",
+  "obs": 1
+ },
+ {
+  "id": "transit-wheel-shrinks",
+  "title": "Колесо транзитов внезапно сжимается до минимального размера и не возвращается в исходное состояние",
+  "obs": 1
+ },
+ {
+  "id": "social-login-popup-aggressive",
+  "title": "При открытии приложения появляется навязчивое всплывающее окно с предложением войти через социальные сети",
+  "obs": 1
+ },
+ {
+  "id": "app-no-restore-scroll-position",
+  "title": "Приложение не запоминает позицию прокрутки и всегда открывается с начала списка карт",
+  "obs": 1
+ },
+ {
+  "id": "location-not-saved-between-sessions",
+  "title": "Текущий город для расчёта транзитов нужно вводить заново при каждом открытии приложения",
+  "obs": 1
+ },
+ {
+  "id": "chart-creation-redundant-location",
+  "title": "При создании новой карты приложение запрашивает и место рождения, и текущее местоположение как обязательные поля",
+  "obs": 1
+ },
+ {
+  "id": "delete-edit-transit-records-missing",
+  "title": "Удалить или исправить запись транзита нельзя — ошибочные записи приходится дублировать с изменённым названием",
+  "obs": 1
+ },
+ {
+  "id": "transit-date-calculation-wrong",
+  "title": "Даты транзитов в дневном гороскопе отображаются неверно относительно реальных астрологических событий",
+  "obs": 1
+ },
+ {
+  "id": "ascendant-calculation-timezone-bug",
+  "title": "Куспид Асцендента вычисляется неверно из-за ошибки обработки часового пояса и летнего времени",
+  "obs": 1
+ },
+ {
+  "id": "compatibility-score-changed",
+  "title": "Оценка совместимости, неизменная 12 лет, внезапно изменилась в новой версии без объяснений",
+  "obs": 1
+ },
+ {
+  "id": "horoscope-redesigned-as-category-scores",
+  "title": "Дневной гороскоп переработан в систему оценок по категориям, а не прямой показ транзитов",
+  "obs": 1
+ },
+ {
+  "id": "chart-data-elements-missing",
+  "title": "В карте рождения не отображаются номера домов и чёрная луна Лилит",
+  "obs": 1
+ },
+ {
+  "id": "transit-aspects-incomplete",
+  "title": "Раздел дневного гороскопа не показывает все аспекты транзитов в пределах заданного орба",
+  "obs": 1
+ },
+ {
+  "id": "client-report-generation-removed",
+  "title": "Функция создания печатных отчётов для клиентов удалена из нового приложения",
+  "obs": 1
+ }
+]

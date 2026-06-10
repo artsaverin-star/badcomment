@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "id": "rate-or-leave",
+      "name": "Оцени или уходи: окно отзыва на каждом запуске",
+      "insight_ids": ["forced-review-prompt"]
+    },
+    {
+      "id": "vpn-betrays-privacy",
+      "name": "VPN, который сливает: IP наружу и пустой кошелёк",
+      "insight_ids": ["ip-not-masked", "ip-exposed-on-disconnect", "contradictory-privacy-warning", "crypto-drained-after-vpn"]
+    },
+    {
+      "id": "kills-the-connection",
+      "name": "Включил защиту — потерял интернет",
+      "insight_ids": ["vpn-drops-wifi", "vpn-connection-drops"]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Триал, который списывает сразу, и подписка не по графику",
+      "insight_ids": ["misleading-trial-charge", "recurring-unexpected-charges"]
+    },
+    {
+      "id": "locked-behind-paywall",
+      "name": "Бесплатно только на бумаге: пейволл, одобрение и заблокированный стриминг",
+      "insight_ids": ["free-tier-unusable", "whitelisting-blocks-new-users", "netflix-blocked"]
+    },
+    {
+      "id": "wont-let-go",
+      "name": "Удалил, а профиль живёт: VPN сам включается каждые 10 минут",
+      "insight_ids": ["vpn-profile-persists-after-delete"]
+    }
+  ]
+}

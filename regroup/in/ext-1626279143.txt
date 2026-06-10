@@ -1,0 +1,104 @@
+You are grouping 11 mechanism-level insight clusters from White Noise Deluxe (white noise / sound machine / sleep) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO White Noise Deluxe, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 11 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to White Noise Deluxe — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to White Noise Deluxe>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1626279143.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "hidden-subscription-auto-charge",
+  "title": "Приложение позиционируется как бесплатное, но автоматически списывает деньги без явного согласия пользователя",
+  "obs": 4
+ },
+ {
+  "id": "tinnitus-masking",
+  "title": "Белый шум маскирует тиннитус и ушной дискомфорт, помогая засыпать быстрее",
+  "obs": 2
+ },
+ {
+  "id": "cancel-confirmation-missing",
+  "title": "Отмена подписки не подтверждается явно в аккаунте — пользователь не уверен, что списание прекратится",
+  "obs": 1
+ },
+ {
+  "id": "premium-sound-lock",
+  "title": "Часть звуков недоступна в бесплатной версии и требует платную подписку",
+  "obs": 1
+ },
+ {
+  "id": "racing-thoughts-masking",
+  "title": "Белый шум маскирует навязчивые мысли и мешает мозгу переключаться между темами ночью",
+  "obs": 1
+ },
+ {
+  "id": "ambient-noise-masking",
+  "title": "Звуки подавляют внешние шумы в комнате и позволяют спать сквозь привычные помехи",
+  "obs": 1
+ },
+ {
+  "id": "partner-breathing-masking",
+  "title": "Белый шум маскирует звук дыхания партнёра во время совместного сна",
+  "obs": 1
+ },
+ {
+  "id": "no-ad-interruption",
+  "title": "Приложение не прерывает воспроизведение рекламой ночью — редкость среди конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "background-multitasking",
+  "title": "Приложение воспроизводит звук в фоне, пока пользователь работает с телефоном по другим задачам",
+  "obs": 1
+ },
+ {
+  "id": "default-tab-not-preferred",
+  "title": "Приложение открывается на вкладке «Для вас» с нерелевантным контентом вместо последних прослушанных звуков",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-discount-screen",
+  "title": "Новые пользователи обязаны пройти экран со скидкой на подписку перед доступом к контенту",
+  "obs": 1
+ }
+]

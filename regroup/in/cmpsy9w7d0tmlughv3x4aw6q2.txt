@@ -1,0 +1,164 @@
+You are grouping 23 mechanism-level insight clusters from Nebula: Spiritual Guidance (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Nebula: Spiritual Guidance, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 23 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Nebula: Spiritual Guidance — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Nebula: Spiritual Guidance>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsy9w7d0tmlughv3x4aw6q2.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "hidden-subscription-enrollment",
+  "title": "Разовый платёж тайно превращается в подписку без явного согласия пользователя",
+  "obs": 2
+ },
+ {
+  "id": "free-content-blocked",
+  "title": "Базовый бесплатный контент заблокирован — приложение принудительно показывает платёжный экран",
+  "obs": 2
+ },
+ {
+  "id": "support-ignores-cancellation",
+  "title": "Поддержка не отвечает на запросы об отмене подписки и возврате средств",
+  "obs": 2
+ },
+ {
+  "id": "rebilling-after-cancel",
+  "title": "Подписка продолжает списываться после отмены — биллинговый цикл не прерывается",
+  "obs": 1
+ },
+ {
+  "id": "trial-immediate-charge",
+  "title": "Семидневный пробный период списывает деньги немедленно, без ожидания окончания триала",
+  "obs": 1
+ },
+ {
+  "id": "delete-not-cancel",
+  "title": "Удаление приложения не отменяет подписку — списания продолжаются",
+  "obs": 1
+ },
+ {
+  "id": "sketch-engagement-trap",
+  "title": "Функция эскиза требует 8 дней активного использования и списывает $49,99 на шестой день",
+  "obs": 1
+ },
+ {
+  "id": "quiz-result-paywall",
+  "title": "Результаты бесплатной викторины скрыты за платёжным экраном",
+  "obs": 1
+ },
+ {
+  "id": "daily-billing-no-consent",
+  "title": "Подписка списывает деньги ежедневно без явного согласия на такую частоту",
+  "obs": 1
+ },
+ {
+  "id": "paid-product-not-delivered",
+  "title": "Оплаченный гороскоп-эскиз не доставляется по электронной почте",
+  "obs": 1
+ },
+ {
+  "id": "unauthorized-transactions",
+  "title": "С аккаунта пользователя проводятся повторяющиеся несанкционированные транзакции",
+  "obs": 1
+ },
+ {
+  "id": "inescapable-paywall-modal",
+  "title": "Кнопка закрытия открывает модальное окно, из которого нельзя выйти без выбора платёжной опции",
+  "obs": 1
+ },
+ {
+  "id": "cancel-dead-end-ios-settings",
+  "title": "Приложение инструктирует отменить подписку через настройки iOS, но там подписка не отображается",
+  "obs": 1
+ },
+ {
+  "id": "ai-only-support",
+  "title": "Служба поддержки работает только через ИИ и не передаёт обращения живому оператору",
+  "obs": 1
+ },
+ {
+  "id": "app-reinstalls-itself",
+  "title": "Удалённое приложение переустанавливается автоматически, поддержка не реагирует",
+  "obs": 1
+ },
+ {
+  "id": "app-boot-loop",
+  "title": "Приложение застревает в цикле перезагрузки и перестаёт открываться на месяцы",
+  "obs": 1
+ },
+ {
+  "id": "one-sided-audio-calls",
+  "title": "В телефонных консультациях один участник не слышит другого — двусторонний звук не работает",
+  "obs": 1
+ },
+ {
+  "id": "chat-session-expires",
+  "title": "Чат-сессия с советником неожиданно истекает и блокирует отправку новых сообщений",
+  "obs": 1
+ },
+ {
+  "id": "advisor-session-time-limit",
+  "title": "Сеанс с целителем имеет жёсткий временной лимит, который истекает быстро и обрывает консультацию",
+  "obs": 1
+ },
+ {
+  "id": "advisor-misunderstands-questions",
+  "title": "Советники игнорируют уточняющие вопросы и отвечают медленно",
+  "obs": 1
+ },
+ {
+  "id": "predictions-inaccurate",
+  "title": "Предсказания всех привлечённых астрологов и тарологов оказались неверными",
+  "obs": 1
+ },
+ {
+  "id": "slow-responses-extra-fee",
+  "title": "Медленные ответы советников вынуждают пользователя платить дополнительно за приоритет",
+  "obs": 1
+ },
+ {
+  "id": "advisor-compensation-filter",
+  "title": "Механизм компенсации позволяет отличить добросовестных советников от мошенников",
+  "obs": 1
+ }
+]

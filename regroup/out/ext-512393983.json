@@ -1,0 +1,96 @@
+{
+  "groups": [
+    {
+      "id": "refund-roulette",
+      "name": "Возврат денег — игра в наперстки",
+      "insight_ids": [
+        "partial-refund-missing-items",
+        "charge-on-cancelled-order",
+        "stolen-delivery-no-refund",
+        "support-lies-about-refund",
+        "photo-proof-rejected",
+        "missing-item-photo-absurd-request",
+        "no-report-missing-item-ui"
+      ]
+    },
+    {
+      "id": "price-traps",
+      "name": "Наценки, скрытые сборы и навязанная подписка Uber One",
+      "insight_ids": [
+        "inflated-menu-prices",
+        "hidden-fees-checkout",
+        "price-mismatch-at-checkout",
+        "uber-one-forced-subscription",
+        "promo-code-not-applied",
+        "subscription-charge-after-cancel",
+        "discount-removed-service-worthless"
+      ]
+    },
+    {
+      "id": "support-wall",
+      "name": "Стена ИИ-поддержки, за которой нет человека",
+      "insight_ids": [
+        "ai-support-no-human-escalation",
+        "support-closes-chat-unresolved",
+        "support-template-responses",
+        "support-no-contact-info",
+        "responsive-to-complaints"
+      ]
+    },
+    {
+      "id": "broken-promise-of-time",
+      "name": "Обещанное время против реальности доставки",
+      "insight_ids": [
+        "delivery-time-underestimated",
+        "priority-delivery-no-effect",
+        "order-cancelled-unexpectedly",
+        "wrong-branch-routed",
+        "multi-order-batching-cold-food",
+        "delivery-radius-wrong",
+        "order-placed-closed-restaurant"
+      ]
+    },
+    {
+      "id": "tipping-and-courier",
+      "name": "Чаевые вслепую и причуды курьеров — людей и роботов",
+      "insight_ids": [
+        "no-tip-edit-after-delivery",
+        "mandatory-pre-delivery-tip",
+        "robot-courier-stuck",
+        "robot-courier-opt-out",
+        "gender-gap-grocery-picking"
+      ]
+    },
+    {
+      "id": "address-and-control",
+      "name": "Адрес, GPS и невозможность отменить заказ",
+      "insight_ids": [
+        "wrong-address-auto-selected",
+        "gps-wrong-location",
+        "address-blocked-by-algo",
+        "cannot-cancel-active-order"
+      ]
+    },
+    {
+      "id": "uber-eats-shadow",
+      "name": "Под Uber: тень Uber Eats и деградировавший интерфейс",
+      "insight_ids": [
+        "postmates-is-uber-eats-reskin",
+        "old-ui-regression-after-uber",
+        "tracking-status-missing-after-update",
+        "placeholder-text-in-ui",
+        "checkout-crash",
+        "filter-returns-no-results",
+        "gift-feature-broken"
+      ]
+    },
+    {
+      "id": "payment-plumbing",
+      "name": "Платежная сантехника: карты, PayPal и Venmo не слушаются",
+      "insight_ids": [
+        "paypal-venmo-payment-issues",
+        "add-payment-method-broken"
+      ]
+    }
+  ]
+}

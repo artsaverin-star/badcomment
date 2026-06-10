@@ -1,0 +1,344 @@
+You are grouping 59 mechanism-level insight clusters from Duolingo: Language Lessons (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Duolingo: Language Lessons, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 59 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Duolingo: Language Lessons — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Duolingo: Language Lessons>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-570060128.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "energy-limits-lessons-per-day",
+  "title": "Энергия позволяет сделать всего одно-три занятия в день, остальное обучение блокируется до перезарядки",
+  "obs": 11
+ },
+ {
+  "id": "energy-monetization-pressure",
+  "title": "Система энергии работает как инструмент продажи подписки, а не как обучающая механика",
+  "obs": 7
+ },
+ {
+  "id": "early-vocab-instead-of-grammar",
+  "title": "Ранние уроки дают бытовую лексику вместо базовой грамматики и нужных начинающему фраз",
+  "obs": 5
+ },
+ {
+  "id": "scary-app-icon",
+  "title": "Иконка и виджет приложения выглядят пугающе и неуместно для обучающего сервиса",
+  "obs": 5
+ },
+ {
+  "id": "energy-drains-on-correct-answers",
+  "title": "Энергия списывается даже за правильные ответы и без видимых ошибок пользователя",
+  "obs": 4
+ },
+ {
+  "id": "energy-slow-recovery",
+  "title": "Энергия восполняется так медленно, что не хватает даже на одно занятие в час",
+  "obs": 4
+ },
+ {
+  "id": "paywall-blocks-serious-learning",
+  "title": "Без подписки темп обучения настолько медленный, что серьёзно учиться невозможно без оплаты",
+  "obs": 4
+ },
+ {
+  "id": "delete-app-fear-messaging",
+  "title": "При удалении приложение давит угрожающими и пугающими сообщениями, особенно на детей",
+  "obs": 4
+ },
+ {
+  "id": "energy-punishes-mistakes",
+  "title": "Энергия теряется за ошибки сильнее прежней системы сердечек, мешая учиться на ошибках",
+  "obs": 3
+ },
+ {
+  "id": "lessons-narrow-vocabulary",
+  "title": "Уроки учат коротким фразам и узкому набору слов, бесполезным в реальном общении",
+  "obs": 3
+ },
+ {
+  "id": "course-quality-varies-by-language",
+  "title": "Глубина и качество курсов сильно различаются между языками — одни проработаны, другие почти пустые",
+  "obs": 3
+ },
+ {
+  "id": "mic-rejects-correct-speech",
+  "title": "Микрофон не засчитывает правильное произношение или необычную, но верную формулировку",
+  "obs": 3
+ },
+ {
+  "id": "guilt-pressure-engagement",
+  "title": "Приложение давит виной, испорченной иконкой и письмами при пропуске дня вместо мягких напоминаний",
+  "obs": 3
+ },
+ {
+  "id": "ads-interrupt-lessons",
+  "title": "Реклама появляется после каждого урока и после оплаты подписки, прерывая учебный поток",
+  "obs": 2
+ },
+ {
+  "id": "no-explanation-of-mistakes",
+  "title": "Приложение показывает ошибку, но не объясняет причину и не даёт разбора при повторе урока",
+  "obs": 2
+ },
+ {
+  "id": "missing-language-courses",
+  "title": "Нужных пользователю языков нет, хотя редкие языки уже добавлены",
+  "obs": 2
+ },
+ {
+  "id": "video-call-glitches",
+  "title": "Видеозвонки и видеокарточки зависают, не дают договорить фразу, но таймер продолжает идти",
+  "obs": 2
+ },
+ {
+  "id": "small-font-and-screen",
+  "title": "Мелкий шрифт и непрокручиваемый экран мешают пройти урок на маленьких устройствах",
+  "obs": 2
+ },
+ {
+  "id": "ai-crashes-after-update",
+  "title": "После внедрения ИИ приложение ежедневно крашится и не открывается",
+  "obs": 2
+ },
+ {
+  "id": "crashes-mid-lesson",
+  "title": "Приложение падает посреди урока, теряя весь прогресс",
+  "obs": 2
+ },
+ {
+  "id": "completed-lessons-not-counted",
+  "title": "Пройденные уроки иногда не засчитываются в прогресс",
+  "obs": 2
+ },
+ {
+  "id": "legendary-xp-not-tracked",
+  "title": "В легендарном режиме урок не засчитывается и XP теряется без прогресса",
+  "obs": 2
+ },
+ {
+  "id": "time-limit-per-lesson",
+  "title": "Жёсткий лимит времени на урок мешает учиться столько, сколько нужно",
+  "obs": 2
+ },
+ {
+  "id": "free-positioning-eroded",
+  "title": "Обязательная подписка появилась там, где раньше можно было долго учиться бесплатно",
+  "obs": 1
+ },
+ {
+  "id": "extra-gems-payment-despite-subscription",
+  "title": "Даже с оформленной подпиской приложение просит доплату за драгоценные камни внутри игр",
+  "obs": 1
+ },
+ {
+  "id": "wrong-dialect-taught",
+  "title": "Курс учит не тому диалекту, который нужен пользователю — например, кастильскому вместо латиноамериканского испанского",
+  "obs": 1
+ },
+ {
+  "id": "no-verb-conjugation",
+  "title": "Уроки испанского не обучают спряжению глаголов",
+  "obs": 1
+ },
+ {
+  "id": "forced-reading-of-characters",
+  "title": "Курс китайского требует учить иероглифы, хотя пользователю нужна только разговорная речь",
+  "obs": 1
+ },
+ {
+  "id": "video-call-repetitive-scripts",
+  "title": "Видеозвонки повторяют одних и тех же персонажей с одинаковыми репликами, ощущаясь как запись",
+  "obs": 1
+ },
+ {
+  "id": "video-call-realistic-practice",
+  "title": "Видеозвонки дают живую разговорную практику с прямой обратной связью",
+  "obs": 1
+ },
+ {
+  "id": "content-feels-dated-cringe",
+  "title": "Контент уроков ощущается устаревшим и низкокачественным",
+  "obs": 1
+ },
+ {
+  "id": "lesson-structure-illogical",
+  "title": "Переработанные уроки потеряли логичную структуру",
+  "obs": 1
+ },
+ {
+  "id": "music-notation-incomplete",
+  "title": "Уроки музыки учат неполной нотации — не хватает завершающих элементов записи",
+  "obs": 1
+ },
+ {
+  "id": "value-laden-content",
+  "title": "В уроках встречается тематический контент, который часть пользователей считает неуместным для обучения",
+  "obs": 1
+ },
+ {
+  "id": "scope-creep-beyond-languages",
+  "title": "Приложение расползлось на музыку, шахматы и математику, отвлекая от изучения языков",
+  "obs": 1
+ },
+ {
+  "id": "speaking-records-without-trigger",
+  "title": "В уроках говорения запись начинается сама, не дав прочитать фразу перед оценкой",
+  "obs": 1
+ },
+ {
+  "id": "mic-passes-partial-speech",
+  "title": "Распознавание засчитывает ответ верным, даже когда часть слов произнесена неразборчиво",
+  "obs": 1
+ },
+ {
+  "id": "cannot-mute-fully",
+  "title": "Обновление запретило полностью выключить звук приложения",
+  "obs": 1
+ },
+ {
+  "id": "chess-commentary-noise",
+  "title": "Шахматный соперник без перерыва комментирует партию голосом и отвлекает",
+  "obs": 1
+ },
+ {
+  "id": "popups-bury-learning",
+  "title": "Поток всплывающих окон — квесты, сундучки, видео — заслоняет основную функцию обучения",
+  "obs": 1
+ },
+ {
+  "id": "word-options-ambiguous",
+  "title": "При клике на слово показывают несколько вариантов, но не указывают, какой подходит по контексту",
+  "obs": 1
+ },
+ {
+  "id": "typos-not-accepted",
+  "title": "Приложение засчитывает ответ неверным из-за опечатки, даже когда смысл очевиден",
+  "obs": 1
+ },
+ {
+  "id": "night-notifications",
+  "title": "Уведомления приходят поздно ночью и мешают сну",
+  "obs": 1
+ },
+ {
+  "id": "locale-based-interface-language",
+  "title": "Язык интерфейса выбирается по геолокации, а не по пользователю, создавая неудобство",
+  "obs": 1
+ },
+ {
+  "id": "app-blocking-focus-feature",
+  "title": "Функция блокировки отвлекающих приложений помогает сосредоточиться перед уроком",
+  "obs": 1
+ },
+ {
+  "id": "app-blocking-blocks-health-apps",
+  "title": "Блокировка приложений может перекрыть доступ к медицинским приложениям и создать угрозу здоровью",
+  "obs": 1
+ },
+ {
+  "id": "social-block-resets-midnight",
+  "title": "Блокировка соцсетей сбрасывается в полночь и может оборвать идущий видеозвонок",
+  "obs": 1
+ },
+ {
+  "id": "bugs-no-offline",
+  "title": "Множество глюков, и приложение не работает в автономном режиме",
+  "obs": 1
+ },
+ {
+  "id": "chess-game-freezes",
+  "title": "Шахматный режим зависает после определённого хода — таймер и кнопки перестают работать",
+  "obs": 1
+ },
+ {
+  "id": "chess-elo-not-updating",
+  "title": "Рейтинг в шахматах не растёт несмотря на победы",
+  "obs": 1
+ },
+ {
+  "id": "chess-forced-checkmate",
+  "title": "Полный шахматный матч требует конкретного мата, ограничивая свободу игры",
+  "obs": 1
+ },
+ {
+  "id": "streak-lost-or-frozen",
+  "title": "Стрики теряются или замораживаются, и поддержка это не исправляет",
+  "obs": 1
+ },
+ {
+  "id": "lessons-after-midnight-not-counted",
+  "title": "Занятия после полуночи не засчитываются в предыдущий день и ломают стрик",
+  "obs": 1
+ },
+ {
+  "id": "rewards-not-granted",
+  "title": "Заработанные награды вроде тройного XP не выдаются систематически",
+  "obs": 1
+ },
+ {
+  "id": "accessibility-broken-for-blind",
+  "title": "Обновление сломало функции для незрячих пользователей, и поддержка не чинит это уже несколько релизов",
+  "obs": 1
+ },
+ {
+  "id": "feedback-form-ignored",
+  "title": "Баги остаются нерешёнными несмотря на отправку через встроенную форму обратной связи",
+  "obs": 1
+ },
+ {
+  "id": "overblown-motivational-messages",
+  "title": "Мотивационные сообщения преувеличены и не совпадают с реальным прогрессом",
+  "obs": 1
+ },
+ {
+  "id": "family-plan-removes-energy-limit",
+  "title": "Семейная подписка снимает ограничение энергии и выгодна для групповых занятий",
+  "obs": 1
+ },
+ {
+  "id": "tests-instead-of-teaching",
+  "title": "Уроки проверяют, не объяснив материал заранее — тестирование вместо обучения",
+  "obs": 1
+ }
+]

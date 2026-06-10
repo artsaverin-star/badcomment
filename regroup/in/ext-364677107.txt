@@ -1,0 +1,389 @@
+You are grouping 68 mechanism-level insight clusters from AP News (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO AP News, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 68 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to AP News — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to AP News>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-364677107.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-crash-freeze-post-update",
+  "title": "После обновления интерфейса приложение падает, зависает или замораживает телефон при каждом использовании",
+  "obs": 22
+ },
+ {
+  "id": "ad-oversized-touch-targets",
+  "title": "Реклама в ленте срабатывает при любом прокрутке рядом — зона касания объявлений слишком большая",
+  "obs": 12
+ },
+ {
+  "id": "slow-load-articles",
+  "title": "Загрузка ленты и статей занимает десятки секунд без видимых причин",
+  "obs": 10
+ },
+ {
+  "id": "overheating-battery-drain",
+  "title": "Приложение перегревает телефон и быстро разряжает батарею при обычном чтении",
+  "obs": 6
+ },
+ {
+  "id": "notifications-too-frequent-non-urgent",
+  "title": "Приложение присылает почти каждую статью как «срочную» — реально срочные теряются",
+  "obs": 6
+ },
+ {
+  "id": "fullscreen-popup-ads",
+  "title": "Полноэкранные объявления перекрывают контент и открываются без нажатия пользователя",
+  "obs": 5
+ },
+ {
+  "id": "excess-ads-no-paid-option",
+  "title": "Объявлений стало вдвое больше, но нет платной подписки для их отключения",
+  "obs": 5
+ },
+ {
+  "id": "feed-not-refreshing",
+  "title": "Лента новостей не обновляется — одни и те же статьи висят несколько дней",
+  "obs": 4
+ },
+ {
+  "id": "font-size-broken-after-update",
+  "title": "После обновления размер шрифта становится слишком большим или маленьким и не поддаётся управлению",
+  "obs": 4
+ },
+ {
+  "id": "font-size-setting-no-effect",
+  "title": "Регулятор размера шрифта в настройках не меняет размер текста в статьях",
+  "obs": 4
+ },
+ {
+  "id": "video-ads-autoplay-with-sound",
+  "title": "Видеореклама и объявления автоматически воспроизводят громкий звук при прокрутке ленты",
+  "obs": 4
+ },
+ {
+  "id": "notification-filter-broken",
+  "title": "Настройки фильтрации уведомлений не работают — приходят категории, которые отключены",
+  "obs": 3
+ },
+ {
+  "id": "local-news-wrong-category",
+  "title": "Раздел «Местные новости» заполнен спортивными материалами вместо новостей штата",
+  "obs": 3
+ },
+ {
+  "id": "ad-layout-shift",
+  "title": "Реклама в середине статьи смещает текст при прокрутке, нарушая читаемость",
+  "obs": 3
+ },
+ {
+  "id": "scroll-lag-jank",
+  "title": "Прокрутка рывистая и медленная — особенно на старых устройствах после обновления",
+  "obs": 3
+ },
+ {
+  "id": "sponsored-content-mixed-in",
+  "title": "Партнёрский и религиозный контент смешан с редакционными новостями без маркировки",
+  "obs": 2
+ },
+ {
+  "id": "ap-radio-removed",
+  "title": "Функция прямого радиовещания удалена без объяснения причин",
+  "obs": 2
+ },
+ {
+  "id": "wrong-photos-on-articles",
+  "title": "К статьям прикреплены неправильные фотографии — ошибка остаётся через несколько версий",
+  "obs": 2
+ },
+ {
+  "id": "comments-added-without-opt-out",
+  "title": "Комментарии пользователей добавлены в приложение без возможности их отключить",
+  "obs": 2
+ },
+ {
+  "id": "notification-destination-wrong",
+  "title": "Нажатие на уведомление открывает главную страницу, а не саму статью",
+  "obs": 2
+ },
+ {
+  "id": "font-size-caption-broken",
+  "title": "При увеличении шрифта подписи к изображениям и связанные статьи отображаются нечитаемо мелко",
+  "obs": 2
+ },
+ {
+  "id": "no-pinch-to-zoom-images",
+  "title": "Нельзя приблизить фотографии в статье — нужно открывать их в браузере",
+  "obs": 2
+ },
+ {
+  "id": "category-navigation-removed",
+  "title": "После редизайна удалена система выбора категорий — пользователи не могут настроить ленту",
+  "obs": 2
+ },
+ {
+  "id": "article-tap-target-inconsistent",
+  "title": "Неясно, куда нажать, чтобы открыть статью — иногда работает текст, иногда картинка",
+  "obs": 2
+ },
+ {
+  "id": "bookmarks-broken",
+  "title": "Закладки работают ненадёжно: функция пропадает при прокрутке, сохранённые статьи теряются",
+  "obs": 2
+ },
+ {
+  "id": "ad-blocks-scroll",
+  "title": "Объявления занимают весь экран и блокируют прокрутку до перезагрузки приложения",
+  "obs": 2
+ },
+ {
+  "id": "app-crashes-other-apps",
+  "title": "Приложение в фоне вызывает сбой музыкальных и других приложений",
+  "obs": 2
+ },
+ {
+  "id": "layout-broken-iphone16-ipad",
+  "title": "Главная страница некорректно масштабируется на новых устройствах — контент выходит за экран",
+  "obs": 2
+ },
+ {
+  "id": "apple-watch-app-broken",
+  "title": "Приложение на Apple Watch не загружает ленту — ошибка сохраняется после переустановки",
+  "obs": 2
+ },
+ {
+  "id": "push-notifications-broken-post-update",
+  "title": "После обновления или смены устройства push-уведомления перестают приходить",
+  "obs": 2
+ },
+ {
+  "id": "redesign-trade-offs-user-exodus",
+  "title": "Редизайн убрал функции, которые держали лояльных пользователей — часть уходит к конкурентам",
+  "obs": 2
+ },
+ {
+  "id": "app-requires-card-to-download",
+  "title": "Бесплатное приложение требует кредитную карту при скачивании",
+  "obs": 1
+ },
+ {
+  "id": "data-opt-out-paradox",
+  "title": "Отказ от продажи данных требует заполнить форму с личными данными",
+  "obs": 1
+ },
+ {
+  "id": "coverage-gap-major-story",
+  "title": "Крупная история несколько дней отсутствует в ленте, пока все остальные издания её освещают",
+  "obs": 1
+ },
+ {
+  "id": "ai-summaries-low-quality",
+  "title": "Автоматические саммари содержат странные и неправильные детали, заметно выдавая себя",
+  "obs": 1
+ },
+ {
+  "id": "video-pivot-text-readers-left-out",
+  "title": "Приложение всё больше ориентируется на видео, но пользователи хотят читать текст в тишине",
+  "obs": 1
+ },
+ {
+  "id": "feed-frozen-at-date",
+  "title": "Лента застыла на конкретной дате и не загружает новый контент, несмотря на переустановку",
+  "obs": 1
+ },
+ {
+  "id": "today-in-history-date-stuck",
+  "title": "Рубрика «Этот день в истории» застряла на одной дате и не обновляется",
+  "obs": 1
+ },
+ {
+  "id": "live-label-24h-delay",
+  "title": "Материалы помечены как «Live», но содержат данные с 24-часовой задержкой",
+  "obs": 1
+ },
+ {
+  "id": "fullscreen-photo-no-close-button",
+  "title": "Полноэкранный просмотр фото не имеет кнопки закрытия — нужно принудительно завершить приложение",
+  "obs": 1
+ },
+ {
+  "id": "carousel-dead-zone-blocks-scroll",
+  "title": "Карусель фотографий в статье создаёт мёртвую зону — вертикальная прокрутка работает только по краям",
+  "obs": 1
+ },
+ {
+  "id": "swipe-navigation-removed",
+  "title": "Свайп между статьями одной категории удалён — переход между новостями стал сложнее",
+  "obs": 1
+ },
+ {
+  "id": "timestamp-removed",
+  "title": "Время публикации статьи убрано из интерфейса — нельзя быстро оценить актуальность",
+  "obs": 1
+ },
+ {
+  "id": "share-function-changed",
+  "title": "Функция «Поделиться» теперь возвращает картинку вместо заголовка статьи, нарушая рабочий процесс",
+  "obs": 1
+ },
+ {
+  "id": "email-sharing-removed",
+  "title": "После обновления убрана возможность отправить статью на email",
+  "obs": 1
+ },
+ {
+  "id": "no-video-marker-in-feed",
+  "title": "В ленте нет маркера видеоконтента — пользователь открывает статью и видит видео с рекламой вместо текста",
+  "obs": 1
+ },
+ {
+  "id": "search-partial-match-broken",
+  "title": "Поиск перестал работать по частичному совпадению — нужно вводить слово целиком",
+  "obs": 1
+ },
+ {
+  "id": "sticky-header-wastes-screen",
+  "title": "Постоянная верхняя панель не скрывается при прокрутке и занимает ценное место экрана",
+  "obs": 1
+ },
+ {
+  "id": "text-overflows-screen",
+  "title": "Текст статьи выходит за границы экрана, и его нельзя вернуть на место",
+  "obs": 1
+ },
+ {
+  "id": "article-position-not-saved",
+  "title": "При повторном открытии приложение не возвращает пользователя к статье — стартует с главной",
+  "obs": 1
+ },
+ {
+  "id": "screen-reader-loses-position",
+  "title": "Экранный диктор при прокрутке статьи теряет позицию и переходит на вкладку навигации",
+  "obs": 1
+ },
+ {
+  "id": "editorial-control-removed",
+  "title": "Издатели выбирают отображаемые истории вместо пользователя — персонализация убрана",
+  "obs": 1
+ },
+ {
+  "id": "video-in-article-not-loading",
+  "title": "После просмотра рекламы видео в статье не загружается — пустой экран",
+  "obs": 1
+ },
+ {
+  "id": "video-audio-loops-on-page",
+  "title": "Приложение воспроизводит аудио или видео в бесконечном цикле на странице без медиаконтента",
+  "obs": 1
+ },
+ {
+  "id": "portrait-landscape-links-break",
+  "title": "При повороте iPad ссылки в статьях перестают работать",
+  "obs": 1
+ },
+ {
+  "id": "overlapping-elements-multiple-audio",
+  "title": "После редизайна текст перекрывается картинками, а несколько видео воспроизводят звук одновременно",
+  "obs": 1
+ },
+ {
+  "id": "ipad-content-stale",
+  "title": "На iPad лента не обновляется неделями, хотя на iPhone та же проблема отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "app-unresponsive-near-ads",
+  "title": "Приложение не реагирует на касания, когда на экране видно объявление",
+  "obs": 1
+ },
+ {
+  "id": "images-desynced-on-resume",
+  "title": "При возврате в приложение изображения рассинхронизированы со статьями",
+  "obs": 1
+ },
+ {
+  "id": "pip-disappears-with-ap-news",
+  "title": "Режим «картинка в картинке» пропадает при открытии приложения",
+  "obs": 1
+ },
+ {
+  "id": "local-news-section-crashes",
+  "title": "Выбор раздела «Местные новости» вызывает крах приложения",
+  "obs": 1
+ },
+ {
+  "id": "app-launch-slow-stuck",
+  "title": "Приложение после обновления долго висит на экране загрузки при каждом запуске",
+  "obs": 1
+ },
+ {
+  "id": "settings-not-saved",
+  "title": "Пользовательские настройки сбрасываются после перезагрузки приложения",
+  "obs": 1
+ },
+ {
+  "id": "captcha-loop-on-setup",
+  "title": "При первом запуске приложение застревает в цикле CAPTCHA и не позволяет настроить аккаунт",
+  "obs": 1
+ },
+ {
+  "id": "logout-on-update-account-deleted",
+  "title": "После обновления пользователь выходит из аккаунта, и система сообщает, что аккаунта не существует",
+  "obs": 1
+ },
+ {
+  "id": "notification-button-unresponsive-first-launch",
+  "title": "При первом запуске кнопки в диалоге разрешения уведомлений не реагируют на нажатия",
+  "obs": 1
+ },
+ {
+  "id": "false-adblocker-detection",
+  "title": "Приложение ошибочно определяет несуществующий блокировщик рекламы и блокирует доступ к контенту",
+  "obs": 1
+ },
+ {
+  "id": "notification-sound-changed",
+  "title": "Уникальный звук уведомления о срочных новостях изменили — сигнал перестал выделяться",
+  "obs": 1
+ }
+]

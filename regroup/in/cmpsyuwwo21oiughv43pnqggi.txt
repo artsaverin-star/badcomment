@@ -1,0 +1,434 @@
+You are grouping 77 mechanism-level insight clusters from Lifesum: AI Calorie Counter (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Lifesum: AI Calorie Counter, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 77 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Lifesum: AI Calorie Counter — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Lifesum: AI Calorie Counter>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyuwwo21oiughv43pnqggi.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "data-not-persisting",
+  "title": "Логированные приёмы пищи исчезают или не сохраняются, теряются целые недели и годы истории",
+  "obs": 23
+ },
+ {
+  "id": "auto-logout-every-open",
+  "title": "Приложение разлогинивает пользователя при каждом открытии и требует ежедневной переавторизации",
+  "obs": 10
+ },
+ {
+  "id": "ai-wrong-calories",
+  "title": "ИИ-расчёт калорий завышает значения в десятки и сотни раз даже для простых продуктов",
+  "obs": 9
+ },
+ {
+  "id": "freeze-on-startup",
+  "title": "Приложение зависает при запуске и требует ожидания или многократной переоткрытия",
+  "obs": 9
+ },
+ {
+  "id": "ai-replaced-search",
+  "title": "Надёжный быстрый поиск заменили на ненадёжный ИИ-чат, и вернуться к нему нельзя",
+  "obs": 8
+ },
+ {
+  "id": "barcode-scan-wrong",
+  "title": "Сканер штрих-кодов возвращает завышенные или чужие данные, не совпадающие с упаковкой",
+  "obs": 6
+ },
+ {
+  "id": "premium-buggier-than-free",
+  "title": "Платная версия работает хуже бесплатной — кнопки не реагируют, данные пропадают",
+  "obs": 6
+ },
+ {
+  "id": "macro-edit-paywalled",
+  "title": "Редактирование макронутриентов и калорийной цели заблокировано за платной подпиской",
+  "obs": 5
+ },
+ {
+  "id": "ai-overrides-input",
+  "title": "ИИ переопределяет введённые пользователем значения и игнорирует точные данные",
+  "obs": 5
+ },
+ {
+  "id": "database-inflated-nutrition",
+  "title": "База данных продуктов содержит систематически завышенную и неверную питательную информацию",
+  "obs": 5
+ },
+ {
+  "id": "ai-accuracy-dropped",
+  "title": "Внедрение ИИ резко снизило точность логирования по сравнению с прежней базой",
+  "obs": 5
+ },
+ {
+  "id": "timezone-miscalibrated",
+  "title": "Часовой пояс не калибруется — коучинг и время приёмов пищи сдвинуты на несколько часов",
+  "obs": 5
+ },
+ {
+  "id": "cant-edit-logged-items",
+  "title": "Чтобы исправить уже введённый продукт его приходится удалять и вводить заново",
+  "obs": 5
+ },
+ {
+  "id": "no-favorites-reuse",
+  "title": "Нет избранного и быстрого повторного добавления часто логируемых блюд",
+  "obs": 5
+ },
+ {
+  "id": "subscription-popups",
+  "title": "Всплывающие окна подписки появляются при каждом открытии и блокируют логирование еды",
+  "obs": 5
+ },
+ {
+  "id": "app-crashes",
+  "title": "Приложение крашится и нестабильно работает, блокируя логирование еды",
+  "obs": 4
+ },
+ {
+  "id": "multi-ingredient-broken",
+  "title": "Добавление нескольких ингредиентов в один приём пищи сохраняет только один элемент",
+  "obs": 4
+ },
+ {
+  "id": "meal-category-reset",
+  "title": "При добавлении еды приложение само переопределяет выбранный тип приёма пищи",
+  "obs": 4
+ },
+ {
+  "id": "buttons-hidden-offscreen",
+  "title": "Кнопки управления и навигации обрезаны краем экрана или закрыты системными элементами",
+  "obs": 4
+ },
+ {
+  "id": "photo-ai-inaccurate",
+  "title": "Распознавание блюда по фотографии даёт неверные калории и макронутриенты",
+  "obs": 3
+ },
+ {
+  "id": "ai-crashes-app",
+  "title": "ИИ-функции вешают и роняют приложение, делая его менее надёжным",
+  "obs": 3
+ },
+ {
+  "id": "calorie-values-change-silently",
+  "title": "Приложение само меняет установленную калорийную цель и записанные калории без разрешения",
+  "obs": 3
+ },
+ {
+  "id": "search-inconsistent-results",
+  "title": "Один и тот же поисковый запрос каждый раз возвращает разные результаты и калории",
+  "obs": 3
+ },
+ {
+  "id": "limited-units",
+  "title": "Выбор единиц измерения ограничен — нет чашек и штук, в большинстве случаев только унции",
+  "obs": 3
+ },
+ {
+  "id": "autocomplete-glitchy-font",
+  "title": "Автозаполнение мешает вводу, а его подсказки отображаются искажённым нечитаемым шрифтом",
+  "obs": 3
+ },
+ {
+  "id": "fasting-feature-removed",
+  "title": "Удалили отслеживание прерывистого голодания, которым пользовались ежедневно, потеряв многодневные серии",
+  "obs": 3
+ },
+ {
+  "id": "paid-features-locked-out",
+  "title": "После оплаты премиум-функции перестают работать и пользователя отрезают от того, за что он заплатил",
+  "obs": 2
+ },
+ {
+  "id": "ai-hallucinates-ingredients",
+  "title": "ИИ придумывает несуществующие ингредиенты, которых нет в блюде или на фото",
+  "obs": 2
+ },
+ {
+  "id": "ai-no-correction-memory",
+  "title": "Приложение не запоминает внесённые пользователем исправления и одни и те же продукты приходится править снова",
+  "obs": 2
+ },
+ {
+  "id": "default-serving-wrong",
+  "title": "Стандартные размеры порций в базе абсурдно малы или велики",
+  "obs": 2
+ },
+ {
+  "id": "voice-input-time-limit",
+  "title": "Голосовой ввод обрывается примерно через 15 секунд — этого мало чтобы описать весь приём пищи",
+  "obs": 2
+ },
+ {
+  "id": "relog-multiple-times",
+  "title": "Один и тот же приём пищи приходится логировать по несколько раз чтобы он сохранился",
+  "obs": 2
+ },
+ {
+  "id": "update-broke-app",
+  "title": "Последнее обновление полностью сломало приложение — интерфейс не отвечает на касания",
+  "obs": 2
+ },
+ {
+  "id": "totals-not-realtime",
+  "title": "Дневные итоги не обновляются в реальном времени — нужно перезапускать приложение чтобы увидеть данные",
+  "obs": 2
+ },
+ {
+  "id": "decimal-input-broken",
+  "title": "Ввод дробных порций перестал работать после обновления",
+  "obs": 2
+ },
+ {
+  "id": "search-precision-sensitive",
+  "title": "Поиск ломается от малейшей опечатки или пропуска апострофа",
+  "obs": 2
+ },
+ {
+  "id": "reuse-tied-to-meal-type",
+  "title": "Повторное использование еды привязано к типу приёма — нельзя быстро добавить завтрак на ужин",
+  "obs": 2
+ },
+ {
+  "id": "reuse-wrong-portion",
+  "title": "Повторно используемые блюда подставляют обобщённые размеры порций вместо ранее введённых",
+  "obs": 2
+ },
+ {
+  "id": "too-many-clicks",
+  "title": "Логирование еды требует лишних кликов и стало менее гибким",
+  "obs": 2
+ },
+ {
+  "id": "no-trial-pay-first",
+  "title": "Приложение требует оплатить подписку до того, как даст попробовать функции",
+  "obs": 1
+ },
+ {
+  "id": "double-charge",
+  "title": "Приложение списало две подписки сразу — годовую и месячную без разрешения пользователя",
+  "obs": 1
+ },
+ {
+  "id": "cancel-ignored-recharge",
+  "title": "Подписку не отменяют по просьбе пользователя и списывают платёж снова через год",
+  "obs": 1
+ },
+ {
+  "id": "ai-replaced-database",
+  "title": "ИИ-распознавание полностью заменило проверенную базу данных продуктов",
+  "obs": 1
+ },
+ {
+  "id": "restaurant-data-wrong",
+  "title": "Питательные данные блюд из сетевых ресторанов расходятся с официальной информацией",
+  "obs": 1
+ },
+ {
+  "id": "food-rating-illogical",
+  "title": "Система оценки полезности продуктов работает нелогично — здоровая еда получает низкий рейтинг из-за натурального сахара",
+  "obs": 1
+ },
+ {
+  "id": "recipes-no-portions",
+  "title": "Рецепты не содержат рекомендуемых размеров порций для контроля веса",
+  "obs": 1
+ },
+ {
+  "id": "ai-not-saving-log",
+  "title": "После добавления еды через ИИ калории не переносятся в дневник и не отображаются в итоге",
+  "obs": 1
+ },
+ {
+  "id": "calorie-mismatch-detail-total",
+  "title": "Калории блюда в детали и в дневном итоге не совпадают",
+  "obs": 1
+ },
+ {
+  "id": "zero-calorie-display",
+  "title": "Логирование иногда показывает 0 калорий вместо правильного значения",
+  "obs": 1
+ },
+ {
+  "id": "unit-change-not-saved",
+  "title": "Смена единиц измерения с граммов на унции не сохраняется",
+  "obs": 1
+ },
+ {
+  "id": "no-past-day-logging",
+  "title": "Приложение сбрасывает дату на сегодня и не даёт залогировать приём пищи за прошлый день",
+  "obs": 1
+ },
+ {
+  "id": "search-slow-empty",
+  "title": "Поиск возвращает пустые результаты с задержкой — производительность поиска деградировала",
+  "obs": 1
+ },
+ {
+  "id": "watch-needs-phone-app",
+  "title": "Apple Watch не синхронизирует данные с Apple Health без установленного приложения на телефоне",
+  "obs": 1
+ },
+ {
+  "id": "search-irrelevant-results",
+  "title": "Поиск выдаёт нерелевантные результаты — на запрос здоровых продуктов показывает сладости и выпечку",
+  "obs": 1
+ },
+ {
+  "id": "search-loses-state",
+  "title": "Поиск требует повторять запрос заново при каждом возврате из карточки продукта",
+  "obs": 1
+ },
+ {
+  "id": "copy-whole-meal-broken",
+  "title": "Функция «как вчера» копирует только одну позицию, а не весь приём пищи целиком",
+  "obs": 1
+ },
+ {
+  "id": "find-past-meals-hard",
+  "title": "Поиск и повторное использование прошлых приёмов пищи в истории затруднены",
+  "obs": 1
+ },
+ {
+  "id": "portion-size-hard-to-enter",
+  "title": "Удобного способа задать размер порции нет, а ввод дробных значений сбивает с толку",
+  "obs": 1
+ },
+ {
+  "id": "ai-groups-items-randomly",
+  "title": "ИИ сам решает объединять или разделять позиции в приёме пищи, пользователь не контролирует структуру",
+  "obs": 1
+ },
+ {
+  "id": "no-meal-time-edit",
+  "title": "Нет очевидного способа изменить время уже залогированного приёма пищи",
+  "obs": 1
+ },
+ {
+  "id": "subtotal-hidden-while-adding",
+  "title": "При составлении приёма пищи не видны промежуточные итоги калорий",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-paywall-first",
+  "title": "Предложение купить подписку показывают до ввода данных о себе",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-continue-broken",
+  "title": "Кнопка «продолжить» на финальном шаге онбординга не реагирует и не даёт завершить регистрацию",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-rejects-valid-data",
+  "title": "Онбординг отклоняет нормальные рост и вес как неправильные и просит ввести заново",
+  "obs": 1
+ },
+ {
+  "id": "long-form-loses-progress",
+  "title": "Длинная анкета на 40+ вопросов не завершается и стирает введённый прогресс",
+  "obs": 1
+ },
+ {
+  "id": "ui-obfuscated",
+  "title": "Удобные функции скрыли или удалили, интерфейс намеренно усложнили",
+  "obs": 1
+ },
+ {
+  "id": "no-spellcheck",
+  "title": "Проверку орфографии при вводе названий еды убрали",
+  "obs": 1
+ },
+ {
+  "id": "no-long-term-reports",
+  "title": "Нет долгосрочных отчётов по профициту и дефициту калорий — только дневные итоги",
+  "obs": 1
+ },
+ {
+  "id": "no-history-export",
+  "title": "История доступна лишь за несколько недель назад и её нельзя выгрузить для анализа",
+  "obs": 1
+ },
+ {
+  "id": "weight-tracking-hard",
+  "title": "Добавить и отследить свой вес в приложении трудно",
+  "obs": 1
+ },
+ {
+  "id": "water-fixed-sizes",
+  "title": "Отслеживание воды даёт только два предустановленных размера без своего объёма бутылки",
+  "obs": 1
+ },
+ {
+  "id": "no-disable-ai",
+  "title": "ИИ навязан как основной интерфейс без возможности отключить его и вернуться к обычному поиску",
+  "obs": 1
+ },
+ {
+  "id": "meal-sharing-removed",
+  "title": "Удалили популярную функцию обмена приёмами пищи между пользователями",
+  "obs": 1
+ },
+ {
+  "id": "photo-feature-removed-after-pay",
+  "title": "Главную функцию распознавания блюд по фото убрали после того как пользователь за неё заплатил",
+  "obs": 1
+ },
+ {
+  "id": "diabetic-insulin-risk",
+  "title": "Завышенные на 10-30% данные об углеводах опасны для диабетиков, рассчитывающих дозу инсулина",
+  "obs": 1
+ },
+ {
+  "id": "verify-defeats-purpose",
+  "title": "Постоянная проверка и ручное исправление неточных оценок сводит на нет экономию времени",
+  "obs": 1
+ },
+ {
+  "id": "meal-plan-test-crashes",
+  "title": "Тест для составления плана питания крашится, и поддержка не может помочь",
+  "obs": 1
+ }
+]

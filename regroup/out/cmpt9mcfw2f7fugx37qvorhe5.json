@@ -1,0 +1,77 @@
+{
+  "groups": [
+    {
+      "id": "mic-ne-slyshit",
+      "name": "Микрофон, который не слышит: разговорный тренажёр, на котором всё держится",
+      "insight_ids": [
+        "speech-recognition-broken",
+        "speech-recognition-nondeterministic",
+        "speech-recognition-pause-after-beep",
+        "speech-recognition-headphones",
+        "speech-recognition-rejects-early",
+        "mic-falsely-flagged-bad",
+        "mic-freezes-needs-restart",
+        "no-sound-playback"
+      ]
+    },
+    {
+      "id": "ugadai-po-kartinke",
+      "name": "Учёба по картинкам без перевода: угадай значение сам",
+      "insight_ids": [
+        "image-only-no-translation",
+        "images-too-small",
+        "ambiguous-images-confuse-meaning",
+        "translation-toggle-hard",
+        "translation-hidden-button",
+        "translation-errors-incomplete",
+        "text-hidden-by-image",
+        "cannot-select-images"
+      ]
+    },
+    {
+      "id": "vechnyi-dostup-isparilsya",
+      "name": "Вечный доступ, который испарился: оплатил — и потерял",
+      "insight_ids": [
+        "lifetime-access-revoked-new-app",
+        "reinstall-requires-repurchase",
+        "switch-language-needs-new-account",
+        "trial-too-limited-to-evaluate"
+      ]
+    },
+    {
+      "id": "ekran-zhivet-svoey-zhiznyu",
+      "name": "Экран живёт своей жизнью: перевороты, обрезанные поля, прыжки",
+      "insight_ids": [
+        "ipad-orientation-bugs",
+        "landscape-orientation-broken",
+        "forced-orientation-iphone",
+        "ipad-layout-cut-off",
+        "ui-jumps-exits-screen",
+        "navigation-opens-wrong-lesson"
+      ]
+    },
+    {
+      "id": "progress-vozvrashaetsya-k-nulyu",
+      "name": "Прогресс возвращается к нулю: сбросы, рассинхрон, повтор пройденного",
+      "insight_ids": [
+        "progress-resets-to-first-lesson",
+        "progress-sync-broken",
+        "offline-mode-unreliable",
+        "settings-reset-on-close"
+      ]
+    },
+    {
+      "id": "temp-bez-stop-krana",
+      "name": "Темп без стоп-крана: ни паузы, ни шага назад, ни подсказки",
+      "insight_ids": [
+        "playback-buttons-too-small",
+        "no-back-button-restart-lesson",
+        "pause-button-pacing",
+        "unclear-instructions",
+        "slow-animations",
+        "lag-on-expensive-devices",
+        "feedback-form-broken"
+      ]
+    }
+  ]
+}

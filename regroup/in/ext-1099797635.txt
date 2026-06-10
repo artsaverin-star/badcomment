@@ -1,0 +1,124 @@
+You are grouping 15 mechanism-level insight clusters from Radarbot: Speed Cameras | GPS (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Radarbot: Speed Cameras | GPS, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 15 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Radarbot: Speed Cameras | GPS — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Radarbot: Speed Cameras | GPS>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1099797635.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "carplay-paid-subscription",
+  "title": "CarPlay требует отдельной платной подписки сверх основной",
+  "obs": 2
+ },
+ {
+  "id": "mobile-camera-data-outdated",
+  "title": "Координаты мобильных камер устаревают и не обновляются вовремя",
+  "obs": 2
+ },
+ {
+  "id": "incomplete-camera-database",
+  "title": "База данных не охватывает все камеры на маршруте",
+  "obs": 2
+ },
+ {
+  "id": "voice-alert-broken",
+  "title": "Голосовые оповещения о превышении скорости не воспроизводятся",
+  "obs": 2
+ },
+ {
+  "id": "better-detection-than-competitors",
+  "title": "Стационарные камеры обнаруживаются надёжнее, чем в конкурентных приложениях",
+  "obs": 2
+ },
+ {
+  "id": "no-coverage-in-region",
+  "title": "В отдельных странах база камер отсутствует или не заполнена",
+  "obs": 1
+ },
+ {
+  "id": "voice-alerts-english-only",
+  "title": "Голосовые предупреждения доступны только на английском языке",
+  "obs": 1
+ },
+ {
+  "id": "user-added-cameras-deleted",
+  "title": "Камеры, добавленные пользователем, удаляются через час без объяснений",
+  "obs": 1
+ },
+ {
+  "id": "voice-alert-volume-low",
+  "title": "Голосовое оповещение слишком тихое даже на максимальной громкости",
+  "obs": 1
+ },
+ {
+  "id": "alert-distance-by-vehicle-type",
+  "title": "Дистанция срабатывания предупреждения настраивается по типу транспорта",
+  "obs": 1
+ },
+ {
+  "id": "carplay-navigation-limited",
+  "title": "CarPlay не позволяет полноценно отслеживать маршрут во время навигации",
+  "obs": 1
+ },
+ {
+  "id": "no-highway-alert-disable",
+  "title": "Нельзя отключить предупреждения на автомагистралях через интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "no-speed-history",
+  "title": "Приложение не ведёт историю скорости пользователя для анализа вождения",
+  "obs": 1
+ },
+ {
+  "id": "time-format-locked-24h",
+  "title": "Формат времени принудительно переключён на 24-часовой без возможности смены",
+  "obs": 1
+ },
+ {
+  "id": "no-realtime-police-data",
+  "title": "Нет данных о полиции в реальном времени — пользователи переходят к конкурентам",
+  "obs": 1
+ }
+]

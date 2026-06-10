@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from myQ Garage & Access Control (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO myQ Garage & Access Control, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to myQ Garage & Access Control — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to myQ Garage & Access Control>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstesdm0zpmug8pew9mx9cq.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "camera-fullscreen-removed",
+  "title": "Функция полноэкранного просмотра камеры удалена в майском обновлении",
+  "obs": 10
+ },
+ {
+  "id": "camera-zoom-removed",
+  "title": "Функция масштабирования видео камеры удалена в обновлении",
+  "obs": 9
+ },
+ {
+  "id": "camera-audio-removed-may",
+  "title": "Двусторонняя аудиосвязь через камеру удалена в майском обновлении",
+  "obs": 6
+ },
+ {
+  "id": "button-stuck-loading",
+  "title": "Кнопка управления зависает в состоянии загрузки после команды и не реагирует без перезапуска",
+  "obs": 5
+ },
+ {
+  "id": "apple-watch-reauth-every-update",
+  "title": "Каждое обновление приложения сбрасывает авторизацию Apple Watch и требует повторной настройки",
+  "obs": 5
+ },
+ {
+  "id": "slow-app-load",
+  "title": "Приложение загружается 10–30+ секунд — медленнее физического пульта управления",
+  "obs": 4
+ },
+ {
+  "id": "camera-feed-remote-fails",
+  "title": "Видеопоток камеры работает дома, но зависает при удалённом доступе",
+  "obs": 4
+ },
+ {
+  "id": "sms-verification-delayed",
+  "title": "Коды подтверждения по SMS доставляются с задержкой 12–24 часа или не доставляются вовсе",
+  "obs": 4
+ },
+ {
+  "id": "ads-on-main-screen",
+  "title": "Реклама отображается на главном экране рядом с кнопкой управления гаражом при каждом запуске",
+  "obs": 3
+ },
+ {
+  "id": "schedule-ui-complex",
+  "title": "Интерфейс расписания требует многих нажатий и не позволяет создать новое закрытие поверх существующего",
+  "obs": 3
+ },
+ {
+  "id": "excessive-motion-alerts",
+  "title": "Приложение генерирует слишком много уведомлений об обнаружении движения и людей несмотря на настройку зон",
+  "obs": 3
+ },
+ {
+  "id": "button-no-response",
+  "title": "Нажатие кнопки открытия или закрытия гаража не регистрируется с первого раза",
+  "obs": 3
+ },
+ {
+  "id": "general-instability-after-update",
+  "title": "Каждое обновление переводит приложение из рабочего состояния в нерабочее",
+  "obs": 3
+ },
+ {
+  "id": "video-history-disappeared",
+  "title": "История видеозаписей исчезла после обновления приложения",
+  "obs": 3
+ },
+ {
+  "id": "wifi-setup-fails",
+  "title": "Первоначальное подключение к Wi-Fi через приложение не работает и требует самостоятельного поиска инструкций",
+  "obs": 3
+ },
+ {
+  "id": "session-logout-unexpected",
+  "title": "Приложение самопроизвольно деавторизует пользователя, лишая удалённого доступа к дому",
+  "obs": 3
+ },
+ {
+  "id": "login-blank-screen",
+  "title": "При входе или регистрации приложение показывает пустой экран без загрузки",
+  "obs": 3
+ },
+ {
+  "id": "notification-page-broken",
+  "title": "Страница управления уведомлениями не реагирует на нажатия и недоступна для редактирования",
+  "obs": 2
+ },
+ {
+  "id": "no-widget-shortcut",
+  "title": "Нет виджета или ярлыка iOS для прямого открытия гаража — приложение нужно запускать каждый раз",
+  "obs": 2
+ },
+ {
+  "id": "carplay-removed",
+  "title": "Поддержка CarPlay удалена в обновлении",
+  "obs": 2
+ },
+ {
+  "id": "face-id-forced",
+  "title": "Приложение принудительно требует распознавания лица даже при отключённом параметре в настройках",
+  "obs": 2
+ },
+ {
+  "id": "device-shows-offline",
+  "title": "Устройства постоянно отображаются как offline несмотря на наличие подключения",
+  "obs": 2
+ },
+ {
+  "id": "wifi-reconnect-after-change",
+  "title": "После смены маршрутизатора или пароля Wi-Fi устройства не могут переподключиться",
+  "obs": 2
+ },
+ {
+  "id": "power-outage-repairing",
+  "title": "После перебоя электроэнергии устройство теряет связь и требует повторного спаривания",
+  "obs": 2
+ },
+ {
+  "id": "no-offline-access",
+  "title": "При отсутствии интернета управление гаражом полностью недоступно через приложение",
+  "obs": 2
+ },
+ {
+  "id": "apple-watch-requires-phone",
+  "title": "Приложение Apple Watch работает только с телефоном рядом и требует длительного подключения перед использованием",
+  "obs": 2
+ },
+ {
+  "id": "subscription-upsell-pressure",
+  "title": "Приложение агрессивно предлагает платную подписку при каждом использовании",
+  "obs": 1
+ },
+ {
+  "id": "auto-trial-signup",
+  "title": "Приложение автоматически подписывает на пробный период без явного согласия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "refund-denial",
+  "title": "Компания отказывает в возврате денег за период, когда сервис не работал",
+  "obs": 1
+ },
+ {
+  "id": "auto-close-paywalled",
+  "title": "Базовая функция автоматического закрытия гаража перенесена за платный барьер",
+  "obs": 1
+ },
+ {
+  "id": "camera-audio-paywalled",
+  "title": "Микрофон и динамик камеры, входившие в комплект, теперь доступны только по подписке",
+  "obs": 1
+ },
+ {
+  "id": "smarthome-integration-paywalled",
+  "title": "Интеграция с умным домом переведена в платную подписку, ранее работавший мост удалён",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-blocks-access",
+  "title": "Запрос на написание отзыва требует четыре нажатия «не сейчас» перед доступом к управлению",
+  "obs": 1
+ },
+ {
+  "id": "detection-zone-ipad-layout-broken",
+  "title": "На iPad поле создания зон обнаружения сжато в углу экрана",
+  "obs": 1
+ },
+ {
+  "id": "homekit-api-removed",
+  "title": "Поддержка HomeKit и API для разработчиков удалена, управление через Siri больше невозможно",
+  "obs": 1
+ },
+ {
+  "id": "voiceover-unusable",
+  "title": "Приложение полностью недоступно при включённом VoiceOver — невозможно пройти экран лицензионного соглашения",
+  "obs": 1
+ },
+ {
+  "id": "wrong-alert-direction",
+  "title": "Приложение оповещает когда гараж закрыт, но не оповещает когда гараж долго остаётся открытым",
+  "obs": 1
+ },
+ {
+  "id": "open-door-alert-removed",
+  "title": "Уведомление «дверь открыта» удалено в обновлении",
+  "obs": 1
+ },
+ {
+  "id": "app-crash-on-video-menu",
+  "title": "Приложение аварийно завершается при нажатии на меню видео-миниатюры",
+  "obs": 1
+ },
+ {
+  "id": "update-loop-error",
+  "title": "Обновление приложения зависает с ошибкой «попробуйте позже» в бесконечном цикле",
+  "obs": 1
+ },
+ {
+  "id": "wrong-door-status",
+  "title": "Приложение показывает ложный статус двери — закрытой когда открыта, и не сообщает об отсутствии соединения",
+  "obs": 1
+ },
+ {
+  "id": "notifications-broken-after-ios-update",
+  "title": "После обновления iOS уведомления перестают работать, но реклама продолжает показываться",
+  "obs": 1
+ },
+ {
+  "id": "hub-battery-false-low",
+  "title": "Хаб сообщает о разряженной батарее после установки новых элементов питания",
+  "obs": 1
+ },
+ {
+  "id": "schedule-beeps-noisy",
+  "title": "Расписание автоматического закрытия гаража сопровождается 60 звуковыми сигналами",
+  "obs": 1
+ },
+ {
+  "id": "hub-reinstall-complex",
+  "title": "Удаление и повторная установка хаба требует сложных ручных операций",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-no-quick-action",
+  "title": "На Apple Watch нет возможности добавить быстрое действие из осложнения — нужно запускать полное приложение",
+  "obs": 1
+ },
+ {
+  "id": "cloud-lockout",
+  "title": "Облачный провайдер может заблокировать пользователю доступ к его собственному гаражу",
+  "obs": 1
+ },
+ {
+  "id": "guest-access-revoked",
+  "title": "Гостевой доступ к гаражу случайно отзывается без действий пользователя",
+  "obs": 1
+ },
+ {
+  "id": "support-unhelpful-wifi",
+  "title": "Служба поддержки не может помочь с подключением Wi-Fi даже после нескольких обращений",
+  "obs": 1
+ },
+ {
+  "id": "privacy-tracking-default-on",
+  "title": "Отслеживание пользователя и максимальный сбор данных включены по умолчанию без явного согласия",
+  "obs": 1
+ }
+]

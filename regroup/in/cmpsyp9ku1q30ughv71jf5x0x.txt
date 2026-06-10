@@ -1,0 +1,259 @@
+You are grouping 42 mechanism-level insight clusters from Star Walk 2 Plus: Live Sky Map (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Star Walk 2 Plus: Live Sky Map, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 42 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Star Walk 2 Plus: Live Sky Map — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Star Walk 2 Plus: Live Sky Map>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyp9ku1q30ughv71jf5x0x.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ads-excessive-frequency",
+  "title": "Объявления показываются каждые несколько секунд или каждые 2-3 минуты, делая приложение непригодным для использования",
+  "obs": 5
+ },
+ {
+  "id": "compass-azimuth-wrong",
+  "title": "Приложение систематически показывает неправильный азимут объектов — луна и созвездия отображаются на 10-30 градусов в сторону от реального положения",
+  "obs": 5
+ },
+ {
+  "id": "comet-paywalled-bait",
+  "title": "Приложение анонсирует показ кометы, но реальные координаты закрыты платной подпиской — это воспринимается как обман при скачивании",
+  "obs": 3
+ },
+ {
+  "id": "ads-on-first-launch-block-eval",
+  "title": "При первом запуске приложение показывает десятки длинных объявлений до того, как пользователь может что-либо оценить",
+  "obs": 3
+ },
+ {
+  "id": "trial-charges-full-immediately",
+  "title": "Триал за $0.99 в месяц сразу списывает полную годовую стоимость вместо суммы через 7 дней",
+  "obs": 2
+ },
+ {
+  "id": "hidden-subscription-free-label",
+  "title": "Приложение позиционируется как бесплатное, но после установки начинает взимать ежемесячную плату без предупреждения",
+  "obs": 2
+ },
+ {
+  "id": "lifetime-broken-by-update",
+  "title": "После обновления в ранее полностью купленном приложении появляются объявления и убирается контент, нарушая договор о lifetime-покупке",
+  "obs": 2
+ },
+ {
+  "id": "every-tap-redirects-to-purchase",
+  "title": "Каждый переход в интерфейсе ведёт на страницу покупки, невозможно просто посмотреть информацию о текущей ночи",
+  "obs": 2
+ },
+ {
+  "id": "comet-location-wrong",
+  "title": "При поиске кометы приложение указывает на точку в 30 градусов от истинного местоположения, тогда как конкуренты показывают точно",
+  "obs": 2
+ },
+ {
+  "id": "notification-shows-already-seen",
+  "title": "Приложение отправляет пуш-уведомления о новостях, которые пользователь уже видел, в том числе годовалые материалы",
+  "obs": 2
+ },
+ {
+  "id": "subscription-cancel-hidden",
+  "title": "Кнопка отмены подписки скрыта в приложении и не появляется в стандартном меню Apple",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-double-charge",
+  "title": "Переход на lifetime-подписку приводит к двойному списанию за оригинальную подписку и апгрейд",
+  "obs": 1
+ },
+ {
+  "id": "price-mismatch-purchase",
+  "title": "Одноразовая покупка выставляется по цене в 3,5 раза выше заявленной",
+  "obs": 1
+ },
+ {
+  "id": "feature-moved-to-paid-app",
+  "title": "Функция отслеживания движения объектов во времени удалена из купленной версии и перемещена в отдельное платное приложение",
+  "obs": 1
+ },
+ {
+  "id": "event-notification-requires-extra-purchase",
+  "title": "После одноразовой покупки уведомления о небесных событиях открываются, но просмотр самого события требует дополнительной оплаты",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-purchase-mismatch",
+  "title": "Приложение куплено дважды в расчёте на работу с Apple Watch, но заявленный функционал отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "autoplay-music-no-mute",
+  "title": "При первом запуске приложение автоматически воспроизводит фоновую музыку без видимой кнопки отключения звука",
+  "obs": 1
+ },
+ {
+  "id": "zoom-position-reset",
+  "title": "При уменьшении масштаба приложение автоматически возвращается в исходное состояние, не давая удержать нужный вид",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-info-overload",
+  "title": "Приложение перегружает новичков интерфейсными опциями и отправляет по 3-4 уведомления в день о тривиальных событиях",
+  "obs": 1
+ },
+ {
+  "id": "mode-switch-fixed-live",
+  "title": "Сложно переключаться между фиксированным небом и режимом реального времени — кнопка перехода неочевидна",
+  "obs": 1
+ },
+ {
+  "id": "time-scroll-hard-to-control",
+  "title": "Скролл для изменения времени на правой стороне экрана трудно контролировать даже при высокой скорости",
+  "obs": 1
+ },
+ {
+  "id": "sunrise-direction-wrong",
+  "title": "Приложение показывает направление восхода солнца на северо-запад вместо правильного направления",
+  "obs": 1
+ },
+ {
+  "id": "moon-opposite-sky",
+  "title": "Приложение показывает луну в противоположной стороне неба от её реального положения",
+  "obs": 1
+ },
+ {
+  "id": "ar-phone-direction-ignored",
+  "title": "В режиме AR приложение не учитывает ориентацию телефона — звёзды не совпадают с направлением, куда указывает устройство",
+  "obs": 1
+ },
+ {
+  "id": "compass-airplane-mode-broken",
+  "title": "В режиме полёта компас не калибруется и показывает север как запад",
+  "obs": 1
+ },
+ {
+  "id": "compass-button-broken-iphone",
+  "title": "На iPhone 12 кнопка компаса не реагирует на нажатие, несмотря на правильные настройки геолокации",
+  "obs": 1
+ },
+ {
+  "id": "compass-manual-recalibration",
+  "title": "Кардинальные направления периодически сбиваются, и пользователи вынуждены вручную калибровать, направляя телефон вниз",
+  "obs": 1
+ },
+ {
+  "id": "accuracy-regression-after-update",
+  "title": "После обновления точность позиционирования упала, интерфейс усложнился, фоновая музыка исчезла",
+  "obs": 1
+ },
+ {
+  "id": "slow-startup-sky-scan",
+  "title": "При включении приложению требуется 5-10 минут на сканирование неба, что исключает быстрый поиск объектов",
+  "obs": 1
+ },
+ {
+  "id": "widget-removed",
+  "title": "Виджет приложения удалён в новой версии, хотя был любимой функцией пользователей",
+  "obs": 1
+ },
+ {
+  "id": "ar-mode-removed",
+  "title": "В новой версии удалён режим AR — телефон больше нельзя направить на небо и увидеть звёзды в этом направлении",
+  "obs": 1
+ },
+ {
+  "id": "notification-click-no-content",
+  "title": "Нажатие на уведомление открывает экран с картинкой и музыкой, но без информации о самом событии",
+  "obs": 1
+ },
+ {
+  "id": "notifications-persist-after-disable",
+  "title": "После отключения всех уведомлений и звуков в настройках приложение продолжает отправлять пуш-уведомления со звуком",
+  "obs": 1
+ },
+ {
+  "id": "no-aurora-notification",
+  "title": "Приложение не уведомляет о северном сиянии, хотя пользователь платит подписку за уведомления о небесных событиях",
+  "obs": 1
+ },
+ {
+  "id": "junk-notifications-miss-rare-events",
+  "title": "Приложение заполняет уведомления незначительными событиями, но пропускает редкие важные — северное сияние и кометы",
+  "obs": 1
+ },
+ {
+  "id": "incomplete-nightly-sky-coverage",
+  "title": "Приложение сообщает только о нескольких планетах и луне, пропуская многие ежедневные события ночного неба",
+  "obs": 1
+ },
+ {
+  "id": "wrong-star-name",
+  "title": "Звезда в созвездии Офиуха неправильно названа — ошибка повторяется и в других приложениях того же разработчика",
+  "obs": 1
+ },
+ {
+  "id": "missing-catalog-objects",
+  "title": "Каталог Caldwell и база NGC неполны — отдельные объекты, например двойное скопление, отсутствуют",
+  "obs": 1
+ },
+ {
+  "id": "outdated-quiz-facts",
+  "title": "Викторины содержат устаревшие факты — например, о количестве лун Сатурна и Юпитера, не обновлённые после новых открытий",
+  "obs": 1
+ },
+ {
+  "id": "time-travel-limit",
+  "title": "Функция путешествия во времени ограничена 1000 годом до н.э. — пользователи просят расширить до 3000 лет до н.э.",
+  "obs": 1
+ },
+ {
+  "id": "data-consent-prechecked",
+  "title": "Согласие на передачу данных сотням партнёров выставлено по умолчанию как «да» — даже для платных пользователей, купивших отсутствие рекламы",
+  "obs": 1
+ },
+ {
+  "id": "plus-version-adds-instability",
+  "title": "Версия Plus как отдельное приложение добавляет объявления и вызывает задержки и нестабильность, которых нет в оригинальном Star Walk",
+  "obs": 1
+ }
+]

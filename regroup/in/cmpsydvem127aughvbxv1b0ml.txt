@@ -1,0 +1,114 @@
+You are grouping 13 mechanism-level insight clusters from Body Tune - Face Photo Editor (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Body Tune - Face Photo Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 13 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Body Tune - Face Photo Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Body Tune - Face Photo Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsydvem127aughvbxv1b0ml.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-opaque-end-charge",
+  "title": "Бесплатный пробный период устроен непрозрачно и в конце неожиданно списывает деньги",
+  "obs": 2
+ },
+ {
+  "id": "cancel-trial-still-charged",
+  "title": "Отмена подписки сразу после регистрации не останавливает списания — деньги продолжают уходить даже после удаления приложения",
+  "obs": 2
+ },
+ {
+  "id": "core-editing-paywalled",
+  "title": "Базовые инструменты редактирования закрыты подпиской — в бесплатной версии почти ничего не работает",
+  "obs": 2
+ },
+ {
+  "id": "trial-charges-full-at-signup",
+  "title": "Кнопка пробного периода сразу при регистрации списывает полную стоимость подписки, а не в конце триала",
+  "obs": 1
+ },
+ {
+  "id": "daily-repeated-charges",
+  "title": "После активации подписки приложение списывает деньги каждый день, а не раз за период оплаты",
+  "obs": 1
+ },
+ {
+  "id": "unauthorized-charge-no-support",
+  "title": "Приложение списывает деньги по неавторизованному плану, игнорирует отмену и не отвечает на обращения по спорным платежам",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-on-first-launch",
+  "title": "Приложение просит оставить отзыв на первом запуске, ещё до того как пользователь хоть что-то попробовал",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-traps-user",
+  "title": "Экран запроса отзыва не закрывается — кнопка X только меняет вид, но не отпускает, вынуждая оставить отзыв",
+  "obs": 1
+ },
+ {
+  "id": "stuck-on-photo-select",
+  "title": "Приложение зависает на экране выбора фото из галереи и не переходит к редактированию",
+  "obs": 1
+ },
+ {
+  "id": "videos-not-loaded-from-gallery",
+  "title": "Видео из галереи не отображаются для редактирования — приложение их не подгружает",
+  "obs": 1
+ },
+ {
+  "id": "only-one-photo-per-session",
+  "title": "Приложение редактирует только одно фото за сессию и отказывается обрабатывать второе",
+  "obs": 1
+ },
+ {
+  "id": "no-watermark-differentiator",
+  "title": "В отличие от конкурентов приложение сохраняет фото без водяного знака даже в бесплатном режиме",
+  "obs": 1
+ },
+ {
+  "id": "missing-arm-hand-editing",
+  "title": "Нет инструмента для редактирования рук на фото — нельзя поправить эту часть тела",
+  "obs": 1
+ }
+]

@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from Merlin Bird ID by Cornell Lab (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Merlin Bird ID by Cornell Lab, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Merlin Bird ID by Cornell Lab — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Merlin Bird ID by Cornell Lab>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-773457673.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "autosave-removed",
+  "title": "Обновление молча убрало автосохранение записей — пользователи теряют часы уникальных звуков, не зная о смене поведения",
+  "obs": 22
+ },
+ {
+  "id": "auth-barrier",
+  "title": "Приложение блокирует идентификацию птиц на улице, требуя подтвердить email или пройти повторную авторизацию каждые несколько запусков",
+  "obs": 8
+ },
+ {
+  "id": "cancel-button-removed",
+  "title": "Кнопка отмены записи удалена — теперь нельзя быстро сбросить нежелательную сессию без ожидания полной обработки файла",
+  "obs": 8
+ },
+ {
+  "id": "crash-on-load",
+  "title": "Приложение зависает при загрузке региональных баз птиц или падает в конце сессии, теряя все идентифицированные данные",
+  "obs": 6
+ },
+ {
+  "id": "sound-id-accuracy",
+  "title": "Чувствительность Sound ID снизилась: модель галлюцинирует несуществующих птиц и не распознаёт громкие, чёткие звуки известных видов",
+  "obs": 5
+ },
+ {
+  "id": "life-list-unreliable",
+  "title": "Life list ненадёжно сохраняет данные: добавленные птицы исчезают через минуты или при перезагрузке, часть записей не сохраняется вовсе",
+  "obs": 5
+ },
+ {
+  "id": "location-offline",
+  "title": "Приложение не запоминает геолокацию без постоянного интернета — ручной ввод локации не работает, после каждой записи нужно выставлять заново",
+  "obs": 4
+ },
+ {
+  "id": "ui-clutter-new-features",
+  "title": "Новые элементы интерфейса (видео, Bird of the Day) потребляют трафик и загромождают экран, мешая power-пользователям быстро записывать птиц",
+  "obs": 3
+ },
+ {
+  "id": "recording-history-crash",
+  "title": "Просмотр сохранённых записей зависает или стирает данные идентификаций, делая историю наблюдений недоступной",
+  "obs": 3
+ },
+ {
+  "id": "social-feature",
+  "title": "Пользователи хотят видеть наблюдения друзей и делиться своими life list — социальных функций в приложении нет",
+  "obs": 3
+ },
+ {
+  "id": "photo-id-accuracy",
+  "title": "Photo ID систематически неверно распознаёт обычных птиц и значительно уступает Sound ID по точности",
+  "obs": 2
+ },
+ {
+  "id": "sound-id-loop",
+  "title": "Sound ID продолжает воспроизведение или зависает в цикле даже после остановки и удаления сессии",
+  "obs": 2
+ },
+ {
+  "id": "spectrogram-playback",
+  "title": "Из спектрограммы нельзя воспроизвести звук конкретной птицы, а для длинных записей спектрограмма вообще не строится",
+  "obs": 2
+ },
+ {
+  "id": "save-button-hidden",
+  "title": "Кнопка сохранения записи не видна рядом с кнопкой остановки, а сам процесс сохранения требует слишком много шагов",
+  "obs": 2
+ },
+ {
+  "id": "botd-location",
+  "title": "Bird of the Day показывает случайных или заведомо отсутствующих в регионе птиц вместо локально актуальных видов",
+  "obs": 2
+ },
+ {
+  "id": "life-list-manual-add",
+  "title": "Добавить птицу в life list вручную нельзя — только через активную запись, хотя в разделе Explore эта опция у части пользователей есть",
+  "obs": 2
+ },
+ {
+  "id": "photo-ui-click",
+  "title": "Иконка камеры в Photo ID открывает меню выбора вместо немедленного запуска камеры — пользователи пропускают пролетающих птиц",
+  "obs": 2
+ },
+ {
+  "id": "sound-id-update-break",
+  "title": "После обновления Sound ID перестаёт отображать идентифицированных птиц, а мигрирующие виды не распознаются вовсе",
+  "obs": 2
+ },
+ {
+  "id": "citizen-science-ux",
+  "title": "Непонятно, как и нужно ли подтверждать идентификацию и отправлять наблюдение в eBird или научную базу данных",
+  "obs": 2
+ },
+ {
+  "id": "subscription-paywall",
+  "title": "Приложение требует оформить платную подписку после окончания триала, хотя позиционируется как бесплатное",
+  "obs": 1
+ },
+ {
+  "id": "breeding-info-feature",
+  "title": "В описаниях птиц отсутствует информация о сезонах гнездования и поведении в разные периоды года",
+  "obs": 1
+ },
+ {
+  "id": "sound-id-size-feature",
+  "title": "Sound ID не показывает размер птицы в описании — без этого сложно найти её визуально после определения по звуку",
+  "obs": 1
+ },
+ {
+  "id": "life-list-accuracy",
+  "title": "Интерфейс не стимулирует верификацию идентификации: пользователи добавляют неправильные записи в life list ради коллекционирования",
+  "obs": 1
+ },
+ {
+  "id": "explore-filter",
+  "title": "Фильтр по семейству в разделе Explore не работает — всегда показывается список «most likely» без учёта выбранного семейства",
+  "obs": 1
+ },
+ {
+  "id": "sound-id-duplicates",
+  "title": "Sound ID многократно фиксирует одну и ту же птицу в рамках сессии без возможности отфильтровать уже найденные виды",
+  "obs": 1
+ },
+ {
+  "id": "import-audio",
+  "title": "Приложение не позволяет импортировать уже записанный звук с телефона — только запись в реальном времени внутри приложения",
+  "obs": 1
+ },
+ {
+  "id": "botd-history-feature",
+  "title": "Нет списка всех полученных Bird of the Day — невозможно отследить уже показанные уникальные виды",
+  "obs": 1
+ },
+ {
+  "id": "session-history-feature",
+  "title": "Приложение не ведёт полный лог услышанных птиц с временем и местом для последующего просмотра",
+  "obs": 1
+ },
+ {
+  "id": "shortcuts-feature",
+  "title": "Нет виджета или быстрого доступа с главного экрана iPhone для немедленного запуска Sound ID",
+  "obs": 1
+ },
+ {
+  "id": "rating-popup",
+  "title": "Всплывающий запрос на оценку приложения появляется в момент идентификации птицы, из-за чего птица успевает улететь",
+  "obs": 1
+ },
+ {
+  "id": "recording-delete-slow",
+  "title": "Удаление длинных записей (от 2,5 часов) занимает очень много времени и быстро заполняет хранилище устройства",
+  "obs": 1
+ },
+ {
+  "id": "processing-speed",
+  "title": "Приложение обрабатывает звук слишком медленно — птица успевает улететь до появления результата идентификации",
+  "obs": 1
+ },
+ {
+  "id": "device-compat",
+  "title": "После обновления iOS приложение перестаёт корректно отображаться на iPhone SE — домашняя страница не масштабируется под экран",
+  "obs": 1
+ },
+ {
+  "id": "account-security",
+  "title": "После обновления приложение резко меняет поведение, вызывая у пользователя подозрение о несанкционированном доступе к аккаунту",
+  "obs": 1
+ },
+ {
+  "id": "camera-ethics",
+  "title": "Вспышка и камера включены по умолчанию в Photo ID — это нарушает этику наблюдения за птицами и противоречит рекомендациям орнитологов",
+  "obs": 1
+ },
+ {
+  "id": "spam-notifications",
+  "title": "Приложение автоматически подписывает на маркетинговую рассылку и присылает нерелевантные push-уведомления",
+  "obs": 1
+ }
+]

@@ -1,0 +1,359 @@
+You are grouping 62 mechanism-level insight clusters from Rocket Money - Bills & Budgets (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Rocket Money - Bills & Budgets, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 62 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Rocket Money - Bills & Budgets — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Rocket Money - Bills & Budgets>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsuv13842zaug8p41g2uybi.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "cancel-via-app-broken",
+  "title": "Отмена подписки внутри приложения не работает — вместо отмены приложение выдаёт справочный номер для самостоятельного звонка",
+  "obs": 10
+ },
+ {
+  "id": "discovery-misses-subscriptions",
+  "title": "Автообнаружение находит лишь часть реальных подписок — остальные приходится искать и отменять вручную",
+  "obs": 10
+ },
+ {
+  "id": "auto-enroll-premium-no-consent",
+  "title": "Приложение само подписывает на премиум без явного согласия — деньги списываются после первого запуска",
+  "obs": 9
+ },
+ {
+  "id": "negotiation-fee-on-self-saved",
+  "title": "Сервис переговоров берёт 50% комиссии даже за скидку, которую пользователь выбил сам без участия приложения",
+  "obs": 4
+ },
+ {
+  "id": "negotiation-no-result-fee-anyway",
+  "title": "Переговоры о снижении счёта не срабатывают, но комиссию за услугу приложение всё равно списывает",
+  "obs": 4
+ },
+ {
+  "id": "charges-continue-after-cancel",
+  "title": "После отмены подписки списания продолжаются месяцами, хотя в банке к аккаунту ничего не привязано",
+  "obs": 4
+ },
+ {
+  "id": "charges-continue-after-delete",
+  "title": "Списания продолжаются даже после удаления аккаунта и карты — отключение приложения не останавливает оплату",
+  "obs": 4
+ },
+ {
+  "id": "no-cancel-option-in-ui",
+  "title": "В интерфейсе нет кнопки отмены собственной подписки — пользователь заблокирован на ежемесячных платежах без выхода",
+  "obs": 4
+ },
+ {
+  "id": "discovery-misclassifies",
+  "title": "Алгоритм путает разовые покупки с подписками и считает годовые платежи месячными",
+  "obs": 4
+ },
+ {
+  "id": "payment-display-delay",
+  "title": "Транзакции и балансы отображаются с задержкой в 2-3 дня от реального состояния счёта",
+  "obs": 3
+ },
+ {
+  "id": "bank-connection-drops",
+  "title": "Банковский счёт отключается от приложения каждые несколько дней и требует постоянного переподключения",
+  "obs": 3
+ },
+ {
+  "id": "bank-link-hangs",
+  "title": "Подключение банковского счёта зависает на этапе аутентификации и блокирует основной функционал",
+  "obs": 3
+ },
+ {
+  "id": "support-bot-only-no-human",
+  "title": "Поддержка доступна только через чат-бот, живые операторы не отвечают днями",
+  "obs": 3
+ },
+ {
+  "id": "trial-charges-full-year-upfront",
+  "title": "Нажатие кнопки пробного периода сразу списывает полную годовую подписку, а не по окончании триала",
+  "obs": 2
+ },
+ {
+  "id": "negotiation-fee-on-fake-savings",
+  "title": "Комиссия рассчитывается от заявленной годовой экономии, хотя реальная скидка разовая или действует пару месяцев",
+  "obs": 2
+ },
+ {
+  "id": "apple-id-subs-invisible",
+  "title": "Подписки через Apple ID не видны в приложении и не отменяются через его интерфейс",
+  "obs": 2
+ },
+ {
+  "id": "discovery-finds-hidden-fraud",
+  "title": "Приложение находит давно забытые скрытые и мошеннические подписки, о которых пользователь не знал годами",
+  "obs": 2
+ },
+ {
+  "id": "real-time-charge-visibility",
+  "title": "Платёж не виден в приложении до момента фактического списания со счёта",
+  "obs": 2
+ },
+ {
+  "id": "transactions-duplicated",
+  "title": "При импорте и переподключении банка приложение дублирует все транзакции, требуя ручной чистки",
+  "obs": 2
+ },
+ {
+  "id": "budget-requires-manual-entry",
+  "title": "Бюджет неточен и требует вручную вводить каждый платёж — система не справляется с переменными расходами",
+  "obs": 2
+ },
+ {
+  "id": "cannot-track-duplicate-payments",
+  "title": "Приложение не различает два одинаковых платежа одному учреждению и схлопывает их в один с неверной датой",
+  "obs": 2
+ },
+ {
+  "id": "confusing-cluttered-ui",
+  "title": "Устаревший интерфейс с лишними подтверждениями и спрятанными кнопками — добавить счёт требует более десятка кликов",
+  "obs": 2
+ },
+ {
+  "id": "cancel-needs-unknown-account-info",
+  "title": "Для отмены подписки приложение требует данные аккаунта, которых пользователь не знает — особенно при мошенничестве",
+  "obs": 2
+ },
+ {
+  "id": "no-google-oauth-reset",
+  "title": "Нет входа через Google и сброса пароля — пользователь оказывается заблокирован",
+  "obs": 2
+ },
+ {
+  "id": "agents-impersonate-user",
+  "title": "Агенты переговоров выдают себя за пользователя и дают компании ложную информацию без его разрешения",
+  "obs": 2
+ },
+ {
+  "id": "no-optout-paid-plan-signup",
+  "title": "При регистрации нет явной опции отказа от платной подписки — оплата включена по умолчанию",
+  "obs": 1
+ },
+ {
+  "id": "cancel-before-trial-still-charged",
+  "title": "Премиум списывают даже после отмены подписки до конца триала, и приложение прячет это в AI-чате",
+  "obs": 1
+ },
+ {
+  "id": "billing-cycle-shortened",
+  "title": "Очередной платёж списывают через 12 дней вместо 30-дневного цикла, без объяснения причины",
+  "obs": 1
+ },
+ {
+  "id": "cancel-after-paywall-recharge",
+  "title": "После отмены и возврата приложение списывает следующий платёж до завершения возврата за первый",
+  "obs": 1
+ },
+ {
+  "id": "cancel-buried-navigation",
+  "title": "Функции отмены и возврата спрятаны за многоуровневыми меню — основной функционал скрыт от пользователя",
+  "obs": 1
+ },
+ {
+  "id": "withdrawal-revokes-paid-access",
+  "title": "Отмена подписки даёт доступ на оплаченный месяц, но провайдер сразу отзывает весь контент несмотря на оплату",
+  "obs": 1
+ },
+ {
+  "id": "subscription-status-wrong",
+  "title": "Приложение показывает неверный статус: отменённые подписки числятся активными, а активные скрыты",
+  "obs": 1
+ },
+ {
+  "id": "self-sub-not-listed",
+  "title": "Приложение не показывает собственную подписку в списке управляемых платежей — её невозможно найти и отменить",
+  "obs": 1
+ },
+ {
+  "id": "savings-withdrawal-mismatch",
+  "title": "Движения по накопительному счёту в приложении не совпадают с банком, прозрачности процесса нет",
+  "obs": 1
+ },
+ {
+  "id": "auto-savings-zero-balance",
+  "title": "Автосбережения пытаются обнулить баланс к концу месяца, игнорируя нужный пользователю денежный резерв",
+  "obs": 1
+ },
+ {
+  "id": "savings-double-dipping",
+  "title": "Приложение дублирует списания на накопительный счёт, а поддержка лишь предлагает отключить функцию",
+  "obs": 1
+ },
+ {
+  "id": "no-investment-accounts",
+  "title": "Приложение не поддерживает инвестиционные счета, из-за чего финансовая картина неполная",
+  "obs": 1
+ },
+ {
+  "id": "plaid-only-no-manual-link",
+  "title": "Привязка банка возможна только через Plaid — нет ручного ввода по номеру счёта и маршрутизации",
+  "obs": 1
+ },
+ {
+  "id": "plaid-stops-credit-cards",
+  "title": "Интеграция Plaid перестаёт работать с кредитными картами и приложение теряет основной источник расходов",
+  "obs": 1
+ },
+ {
+  "id": "apple-card-no-sync",
+  "title": "Приложение не синхронизируется с Apple Card — рецидивирующие платежи приходится вносить вручную",
+  "obs": 1
+ },
+ {
+  "id": "apple-account-integration-broken",
+  "title": "Интеграция с Apple Account сломана и не работает даже после сообщения об исправлении",
+  "obs": 1
+ },
+ {
+  "id": "ipad-layout-broken",
+  "title": "На iPad окно приложения постоянно меняет размер вместо полноэкранного режима",
+  "obs": 1
+ },
+ {
+  "id": "lag-on-powerful-devices",
+  "title": "Приложение тормозит и глючит даже на мощных устройствах, платная подписка не даёт стабильности",
+  "obs": 1
+ },
+ {
+  "id": "link-interception-bug",
+  "title": "Приложение перехватывает клики по ссылкам и открывает их внутри себя вместо браузера по умолчанию",
+  "obs": 1
+ },
+ {
+  "id": "shared-access-not-revoked",
+  "title": "Финансовые уведомления продолжают приходить человеку с предоставленным доступом даже после его отзыва и удаления аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "debit-credit-double-count",
+  "title": "При связке дебетовой и кредитной карт платёж по кредитке считается отдельным расходом и удваивает траты в бюджете",
+  "obs": 1
+ },
+ {
+  "id": "payday-date-overwritten",
+  "title": "Приложение переписывает введённую вручную дату зарплаты своим алгоритмом и ломает функцию payday-обзора",
+  "obs": 1
+ },
+ {
+  "id": "forced-default-categories",
+  "title": "Приложение навязывает встроенные категории и не даёт собрать бюджет с чистого листа",
+  "obs": 1
+ },
+ {
+  "id": "bulk-recategorize-slow",
+  "title": "Смена категории требует создавать правило вместо массового обновления — процесс занимает минуту и зависает",
+  "obs": 1
+ },
+ {
+  "id": "no-split-transactions",
+  "title": "Нет автоматического разделения транзакций для совместных счетов — каждую операцию приходится делить вручную",
+  "obs": 1
+ },
+ {
+  "id": "launch-loop",
+  "title": "При первом запуске экраны зацикливаются: один просит открыть приложение и отправляет к другому такому же",
+  "obs": 1
+ },
+ {
+  "id": "import-cleanup-burns-trial",
+  "title": "Импортированные данные требуют столько ручной чистки, что весь пробный период уходит на подготовку",
+  "obs": 1
+ },
+ {
+  "id": "repeat-access-cancel-feature",
+  "title": "После первого использования отмены подписок функция становится недоступной для удаления следующих",
+  "obs": 1
+ },
+ {
+  "id": "id-photo-after-withdrawal",
+  "title": "Перед выводом средств приложение внезапно требует госудостоверение и живое фото лица, которых не просило при открытии счёта",
+  "obs": 1
+ },
+ {
+  "id": "login-needs-sms-no-faceid",
+  "title": "Вход требует SMS-кода вместо Face ID, а коды и звонки часто не доходят",
+  "obs": 1
+ },
+ {
+  "id": "locked-out-after-phone-change",
+  "title": "После смены номера телефона доступ к аккаунту восстановить нельзя, новый аккаунт создать тоже",
+  "obs": 1
+ },
+ {
+  "id": "email-blocked-after-deletion",
+  "title": "После удаления аккаунта повторная регистрация на тот же email заблокирована — ни войти, ни создать новый",
+  "obs": 1
+ },
+ {
+  "id": "support-resolves-2fa",
+  "title": "Поддержка быстро решает проблемы 2FA при смене номера телефона",
+  "obs": 1
+ },
+ {
+  "id": "negotiation-downgrades-service",
+  "title": "Переговоры о снижении счёта без согласия понижают тариф обслуживания, и за это ухудшение берут комиссию",
+  "obs": 1
+ },
+ {
+  "id": "negotiation-service-uncancellable",
+  "title": "Сервис переговоров сам звонит провайдеру от имени пользователя, и отключить эту услугу без поддержки невозможно",
+  "obs": 1
+ },
+ {
+  "id": "free-as-advertised-mismatch",
+  "title": "Реклама обещает бесплатный сервис, но после привязки карты приложение требует оплату премиума",
+  "obs": 1
+ },
+ {
+  "id": "tracking-acceptable-tradeoff",
+  "title": "Задержка отображения расходов воспринимается приемлемой ради сведения всех денег в одном месте",
+  "obs": 1
+ }
+]

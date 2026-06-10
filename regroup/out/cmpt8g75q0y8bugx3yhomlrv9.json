@@ -1,0 +1,106 @@
+{
+  "groups": [
+    {
+      "id": "events-vanish",
+      "name": "Календарь, который сам себя стирает: события исчезают без следа",
+      "insight_ids": [
+        "data-loss-spontaneous",
+        "data-loss-on-update",
+        "recurring-events-vanish",
+        "auto-delete-old-events",
+        "events-deleted-on-launch-restart",
+        "event-titles-disappear",
+        "no-local-storage",
+        "force-sync-deletes-data"
+      ]
+    },
+    {
+      "id": "sync-broken",
+      "name": "Синхронизация подводит: устройства и внешние календари не сходятся",
+      "insight_ids": [
+        "sync-stops-silently",
+        "sync-external-calendars",
+        "sync-cross-device",
+        "icloud-login-error-blocks-sync",
+        "seamless-sync-praise",
+        "standalone-vs-import-adhd"
+      ]
+    },
+    {
+      "id": "paywall-betrayal",
+      "name": "Платная стена и преданный пожизненный доступ Calendars 5",
+      "insight_ids": [
+        "paywall-recurring-events",
+        "lifetime-access-revoked",
+        "paywall-basic-features",
+        "trial-locks-features",
+        "promo-popups-for-paid-users"
+      ]
+    },
+    {
+      "id": "intrusive-nags",
+      "name": "Навязчивость: уведомления, опросы и подсказки, которые мешают",
+      "insight_ids": [
+        "reflect-emotional-push",
+        "spam-events-in-calendar",
+        "complex-onboarding-credentials",
+        "contacts-prompt-interrupts",
+        "duplicate-notifications",
+        "weak-alert-sound",
+        "reminders-day-late",
+        "cannot-delete-items",
+        "redundant-meetings-list"
+      ]
+    },
+    {
+      "id": "smart-input-misfires",
+      "name": "Умный ввод бьёт мимо: цифры, локации и редактирование событий",
+      "insight_ids": [
+        "natural-language-misparses-numbers",
+        "location-autotag-text",
+        "edit-creates-duplicates",
+        "drag-to-reschedule-removed",
+        "copy-paste-once-only",
+        "cannot-delete-orphaned-events"
+      ]
+    },
+    {
+      "id": "migration-recovery",
+      "name": "Переход и восстановление: данные теряются на каждой границе",
+      "insight_ids": [
+        "no-migration-from-paper",
+        "no-import-from-apple",
+        "paper-to-app-migration",
+        "restore-fails-after-reinstall",
+        "icloud-restore-unintuitive",
+        "ai-support-cannot-recover-data",
+        "unauthorized-access"
+      ]
+    },
+    {
+      "id": "platform-ui-regressions",
+      "name": "Поломки по платформам: macOS, Apple Watch и сжатый интерфейс",
+      "insight_ids": [
+        "desktop-crashes-instability",
+        "macos-login-broken",
+        "macos-modal-blocks-quit",
+        "watch-date-display-stripped",
+        "habit-widget-loses-order",
+        "default-view-setting-ignored",
+        "no-back-button-from-settings",
+        "ui-shrunk-illegible",
+        "landscape-orientation-forced",
+        "no-not-busy-status"
+      ]
+    },
+    {
+      "id": "what-keeps-them",
+      "name": "За что остаются: семья, продуктивность и Personal Reflections",
+      "insight_ids": [
+        "shared-family-calendar-value",
+        "productivity-education-value",
+        "reflections-only-main-calendar"
+      ]
+    }
+  ]
+}

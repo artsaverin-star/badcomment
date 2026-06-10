@@ -1,0 +1,49 @@
+{
+  "groups": [
+    {
+      "id": "paywall-traps-on-own-data",
+      "name": "Платный экран поверх своих же данных и за бездействие",
+      "insight_ids": [
+        "retroactive-paywall-on-own-data",
+        "inactivity-paywall-block",
+        "app-crash-no-launch"
+      ]
+    },
+    {
+      "id": "broken-after-actions",
+      "name": "Тормоза, зависания и отвалившиеся виджеты",
+      "insight_ids": [
+        "button-lag-performance",
+        "widget-stopped-working",
+        "notes-input-drops-characters",
+        "registration-form-validation-loop"
+      ]
+    },
+    {
+      "id": "thermometer-hardware-lock",
+      "name": "Привязка к фирменному термометру вместо ручного ввода",
+      "insight_ids": [
+        "bbt-hardware-lock-no-manual-entry",
+        "hardware-support-no-replacement",
+        "ovulation-prediction-inaccuracy"
+      ]
+    },
+    {
+      "id": "mode-switch-leaks",
+      "name": "Смена режима не переключает контент и напоминания",
+      "insight_ids": [
+        "period-reminders-after-mode-switch",
+        "period-mode-shows-pregnancy-content"
+      ]
+    },
+    {
+      "id": "trust-and-data-control",
+      "name": "Доверие к контенту и контроль над своими данными",
+      "insight_ids": [
+        "ai-generated-content-distrust",
+        "icloud-data-deletion-blocked",
+        "age-gate-inconsistency"
+      ]
+    }
+  ]
+}

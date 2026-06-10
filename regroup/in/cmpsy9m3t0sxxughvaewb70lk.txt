@@ -1,0 +1,379 @@
+You are grouping 66 mechanism-level insight clusters from SmartLife- Smart Living (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO SmartLife- Smart Living, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 66 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to SmartLife- Smart Living — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to SmartLife- Smart Living>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsy9m3t0sxxughvaewb70lk.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ai-widget-blocks-main-controls",
+  "title": "Кнопка AI-помощника закреплена на главном экране и перекрывает основные элементы управления",
+  "obs": 10
+ },
+ {
+  "id": "interface-complexity-bloatware",
+  "title": "Приложение обросло лишними функциями и потеряло первоначальную простоту управления устройствами",
+  "obs": 8
+ },
+ {
+  "id": "wifi-disconnect-persistent",
+  "title": "Устройства постоянно теряют WI-FI соединение без видимой причины",
+  "obs": 7
+ },
+ {
+  "id": "ads-delay-shift-buttons",
+  "title": "Реклама загружается с задержкой и смещает кнопки управления — пользователь нажимает на объявление вместо устройства",
+  "obs": 7
+ },
+ {
+  "id": "update-wipes-devices",
+  "title": "После обновления все устройства исчезают из приложения и не восстанавливаются",
+  "obs": 5
+ },
+ {
+  "id": "update-breaks-scenes",
+  "title": "После обновления пользовательские сцены удаляются или перестают работать",
+  "obs": 5
+ },
+ {
+  "id": "update-breaks-diy-custom",
+  "title": "После обновления функция DIY и редактор пользовательских эффектов удалены",
+  "obs": 5
+ },
+ {
+  "id": "bluetooth-fallback-instead-wifi",
+  "title": "Приложение переключается на Bluetooth вместо WI-FI, делая удалённое управление невозможным",
+  "obs": 5
+ },
+ {
+  "id": "alexa-google-integration-broken",
+  "title": "После интеграции с Alexa или Google Home устройства пропадают или теряют параметры управления",
+  "obs": 5
+ },
+ {
+  "id": "update-breaks-schedules",
+  "title": "После обновления все расписания и таймеры перестают работать",
+  "obs": 4
+ },
+ {
+  "id": "update-breaks-auth",
+  "title": "После обновления приложение разлогинивает пользователя и блокирует повторный вход",
+  "obs": 4
+ },
+ {
+  "id": "update-resets-settings",
+  "title": "После обновления все пользовательские настройки сбрасываются и требуют перенастройки",
+  "obs": 4
+ },
+ {
+  "id": "widget-broken-wrong-state",
+  "title": "Виджеты показывают неправильное состояние устройства или перестают работать после обновления",
+  "obs": 4
+ },
+ {
+  "id": "device-pairing-fails",
+  "title": "При сопряжении нового устройства приложение выдаёт ошибку без объяснений и не предлагает повтора",
+  "obs": 4
+ },
+ {
+  "id": "vacuum-map-lost",
+  "title": "Робот-пылесос теряет карту помещения — навигация сбрасывается при каждом запуске",
+  "obs": 3
+ },
+ {
+  "id": "shortcuts-integration-broken",
+  "title": "После обновления интеграция с Shortcuts и голосовые команды через Siri перестают работать",
+  "obs": 3
+ },
+ {
+  "id": "feature-notifications-popup",
+  "title": "Всплывающие уведомления о новых функциях появляются во время обычного использования и мешают работе",
+  "obs": 3
+ },
+ {
+  "id": "permission-requests-flood",
+  "title": "При открытии приложение засыпает запросами на разрешения к данным и AI функциям",
+  "obs": 3
+ },
+ {
+  "id": "device-state-display-wrong",
+  "title": "Приложение показывает неправильный статус устройства — «включено» когда выключено и наоборот",
+  "obs": 3
+ },
+ {
+  "id": "app-kills-media-playback",
+  "title": "Открытие приложения автоматически ставит музыку или видео на паузу",
+  "obs": 2
+ },
+ {
+  "id": "light-color-not-saved",
+  "title": "Выбранный цвет или яркость светильника сбрасываются на исходные значения через несколько минут",
+  "obs": 2
+ },
+ {
+  "id": "scene-disappears-on-exit",
+  "title": "Созданная сцена пропадает при выходе из приложения",
+  "obs": 2
+ },
+ {
+  "id": "alarm-self-disables",
+  "title": "Запланированный будильник самопроизвольно отключается без участия пользователя",
+  "obs": 2
+ },
+ {
+  "id": "notification-delivery-broken",
+  "title": "Уведомления о движении не приходят, хотя устройство регистрирует события и разрешения включены",
+  "obs": 2
+ },
+ {
+  "id": "group-controls-limited",
+  "title": "Групповое управление светильниками позволяет только включать/выключать всю группу — яркость и цвет нельзя менять для всей группы",
+  "obs": 2
+ },
+ {
+  "id": "scene-color-option-removed",
+  "title": "При создании сцены опция выбора цвета удалена — осталась только яркость и температура белого",
+  "obs": 2
+ },
+ {
+  "id": "lights-flicker-online-offline",
+  "title": "Светильники постоянно мигают между статусом «онлайн» и «офлайн» в интерфейсе",
+  "obs": 2
+ },
+ {
+  "id": "sprinkler-manual-override-laggy",
+  "title": "При ручном управлении спринклерами вне расписания приложение не реагирует и зависает",
+  "obs": 2
+ },
+ {
+  "id": "schedule-fires-wrong-time",
+  "title": "Расписание срабатывает не в заданное время — свет выключается на час раньше или в середине ночи",
+  "obs": 2
+ },
+ {
+  "id": "family-invite-codes-broken",
+  "title": "Коды приглашения для добавления членов семьи не работают",
+  "obs": 2
+ },
+ {
+  "id": "account-locked-no-recovery",
+  "title": "После разлогина приложение не даёт восстановить аккаунт — сбрасывает к экрану «аккаунт не найден»",
+  "obs": 2
+ },
+ {
+  "id": "ai-feature-pushed-unwanted",
+  "title": "Каждое обновление навязывает AI-функции, которых пользователи не просили и не хотят",
+  "obs": 2
+ },
+ {
+  "id": "automation-group-broken-after-update",
+  "title": "После обновления автоматизации и группы устройств выдают ошибку «устройство отключено»",
+  "obs": 1
+ },
+ {
+  "id": "motion-detector-false-positives",
+  "title": "Датчик движения постоянно срабатывает на кошек, тени и ветки — более 5 ложных тревог в день",
+  "obs": 1
+ },
+ {
+  "id": "doorbell-video-slow",
+  "title": "Видеопоток для разблокировки двери загружается слишком долго или не загружается совсем",
+  "obs": 1
+ },
+ {
+  "id": "biometric-security-gap",
+  "title": "Удалённый отпечаток пальца продолжает работать в замке после удаления из приложения",
+  "obs": 1
+ },
+ {
+  "id": "power-meter-inconsistent",
+  "title": "Счётчики мощности показывают разные значения на разных экранах приложения",
+  "obs": 1
+ },
+ {
+  "id": "color-display-wrong",
+  "title": "Белый свет отображается оранжевым, другие цвета также неправильно воспроизводятся",
+  "obs": 1
+ },
+ {
+  "id": "cloud-storage-shorter-than-promised",
+  "title": "После оплаты облачное хранилище видео хранит записи значительно меньше обещанных 30 дней",
+  "obs": 1
+ },
+ {
+  "id": "ai-splash-screen-delay",
+  "title": "Экран «your AI life assistant» добавляет многосекундную задержку при каждом открытии приложения",
+  "obs": 1
+ },
+ {
+  "id": "schedule-sunset-relative",
+  "title": "Расписание поддерживает только точное время, но не относительное — например, «30 минут до заката»",
+  "obs": 1
+ },
+ {
+  "id": "daylight-saving-not-handled",
+  "title": "Приложение не учитывает переход на летнее/зимнее время — все автоматизации требуют ручной правки",
+  "obs": 1
+ },
+ {
+  "id": "room-naming-mandatory",
+  "title": "Приложение требует назвать все комнаты перед тем как разрешить управление устройствами",
+  "obs": 1
+ },
+ {
+  "id": "dark-mode-broken-splash",
+  "title": "В тёмном режиме экран загрузки отображается ярко-белым, что вредит глазам в темноте",
+  "obs": 1
+ },
+ {
+  "id": "small-screen-controls-hidden",
+  "title": "Элементы управления устройством скрыты за границей экрана на маленьких моделях iPhone",
+  "obs": 1
+ },
+ {
+  "id": "device-delete-no-confirm",
+  "title": "Удаление устройства происходит без подтверждения — пользователь случайно удаляет и вынужден переподключать",
+  "obs": 1
+ },
+ {
+  "id": "device-photo-removed",
+  "title": "Функция фотографии для визуальной идентификации устройства была удалена несколько лет назад",
+  "obs": 1
+ },
+ {
+  "id": "ev-charging-schedule-ux",
+  "title": "Интерфейс установки расписания зарядки электромобиля настолько запутан, что пользователь тратит 45 минут на поиск нужного экрана",
+  "obs": 1
+ },
+ {
+  "id": "color-settings-in-automation",
+  "title": "Настройка цвета внутри автоматизации требует долгого перебора — документации нет",
+  "obs": 1
+ },
+ {
+  "id": "timer-editor-stuck",
+  "title": "При редактировании таймера приложение зависает на экране без кнопки назад",
+  "obs": 1
+ },
+ {
+  "id": "app-requires-save-restart",
+  "title": "После каждого изменения параметра нужно сохранить и полностью перезапустить приложение, чтобы изменения применились",
+  "obs": 1
+ },
+ {
+  "id": "localization-errors",
+  "title": "Интерфейс содержит азиатские иероглифы и некорректные переводы, автоматизации написаны нечитаемо",
+  "obs": 1
+ },
+ {
+  "id": "ipad-login-broken",
+  "title": "На iPad отсутствует флажок согласия с пользовательским соглашением — авторизация невозможна",
+  "obs": 1
+ },
+ {
+  "id": "account-creation-format-unclear",
+  "title": "При создании аккаунта приложение не объясняет, нужен email или телефон, и отклоняет американский номер",
+  "obs": 1
+ },
+ {
+  "id": "script-delay-ignored",
+  "title": "Скрипты «нажми и запусти» с задержками запускают все действия сразу, игнорируя установленные интервалы",
+  "obs": 1
+ },
+ {
+  "id": "car-door-automation-cant-disable",
+  "title": "Свет автоматически включается при открытии двери автомобиля, и эту автоматизацию нельзя отключить",
+  "obs": 1
+ },
+ {
+  "id": "marketing-notifications-mixed",
+  "title": "Маркетинговые уведомления о распродажах смешаны с критическими и не отключаются отдельно",
+  "obs": 1
+ },
+ {
+  "id": "garage-alert-no-sound",
+  "title": "Приложение предупреждает об открытых гаражных воротах текстом, но звукового сигнала при открытии нет",
+  "obs": 1
+ },
+ {
+  "id": "power-alert-misses-focus",
+  "title": "Критическое уведомление об отключении электричества не проходит сквозь Focus и заблокированный экран",
+  "obs": 1
+ },
+ {
+  "id": "cloud-storage-after-cancel",
+  "title": "Приложение блокирует облачное хранилище сразу после отмены подписки, хотя оплаченный период ещё не истёк",
+  "obs": 1
+ },
+ {
+  "id": "ai-subscription-mandatory",
+  "title": "Полный функционал AI-помощника требует платной подписки, которую нельзя скрыть из интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "phone-number-field-locked",
+  "title": "Поле номера телефона в профиле заблокировано — изменить нельзя, поддержка не отвечает",
+  "obs": 1
+ },
+ {
+  "id": "ai-privacy-concern",
+  "title": "Пользователи опасаются подключать умный дом к нейросети — непонятно, какие данные передаются",
+  "obs": 1
+ },
+ {
+  "id": "pet-feeder-interval-too-short",
+  "title": "Минимальный интервал между порциями корма в 1 минуту слишком короткий — устройство кормит кошку поверх предыдущей порции",
+  "obs": 1
+ },
+ {
+  "id": "pet-feeder-state-sync",
+  "title": "История кормления показывает пропущенные кормления, хотя видео подтверждает что они состоялись",
+  "obs": 1
+ },
+ {
+  "id": "outdoor-permanent-lights-disabled",
+  "title": "Функция настройки постоянного уличного освещения отключена на техобслуживание без указания срока",
+  "obs": 1
+ }
+]

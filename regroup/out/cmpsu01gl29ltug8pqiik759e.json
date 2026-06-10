@@ -1,0 +1,103 @@
+{
+  "groups": [
+    {
+      "id": "credity-isparyayutsya",
+      "name": "Кредиты, которые испаряются: за что списали и куда делось",
+      "insight_ids": [
+        "dynamic-pricing-loyalty-penalty",
+        "dynamic-pricing-per-user-unfair",
+        "double-charge-no-refund",
+        "trial-credits-unspendable",
+        "upgrade-wipes-trial-credits",
+        "max-credits-still-charged",
+        "pause-freezes-paid-credits",
+        "credits-tied-to-billing-cycle",
+        "credits-expire-monthly",
+        "carryover-cap-too-low",
+        "carryover-loses-purchased-credits",
+        "downgrade-loses-credits",
+        "payment-no-credits-issued",
+        "cancel-window-loses-credits",
+        "credits-promise-vs-reality",
+        "payment-method-change-penalty",
+        "hsa-payment-wipes-account",
+        "gifted-credits-lost-on-cancel",
+        "booking-window-double-charge"
+      ]
+    },
+    {
+      "id": "trial-vorota",
+      "name": "Пробный период как закрытые ворота к платной подписке",
+      "insight_ids": [
+        "trial-locks-most-classes",
+        "silent-auto-conversion",
+        "cancel-trial-conflicting-rules",
+        "ios-cancel-doesnt-work",
+        "trial-classes-false-availability",
+        "multi-trial-account-lock"
+      ]
+    },
+    {
+      "id": "podpiska-ne-otpuskaet",
+      "name": "Подписка, которая не отпускает: отмена, пауза и тихие списания",
+      "insight_ids": [
+        "cancel-keeps-charging",
+        "pause-limited-three-months",
+        "dormant-account-reactivates",
+        "renewal-date-in-past",
+        "cancel-fee-disproportionate"
+      ]
+    },
+    {
+      "id": "broni-bez-klassa",
+      "name": "Бронь есть, а класса нет: сбои между приложением и студией",
+      "insight_ids": [
+        "app-studio-sync-fails",
+        "support-refuses-refund-for-app-error",
+        "group-booking-blocked",
+        "late-arrival-credit-lost",
+        "studio-cancel-user-penalized",
+        "wrong-class-addresses"
+      ]
+    },
+    {
+      "id": "ocenka-pod-prinuzhdeniem",
+      "name": "Оценка под принуждением: рейтинги, попапы и навязчивый сервис",
+      "insight_ids": [
+        "forced-rating-blocks-booking",
+        "fullscreen-popups-on-open",
+        "support-ai-bot-useless",
+        "rating-screen-before-order",
+        "public-review-identity",
+        "rating-loop-stuck",
+        "referral-link-broken"
+      ]
+    },
+    {
+      "id": "raspisanie-i-poisk-podvodyat",
+      "name": "Расписание и поиск, которые подводят при каждом бронировании",
+      "insight_ids": [
+        "favorites-schedule-broken-after-update",
+        "favorites-incomplete-list",
+        "schedule-no-filters",
+        "search-broken-state",
+        "search-truncates-input",
+        "search-mixes-food-results",
+        "constant-crashes",
+        "update-resets-settings",
+        "no-apple-health-sync"
+      ]
+    },
+    {
+      "id": "marketplace-ne-dovodit",
+      "name": "Маркетплейс еды и услуг, который не доводит дело до конца",
+      "insight_ids": [
+        "marketplace-no-refund-for-undelivered",
+        "marketplace-partners-closed",
+        "third-party-perks-broken",
+        "support-leaks-other-user-data",
+        "phone-verification-blocks-carriers"
+      ]
+    }
+  ]
+}

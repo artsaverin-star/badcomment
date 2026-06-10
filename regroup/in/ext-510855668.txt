@@ -1,0 +1,369 @@
+You are grouping 64 mechanism-level insight clusters from Amazon Music: Songs & Podcasts (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Amazon Music: Songs & Podcasts, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 64 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Amazon Music: Songs & Podcasts — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Amazon Music: Songs & Podcasts>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-510855668.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-crashes-frequently",
+  "title": "Приложение регулярно вылетает при прослушивании, требуя постоянного перезапуска",
+  "obs": 6
+ },
+ {
+  "id": "prime-free-tier-downgraded-shuffle-only",
+  "title": "Бесплатный план Prime переведён в режим принудительного перемешивания — конкретную песню выбрать нельзя",
+  "obs": 4
+ },
+ {
+  "id": "auto-added-songs-pollute-playlist",
+  "title": "Приложение автоматически добавляет чужие песни в пользовательский плейлист без возможности отключить это",
+  "obs": 4
+ },
+ {
+  "id": "are-you-still-listening-prompt",
+  "title": "Приложение каждые 15–60 минут останавливает музыку и требует подтверждения активности",
+  "obs": 4
+ },
+ {
+  "id": "purchased-songs-locked-behind-subscription",
+  "title": "Купленные песни и личная библиотека блокируются без активной подписки",
+  "obs": 3
+ },
+ {
+  "id": "playlist-plays-wrong-songs",
+  "title": "Приложение воспроизводит не те песни: игнорирует плейлист и запускает случайную музыку",
+  "obs": 3
+ },
+ {
+  "id": "audio-glitch-skip-stutter",
+  "title": "Во время воспроизведения возникают звуковые артефакты: заикание, ускорение, внезапная остановка",
+  "obs": 3
+ },
+ {
+  "id": "offline-requires-internet",
+  "title": "Загруженная музыка не воспроизводится без интернета — приложение требует постоянного соединения",
+  "obs": 3
+ },
+ {
+  "id": "library-data-loss-after-update",
+  "title": "После обновления теряется часть библиотеки — песни удаляются или становятся недоступны",
+  "obs": 3
+ },
+ {
+  "id": "playlists-locked-after-subscription-expires",
+  "title": "После истечения подписки плейлисты переходят в режим «только перемешивание», повтор одной песни недоступен",
+  "obs": 2
+ },
+ {
+  "id": "free-plan-skip-limit",
+  "title": "На бесплатном плане лимит пропусков исчерпывается быстро, а восстановление занимает часы",
+  "obs": 2
+ },
+ {
+  "id": "free-plan-artificial-restrictions",
+  "title": "Бесплатный план ограничивает размер плейлиста, смену предпочтений и перемотку внутри трека",
+  "obs": 2
+ },
+ {
+  "id": "algorithm-ignores-preferences",
+  "title": "Алгоритм рекомендаций не учитывает вкусы пользователя даже спустя несколько месяцев использования",
+  "obs": 2
+ },
+ {
+  "id": "shuffle-not-random-same-start",
+  "title": "Перемешивание всегда начинается с одной и той же песни и повторяет треки в течение дня",
+  "obs": 2
+ },
+ {
+  "id": "track-restarts-after-20sec",
+  "title": "Трек перезапускается через 20–30 секунд без видимой причины — помогает только переустановка",
+  "obs": 2
+ },
+ {
+  "id": "podcast-playback-error-specific-episodes",
+  "title": "Отдельные эпизоды подкаста не воспроизводятся с ошибкой, хотя другие эпизоды работают нормально",
+  "obs": 2
+ },
+ {
+  "id": "upsell-popups-constant-interruption",
+  "title": "Постоянные всплывающие предложения перейти на Unlimited прерывают прослушивание",
+  "obs": 2
+ },
+ {
+  "id": "app-extremely-slow",
+  "title": "Приложение критически медленно: поле поиска и воспроизведение загружаются минутами",
+  "obs": 2
+ },
+ {
+  "id": "daily-reinstall-required",
+  "title": "Приложение требует ежедневного обновления или переустановки для нормальной работы",
+  "obs": 2
+ },
+ {
+  "id": "cross-device-sync-unstable",
+  "title": "Настройки, голосовое управление и плейлисты не синхронизируются стабильно между устройствами",
+  "obs": 2
+ },
+ {
+  "id": "high-battery-drain",
+  "title": "Приложение чрезмерно расходует заряд батареи и системные ресурсы",
+  "obs": 2
+ },
+ {
+  "id": "personal-uploads-require-subscription",
+  "title": "Собственная загруженная музыка пользователя становится недоступна без платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "prime-benefits-shrunk-price-raised",
+  "title": "Стоимость Prime выросла вдвое, а музыкальные возможности бесплатного плана сократились",
+  "obs": 1
+ },
+ {
+  "id": "family-plan-single-stream",
+  "title": "Семейный план не позволяет двум членам семьи слушать разную музыку одновременно",
+  "obs": 1
+ },
+ {
+  "id": "family-plan-invite-loop",
+  "title": "Семейный план требует постоянной повторной отправки приглашений — поддержка проблему не решает",
+  "obs": 1
+ },
+ {
+  "id": "in-app-music-purchase-ux",
+  "title": "Покупка песен внутри приложения настолько неудобна, что пользователи уходят в iTunes",
+  "obs": 1
+ },
+ {
+  "id": "catalog-gaps-missing-songs",
+  "title": "Часть добавленных в плейлист песен недоступна для воспроизведения — каталог неполный",
+  "obs": 1
+ },
+ {
+  "id": "cover-versions-instead-of-original",
+  "title": "Поиск оригинальной версии песни возвращает кавер-версии вместо нужного исполнителя",
+  "obs": 1
+ },
+ {
+  "id": "album-playback-inserts-other-artists",
+  "title": "При воспроизведении купленного альбома приложение вставляет треки других исполнителей",
+  "obs": 1
+ },
+ {
+  "id": "explicit-content-filter-misses-podcasts",
+  "title": "Фильтр явного контента работает только для музыки, но не для подкастов — дети получают доступ к взрослому материалу",
+  "obs": 1
+ },
+ {
+  "id": "no-music-video-or-comments",
+  "title": "В приложении отсутствуют музыкальные видео, видеоблоги и комментарии к трекам, которые есть у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "ai-playlist-creation-adds-unwanted",
+  "title": "ИИ-создание плейлиста добавляет нежелательные треки при указании конкретного исполнителя",
+  "obs": 1
+ },
+ {
+  "id": "ai-playlist-creation-works-well",
+  "title": "ИИ-генерация плейлиста точно выполняет пожелания и создаёт персональную подборку в один клик",
+  "obs": 1
+ },
+ {
+  "id": "free-plan-auto-stop-on-idle",
+  "title": "Бесплатная версия автоматически останавливает воспроизведение при неактивности экрана",
+  "obs": 1
+ },
+ {
+  "id": "volume-changes-between-tracks",
+  "title": "Громкость самопроизвольно меняется при переходе между треками",
+  "obs": 1
+ },
+ {
+  "id": "song-frozen-after-30sec",
+  "title": "Часть треков замирает после 30 секунд воспроизведения — затрагивает только конкретные профили",
+  "obs": 1
+ },
+ {
+  "id": "song-skip-resume-wrong-position",
+  "title": "При возврате к пропущенной песне она начинает играть не с начала, а с места пропуска",
+  "obs": 1
+ },
+ {
+  "id": "mixed-playlist-stopped-working",
+  "title": "Функция воспроизведения смешанных плейлистов перестала работать после обновления",
+  "obs": 1
+ },
+ {
+  "id": "app-hijacks-audio-stream",
+  "title": "Приложение захватывает аудиопоток устройства при запуске, отключая другие приложения без разрешения",
+  "obs": 1
+ },
+ {
+  "id": "specific-artist-plays-wrong-artist",
+  "title": "Клик на исполнителя запускает музыку совершенно других артистов",
+  "obs": 1
+ },
+ {
+  "id": "genre-switch-does-not-work",
+  "title": "Переключение музыкального жанра не работает — приложение остаётся на предыдущем жанре",
+  "obs": 1
+ },
+ {
+  "id": "search-returns-wrong-results",
+  "title": "Поиск требует точного совпадения названия и часто возвращает неправильных исполнителей",
+  "obs": 1
+ },
+ {
+  "id": "podcast-dominates-music-search",
+  "title": "Подкасты агрессивно продвигаются в результатах поиска по музыке — фильтра для отключения нет",
+  "obs": 1
+ },
+ {
+  "id": "album-nav-blocked-during-playback",
+  "title": "После запуска альбома с главного экрана нельзя вернуться назад и просмотреть список треков",
+  "obs": 1
+ },
+ {
+  "id": "playlist-panel-ordering-wrong",
+  "title": "Панель плейлистов сортирует по дате создания, а не по дате последнего использования",
+  "obs": 1
+ },
+ {
+  "id": "playlist-tap-hits-wrong-item",
+  "title": "UI плейлистов смещён — нажатие попадает не на выбранный плейлист, а на соседний",
+  "obs": 1
+ },
+ {
+  "id": "no-bulk-delete-playlist-management",
+  "title": "Управление библиотекой не поддерживает групповое удаление — каждый трек приходится удалять по одному",
+  "obs": 1
+ },
+ {
+  "id": "no-liked-songs-sorting",
+  "title": "Список понравившихся песен нельзя отсортировать по алфавиту или исполнителю",
+  "obs": 1
+ },
+ {
+  "id": "no-batch-download",
+  "title": "Загрузка музыки для прослушивания офлайн требует скачивания каждого трека по отдельности",
+  "obs": 1
+ },
+ {
+  "id": "playlist-manager-disorganized",
+  "title": "Интерфейс управления плейлистами дезорганизован — структура и навигация непонятны",
+  "obs": 1
+ },
+ {
+  "id": "push-notification-permission-loop",
+  "title": "При каждом действии приложение требует разрешения на push-уведомления, игнорируя отказ пользователя",
+  "obs": 1
+ },
+ {
+  "id": "playback-controls-disappear-apple-tv",
+  "title": "На Apple TV элементы управления воспроизведением исчезают с экрана, на iPad приложение работает как радио",
+  "obs": 1
+ },
+ {
+  "id": "wrong-album-art-after-update",
+  "title": "После обновления у множества треков отображаются неправильные обложки альбомов",
+  "obs": 1
+ },
+ {
+  "id": "playlist-delete-re-adds-song",
+  "title": "Удалённая из плейлиста песня автоматически добавляется обратно — функция управления сломана",
+  "obs": 1
+ },
+ {
+  "id": "xbox-app-crashes-on-playback",
+  "title": "На Xbox приложение вылетает при каждой попытке воспроизведения музыки",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-on-navigation",
+  "title": "Переключение между разделами и отключение экрана при наушниках приводит к полному вылету",
+  "obs": 1
+ },
+ {
+  "id": "unstable-on-all-platforms",
+  "title": "Приложение нестабильно на всех платформах одновременно — ТВ, компьютер, телефон",
+  "obs": 1
+ },
+ {
+  "id": "app-fails-to-launch",
+  "title": "Приложение не запускается — устаревший экран входа не даёт загрузить интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "carplay-wifi-only-no-cellular",
+  "title": "Приложение работает только по Wi-Fi — через мобильную сеть и CarPlay не функционирует",
+  "obs": 1
+ },
+ {
+  "id": "alexa-integration-drops-playback",
+  "title": "Управление через Alexa случайно отключает воспроизведение и требует ручного перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "siri-integration-broken",
+  "title": "Запуск Amazon Music через Siri вызывает ошибку воспроизведения — нужно открывать приложение вручную",
+  "obs": 1
+ },
+ {
+  "id": "headset-integration-partial",
+  "title": "Наушники работают только частично с приложением — половина функций недоступна, в отличие от конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "account-frozen-ad-injected",
+  "title": "После принудительного обновления в приложение добавилась реклама, которой раньше не было, а аккаунт заблокирован",
+  "obs": 1
+ },
+ {
+  "id": "prime-music-value-erosion",
+  "title": "Постепенное сужение функций бесплатного Prime-плана разрушает воспринимаемую ценность подписки",
+  "obs": 1
+ }
+]

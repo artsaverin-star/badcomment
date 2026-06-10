@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from Mimo: Learn Coding/Programming (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Mimo: Learn Coding/Programming, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Mimo: Learn Coding/Programming — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Mimo: Learn Coding/Programming>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyoa3i1nxaughvtfmppbkj.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "daily-key-cap-freezes-progress",
+  "title": "Два ключа в день — жёсткий потолок, который замораживает прогресс независимо от мотивации пользователя",
+  "obs": 15
+ },
+ {
+  "id": "hearts-to-keys-removed-reward-mechanic",
+  "title": "Переход с сердец на ключи убрал механику, где точные ответы вознаграждались неограниченным прогрессом",
+  "obs": 6
+ },
+ {
+  "id": "no-skip-for-known-material",
+  "title": "Нельзя пропустить уже известный материал — опытный пользователь обязан повторять базовые темы для продвижения вперёд",
+  "obs": 6
+ },
+ {
+  "id": "build-section-credits-paywalled",
+  "title": "Секция создания приложений требует отдельной оплаты за кредиты и подсказки при каждой попытке",
+  "obs": 4
+ },
+ {
+  "id": "pro-doesnt-cover-full-course-max-needed",
+  "title": "Подписка Pro не открывает полный курс — для продвинутого контента требуется отдельный тарифный план Max",
+  "obs": 3
+ },
+ {
+  "id": "hearts-long-refill-wait-breaks-sessions",
+  "title": "Ожидание восполнения одного сердца занимает 2–3 часа, что прерывает сессии обучения",
+  "obs": 3
+ },
+ {
+  "id": "leaderboard-paywalled-behind-keys",
+  "title": "Лидерборд недоступен бесплатным пользователям, так как лимит ключей ограничивает количество очков в день",
+  "obs": 3
+ },
+ {
+  "id": "free-tier-abruptly-ends-after-basics",
+  "title": "Бесплатный уровень резко обрывается после базового модуля, принуждая к покупке подписки",
+  "obs": 3
+ },
+ {
+  "id": "lessons-too-shallow-for-beginners",
+  "title": "Уроки дают слишком мало объяснений концепций — начинающие не понимают ни содержание, ни цель упражнений",
+  "obs": 3
+ },
+ {
+  "id": "mobile-editor-inserts-wrong-tags",
+  "title": "Мобильный редактор кода автоматически вставляет закрывающие теги в неверные позиции, провоцируя каскадные ошибки валидации",
+  "obs": 3
+ },
+ {
+  "id": "app-replaces-doomscrolling-dead-time",
+  "title": "Пользователи используют приложение вместо бесцельного скроллинга — в поездках, очередях и в усталом состоянии",
+  "obs": 3
+ },
+ {
+  "id": "hearts-punish-beginners-cause-fear",
+  "title": "Система сердец создаёт страх ошибиться у начинающих и замедляет экспериментирование",
+  "obs": 2
+ },
+ {
+  "id": "no-explanation-why-answer-wrong",
+  "title": "При ошибке приложение не объясняет, почему ответ неверный, разрывая цикл обучения через исправление",
+  "obs": 2
+ },
+ {
+  "id": "unclear-learning-structure-path",
+  "title": "Структура обучения непрозрачна — пользователь не понимает, куда двигаться дальше и как выбрать нужный курс",
+  "obs": 2
+ },
+ {
+  "id": "web-mobile-false-wifi-error",
+  "title": "Мобильное приложение сообщает об отсутствии Wi-Fi при наличии подключения и не загружает уроки",
+  "obs": 2
+ },
+ {
+  "id": "web-version-breaks-mobile-app",
+  "title": "Использование веб-версии ломает мобильное приложение — появляется ошибка, которая сохраняется после переустановки",
+  "obs": 2
+ },
+ {
+  "id": "keys-slower-than-alternatives",
+  "title": "Лимит ключей делает темп обучения в разы медленнее свободных альтернатив — пользователи уходят к конкурентам",
+  "obs": 2
+ },
+ {
+  "id": "web-editor-only-in-max-not-pro",
+  "title": "Веб-редактор кода доступен только в тарифе Max, а не в Pro, создавая ценовой разрыв для работы на компьютере",
+  "obs": 1
+ },
+ {
+  "id": "pro-purchase-didnt-activate",
+  "title": "После покупки Pro подписки приложение не фиксирует первый урок и не предоставляет доступ к обучению",
+  "obs": 1
+ },
+ {
+  "id": "refund-form-rejects-valid-email",
+  "title": "Форма возврата средств отклоняет валидные адреса почты и не позволяет завершить процесс возврата",
+  "obs": 1
+ },
+ {
+  "id": "content-exhausted-fast-repetitive",
+  "title": "Всё содержимое приложения можно пройти за несколько недель, после чего материал по разным языкам повторяется",
+  "obs": 1
+ },
+ {
+  "id": "concept-stretched-too-many-questions",
+  "title": "Одна концепция растягивается на 16 вопросов за день — темп освоения в разы медленнее альтернативных методов",
+  "obs": 1
+ },
+ {
+  "id": "html-curriculum-missing-topics",
+  "title": "В курсе HTML отсутствуют целые темы: фреймы, элементы таблиц, протокол HTTPS",
+  "obs": 1
+ },
+ {
+  "id": "questions-give-away-answers",
+  "title": "Вопросы содержат правильный ответ прямо в формулировке — упражнение проверяет внимательность, а не знания",
+  "obs": 1
+ },
+ {
+  "id": "syntax-errors-block-experimentation",
+  "title": "Строгая валидация синтаксиса наказывает за порядок элементов так же, как за концептуальные ошибки, мешая учиться через эксперименты",
+  "obs": 1
+ },
+ {
+  "id": "learn-language-but-no-sandbox-to-write",
+  "title": "Курс учит синтаксису языка, но не предоставляет среды для написания собственного кода",
+  "obs": 1
+ },
+ {
+  "id": "niche-language-missing",
+  "title": "Приложение не поддерживает нишевые языки программирования, необходимые для конкретных задач",
+  "obs": 1
+ },
+ {
+  "id": "forced-language-order-no-choice",
+  "title": "Нельзя выбрать порядок изучения языков — приложение принуждает начинать с HTML независимо от целей пользователя",
+  "obs": 1
+ },
+ {
+  "id": "adaptive-level-doesnt-work",
+  "title": "Адаптация к уровню знаний не работает: при выборе промежуточного уровня выдаётся контент для начинающих",
+  "obs": 1
+ },
+ {
+  "id": "swipe-accidental-navigation-loses-progress",
+  "title": "Случайный свайп влево переключает на следующий раздел и теряет прогресс в текущем уроке",
+  "obs": 1
+ },
+ {
+  "id": "leaderboard-aggressive-reminders",
+  "title": "Лидерборд использует агрессивные напоминания, которые отвлекают от самого обучения",
+  "obs": 1
+ },
+ {
+  "id": "question-bilingual-text-conflict",
+  "title": "В интерфейсе вопросов конфликтуют оригинальный и переведённый тексты, запутывая пользователей",
+  "obs": 1
+ },
+ {
+  "id": "app-sounds-interrupt-background-music",
+  "title": "Звуки приложения перебивают фоновую музыку, которую пользователь слушает во время учёбы",
+  "obs": 1
+ },
+ {
+  "id": "progress-not-synced-web-to-mobile",
+  "title": "Прогресс, завершённый в веб-версии, не отражается в мобильном приложении и требует повторного прохождения",
+  "obs": 1
+ },
+ {
+  "id": "tracking-permission-denial-blocks-content",
+  "title": "Отказ от разрешения на отслеживание полностью отключает загрузку контента в приложении",
+  "obs": 1
+ },
+ {
+  "id": "new-device-login-error-with-subscription",
+  "title": "После смены устройства приложение выдаёт ошибку и не позволяет войти, несмотря на действующую подписку",
+  "obs": 1
+ },
+ {
+  "id": "account-already-registered-blocks-signin",
+  "title": "При попытке войти система сообщает, что аккаунт уже зарегистрирован, и блокирует доступ к сохранённому прогрессу",
+  "obs": 1
+ },
+ {
+  "id": "app-broken-on-latest-ios-device",
+  "title": "Приложение не запускается на актуальных устройствах с последней версией операционной системы",
+  "obs": 1
+ },
+ {
+  "id": "answer-submit-freezes-loses-progress",
+  "title": "При отправке ответа приложение зависает — единственный выход закрыть его и потерять весь прогресс в разделе",
+  "obs": 1
+ },
+ {
+  "id": "build-preview-white-screen",
+  "title": "Предпросмотр в секции создания приложений показывает белый экран вместо результата",
+  "obs": 1
+ },
+ {
+  "id": "web-version-wrong-code-evaluation",
+  "title": "Веб-версия выдаёт неверную оценку правильного кода, подрывая доверие к приложению как инструменту обучения",
+  "obs": 1
+ },
+ {
+  "id": "bug-reports-get-no-response",
+  "title": "Разработчики не дают обратной связи на отправленные через приложение отчёты об ошибках",
+  "obs": 1
+ },
+ {
+  "id": "interactive-beats-passive-video",
+  "title": "Интерактивный формат «учись и практикуй одновременно» переключает пользователей с пассивного просмотра видео-уроков",
+  "obs": 1
+ },
+ {
+  "id": "trial-builds-daily-habit-converts",
+  "title": "Двухнедельный пробный период достаточно длинный, чтобы выработать привычку ежедневного обучения и конвертировать в подписку",
+  "obs": 1
+ },
+ {
+  "id": "supplemental-use-between-bootcamp-sessions",
+  "title": "Приложение используют для поддержания знаний между интенсивными учебными сессиями, а не как основной инструмент",
+  "obs": 1
+ }
+]

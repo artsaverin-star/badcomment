@@ -1,0 +1,259 @@
+You are grouping 42 mechanism-level insight clusters from USA TODAY: US & Breaking News (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO USA TODAY: US & Breaking News, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 42 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to USA TODAY: US & Breaking News — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to USA TODAY: US & Breaking News>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-504631398.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "stale-content-sections",
+  "title": "Статьи в разделах не обновляются месяцами — одни и те же материалы висят без изменений",
+  "obs": 5
+ },
+ {
+  "id": "crossword-keyboard-broken-after-update",
+  "title": "Клавиатура кроссворда перестаёт работать или исчезает после обновления приложения",
+  "obs": 5
+ },
+ {
+  "id": "promo-price-not-applied",
+  "title": "Промо-цена при оформлении подписки не применяется — списывается полная стоимость",
+  "obs": 4
+ },
+ {
+  "id": "launch-blank-screen",
+  "title": "Приложение зависает на пустом экране при запуске и требует полного перезапуска",
+  "obs": 4
+ },
+ {
+  "id": "sudoku-broken-unavailable",
+  "title": "Судоку не загружается или остаётся недоступным на протяжении нескольких месяцев подряд",
+  "obs": 4
+ },
+ {
+  "id": "subscription-active-ads-still-shown",
+  "title": "Подписка оформлена и активна, но приложение продолжает показывать рекламу",
+  "obs": 3
+ },
+ {
+  "id": "format-redesign-removed-features",
+  "title": "Новый формат убрал привычные элементы — дату обновления, страничный вид газеты и быстрый доступ к погоде",
+  "obs": 3
+ },
+ {
+  "id": "notification-settings-ignored",
+  "title": "Настройки уведомлений не соблюдаются — отключённые типы всё равно приходят, а нужные не доставляются вовремя",
+  "obs": 3
+ },
+ {
+  "id": "article-tap-regression",
+  "title": "После обновления приложения клик по статье перестаёт открывать её содержимое",
+  "obs": 3
+ },
+ {
+  "id": "slow-launch-loading",
+  "title": "Приложение запускается очень медленно и подолгу не отвечает даже на быстром соединении",
+  "obs": 3
+ },
+ {
+  "id": "requires-restart-to-load",
+  "title": "Приложение не загружает контент при открытии и требует закрытия с повторным запуском каждый раз",
+  "obs": 3
+ },
+ {
+  "id": "subscription-not-recognized-restore-broken",
+  "title": "При активной подписке приложение выдаёт ошибку «только для подписчиков», а восстановление покупок не работает",
+  "obs": 2
+ },
+ {
+  "id": "video-loads-ad-not-content",
+  "title": "Видео в статьях не загружаются, хотя реклама перед ними воспроизводится без проблем",
+  "obs": 2
+ },
+ {
+  "id": "forced-ai-banner",
+  "title": "Принудительный баннер с функцией искусственного интеллекта нельзя скрыть — он занимает значительную часть экрана",
+  "obs": 2
+ },
+ {
+  "id": "crossword-grid-view-removed",
+  "title": "Новый формат кроссворда показывает один вопрос за раз вместо всей сетки — полная картина недоступна",
+  "obs": 2
+ },
+ {
+  "id": "inline-video-ads-block-reading",
+  "title": "Видео-объявления встроены между абзацами статьи, и прокрутка автоматически перебрасывает к ним",
+  "obs": 2
+ },
+ {
+  "id": "accidental-ad-clicks-on-scroll",
+  "title": "Рекламные клики срабатывают самопроизвольно при прокрутке и открывают новые окна без действий пользователя",
+  "obs": 2
+ },
+ {
+  "id": "affiliate-newspapers-not-accessible",
+  "title": "Аффилированные местные газеты не доступны из приложения — ссылки нет, хотя доступ обещан в подписке",
+  "obs": 2
+ },
+ {
+  "id": "vpn-geo-incompatible",
+  "title": "Приложение не работает при включённом VPN или при использовании за рубежом",
+  "obs": 2
+ },
+ {
+  "id": "watch-app-broken",
+  "title": "Приложение не открывается и не работает на Apple Watch",
+  "obs": 2
+ },
+ {
+  "id": "trial-cancel-still-charged",
+  "title": "Пробный период отменяется через Apple, но в день отмены всё равно списывают полную сумму подписки",
+  "obs": 1
+ },
+ {
+  "id": "cancel-via-apple-not-honored",
+  "title": "Отмена подписки через Apple не распознаётся приложением — через год неожиданно приходит новый платёж",
+  "obs": 1
+ },
+ {
+  "id": "archive-limited-back-issues",
+  "title": "В приложении доступны только последние 28–29 выпусков, и оно постоянно предлагает перейти к текущему дню",
+  "obs": 1
+ },
+ {
+  "id": "games-unavailable-weekends",
+  "title": "В выходные судоку и кроссворды не выходят, хотя в будни они доступны ежедневно",
+  "obs": 1
+ },
+ {
+  "id": "audio-read-feature",
+  "title": "Функция голосового прочтения статей позволяет потреблять новости без участия рук",
+  "obs": 1
+ },
+ {
+  "id": "stale-newspaper-edition",
+  "title": "Приложение показывает выпуск газеты двухдневной давности вместо сегодняшнего",
+  "obs": 1
+ },
+ {
+  "id": "audio-hijack-other-apps",
+  "title": "Приложение перехватывает аудиовыход и прерывает воспроизведение из других приложений",
+  "obs": 1
+ },
+ {
+  "id": "mid-article-fullscreen-popup",
+  "title": "Полноэкранный поп-ап появляется посреди статьи без предупреждения и отвлекает платящих подписчиков",
+  "obs": 1
+ },
+ {
+  "id": "multiple-popups-small-screen",
+  "title": "На маленьком экране одновременно появляется несколько всплывающих окон — пользоваться приложением невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ad-repetition-same-article",
+  "title": "Одно и то же объявление повторяется четыре-пять раз в пределах одной статьи",
+  "obs": 1
+ },
+ {
+  "id": "sports-feed-not-customizable",
+  "title": "Спортивная лента занимает значительное место на главном экране и не может быть отключена пользователем",
+  "obs": 1
+ },
+ {
+  "id": "sports-navigation-league-selection",
+  "title": "В спортивном разделе нельзя выбрать лигу напрямую — нужно многократно листать стрелкой",
+  "obs": 1
+ },
+ {
+  "id": "email-unsubscribe-not-accessible",
+  "title": "Нельзя отписаться от ежедневной email-рассылки через приложение — соответствующей функции нет",
+  "obs": 1
+ },
+ {
+  "id": "comics-single-panel-view",
+  "title": "Комиксы отображаются по одному вместо полной страницы, как в печатном издании",
+  "obs": 1
+ },
+ {
+  "id": "headline-font-size-not-adjustable",
+  "title": "Размер шрифта заголовков на главной странице слишком мал и не регулируется в настройках",
+  "obs": 1
+ },
+ {
+  "id": "crash-while-reading",
+  "title": "Приложение регулярно падает во время чтения статей",
+  "obs": 1
+ },
+ {
+  "id": "article-body-missing-from-headline",
+  "title": "Клик по заголовку открывает только заголовок без текста статьи — вместо материала предлагают оценить приложение",
+  "obs": 1
+ },
+ {
+  "id": "reading-position-lost-on-resume",
+  "title": "Приложение теряет место чтения при возвращении после переключения на другое приложение",
+  "obs": 1
+ },
+ {
+  "id": "photo-of-day-not-loading",
+  "title": "Фотогалерея дня не загружается несколько дней подряд",
+  "obs": 1
+ },
+ {
+  "id": "text-rendering-overflow",
+  "title": "Текст статьи выходит за границы и накладывается на соседние элементы, делая материал нечитаемым",
+  "obs": 1
+ },
+ {
+  "id": "crossword-attempt-counter-wrong",
+  "title": "Счётчик бесплатных попыток кроссворда засчитывает обе еженедельные попытки как одну",
+  "obs": 1
+ },
+ {
+  "id": "scroll-unreliable",
+  "title": "Прокрутка страницы работает случайным образом и не реагирует на жесты стабильно",
+  "obs": 1
+ }
+]

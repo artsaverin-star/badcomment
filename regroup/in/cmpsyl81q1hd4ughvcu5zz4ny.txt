@@ -1,0 +1,244 @@
+You are grouping 39 mechanism-level insight clusters from Falou - Fast language learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Falou - Fast language learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 39 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Falou - Fast language learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Falou - Fast language learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyl81q1hd4ughvcu5zz4ny.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "asr-false-positive",
+  "title": "Распознавание речи засчитывает неправильное произношение как верное — пользователь не понимает своих ошибок",
+  "obs": 7
+ },
+ {
+  "id": "asr-unreliable-core",
+  "title": "Распознавание речи в целом ненадёжно и подрывает основную функцию говорения, не исправляя ошибок",
+  "obs": 5
+ },
+ {
+  "id": "asr-requires-slow-speech",
+  "title": "Распознавание срабатывает только при очень медленном раздельном произношении и многократных повторах",
+  "obs": 4
+ },
+ {
+  "id": "nonsensical-phrases",
+  "title": "Учебные фразы нелогичны и оторваны от жизни — бессмысленные конструкции вместо реально употребимых выражений",
+  "obs": 3
+ },
+ {
+  "id": "level-stuck-no-progress",
+  "title": "Пользователь застревает на уровне и не может пройти дальше, упираясь в логический тупик прогрессии",
+  "obs": 3
+ },
+ {
+  "id": "content-fails-to-load",
+  "title": "Новый контент не подгружается — приложение зависает на загрузке или показывает белый экран",
+  "obs": 3
+ },
+ {
+  "id": "unexpected-extra-charges",
+  "title": "Приложение неожиданно и без предупреждения выставляет дополнительные платежи уже на раннем этапе",
+  "obs": 2
+ },
+ {
+  "id": "wrong-grammar-taught",
+  "title": "Приложение учит неправильной грамматике целевого языка — неверный род или падеж, расходящийся со школьными нормами",
+  "obs": 2
+ },
+ {
+  "id": "microphone-disappears",
+  "title": "Кнопка микрофона иногда не появляется или не регистрирует речь, блокируя упражнения говорения",
+  "obs": 2
+ },
+ {
+  "id": "no-grammar-before-translation",
+  "title": "Перед переводом не показывают грамматику и само задание — нужно угадывать, что переводить, или жать отдельную кнопку",
+  "obs": 2
+ },
+ {
+  "id": "linear-no-review-navigation",
+  "title": "Структура уроков строго линейна — нельзя вернуться к пройденному или повторить главу для закрепления",
+  "obs": 2
+ },
+ {
+  "id": "ai-dialog-moved-to-paid",
+  "title": "Функция AI-диалога была частью первой покупки, потом её перевели в отдельную подписку Premium+",
+  "obs": 1
+ },
+ {
+  "id": "ai-tutor-advertised-but-paid",
+  "title": "Реклама обещает AI-наставника в составе подписки, но в приложении он требует ещё одной доплаты",
+  "obs": 1
+ },
+ {
+  "id": "descending-price-then-extra-charge",
+  "title": "Цена падает с каждым отказом, а после согласия за основную функцию произношения просят ещё доплату сверху",
+  "obs": 1
+ },
+ {
+  "id": "trial-forces-annual",
+  "title": "Единственный пробный доступ навязывает сразу покупку годовой подписки, без короткого пробного периода",
+  "obs": 1
+ },
+ {
+  "id": "expiry-locks-completed-content",
+  "title": "После окончания подписки пропадает доступ даже к уже пройденным урокам и словам — нет режима просмотра пройденного",
+  "obs": 1
+ },
+ {
+  "id": "refund-after-impulse-buy",
+  "title": "Пользователь покупает подписку импульсивно и затем не может вернуть деньги из-за поломок приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-translation-for-beginners",
+  "title": "Незнакомые слова не переводятся на родной язык — новичку не из чего понять смысл, нет глоссария",
+  "obs": 1
+ },
+ {
+  "id": "no-alphabet-teaching",
+  "title": "Приложение не учит алфавит целевого языка — буквы приходится осваивать самому на стороне до начала занятий",
+  "obs": 1
+ },
+ {
+  "id": "repeats-mastered-words",
+  "title": "Каждый сеанс гоняет одни и те же слова независимо от прогресса — нет ощущения продвижения вперёд",
+  "obs": 1
+ },
+ {
+  "id": "missing-language-variant",
+  "title": "Нужного пользователю языка или диалекта в приложении просто нет",
+  "obs": 1
+ },
+ {
+  "id": "too-easy-for-experienced",
+  "title": "На ранних днях контент слишком прост для пользователей с опытом — не хватает быстрого выхода на сложность",
+  "obs": 1
+ },
+ {
+  "id": "missing-audio-on-translation",
+  "title": "При переводе предложений целевой язык не озвучивается — пользователь не слышит правильного произношения",
+  "obs": 1
+ },
+ {
+  "id": "audio-breaks-needs-restart",
+  "title": "Звук пропадает посреди занятия — чтобы вернуть воспроизведение, приходится постоянно закрывать и открывать приложение",
+  "obs": 1
+ },
+ {
+  "id": "no-slow-down-pace",
+  "title": "Предложения проигрываются слишком быстро без возможности замедлить — новичку трудно усвоить произношение",
+  "obs": 1
+ },
+ {
+  "id": "asr-false-negative",
+  "title": "Распознавание помечает правильное произношение как ошибочное — верный ответ не засчитывается",
+  "obs": 1
+ },
+ {
+  "id": "lesson-loop-stuck",
+  "title": "Приложение зацикливается на одном уроке при каждом запуске и не пускает дальше",
+  "obs": 1
+ },
+ {
+  "id": "language-immature-for-specific",
+  "title": "Для отдельных языков приложение сырое — медленный звук, неполная грамматика, непоследовательная транслитерация",
+  "obs": 1
+ },
+ {
+  "id": "no-pronunciation-coaching",
+  "title": "Приложение не обучает произношению — сразу требует повтор на полной скорости без объяснений и замедления",
+  "obs": 1
+ },
+ {
+  "id": "requires-perfect-pronunciation",
+  "title": "Без идеального произношения нельзя пройти дальше — упражнение не пропускает с несовершенным исполнением",
+  "obs": 1
+ },
+ {
+  "id": "no-review-after-speaking",
+  "title": "После упражнения говорения нельзя быстро свериться с правильным ответом письменно или прослушать его",
+  "obs": 1
+ },
+ {
+  "id": "forced-linear-topic-order",
+  "title": "После обновления нельзя выбрать тему и уровень сложности — навязан жёсткий последовательный порядок",
+  "obs": 1
+ },
+ {
+  "id": "no-click-alternative",
+  "title": "Упражнения требуют только говорения — нет альтернативного ввода кликом для тех, кому микрофон недоступен",
+  "obs": 1
+ },
+ {
+  "id": "early-rating-prompt",
+  "title": "Просьба оценить приложение всплывает уже через несколько минут обучения и прерывает занятие",
+  "obs": 1
+ },
+ {
+  "id": "early-subscription-pressure",
+  "title": "Предложение купить подписку давит на самом старте, до того как пользователь успел оценить функционал",
+  "obs": 1
+ },
+ {
+  "id": "confusing-instructions",
+  "title": "Бесплатный урок медлен и неясен — путает «перевести» с «повторить», сбивая пользователя с толку",
+  "obs": 1
+ },
+ {
+  "id": "no-child-mode",
+  "title": "Нет отдельного режима или тарифа для детей младше 13 лет, что закрывает им доступ",
+  "obs": 1
+ },
+ {
+  "id": "support-silent-paid-broken",
+  "title": "Приложение не работает после оплаты, а поддержка не отвечает на письма и просьбы о помощи",
+  "obs": 1
+ },
+ {
+  "id": "aggressive-marketing-vs-readiness",
+  "title": "Агрессивный маркетинг для конкретного языка не соответствует реальной готовности продукта",
+  "obs": 1
+ }
+]

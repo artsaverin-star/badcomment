@@ -1,0 +1,116 @@
+{
+  "groups": [
+    {
+      "id": "obnovleniya-lomayut",
+      "name": "Обновления ломают то, что работало",
+      "insight_ids": [
+        "apple-watch-app-broken-after-update",
+        "app-loses-wifi-after-update",
+        "update-removes-thermostat-from-app",
+        "thermostat-reboots-loop-after-update",
+        "arm-stay-video-removed-by-update",
+        "local-network-presence-removed",
+        "apple-watch-complication-missing-label",
+        "onboarding-instructions-outdated"
+      ]
+    },
+    {
+      "id": "komanda-ne-dohodit",
+      "name": "Команда уходит в пустоту: задержки, отвалы и ошибки сервера",
+      "insight_ids": [
+        "app-status-delay",
+        "command-not-applied-to-device",
+        "thermostat-drops-offline",
+        "app-crashes-on-open",
+        "ipad-graph-crashes-on-scroll",
+        "app-shows-wrong-status",
+        "server-error-on-temp-change",
+        "homeiq-screen-flicker",
+        "app-logs-out-no-support",
+        "remote-connection-fails-outside-home",
+        "furnace-wont-start-without-internet"
+      ]
+    },
+    {
+      "id": "eco-plus-zhivet-svoey-zhiznyu",
+      "name": "Eco+ и алгоритмы живут своей жизнью, игнорируя хозяина",
+      "insight_ids": [
+        "eco-plus-ignores-user-off",
+        "away-mode-eco-overrides-user",
+        "algorithm-overrides-set-temp",
+        "tou-fires-in-peak-hours",
+        "pre-cool-too-short",
+        "system-needs-offset-to-reach-target",
+        "eco-mode-terminology-confusing",
+        "eco-plus-unsubscribe-no-permanent-off"
+      ]
+    },
+    {
+      "id": "raspisanie-i-rezhimy-podvodyat",
+      "name": "Расписание, отопление и сезонные режимы подводят",
+      "insight_ids": [
+        "vacation-mode-min-temp-locked",
+        "schedule-save-broken",
+        "schedule-fires-wrong-or-holds",
+        "heat-stage-control-missing",
+        "fan-activation-resets-hold",
+        "comfort-profiles-reset-on-mode-switch",
+        "heat-pump-schedule-option-missing",
+        "spring-fall-mode-switching-issue",
+        "two-thermostats-conflict",
+        "night-mode-hard-to-disable-heat"
+      ]
+    },
+    {
+      "id": "datchiki-i-pokazaniya-vrut",
+      "name": "Датчики и показания врут: цифры в приложении не сходятся с домом",
+      "insight_ids": [
+        "app-data-vs-device-mismatch",
+        "aux-heat-missing-from-reports",
+        "room-sensors-ignored-in-comfort-profiles",
+        "outdoor-temp-inaccurate",
+        "average-sensor-instead-of-primary",
+        "reports-not-synced-multi-home",
+        "filter-alert-stuck-after-acknowledgement"
+      ]
+    },
+    {
+      "id": "lishnie-kliki-i-spryatannoe",
+      "name": "Лишние клики и спрятанные функции: интерфейс против человека",
+      "insight_ids": [
+        "schedule-ui-buried",
+        "basic-actions-too-many-clicks",
+        "widget-no-temperature",
+        "app-fewer-settings-than-device",
+        "fan-speed-multi-zone-confusing",
+        "app-complex-for-non-tech-users",
+        "battery-notification-blocks-temp-view",
+        "poor-text-contrast",
+        "duplicate-notifications",
+        "sensor-disconnect-popups-no-dismiss",
+        "ads-cant-be-closed"
+      ]
+    },
+    {
+      "id": "ekosistema-bez-doma-i-kamer",
+      "name": "Чужая экосистема: HomeKit, камеры и побег к конкурентам",
+      "insight_ids": [
+        "home-assistant-no-native-support",
+        "security-camera-live-view-broken",
+        "homekit-integration-incomplete",
+        "camera-false-positives-motion",
+        "geo-fencing-only-in-apple-home"
+      ]
+    },
+    {
+      "id": "akkaunt-privatnost-ustanovka",
+      "name": "Аккаунт, приватность и кривая установка",
+      "insight_ids": [
+        "account-no-email-change",
+        "phone-only-verification",
+        "support-requests-personal-data",
+        "installation-manual-error"
+      ]
+    }
+  ]
+}

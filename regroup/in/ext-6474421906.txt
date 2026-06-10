@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from Atoms - from Atomic Habits (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Atoms - from Atomic Habits, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Atoms - from Atomic Habits — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Atoms - from Atomic Habits>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-6474421906.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-hooks-then-paywall",
+  "title": "Пробный период намеренно создаёт зависимость от приложения, а затем вводит платёжную стену",
+  "obs": 13
+ },
+ {
+  "id": "habit-cap-arbitrary-low",
+  "title": "Лимит в 6 привычек (платно) и 1 (бесплатно) воспринимается как произвольно заниженный",
+  "obs": 13
+ },
+ {
+  "id": "dark-mode-missing",
+  "title": "В приложении нет тёмного режима — использование в вечернее время некомфортно или невозможно",
+  "obs": 11
+ },
+ {
+  "id": "paywall-hidden-at-habit-add",
+  "title": "Приложение скрывает лимит привычек до момента добавления второй — тогда блокирует всё логирование",
+  "obs": 7
+ },
+ {
+  "id": "past-log-limit-24h",
+  "title": "Логировать прошлые выполнения можно только за предыдущие 24 часа — более ранние даты недоступны",
+  "obs": 6
+ },
+ {
+  "id": "intrusive-upgrade-popups",
+  "title": "После окончания пробного периода приложение показывает навязчивые всплывающие окна с предложением апгрейда",
+  "obs": 4
+ },
+ {
+  "id": "cap-contradicts-book-philosophy",
+  "title": "Лимит привычек противоречит философии книги: автор рекомендует отслеживать несколько привычек одновременно",
+  "obs": 4
+ },
+ {
+  "id": "log-habit-ui-not-obvious",
+  "title": "Интерфейс не показывает, как отметить выполнение привычки — пользователи не могут разобраться без документации",
+  "obs": 4
+ },
+ {
+  "id": "reliability-app-freeze-loading",
+  "title": "Приложение зависает на экране загрузки при создании первой привычки",
+  "obs": 4
+ },
+ {
+  "id": "reliability-data-loss",
+  "title": "Приложение теряет данные о выполненных привычках при выходе из системы или регулярно в процессе работы",
+  "obs": 4
+ },
+ {
+  "id": "reliability-widget-broken",
+  "title": "Виджет часто отображается некорректно, не обновляется и выглядит непривлекательно",
+  "obs": 4
+ },
+ {
+  "id": "downgrade-blocks-existing-habits",
+  "title": "После отмены подписки приложение блокирует или удаляет привычки, созданные в пределах бесплатного лимита",
+  "obs": 3
+ },
+ {
+  "id": "edit-past-log-difficult",
+  "title": "Редактировать или удалить запись за прошедший день сложно и неочевидно",
+  "obs": 3
+ },
+ {
+  "id": "multi-frequency-habit-tracking-missing",
+  "title": "Нельзя отслеживать привычку, которую нужно выполнить несколько раз в день (например, пить воду 8 раз)",
+  "obs": 3
+ },
+ {
+  "id": "auto-renewal-no-reminder-no-refund",
+  "title": "Подписка автоматически продлевается без напоминания, а возврат средств отклоняется даже при длительном неиспользовании",
+  "obs": 2
+ },
+ {
+  "id": "repeated-charge-despite-active-sub",
+  "title": "Приложение ежедневно требует повторной оплаты, несмотря на действующую подписку",
+  "obs": 2
+ },
+ {
+  "id": "delete-habit-requires-payment",
+  "title": "Удаление привычки в бесплатной версии требует перехода на платный план",
+  "obs": 2
+ },
+ {
+  "id": "content-repackaged-from-book",
+  "title": "Статьи и уроки в приложении — это переработанный контент из книги и сайта автора, а не оригинальный материал",
+  "obs": 2
+ },
+ {
+  "id": "email-locked-cannot-change",
+  "title": "Адрес электронной почты нельзя изменить после регистрации, а отчёт об ошибке требует Gmail",
+  "obs": 2
+ },
+ {
+  "id": "reliability-offline-not-supported",
+  "title": "Приложение требует постоянного интернета — без сети логировать привычки невозможно",
+  "obs": 2
+ },
+ {
+  "id": "reliability-session-expires-on-reopen",
+  "title": "Приложение разлогинивает пользователя при каждом открытии и требует повторного входа",
+  "obs": 2
+ },
+ {
+  "id": "billing-starts-despite-free-trial-label",
+  "title": "Приложение называет регистрацию «бесплатным пробным периодом», но списывает деньги сразу",
+  "obs": 1
+ },
+ {
+  "id": "no-mid-tier-plan",
+  "title": "Между бесплатной (1 привычка) и платной (6 привычек за $120/год) версиями нет промежуточного плана",
+  "obs": 1
+ },
+ {
+  "id": "content-missing-four-laws-framework",
+  "title": "Приложение не реализует четыре закона из книги в виде отдельных функций трекинга",
+  "obs": 1
+ },
+ {
+  "id": "community-quotes-weak",
+  "title": "Раздел с цитатами и сообществом неразвит и уступает даже простому чат-боту",
+  "obs": 1
+ },
+ {
+  "id": "share-article-creates-image-not-link",
+  "title": "Кнопка «поделиться статьёй» создаёт картинку вместо ссылки на полный текст",
+  "obs": 1
+ },
+ {
+  "id": "mindset-section-no-search",
+  "title": "В разделе «мировоззрение» отсутствует поиск по содержимому",
+  "obs": 1
+ },
+ {
+  "id": "habit-color-customization-missing",
+  "title": "Нельзя назначить цвет отдельной привычке или настроить визуальное оформление",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-complex-form",
+  "title": "Добавление первой привычки требует заполнения сложной формы (время, место, личность), тогда как нужен простой чек-лист",
+  "obs": 1
+ },
+ {
+  "id": "philosophical-approach-vs-simple-tracker",
+  "title": "Философский подход (личность через привычки) отвлекает занятых пользователей от простого ежедневного трекинга",
+  "obs": 1
+ },
+ {
+  "id": "habit-time-per-day-inflexible",
+  "title": "Нельзя задать разное время напоминания для разных дней недели",
+  "obs": 1
+ },
+ {
+  "id": "frequency-vs-reminder-not-separated",
+  "title": "Частота выполнения привычки и время напоминания не разделены — нельзя настроить нестандартное расписание",
+  "obs": 1
+ },
+ {
+  "id": "language-switch-missing",
+  "title": "Приложение не поддерживает смену языка интерфейса, хотя книга переведена на 60 языков",
+  "obs": 1
+ },
+ {
+  "id": "scroll-required-to-see-habits",
+  "title": "Все привычки не помещаются на экране — требуется прокрутка",
+  "obs": 1
+ },
+ {
+  "id": "progress-view-text-not-visual",
+  "title": "Прогресс показывается текстом, а не визуальным графиком или диаграммой",
+  "obs": 1
+ },
+ {
+  "id": "calendar-view-missing-only-weekly",
+  "title": "Доступен только еженедельный вид — месячный календарь привычек отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "reflection-tile-no-logged-indicator",
+  "title": "Плитки размышлений на экране прогресса не показывают, было ли уже сделано размышление в этот день",
+  "obs": 1
+ },
+ {
+  "id": "streak-notification-inaccurate",
+  "title": "Уведомление «сохрани полоску» приходит, даже если привычка уже выполнена",
+  "obs": 1
+ },
+ {
+  "id": "no-historical-data-import",
+  "title": "Нельзя добавить исторические данные привычек — пользователи вынуждены начинать с нуля",
+  "obs": 1
+ },
+ {
+  "id": "goal-edit-blocks-logging-today",
+  "title": "После изменения целевого значения привычки логирование блокируется до следующего дня",
+  "obs": 1
+ },
+ {
+  "id": "habit-stack-multi-frequency-broken",
+  "title": "Стек привычек не засчитывается, пока привычка с несколькими повторениями в день не выполнена полностью",
+  "obs": 1
+ },
+ {
+  "id": "accountability-partner-limit-one",
+  "title": "Можно добавить только одного партнёра по подотчётности — поделиться с несколькими нельзя",
+  "obs": 1
+ },
+ {
+  "id": "spotify-focus-integration-missing",
+  "title": "Интеграция фокуса работает только с Apple Music — Spotify не поддерживается",
+  "obs": 1
+ },
+ {
+  "id": "spotify-integration-positive",
+  "title": "Интеграция со Spotify и возможность редактировать историю трекинга выгодно отличают приложение от аналогов",
+  "obs": 1
+ },
+ {
+  "id": "widget-display-all-habits-no-filter",
+  "title": "Виджет показывает все привычки подряд, не фильтруя уже выполненные или незапланированные на сегодня",
+  "obs": 1
+ },
+ {
+  "id": "widget-single-size-only",
+  "title": "Виджет доступен только в одном размере — компактного варианта для одной привычки нет",
+  "obs": 1
+ },
+ {
+  "id": "widget-truncates-habit-names",
+  "title": "Виджет не вмещает длинные названия привычек и не позволяет задать сокращённые имена",
+  "obs": 1
+ },
+ {
+  "id": "app-stops-music-on-open",
+  "title": "При открытии приложения автоматически останавливается музыка в наушниках",
+  "obs": 1
+ },
+ {
+  "id": "long-completion-animations",
+  "title": "Анимация завершения привычки слишком длинная — тормозит быстрое логирование нескольких привычек подряд",
+  "obs": 1
+ },
+ {
+  "id": "reliability-freeze-on-edit",
+  "title": "Приложение зависает при редактировании существующей привычки",
+  "obs": 1
+ },
+ {
+  "id": "reliability-freeze-on-ipad",
+  "title": "На iPad приложение зависает при нажатии «Начать» при добавлении первой привычки",
+  "obs": 1
+ },
+ {
+  "id": "reliability-cannot-connect",
+  "title": "Приложение постоянно выдаёт ошибку «нет соединения» вне зависимости от типа подключения к интернету",
+  "obs": 1
+ },
+ {
+  "id": "pro-removes-saved-articles-access",
+  "title": "После перехода на Pro-версию приложение закрывает доступ к сохранённым статьям, которые были доступны раньше",
+  "obs": 1
+ },
+ {
+  "id": "reliability-progress-spinner-infinite",
+  "title": "При логировании привычки экран прогресса зависает и крутит спиннер бесконечно",
+  "obs": 1
+ },
+ {
+  "id": "reliability-timezone-logging-wrong",
+  "title": "При смене часового пояса во время путешествия привычки логируются на неправильную дату, исправить нельзя",
+  "obs": 1
+ },
+ {
+  "id": "reliability-profile-reset-on-launch",
+  "title": "При каждом запуске приложение сбрасывает имя и фото профиля — данные не сохраняются",
+  "obs": 1
+ },
+ {
+  "id": "reliability-login-broken",
+  "title": "После выхода из аккаунта повторная авторизация не работает",
+  "obs": 1
+ },
+ {
+  "id": "privacy-data-sold-third-parties",
+  "title": "Приложение собирает чувствительные личные данные и продаёт их третьим сторонам, несмотря на платную подписку",
+  "obs": 1
+ },
+ {
+  "id": "strategy-competitor-gap-features",
+  "title": "Конкурирующие трекеры привычек предлагают базовые функции (офлайн, неограниченные привычки), которых нет в приложении",
+  "obs": 1
+ },
+ {
+  "id": "strategy-habit-limit-vs-book-template",
+  "title": "Бесплатный шаблон трекера на сайте автора содержит ~20 привычек, тогда как приложение ограничивает 6 — прямое противоречие",
+  "obs": 1
+ },
+ {
+  "id": "strategy-strict-habit-form-vs-book-strategies",
+  "title": "Жёсткая форма «Я буду делать X в Y чтобы стать Z» не позволяет применять стекирование или разрыв привычек из книги",
+  "obs": 1
+ }
+]

@@ -1,0 +1,83 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Деньги списывают мимо обещаний: триал, отмена, Paddle",
+      "insight_ids": [
+        "trial-charges-immediately",
+        "cancel-impossible",
+        "charges-after-cancel",
+        "charges-after-trial-cancel",
+        "cancel-paddle-loop",
+        "wrong-billing-period",
+        "subscription-forced-no-credits",
+        "hidden-paddle-subscription",
+        "charges-during-trial",
+        "duplicate-charges-no-refund",
+        "trial-exhausted-never-used",
+        "icon-tap-charges",
+        "intro-price-jumps"
+      ]
+    },
+    {
+      "id": "ad-paywall-bait",
+      "name": "Реклама и «бесплатно» в обмен на пустоту",
+      "insight_ids": [
+        "ad-feature-fails-loop",
+        "ads-but-no-result",
+        "ads-show-fake-features",
+        "named-free-not-free",
+        "watermark-on-results",
+        "subscription-popup-on-exit",
+        "long-unskippable-ads",
+        "ad-bypass-works",
+        "lost-ownership-recognition"
+      ]
+    },
+    {
+      "id": "ai-mangles-photos",
+      "name": "ИИ калечит лица и фото вместо улучшения",
+      "insight_ids": [
+        "enhance-distorts-faces",
+        "unblur-no-effect",
+        "multi-face-partial",
+        "colorize-wrong-skin",
+        "age-progression-unrelated",
+        "age-progression-needs-multiple",
+        "enhance-degrades-quality",
+        "overprocessed-unrealistic",
+        "upscale-washes-colors",
+        "quality-drops-after-few",
+        "fallout-mode-worse",
+        "sharpen-text-garbles",
+        "light-defect-not-fixed",
+        "no-original-recovery"
+      ]
+    },
+    {
+      "id": "downtime-and-silence",
+      "name": "Простои, лимиты и неотвечающая поддержка",
+      "insight_ids": [
+        "maintenance-downtime",
+        "support-unreachable",
+        "lost-paid-subscription-after-update",
+        "unreliable-with-waits",
+        "rate-limit-block"
+      ]
+    },
+    {
+      "id": "processing-breaks",
+      "name": "Обработка падает, виснет и не запускается",
+      "insight_ids": [
+        "process-cant-complete-error",
+        "select-photo-returns-home",
+        "feature-then-crash",
+        "crash-after-signup",
+        "broken-after-ios-update",
+        "photo-access-missing",
+        "stuck-looking-duplicates",
+        "clunky-interface"
+      ]
+    }
+  ]
+}

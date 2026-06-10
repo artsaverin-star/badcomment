@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "id": "vyleti-i-derevyannyy-uchet",
+      "name": "Вылеты и деревянный учёт еды: основной сценарий ломается",
+      "insight_ids": [
+        "crash-on-food-entry",
+        "add-product-flow-broken",
+        "scan-fails-unreliable",
+        "timeout-network-error",
+        "manual-entry-too-slow",
+        "no-convenient-units",
+        "no-retroactive-entry",
+        "too-many-input-fields",
+        "custom-food-hangs",
+        "crash-on-login",
+        "ai-additions-fail",
+        "device-overheating"
+      ]
+    },
+    {
+      "id": "platnaya-stena-i-bilingovye-lovushki",
+      "name": "Платная стена и биллинг-ловушки: пробник, который списывает год",
+      "insight_ids": [
+        "trial-charges-full-year",
+        "basic-macros-paywalled",
+        "community-now-paywalled",
+        "lifetime-purchase-lost",
+        "constant-subscription-popups",
+        "support-ignores-paying",
+        "trial-hidden-until-data",
+        "refund-refused",
+        "marketing-features-paywalled",
+        "ads-for-paid-users",
+        "longtime-users-forced-pay",
+        "card-required-at-signup"
+      ]
+    },
+    {
+      "id": "baza-vrun-poisk-kormov",
+      "name": "База-врушка и поиск кормов для собак вместо еды",
+      "insight_ids": [
+        "database-wrong-nutrition",
+        "database-too-small",
+        "dog-food-search-results",
+        "search-by-name-broken",
+        "no-edit-entries",
+        "no-photo-zoom"
+      ]
+    },
+    {
+      "id": "ocenki-bukvami-vina-i-sponsory",
+      "name": "Буквенные оценки: чувство вины и подозрение в спонсорстве",
+      "insight_ids": [
+        "wrong-grades-paid-sponsors",
+        "grades-inconsistent",
+        "letter-grades-guilt",
+        "manual-grade-assignment",
+        "subjective-shift-away-objective"
+      ]
+    },
+    {
+      "id": "zaper-na-vhode-i-poteryannye-akkaunty",
+      "name": "Запертые на входе: возрастной фильтр, блокировки и стёртые аккаунты",
+      "insight_ids": [
+        "age-gate-blocks-teens",
+        "registration-blocked",
+        "account-lockout-no-reset",
+        "account-data-wiped",
+        "cannot-fix-birthday",
+        "restore-hangs-new-device",
+        "vpn-blocks-app",
+        "contact-us-broken"
+      ]
+    },
+    {
+      "id": "doverie-i-privatnost-pod-ugrozoy",
+      "name": "Доверие и приватность под угрозой: данные, фишинг, тишина поддержки",
+      "insight_ids": [
+        "excessive-data-sharing",
+        "phishing-redirect"
+      ]
+    },
+    {
+      "id": "nepolnyy-tracker-zdorovya",
+      "name": "Неполный трекер здоровья: только похудение, без часов и добавок",
+      "insight_ids": [
+        "no-wearable-sync",
+        "missing-macros-display",
+        "no-weight-gain-mode",
+        "wrong-calorie-recommendation",
+        "no-supplement-tracking",
+        "no-exercise-tracking",
+        "health-sync-broken",
+        "dynamic-calorie-target",
+        "long-term-degradation"
+      ]
+    }
+  ]
+}

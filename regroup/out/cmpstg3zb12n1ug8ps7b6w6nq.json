@@ -1,0 +1,99 @@
+{
+  "groups": [
+    {
+      "id": "billing-charges-without-consent",
+      "name": "Списания без согласия: отменил пробный — всё равно сняли",
+      "insight_ids": [
+        "trial-cancel-still-charged",
+        "trial-not-really-free",
+        "charged-without-any-consent",
+        "charged-after-cancel-subscription",
+        "monthly-advertised-annual-charged",
+        "huge-wrong-charge",
+        "billing-mismatch-vip-locked",
+        "double-charge",
+        "subscription-not-transferred"
+      ]
+    },
+    {
+      "id": "paywall-enclosure",
+      "name": "Всё за VIP: бесплатное обнесли платной стеной",
+      "insight_ids": [
+        "features-moved-behind-paywall",
+        "free-version-useless",
+        "no-onetime-purchase",
+        "save-photo-requires-pay",
+        "watermark-free-version",
+        "price-hike-weekly",
+        "monthly-tier-hidden",
+        "aggressive-paywall-popups",
+        "support-claims-free-tools-false"
+      ]
+    },
+    {
+      "id": "cancel-and-support-obstruction",
+      "name": "Лабиринт отмены и глухая поддержка",
+      "insight_ids": [
+        "cancel-button-loops",
+        "subscription-hidden-from-apple",
+        "refund-denied-website-loophole",
+        "support-no-response",
+        "support-fast-refund",
+        "fake-account-login"
+      ]
+    },
+    {
+      "id": "updates-killed-what-we-loved",
+      "name": "Обновления убили то, ради чего и подписывались",
+      "insight_ids": [
+        "filters-removed-after-update",
+        "filters-replaced-worse",
+        "quick-edit-removed",
+        "shift-to-ai-editing",
+        "forced-upgrade-ft2",
+        "ai-removed-feature-resurfaced",
+        "key-filter-content-strategy"
+      ]
+    },
+    {
+      "id": "core-editing-broken",
+      "name": "Базовые инструменты ретуши ломаются и теряют работу",
+      "insight_ids": [
+        "object-removal-broken",
+        "face-detection-fails",
+        "face-algorithm-overtransforms",
+        "warp-take-crash",
+        "saved-quality-degraded",
+        "poor-controllability",
+        "save-not-in-recents",
+        "video-upload-error",
+        "vip-features-unavailable",
+        "ai-server-overloaded",
+        "blocks-other-apps"
+      ]
+    },
+    {
+      "id": "ai-tryon-gimmicks-fail",
+      "name": "AI-примерки и причёски: обещали чудо, выдали уродство",
+      "insight_ids": [
+        "hairstyle-tryon-broken",
+        "gender-detection-wrong",
+        "no-male-hairstyles",
+        "try-on-wrong-function",
+        "body-generation-offensive",
+        "advertised-feature-missing",
+        "blocks-screenshots",
+        "ai-image-training-consent",
+        "self-image-harm"
+      ]
+    },
+    {
+      "id": "still-the-best-tool",
+      "name": "Несмотря ни на что — деликатная ретушь и верность профи",
+      "insight_ids": [
+        "natural-results-praise",
+        "pro-tool-loyalty"
+      ]
+    }
+  ]
+}

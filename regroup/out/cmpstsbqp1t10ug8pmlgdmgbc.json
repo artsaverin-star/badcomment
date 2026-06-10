@@ -1,0 +1,85 @@
+{
+  "groups": [
+    {
+      "id": "putaet-vidy",
+      "name": "Путает виды: распознаёт не то, что на фото",
+      "insight_ids": [
+        "identification-wrong-species",
+        "identification-inconsistent-same-photo",
+        "identification-random-results",
+        "false-positive-non-insect",
+        "color-identification-errors",
+        "geographic-accuracy-limits",
+        "identification-requires-many-retries",
+        "false-bedbug-alarm"
+      ]
+    },
+    {
+      "id": "cena-oshibki-bezopasnost",
+      "name": "Цена ошибки: укусы, урожай, безопасность детей и питомцев",
+      "insight_ids": [
+        "dangerous-insect-misidentified",
+        "child-safety-dangerous-spider",
+        "allergy-anxiety-safety-use",
+        "garden-pest-wrong-harmless",
+        "pet-safety-use-case",
+        "safety-info-behind-paywall"
+      ]
+    },
+    {
+      "id": "biling-lovushki-apsell",
+      "name": "Биллинг-ловушки, навязчивый апсейл и запугивание ради подписки",
+      "insight_ids": [
+        "trial-charged-immediately",
+        "subscription-continues-after-cancel",
+        "cancel-hidden-in-phone-settings",
+        "trial-cancel-blocked",
+        "donation-onetime-payment",
+        "subscription-prompt-every-open",
+        "fear-inflation-for-upsell",
+        "forced-ad-on-reinstall"
+      ]
+    },
+    {
+      "id": "kto-i-zachem-polzuetsya",
+      "name": "Кто и зачем им пользуется: коллекция, профи и прогулки с детьми",
+      "insight_ids": [
+        "collection-long-term-engagement",
+        "professional-pest-control-use",
+        "gamification-children-learning",
+        "attitude-change-insects",
+        "identification-confirm-logic"
+      ]
+    },
+    {
+      "id": "opisaniya-i-baza",
+      "name": "Описания и база видов: ошибки, запугивающий тон и галлюцинации ИИ",
+      "insight_ids": [
+        "description-fear-tone",
+        "description-factual-errors",
+        "scientific-terminology-wrong",
+        "genai-contradictory-descriptions",
+        "species-db-name-typo"
+      ]
+    },
+    {
+      "id": "besplatno-i-limity",
+      "name": "Сколько можно бесплатно: суточные лимиты против довольных неплательщиков",
+      "insight_ids": [
+        "free-version-sufficient",
+        "freemium-daily-limit"
+      ]
+    },
+    {
+      "id": "probely-i-regressii",
+      "name": "Чего не хватает и что сломали: скорость, охват видов, пропавшие функции",
+      "insight_ids": [
+        "slow-performance",
+        "limited-moth-butterfly-coverage",
+        "wound-photo-feature-removed",
+        "language-removed-without-consent",
+        "no-location-notes-feature"
+      ]
+    }
+  ]
+}

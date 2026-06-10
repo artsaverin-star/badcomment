@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "id": "ne-podklyuchaetsya",
+      "name": "Не подключается, обрывается, тормозит — VPN, который не везёт трафик",
+      "insight_ids": [
+        "reliability-connection-failure",
+        "reliability-disconnect-mid-use",
+        "reliability-russia-stopped-working",
+        "reliability-regression-new-version",
+        "reliability-server-rotation-required",
+        "reliability-slow-speed",
+        "reliability-slow-app-load"
+      ]
+    },
+    {
+      "id": "reklama-za-konnekt",
+      "name": "Реклама в обмен на доступ: усыхающие награды и сломанный просмотр роликов",
+      "insight_ids": [
+        "reliability-ad-watch-no-connect",
+        "ui-ad-reward-slashed",
+        "ui-ad-long-wait",
+        "ui-ad-viewer-broken",
+        "ui-ad-no-swipe",
+        "ui-ad-close-button-mishit"
+      ]
+    },
+    {
+      "id": "platnoe-pod-vidom-besplatnogo",
+      "name": "Платное под видом бесплатного: списания после триала и мёртвый Premium",
+      "insight_ids": [
+        "payment-unexpected-charge",
+        "payment-subscription-not-activate",
+        "payment-disguised-as-free",
+        "payment-iran-no-card"
+      ]
+    },
+    {
+      "id": "doverie-i-bezopasnost",
+      "name": "Утечка IP, перехват трафика и подозрения в накрутке — цена доверия",
+      "insight_ids": [
+        "strategy-ip-leak-risk",
+        "strategy-traffic-interception-risk",
+        "strategy-fake-reviews-suspicion"
+      ]
+    },
+    {
+      "id": "iran-obhod-blokirovok",
+      "name": "Иран: спасательный круг для обхода блокировок — и где он рвётся",
+      "insight_ids": [
+        "strategy-iran-effective",
+        "strategy-iran-filter-shaker-gap"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,289 @@
+You are grouping 48 mechanism-level insight clusters from MAPS.ME: Offline Maps, GPS Nav (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO MAPS.ME: Offline Maps, GPS Nav, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 48 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to MAPS.ME: Offline Maps, GPS Nav — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to MAPS.ME: Offline Maps, GPS Nav>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsz6gxz2o94ughv7136ntsq.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "subscription-model-shift",
+  "title": "Переход с разовой покупки на подписку лишает старых пользователей доступа к уже оплаченным функциям",
+  "obs": 8
+ },
+ {
+  "id": "free-tier-cap-ads",
+  "title": "Бесплатная версия ограничена числом карт и сопровождается навязчивой рекламой подписки",
+  "obs": 7
+ },
+ {
+  "id": "hidden-paywall",
+  "title": "Приложение позиционирует себя как бесплатное, но требует оплату для любого полноценного использования",
+  "obs": 5
+ },
+ {
+  "id": "georgia-territory",
+  "title": "Карта отображает спорные регионы Грузии как отдельные государства",
+  "obs": 5
+ },
+ {
+  "id": "pro-still-limited",
+  "title": "После покупки Pro-версии ограничение на количество загружаемых карт не снимается",
+  "obs": 4
+ },
+ {
+  "id": "silent-charge",
+  "title": "Система автоматически списывает полную сумму подписки без явного согласия пользователя",
+  "obs": 4
+ },
+ {
+  "id": "subscription-not-recognized",
+  "title": "Активная подписка перестаёт распознаваться после обновления или переработки уровней доступа",
+  "obs": 4
+ },
+ {
+  "id": "search-failures",
+  "title": "Поиск не находит известные объекты и адреса, не учитывает варианты написания",
+  "obs": 4
+ },
+ {
+  "id": "no-cancel-mechanism",
+  "title": "Внутри приложения нет механизма отмены подписки — платежи продолжают списываться автоматически",
+  "obs": 3
+ },
+ {
+  "id": "purchase-not-synced",
+  "title": "Покупка не синхронизируется между устройствами одного пользователя и не работает при семейном плане",
+  "obs": 3
+ },
+ {
+  "id": "fullscreen-promo-popup",
+  "title": "При каждом открытии приложения появляется навязчивый полноэкранный промо-попап",
+  "obs": 3
+ },
+ {
+  "id": "route-errors",
+  "title": "Маршруты содержат грубые ошибки и могут вести по опасным или несуществующим дорогам",
+  "obs": 2
+ },
+ {
+  "id": "voice-guidance-broken",
+  "title": "Голосовые подсказки при навигации не работают даже после включения в настройках",
+  "obs": 2
+ },
+ {
+  "id": "maps-not-load-vpn",
+  "title": "Карты не загружаются при активном VPN-соединении",
+  "obs": 2
+ },
+ {
+  "id": "no-support-access",
+  "title": "Нет доступного способа связаться со службой поддержки из интерфейса приложения",
+  "obs": 2
+ },
+ {
+  "id": "annual-default",
+  "title": "Система по умолчанию оформляет годовую подписку вместо месячной без явного выбора пользователя",
+  "obs": 1
+ },
+ {
+  "id": "wrong-poi-location",
+  "title": "Геолокации достопримечательностей указаны неверно, что делает пешеходную навигацию ненадёжной",
+  "obs": 1
+ },
+ {
+  "id": "small-city-street-coverage",
+  "title": "Карта содержит данные об улицах малых городов, которых нет в конкурирующих приложениях",
+  "obs": 1
+ },
+ {
+  "id": "correct-geo-labels",
+  "title": "Карта правильно обозначает географические названия там, где крупные конкуренты используют неверные",
+  "obs": 1
+ },
+ {
+  "id": "no-satellite-view",
+  "title": "Приложение не поддерживает режим спутникового вида карты",
+  "obs": 1
+ },
+ {
+  "id": "voice-command-stuck",
+  "title": "Голосовая команда зависает и повторяет одну инструкцию несколько минут подряд",
+  "obs": 1
+ },
+ {
+  "id": "no-multi-waypoint",
+  "title": "Нет поддержки маршрутов с несколькими промежуточными точками",
+  "obs": 1
+ },
+ {
+  "id": "cannot-save-routes",
+  "title": "Нельзя сохранить маршрут между двумя точками для повторного использования",
+  "obs": 1
+ },
+ {
+  "id": "hard-to-change-route",
+  "title": "Сложно переключиться на новый маршрут во время активной навигации",
+  "obs": 1
+ },
+ {
+  "id": "no-exit-from-navigation",
+  "title": "Нет логичного способа вернуться из режима навигации обратно на карту",
+  "obs": 1
+ },
+ {
+  "id": "address-missing-from-search",
+  "title": "Адрес виден на карте визуально, но отсутствует в поисковой базе — функция «Дом» не работает",
+  "obs": 1
+ },
+ {
+  "id": "carplay-address-field",
+  "title": "В режиме автомобильного интерфейса поле ввода адреса нельзя скрыть и оно загораживает карту",
+  "obs": 1
+ },
+ {
+  "id": "bookmark-management-poor",
+  "title": "Управление закладками неудобно и требует лишних действий",
+  "obs": 1
+ },
+ {
+  "id": "flat-map-removed",
+  "title": "После обновления приложение перестало показывать плоскую карту для пешеходной навигации",
+  "obs": 1
+ },
+ {
+  "id": "no-offline-preview",
+  "title": "Нельзя просматривать офлайн-карты дома до начала поездки для планирования маршрута",
+  "obs": 1
+ },
+ {
+  "id": "requires-download-before-use",
+  "title": "Приложение требует скачивать карты заранее перед каждым новым маршрутом",
+  "obs": 1
+ },
+ {
+  "id": "no-onboarding-for-maps",
+  "title": "Нет подсказок для новых пользователей о том, как скачать нужные карты",
+  "obs": 1
+ },
+ {
+  "id": "non-intuitive-ui",
+  "title": "Интерфейс неинтуитивен и вызывает затруднения у нерегулярных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "early-review-prompt",
+  "title": "Приложение запрашивает оценку сразу после установки до того, как пользователь успел его протестировать",
+  "obs": 1
+ },
+ {
+  "id": "bookmarks-lost-on-update",
+  "title": "Все закладки исчезают после обновления приложения",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-on-device-change",
+  "title": "При смене телефона все сохранённые места и данные теряются",
+  "obs": 1
+ },
+ {
+  "id": "maps-auto-deleted",
+  "title": "Загруженные карты автоматически удаляются без каких-либо действий пользователя",
+  "obs": 1
+ },
+ {
+  "id": "crash-after-os-update",
+  "title": "После обновления операционной системы приложение вылетает при каждом запуске",
+  "obs": 1
+ },
+ {
+  "id": "map-shows-only-ocean",
+  "title": "Карта иногда не загружается и отображает только океан вместо суши",
+  "obs": 1
+ },
+ {
+  "id": "map-rotates-endlessly",
+  "title": "Карта непрерывно вращается и не стабилизируется до перезагрузки приложения",
+  "obs": 1
+ },
+ {
+  "id": "direction-arrow-flips",
+  "title": "Стрелка направления случайно разворачивается на 180 градусов во время навигации",
+  "obs": 1
+ },
+ {
+  "id": "tile-boundary-glitch",
+  "title": "Карта некорректно отображается при пересечении границ тайлов",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-removed",
+  "title": "Поддержка умных часов была удалена разработчиками",
+  "obs": 1
+ },
+ {
+  "id": "ios-android-parity",
+  "title": "Версия для iOS содержит меньше функций, чем версия для Android",
+  "obs": 1
+ },
+ {
+  "id": "support-slow-response",
+  "title": "Служба поддержки отвечает крайне медленно и теряет уже отправленные данные пользователей",
+  "obs": 1
+ },
+ {
+  "id": "pedestrian-routing-advantage",
+  "title": "Пешеходные маршруты по узким кварталам и рынкам точнее, чем у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "gps-coordinates-display",
+  "title": "Приложение показывает текущие координаты пользователя — функция, недоступная в крупных конкурентах",
+  "obs": 1
+ },
+ {
+  "id": "voice-timing-advantage",
+  "title": "Голосовые подсказки рассчитываются по скорости движения и произносятся точно в нужный момент",
+  "obs": 1
+ }
+]

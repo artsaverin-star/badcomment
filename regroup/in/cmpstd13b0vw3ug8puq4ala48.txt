@@ -1,0 +1,284 @@
+You are grouping 47 mechanism-level insight clusters from Todoist: To Do List & Calendar (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Todoist: To Do List & Calendar, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 47 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Todoist: To Do List & Calendar — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Todoist: To Do List & Calendar>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstd13b0vw3ug8puq4ala48.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "data-loss-after-update",
+  "title": "Обновление приложения без предупреждения удаляет все задачи без возможности восстановления",
+  "obs": 8
+ },
+ {
+  "id": "no-undated-task-list",
+  "title": "Задачи без даты исчезают из основного списка — приложение требует датировать всё",
+  "obs": 4
+ },
+ {
+  "id": "recurring-task-overview-missing",
+  "title": "Нельзя увидеть все будущие повторения задачи в одном месте, особенно на iPhone",
+  "obs": 4
+ },
+ {
+  "id": "swipe-actions-removed-harder",
+  "title": "Жест смахивания для выбора и действий убрали или сделали длиннее — теперь нужны две руки",
+  "obs": 4
+ },
+ {
+  "id": "widget-broken",
+  "title": "Виджет на главном экране показывает чёрный или пустой экран либо устаревшие задачи и чинится только переустановкой",
+  "obs": 4
+ },
+ {
+  "id": "add-task-button-freezes",
+  "title": "Кнопка добавления задачи открывает окно, после чего приложение зависает или не реагирует на ввод",
+  "obs": 4
+ },
+ {
+  "id": "sync-fails-across-devices",
+  "title": "Синхронизация между устройствами не работает — изменения с телефона перезаписываются десктопом, данные расходятся",
+  "obs": 3
+ },
+ {
+  "id": "platform-feature-disparity",
+  "title": "Функции различаются между платформами: создание из скриншота, Markdown, iPad — где-то есть, где-то нет",
+  "obs": 3
+ },
+ {
+  "id": "inbox-hidden-extra-steps",
+  "title": "Привычный Inbox спрятан и требует лишних шагов навигации каждый раз",
+  "obs": 2
+ },
+ {
+  "id": "mobile-redesign-worse-ux",
+  "title": "Новая мобильная версия ухудшила удобство: лишние шаги, нет привычных действий, приходится уходить на десктоп",
+  "obs": 2
+ },
+ {
+  "id": "apple-calendar-missing",
+  "title": "Нет интеграции с Apple Calendar — приватные пользователи вынуждены подключать только Google или Outlook",
+  "obs": 2
+ },
+ {
+  "id": "voice-input-no-text",
+  "title": "Голосовой ввод Ramble не принимает текст и не воспроизводит прежние быстрые возможности диктовки",
+  "obs": 2
+ },
+ {
+  "id": "password-validation-rejects",
+  "title": "Проверка пароля отклоняет даже сложные 50-символьные пароли как «слишком простые» — регистрация по email невозможна",
+  "obs": 2
+ },
+ {
+  "id": "subscription-not-recognized",
+  "title": "Приложение не признаёт оплаченную годовую подписку, хотя платёж прошёл, а поддержка молчит",
+  "obs": 1
+ },
+ {
+  "id": "features-moved-behind-paywall",
+  "title": "Значительная часть функций, ранее бесплатных, переехала за платный доступ",
+  "obs": 1
+ },
+ {
+  "id": "cancel-subscription-maze",
+  "title": "Отписка намеренно запутана и тянется 45+ минут без подтверждения, что отмена прошла",
+  "obs": 1
+ },
+ {
+  "id": "reminder-deadline-two-steps",
+  "title": "Установка напоминания и дедлайна — два разных шага вместо одного диалога, функция скрыта",
+  "obs": 1
+ },
+ {
+  "id": "habit-breaking-redesigns",
+  "title": "Частые редизайны интерфейса ломают мышечную память — ключевые элементы приходится искать заново",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-overload",
+  "title": "При первом запуске вываливается 81+ элемент для изучения — когнитивная перегрузка отпугивает новичка",
+  "obs": 1
+ },
+ {
+  "id": "context-filter-multi-select-lost",
+  "title": "На мобильном нельзя выбрать несколько фильтров по контексту сразу — сортировка стала неудобнее",
+  "obs": 1
+ },
+ {
+  "id": "no-search-inside-filter",
+  "title": "В сохранённом отфильтрованном представлении нет поиска — нельзя найти задачу в контексте текущего фильтра",
+  "obs": 1
+ },
+ {
+  "id": "list-name-retype",
+  "title": "При добавлении задачи в список приходится заново вводить его название, хотя контекст уже известен",
+  "obs": 1
+ },
+ {
+  "id": "completed-tasks-hidden",
+  "title": "Завершённые задачи не показываются — для подтверждения прогресса приходится делать скриншоты",
+  "obs": 1
+ },
+ {
+  "id": "snooze-not-tracked",
+  "title": "Задача остаётся красной после отсрочки напоминания, а в журнале не видно ни факта отсрочки, ни оставшегося времени",
+  "obs": 1
+ },
+ {
+  "id": "calendar-meetings-capped",
+  "title": "Из импортированных календарей показываются только 4 встречи в день, остальные скрыты",
+  "obs": 1
+ },
+ {
+  "id": "no-start-dates",
+  "title": "Нет даты начала задачи — можно задать только дедлайн, нельзя отметить, когда браться за работу",
+  "obs": 1
+ },
+ {
+  "id": "shared-filter-assignee",
+  "title": "Нельзя отфильтровать общий проект по «назначено мне или никому» — мешает совместной работе",
+  "obs": 1
+ },
+ {
+  "id": "new-task-bottom-only",
+  "title": "Новые задачи добавляются только в конец списка — опцию добавления в начало просят годами",
+  "obs": 1
+ },
+ {
+  "id": "allday-text-readability",
+  "title": "В календаре подпись события «весь день» читается неудобно из-за смешения горизонтального и вертикального текста",
+  "obs": 1
+ },
+ {
+  "id": "notifications-unreliable",
+  "title": "Push-уведомления перестают приходить через непредсказуемое время, переустановка помогает лишь временно",
+  "obs": 1
+ },
+ {
+  "id": "background-helper-required",
+  "title": "Быстрый ввод и напоминания работают только при запущенном фоновом процессе, иначе уведомления пропадают",
+  "obs": 1
+ },
+ {
+  "id": "forced-update-broken-install",
+  "title": "После обновления приложение требует скачать новую версию, но установка не срабатывает и просьба повторяется при каждом запуске",
+  "obs": 1
+ },
+ {
+  "id": "update-opens-teams-screen",
+  "title": "После принудительного обновления вместо списка задач открывается экран команд — приложением нельзя пользоваться",
+  "obs": 1
+ },
+ {
+  "id": "unclearable-badge",
+  "title": "На иконке висит красный бейдж, но внутри приложения уведомление не найти и нельзя очистить вручную",
+  "obs": 1
+ },
+ {
+  "id": "add-members-fails",
+  "title": "Добавление участника в проект не срабатывает даже после 20+ попыток",
+  "obs": 1
+ },
+ {
+  "id": "google-calendar-sync-partial",
+  "title": "Синхронизация с Google Calendar работает только для задач из Inbox, а созданные или перенесённые в проект теряют связь",
+  "obs": 1
+ },
+ {
+  "id": "drop-old-ios-support",
+  "title": "Отказ от поддержки старых iOS вынуждает людей с инвалидностью и старыми устройствами менять оборудование",
+  "obs": 1
+ },
+ {
+  "id": "non-native-feel",
+  "title": "Из-за кроссплатформенного подхода приложение не ощущается нативным и нарушает привычные паттерны iOS и Android",
+  "obs": 1
+ },
+ {
+  "id": "no-audio-haptic-reminders",
+  "title": "Напоминания только визуальные — нет звука и вибрации, бесполезно для занятых на ходу",
+  "obs": 1
+ },
+ {
+  "id": "google-signin-invalid-token",
+  "title": "Вход через Google выдаёт ошибку «invalid token» в приложении, хотя на сайте те же данные работают",
+  "obs": 1
+ },
+ {
+  "id": "mobile-help-shows-desktop",
+  "title": "Справка мобильной версии показывает только десктопный интерфейс — инструкции неприменимы",
+  "obs": 1
+ },
+ {
+  "id": "mention-history-missing",
+  "title": "Упоминания @mention нельзя просмотреть позже — нет истории, только разовый пинг среди уведомлений",
+  "obs": 1
+ },
+ {
+  "id": "deadline-vs-task-differentiator",
+  "title": "Отдельное поле дедлайна отличает приложение от конкурентов и удерживает мигрантов из других сервисов",
+  "obs": 1
+ },
+ {
+  "id": "email-to-task-use-case",
+  "title": "Прямая связь задач с письмами — востребованный сценарий для тех, кто совмещает домашний и рабочий контекст",
+  "obs": 1
+ },
+ {
+  "id": "ramble-unstructured-capture",
+  "title": "Свободный ввод мыслей без структуры стал решающим отличием, ради которого пользователь бросил аналоги",
+  "obs": 1
+ },
+ {
+  "id": "natural-language-recurring",
+  "title": "Создание повторяющихся задач и приоритетов естественным языком без лишних кликов выигрывает у Apple Reminders",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-data-collection",
+  "title": "Данные собираются без явного отказа, в отличие от конкурентов — сбор воспринимается как обязательный",
+  "obs": 1
+ }
+]

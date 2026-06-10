@@ -1,0 +1,75 @@
+{
+  "groups": [
+    {
+      "id": "crashes-spam-deadends",
+      "name": "Краши, зависания и спам оценок: ничего не работает, а поддержка молчит",
+      "insight_ids": [
+        "rate-prompt-spam",
+        "support-unresponsive",
+        "photos-wont-load",
+        "crashes-loses-work",
+        "filters-dont-work",
+        "batch-too-many-requests"
+      ]
+    },
+    {
+      "id": "vanished-features",
+      "name": "Обновления забирают функции: видео, замена лиц, пресеты и ретушь пропали",
+      "insight_ids": [
+        "removed-features-after-update",
+        "video-editing-removed",
+        "presets-deleted",
+        "remover-degraded",
+        "face-swap-removed"
+      ]
+    },
+    {
+      "id": "billing-traps-cancel",
+      "name": "Списания и отмена: деньги уходят после отмены, цена скачет, регион ломает срок",
+      "insight_ids": [
+        "charged-after-cancel",
+        "cancel-redirect-payment-operator",
+        "price-hike",
+        "region-change-shortens-sub",
+        "sub-one-device-only",
+        "cant-pay-apple-id-balance",
+        "ruble-pricing-unaffordable"
+      ]
+    },
+    {
+      "id": "paywall-trial-bait",
+      "name": "Платный туман: пустой триал, скрытая цена и поломки сразу после оплаты",
+      "insight_ids": [
+        "free-features-moved-behind-paywall",
+        "trial-empty-shell",
+        "errors-after-purchase",
+        "free-cant-save",
+        "price-jump-at-checkout",
+        "pro-tools-hidden-until-tap",
+        "video-broken-after-pro"
+      ]
+    },
+    {
+      "id": "weak-tools-styles",
+      "name": "Скудный инструментарий: мало причёсок, кривое наложение и неинтуитивная правка",
+      "insight_ids": [
+        "few-hairstyle-options",
+        "limited-editing-tools",
+        "hairstyle-overlay-not-replace",
+        "vanish-no-selective-blur",
+        "tools-hard-to-use",
+        "no-in-app-help"
+      ]
+    },
+    {
+      "id": "fake-ai-faces",
+      "name": "ИИ портит лицо: искусственный результат, ошибки пола и подмена черт",
+      "insight_ids": [
+        "wrong-gender-detection",
+        "fake-looking-results",
+        "poor-profile-shots",
+        "asianizes-features"
+      ]
+    }
+  ]
+}

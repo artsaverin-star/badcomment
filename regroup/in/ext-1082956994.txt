@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from Filmmaker Pro - Video Editor (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Filmmaker Pro - Video Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Filmmaker Pro - Video Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Filmmaker Pro - Video Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1082956994.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-project-limit",
+  "title": "Бесплатная версия ограничена четырьмя проектами — дальнейшее создание видео требует удаления старых или оплаты",
+  "obs": 10
+ },
+ {
+  "id": "export-requires-premium",
+  "title": "Приложение позволяет полностью смонтировать видео бесплатно, но экспорт и сохранение заблокированы платным планом",
+  "obs": 7
+ },
+ {
+  "id": "share-requires-premium",
+  "title": "Функция отправки и публикации готового видео друзьям доступна только в платном плане",
+  "obs": 5
+ },
+ {
+  "id": "free-clip-photo-limit",
+  "title": "Бесплатная версия ограничена 10 клипами или 10 фотографиями на проект, что блокирует создание полноценного контента",
+  "obs": 4
+ },
+ {
+  "id": "no-monthly-plan",
+  "title": "Приложение предлагает только недельный и годовой планы подписки — ежемесячный вариант отсутствует",
+  "obs": 3
+ },
+ {
+  "id": "lifetime-reauth-loop",
+  "title": "После разовой покупки приложение требует повторной активации при каждом запуске",
+  "obs": 3
+ },
+ {
+  "id": "lifetime-broken-after-update",
+  "title": "Функция восстановления пожизненной подписки перестала работать после обновления приложения",
+  "obs": 3
+ },
+ {
+  "id": "screenshot-blocked",
+  "title": "Приложение блокирует встроенные системные скриншоты и запись экрана, не давая сохранить результат в обход платного экспорта",
+  "obs": 3
+ },
+ {
+  "id": "lifetime-not-syncing",
+  "title": "Разовая покупка не переносится на другие устройства — восстановление покупки не работает",
+  "obs": 2
+ },
+ {
+  "id": "ai-music-library-undisclosed",
+  "title": "Новые музыкальные треки в библиотеке звучат как синтезированные нейросетью, но приложение не предупреждает об этом",
+  "obs": 2
+ },
+ {
+  "id": "feature-removed-bg-removal",
+  "title": "Функция замены и удаления фона убрана в одном из обновлений приложения",
+  "obs": 2
+ },
+ {
+  "id": "overlay-limit",
+  "title": "В одном месте видео можно разместить не более трёх слоёв наложения",
+  "obs": 2
+ },
+ {
+  "id": "slow-clip-assembly",
+  "title": "Сборка видео из множества клипов занимает значительно больше времени, чем ожидают пользователи",
+  "obs": 2
+ },
+ {
+  "id": "cancel-ignored-billing-continues",
+  "title": "Запрос на отмену подписки игнорируется — деньги продолжают списываться месяцами, поддержка не отвечает",
+  "obs": 1
+ },
+ {
+  "id": "wrong-currency-charge",
+  "title": "Приложение списывает сумму в неверной валюте — вместо гонконгских долларов снимает американские",
+  "obs": 1
+ },
+ {
+  "id": "music-library-purchase-lost",
+  "title": "После оплаты доступ к купленной музыкальной библиотеке пропадает, а поддержка не реагирует",
+  "obs": 1
+ },
+ {
+  "id": "monthly-overspend-vs-onetime",
+  "title": "Ежемесячная подписка за полтора года обходится почти в ту же сумму, что и разовая покупка, но поддержка отказывает в переходе",
+  "obs": 1
+ },
+ {
+  "id": "ipad-export-not-free",
+  "title": "Экспорт видео на iPad платный, хотя на iPhone аналогичная функция может быть бесплатной",
+  "obs": 1
+ },
+ {
+  "id": "free-music-requires-premium",
+  "title": "Музыкальная библиотека объявлена бесплатной, но её использование требует платного плана",
+  "obs": 1
+ },
+ {
+  "id": "music-youtube-claims",
+  "title": "Треки из библиотеки помечены как royalty-free, но видеосервис всё равно выставляет авторский клейм на опубликованное видео",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-music-catalog",
+  "title": "В библиотеке нет интеграции с каталогом Apple Music — выбор треков ограничен встроенной коллекцией",
+  "obs": 1
+ },
+ {
+  "id": "feature-removed-text-frame",
+  "title": "Функция создания видеокадра с текстом на затемнённом фоне удалена в обновлении",
+  "obs": 1
+ },
+ {
+  "id": "transition-max-duration",
+  "title": "Максимальная длительность перехода между кадрами ограничена двумя секундами — более плавный монтаж невозможен",
+  "obs": 1
+ },
+ {
+  "id": "transition-speed-not-customizable",
+  "title": "Скорость переходов нельзя настроить вручную — доступны только предустановленные значения",
+  "obs": 1
+ },
+ {
+  "id": "single-transition-per-element",
+  "title": "К одному элементу можно применить только один эффект перехода — одновременно появление и исчезновение недоступны",
+  "obs": 1
+ },
+ {
+  "id": "still-image-max-60s",
+  "title": "Статичное изображение в проекте можно растянуть максимум до 60 секунд",
+  "obs": 1
+ },
+ {
+  "id": "audio-undo-missing",
+  "title": "После удаления аудиодорожки нет возможности отменить действие или восстановить исходный звук",
+  "obs": 1
+ },
+ {
+  "id": "audio-remove-not-working",
+  "title": "Инструмент удаления оригинального звука из видео не работает — звуковая дорожка остаётся несмотря на команду",
+  "obs": 1
+ },
+ {
+  "id": "audio-volume-not-saved",
+  "title": "Настройка громкости не сохраняется между сессиями редактирования — при повторном открытии проекта изменения теряются",
+  "obs": 1
+ },
+ {
+  "id": "music-change-requires-recreate",
+  "title": "Замена музыкального трека в уже собранном проекте требует пересоздания видео с нуля",
+  "obs": 1
+ },
+ {
+  "id": "text-min-duration",
+  "title": "Минимальная длительность текстового элемента на экране составляет полсекунды — быстрый монтаж с текстом невозможен",
+  "obs": 1
+ },
+ {
+  "id": "export-quality-too-low",
+  "title": "Видео после экспорта значительно теряет качество из-за сильного сжатия",
+  "obs": 1
+ },
+ {
+  "id": "no-keyframe-adjustment",
+  "title": "Тонкая покадровая настройка движения недоступна — вместо неё только медленная анимация без параметров",
+  "obs": 1
+ },
+ {
+  "id": "unintuitive-interface",
+  "title": "Базовые операции — изменение размера видео, расширение длительности текста — не очевидны без специальных знаний интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "export-youtube-not-obvious",
+  "title": "Способ экспорта и загрузки готового видео на видеоплатформу не объяснён в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "no-project-sync-across-devices",
+  "title": "Проекты не синхронизируются между устройствами — начать на телефоне и продолжить на планшете невозможно",
+  "obs": 1
+ },
+ {
+  "id": "session-logout-on-close",
+  "title": "Приложение забывает авторизацию после закрытия и каждый раз требует повторного входа",
+  "obs": 1
+ },
+ {
+  "id": "rating-prompt-too-frequent",
+  "title": "Приложение показывает запрос на оценку каждые несколько секунд использования",
+  "obs": 1
+ },
+ {
+  "id": "aggressive-premium-upsell",
+  "title": "В интерфейсе постоянно всплывает баннер с предложением купить премиум, отвлекающий от работы",
+  "obs": 1
+ },
+ {
+  "id": "object-removal-tool-missing",
+  "title": "Инструмент удаления нежелательных объектов из кадра отсутствует или слишком сложен в использовании",
+  "obs": 1
+ },
+ {
+  "id": "variable-speed-curve-paywalled",
+  "title": "Плавная регулировка скорости с кривой доступна только в платной версии",
+  "obs": 1
+ },
+ {
+  "id": "layered-clip-no-crop-speed",
+  "title": "Слоевые видеоклипы нельзя кадрировать или менять их скорость — инструменты базового трека к ним неприменимы",
+  "obs": 1
+ },
+ {
+  "id": "subtitle-crash",
+  "title": "Генерация субтитров через распознавание речи приводит к краху приложения и потере всех введённых данных",
+  "obs": 1
+ },
+ {
+  "id": "color-correction-freeze",
+  "title": "Приложение зависает при работе с таймингом цветовой коррекции фона",
+  "obs": 1
+ },
+ {
+  "id": "no-free-storage-without-account",
+  "title": "Без учётной записи хранилище проектов на устройстве заканчивается быстрее — лимит не раскрыт",
+  "obs": 1
+ },
+ {
+  "id": "support-not-responding",
+  "title": "Служба поддержки не отвечает на обращения — ни при проблемах с подпиской, ни при технических сбоях",
+  "obs": 1
+ },
+ {
+  "id": "deceptive-free-edit-locked-export",
+  "title": "Модель «редактируй бесплатно — плати за сохранение» воспринимается пользователями как намеренный обман",
+  "obs": 1
+ },
+ {
+  "id": "long-video-share-limit",
+  "title": "Длинные видео нельзя экспортировать или поделиться ими — ограничение на длину не документировано",
+  "obs": 1
+ },
+ {
+  "id": "free-length-limit-undisclosed",
+  "title": "Ограничение длины видео в бесплатной версии нигде не указано заранее — пользователи натыкаются на стену неожиданно",
+  "obs": 1
+ }
+]

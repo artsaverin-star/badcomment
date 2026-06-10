@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "id": "phantom-subscription-charges",
+      "name": "Подписка-призрак: списывают, хотя её не оформляли",
+      "insight_ids": [
+        "subscription-charges-without-consent",
+        "smart-money-auto-withdrawal-overdraft",
+        "price-creep-without-consent",
+        "trial-charges-immediately",
+        "direct-debit-enables-theft",
+        "charge-on-bank-connect-fail",
+        "delayed-then-overdraft-charge",
+        "charged-without-approval",
+        "delete-app-keeps-charging"
+      ]
+    },
+    {
+      "id": "cant-cancel-cant-leave",
+      "name": "Не отписаться и не уйти: лабиринт отмены и закрытия счёта",
+      "insight_ids": [
+        "no-in-app-cancel-keeps-charging",
+        "cancellation-dark-pattern-maze",
+        "close-account-zero-balance-trap",
+        "close-account-21-questions",
+        "refund-denied-after-cancel",
+        "abroad-cant-cancel",
+        "one-tap-subscribe-hard-cancel",
+        "negative-savings-balance-to-close",
+        "support-evasive-chat-cancel",
+        "account-frozen-funds-confiscated"
+      ]
+    },
+    {
+      "id": "advance-bait-and-trap",
+      "name": "Авансы: реклама большой суммы, а на деле дорого и недоступно",
+      "insight_ids": [
+        "advance-repayment-cycle-mismatch",
+        "requalification-after-payoff-fails",
+        "advance-payment-not-reflected",
+        "predatory-advance-rate",
+        "subscription-mandatory-for-advance",
+        "advance-too-small-vs-deposits",
+        "marketing-promises-10k-no-approval",
+        "advances-pay-off-credit-cards"
+      ]
+    },
+    {
+      "id": "money-locked-in",
+      "name": "Деньги заперты: накопления, выводы и скрытые комиссии",
+      "insight_ids": [
+        "forced-savings-cannot-disable",
+        "savings-withdrawal-delay",
+        "instant-withdrawal-fee-trap"
+      ]
+    },
+    {
+      "id": "onboarding-and-verification-wall",
+      "name": "Стена входа: верификация, регистрация и доступ к деньгам в нужный момент",
+      "insight_ids": [
+        "verification-code-not-sent",
+        "verification-too-slow-for-urgent",
+        "forced-ai-subscription-screen"
+      ]
+    },
+    {
+      "id": "promised-but-broken",
+      "name": "Обещали — не работает: статусы, карта Albert и преимущества Genius+",
+      "insight_ids": [
+        "payment-status-lag",
+        "merchant-transaction-blocked",
+        "genius-plus-benefits-unusable"
+      ]
+    }
+  ]
+}

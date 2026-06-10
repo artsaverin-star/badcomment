@@ -1,0 +1,249 @@
+You are grouping 40 mechanism-level insight clusters from Lightroom: AI Photo Editor (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Lightroom: AI Photo Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 40 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Lightroom: AI Photo Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Lightroom: AI Photo Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-878783582.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-version-equals-builtin",
+  "title": "Бесплатная версия даёт лишь базовые ползунки — ничем не отличается от встроенного редактора iPhone и Android",
+  "obs": 2
+ },
+ {
+  "id": "mobile-missing-pro-tools",
+  "title": "В мобильной версии нет шумоподавления, детализации RAW, апскейла и AI-цветокоррекции, которые есть на компьютере",
+  "obs": 2
+ },
+ {
+  "id": "ios-no-partial-cancel",
+  "title": "Годовую подписку в iOS нельзя отменить раньше срока — приходится платить за весь год, даже если приложение больше не нужно",
+  "obs": 1
+ },
+ {
+  "id": "yearly-instead-of-monthly",
+  "title": "Подписку подсовывают как годовую, хотя пользователь искал месячную — это фиксирует долгое обязательство",
+  "obs": 1
+ },
+ {
+  "id": "subscription-per-device",
+  "title": "Подписка привязана к одному устройству — за iPad, iPhone и Mac приходится платить отдельно",
+  "obs": 1
+ },
+ {
+  "id": "region-change-lockout",
+  "title": "После смены страны приложение остаётся заблокировано в старом регионе — нельзя купить подписку и теряется доступ к фото за годы",
+  "obs": 1
+ },
+ {
+  "id": "paid-sub-lost-no-restore",
+  "title": "Оплаченная подписка пропадает, пользователя выкидывает из аккаунта, а восстановить покупку невозможно",
+  "obs": 1
+ },
+ {
+  "id": "refund-refused-feature-missing",
+  "title": "Заявленная функция не работает, но в возврате денег за годовую подписку отказывают даже в первый час",
+  "obs": 1
+ },
+ {
+  "id": "resolution-cap-12mp",
+  "title": "Приложение ограничивает обработку 12 мегапикселями — этого мало для качественного редактирования",
+  "obs": 1
+ },
+ {
+  "id": "no-sony-camera-profiles",
+  "title": "Нет профилей новых камер вроде Sony A7V — RAW-снимки нельзя обработать с правильными цветами",
+  "obs": 1
+ },
+ {
+  "id": "no-bracketing-panorama",
+  "title": "Нет автоматического сведения брекетинга экспозиции и панорам для продвинутой обработки",
+  "obs": 1
+ },
+ {
+  "id": "no-video-transitions-mobile",
+  "title": "На мобильной версии нет видеопереходов с анимацией для роликов в соцсети, хотя на компьютере они есть",
+  "obs": 1
+ },
+ {
+  "id": "heal-weaker-than-apple",
+  "title": "Инструмент восстановления и стирания слабее встроенного Apple Erase — приходится доводить снимок в другом приложении",
+  "obs": 1
+ },
+ {
+  "id": "no-object-transform-tools",
+  "title": "Нет сдвига, увеличения и уменьшения объектов как в других редакторах — для этого приходится уходить в другое приложение",
+  "obs": 1
+ },
+ {
+  "id": "too-much-ai-no-manual",
+  "title": "Приложение слишком полагается на AI-автоматику — пользователю не хватает ручного управления и свободы правок",
+  "obs": 1
+ },
+ {
+  "id": "presets-not-useful-social",
+  "title": "Множество встроенных пресетов не подходят для быстрого редактирования фото под соцсети",
+  "obs": 1
+ },
+ {
+  "id": "preset-scroll-jumps-top",
+  "title": "При прокрутке списка пресетов он сам отскакивает в начало, мешая навигации",
+  "obs": 1
+ },
+ {
+  "id": "lost-delete-across-folders",
+  "title": "После обновления пропала возможность удалять отредактированные снимки из разных папок библиотеки",
+  "obs": 1
+ },
+ {
+  "id": "device-tab-jumps-to-first-photo",
+  "title": "Вкладка «Устройства» всегда возвращает к первому фото — чтобы вернуться к текущим снимкам, нужно листать всю огромную библиотеку",
+  "obs": 1
+ },
+ {
+  "id": "slow-load-first-use",
+  "title": "Приложение медленно подгружает библиотеку при первом знакомстве, создавая фрикцию на старте",
+  "obs": 1
+ },
+ {
+  "id": "remove-tool-freezes-mobile",
+  "title": "Инструмент удаления объектов на мобильной версии почти всегда зависает и требует перезапуска с потерей прогресса",
+  "obs": 1
+ },
+ {
+  "id": "remove-tool-overdeletes",
+  "title": "Переделанный инструмент удаления стирает гораздо большую область, чем выделено",
+  "obs": 1
+ },
+ {
+  "id": "remove-blocked-by-policy",
+  "title": "Попытка убрать постороннего человека с фона блокируется предупреждением о нарушении политики",
+  "obs": 1
+ },
+ {
+  "id": "ai-features-break-after-update",
+  "title": "После каждого обновления AI-функции вроде адаптивных пресетов и размытия фона перестают работать и месяцами не чинятся",
+  "obs": 1
+ },
+ {
+  "id": "ai-masking-bug-mobile",
+  "title": "После обновления инструмент AI-маскирования на мобильной версии работает с ошибкой и не исправлен",
+  "obs": 1
+ },
+ {
+  "id": "update-destroyed-photos",
+  "title": "Обновление уничтожило все сохранённые фотографии пользователя",
+  "obs": 1
+ },
+ {
+  "id": "update-lost-custom-presets",
+  "title": "Обновление без предупреждения стёрло собранные за годы пользовательские пресеты",
+  "obs": 1
+ },
+ {
+  "id": "crashes-on-new-iphone",
+  "title": "После последних обновлений приложение часто падает именно на новейших iPhone",
+  "obs": 1
+ },
+ {
+  "id": "sudden-crash-wont-load",
+  "title": "После долгой стабильной работы приложение внезапно стало падать, не загружать фото и зависать при скачивании",
+  "obs": 1
+ },
+ {
+  "id": "app-broken-weeks",
+  "title": "Приложение полностью не работает две и более недель — редактировать фото невозможно",
+  "obs": 1
+ },
+ {
+  "id": "gradual-lag-and-crashes",
+  "title": "Приложение постепенно стало медленнее — заметные задержки и частые падения на обеих платформах, особенно офлайн",
+  "obs": 1
+ },
+ {
+  "id": "slow-edits-desktop",
+  "title": "Приложение тормозит и медленно применяет правки, особенно на компьютере со сложной навигацией",
+  "obs": 1
+ },
+ {
+  "id": "green-highlight-glitch",
+  "title": "На полном размере вся подсветка снимка становится зелёной, а при приближении цвета возвращаются",
+  "obs": 1
+ },
+ {
+  "id": "slow-sync-videos-dont-transfer",
+  "title": "Видео не передаются на телефон, а фотографии синхронизируются крайне медленно",
+  "obs": 1
+ },
+ {
+  "id": "sync-corrupts-photos",
+  "title": "Синхронизация повреждает фотографии и иногда никогда не завершается между устройствами",
+  "obs": 1
+ },
+ {
+  "id": "classic-multi-library-sync",
+  "title": "Синхронизация нескольких локальных каталогов с компьютера на мобильную версию даёт несовместимость",
+  "obs": 1
+ },
+ {
+  "id": "web-presets-broken-months",
+  "title": "Пресеты в веб-версии не работают месяцами, а поддержка игнорирует запросы",
+  "obs": 1
+ },
+ {
+  "id": "recommended-presets-broken-windows",
+  "title": "Платная функция «Рекомендуемые пресеты» на Windows сломалась после обновления и неделями не чинится",
+  "obs": 1
+ },
+ {
+  "id": "no-in-app-bug-report",
+  "title": "В приложении нет способа сообщить об ошибке — пользователь не может достучаться до поддержки",
+  "obs": 1
+ },
+ {
+  "id": "data-tracking-paid-editor",
+  "title": "Платный фоторедактор собирает множество данных и требует согласия на отслеживание при регистрации",
+  "obs": 1
+ }
+]

@@ -1,0 +1,92 @@
+{
+  "groups": [
+    {
+      "id": "paywall-and-billing-traps",
+      "name": "Платный барьер на полпути и сюрпризы со списаниями",
+      "insight_ids": [
+        "paywall-blocks-learning-modes",
+        "trial-silent-charge",
+        "ads-persist-in-paid",
+        "image-limit-in-paid-plan",
+        "photos-behind-paywall",
+        "price-hike-cuts-features",
+        "double-charge-after-payment"
+      ]
+    },
+    {
+      "id": "broken-study-and-test-modes",
+      "name": "Режимы обучения и тесты, которым нельзя доверять",
+      "insight_ids": [
+        "written-answer-no-synonyms",
+        "test-repeats-same-questions",
+        "game-marks-correct-as-wrong",
+        "test-options-too-obvious",
+        "instant-feedback-missing-web",
+        "progress-reset-broken",
+        "speech-input-switches-language",
+        "true-false-test-broken",
+        "card-flip-glitch"
+      ]
+    },
+    {
+      "id": "mobile-vs-web-platform-gap",
+      "name": "Мобильное приложение слабее браузера: пропавшие функции и нестабильный макет",
+      "insight_ids": [
+        "ipad-keyboard-layout-broken",
+        "search-in-cards-removed",
+        "gif-no-playback-mobile",
+        "font-not-adjustable",
+        "mobile-layout-unstable",
+        "ipad-split-screen-freeze",
+        "edit-button-broken-mobile",
+        "web-preferred-over-mobile",
+        "web-slow-large-sets"
+      ]
+    },
+    {
+      "id": "crashes-freezes-data-loss",
+      "name": "Падения, зависания и потеря наборов карточек",
+      "insight_ids": [
+        "app-crashes-loses-data",
+        "draft-deleted-on-exit",
+        "registration-button-loops",
+        "cannot-delete-sets",
+        "freeze-on-save",
+        "sync-fails-across-devices",
+        "notifications-after-uninstall"
+      ]
+    },
+    {
+      "id": "ai-and-scan-content-quality",
+      "name": "AI и сканирование портят контент карточек",
+      "insight_ids": [
+        "user-content-errors-no-flag",
+        "ai-generates-wrong-facts",
+        "ai-reformulates-user-text",
+        "scan-broken-after-update",
+        "pdf-scan-content-mismatch",
+        "ai-generation-stops-working"
+      ]
+    },
+    {
+      "id": "broken-visual-learning",
+      "name": "Картинки в карточках: урезанное визуальное обучение",
+      "insight_ids": [
+        "images-compressed-lose-quality",
+        "images-unavailable-in-term-field"
+      ]
+    },
+    {
+      "id": "positioning-and-onboarding",
+      "name": "Чем стало приложение: размытое назначение и тяжёлый старт",
+      "insight_ids": [
+        "onboarding-unintuitive",
+        "academic-only-no-professional",
+        "app-is-template-not-source",
+        "feature-bloat-blurs-core",
+        "interface-cluttered-overwhelming",
+        "search-sets-hard"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from Sololearn: Learn to Code (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sololearn: Learn to Code, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sololearn: Learn to Code — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sololearn: Learn to Code>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt1lx0u3dciugfems9g6mi7.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "bait-switch-pro-to-max",
+  "title": "Функции, обещанные в Pro-подписке, незаметно перенесены в версию Max — пользователь вынужден платить снова",
+  "obs": 11
+ },
+ {
+  "id": "free-practice-gated",
+  "title": "В бесплатной версии недоступен редактор кода и практические упражнения — можно только читать слайды",
+  "obs": 8
+ },
+ {
+  "id": "hidden-price-tier-opacity",
+  "title": "Стоимость подписки и необходимость платить за следующий уровень скрыты до момента покупки",
+  "obs": 8
+ },
+ {
+  "id": "hearts-daily-limit",
+  "title": "Система жизней ограничивает бесплатных пользователей пятью ошибками в день, после чего обучение блокируется",
+  "obs": 8
+ },
+ {
+  "id": "answer-validation-bugs",
+  "title": "Система проверки ответов регулярно отклоняет правильный код и принимает неточные или ошибочные формулировки",
+  "obs": 7
+ },
+ {
+  "id": "trial-silent-charge",
+  "title": "Пробный период заканчивается без уведомления и автоматически списывает полную стоимость годовой подписки",
+  "obs": 5
+ },
+ {
+  "id": "shallow-course-coverage",
+  "title": "Объяснения в уроках слишком краткие, а продвинутые разделы курсов содержат ошибки или оборваны",
+  "obs": 5
+ },
+ {
+  "id": "curriculum-gaps",
+  "title": "В упражнениях требуют применить приёмы или синтаксис, которые не объяснялись в предыдущих уроках",
+  "obs": 4
+ },
+ {
+  "id": "ads-interrupt-flow",
+  "title": "Реклама появляется в самые интересные моменты урока, прерывая поток обучения",
+  "obs": 4
+ },
+ {
+  "id": "hearts-recovery-time",
+  "title": "Восстановление одной жизни занимает четыре-пять часов — значительно дольше, чем у конкурентов",
+  "obs": 4
+ },
+ {
+  "id": "ai-language-bug",
+  "title": "Искусственный интеллект в игровых режимах всегда отвечает на испанском, независимо от языка приложения",
+  "obs": 4
+ },
+ {
+  "id": "app-crashes-lessons",
+  "title": "Приложение падает при загрузке следующего урока и требует переустановки с самого начала",
+  "obs": 3
+ },
+ {
+  "id": "pro-not-activated",
+  "title": "После покупки Pro-версии приложение продолжает работать как бесплатное — функции не разблокированы",
+  "obs": 2
+ },
+ {
+  "id": "impossible-cancellation",
+  "title": "Отменить подписку невозможно ни через приложение, ни через сайт, ни через магазин",
+  "obs": 2
+ },
+ {
+  "id": "mid-course-paywall",
+  "title": "В середине курса доступные упражнения внезапно блокируются и требуют платной подписки",
+  "obs": 2
+ },
+ {
+  "id": "removed-courses",
+  "title": "Курсы по отдельным языкам удалены или полностью переписаны без уведомления пользователей",
+  "obs": 2
+ },
+ {
+  "id": "mcq-format-no-typing",
+  "title": "Вместо самостоятельного написания кода пользователь только выбирает готовые фрагменты из списка",
+  "obs": 2
+ },
+ {
+  "id": "font-code-rendering",
+  "title": "Шрифт кода отображается непоследовательно: символы сливаются и читаются как другие",
+  "obs": 2
+ },
+ {
+  "id": "audio-interruptions",
+  "title": "Звуки приложения — реклама и поздравления — прерывают музыку, воспроизводимую в фоновом режиме",
+  "obs": 2
+ },
+ {
+  "id": "refund-refused",
+  "title": "Служба поддержки отказывает в возврате средств, ссылаясь на политику, и перестаёт отвечать на письма",
+  "obs": 2
+ },
+ {
+  "id": "gamification-effectiveness",
+  "title": "Игровые механики помогают пользователям учиться программированию в расслабленном режиме",
+  "obs": 2
+ },
+ {
+  "id": "competitor-hearts-comparison",
+  "title": "Система жизней устарела: конкуренты перешли на более удобные модели без жёстких суточных лимитов",
+  "obs": 2
+ },
+ {
+  "id": "forced-trial-activation",
+  "title": "Чтобы пользоваться бесплатным приложением, необходимо сначала активировать платный пробный период",
+  "obs": 1
+ },
+ {
+  "id": "no-onetime-purchase",
+  "title": "Нет возможности купить доступ одним платежом — только ежемесячная или годовая подписка",
+  "obs": 1
+ },
+ {
+  "id": "quiz-trivial-distractors",
+  "title": "Варианты ответа в тестах настолько нерелевантны, что правильный выбор возможен без понимания темы",
+  "obs": 1
+ },
+ {
+  "id": "no-feedback-after-wrong",
+  "title": "При неправильном ответе приложение не показывает правильный — разобрать ошибку невозможно",
+  "obs": 1
+ },
+ {
+  "id": "child-safety",
+  "title": "Глобальный чат и функции искусственного интеллекта не безопасны для детей",
+  "obs": 1
+ },
+ {
+  "id": "artificial-code-restrictions",
+  "title": "Редактор кода применяет нестандартные ограничения синтаксиса, не совпадающие с реальным языком",
+  "obs": 1
+ },
+ {
+  "id": "unrelated-math-content",
+  "title": "Приложение включает задания по математике, не связанные с обучением программированию",
+  "obs": 1
+ },
+ {
+  "id": "no-multifile-exercises",
+  "title": "В практических заданиях нельзя создавать проекты с несколькими файлами, как в реальной разработке",
+  "obs": 1
+ },
+ {
+  "id": "forced-onboarding-quiz",
+  "title": "Перед доступом к любому контенту приложение требует пройти двадцать вопросов об интересах",
+  "obs": 1
+ },
+ {
+  "id": "dismiss-button-nonstandard",
+  "title": "Кнопка отклонения платного предложения расположена нестандартно — пользователь случайно соглашается на покупку",
+  "obs": 1
+ },
+ {
+  "id": "autocomplete-cursor-position",
+  "title": "Автодополнение скобок и кавычек ставит курсор после закрывающего символа, а не внутрь пары",
+  "obs": 1
+ },
+ {
+  "id": "answer-options-merged",
+  "title": "Варианты ответа визуально слеплены без разграничения — невозможно выбрать нужный, не потеряв жизнь",
+  "obs": 1
+ },
+ {
+  "id": "no-knowledge-assessment",
+  "title": "Приложение не оценивает начальный уровень знаний и заставляет проходить уроки, уже известные пользователю",
+  "obs": 1
+ },
+ {
+  "id": "no-widgets",
+  "title": "Нет виджетов для домашнего экрана или экрана блокировки с напоминаниями о ежедневной практике",
+  "obs": 1
+ },
+ {
+  "id": "code-editor-no-autosave",
+  "title": "Редактор кода не сохраняет работу автоматически — при закрытии изменения теряются",
+  "obs": 1
+ },
+ {
+  "id": "inappropriate-ads",
+  "title": "Реклама в учебном приложении содержит нерелевантные и неуместные объявления",
+  "obs": 1
+ },
+ {
+  "id": "lesson-temporarily-unavailable",
+  "title": "Ошибка «Урок временно недоступен» появляется почти в конце занятия и сбрасывает весь прогресс",
+  "obs": 1
+ },
+ {
+  "id": "offline-mode-broken",
+  "title": "Скачанные курсы перестали открываться без интернета после обновления приложения",
+  "obs": 1
+ },
+ {
+  "id": "progress-lost-on-relogin",
+  "title": "После повторного входа через другой способ авторизации весь прогресс и доступ к Pro исчезают",
+  "obs": 1
+ },
+ {
+  "id": "lesson-timeout-on-pause",
+  "title": "Урок завершается с ошибкой и теряет прогресс, если пользователь не взаимодействует с экраном постоянно",
+  "obs": 1
+ },
+ {
+  "id": "topic-switch-infinite-load",
+  "title": "Кнопка перехода между темами курса зависает в бесконечной загрузке",
+  "obs": 1
+ },
+ {
+  "id": "ad-regression-after-update",
+  "title": "После обновления реклама появляется после каждого нажатия, делая прохождение уроков невозможным",
+  "obs": 1
+ },
+ {
+  "id": "community-editor-loop",
+  "title": "Редактор кода в сообществе уходит в бесконечный цикл предупреждений и блокирует любую работу",
+  "obs": 1
+ },
+ {
+  "id": "ipad-landscape-unsupported",
+  "title": "Приложение долгое время не поддерживало альбомную ориентацию на планшете",
+  "obs": 1
+ },
+ {
+  "id": "monetization-killed-appeal",
+  "title": "После введения систем монетизации бесплатные пользователи потеряли интерес к приложению",
+  "obs": 1
+ },
+ {
+  "id": "credential-recognition",
+  "title": "Сертификаты приложения автоматически отображаются в сервисах поиска работы",
+  "obs": 1
+ },
+ {
+  "id": "content-accuracy-advantage",
+  "title": "В отличие от конкурентов, учебные материалы в приложении фактически точны",
+  "obs": 1
+ },
+ {
+  "id": "short-session-use-case",
+  "title": "Приложение идеально подходит для коротких сессий в пять-десять минут в промежутках между делами",
+  "obs": 1
+ },
+ {
+  "id": "experienced-dev-use-case",
+  "title": "Опытные разработчики используют приложение для быстрого знакомства с синтаксисом нового языка",
+  "obs": 1
+ },
+ {
+  "id": "ai-monetization-acceptance",
+  "title": "Пользователи готовы платить за подписку, но хотят, чтобы функции искусственного интеллекта были включены в её стоимость",
+  "obs": 1
+ }
+]

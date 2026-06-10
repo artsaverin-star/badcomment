@@ -1,0 +1,199 @@
+You are grouping 30 mechanism-level insight clusters from ADT Pulse ® (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO ADT Pulse ®, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 30 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to ADT Pulse ® — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to ADT Pulse ®>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-355736423.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "login-timeout-and-errors",
+  "title": "При входе возникают ошибки timeout и «unexpected error», приложение недоступно часами или сутками",
+  "obs": 16
+ },
+ {
+  "id": "session-expires-spontaneously",
+  "title": "Приложение спонтанно разлогинивает пользователя, опция «оставаться в системе» не работает",
+  "obs": 11
+ },
+ {
+  "id": "camera-feed-offline-requires-physical-reset",
+  "title": "Камеры уходят в офлайн и не возобновляют работу без физического отключения и включения",
+  "obs": 9
+ },
+ {
+  "id": "slow-app-launch-and-connection",
+  "title": "Запуск приложения и подключение к панели занимают до 15 секунд даже при хорошем интернете",
+  "obs": 5
+ },
+ {
+  "id": "camera-clips-stop-recording",
+  "title": "Камеры прекращают записывать видеоклипы при движении — доступна только прямая трансляция",
+  "obs": 5
+ },
+ {
+  "id": "alexa-google-home-support-dropped",
+  "title": "ADT убрала поддержку Alexa и Google Home — все голосовые команды и автоматизации перестали работать",
+  "obs": 5
+ },
+ {
+  "id": "geo-block-international-access",
+  "title": "Приложение блокирует доступ по иностранному IP — пользователь не может управлять системой за рубежом",
+  "obs": 5
+ },
+ {
+  "id": "ios-update-breaks-app",
+  "title": "После обновления iOS приложение перестаёт запускаться или подключаться к сети",
+  "obs": 4
+ },
+ {
+  "id": "server-side-change-breaks-service",
+  "title": "Изменение на стороне ADT ломает приложение для всех клиентов без уведомления и быстрого исправления",
+  "obs": 3
+ },
+ {
+  "id": "apple-watch-requires-relogin-every-time",
+  "title": "Приложение на Apple Watch требует повторного входа при каждом использовании — быстрый доступ невозможен",
+  "obs": 3
+ },
+ {
+  "id": "panic-button-missing-in-app",
+  "title": "В приложении нет кнопки паники и режима «Ночь» — они есть только на физической панели и пульте",
+  "obs": 3
+ },
+ {
+  "id": "z-wave-devices-slow-and-unresponsive",
+  "title": "Управление Z-Wave устройствами через приложение занимает до часа, страница устройств не загружается",
+  "obs": 2
+ },
+ {
+  "id": "support-cannot-resolve-login-issues",
+  "title": "Техподдержка не может устранить проблему входа и предлагает использовать веб-интерфейс вместо приложения",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-device-name-error",
+  "title": "При установке на новый телефон приложение выдаёт ошибку дублирования имени устройства, которая не устраняется",
+  "obs": 1
+ },
+ {
+  "id": "app-not-in-ios-settings",
+  "title": "Приложение не отображается в настройках iOS — нельзя управлять уведомлениями и разрешениями",
+  "obs": 1
+ },
+ {
+  "id": "touch-id-resets-to-password",
+  "title": "Настройка Touch ID сбрасывается сама по себе и заменяется запросом пароля",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-email-not-delivered",
+  "title": "Письмо для сброса пароля не приходит — восстановить доступ самостоятельно невозможно",
+  "obs": 1
+ },
+ {
+  "id": "mfa-code-sent-to-wrong-family-member",
+  "title": "Код подтверждения при восстановлении отправляется на телефон другого члена семьи — войти нельзя без него",
+  "obs": 1
+ },
+ {
+  "id": "alarm-zone-shows-number-not-name",
+  "title": "При срабатывании сигнализации приложение показывает номер зоны вместо названия датчика",
+  "obs": 1
+ },
+ {
+  "id": "floor-plan-feature-removed",
+  "title": "Функция карты здания была удалена из приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-remote-camera-reset",
+  "title": "В приложении нет функции удалённого сброса камеры — нужен физический доступ",
+  "obs": 1
+ },
+ {
+  "id": "no-motion-sensor-test",
+  "title": "В приложении нет способа проверить работу датчика движения",
+  "obs": 1
+ },
+ {
+  "id": "battery-level-only-on-critical",
+  "title": "Уровень заряда батарей датчиков виден только при критическом разряде, а не в обычном режиме",
+  "obs": 1
+ },
+ {
+  "id": "carplay-widget-missing",
+  "title": "Нет виджета управления сигнализацией для CarPlay — нельзя поставить на охрану во время вождения",
+  "obs": 1
+ },
+ {
+  "id": "separate-apps-for-alarm-and-cameras",
+  "title": "Управление сигнализацией и камерами разнесено по отдельным приложениям",
+  "obs": 1
+ },
+ {
+  "id": "arm-command-requires-multiple-retries",
+  "title": "Команда постановки на охрану не всегда доходит до системы и требует 2–3 повторных нажатий",
+  "obs": 1
+ },
+ {
+  "id": "alarm-state-sync-delay-causes-false-police-dispatch",
+  "title": "Снятие тревоги в приложении не синхронизируется с мониторинговым центром вовремя — полиция вызвана по ложной тревоге",
+  "obs": 1
+ },
+ {
+  "id": "alert-type-text-only-no-call",
+  "title": "При срабатывании тревоги система отправляет только SMS вместо телефонного звонка для проверки",
+  "obs": 1
+ },
+ {
+  "id": "app-useless-when-offline-main-system-works",
+  "title": "При недоступности приложения все интегрированные устройства становятся неуправляемыми, хотя сама система работает",
+  "obs": 1
+ },
+ {
+  "id": "email-unrecognized-in-mobile-but-works-on-web",
+  "title": "Мобильное приложение не принимает email, который корректно работает в веб-интерфейсе",
+  "obs": 1
+ }
+]

@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from Photoleap: AI Photo Generator (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Photoleap: AI Photo Generator, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Photoleap: AI Photo Generator — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Photoleap: AI Photo Generator>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyf67v14zfughvk6yu0lzf.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-features-moved-behind-paywall",
+  "title": "Раньше бесплатные базовые инструменты (вырезание, размытие, слои) постепенно закрыли за подписку",
+  "obs": 29
+ },
+ {
+  "id": "features-removed-each-update",
+  "title": "С каждым обновлением функции удаляют, а не добавляют — приложение только урезается",
+  "obs": 16
+ },
+ {
+  "id": "charges-continue-after-cancellation",
+  "title": "После отмены подписки приложение продолжает списывать деньги месяцами, поддержка не возвращает",
+  "obs": 10
+ },
+ {
+  "id": "ai-ignores-prompts",
+  "title": "AI-генератор игнорирует промпты и выдаёт результаты, не соответствующие явным инструкциям",
+  "obs": 9
+ },
+ {
+  "id": "lifetime-license-revoked",
+  "title": "Купленную пожизненную лицензию больше не признают — заставляют покупать годовую подписку",
+  "obs": 6
+ },
+ {
+  "id": "charged-without-consent-no-refund",
+  "title": "Деньги списали без явного согласия, поддержка отказывает в возврате даже без использования",
+  "obs": 6
+ },
+ {
+  "id": "ai-something-went-wrong-error",
+  "title": "AI-генератор постоянно выдаёт ошибку «something went wrong» и требует множества перезапусков",
+  "obs": 6
+ },
+ {
+  "id": "rebrand-acquisition-paywall-strategy",
+  "title": "После смены владельца и ребрендинга (Enlight, Photofox) бизнес-модель сместили на подписку",
+  "obs": 6
+ },
+ {
+  "id": "trial-charges-full-amount-immediately",
+  "title": "Бесплатный пробный период сразу списывает полную годовую сумму, а не в конце срока",
+  "obs": 5
+ },
+ {
+  "id": "screenshot-blocked-no-evaluation",
+  "title": "Скриншот результата заблокирован водяным знаком или подпиской — нельзя оценить функцию",
+  "obs": 5
+ },
+ {
+  "id": "ai-pivot-hurts-core-editing",
+  "title": "Фокус сместили на AI-функции в ущерб основному редактированию, которое и привлекало пользователей",
+  "obs": 5
+ },
+ {
+  "id": "price-too-high-for-mobile",
+  "title": "Цена подписки слишком высока для мобильного приложения при наличии дешёвых альтернатив",
+  "obs": 4
+ },
+ {
+  "id": "face-swap-no-similarity",
+  "title": "Замена лица и аватары не сохраняют сходство с исходником — выдают чужие лица",
+  "obs": 4
+ },
+ {
+  "id": "content-moderation-overblocks",
+  "title": "Модерация блокирует обычные фото (пляж, повседневная одежда без рукавов) как «слишком острые»",
+  "obs": 4
+ },
+ {
+  "id": "competitors-cheaper-or-free",
+  "title": "Те же функции доступны бесплатно или дешевле у конкурентов, включая встроенные инструменты телефона",
+  "obs": 4
+ },
+ {
+  "id": "fraud-perception-dispute",
+  "title": "Списания воспринимаются как мошенничество — пользователи блокируют платежи через PayPal и банк",
+  "obs": 4
+ },
+ {
+  "id": "ai-default-white-race-fails",
+  "title": "AI по умолчанию рисует белые черты лица, а запрос чёрной кожи часто выдаёт ошибку",
+  "obs": 3
+ },
+ {
+  "id": "ai-quality-degraded-repetitive",
+  "title": "Качество AI-генерации упало: результаты однообразны и повторяются, уникальные стили исчезли",
+  "obs": 3
+ },
+ {
+  "id": "motion-blurry-zoom",
+  "title": "Анимация фото размывает изображение и приближает кадр вопреки инструкции оставить статику",
+  "obs": 3
+ },
+ {
+  "id": "layer-limit-too-low",
+  "title": "Лимит слоёв в бесплатной версии срезан до 2, что мешает сложным правкам",
+  "obs": 3
+ },
+ {
+  "id": "trial-allows-only-one-image",
+  "title": "Пробная версия даёт только одну генерацию без возможности переделать неудачный результат",
+  "obs": 3
+ },
+ {
+  "id": "trial-no-warning-before-charge",
+  "title": "Перед окончанием пробного периода не приходит обещанное уведомление — внезапное списание",
+  "obs": 2
+ },
+ {
+  "id": "unusable-after-trial-ends",
+  "title": "После пробного периода приложение полностью неиспользуемо — все функции требуют оплаты",
+  "obs": 2
+ },
+ {
+  "id": "ai-anatomy-errors",
+  "title": "AI генерирует анатомические аномалии: лишние глаза, рты, руки и деформированные пальцы",
+  "obs": 2
+ },
+ {
+  "id": "ai-face-filters-broken",
+  "title": "AI-фильтры трансформации лиц выдают странные результаты, нет фильтров для пейзажей и животных",
+  "obs": 2
+ },
+ {
+  "id": "advertised-feature-missing",
+  "title": "Рекламируемые функции (AI Pet, омоложение) отсутствуют в приложении — ложная реклама",
+  "obs": 2
+ },
+ {
+  "id": "ai-generation-crashes",
+  "title": "После генерации изображения приложение зависает и закрывается, мешая создавать серию",
+  "obs": 2
+ },
+ {
+  "id": "import-broken-after-update",
+  "title": "После обновления кнопка импорта показывает фото, но не даёт их выбрать и продолжить",
+  "obs": 2
+ },
+ {
+  "id": "ui-rearranged-features-lost",
+  "title": "Интерфейс перестраивают почти каждым обновлением — привычные функции не найти, нет консистентности",
+  "obs": 2
+ },
+ {
+  "id": "no-onboarding-instructions",
+  "title": "В приложении нет инструкций и обучающих материалов — новичку сложно освоить интерфейс",
+  "obs": 2
+ },
+ {
+  "id": "text-tool-and-prompt-length-limited",
+  "title": "Добавление текста не работает, а поле промпта слишком короткое, чтобы описать идею",
+  "obs": 2
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Служба поддержки не отвечает на обращения или присылает шаблонные ответы",
+  "obs": 2
+ },
+ {
+  "id": "users-churn-to-alternatives",
+  "title": "Пользователи школьных и творческих сценариев уходят к альтернативам после урезания функций",
+  "obs": 2
+ },
+ {
+  "id": "cancel-window-too-strict",
+  "title": "Отменить подписку нужно за 24 часа до продления — отмена в день обновления уже не срабатывает",
+  "obs": 1
+ },
+ {
+  "id": "family-sharing-disabled",
+  "title": "Отключили общий доступ к подписке через Apple Family — каждый член семьи платит отдельно",
+  "obs": 1
+ },
+ {
+  "id": "ai-wrong-clothing-output",
+  "title": "AI выдаёт неправильную одежду (открытые пуговицы, неверные вырезы) и не корректирует детали",
+  "obs": 1
+ },
+ {
+  "id": "ai-wrong-animal",
+  "title": "AI рисует не то животное, что в запросе — аксолотль выходит крысой или ящерицей",
+  "obs": 1
+ },
+ {
+  "id": "old-photo-enhance-weak",
+  "title": "При обработке старых размытых фото приложение хуже конкурентов сохраняет сходство",
+  "obs": 1
+ },
+ {
+  "id": "frame-feature-removed",
+  "title": "Функцию рамок (frame) удалили из приложения",
+  "obs": 1
+ },
+ {
+  "id": "projects-not-loading",
+  "title": "Сохранённые проекты перестали загружаться, поддержка не отвечает на обращения",
+  "obs": 1
+ },
+ {
+  "id": "purchase-data-lost-on-migration",
+  "title": "При переходе на новую платёжную модель купленный доступ пропал, данные удалены без переноса",
+  "obs": 1
+ },
+ {
+  "id": "merge-two-images-fails",
+  "title": "Объединить два изображения не получается даже после нескольких попыток",
+  "obs": 1
+ },
+ {
+  "id": "prompt-blocked-benign-words",
+  "title": "Генерация блокируется на безобидных словах с ошибкой загрузки даже после перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "ai-tools-quota-exhausted",
+  "title": "AI-инструмент заполнения выдаёт «ran out of ai tools» уже после второго использования за сессию",
+  "obs": 1
+ },
+ {
+  "id": "feedback-prompt-too-frequent",
+  "title": "Приложение просит оценку через каждые 1-2 правки, прерывая рабочий процесс",
+  "obs": 1
+ },
+ {
+  "id": "subscription-not-disclosed-before-install",
+  "title": "Об обязательной подписке не сказано в описании — пользователь узнаёт об этом после установки",
+  "obs": 1
+ },
+ {
+  "id": "cancel-button-still-charges",
+  "title": "Нажатие «не подписываться» всё равно ведёт к списанию полной годовой суммы через недели",
+  "obs": 1
+ },
+ {
+  "id": "no-watch-ad-to-unlock",
+  "title": "Нет варианта разблокировать функции просмотром рекламы — только платная подписка",
+  "obs": 1
+ },
+ {
+  "id": "web-subscription-confusion",
+  "title": "Подписка оформлена через сайт, а не App Store — пользователь не может её найти и отменить",
+  "obs": 1
+ },
+ {
+  "id": "uninstall-leaves-cloud-data",
+  "title": "После удаления приложения данные остаются в облаке и занимают место в хранилище",
+  "obs": 1
+ },
+ {
+  "id": "abandoned-community-dev-pivot",
+  "title": "Разработчик забросил сообщество (Discord, Instagram) и переключился на другой продукт",
+  "obs": 1
+ },
+ {
+  "id": "update-notes-marketing-disconnect",
+  "title": "Описания обновлений одинаковы и рекламируют одну функцию вместо реальных улучшений",
+  "obs": 1
+ }
+]

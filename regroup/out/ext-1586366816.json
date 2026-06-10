@@ -1,0 +1,95 @@
+{
+  "groups": [
+    {
+      "id": "model-quality-fails",
+      "name": "Модель перестала слушаться: промпт игнорируется, качество просело",
+      "insight_ids": [
+        "prompt-ignored",
+        "quality-degraded",
+        "reference-image-influence-broken",
+        "generation-errors-broken",
+        "generation-stuck-creating",
+        "v4-styles-fail",
+        "anatomy-errors",
+        "specific-attributes-fail",
+        "generated-images-not-shown"
+      ]
+    },
+    {
+      "id": "billing-betrayal",
+      "name": "Заплатил — не получил: пропавшие подписки и пожизненный доступ",
+      "insight_ids": [
+        "active-sub-not-recognized",
+        "lifetime-membership-revoked",
+        "premium-benefits-not-delivered",
+        "support-unresponsive-billing",
+        "free-trial-instant-charge",
+        "watermark-removal-broken",
+        "paid-for-removed-feature",
+        "nsfw-locked-despite-payment"
+      ]
+    },
+    {
+      "id": "core-broken-outage",
+      "name": "Приложение просто не открывается и не работает",
+      "insight_ids": [
+        "server-outage-prolonged",
+        "app-wont-launch",
+        "community-feed-broken",
+        "create-publish-buttons-dead",
+        "account-creation-fails",
+        "search-not-working"
+      ]
+    },
+    {
+      "id": "control-paywall-limits",
+      "name": "Урезанный контроль над генерацией: лимиты, фильтр, отсутствие негативных промптов",
+      "insight_ids": [
+        "content-filter-blocks-innocuous",
+        "negative-prompts-missing",
+        "daily-generation-limit",
+        "prompt-paste-and-length",
+        "blocked-gen-still-burns-credits",
+        "free-edit-no-credit-cost",
+        "reference-image-cannot-remove",
+        "ipad-android-feature-parity",
+        "competitor-feature-gap"
+      ]
+    },
+    {
+      "id": "features-removed",
+      "name": "Любимые стили и функции вырезали или спрятали за платную стену",
+      "insight_ids": [
+        "styles-removed-or-changed",
+        "reference-feature-paywalled",
+        "styles-stopped-updating",
+        "transformation-video-removed",
+        "dark-mode-removed-paywalled",
+        "coins-system-removed",
+        "avatar-generator-removed"
+      ]
+    },
+    {
+      "id": "gallery-data-loss",
+      "name": "Работы и промпты исчезают: галерея стёрта, ничего не синхронизируется",
+      "insight_ids": [
+        "gallery-wiped",
+        "saved-prompts-lost",
+        "gallery-save-sync-broken"
+      ]
+    },
+    {
+      "id": "abandoned-support-ads",
+      "name": "Заброшенный продукт: глухая поддержка, навязчивая реклама, тупик с аккаунтом",
+      "insight_ids": [
+        "abandoned-no-updates",
+        "account-deletion-error-barrier",
+        "scam-and-adult-ads",
+        "undismissable-banner-blocks-ui",
+        "no-free-decline-onboarding",
+        "support-button-is-promo",
+        "discord-bans-for-questions"
+      ]
+    }
+  ]
+}

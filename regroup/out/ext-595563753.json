@@ -1,0 +1,54 @@
+{
+  "groups": [
+    {
+      "id": "data-loss-after-updates",
+      "name": "Сканы исчезают: обновления и долгие сессии стирают документы без шанса вернуть",
+      "insight_ids": [
+        "update-deletes-all-files",
+        "update-corrupts-files-undeletable",
+        "files-lost-corrupted-no-recovery"
+      ]
+    },
+    {
+      "id": "scan-quality-edges-light",
+      "name": "Качество скана: обрезанные края удостоверений и тени при плохом свете",
+      "insight_ids": [
+        "autocrop-cuts-document-edges",
+        "scan-quality-depends-on-lighting"
+      ]
+    },
+    {
+      "id": "billing-failures",
+      "name": "Оплатил, но не работает: списания идут, премиум не открывается, подписка не переезжает",
+      "insight_ids": [
+        "paid-sub-shows-free-mode",
+        "cancel-sub-no-server-effect",
+        "sub-not-transferred-new-phone"
+      ]
+    },
+    {
+      "id": "paywall-creep",
+      "name": "Бывшее бесплатным теперь за деньги — обманутые ожидания фримиума",
+      "insight_ids": [
+        "free-feature-locked-behind-paywall",
+        "freemium-expectation-mismatch"
+      ]
+    },
+    {
+      "id": "ads-experience",
+      "name": "Реклама: полноэкранная со звуком против её отсутствия как козыря",
+      "insight_ids": [
+        "fullscreen-unskippable-ad",
+        "no-intrusive-ads-advantage"
+      ]
+    },
+    {
+      "id": "scan-flow-friction",
+      "name": "Простое сканирование стало долгим: лишние шаги и медленное открытие файлов",
+      "insight_ids": [
+        "extra-steps-basic-scan",
+        "slow-file-loading"
+      ]
+    }
+  ]
+}

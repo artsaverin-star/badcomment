@@ -1,0 +1,269 @@
+You are grouping 44 mechanism-level insight clusters from Pandora: Music & Podcasts (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Pandora: Music & Podcasts, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 44 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Pandora: Music & Podcasts — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Pandora: Music & Podcasts>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-284035177.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "artist-station-plays-others",
+  "title": "Станция конкретного исполнителя воспроизводит преимущественно других артистов, а не выбранного",
+  "obs": 4
+ },
+ {
+  "id": "stations-lost-after-update",
+  "title": "После обновления приложения все созданные пользователем станции исчезают без предупреждения",
+  "obs": 3
+ },
+ {
+  "id": "streaming-buffering-issues",
+  "title": "Приложение часто буферизуется и зависает при потоковой передаче музыки",
+  "obs": 3
+ },
+ {
+  "id": "genre-catalog-repetition",
+  "title": "Каталог в узком жанре ограничен — приложение постоянно повторяет одни и те же песни вместо расширения подборки",
+  "obs": 2
+ },
+ {
+  "id": "ad-between-every-song",
+  "title": "Реклама вставляется между каждой песней после обновления, полностью разрушая непрерывность прослушивания",
+  "obs": 2
+ },
+ {
+  "id": "skip-triggers-ad",
+  "title": "Пропуск нежелательной песни наказывается показом рекламы — механизм штрафует за базовое действие",
+  "obs": 2
+ },
+ {
+  "id": "app-slow-performance-regression",
+  "title": "Приложение заметно замедлилось по сравнению с прежней производительностью — регрессия качества",
+  "obs": 2
+ },
+ {
+  "id": "offline-files-corrupted-deleted",
+  "title": "Загруженные для оффлайн-прослушивания файлы периодически повреждаются или удаляются сами по себе",
+  "obs": 2
+ },
+ {
+  "id": "offline-unstable-low-signal",
+  "title": "В зонах со слабым сигналом оффлайн-режим нестабилен — приложение некорректно переключается между плейлистами",
+  "obs": 2
+ },
+ {
+  "id": "algorithm-strength-seed-discovery",
+  "title": "Алгоритм Pandora точнее других подбирает плейлист по одной-двум исходным песням — конкурентное преимущество",
+  "obs": 2
+ },
+ {
+  "id": "mood-based-discovery-strength",
+  "title": "Режимы воспроизведения по эмоциональным контекстам помогают открывать новую музыку под настроение",
+  "obs": 2
+ },
+ {
+  "id": "subscription-cancel-friction",
+  "title": "Отмена подписки скрыта за множеством шагов — подписаться проще, чем отписаться",
+  "obs": 1
+ },
+ {
+  "id": "playlist-locked-after-trial",
+  "title": "После окончания пробного периода собственные плейлисты становятся полностью недоступны в бесплатной версии",
+  "obs": 1
+ },
+ {
+  "id": "subscription-price-lost-on-device-switch",
+  "title": "При смене устройства и восстановлении аккаунта исторический тариф подписки не сохраняется — пользователь вынужден платить по новой цене",
+  "obs": 1
+ },
+ {
+  "id": "ad-skip-grant-too-short",
+  "title": "Просмотр рекламы для получения временного премиум-доступа даёт слишком короткий период использования",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-double-restriction",
+  "title": "Бесплатная версия имеет двойное ограничение — встроенная реклама плюс лимит пропусков одновременно",
+  "obs": 1
+ },
+ {
+  "id": "song-metadata-wrong-title",
+  "title": "Отображаемое название песни не совпадает с фактически воигрываемой композицией",
+  "obs": 1
+ },
+ {
+  "id": "lyrics-metadata-errors",
+  "title": "Тексты песен в базе содержат ошибки — у ряда композиций указаны неверные слова",
+  "obs": 1
+ },
+ {
+  "id": "algorithm-only-hits-no-deep-cuts",
+  "title": "Алгоритм воспроизводит преимущественно хиты выбранных исполнителей и редко предлагает менее известные композиции",
+  "obs": 1
+ },
+ {
+  "id": "algorithm-irrelevant-recommendations",
+  "title": "Алгоритм рекомендаций предлагает песни, совсем не соответствующие музыкальным предпочтениям пользователя",
+  "obs": 1
+ },
+ {
+  "id": "no-album-sequential-play",
+  "title": "Функция воспроизведения альбома с первого до последнего трека отсутствует — доступен только случайный порядок",
+  "obs": 1
+ },
+ {
+  "id": "playback-interrupted-by-call-no-resume",
+  "title": "Входящий звонок прерывает воспроизведение, и приложение не возобновляет музыку после завершения разговора",
+  "obs": 1
+ },
+ {
+  "id": "repeat-button-broken",
+  "title": "Кнопка повтора песни не работает — либо показывает рекламу, либо не повторяет выбранный трек",
+  "obs": 1
+ },
+ {
+  "id": "station-switches-every-3-seconds",
+  "title": "После обновления станция автоматически переключается каждые три секунды, делая прослушивание невозможным",
+  "obs": 1
+ },
+ {
+  "id": "unstable-album-stream",
+  "title": "Приложение самопроизвольно переключается между альбомами во время прослушивания потока",
+  "obs": 1
+ },
+ {
+  "id": "video-ads-before-playlist",
+  "title": "Перед воспроизведением каждого плейлиста принудительно показываются видеоролики",
+  "obs": 1
+ },
+ {
+  "id": "warning-before-every-song",
+  "title": "Перед каждой песней появляются обязательные предупреждающие сообщения, блокирующие воспроизведение",
+  "obs": 1
+ },
+ {
+  "id": "artist-interludes-break-instrumental",
+  "title": "Голосовые интерлюдии и рекламные сообщения исполнителей прерывают инструментальный контент, нарушая назначение плейлиста",
+  "obs": 1
+ },
+ {
+  "id": "ads-on-sleep-relaxation-channels",
+  "title": "Реклама воспроизводится на специальных каналах для сна и расслабления даже в бесплатной версии",
+  "obs": 1
+ },
+ {
+  "id": "playback-requires-restart-after-each-song",
+  "title": "После каждой песни приложение останавливается и требует ручного перезапуска для продолжения воспроизведения",
+  "obs": 1
+ },
+ {
+  "id": "offline-slow-switchover",
+  "title": "При потере сети приложение не переключается в оффлайн-режим около пяти минут — музыка резко обрывается",
+  "obs": 1
+ },
+ {
+  "id": "search-ignores-user-selection",
+  "title": "Поиск по конкретной песне игнорирует выбор пользователя и запускает другие треки",
+  "obs": 1
+ },
+ {
+  "id": "logout-popup-annoyance",
+  "title": "При попытке выйти из аккаунта появляется навязчивый диалог, которого пользователь не может избежать",
+  "obs": 1
+ },
+ {
+  "id": "album-art-removed",
+  "title": "Обложки альбомов больше не отображаются в интерфейсе — исчезла функция визуальной навигации",
+  "obs": 1
+ },
+ {
+  "id": "like-system-no-granularity",
+  "title": "Система лайков не позволяет выразить степень интереса между «нравится» и «не нравится»",
+  "obs": 1
+ },
+ {
+  "id": "playlist-mix-no-controls",
+  "title": "Нет возможности настроить соотношение жанров и исполнителей внутри плейлиста",
+  "obs": 1
+ },
+ {
+  "id": "ui-playback-state-desync",
+  "title": "Интерфейс показывает, что музыка играет, хотя воспроизведение уже остановлено",
+  "obs": 1
+ },
+ {
+  "id": "playlists-disappear-on-create",
+  "title": "Созданные пользователем плейлисты исчезают после добавления нового плейлиста",
+  "obs": 1
+ },
+ {
+  "id": "lyrics-loading-unreliable",
+  "title": "Тексты песен загружаются нестабильно — функция доступна не каждый раз",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-ios",
+  "title": "Приложение самопроизвольно закрывается на актуальной версии iOS",
+  "obs": 1
+ },
+ {
+  "id": "account-deleted-years-of-history-lost",
+  "title": "Аккаунт с многолетней историей прослушивания удаляется без предупреждения — пользователь теряет все данные",
+  "obs": 1
+ },
+ {
+  "id": "logout-on-device-power-cycle",
+  "title": "После выключения устройства приложение автоматически разлогинивает пользователя",
+  "obs": 1
+ },
+ {
+  "id": "no-new-features-stagnation",
+  "title": "Приложение давно не получает новых функций или улучшений качества — ощущение стагнации продукта",
+  "obs": 1
+ },
+ {
+  "id": "fewer-features-than-competitors",
+  "title": "В приложении отсутствуют функции, уже доступные у конкурентов: лента текстов, биографии артистов, оффлайн каверы",
+  "obs": 1
+ }
+]

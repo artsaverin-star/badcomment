@@ -1,0 +1,115 @@
+{
+  "groups": [
+    {
+      "id": "phantom-debits-and-overcharges",
+      "name": "Списания-призраки: двойные, повторные и после отмены",
+      "insight_ids": [
+        "subscription-charges-after-cancel",
+        "double-debit-one-repayment",
+        "unauthorized-debits-no-service",
+        "debit-after-full-repayment",
+        "charges-after-account-closed",
+        "subscription-debit-no-access",
+        "fake-debt-after-cancel",
+        "advance-becomes-subscription",
+        "balance-not-updated-after-pay",
+        "hidden-partial-charges",
+        "weekly-debit-scam-feel",
+        "no-refund-on-dispute"
+      ]
+    },
+    {
+      "id": "advance-payout-broken",
+      "name": "Аванс, который не доходит или отбирают обратно",
+      "insight_ids": [
+        "error-on-advance-request",
+        "extra-amount-then-clawback",
+        "second-advance-blocked-error",
+        "advance-taken-back-next-day",
+        "approved-advance-never-arrives",
+        "slow-advance-and-repayment",
+        "instant-fee-no-payout",
+        "advertised-amount-mismatch",
+        "limit-unstable",
+        "good-repayer-rejected"
+      ]
+    },
+    {
+      "id": "early-debit-and-repayment-fails",
+      "name": "Раннее списание, овердрафт и провал погашения",
+      "insight_ids": [
+        "early-debit-overdraft",
+        "overdraft-fee-on-advance",
+        "manual-repayment-rejected",
+        "payments-blocked-by-errors",
+        "manual-repayment-wanted"
+      ]
+    },
+    {
+      "id": "bank-and-card-linking",
+      "name": "Привязка банка и карты: отказы, отвязки и блокировки совместимости",
+      "insight_ids": [
+        "card-rejected-after-first-use",
+        "bank-disconnected-no-reconnect",
+        "debit-card-misclassified",
+        "bank-link-load-error",
+        "cannot-disconnect-bank",
+        "saved-method-blocked-slow-transfer",
+        "card-update-30day-wait",
+        "no-compatible-banks-listed"
+      ]
+    },
+    {
+      "id": "app-broken-and-login",
+      "name": "Приложение лежит неделями: вход, коды и зависшие экраны",
+      "insight_ids": [
+        "app-broken-weeks-no-function",
+        "login-error-locked-out",
+        "no-otp-code",
+        "slow-approval-status",
+        "password-changed-on-logout",
+        "cannot-cancel-app-broken",
+        "game-earnings-not-saved"
+      ]
+    },
+    {
+      "id": "support-wall",
+      "name": "Стена поддержки: AI-джинн, шаблоны и отрицание проблемы",
+      "insight_ids": [
+        "support-no-response",
+        "support-template-replies",
+        "ai-chat-no-human",
+        "support-button-missing",
+        "login-required-for-support",
+        "cannot-find-account-email",
+        "support-asks-old-phone",
+        "support-repeat-verification",
+        "support-denies-problem",
+        "support-suggests-nonexistent-option"
+      ]
+    },
+    {
+      "id": "account-lockout-and-deletion",
+      "name": "Заморозка аккаунта и ловушка удаления данных",
+      "insight_ids": [
+        "account-frozen-no-reason",
+        "blocked-for-tos-on-first-advance",
+        "region-availability-contradiction",
+        "blocked-30day-after-bank-reconnect",
+        "false-multiple-accounts",
+        "blocked-for-disputing-charge",
+        "delete-account-hidden-30day",
+        "delete-blocks-recreate"
+      ]
+    },
+    {
+      "id": "opaque-value-and-fees",
+      "name": "Непрозрачная ценность: комиссии, рейтинг и конкуренты",
+      "insight_ids": [
+        "fee-hike-no-explanation",
+        "competitors-instant-transfer",
+        "value-unclear-credit-claim"
+      ]
+    }
+  ]
+}

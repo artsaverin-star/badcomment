@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from Moovit: Bus & Transit Tracker (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Moovit: Bus & Transit Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Moovit: Bus & Transit Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Moovit: Bus & Transit Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-498477945.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ads-per-action",
+  "title": "Реклама показывается после каждого действия пользователя — поиска, смены маршрута, перехода к следующему шагу",
+  "obs": 12
+ },
+ {
+  "id": "ads-overwhelming",
+  "title": "Общий объём рекламы настолько велик, что приложение становится непригодным для использования",
+  "obs": 8
+ },
+ {
+  "id": "arrival-time-wrong",
+  "title": "Время прибытия в реальном времени расходится с действительным — пользователи пропускают транспорт",
+  "obs": 7
+ },
+ {
+  "id": "route-wrong",
+  "title": "Приложение предлагает неверный маршрут или отправляет пользователя не в то место",
+  "obs": 6
+ },
+ {
+  "id": "post-update-crash",
+  "title": "После обновления приложение вылетает или перестаёт открываться",
+  "obs": 5
+ },
+ {
+  "id": "ads-blocks-vehicle-id",
+  "title": "Реклама появляется в момент прибытия транспорта и не даёт пользователю определить нужный автобус",
+  "obs": 4
+ },
+ {
+  "id": "better-than-official",
+  "title": "Приложение точнее знает маршруты и задержки, чем официальные транзитные приложения",
+  "obs": 4
+ },
+ {
+  "id": "ads-launch",
+  "title": "При каждом открытии приложения немедленно появляется реклама, которую нельзя пропустить 5–10 секунд",
+  "obs": 3
+ },
+ {
+  "id": "regional-data-outdated",
+  "title": "Данные о маршрутах и расписаниях в отдельных регионах устарели или принципиально неверны",
+  "obs": 3
+ },
+ {
+  "id": "accessibility-use-case",
+  "title": "Приложение открывает самостоятельный проезд людям с ограниченными возможностями, пожилым и иностранцам",
+  "obs": 3
+ },
+ {
+  "id": "trial-immediate-charge",
+  "title": "Приложение обещает бесплатный пробный период, но сразу списывает полную сумму годовой подписки",
+  "obs": 2
+ },
+ {
+  "id": "paywall-basic-features",
+  "title": "Информация о времени прибытия, ранее бесплатная, перенесена за платный барьер",
+  "obs": 2
+ },
+ {
+  "id": "localization-incomplete",
+  "title": "Интерфейс и срочные оповещения недоступны на языке пользователя и не поддаются копированию для перевода",
+  "obs": 2
+ },
+ {
+  "id": "black-screen",
+  "title": "Приложение открывается с чёрным экраном или не загружается вовсе",
+  "obs": 2
+ },
+ {
+  "id": "suboptimal-route",
+  "title": "Алгоритм предлагает маршрут значительно длиннее или дороже оптимального",
+  "obs": 2
+ },
+ {
+  "id": "uber-to-transit",
+  "title": "Пользователи переходят с такси на общественный транспорт и используют приложение для ежедневного планирования",
+  "obs": 2
+ },
+ {
+  "id": "premium-still-shows-ads",
+  "title": "После покупки подписки без рекламы объявления продолжают показываться",
+  "obs": 1
+ },
+ {
+  "id": "sim-reset-subscription",
+  "title": "Смена SIM-карты сбрасывает подписку и вынуждает пользователя платить повторно за тот же период",
+  "obs": 1
+ },
+ {
+  "id": "double-charge",
+  "title": "Приложение дважды списывает оплату за годовую подписку без возможности отмены",
+  "obs": 1
+ },
+ {
+  "id": "no-pause-subscription",
+  "title": "Нет возможности приостановить подписку — только полная отмена, даже когда приложение не установлено",
+  "obs": 1
+ },
+ {
+  "id": "map-compare-paywall",
+  "title": "Сравнение маршрутов на карте доступно только платным пользователям",
+  "obs": 1
+ },
+ {
+  "id": "ticket-restore-requires-date",
+  "title": "Восстановление купленного билета требует точную дату покупки, которой нет в истории приложения",
+  "obs": 1
+ },
+ {
+  "id": "premium-removes-ads",
+  "title": "Платная подписка полностью устраняет проблему навязчивой рекламы",
+  "obs": 1
+ },
+ {
+  "id": "no-delay-notifications",
+  "title": "Приложение не уведомляет о задержках транспорта, даже когда опоздание превышает 30 минут",
+  "obs": 1
+ },
+ {
+  "id": "restore-purchase-hidden",
+  "title": "Кнопка восстановления покупки спрятана в глубину меню — пользователи не могут её найти после переустановки",
+  "obs": 1
+ },
+ {
+  "id": "departure-vs-arrival",
+  "title": "Приложение показывает только время прибытия автобуса, а не время отправления — пользователь не понимает когда уходить",
+  "obs": 1
+ },
+ {
+  "id": "exclude-transport-mode",
+  "title": "Настройка исключения нежелательного типа транспорта не применяется к результатам маршрутов",
+  "obs": 1
+ },
+ {
+  "id": "no-schedule-link",
+  "title": "Нет прямого доступа к расписанию конкретного маршрута — только через предложенный маршрут",
+  "obs": 1
+ },
+ {
+  "id": "wrong-default-city",
+  "title": "Приложение устанавливает неправильный город по умолчанию несмотря на включённую геолокацию",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-unclear",
+  "title": "Интерфейс непонятен при редком или первом использовании — нет ясных инструкций",
+  "obs": 1
+ },
+ {
+  "id": "history-favorites-broken",
+  "title": "История поездок и избранные маршруты работают некорректно",
+  "obs": 1
+ },
+ {
+  "id": "cryptic-glyphs",
+  "title": "Приложение использует непонятные сокращения вместо читаемого текста — особенно сложно для туристов",
+  "obs": 1
+ },
+ {
+  "id": "ticket-button-hidden",
+  "title": "Кнопка добавления дополнительного билета перемещена вглубь меню — лишние касания в движущемся автобусе",
+  "obs": 1
+ },
+ {
+  "id": "repeated-stop-selection",
+  "title": "После ввода дальней остановки приложение повторно просит уточнить конкретную остановку на следующих экранах",
+  "obs": 1
+ },
+ {
+  "id": "photo-upload-invisible",
+  "title": "Загруженные пользователем фотографии остановок не появляются в приложении неделями",
+  "obs": 1
+ },
+ {
+  "id": "phantom-vehicles",
+  "title": "Приложение показывает на карте автобусы, которых в действительности нет",
+  "obs": 1
+ },
+ {
+  "id": "dst-clock",
+  "title": "Расписание в приложении не обновляется при переходе на летнее время",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-times",
+  "title": "Приложение дублирует время одного и того же автобуса как два разных рейса",
+  "obs": 1
+ },
+ {
+  "id": "missing-transfer",
+  "title": "Приложение не включает обязательную пересадку в многосегментном маршруте",
+  "obs": 1
+ },
+ {
+  "id": "battery-drain",
+  "title": "Приложение не завершает работу после окончания поездки и непрерывно разряжает батарею",
+  "obs": 1
+ },
+ {
+  "id": "offline-ad-freeze",
+  "title": "Без подключения к интернету приложение зависает при попытке загрузить рекламу",
+  "obs": 1
+ },
+ {
+  "id": "ads-close-bug",
+  "title": "Кнопка закрытия рекламы не работает — объявление не исчезает и разряжает батарею",
+  "obs": 1
+ },
+ {
+  "id": "sms-timeout",
+  "title": "Окно для ввода SMS-кода подтверждения слишком короткое — при ошибке аккаунт блокируется на 24 часа",
+  "obs": 1
+ },
+ {
+  "id": "account-billing-mixup",
+  "title": "Система связала аккаунт пользователя с чужой задолженностью, а поддержка заблокировала его без помощи",
+  "obs": 1
+ },
+ {
+  "id": "ads-monetization-shift",
+  "title": "Приложение деградировало после резкого ужесточения монетизации — пользователи, знавшие его до изменений, уходят",
+  "obs": 1
+ },
+ {
+  "id": "data-privacy",
+  "title": "Приложение продаёт данные пользователей третьим лицам",
+  "obs": 1
+ },
+ {
+  "id": "global-free",
+  "title": "Приложение остаётся бесплатным и работает по всему миру — уникальный глобальный охват",
+  "obs": 1
+ },
+ {
+  "id": "transit-line-unreliable",
+  "title": "Пользователи фиксируют конкретные маршруты, которые регулярно нарушают расписание независимо от данных приложения",
+  "obs": 1
+ },
+ {
+  "id": "permissions-suspicious",
+  "title": "Приложение запрашивает доступ к кошельку и устройству, вызывая у пользователей подозрения в безопасности",
+  "obs": 1
+ }
+]

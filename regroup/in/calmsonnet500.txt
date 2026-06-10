@@ -1,0 +1,409 @@
+You are grouping 72 mechanism-level insight clusters from Calm (медитация / mindfulness / сон) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Calm, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 72 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Calm — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Calm>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/calmsonnet500.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "story-loops-instead-of-scene",
+  "title": "После обновления история зацикливается вместо перехода в тихую сцену и будит ночью",
+  "obs": 10
+ },
+ {
+  "id": "library-stagnation",
+  "title": "Библиотека историй и медитаций почти не пополняется, и лояльные подписчики уходят",
+  "obs": 9
+ },
+ {
+  "id": "intrusive-popups-on-launch",
+  "title": "При каждом запуске пользователя встречает серия промо- и рейтинг-попапов до медитации",
+  "obs": 9
+ },
+ {
+  "id": "trial-charged-full",
+  "title": "Бесплатный пробный период сразу списывает полную годовую подписку",
+  "obs": 8
+ },
+ {
+  "id": "paid-not-activated",
+  "title": "Оплата прошла, но Premium внутри приложения не включается, и поддержка молчит",
+  "obs": 7
+ },
+ {
+  "id": "free-to-paywall-bait-switch",
+  "title": "Ранее бесплатный контент постепенно убирают за платный барьер — ощущение обмана",
+  "obs": 7
+ },
+ {
+  "id": "narrator-voice-mismatch",
+  "title": "Голоса и манера рассказчиков раздражают и отталкивают от подписки именно в момент стресса",
+  "obs": 5
+ },
+ {
+  "id": "device-specific-audio-glitch",
+  "title": "Аудио заикается или приложение тормозит на конкретных устройствах и версиях системы",
+  "obs": 5
+ },
+ {
+  "id": "two-stage-sleep-ritual",
+  "title": "Пользователи строят двухэтапный ритуал: история для засыпания, затем фоновый звук на всю ночь",
+  "obs": 5
+ },
+ {
+  "id": "binaural-emdr-differentiator",
+  "title": "Бинауральные биения и EMDR воспринимаются как настоящее преимущество и хук удержания",
+  "obs": 4
+ },
+ {
+  "id": "search-replaced-by-feed",
+  "title": "Поиск и навигацию по категориям заменили алгоритмической лентой — нельзя найти нужное",
+  "obs": 4
+ },
+ {
+  "id": "no-content-filters",
+  "title": "Нет фильтров по голосу, теме, возрасту и наличию музыки — приходится перебирать каталог вручную",
+  "obs": 4
+ },
+ {
+  "id": "story-loops-after-update-wakes",
+  "title": "Зависания и обрывы Sleep Stories после обновлений будят пользователя ночью",
+  "obs": 4
+ },
+ {
+  "id": "crash-on-launch",
+  "title": "Приложение зависает на splash-экране «сделай глубокий вдох» и не запускается",
+  "obs": 4
+ },
+ {
+  "id": "b2b-employer-channel",
+  "title": "Главный канал удержания — работодатель, страховка или подарок, а не органика",
+  "obs": 4
+ },
+ {
+  "id": "family-multigenerational-use",
+  "title": "Одна подписка закрывает разные сценарии поколений — взрослые, дети, внуки",
+  "obs": 4
+ },
+ {
+  "id": "cancel-doesnt-stop-billing",
+  "title": "Подписка отменена через магазин, но Calm продолжает списывать деньги",
+  "obs": 3
+ },
+ {
+  "id": "dark-pattern-cancel-flow",
+  "title": "Отмена подписки спрятана за цепочкой скидочных экранов с крошечной кнопкой",
+  "obs": 3
+ },
+ {
+  "id": "upgrade-no-credit",
+  "title": "При апгрейде или продлении по промо уже уплаченные деньги не засчитываются",
+  "obs": 3
+ },
+ {
+  "id": "no-progression-for-experienced",
+  "title": "Контент не усложняется с ростом практики и повторяет один базовый паттерн для всех тем",
+  "obs": 3
+ },
+ {
+  "id": "missing-content-formats",
+  "title": "Не хватает форматов: больше йоги, ASMR без голоса и дневной фоновой музыки",
+  "obs": 3
+ },
+ {
+  "id": "navigation-overloaded",
+  "title": "Интерфейс перегружен лишним контентом и категориями — трудно добраться до нужного",
+  "obs": 3
+ },
+ {
+  "id": "basic-tools-hidden",
+  "title": "Базовые инструменты вроде таймера и дыхания спрятаны или пропали после редизайна",
+  "obs": 3
+ },
+ {
+  "id": "ambient-work-use-case",
+  "title": "Приложение используют как фоновую среду для работы, концентрации и поездок",
+  "obs": 3
+ },
+ {
+  "id": "clinical-medication-replacement",
+  "title": "Calm используют как замену снотворным и дополнение к терапии",
+  "obs": 3
+ },
+ {
+  "id": "marketing-product-mismatch",
+  "title": "Реклама обещает персональный план и клинику, а пользователь получает набор треков и подкаст",
+  "obs": 3
+ },
+ {
+  "id": "competitor-free-alternatives",
+  "title": "Базовые звуки и EMDR доступны бесплатно у конкурентов — голосовые ассистенты, стриминги",
+  "obs": 3
+ },
+ {
+  "id": "onboarding-content-trigger",
+  "title": "Отдельная медитация или формат может стать переломным моментом для принятия практики",
+  "obs": 3
+ },
+ {
+  "id": "family-plan-double-charge",
+  "title": "Добавление члена семьи списывает полный год заново поверх уже оплаченной подписки",
+  "obs": 2
+ },
+ {
+  "id": "tier-or-gift-misleading",
+  "title": "Дешёвый тариф и письмо-«подарок» вводят в заблуждение об объёме и цене доступа",
+  "obs": 2
+ },
+ {
+  "id": "removed-favorite-content",
+  "title": "Конкретные любимые истории и сцены тихо исчезают из каталога без предупреждения",
+  "obs": 2
+ },
+ {
+  "id": "kids-content-gaps",
+  "title": "Детский контент рассчитан на малышей — нет историй для подростков и бесплатных сказок",
+  "obs": 2
+ },
+ {
+  "id": "lost-sleep-timer",
+  "title": "После обновления у звуков и сцен пропал таймер автоостановки — играют всю ночь",
+  "obs": 2
+ },
+ {
+  "id": "interruption-resets-playback",
+  "title": "Прерывание или случайное нажатие сбрасывает воспроизведение в начало",
+  "obs": 2
+ },
+ {
+  "id": "ui-loop-sound-stuck",
+  "title": "Фоновый звук с главного экрана залипает и перекрывает выбранный контент",
+  "obs": 2
+ },
+ {
+  "id": "no-playback-tempo-control",
+  "title": "Нельзя настроить темп: история читается слишком быстро, а фаза вдоха слишком долгая",
+  "obs": 2
+ },
+ {
+  "id": "forced-autoplay-on-open",
+  "title": "Приложение само включает звук при открытии, не давая сначала выбрать контент",
+  "obs": 2
+ },
+ {
+  "id": "no-playlist-feature",
+  "title": "Нельзя собрать плейлист из любимых треков — кнопки создания плейлиста нет в интерфейсе",
+  "obs": 2
+ },
+ {
+  "id": "device-overheat-battery-drain",
+  "title": "Воспроизведение звука перегревает устройство и ускоренно разряжает батарею",
+  "obs": 2
+ },
+ {
+  "id": "reinstall-login-loop",
+  "title": "После переустановки приложение зацикливается на экране логина и теряет доступ к контенту",
+  "obs": 2
+ },
+ {
+  "id": "integrations-removed-broken",
+  "title": "Интеграции с Sonos, shortcuts и Apple Watch удалены или сломаны и не чинятся",
+  "obs": 2
+ },
+ {
+  "id": "ipad-crash-then-fix",
+  "title": "Обновление полностью ломало приложение на iPad, следующее восстановило работу",
+  "obs": 2
+ },
+ {
+  "id": "support-ai-bot-only",
+  "title": "Поддержка — только бот, живого оператора нет, платящий не может эскалировать проблему",
+  "obs": 2
+ },
+ {
+  "id": "streak-gameable",
+  "title": "Серия дней засчитывается без реального прослушивания и ломается при сне около полуночи",
+  "obs": 2
+ },
+ {
+  "id": "expanded-use-cases",
+  "title": "Истории слушают для удовольствия днём, а к продукту приходят и с нестандартными задачами",
+  "obs": 2
+ },
+ {
+  "id": "no-installment-tier",
+  "title": "Нет промежуточного тарифа: только дорогой месячный или годовой план без рассрочки",
+  "obs": 1
+ },
+ {
+  "id": "free-premium-codes",
+  "title": "Промокоды на бесплатный Premium ходят по рукам, и компания теряет на этом деньги",
+  "obs": 1
+ },
+ {
+  "id": "financial-data-optout",
+  "title": "Условия разрешают передачу финансовых данных третьим лицам без понятного способа отказаться",
+  "obs": 1
+ },
+ {
+  "id": "ai-narration-regression",
+  "title": "Озвучка ежедневной медитации стала роботизированной и выбивает из медитативного состояния",
+  "obs": 1
+ },
+ {
+  "id": "human-narrators-authenticity",
+  "title": "Реальные знаменитости-рассказчики служат сигналом подлинности против машинного контента",
+  "obs": 1
+ },
+ {
+  "id": "degraded-audio-quality",
+  "title": "У конкретной записи испортилось качество звука — пропадает каждое пятое слово",
+  "obs": 1
+ },
+ {
+  "id": "trauma-content-warnings",
+  "title": "Истории начинаются с тяжёлых тем без предупреждений и фильтра безопасности для травматиков",
+  "obs": 1
+ },
+ {
+  "id": "no-end-bell",
+  "title": "Не все медитации заканчиваются колоколом — нет единого ритуального сигнала окончания",
+  "obs": 1
+ },
+ {
+  "id": "wording-cognitive-jolt",
+  "title": "Формулировка ведущего с двойным смыслом про смерть прерывает расслабление в момент медитации",
+  "obs": 1
+ },
+ {
+  "id": "no-autoplay-albums",
+  "title": "В альбомах и сериях нет автоперехода — каждый трек нужно включать вручную",
+  "obs": 1
+ },
+ {
+  "id": "play-button-frozen-after-pause",
+  "title": "После паузы кнопка воспроизведения зависает — помогает только перезапуск приложения",
+  "obs": 1
+ },
+ {
+  "id": "music-too-loud-over-narration",
+  "title": "Громкая фоновая музыка перекрывает голос рассказчика, особенно мешая при тиннитусе",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-duration",
+  "title": "Нельзя задать произвольную длительность медитации — только фиксированные пресеты",
+  "obs": 1
+ },
+ {
+  "id": "background-play-unstable",
+  "title": "Продолжение звука после закрытия приложения работает нестабильно",
+  "obs": 1
+ },
+ {
+  "id": "no-skip-block-feedback",
+  "title": "Нет способа пропустить, заблокировать или оценить трек — алгоритм игнорирует негативный фидбэк",
+  "obs": 1
+ },
+ {
+  "id": "completion-animation-delay",
+  "title": "При возврате на следующий день медленная анимация прошлой сессии задерживает доступ к новой",
+  "obs": 1
+ },
+ {
+  "id": "no-accessibility-deaf",
+  "title": "Нет субтитров и транскриптов — глухие пользователи лишены доступа к аудиоконтенту",
+  "obs": 1
+ },
+ {
+  "id": "captcha-blocks-signup",
+  "title": "CAPTCHA при регистрации блокирует создание аккаунта полностью",
+  "obs": 1
+ },
+ {
+  "id": "locked-content-browsing-friction",
+  "title": "Режим без подписки показывает столько заблокированного контента, что навигация сама раздражает",
+  "obs": 1
+ },
+ {
+  "id": "performance-degrades-over-time",
+  "title": "Приложение замедляется при долгом использовании — помогает только переустановка",
+  "obs": 1
+ },
+ {
+  "id": "no-offline-mode",
+  "title": "Нет полноценного оффлайн-режима — при сбое сервера остаётся лишь обрывок кеша",
+  "obs": 1
+ },
+ {
+  "id": "bugs-vs-new-paid-content",
+  "title": "Старые баги не чинят, выпуская новый платный контент вместо стабильности",
+  "obs": 1
+ },
+ {
+  "id": "browser-fallback-loses-features",
+  "title": "Браузерная версия теряет таймер и отметку дня, из-за чего сбивается серия дней практики",
+  "obs": 1
+ },
+ {
+  "id": "no-in-app-support",
+  "title": "Внутри приложения нет способа обратиться в поддержку при проблеме с входом",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-broken",
+  "title": "Сброс пароля не работает месяцами, и восстановить доступ невозможно",
+  "obs": 1
+ },
+ {
+  "id": "sos-emergency-paywalled",
+  "title": "Экстренная медитация при панике закрыта пейволлом — этическое противоречие для wellness-продукта",
+  "obs": 1
+ },
+ {
+  "id": "churn-and-covid-expectations",
+  "title": "Долгие пользователи уходят к конкурентам, а ковидное расширение бесплатного доступа создало ожидания",
+  "obs": 1
+ }
+]

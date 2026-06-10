@@ -1,0 +1,339 @@
+You are grouping 58 mechanism-level insight clusters from Chegg Study - Homework Help (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Chegg Study - Homework Help, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 58 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Chegg Study - Homework Help — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Chegg Study - Homework Help>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstt7kh1uwmug8pjcz33u5c.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "billing-continues-after-cancellation",
+  "title": "После подтверждённой отмены подписки система продолжает ежемесячно списывать деньги",
+  "obs": 15
+ },
+ {
+  "id": "ai-answers-mostly-wrong",
+  "title": "После перехода на AI большинство ответов неправильны или бессмысленны",
+  "obs": 15
+ },
+ {
+  "id": "ai-replaced-experts-no-opt-out",
+  "title": "Реальные эксперты заменены на AI без возможности отключить этот режим",
+  "obs": 9
+ },
+ {
+  "id": "app-broken-after-update",
+  "title": "После очередного обновления основные функции перестают работать на iOS или Android",
+  "obs": 7
+ },
+ {
+  "id": "honor-code-blocks-legitimate-use",
+  "title": "Система кодекса честности блокирует доступ к решениям для обычных учебных вопросов",
+  "obs": 7
+ },
+ {
+  "id": "cancel-button-does-nothing",
+  "title": "Кнопка отмены подписки в приложении не срабатывает — платежи продолжаются",
+  "obs": 6
+ },
+ {
+  "id": "account-blocked-right-after-payment",
+  "title": "Сразу после оплаты аккаунт блокируется на проверку — воспользоваться подпиской невозможно",
+  "obs": 6
+ },
+ {
+  "id": "app-listed-free-but-requires-payment",
+  "title": "Приложение позиционируется как бесплатное, но при первом действии требует оплату подписки",
+  "obs": 5
+ },
+ {
+  "id": "answer-shows-status-but-no-content",
+  "title": "Ответ отображается как выполненный, но содержание не загружается — нужно идти на сайт",
+  "obs": 5
+ },
+ {
+  "id": "slow-load-times",
+  "title": "Загрузка вопросов и ответов занимает минуты — сервис медленнее бесплатных альтернатив",
+  "obs": 5
+ },
+ {
+  "id": "account-auto-blocked-normal-use",
+  "title": "Система автоматически блокирует аккаунт за обычное использование или достижение лимита",
+  "obs": 5
+ },
+ {
+  "id": "experts-copy-paste-chatgpt",
+  "title": "Эксперты просто копируют ответ из ChatGPT, не решая задачу самостоятельно",
+  "obs": 4
+ },
+ {
+  "id": "app-freezes-on-question-input",
+  "title": "При вводе вопроса или загрузке фото приложение зависает и требует повторной отправки",
+  "obs": 4
+ },
+ {
+  "id": "ocr-stopped-working-after-update",
+  "title": "После обновления распознавание текста с фото перестало работать",
+  "obs": 4
+ },
+ {
+  "id": "cancellation-flow-deliberately-complex",
+  "title": "Процесс отмены подписки намеренно запутан с множеством циклических шагов",
+  "obs": 3
+ },
+ {
+  "id": "textbook-solutions-mobile-missing",
+  "title": "Решения из учебников доступны только на сайте, в мобильном приложении их нет",
+  "obs": 3
+ },
+ {
+  "id": "expert-answer-never-arrives",
+  "title": "Отправленный эксперту вопрос не появляется в истории и ответа нет — лимит вопроса сгорел",
+  "obs": 3
+ },
+ {
+  "id": "flashcard-data-lost-after-update",
+  "title": "После обновления приложения все сохранённые карточки удаляются без предупреждения",
+  "obs": 3
+ },
+ {
+  "id": "session-timeout-interrupts-study",
+  "title": "Приложение завершает сессию посередине учёбы и требует повторного входа каждые несколько минут",
+  "obs": 3
+ },
+ {
+  "id": "ai-transition-degraded-product-quality",
+  "title": "Переход на AI снизил качество ответов настолько, что долгосрочные пользователи уходят",
+  "obs": 3
+ },
+ {
+  "id": "no-free-trial-for-students",
+  "title": "Бесплатного пробного периода нет, студенты без источника дохода не могут попробовать сервис",
+  "obs": 2
+ },
+ {
+  "id": "support-refuses-refund",
+  "title": "Техподдержка отказывает в возврате денег даже при очевидных ошибках системы",
+  "obs": 2
+ },
+ {
+  "id": "support-slow-or-no-response",
+  "title": "Техподдержка долго не отвечает или прекращает переписку без решения проблемы",
+  "obs": 2
+ },
+ {
+  "id": "experts-skip-hard-questions",
+  "title": "Эксперты выбирают простые вопросы и игнорируют сложные — большинство трудных задач без ответа",
+  "obs": 2
+ },
+ {
+  "id": "ai-shows-similar-problem-not-solution",
+  "title": "При сканировании задачи AI показывает похожую задачу вместо пошагового решения",
+  "obs": 2
+ },
+ {
+  "id": "systematic-error-on-most-requests",
+  "title": "Система возвращает ошибку для большинства запросов на протяжении нескольких недель",
+  "obs": 2
+ },
+ {
+  "id": "2fa-random-triggers-logout",
+  "title": "Двухфакторная аутентификация срабатывает случайно и выбрасывает из аккаунта",
+  "obs": 2
+ },
+ {
+  "id": "photo-upload-feature-removed",
+  "title": "Функция отправки фото вопросов удалена — пользователь узнал об этом только из поддержки",
+  "obs": 2
+ },
+ {
+  "id": "flashcard-feature-removed-or-hidden",
+  "title": "Функция создания карточек удалена или спрятана — основной сценарий недоступен",
+  "obs": 2
+ },
+ {
+  "id": "search-replaced-by-mandatory-ai-chat",
+  "title": "Старый поиск по архиву вопросов заменён обязательным AI-чатботом без возможности переключения",
+  "obs": 2
+ },
+ {
+  "id": "new-interface-hides-browse-solutions",
+  "title": "После обновления интерфейса пропал просмотр всех вариантов ответов до выбора",
+  "obs": 2
+ },
+ {
+  "id": "ocr-returns-wrong-subject",
+  "title": "Камера распознаёт вопрос неверно и возвращает ответ на совершенно другую тему",
+  "obs": 2
+ },
+ {
+  "id": "expert-answer-slow-hours-to-days",
+  "title": "Эксперты отвечают часами или неделями — сервис медленнее бесплатных инструментов",
+  "obs": 2
+ },
+ {
+  "id": "trial-button-charges-immediately",
+  "title": "Кнопка пробного периода сразу списывает полную сумму подписки без настоящего триала",
+  "obs": 1
+ },
+ {
+  "id": "ads-on-paid-subscription",
+  "title": "Платная подписка не убирает рекламу на сайте — 30-секундные объявления нельзя пропустить",
+  "obs": 1
+ },
+ {
+  "id": "subscription-charged-but-never-activated",
+  "title": "Деньги списываются, но подписка остаётся неактивной без объяснения причин",
+  "obs": 1
+ },
+ {
+  "id": "double-charge-same-month",
+  "title": "Система списывает плату дважды за один расчётный период",
+  "obs": 1
+ },
+ {
+  "id": "payment-card-data-leaked",
+  "title": "После оплаты через приложение данные платёжной карты утекли к злоумышленникам",
+  "obs": 1
+ },
+ {
+  "id": "cannot-remove-saved-payment-method",
+  "title": "Удалить сохранённый способ оплаты из аккаунта невозможно — карта привязывается снова автоматически",
+  "obs": 1
+ },
+ {
+  "id": "single-device-limit-forces-multiple-subscriptions",
+  "title": "Ограничение на одно устройство вынуждает покупать отдельные подписки для каждого гаджета",
+  "obs": 1
+ },
+ {
+  "id": "support-bot-unhelpful-no-human-escalation",
+  "title": "Поддержка отвечает ботом, который повторяет стандартные фразы и не переключает на живого оператора",
+  "obs": 1
+ },
+ {
+  "id": "account-privacy-data-shared-without-consent",
+  "title": "Система автоматически передаёт персональные данные пользователя университетам без явного согласия",
+  "obs": 1
+ },
+ {
+  "id": "experts-ignore-user-explanation-format",
+  "title": "Эксперты не следуют инструкциям о формате объяснения — пошаговости или рисунках",
+  "obs": 1
+ },
+ {
+  "id": "archive-solutions-better-than-new-ai",
+  "title": "Полезные ответы остались только в архиве до внедрения AI — новые неприменимы для учёбы",
+  "obs": 1
+ },
+ {
+  "id": "rented-textbook-inaccessible",
+  "title": "Арендованный цифровой учебник не открывается в приложении и на сайте — деньги списаны",
+  "obs": 1
+ },
+ {
+  "id": "ipad-input-completely-broken",
+  "title": "На iPad нельзя напечатать вопрос и нельзя нажать на камеру — ввод полностью заблокирован",
+  "obs": 1
+ },
+ {
+  "id": "link-from-search-opens-app-without-answer",
+  "title": "Ссылка на решение открывает приложение без ответа, хотя в браузере тот же вопрос доступен",
+  "obs": 1
+ },
+ {
+  "id": "monthly-question-quota-does-not-reset",
+  "title": "Месячный лимит вопросов не обновляется в день продления подписки — неиспользованные сгорают",
+  "obs": 1
+ },
+ {
+  "id": "expert-uses-extra-quota-for-clarification",
+  "title": "Запрос уточнения от эксперта расходует дополнительный вопрос из месячного лимита",
+  "obs": 1
+ },
+ {
+  "id": "questions-stuck-under-review",
+  "title": "После обновления собственные вопросы зависают в статусе «на проверке» часами без ответа",
+  "obs": 1
+ },
+ {
+  "id": "flashcard-deck-size-limited",
+  "title": "Набор карточек ограничен 15 штуками, навигация между наборами неудобна",
+  "obs": 1
+ },
+ {
+  "id": "flashcard-migration-broken",
+  "title": "После замены приложения Flashcards доступ к ранее созданным карточкам потерян из-за ошибок входа",
+  "obs": 1
+ },
+ {
+  "id": "textbook-search-missing-on-mobile",
+  "title": "Поиск решений по учебникам отсутствует в мобильном приложении",
+  "obs": 1
+ },
+ {
+  "id": "solution-view-narrow-column-desktop",
+  "title": "На компьютере решение показывается в узком столбце без разворота — формулы нечитаемы",
+  "obs": 1
+ },
+ {
+  "id": "cannot-edit-solution-text-mobile",
+  "title": "В мобильном приложении нельзя переместить курсор для редактирования конкретного шага решения",
+  "obs": 1
+ },
+ {
+  "id": "search-result-opens-expert-queue-not-solution",
+  "title": "Клик на найденный вопрос переводит в режим ожидания эксперта вместо показа готового решения",
+  "obs": 1
+ },
+ {
+  "id": "app-cant-solve-basic-problems-requires-payment-first",
+  "title": "Приложение не решает базовые задачи и требует оплаты перед любой попыткой показать ответ",
+  "obs": 1
+ },
+ {
+  "id": "mobile-app-vs-web-feature-gap",
+  "title": "Мобильное приложение значительно беднее веб-версии по функциям и качеству контента",
+  "obs": 1
+ }
+]

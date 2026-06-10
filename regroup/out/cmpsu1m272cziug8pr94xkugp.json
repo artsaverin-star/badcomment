@@ -1,0 +1,114 @@
+{
+  "groups": [
+    {
+      "id": "app-falling-apart",
+      "name": "Приложение рассыпается: запуск, падения, вылеты из аккаунта",
+      "insight_ids": [
+        "slow-loading",
+        "app-crash-on-open",
+        "constant-logout",
+        "crash-after-os-update",
+        "only-apple-id-auth",
+        "phone-overheating",
+        "requires-internet",
+        "widget-broken",
+        "calendar-graphics-glitch",
+        "home-screen-broken-after-update",
+        "quiz-not-scrollable",
+        "language-bug",
+        "account-creation-fails",
+        "notifications-not-sent",
+        "date-input-broken"
+      ]
+    },
+    {
+      "id": "wrong-predictions",
+      "name": "Прогнозы и фазы цикла, которым нельзя верить",
+      "insight_ids": [
+        "prediction-accuracy-poor",
+        "algorithm-stuck-28-days",
+        "phase-calculation-wrong",
+        "app-auto-changes-dates",
+        "phase-correction-blocked",
+        "cycle-day-number-removed",
+        "contradictory-cycle-status",
+        "log-offset-one-day",
+        "pregnancy-week-jump",
+        "zodiac-wrong",
+        "accuracy-brand-vs-reality"
+      ]
+    },
+    {
+      "id": "data-disappears",
+      "name": "Данные исчезают, а поддержка разводит руками",
+      "insight_ids": [
+        "data-loss-on-crash-or-update",
+        "period-logging-rejected",
+        "data-loss-no-support-resolution",
+        "symptom-options-removed",
+        "apple-health-sync-broken",
+        "sleep-data-inaccurate",
+        "data-import-broken",
+        "no-symptom-export-or-filter",
+        "no-history-overview",
+        "ai-support-not-helpful"
+      ]
+    },
+    {
+      "id": "tracking-gaps",
+      "name": "Цикл не вписывается в шаблон: ПКОС, перименопауза, особые состояния",
+      "insight_ids": [
+        "pmdd-adhd-conditions-missing",
+        "pcos-unsupported",
+        "perimenopause-unsupported",
+        "period-longer-than-5-days-blocked",
+        "skipped-period-no-button",
+        "plan-b-not-loggable",
+        "custom-reminders-missing",
+        "custom-symptom-no-categories",
+        "age-limit-blocks-young-users"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Биллинг-ловушки и навязчивый платный экран",
+      "insight_ids": [
+        "marketing-shame-tone",
+        "trial-cancellation-charge",
+        "unauthorized-charges",
+        "insights-paywalled",
+        "premium-status-shows-unpaid",
+        "referral-reward-disappeared",
+        "pricing-unjustifiable",
+        "forced-premium-screen",
+        "partner-needs-own-subscription"
+      ]
+    },
+    {
+      "id": "tone-inclusivity",
+      "name": "Стыд, стереотипы и кого приложение не замечает",
+      "insight_ids": [
+        "judgmental-notifications-copy",
+        "heteronormative-fertility-language",
+        "harmful-pms-descriptions",
+        "gendered-language-conflict",
+        "activity-stereotypes",
+        "advice-not-practical",
+        "partner-female-couple-unsupported",
+        "partner-feature-broken"
+      ]
+    },
+    {
+      "id": "astrology-over-substance",
+      "name": "Астрология и ИИ вместо анализа симптомов",
+      "insight_ids": [
+        "confusing-navigation",
+        "horoscope-over-data-analysis",
+        "product-placement-notifications",
+        "ai-integration-ethics-concerns",
+        "ai-hallucinated-references",
+        "folklore-content-removed"
+      ]
+    }
+  ]
+}

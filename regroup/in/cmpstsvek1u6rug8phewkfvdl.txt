@@ -1,0 +1,254 @@
+You are grouping 41 mechanism-level insight clusters from Plantum - AI Plant Identifier (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Plantum - AI Plant Identifier, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 41 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Plantum - AI Plant Identifier — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Plantum - AI Plant Identifier>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstsvek1u6rug8phewkfvdl.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "subscription-hidden-apple",
+  "title": "Подписка не отображается в системе управления подписками Apple — отменить невозможно ни через настройки, ни через приложение",
+  "obs": 16
+ },
+ {
+  "id": "charges-after-cancellation",
+  "title": "Платежи продолжаются после отмены подписки месяцами — единственный выход заблокировать карту через банк",
+  "obs": 11
+ },
+ {
+  "id": "systematic-id-failure",
+  "title": "Приложение систематически неправильно идентифицирует растения — верный вариант отсутствует даже в списке предложений",
+  "obs": 10
+ },
+ {
+  "id": "expert-consult-extra-charge",
+  "title": "Диагностика или консультация эксперта стоит дополнительно поверх основной подписки — полный функционал требует двух оплат",
+  "obs": 8
+ },
+ {
+  "id": "freemium-paywall-not-disclosed",
+  "title": "Приложение позиционируется как бесплатное, но почти все функции заблокированы за платной подпиской без предупреждения при установке",
+  "obs": 6
+ },
+ {
+  "id": "aggressive-upsell-ui",
+  "title": "При каждом взаимодействии появляются всплывающие окна с предложением купить премиум, включая тёмные паттерны с предвыбранными чекбоксами",
+  "obs": 4
+ },
+ {
+  "id": "lifetime-revoked",
+  "title": "Пожизненная или годовая подписка аннулируется приложением или теряется при переименовании — компенсация и восстановление доступа не предоставляются",
+  "obs": 4
+ },
+ {
+  "id": "double-simultaneous-charges",
+  "title": "Приложение одновременно списывает два плана — еженедельный и пожизненный или годовой и месячный — без объяснений",
+  "obs": 4
+ },
+ {
+  "id": "vague-incomplete-diagnosis",
+  "title": "Диагноз ограничивается вероятными причинами без конкретного лечения — приложение указывает «перелив или недолив» и не уточняет",
+  "obs": 4
+ },
+ {
+  "id": "expert-consult-ai-not-human",
+  "title": "Платная консультация «эксперта» выполняется ботом, который повторяет один и тот же вопрос и не даёт конкретных советов по растению",
+  "obs": 4
+ },
+ {
+  "id": "outdoor-plant-identification",
+  "title": "Приложение используют для идентификации растений на прогулках, в соседстве и дикой природе — быстрый и простой интерфейс",
+  "obs": 4
+ },
+ {
+  "id": "trial-charged-immediately",
+  "title": "Пробный период списывается сразу при регистрации вместо конца пробного срока — иногда с повторным списанием через несколько дней",
+  "obs": 3
+ },
+ {
+  "id": "positive-diagnosis-outcomes",
+  "title": "Приложение обнаруживает скрытые проблемы растений и даёт конкретные рекомендации — растения восстанавливаются за две недели",
+  "obs": 3
+ },
+ {
+  "id": "weekly-billing-hides-cost",
+  "title": "Еженедельное списание ($6.99) скрывает реальную годовую стоимость ($364) и не отображается в стандартных системах Apple",
+  "obs": 2
+ },
+ {
+  "id": "specific-plants-missing",
+  "title": "Базовые и специализированные растения (садовые травы, орхидеи, редкие луковичные) отсутствуют в базе или определяются неверно",
+  "obs": 2
+ },
+ {
+  "id": "uniform-template-diagnosis",
+  "title": "Все растения получают одинаковый шаблонный диагноз независимо от их реального состояния",
+  "obs": 2
+ },
+ {
+  "id": "false-positive-diagnosis",
+  "title": "Приложение агрессивно диагностирует болезни даже у здоровых растений — ложноположительные результаты по умолчанию",
+  "obs": 2
+ },
+ {
+  "id": "care-reminders-useful",
+  "title": "Функция персональных напоминаний об уходе с тёплыми сообщениями помогает не пропускать полив и уход за растениями",
+  "obs": 2
+ },
+ {
+  "id": "image-size-rejection",
+  "title": "Приложение отклоняет фотографии реальных растений с ошибкой «изображение слишком мало» или «не похоже на растение»",
+  "obs": 2
+ },
+ {
+  "id": "library-management-missing",
+  "title": "В коллекции растений нет поиска, категоризации и редактирования заметок — управлять большой библиотекой невозможно",
+  "obs": 2
+ },
+ {
+  "id": "free-version-sufficient",
+  "title": "Бесплатная версия покрывает основные потребности в идентификации — пользователи не видят необходимости в платной подписке",
+  "obs": 2
+ },
+ {
+  "id": "long-term-retention",
+  "title": "Долгосрочные пользователи полагаются на приложение для управления разнообразной коллекцией растений с разными требованиями к уходу",
+  "obs": 2
+ },
+ {
+  "id": "users-switch-competitors",
+  "title": "Пользователи готовы перейти к конкуренту, если тот не использует манипулятивные схемы монетизации — бесплатные аналоги дают лучший результат",
+  "obs": 2
+ },
+ {
+  "id": "plan-downgrade-refund-denied",
+  "title": "Приложение убирает купленный ранее тарифный план, а возврат за неиспользованный период отклоняется",
+  "obs": 1
+ },
+ {
+  "id": "charged-without-consent",
+  "title": "Приложение списывает платежи с пользователя, который использовал его один раз и никогда не оформлял подписку",
+  "obs": 1
+ },
+ {
+  "id": "features-degraded-over-time",
+  "title": "После обновлений приложения полезные функции ухудшились или исчезли — качество идентификации снизилось по сравнению с ранними версиями",
+  "obs": 1
+ },
+ {
+  "id": "pet-safety-check",
+  "title": "Функция проверки токсичности растения для домашних животных делает приложение уникальным среди конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "wrong-care-advice",
+  "title": "Рекомендации по поливу рассчитываются неправильно и приводят к гибели растений при точном следовании советам",
+  "obs": 1
+ },
+ {
+  "id": "inconsistent-diagnosis",
+  "title": "Одно и то же растение получает противоположные диагнозы в разных сессиях — больное в одной, здоровое в другой",
+  "obs": 1
+ },
+ {
+  "id": "data-privacy-providers",
+  "title": "Приложение по умолчанию передаёт данные более чем 100 поставщикам — каждого нужно отключать вручную по 15 минут",
+  "obs": 1
+ },
+ {
+  "id": "multi-photo-no-support",
+  "title": "Нет возможности объединить несколько снимков одного высокого растения для идентификации — приходится делать множество отдельных кадров",
+  "obs": 1
+ },
+ {
+  "id": "early-review-prompt",
+  "title": "Приложение запрашивает оценку в первый день использования — до того как пользователь успел оценить его ценность",
+  "obs": 1
+ },
+ {
+  "id": "popup-roadblocks",
+  "title": "Множество модальных окон и промежуточных экранов блокируют добавление нескольких растений в библиотеку",
+  "obs": 1
+ },
+ {
+  "id": "low-contrast-text",
+  "title": "Серый текст с информацией о растении имеет низкий контраст и плохо читается — проблема доступности интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "update-deleted-history",
+  "title": "Обновление приложения удалило всю историю добавленных растений без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "care-timer-broken",
+  "title": "Таймеры ухода за растениями не синхронизируются с рекомендациями и срабатывают в неправильный сезон",
+  "obs": 1
+ },
+ {
+  "id": "app-slow-photos-fail",
+  "title": "Приложение работает очень медленно, фотографии не загружаются в статьи и разделы — интерфейс выглядит пустым",
+  "obs": 1
+ },
+ {
+  "id": "support-positive",
+  "title": "Служба поддержки вместе с диагностикой приложения помогла спасти серьёзно больное растение",
+  "obs": 1
+ },
+ {
+  "id": "better-than-competitors",
+  "title": "Приложение точнее конкурентов при идентификации растений пустыни и полусухих трав",
+  "obs": 1
+ },
+ {
+  "id": "individualized-care-info",
+  "title": "Приложение предоставляет индивидуальные рекомендации по солнцу и воде для каждого растения отдельно",
+  "obs": 1
+ },
+ {
+  "id": "id-weak-care-strong",
+  "title": "Идентификация растений слабее чем у ChatGPT, но управление уходом и напоминания — главная ценность приложения",
+  "obs": 1
+ }
+]

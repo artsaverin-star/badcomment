@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "id": "lost-paid-access",
+      "name": "Заплатил — и остался без купленного",
+      "insight_ids": [
+        "subscription-migration-purchase-not-recognized",
+        "watermark-reappears-after-migration",
+        "lifetime-license-not-restored-new-device",
+        "support-ignores-restore-requests",
+        "restore-purchase-button-hangs",
+        "cancellation-not-processed",
+        "purchased-sfx-deleted-after-update",
+        "free-label-but-paywall-on-core-features",
+        "no-apple-music-library-in-pro"
+      ]
+    },
+    {
+      "id": "broken-after-update",
+      "name": "Очередное обновление снова что-то ломает",
+      "insight_ids": [
+        "chroma-key-missing-or-broken",
+        "library-videos-invisible-after-update",
+        "itunes-export-removed",
+        "app-does-not-launch-red-screen",
+        "export-crash-after-update",
+        "import-glitch-flickering-element",
+        "core-editing-broken-after-update",
+        "delete-element-corrupts-project",
+        "audio-sync-lost-many-tracks"
+      ]
+    },
+    {
+      "id": "audio-music-dead-end",
+      "name": "Тупик со звуком: чужая музыка и запертые дорожки",
+      "insight_ids": [
+        "music-integration-only-apple-music",
+        "built-in-music-copyright-blocks-monetization",
+        "no-search-in-music-library",
+        "cannot-mute-original-audio-track",
+        "no-bulk-volume-adjustment",
+        "sfx-only-between-clips",
+        "no-voice-memo-import",
+        "no-audio-extraction-from-clip",
+        "no-standalone-audio-import"
+      ]
+    },
+    {
+      "id": "editing-handcuffs",
+      "name": "Монтаж в наручниках: ни вернуться, ни подстроить",
+      "insight_ids": [
+        "stickers-oversized-no-resize",
+        "text-overlay-too-large",
+        "no-fade-to-black-preset",
+        "no-picture-in-picture",
+        "no-nondestructive-editing",
+        "cannot-trim-below-minimum-duration",
+        "export-scaling-wrong",
+        "export-slow-processing-time"
+      ]
+    },
+    {
+      "id": "storage-projects-eaten",
+      "name": "Проекты и память: пропадают и съедают место",
+      "insight_ids": [
+        "projects-lost-on-app-delete",
+        "project-organization-hard-to-navigate",
+        "no-icloud-desktop-import",
+        "no-portable-project-export",
+        "large-export-requires-local-storage",
+        "project-limit-blocks-new-creation",
+        "undo-history-bloats-storage",
+        "app-uses-too-much-storage"
+      ]
+    },
+    {
+      "id": "gates-and-bad-faith",
+      "name": "Произвол загрузок, грязные GIF и глухой разработчик",
+      "insight_ids": [
+        "arbitrary-upload-restriction",
+        "gif-library-explicit-content",
+        "developer-ignores-feedback-fake-reviews"
+      ]
+    }
+  ]
+}

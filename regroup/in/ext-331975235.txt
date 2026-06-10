@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from Photoshop Express Photo Editor (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Photoshop Express Photo Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Photoshop Express Photo Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Photoshop Express Photo Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-331975235.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-tools-moved-to-paywall",
+  "title": "Инструменты, которые раньше были бесплатными, после обновления переведены в платную подписку",
+  "obs": 15
+ },
+ {
+  "id": "crash-on-launch",
+  "title": "Приложение падает или зависает на спиннере при запуске, даже после переустановки",
+  "obs": 15
+ },
+ {
+  "id": "qr-watermark-forces-subscription",
+  "title": "На экспортируемые фото бесплатных пользователей принудительно добавляется QR-код водяной знак, убрать который можно только подпиской",
+  "obs": 9
+ },
+ {
+  "id": "too-many-clicks-to-edit",
+  "title": "Простое редактирование требует множества кликов и долгих манипуляций — интерфейс непродуманный",
+  "obs": 7
+ },
+ {
+  "id": "reinstall-required-each-use",
+  "title": "Приложение работает только после ежедневной переустановки — иначе зависает или не запускается",
+  "obs": 6
+ },
+ {
+  "id": "freezes-mid-edit",
+  "title": "Приложение зависает в процессе редактирования, заставляя перезапускать работу с начала",
+  "obs": 6
+ },
+ {
+  "id": "object-removal-broken",
+  "title": "Удаление объектов работает плохо: заменяет объект вместо удаления, путает предметы или внезапно перестаёт работать",
+  "obs": 5
+ },
+ {
+  "id": "paid-premium-not-activated",
+  "title": "Оплаченная подписка не активируется внутри приложения — премиум-функции остаются заблокированы",
+  "obs": 4
+ },
+ {
+  "id": "layers-removed-for-ai",
+  "title": "Функция слоёв удалена из приложения в пользу генеративного AI",
+  "obs": 4
+ },
+ {
+  "id": "selection-tools-missing",
+  "title": "В приложении нет инструментов выделения (лассо, ножницы) для вырезания и копирования частей фото",
+  "obs": 4
+ },
+ {
+  "id": "ai-prompts-clutter-interface",
+  "title": "Навязанные AI-функции занимают часть экрана и захламляют интерфейс, отключить их нельзя",
+  "obs": 4
+ },
+ {
+  "id": "projects-not-saved",
+  "title": "Приложение теряет сохранённые проекты и заставляет начинать редактирование заново",
+  "obs": 3
+ },
+ {
+  "id": "fonts-stopped-loading",
+  "title": "Шрифты перестали загружаться — отображается только спиннер, а ранее использованные шрифты исчезли из истории",
+  "obs": 3
+ },
+ {
+  "id": "popups-everywhere",
+  "title": "Почти каждый экран забит всплывающими окнами продажи подписки и просьбами оставить отзыв",
+  "obs": 3
+ },
+ {
+  "id": "collage-combine-broken-on-device",
+  "title": "После обновления коллаж и объединение фото выбрасывают пользователя или не работают на iPad",
+  "obs": 3
+ },
+ {
+  "id": "combine-overlay-removed",
+  "title": "Функция объединения и наложения нескольких фотографий полностью удалена из приложения",
+  "obs": 2
+ },
+ {
+  "id": "outfit-swap-broken",
+  "title": "Функция смены одежды на фото не работает или отсутствует",
+  "obs": 2
+ },
+ {
+  "id": "edits-lost-between-photos",
+  "title": "Переход к редактированию другого фото стирает предыдущую правку, а перенос правок между фото вызывает краш",
+  "obs": 2
+ },
+ {
+  "id": "no-export-or-save-to-library",
+  "title": "Нет способа экспортировать, напечатать или сохранить отредактированное фото обратно в библиотеку iOS",
+  "obs": 2
+ },
+ {
+  "id": "export-format-broken",
+  "title": "После обновления ОС экспорт идёт только в PDF, а максимальное качество JPEG выходит размытым",
+  "obs": 2
+ },
+ {
+  "id": "general-crashes-unstable",
+  "title": "Приложение часто падает и глючит, теряя данные между сеансами",
+  "obs": 2
+ },
+ {
+  "id": "auth-broken",
+  "title": "Аутентификация не работает, а потеря данных входа ведёт к сложному восстановлению аккаунта",
+  "obs": 2
+ },
+ {
+  "id": "trial-button-charges-full-sub",
+  "title": "Кнопка запуска пробного периода требует полной оплаты подписки вместо бесплатного триала",
+  "obs": 1
+ },
+ {
+  "id": "recheck-subscription-each-launch",
+  "title": "Приложение перепроверяет статус подписки при каждом запуске, задерживая доступ к премиум-функциям",
+  "obs": 1
+ },
+ {
+  "id": "purchases-not-restored-after-reinstall",
+  "title": "После переустановки ранее купленные функции не восстанавливаются",
+  "obs": 1
+ },
+ {
+  "id": "double-subscription-for-basics",
+  "title": "Несмотря на оплаченную подписку, базовые функции требуют дополнительной отдельной оплаты",
+  "obs": 1
+ },
+ {
+  "id": "psmix-beauty-features-removed",
+  "title": "После закрытия Photoshop Mix функции макияжа, отбеливания зубов и редактирования лица удалены из Express",
+  "obs": 1
+ },
+ {
+  "id": "dodge-burn-removed",
+  "title": "Инструменты dodge и burn удалены, пользователь вынужден заменять их обходными способами",
+  "obs": 1
+ },
+ {
+  "id": "morph-transform-removed",
+  "title": "Кнопки morph и transform полностью удалены из приложения",
+  "obs": 1
+ },
+ {
+  "id": "reflection-glare-removal-broken",
+  "title": "Удаление отражений и бликов на очках не работает даже при оплаченном премиуме",
+  "obs": 1
+ },
+ {
+  "id": "bw-to-color-missing",
+  "title": "Обещанная в видеоуроке функция раскрашивания чёрно-белого фото отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "blur-mask-undiscoverable",
+  "title": "Размытие части фото неинтуитивно — нет понятного способа активировать маску-круг, документация не помогает",
+  "obs": 1
+ },
+ {
+  "id": "background-removal-poor",
+  "title": "Удаление фона работает плохо и поддерживает не все форматы изображений",
+  "obs": 1
+ },
+ {
+  "id": "lenses-unreliable",
+  "title": "Линзы работают непостоянно и выдают ошибку загрузки контента",
+  "obs": 1
+ },
+ {
+  "id": "no-batch-multi-photo-edit",
+  "title": "Нельзя редактировать несколько фотографий одновременно или последовательно",
+  "obs": 1
+ },
+ {
+  "id": "color-slider-glitch",
+  "title": "Слайдер цвета и температуры ведёт себя странно: первое касание портит цвет фотографии",
+  "obs": 1
+ },
+ {
+  "id": "no-pixel-resize",
+  "title": "Приложение не позволяет менять размер изображения в пикселях — все функции про внешний вид, а не про практические нужды",
+  "obs": 1
+ },
+ {
+  "id": "social-media-prep-weak",
+  "title": "Подготовка фото для соцсетей сводится к обрезке сторон без объяснения форматов",
+  "obs": 1
+ },
+ {
+  "id": "navigation-changed-after-update",
+  "title": "Обновления меняют навигацию и способ открытия проектов, усложняя ориентирование",
+  "obs": 1
+ },
+ {
+  "id": "no-landscape-on-iphone",
+  "title": "Приложение перестало поддерживать альбомную ориентацию на iPhone",
+  "obs": 1
+ },
+ {
+  "id": "requires-full-photo-access",
+  "title": "Приложение требует полного доступа к фотобиблиотеке и не работает с ограниченным доступом",
+  "obs": 1
+ },
+ {
+  "id": "slow-signup-and-open",
+  "title": "Регистрация и открытие изображения занимают много времени даже на новых iPhone",
+  "obs": 1
+ },
+ {
+  "id": "video-editor-confuses-clips",
+  "title": "Видеоредактор не различает разные клипы и дублирует последний загруженный вместо добавления нового",
+  "obs": 1
+ },
+ {
+  "id": "icloud-requires-internet",
+  "title": "После интеграции iCloud приложение требует интернет даже для локального редактирования",
+  "obs": 1
+ },
+ {
+  "id": "new-files-not-shown-ipad",
+  "title": "Файлы, добавленные после первого запуска, не отображаются в приложении на iPad",
+  "obs": 1
+ },
+ {
+  "id": "ios-vs-windows-parity",
+  "title": "Версия для Windows имеет меньше функций, чем версия для iOS",
+  "obs": 1
+ },
+ {
+  "id": "support-only-ai-replies",
+  "title": "Поддержка отвечает только AI-сообщениями и не решает проблемы",
+  "obs": 1
+ },
+ {
+  "id": "hangs-on-decline-subscription",
+  "title": "Приложение зависает, когда пользователь отклоняет предложение подписки",
+  "obs": 1
+ },
+ {
+  "id": "quick-social-editing-valued",
+  "title": "Приложение ценят за быстрое создание вариантов и контента для соцсетей низкого и среднего уровня",
+  "obs": 1
+ },
+ {
+  "id": "ai-pivot-alienates-pro-users",
+  "title": "Переход на AI и удаление профессиональных инструментов отталкивает пользователей к встроенным редакторам iOS и Google",
+  "obs": 1
+ }
+]

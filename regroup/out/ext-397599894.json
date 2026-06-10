@@ -1,0 +1,97 @@
+{
+  "groups": [
+    {
+      "id": "freezes-while-reading",
+      "name": "Зависания и вылеты прямо во время чтения",
+      "insight_ids": [
+        "scrolling-freeze-general",
+        "content-disappears-blank-screen",
+        "battery-overheat",
+        "black-screen-mid-reading",
+        "page-reload-loses-position"
+      ]
+    },
+    {
+      "id": "subscription-login-support",
+      "name": "Подписка не распознаётся: вход, повторная авторизация, молчание поддержки",
+      "insight_ids": [
+        "subscription-not-recognized",
+        "mid-read-auth-prompt",
+        "login-credentials-rejected",
+        "subscription-management-wrong-screen",
+        "support-unresponsive-subscription",
+        "multidevice-subscription-issues",
+        "offline-reading-missing"
+      ]
+    },
+    {
+      "id": "audio-section",
+      "name": "Аудио-раздел: озвучка, плеер и очередь хуже подкаст-приложений",
+      "insight_ids": [
+        "audio-section-no-actual-audio",
+        "ai-narrator-robotic",
+        "audio-queue-broken",
+        "audio-player-freezes",
+        "audio-ads-for-subscribers",
+        "airpods-controls-broken",
+        "audio-cutout",
+        "audio-playback-controls-too-small"
+      ]
+    },
+    {
+      "id": "links-authors-browser",
+      "name": "Ссылки, авторы и поиск выкидывают в неавторизованный браузер",
+      "insight_ids": [
+        "search-not-working",
+        "share-only-gift-link",
+        "external-links-open-in-browser",
+        "author-click-opens-unauth-browser",
+        "author-search-incomplete"
+      ]
+    },
+    {
+      "id": "games-section",
+      "name": "Раздел игр: долгая загрузка, зависания и деградация",
+      "insight_ids": [
+        "games-section-slow-load",
+        "games-freeze-navigation",
+        "crossword-layout-broken",
+        "games-quality-regression"
+      ]
+    },
+    {
+      "id": "ads-for-paid-subscribers",
+      "name": "Реклама и баннеры мешают читать даже платным подписчикам",
+      "insight_ids": [
+        "ad-causes-freeze-scroll",
+        "ad-shifts-text-position",
+        "ads-for-paid-subscribers-text",
+        "animated-banner-distraction"
+      ]
+    },
+    {
+      "id": "look-and-ipad",
+      "name": "Тёмная тема, типографика и поведение на iPad",
+      "insight_ids": [
+        "dark-mode-broken",
+        "typography-broken-after-update",
+        "photos-small-on-ipad",
+        "ipad-slow-load",
+        "ipad-multiple-issues"
+      ]
+    },
+    {
+      "id": "saving-navigation",
+      "name": "Сохранение, навигация и доступ к выпускам и комментариям",
+      "insight_ids": [
+        "bookmark-requires-extra-account",
+        "save-for-later-missing",
+        "updates-hide-features-deeper",
+        "issue-browsing-hard",
+        "navigation-unintuitive",
+        "comments-blocked-for-subscribers",
+        "resume-reading-wrong-page"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+You are grouping 53 mechanism-level insight clusters from Peloton: Fitness & Workouts (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Peloton: Fitness & Workouts, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 53 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Peloton: Fitness & Workouts — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Peloton: Fitness & Workouts>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstww2j22lwug8p6p5q17ha.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "lenta-pryachet-trenirovki-druzey",
+  "title": "Лента скрывает тренировки друзей, оставляя только отмеченные значками — рушится социальная мотивация",
+  "obs": 15
+ },
+ {
+  "id": "tormoza-skroll-kasaniya-osnovnoy-potok",
+  "title": "Приложение грузит интерфейс и сеть в основном потоке — скролл замирает, касания не регистрируются, телефон греется",
+  "obs": 9
+ },
+ {
+  "id": "sinhronizaciya-apple-watch-nenadyozhna",
+  "title": "Синхронизация и подключение Apple Watch работают меньше чем в половине попыток",
+  "obs": 8
+ },
+ {
+  "id": "net-filtrov-po-tipam-na-mobilnom",
+  "title": "Фильтры по типам тренировок убрали — вместо кнопок категорий приходится вводить поиск вручную",
+  "obs": 5
+ },
+ {
+  "id": "poisk-zabit-velotrenirovkami",
+  "title": "Поиск по типу тренировки неточен — выдаёт велотренировки и чужие категории вместо запрошенного",
+  "obs": 3
+ },
+ {
+  "id": "programs-net-na-tv-i-vebe",
+  "title": "Персональные планы тренировок недоступны на телевизоре и в браузере — только трансляция со смартфона",
+  "obs": 3
+ },
+ {
+  "id": "bufer-video-vne-doma-zanizhaet-vremya",
+  "title": "Вне дома видео буферизуется и задерживается, занижая записанное время тренировки",
+  "obs": 3
+ },
+ {
+  "id": "navigaciya-i-poisk-slomany-posle-obnovleniya",
+  "title": "После обновления навигация и поиск стали настолько сложными, что пользователь думает об отмене",
+  "obs": 2
+ },
+ {
+  "id": "reklamnyy-modal-pri-otkrytii",
+  "title": "При каждом открытии и старте тренировки выскакивает модальное окно с рекламой и скидками",
+  "obs": 2
+ },
+ {
+  "id": "tyomnyy-fon-nizkiy-kontrast",
+  "title": "Тёмный фон и белый текст на белом фоне делают надписи нечитаемыми для слабовидящих",
+  "obs": 2
+ },
+ {
+  "id": "vneshniy-pulsometr-ne-podklyuchaetsya",
+  "title": "Внешние и встроенные пульсометры не подключаются, теряя данные о пульсе во время тренировки",
+  "obs": 2
+ },
+ {
+  "id": "krash-pri-zapuske-posle-obnovleniya",
+  "title": "После обновления приложение крашится сразу при запуске, переустановка не помогает",
+  "obs": 2
+ },
+ {
+  "id": "zamerzanie-i-poterya-rezultata",
+  "title": "Приложение замерзает к концу длинной тренировки и теряет несохранённый результат",
+  "obs": 2
+ },
+ {
+  "id": "ne-sinhroniziruet-s-apple-health",
+  "title": "Данные тренировок и пульса не уходят в Apple Health и Apple Fitness при включённых разрешениях",
+  "obs": 2
+ },
+ {
+  "id": "watchos-slomal-pulsometr-na-velosipede",
+  "title": "После обновления системы часов пульсометр перестал отображаться на экране велосипеда",
+  "obs": 2
+ },
+ {
+  "id": "podpiska-spisaniya-posle-otmeny",
+  "title": "Подписка отменена во всех меню, но деньги продолжают списываться месяцами",
+  "obs": 1
+ },
+ {
+  "id": "pauzu-podpiski-nelzya",
+  "title": "Приостановить подписку нельзя — функции в приложении нет, поддержка отказывает",
+  "obs": 1
+ },
+ {
+  "id": "dvoynoe-spisanie-cherez-apple",
+  "title": "При входе через Apple списывают дважды, а две поддержки футболят друг к другу",
+  "obs": 1
+ },
+ {
+  "id": "net-deshyovogo-velo-tarifa",
+  "title": "Цена выросла вдвое, отдельного дешёвого тарифа только для велотренировок больше нет",
+  "obs": 1
+ },
+ {
+  "id": "scenic-rides-tolko-s-oborudovaniem",
+  "title": "Видеопрогулки по пейзажам убрали из приложения и оставили только владельцам велосипеда",
+  "obs": 1
+ },
+ {
+  "id": "kollektsiyu-nelzya-projti-posledovatelno",
+  "title": "Классы из тематической коллекции нельзя сохранить или открыть следующий по порядку",
+  "obs": 1
+ },
+ {
+  "id": "net-zapisi-trenirovok-vne-peloton",
+  "title": "Записать тренировку на чужом велосипеде или вне оборудования нельзя, хотя приложение позиционируется как трекер",
+  "obs": 1
+ },
+ {
+  "id": "regulirovka-gromkosti-golosa-ubrana",
+  "title": "Убрали регулировку громкости голоса инструктора относительно музыки",
+  "obs": 1
+ },
+ {
+  "id": "interruption-teryaet-trenirovku",
+  "title": "Переключение приложения или входящий звонок теряет начавшуюся тренировку без сохранения состояния",
+  "obs": 1
+ },
+ {
+  "id": "translyatsiya-na-tv-vykidyvaet",
+  "title": "При трансляции со смартфона на телевизор приложение обрывает класс, считая его завершённым",
+  "obs": 1
+ },
+ {
+  "id": "dvoynoy-zapusk-video-blokirovka-ekranov",
+  "title": "Запуск класса из плана дважды проигрывает видео и блокирует приложение по лимиту экранов",
+  "obs": 1
+ },
+ {
+  "id": "entertainment-rezhim-pereverstan",
+  "title": "В режиме фильма во время тренировки видео уменьшили, а данные раскидали сверху и снизу",
+  "obs": 1
+ },
+ {
+  "id": "poisk-po-instruktoru-ubran",
+  "title": "По имени конкретного инструктора в поиске искать больше нельзя",
+  "obs": 1
+ },
+ {
+  "id": "yazyk-filtra-ne-sohranyaetsya",
+  "title": "Выбранный язык фильтрации не запоминается и сбрасывается при каждом поиске",
+  "obs": 1
+ },
+ {
+  "id": "skroll-bookmarks-sbrasyvaetsya",
+  "title": "Уход со страницы избранного сбрасывает прокрутку в начало списка",
+  "obs": 1
+ },
+ {
+  "id": "izbrannoe-srazu-posle-klassa-nelzya",
+  "title": "Сразу после окончания класса добавить его в избранное нельзя — нужно возвращаться в каталог",
+  "obs": 1
+ },
+ {
+  "id": "rekomendacii-nerelevantny-bez-nastroyki",
+  "title": "Рекомендации предлагают неподходящие тренировки без возможности отзыва или настройки",
+  "obs": 1
+ },
+ {
+  "id": "net-power-zone-na-prilozhenii",
+  "title": "В приложении не показывается текущая зона мощности, в отличие от велосипеда",
+  "obs": 1
+ },
+ {
+  "id": "istoriyu-nelzya-filtrovat-i-sravnivat",
+  "title": "Историю тренировок нельзя отфильтровать или сравнить, а недельный план выбрасывает в настройки",
+  "obs": 1
+ },
+ {
+  "id": "pushi-o-trenirovkah-propali",
+  "title": "Пуш-уведомления о запланированных классах перестали приходить и не восстанавливаются",
+  "obs": 1
+ },
+ {
+  "id": "trebuet-full-dostup-k-kalendaryu",
+  "title": "Для добавления тренировок требует полный доступ к календарю вместо доступа только на запись",
+  "obs": 1
+ },
+ {
+  "id": "trebuet-akkaunt-dlya-sobstvennogo-velosipeda",
+  "title": "Заниматься на собственном велосипеде нельзя без создания аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "dannye-pulsa-posle-klassa",
+  "title": "После окончания класса данные о пульсе нельзя продолжить смотреть на экране",
+  "obs": 1
+ },
+ {
+  "id": "zavisanie-pri-perehode-mezhdu-klassami",
+  "title": "Приложение зависает при переходе между тренировками, застревая в прошлом классе",
+  "obs": 1
+ },
+ {
+  "id": "krash-pri-zapisi-trenirovki-v-studii",
+  "title": "Приложение крашится при попытке залогировать тренировку в студии",
+  "obs": 1
+ },
+ {
+  "id": "fitbit-otklyuchaetsya-posle-pervoy",
+  "title": "Подключение к фитнес-трекеру обрывается после первой тренировки и не восстанавливается",
+  "obs": 1
+ },
+ {
+  "id": "garmin-tolko-chtenie-bez-obratnoy-zapisi",
+  "title": "Данные стороннего трекера только читаются, но результаты обратно не записываются и нет интеграции во время тренировки",
+  "obs": 1
+ },
+ {
+  "id": "nado-perezagruzhat-radi-podklyucheniya",
+  "title": "Подключение восстанавливается только после многократной перезагрузки — половина тренировки уходит на починку",
+  "obs": 1
+ },
+ {
+  "id": "nenadyozhnoe-podklyuchenie-k-velosipedu",
+  "title": "Приложение ненадёжно подключается к велосипеду и не показывает показатели во время тренировки",
+  "obs": 1
+ },
+ {
+  "id": "rashod-batarei-v-fone",
+  "title": "Приложение быстро расходует батарею в фоне и не завершается полностью при закрытии",
+  "obs": 1
+ },
+ {
+  "id": "vebversiya-bolshe-ne-rabotaet",
+  "title": "Смотреть классы через браузер на ноутбуке больше нельзя — основную платформу убрали",
+  "obs": 1
+ },
+ {
+  "id": "nestandartnyy-ui-ne-protestirovan",
+  "title": "Нестандартный интерфейс и панель навигации сломаны на малом планшете и не соответствуют системному виду",
+  "obs": 1
+ },
+ {
+  "id": "ai-perepisal-dannye-klassov",
+  "title": "Новый интерфейс с искусственным интеллектом путает счётчик классов, имена и фото инструкторов",
+  "obs": 1
+ },
+ {
+  "id": "naborvysoty-na-progulke-neveren",
+  "title": "Набор высоты при пешем подъёме считается неверно",
+  "obs": 1
+ },
+ {
+  "id": "sbros-serii-trenirovok-pri-obnovlenii",
+  "title": "Обновление обнулило многолетнюю серию тренировок",
+  "obs": 1
+ },
+ {
+  "id": "watch-bez-tempa-i-rasstoyaniya",
+  "title": "На улице часы показывают только пульс, без темпа и расстояния — приходится переходить на сторонний трекер",
+  "obs": 1
+ },
+ {
+  "id": "rabotaet-tolko-v-20-procentov-popytok",
+  "title": "Приложение работает лишь в пятой части попыток — в остальных поиск сломан или видео не играет",
+  "obs": 1
+ },
+ {
+  "id": "perepostoyannoe-pereuchivanie",
+  "title": "Частые перестановки интерфейса заставляют переучиваться по видеоурокам при каждом обновлении",
+  "obs": 1
+ }
+]

@@ -1,0 +1,314 @@
+You are grouping 53 mechanism-level insight clusters from Lensa AI: Photo Editor (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Lensa AI: Photo Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 53 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Lensa AI: Photo Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Lensa AI: Photo Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyex6u14g8ughvbwhhowen.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "update-strips-manual-editing",
+  "title": "Обновления убрали ручные инструменты редактирования в пользу AI-фильтров, лишив продвинутых пользователей контроля",
+  "obs": 17
+ },
+ {
+  "id": "crashes-on-edit",
+  "title": "Приложение вылетает при каждом редактировании фото, замораживая рабочий процесс",
+  "obs": 14
+ },
+ {
+  "id": "trial-converts-to-full-charge",
+  "title": "Кнопка «7 дней бесплатно» сразу списывает полную годовую подписку, без пробного периода",
+  "obs": 13
+ },
+ {
+  "id": "art-styles-removed",
+  "title": "Уникальные стили аватаров, ради которых покупали подписку, удалены в обновлении",
+  "obs": 7
+ },
+ {
+  "id": "ai-filters-slow-load",
+  "title": "AI-фильтры обрабатываются по 5+ минут, что делает пакетное редактирование нецелесообразным",
+  "obs": 6
+ },
+ {
+  "id": "photos-not-loading",
+  "title": "Фото месяцами не загружаются в приложение, и переустановка не помогает",
+  "obs": 5
+ },
+ {
+  "id": "use-case-pro-retouch",
+  "title": "Профессионалы используют приложение для ретуши клиентских портретов и в составе многоинструментного процесса",
+  "obs": 5
+ },
+ {
+  "id": "charged-after-cancel",
+  "title": "Деньги списываются даже после отмены пробного периода в тот же день и удаления приложения",
+  "obs": 4
+ },
+ {
+  "id": "unlimited-has-daily-limit",
+  "title": "План с названием «Unlimited» на деле имеет суточный лимит редактирований",
+  "obs": 4
+ },
+ {
+  "id": "avatar-quality-poor",
+  "title": "Сгенерированные аватары не похожи на человека и в основном непригодны по качеству",
+  "obs": 4
+ },
+ {
+  "id": "daily-photo-cap",
+  "title": "Без подписки можно сохранить лишь одно фото в день, что делает пакетное редактирование невозможным",
+  "obs": 3
+ },
+ {
+  "id": "paid-features-not-unlocked",
+  "title": "После оплаты приложение не открывает доступ к купленным функциям и нет способа управлять аккаунтом",
+  "obs": 3
+ },
+ {
+  "id": "avatar-variants-near-identical",
+  "title": "Аватары в одном наборе почти не отличаются друг от друга, снижая ценность пакета",
+  "obs": 3
+ },
+ {
+  "id": "specific-tools-removed",
+  "title": "Узкоспециальные инструменты — редактирование питомцев, выделение объектов — удалены без замены",
+  "obs": 3
+ },
+ {
+  "id": "no-save-to-photos",
+  "title": "Нет кнопки сохранения в галерею, хотя приложение позиционируется как фоторедактор",
+  "obs": 3
+ },
+ {
+  "id": "crashes-on-launch",
+  "title": "Приложение вылетает уже при запуске, оставаясь неиспользуемым несмотря на оплаченную подписку",
+  "obs": 3
+ },
+ {
+  "id": "edits-not-saved",
+  "title": "Отредактированные фото не сохраняются или исчезают из галереи через несколько минут",
+  "obs": 3
+ },
+ {
+  "id": "video-export-broken",
+  "title": "Экспорт видео и аудио из видео не работает месяцами, блокируя весь видеопроцесс",
+  "obs": 3
+ },
+ {
+  "id": "region-lock-after-pay",
+  "title": "После оплаты приложение внезапно сообщает, что функции недоступны в регионе пользователя",
+  "obs": 3
+ },
+ {
+  "id": "use-case-photo-restore",
+  "title": "Пользователи ценят приложение за восстановление старых, тёмных и смазанных фотографий",
+  "obs": 3
+ },
+ {
+  "id": "direct-billing-blocks-refund",
+  "title": "Оплата идёт напрямую через стороннюю платформу, а не Apple — стандартный возврат через Apple недоступен",
+  "obs": 2
+ },
+ {
+  "id": "previously-purchased-now-paywalled",
+  "title": "Ранее купленное приложение или Pro-функции снова требуют новой оплаты",
+  "obs": 2
+ },
+ {
+  "id": "payment-system-broken",
+  "title": "Платёж не проходит при наличии средств — оплатить или возобновить подписку невозможно",
+  "obs": 2
+ },
+ {
+  "id": "avatar-reference-limit-lowered",
+  "title": "Лимит исходных фото для аватара снижен с 10 до 4, что убивает вариативность результатов",
+  "obs": 2
+ },
+ {
+  "id": "sky-options-reduced",
+  "title": "Выбор вариантов неба и фонов сокращён по сравнению с прежними версиями",
+  "obs": 2
+ },
+ {
+  "id": "watermark-on-avatars",
+  "title": "На аватары добавлен крупный водяной знак Lensa AI без возможности убрать его даже в платной версии",
+  "obs": 2
+ },
+ {
+  "id": "ai-edit-error-no-result",
+  "title": "AI-редактирование периодически обрывается ошибкой, и пользователь не получает готовое фото",
+  "obs": 2
+ },
+ {
+  "id": "forced-ai-cannot-disable",
+  "title": "AI-помощник включён по умолчанию и не отключается, навязывая обработку без согласия",
+  "obs": 2
+ },
+ {
+  "id": "presets-disappeared",
+  "title": "Пресеты и фильтры пропали из интерфейса, а кнопки редактирования перемещены — функции трудно найти",
+  "obs": 2
+ },
+ {
+  "id": "forced-face-select-flow",
+  "title": "Обязательный пошаговый выбор лица перед редактированием спроектирован так, что мешает обычной работе",
+  "obs": 2
+ },
+ {
+  "id": "more-steps-after-update",
+  "title": "После обновления простые задачи требуют 3-4 шагов вместо двух, усложняя рабочий процесс",
+  "obs": 2
+ },
+ {
+  "id": "wrong-gender-detection",
+  "title": "Приложение неверно определяет пол на фото и предлагает варианты редактирования для другого пола",
+  "obs": 2
+ },
+ {
+  "id": "itunes-music-crash",
+  "title": "Добавление музыки из iTunes к видео вызывает падение приложения",
+  "obs": 2
+ },
+ {
+  "id": "support-not-responding",
+  "title": "Служба поддержки не отвечает на запросы, оставляя пользователя с нерешённой проблемой",
+  "obs": 2
+ },
+ {
+  "id": "use-case-youtube-content",
+  "title": "Авторы используют приложение для превью и контента YouTube ради естественного улучшения фото",
+  "obs": 2
+ },
+ {
+  "id": "use-case-batch-uniform",
+  "title": "Пользователи ценят массовое редактирование нескольких фото в едином стиле",
+  "obs": 2
+ },
+ {
+  "id": "competitors-offer-free",
+  "title": "Конкуренты дают бесплатно то, за что здесь просят дорогую подписку",
+  "obs": 2
+ },
+ {
+  "id": "wishlist-inclusive-and-video",
+  "title": "Пользователи просят инклюзивные модели аватаров и функции размытия и отслеживания лица в видео",
+  "obs": 2
+ },
+ {
+  "id": "trial-redirect-to-web",
+  "title": "Активация пробного периода перенаправляет на сайт, где пробного периода нет",
+  "obs": 1
+ },
+ {
+  "id": "trial-setup-error",
+  "title": "Завершение настройки пробного периода обрывается ошибкой, блокируя доступ к функциям",
+  "obs": 1
+ },
+ {
+  "id": "extra-credits-for-new-avatars",
+  "title": "Для доступа к новым аватарам требуется докупить дополнительные кредиты поверх подписки",
+  "obs": 1
+ },
+ {
+  "id": "skin-enhance-limited",
+  "title": "Ключевой инструмент улучшения кожи урезан в обновлении, хотя ради него оформлена подписка",
+  "obs": 1
+ },
+ {
+  "id": "ai-results-need-reimport",
+  "title": "Поверх AI-коррекции нельзя редактировать вручную — приходится сохранять и заново импортировать фото",
+  "obs": 1
+ },
+ {
+  "id": "background-blur-affects-whole-photo",
+  "title": "Размытие фона размывает всё фото целиком вместо выбранного объекта",
+  "obs": 1
+ },
+ {
+  "id": "remove-object-just-blurs",
+  "title": "Функция удаления объектов лишь размывает их, а не убирает",
+  "obs": 1
+ },
+ {
+  "id": "one-touch-enhance-removed",
+  "title": "Удалена одна-кнопочная волшебная коррекция, бывшая основным сценарием быстрого улучшения",
+  "obs": 1
+ },
+ {
+  "id": "cannot-reorder-elements",
+  "title": "Приложение игнорирует попытки переупорядочить элементы и расставляет их по своему алгоритму",
+  "obs": 1
+ },
+ {
+  "id": "borders-uneven",
+  "title": "Функция рамок ставит изображение неровно, с неравными полями, в больше чем половине случаев",
+  "obs": 1
+ },
+ {
+  "id": "email-locked-account",
+  "title": "Аккаунт привязан к email без опции сменить его — при смене email доступ к оплаченному теряется",
+  "obs": 1
+ },
+ {
+  "id": "device-specific-crash",
+  "title": "Редактирование падает с критической ошибкой на конкретной модели iPhone и версии iOS",
+  "obs": 1
+ },
+ {
+  "id": "desktop-feature-gap",
+  "title": "Версия для MacBook сильно урезана относительно iOS — части инструментов на десктопе нет",
+  "obs": 1
+ },
+ {
+  "id": "reinstall-loses-files",
+  "title": "Для работы приложение приходится переустанавливать, теряя все отредактированные фото и файлы",
+  "obs": 1
+ },
+ {
+  "id": "feedback-form-broken",
+  "title": "Форма отправки обратной связи внутри приложения не работает",
+  "obs": 1
+ }
+]

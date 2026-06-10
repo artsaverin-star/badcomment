@@ -1,0 +1,359 @@
+You are grouping 62 mechanism-level insight clusters from Google Home (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Google Home, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 62 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Google Home — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Google Home>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-680819774.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "camera-video-load-slow",
+  "title": "Видео с камер загружается минутами — к моменту открытия человек уже ушёл из кадра",
+  "obs": 8
+ },
+ {
+  "id": "camera-history-broken",
+  "title": "История событий камер не загружается или зависает на последнем кадре, временная шкала не работает",
+  "obs": 8
+ },
+ {
+  "id": "wifi-reconfigure-painful",
+  "title": "Смена Wi-Fi сети или провайдера требует полного сброса всех устройств",
+  "obs": 7
+ },
+ {
+  "id": "camera-offline-random",
+  "title": "Камеры самопроизвольно уходят в офлайн и не восстанавливают соединение автоматически",
+  "obs": 6
+ },
+ {
+  "id": "no-wifi-update-option",
+  "title": "Нет опции обновления Wi-Fi в приложении — нужно полностью удалять и переустанавливать устройства",
+  "obs": 5
+ },
+ {
+  "id": "app-crash-on-use",
+  "title": "Приложение падает при просмотре истории камер, прокрутке списка и отправке отзыва",
+  "obs": 5
+ },
+ {
+  "id": "device-connection-lost-partial",
+  "title": "Приложение теряет соединение с одним из нескольких одинаковых устройств без видимой причины",
+  "obs": 5
+ },
+ {
+  "id": "thermostat-sync-broken",
+  "title": "Приложение не синхронизируется с термостатом — нужно вручную включать отопление каждый раз",
+  "obs": 3
+ },
+ {
+  "id": "notification-delay",
+  "title": "Уведомления о движении и присутствии приходят с задержкой до 14 минут",
+  "obs": 3
+ },
+ {
+  "id": "gemini-ai-regression",
+  "title": "После замены ассистента на Gemini большинство голосовых команд перестали выполняться, нет отката",
+  "obs": 3
+ },
+ {
+  "id": "assistant-misunderstands-commands",
+  "title": "Голосовые команды обрабатываются неверно: включается не то устройство или музыка без запроса",
+  "obs": 3
+ },
+ {
+  "id": "subscription-price-hike",
+  "title": "Стоимость подписки на видеоисторию камер растёт, функционал не расширяется",
+  "obs": 2
+ },
+ {
+  "id": "multi-camera-view-lost",
+  "title": "Google Home убрал одновременный просмотр нескольких камер — теперь только по одной",
+  "obs": 2
+ },
+ {
+  "id": "multiroom-audio-sync-broken",
+  "title": "Группы комнат перестали воспроизводить звук синхронно после обновлений",
+  "obs": 2
+ },
+ {
+  "id": "radio-streaming-broken",
+  "title": "Потоковое радио через голосовые команды перестало работать",
+  "obs": 2
+ },
+ {
+  "id": "music-service-cast-broken",
+  "title": "Трансляция музыки из YouTube Music и Apple Music на колонку периодически ломается",
+  "obs": 2
+ },
+ {
+  "id": "promo-notifications-no-off",
+  "title": "Рекламные уведомления и модальные окна с новыми функциями нельзя полностью отключить",
+  "obs": 2
+ },
+ {
+  "id": "app-navigation-hard",
+  "title": "Интерфейс приложения сложно навигировать — функции есть, но их трудно найти",
+  "obs": 2
+ },
+ {
+  "id": "camera-unavailable-on-alert",
+  "title": "Уведомление о событии приходит, но видео по ссылке из уведомления не загружается",
+  "obs": 2
+ },
+ {
+  "id": "devices-go-offline-daily",
+  "title": "Устройства Google Home уходят в офлайн через несколько часов и требуют ежедневной переустановки приложения",
+  "obs": 2
+ },
+ {
+  "id": "speaker-offline-monthly",
+  "title": "Колонка Google Home требует полного сброса примерно раз в месяц",
+  "obs": 2
+ },
+ {
+  "id": "hvac-mode-self-switches",
+  "title": "Термостат самопроизвольно переключается между охлаждением и обогревом после миграции на Google Home",
+  "obs": 2
+ },
+ {
+  "id": "tv-control-slow",
+  "title": "Управление ТВ через приложение загружается 5-10 минут или вообще не работает",
+  "obs": 2
+ },
+ {
+  "id": "nest-requires-separate-app",
+  "title": "Старые устройства Nest и Lenovo требуют отдельных приложений, Google Home не интегрирует их напрямую",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-notifications",
+  "title": "На одно событие приходит по два-три одинаковых уведомления",
+  "obs": 2
+ },
+ {
+  "id": "camera-subscription-cancel",
+  "title": "Нет удобного способа отменить платную подписку на камеры",
+  "obs": 1
+ },
+ {
+  "id": "video-zoom-reset",
+  "title": "Масштаб при просмотре видеоистории сбрасывается в конце клипа",
+  "obs": 1
+ },
+ {
+  "id": "audio-interrupted-by-camera",
+  "title": "Открытие камер прерывает музыку или звонок, перехватывая управление звуком",
+  "obs": 1
+ },
+ {
+  "id": "speaker-reauth-random",
+  "title": "Дополнительные колонки неожиданно требуют повторной авторизации и прекращают воспроизведение",
+  "obs": 1
+ },
+ {
+  "id": "broadcast-voice-broken",
+  "title": "Функция трансляции голосового сообщения через приложение перестала работать",
+  "obs": 1
+ },
+ {
+  "id": "hvac-schedule-no-log",
+  "title": "Нет журнала расписания термостата по часам и дням — только управление режимом целиком",
+  "obs": 1
+ },
+ {
+  "id": "device-list-scroll-reset",
+  "title": "Список устройств постоянно обновляется и сбрасывает прокрутку, мешая выбрать нужное",
+  "obs": 1
+ },
+ {
+  "id": "wifi-band-no-choice",
+  "title": "Нет выбора диапазона Wi-Fi (2.4 / 5 ГГц) для конкретных устройств",
+  "obs": 1
+ },
+ {
+  "id": "celsius-no-fahrenheit",
+  "title": "Температура с датчиков отображается только в Цельсиях, нет переключения на Фаренгейт",
+  "obs": 1
+ },
+ {
+  "id": "camera-names-removed",
+  "title": "Обновление убрало имена камер из интерфейса — сложно различать устройства",
+  "obs": 1
+ },
+ {
+  "id": "widget-contrast-bad",
+  "title": "Виджет на главном экране iPhone нечитаем — белый текст на светлом фоне",
+  "obs": 1
+ },
+ {
+  "id": "gemini-setup-no-dismiss",
+  "title": "Приложение постоянно предлагает настроить Gemini, нет кнопки «больше не показывать»",
+  "obs": 1
+ },
+ {
+  "id": "app-menu-incomplete",
+  "title": "Главное меню приложения не содержит управления сетью и добавления устройств",
+  "obs": 1
+ },
+ {
+  "id": "qr-add-device-broken",
+  "title": "QR-код для добавления устройств не работает, новые модели отсутствуют в списке поддерживаемых",
+  "obs": 1
+ },
+ {
+  "id": "hvac-fan-automation",
+  "title": "Автоматизации нельзя настроить по состоянию вентилятора HVAC — только по режиму системы",
+  "obs": 1
+ },
+ {
+  "id": "version-feature-inconsistency",
+  "title": "Разные версии приложения показывают разный набор функций — например, энергопотребление",
+  "obs": 1
+ },
+ {
+  "id": "notification-thumbnail-zoom",
+  "title": "Превью в уведомлениях после обновления показывается в чрезмерно увеличенном масштабе",
+  "obs": 1
+ },
+ {
+  "id": "update-breaks-cameras",
+  "title": "Каждое обновление приложения отключает 1-2 камеры на несколько дней",
+  "obs": 1
+ },
+ {
+  "id": "nest-google-home-migration-regression",
+  "title": "После миграции Nest → Google Home стабильность камер, уведомлений и интерфейса значительно ухудшилась",
+  "obs": 1
+ },
+ {
+  "id": "update-resets-settings",
+  "title": "Обновления приложения сбрасывают пользовательские настройки без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "light-control-broken-after-update",
+  "title": "После обновления базовые команды управления светом перестают работать",
+  "obs": 1
+ },
+ {
+  "id": "lights-turn-on-randomly",
+  "title": "Приложение включает все лампы каждое утро без настроенной автоматизации",
+  "obs": 1
+ },
+ {
+  "id": "third-party-cameras-lost",
+  "title": "После обновления камеры сторонних производителей пропали из приложения",
+  "obs": 1
+ },
+ {
+  "id": "adt-integration-broken",
+  "title": "Интеграция с системой безопасности ADT постоянно отрывается",
+  "obs": 1
+ },
+ {
+  "id": "face-recognition-unreliable",
+  "title": "Распознавание лиц включается и выключается само по себе, несмотря на сохранённые образцы",
+  "obs": 1
+ },
+ {
+  "id": "video-preview-iphone-broken",
+  "title": "Превью видеоистории перестало работать на конкретном iPhone, на других устройствах работает",
+  "obs": 1
+ },
+ {
+  "id": "music-service-disconnects",
+  "title": "Подключённые музыкальные сервисы (Apple Music, YouTube Music) периодически отключаются сами",
+  "obs": 1
+ },
+ {
+  "id": "remote-ac-needs-local-wifi",
+  "title": "Для управления кондиционером вне дома приложение требует подключения к домашнему Wi-Fi",
+  "obs": 1
+ },
+ {
+  "id": "camera-battery-drain",
+  "title": "Батарея внешней камеры расходуется быстрее, чем заряжается штатным зарядником",
+  "obs": 1
+ },
+ {
+  "id": "camera-wifi-jamming",
+  "title": "Камеры можно отключить Wi-Fi перехватчиком — система безопасности бесполезна",
+  "obs": 1
+ },
+ {
+  "id": "license-screen-blocks-features",
+  "title": "Обновление добавило экран принятия условий, блокирующий доступ к уже работавшим функциям",
+  "obs": 1
+ },
+ {
+  "id": "family-sharing-state-mismatch",
+  "title": "Разные члены семьи видят разный статус камер и батареи при общем доступе",
+  "obs": 1
+ },
+ {
+  "id": "false-motion-notifications",
+  "title": "Камера присылает тысячи уведомлений о движении на неподвижные объекты",
+  "obs": 1
+ },
+ {
+  "id": "battery-low-notification-loop",
+  "title": "Приложение бесконечно шлёт уведомления о низком заряде батареи камеры, которую нельзя зарядить прямо сейчас",
+  "obs": 1
+ },
+ {
+  "id": "wifi-reset-instructions-mismatch",
+  "title": "Инструкции по переподключению к новой Wi-Fi сети не совпадают с версией устройства пользователя",
+  "obs": 1
+ },
+ {
+  "id": "voice-profile-weekly-reauth",
+  "title": "Ассистент требует повторной записи голоса каждую неделю без изменений",
+  "obs": 1
+ },
+ {
+  "id": "home-away-auto-broken",
+  "title": "Автопереключение режима Home/Away не работает, ручного переключения в новом приложении нет",
+  "obs": 1
+ }
+]

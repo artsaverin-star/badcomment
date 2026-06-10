@@ -1,0 +1,234 @@
+You are grouping 37 mechanism-level insight clusters from Rosetta Stone Classic (2024) (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Rosetta Stone Classic (2024), derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 37 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Rosetta Stone Classic (2024) — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Rosetta Stone Classic (2024)>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt9mcfw2f7fugx37qvorhe5.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "speech-recognition-broken",
+  "title": "Распознавание речи — главная функция — практически не работает и блокирует прохождение уроков",
+  "obs": 21
+ },
+ {
+  "id": "speech-recognition-nondeterministic",
+  "title": "Распознавание речи срабатывает случайно — то принимает неверное произношение, то отклоняет верное и даже засчитывает молчание",
+  "obs": 13
+ },
+ {
+  "id": "image-only-no-translation",
+  "title": "Слова и фразы показывают только картинками без письменного перевода — значение приходится угадывать",
+  "obs": 9
+ },
+ {
+  "id": "lifetime-access-revoked-new-app",
+  "title": "Купленный «вечный доступ» перестаёт работать, когда выходит новое приложение, и не переносится на него",
+  "obs": 7
+ },
+ {
+  "id": "speech-recognition-pause-after-beep",
+  "title": "Распознавание речи требует выдержать паузу после сигнала перед произношением, иначе речь не засчитывается",
+  "obs": 5
+ },
+ {
+  "id": "images-too-small",
+  "title": "Картинки в уроках слишком мелкие, чтобы различить детали, — а это основной способ учить слова",
+  "obs": 5
+ },
+ {
+  "id": "speech-recognition-headphones",
+  "title": "Распознавание речи плохо работает с беспроводными наушниками и фактически требует гарнитуру с микрофоном",
+  "obs": 4
+ },
+ {
+  "id": "ambiguous-images-confuse-meaning",
+  "title": "Картинки для разных понятий выглядят одинаково — нельзя различить близкие значения",
+  "obs": 3
+ },
+ {
+  "id": "ipad-orientation-bugs",
+  "title": "На iPad приложение само переворачивает экран и навязывает ориентацию вопреки настройкам устройства",
+  "obs": 3
+ },
+ {
+  "id": "speech-recognition-rejects-early",
+  "title": "Распознавание речи обрывает ответ до конца фразы и требует много повторов одного слова",
+  "obs": 2
+ },
+ {
+  "id": "mic-falsely-flagged-bad",
+  "title": "Приложение жалуется на плохой микрофон, хотя на том же устройстве запись звука работает идеально",
+  "obs": 2
+ },
+ {
+  "id": "mic-freezes-needs-restart",
+  "title": "Микрофон зависает на упражнениях, и приходится перезапускать приложение или устройство",
+  "obs": 2
+ },
+ {
+  "id": "translation-toggle-hard",
+  "title": "Перевод нельзя выйти иначе как через меню паузы, и его трудно отключить после включения",
+  "obs": 2
+ },
+ {
+  "id": "switch-language-needs-new-account",
+  "title": "Сменить изучаемый язык можно только заведя новый аккаунт с другой почтой — переключения внутри подписки нет",
+  "obs": 2
+ },
+ {
+  "id": "playback-buttons-too-small",
+  "title": "Кнопки воспроизведения слишком мелкие — палец попадает по карточке и засчитывается неверный ответ",
+  "obs": 2
+ },
+ {
+  "id": "progress-resets-to-first-lesson",
+  "title": "При входе в новый день или после урока приложение возвращает на самый первый урок и сбрасывает прогресс",
+  "obs": 2
+ },
+ {
+  "id": "landscape-orientation-broken",
+  "title": "В горизонтальной ориентации картинки выходят за экран и упражнения становятся невыполнимыми",
+  "obs": 2
+ },
+ {
+  "id": "progress-sync-broken",
+  "title": "Прогресс не синхронизируется между устройствами и режимами — приходится повторять пройденные уроки",
+  "obs": 2
+ },
+ {
+  "id": "reinstall-requires-repurchase",
+  "title": "При переустановке на новое устройство просят купить заново, хотя лицензия уже оплачена",
+  "obs": 1
+ },
+ {
+  "id": "trial-too-limited-to-evaluate",
+  "title": "Бесплатная версия даёт всего три урока без перевода — оценить приложение перед покупкой невозможно",
+  "obs": 1
+ },
+ {
+  "id": "translation-errors-incomplete",
+  "title": "Переводы в уроках содержат ошибки и обрезанные слова",
+  "obs": 1
+ },
+ {
+  "id": "no-sound-playback",
+  "title": "Приложение не проигрывает звук произношения на iPhone, что блокирует обучение",
+  "obs": 1
+ },
+ {
+  "id": "translation-hidden-button",
+  "title": "Кнопка перевода спрятана сбоку и слишком мала — пользователи её не замечают",
+  "obs": 1
+ },
+ {
+  "id": "no-back-button-restart-lesson",
+  "title": "Нет кнопки «назад» — чтобы пересмотреть упражнение, приходится перезапускать весь урок",
+  "obs": 1
+ },
+ {
+  "id": "pause-button-pacing",
+  "title": "Кнопка паузы почти не работает — урок идёт слишком быстро и темп не замедлить",
+  "obs": 1
+ },
+ {
+  "id": "unclear-instructions",
+  "title": "Нет вводных инструкций — пользователь как будто начинает с середины упражнения и не понимает, что делать",
+  "obs": 1
+ },
+ {
+  "id": "cannot-select-images",
+  "title": "Интерфейс не даёт выбирать картинки — а это основной способ взаимодействия с упражнениями",
+  "obs": 1
+ },
+ {
+  "id": "text-hidden-by-image",
+  "title": "Вторая строка текста всегда перекрыта картинкой, и остальное приходится угадывать",
+  "obs": 1
+ },
+ {
+  "id": "slow-animations",
+  "title": "Анимации интерфейса тормозят и не дают быстро ответить, когда ответ уже известен",
+  "obs": 1
+ },
+ {
+  "id": "feedback-form-broken",
+  "title": "Форма обратной связи в приложении не работает",
+  "obs": 1
+ },
+ {
+  "id": "forced-orientation-iphone",
+  "title": "На iPhone приложение требует строго вертикальной ориентации без причины",
+  "obs": 1
+ },
+ {
+  "id": "ipad-layout-cut-off",
+  "title": "На iPad левая часть экрана не видна, и приложением невозможно пользоваться",
+  "obs": 1
+ },
+ {
+  "id": "offline-mode-unreliable",
+  "title": "Офлайн-режим требует сети даже при загруженных уроках и периодически блокирует прогресс",
+  "obs": 1
+ },
+ {
+  "id": "settings-reset-on-close",
+  "title": "Настройки сбрасываются каждый раз при закрытии приложения",
+  "obs": 1
+ },
+ {
+  "id": "navigation-opens-wrong-lesson",
+  "title": "При переходе к уроку открывается совсем другой урок, а не выбранный",
+  "obs": 1
+ },
+ {
+  "id": "ui-jumps-exits-screen",
+  "title": "Приложение само выходит с текущего экрана и скачет без причины",
+  "obs": 1
+ },
+ {
+  "id": "lag-on-expensive-devices",
+  "title": "Приложение лагает и зависает даже на дорогих iPhone и iPad",
+  "obs": 1
+ }
+]

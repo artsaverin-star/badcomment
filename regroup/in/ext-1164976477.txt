@@ -1,0 +1,169 @@
+You are grouping 24 mechanism-level insight clusters from AteMate Food Journal (Ate) (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO AteMate Food Journal (Ate), derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 24 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to AteMate Food Journal (Ate) — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to AteMate Food Journal (Ate)>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1164976477.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-period-broken-mechanics",
+  "title": "Пробный период показывает 0 дней вместо 7, повторно не активируется и не восстанавливается даже по легитимным причинам",
+  "obs": 3
+ },
+ {
+  "id": "free-to-paid-data-locked",
+  "title": "После перехода приложения на платную модель ранее записанные данные заблокированы и недоступны без оплаты, экспорт отсутствует",
+  "obs": 3
+ },
+ {
+  "id": "hidden-paywall-after-registration",
+  "title": "Приложение скрывает требование оплаты до конца регистрации — пользователь заполняет все данные и только потом видит платёжный экран",
+  "obs": 2
+ },
+ {
+  "id": "widgets-broken",
+  "title": "Виджеты приложения перестали работать после обновления системы или самого приложения и показывают пустой прямоугольник",
+  "obs": 2
+ },
+ {
+  "id": "app-slowdown-after-update",
+  "title": "После обновления приложения загрузка журнала питания и открытие камеры стали значительно медленнее",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-meal-logging",
+  "title": "Приложение падает при попытке залогировать приём пищи или открыть дневное резюме",
+  "obs": 2
+ },
+ {
+  "id": "apple-pay-trial-unusable",
+  "title": "После оплаты пробного периода через Apple Pay приложение не открывается и требует повторной оплаты",
+  "obs": 1
+ },
+ {
+  "id": "ai-analysis-inaccurate",
+  "title": "ИИ-анализ фото еды даёт неточные оценки: бобы маркируются как низкобелковые, банан и йогурт — как высококалорийная переработанная еда",
+  "obs": 1
+ },
+ {
+  "id": "ai-analysis-only-critical",
+  "title": "ИИ-анализ всегда критикует еду и не признаёт полезность блюд с низкой обработкой или низким содержанием натрия",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-sync-broken",
+  "title": "Записи, сделанные на iPhone, не появляются на iPad — синхронизация между устройствами не работает",
+  "obs": 1
+ },
+ {
+  "id": "long-term-performance-degradation",
+  "title": "После длительного использования приложение начинает часами зависать и в итоге перестаёт работать полностью",
+  "obs": 1
+ },
+ {
+  "id": "facebook-share-broken",
+  "title": "Публикация фото еды в социальную сеть не работает: диалог открывается, но фото не отправляется",
+  "obs": 1
+ },
+ {
+  "id": "facebook-login-broken",
+  "title": "Вход через аккаунт социальной сети сломан: приложение выдаёт ошибку и пользователь теряет доступ к оплаченной подписке",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-on-device-upgrade",
+  "title": "При переносе на новый телефон все данные приложения теряются, кнопка камеры перестаёт работать",
+  "obs": 1
+ },
+ {
+  "id": "friend-notifications-stopped",
+  "title": "Уведомления о действиях друзей в приложении перестали приходить без видимой причины",
+  "obs": 1
+ },
+ {
+  "id": "ai-editor-loses-data",
+  "title": "Редактирование ИИ-анализа стирает все введённые данные, а восстановление анализа иногда не происходит",
+  "obs": 1
+ },
+ {
+  "id": "ai-misidentification-no-correction",
+  "title": "Нельзя исправить ошибку классификации ИИ: кнопка редактирования анализа недоступна",
+  "obs": 1
+ },
+ {
+  "id": "no-health-import",
+  "title": "Приложение не импортирует данные из встроенного приложения Здоровье на iPhone — нужно переносить всё вручную",
+  "obs": 1
+ },
+ {
+  "id": "insights-window-too-short",
+  "title": "Раздел аналитики показывает данные только за последние 10 дней — нельзя увидеть долгосрочные закономерности",
+  "obs": 1
+ },
+ {
+  "id": "no-account-creation-option",
+  "title": "После переустановки приложения нет кнопки создания нового аккаунта — только вход, который не работает",
+  "obs": 1
+ },
+ {
+  "id": "emotions-missing-from-summary",
+  "title": "Эмоции, выбранные при каждом приёме пищи, не отображаются в дневном резюме",
+  "obs": 1
+ },
+ {
+  "id": "date-navigation-limited",
+  "title": "Нельзя быстро перейти на несколько месяцев назад — навигация по датам работает только пошагово",
+  "obs": 1
+ },
+ {
+  "id": "rigid-linear-navigation",
+  "title": "Навигация в приложении жёстко линейная: сложно вернуться к просмотренной записи или фото, мест для заметок недостаточно",
+  "obs": 1
+ },
+ {
+  "id": "no-account-deletion-contact",
+  "title": "Нет контактов разработчика и непонятно, как удалить аккаунт и данные",
+  "obs": 1
+ }
+]

@@ -1,0 +1,107 @@
+{
+  "groups": [
+    {
+      "id": "paywall-creep-billing-traps",
+      "name": "Платный барьер ползёт вверх: что заперли за подпиской",
+      "insight_ids": [
+        "trial-charges-full-price",
+        "paywall-interrupts-browsing",
+        "subscription-auto-renewal-hidden",
+        "offline-maps-behind-paywall",
+        "route-creation-behind-paywall",
+        "tracking-inaccurate-after-downgrade",
+        "cancel-requires-browser",
+        "trial-cancel-platform-mismatch",
+        "subscription-tier-confusion",
+        "peak-requires-plus-first",
+        "no-monthly-subscription",
+        "subscription-not-synced-across-devices",
+        "push-notifications-subscription-ads",
+        "onboarding-forces-account"
+      ]
+    },
+    {
+      "id": "trust-the-trail-data",
+      "name": "Можно ли верить базе: состояние троп, покрытие и отзывы",
+      "insight_ids": [
+        "trail-conditions-user-reviews",
+        "trail-database-coverage",
+        "seasonal-photo-filters",
+        "stale-trail-data",
+        "crowd-level-info",
+        "trail-surface-type-missing",
+        "ai-generated-descriptions",
+        "difficulty-rating-accuracy",
+        "structured-review-form-removed",
+        "review-on-unofficial-routes-removed"
+      ]
+    },
+    {
+      "id": "map-vs-interface",
+      "name": "Карта против интерфейса: всплывашки и панели заслоняют маршрут",
+      "insight_ids": [
+        "map-ui-overlay-blocks-view",
+        "ipad-not-optimized",
+        "fullscreen-map-removed",
+        "drawer-pops-on-zoom",
+        "3d-preview-degraded",
+        "trail-markers-color-visual",
+        "trail-color-coding-missing",
+        "waypoint-popups-dangerous",
+        "screen-lock-missing-ios",
+        "voice-navigation-missing",
+        "search-autocomplete-breaks-input"
+      ]
+    },
+    {
+      "id": "offline-map-safety",
+      "name": "Карта в кармане без сигнала: навигация как вопрос выживания",
+      "insight_ids": [
+        "offline-gps-positioning",
+        "gps-position-drift",
+        "offline-maps-clear-mid-hike",
+        "incomplete-offline-maps",
+        "competitor-google-maps",
+        "garmin-export"
+      ]
+    },
+    {
+      "id": "updates-break-everything",
+      "name": "Каждое обновление всё ломает: падения, перегрев, севшая батарея",
+      "insight_ids": [
+        "app-crashes-after-update",
+        "battery-drain-excessive",
+        "performance-regression-updates",
+        "phone-overheating",
+        "image-loading-slow",
+        "trail-list-images-slow"
+      ]
+    },
+    {
+      "id": "recording-loses-the-thread",
+      "name": "Запись похода теряет нить: трекер, который мешает там, где должен помогать",
+      "insight_ids": [
+        "auto-pause-unwanted",
+        "no-track-edit-after-hike",
+        "off-trail-recording-fails",
+        "connected-trails-manual-switch",
+        "trail-recommendation-requires-history",
+        "saved-trails-sort-broken",
+        "favorites-management-weak",
+        "activity-filter-single-only",
+        "apple-watch-heart-rate-missing"
+      ]
+    },
+    {
+      "id": "privacy-and-pushiness",
+      "name": "Приватность и навязчивость: фото, друзья и отслеживание без спроса",
+      "insight_ids": [
+        "social-prompts-after-hike",
+        "location-privacy-controls",
+        "auto-photo-upload-privacy",
+        "no-settings-for-new-features",
+        "app-as-hobby-catalyst"
+      ]
+    }
+  ]
+}

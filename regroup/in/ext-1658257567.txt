@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from ColorSleep (color noise / green / brown / white noise / sleep) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO ColorSleep, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to ColorSleep — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to ColorSleep>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1658257567.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "charged-after-trial-no-cancel",
+  "title": "После пробного периода списывается полная годовая сумма — отменить подписку внутри приложения невозможно",
+  "obs": 8
+ },
+ {
+  "id": "free-label-hides-subscription",
+  "title": "Приложение в App Store помечено как бесплатное, но при открытии сразу требует платёж или пробный период",
+  "obs": 7
+ },
+ {
+  "id": "no-support-cancellation",
+  "title": "Служба поддержки не отвечает на запросы об отмене подписки и возвратах",
+  "obs": 7
+ },
+ {
+  "id": "onboarding-questions-before-paywall-reveal",
+  "title": "Сначала задаются десятки вопросов, и только в конце раскрывается, что приложение платное",
+  "obs": 4
+ },
+ {
+  "id": "free-tier-severely-limited",
+  "title": "Бесплатная версия ограничивает звуки пятью минутами — этого недостаточно чтобы заснуть",
+  "obs": 4
+ },
+ {
+  "id": "payment-required-to-view",
+  "title": "Даже просмотр контента требует согласия на подписку или ввода платёжных данных",
+  "obs": 4
+ },
+ {
+  "id": "timer-broken",
+  "title": "Таймер не работает — либо не останавливает, либо останавливает раньше срока",
+  "obs": 4
+ },
+ {
+  "id": "long-onboarding-before-access",
+  "title": "Перед первым запуском показывается около 80 экранов с вопросами и информацией",
+  "obs": 4
+ },
+ {
+  "id": "green-noise-quality-differentiates",
+  "title": "Зелёный шум в платной версии качественнее чем в бесплатных альтернативах и на YouTube",
+  "obs": 3
+ },
+ {
+  "id": "sleep-time-dramatically-improved",
+  "title": "Приложение существенно увеличивает время сна и сокращает время засыпания",
+  "obs": 3
+ },
+ {
+  "id": "no-transparency-subscription-tiers",
+  "title": "Нет понятного описания что именно входит в каждый тарифный план",
+  "obs": 2
+ },
+ {
+  "id": "app-changed-to-paywall",
+  "title": "Раньше приложение работало без оплаты, теперь требует подписку",
+  "obs": 2
+ },
+ {
+  "id": "no-lifetime-purchase-option",
+  "title": "Нет варианта пожизненной покупки — только ежемесячная или ежегодная подписка",
+  "obs": 2
+ },
+ {
+  "id": "premium-content-too-scarce",
+  "title": "При цене $50 в год в премиуме слишком мало уникальных звуков",
+  "obs": 2
+ },
+ {
+  "id": "sound-interrupted-every-15-30min",
+  "title": "Воспроизведение прерывается каждые 15–30 минут независимо от установленного таймера",
+  "obs": 2
+ },
+ {
+  "id": "volume-slider-broken-scaling",
+  "title": "Ползунок громкости неправильно масштабируется: первая половина не даёт звука, вторая — средняя",
+  "obs": 2
+ },
+ {
+  "id": "interface-confusing",
+  "title": "Интерфейс запутан — пользователи не могут легко найти нужные звуки",
+  "obs": 2
+ },
+ {
+  "id": "small-screen-incompatible",
+  "title": "На телефонах с небольшим экраном кнопки интерфейса не помещаются и не масштабируются",
+  "obs": 2
+ },
+ {
+  "id": "binaural-for-focus-adhd",
+  "title": "Бинауральные ритмы помогают при СДВГ одновременно для сна и концентрации на учёбе",
+  "obs": 2
+ },
+ {
+  "id": "green-noise-stops-mind-chatter",
+  "title": "Зелёный шум отключает внутренний монолог и ускоряет засыпание",
+  "obs": 2
+ },
+ {
+  "id": "replaced-sleep-medication",
+  "title": "Пользователи отказываются от снотворных таблеток в пользу приложения",
+  "obs": 2
+ },
+ {
+  "id": "tinnitus-use-case",
+  "title": "Пользователи с тиннитусом применяют приложение для маскировки звона, но полного излечения нет",
+  "obs": 2
+ },
+ {
+  "id": "study-focus-use-case",
+  "title": "Коричневый шум значительно улучшает концентрацию при обучении",
+  "obs": 2
+ },
+ {
+  "id": "excessive-battery-drain",
+  "title": "Приложение сильно разряжает батарею за ночь даже при беспроводной зарядке",
+  "obs": 2
+ },
+ {
+  "id": "price-mismatch-advertised-vs-billed",
+  "title": "Объявляется цена $1 в месяц, а списывается $49 в год или $9.99 в месяц",
+  "obs": 1
+ },
+ {
+  "id": "trial-period-too-short-for-testing",
+  "title": "Пробный период в 3 дня с лимитом 5 минут звука недостаточен для оценки эффективности",
+  "obs": 1
+ },
+ {
+  "id": "trial-charged-before-end",
+  "title": "Приложение списывает деньги раньше окончания заявленного пробного периода",
+  "obs": 1
+ },
+ {
+  "id": "playback-stops-randomly",
+  "title": "Приложение периодически прерывается без причины и требует переустановки",
+  "obs": 1
+ },
+ {
+  "id": "timer-fade-out-smooth",
+  "title": "Таймер плавно затухает вместо резкого обрыва — пользователи это особо отмечают как преимущество",
+  "obs": 1
+ },
+ {
+  "id": "app-plays-multiple-sounds",
+  "title": "Приложение воспроизводит несколько звуков одновременно вместо выбранного одного",
+  "obs": 1
+ },
+ {
+  "id": "no-in-app-volume-control",
+  "title": "Нет внутреннего регулятора громкости — приходится использовать кнопки устройства",
+  "obs": 1
+ },
+ {
+  "id": "screen-off-playback-works",
+  "title": "Приложение воспроизводит звуки при выключенном экране — пользователи это ценят",
+  "obs": 1
+ },
+ {
+  "id": "airplane-mode-playback",
+  "title": "Приложение работает в режиме полёта без подключения к сети",
+  "obs": 1
+ },
+ {
+  "id": "sound-combination-feature",
+  "title": "Возможность одновременно комбинировать два звука — уникальная функция, которую пользователи выделяют",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-freezes",
+  "title": "Приложение зависает в процессе прохождения вводных экранов и блокирует доступ к звукам",
+  "obs": 1
+ },
+ {
+  "id": "last-sound-remembered-annoys",
+  "title": "Приложение запоминает последний звук и автоматически запускает его при открытии",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-every-session",
+  "title": "Приложение запрашивает отзыв при каждом открытии — раздражает платных подписчиков",
+  "obs": 1
+ },
+ {
+  "id": "many-clicks-to-start",
+  "title": "Для начала воспроизведения требуется слишком много кликов",
+  "obs": 1
+ },
+ {
+  "id": "brown-noise-spa-music-added",
+  "title": "К чистому коричневому шуму добавилась спа-музыка — испортила качество для постоянных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-sounds-all-categories",
+  "title": "Во всех категориях одни и те же 12 звуков несмотря на визуальное разнообразие",
+  "obs": 1
+ },
+ {
+  "id": "green-noise-unlocks-require-premium",
+  "title": "Зелёный шум — главная функция приложения — недоступен в бесплатной версии",
+  "obs": 1
+ },
+ {
+  "id": "white-noise-quality-poor",
+  "title": "Белый шум звучит размытым и неполным, красный шум ограничен по времени",
+  "obs": 1
+ },
+ {
+  "id": "color-concept-not-intuitive",
+  "title": "Концепция различения цвета шума по звуку неочевидна без синестезии",
+  "obs": 1
+ },
+ {
+  "id": "sleep-stories-absent",
+  "title": "Пользователи хотят сопроводительные истории для сна, которых в приложении нет",
+  "obs": 1
+ },
+ {
+  "id": "use-with-noise-canceling-headphones",
+  "title": "Коричневый шум в сочетании с наушниками с шумоподавлением даёт усиленный эффект",
+  "obs": 1
+ },
+ {
+  "id": "travel-hostel-use-case",
+  "title": "Приложение помогает спать в шумных хостелах и в дороге",
+  "obs": 1
+ },
+ {
+  "id": "pet-use-case",
+  "title": "Пользователи хотят применять приложение для успокоения домашних животных",
+  "obs": 1
+ },
+ {
+  "id": "wake-up-energizer-feature",
+  "title": "Функция «бодрящего пробуждения» неожиданно становится любимой частью приложения",
+  "obs": 1
+ },
+ {
+  "id": "competitive-pricing-vs-spotify",
+  "title": "Приложение стоит как Spotify, но не имеет базовых функций вроде трансляции на другие устройства",
+  "obs": 1
+ },
+ {
+  "id": "app-not-social-friendly",
+  "title": "Приложение не мешает окружающим в отличие от телевизора — подходит для совместного сна",
+  "obs": 1
+ },
+ {
+  "id": "slow-download",
+  "title": "Загрузка приложения занимает часы вместо минут",
+  "obs": 1
+ },
+ {
+  "id": "bad-translation",
+  "title": "Перевод текста в приложении содержит странные и пугающие формулировки",
+  "obs": 1
+ }
+]

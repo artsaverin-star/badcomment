@@ -1,0 +1,149 @@
+You are grouping 20 mechanism-level insight clusters from TurboScan™: document scanner (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO TurboScan™: document scanner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 20 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to TurboScan™: document scanner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to TurboScan™: document scanner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1017559099.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "email-delivery-hours-delay",
+  "title": "Письма с отсканированными документами доходят до получателя через несколько часов, что делает функцию непригодной для срочной работы",
+  "obs": 7
+ },
+ {
+  "id": "no-cloud-backup-data-loss-on-reinstall",
+  "title": "Удаление или смена устройства уничтожает все отсканированные документы — автоматического резервного копирования нет",
+  "obs": 4
+ },
+ {
+  "id": "email-feature-broken-despite-settings",
+  "title": "Сохранение PDF и отправка по электронной почте не работают, несмотря на включённые настройки — документ невозможно извлечь из приложения",
+  "obs": 2
+ },
+ {
+  "id": "trial-quality-misrepresents-paid",
+  "title": "В пробном периоде качество сканирования значительно хуже платной версии — пользователь не может объективно оценить продукт перед покупкой",
+  "obs": 1
+ },
+ {
+  "id": "app-demands-payment-after-two-uses",
+  "title": "После двух использований приложение запрашивает платёжные данные Apple ID — создаётся ощущение скама при переходе к платному контенту",
+  "obs": 1
+ },
+ {
+  "id": "previously-purchased-now-paywalled",
+  "title": "Приложение, купленное несколько лет назад, блокирует функции после обновления и требует доплаты вопреки ранее совершённой покупке",
+  "obs": 1
+ },
+ {
+  "id": "email-send-broken-after-update",
+  "title": "После обновления приложения отправка документов по электронной почте перестаёт работать полностью",
+  "obs": 1
+ },
+ {
+  "id": "email-sent-status-false-on-weak-network",
+  "title": "Приложение показывает «отправлено», но письмо никогда не приходит при нестабильном интернете — нет подтверждения реальной доставки",
+  "obs": 1
+ },
+ {
+  "id": "email-blocked-at-night-time-restriction",
+  "title": "Отправка писем блокируется в ночное время — в 22:00 документы не уходят вообще или приходят со значительной задержкой",
+  "obs": 1
+ },
+ {
+  "id": "downloaded-document-not-retrievable",
+  "title": "Отправленный по почте документ невозможно скачать обратно из входящих — функция получения скана из истории не работает",
+  "obs": 1
+ },
+ {
+  "id": "app-crash-after-update-docs-inaccessible",
+  "title": "После обновления приложение перестаёт запускаться и все сохранённые документы становятся недоступны",
+  "obs": 1
+ },
+ {
+  "id": "no-cross-platform-sync",
+  "title": "Сканы не синхронизируются при переходе между iOS и Android — документы привязаны к платформе и теряются при смене устройства",
+  "obs": 1
+ },
+ {
+  "id": "android-missing-features-vs-ios",
+  "title": "Функции создания папок, отправки по электронной почте и факсу есть только в версии для iOS — в Android-версии они отсутствуют",
+  "obs": 1
+ },
+ {
+  "id": "camera-shutter-lag-wrong-frame",
+  "title": "Камера делает снимок с задержкой — при малейшем движении захватывается не тот кадр, который был в момент нажатия",
+  "obs": 1
+ },
+ {
+  "id": "ai-autocrop-cuts-page-edges",
+  "title": "Автоматическое определение границ страницы обрезает часть документа при полном покрытии камерой — алгоритм неточно распознаёт края",
+  "obs": 1
+ },
+ {
+  "id": "folders-merge-spontaneously",
+  "title": "Папки в приложении самопроизвольно объединяются между собой, разрушая организационную структуру документов",
+  "obs": 1
+ },
+ {
+  "id": "no-subfolder-hierarchy",
+  "title": "Нет вложенных папок — пользователи с большим количеством документов не могут выстроить иерархическую структуру хранения",
+  "obs": 1
+ },
+ {
+  "id": "turboscan-vs-physical-scanners",
+  "title": "Мобильное сканирование превосходит офисный сканер при захвате листов с перекосом — пользователи контролируют режим каждой страницы",
+  "obs": 1
+ },
+ {
+  "id": "turboscan-finer-text-than-competitors",
+  "title": "TurboScan читает мелкий текст чётче конкурентов без ручной доработки",
+  "obs": 1
+ },
+ {
+  "id": "oversized-plans-better-than-copy-center",
+  "title": "Приложение сканирует крупноформатные чертежи лучше, чем оборудование копировального центра — критично для строителей и юристов",
+  "obs": 1
+ }
+]

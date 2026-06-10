@@ -1,0 +1,114 @@
+You are grouping 13 mechanism-level insight clusters from VPNIFY - Unlimited VPN (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO VPNIFY - Unlimited VPN, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 13 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to VPNIFY - Unlimited VPN — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to VPNIFY - Unlimited VPN>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpst12rf0831ug8pmo4g4nin.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "unstable-connection",
+  "title": "Соединение нестабильно — подключается через раз или требует множества попыток",
+  "obs": 23
+ },
+ {
+  "id": "blocked-regions",
+  "title": "VPN перестал работать в заблокированных регионах, где ранее работал стабильно",
+  "obs": 4
+ },
+ {
+  "id": "slow-connection-time",
+  "title": "Подключение к серверу занимает несколько минут вместо секунд",
+  "obs": 2
+ },
+ {
+  "id": "data-sold-to-100-parties",
+  "title": "Приложение передаёт данные пользователя более чем 100 сторонним организациям, несмотря на заявления о конфиденциальности",
+  "obs": 2
+ },
+ {
+  "id": "free-servers-broken",
+  "title": "Бесплатные серверы не работают — любой функционал требует платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "free-label-misleading",
+  "title": "Приложение позиционируется как бесплатное, но после 3 дней пробного периода требует платную подписку",
+  "obs": 1
+ },
+ {
+  "id": "mac-blocks-other-apps",
+  "title": "На Mac при подключении VPN блокируется запуск других приложений на ~3 минуты",
+  "obs": 1
+ },
+ {
+  "id": "vpn-disconnects-after-timer",
+  "title": "VPN автоматически отключается через 12 часов, разрывая длительные сессии",
+  "obs": 1
+ },
+ {
+  "id": "slow-servers",
+  "title": "Отдельные серверы работают настолько медленно, что становятся непригодными для использования",
+  "obs": 1
+ },
+ {
+  "id": "connection-hangs-silently",
+  "title": "При подключении приложение зависает в режиме ожидания и сбрасывает попытку без сообщения об ошибке",
+  "obs": 1
+ },
+ {
+  "id": "ads-slow-connection",
+  "title": "Рекламные экраны замедляют подключение с 10 секунд до нескольких минут",
+  "obs": 1
+ },
+ {
+  "id": "wifi-calling-required",
+  "title": "VPN не подключается, если на устройстве не включена опция Wi-Fi calling",
+  "obs": 1
+ },
+ {
+  "id": "adult-ads-age-mismatch",
+  "title": "Приложение с возрастным рейтингом 4+ показывает сексуально откровенную рекламу",
+  "obs": 1
+ }
+]

@@ -1,0 +1,98 @@
+{
+  "groups": [
+    {
+      "id": "billing-trap",
+      "name": "Списания не остановить: подписка как ловушка",
+      "insight_ids": [
+        "billing-continues-after-cancel",
+        "no-cancel-path",
+        "double-billing-same-period",
+        "charged-after-decline-delete",
+        "pause-still-charges",
+        "weekly-only-pricing",
+        "price-hike-no-notice",
+        "single-payment-method"
+      ]
+    },
+    {
+      "id": "paywall-deception",
+      "name": "Платный вход под вывеской «бесплатно»",
+      "insight_ids": [
+        "paywall-blocks-all-content",
+        "false-free-positioning",
+        "gym-vs-app-value-conflict",
+        "support-bot-only-auto-replies"
+      ]
+    },
+    {
+      "id": "workout-engine",
+      "name": "Тренировка как конструктор: разнообразие и гибкая настройка",
+      "insight_ids": [
+        "exercise-variety-prevents-boredom",
+        "customize-by-equipment-level-time",
+        "mid-workout-swap-difficulty",
+        "structured-program-for-beginners",
+        "auto-generated-plan",
+        "warmup-cooldown-cycle",
+        "coach-replacement-solo"
+      ]
+    },
+    {
+      "id": "return-and-habit",
+      "name": "Кому это спасение: возвращение в спорт и привычка дома",
+      "insight_ids": [
+        "return-after-break-segment",
+        "busy-parents-segment",
+        "anytime-anywhere-flexibility",
+        "accountability-motivation-mechanic",
+        "workout-reminders-habit",
+        "low-entry-difficulty-retention",
+        "consistent-routine-pattern",
+        "supplement-not-primary",
+        "shared-activity-partner"
+      ]
+    },
+    {
+      "id": "progress-feedback",
+      "name": "Видеть свой прогресс: счётчики, календарь, результаты",
+      "insight_ids": [
+        "visible-results-retention",
+        "calorie-results-summary",
+        "calendar-visual-tracking",
+        "full-history-on-home",
+        "progress-feedback-gap",
+        "no-difficulty-feedback",
+        "rewards-system-request"
+      ]
+    },
+    {
+      "id": "missing-personalization",
+      "name": "Чего не хватает для «своей» тренировки",
+      "insight_ids": [
+        "no-injury-modification",
+        "form-text-descriptions",
+        "no-equipment-variety",
+        "custom-workout-builder",
+        "weekday-schedule-selection",
+        "hydration-reminder-request",
+        "no-live-demonstration",
+        "warmup-duplicates-main"
+      ]
+    },
+    {
+      "id": "tech-glitches",
+      "name": "Сбои механики: музыка, голос, потеря прогресса",
+      "insight_ids": [
+        "background-music-playback",
+        "timer-paced-transitions",
+        "unreliable-music-integration",
+        "voice-commands-unreliable",
+        "history-wiped-on-update",
+        "streak-resume-prompt-breaks-count",
+        "custom-workouts-not-saved",
+        "ios-forced-custom-plan",
+        "age-rating-mismatch"
+      ]
+    }
+  ]
+}

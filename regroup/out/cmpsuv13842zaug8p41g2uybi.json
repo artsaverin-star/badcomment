@@ -1,0 +1,108 @@
+{
+  "groups": [
+    {
+      "id": "podpiska-nelzya-otmenit",
+      "name": "Подписка-ловушка: оформляют молча, отменить невозможно",
+      "insight_ids": [
+        "auto-enroll-premium-no-consent",
+        "charges-continue-after-cancel",
+        "charges-continue-after-delete",
+        "no-cancel-option-in-ui",
+        "cancel-via-app-broken",
+        "trial-charges-full-year-upfront",
+        "apple-id-subs-invisible",
+        "no-optout-paid-plan-signup",
+        "cancel-before-trial-still-charged",
+        "billing-cycle-shortened",
+        "cancel-after-paywall-recharge",
+        "cancel-buried-navigation",
+        "subscription-status-wrong",
+        "self-sub-not-listed",
+        "cancel-needs-unknown-account-info",
+        "free-as-advertised-mismatch"
+      ]
+    },
+    {
+      "id": "obnaruzhenie-i-otmena-chuzhih-podpisok",
+      "name": "Поиск и отмена чужих подписок — главная фича, которая недорабатывает",
+      "insight_ids": [
+        "discovery-misses-subscriptions",
+        "discovery-misclassifies",
+        "discovery-finds-hidden-fraud",
+        "withdrawal-revokes-paid-access",
+        "repeat-access-cancel-feature"
+      ]
+    },
+    {
+      "id": "peregovory-komissiya",
+      "name": "Сервис переговоров о счетах: комиссия без результата и без согласия",
+      "insight_ids": [
+        "negotiation-fee-on-self-saved",
+        "negotiation-no-result-fee-anyway",
+        "negotiation-fee-on-fake-savings",
+        "agents-impersonate-user",
+        "negotiation-downgrades-service",
+        "negotiation-service-uncancellable"
+      ]
+    },
+    {
+      "id": "bank-i-sinhronizaciya",
+      "name": "Связь с банком и точность данных: отвалы, задержки и двойной счёт",
+      "insight_ids": [
+        "payment-display-delay",
+        "bank-connection-drops",
+        "bank-link-hangs",
+        "real-time-charge-visibility",
+        "transactions-duplicated",
+        "cannot-track-duplicate-payments",
+        "plaid-only-no-manual-link",
+        "plaid-stops-credit-cards",
+        "apple-card-no-sync",
+        "apple-account-integration-broken",
+        "debit-credit-double-count",
+        "tracking-acceptable-tradeoff"
+      ]
+    },
+    {
+      "id": "byudzhet-nakopleniya",
+      "name": "Бюджет и накопления: навязанные правила и непрозрачные счета",
+      "insight_ids": [
+        "budget-requires-manual-entry",
+        "savings-withdrawal-mismatch",
+        "auto-savings-zero-balance",
+        "savings-double-dipping",
+        "no-investment-accounts",
+        "payday-date-overwritten",
+        "forced-default-categories",
+        "bulk-recategorize-slow",
+        "no-split-transactions",
+        "id-photo-after-withdrawal"
+      ]
+    },
+    {
+      "id": "vhod-dostup-podderzhka",
+      "name": "Вход, восстановление доступа и недоступная поддержка",
+      "insight_ids": [
+        "support-bot-only-no-human",
+        "no-google-oauth-reset",
+        "login-needs-sms-no-faceid",
+        "locked-out-after-phone-change",
+        "email-blocked-after-deletion",
+        "support-resolves-2fa",
+        "shared-access-not-revoked"
+      ]
+    },
+    {
+      "id": "interfeys-i-bagi",
+      "name": "Громоздкий интерфейс, тормоза и баги первого запуска",
+      "insight_ids": [
+        "confusing-cluttered-ui",
+        "ipad-layout-broken",
+        "lag-on-powerful-devices",
+        "link-interception-bug",
+        "launch-loop",
+        "import-cleanup-burns-trial"
+      ]
+    }
+  ]
+}

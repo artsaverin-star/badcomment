@@ -1,0 +1,244 @@
+You are grouping 39 mechanism-level insight clusters from Scanner – Scan PDF & Document (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Scanner – Scan PDF & Document, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 39 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Scanner – Scan PDF & Document — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Scanner – Scan PDF & Document>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1291962681.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "popup-ads-blocking-ui",
+  "title": "Всплывающая реклама перекрывает кнопки интерфейса и не даёт начать работу с приложением",
+  "obs": 8
+ },
+ {
+  "id": "unskippable-video-ads-per-action",
+  "title": "За каждое действие (сохранение, экспорт, просмотр) приложение показывает обязательное 20–30-секундное видео",
+  "obs": 7
+ },
+ {
+  "id": "charges-after-cancellation",
+  "title": "Приложение продолжает списывать деньги после отмены подписки — иногда под замаскированным названием компании",
+  "obs": 4
+ },
+ {
+  "id": "watermark-on-free-scans",
+  "title": "Бесплатная версия накладывает водяной знак на весь документ — экспортированный файл непригоден для официального использования",
+  "obs": 4
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Пробный период заявлен как бесплатный, но списание происходит в первый же день или раньше обещанного срока",
+  "obs": 3
+ },
+ {
+  "id": "forced-trial-no-skip",
+  "title": "Нельзя пользоваться приложением, не согласившись на платный пробный период — кнопки отказа нет",
+  "obs": 3
+ },
+ {
+  "id": "premium-not-activated",
+  "title": "После оплаты подписки премиум-функции не активируются — приложение ведёт себя как в бесплатном режиме",
+  "obs": 2
+ },
+ {
+  "id": "wrong-cancellation-instructions",
+  "title": "Инструкции по отмене пробного периода ведут по неверному пути навигации и не совпадают с реальным меню iOS",
+  "obs": 1
+ },
+ {
+  "id": "price-too-high",
+  "title": "Ежемесячная подписка стоит как полноценный офисный софт — непропорционально дорого для утилиты сканирования",
+  "obs": 1
+ },
+ {
+  "id": "multiple-forced-trials",
+  "title": "Приложение последовательно запускает несколько пробных периодов подряд без возможности отказаться",
+  "obs": 1
+ },
+ {
+  "id": "payment-screen-no-close",
+  "title": "Экран оплаты появляется сразу при запуске и не имеет кнопки закрытия — принудительно требует авторизацию оплаты",
+  "obs": 1
+ },
+ {
+  "id": "app-charges-without-working",
+  "title": "Приложение списывает деньги, но не открывается — показывает только экран загрузки рекламы",
+  "obs": 1
+ },
+ {
+  "id": "subscription-required-to-save",
+  "title": "Бесплатная версия не позволяет сохранить даже пару документов — требует подписку для базового действия",
+  "obs": 1
+ },
+ {
+  "id": "ads-after-paying",
+  "title": "Платный подписчик продолжает видеть рекламу — оплата не отключает объявления",
+  "obs": 1
+ },
+ {
+  "id": "inappropriate-ad-content",
+  "title": "Рекламная сеть показывает неуместный контент без фильтрации — в том числе рядом с детским использованием",
+  "obs": 1
+ },
+ {
+  "id": "10-page-free-limit",
+  "title": "Бесплатный режим ограничен 10 страницами — при превышении лимита требуется подписка",
+  "obs": 1
+ },
+ {
+  "id": "no-external-scanner-source",
+  "title": "На экране запуска нет выбора источника сканирования — внешний сканер подключить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "cover-generation-missing",
+  "title": "Отсутствует функция генерации обложки документа, которая есть у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "auto-crop-cuts-text",
+  "title": "Автоматическое обрезание в бесплатной версии отрезает края текста и поля — ручное кадрирование недоступно",
+  "obs": 1
+ },
+ {
+  "id": "crop-button-frozen",
+  "title": "Кнопка обрезания зависает и не реагирует — базовое редактирование скана становится невозможным",
+  "obs": 1
+ },
+ {
+  "id": "crop-handles-unresponsive",
+  "title": "Угловые маркеры кадрирования не реагируют на касание и требуют многократных попыток в точном месте",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-large-batch",
+  "title": "При сканировании больших пакетов документов приложение вылетает и не сохраняет проделанную работу",
+  "obs": 1
+ },
+ {
+  "id": "app-broken-after-update",
+  "title": "После обновления приложение перестаёт запускаться — обновление ломает базовую работу",
+  "obs": 1
+ },
+ {
+  "id": "constant-scan-error",
+  "title": "При попытке сканирования приложение постоянно выдаёт ошибку и не выполняет основную функцию",
+  "obs": 1
+ },
+ {
+  "id": "app-severely-slowed",
+  "title": "Приложение значительно замедлилось — сканирование одного документа занимает непредсказуемо долгое время",
+  "obs": 1
+ },
+ {
+  "id": "document-not-saved",
+  "title": "Отсканированный документ не сохраняется на устройство — результат работы теряется",
+  "obs": 1
+ },
+ {
+  "id": "email-not-delivered",
+  "title": "Документы, отправленные через встроенную функцию почты, не доходят до получателей",
+  "obs": 1
+ },
+ {
+  "id": "qr-code-not-working",
+  "title": "Функция сканирования QR-кода не открывает связанный сайт — штрихкод не обрабатывается корректно",
+  "obs": 1
+ },
+ {
+  "id": "ads-drain-battery",
+  "title": "Реклама не оптимизирована и вызывает чрезмерный расход аккумулятора при работе с приложением",
+  "obs": 1
+ },
+ {
+  "id": "edge-detection-poor",
+  "title": "Автодетектор границ документа плохо распознаёт края даже в простых случаях — требует постоянной ручной коррекции",
+  "obs": 1
+ },
+ {
+  "id": "camera-requires-perfect-stillness",
+  "title": "Сканирование требует абсолютной неподвижности телефона в течение минуты — в реальных условиях это невыполнимо",
+  "obs": 1
+ },
+ {
+  "id": "overexposed-scan-output",
+  "title": "Скан всегда получается переэкспонированным — слишком ярким, что вынуждает переснимать и снова смотреть рекламу",
+  "obs": 1
+ },
+ {
+  "id": "inconsistent-page-sizes",
+  "title": "При сканировании нескольких страниц результаты имеют непоследовательные размеры — документ выглядит неоднородно",
+  "obs": 1
+ },
+ {
+  "id": "free-image-quality-below-camera",
+  "title": "Качество скана в бесплатной версии ниже, чем у встроенной камеры телефона — умное сканирование не работает",
+  "obs": 1
+ },
+ {
+  "id": "ocr-locked-behind-paywall",
+  "title": "Распознавание текста полностью заблокировано до оплаты — бесплатная версия сканирует только как камера",
+  "obs": 1
+ },
+ {
+  "id": "ocr-handwriting-fails",
+  "title": "OCR не распознаёт рукописный текст — из полной страницы рукописи извлекаются единицы слов",
+  "obs": 1
+ },
+ {
+  "id": "bw-mode-removed",
+  "title": "Режим чёрно-белого сканирования исчез после обновления — документы теперь снимаются как обычные фото",
+  "obs": 1
+ },
+ {
+  "id": "minimal-editing-tools",
+  "title": "Набор инструментов редактирования крайне скудный — нет коррекции контрастности, цвета и других опций для деловых документов",
+  "obs": 1
+ },
+ {
+  "id": "feature-regression-over-time",
+  "title": "Функции, доступные бесплатно в ранних версиях, теперь скрыты за подпиской — пользователи воспринимают это как деградацию продукта",
+  "obs": 1
+ }
+]

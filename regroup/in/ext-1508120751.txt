@@ -1,0 +1,374 @@
+You are grouping 65 mechanism-level insight clusters from ToonMe: AI Cartoon Face Maker (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO ToonMe: AI Cartoon Face Maker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 65 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to ToonMe: AI Cartoon Face Maker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to ToonMe: AI Cartoon Face Maker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1508120751.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "race-skin-whitening",
+  "title": "Модель систематически осветляет кожу и превращает темнокожих людей в белокожих",
+  "obs": 17
+ },
+ {
+  "id": "output-doesnt-resemble-original",
+  "title": "Готовое изображение не похоже на исходное фото — получается совсем другой человек",
+  "obs": 7
+ },
+ {
+  "id": "trial-tap-charges-immediately",
+  "title": "Нажатие «начать бесплатный пробный период» сразу списывает деньги вместо обещанного триала",
+  "obs": 6
+ },
+ {
+  "id": "no-free-version-paywall-on-launch",
+  "title": "Бесплатной версии нет — приложение требует оплату сразу при первом запуске",
+  "obs": 6
+ },
+ {
+  "id": "paid-but-features-locked",
+  "title": "Оплата прошла, но PRO-функции остаются заблокированными и приложение не работает",
+  "obs": 5
+ },
+ {
+  "id": "good-stuff-behind-pro",
+  "title": "Все хорошие стили и фильтры доступны только по платной PRO-подписке",
+  "obs": 5
+ },
+ {
+  "id": "rejects-non-frontal-or-partial-face",
+  "title": "Приложение отказывается обрабатывать фото со спины, частично затемнённые или неполные лица",
+  "obs": 5
+ },
+ {
+  "id": "rejects-pets-and-objects",
+  "title": "Приложение обрабатывает только лица людей — животных и предметы не принимает",
+  "obs": 5
+ },
+ {
+  "id": "charge-after-cancellation",
+  "title": "После отмены подписки приложение продолжает списывать платежи",
+  "obs": 4
+ },
+ {
+  "id": "filters-dont-match-marketing",
+  "title": "Фильтры на витрине выглядят красиво, но реальный результат совсем другой и не передаёт черты",
+  "obs": 4
+ },
+ {
+  "id": "few-skin-tone-style-options",
+  "title": "Стилей и оттенков кожи для темнокожих людей заметно меньше, чем для белокожих",
+  "obs": 4
+ },
+ {
+  "id": "facial-features-altered-unwanted",
+  "title": "Модель меняет цвет волос, глаз и другие черты внешности независимо от исходного фото",
+  "obs": 4
+ },
+ {
+  "id": "processing-stuck-loading",
+  "title": "Генерация изображения зависает на бесконечной загрузке и не возвращает результат",
+  "obs": 4
+ },
+ {
+  "id": "custom-art-ignores-text-prompts",
+  "title": "Функция «создай свой AI-арт» игнорирует текстовые инструкции о выражении лица, причёске и одежде",
+  "obs": 4
+ },
+ {
+  "id": "filters-effects-broken",
+  "title": "Часть фильтров и эффектов не работает или выдаёт ошибку обработки",
+  "obs": 4
+ },
+ {
+  "id": "side-channels-for-content-creation",
+  "title": "Пользователи используют результаты как контент для соцсетей, YouTube и художественного портфолио",
+  "obs": 4
+ },
+ {
+  "id": "deceptive-two-step-signup",
+  "title": "Обманчивый двухшаговый экран подписки с хорошо спрятанной кнопкой закрытия",
+  "obs": 3
+ },
+ {
+  "id": "no-black-hairstyles",
+  "title": "Нет причёсок и черт характерных для афроамериканцев — афро и дреды не воспроизводятся",
+  "obs": 3
+ },
+ {
+  "id": "captures-likeness-well",
+  "title": "Приложение хорошо передаёт черты лица в мультяшной версии",
+  "obs": 3
+ },
+ {
+  "id": "face-not-found-on-valid-photos",
+  "title": "Приложение отклоняет чёткие фронтальные фото с ошибкой «лицо не найдено», без ручного переопределения",
+  "obs": 3
+ },
+ {
+  "id": "validation-rejects-most-photos",
+  "title": "Большинство фото отклоняется с ошибкой «фото не соответствует стандартам»",
+  "obs": 3
+ },
+ {
+  "id": "no-search-in-filter-catalog",
+  "title": "Нет поиска по большому каталогу фильтров — нужный стиль трудно найти",
+  "obs": 3
+ },
+ {
+  "id": "social-bonding-use-case",
+  "title": "Приложение используется для совместного создания контента с семьёй и друзьями",
+  "obs": 3
+ },
+ {
+  "id": "single-person-limit-hidden-at-purchase",
+  "title": "Ограничение «один человек на фото» скрыто до покупки годовой подписки",
+  "obs": 2
+ },
+ {
+  "id": "high-price-weekly",
+  "title": "Недельная подписка стоит дорого для эпизодического использования",
+  "obs": 2
+ },
+ {
+  "id": "ethnic-features-distorted",
+  "title": "Модель искажает этнические черты лица — носы и губы становятся тоньше, пропорции нереалистичны",
+  "obs": 2
+ },
+ {
+  "id": "low-quality-output",
+  "title": "AI выдаёт низкокачественные изображения, не соответствующие заявленным возможностям",
+  "obs": 2
+ },
+ {
+  "id": "gender-changed",
+  "title": "Модель неправильно определяет и меняет пол человека в результате",
+  "obs": 2
+ },
+ {
+  "id": "anatomical-deformities",
+  "title": "В результатах появляются физические деформации — лишние конечности и странные пропорции",
+  "obs": 2
+ },
+ {
+  "id": "glasses-not-rendered",
+  "title": "Очки с исходного фото не переносятся в мультяшную версию",
+  "obs": 2
+ },
+ {
+  "id": "no-customization-presets-only",
+  "title": "Нет возможности настроить результат — доступны только готовые шаблоны без редактирования параметров",
+  "obs": 2
+ },
+ {
+  "id": "processing-slow",
+  "title": "Обработка фото занимает много минут, особенно при первом использовании",
+  "obs": 2
+ },
+ {
+  "id": "ad-on-every-button-tap",
+  "title": "Реклама проигрывается при каждом нажатии кнопки и резко замедляет работу",
+  "obs": 2
+ },
+ {
+  "id": "content-filter-false-positive",
+  "title": "Фильтр ошибочно помечает обычные невинные фото как нарушающие правила",
+  "obs": 2
+ },
+ {
+  "id": "no-group-multi-person",
+  "title": "Приложение обрабатывает только одного человека на фото — групповые сцены не поддерживаются",
+  "obs": 2
+ },
+ {
+  "id": "fullscreen-sub-banner-blocks-ui",
+  "title": "Полноэкранный баннер подписки при запуске блокирует интерфейс и его трудно закрыть",
+  "obs": 2
+ },
+ {
+  "id": "confusing-onboarding-learnable",
+  "title": "Поначалу интерфейс запутанный, но после освоения приложение работает понятно",
+  "obs": 2
+ },
+ {
+  "id": "errors-after-usage-period",
+  "title": "После некоторого времени работы приложение начинает выдавать ошибки на базовых операциях",
+  "obs": 2
+ },
+ {
+  "id": "busy-server-overloaded-error",
+  "title": "Приложение возвращает ошибку «занято» или «сервер перегружен» сразу после покупки",
+  "obs": 2
+ },
+ {
+  "id": "removed-feature-objects-scenes",
+  "title": "Удалена возможность превращать в картины любые объекты и сцены — осталась только замена лиц",
+  "obs": 2
+ },
+ {
+  "id": "creative-control-print-use",
+  "title": "Пользователи ценят творческий контроль и печатают результаты на плакатах",
+  "obs": 2
+ },
+ {
+  "id": "prefers-one-time-over-subscription",
+  "title": "Пользователи предпочли бы разовую покупку вместо ежемесячной подписки",
+  "obs": 2
+ },
+ {
+  "id": "better-than-competitors",
+  "title": "Пользователь считает приложение лучше десятков других cartoon-приложений по качеству результата",
+  "obs": 2
+ },
+ {
+  "id": "designer-service-no-delivery",
+  "title": "Платный сервис кастомных дизайнов берёт деньги, но работу не выполняет",
+  "obs": 1
+ },
+ {
+  "id": "hot-body-wrong-changes",
+  "title": "Функция Hot Body меняет одежду на странный спортивный образ вместо подтянутого тела",
+  "obs": 1
+ },
+ {
+  "id": "fewer-output-variations",
+  "title": "Приложение стало выдавать всего 1-2 варианта вместо большего набора результатов",
+  "obs": 1
+ },
+ {
+  "id": "dream-look-quality-degraded",
+  "title": "Качество эффекта Dream Look ухудшилось в последних обновлениях",
+  "obs": 1
+ },
+ {
+  "id": "flattering-younger-version",
+  "title": "Приложение делает лица моложе и привлекательнее, используется для сравнения с друзьями",
+  "obs": 1
+ },
+ {
+  "id": "celebrity-search-porn",
+  "title": "Во вкладке «Celebrity» можно найти порнографический контент — небезопасно для детей",
+  "obs": 1
+ },
+ {
+  "id": "workflow-slower-more-steps",
+  "title": "Обработка теперь требует в разы больше шагов и времени, чем раньше",
+  "obs": 1
+ },
+ {
+  "id": "no-history-of-creations",
+  "title": "Нет истории или архива — ранее созданные изображения исчезают при возврате в приложение",
+  "obs": 1
+ },
+ {
+  "id": "no-target-result-specification",
+  "title": "Нет способа явно указать желаемый результат — параметры приходится угадывать",
+  "obs": 1
+ },
+ {
+  "id": "always-changes-whole-face",
+  "title": "При простом эффекте приложение всё равно перестраивает всю структуру лица",
+  "obs": 1
+ },
+ {
+  "id": "lost-multi-variation-preview",
+  "title": "Убрана возможность видеть несколько вариантов одного фильтра сразу — теперь каждый стиль выбирается отдельно без предпросмотра",
+  "obs": 1
+ },
+ {
+  "id": "before-after-uses-user-photo",
+  "title": "Приложение показывает результат до и после на загруженном фото пользователя",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-specific-effect",
+  "title": "Приложение падает при попытке использовать определённый эффект",
+  "obs": 1
+ },
+ {
+  "id": "removed-feature-pet-to-cartoon",
+  "title": "Раньше можно было превращать животных в мультяшки — в текущей версии функция сломана",
+  "obs": 1
+ },
+ {
+  "id": "removed-celebrity-comparison",
+  "title": "Функция сравнения с знаменитостями удалена в поздних обновлениях",
+  "obs": 1
+ },
+ {
+  "id": "removed-couples-filter",
+  "title": "Кнопка фильтров для пар удалена и заменена праздничным промо",
+  "obs": 1
+ },
+ {
+  "id": "minor-bugs-stable-overall",
+  "title": "Есть мелкие баги, но в целом приложение работает стабильно для творческих задач",
+  "obs": 1
+ },
+ {
+  "id": "dating-push-notifications",
+  "title": "Приложение шлёт push-уведомления о знакомствах с женщинами поблизости — поведение dating-приложения, а не фоторедактора",
+  "obs": 1
+ },
+ {
+  "id": "wants-less-ads-loyal-user",
+  "title": "Лояльные пользователи просят убрать или сократить рекламу в версии",
+  "obs": 1
+ },
+ {
+  "id": "cross-tool-book-creation",
+  "title": "Пользователь комбинирует приложение с Google Slides для создания иллюстрированных книг",
+  "obs": 1
+ },
+ {
+  "id": "wants-realistic-mode-features",
+  "title": "Пользователи хотят расширения функций на реалистичный режим, а не только мультяшный",
+  "obs": 1
+ },
+ {
+  "id": "deceptive-marketing-promises",
+  "title": "Реклама обещает работу с любыми фото, но реальные возможности гораздо уже",
+  "obs": 1
+ }
+]

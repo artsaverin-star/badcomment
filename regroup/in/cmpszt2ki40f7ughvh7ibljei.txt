@@ -1,0 +1,314 @@
+You are grouping 53 mechanism-level insight clusters from CNBC: Stock Market & Business (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO CNBC: Stock Market & Business, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 53 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to CNBC: Stock Market & Business — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to CNBC: Stock Market & Business>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpszt2ki40f7ughvh7ibljei.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "live-stream-freezes-generally",
+  "title": "Прямая трансляция регулярно зависает и останавливается, хотя другие видеоприложения на том же устройстве работают нормально",
+  "obs": 8
+ },
+ {
+  "id": "app-crashes-on-launch",
+  "title": "Приложение вылетает при каждом открытии или зацикливается на запросе установить обновление",
+  "obs": 5
+ },
+ {
+  "id": "app-slow-after-update",
+  "title": "После очередного обновления приложение работает заметно медленнее: долго загружает статьи и обновляет список наблюдения",
+  "obs": 5
+ },
+ {
+  "id": "cable-provider-login-broken",
+  "title": "Вход через кабельного оператора перестал работать после обновления — поле ввода пустое или показывается спиннер",
+  "obs": 4
+ },
+ {
+  "id": "live-stream-stops-when-backgrounded",
+  "title": "Трансляция прерывается при блокировке экрана или переключении на другое приложение, в отличие от других медиаплееров",
+  "obs": 3
+ },
+ {
+  "id": "live-stream-spinner-no-video",
+  "title": "При входе через кабельного провайдера трансляция показывает бесконечный индикатор загрузки вместо видео",
+  "obs": 3
+ },
+ {
+  "id": "live-stream-broken-after-restructure",
+  "title": "Прямая трансляция через вход кабельного провайдера перестала работать после корпоративного разделения компании",
+  "obs": 3
+ },
+ {
+  "id": "apple-tv-app-broken",
+  "title": "Версия приложения для телевизионной приставки зависает при обновлении или требует переустановки при каждом запуске",
+  "obs": 3
+ },
+ {
+  "id": "historical-price-data-removed",
+  "title": "Визуализация позиции цены акции относительно многолетних максимумов и минимумов удалена из приложения",
+  "obs": 2
+ },
+ {
+  "id": "live-stream-audio-volume-inconsistent",
+  "title": "Громкость прямой трансляции непостоянна: то слишком тихо, то слишком громко без изменения настроек",
+  "obs": 2
+ },
+ {
+  "id": "live-stream-black-screen-audio-only",
+  "title": "При прямой трансляции экран остаётся чёрным, слышен только звук; переустановка помогает временно",
+  "obs": 2
+ },
+ {
+  "id": "video-rewind-broken",
+  "title": "Кнопки перемотки на несколько секунд вперёд и назад перестали работать после обновления",
+  "obs": 2
+ },
+ {
+  "id": "autoplay-video-ad-captures-screen",
+  "title": "Видеореклама автоматически разворачивается на весь экран без действий пользователя и не закрывается",
+  "obs": 2
+ },
+ {
+  "id": "market-data-labels-wrong",
+  "title": "Заголовки разделов рынков показывают данные чужой категории — например, раздел нефти отображает индекс акций",
+  "obs": 2
+ },
+ {
+  "id": "ipad-stream-broken",
+  "title": "Прямая трансляция на планшете перестала работать после изменения структуры приложения, переустановка не помогает",
+  "obs": 2
+ },
+ {
+  "id": "chart-time-intervals-broken",
+  "title": "График акций перестаёт переключаться между временными диапазонами после обновления",
+  "obs": 2
+ },
+ {
+  "id": "notification-flood-stale",
+  "title": "При каждом открытии приложения приходит пачка старых уведомлений, накопившихся за несколько часов",
+  "obs": 2
+ },
+ {
+  "id": "repeated-login-required",
+  "title": "Приложение требует повторного входа регулярно, не сохраняя сессию между запусками",
+  "obs": 2
+ },
+ {
+  "id": "stream-performance-varies-by-device",
+  "title": "Качество трансляции сильно зависит от устройства: на одном работает, на другом постоянные обрывы",
+  "obs": 2
+ },
+ {
+  "id": "subscription-no-entertainment-access",
+  "title": "Платная подписка даёт доступ только к живому каналу, но не к разделу с развлекательным контентом приложения",
+  "obs": 1
+ },
+ {
+  "id": "uk-subscription-access-denied",
+  "title": "В Великобритании подписка списывается, но доступ к контенту закрыт с ошибкой",
+  "obs": 1
+ },
+ {
+  "id": "free-content-moved-behind-paywall",
+  "title": "После объединения с крупной медиакомпанией большой объём контента переместился за платный барьер, бесплатная версия опустела",
+  "obs": 1
+ },
+ {
+  "id": "ondemand-content-delayed",
+  "title": "Видео по запросу появляются с задержкой в несколько часов, хотя конкуренты предлагают запись в реальном времени",
+  "obs": 1
+ },
+ {
+  "id": "futures-data-removed",
+  "title": "Фьючерсы на индексы исчезли после обновления, хотя были главным инструментом для трейдеров",
+  "obs": 1
+ },
+ {
+  "id": "institutional-ownership-removed",
+  "title": "Данные об институциональном владении акциями удалены и теперь недоступны без дополнительной подписки",
+  "obs": 1
+ },
+ {
+  "id": "videos-not-organized-by-show",
+  "title": "Видео не сгруппированы по названию шоу или дате выхода, что затрудняет поиск нужного выпуска",
+  "obs": 1
+ },
+ {
+  "id": "ads-louder-than-content",
+  "title": "Рекламные ролики воспроизводятся значительно громче основного контента",
+  "obs": 1
+ },
+ {
+  "id": "video-audio-desync",
+  "title": "Видео и звук прямой трансляции сильно рассинхронизированы",
+  "obs": 1
+ },
+ {
+  "id": "carplay-audio-broken",
+  "title": "Воспроизведение прямого аудиопотока через встроенный интерфейс автомобиля перестало работать после обновления",
+  "obs": 1
+ },
+ {
+  "id": "preroll-ads-before-every-video",
+  "title": "Перед каждым видео принудительно показывается реклама, как на бесплатных платформах",
+  "obs": 1
+ },
+ {
+  "id": "pip-removed-then-restored",
+  "title": "Режим картинка-в-картинке был удалён в одном из обновлений и возвращён только после жалоб пользователей",
+  "obs": 1
+ },
+ {
+  "id": "offline-auto-refresh-breaks-reading",
+  "title": "Приложение автоматически перезагружает контент при отсутствии сети, прерывая чтение в офлайне",
+  "obs": 1
+ },
+ {
+  "id": "saved-articles-buried-in-menu",
+  "title": "Сохранённые статьи спрятаны в боковой панели профиля, а не вынесены как отдельный раздел ленты",
+  "obs": 1
+ },
+ {
+  "id": "chart-options-below-screen",
+  "title": "Настройки скользящей средней на графике уходят ниже видимой области экрана на большом телефоне",
+  "obs": 1
+ },
+ {
+  "id": "bold-font-visual-regression",
+  "title": "После обновления весь интерфейс отображается жирным шрифтом, что ухудшает читаемость",
+  "obs": 1
+ },
+ {
+  "id": "currency-pair-direction-missing",
+  "title": "Нет возможности просмотреть конкретную валютную пару в нужном направлении — только обратный порядок",
+  "obs": 1
+ },
+ {
+  "id": "target-price-alert-missing",
+  "title": "Отсутствует функция установки целевой цены с уведомлением для бумаг из списка наблюдения",
+  "obs": 1
+ },
+ {
+  "id": "paywall-banner-no-preview",
+  "title": "Баннер с заголовком статьи сразу ведёт к платному барьеру без предпросмотра содержания",
+  "obs": 1
+ },
+ {
+  "id": "banner-ads-intercept-scroll",
+  "title": "Рекламные баннеры перехватывают нажатия при прокрутке статьи и разворачиваются на весь экран",
+  "obs": 1
+ },
+ {
+  "id": "watchlist-ux-degraded-after-update",
+  "title": "Переработка интерфейса ухудшила навигацию по списку наблюдения — привычные действия стали сложнее",
+  "obs": 1
+ },
+ {
+  "id": "watchlist-corrupted-after-update",
+  "title": "После обновления списки наблюдения повредились или часть из них исчезла",
+  "obs": 1
+ },
+ {
+  "id": "ftse-chart-limited-history",
+  "title": "График британского индекса показывает данные только за один день, тогда как другие рынки отображают несколько периодов",
+  "obs": 1
+ },
+ {
+  "id": "chart-data-stale",
+  "title": "Графики обновляют цену в реальном времени медленнее, чем в предыдущей версии приложения",
+  "obs": 1
+ },
+ {
+  "id": "article-loading-broken-on-device",
+  "title": "Статьи не загружаются на устаревших моделях телефона с определённой версией приложения",
+  "obs": 1
+ },
+ {
+  "id": "app-conflicts-with-other-streamers",
+  "title": "Приложение принудительно закрывает другие запущенные потоковые приложения при своём запуске",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-compatibility-removed",
+  "title": "Поддержка приложения на умных часах была удалена без замены",
+  "obs": 1
+ },
+ {
+  "id": "app-freezes-on-device",
+  "title": "Приложение зависает на определённой модели телефона после обновления",
+  "obs": 1
+ },
+ {
+  "id": "ticker-click-crashes-app",
+  "title": "Нажатие на тикер акции из утреннего дайджеста вызывает вылет приложения",
+  "obs": 1
+ },
+ {
+  "id": "video-content-update-delayed",
+  "title": "Видеоматериалы в разделе по запросу обновляются с задержкой в несколько дней вместо нескольких часов",
+  "obs": 1
+ },
+ {
+  "id": "sorting-broken-on-ipad",
+  "title": "Сортировка данных работает на телефоне, но не работает на планшете",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive-streaming",
+  "title": "Служба поддержки не реагирует на жалобы по проблемам с трансляцией, стандартные советы не помогают",
+  "obs": 1
+ },
+ {
+  "id": "geo-restriction-uk",
+  "title": "Аудиопоток и часть контента недоступны в Великобритании из-за географических ограничений, что уводит пользователей к конкурентам",
+  "obs": 1
+ },
+ {
+  "id": "privacy-opt-out-friction",
+  "title": "Отказ от продажи персональных данных требует заполнения отдельных форм, что создаёт лишние препятствия",
+  "obs": 1
+ }
+]

@@ -1,0 +1,249 @@
+You are grouping 40 mechanism-level insight clusters from TickTick:To-Do List & Calendar (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO TickTick:To-Do List & Calendar, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 40 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to TickTick:To-Do List & Calendar — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to TickTick:To-Do List & Calendar>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsy36g50f8qughv1nfyqaj5.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "all-in-one-consolidation",
+  "title": "Объединение задач, календаря и напоминаний в одном интерфейсе убирает переключение между приложениями",
+  "obs": 5
+ },
+ {
+  "id": "free-positioning-paywall",
+  "title": "Приложение позиционируется как бесплатное, но базовый функционал заблокирован за подпиской",
+  "obs": 3
+ },
+ {
+  "id": "vision-pro-crash-regression",
+  "title": "Приложение крашится на Apple Vision Pro после входа — платформа перестала работать после обновлений",
+  "obs": 3
+ },
+ {
+  "id": "beats-competitors-execution",
+  "title": "Пользователи мигрируют с конкурентов из-за превосходного исполнения базовых функций",
+  "obs": 3
+ },
+ {
+  "id": "customization-depth",
+  "title": "Глубина настройки интерфейса и рабочих процессов превосходит конкурентов и возвращает пользователей",
+  "obs": 2
+ },
+ {
+  "id": "eisenhower-matrix",
+  "title": "Встроенная матрица Эйзенхауэра разделяет важное и срочное без отдельного инструмента",
+  "obs": 2
+ },
+ {
+  "id": "sync-loses-tasks-events",
+  "title": "Синхронизация или обновление теряет созданные задачи и события, и пользователь замечает потерю слишком поздно",
+  "obs": 2
+ },
+ {
+  "id": "adhd-cognitive-aid",
+  "title": "Для пользователей с СДВГ приложение работает как когнитивная опора и заменяет несколько отдельных приложений",
+  "obs": 2
+ },
+ {
+  "id": "data-loss-scare-tactic",
+  "title": "Окончание премиума подаётся как угроза потери данных — это маркетинговый приём, а не реальный риск",
+  "obs": 1
+ },
+ {
+  "id": "single-start-date-no-deadline",
+  "title": "У задачи есть только дата начала — нельзя задать отдельную дату дедлайна для планирования сроков",
+  "obs": 1
+ },
+ {
+  "id": "projects-no-description",
+  "title": "Проекты — это просто папки без описаний; нельзя сохранить заметку о смысле проекта",
+  "obs": 1
+ },
+ {
+  "id": "no-not-done-state",
+  "title": "У задачи только два исхода — выполнено или отложить; нет статуса «не выполнено», и история засоряется",
+  "obs": 1
+ },
+ {
+  "id": "time-recurrence-hidden",
+  "title": "Установка времени и повторяющегося расписания спрятана — ни долгое нажатие, ни меню не открывают эти опции",
+  "obs": 1
+ },
+ {
+  "id": "task-name-truncation",
+  "title": "Увеличенный минимальный шрифт обрезает длинные названия задач и проектов",
+  "obs": 1
+ },
+ {
+  "id": "pinned-lists-truncated-mac",
+  "title": "Закреплённые списки на Mac обрезают длинные названия без переноса — приходится оставлять только иконки",
+  "obs": 1
+ },
+ {
+  "id": "custom-background-readability",
+  "title": "При кастомном фоне на Mac нельзя отдельно настроить цвет текста или светлую/тёмную тему ради читаемости",
+  "obs": 1
+ },
+ {
+  "id": "auto-reminder-on-time-entry",
+  "title": "Ввод времени в задачу сразу создаёт напоминание — экономит лишние клики",
+  "obs": 1
+ },
+ {
+  "id": "multi-dimension-sort",
+  "title": "Можно сортировать задачи одновременно по дате и по приоритету — конкуренты дают только один способ",
+  "obs": 1
+ },
+ {
+  "id": "flexible-recurrence-every-n-days",
+  "title": "Поддержка гибкого повтора «каждые N дней» без привязки к дням недели подходит для приёма добавок",
+  "obs": 1
+ },
+ {
+  "id": "subtasks-simple-interface",
+  "title": "Подзадачи реализованы в простом интерфейсе — у конкурентов их нет или они слишком сложны",
+  "obs": 1
+ },
+ {
+  "id": "no-calendar-events",
+  "title": "Приложение называется календарём, но не даёт создавать события — только задачи в отдельном списке",
+  "obs": 1
+ },
+ {
+  "id": "repeated-permission-popups",
+  "title": "Приложение повторно показывает попапы запроса уведомлений даже после оплаты и явного отказа",
+  "obs": 1
+ },
+ {
+  "id": "sync-fails-with-subscription",
+  "title": "Задачи не синхронизируются между мобильным и десктопом даже при активной платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "no-manual-sync-conflict-resolver",
+  "title": "Нет ручной синхронизации и разрешения конфликтов — диагностика рассинхронизации отнимает часы",
+  "obs": 1
+ },
+ {
+  "id": "reschedule-not-applied",
+  "title": "Изменение срока задачи часто не применяется — новая дата подтверждена, но задача остаётся на месте",
+  "obs": 1
+ },
+ {
+  "id": "snooze-sync-delay",
+  "title": "Отложенные уведомления синхронизируются с задержкой — они продолжают приходить на другие устройства",
+  "obs": 1
+ },
+ {
+  "id": "badge-count-wrong",
+  "title": "Счётчик на иконке показывает неверное число задач — они считаются дважды или не учитываются до открытия",
+  "obs": 1
+ },
+ {
+  "id": "lockscreen-done-not-applied",
+  "title": "Отметка «выполнено» с экрана блокировки не завершает задачу — приходится открывать приложение",
+  "obs": 1
+ },
+ {
+  "id": "stats-time-shift",
+  "title": "График статистики смещается по времени около 19:00 и неверно определяет самый загруженный день",
+  "obs": 1
+ },
+ {
+  "id": "subscribed-calendar-wrong-dates",
+  "title": "События из подписанных календарей показывают неправильные даты, не совпадающие с источником",
+  "obs": 1
+ },
+ {
+  "id": "black-screen-on-launch",
+  "title": "При запуске часто появляется чёрный экран — для перезапуска нужен жест свайпа",
+  "obs": 1
+ },
+ {
+  "id": "reauth-each-open",
+  "title": "Приложение требует повторного входа при каждом открытии, ломая сценарий «открыл и работаешь»",
+  "obs": 1
+ },
+ {
+  "id": "drag-drop-broken",
+  "title": "Перетаскивание для переупорядочивания задач сломано и не отлавливается автотестами",
+  "obs": 1
+ },
+ {
+  "id": "ipad-split-screen-hides-ui",
+  "title": "На iPad в режиме раздельного экрана поле ввода исчезает — нельзя добавить ярлык без полноэкранного режима",
+  "obs": 1
+ },
+ {
+  "id": "mac-lags-behind-ios",
+  "title": "Версия для Mac отстаёт от iOS по функциям и реже обновляется, ограничивая опытных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "completion-sound-max-volume",
+  "title": "Звук завершения задачи звучит на максимальной громкости независимо от системной и раздражает",
+  "obs": 1
+ },
+ {
+  "id": "persistent-cross-device-reminder",
+  "title": "Напоминание приходит синхронно на все устройства и его трудно полностью отложить — это заставляет выполнить задачу",
+  "obs": 1
+ },
+ {
+  "id": "recurring-life-tracking",
+  "title": "Единый список повторяющихся напоминаний (подписки, витамины, медикаменты) превращается в систему наблюдения за жизнью",
+  "obs": 1
+ },
+ {
+  "id": "web-interface-migration-driver",
+  "title": "Главный повод перейти на TickTick — веб-интерфейс для синхронизации рабочих задач между устройствами",
+  "obs": 1
+ },
+ {
+  "id": "less-marketing-email",
+  "title": "Реже шлёт маркетинговые письма, чем конкуренты, и это укрепляет долгосрочное использование",
+  "obs": 1
+ }
+]

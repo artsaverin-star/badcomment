@@ -1,0 +1,60 @@
+{
+  "groups": [
+    {
+      "id": "email-otpravka-ne-rabotaet",
+      "name": "Отправка по почте — главное слабое звено",
+      "insight_ids": [
+        "email-delivery-hours-delay",
+        "email-feature-broken-despite-settings",
+        "email-send-broken-after-update",
+        "email-sent-status-false-on-weak-network",
+        "email-blocked-at-night-time-restriction",
+        "downloaded-document-not-retrievable"
+      ]
+    },
+    {
+      "id": "dokumenty-propadayut",
+      "name": "Документы пропадают: нет бэкапа, синхронизации и переноса",
+      "insight_ids": [
+        "no-cloud-backup-data-loss-on-reinstall",
+        "no-cross-platform-sync",
+        "android-missing-features-vs-ios",
+        "app-crash-after-update-docs-inaccessible"
+      ]
+    },
+    {
+      "id": "billing-lovushki",
+      "name": "Платёжные ловушки и доплаты за уже купленное",
+      "insight_ids": [
+        "trial-quality-misrepresents-paid",
+        "app-demands-payment-after-two-uses",
+        "previously-purchased-now-paywalled"
+      ]
+    },
+    {
+      "id": "luchshe-zheleza",
+      "name": "Чем TurboScan бьёт сканеры и копицентры",
+      "insight_ids": [
+        "turboscan-vs-physical-scanners",
+        "turboscan-finer-text-than-competitors",
+        "oversized-plans-better-than-copy-center"
+      ]
+    },
+    {
+      "id": "zahvat-kadra",
+      "name": "Захват кадра: задержка камеры и кривая автообрезка",
+      "insight_ids": [
+        "camera-shutter-lag-wrong-frame",
+        "ai-autocrop-cuts-page-edges"
+      ]
+    },
+    {
+      "id": "papki-i-poryadok",
+      "name": "Папки и порядок: самосклейка и отсутствие вложенности",
+      "insight_ids": [
+        "folders-merge-spontaneously",
+        "no-subfolder-hierarchy"
+      ]
+    }
+  ]
+}

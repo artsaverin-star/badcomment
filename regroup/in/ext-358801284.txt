@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from Flipboard: The Social Magazine (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Flipboard: The Social Magazine, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Flipboard: The Social Magazine — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Flipboard: The Social Magazine>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-358801284.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "appstore-ads-flood",
+  "title": "Реклама чужих приложений появляется при каждом перелистывании и превращает ленту новостей в рекламный каталог",
+  "obs": 12
+ },
+ {
+  "id": "device-overheating-battery",
+  "title": "Приложение вызывает перегрев телефона и быстрый разряд батареи даже при обычном чтении на современных устройствах",
+  "obs": 11
+ },
+ {
+  "id": "modal-ads-unblockable",
+  "title": "Полноэкранные всплывающие окна с рекламой нельзя закрыть — они блокируют чтение и зависают на экране",
+  "obs": 7
+ },
+ {
+  "id": "paywall-articles-mixed-in-feed",
+  "title": "Статьи за платным барьером перемешаны со свободными в одной ленте, а фильтра для их исключения нет",
+  "obs": 7
+ },
+ {
+  "id": "algorithm-ignores-show-less",
+  "title": "Команда «показать меньше» либо не работает, либо приводит к обратному результату — нежелательный контент возвращается или удваивается",
+  "obs": 5
+ },
+ {
+  "id": "algorithm-adds-unsubscribed-topics",
+  "title": "Алгоритм самостоятельно добавляет в ленту темы, на которые пользователь не подписывался, игнорируя явные предпочтения",
+  "obs": 4
+ },
+ {
+  "id": "ad-autonavigation",
+  "title": "Реклама открывает браузер или магазин приложений без нажатия пользователя — случайный тап при листании уводит из приложения",
+  "obs": 3
+ },
+ {
+  "id": "share-from-browser-broken",
+  "title": "Отправка статьи в приложение через расширение браузера перестала работать — ни Chrome, ни Safari не передают материал",
+  "obs": 3
+ },
+ {
+  "id": "political-bias-in-feed",
+  "title": "Контент в ленте имеет выраженный политический уклон в одну сторону — воспринимается как редакционная позиция, а не нейтральная агрегация",
+  "obs": 3
+ },
+ {
+  "id": "scam-virus-ads",
+  "title": "Реклама ведёт на мошеннические страницы с поддельными предупреждениями о вирусах и навязчивыми окнами",
+  "obs": 2
+ },
+ {
+  "id": "session-position-lost",
+  "title": "После переключения в другое приложение и возврата позиция в ленте сбрасывается на начало",
+  "obs": 2
+ },
+ {
+  "id": "article-freeze-mid-read",
+  "title": "Статья замерзает на середине — вторая половина не загружается, чтение обрывается",
+  "obs": 2
+ },
+ {
+  "id": "slow-flip-loading",
+  "title": "Переход между статьями занимает до 30 секунд на стабильном интернете — основной интерфейс зависает",
+  "obs": 2
+ },
+ {
+  "id": "ad-sound-autoplay",
+  "title": "Реклама воспроизводит звук при пролистывании, а глобального отключения звука рекламы в приложении нет",
+  "obs": 1
+ },
+ {
+  "id": "double-layer-ads",
+  "title": "Издатели и Flipboard накладывают рекламу друг на друга: читатель получает двойной уровень рекламного давления внутри одной статьи",
+  "obs": 1
+ },
+ {
+  "id": "video-ads-repetitive",
+  "title": "Видеореклама одинакова во всех статьях независимо от темы — очевидно, что её размещает само приложение, а не источник",
+  "obs": 1
+ },
+ {
+  "id": "reader-view-ad-bypass",
+  "title": "Режим чтения скрывает рекламу и даёт доступ к тексту — пользователи используют его как способ обойти рекламные барьеры",
+  "obs": 1
+ },
+ {
+  "id": "dark-mode-invisible-icons",
+  "title": "В тёмном режиме мелкие иконки внизу страницы сливаются с фоном и становятся недоступны",
+  "obs": 1
+ },
+ {
+  "id": "navigation-cognitive-load",
+  "title": "Непонятно, что кликабельно, что листается, а что реагирует на жест сбоку — интерфейс требует запоминания скрытых правил",
+  "obs": 1
+ },
+ {
+  "id": "flip-vs-scroll-ux",
+  "title": "Механика перелистывания требует тысячи движений там, где скролл справился бы быстрее",
+  "obs": 1
+ },
+ {
+  "id": "date-removed-from-feed",
+  "title": "Дата публикации убрана из превью — чтобы проверить свежесть материала, нужно открыть каждую статью отдельно",
+  "obs": 1
+ },
+ {
+  "id": "max-pages-limit",
+  "title": "Приложение ограничивает количество пользовательских журналов тремя — пользователи с большим числом категорий упираются в потолок",
+  "obs": 1
+ },
+ {
+  "id": "share-url-obfuscated",
+  "title": "Функция «поделиться» генерирует нечитаемую ссылку без названия статьи — получатель не понимает, что ему прислали",
+  "obs": 1
+ },
+ {
+  "id": "offline-mode-absent",
+  "title": "Нет режима для чтения загруженных статей без интернета — в самолёте или без сети приложение бесполезно",
+  "obs": 1
+ },
+ {
+  "id": "add-to-multiple-magazines",
+  "title": "Добавить статью в несколько журналов сразу нельзя — нужно повторять действие для каждого журнала по отдельности",
+  "obs": 1
+ },
+ {
+  "id": "section-reorder-not-saved",
+  "title": "Изменение порядка разделов не сохраняется — приложение забывает расстановку после перетаскивания",
+  "obs": 1
+ },
+ {
+  "id": "delete-pages-broken",
+  "title": "Удаление контента не работает начиная с третьей страницы — изменения не сохраняются",
+  "obs": 1
+ },
+ {
+  "id": "old-articles-mixed-with-fresh",
+  "title": "Старые архивные статьи попадают в общий поток рядом со свежими новостями без визуального разделения по дате",
+  "obs": 1
+ },
+ {
+  "id": "music-added-to-news-app",
+  "title": "Добавление музыки в новостное приложение нарушает основной сценарий — пользователь пришёл читать, а не слушать",
+  "obs": 1
+ },
+ {
+  "id": "ai-summaries-removed",
+  "title": "Функция кратких изложений статей удалена — пользователи лишились возможности быстро понять суть материала",
+  "obs": 1
+ },
+ {
+  "id": "email-feed-discovery",
+  "title": "Рассылка с отобранными статьями помогает находить интересный контент в смежных темах, которые пользователь не ищет активно",
+  "obs": 1
+ },
+ {
+  "id": "news-delivery-speed-advantage",
+  "title": "Приложение стабильно доставляет новости быстрее конкурентов — это главное конкурентное преимущество для части аудитории",
+  "obs": 1
+ },
+ {
+  "id": "political-filter-removed",
+  "title": "Фильтрация политических тем и имён удалена из приложения — пользователи, избегающие стрессового контента, потеряли ключевую функцию",
+  "obs": 1
+ },
+ {
+  "id": "background-data-tracking",
+  "title": "Приложение собирает данные о пользователе за пределами своей работы и продаёт их, даже при отключённом фоновом обновлении",
+  "obs": 1
+ },
+ {
+  "id": "external-auth-breaks-in-app-flow",
+  "title": "Подписки на крупные издания требуют входа через внешний браузер — это разрывает сценарий единого читательского пространства",
+  "obs": 1
+ },
+ {
+  "id": "ad-volume-growth-over-time",
+  "title": "Количество рекламы в ленте резко выросло за последние два года и сделало приложение неудобным для ежедневного использования",
+  "obs": 1
+ },
+ {
+  "id": "audio-focus-capture",
+  "title": "Приложение перехватывает аудиофокус устройства и прерывает музыку или подкасты при переходе к некоторым страницам",
+  "obs": 1
+ },
+ {
+  "id": "video-buffering-in-articles",
+  "title": "Встроенное видео в статьях постоянно буферизуется и практически не воспроизводится нормально",
+  "obs": 1
+ },
+ {
+  "id": "boards-not-updating",
+  "title": "Персональные доски перестают обновляться на несколько дней, оставляя пользователя без свежего контента",
+  "obs": 1
+ },
+ {
+  "id": "social-features-data-loss",
+  "title": "Избранное, история просмотров и уведомления периодически полностью стираются — данные теряются целыми неделями",
+  "obs": 1
+ },
+ {
+  "id": "feed-stops-after-few-flips",
+  "title": "После нескольких перелистываний лента перестаёт загружать контент и требует принудительного обновления",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-return-to-feed",
+  "title": "После обновления приложение вылетает при возврате из статьи в ленту — нужно перезапускать после каждого прочтения",
+  "obs": 1
+ },
+ {
+  "id": "mobile-vs-web-performance",
+  "title": "Мобильное приложение работает значительно хуже веб-версии и требует постоянных перезапусков для простых операций",
+  "obs": 1
+ },
+ {
+  "id": "device-freeze-after-many-flips",
+  "title": "После большого количества перелистываний приложение замораживает весь телефон на несколько минут",
+  "obs": 1
+ },
+ {
+  "id": "widget-article-open-error",
+  "title": "Каждый четвёртый клик по заголовку в виджете приводит к ошибке открытия статьи",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-notification-tap",
+  "title": "Клик по пуш-уведомлению вызывает вылет приложения — статья теряется, найти её через поиск тоже не удаётся",
+  "obs": 1
+ },
+ {
+  "id": "saved-articles-crash",
+  "title": "Открытие сохранённых статей вызывает вылет приложения — функция сохранения фактически не работает уже больше года",
+  "obs": 1
+ },
+ {
+  "id": "crash-after-ios-update",
+  "title": "После обновления системы приложение начинает регулярно вылетать при перелистывании статей",
+  "obs": 1
+ },
+ {
+  "id": "account-deletion-apple-signin",
+  "title": "Удалить учётную запись, созданную через вход от производителя устройства, из самого приложения невозможно",
+  "obs": 1
+ },
+ {
+  "id": "support-ticket-autoclosed",
+  "title": "Обращения в поддержку закрываются автоматически, если пользователь не заметил ответ вовремя, — и нужно оформлять всё заново",
+  "obs": 1
+ }
+]

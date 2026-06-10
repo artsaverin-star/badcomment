@@ -1,0 +1,329 @@
+You are grouping 56 mechanism-level insight clusters from Google Maps (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Google Maps, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 56 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Google Maps — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Google Maps>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-585027354.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "route-algo-long",
+  "title": "Алгоритм маршрутизации систематически выбирает самые длинные и неэффективные маршруты",
+  "obs": 18
+ },
+ {
+  "id": "address-hidden-deep",
+  "title": "Адрес места убран в самый низ страницы и требует много прокруток — хотя адрес это главная информация карт-приложения",
+  "obs": 10
+ },
+ {
+  "id": "ai-gemini-distracting",
+  "title": "Кнопка и блок Gemini AI занимают ключевое место в интерфейсе и мешают основной навигации; отключить нельзя",
+  "obs": 9
+ },
+ {
+  "id": "route-detours-unnecessary",
+  "title": "Приложение добавляет ненужные объезды, петли и развороты вместо прямого маршрута",
+  "obs": 8
+ },
+ {
+  "id": "route-wrong-destination",
+  "title": "Приложение ведёт к неправильному месту: неверный адрес назначения или спонсорский объект вместо нужного",
+  "obs": 5
+ },
+ {
+  "id": "preview-route-replaced-ai",
+  "title": "Кнопка предварительного просмотра маршрута заменена кнопкой ИИ-помощника — просмотр маршрута стал недоступен в одно касание",
+  "obs": 5
+ },
+ {
+  "id": "route-illegal-maneuvers",
+  "title": "Приложение предлагает незаконные или физически невозможные манёвры: запрещённые повороты и маршруты через недоступные зоны",
+  "obs": 4
+ },
+ {
+  "id": "search-sponsored-wrong",
+  "title": "Поисковая выдача подставляет спонсорские результаты и рекламу вместо нужного места",
+  "obs": 4
+ },
+ {
+  "id": "voice-nav-wrong-directions",
+  "title": "Голосовые указания называют неправильную сторону поворота или неверный номер выхода",
+  "obs": 4
+ },
+ {
+  "id": "audio-interruption-background",
+  "title": "Приложение прерывает фоновое воспроизведение музыки каждый раз при переключении экрана или взаимодействии с картой",
+  "obs": 4
+ },
+ {
+  "id": "route-user-choice-ignored",
+  "title": "Приложение игнорирует выбранный пользователем маршрут и принудительно возвращает на свой вариант",
+  "obs": 3
+ },
+ {
+  "id": "route-no-alternatives",
+  "title": "Приложение перестало предлагать альтернативные маршруты — доступен только один вариант",
+  "obs": 3
+ },
+ {
+  "id": "route-multileg-missing",
+  "title": "При планировании маршрута с несколькими остановками не отображается суммарное время и расстояние",
+  "obs": 3
+ },
+ {
+  "id": "search-name-wrong-results",
+  "title": "Поиск по точному названию компании возвращает посторонние или несвязанные результаты",
+  "obs": 3
+ },
+ {
+  "id": "search-radius-too-wide",
+  "title": "Поиск по ближайшим местам возвращает результаты на десятки километров или из соседних регионов",
+  "obs": 3
+ },
+ {
+  "id": "map-zoom-navigation",
+  "title": "Карта слишком сильно приближена во время навигации — общая картина маршрута не видна, масштаб нельзя изменить",
+  "obs": 3
+ },
+ {
+  "id": "map-street-names-lights-missing",
+  "title": "Названия улиц, номера дорог и светофоры не отображаются на карте во время навигации",
+  "obs": 3
+ },
+ {
+  "id": "map-complex-ui-hidden-features",
+  "title": "Основные функции спрятаны за несколькими уровнями меню; простые действия требуют много нажатий",
+  "obs": 3
+ },
+ {
+  "id": "map-traffic-no-nav",
+  "title": "Пробки на карте видны только при активной навигации — без запущенного маршрута загруженность дорог не отображается",
+  "obs": 3
+ },
+ {
+  "id": "transit-schedule-wrong",
+  "title": "Расписания автобусов и поездов содержат неверные данные о времени прибытия и номерах маршрутов",
+  "obs": 3
+ },
+ {
+  "id": "gps-positioning-inaccurate",
+  "title": "GPS неточно определяет положение автомобиля — постоянный пересчёт маршрута и пропуск поворотов",
+  "obs": 3
+ },
+ {
+  "id": "app-crash-freeze-navigation",
+  "title": "Приложение зависает или закрывается в критический момент навигации; после ИИ-обновления нарушилась базовая загрузка",
+  "obs": 3
+ },
+ {
+  "id": "avoid-tolls-ignored",
+  "title": "Настройка «избегать платных дорог» игнорируется — маршрут всё равно проходит через платные участки",
+  "obs": 3
+ },
+ {
+  "id": "updates-reset-settings",
+  "title": "Каждое обновление сбрасывает пользовательские настройки (перспектива, масштаб, режим карты) без предупреждения",
+  "obs": 3
+ },
+ {
+  "id": "route-multimodal-broken",
+  "title": "Приложение не умеет строить маршруты, сочетающие разные виды транспорта в одной поездке",
+  "obs": 2
+ },
+ {
+  "id": "saved-places-frequently-visited",
+  "title": "«Часто посещаемые места» формируются автоматически на основе предположений — пользователь не контролирует список и не может исправить ошибки",
+  "obs": 2
+ },
+ {
+  "id": "bookmarks-sync-google",
+  "title": "Папки избранного в Картах синхронизируются с Google Закладками: удаление в одном приложении уничтожает данные в другом",
+  "obs": 2
+ },
+ {
+  "id": "reviews-hidden-negative",
+  "title": "Однозвёздочные отзывы скрыты или не отображаются, что позволяет компаниям замалчивать негатив",
+  "obs": 2
+ },
+ {
+  "id": "satellite-mode-removed",
+  "title": "Спутниковый режим карты убран или не сохраняется между сессиями — каждый раз нужно переключать вручную",
+  "obs": 2
+ },
+ {
+  "id": "map-data-outdated",
+  "title": "Данные карт не обновляются: новые дороги и изменения отсутствуют в приложении",
+  "obs": 2
+ },
+ {
+  "id": "geo-names-wrong",
+  "title": "Географические названия в приложении содержат ошибки (неправильные названия водоёмов и объектов)",
+  "obs": 2
+ },
+ {
+  "id": "road-closure-status-wrong",
+  "title": "Статус перекрытия дорог отображается неверно: закрытые дороги показаны открытыми и наоборот",
+  "obs": 2
+ },
+ {
+  "id": "traffic-data-false",
+  "title": "Данные о пробках содержат ложные заторы; при длительных поездках информация обновляется с большим опозданием",
+  "obs": 2
+ },
+ {
+  "id": "route-change-no-warning",
+  "title": "Маршрут автоматически меняется в середине поездки без предупреждения пользователя",
+  "obs": 2
+ },
+ {
+  "id": "streetview-removed",
+  "title": "Street View и пользовательские фото 360° удалены или стали недоступны в новой версии",
+  "obs": 2
+ },
+ {
+  "id": "shake-new-ui-distraction",
+  "title": "Новые элементы интерфейса (встряхивание для обратной связи, автоматические предложения альтернатив) отвлекают водителя во время движения",
+  "obs": 2
+ },
+ {
+  "id": "strategy-maps-positive-transit",
+  "title": "Маршруты общественного транспорта и пешеходная навигация работают хорошо и используются ежедневно",
+  "obs": 2
+ },
+ {
+  "id": "route-car-option-missing",
+  "title": "Приложение не предлагает маршрут на автомобиле, показывая только общественный транспорт и пешеходные варианты",
+  "obs": 1
+ },
+ {
+  "id": "route-unsafe-night",
+  "title": "Приложение направляет по неосвещённым сельским дорогам без жилых домов в тёмное время суток",
+  "obs": 1
+ },
+ {
+  "id": "address-copy-disabled",
+  "title": "Скопировать адрес из результатов поиска невозможно — приложение открывает только ссылку через Google Search",
+  "obs": 1
+ },
+ {
+  "id": "map-orientation",
+  "title": "Нет возможности развернуть карту по направлению движения",
+  "obs": 1
+ },
+ {
+  "id": "map-contrast-palette",
+  "title": "Новая цветовая схема менее контрастна и хуже читается при вождении",
+  "obs": 1
+ },
+ {
+  "id": "map-home-button-hidden",
+  "title": "Кнопка «Домой» скрыта за блоком рекомендаций ресторанов и отелей",
+  "obs": 1
+ },
+ {
+  "id": "map-exit-numbers-missing",
+  "title": "Номера выходов с шоссе не отображаются на карте",
+  "obs": 1
+ },
+ {
+  "id": "map-alerts-only-removed",
+  "title": "Опция получать только дорожные предупреждения (без других уведомлений) была убрана",
+  "obs": 1
+ },
+ {
+  "id": "transit-stop-switch",
+  "title": "Переключаться между несколькими автобусами на одной остановке неудобно в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "saved-places-favorites",
+  "title": "Сохранённые избранные места недоступны при построении маршрута",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-removed",
+  "title": "Функция скачивания карт для работы без интернета была удалена из приложения",
+  "obs": 1
+ },
+ {
+  "id": "carplay-timezone-eta",
+  "title": "На CarPlay время прибытия неверно пересчитывается при пересечении часовых поясов",
+  "obs": 1
+ },
+ {
+  "id": "eta-inaccurate",
+  "title": "Время прибытия рассчитывается с огромным разбросом (например, от 50 минут до 2 часов) и не позволяет планировать поездку",
+  "obs": 1
+ },
+ {
+  "id": "speed-limits-wrong",
+  "title": "Ограничения скорости на карте стали неправильными после обновления",
+  "obs": 1
+ },
+ {
+  "id": "hotel-prices-fake",
+  "title": "Цены на отели в приложении не соответствуют реальным — ссылки ведут на недобросовестные сайты бронирования",
+  "obs": 1
+ },
+ {
+  "id": "server-auth-error-false",
+  "title": "Приложение ошибочно требует повторной авторизации при отсутствии реальных проблем с сервером",
+  "obs": 1
+ },
+ {
+  "id": "strategy-maps-updates-positive",
+  "title": "Регулярный выезд специальных автомобилей для обновления карт — видимое подтверждение актуальности данных",
+  "obs": 1
+ },
+ {
+  "id": "strategy-streetview-value",
+  "title": "Street View помогает пользователям исследовать место до визита — сценарий с высокой воспринимаемой ценностью",
+  "obs": 1
+ },
+ {
+  "id": "strategy-emergency-alerts",
+  "title": "Предупреждения об экстренных транспортных средствах на маршруте повышают безопасность вождения",
+  "obs": 1
+ }
+]

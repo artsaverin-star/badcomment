@@ -1,0 +1,47 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Триал, который списывает деньги: ловушки оплаты и игнор споров",
+      "insight_ids": [
+        "trial-opaque-end-charge",
+        "cancel-trial-still-charged",
+        "trial-charges-full-at-signup",
+        "daily-repeated-charges",
+        "unauthorized-charge-no-support"
+      ]
+    },
+    {
+      "id": "import-processing-breaks",
+      "name": "Не доходит до редактирования: зависания и проблемы с импортом из галереи",
+      "insight_ids": [
+        "stuck-on-photo-select",
+        "videos-not-loaded-from-gallery",
+        "only-one-photo-per-session"
+      ]
+    },
+    {
+      "id": "paywall-vs-watermark",
+      "name": "Что закрыто подпиской, а что нет: платная база против бесплатного экспорта без водяного знака",
+      "insight_ids": [
+        "core-editing-paywalled",
+        "no-watermark-differentiator"
+      ]
+    },
+    {
+      "id": "forced-review-prompts",
+      "name": "Накрутка отзывов: запрос оценки до первого использования и без возможности закрыть",
+      "insight_ids": [
+        "review-prompt-on-first-launch",
+        "review-prompt-traps-user"
+      ]
+    },
+    {
+      "id": "missing-edit-tools",
+      "name": "Чего не хватает в наборе ретуши: нет правки рук и кистей",
+      "insight_ids": [
+        "missing-arm-hand-editing"
+      ]
+    }
+  ]
+}

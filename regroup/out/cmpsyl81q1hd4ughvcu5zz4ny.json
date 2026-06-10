@@ -1,0 +1,79 @@
+{
+  "groups": [
+    {
+      "id": "speech-engine-broken",
+      "name": "Микрофон-судья: распознавание речи, которое не учит говорить",
+      "insight_ids": [
+        "asr-false-positive",
+        "asr-unreliable-core",
+        "asr-requires-slow-speech",
+        "microphone-disappears",
+        "asr-false-negative",
+        "no-pronunciation-coaching",
+        "requires-perfect-pronunciation",
+        "no-click-alternative",
+        "no-slow-down-pace"
+      ]
+    },
+    {
+      "id": "weak-pedagogy",
+      "name": "Чему на самом деле учит Falou: кривая грамматика и фразы из ниоткуда",
+      "insight_ids": [
+        "nonsensical-phrases",
+        "wrong-grammar-taught",
+        "no-grammar-before-translation",
+        "no-translation-for-beginners",
+        "no-alphabet-teaching",
+        "missing-audio-on-translation",
+        "confusing-instructions"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Оплатил — а функция за следующей подпиской: ловушки апсейла",
+      "insight_ids": [
+        "unexpected-extra-charges",
+        "ai-dialog-moved-to-paid",
+        "ai-tutor-advertised-but-paid",
+        "descending-price-then-extra-charge",
+        "trial-forces-annual",
+        "expiry-locks-completed-content",
+        "refund-after-impulse-buy",
+        "early-subscription-pressure"
+      ]
+    },
+    {
+      "id": "rigid-progression",
+      "name": "Рельсы без обратного хода: застрявший прогресс и линейные уроки",
+      "insight_ids": [
+        "level-stuck-no-progress",
+        "linear-no-review-navigation",
+        "repeats-mastered-words",
+        "too-easy-for-experienced",
+        "forced-linear-topic-order",
+        "no-review-after-speaking"
+      ]
+    },
+    {
+      "id": "breakage",
+      "name": "Зависает, не грузит, молчит: поломки и немая поддержка",
+      "insight_ids": [
+        "content-fails-to-load",
+        "audio-breaks-needs-restart",
+        "lesson-loop-stuck",
+        "support-silent-paid-broken"
+      ]
+    },
+    {
+      "id": "language-immaturity",
+      "name": "Сырые языки и реклама впереди продукта",
+      "insight_ids": [
+        "missing-language-variant",
+        "language-immature-for-specific",
+        "aggressive-marketing-vs-readiness",
+        "no-child-mode",
+        "early-rating-prompt"
+      ]
+    }
+  ]
+}

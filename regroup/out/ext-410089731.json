@@ -1,0 +1,98 @@
+{
+  "groups": [
+    {
+      "id": "wall-of-paywalls",
+      "name": "Платный учёт калорий: попапы, карта до пробного и списания",
+      "insight_ids": [
+        "popups-during-logging",
+        "popups-block-free-logging",
+        "card-required-before-trial",
+        "charge-after-cancel",
+        "premium-no-weightloss-benefit",
+        "paid-no-access",
+        "sub-active-not-in-store",
+        "cant-set-start-weight"
+      ]
+    },
+    {
+      "id": "numbers-you-cant-trust",
+      "name": "Цифрам нельзя верить: кривая база продуктов и ошибки в макросах",
+      "insight_ids": [
+        "food-db-wrong-data",
+        "duplicate-product-versions",
+        "wrong-calorie-product-data",
+        "carb-sum-math-mismatch",
+        "macro-recompute-before-save",
+        "macro-recommendation-ignores-goals",
+        "keto-misclassification",
+        "recipes-too-many-carbs",
+        "deleted-products-still-shown",
+        "tracking-disordered-eating"
+      ]
+    },
+    {
+      "id": "scan-promise-broken",
+      "name": "Обещание камеры: ИИ-фото и сканер, которые не работают",
+      "insight_ids": [
+        "ai-photo-scan-unreliable",
+        "camera-scan-not-automatic",
+        "photo-scan-no-carb-breakdown",
+        "ipad-camera-flipped",
+        "scan-button-shifts-ui",
+        "removed-photo-attach"
+      ]
+    },
+    {
+      "id": "breaks-after-update",
+      "name": "Ломается после обновлений и оплаты: чёрные экраны, зависания, пропавшие данные",
+      "insight_ids": [
+        "reload-screen-every-action",
+        "blank-screen-on-open",
+        "freezes-after-purchase",
+        "charts-broke-after-ios-update",
+        "update-wiped-data",
+        "error-on-add-meal",
+        "iphone-login-broken-after-update",
+        "captcha-blocks-login",
+        "no-offline-mode",
+        "support-chat-blurred",
+        "devs-ignore-bugs"
+      ]
+    },
+    {
+      "id": "logging-friction",
+      "name": "Считать углеводы стало тяжело: лишние шаги, перегруз и потерянная простота",
+      "insight_ids": [
+        "no-quick-reuse-favorites",
+        "cluttered-home-screen",
+        "new-version-too-complex",
+        "search-shows-popular-not-match",
+        "meal-planner-clunky",
+        "no-dark-mode",
+        "plan-ahead-triggers-goal-error",
+        "multi-step-add-food",
+        "recipe-creation-hard",
+        "quantity-input-cap",
+        "no-fractional-portions",
+        "fiber-not-on-home",
+        "only-four-meal-categories",
+        "no-per-meal-macros",
+        "onboarding-too-much-info",
+        "export-pdf-confusing",
+        "portion-no-weight-volume",
+        "recipe-import-narrow"
+      ]
+    },
+    {
+      "id": "ecosystem-gaps",
+      "name": "Жизнь вне приложения: синхронизация, Apple Health и соцфункции",
+      "insight_ids": [
+        "no-apple-health-sync",
+        "no-friends-search",
+        "accessibility-screenreader",
+        "myfitnesspal-integration-gap",
+        "fast-multidevice-sync"
+      ]
+    }
+  ]
+}

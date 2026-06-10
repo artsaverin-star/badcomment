@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Деньги снимают молча: автопродление, призрачные списания и отказы в возврате",
+      "insight_ids": [
+        "auto-renewal-no-refund",
+        "billing-after-cancellation",
+        "cancellation-fails-inapp",
+        "cancellation-without-device",
+        "charged-unordered-plan",
+        "forced-trial-subscription",
+        "refund-refused-unused",
+        "subscription-invisible-apple",
+        "trial-end-day-charge",
+        "price-not-shown-appstore"
+      ]
+    },
+    {
+      "id": "wrong-answers",
+      "name": "Отвечает мимо: ошибки в решениях и невозможность быстро добыть нужный ответ",
+      "insight_ids": [
+        "ai-gives-wrong-answers",
+        "ai-offtopic-generic-answers",
+        "app-only-answers-known-questions",
+        "long-explanation-instead-direct",
+        "web-app-answer-discrepancy",
+        "ai-response-no-copy",
+        "answer-hard-to-find-in-response"
+      ]
+    },
+    {
+      "id": "ai-replaced-humans",
+      "name": "ИИ выгнал людей: исчезли проверенные ответы сообщества и привычные инструменты",
+      "insight_ids": [
+        "community-replaced-by-ai",
+        "expert-verified-answers-wrong",
+        "community-answers-mixed-quality",
+        "photo-to-text-removed",
+        "navigation-complex-after-update",
+        "ginny-ai-disappeared",
+        "ai-regression-after-update"
+      ]
+    },
+    {
+      "id": "locked-out",
+      "name": "Не пускают внутрь: блокировки аккаунтов, возрастные капканы и сломанный вход",
+      "insight_ids": [
+        "account-creation-blocked",
+        "account-blocked-no-reason",
+        "login-required-for-basic",
+        "age-gate-blocks-valid-age",
+        "registration-blocked-for-teen",
+        "session-logout-unexpectedly",
+        "bot-detection-false-positive",
+        "password-reset-broken",
+        "no-photo-deletion"
+      ]
+    },
+    {
+      "id": "scan-camera",
+      "name": "Камера не видит задачу: провалы сканирования, фронталка и обрезанные страницы",
+      "insight_ids": [
+        "scan-broken-errors",
+        "scan-misclassifies-clear-image",
+        "camera-only-front",
+        "camera-crops-too-much",
+        "other-answers-goes-to-camera",
+        "scan-needs-many-retries",
+        "scan-wrong-after-permission",
+        "camera-autofocus-broken"
+      ]
+    },
+    {
+      "id": "ads-paywall",
+      "name": "Платный ад: урезанный бесплатный лимит, реклама перед каждым ответом и навязанные репетиторы",
+      "insight_ids": [
+        "free-limit-reduced-weekly",
+        "ads-every-question",
+        "intrusive-tutoring-audio",
+        "answer-not-shown-after-ad",
+        "ad-vs-payment-unclear",
+        "paid-sub-has-ads-ai-free-elsewhere",
+        "paid-tutor-rude"
+      ]
+    },
+    {
+      "id": "crashes-slow",
+      "name": "Висит и тормозит: долгая загрузка, зависания при запуске и сбои в России",
+      "insight_ids": [
+        "slow-performance-vs-competitors",
+        "app-stuck-on-tab",
+        "app-freezes-on-launch",
+        "errors-in-russia",
+        "virus-warning-normal-use",
+        "ai-loads-intermittently"
+      ]
+    }
+  ]
+}

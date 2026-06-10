@@ -1,0 +1,319 @@
+You are grouping 54 mechanism-level insight clusters from Daily Workouts - Home Fitness (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Daily Workouts - Home Fitness, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 54 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Daily Workouts - Home Fitness — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Daily Workouts - Home Fitness>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-469068059.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-workouts-moved-behind-paywall",
+  "title": "Тренировки, которые годами были бесплатными, после обновлений переехали за платную стену",
+  "obs": 4
+ },
+ {
+  "id": "quick-results-low-time",
+  "title": "Короткие ежедневные тренировки дают видимый результат за пару недель",
+  "obs": 4
+ },
+ {
+  "id": "intensity-fits-beginners",
+  "title": "Интенсивность подобрана так, что подходит и новичкам, и для адаптации тела",
+  "obs": 3
+ },
+ {
+  "id": "physical-feedback-soreness",
+  "title": "Уже после первого занятия ощущается жжение и крепатура мышц как подтверждение нагрузки",
+  "obs": 3
+ },
+ {
+  "id": "free-version-is-enough",
+  "title": "Бесплатной версии хватает большинству, платная лишь добавляет дополнительные упражнения",
+  "obs": 2
+ },
+ {
+  "id": "no-low-impact-variants",
+  "title": "Кардио строится на прыжках, без щадящих вариантов для людей с ограничениями",
+  "obs": 2
+ },
+ {
+  "id": "voice-visual-form-guidance",
+  "title": "Голосовое и визуальное описание помогает понять правильную технику упражнений",
+  "obs": 2
+ },
+ {
+  "id": "removed-background-music",
+  "title": "Обновление отключило фоновое воспроизведение музыки из других источников во время тренировки",
+  "obs": 2
+ },
+ {
+  "id": "wants-background-music",
+  "title": "Пользователи хотят фоновую музыку во время упражнений для более приятной тренировки",
+  "obs": 2
+ },
+ {
+  "id": "long-lived-across-devices",
+  "title": "Приложение живёт годами и переустанавливается на каждый новый телефон",
+  "obs": 2
+ },
+ {
+  "id": "excessive-data-collection-eula",
+  "title": "Соглашение требует обширные личные данные, отпугивая в том числе уязвимых пользователей",
+  "obs": 2
+ },
+ {
+  "id": "long-term-loyalty-best-app",
+  "title": "Пользователи возвращаются к приложению годами и считают его лучшим среди фитнес-приложений",
+  "obs": 2
+ },
+ {
+  "id": "equipment-free-anywhere",
+  "title": "Эффективная тренировка без оборудования и зала, в поездке и в тесной комнате",
+  "obs": 2
+ },
+ {
+  "id": "supplement-to-other-training",
+  "title": "Приложение используют как дополнение к бегу, прогулкам и более серьёзным программам",
+  "obs": 2
+ },
+ {
+  "id": "social-family-use",
+  "title": "Приложением занимаются вместе — с партнёром, семьёй или ребёнком",
+  "obs": 2
+ },
+ {
+  "id": "fits-skill-levels",
+  "title": "Подходит желающим похудеть или набрать мышцы, но не профессиональным бодибилдерам",
+  "obs": 2
+ },
+ {
+  "id": "update-revoked-paid-access",
+  "title": "Обновление сбросило уже оплаченный план и требует платить заново за восстановление доступа",
+  "obs": 1
+ },
+ {
+  "id": "personal-data-before-price",
+  "title": "Приложение собирает личные данные ещё до того, как покажет стоимость подписки",
+  "obs": 1
+ },
+ {
+  "id": "card-required-flicker",
+  "title": "При регистрации требование банковской карты то появляется, то исчезает между попытками входа",
+  "obs": 1
+ },
+ {
+  "id": "description-says-no-purchases",
+  "title": "В описании магазина обещано отсутствие встроенных покупок, но внутри оплата всё же требуется",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-account-for-free",
+  "title": "Доступ к бесплатным тренировкам теперь закрыт обязательной регистрацией аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "legacy-users-restored",
+  "title": "Купивших приложение до перехода на подписку вернули в доступ без повторной оплаты",
+  "obs": 1
+ },
+ {
+  "id": "unclear-what-subscription-gives",
+  "title": "После покупки членства непонятно, прошла ли подписка и что именно она открывает",
+  "obs": 1
+ },
+ {
+  "id": "instructor-personal-stories",
+  "title": "Видео с инструктором уходит в длинные личные истории, отвлекающие от тренировки",
+  "obs": 1
+ },
+ {
+  "id": "mixes-equipment-exercises",
+  "title": "В тренировку без оборудования внезапно подмешиваются упражнения с гантелями",
+  "obs": 1
+ },
+ {
+  "id": "no-warmup-cooldown",
+  "title": "В тренировке нет сегментов разминки и заминки",
+  "obs": 1
+ },
+ {
+  "id": "daily-variety",
+  "title": "Каждый день предлагаются разные упражнения, что спасает от однообразия",
+  "obs": 1
+ },
+ {
+  "id": "no-motivational-cues",
+  "title": "Во время выполнения не хватает голосовых поощрений и мотивирующих слов",
+  "obs": 1
+ },
+ {
+  "id": "removed-applause-reward",
+  "title": "Убрали звук аплодисментов в конце тренировки, служивший похвалой, без опции вернуть",
+  "obs": 1
+ },
+ {
+  "id": "instructor-video-freezes",
+  "title": "Видео с инструктором подвисает прямо во время выполнения упражнений",
+  "obs": 1
+ },
+ {
+  "id": "confusing-new-interface",
+  "title": "Новый интерфейс стал запутаннее, а возможность бесплатного использования исчезла",
+  "obs": 1
+ },
+ {
+  "id": "manual-calorie-input-friction",
+  "title": "Чтобы отслеживать результат, приходится вручную вводить калории и статистику",
+  "obs": 1
+ },
+ {
+  "id": "no-per-muscle-reminders",
+  "title": "Нельзя задать отдельные напоминания под разные группы мышц",
+  "obs": 1
+ },
+ {
+  "id": "workout-customization-params",
+  "title": "Тренировку можно подстроить под себя выбором уровня, длительности и группы мышц",
+  "obs": 1
+ },
+ {
+  "id": "flexible-durations",
+  "title": "Набор разных длительностей позволяет подобрать нужное время или продлить упражнение",
+  "obs": 1
+ },
+ {
+  "id": "completion-message-reward",
+  "title": "Сообщение о завершении тренировки работает как положительное подкрепление",
+  "obs": 1
+ },
+ {
+  "id": "wants-spanish-voice",
+  "title": "Испаноязычный пользователь хочет голосовые инструкции на испанском языке",
+  "obs": 1
+ },
+ {
+  "id": "custom-workout-crash",
+  "title": "При создании своей тренировки приложение падает на переключении между группами мышц",
+  "obs": 1
+ },
+ {
+  "id": "constant-crashes-on-open",
+  "title": "После обновления приложение постоянно падает при каждом открытии, даже после переустановки",
+  "obs": 1
+ },
+ {
+  "id": "broken-apple-health-sync",
+  "title": "Обновление удалило синхронизацию калорий со здоровьем телефона и не вернуло её после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "no-cross-device-sync-no-delete",
+  "title": "Данные не синхронизируются между телефоном и телевизором, а аккаунт нельзя удалить",
+  "obs": 1
+ },
+ {
+  "id": "inaccurate-calorie-count",
+  "title": "Приложение завышает количество сожжённых калорий",
+  "obs": 1
+ },
+ {
+  "id": "wants-tv-casting",
+  "title": "Пользователи хотят выводить экран тренировки на телевизор",
+  "obs": 1
+ },
+ {
+  "id": "wants-mac-version",
+  "title": "Пользователи хотят версию приложения для компьютера",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-emails",
+  "title": "Поддержка игнорирует письма о помощи при создании кастомной тренировки",
+  "obs": 1
+ },
+ {
+  "id": "significant-weight-loss",
+  "title": "С помощью приложения люди достигают значительного снижения веса",
+  "obs": 1
+ },
+ {
+  "id": "modular-micro-workouts",
+  "title": "Короткие пятиминутные блоки можно вставлять в свободные минуты дня и комбинировать",
+  "obs": 1
+ },
+ {
+  "id": "self-paced-with-breaks",
+  "title": "Можно идти в своём темпе с частыми паузами на дыхание, что важно новичкам",
+  "obs": 1
+ },
+ {
+  "id": "recovery-rehab-use",
+  "title": "Приложение помогает восстановиться после беременности и операций",
+  "obs": 1
+ },
+ {
+  "id": "health-improvements",
+  "title": "Регулярное использование нормализует давление и улучшает сердечно-сосудистое здоровье",
+  "obs": 1
+ },
+ {
+  "id": "targeted-exercises-fitness-gain",
+  "title": "Целевые упражнения и растяжки заметно улучшают форму за месяц регулярных занятий",
+  "obs": 1
+ },
+ {
+  "id": "space-constraints",
+  "title": "В тесном помещении часть упражнений выполнить невозможно из-за нехватки места",
+  "obs": 1
+ },
+ {
+  "id": "circuit-time-budget-mechanic",
+  "title": "Тренировка собирается из случайных кругов с длительностью под заданное время сессии",
+  "obs": 1
+ },
+ {
+  "id": "flexible-time-of-day",
+  "title": "Тренировки удобно встраивать в любое время суток, включая два занятия в день",
+  "obs": 1
+ }
+]

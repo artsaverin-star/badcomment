@@ -1,0 +1,224 @@
+You are grouping 35 mechanism-level insight clusters from Pregnancy + | Tracker App (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Pregnancy + | Tracker App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 35 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Pregnancy + | Tracker App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Pregnancy + | Tracker App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-505864483.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "fetal-size-overstated",
+  "title": "Размеры и вес плода завышены по сравнению с медицинскими нормами и растут с ошибкой каждую неделю",
+  "obs": 5
+ },
+ {
+  "id": "paywall-regression-formerly-free",
+  "title": "Функции, которые раньше были бесплатными, после обновления убраны за платную подписку",
+  "obs": 3
+ },
+ {
+  "id": "shaming-outdated-weight-nutrition-advice",
+  "title": "Еженедельные советы устарели и стыдят за вес, поощряя партнёра контролировать питание беременной",
+  "obs": 3
+ },
+ {
+  "id": "lost-purchased-premium-access",
+  "title": "При переходе на новую версию пропадает доступ к ранее купленным премиум-инструментам",
+  "obs": 2
+ },
+ {
+  "id": "cannot-add-new-pregnancy",
+  "title": "Нельзя добавить новую беременность — приложение остаётся в данных предыдущей или требует перезаписать их",
+  "obs": 2
+ },
+ {
+  "id": "no-new-pregnancy-after-loss",
+  "title": "После выкидыша нельзя начать новую беременность, не видя болезненных напоминаний о потерянной",
+  "obs": 2
+ },
+ {
+  "id": "contraction-counter-lags-during-labor",
+  "title": "Счётчик сокращений зависает и лагает в момент записи во время родов",
+  "obs": 2
+ },
+ {
+  "id": "3d-model-limited-skin-tones",
+  "title": "3D модель младенца использует неточные тона кожи и не отражает не-кавказские типы",
+  "obs": 2
+ },
+ {
+  "id": "login-fails-no-google-no-email-ios",
+  "title": "Вход не работает: на iOS нет входа через Google, а письмо для подтверждения по почте не приходит",
+  "obs": 2
+ },
+ {
+  "id": "trial-charges-full-year-upfront",
+  "title": "В конце пробного периода списывается сразу вся годовая подписка вместо ежемесячной оплаты",
+  "obs": 1
+ },
+ {
+  "id": "trial-cancel-still-charged",
+  "title": "Отмена пробного периода не отменяет оплату — деньги списывают и вернуть их нельзя",
+  "obs": 1
+ },
+ {
+  "id": "free-app-paywall-after-data",
+  "title": "Приложение заявлено как бесплатное, но требует оплату только после ввода всех данных",
+  "obs": 1
+ },
+ {
+  "id": "fruit-size-comparisons-inconsistent",
+  "title": "Сравнения размера плода с фруктами и животными несогласованны между неделями",
+  "obs": 1
+ },
+ {
+  "id": "size-guide-broke-after-update",
+  "title": "После обновления размеры в руководстве стали неправильными",
+  "obs": 1
+ },
+ {
+  "id": "missing-late-pregnancy-videos",
+  "title": "Видео для недель после 28-й отсутствуют — контент обрывается во второй половине беременности",
+  "obs": 1
+ },
+ {
+  "id": "ai-images-replaced-real-size-photos",
+  "title": "Реальные фотографии размеров младенца заменены на сгенерированные изображения худшего качества",
+  "obs": 1
+ },
+ {
+  "id": "contradictory-fetal-development-info",
+  "title": "В одном месте приложения сказано, что плод не слышит, в другом — что слышит",
+  "obs": 1
+ },
+ {
+  "id": "ultrasound-images-not-medically-accurate",
+  "title": "Ультразвуковые изображения не соответствуют медицинским нормам для срока и создают ложные ожидания",
+  "obs": 1
+ },
+ {
+  "id": "low-quality-birth-plan-content",
+  "title": "Платный план родов содержит нерелевантные рекомендации низкого качества",
+  "obs": 1
+ },
+ {
+  "id": "static-weekly-vs-daily-competitors",
+  "title": "Контент обновляется раз в неделю, тогда как у конкурентов он ежедневный",
+  "obs": 1
+ },
+ {
+  "id": "early-week-miscarriage-content-overload",
+  "title": "На ранних неделях приложение заваливает пользователя статьями о риске выкидыша",
+  "obs": 1
+ },
+ {
+  "id": "no-multiples-support",
+  "title": "Приложение не поддерживает многоплодную беременность — опция полностью отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "gestational-age-needs-both-dates",
+  "title": "Нельзя задать дату зачатия и дату последней менструации вместе — одно значение перезаписывает другое",
+  "obs": 1
+ },
+ {
+  "id": "due-date-keeps-changing",
+  "title": "Дата предполагаемых родов в приложении постоянно меняется",
+  "obs": 1
+ },
+ {
+  "id": "buttons-moved-to-sidebar",
+  "title": "После обновления кнопки информации и измерений переехали на боковую панель и заняли весь экран",
+  "obs": 1
+ },
+ {
+  "id": "ads-under-weekly-update",
+  "title": "После обновления под еженедельным обновлением появилась реклама, делая опыт менее личным",
+  "obs": 1
+ },
+ {
+  "id": "race-selection-no-labels-for-blind",
+  "title": "Экран выбора тона кожи младенца без текстовых меток недоступен для незрячих пользователей",
+  "obs": 1
+ },
+ {
+  "id": "forums-not-cohort-scoped",
+  "title": "Форумы сообщества не разделены по сроку беременности, и темы из разных стадий путаются",
+  "obs": 1
+ },
+ {
+  "id": "gestational-age-miscalculated",
+  "title": "Гестационный возраст рассчитывается неправильно даже при подтверждённой УЗИ дате родов",
+  "obs": 1
+ },
+ {
+  "id": "premium-tracking-tools-freeze",
+  "title": "Платные инструменты — счётчик ударов, сокращений и вес — зависают и сбоят в большинстве случаев",
+  "obs": 1
+ },
+ {
+  "id": "contraction-end-button-wipes-data",
+  "title": "Две похожие кнопки счётчика сокращений: нажатие не той стирает все записанные данные без отката",
+  "obs": 1
+ },
+ {
+  "id": "weekly-video-button-missing",
+  "title": "Еженедельное видео-резюме не открывается — кнопка видео просто не отображается",
+  "obs": 1
+ },
+ {
+  "id": "3d-model-flickers-on-device",
+  "title": "3D модель младенца мерцает на новых iPhone даже после последнего обновления",
+  "obs": 1
+ },
+ {
+  "id": "3d-model-zoom-locked",
+  "title": "3D модель плода чрезмерно увеличена и не масштабируется, скрывая полную анатомию",
+  "obs": 1
+ },
+ {
+  "id": "amazon-baby-box-claim-fails",
+  "title": "Получить детский набор Amazon не получается даже после регистрации реестра",
+  "obs": 1
+ }
+]

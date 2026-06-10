@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from Airbrush: Face Photo Editor (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Airbrush: Face Photo Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Airbrush: Face Photo Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Airbrush: Face Photo Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstgszt145zug8parq697ek.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "daily-credit-limit-paid-subscribers",
+  "title": "У платных подписчиков появился скрытый дневной лимит операций — премиум перестаёт работать к концу дня",
+  "obs": 11
+ },
+ {
+  "id": "natural-looking-edits",
+  "title": "Главная ценность — правки выглядят естественно, незаметно для окружающих",
+  "obs": 6
+ },
+ {
+  "id": "all-in-one-replacement",
+  "title": "Приложение заменяет все остальные редакторы и становится единственным инструментом в рабочем процессе",
+  "obs": 5
+ },
+ {
+  "id": "free-features-moved-behind-paywall",
+  "title": "Базовые функции, которые годами были бесплатными, постепенно переводят в платную подписку",
+  "obs": 4
+ },
+ {
+  "id": "price-worth-it-voluntary-upgrade",
+  "title": "Пользователи добровольно переходят на платную версию, считая цену оправданной за качество",
+  "obs": 4
+ },
+ {
+  "id": "control-over-edit-intensity",
+  "title": "Пользователи ценят точный контроль над интенсивностью эффектов и каждым параметром правки",
+  "obs": 3
+ },
+ {
+  "id": "skin-blemish-removal",
+  "title": "Удаление дефектов кожи (прыщи, круги под глазами) и выравнивание тона — частый сценарий",
+  "obs": 3
+ },
+ {
+  "id": "color-light-enhancement",
+  "title": "Коррекция цвета, освещения и резкости — основной сценарий для базового улучшения фото",
+  "obs": 3
+ },
+ {
+  "id": "ad-unlock-removed",
+  "title": "Убрали возможность открывать премиум-функции за просмотр рекламы — остался только платный доступ",
+  "obs": 2
+ },
+ {
+  "id": "ai-replaced-classic-tools",
+  "title": "AI заменил классические инструменты редактирования: обработка стала медленной и с артефактами",
+  "obs": 2
+ },
+ {
+  "id": "removed-popular-features",
+  "title": "Обновления удаляют популярные функции, которыми пользователи активно пользовались",
+  "obs": 2
+ },
+ {
+  "id": "object-removal-and-design",
+  "title": "Удаление нежелательных объектов и создание простых дизайнов — отдельный сценарий использования",
+  "obs": 2
+ },
+ {
+  "id": "professional-social-business-use",
+  "title": "Профессионалы используют приложение для соцсетей, маркетинга и деловых портретов",
+  "obs": 2
+ },
+ {
+  "id": "trial-button-charges-immediately",
+  "title": "Кнопка «7 дней бесплатно» сразу списывает полную годовую сумму вместо начисления в конце пробного периода",
+  "obs": 1
+ },
+ {
+  "id": "charged-via-apple-id-without-consent",
+  "title": "Годовая подписка списалась через Apple ID без явного согласия, хотя карта в приложение не добавлялась",
+  "obs": 1
+ },
+ {
+  "id": "cannot-cancel-keeps-charging",
+  "title": "Подписку невозможно отменить — приложение продолжает списывать деньги несмотря на попытки отказаться",
+  "obs": 1
+ },
+ {
+  "id": "hair-tryon-feature",
+  "title": "Примерка причёски и цвета волос используется для решения о реальной смене образа",
+  "obs": 1
+ },
+ {
+  "id": "hair-tryon-unrealistic",
+  "title": "Примерка причёски выдаёт искусственный результат, не соответствующий рекламной демонстрации",
+  "obs": 1
+ },
+ {
+  "id": "ai-background-precision",
+  "title": "AI-замене и очистке фона не хватает параметров для точного контроля результата",
+  "obs": 1
+ },
+ {
+  "id": "ai-expand-composition",
+  "title": "Новая функция AI Expand расширяет композицию фото без обрезки, результат выглядит естественно",
+  "obs": 1
+ },
+ {
+  "id": "makeup-on-photos",
+  "title": "Быстрое нанесение макияжа на фото, когда нет времени на реальный макияж",
+  "obs": 1
+ },
+ {
+  "id": "low-light-correction",
+  "title": "Приложение хорошо вытягивает фото, снятые при плохом или низком освещении",
+  "obs": 1
+ },
+ {
+  "id": "leg-length-video-broken",
+  "title": "После обновления изменение длины ног в видео деформирует ноги вместо естественного результата",
+  "obs": 1
+ },
+ {
+  "id": "body-slim-edit-degraded",
+  "title": "После обновления редактирование талии и силуэта деградировало, отката к прежней версии нет",
+  "obs": 1
+ },
+ {
+  "id": "blurry-results-heavy-use",
+  "title": "При частом использовании функции выдают размытые результаты вместо чёткого редактирования",
+  "obs": 1
+ },
+ {
+  "id": "blur-glitch-fixed",
+  "title": "Прежний глюк размытия исправлен в свежем обновлении — качество инструмента улучшилось",
+  "obs": 1
+ },
+ {
+  "id": "small-icon-hints-ui",
+  "title": "Маленькие иконки-подсказки помогают разобраться с функциями людям, не привыкшим к технике",
+  "obs": 1
+ },
+ {
+  "id": "red-eye-removal-hard-to-find",
+  "title": "Функцию удаления красных глаз сложно найти — она скрыта или слабо обозначена в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "features-undiscovered",
+  "title": "Пользователи не знают о большинстве функций и используют лишь пару инструментов",
+  "obs": 1
+ },
+ {
+  "id": "clean-no-ads-no-watermark",
+  "title": "Чистый интерфейс без рекламы и водяных знаков на экспорте ценится как преимущество",
+  "obs": 1
+ },
+ {
+  "id": "vip-bug-blocks-access-not-fixed",
+  "title": "Ошибка несколько недель блокирует доступ к оплаченным VIP-функциям и не исправляется обновлениями",
+  "obs": 1
+ },
+ {
+  "id": "false-internet-error-premium-hidden",
+  "title": "Приложение постоянно выдаёт ошибку соединения при рабочем интернете, статус подписки не отображается",
+  "obs": 1
+ },
+ {
+  "id": "support-no-response-no-refund",
+  "title": "После оплаты функции выдают ошибку, техподдержка не отвечает и отказывает в возврате",
+  "obs": 1
+ },
+ {
+  "id": "family-fun-use",
+  "title": "Приложением пользуются вместе с детьми ради развлечения с фильтрами и преобразованиями",
+  "obs": 1
+ },
+ {
+  "id": "edit-everything-before-posting",
+  "title": "Пользователь не публикует ни одного фото без предварительного редактирования в приложении",
+  "obs": 1
+ },
+ {
+  "id": "professional-business-portraits",
+  "title": "Деловые портреты улучшают, сохраняя естественность — критично для профессиональных снимков",
+  "obs": 1
+ }
+]

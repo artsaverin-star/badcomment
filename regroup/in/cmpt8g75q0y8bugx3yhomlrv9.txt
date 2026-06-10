@@ -1,0 +1,319 @@
+You are grouping 54 mechanism-level insight clusters from Calendars: Schedule Planner (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Calendars: Schedule Planner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 54 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Calendars: Schedule Planner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Calendars: Schedule Planner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt8g75q0y8bugx3yhomlrv9.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "data-loss-spontaneous",
+  "title": "Все события внезапно исчезают и календарь становится пустым без объяснения причин",
+  "obs": 12
+ },
+ {
+  "id": "data-loss-on-update",
+  "title": "Обновление приложения стирает весь календарь — события, дни рождения, многолетняя история удаляются без предупреждения",
+  "obs": 9
+ },
+ {
+  "id": "paywall-recurring-events",
+  "title": "Создание повторяющихся событий, раньше бесплатное, теперь требует платной подписки",
+  "obs": 6
+ },
+ {
+  "id": "sync-stops-silently",
+  "title": "Синхронизация тихо останавливается на дни без уведомления — пользователь пропускает встречи, не зная что данные не обновляются",
+  "obs": 6
+ },
+ {
+  "id": "sync-external-calendars",
+  "title": "Синхронизация с Google и Apple календарями работает ненадёжно — события не загружаются в обе стороны",
+  "obs": 5
+ },
+ {
+  "id": "sync-cross-device",
+  "title": "Календарь и задачи не синхронизируются между iPhone, iPad, Mac и часами",
+  "obs": 5
+ },
+ {
+  "id": "reflect-emotional-push",
+  "title": "Навязчивые push-уведомления с вопросами об эмоциях и предложением «отразить» нельзя отключить",
+  "obs": 5
+ },
+ {
+  "id": "lifetime-access-revoked",
+  "title": "Пожизненный доступ из старого приложения Calendars 5 не переносится — после обновления требуют новую подписку",
+  "obs": 4
+ },
+ {
+  "id": "natural-language-misparses-numbers",
+  "title": "Цифры в названии события распознаются как время и автоматически меняют дату или время записи",
+  "obs": 4
+ },
+ {
+  "id": "cannot-delete-items",
+  "title": "Нельзя удалить навязанные элементы — праздники, приглашения, старые адреса локаций засоряют календарь",
+  "obs": 4
+ },
+ {
+  "id": "spam-events-in-calendar",
+  "title": "Спам-события от неизвестных отправителей попадают прямо в календарь и не удаляются без блокировки в почте",
+  "obs": 3
+ },
+ {
+  "id": "complex-onboarding-credentials",
+  "title": "Первый запуск требует сложной настройки паролей вместо простого ввода события — отпугивает новичков",
+  "obs": 3
+ },
+ {
+  "id": "promo-popups-for-paid-users",
+  "title": "Платным пользователям показывают всплывающие опросы и рекламу соседних продуктов Readdle",
+  "obs": 3
+ },
+ {
+  "id": "shared-family-calendar-value",
+  "title": "Общие семейные календари — ключевая ценность для координации расписаний нескольких людей",
+  "obs": 3
+ },
+ {
+  "id": "paywall-basic-features",
+  "title": "Базовые функции (правка задач, цветовая разметка, несколько напоминаний) переехали за платную подписку",
+  "obs": 2
+ },
+ {
+  "id": "edit-creates-duplicates",
+  "title": "Редактирование события создаёт дубликаты или теряет правки — расписание невозможно сохранить",
+  "obs": 2
+ },
+ {
+  "id": "desktop-crashes-instability",
+  "title": "Десктопное приложение крашит компьютер, не обновляется и окно нельзя перемещать",
+  "obs": 2
+ },
+ {
+  "id": "drag-to-reschedule-removed",
+  "title": "Перенос события перетаскиванием не работает — нужно открывать запись и вручную править время",
+  "obs": 2
+ },
+ {
+  "id": "productivity-education-value",
+  "title": "Встроенные мини-уроки о продуктивности и блокировка времени удерживают пользователей сверх базового управления календарём",
+  "obs": 2
+ },
+ {
+  "id": "trial-locks-features",
+  "title": "Без подписки приложение урезано до встроенного календаря Apple — все интересные функции только в триале",
+  "obs": 1
+ },
+ {
+  "id": "recurring-events-vanish",
+  "title": "Повторяющиеся события сами исчезают из календаря и требуют повторного добавления",
+  "obs": 1
+ },
+ {
+  "id": "no-local-storage",
+  "title": "Приложение не хранит данные локально, а только синхронизирует с внешним календарём — об этом не предупреждают, и данные теряются",
+  "obs": 1
+ },
+ {
+  "id": "macos-login-broken",
+  "title": "На новых версиях macOS приложение не принимает учётные данные и перестаёт работать",
+  "obs": 1
+ },
+ {
+  "id": "macos-modal-blocks-quit",
+  "title": "На macOS модальное окно не даёт закрыть приложение и блокирует выключение компьютера",
+  "obs": 1
+ },
+ {
+  "id": "restore-fails-after-reinstall",
+  "title": "Встроенное восстановление данных не работает после переустановки приложения",
+  "obs": 1
+ },
+ {
+  "id": "force-sync-deletes-data",
+  "title": "Принудительная синхронизация удаляет несинхронизированные события вместо их сохранения",
+  "obs": 1
+ },
+ {
+  "id": "habit-widget-loses-order",
+  "title": "Виджет трекера привычек не сохраняет порядок добавленных привычек",
+  "obs": 1
+ },
+ {
+  "id": "cannot-delete-orphaned-events",
+  "title": "События, видимые только на одном устройстве, нельзя удалить — система блокирует удаление без объяснения",
+  "obs": 1
+ },
+ {
+  "id": "default-view-setting-ignored",
+  "title": "Настройка вида по умолчанию игнорируется — приложение всегда открывается в дневном режиме",
+  "obs": 1
+ },
+ {
+  "id": "no-back-button-from-settings",
+  "title": "Из меню настроек нет кнопки возврата в календарь — приходится перезапускать приложение",
+  "obs": 1
+ },
+ {
+  "id": "ui-shrunk-illegible",
+  "title": "После обновления текст и элементы интерфейса уменьшились и стали плохо читаемыми",
+  "obs": 1
+ },
+ {
+  "id": "landscape-orientation-forced",
+  "title": "Добавление события принудительно переключает экран в портретную ориентацию при работе в альбомной",
+  "obs": 1
+ },
+ {
+  "id": "copy-paste-once-only",
+  "title": "Копирование события срабатывает только один раз — повторно вставить ту же запись нельзя",
+  "obs": 1
+ },
+ {
+  "id": "redundant-meetings-list",
+  "title": "Принятые встречи дублируются отдельным списком рядом с календарём, создавая визуальный шум",
+  "obs": 1
+ },
+ {
+  "id": "location-autotag-text",
+  "title": "Обычные слова в тексте события распознаются как локация и эту разметку трудно отменить",
+  "obs": 1
+ },
+ {
+  "id": "contacts-prompt-interrupts",
+  "title": "При вводе события приложение навязчиво предлагает добавить контакты и мешает рабочему процессу",
+  "obs": 1
+ },
+ {
+  "id": "no-not-busy-status",
+  "title": "Нет статуса «не занят» для событий — мешает бронированию встреч в рабочем календаре",
+  "obs": 1
+ },
+ {
+  "id": "watch-date-display-stripped",
+  "title": "На Apple Watch перестали показывать месяц и год — отображается только день недели и число",
+  "obs": 1
+ },
+ {
+  "id": "auto-delete-old-events",
+  "title": "Приложение автоматически удаляет события старше двух лет — старые встречи невозможно найти",
+  "obs": 1
+ },
+ {
+  "id": "events-deleted-on-launch-restart",
+  "title": "Приложение стирает все события при каждом запуске или перезапуске, делая его бесполезным для планирования",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-notifications",
+  "title": "Приложение шлёт несколько одинаковых уведомлений для одного события подряд",
+  "obs": 1
+ },
+ {
+  "id": "weak-alert-sound",
+  "title": "Звук уведомления слишком короткий и тихий — встречи легко пропустить",
+  "obs": 1
+ },
+ {
+  "id": "reminders-day-late",
+  "title": "Напоминания приходят на день позже запланированного времени без ручной донастройки",
+  "obs": 1
+ },
+ {
+  "id": "event-titles-disappear",
+  "title": "Заголовки событий пропадают при сохранении, особенно на iOS — нельзя восстановить, что было запланировано",
+  "obs": 1
+ },
+ {
+  "id": "unauthorized-access",
+  "title": "Посторонний получил доступ к календарю и добавил неудаляемое напоминание — нарушение безопасности данных",
+  "obs": 1
+ },
+ {
+  "id": "ai-support-cannot-recover-data",
+  "title": "Поддержка через бота даёт лишь общие инструкции из интернета и не помогает восстановить потерянные данные",
+  "obs": 1
+ },
+ {
+  "id": "icloud-restore-unintuitive",
+  "title": "Восстановить события из iCloud сложно — процедура подключения скрыта и неинтуитивна",
+  "obs": 1
+ },
+ {
+  "id": "icloud-login-error-blocks-sync",
+  "title": "Вход в iCloud выдаёт ошибку между ноутбуком и телефоном и блокирует синхронизацию iCloud-источников",
+  "obs": 1
+ },
+ {
+  "id": "no-migration-from-paper",
+  "title": "Миграция с Calendars 5 не переносит события — данные полностью теряются при переходе",
+  "obs": 1
+ },
+ {
+  "id": "no-import-from-apple",
+  "title": "Приложение не импортирует подписки и дни рождения из Apple Calendar — приходится держать обе программы",
+  "obs": 1
+ },
+ {
+  "id": "paper-to-app-migration",
+  "title": "Пользователи полностью переходят с бумажного планировщика благодаря мобильности и кастомизации",
+  "obs": 1
+ },
+ {
+  "id": "standalone-vs-import-adhd",
+  "title": "Десктоп требует импорта внешних календарей, а мобильное работает автономно — критично для пользователей с СДВГ",
+  "obs": 1
+ },
+ {
+  "id": "seamless-sync-praise",
+  "title": "Бесшовная синхронизация между Mac и iPhone — то, за что пользователи хвалят приложение",
+  "obs": 1
+ },
+ {
+  "id": "reflections-only-main-calendar",
+  "title": "Personal Reflections доступны только для основного календаря, но не для импортированных — ограничивает ценность для мультикалендарных пользователей",
+  "obs": 1
+ }
+]

@@ -1,0 +1,334 @@
+You are grouping 57 mechanism-level insight clusters from Schlage Home (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Schlage Home, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 57 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Schlage Home — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Schlage Home>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1038212933.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "contractor-airbnb-access-management",
+  "title": "Временные коды для подрядчиков, Airbnb и VRBO позволяют управлять доступом без присутствия дома",
+  "obs": 12
+ },
+ {
+  "id": "battery-drain-fast-new-models",
+  "title": "В новых моделях батарея разряжается за 2–3 месяца вместо года — регрессия относительно старых версий",
+  "obs": 10
+ },
+ {
+  "id": "app-update-breaks-wifi-connection",
+  "title": "После обновления приложения замки теряют Wi-Fi и не переподключаются — проблема массовая, Schlage отрицает",
+  "obs": 8
+ },
+ {
+  "id": "wifi-disconnect-requires-battery-pull",
+  "title": "Замок регулярно теряет Wi-Fi, и единственный способ восстановить соединение — физически вынуть и вставить батарею",
+  "obs": 8
+ },
+ {
+  "id": "rotating-ad-banner-on-main-screen",
+  "title": "Рекламный баннер занимает 25% главного экрана и не отключается — место для управления замком сокращено",
+  "obs": 5
+ },
+ {
+  "id": "access-code-management-ui-hard-to-find",
+  "title": "После переработки интерфейса коды доступа и расписания сложно найти в приложении",
+  "obs": 5
+ },
+ {
+  "id": "wifi-reconnect-after-battery-replace",
+  "title": "После замены батарей замок не восстанавливает Wi-Fi-соединение автоматически — требуется полная перенастройка",
+  "obs": 5
+ },
+ {
+  "id": "keypad-digits-visibility",
+  "title": "Цифры на клавиатуре замка плохо видны — ни в темноте, ни на ярком солнце, ни для пожилых пользователей",
+  "obs": 4
+ },
+ {
+  "id": "password-reset-not-working",
+  "title": "Сброс пароля не работает: письмо не приходит даже в спам, вход в приложение заблокирован",
+  "obs": 4
+ },
+ {
+  "id": "random-session-logout-urgent-moment",
+  "title": "Приложение случайно разлогинивает пользователя в критический момент — нужно восстанавливать пароль у порога",
+  "obs": 4
+ },
+ {
+  "id": "initial-wifi-pairing-difficult",
+  "title": "Подключение к Wi-Fi при первоначальной установке требует многократных попыток или вообще не работает",
+  "obs": 4
+ },
+ {
+  "id": "false-lock-status-in-app",
+  "title": "Приложение показывает дверь открытой, когда она закрыта — статус не синхронизирован с реальным положением",
+  "obs": 4
+ },
+ {
+  "id": "add-code-update-error",
+  "title": "При добавлении нового кода доступа регулярно появляется ошибка «невозможно обновить», даже при стабильной сети",
+  "obs": 4
+ },
+ {
+  "id": "lock-hardware-failure-short-lifespan",
+  "title": "Замок перестаёт работать через несколько месяцев: клавиатура не реагирует, Wi-Fi и Bluetooth недоступны",
+  "obs": 4
+ },
+ {
+  "id": "no-low-battery-notification",
+  "title": "Приложение не отправляет уведомление о низком заряде батареи — пользователь остаётся заблокированным",
+  "obs": 4
+ },
+ {
+  "id": "account-creation-verification-broken",
+  "title": "Код верификации при создании аккаунта приходит уже просроченным или не приходит вообще — войти невозможно",
+  "obs": 3
+ },
+ {
+  "id": "lock-loses-all-codes-spontaneously",
+  "title": "Замок самопроизвольно теряет все коды доступа — двери не открываются, ситуация повторяется годами",
+  "obs": 3
+ },
+ {
+  "id": "remote-lock-management-use-case",
+  "title": "Удалённое управление замком из другого города или штата — основной сценарий для владельцев нескольких объектов",
+  "obs": 3
+ },
+ {
+  "id": "remote-unlock-speed-critical",
+  "title": "Скорость удалённой разблокировки критична: медленный отклик или ошибка в нужный момент блокирует доступ",
+  "obs": 3
+ },
+ {
+  "id": "apple-home-popup-every-open",
+  "title": "При каждом открытии приложение показывает диалог подключения Apple Home — нельзя отключить навсегда",
+  "obs": 2
+ },
+ {
+  "id": "app-update-instructions-missing",
+  "title": "Инструкции в приложении недоступны: кнопки из App Store не находятся, справка не открывается",
+  "obs": 2
+ },
+ {
+  "id": "firmware-update-breaks-battery",
+  "title": "После обновления прошивки батарея разряжается за неделю вместо нескольких месяцев",
+  "obs": 2
+ },
+ {
+  "id": "remote-access-only-within-proximity",
+  "title": "Удалённое управление работает только вблизи — с расстояния нескольких кварталов замок недоступен",
+  "obs": 2
+ },
+ {
+  "id": "homekit-integration-broken",
+  "title": "Интеграция с Apple HomeKit работает нестабильно или перестаёт работать после обновлений",
+  "obs": 2
+ },
+ {
+  "id": "bluetooth-pairing-requires-multiple-attempts",
+  "title": "Сопряжение по Bluetooth требует многократного удаления и переустановки приложения",
+  "obs": 2
+ },
+ {
+  "id": "legacy-lock-support-dropped",
+  "title": "Старые замки Schlage Sense перестают поддерживаться в приложении — все функции отключаются",
+  "obs": 2
+ },
+ {
+  "id": "notification-settings-not-saved",
+  "title": "Настройки уведомлений не сохраняются: отключённые уведомления продолжают приходить после перезапуска",
+  "obs": 2
+ },
+ {
+  "id": "notifications-stop-after-update",
+  "title": "После обновления приложения уведомления о блокировке и разблокировке перестают приходить",
+  "obs": 2
+ },
+ {
+  "id": "battery-life-positive",
+  "title": "Батарея держит заряд значительно дольше, чем у конкурентов — 95% после месяца активного использования",
+  "obs": 2
+ },
+ {
+  "id": "keyless-entry-convenience",
+  "title": "Приложение устраняет необходимость носить ключи — открытие двери с телефона экономит время каждый день",
+  "obs": 2
+ },
+ {
+  "id": "app-regularly-improves",
+  "title": "Schlage регулярно улучшает функциональность в обновлениях — долгосрочные пользователи отмечают прогресс",
+  "obs": 2
+ },
+ {
+  "id": "subscription-required-for-basic-features",
+  "title": "Приложение требует оплаты iCloud-подписки для базового использования замка, купленного за свои деньги",
+  "obs": 1
+ },
+ {
+  "id": "ads-data-collection-policy",
+  "title": "Политика конфиденциальности описывает сбор и продажу данных пользователей, запросы на отказ игнорируются",
+  "obs": 1
+ },
+ {
+  "id": "no-lock-status-visual-on-keypad",
+  "title": "Клавиатура замка не показывает, заблокирована ли дверь — пользователь вводит код вслепую и не знает результата",
+  "obs": 1
+ },
+ {
+  "id": "no-favorite-locks-on-homescreen",
+  "title": "Нельзя закрепить часто используемые замки на главном экране для быстрого доступа",
+  "obs": 1
+ },
+ {
+  "id": "lock-button-single-tap-accidental",
+  "title": "Кнопка блокировки/разблокировки срабатывает при одном нажатии — случайное нажатие открывает дверь",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-setup-instructions-quality",
+  "title": "Пошаговые инструкции с картинками при первоначальной настройке упрощают установку и программирование",
+  "obs": 1
+ },
+ {
+  "id": "email-update-account-breaks-login",
+  "title": "После попытки изменить электронную почту аккаунта войти в приложение становится невозможно",
+  "obs": 1
+ },
+ {
+  "id": "dollar-sign-password-broken",
+  "title": "После обновления символ доллара запрещён в пароле — существующие пароли перестают работать",
+  "obs": 1
+ },
+ {
+  "id": "2fa-delay-blocks-entry",
+  "title": "Код двухфакторной аутентификации приходит с задержкой 5+ минут — войти в приложение невозможно",
+  "obs": 1
+ },
+ {
+  "id": "wifi-two-networks-instability",
+  "title": "При наличии двух Wi-Fi сетей дома замок не удерживает соединение ни с одной из них",
+  "obs": 1
+ },
+ {
+  "id": "app-not-working-on-android",
+  "title": "Приложение не работает на Android — об этом ограничении нигде не предупреждают до покупки",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-requires-iphone-active",
+  "title": "Управление с Apple Watch работает только когда приложение на iPhone активно — независимая работа невозможна",
+  "obs": 1
+ },
+ {
+  "id": "schedule-update-requires-reinstall",
+  "title": "Расписание доступа не обновляется без полного удаления и переустановки приложения",
+  "obs": 1
+ },
+ {
+  "id": "app-update-loses-access-codes",
+  "title": "После обновления приложения все коды доступа удаляются и новые создать нельзя",
+  "obs": 1
+ },
+ {
+  "id": "multi-device-single-lock-not-supported",
+  "title": "Одним замком нельзя управлять одновременно с двух устройств",
+  "obs": 1
+ },
+ {
+  "id": "app-update-available-but-fails-to-install",
+  "title": "Приложение сообщает о доступном обновлении, но при попытке установить — не загружается",
+  "obs": 1
+ },
+ {
+  "id": "battery-holder-loosens-inside-lock",
+  "title": "Аккумуляторный блок ослабевает внутри замка при открытии и закрытии двери",
+  "obs": 1
+ },
+ {
+  "id": "keypad-overheating-sun",
+  "title": "Сенсорная панель клавиатуры отказывает при прямом солнечном свете",
+  "obs": 1
+ },
+ {
+  "id": "admin-loses-remote-access-after-update",
+  "title": "После обновления администратор теряет возможность управлять несколькими замками удалённо",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-phone-passcode-required",
+  "title": "Приложение принудительно требует установить пароль на весь телефон — отказаться нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-face-id-support",
+  "title": "Приложение не поддерживает Face ID для подтверждения блокировки или разблокировки",
+  "obs": 1
+ },
+ {
+  "id": "false-spam-notifications",
+  "title": "Приложение шлёт десятки ложных уведомлений в час — дверь никто не трогал, но уведомления непрерывны",
+  "obs": 1
+ },
+ {
+  "id": "battery-drain-app-side-effect",
+  "title": "Приложение само по себе вызывает быстрый разряд батареи замка — после удаления приложения батарея держит дольше",
+  "obs": 1
+ },
+ {
+  "id": "access-log-unreliable",
+  "title": "Журнал событий не показывает точно, кто и когда открывал дверь — коды разных пользователей не различимы",
+  "obs": 1
+ },
+ {
+  "id": "support-unavailable-or-unhelpful",
+  "title": "Техподдержка недоступна по телефону, не отвечает на заявки, или предлагает купить новый замок вместо помощи",
+  "obs": 1
+ },
+ {
+  "id": "auto-lock-without-door-sensor",
+  "title": "Автоблокировка срабатывает независимо от положения двери — нужен датчик, чтобы не блокировать открытую дверь",
+  "obs": 1
+ }
+]

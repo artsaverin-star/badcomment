@@ -1,0 +1,314 @@
+You are grouping 53 mechanism-level insight clusters from Things 3 (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Things 3, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 53 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Things 3 — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Things 3>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-904237743.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "recurring-complete-early",
+  "title": "Повторяющуюся задачу нельзя отметить выполненной раньше срока — только в день повтора",
+  "obs": 6
+ },
+ {
+  "id": "per-device-apple-purchase",
+  "title": "Каждое устройство Apple нужно покупать отдельно — несмотря на синхронизацию через iCloud",
+  "obs": 2
+ },
+ {
+  "id": "no-image-attachments",
+  "title": "Нельзя прикреплять изображения к задачам — нет визуального контекста",
+  "obs": 2
+ },
+ {
+  "id": "date-time-two-step",
+  "title": "Дату и время напоминания нужно вводить в два отдельных шага — единого потока нет",
+  "obs": 2
+ },
+ {
+  "id": "clear-button-rename-reflex",
+  "title": "Переименование кнопки «Done» в «Clear» ломает многолетний рефлекс — пользователь делает противоположное действие",
+  "obs": 2
+ },
+ {
+  "id": "accidental-plus-creates-empty-task",
+  "title": "Случайное касание кнопки «плюс» создаёт пустую задачу, которую нет опции удалить сразу",
+  "obs": 2
+ },
+ {
+  "id": "watch-app-removed",
+  "title": "После обновления приложение исчезло с Apple Watch — быстрый доступ к задачам с запястья пропал",
+  "obs": 2
+ },
+ {
+  "id": "no-android-web-windows",
+  "title": "Нет Android, Windows и веб-версии — приложение запирает пользователя в экосистеме Apple",
+  "obs": 2
+ },
+ {
+  "id": "family-sharing-broken",
+  "title": "Покупка не работает по семейному доступу — организатору семьи приложение требует купить заново",
+  "obs": 1
+ },
+ {
+  "id": "recurring-logic-broken",
+  "title": "Логика повторяющихся задач сломана и считается главным недостатком приложения",
+  "obs": 1
+ },
+ {
+  "id": "daily-repeat-missing-or-hidden",
+  "title": "Ежедневный повтор задач либо отсутствует, либо неочевиден — приложение непригодно для чек-листов привычек",
+  "obs": 1
+ },
+ {
+  "id": "daily-repeat-duplicates",
+  "title": "Повтор «ежедневно» создаёт дубликаты событий вместо одного повторяющегося",
+  "obs": 1
+ },
+ {
+  "id": "recurring-section-placement-lost",
+  "title": "При регенерации повторяющаяся задача возвращается в общий список, забывая раздел куда её переместили",
+  "obs": 1
+ },
+ {
+  "id": "missed-recurring-no-original-date",
+  "title": "Пропущенная повторяющаяся задача показывает «сегодня» без первоначального срока, скрывая историю",
+  "obs": 1
+ },
+ {
+  "id": "recurring-option-hidden-on-create",
+  "title": "Опция повтора спрятана в редактировании существующей задачи, её нельзя задать при создании",
+  "obs": 1
+ },
+ {
+  "id": "repeating-project-wrong-order",
+  "title": "Задачи повторяющегося проекта попадают в список «сегодня» в неправильном порядке",
+  "obs": 1
+ },
+ {
+  "id": "no-recurring-reminders-until-done",
+  "title": "Нельзя поставить повторяющееся напоминание которое настойчиво звучит пока задача не выполнена",
+  "obs": 1
+ },
+ {
+  "id": "no-team-sharing",
+  "title": "Нет совместной работы — задачи и проекты нельзя разделить с командой",
+  "obs": 1
+ },
+ {
+  "id": "no-color-coding",
+  "title": "Цветовое кодирование задач не реализовано годами из-за дизайн-философии команды",
+  "obs": 1
+ },
+ {
+  "id": "no-bulk-select-move",
+  "title": "Нет массового выделения задач для перемещения — каждую приходится двигать по одной",
+  "obs": 1
+ },
+ {
+  "id": "tags-not-shown-in-list",
+  "title": "В списке задач теги почти не видны — показывается только область задачи, фильтровать неудобно",
+  "obs": 1
+ },
+ {
+  "id": "no-tag-filter-in-focus",
+  "title": "В режиме Focus нельзя фильтровать задачи по выбранным тегам, хотя в виджетах это работает",
+  "obs": 1
+ },
+ {
+  "id": "widget-tag-filter-and-logic",
+  "title": "Фильтр тегов в виджете работает по логике И, а не ИЛИ — задача видна только если содержит все теги",
+  "obs": 1
+ },
+ {
+  "id": "tags-dont-scale-for-prioritization",
+  "title": "При сотнях задач теги не масштабируются — нет быстрого способа выбрать подмножество для фокуса",
+  "obs": 1
+ },
+ {
+  "id": "no-natural-language-parsing",
+  "title": "Нет разбора естественного языка при вводе — быстро добавить задачу не получается",
+  "obs": 1
+ },
+ {
+  "id": "no-sort-by-deadline",
+  "title": "Задачи нельзя отсортировать по дедлайну — приоритизировать работу невозможно",
+  "obs": 1
+ },
+ {
+  "id": "flags-act-as-deadlines",
+  "title": "Флаги работают как сроки, а не как приоритеты — назначить приоритет отдельно нельзя",
+  "obs": 1
+ },
+ {
+  "id": "today-insertion-order",
+  "title": "Новые задачи всегда добавляются вниз списка «сегодня» — порядок вставки выбрать нельзя",
+  "obs": 1
+ },
+ {
+  "id": "reschedule-recurring-awkward",
+  "title": "Перенести дату повторяющейся задачи неудобно — вместо редактирования даты показывают «пауза» или «изменить»",
+  "obs": 1
+ },
+ {
+  "id": "move-task-hard-to-reach",
+  "title": "Перемещение задачи между областями требует доступа в конец экрана и ломает рабочий поток",
+  "obs": 1
+ },
+ {
+  "id": "no-time-on-task",
+  "title": "Нельзя привязать время к задаче как ко встрече без создания отдельного события календаря",
+  "obs": 1
+ },
+ {
+  "id": "calendar-no-end-time",
+  "title": "Календарь показывает только время начала событий — свободные слоты для планирования не видны",
+  "obs": 1
+ },
+ {
+  "id": "max-snooze-one-hour",
+  "title": "Отсрочка задачи максимум на час вынуждает переклассифицировать её — для кого-то это плюс к организации",
+  "obs": 1
+ },
+ {
+  "id": "mark-project-done-from-today",
+  "title": "Проект нельзя отметить выполненным из «Сегодня» — нужно открыть проект и нажать кружок",
+  "obs": 1
+ },
+ {
+  "id": "created-lists-not-visible",
+  "title": "Созданные пользователем категории не отображаются при открытии приложения — списки теряются",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-insufficient",
+  "title": "После онбординга непонятны категории и напоминания — учебник не даёт освоить базовые механики",
+  "obs": 1
+ },
+ {
+  "id": "clear-button-too-close",
+  "title": "Кнопка «Clear» расположена слишком близко к вводу — случайное касание стирает запись без отката",
+  "obs": 1
+ },
+ {
+  "id": "badge-fatigue-needs-nagging",
+  "title": "Значки на задачах вызывают усталость — нужны настойчивые повторяющиеся напоминания каждые несколько минут",
+  "obs": 1
+ },
+ {
+  "id": "no-background-refresh",
+  "title": "Контент не обновляется в фоне — изменения видны только после ручного открытия приложения",
+  "obs": 1
+ },
+ {
+  "id": "watch-completed-not-synced",
+  "title": "Выполненные задачи остаются на виджете часов — состояние синхронизации не обновляется",
+  "obs": 1
+ },
+ {
+  "id": "siri-integration-broken",
+  "title": "Siri открывает встроенные Напоминания вместо Things или не находит приложение",
+  "obs": 1
+ },
+ {
+  "id": "calendar-sync-error-first-launch",
+  "title": "При первом запуске синхронизация календаря и подключение сервисов выдают ошибку",
+  "obs": 1
+ },
+ {
+  "id": "magic-keyboard-disconnect",
+  "title": "Отдельные клавиши Magic Keyboard теряют связь с приложением на iPad, в других приложениях такого нет",
+  "obs": 1
+ },
+ {
+  "id": "voice-dictation-lost",
+  "title": "Текст голосовой диктовки теряется при выходе из режима или нажатии Enter",
+  "obs": 1
+ },
+ {
+  "id": "pinyin-punctuation-broken",
+  "title": "При китайском вводе Pinyin нельзя ввести знаки пунктуации — ввод застревает на буквах",
+  "obs": 1
+ },
+ {
+  "id": "sync-not-warned-cloud-account",
+  "title": "При смене устройства данные не синхронизировались — пользователя не предупредили о необходимости облачного аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "incomplete-export",
+  "title": "Экспорт базы данных неполный — проекты и повторяющиеся напоминания теряются, миграция почти невозможна",
+  "obs": 1
+ },
+ {
+  "id": "reminders-import-deletes-source",
+  "title": "Импорт из Напоминаний удаляет задачи из оригинала вместо копирования, без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "retention-recurring-projects-minimalism",
+  "title": "Удерживает повторяющимися задачами, проектами и минималистичной архитектурой — те кто бросал планировщики остаются",
+  "obs": 1
+ },
+ {
+  "id": "consolidate-multicontext-with-calendar",
+  "title": "Используют для сведения задач из разных контекстов и синхронизации с Google Calendar в едином представлении",
+  "obs": 1
+ },
+ {
+  "id": "competitor-stagnation-churn",
+  "title": "Отсутствие новых фич толкает к конкуренту даже при предпочтении интерфейса Things",
+  "obs": 1
+ },
+ {
+  "id": "cloud-cost-sustainability",
+  "title": "Пользователь предостерегает от масштабирования облака из-за затрат и нагрузки на бизнес",
+  "obs": 1
+ },
+ {
+  "id": "ingest-from-photos",
+  "title": "Хотят отправлять фото приглашений с датами прямо в список вместо ручного переписывания",
+  "obs": 1
+ }
+]

@@ -1,0 +1,91 @@
+{
+  "groups": [
+    {
+      "id": "muzyka-i-golos-trenera",
+      "name": "Музыка глохнет, а голос робота вместо тренера",
+      "insight_ids": [
+        "music-paused-throughout-workout",
+        "music-paused-unpredictable",
+        "robot-voice-vs-trainer",
+        "music-volume-ducking-inconsistent",
+        "voice-cues-not-triggering",
+        "audio-seek-mutes",
+        "simultaneous-music-and-voice",
+        "spotify-blocked-after-os-update"
+      ]
+    },
+    {
+      "id": "ischezayushchiy-progress",
+      "name": "Исчезающий прогресс: тренировки, которые не сохранились",
+      "insight_ids": [
+        "completed-workouts-not-saved-as-rest",
+        "session-kicks-out-losing-progress",
+        "manual-save-data-loss",
+        "resume-restarts-workout",
+        "weight-rep-not-saved",
+        "timer-stops-when-app-backgrounded",
+        "completion-status-desync-widget"
+      ]
+    },
+    {
+      "id": "log-vesov-i-povtorov",
+      "name": "Лог веса и повторов, который мешает считать прогресс",
+      "insight_ids": [
+        "cannot-substitute-exercise-in-log",
+        "weight-logged-once-per-exercise",
+        "cannot-edit-reps-after-set",
+        "alternatives-shown-too-late",
+        "substitution-not-update-sets",
+        "no-weight-history-per-exercise",
+        "cannot-reorder-mid-workout",
+        "edit-weight-cancels-rest-timer"
+      ]
+    },
+    {
+      "id": "ritm-trenirovki",
+      "name": "Ритм тренировки: паузы, переходы и телефон в руках",
+      "insight_ids": [
+        "rest-timer-default-too-long",
+        "rest-time-too-short",
+        "no-auto-progress-between-sets",
+        "phone-must-stay-on-as-display",
+        "end-workout-button-misplaced",
+        "inaccurate-duration-estimate",
+        "exercise-videos-not-loading",
+        "no-search-in-exercise-library"
+      ]
+    },
+    {
+      "id": "kalendar-programmy",
+      "name": "Жёсткий календарь программы: пропуски, отдых и беременность",
+      "insight_ids": [
+        "skipped-day-locks-workout",
+        "pregnancy-program-tied-to-due-date",
+        "schedule-workout-not-enrolled",
+        "no-rest-day-or-alt-activity",
+        "repetitive-program-content",
+        "structure-helps-adhd"
+      ]
+    },
+    {
+      "id": "akkaunty-i-oplata",
+      "name": "Аккаунты, подписки и платежи врозь по платформам",
+      "insight_ids": [
+        "subscription-per-platform-accounts",
+        "restore-purchase-loop",
+        "enroll-error-blocks-all-programs",
+        "login-delay-30min",
+        "account-age-gate-error"
+      ]
+    },
+    {
+      "id": "ustroystva-i-set",
+      "name": "Часы, телевизор и офлайн: дом не всегда онлайн",
+      "insight_ids": [
+        "apple-watch-sync-inconsistent",
+        "no-cast-to-tv",
+        "requires-internet-no-offline"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+You are grouping 16 mechanism-level insight clusters from Trending Music Player (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Trending Music Player, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 16 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Trending Music Player — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Trending Music Player>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1139055265.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "downloads-deleted-after-update",
+  "title": "Обновление стирает всю загруженную музыку и плейлисты без возможности восстановления",
+  "obs": 4
+ },
+ {
+  "id": "offline-freeze-after-update",
+  "title": "Офлайн-воспроизведение зависает после одной-двух песен — требуется перезагрузка приложения",
+  "obs": 3
+ },
+ {
+  "id": "continuous-play-crash",
+  "title": "Приложение падает после двух-трёх песен подряд, прерывая непрерывное прослушивание",
+  "obs": 2
+ },
+ {
+  "id": "downloads-deleted-periodically",
+  "title": "Загруженная музыка исчезает самостоятельно примерно раз в несколько месяцев без обновлений",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-open-or-select",
+  "title": "Приложение закрывается при запуске или при выборе песни с нестабильной частотой воспроизведения сбоя",
+  "obs": 2
+ },
+ {
+  "id": "offline-wrong-song-substitution",
+  "title": "В офлайн-режиме приложение подменяет скачанные песни другими версиями вместо локальных файлов",
+  "obs": 1
+ },
+ {
+  "id": "playback-controls-freeze",
+  "title": "Кнопки паузы и пропуска перестают реагировать — нужен полный перезапуск приложения",
+  "obs": 1
+ },
+ {
+  "id": "headphone-skip-kills-audio",
+  "title": "Пропуск трека через наушники или AirPods выключает воспроизведение вместо перехода к следующему треку",
+  "obs": 1
+ },
+ {
+  "id": "catastrophic-update-regression",
+  "title": "Обновление полностью ломает приложение — только переустановка временно восстанавливает работу",
+  "obs": 1
+ },
+ {
+  "id": "session-lost-on-exit",
+  "title": "После каждого выхода из приложения требуется повторный вход в учётную запись",
+  "obs": 1
+ },
+ {
+  "id": "favorites-blank-after-update",
+  "title": "После обновления экран избранного показывает пустой список, хотя данные не удалены",
+  "obs": 1
+ },
+ {
+  "id": "favorites-state-desync",
+  "title": "Приложение неверно отображает наличие песен в избранном — состояние рассинхронизировано с реальным",
+  "obs": 1
+ },
+ {
+  "id": "downloads-shown-in-ui-unwanted",
+  "title": "После обновления загруженные файлы появляются в интерфейсе там, где их раньше не было",
+  "obs": 1
+ },
+ {
+  "id": "favorites-reorder-removed",
+  "title": "Функция изменения порядка песен в избранном удалена из приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-direct-audio-only-video",
+  "title": "Музыкальный контент воспроизводится только через видео — прямого аудио-режима нет",
+  "obs": 1
+ },
+ {
+  "id": "search-broken-after-update",
+  "title": "Поиск перестаёт работать или сильно глючит после обновления приложения",
+  "obs": 1
+ }
+]

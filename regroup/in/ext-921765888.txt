@@ -1,0 +1,264 @@
+You are grouping 43 mechanism-level insight clusters from Audiomack - Play Music Offline (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Audiomack - Play Music Offline, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 43 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Audiomack - Play Music Offline — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Audiomack - Play Music Offline>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-921765888.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ad-download-fail",
+  "title": "После просмотра нескольких рекламных роликов скачивание трека всё равно не срабатывает — реклама становится штрафом без вознаграждения",
+  "obs": 7
+ },
+ {
+  "id": "catalog-wrong-speed",
+  "title": "Большинство треков в каталоге воспроизводятся ускоренно — в каталоге ремиксы и кавер-версии вместо оригиналов",
+  "obs": 6
+ },
+ {
+  "id": "search-broken",
+  "title": "Поиск не возвращает результаты даже для популярных треков и артистов, уже загруженных в библиотеку",
+  "obs": 3
+ },
+ {
+  "id": "ad-frozen-on-screen",
+  "title": "Реклама зависает на экране и не закрывается — нужно перезапускать приложение, чтобы продолжить слушать музыку",
+  "obs": 3
+ },
+ {
+  "id": "ad-frequency-too-high",
+  "title": "Реклама показывается при каждой смене трека или каждые 1–2 песни — соотношение рекламы к контенту критически высокое",
+  "obs": 3
+ },
+ {
+  "id": "duration-display-wrong",
+  "title": "Продолжительность трека отображается некорректно (26 часов вместо реальной длины), перемотка ведёт в неправильные позиции",
+  "obs": 2
+ },
+ {
+  "id": "ad-multiple-touchpoints",
+  "title": "Реклама показывается на каждом шаге сессии: при открытии приложения, запуске трека, скачивании и повторном входе",
+  "obs": 2
+ },
+ {
+  "id": "ad-watch-unlock-model",
+  "title": "Просмотр 4–5 объявлений разблокирует 75–90 минут прослушивания — пользователи принимают эту сделку как разумную цену",
+  "obs": 1
+ },
+ {
+  "id": "premium-content-gaps",
+  "title": "При оплаченной премиум-подписке каталог содержит существенные пробелы — нишевые и подпольные релизы недоступны",
+  "obs": 1
+ },
+ {
+  "id": "premium-crash-not-stable",
+  "title": "Приложение падает даже при активной премиум-подписке, что обесценивает основное обещание платного тарифа",
+  "obs": 1
+ },
+ {
+  "id": "popular-tracks-locked",
+  "title": "Отдельные популярные треки заблокированы за подпиской, хотя в других приложениях они доступны бесплатно",
+  "obs": 1
+ },
+ {
+  "id": "free-download-cap",
+  "title": "Бесплатная версия ограничивает скачивание 50 песнями, создавая жёсткий барьер между бесплатным и платным доступом",
+  "obs": 1
+ },
+ {
+  "id": "content-lock-model-shift",
+  "title": "Введение платного доступа к популярным трекам ухудшило опыт по сравнению с прежней моделью монетизации через рекламу",
+  "obs": 1
+ },
+ {
+  "id": "old-songs-locked-free",
+  "title": "Старые песни заблокированы в бесплатной версии, что мешает слушать любимую музыку без интернета",
+  "obs": 1
+ },
+ {
+  "id": "soundcloud-offline-broken",
+  "title": "Загруженные песни не воспроизводятся офлайн даже при активной платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "geo-restrictions",
+  "title": "Часть каталога недоступна в определённых географических регионах — пользователь не может слушать все треки",
+  "obs": 1
+ },
+ {
+  "id": "youtube-import-broken",
+  "title": "Функция импорта музыки с YouTube через веб-сайт не работает",
+  "obs": 1
+ },
+ {
+  "id": "dmca-false-claims",
+  "title": "Правообладатели подают жалобы на контент авторов на звуки, которые те не использовали или которые вышли позже публикации видео",
+  "obs": 1
+ },
+ {
+  "id": "recommendation-genre-mismatch",
+  "title": "Автоматические рекомендации резко переключают жанр без выбора пользователя — логика подбора музыки нарушена",
+  "obs": 1
+ },
+ {
+  "id": "background-play-missing",
+  "title": "Приложение не поддерживает фоновое воспроизведение — музыка останавливается при переключении на другое приложение",
+  "obs": 1
+ },
+ {
+  "id": "airpods-resume-broken",
+  "title": "Нажатие кнопки воспроизведения на беспроводных наушниках не возобновляет музыку — нужно открыть приложение и просмотреть рекламу",
+  "obs": 1
+ },
+ {
+  "id": "session-forced-logout",
+  "title": "Приложение принудительно завершает сессию пользователя, прерывая непрерывное прослушивание",
+  "obs": 1
+ },
+ {
+  "id": "autoplay-ad-before-track",
+  "title": "Реклама принудительно запускается до начала воспроизведения любого трека — нельзя сразу начать слушать музыку",
+  "obs": 1
+ },
+ {
+  "id": "audiomod-setting-lost",
+  "title": "Настройка режима аудио сбрасывается после переключения трека и восстанавливается только при повторном скачивании",
+  "obs": 1
+ },
+ {
+  "id": "bulk-download-removed",
+  "title": "Функция массового скачивания удалена — теперь можно загружать только по одному треку, большинство заблокировано без подписки",
+  "obs": 1
+ },
+ {
+  "id": "search-no-fuzzy",
+  "title": "Поиск требует точного написания — при неточном вводе или на локальных языках результаты не находятся",
+  "obs": 1
+ },
+ {
+  "id": "equalizer-locked",
+  "title": "Эквалайзер и пресеты заблокированы за платной подпиской, хотя в других музыкальных приложениях это базовая функция",
+  "obs": 1
+ },
+ {
+  "id": "ios-android-parity",
+  "title": "Версия для iOS заметно отстаёт от Android по обновлениям интерфейса — пользователи разных платформ видят разный продукт",
+  "obs": 1
+ },
+ {
+  "id": "cross-platform-sync-missing",
+  "title": "Приложение не синхронизирует плейлисты с игровыми и развлекательными устройствами, в отличие от конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "app-crash-pause-switch",
+  "title": "Приложение падает при попытке поставить трек на паузу и переключиться на другое приложение",
+  "obs": 1
+ },
+ {
+  "id": "app-freeze-device",
+  "title": "Приложение зависает так сильно, что может заморозить всё устройство",
+  "obs": 1
+ },
+ {
+  "id": "connectivity-false-error",
+  "title": "После обновления приложение ложно сообщает об отсутствии интернета при хорошем сигнале, блокируя поиск и сетевые функции",
+  "obs": 1
+ },
+ {
+  "id": "service-unavailable-loop",
+  "title": "Приложение зацикливается на ошибке «сервис недоступен» и не позволяет начать прослушивание",
+  "obs": 1
+ },
+ {
+  "id": "auto-logout-clears-library",
+  "title": "Приложение автоматически выходит из аккаунта и удаляет все загруженные песни — ранее доступный контент становится платным",
+  "obs": 1
+ },
+ {
+  "id": "bluetooth-crash",
+  "title": "Приложение падает при подключении Bluetooth-наушников",
+  "obs": 1
+ },
+ {
+  "id": "ad-causes-crash",
+  "title": "Рекламные баннеры вызывают сбой приложения вместо показа объявления",
+  "obs": 1
+ },
+ {
+  "id": "ad-close-button-broken",
+  "title": "Кнопка закрытия рекламы не работает — пользователь случайно переходит по объявлению вместо его пропуска",
+  "obs": 1
+ },
+ {
+  "id": "ad-loading-delay",
+  "title": "Загрузка рекламного объявления занимает до 5 минут, практически блокируя запуск музыки",
+  "obs": 1
+ },
+ {
+  "id": "ad-frequency-grows-over-time",
+  "title": "Рекламная нагрузка нарастает со временем — долгосрочные пользователи получают всё больше объявлений",
+  "obs": 1
+ },
+ {
+  "id": "unskippable-ads-introduced",
+  "title": "Добавлены непропускаемые объявления, которые дополнительно ухудшают пользовательский опыт",
+  "obs": 1
+ },
+ {
+  "id": "offline-ads-bundled",
+  "title": "Реклама показывается даже в офлайн-режиме — объявления встроены локально на устройство",
+  "obs": 1
+ },
+ {
+  "id": "ad-before-resume",
+  "title": "Для возобновления паузы после прерывания приложение требует просмотра рекламы",
+  "obs": 1
+ },
+ {
+  "id": "youtube-offline-blocked",
+  "title": "Офлайн-прослушивание заблокировано без премиума даже при использовании функции импорта с внешних платформ",
+  "obs": 1
+ }
+]

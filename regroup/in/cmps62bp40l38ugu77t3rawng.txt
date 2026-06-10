@@ -1,0 +1,279 @@
+You are grouping 46 mechanism-level insight clusters from SmartThings (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO SmartThings, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 46 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to SmartThings — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to SmartThings>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps62bp40l38ugu77t3rawng.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "frequent-disconnect-reconnect",
+  "title": "Устройства регулярно теряют связь и требуют повторного подключения вручную",
+  "obs": 11
+ },
+ {
+  "id": "remote-load-required",
+  "title": "Пульт нужно загружать заново при каждом открытии приложения",
+  "obs": 10
+ },
+ {
+  "id": "phone-as-backup-remote",
+  "title": "Приложение используется как резервный пульт, когда физический пульт потерян или недоступен",
+  "obs": 10
+ },
+ {
+  "id": "app-crash-freeze",
+  "title": "Приложение зависает и падает, требуя перезапуска для продолжения работы",
+  "obs": 9
+ },
+ {
+  "id": "slow-command-response",
+  "title": "Задержка между командой в приложении и реакцией устройства составляет несколько секунд",
+  "obs": 9
+ },
+ {
+  "id": "frame-tv-art-upload",
+  "title": "Загрузка фото на Frame TV постоянно даёт ошибки и тайм-ауты",
+  "obs": 7
+ },
+ {
+  "id": "device-offline-false-status",
+  "title": "Приложение показывает устройство офлайн, хотя оно подключено и работает",
+  "obs": 7
+ },
+ {
+  "id": "device-add-failure",
+  "title": "Добавление нового устройства (холодильник, стиралка, духовка) заканчивается ошибкой",
+  "obs": 6
+ },
+ {
+  "id": "remote-loses-focus",
+  "title": "При переключении в другое приложение пульт уходит в фон и требует полного перезапуска",
+  "obs": 4
+ },
+ {
+  "id": "washing-machine-remote-monitoring",
+  "title": "Приложение позволяет дистанционно проверить оставшееся время работы стиралки и сушилки",
+  "obs": 4
+ },
+ {
+  "id": "unified-multi-device-control",
+  "title": "Пользователи целенаправленно выбирают SmartThings для управления устройствами разных брендов из одного приложения",
+  "obs": 4
+ },
+ {
+  "id": "update-breaks-connectivity",
+  "title": "После обновления приложение перестаёт подключаться к устройствам",
+  "obs": 3
+ },
+ {
+  "id": "location-permission-forced",
+  "title": "Приложение требует точное местоположение для управления телевизором — отказ игнорируется",
+  "obs": 3
+ },
+ {
+  "id": "no-keyboard-text-input",
+  "title": "Пульт не имеет встроенной клавиатуры — для ввода текста на TV нужно использовать стрелки",
+  "obs": 3
+ },
+ {
+  "id": "complex-ui-for-tv",
+  "title": "Приложение пытается управлять всем домом, усложняя навигацию для тех, кто хочет только управлять TV",
+  "obs": 3
+ },
+ {
+  "id": "stove-control-limited",
+  "title": "Через приложение нельзя выключить плиту или духовку — только установить таймер",
+  "obs": 3
+ },
+ {
+  "id": "gallery-removed",
+  "title": "Бесплатная галерея искусства удалена из приложения после обновления",
+  "obs": 2
+ },
+ {
+  "id": "app-slow-open",
+  "title": "Приложение медленно открывается независимо от типа соединения",
+  "obs": 2
+ },
+ {
+  "id": "app-size-excessive",
+  "title": "Приложение занимает 800 МБ — 1 ГБ памяти при функциональности простого пульта",
+  "obs": 2
+ },
+ {
+  "id": "settings-not-saved",
+  "title": "Приложение не сохраняет пользовательские настройки между сессиями",
+  "obs": 2
+ },
+ {
+  "id": "rate-popup-incessant",
+  "title": "При каждом открытии приложение просит поставить оценку — отказ не помогает",
+  "obs": 2
+ },
+ {
+  "id": "upsell-popups",
+  "title": "Всплывающие окна с предложением купить AI-сервисы мешают использованию основной функции",
+  "obs": 2
+ },
+ {
+  "id": "involuntary-logout",
+  "title": "Приложение произвольно выходит из системы и требует повторного ввода кодов авторизации",
+  "obs": 2
+ },
+ {
+  "id": "door-fridge-notification",
+  "title": "Уведомления о незакрытой двери (холодильника, входной двери) помогают исправить ситуацию удалённо",
+  "obs": 2
+ },
+ {
+  "id": "hub-sporadic-range",
+  "title": "Хаб работает на расстоянии нестабильно: иногда месяцами, иногда перестаёт неожиданно",
+  "obs": 1
+ },
+ {
+  "id": "backlighting-fail-on-power",
+  "title": "При включении TV через приложение подсветка не срабатывает примерно в половине случаев",
+  "obs": 1
+ },
+ {
+  "id": "ac-noise-bixby-night",
+  "title": "Кондиционер издаёт громкий звук ночью и требует настройки через Bixby, что будит пользователя",
+  "obs": 1
+ },
+ {
+  "id": "smartthings-vs-home-assistant",
+  "title": "Медленная работа и ограничения SmartThings подтолкнули пользователей к переходу на Home Assistant",
+  "obs": 1
+ },
+ {
+  "id": "hub-10yr-stable",
+  "title": "SmartThings Hub работает стабильно более 10 лет без сбоев",
+  "obs": 1
+ },
+ {
+  "id": "low-contrast-ui",
+  "title": "Низкий контраст интерфейса в обеих темах затрудняет использование для пожилых людей",
+  "obs": 1
+ },
+ {
+  "id": "shortcuts-limit-4",
+  "title": "Система ограничивает четырьмя ярлыками, и для каждой команды нужен отдельный ярлык",
+  "obs": 1
+ },
+ {
+  "id": "device-selection-before-dashboard",
+  "title": "Для открытия панели управления нужно каждый раз выбирать устройство вручную",
+  "obs": 1
+ },
+ {
+  "id": "frame-tv-ui-bad",
+  "title": "Frame TV хорош для показа фото, но интерфейс управления неудобен",
+  "obs": 1
+ },
+ {
+  "id": "setup-requires-physical-remote",
+  "title": "Для первоначальной настройки цифрового пульта нужен физический пульт — без него невозможно начать",
+  "obs": 1
+ },
+ {
+  "id": "mic-permission-unexplained",
+  "title": "При добавлении устройства приложение запрашивает доступ к микрофону без объяснения причины",
+  "obs": 1
+ },
+ {
+  "id": "only-one-device-at-a-time",
+  "title": "Одновременно можно подключить только одно устройство — саундбар случайно отключается",
+  "obs": 1
+ },
+ {
+  "id": "input-source-change-broken",
+  "title": "Изменить источник входа во время сессии невозможно — нужно удалить и переустановить приложение",
+  "obs": 1
+ },
+ {
+  "id": "remote-control-from-car",
+  "title": "Приложение позволяет управлять TV из автомобиля — это отдельный сценарий использования",
+  "obs": 1
+ },
+ {
+  "id": "easy-home-security-setup",
+  "title": "Приложение позволяет непрофессионалам самостоятельно настроить безопасность и сигнализацию дома",
+  "obs": 1
+ },
+ {
+  "id": "smart-lock-long-term",
+  "title": "Умный замок работает надёжно более 5 лет и требует только замены батареек",
+  "obs": 1
+ },
+ {
+  "id": "tv-offline-without-internet",
+  "title": "TV нельзя включить через приложение при отсутствии интернета — хотя физический пульт работает",
+  "obs": 1
+ },
+ {
+  "id": "account-required-for-vacuum",
+  "title": "Для использования робопылесоса обязательно нужен аккаунт — без него функциональность недоступна",
+  "obs": 1
+ },
+ {
+  "id": "washing-machine-steps-vs-dial",
+  "title": "Управление стиральной машиной через приложение требует больше шагов, чем физический циферблат",
+  "obs": 1
+ },
+ {
+  "id": "premium-not-recognized",
+  "title": "Приложение медленно загружается и не всегда распознаёт купленный премиум-пакет",
+  "obs": 1
+ },
+ {
+  "id": "support-unhelpful-steps",
+  "title": "Техподдержка предлагает невыполнимые шаги и не решает проблему подключения устройств",
+  "obs": 1
+ },
+ {
+  "id": "offline-notifications-spam",
+  "title": "Приложение отправляет 10+ уведомлений об офлайн-статусе, даже когда используется только для замков",
+  "obs": 1
+ }
+]

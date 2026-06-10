@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from Nutrition Coach: Food tracker (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Nutrition Coach: Food tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Nutrition Coach: Food tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Nutrition Coach: Food tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1539625670.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "no-custom-food-entry",
+  "title": "Нельзя вручную добавить собственный продукт с его калориями и макросами, если его нет в базе",
+  "obs": 12
+ },
+ {
+  "id": "search-broken-no-results",
+  "title": "Поиск продуктов внезапно перестаёт работать — зависает или вообще не возвращает результаты",
+  "obs": 11
+ },
+ {
+  "id": "logging-broken-cant-add",
+  "title": "Функция добавления продуктов периодически полностью ломается на дни — залогировать еду невозможно",
+  "obs": 7
+ },
+ {
+  "id": "no-manual-calorie-goal",
+  "title": "Нельзя вручную задать собственный целевой лимит калорий — приложение навязывает свой расчёт",
+  "obs": 7
+ },
+ {
+  "id": "no-saved-frequent-foods",
+  "title": "Нельзя сохранять часто используемые продукты и блюда, приходится искать их заново каждый раз",
+  "obs": 4
+ },
+ {
+  "id": "premium-popup-every-open",
+  "title": "Полноэкранное предложение премиума выскакивает при каждом запуске, и его приходится закрывать вручную",
+  "obs": 3
+ },
+ {
+  "id": "missing-common-foods",
+  "title": "В базе нет многих повседневных продуктов, и пользователь не может их добавить",
+  "obs": 3
+ },
+ {
+  "id": "wrong-calorie-values-database",
+  "title": "В базе встречаются дикие ошибки калорийности — один продукт показывает значения от ста до тысяч калорий",
+  "obs": 3
+ },
+ {
+  "id": "search-logging-slow",
+  "title": "Поиск и логирование продуктов работают крайне медленно даже на быстром интернете и новом устройстве",
+  "obs": 3
+ },
+ {
+  "id": "save-meal-shows-saved-but-lost",
+  "title": "Сохранение приёма пищи рапортует об успехе, но позже блюдо не появляется в сохранённых",
+  "obs": 3
+ },
+ {
+  "id": "barcode-scan-misses",
+  "title": "Сканирование штрихкодов чаще всего не находит продукт или выдаёт неверные данные",
+  "obs": 3
+ },
+ {
+  "id": "wrong-calorie-recommendation",
+  "title": "Автоматический дневной лимит калорий завышен на сотни ккал и не подходит для сушки",
+  "obs": 3
+ },
+ {
+  "id": "water-only-fixed-steps",
+  "title": "Воду можно логировать только фиксированными шагами, а не точными объёмами",
+  "obs": 3
+ },
+ {
+  "id": "hidden-trial-true-cost",
+  "title": "Истинная стоимость и длительность пробного периода скрыты мелким шрифтом — после триала списывается полная сумма",
+  "obs": 2
+ },
+ {
+  "id": "paywall-revealed-after-data-entry",
+  "title": "О платной подписке приложение сообщает только в конце регистрации, когда все данные уже введены",
+  "obs": 2
+ },
+ {
+  "id": "no-exit-on-premium-screen",
+  "title": "На экране выбора премиума нет кнопки выхода, и новичок не понимает, обязательна ли оплата",
+  "obs": 2
+ },
+ {
+  "id": "no-regional-ethnic-foods",
+  "title": "В базе отсутствует национальная и региональная кухня, и такие блюда залогировать нельзя",
+  "obs": 2
+ },
+ {
+  "id": "no-recipe-creation",
+  "title": "Можно только сохранять приёмы пищи, но нельзя создавать полноценные именованные рецепты для повторного использования",
+  "obs": 2
+ },
+ {
+  "id": "crashes-on-load",
+  "title": "Приложение вылетает при загрузке планов и продуктов и не открывается без переустановки",
+  "obs": 2
+ },
+ {
+  "id": "apple-health-partial-sync",
+  "title": "Синхронизация с Apple Health не работает или передаёт только воду, игнорируя калории и макросы",
+  "obs": 2
+ },
+ {
+  "id": "scan-macros-mismatch",
+  "title": "Макросы и калории после сканирования сильно расходятся с данными на упаковке",
+  "obs": 2
+ },
+ {
+  "id": "no-metric-units",
+  "title": "Приложение не поддерживает метрические единицы — килограммы, литры, миллилитры",
+  "obs": 2
+ },
+ {
+  "id": "portion-size-math-broken",
+  "title": "При смене размера порции макросы считаются неправильно — увеличение порции снижает калории",
+  "obs": 2
+ },
+ {
+  "id": "no-sodium-micronutrients",
+  "title": "На дневном экране нет натрия и микронутриентов, важных для здоровья",
+  "obs": 2
+ },
+ {
+  "id": "charges-continue-after-cancel",
+  "title": "После отмены подписки и удаления приложения деньги продолжают списываться, а карту нельзя удалить",
+  "obs": 1
+ },
+ {
+  "id": "multiple-charges-same-period",
+  "title": "За один период приложение списывает плату несколько раз и при этом отказывает в доступе",
+  "obs": 1
+ },
+ {
+  "id": "core-features-behind-paywall-teens",
+  "title": "Базовые функции доступны только по платной подписке, что отрезает подростков без своих денег",
+  "obs": 1
+ },
+ {
+  "id": "weight-gain-goal-paid-only",
+  "title": "Цель «набор веса» доступна только в премиуме, а в бесплатной версии её выбрать нельзя",
+  "obs": 1
+ },
+ {
+  "id": "removed-restaurant-foods",
+  "title": "Приложение удаляет из базы ранее доступные блюда ресторанов, вынуждая искать неточные замены",
+  "obs": 1
+ },
+ {
+  "id": "recipes-exotic-ingredients",
+  "title": "Рекомендуемые рецепты состоят из экзотических и дорогих ингредиентов, которые сложно достать",
+  "obs": 1
+ },
+ {
+  "id": "missing-shopping-lists",
+  "title": "Списки покупок для рекомендованных блюд заявлены в интерфейсе, но на деле отсутствуют",
+  "obs": 1
+ },
+ {
+  "id": "recipe-boosters-broken",
+  "title": "В рецептах есть раздел дополнительных преимуществ, но открыть эту информацию невозможно",
+  "obs": 1
+ },
+ {
+  "id": "no-step-tracking",
+  "title": "Приложение не считает шаги пользователя, несмотря на включённое отслеживание активности",
+  "obs": 1
+ },
+ {
+  "id": "no-wearable-integration",
+  "title": "Шаги берутся только с телефона — интеграции с фитнес-трекерами нет",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-watch",
+  "title": "У приложения нет версии для Apple Watch, привычной по конкурентам",
+  "obs": 1
+ },
+ {
+  "id": "ipad-not-adapted",
+  "title": "На iPad приложение не подстраивается под большой экран и остаётся в размере телефона",
+  "obs": 1
+ },
+ {
+  "id": "scan-no-manual-fallback",
+  "title": "Когда сканирование и поиск не дают результата, нельзя вручную добавить данные для будущего",
+  "obs": 1
+ },
+ {
+  "id": "goal-ignored-in-recommendation",
+  "title": "Рекомендация по калориям одинакова независимо от цели — похудеть, удержать или набрать вес",
+  "obs": 1
+ },
+ {
+  "id": "unsafe-protein-recommendation",
+  "title": "Приложение советует белок выше безопасного уровня, что опасно для почек и печени",
+  "obs": 1
+ },
+ {
+  "id": "no-carb-cycling-by-day",
+  "title": "Нельзя задавать разные калории и макросы по дням недели для протокола циклирования углеводов",
+  "obs": 1
+ },
+ {
+  "id": "menstrual-tracking-forced",
+  "title": "Отслеживание цикла нельзя отключить, и оно искажает калории для женщин без менструации",
+  "obs": 1
+ },
+ {
+  "id": "saved-feature-unfindable",
+  "title": "Функция сохранённых продуктов есть в интерфейсе, но как ей пользоваться — найти невозможно",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-units",
+  "title": "Доступны только жёсткие предустановленные единицы, без возможности добавить свои варианты",
+  "obs": 1
+ },
+ {
+  "id": "no-other-beverages",
+  "title": "Приложение трекает только воду и не позволяет логировать другие калорийные напитки",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-workout-calories",
+  "title": "Нельзя записать свою тренировку с собственным числом сожжённых калорий — только из предустановленного списка",
+  "obs": 1
+ },
+ {
+  "id": "scale-workflow-impossible",
+  "title": "С кухонными весами пользоваться невозможно — система требует вводить искажённые значения веса",
+  "obs": 1
+ },
+ {
+  "id": "progress-bars-confusing",
+  "title": "Полосы прогресса по дням путают и не заполняются даже при достижении целей",
+  "obs": 1
+ },
+ {
+  "id": "wrong-portion-classification",
+  "title": "Приложение неверно классифицирует размер порции — крупный банан считает маленьким",
+  "obs": 1
+ },
+ {
+  "id": "developer-rarely-responds",
+  "title": "Разработчик почти не отвечает на отзывы, даже на конструктивную критику",
+  "obs": 1
+ },
+ {
+  "id": "spam-after-install",
+  "title": "Сразу после установки начинается поток спама — похоже на сбор и продажу адресов почты",
+  "obs": 1
+ },
+ {
+  "id": "ads-on-every-open",
+  "title": "Реклама показывается при каждом открытии приложения",
+  "obs": 1
+ },
+ {
+  "id": "unfit-for-diabetes",
+  "title": "Приложение заточено только под вес и не подходит для подсчёта углеводов при диабете",
+  "obs": 1
+ }
+]

@@ -1,0 +1,244 @@
+You are grouping 39 mechanism-level insight clusters from Picture Insect: Bug Identifier (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Picture Insect: Bug Identifier, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 39 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Picture Insect: Bug Identifier — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Picture Insect: Bug Identifier>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstsbqp1t10ug8pmlgdmgbc.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "identification-wrong-species",
+  "title": "Приложение систематически путает виды: муха — тля, летающие муравьи — без крыльев, земляной червь — прыгающий червь",
+  "obs": 9
+ },
+ {
+  "id": "identification-inconsistent-same-photo",
+  "title": "При повторном фотографировании одного и того же насекомого приложение каждый раз даёт разный результат",
+  "obs": 4
+ },
+ {
+  "id": "collection-long-term-engagement",
+  "title": "Функция коллекции насекомых превращается в многолетний журнал — пользователи накапливают сотни определений и возвращаются снова",
+  "obs": 4
+ },
+ {
+  "id": "trial-charged-immediately",
+  "title": "При регистрации на пробный период приложение сразу списывает полную сумму подписки без ожидания окончания триала",
+  "obs": 3
+ },
+ {
+  "id": "free-version-sufficient",
+  "title": "Бесплатная версия даёт достаточно информации — значительная часть пользователей никогда не платит и остаётся довольной",
+  "obs": 3
+ },
+ {
+  "id": "professional-pest-control-use",
+  "title": "Специалисты по борьбе с вредителями используют приложение ежедневно в профессиональных целях и рекомендуют коллегам",
+  "obs": 3
+ },
+ {
+  "id": "gamification-children-learning",
+  "title": "Приложение используется как интерактивная игра для детей и внуков на прогулках — идентификация превращается в развлечение",
+  "obs": 3
+ },
+ {
+  "id": "freemium-daily-limit",
+  "title": "Бесплатная версия ограничивает количество определений в день — пользователь не может идентифицировать столько насекомых, сколько встречает",
+  "obs": 2
+ },
+ {
+  "id": "identification-random-results",
+  "title": "Приложение часто выдаёт случайные и непредсказуемые результаты вместо правильного определения насекомого",
+  "obs": 2
+ },
+ {
+  "id": "dangerous-insect-misidentified",
+  "title": "Опасное насекомое определено как безвредное — пользователь не получил предупреждения об угрозе укуса или заражения",
+  "obs": 2
+ },
+ {
+  "id": "slow-performance",
+  "title": "Приложение загружается и работает медленно — пользователь упускает момент, пока насекомое уже ушло",
+  "obs": 2
+ },
+ {
+  "id": "child-safety-dangerous-spider",
+  "title": "Родители и воспитатели используют приложение для проверки опасности пауков перед тем, как разрешить детям играть рядом",
+  "obs": 2
+ },
+ {
+  "id": "allergy-anxiety-safety-use",
+  "title": "Пользователи с аллергией на укусы или тревогой перед летающими насекомыми используют приложение для управления рисками",
+  "obs": 2
+ },
+ {
+  "id": "subscription-continues-after-cancel",
+  "title": "После отмены подписки приложение продолжает списывать деньги со счёта пользователя",
+  "obs": 1
+ },
+ {
+  "id": "cancel-hidden-in-phone-settings",
+  "title": "Отмена подписки скрыта в настройках телефона, а не в самом приложении, и нигде не указана",
+  "obs": 1
+ },
+ {
+  "id": "trial-cancel-blocked",
+  "title": "Приложение не позволяет отменить подписку в течение пробного периода и впоследствии списывает деньги",
+  "obs": 1
+ },
+ {
+  "id": "safety-info-behind-paywall",
+  "title": "Критическая информация об опасности насекомых спрятана за подпиской — получить её быстро в полевых условиях невозможно",
+  "obs": 1
+ },
+ {
+  "id": "donation-onetime-payment",
+  "title": "Пользователи хотят поддержать приложение разовым платежом или донатом вместо ежемесячной подписки",
+  "obs": 1
+ },
+ {
+  "id": "subscription-prompt-every-open",
+  "title": "Приложение напоминает о необходимости подписки при каждом открытии, что раздражает постоянных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "description-fear-tone",
+  "title": "Описания пауков и других насекомых написаны в пугающем тоне вместо познавательного",
+  "obs": 1
+ },
+ {
+  "id": "description-factual-errors",
+  "title": "Описания содержат фактические ошибки: паутинные клещи названы опасными для человека, хотя они безвредны",
+  "obs": 1
+ },
+ {
+  "id": "scientific-terminology-wrong",
+  "title": "В описаниях путают «ядовитый» и «отравляющий» — ошибка в базовой научной терминологии снижает образовательную ценность",
+  "obs": 1
+ },
+ {
+  "id": "genai-contradictory-descriptions",
+  "title": "Описания на основе генеративного ИИ противоречат сами себе: один и тот же паук в разных местах назван ядовитым и нет",
+  "obs": 1
+ },
+ {
+  "id": "fear-inflation-for-upsell",
+  "title": "Приложение преувеличивает опасность безвредных насекомых, чтобы подтолкнуть пользователя купить подписку",
+  "obs": 1
+ },
+ {
+  "id": "species-db-name-typo",
+  "title": "В базе данных встречаются опечатки в научных названиях видов",
+  "obs": 1
+ },
+ {
+  "id": "limited-moth-butterfly-coverage",
+  "title": "В приложении недостаточно видов бабочек, мотыльков и гусениц, особенно местных — лепидоптерологи не могут использовать его полноценно",
+  "obs": 1
+ },
+ {
+  "id": "false-positive-non-insect",
+  "title": "Приложение определяет собаку или другой объект на фото как насекомое, давая ложные срабатывания",
+  "obs": 1
+ },
+ {
+  "id": "garden-pest-wrong-harmless",
+  "title": "Вредитель для растений определён как безвредный — пользователь потерял урожай",
+  "obs": 1
+ },
+ {
+  "id": "color-identification-errors",
+  "title": "Приложение неправильно определяет цвет насекомого, что мешает исследованиям",
+  "obs": 1
+ },
+ {
+  "id": "geographic-accuracy-limits",
+  "title": "Точность определения падает за пределами Северной Америки — приложение уверенно называет американский вид в Азии",
+  "obs": 1
+ },
+ {
+  "id": "identification-requires-many-retries",
+  "title": "Приложение отказывается определять насекомое и требует многократных пересъёмок, а финальный результат всё равно неправильный",
+  "obs": 1
+ },
+ {
+  "id": "false-bedbug-alarm",
+  "title": "Ошибочное определение постельного клопа вызвало у пользователя панику и ненужную уборку",
+  "obs": 1
+ },
+ {
+  "id": "wound-photo-feature-removed",
+  "title": "После обновления приложение перестало принимать фото ран, хотя функция раньше работала — регрессия",
+  "obs": 1
+ },
+ {
+  "id": "language-removed-without-consent",
+  "title": "Приложение без согласия пользователя убрало опцию английского языка, сделав его неиспользуемым",
+  "obs": 1
+ },
+ {
+  "id": "forced-ad-on-reinstall",
+  "title": "После переустановки приложение показывает обязательный рекламный ролик даже авторизованному пользователю",
+  "obs": 1
+ },
+ {
+  "id": "no-location-notes-feature",
+  "title": "Нет возможности добавить заметку о месте обнаружения насекомого — функция отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "identification-confirm-logic",
+  "title": "Приложение просит подтвердить результат определения, но если пользователь уже знает насекомое — зачем ему приложение",
+  "obs": 1
+ },
+ {
+  "id": "pet-safety-use-case",
+  "title": "Пользователи проверяют опасность насекомых для домашних животных",
+  "obs": 1
+ },
+ {
+  "id": "attitude-change-insects",
+  "title": "Приложение меняет отношение пользователя к насекомым с негативного на любопытство — пользователь перестаёт их убивать без изучения",
+  "obs": 1
+ }
+]

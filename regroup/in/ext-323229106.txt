@@ -1,0 +1,174 @@
+You are grouping 25 mechanism-level insight clusters from Waze Navigation & Live Traffic (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Waze Navigation & Live Traffic, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 25 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Waze Navigation & Live Traffic — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Waze Navigation & Live Traffic>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-323229106.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "carplay-map-lost-after-update",
+  "title": "После обновления карта в режиме CarPlay пропадает — на экране автомобиля остаётся чёрный или белый экран",
+  "obs": 23
+ },
+ {
+  "id": "carplay-blank-on-alt-route",
+  "title": "При попытке выбрать альтернативный маршрут в режиме CarPlay экран становится пустым и навигация пропадает",
+  "obs": 7
+ },
+ {
+  "id": "account-data-lost-on-update",
+  "title": "После обновления аккаунт удаляется вместе со всеми сохранёнными местами, настройками и данными",
+  "obs": 5
+ },
+ {
+  "id": "route-quality-worse",
+  "title": "Предложенные объезды оказываются значительно длиннее исходного маршрута — алгоритм систематически выбирает более долгий путь",
+  "obs": 4
+ },
+ {
+  "id": "carplay-map-lost-after-interruption",
+  "title": "После прерывания навигации — звонка, просмотра опций или смены экрана — карта в CarPlay не восстанавливается",
+  "obs": 4
+ },
+ {
+  "id": "keyboard-search-freeze",
+  "title": "Приложение зависает при вводе адреса в поиск — клавиатура не работает или поле поиска не реагирует",
+  "obs": 3
+ },
+ {
+  "id": "no-visual-lane-guidance",
+  "title": "При выборе между развилками приложение даёт только голосовую подсказку, но не показывает визуально нужную полосу",
+  "obs": 2
+ },
+ {
+  "id": "app-screen-blank-no-carplay",
+  "title": "Карта пропадает в обычном режиме вне CarPlay — экран становится чёрным или белым без возможности навигации",
+  "obs": 2
+ },
+ {
+  "id": "crowdsourced-comments-gone",
+  "title": "Краудсорсированные комментарии о дорожных ситуациях исчезли из интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "audio-alerts-too-quiet",
+  "title": "Звуковое оповещение об опасности на дороге — тихий звонок без голосового описания, требует взгляда на экран",
+  "obs": 1
+ },
+ {
+  "id": "no-pause-navigation",
+  "title": "Нет функции паузы навигации на остановках в длительной поездке — направления повторяются на парковке",
+  "obs": 1
+ },
+ {
+  "id": "user-messages-overlay",
+  "title": "Сообщения других пользователей перекрывают навигационную информацию на экране во время вождения",
+  "obs": 1
+ },
+ {
+  "id": "no-advance-turn-preview",
+  "title": "Приложение не показывает заблаговременное текстовое уведомление о предстоящем повороте",
+  "obs": 1
+ },
+ {
+  "id": "alert-button-precise-tap",
+  "title": "Кнопка отметки припаркованной машины на обочине требует точного попадания пальцем, что невозможно во время движения",
+  "obs": 1
+ },
+ {
+  "id": "app-asks-questions-while-driving",
+  "title": "Приложение постоянно задаёт вопросы водителю во время навигации и не отслеживает закрытые дороги автоматически",
+  "obs": 1
+ },
+ {
+  "id": "single-stop-limit",
+  "title": "Приложение поддерживает только одну промежуточную остановку — несколько стопов в маршруте добавить нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-dynamic-island-lockscreen",
+  "title": "Навигация не интегрирована с динамическим островком и экраном блокировки, в отличие от конкурирующих приложений",
+  "obs": 1
+ },
+ {
+  "id": "carplay-general-lag",
+  "title": "Приложение лагает и зависает при использовании через CarPlay без явной потери карты",
+  "obs": 1
+ },
+ {
+  "id": "app-crash-on-startup",
+  "title": "После переустановки приложение не загружает карту — при запуске показывает пустой экран вместо навигации",
+  "obs": 1
+ },
+ {
+  "id": "app-cannot-be-deleted",
+  "title": "Приложение невозможно удалить с телефона — после попытки удаления оно остаётся на устройстве",
+  "obs": 1
+ },
+ {
+  "id": "carplay-shortcut-broken",
+  "title": "Автоматический запуск навигации через ярлык при подключении к CarPlay перестал работать после обновления",
+  "obs": 1
+ },
+ {
+  "id": "location-accuracy",
+  "title": "Приложение неправильно определяет местоположение пользователя, показывая ложные координаты",
+  "obs": 1
+ },
+ {
+  "id": "speedometer-moved-center",
+  "title": "После обновления показатель скорости переместился в центр экрана в ландшафтной ориентации вместо привычного угла",
+  "obs": 1
+ },
+ {
+  "id": "excessive-data-no-offline",
+  "title": "Приложение требует постоянный интернет и большой трафик — маршрут нельзя рассчитать при слабом сигнале",
+  "obs": 1
+ },
+ {
+  "id": "google-degrading-waze",
+  "title": "Пользователи замечают, что функции Waze постепенно переносятся в конкурирующий продукт той же компании",
+  "obs": 1
+ }
+]

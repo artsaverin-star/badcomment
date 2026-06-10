@@ -1,0 +1,499 @@
+You are grouping 90 mechanism-level insight clusters from Calm (медитация / mindfulness / сон) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Calm, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 90 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Calm — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Calm>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstwzc422tyug8p31xzftzd.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "use-case-non-sleep",
+  "title": "Calm используют не для сна и медитации, а для работы, поездок, успокоить собаку, реабилитации после травм",
+  "obs": 17
+ },
+ {
+  "id": "payment-captured-no-entitlement",
+  "title": "Apple и банк подтверждают оплату — внутри приложения подписка не активна, поддержка не отвечает",
+  "obs": 15
+ },
+ {
+  "id": "emdr-bait-and-switch",
+  "title": "Рекламный квиз обещает персональный план от психолога, но даёт обычный плейлист и не связан с подпиской",
+  "obs": 15
+ },
+ {
+  "id": "celebrity-narrator-loyalty-anchor",
+  "title": "Знаменитости-рассказчики (Леброн Джеймс, Гарри Стайлс, Макконахи) — главная причина почему люди остаются с приложением",
+  "obs": 15
+ },
+ {
+  "id": "b2b-distribution-channels",
+  "title": "Большинство постоянных пользователей пришли через работодателя или медицинскую страховку, а не сами",
+  "obs": 14
+ },
+ {
+  "id": "trial-instant-yearly-charge",
+  "title": "Кнопка «7 дней бесплатно» сразу списывает полную годовую подписку, без пробного периода",
+  "obs": 13
+ },
+ {
+  "id": "cancel-confirmed-but-charged",
+  "title": "Отмена подтверждена в письме и на экране, а годовая подписка всё равно списывается",
+  "obs": 12
+ },
+ {
+  "id": "ai-bot-support-deadend",
+  "title": "В поддержке отвечает бот — описывает кнопки которых нет в приложении и не передаёт живому оператору",
+  "obs": 12
+ },
+ {
+  "id": "narrator-as-filter-missing",
+  "title": "Поиск по конкретному рассказчику не работает или удалён — нельзя найти все его записи",
+  "obs": 12
+ },
+ {
+  "id": "post-purchase-promo-spam-paid",
+  "title": "Платным и пожизненным подписчикам всё равно показывают рекламу других продуктов Calm без возможности отключить",
+  "obs": 12
+ },
+ {
+  "id": "content-recycled-detected",
+  "title": "Ежедневные медитации и сессии Джеффа Уоррена дословно повторяют куски — это замечают те кто слушает годами",
+  "obs": 11
+ },
+ {
+  "id": "sleep-app-stack-competitors",
+  "title": "Пользователи называют конкретные альтернативы которыми пользуются параллельно: Slumber, Insight Timer, YouTube ASMR, Apple Music",
+  "obs": 10
+ },
+ {
+  "id": "named-favourite-content",
+  "title": "На подписку конвертирует не каталог в целом, а конкретные записи — например аудиокниги Pride & Prejudice или Little Women",
+  "obs": 10
+ },
+ {
+  "id": "free-tier-throttled-per-track",
+  "title": "Бесплатный трек перестаёт играть после нескольких прослушиваний — скрытый счётчик загоняет за подписку",
+  "obs": 9
+ },
+ {
+  "id": "pre-content-paywall-triple-gate",
+  "title": "Перед домашним экраном пользователь обязан закрыть 3-10 окон с предложениями подписки и уведомлений",
+  "obs": 9
+ },
+ {
+  "id": "story-loop-after-693",
+  "title": "После последнего обновления сонная история зацикливается и заново играет бодрое вступление вместо перехода в фоновый звук",
+  "obs": 8
+ },
+ {
+  "id": "playlist-builder-restrictions",
+  "title": "В свой плейлист нельзя добавить трек не проиграв его, нельзя переставлять и дублировать треки, нельзя добавить фоновые звуки",
+  "obs": 8
+ },
+ {
+  "id": "lapsed-and-pre-purchase-deliberation",
+  "title": "До подписки люди обдумывают цену годами и возвращаются к Calm после сравнения с альтернативами — конвертирует ковид или госпитализация",
+  "obs": 8
+ },
+ {
+  "id": "streak-mechanic-broken-or-gameable",
+  "title": "Серия дней считается по полуночи — у тех кто медитирует перед сном она рвётся, а пропуск на конец сонной истории её сохраняет фейково",
+  "obs": 7
+ },
+ {
+  "id": "interrupt-resume-lost",
+  "title": "Любое прерывание — звонок, переключение приложения, переподключение наушников — сбрасывает медитацию в начало",
+  "obs": 7
+ },
+ {
+  "id": "lifetime-tier-degraded",
+  "title": "Пожизненная подписка не защищает от рекламного спама и удаления купленного контента — продолжают предлагать доплатить",
+  "obs": 7
+ },
+ {
+  "id": "search-broken-or-removed",
+  "title": "Поиск засорён рекламой текущей Daily Calm, не учитывает фильтр длительности, поиск по настроению удалили",
+  "obs": 7
+ },
+ {
+  "id": "platform-version-specific-crashes",
+  "title": "Приложение крашится при запуске на конкретных моделях — iPad на старой iOS, iPhone 13/14 Pro Max, Pixel 10",
+  "obs": 7
+ },
+ {
+  "id": "version-specific-feature-regression",
+  "title": "Каждое обновление убирает базовые функции — таймер на фоновом звуке, sleep-таймер плейлиста, интеграции с Sonos и iOS",
+  "obs": 7
+ },
+ {
+  "id": "partner-code-redemption-broken",
+  "title": "Коды от работодателя или страховой не активируются — пользователь либо платит из своего кармана, либо вообще не получает доступ",
+  "obs": 7
+ },
+ {
+  "id": "free-tier-undiscoverable",
+  "title": "Нет фильтра «только бесплатное» — без подписки играют только звуки дождя, и непонятно что доступно без оплаты",
+  "obs": 7
+ },
+ {
+  "id": "ad-vs-listing-price-gap",
+  "title": "В рекламе и магазине указана одна цена, при оплате списывается больше — налог, конвертация валюты или другой тариф",
+  "obs": 7
+ },
+ {
+  "id": "stack-pattern-meditation-then-story",
+  "title": "Постоянные пользователи строят ритуал «медитация → сонная история → фон» — между этапами нужны плавные переходы",
+  "obs": 7
+ },
+ {
+  "id": "audio-session-leak-android",
+  "title": "Фоновый звук продолжает играть даже после полного закрытия приложения — помогает только перезагрузка телефона",
+  "obs": 6
+ },
+ {
+  "id": "gift-paypal-parallel-billing",
+  "title": "Подаренная подписка превращается в параллельную через PayPal и не отменяется через Google Play",
+  "obs": 6
+ },
+ {
+  "id": "promo-tier-stacks-secondary-charge",
+  "title": "Промо-скидка 40% незаметно подключает платный месячный модуль или урезает уже купленную подписку",
+  "obs": 6
+ },
+ {
+  "id": "wake-up-reentry-jtbd",
+  "title": "Сценарий «проснулся ночью, надо снова заснуть» отдельный от засыпания, и Calm его не закрывает",
+  "obs": 6
+ },
+ {
+  "id": "narrator-script-microcopy-churn",
+  "title": "Конкретная фраза или повторённое слово в скрипте сбивает с расслабления — пример: «мысли исчезают», шестикратное «ноздря»",
+  "obs": 6
+ },
+ {
+  "id": "narrator-follow-notifications-missing",
+  "title": "Нельзя подписаться на любимого рассказчика или серию чтобы получить уведомление о новом эпизоде",
+  "obs": 6
+ },
+ {
+  "id": "calm-sleep-second-app-confusion",
+  "title": "Calm Sleep оказывается отдельным приложением только для iOS — пользователи Android платят и потом обнаруживают что не могут установить",
+  "obs": 6
+ },
+ {
+  "id": "duration-filter-and-custom-length",
+  "title": "Нет коротких сонных медитаций до 10 минут, нельзя задать свою длительность, и нет регулятора скорости речи",
+  "obs": 6
+ },
+ {
+  "id": "home-screen-discovery-feed-vs-launcher",
+  "title": "Главный экран превратился в рекламную карусель — таймер, дыхание и курсы спрятаны в подразделах",
+  "obs": 6
+ },
+ {
+  "id": "splash-dead-end",
+  "title": "Загрузочный экран «сделай глубокий вдох» зависает или открывает браузер вместо приложения",
+  "obs": 5
+ },
+ {
+  "id": "story-to-scene-handoff-broken",
+  "title": "Переход с сонной истории на ночной фон сломан — либо тишина, либо два трека играют одновременно",
+  "obs": 5
+ },
+ {
+  "id": "post-session-survey-forced",
+  "title": "После каждой медитации появляется опрос с задержанной кнопкой закрытия — не убрать даже перезапуском приложения",
+  "obs": 5
+ },
+ {
+  "id": "anti-productivity-corporate-framing",
+  "title": "Подача медитации через продуктивность и корпоративный wellness отталкивает тех кто пришёл за духовной практикой",
+  "obs": 5
+ },
+ {
+  "id": "no-personalisation-after-quiz",
+  "title": "Долгий приветственный опрос собирает данные для маркетинга, но домашний экран после него не персонализируется",
+  "obs": 5
+ },
+ {
+  "id": "duplicate-charge-via-family-upgrade",
+  "title": "Семейная подписка срабатывает как вторая полная годовая, а не как улучшение существующей",
+  "obs": 5
+ },
+ {
+  "id": "feedback-blackhole",
+  "title": "Кнопки «оставить отзыв» и «связаться с поддержкой» в приложении не найти, ответы шаблонные и идут неделями",
+  "obs": 5
+ },
+ {
+  "id": "binaural-frequency-segment",
+  "title": "Контент с частотами и бинауральными ритмами (альфа, тета, EMDR) — отдельный сегмент со своими ожиданиями от поиска",
+  "obs": 5
+ },
+ {
+  "id": "kids-age-and-segregation",
+  "title": "В Calm Kids нет фильтра по возрасту: взрослым детский контент попадает в рекомендации, а подростки 12+ обделены",
+  "obs": 5
+ },
+ {
+  "id": "ambient-only-segment-overserved",
+  "title": "Сегмент «просто звук дождя плюс таймер» хочет минималистичную альтернативу — Calm их вытесняет своей перегруженностью",
+  "obs": 5
+ },
+ {
+  "id": "course-progression-broken",
+  "title": "Структурный курс не переходит ко дню 2 и обрывается на середине серии",
+  "obs": 5
+ },
+ {
+  "id": "cold-start-and-perf-decay",
+  "title": "Холодный запуск медленный, свайпы лагают на новых iPhone, приложение тяжелеет за месяцы — помогает только переустановка",
+  "obs": 5
+ },
+ {
+  "id": "ambient-no-narration-segment",
+  "title": "Сегмент с бессонницей, тиннитусом и аутизмом хочет режим без речи и без музыки — Calm заточен под обратное и им не подходит",
+  "obs": 5
+ },
+ {
+  "id": "stale-narrator-content",
+  "title": "Любимый рассказчик не выпускает нового больше года — застой по конкретным голосам",
+  "obs": 5
+ },
+ {
+  "id": "household-shared-listening",
+  "title": "Совместное прослушивание дома: дочь, партнёр, кошка, собака слушают параллельно или с одного устройства",
+  "obs": 5
+ },
+ {
+  "id": "ai-narration-perception-cliff",
+  "title": "Озвучка ежедневной медитации звучит как робот — пользователи думают что Calm заменил живых дикторов и не подписываются",
+  "obs": 4
+ },
+ {
+  "id": "captions-volume-accessibility-gap",
+  "title": "Нет субтитров, максимальная громкость ниже системной, шрифт не подхватывает системные настройки — слабослышащие и слабовидящие отрезаны",
+  "obs": 4
+ },
+ {
+  "id": "trauma-loaded-sleep-content",
+  "title": "Сонные истории начинаются с травматичной ремарки (вымирающие животные, СПИД, истории Малалы) — это будит, а не успокаивает",
+  "obs": 4
+ },
+ {
+  "id": "autoplay-next-jolts-awake",
+  "title": "После сонной истории автоматически включается громкий бодрый следующий трек, игнорируя настройку — будит ночью",
+  "obs": 4
+ },
+ {
+  "id": "ip-asd-nd-religious-segments",
+  "title": "Аутисты, верующие и атеисты-практикующие просят гибкости тона медитаций — Calm подаёт только в одном «нейтрально-духовном» стиле",
+  "obs": 4
+ },
+ {
+  "id": "removed-titles-break-routine",
+  "title": "Удаление конкретных треков (Лин-Мануэль Миранда, Tanama Lake, Gently Back to Sleep, Post Malone) тихо ломает многолетний ритуал постоянных пользователей",
+  "obs": 4
+ },
+ {
+  "id": "ad-to-content-discoverability-gap",
+  "title": "Музыка или сюжет из рекламы по ТВ или Instagram не находится в приложении после установки",
+  "obs": 4
+ },
+ {
+  "id": "story-endings-untouched-surface",
+  "title": "Концовку сонной истории почти никто не слышит — пустая дорожка в конце и непрослушанный финал",
+  "obs": 4
+ },
+ {
+  "id": "settings-toggle-ignored",
+  "title": "Переключатели в настройках (автоплей, sleep-таймер, отключение рекламы) игнорируются приложением",
+  "obs": 4
+ },
+ {
+  "id": "support-only-resolution-is-cancel-refund",
+  "title": "Поддержка умеет только отменять подписку с возвратом денег — не может восстановить доступ или вернуть половину при двойной оплате",
+  "obs": 4
+ },
+ {
+  "id": "instructional-microcopy-out-of-sync",
+  "title": "Подсказки в приложении ссылаются на кнопки и элементы которых в интерфейсе нет",
+  "obs": 4
+ },
+ {
+  "id": "brand-tone-amplifies-glitch-rage",
+  "title": "Бренд «спокойствие» завышает планку — глюки и навязчивые предложения в Calm раздражают сильнее чем те же в любом другом приложении",
+  "obs": 4
+ },
+ {
+  "id": "session-crashes-mid-meditation",
+  "title": "Приложение крашится посреди медитации — Bluetooth отваливается, обычный краш — фундамент непрерывного аудио ломается годами",
+  "obs": 4
+ },
+ {
+  "id": "captcha-blocks-first-launch",
+  "title": "Проверка «я не робот» при регистрации не пропускает реальных пользователей — они удаляют приложение",
+  "obs": 3
+ },
+ {
+  "id": "sos-emergency-content-paywalled",
+  "title": "Срочная помощь при панике и дыхательные упражнения убраны за подписку — пользователи сравнивают с рекламой перед инструкцией по реанимации",
+  "obs": 3
+ },
+ {
+  "id": "downloads-need-online-revalidation",
+  "title": "Скачанный для офлайна контент перестаёт играть без интернета — приложение проверяет подписку даже когда нет сети",
+  "obs": 3
+ },
+ {
+  "id": "narration-mix-too-loud",
+  "title": "Фоновая музыка в сонных историях сведена громче речи рассказчика, и регулятора громкости голоса нет",
+  "obs": 3
+ },
+ {
+  "id": "google-fit-watch-sync-broken",
+  "title": "Calm не записывает медитации в Google Fit и Apple Watch и не подтягивает обратно данные сна",
+  "obs": 3
+ },
+ {
+  "id": "account-recovery-email-never-sent",
+  "title": "Письмо для сброса пароля просто не приходит, и нет способа достучаться до живого оператора — пользователи годами заблокированы",
+  "obs": 3
+ },
+ {
+  "id": "calmling-character-ip-merch",
+  "title": "Пользователи хотят плюшевые игрушки персонажей сонных историй (Calmling, Humphrey) — спрос есть, мерча нет",
+  "obs": 3
+ },
+ {
+  "id": "price-discrimination-grandfathered",
+  "title": "Новые подписчики получают цену ниже чем старые — у лояльных пользователей цена при продлении растёт",
+  "obs": 3
+ },
+ {
+  "id": "earbud-bluetooth-routing",
+  "title": "Воспроизведение в Bluetooth-наушники глючит — разная громкость в ушах, обрывы",
+  "obs": 3
+ },
+ {
+  "id": "mood-checkin-rigidity",
+  "title": "Замер настроения позволяет только одну запись в день, без редактирования и без множественных записей — структура данных слишком жёсткая",
+  "obs": 3
+ },
+ {
+  "id": "ghost-subscription-apple-mismatch",
+  "title": "Подписки нет в списке подписок Apple, а списания продолжаются — Calm оформлен мимо Apple IAP",
+  "obs": 3
+ },
+ {
+  "id": "good-support-anti-pattern",
+  "title": "Технически грамотные пользователи ценят когда поддержка не начинает с «удалите и переустановите» и благодарят оператора по имени",
+  "obs": 3
+ },
+ {
+  "id": "calm-as-therapy-substitute",
+  "title": "Пользователи описывают Calm как замену психотерапии и снотворному по рецепту — экономический аргумент для системы здравоохранения",
+  "obs": 3
+ },
+ {
+  "id": "battery-heat-overhead",
+  "title": "Calm греет iPhone и сажает батарею в разы сильнее чем Apple Music при той же длительности",
+  "obs": 2
+ },
+ {
+  "id": "sleep-timer-undershoots",
+  "title": "Sleep-таймер обрезает воспроизведение раньше заданного — заказал 7 часов, играет 2-3",
+  "obs": 2
+ },
+ {
+  "id": "favorited-not-prefetched",
+  "title": "Избранное не кэшируется заранее и не имеет папок или тегов — у кого там много треков получается каша",
+  "obs": 2
+ },
+ {
+  "id": "no-undo-cancellation",
+  "title": "Нет кнопки «отменить отмену» — кто передумал, тот должен подписаться заново по новой цене",
+  "obs": 2
+ },
+ {
+  "id": "review-gaming-meta",
+  "title": "Пользователи ставят 5 звёзд с негативным текстом, потому что считают что 1-звёздочные отзывы скрывает алгоритм",
+  "obs": 2
+ },
+ {
+  "id": "widget-and-ios-api-gaps",
+  "title": "Виджет Calm на главном экране белый в тонированной теме, iOS Shortcuts отвалились — Calm не подхватывает свежие iOS API",
+  "obs": 2
+ },
+ {
+  "id": "title-vs-content-mismatch",
+  "title": "Трек с поющими чашами или EMDR оказывается короче заявленного — в получасовом треке пара минут чаш, остальное другое",
+  "obs": 2
+ },
+ {
+  "id": "video-pipeline-cross-platform-regression",
+  "title": "Видео в разделах Daily Move и Moment of Calm сломаны одновременно на Android и Windows 11 — серверная регрессия",
+  "obs": 2
+ },
+ {
+  "id": "tv-ad-cost-disclosure",
+  "title": "Реклама Calm по ТВ и в Instagram не сообщает что нужна подписка — после установки пользователь ожидает что приложение бесплатное",
+  "obs": 2
+ },
+ {
+  "id": "lucid-dream-side-effect",
+  "title": "Осознанные сны и уменьшение кошмаров — неожиданный побочный эффект который замечают пользователи",
+  "obs": 2
+ },
+ {
+  "id": "sticker-vs-actual-charge",
+  "title": "На ценнике $79.99, в чеке $84.79 — налог, конвертация валюты или поднятие цены при продлении — формально не обман, но пользователи воспринимают как мошенничество",
+  "obs": 2
+ },
+ {
+  "id": "privacy-data-shared-financial",
+  "title": "В разделе «безопасность данных» в Google Play указано что финансовые данные передаются третьим сторонам, и отключить это нельзя",
+  "obs": 1
+ }
+]

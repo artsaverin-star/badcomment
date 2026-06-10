@@ -1,0 +1,244 @@
+You are grouping 39 mechanism-level insight clusters from Mobile Scanner App - Scan PDF (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Mobile Scanner App - Scan PDF, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 39 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Mobile Scanner App - Scan PDF — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Mobile Scanner App - Scan PDF>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstavv20r7jug8p9yhlatuz.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "image-quality-enhancement-advantage",
+  "title": "Алгоритм улучшения изображений превосходит настольные сканеры и конкурирующие мобильные приложения",
+  "obs": 4
+ },
+ {
+  "id": "real-estate-field-workflow",
+  "title": "Специалисты по недвижимости используют приложение для сканирования и отправки документов прямо на объекте",
+  "obs": 3
+ },
+ {
+  "id": "ocr-handwriting-errors",
+  "title": "OCR неправильно распознаёт рукописный текст и выдаёт нечитаемый результат",
+  "obs": 2
+ },
+ {
+  "id": "email-send-silent-failure",
+  "title": "Функция отправки по email показывает успех, но письмо не доходит до адресата",
+  "obs": 2
+ },
+ {
+  "id": "mobile-replaces-desktop-scanner",
+  "title": "Пользователи полностью отказываются от настольного сканера в пользу мобильного приложения",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-charge-no-refund",
+  "title": "Приложение дважды списывает платёж, а служба поддержки отказывает в возврате",
+  "obs": 1
+ },
+ {
+  "id": "subscription-continues-after-cancel",
+  "title": "После отмены подписки приложение продолжает ежемесячно списывать деньги",
+  "obs": 1
+ },
+ {
+  "id": "erase-function-charges-per-use-not-unlimited",
+  "title": "Функция стирания помечена как «безлимитная», но списывает деньги за каждое использование",
+  "obs": 1
+ },
+ {
+  "id": "trial-reminder-missing",
+  "title": "Напоминание о конце пробного периода не приходит — пользователь узнаёт о списании постфактум",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-license-blocked",
+  "title": "После покупки пожизненной лицензии приложение показывает ошибку истечения срока и блокирует функции",
+  "obs": 1
+ },
+ {
+  "id": "advertised-as-free-requires-subscription",
+  "title": "Реклама позиционирует приложение как бесплатное, но при установке требуется платная подписка",
+  "obs": 1
+ },
+ {
+  "id": "handwriting-to-text-feature-advertised-not-working",
+  "title": "Рекламируемая функция преобразования рукописного текста в печатный не работает как заявлено",
+  "obs": 1
+ },
+ {
+  "id": "advertised-features-missing-in-app",
+  "title": "Реклама обещает функции, которых нет в приложении — пользователь не может найти описанные возможности",
+  "obs": 1
+ },
+ {
+  "id": "ocr-handwriting-workflow",
+  "title": "Пользователи применяют OCR для перевода рукописных заметок в цифровой текст или документы Word",
+  "obs": 1
+ },
+ {
+  "id": "color-watermark-not-preserved",
+  "title": "При сканировании цветная бумага и водяные знаки не сохраняются — фон всегда становится белым",
+  "obs": 1
+ },
+ {
+  "id": "inconsistent-scan-quality",
+  "title": "Качество сканирования непостоянно — результат варьируется от попытки к попытке",
+  "obs": 1
+ },
+ {
+  "id": "pdf-quality-degradation",
+  "title": "При конвертации скана в PDF теряется чёткость изображения",
+  "obs": 1
+ },
+ {
+  "id": "email-opens-camera-instead",
+  "title": "При попытке отправить документ по email открывается камера вместо почтового клиента",
+  "obs": 1
+ },
+ {
+  "id": "scans-disappear-after-app-reopen",
+  "title": "Отсканированные документы исчезают из приложения через 20 минут после закрытия",
+  "obs": 1
+ },
+ {
+  "id": "files-lost-on-device-transfer",
+  "title": "При переходе на новый телефон отсканированные файлы не переносятся и пропадают",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-images-created",
+  "title": "Приложение создаёт множество дублей изображений в галерее без возможности их восстановления",
+  "obs": 1
+ },
+ {
+  "id": "save-export-freeze",
+  "title": "Приложение зависает при сохранении или экспорте документа, вынуждая сканировать заново",
+  "obs": 1
+ },
+ {
+  "id": "camera-visible-in-scan",
+  "title": "В финальном скане видна камера телефона и фон — документ выглядит непрофессионально",
+  "obs": 1
+ },
+ {
+  "id": "icloud-wifi-sync-works",
+  "title": "Синхронизация между iPhone и iPad через iCloud работает быстро — почти мгновенно",
+  "obs": 1
+ },
+ {
+  "id": "email-delivery-delay",
+  "title": "Отправленные по email документы доходят с задержкой от 10 минут до нескольких часов",
+  "obs": 1
+ },
+ {
+  "id": "camera-shake-sensitivity",
+  "title": "Алгоритм захвата изображения требует экстремальной неподвижности камеры — при малейшем движении скан смазывается",
+  "obs": 1
+ },
+ {
+  "id": "rename-dialog-ux-issue",
+  "title": "Диалог переименования документа имеет серьёзную UX-проблему, делающую эту функцию неудобной",
+  "obs": 1
+ },
+ {
+  "id": "capture-area-not-visible-for-new-users",
+  "title": "Зона захвата при сканировании не видна новым пользователям — особенно пожилым, первые попытки проваливаются",
+  "obs": 1
+ },
+ {
+  "id": "no-undo-for-edits",
+  "title": "В редакторе отсутствует функция отмены последнего действия — ошибка необратима",
+  "obs": 1
+ },
+ {
+  "id": "no-built-in-editor",
+  "title": "Встроенного редактора нет — отсканированный документ нельзя отредактировать прямо в приложении",
+  "obs": 1
+ },
+ {
+  "id": "save-location-options-limited",
+  "title": "Опций для выбора места сохранения отсканированного файла мало — сохранить в нужное место не получается",
+  "obs": 1
+ },
+ {
+  "id": "no-date-stamp-option",
+  "title": "Нет функции добавления даты на отсканированный документ — архивирование по дате невозможно",
+  "obs": 1
+ },
+ {
+  "id": "no-print-to-home-printer",
+  "title": "Печать на домашний принтер из приложения не работает",
+  "obs": 1
+ },
+ {
+  "id": "no-password-protection-for-email",
+  "title": "Нет функции защиты документа паролем перед отправкой по email — пользователи уходят к конкурентам",
+  "obs": 1
+ },
+ {
+  "id": "default-multipage-mode",
+  "title": "Приложение по умолчанию сканирует в многостраничный режим — для одного документа нужно вручную переключаться",
+  "obs": 1
+ },
+ {
+  "id": "auto-crop-hands-from-edges",
+  "title": "Приложение автоматически удаляет руки и посторонние предметы с краёв документа при сканировании",
+  "obs": 1
+ },
+ {
+  "id": "support-bot-generic-responses",
+  "title": "Служба поддержки присылает шаблонные подсказки вместо ответа на конкретную техническую проблему",
+  "obs": 1
+ },
+ {
+  "id": "fax-replacement-use-case",
+  "title": "Приложение заменяет факс — позволяет отправить документ удалённо без поездки или факс-машины",
+  "obs": 1
+ },
+ {
+  "id": "one-time-use-unsubscribe",
+  "title": "Часть пользователей оформляет подписку только для разовой задачи и сразу отменяет её",
+  "obs": 1
+ }
+]

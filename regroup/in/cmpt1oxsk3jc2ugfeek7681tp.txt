@@ -1,0 +1,124 @@
+You are grouping 15 mechanism-level insight clusters from IVY Period & Pregnancy Tracker (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO IVY Period & Pregnancy Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 15 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to IVY Period & Pregnancy Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to IVY Period & Pregnancy Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt1oxsk3jc2ugfeek7681tp.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "data-loss-after-update",
+  "title": "После обновления все исторические данные пользователя стираются — миграции и резервного восстановления нет",
+  "obs": 15
+ },
+ {
+  "id": "core-logging-behind-paywall",
+  "title": "Базовое логирование менструации закрыто за подпиской — без оплаты приложение не работает по назначению",
+  "obs": 14
+ },
+ {
+  "id": "inaccurate-period-prediction",
+  "title": "Алгоритм предсказания даты менструации систематически ошибается на несколько дней или недель",
+  "obs": 7
+ },
+ {
+  "id": "instability-large-history",
+  "title": "С большим объёмом исторических данных приложение глючит и зависает при частом использовании",
+  "obs": 6
+ },
+ {
+  "id": "abnormal-cycle-not-tracked",
+  "title": "Приложение не распознаёт два цикла в одном месяце — объединяет или игнорирует нестандартный паттерн",
+  "obs": 3
+ },
+ {
+  "id": "cycle-phase-hidden-after-update",
+  "title": "Обновление скрыло или убрало экран с фазой цикла и окном фертильности, которые были раньше",
+  "obs": 2
+ },
+ {
+  "id": "promo-screen-loop",
+  "title": "Приложение зависает на экране промо или входа и не пускает в основной интерфейс",
+  "obs": 2
+ },
+ {
+  "id": "weekly-insights-broken",
+  "title": "Функция еженедельных инсайтов перестала открываться после обновления",
+  "obs": 1
+ },
+ {
+  "id": "daily-log-duplication",
+  "title": "При ежедневном логировании запись дублируется на чётные и нечётные дни, затирая историю",
+  "obs": 1
+ },
+ {
+  "id": "no-pregnancy-mode-switch",
+  "title": "Нет плавного переключения в режим отслеживания беременности — нужно перенастраивать приложение вручную",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-requires-unknown-data",
+  "title": "При первом запуске приложение спрашивает длину цикла, которую новый пользователь ещё не знает",
+  "obs": 1
+ },
+ {
+  "id": "past-date-logging-broken",
+  "title": "Логирование событий задним числом не работает или отклоняет корректные даты",
+  "obs": 1
+ },
+ {
+  "id": "note-logging-too-many-taps",
+  "title": "Добавление заметки к дню требует трёх и более нажатий — прямого редактирования на календаре нет",
+  "obs": 1
+ },
+ {
+  "id": "bright-ui-uncomfortable",
+  "title": "Яркая цветовая схема интерфейса вызывает дискомфорт при использовании в условиях низкой освещённости",
+  "obs": 1
+ },
+ {
+  "id": "no-menopause-support",
+  "title": "Приложение не поддерживает менопаузу и перименопаузу — данные удаляются при нерегулярном цикле",
+  "obs": 1
+ }
+]

@@ -1,0 +1,98 @@
+{
+  "groups": [
+    {
+      "id": "wifi-offline-spiral",
+      "name": "Термостат, который вечно уходит в офлайн",
+      "insight_ids": [
+        "wifi-disconnect-frequent",
+        "app-cloud-out-of-sync",
+        "wifi-reconnect-after-router-change",
+        "remote-control-fails-outside-home",
+        "post-update-connection-broken",
+        "wifi-5ghz-not-supported",
+        "mesh-wifi-conflict",
+        "reconnect-requires-physical-access"
+      ]
+    },
+    {
+      "id": "commands-ignored-runaway-heat",
+      "name": "Когда термостат живёт своей жизнью",
+      "insight_ids": [
+        "schedule-not-followed",
+        "app-commands-not-executed",
+        "offline-triggers-unintended-heating",
+        "heating-doesnt-stop",
+        "manual-override-reverts-to-schedule",
+        "mode-switching-unpredictable",
+        "aux-heat-activates-unintended",
+        "temperature-cycles-unpredictably",
+        "furnace-circuit-reset-required",
+        "interface-lockup-on-manual-control",
+        "humidity-control-inaccurate"
+      ]
+    },
+    {
+      "id": "login-crashes-relogin",
+      "name": "Каждый вход — заново: разлогины, краши и пароли",
+      "insight_ids": [
+        "session-expiry-daily-relogin",
+        "app-crash-freeze",
+        "slow-app-launch",
+        "password-reset-loop"
+      ]
+    },
+    {
+      "id": "abandoned-old-versions",
+      "name": "Брошенные на старых версиях",
+      "insight_ids": [
+        "ios-version-incompatibility",
+        "mac-app-support-ended",
+        "forced-update-blocks-old-versions",
+        "app-ui-regressed-after-update"
+      ]
+    },
+    {
+      "id": "intrusive-popups-upsell",
+      "name": "Назойливые окна: Apple Home, коммунальщики, уведомления",
+      "insight_ids": [
+        "apple-home-popup-persistent",
+        "utility-offer-undismissable",
+        "notification-permission-loop"
+      ]
+    },
+    {
+      "id": "missing-climate-controls",
+      "name": "Чего не хватает для тонкого климата",
+      "insight_ids": [
+        "no-fan-timer",
+        "schedule-slot-limit",
+        "geofence-schedule-no-auto-switch",
+        "auto-mode-renamed-confusing",
+        "no-swing-mode",
+        "no-auto-heat-cool-switchover",
+        "room-sensor-no-time-schedule"
+      ]
+    },
+    {
+      "id": "accessibility-everyday-use",
+      "name": "Как Sensi живёт в доме: доступность и быт",
+      "insight_ids": [
+        "accessibility-mobility-use-case",
+        "multi-user-single-account",
+        "set-temp-display-tiny",
+        "thermostat-list-not-reorderable",
+        "display-brightness-no-night-mode",
+        "battery-drain-excessive",
+        "remote-monitoring-unattended-home"
+      ]
+    },
+    {
+      "id": "energy-data-blindspots",
+      "name": "Энергия без цифр: чего недосчитываются",
+      "insight_ids": [
+        "energy-data-no-history",
+        "realtime-energy-monitoring"
+      ]
+    }
+  ]
+}

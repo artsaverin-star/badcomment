@@ -788,5 +788,737 @@
       ],
       "monetization": "Разовая покупка $9–15. Категория документированно платит: люди соглашались на подписки даже у мельниц — спрос на платный определитель доказан (70 наблюдений триал-фрода = 70 человек, готовых были заплатить). Честная цена против задокументированного фрода конкурентов — это и есть маркетинг: страница сравнения «как мы берём деньги» со ссылками на их собственные отзывы."
     }
+  },
+  {
+    "slug": "planner-that-cannot-lose",
+    "category": "calendars-tasks",
+    "categoryName": "Календари и задачи",
+    "title": "Планировщик, который физически не может потерять ваш день",
+    "oneLiner": "Категория продаёт уверенность «записанное не пропадёт и напомнит вовремя» — и ломает её массово: обновления стирают годы расписания (83 наблюдения), синхронизация теряет события между устройствами (60+), напоминания молчат. Идея — local-first планировщик с журналом изменений, где потеря данных невозможна по конструкции, а оплата — разовая.",
+    "asOf": "2026-06-11",
+    "stats": {
+      "apps": 10,
+      "reviews": 5000,
+      "observations": 2999
+    },
+    "reviewGrid": [
+      {
+        "quote": "I really like this app alot the only little thing it has premium which is ok because their is still alot to do.It just dose not save your schedule.",
+        "rating": 5,
+        "app": "Structured: Daily Planner Todo"
+      },
+      {
+        "quote": "Been using this app since 2018 and still love it but it's doesn't seem to be syncing my changes in this app to my Google Calendar and therefore not on my watch",
+        "rating": 5,
+        "app": "Calendars: Schedule Planner"
+      },
+      {
+        "quote": "I don't get notified consistently before meetings",
+        "rating": 5,
+        "app": "Fantastical Calendar"
+      },
+      {
+        "quote": "I have been using Calendars 5 for years now and since I bought it, I have no issues with it. It was a one time payment. Now you're asking me to upgrade and start paying after a year from the upgrade.",
+        "rating": 5,
+        "app": "Calendars: Schedule Planner"
+      },
+      {
+        "quote": "(Original review 3 stars) 100% repro on iOS 26.2 with widget.",
+        "rating": 5,
+        "app": "Fantastical Calendar"
+      },
+      {
+        "quote": "make it impossible to create repeating entries without \"pro\" version. Existing repeating entry rendered useless.",
+        "rating": 5,
+        "app": "Calendars: Schedule Planner"
+      },
+      {
+        "quote": "I like the overdue status function. And the next 7 days. Both good for adhd forgetful brains",
+        "rating": 5,
+        "app": "TickTick:To-Do List & Calendar"
+      },
+      {
+        "quote": "Great app! I hesitated so long trying to find something free, but this is so worth the price. The design is clean and intuitive.",
+        "rating": 5,
+        "app": "Things 3"
+      },
+      {
+        "quote": "this app is very lightweight and minimal with the most essential features so I don't forget my tasks and get distracted. The widget integration helps to keep all my tasks centered so I can focus on completing them a habit",
+        "rating": 5,
+        "app": "To Do List MinimaList & Widget"
+      },
+      {
+        "quote": "I enjoy opening the app and right away adding another task/note that I need to be mindful of. I am a very forgetful person so having an app like this helps me so much to not forget things I need to remember later on.",
+        "rating": 5,
+        "app": "To Do List MinimaList & Widget"
+      },
+      {
+        "quote": "As of the new update that was to fix bugs… now the app intermittently closes while I'm working on creating new tasks. It's never done this in the 2 years that I've used it",
+        "rating": 5,
+        "app": "Microsoft To Do"
+      },
+      {
+        "quote": "the need for a \"weekday\" option for recurring tasks. I often has tasks that recur on the closest weekday to specific dates",
+        "rating": 5,
+        "app": "Things 3"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Обновление стирает годы расписания",
+        "obsCount": 83,
+        "apps": [
+          "Calendars: Schedule Planner",
+          "Fantastical Calendar",
+          "Todoist: To Do List & Calendar",
+          "Things 3",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Синхронизация — главная сломанная обещанная функция",
+        "obsCount": 95,
+        "apps": [
+          "Calendars: Schedule Planner",
+          "Fantastical Calendar",
+          "Do! - Simple To Do List",
+          "Tiny Calendar: Planner & Tasks",
+          "Microsoft To Do",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Напоминание, которое не пришло",
+        "obsCount": 25,
+        "apps": [
+          "Do! - Simple To Do List",
+          "Todoist: To Do List & Calendar",
+          "Fantastical Calendar",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Регрессии после обновлений: приложение падает на базовых действиях",
+        "obsCount": 65,
+        "apps": [
+          "Microsoft To Do",
+          "Fantastical Calendar",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Виджеты гниют первыми",
+        "obsCount": 65,
+        "apps": [
+          "Fantastical Calendar",
+          "Todoist: To Do List & Calendar",
+          "Microsoft To Do",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Пожизненная покупка обнуляется",
+        "obsCount": 37,
+        "apps": [
+          "Calendars: Schedule Planner",
+          "Fantastical Calendar"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "База за пейволлом: повторы, напоминания, второй список",
+        "obsCount": 67,
+        "apps": [
+          "Calendars: Schedule Planner",
+          "To Do List MinimaList & Widget",
+          "TickTick:To-Do List & Calendar",
+          "Todoist: To Do List & Calendar",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Апсейл прерывает планирование",
+        "obsCount": 38,
+        "apps": [
+          "Tiny Calendar: Planner & Tasks",
+          "Calendars: Schedule Planner",
+          "Fantastical Calendar",
+          "Todoist: To Do List & Calendar",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Повторяющиеся задачи не умеют жить по-человечески",
+        "obsCount": 36,
+        "apps": [
+          "Fantastical Calendar",
+          "Things 3",
+          "Do! - Simple To Do List",
+          "To Do List MinimaList & Widget",
+          "Structured: Daily Planner Todo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Умный парсер искажает то, что ему доверили",
+        "obsCount": 27,
+        "apps": [
+          "Fantastical Calendar",
+          "Calendars: Schedule Planner",
+          "Tiny Calendar: Planner & Tasks"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Минимализм — главное конкурентное преимущество",
+        "obsCount": 78,
+        "apps": [
+          "To Do List MinimaList & Widget",
+          "Do! - Simple To Do List",
+          "Things 3",
+          "TickTick:To-Do List & Calendar"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Задачи и календарь на одном экране",
+        "obsCount": 52,
+        "apps": [
+          "Fantastical Calendar",
+          "Calendars: Schedule Planner",
+          "Todoist: To Do List & Calendar"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Нейроотличные пользователи — незапланированное ядро аудитории",
+        "obsCount": 58,
+        "apps": [
+          "TickTick:To-Do List & Calendar",
+          "To Do List MinimaList & Widget",
+          "Do! - Simple To Do List",
+          "Fantastical Calendar",
+          "Todoist: To Do List & Calendar",
+          "Things 3"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Внешний мозг: выгрузил — и свободен",
+        "obsCount": 80,
+        "apps": [
+          "To Do List MinimaList & Widget",
+          "Todoist: To Do List & Calendar",
+          "Fantastical Calendar",
+          "TickTick:To-Do List & Calendar",
+          "Things 3"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Разовая покупка покупает лояльность на годы",
+        "obsCount": 39,
+        "apps": [
+          "Things 3",
+          "Calendars: Schedule Planner",
+          "Do! - Simple To Do List",
+          "To Do List MinimaList & Widget"
+        ],
+        "polarity": "love"
+      }
+    ],
+    "gap": "Все десять приложений категории хранят главный актив пользователя — его расписание — поверх хрупкой облачной синхронизации, и все десять собирают одинаковые катастрофы: обновление стёрло годы событий, событие с телефона не доехало до планшета, напоминание не пришло. Параллельно самая лояльная аудитория категории — нейроотличные пользователи, для которых потеря списка означает потерю исполнительной функции, — и именно ей надёжность важнее любых функций. Никто не продаёт надёжность как продукт: все продают функции.",
+    "idea": {
+      "pitch": "Дневной планировщик, спроектированный от обратного — от невозможности потерять данные. Append-only журнал изменений вместо перезаписываемой базы: любое состояние восстанавливается на любую дату, удаление — это тоже запись. Local-first: всё живёт на устройстве, облако — лишь зеркало; смена телефона — экспорт одним файлом. Напоминание ставится в системный календарь дублем — даже если приложение умерло, телефон напомнит. Разовая покупка: в категории, пережившей обнуление lifetime-лицензий, «навсегда» — это позиционирование.",
+      "features": [
+        "Журнал вместо базы: каждое изменение — запись; «как выглядел мой план 3 марта» — одна кнопка",
+        "Восстановление после любого сбоя: обновление приложения не может стереть данные по конструкции",
+        "Двойное напоминание: пуш приложения + системный календарь — молчание одного не убивает встречу",
+        "Экспорт всего одним файлом (открытый формат) — смена телефона без облака и аккаунта",
+        "Минимальный интерфейс с цветовым кодированием — наследует то, за что любят MinimaList и Things",
+        "Виджет-первый дизайн: список дня на экране блокировки, отметка в одно касание"
+      ],
+      "antiFeatures": [
+        "Без подписки — разовая покупка с family sharing",
+        "Без аккаунта — работает полностью офлайн с первого запуска",
+        "Без апсейл-попапов поверх календаря",
+        "Без умного парсера, который переносит встречу на чужую дату: явный ввод даты всегда виден",
+        "Без урезания базы: повторы, напоминания и списки бесплатны — платить нужно за «навсегда», а не за «работает»"
+      ],
+      "monetization": "Разовая покупка $9.99 (family sharing включён) + опциональный платный «сейф»: зашифрованное облачное зеркало журнала за $0.99/мес для тех, кто хочет бэкап вне устройства. Никакого бесплатного триала со скрытым списанием: бесплатная версия полнофункциональна на 30 днях истории журнала."
+    }
+  },
+  {
+    "slug": "morning-edition-finite-news",
+    "category": "news-magazines",
+    "categoryName": "Новости и журналы",
+    "title": "Утренний выпуск: новости, которые заканчиваются",
+    "oneLiner": "Читатели платят за новости — и получают рекламу в платной подписке (81 наблюдение), несвежую ленту и алгоритм, который отнимает управление. При этом самые устойчивые механизмы удержания категории — утренний ритуал и «осознанная альтернатива соцсетям». Идея — конечная утренняя газета: фиксированный выпуск, который можно дочитать, без ленты, без алгоритма, без рекламы за деньги.",
+    "asOf": "2026-06-11",
+    "stats": {
+      "apps": 10,
+      "reviews": 5000,
+      "observations": 2347
+    },
+    "reviewGrid": [
+      {
+        "quote": "I pay for the digital subscription, yet there are ads between the pages of each article. It's acceptable but disappointing. The app will certainly not be where I primarily read The Atlantic for this reason.",
+        "rating": 5,
+        "app": "The Atlantic Magazine"
+      },
+      {
+        "quote": "But now I suddenly have to pay a fee since I live in the US.",
+        "rating": 4,
+        "app": "BBC: World News & Stories"
+      },
+      {
+        "quote": "A new issue cropped up today, it’s stuck in a loop playing the same commercial over and over and over and over and over again.",
+        "rating": 5,
+        "app": "CNN: Live & Breaking News"
+      },
+      {
+        "quote": "Only criticism is some stories stay too long and get stale. I think Reuters App is updated more frequently. Also Reuters has more European soccer news and more business news.",
+        "rating": 5,
+        "app": "AP News"
+      },
+      {
+        "quote": "the notifications filters don't work anymore. I get notifications for everything now, including sports, which I have turned off",
+        "rating": 5,
+        "app": "AP News"
+      },
+      {
+        "quote": "I like this app but it crashes every time I open it.",
+        "rating": 5,
+        "app": "BBC: World News & Stories"
+      },
+      {
+        "quote": "I start my days here. Tunes me up perfectly!",
+        "rating": 5,
+        "app": "Apple News"
+      },
+      {
+        "quote": "What I love most is the nuance of the platform. It feels different from other social platforms...a sense of intentionality...meaningful conversations and authentic connection...increasingly rare online",
+        "rating": 5,
+        "app": "Substack"
+      },
+      {
+        "quote": "Most all of the information sources are cited and can be verified, so most of what is published is based on fact and truth. Opinion pieces are clearly identified as such.",
+        "rating": 5,
+        "app": "AP News"
+      },
+      {
+        "quote": "you must sign in every time I open the app",
+        "rating": 5,
+        "app": "CNN: Live & Breaking News"
+      },
+      {
+        "quote": "the app often diverts to Headlines instead of the program streaming",
+        "rating": 5,
+        "app": "CNN: Live & Breaking News"
+      },
+      {
+        "quote": "I enjoy Apple news, but the thing I don't like is the left mindset and against Republicans other than that, I like it",
+        "rating": 5,
+        "app": "Apple News"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Подписка не убирает рекламу",
+        "obsCount": 87,
+        "apps": [
+          "CNN: Live & Breaking News",
+          "Apple News",
+          "USA TODAY: US & Breaking News",
+          "The Atlantic Magazine",
+          "BBC: World News & Stories"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Реклама перехватывает чтение физически",
+        "obsCount": 71,
+        "apps": [
+          "CNN: Live & Breaking News",
+          "AP News",
+          "BBC: World News & Stories"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Пейволл вводят внезапно и неравномерно",
+        "obsCount": 64,
+        "apps": [
+          "BBC: World News & Stories",
+          "Apple News"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Обновление ломает само открытие приложения",
+        "obsCount": 124,
+        "apps": [
+          "BBC: World News & Stories",
+          "AP News",
+          "The Atlantic Magazine",
+          "NBC News: Breaking & US News",
+          "The Economist: News & Analysis"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Приложение не помнит, что вы подписчик",
+        "obsCount": 48,
+        "apps": [
+          "The Atlantic Magazine",
+          "CNN: Live & Breaking News",
+          "CNBC: Stock Market & Business",
+          "The Economist: News & Analysis"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Лента новостей — несвежая",
+        "obsCount": 28,
+        "apps": [
+          "AP News",
+          "Apple News",
+          "NBC News: Breaking & US News",
+          "USA TODAY: US & Breaking News"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Алгоритм отнимает управление лентой",
+        "obsCount": 57,
+        "apps": [
+          "Apple News",
+          "AP News",
+          "Substack",
+          "BBC: World News & Stories"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Прямой эфир и аудио обрываются",
+        "obsCount": 41,
+        "apps": [
+          "CNBC: Stock Market & Business",
+          "CNN: Live & Breaking News",
+          "NBC News: Breaking & US News",
+          "BBC: World News & Stories"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Редакционный уклон читается как системный",
+        "obsCount": 49,
+        "apps": [
+          "Apple News",
+          "AP News",
+          "CNBC: Stock Market & Business",
+          "BBC: World News & Stories"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "ИИ-озвучка воспринимается как деградация продукта",
+        "obsCount": 19,
+        "apps": [
+          "The Atlantic Magazine",
+          "The Economist: News & Analysis",
+          "Apple News"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Редакционное качество прощает всё",
+        "obsCount": 108,
+        "apps": [
+          "AP News",
+          "The Atlantic Magazine",
+          "The Economist: News & Analysis",
+          "Apple News"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Утренний ритуал — позиция, которую не отнять конкуренту",
+        "obsCount": 33,
+        "apps": [
+          "Apple News",
+          "Substack",
+          "USA TODAY: US & Breaking News",
+          "AP News",
+          "The Economist: News & Analysis"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Осознанная альтернатива соцсетям",
+        "obsCount": 19,
+        "apps": [
+          "Substack",
+          "AP News",
+          "USA TODAY: US & Breaking News",
+          "The Economist: News & Analysis"
+        ],
+        "polarity": "love"
+      }
+    ],
+    "gap": "Категория монетизирует тревогу: бесконечная лента, breaking-уведомления «всё или ничего», алгоритм, который после одной статьи неделю кормит той же темой. Платная подписка не убирает рекламу у шести приложений из десяти — деньги берут дважды. При этом отзывы показывают два самых прочных якоря: утренний ритуал («с кофе, до работы») и спрос на «новости без эмоциональной перегрузки» — люди прямо пишут, что уходят из соцсетей и кабельного ТВ ради психического здоровья. Никто не строит продукт вокруг конечности: все строят вокруг бесконечности.",
+    "idea": {
+      "pitch": "Газета, а не лента. Один выпуск утром (и опциональный вечерний): 15–25 материалов из источников, которые читатель выбрал сам, в хронологии, с видимой датой каждого материала. Выпуск кончается — приложение говорит «на сегодня всё» и закрывается. Подписка убирает всё: рекламы нет ни в одном платном экране, никогда. Без алгоритма: только выбранные источники и рубрики, порядок предсказуем. RSS-ядро делает продукт устойчивым к капризам платформ.",
+      "features": [
+        "Конечный выпуск: прогресс чтения «7 из 18», экран «на сегодня всё» вместо бесконечного скролла",
+        "Свежесть как метрика: дата и время на каждой карточке, материалы старше 24 часов не попадают в выпуск",
+        "Источники выбирает читатель: RSS + издательские фиды, блокировка источника реально убирает его",
+        "Уведомление одно в день: «выпуск готов» в выбранное время — никаких breaking-пушей по умолчанию",
+        "Офлайн-выпуск: скачивается целиком утром, читается в метро без сети",
+        "Человеческая озвучка топ-3 материалов дня (по одному диктору, не ИИ) как премиум-слой"
+      ],
+      "antiFeatures": [
+        "Без рекламы в платной версии — вообще, включая «партнёрские материалы»",
+        "Без алгоритмической ленты и «для вас»",
+        "Без бесконечного скролла — выпуск конечен по конструкции",
+        "Без геопейволла: одна цена и один продукт во всех странах",
+        "Без логин-чистилища: подписка привязана к покупке в сторе, не к сессии"
+      ],
+      "monetization": "Подписка $4.99/мес или $39.99/год — честная цена за отсутствие рекламы и труд курирования; бесплатный уровень — один выпуск в день из 8 материалов с базовыми источниками. Никаких триалов со списанием года вперёд: бесплатный уровень и есть триал."
+    }
+  },
+  {
+    "slug": "editor-that-keeps-your-work",
+    "category": "photo-editing",
+    "categoryName": "Фоторедакторы",
+    "title": "Фоторедактор, который не теряет работу и не меняет правила",
+    "oneLiner": "Семь фоторедакторов из десяти ретроспективно изымают бесплатные функции (113 наблюдений), краши стирают часы правок без автосохранения (62), переустановка уничтожает библиотеку (47), а экспорт выдаёт не то, что показывал редактор. Идея — редактор с контрактом: автосохранение каждого штриха, библиотека переживает смену телефона, экспорт бит-в-бит совпадает с предпросмотром, покупка разовая и необратимая.",
+    "asOf": "2026-06-11",
+    "stats": {
+      "apps": 10,
+      "reviews": 5000,
+      "observations": 2757
+    },
+    "reviewGrid": [
+      {
+        "quote": "They took away even more features to encourage the membership plan. They've also just risen the price and I'm wondering what has or will improve to make that reasonable",
+        "rating": 4,
+        "app": "VSCO: Photo & Video Editor"
+      },
+      {
+        "quote": "Been using this app since it came out & i love it! however i've never experienced so many crashes while editing!!",
+        "rating": 4,
+        "app": "VSCO: Photo & Video Editor"
+      },
+      {
+        "quote": "احب جدا هذا البرنامج صار لي 4 سنوات وانا استخدمه thank you dazz cam ‏But can you put in a personal account that would be really nice and we can recover photos if its got lost",
+        "rating": 5,
+        "app": "Dazz Cam - Vintage Camera"
+      },
+      {
+        "quote": "Canceled and was still charged for a year at 80.00 bucks. Apple will not refund my bank either…",
+        "rating": 5,
+        "app": "Facetune: Photo & Video Editor"
+      },
+      {
+        "quote": "This is an amazing game you can do make up and you can buy stuff but also you can do stuff with out having to buy it!!!!!!",
+        "rating": 5,
+        "app": "Facetune: Photo & Video Editor"
+      },
+      {
+        "quote": "I've also noticed there has been a big downgrade in quality! The filters are different to what they used to be, the app makes photos look lower quality",
+        "rating": 5,
+        "app": "Snapseed: Photo Editor"
+      },
+      {
+        "quote": "Can we please bring back the lighting option for golden hour, and noon and studio light original filters back!",
+        "rating": 5,
+        "app": "Facetune: Photo & Video Editor"
+      },
+      {
+        "quote": "the imogies and the platform look. It used to be \"Classy\".. now it's gimmicky",
+        "rating": 5,
+        "app": "Snapseed: Photo Editor"
+      },
+      {
+        "quote": "If you spend the $20 for the one time purchase it’s so worth it, I edit all my photos with this app!!!",
+        "rating": 5,
+        "app": "Peachy - AI Face & Body Editor"
+      },
+      {
+        "quote": "I used to remove backgrounds quickly. Now, I use it for ideas and I wish I had time for so many fun additions that are now available.",
+        "rating": 5,
+        "app": "Bazaart AI Photo Editor Design"
+      },
+      {
+        "quote": "I don't usually give reviews no matter how bad or good the app is, but this app is literally insane, I've gotten a lot of compliments on my photos and asked many times what filter/app I use.",
+        "rating": 5,
+        "app": "Dazz Cam - Vintage Camera"
+      },
+      {
+        "quote": "I wrote a good review but yall might wanna fix your AI- I’m laughing a lot at it but I’ve been previously bullied for being so pale sooooo yea might wanna fix the fact that it thought I was wearing a white shirt..",
+        "rating": 5,
+        "app": "Peachy - AI Face & Body Editor"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Ранее бесплатное изымается задним числом",
+        "obsCount": 92,
+        "apps": [
+          "Facetune: Photo & Video Editor",
+          "VSCO: Photo & Video Editor",
+          "Lightroom: AI Photo Editor",
+          "Dazz Cam - Vintage Camera",
+          "Bazaart AI Photo Editor Design"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Экспорт — заложник пейволла",
+        "obsCount": 44,
+        "apps": [
+          "Facetune: Photo & Video Editor",
+          "Photo Retouch-Object Removal",
+          "Dazz Cam - Vintage Camera",
+          "VSCO: Photo & Video Editor",
+          "Peachy - AI Face & Body Editor"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Триал списывает год вперёд",
+        "obsCount": 115,
+        "apps": [
+          "Photo Retouch-Object Removal",
+          "Facetune: Photo & Video Editor",
+          "VSCO: Photo & Video Editor"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Краш съедает часы работы",
+        "obsCount": 41,
+        "apps": [
+          "VSCO: Photo & Video Editor",
+          "Funimate Video & Motion Editor",
+          "Peachy - AI Face & Body Editor",
+          "Lightroom: AI Photo Editor",
+          "Snapseed: Photo Editor"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Библиотека испаряется при переустановке",
+        "obsCount": 30,
+        "apps": [
+          "Dazz Cam - Vintage Camera",
+          "VSCO: Photo & Video Editor",
+          "Funimate Video & Motion Editor",
+          "Lightroom: AI Photo Editor",
+          "Bazaart AI Photo Editor Design"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Обновление ампутирует любимые инструменты",
+        "obsCount": 110,
+        "apps": [
+          "Facetune: Photo & Video Editor",
+          "Phonto - Text on Photos",
+          "VSCO: Photo & Video Editor",
+          "Snapseed: Photo Editor"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Интерфейс перетряхивают, мышечную память стирают",
+        "obsCount": 78,
+        "apps": [
+          "Snapseed: Photo Editor",
+          "Facetune: Photo & Video Editor",
+          "VSCO: Photo & Video Editor"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Экспорт портит то, что показал редактор",
+        "obsCount": 19,
+        "apps": [
+          "VSCO: Photo & Video Editor",
+          "Peachy - AI Face & Body Editor",
+          "Photo Retouch-Object Removal",
+          "Dazz Cam - Vintage Camera",
+          "Snapseed: Photo Editor"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "ИИ-обработка: между «вау» и «жутко»",
+        "obsCount": 48,
+        "apps": [
+          "Photo Retouch-Object Removal",
+          "Peachy - AI Face & Body Editor"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Разовая покупка — антипод хищнической модели",
+        "obsCount": 65,
+        "apps": [
+          "Dazz Cam - Vintage Camera",
+          "Peachy - AI Face & Body Editor",
+          "Phonto - Text on Photos",
+          "Bazaart AI Photo Editor Design"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Чистое удаление объекта — главный дифференциатор",
+        "obsCount": 54,
+        "apps": [
+          "Bazaart AI Photo Editor Design",
+          "Photo Retouch-Object Removal",
+          "Lightroom: AI Photo Editor"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Эстетика плёнки превращает редактор в основную камеру",
+        "obsCount": 57,
+        "apps": [
+          "Dazz Cam - Vintage Camera",
+          "VSCO: Photo & Video Editor"
+        ],
+        "polarity": "love"
+      }
+    ],
+    "gap": "Категория разделилась на два лагеря, и отзывы показывают, что пользователи отлично видят границу: хищнический (триал списывает год, экспорт в заложниках, бесплатное изымается задним числом) и честный (Dazz Cam, Peachy, Phonto — разовая покупка, щедрый фри-тир, лояльность на годы). Но даже честный лагерь не решает вторую боль: работа и библиотека пользователя ничем не защищены — нет автосохранения, нет бэкапа, экспорт портит цвет. Ниша «инструмент, которому можно доверить работу» пуста.",
+    "idea": {
+      "pitch": "Редактор с тремя гарантиями, записанными в продукт. Гарантия работы: каждый штрих автосохраняется в локальный черновик, краш возвращает ровно туда, где остановился. Гарантия библиотеки: проекты и пресеты — в открытом формате, экспортируются одним архивом, переустановка ничего не уничтожает. Гарантия результата: предпросмотр и экспорт проходят через один конвейер — что видишь, то и сохраняешь, в полном разрешении. Плюс честная экономика: разовая покупка, функции не переезжают за пейволл задним числом — это публичное обещание в манифесте приложения.",
+      "features": [
+        "Автосохранение каждые 2 секунды в локальную историю — крах не стоит ни одного слоя",
+        "История правок переживает перезапуск: открыл проект — продолжил с того же слайдера",
+        "Библиотека в открытом формате с экспортом одним архивом — смена телефона без потерь",
+        "Экспорт = предпросмотр: один рендер-конвейер, автотест на расхождение цвета в CI",
+        "Инпейнтинг-удаление объектов без подписки — бесплатный уровень с главным дифференциатором категории",
+        "Замороженный интерфейс: раскладка инструментов не меняется между версиями, новое — в отдельной вкладке"
+      ],
+      "antiFeatures": [
+        "Без подписки — разовая покупка, апгрейды мажорных версий платные отдельно (честная модель, не зомби-биллинг)",
+        "Без водяных знаков и заблокированного сохранения — экспорт всегда доступен",
+        "Без изъятия функций задним числом — манифест: что бесплатно сегодня, бесплатно навсегда",
+        "Без редизайна ради редизайна — мышечная память пользователя является активом продукта",
+        "Без обязательного аккаунта и облака"
+      ],
+      "monetization": "Разовая покупка $14.99 за Pro (расширенные инструменты, RAW, пресеты), бесплатный уровень — полноценное редактирование с экспортом и удалением объектов. Доплата за мажорные версии раз в 2–3 года вместо подписки — модель, которую категория уже наградила лояльностью (Dazz Cam, Phonto)."
+    }
   }
 ]

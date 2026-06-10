@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from Sky Guide (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sky Guide, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sky Guide — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sky Guide>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-576588894.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "strategy-lifelong-use",
+  "title": "Пользователи применяют приложение на протяжении многих лет и десятилетий — от детства до пенсии",
+  "obs": 7
+ },
+ {
+  "id": "strategy-music-atmosphere",
+  "title": "Фоновая музыка создаёт расслабляющую атмосферу — пользователи хотят также использовать собственный плейлист",
+  "obs": 6
+ },
+ {
+  "id": "pay-purchased-features-paywalled",
+  "title": "Функции, входившие в первоначальную покупку, переведены за paywall подписки — в том числе отслеживание спутников и координаты объектов",
+  "obs": 5
+ },
+ {
+  "id": "pay-subscription-no-onetime",
+  "title": "Годовая подписка без варианта одноразовой покупки воспринимается как несправедливая — пользователи ищут пожизненную лицензию",
+  "obs": 5
+ },
+ {
+  "id": "notif-iss-reliable",
+  "title": "Уведомления о пролётах МКС приходят вовремя и используются для совместных семейных наблюдений",
+  "obs": 5
+ },
+ {
+  "id": "strategy-family-teaching",
+  "title": "Приложение служит инструментом совместного обучения астрономии для детей и внуков",
+  "obs": 5
+ },
+ {
+  "id": "reliability-compass-update",
+  "title": "После обновления компас и режим ориентации телефона по небу перестали работать корректно",
+  "obs": 4
+ },
+ {
+  "id": "ui-compass-broken",
+  "title": "Компас работает некорректно — в альбомной ориентации смещается на 45°, в общем случае телефон не ориентируется по направлению к созвездию",
+  "obs": 4
+ },
+ {
+  "id": "strategy-telescope-planning",
+  "title": "Опытные любители астрономии используют приложение для планирования наблюдений с телескопом и поиска объектов",
+  "obs": 4
+ },
+ {
+  "id": "reliability-stars-missing-screen",
+  "title": "Звёзды не отображаются на экране или отсутствуют в части экрана — приложение не выполняет основную функцию",
+  "obs": 3
+ },
+ {
+  "id": "ui-point-identify-degraded",
+  "title": "Базовый сценарий «навести телефон — увидеть объект» усложнён или сломан после добавления новых функций",
+  "obs": 3
+ },
+ {
+  "id": "strategy-outdoor-contexts",
+  "title": "Приложение используется в нестандартных условиях — на лодке ночью, в кемпинге, внутри помещения",
+  "obs": 3
+ },
+ {
+  "id": "strategy-sharing-word-of-mouth",
+  "title": "Лояльные пользователи активно распространяют приложение среди семьи и знакомых",
+  "obs": 3
+ },
+ {
+  "id": "pay-paywall-before-sky",
+  "title": "Приложение показывает экран монетизации до того, как пользователь видит ночное небо",
+  "obs": 2
+ },
+ {
+  "id": "pay-missions-deep-space-paywalled",
+  "title": "Отслеживание пилотируемых миссий и просмотр объектов глубокого космоса закрыты за подписку",
+  "obs": 2
+ },
+ {
+  "id": "reliability-update-incompatible",
+  "title": "После обновления приложение перестало запускаться или потеряло совместимость с устройством",
+  "obs": 2
+ },
+ {
+  "id": "reliability-geolocation-wrong",
+  "title": "Приложение показывает неправильное небо — геолокация некорректна для местоположений вне Купертино",
+  "obs": 2
+ },
+ {
+  "id": "ui-layers-customization",
+  "title": "Приложение позволяет комбинировать множество слоёв и настроек для разных сценариев наблюдения",
+  "obs": 2
+ },
+ {
+  "id": "notif-loud-sound",
+  "title": "Уведомления о спутниках и МКС слишком громкие — звук напоминает пожарную сигнализацию в ночное время",
+  "obs": 2
+ },
+ {
+  "id": "strategy-newcomer-discovery",
+  "title": "Новичок открывает астрономию через приложение и развивает навык самостоятельного определения созвездий",
+  "obs": 2
+ },
+ {
+  "id": "strategy-light-pollution-workaround",
+  "title": "Приложение помогает пользователям в городах с сильным световым загрязнением находить объекты, невидимые невооружённым глазом",
+  "obs": 2
+ },
+ {
+  "id": "strategy-zoom-feature-missing",
+  "title": "Пользователи хотят глубокое масштабирование в космос и специальный упрощённый режим для СДВГ",
+  "obs": 2
+ },
+ {
+  "id": "strategy-childhood-wonder",
+  "title": "Приложение воссоздаёт детское ощущение удивления от космоса — эмоциональная ценность выше утилитарной",
+  "obs": 2
+ },
+ {
+  "id": "pay-activation-failure",
+  "title": "Оплата версии pro прошла, но доступ к функциям не активировался",
+  "obs": 1
+ },
+ {
+  "id": "pay-default-view-paywalled",
+  "title": "После обновления основной вид по умолчанию требует доплаты для изменения настройки камеры",
+  "obs": 1
+ },
+ {
+  "id": "pay-freemium-positive",
+  "title": "Пользователь ожидал платного барьера, но обнаружил, что многие функции доступны бесплатно",
+  "obs": 1
+ },
+ {
+  "id": "reliability-notifications-broken-ios",
+  "title": "После обновления iOS уведомления о событиях перестали приходить",
+  "obs": 1
+ },
+ {
+  "id": "reliability-update-install-fail",
+  "title": "Обновление не устанавливается на нескольких устройствах iOS одновременно",
+  "obs": 1
+ },
+ {
+  "id": "ui-objects-too-small",
+  "title": "Планеты и спутники отображаются слишком мелко — трудно распознать без поиска в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "ui-manual-pan-mode",
+  "title": "Режим ручной прокрутки карты неба пальцем существует как альтернатива обязательному компасу",
+  "obs": 1
+ },
+ {
+  "id": "ui-cannot-find-object",
+  "title": "Пользователь не может найти нужный объект или информацию через интерфейс приложения",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-ar-camera",
+  "title": "Приложение использует виртуальное наложение вместо реального вида камеры — пользователь ожидал AR через камеру",
+  "obs": 1
+ },
+ {
+  "id": "ui-ar-transparency-request",
+  "title": "Пользователь хочет полупрозрачное наложение камеры, чтобы видеть реальное небо и данные приложения одновременно",
+  "obs": 1
+ },
+ {
+  "id": "ui-events-calendar-removed",
+  "title": "Хронологический список предстоящих астрономических событий убран из нового интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "ui-complexity-beginners",
+  "title": "Интерфейс перегружен параметрами — новичку сложно начать пользоваться без обучения",
+  "obs": 1
+ },
+ {
+  "id": "content-satellite-ar-removed",
+  "title": "Функция автоматического определения спутников при наведении телефона удалена — теперь нужно знать название заранее",
+  "obs": 1
+ },
+ {
+  "id": "content-incomplete-catalog",
+  "title": "Каталог созвездий неполный — часть созвездий отсутствует в приложении",
+  "obs": 1
+ },
+ {
+  "id": "content-below-horizon-360",
+  "title": "Приложение отображает небесную сферу на 360° включая объекты ниже горизонта",
+  "obs": 1
+ },
+ {
+  "id": "content-objects-without-info",
+  "title": "Пользователь видит объект в небе, но приложение не предоставляет о нём информацию",
+  "obs": 1
+ },
+ {
+  "id": "content-telescope-mirror",
+  "title": "Нет режима зеркального отображения для совмещения с изображением телескопа",
+  "obs": 1
+ },
+ {
+  "id": "content-time-travel-missing",
+  "title": "Нет функции просмотра исторических астрономических событий — нельзя вернуться к прошлым датам",
+  "obs": 1
+ },
+ {
+  "id": "content-historical-cultural",
+  "title": "Приложение предоставляет историческую и культурную информацию о звёздах и созвездиях разных народов",
+  "obs": 1
+ },
+ {
+  "id": "content-weather-meteor-animation",
+  "title": "Пользователь хочет анимацию метеоритного дождя и карту облачности для планирования наблюдений",
+  "obs": 1
+ },
+ {
+  "id": "content-photo-feature-missing",
+  "title": "Нет функции фотосъёмки звёздного неба через интерфейс приложения",
+  "obs": 1
+ },
+ {
+  "id": "notif-iss-request",
+  "title": "Пользователь запрашивает функцию уведомления о пролётах МКС — она отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "notif-duplicate-fear",
+  "title": "Пользователь дублирует уведомления приложения в календарь из-за страха пропустить событие",
+  "obs": 1
+ },
+ {
+  "id": "notif-iss-false",
+  "title": "Приложение отправляет ложные уведомления о пролётах МКС, не совпадающие с реальным положением станции",
+  "obs": 1
+ },
+ {
+  "id": "strategy-night-vision",
+  "title": "Режим ночного видения сохраняет адаптацию глаз к темноте во время наблюдений на улице",
+  "obs": 1
+ },
+ {
+  "id": "strategy-global-sky-comparison",
+  "title": "Приложение позволяет видеть, что наблюдают люди в других точках планеты в тот же момент",
+  "obs": 1
+ },
+ {
+  "id": "strategy-ios-default-wish",
+  "title": "Пользователь считает приложение настолько базовым, что хочет видеть его встроенным в iOS по умолчанию",
+  "obs": 1
+ }
+]

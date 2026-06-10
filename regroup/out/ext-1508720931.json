@@ -1,0 +1,96 @@
+{
+  "groups": [
+    {
+      "id": "critical-loading-failure",
+      "name": "Приложение мертво: контент не загружается и поддержка молчит",
+      "insight_ids": [
+        "app-wide-content-loading-failure",
+        "app-broken-after-ios-update",
+        "app-abandonment-to-competitor",
+        "support-completely-gone",
+        "no-error-reporting",
+        "help-docs-wrong-info",
+        "willing-to-pay-for-restoration"
+      ]
+    },
+    {
+      "id": "abandoned-product-signals",
+      "name": "Разработчик бросил приложение: нет обновлений, контент только на YouTube",
+      "insight_ids": [
+        "developer-abandoned-app",
+        "app-not-updated-two-years",
+        "content-not-synced-from-youtube",
+        "content-library-exhausted",
+        "content-limited-vs-competitors"
+      ]
+    },
+    {
+      "id": "sleep-session-disruptions",
+      "name": "Ночная сессия под угрозой: прерывания, обрывы и таймер, который не слушается",
+      "insight_ids": [
+        "story-interrupts-midway",
+        "app-crashes-breaks-habit",
+        "abrupt-audio-end",
+        "background-playback-stops",
+        "timer-stops-story-early",
+        "no-autoplay-next-session",
+        "long-background-music-use-case",
+        "app-sleep-effectiveness",
+        "no-playlist-on-wakeup",
+        "alarm-integration-workaround"
+      ]
+    },
+    {
+      "id": "audio-playback-bugs",
+      "name": "Музыка и звуки ломаются: шаффл, повтор, фоновое воспроизведение",
+      "insight_ids": [
+        "shuffle-broken-same-song",
+        "music-repeat-broken",
+        "no-timer-for-ambient-sounds",
+        "music-narrator-imbalance",
+        "siri-integration-broken"
+      ]
+    },
+    {
+      "id": "narrator-voice-experience",
+      "name": "Голос рассказчика: выбор, качество и сброс после переустановки",
+      "insight_ids": [
+        "narrator-choice-limited",
+        "narrator-voice-unnatural",
+        "narrator-too-much-talking",
+        "narrator-voice-reset-after-reinstall",
+        "breathing-exercises-hard"
+      ]
+    },
+    {
+      "id": "billing-marketing-mismatch",
+      "name": "Цена и реклама расходятся: «100% бесплатно», а на деле $14.99",
+      "insight_ids": [
+        "marketing-free-vs-actual-price",
+        "free-trial-not-activatable",
+        "premium-ads-still-showing",
+        "ads-removed-retention"
+      ]
+    },
+    {
+      "id": "ui-settings-broken",
+      "name": "Интерфейс мешает: пустые экраны, потерянные настройки и мешающие поп-апы",
+      "insight_ids": [
+        "reminder-popup-mid-session",
+        "see-more-button-empty-screen",
+        "settings-not-saved",
+        "meditation-interrupted-by-achievement",
+        "story-misclassified-as-meditation",
+        "favourite-meditation-lost-after-update",
+        "removed-favourite-sound",
+        "app-slow-to-open-loses-position",
+        "ipad-landscape-unsupported",
+        "sharing-crashes-app",
+        "offline-download-page-broken",
+        "offline-download-limit",
+        "offline-mode-broken",
+        "stories-too-long"
+      ]
+    }
+  ]
+}

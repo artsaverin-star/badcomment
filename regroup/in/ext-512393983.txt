@@ -1,0 +1,269 @@
+You are grouping 44 mechanism-level insight clusters from Postmates - Food Delivery (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Postmates - Food Delivery, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 44 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Postmates - Food Delivery — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Postmates - Food Delivery>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-512393983.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "partial-refund-missing-items",
+  "title": "За отсутствующие товары приложение возвращает только часть стоимости, а не полную сумму",
+  "obs": 7
+ },
+ {
+  "id": "inflated-menu-prices",
+  "title": "Цены на блюда в приложении на 30-100% выше ресторанных, и это не считая комиссий за доставку",
+  "obs": 6
+ },
+ {
+  "id": "ai-support-no-human-escalation",
+  "title": "Поддержка полностью переведена на ИИ — связаться с живым оператором невозможно",
+  "obs": 6
+ },
+ {
+  "id": "delivery-time-underestimated",
+  "title": "Оценка времени доставки занижена на 30-100 минут относительно реального времени",
+  "obs": 6
+ },
+ {
+  "id": "charge-on-cancelled-order",
+  "title": "После отмены заказа деньги всё равно списываются или возврат затягивается на 10+ дней",
+  "obs": 5
+ },
+ {
+  "id": "uber-one-forced-subscription",
+  "title": "Всплывающее окно подписки Uber One перекрывает оформление заказа и активируется случайным нажатием",
+  "obs": 4
+ },
+ {
+  "id": "order-cancelled-unexpectedly",
+  "title": "Заказ отменяется без предупреждения — через несколько курьеров или без объяснения причины",
+  "obs": 4
+ },
+ {
+  "id": "wrong-branch-routed",
+  "title": "Заказ уходит в дальний филиал ресторана вместо ближайшего выбранного пользователем",
+  "obs": 4
+ },
+ {
+  "id": "priority-delivery-no-effect",
+  "title": "Платная приоритетная доставка не ускоряет получение заказа — еда приходит с той же задержкой",
+  "obs": 4
+ },
+ {
+  "id": "promo-code-not-applied",
+  "title": "Промо-коды и обещанные кредиты не применяются или исчезают из аккаунта после выполнения условий",
+  "obs": 3
+ },
+ {
+  "id": "hidden-fees-checkout",
+  "title": "На финальном шаге оформления итоговая сумма оказывается значительно выше из-за скрытых сборов",
+  "obs": 3
+ },
+ {
+  "id": "no-tip-edit-after-delivery",
+  "title": "Изменить размер чаевых после доставки невозможно — даже если заказ украден или выполнен неправильно",
+  "obs": 3
+ },
+ {
+  "id": "support-closes-chat-unresolved",
+  "title": "Агент поддержки закрывает чат без решения проблемы или сразу после выдачи неполного возврата",
+  "obs": 3
+ },
+ {
+  "id": "support-template-responses",
+  "title": "Поддержка отвечает одинаковыми шаблонными сообщениями, не вникая в суть проблемы",
+  "obs": 3
+ },
+ {
+  "id": "stolen-delivery-no-refund",
+  "title": "Курьер фотографирует доставку как доказательство, затем забирает заказ — возврат не выдаётся",
+  "obs": 3
+ },
+ {
+  "id": "delivery-radius-wrong",
+  "title": "Приложение показывает ресторан как доступный, хотя он находится за пределами реального радиуса доставки",
+  "obs": 3
+ },
+ {
+  "id": "price-mismatch-at-checkout",
+  "title": "Цена при оформлении заказа отличается от той, что была показана в каталоге",
+  "obs": 2
+ },
+ {
+  "id": "paypal-venmo-payment-issues",
+  "title": "Платёж через PayPal проходит несколько раз или зависает, Venmo постоянно отклоняется",
+  "obs": 2
+ },
+ {
+  "id": "support-no-contact-info",
+  "title": "Контакты поддержки не найти в приложении или на сайте — нет ни телефона, ни чата",
+  "obs": 2
+ },
+ {
+  "id": "support-lies-about-refund",
+  "title": "Поддержка говорит, что возврат невозможен или уже выполнен — хотя это неправда",
+  "obs": 2
+ },
+ {
+  "id": "robot-courier-stuck",
+  "title": "Робот-курьер не движется и не доставляет заказ, а связаться с оператором для решения невозможно",
+  "obs": 2
+ },
+ {
+  "id": "filter-returns-no-results",
+  "title": "Фильтры по категории или диете возвращают пустой список, хотя подходящие рестораны есть",
+  "obs": 2
+ },
+ {
+  "id": "wrong-address-auto-selected",
+  "title": "Приложение автоматически подставляет неправильный адрес доставки без подтверждения пользователя",
+  "obs": 2
+ },
+ {
+  "id": "postmates-is-uber-eats-reskin",
+  "title": "Postmates — это переименованный Uber Eats с тем же интерфейсом и ценами, а не самостоятельный сервис",
+  "obs": 2
+ },
+ {
+  "id": "multi-order-batching-cold-food",
+  "title": "Курьер объединяет несколько заказов в одну поездку — еда остывает, доставка опаздывает",
+  "obs": 2
+ },
+ {
+  "id": "subscription-charge-after-cancel",
+  "title": "Ежемесячная плата за подписку продолжает списываться даже после её отмены",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-pre-delivery-tip",
+  "title": "Чаевые нужно дать до доставки, не зная качества услуги",
+  "obs": 1
+ },
+ {
+  "id": "add-payment-method-broken",
+  "title": "Добавить новую карту, Apple Pay или PayPal нельзя; просроченные карты тоже не удаляются",
+  "obs": 1
+ },
+ {
+  "id": "discount-removed-service-worthless",
+  "title": "После отмены скидок сервис потерял ценность для постоянных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "photo-proof-rejected",
+  "title": "Фотодоказательство ошибки (чек, фото заказа) не помогает получить возврат — поддержка его игнорирует",
+  "obs": 1
+ },
+ {
+  "id": "missing-item-photo-absurd-request",
+  "title": "Поддержка требует фото отсутствующего товара — то есть сфотографировать то, чего нет в заказе",
+  "obs": 1
+ },
+ {
+  "id": "order-placed-closed-restaurant",
+  "title": "Приложение принимает заказ из закрытого ресторана и сообщает об этом только после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "checkout-crash",
+  "title": "Приложение вылетает или зависает в конце оформления заказа",
+  "obs": 1
+ },
+ {
+  "id": "tracking-status-missing-after-update",
+  "title": "После обновления приложение перестало показывать статус заказа и имя курьера",
+  "obs": 1
+ },
+ {
+  "id": "gift-feature-broken",
+  "title": "Функция отправки подарка через приложение не работает",
+  "obs": 1
+ },
+ {
+  "id": "placeholder-text-in-ui",
+  "title": "На главном экране отображается незаполненный шаблонный текст вместо реального контента",
+  "obs": 1
+ },
+ {
+  "id": "gps-wrong-location",
+  "title": "GPS определяет адрес неточно — курьер приходит в соседний дом или комплекс",
+  "obs": 1
+ },
+ {
+  "id": "cannot-cancel-active-order",
+  "title": "Отменить заказ, который ещё не начали готовить, через приложение невозможно",
+  "obs": 1
+ },
+ {
+  "id": "no-report-missing-item-ui",
+  "title": "В интерфейсе нет способа сообщить об отсутствующем товаре — кнопка или раздел отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "address-blocked-by-algo",
+  "title": "Алгоритм блокирует доставку по адресу оружейного магазина без возможности оспорить решение",
+  "obs": 1
+ },
+ {
+  "id": "old-ui-regression-after-uber",
+  "title": "После перехода под управление Uber интерфейс стал хуже по сравнению с оригинальным Postmates",
+  "obs": 1
+ },
+ {
+  "id": "robot-courier-opt-out",
+  "title": "Пользователь не может отказаться от робота-курьера — опция выбора отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "gender-gap-grocery-picking",
+  "title": "Курьеры-мужчины хуже находят товары с маркировкой на дне упаковки (например, оттенки косметики)",
+  "obs": 1
+ },
+ {
+  "id": "responsive-to-complaints",
+  "title": "Приложение быстро реагирует на жалобы пользователей при проблемных заказах",
+  "obs": 1
+ }
+]

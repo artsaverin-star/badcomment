@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from Magisto Video Editor & Maker (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Magisto Video Editor & Maker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Magisto Video Editor & Maker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Magisto Video Editor & Maker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-486781045.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "udalena-zagruzka-svoej-muzyki",
+  "title": "Функция загрузки своей музыки удалена из мобильного приложения",
+  "obs": 25
+ },
+ {
+  "id": "krash-pri-redaktirovanii",
+  "title": "Приложение падает во время редактирования и теряет весь несохранённый прогресс",
+  "obs": 18
+ },
+ {
+  "id": "krash-pri-zapuske",
+  "title": "Приложение не запускается или мгновенно закрывается сразу при открытии",
+  "obs": 7
+ },
+ {
+  "id": "prinuditelnyj-shablon-bez-redaktirovaniya",
+  "title": "Приложение обязывает использовать шаблон и не позволяет свободно редактировать финальный результат",
+  "obs": 6
+ },
+ {
+  "id": "ignoriruet-poryadok-media",
+  "title": "Приложение игнорирует заданный пользователем порядок медиафайлов и перемешивает их",
+  "obs": 5
+ },
+ {
+  "id": "oshibka-finalnoj-obrabotki",
+  "title": "При создании видео приложение выдаёт ошибку обработки и не создаёт готовый файл",
+  "obs": 5
+ },
+ {
+  "id": "tormoza-redaktora",
+  "title": "Редактор тормозит и зависает, делая работу с видео практически невозможной",
+  "obs": 5
+ },
+ {
+  "id": "medlennaya-obrabotka-na-servere",
+  "title": "Загрузка и обработка видео на сервере занимает в разы больше времени, чем раньше",
+  "obs": 5
+ },
+ {
+  "id": "probnyj-period-spisyvaet-srazu",
+  "title": "Пробный период списывает полную стоимость сразу, без реального бесплатного доступа",
+  "obs": 4
+ },
+ {
+  "id": "oplata-do-demonstracii",
+  "title": "Оплата требуется до того, как пользователь видит, что умеет приложение",
+  "obs": 4
+ },
+ {
+  "id": "interfejs-uslozhniIsya",
+  "title": "Интерфейс стал значительно сложнее и запутаннее после обновления, требует переучиваться",
+  "obs": 4
+ },
+ {
+  "id": "izmeneniya-ne-sohrayutsya",
+  "title": "Правки не сохраняются — при сохранении или перезапуске все изменения исчезают",
+  "obs": 4
+ },
+ {
+  "id": "nepravilnaya-orientaciya-foto",
+  "title": "Фотографии импортируются перевёрнутыми, и в приложении нет инструмента для поворота",
+  "obs": 4
+ },
+ {
+  "id": "ustarevshie-shablony",
+  "title": "Шаблоны и стили видео устаревшие, однообразные и не охватывают разные события",
+  "obs": 3
+ },
+ {
+  "id": "ogranichenie-dliny-video",
+  "title": "Жёсткие ограничения на длину видео не позволяют объединить нужное количество клипов",
+  "obs": 3
+ },
+ {
+  "id": "povtornaya-avtorizaciya",
+  "title": "Приложение не сохраняет сессию и требует повторного входа при каждом запуске",
+  "obs": 3
+ },
+ {
+  "id": "platezhi-posle-otmeny",
+  "title": "Платежи продолжаются после отмены подписки и удаления приложения",
+  "obs": 2
+ },
+ {
+  "id": "skrytaya-summa-podpiski",
+  "title": "Реальная сумма подписки скрыта — пользователь узнаёт о ней только после списания",
+  "obs": 2
+ },
+ {
+  "id": "pozicioniruetsya-kak-besplatnoe",
+  "title": "Приложение называется бесплатным, но немедленно требует подписку",
+  "obs": 2
+ },
+ {
+  "id": "podpiska-bez-podtverzhdeniya",
+  "title": "Подписка оформляется одним нажатием без явного подтверждения суммы",
+  "obs": 2
+ },
+ {
+  "id": "oshibka-zanyat-drugim-zakazom",
+  "title": "Ошибка «занят другим заказом» блокирует оформление или обновление подписки",
+  "obs": 2
+ },
+ {
+  "id": "avtovideo-nelzya-redaktirovat",
+  "title": "Автоматически сгенерированное видео нельзя редактировать вручную",
+  "obs": 2
+ },
+ {
+  "id": "cvetokorrekciya-iskazhaet-cveta",
+  "title": "Автоматическая цветокоррекция искажает исходные цвета и тон кожи людей",
+  "obs": 2
+ },
+ {
+  "id": "bazovye-funkcii-za-platnoj-stenoj",
+  "title": "Базовые функции — голосовая запись и фильтры — заблокированы за платной стеной",
+  "obs": 2
+ },
+ {
+  "id": "upravlenie-dlinoj-kadra-skryto",
+  "title": "Управление длиной отдельного кадра скрыто или удалено в новой версии",
+  "obs": 2
+ },
+ {
+  "id": "sboj-sinhronizacii-google-photos",
+  "title": "Синхронизация с фотогалереей зависает на этапе авторизации и требует повторного подключения",
+  "obs": 2
+ },
+ {
+  "id": "lozhnaya-oshibka-pamyati",
+  "title": "Приложение сообщает о нехватке памяти, хотя на устройстве достаточно свободного места",
+  "obs": 2
+ },
+ {
+  "id": "nesovmestimost-s-novymi-ios",
+  "title": "Приложение несовместимо с новыми версиями операционной системы и устройствами",
+  "obs": 2
+ },
+ {
+  "id": "izbytochnyj-trafik-zagruzka-v-oblako",
+  "title": "Приложение тайно загружает все локальные фото в облако, потребляя десятки гигабайт трафика",
+  "obs": 2
+ },
+ {
+  "id": "funkciya-platnaya-i-slomana",
+  "title": "Функция обещана в документации, но на деле требует дополнительной оплаты и не работает",
+  "obs": 1
+ },
+ {
+  "id": "starye-video-nedostupny",
+  "title": "После введения платной модели все ранее созданные видео стали недоступны",
+  "obs": 1
+ },
+ {
+  "id": "neudobnaya-otmena-podpiski",
+  "title": "Процесс отмены подписки запутан и неудобен для пользователя",
+  "obs": 1
+ },
+ {
+  "id": "sluchajnye-nezhelatelnye-effekty",
+  "title": "Приложение самостоятельно добавляет случайные эффекты, которые пользователь не выбирал",
+  "obs": 1
+ },
+ {
+  "id": "vosproizvodit-ne-tu-muzyku",
+  "title": "Приложение воспроизводит в видео не ту музыку, которую выбрал пользователь",
+  "obs": 1
+ },
+ {
+  "id": "udalennye-foto-ostayutsya-v-finale",
+  "title": "Удалённые из проекта фотографии продолжают отображаться в финальном видео",
+  "obs": 1
+ },
+ {
+  "id": "dobavlennye-foto-ne-poyavlyayutsya",
+  "title": "Добавленные при редактировании фотографии не появляются в финальном видео",
+  "obs": 1
+ },
+ {
+  "id": "prevyu-ne-sovpadaet-s-finalom",
+  "title": "Превью в режиме редактирования не совпадает с итоговым результатом видео",
+  "obs": 1
+ },
+ {
+  "id": "oshibki-pozicionirovaniya-foto",
+  "title": "Перестановка и добавление фото приводит к наложениям и неправильному позиционированию",
+  "obs": 1
+ },
+ {
+  "id": "trebuet-bolshe-media",
+  "title": "Приложение принудительно требует добавить больше медиа, если видео короче порога",
+  "obs": 1
+ },
+ {
+  "id": "tekst-ne-vyravljaetsya",
+  "title": "Текстовые подписи не выравниваются автоматически и выходят за края кадра",
+  "obs": 1
+ },
+ {
+  "id": "nedostupnost-razreshenij",
+  "title": "Приложение требует доступ к медиа, которого нет в системных настройках устройства",
+  "obs": 1
+ },
+ {
+  "id": "ne-soblyudaet-zvuk-video",
+  "title": "Приложение не сохраняет исходный звуковой трек видеофайла при редактировании",
+  "obs": 1
+ },
+ {
+  "id": "neposledovatelnyj-interfejs",
+  "title": "Интерфейс выглядит по-разному на разных устройствах, что создаёт путаницу",
+  "obs": 1
+ },
+ {
+  "id": "regressiya-posle-obnovleniya",
+  "title": "После выхода обновления в каждом видео появляются ошибки, которых раньше не было",
+  "obs": 1
+ },
+ {
+  "id": "krash-pri-importe-mnogih-klipov",
+  "title": "При импорте более десяти видеоклипов приложение падает",
+  "obs": 1
+ },
+ {
+  "id": "chuzhie-video-v-akkaounte",
+  "title": "При входе в аккаунт пользователь видит чужие видео, сохранённые другими людьми",
+  "obs": 1
+ },
+ {
+  "id": "oshibka-pri-smene-formata",
+  "title": "При попытке сменить ориентацию видео с вертикальной на горизонтальную приложение выдаёт ошибку",
+  "obs": 1
+ },
+ {
+  "id": "dublirovanie-akkauntov",
+  "title": "На один адрес почты заведено несколько аккаунтов, и поддержка не может их объединить",
+  "obs": 1
+ },
+ {
+  "id": "podderzhka-ponidzhaet-podpisku",
+  "title": "Поддержка понижает уровень подписки без согласия пользователя при смене адреса почты",
+  "obs": 1
+ }
+]

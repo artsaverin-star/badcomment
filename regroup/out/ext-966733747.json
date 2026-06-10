@@ -1,0 +1,87 @@
+{
+  "groups": [
+    {
+      "id": "odin-tap-i-spisanie",
+      "name": "Один тап — и кредит сгорел: бронь без права на ошибку",
+      "insight_ids": [
+        "tap-bike-instant-charge-no-confirm",
+        "cannot-change-or-undo-after-mistake",
+        "move-bike-books-second",
+        "no-booking-confirmation-feedback",
+        "package-not-recognized",
+        "stuck-on-state-selection-noop"
+      ]
+    },
+    {
+      "id": "kredity-karty-promokody",
+      "name": "Кредиты сгорают, карты не добавить, промокоды не работают",
+      "insight_ids": [
+        "lifetime-credits-expire-by-region",
+        "gift-cards-broken-in-app",
+        "promo-code-never-applies",
+        "cannot-add-card-in-app",
+        "membership-default-selected",
+        "tax-calc-blocks-package-purchase",
+        "only-one-card-saved"
+      ]
+    },
+    {
+      "id": "padaet-kogda-nuzhno-bronirovat",
+      "name": "Падает именно тогда, когда надо бронировать",
+      "insight_ids": [
+        "crash-on-launch",
+        "crash-at-monday-noon-peak",
+        "booking-hangs-oops-error",
+        "soul-cup-crash-switching-apps",
+        "crash-on-specific-os-versions",
+        "checkout-crashes-on-state-step",
+        "instructor-class-hangs"
+      ]
+    },
+    {
+      "id": "obnovleniya-lomayut-privychnoe",
+      "name": "Обновления ломают привычное и путают счётчики",
+      "insight_ids": [
+        "registration-loses-data-restart",
+        "schedule-merged-no-single-studio",
+        "checkin-broke-after-update",
+        "updates-distract-from-core-job",
+        "bookmarks-take-over-home",
+        "milestone-streak-miscount",
+        "booking-balance-miscount"
+      ]
+    },
+    {
+      "id": "gde-i-kogda-najti-klass",
+      "name": "Где и когда: студии, карта и списки ожидания вслепую",
+      "insight_ids": [
+        "wrong-region-bay-area-segmentation",
+        "hard-to-find-booked-classes",
+        "confusing-search-purchase-flow",
+        "waitlist-no-position",
+        "soul-early-wrong-availability",
+        "map-markers-no-info"
+      ]
+    },
+    {
+      "id": "magazin-mercha",
+      "name": "Магазин мерча: поиск, фильтры и корзина против покупателя",
+      "insight_ids": [
+        "shop-resets-scroll-and-filters",
+        "shop-search-weak",
+        "size-filter-shows-unavailable",
+        "cart-not-persisted"
+      ]
+    },
+    {
+      "id": "bazovye-veshchi-ne-rabotayut",
+      "name": "Базовое не работает: реклама, Wi-Fi, пароли и отсутствие Android",
+      "insight_ids": [
+        "ads-on-open-tiny-close",
+        "wifi-only",
+        "icloud-keychain-paste-blocked",
+        "no-android-app"
+      ]
+    }
+  ]
+}

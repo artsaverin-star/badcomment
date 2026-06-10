@@ -1,0 +1,259 @@
+You are grouping 42 mechanism-level insight clusters from Plant Identifier, Care: Planty (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Plant Identifier, Care: Planty, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 42 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Plant Identifier, Care: Planty — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Plant Identifier, Care: Planty>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1603599822.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "one-plant-free-limit",
+  "title": "Бесплатная версия жёстко ограничена одним растением — добавить второе можно только по платной подписке",
+  "obs": 26
+ },
+ {
+  "id": "free-label-false-advertising",
+  "title": "Приложение позиционируется как бесплатное в магазине и рекламе, но требует подписку для любого реального использования",
+  "obs": 11
+ },
+ {
+  "id": "billing-after-cancel",
+  "title": "После явной отмены подписки или пробного периода приложение продолжает списывать деньги",
+  "obs": 9
+ },
+ {
+  "id": "identification-accuracy",
+  "title": "Приложение систематически неправильно определяет растения, включая распространённые и хорошо известные виды",
+  "obs": 8
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "При выборе пробного периода приложение немедленно списывает полную стоимость подписки, не дожидаясь его окончания",
+  "obs": 4
+ },
+ {
+  "id": "no-cancel-mechanism",
+  "title": "В приложении нет встроенного механизма отмены подписки, а сведения об отмене скрыты или отсутствуют",
+  "obs": 4
+ },
+ {
+  "id": "diagnosis-generic-contradictory",
+  "title": "Диагностика выдаёт одинаковые или взаимоисключающие рекомендации для всех растений",
+  "obs": 4
+ },
+ {
+  "id": "support-no-response",
+  "title": "Поддержка не отвечает на письма и запросы об отмене или возврате средств, разработчик недоступен через сайт и соцсети",
+  "obs": 4
+ },
+ {
+  "id": "competitor-better-free",
+  "title": "Конкурирующие приложения предоставляют аналогичные функции бесплатно или точнее определяют растения",
+  "obs": 4
+ },
+ {
+  "id": "mismatched-star-content",
+  "title": "Отзывы с высокой оценкой содержат критику — несоответствие звёзд и текста искажает реальный рейтинг приложения",
+  "obs": 4
+ },
+ {
+  "id": "diagnosis-requires-subscription",
+  "title": "Диагностика болезни растения требует платной подписки даже при первом сканировании",
+  "obs": 3
+ },
+ {
+  "id": "care-plan-wrong",
+  "title": "Рекомендации по уходу ошибочны для конкретного вида: неверный режим полива приводит к гибели растения",
+  "obs": 3
+ },
+ {
+  "id": "onboarding-too-many-steps",
+  "title": "Настройка приложения содержит избыточное количество шагов, что делает первый опыт утомительным",
+  "obs": 3
+ },
+ {
+  "id": "review-prompt-too-early",
+  "title": "Приложение запрашивает оценку через секунды после скачивания или сразу после первого действия, не дав оценить продукт",
+  "obs": 3
+ },
+ {
+  "id": "weekly-billing-undisclosed",
+  "title": "Еженедельное списание не раскрывается явно при оформлении подписки, что делает затраты выше ожидаемых",
+  "obs": 2
+ },
+ {
+  "id": "trial-requires-card",
+  "title": "Пробный период требует ввода данных кредитной карты, что блокирует оценку приложения без финансового обязательства",
+  "obs": 2
+ },
+ {
+  "id": "paywall-at-launch",
+  "title": "При первом открытии приложение сразу требует выбрать тариф подписки, не давая оценить функциональность",
+  "obs": 2
+ },
+ {
+  "id": "health-check-rate-limited",
+  "title": "Бесплатная версия ограничивает проверку здоровья растения раз в два месяца — слишком редко для своевременного обнаружения проблем",
+  "obs": 2
+ },
+ {
+  "id": "similar-species-confusion",
+  "title": "Приложение не различает похожие виды с принципиально разными требованиями к уходу",
+  "obs": 2
+ },
+ {
+  "id": "scan-freezes",
+  "title": "Процесс идентификации зависает на середине и не завершается, блокируя основную функцию",
+  "obs": 2
+ },
+ {
+  "id": "crash-multi-plant",
+  "title": "Приложение падает или работает с серьёзными ошибками при наличии нескольких растений",
+  "obs": 2
+ },
+ {
+  "id": "subscription-price-not-in-store",
+  "title": "Стоимость подписки не указана в описании магазина приложений, что мешает принять решение до скачивания",
+  "obs": 1
+ },
+ {
+  "id": "misleading-positive-reviews",
+  "title": "Первые положительные отзывы вводят в заблуждение: утверждают, что приложение бесплатно, хотя на практике функциональность платная",
+  "obs": 1
+ },
+ {
+  "id": "toxicity-info-wrong",
+  "title": "Информация о токсичности растений для домашних животных содержит ошибки, что может привести к вреду",
+  "obs": 1
+ },
+ {
+  "id": "missing-plants-database",
+  "title": "Обычные комнатные растения отсутствуют в базе данных приложения и не могут быть идентифицированы",
+  "obs": 1
+ },
+ {
+  "id": "watering-tracking-bug",
+  "title": "Отметка о поливе не сохраняется после выхода из приложения — растение снова отмечается как требующее воды",
+  "obs": 1
+ },
+ {
+  "id": "settings-not-persisted",
+  "title": "Сохранённые настройки сбрасываются, напоминания об уходе приходят нерегулярно",
+  "obs": 1
+ },
+ {
+  "id": "light-measurement-bug",
+  "title": "Функция замера освещённости работает не полностью, несмотря на оплату подписки",
+  "obs": 1
+ },
+ {
+  "id": "ui-delete-leads-to-install",
+  "title": "Кнопка удаления приложения ведёт к установке из-за вводящей в заблуждение разметки интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "ui-excessive-upsell-popups",
+  "title": "Постоянные всплывающие окна с предложением перейти на премиум появляются при каждом действии и мешают использованию",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-mandatory-data",
+  "title": "При первом открытии приложение принудительно запрашивает личные данные и параметры сада без возможности пропустить",
+  "obs": 1
+ },
+ {
+  "id": "app-freeze-on-care-plan",
+  "title": "Приложение зависает на экране плана ухода после запроса личных данных при первом запуске",
+  "obs": 1
+ },
+ {
+  "id": "water-all-button-broken",
+  "title": "Кнопка массового полива всех растений не работает — напоминания нужно снимать по одному",
+  "obs": 1
+ },
+ {
+  "id": "calendar-reminders-no-dates",
+  "title": "В напоминаниях об уходе нельзя указать конкретные даты — только интервалы в днях и неделях",
+  "obs": 1
+ },
+ {
+  "id": "cant-update-plant-photos",
+  "title": "В бесплатной версии нельзя обновить фотографию растения, которое выросло",
+  "obs": 1
+ },
+ {
+  "id": "review-for-features-exchange",
+  "title": "Приложение предлагает разблокировать функции в обмен на пятизвёздочный отзыв",
+  "obs": 1
+ },
+ {
+  "id": "spelling-errors-in-ui",
+  "title": "В интерфейсе приложения орфографические ошибки, снижающие воспринимаемое качество продукта",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-unavailable",
+  "title": "При потере пароля нет способа связаться с компанией и восстановить доступ к аккаунту с активной подпиской",
+  "obs": 1
+ },
+ {
+  "id": "tamagotchi-positioning",
+  "title": "Пользователи воспринимают приложение как цифровую игру про уход за растениями, а не практический инструмент идентификации",
+  "obs": 1
+ },
+ {
+  "id": "star-bombing-behavior",
+  "title": "Пользователи целенаправленно ставят одну звезду всем приложениям с расплывчатым позиционированием «бесплатно» как форма потребительской защиты",
+  "obs": 1
+ },
+ {
+  "id": "screenshot-workaround",
+  "title": "Пользователи сохраняют скриншоты описаний растений из приложения, обходя ограничения доступа к информации",
+  "obs": 1
+ },
+ {
+  "id": "aggressive-data-then-paywall",
+  "title": "Приложение сначала требует доступ к личным данным, а затем выставляет пэйволл — пользователи воспринимают это как манипуляцию",
+  "obs": 1
+ }
+]

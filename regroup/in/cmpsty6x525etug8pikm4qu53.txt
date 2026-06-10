@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from Lose It! – Calorie Counter (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Lose It! – Calorie Counter, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Lose It! – Calorie Counter — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Lose It! – Calorie Counter>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsty6x525etug8pikm4qu53.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ui-redesign-more-clicks",
+  "title": "Переделка интерфейса добавила кликов и прокруток — привычные действия стали медленнее",
+  "obs": 7
+ },
+ {
+  "id": "glp1-pharma-ads",
+  "title": "Реклама препаратов для похудения противоречит самой идее приложения и демотивирует",
+  "obs": 5
+ },
+ {
+  "id": "cancel-trial-not-listed",
+  "title": "Подписку нельзя отменить — её нет в системном списке подписок, а отмена ведёт в бесконечный цикл",
+  "obs": 4
+ },
+ {
+  "id": "ads-after-each-log",
+  "title": "Реклама показывается после каждого ввода продукта и делает логирование почти невозможным",
+  "obs": 4
+ },
+ {
+  "id": "forced-survey-on-return",
+  "title": "При возврате после перерыва приложение принудительно гонит через опрос и настройку плана без кнопки пропуска",
+  "obs": 4
+ },
+ {
+  "id": "scam-ads-fake-warnings",
+  "title": "Показывается мошенническая реклама с поддельными системными предупреждениями о взломе",
+  "obs": 4
+ },
+ {
+  "id": "lifetime-revoked",
+  "title": "Купленную пожизненную подписку отзывают и предлагают перейти на платные месяц или год без объяснений",
+  "obs": 3
+ },
+ {
+  "id": "food-db-inaccurate",
+  "title": "Большинство продуктов из базы и сканера показывают калории, не совпадающие с упаковкой",
+  "obs": 3
+ },
+ {
+  "id": "photo-analysis-misidentifies",
+  "title": "Распознавание блюда по фото часто ошибается и не оценивает объём порции, требуя ручной правки",
+  "obs": 3
+ },
+ {
+  "id": "app-freezes-on-meal-add",
+  "title": "Приложение зависает и падает при добавлении приёма пищи, требуя перезапуска",
+  "obs": 3
+ },
+ {
+  "id": "finish-logging-removed",
+  "title": "Обновление убрало кнопку завершения логирования и скрыло недельный остаток калорий",
+  "obs": 3
+ },
+ {
+  "id": "long-signup-questions",
+  "title": "Очень длинная регистрация с кучей вопросов до старта отпугивает пользователей",
+  "obs": 3
+ },
+ {
+  "id": "themes-removed",
+  "title": "Обновление удалило пользовательские темы оформления, навязав яркий оранжевый фон",
+  "obs": 3
+ },
+ {
+  "id": "daily-lifetime-upsell",
+  "title": "Даже оплатившим показывают ежедневное окно «последний шанс» о пожизненной подписке",
+  "obs": 3
+ },
+ {
+  "id": "precise-tracking-success",
+  "title": "Точное взвешивание в граммах и гибкий дефицит дают устойчивый результат без чувства голода",
+  "obs": 3
+ },
+ {
+  "id": "annual-only-no-monthly",
+  "title": "Доступна только годовая подписка без помесячного варианта — крупный разовый платёж отпугивает",
+  "obs": 2
+ },
+ {
+  "id": "food-db-shrunk",
+  "title": "База продуктов обеднела — добавление базовых ингредиентов требует много усилий",
+  "obs": 2
+ },
+ {
+  "id": "ai-insights-wrong",
+  "title": "Автоматическая аналитика выдаёт неверные или поверхностные выводы и её нельзя отключить",
+  "obs": 2
+ },
+ {
+  "id": "orange-block-overlay",
+  "title": "Оранжевый блок перекрывает половину экрана и закрывает ввод еды",
+  "obs": 2
+ },
+ {
+  "id": "units-not-remembered",
+  "title": "Приложение не запоминает выбранные единицы и каждый раз сбрасывает их обратно",
+  "obs": 2
+ },
+ {
+  "id": "myfoods-delete-fails",
+  "title": "Продукты из личного списка нельзя удалить — после перезапуска они появляются снова",
+  "obs": 2
+ },
+ {
+  "id": "lightweight-logging-habit",
+  "title": "Простое логирование в пару кликов формирует осознанность и привычку без учёта каждого грамма",
+  "obs": 2
+ },
+ {
+  "id": "design-keeps-engaged",
+  "title": "Приятный дизайн и кастомизация отличают приложение от клинических аналогов и удерживают надолго",
+  "obs": 2
+ },
+ {
+  "id": "health-tracking-side-use",
+  "title": "Долгое ведение дневника помогает увидеть связь еды со здоровьем, а не только худеть",
+  "obs": 2
+ },
+ {
+  "id": "price-mismatch-channels",
+  "title": "Цена пожизненной подписки в App Store ниже, чем внутри приложения — расхождение воспринимается как обман",
+  "obs": 1
+ },
+ {
+  "id": "paywall-on-core-features",
+  "title": "Базовые функции вроде сканирования и микронутриентов перенесли за платную стену",
+  "obs": 1
+ },
+ {
+  "id": "trial-too-short",
+  "title": "Недельный пробный период слишком короткий, чтобы оценить приложение перед годовой оплатой",
+  "obs": 1
+ },
+ {
+  "id": "no-credit-card-praise",
+  "title": "Приложение честно даёт пользоваться основными функциями без ввода платёжных данных",
+  "obs": 1
+ },
+ {
+  "id": "food-data-changes-silently",
+  "title": "Данные о продуктах меняются в базе без уведомления, что ломает точность учёта",
+  "obs": 1
+ },
+ {
+  "id": "exercise-db-gaps",
+  "title": "В базе упражнений нет базовых движений с собственным весом",
+  "obs": 1
+ },
+ {
+  "id": "no-calcium-tracking",
+  "title": "Нет встроенного отслеживания кальция, важного для женщин в менопаузе",
+  "obs": 1
+ },
+ {
+  "id": "no-breastfeeding-calories",
+  "title": "Нет встроенной опции дополнительных калорий при грудном вскармливании — приходится считать вручную",
+  "obs": 1
+ },
+ {
+  "id": "no-muscle-gain-mode",
+  "title": "Приложение заточено только под похудение и демотивирует тех, кто набирает мышечную массу",
+  "obs": 1
+ },
+ {
+  "id": "label-scan-broken",
+  "title": "Распознавание этикетки питания работает с тёмным прерывистым изображением и не доводит дело до конца",
+  "obs": 1
+ },
+ {
+  "id": "barcode-scan-hangs",
+  "title": "Сканирование штрих-кода зависает на надписи «анализ» и не завершается",
+  "obs": 1
+ },
+ {
+  "id": "white-screen-no-load",
+  "title": "Приложение не загружается и показывает белый экран",
+  "obs": 1
+ },
+ {
+  "id": "search-crash-after-update",
+  "title": "Новая версия крашится при поиске приёмов пищи",
+  "obs": 1
+ },
+ {
+  "id": "logging-slower-after-update",
+  "title": "После обновления логирование еды стало в несколько раз медленнее",
+  "obs": 1
+ },
+ {
+  "id": "history-navigation-slow",
+  "title": "Просмотр и редактирование старых дней становится почти неработоспособно медленным",
+  "obs": 1
+ },
+ {
+  "id": "data-loss-server-fail",
+  "title": "Сбой на серверах стёр историю продуктов и личные данные, и их приходится вводить заново",
+  "obs": 1
+ },
+ {
+  "id": "saved-exercises-lost",
+  "title": "После обновления пропали сохранённые упражнения и сломалась синхронизация между устройствами",
+  "obs": 1
+ },
+ {
+  "id": "apple-health-duplicates",
+  "title": "Синхронизация с Apple Health дублирует записи о еде, и дубликаты приходится чистить вручную каждый день",
+  "obs": 1
+ },
+ {
+  "id": "watch-burned-calories-no-toggle",
+  "title": "С Apple Watch сожжённые калории автоматически прибавляются к лимиту без выключателя",
+  "obs": 1
+ },
+ {
+  "id": "watch-calories-too-small",
+  "title": "На циферблате Apple Watch остаток калорий отображается слишком мелко",
+  "obs": 1
+ },
+ {
+  "id": "few-widgets",
+  "title": "Слишком мало виджетов для iOS, что мешает закрепить привычку",
+  "obs": 1
+ },
+ {
+  "id": "recipe-builder-error",
+  "title": "Создание рецептов выдаёт постоянную ошибку даже при добавлении ссылки",
+  "obs": 1
+ },
+ {
+  "id": "weight-chart-wrong",
+  "title": "График потери веса показывает неверный итог, а тикет в поддержку отправить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ambiguous-serving-sizes",
+  "title": "Порции заданы неоднозначно — стаканы и ложки не переводятся в граммы и унции",
+  "obs": 1
+ },
+ {
+  "id": "scroll-number-input",
+  "title": "Количество ингредиентов вводится прокруткой огромных диапазонов вместо прямого ввода",
+  "obs": 1
+ },
+ {
+  "id": "double-tap-calculator",
+  "title": "Редактирование записи теперь требует двойного нажатия и всплывающего калькулятора",
+  "obs": 1
+ },
+ {
+  "id": "text-too-small",
+  "title": "Текст стал настолько мелким, что приложение недоступно для людей со слабым зрением",
+  "obs": 1
+ },
+ {
+  "id": "frequent-ui-rewrites",
+  "title": "Интерфейс переделывают каждые пару месяцев, заставляя постоянно переучиваться",
+  "obs": 1
+ },
+ {
+  "id": "no-macro-customization",
+  "title": "Нельзя выбрать, какие макронутриенты видеть на экране даже в премиуме",
+  "obs": 1
+ },
+ {
+  "id": "weight-logging-buried",
+  "title": "Удаление опции скрыть рекламу затруднило доступ к частому действию — логированию веса",
+  "obs": 1
+ },
+ {
+  "id": "ads-reactivate-after-paying",
+  "title": "После оплаты премиума реклама снова включается с каждым обновлением — отключение не сохраняется",
+  "obs": 1
+ },
+ {
+  "id": "inappropriate-temu-ads",
+  "title": "Реклама с неприемлемыми изображениями детей не удаляется даже после жалоб",
+  "obs": 1
+ },
+ {
+  "id": "no-motivation-feedback",
+  "title": "Приложение не даёт положительного подтверждения даже при заметном прогрессе",
+  "obs": 1
+ },
+ {
+  "id": "streaks-cause-failure",
+  "title": "Серии создают ощущение провала при пропуске дня и отбивают желание продолжать",
+  "obs": 1
+ },
+ {
+  "id": "weekend-scheduler-praise",
+  "title": "Планировщик выходного дня позволяет заложить излишек калорий без чувства вины",
+  "obs": 1
+ },
+ {
+  "id": "delete-account-blocked",
+  "title": "Удаление аккаунта невозможно — поле пароля на сайте не работает",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Поддержка не отвечает неделями, и отзыв остаётся единственным способом достучаться",
+  "obs": 1
+ }
+]

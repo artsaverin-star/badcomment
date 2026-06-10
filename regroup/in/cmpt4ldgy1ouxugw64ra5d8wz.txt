@@ -1,0 +1,284 @@
+You are grouping 47 mechanism-level insight clusters from FamilyAlbum - Photo Sharing (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO FamilyAlbum - Photo Sharing, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 47 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to FamilyAlbum - Photo Sharing — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to FamilyAlbum - Photo Sharing>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt4ldgy1ouxugw64ra5d8wz.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "full-screen-ads",
+  "title": "Реклама встроена прямо в полноэкранный просмотр фото и портит главный сценарий использования",
+  "obs": 7
+ },
+ {
+  "id": "print-delivery-slow-no-tracking",
+  "title": "Печатные фото идут пять и более недель, отследить заказ внутри приложения нельзя",
+  "obs": 4
+ },
+ {
+  "id": "share-without-social-media",
+  "title": "Главная причина выбора — обмен семейными фото без соцсетей и без публичного доступа",
+  "obs": 4
+ },
+ {
+  "id": "centralized-broadcast-no-duplication",
+  "title": "Приложение заменяет рассылку одних и тех же фото каждому родственнику единым общим альбомом",
+  "obs": 4
+ },
+ {
+  "id": "cloud-backup-frees-storage",
+  "title": "Пользователи держат единственную копию фото в облаке приложения, чтобы освободить память телефона",
+  "obs": 4
+ },
+ {
+  "id": "long-term-archive-development",
+  "title": "Приложение используют как многолетний архив развития ребёнка от рождения",
+  "obs": 4
+ },
+ {
+  "id": "video-upload-fails-silently",
+  "title": "Видео перестали загружаться даже при платной подписке, а приложение не сообщает об ошибке",
+  "obs": 3
+ },
+ {
+  "id": "join-invite-broken",
+  "title": "Приглашение в альбом по ссылке не работает, присоединиться без отдельной регистрации невозможно",
+  "obs": 3
+ },
+ {
+  "id": "sales-notifications-cant-disable",
+  "title": "Уведомления о покупке печати и товаров приходят ежедневно даже после их отключения",
+  "obs": 3
+ },
+ {
+  "id": "privacy-policy-anthropic-photos",
+  "title": "Компания тихо изменила политику и без явного согласия передаёт детские фото стороннему ИИ для обучения и поиска",
+  "obs": 3
+ },
+ {
+  "id": "browse-by-month-age",
+  "title": "Автоматическая раскладка по месяцам и возрасту ребёнка помогает быстро найти нужный момент",
+  "obs": 3
+ },
+ {
+  "id": "premium-to-delete-data",
+  "title": "Удалить свои данные можно только купив платную подписку — после скрытого подключения стороннего анализа фото",
+  "obs": 2
+ },
+ {
+  "id": "photobook-comment-attribution",
+  "title": "В фотокниге к снимку добавляется только первый комментарий и без имени автора, выбрать другой нельзя",
+  "obs": 2
+ },
+ {
+  "id": "batch-upload-fails",
+  "title": "При массовой загрузке приложение зависает или сбрасывает выбор и переносит лишь часть снимков",
+  "obs": 2
+ },
+ {
+  "id": "ipad-wont-launch",
+  "title": "На iPad приложение не запускается или зависает, хотя магазин обещает совместимость с планшетом",
+  "obs": 2
+ },
+ {
+  "id": "ipad-orientation-flip",
+  "title": "На iPad экран самопроизвольно переключает ориентацию, мешая загрузке фотографий",
+  "obs": 2
+ },
+ {
+  "id": "no-comment-likes",
+  "title": "Нельзя поставить лайк на комментарий другого члена семьи",
+  "obs": 2
+ },
+ {
+  "id": "multi-child-sorting-broken",
+  "title": "Автосортировка смешивает фото разных детей в одну ленту, ручной переклассификации нет",
+  "obs": 2
+ },
+ {
+  "id": "invite-many-members-tedious",
+  "title": "Добавление нескольких членов семьи требует слишком много шагов и запутывает",
+  "obs": 2
+ },
+ {
+  "id": "approve-photo-takes-effort",
+  "title": "Чтобы выразить одобрение фото, надо купить стикеры или искать эмодзи на клавиатуре — простого лайка нет",
+  "obs": 2
+ },
+ {
+  "id": "family-uploads-shared-load",
+  "title": "Возможность всем родственникам пополнять общий альбом снимает нагрузку с одного автора",
+  "obs": 2
+ },
+ {
+  "id": "no-group-chat-pressure",
+  "title": "Семья видит обновления без групповых чатов и без давления отвечать на каждое сообщение",
+  "obs": 2
+ },
+ {
+  "id": "free-prints-became-paid",
+  "title": "Бесплатные ежемесячные печатные фото без предупреждения заменили на платную услугу",
+  "obs": 1
+ },
+ {
+  "id": "pricing-model-changed-2021",
+  "title": "Условия изменили: загрузку видео урезали и постоянно навязывают более дорогую подписку",
+  "obs": 1
+ },
+ {
+  "id": "premium-for-pc-upload",
+  "title": "Загрузка фото с компьютера через веб доступна только по платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "free-prints-shipping-pricey",
+  "title": "Доставка одиннадцати бесплатных фото стоит дороже, чем напечатать те же снимки в магазине",
+  "obs": 1
+ },
+ {
+  "id": "damaged-products-no-support",
+  "title": "Поддержка магазина не отвечает на жалобы о повреждённых при доставке товарах",
+  "obs": 1
+ },
+ {
+  "id": "print-sourcing-japan-undisclosed",
+  "title": "Компания не раскрывает, что печать едет из Японии, и это вызывает вопросы о судьбе фотографий",
+  "obs": 1
+ },
+ {
+  "id": "video-length-limit",
+  "title": "Приложение отказывается загружать видео длиннее минуты даже на платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "photos-disappear",
+  "title": "Целые месяцы фотографий пропадают без объяснения, хотя приложение позиционируется как надёжное хранилище",
+  "obs": 1
+ },
+ {
+  "id": "upload-needs-foreground",
+  "title": "Фотографии загружаются только при открытом приложении — фоновой загрузки нет",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-on-open",
+  "title": "Приложение самопроизвольно закрывается и не догружается при повторном открытии",
+  "obs": 1
+ },
+ {
+  "id": "no-google-photos-import",
+  "title": "Нельзя загрузить фотографии напрямую из Google Photos",
+  "obs": 1
+ },
+ {
+  "id": "no-download-photos",
+  "title": "Нельзя по запросу сохранить фотографию из приложения на устройство",
+  "obs": 1
+ },
+ {
+  "id": "no-swipe-browse",
+  "title": "Нельзя листать фотографии свайпом — каждую приходится открывать отдельным нажатием",
+  "obs": 1
+ },
+ {
+  "id": "no-date-sort-comment-control",
+  "title": "Нет сортировки фото по дате и нельзя отключить комментарии",
+  "obs": 1
+ },
+ {
+  "id": "account-creation-too-complex",
+  "title": "Создание учётной записи настолько запутано, что новый пользователь не может зарегистрироваться",
+  "obs": 1
+ },
+ {
+  "id": "sticker-popups-distract",
+  "title": "Частые всплывающие напоминания о стикерах отвлекают и добавляют лишние клики при написании комментария",
+  "obs": 1
+ },
+ {
+  "id": "no-dark-mode",
+  "title": "Нет тёмной темы — слишком яркий экран мешает пользоваться рядом со спящим ребёнком",
+  "obs": 1
+ },
+ {
+  "id": "cant-delete-album",
+  "title": "Случайно созданный альбом нельзя удалить из приложения",
+  "obs": 1
+ },
+ {
+  "id": "member-cant-own-album",
+  "title": "Принявший приглашение участник не может создать собственный альбом из того же аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "no-phone-numbers-in-list",
+  "title": "В списке участников не видно телефонных номеров, что затрудняет распознавание членов семьи",
+  "obs": 1
+ },
+ {
+  "id": "screenshots-of-child-photos",
+  "title": "Участникам альбома разрешили делать скриншоты детских фото, что подрывает главное обещание безопасности",
+  "obs": 1
+ },
+ {
+  "id": "support-restored-removed-admin",
+  "title": "Поддержка вернула права администратора удалённому участнику и заблокировала владельцу доступ к собственному альбому",
+  "obs": 1
+ },
+ {
+  "id": "remote-family-connection",
+  "title": "Военные и часто переезжающие семьи держат связь, давая дальним родным следить за ребёнком ежедневно",
+  "obs": 1
+ },
+ {
+  "id": "multiple-albums-subgroups",
+  "title": "Быстрое переключение между альбомами разных подгрупп семьи упрощает управление",
+  "obs": 1
+ },
+ {
+  "id": "quick-show-photos",
+  "title": "Нужные снимки внука показывают прямо из приложения, не роясь в галерее телефона",
+  "obs": 1
+ }
+]

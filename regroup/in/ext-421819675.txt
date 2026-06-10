@@ -1,0 +1,284 @@
+You are grouping 47 mechanism-level insight clusters from Do! - Simple To Do List (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Do! - Simple To Do List, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 47 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Do! - Simple To Do List — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Do! - Simple To Do List>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-421819675.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "cross-device-sync-broken",
+  "title": "Список задач не синхронизируется между iPhone, iPad и Mac одного пользователя",
+  "obs": 4
+ },
+ {
+  "id": "reminders-do-not-fire",
+  "title": "Напоминания о задачах не срабатывают ни по времени, ни по месту — основная функция не работает",
+  "obs": 3
+ },
+ {
+  "id": "intrusive-ad-popups",
+  "title": "Всплывающие объявления, замаскированные под срочные сообщения, отвлекают от работы со списками",
+  "obs": 3
+ },
+ {
+  "id": "free-version-2-list-limit",
+  "title": "Бесплатная версия разрешает только 2 группы задач — больше категорий заводить нельзя",
+  "obs": 2
+ },
+ {
+  "id": "alarm-can-only-be-set-to-later-error",
+  "title": "Установка напоминания выдаёт ошибку «alarms can only be set to later» и блокирует будильник",
+  "obs": 2
+ },
+ {
+  "id": "dates-shift-back-one-day",
+  "title": "Приложение само сдвигает даты задач на день назад во всех списках, ломая планирование",
+  "obs": 2
+ },
+ {
+  "id": "widget-blank-white-box",
+  "title": "Виджет на домашнем экране остаётся пустым белым квадратом без содержимого",
+  "obs": 2
+ },
+ {
+  "id": "hidden-ads-open-safari",
+  "title": "Приложение само открывает Safari со случайными сайтами из встроенной скрытой рекламы",
+  "obs": 2
+ },
+ {
+  "id": "completed-tasks-no-auto-rollover",
+  "title": "Завершённые задачи не сбрасываются автоматически — их приходится удалять вручную каждый день",
+  "obs": 2
+ },
+ {
+  "id": "keyboard-dismisses-on-input",
+  "title": "Клавиатура закрывается посреди ввода категории или email, блокируя ввод текста",
+  "obs": 2
+ },
+ {
+  "id": "tasks-not-editable-after-entry",
+  "title": "Текст задачи нельзя отредактировать или удалить после ввода — он становится неизменяемым",
+  "obs": 2
+ },
+ {
+  "id": "recurring-interval-limits",
+  "title": "Повторяющиеся задачи не поддерживают свой интервал — нет двухнедельного, месячного и «последнего дня месяца»",
+  "obs": 2
+ },
+ {
+  "id": "evening-anxiety-planning-usecase",
+  "title": "Люди используют приложение вечером для рефлексии и снятия тревожности перед сном",
+  "obs": 2
+ },
+ {
+  "id": "purchase-not-restored-new-device",
+  "title": "Премиум не переносится на новое устройство с тем же Apple ID — приложение требует оплатить заново",
+  "obs": 1
+ },
+ {
+  "id": "recurring-tasks-wrong-days-undeletable",
+  "title": "Повторяющиеся задачи появляются не в те дни и возвращаются даже после удаления",
+  "obs": 1
+ },
+ {
+  "id": "spontaneous-folder-duplication",
+  "title": "Приложение само дублирует папки без действий пользователя, создавая скрытые копии",
+  "obs": 1
+ },
+ {
+  "id": "lists-reorder-themselves",
+  "title": "Приложение само меняет порядок списков, требуя постоянной реорганизации",
+  "obs": 1
+ },
+ {
+  "id": "task-order-not-as-added",
+  "title": "Задачи в списке выводятся не в порядке добавления — первая может оказаться в конце",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-after-ios-update",
+  "title": "После обновления iOS приложение теряет все данные пользователя без автосохранения",
+  "obs": 1
+ },
+ {
+  "id": "char-width-render-glitch",
+  "title": "При редактировании буква отображается аномально широкой и ломает разметку текста",
+  "obs": 1
+ },
+ {
+  "id": "notifications-not-on-lock-screen",
+  "title": "Уведомления не показываются на экране блокировки, хотя это обещано скриншотами в магазине",
+  "obs": 1
+ },
+ {
+  "id": "notification-sound-too-quiet",
+  "title": "Звук уведомления о завершении задачи тише системных звуков iOS — его не слышно на расстоянии",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-watch-support",
+  "title": "Задачи нельзя создавать или синхронизировать на Apple Watch",
+  "obs": 1
+ },
+ {
+  "id": "recurring-not-in-today-view",
+  "title": "Повторяющиеся ежедневные задачи не попадают в список «Сегодня» автоматически",
+  "obs": 1
+ },
+ {
+  "id": "non-today-tasks-clutter-main",
+  "title": "После обновления в главный список попали задачи не на сегодня, и нельзя видеть только текущие дела",
+  "obs": 1
+ },
+ {
+  "id": "incomplete-tasks-no-carryover",
+  "title": "Невыполненные задачи не переносятся на следующий день — список приходится создавать заново",
+  "obs": 1
+ },
+ {
+  "id": "no-rapid-task-entry-mode",
+  "title": "После каждого нажатия Enter клавиатура закрывается — нет режима быстрого ввода списка подряд",
+  "obs": 1
+ },
+ {
+  "id": "no-manual-task-reordering",
+  "title": "Задачи в списке нельзя вручную переставлять для расстановки приоритетов",
+  "obs": 1
+ },
+ {
+  "id": "recurring-task-discoverability",
+  "title": "Создание повторяющихся задач спрятано в интерфейсе — пользователи не находят эту функцию",
+  "obs": 1
+ },
+ {
+  "id": "date-picker-two-weeks-only",
+  "title": "После обновления выбор даты ограничен первыми двумя неделями месяца — позже задачу поставить нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-tasks-by-date-overview",
+  "title": "Нет общего просмотра всех задач, упорядоченных по датам выполнения",
+  "obs": 1
+ },
+ {
+  "id": "global-sort-not-per-group",
+  "title": "Настройка сортировки применяется ко всем группам сразу, а не к каждой отдельно",
+  "obs": 1
+ },
+ {
+  "id": "empty-group-manual-cleanup",
+  "title": "Пустая группа не удаляется сама — её приходится чистить вручную через настройки",
+  "obs": 1
+ },
+ {
+  "id": "cannot-rename-group",
+  "title": "Созданную группу задач нельзя переименовать без создания новой",
+  "obs": 1
+ },
+ {
+  "id": "widget-shows-completed-tasks",
+  "title": "В виджете остаются завершённые задачи и занимают место активных",
+  "obs": 1
+ },
+ {
+  "id": "widget-10-task-cap",
+  "title": "Виджет показывает максимум 10 задач — этого мало при большом списке дел",
+  "obs": 1
+ },
+ {
+  "id": "badge-on-all-tasks-not-due-today",
+  "title": "Значок уведомления появляется сразу на всех незавершённых задачах, а не только на сегодняшних",
+  "obs": 1
+ },
+ {
+  "id": "color-tap-loses-new-task",
+  "title": "При выборе цвета чуть мимо зоны тапа новая задача теряется без сохранения",
+  "obs": 1
+ },
+ {
+  "id": "colors-meaning-unclear",
+  "title": "Назначение цветных элементов не объясняется в интерфейсе — пользователь не понимает их смысл",
+  "obs": 1
+ },
+ {
+  "id": "lock-screen-reminder-not-findable",
+  "title": "Обещанные на скриншотах напоминания на экране блокировки не находятся в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-swipe-confusing",
+  "title": "Первая подсказка требует листать влево-вправо вместо простого добавления и отметки задач",
+  "obs": 1
+ },
+ {
+  "id": "japanese-only-no-multiday",
+  "title": "Интерфейс показывается только на японском без переключения языка, и нельзя планировать дальше одного дня",
+  "obs": 1
+ },
+ {
+  "id": "no-task-notes",
+  "title": "К задаче нельзя добавить заметку с дополнительным контекстом",
+  "obs": 1
+ },
+ {
+  "id": "no-share-or-print-lists",
+  "title": "Списки нельзя отправить другим людям или распечатать",
+  "obs": 1
+ },
+ {
+  "id": "no-sound-effect-toggle",
+  "title": "Нет опции отключить звуковые эффекты приложения",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Поддержка не отвечает на обращения, из-за чего пользователи удаляют приложение",
+  "obs": 1
+ },
+ {
+  "id": "no-signup-as-advantage",
+  "title": "Отсутствие обязательной регистрации — заметное преимущество перед конкурентами по задачам",
+  "obs": 1
+ }
+]

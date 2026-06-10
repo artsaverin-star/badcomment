@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+      "id": "razoblachenie-vpn",
+      "name": "Когда VPN ловят: блокировки стримов, капчи и не та страна",
+      "insight_ids": [
+        "vpn-detected-by-services",
+        "not-working-in-china",
+        "dedicated-ip-not-bypass",
+        "streaming-blocked-mid-session",
+        "geo-wrong-country"
+      ]
+    },
+    {
+      "id": "posle-obnovleniya-stalo-huzhe",
+      "name": "Обновился — и всё поехало: тормоза интерфейса и просевшая скорость",
+      "insight_ids": [
+        "ui-slow-after-update",
+        "speed-drop-after-update"
+      ]
+    },
+    {
+      "id": "soedinenie-zhivyot-svoey-zhiznyu",
+      "name": "Соединение живёт своей жизнью: домашний WiFi, автоподключение и пропадающий IP",
+      "insight_ids": [
+        "wifi-blocked-on-connect",
+        "autoconnect-unreliable",
+        "dedicated-ip-lost"
+      ]
+    },
+    {
+      "id": "tsena-dostupa-i-doverie",
+      "name": "Цена входа и доверие: только годовой тариф, непризнанная подписка и доступ ко всему телефону",
+      "insight_ids": [
+        "no-monthly-plan",
+        "apple-subscription-not-recognized",
+        "excessive-permissions"
+      ]
+    }
+  ]
+}

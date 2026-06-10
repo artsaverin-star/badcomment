@@ -1,0 +1,304 @@
+You are grouping 51 mechanism-level insight clusters from Sleep Sounds by Sleep Pillow (сон / ambient sounds mixer / relax) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sleep Sounds by Sleep Pillow, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 51 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sleep Sounds by Sleep Pillow — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sleep Sounds by Sleep Pillow>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-410606661.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "sleep-onset-speed",
+  "title": "Приложение сокращает время засыпания с часов до 5–15 минут — эффект стабильный и воспроизводится каждую ночь",
+  "obs": 53
+ },
+ {
+  "id": "children-infant-sleep",
+  "title": "Приложение укладывает младенцев, малышей и детей спать — становится семейным ритуалом на годы",
+  "obs": 45
+ },
+ {
+  "id": "mix-sound-layering",
+  "title": "Микширование трёх звуков с отдельной регулировкой громкости каждого слоя — ключевое конкурентное преимущество",
+  "obs": 36
+ },
+ {
+  "id": "sleep-dependency-habit",
+  "title": "Пользователи формируют сильную зависимость от звукового триггера — без приложения засыпать уже невозможно",
+  "obs": 36
+ },
+ {
+  "id": "crash-after-update",
+  "title": "После обновления приложение сразу закрывается или не открывается вовсе — полная потеря функциональности",
+  "obs": 30
+ },
+ {
+  "id": "timer-saves-battery",
+  "title": "Таймер автоматически останавливает звук и экономит батарею — пользователи засыпают до его срабатывания",
+  "obs": 26
+ },
+ {
+  "id": "noise-masking-use-case",
+  "title": "Приложение маскирует шум соседей, храп партнёра и уличный шум — сон становится возможным в шумной среде",
+  "obs": 24
+ },
+ {
+  "id": "purchased-sounds-lost-after-update",
+  "title": "После обновления приложения или iOS купленные звуки исчезают — восстановление не работает или требует повторной оплаты",
+  "obs": 22
+ },
+ {
+  "id": "free-tier-too-few-sounds",
+  "title": "В бесплатной версии слишком мало звуков (5–9) — заявленное число (70+) вводит в заблуждение",
+  "obs": 21
+ },
+ {
+  "id": "sound-quality-synthetic",
+  "title": "Ряд звуков воспринимается как синтетический или нереалистичный — особенно волны, дождь и морской прибой",
+  "obs": 19
+ },
+ {
+  "id": "focus-study-work-use",
+  "title": "Приложение используют не только для сна — студенты и работники включают фоновый звук для концентрации",
+  "obs": 19
+ },
+ {
+  "id": "anxiety-insomnia-relief",
+  "title": "Приложение помогает при тревожности и хронической бессоннице — замещает навязчивые мысли и циклическое мышление",
+  "obs": 19
+ },
+ {
+  "id": "tinnitus-masking",
+  "title": "Звуки маскируют тиннитус и позволяют спать — терапевтическое применение за пределами обычного сна",
+  "obs": 17
+ },
+ {
+  "id": "background-playback-works",
+  "title": "Приложение воспроизводит звук в фоне с выключенным экраном и не мешает другим приложениям",
+  "obs": 13
+ },
+ {
+  "id": "travel-use-case",
+  "title": "Приложение заменяет портативную звуковую машину в путешествиях — работает в отелях и незнакомой среде",
+  "obs": 13
+ },
+ {
+  "id": "timer-gap-between-15min-1hr",
+  "title": "Таймер предлагает только 15 минут или 1 час — нет вариантов 20, 30 или 45 минут",
+  "obs": 11
+ },
+ {
+  "id": "missing-sounds-requested",
+  "title": "Пользователи не находят нужные звуки: статичный белый шум, бытовые звуки (сушилка, стиралка), транспортные, экзотические (гагара)",
+  "obs": 10
+ },
+ {
+  "id": "purchase-not-activated",
+  "title": "Оплата прошла, но доступ к купленным звукам не открывается — приложение не активирует покупку",
+  "obs": 9
+ },
+ {
+  "id": "loop-artifacts-short-cycle",
+  "title": "Звуки зацикливаются каждые 12–40 секунд с заметным переходом — ритм цикла разрушает расслабление",
+  "obs": 9
+ },
+ {
+  "id": "replacement-for-hardware",
+  "title": "Приложение полностью заменяет физический аппарат белого шума — качество воспроизведения выше, а портативность лучше",
+  "obs": 9
+ },
+ {
+  "id": "social-sharing-family",
+  "title": "Пользователи делятся приложением с семьёй и друзьями — вирусный эффект через личный опыт",
+  "obs": 8
+ },
+ {
+  "id": "background-playback-broken",
+  "title": "После обновления звуки останавливаются при блокировке экрана или сворачивании приложения — ранее это работало",
+  "obs": 6
+ },
+ {
+  "id": "free-tier-converts-to-paid",
+  "title": "Бесплатная версия убеждает купить полный пакет — пользователь опробовал и захотел больше",
+  "obs": 6
+ },
+ {
+  "id": "sounds-moved-to-paywall",
+  "title": "Ранее бесплатные звуки переведены за платный барьер — давние пользователи теряют привычный функционал",
+  "obs": 5
+ },
+ {
+  "id": "seamless-loop-positive",
+  "title": "Переходы между циклами незаметны — бесшовное повторение критично для маскирования звука и выгодно отличает от конкурентов",
+  "obs": 5
+ },
+ {
+  "id": "sound-artifacts-specific",
+  "title": "В отдельных звуках слышны артефакты: кракающий звук в волнах, лай собаки в дожде, пугающие тона",
+  "obs": 5
+ },
+ {
+  "id": "airplay-bluetooth-not-supported",
+  "title": "Приложение не поддерживает AirPlay и Bluetooth-колонки — нельзя вывести звук на внешнюю акустику спальни",
+  "obs": 5
+ },
+ {
+  "id": "water-urination-effect",
+  "title": "Звуки воды стимулируют позыв на мочеиспускание и прерывают ночной сон",
+  "obs": 4
+ },
+ {
+  "id": "timer-capped-2hrs",
+  "title": "После обновления максимум таймера урезан до 2 часов вместо прежних неограниченных",
+  "obs": 4
+ },
+ {
+  "id": "volume-control-removed",
+  "title": "Ползунок громкости удалён в обновлении — управление громкостью перенесено на физическую кнопку телефона",
+  "obs": 4
+ },
+ {
+  "id": "battery-drain",
+  "title": "При ночном воспроизведении через динамик телефон быстро разряжается — нужна постоянная зарядка",
+  "obs": 4
+ },
+ {
+  "id": "circadian-jet-lag",
+  "title": "Любимый микс помогает адаптироваться к смене часовых поясов — условный рефлекс срабатывает даже при джетлаге",
+  "obs": 4
+ },
+ {
+  "id": "mix-limit-free",
+  "title": "В бесплатной версии можно создать только один микс — несколько сохранённых наборов требуют подписки",
+  "obs": 3
+ },
+ {
+  "id": "support-no-response",
+  "title": "Поддержка не отвечает на жалобы о потере покупок и неработающих звуках",
+  "obs": 3
+ },
+ {
+  "id": "support-restored-purchases",
+  "title": "Поддержка быстро восстановила доступ к купленным звукам спустя годы — даже по старой квитанции",
+  "obs": 3
+ },
+ {
+  "id": "alarm-gentle-wakeup",
+  "title": "Встроенный будильник позволяет мягко пробудиться — звук затихает перед срабатыванием телефонного будильника",
+  "obs": 3
+ },
+ {
+  "id": "saved-mix-lost-after-update",
+  "title": "После обновления сохранённый пользовательский микс удалён — нет возможности его воссоздать, если звуки тоже удалены",
+  "obs": 3
+ },
+ {
+  "id": "sounds-disappear-every-session",
+  "title": "Каждую ночь скачанные звуки пропадают — нужно переустанавливать их при каждом запуске",
+  "obs": 3
+ },
+ {
+  "id": "ios-incompatibility",
+  "title": "После обновления iOS приложение перестаёт работать — нет поддержки старых устройств или новой ОС",
+  "obs": 3
+ },
+ {
+  "id": "promo-overpromises",
+  "title": "Рекламные материалы завышают ожидания — реальное приложение разочаровывает тех, кто ждал чуда",
+  "obs": 3
+ },
+ {
+  "id": "aggressive-review-prompts",
+  "title": "Приложение навязчиво просит оставить 5-звёздочный отзыв при каждом открытии, несмотря на отказы",
+  "obs": 2
+ },
+ {
+  "id": "alarm-conflict",
+  "title": "Если приложение остаётся на переднем плане, будильник не срабатывает — конфликт с системным будильником",
+  "obs": 2
+ },
+ {
+  "id": "sound-categorization-ui",
+  "title": "Пользователи просят улучшить категоризацию звуков и навигацию — отделить лягушек от птиц, добавить крупные иконки",
+  "obs": 2
+ },
+ {
+  "id": "upsell-popup-blocks-ui",
+  "title": "Реклама перекрывает кнопку создания микса — ключевая функция недоступна для бесплатных пользователей из-за баннера",
+  "obs": 2
+ },
+ {
+  "id": "sound-intensity-too-high",
+  "title": "Отдельные звуки слишком интенсивны — ливень вместо лёгкого дождя, шторм вместо бриза",
+  "obs": 1
+ },
+ {
+  "id": "volume-independent-from-phone",
+  "title": "Громкость звуков независима от громкости телефона — можно поставить тихий звон и громкий будильник одновременно",
+  "obs": 1
+ },
+ {
+  "id": "stop-button-hidden",
+  "title": "Интуитивной кнопки «стоп» нет в основном интерфейсе — приходится переходить на страницу отзыва чтобы остановить звук",
+  "obs": 1
+ },
+ {
+  "id": "interface-color-sleep-disruptive",
+  "title": "Синий и белый цвет интерфейса нарушают цикл сна — дизайн работает против основной функции приложения",
+  "obs": 1
+ },
+ {
+  "id": "ui-improved-in-version",
+  "title": "Версия 7.2 принесла значительное улучшение интерфейса — более профессиональный и современный дизайн",
+  "obs": 1
+ },
+ {
+  "id": "random-crash-during-playback",
+  "title": "Приложение случайно отключается ночью во время воспроизведения — пользователь просыпается от тишины",
+  "obs": 1
+ },
+ {
+  "id": "large-app-size",
+  "title": "Загрузка одного пакета звуков увеличивает размер приложения до 900 МБ — неприемлемо для устройств с ограниченным хранилищем",
+  "obs": 1
+ }
+]

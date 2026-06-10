@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from EveryDollar: Budget Management (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO EveryDollar: Budget Management, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to EveryDollar: Budget Management — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to EveryDollar: Budget Management>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsuvl41446hug8pehdw41nt.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "frequent-session-logout",
+  "title": "Приложение постоянно выкидывает из сессии — приходится заново входить по нескольку раз в месяц",
+  "obs": 6
+ },
+ {
+  "id": "forced-survey-blocks-access",
+  "title": "При каждом запуске приложение показывает обязательный опрос без кнопки пропуска и блокирует доступ к бюджету",
+  "obs": 6
+ },
+ {
+  "id": "delayed-bank-sync",
+  "title": "Синхронизация с банком отстаёт на несколько дней — текущие расходы отследить невозможно",
+  "obs": 5
+ },
+ {
+  "id": "upgrade-popups-on-every-open",
+  "title": "При каждом открытии выскакивают всплывающие окна с предложением премиума и прерывают текущую операцию",
+  "obs": 4
+ },
+ {
+  "id": "bank-sync-duplicates",
+  "title": "При подключении банка генерируются десятки дубликатов транзакций, которые приходится удалять по одному",
+  "obs": 4
+ },
+ {
+  "id": "data-loss-on-save",
+  "title": "Приложение теряет введённые данные и выдаёт ошибки при сохранении бюджета",
+  "obs": 4
+ },
+ {
+  "id": "biweekly-income-not-supported",
+  "title": "Нет прямого ввода дохода раз в две недели — для месяцев с 2-3 выплатами нужен ручной расчёт",
+  "obs": 4
+ },
+ {
+  "id": "manual-entry-builds-discipline",
+  "title": "Ручной ввод каждой транзакции заставляет эмоционально осознавать каждый потраченный доллар и укрепляет привычку следить за расходами",
+  "obs": 3
+ },
+ {
+  "id": "unstable-bank-connection",
+  "title": "Банковские счета без предупреждения отключаются и требуют переподключения с пересчётом месячных данных",
+  "obs": 3
+ },
+ {
+  "id": "no-refund-after-sync-breaks",
+  "title": "Когда синхронизация банка ломается, поддержка предлагает только ручной ввод и отказывает в возврате за неиспользованные месяцы подписки",
+  "obs": 2
+ },
+ {
+  "id": "hard-to-review-historical-spending",
+  "title": "Сложно посмотреть исторические расходы за год и переназначить запоздавшие траты на закрытые периоды",
+  "obs": 2
+ },
+ {
+  "id": "mobile-fewer-features-than-web",
+  "title": "Мобильное приложение содержит заметно меньше функций, чем веб, а веб не работает в современных мобильных браузерах",
+  "obs": 2
+ },
+ {
+  "id": "incompatible-old-ios",
+  "title": "Приложение требует новую версию iOS и не работает на старых устройствах, вынуждая покупать новое",
+  "obs": 2
+ },
+ {
+  "id": "no-bank-sync-some-banks-bnpl",
+  "title": "Часть банков, Cash App и рассрочки (Affirm, Klarna) не синхронизируются — траты приходится вводить вручную",
+  "obs": 2
+ },
+ {
+  "id": "savings-funds-confusing",
+  "title": "«Фонды накопления» с запутанной автоматизацией ломают точность бюджета и сбивают пользователей с толку",
+  "obs": 2
+ },
+ {
+  "id": "joint-budgeting-with-spouse",
+  "title": "Совместное бюджетирование с супругом даёт обоим видеть финансы в реальном времени и снимает конфликты",
+  "obs": 2
+ },
+ {
+  "id": "free-version-no-save-or-features",
+  "title": "В бесплатной версии нельзя сохранить изменения дохода и бюджета — правки откатываются к прежним значениям",
+  "obs": 1
+ },
+ {
+  "id": "login-requires-trial-or-purchase",
+  "title": "После обновления для входа в существующий аккаунт приложение требует начать пробный период или купить подписку",
+  "obs": 1
+ },
+ {
+  "id": "manual-categorization-teaches",
+  "title": "Обязательная категоризация каждой транзакции работает как обучающий приём — помогает понять структуру расходов",
+  "obs": 1
+ },
+ {
+  "id": "duplicates-pie-chart-of-excel",
+  "title": "После подробной настройки итог сводится к круговой диаграмме, которая дублирует возможности Excel",
+  "obs": 1
+ },
+ {
+  "id": "no-bulk-categorization",
+  "title": "Нет пакетной разметки похожих транзакций по категориям — каждую из сотен операций приходится размечать вручную",
+  "obs": 1
+ },
+ {
+  "id": "bulk-delete-only-by-day",
+  "title": "Пакетное удаление транзакций работает только за один день, а не за месяц — на очистку уходит 100+ кликов",
+  "obs": 1
+ },
+ {
+  "id": "split-transaction-lost-autofill",
+  "title": "Разбиение транзакций потеряло автозаполнение остатка суммы, а переводы между счетами требуют сложного многошагового процесса",
+  "obs": 1
+ },
+ {
+  "id": "income-planner-no-variable-amounts",
+  "title": "Планировщик дохода не даёт назначать разные суммы одному элементу на разные даты — приходится плодить дубликаты",
+  "obs": 1
+ },
+ {
+  "id": "payment-schedule-monthly-only",
+  "title": "Планирование платежей жёстко привязано к месяцу — нельзя задать другую частоту или даты за пределами текущего месяца",
+  "obs": 1
+ },
+ {
+  "id": "cant-move-budget-item-category",
+  "title": "Элемент бюджета нельзя перенести в другую категорию — нужно создать новый и вручную перекинуть все транзакции",
+  "obs": 1
+ },
+ {
+  "id": "amount-field-needs-extra-gesture",
+  "title": "Клик по полю суммы не переводит его в режим редактирования — нужен лишний жест, чтобы изменить значение",
+  "obs": 1
+ },
+ {
+  "id": "merchant-field-autofills-category",
+  "title": "Поле торговца автозаполняется редактируемой категорией, исчез навигационный жест, пропадают нижние вкладки",
+  "obs": 1
+ },
+ {
+  "id": "bigger-ui-less-info",
+  "title": "Обновление увеличило элементы интерфейса — на экран помещается меньше информации, длинные сессии стали неудобными",
+  "obs": 1
+ },
+ {
+  "id": "planned-amounts-hidden-behind-click",
+  "title": "Плановые суммы дохода и расходов видны только по клику на элемент, а сам элемент показывает ноль до подсчёта",
+  "obs": 1
+ },
+ {
+  "id": "notes-not-viewable-or-exportable",
+  "title": "Заметки к транзакциям некуда вывести в сводке и нельзя выгрузить для анализа",
+  "obs": 1
+ },
+ {
+  "id": "no-bills-by-due-date-view",
+  "title": "Счета приходится сортировать по срокам платежей вручную — нет автосортировки, календаря и разбивки по периодам зарплаты",
+  "obs": 1
+ },
+ {
+  "id": "remaining-budget-day-only",
+  "title": "Остаток бюджета показывается только до конца текущего дня, а не на весь месяц",
+  "obs": 1
+ },
+ {
+  "id": "goals-hidden-on-mobile",
+  "title": "Цели с агрегированной суммой можно редактировать только в вебе — мобильное приложение эту функцию прячет",
+  "obs": 1
+ },
+ {
+  "id": "no-notification-unassigned-transactions",
+  "title": "Нет уведомлений о неприписанных транзакциях — пользователь узнаёт о них только открыв приложение",
+  "obs": 1
+ },
+ {
+  "id": "update-created-mass-duplicates",
+  "title": "Обновление разом создало 50-100 дубликатов транзакций, требующих ручной чистки",
+  "obs": 1
+ },
+ {
+  "id": "sync-once-a-day-fixed-time",
+  "title": "Синхронизация запускается раз в день в фиксированное вечернее время — утром данные неактуальны",
+  "obs": 1
+ },
+ {
+  "id": "manual-refresh-not-working",
+  "title": "Жест «потянуть вниз для обновления» не срабатывает, синхронизация медленная и неполная",
+  "obs": 1
+ },
+ {
+  "id": "crash-when-moving-transactions",
+  "title": "При перемещении транзакций между месяцами приложение падает и теряет введённые данные",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-create-budget",
+  "title": "При попытке создать бюджет приложение выдаёт неопределённую ошибку и падает, блокируя работу",
+  "obs": 1
+ },
+ {
+  "id": "false-no-internet-error",
+  "title": "Приложение выдаёт ошибку «Нет интернета» при рабочем соединении и не грузится даже после переустановки",
+  "obs": 1
+ },
+ {
+  "id": "infinite-safari-redirect-login",
+  "title": "При входе приложение бесконечно перекидывает в Safari с ошибкой и становится недоступным",
+  "obs": 1
+ },
+ {
+  "id": "split-transaction-broke",
+  "title": "После обновления функция разбиения транзакции перестала работать — приложение непригодно для сложных операций",
+  "obs": 1
+ },
+ {
+  "id": "broken-numeric-income-entry",
+  "title": "После обновления ввод дохода цифрами распознаёт не все нажатия и не принимает суммы, не кратные $50",
+  "obs": 1
+ },
+ {
+  "id": "expense-screen-closes-itself",
+  "title": "Экран ручного добавления расхода после обновления закрывается сам, не давая ввести данные",
+  "obs": 1
+ },
+ {
+  "id": "delete-button-replaced-by-share",
+  "title": "Обновление заменило кнопку удаления на кнопку «Поделиться» — удалить элементы стало невозможно",
+  "obs": 1
+ },
+ {
+  "id": "enter-key-behavior-changed",
+  "title": "Обновление изменило клавишу Enter с переноса строки на отправку формы, сломав многострочные заметки",
+  "obs": 1
+ },
+ {
+  "id": "overspend-shown-as-positive",
+  "title": "После обновления перерасход отображается как положительный остаток вместо отрицательного значения",
+  "obs": 1
+ },
+ {
+  "id": "spending-rounded-to-hundreds",
+  "title": "Обновление округляет месячные расходы до сотни долларов — точные суммы по категориям увидеть нельзя",
+  "obs": 1
+ },
+ {
+  "id": "income-tracking-disappeared",
+  "title": "После обновления приложение перестало отслеживать доход и показывает только расходы, скрывая реальную картину",
+  "obs": 1
+ },
+ {
+  "id": "wrong-month-by-system-time",
+  "title": "Приложение определяет месяц транзакции по системному времени, а ручная правка даты откатывается",
+  "obs": 1
+ },
+ {
+  "id": "buggy-releases-no-beta",
+  "title": "Обновления с критическими ошибками выходят без бета-тестирования",
+  "obs": 1
+ },
+ {
+  "id": "slow-load-no-widget",
+  "title": "Приложение медленно загружается, а без iOS-виджета быстро записать расход прямо в магазине нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-unified-account-view",
+  "title": "Нет встроенной синхронизации со всеми счетами в одном экране — анализ расходов проигрывает конкурентам",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-budget-period-dates",
+  "title": "Нельзя задать произвольные даты начала и конца месячного бюджета под сдвинутый график зарплаты",
+  "obs": 1
+ },
+ {
+  "id": "fund-cant-be-deleted",
+  "title": "Созданный фонд невозможно удалить — он засоряет приложение при изменении бюджета",
+  "obs": 1
+ },
+ {
+  "id": "savings-included-in-remaining-fixed",
+  "title": "Обновление исправило ошибку, когда сбережения ошибочно включались в остаток к тратам на месяц",
+  "obs": 1
+ },
+ {
+  "id": "margin-threshold-100",
+  "title": "Минимальный порог в $100 для финансового прогноза не подходит при нерегулярном доходе",
+  "obs": 1
+ },
+ {
+  "id": "amazon-link-in-notes-helps",
+  "title": "Возможность добавить ссылку на товар в заметку к транзакции Amazon помогает вспомнить конкретную покупку",
+  "obs": 1
+ },
+ {
+  "id": "built-in-financial-coaching",
+  "title": "Встроенный финансовый коучинг отличает приложение от конкурентов и помог пользователю найти $1000+ свободных денег в месяц",
+  "obs": 1
+ },
+ {
+  "id": "devs-implement-feature-requests",
+  "title": "Разработчики внедряют запросы сообщества, что повышает лояльность давних пользователей",
+  "obs": 1
+ }
+]

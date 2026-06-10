@@ -1,0 +1,214 @@
+You are grouping 33 mechanism-level insight clusters from WeightWatchers Program (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO WeightWatchers Program, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 33 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to WeightWatchers Program — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to WeightWatchers Program>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-331308914.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "update-buries-tracking",
+  "title": "После обновления кнопки добавления еды и пунктов спрятаны вглубь навигации",
+  "obs": 4
+ },
+ {
+  "id": "update-harder-to-navigate",
+  "title": "Новая версия запутаннее старой — функции найти труднее, чем раньше",
+  "obs": 4
+ },
+ {
+  "id": "barcode-scanner-purchase",
+  "title": "Сканер штрихкодов в магазине используют для решения о покупке прямо у полки",
+  "obs": 4
+ },
+ {
+  "id": "in-person-meetings-decline",
+  "title": "Закрытие местных встреч убрало важную для пользователей часть программы, дополнявшую приложение",
+  "obs": 3
+ },
+ {
+  "id": "app-too-cluttered",
+  "title": "С годами приложение обросло функциями и стало громоздким вместо простого",
+  "obs": 2
+ },
+ {
+  "id": "custom-recipes-not-in-search",
+  "title": "Свои рецепты не появляются в быстром поиске при отслеживании еды",
+  "obs": 2
+ },
+ {
+  "id": "frequent-updates-relearn",
+  "title": "Частые обновления каждый раз перемещают функции, пользователь не знает, где они",
+  "obs": 2
+ },
+ {
+  "id": "glp1-accountability",
+  "title": "Приложение дополняет препараты для похудения как инструмент подотчётности по дефициту калорий",
+  "obs": 2
+ },
+ {
+  "id": "deep-daily-habit",
+  "title": "Приложение глубоко встроено в день — пользователи открывают его десятки раз ежедневно",
+  "obs": 2
+ },
+ {
+  "id": "mobile-slower-than-web",
+  "title": "На телефоне ввод продуктов медленнее, чем в веб-версии, что мешает логировать на ходу",
+  "obs": 2
+ },
+ {
+  "id": "no-cancel-window",
+  "title": "Отменить членство сразу после регистрации нельзя, поддержка отказывает в отмене",
+  "obs": 1
+ },
+ {
+  "id": "hidden-fees-after-signup",
+  "title": "После подтверждения плана всплывают дополнительные сборы, изменить выбор уже нельзя",
+  "obs": 1
+ },
+ {
+  "id": "narrow-search-field",
+  "title": "Поле поиска продуктов слишком узкое — не видно длинных названий из нескольких слов",
+  "obs": 1
+ },
+ {
+  "id": "scanner-orientation-ipad",
+  "title": "Сканер штрихкодов на планшете работает в неправильной ориентации",
+  "obs": 1
+ },
+ {
+  "id": "favorites-frequent-foods",
+  "title": "Нет избранного для часто употребляемых продуктов — приходится вводить их заново",
+  "obs": 1
+ },
+ {
+  "id": "save-meals-reuse",
+  "title": "Сохранённые приёмы пищи позволяют быстро повторно вносить регулярные блюда",
+  "obs": 1
+ },
+ {
+  "id": "all-metrics-one-screen",
+  "title": "Сведение пунктов, калорий и других метрик на один экран сделало отслеживание эффективнее",
+  "obs": 1
+ },
+ {
+  "id": "in-app-help-section",
+  "title": "Нет встроенного раздела справки — где находятся новые функции, узнать негде",
+  "obs": 1
+ },
+ {
+  "id": "voice-microphone-logging",
+  "title": "Голосовой ввод через микрофон позволяет вносить блюда поэлементно гораздо быстрее",
+  "obs": 1
+ },
+ {
+  "id": "wrong-points-calculation",
+  "title": "Приложение показывает неверный расход пунктов, расхождение сохраняется после перезагрузки",
+  "obs": 1
+ },
+ {
+  "id": "search-limited-to-library",
+  "title": "После обновления поиск ограничен сохранёнными продуктами, а добавление нового роняет приложение",
+  "obs": 1
+ },
+ {
+  "id": "serving-size-bug",
+  "title": "Изменение размера порции работает наоборот — приложение увеличивает порцию вместо уменьшения",
+  "obs": 1
+ },
+ {
+  "id": "activity-wrong-time",
+  "title": "Шаги записываются на ночное время, когда пользователь спал, вместо утренней активности",
+  "obs": 1
+ },
+ {
+  "id": "scan-track-unreliable",
+  "title": "Сканирование и логирование еды иногда сбоят — полагаться на предлагаемые значения нельзя",
+  "obs": 1
+ },
+ {
+  "id": "lost-blue-points-metric",
+  "title": "После смены программы метрический показатель пропадает, как восстановить — в приложении не объяснено",
+  "obs": 1
+ },
+ {
+  "id": "missing-sodium-tracking",
+  "title": "Приложение не отслеживает натрий — для контроля соли приходится вести второе приложение",
+  "obs": 1
+ },
+ {
+  "id": "raw-vegetable-varieties",
+  "title": "Нельзя отслеживать сырые овощи раздельно по разновидностям",
+  "obs": 1
+ },
+ {
+  "id": "cross-platform-planning",
+  "title": "Пользователи планируют приёмы пищи заранее на планшете, а вносят на телефоне",
+  "obs": 1
+ },
+ {
+  "id": "external-integrations-request",
+  "title": "Пользователи просят интеграцию со сторонними сервисами доставки еды и фитнеса",
+  "obs": 1
+ },
+ {
+  "id": "activity-points-conservative",
+  "title": "Заработанные бонусные пункты активности пользователи не доедают, удерживая дефицит калорий",
+  "obs": 1
+ },
+ {
+  "id": "single-tracking-solution",
+  "title": "Пользователь отказался от других трекеров — приложение стало единым решением для всего",
+  "obs": 1
+ },
+ {
+  "id": "glucose-management",
+  "title": "Приложение используют как инструмент контроля уровня глюкозы при диабете",
+  "obs": 1
+ },
+ {
+  "id": "streak-motivation",
+  "title": "Видимый стрик отслеживания мотивирует — пользователи держат серию годами",
+  "obs": 1
+ }
+]

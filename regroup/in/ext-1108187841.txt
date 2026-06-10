@@ -1,0 +1,254 @@
+You are grouping 41 mechanism-level insight clusters from Reminders (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Reminders, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 41 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Reminders — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Reminders>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1108187841.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "slow-launch-lag-crashes",
+  "title": "Приложение медленно открывается, показывает чёрный экран и тормозит при отметке выполненных задач",
+  "obs": 4
+ },
+ {
+  "id": "shared-sync-unreliable",
+  "title": "Совместные списки периодически перестают синхронизироваться между участниками и устройствами, иногда на 10+ минут",
+  "obs": 4
+ },
+ {
+  "id": "auto-categorize-overrides-custom-sections",
+  "title": "Приложение само раскидывает товары по своим разделам, игнорируя разделы, которые завёл пользователь под планировку своего магазина",
+  "obs": 3
+ },
+ {
+  "id": "manual-reorder-fragile",
+  "title": "Перетащить напоминание вручную почти невозможно: при неточном захвате задача отскакивает на прежнее место",
+  "obs": 3
+ },
+ {
+  "id": "no-edit-vs-use-mode-shared",
+  "title": "В общем списке нет разделения режима покупок и режима редактирования, поэтому содержимое легко изменить случайным касанием",
+  "obs": 3
+ },
+ {
+  "id": "lost-reminders-silent",
+  "title": "Приложение тихо теряет сохранённые напоминания без предупреждения и без отметки времени для отслеживания",
+  "obs": 3
+ },
+ {
+  "id": "crash-on-open-needs-second-try",
+  "title": "Приложение систематически падает при открытии и работает только со второй попытки запуска",
+  "obs": 3
+ },
+ {
+  "id": "ecosystem-lockin-no-cross-platform",
+  "title": "Чтобы получать напоминания на Windows и Amazon Echo, пользователи уходят в Outlook вместо встроенной синхронизации Apple",
+  "obs": 3
+ },
+ {
+  "id": "no-push-notifications",
+  "title": "Приложение вообще не присылает пуш-уведомления, и непонятно, как их включить",
+  "obs": 2
+ },
+ {
+  "id": "completed-still-notifies",
+  "title": "Завершённые напоминания продолжают присылать уведомления — статус выполнения не сохраняется",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-reminders-clutter",
+  "title": "Напоминания дублируются, не удаляются до конца и захламляют календарь",
+  "obs": 2
+ },
+ {
+  "id": "siri-voice-capture",
+  "title": "Пользователи опираются на голосовой ввод через Siri, чтобы добавлять напоминания без печати",
+  "obs": 2
+ },
+ {
+  "id": "urgent-alarm-mode",
+  "title": "Режим срочного будильника даёт надёжный механизм приоритизации критичных задач, например приёма лекарств",
+  "obs": 2
+ },
+ {
+  "id": "shared-list-realtime-collab",
+  "title": "Общий список, где все добавляют и отмечают задачи с обновлениями в реальном времени, — ключевая ценность для семьи",
+  "obs": 2
+ },
+ {
+  "id": "siri-items-go-to-bottom",
+  "title": "Напоминание, добавленное голосом через Siri, падает в конец длинного списка, и срочную задачу не видно",
+  "obs": 1
+ },
+ {
+  "id": "completed-sorted-oldest-first",
+  "title": "Завершённые напоминания показаны от старых к новым, и до недавно выполненных приходится долго прокручивать",
+  "obs": 1
+ },
+ {
+  "id": "default-list-on-launch",
+  "title": "При запуске приложение открывает список продуктов вместо списка дел пользователя",
+  "obs": 1
+ },
+ {
+  "id": "no-filter-by-tags",
+  "title": "Теги для напоминаний есть, но отфильтровать список по тегу нельзя",
+  "obs": 1
+ },
+ {
+  "id": "long-reminders-uneditable",
+  "title": "Очень длинные напоминания почти невозможно редактировать в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "rating-prompt-interrupts",
+  "title": "Приложение прерывает работу запросом оценки без возможности отложить его",
+  "obs": 1
+ },
+ {
+  "id": "too-many-clicks-vs-android",
+  "title": "Базовые действия требуют заметно больше нажатий, чем на Android, что мешает перейти с другой платформы",
+  "obs": 1
+ },
+ {
+  "id": "broken-translation",
+  "title": "Перевод интерфейса местами непонятен и вызывает смех, пользоваться приходится через силу",
+  "obs": 1
+ },
+ {
+  "id": "watch-iphone-sync-unreliable",
+  "title": "Синхронизация между Apple Watch и iPhone годами остаётся ненадёжной",
+  "obs": 1
+ },
+ {
+  "id": "freeze-on-add-after-update",
+  "title": "После обновления устройства экран зависает при попытке добавить напоминание в большинстве случаев",
+  "obs": 1
+ },
+ {
+  "id": "alerts-sometimes-dont-fire",
+  "title": "Напоминания иногда не ставятся или их оповещения не срабатывают, и пользователь не уверен в причине",
+  "obs": 1
+ },
+ {
+  "id": "widget-empty",
+  "title": "Виджет не показывает список напоминаний, теряя смысл быстрого доступа с экрана",
+  "obs": 1
+ },
+ {
+  "id": "add-button-dead",
+  "title": "Кнопка добавления напоминания не реагирует на нажатие и блокирует основной сценарий",
+  "obs": 1
+ },
+ {
+  "id": "complete-delay-clearing",
+  "title": "После отметки задачи выполненной она исчезает с задержкой в несколько секунд, снижая ощущение отзывчивости",
+  "obs": 1
+ },
+ {
+  "id": "watch-quick-capture",
+  "title": "Создание напоминания прямо с умных часов без разблокировки телефона снимает трение, когда руки заняты",
+  "obs": 1
+ },
+ {
+  "id": "location-based-reminders",
+  "title": "Напоминания с привязкой к месту (оповещение при прибытии или уходе) дают быстрый захват идей в нужном контексте",
+  "obs": 1
+ },
+ {
+  "id": "task-history-no-retype",
+  "title": "История завершённых задач позволяет не вводить заново повторяющиеся дела и удерживает пользователя в приложении",
+  "obs": 1
+ },
+ {
+  "id": "no-duplicate-reminder-action",
+  "title": "В отличие от календаря, нельзя продублировать напоминание, поэтому похожие задачи приходится вводить вручную",
+  "obs": 1
+ },
+ {
+  "id": "recurring-removed",
+  "title": "Функцию повторяющихся напоминаний удалили, вынуждая искать другое приложение для базовой задачи",
+  "obs": 1
+ },
+ {
+  "id": "recurring-no-weekday-select",
+  "title": "В повторяющихся напоминаниях нельзя выбрать конкретные дни недели",
+  "obs": 1
+ },
+ {
+  "id": "absolute-time-not-local",
+  "title": "Напоминания привязаны к абсолютному времени, а не к местному, поэтому при смене часовых поясов приём лекарств сбивается",
+  "obs": 1
+ },
+ {
+  "id": "notification-sound-too-quiet",
+  "title": "Звук уведомления слишком короткий и тихий, его легко пропустить в фоновом шуме",
+  "obs": 1
+ },
+ {
+  "id": "excessive-notifications",
+  "title": "Приложение шлёт слишком много лишних уведомлений, не хватает контроля частоты оповещений",
+  "obs": 1
+ },
+ {
+  "id": "notification-complete-needs-long-press",
+  "title": "Раньше задачу можно было закрыть или отложить из уведомления одной кнопкой, теперь требуется долгое нажатие",
+  "obs": 1
+ },
+ {
+  "id": "support-cant-help",
+  "title": "Техподдержка не смогла помочь диагностировать и починить отказ уведомлений",
+  "obs": 1
+ },
+ {
+  "id": "all-in-one-power-user",
+  "title": "Связка Siri, сроков, локаций, умных списков и подзадач удерживает пользователей сложных личных и рабочих задач",
+  "obs": 1
+ },
+ {
+  "id": "migration-from-other-apps",
+  "title": "Пользователи мигрируют из мессенджеров и других приложений ради истории задач и чистого интерфейса",
+  "obs": 1
+ }
+]

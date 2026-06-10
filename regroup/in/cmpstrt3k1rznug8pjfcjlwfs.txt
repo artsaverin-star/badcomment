@@ -1,0 +1,329 @@
+You are grouping 56 mechanism-level insight clusters from Busuu: Language Learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Busuu: Language Learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 56 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Busuu: Language Learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Busuu: Language Learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstrt3k1rznug8pjfcjlwfs.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "grammar-rule-explanations",
+  "title": "Приложение объясняет грамматические правила и логику построения фраз, а не только даёт слова заучивать",
+  "obs": 10
+ },
+ {
+  "id": "native-speaker-corrections",
+  "title": "Коррекция упражнений живыми носителями языка через сообщество — главная ценность и сильная мотивация",
+  "obs": 9
+ },
+ {
+  "id": "self-pace-no-gamified-pressure",
+  "title": "Можно учиться в своём темпе без игровой системы энергии и давления заданий, что снижает выгорание",
+  "obs": 5
+ },
+ {
+  "id": "free-version-ad-volume",
+  "title": "В бесплатной версии реклама занимает почти столько же времени, сколько сам урок, и постоянно предлагает подписку",
+  "obs": 4
+ },
+ {
+  "id": "free-tier-generous",
+  "title": "Большой объём контента и базовое обучение доступны бесплатно без принудительной оплаты после первых уроков",
+  "obs": 4
+ },
+ {
+  "id": "curriculum-pacing-jumps",
+  "title": "Курс местами прыгает через базовые этапы и спрашивает то, чему не учил, а в других местах навязывает свой график",
+  "obs": 4
+ },
+ {
+  "id": "ads-block-lesson-progress",
+  "title": "Реклама после урока не закрывается или закрывается медленно — без выхода из приложения не продолжить обучение",
+  "obs": 3
+ },
+ {
+  "id": "incomplete-vocab-review",
+  "title": "Повторение и карточки охватывают не все изученные слова, поэтому лексика закрепляется неполно",
+  "obs": 3
+ },
+ {
+  "id": "practical-travel-vocabulary",
+  "title": "Уроки дают практичный словарь и фразы для реальных ситуаций и путешествий, а не отвлечённые примеры",
+  "obs": 3
+ },
+ {
+  "id": "four-skills-balanced",
+  "title": "Приложение тренирует все четыре навыка — письмо, чтение, говорение, аудирование — с упором на грамматику",
+  "obs": 3
+ },
+ {
+  "id": "complement-to-duolingo",
+  "title": "Пользователи берут приложение как углубление после Duolingo — для перехода от запаса слов к реальной речи",
+  "obs": 3
+ },
+ {
+  "id": "helping-others-motivation",
+  "title": "Двусторонняя помощь — учить и одновременно исправлять других в глобальном сообществе — мотивирует продолжать",
+  "obs": 3
+ },
+ {
+  "id": "free-review-attempt-limits",
+  "title": "Бесплатная версия ограничивает число повторов упражнений на словарь, требуя подписки для неограниченной практики",
+  "obs": 2
+ },
+ {
+  "id": "understanding-over-rote",
+  "title": "Обучение строится на понимании и контексте, а не на механической зубрёжке и переводе",
+  "obs": 2
+ },
+ {
+  "id": "spaced-repetition-retention",
+  "title": "Многократное повторение слов с интервалами закрепляет лексику в памяти",
+  "obs": 2
+ },
+ {
+  "id": "video-multimedia-lessons",
+  "title": "Видео в уроках делают материал богаче и интереснее, чем только текст и аудио",
+  "obs": 2
+ },
+ {
+  "id": "untaught-words-in-exercises",
+  "title": "Упражнения проверяют слова, которые не были объяснены в уроках, из-за чего нельзя ответить с первой попытки",
+  "obs": 2
+ },
+ {
+  "id": "uneven-audio-quality",
+  "title": "Записи учителей звучат неровно — дешёвые микрофоны, фоновый шум, скачки громкости и фонетические ошибки",
+  "obs": 2
+ },
+ {
+  "id": "pronunciation-practice-effective",
+  "title": "Повтор и переделка упражнений при ошибках помогают итеративно улучшать произношение",
+  "obs": 2
+ },
+ {
+  "id": "continue-button-friction",
+  "title": "После каждого ответа нужно нажимать «Продолжить» внизу экрана, а кнопки реагируют с задержкой — обучение замедляется",
+  "obs": 2
+ },
+ {
+  "id": "habit-reminders-streak",
+  "title": "Ежедневные напоминания и короткие уроки помогают удерживать привычку учиться без чрезмерного давления",
+  "obs": 2
+ },
+ {
+  "id": "voice-recordings-shared-privacy",
+  "title": "Голосовые упражнения загружаются на сервер и становятся доступны посторонним для коррекции без явного предупреждения",
+  "obs": 2
+ },
+ {
+  "id": "cefr-alignment-asian-gap",
+  "title": "Уроки привязаны к шкале CEFR, но для азиатских языков нет аналогичной стандартной шкалы (например HSK)",
+  "obs": 2
+ },
+ {
+  "id": "scientific-teaching-method",
+  "title": "Методика опирается на научные принципы — контекст, повторение, ситуативное применение, лаконичные объяснения",
+  "obs": 2
+ },
+ {
+  "id": "ai-dialog-daily-limit",
+  "title": "Диалог с ИИ в бесплатной версии ограничен одной попыткой в день, не давая тренировать общение сколько хочется",
+  "obs": 1
+ },
+ {
+  "id": "paid-skip-intro-lessons",
+  "title": "Пропустить сложные вводные уроки (например письмо хираганы) можно только за плату",
+  "obs": 1
+ },
+ {
+  "id": "no-referral-reward",
+  "title": "За приглашение друзей приложение не даёт бонусов или скидок, хотя само просит рекомендовать",
+  "obs": 1
+ },
+ {
+  "id": "no-active-speaking-mode",
+  "title": "Произносительных упражнений со звуком нет — обучение ограничено чтением и письмом, и это не сразу заметно",
+  "obs": 1
+ },
+ {
+  "id": "review-spacing-misallocated",
+  "title": "Случайная викторина гоняет простые слова много раз, а сложные не закрепляет — повторы распределены неэффективно",
+  "obs": 1
+ },
+ {
+  "id": "no-handwriting-practice",
+  "title": "Японские иероглифы можно только читать и узнавать, но приложение не учит писать их вручную",
+  "obs": 1
+ },
+ {
+  "id": "limited-language-selection",
+  "title": "Набор языков ограничен — редкие и менее распространённые языки (например африкаанс) изучать нельзя",
+  "obs": 1
+ },
+ {
+  "id": "rare-languages-available",
+  "title": "Доступны языки, которых нет на других платформах, без расходов на очные занятия",
+  "obs": 1
+ },
+ {
+  "id": "no-c2-level",
+  "title": "Обучение идёт только до уровня C1, а уровень мастерства C2 отсутствует, ограничивая продвинутых учеников",
+  "obs": 1
+ },
+ {
+  "id": "idiomatic-natural-language",
+  "title": "Приложение даёт идиоматические выражения, которых нет в учебниках, помогая говорить естественно",
+  "obs": 1
+ },
+ {
+  "id": "european-cultural-bias",
+  "title": "Примеры в упражнениях перегружены европейским контекстом и недопредставляют другие регионы мира",
+  "obs": 1
+ },
+ {
+  "id": "cultural-context-lessons",
+  "title": "Уроки добавляют факты о культуре и языке, что делает обучение похожим на очный класс",
+  "obs": 1
+ },
+ {
+  "id": "completion-certificate",
+  "title": "По окончании уровня приложение выдаёт сертификат как осязаемое доказательство прогресса",
+  "obs": 1
+ },
+ {
+  "id": "lgbt-content-perceived-agenda",
+  "title": "Упоминания ЛГБТК+ в контенте часть пользователей воспринимает как навязывание повестки в нейтральном обучении",
+  "obs": 1
+ },
+ {
+  "id": "speech-recognition-false-errors",
+  "title": "Распознавание речи отмечает верное произношение как ошибочное, подрывая доверие к оценке",
+  "obs": 1
+ },
+ {
+  "id": "wrong-dialect-pronunciation",
+  "title": "Кнопка произношения в выбранном американском английском часто звучит британским или с сильным акцентом",
+  "obs": 1
+ },
+ {
+  "id": "missing-audio-examples",
+  "title": "У части примеров предложений нет озвучки, поэтому их нельзя послушать для практики произношения",
+  "obs": 1
+ },
+ {
+  "id": "no-lesson-search",
+  "title": "Нельзя найти урок по конкретной грамматической теме — приходится прокручивать весь курс",
+  "obs": 1
+ },
+ {
+  "id": "no-dark-mode",
+  "title": "Тёмного режима нет, и людям с чувствительностью зрения приходится использовать системную инверсию цветов",
+  "obs": 1
+ },
+ {
+  "id": "interface-needs-more-color",
+  "title": "Интерфейс выглядит блёкло — больше цветов сделало бы элементы привлекательнее и различимее",
+  "obs": 1
+ },
+ {
+  "id": "soft-push-notifications",
+  "title": "Пуш-напоминания о занятиях слишком мягкие, пользователь их игнорирует из-за низкой настойчивости",
+  "obs": 1
+ },
+ {
+  "id": "no-translation-on-answers",
+  "title": "В повторении правильный ответ показывается без перевода, что снижает закрепление материала",
+  "obs": 1
+ },
+ {
+  "id": "low-barrier-onboarding",
+  "title": "Низкий порог входа: начать легко, без долгой подготовки и навязанных ежедневных требований",
+  "obs": 1
+ },
+ {
+  "id": "progress-lost-on-pause",
+  "title": "Прогресс сохраняется только после завершения главы, поэтому пауза или перезагрузка теряют пройденные шаги урока",
+  "obs": 1
+ },
+ {
+  "id": "too-few-correctors",
+  "title": "На платформе мало людей, готовых проверять упражнения, поэтому исправления от носителей приходят несвоевременно",
+  "obs": 1
+ },
+ {
+  "id": "ai-tutor-scripted",
+  "title": "ИИ-собеседник работает как простой скрипт, а не живой диалог, ограничивая естественность разговорной практики",
+  "obs": 1
+ },
+ {
+  "id": "hard-to-add-real-friends",
+  "title": "Добавить в друзья реальных знакомых трудно, поэтому совместное обучение с друзьями не складывается",
+  "obs": 1
+ },
+ {
+  "id": "real-people-vs-cartoons",
+  "title": "Реальные люди в коммуникационных упражнениях кому-то непривычны и вызывают неловкость",
+  "obs": 1
+ },
+ {
+  "id": "violent-game-ads-for-kids",
+  "title": "В рекламе попадаются жестокие игры со сценами смерти и пыток, что не подходит для детей",
+  "obs": 1
+ },
+ {
+  "id": "no-builtin-flashcards",
+  "title": "Встроенных флеш-карт нет, поэтому для повторения лексики приходится использовать сторонние приложения",
+  "obs": 1
+ },
+ {
+  "id": "exercise-variety-engagement",
+  "title": "Разные типы упражнений и персонализированная подача удерживают интерес и не дают заскучать",
+  "obs": 1
+ },
+ {
+  "id": "paper-notes-reinforce",
+  "title": "Возможность вести заметки на бумаге во время занятий на телефоне помогает закреплять материал",
+  "obs": 1
+ }
+]

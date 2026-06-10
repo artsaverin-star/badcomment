@@ -1,0 +1,409 @@
+You are grouping 72 mechanism-level insight clusters from Fantastical Calendar (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Fantastical Calendar, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 72 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Fantastical Calendar — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Fantastical Calendar>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-718043190.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "widgets-stale-not-updating",
+  "title": "Виджеты показывают устаревшие данные и не обновляются, пока не открыть приложение",
+  "obs": 7
+ },
+ {
+  "id": "nlp-strips-time-location-from-title",
+  "title": "Умный разбор текста вырезает время и место из названия события, оставляя обрезанный заголовок",
+  "obs": 5
+ },
+ {
+  "id": "widgets-disappear-break-update",
+  "title": "Виджеты регулярно ломаются и пропадают из списка доступных после обновления приложения",
+  "obs": 5
+ },
+ {
+  "id": "slow-freeze-on-launch",
+  "title": "Приложение зависает на несколько секунд при каждом открытии — регресс производительности после обновлений",
+  "obs": 4
+ },
+ {
+  "id": "data-wipe-on-event-add",
+  "title": "Добавление события периодически стирает весь календарь без возможности восстановления",
+  "obs": 4
+ },
+ {
+  "id": "unified-calendar-reminders-feed",
+  "title": "Главная причина перехода — единая лента событий и напоминаний из разных источников в одном месте",
+  "obs": 3
+ },
+ {
+  "id": "duplicate-event-merge",
+  "title": "Приложение визуально объединяет одно событие из нескольких календарей в одну строку вместо дублей",
+  "obs": 3
+ },
+ {
+  "id": "notifications-unreliable",
+  "title": "Пуш-уведомления приходят непостоянно или вообще не приходят, ломая напоминания о событиях",
+  "obs": 3
+ },
+ {
+  "id": "nlp-cannot-be-disabled",
+  "title": "Умный разбор естественного языка нельзя отключить, хотя он часто ошибается",
+  "obs": 3
+ },
+ {
+  "id": "liquid-glass-readability",
+  "title": "Новый дизайн «жидкое стекло» снижает читаемость иконок и текста и воспринимается как регресс",
+  "obs": 3
+ },
+ {
+  "id": "general-crashes-after-update",
+  "title": "После недавних обновлений приложение часто зависает и падает, требуя постоянных перезапусков",
+  "obs": 3
+ },
+ {
+  "id": "wrong-date-placement",
+  "title": "Событие непредсказуемо размещается на неправильную дату при создании",
+  "obs": 3
+ },
+ {
+  "id": "icloud-sync-password-loop",
+  "title": "Синхронизация с iCloud расходится и зацикливает на бесконечной пересоздаче пароля, который не принимается",
+  "obs": 3
+ },
+ {
+  "id": "subscription-vs-onetime-expectation",
+  "title": "Месячная подписка не оправдывает ожиданий — пользователи хотят разовую покупку для календаря",
+  "obs": 2
+ },
+ {
+  "id": "task-subtask-templates",
+  "title": "Пользователи хотят шаблоны задач с подзадачами для автоматизации многошаговых процессов",
+  "obs": 2
+ },
+ {
+  "id": "openings-availability-scheduling",
+  "title": "Функция Openings закрывает боль координации встреч — делится доступностью без ручной синхронизации",
+  "obs": 2
+ },
+ {
+  "id": "anticipates-real-workflows",
+  "title": "Приложение предугадывает реальные рабочие сценарии и даёт проектные фичи, которых нет в стандартном календаре",
+  "obs": 2
+ },
+ {
+  "id": "nlp-keyword-wrong-date",
+  "title": "Разбор названия по ключевым словам переносит событие на неверную дату из-за слова вроде Christmas",
+  "obs": 2
+ },
+ {
+  "id": "nlp-core-value",
+  "title": "Разбор естественного языка для создания событий — десятилетняя опора и ключевая ценность приложения",
+  "obs": 2
+ },
+ {
+  "id": "tiny-text-week-month-views",
+  "title": "После обновления текст стал крошечным, а недельный и месячный виды нечитаемы на iPhone",
+  "obs": 2
+ },
+ {
+  "id": "mandatory-account-signin",
+  "title": "Нельзя начать работу или осмотреться без обязательной регистрации онлайн-аккаунта или входа через Gmail",
+  "obs": 2
+ },
+ {
+  "id": "app-icon-no-date",
+  "title": "Иконка приложения не показывает текущую дату, как это делают конкурирующие календари",
+  "obs": 2
+ },
+ {
+  "id": "outlook-sync-breaks",
+  "title": "Синхронизация с Outlook полностью рвётся и не восстанавливается переподключением аккаунта",
+  "obs": 2
+ },
+ {
+  "id": "cross-device-sync-fails",
+  "title": "События, добавленные на одном устройстве, не доходят до остальных, ломая кросс-девайс синхронизацию",
+  "obs": 2
+ },
+ {
+  "id": "edit-single-recurring-removed",
+  "title": "Удалена правка одного события из повторяющегося ряда — осталась только опция «все будущие»",
+  "obs": 2
+ },
+ {
+  "id": "multi-account-multi-person-hub",
+  "title": "Приложение объединяет разные Apple ID и личную с рабочей жизнью, показывая конфликты и избегая двойного ввода",
+  "obs": 2
+ },
+ {
+  "id": "per-device-subscription-cost",
+  "title": "Подписка требуется отдельно на каждое устройство, что повышает стоимость владения",
+  "obs": 1
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Полная подписка списывается сразу при скачивании, несмотря на заявленный пробный период",
+  "obs": 1
+ },
+ {
+  "id": "paywall-popups-on-open",
+  "title": "При каждом открытии всплывают назойливые окна с предложением подписки",
+  "obs": 1
+ },
+ {
+  "id": "paid-but-blocked-by-corp-policy",
+  "title": "Пользователь платит за подписку, но корпоративная политика устройства не даёт запустить приложение",
+  "obs": 1
+ },
+ {
+  "id": "tasks-todoist-integration",
+  "title": "Интеграция с Todoist и Apple Reminders позволяет вести задачи и календарь в одном приложении",
+  "obs": 1
+ },
+ {
+  "id": "feature-bloat-loses-simplicity",
+  "title": "Приложение перегружается фичами и теряет простоту для опытных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "missing-departure-time-feature",
+  "title": "Нет расчёта точного времени выезда чтобы прибыть вовремя — конкуренты в стандартном календаре это уже дают",
+  "obs": 1
+ },
+ {
+  "id": "missing-voice-ai-assistant",
+  "title": "Нет голосового ИИ-помощника для планирования, который ускоряет ввод у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "notification-wrong-time",
+  "title": "Напоминания срабатывают в неправильное время — в полночь или для уже прошедших событий",
+  "obs": 1
+ },
+ {
+  "id": "multiple-reminder-times-removed",
+  "title": "Возможность задать несколько напоминаний на одно событие удалена или скрыта в новых версиях",
+  "obs": 1
+ },
+ {
+  "id": "custom-alert-sound-resets",
+  "title": "Пользовательский звук уведомления сбрасывается на тихий дефолт, личную библиотеку звуков использовать нельзя",
+  "obs": 1
+ },
+ {
+  "id": "custom-reminder-offset-presets",
+  "title": "Пользователи хотят свои быстрые пресеты времени напоминания вместо прокрутки встроенного списка",
+  "obs": 1
+ },
+ {
+  "id": "nlp-24hour-format",
+  "title": "Разбор естественного языка неправильно понимает 24-часовой формат времени",
+  "obs": 1
+ },
+ {
+  "id": "nlp-dropdown-jumps",
+  "title": "Разбор текста перезапускается на каждом символе и дёргает выпадающее меню поверх ввода",
+  "obs": 1
+ },
+ {
+  "id": "korean-search-broken",
+  "title": "Поиск по событиям на корейском не работает несмотря на оплаченную подписку",
+  "obs": 1
+ },
+ {
+  "id": "week-view-no-zoom-customization",
+  "title": "Недельный вид нельзя масштабировать, выбрать 3-дневный режим или скрыть выходные",
+  "obs": 1
+ },
+ {
+  "id": "longpress-create-removed",
+  "title": "Удалён жест долгого нажатия на дату для быстрого создания события",
+  "obs": 1
+ },
+ {
+  "id": "dark-theme-not-auto",
+  "title": "Тёмная тема не включается автоматически вслед за системным режимом",
+  "obs": 1
+ },
+ {
+  "id": "overdue-tasks-flooding",
+  "title": "Все просроченные повторяющиеся задачи валятся в один бесконечный список без возможности отключить",
+  "obs": 1
+ },
+ {
+  "id": "alldayevent-template-forced",
+  "title": "Шаблон вседневных событий жёстко зашит и не отключается при создании события",
+  "obs": 1
+ },
+ {
+  "id": "full-access-permission-forced",
+  "title": "Приложение требует полный доступ к календарю, игнорируя выбранный пользователем ограниченный режим",
+  "obs": 1
+ },
+ {
+  "id": "crash-cascade-on-create",
+  "title": "Создание определённого события запускает каскад крашей, полностью блокируя работу приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-backup-data-loss-reinstall",
+  "title": "При переустановке системы все события теряются — нет резервной копии или облачного восстановления",
+  "obs": 1
+ },
+ {
+  "id": "widget-crash-on-launch",
+  "title": "Виджет вызывает краш при старте системы, требуя полного удаления и переустановки приложения",
+  "obs": 1
+ },
+ {
+  "id": "small-widget-no-date",
+  "title": "Маленький виджет не показывает дату и события — конкуренты умещают это в малый размер",
+  "obs": 1
+ },
+ {
+  "id": "widget-no-oled-black",
+  "title": "Виджеты не поддерживают OLED-чёрный, переключаемый вместе с системной темой",
+  "obs": 1
+ },
+ {
+  "id": "widget-shows-only-heatmap",
+  "title": "Переделанный виджет показывает только тепловую карту и точки вместо названий событий",
+  "obs": 1
+ },
+ {
+  "id": "watch-complications-no-events",
+  "title": "Усложнения на Apple Watch не показывают события, несмотря на их наличие в календаре",
+  "obs": 1
+ },
+ {
+  "id": "calendar-not-following-current-day",
+  "title": "Календарь отстаёт от текущей даты и зависает при смене дня",
+  "obs": 1
+ },
+ {
+  "id": "google-sync-breaks",
+  "title": "Приложение перестаёт синхронизировать события Google Calendar, заставляя открывать стандартный календарь",
+  "obs": 1
+ },
+ {
+  "id": "silent-account-disconnect",
+  "title": "Приложение молча рвёт синхронизацию с одним из аккаунтов без предупреждения, события уходят в случайный календарь",
+  "obs": 1
+ },
+ {
+  "id": "calendars-disappear-intermittent",
+  "title": "Часть подключённых календарей периодически перестаёт отображаться, хотя они синхронизированы и включены",
+  "obs": 1
+ },
+ {
+  "id": "task-sync-ui-freeze",
+  "title": "Отметка задачи выполненной зависает на минуты, экран чернеет и мигает с ошибкой синхронизации",
+  "obs": 1
+ },
+ {
+  "id": "monthly-reauth-required",
+  "title": "Приложение требует переаутентификации каждый месяц, и процесс занимает около часа",
+  "obs": 1
+ },
+ {
+  "id": "proposed-vs-confirmed-events",
+  "title": "Обновление помечает новые события как «предложенные» и прячет их из ленты до ручного подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "recurring-task-shows-one-day",
+  "title": "Повторяющиеся ежедневные задачи показываются только в день создания, а не в каждый день повтора",
+  "obs": 1
+ },
+ {
+  "id": "completed-task-jumps-to-creation-day",
+  "title": "Выполненная перенесённая задача возвращается на день создания, скрывая реальную дату выполнения",
+  "obs": 1
+ },
+ {
+  "id": "recurring-preview-broken",
+  "title": "Предпросмотр повторяющегося напоминания перестал показывать будущие экземпляры серии",
+  "obs": 1
+ },
+ {
+  "id": "guests-no-attachments",
+  "title": "Гости, добавленные к существующему событию, не получают вложения, отправленные исходным участникам",
+  "obs": 1
+ },
+ {
+  "id": "google-account-missing-setup",
+  "title": "При добавлении аккаунта Google не предлагается как опция, что затрудняет настройку на новом устройстве",
+  "obs": 1
+ },
+ {
+  "id": "focus-mode-calendar-switching",
+  "title": "Интеграция с режимом фокусировки автоматически переключает наборы видимых календарей по контексту",
+  "obs": 1
+ },
+ {
+  "id": "support-misdiagnoses-data-loss",
+  "title": "Поддержка ошибочно списывает пропажу всех календарей на сбой Outlook, игнорируя записи, созданные в самом приложении",
+  "obs": 1
+ },
+ {
+  "id": "ai-llm-proxy-scheduling",
+  "title": "Пользователи делегируют планирование дня ИИ, который создаёт события в iOS, а приложение их синхронно отображает",
+  "obs": 1
+ },
+ {
+  "id": "windows-version-unifies-adhd",
+  "title": "Версия для Windows позволила пользователю с СДВГ полностью перейти с бумаги на единую цифровую систему",
+  "obs": 1
+ },
+ {
+  "id": "competitor-core-failure-drives-switch",
+  "title": "Молчаливое удаление событий стандартным календарём при смене авторизации толкает пользователей на переход",
+  "obs": 1
+ },
+ {
+  "id": "unreliable-reminders-push-to-other-apps",
+  "title": "Ненадёжные напоминания вынуждают пользователей держать отдельное приложение ради уведомлений перед встречами",
+  "obs": 1
+ }
+]

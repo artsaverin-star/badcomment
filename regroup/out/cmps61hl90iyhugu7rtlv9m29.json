@@ -1,0 +1,71 @@
+{
+  "groups": [
+    {
+      "id": "payment-black-hole",
+      "name": "Оплата как чёрная дыра: списания без заказа",
+      "insight_ids": [
+        "payment-all-methods-rejected",
+        "payment-charge-no-order",
+        "payment-months-broken",
+        "reliability-payment-freeze",
+        "payment-blocked-ghost-debt",
+        "payment-double-charge",
+        "payment-price-mismatch",
+        "payment-ads-at-checkout"
+      ]
+    },
+    {
+      "id": "rewards-that-never-pay-out",
+      "name": "Бонусы, которые так и не достаются",
+      "insight_ids": [
+        "rewards-system-nonfunctional",
+        "rewards-tab-missing",
+        "rewards-promo-not-applied"
+      ]
+    },
+    {
+      "id": "order-lost-in-transit",
+      "name": "Заказ теряется в пути: чужая локация и тишина о доставке",
+      "insight_ids": [
+        "ui-wrong-location-order",
+        "support-doordash-blame-shift",
+        "strategy-timer-inaccurate",
+        "ui-no-cancel-order",
+        "ui-no-delivery-notes",
+        "ui-web-no-tracking",
+        "reliability-order-tracking-stuck",
+        "strategy-no-driver-tracking"
+      ]
+    },
+    {
+      "id": "checkout-falls-apart",
+      "name": "Оформление рассыпается: вылеты, логин-петли и пустая корзина",
+      "insight_ids": [
+        "reliability-frequent-updates",
+        "ui-session-crash-restart",
+        "ui-login-loop",
+        "reliability-login-errors"
+      ]
+    },
+    {
+      "id": "sauce-and-flavor-control",
+      "name": "Соусы и вкусы: где приложение щедрее прилавка, а где спотыкается",
+      "insight_ids": [
+        "menu-customization-limited",
+        "menu-customization-superior",
+        "menu-combo-deal",
+        "ui-condiment-logic-broken",
+        "strategy-undercooked-chicken"
+      ]
+    },
+    {
+      "id": "fast-habit-no-pressure",
+      "name": "Быстрая привычка без навязчивости",
+      "insight_ids": [
+        "ui-no-cross-sell-prompts",
+        "strategy-speed-vs-competitors",
+        "strategy-daily-repeat-use"
+      ]
+    }
+  ]
+}

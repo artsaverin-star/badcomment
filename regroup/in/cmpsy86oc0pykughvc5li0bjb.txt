@@ -1,0 +1,404 @@
+You are grouping 71 mechanism-level insight clusters from Any.do: To do list & Planner (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Any.do: To do list & Planner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 71 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Any.do: To do list & Planner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Any.do: To do list & Planner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsy86oc0pykughvc5li0bjb.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "data-wiped-on-app-update",
+  "title": "Обновление приложения стирает все списки и историю выполненных задач без миграции и резервной копии",
+  "obs": 15
+ },
+ {
+  "id": "cross-device-sync-unreliable",
+  "title": "Синхронизация между телефоном, планшетом и десктопом запаздывает или не работает",
+  "obs": 6
+ },
+ {
+  "id": "free-trial-charges-full-year-immediately",
+  "title": "Кнопка «7 дней бесплатно» сразу списывает полную годовую подписку, без пробного периода",
+  "obs": 5
+ },
+ {
+  "id": "cancel-and-account-delete-error",
+  "title": "Отмена подписки и удаление аккаунта выдают ошибку «что-то пошло не так» — нельзя избежать платежа",
+  "obs": 5
+ },
+ {
+  "id": "upsell-banners-for-paying-users",
+  "title": "На главном экране постоянно висят баннеры апгрейда даже у уже оплативших подписку",
+  "obs": 5
+ },
+ {
+  "id": "free-tier-hidden-only-premium-offered",
+  "title": "Бесплатный уровень рекламируется на сайте, но при запуске приложение показывает только платный режим",
+  "obs": 4
+ },
+ {
+  "id": "data-wiped-on-subscription-transition",
+  "title": "При переходе на платную модель все накопленные задачи удаляются без предупреждения",
+  "obs": 4
+ },
+ {
+  "id": "text-input-only-first-char",
+  "title": "Ввод в поля задач принимает только первый символ — каждый следующий заменяет предыдущий",
+  "obs": 4
+ },
+ {
+  "id": "feature-moved-behind-paywall",
+  "title": "Ранее бесплатные функции (повторяющиеся задачи, общие списки) перенесены за платную стену",
+  "obs": 3
+ },
+ {
+  "id": "categorization-removed-from-shopping-list",
+  "title": "Функция категоризации товаров в списке покупок удалена или перестала работать",
+  "obs": 3
+ },
+ {
+  "id": "auto-time-added-to-new-tasks",
+  "title": "К новой задаче принудительно добавляется время, отключить планировщик не получается",
+  "obs": 3
+ },
+ {
+  "id": "unwanted-motivational-push",
+  "title": "Приложение шлёт навязчивые мотивационные уведомления, не связанные с задачами пользователя",
+  "obs": 3
+ },
+ {
+  "id": "task-auto-reorder-ignores-priority",
+  "title": "Приложение само переставляет задачи и подзадачи, игнорируя заданный пользователем порядок",
+  "obs": 3
+ },
+ {
+  "id": "shared-list-invite-ui-removed-or-broken",
+  "title": "Кнопку приглашения в общий список убрали или приглашения по почте не доходят до адресата",
+  "obs": 3
+ },
+ {
+  "id": "todo-list-buried-under-ui",
+  "title": "Основной список дел спрятан под слоями интерфейса — его приходится искать заново каждый день",
+  "obs": 3
+ },
+ {
+  "id": "ipad-broken-after-update",
+  "title": "После обновления на iPad задачи дублируются, исчезают, UI чернеет — приложение не работает надёжно",
+  "obs": 3
+ },
+ {
+  "id": "calendar-events-wrong-or-stale",
+  "title": "События попадают на день раньше, исчезают или висят устаревшими — календарь ненадёжен",
+  "obs": 3
+ },
+ {
+  "id": "silent-charge-no-email-notice",
+  "title": "Списание за продление приходит без письма-уведомления — пользователь узнаёт только по выписке",
+  "obs": 2
+ },
+ {
+  "id": "recurring-tasks-disappear-or-skip-notifications",
+  "title": "Повторяющиеся задачи внезапно исчезают или перестают присылать напоминания",
+  "obs": 2
+ },
+ {
+  "id": "rename-and-delete-board-broken",
+  "title": "Переименование встроенного списка и удаление доски не применяются, несмотря на подтверждение",
+  "obs": 2
+ },
+ {
+  "id": "font-too-small-or-inconsistent",
+  "title": "Размер шрифта мелкий и несогласованный между экранами, увеличить нельзя",
+  "obs": 2
+ },
+ {
+  "id": "theme-and-darkmode-not-applied",
+  "title": "Выбор темы оформления и системный светлый режим не применяются — приложение всегда тёмное",
+  "obs": 2
+ },
+ {
+  "id": "forced-signup-imports-and-clean-slate",
+  "title": "Принудительная регистрация при запуске и импорт чужих данных без возможности начать с чистого листа",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-move-or-large-collection",
+  "title": "Приложение падает при перемещении задач или при большом числе задач, требуя переустановки",
+  "obs": 2
+ },
+ {
+  "id": "ipad-list-only-no-kanban",
+  "title": "На iPad доступен только список, тогда как на других устройствах есть доски и Kanban",
+  "obs": 2
+ },
+ {
+  "id": "graphics-flicker-on-scroll",
+  "title": "Экран дрожит, прыгает и мерцает при скролле и открытии после апгрейда",
+  "obs": 2
+ },
+ {
+  "id": "forced-third-party-auth-privacy",
+  "title": "Приложение требует логин через Google/Facebook или корпоративный аккаунт, нарушая приватность данных",
+  "obs": 2
+ },
+ {
+  "id": "family-plan-hard-limits",
+  "title": "Платный семейный план жёстко ограничивает число общих досок — лимиты неожиданны для заплативших",
+  "obs": 1
+ },
+ {
+  "id": "apple-login-creates-new-free-account",
+  "title": "Вход через Apple каждый раз создаёт новый бесплатный аккаунт вместо восстановления подписки",
+  "obs": 1
+ },
+ {
+  "id": "auto-categorize-shopping-list",
+  "title": "Автоматическая категоризация товаров в списке покупок решает задачу организации бытовых списков",
+  "obs": 1
+ },
+ {
+  "id": "notes-tied-to-tasks-become-useless",
+  "title": "Заметки хранятся как невыполненные задачи и пропадают после отметки о выполнении",
+  "obs": 1
+ },
+ {
+  "id": "recurring-reschedule-from-due-not-completion",
+  "title": "Повторяющиеся задачи перепланируются от срока, а не от даты фактического выполнения",
+  "obs": 1
+ },
+ {
+  "id": "completed-reminders-show-overdue",
+  "title": "Завершённые напоминания показываются как просроченные и требуют двойного нажатия для отметки",
+  "obs": 1
+ },
+ {
+  "id": "reminder-date-only-time-shown",
+  "title": "В списке напоминаний видно только время без даты — задачи случайно отмечаются выполненными",
+  "obs": 1
+ },
+ {
+  "id": "my-day-drops-unfinished-tasks",
+  "title": "Функция «Мой день» удаляет незавершённые задачи вместо переноса на следующий день",
+  "obs": 1
+ },
+ {
+  "id": "reminder-past-date-autofill",
+  "title": "При установке напоминания на прошедшую дату система подставляет сегодняшнюю и игнорирует ввод времени",
+  "obs": 1
+ },
+ {
+  "id": "two-recurring-interfaces-limit",
+  "title": "Два разных интерфейса повторяющихся задач — повтор можно задать только в одном, для большинства задач нельзя",
+  "obs": 1
+ },
+ {
+  "id": "delete-item-no-visible-control",
+  "title": "Удаление отдельных элементов списка не очевидно — нет кнопок, свайп и долгое нажатие не работают",
+  "obs": 1
+ },
+ {
+  "id": "low-contrast-grey-text",
+  "title": "Светло-серый текст на белом фоне труден для чтения, особенно при проблемах со зрением",
+  "obs": 1
+ },
+ {
+  "id": "blocking-upgrade-modal",
+  "title": "Модальное окно апгрейда нельзя закрыть до истечения таймера — оно блокирует работу",
+  "obs": 1
+ },
+ {
+  "id": "done-button-double-purpose",
+  "title": "Кнопка DONE одновременно сохраняет и отмечает выполнение — задача случайно помечается завершённой",
+  "obs": 1
+ },
+ {
+  "id": "share-requires-all-contacts",
+  "title": "Совместный список требует доступ ко всем контактам — нельзя выбрать отдельных людей",
+  "obs": 1
+ },
+ {
+  "id": "calendar-swipe-jumps-months",
+  "title": "Свайп в календаре прыгает на несколько месяцев вместо смещения на один",
+  "obs": 1
+ },
+ {
+  "id": "calendar-shows-past-year-on-add",
+  "title": "При добавлении задачи календарь открывается на дате прошлых лет вместо текущей",
+  "obs": 1
+ },
+ {
+  "id": "priority-not-shown-in-calendar",
+  "title": "Приоритет задач не виден в календарном представлении — нельзя быстро оценить важность",
+  "obs": 1
+ },
+ {
+  "id": "week-view-huge-tiles",
+  "title": "Семидневный вид в веб-версии показывает задачи огромными плитками вместо компактного списка",
+  "obs": 1
+ },
+ {
+  "id": "edit-task-requires-full-delete",
+  "title": "Редактирование текста задачи требует стирать всё до нужной точки вместо вставки на месте",
+  "obs": 1
+ },
+ {
+  "id": "forced-autocorrect-no-disable",
+  "title": "Автозамена в названиях задач и дат навязывается без возможности отключения",
+  "obs": 1
+ },
+ {
+  "id": "list-name-truncated",
+  "title": "Название списка обрезается и разбивается на две строки без причины",
+  "obs": 1
+ },
+ {
+  "id": "chat-messages-not-editable",
+  "title": "Сообщения в чате общей задачи нельзя отредактировать или удалить после отправки",
+  "obs": 1
+ },
+ {
+  "id": "image-no-thumbnail-preview",
+  "title": "Прикреплённые изображения нельзя просмотреть миниатюрой — нужно открывать каждое нажатием",
+  "obs": 1
+ },
+ {
+  "id": "yippee-deletes-completed-tasks",
+  "title": "Случайное касание издаёт звук «YIPPEE!» и удаляет все выполненные задачи без возможности отключить",
+  "obs": 1
+ },
+ {
+  "id": "chinese-input-not-recognized",
+  "title": "Приложение не распознаёт китайский ввод с системной клавиатуры — выводит только латиницу",
+  "obs": 1
+ },
+ {
+  "id": "home-screen-widget-unreliable",
+  "title": "Виджет на главном экране iOS работает только иногда — приходится открывать приложение",
+  "obs": 1
+ },
+ {
+  "id": "family-plan-screen-freezes",
+  "title": "При нажатии на семейный план экран зависает и приложение нельзя вернуть к календарю",
+  "obs": 1
+ },
+ {
+  "id": "subtasks-deleted-on-folder-move",
+  "title": "При перемещении задачи в другую папку все её подзадачи удаляются без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "add-item-extra-steps-instability",
+  "title": "После обновления добавление элемента усложнилось и элементы перемещаются прямо во время ввода",
+  "obs": 1
+ },
+ {
+  "id": "shared-lists-converted-or-cross-os-missing",
+  "title": "Общие списки превращаются в обычные без обратного преобразования, а между iOS и Android недоступны",
+  "obs": 1
+ },
+ {
+  "id": "calendar-share-leaks-work-events",
+  "title": "Совместный календарь с супругом тащит все рабочие события в общий доступ, создавая хаос",
+  "obs": 1
+ },
+ {
+  "id": "desktop-only-google-calendar",
+  "title": "Десктопная версия синхронизируется только с Google Calendar, без других источников",
+  "obs": 1
+ },
+ {
+  "id": "no-2fa-two-way-calendar-risk",
+  "title": "Нет двухфакторной аутентификации, а двусторонняя синхронизация открывает календарь при взломе аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "background-customization-web-only",
+  "title": "Смена фона доступна только в веб-версии, в мобильном приложении функции нет",
+  "obs": 1
+ },
+ {
+  "id": "support-slow-chat-email-only",
+  "title": "Поддержка по активации подписки и синхронизации отвечает только через чат или почту за 1-2 дня",
+  "obs": 1
+ },
+ {
+  "id": "support-restores-lost-tasks",
+  "title": "Поддержка оперативно восстанавливает потерянные задачи — заметная точка дифференциации",
+  "obs": 1
+ },
+ {
+  "id": "login-defaults-to-new-account",
+  "title": "При входе по почте интерфейс не отличает вход от регистрации и создаёт новый аккаунт",
+  "obs": 1
+ },
+ {
+  "id": "marketing-promises-missing-ai-planning",
+  "title": "Приложение рекламирует AI-планирование, которого в продукте нет — маркетинг расходится с реальностью",
+  "obs": 1
+ },
+ {
+  "id": "versatility-many-list-types",
+  "title": "Пожилые пользователи ценят приложение за универсальность — ведут десятки разных типов списков",
+  "obs": 1
+ },
+ {
+  "id": "speed-of-adding-tasks-loved",
+  "title": "Power-пользователи ценят скорость добавления задач прямо в рабочем процессе",
+  "obs": 1
+ },
+ {
+  "id": "ux-degradation-drives-to-competitors",
+  "title": "Деградация UX выталкивает многолетних пользователей к Google Calendar и конкурентам",
+  "obs": 1
+ },
+ {
+  "id": "weak-fit-for-medication-reminders",
+  "title": "Сценарий напоминаний о приёме лекарств на Apple Watch требует слишком высокого когнитивного навеса",
+  "obs": 1
+ },
+ {
+  "id": "recurring-task-failure-misses-rent",
+  "title": "Сбой повторяющихся задач приводит к пропуску критичных обязательств вроде оплаты аренды",
+  "obs": 1
+ }
+]

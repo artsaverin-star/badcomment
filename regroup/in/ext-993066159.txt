@@ -1,0 +1,219 @@
+You are grouping 34 mechanism-level insight clusters from To Do List MinimaList & Widget (Календари и задачи) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO To Do List MinimaList & Widget, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 34 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to To Do List MinimaList & Widget — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to To Do List MinimaList & Widget>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-993066159.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "multiple-lists-paywalled",
+  "title": "Бесплатная версия разрешает только один-два списка — создание нескольких списков требует подписки",
+  "obs": 4
+ },
+ {
+  "id": "everything-behind-paywall",
+  "title": "За подписку убраны почти все функции сверх самых базовых, и это неочевидно при первом запуске",
+  "obs": 4
+ },
+ {
+  "id": "restore-purchase-fails",
+  "title": "Восстановление покупки не срабатывает — оплаченные функции остаются заблокированными даже при совпадении аккаунта",
+  "obs": 3
+ },
+ {
+  "id": "sync-across-devices-broken",
+  "title": "Синхронизация списков между устройствами не работает или нестабильна даже при оплаченной про-версии",
+  "obs": 3
+ },
+ {
+  "id": "manual-order-not-saved",
+  "title": "Ручной порядок задач не сохраняется — сбрасывается при переключении списков или перезапуске приложения",
+  "obs": 2
+ },
+ {
+  "id": "deleted-items-reappear",
+  "title": "Удалённые подзадачи и выполненные задачи возвращаются в список, требуя повторного удаления",
+  "obs": 2
+ },
+ {
+  "id": "low-contrast-text",
+  "title": "Светло-серый текст на белом фоне плохо читается людям с пониженным зрением и пожилым",
+  "obs": 2
+ },
+ {
+  "id": "dark-mode-paywalled",
+  "title": "Тёмный режим доступен только в платной версии, что бьёт по пользователям со светочувствительностью",
+  "obs": 1
+ },
+ {
+  "id": "daily-reset-paywalled",
+  "title": "Автоматический ежедневный сброс задач спрятан в премиум, хотя многие ищут его в базовом функционале",
+  "obs": 1
+ },
+ {
+  "id": "subscription-name-obscured",
+  "title": "В списке подписок указано «bill monthly» вместо названия приложения — трудно найти и отменить",
+  "obs": 1
+ },
+ {
+  "id": "flexible-task-detail",
+  "title": "Приложение позволяет вести и короткие заметки, и детальные многошаговые проекты без навязанного формата",
+  "obs": 1
+ },
+ {
+  "id": "recurring-tasks-broken",
+  "title": "Повторяющиеся задачи не создаются по заданному расписанию — еженедельное и кастомное повторение не работает",
+  "obs": 1
+ },
+ {
+  "id": "shake-to-clear-broken",
+  "title": "Жест встряхивания телефона для очистки всех задач перестал работать даже с подтверждением удаления",
+  "obs": 1
+ },
+ {
+  "id": "crash-overheat-after-update",
+  "title": "После обновления приложение падает каждые несколько минут и сильно перегревает устройство",
+  "obs": 1
+ },
+ {
+  "id": "setup-freezes",
+  "title": "При первой настройке экраны сереют и зависают — приложение не завершает инициализацию и не запускается",
+  "obs": 1
+ },
+ {
+  "id": "reminders-disappear",
+  "title": "Заданные напоминания исчезают без объяснения, и восстановить какие они были невозможно",
+  "obs": 1
+ },
+ {
+  "id": "font-customization-not-persist",
+  "title": "Купленная смена шрифта списка не применяется и не сохраняется после нескольких попыток",
+  "obs": 1
+ },
+ {
+  "id": "theme-not-synced",
+  "title": "Выбранная тема не синхронизируется между устройствами даже при платной подписке на обоих",
+  "obs": 1
+ },
+ {
+  "id": "shared-list-sync-stops",
+  "title": "Синхронизация общего списка обрывается после первого дня — добавленные задачи не видны второй стороне",
+  "obs": 1
+ },
+ {
+  "id": "macos-subtask-bugs",
+  "title": "В версии для Mac подзадачи нельзя переупорядочить, проверка орфографии мешает вводу, а её отключение не сохраняется",
+  "obs": 1
+ },
+ {
+  "id": "reminders-persistent",
+  "title": "Напоминания срабатывают ежедневно сами, без ручной переустановки каждый день",
+  "obs": 1
+ },
+ {
+  "id": "apple-reminders-sync",
+  "title": "Двусторонняя синхронизация с Apple Reminders — ключевое отличие от стандартного приложения Apple",
+  "obs": 1
+ },
+ {
+  "id": "calendar-view-missing",
+  "title": "Календарь показывает только дневные события — недельного и месячного представления нет даже в премиуме",
+  "obs": 1
+ },
+ {
+  "id": "completed-tasks-manual-delete",
+  "title": "Выполненные задачи не исчезают сами — их приходится удалять вручную по одной, ломая ежедневную ротацию списков",
+  "obs": 1
+ },
+ {
+  "id": "overdue-to-today-manual",
+  "title": "Просроченные задачи не переносятся в «сегодня» автоматически — нужно переносить их вручную",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-interrupts",
+  "title": "Непрошеный запрос на отзыв всплывает прямо во время работы и отвлекает от задач",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-marketing-screens",
+  "title": "При открытии показывается десяток экранов агрессивного маркетинга подписки перед доступом к функциям",
+  "obs": 1
+ },
+ {
+  "id": "priority-colors-indistinct",
+  "title": "Цвета приоритетов отличаются только границей и сливаются — трудно быстро различить важность задач",
+  "obs": 1
+ },
+ {
+  "id": "badge-for-non-urgent",
+  "title": "Значок уведомления на иконке появляется для любой задачи с напоминанием, а не только для срочных",
+  "obs": 1
+ },
+ {
+  "id": "font-size-not-in-widget",
+  "title": "Увеличенный размер шрифта не применяется к виджету, делая его непригодным для людей с моторными ограничениями",
+  "obs": 1
+ },
+ {
+  "id": "minimal-design-cognitive",
+  "title": "Минималистичный дизайн помогает людям с когнитивной перегрузкой не бояться открывать список",
+  "obs": 1
+ },
+ {
+  "id": "manual-sort-hidden",
+  "title": "Ручная сортировка задач спрятана и неочевидна — пользователь нашёл её только с помощью поддержки",
+  "obs": 1
+ },
+ {
+  "id": "no-universal-search-navigation",
+  "title": "Из экранов настроек и поиска трудно выйти, а универсального поиска по приложению нет",
+  "obs": 1
+ },
+ {
+  "id": "contract-deadline-tracking",
+  "title": "Помощник по договорам ведёт сроки обновления страховых сертификатов через иерархию месячных папок",
+  "obs": 1
+ }
+]

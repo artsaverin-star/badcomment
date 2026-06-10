@@ -1,0 +1,109 @@
+{
+  "groups": [
+    {
+      "id": "wifi-padaet-batareyu-vynimat",
+      "name": "Wi-Fi отваливается, спасает только вынутая батарея",
+      "insight_ids": [
+        "app-update-breaks-wifi-connection",
+        "wifi-disconnect-requires-battery-pull",
+        "wifi-reconnect-after-battery-replace",
+        "initial-wifi-pairing-difficult",
+        "remote-access-only-within-proximity",
+        "bluetooth-pairing-requires-multiple-attempts",
+        "wifi-two-networks-instability",
+        "false-lock-status-in-app"
+      ]
+    },
+    {
+      "id": "obnovlenie-lomaet-vsyo",
+      "name": "Обновление пришло — и всё сломалось",
+      "insight_ids": [
+        "firmware-update-breaks-battery",
+        "homekit-integration-broken",
+        "legacy-lock-support-dropped",
+        "notifications-stop-after-update",
+        "schedule-update-requires-reinstall",
+        "app-update-loses-access-codes",
+        "app-update-available-but-fails-to-install",
+        "admin-loses-remote-access-after-update",
+        "dollar-sign-password-broken",
+        "app-update-instructions-missing"
+      ]
+    },
+    {
+      "id": "kody-dostupa-bez-priezda",
+      "name": "Раздать доступ, не выходя из дома: подрядчики, гости, аренда",
+      "insight_ids": [
+        "contractor-airbnb-access-management",
+        "remote-lock-management-use-case",
+        "remote-unlock-speed-critical",
+        "access-code-management-ui-hard-to-find",
+        "add-code-update-error",
+        "lock-loses-all-codes-spontaneously",
+        "access-log-unreliable",
+        "multi-device-single-lock-not-supported"
+      ]
+    },
+    {
+      "id": "zaperty-snaruzhi-svoim-zamkom",
+      "name": "Заперты снаружи собственным замком",
+      "insight_ids": [
+        "password-reset-not-working",
+        "random-session-logout-urgent-moment",
+        "account-creation-verification-broken",
+        "email-update-account-breaks-login",
+        "2fa-delay-blocks-entry",
+        "no-low-battery-notification",
+        "app-not-working-on-android",
+        "support-unavailable-or-unhelpful"
+      ]
+    },
+    {
+      "id": "zhelezo-i-batareya-podvodyat",
+      "name": "Железо и батарея подводят раньше срока",
+      "insight_ids": [
+        "battery-drain-fast-new-models",
+        "lock-hardware-failure-short-lifespan",
+        "keypad-digits-visibility",
+        "keypad-overheating-sun",
+        "battery-holder-loosens-inside-lock",
+        "battery-drain-app-side-effect",
+        "no-lock-status-visual-on-keypad"
+      ]
+    },
+    {
+      "id": "reklama-podpiska-slezhka",
+      "name": "Реклама, подписки и торговля данными за свои же деньги",
+      "insight_ids": [
+        "rotating-ad-banner-on-main-screen",
+        "subscription-required-for-basic-features",
+        "ads-data-collection-policy",
+        "apple-home-popup-every-open",
+        "mandatory-phone-passcode-required"
+      ]
+    },
+    {
+      "id": "melochi-kotoryh-ne-hvataet",
+      "name": "Мелочи, которых не хватает каждый день",
+      "insight_ids": [
+        "no-favorite-locks-on-homescreen",
+        "lock-button-single-tap-accidental",
+        "notification-settings-not-saved",
+        "apple-watch-requires-iphone-active",
+        "no-face-id-support",
+        "false-spam-notifications",
+        "auto-lock-without-door-sensor"
+      ]
+    },
+    {
+      "id": "za-chto-lyubyat",
+      "name": "За что всё-таки любят: жизнь без ключей",
+      "insight_ids": [
+        "battery-life-positive",
+        "keyless-entry-convenience",
+        "app-regularly-improves",
+        "onboarding-setup-instructions-quality"
+      ]
+    }
+  ]
+}

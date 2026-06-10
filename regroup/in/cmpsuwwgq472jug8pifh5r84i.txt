@@ -1,0 +1,264 @@
+You are grouping 43 mechanism-level insight clusters from Grant Cash Advance (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Grant Cash Advance, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 43 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Grant Cash Advance — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Grant Cash Advance>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsuwwgq472jug8pifh5r84i.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "white-screen-blank",
+  "title": "Приложение открывается белым или пустым экраном, переустановка помогает лишь временно",
+  "obs": 26
+ },
+ {
+  "id": "early-debit-before-payday",
+  "title": "Приложение списывает погашение раньше согласованной даты — до прихода зарплаты, вызывая овердрафт",
+  "obs": 9
+ },
+ {
+  "id": "white-screen-after-repayment",
+  "title": "Сразу после погашения авansa приложение зависает белым экраном, блокируя запрос следующего",
+  "obs": 7
+ },
+ {
+  "id": "limit-drop-after-max",
+  "title": "После достижения максимума лимит авansa резко снижают обратно, обнуляя прогресс пользователя",
+  "obs": 6
+ },
+ {
+  "id": "lose-eligibility-after-repay",
+  "title": "После своевременного погашения первого авansa приложение перестаёт одобрять последующие без объяснения",
+  "obs": 5
+ },
+ {
+  "id": "charged-while-broken",
+  "title": "Приложение продолжает брать плату за подписку, хотя доступ заблокирован и авans запросить нельзя",
+  "obs": 3
+ },
+ {
+  "id": "max-debit-multiple-attempts",
+  "title": "Приложение делает несколько попыток списать максимум доступных средств, провоцируя блокировку счёта банком",
+  "obs": 3
+ },
+ {
+  "id": "good-flexible-amounts",
+  "title": "Понятный выбор суммы авansa и опциональная доплата за мгновенный перевод нравятся пользователям",
+  "obs": 3
+ },
+ {
+  "id": "no-reschedule-repayment",
+  "title": "Дату погашения нельзя перенести под реальный день зарплаты, в отличие от конкурентов",
+  "obs": 3
+ },
+ {
+  "id": "signup-button-dead",
+  "title": "Кнопки «далее»/«продолжить» при регистрации и оплате не реагируют, блокируя прохождение",
+  "obs": 3
+ },
+ {
+  "id": "cannot-cancel-still-charged",
+  "title": "Подписку нельзя отменить в приложении, а списания продолжаются даже после подтверждённой отмены",
+  "obs": 2
+ },
+ {
+  "id": "billing-after-account-deletion",
+  "title": "Списания за подписку продолжаются после удаления аккаунта и досрочного погашения авansa",
+  "obs": 2
+ },
+ {
+  "id": "subscription-required-to-borrow",
+  "title": "Чтобы вообще получить право на авans, требуется платная ежемесячная подписка",
+  "obs": 2
+ },
+ {
+  "id": "advance-confirmed-not-delivered",
+  "title": "Авans подтверждён, но деньги так и не приходят на счёт пользователя",
+  "obs": 2
+ },
+ {
+  "id": "wrong-payday-detection",
+  "title": "Ненадёжное автоопределение дня зарплаты ставит неверную дату погашения, а исправить её нельзя",
+  "obs": 2
+ },
+ {
+  "id": "payday-detection-stops",
+  "title": "После месяцев работы приложение внезапно перестаёт определять зарплату и блокирует новые авansы",
+  "obs": 2
+ },
+ {
+  "id": "surveys-points-not-paid",
+  "title": "Очки за выполненные опросы не начисляются или их нельзя обналичить, теряя реальную стоимость",
+  "obs": 2
+ },
+ {
+  "id": "request-button-loops-home",
+  "title": "Кнопка запроса авansa возвращает на домашний экран по кругу, не выдавая деньги",
+  "obs": 2
+ },
+ {
+  "id": "cannot-delete-account",
+  "title": "Нет функции удаления аккаунта и отвязки счёта — финансовые данные остаются в системе бессрочно",
+  "obs": 2
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Поддержка месяцами игнорирует обращения и не помогает при сбоях, вопреки обещаниям при подписке",
+  "obs": 2
+ },
+ {
+  "id": "auto-applies-new-advance",
+  "title": "После погашения приложение само навязывает новый авans, его приходится активно отклонять",
+  "obs": 1
+ },
+ {
+  "id": "shorter-repay-window",
+  "title": "Срок погашения внезапно сокращают с обычных двух недель до нескольких дней без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "extension-shorter-than-promised",
+  "title": "Продление срока даёт меньше дней, чем выбрал пользователь, а поддержка ссылается на необновлённую политику",
+  "obs": 1
+ },
+ {
+  "id": "advance-taken-back-quickly",
+  "title": "Выданный авans забирают обратно через пару дней, не давая реально воспользоваться деньгами",
+  "obs": 1
+ },
+ {
+  "id": "forced-borrow-own-money",
+  "title": "Приложение переводит деньги на счёт без запроса и заставляет брать заём на собственные средства",
+  "obs": 1
+ },
+ {
+  "id": "overdraft-cycle-trap",
+  "title": "Пользователь попадает в бесконечный цикл авans-овердрафт без способа его остановить",
+  "obs": 1
+ },
+ {
+  "id": "auto-subscribe-no-consent",
+  "title": "Приложение само оформляет платную подписку без согласия и берёт штрафы за просрочку при оплате в срок",
+  "obs": 1
+ },
+ {
+  "id": "no-credit-check-but-rejects",
+  "title": "Приложение обещает выдачу без проверки кредита, но отклоняет пользователей без объяснения причин",
+  "obs": 1
+ },
+ {
+  "id": "play-games-to-restore-limit",
+  "title": "Чтобы восстановить или поднять лимит, приложение заставляет играть в спонсируемые игры вместо прямой выдачи",
+  "obs": 1
+ },
+ {
+  "id": "tiny-advance-for-much-data",
+  "title": "Приложение запрашивает чрезмерно много персональных данных в обмен на крошечный авans",
+  "obs": 1
+ },
+ {
+  "id": "fast-limit-growth",
+  "title": "Лимит быстро растёт по мере погашения, позволяя брать всё большие суммы",
+  "obs": 1
+ },
+ {
+  "id": "referral-bonus-not-credited",
+  "title": "Реферальная система не засчитывает приглашённого друга и отказывает в обещанном бонусе",
+  "obs": 1
+ },
+ {
+  "id": "broken-blocks-pending-payment",
+  "title": "Белый экран не даёт управлять платежом, который должен пройти завтра",
+  "obs": 1
+ },
+ {
+  "id": "systemic-not-device",
+  "title": "Сбой воспроизводится у многих пользователей одинаково — проблема системная, а не на устройстве",
+  "obs": 1
+ },
+ {
+  "id": "was-reliable-now-broken",
+  "title": "Раньше приложение работало стабильно, недавние сбои подрывают наработанную лояльность",
+  "obs": 1
+ },
+ {
+  "id": "debit-from-locked-closed-account",
+  "title": "Приложение списывает деньги с заблокированного или закрытого счёта, игнорируя его статус",
+  "obs": 1
+ },
+ {
+  "id": "review-hourglass-stuck",
+  "title": "После пропуска платежа аккаунт зависает в статусе проверки с песочными часами без уведомления о результате",
+  "obs": 1
+ },
+ {
+  "id": "cannot-edit-bank-info",
+  "title": "Привязанные банковские данные нельзя обновить или удалить из приложения",
+  "obs": 1
+ },
+ {
+  "id": "cannot-link-bank",
+  "title": "Приложение не даёт привязать банковский счёт, блокируя основной функционал",
+  "obs": 1
+ },
+ {
+  "id": "full-banking-access-required",
+  "title": "Для выдачи авansa требуется полный доступ к счёту и дебетовой карте, создавая риск для данных",
+  "obs": 1
+ },
+ {
+  "id": "support-lies-blames-bank",
+  "title": "Поддержка врёт о согласованной дате платежа и сваливает вину на банк вместо решения",
+  "obs": 1
+ },
+ {
+  "id": "no-digital-banks",
+  "title": "Приложение не поддерживает цифровые банки вроде Chime, отсекая людей без традиционного счёта",
+  "obs": 1
+ },
+ {
+  "id": "state-availability",
+  "title": "Сервис недоступен в ряде штатов, ограничивая охват по местоположению пользователя",
+  "obs": 1
+ }
+]

@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from Plant App: Plant Identifier (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Plant App: Plant Identifier, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Plant App: Plant Identifier — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Plant App: Plant Identifier>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps5zh0p0dwsugu7abjdyled.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "charges-after-cancellation",
+  "title": "Платежи продолжают списываться после отмены подписки",
+  "obs": 8
+ },
+ {
+  "id": "maintenance-mode-blocks-paid-users",
+  "title": "Сервис часто переходит в режим обслуживания и блокирует функционал для платных пользователей",
+  "obs": 8
+ },
+ {
+  "id": "trial-no-warning-autocharge",
+  "title": "Пробный период заканчивается без уведомления — деньги списываются автоматически",
+  "obs": 6
+ },
+ {
+  "id": "ad-mismatch-missing-features",
+  "title": "Реклама обещает диагностику и лечение растений по фото, но этой функции в приложении нет",
+  "obs": 5
+ },
+ {
+  "id": "disease-diagnosis-vague",
+  "title": "Диагностика болезней выдаёт список общих причин без конкретного решения для растения",
+  "obs": 5
+ },
+ {
+  "id": "accuracy-partial-errors-harm-care",
+  "title": "Точность идентификации 37–60%: ошибки приводят к неправильному уходу за растением",
+  "obs": 5
+ },
+ {
+  "id": "lifetime-lost-after-update",
+  "title": "Пожизненная подписка и сохранённые данные исчезают после обновления приложения",
+  "obs": 4
+ },
+ {
+  "id": "hidden-billing-model",
+  "title": "Приложение рекламируется как бесплатное, но требует оплату сразу после установки",
+  "obs": 4
+ },
+ {
+  "id": "no-variety-level-identification",
+  "title": "Приложение определяет только род или вид, но не различает сорта одного растения",
+  "obs": 4
+ },
+ {
+  "id": "zero-accuracy-basic-plants",
+  "title": "Приложение не распознаёт простые распространённые растения — ноль правильных результатов",
+  "obs": 4
+ },
+ {
+  "id": "unusual-plants-not-recognized",
+  "title": "Приложение не справляется с редкими, комнатными или трудными для распознавания растениями",
+  "obs": 4
+ },
+ {
+  "id": "charge-at-trial-start",
+  "title": "Деньги списываются в начале пробного периода, а не после его окончания",
+  "obs": 3
+ },
+ {
+  "id": "double-charge",
+  "title": "Приложение списывает двойной или ошибочный платёж за одну покупку",
+  "obs": 3
+ },
+ {
+  "id": "subscription-not-activated",
+  "title": "Оплаченная подписка не отображается в профиле и не даёт доступ к функциям",
+  "obs": 3
+ },
+ {
+  "id": "refund-denied",
+  "title": "Служба поддержки и Apple отказывают в возврате средств",
+  "obs": 3
+ },
+ {
+  "id": "cancel-account-impossible",
+  "title": "Невозможно отменить подписку или удалить аккаунт через интерфейс приложения",
+  "obs": 3
+ },
+ {
+  "id": "worse-than-google-images",
+  "title": "Качество идентификации ниже, чем обычный поиск по изображению в интернете",
+  "obs": 3
+ },
+ {
+  "id": "accuracy-acceptable-to-satisfied-users",
+  "title": "Точность около 80% устраивает ситуативных пользователей, которые проверяют результаты вручную",
+  "obs": 3
+ },
+ {
+  "id": "disease-feature-crashes",
+  "title": "Приложение вылетает при открытии функции диагностики болезней растений",
+  "obs": 3
+ },
+ {
+  "id": "apple-billing-invisible",
+  "title": "Еженедельный платёж проходит через Apple незаметно и накапливается месяцами",
+  "obs": 2
+ },
+ {
+  "id": "onboarding-paywall-before-trial",
+  "title": "Приложение требует подтвердить подписку до начала пробного периода — оценить продукт невозможно",
+  "obs": 2
+ },
+ {
+  "id": "disease-diagnosis-inconsistent",
+  "title": "Диагностика одного и того же растения даёт разные результаты при повторных попытках",
+  "obs": 2
+ },
+ {
+  "id": "care-info-contradictory",
+  "title": "Инструкции по уходу за растением противоречат сами себе в разных частях одной карточки",
+  "obs": 2
+ },
+ {
+  "id": "care-info-generic",
+  "title": "Информация по уходу слишком общая — растению нужно, но приложение даёт только название",
+  "obs": 2
+ },
+ {
+  "id": "plant-database-limited-geography",
+  "title": "База данных не охватывает растения из определённых регионов и климатических зон",
+  "obs": 2
+ },
+ {
+  "id": "wrong-id-known-plant",
+  "title": "Приложение ошибочно определяет хорошо известное растение без возможности повторить попытку",
+  "obs": 2
+ },
+ {
+  "id": "password-reset-broken",
+  "title": "Ссылка для сброса пароля не приходит или недействительна — аккаунт становится недоступен",
+  "obs": 2
+ },
+ {
+  "id": "new-country-flora-exploration",
+  "title": "Переехавшие в новую страну пользователи изучают незнакомую флору с помощью приложения",
+  "obs": 2
+ },
+ {
+  "id": "professional-use-case",
+  "title": "Профессионалы используют приложение для мгновенного ответа клиентам о безопасности растений",
+  "obs": 2
+ },
+ {
+  "id": "plan-converted-to-expensive",
+  "title": "Годовой тариф автоматически конвертируется в пятикратно дорогую недельную подписку",
+  "obs": 1
+ },
+ {
+  "id": "disease-feature-requires-extra-payment",
+  "title": "Функция диагностики болезней требует отдельной оплаты при уже купленной пожизненной подписке",
+  "obs": 1
+ },
+ {
+  "id": "child-accidental-purchase",
+  "title": "Ребёнок случайно устанавливает приложение и запускает автоматические еженедельные списания",
+  "obs": 1
+ },
+ {
+  "id": "confusing-pricing-tiers",
+  "title": "Пользователь не понимает разницу между тарифами и по умолчанию попадает на самый дорогой",
+  "obs": 1
+ },
+ {
+  "id": "subscription-bad-for-occasional-use",
+  "title": "Модель подписки невыгодна пользователям, которые открывают приложение несколько раз в год",
+  "obs": 1
+ },
+ {
+  "id": "repeated-subscription-prompts",
+  "title": "Приложение многократно предлагает купить подписку во время каждой сессии",
+  "obs": 1
+ },
+ {
+  "id": "core-id-behind-paywall",
+  "title": "Основная функция идентификации растений заблокирована за платной подпиской",
+  "obs": 1
+ },
+ {
+  "id": "free-scans-wrong-no-evaluation",
+  "title": "Три бесплатных сканирования тратятся на неправильные результаты — продукт оценить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "disease-diagnosis-nonsense",
+  "title": "Диагностика болезней выдаёт медицинские диагнозы для людей вместо диагнозов для растений",
+  "obs": 1
+ },
+ {
+  "id": "care-info-typos",
+  "title": "Карточки с инструкциями по уходу содержат опечатки и грамматические ошибки",
+  "obs": 1
+ },
+ {
+  "id": "plant-db-outdated-images",
+  "title": "Изображения в базе данных устаревшие или низкого качества, что снижает точность распознавания",
+  "obs": 1
+ },
+ {
+  "id": "toxic-plant-misidentified-safe",
+  "title": "Ядовитое растение идентифицируется как безопасное — риск отравления детей и животных",
+  "obs": 1
+ },
+ {
+  "id": "developer-site-lorem-ipsum",
+  "title": "Сайт разработчика содержит текст-заполнитель Lorem Ipsum вместо настоящего контента",
+  "obs": 1
+ },
+ {
+  "id": "ai-botanist-language-broken",
+  "title": "AI-ботаник отвечает на чужом языке и не реагирует на ввод пользователя",
+  "obs": 1
+ },
+ {
+  "id": "support-no-response",
+  "title": "Служба поддержки не отвечает и перенаправляет пользователей без решения проблемы",
+  "obs": 1
+ },
+ {
+  "id": "app-monetization-over-value",
+  "title": "Приложение ориентировано на извлечение прибыли, а не на реальную пользу для сообщества садоводов",
+  "obs": 1
+ }
+]

@@ -1,0 +1,101 @@
+{
+  "groups": [
+    {
+      "id": "tracking-just-stops",
+      "name": "Когда трекинг просто умирает: обновления iOS и пропавшие дни",
+      "insight_ids": [
+        "ios-update-breaks-location-tracking",
+        "tracking-stops-spontaneously",
+        "app-stuck-on-one-location",
+        "wrong-duration-stuck-timer",
+        "permission-not-recognized",
+        "forces-always-on-location-permission",
+        "app-freezes-charges-continue-refund-denied",
+        "app-freeze-hang-on-startup",
+        "apple-watch-complication-removed-after-update",
+        "watchos-compatibility-broken"
+      ]
+    },
+    {
+      "id": "geofence-cannot-tell-places-apart",
+      "name": "Геозоны путают места: соседние здания, этажи и филиалы сети",
+      "insight_ids": [
+        "wfh-app-useless-no-room-differentiation",
+        "geofence-radius-too-large-nearby-confusion",
+        "phantom-visits-while-sleeping",
+        "chain-branch-disambiguation-fails",
+        "no-altitude-floor-differentiation",
+        "no-custom-geofence-zones",
+        "cannot-add-location-manually",
+        "no-map-view-for-uncategorized-places"
+      ]
+    },
+    {
+      "id": "history-vanishes-no-backup",
+      "name": "Годы истории, которые исчезают: бэкапы, обнуления и мёртвая поддержка",
+      "insight_ids": [
+        "backup-restore-fails-data-loss",
+        "history-data-deleted",
+        "no-support-channel-available",
+        "developer-unresponsive-years-no-updates",
+        "app-abandoned-no-updates-privacy-concerns",
+        "broken-verification-email-links"
+      ]
+    },
+    {
+      "id": "cannot-fix-the-wrong-labels",
+      "name": "Исправить нельзя: замки, дубликаты и категории, которые не отлепить",
+      "insight_ids": [
+        "null-phantom-activities-unremovable",
+        "location-edit-blocked-by-lock",
+        "duplicate-locations-cannot-merge",
+        "no-overlapping-activity-tracking",
+        "activity-category-stuck-after-context-change",
+        "default-categories-cannot-remove",
+        "edit-not-saved",
+        "limited-icons-for-activities",
+        "single-mislabel-forces-full-history-delete",
+        "retail-work-categorized-as-shopping",
+        "no-realtime-task-timer",
+        "no-chronological-timeline-for-editing"
+      ]
+    },
+    {
+      "id": "billing-traps-and-paywalls",
+      "name": "Платишь, а функций нет: ловушки подписки и перенос за пейволл",
+      "insight_ids": [
+        "premium-status-lost-after-payment",
+        "features-locked-despite-active-subscription",
+        "trial-button-charges-full-year",
+        "price-tripled-no-grandfathering",
+        "sleep-tracking-paywalled",
+        "backup-requires-repayment",
+        "learning-period-blocks-trial-use"
+      ]
+    },
+    {
+      "id": "charts-that-mislead",
+      "name": "Цифры, которым не веришь: круговые диаграммы и абсурдные корреляции",
+      "insight_ids": [
+        "monthly-stats-not-normalized-by-days",
+        "only-pie-charts-no-bar-charts",
+        "weekly-progress-not-realtime",
+        "calendar-view-only-current-year",
+        "inconsistent-totals-across-views",
+        "misleading-insight-correlations",
+        "export-lacks-coordinates-and-duration"
+      ]
+    },
+    {
+      "id": "blind-to-the-rest-of-your-life",
+      "name": "Слепые зоны: шаги, сон, экранное время и паттерны, которых приложение не видит",
+      "insight_ids": [
+        "app-does-not-learn-patterns",
+        "no-apple-health-step-sync",
+        "no-screen-time-integration",
+        "sleep-cycle-integration-broken",
+        "wifi-required-slow-learning"
+      ]
+    }
+  ]
+}

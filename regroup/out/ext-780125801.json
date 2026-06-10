@@ -1,0 +1,91 @@
+{
+  "groups": [
+    {
+      "id": "torg-na-cene",
+      "name": "Торг после заказа: водитель вымогает доплату или отменяет",
+      "insight_ids": [
+        "driver-demands-price-hike",
+        "price-rises-mid-trip",
+        "driver-charges-for-luggage",
+        "voucher-fraud",
+        "driver-detours-route",
+        "driver-collusion-price"
+      ]
+    },
+    {
+      "id": "registraciya-stena",
+      "name": "Стена на входе: СМС не приходит, в город не пускают",
+      "insight_ids": [
+        "sms-verification-blocked",
+        "sms-verification-us-registration-rejected",
+        "app-unavailable-region",
+        "geo-wrong-country-state",
+        "no-geographic-coverage-notice",
+        "support-verification-loop"
+      ]
+    },
+    {
+      "id": "karta-vrjot",
+      "name": "Карта врёт: точка пикапа не там, маркер водителя прыгает",
+      "insight_ids": [
+        "gps-pickup-inaccurate",
+        "driver-tracking-glitchy",
+        "eta-ignores-traffic",
+        "pickup-point-selection-hard",
+        "driver-calls-despite-known-address"
+      ]
+    },
+    {
+      "id": "ekonomika-voditelya",
+      "name": "Поездка не окупается: тарифы ниже расходов водителя",
+      "insight_ids": [
+        "low-fares-unviable-drivers",
+        "passengers-dont-pay",
+        "bots-capture-orders",
+        "daily-trip-cap-gaming",
+        "driver-arrival-time-slows-accept"
+      ]
+    },
+    {
+      "id": "padaet-i-glohnet",
+      "name": "Падает и глохнет: сбои, уведомления, потеря сети в пути",
+      "insight_ids": [
+        "app-crash-freeze",
+        "app-loses-connection-mid-trip",
+        "notifications-broken",
+        "app-icon-invisible",
+        "accessibility-screen-reader"
+      ]
+    },
+    {
+      "id": "kto-za-rulem",
+      "name": "Кто за рулём: машины не проверяют, номера не сходятся",
+      "insight_ids": [
+        "driver-quality-not-vetted",
+        "driver-vehicle-mismatch",
+        "low-rating-blocked",
+        "no-pet-policy",
+        "no-cng-filter"
+      ]
+    },
+    {
+      "id": "podderzhka-gluhaya",
+      "name": "Поддержка глухая: безопасность и жалобы остаются без ответа",
+      "insight_ids": [
+        "support-ignores-safety",
+        "support-ignores-complaints",
+        "asymmetric-driver-passenger-protection"
+      ]
+    },
+    {
+      "id": "oplata-i-funkcii",
+      "name": "Оплата вручную и пропавшие функции выбора цены",
+      "insight_ids": [
+        "manual-payment-friction",
+        "cash-only-no-card",
+        "bidding-feature-removed",
+        "no-two-simultaneous-orders"
+      ]
+    }
+  ]
+}

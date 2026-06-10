@@ -1,0 +1,34 @@
+{
+  "groups": [
+    {
+      "id": "platnyj-tuman-nad-otvetom",
+      "name": "Платный туман над ответом: решение спрятано до оплаты",
+      "insight_ids": ["blur-paywall", "subscription-required-before-use", "monetization-switch"]
+    },
+    {
+      "id": "kamera-i-raspoznavanie-spotykajutsya",
+      "name": "Камера и распознавание спотыкаются на самом входе",
+      "insight_ids": ["ocr-rejection", "camera-capture-fail", "handwriting-not-recognized", "keyboard-missing-space", "no-flashlight"]
+    },
+    {
+      "id": "schitaet-neverno",
+      "name": "Считает неверно: арифметике приложения нельзя доверять",
+      "insight_ids": ["wrong-answers", "algorithm-returns-input-numbers", "inconsistent-accuracy"]
+    },
+    {
+      "id": "oplatil-i-vsyo-ravno-ne-rabotaet",
+      "name": "Оплатил — и всё равно ошибка вместо решения",
+      "insight_ids": ["paid-but-broken", "timeout-error", "paid-but-broken-steps"]
+    },
+    {
+      "id": "celye-razdely-matematiki-vne-ohvata",
+      "name": "Целые разделы школьной математики вне зоны охвата",
+      "insight_ids": ["geometry-not-supported", "algebra2-trig-not-supported", "word-problems-not-supported"]
+    },
+    {
+      "id": "chuzhoj-klon-tyutor-i-zhizn-bez-seti",
+      "name": "Худший клон конкурента, мёртвый тьютор и жизнь без интернета",
+      "insight_ids": ["competitor-comparison", "tutor-function-broken", "no-offline"]
+    }
+  ]
+}

@@ -1,0 +1,399 @@
+You are grouping 70 mechanism-level insight clusters from Huckleberry: Baby & Child (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Huckleberry: Baby & Child, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 70 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Huckleberry: Baby & Child — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Huckleberry: Baby & Child>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1169136078.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "rastov-zhurnal-ves-slomany",
+  "title": "Журнал роста сломан после обновления — поле ввода фунтов и обхвата головы исчезло, можно вводить только унции",
+  "obs": 7
+ },
+ {
+  "id": "vosstanovlenie-pamyati-postpartum",
+  "title": "Приложение работает как внешняя память при послеродовом тумане — родитель не может сам вспомнить время последнего кормления",
+  "obs": 7
+ },
+ {
+  "id": "platnaya-stena-vidzhety-chasy-golos",
+  "title": "Виджеты, часы и голосовой ввод заперты за платной подпиской — самые удобные способы быстро записать событие требуют оплаты",
+  "obs": 6
+ },
+ {
+  "id": "sovmestnoe-logirovanie-soopekunov",
+  "title": "Совместное логирование несколькими опекунами синхронизирует уход между родителями, няней и бабушкой без звонков",
+  "obs": 6
+ },
+ {
+  "id": "polovina-ekrana-propadaet",
+  "title": "Нижняя или половина экрана пропадает либо становится белой при возврате в приложение, требуя перезагрузки",
+  "obs": 5
+ },
+ {
+  "id": "sweetspot-tochka-vozврата-cennost",
+  "title": "Точный предсказатель времени сна становится главным фактором ценности и возвращает даже бросивших пользователей в моменты регрессии сна",
+  "obs": 5
+ },
+ {
+  "id": "pauza-taymera-sna",
+  "title": "У таймера сна нет паузы — при коротком пробуждении ребёнка таймер приходится полностью останавливать и запускать заново, теряя общее время сна",
+  "obs": 4
+ },
+ {
+  "id": "vybor-vremeni-tolko-koleso",
+  "title": "Время можно задать только прокруткой колеса, без прямого ввода цифр — это резко замедляет логирование нескольких событий",
+  "obs": 4
+ },
+ {
+  "id": "drobleniye-bazovogo-funkcionala",
+  "title": "Базовый функционал намеренно урезан, а удобства-ускорители заблокированы, чтобы вынудить перейти на подписку",
+  "obs": 3
+ },
+ {
+  "id": "polzovatelskie-medicinskie-sobytiya",
+  "title": "Нет отдельного трекера для нестандартных и медицинских событий — вакцины, болезнь, рвота теряются в общих заметках",
+  "obs": 3
+ },
+ {
+  "id": "zapis-zavisaet-pri-sohranenii",
+  "title": "Сохранение записи зависает и крутится в большинстве случаев, данные теряются и приходится вводить заново",
+  "obs": 3
+ },
+ {
+  "id": "vidzhety-ne-rabotayut-posle-oplaty",
+  "title": "Виджеты и живая активность не работают даже после оплаты подписки — деньги уходят впустую",
+  "obs": 3
+ },
+ {
+  "id": "vybros-iz-akkaunta-posle-apdeyta",
+  "title": "Приложение постоянно выбрасывает из аккаунта и требует сброса пароля или переустановки для повторного входа",
+  "obs": 3
+ },
+ {
+  "id": "regressiya-bagov-so-vremenem",
+  "title": "С каждым обновлением багов становится больше, чем раньше, и даже перезагрузка их не лечит",
+  "obs": 3
+ },
+ {
+  "id": "medlennaya-zagruzka-iz-vidzheta",
+  "title": "Открытие из виджета упирается в долгий экран загрузки, что убивает смысл быстрого доступа, ради которого виджет и покупали",
+  "obs": 3
+ },
+ {
+  "id": "sweetspot-netochen-ignoriruet-grafik",
+  "title": "Предсказатель времени сна игнорирует заданные родителем рамки и сдвигает рекомендации всё позже, делая их бесполезными",
+  "obs": 3
+ },
+ {
+  "id": "blizniecy-mnogoplodie",
+  "title": "Детальное логирование помогает разводить расписания близнецов, но переключение между профилями мешает вести обоих сразу",
+  "obs": 3
+ },
+ {
+  "id": "trekING-usugublyaet-obsessiyu",
+  "title": "Возможность логировать каждую мелочь усиливает тревогу и обсессивное поведение, вплоть до полного отказа от приложения",
+  "obs": 3
+ },
+ {
+  "id": "smeshannoye-kormleniye-v-odnoy-butylke",
+  "title": "Нельзя записать грудное молоко и смесь в одной бутылке с раздельным учётом объёмов — приходится обходить через категорию «другое»",
+  "obs": 2
+ },
+ {
+  "id": "dannye-ischezayut-zapisi-ne-sohranyayutsya",
+  "title": "Введённые записи о сне и кормлении исчезают и не сохраняются, делая основную функцию неработающей",
+  "obs": 2
+ },
+ {
+  "id": "knopka-sohranit-lomaetsya-novye-ustroystva",
+  "title": "Базовое логирование ломается на новых iPhone — кнопка «сохранить» не срабатывает с первого раза, баг не чинят несмотря на отчёты",
+  "obs": 2
+ },
+ {
+  "id": "degradaciya-posle-otkaza-ot-premium",
+  "title": "После отказа от премиума или окончания пробного периода приложение начинает тормозить и глючить, словно в наказание",
+  "obs": 2
+ },
+ {
+  "id": "posle-oplaty-stalo-nestabilno",
+  "title": "После оплаты приложение стало нестабильным и заглючило, словно платёж открыл побочные эффекты вместо функций",
+  "obs": 2
+ },
+ {
+  "id": "validaciya-vremeni-stiraet-zapis",
+  "title": "При ошибке во времени или AM/PM приложение очищает всю запись целиком вместо того, чтобы дать исправить только время",
+  "obs": 2
+ },
+ {
+  "id": "izmenenie-vremeni-ne-obnovlyaet-datu",
+  "title": "При переносе события на предыдущий час дата не пересчитывается сама и выдаёт ошибку, требуя ручной правки",
+  "obs": 2
+ },
+ {
+  "id": "knopka-logirovaniya-nedostizhima-odnoy-rukoy",
+  "title": "Главная кнопка логирования вынесена в угол, недостижимый большим пальцем при работе одной рукой с ребёнком на руках",
+  "obs": 2
+ },
+ {
+  "id": "kalendar-prygayet-na-tekuschiy-den",
+  "title": "После сохранения календарь прыгает на сегодняшний день вместо того, чтобы остаться на редактируемом",
+  "obs": 2
+ },
+ {
+  "id": "blokirovka-orientacii-i-dostupnost",
+  "title": "Жёсткая блокировка портретного режима и игнор системных настроек доступности делают планы сна нечитаемыми для слабовидящих",
+  "obs": 2
+ },
+ {
+  "id": "popapy-i-soobscheniya-pereryvayut",
+  "title": "При открытии и во время логирования внезапно всплывают сообщения и попапы, перекрывающие быстрый доступ к функциям",
+  "obs": 2
+ },
+ {
+  "id": "ai-pomoschnik-nadezhda-na-podpisku",
+  "title": "Встроенный ассистент даёт персональные ответы про конкретного младенца и для части пользователей сам оправдывает стоимость подписки",
+  "obs": 2
+ },
+ {
+  "id": "zhurnal-dlya-vracha",
+  "title": "Родители превращают трекер в проверяемый медицинский журнал для приёма у врача — витамины, лекарства, история ухода",
+  "obs": 2
+ },
+ {
+  "id": "registraciya-tolko-apple-oauth-obschiy-akkaunt",
+  "title": "Регистрация работает только через Apple, и пары вынуждены делить один Apple ID на двух телефонах ради совместного доступа",
+  "obs": 2
+ },
+ {
+  "id": "sweetspot-otdelnaya-oplata",
+  "title": "Главная функция предсказания сна продаётся отдельно от уже оплаченного плана — ощущение повторной монетизации ключевого сценария",
+  "obs": 1
+ },
+ {
+  "id": "live-aktivnost-vnezapno-platnaya",
+  "title": "Отслеживание на экране блокировки было бесплатным, а потом без предупреждения ушло за платную стену",
+  "obs": 1
+ },
+ {
+  "id": "skidka-v-pisme-fiktivnaya",
+  "title": "Письмо обещает скидку, но при переходе цена остаётся прежней",
+  "obs": 1
+ },
+ {
+  "id": "istoricheskie-dannye-za-paywall",
+  "title": "Доступ к ранее введённой истории питания и аллергий закрыт платной стеной — медицинский справочник превращается в платный архив",
+  "obs": 1
+ },
+ {
+  "id": "podpiska-bez-dostupa-zablokirovan",
+  "title": "После оплаты пользователь заблокирован в платном аккаунте — не находит свой email, не может написать в поддержку",
+  "obs": 1
+ },
+ {
+  "id": "trubnoye-pitaniye-redkie-sostoyaniya",
+  "title": "Трекер позволяет логировать зондовое кормление для младенцев с нарушениями глотания — это закрывает пробел, которого нет у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "glyukoza-endokrinnye-sostoyaniya",
+  "title": "Нет учёта уровня глюкозы крови, нужного родителям младенцев с гиперинсулинизмом и диабетом",
+  "obs": 1
+ },
+ {
+  "id": "metriki-scezhivaniya-zapasy-moloka",
+  "title": "Нет полного учёта сцеживания и запасов замороженного молока, важного для кормящих матерей",
+  "obs": 1
+ },
+ {
+  "id": "vozrastnoy-kontent-statyi",
+  "title": "Приложение подаёт статьи и информацию под текущий возраст младенца, встраиваясь в основной сценарий ухода",
+  "obs": 1
+ },
+ {
+  "id": "vehi-razvitiya-narrativ",
+  "title": "Приложение отмечает вехи развития и превращает сухие данные в нарратив о прогрессе ребёнка",
+  "obs": 1
+ },
+ {
+  "id": "vidzhet-pokazyvaet-staroe-vremya",
+  "title": "Виджет показывает неправильное время последнего кормления и не обновляется",
+  "obs": 1
+ },
+ {
+  "id": "zavisaniye-na-zastavke",
+  "title": "Приложение зависает на заставке с логотипом и не пускает внутрь даже после переустановки",
+  "obs": 1
+ },
+ {
+  "id": "loop-obnovleniya-net-v-store",
+  "title": "Приложение шлёт в магазин за обновлением, которого там нет, и зависает в цикле конфликта версий",
+  "obs": 1
+ },
+ {
+  "id": "offlayn-dannye-udalyayutsya",
+  "title": "Введённые офлайн данные удаляются при восстановлении связи — критично в поездках и при смене часовых поясов",
+  "obs": 1
+ },
+ {
+  "id": "mnogopolzovatelskaya-sinhronizaciya-glyuchit",
+  "title": "Одновременное логирование несколькими опекунами рассыпается — виджеты не синхронизируются, навигация зависает, выводятся не те экраны",
+  "obs": 1
+ },
+ {
+  "id": "perezagruzki-radi-obnovleniya-napominaniya",
+  "title": "Чтобы обновить одно напоминание о кормлении, приходится перезагружать приложение по несколько раз",
+  "obs": 1
+ },
+ {
+  "id": "net-integracii-s-detsadom",
+  "title": "Нет синхронизации с системой учёта детского сада — записи дома и в саду живут в разных системах",
+  "obs": 1
+ },
+ {
+  "id": "fotografii-bez-soglasiya",
+  "title": "Пользователь утверждает, что приложение делает фотографии без согласия при открытии",
+  "obs": 1
+ },
+ {
+  "id": "taymery-trebuyut-aktivnogo-vzaimodeystviya",
+  "title": "Таймеры кормления и сна не продолжаются сами по себе и требуют постоянного присутствия в приложении, чтобы не остановиться",
+  "obs": 1
+ },
+ {
+  "id": "knopka-prinuditelnyy-pokaz-funkciy",
+  "title": "Убрали возможность прятать неиспользуемые функции со стартового экрана — лишние блоки навязаны и ломают рабочий процесс",
+  "obs": 1
+ },
+ {
+  "id": "son-tolko-v-kalendare-net-spiska",
+  "title": "Сон виден только в календарном виде, без списка — нельзя быстро просмотреть все события одной колонкой",
+  "obs": 1
+ },
+ {
+  "id": "net-pereklassifikacii-sna",
+  "title": "Сон нельзя переклассифицировать — ранний утренний подъём записывает следующий ночной сон как дневной и портит статистику",
+  "obs": 1
+ },
+ {
+  "id": "plany-sna-nelzya-eksportirovat",
+  "title": "Планы сна можно только читать внутри приложения — нет сохранения, копирования или экспорта текста наружу",
+  "obs": 1
+ },
+ {
+  "id": "net-vidzheta-na-lockscreen-spravki",
+  "title": "На экране блокировки не видно времени последнего кормления, подгузника или сцеживания — приходится открывать приложение ради справки",
+  "obs": 1
+ },
+ {
+  "id": "agressivnyy-upsell-noch",
+  "title": "Назойливое предложение дорогого премиума выскакивает постоянно, особенно ночью, отвлекая от логирования",
+  "obs": 1
+ },
+ {
+  "id": "net-razdelnyh-profiley-roditeley",
+  "title": "Партнёры вынуждены делить один аккаунт — нет отдельных профилей соопекунов, ввод медленный и зависит от сервера",
+  "obs": 1
+ },
+ {
+  "id": "net-ipad-interfeysa",
+  "title": "Нет планшетной вёрстки для iPad — опекуны вынуждены тянуть мобильный размер на большом экране или делить чужой телефон",
+  "obs": 1
+ },
+ {
+  "id": "ai-sovety-polyye-nezhivye",
+  "title": "Советы ассистента по сну ощущаются пустыми и шаблонными — уступают живому опыту родителей из сообщества",
+  "obs": 1
+ },
+ {
+  "id": "ai-parsit-estestvennyy-yazyk",
+  "title": "Помощник разбирает свободный текст из чужих записок и заносит событие задним числом, превращая задержку в удобство",
+  "obs": 1
+ },
+ {
+  "id": "medicински-slozhnyy-mladenec-mnogokanalno",
+  "title": "Для исключительно сцеживающей матери медицински сложного младенца совместный учёт многих потоков данных предотвращает истощение",
+  "obs": 1
+ },
+ {
+  "id": "instrument-rastet-s-mladencem",
+  "title": "Один и тот же трекер переключается с кормления на сон, потом на прикорм по мере роста ребёнка — инструмент рассчитан на весь жизненный цикл",
+  "obs": 1
+ },
+ {
+  "id": "haos-v-dannye-uverennost",
+  "title": "Логирование превращает когнитивный хаос в сортируемые данные и снимает самосомнения родителя в качестве ухода",
+  "obs": 1
+ },
+ {
+  "id": "kouch-po-obucheniyu-snu",
+  "title": "Приложение выступает коучем по обучению сну в послеродовый период, а не просто журналом",
+  "obs": 1
+ },
+ {
+  "id": "detalnoe-logirovanie-vyyavlyaet-problemy-kormleniya",
+  "title": "Точный учёт длительности кормлений помог выявить проблему захвата груди и получить совет консультанта по лактации",
+  "obs": 1
+ },
+ {
+  "id": "vospriyatie-kak-notes-prodazha-dannyh",
+  "title": "Часть пользователей видит в приложении переупакованный блокнот с ручным вводом и подозревает продажу данных третьим лицам",
+  "obs": 1
+ },
+ {
+  "id": "uvedomleniya-prevraschayutsya-v-marketing",
+  "title": "Включение уведомлений тянет за собой маркетинговые рассылки вместо чисто функциональных напоминаний о событиях",
+  "obs": 1
+ },
+ {
+  "id": "siri-rasshirit-tipy-aktivnostey",
+  "title": "Голосовой ввод через Siri покрывает мало типов активностей — пользователи хотят логировать голосом больше сценариев",
+  "obs": 1
+ },
+ {
+  "id": "povtornaya-avtorizaciya-mnogo-popytok",
+  "title": "После потери сессии вход требует множества повторных попыток, что особенно мучительно при срочном доступе",
+  "obs": 1
+ }
+]

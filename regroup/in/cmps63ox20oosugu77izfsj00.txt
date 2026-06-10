@@ -1,0 +1,114 @@
+You are grouping 13 mechanism-level insight clusters from Proton VPN: Fast & Secure (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Proton VPN: Fast & Secure, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 13 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Proton VPN: Fast & Secure — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Proton VPN: Fast & Secure>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps63ox20oosugu77izfsj00.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-slow-launch",
+  "title": "Приложение слишком долго загружается и зависает при запуске",
+  "obs": 3
+ },
+ {
+  "id": "vpn-disconnects-wifi",
+  "title": "ВПН постоянно отключается при подключении к Wi-Fi — до 12–15 раз в день",
+  "obs": 2
+ },
+ {
+  "id": "app-black-screen-ios",
+  "title": "Приложение не открывается на iOS — только чёрный экран",
+  "obs": 2
+ },
+ {
+  "id": "slow-regional-servers",
+  "title": "Серверы в отдельных регионах работают очень медленно",
+  "obs": 2
+ },
+ {
+  "id": "same-day-refund-denied",
+  "title": "Отмена подписки в день покупки не даёт возврат средств",
+  "obs": 1
+ },
+ {
+  "id": "paid-plan-shows-free",
+  "title": "После оплаты двухлетнего плана приложение показывает бесплатный тариф без выбора страны",
+  "obs": 1
+ },
+ {
+  "id": "vpn-freezes-internet",
+  "title": "ВПН вызывает зависание интернет-соединения — для восстановления нужно отключиться",
+  "obs": 1
+ },
+ {
+  "id": "vpn-fails-after-update",
+  "title": "После обновления приложения ВПН перестаёт подключаться",
+  "obs": 1
+ },
+ {
+  "id": "vpn-blocks-financial-sites",
+  "title": "ВПН блокирует доступ к сайтам банков и брокеров",
+  "obs": 1
+ },
+ {
+  "id": "vpn-disrupts-ios-icons",
+  "title": "ВПН сбивает расположение значков на главном экране iOS после каждого обновления системы",
+  "obs": 1
+ },
+ {
+  "id": "no-pause-feature",
+  "title": "Кнопки паузы нет — пользователь вынужден отключаться и забывает переподключиться",
+  "obs": 1
+ },
+ {
+  "id": "app-unavailable-russia",
+  "title": "Приложение недоступно на iOS в России — пользователи из стран с ограничениями не могут его запустить",
+  "obs": 1
+ },
+ {
+  "id": "vpn-fails-china",
+  "title": "ВПН не работает в Китае, хотя позиционируется как инструмент обхода блокировок",
+  "obs": 1
+ }
+]

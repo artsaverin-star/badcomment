@@ -1,0 +1,304 @@
+You are grouping 51 mechanism-level insight clusters from The Economist: News & Analysis (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO The Economist: News & Analysis, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 51 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to The Economist: News & Analysis — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to The Economist: News & Analysis>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1239397626.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "scroll-jumps-crashes",
+  "title": "При прокрутке статей экран хаотично прыгает или падает — особенно заметно на планшете и старых устройствах",
+  "obs": 8
+ },
+ {
+  "id": "replayed-articles-skipped",
+  "title": "Прослушанные статьи автоматически помечаются и пропускаются — повторное прослушивание невозможно",
+  "obs": 6
+ },
+ {
+  "id": "queue-management-broken",
+  "title": "Управление очередью воспроизведения сломано: нельзя вернуться назад, переупорядочить или очистить прослушанное",
+  "obs": 6
+ },
+ {
+  "id": "ai-narration-quality",
+  "title": "ИИ-озвучка воспринимается настолько хуже человеческой, что пользователи отказываются от аудиоверсии",
+  "obs": 5
+ },
+ {
+  "id": "reading-position-not-saved",
+  "title": "При повторном открытии выпуска или статьи приложение не помнит, где пользователь остановился",
+  "obs": 5
+ },
+ {
+  "id": "cross-device-sync-broken",
+  "title": "Прогресс чтения, закладки и прочитанные статьи не синхронизируются между устройствами одного аккаунта",
+  "obs": 5
+ },
+ {
+  "id": "sleep-timer-missing",
+  "title": "В приложении нет таймера остановки воспроизведения — нельзя засыпать под подкаст или статью",
+  "obs": 4
+ },
+ {
+  "id": "carplay-missing",
+  "title": "Приложение не поддерживает воспроизведение в автомобиле через встроенную систему",
+  "obs": 4
+ },
+ {
+  "id": "offline-audio-broken",
+  "title": "Загруженные статьи и выпуски не воспроизводятся без интернета, хотя скачаны заранее",
+  "obs": 4
+ },
+ {
+  "id": "notification-no-deep-link",
+  "title": "Клик по уведомлению открывает главный экран, а не саму статью из уведомления",
+  "obs": 4
+ },
+ {
+  "id": "issue-navigation-friction",
+  "title": "Для перехода между разделами выпуска нужно каждый раз возвращаться на главную страницу — последовательного чтения нет",
+  "obs": 4
+ },
+ {
+  "id": "app-interrupts-other-audio",
+  "title": "Открытие приложения прерывает воспроизведение музыки или подкастов в других приложениях, даже если пользователь просто читает",
+  "obs": 3
+ },
+ {
+  "id": "app-crashes-on-launch",
+  "title": "Приложение падает сразу при запуске — не открывается совсем, в том числе на некоторых моделях планшета",
+  "obs": 3
+ },
+ {
+  "id": "auto-queue-entire-issue",
+  "title": "При запуске одной статьи приложение автоматически добавляет весь выпуск в очередь без возможности отключить это",
+  "obs": 2
+ },
+ {
+  "id": "notification-no-granular-settings",
+  "title": "Настройка уведомлений предлагает только два варианта — несколько в день или полное отключение, без фильтрации по темам",
+  "obs": 2
+ },
+ {
+  "id": "ads-in-paid-subscription",
+  "title": "Реклама и автовоспроизводящиеся видео появляются в статьях даже при наличии платной подписки",
+  "obs": 2
+ },
+ {
+  "id": "forced-update-every-launch",
+  "title": "Приложение требует обновления при каждом или почти каждом запуске, прерывая работу пользователя",
+  "obs": 2
+ },
+ {
+  "id": "saved-tab-slow",
+  "title": "Вкладка с сохранёнными статьями загружается долго и не кэширует изображения для офлайна",
+  "obs": 2
+ },
+ {
+  "id": "cancel-dark-pattern",
+  "title": "Для отмены подписки нужно нажать кнопку отмены минимум пять раз — это намеренное препятствие",
+  "obs": 1
+ },
+ {
+  "id": "subscription-start-date",
+  "title": "Подписка начинает действовать раньше выбранной даты без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "subscription-scope-unclear",
+  "title": "Покупатель онлайн-подписки не понимает, что печатный журнал в неё не входит",
+  "obs": 1
+ },
+ {
+  "id": "gift-article-blocked",
+  "title": "Приложение не открывает подарочные статьи — механизм дарения игнорируется",
+  "obs": 1
+ },
+ {
+  "id": "ai-vs-human-no-label",
+  "title": "Статьи с ИИ-озвучкой и с живым диктором внешне неразличимы — нет никакой пометки",
+  "obs": 1
+ },
+ {
+  "id": "editorial-gambling-odds",
+  "title": "Редакция начала включать коэффициенты букмекеров в политические материалы — читатели воспринимают это как отступление от стандартов",
+  "obs": 1
+ },
+ {
+  "id": "audio-bitrate-degraded",
+  "title": "Качество звука в аудиоверсии заметно ухудшилось и звучит как старые сжатые файлы",
+  "obs": 1
+ },
+ {
+  "id": "autoplay-video-audio-starts",
+  "title": "Видео с автоматическим воспроизведением встроено в статьи и мешает читать в тишине",
+  "obs": 1
+ },
+ {
+  "id": "video-minimise-freezes",
+  "title": "Сворачивание видео в фоновый режим останавливает воспроизведение и требует перезапуска приложения",
+  "obs": 1
+ },
+ {
+  "id": "audio-to-text-no-switch",
+  "title": "Во время прослушивания статьи нельзя перейти к её тексту — режимы аудио и чтения не связаны",
+  "obs": 1
+ },
+ {
+  "id": "gps-audio-no-duck",
+  "title": "Приложение не снижает громкость при голосовых подсказках навигатора, в отличие от конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "human-narration-autoplay-removed",
+  "title": "Обновление убрало живую озвучку и автозапуск утреннего прослушивания — основной сценарий потребления контента разрушен",
+  "obs": 1
+ },
+ {
+  "id": "player-crashes",
+  "title": "Аудиоплеер периодически падает во время воспроизведения — регрессия, которой не было в прошлых версиях",
+  "obs": 1
+ },
+ {
+  "id": "saved-articles-hidden",
+  "title": "После редизайна доступ к сохранённым статьям исчез из интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "image-fullscreen-no-swipe",
+  "title": "Полноэкранное изображение не закрывается стандартным жестом — свайп не работает",
+  "obs": 1
+ },
+ {
+  "id": "account-info-hidden",
+  "title": "В интерфейсе нет возможности посмотреть детали подписки и платёжную информацию",
+  "obs": 1
+ },
+ {
+  "id": "ipad-back-navigation",
+  "title": "На планшете приложение возвращает пользователя на главный экран вместо предыдущей статьи",
+  "obs": 1
+ },
+ {
+  "id": "share-url-wrong-format",
+  "title": "Функция «Поделиться» отправляет голый текстовый адрес вместо открытия статьи в браузере",
+  "obs": 1
+ },
+ {
+  "id": "share-popup-mid-article",
+  "title": "Поп-ап с предложением поделиться статьёй появляется прямо в середине текста во время чтения",
+  "obs": 1
+ },
+ {
+  "id": "search-returns-archive",
+  "title": "Поиск по заголовку недавней статьи возвращает публикации многолетней давности вместо свежих",
+  "obs": 1
+ },
+ {
+  "id": "no-reading-history",
+  "title": "В приложении нет истории просмотров — случайно замеченную статью потом невозможно найти",
+  "obs": 1
+ },
+ {
+  "id": "download-ux-unclear",
+  "title": "Процесс загрузки выпуска нелогичен и требует нескольких лишних шагов",
+  "obs": 1
+ },
+ {
+  "id": "gift-article-removed",
+  "title": "Функция дарения статей удалена из приложения, а статьи на планшете отображаются в усечённом виде",
+  "obs": 1
+ },
+ {
+  "id": "app-slow-load",
+  "title": "Приложение медленно загружается и часто не позволяет прочитать статью — сбой в основном сценарии использования",
+  "obs": 1
+ },
+ {
+  "id": "session-logout",
+  "title": "Пользователя периодически выбрасывает из аккаунта без видимой причины",
+  "obs": 1
+ },
+ {
+  "id": "login-repeated-challenges",
+  "title": "Вход в аккаунт требует многочисленных повторных проверок и занимает значительное время",
+  "obs": 1
+ },
+ {
+  "id": "audio-feature-stops-months",
+  "title": "Функция озвучивания статей полностью перестаёт работать на несколько месяцев и восстанавливается только после обновления",
+  "obs": 1
+ },
+ {
+  "id": "ad-scroll-lag",
+  "title": "Загрузка рекламы вызывает заметное торможение при прокрутке даже на мощных устройствах",
+  "obs": 1
+ },
+ {
+  "id": "error-report-ui-broken",
+  "title": "Страница отправки сообщения об ошибке сама не отвечает на нажатие кнопки и зависает на 15–20 секунд",
+  "obs": 1
+ },
+ {
+  "id": "kindle-not-supported",
+  "title": "Приложение недоступно на планшетах семейства Kindle — подписчик не может читать на этом устройстве",
+  "obs": 1
+ },
+ {
+  "id": "privacy-settings-reset",
+  "title": "Настройка приватности (запрет продажи данных) сбрасывается сама по себе после каждого запуска",
+  "obs": 1
+ },
+ {
+  "id": "support-useless-for-subscription",
+  "title": "Служба поддержки не решает базовые проблемы с подпиской — восстановление занимает несколько недель",
+  "obs": 1
+ },
+ {
+  "id": "content-discovery-surprise",
+  "title": "Пользователи, пришедшие за одной узкой темой, обнаруживают неожиданно широкий и полезный контент",
+  "obs": 1
+ }
+]

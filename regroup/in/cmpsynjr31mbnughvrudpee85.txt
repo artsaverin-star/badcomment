@@ -1,0 +1,244 @@
+You are grouping 39 mechanism-level insight clusters from Teuida: Learn Languages (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Teuida: Learn Languages, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 39 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Teuida: Learn Languages — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Teuida: Learn Languages>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsynjr31mbnughvrudpee85.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "realistic-teacher-conversation",
+  "title": "Диалог идёт как с живым учителем в реальном времени, а не с ботом, и это ощущается настоящим разговором",
+  "obs": 8
+ },
+ {
+  "id": "rapid-conversational-ability",
+  "title": "Пользователи достигают разговорного уровня за дни-недели активной практики",
+  "obs": 7
+ },
+ {
+  "id": "speaking-practice-not-listening",
+  "title": "Приложение заставляет именно говорить в диалогах, а не слушать или повторять, в отличие от других языковых приложений",
+  "obs": 6
+ },
+ {
+  "id": "beginner-zero-knowledge-onboarding",
+  "title": "Приложение подходит абсолютным новичкам, не знающим ни одной буквы языка, и не перегружает их",
+  "obs": 6
+ },
+ {
+  "id": "pronunciation-step-by-step",
+  "title": "Произношение разбирается пошагово по слогам с образцом и последующей тренировкой",
+  "obs": 4
+ },
+ {
+  "id": "converts-skeptics-vs-duolingo",
+  "title": "Методика переубеждает скептиков, которым не помог Duolingo, и впервые даёт чувство компетентности",
+  "obs": 4
+ },
+ {
+  "id": "one-lesson-per-day-free-limit",
+  "title": "На бесплатной версии доступен только один урок в день — активным пользователям этого мало",
+  "obs": 3
+ },
+ {
+  "id": "value-without-paywall",
+  "title": "Приложение даёт реальную пользу бесплатно и не запирает контент за подпиской",
+  "obs": 3
+ },
+ {
+  "id": "real-life-scenarios",
+  "title": "Обучение построено на сценариях реальных жизненных ситуаций, готовящих к живому общению",
+  "obs": 3
+ },
+ {
+  "id": "strong-long-term-retention",
+  "title": "Материал из видеоуроков крепко запоминается даже после многолетнего перерыва",
+  "obs": 3
+ },
+ {
+  "id": "engaging-makes-boring-fun",
+  "title": "Приложение превращает изучение языка из скучного в увлекательное и удерживает интерес месяцами",
+  "obs": 3
+ },
+ {
+  "id": "missing-languages-requests",
+  "title": "Пользователи просят добавить отсутствующие языки — китайский, немецкий",
+  "obs": 3
+ },
+ {
+  "id": "multi-language-portability",
+  "title": "Навыки переносятся между языками, и пользователи проходят несколько курсов в одном приложении",
+  "obs": 3
+ },
+ {
+  "id": "quality-instruction-fast-progress",
+  "title": "Пользователи оценивают качество обучения как высокое, а скорость прогресса как быструю",
+  "obs": 3
+ },
+ {
+  "id": "ad-breaks-only-after-lessons",
+  "title": "Реклама появляется только в конце урока и не прерывает занятие",
+  "obs": 3
+ },
+ {
+  "id": "multimodal-video-learning",
+  "title": "Видео-формат помогает запоминать материал лучше, чем текст",
+  "obs": 2
+ },
+ {
+  "id": "social-context-registers",
+  "title": "Приложение учит разным регистрам речи в зависимости от ситуации — дружеский против уважительного",
+  "obs": 2
+ },
+ {
+  "id": "tutor-like-personal-experience",
+  "title": "Возникает ощущение индивидуального репетитора и школьного класса благодаря интерактивным диалогам",
+  "obs": 2
+ },
+ {
+  "id": "microphone-speech-recognition-broken-ios",
+  "title": "На iPhone микрофон не распознаёт речь и не даёт завершить урок, хотя на iPad всё работает",
+  "obs": 2
+ },
+ {
+  "id": "human-interaction-beats-ai",
+  "title": "Работа с реальными преподавателями вместо ИИ ускоряет обучение и сильнее мотивирует",
+  "obs": 2
+ },
+ {
+  "id": "fandom-driven-learners",
+  "title": "Аудиторию привлекают цели фандома — K-pop и понимание аниме, а не только путешествия",
+  "obs": 2
+ },
+ {
+  "id": "practical-travel-use",
+  "title": "Пользователи применяют язык в реальных поездках и общаются без переводчика",
+  "obs": 2
+ },
+ {
+  "id": "premium-video-after-every-action",
+  "title": "После обновления промо-ролики премиума выскакивают после каждого действия и мешают проходить уроки",
+  "obs": 1
+ },
+ {
+  "id": "premium-model-friction",
+  "title": "Пользователь рекомендует приложение, но критикует платную модель",
+  "obs": 1
+ },
+ {
+  "id": "full-sentences-not-words",
+  "title": "Учат целым предложениям, а не отдельным словам, что сразу применимо в речи",
+  "obs": 1
+ },
+ {
+  "id": "social-before-transactional",
+  "title": "Обучение начинается с социальных фраз приветствия, а не с заказа в кафе как у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "structured-daily-pacing",
+  "title": "Обучение структурировано по дням и идёт в умеренном темпе без перегрузки",
+  "obs": 1
+ },
+ {
+  "id": "retry-without-penalty",
+  "title": "При забывании можно повторить попытку без наказания — обучение через множественные попытки",
+  "obs": 1
+ },
+ {
+  "id": "content-updates-stalled",
+  "title": "Разработчики перестали регулярно выпускать новые главы, что ставит под вопрос продление подписки",
+  "obs": 1
+ },
+ {
+  "id": "broken-streak-after-daily-practice",
+  "title": "Система серий сбрасывается даже при ежедневной практике почти год без пропусков",
+  "obs": 1
+ },
+ {
+  "id": "email-validation-blocks-signup",
+  "title": "Вход требует email, но валидация отвергает существующие адреса и не даёт создать новый — доступ полностью заблокирован",
+  "obs": 1
+ },
+ {
+  "id": "app-blocking-focus-feature",
+  "title": "Встроенная блокировка других приложений помогает сосредоточиться на учёбе",
+  "obs": 1
+ },
+ {
+  "id": "moderate-learning-curve",
+  "title": "Освоение интерфейса требует небольшого усилия, но это не отпугивает пользователя",
+  "obs": 1
+ },
+ {
+  "id": "youtube-shorts-acquisition",
+  "title": "Новых пользователей приводят развлекательные YouTube-ролики о приключениях",
+  "obs": 1
+ },
+ {
+  "id": "productive-alternative-to-doomscrolling",
+  "title": "Приложение используют как продуктивную замену бездумному листанию ленты",
+  "obs": 1
+ },
+ {
+  "id": "intro-extrovert-social-skills",
+  "title": "Приложение развивает социальные навыки общения, что ценят интроверты",
+  "obs": 1
+ },
+ {
+  "id": "adult-learner-family-support",
+  "title": "Взрослые начинают учиться по рекомендации младших, при поддержке семьи",
+  "obs": 1
+ },
+ {
+  "id": "complementary-with-workbook",
+  "title": "Пользователи совмещают приложение с бумажным учебником для комплексного обучения",
+  "obs": 1
+ },
+ {
+  "id": "fast-vocabulary-acquisition",
+  "title": "Пользователи воспринимают набор нового словарного запаса как быстрый",
+  "obs": 1
+ }
+]

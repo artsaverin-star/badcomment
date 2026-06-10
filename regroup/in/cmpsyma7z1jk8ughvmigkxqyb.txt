@@ -1,0 +1,329 @@
+You are grouping 56 mechanism-level insight clusters from Memrise Easy Language Learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Memrise Easy Language Learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 56 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Memrise Easy Language Learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Memrise Easy Language Learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyma7z1jk8ughvmigkxqyb.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "stuck-on-loading-launch",
+  "title": "Приложение бесконечно зависает на экране загрузки при входе, даже после переустановки и очистки кэша",
+  "obs": 8
+ },
+ {
+  "id": "progress-wiped-back-to-language-select",
+  "title": "Приложение сбрасывает весь прогресс и возвращает на экран выбора языка, несмотря на оплату",
+  "obs": 6
+ },
+ {
+  "id": "removed-courses-after-redesign",
+  "title": "Из приложения удалили курсы по другим предметам, словарные подборки и наборы по уровням, ради которых покупали подписку",
+  "obs": 4
+ },
+ {
+  "id": "ai-chat-cannot-disable",
+  "title": "AI-чат встроен в уроки обязательно и его нельзя отключить, в отличие от других видов практики",
+  "obs": 4
+ },
+ {
+  "id": "cannot-skip-known-content",
+  "title": "Нельзя выбрать или пропустить уровень — даже опытных при возврате заставляют начинать с самого начала",
+  "obs": 4
+ },
+ {
+  "id": "error-on-language-select",
+  "title": "При выборе языка приложение выдаёт ошибку и не даёт начать обучение",
+  "obs": 4
+ },
+ {
+  "id": "paid-but-lessons-dont-load",
+  "title": "После оплаты уроки не загружаются, доступа к контенту нет, а поддержка не отвечает",
+  "obs": 3
+ },
+ {
+  "id": "no-grammar-jumps-to-conversation",
+  "title": "Приложение не учит грамматику и азбуку, а сразу требует строить фразы и вести диалоги",
+  "obs": 3
+ },
+ {
+  "id": "starts-too-hard-for-beginners",
+  "title": "Курс начинается со сложных слов и сленга вместо азов, что не подходит полным новичкам",
+  "obs": 3
+ },
+ {
+  "id": "points-system-removes-self-pace",
+  "title": "Обновление заменило самостоятельный темп системой очков и убрало видимый прогресс",
+  "obs": 3
+ },
+ {
+  "id": "sentence-builder-broken",
+  "title": "Упражнение на построение предложений ломается — выдаёт ошибку, пропускает вопросы или не даёт варианты",
+  "obs": 3
+ },
+ {
+  "id": "wrong-options-block-lesson",
+  "title": "В заданиях нет нужных иероглифов или появляются неверные варианты, и правильный ответ выбрать невозможно",
+  "obs": 3
+ },
+ {
+  "id": "restore-purchases-broken",
+  "title": "Кнопка «Восстановить покупки» не работает, и доступ к оплаченной подписке вернуть нельзя",
+  "obs": 2
+ },
+ {
+  "id": "ai-video-replaces-native-speakers",
+  "title": "Голоса и видео носителей заменены на синтетические, и подмена живых людей разрушает доверие",
+  "obs": 2
+ },
+ {
+  "id": "community-courses-removed",
+  "title": "Удалили пользовательские курсы сообщества, которые были ключевым преимуществом приложения",
+  "obs": 2
+ },
+ {
+  "id": "same-video-repeats",
+  "title": "Одно и то же видео с носителем показывают много дней подряд вместо нового контента",
+  "obs": 2
+ },
+ {
+  "id": "missing-audio-pronunciation",
+  "title": "У слов нет аудио произношения, и новичок не может узнать, как они звучат",
+  "obs": 2
+ },
+ {
+  "id": "continue-button-freezes",
+  "title": "В конце урока кнопка «Продолжить» зависает, и приходится каждый раз перезапускать приложение",
+  "obs": 2
+ },
+ {
+  "id": "freezes-after-exercise",
+  "title": "В режиме повторения и AI-практики приложение зависает после упражнения и не даёт продолжить",
+  "obs": 2
+ },
+ {
+  "id": "no-placement-test",
+  "title": "Нет теста на уровень знаний, поэтому новичкам и возвращающимся подсовывают уже знакомый материал",
+  "obs": 2
+ },
+ {
+  "id": "input-keyboard-friction",
+  "title": "Ввод ответа усложнён нестандартной раскладкой и требованием набирать латиницей вместо целевого письма",
+  "obs": 2
+ },
+ {
+  "id": "no-pure-vocab-or-skip",
+  "title": "Сломанные упражнения нельзя пропустить, а отдельной тренировки чистого словаря больше нет",
+  "obs": 2
+ },
+ {
+  "id": "char-confusion-font",
+  "title": "Похожие на экране символы и варианты знаков засчитываются как ошибка ввода",
+  "obs": 2
+ },
+ {
+  "id": "ai-chat-freezes",
+  "title": "AI-бот зависает во время уроков повторения, которые без него пройти нельзя",
+  "obs": 2
+ },
+ {
+  "id": "correct-marked-wrong",
+  "title": "Приложение засчитывает правильные ответы как ошибочные и меняет введённый текст после отправки",
+  "obs": 2
+ },
+ {
+  "id": "ai-wrong-feedback",
+  "title": "AI отвергает правильно выученные слова и даёт неверную обратную связь по грамматике и роду",
+  "obs": 2
+ },
+ {
+  "id": "ai-too-early-ungrounded",
+  "title": "AI-диалоги предлагаются слишком рано и требуют материала, которого в уроках не было",
+  "obs": 2
+ },
+ {
+  "id": "depth-varies-by-language-strategy",
+  "title": "Глубина и качество обучения сильно зависят от языка — одни курсы доводят до уровня, другие бросают новичка без опоры",
+  "obs": 2
+ },
+ {
+  "id": "lifetime-no-longer-valid",
+  "title": "Купленная ранее пожизненная подписка перестала действовать в новой системе подписок",
+  "obs": 1
+ },
+ {
+  "id": "charged-after-inactivity",
+  "title": "Подписка списывается после года неиспользования без уведомления и подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "trial-cancel-multiple-paths",
+  "title": "Отмену пробной подписки прячут в разные места приложения и сайта, и человек платит дважды",
+  "obs": 1
+ },
+ {
+  "id": "no-shared-profiles",
+  "title": "Одну подписку нельзя разделить на двух человек — паре приходится покупать две отдельные",
+  "obs": 1
+ },
+ {
+  "id": "redo-basics-after-restore",
+  "title": "После восстановления пожизненной подписки приложение заставляет заново проходить все базовые уроки",
+  "obs": 1
+ },
+ {
+  "id": "free-review-cap",
+  "title": "Бесплатным пользователям доступно только четыре повторения, чего мало для закрепления материала",
+  "obs": 1
+ },
+ {
+  "id": "borrowed-youtube-violent-content",
+  "title": "Уроки собраны из чужих роликов YouTube без разрешения, включая сцены насилия",
+  "obs": 1
+ },
+ {
+  "id": "video-talking-head-no-context",
+  "title": "Видео носителей сняты как разговор в камеру без контекстной сценки, что мешает запоминанию",
+  "obs": 1
+ },
+ {
+  "id": "video-quality-varies-by-language",
+  "title": "Качество съёмки видео сильно различается между языками — одни курсы выглядят дёшево",
+  "obs": 1
+ },
+ {
+  "id": "wrong-transliteration",
+  "title": "В курсах встречаются ошибки транслитерации и перевода букв, которые закрепляют неправильное произношение",
+  "obs": 1
+ },
+ {
+  "id": "regional-variant-missing",
+  "title": "Доступны только пара вариантов языка, без учёта других регионов с иным словарём и акцентом",
+  "obs": 1
+ },
+ {
+  "id": "profanity-over-professional",
+  "title": "Курс делает упор на сленг и брань в ущерб профессиональной лексике",
+  "obs": 1
+ },
+ {
+  "id": "rare-language-incomplete",
+  "title": "Редкий язык добавлен, но курс не достроен и не загружается",
+  "obs": 1
+ },
+ {
+  "id": "language-disappears-after-signup",
+  "title": "Язык доступен при выборе до регистрации, но исчезает после создания аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "review-locked-to-next-day",
+  "title": "Повторять пройденные слова нельзя в своём темпе — режим повторения открывается только на следующий день",
+  "obs": 1
+ },
+ {
+  "id": "keyboard-input-lag",
+  "title": "Клавиатура реагирует с задержкой при наборе открытых ответов и диалогов",
+  "obs": 1
+ },
+ {
+  "id": "five-words-stuck-on-unknown",
+  "title": "Обещанные пять новых слов в день не выдаются — приложение бесконечно повторяет одно неизвестное слово",
+  "obs": 1
+ },
+ {
+  "id": "cannot-change-interface-language",
+  "title": "Язык интерфейса нельзя сменить после установки, и при ошибке выбора приложением нельзя пользоваться",
+  "obs": 1
+ },
+ {
+  "id": "video-moved-out-of-lessons",
+  "title": "Видео носителей убрали из уроков в отдельную вкладку, и его сложнее применить к конкретному материалу",
+  "obs": 1
+ },
+ {
+  "id": "missing-shorts-tab",
+  "title": "Вкладка с короткими видео не отображается, и пользователь не может найти ожидаемый контент",
+  "obs": 1
+ },
+ {
+  "id": "progress-stats-distracting",
+  "title": "Полосы достижений и счётчики дневных целей постоянно выводятся на экран и отвлекают от учёбы",
+  "obs": 1
+ },
+ {
+  "id": "romanization-toggle-incomplete",
+  "title": "Отключение романизации не убирает её полностью — под словом остаётся отвлекающая метка",
+  "obs": 1
+ },
+ {
+  "id": "magic-wand-trivializes",
+  "title": "Функция-подсказка слишком легко позволяет обойти урок без реального обучения",
+  "obs": 1
+ },
+ {
+  "id": "quick-review-disappears",
+  "title": "Опция быстрого повторения пропадает после соседнего упражнения из-за бага состояния экрана",
+  "obs": 1
+ },
+ {
+  "id": "offline-removed",
+  "title": "Новый интерфейс убрал офлайн-режим, которым пользовались без интернета",
+  "obs": 1
+ },
+ {
+  "id": "chinese-pinyin-arbitrary-rules",
+  "title": "Приложение требует дефисы в пиньине вопреки стандартному написанию и создаёт произвольные правила",
+  "obs": 1
+ },
+ {
+  "id": "no-character-explanation",
+  "title": "Иероглифы дают без объяснения значения и произношения, но ждут мгновенного запоминания",
+  "obs": 1
+ },
+ {
+  "id": "spelling-before-speaking",
+  "title": "Приложение требует от новичка сразу запоминать написание вместо постепенного перехода от речи к письму",
+  "obs": 1
+ }
+]

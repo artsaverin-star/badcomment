@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "id": "ne-otkryvaetsya-vovse",
+      "name": "Не доходит до подключения: чёрный экран и вечная загрузка",
+      "insight_ids": ["app-slow-launch", "app-black-screen-ios"]
+    },
+    {
+      "id": "tunnel-rvyotsya",
+      "name": "Туннель рвётся сам: отвалы на Wi-Fi и зависший интернет",
+      "insight_ids": ["vpn-disconnects-wifi", "vpn-freezes-internet", "vpn-fails-after-update", "no-pause-feature"]
+    },
+    {
+      "id": "ne-rabotaet-tam-gde-nuzhno",
+      "name": "Бесполезен там, где обещан обход: Китай, Россия, медленные регионы",
+      "insight_ids": ["vpn-fails-china", "app-unavailable-russia", "slow-regional-servers"]
+    },
+    {
+      "id": "lomaet-soseday",
+      "name": "Чинит приватность, ломает остальное: банки, брокеры и значки iOS",
+      "insight_ids": ["vpn-blocks-financial-sites", "vpn-disrupts-ios-icons"]
+    },
+    {
+      "id": "zaplatil-ne-poluchil",
+      "name": "Деньги ушли, тариф не пришёл: отказ в возврате и фантомный free-план",
+      "insight_ids": ["same-day-refund-denied", "paid-plan-shows-free"]
+    }
+  ]
+}

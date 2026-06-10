@@ -1,0 +1,184 @@
+You are grouping 27 mechanism-level insight clusters from Scan Hero: PDF Scanner (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Scan Hero: PDF Scanner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 27 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Scan Hero: PDF Scanner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Scan Hero: PDF Scanner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsuq32g3s2rug8pszql8f2b.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "cancel-subscription-hidden",
+  "title": "Отмена подписки не имеет видимого маршрута ни в приложении, ни через системные настройки — пользователь попадает в ловушку",
+  "obs": 4
+ },
+ {
+  "id": "rating-prompt-interrupts-work",
+  "title": "Приложение прерывает работу запросами на оценку при каждом открытии, мешая использованию",
+  "obs": 3
+ },
+ {
+  "id": "sharing-page-cap-hidden",
+  "title": "Ограничение бесплатной версии на три страницы в день для отправки скрыто — пользователь узнаёт после завершения сканирования",
+  "obs": 2
+ },
+ {
+  "id": "print-hangs-or-blank",
+  "title": "Функция печати зависает на этапе подготовки файла или показывает пустую страницу вместо документа",
+  "obs": 2
+ },
+ {
+  "id": "trial-charge-after-cancel",
+  "title": "После отмены триала система продолжает попытки списания платежей",
+  "obs": 1
+ },
+ {
+  "id": "weekly-rate-surprise",
+  "title": "После триала тариф составляет $8 в неделю (~$400 в год) вместо стандартного месячного плана",
+  "obs": 1
+ },
+ {
+  "id": "quadruple-billing-cycle",
+  "title": "Биллинг списывает четыре платежа в месяц вместо одного — дефект цикла подписки",
+  "obs": 1
+ },
+ {
+  "id": "trial-conversion-cap",
+  "title": "Бесплатный триал ограничен тремя конверсиями изображение-в-PDF, после чего приложение требует подписку",
+  "obs": 1
+ },
+ {
+  "id": "freemium-pay-as-you-go",
+  "title": "Модель оплаты по потребности работает: пользователь платит только при необходимости сканировать большие объёмы",
+  "obs": 1
+ },
+ {
+  "id": "mobile-replaces-hardware-scanner",
+  "title": "Приложение заменяет физический сканер — пользователь мигрировал с аппаратного устройства на мобильное решение",
+  "obs": 1
+ },
+ {
+  "id": "crop-from-library-advantage",
+  "title": "Возможность обрезать документ из библиотеки фотографий — ключевое преимущество над встроенным сканером iPhone",
+  "obs": 1
+ },
+ {
+  "id": "rating-prompt-before-first-use",
+  "title": "Приложение просит оценку до того, как пользователь успел его использовать",
+  "obs": 1
+ },
+ {
+  "id": "five-star-rating-blocked",
+  "title": "Интерфейс оставления отзыва не позволяет выставить пятизвёздную оценку",
+  "obs": 1
+ },
+ {
+  "id": "manual-scan-mode-harder",
+  "title": "Ручной режим сканирования стал сложнее, переключение между страницами многостраничного документа затруднено",
+  "obs": 1
+ },
+ {
+  "id": "docs-ui-mismatch",
+  "title": "Инструкции в документации описывают путь, которого нет в реальном интерфейсе приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-account-login-sync",
+  "title": "Нет входа в учётную запись — после смены устройства или переустановки приложения все сканы теряются",
+  "obs": 1
+ },
+ {
+  "id": "print-stuck-on-print-screen",
+  "title": "После печати интерфейс остаётся на странице печати и не возвращается автоматически к основному экрану",
+  "obs": 1
+ },
+ {
+  "id": "dropbox-export-crash",
+  "title": "Экспорт в Dropbox падает примерно в каждой пятой попытке и требует перезагрузки приложения",
+  "obs": 1
+ },
+ {
+  "id": "multi-file-export-broken",
+  "title": "Экспорт нескольких выбранных файлов как отдельных документов перестал работать после обновления",
+  "obs": 1
+ },
+ {
+  "id": "pdf-transfer-compatibility",
+  "title": "При передаче файлов между Scan Hero и другими PDF-приложениями на iOS возникают ошибки совместимости",
+  "obs": 1
+ },
+ {
+  "id": "email-sharing-broken",
+  "title": "Отправка по email и функция sharing не работают, несмотря на заявленную функциональность",
+  "obs": 1
+ },
+ {
+  "id": "inactivity-crash-loop",
+  "title": "После часа неактивности приложение начинает непрерывно падать при попытке открыть его",
+  "obs": 1
+ },
+ {
+  "id": "auto-scan-speed-regression",
+  "title": "Автоматический режим после обновления захватывает снимки слишком быстро — не успеть скорректировать угол",
+  "obs": 1
+ },
+ {
+  "id": "photos-app-shortcut-broken",
+  "title": "После обновления нельзя открыть сканирование напрямую из приложения Фото — приходится открывать вручную",
+  "obs": 1
+ },
+ {
+  "id": "gallery-import-broken",
+  "title": "Импорт изображений из галереи не работает, даже если разрешения на доступ к фотопленке предоставлены",
+  "obs": 1
+ },
+ {
+  "id": "evernote-integration-breaks-editing",
+  "title": "Интеграция с Evernote лишает возможности подписывать и редактировать документы прямо в приложении",
+  "obs": 1
+ },
+ {
+  "id": "stapled-document-scan-quality",
+  "title": "Скрепки и загнутые углы делают скан непригодным — любой загиб страницы, кроме первой, портит результат",
+  "obs": 1
+ }
+]

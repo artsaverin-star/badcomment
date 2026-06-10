@@ -1,0 +1,319 @@
+You are grouping 54 mechanism-level insight clusters from iHeart: Radio, Music, Podcasts (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO iHeart: Radio, Music, Podcasts, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 54 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to iHeart: Radio, Music, Podcasts — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to iHeart: Radio, Music, Podcasts>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-290638154.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "battery-drain-excessive",
+  "title": "Приложение разряжает батарею на 25–30% за полтора часа — другие аудиоприложения так не делают",
+  "obs": 5
+ },
+ {
+  "id": "session-logout-unexpected",
+  "title": "Приложение неожиданно выходит из аккаунта — при конкурсах, переключении приложений, случайно",
+  "obs": 4
+ },
+ {
+  "id": "geo-restriction-local-stations",
+  "title": "Приложение блокирует местные радиостанции по географии, хотя реклама обещает свободный доступ",
+  "obs": 3
+ },
+ {
+  "id": "continuous-stream-stops",
+  "title": "Воспроизведение останавливается само по себе — после каждой песни или через случайные промежутки",
+  "obs": 3
+ },
+ {
+  "id": "podcast-autoplay-next-broken",
+  "title": "После завершения эпизода подкаст не переходит к следующему — повторяет прослушанный или останавливается",
+  "obs": 3
+ },
+ {
+  "id": "app-crash-on-launch",
+  "title": "Приложение зависает при запуске на конкретных моделях iPhone и требует переустановки",
+  "obs": 3
+ },
+ {
+  "id": "station-switch-crash",
+  "title": "Приложение зависает или вылетает при нескольких переключениях станций подряд",
+  "obs": 3
+ },
+ {
+  "id": "playback-fails-weak-signal",
+  "title": "Приложение не воспроизводит станции при слабом сигнале, хотя другие стриминг-приложения работают",
+  "obs": 3
+ },
+ {
+  "id": "podcast-episode-delay",
+  "title": "Новые эпизоды подкастов появляются с задержкой в несколько дней после выхода",
+  "obs": 2
+ },
+ {
+  "id": "buffering-and-skipping",
+  "title": "Буферизация и пропуск треков происходят одновременно и на Wi-Fi, и на мобильной сети",
+  "obs": 2
+ },
+ {
+  "id": "podcast-position-not-saved",
+  "title": "Приложение забывает позицию прослушивания подкаста при переключении контента или устройства",
+  "obs": 2
+ },
+ {
+  "id": "ad-louder-than-content",
+  "title": "Реклама звучит значительно громче выставленной громкости — риск повредить слух или динамики",
+  "obs": 2
+ },
+ {
+  "id": "ad-nonstop-no-auto-stop",
+  "title": "Реклама воспроизводится непрерывно без автоматического возврата к эфиру — слушатель должен вручную перезапустить поток",
+  "obs": 2
+ },
+ {
+  "id": "ad-double-layered",
+  "title": "Бесплатная версия воспроизводит рекламу и от станции, и от приложения — двойной рекламный блок",
+  "obs": 2
+ },
+ {
+  "id": "ads-wrong-language",
+  "title": "Реклама воспроизводится на испанском языке пользователям, выбравшим английский в настройках",
+  "obs": 2
+ },
+ {
+  "id": "app-crashes-general",
+  "title": "Приложение зависает и завершается без очевидной причины при обычном использовании",
+  "obs": 2
+ },
+ {
+  "id": "carplay-freezes",
+  "title": "После обновления приложение зависает в CarPlay, пропускает треки или не загружает их",
+  "obs": 2
+ },
+ {
+  "id": "playback-fails-no-network",
+  "title": "Приложение не запускается и не воспроизводит даже загруженный контент без активного интернета",
+  "obs": 2
+ },
+ {
+  "id": "contest-website-broken",
+  "title": "Сайт для участия в конкурсе не работает, поддержка не отвечает на запросы о проверке подлинности",
+  "obs": 2
+ },
+ {
+  "id": "subscription-cancel-missing",
+  "title": "Кнопка отмены подписки отсутствует в интерфейсе приложения",
+  "obs": 1
+ },
+ {
+  "id": "apple-pay-subscription-broken",
+  "title": "Оформление подписки через Apple Pay на iPhone не работает — требует переходить на другое устройство",
+  "obs": 1
+ },
+ {
+  "id": "account-delete-impossible",
+  "title": "Удалить аккаунт через интерфейс невозможно — опции нет ни в приложении, ни на сайте",
+  "obs": 1
+ },
+ {
+  "id": "censored-music-no-override",
+  "title": "Музыка воспроизводится только в цензурированной версии — взрослому слушателю нельзя включить оригинал",
+  "obs": 1
+ },
+ {
+  "id": "wrong-song-played",
+  "title": "Приложение воспроизводит другую песню вместо выбранной — даже при активной подписке",
+  "obs": 1
+ },
+ {
+  "id": "artist-station-diluted",
+  "title": "Станция по исполнителю играет в основном похожих артистов, а не самого исполнителя",
+  "obs": 1
+ },
+ {
+  "id": "song-rotation-repetitive",
+  "title": "Одни и те же песни повторяются по предсказуемому расписанию — слушатели перестают пользоваться радио",
+  "obs": 1
+ },
+ {
+  "id": "local-news-replaced-by-ads",
+  "title": "Приложение подменяет местные новости и прогноз погоды своей рекламой подкастов",
+  "obs": 1
+ },
+ {
+  "id": "podcast-preview-interrupts",
+  "title": "Приложение без запроса показывает превью-уведомления подкастов и задерживает запуск нужного контента",
+  "obs": 1
+ },
+ {
+  "id": "live-stream-archive-substitution",
+  "title": "При переключении между станциями приложение начинает играть архивные записи вместо прямого эфира",
+  "obs": 1
+ },
+ {
+  "id": "playback-start-repeat-20sec",
+  "title": "При запуске трансляции или подкаста первые 20 секунд повторяются перед нормальным воспроизведением",
+  "obs": 1
+ },
+ {
+  "id": "podcast-episodes-reverse-order",
+  "title": "Эпизоды воспроизводятся от новых к старым — изменить порядок во время вождения невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ad-interrupts-mid-sentence",
+  "title": "Реклама врывается в середину фразы диктора, разрывая целостность прямого эфира",
+  "obs": 1
+ },
+ {
+  "id": "ad-before-every-launch",
+  "title": "При каждом запуске приложение принудительно воспроизводит рекламу перед открытием контента",
+  "obs": 1
+ },
+ {
+  "id": "ad-keeps-screen-on",
+  "title": "Реклама не даёт экрану уснуть — батарея быстро разряжается при фоновом прослушивании",
+  "obs": 1
+ },
+ {
+  "id": "playback-speed-half",
+  "title": "Конкретная станция воспроизводится на скорости 0.5x — переустановка и обновления не помогают",
+  "obs": 1
+ },
+ {
+  "id": "skip-limit-per-hour",
+  "title": "Количество пропусков треков ограничено шестью в час — конкуренты такого ограничения не имеют",
+  "obs": 1
+ },
+ {
+  "id": "repeat-track-missing",
+  "title": "Функции повтора одного трека нет — приходится перезапускать песню вручную",
+  "obs": 1
+ },
+ {
+  "id": "no-equalizer",
+  "title": "В приложении нет эквалайзера — музыка звучит монофонически по сравнению с конкурентами",
+  "obs": 1
+ },
+ {
+  "id": "playlist-unwanted-auto-add",
+  "title": "Приложение автоматически добавляет современные треки в архивный плейлист — ручной контроль игнорируется",
+  "obs": 1
+ },
+ {
+  "id": "search-not-visible",
+  "title": "Поле поиска не полностью отображается на экране — основная навигация визуально обрезана",
+  "obs": 1
+ },
+ {
+  "id": "search-song-playlist-hard",
+  "title": "Поиск конкретных песен работает непоследовательно, а найти созданные плейлисты в интерфейсе сложно",
+  "obs": 1
+ },
+ {
+  "id": "favorites-hard-to-find",
+  "title": "Найти избранные станции в интерфейсе затруднительно; подкасты нельзя добавить в плейлист",
+  "obs": 1
+ },
+ {
+  "id": "navigation-too-many-taps",
+  "title": "Для переключения подкаста требуется много нажатий — неудобно во время вождения",
+  "obs": 1
+ },
+ {
+  "id": "like-dislike-buttons-too-close",
+  "title": "Кнопки лайка и дизлайка расположены вплотную — легко нажать не ту; иконки без подписей не помогают",
+  "obs": 1
+ },
+ {
+  "id": "push-notification-double-tap",
+  "title": "Пуш-уведомления не исчезают после одного нажатия — нужно два действия для удаления индикатора",
+  "obs": 1
+ },
+ {
+  "id": "popup-notifications-persist",
+  "title": "Всплывающие уведомления появляются снова после обновления приложения, несмотря на отключение в настройках",
+  "obs": 1
+ },
+ {
+  "id": "ios-shortcuts-integration-missing",
+  "title": "Интеграция с iOS Shortcuts для автоматизации запуска воспроизведения не поддерживается",
+  "obs": 1
+ },
+ {
+  "id": "vpn-blocks-content",
+  "title": "Приложение требует отключить VPN для воспроизведения контента — в том числе через CarPlay во время вождения",
+  "obs": 1
+ },
+ {
+  "id": "after-update-playback-broken",
+  "title": "После обновления приложение перестаёт воспроизводить контент — не работает ни Wi-Fi, ни Bluetooth",
+  "obs": 1
+ },
+ {
+  "id": "history-crash",
+  "title": "Приложение вылетает при просмотре истории воспроизведения конкретной станции — ошибка не исправляется больше года",
+  "obs": 1
+ },
+ {
+  "id": "podcast-playback-broken-days",
+  "title": "Нужный подкаст не воспроизводится несколько дней подряд — основной сценарий использования заблокирован",
+  "obs": 1
+ },
+ {
+  "id": "device-overheating",
+  "title": "Приложение перегревает устройство при стриминге — пользователи переходят на веб-версию",
+  "obs": 1
+ },
+ {
+  "id": "android-ipad-music-over-ad",
+  "title": "На Android и iPadOS музыка перекрывает звук рекламы во время рекламного блока",
+  "obs": 1
+ },
+ {
+  "id": "ads-geographically-irrelevant",
+  "title": "Реклама географически неуместна для слушателя и не поддаётся отключению — проблема остаётся после обращения в поддержку",
+  "obs": 1
+ }
+]

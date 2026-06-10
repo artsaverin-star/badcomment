@@ -1,0 +1,105 @@
+{
+  "groups": [
+    {
+      "id": "review-nag",
+      "name": "Бесконечная просьба оценить приложение",
+      "insight_ids": [
+        "review-prompt-frequency-extreme",
+        "review-prompt-loop-after-submission",
+        "review-prompt-remind-later-loop"
+      ]
+    },
+    {
+      "id": "offline-broken",
+      "name": "Офлайн, который не работает офлайн",
+      "insight_ids": [
+        "offline-downloaded-music-not-playing",
+        "offline-download-partially-fails",
+        "offline-download-inconsistent-behavior",
+        "offline-update-breaks-downloads",
+        "offline-download-fills-storage",
+        "offline-download-cache-management",
+        "app-logs-out-when-offline"
+      ]
+    },
+    {
+      "id": "playback-drops",
+      "name": "Музыка обрывается в самый нужный момент",
+      "insight_ids": [
+        "app-crashes-general",
+        "network-reconnect-no-auto-resume",
+        "playback-position-not-saved",
+        "slow-playback-start",
+        "playback-randomly-stops",
+        "app-overheats-phone",
+        "ipad-app-launch-failure",
+        "notification-interrupts-playback",
+        "buffering-regression-after-update",
+        "playback-starts-unexpectedly-in-car",
+        "repeat-mode-broken",
+        "login-fails-after-logout",
+        "family-plan-ux-complex"
+      ]
+    },
+    {
+      "id": "queue-playlist-chaos",
+      "name": "Очередь и плейлисты живут своей жизнью",
+      "insight_ids": [
+        "shuffle-repeats-same-songs",
+        "playlist-order-not-saved",
+        "playlist-deleted-by-app",
+        "playlist-randomly-shuffles-without-command",
+        "queue-scroll-broken",
+        "queue-position-resets",
+        "clear-queue-interrupts-current-track",
+        "add-song-to-playlist-fails",
+        "delete-track-from-active-playlist-no-shortcut",
+        "songs-in-playlist-become-unavailable",
+        "library-songs-disappear"
+      ]
+    },
+    {
+      "id": "catalog-search-junk",
+      "name": "Каталог, поиск и мусор от ИИ-двойников",
+      "insight_ids": [
+        "search-duplicate-artist-profiles",
+        "search-shows-social-profile-not-music",
+        "search-requires-exact-match",
+        "artist-page-loads-empty",
+        "catalog-missing-tracks",
+        "ai-generated-content-in-playlists",
+        "uploads-section-pollutes-home",
+        "playlist-recommendations-poor",
+        "explicit-content-radio-default-clean",
+        "stream-count-tracking-bug"
+      ]
+    },
+    {
+      "id": "hifi-devices",
+      "name": "HiFi-обещание и связка с аудиоустройствами",
+      "insight_ids": [
+        "tidal-connect-state-sync",
+        "tidal-connect-extra-taps",
+        "tidal-connect-loses-app-control",
+        "tidal-connect-volume-inconsistent",
+        "hifi-audio-not-perceptible",
+        "volume-too-low-no-boost",
+        "apple-watch-no-playback",
+        "alexa-integration-missing-canada",
+        "bluesound-playlist-sync-improvement"
+      ]
+    },
+    {
+      "id": "ui-regression",
+      "name": "Обновления, которые забрали привычное",
+      "insight_ids": [
+        "autoplay-similar-music-removed",
+        "share-track-feature-removed",
+        "ui-island-accidental-taps",
+        "nav-buttons-obscure-add-album",
+        "ui-regression-after-update",
+        "competitor-switch-due-to-bugs"
+      ]
+    }
+  ]
+}

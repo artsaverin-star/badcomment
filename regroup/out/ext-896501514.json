@@ -1,0 +1,85 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps-no-support",
+      "name": "Списания исподтишка и недоступная поддержка",
+      "insight_ids": [
+        "silent-subscription-activation",
+        "free-trial-charges-full-price",
+        "accidental-charge-no-refund",
+        "repeated-charge-no-cancel",
+        "partner-auto-charged",
+        "no-support-contact"
+      ]
+    },
+    {
+      "id": "data-loss-sync-broken",
+      "name": "Пропавшая история циклов и нерабочая синхронизация",
+      "insight_ids": [
+        "data-loss-device-switch",
+        "data-lost-restore-broken",
+        "data-lost-pregnancy-switch",
+        "sync-crashes",
+        "apple-health-not-syncing"
+      ]
+    },
+    {
+      "id": "partner-mode-flaws",
+      "name": "Режим партнёра ломает собственный трекинг",
+      "insight_ids": [
+        "partner-code-not-appearing",
+        "partner-mode-removes-features",
+        "partner-mode-blocks-own-tracking",
+        "partner-mode-hides-sex-activity",
+        "no-multi-partner-tracking"
+      ]
+    },
+    {
+      "id": "prediction-inaccuracy",
+      "name": "Прогнозы цикла врут и не дают себя поправить",
+      "insight_ids": [
+        "prediction-inaccurate-weeks-off",
+        "period-end-date-locked",
+        "irregular-cycle-auto-fill-wrong",
+        "no-emergency-contraception-tracking"
+      ]
+    },
+    {
+      "id": "ads-in-health-app",
+      "name": "Реклама в приложении о здоровье — даже после премиума",
+      "insight_ids": [
+        "ads-volume-spike",
+        "ads-in-health-app",
+        "premium-still-shows-ads"
+      ]
+    },
+    {
+      "id": "personalization-gaps",
+      "name": "Жёсткие настройки: ни своих симптомов, ни жизни вне «среднего цикла»",
+      "insight_ids": [
+        "no-custom-symptoms",
+        "tag-search-broken",
+        "background-cant-change-back",
+        "no-menopause-mode"
+      ]
+    },
+    {
+      "id": "crashes-onboarding",
+      "name": "Падения после обновлений и неподъёмный старт",
+      "insight_ids": [
+        "crash-after-update",
+        "onboarding-freeze",
+        "onboarding-complex-young"
+      ]
+    },
+    {
+      "id": "privacy-and-minors",
+      "name": "Продажа данных и сексуальный контент для подростков",
+      "insight_ids": [
+        "user-data-sold-lawsuit",
+        "cookie-consent-breaks-privacy-promise",
+        "sexual-content-for-minors"
+      ]
+    }
+  ]
+}

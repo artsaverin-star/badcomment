@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "id": "trial-billing-traps",
+      "name": "Триал, который не триал: списания и пятиминутный «бесплатный» доступ",
+      "insight_ids": ["trial-charges-immediately", "free-tier-5-minutes"]
+    },
+    {
+      "id": "protection-falls-off",
+      "name": "Защита, которая отваливается: разрыв туннеля и пропавшие серверы",
+      "insight_ids": ["vpn-disconnects-spontaneously", "servers-stop-appearing"]
+    },
+    {
+      "id": "account-no-exit",
+      "name": "Из аккаунта не выйти: переустановка снова втягивает внутрь",
+      "insight_ids": ["no-signout-mechanism"]
+    }
+  ]
+}

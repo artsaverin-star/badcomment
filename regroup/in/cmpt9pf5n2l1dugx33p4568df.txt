@@ -1,0 +1,199 @@
+You are grouping 30 mechanism-level insight clusters from Answer.AI - Your AI tutor (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Answer.AI - Your AI tutor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 30 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Answer.AI - Your AI tutor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Answer.AI - Your AI tutor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt9pf5n2l1dugx33p4568df.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "energy-access-blocked",
+  "title": "Система очков блокирует основной сценарий: без токенов получить ответ невозможно",
+  "obs": 6
+ },
+ {
+  "id": "daily-points-accumulation",
+  "title": "Ежедневный вход и задания дают очки, но стартового лимита и темпа накопления не хватает",
+  "obs": 4
+ },
+ {
+  "id": "general-accuracy-low",
+  "title": "На простых вопросах приложение ошибается более чем в четверти случаев",
+  "obs": 4
+ },
+ {
+  "id": "photo-limit-free-tier",
+  "title": "После 2–15 снимков бесплатный доступ заканчивается — дальше только платно или ожидание",
+  "obs": 3
+ },
+ {
+  "id": "reviews-for-points-gamification",
+  "title": "Приложение побуждает писать отзывы в обмен на очки — пользователи явно это признают",
+  "obs": 3
+ },
+ {
+  "id": "algorithm-quality-degraded",
+  "title": "Качество ответов заметно ухудшилось со временем: там, где раньше всё работало, теперь появляются ошибки",
+  "obs": 2
+ },
+ {
+  "id": "subscription-unlimited-misleading",
+  "title": "Подписка продаётся как «безлимитная», но неограниченные вопросы требуют отдельной доплаты",
+  "obs": 1
+ },
+ {
+  "id": "photo-double-shot-extra-cost",
+  "title": "Каждый повторный снимок одной задачи тратит дополнительный токен",
+  "obs": 1
+ },
+ {
+  "id": "points-charged-for-text-questions",
+  "title": "Очки списываются за текстовые уточнения после неверного ответа, а не только за загрузку фото",
+  "obs": 1
+ },
+ {
+  "id": "ads-to-replenish-points",
+  "title": "Просмотр рекламы — единственный способ бесплатно пополнить запас очков",
+  "obs": 1
+ },
+ {
+  "id": "paywall-hidden-after-trial",
+  "title": "Платность после пробного периода нигде в приложении прямо не обозначена",
+  "obs": 1
+ },
+ {
+  "id": "subscription-restore-failure",
+  "title": "Возобновление подписки списывает деньги, но премиум-статус внутри приложения не восстанавливается",
+  "obs": 1
+ },
+ {
+  "id": "student-price-accessibility",
+  "title": "Приложение полезно для слабоуспевающих, но цена недоступна для студентов с ограниченным бюджетом",
+  "obs": 1
+ },
+ {
+  "id": "science-accuracy-low",
+  "title": "По естественным наукам приложение стабильно ошибается, хотя с математикой справляется лучше",
+  "obs": 1
+ },
+ {
+  "id": "subject-misclassification-math",
+  "title": "Любой снимок приложение интерпретирует как математическое уравнение, игнорируя реальный предмет",
+  "obs": 1
+ },
+ {
+  "id": "response-format-wrong",
+  "title": "Когда нужно одно уравнение, приложение выдаёт целый абзац текста",
+  "obs": 1
+ },
+ {
+  "id": "incomplete-answers-drain-points",
+  "title": "Пользователи подозревают, что неполные ответы намеренно заставляют тратить больше очков",
+  "obs": 1
+ },
+ {
+  "id": "multistep-reasoning-failure",
+  "title": "На задачах с несколькими последовательными шагами приложение теряет нить или зависает",
+  "obs": 1
+ },
+ {
+  "id": "vip-upsell-irrelevant-answers",
+  "title": "После VIP-запроса приложение выдаёт ответы, никак не связанные с загруженным заданием",
+  "obs": 1
+ },
+ {
+  "id": "app-explains-better-than-teachers",
+  "title": "Пользователи усваивают материал через приложение легче, чем от живых учителей",
+  "obs": 1
+ },
+ {
+  "id": "app-broad-subject-help",
+  "title": "Приложение используется одновременно для математики и для написания текстов на английском",
+  "obs": 1
+ },
+ {
+  "id": "voice-chat-freezes",
+  "title": "После первого использования голосовой чат зависает в режиме ожидания и требует перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "photo-rejection-rate-high",
+  "title": "В большинстве попыток приложение отклоняет фото задачи как «нерелевантное»",
+  "obs": 1
+ },
+ {
+  "id": "session-lost-no-history",
+  "title": "Вся сессия вместе с ответами и прогрессом пропадает — история не сохраняется",
+  "obs": 1
+ },
+ {
+  "id": "image-understanding-failure",
+  "title": "Приложение не распознаёт содержимое изображения и просит вручную описать каждую деталь",
+  "obs": 1
+ },
+ {
+  "id": "photo-quality-lighting",
+  "title": "Качество распознавания сильно зависит от освещения при съёмке",
+  "obs": 1
+ },
+ {
+  "id": "ad-stuck-cant-close",
+  "title": "При входе в приложение реклама зависает и не позволяет перейти дальше",
+  "obs": 1
+ },
+ {
+  "id": "no-account-deletion",
+  "title": "В приложении нет кнопки удаления аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "voice-multilingual",
+  "title": "Голосовой чат понимает смешанную речь на русском и английском без переключения языка",
+  "obs": 1
+ },
+ {
+  "id": "academic-integrity-self-censorship",
+  "title": "Пользователи намеренно ограничивают себя в использовании приложения из страха обвинений в списывании",
+  "obs": 1
+ }
+]

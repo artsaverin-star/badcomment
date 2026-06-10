@@ -1,0 +1,174 @@
+You are grouping 25 mechanism-level insight clusters from Mathway: Math Problem Solver (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Mathway: Math Problem Solver, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 25 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Mathway: Math Problem Solver — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Mathway: Math Problem Solver>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-467329677.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "cookie-banner-blocks-answer",
+  "title": "Кнопка политики cookies перекрывает ответ и не убирается никаким способом",
+  "obs": 15
+ },
+ {
+  "id": "session-expires-on-switch",
+  "title": "При переключении между приложениями сессия сбрасывается и требует повторного входа",
+  "obs": 13
+ },
+ {
+  "id": "generic-error-any-input",
+  "title": "Приложение выдаёт ошибку на любую задачу и не восстанавливается без переустановки",
+  "obs": 11
+ },
+ {
+  "id": "app-wont-launch",
+  "title": "После обновления приложение не запускается или зависает на белом экране",
+  "obs": 7
+ },
+ {
+  "id": "cancel-blocked",
+  "title": "Процесс отмены подписки скрыт или заблокирован — отменить невозможно",
+  "obs": 5
+ },
+ {
+  "id": "calculus-trig-wrong",
+  "title": "Задачи по математическому анализу, тригонометрии и высшей алгебре решаются неверно",
+  "obs": 5
+ },
+ {
+  "id": "camera-inconsistent-many-attempts",
+  "title": "Камера принимает фотографию задачи только после многократных попыток",
+  "obs": 5
+ },
+ {
+  "id": "camera-never-works",
+  "title": "Функция сканирования камеры недоступна или не запускается совсем",
+  "obs": 5
+ },
+ {
+  "id": "billing-after-cancel",
+  "title": "Списание продолжается месяцами после подтверждённой отмены",
+  "obs": 4
+ },
+ {
+  "id": "word-problems-unsupported",
+  "title": "Текстовые задачи с условием на естественном языке не распознаются",
+  "obs": 4
+ },
+ {
+  "id": "camera-broke-after-update",
+  "title": "После обновления приложения камера перестаёт распознавать сфотографированные задачи",
+  "obs": 4
+ },
+ {
+  "id": "crash-mid-session",
+  "title": "Приложение аварийно завершает работу или зависает в процессе решения задачи",
+  "obs": 4
+ },
+ {
+  "id": "trial-modal-fullscreen",
+  "title": "Модальное окно с предложением подписки занимает весь экран и скрывает контент",
+  "obs": 3
+ },
+ {
+  "id": "intrusive-ads",
+  "title": "Реклама зависает, воспроизводит громкий звук и блокирует кнопки управления",
+  "obs": 3
+ },
+ {
+  "id": "camera-misreads-content",
+  "title": "Камера захватывает посторонний текст со страницы и не может выделить нужное уравнение",
+  "obs": 3
+ },
+ {
+  "id": "trial-immediate-charge",
+  "title": "Пробный период требует карту и сразу списывает полную стоимость",
+  "obs": 2
+ },
+ {
+  "id": "subscription-no-device-transfer",
+  "title": "При смене устройства подписка не переносится и требует повторной оплаты",
+  "obs": 2
+ },
+ {
+  "id": "steps-no-explanation",
+  "title": "Пошаговое решение показывает шаги без объяснения причины каждого действия",
+  "obs": 2
+ },
+ {
+  "id": "solver-deflects-task",
+  "title": "Вместо решения приложение отклоняет задачу или просит пользователя решить самостоятельно",
+  "obs": 2
+ },
+ {
+  "id": "premium-breaks-functionality",
+  "title": "После покупки подписки приложение начинает выдавать ошибки на каждый новый ввод",
+  "obs": 2
+ },
+ {
+  "id": "crash-with-relogin-loop",
+  "title": "Приложение вылетает каждые несколько минут и немедленно требует повторного входа",
+  "obs": 2
+ },
+ {
+  "id": "ad-after-every-photo",
+  "title": "После каждой отсканированной задачи принудительно показывается полноэкранная реклама",
+  "obs": 1
+ },
+ {
+  "id": "ipad-split-screen",
+  "title": "На планшете приложение не поддерживает разделённый экран с другими программами",
+  "obs": 1
+ },
+ {
+  "id": "sms-verification-broken",
+  "title": "СМС-верификация при входе не доставляется или не принимается приложением",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Служба поддержки не отвечает платящим пользователям и не возвращает деньги",
+  "obs": 1
+ }
+]

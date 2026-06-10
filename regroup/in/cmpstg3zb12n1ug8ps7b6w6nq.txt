@@ -1,0 +1,314 @@
+You are grouping 53 mechanism-level insight clusters from Facetune: Photo & Video Editor (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Facetune: Photo & Video Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 53 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Facetune: Photo & Video Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Facetune: Photo & Video Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstg3zb12n1ug8ps7b6w6nq.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "features-moved-behind-paywall",
+  "title": "Инструменты, которые раньше были бесплатными, перенесли за платную подписку VIP",
+  "obs": 24
+ },
+ {
+  "id": "trial-cancel-still-charged",
+  "title": "Пользователь отменяет пробный период, но приложение всё равно списывает полную годовую подписку",
+  "obs": 22
+ },
+ {
+  "id": "filters-removed-after-update",
+  "title": "Обновление удалило фильтры освещения, ради которых пользователи и оформляли подписку",
+  "obs": 13
+ },
+ {
+  "id": "filters-replaced-worse",
+  "title": "Хорошие фильтры заменили на меньшее число низкокачественных, без предпросмотра",
+  "obs": 13
+ },
+ {
+  "id": "cancel-button-loops",
+  "title": "Кнопка отмены в приложении возвращает на экран подписки вместо фактической отмены",
+  "obs": 11
+ },
+ {
+  "id": "trial-not-really-free",
+  "title": "Семидневный «бесплатный» пробный период списывает деньги сразу или требует активной подписки для любого использования",
+  "obs": 10
+ },
+ {
+  "id": "charged-without-any-consent",
+  "title": "Приложение списывает деньги, хотя пользователь не подписывался и не скачивал его",
+  "obs": 8
+ },
+ {
+  "id": "free-version-useless",
+  "title": "Бесплатная версия настолько урезана (3 фото в неделю), что без подписки приложением пользоваться нельзя",
+  "obs": 6
+ },
+ {
+  "id": "no-onetime-purchase",
+  "title": "Доступна только подписка — разовой покупки за фиксированную цену нет, а раньше она была",
+  "obs": 6
+ },
+ {
+  "id": "charged-after-cancel-subscription",
+  "title": "Приложение продолжает списывать деньги после отмены подписки",
+  "obs": 5
+ },
+ {
+  "id": "watermark-free-version",
+  "title": "Бесплатная версия добавляет водяной знак Facetune на все сохранённые фото",
+  "obs": 5
+ },
+ {
+  "id": "natural-results-praise",
+  "title": "Приложение делает деликатные правки кожи, морщин и освещения с естественным результатом",
+  "obs": 5
+ },
+ {
+  "id": "hairstyle-tryon-broken",
+  "title": "Примерка причёсок выдаёт искажённый, непохожий результат и просто наклеивает причёску на голову",
+  "obs": 5
+ },
+ {
+  "id": "monthly-advertised-annual-charged",
+  "title": "Реклама обещает месячный тариф, а списывается сразу полная годовая подписка",
+  "obs": 4
+ },
+ {
+  "id": "save-photo-requires-pay",
+  "title": "Даже простое сохранение отредактированного фото требует отдельной оплаты или статуса VIP",
+  "obs": 4
+ },
+ {
+  "id": "shift-to-ai-editing",
+  "title": "Фокус сместился на AI-редактирование, а традиционные инструменты убрали или испортили",
+  "obs": 4
+ },
+ {
+  "id": "vip-features-unavailable",
+  "title": "Оплаченные VIP-функции (автопортреты, AI-инструменты, видео) выдают ошибку и не запускаются",
+  "obs": 4
+ },
+ {
+  "id": "quick-edit-removed",
+  "title": "Редизайн убрал быстрый режим редактирования и предустановки, заменив их на многоэтапный процесс",
+  "obs": 4
+ },
+ {
+  "id": "pro-tool-loyalty",
+  "title": "Профессионалы много лет используют приложение как лучший инструмент для редактирования",
+  "obs": 4
+ },
+ {
+  "id": "price-hike-weekly",
+  "title": "Цену резко подняли — с 10 долларов в месяц до 10-12 долларов в неделю",
+  "obs": 3
+ },
+ {
+  "id": "subscription-hidden-from-apple",
+  "title": "Подписка не отображается в стандартном меню Apple и управляется через внешний сайт Lightricks, что мешает отмене",
+  "obs": 3
+ },
+ {
+  "id": "ai-server-overloaded",
+  "title": "AI-функции часто недоступны с ошибкой «слишком занято», даже у платных VIP-пользователей",
+  "obs": 3
+ },
+ {
+  "id": "object-removal-broken",
+  "title": "Инструмент удаления объектов оставляет тёмное пятно, не удаляет объект или удаляет всё вокруг него",
+  "obs": 3
+ },
+ {
+  "id": "advertised-feature-missing",
+  "title": "Разрекламированные функции (анализ макияжа, анализ цветотипа) в приложении отсутствуют или спрятаны за доплатой на сайте",
+  "obs": 3
+ },
+ {
+  "id": "poor-controllability",
+  "title": "Приложение плохо управляемо и редактирует не так, как ожидает пользователь",
+  "obs": 3
+ },
+ {
+  "id": "refund-denied-website-loophole",
+  "title": "Поддержка отказывает в возврате со ссылкой на «отмену не через веб-сайт», несмотря на доказательства",
+  "obs": 3
+ },
+ {
+  "id": "self-image-harm",
+  "title": "Фильтры лица вредят восприятию собственной внешности и самооценке",
+  "obs": 3
+ },
+ {
+  "id": "billing-mismatch-vip-locked",
+  "title": "После списания платежа доступ к платным функциям так и не открывается",
+  "obs": 2
+ },
+ {
+  "id": "huge-wrong-charge",
+  "title": "Приложение пытается списать абсурдно крупную сумму (1600 долларов) за пару дней использования",
+  "obs": 2
+ },
+ {
+  "id": "face-algorithm-overtransforms",
+  "title": "Новый алгоритм редактирования лица полностью трансформирует лицо вместо естественной коррекции",
+  "obs": 2
+ },
+ {
+  "id": "warp-take-crash",
+  "title": "Функции съёмки и деформации лица постоянно роняют приложение и теряют несохранённый прогресс",
+  "obs": 2
+ },
+ {
+  "id": "face-detection-fails",
+  "title": "Распознавание лица не срабатывает даже при прямом ракурсе и блокирует другие инструменты",
+  "obs": 2
+ },
+ {
+  "id": "saved-quality-degraded",
+  "title": "Сохранённые фото темнеют и теряют качество при выгрузке в галерею",
+  "obs": 2
+ },
+ {
+  "id": "gender-detection-wrong",
+  "title": "Определение пола в анализе причёски работает неправильно и оскорбляет пользователя",
+  "obs": 2
+ },
+ {
+  "id": "no-male-hairstyles",
+  "title": "Примерка причёсок предлагает только женские варианты, хотя реклама обещает функцию для всех",
+  "obs": 2
+ },
+ {
+  "id": "forced-upgrade-ft2",
+  "title": "Принудительное обновление до Facetune 2 убрало простой старый интерфейс и сделало приложение сложнее",
+  "obs": 2
+ },
+ {
+  "id": "fake-account-login",
+  "title": "Вход требует случайно сгенерированную почту, к которой у пользователя нет доступа для кода подтверждения",
+  "obs": 2
+ },
+ {
+  "id": "support-no-response",
+  "title": "Поддержка не отвечает на запросы об отмене, удалённых функциях и возвратах",
+  "obs": 2
+ },
+ {
+  "id": "support-fast-refund",
+  "title": "Поддержка быстро оформляет возврат при забытой отмене пробного периода",
+  "obs": 2
+ },
+ {
+  "id": "double-charge",
+  "title": "Приложение списывает платёж дважды за один период",
+  "obs": 1
+ },
+ {
+  "id": "monthly-tier-hidden",
+  "title": "Дешёвый месячный тариф скрыт для новых аккаунтов, показываются только дорогие еженедельный и годовой варианты",
+  "obs": 1
+ },
+ {
+  "id": "subscription-not-transferred",
+  "title": "При переустановке на новом устройстве с тем же логином подписка не распознаётся и требуется повторная оплата",
+  "obs": 1
+ },
+ {
+  "id": "ai-removed-feature-resurfaced",
+  "title": "Полезную новую функцию добавляют в одном обновлении и удаляют в следующем",
+  "obs": 1
+ },
+ {
+  "id": "video-upload-error",
+  "title": "Загрузка видео выдаёт ошибку «что-то пошло не так» при активной подписке",
+  "obs": 1
+ },
+ {
+  "id": "blocks-other-apps",
+  "title": "Приложение мешает работе других приложений и игр на устройстве",
+  "obs": 1
+ },
+ {
+  "id": "try-on-wrong-function",
+  "title": "Виртуальная примерка шляпы вместо головы меняет цвет одежды",
+  "obs": 1
+ },
+ {
+  "id": "body-generation-offensive",
+  "title": "AI-генерация тела добавляет неверное и оскорбительное тело, не похожее на пользователя",
+  "obs": 1
+ },
+ {
+  "id": "ai-image-training-consent",
+  "title": "Приложение требует согласия на использование фото для обучения AI без возможности отказа",
+  "obs": 1
+ },
+ {
+  "id": "aggressive-paywall-popups",
+  "title": "Агрессивные всплывающие окна с предложением подписки прерывают рабочий процесс редактирования",
+  "obs": 1
+ },
+ {
+  "id": "save-not-in-recents",
+  "title": "Отредактированные фото не сохраняются в стандартный альбом и их приходится искать вручную",
+  "obs": 1
+ },
+ {
+  "id": "blocks-screenshots",
+  "title": "Приложение блокирует скриншоты результатов, мешая делиться примерами причёсок и макияжа",
+  "obs": 1
+ },
+ {
+  "id": "support-claims-free-tools-false",
+  "title": "Поддержка утверждает, что инструменты бесплатны, хотя на деле они за платной стеной",
+  "obs": 1
+ },
+ {
+  "id": "key-filter-content-strategy",
+  "title": "Удалённый чёрно-белый фильтр был основой всей контент-стратегии пользователя",
+  "obs": 1
+ }
+]

@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from Splice - Video Editor & Maker (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Splice - Video Editor & Maker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Splice - Video Editor & Maker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Splice - Video Editor & Maker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstgr24142cug8p8z7bdefo.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "intuitive-ui-for-beginners",
+  "title": "Интерфейс настолько интуитивен, что новичок без опыта монтажа может сразу начать редактировать видео",
+  "obs": 8
+ },
+ {
+  "id": "core-editing-behind-paywall",
+  "title": "Базовые функции редактирования (переходы, эффекты, обрезка) перенесены за платный барьер — раньше были бесплатны",
+  "obs": 6
+ },
+ {
+  "id": "beginner-to-pro-progression",
+  "title": "Приложение служит точкой входа в видеомонтаж и помогает пользователям перейти от любительского к профессиональному уровню",
+  "obs": 6
+ },
+ {
+  "id": "price-hike-no-new-features",
+  "title": "Цена подписки выросла в несколько раз за год без добавления новых функций",
+  "obs": 5
+ },
+ {
+  "id": "export-locked-behind-paywall",
+  "title": "Экспорт готового видео заблокирован за платной подпиской даже после полного редактирования",
+  "obs": 5
+ },
+ {
+  "id": "crash-after-update",
+  "title": "После обновления приложение начинает нестабильно работать: крашится, теряет данные, перестаёт принимать файлы",
+  "obs": 5
+ },
+ {
+  "id": "hidden-charges-no-warning",
+  "title": "Приложение списывает деньги без явного предупреждения об условиях — еженедельно или кратно чаще, чем ожидает пользователь",
+  "obs": 4
+ },
+ {
+  "id": "freeze-during-editing",
+  "title": "Приложение зависает во время редактирования, требует перезапуска и создания обходных схем работы",
+  "obs": 4
+ },
+ {
+  "id": "clip-assembly-core-use-case",
+  "title": "Основной сценарий использования — быстрое объединение множества коротких видеофрагментов в один ролик",
+  "obs": 4
+ },
+ {
+  "id": "project-save-limit-paywall",
+  "title": "После обновления лимит бесплатно сохраняемых проектов сокращён до двух — остальные недоступны без подписки",
+  "obs": 3
+ },
+ {
+  "id": "itunes-music-not-importable",
+  "title": "Купленная в iTunes музыка недоступна в приложении — пользователю предлагают купить её повторно",
+  "obs": 3
+ },
+ {
+  "id": "slow-app-load",
+  "title": "Приложение медленно запускается и загружает проекты, превращая работу в утомительный процесс",
+  "obs": 3
+ },
+ {
+  "id": "mobile-youtube-content-creation",
+  "title": "Приложение используется как основной инструмент для создания и публикации контента на YouTube с мобильного",
+  "obs": 3
+ },
+ {
+  "id": "family-memories-use-case",
+  "title": "Приложение используют для сохранения семейных воспоминаний и личных событий в видеоформате",
+  "obs": 3
+ },
+ {
+  "id": "music-library-too-small",
+  "title": "Встроенная музыкальная библиотека слишком мала — нужный трек найти невозможно",
+  "obs": 2
+ },
+ {
+  "id": "review-prompt-intrusive",
+  "title": "Приложение настойчиво просит оставить отзыв при каждом использовании, мешая работе",
+  "obs": 2
+ },
+ {
+  "id": "subscription-popups-on-export",
+  "title": "При попытке экспортировать видео появляется поток всплывающих окон с предложением подписки — единственный выход закрыть приложение",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-project-open",
+  "title": "Приложение принудительно закрывается при открытии проекта или сразу после запуска",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-export",
+  "title": "При экспорте видео приложение зависает и не завершает отправку файла",
+  "obs": 2
+ },
+ {
+  "id": "rich-toolset-praised",
+  "title": "Набор инструментов приложения воспринимается как более богатый, чем у конкурентов при той же простоте освоения",
+  "obs": 2
+ },
+ {
+  "id": "one-time-purchase-to-subscription",
+  "title": "Приложение перешло с модели разовой покупки на обязательную подписку, лишив доступа ранее заплативших пользователей",
+  "obs": 1
+ },
+ {
+  "id": "cancel-button-hidden",
+  "title": "Кнопка отмены подписки скрыта — найти и завершить подписку невозможно самостоятельно",
+  "obs": 1
+ },
+ {
+  "id": "free-trial-then-full-block",
+  "title": "Бесплатный пробный период есть, но после его окончания весь функционал полностью блокируется",
+  "obs": 1
+ },
+ {
+  "id": "weekly-price-too-high",
+  "title": "Стоимость недельной подписки воспринимается как грабительская по сравнению с месячной или годовой альтернативой",
+  "obs": 1
+ },
+ {
+  "id": "audio-lost-after-session",
+  "title": "После выхода из приложения и повторного входа весь звук пропадает и не восстанавливается без перезагрузки",
+  "obs": 1
+ },
+ {
+  "id": "audio-compressed-on-export",
+  "title": "При экспорте приложение сильно сжимает аудио, что разрушает качество музыки и ударных",
+  "obs": 1
+ },
+ {
+  "id": "media-import-cumbersome",
+  "title": "Загрузка медиафайлов в приложение занимает много времени, доступ к файлам неудобен",
+  "obs": 1
+ },
+ {
+  "id": "no-community-gallery",
+  "title": "В приложении нет способа смотреть видео, созданные другими пользователями — социальная галерея отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "no-text-color-customization",
+  "title": "Цвет текста в титрах нельзя изменить, несмотря на наличие других инструментов оформления",
+  "obs": 1
+ },
+ {
+  "id": "export-workflow-unclear",
+  "title": "Пользователь не понимает, как экспортировать готовое видео — механизм вывода не очевиден",
+  "obs": 1
+ },
+ {
+  "id": "no-tutorials-for-new-features",
+  "title": "Новые функции добавляются без обучающих материалов — пользователь не знает, как ими пользоваться",
+  "obs": 1
+ },
+ {
+  "id": "precise-clip-editing-difficult",
+  "title": "Точное выделение и обрезка маленьких клипов на покадровом уровне неудобны",
+  "obs": 1
+ },
+ {
+  "id": "no-transition-templates",
+  "title": "Готовых шаблонов переходов нет, хотя у конкурентов они есть",
+  "obs": 1
+ },
+ {
+  "id": "limited-advanced-editing-tools",
+  "title": "Для сложного монтажа инструментов недостаточно — приложение покрывает только базовые операции",
+  "obs": 1
+ },
+ {
+  "id": "projects-lost-after-update",
+  "title": "При обновлении приложения видеопроекты удаляются без предупреждения и перестают открываться",
+  "obs": 1
+ },
+ {
+  "id": "itunes-music-and-rotation-broken-after-update",
+  "title": "После обновления перестала работать поддержка музыки из iTunes и функция поворота видео",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-long-video",
+  "title": "Приложение принудительно закрывается, если длина видео превышает 5 минут",
+  "obs": 1
+ },
+ {
+  "id": "support-refuses-refund",
+  "title": "Служба поддержки отказывает в возврате средств, перекладывая ответственность на магазин приложений",
+  "obs": 1
+ },
+ {
+  "id": "social-media-content-workflow",
+  "title": "Приложение встроено в рабочий процесс создания контента сразу для нескольких социальных сетей",
+  "obs": 1
+ },
+ {
+  "id": "live-event-on-site-editing",
+  "title": "Приложение используют прямо на месте события для быстрой сборки видео с iPhone или iPad",
+  "obs": 1
+ },
+ {
+  "id": "mobile-preferred-over-desktop",
+  "title": "Опытные пользователи настольного монтажного ПО выбирают приложение для работы на мобильном устройстве",
+  "obs": 1
+ },
+ {
+  "id": "auto-edit-reduces-manual-work",
+  "title": "Функция автоматического монтажа упрощает процесс сборки видео и снижает ручные усилия",
+  "obs": 1
+ },
+ {
+  "id": "export-quality-better-than-competitors",
+  "title": "Приложение сохраняет качество видео при экспорте лучше, чем конкурирующие инструменты",
+  "obs": 1
+ },
+ {
+  "id": "instagram-square-format-workflow",
+  "title": "Приложение используют для подготовки и кадрирования видео под квадратный формат Instagram",
+  "obs": 1
+ },
+ {
+  "id": "paid-but-slow-performance",
+  "title": "Переход на платную подписку не устраняет медлительность и нестабильность — бесплатная версия работала лучше",
+  "obs": 1
+ }
+]

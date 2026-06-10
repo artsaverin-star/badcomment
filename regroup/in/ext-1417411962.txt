@@ -1,0 +1,339 @@
+You are grouping 58 mechanism-level insight clusters from Sanctuary Psychic Reading (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sanctuary Psychic Reading, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 58 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sanctuary Psychic Reading — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sanctuary Psychic Reading>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1417411962.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "content-freemium-to-paywall",
+  "title": "Ранее бесплатные функции (гороскопы, таро, совместимость) стали платными после обновления без предупреждения",
+  "obs": 23
+ },
+ {
+  "id": "content-negative-tone-notifications",
+  "title": "Ежедневные уведомления и гороскопы передают пессимистичный и тревожный тон вместо поддерживающей информации",
+  "obs": 11
+ },
+ {
+  "id": "reliability-session-not-saved",
+  "title": "Приложение разлогинивает пользователя при каждом открытии или после обновления и не сохраняет сеанс",
+  "obs": 11
+ },
+ {
+  "id": "ui-homepage-overloaded-promo",
+  "title": "Главная страница переполнена промо-карточками продавцов — информационный контент вытеснен рекламой",
+  "obs": 9
+ },
+ {
+  "id": "content-reader-quality-generic",
+  "title": "Читатели дают расплывчатые и общие ответы, которые можно интерпретировать как угодно, вместо конкретных чтений",
+  "obs": 7
+ },
+ {
+  "id": "payment-charge-no-session",
+  "title": "Деньги списываются при бронировании сеанса, но читатель не подключается — возврат не происходит",
+  "obs": 6
+ },
+ {
+  "id": "content-horoscope-only-sun",
+  "title": "Приложение показывает гороскоп только для солнечного знака — луна и восходящий больше недоступны",
+  "obs": 5
+ },
+ {
+  "id": "ui-engaging-format-removed",
+  "title": "Текстовый формат с гифками и поддерживающими комментариями удалён и заменён поверхностным слайд-шоу",
+  "obs": 5
+ },
+ {
+  "id": "payment-refund-ignored",
+  "title": "Служба поддержки не отвечает на запросы о возврате после неудавшегося или отменённого сеанса",
+  "obs": 4
+ },
+ {
+  "id": "content-educational-content-removed",
+  "title": "Обучающий контент о знаках, планетах и домах удалён из бесплатного доступа или из приложения полностью",
+  "obs": 4
+ },
+ {
+  "id": "ui-horoscope-hidden-after-redesign",
+  "title": "После редизайна гороскоп скрыт или недоступен — пользователь не может найти основную функцию",
+  "obs": 4
+ },
+ {
+  "id": "ui-redesign-cluttered-navigation",
+  "title": "Новый интерфейс перегружен и требует многошаговой навигации вместо единого экрана",
+  "obs": 4
+ },
+ {
+  "id": "ui-placidus-only-no-house-system-choice",
+  "title": "Приложение не позволяет выбрать систему домов, кроме Placidus — Whole Sign и другие альтернативы недоступны",
+  "obs": 4
+ },
+ {
+  "id": "reliability-widget-broken",
+  "title": "Виджеты приложения перестали работать после обновления и не восстанавливаются переустановкой",
+  "obs": 4
+ },
+ {
+  "id": "payment-per-minute-timer",
+  "title": "Таймер тикает пока пользователь набирает текст, а не только во время общения — реальное время чтения сильно меньше оплаченного",
+  "obs": 3
+ },
+ {
+  "id": "content-horoscope-depth-reduced",
+  "title": "Ежедневные гороскопы сократились с многопараграфного разбора до 2 предложений",
+  "obs": 3
+ },
+ {
+  "id": "content-monthly-horoscope-downgraded",
+  "title": "Месячный гороскоп урезан до солнечного знака — луна и восходящий знак больше не включаются",
+  "obs": 3
+ },
+ {
+  "id": "content-horoscope-outdated",
+  "title": "Раздел месячного прогноза показывает устаревшие данные: октябрь 2021 в июле 2022 или вчерашний гороскоп вместо сегодняшнего",
+  "obs": 3
+ },
+ {
+  "id": "content-planetary-transit-replaced-ads",
+  "title": "Раздел ежедневных транзитов планет заменён рекламой ТВ-шоу",
+  "obs": 3
+ },
+ {
+  "id": "ui-popup-cannot-dismiss",
+  "title": "Всплывающее окно с предложением покупки не закрывается кнопкой X — нужно перезакрывать всё приложение",
+  "obs": 3
+ },
+ {
+  "id": "payment-upfront-no-guarantee",
+  "title": "Приложение требует полную оплату до подтверждения готовности читателя — деньги уходят без гарантии услуги",
+  "obs": 2
+ },
+ {
+  "id": "payment-price-increase",
+  "title": "Цена за сеанс чтения выросла вдвое-втрое, но качество не изменилось",
+  "obs": 2
+ },
+ {
+  "id": "payment-subscription-all-or-nothing",
+  "title": "Модель подписки не позволяет платить только за нужные функции — пользователь оплачивает функции, которые не использует",
+  "obs": 2
+ },
+ {
+  "id": "ui-dark-mode-unreadable",
+  "title": "В тёмном режиме текст становится чёрным на чёрном фоне — контент нечитаем",
+  "obs": 2
+ },
+ {
+  "id": "reliability-login-blocked-paradox",
+  "title": "Система говорит, что email не существует при входе, но при регистрации — что уже зарегистрирован",
+  "obs": 2
+ },
+ {
+  "id": "reliability-login-form-broken",
+  "title": "Кнопка входа или создания аккаунта не реагирует после обновления",
+  "obs": 2
+ },
+ {
+  "id": "reliability-app-completely-down",
+  "title": "Приложение полностью перестаёт работать и не позволяет войти — диагностики ошибки нет",
+  "obs": 2
+ },
+ {
+  "id": "reliability-birth-date-stuck",
+  "title": "При вводе даты рождения приложение зависает на 99% загрузки и не даёт пройти дальше",
+  "obs": 2
+ },
+ {
+  "id": "strategy-freemium-collapse",
+  "title": "Приложение перешло от широкого бесплатного доступа к полной блокировке за подпиской — потеря уникального позиционирования",
+  "obs": 2
+ },
+ {
+  "id": "strategy-redesign-monetization-first",
+  "title": "Редизайн ориентирован на максимизацию продаж, а не на удобство — пользователи чувствуют смену приоритетов",
+  "obs": 2
+ },
+ {
+  "id": "payment-wrong-amount",
+  "title": "Система списывает сумму в 10 раз больше заявленной цены",
+  "obs": 1
+ },
+ {
+  "id": "payment-multiple-charge",
+  "title": "Приложение списывает оплату несколько раз вместо одного — поддержка предлагает бесплатное чтение вместо возврата",
+  "obs": 1
+ },
+ {
+  "id": "payment-credit-transfer",
+  "title": "При смене читателя кредит из несостоявшегося сеанса пересчитывается неправильно",
+  "obs": 1
+ },
+ {
+  "id": "payment-free-trial-not-delivered",
+  "title": "Обещанное бесплатное 5-минутное чтение при регистрации так и не предоставляется",
+  "obs": 1
+ },
+ {
+  "id": "payment-credits-locked",
+  "title": "Оплаченные кредиты блокируются в приложении и не возвращаются, даже если читатель недоступен неделями",
+  "obs": 1
+ },
+ {
+  "id": "payment-hidden-card-form",
+  "title": "Приложение требует вводить данные карты напрямую вместо использования системы платежей Apple",
+  "obs": 1
+ },
+ {
+  "id": "content-opportunity-delay",
+  "title": "Функция «Opportunity» отображает данные с трёхдневной задержкой вместо актуального дневного прогноза",
+  "obs": 1
+ },
+ {
+  "id": "content-reviews-censored",
+  "title": "Приложение скрывает отрицательные отзывы о читателях — система рейтинга недостоверна",
+  "obs": 1
+ },
+ {
+  "id": "content-podcast-cancelled",
+  "title": "Ежедневный астрологический подкаст на Spotify, который пользователи слушали годами, был отменён",
+  "obs": 1
+ },
+ {
+  "id": "content-duplicate-horoscope",
+  "title": "Приложение показывает одинаковый гороскоп для солнца и восходящего знака, когда они совпадают — повторяющееся содержимое",
+  "obs": 1
+ },
+ {
+  "id": "content-birth-chart-randomizes",
+  "title": "Натальная карта самостоятельно изменяет позиции знаков по домам во время просмотра",
+  "obs": 1
+ },
+ {
+  "id": "content-birthday-error",
+  "title": "Приложение поздравляет с днём рождения в неправильный месяц",
+  "obs": 1
+ },
+ {
+  "id": "content-spam-emails",
+  "title": "Приложение шлёт одно и то же маркетинговое письмо каждый день вместо персонализированного контента",
+  "obs": 1
+ },
+ {
+  "id": "content-excessive-notifications",
+  "title": "Приложение отправляет до 5 уведомлений в день, хотя пользователь хочет только одно дневное",
+  "obs": 1
+ },
+ {
+  "id": "content-values-misaligned-ads",
+  "title": "Приложение показывает рекламу компании, нарушающей права трудящихся, что противоречит ценностям аудитории",
+  "obs": 1
+ },
+ {
+  "id": "ui-small-screen-incompatible",
+  "title": "Новый интерфейс сжимает элементы так, что приложение неудобно использовать на маленьких экранах",
+  "obs": 1
+ },
+ {
+  "id": "ui-inconsistent-design",
+  "title": "После обновления новый экран приветствия соседствует со старым дизайном деталей — интерфейс выглядит незавершённым",
+  "obs": 1
+ },
+ {
+  "id": "ui-upgrade-prompt-existing-subscriber",
+  "title": "Приложение показывает окно с предложением обновления при каждом входе, даже если пользователь уже подписан",
+  "obs": 1
+ },
+ {
+  "id": "ui-birth-location-europe-unsupported",
+  "title": "Поле ввода места рождения не принимает европейские города",
+  "obs": 1
+ },
+ {
+  "id": "ui-typo-in-update",
+  "title": "Повторяющаяся орфографическая ошибка в тексте обновлений подрывает доверие к качеству приложения",
+  "obs": 1
+ },
+ {
+  "id": "reliability-registration-stuck",
+  "title": "Форма регистрации показывает «step 1 out of 0» и зависает — другие методы регистрации дают ту же ошибку",
+  "obs": 1
+ },
+ {
+  "id": "reliability-widget-dark-mode",
+  "title": "Виджеты превращаются в белый прямоугольник в тёмном режиме",
+  "obs": 1
+ },
+ {
+  "id": "reliability-android-no-update",
+  "title": "Обновлённая версия приложения недоступна на Android",
+  "obs": 1
+ },
+ {
+  "id": "reliability-reading-session-crashes",
+  "title": "Приложение зависает во время сеанса чтения — пользователя отключает от читателя в середине оплаченного сеанса",
+  "obs": 1
+ },
+ {
+  "id": "reliability-horoscope-white-screen",
+  "title": "Страница гороскопа показывает белый экран и не меняется при навигации",
+  "obs": 1
+ },
+ {
+  "id": "reliability-facebook-login-bug",
+  "title": "Вход через Facebook ломается и требует вмешательства разработчиков",
+  "obs": 1
+ },
+ {
+  "id": "support-positive-reader-extended-session",
+  "title": "Читатель заметил ошибку в данных и продлил сеанс за свой счёт — пример качественного обслуживания",
+  "obs": 1
+ },
+ {
+  "id": "strategy-in-app-purchases-required",
+  "title": "Приложение требует включить системные покупки для использования бесплатной версии",
+  "obs": 1
+ }
+]

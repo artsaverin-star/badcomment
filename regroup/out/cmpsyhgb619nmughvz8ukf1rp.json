@@ -1,0 +1,29 @@
+{
+  "groups": [
+    {
+      "id": "freezes-crashes-compat",
+      "name": "Зависает, вылетает, не открывается — редактировать невозможно",
+      "insight_ids": ["app-freezes", "crash-loses-progress", "ios18-gallery-no-open"]
+    },
+    {
+      "id": "ai-retouch-quality",
+      "name": "AI-ретушь врёт: зелёная кожа, тёмные лица и непохожий результат",
+      "insight_ids": ["makeup-green-skin", "poor-for-dark-skin", "ai-face-not-like-user"]
+    },
+    {
+      "id": "no-control-over-edits",
+      "name": "Нет контроля над правками: один человек из группы и отмена премиум-инструмента",
+      "insight_ids": ["edits-apply-all-people", "premium-tool-undo-zero"]
+    },
+    {
+      "id": "saving-broken",
+      "name": "Лишний шаг сохранения и пропавшие готовые фото",
+      "insight_ids": ["save-before-share", "stopped-saving"]
+    },
+    {
+      "id": "export-output-quality",
+      "name": "Что на выходе: упавшее разрешение и сбитые метаданные галереи",
+      "insight_ids": ["export-lowers-resolution", "metadata-time-changed"]
+    }
+  ]
+}

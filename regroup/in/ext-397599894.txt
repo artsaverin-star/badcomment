@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from The Atlantic Magazine (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO The Atlantic Magazine, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to The Atlantic Magazine — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to The Atlantic Magazine>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-397599894.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "scrolling-freeze-general",
+  "title": "Приложение постоянно зависает при прокрутке статей — это главная причина перехода на браузер",
+  "obs": 9
+ },
+ {
+  "id": "subscription-not-recognized",
+  "title": "После продления подписка перестаёт распознаваться — приложение требует переустановки или повторного входа",
+  "obs": 8
+ },
+ {
+  "id": "content-disappears-blank-screen",
+  "title": "Текст статьи исчезает через несколько секунд или страница уходит в белый экран прямо во время чтения",
+  "obs": 4
+ },
+ {
+  "id": "games-section-slow-load",
+  "title": "Раздел игр загружается намного дольше после добавления новых игр — пустой экран вместо загрузочного скелета",
+  "obs": 4
+ },
+ {
+  "id": "audio-section-no-actual-audio",
+  "title": "Статьи в аудио-разделе помечены как доступные для прослушивания, но кнопки воспроизведения нет",
+  "obs": 3
+ },
+ {
+  "id": "search-not-working",
+  "title": "Поиск по статьям не находит материал ни по ключевым словам, ни по точному названию",
+  "obs": 3
+ },
+ {
+  "id": "dark-mode-broken",
+  "title": "Тёмный режим работает не везде: раздел комментариев всегда светлый, а режим нельзя переключить независимо от настроек телефона",
+  "obs": 3
+ },
+ {
+  "id": "share-only-gift-link",
+  "title": "Поделиться статьёй можно только через gift-ссылку — обычной ссылки нет",
+  "obs": 3
+ },
+ {
+  "id": "external-links-open-in-browser",
+  "title": "Ссылки на Atlantic и внешние ссылки открываются в браузере вместо приложения, теряя авторизацию",
+  "obs": 3
+ },
+ {
+  "id": "author-click-opens-unauth-browser",
+  "title": "Клик на имя автора открывает неавторизованный браузер — все материалы автора недоступны",
+  "obs": 3
+ },
+ {
+  "id": "ad-causes-freeze-scroll",
+  "title": "Приложение зависает каждый раз, когда реклама или изображение появляется в области прокрутки",
+  "obs": 3
+ },
+ {
+  "id": "ad-shifts-text-position",
+  "title": "Реклама загружается после текста и смещает всю страницу вниз, сбивая позицию читателя",
+  "obs": 3
+ },
+ {
+  "id": "battery-overheat",
+  "title": "Приложение сильнее разряжает батарею и перегревает телефон по сравнению с другими новостными приложениями",
+  "obs": 3
+ },
+ {
+  "id": "ai-narrator-robotic",
+  "title": "ИИ-нарратор озвучивает статьи монотонно и механически — слушать утомительно",
+  "obs": 2
+ },
+ {
+  "id": "audio-queue-broken",
+  "title": "Очередь аудиостатей не позволяет удалять прослушанные и менять порядок — работает хуже любого подкаст-плеера",
+  "obs": 2
+ },
+ {
+  "id": "audio-player-freezes",
+  "title": "Аудиоплеер замерзает после каждой статьи и требует перезапуска приложения",
+  "obs": 2
+ },
+ {
+  "id": "audio-ads-for-subscribers",
+  "title": "Реклама в аудиостатьях появляется каждые 2-3 минуты даже у платных подписчиков",
+  "obs": 2
+ },
+ {
+  "id": "black-screen-mid-reading",
+  "title": "Приложение уходит в чёрный экран посреди чтения или при переходе между разделами — помогает только закрытие",
+  "obs": 2
+ },
+ {
+  "id": "page-reload-loses-position",
+  "title": "Страница статьи перезагружается каждые 10 секунд и сбрасывает позицию читателя",
+  "obs": 2
+ },
+ {
+  "id": "games-freeze-navigation",
+  "title": "В разделе игр приложение зависает при переходе между играми и требует перезапуска",
+  "obs": 2
+ },
+ {
+  "id": "crossword-layout-broken",
+  "title": "Кроссворд не помещается на экран и прыгает при вводе — играть невозможно",
+  "obs": 2
+ },
+ {
+  "id": "mid-read-auth-prompt",
+  "title": "Приложение прерывает чтение на середине статьи и требует повторной авторизации",
+  "obs": 1
+ },
+ {
+  "id": "login-credentials-rejected",
+  "title": "Приложение не принимает верные логин и пароль и зацикливает пользователя на экране входа",
+  "obs": 1
+ },
+ {
+  "id": "bookmark-requires-extra-account",
+  "title": "Для сохранения закладок нужна отдельная учётная запись — подписки через Apple недостаточно",
+  "obs": 1
+ },
+ {
+  "id": "subscription-management-wrong-screen",
+  "title": "Кнопка управления подпиской открывает страницу поиска вместо настроек подписки",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive-subscription",
+  "title": "Служба поддержки не отвечает на запросы о неработающей подписке",
+  "obs": 1
+ },
+ {
+  "id": "airpods-controls-broken",
+  "title": "Управление через наушники не работает: перемотка назад не реагирует, вперёд — переключает на следующую статью",
+  "obs": 1
+ },
+ {
+  "id": "audio-cutout",
+  "title": "Звук в аудиостатьях неожиданно пропадает после нескольких материалов подряд",
+  "obs": 1
+ },
+ {
+  "id": "audio-playback-controls-too-small",
+  "title": "Кнопки управления аудиоплеером слишком маленькие для использования на ходу или за рулём",
+  "obs": 1
+ },
+ {
+  "id": "author-search-incomplete",
+  "title": "Поиск по имени автора возвращает неполный список — найти все его материалы можно только через сайт",
+  "obs": 1
+ },
+ {
+  "id": "navigation-unintuitive",
+  "title": "Навигация по приложению запутана и нелогична — найти нужный раздел с первого раза невозможно",
+  "obs": 1
+ },
+ {
+  "id": "save-for-later-missing",
+  "title": "Внутри статьи нельзя сохранить упомянутую ссылку для чтения позже — интересные материалы теряются",
+  "obs": 1
+ },
+ {
+  "id": "updates-hide-features-deeper",
+  "title": "Каждое обновление убирает простые действия глубже в меню — сохранить статью теперь требует больше нажатий",
+  "obs": 1
+ },
+ {
+  "id": "issue-browsing-hard",
+  "title": "В приложении сложно найти конкретный выпуск журнала",
+  "obs": 1
+ },
+ {
+  "id": "comments-blocked-for-subscribers",
+  "title": "Подписчики не могут оставлять комментарии к статьям",
+  "obs": 1
+ },
+ {
+  "id": "resume-reading-wrong-page",
+  "title": "При возвращении к статье приложение загружает другую страницу, а не то место где остановился читатель",
+  "obs": 1
+ },
+ {
+  "id": "animated-banner-distraction",
+  "title": "Анимированная бегущая строка в нижней части статьи мешает сосредоточиться на тексте",
+  "obs": 1
+ },
+ {
+  "id": "photos-small-on-ipad",
+  "title": "На iPad фотографии открываются в четверть экрана в модальном окне вместо полноэкранного просмотра",
+  "obs": 1
+ },
+ {
+  "id": "offline-reading-missing",
+  "title": "Несмотря на подписку, офлайн-чтение загруженных статей недоступно",
+  "obs": 1
+ },
+ {
+  "id": "ipad-slow-load",
+  "title": "На iPad приложение загружается в разы медленнее, чем веб-версия в браузере",
+  "obs": 1
+ },
+ {
+  "id": "typography-broken-after-update",
+  "title": "После обновления весь текст статей стал жирным — нормальное начертание сломано",
+  "obs": 1
+ },
+ {
+  "id": "ipad-multiple-issues",
+  "title": "На iPad приложение нестабильно: падает, не запоминает позицию в статье, прыгает при загрузке рекламы",
+  "obs": 1
+ },
+ {
+  "id": "multidevice-subscription-issues",
+  "title": "Подписка не распознаётся одновременно на мобильном и в браузере — контент недоступен на обоих",
+  "obs": 1
+ },
+ {
+  "id": "ads-for-paid-subscribers-text",
+  "title": "Подписчики видят рекламу при прокрутке текстовых статей несмотря на оплаченный доступ",
+  "obs": 1
+ },
+ {
+  "id": "games-quality-regression",
+  "title": "Качество раздела игр деградировало за год: веб-навигация внутри нарушает поведение нативного приложения",
+  "obs": 1
+ }
+]

@@ -1,0 +1,84 @@
+You are grouping 7 mechanism-level insight clusters from Private Browsing Web Browser (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Private Browsing Web Browser, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 7 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Private Browsing Web Browser — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Private Browsing Web Browser>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-368483462.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "faceid-every-launch",
+  "title": "Face ID запрашивается при каждом открытии приложения, создавая лишнее трение",
+  "obs": 2
+ },
+ {
+  "id": "privacy-claim-vs-reality",
+  "title": "Приложение использует поисковик, который собирает данные, и показывает таргетную рекламу вопреки обещанной приватности",
+  "obs": 2
+ },
+ {
+  "id": "no-multitab",
+  "title": "Приложение не поддерживает несколько вкладок одновременно",
+  "obs": 1
+ },
+ {
+  "id": "bookmarks-not-deletable",
+  "title": "Закладки не удаляются — возвращаются после попытки удаления",
+  "obs": 1
+ },
+ {
+  "id": "settings-reset-on-relaunch",
+  "title": "Настройки приватности сбрасываются в дефолт при каждом перезапуске",
+  "obs": 1
+ },
+ {
+  "id": "url-lost-on-close",
+  "title": "Приложение забывает текущий адрес и позицию на странице при закрытии",
+  "obs": 1
+ },
+ {
+  "id": "server-not-found",
+  "title": "При открытии ряда сайтов появляется ошибка «Сервер не найден»",
+  "obs": 1
+ }
+]

@@ -1,0 +1,68 @@
+{
+  "groups": [
+    {
+      "id": "ne-uznaet-rasteniya",
+      "name": "Не узнаёт растения: мимо при каждом сканировании",
+      "insight_ids": [
+        "inconsistent-scan-results",
+        "low-overall-accuracy",
+        "specific-taxa-not-recognized",
+        "only-common-plants-recognized",
+        "flower-misclassified-as-other-plant",
+        "regional-inaccuracy",
+        "bark-distance-id-fails"
+      ]
+    },
+    {
+      "id": "diagnoz-rasteniy-opasen",
+      "name": "Диагноз растения, которому опасно верить",
+      "insight_ids": [
+        "same-diagnosis-all-plants",
+        "poisonous-plant-misidentified-as-safe",
+        "sick-plant-identified-as-healthy",
+        "disease-detected-no-treatment",
+        "contradictory-plant-info",
+        "inaccurate-care-advice"
+      ]
+    },
+    {
+      "id": "podpiska-i-spisaniya",
+      "name": "Подписка-капкан: скидки, списания и спрятанная отмена",
+      "insight_ids": [
+        "manipulative-pricing-weekly-discount",
+        "core-id-behind-paywall",
+        "charge-after-deletion",
+        "cancellation-hidden-in-phone-settings",
+        "cheaper-plan-change-unavailable"
+      ]
+    },
+    {
+      "id": "kamera-i-zagruzka-foto",
+      "name": "Камера падает, фото из галереи не загрузить",
+      "insight_ids": [
+        "no-gallery-import",
+        "camera-crash-on-open",
+        "gallery-import-not-working",
+        "camera-and-support-both-broken"
+      ]
+    },
+    {
+      "id": "prilozhenie-zahvatyvaet-telefon",
+      "name": "Приложение захватывает телефон",
+      "insight_ids": [
+        "app-blocks-device-navigation",
+        "watering-reminders-missing",
+        "watering-notifications-uncontrollable"
+      ]
+    },
+    {
+      "id": "obeshchali-bolshe-chem-dayut",
+      "name": "Обещали определитель, а заставляют гадать вручную",
+      "insight_ids": [
+        "limited-to-flowers-no-vegetables",
+        "search-by-plant-name-broken",
+        "manual-scrolling-instead-of-auto-id"
+      ]
+    }
+  ]
+}

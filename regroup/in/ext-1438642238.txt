@@ -1,0 +1,149 @@
+You are grouping 20 mechanism-level insight clusters from FastMath - Take Photo & Solve (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO FastMath - Take Photo & Solve, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 20 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to FastMath - Take Photo & Solve — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to FastMath - Take Photo & Solve>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1438642238.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "blur-paywall",
+  "title": "Ответ размыт по умолчанию — просмотр решения требует платной подписки даже на первой задаче",
+  "obs": 11
+ },
+ {
+  "id": "ocr-rejection",
+  "title": "Система распознавания отклоняет чёткие фотографии задач с повторяющимся требованием переснять",
+  "obs": 11
+ },
+ {
+  "id": "paid-but-broken",
+  "title": "После оплаты подписки приложение по-прежнему не решает задачи или выдаёт ошибку",
+  "obs": 7
+ },
+ {
+  "id": "wrong-answers",
+  "title": "Алгоритм выдаёт неправильные ответы на задачи, делая приложение непригодным для учёбы",
+  "obs": 7
+ },
+ {
+  "id": "subscription-required-before-use",
+  "title": "Приложение блокирует любое использование и требует оплату до того, как пользователь видит хоть один ответ",
+  "obs": 6
+ },
+ {
+  "id": "geometry-not-supported",
+  "title": "Приложение не поддерживает геометрию и распознавание фигур — целая категория школьной математики отсутствует",
+  "obs": 4
+ },
+ {
+  "id": "monetization-switch",
+  "title": "Приложение перешло с бесплатной модели на платную — долгосрочные пользователи потеряли доступ без предупреждения",
+  "obs": 3
+ },
+ {
+  "id": "timeout-error",
+  "title": "Приложение возвращает ошибку ожидания вместо решения — сервис не отвечает даже после оплаты",
+  "obs": 3
+ },
+ {
+  "id": "algorithm-returns-input-numbers",
+  "title": "Алгоритм извлекает числа из текста задачи и возвращает их как ответ вместо вычисления",
+  "obs": 3
+ },
+ {
+  "id": "inconsistent-accuracy",
+  "title": "Одна и та же задача иногда решается верно, иногда ошибочно — точность непредсказуема",
+  "obs": 2
+ },
+ {
+  "id": "algebra2-trig-not-supported",
+  "title": "Алгоритм не решает задачи по алгебре второго уровня и тригонометрии — пробел в программе старших классов",
+  "obs": 2
+ },
+ {
+  "id": "word-problems-not-supported",
+  "title": "Приложение не решает текстовые задачи — распространённый тип школьных заданий не поддерживается",
+  "obs": 2
+ },
+ {
+  "id": "competitor-comparison",
+  "title": "Пользователи прямо сравнивают приложение с конкурентами и называют его клоном с худшим функционалом",
+  "obs": 2
+ },
+ {
+  "id": "paid-but-broken-steps",
+  "title": "Приложение показывает ответ, но при попытке открыть пошаговое решение экран остаётся пустым даже после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "camera-capture-fail",
+  "title": "Камера не захватывает снимок задачи — приложение не работает при первом же использовании",
+  "obs": 1
+ },
+ {
+  "id": "handwriting-not-recognized",
+  "title": "Система распознавания не справляется с рукописными задачами из тетради",
+  "obs": 1
+ },
+ {
+  "id": "tutor-function-broken",
+  "title": "Функция обращения к преподавателю внутри приложения не работает",
+  "obs": 1
+ },
+ {
+  "id": "keyboard-missing-space",
+  "title": "Встроенная клавиатура для ввода задачи не имеет пробела — ввод текстовых задач невозможен",
+  "obs": 1
+ },
+ {
+  "id": "no-flashlight",
+  "title": "В приложении нет подсветки камеры — съёмка задачи в тёмных условиях невозможна",
+  "obs": 1
+ },
+ {
+  "id": "no-offline",
+  "title": "Приложение требует интернет-соединение для каждого распознавания — не работает в классах без Wi-Fi",
+  "obs": 1
+ }
+]

@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from Calorie Counter - MyNetDiary (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Calorie Counter - MyNetDiary, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Calorie Counter - MyNetDiary — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Calorie Counter - MyNetDiary>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-287529757.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "free-label-misleading",
+  "title": "Приложение помечено как бесплатное в магазине, но основной функционал заблокирован за подпиской",
+  "obs": 3
+ },
+ {
+  "id": "trial-cancel-still-charged",
+  "title": "Пользователь отменяет пробную подписку до конца триала, но списание всё равно проходит",
+  "obs": 2
+ },
+ {
+  "id": "paywall-first-use",
+  "title": "Платный барьер появляется уже на первом сеансе и после анкеты-опроса, не давая попробовать приложение",
+  "obs": 2
+ },
+ {
+  "id": "db-weak-local-cuisine",
+  "title": "База хорошо покрывает коммерческие продукты, но плохо — локальную и этническую кухню и региональные магазины",
+  "obs": 2
+ },
+ {
+  "id": "barcode-add-slow-verify",
+  "title": "Добавление нового продукта по штрихкоду проходит верификацию с задержкой до дня и дольше",
+  "obs": 2
+ },
+ {
+  "id": "upsell-popups-flood",
+  "title": "Спокойный раньше инструмент завалили push-уведомлениями и всплывающими окнами с апселлом подписки",
+  "obs": 2
+ },
+ {
+  "id": "fitness-tracker-no-autosync",
+  "title": "Тренировки не синхронизируются автоматически с фитнес-трекерами и часами — расход калорий приходится вводить вручную",
+  "obs": 2
+ },
+ {
+  "id": "rational-approach-retention",
+  "title": "Пользователи остаются и худеют благодаря рациональному фокусу на питании, а не на жёстких ограничениях",
+  "obs": 2
+ },
+ {
+  "id": "user-corrections-fix-db",
+  "title": "Пользователи сами исправляют записи в базе через фото штрихкода, и правки применяются в течение дня",
+  "obs": 2
+ },
+ {
+  "id": "monthly-plan-overridden",
+  "title": "Выбор месячного плана переопределяется — приложение списывает полную годовую подписку",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-upgrade-blocked",
+  "title": "Апгрейд с годовой подписки на пожизненную блокируется, потому что Apple отказывает в возврате за обновление",
+  "obs": 1
+ },
+ {
+  "id": "ai-not-in-lifetime",
+  "title": "AI-функция продаётся отдельно и не входит в купленный пожизненный премиум-пакет",
+  "obs": 1
+ },
+ {
+  "id": "trial-no-reminder",
+  "title": "Обещанное напоминание за день до конца пробного периода не приходит — списание становится неожиданным",
+  "obs": 1
+ },
+ {
+  "id": "feature-removed-from-free",
+  "title": "Анализ диеты убрали из бесплатного плана — за прежде доступную функцию теперь надо платить",
+  "obs": 1
+ },
+ {
+  "id": "too-many-paid-tiers",
+  "title": "Несколько параллельных уровней подписки отталкивают готовых платить пользователей от продления",
+  "obs": 1
+ },
+ {
+  "id": "db-inaccurate-nutrition",
+  "title": "Даже при платной подписке данные о питательности в базе массово неточны и подрывают доверие",
+  "obs": 1
+ },
+ {
+  "id": "db-duplicate-entries",
+  "title": "В базе много дублирующихся записей одного продукта — нужную приходится искать среди копий",
+  "obs": 1
+ },
+ {
+  "id": "db-no-prep-variants",
+  "title": "База не различает варианты приготовления одного продукта — сырой и варёный, свежий и консервированный",
+  "obs": 1
+ },
+ {
+  "id": "ai-underestimates-calories",
+  "title": "AI-оценка калорий занижает реальное содержание, пользователю приходится вручную добавлять запас",
+  "obs": 1
+ },
+ {
+  "id": "search-many-attempts",
+  "title": "Поиск продукта в базе требует много попыток — нужный товар часто не находится с первого раза",
+  "obs": 1
+ },
+ {
+  "id": "search-results-no-context",
+  "title": "Результаты поиска не дают контекста — непонятно, какой из похожих вариантов продукта выбрать",
+  "obs": 1
+ },
+ {
+  "id": "home-screen-calories-unreadable",
+  "title": "После обновления съеденные и оставшиеся калории на главном экране накладываются и плохо читаются",
+  "obs": 1
+ },
+ {
+  "id": "nonstandard-navigation",
+  "title": "Навигация неинтуитивна — вернуться в главное меню можно только кнопкой в углу, без стандартного жеста",
+  "obs": 1
+ },
+ {
+  "id": "no-free-version-on-return",
+  "title": "При повторном входе после перерыва приложение показывает только Premium и не даёт вернуться к бесплатной версии",
+  "obs": 1
+ },
+ {
+  "id": "weight-goal-blocked",
+  "title": "Система не даёт установить целевой вес ниже рекомендаций ВОЗ, называя его недостаточным",
+  "obs": 1
+ },
+ {
+  "id": "no-diet-presets",
+  "title": "Нет встроенного типа диеты под отдельные культурные случаи, например вегетарианца, питающегося рыбой",
+  "obs": 1
+ },
+ {
+  "id": "no-flexible-export",
+  "title": "Нет гибкого экспорта отчётов — только шаблоны, нельзя выгрузить данные в нужном формате и диапазоне дат",
+  "obs": 1
+ },
+ {
+  "id": "no-habit-calendar",
+  "title": "Нет календаря привычек с цветовой кодировкой дней, когда пользователь уложился в лимит калорий",
+  "obs": 1
+ },
+ {
+  "id": "no-logging-reminders",
+  "title": "Нет напоминаний о логировании еды — пользователь забывает вносить приёмы пищи в течение дня",
+  "obs": 1
+ },
+ {
+  "id": "no-repeat-item-copy",
+  "title": "Повторяющиеся элементы вроде витаминов и добавок нельзя автоматически копировать на следующий день",
+  "obs": 1
+ },
+ {
+  "id": "calorie-limit-ignores-activity",
+  "title": "Расчёт дневного лимита калорий не учитывает интенсивные тренировки и занижает расход",
+  "obs": 1
+ },
+ {
+  "id": "no-pro-onboarding-support",
+  "title": "После покупки Pro нет видимого гайда по новым функциям, а поддержка не откликается",
+  "obs": 1
+ },
+ {
+  "id": "ed-history-blocks-users",
+  "title": "Приложение блокирует пользователей с историей расстройств пищевого поведения даже в режиме восстановления, вынуждая скрывать медицинскую информацию",
+  "obs": 1
+ },
+ {
+  "id": "scan-counter-reset-reinstall",
+  "title": "Счётчик AI-сканов обнуляется при переустановке, что позволяет обходить лимит бесплатной версии",
+  "obs": 1
+ },
+ {
+  "id": "ai-scanner-gated-newbies",
+  "title": "AI-сканер еды заблокирован в бесплатной версии, хотя именно новичкам он нужнее всего для старта логирования",
+  "obs": 1
+ },
+ {
+  "id": "community-inflated-members",
+  "title": "Сообщество показывает раздутое число участников, но активных среди них почти нет — счётчик не чистится от неактивных",
+  "obs": 1
+ }
+]

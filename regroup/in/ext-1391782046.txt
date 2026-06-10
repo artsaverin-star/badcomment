@@ -1,0 +1,104 @@
+You are grouping 11 mechanism-level insight clusters from Surfshark VPN: Fast VPN App (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Surfshark VPN: Fast VPN App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 11 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Surfshark VPN: Fast VPN App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Surfshark VPN: Fast VPN App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1391782046.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "vpn-speed-degradation",
+  "title": "VPN значительно снижает скорость интернета на ряде приложений",
+  "obs": 15
+ },
+ {
+  "id": "subscription-renewal-trap",
+  "title": "Трёхлетний план автоматически продлевается на год по полной цене — возврат в рамках 30-дневной гарантии компания отклоняет",
+  "obs": 9
+ },
+ {
+  "id": "vpn-blocks-apps",
+  "title": "VPN полностью блокирует или деградирует доступ к нужным приложениям и сайтам — приходится отключать защиту",
+  "obs": 7
+ },
+ {
+  "id": "vpn-drops-connection",
+  "title": "VPN неожиданно теряет соединение и требует постоянного переподключения вручную",
+  "obs": 6
+ },
+ {
+  "id": "protocol-switching-broken",
+  "title": "Переключение между протоколами VPN не работает или вызывает глюки при использовании выбранного протокола",
+  "obs": 6
+ },
+ {
+  "id": "cleanweb-not-working",
+  "title": "Функция блокировки рекламы CleanWeb перестаёт работать после обновления",
+  "obs": 3
+ },
+ {
+  "id": "ui-redesign-harder-to-use",
+  "title": "После редизайна интерфейса функции переместились и стали требовать больше кликов",
+  "obs": 3
+ },
+ {
+  "id": "reinstall-loop",
+  "title": "Приложение периодически перестаёт работать и требует переустановки по многу раз",
+  "obs": 2
+ },
+ {
+  "id": "app-crashes",
+  "title": "Приложение часто падает без видимой причины",
+  "obs": 1
+ },
+ {
+  "id": "apple-platform-missing-features",
+  "title": "Часть функций защиты недоступна на устройствах Apple",
+  "obs": 1
+ },
+ {
+  "id": "carplay-tv-not-supported",
+  "title": "VPN не работает с CarPlay и потоковыми ТВ-приложениями",
+  "obs": 1
+ }
+]

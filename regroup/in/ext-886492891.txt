@@ -1,0 +1,239 @@
+You are grouping 38 mechanism-level insight clusters from ExpressVPN · Secure & Fast VPN (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO ExpressVPN · Secure & Fast VPN, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 38 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to ExpressVPN · Secure & Fast VPN — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to ExpressVPN · Secure & Fast VPN>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-886492891.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "reliability-speed-degradation",
+  "title": "Скорость интернета значительно падает при активном VPN-подключении",
+  "obs": 6
+ },
+ {
+  "id": "reliability-site-blocks-vpn",
+  "title": "Сайты и сервисы блокируют или требуют отключить VPN для прохождения верификации",
+  "obs": 5
+ },
+ {
+  "id": "strategy-ad-blocking-usecase",
+  "title": "Пользователи применяют VPN как инструмент блокировки рекламы и таргетинга по IP",
+  "obs": 4
+ },
+ {
+  "id": "strategy-travel-usecase",
+  "title": "Путешествующие используют VPN для защиты на публичном и отельном WiFi за рубежом",
+  "obs": 4
+ },
+ {
+  "id": "reliability-crash-after-update",
+  "title": "После обновления приложение перестаёт запускаться или зависает в фоне",
+  "obs": 3
+ },
+ {
+  "id": "strategy-streaming-geobypass",
+  "title": "VPN используется для обхода географических ограничений стриминговых сервисов",
+  "obs": 3
+ },
+ {
+  "id": "reliability-vpn-stopped-working",
+  "title": "VPN полностью перестаёт работать без объяснения причины",
+  "obs": 2
+ },
+ {
+  "id": "reliability-server-unreachable",
+  "title": "Приложение не может подключиться к VPN-серверу даже при наличии интернета",
+  "obs": 2
+ },
+ {
+  "id": "ui-missing-locations",
+  "title": "В интерфейсе отображаются не все доступные VPN-локации",
+  "obs": 2
+ },
+ {
+  "id": "ui-ip-mask-incomplete",
+  "title": "VPN недостаточно скрывает реальный IP — приложения и сайты продолжают определять локацию",
+  "obs": 2
+ },
+ {
+  "id": "ui-password-tools",
+  "title": "Приложение включает встроенный генератор паролей как дополнительный инструмент без навязывания",
+  "obs": 2
+ },
+ {
+  "id": "reliability-streaming-detection",
+  "title": "Часть стриминговых платформ обнаруживает и блокирует VPN-подключение",
+  "obs": 2
+ },
+ {
+  "id": "reliability-slow-connection",
+  "title": "Подключение к отдельным VPN-серверам занимает заметно больше времени",
+  "obs": 2
+ },
+ {
+  "id": "strategy-comparative-advantage",
+  "title": "После тестирования нескольких VPN ExpressVPN выделяется надёжностью и удобством",
+  "obs": 2
+ },
+ {
+  "id": "payment-refund-denied",
+  "title": "Поддержка отказывает в возврате средств, несмотря на то что VPN не работает",
+  "obs": 1
+ },
+ {
+  "id": "payment-new-device-issues",
+  "title": "Оплата не проходит или не синхронизируется при переходе на новый iPhone",
+  "obs": 1
+ },
+ {
+  "id": "payment-subscription-redirect",
+  "title": "Приложение обещает управление подпиской внутри, но перебрасывает на сайт",
+  "obs": 1
+ },
+ {
+  "id": "payment-price-multidevice",
+  "title": "Пользователь считает цену менее $100 в год справедливой за защиту нескольких устройств и политику без логов",
+  "obs": 1
+ },
+ {
+  "id": "support-fast-detection-fix",
+  "title": "Поддержка помогает решить проблему обнаружения VPN сервисами за считанные минуты",
+  "obs": 1
+ },
+ {
+  "id": "support-login-after-reinstall",
+  "title": "После переустановки приложения вход в аккаунт не работает, а инструкции поддержки устарели",
+  "obs": 1
+ },
+ {
+  "id": "support-verification-loop",
+  "title": "После покупки подписки цикл верификации кода не даёт создать аккаунт и войти",
+  "obs": 1
+ },
+ {
+  "id": "reliability-update-install-fail",
+  "title": "Последнее обновление не устанавливается на устройство",
+  "obs": 1
+ },
+ {
+  "id": "reliability-ios-conflict-after-update",
+  "title": "После обновления VPN начинает конфликтовать с половиной установленных приложений на iOS",
+  "obs": 1
+ },
+ {
+  "id": "reliability-home-wifi-apple",
+  "title": "VPN не работает через домашний WiFi на устройствах Apple, приходится переключаться на сотовую сеть",
+  "obs": 1
+ },
+ {
+  "id": "reliability-specific-server-unavailable",
+  "title": "Отдельные VPN-локации недоступны — сервер в конкретном городе не подключается",
+  "obs": 1
+ },
+ {
+  "id": "reliability-mobile-degradation",
+  "title": "Мобильная версия со временем деградирует по скорости, тогда как настольная остаётся стабильной",
+  "obs": 1
+ },
+ {
+  "id": "reliability-kill-switch-false-trigger",
+  "title": "Kill switch блокирует интернет даже при стабильном VPN-соединении",
+  "obs": 1
+ },
+ {
+  "id": "reliability-china-unusable",
+  "title": "VPN полностью не работает в Китае, несмотря на оплаченную подписку",
+  "obs": 1
+ },
+ {
+  "id": "reliability-cross-platform-stable",
+  "title": "VPN одинаково стабильно работает на Windows, iOS и Linux, включая простую установку",
+  "obs": 1
+ },
+ {
+  "id": "ui-version-check",
+  "title": "Пользователь не знает как найти текущую версию приложения для сравнения с рекомендуемой",
+  "obs": 1
+ },
+ {
+  "id": "ui-language-lock",
+  "title": "После переустановки нельзя изменить язык интерфейса — приложение возвращается к прежнему языку",
+  "obs": 1
+ },
+ {
+  "id": "ui-laggy-interface",
+  "title": "Интерфейс приложения тормозит и неудобен по сравнению с конкурентами",
+  "obs": 1
+ },
+ {
+  "id": "ui-protocols-grayed-out",
+  "title": "Значительная часть VPN-протоколов недоступна и выделена серым на платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "strategy-discovery-path",
+  "title": "Пользователь начинает с публичного WiFi, затем переходит к ежедневному использованию на всех устройствах",
+  "obs": 1
+ },
+ {
+  "id": "strategy-low-tech-users",
+  "title": "Нетехнические пользователи изучают отзывы перед покупкой, опасаясь сложности настройки",
+  "obs": 1
+ },
+ {
+  "id": "strategy-privacy-surveillance",
+  "title": "Пользователи применяют VPN для защиты от слежки, кражи данных и мошенников в интернете",
+  "obs": 1
+ },
+ {
+  "id": "strategy-rural-quality-boost",
+  "title": "VPN неожиданно улучшает качество и скорость интернета у пользователей в сельской местности",
+  "obs": 1
+ },
+ {
+  "id": "strategy-server-coverage",
+  "title": "Широкий выбор локаций и высокие скорости — ключевое конкурентное преимущество",
+  "obs": 1
+ }
+]

@@ -1,0 +1,55 @@
+{
+  "groups": [
+    {
+      "id": "forced-automation-no-off",
+      "name": "Принудительная автоматика без кнопки «выключить»",
+      "insight_ids": [
+        "autoplay-on-open",
+        "crossfade-ignored",
+        "dj-mixer-premature",
+        "suggested-songs-forced"
+      ]
+    },
+    {
+      "id": "destructive-one-tap",
+      "name": "Случайные нажатия, после которых исчезает плейлист",
+      "insight_ids": [
+        "accidental-playlist-delete",
+        "library-delete-removes-from-playlists"
+      ]
+    },
+    {
+      "id": "shared-playlists-broken",
+      "name": "Совместные плейлисты, которые не доживают до синхронизации",
+      "insight_ids": [
+        "collab-playlist-sync-disappear",
+        "shared-playlist-slow-load"
+      ]
+    },
+    {
+      "id": "apple-watch-unusable",
+      "name": "Apple Watch: пробежка без музыки",
+      "insight_ids": [
+        "watch-session-auth-loop",
+        "watch-download-speed"
+      ]
+    },
+    {
+      "id": "discovery-misses",
+      "name": "Поиск и станции мимо запроса",
+      "insight_ids": [
+        "search-exact-match-only",
+        "station-genre-mixing"
+      ]
+    },
+    {
+      "id": "redesign-and-broken-promises",
+      "name": "После редизайна: лишние клики и обещания, которых нет",
+      "insight_ids": [
+        "home-screen-navigation-regression",
+        "purchased-content-no-offline",
+        "replay-ignores-playlist-plays"
+      ]
+    }
+  ]
+}

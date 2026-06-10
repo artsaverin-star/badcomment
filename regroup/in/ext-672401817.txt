@@ -1,0 +1,254 @@
+You are grouping 41 mechanism-level insight clusters from Strides: Habit Tracker + Goals (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Strides: Habit Tracker + Goals, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 41 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Strides: Habit Tracker + Goals — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Strides: Habit Tracker + Goals>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-672401817.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "upsell-popup-on-action",
+  "title": "Всплывающее окно с предложением купить премиум появляется при каждом добавлении цели или открытии приложения",
+  "obs": 3
+ },
+ {
+  "id": "app-wont-open",
+  "title": "Приложение перестаёт открываться на несколько дней подряд без возможности войти или отправить отчёт об ошибке",
+  "obs": 3
+ },
+ {
+  "id": "non-daily-habit-no-support",
+  "title": "Приложение не поддерживает привычки с периодичностью несколько раз в неделю — только ежедневный ритм",
+  "obs": 2
+ },
+ {
+  "id": "alternating-schedule-missing",
+  "title": "Нет возможности задать чередующееся расписание привычки — например, через день или два дня через один",
+  "obs": 2
+ },
+ {
+  "id": "pause-tracking-missing",
+  "title": "Нет возможности временно приостановить отслеживание привычки на период болезни, отпуска или командировки",
+  "obs": 2
+ },
+ {
+  "id": "slow-load-animation",
+  "title": "После обновления при каждом запуске появляется анимация, которую нельзя отключить, замедляя ежедневное логирование",
+  "obs": 2
+ },
+ {
+  "id": "habit-status-inverted-bug",
+  "title": "Критический баг: отмеченные привычки записываются как невыполненные, и наоборот, ломая стрики",
+  "obs": 2
+ },
+ {
+  "id": "sync-cross-device-partial",
+  "title": "Синхронизация между iPhone, iPad и Mac работает частично — данные не всегда появляются на всех устройствах",
+  "obs": 2
+ },
+ {
+  "id": "apple-health-sync-selective",
+  "title": "Синхронизация с Apple Health избирательна — приложение берёт не те метрики, игнорируя нужные показатели здоровья",
+  "obs": 2
+ },
+ {
+  "id": "notes-locked-free",
+  "title": "Функция заметок к записям привычки недоступна в бесплатной версии",
+  "obs": 1
+ },
+ {
+  "id": "incomplete-goal-no-auto-carry",
+  "title": "Незавершённые цели не переносятся автоматически на следующий день — нужно вручную возвращаться к предыдущей дате",
+  "obs": 1
+ },
+ {
+  "id": "inverse-habit-wrong-miss",
+  "title": "Привычка «не делать» с недельным лимитом ошибочно отмечается как провал, даже когда лимит не превышен",
+  "obs": 1
+ },
+ {
+  "id": "color-tag-missing",
+  "title": "Нет возможности маркировать привычки цветом по тегам для визуальной группировки",
+  "obs": 1
+ },
+ {
+  "id": "calendar-no-habit-filter",
+  "title": "В виде календаря в разделе «Отчёты» нельзя отфильтровать данные по одной конкретной привычке",
+  "obs": 1
+ },
+ {
+  "id": "calendar-day-tap-missing",
+  "title": "В разделе «Отчёты» нельзя нажать на конкретный день календаря, чтобы увидеть детали",
+  "obs": 1
+ },
+ {
+  "id": "calendar-swipe-hard",
+  "title": "Листание по датам в виде календаря неудобно — требует точного попадания в верхнюю часть экрана",
+  "obs": 1
+ },
+ {
+  "id": "watch-today-no-progress-bar",
+  "title": "На Apple Watch экран «Сегодня» не показывает полоску прогресса по каждому трекеру, в отличие от вкладки «Отчёты»",
+  "obs": 1
+ },
+ {
+  "id": "widget-no-specific-goal",
+  "title": "Виджет на заблокированном экране показывает общий счёт выполненных целей, но не прогресс по конкретной цели",
+  "obs": 1
+ },
+ {
+  "id": "goal-delete-missing",
+  "title": "После создания цели нет возможности её удалить — функция отсутствует в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "completed-projects-stay-in-today",
+  "title": "Завершённые проекты продолжают отображаться в списке «Сегодня» и недоступны для взаимодействия",
+  "obs": 1
+ },
+ {
+  "id": "milestone-autocomplete-missing",
+  "title": "Завершение всех задач этапа проекта не закрывает этап автоматически — прогресс остаётся на нуле",
+  "obs": 1
+ },
+ {
+  "id": "milestone-required-for-deadline",
+  "title": "Для цели с дедлайном приложение требует использовать основные этапы, хотя это не очевидно, и числовые цели этапов не поддерживаются",
+  "obs": 1
+ },
+ {
+  "id": "quarterly-goals-missing",
+  "title": "Приложение поддерживает годовые цели, но не квартальные — промежуточный горизонт планирования недоступен",
+  "obs": 1
+ },
+ {
+  "id": "streak-demotivating-no-disable",
+  "title": "Полосы прогресса (стрики) создают психологическое давление, но их нельзя отключить для нейтрального логирования",
+  "obs": 1
+ },
+ {
+  "id": "small-screen-complex-tracking",
+  "title": "Управление сложными трекерами на маленьком экране неудобно — веб-версия была бы лучше",
+  "obs": 1
+ },
+ {
+  "id": "reminder-merges-all-tasks",
+  "title": "Напоминание объединяет все задачи в один список без разбивки по времени выполнения, что дезориентирует пользователя",
+  "obs": 1
+ },
+ {
+  "id": "reminder-wrong-time",
+  "title": "Пуш-напоминания приходят в неправильное время, нарушая сценарий использования и вызывая лишнее беспокойство",
+  "obs": 1
+ },
+ {
+  "id": "seconds-tracking-missing",
+  "title": "Приложение не позволяет отслеживать время с точностью до секунды в формате ЧЧ:ММ:СС",
+  "obs": 1
+ },
+ {
+  "id": "numeric-rounding-units",
+  "title": "Числовые значения округляются до десятков — нельзя фиксировать изменения на уровне единиц",
+  "obs": 1
+ },
+ {
+  "id": "shortcuts-export-missing",
+  "title": "Нет возможности экспортировать данные через Быстрые Команды или другой программный интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "web-version-removed",
+  "title": "Веб-версия удалена в обновлении — пользователи Windows лишились основного способа доступа к трекеру",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-on-ipad",
+  "title": "Приложение зависает и немедленно закрывается при открытии на iPad Pro",
+  "obs": 1
+ },
+ {
+  "id": "more-clicks-after-update",
+  "title": "После обновления для ежедневного отмечания привычки требуется в шесть раз больше нажатий, чем раньше",
+  "obs": 1
+ },
+ {
+  "id": "lock-screen-log-broken",
+  "title": "Долгое нажатие на виджет экрана блокировки для записи привычки перестало работать после обновления",
+  "obs": 1
+ },
+ {
+  "id": "export-logs-broken",
+  "title": "Экспорт журнала перестал работать — приложение выгружает графики вместо табличных данных",
+  "obs": 1
+ },
+ {
+  "id": "reorder-habits-bug",
+  "title": "Более двух месяцев невозможно переупорядочить привычки: клавиатура самопроизвольно скрывается",
+  "obs": 1
+ },
+ {
+  "id": "history-lost-on-device-change",
+  "title": "История привычек и данные не переносятся при смене устройства, несмотря на включённую синхронизацию",
+  "obs": 1
+ },
+ {
+  "id": "update-auto-logout-icloud",
+  "title": "После обновления приложение самопроизвольно разлогинивает и сообщает об отсутствии данных в iCloud, хотя они были синхронизированы",
+  "obs": 1
+ },
+ {
+  "id": "help-left-brain-only",
+  "title": "Справка и FAQ ориентированы на аналитический стиль мышления и не подходят для творческих пользователей",
+  "obs": 1
+ },
+ {
+  "id": "date-goal-pace-calculator",
+  "title": "Цель с дедлайном автоматически рассчитывает дневной темп выполнения и визуализирует прогресс — это мотивирует",
+  "obs": 1
+ },
+ {
+  "id": "app-visually-outdated",
+  "title": "Визуальный облик и функциональность приложения не менялись существенно за 12 лет и воспринимаются как устаревшие",
+  "obs": 1
+ }
+]

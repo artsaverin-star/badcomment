@@ -1,0 +1,234 @@
+You are grouping 37 mechanism-level insight clusters from Washington Post (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Washington Post, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 37 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Washington Post — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Washington Post>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-352509417.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ads-in-paid-subscription",
+  "title": "Платный подписчик видит рекламу в аудиосводке, аудиостатьях и кроссворде — несмотря на оплаченный доступ",
+  "obs": 3
+ },
+ {
+  "id": "political-coverage-gap",
+  "title": "Новости о Белом доме, Конгрессе и Украине появляются у конкурентов, но отсутствуют или запаздывают в WaPo",
+  "obs": 3
+ },
+ {
+  "id": "content-personalization-missing",
+  "title": "В приложении нет настроек для выбора нужных категорий — нежелаемые разделы нельзя скрыть или убрать",
+  "obs": 3
+ },
+ {
+  "id": "print-edition-navigation",
+  "title": "В цифровой версии газеты нет интерактивных ссылок между страницами и разделами — переходить по номерам страниц нельзя",
+  "obs": 3
+ },
+ {
+  "id": "section-closures",
+  "title": "Редакция закрыла разделы о погоде, Ближнем Востоке, спорте, метро и бизнесе — контент стал уже",
+  "obs": 2
+ },
+ {
+  "id": "repeated-stories",
+  "title": "Одни и те же статьи повторяются несколько раз в течение недели вместо создания нового материала",
+  "obs": 2
+ },
+ {
+  "id": "category-skip-audio",
+  "title": "При слушании аудио нельзя пропустить нежелаемые категории — приложение случайно переключается между ними",
+  "obs": 2
+ },
+ {
+  "id": "video-ads-in-articles",
+  "title": "Видеообъявления встроены внутрь текста статей и движутся при прокрутке, сбивая концентрацию",
+  "obs": 2
+ },
+ {
+  "id": "tracking-no-opt-out",
+  "title": "Приложение отслеживает историю чтения и устанавливает трекеры без возможности отказаться",
+  "obs": 2
+ },
+ {
+  "id": "edition-load-failure",
+  "title": "Цифровое издание газеты за конкретную дату не загружается в приложении",
+  "obs": 2
+ },
+ {
+  "id": "comment-session-logout",
+  "title": "При попытке оставить комментарий или лайк приложение выбрасывает из сессии и требует повторного входа",
+  "obs": 2
+ },
+ {
+  "id": "price-anomaly",
+  "title": "Дневной пропуск стоит в десять раз дороже месячной подписки — ценовая аномалия отталкивает разовых читателей",
+  "obs": 1
+ },
+ {
+  "id": "price-hike",
+  "title": "Годовая подписка подорожала на 80% за год — значительно выше инфляции",
+  "obs": 1
+ },
+ {
+  "id": "cancel-blocked-by-support",
+  "title": "Служба поддержки недоступна в день отмены — пользователь вынужден оплатить лишний месяц",
+  "obs": 1
+ },
+ {
+  "id": "quality-degradation",
+  "title": "После сокращений редакции уменьшилось число материалов и упало качество репортажей",
+  "obs": 1
+ },
+ {
+  "id": "regional-coverage-gap",
+  "title": "Освещение местной политики и событий штата поверхностно или полностью отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "editorial-bias",
+  "title": "Редакционные комментарии воспринимаются как повторяющие позицию конкурентного издания, а не независимый анализ",
+  "obs": 1
+ },
+ {
+  "id": "headline-appeal",
+  "title": "Заголовки и краткая структура статей — главная причина, по которой пользователи выбирают WaPo",
+  "obs": 1
+ },
+ {
+  "id": "typo-in-headline",
+  "title": "В заголовке статьи допущена фактическая ошибка, меняющая смысл новости",
+  "obs": 1
+ },
+ {
+  "id": "autoplay-no-control",
+  "title": "Автопроигрывание аудио включено по умолчанию и не отключается в настройках",
+  "obs": 1
+ },
+ {
+  "id": "audio-navigation-lost",
+  "title": "При слушании аудиостатьи случайно запускается другая — вернуться к исходной невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ai-voice-tone",
+  "title": "Синтетический голос читает статьи с советами с интонацией детективного нуара, что мешает восприятию",
+  "obs": 1
+ },
+ {
+  "id": "crossword-keyboard-layout",
+  "title": "Клавиатура кроссворда расположена нестандартно, что вызывает постоянные случайные опечатки",
+  "obs": 1
+ },
+ {
+  "id": "comments-popup-overlay",
+  "title": "Всплывающее окно комментариев перекрывает конец ленты комментариев и не убирается",
+  "obs": 1
+ },
+ {
+  "id": "next-article-popup",
+  "title": "Всплывающий промт с предложением следующей статьи нельзя отключить в настройках",
+  "obs": 1
+ },
+ {
+  "id": "crossword-portrait-mode",
+  "title": "Кроссворд недоступен в портретной ориентации на iPad",
+  "obs": 1
+ },
+ {
+  "id": "paywall-after-cancel",
+  "title": "После отмены подписки push-уведомления ведут на заблокированный контент, вынуждая отключить уведомления",
+  "obs": 1
+ },
+ {
+  "id": "accidental-link-taps",
+  "title": "Встроенные ссылки в статьях срабатывают случайно при прокрутке и не отключаются в настройках",
+  "obs": 1
+ },
+ {
+  "id": "dark-mode-comments",
+  "title": "Комментарии нечитаемы в тёмной теме — текст сливается с фоном",
+  "obs": 1
+ },
+ {
+  "id": "font-size-ad-overlap",
+  "title": "При увеличении шрифта реклама в нижней части экрана перекрывает адресную строку браузера",
+  "obs": 1
+ },
+ {
+  "id": "headline-list-browsing",
+  "title": "Список заголовков не позволяет быстро просмотреть новость — каждый требует перехода на отдельную страницу",
+  "obs": 1
+ },
+ {
+  "id": "crossword-repeated-ad",
+  "title": "Видеообъявление перед кроссвордом показывается повторно при каждом возврате в игру",
+  "obs": 1
+ },
+ {
+  "id": "crossword-exit-on-input",
+  "title": "Нажатие буквы в кроссворде выбрасывает из игры и запускает показ рекламы заново",
+  "obs": 1
+ },
+ {
+  "id": "comment-ban-no-explanation",
+  "title": "Пользователь заблокирован от комментирования навсегда без объяснений — служба поддержки не отвечает",
+  "obs": 1
+ },
+ {
+  "id": "morning-audio-use-case",
+  "title": "Часть аудитории использует приложение исключительно как семиминутный утренний аудиобрифинг",
+  "obs": 1
+ },
+ {
+  "id": "print-replacement-use-case",
+  "title": "Пользователи используют приложение как прямую замену ежедневной печатной газеты с привязкой ко времени выхода",
+  "obs": 1
+ },
+ {
+  "id": "competitor-counterpoint-use",
+  "title": "Пользователи читают WaPo как контрпункт к другим источникам, а не как основной — слабость международного репортажа ускоряет уход",
+  "obs": 1
+ }
+]

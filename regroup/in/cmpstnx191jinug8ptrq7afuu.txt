@@ -1,0 +1,279 @@
+You are grouping 46 mechanism-level insight clusters from Quizlet: More than Flashcards (Карточки и помощники в учёбе) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Quizlet: More than Flashcards, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 46 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Quizlet: More than Flashcards — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Quizlet: More than Flashcards>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstnx191jinug8ptrq7afuu.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paywall-blocks-learning-modes",
+  "title": "Бесплатная версия блокирует основные режимы обучения после нескольких действий — невозможно завершить сессию без подписки",
+  "obs": 7
+ },
+ {
+  "id": "user-content-errors-no-flag",
+  "title": "Пользовательские наборы содержат фактические ошибки, а механизма пометить карточку как неверную не существует",
+  "obs": 3
+ },
+ {
+  "id": "onboarding-unintuitive",
+  "title": "Интерфейс неинтуитивен для новых пользователей — загрузка материала и навигация требуют значительного времени на освоение",
+  "obs": 3
+ },
+ {
+  "id": "trial-silent-charge",
+  "title": "Пробный период снимает полную стоимость подписки без предупреждения о дате окончания",
+  "obs": 2
+ },
+ {
+  "id": "ads-persist-in-paid",
+  "title": "Платная подписка не убирает рекламу — включая неуместную рекламу во время учебной сессии",
+  "obs": 2
+ },
+ {
+  "id": "academic-only-no-professional",
+  "title": "Контент и категории ориентированы на академическое обучение — профессиональная переподготовка и узкоспециальные материалы не поддерживаются",
+  "obs": 2
+ },
+ {
+  "id": "written-answer-no-synonyms",
+  "title": "Режим письменного ответа требует точного совпадения текста и не принимает синонимы или альтернативные формулировки",
+  "obs": 2
+ },
+ {
+  "id": "ipad-keyboard-layout-broken",
+  "title": "Мобильное приложение на iPad не поддерживает клавиатуру — макет карточек сломан и навигация с клавиатурой недоступна",
+  "obs": 2
+ },
+ {
+  "id": "search-in-cards-removed",
+  "title": "Поиск по содержимому карточек удалён из мобильного приложения — при больших наборах нельзя найти нужную карточку",
+  "obs": 2
+ },
+ {
+  "id": "app-crashes-loses-data",
+  "title": "Приложение падает при создании большого набора карточек и теряет все несохранённые данные",
+  "obs": 2
+ },
+ {
+  "id": "draft-deleted-on-exit",
+  "title": "Черновик набора карточек удаляется без предупреждения при кратковременном выходе из приложения",
+  "obs": 2
+ },
+ {
+  "id": "image-limit-in-paid-plan",
+  "title": "В платной версии действует скрытый лимит на количество изображений в наборе",
+  "obs": 1
+ },
+ {
+  "id": "photos-behind-paywall",
+  "title": "Загрузка фотографий в карточки заблокирована за paywall — базовая функция визуального обучения недоступна бесплатно",
+  "obs": 1
+ },
+ {
+  "id": "price-hike-cuts-features",
+  "title": "После повышения цены подписки функции, доступные по старой цене, стали требовать новый тариф",
+  "obs": 1
+ },
+ {
+  "id": "double-charge-after-payment",
+  "title": "После оплаты подписки система сообщает о достижении лимита и требует дополнительный платёж",
+  "obs": 1
+ },
+ {
+  "id": "ai-generates-wrong-facts",
+  "title": "AI-генерация карточек создаёт фактически неверный контент, который пользователь вынужден проверять вручную",
+  "obs": 1
+ },
+ {
+  "id": "app-is-template-not-source",
+  "title": "Приложение позиционируется как источник контента, но на деле требует самостоятельного создания всех карточек",
+  "obs": 1
+ },
+ {
+  "id": "feature-bloat-blurs-core",
+  "title": "Расширение функций и переименование размывают основное назначение приложения как инструмента для карточек",
+  "obs": 1
+ },
+ {
+  "id": "gif-no-playback-mobile",
+  "title": "GIF-изображения в карточках не воспроизводятся в мобильном приложении, хотя работают в браузере",
+  "obs": 1
+ },
+ {
+  "id": "images-compressed-lose-quality",
+  "title": "Приложение сжимает изображения в карточках, снижая качество визуального материала",
+  "obs": 1
+ },
+ {
+  "id": "images-unavailable-in-term-field",
+  "title": "Добавление изображений в поле «Термин» недоступно — визуальное обучение работает только в одну сторону карточки",
+  "obs": 1
+ },
+ {
+  "id": "interface-cluttered-overwhelming",
+  "title": "Интерфейс перегружен визуальными элементами и слишком крупным текстом — создаёт ощущение хаоса",
+  "obs": 1
+ },
+ {
+  "id": "registration-button-loops",
+  "title": "Кнопка регистрации зависает в бесконечном цикле и не завершает создание аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "test-repeats-same-questions",
+  "title": "В режиме теста повторяются одни и те же вопросы — нет представления о реальной готовности к экзамену",
+  "obs": 1
+ },
+ {
+  "id": "cannot-delete-sets",
+  "title": "Нельзя удалить наборы карточек из личной библиотеки ни в приложении, ни на сайте",
+  "obs": 1
+ },
+ {
+  "id": "game-marks-correct-as-wrong",
+  "title": "Игровой режим некорректно засчитывает правильные ответы как ошибку",
+  "obs": 1
+ },
+ {
+  "id": "test-options-too-obvious",
+  "title": "Варианты ответов в тесте слишком подсказывающие — правильный ответ угадывается без знания материала",
+  "obs": 1
+ },
+ {
+  "id": "instant-feedback-missing-web",
+  "title": "Мгновенная обратная связь при ответах доступна только в мобильном приложении и отсутствует в веб-версии",
+  "obs": 1
+ },
+ {
+  "id": "progress-reset-broken",
+  "title": "Функция сброса прогресса не работает — карточки остаются помеченными как изученные и исключаются из повторного обучения",
+  "obs": 1
+ },
+ {
+  "id": "ai-reformulates-user-text",
+  "title": "AI-функция автоматически переформулирует текст карточек, нарушая привычные формулировки пользователя",
+  "obs": 1
+ },
+ {
+  "id": "speech-input-switches-language",
+  "title": "Распознавание речи переключается на английский при вводе иностранного языка для слов-когнатов",
+  "obs": 1
+ },
+ {
+  "id": "true-false-test-broken",
+  "title": "Тест в формате «верно/неверно» работает некорректно и расходует попытку впустую",
+  "obs": 1
+ },
+ {
+  "id": "search-sets-hard",
+  "title": "Поиск подходящих готовых наборов по теме и уровню сложности затруднён в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "font-not-adjustable",
+  "title": "Размер и стиль шрифта в мобильном приложении нерегулируемы",
+  "obs": 1
+ },
+ {
+  "id": "mobile-layout-unstable",
+  "title": "Макет приложения на телефоне нестабилен и сложен для чтения",
+  "obs": 1
+ },
+ {
+  "id": "scan-broken-after-update",
+  "title": "Сканирование документов сломано после обновления — все слова загружаются в одну ячейку",
+  "obs": 1
+ },
+ {
+  "id": "card-flip-glitch",
+  "title": "При перелистывании карточек приложение перемешивает термины и определения",
+  "obs": 1
+ },
+ {
+  "id": "freeze-on-save",
+  "title": "Приложение зависает при каждом сохранении набора карточек",
+  "obs": 1
+ },
+ {
+  "id": "pdf-scan-content-mismatch",
+  "title": "Распознавание PDF-документа в премиум-режиме даёт контент, не совпадающий с оригиналом — вопросы и ответы различаются",
+  "obs": 1
+ },
+ {
+  "id": "ai-generation-stops-working",
+  "title": "AI-генерация карточек перестаёт срабатывать и не работает месяцами подряд",
+  "obs": 1
+ },
+ {
+  "id": "notifications-after-uninstall",
+  "title": "Приложение продолжает отправлять уведомления после удаления — отключить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ipad-split-screen-freeze",
+  "title": "Приложение зависает и блокирует ввод текста на iPad в режиме Split Screen",
+  "obs": 1
+ },
+ {
+  "id": "sync-fails-across-devices",
+  "title": "Изменения, сделанные на одном устройстве, не синхронизируются с другими",
+  "obs": 1
+ },
+ {
+  "id": "web-slow-large-sets",
+  "title": "Веб-версия критически замедляется при работе с наборами из 100 и более карточек",
+  "obs": 1
+ },
+ {
+  "id": "edit-button-broken-mobile",
+  "title": "Кнопка редактирования карточек не работает в мобильном приложении, хотя функционирует в браузере",
+  "obs": 1
+ },
+ {
+  "id": "web-preferred-over-mobile",
+  "title": "Веб-версия стабильнее и функциональнее мобильного приложения — пользователи возвращаются в браузер",
+  "obs": 1
+ }
+]

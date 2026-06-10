@@ -1,0 +1,369 @@
+You are grouping 64 mechanism-level insight clusters from SpanishDictionary.com Learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO SpanishDictionary.com Learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 64 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to SpanishDictionary.com Learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to SpanishDictionary.com Learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-332510494.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "search-freezes-loads-forever",
+  "title": "Поиск слова зависает на экране загрузки и тянется секунды или минуты, требуя перезапуска",
+  "obs": 11
+ },
+ {
+  "id": "ads-no-sound-control",
+  "title": "Реклама воспроизводит звук без возможности отключить, даже когда телефон в беззвучном режиме",
+  "obs": 10
+ },
+ {
+  "id": "overheat-battery-drain",
+  "title": "Приложение перегревает телефон и быстро разряжает батарею даже при коротком использовании словаря",
+  "obs": 5
+ },
+ {
+  "id": "ads-overheat-resources",
+  "title": "Автозапуск рекламы со звуком и видео потребляет ресурсы, замедляет приложение и перегревает устройство",
+  "obs": 4
+ },
+ {
+  "id": "crash-adding-words-list",
+  "title": "Приложение падает или зависает при добавлении нескольких слов в список, ломая создание списков",
+  "obs": 4
+ },
+ {
+  "id": "background-reload-loses-context",
+  "title": "Переключение на другое приложение даже на секунды выгружает страницу из памяти и теряет текущую позицию",
+  "obs": 4
+ },
+ {
+  "id": "ads-by-design-push-paid",
+  "title": "Реклама специально сделана навязчивой, чтобы вынудить перейти на платную версию",
+  "obs": 3
+ },
+ {
+  "id": "demand-other-languages",
+  "title": "Пользователи просят такую же модель приложения для других языков",
+  "obs": 3
+ },
+ {
+  "id": "ads-block-controls",
+  "title": "Реклама перекрывает кнопки управления и запуск упражнения, полностью блокируя функцию",
+  "obs": 2
+ },
+ {
+  "id": "freeze-long-words-exercises",
+  "title": "Приложение зависает на словах со слишком длинным текстом в упражнениях, блокируя прогресс",
+  "obs": 2
+ },
+ {
+  "id": "speech-recognition-false-fails",
+  "title": "Распознавание голоса не принимает правильное произношение и создаёт ложные ошибки в викторине",
+  "obs": 2
+ },
+ {
+  "id": "search-redirects-to-lesson",
+  "title": "При поиске слова приложение уводит на учебный урок вместо быстрого перевода, ломая основной сценарий",
+  "obs": 2
+ },
+ {
+  "id": "no-bookmarks-phrases",
+  "title": "Нет закладок для сохранения отдельных фраз и примеров предложений ради быстрого возврата к ним",
+  "obs": 2
+ },
+ {
+  "id": "cannot-add-custom-words",
+  "title": "Нельзя добавлять собственные слова и фразы, которых нет в словаре, что ограничивает обучение",
+  "obs": 2
+ },
+ {
+  "id": "account-required-on-mobile",
+  "title": "Мобильное приложение требует создания аккаунта даже для базового словаря, в отличие от веб-версии",
+  "obs": 2
+ },
+ {
+  "id": "no-dark-mode",
+  "title": "Ярко-белый интерфейс вызывает дискомфорт для глаз, не хватает тёмной темы для учёбы перед сном",
+  "obs": 2
+ },
+ {
+  "id": "quiz-no-review-repetition",
+  "title": "Викторина показывает мало слов за раз и потеряла повтор ранее выученных слов для закрепления",
+  "obs": 2
+ },
+ {
+  "id": "grammar-explanations-effective",
+  "title": "Грамматические объяснения помогают быстро уловить сложные различия времён",
+  "obs": 2
+ },
+ {
+  "id": "missing-regional-dialects",
+  "title": "Нет региональных диалектов испанского — приложение бесполезно для путешествий в отдельные страны",
+  "obs": 2
+ },
+ {
+  "id": "trial-charges-full-year",
+  "title": "В начале пробного периода списывается полная годовая подписка вместо ожидания его окончания",
+  "obs": 1
+ },
+ {
+  "id": "no-monthly-plan",
+  "title": "Доступна только годовая подписка за 60 долларов, нет ежемесячного варианта для пробы",
+  "obs": 1
+ },
+ {
+  "id": "free-label-misleading",
+  "title": "Приложение заявлено бесплатным, но базовые функции платные — это вводит в заблуждение при установке",
+  "obs": 1
+ },
+ {
+  "id": "paid-features-unavailable",
+  "title": "После оплаты подписки часть функций остаётся недоступной, и поддержка Apple не помогает",
+  "obs": 1
+ },
+ {
+  "id": "ads-interrupt-quiz",
+  "title": "Полноэкранная реклама без предупреждения прерывает викторину и заставляет начинать заново",
+  "obs": 1
+ },
+ {
+  "id": "ads-minimal-praised",
+  "title": "Реклама короткая и сдержанная — отвлекает заметно меньше, чем у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "search-slow-algorithm",
+  "title": "Поиск сканирует весь словарь и выдаёт результат за десятки секунд даже на простой запрос",
+  "obs": 1
+ },
+ {
+  "id": "crash-after-seconds",
+  "title": "Приложение падает через десятки секунд использования даже на новом устройстве",
+  "obs": 1
+ },
+ {
+  "id": "freeze-ipad-keyboard",
+  "title": "Приложение часто зависает на планшете при работе с физической клавиатурой",
+  "obs": 1
+ },
+ {
+  "id": "update-degraded-performance",
+  "title": "После обновления приложение стало заметно медленнее и тяжелее, чем раньше",
+  "obs": 1
+ },
+ {
+  "id": "lesson-no-resume-after-interrupt",
+  "title": "При прерывании урок не сохраняет прогресс и требует начинать с начала, что мешает учиться в поездке",
+  "obs": 1
+ },
+ {
+  "id": "apple-signin-broken",
+  "title": "Вход через Apple перестал работать, и пользователь теряет доступ к аккаунту и прогрессу",
+  "obs": 1
+ },
+ {
+  "id": "no-offline-typo-correction",
+  "title": "Поиск не работает без интернета и не исправляет опечатки в запросе, просто бесконечно грузится",
+  "obs": 1
+ },
+ {
+  "id": "offline-search-works-praised",
+  "title": "Поиск слов работает без интернета, что выручает в поездках по удалённым районам",
+  "obs": 1
+ },
+ {
+  "id": "quiz-mode-switch-unexpected",
+  "title": "Викторина сама переключается с голосового режима на письменный без действия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "speech-misclassifies-grammar",
+  "title": "Распознавание речи неправильно определяет грамматические концепции, и приложение зависает после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "search-guesses-not-exact",
+  "title": "Поиск пытается угадать слово вместо того, чтобы принимать точный ввод пользователя",
+  "obs": 1
+ },
+ {
+  "id": "login-options-limited",
+  "title": "Вход ограничен только Apple, Google или Facebook, что мешает переносить прогресс между платформами",
+  "obs": 1
+ },
+ {
+  "id": "vocab-bank-clunky-navigation",
+  "title": "Интерфейс работы с личной базой слов неуклюжий и плохо позволяет управлять словарным запасом",
+  "obs": 1
+ },
+ {
+  "id": "home-screen-redesign-worse",
+  "title": "Переделанный главный экран стал менее удобным, чем предыдущая версия",
+  "obs": 1
+ },
+ {
+  "id": "hard-to-find-story-lessons",
+  "title": "Сложно найти уроки с рассказами — плохая организация и обнаружение контента",
+  "obs": 1
+ },
+ {
+  "id": "rating-prompt-interrupts",
+  "title": "Приложение прерывает работу запросом оценки, что раздражает и подталкивает к удалению",
+  "obs": 1
+ },
+ {
+  "id": "rating-picker-misreads",
+  "title": "Выбор рейтинга в отзыве неправильно считывает намерение и ставит не ту оценку",
+  "obs": 1
+ },
+ {
+  "id": "no-share-links",
+  "title": "Нельзя поделиться ссылкой на слово или фразу из мобильного приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-reminders-notifications",
+  "title": "Приложение не присылает напоминания об учёбе, помогающие не откладывать занятия",
+  "obs": 1
+ },
+ {
+  "id": "no-widgets-siri",
+  "title": "Не хватает виджетов и быстрого поиска через голосового ассистента без открытия приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-quiz-customization",
+  "title": "Нет настройки интервалов повторения и параметров викторин под собственный темп обучения",
+  "obs": 1
+ },
+ {
+  "id": "no-repeat-lesson-part",
+  "title": "Нельзя повторить отдельную часть урока — приходится начинать с начала, если пропустил слово",
+  "obs": 1
+ },
+ {
+  "id": "no-answer-explanation",
+  "title": "При неправильном ответе нет объяснения, почему он неверный, что снижает обучающую ценность",
+  "obs": 1
+ },
+ {
+  "id": "no-spanish-definitions",
+  "title": "Приложение даёт только перевод на английский, а не определения на испанском",
+  "obs": 1
+ },
+ {
+  "id": "shows-regional-usage",
+  "title": "Приложение показывает, в каких странах чаще используют слово, что помогает с региональными вариантами",
+  "obs": 1
+ },
+ {
+  "id": "explains-vulgar-meanings",
+  "title": "Приложение объясняет грубые значения слов, помогая избегать оскорбительных ошибок в речи",
+  "obs": 1
+ },
+ {
+  "id": "newsletter-ads-replace-content",
+  "title": "В ежедневных рассылках культурный контекст примеров заменили рекламой стороннего сервиса",
+  "obs": 1
+ },
+ {
+  "id": "no-progress-no-explanation-needed",
+  "title": "Приложение не наказывает за ошибки, а даёт повторить попытку, мотивируя продолжать",
+  "obs": 1
+ },
+ {
+  "id": "support-fixed-billing",
+  "title": "Поддержка оперативно решает проблемы с оплатой",
+  "obs": 1
+ },
+ {
+  "id": "no-email-verification",
+  "title": "При смене адреса почты не приходит проверочное письмо, что блокирует обновление профиля",
+  "obs": 1
+ },
+ {
+  "id": "no-forced-time-limit",
+  "title": "Приложение не прерывает обучение лимитом времени без премиума, в отличие от конкурента",
+  "obs": 1
+ },
+ {
+  "id": "premium-optional-good-free",
+  "title": "Дополнительные функции и сдержанная реклама делают премиум необязательным для хорошего опыта",
+  "obs": 1
+ },
+ {
+  "id": "demand-specialized-vocab",
+  "title": "Пользователи хотят специализированные словари для профессиональной терминологии",
+  "obs": 1
+ },
+ {
+  "id": "no-ai-praised",
+  "title": "Отсутствие навязчивых технологий в приложении ценят как редкость среди конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "simple-focused-tool",
+  "title": "Простой инструмент для спряжений без лишних функций привлекает тех, кто избегает сложных приложений",
+  "obs": 1
+ },
+ {
+  "id": "complements-other-learning",
+  "title": "Приложение используют как дополнение к другим методам для закрепления грамматики",
+  "obs": 1
+ },
+ {
+  "id": "kindle-integration-wish",
+  "title": "Пользователи хотят встроенный словарь при чтении вместо ручного копирования слов",
+  "obs": 1
+ },
+ {
+  "id": "free-version-low-engagement",
+  "title": "Бесплатная версия недостаточно увлекательна для регулярного использования, мотивация падает",
+  "obs": 1
+ },
+ {
+  "id": "functional-but-rough-daily",
+  "title": "Приложение функциональное, но проблемы производительности и нехватка базовых удобств заметны при ежедневном использовании",
+  "obs": 1
+ }
+]

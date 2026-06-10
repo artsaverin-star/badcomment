@@ -1,0 +1,90 @@
+{
+  "groups": [
+    {
+      "id": "paid-but-still-locked",
+      "name": "Заплатил — а доступ так и не открылся",
+      "insight_ids": [
+        "lifetime-purchase-not-applied",
+        "one-time-to-subscription-migration",
+        "restore-purchase-fails",
+        "bundle-required-after-individual-purchase",
+        "upgrade-prompts-for-active-subscribers",
+        "sync-across-devices-fails"
+      ]
+    },
+    {
+      "id": "upsell-and-hidden-charges",
+      "name": "Апселл поверх оплаты и списания исподтишка",
+      "insight_ids": [
+        "upsell-shown-after-payment",
+        "double-charging",
+        "hidden-charges-after-trial",
+        "subscription-cancellation-broken",
+        "upsell-outside-app",
+        "support-ghosting"
+      ]
+    },
+    {
+      "id": "paywall-pricing-shape",
+      "name": "Только годовой за $60: как устроен прайс-вход",
+      "insight_ids": [
+        "no-monthly-plan",
+        "free-tier-3-habits-ceiling",
+        "ads-degrade-performance"
+      ]
+    },
+    {
+      "id": "freezes-and-crashes",
+      "name": "Тормоза, зависания и вылеты в ежедневной рутине",
+      "insight_ids": [
+        "app-slow-crashes",
+        "freeze-on-completion-animation",
+        "background-resume-delay",
+        "new-day-rollover-freeze"
+      ]
+    },
+    {
+      "id": "lost-history-and-broken-streaks",
+      "name": "Пропавшая история и сорванные стрики",
+      "insight_ids": [
+        "data-lost-on-update-or-reinstall",
+        "timezone-breaks-streaks",
+        "activity-counter-wrong",
+        "export-data-broken"
+      ]
+    },
+    {
+      "id": "features-removed-after-update",
+      "name": "Обновление унесло привычные функции",
+      "insight_ids": [
+        "content-ui-content-deleted",
+        "hide-completed-removed",
+        "habit-frequency-removed",
+        "swipe-date-removed",
+        "color-palette-changed"
+      ]
+    },
+    {
+      "id": "marking-friction",
+      "name": "Отметить выполнение — лишние касания и тупики",
+      "insight_ids": [
+        "widget-cant-complete-tasks",
+        "notification-cant-complete-tasks",
+        "counter-tap-requires-multiple",
+        "edit-resets-sort-order",
+        "widget-ugly-background"
+      ]
+    },
+    {
+      "id": "setup-limits-and-device-sync",
+      "name": "Жёсткие рамки настройки и синхронизация с устройствами",
+      "insight_ids": [
+        "predefined-habits-only",
+        "custom-groups-broken",
+        "archive-blocks-new-habits",
+        "apple-watch-sync-fails",
+        "apple-health-sync-unstable"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+You are grouping 20 mechanism-level insight clusters from FloatMe: Fast Cash Advance App (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO FloatMe: Fast Cash Advance App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 20 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to FloatMe: Fast Cash Advance App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to FloatMe: Fast Cash Advance App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpszwmal47snughvw6kru5pv.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paid-membership-then-denied-advance",
+  "title": "Подписку для аванса оплатил, но в авансе всё равно отказывают — деньги списаны, доступа нет",
+  "obs": 7
+ },
+ {
+  "id": "limit-grows-with-on-time-repayment",
+  "title": "Лимит аванса растёт по мере своевременного погашения предыдущих авансов",
+  "obs": 4
+ },
+ {
+  "id": "low-monthly-fee-vs-competitors",
+  "title": "Низкий членский взнос вместо дорогой ежемесячной подписки конкурентов",
+  "obs": 2
+ },
+ {
+  "id": "instant-funding-fee-avoidable-by-waiting",
+  "title": "За моментальное зачисление берут отдельный сбор — если подождать день-два, аванс приходит без комиссии",
+  "obs": 2
+ },
+ {
+  "id": "low-starting-limits",
+  "title": "Стартовые лимиты аванса очень низкие — около 20 долларов на старте",
+  "obs": 2
+ },
+ {
+  "id": "use-case-paycheck-gap",
+  "title": "Приложение используют, чтобы закрыть небольшой дефицит денег перед зарплатой",
+  "obs": 2
+ },
+ {
+  "id": "limit-stays-flat-despite-history",
+  "title": "Лимит не растёт даже при стабильных платежах вовремя — пользователь застревает на 40 долларах",
+  "obs": 1
+ },
+ {
+  "id": "got-less-than-requested",
+  "title": "После полной верификации выдают меньше запрошенного — 20 долларов вместо 50",
+  "obs": 1
+ },
+ {
+  "id": "stable-predictable-limits",
+  "title": "Лимит аванса стабилен и не скачет произвольно, в отличие от других приложений",
+  "obs": 1
+ },
+ {
+  "id": "new-advance-right-after-repay",
+  "title": "Сразу после погашения аванса приложение выдаёт новый, подталкивая к повторному займу",
+  "obs": 1
+ },
+ {
+  "id": "fast-signup-to-cash",
+  "title": "От регистрации до получения аванса проходит меньше десяти минут",
+  "obs": 1
+ },
+ {
+  "id": "credit-builder-cards-counted-as-overdrafts",
+  "title": "Кредитки для построения истории (Chime, Varo) засчитываются как незакрытые овердрафты и режут лимит",
+  "obs": 1
+ },
+ {
+  "id": "state-blocked-after-signup",
+  "title": "В одних штатах разрешают зарегистрироваться, но авансы жителям этого штата не выдают",
+  "obs": 1
+ },
+ {
+  "id": "requires-recurring-deposits",
+  "title": "Аванс выдают только при регулярных поступлениях денег на счёт",
+  "obs": 1
+ },
+ {
+  "id": "requires-high-bank-balance",
+  "title": "Для аванса нужен крупный остаток на счёте — пользователям с низким балансом доступ закрыт",
+  "obs": 1
+ },
+ {
+  "id": "credit-building-side-benefit",
+  "title": "Приложение помогает строить кредитную историю как побочный эффект использования авансов",
+  "obs": 1
+ },
+ {
+  "id": "plaid-bank-link-required",
+  "title": "Для активации нужно подключить банковский счёт через Plaid",
+  "obs": 1
+ },
+ {
+  "id": "confusing-at-first-clearer-later",
+  "title": "Интерфейс кажется сложным сначала, но становится понятнее при дальнейшем использовании",
+  "obs": 1
+ },
+ {
+  "id": "support-silent-on-denials",
+  "title": "Поддержка не отвечает на обращения об отказе в авансе после оплаты членства",
+  "obs": 1
+ },
+ {
+  "id": "support-helps-switch-bank",
+  "title": "Поддержка реально помогает при смене привязанного банковского счёта",
+  "obs": 1
+ }
+]

@@ -1,0 +1,369 @@
+You are grouping 64 mechanism-level insight clusters from PictureThis - Plant Identifier (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO PictureThis - Plant Identifier, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 64 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to PictureThis - Plant Identifier — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to PictureThis - Plant Identifier>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps5z4fs0d34ugu7nwtb67hw.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "generic-diagnosis-universal-remedy",
+  "title": "Диагностика выдаёт одно и то же решение для любого растения и любой проблемы — переувлажнение, нехватка света или пищевая сода",
+  "obs": 9
+ },
+ {
+  "id": "paywall-hidden-before-download",
+  "title": "Приложение описано как бесплатное в магазине, но после установки сразу требует платную подписку",
+  "obs": 7
+ },
+ {
+  "id": "trial-charged-early",
+  "title": "Деньги списываются в первый день пробного периода или раньше заявленной даты окончания триала",
+  "obs": 5
+ },
+ {
+  "id": "charges-continue-after-cancellation",
+  "title": "После отмены подписки приложение продолжает списывать деньги месяцами",
+  "obs": 4
+ },
+ {
+  "id": "health-status-misidentification",
+  "title": "Приложение определяет больное растение как здоровое или здоровое как больное, в том числе неверно распознаёт конкретного вредителя",
+  "obs": 4
+ },
+ {
+  "id": "inconsistent-results-across-photos",
+  "title": "Одно и то же растение с разных углов или на разных снимках получает противоречивые идентификации",
+  "obs": 4
+ },
+ {
+  "id": "general-identification-unreliable",
+  "title": "Приложение не распознаёт распространённые садовые растения или систематически ошибается при идентификации большинства видов в саду",
+  "obs": 4
+ },
+ {
+  "id": "free-features-moved-behind-paywall",
+  "title": "Функции, ранее доступные бесплатно, переведены за платный барьер без предупреждения давним пользователям",
+  "obs": 3
+ },
+ {
+  "id": "trial-upsell-to-expensive-plan",
+  "title": "Пробный период построен так, что пользователь автоматически попадает на самый дорогой тариф, если не отменит вручную",
+  "obs": 3
+ },
+ {
+  "id": "ads-show-misleading-treatment-claims",
+  "title": "Реклама приложения демонстрирует чудо-лечения растений, которые не соответствуют тому, что приложение реально предлагает",
+  "obs": 3
+ },
+ {
+  "id": "invasive-species-no-removal-info",
+  "title": "Приложение идентифицирует инвазивные растения, но не объясняет, как их удалить или взять под контроль",
+  "obs": 3
+ },
+ {
+  "id": "diagnosis-no-actionable-advice",
+  "title": "Приложение обнаруживает проблему с растением, но не даёт конкретных шагов по её устранению",
+  "obs": 3
+ },
+ {
+  "id": "outdoor-exploration-use-case",
+  "title": "Пользователи активно идентифицируют растения во время прогулок, велопрогулок и путешествий, превращая приложение в мобильный природный гид",
+  "obs": 3
+ },
+ {
+  "id": "collection-management-use-case",
+  "title": "Пользователи с большими садами используют приложение для каталогизации и вспоминания названий и требований растений из своей коллекции",
+  "obs": 3
+ },
+ {
+  "id": "diagnosis-behind-extra-paywall",
+  "title": "Диагностика болезней выделена в отдельную платную функцию поверх основной подписки",
+  "obs": 2
+ },
+ {
+  "id": "cancellation-blocked",
+  "title": "Приложение не позволяет отменить подписку: кнопка отмены не работает или запрос отклоняется",
+  "obs": 2
+ },
+ {
+  "id": "paywall-erosion-long-term-retention",
+  "title": "Постепенное расширение платного барьера вымывает долгосрочных пользователей, готовых платить за ценность, но не за агрессию",
+  "obs": 2
+ },
+ {
+  "id": "free-tier-insufficient-information",
+  "title": "Бесплатная версия показывает только факт идентификации без каких-либо сведений об уходе или диагнозе",
+  "obs": 2
+ },
+ {
+  "id": "harmful-outdated-treatment-advice",
+  "title": "Приложение рекомендует устаревшие или потенциально вредные средства — молоко, аспирин — не различая виды растений",
+  "obs": 2
+ },
+ {
+  "id": "weed-identification-no-removal",
+  "title": "Приложение называет сорняки здоровыми растениями и не предоставляет инструкций по их уничтожению",
+  "obs": 2
+ },
+ {
+  "id": "non-plant-objects-identified-as-plants",
+  "title": "Модель распознаёт части тела или животных как растения, что указывает на слабость фильтрации входных данных",
+  "obs": 2
+ },
+ {
+  "id": "grass-species-indistinguishable",
+  "title": "Приложение не различает близкородственные виды газонной травы и смешивает злаки с зерновыми культурами",
+  "obs": 2
+ },
+ {
+  "id": "support-resolves-positively",
+  "title": "Служба поддержки оперативно решает проблемы с выставлением счётов и даёт полезные советы по уходу за растениями",
+  "obs": 2
+ },
+ {
+  "id": "novice-gardener-empowerment",
+  "title": "Начинающие садоводы без опыта успешно выращивают новые виды и выглядят как эксперты благодаря рекомендациям приложения",
+  "obs": 2
+ },
+ {
+  "id": "toxic-plant-safety-use-case",
+  "title": "Приложение используется для защиты людей и скота от ядовитых растений на участке или пастбище",
+  "obs": 2
+ },
+ {
+  "id": "nursery-shopping-use-case",
+  "title": "Пользователи идентифицируют понравившиеся растения в чужих садах и питомниках, чтобы купить или проверить здоровье перед покупкой",
+  "obs": 2
+ },
+ {
+  "id": "weed-vs-desirable-differentiation",
+  "title": "Приложение помогает отличить сорняки от ценных растений и предотвращает ошибочное удаление полезных видов при восстановлении участка",
+  "obs": 2
+ },
+ {
+  "id": "paywall-after-minimal-free-uses",
+  "title": "Бесплатная версия позволяет идентифицировать только два растения, после чего принудительно требует подписку",
+  "obs": 1
+ },
+ {
+  "id": "disguised-recurring-subscription",
+  "title": "Покупка за 99 центов скрывает ежегодную подписку — повторные списания начинаются без явного согласия",
+  "obs": 1
+ },
+ {
+  "id": "cancellation-refund-refused",
+  "title": "После отмены подписки до конца пробного периода приложение списывает полную годовую сумму и отказывает в возврате",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-price-mismatch",
+  "title": "Фактическая сумма за пожизненный доступ превышает рекламируемую цену со скидкой",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-plan-changed-to-annual",
+  "title": "Пожизненная подписка молча переведена в годовую — пользователь узнаёт об этом постфактум",
+  "obs": 1
+ },
+ {
+  "id": "paywall-interrupts-urgent-diagnosis",
+  "title": "Агрессивные уведомления о подписке блокируют диагностику умирающего растения в критический момент",
+  "obs": 1
+ },
+ {
+  "id": "no-mature-plant-images-for-planning",
+  "title": "Приложение показывает только крупные планы молодых листьев, но не изображения взрослых растений для планирования ландшафта",
+  "obs": 1
+ },
+ {
+  "id": "care-info-display-inconsistent",
+  "title": "Информация об уходе за растением отображается непоследовательно: есть в промо-скриншотах, но отсутствует в реальном приложении",
+  "obs": 1
+ },
+ {
+  "id": "plant-history-taxonomy-content",
+  "title": "Приложение обогащает идентификацию историей и эволюцией вида, что выходит за рамки простого распознавания",
+  "obs": 1
+ },
+ {
+  "id": "identification-gaps-manual-workaround",
+  "title": "Для растений, которые приложение не распознаёт, доступно ручное добавление — как обходной путь к пробелам базы данных",
+  "obs": 1
+ },
+ {
+  "id": "toxic-plant-care-instead-of-removal",
+  "title": "Для ядовитых растений приложение даёт советы по уходу, а не по безопасному удалению",
+  "obs": 1
+ },
+ {
+  "id": "no-treatment-tracking-followup",
+  "title": "Приложение не отслеживает результаты лечения и не напоминает о повторном осмотре после рекомендованного курса",
+  "obs": 1
+ },
+ {
+  "id": "seed-planting-instructions",
+  "title": "Приложение помогает получить инструкции по посадке семян, которые куплены без упаковки с описанием",
+  "obs": 1
+ },
+ {
+  "id": "app-opens-with-ad-spam",
+  "title": "При запуске приложение показывает бесконечную полосу загрузки с рекламой, не дающей перейти к функционалу",
+  "obs": 1
+ },
+ {
+  "id": "wishlist-feature-missing",
+  "title": "В приложении нет вишлиста желаемых растений для покупки в питомнике рядом со списком уже имеющихся",
+  "obs": 1
+ },
+ {
+  "id": "weed-species-indistinguishable",
+  "title": "Все сорняки определяются как один и тот же вид, что делает приложение бесполезным для дифференциации нежелательных растений",
+  "obs": 1
+ },
+ {
+  "id": "similar-herb-misidentification",
+  "title": "Приложение путает похожие пряные растения между собой — базилик и шалфей определяются как одно и то же",
+  "obs": 1
+ },
+ {
+  "id": "rose-variety-indistinguishable",
+  "title": "Все сорта роз получают одну и ту же классификацию — гибридный чайный, без различия конкретного сорта",
+  "obs": 1
+ },
+ {
+  "id": "indoor-plants-harder-to-identify",
+  "title": "Суккуленты и кактусы идентифицируются значительно хуже, чем уличные растения, из-за малых визуальных различий между видами",
+  "obs": 1
+ },
+ {
+  "id": "identification-requires-ideal-conditions",
+  "title": "Для точного распознавания требуется сфотографировать растение на белом фоне — в естественных условиях точность падает",
+  "obs": 1
+ },
+ {
+  "id": "rare-plants-beyond-database",
+  "title": "База данных не содержит редких или регионально специфичных видов, которые не удаётся идентифицировать даже специалисту",
+  "obs": 1
+ },
+ {
+  "id": "camera-freeze-crash",
+  "title": "Камера зависает с чёрным экраном при попытке сделать снимок, полностью блокируя основную функцию приложения",
+  "obs": 1
+ },
+ {
+  "id": "post-update-regression",
+  "title": "После обновления приложения диагностика начинает работать неправильно, а идентификация выдаёт ошибки соединения при активном интернете",
+  "obs": 1
+ },
+ {
+  "id": "watering-reminder-bug",
+  "title": "Напоминание о поливе предлагает поливать одни и те же растения каждый день, игнорируя реальные потребности и сброс приложения",
+  "obs": 1
+ },
+ {
+  "id": "identification-improves-with-maturity",
+  "title": "Точность идентификации растёт по мере взросления растения — на ранних стадиях развития результаты менее надёжны",
+  "obs": 1
+ },
+ {
+  "id": "identification-by-unusual-features",
+  "title": "Приложение успешно идентифицирует растения по нетипичным признакам — коре дерева или цветению на разных стадиях сезона",
+  "obs": 1
+ },
+ {
+  "id": "ai-bot-instead-of-human-support",
+  "title": "В поддержке отвечает бот, хотя пользователь платит за сервис и ожидает консультации живого специалиста по растениям",
+  "obs": 1
+ },
+ {
+  "id": "expert-gardeners-value",
+  "title": "Опытные садоводы, прежде не нуждавшиеся во внешних советах, начинают полагаться на рекомендации приложения",
+  "obs": 1
+ },
+ {
+  "id": "cross-language-learning-use-case",
+  "title": "Иммигранты используют приложение для изучения названий известных им растений на новом языке и идентификации незнакомых видов",
+  "obs": 1
+ },
+ {
+  "id": "new-property-land-management",
+  "title": "Владельцы новых участков с лесом или большим садом используют приложение для инвентаризации видов на своей территории",
+  "obs": 1
+ },
+ {
+  "id": "competitor-comparison",
+  "title": "Пользователи возвращаются к приложению после проверки конкурентов на базе ИИ — точность идентификации у конкурентов оказывается хуже",
+  "obs": 1
+ },
+ {
+  "id": "google-as-free-substitute",
+  "title": "Пользователи, разочарованные подпиской, рекомендуют Google как бесплатную альтернативу, указывая на недостаточную воспринимаемую ценность",
+  "obs": 1
+ },
+ {
+  "id": "educational-entertainment-use-case",
+  "title": "Часть пользователей использует приложение исключительно для обучения и развлечения, без практических задач идентификации съедобных растений",
+  "obs": 1
+ },
+ {
+  "id": "invasive-species-natural-control",
+  "title": "Приложение точно определяет инвазивные виды по происхождению и предлагает методы контроля с приоритетом натуральных способов",
+  "obs": 1
+ },
+ {
+  "id": "extreme-climate-plant-health",
+  "title": "Пользователи в экстремальных климатических условиях (высокогорье, резкие погодные изменения) находят приложение полезным для оценки здоровья растений",
+  "obs": 1
+ },
+ {
+  "id": "organic-treatment-novice-garden",
+  "title": "Приложение предлагает органические методы лечения в приоритете перед химическими, что помогает новичкам восстановить запущенный сад",
+  "obs": 1
+ },
+ {
+  "id": "plant-diary-history-tracking",
+  "title": "Встроенный дневник сохраняет историю всех идентифицированных растений, позволяя отслеживать находки на протяжении нескольких лет",
+  "obs": 1
+ }
+]

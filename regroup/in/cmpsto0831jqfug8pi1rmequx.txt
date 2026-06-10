@@ -1,0 +1,234 @@
+You are grouping 37 mechanism-level insight clusters from Babbel - Language Learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Babbel - Language Learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 37 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Babbel - Language Learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Babbel - Language Learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsto0831jqfug8pi1rmequx.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "not-for-beginners",
+  "title": "Программа предполагает базовые знания и не подходит полным новичкам — нет логичного старта с основ",
+  "obs": 5
+ },
+ {
+  "id": "charge-after-trial-or-nonuse",
+  "title": "После пробного периода или после месяцев простоя приложение тихо списывает годовую плату без предупреждения",
+  "obs": 4
+ },
+ {
+  "id": "no-review-learned-material",
+  "title": "Нельзя отдельно повторить уже пройденный материал — приложение принудительно гонит к следующему уроку",
+  "obs": 4
+ },
+ {
+  "id": "inaccurate-pronunciation-feedback",
+  "title": "Распознавание речи неточно и не подсказывает, что именно произнесено неверно — ошибку не исправить",
+  "obs": 4
+ },
+ {
+  "id": "voice-consent-gates-feature",
+  "title": "Функция произношения доступна только при согласии хранить запись голоса для обучения ИИ десять лет",
+  "obs": 4
+ },
+ {
+  "id": "charged-after-cancellation",
+  "title": "После отмены подписки приложение продолжает списывать деньги месяцами без уведомлений",
+  "obs": 3
+ },
+ {
+  "id": "jumpy-illogical-progression",
+  "title": "Сложность скачет рывками без промежуточных уровней, а порядок тем кажется случайным",
+  "obs": 3
+ },
+ {
+  "id": "no-difficulty-adjust-or-mastery-check",
+  "title": "Уровень сложности нельзя изменить, и приложение переводит дальше без проверки усвоения материала",
+  "obs": 3
+ },
+ {
+  "id": "wrong-language-variant",
+  "title": "Приложение учит другому варианту языка, чем выбрал пользователь, и не предупреждает об этом до покупки",
+  "obs": 3
+ },
+ {
+  "id": "grammar-not-vs-conversation",
+  "title": "Курс строится на грамматике и распознавании слов, а не на живых разговорных навыках",
+  "obs": 3
+ },
+ {
+  "id": "too-many-spelling-exercises",
+  "title": "Слишком много упражнений на письмо и сборку слов, что мешает изучающим говорение и людям с дислексией",
+  "obs": 3
+ },
+ {
+  "id": "no-speed-control",
+  "title": "Носители в аудио говорят слишком быстро, а замедлить воспроизведение в приложении нельзя",
+  "obs": 3
+ },
+ {
+  "id": "paid-but-still-asks-payment",
+  "title": "Оплата прошла и подтверждена, но приложение при каждом входе снова требует оплатить, поддержка молчит",
+  "obs": 2
+ },
+ {
+  "id": "too-fast-no-repetition",
+  "title": "Материал подаётся слишком быстро с недостатком повторений, поэтому ничего не закрепляется в памяти",
+  "obs": 2
+ },
+ {
+  "id": "meaning-not-literal-translations",
+  "title": "Переводы передают смысл, а не точные буквальные эквиваленты, и слова трудно выучить правильно",
+  "obs": 2
+ },
+ {
+  "id": "speaking-multistep-record",
+  "title": "Запись произношения требует нескольких отдельных нажатий на микрофон для каждого упражнения",
+  "obs": 2
+ },
+ {
+  "id": "no-error-explanation",
+  "title": "При неправильном ответе приложение не объясняет, в чём ошибка, и понять её причину невозможно",
+  "obs": 2
+ },
+ {
+  "id": "general-bugs-slowness",
+  "title": "Приложение зависает, тормозит, обрывает соединение и заставляет пропускать упражнения",
+  "obs": 2
+ },
+ {
+  "id": "streak-resets-on-miss",
+  "title": "Счётчик дней подряд обнуляется при одном пропущенном дне и деморализует даже активных пользователей",
+  "obs": 2
+ },
+ {
+  "id": "subscription-not-in-apple",
+  "title": "Купленная подписка не появляется в настройках Apple — управлять и отменить её невозможно",
+  "obs": 1
+ },
+ {
+  "id": "misleading-renewal-terms",
+  "title": "Отключение автопродления не называют отменой — формулировки вводят в заблуждение о сути подписки",
+  "obs": 1
+ },
+ {
+  "id": "untranslated-words-in-phrases",
+  "title": "В упражнениях встречаются фразы с незнакомыми словами без переводов, и новую лексику не выучить",
+  "obs": 1
+ },
+ {
+  "id": "grammar-only-in-footnote",
+  "title": "Грамматика упомянута лишь в сноске и не повторяется — как строятся фразы, понять без сторонних источников нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-resume-within-lesson",
+  "title": "Приложение не сохраняет прогресс внутри урока — нельзя приостановить и продолжить с того же места",
+  "obs": 1
+ },
+ {
+  "id": "cramped-lesson-text",
+  "title": "Текст урока сверстан тесно и сжато сверху экрана — буквы плотно упакованы и трудно читаются",
+  "obs": 1
+ },
+ {
+  "id": "answers-cut-off-mobile",
+  "title": "На телефоне часть вариантов ответа обрезана и не видна, из-за чего пользователь выбирает неверный",
+  "obs": 1
+ },
+ {
+  "id": "no-alphabet-reference",
+  "title": "Нет отдельного раздела алфавита со справкой произношения, к которому удобно обращаться во время урока",
+  "obs": 1
+ },
+ {
+  "id": "confusing-account-settings",
+  "title": "Разделы настроек аккаунта трудно найти, навигация запутана, доступной помощи рядом нет",
+  "obs": 1
+ },
+ {
+  "id": "no-lesson-instructions",
+  "title": "В некоторых уроках нет инструкций, и пользователь не понимает, что от него требуется",
+  "obs": 1
+ },
+ {
+  "id": "missing-cyrillic-yo",
+  "title": "В русской клавиатуре на телефоне нет буквы ё, поэтому ответы с ней набрать нельзя",
+  "obs": 1
+ },
+ {
+  "id": "mic-broke-after-update",
+  "title": "После обновления микрофон для произношения перестал работать при нажатии кнопки",
+  "obs": 1
+ },
+ {
+  "id": "robotic-tts",
+  "title": "Синтез речи звучит роботизированно, хотя заявлена озвучка носителями языка",
+  "obs": 1
+ },
+ {
+  "id": "slow-language-switch",
+  "title": "При переключении между изучаемыми языками приложение долго грузится и потом работает неправильно",
+  "obs": 1
+ },
+ {
+  "id": "offline-download-broken",
+  "title": "Скачанные для офлайна уроки не открываются — приложение всё равно требует интернет",
+  "obs": 1
+ },
+ {
+  "id": "vocab-tracker-removed-after-update",
+  "title": "После обновления исчезли ежедневная лексика и счётчик выученных слов — следить за прогрессом стало сложнее",
+  "obs": 1
+ },
+ {
+  "id": "support-bot-no-human",
+  "title": "В поддержке отвечает только бот, который не помогает разобраться и не передаёт запрос живому оператору",
+  "obs": 1
+ },
+ {
+  "id": "marketing-after-uninstall",
+  "title": "После удаления приложение продолжает заваливать почту маркетинговыми письмами",
+  "obs": 1
+ }
+]

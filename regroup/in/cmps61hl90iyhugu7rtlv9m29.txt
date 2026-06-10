@@ -1,0 +1,204 @@
+You are grouping 31 mechanism-level insight clusters from Wingstop (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Wingstop, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 31 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Wingstop — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Wingstop>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps61hl90iyhugu7rtlv9m29.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "payment-all-methods-rejected",
+  "title": "Все способы оплаты (Apple Pay, карта, PayPal, Venmo) отклоняются с ошибкой обработки платежа",
+  "obs": 3
+ },
+ {
+  "id": "rewards-system-nonfunctional",
+  "title": "Анонсированная бонусная программа не работает, поддержка перенаправляет жалобы в рестораны",
+  "obs": 3
+ },
+ {
+  "id": "ui-wrong-location-order",
+  "title": "Приложение размещает заказ не в ту локацию, которую выбрал пользователь",
+  "obs": 3
+ },
+ {
+  "id": "support-doordash-blame-shift",
+  "title": "При проблемах с доставкой Wingstop и DoorDash перекладывают ответственность друг на друга",
+  "obs": 3
+ },
+ {
+  "id": "payment-charge-no-order",
+  "title": "Приложение списывает деньги, но заказ не поступает в ресторан",
+  "obs": 2
+ },
+ {
+  "id": "payment-months-broken",
+  "title": "Платежи не проходят несколько месяцев подряд независимо от метода оплаты",
+  "obs": 2
+ },
+ {
+  "id": "rewards-tab-missing",
+  "title": "После обновления вкладка с бонусами исчезла, а промокоды из писем не работают в меню",
+  "obs": 2
+ },
+ {
+  "id": "menu-customization-limited",
+  "title": "Приложение не позволяет добавить дополнительный соус или смешать два вкуса в одном заказе",
+  "obs": 2
+ },
+ {
+  "id": "reliability-payment-freeze",
+  "title": "Приложение зависает на экране оформления платежа и не загружается",
+  "obs": 2
+ },
+ {
+  "id": "reliability-frequent-updates",
+  "title": "Приложение требует обновлений слишком часто, что сигнализирует о нестабильности разработки",
+  "obs": 2
+ },
+ {
+  "id": "strategy-timer-inaccurate",
+  "title": "Таймер приготовления в приложении занижает реальное время ожидания",
+  "obs": 2
+ },
+ {
+  "id": "payment-blocked-ghost-debt",
+  "title": "Запись о несуществующем долге блокирует пользователя в платёжной системе на годы",
+  "obs": 1
+ },
+ {
+  "id": "payment-double-charge",
+  "title": "Сбой логики клиента приводит к двойному списанию за один заказ",
+  "obs": 1
+ },
+ {
+  "id": "payment-price-mismatch",
+  "title": "Цена в меню ниже цены при оформлении заказа — разница не объясняется",
+  "obs": 1
+ },
+ {
+  "id": "payment-ads-at-checkout",
+  "title": "В процессе оформления платежа показывается реклама",
+  "obs": 1
+ },
+ {
+  "id": "rewards-promo-not-applied",
+  "title": "Промокоды из программы лояльности не применяются при оформлении заказа",
+  "obs": 1
+ },
+ {
+  "id": "menu-customization-superior",
+  "title": "Приложение предлагает больше вариантов кастомизации, чем физический магазин",
+  "obs": 1
+ },
+ {
+  "id": "menu-combo-deal",
+  "title": "Комбо-предложение позволяет смешивать вкусы для группы без ограничений",
+  "obs": 1
+ },
+ {
+  "id": "ui-session-crash-restart",
+  "title": "В процессе оформления заказа приложение выбрасывает пользователя и сбрасывает корзину",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-cancel-order",
+  "title": "После размещения заказа отменить его через приложение невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ui-condiment-logic-broken",
+  "title": "При выборе «без приправы» поле с количеством приправы остаётся активным и обязательным",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-delivery-notes",
+  "title": "Поле для специальных инструкций доставки (код ворот, запросы) отклоняет введённый текст",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-cross-sell-prompts",
+  "title": "Приложение не показывает навязчивые подсказки «вы не забыли?» в отличие от конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "ui-login-loop",
+  "title": "После выхода из аккаунта повторный вход попадает в цикл переадресаций и блокирует приложение",
+  "obs": 1
+ },
+ {
+  "id": "ui-web-no-tracking",
+  "title": "Веб-версия не поддерживает отслеживание заказа, хотя мобильное приложение это умеет",
+  "obs": 1
+ },
+ {
+  "id": "reliability-login-errors",
+  "title": "Ошибки при входе в аккаунт препятствуют размещению заказа",
+  "obs": 1
+ },
+ {
+  "id": "reliability-order-tracking-stuck",
+  "title": "Статус заказа в приложении зависает на первом шаге и не обновляется",
+  "obs": 1
+ },
+ {
+  "id": "strategy-speed-vs-competitors",
+  "title": "Скорость размещения заказа через приложение делает его предпочтительным перед локальными конкурентами",
+  "obs": 1
+ },
+ {
+  "id": "strategy-daily-repeat-use",
+  "title": "Часть пользователей заказывает ежедневно, что говорит о высокой частоте повторного использования",
+  "obs": 1
+ },
+ {
+  "id": "strategy-no-driver-tracking",
+  "title": "Приложение не показывает местоположение водителя и не подтверждает факт доставки",
+  "obs": 1
+ },
+ {
+  "id": "strategy-undercooked-chicken",
+  "title": "Пользователи обнаруживают, что курица готовится правильно только при явном заказе с опцией «хорошо прожарено»",
+  "obs": 1
+ }
+]

@@ -1,0 +1,104 @@
+You are grouping 11 mechanism-level insight clusters from Exhale (wellbeing / meditation / affirmations / для women of color) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Exhale, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 11 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Exhale — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Exhale>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1527534625.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "affirmation-section-stuck",
+  "title": "Раздел аффирмаций показывает одно и то же сообщение и не обновляется при перезагрузке",
+  "obs": 2
+ },
+ {
+  "id": "login-loop-subscription-screen",
+  "title": "Пользователь застревает на экране выбора подписки при входе и не может получить доступ к оплаченному контенту",
+  "obs": 1
+ },
+ {
+  "id": "password-screen-freeze",
+  "title": "Экран создания пароля при регистрации зависает без кнопки продолжения",
+  "obs": 1
+ },
+ {
+  "id": "notification-white-screen-freeze",
+  "title": "Переход по уведомлению вешает приложение на белом экране на несколько минут",
+  "obs": 1
+ },
+ {
+  "id": "apple-login-broken",
+  "title": "Вход через Apple ID не срабатывает — кнопка не реагирует на нажатие",
+  "obs": 1
+ },
+ {
+  "id": "confirmation-code-not-received",
+  "title": "Код подтверждения при входе не приходит, несмотря на повторные запросы",
+  "obs": 1
+ },
+ {
+  "id": "meditation-no-resume",
+  "title": "После прерывания медитации нельзя возобновить её с места остановки — прогресс теряется",
+  "obs": 1
+ },
+ {
+  "id": "affirmation-text-cut-off",
+  "title": "Текст аффирмаций не помещается на экране смартфона — прочитать полный текст невозможно",
+  "obs": 1
+ },
+ {
+  "id": "menu-low-contrast",
+  "title": "Цвет шрифта меню плохо контрастирует с фоном — навигация по приложению затруднена",
+  "obs": 1
+ },
+ {
+  "id": "geolocation-permission-unexplained",
+  "title": "Приложение запрашивает доступ к геолокации без объяснения причины, блокируя использование",
+  "obs": 1
+ },
+ {
+  "id": "audio-quality-poor-guides",
+  "title": "Аудиозаписи голосов ведущих медитаций содержат хрипы и посторонние шумы из-за плохой звукоизоляции",
+  "obs": 1
+ }
+]

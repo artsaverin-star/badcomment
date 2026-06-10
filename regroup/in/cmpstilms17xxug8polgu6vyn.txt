@@ -1,0 +1,269 @@
+You are grouping 44 mechanism-level insight clusters from YouCam Makeup: Face Editor (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO YouCam Makeup: Face Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 44 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to YouCam Makeup: Face Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to YouCam Makeup: Face Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstilms17xxug8polgu6vyn.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "byvshie-besplatnye-za-platu",
+  "title": "Ранее бесплатные базовые функции переехали за платную подписку, цена использования приложения изменилась в корне",
+  "obs": 12
+ },
+ {
+  "id": "trial-spisanie-bez-soglasiya",
+  "title": "Пробный период незаметно превращается в полную подписку — годовой план списывается без явного подтверждения",
+  "obs": 6
+ },
+ {
+  "id": "spisaniya-posle-otmeny",
+  "title": "После отмены подписки система продолжает списывать платежи, иногда через другие платёжные методы",
+  "obs": 6
+ },
+ {
+  "id": "bezlimit-podpiska-kredity",
+  "title": "После оплаты подписки доступ всё равно ограничен системой кредитов — за функции вроде «фото в видео» нужно платить отдельно",
+  "obs": 4
+ },
+ {
+  "id": "kuplennye-funkcii-za-plus-tarif",
+  "title": "Уже оплаченные функции через день после покупки переезжают на тариф «plus» и требуют доплаты",
+  "obs": 2
+ },
+ {
+  "id": "vozvrat-perekladyvanie-apple",
+  "title": "Возврат денег невозможен — приложение и Apple перекладывают ответственность друг на друга",
+  "obs": 2
+ },
+ {
+  "id": "prichyoski-iskazhayut-lico",
+  "title": "Фильтры причёсок искажают лицо и выдают поддельный вид волос — нельзя оценить реальный результат стрижки",
+  "obs": 2
+ },
+ {
+  "id": "krash-pri-vybore-foto",
+  "title": "Приложение крашится сразу при выборе фото для редактирования",
+  "obs": 2
+ },
+ {
+  "id": "poddelnye-rezultaty",
+  "title": "Результаты AI выглядят поддельно и нереалистично, не оправдывая высокую цену подписки",
+  "obs": 2
+ },
+ {
+  "id": "podderzhka-tolko-ai-bot",
+  "title": "Поддержка работает только через AI-чат, который повторяется и не решает проблему",
+  "obs": 2
+ },
+ {
+  "id": "podderzhka-ne-otvechaet",
+  "title": "Служба поддержки недоступна — на отзывы и обращения нет ответа",
+  "obs": 2
+ },
+ {
+  "id": "dublirovanie-platezhej",
+  "title": "Система списывает сразу и годовой, и ежемесячный платёж за одну покупку",
+  "obs": 1
+ },
+ {
+  "id": "trial-nedostupen-tolko-platno",
+  "title": "При выборе плана триал недоступен — пользователя ведут только на платные варианты",
+  "obs": 1
+ },
+ {
+  "id": "rost-cen",
+  "title": "Цена подписки выросла вдвое, и пользователи уходят к более дешёвым конкурентам",
+  "obs": 1
+ },
+ {
+  "id": "byudzhetnyj-tarif-bez-otlichij",
+  "title": "Дешёвый тариф содержит те же функции, что и бесплатная версия — нет реальной разницы между планами",
+  "obs": 1
+ },
+ {
+  "id": "prichyoski-tolko-belye-modeli",
+  "title": "Причёски показаны только на белых моделях, даже традиционно связанные с чёрной культурой (афро, косички)",
+  "obs": 1
+ },
+ {
+  "id": "net-vzroslyh-stilej",
+  "title": "Стили и украшения ориентированы на молодёжь — нет модных аксессуаров для взрослых и haute couture",
+  "obs": 1
+ },
+ {
+  "id": "shablony-video-tolko-molodye",
+  "title": "Шаблоны видео ориентированы только на молодых девушек с нереалистичными движениями",
+  "obs": 1
+ },
+ {
+  "id": "prichyoski-odnoobraznye",
+  "title": "Сгенерированные причёски однообразны — почти у всех чёлки и неестественные стрижки",
+  "obs": 1
+ },
+ {
+  "id": "net-yarkih-cvetov-glaz",
+  "title": "Доступны только базовые цвета глаз — фантазийные оттенки (например красный для образа вампира) отсутствуют",
+  "obs": 1
+ },
+ {
+  "id": "prichyoski-ignor-cvet-volos",
+  "title": "AI-генератор причёсок игнорирует исходный цвет волос и выдаёт все варианты чёрными",
+  "obs": 1
+ },
+ {
+  "id": "prichyoski-nerealistichnyj-cvet",
+  "title": "Примерка причёсок выдаёт неестественные цвета волос — яркий жёлтый вместо натурального блонда",
+  "obs": 1
+ },
+ {
+  "id": "prichyoski-temnokozhie-ploho",
+  "title": "Причёски для темнокожих моделей выглядят неестественно, тогда как для светлокожих результат качественнее",
+  "obs": 1
+ },
+ {
+  "id": "makiyazh-temnaya-kozha-ploho",
+  "title": "Фильтры и макияж плохо работают на тёмной коже — нет разнообразия оттенков тона",
+  "obs": 1
+ },
+ {
+  "id": "prichyoski-ne-rabotayut",
+  "title": "Оплаченная функция примерки причёсок просто не работает",
+  "obs": 1
+ },
+ {
+  "id": "prichyoski-vybros-pri-chastichnom-lice",
+  "title": "Если на фото видно не всё лицо, приложение выбрасывает из режима причёсок и не даёт вручную задать область",
+  "obs": 1
+ },
+ {
+  "id": "nepravilnyj-povorot-foto",
+  "title": "Приложение поворачивает фото при сохранении и не даёт исправить ориентацию",
+  "obs": 1
+ },
+ {
+  "id": "sohranyaet-original-vmesto-otred",
+  "title": "Функции удаления и AI-улучшения перестали применяться — приложение сохраняет оригинал вместо отредактированного фото",
+  "obs": 1
+ },
+ {
+  "id": "udalenie-pikselizaciya",
+  "title": "Инструменты удаления и стирания оставляют артефакты пикселизации",
+  "obs": 1
+ },
+ {
+  "id": "udalenie-tatu-seryj-cvet",
+  "title": "Удаление татуировки окрашивает остальную кожу в серый цвет — баг воспроизводится стабильно",
+  "obs": 1
+ },
+ {
+  "id": "telo-redaktirovanie-slomano",
+  "title": "Функция редактирования фигуры недоступна почти две недели",
+  "obs": 1
+ },
+ {
+  "id": "medlennaya-generaciya",
+  "title": "Генерация изображений работает так медленно, что пользователи закрывают приложение до завершения",
+  "obs": 1
+ },
+ {
+  "id": "kachestvo-vyvoda-huzhe",
+  "title": "Качество результата ухудшилось — выходное фото заметно отличается от оригинала",
+  "obs": 1
+ },
+ {
+  "id": "obnovlenie-poterya-skin-skor",
+  "title": "После обновления потеряны функция скин-скора и сохранённые фото с историей",
+  "obs": 1
+ },
+ {
+  "id": "obeshchannaya-funkciya-otsutstvuet",
+  "title": "Обещанная функция подбора макияжа по тону кожи и возрасту отсутствует после покупки",
+  "obs": 1
+ },
+ {
+  "id": "net-otmeny-v-prilozhenii",
+  "title": "В приложении нет явного способа отменить подписку",
+  "obs": 1
+ },
+ {
+  "id": "slozhnaya-navigaciya",
+  "title": "Интерфейс сложен в навигации — пользователю трудно дойти до готового результата",
+  "obs": 1
+ },
+ {
+  "id": "dostup-ko-vsem-foto",
+  "title": "Для использования одного снимка приложение требует доступ ко всей библиотеке фото",
+  "obs": 1
+ },
+ {
+  "id": "izmenenie-soglasheniya-foto",
+  "title": "Изменение пользовательского соглашения разрешает компании бессрочно использовать загруженные фото",
+  "obs": 1
+ },
+ {
+  "id": "community-nedostupna",
+  "title": "Раздел Community закрыт — пользователи потеряли доступ к загруженным и сохранённым фото",
+  "obs": 1
+ },
+ {
+  "id": "podpiska-dlya-redkih-sessij",
+  "title": "Для редкого использования обязательная подписка неприемлема — пользователи предпочли бы рекламу разовым платежам",
+  "obs": 1
+ },
+ {
+  "id": "cena-ne-stoit-kachestva",
+  "title": "Продвинутые инструменты стоят дорого при посредственном качестве работы приложения",
+  "obs": 1
+ },
+ {
+  "id": "konkurent-youcam-perfect-besplatno",
+  "title": "Аналогичное приложение того же издателя (YouCam Perfect) сохранило базовые инструменты бесплатными",
+  "obs": 1
+ },
+ {
+  "id": "limit-foto-ne-rastyot",
+  "title": "Дневной лимит бесплатных фото не увеличивается со временем, как ожидал пользователь",
+  "obs": 1
+ }
+]

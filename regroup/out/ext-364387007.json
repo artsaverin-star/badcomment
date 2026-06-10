@@ -1,0 +1,75 @@
+{
+  "groups": [
+    {
+      "id": "crashes-battery-broken-reading",
+      "name": "Дочитать не дают: краши, перегрев и поломки после обновлений",
+      "insight_ids": [
+        "app-crashes-reading",
+        "battery-drain-overheating",
+        "audio-playback-crashes",
+        "ios26-compatibility",
+        "content-refresh-broken",
+        "rendering-artifacts",
+        "support-bot-useless"
+      ]
+    },
+    {
+      "id": "reading-flow-and-web-only-features",
+      "name": "Лента, закладки и функции, оставшиеся только в вебе",
+      "insight_ids": [
+        "scroll-jump-loses-position",
+        "comments-missing-in-app",
+        "notification-deeplink-broken",
+        "push-notifications-not-breaking",
+        "layout-changes-reduce-content-area",
+        "gift-link-missing-in-app",
+        "bookmarks-unreliable",
+        "watchlist-sort-not-saved"
+      ]
+    },
+    {
+      "id": "audio-video-intrusion",
+      "name": "Аудио и видео, которые лезут без спроса",
+      "insight_ids": [
+        "video-autoplay-no-disable",
+        "video-autoplay-interrupts-audio",
+        "app-captures-audio-focus",
+        "audio-speed-missing-in-app",
+        "audio-button-accidental-trigger"
+      ]
+    },
+    {
+      "id": "offline-print-content-quality",
+      "name": "Офлайн, печатный выпуск и подмена редакторского контента",
+      "insight_ids": [
+        "offline-mode-broken",
+        "print-edition-load-failure",
+        "whats-news-ai-rewrite",
+        "stale-content-recommendations"
+      ]
+    },
+    {
+      "id": "paid-but-locked-out",
+      "name": "Заплатил, но доступа нет: подписка, биллинг и вход",
+      "insight_ids": [
+        "subscription-not-activated-apple",
+        "subscription-restore-ios-update",
+        "subscription-purchase-confusion",
+        "autorenewal-price-jump",
+        "cancel-process-complex",
+        "institutional-access-daily-reauth",
+        "ads-shown-to-subscribers",
+        "apple-login-blocks-access"
+      ]
+    },
+    {
+      "id": "ipad-gestures-broken",
+      "name": "iPad и привычные жесты, которые не работают",
+      "insight_ids": [
+        "ipad-landscape-keyboard-layout",
+        "pinch-to-zoom-broken-ipad",
+        "ios-swipe-back-not-supported"
+      ]
+    }
+  ]
+}

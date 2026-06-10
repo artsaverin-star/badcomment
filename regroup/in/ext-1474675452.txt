@@ -1,0 +1,194 @@
+You are grouping 29 mechanism-level insight clusters from VPN - Fast & Secure VPN Proxy (VPN) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO VPN - Fast & Secure VPN Proxy, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 29 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to VPN - Fast & Secure VPN Proxy — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to VPN - Fast & Secure VPN Proxy>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1474675452.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ip-stays-usa",
+  "title": "Выбор страны сервера не меняет IP-адрес — он всегда остаётся американским",
+  "obs": 7
+ },
+ {
+  "id": "popup-blocks-free-access",
+  "title": "Всплывающие окна с предложением купить подписку перекрывают доступ к бесплатным серверам и не закрываются",
+  "obs": 5
+ },
+ {
+  "id": "geo-bypass-success",
+  "title": "VPN эффективно обходит региональные блокировки — YouTube, соцсети, стриминг",
+  "obs": 5
+ },
+ {
+  "id": "paid-sub-stops-working",
+  "title": "После оплаты подписки VPN перестаёт подключаться, возврат средств недоступен",
+  "obs": 4
+ },
+ {
+  "id": "connect-disconnect-loop",
+  "title": "VPN подключается и сразу разрывается — цикл повторяется, подключиться невозможно",
+  "obs": 4
+ },
+ {
+  "id": "update-breaks-connection",
+  "title": "После обновления приложение перестаёт подключаться там, где раньше работало",
+  "obs": 4
+ },
+ {
+  "id": "early-trial-charge",
+  "title": "Списание полной суммы подписки до окончания пробного периода без предупреждения",
+  "obs": 3
+ },
+ {
+  "id": "system-conflict-ios-appstore",
+  "title": "VPN конфликтует с системой: блокирует App Store, нарушает Wi-Fi, не отключается пользователем",
+  "obs": 3
+ },
+ {
+  "id": "freeze-on-login",
+  "title": "Приложение зависает при входе или после подключения не переходит к основному интерфейсу",
+  "obs": 2
+ },
+ {
+  "id": "zero-speed-connected",
+  "title": "VPN подключается, но скорость соединения нулевая или критически низкая",
+  "obs": 2
+ },
+ {
+  "id": "china-blocked",
+  "title": "VPN не работает на материковом Китае — цензура не обходится",
+  "obs": 2
+ },
+ {
+  "id": "stable-allday-connection",
+  "title": "VPN удерживает соединение целый день без разрывов на протяжении месяцев",
+  "obs": 2
+ },
+ {
+  "id": "free-label-false",
+  "title": "Приложение рекламируется как бесплатное, но сразу после установки требует подписку",
+  "obs": 1
+ },
+ {
+  "id": "extra-paid-options-in-paid-plan",
+  "title": "Платная подписка не включает все функции — часть возможностей продаётся отдельно",
+  "obs": 1
+ },
+ {
+  "id": "trial-reset-reinstall",
+  "title": "Пользователи переустанавливают приложение, чтобы обнулить пробный период и не платить",
+  "obs": 1
+ },
+ {
+  "id": "false-connection-status",
+  "title": "Приложение показывает статус «подключено», но VPN фактически не работает",
+  "obs": 1
+ },
+ {
+  "id": "ios-screen-flicker",
+  "title": "Включение VPN несколько раз подряд вызывает мерцание и нестабильность экрана на iOS",
+  "obs": 1
+ },
+ {
+  "id": "cant-uninstall",
+  "title": "Удалённое приложение остаётся в памяти телефона и на главном экране — полностью удалить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "weak-wifi-no-connect",
+  "title": "VPN не подключается при слабом сигнале Wi-Fi",
+  "obs": 1
+ },
+ {
+  "id": "connection-drops-frequently",
+  "title": "Соединение часто разрывается и переподключается во время использования",
+  "obs": 1
+ },
+ {
+  "id": "russia-not-working",
+  "title": "VPN не работает в России — основной рынок с цензурой недоступен",
+  "obs": 1
+ },
+ {
+  "id": "iran-low-speed",
+  "title": "VPN обходит блокировки в Иране, но скорость настолько низкая, что YouTube доступен только в 144p",
+  "obs": 1
+ },
+ {
+  "id": "forced-review-prompt",
+  "title": "Приложение требует оставить отзыв при каждом запуске",
+  "obs": 1
+ },
+ {
+  "id": "forced-ad-video-paid",
+  "title": "В платной версии на macOS показывается обязательное видео, которое нельзя пропустить",
+  "obs": 1
+ },
+ {
+  "id": "login-glitch-gaming",
+  "title": "Приложение глючит и отвлекает при входе, мешая игровому сценарию использования",
+  "obs": 1
+ },
+ {
+  "id": "support-no-response",
+  "title": "Служба поддержки не отвечает на письма даже при оплаченной подписке",
+  "obs": 1
+ },
+ {
+  "id": "support-form-rejects-email",
+  "title": "Веб-форма поддержки отклоняет корректный адрес электронной почты — отправить запрос невозможно",
+  "obs": 1
+ },
+ {
+  "id": "competitor-comparison",
+  "title": "Пользователи сравнивают приложение с конкурентами: по скорости, стабильности и числу стран",
+  "obs": 1
+ },
+ {
+  "id": "privacy-policy-suspicion",
+  "title": "Политика конфиденциальности вызывает подозрения у пользователей, ценящих приватность",
+  "obs": 1
+ }
+]

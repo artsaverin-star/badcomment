@@ -1,0 +1,254 @@
+You are grouping 41 mechanism-level insight clusters from SoulCycle: Indoor Cycling (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO SoulCycle: Indoor Cycling, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 41 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to SoulCycle: Indoor Cycling — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to SoulCycle: Indoor Cycling>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-966733747.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "tap-bike-instant-charge-no-confirm",
+  "title": "Один тап по велосипеду сразу списывает кредит без окна подтверждения — нельзя просто посмотреть варианты",
+  "obs": 18
+ },
+ {
+  "id": "cannot-change-or-undo-after-mistake",
+  "title": "После случайного выбора места его нельзя поменять или отменить без потери кредита, особенно после 17:00",
+  "obs": 9
+ },
+ {
+  "id": "lifetime-credits-expire-by-region",
+  "title": "Купленные классы привязаны к городу и сгорают за 30-45 дней — нельзя пользоваться ими при переезде или поездке",
+  "obs": 4
+ },
+ {
+  "id": "gift-cards-broken-in-app",
+  "title": "Подарочные карты не проходят через приложение — приходится звонить в студию, где помочь не могут",
+  "obs": 3
+ },
+ {
+  "id": "promo-code-never-applies",
+  "title": "Промокод на скидку невозможно применить — копирование из СМС не срабатывает, и код не принимается",
+  "obs": 3
+ },
+ {
+  "id": "registration-loses-data-restart",
+  "title": "Регистрация теряет введённые данные и заставляет начинать заново по нескольку раз подряд",
+  "obs": 3
+ },
+ {
+  "id": "crash-on-launch",
+  "title": "Приложение падает сразу при открытии неделями и иногда перезагружает телефон",
+  "obs": 3
+ },
+ {
+  "id": "move-bike-books-second",
+  "title": "Попытка переместить велосипед на другое место бронирует второй и списывает оплату",
+  "obs": 2
+ },
+ {
+  "id": "no-booking-confirmation-feedback",
+  "title": "После бронирования экран не меняется и нет подтверждения — непонятно, забронировано ли место и как его отменить",
+  "obs": 2
+ },
+ {
+  "id": "bookmarks-take-over-home",
+  "title": "Закладки заняли весь экран и закрывают расписание забронированных классов, кнопка слишком мелкая",
+  "obs": 2
+ },
+ {
+  "id": "wrong-region-bay-area-segmentation",
+  "title": "Студии сгруппированы по регионам неверно — Сан-Франциско оторван от остальной агломерации",
+  "obs": 2
+ },
+ {
+  "id": "cannot-add-card-in-app",
+  "title": "Приложение не даёт добавить кредитную карту, переустановка не помогает, и бронировать в спешке нельзя",
+  "obs": 2
+ },
+ {
+  "id": "crash-at-monday-noon-peak",
+  "title": "Приложение падает в понедельник в полдень под пиковой нагрузкой — именно когда нужно бронировать",
+  "obs": 2
+ },
+ {
+  "id": "booking-hangs-oops-error",
+  "title": "Бронирование зависает и постоянно выдаёт ошибку, приложение не загружается месяцами",
+  "obs": 2
+ },
+ {
+  "id": "milestone-streak-miscount",
+  "title": "Приложение неверно считает пройденные классы и недельный стрик — счётчик застывает и сбрасывается без причины",
+  "obs": 2
+ },
+ {
+  "id": "membership-default-selected",
+  "title": "При покупке по умолчанию выбран дорогой вариант «членства», и человек тратит больше, чем планировал",
+  "obs": 1
+ },
+ {
+  "id": "tax-calc-blocks-package-purchase",
+  "title": "Ошибка расчёта налога не даёт купить пакет классов в приложении — проблема висит больше года",
+  "obs": 1
+ },
+ {
+  "id": "only-one-card-saved",
+  "title": "Приложение хранит только одну карту — нельзя добавить второй способ оплаты для разных платежей",
+  "obs": 1
+ },
+ {
+  "id": "shop-resets-scroll-and-filters",
+  "title": "При открытии товара список прыгает наверх и сбрасывает фильтры — приходится заново прокручивать и настраивать",
+  "obs": 1
+ },
+ {
+  "id": "shop-search-weak",
+  "title": "Поиск в разделе покупок слабый — чтобы найти один товар, надо листать все остальные",
+  "obs": 1
+ },
+ {
+  "id": "size-filter-shows-unavailable",
+  "title": "Фильтр по размеру показывает все вещи и лишь потом сообщает, что нужного размера нет",
+  "obs": 1
+ },
+ {
+  "id": "schedule-merged-no-single-studio",
+  "title": "Обновление убрало календарь отдельной студии — расписание слито по всем избранным, и фильтры приходится ставить заново",
+  "obs": 1
+ },
+ {
+  "id": "hard-to-find-booked-classes",
+  "title": "Сложно найти свои забронированные классы и любимую студию, нет кнопки добавления в календарь",
+  "obs": 1
+ },
+ {
+  "id": "confusing-search-purchase-flow",
+  "title": "Процесс поиска и покупки класса запутан — сообщения об ошибке неясны, а как отменить запись из списка ожидания, выяснить невозможно",
+  "obs": 1
+ },
+ {
+  "id": "waitlist-no-position",
+  "title": "В списке ожидания не показана позиция — человек не знает, первый он или десятый",
+  "obs": 1
+ },
+ {
+  "id": "soul-early-wrong-availability",
+  "title": "Приложение показывает ранние классы доступными, когда их нет, и человек вынужден бронировать с ноутбука",
+  "obs": 1
+ },
+ {
+  "id": "map-markers-no-info",
+  "title": "Маркеры на карте не открывают адрес и расписание студии — карта бесполезна для поиска",
+  "obs": 1
+ },
+ {
+  "id": "cart-not-persisted",
+  "title": "Корзина не сохраняет товары надолго — нельзя отложить покупку и завершить её позже",
+  "obs": 1
+ },
+ {
+  "id": "ads-on-open-tiny-close",
+  "title": "Реклама открывается при каждом запуске с крошечной кнопкой закрытия, которую надо нажимать много раз",
+  "obs": 1
+ },
+ {
+  "id": "soul-cup-crash-switching-apps",
+  "title": "После обновления переключение приложений вызывает падение, затрагивая и сторонние приложения",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-specific-os-versions",
+  "title": "После обновления приложение падает на старых версиях операционной системы",
+  "obs": 1
+ },
+ {
+  "id": "checkout-crashes-on-state-step",
+  "title": "При оформлении доставки приложение падает на шаге выбора штата, и перезапуск не помогает",
+  "obs": 1
+ },
+ {
+  "id": "instructor-class-hangs",
+  "title": "Запись на классы определённых инструкторов зависает с крутящимся колесом",
+  "obs": 1
+ },
+ {
+  "id": "checkin-broke-after-update",
+  "title": "После обновления сломалась отметка о входе на класс",
+  "obs": 1
+ },
+ {
+  "id": "booking-balance-miscount",
+  "title": "Приложение неверно отслеживает зарезервированные места и остаток классов — баланс меняется сам собой",
+  "obs": 1
+ },
+ {
+  "id": "package-not-recognized",
+  "title": "Приложение не распознаёт купленный пакет и при этом случайно бронирует велосипед",
+  "obs": 1
+ },
+ {
+  "id": "stuck-on-state-selection-noop",
+  "title": "Случайная двойная бронь зависает на этапе выбора места из-за лишних велосипедов в нижней панели",
+  "obs": 1
+ },
+ {
+  "id": "wifi-only",
+  "title": "Приложение работает только при подключении к Wi-Fi и бесполезно вне сети",
+  "obs": 1
+ },
+ {
+  "id": "icloud-keychain-paste-blocked",
+  "title": "Системный менеджер паролей не работает — приложение не подставляет учётные данные и не даёт вставить пароль",
+  "obs": 1
+ },
+ {
+  "id": "updates-distract-from-core-job",
+  "title": "Главная задача приложения — забронировать велосипед, но обновления уводят фокус от неё и усложняют интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "no-android-app",
+  "title": "Версии для Android нет, хотя таких пользователей больше, чем на iOS",
+  "obs": 1
+ }
+]

@@ -1,0 +1,369 @@
+You are grouping 64 mechanism-level insight clusters from ecobee (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO ecobee, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 64 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to ecobee — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to ecobee>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-916985674.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "apple-watch-app-broken-after-update",
+  "title": "Приложение на Apple Watch перестаёт загружаться после обновления — вместо интерфейса чёрный экран",
+  "obs": 12
+ },
+ {
+  "id": "eco-plus-ignores-user-off",
+  "title": "Eco+ остаётся активным и управляет температурой даже после явного отключения пользователем",
+  "obs": 5
+ },
+ {
+  "id": "app-status-delay",
+  "title": "Приложение отображает изменения статуса оборудования с задержкой до 20 минут",
+  "obs": 5
+ },
+ {
+  "id": "aux-heat-missing-from-reports",
+  "title": "Из отчётов исчезло разделение времени работы вспомогательного и основного отопления",
+  "obs": 5
+ },
+ {
+  "id": "vacation-mode-min-temp-locked",
+  "title": "В режиме отпуска минимальная температура заблокирована выше допустимого значения, не позволяя экономить",
+  "obs": 5
+ },
+ {
+  "id": "schedule-save-broken",
+  "title": "Кнопка сохранения расписания блокируется или расписание сохраняется не для всех дней",
+  "obs": 4
+ },
+ {
+  "id": "command-not-applied-to-device",
+  "title": "Команда на изменение температуры часто не применяется к устройству",
+  "obs": 4
+ },
+ {
+  "id": "app-data-vs-device-mismatch",
+  "title": "Показания температуры и влажности в приложении систематически расходятся с данными на самом термостате",
+  "obs": 4
+ },
+ {
+  "id": "schedule-ui-buried",
+  "title": "Расписание спрятано за несколькими уровнями меню и не отображается на главном экране",
+  "obs": 4
+ },
+ {
+  "id": "basic-actions-too-many-clicks",
+  "title": "Базовые действия — изменение температуры, включение вентилятора — требуют слишком много нажатий",
+  "obs": 4
+ },
+ {
+  "id": "app-loses-wifi-after-update",
+  "title": "После обновления приложение теряет Wi-Fi-соединение и перестаёт управлять устройством",
+  "obs": 3
+ },
+ {
+  "id": "thermostat-drops-offline",
+  "title": "Термостат периодически отключается от сети без причин и требует ручной перезагрузки",
+  "obs": 3
+ },
+ {
+  "id": "update-removes-thermostat-from-app",
+  "title": "Обновление удаляет все добавленные термостаты из приложения и требует повторной регистрации",
+  "obs": 3
+ },
+ {
+  "id": "app-crashes-on-open",
+  "title": "Приложение постоянно зависает или вылетает при открытии и требует повторного запуска",
+  "obs": 3
+ },
+ {
+  "id": "ipad-graph-crashes-on-scroll",
+  "title": "График системы на iPad сбивается или закрывается при прокрутке истории",
+  "obs": 3
+ },
+ {
+  "id": "home-assistant-no-native-support",
+  "title": "Отсутствие официальной поддержки Home Assistant вынуждает пользователей переходить к конкурентам",
+  "obs": 2
+ },
+ {
+  "id": "schedule-fires-wrong-or-holds",
+  "title": "Расписание не срабатывает в нужное время или самопроизвольно переходит в режим удержания",
+  "obs": 2
+ },
+ {
+  "id": "app-shows-wrong-status",
+  "title": "Приложение показывает неверный статус: процесс продолжает работать после команды остановки",
+  "obs": 2
+ },
+ {
+  "id": "away-mode-eco-overrides-user",
+  "title": "Eco+ самостоятельно решает, что кто-то дома, и отменяет режим Away без команды пользователя",
+  "obs": 2
+ },
+ {
+  "id": "widget-no-temperature",
+  "title": "Виджет на экране блокировки не отображает текущую температуру и не обновляется",
+  "obs": 2
+ },
+ {
+  "id": "heat-stage-control-missing",
+  "title": "Система не включает вспомогательное отопление при низких температурах из-за скрытой блокировки компрессора",
+  "obs": 2
+ },
+ {
+  "id": "app-fewer-settings-than-device",
+  "title": "Приложение предоставляет значительно меньше настроек, чем физическое устройство",
+  "obs": 2
+ },
+ {
+  "id": "onboarding-instructions-outdated",
+  "title": "Инструкции по подключению устарели: кнопки из руководства не существуют в текущей версии приложения",
+  "obs": 2
+ },
+ {
+  "id": "thermostat-reboots-loop-after-update",
+  "title": "После обновления термостат уходит в цикл перезагрузок, нарушая работу печи",
+  "obs": 1
+ },
+ {
+  "id": "security-camera-live-view-broken",
+  "title": "Прямая трансляция с камеры не загружается в приложении, хотя работает через Apple Home",
+  "obs": 1
+ },
+ {
+  "id": "arm-stay-video-removed-by-update",
+  "title": "После обновления в режиме «Arm Stay» видеозапись отключена — остаются только скриншоты",
+  "obs": 1
+ },
+ {
+  "id": "local-network-presence-removed",
+  "title": "Обновление отключило локальную сеть, сломав определение присутствия через Wi-Fi",
+  "obs": 1
+ },
+ {
+  "id": "homekit-integration-incomplete",
+  "title": "Интеграция с HomeKit неполная и не даёт практической пользы",
+  "obs": 1
+ },
+ {
+  "id": "room-sensors-ignored-in-comfort-profiles",
+  "title": "Комнатные датчики не учитываются при применении сценариев комфорта — дополнительные датчики бесполезны",
+  "obs": 1
+ },
+ {
+  "id": "filter-alert-stuck-after-acknowledgement",
+  "title": "Уведомление о замене фильтра остаётся активным даже после того, как пользователь его закрыл",
+  "obs": 1
+ },
+ {
+  "id": "camera-false-positives-motion",
+  "title": "Камера не отличает человека от насекомых и котов — журнал заполняется ложными срабатываниями",
+  "obs": 1
+ },
+ {
+  "id": "reports-not-synced-multi-home",
+  "title": "Отчёты не переключаются при смене объекта недвижимости и остаются привязаны к первому дому",
+  "obs": 1
+ },
+ {
+  "id": "server-error-on-temp-change",
+  "title": "Приложение возвращает ошибку сервера при изменении температуры — проблема существует несколько лет",
+  "obs": 1
+ },
+ {
+  "id": "two-thermostats-conflict",
+  "title": "Два термостата на разных этажах конфликтуют: один греет, другой одновременно охлаждает",
+  "obs": 1
+ },
+ {
+  "id": "furnace-wont-start-without-internet",
+  "title": "При отключении интернета печь не запускается, хотя это критически важная функция",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-notifications",
+  "title": "Каждое событие генерирует два идентичных push-уведомления вместо одного",
+  "obs": 1
+ },
+ {
+  "id": "sensor-disconnect-popups-no-dismiss",
+  "title": "При открытии приложения появляется 6–10 всплывающих окон об отключении датчиков без возможности их отключить",
+  "obs": 1
+ },
+ {
+  "id": "fan-activation-resets-hold",
+  "title": "Включение вентилятора через приложение сбрасывает установленное удержание температуры",
+  "obs": 1
+ },
+ {
+  "id": "tou-fires-in-peak-hours",
+  "title": "Функция Time of Use включает отопление в дорогие часы вместо дешёвых, несмотря на правильные настройки",
+  "obs": 1
+ },
+ {
+  "id": "pre-cool-too-short",
+  "title": "Предварительное охлаждение запускается только за 10 минут до пика тарифа, тогда как в жарком климате нужно 2+ часа",
+  "obs": 1
+ },
+ {
+  "id": "outdoor-temp-inaccurate",
+  "title": "Внешняя температура в приложении отличается от реальной на 5–6 градусов из-за удалённой базы данных",
+  "obs": 1
+ },
+ {
+  "id": "average-sensor-instead-of-primary",
+  "title": "Термостат показывает среднюю температуру всех датчиков, а не показания основного расположения",
+  "obs": 1
+ },
+ {
+  "id": "comfort-profiles-reset-on-mode-switch",
+  "title": "При переключении между режимами тепло/холод все значения температуры в сценариях комфорта сбрасываются",
+  "obs": 1
+ },
+ {
+  "id": "algorithm-overrides-set-temp",
+  "title": "Внутренний алгоритм системы изменяет установленную пользователем температуру вместо следования явным командам",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-complication-missing-label",
+  "title": "Осложнение на Apple Watch теряет ярлык после обновления и перестаёт реагировать на нажатия",
+  "obs": 1
+ },
+ {
+  "id": "homeiq-screen-flicker",
+  "title": "При вводе данных дома для Home IQ экран мигает и сразу возвращается назад",
+  "obs": 1
+ },
+ {
+  "id": "app-complex-for-non-tech-users",
+  "title": "Интерфейс приложения слишком сложен для пользователей без технического опыта, особенно старше 50 лет",
+  "obs": 1
+ },
+ {
+  "id": "battery-notification-blocks-temp-view",
+  "title": "Уведомление о батарее перекрывает отображение температуры прямо на экране термостата",
+  "obs": 1
+ },
+ {
+  "id": "ads-cant-be-closed",
+  "title": "Кнопка закрытия в рекламных баннерах внутри приложения не работает, рекламу нельзя отключить",
+  "obs": 1
+ },
+ {
+  "id": "poor-text-contrast",
+  "title": "Светло-зелёный текст на белом фоне плохо читается",
+  "obs": 1
+ },
+ {
+  "id": "geo-fencing-only-in-apple-home",
+  "title": "Геозоны доступны только через Apple Home — в нативном приложении эта функция отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "eco-mode-terminology-confusing",
+  "title": "Терминология Eco+ непонятна пользователям — разница с ручным управлением не очевидна",
+  "obs": 1
+ },
+ {
+  "id": "night-mode-hard-to-disable-heat",
+  "title": "Отключение отопления ночью требует сложных манипуляций из-за плохо спроектированного управления режимами сна",
+  "obs": 1
+ },
+ {
+  "id": "fan-speed-multi-zone-confusing",
+  "title": "Управление несколькими скоростями вентилятора и зонами комфорта запутано и не соответствует интерфейсу устройства",
+  "obs": 1
+ },
+ {
+  "id": "heat-pump-schedule-option-missing",
+  "title": "Опция отключения теплового насоса доступна в ручном управлении, но отсутствует в настройке расписания",
+  "obs": 1
+ },
+ {
+  "id": "eco-plus-unsubscribe-no-permanent-off",
+  "title": "Нет способа навсегда отключить программу энергокомпании — доступно только временное приостановление",
+  "obs": 1
+ },
+ {
+  "id": "account-no-email-change",
+  "title": "В приложении невозможно изменить привязанный адрес электронной почты аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "phone-only-verification",
+  "title": "Единственный способ верификации аккаунта — номер телефона, альтернативных методов нет",
+  "obs": 1
+ },
+ {
+  "id": "support-requests-personal-data",
+  "title": "Техподдержка требует личные данные, что вызывает серьёзные опасения по поводу приватности",
+  "obs": 1
+ },
+ {
+  "id": "app-logs-out-no-support",
+  "title": "Приложение разлогинивает пользователя и перестаёт работать — настройки локации скрыты, поддержки нет",
+  "obs": 1
+ },
+ {
+  "id": "spring-fall-mode-switching-issue",
+  "title": "В переходные сезоны система постоянно переключается между теплом и холодом, не удерживая стабильную температуру",
+  "obs": 1
+ },
+ {
+  "id": "installation-manual-error",
+  "title": "Инструкция по установке содержит ошибку, которая может привести к монтажу устройства вверх ногами",
+  "obs": 1
+ },
+ {
+  "id": "remote-connection-fails-outside-home",
+  "title": "Приложение не может подключиться к термостату при нахождении пользователя вне дома",
+  "obs": 1
+ },
+ {
+  "id": "system-needs-offset-to-reach-target",
+  "title": "Система требует выставлять температуру выше цели, чтобы фактически достичь нужного значения — алгоритм неэффективен",
+  "obs": 1
+ }
+]

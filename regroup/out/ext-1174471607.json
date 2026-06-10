@@ -1,0 +1,82 @@
+{
+  "groups": [
+    {
+      "id": "updates-wipe-data",
+      "name": "Обновления стирают капитал и историю транзакций",
+      "insight_ids": [
+        "cashflow-double-count",
+        "netcost-missing-properties",
+        "manual-accounts-deleted-on-idle",
+        "update-wipes-history",
+        "update-corrupts-investments-loans",
+        "update-wipes-networth-history",
+        "update-removes-bill-tracking",
+        "manual-accounts-hidden-after-redesign"
+      ]
+    },
+    {
+      "id": "linked-accounts-break",
+      "name": "Связь со счетами через Plaid постоянно рвётся",
+      "insight_ids": [
+        "accounts-disconnect-periodically",
+        "credentials-dropped-replaid",
+        "constant-reconnect-accounts",
+        "linked-accounts-stale",
+        "hsa-not-linkable",
+        "credit-loan-manual-balances",
+        "no-multiple-logins-same-bank",
+        "treasury-apy-unreachable"
+      ]
+    },
+    {
+      "id": "categorization-cashflow-wrong",
+      "name": "Категории и денежный поток считают неверно",
+      "insight_ids": [
+        "categories-merge-unrelated",
+        "no-split-transaction",
+        "cashflow-spending-no-income",
+        "transfers-counted-as-income",
+        "wrong-auto-category-blank-page",
+        "reclassify-loses-months",
+        "apply-to-all-misclick"
+      ]
+    },
+    {
+      "id": "login-otp-reauth",
+      "name": "Бесконечные повторные входы и неработающий одноразовый код",
+      "insight_ids": [
+        "otp-never-arrives",
+        "frequent-reauth",
+        "reauth-needs-web",
+        "reauth-from-email",
+        "atomic-blocks-deletion"
+      ]
+    },
+    {
+      "id": "gutted-charts-views",
+      "name": "Из аналитики вырезали графики сравнения трат",
+      "insight_ids": [
+        "removed-monthly-trend-chart",
+        "trend-shrunk-to-icon",
+        "removed-category-bar-chart",
+        "ipad-no-landscape",
+        "ipad-filter-resets"
+      ]
+    },
+    {
+      "id": "loan-search-leak",
+      "name": "Поиск кредитов оборачивается спамом и фишингом",
+      "insight_ids": [
+        "loan-search-spam-emails",
+        "loan-search-phishing-calls"
+      ]
+    },
+    {
+      "id": "billing-trap",
+      "name": "Списания за отменённую подписку и молчание поддержки",
+      "insight_ids": [
+        "cancelled-still-charged"
+      ]
+    }
+  ]
+}

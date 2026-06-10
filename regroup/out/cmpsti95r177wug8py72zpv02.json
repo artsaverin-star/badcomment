@@ -1,0 +1,76 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Списания мимо обещаний: пробный период, отмена, двойные платежи",
+      "insight_ids": [
+        "trial-charged-before-period-ends",
+        "charged-after-cancellation",
+        "trial-end-notification-missing",
+        "duplicate-subscriptions",
+        "price-mismatch-at-charge",
+        "yearly-charge-after-single-use",
+        "dark-pattern-yearly-enroll"
+      ]
+    },
+    {
+      "id": "paywall-took-over-free",
+      "name": "Всё ушло за подписку: убрали бесплатную правку, рекламу-за-награду и сохранение",
+      "insight_ids": [
+        "removed-free-ad-supported-editing",
+        "save-blocked-behind-paywall",
+        "removed-ad-watch-for-watermark",
+        "removed-trial-raised-entry-price",
+        "too-little-free-to-evaluate"
+      ]
+    },
+    {
+      "id": "broken-after-updates",
+      "name": "Обновления ломают инструменты: мышцы, reshape, цвета",
+      "insight_ids": [
+        "muscle-feature-broken-after-update",
+        "muscle-feature-ignores-clothing",
+        "gray-tint-after-update",
+        "reshape-broken-makeup-removed"
+      ]
+    },
+    {
+      "id": "no-precise-control",
+      "name": "Нет точечного контроля: групповые фото, выбор области и человека, экспорт",
+      "insight_ids": [
+        "no-manual-selection-of-people",
+        "no-targeted-area-editing",
+        "group-body-edit-only-leftmost",
+        "body-detection-unreliable",
+        "limited-export-formats"
+      ]
+    },
+    {
+      "id": "crashes-and-artifacts",
+      "name": "Вылеты и неестественный результат правки лица и видео",
+      "insight_ids": [
+        "crashes-during-editing",
+        "ai-artifacts-unnatural-jaw",
+        "video-edit-frame-shift"
+      ]
+    },
+    {
+      "id": "hairstyle-tryon",
+      "name": "Примерка причёсок: крючок, который притягивает — и где она спотыкается",
+      "insight_ids": [
+        "hairstyle-tryon-main-draw",
+        "hairstyle-skin-tone-bias",
+        "hairstyle-short-hair-limit"
+      ]
+    },
+    {
+      "id": "loved-workflows-and-who-its-for",
+      "name": "За что любят и на ком работает: удаление объектов, семейные фото, перекос ИИ",
+      "insight_ids": [
+        "loved-use-cases-removal-and-body",
+        "family-photo-capture-and-edit",
+        "ai-fix-female-only"
+      ]
+    }
+  ]
+}

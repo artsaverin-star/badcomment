@@ -1,0 +1,249 @@
+You are grouping 40 mechanism-level insight clusters from CNN: Live & Breaking News (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO CNN: Live & Breaking News, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 40 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to CNN: Live & Breaking News — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to CNN: Live & Breaking News>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-331786748.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "auto-switch-to-headlines",
+  "title": "Приложение автоматически переключает трансляцию на Headline News в начале часа или в прайм-тайм вместо выбранного шоу",
+  "obs": 10
+ },
+ {
+  "id": "repeated-logout-appletv",
+  "title": "Приложение на Apple TV ежедневно разлогинивает пользователя и требует повторного сканирования QR-кода",
+  "obs": 8
+ },
+ {
+  "id": "repeated-logout-general",
+  "title": "Приложение регулярно разлогинивает пользователя при каждом запуске или повороте экрана",
+  "obs": 6
+ },
+ {
+  "id": "app-crash-after-update",
+  "title": "После обновления приложение зависает на экране загрузки и не запускается",
+  "obs": 5
+ },
+ {
+  "id": "subscription-not-recognized",
+  "title": "Приложение не признаёт активную подписку и блокирует доступ к контенту или просит повторную оплату",
+  "obs": 4
+ },
+ {
+  "id": "cable-required-for-streaming",
+  "title": "Подписка на потоковый сервис всё равно требует подключённого кабельного провайдера для просмотра на ТВ",
+  "obs": 4
+ },
+ {
+  "id": "video-freeze-on-rotation",
+  "title": "Видеопоток зависает при повороте экрана и требует перезапуска приложения",
+  "obs": 4
+ },
+ {
+  "id": "video-close-button-broken",
+  "title": "Кнопка закрытия видеоплеера не работает в полноэкранном режиме",
+  "obs": 4
+ },
+ {
+  "id": "scroll-triggers-accidental-clicks",
+  "title": "При прокрутке ленты случайно открываются ссылки и статьи без намеренного нажатия",
+  "obs": 4
+ },
+ {
+  "id": "streaming-lag-buffering",
+  "title": "Потоковое вещание постоянно буферизуется и требует ручного обновления для продолжения",
+  "obs": 4
+ },
+ {
+  "id": "subscription-content-differs-from-cable",
+  "title": "Подписка даёт доступ только к кратким заголовкам, а не к тому же контенту, что по кабельному ТВ",
+  "obs": 3
+ },
+ {
+  "id": "audio-interrupted-by-notifications",
+  "title": "Любое уведомление или входящий звонок прерывает воспроизведение аудио, и приложение не возобновляет его автоматически",
+  "obs": 3
+ },
+ {
+  "id": "no-resume-position",
+  "title": "Приложение не сохраняет позицию просмотра после паузы или прерывания, заставляя пересматривать уже увиденное",
+  "obs": 3
+ },
+ {
+  "id": "repeated-ads-in-stream",
+  "title": "Одна и та же реклама или промо повторяется несколько раз подряд вместо нормального чередования",
+  "obs": 3
+ },
+ {
+  "id": "widget-empty-after-update",
+  "title": "Виджет перестал отображать заголовки после обновления и показывает пустой экран",
+  "obs": 3
+ },
+ {
+  "id": "article-paywall-not-labeled",
+  "title": "Статьи за платной стеной не помечены заранее — пользователь узнаёт о подписке только после клика",
+  "obs": 2
+ },
+ {
+  "id": "stream-drops-on-app-switch",
+  "title": "Переключение на другое приложение разрывает поток, и после возврата трансляция не возобновляется",
+  "obs": 2
+ },
+ {
+  "id": "ads-on-paid-tier",
+  "title": "Платные подписчики всё равно видят длинные рекламные паузы и временные окна предпросмотра",
+  "obs": 2
+ },
+ {
+  "id": "appletv-navigation-slow",
+  "title": "Навигация в приложении на Apple TV медленная и запутанная",
+  "obs": 2
+ },
+ {
+  "id": "chromecast-not-supported",
+  "title": "Приложение не поддерживает трансляцию на ТВ через Chromecast",
+  "obs": 2
+ },
+ {
+  "id": "ad-freeze-blocks-stream",
+  "title": "Приложение зависает на рекламной вставке и не возобновляет трансляцию после её окончания",
+  "obs": 2
+ },
+ {
+  "id": "apple-id-login-loop",
+  "title": "Вход через Apple ID зацикливается на ошибке «аккаунт уже существует»",
+  "obs": 1
+ },
+ {
+  "id": "feed-same-story-repeated",
+  "title": "Лента повторяет одну и ту же историю под разными заголовками вместо разнообразного контента",
+  "obs": 1
+ },
+ {
+  "id": "schedule-dominated-by-headlines",
+  "title": "Большую часть эфирного расписания занимает Headline News вместо основного контента CNN",
+  "obs": 1
+ },
+ {
+  "id": "audio-session-capture",
+  "title": "При открытии приложение захватывает аудиосеанс и прерывает музыку из других приложений",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-ads-on-stream-switch",
+  "title": "При переключении между трансляциями приложение принудительно показывает рекламу, блокируя доступ к прямому эфиру",
+  "obs": 1
+ },
+ {
+  "id": "autoplay-ads-without-view",
+  "title": "Реклама автоматически воспроизводится без отображения на экране и активируется при прокрутке без нажатия",
+  "obs": 1
+ },
+ {
+  "id": "article-scroll-freeze",
+  "title": "Прокрутка статьи вызывает зависание приложения и блокирует доступ к остальному содержимому",
+  "obs": 1
+ },
+ {
+  "id": "no-back-button-in-articles",
+  "title": "В статье нет кнопки «назад» — клик по встроенной ссылке уводит от оригинальной статьи без возможности вернуться",
+  "obs": 1
+ },
+ {
+  "id": "autoplay-video-clutters-feed",
+  "title": "Лента заполнена автоматически запускающимися видео на весь экран, что мешает читать новости",
+  "obs": 1
+ },
+ {
+  "id": "color-scheme-distracting",
+  "title": "Цветовая схема интерфейса воспринимается как неприятная и отвлекает от контента",
+  "obs": 1
+ },
+ {
+  "id": "carplay-not-working",
+  "title": "Приложение недоступно через интерфейс CarPlay и требует предварительного запуска на телефоне",
+  "obs": 1
+ },
+ {
+  "id": "airplay-removed",
+  "title": "Функция трансляции на ТВ через беспроводной протокол была удалена из приложения",
+  "obs": 1
+ },
+ {
+  "id": "samsung-tv-unavailable",
+  "title": "Приложение отсутствует на платформе Samsung TV из-за отсутствия соглашения с производителем",
+  "obs": 1
+ },
+ {
+  "id": "audio-video-desync",
+  "title": "Звук и изображение периодически рассинхронизируются при потоковом воспроизведении",
+  "obs": 1
+ },
+ {
+  "id": "geo-restriction-outside-usa",
+  "title": "Видеоконтент недоступен при использовании приложения за пределами США",
+  "obs": 1
+ },
+ {
+  "id": "privacy-toggle-broken",
+  "title": "Переключатель отказа от продажи личных данных не реагирует на нажатие и остаётся включённым",
+  "obs": 1
+ },
+ {
+  "id": "content-differs-across-devices",
+  "title": "Один и тот же контент доступен на телефоне, но отсутствует на Apple TV в то же время",
+  "obs": 1
+ },
+ {
+  "id": "subtitles-broken-on-tv",
+  "title": "Субтитры не работают при трансляции на телевизор",
+  "obs": 1
+ },
+ {
+  "id": "seek-triggers-ad-replay",
+  "title": "Перемотка вперёд в записи вызывает повторный показ уже просмотренной рекламы",
+  "obs": 1
+ }
+]

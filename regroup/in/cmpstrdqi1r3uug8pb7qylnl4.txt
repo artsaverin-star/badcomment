@@ -1,0 +1,314 @@
+You are grouping 53 mechanism-level insight clusters from HelloTalk - Language Learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO HelloTalk - Language Learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 53 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to HelloTalk - Language Learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to HelloTalk - Language Learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstrdqi1r3uug8pb7qylnl4.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "arbitrary-account-deletion-no-appeal",
+  "title": "Приложение безвозвратно удаляет аккаунты за упоминание религии, страны или слов, без предупреждения и апелляции",
+  "obs": 5
+ },
+ {
+  "id": "messages-not-delivered",
+  "title": "Сообщения не доходят до собеседника — ни в личной переписке, ни в голосовых комнатах",
+  "obs": 4
+ },
+ {
+  "id": "app-crashes-on-open",
+  "title": "Приложение постоянно вылетает при открытии",
+  "obs": 4
+ },
+ {
+  "id": "network-error-blocks-login",
+  "title": "При входе или регистрации приложение выдаёт ошибку сети, хотя интернет есть",
+  "obs": 4
+ },
+ {
+  "id": "new-accounts-banned-fast",
+  "title": "Новые аккаунты блокируют за первые сообщения или комментарии и требуют видеопроверку для восстановления",
+  "obs": 4
+ },
+ {
+  "id": "core-language-settings-behind-paywall",
+  "title": "Исправить родной или целевой язык, ошибочно указанный при регистрации, можно только за платную подписку",
+  "obs": 3
+ },
+ {
+  "id": "basic-social-features-paywalled",
+  "title": "Базовые социальные функции — трансляции, просмотр профилей, перевод — закрыты подпиской, у конкурентов они бесплатны",
+  "obs": 3
+ },
+ {
+  "id": "no-cross-device-sync",
+  "title": "Переписка не синхронизируется между устройствами и теряется при смене телефона",
+  "obs": 3
+ },
+ {
+  "id": "ipad-back-from-profile-greys-out",
+  "title": "На iPad при возврате из профиля экран становится серым и требует перезагрузки",
+  "obs": 3
+ },
+ {
+  "id": "ai-support-template-replies",
+  "title": "Поддержка отвечает только шаблонными ответами от бота и не решает технические проблемы",
+  "obs": 3
+ },
+ {
+  "id": "phone-verification-forced",
+  "title": "Приложение требует номер телефона для общения, но проверочный код не приходит, а окно блокирует доступ",
+  "obs": 3
+ },
+ {
+  "id": "trial-button-charges-full-year",
+  "title": "Кнопка пробного периода VIP сразу списывает полную годовую подписку вместо триала",
+  "obs": 2
+ },
+ {
+  "id": "vip-features-stripped-into-paid-addons",
+  "title": "После обновления функции из VIP вынесли в отдельные платные модули, полный доступ стоит больше тысячи долларов",
+  "obs": 2
+ },
+ {
+  "id": "forced-purchase-no-trial",
+  "title": "Приложение требует купить подписку сразу после установки без полноценного пробного периода",
+  "obs": 2
+ },
+ {
+  "id": "bots-instead-of-real-people",
+  "title": "Основное общение идёт с ботами, а не с реальными людьми, и даже подписка ограничивает длину диалога",
+  "obs": 2
+ },
+ {
+  "id": "voice-room-audio-dies",
+  "title": "В голосовых комнатах внезапно пропадает звук и не возвращается после перезапуска",
+  "obs": 2
+ },
+ {
+  "id": "session-drops-disconnected",
+  "title": "Приложение само выходит из сессии и показывает статус «отключено», требуя перезапуска",
+  "obs": 2
+ },
+ {
+  "id": "moments-photo-scrolls-to-top",
+  "title": "При выборе фото для публикации список альбома сам прокручивается в начало",
+  "obs": 2
+ },
+ {
+  "id": "scammy-cluttered-interface",
+  "title": "Интерфейс перегружен цветами, всплывающими элементами и рекламой, даже смена фото требует множества действий",
+  "obs": 2
+ },
+ {
+  "id": "ads-injected-on-home-and-switching",
+  "title": "Реклама появляется на главном экране и при каждом переключении между приложениями",
+  "obs": 2
+ },
+ {
+  "id": "birthday-age-locked",
+  "title": "Дату рождения нельзя задать при регистрации и нельзя исправить позже, мешая подбору партнёров",
+  "obs": 2
+ },
+ {
+  "id": "manipulative-bot-notifications",
+  "title": "Пуш-уведомления используют манипулятивный тон и наполнены сообщениями от ботов о чужих постах",
+  "obs": 2
+ },
+ {
+  "id": "language-limit-three",
+  "title": "Можно выбрать не больше трёх целевых языков, а функцию для нескольких языков убрали без подписки",
+  "obs": 2
+ },
+ {
+  "id": "device-lock-blocks-new-accounts",
+  "title": "После удаления аккаунта устройство блокируется и не даёт создать новый",
+  "obs": 2
+ },
+ {
+  "id": "location-on-profile-no-hide",
+  "title": "Местоположение пользователя показано на фоне профиля, скрыть его можно только за платную подписку",
+  "obs": 2
+ },
+ {
+  "id": "shadowban-lgbtq-content",
+  "title": "Приложение скрытно удаляет посты, в том числе ЛГБТК-контент, без уведомления, показывая статус «видимо всем»",
+  "obs": 2
+ },
+ {
+  "id": "taiwan-flag-hidden-china-policy",
+  "title": "Приложение скрывает флаг и название Тайваня в соответствии с политикой «одного Китая»",
+  "obs": 2
+ },
+ {
+  "id": "translate-locked-after-free-limit",
+  "title": "Перевод сообщений блокируется после лимита и требует платной подписки в обучающем приложении",
+  "obs": 1
+ },
+ {
+  "id": "message-quota-before-payment",
+  "title": "Бесплатным пользователям разрешают всего несколько сообщений, дальше — только за оплату",
+  "obs": 1
+ },
+ {
+  "id": "trial-cancel-still-charges-blocks-store",
+  "title": "После отмены триала приложение продолжает требовать оплату и блокирует загрузки в магазине на связанном аккаунте",
+  "obs": 1
+ },
+ {
+  "id": "trial-excludes-chinese-users",
+  "title": "Пробный период VIP дают только иностранным пользователям, китайских из предложения исключают",
+  "obs": 1
+ },
+ {
+  "id": "ads-shown-to-paying-users",
+  "title": "Полноэкранную рекламу показывают даже платным пользователям, её приходится закрывать вручную",
+  "obs": 1
+ },
+ {
+  "id": "turned-into-livestream-platform",
+  "title": "Приложение превратилось в платформу live-трансляций вместо обмена языками в текстовых и голосовых комнатах",
+  "obs": 1
+ },
+ {
+  "id": "ai-tutor-no-translation",
+  "title": "AI-собеседник не переводит и не объясняет иностранные фразы, поэтому практика бесполезна",
+  "obs": 1
+ },
+ {
+  "id": "correction-tool-letter-level",
+  "title": "Инструмент исправления ошибок переделали с замены слова на правку отдельных букв, поправки выглядят неправильно",
+  "obs": 1
+ },
+ {
+  "id": "mic-stays-on-after-leaving",
+  "title": "Микрофон остаётся включённым после выхода из голосовой комнаты и закрытия приложения",
+  "obs": 1
+ },
+ {
+  "id": "ipad-specific-glitches",
+  "title": "На iPad часть функций недоступна из-за глюков, хотя на iPhone всё работает",
+  "obs": 1
+ },
+ {
+  "id": "performance-degrades-overheats",
+  "title": "Приложение тормозит, лагает и перегревает телефон при длительном использовании",
+  "obs": 1
+ },
+ {
+  "id": "deleting-one-chat-deletes-another",
+  "title": "Удаление одной переписки стирает закреплённую переписку другого контакта вместе с историей",
+  "obs": 1
+ },
+ {
+  "id": "phantom-messages-not-saved",
+  "title": "Сообщения приходят в уведомления, но не сохраняются в истории чата",
+  "obs": 1
+ },
+ {
+  "id": "cant-type-history-lost",
+  "title": "Приложение временно блокирует набор сообщений, а история переписки с партнёрами теряется",
+  "obs": 1
+ },
+ {
+  "id": "whiteboard-broken-months",
+  "title": "Доска объявлений сломана месяцами, разработчики не реагируют",
+  "obs": 1
+ },
+ {
+  "id": "web-version-jwt-error",
+  "title": "Веб-версия не работает из-за ошибки проверки токена авторизации",
+  "obs": 1
+ },
+ {
+  "id": "deleting-media-no-storage-freed",
+  "title": "Удаление медиафайлов из чата не освобождает память — нужно стирать всю историю",
+  "obs": 1
+ },
+ {
+  "id": "voice-room-title-edit-broken",
+  "title": "При редактировании названия голосовой комнаты приложение стирает текст и не даёт вводить новый",
+  "obs": 1
+ },
+ {
+  "id": "wrong-language-shown-in-picker",
+  "title": "При выборе целевого языка приложение показывает совсем другой язык",
+  "obs": 1
+ },
+ {
+  "id": "chat-tap-opens-random-profile",
+  "title": "Нажатие на чат непредсказуемо открывает профиль случайного пользователя",
+  "obs": 1
+ },
+ {
+  "id": "no-gender-filter-floods-messages",
+  "title": "При регистрации нет фильтра по полу, из-за чего на пользователя сыплются сообщения мужчин",
+  "obs": 1
+ },
+ {
+  "id": "connect-tab-shows-no-partners",
+  "title": "Вкладка подключения не показывает доступных языковых партнёров, хотя входящих сообщений много",
+  "obs": 1
+ },
+ {
+  "id": "age-rating-contradicts-signup",
+  "title": "Приложение с рейтингом 4+ требует совершеннолетия для создания аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "excessive-personal-data-collection",
+  "title": "Приложение собирает избыточные личные данные — локацию, телефон, часы устройства, IMEI",
+  "obs": 1
+ },
+ {
+  "id": "turns-into-dating-flirting",
+  "title": "С первых минут регистрации приложение наполняется флиртом и превращается в сервис знакомств",
+  "obs": 1
+ },
+ {
+  "id": "block-feature-ineffective",
+  "title": "Заблокированные пользователи всё равно могут писать тому, кто их заблокировал",
+  "obs": 1
+ }
+]

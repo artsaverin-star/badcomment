@@ -1,0 +1,389 @@
+You are grouping 68 mechanism-level insight clusters from Stardust Period Tracker (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Stardust Period Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 68 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Stardust Period Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Stardust Period Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsu1m272cziug8pr94xkugp.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "slow-loading",
+  "title": "Приложение открывается от 45 секунд до нескольких минут, делая быстрый доступ невозможным",
+  "obs": 35
+ },
+ {
+  "id": "prediction-accuracy-poor",
+  "title": "Прогнозы периода ошибаются на 4–16 дней даже после многолетней истории ввода",
+  "obs": 15
+ },
+ {
+  "id": "algorithm-stuck-28-days",
+  "title": "Алгоритм не адаптируется к циклам длиннее 28 дней и постоянно показывает статус «опоздал»",
+  "obs": 14
+ },
+ {
+  "id": "app-crash-on-open",
+  "title": "Приложение падает при каждом открытии — после обновления, переустановки или смены устройства",
+  "obs": 13
+ },
+ {
+  "id": "data-loss-on-crash-or-update",
+  "title": "После сбоя, обновления или смены телефона все накопленные данные цикла исчезают без возможности восстановления",
+  "obs": 8
+ },
+ {
+  "id": "partner-feature-broken",
+  "title": "Функция партнёрского отслеживания сломана больше года — партнёр не видит цикл и симптомы",
+  "obs": 8
+ },
+ {
+  "id": "constant-logout",
+  "title": "Приложение разлогинивает пользователя при каждом открытии, требуя повторного входа",
+  "obs": 7
+ },
+ {
+  "id": "period-logging-rejected",
+  "title": "Приложение не сохраняет залогированный период или отказывается принимать ввод",
+  "obs": 7
+ },
+ {
+  "id": "app-auto-changes-dates",
+  "title": "Приложение самостоятельно меняет введённые пользователем даты цикла без его ведома",
+  "obs": 6
+ },
+ {
+  "id": "marketing-shame-tone",
+  "title": "Маркетинговые объявления используют вину и осуждение вместо позитивных аргументов в пользу продукта",
+  "obs": 6
+ },
+ {
+  "id": "phase-calculation-wrong",
+  "title": "Приложение неправильно рассчитывает длительность фолликулярной и лютеальной фаз",
+  "obs": 5
+ },
+ {
+  "id": "judgmental-notifications-copy",
+  "title": "Ежедневные уведомления деморализуют и предполагают плохое самочувствие в определённые дни",
+  "obs": 4
+ },
+ {
+  "id": "widget-broken",
+  "title": "Виджет периода на домашнем экране не обновляется и не показывает информацию",
+  "obs": 4
+ },
+ {
+  "id": "confusing-navigation",
+  "title": "Навигация и символы меню неинтуитивны, астрологический дизайн скрывает основные функции",
+  "obs": 4
+ },
+ {
+  "id": "age-limit-blocks-young-users",
+  "title": "Ограничение 13+ блокирует молодых пользователей, которые уже начали менструацию",
+  "obs": 4
+ },
+ {
+  "id": "pmdd-adhd-conditions-missing",
+  "title": "Нет специализированного отслеживания для ПМДР, СДВГ, аутизма и постпартума",
+  "obs": 4
+ },
+ {
+  "id": "trial-cancellation-charge",
+  "title": "Пробный период отменён вовремя, но через месяц списывается полная годовая подписка",
+  "obs": 3
+ },
+ {
+  "id": "heteronormative-fertility-language",
+  "title": "Прогнозы фертильности предполагают гетеросексуальный контекст и не учитывают ЛГБТК+ пользователей",
+  "obs": 3
+ },
+ {
+  "id": "crash-after-os-update",
+  "title": "После обновления операционной системы приложение перестаёт открываться",
+  "obs": 3
+ },
+ {
+  "id": "only-apple-id-auth",
+  "title": "Приложение поддерживает только один метод входа, и когда он недоступен — войти невозможно",
+  "obs": 3
+ },
+ {
+  "id": "phase-correction-blocked",
+  "title": "Нет механизма вручную исправить неправильную фазу цикла после ошибки алгоритма",
+  "obs": 3
+ },
+ {
+  "id": "unauthorized-charges",
+  "title": "Приложение списывает деньги без согласия пользователя — дважды и без уведомления",
+  "obs": 2
+ },
+ {
+  "id": "insights-paywalled",
+  "title": "Инсайты и базовые функции (день цикла, таро) перенесены за платную стену после обновления",
+  "obs": 2
+ },
+ {
+  "id": "harmful-pms-descriptions",
+  "title": "Описания ПМС используют оскорбительные стереотипы и страшилки вместо уважительного тона",
+  "obs": 2
+ },
+ {
+  "id": "gendered-language-conflict",
+  "title": "Приложение использует слово «менструаторы» или гендерно-полицейский язык, противореча своему позиционированию",
+  "obs": 2
+ },
+ {
+  "id": "product-placement-notifications",
+  "title": "Уведомления содержат рекомендации продуктов питания вместо полезных советов по циклу",
+  "obs": 2
+ },
+ {
+  "id": "horoscope-over-data-analysis",
+  "title": "Приложение генерирует астрологический и развлекательный контент вместо анализа введённых симптомов",
+  "obs": 2
+ },
+ {
+  "id": "phone-overheating",
+  "title": "При длительной загрузке приложение перегревает телефон и критично расходует батарею",
+  "obs": 2
+ },
+ {
+  "id": "requires-internet",
+  "title": "Приложение не работает без интернета — базовые функции недоступны в офлайне",
+  "obs": 2
+ },
+ {
+  "id": "cycle-day-number-removed",
+  "title": "Приложение убрало отображение номера текущего дня цикла, заменив его обратным отсчётом",
+  "obs": 2
+ },
+ {
+  "id": "date-input-broken",
+  "title": "Поля ввода даты рождения не позволяют выбрать определённые месяцы или старые годы",
+  "obs": 2
+ },
+ {
+  "id": "no-symptom-export-or-filter",
+  "title": "Нет экспорта данных и фильтрации по симптомам для анализа трендов за несколько месяцев",
+  "obs": 2
+ },
+ {
+  "id": "period-longer-than-5-days-blocked",
+  "title": "Нельзя залогировать период длительностью больше стандартных 5 дней",
+  "obs": 2
+ },
+ {
+  "id": "data-loss-no-support-resolution",
+  "title": "После потери многолетних данных служба поддержки не смогла помочь восстановить их",
+  "obs": 2
+ },
+ {
+  "id": "ai-integration-ethics-concerns",
+  "title": "Долгосрочные пользователи уходят из-за этических и экологических опасений по поводу внедрения ИИ",
+  "obs": 2
+ },
+ {
+  "id": "pcos-unsupported",
+  "title": "Приложение не поддерживает СПКЯ: показывает пустой цикл на 8+ месяцев и отправляет тревожные сообщения",
+  "obs": 2
+ },
+ {
+  "id": "perimenopause-unsupported",
+  "title": "Перименопауза (5–10 лет) не поддерживается как отдельный режим с соответствующими прогнозами",
+  "obs": 2
+ },
+ {
+  "id": "custom-reminders-missing",
+  "title": "Нет возможности запланировать напоминания (лекарства, вода) для конкретных фаз цикла",
+  "obs": 2
+ },
+ {
+  "id": "custom-symptom-no-categories",
+  "title": "Пользовательские симптомы нельзя организовать по категориям, что мешает отслеживать комплексные схемы лечения",
+  "obs": 2
+ },
+ {
+  "id": "partner-needs-own-subscription",
+  "title": "Партнёр должен оплатить отдельную подписку, чтобы видеть цикл основного пользователя",
+  "obs": 1
+ },
+ {
+  "id": "premium-status-shows-unpaid",
+  "title": "Приложение сообщает об отсутствии оплаты при каждом открытии, хотя функции доступны",
+  "obs": 1
+ },
+ {
+  "id": "referral-reward-disappeared",
+  "title": "После добавления 9 из 10 друзей опция получить обещанный бесплатный год исчезла",
+  "obs": 1
+ },
+ {
+  "id": "pricing-unjustifiable",
+  "title": "Цена подписки воспринимается как несправедливая с учётом размера аудитории и минимальных затрат",
+  "obs": 1
+ },
+ {
+  "id": "folklore-content-removed",
+  "title": "Контент о фольклоре и верованиях для каждой фазы цикла убран из приложения",
+  "obs": 1
+ },
+ {
+  "id": "activity-stereotypes",
+  "title": "Список активностей содержит гендерные стереотипы и не включает нейтральные варианты вроде игр",
+  "obs": 1
+ },
+ {
+  "id": "ai-hallucinated-references",
+  "title": "Приложение ссылается на несуществующие научные статьи, вероятно сгенерированные ИИ",
+  "obs": 1
+ },
+ {
+  "id": "symptom-options-removed",
+  "title": "После обновления исчезли симптомы, которые пользователь отслеживал раньше",
+  "obs": 1
+ },
+ {
+  "id": "apple-health-sync-broken",
+  "title": "Несмотря на интеграцию с Apple Health, приложение пропускает залогированные там периоды",
+  "obs": 1
+ },
+ {
+  "id": "sleep-data-inaccurate",
+  "title": "Данные о сне из календаря читаются неправильно — всегда показывает одно и то же значение",
+  "obs": 1
+ },
+ {
+  "id": "data-import-broken",
+  "title": "Импорт истории из другого приложения не работает или теряется после падения",
+  "obs": 1
+ },
+ {
+  "id": "calendar-graphics-glitch",
+  "title": "Графика календаря цикла зависает: даты исчезают, появляются белые линии, выравнивание ломается",
+  "obs": 1
+ },
+ {
+  "id": "home-screen-broken-after-update",
+  "title": "После обновления половина содержимого домашнего экрана скрыта пустым пространством",
+  "obs": 1
+ },
+ {
+  "id": "contradictory-cycle-status",
+  "title": "Приложение показывает противоречивые сообщения: «приходит сегодня» и «день 1» в разные дни",
+  "obs": 1
+ },
+ {
+  "id": "quiz-not-scrollable",
+  "title": "Квиз нельзя прокрутить — количество вопросов и текст третьего вопроса скрыты",
+  "obs": 1
+ },
+ {
+  "id": "forced-premium-screen",
+  "title": "После падения приложение показывает принудительный экран покупки Premium без кнопки закрытия",
+  "obs": 1
+ },
+ {
+  "id": "language-bug",
+  "title": "Раздел ввода симптомов отображается на испанском несмотря на английские системные настройки",
+  "obs": 1
+ },
+ {
+  "id": "no-history-overview",
+  "title": "Нет обзора исторических симптомов и паттернов по месяцам и годам",
+  "obs": 1
+ },
+ {
+  "id": "zodiac-wrong",
+  "title": "Приложение неправильно определяет знак зодиака по введённой дате рождения",
+  "obs": 1
+ },
+ {
+  "id": "account-creation-fails",
+  "title": "Создание учётной записи блокируется при первой попытке регистрации",
+  "obs": 1
+ },
+ {
+  "id": "log-offset-one-day",
+  "title": "Залогированный симптом автоматически переносится на следующий день, делая данные неточными",
+  "obs": 1
+ },
+ {
+  "id": "pregnancy-week-jump",
+  "title": "При отслеживании беременности приложение прыгает на неделю вперёд без объяснений",
+  "obs": 1
+ },
+ {
+  "id": "partner-female-couple-unsupported",
+  "title": "В однополой женской паре только одна сторона может добавить другую как партнёра",
+  "obs": 1
+ },
+ {
+  "id": "notifications-not-sent",
+  "title": "Уведомления не приходят несмотря на активацию в настройках и выданные разрешения",
+  "obs": 1
+ },
+ {
+  "id": "ai-support-not-helpful",
+  "title": "Служба поддержки отвечает ИИ, который игнорирует серьёзные проблемы и не передаёт живому оператору",
+  "obs": 1
+ },
+ {
+  "id": "accuracy-brand-vs-reality",
+  "title": "Позиционирование «точнее, потому что сделано женщинами» не подкреплено реальной точностью алгоритма",
+  "obs": 1
+ },
+ {
+  "id": "plan-b-not-loggable",
+  "title": "Нет возможности залогировать приём экстренной контрацепции, которая влияет на прогнозы цикла",
+  "obs": 1
+ },
+ {
+  "id": "skipped-period-no-button",
+  "title": "Нет кнопки для логирования пропущенного периода, чтобы продолжить отслеживание других фаз",
+  "obs": 1
+ },
+ {
+  "id": "advice-not-practical",
+  "title": "Советы по низкоэнергетическим дням деморализуют и не подходят для активных людей и родителей",
+  "obs": 1
+ }
+]

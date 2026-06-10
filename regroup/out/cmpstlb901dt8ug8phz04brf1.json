@@ -1,0 +1,84 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps-hidden-subscriptions",
+      "name": "Биллинг-ловушки: скрытые подписки и невозвраты",
+      "insight_ids": [
+        "initial-payment-unlocks-only-download",
+        "trial-silent-jump-to-full-price",
+        "hidden-subscription-cannot-cancel",
+        "lifetime-or-onetime-has-hidden-limit",
+        "single-free-generation-then-paywall",
+        "upgrade-prompts-after-paying",
+        "support-confirms-charge-refuses-refund",
+        "hidden-real-annual-cost",
+        "offstore-billing-double-charge"
+      ]
+    },
+    {
+      "id": "real-life-uses-hair-and-fun",
+      "name": "Как Reface используют по-настоящему: примерка причёски и развлечение",
+      "insight_ids": [
+        "preview-haircut-before-stylist",
+        "fun-content-with-friends-and-partner",
+        "social-media-content-tool",
+        "hair-style-color-exploration",
+        "visualize-hair-growth-target",
+        "want-makeup-color-codes",
+        "more-free-faces-boosts-conversion"
+      ]
+    },
+    {
+      "id": "moderation-nsfw-overblocking",
+      "name": "Перекрученная модерация: NSFW-фильтр и блокировка лиц",
+      "insight_ids": [
+        "nsfw-filter-false-positives",
+        "moderation-tightened-after-update",
+        "celebrity-photos-now-blocked"
+      ]
+    },
+    {
+      "id": "ai-render-quality-hair-faces",
+      "name": "Качество AI-рендера волос и лиц не дотягивает до рекламы",
+      "insight_ids": [
+        "no-short-hairstyles",
+        "low-quality-hair-rendering",
+        "diverse-skin-tones-inaccurate",
+        "hair-type-rendered-wrong",
+        "result-ignores-user-selection",
+        "too-few-hairstyle-variants"
+      ]
+    },
+    {
+      "id": "ad-promises-vs-actual-app",
+      "name": "Реклама обещает причёски — приложение ведёт в другую сторону",
+      "insight_ids": [
+        "marketing-promises-hairstyles-app-routes-elsewhere",
+        "fantasy-instead-of-professional",
+        "hairstyle-feature-hard-to-find",
+        "no-face-shape-detection"
+      ]
+    },
+    {
+      "id": "generation-errors-and-limits",
+      "name": "Сбои генерации и лимиты, съедающие оплаченные попытки",
+      "insight_ids": [
+        "errors-without-recovery-path",
+        "generation-stalls-at-99",
+        "slow-generation-vs-daily-limit",
+        "failed-attempts-count-toward-limit"
+      ]
+    },
+    {
+      "id": "access-account-privacy-breakdowns",
+      "name": "Потеря доступа, сломанный аккаунт и неудалённая биометрия",
+      "insight_ids": [
+        "paid-but-no-access-at-all",
+        "reauth-on-saved-styles",
+        "password-reset-broken",
+        "support-silent-on-undelivered-photos",
+        "biometric-data-not-deleted"
+      ]
+    }
+  ]
+}

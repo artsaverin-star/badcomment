@@ -1,0 +1,224 @@
+You are grouping 35 mechanism-level insight clusters from Dazz Cam - Vintage Camera (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Dazz Cam - Vintage Camera, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 35 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Dazz Cam - Vintage Camera — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Dazz Cam - Vintage Camera>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsthlyd15upug8pkjl2a037.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "capture-fails-after-update-reinstall",
+  "title": "После обновления съёмка фото отказывает даже после переустановки и проверки разрешений",
+  "obs": 6
+ },
+ {
+  "id": "no-filter-preview-before-shot",
+  "title": "Нельзя увидеть превью фильтра до съёмки — приходится выбирать камеру вслепую и держать эффекты в памяти",
+  "obs": 5
+ },
+ {
+  "id": "black-screen-only-logo-on-launch",
+  "title": "При запуске виден только логотип на чёрном экране — снимать фото невозможно",
+  "obs": 3
+ },
+ {
+  "id": "import-existing-photos-with-filter",
+  "title": "Нельзя импортировать готовое фото из галереи и применить к нему фильтр",
+  "obs": 2
+ },
+ {
+  "id": "pro-broken-right-after-purchase",
+  "title": "Сразу после покупки Pro приложение перестаёт работать — камера не открывается, функции нестабильны",
+  "obs": 2
+ },
+ {
+  "id": "lifetime-purchase-turned-into-subscription",
+  "title": "После смены модели монетизации разовая покупка обесценивается — функции уходят за новую подписку",
+  "obs": 1
+ },
+ {
+  "id": "cancel-not-reflected-in-apple",
+  "title": "Отмена месячной подписки не отражается в аккаунте Apple — платежи продолжают списываться",
+  "obs": 1
+ },
+ {
+  "id": "save-locked-behind-pro",
+  "title": "Снятое фото нельзя сохранить без покупки Pro — основная функция заблокирована платным барьером",
+  "obs": 1
+ },
+ {
+  "id": "video-record-locked-behind-paid-filters",
+  "title": "Запись видео с эффектами доступна только за платные фильтры, а не в базовом функционале",
+  "obs": 1
+ },
+ {
+  "id": "video-import-paywall-not-disclosed",
+  "title": "Приложение не предупреждает заранее, что импорт видео для фильтров требует платную версию",
+  "obs": 1
+ },
+ {
+  "id": "low-monetization-pressure-builds-goodwill",
+  "title": "Щедрый бесплатный набор и опция разовой покупки вместо подписки повышают готовность купить Pro позже",
+  "obs": 1
+ },
+ {
+  "id": "filters-overprocess-in-contrast-light",
+  "title": "В контрастном свете фильтры дают переобработанный результат, который не похож на винтажную плёнку",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-purchase-poor-photo-quality",
+  "title": "После покупки пожизненной версии фото на iPhone 17 Pro выходят с заметными отклонениями цвета и шума",
+  "obs": 1
+ },
+ {
+  "id": "watermark-on-filtered-photo",
+  "title": "На обработанном фото появляются нежелательные водяные знаки, текст или графика",
+  "obs": 1
+ },
+ {
+  "id": "raw-neutral-save-removed",
+  "title": "Нельзя сохранить нейтральный необработанный RAW без встроенной автообработки",
+  "obs": 1
+ },
+ {
+  "id": "video-low-resolution-grain-lost",
+  "title": "Видео сохраняется в 720p, и плёночная зернистость сливается с компрессией на больших экранах",
+  "obs": 1
+ },
+ {
+  "id": "focal-length-info-missing",
+  "title": "Приложение не показывает реальные фокусные расстояния, только базовые зумы — нельзя протестировать всю оптику",
+  "obs": 1
+ },
+ {
+  "id": "no-favorites-section-for-cameras",
+  "title": "Нет секции избранных камер — любимый эффект приходится каждый раз искать прокруткой",
+  "obs": 1
+ },
+ {
+  "id": "compare-with-original-realtime",
+  "title": "Пользователь хочет в реальном времени сравнивать правки с оригиналом при редактировании",
+  "obs": 1
+ },
+ {
+  "id": "filter-settings-not-saved-for-repeat",
+  "title": "Приложение не сохраняет метаданные настроек фильтра — нельзя повторить тот же эффект позже",
+  "obs": 1
+ },
+ {
+  "id": "no-geolocation-for-travel-photos",
+  "title": "Приложение не сохраняет геолокацию снимков — нельзя документировать места путешествия",
+  "obs": 1
+ },
+ {
+  "id": "no-permission-button-in-settings",
+  "title": "Приложение шлёт в настройки за разрешением камеры, но нужной кнопки там нет — пользователь в тупике",
+  "obs": 1
+ },
+ {
+  "id": "video-feature-broken-while-photo-works",
+  "title": "В Pro-версии видеофункция полностью не работает, хотя фото снимается нормально",
+  "obs": 1
+ },
+ {
+  "id": "photos-not-saved-after-update",
+  "title": "После обновления приложение перестало сохранять фото и выдаёт странные баги освещения",
+  "obs": 1
+ },
+ {
+  "id": "grd-r-filter-not-saving",
+  "title": "Фильтр GRD R не сохраняет фото ни в галерею приложения, ни в библиотеку iOS",
+  "obs": 1
+ },
+ {
+  "id": "grd-r-lost-warm-tone-after-update",
+  "title": "После обновления фильтр GRD R перестал давать тёплый оттенок даже на максимуме",
+  "obs": 1
+ },
+ {
+  "id": "ccd-r-too-dark-after-update",
+  "title": "После обновления фильтр CCD R стал давать слишком тёмный результат в слабом свете",
+  "obs": 1
+ },
+ {
+  "id": "proraw-black-artifact-bars",
+  "title": "В режиме ProRaw на iPhone 14 Pro Max появляются чёрные полосы-артефакты, портящие кадры",
+  "obs": 1
+ },
+ {
+  "id": "resolution-dropped-after-update",
+  "title": "После обновления сохранённые фото стали в очень низком разрешении вместо оригинального качества",
+  "obs": 1
+ },
+ {
+  "id": "video-save-denied-after-recording",
+  "title": "Приложение даёт записать видео с платным эффектом, но затем отказывает в сохранении как непокупленного",
+  "obs": 1
+ },
+ {
+  "id": "upload-cancel-dialog-blocks",
+  "title": "Загрузка обработанного фото срывается диалогом отмены, не давая завершить операцию",
+  "obs": 1
+ },
+ {
+  "id": "gallery-import-broken-old-iphone",
+  "title": "Импорт фото из галереи не работает на старых моделях iPhone",
+  "obs": 1
+ },
+ {
+  "id": "free-photos-lost-after-subscribing",
+  "title": "Фото из бесплатной версии хранятся как временные файлы и пропадают после оформления подписки",
+  "obs": 1
+ },
+ {
+  "id": "photos-lost-on-reinstall-no-sync",
+  "title": "Фото хранятся только внутри приложения и пропадают при переустановке — нет синхронизации с библиотекой iOS",
+  "obs": 1
+ },
+ {
+  "id": "one-way-sync-with-ios-gallery",
+  "title": "Синхронизация с галереей iOS односторонняя — нельзя вести одну общую библиотеку фото",
+  "obs": 1
+ }
+]

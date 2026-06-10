@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from foodpanda: Food & Groceries (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO foodpanda: Food & Groceries, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to foodpanda: Food & Groceries — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to foodpanda: Food & Groceries>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt2d7fk4v2xugfeeb30hysg.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-broken-at-launch",
+  "title": "Приложение зависает при запуске или требует удаления и переустановки при каждом открытии на разных устройствах",
+  "obs": 8
+ },
+ {
+  "id": "promised-time-violated",
+  "title": "Приложение систематически показывает заниженное время доставки — реальное время в 2–3 раза превышает обещанное, и это повторяется при каждом заказе",
+  "obs": 7
+ },
+ {
+  "id": "multi-stop-routing",
+  "title": "Система маршрутизации добавляет несколько промежуточных остановок к уже принятому заказу — еда остывает, а время доставки удваивается",
+  "obs": 6
+ },
+ {
+  "id": "priority-delivery-not-faster",
+  "title": "Платная приоритетная доставка не ускоряет получение заказа и ничем не отличается от обычной по факту",
+  "obs": 5
+ },
+ {
+  "id": "international-phone-blocked",
+  "title": "Приложение отклоняет иностранные номера телефонов при регистрации и не предупреждает об этом ограничении заранее",
+  "obs": 4
+ },
+ {
+  "id": "support-bots-no-human",
+  "title": "Служба поддержки состоит только из ботов — живой оператор недоступен, а бот отправляет автоответы с задержкой времени вместо решения",
+  "obs": 4
+ },
+ {
+  "id": "refund-denied-cancelled-order",
+  "title": "При отмене заказа система отказывает в возврате денег, заявляя что отмена означает отказ от компенсации",
+  "obs": 3
+ },
+ {
+  "id": "voucher-burned-prematurely",
+  "title": "Ваучер сгорает при добавлении товара в корзину или когда товар оказывается недоступным — до подтверждения заказа",
+  "obs": 3
+ },
+ {
+  "id": "card-payment-rejected",
+  "title": "Карта отклоняется без объяснений, хотя активна и работала раньше — банки добавляют приложение в стоп-лист из-за мошенничества",
+  "obs": 3
+ },
+ {
+  "id": "cancel-button-unavailable",
+  "title": "Кнопка отмены заказа недоступна или появляется только через несколько часов, оставляя пользователя без возможности отменить",
+  "obs": 3
+ },
+ {
+  "id": "system-cancels-without-reason",
+  "title": "Система отменяет заказ после того, как ресторан уже приготовил еду, без объяснения причины и компенсации",
+  "obs": 3
+ },
+ {
+  "id": "inaccurate-order-status",
+  "title": "Статус заказа обновляется с задержкой или показывает разные данные пользователю и ресторану, что ведёт к ошибкам",
+  "obs": 3
+ },
+ {
+  "id": "refund-as-voucher-not-cash",
+  "title": "При проблемах с заказом или качеством еды система выдаёт ваучер вместо возврата денег на карту",
+  "obs": 2
+ },
+ {
+  "id": "prices-higher-than-menu",
+  "title": "Цены в приложении выше, чем в оригинальном меню ресторана, без объяснения наценки",
+  "obs": 2
+ },
+ {
+  "id": "delivery-fee-disproportionate",
+  "title": "Комиссия за доставку завышена — не снижается при маленьком расстоянии и растёт когда водитель везёт несколько заказов",
+  "obs": 2
+ },
+ {
+  "id": "refund-denied-quality",
+  "title": "Возврат за некачественную или испорченную еду отклоняется из-за 48-часового лимита или невозможности предоставить фото",
+  "obs": 2
+ },
+ {
+  "id": "no-realtime-tracking",
+  "title": "Отслеживание доставки в реальном времени отсутствует или недоступно, водитель не отвечает на сообщения",
+  "obs": 2
+ },
+ {
+  "id": "app-crashes-after-update",
+  "title": "После обновления приложение перестаёт запускаться на iOS и неправильно определяет местоположение",
+  "obs": 2
+ },
+ {
+  "id": "fake-gps-driver-location",
+  "title": "GPS водителя в приложении отстаёт на 15 минут или показывает заведомо неверную позицию — водитель уже у двери, а на карте он далеко",
+  "obs": 2
+ },
+ {
+  "id": "app-freeze-checkout",
+  "title": "Приложение зависает при переходе в корзину на 30 минут и дольше, блокируя оформление заказа",
+  "obs": 2
+ },
+ {
+  "id": "impossible-photo-proof-required",
+  "title": "Поддержка требует фото как доказательство — пролитой еды или отсутствующего товара — что физически невозможно предоставить",
+  "obs": 2
+ },
+ {
+  "id": "driver-fake-delivery-proof",
+  "title": "Водитель присылает чёрное фото как доказательство доставки и получает оплату, не выполнив заказ — поддержка не помогает",
+  "obs": 2
+ },
+ {
+  "id": "support-apology-only",
+  "title": "При серьёзных задержках поддержка отправляет только извинения или небольшой кредит, не предпринимая реальных действий",
+  "obs": 2
+ },
+ {
+  "id": "subscription-auto-upgraded",
+  "title": "Система автоматически переводит месячную подписку на годовую без явного согласия и отказывает в возврате переплаты",
+  "obs": 1
+ },
+ {
+  "id": "pandapro-restricts-restaurants",
+  "title": "После оформления подписки pandapro часть ресторанов становится недоступной для подписчика, хотя доступна обычным пользователям",
+  "obs": 1
+ },
+ {
+  "id": "pro-vouchers-disappear",
+  "title": "Ваучеры из подписки pandapro исчезают без предупреждения, и пользователь теряет оплаченные скидки",
+  "obs": 1
+ },
+ {
+  "id": "pandapro-spotify-code-broken",
+  "title": "Промокод на Spotify Premium из подписки pandapro не работает при наличии существующего аккаунта, возврат не предоставляется",
+  "obs": 1
+ },
+ {
+  "id": "cash-only-no-card",
+  "title": "Система не принимает карту и требует наличные, а водители отказывают в доставке при отсутствии мелких купюр",
+  "obs": 1
+ },
+ {
+  "id": "charge-without-order",
+  "title": "При оформлении заказа деньги списываются, но заказ не создаётся и возврат не происходит автоматически",
+  "obs": 1
+ },
+ {
+  "id": "payment-method-blocked-after-refund",
+  "title": "После возврата за испорченный товар система без объяснений отключает опцию оплаты наличными на аккаунте",
+  "obs": 1
+ },
+ {
+  "id": "ad-notifications-undisableable",
+  "title": "Рекламные уведомления нельзя отключить отдельно от уведомлений о заказе, реклама встроена с намеренно неудобными кнопками закрытия",
+  "obs": 1
+ },
+ {
+  "id": "closed-restaurant-orderable",
+  "title": "Приложение позволяет добавить еду из закрытого ресторана в корзину и не сообщает о закрытии до момента оформления заказа",
+  "obs": 1
+ },
+ {
+  "id": "app-slow-excessive-ads",
+  "title": "Приложение работает медленно и показывает избыточную рекламу, мешая навигации",
+  "obs": 1
+ },
+ {
+  "id": "120hz-not-supported",
+  "title": "Интерфейс не поддерживает 120Hz прокрутку на устройствах с высокой частотой обновления экрана, выглядит заторможенным",
+  "obs": 1
+ },
+ {
+  "id": "driver-cancels-order",
+  "title": "Водитель может отменить принятый заказ в любой момент, и система ищет нового водителя, увеличивая время доставки на час",
+  "obs": 1
+ },
+ {
+  "id": "order-delivered-wrong-address",
+  "title": "Система сообщает о доставке по верному адресу, хотя фактически заказ доставлен в другое место и потерян",
+  "obs": 1
+ },
+ {
+  "id": "order-substituted",
+  "title": "Система заменяет позиции в заказе на другие без согласия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "items-disappear-from-catalog",
+  "title": "Товары случайно исчезают из каталога приложения при наличии интернета и появляются снова без объяснений",
+  "obs": 1
+ },
+ {
+  "id": "restaurants-all-unavailable",
+  "title": "Все рестораны в приложении показываются как недоступные, хотя работают и видны в других сервисах доставки",
+  "obs": 1
+ },
+ {
+  "id": "pedestrian-assigned-for-delivery",
+  "title": "Система назначает пешехода вместо курьера на мопеде, что приводит к многократному увеличению времени доставки",
+  "obs": 1
+ },
+ {
+  "id": "delivery-notification-unreliable",
+  "title": "Уведомления о статусе заказа приходят нестабильно и не отражают реальное положение дел",
+  "obs": 1
+ },
+ {
+  "id": "sms-otp-not-sent",
+  "title": "При регистрации приложение не отправляет СМС с кодом подтверждения, хотя прямая ссылка на оплату работает",
+  "obs": 1
+ },
+ {
+  "id": "home-tab-error",
+  "title": "Вкладка «Главная» постоянно показывает ошибку, хотя остальные разделы приложения работают",
+  "obs": 1
+ },
+ {
+  "id": "update-too-large",
+  "title": "Обновление приложения весит 280 МБ и занимает 25 минут даже на быстром интернете",
+  "obs": 1
+ },
+ {
+  "id": "rude-support-missing-items",
+  "title": "Сотрудники pandamart грубят и отказываются возмещать недостающие товары в заказе",
+  "obs": 1
+ },
+ {
+  "id": "insufficient-drivers-peak",
+  "title": "В пиковые дни — пятницы, праздники, понедельники — платформа продолжает принимать заказы при нехватке водителей, что приводит к многочасовым задержкам",
+  "obs": 1
+ },
+ {
+  "id": "delivery-area-not-expanding",
+  "title": "Зона покрытия не расширяется годами, несмотря на появление новых ресторанов в регионе, которые доступны в конкурирующих сервисах",
+  "obs": 1
+ },
+ {
+  "id": "quality-not-verified",
+  "title": "Платформа не проверяет соответствие веса и качества блюд при заборе из ресторана и не привлекает партнёров к ответственности",
+  "obs": 1
+ },
+ {
+  "id": "survey-data-sold",
+  "title": "После участия во внутреннем опросе пользователь получает спам от третьих сторон — данные переданы без согласия",
+  "obs": 1
+ }
+]

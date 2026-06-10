@@ -1,0 +1,299 @@
+You are grouping 50 mechanism-level insight clusters from Aaptiv: #1 Audio Fitness App (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Aaptiv: #1 Audio Fitness App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 50 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Aaptiv: #1 Audio Fitness App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Aaptiv: #1 Audio Fitness App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-869058995.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "workout-completion-not-saved",
+  "title": "Завершённые тренировки не сохраняются в историю, прогресс теряется",
+  "obs": 6
+ },
+ {
+  "id": "logged-out-asks-resubscribe",
+  "title": "Приложение выкидывает активного подписчика и требует оформить подписку заново",
+  "obs": 4
+ },
+ {
+  "id": "finish-button-error",
+  "title": "Кнопка завершения тренировки выдаёт ошибку или зависает, и тренировка не засчитывается",
+  "obs": 4
+ },
+ {
+  "id": "billing-after-cancel",
+  "title": "Приложение продолжает списывать деньги годами после отмены подписки, без уведомлений",
+  "obs": 3
+ },
+ {
+  "id": "price-mismatch-charge",
+  "title": "На экране показана одна цена, а при покупке списывается другая, во много раз больше",
+  "obs": 3
+ },
+ {
+  "id": "video-out-of-sync-with-voice",
+  "title": "Видеодемонстрация не совпадает с голосовыми инструкциями тренера, упражнение не выполнить верно",
+  "obs": 3
+ },
+ {
+  "id": "birthdate-field-broken",
+  "title": "Поле даты рождения не принимает ввод и блокирует регистрацию аккаунта",
+  "obs": 3
+ },
+ {
+  "id": "apple-watch-no-sync",
+  "title": "Синхронизация с часами не работает месяцами, калории и расстояние неточны",
+  "obs": 3
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Деньги списываются сразу при оформлении пробного периода, а не по его завершении",
+  "obs": 2
+ },
+ {
+  "id": "price-hike-elite",
+  "title": "Цена повышается на десятки процентов с одновременным урезанием доступа к залам",
+  "obs": 2
+ },
+ {
+  "id": "custom-music-mutes-coach",
+  "title": "При своей музыке голос тренера становится неслышен, отдельной регулировки нет",
+  "obs": 2
+ },
+ {
+  "id": "workout-details-removed",
+  "title": "Обновление скрыло описание, оборудование и список движений перед выбором тренировки",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-select-or-search",
+  "title": "Приложение аварийно завершается при выборе или поиске тренировки",
+  "obs": 2
+ },
+ {
+  "id": "apple-watch-broken-each-update",
+  "title": "Каждое обновление ломает синхронизацию с часами и требует повторной настройки",
+  "obs": 2
+ },
+ {
+  "id": "watch-workouts-incompatible",
+  "title": "Большинство тренировок не загружаются на часы из-за лицензий, бегать без телефона нельзя",
+  "obs": 2
+ },
+ {
+  "id": "location-tracking-after-workout",
+  "title": "Приложение продолжает следить за местоположением после тренировки и сажает батарею",
+  "obs": 2
+ },
+ {
+  "id": "gym-network-benefit-missing",
+  "title": "Обещанный доступ к сети залов не выдаётся или удаляется, хотя за него заплачено",
+  "obs": 2
+ },
+ {
+  "id": "billing-blames-bank",
+  "title": "Поддержка не может остановить платежи и перекладывает ответственность на банк",
+  "obs": 1
+ },
+ {
+  "id": "cancel-blocked",
+  "title": "Отменить подписку невозможно из-за нерабочей ссылки отмены, плата продолжается",
+  "obs": 1
+ },
+ {
+  "id": "double-charge",
+  "title": "Подписка списывается дважды, исправление занимает недели и повторяется снова",
+  "obs": 1
+ },
+ {
+  "id": "no-refund-guarantee",
+  "title": "Возврат в гарантийный срок невозможен — поддержка закрыта, ссылка на возврат заблокирована",
+  "obs": 1
+ },
+ {
+  "id": "plan-switch-double-bill",
+  "title": "При смене годового плана на месячный старая подписка не отменяется и списывается параллельно",
+  "obs": 1
+ },
+ {
+  "id": "music-options-removed",
+  "title": "Обновление удалило выбор музыки, оставив только синтезированную",
+  "obs": 1
+ },
+ {
+  "id": "video-wrong-exercise",
+  "title": "Видео не соответствует выполняемому упражнению и путает начинающих",
+  "obs": 1
+ },
+ {
+  "id": "beginner-plan-too-hard",
+  "title": "Тренировки для начинающих требуют подготовки выше начального уровня",
+  "obs": 1
+ },
+ {
+  "id": "coaches-leaving-no-new-content",
+  "title": "Лучшие тренеры уходят, новых тренировок почти не добавляют",
+  "obs": 1
+ },
+ {
+  "id": "ai-synthetic-voice-hated",
+  "title": "Синтезированные голоса ИИ-тренеров раздражают и повторяют инструкции",
+  "obs": 1
+ },
+ {
+  "id": "movement-video-removed",
+  "title": "Обновление удалило синхронные видео движений, и инструкции по времени стали неверными",
+  "obs": 1
+ },
+ {
+  "id": "reduce-volume-broken",
+  "title": "Функция приглушения музыки делает либо музыку, либо инструктора неслышными",
+  "obs": 1
+ },
+ {
+  "id": "music-stopped-playing",
+  "title": "Музыка перестала проигрываться в программах, в настройках нет управления этим",
+  "obs": 1
+ },
+ {
+  "id": "video-not-ahead-of-timer",
+  "title": "Видео упражнения переключается одновременно с таймером, а не заранее",
+  "obs": 1
+ },
+ {
+  "id": "plan-hidden-in-coach",
+  "title": "Обновление скрыло персональный план в разделе тренера, доступа к нему нет",
+  "obs": 1
+ },
+ {
+  "id": "location-resets-default",
+  "title": "Приложение не запоминает выбранный зал и сбрасывает локацию по умолчанию",
+  "obs": 1
+ },
+ {
+  "id": "bluetooth-prompt-loop",
+  "title": "Приложение постоянно требует доступ к Bluetooth без возможности отключить запрос",
+  "obs": 1
+ },
+ {
+  "id": "weight-required-before-browse",
+  "title": "Приложение требует ввести вес до просмотра тренировок, что опасно при расстройствах питания",
+  "obs": 1
+ },
+ {
+  "id": "enrolled-programs-hidden",
+  "title": "Обновление скрыло программы, на которые пользователь уже подписан",
+  "obs": 1
+ },
+ {
+  "id": "completed-not-shown-on-day",
+  "title": "Новый экран показывает только плановые тренировки дня, скрывая уже выполненные",
+  "obs": 1
+ },
+ {
+  "id": "extra-steps-before-start",
+  "title": "Обновления добавили шаги перед стартом тренировки, а сохранённых настроек нет",
+  "obs": 1
+ },
+ {
+  "id": "program-stuck-last-seconds",
+  "title": "Многонедельная программа зависает на последних секундах и не засчитывает занятие",
+  "obs": 1
+ },
+ {
+  "id": "crash-mid-workout",
+  "title": "Приложение падает посреди тренировки даже после всех попыток исправления",
+  "obs": 1
+ },
+ {
+  "id": "metrics-tracking-removed",
+  "title": "Обновление удалило отслеживание недельных тренировок, калорий и времени",
+  "obs": 1
+ },
+ {
+  "id": "health-integrations-removed",
+  "title": "Обновление удалило синхронизацию с системой здоровья, пульс и калории",
+  "obs": 1
+ },
+ {
+  "id": "watch-sleep-mode-override",
+  "title": "Запуск медитации сна переключает часы в режим активности и будит ночью",
+  "obs": 1
+ },
+ {
+  "id": "save-favorites-broken",
+  "title": "Сохранение тренировок в избранное выдаёт ошибку и не работает",
+  "obs": 1
+ },
+ {
+  "id": "ai-coach-not-tracking",
+  "title": "Новый ИИ-тренер перестал засчитывать завершённые тренировки и портит прогресс программы",
+  "obs": 1
+ },
+ {
+  "id": "ai-plan-server-error",
+  "title": "Персональный ИИ-план не загружается из-за ошибки доступа к серверам",
+  "obs": 1
+ },
+ {
+  "id": "support-phone-is-apple",
+  "title": "Телефон поддержки в приложении ведёт на справочную службу другой компании",
+  "obs": 1
+ },
+ {
+  "id": "login-blocked-after-payment",
+  "title": "После оплаты приложение блокирует вход, а восстановление пароля не присылает письмо",
+  "obs": 1
+ },
+ {
+  "id": "audio-only-needs-video",
+  "title": "Приложение позиционируется как аудио, но без видео упражнение не понять",
+  "obs": 1
+ },
+ {
+  "id": "employer-portal-mismatch",
+  "title": "Программа от работодателя не синхронизирует тренировки, портал показывает заниженный счёт",
+  "obs": 1
+ }
+]

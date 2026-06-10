@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from AllTrails: Hike, Bike & Run (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO AllTrails: Hike, Bike & Run, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to AllTrails: Hike, Bike & Run — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to AllTrails: Hike, Bike & Run>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps5woih06u5ugu769np0f3g.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "offline-gps-positioning",
+  "title": "Приложение показывает позицию на карте без интернета — ключевой элемент безопасности в дикой местности",
+  "obs": 6
+ },
+ {
+  "id": "trial-charges-full-price",
+  "title": "Попытка активировать пробный период сразу списывает полную стоимость годовой подписки",
+  "obs": 3
+ },
+ {
+  "id": "trail-conditions-user-reviews",
+  "title": "Пользовательские отзывы о состоянии тропы и парковке помогают принимать решение перед выходом",
+  "obs": 3
+ },
+ {
+  "id": "map-ui-overlay-blocks-view",
+  "title": "Элементы интерфейса занимают значительную часть карты и не сворачиваются — мешают просмотру маршрута",
+  "obs": 3
+ },
+ {
+  "id": "paywall-interrupts-browsing",
+  "title": "Просмотр маршрутов прерывается всплывающими окнами с предложением подписки",
+  "obs": 3
+ },
+ {
+  "id": "app-crashes-after-update",
+  "title": "Последние обновления приложения вызывают постоянные падения и потерю состояния при выполнении операций",
+  "obs": 3
+ },
+ {
+  "id": "battery-drain-excessive",
+  "title": "Использование приложения, особенно офлайн-карт, резко разряжает батарею телефона",
+  "obs": 3
+ },
+ {
+  "id": "subscription-auto-renewal-hidden",
+  "title": "Подписка не видна в активных подписках устройства и автоматически продлевается без предварительного уведомления",
+  "obs": 2
+ },
+ {
+  "id": "trail-database-coverage",
+  "title": "База маршрутов охватывает малые локальные тропы в труднодоступных и зарубежных районах",
+  "obs": 2
+ },
+ {
+  "id": "seasonal-photo-filters",
+  "title": "Фотографии по месяцам и фильтры дают контекст о сезонных условиях маршрута",
+  "obs": 2
+ },
+ {
+  "id": "gps-position-drift",
+  "title": "При слабом сигнале GPS позиция на карте резко смещается на несколько километров, делая навигацию опасной",
+  "obs": 2
+ },
+ {
+  "id": "ipad-not-optimized",
+  "title": "Приложение масштабирует телефонный интерфейс на iPad вместо того чтобы использовать пространство большого экрана",
+  "obs": 2
+ },
+ {
+  "id": "performance-regression-updates",
+  "title": "Обновления снижают скорость работы и добавляют рекламу вместо улучшения функциональности",
+  "obs": 2
+ },
+ {
+  "id": "phone-overheating",
+  "title": "Приложение вызывает перегрев телефона и отключение экрана из-за высокой температуры",
+  "obs": 2
+ },
+ {
+  "id": "stale-trail-data",
+  "title": "Маршруты ведут к закрытым или заброшенным местам — данные в базе не обновляются своевременно",
+  "obs": 2
+ },
+ {
+  "id": "cancel-requires-browser",
+  "title": "Оформить подписку можно в приложении, а отменить — только через браузер на сайте",
+  "obs": 1
+ },
+ {
+  "id": "trial-cancel-platform-mismatch",
+  "title": "Отмена триала на сайте не останавливает списание через App Store — платформы не синхронизируются",
+  "obs": 1
+ },
+ {
+  "id": "subscription-tier-confusion",
+  "title": "Новый уровень подписки создаёт путаницу: пользователи не понимают, какие функции уже оплачены",
+  "obs": 1
+ },
+ {
+  "id": "peak-requires-plus-first",
+  "title": "Нельзя купить старший уровень напрямую — нужно сначала купить младший и потом вернуть деньги",
+  "obs": 1
+ },
+ {
+  "id": "no-monthly-subscription",
+  "title": "Подписка продаётся только на год — нет месячного варианта для сезонных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "subscription-not-synced-across-devices",
+  "title": "Платная подписка не распространяется на все устройства одного аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-behind-paywall",
+  "title": "Загрузка карт для использования без сигнала перенесена за платный барьер",
+  "obs": 1
+ },
+ {
+  "id": "route-creation-behind-paywall",
+  "title": "Создание и публикация собственных маршрутов теперь требует платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "push-notifications-subscription-ads",
+  "title": "Приложение отправляет пуш-уведомления с рекламой подписки, вынуждая удалять его",
+  "obs": 1
+ },
+ {
+  "id": "crowd-level-info",
+  "title": "Информация о загруженности тропы позволяет выбирать маршруты по предпочтениям к уединённости",
+  "obs": 1
+ },
+ {
+  "id": "trail-surface-type-missing",
+  "title": "Карточки маршрутов не указывают тип покрытия — пользователи приезжают и обнаруживают асфальт вместо грунта",
+  "obs": 1
+ },
+ {
+  "id": "ai-generated-descriptions",
+  "title": "Описания маршрутов заменены автоматически сгенерированным текстом вместо отзывов опытных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "difficulty-rating-accuracy",
+  "title": "Оценка сложности маршрутов вызывает сомнения — пользователи не доверяют ей, но продолжают пользоваться",
+  "obs": 1
+ },
+ {
+  "id": "structured-review-form-removed",
+  "title": "Удалена структурированная форма отзыва после похода — приложение автоматически сохраняет данные без ввода пользователя",
+  "obs": 1
+ },
+ {
+  "id": "review-on-unofficial-routes-removed",
+  "title": "Удалена возможность оставлять отзывы на маршрутах, не привязанных к официальным трассам",
+  "obs": 1
+ },
+ {
+  "id": "3d-preview-degraded",
+  "title": "Трёхмерный предпросмотр горного профиля деградировал до плоского — стал менее полезным для оценки рельефа",
+  "obs": 1
+ },
+ {
+  "id": "trail-recommendation-requires-history",
+  "title": "Алгоритм рекомендаций не работает без явного ввода названий маршрутов и накопленной истории",
+  "obs": 1
+ },
+ {
+  "id": "auto-pause-unwanted",
+  "title": "Автоматическая пауза при остановке мешает точному отслеживанию активности — пользователи хотят ручной контроль",
+  "obs": 1
+ },
+ {
+  "id": "no-track-edit-after-hike",
+  "title": "Нет возможности редактировать конечную точку маршрута если забыли остановить запись",
+  "obs": 1
+ },
+ {
+  "id": "off-trail-recording-fails",
+  "title": "Приложение прекращает запись маршрута при сходе с тропы — объезды и отклонения не фиксируются",
+  "obs": 1
+ },
+ {
+  "id": "connected-trails-manual-switch",
+  "title": "При прохождении нескольких соединённых маршрутов нужно вручную переключаться между ними во время движения",
+  "obs": 1
+ },
+ {
+  "id": "voice-navigation-missing",
+  "title": "Нет голосовых объявлений о скорости и направлении на пересечениях — приходится постоянно смотреть на экран",
+  "obs": 1
+ },
+ {
+  "id": "screen-lock-missing-ios",
+  "title": "На устройствах под управлением iOS нет блокировки экрана во время навигации — экран гаснет посреди похода",
+  "obs": 1
+ },
+ {
+  "id": "fullscreen-map-removed",
+  "title": "Удалён полноэкранный режим карты — навигация по маршруту стала неудобной",
+  "obs": 1
+ },
+ {
+  "id": "drawer-pops-on-zoom",
+  "title": "При масштабировании карты автоматически выдвигается панель, прерывая изучение деталей",
+  "obs": 1
+ },
+ {
+  "id": "search-autocomplete-breaks-input",
+  "title": "Автозавершение в поиске закрывает клавиатуру раньше чем пользователь заканчивает вводить название",
+  "obs": 1
+ },
+ {
+  "id": "trail-list-images-slow",
+  "title": "Изображения в списке маршрутов замедляют прокрутку — пользователи предпочли бы текстовый список",
+  "obs": 1
+ },
+ {
+  "id": "trail-markers-color-visual",
+  "title": "Маркеры маршрутов на карте стали мелкими и плохо различимыми вместо ярких цветовых меток",
+  "obs": 1
+ },
+ {
+  "id": "trail-color-coding-missing",
+  "title": "Маршруты не помечены цветом по типу тропы как реальные указатели — навигация на развилках затруднена",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-forces-account",
+  "title": "Приложение требует создания аккаунта и показывает информацию о подписке до того как пользователь успел изучить функциональность",
+  "obs": 1
+ },
+ {
+  "id": "saved-trails-sort-broken",
+  "title": "Сортировка сохранённых маршрутов по близости не работает корректно",
+  "obs": 1
+ },
+ {
+  "id": "favorites-management-weak",
+  "title": "Нет сортировки по алфавиту, отметки пройденных маршрутов и маршрутов, которые не хочется повторять",
+  "obs": 1
+ },
+ {
+  "id": "activity-filter-single-only",
+  "title": "Фильтр по виду активности допускает только один вариант — нельзя искать по нескольким одновременно",
+  "obs": 1
+ },
+ {
+  "id": "social-prompts-after-hike",
+  "title": "После завершения похода приложение навязчиво просит написать отзыв и отметить друзей",
+  "obs": 1
+ },
+ {
+  "id": "waypoint-popups-dangerous",
+  "title": "Всплывающие точки маршрута появляются автоматически во время движения и отвлекают на опасных участках",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-clear-mid-hike",
+  "title": "Загруженные карты и открытые маршруты исчезают посреди похода — приходится заново искать их",
+  "obs": 1
+ },
+ {
+  "id": "incomplete-offline-maps",
+  "title": "Часть маршрутов отсутствует на загруженной офлайн-карте даже после полной загрузки",
+  "obs": 1
+ },
+ {
+  "id": "image-loading-slow",
+  "title": "Загрузка фотографий маршрутов заметно замедлилась после обновления",
+  "obs": 1
+ },
+ {
+  "id": "tracking-inaccurate-after-downgrade",
+  "title": "После перехода на младший уровень подписки приложение записывает походы неточно или не записывает совсем",
+  "obs": 1
+ },
+ {
+  "id": "garmin-export",
+  "title": "Пользователи хотят выгружать карты маршрутов напрямую на навигаторы Garmin",
+  "obs": 1
+ },
+ {
+  "id": "app-as-hobby-catalyst",
+  "title": "Приложение становится катализатором для начала занятий пешим туризмом благодаря комплексной поддержке от поиска до трекинга",
+  "obs": 1
+ },
+ {
+  "id": "competitor-google-maps",
+  "title": "Пользователи переходят на карты Google для навигации по маршрутам, несмотря на наличие платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "location-privacy-controls",
+  "title": "Возможность ограничить отслеживание местоположения только во время активного использования воспринимается как важная функция",
+  "obs": 1
+ },
+ {
+  "id": "auto-photo-upload-privacy",
+  "title": "Приложение автоматически загружает все фото похода без запроса, нарушая приватность пользователя",
+  "obs": 1
+ },
+ {
+  "id": "no-settings-for-new-features",
+  "title": "Новые принудительные функции не имеют настроек отключения — пользователи не могут вернуть прежнее поведение",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-heart-rate-missing",
+  "title": "Нет мониторинга пульса на Apple Watch — критично для пользователей с медицинскими показаниями",
+  "obs": 1
+ }
+]

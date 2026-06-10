@@ -1,0 +1,314 @@
+You are grouping 53 mechanism-level insight clusters from Cync (the new name of C by GE) (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Cync (the new name of C by GE), derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 53 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Cync (the new name of C by GE) — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Cync (the new name of C by GE)>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1082828238.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "2fa-required-every-action",
+  "title": "Двухфакторная аутентификация обязательна для каждого базового действия — смены цвета, включения света",
+  "obs": 10
+ },
+ {
+  "id": "schedule-fires-wrong-time",
+  "title": "Расписание срабатывает в произвольное время или вовсе не срабатывает — несмотря на корректные настройки",
+  "obs": 10
+ },
+ {
+  "id": "devices-disconnect-randomly",
+  "title": "Устройства самопроизвольно отключаются и не переподключаются без ручного вмешательства",
+  "obs": 10
+ },
+ {
+  "id": "app-freezes-general",
+  "title": "Приложение зависает и не реагирует — требуется принудительное закрытие несколько раз за сессию",
+  "obs": 9
+ },
+ {
+  "id": "app-update-breaks-connection",
+  "title": "После обновления приложения подключённые ранее устройства перестают работать или видеться",
+  "obs": 6
+ },
+ {
+  "id": "app-session-expiry-frequent",
+  "title": "Приложение выбрасывает пользователя из сессии через несколько дней или при каждом открытии",
+  "obs": 5
+ },
+ {
+  "id": "wifi-scan-fails-in-setup",
+  "title": "Во время подключения приложение не видит доступные Wi-Fi сети",
+  "obs": 5
+ },
+ {
+  "id": "account-required-barrier",
+  "title": "Обязательная регистрация аккаунта GE/Cync создаёт трение перед первым использованием устройства",
+  "obs": 3
+ },
+ {
+  "id": "homekit-integration-broken",
+  "title": "Интеграция с HomeKit не работает или ломается после использования режима Party",
+  "obs": 3
+ },
+ {
+  "id": "wifi-only-2-4ghz-undisclosed",
+  "title": "Устройства работают только в сети 2,4 ГГц — это нигде явно не указано при покупке",
+  "obs": 3
+ },
+ {
+  "id": "device-pairing-fails-repeatedly",
+  "title": "Сопряжение устройства не удаётся несмотря на правильные условия — требуются многократные сбросы",
+  "obs": 3
+ },
+ {
+  "id": "2fa-code-not-arriving",
+  "title": "Коды подтверждения на почту приходят с часовой задержкой или не приходят вовсе",
+  "obs": 2
+ },
+ {
+  "id": "schedule-no-turn-on",
+  "title": "Расписание позволяет только выключение — функции включения по расписанию нет",
+  "obs": 2
+ },
+ {
+  "id": "dusk-dawn-broken",
+  "title": "Функция включения при закате и выключения при рассвете не работает",
+  "obs": 2
+ },
+ {
+  "id": "wifi-sync-fails-despite-good-signal",
+  "title": "Синхронизация устройств не происходит даже при сильном сигнале Wi-Fi рядом с роутером",
+  "obs": 2
+ },
+ {
+  "id": "login-invalid-password-false-error",
+  "title": "При вводе верного пароля система постоянно сообщает о неверных учётных данных",
+  "obs": 2
+ },
+ {
+  "id": "no-local-control-requires-internet",
+  "title": "Управление локальными устройствами требует WAN-соединения — без интернета система недоступна",
+  "obs": 2
+ },
+ {
+  "id": "app-not-improved-years",
+  "title": "Интерфейс приложения не менялся годами, а проблемы копились без исправлений",
+  "obs": 2
+ },
+ {
+  "id": "onboarding-too-many-steps",
+  "title": "Установка одной лампочки требует 20 минут и десятки шагов — слишком много для базовой операции",
+  "obs": 2
+ },
+ {
+  "id": "schedule-toggle-bug",
+  "title": "Расписание включает свет вместо выключения, если свет уже включён в момент срабатывания",
+  "obs": 1
+ },
+ {
+  "id": "schedule-midnight-conflict",
+  "title": "Расписание с переходом через полночь генерирует ложный конфликт и требует двух раздельных сценариев",
+  "obs": 1
+ },
+ {
+  "id": "firmware-update-hangs",
+  "title": "Обновление прошивки зависает если экран телефона гаснет до завершения процесса",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-on-settings",
+  "title": "Приложение падает при открытии настроек устройства",
+  "obs": 1
+ },
+ {
+  "id": "app-freezes-black-screen-after-move",
+  "title": "После переезда приложение зависает на чёрном экране и не восстанавливается",
+  "obs": 1
+ },
+ {
+  "id": "reconnect-after-power-loss",
+  "title": "После отключения питания часть ламп не переподключается — застревает на выборе сети",
+  "obs": 1
+ },
+ {
+  "id": "server-not-found-error",
+  "title": "Приложение выдаёт ошибку «сервер недоступен» в половине случаев и блокирует управление",
+  "obs": 1
+ },
+ {
+  "id": "third-party-integration-unreliable",
+  "title": "Интеграция со сторонними сервисами требует перезагрузки устройства 2–3 раза в день для синхронизации",
+  "obs": 1
+ },
+ {
+  "id": "google-home-not-seeing-devices",
+  "title": "После привязки к Google Home устройства Cync не отображаются в нём",
+  "obs": 1
+ },
+ {
+  "id": "apple-shortcuts-no-support",
+  "title": "Google Home не поддерживает интеграцию с Apple Shortcuts для управления устройствами Cync",
+  "obs": 1
+ },
+ {
+  "id": "home-assistant-data-consent",
+  "title": "Подключение к Home Assistant требует согласия на сбор данных, вызывая опасения по приватности",
+  "obs": 1
+ },
+ {
+  "id": "camera-load-delay",
+  "title": "Камеры не загружаются при первом открытии — требуется несколько попыток",
+  "obs": 1
+ },
+ {
+  "id": "bulb-flicker-safety-risk",
+  "title": "Лампочка произвольно меняет цвета и мигает — это опасно для людей с эпилепсией",
+  "obs": 1
+ },
+ {
+  "id": "trueimage-broken",
+  "title": "Функция TrueImage зависает и не реагирует на выбор цвета",
+  "obs": 1
+ },
+ {
+  "id": "music-sync-requires-multiple-taps",
+  "title": "Синхронизация двух светодиодных полос в режиме музыки требует 3–4 нажатия и всё равно не совпадает по цвету",
+  "obs": 1
+ },
+ {
+  "id": "ios-freeze-color-brightness",
+  "title": "На iOS приложение зависает при попытке изменить цвет или яркость; на Android проблемы нет",
+  "obs": 1
+ },
+ {
+  "id": "schedule-create-for-smart-plug-timeout",
+  "title": "При создании расписания для умной розетки приложение зависает на ~30 минут и выходит с таймаутом",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-broken",
+  "title": "После 6+ попыток сброса пароля приложение по-прежнему не позволяет войти",
+  "obs": 1
+ },
+ {
+  "id": "password-change-unavailable",
+  "title": "После уведомления о взломе данных в приложении нет экрана смены пароля",
+  "obs": 1
+ },
+ {
+  "id": "support-resolved-quickly",
+  "title": "Служба поддержки быстро решила проблему с неправильно выбранным типом подключения",
+  "obs": 1
+ },
+ {
+  "id": "no-multi-admin-shared-home",
+  "title": "Нельзя добавить второго администратора — соседи не могут управлять общими устройствами",
+  "obs": 1
+ },
+ {
+  "id": "competitors-more-reliable",
+  "title": "Пользователи переходят на Govee, Philips Hue или Lutron из-за более надёжной работы",
+  "obs": 1
+ },
+ {
+  "id": "wifi-password-loop",
+  "title": "При вводе пароля Wi-Fi приложение перезапускает процесс установки — пользователь застревает в цикле",
+  "obs": 1
+ },
+ {
+  "id": "no-back-button-stuck",
+  "title": "В приложении нет кнопки «Назад» — при сбое подключения пользователь застревает и вынужден переустанавливать",
+  "obs": 1
+ },
+ {
+  "id": "keyboard-missing-in-setup",
+  "title": "При установке Wi-Fi устройства клавиатура не появляется — приходится вставлять текст из буфера",
+  "obs": 1
+ },
+ {
+  "id": "bulb-naming-no-text-input",
+  "title": "Поле для названия лампочки не принимает ввод с клавиатуры",
+  "obs": 1
+ },
+ {
+  "id": "next-button-invisible",
+  "title": "Кнопки «Далее» и «Подтвердить» визуально выглядят как инструкции, а не как кнопки",
+  "obs": 1
+ },
+ {
+  "id": "scroll-accidentally-changes-brightness",
+  "title": "При прокрутке списка комнат случайно активируется регулятор яркости, меняя свет во всей комнате",
+  "obs": 1
+ },
+ {
+  "id": "too-many-taps-to-navigate",
+  "title": "Любое действие требует 5+ экранов и касаний — навигация значительно медленнее, чем у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "settings-navigation-confusing",
+  "title": "Найти нужные настройки — как пройти лабиринт; структура меню непонятна",
+  "obs": 1
+ },
+ {
+  "id": "devices-lost-after-logout",
+  "title": "После выхода из аккаунта и повторного входа все устройства и комнаты исчезают",
+  "obs": 1
+ },
+ {
+  "id": "login-enter-key-not-working",
+  "title": "На экране входа клавиша Enter не активируется после ввода учётных данных",
+  "obs": 1
+ },
+ {
+  "id": "add-device-requires-app-restart",
+  "title": "При добавлении каждого нового устройства требуется полностью закрыть и открыть приложение",
+  "obs": 1
+ },
+ {
+  "id": "device-reconnect-after-new-phone",
+  "title": "При смене телефона повторный вход блокирован на час и требует полной переустановки всех устройств",
+  "obs": 1
+ }
+]

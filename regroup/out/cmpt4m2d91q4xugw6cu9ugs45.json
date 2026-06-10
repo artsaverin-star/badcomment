@@ -1,0 +1,89 @@
+{
+  "groups": [
+    {
+      "id": "ne-mogu-voiti",
+      "name": "Не могу войти: вечный спиннер и вылеты из аккаунта",
+      "insight_ids": [
+        "reliability-app-not-connect",
+        "reliability-session-drops",
+        "reliability-broken-after-update",
+        "reliability-app-crashes",
+        "reliability-login-fails",
+        "reliability-app-slow-load",
+        "support-password-reset-blocked"
+      ]
+    },
+    {
+      "id": "termostat-zhivet-svoey-zhiznyu",
+      "name": "Термостат живёт своей жизнью: сам крутит температуру и Eco",
+      "insight_ids": [
+        "reliability-auto-temp-changes",
+        "reliability-eco-forces-itself",
+        "reliability-ac-not-cooling",
+        "reliability-gps-presence-unreliable",
+        "reliability-app-state-desync",
+        "reliability-schedule-not-followed",
+        "reliability-status-page-false"
+      ]
+    },
+    {
+      "id": "tень-google",
+      "name": "Тень Google: принудительная миграция и брошенные устройства",
+      "insight_ids": [
+        "strategy-google-migration-forced",
+        "strategy-old-devices-dropped",
+        "strategy-gen4-requires-google-home",
+        "strategy-app-abandoned-no-updates",
+        "strategy-learning-false-promise",
+        "payment-no-service-purchase",
+        "payment-subscription-stopped"
+      ]
+    },
+    {
+      "id": "raspisanie-i-upravlenie",
+      "name": "Расписание, которое невозможно настроить",
+      "insight_ids": [
+        "ui-schedule-layout-broken",
+        "ui-navigation-complex",
+        "ui-temperature-direct-input-missing",
+        "ui-fan-schedule-missing",
+        "ui-schedule-copy-broken",
+        "ui-update-prompt-blocking",
+        "strategy-weather-adjustment-missing",
+        "strategy-remote-control-core-value"
+      ]
+    },
+    {
+      "id": "kamera-i-zvonok",
+      "name": "Камера и дверной звонок: гость уходит раньше картинки",
+      "insight_ids": [
+        "reliability-camera-feed-slow",
+        "reliability-notifications-delayed",
+        "reliability-camera-recording-unavailable",
+        "reliability-camera-offline",
+        "ui-camera-history-removed",
+        "reliability-smoke-alarm-no-remote-silence"
+      ]
+    },
+    {
+      "id": "podklyuchenie-i-datchiki",
+      "name": "Подружить с домом: датчики, Wi-Fi и новые устройства",
+      "insight_ids": [
+        "reliability-new-device-pairing",
+        "reliability-sensor-disconnect",
+        "reliability-wifi-reconnect"
+      ]
+    },
+    {
+      "id": "tsena-dostupa-dannye",
+      "name": "Цена доступа: геолокация, личные данные и навязанное энергосбережение",
+      "insight_ids": [
+        "ui-energy-plan-forced-optin",
+        "ui-location-required-for-basic-use",
+        "ui-excessive-data-collection",
+        "ui-biometric-auth-missing",
+        "support-no-live-support"
+      ]
+    }
+  ]
+}

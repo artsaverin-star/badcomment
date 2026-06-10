@@ -1,0 +1,82 @@
+{
+  "groups": [
+    {
+      "id": "paywall-bait-and-switch",
+      "name": "«Бесплатно» только на витрине: платный барьер и исчезающий free-режим",
+      "insight_ids": [
+        "free-label-misleading",
+        "paywall-first-use",
+        "no-free-version-on-return",
+        "feature-removed-from-free",
+        "ai-scanner-gated-newbies",
+        "too-many-paid-tiers"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Списания, от которых не уйти: триалы, годовая подписка и отказ в возврате",
+      "insight_ids": [
+        "trial-cancel-still-charged",
+        "trial-no-reminder",
+        "monthly-plan-overridden",
+        "lifetime-upgrade-blocked",
+        "ai-not-in-lifetime"
+      ]
+    },
+    {
+      "id": "database-trust",
+      "name": "База, которой не доверяешь: дубли, пробелы и неточная питательность",
+      "insight_ids": [
+        "db-weak-local-cuisine",
+        "db-inaccurate-nutrition",
+        "db-duplicate-entries",
+        "db-no-prep-variants",
+        "barcode-add-slow-verify",
+        "user-corrections-fix-db",
+        "search-many-attempts",
+        "search-results-no-context"
+      ]
+    },
+    {
+      "id": "ai-scanner-flaws",
+      "name": "AI-сканер еды: занижает калории и легко обходится",
+      "insight_ids": [
+        "ai-underestimates-calories",
+        "scan-counter-reset-reinstall"
+      ]
+    },
+    {
+      "id": "logging-friction-and-missing-tools",
+      "name": "Чего не хватает в ежедневном логировании: напоминания, повторы, экспорт, привычки",
+      "insight_ids": [
+        "no-logging-reminders",
+        "no-repeat-item-copy",
+        "no-flexible-export",
+        "no-habit-calendar",
+        "no-diet-presets",
+        "fitness-tracker-no-autosync",
+        "calorie-limit-ignores-activity"
+      ]
+    },
+    {
+      "id": "ui-after-update",
+      "name": "Интерфейс после обновлений: нечитаемый экран, странная навигация и вал апселла",
+      "insight_ids": [
+        "upsell-popups-flood",
+        "home-screen-calories-unreadable",
+        "nonstandard-navigation"
+      ]
+    },
+    {
+      "id": "duty-of-care",
+      "name": "Граница ответственности: рациональный подход, РПП, нижний предел веса и тишина поддержки",
+      "insight_ids": [
+        "rational-approach-retention",
+        "ed-history-blocks-users",
+        "weight-goal-blocked",
+        "no-pro-onboarding-support",
+        "community-inflated-members"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,404 @@
+You are grouping 71 mechanism-level insight clusters from Productive - Habit Tracker (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Productive - Habit Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 71 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Productive - Habit Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Productive - Habit Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-983826477.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "completion-freeze-bug",
+  "title": "Отметка привычки выполненной зависает или не сохраняется — приходится полностью перезапускать приложение",
+  "obs": 9
+ },
+ {
+  "id": "upsell-modal-on-every-launch",
+  "title": "Экран покупки премиума появляется при каждом запуске приложения и блокирует доступ к привычкам",
+  "obs": 7
+ },
+ {
+  "id": "free-tier-too-restricted",
+  "title": "Бесплатная версия ограничена 4–5 привычками и почти не функциональна без подписки",
+  "obs": 6
+ },
+ {
+  "id": "charge-after-cancel",
+  "title": "Приложение продолжает списывать деньги после отмены подписки или удаления аккаунта",
+  "obs": 5
+ },
+ {
+  "id": "price-increase-silent",
+  "title": "Годовая цена подписки выросла в 3–4 раза без предварительного уведомления пользователей",
+  "obs": 4
+ },
+ {
+  "id": "web-subscription-not-recognized-mobile",
+  "title": "Подписка, оформленная на сайте, не активируется в мобильном приложении — поддержка не отвечает",
+  "obs": 4
+ },
+ {
+  "id": "forced-onboarding-quiz",
+  "title": "При первом запуске обязательный опрос с наивными вопросами нельзя пропустить — доступ к приложению заблокирован",
+  "obs": 4
+ },
+ {
+  "id": "cross-device-sync-broken",
+  "title": "Данные привычек не синхронизируются между iPhone и iPad — история пропадает при смене устройства",
+  "obs": 4
+ },
+ {
+  "id": "trial-billing-deceptive",
+  "title": "Пробный период выставляет счёт за полный год в первый же день — без предупреждения и без возврата",
+  "obs": 3
+ },
+ {
+  "id": "no-light-theme",
+  "title": "Приложение работает только в тёмном режиме — нет опции светлой темы, виджет выглядит несовместимо с iOS",
+  "obs": 3
+ },
+ {
+  "id": "max-recurrence-two-weeks",
+  "title": "Максимальный интервал повторения привычки — две недели, нет опций на месяц, квартал или полгода",
+  "obs": 3
+ },
+ {
+  "id": "data-lost-on-update",
+  "title": "После обновления приложения история привычек исчезает без возможности восстановления",
+  "obs": 3
+ },
+ {
+  "id": "background-timer-stops",
+  "title": "Таймер останавливается при сворачивании приложения или запуске фонового аудио — режим Pomodoro не работает",
+  "obs": 3
+ },
+ {
+  "id": "no-apple-health-integration",
+  "title": "Приложение не интегрируется с Apple Health — нельзя автоматически подтянуть шаги, калории и тренировки",
+  "obs": 3
+ },
+ {
+  "id": "billing-amount-mismatch",
+  "title": "Приложение выставляет счёт на сумму больше заявленной — промо-цена не применяется",
+  "obs": 2
+ },
+ {
+  "id": "data-lost-monetization-change",
+  "title": "После изменения модели монетизации история привычек за год исчезает и не восстанавливается даже после оплаты",
+  "obs": 2
+ },
+ {
+  "id": "custom-habits-paywalled",
+  "title": "Создание собственных привычек заблокировано — доступны только предустановленные без подписки",
+  "obs": 2
+ },
+ {
+  "id": "free-positioning-deceptive",
+  "title": "Приложение позиционируется как бесплатное, но требует подписку для любой реальной функциональности",
+  "obs": 2
+ },
+ {
+  "id": "completion-not-obvious",
+  "title": "Способ отметить привычку выполненной не очевиден — пользователи находят его только через видеоролики на YouTube",
+  "obs": 2
+ },
+ {
+  "id": "no-partial-progress-visualization",
+  "title": "Интерфейс показывает только бинарный результат дня — нет визуализации частичного выполнения привычек",
+  "obs": 2
+ },
+ {
+  "id": "no-notes-for-habits",
+  "title": "В приложении нет поля для заметок к привычке — нельзя записать цели или комментарии прямо в карточке",
+  "obs": 2
+ },
+ {
+  "id": "missing-icons",
+  "title": "В библиотеке иконок нет базовых привычек — отсутствуют иконки для душа, стирки, CPAP-аппарата",
+  "obs": 2
+ },
+ {
+  "id": "stale-preset-habits",
+  "title": "Предустановленные привычки содержат устаревшие COVID-рекомендации и не обновляются годами",
+  "obs": 2
+ },
+ {
+  "id": "no-custom-measurement-units",
+  "title": "Предустановленные единицы измерения нельзя изменить — нет возможности добавить собственные метрики",
+  "obs": 2
+ },
+ {
+  "id": "widget-not-updating",
+  "title": "Виджет на главном экране не обновляется по мере выполнения привычек — показывает количество задач на начало дня",
+  "obs": 2
+ },
+ {
+  "id": "cross-platform-auth-broken",
+  "title": "Аккаунт, созданный на сайте, не позволяет войти в мобильное приложение с теми же данными",
+  "obs": 2
+ },
+ {
+  "id": "no-export-data",
+  "title": "Данные нельзя экспортировать в таблицу или другой формат — история привычек заперта в приложении",
+  "obs": 2
+ },
+ {
+  "id": "motivational-design-weak",
+  "title": "Визуальный дизайн не мотивирует пользователя продолжать — интерфейс проигрывает конкурентам по вовлечённости",
+  "obs": 2
+ },
+ {
+  "id": "lifetime-license-invalidated",
+  "title": "Ранее купленная пожизненная лицензия перестаёт признаваться — приложение требует новой подписки",
+  "obs": 1
+ },
+ {
+  "id": "store-listing-no-iap-but-has-iap",
+  "title": "Страница в магазине приложений указывает на отсутствие встроенных покупок, хотя они есть",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-charge-confusion",
+  "title": "Приложение показывает состояние неоплаченной подписки, даже если платёж уже прошёл — это провоцирует двойные списания",
+  "obs": 1
+ },
+ {
+  "id": "stats-misleading-metrics",
+  "title": "Метрика продуктивности автоматически добавляет баллы за установку и наличие привычек — реальный процент завышен",
+  "obs": 1
+ },
+ {
+  "id": "stats-section-poor",
+  "title": "Раздел статистики показывает мало полезной информации и не отражает реальный прогресс",
+  "obs": 1
+ },
+ {
+  "id": "calendar-view-removed",
+  "title": "Календарный вид с цепочками привычек удалён в новой версии — пользователи теряют ключевой мотивационный экран",
+  "obs": 1
+ },
+ {
+  "id": "forced-predefined-habit-list",
+  "title": "Пользователь обязан выбрать цель и привычку из предустановленного списка до создания собственной",
+  "obs": 1
+ },
+ {
+  "id": "no-habit-reordering",
+  "title": "Порядок привычек на главном экране нельзя изменить вручную",
+  "obs": 1
+ },
+ {
+  "id": "layout-density-too-low",
+  "title": "Разделы списка задач занимают слишком много места — без прокрутки не видно достаточно привычек",
+  "obs": 1
+ },
+ {
+  "id": "overcrowded-ui",
+  "title": "На одном экране слишком много опций и функций — интерфейс перегружен и сложен для восприятия",
+  "obs": 1
+ },
+ {
+  "id": "no-explicit-skip-fail-marking",
+  "title": "Нельзя явно отметить привычку как пропущенную или невыполненную — приложение не различает забывчивость и реальный пропуск",
+  "obs": 1
+ },
+ {
+  "id": "no-undo-skip",
+  "title": "Случайно нажатый «пропуск» привычки нельзя отменить",
+  "obs": 1
+ },
+ {
+  "id": "no-negative-habit-tracking",
+  "title": "Нет функции отслеживания привычек, которые пользователь хочет избежать — только позитивные привычки",
+  "obs": 1
+ },
+ {
+  "id": "irresponsible-alcohol-preset",
+  "title": "Предустановленная привычка «расслабиться с напитком» с иконкой пива игнорирует людей с алкогольной зависимостью",
+  "obs": 1
+ },
+ {
+  "id": "no-arabic-localization",
+  "title": "Приложение не поддерживает арабский язык — значительный сегмент пользователей не может его нормально использовать",
+  "obs": 1
+ },
+ {
+  "id": "no-font-size-accessibility",
+  "title": "Размер шрифта нельзя изменить и не подхватываются настройки доступности iOS — текст нечитаем при плохом зрении",
+  "obs": 1
+ },
+ {
+  "id": "ipad-iphone-layout",
+  "title": "Приложение на iPad отображается в формате iPhone — нативного адаптивного интерфейса для планшета нет",
+  "obs": 1
+ },
+ {
+  "id": "no-editable-habit-start-date",
+  "title": "Дату начала привычки нельзя изменить после создания — стрик обрывается при переносе в новое приложение",
+  "obs": 1
+ },
+ {
+  "id": "no-exact-time-window-scheduling",
+  "title": "Нельзя задать конкретный временной интервал для привычки — только утро или вечер, без точного времени",
+  "obs": 1
+ },
+ {
+  "id": "complex-recurrence-not-supported",
+  "title": "Нельзя настроить сложное расписание — например, четвёртую субботу месяца или через день",
+  "obs": 1
+ },
+ {
+  "id": "binary-completion-no-percentage",
+  "title": "Интерфейс требует вводить процент выполнения вместо простой галочки — для многих привычек это лишний шаг",
+  "obs": 1
+ },
+ {
+  "id": "timer-count-limit",
+  "title": "На одну привычку доступно максимум 16 таймеров — этого не хватает для сложных рабочих процессов",
+  "obs": 1
+ },
+ {
+  "id": "app-stuck-on-update-screen",
+  "title": "При запуске приложение зависает на экране обновления и не открывается",
+  "obs": 1
+ },
+ {
+  "id": "notifications-stop-working",
+  "title": "Уведомления-напоминания перестают приходить после первого дня — изменения настроек не помогают",
+  "obs": 1
+ },
+ {
+  "id": "streak-drops-randomly",
+  "title": "Стрик привычки сбрасывается без видимой причины примерно в 15% случаев",
+  "obs": 1
+ },
+ {
+  "id": "missing-dates-in-calendar",
+  "title": "Отдельные даты не отображаются в трекере — разрыв в истории без реального пропуска привычки",
+  "obs": 1
+ },
+ {
+  "id": "swipe-wrong-habit-touch-target",
+  "title": "Нажатие на привычку отмечает другую, расположенную ниже — систематическая ошибка определения касания",
+  "obs": 1
+ },
+ {
+  "id": "widget-broken-support-refuses",
+  "title": "Виджет не работает, а поддержка отказывается его чинить, ссылаясь на низкий приоритет",
+  "obs": 1
+ },
+ {
+  "id": "widget-announced-but-missing",
+  "title": "Виджет анонсирован на скриншотах в магазине, но в реальном приложении недоступен",
+  "obs": 1
+ },
+ {
+  "id": "app-crash-specific-device",
+  "title": "Приложение регулярно падает на определённых устройствах — проблема не устраняется",
+  "obs": 1
+ },
+ {
+  "id": "general-slowness-performance",
+  "title": "После обновления приложение стало заметно тормозить — лаг при отметке привычки ухудшает основной сценарий",
+  "obs": 1
+ },
+ {
+  "id": "edit-habit-creates-new-loses-history",
+  "title": "Переименование привычки создаёт новую запись и удаляет всю историю отслеживания старой",
+  "obs": 1
+ },
+ {
+  "id": "cloud-sync-removed",
+  "title": "Облачная синхронизация была убрана в одной из версий — пользователи просят вернуть функцию",
+  "obs": 1
+ },
+ {
+  "id": "web-mobile-sync-absent",
+  "title": "Веб-версия и мобильное приложение не синхронизируют данные — поддержка подтвердила, что такой функции нет",
+  "obs": 1
+ },
+ {
+  "id": "google-sso-broken-ios",
+  "title": "Вход через Google-аккаунт не работает на iOS, хотя на Android функционирует нормально",
+  "obs": 1
+ },
+ {
+  "id": "no-in-app-volume-control",
+  "title": "Звук подтверждения выполнения задачи зависит от системной громкости — отдельного регулятора внутри приложения нет",
+  "obs": 1
+ },
+ {
+  "id": "login-broken-after-purchase",
+  "title": "После оплаты подписки пользователь не может войти в аккаунт — пароль и восстановление доступа не работают",
+  "obs": 1
+ },
+ {
+  "id": "no-developer-contact",
+  "title": "В приложении нет способа связаться с разработчиком или отправить предложение",
+  "obs": 1
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Служба поддержки не отвечает на запросы пользователей — письма и тикеты остаются без ответа неделями",
+  "obs": 1
+ },
+ {
+  "id": "no-account-management-web",
+  "title": "На сайте нет раздела для управления аккаунтом и подпиской — всё нужно делать через стороннего провайдера",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-requires-iphone",
+  "title": "Приложение для Apple Watch требует постоянной связи с iPhone — автономная работа часов не поддерживается",
+  "obs": 1
+ },
+ {
+  "id": "family-profiles-missing",
+  "title": "Приложение не позволяет вести отдельные профили для членов семьи — родители не могут отслеживать привычки детей",
+  "obs": 1
+ },
+ {
+  "id": "no-lifetime-purchase-option",
+  "title": "Нет опции единовременной покупки — только ежемесячная или годовая подписка",
+  "obs": 1
+ }
+]

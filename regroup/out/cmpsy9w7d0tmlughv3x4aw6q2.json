@@ -1,0 +1,63 @@
+{
+  "groups": [
+    {
+      "id": "skrytye-spisaniya-i-podpiska-vtihuyu",
+      "name": "Скрытые списания: разовый платёж превращается в подписку",
+      "insight_ids": [
+        "hidden-subscription-enrollment",
+        "trial-immediate-charge",
+        "rebilling-after-cancel",
+        "daily-billing-no-consent",
+        "unauthorized-transactions",
+        "sketch-engagement-trap"
+      ]
+    },
+    {
+      "id": "stena-paywall-pered-gadaniem",
+      "name": "Стена платёжного экрана: ни гороскопа, ни викторины без оплаты",
+      "insight_ids": [
+        "free-content-blocked",
+        "quiz-result-paywall",
+        "inescapable-paywall-modal"
+      ]
+    },
+    {
+      "id": "otmenit-nelzya-tupik",
+      "name": "Отменить нельзя: тупики при отписке и молчание поддержки",
+      "insight_ids": [
+        "support-ignores-cancellation",
+        "delete-not-cancel",
+        "cancel-dead-end-ios-settings",
+        "ai-only-support"
+      ]
+    },
+    {
+      "id": "zhivye-konsultacii-s-astrologami",
+      "name": "Живые консультации: связь рвётся, советники не слышат и ошибаются",
+      "insight_ids": [
+        "one-sided-audio-calls",
+        "chat-session-expires",
+        "advisor-session-time-limit",
+        "advisor-misunderstands-questions",
+        "predictions-inaccurate",
+        "slow-responses-extra-fee",
+        "advisor-compensation-filter"
+      ]
+    },
+    {
+      "id": "zaplatil-no-ne-poluchil",
+      "name": "Заплатил, но эскиз так и не пришёл",
+      "insight_ids": [
+        "paid-product-not-delivered"
+      ]
+    },
+    {
+      "id": "prilozhenie-zhivyot-svoey-zhiznyu",
+      "name": "Приложение живёт своей жизнью: вечная загрузка и самопереустановка",
+      "insight_ids": [
+        "app-boot-loop",
+        "app-reinstalls-itself"
+      ]
+    }
+  ]
+}

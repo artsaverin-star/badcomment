@@ -1,0 +1,118 @@
+{
+  "groups": [
+    {
+      "id": "obnovlenie-stiraet-vsyo",
+      "name": "Каждое обновление стирает дом заново",
+      "insight_ids": [
+        "update-wipes-devices",
+        "update-breaks-scenes",
+        "update-breaks-diy-custom",
+        "update-breaks-schedules",
+        "update-breaks-auth",
+        "update-resets-settings",
+        "widget-broken-wrong-state",
+        "shortcuts-integration-broken",
+        "automation-group-broken-after-update",
+        "device-photo-removed",
+        "outdoor-permanent-lights-disabled"
+      ]
+    },
+    {
+      "id": "svyaz-teryaetsya",
+      "name": "Связь рвётся: устройства то онлайн, то нет",
+      "insight_ids": [
+        "wifi-disconnect-persistent",
+        "bluetooth-fallback-instead-wifi",
+        "alexa-google-integration-broken",
+        "device-pairing-fails",
+        "vacuum-map-lost",
+        "lights-flicker-online-offline",
+        "device-state-display-wrong",
+        "power-meter-inconsistent",
+        "pet-feeder-state-sync"
+      ]
+    },
+    {
+      "id": "ai-zaslonyaet-upravlenie",
+      "name": "AI-помощник, которого никто не звал",
+      "insight_ids": [
+        "ai-widget-blocks-main-controls",
+        "ads-delay-shift-buttons",
+        "feature-notifications-popup",
+        "permission-requests-flood",
+        "ai-feature-pushed-unwanted",
+        "ai-splash-screen-delay",
+        "ai-subscription-mandatory",
+        "ai-privacy-concern",
+        "interface-complexity-bloatware"
+      ]
+    },
+    {
+      "id": "raspisaniya-i-stseny-zhivut-svoey-zhiznyu",
+      "name": "Сцены и расписания живут своей жизнью",
+      "insight_ids": [
+        "scene-disappears-on-exit",
+        "alarm-self-disables",
+        "schedule-fires-wrong-time",
+        "schedule-sunset-relative",
+        "daylight-saving-not-handled",
+        "script-delay-ignored",
+        "car-door-automation-cant-disable",
+        "color-settings-in-automation",
+        "sprinkler-manual-override-laggy",
+        "ev-charging-schedule-ux",
+        "timer-editor-stuck"
+      ]
+    },
+    {
+      "id": "svet-ne-slushaetsya",
+      "name": "Свет не слушается: цвет, яркость, группы",
+      "insight_ids": [
+        "light-color-not-saved",
+        "group-controls-limited",
+        "scene-color-option-removed",
+        "color-display-wrong"
+      ]
+    },
+    {
+      "id": "trevogi-kotorye-podvodyat",
+      "name": "Тревоги, которые подводят в нужный момент",
+      "insight_ids": [
+        "notification-delivery-broken",
+        "motion-detector-false-positives",
+        "doorbell-video-slow",
+        "biometric-security-gap",
+        "garage-alert-no-sound",
+        "power-alert-misses-focus",
+        "marketing-notifications-mixed",
+        "pet-feeder-interval-too-short"
+      ]
+    },
+    {
+      "id": "vhod-akkaunt-i-dengi",
+      "name": "Вход, аккаунт и деньги за облако",
+      "insight_ids": [
+        "account-locked-no-recovery",
+        "family-invite-codes-broken",
+        "ipad-login-broken",
+        "account-creation-format-unclear",
+        "phone-number-field-locked",
+        "cloud-storage-shorter-than-promised",
+        "cloud-storage-after-cancel"
+      ]
+    },
+    {
+      "id": "melochi-interfeysa-kotorye-besyat",
+      "name": "Мелочи интерфейса, которые выводят из себя",
+      "insight_ids": [
+        "app-kills-media-playback",
+        "room-naming-mandatory",
+        "dark-mode-broken-splash",
+        "small-screen-controls-hidden",
+        "device-delete-no-confirm",
+        "app-requires-save-restart",
+        "localization-errors"
+      ]
+    }
+  ]
+}

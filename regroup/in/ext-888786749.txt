@@ -1,0 +1,129 @@
+You are grouping 16 mechanism-level insight clusters from Rain Sounds HQ (rain / white noise / sleep aid) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Rain Sounds HQ, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 16 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Rain Sounds HQ — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Rain Sounds HQ>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-888786749.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ads-popup-no-close-button",
+  "title": "Рекламные всплывающие окна не имеют кнопки закрытия и перекидывают пользователя в браузер или магазин приложений",
+  "obs": 5
+ },
+ {
+  "id": "content-artifact-unwanted-sounds",
+  "title": "В записях природных звуков слышны посторонние шумы — голоса людей, писк, птицы — мешающие засыпанию",
+  "obs": 3
+ },
+ {
+  "id": "popup-blocks-playback-night",
+  "title": "Всплывающее окно с предложением купить подписку появляется среди ночи и прерывает воспроизведение звуков",
+  "obs": 2
+ },
+ {
+  "id": "content-name-mismatch",
+  "title": "Звук не соответствует своему названию — пользователь ожидает одно, слышит другое",
+  "obs": 2
+ },
+ {
+  "id": "volume-too-low-max",
+  "title": "Максимальная громкость в приложении и в системе всё равно слишком тихая для комфортного использования",
+  "obs": 2
+ },
+ {
+  "id": "loop-too-short-noticeable",
+  "title": "Петля звука слишком короткая и повторение заметно — медитативный эффект разрушается",
+  "obs": 1
+ },
+ {
+  "id": "seamless-loop-no-artifacts",
+  "title": "Звуки зацикливаются без слышимых швов — пользователь может слушать весь день и не замечать повтора",
+  "obs": 1
+ },
+ {
+  "id": "timer-not-stopping-playback",
+  "title": "Таймер не останавливает воспроизведение и трек играет всю ночь, пробуждая пользователя под утро",
+  "obs": 1
+ },
+ {
+  "id": "timer-abrupt-cutoff",
+  "title": "Таймер резко обрывает звук вместо плавного затухания, что будит пользователя",
+  "obs": 1
+ },
+ {
+  "id": "timer-not-persistent",
+  "title": "Таймер не сохраняется между сеансами — каждый раз нужно устанавливать его заново",
+  "obs": 1
+ },
+ {
+  "id": "playback-spontaneous-on-off",
+  "title": "Приложение самопроизвольно включается и выключается без действий пользователя, нарушая сон",
+  "obs": 1
+ },
+ {
+  "id": "volume-dips-periodically",
+  "title": "Громкость периодически падает на несколько секунд и возвращается — непрерывность нарушена",
+  "obs": 1
+ },
+ {
+  "id": "too-many-taps-to-start",
+  "title": "Для запуска звука нужно слишком много нажатий — это противоречит задаче быстрого расслабления",
+  "obs": 1
+ },
+ {
+  "id": "mix-sync-across-devices",
+  "title": "Созданные миксы не синхронизируются между устройствами одного пользователя",
+  "obs": 1
+ },
+ {
+  "id": "ads-stop-playback",
+  "title": "Рекламные окна останавливают воспроизведение, даже когда таймер не установлен",
+  "obs": 1
+ },
+ {
+  "id": "unexpected-data-usage",
+  "title": "Приложение расходует мобильный трафик неизвестного назначения, вероятно для загрузки рекламы",
+  "obs": 1
+ }
+]

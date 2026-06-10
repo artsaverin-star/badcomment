@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from Empower ® (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Empower ®, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Empower ® — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Empower ®>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1001257338.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "sync-unreliable-after-empower",
+  "title": "После перехода под Empower синхронизация со счетами стала ненадёжной — данные не обновляются, баланс устаревает",
+  "obs": 6
+ },
+ {
+  "id": "delete-account-blocked-marketing",
+  "title": "Удалить аккаунт можно только через заявку в поддержку, она тянется месяц, а после неё начинаются маркетинговые звонки",
+  "obs": 5
+ },
+ {
+  "id": "login-loop-reauth",
+  "title": "Вход зацикливается на повторном вводе пароля, индекса и даты рождения — бесконечная переаутентификация",
+  "obs": 5
+ },
+ {
+  "id": "consolidated-view-removed",
+  "title": "Обновление убрало агрегирование позиций по инструментам — теперь акции рассыпаны по счетам без общих итогов",
+  "obs": 4
+ },
+ {
+  "id": "totals-removed-home",
+  "title": "С главного экрана убрали суммарные итоги по всем счетам и график тренда баланса — быстро увидеть сводку больше нельзя",
+  "obs": 4
+ },
+ {
+  "id": "sync-freezes-needs-reconnect",
+  "title": "Синхронизация регулярно зависает и требует переподключения интеграции, которое часто не срабатывает",
+  "obs": 4
+ },
+ {
+  "id": "merge-lost-old-dashboard",
+  "title": "Принудительное объединение Personal Capital и Empower лишило доступа к старому портфелю — вернуть данные негде",
+  "obs": 4
+ },
+ {
+  "id": "bank-link-drops-session",
+  "title": "При связывании внешнего банка приложение обрывает сеанс с банком-партнёром и требует повторной верификации",
+  "obs": 3
+ },
+ {
+  "id": "vpn-blocks-app",
+  "title": "Приложение не запускается и не пускает в аккаунт при включённом VPN — его каждый раз приходится отключать",
+  "obs": 3
+ },
+ {
+  "id": "ira-rollover-blocked",
+  "title": "Перенос IRA или вывод средств в другую компанию блокируется самим сервисом — деньги фактически удерживаются",
+  "obs": 2
+ },
+ {
+  "id": "loan-process-broken",
+  "title": "Оформление займа из пенсионных накоплений ломается — непонятно какого документа не хватает, формат удержания не поддерживается",
+  "obs": 2
+ },
+ {
+  "id": "contributions-held-not-posted",
+  "title": "Взносы из зарплаты удерживаются, но не зачисляются на счёт сразу, а появляются с задержкой и пропадают после 18:00",
+  "obs": 2
+ },
+ {
+  "id": "graphs-not-loading",
+  "title": "Графики проекций и тренда баланса не отображаются неделями, переустановка не помогает, ошибки нет",
+  "obs": 2
+ },
+ {
+  "id": "performance-trend-missing",
+  "title": "Нет просмотра тренда доходности портфеля и индивидуальной производительности по каждому фонду",
+  "obs": 2
+ },
+ {
+  "id": "session-timeout-midview",
+  "title": "Сеанс обрывается по таймауту прямо во время просмотра отчётов и балансов",
+  "obs": 2
+ },
+ {
+  "id": "freeze-loses-unsaved",
+  "title": "Экран зависает, приложение приходится закрывать, и все внесённые изменения теряются — автосохранения нет",
+  "obs": 2
+ },
+ {
+  "id": "partial-sync-missing-transactions",
+  "title": "Половина счетов и транзакций не подтягивается, часть счетов (ипотека) не обновляется вообще, центы округляются до доллара",
+  "obs": 2
+ },
+ {
+  "id": "migration-lost-accounts",
+  "title": "Миграция Personal Capital и Mint в Empower стёрла все связи с внешними счетами и историю категоризации — всё настраивать заново",
+  "obs": 2
+ },
+ {
+  "id": "mobile-app-broken-browser-ok",
+  "title": "Мобильное приложение перестаёт пускать даже после переустановки, при этом браузерная версия работает нормально",
+  "obs": 2
+ },
+ {
+  "id": "login-locked-out-months",
+  "title": "После миграции пользователь месяцами не может войти и теряет доступ к деньгам, поддержка не помогает",
+  "obs": 2
+ },
+ {
+  "id": "web-app-redirect-loop",
+  "title": "Сайт перекидывает в приложение, приложение — на мобильный сайт, тот обратно в приложение — замкнутый круг без входа",
+  "obs": 2
+ },
+ {
+  "id": "constant-2fa",
+  "title": "Двухфакторную аутентификацию требуют чуть ли не каждую минуту использования, отключить нельзя",
+  "obs": 2
+ },
+ {
+  "id": "contribution-slider-imprecise",
+  "title": "Размер взноса в 401k задаётся прыгающим слайдером вместо числового ввода — точную сумму выставить нельзя",
+  "obs": 2
+ },
+ {
+  "id": "beneficiary-save-fails",
+  "title": "Данные бенефициара сохраняются только с нескольких попыток или не сохраняются вовсе",
+  "obs": 2
+ },
+ {
+  "id": "rebalance-confusing",
+  "title": "Перемещение средств между фондами и изменение будущих вложений непонятно и требует браузера",
+  "obs": 2
+ },
+ {
+  "id": "no-search-cluttered-menus",
+  "title": "Нет поиска, меню перегружены, многие функции возможны только на сайте — нужную опцию не найти",
+  "obs": 2
+ },
+ {
+  "id": "password-reset-crash",
+  "title": "Сброс пароля зависает и роняет приложение, не чинится месяцами — пользователь заперт без доступа",
+  "obs": 2
+ },
+ {
+  "id": "fees-not-shown",
+  "title": "Накопленные комиссии нигде не сведены — пользователь вручную перебирает все выписки и считает итог сам",
+  "obs": 1
+ },
+ {
+  "id": "payroll-deduction-changed",
+  "title": "После обновления процент удержания из зарплаты сам поменялся без ведома пользователя",
+  "obs": 1
+ },
+ {
+  "id": "retirement-calculator-removed",
+  "title": "Обновление удалило калькулятор совместной проекции 401k и социального обеспечения — ключевую функцию",
+  "obs": 1
+ },
+ {
+  "id": "data-freshness-unclear",
+  "title": "Непонятно, за какой день показаны итоги — нет пометки свежести данных",
+  "obs": 1
+ },
+ {
+  "id": "credit-union-link-fails",
+  "title": "Учётные данные подключённых банков и кредитного союза слетают, чинить можно только через сайт или переподключение",
+  "obs": 1
+ },
+ {
+  "id": "ira-data-not-loading",
+  "title": "Приложение то не показывает IRA, то не синхронизирует внешние счета — данные грузятся через раз",
+  "obs": 1
+ },
+ {
+  "id": "forced-update-on-open",
+  "title": "Приложение требует обновиться сразу при открытии, без возможности отложить до удобного момента",
+  "obs": 1
+ },
+ {
+  "id": "slow-load",
+  "title": "Приложение долго загружается и тормозит при базовой проверке баланса",
+  "obs": 1
+ },
+ {
+  "id": "login-flaky-multiple-attempts",
+  "title": "Вход срабатывает с третьей попытки или раз в неделю выдаёт ошибку, обновления не помогают",
+  "obs": 1
+ },
+ {
+  "id": "forced-app-download",
+  "title": "Мобильный сайт принудительно ведёт в приложение — нельзя просто посмотреть баланс без скачивания тяжёлого приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-face-id",
+  "title": "Многоэтапную аутентификацию нельзя заменить на быстрый Face ID, который вдобавок не работает",
+  "obs": 1
+ },
+ {
+  "id": "outdated-2fa-methods",
+  "title": "Используются устаревшие методы двухфакторной аутентификации (SMS и почта) вместо современных приложений-генераторов и ключей",
+  "obs": 1
+ },
+ {
+  "id": "login-popup-method-choice",
+  "title": "Новое всплывающее окно выбора способа входа усложняет логин",
+  "obs": 1
+ },
+ {
+  "id": "login-long-process",
+  "title": "После интеграции с Empower вход стал занимать до двух минут с лишними шагами",
+  "obs": 1
+ },
+ {
+  "id": "edit-contribution-beneficiary-removed",
+  "title": "Из приложения убрали редактирование ставки взносов и бенефициаров, которое было раньше",
+  "obs": 1
+ },
+ {
+  "id": "allocation-config-broken",
+  "title": "При выставлении долей распределения инвестиций приложение игнорирует введённые проценты",
+  "obs": 1
+ },
+ {
+  "id": "horizontal-scroll-cutoff",
+  "title": "Информация на экране iPhone обрезана и спрятана за горизонтальной прокруткой вместо вертикальной",
+  "obs": 1
+ },
+ {
+  "id": "feature-needs-website",
+  "title": "Базовые операции (перевод на брокерский счёт, налоговые документы) приложение делать не умеет и отсылает на сайт",
+  "obs": 1
+ },
+ {
+  "id": "hidden-logout",
+  "title": "Кнопка выхода спрятана в меню — на общем устройстве это создаёт риск безопасности",
+  "obs": 1
+ },
+ {
+  "id": "nag-update-info",
+  "title": "Приложение постоянно навязчиво просит обновить бенефициаров и контактные данные",
+  "obs": 1
+ },
+ {
+  "id": "confusing-account-category",
+  "title": "Категория «Empower accounts» в отчёте о стоимости сбивает с толку при оценке чистого капитала",
+  "obs": 1
+ },
+ {
+  "id": "support-template-only",
+  "title": "Поддержка отвечает только шаблонами, без живого чата и телефона, разные сотрудники задают одни и те же вопросы без эскалации",
+  "obs": 1
+ },
+ {
+  "id": "no-error-no-troubleshooting",
+  "title": "Приложение не сообщает суть проблемы и требует звонка, в справке нет даже простого «закрыть и переоткрыть»",
+  "obs": 1
+ },
+ {
+  "id": "phone-spam",
+  "title": "После указания номера телефона приложение засыпает звонками и сообщениями",
+  "obs": 1
+ },
+ {
+  "id": "app-becomes-marketing",
+  "title": "Приложение превращается в маркетинговую площадку вместо инструмента управления финансами",
+  "obs": 1
+ }
+]

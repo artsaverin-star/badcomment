@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from 30 Day Fitness - Home Workout (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO 30 Day Fitness - Home Workout, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to 30 Day Fitness - Home Workout — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to 30 Day Fitness - Home Workout>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1099771240.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "billing-continues-after-cancel",
+  "title": "Списания продолжаются после отмены подписки — система отмены не связана с биллингом",
+  "obs": 12
+ },
+ {
+  "id": "paywall-blocks-all-content",
+  "title": "Подписку требуют до показа хоть одного упражнения — попробовать контент бесплатно невозможно",
+  "obs": 11
+ },
+ {
+  "id": "no-cancel-path",
+  "title": "В приложении нет работающего способа отменить подписку — её даже нет в списке подписок магазина",
+  "obs": 8
+ },
+ {
+  "id": "exercise-variety-prevents-boredom",
+  "title": "Разнообразие упражнений спасает от скуки и плато — ключ к долгому использованию",
+  "obs": 7
+ },
+ {
+  "id": "customize-by-equipment-level-time",
+  "title": "Тренировку настраивают под оборудование, уровень и время — гибкость под текущие условия",
+  "obs": 7
+ },
+ {
+  "id": "return-after-break-segment",
+  "title": "Люди возвращаются к спорту после долгого перерыва — ценят постепенный вход без перегрузки",
+  "obs": 6
+ },
+ {
+  "id": "mid-workout-swap-difficulty",
+  "title": "Можно заменить упражнение или сменить сложность прямо во время тренировки",
+  "obs": 5
+ },
+ {
+  "id": "support-bot-only-auto-replies",
+  "title": "Поддержка отвечает только автоответами со ссылкой на список вопросов — живого человека не дозваться",
+  "obs": 5
+ },
+ {
+  "id": "busy-parents-segment",
+  "title": "Сегмент занятых работающих родителей — короткие тренировки дома без поездки в зал",
+  "obs": 5
+ },
+ {
+  "id": "false-free-positioning",
+  "title": "Приложение позиционируется как бесплатное, но блокирует прогресс платной подпиской — ощущение обмана",
+  "obs": 4
+ },
+ {
+  "id": "structured-program-for-beginners",
+  "title": "Готовые планы и большая библиотека дают новичку структуру вместо хаоса самостоятельного составления",
+  "obs": 4
+ },
+ {
+  "id": "visible-results-retention",
+  "title": "Быстрые видимые результаты в целевых зонах удерживают пользователей",
+  "obs": 4
+ },
+ {
+  "id": "double-billing-same-period",
+  "title": "Приложение списывает плату дважды за один период — двойной счёт за одну подписку",
+  "obs": 3
+ },
+ {
+  "id": "background-music-playback",
+  "title": "Музыка играет в фоне во время тренировки при слышных голосовых подсказках тренера",
+  "obs": 3
+ },
+ {
+  "id": "timer-paced-transitions",
+  "title": "Таймер по темпу пользователя и автопрокрутка к следующему упражнению упрощают переходы",
+  "obs": 3
+ },
+ {
+  "id": "calorie-results-summary",
+  "title": "После тренировки показываются калории, время и итоги — визуальное подтверждение усилия",
+  "obs": 3
+ },
+ {
+  "id": "anytime-anywhere-flexibility",
+  "title": "Главная ценность — тренироваться где угодно при непредсказуемом графике: в отпуске, в поездке, на службе",
+  "obs": 3
+ },
+ {
+  "id": "accountability-motivation-mechanic",
+  "title": "Приложение работает как партнёр по ответственности — напоминает об обещании и возвращает после пропусков",
+  "obs": 3
+ },
+ {
+  "id": "weekly-only-pricing",
+  "title": "Доступна только дорогая еженедельная оплата — нет месячного или годового плана дешевле",
+  "obs": 2
+ },
+ {
+  "id": "price-hike-no-notice",
+  "title": "Цену подписки резко повысили без предупреждения — давние пользователи чувствуют себя обманутыми",
+  "obs": 2
+ },
+ {
+  "id": "warmup-cooldown-cycle",
+  "title": "Разминка и заминка в каждой тренировке создают чувство завершённости и прилив энергии",
+  "obs": 2
+ },
+ {
+  "id": "calendar-visual-tracking",
+  "title": "Календарь ежедневных тренировок помогает держать график и видеть прогресс визуально",
+  "obs": 2
+ },
+ {
+  "id": "no-injury-modification",
+  "title": "Нет настройки упражнений под травмы или медицинские ограничения — запросы остаются без ответа",
+  "obs": 2
+ },
+ {
+  "id": "workout-reminders-habit",
+  "title": "Напоминания о тренировках формируют привычку — некоторым их нужно ещё чаще",
+  "obs": 2
+ },
+ {
+  "id": "coach-replacement-solo",
+  "title": "Приложение заменяет тренера для самостоятельных домашних тренировок с правильной техникой",
+  "obs": 2
+ },
+ {
+  "id": "low-entry-difficulty-retention",
+  "title": "Посильная сложность на старте удерживает мотивацию новичка продолжать",
+  "obs": 2
+ },
+ {
+  "id": "charged-after-decline-delete",
+  "title": "Списания идут даже после отказа от подписки или удаления приложения — удаление не останавливает оплату",
+  "obs": 1
+ },
+ {
+  "id": "single-payment-method",
+  "title": "Приложение принимает только один способ оплаты — нет альтернативных методов платежа",
+  "obs": 1
+ },
+ {
+  "id": "pause-still-charges",
+  "title": "Приостановка плана тренировок не останавливает списания — пауза не связана с биллингом",
+  "obs": 1
+ },
+ {
+  "id": "warmup-duplicates-main",
+  "title": "Упражнения разминки дублируют основную тренировку — подготовка теряет смысл",
+  "obs": 1
+ },
+ {
+  "id": "form-text-descriptions",
+  "title": "Пользователи хотят текстовые описания техники в дополнение к видео — не всем хватает только ролика",
+  "obs": 1
+ },
+ {
+  "id": "no-equipment-variety",
+  "title": "Упражнения с лентами и штангой почти не встречаются — мало вариантов под домашний инвентарь",
+  "obs": 1
+ },
+ {
+  "id": "unreliable-music-integration",
+  "title": "Интеграция с музыкой работает через раз — нельзя рассчитывать на фоновое воспроизведение",
+  "obs": 1
+ },
+ {
+  "id": "voice-commands-unreliable",
+  "title": "Голосовое управление срабатывает ненадёжно — приходится трогать экран и прерывать упражнение",
+  "obs": 1
+ },
+ {
+  "id": "auto-generated-plan",
+  "title": "Приложение само строит дневной план — не нужно выбирать упражнения вручную",
+  "obs": 1
+ },
+ {
+  "id": "custom-workout-builder",
+  "title": "Опытные пользователи хотят собирать собственные тренировки с нуля помимо готовых планов",
+  "obs": 1
+ },
+ {
+  "id": "weekday-schedule-selection",
+  "title": "Не хватает выбора дней недели для тренировок — расписание привязано к ежедневному повтору",
+  "obs": 1
+ },
+ {
+  "id": "full-history-on-home",
+  "title": "Пользователи хотят видеть всю историю завершённых тренировок на главном экране",
+  "obs": 1
+ },
+ {
+  "id": "ios-forced-custom-plan",
+  "title": "На iOS навязывают настройку персонального плана, тогда как на Android выбор уровня был простым",
+  "obs": 1
+ },
+ {
+  "id": "no-difficulty-feedback",
+  "title": "Нет способа сообщить, было ли упражнение слишком лёгким или сложным — обратная связь не влияет на план",
+  "obs": 1
+ },
+ {
+  "id": "hydration-reminder-request",
+  "title": "Пользователи хотят напоминания пить воду — запрос на более широкую поддержку здоровья помимо упражнений",
+  "obs": 1
+ },
+ {
+  "id": "history-wiped-on-update",
+  "title": "Обновление стирает историю тренировок — прогресс приходится начинать заново",
+  "obs": 1
+ },
+ {
+  "id": "streak-resume-prompt-breaks-count",
+  "title": "На следующий день приложение предлагает возобновить уже завершённую тренировку и сбивает счётчик дней",
+  "obs": 1
+ },
+ {
+  "id": "custom-workouts-not-saved",
+  "title": "Пользовательские изменения тренировок не сохраняются — ошибка в механизме сохранения данных",
+  "obs": 1
+ },
+ {
+  "id": "age-rating-mismatch",
+  "title": "Возрастная маркировка магазина не совпадает с требованием при регистрации — путаница для юных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "supplement-not-primary",
+  "title": "Приложение используют как добавку к пропущенным тренировкам в зале, а не как основной источник",
+  "obs": 1
+ },
+ {
+  "id": "progress-feedback-gap",
+  "title": "Пользователь не замечает собственного прогресса, хотя его видят окружающие — провал в объективной обратной связи",
+  "obs": 1
+ },
+ {
+  "id": "gym-vs-app-value-conflict",
+  "title": "Пользователи сравнивают ценность подписки с залом — упражнения доступны бесплатно в других местах",
+  "obs": 1
+ },
+ {
+  "id": "shared-activity-partner",
+  "title": "Пары тренируются вместе — приложение работает как социальный мотиватор",
+  "obs": 1
+ },
+ {
+  "id": "consistent-routine-pattern",
+  "title": "Стабильный паттерн: ежедневные тренировки с одним днём отдыха в неделю",
+  "obs": 1
+ },
+ {
+  "id": "no-live-demonstration",
+  "title": "Приложение не показывает выполнение упражнения в реальном времени вместе с пользователем",
+  "obs": 1
+ },
+ {
+  "id": "rewards-system-request",
+  "title": "Пользователи просят систему вознаграждений и мотивационные фразы для долгого удержания",
+  "obs": 1
+ }
+]

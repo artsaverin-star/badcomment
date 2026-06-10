@@ -1,0 +1,339 @@
+You are grouping 58 mechanism-level insight clusters from Noisli (ambient mixer / focus / productivity / relax) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Noisli, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 58 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Noisli — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Noisli>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-862773459.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "iphone-x-layout-broken",
+  "title": "Интерфейс не адаптирован под вырез и пропорции iPhone X и новее — чёрные границы, элементы обрезаны",
+  "obs": 18
+ },
+ {
+  "id": "hidden-melody-artifact",
+  "title": "В звуках дождя и грозы скрыта посторонняя мелодия — скрипка или синтезатор портит природный фон",
+  "obs": 13
+ },
+ {
+  "id": "audio-conflict-other-apps",
+  "title": "Приложение вытесняет аудио из Spotify, iTunes, подкастов — нельзя слушать личную музыку с фоновыми звуками",
+  "obs": 12
+ },
+ {
+  "id": "crash-on-launch",
+  "title": "Приложение падает при каждом запуске и не открывается совсем",
+  "obs": 12
+ },
+ {
+  "id": "duplicate-volume-sliders-bug",
+  "title": "Ползунки громкости задваиваются на экране и перестают реагировать на касания — интерфейс зависает",
+  "obs": 11
+ },
+ {
+  "id": "ipad-no-landscape",
+  "title": "iPad не поддерживает ландшафтную ориентацию — экран остаётся вертикальным даже при развороте устройства",
+  "obs": 10
+ },
+ {
+  "id": "sound-quality-low",
+  "title": "Качество звуков низкое — гром нереалистичный, океан фрагментированный, цветные шумы агрессивны",
+  "obs": 8
+ },
+ {
+  "id": "volume-max-too-low",
+  "title": "Максимальная громкость приложения слишком низкая — звук не слышен через встроенный динамик",
+  "obs": 7
+ },
+ {
+  "id": "app-abandoned-no-updates",
+  "title": "Приложение не обновлялось несколько лет — разработчик забросил проект, баги не исправляются",
+  "obs": 7
+ },
+ {
+  "id": "timer-no-custom-duration",
+  "title": "Таймер имеет только фиксированные значения (25 и 60 минут) — нельзя установить произвольную длительность",
+  "obs": 6
+ },
+ {
+  "id": "headphone-unplug-no-pause",
+  "title": "При извлечении наушников приложение не ставит звук на паузу и громко воспроизводит через динамик",
+  "obs": 6
+ },
+ {
+  "id": "no-airplay-bluetooth-cast",
+  "title": "Нет поддержки AirPlay и трансляции на Bluetooth-колонки — звук выводится только через динамик телефона",
+  "obs": 6
+ },
+ {
+  "id": "no-presets-mobile",
+  "title": "На сайте есть предустановки (Productive, Relax, Random), а в мобильном приложении они отсутствуют",
+  "obs": 6
+ },
+ {
+  "id": "mobile-vs-web-feature-gap",
+  "title": "Мобильная версия значительно уступает веб-версии по функциональности — несколько ключевых функций не перенесены",
+  "obs": 6
+ },
+ {
+  "id": "large-app-size",
+  "title": "Приложение занимает 250+ МБ при минимальном наборе звуков — объём явно завышен",
+  "obs": 6
+ },
+ {
+  "id": "short-loop-audible-seam",
+  "title": "Звуковые петли слишком короткие — слышны точки повтора, фон звучит неестественно",
+  "obs": 5
+ },
+ {
+  "id": "no-alarm-after-timer",
+  "title": "После окончания таймера нет звукового сигнала пробуждения — только тишина",
+  "obs": 5
+ },
+ {
+  "id": "bright-background-eye-strain",
+  "title": "Яркий цветной фон мешает засыпать и раздражает глаза — тёмного режима нет",
+  "obs": 5
+ },
+ {
+  "id": "background-contrast-readability",
+  "title": "Автоматическая смена фона снижает контраст текста и иконок до нечитаемого уровня",
+  "obs": 5
+ },
+ {
+  "id": "no-text-editor-mobile",
+  "title": "Встроенный текстовый редактор с сайта отсутствует в мобильном приложении — ключевая функция не перенесена",
+  "obs": 4
+ },
+ {
+  "id": "timer-ux-swipe-hidden",
+  "title": "Таймер управляется скрытым свайпом вверх/вниз без визуальных подсказок — механизм не очевиден",
+  "obs": 4
+ },
+ {
+  "id": "no-ios-media-controls",
+  "title": "Приложение не интегрируется с системными медиаконтролями iOS — нельзя управлять с экрана блокировки или из Control Center",
+  "obs": 4
+ },
+ {
+  "id": "paid-app-same-as-free-web",
+  "title": "Платное мобильное приложение предлагает то же, что бесплатный сайт — дополнительной ценности нет",
+  "obs": 3
+ },
+ {
+  "id": "feature-gap-not-disclosed",
+  "title": "Ограничения мобильной версии не указаны до покупки — пользователь узнаёт об отличиях только после оплаты",
+  "obs": 3
+ },
+ {
+  "id": "limited-sound-library",
+  "title": "Библиотека насчитывает только 16 звуков — мало по сравнению с конкурентами и ценой приложения",
+  "obs": 3
+ },
+ {
+  "id": "no-human-ambient-sounds",
+  "title": "В библиотеке нет звуков с речью и человеческой активностью — только природа, но не кафе или телевизор",
+  "obs": 3
+ },
+ {
+  "id": "no-scheduled-start",
+  "title": "Нет отложенного запуска по расписанию — нельзя настроить автоматический старт перед сном или пробуждением",
+  "obs": 3
+ },
+ {
+  "id": "fade-in-out-missing",
+  "title": "Звук включается и выключается резко без плавного затухания — переход слышен и будит",
+  "obs": 3
+ },
+ {
+  "id": "no-playback-speed-control",
+  "title": "Нет регулировки скорости или шага звука — нельзя подстроить тон под индивидуальное восприятие",
+  "obs": 3
+ },
+ {
+  "id": "individual-volume-missing-mobile",
+  "title": "На мобильном нельзя регулировать громкость отдельных звуков — только включить/выключить целиком",
+  "obs": 3
+ },
+ {
+  "id": "no-headphone-button-control",
+  "title": "Кнопки управления на гарнитуре не работают с приложением — нельзя поставить на паузу или переключить трек",
+  "obs": 3
+ },
+ {
+  "id": "swipe-navigation-broken",
+  "title": "Горизонтальный свайп работает только у нижнего края экрана — навигация ненадёжна",
+  "obs": 3
+ },
+ {
+  "id": "app-stops-working-after-days",
+  "title": "После нескольких дней использования приложение внезапно перестаёт воспроизводить звук — требуется переустановка",
+  "obs": 3
+ },
+ {
+  "id": "sound-interrupted-by-call",
+  "title": "Входящий звонок или уведомление прерывает воспроизведение, и приложение не возобновляется автоматически",
+  "obs": 3
+ },
+ {
+  "id": "wrong-billing-amount",
+  "title": "Приложение списывает $31.48 вместо заявленных $2.99 — пользователь не давал согласия на годовую подписку",
+  "obs": 2
+ },
+ {
+  "id": "no-new-sounds-years",
+  "title": "Новые звуки не добавлялись годами — библиотека устарела, разработчик не обновляет продукт",
+  "obs": 2
+ },
+ {
+  "id": "background-playback-stops",
+  "title": "Приложение прекращает воспроизведение при переключении на другое приложение — фон не держится в фоновом режиме",
+  "obs": 2
+ },
+ {
+  "id": "save-combo-unintuitive",
+  "title": "Сохранение и удаление миксов неинтуитивно — пользователь случайно удаляет настройки без возможности восстановить",
+  "obs": 2
+ },
+ {
+  "id": "crash-after-ios-update",
+  "title": "После обновления iOS приложение перестаёт запускаться — совместимость не поддерживается",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-login-sync",
+  "title": "Приложение падает при входе в аккаунт — синхронизация пользовательских комбинаций вызывает критическую ошибку",
+  "obs": 2
+ },
+ {
+  "id": "no-support-response",
+  "title": "Разработчик не отвечает на обращения в поддержку и в социальных сетях — баги остаются без ответа годами",
+  "obs": 2
+ },
+ {
+  "id": "multi-use-case-family-focus",
+  "title": "Одно приложение закрывает и фокус на работе, и укладывание ребёнка — универсальный семейный инструмент",
+  "obs": 2
+ },
+ {
+  "id": "dynamic-sound-variation-request",
+  "title": "Пользователи хотят динамически меняющихся комбинаций — звуки, которые случайно включаются и меняют громкость со временем",
+  "obs": 2
+ },
+ {
+  "id": "pro-upgrade-path-hidden",
+  "title": "Кнопка перехода на Pro не видна внутри приложения — пользователь не может найти способ оформить подписку",
+  "obs": 1
+ },
+ {
+  "id": "pro-worse-than-free",
+  "title": "Pro-версия работает хуже бесплатной, а разработчик отказывает в возврате денег",
+  "obs": 1
+ },
+ {
+  "id": "audio-conflict-fixed-in-update",
+  "title": "Обновление добавило поддержку одновременного воспроизведения с другим аудио — долгожданная функция",
+  "obs": 1
+ },
+ {
+  "id": "alarm-conflict",
+  "title": "Когда Noisli играет во время срабатывания будильника iPhone, он блокирует звук будильника",
+  "obs": 1
+ },
+ {
+  "id": "loop-sync-loss-long-play",
+  "title": "При длительном воспроизведении (1+ час) звук теряет синхронизацию и даёт помехи",
+  "obs": 1
+ },
+ {
+  "id": "no-carplay",
+  "title": "Приложение не поддерживает CarPlay — нельзя слушать звуки во время поездки",
+  "obs": 1
+ },
+ {
+  "id": "timer-visibility-poor",
+  "title": "На переменном фоне таймер плохо виден — контраст недостаточен",
+  "obs": 1
+ },
+ {
+  "id": "no-shortcuts-integration",
+  "title": "Нет интеграции с iOS Shortcuts — нельзя автоматизировать запуск и управление приложением",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-health-integration",
+  "title": "Нет интеграции с Apple Health — медитативные сессии не отслеживаются в системе здоровья",
+  "obs": 1
+ },
+ {
+  "id": "mandatory-account-onboarding",
+  "title": "Новая версия требует обязательной регистрации аккаунта перед первым использованием — фрикшн на старте",
+  "obs": 1
+ },
+ {
+  "id": "bluetooth-audio-glitches",
+  "title": "Через Bluetooth звук прерывается и пропускается — стабильного воспроизведения нет",
+  "obs": 1
+ },
+ {
+  "id": "airpods-compatibility-bug",
+  "title": "Приложение не работает с AirPods — специфичный баг совместимости при подключении",
+  "obs": 1
+ },
+ {
+  "id": "app-no-longer-downloadable",
+  "title": "Ранее купленное приложение больше нельзя переустановить из App Store",
+  "obs": 1
+ },
+ {
+  "id": "network-access-required",
+  "title": "Приложение запрашивает доступ к сотовой сети, хотя должно работать с локальным контентом без интернета",
+  "obs": 1
+ },
+ {
+  "id": "layering-apps-noisli-insufficient",
+  "title": "Пользователи комбинируют несколько приложений одновременно, так как Noisli один не перекрывает внешние шумы",
+  "obs": 1
+ }
+]

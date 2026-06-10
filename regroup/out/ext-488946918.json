@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "id": "update-eats-your-charts",
+      "name": "Обновление съедает сохранённые карты: миграция как потеря",
+      "insight_ids": [
+        "session-logout-loop",
+        "migration-data-loss",
+        "charts-lost-on-update",
+        "data-loss-on-auth-cycle",
+        "cross-device-restore-failure",
+        "chart-duplication-on-relogin",
+        "migration-value-absent"
+      ]
+    },
+    {
+      "id": "paywall-and-double-billing",
+      "name": "Платишь дважды: переход на подписку отбирает уже купленное",
+      "insight_ids": [
+        "subscription-migration-destroys-purchases",
+        "repeated-charges-same-content",
+        "free-feature-paywalled",
+        "trial-charges-immediately",
+        "cancellation-not-honored",
+        "aggressive-upgrade-popups",
+        "social-login-popup-aggressive"
+      ]
+    },
+    {
+      "id": "daily-horoscope-falls-apart",
+      "name": "Дневной гороскоп развалился — ядро приложения не открыть",
+      "insight_ids": [
+        "daily-horoscope-load-failure",
+        "daily-horoscope-navigation-friction",
+        "daily-horoscope-glitch-phone",
+        "horoscope-redesigned-as-category-scores"
+      ]
+    },
+    {
+      "id": "chart-became-unreadable",
+      "name": "Карту стало не прочитать: плоский фиолет, мелкий шрифт, сломанный iPad",
+      "insight_ids": [
+        "color-coding-removed",
+        "font-size-inaccessible",
+        "ipad-layout-broken",
+        "transit-wheel-shrinks"
+      ]
+    },
+    {
+      "id": "chart-management-friction",
+      "name": "Работа с базой карт: ни поиска, ни порядка, ручные костыли",
+      "insight_ids": [
+        "saved-charts-as-retention",
+        "saved-chart-search-missing",
+        "app-no-restore-scroll-position",
+        "location-not-saved-between-sessions",
+        "chart-creation-redundant-location",
+        "delete-edit-transit-records-missing",
+        "power-user-workarounds",
+        "client-report-generation-removed"
+      ]
+    },
+    {
+      "id": "astrology-math-wrong",
+      "name": "Астрология считается неверно: транзиты, Асцендент, неполные карты",
+      "insight_ids": [
+        "transit-date-calculation-wrong",
+        "ascendant-calculation-timezone-bug",
+        "compatibility-score-changed",
+        "future-transit-chart-errors",
+        "transit-aspects-incomplete",
+        "chart-data-elements-missing",
+        "city-database-incomplete"
+      ]
+    },
+    {
+      "id": "crashes-and-offline-loss",
+      "name": "Падает на старте, на чужих картах и теперь не работает офлайн",
+      "insight_ids": [
+        "crash-opening-others-charts",
+        "app-launch-crash-on-early-tap",
+        "offline-regression"
+      ]
+    }
+  ]
+}

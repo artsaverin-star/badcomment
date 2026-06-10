@@ -1,0 +1,309 @@
+You are grouping 52 mechanism-level insight clusters from Drops: Language Learning Games (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Drops: Language Learning Games, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 52 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Drops: Language Learning Games — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Drops: Language Learning Games>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsypb6z1q6bughv15m4hhaw.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "wrong-translations-grammar",
+  "title": "Приложение даёт неверные переводы и грамматику слов в разных языках",
+  "obs": 4
+ },
+ {
+  "id": "playback-freezes-exercises",
+  "title": "Приложение зависает на упражнениях и при паузе, блокируя продвижение и теряя прогресс",
+  "obs": 4
+ },
+ {
+  "id": "update-broke-navigation-progress",
+  "title": "После обновления интерфейс перестроился, прогресс и незавершённые уроки спрятаны в категориях",
+  "obs": 4
+ },
+ {
+  "id": "ai-images-replace-illustrations",
+  "title": "Ручные иллюстрации заменили на AI-картинки — пользователи теряют доверие к качеству контента",
+  "obs": 3
+ },
+ {
+  "id": "inconsistent-difficulty-progression",
+  "title": "Прогрессия сложности рваная: сложные слова идут раньше базовых, основы появляются позже",
+  "obs": 3
+ },
+ {
+  "id": "trial-forces-annual-not-monthly",
+  "title": "Пробный период автоматически оформляет годовую подписку — выбрать месячный тариф до старта триала нельзя",
+  "obs": 2
+ },
+ {
+  "id": "free-version-too-limited",
+  "title": "Бесплатная версия ограничена пятью минутами в день — этого мало для полноценного обучения",
+  "obs": 2
+ },
+ {
+  "id": "no-new-content-after-completion",
+  "title": "После прохождения всего материала новых слов больше не добавляется — учить нечего",
+  "obs": 2
+ },
+ {
+  "id": "irrelevant-vocabulary",
+  "title": "Приложение учит редкие непрактичные слова вместо высокочастотной разговорной лексики",
+  "obs": 2
+ },
+ {
+  "id": "words-in-isolation-no-sentences",
+  "title": "Слова даются изолированно без примеров предложений — нет обучения структуре фраз и грамматике",
+  "obs": 2
+ },
+ {
+  "id": "speech-recognition-degraded",
+  "title": "Распознавание речи ухудшилось и засчитывает правильное произношение как ошибку",
+  "obs": 2
+ },
+ {
+  "id": "script-rendering-broken",
+  "title": "Письменность отображается неправильно: тайские символы обрезаны, арабские буквы не соединяются и идут справа налево",
+  "obs": 2
+ },
+ {
+  "id": "romanization-toggle-ignored",
+  "title": "Настройка отключения романизации не действует — корейская грамматика показывается только латиницей",
+  "obs": 2
+ },
+ {
+  "id": "no-pronunciation-on-screen",
+  "title": "Приложение не показывает фонетическое написание слов на экране, требуя учиться только на слух",
+  "obs": 2
+ },
+ {
+  "id": "charged-after-trial-cancel",
+  "title": "Приложение списывает полную годовую плату даже после отмены в течение 7-дневного пробного периода",
+  "obs": 1
+ },
+ {
+  "id": "premium-lost-after-update",
+  "title": "После обновления приложения купленная подписка и данные аккаунта исчезают",
+  "obs": 1
+ },
+ {
+  "id": "failed-payment-no-recovery",
+  "title": "Неудавшийся платёж за подписку нельзя повторить — доступ к премиуму так и не открывается",
+  "obs": 1
+ },
+ {
+  "id": "no-free-trial-to-evaluate",
+  "title": "Попробовать функции до покупки нельзя — приложение требует оплату ещё до первого знакомства",
+  "obs": 1
+ },
+ {
+  "id": "basic-settings-behind-paywall",
+  "title": "Базовая настройка расписания практики доступна только по платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "pivot-from-words-to-phrases",
+  "title": "Приложение сместило фокус с отдельных слов на фразы и предложения, разрушив исходную нишу словаря",
+  "obs": 1
+ },
+ {
+  "id": "removed-religion-category",
+  "title": "Обновление удалило культурно значимую категорию «религия» из мексиканского испанского",
+  "obs": 1
+ },
+ {
+  "id": "missing-arabic-diacritics",
+  "title": "В арабском отсутствуют диакритические знаки, без которых меняется смысл и род слова",
+  "obs": 1
+ },
+ {
+  "id": "cantonese-tone-numbers-unexplained",
+  "title": "Тоны в кантонском показаны цифрами, но приложение не объясняет их значение и применение",
+  "obs": 1
+ },
+ {
+  "id": "male-dominated-illustrations",
+  "title": "Почти все персонажи в иллюстрациях — мужчины, гендерный дисбаланс в дизайне",
+  "obs": 1
+ },
+ {
+  "id": "audio-article-mismatch",
+  "title": "Аудио слова не совпадает с экраном — артикль пропущен или отличается от показанного",
+  "obs": 1
+ },
+ {
+  "id": "review-overload-blocks-new",
+  "title": "Алгоритм повторения заваливает пользователя сотней старых слов в день, мешая учить новые",
+  "obs": 1
+ },
+ {
+  "id": "removed-pronunciation-check",
+  "title": "Из приложения убрали проверку произношения, доступную раньше даже по подписке",
+  "obs": 1
+ },
+ {
+  "id": "no-pronunciation-feedback",
+  "title": "Приложение не записывает речь пользователя — учиться произношению приходится без обратной связи",
+  "obs": 1
+ },
+ {
+  "id": "no-way-to-slow-audio",
+  "title": "Длинные фразы произносятся слишком быстро, нет способа замедлить аудио или переслушать",
+  "obs": 1
+ },
+ {
+  "id": "level-detection-wrong-content",
+  "title": "Система оценки уровня выдаёт продвинутому пользователю лексику для абсолютных начинающих",
+  "obs": 1
+ },
+ {
+  "id": "crashes-instead-of-fixes",
+  "title": "Приложение крашится на определённых типах упражнений, а разработчики добавляют картинки вместо исправлений",
+  "obs": 1
+ },
+ {
+  "id": "update-wipes-progress",
+  "title": "Обновление перезаписывает прогресс контрольных точек и добавляет лаги при выборе ответа",
+  "obs": 1
+ },
+ {
+  "id": "forced-ios-update-old-devices",
+  "title": "Приложение принудительно требует обновление iOS, недоступное на старых устройствах",
+  "obs": 1
+ },
+ {
+  "id": "mic-unreliable-delayed",
+  "title": "Микрофон срабатывает редко и с задержкой в несколько секунд, ломая практику произношения",
+  "obs": 1
+ },
+ {
+  "id": "truncated-arabic-pronunciation",
+  "title": "Произношение слов на египетском арабском обрезано, приложение выпущено без полной отработки",
+  "obs": 1
+ },
+ {
+  "id": "always-show-jyutping-option",
+  "title": "Нет режима постоянного показа кантонской романизации под иероглифами для тренировки речи",
+  "obs": 1
+ },
+ {
+  "id": "no-tense-filter",
+  "title": "Нельзя фильтровать уроки по грамматическому времени — материал упорядочен только по темам",
+  "obs": 1
+ },
+ {
+  "id": "no-autoadvance-next-lesson",
+  "title": "После урока приложение не переходит к следующему — нужно много скроллить, чтобы продолжить",
+  "obs": 1
+ },
+ {
+  "id": "lesson-doesnt-stop-at-100",
+  "title": "При 100% урока сессия не завершается — выйти приходится вручную, теряя полученный опыт",
+  "obs": 1
+ },
+ {
+  "id": "category-marked-complete-early",
+  "title": "Категория помечается завершённой, хотя в ней остаётся ещё несколько слов для изучения",
+  "obs": 1
+ },
+ {
+  "id": "unclear-navigation-no-audio",
+  "title": "Навигация непонятна: кнопки без подписей, нет озвучивания слов при обучении",
+  "obs": 1
+ },
+ {
+  "id": "false-streak-rescue",
+  "title": "При входе до полуночи приложение ошибочно считает день пропущенным и предлагает «спасение серии»",
+  "obs": 1
+ },
+ {
+  "id": "no-clock-in-fullscreen",
+  "title": "В полноэкранном режиме скрыты часы телефона — нельзя следить за временем во время занятия",
+  "obs": 1
+ },
+ {
+  "id": "no-dark-mode",
+  "title": "В приложении нет тёмного режима и переключателя для него",
+  "obs": 1
+ },
+ {
+  "id": "word-flashes-before-reading",
+  "title": "Новое слово показывается полсекунды, сразу выдаётся перевод — прочитать самому не успеваешь",
+  "obs": 1
+ },
+ {
+  "id": "spelling-requires-punctuation",
+  "title": "Упражнение на написание требует ввода пунктуации как части слова, что тратит время",
+  "obs": 1
+ },
+ {
+  "id": "popups-distract-learning",
+  "title": "Всплывающие окна с предложениями постоянно отвлекают от обучения",
+  "obs": 1
+ },
+ {
+  "id": "two-language-limit",
+  "title": "Изучать можно только два языка одновременно, хотя нужно три-четыре",
+  "obs": 1
+ },
+ {
+  "id": "ai-pronunciation-cant-disable",
+  "title": "Новую AI-функцию произношения нельзя выключить полностью, только спрятать на час",
+  "obs": 1
+ },
+ {
+  "id": "hard-reauth-after-logout",
+  "title": "После выхода из аккаунта повторный вход усложнён и создаёт трение при возвращении",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-for-a-year",
+  "title": "Разработчики год не отвечают на запросы о серьёзных ошибках и не предлагают решение или возврат",
+  "obs": 1
+ },
+ {
+  "id": "good-for-beginners-not-fluency",
+  "title": "Приложение подходит новичкам, но не для поддержания беглости уже изученного языка",
+  "obs": 1
+ }
+]

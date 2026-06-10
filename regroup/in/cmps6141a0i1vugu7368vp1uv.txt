@@ -1,0 +1,324 @@
+You are grouping 55 mechanism-level insight clusters from Domino's Pizza USA (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Domino's Pizza USA, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 55 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Domino's Pizza USA — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Domino's Pizza USA>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps6141a0i1vugu7368vp1uv.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "notification-promo-toggle-broken",
+  "title": "Переключатель отключения промо-уведомлений не работает — уведомления продолжают приходить",
+  "obs": 18
+ },
+ {
+  "id": "reliability-app-freeze-crash",
+  "title": "Приложение зависает и падает при обычном использовании, особенно при оформлении заказа",
+  "obs": 13
+ },
+ {
+  "id": "support-password-reset-loop",
+  "title": "Ссылка сброса пароля истекает мгновенно или перенаправляет в цикл, блокируя вход",
+  "obs": 13
+ },
+ {
+  "id": "payment-loyalty-points-lost",
+  "title": "Баллы лояльности исчезают после обновления или при входе в новый аккаунт",
+  "obs": 11
+ },
+ {
+  "id": "ui-order-history-removed",
+  "title": "История предыдущих заказов удалена или скрыта в новой версии приложения",
+  "obs": 11
+ },
+ {
+  "id": "reliability-slow-loading-after-update",
+  "title": "После обновления каждый экран загружается значительно медленнее, чем раньше",
+  "obs": 8
+ },
+ {
+  "id": "payment-gift-card-unusable",
+  "title": "Подарочные карты не принимаются в приложении при оплате",
+  "obs": 7
+ },
+ {
+  "id": "payment-charge-no-order",
+  "title": "Приложение снимает деньги, но заказ не размещается или не доставляется",
+  "obs": 6
+ },
+ {
+  "id": "payment-promo-apply-broken",
+  "title": "Применение акций при оформлении заказа вызывает ошибку или зависание",
+  "obs": 6
+ },
+ {
+  "id": "reliability-tracker-false-delivered",
+  "title": "Трекер показывает заказ доставленным задолго до реальной доставки",
+  "obs": 6
+ },
+ {
+  "id": "strategy-ui-redesign-regression",
+  "title": "Каждое крупное обновление ухудшает удобство — пользователи называют это регрессией",
+  "obs": 6
+ },
+ {
+  "id": "ui-curbside-not-saved",
+  "title": "Метод самовывоза у машины не сохраняется и сбрасывается на обычный при каждом заказе",
+  "obs": 5
+ },
+ {
+  "id": "reliability-internal-error-ordering",
+  "title": "При попытке оформить заказ или выбрать магазин появляется ошибка 'internal error'",
+  "obs": 5
+ },
+ {
+  "id": "reliability-wrong-toppings-transmitted",
+  "title": "Приложение передаёт в магазин неполный или неверный состав заказа — топпинги теряются",
+  "obs": 5
+ },
+ {
+  "id": "ui-reorder-removed",
+  "title": "Кнопка быстрого повтора предыдущего заказа удалена в новой версии",
+  "obs": 4
+ },
+ {
+  "id": "ui-customization-half-cheese-removed",
+  "title": "После обновления удалена настройка количества сыра на каждой половине пиццы",
+  "obs": 4
+ },
+ {
+  "id": "ui-cart-auto-add-auto-edit",
+  "title": "Приложение самостоятельно добавляет, удаляет или редактирует товары в корзине без команды пользователя",
+  "obs": 4
+ },
+ {
+  "id": "ui-font-accessibility-regression",
+  "title": "После редизайна мелкий светлый текст и крупные элементы затрудняют чтение и навигацию",
+  "obs": 4
+ },
+ {
+  "id": "ui-pinpoint-delivery-removed",
+  "title": "Функция точной адресации для пограничных зон доставки удалена из приложения",
+  "obs": 4
+ },
+ {
+  "id": "reliability-estimated-time-inflates",
+  "title": "Обещанное время доставки многократно откладывается после принятия оплаты",
+  "obs": 4
+ },
+ {
+  "id": "reliability-old-device-blocked",
+  "title": "Обновление требует новую версию iOS, блокируя доступ со старых iPhone",
+  "obs": 4
+ },
+ {
+  "id": "strategy-app-worse-than-web",
+  "title": "Пользователи предпочитают веб-сайт или телефонный заказ из-за ненадёжности приложения",
+  "obs": 4
+ },
+ {
+  "id": "payment-promo-price-mismatch",
+  "title": "Цена акции при оплате оказывается выше, чем указано в описании предложения",
+  "obs": 3
+ },
+ {
+  "id": "payment-card-loop",
+  "title": "Оплата кредитной картой зависает в бесконечном цикле и не проходит",
+  "obs": 3
+ },
+ {
+  "id": "payment-price-hidden-before-cart",
+  "title": "Цены скрыты до добавления товара в корзину — нельзя сравнить стоимость заранее",
+  "obs": 3
+ },
+ {
+  "id": "ui-store-selection-wrong-default",
+  "title": "Приложение по умолчанию выбирает не ближайший магазин или игнорирует текущее местоположение",
+  "obs": 3
+ },
+ {
+  "id": "ui-customization-removed-toppings",
+  "title": "После обновления удалена возможность убирать топпинги со специальных пицц",
+  "obs": 3
+ },
+ {
+  "id": "ui-cart-wrong-item-deleted",
+  "title": "При удалении одной пиццы из корзины удаляется другая",
+  "obs": 3
+ },
+ {
+  "id": "support-automated-helpless",
+  "title": "Поддержка отвечает только автоматически и не решает реальные проблемы с заказом",
+  "obs": 3
+ },
+ {
+  "id": "payment-price-app-vs-web",
+  "title": "Цены в приложении выше, чем на сайте или через сторонние сервисы доставки",
+  "obs": 2
+ },
+ {
+  "id": "payment-saved-payment-lost",
+  "title": "Сохранённый способ оплаты и адрес не сохраняются между сессиями",
+  "obs": 2
+ },
+ {
+  "id": "payment-loyalty-redeem-broken",
+  "title": "Использование накопленных баллов вознаграждения заблокировано ошибкой приложения",
+  "obs": 2
+ },
+ {
+  "id": "ui-address-management",
+  "title": "Нет возможности удалить или отредактировать сохранённые адреса доставки",
+  "obs": 2
+ },
+ {
+  "id": "reliability-order-tracker-stale",
+  "title": "Трекер заказа не обновляется автоматически — нужно закрыть и открыть приложение заново",
+  "obs": 2
+ },
+ {
+  "id": "reliability-forced-daily-updates",
+  "title": "Приложение требует обновления при каждом запуске, что задерживает оформление заказа",
+  "obs": 2
+ },
+ {
+  "id": "support-password-reset-ad-blocker",
+  "title": "Всплывающая реклама перекрывает кнопку закрытия и сбивает процесс сброса пароля",
+  "obs": 2
+ },
+ {
+  "id": "payment-cash-unavailable",
+  "title": "Оплата наличными при доставке недоступна — приложение требует только карту",
+  "obs": 1
+ },
+ {
+  "id": "payment-charity-auto-add",
+  "title": "Приложение автоматически добавляет пожертвование на благотворительность без согласия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "payment-deal-logged-in-disappears",
+  "title": "Скидка, видимая до входа, исчезает после авторизации",
+  "obs": 1
+ },
+ {
+  "id": "payment-promo-online-only-refused",
+  "title": "Онлайн-акция недоступна при техническом сбое приложения, и магазин отказывается применить её",
+  "obs": 1
+ },
+ {
+  "id": "ui-menu-browse-before-order-type",
+  "title": "Приложение требует выбрать доставку или самовывоз до просмотра меню и цен",
+  "obs": 1
+ },
+ {
+  "id": "ui-customization-half-topping-bug",
+  "title": "Приложение путает стороны при добавлении топпинга на одну половину пиццы",
+  "obs": 1
+ },
+ {
+  "id": "ui-topping-scroll-ui-regression",
+  "title": "После обновления выбор топпингов требует прокрутки длинного списка вместо удобного интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "ui-delivery-vs-pickup-switch",
+  "title": "Приложение автоматически переключает доставку на самовывоз при вводе адреса",
+  "obs": 1
+ },
+ {
+  "id": "ui-deals-section-error",
+  "title": "Раздел акций и спецпредложений показывает ошибку вместо содержимого",
+  "obs": 1
+ },
+ {
+  "id": "ui-promo-code-invalid",
+  "title": "Промокод, указанный в рекламе, не существует в системе приложения",
+  "obs": 1
+ },
+ {
+  "id": "ui-video-ads-on-home",
+  "title": "Видеореклама на главном экране зависает и мешает использованию приложения",
+  "obs": 1
+ },
+ {
+  "id": "ui-delivery-instruction-field",
+  "title": "Поле инструкций курьеру слишком маленькое, а предпочтения доставки не сохраняются между заказами",
+  "obs": 1
+ },
+ {
+  "id": "ui-bacon-option-removed",
+  "title": "Опция добавления бекона к определённому блюду удалена после обновления",
+  "obs": 1
+ },
+ {
+  "id": "reliability-live-activity-stuck",
+  "title": "Виджет Live Activity на экране блокировки остаётся после доставки и не исчезает",
+  "obs": 1
+ },
+ {
+  "id": "reliability-order-not-submitted",
+  "title": "Приложение зависает на экране отправки заказа и не подтверждает его отправку в магазин",
+  "obs": 1
+ },
+ {
+  "id": "reliability-google-dependency",
+  "title": "Приложение не работает при блокировке Google — скрытая зависимость от стороннего сервиса",
+  "obs": 1
+ },
+ {
+  "id": "reliability-large-update-size",
+  "title": "Обновление весит 300 МБ, что в разы больше конкурентов и долго загружается по мобильной сети",
+  "obs": 1
+ },
+ {
+  "id": "support-account-locked-no-recovery",
+  "title": "Аккаунт заблокирован без возможности восстановить доступ через поддержку",
+  "obs": 1
+ },
+ {
+  "id": "strategy-store-kitchen-errors",
+  "title": "Магазин систематически ошибается при приготовлении даже при корректной передаче заказа",
+  "obs": 1
+ }
+]

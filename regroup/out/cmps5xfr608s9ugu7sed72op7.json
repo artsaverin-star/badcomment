@@ -1,0 +1,91 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps-charges",
+      "name": "Списания-ловушки: триал, что обернулся годом",
+      "insight_ids": [
+        "charged-full-year-no-trial",
+        "trial-reminder-never-sent",
+        "charged-after-cancel-no-refund",
+        "weekly-sub-disguised-as-onetime",
+        "paid-feature-not-delivered",
+        "extra-charges-after-yearly-pay",
+        "accidental-tap-charge",
+        "billing-continues-after-uninstall",
+        "fake-storage-full-paywall",
+        "hidden-free-tier-short-trial",
+        "sub-limits-not-disclosed"
+      ]
+    },
+    {
+      "id": "paywall-everywhere",
+      "name": "Пейволл повсюду: попробовать и сохранить не дают",
+      "insight_ids": [
+        "free-tool-moved-behind-paywall",
+        "majority-features-paywalled",
+        "paywall-before-any-use",
+        "cannot-save-without-payment",
+        "save-during-edit-blocked-by-pay",
+        "ai-credits-on-top-of-subscription",
+        "support-cannot-restore-features",
+        "limited-free-projects",
+        "core-edit-tools-require-sub",
+        "ai-features-not-worth-cost"
+      ]
+    },
+    {
+      "id": "ai-pivot-lost-tools",
+      "name": "Разворот в сторону AI: привычные инструменты вытеснены",
+      "insight_ids": [
+        "post-update-tools-relocated",
+        "removed-body-shaping-tool",
+        "ai-pivot-displaced-tools",
+        "weak-ai-image-generation",
+        "ai-erase-only-flat-bg",
+        "remove-brush-leaves-artifacts",
+        "bg-blur-edge-broken",
+        "lack-of-diverse-faces",
+        "limited-instagram-templates",
+        "mixed-quality-template-library"
+      ]
+    },
+    {
+      "id": "crashes-lost-work",
+      "name": "Падения и потерянная работа: ни автосохранения, ни возврата",
+      "insight_ids": [
+        "no-autosave-work-lost",
+        "back-button-loses-project",
+        "soundtrack-switches-on-photo-add",
+        "search-whitescreen",
+        "false-no-internet-error",
+        "edit-load-error",
+        "video-edit-crashes",
+        "drawing-tool-buggy",
+        "cannot-save-to-camera-roll",
+        "reinstall-icloud-painful",
+        "login-methods-fail"
+      ]
+    },
+    {
+      "id": "friction-interruptions",
+      "name": "Барьеры входа и навязчивые прерывания",
+      "insight_ids": [
+        "forced-account-creation",
+        "complex-navigation-many-clicks",
+        "slow-photo-import",
+        "repeated-rating-prompts",
+        "repeated-permission-prompts",
+        "aggressive-upsell-on-launch",
+        "ads-during-active-editing"
+      ]
+    },
+    {
+      "id": "safety-ethics",
+      "name": "Безопасность и этика: контент и дети в рекламе",
+      "insight_ids": [
+        "explicit-content-accessible",
+        "children-images-in-ads"
+      ]
+    }
+  ]
+}

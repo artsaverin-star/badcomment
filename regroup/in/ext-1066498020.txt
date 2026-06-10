@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from Apple News (Новости и RSS-читалки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Apple News, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Apple News — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Apple News>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1066498020.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paywall-feed-overwhelming",
+  "title": "Лента забита заголовками платных статей, которые неподписчик не может прочитать, и нет способа их скрыть",
+  "obs": 9
+ },
+ {
+  "id": "ads-layout-jump",
+  "title": "Реклама сдвигает текст статьи при загрузке — пользователь теряет место и вынужден снова искать строку",
+  "obs": 6
+ },
+ {
+  "id": "ads-on-paid-tier",
+  "title": "Платная подписка не убирает рекламу — объявления встроены в статьи и прыгают при загрузке",
+  "obs": 5
+ },
+ {
+  "id": "publisher-behind-extra-paywall",
+  "title": "Подписка News+ не открывает часть изданий — нужна отдельная подписка на каждый журнал",
+  "obs": 5
+ },
+ {
+  "id": "content-clickbait-quality",
+  "title": "Большинство статей — кликбейт с преувеличенными заголовками и без журналистской структуры",
+  "obs": 5
+ },
+ {
+  "id": "algo-ignores-dislike",
+  "title": "Алгоритм игнорирует явные отрицания — темы и каналы, которые пользователь отклонял, снова появляются",
+  "obs": 5
+ },
+ {
+  "id": "interface-ad-optimized",
+  "title": "Интерфейс построен под рекламу — навигация по контенту затруднена, рекламные баннеры загромождают экран",
+  "obs": 5
+ },
+ {
+  "id": "crash-general",
+  "title": "Приложение регулярно падает при открытии статей или в фоне, восстановление не работает",
+  "obs": 5
+ },
+ {
+  "id": "offline-error-false",
+  "title": "Приложение показывает ошибку отсутствия сети при хорошем подключении и загружает контент медленнее других приложений",
+  "obs": 5
+ },
+ {
+  "id": "blocked-sources-still-show",
+  "title": "Заблокированные каналы всё равно появляются в ленте — функция блокировки не убирает контент",
+  "obs": 4
+ },
+ {
+  "id": "ad-quality-low",
+  "title": "Реклама низкого качества и потенциально мошенническая — объявления несовместимы с уровнем издания",
+  "obs": 4
+ },
+ {
+  "id": "scroll-position-jump",
+  "title": "При скролле статья неконтролируемо прыгает — вниз, в начало или в конец — нарушая непрерывное чтение",
+  "obs": 4
+ },
+ {
+  "id": "search-broken",
+  "title": "Поиск не работает или не поддерживает фильтр по источнику, изданию или автору",
+  "obs": 3
+ },
+ {
+  "id": "headline-disappear-replace",
+  "title": "Заголовки в ленте динамически заменяются другими, и уже прочитанные статьи скрываются без возможности управления",
+  "obs": 3
+ },
+ {
+  "id": "content-gossip-vs-news",
+  "title": "Лента сместилась в сторону таблоидных сплетен и развлечений вместо серьёзных новостей",
+  "obs": 2
+ },
+ {
+  "id": "content-ai-generated",
+  "title": "В ленте появился AI-сгенерированный контент и фейковые изображения вместо редакционных материалов",
+  "obs": 2
+ },
+ {
+  "id": "content-freshness",
+  "title": "Ленты обновляются редко, старые статьи и мнения смешаны с новостями без фильтра по дате",
+  "obs": 2
+ },
+ {
+  "id": "content-tts-limited",
+  "title": "Функция чтения вслух работает только для части статей, а не для всего контента",
+  "obs": 2
+ },
+ {
+  "id": "session-restore-lost",
+  "title": "Переключение на другое приложение или звонок сбрасывает статью — приложение показывает случайный контент вместо восстановления",
+  "obs": 2
+ },
+ {
+  "id": "algo-overfit-topic",
+  "title": "После чтения одной статьи алгоритм забивает всю ленту этой темой на следующий день",
+  "obs": 2
+ },
+ {
+  "id": "navigation-too-many-taps",
+  "title": "Открытие заголовков и переход между экранами требует слишком много нажатий",
+  "obs": 2
+ },
+ {
+  "id": "accessibility-voiceover",
+  "title": "VoiceOver зачитывает рекламу и пропускает основной текст статьи",
+  "obs": 2
+ },
+ {
+  "id": "accessibility-font-size",
+  "title": "Размер шрифта в кроссвордах и новостях не регулируется — контент нечитаем при плохом зрении",
+  "obs": 2
+ },
+ {
+  "id": "crash-after-ios-update",
+  "title": "После обновления iOS приложение постоянно падает, несмотря на свободное место и новое устройство",
+  "obs": 2
+ },
+ {
+  "id": "puzzle-glitch-after-update",
+  "title": "После обновления в разделе головоломок появляются мигающие значки и всплывающие окна, а автопроверка перестала работать",
+  "obs": 2
+ },
+ {
+  "id": "share-link-broken",
+  "title": "Ссылка на статью открывает Apple News вместо оригинала — неподписчик не может прочитать материал",
+  "obs": 2
+ },
+ {
+  "id": "throttle-vpn-geo-block",
+  "title": "Приложение недоступно при использовании VPN или за пределами США",
+  "obs": 2
+ },
+ {
+  "id": "paywall-indicator-removed",
+  "title": "Убрали визуальный значок платного контента — пользователь случайно открывает недоступную статью",
+  "obs": 1
+ },
+ {
+  "id": "price-hike-value-drop",
+  "title": "Цена подписки выросла, а лента одновременно стала платной — ценность для существующих подписчиков упала",
+  "obs": 1
+ },
+ {
+  "id": "trial-cancel-kills-access",
+  "title": "Отмена пробного периода сразу прекращает доступ, а не только будущее списание",
+  "obs": 1
+ },
+ {
+  "id": "content-niche-topics",
+  "title": "Узкоспециальные темы не поддерживаются — алгоритм подменяет их мейнстримными новостями",
+  "obs": 1
+ },
+ {
+  "id": "content-political-imbalance",
+  "title": "После удаления источников одного политического уклона лента пустеет — подборка несбалансирована",
+  "obs": 1
+ },
+ {
+  "id": "algo-no-discovery",
+  "title": "Алгоритм слишком сужает рекомендации — новые темы не появляются без ручного поиска",
+  "obs": 1
+ },
+ {
+  "id": "headline-duplicate",
+  "title": "Каждый заголовок отображается дважды — лента переполнена дубликатами",
+  "obs": 1
+ },
+ {
+  "id": "no-aggregated-feed",
+  "title": "Нет единой ленты для всех подписанных изданий — каждое нужно проверять отдельно",
+  "obs": 1
+ },
+ {
+  "id": "reading-progress-lost",
+  "title": "При закрытии приложения прогресс чтения теряется — нет истории просмотров или сохранённой позиции",
+  "obs": 1
+ },
+ {
+  "id": "no-content-type-filter",
+  "title": "Нет фильтра по типу контента — нельзя скрыть насилие или тревожащие материалы, не блокируя весь источник",
+  "obs": 1
+ },
+ {
+  "id": "no-ai-summary",
+  "title": "Нет встроенной AI-суммаризации статей для быстрого обзора содержимого",
+  "obs": 1
+ },
+ {
+  "id": "no-print",
+  "title": "Нельзя распечатать статью для чтения в бумажном формате",
+  "obs": 1
+ },
+ {
+  "id": "notification-duplicates",
+  "title": "После обновления каждое уведомление приходит дважды",
+  "obs": 1
+ },
+ {
+  "id": "notifications-sports-flood",
+  "title": "Спортивные уведомления приходят слишком часто и нет избирательного управления ими",
+  "obs": 1
+ },
+ {
+  "id": "session-reload-on-open",
+  "title": "При повторном открытии приложение полностью перезагружается и возвращает пользователя в начало ленты",
+  "obs": 1
+ },
+ {
+  "id": "post-update-scroll-delay",
+  "title": "После обновления каждая статья требует прокрутки пустого экрана перед загрузкой текста",
+  "obs": 1
+ },
+ {
+  "id": "articles-not-loading",
+  "title": "Часть статей не загружается полностью — встроенные видео и галереи не открываются",
+  "obs": 1
+ },
+ {
+  "id": "unexplained-error-messages",
+  "title": "Приложение выводит ограничивающие сообщения об ошибке, которые пользователь не может устранить самостоятельно",
+  "obs": 1
+ },
+ {
+  "id": "linked-article-auth-fail",
+  "title": "Связанная статья открывается в Safari без авторизации — доступ к контенту из другого издания теряется",
+  "obs": 1
+ },
+ {
+  "id": "artificial-throttling",
+  "title": "Приложение искусственно замедляет соединение и показывает ошибку сети, чтобы подтолкнуть к платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "bundle-vs-standalone",
+  "title": "Бесплатная версия слишком урезана — спорт, игры и развлечения требуют отдельных подписок вместо одного тарифа",
+  "obs": 1
+ },
+ {
+  "id": "paywall-blocks-free-content",
+  "title": "Apple News берёт оплату за статьи, которые на сайте самого издателя доступны бесплатно",
+  "obs": 1
+ }
+]

@@ -1,0 +1,45 @@
+{
+  "groups": [
+    {
+      "id": "auth-access-failures",
+      "name": "Нельзя войти и нельзя начать: поломки входа и регистрации",
+      "insight_ids": [
+        "login-loop-subscription-screen",
+        "password-screen-freeze",
+        "apple-login-broken",
+        "confirmation-code-not-received"
+      ]
+    },
+    {
+      "id": "app-freeze-crash",
+      "name": "Приложение зависает: белый экран, уведомления и аффирмации без реакции",
+      "insight_ids": [
+        "notification-white-screen-freeze",
+        "affirmation-section-stuck"
+      ]
+    },
+    {
+      "id": "affirmation-display-issues",
+      "name": "Аффирмации не работают: текст обрезается и не обновляется",
+      "insight_ids": [
+        "affirmation-text-cut-off"
+      ]
+    },
+    {
+      "id": "meditation-session-quality",
+      "name": "Медитация прерывается и не возобновляется: качество звука и прогресс",
+      "insight_ids": [
+        "meditation-no-resume",
+        "audio-quality-poor-guides"
+      ]
+    },
+    {
+      "id": "navigation-accessibility",
+      "name": "Навигация и доступность: контраст меню и необъяснённые разрешения",
+      "insight_ids": [
+        "menu-low-contrast",
+        "geolocation-permission-unexplained"
+      ]
+    }
+  ]
+}

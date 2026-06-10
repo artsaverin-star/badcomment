@@ -1,0 +1,85 @@
+{
+  "groups": [
+    {
+      "id": "skan-i-kachestvo-snimka",
+      "name": "Алгоритм скана: чёткость, цвет и захват кадра",
+      "insight_ids": [
+        "image-quality-enhancement-advantage",
+        "color-watermark-not-preserved",
+        "inconsistent-scan-quality",
+        "pdf-quality-degradation",
+        "camera-visible-in-scan",
+        "camera-shake-sensitivity",
+        "auto-crop-hands-from-edges"
+      ]
+    },
+    {
+      "id": "podpiska-spisaniya-i-lovushki",
+      "name": "Списания, отмена подписки и навязанная оплата",
+      "insight_ids": [
+        "duplicate-charge-no-refund",
+        "subscription-continues-after-cancel",
+        "erase-function-charges-per-use-not-unlimited",
+        "trial-reminder-missing",
+        "lifetime-license-blocked",
+        "advertised-as-free-requires-subscription",
+        "one-time-use-unsubscribe"
+      ]
+    },
+    {
+      "id": "otpravka-faks-pechat",
+      "name": "Отправка документа: email, факс и печать",
+      "insight_ids": [
+        "email-send-silent-failure",
+        "email-opens-camera-instead",
+        "email-delivery-delay",
+        "no-print-to-home-printer",
+        "no-password-protection-for-email",
+        "fax-replacement-use-case"
+      ]
+    },
+    {
+      "id": "propazha-failov-i-sinhronizaciya",
+      "name": "Пропажа сканов, дубли и синхронизация",
+      "insight_ids": [
+        "scans-disappear-after-app-reopen",
+        "files-lost-on-device-transfer",
+        "duplicate-images-created",
+        "save-export-freeze",
+        "icloud-wifi-sync-works",
+        "save-location-options-limited"
+      ]
+    },
+    {
+      "id": "redaktor-i-pervye-shagi",
+      "name": "Редактор и первые шаги: чего не хватает в работе с документом",
+      "insight_ids": [
+        "rename-dialog-ux-issue",
+        "capture-area-not-visible-for-new-users",
+        "no-undo-for-edits",
+        "no-built-in-editor",
+        "no-date-stamp-option",
+        "default-multipage-mode"
+      ]
+    },
+    {
+      "id": "ocr-rukopisnyi-tekst",
+      "name": "OCR и распознавание рукописного текста",
+      "insight_ids": [
+        "ocr-handwriting-errors",
+        "ocr-handwriting-workflow",
+        "handwriting-to-text-feature-advertised-not-working",
+        "advertised-features-missing-in-app"
+      ]
+    },
+    {
+      "id": "polevaya-rabota-i-podderzhka",
+      "name": "Замена настольного сканера в работе на выезде и поддержка",
+      "insight_ids": [
+        "real-estate-field-workflow",
+        "mobile-replaces-desktop-scanner",
+        "support-bot-generic-responses"
+      ]
+    }
+  ]
+}

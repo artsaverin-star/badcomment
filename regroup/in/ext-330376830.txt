@@ -1,0 +1,269 @@
+You are grouping 44 mechanism-level insight clusters from Period Tracker by GP Apps (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Period Tracker by GP Apps, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 44 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Period Tracker by GP Apps — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Period Tracker by GP Apps>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-330376830.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "symptom-notes-logging",
+  "title": "Система заметок с кастомизируемыми тегами настроения, симптомов и привычек помогает выявлять корреляции между циклом и образом жизни",
+  "obs": 5
+ },
+ {
+  "id": "teen-onboarding-ux",
+  "title": "Интерфейс приложения вызывает замешательство у подростков, впервые отслеживающих цикл: непонятно, что означают элементы управления",
+  "obs": 3
+ },
+ {
+  "id": "fertility-window-for-conception",
+  "title": "Алгоритм прогнозирования окна фертильности достаточно точен для планирования зачатия — пользователи успешно беременели с его помощью",
+  "obs": 3
+ },
+ {
+  "id": "irregular-cycle-handling",
+  "title": "Приложение адаптирует прогноз к нерегулярным циклам, но у подростков это требует ручной настройки параметров",
+  "obs": 3
+ },
+ {
+  "id": "pregnancy-tracking-mode",
+  "title": "Приложение поддерживает отдельный режим отслеживания беременности и роста плода без смены приложения",
+  "obs": 2
+ },
+ {
+  "id": "perimenopause-support-gap",
+  "title": "Приложение не поддерживает специфичные симптомы перименопаузы, хотя часть пользователей уже использует его для этого",
+  "obs": 2
+ },
+ {
+  "id": "lifestyle-health-tips-in-app",
+  "title": "Встроенные советы по упражнениям, питанию и гормональной регуляции расширяют приложение за рамки простого трекера",
+  "obs": 2
+ },
+ {
+  "id": "educational-content-teen",
+  "title": "Приложение содержит недостаточно образовательного контента для подростков и молодых женщин, только начинающих следить за циклом",
+  "obs": 2
+ },
+ {
+  "id": "explicit-sexual-ads",
+  "title": "В приложении появились явные сексуальные изображения в виде рекламы при вводе данных — давние пользователи удаляют его из-за этого",
+  "obs": 2
+ },
+ {
+  "id": "ui-design-dated",
+  "title": "Визуальный дизайн воспринимается как скучный и базовый; часть пользователей ценит стабильность, другие хотят современного интерфейса",
+  "obs": 2
+ },
+ {
+  "id": "theme-backgrounds-removed",
+  "title": "Функция смены скинов и фонов удалена из приложения, снизив эмоциональную вовлечённость пользователей, которые за неё платили",
+  "obs": 2
+ },
+ {
+  "id": "algorithm-wrong-prediction",
+  "title": "При вводе корректных дат приложение генерирует явно неверные прогнозы — ошибка алгоритма расчёта цикла",
+  "obs": 2
+ },
+ {
+  "id": "cloud-backup-sync",
+  "title": "Облачное резервное копирование восстанавливает данные после сброса устройства, но при этом синхронизация между устройствами работает не всегда",
+  "obs": 2
+ },
+ {
+  "id": "fertility-window-contraception-fail",
+  "title": "Прогноз окна овуляции расходится с Google и другими методами на целую неделю — использование ритм-метода привело к незапланированной беременности",
+  "obs": 2
+ },
+ {
+  "id": "prediction-improves-over-time",
+  "title": "Точность прогнозов растёт по мере накопления исторических данных — приложение, используемое долго, становится надёжнее",
+  "obs": 2
+ },
+ {
+  "id": "prediction-minor-error-accepted",
+  "title": "Небольшое отклонение прогноза на несколько дней пользователи принимают как нормальный предел точности трекинга",
+  "obs": 2
+ },
+ {
+  "id": "historical-stats-paywalled",
+  "title": "Доступ к исторической статистике (графики, логи) стал платным для давних пользователей, которые раньше получали его бесплатно",
+  "obs": 1
+ },
+ {
+  "id": "free-core-no-paywall",
+  "title": "Основная функциональность остаётся полностью бесплатной — это контрастирует с конкурентами с агрессивной монетизацией",
+  "obs": 1
+ },
+ {
+  "id": "premium-access-broken",
+  "title": "После переподписки на премиум приложение отказывает в доступе с ошибкой, поддержка не отвечает",
+  "obs": 1
+ },
+ {
+  "id": "pregnancy-mode-free-locked",
+  "title": "Режим отслеживания беременности недоступен в бесплатной версии, хотя это логичное продолжение для пользователей после отслеживания цикла",
+  "obs": 1
+ },
+ {
+  "id": "educational-content-diversity",
+  "title": "Образовательные иллюстрации в приложении не отражают расового разнообразия — показаны только белые женщины",
+  "obs": 1
+ },
+ {
+  "id": "no-educational-push",
+  "title": "Приложение не навязывает образовательный контент о репродуктивном здоровье, который подростки находят неудобным",
+  "obs": 1
+ },
+ {
+  "id": "calorie-banner-trigger",
+  "title": "Постоянный баннер с пропагандой подсчёта калорий нельзя закрыть — это опасно для пользователей с расстройствами пищевого поведения",
+  "obs": 1
+ },
+ {
+  "id": "hidden-settings-discoverability",
+  "title": "Большинство пользователей не знают о скрытых настройках кастомизации прогноза — из-за этого ставят низкие оценки за неточность",
+  "obs": 1
+ },
+ {
+  "id": "stickers-notes",
+  "title": "Пользователи хотят добавлять стикеры в заметки для выразительности, но такой функции нет",
+  "obs": 1
+ },
+ {
+  "id": "voiceover-accessibility",
+  "title": "Поддержка VoiceOver работает плохо — пользователи с нарушениями зрения не могут нормально навигировать по приложению",
+  "obs": 1
+ },
+ {
+  "id": "discrete-branding",
+  "title": "Приложение показывает сокращённое название «P Tracker» вместо «Period» — это снижает смущение у молодых пользователей",
+  "obs": 1
+ },
+ {
+  "id": "doctor-data-charts",
+  "title": "Графики длины цикла и менструации из приложения полезны при обсуждении проблем с гинекологом",
+  "obs": 1
+ },
+ {
+  "id": "prediction-large-error",
+  "title": "Прогноз менструации ошибается на целую неделю, что приводит к отменённым поездкам и реальным финансовым потерям",
+  "obs": 1
+ },
+ {
+  "id": "calendar-year-bug",
+  "title": "При смене календарного года перестаёт регистрироваться отметка конца менструации — потенциальный баг на рубеже года",
+  "obs": 1
+ },
+ {
+  "id": "layout-corruption-premium",
+  "title": "После обновления премиум-версии текст и элементы интерфейса перекрываются — явная ошибка вёрстки",
+  "obs": 1
+ },
+ {
+  "id": "login-new-device-blocked",
+  "title": "На новом устройстве приложение не распознаёт зарегистрированный адрес электронной почты и блокирует доступ к истории",
+  "obs": 1
+ },
+ {
+  "id": "history-wipe-on-logout",
+  "title": "При случайном разлогировании вся история цикла стирается без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "bleeding-duration-cap",
+  "title": "Приложение ограничивает длительность кровотечения 4 днями и не позволяет фиксировать аномально долгие периоды — это мешает диагностике",
+  "obs": 1
+ },
+ {
+  "id": "cross-platform-migration",
+  "title": "При переходе с Android на iOS точность прогнозов сохраняется — кроссплатформенная миграция данных работает надёжно",
+  "obs": 1
+ },
+ {
+  "id": "privacy-data-collection",
+  "title": "Приложение собирает широкий спектр личных данных (идентификаторы устройств, история покупок), что вызывает обеспокоенность приватностью",
+  "obs": 1
+ },
+ {
+  "id": "prediction-last-minute-shift",
+  "title": "Прогноз иногда меняется за день до события — алгоритм реагирует на новые данные, но это создаёт путаницу",
+  "obs": 1
+ },
+ {
+  "id": "user-input-required-for-accuracy",
+  "title": "Точность прогноза полностью зависит от своевременного ввода данных пользователем — приложение не компенсирует забывчивость",
+  "obs": 1
+ },
+ {
+  "id": "auto-complete-cycle",
+  "title": "Автоматическое завершение цикла при забывчивости пользователя сохраняет точность без ручного вмешательства",
+  "obs": 1
+ },
+ {
+  "id": "partner-cycle-sharing",
+  "title": "Функция обмена данными о цикле с партнёром даёт контекст для совместного планирования",
+  "obs": 1
+ },
+ {
+  "id": "reproductive-data-privacy-fear",
+  "title": "Пользователи доверяют приложению хранение интимных данных в контексте политических опасений по поводу репродуктивных прав",
+  "obs": 1
+ },
+ {
+  "id": "vaccination-cycle-correlation",
+  "title": "Приложение помогает обнаружить изменения цикла после вакцинации — паттерн, незаметный при ведении бумажного журнала",
+  "obs": 1
+ },
+ {
+  "id": "app-vs-notes-advantage",
+  "title": "Специализированный трекер удобнее общих заметок: упрощает поиск и анализ исторических записей о цикле",
+  "obs": 1
+ },
+ {
+  "id": "teen-normalization-safe-space",
+  "title": "Визуальный дизайн снижает страх и смущение у подростков по отношению к менструации, создавая ощущение безопасного пространства",
+  "obs": 1
+ }
+]

@@ -1,0 +1,284 @@
+You are grouping 47 mechanism-level insight clusters from Sleep Sounds White Noise, Rain (white noise / rain / sleep) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sleep Sounds White Noise, Rain, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 47 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sleep Sounds White Noise, Rain — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sleep Sounds White Noise, Rain>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1453508270.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "premium-content-locked-after-payment",
+  "title": "После оплаты подписки весь контент остаётся заблокированным и недоступным",
+  "obs": 12
+ },
+ {
+  "id": "cancel-hidden-no-ui",
+  "title": "Кнопка отмены подписки скрыта в интерфейсе — найти и выполнить отмену невозможно",
+  "obs": 7
+ },
+ {
+  "id": "loop-gap-audible",
+  "title": "На стыке петли воспроизведения слышен заметный разрыв или пауза, нарушающая непрерывность",
+  "obs": 7
+ },
+ {
+  "id": "support-no-response",
+  "title": "Разработчик не отвечает на письма и обращения в поддержку при проблемах с оплатой или контентом",
+  "obs": 7
+ },
+ {
+  "id": "trial-charged-immediately",
+  "title": "Пробный период списывает полную стоимость сразу, без ожидания семи дней",
+  "obs": 6
+ },
+ {
+  "id": "auto-renewal-without-consent",
+  "title": "Автоматическое продление подписки происходит без явного согласия пользователя",
+  "obs": 3
+ },
+ {
+  "id": "sound-stops-locked-screen",
+  "title": "После блокировки экрана или перевода телефона в режим тишины воспроизведение прекращается",
+  "obs": 3
+ },
+ {
+  "id": "price-hidden-before-install",
+  "title": "Цена подписки не отображается в магазине приложений до установки",
+  "obs": 2
+ },
+ {
+  "id": "trial-limited-content",
+  "title": "Пробный период даёт доступ лишь к нескольким звукам и не позволяет оценить полную библиотеку",
+  "obs": 2
+ },
+ {
+  "id": "free-to-paid-regression",
+  "title": "Звуки, ранее доступные бесплатно, после обновления перешли в платный раздел",
+  "obs": 2
+ },
+ {
+  "id": "premium-few-new-sounds",
+  "title": "Премиум даёт доступ лишь к двум-трём новым звукам — платить за это нецелесообразно",
+  "obs": 2
+ },
+ {
+  "id": "per-sound-pricing-expensive",
+  "title": "Каждый звук стоит отдельно, суммарная цена библиотеки воспринимается как завышенная",
+  "obs": 2
+ },
+ {
+  "id": "rainy-day-sound-removed",
+  "title": "Конкретный звук «rainy day», который пользователи использовали годами, удалён из приложения",
+  "obs": 2
+ },
+ {
+  "id": "sleep-meditation-removed",
+  "title": "Медитации для сна, доступные по подписке, исчезли после обновления",
+  "obs": 2
+ },
+ {
+  "id": "auto-stop-ignores-timer-setting",
+  "title": "Звуки останавливаются примерно через час, даже когда таймер отключён",
+  "obs": 2
+ },
+ {
+  "id": "sound-too-quiet",
+  "title": "Звуки слишком тихие для маскировки громких внешних шумов, регулировка недостаточна",
+  "obs": 2
+ },
+ {
+  "id": "app-auto-launches-after-delete",
+  "title": "Удалённое приложение продолжает автоматически запускаться и воспроизводить звуки",
+  "obs": 2
+ },
+ {
+  "id": "no-contact-info",
+  "title": "В приложении нет видимых контактов поддержки, пользователь не знает куда обратиться",
+  "obs": 2
+ },
+ {
+  "id": "thunder-behind-paywall",
+  "title": "Звук грома недоступен в бесплатной версии, хотя именно он является причиной установки",
+  "obs": 1
+ },
+ {
+  "id": "restore-purchase-fails",
+  "title": "После переустановки приложение не восстанавливает ранее купленный контент",
+  "obs": 1
+ },
+ {
+  "id": "narrator-voice-only-male",
+  "title": "Для медитаций доступен только мужской голос, выбрать женский нельзя",
+  "obs": 1
+ },
+ {
+  "id": "narrator-pacing-distracting",
+  "title": "Голос рассказчика с неестественными паузами и интонациями мешает расслаблению",
+  "obs": 1
+ },
+ {
+  "id": "ocean-birds-unrealistic",
+  "title": "Звуки морских птиц звучат неестественно и не создают ощущения ночной природы",
+  "obs": 1
+ },
+ {
+  "id": "stories-locked-behind-paywall",
+  "title": "Рассказы для сна недоступны в бесплатной версии — нельзя попробовать конкретный рассказ",
+  "obs": 1
+ },
+ {
+  "id": "story-prompts-review-on-end",
+  "title": "По окончании истории приложение будит пользователя запросом оценки вместо тихого перехода к фоновым звукам",
+  "obs": 1
+ },
+ {
+  "id": "tablet-cover-volume-oscillation",
+  "title": "При закрытии крышки планшета громкость начинает хаотично колебаться",
+  "obs": 1
+ },
+ {
+  "id": "rainy-day-stops-requires-reinstall",
+  "title": "Звук «rainy day» перестаёт воспроизводиться и запускается только после полной переустановки",
+  "obs": 1
+ },
+ {
+  "id": "25min-track-fails-to-play",
+  "title": "25-минутный звук дождя не воспроизводится из-за технического сбоя",
+  "obs": 1
+ },
+ {
+  "id": "mixer-limit-three-sounds",
+  "title": "Одновременно можно включить не более трёх звуков, расширить микс без оплаты нельзя",
+  "obs": 1
+ },
+ {
+  "id": "bottom-bar-unresponsive",
+  "title": "Нижняя панель с таймером и громкостью не реагирует на нажатия и перекрывает другие элементы",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-interrupts-trial",
+  "title": "Запрос рецензии появляется в самом начале использования, до того как пользователь успел оценить функции",
+  "obs": 1
+ },
+ {
+  "id": "mixer-crash-items-not-clickable",
+  "title": "Приложение вылетает при выборе звуков в микшере, часть элементов некликабельна",
+  "obs": 1
+ },
+ {
+  "id": "battery-drain-after-update",
+  "title": "После обновления приложение значительно ускоряет разрядку батареи",
+  "obs": 1
+ },
+ {
+  "id": "fan-sound-modulation-regression",
+  "title": "После обновления постоянный звук фена стал волнообразным с нежелательными модуляциями",
+  "obs": 1
+ },
+ {
+  "id": "session-logout-interrupts-night",
+  "title": "Приложение самопроизвольно разлогинивает пользователя ночью и прерывает воспроизведение",
+  "obs": 1
+ },
+ {
+  "id": "stories-fail-to-load",
+  "title": "Рассказы для сна не загружаются даже при активной платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "child-sound-regression",
+  "title": "Звук, который ребёнок слушал неделями, внезапно перестаёт воспроизводиться после обновления",
+  "obs": 1
+ },
+ {
+  "id": "white-noise-as-travel-machine",
+  "title": "Приложение заменяет белошумовую машину в поездках, где нельзя взять физическое устройство",
+  "obs": 1
+ },
+ {
+  "id": "sound-causes-headache",
+  "title": "У части пользователей звуки вызывают головную боль, делая приложение непригодным для сна",
+  "obs": 1
+ },
+ {
+  "id": "app-worsens-sleep-quality",
+  "title": "Пользователь просыпается более уставшим после ночи с приложением, чем без него",
+  "obs": 1
+ },
+ {
+  "id": "psychological-dependency-on-sounds",
+  "title": "После регулярного использования пользователь не может заснуть без звуков приложения",
+  "obs": 1
+ },
+ {
+  "id": "nausea-during-flights-use-case",
+  "title": "Звуки дождя и грома помогают справляться с тошнотой во время перелётов",
+  "obs": 1
+ },
+ {
+  "id": "chronic-pain-free-tier-use",
+  "title": "Пользователи с хроническими болями используют только бесплатные функции, не имея возможности платить за премиум",
+  "obs": 1
+ },
+ {
+  "id": "competitor-physical-fan-alternative",
+  "title": "Физический вентилятор воспринимается как бесплатная альтернатива цифровому белому шуму",
+  "obs": 1
+ },
+ {
+  "id": "ineffective-without-supplements",
+  "title": "Приложение не помогает заснуть без дополнительного мелатонина, что ограничивает его самостоятельную ценность",
+  "obs": 1
+ },
+ {
+  "id": "snore-masking-use-case",
+  "title": "Приложение маскирует храп партнёра и позволяет спать крепче",
+  "obs": 1
+ },
+ {
+  "id": "sound-length-insufficient",
+  "title": "Длина записей слишком короткая для использования всю ночь без повторений",
+  "obs": 1
+ }
+]

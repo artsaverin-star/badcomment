@@ -1,0 +1,87 @@
+{
+  "groups": [
+    {
+      "id": "pay-upfront-no-loan",
+      "name": "Платишь вперёд — займа нет: подписка как плата за услугу, которой не существует",
+      "insight_ids": [
+        "pay-first-no-loan-ever",
+        "trial-charges-immediately",
+        "advertised-cash-advance-is-application",
+        "advertised-price-mismatch",
+        "verification-rejected-after-pay",
+        "duplicate-charge-new-account",
+        "repeated-withdrawal-attempts",
+        "data-collection-for-resale",
+        "upfront-fee-vs-rivals"
+      ]
+    },
+    {
+      "id": "broker-not-p2p",
+      "name": "Не P2P, а посредник: вместо своих займов — редиректы к чужим кредиторам",
+      "insight_ids": [
+        "external-offers-only-no-p2p",
+        "is-broker-not-lender",
+        "subprime-shark-rates",
+        "middleman-slows-down",
+        "p2p-model-never-worked-long-term",
+        "hard-inquiry-hurts-credit",
+        "redirect-to-second-app",
+        "instant-advance-needs-investor-wait"
+      ]
+    },
+    {
+      "id": "verification-onboarding-wall",
+      "name": "Стена верификации: ID, банк и SSN не пускают на старте",
+      "insight_ids": [
+        "id-scan-broken",
+        "ssn-email-conflict-locks-account",
+        "bank-connect-fails-oops",
+        "onboarding-harder-than-rivals",
+        "bank-not-supported",
+        "id-verify-more-friction-upfront"
+      ]
+    },
+    {
+      "id": "support-refund-deadend",
+      "name": "Тупик поддержки и возвратов: боты, отписки и пинг-понг с Apple",
+      "insight_ids": [
+        "charges-continue-after-cancel",
+        "support-ai-bot-only",
+        "support-unreachable",
+        "refund-blocked-loop",
+        "support-blames-third-party",
+        "support-cant-update-phone"
+      ]
+    },
+    {
+      "id": "data-spam-security",
+      "name": "Данные уходят на сторону: спам-звонки, несносимый аккаунт и взлом банка",
+      "insight_ids": [
+        "no-account-deletion-data-retained",
+        "partner-data-spam-calls",
+        "suspicious-bank-login-attempts"
+      ]
+    },
+    {
+      "id": "broken-marketplace",
+      "name": "Маркетплейс не работает: нет совпадений, мёртвые заявки и дефолты",
+      "insight_ids": [
+        "fake-stale-loan-listings",
+        "high-default-rate-investor-loss",
+        "credit-score-filters-out-borrowers",
+        "no-way-to-cancel-loan-request",
+        "lender-borrower-imbalance"
+      ]
+    },
+    {
+      "id": "ui-breaks-after-pay",
+      "name": "Интерфейс ломается после оплаты: нерабочие кнопки, мёртвые ссылки и отчёты по расписанию",
+      "insight_ids": [
+        "reports-only-on-28th",
+        "buttons-dont-work-after-pay",
+        "offer-notification-link-dead",
+        "external-lender-login-loop"
+      ]
+    }
+  ]
+}

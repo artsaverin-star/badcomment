@@ -1,0 +1,239 @@
+You are grouping 38 mechanism-level insight clusters from Mesmerize (visual meditation / relax / focus / sleep) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Mesmerize, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 38 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Mesmerize — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Mesmerize>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1461517107.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "no-free-trial-paywall",
+  "title": "Приложение требует оплату или привязку карты до того, как можно увидеть хоть один контент",
+  "obs": 17
+ },
+ {
+  "id": "false-free-positioning",
+  "title": "Приложение в магазине и рекламе позиционируется как бесплатное, но требует платную подписку",
+  "obs": 8
+ },
+ {
+  "id": "trial-immediate-annual-charge",
+  "title": "Пробный период сразу списывает полную годовую сумму вместо обещанных бесплатных дней",
+  "obs": 7
+ },
+ {
+  "id": "trial-no-reminder-auto-charge",
+  "title": "Приложение не присылает напоминание об окончании пробного периода — пользователь незаметно попадает в годовую подписку",
+  "obs": 5
+ },
+ {
+  "id": "cancel-subscription-impossible",
+  "title": "Отменить подписку нельзя ни через приложение, ни через поддержку — пользователь заперт в контракте",
+  "obs": 4
+ },
+ {
+  "id": "rate-before-use",
+  "title": "Приложение требует поставить оценку до того, как пользователь может что-либо использовать",
+  "obs": 4
+ },
+ {
+  "id": "cancel-button-broken",
+  "title": "Кнопка закрытия экрана подписки не работает — невозможно отказаться от покупки",
+  "obs": 3
+ },
+ {
+  "id": "charge-without-notification",
+  "title": "Приложение списывает деньги без уведомления пользователя, поддержка на запросы о возврате не отвечает",
+  "obs": 3
+ },
+ {
+  "id": "short-trial-high-price",
+  "title": "Три дня пробного периода при цене £50 в год — слишком мало времени для оценки ценности",
+  "obs": 3
+ },
+ {
+  "id": "low-quality-visuals",
+  "title": "Визуализации пиксельные и низкого качества — разочаровывают при просмотре на большом экране",
+  "obs": 3
+ },
+ {
+  "id": "youtube-free-alternative",
+  "title": "Контент представляет собой обычные видео с фракталами, которые бесплатно доступны на YouTube",
+  "obs": 2
+ },
+ {
+  "id": "choppy-animation",
+  "title": "Движение визуальных паттернов рывистое — анимация недостаточно плавная",
+  "obs": 2
+ },
+ {
+  "id": "free-to-paid-transition",
+  "title": "Приложение было бесплатным, потом внезапно стало платным — старые пользователи потеряли доступ",
+  "obs": 2
+ },
+ {
+  "id": "predatory-pricing-vulnerable",
+  "title": "Высокая цена рассчитана на аудиторию, не умеющую отменять подписки — этическая проблема монетизации уязвимых групп",
+  "obs": 2
+ },
+ {
+  "id": "accidental-annual-instead-of-week",
+  "title": "Пользователь случайно оформляет годовую подписку вместо недельной — возврат невозможен",
+  "obs": 1
+ },
+ {
+  "id": "double-billing",
+  "title": "Приложение одновременно выставляет счёт по двум тарифам, компания отказывается возвращать переплату",
+  "obs": 1
+ },
+ {
+  "id": "pzizz-integration-broken",
+  "title": "Вход через партнёрскую подписку Pzizz не работает — пользователи теряют включённый доступ",
+  "obs": 1
+ },
+ {
+  "id": "portfolio-price-discrimination",
+  "title": "Компания продаёт одинаковый контент в двух разных приложениях по разным ценам",
+  "obs": 1
+ },
+ {
+  "id": "personal-data-collection",
+  "title": "Пробный период требует обширные личные данные — телефон, адрес, банковские данные, SSN",
+  "obs": 1
+ },
+ {
+  "id": "repetitive-narrator-voice",
+  "title": "Один и тот же голос медитации повторяется снова и снова — нет разнообразия нарраторов",
+  "obs": 1
+ },
+ {
+  "id": "trial-limited-content",
+  "title": "В пробном периоде повторяется одна и та же визуализация — невозможно оценить полный ассортимент",
+  "obs": 1
+ },
+ {
+  "id": "no-narrator-filter",
+  "title": "Нет фильтрации медитаций по нарратору — невозможно найти все записи с нужным голосом",
+  "obs": 1
+ },
+ {
+  "id": "visuals-grid-missing",
+  "title": "Нет сеточного просмотра всех визуализаций — выбор нужного контента неудобен",
+  "obs": 1
+ },
+ {
+  "id": "visuals-only-no-meditation",
+  "title": "Пользователь хочет только визуальные фоны без медитации, но нет гибкого выбора функций",
+  "obs": 1
+ },
+ {
+  "id": "audio-desync",
+  "title": "Звук и визуальный ряд не синхронизируются — главная гипнотическая эффект приложения нарушен",
+  "obs": 1
+ },
+ {
+  "id": "audio-drops-silently",
+  "title": "Звук пропадает без видимой причины — нужно перезапускать приложение",
+  "obs": 1
+ },
+ {
+  "id": "headphone-reconnect-no-resume",
+  "title": "После снятия и повторного надевания наушников звук не возобновляется с того же места",
+  "obs": 1
+ },
+ {
+  "id": "no-session-timer",
+  "title": "Нет таймера завершения сессии — медитация продолжается бесконечно без возможности автоматической остановки",
+  "obs": 1
+ },
+ {
+  "id": "visuals-uncomfortable-lying",
+  "title": "Яркие оптические иллюзии вызывают дискомфорт при просмотре лёжа на спине",
+  "obs": 1
+ },
+ {
+  "id": "visuals-nausea-migraine",
+  "title": "Сложная яркая визуализация вызывает мигрени и тошноту у людей с чувствительностью к стимуляции",
+  "obs": 1
+ },
+ {
+  "id": "crash-on-ipad-ios18",
+  "title": "Приложение падает при первом запуске на iPad с новой версией iOS",
+  "obs": 1
+ },
+ {
+  "id": "videos-not-loading",
+  "title": "Множество видео не загружается в приложении — базовая доставка контента нарушена",
+  "obs": 1
+ },
+ {
+  "id": "broken-after-update",
+  "title": "Приложение стало неработоспособным после обновления — регрессия в базовой функциональности",
+  "obs": 1
+ },
+ {
+  "id": "black-screen-crashes",
+  "title": "Чёрный экран вместо паттернов и крашы при прокрутке контента",
+  "obs": 1
+ },
+ {
+  "id": "support-dead-address",
+  "title": "Контактные данные в приложении ведут на несуществующий адрес — поддержки нет",
+  "obs": 1
+ },
+ {
+  "id": "developer-no-response",
+  "title": "Разработчик не отвечает на отзывы пользователей в магазине",
+  "obs": 1
+ },
+ {
+  "id": "mobile-signup-broken",
+  "title": "Регистрация на мобильном устройстве ломается при переключении между браузером и приложением",
+  "obs": 1
+ },
+ {
+  "id": "app-not-updated",
+  "title": "Приложение долго не получает обновлений — пользователи сомневаются в активной разработке",
+  "obs": 1
+ }
+]

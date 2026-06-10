@@ -1,0 +1,87 @@
+{
+  "groups": [
+    {
+      "id": "lifetime-betrayal-paywall",
+      "name": "Предательство пожизненной лицензии и переезд функций за paywall",
+      "insight_ids": [
+        "lifetime-to-subscription-forced",
+        "watermark-paywall",
+        "feature-moved-behind-paywall-silently",
+        "restore-purchases-broken",
+        "trial-period-mismatch",
+        "visual-glitches-suspected-intentional",
+        "support-unresponsive"
+      ]
+    },
+    {
+      "id": "update-breakage",
+      "name": "Что ломается после обновлений: падения, потеря данных, мёртвая камера",
+      "insight_ids": [
+        "crashes-freezes-after-update",
+        "app-data-loss-on-update",
+        "cloud-sync-broken-after-update",
+        "scan-quality-regression-sheet-music",
+        "camera-broken-after-update",
+        "settings-lost-periodically",
+        "bulk-scan-overheating",
+        "print-removed",
+        "fax-feature-unreliable"
+      ]
+    },
+    {
+      "id": "automation-vs-control",
+      "name": "Слишком умный автомат: исчезнувший ручной контроль и распухший рабочий процесс",
+      "insight_ids": [
+        "over-automation-removes-manual-control",
+        "scan-workflow-extra-clicks",
+        "animations-slow-workflow",
+        "false-clean-lens-error",
+        "perspective-distortion-broken",
+        "filename-restrictions",
+        "markup-one-page-limit",
+        "controls-out-of-reach-ipad",
+        "workflows-no-icloud-auto-save"
+      ]
+    },
+    {
+      "id": "scan-magic",
+      "name": "Магия съёмки: тени, границы, OCR и ИИ-очистка лучше ожиданий",
+      "insight_ids": [
+        "auto-shadow-removal",
+        "auto-edge-detection",
+        "auto-image-correction",
+        "ai-image-cleanup",
+        "multipage-ocr-workflow"
+      ]
+    },
+    {
+      "id": "professional-daily-driver",
+      "name": "Рабочая лошадка профессионалов: документооборот в поле и нишевые сценарии",
+      "insight_ids": [
+        "professional-daily-workflow",
+        "paperless-archiving",
+        "pdf-as-professional-standard",
+        "simple-scan-to-email",
+        "sheet-music-use-case",
+        "tax-season-batch-use"
+      ]
+    },
+    {
+      "id": "long-term-stickiness",
+      "name": "Замена сканеру и десятилетняя привязанность",
+      "insight_ids": [
+        "mobile-replaces-physical-scanner",
+        "long-term-retention",
+        "ios-scanner-gap"
+      ]
+    },
+    {
+      "id": "cloud-sync-experience",
+      "name": "Облако и переезд между устройствами: надёжность против путаного интерфейса",
+      "insight_ids": [
+        "cloud-sync-multi-device",
+        "cloud-files-ui-confusing"
+      ]
+    }
+  ]
+}

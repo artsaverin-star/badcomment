@@ -1,0 +1,369 @@
+You are grouping 64 mechanism-level insight clusters from Tiimo: To Do List & AI Planner (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Tiimo: To Do List & AI Planner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 64 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Tiimo: To Do List & AI Planner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Tiimo: To Do List & AI Planner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt0md5w1d07ugfe5us06izq.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ai-wrong-date-time",
+  "title": "ИИ назначает задачи на неправильный день или нереалистичное время, игнорируя явные инструкции",
+  "obs": 7
+ },
+ {
+  "id": "ai-freezes-stops-responding",
+  "title": "ИИ зависает после первого использования и перестаёт отвечать — нужна перезагрузка приложения",
+  "obs": 5
+ },
+ {
+  "id": "ai-skips-tasks",
+  "title": "ИИ пропускает часть задач из запроса — результат неполный даже после повторных попыток",
+  "obs": 5
+ },
+ {
+  "id": "subscription-cancel-hidden",
+  "title": "Отмена подписки скрыта или недоступна в приложении — процедура не соответствует стандартам платформы",
+  "obs": 4
+ },
+ {
+  "id": "features-locked-behind-paywall",
+  "title": "Базовые функции (подзадачи, редактирование задач) постепенно переводятся за платный барьер",
+  "obs": 4
+ },
+ {
+  "id": "ai-replaces-direct-editing",
+  "title": "Прямое редактирование расписания через drag-drop заменено обязательным чатом с ИИ",
+  "obs": 4
+ },
+ {
+  "id": "task-reorder-compact-mode",
+  "title": "В компактном режиме нельзя изменить порядок задач без назначения конкретного времени",
+  "obs": 4
+ },
+ {
+  "id": "subscription-not-recognized",
+  "title": "Приложение не распознаёт действующую подписку и требует перезапуска или повторной покупки",
+  "obs": 3
+ },
+ {
+  "id": "ai-excessive-confirmations",
+  "title": "ИИ требует многократных подтверждений для создания одной задачи вместо выполнения с первой попытки",
+  "obs": 3
+ },
+ {
+  "id": "time-categorization-wrong",
+  "title": "Задача на 11:00 попадает в категорию «вторая половина дня» вместо «утро» — логика классификации ошибочна",
+  "obs": 3
+ },
+ {
+  "id": "drag-drop-timeline-difficult",
+  "title": "Перетаскивание задач на временной шкале неудобно — нельзя точно поставить задачу рядом с другой",
+  "obs": 3
+ },
+ {
+  "id": "tasks-deleted-by-app",
+  "title": "Приложение само удаляет незавершённые или только что добавленные задачи",
+  "obs": 3
+ },
+ {
+  "id": "timed-routines-removed",
+  "title": "Функция тайм-блоков в routines удалена и заменена на подзадачи без времени — основной сценарий для СДВГ сломан",
+  "obs": 3
+ },
+ {
+  "id": "routine-no-delete",
+  "title": "Созданный ИИ routine нельзя удалить без полного сброса профиля",
+  "obs": 3
+ },
+ {
+  "id": "trial-hidden-no-reminder",
+  "title": "Пробный период скрыт в маркетинге — система не предупреждает об окончании триала перед списанием",
+  "obs": 2
+ },
+ {
+  "id": "ai-cannot-edit-existing-tasks",
+  "title": "ИИ не находит и не изменяет уже созданные задачи при запросе на редактирование",
+  "obs": 2
+ },
+ {
+  "id": "ai-slow-response",
+  "title": "ИИ обрабатывает простой запрос 5+ минут — экономия времени на планирование отсутствует",
+  "obs": 2
+ },
+ {
+  "id": "ai-cannot-schedule-weekly",
+  "title": "ИИ не справляется с созданием повторяющегося недельного расписания даже в простых случаях",
+  "obs": 2
+ },
+ {
+  "id": "ai-wrong-category-for-task",
+  "title": "ИИ помещает задачу не в ту категорию или список при добавлении",
+  "obs": 2
+ },
+ {
+  "id": "review-prompt-every-action",
+  "title": "Запрос на отзыв появляется при каждом открытии или действии — постоянно прерывает работу",
+  "obs": 2
+ },
+ {
+  "id": "navigation-complexity",
+  "title": "Навигация к базовым действиям (отмена таймера, настройка) требует слишком много шагов",
+  "obs": 2
+ },
+ {
+  "id": "lock-screen-task-completion",
+  "title": "Завершить задачу с экрана блокировки невозможно — нужно каждый раз открывать приложение",
+  "obs": 2
+ },
+ {
+  "id": "app-forces-to-foreground",
+  "title": "Приложение само открывается поверх других и не позволяет переключиться — помогает только перезагрузка телефона",
+  "obs": 2
+ },
+ {
+  "id": "offline-mode-missing",
+  "title": "Приложение требует интернет-соединение — без сети планировать задачи невозможно",
+  "obs": 2
+ },
+ {
+  "id": "calendar-sync-slow",
+  "title": "Синхронизация с Google Calendar и Apple Reminders работает с большой задержкой",
+  "obs": 2
+ },
+ {
+  "id": "calendar-disconnects-daily",
+  "title": "Подключённый календарь отключается каждый день — нужно переподключать вручную",
+  "obs": 2
+ },
+ {
+  "id": "speech-to-task-fails",
+  "title": "Голосовой ввод точно распознаёт речь, но задача после этого не создаётся",
+  "obs": 2
+ },
+ {
+  "id": "subscription-charged-after-cancel",
+  "title": "После попытки отмены система продолжает списывать деньги",
+  "obs": 1
+ },
+ {
+  "id": "trial-reminder-proactive",
+  "title": "Приложение проактивно напоминает отменить триал — пользователь не получает неожиданного списания",
+  "obs": 1
+ },
+ {
+  "id": "price-increase",
+  "title": "Цена премиум-плана резко выросла — пользователи с длинной историей чувствуют себя обманутыми",
+  "obs": 1
+ },
+ {
+  "id": "ai-loses-context",
+  "title": "ИИ теряет контекст разговора при исправлении ошибки и требует пересоздания всего списка заново",
+  "obs": 1
+ },
+ {
+  "id": "ai-no-time-slots",
+  "title": "ИИ не распределяет задачи по конкретным временным слотам, хотя пользователь ожидал автоматического расписания",
+  "obs": 1
+ },
+ {
+  "id": "ai-brain-dump-fails",
+  "title": "ИИ неправильно обрабатывает мозговой штурм задач и не структурирует их в расписание",
+  "obs": 1
+ },
+ {
+  "id": "ai-auto-icons-tags",
+  "title": "ИИ автоматически добавляет значки и теги к задачам без возможности отключения — интерфейс загромождается",
+  "obs": 1
+ },
+ {
+  "id": "promo-dialog-before-action",
+  "title": "Промо-диалог появляется перед каждым основным действием и прерывает добавление задачи",
+  "obs": 1
+ },
+ {
+  "id": "add-subtask-button-hidden",
+  "title": "Кнопка добавления подзадачи не видна в интерфейсе — пользователи ищут решение в интернете",
+  "obs": 1
+ },
+ {
+  "id": "app-limited-to-calendar",
+  "title": "Приложение ограничивает действия только планированием в календаре — полноценное управление задачами недоступно",
+  "obs": 1
+ },
+ {
+  "id": "app-opens-wrong-date",
+  "title": "Приложение открывается на неправильной дате вместо текущего дня",
+  "obs": 1
+ },
+ {
+  "id": "bulk-task-operations-missing",
+  "title": "Нет возможности выбрать несколько задач и выполнить массовые операции (перемещение, редактирование)",
+  "obs": 1
+ },
+ {
+  "id": "completed-tasks-no-cleanup",
+  "title": "Нет способа просмотреть и удалить старые завершённые задачи — сотни записей загромождают интерфейс",
+  "obs": 1
+ },
+ {
+  "id": "task-drag-to-calendar-loses-priority",
+  "title": "При перемещении задачи из списка в календарь теряется информация о приоритете",
+  "obs": 1
+ },
+ {
+  "id": "pomodoro-split-missing",
+  "title": "Нельзя разбить длинную задачу на короткие помодоро-сессии — таймер просто отсчитывает весь блок",
+  "obs": 1
+ },
+ {
+  "id": "registration-required-before-trial",
+  "title": "Приложение требует регистрацию до возможности попробовать функции",
+  "obs": 1
+ },
+ {
+  "id": "focus-music-autostarts",
+  "title": "Фоновая музыка включается автоматически при запуске задачи и перебивает музыку пользователя без возможности отключения",
+  "obs": 1
+ },
+ {
+  "id": "focus-music-stops-after-2min",
+  "title": "Музыка для фокуса перестаёт играть через 2 минуты",
+  "obs": 1
+ },
+ {
+  "id": "focus-mode-auto-activates",
+  "title": "Режим фокуса автоматически запускается по расписанию и не может быть отключён пользователем",
+  "obs": 1
+ },
+ {
+  "id": "live-activity-invisible",
+  "title": "Живая активность на экране блокировки отображается лишь в 10% случаев вместо постоянного показа",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes",
+  "title": "Приложение падает при нажатии кнопок, хотя прогресс иногда сохраняется",
+  "obs": 1
+ },
+ {
+  "id": "ipad-lag",
+  "title": "На iPad приложение заметно тормозит и периодически перестаёт работать",
+  "obs": 1
+ },
+ {
+  "id": "scroll-lag",
+  "title": "При скроллинге и быстрых действиях приложение постоянно лагает",
+  "obs": 1
+ },
+ {
+  "id": "task-duration-auto-changes",
+  "title": "Приложение самостоятельно меняет длительность задачи после ручной установки пользователем",
+  "obs": 1
+ },
+ {
+  "id": "routine-order-resets",
+  "title": "Порядок задач в routine сбрасывается — нужно пересоздавать каждый день",
+  "obs": 1
+ },
+ {
+  "id": "streak-breaks-incorrectly",
+  "title": "Счётчик серии ломается несмотря на выполнение всех задач в этот день",
+  "obs": 1
+ },
+ {
+  "id": "app-overall-reliability",
+  "title": "Приложение работает корректно лишь в 70% случаев — недостаточно для пользователей с СДВГ",
+  "obs": 1
+ },
+ {
+  "id": "recurrence-sync-broken",
+  "title": "Пользовательский график повтора задачи, созданный в веб-версии, сбрасывается до ежемесячного в мобильном приложении",
+  "obs": 1
+ },
+ {
+  "id": "schedule-not-shifting-overrun",
+  "title": "При превышении времени на задачу остальное расписание не сдвигается — приходит лавина уведомлений",
+  "obs": 1
+ },
+ {
+  "id": "watch-sync-broken",
+  "title": "Синхронизация между часами и телефоном работает нестабильно и требует постоянного обновления",
+  "obs": 1
+ },
+ {
+  "id": "calendar-sync-duplicates",
+  "title": "При импорте из Apple Reminders создаются десятки дубликатов одного напоминания",
+  "obs": 1
+ },
+ {
+  "id": "ai-data-loss-on-sync",
+  "title": "Данные, введённые через ИИ-функцию, теряются при синхронизации без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "subtask-save-fails",
+  "title": "Приложение не сохраняет подзадачу после нажатия кнопки сохранения",
+  "obs": 1
+ },
+ {
+  "id": "adhd-time-gap-display",
+  "title": "Отображение промежутков между задачами снижает тревогу у людей с СДВГ, которые плохо ориентируются во времени",
+  "obs": 1
+ },
+ {
+  "id": "adhd-countdown-timer-value",
+  "title": "Обратный отсчёт таймера, видимый прямо на экране как Live Activity, критически важен для фокуса пользователей с СДВГ",
+  "obs": 1
+ },
+ {
+  "id": "adhd-structure-flexibility-balance",
+  "title": "Комбинация трёхдневного календаря и постоянного списка дел даёт пользователям с СДВГ баланс структуры и гибкости",
+  "obs": 1
+ },
+ {
+  "id": "multi-list-organization",
+  "title": "Возможность распределять задачи по нескольким спискам превращает приложение в полноценный инструмент управления",
+  "obs": 1
+ }
+]

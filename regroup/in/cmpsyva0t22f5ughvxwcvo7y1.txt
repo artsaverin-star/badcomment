@@ -1,0 +1,249 @@
+You are grouping 40 mechanism-level insight clusters from The Wonder Weeks - Baby leaps (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO The Wonder Weeks - Baby leaps, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 40 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to The Wonder Weeks - Baby leaps — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to The Wonder Weeks - Baby leaps>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsyva0t22f5ughvxwcvo7y1.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "leap-timing-mismatch-no-adjust",
+  "title": "Сроки этапов не совпадают с реальным ребёнком, и нет способа вручную сдвинуть прогноз под него",
+  "obs": 9
+ },
+ {
+  "id": "payment-required-before-trying",
+  "title": "Приложение требует полную оплату до того, как покажет хоть какую-то функцию — ни триала, ни демо нет",
+  "obs": 8
+ },
+ {
+  "id": "predictions-inverted",
+  "title": "Прогнозы перевёрнуты — приложение объявляет капризную фазу, когда ребёнок спокоен, и наоборот",
+  "obs": 5
+ },
+ {
+  "id": "confusing-redesigned-ui",
+  "title": "После переработки интерфейс стал запутанным — сложно с первого взгляда понять, в какой фазе ребёнок",
+  "obs": 5
+ },
+ {
+  "id": "paywall-hidden-after-data-collection",
+  "title": "Платную стену прячут до конца регистрации — приложение сначала собирает почту и данные о ребёнке, потом просит деньги",
+  "obs": 4
+ },
+ {
+  "id": "predictions-accurate-within-days",
+  "title": "Прогнозы фаз сбываются с точностью до нескольких дней — этого хватает, чтобы подготовиться",
+  "obs": 4
+ },
+ {
+  "id": "everything-labeled-fussy",
+  "title": "Почти каждый этап помечен как капризный — прогноз оправдывает любое поведение и теряет смысл",
+  "obs": 3
+ },
+ {
+  "id": "grammar-translation-errors",
+  "title": "Тексты содержат грамматические ошибки и следы плохого перевода, что подрывает доверие к качеству",
+  "obs": 3
+ },
+ {
+  "id": "premature-gestational-age-ignored",
+  "title": "Приложение считает этапы по календарному возрасту и игнорирует гестационный возраст недоношенных детей",
+  "obs": 3
+ },
+ {
+  "id": "free-label-but-paid",
+  "title": "В App Store приложение помечено как бесплатное, хотя без оплаты им пользоваться нельзя",
+  "obs": 2
+ },
+ {
+  "id": "subscription-replaced-onetime-purchase",
+  "title": "Приложение перешло с разовой покупки на подписку, и прежние пользователи лишились возможности заплатить один раз",
+  "obs": 2
+ },
+ {
+  "id": "prediction-window-too-wide",
+  "title": "Окно прогноза капризной фазы слишком широкое в одну-две недели, поэтому подготовиться по нему нельзя",
+  "obs": 2
+ },
+ {
+  "id": "milestone-age-ranges-unrealistic",
+  "title": "Описания вех развития привязаны к нереалистичным возрастным диапазонам и крайним примерам поведения",
+  "obs": 2
+ },
+ {
+  "id": "community-posts-broken",
+  "title": "Посты в сообществе теряются при отправке и нет способа найти свой пост или отследить ответы",
+  "obs": 2
+ },
+ {
+  "id": "birthdate-corrupts-on-save",
+  "title": "При каждом сохранении дата рождения ребёнка меняется на день раньше или на случайное значение",
+  "obs": 2
+ },
+ {
+  "id": "data-corrupt-after-reinstall",
+  "title": "После переустановки даты в профиле ребёнка становятся неверными или приложение зависает на старых данных",
+  "obs": 2
+ },
+ {
+  "id": "no-multi-device-one-account",
+  "title": "Один аккаунт не работает на втором устройстве, а поддержка лишь отсылает к обновлению ПО",
+  "obs": 2
+ },
+ {
+  "id": "frequent-forced-relogin",
+  "title": "Приложение постоянно требует переподтверждения сессии и выкидывает из аккаунта с ошибками",
+  "obs": 2
+ },
+ {
+  "id": "cannot-delete-account",
+  "title": "Удалить аккаунт и данные о ребёнке нельзя, а без активной подписки доступ к удалению вовсе закрыт",
+  "obs": 2
+ },
+ {
+  "id": "no-refund-after-blocked-access",
+  "title": "Приложение целый месяц подписки висело на экране проверки почты, а после поддержка отказала в возврате денег",
+  "obs": 1
+ },
+ {
+  "id": "vague-phases-no-checkpoints",
+  "title": "Этапы описаны расплывчато — только «капризный» или «развивающийся», без конкретных контрольных точек поведения",
+  "obs": 1
+ },
+ {
+  "id": "no-motor-milestones",
+  "title": "Фазы развития не связаны с конкретными двигательными вехами вроде ползания и сидения",
+  "obs": 1
+ },
+ {
+  "id": "ignores-other-fussiness-causes",
+  "title": "Приложение приписывает капризы только этапам развития и игнорирует другие причины, например прорезывание зубов",
+  "obs": 1
+ },
+ {
+  "id": "leaps-not-scientific",
+  "title": "Сама концепция этапов работает как гороскоп — совпадения случайны и не имеют научной основы",
+  "obs": 1
+ },
+ {
+  "id": "static-content-during-phase",
+  "title": "Контент не меняется на протяжении всего двухнедельного этапа, и интерес к приложению падает",
+  "obs": 1
+ },
+ {
+  "id": "first-month-thin-content",
+  "title": "На первый месяц жизни приложение даёт только дневник и форум без проверенных вех, чего мало за полную цену",
+  "obs": 1
+ },
+ {
+  "id": "video-music-too-loud",
+  "title": "В роликах со звуками младенца фоновая музыка настолько громкая, что сами звуки не слышно",
+  "obs": 1
+ },
+ {
+  "id": "video-mismatch-description",
+  "title": "Ролик не соответствует своему описанию — вместо матери с ребёнком показан бородатый мужчина",
+  "obs": 1
+ },
+ {
+  "id": "label-placeholders-readmore-broken",
+  "title": "Вместо описаний показываются заглушки «label», а кнопки «читать дальше» не работают даже на платной подписке",
+  "obs": 1
+ },
+ {
+  "id": "due-date-required-excludes-adopted",
+  "title": "Срок беременности — обязательное поле, поэтому приёмных и опекаемых детей с одной лишь датой рождения отслеживать нельзя",
+  "obs": 1
+ },
+ {
+  "id": "unresponsive-after-purchase",
+  "title": "Сразу после покупки приложение перестаёт реагировать на нажатия и блокирует навигацию",
+  "obs": 1
+ },
+ {
+  "id": "due-date-resets-on-open",
+  "title": "После обновления срок беременности в профиле сбрасывается при каждом открытии, разрушая основу прогноза",
+  "obs": 1
+ },
+ {
+  "id": "logout-on-add-story-photo",
+  "title": "При добавлении истории с фото из галереи приложение разлогинивает пользователя и стирает весь набранный текст",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-blocked-attempts",
+  "title": "Восстановление через сброс пароля блокируется сообщением об исчерпании попыток даже на новом аккаунте",
+  "obs": 1
+ },
+ {
+  "id": "change-email-needs-support",
+  "title": "Сменить почту аккаунта можно только через запутанный ручной перенос резервной копии, без поддержки не справиться",
+  "obs": 1
+ },
+ {
+  "id": "partner-code-broken",
+  "title": "Функция совместного доступа по партнёрскому коду не работает и ломает основной сценарий для пар",
+  "obs": 1
+ },
+ {
+  "id": "max-two-caregivers",
+  "title": "На профиль ребёнка допускается максимум два опекуна, что исключает семьи с тремя родителями",
+  "obs": 1
+ },
+ {
+  "id": "cannot-login-after-purchase",
+  "title": "После покупки войти в приложение невозможно, а сайт поддержки не работает — доступа к оплаченному сервису нет",
+  "obs": 1
+ },
+ {
+  "id": "creates-parental-anxiety",
+  "title": "Приложение усиливает тревогу родителей, показывая мнимое отставание в развитии, которое позже оказывается нормой",
+  "obs": 1
+ },
+ {
+  "id": "non-standard-cycle-manual-tuning",
+  "title": "При нестандартном цикле дату приходится подбирать вручную через несколько профилей, чтобы прогноз сошёлся",
+  "obs": 1
+ }
+]

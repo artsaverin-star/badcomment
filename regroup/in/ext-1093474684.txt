@@ -1,0 +1,224 @@
+You are grouping 35 mechanism-level insight clusters from Kasamba Psychic Reading Chat (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Kasamba Psychic Reading Chat, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 35 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Kasamba Psychic Reading Chat — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Kasamba Psychic Reading Chat>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1093474684.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "predictions-never-materialize",
+  "title": "Предсказания консультантов не сбываются на протяжении месяцев и лет — паттерн прослеживается у разных специалистов",
+  "obs": 11
+ },
+ {
+  "id": "credits-unusable",
+  "title": "Добавленные кредиты нельзя применить — система требует оплату картой, несмотря на баланс",
+  "obs": 8
+ },
+ {
+  "id": "slow-typing-time-wasting",
+  "title": "Консультанты намеренно печатают медленно, чтобы израсходовать оплаченное время",
+  "obs": 8
+ },
+ {
+  "id": "free-minutes-wasted-on-connect",
+  "title": "Бесплатные минуты уходят на подключение консультанта и сбор информации, а не на само чтение",
+  "obs": 7
+ },
+ {
+  "id": "advertised-vs-actual-rate",
+  "title": "Фактическая цена за минуту в разы превышает объявленную — разрыв обнаруживается только после сессии",
+  "obs": 5
+ },
+ {
+  "id": "charge-for-no-service",
+  "title": "Деньги списываются за сессию, в которой услуга не была предоставлена",
+  "obs": 5
+ },
+ {
+  "id": "timer-runs-on-disconnect",
+  "title": "Таймер продолжает тикать при потере соединения — пользователь платит за время простоя",
+  "obs": 5
+ },
+ {
+  "id": "copy-paste-generic-responses",
+  "title": "Консультанты используют шаблонные или скопированные ответы вместо персонализированного чтения",
+  "obs": 5
+ },
+ {
+  "id": "wrong-amount-charged",
+  "title": "Система списывает сумму, отличающуюся от выбранной пользователем, без объяснений",
+  "obs": 3
+ },
+ {
+  "id": "refund-refused-credit-only",
+  "title": "Поддержка отказывает в возврате денег и предлагает только кредит, который пользователь не будет использовать",
+  "obs": 3
+ },
+ {
+  "id": "upsell-without-price",
+  "title": "Консультант предлагает дополнительные услуги без объяснения стоимости — счёт оказывается огромным",
+  "obs": 3
+ },
+ {
+  "id": "session-history-search-removed",
+  "title": "После обновления исчезла функция поиска по ключевым словам в истории сессий",
+  "obs": 3
+ },
+ {
+  "id": "confusing-new-app",
+  "title": "Новое мобильное приложение запутывает пользователей, привыкших к предыдущей версии",
+  "obs": 3
+ },
+ {
+  "id": "card-hold-without-warning",
+  "title": "Система сразу снимает $15 как залог при добавлении карты, не предупредив пользователя",
+  "obs": 2
+ },
+ {
+  "id": "price-unknown-before-session",
+  "title": "Пользователь не знает стоимость сессии до её начала — счёт приходит неожиданным",
+  "obs": 2
+ },
+ {
+  "id": "double-charge",
+  "title": "Система дважды списывает деньги за одну сессию без авторизации пользователя",
+  "obs": 2
+ },
+ {
+  "id": "discount-not-applied",
+  "title": "Обещанная скидка или бесплатные минуты не применяются при оформлении",
+  "obs": 2
+ },
+ {
+  "id": "negative-reviews-hidden",
+  "title": "Приложение скрывает отрицательные отзывы консультантов — пользователь не видит полной картины при выборе",
+  "obs": 2
+ },
+ {
+  "id": "support-slow-no-live-chat",
+  "title": "Поддержка переведена на почту и отвечает дольше обещанного — живой чат удалён",
+  "obs": 2
+ },
+ {
+  "id": "contradictory-predictions",
+  "title": "Разные консультанты дают противоречивые предсказания на один и тот же вопрос",
+  "obs": 2
+ },
+ {
+  "id": "hidden-inactivity-charge",
+  "title": "Приложение автоматически списывает деньги за неактивность без предупреждения пользователя",
+  "obs": 1
+ },
+ {
+  "id": "favorite-advisor-hard-to-find",
+  "title": "После обновления любимый консультант скрыт за 5+ страницами поиска — нельзя быстро проверить его доступность",
+  "obs": 1
+ },
+ {
+  "id": "rating-screen-missing",
+  "title": "Экран оценки консультанта не появляется, если минуты закончились — отзыв невозможно оставить",
+  "obs": 1
+ },
+ {
+  "id": "no-in-app-support",
+  "title": "Внутри приложения нет доступа к поддержке — нет кнопки или чата для решения проблем",
+  "obs": 1
+ },
+ {
+  "id": "no-abuse-report",
+  "title": "В приложении нет функции жалобы на консультанта, который оскорбил или преследует пользователя",
+  "obs": 1
+ },
+ {
+  "id": "app-crashes-freezes",
+  "title": "Приложение часто зависает, вылетает и не принимает платежи",
+  "obs": 1
+ },
+ {
+  "id": "account-data-lost",
+  "title": "После обновления приложение потеряло все данные учётной записи пользователя",
+  "obs": 1
+ },
+ {
+  "id": "negative-balance-blocks-app",
+  "title": "Отрицательный баланс блокирует доступ к приложению, и поддержка не помогает разрешить ситуацию",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-data-deletion",
+  "title": "Поддержка запрашивает скриншоты, хотя имеет доступ к данным, и игнорирует запрос на удаление аккаунта",
+  "obs": 1
+ },
+ {
+  "id": "account-delete-instructions-wrong",
+  "title": "Инструкции по удалению аккаунта от поддержки не совпадают с реальными шагами в приложении",
+  "obs": 1
+ },
+ {
+  "id": "fishing-cold-reading-tactics",
+  "title": "Консультант вытягивает информацию из пользователя и повторяет её обратно, выдавая за интуицию",
+  "obs": 1
+ },
+ {
+  "id": "consultant-harassment-after-session",
+  "title": "Консультант преследует пользователя после сессии и требует дополнительных денег",
+  "obs": 1
+ },
+ {
+  "id": "large-paragraph-format-slows-chat",
+  "title": "Новый формат требует длинных абзацев от консультантов — общение замедляется",
+  "obs": 1
+ },
+ {
+  "id": "addiction-manipulation-vulnerable-users",
+  "title": "Приложение создаёт зависимость у уязвимых пользователей через ложные надежды и психологические манипуляции",
+  "obs": 1
+ },
+ {
+  "id": "account-fraud-security",
+  "title": "Со счёта пользователя за два дня списано $1500 — возможная компрометация безопасности",
+  "obs": 1
+ }
+]

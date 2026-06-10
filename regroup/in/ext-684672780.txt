@@ -1,0 +1,409 @@
+You are grouping 72 mechanism-level insight clusters from Frequency (healing frequencies / solfeggio / meditation / sleep) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Frequency, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 72 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Frequency — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Frequency>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-684672780.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "paywall-before-trial",
+  "title": "Приложение требует оплату до того, как пользователь успевает попробовать хоть что-то",
+  "obs": 11
+ },
+ {
+  "id": "trial-charged-immediately",
+  "title": "Пробный период завершается раньше срока или немедленно списывает полную сумму без предупреждения",
+  "obs": 5
+ },
+ {
+  "id": "advertised-discount-not-applied",
+  "title": "Рекламируемая скидка не применяется при оплате — списывается полная цена",
+  "obs": 5
+ },
+ {
+  "id": "sleep-onset-fast",
+  "title": "Частоты позволяют заснуть за 6–10 минут вместо обычного часа — пользователи фиксируют точное время",
+  "obs": 5
+ },
+ {
+  "id": "mood-and-cognitive-shift",
+  "title": "После 15–20 минут прослушивания заметно улучшается настроение и снижается тревожность",
+  "obs": 5
+ },
+ {
+  "id": "health-conditions-use-cases",
+  "title": "Пользователи применяют частоты для конкретных состояний: тиннитус, давление, пищеварение, ADHD",
+  "obs": 5
+ },
+ {
+  "id": "app-crashes-after-update",
+  "title": "После обновлений приложение начинает постоянно падать — качество деградирует с каждой версией",
+  "obs": 5
+ },
+ {
+  "id": "minimal-free-content",
+  "title": "Бесплатный доступ ограничен 3–4 треками — слишком мало, чтобы оценить приложение перед покупкой",
+  "obs": 4
+ },
+ {
+  "id": "hidden-subscription-in-store",
+  "title": "Описание в магазине не упоминает подписку — пользователь узнаёт о платеже только после установки",
+  "obs": 4
+ },
+ {
+  "id": "physical-pain-relief",
+  "title": "Пользователи сообщают о локализованном облегчении физической боли во время или после сеанса",
+  "obs": 4
+ },
+ {
+  "id": "physiological-body-sensations",
+  "title": "Пользователи физически ощущают вибрации или движение энергии в теле во время воспроизведения",
+  "obs": 4
+ },
+ {
+  "id": "session-too-short",
+  "title": "Треки заканчиваются раньше полного цикла сна — пользователь просыпается когда заканчивается трек",
+  "obs": 4
+ },
+ {
+  "id": "track-not-playing",
+  "title": "Часть треков библиотеки недоступна для воспроизведения — контент есть в каталоге, но не играет",
+  "obs": 4
+ },
+ {
+  "id": "subscription-continues-after-cancel",
+  "title": "Подписка продолжает списывать деньги после отмены — отмена не применяется",
+  "obs": 3
+ },
+ {
+  "id": "wrong-effect-frequency",
+  "title": "Частота с названием для сна разбудила пользователя — название не соответствует реальному эффекту",
+  "obs": 3
+ },
+ {
+  "id": "content-catalog-gaps",
+  "title": "Пользователи запрашивают отсутствующие категории: алопеция, инструментальные звуки, больше альфа-волн",
+  "obs": 3
+ },
+ {
+  "id": "playback-stops-on-lock",
+  "title": "Воспроизведение останавливается при блокировке экрана — нельзя использовать приложение для засыпания",
+  "obs": 3
+ },
+ {
+  "id": "multiuse-contexts",
+  "title": "Приложение используют не только для сна и медитации, но и во время работы, рисования, повседневных дел",
+  "obs": 3
+ },
+ {
+  "id": "refund-denied",
+  "title": "Компания отказывает в возврате средств даже в пределах заявленного гарантийного периода",
+  "obs": 2
+ },
+ {
+  "id": "old-purchase-now-requires-subscription",
+  "title": "Пользователи, купившие приложение раньше, теперь вынуждены платить ещё раз по подписке",
+  "obs": 2
+ },
+ {
+  "id": "no-family-plan",
+  "title": "Нет семейной подписки — каждое устройство или член семьи требует отдельного платежа",
+  "obs": 2
+ },
+ {
+  "id": "subscription-access-lost",
+  "title": "Оплаченная подписка перестаёт работать — приложение сбрасывает авторизацию до конца срока",
+  "obs": 2
+ },
+ {
+  "id": "background-music-cant-disable",
+  "title": "Фоновая музыка в треках не отключается — мешает использовать приложение как источник чистой частоты",
+  "obs": 2
+ },
+ {
+  "id": "audio-quality-superior",
+  "title": "Качество звука ощутимо лучше, чем в видео на YouTube — пользователи специально выбирают приложение за это",
+  "obs": 2
+ },
+ {
+  "id": "static-noise-artifact",
+  "title": "Во всех треках слышен статический шум — артефакт снижает качество звука по сравнению с конкурентами",
+  "obs": 2
+ },
+ {
+  "id": "tracks-cut-unexpectedly",
+  "title": "Треки прерываются без предупреждения или зацикливаются — пользователь не завершает сеанс",
+  "obs": 2
+ },
+ {
+  "id": "onboarding-questionnaire-before-content",
+  "title": "Онбординг требует заполнения анкеты до доступа к контенту — пользователь не может просто начать слушать",
+  "obs": 2
+ },
+ {
+  "id": "navigation-stuck",
+  "title": "Пользователь застревает на странице и не может вернуться в меню — навигация не работает",
+  "obs": 2
+ },
+ {
+  "id": "app-wont-load",
+  "title": "Приложение не загружает основной интерфейс — пользователь застревает на экране входа",
+  "obs": 2
+ },
+ {
+  "id": "support-no-cancel-path",
+  "title": "В приложении нет способа отменить подписку или связаться с поддержкой — пользователь не может добраться до помощи",
+  "obs": 2
+ },
+ {
+  "id": "headphones-required-for-effect",
+  "title": "Эффект частот требует наушников — без правильного оборудования результата нет",
+  "obs": 2
+ },
+ {
+  "id": "dependency-on-single-frequency",
+  "title": "Часть пользователей полностью зависит от конкретной частоты — это единственный способ заснуть",
+  "obs": 2
+ },
+ {
+  "id": "competitor-comparison",
+  "title": "Пользователи сравнивают приложение с конкурентами и выбирают его для фонового использования",
+  "obs": 2
+ },
+ {
+  "id": "price-currency-mismatch",
+  "title": "Приложение показывает цену в долларах, а списывает в фунтах — валюта не совпадает с объявленной",
+  "obs": 1
+ },
+ {
+  "id": "subscription-switched-without-consent",
+  "title": "Пользователя переводят с дешёвого тарифа на дорогой без явного согласия",
+  "obs": 1
+ },
+ {
+  "id": "subscription-overcharged",
+  "title": "Итоговая сумма за подписку многократно превышает заявленный месячный тариф",
+  "obs": 1
+ },
+ {
+  "id": "multi-app-subscription-doesnt-unlock-all",
+  "title": "Единая подписка на все приложения разработчика не открывает контент в других приложениях — требуются отдельные платежи",
+  "obs": 1
+ },
+ {
+  "id": "pricing-tiers-unclear",
+  "title": "Уровни подписки PRO описаны непонятно — пользователь не понимает, что именно он покупает",
+  "obs": 1
+ },
+ {
+  "id": "aggressive-countdown-upsell",
+  "title": "Обратный отсчёт со скидкой давит на пользователя перед покупкой — агрессивная тактика продаж",
+  "obs": 1
+ },
+ {
+  "id": "gifting-subscriptions",
+  "title": "Пользователь покупает подписку в подарок друзьям и семье — приложение встроилось в личную жизнь",
+  "obs": 1
+ },
+ {
+  "id": "affirmations-cant-disable",
+  "title": "Аффирмации в треках нельзя отключить — они прерывают концентрацию вместо поддержки",
+  "obs": 1
+ },
+ {
+  "id": "tracks-mismatch-description",
+  "title": "Некоторые треки содержат только звуки природы вместо обещанных частот — контент не соответствует описанию",
+  "obs": 1
+ },
+ {
+  "id": "frequency-description-error",
+  "title": "Частота 520 Гц описана как помощь при головной боли, хотя это значение используется в датчиках дыма",
+  "obs": 1
+ },
+ {
+  "id": "no-rewind",
+  "title": "Нельзя перемотать трек назад — управление позицией воспроизведения отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "app-overrides-other-audio",
+  "title": "Приложение автоматически включается и перебивает другую музыку даже когда не используется",
+  "obs": 1
+ },
+ {
+  "id": "airpods-control-broken",
+  "title": "Управление через AirPods не работает — попытка паузы запускает другую музыку",
+  "obs": 1
+ },
+ {
+  "id": "rating-prompt-during-sleep",
+  "title": "Приложение запрашивает оценку после каждого трека — это будит пользователя во время сна",
+  "obs": 1
+ },
+ {
+  "id": "playback-stops-every-20s",
+  "title": "Воспроизведение останавливается каждые 20 секунд и требует ручного перезапуска",
+  "obs": 1
+ },
+ {
+  "id": "timer-extends-crash",
+  "title": "Попытка расширить время через таймер вызывает краш приложения — функция полностью не работает",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-frequency-input",
+  "title": "Нельзя задать произвольную частоту — только предустановленные варианты из каталога",
+  "obs": 1
+ },
+ {
+  "id": "no-search",
+  "title": "Нет поиска по частотам — пользователь не может быстро найти нужный трек в большом каталоге",
+  "obs": 1
+ },
+ {
+  "id": "no-favorites",
+  "title": "Нет функции «Избранное» — пользователь не может быстро вернуться к предпочитаемым частотам",
+  "obs": 1
+ },
+ {
+  "id": "playlist-save-broken",
+  "title": "Кнопка сохранения в плейлист не работает на iPhone — нельзя организовать треки",
+  "obs": 1
+ },
+ {
+  "id": "ipad-onboarding-loop",
+  "title": "На iPad ознакомительные экраны показываются при каждом открытии и игнорируют альбомную ориентацию",
+  "obs": 1
+ },
+ {
+  "id": "small-text-accessibility",
+  "title": "Текст интерфейса слишком мелкий для пожилых пользователей — базовая доступность не соблюдается",
+  "obs": 1
+ },
+ {
+  "id": "screen-reader-friction",
+  "title": "Экранный диктор плохо интегрирован — слепые пользователи сталкиваются с препятствиями при навигации",
+  "obs": 1
+ },
+ {
+  "id": "login-broken",
+  "title": "Функция входа в аккаунт не работает — пользователь не может авторизоваться",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-no-support",
+  "title": "Приложение не работает на Apple Watch — управление со смарт-часов недоступно",
+  "obs": 1
+ },
+ {
+  "id": "ipad-ios17-freeze",
+  "title": "На iPad с iOS 17 приложение зависает на экране карточек — на iPhone работает нормально",
+  "obs": 1
+ },
+ {
+  "id": "server-downtime",
+  "title": "Сервис периодически недоступен несколько дней подряд без объяснений",
+  "obs": 1
+ },
+ {
+  "id": "auto-reinstall-bug",
+  "title": "После удаления приложение переустанавливается автоматически — пользователь не может его убрать",
+  "obs": 1
+ },
+ {
+  "id": "bluetooth-volume-inverted",
+  "title": "При подключении Bluetooth-динамика громкость работает в обратном направлении — баг специфичен для этого приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-sound-on-device",
+  "title": "Приложение запускается, но звука нет совсем — нет способа настроить громкость",
+  "obs": 1
+ },
+ {
+  "id": "app-heavy-storage",
+  "title": "Приложение занимает 3+ гигабайта без объяснений — непропорционально большой размер",
+  "obs": 1
+ },
+ {
+  "id": "purchase-flow-broken",
+  "title": "Интерфейс покупки содержит страницы без рабочих ссылок — невозможно завершить транзакцию",
+  "obs": 1
+ },
+ {
+  "id": "privacy-tracking-disclosure",
+  "title": "Приложение отслеживает пользователей между сайтами и неверно заявляет об этом в политике конфиденциальности",
+  "obs": 1
+ },
+ {
+  "id": "migrated-from-discontinued-app",
+  "title": "Пользователи переходят из приложений, снятых с поддержки в App Store — Frequency перехватывает эту аудиторию",
+  "obs": 1
+ },
+ {
+  "id": "frequency-therapy-extension",
+  "title": "Пользователи с опытом FSM-терапии видят приложение как домашнее продолжение клинического лечения",
+  "obs": 1
+ },
+ {
+  "id": "morning-ritual-use",
+  "title": "Утренние энергетические сеансы становятся ежедневным ритуалом — влияют на весь день",
+  "obs": 1
+ },
+ {
+  "id": "delayed-discovery-value",
+  "title": "Пользователи покупают приложение, долго не используют, а потом удивляются его эффективности",
+  "obs": 1
+ },
+ {
+  "id": "ads-every-2-seconds",
+  "title": "Реклама появляется каждые 2 секунды — агрессивная монетизация делает использование невозможным",
+  "obs": 1
+ },
+ {
+  "id": "limited-time-mode-removed",
+  "title": "Разработчики убрали режим ограниченного доступа по времени, который делал приложение доступным для бюджетных пользователей",
+  "obs": 1
+ }
+]

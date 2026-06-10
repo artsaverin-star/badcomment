@@ -1,0 +1,88 @@
+{
+  "groups": [
+    {
+      "id": "driver-last-mile",
+      "name": "Последняя миля: водитель решает, доедет ли еда",
+      "insight_ids": [
+        "driver-multi-stop-cold-food",
+        "driver-ignores-delivery-instructions",
+        "delivery-to-wrong-location",
+        "confirmation-code-bypassed",
+        "contactless-delivery-requires-code",
+        "driver-delivers-wrong-items",
+        "driver-cancels-late-no-penalty",
+        "alcohol-delivery-no-id-check",
+        "driver-language-barrier",
+        "zero-tip-interpreted-as-cash"
+      ]
+    },
+    {
+      "id": "refund-support-wall",
+      "name": "Стена поддержки: бот вместо человека и отказ в возврате",
+      "insight_ids": [
+        "refund-cap-too-low",
+        "support-bot-only-no-human",
+        "support-refuses-refund",
+        "credit-instead-of-refund",
+        "fake-photo-proof-accepted",
+        "no-food-safety-escalation",
+        "user-blocked-after-complaints",
+        "no-driver-rating-system"
+      ]
+    },
+    {
+      "id": "promo-billing-traps",
+      "name": "Промо-приманки и счёт, который не сходится",
+      "insight_ids": [
+        "promo-cancelled-after-signup",
+        "promo-code-not-applied-at-checkout",
+        "promo-credits-not-combinable",
+        "prime-membership-fee-still-charged",
+        "subscription-service-fee-still-charged",
+        "loyalty-points-unusable",
+        "prime-membership-unknown",
+        "price-markup-vs-restaurant",
+        "bill-mismatch"
+      ]
+    },
+    {
+      "id": "phantom-eta-cancellations",
+      "name": "Призрачный ETA: заказ висит, отменяется и исчезает",
+      "insight_ids": [
+        "estimated-time-grossly-wrong",
+        "driver-not-assigned-long-wait",
+        "order-cancelled-by-system",
+        "tracking-status-desync",
+        "cant-cancel-order-in-app",
+        "cancellation-notification-delayed",
+        "paid-express-delivery-no-faster",
+        "restaurant-shown-open-but-closed"
+      ]
+    },
+    {
+      "id": "checkout-cart-breaks",
+      "name": "Корзина рассыпается на полпути к оплате",
+      "insight_ids": [
+        "payment-error-loses-cart-and-promo",
+        "wrong-default-address-persists",
+        "cant-edit-delivery-dropoff-point",
+        "cart-cleared-on-address-change",
+        "modifier-count-calculation-error",
+        "no-multi-restaurant-cart"
+      ]
+    },
+    {
+      "id": "catalog-app-friction",
+      "name": "Каталог, повторный заказ и мелочи интерфейса",
+      "insight_ids": [
+        "duplicate-restaurant-names-in-catalog",
+        "cant-rate-cancelled-order",
+        "reorder-flow-hidden",
+        "review-prompt-too-frequent",
+        "ipad-no-support",
+        "unsubscribe-account-deletion-broken",
+        "account-hacked-unauthorized-orders"
+      ]
+    }
+  ]
+}

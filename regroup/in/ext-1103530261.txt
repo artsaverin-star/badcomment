@@ -1,0 +1,134 @@
+You are grouping 17 mechanism-level insight clusters from Precious - Baby Photo Art (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Precious - Baby Photo Art, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 17 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Precious - Baby Photo Art — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Precious - Baby Photo Art>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1103530261.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "onboarding-stuck-age-question",
+  "title": "Приложение наглухо зависает на вопросе о возрасте и не пускает дальше к функциям",
+  "obs": 5
+ },
+ {
+  "id": "trial-charges-full-annual-immediately",
+  "title": "Бесплатный пробный период списывает полную годовую подписку сразу при активации",
+  "obs": 4
+ },
+ {
+  "id": "multiple-children-not-supported",
+  "title": "Нельзя добавить профиль второго ребёнка — приложение бесполезно для близнецов и многодетных",
+  "obs": 3
+ },
+ {
+  "id": "face-detection-wrong-child",
+  "title": "Распознавание лиц путает детей и подставляет фото не того ребёнка, исправить это нельзя",
+  "obs": 3
+ },
+ {
+  "id": "card-required-before-trying",
+  "title": "Чтобы попробовать приложение, нужно сразу привязать карту и активировать платный пробный период",
+  "obs": 2
+ },
+ {
+  "id": "double-charge-no-refund",
+  "title": "Приложение списывает деньги дважды и не возвращает их при ошибке подписки",
+  "obs": 2
+ },
+ {
+  "id": "expensive-trial-charge-24h",
+  "title": "За пробный период списывается крупная сумма в первые сутки после регистрации",
+  "obs": 1
+ },
+ {
+  "id": "price-misrepresented-store",
+  "title": "В магазине цена указана за месяц, а списывается та же сумма каждую неделю — выходит вчетверо дороже",
+  "obs": 1
+ },
+ {
+  "id": "family-sharing-broken",
+  "title": "Семейный доступ не работает — подписку нельзя разделить с членом семьи",
+  "obs": 1
+ },
+ {
+  "id": "auto-collages-repeat-photos",
+  "title": "Автоматические коллажи и видео повторяют одни и те же фотографии вместо разнообразных",
+  "obs": 1
+ },
+ {
+  "id": "holiday-templates-too-late",
+  "title": "Праздничные шаблоны появляются уже после самого праздника, а для выпускных их нет вовсе",
+  "obs": 1
+ },
+ {
+  "id": "video-loses-audio",
+  "title": "При редактировании видео приложение теряет звуковую дорожку",
+  "obs": 1
+ },
+ {
+  "id": "video-loses-dates",
+  "title": "При сохранении видео даты с фотографий из предпросмотра не попадают в готовый файл",
+  "obs": 1
+ },
+ {
+  "id": "aspect-ratio-locked",
+  "title": "Соотношение сторон фотографии изменить нельзя, все снимки принудительно обрезаются",
+  "obs": 1
+ },
+ {
+  "id": "content-not-refresh-on-photo-change",
+  "title": "После удаления оригиналов с телефона приложение не обновляет автоматическую подборку новыми фото",
+  "obs": 1
+ },
+ {
+  "id": "ai-photo-processing-not-disclosed",
+  "title": "Приложение не предупреждает заранее, что обрабатывает детские фотографии через искусственный интеллект",
+  "obs": 1
+ },
+ {
+  "id": "no-cancel-button-autorenew-default",
+  "title": "В приложении нет кнопки отмены подписки, а автопродление включено по умолчанию",
+  "obs": 1
+ }
+]

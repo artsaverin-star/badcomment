@@ -1,0 +1,264 @@
+You are grouping 43 mechanism-level insight clusters from Nest (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Nest, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 43 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Nest — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Nest>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpt4m2d91q4xugw6cu9ugs45.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "reliability-app-not-connect",
+  "title": "Приложение не подключается к серверу Nest: ошибка 'trouble communicating', спиннер без конца, отключения в 60–70% сессий",
+  "obs": 25
+ },
+ {
+  "id": "reliability-session-drops",
+  "title": "Приложение выходит из учётной записи несколько раз в день и не позволяет войти снова часами",
+  "obs": 18
+ },
+ {
+  "id": "reliability-auto-temp-changes",
+  "title": "Приложение самостоятельно меняет установленную температуру — повышает, понижает или создаёт новые диапазоны без команды пользователя",
+  "obs": 17
+ },
+ {
+  "id": "ui-schedule-layout-broken",
+  "title": "Интерфейс расписания не умещается на экране: понедельник скрыт заголовком, шрифт слишком мелкий, ориентация не поддерживается",
+  "obs": 12
+ },
+ {
+  "id": "reliability-broken-after-update",
+  "title": "После очередного обновления приложение перестаёт подключаться к термостату или входить в учётную запись",
+  "obs": 11
+ },
+ {
+  "id": "strategy-google-migration-forced",
+  "title": "После поглощения Google учётная запись Nest устарела: постоянные предложения мигрировать, часть функций доступна только через Google-аккаунт",
+  "obs": 9
+ },
+ {
+  "id": "reliability-eco-forces-itself",
+  "title": "Режим Eco включается автоматически, игнорируя отключение пользователем: дом перегревается, кондиционер блокируется",
+  "obs": 8
+ },
+ {
+  "id": "reliability-ac-not-cooling",
+  "title": "Кондиционер не включается или включается через 2+ часа, хотя температура превысила установленное значение",
+  "obs": 7
+ },
+ {
+  "id": "reliability-camera-feed-slow",
+  "title": "Видео с камеры и дверного звонка долго грузится или зависает — посетитель уходит раньше, чем картинка появляется",
+  "obs": 7
+ },
+ {
+  "id": "reliability-app-crashes",
+  "title": "Приложение вылетает при открытии, при звонке в дверь или при попытке настроить расписание",
+  "obs": 6
+ },
+ {
+  "id": "reliability-login-fails",
+  "title": "Вход в приложение зависает на спиннере или выдаёт ошибку 'try again' — проблема сохраняется даже после переустановки",
+  "obs": 5
+ },
+ {
+  "id": "reliability-new-device-pairing",
+  "title": "Добавление нового устройства или переподключение после переезда не работает: нет QR-кода, нет инструкций, нет поддержки",
+  "obs": 4
+ },
+ {
+  "id": "strategy-old-devices-dropped",
+  "title": "Google прекращает поддержку старых термостатов и камер без предупреждения — устройство превращается в обычный несмарт-термостат",
+  "obs": 4
+ },
+ {
+  "id": "ui-energy-plan-forced-optin",
+  "title": "Приложение автоматически подписывает на программу энергосбережения и не даёт отказаться или установить безопасный минимум температуры",
+  "obs": 3
+ },
+ {
+  "id": "reliability-notifications-delayed",
+  "title": "Уведомления о движении и звонке в дверь приходят с задержкой 1–3 минуты или перестают приходить совсем",
+  "obs": 3
+ },
+ {
+  "id": "reliability-camera-recording-unavailable",
+  "title": "Видеозаписи не сохраняются в облаке, двусторонний звук не работает, история недоступна",
+  "obs": 3
+ },
+ {
+  "id": "reliability-camera-offline",
+  "title": "Камера случайно уходит в статус offline и не восстанавливается без перезагрузки",
+  "obs": 3
+ },
+ {
+  "id": "support-no-live-support",
+  "title": "Живой оператор поддержки недоступен: только бот, нет телефона, нет ответа на тикеты",
+  "obs": 3
+ },
+ {
+  "id": "ui-camera-history-removed",
+  "title": "После обновления прокрутка истории записей камеры удалена — доступны только избранные клипы",
+  "obs": 2
+ },
+ {
+  "id": "ui-navigation-complex",
+  "title": "Навигация и программирование расписания неинтуитивны: переключатели настроек не работают, управление запутано",
+  "obs": 2
+ },
+ {
+  "id": "reliability-gps-presence-unreliable",
+  "title": "GPS-определение присутствия дома срабатывает неправильно: система уходит в режим Away, когда пользователь дома",
+  "obs": 2
+ },
+ {
+  "id": "reliability-sensor-disconnect",
+  "title": "Датчики после обновления теряют соединение с термостатом и требуют извлечения батареи для переподключения",
+  "obs": 2
+ },
+ {
+  "id": "reliability-wifi-reconnect",
+  "title": "Переключение на новую сеть Wi-Fi — крайне сложная процедура, которая часто не завершается успехом",
+  "obs": 2
+ },
+ {
+  "id": "reliability-app-slow-load",
+  "title": "Приложение долго открывается даже при сильном Wi-Fi — пользователь ждёт по несколько минут",
+  "obs": 2
+ },
+ {
+  "id": "strategy-app-abandoned-no-updates",
+  "title": "За 8–10 лет приложение не получило значимых обновлений: интерфейс устарел, функциональность не развивается",
+  "obs": 2
+ },
+ {
+  "id": "strategy-remote-control-core-value",
+  "title": "Ключевая ценность продукта — управлять температурой дома для пожилых родственников или из кровати, не вставая",
+  "obs": 2
+ },
+ {
+  "id": "strategy-gen4-requires-google-home",
+  "title": "Термостат Nest четвёртого поколения не поддерживается в приложении Nest — нужно переходить на Google Home",
+  "obs": 2
+ },
+ {
+  "id": "payment-no-service-purchase",
+  "title": "В приложении нет способа оплатить подписку на сервисы Nest — камера не работает полноценно",
+  "obs": 1
+ },
+ {
+  "id": "payment-subscription-stopped",
+  "title": "Подписка Google Home Premium внезапно перестаёт работать, и нет способа связаться с поддержкой",
+  "obs": 1
+ },
+ {
+  "id": "ui-location-required-for-basic-use",
+  "title": "Приложение требует включить геолокацию для любой функции, хотя ручное управление этого не требует",
+  "obs": 1
+ },
+ {
+  "id": "ui-excessive-data-collection",
+  "title": "Приложение требует адрес, телефон и расписание присутствия дома для базовой работы термостата",
+  "obs": 1
+ },
+ {
+  "id": "ui-update-prompt-blocking",
+  "title": "При каждом открытии приложение предлагает обновление, блокируя управление термостатом",
+  "obs": 1
+ },
+ {
+  "id": "ui-biometric-auth-missing",
+  "title": "Приложение не поддерживает отпечаток пальца и Face ID — критично при управлении умными замками",
+  "obs": 1
+ },
+ {
+  "id": "ui-temperature-direct-input-missing",
+  "title": "Для установки температуры используется слайдер вместо прямого ввода числа",
+  "obs": 1
+ },
+ {
+  "id": "ui-fan-schedule-missing",
+  "title": "В расписании нет гибкого управления вентилятором",
+  "obs": 1
+ },
+ {
+  "id": "ui-schedule-copy-broken",
+  "title": "Функция копирования расписания на несколько дней не работает — каждый день приходится настраивать вручную",
+  "obs": 1
+ },
+ {
+  "id": "reliability-smoke-alarm-no-remote-silence",
+  "title": "Датчик дыма запускает будильник низкого заряда батареи, и нет способа отключить его удалённо — приезжали пожарные",
+  "obs": 1
+ },
+ {
+  "id": "reliability-app-state-desync",
+  "title": "Приложение показывает, что кондиционер выключен, хотя он работает — показания не синхронизируются с реальным состоянием",
+  "obs": 1
+ },
+ {
+  "id": "reliability-schedule-not-followed",
+  "title": "Расписание задано, но термостат не следует ему: температура не меняется в указанное время",
+  "obs": 1
+ },
+ {
+  "id": "reliability-status-page-false",
+  "title": "Во время 12-часового сбоя страница статуса сообщает, что всё работает нормально",
+  "obs": 1
+ },
+ {
+  "id": "support-password-reset-blocked",
+  "title": "Google блокирует самостоятельный сброс пароля и не даёт управлять опциями входа",
+  "obs": 1
+ },
+ {
+  "id": "strategy-learning-false-promise",
+  "title": "Nest позиционируется как обучающийся термостат, но на практике работает как обычный программируемый с веб-интерфейсом",
+  "obs": 1
+ },
+ {
+  "id": "strategy-weather-adjustment-missing",
+  "title": "Приложение не предлагает автоматической корректировки температуры на основе прогноза погоды",
+  "obs": 1
+ }
+]

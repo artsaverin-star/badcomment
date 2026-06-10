@@ -1,0 +1,304 @@
+You are grouping 51 mechanism-level insight clusters from Dark Noise (ambient noise / focus / sleep / indie) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Dark Noise, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 51 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Dark Noise — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Dark Noise>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1465439395.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "audio-quality-low",
+  "title": "Качество звуков ниже ожидаемого: чрезмерное сжатие, металлическое звучание, паразитный шум в записях",
+  "obs": 11
+ },
+ {
+  "id": "loop-artifacts",
+  "title": "Петли звуков содержат слышимые щелчки и скачки при переходе — артефакт критичен для приложения фонового шума",
+  "obs": 9
+ },
+ {
+  "id": "mono-audio",
+  "title": "Большинство звуков записаны в моно без стереополя — приложение звучит плоско по сравнению с конкурентами",
+  "obs": 7
+ },
+ {
+  "id": "paywall-content-mismatch",
+  "title": "Маркетинг обещает большой выбор звуков, но без подписки доступны только 4-5 базовых — реальность расходится с описанием",
+  "obs": 5
+ },
+ {
+  "id": "no-mixing-feature",
+  "title": "Приложение не позволяет одновременно воспроизводить несколько звуков — базовая функция категории отсутствует",
+  "obs": 5
+ },
+ {
+  "id": "one-time-to-subscription",
+  "title": "Приложение было продано как разовая покупка, затем переведено на подписку — ранние пользователи вынуждены платить повторно",
+  "obs": 4
+ },
+ {
+  "id": "sound-stops-randomly",
+  "title": "Звук произвольно останавливается ночью или через 1-2 минуты без команды пользователя",
+  "obs": 4
+ },
+ {
+  "id": "audio-mixing-layering",
+  "title": "Независимая регулировка громкости приложения позволяет наслаивать фоновый шум поверх музыки или подкастов",
+  "obs": 4
+ },
+ {
+  "id": "custom-mixes-lost",
+  "title": "Кастомные миксы очищаются или ломаются — названия сохраняются, но содержимое становится пустым",
+  "obs": 4
+ },
+ {
+  "id": "airplay-homepod-unstable",
+  "title": "AirPlay на HomePod работает нестабильно — звук прерывается или отключается ночью, пробуждая пользователя",
+  "obs": 4
+ },
+ {
+  "id": "paywall-at-launch",
+  "title": "Полноэкранный запрос подписки появляется сразу при открытии приложения — нельзя изучить функции до оплаты",
+  "obs": 3
+ },
+ {
+  "id": "subscription-not-activated",
+  "title": "После оплаты подписки контент остаётся заблокированным — платёж прошёл, но доступ не открывается",
+  "obs": 3
+ },
+ {
+  "id": "lifetime-price-high",
+  "title": "Цена пожизненного доступа ($80) воспринимается как непропорционально высокая для утилиты фонового шума",
+  "obs": 3
+ },
+ {
+  "id": "mixing-dissonant",
+  "title": "При микшировании нескольких звуков получается диссонансное звучание из-за перекрытия частотного спектра",
+  "obs": 3
+ },
+ {
+  "id": "shortcuts-broken",
+  "title": "Shortcuts и автоматизации перестали работать после обновления iOS или приложения",
+  "obs": 3
+ },
+ {
+  "id": "competitor-quality-gap",
+  "title": "Конкуренты предлагают стереозвук и микширование бесплатно — разрыв в воспринимаемом качестве снижает обоснование цены",
+  "obs": 3
+ },
+ {
+  "id": "trial-auto-charges",
+  "title": "Бесплатный пробный период автоматически переходит в платный тариф без явного предупреждения пользователя",
+  "obs": 2
+ },
+ {
+  "id": "wrong-charge-amount",
+  "title": "Списывается неправильная сумма: годовой платёж вместо заявленного ежемесячного или ошибочная стоимость",
+  "obs": 2
+ },
+ {
+  "id": "restore-purchase-broken",
+  "title": "Кнопка восстановления покупки не работает — при переустановке или смене устройства система не признаёт оплаченный доступ",
+  "obs": 2
+ },
+ {
+  "id": "sound-too-intense",
+  "title": "Водные и природные звуки звучат слишком агрессивно и интенсивно — они мешают расслаблению вместо того чтобы его вызывать",
+  "obs": 2
+ },
+ {
+  "id": "brown-noise-wrong-freq",
+  "title": "Коричневый шум звучит как белый — неверная частотная характеристика для ключевого типа шума",
+  "obs": 2
+ },
+ {
+  "id": "review-prompt-too-early",
+  "title": "Запрос оценки появляется в первые секунды после открытия приложения — слишком рано для осмысленного отзыва",
+  "obs": 2
+ },
+ {
+  "id": "battery-drain",
+  "title": "Приложение критически разряжает батарею за ночь — за 5-8 часов батарея падает с полного до 9-50%",
+  "obs": 2
+ },
+ {
+  "id": "subscription-model-no-features",
+  "title": "Переход на подписку не сопровождался новыми функциями — пользователи платят больше за тот же функционал",
+  "obs": 1
+ },
+ {
+  "id": "price-hidden-before-install",
+  "title": "Стоимость подписки скрыта до установки приложения — пользователь узнаёт цену только после загрузки",
+  "obs": 1
+ },
+ {
+  "id": "one-time-purchase-model",
+  "title": "Модель разовой покупки без подписки — редкое и ценимое пользователями решение в эпоху рекуррентных платежей",
+  "obs": 1
+ },
+ {
+  "id": "rain-sound-changed",
+  "title": "Звук дождя стал громче и резче после обновления — постоянные пользователи теряют привычный звук",
+  "obs": 1
+ },
+ {
+  "id": "missing-heartbeat-sound",
+  "title": "Звук сердцебиения для укачивания младенцев отсутствует в библиотеке",
+  "obs": 1
+ },
+ {
+  "id": "no-dark-noise-sound",
+  "title": "В приложении Dark Noise нет звука «тёмного шума» — название вводит в заблуждение",
+  "obs": 1
+ },
+ {
+  "id": "volume-levels-inconsistent",
+  "title": "Уровни громкости сильно различаются между звуками — одни едва слышны на 50%, другие оглушают",
+  "obs": 1
+ },
+ {
+  "id": "timer-stops-early",
+  "title": "Таймер отключает звук раньше указанного времени — полный цикл ночного сна не обеспечивается",
+  "obs": 1
+ },
+ {
+  "id": "timer-abrupt-cutoff",
+  "title": "Таймер резко обрывает звук без плавного затухания — резкое прерывание будит пользователя",
+  "obs": 1
+ },
+ {
+  "id": "long-fade-unstable",
+  "title": "Функция плавного затухания нестабильна — выбранное количество часов самопроизвольно меняется",
+  "obs": 1
+ },
+ {
+  "id": "alert-lowers-volume",
+  "title": "Входящий звонок или уведомление переключает звук на тихий белый шум — вернуть исходный звук можно только вручную",
+  "obs": 1
+ },
+ {
+  "id": "background-playback-lost",
+  "title": "Фоновое воспроизведение прерывается при переключении между приложениями — требуется ручной перезапуск",
+  "obs": 1
+ },
+ {
+  "id": "airpods-no-resume",
+  "title": "После возвращения наушника AirPods приложение не возобновляет воспроизведение автоматически",
+  "obs": 1
+ },
+ {
+  "id": "volume-compensation-broken",
+  "title": "Функция Lower Volume работает нестабильно — ручная регулировка слайдера сбрасывает настройку компенсации",
+  "obs": 1
+ },
+ {
+  "id": "mix-creation-no-instruction",
+  "title": "Интерфейс не объясняет как создать микс — функция заявлена в описании, но не обнаруживается",
+  "obs": 1
+ },
+ {
+  "id": "no-delete-ui",
+  "title": "В интерфейсе нет понятного способа удалить приложение — неуверенные пользователи не могут завершить деинсталляцию",
+  "obs": 1
+ },
+ {
+  "id": "old-icons",
+  "title": "Иконки выглядят как устаревший дизайн до iOS 7 — ежедневный пользователь мирится с ущербом для домашнего экрана",
+  "obs": 1
+ },
+ {
+  "id": "appstore-menubar-missing",
+  "title": "Описание в App Store упоминает функцию меню бара macOS, которой нет в текущей версии",
+  "obs": 1
+ },
+ {
+  "id": "sonos-volume-broken",
+  "title": "Слайдер громкости становится недоступен при воспроизведении через Sonos",
+  "obs": 1
+ },
+ {
+  "id": "no-google-cast",
+  "title": "Отсутствует поддержка Google Cast — пользователи с экосистемой Google Home не могут транслировать звук",
+  "obs": 1
+ },
+ {
+  "id": "iphone-ui-bugs",
+  "title": "На iPhone интерфейс зависает и элементы исчезают, тогда как iPad-версия работает корректно",
+  "obs": 1
+ },
+ {
+  "id": "app-stays-in-background",
+  "title": "После закрытия приложение продолжает работать в фоне — требуется перезагрузка телефона",
+  "obs": 1
+ },
+ {
+  "id": "keyboard-controls-unreliable",
+  "title": "Клавиатурные кнопки play/pause срабатывают нестабильно",
+  "obs": 1
+ },
+ {
+  "id": "support-contact-button-broken",
+  "title": "Кнопка обратной связи в приложении не работает — пользователь не может связаться с поддержкой при проблеме с платежом",
+  "obs": 1
+ },
+ {
+  "id": "developer-no-response",
+  "title": "Разработчик не отвечает на обращения пользователей после обновления, сломавшего функции",
+  "obs": 1
+ },
+ {
+  "id": "misophonia-use-case",
+  "title": "Пользователи с мизофонией выбирают приложение намеренно — скрытые петли и минималистичный интерфейс закрывают их специфическую потребность",
+  "obs": 1
+ },
+ {
+  "id": "sleep-conditioning",
+  "title": "Звук работает как условный рефлекс — ассоциация с засыпанием формируется и помогает при тревоге и зависимости от соцсетей",
+  "obs": 1
+ },
+ {
+  "id": "indie-focus-layering",
+  "title": "Пользователи создают многоуровневую рабочую атмосферу, запуская приложение поверх Spotify — неочевидный сценарий продуктивности",
+  "obs": 1
+ }
+]

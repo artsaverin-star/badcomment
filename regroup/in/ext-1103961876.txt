@@ -1,0 +1,239 @@
+You are grouping 38 mechanism-level insight clusters from Do Habits: Get It Done (Привычки и стрики) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Do Habits: Get It Done, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 38 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Do Habits: Get It Done — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Do Habits: Get It Done>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1103961876.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "lifetime-purchase-not-applied",
+  "title": "После покупки пожизненного доступа приложение остаётся на базовом плане и продолжает требовать оплату",
+  "obs": 45
+ },
+ {
+  "id": "upsell-shown-after-payment",
+  "title": "Реклама апселла и объявление о покупке остаются на экране после оплаты и блокируют использование приложения",
+  "obs": 35
+ },
+ {
+  "id": "one-time-to-subscription-migration",
+  "title": "Единоразовая покупка приложения перестаёт признаваться при переходе на модель подписки — прежние права не переносятся",
+  "obs": 17
+ },
+ {
+  "id": "restore-purchase-fails",
+  "title": "Функция восстановления покупки не работает — приложение не распознаёт ранее оплаченный доступ",
+  "obs": 10
+ },
+ {
+  "id": "app-slow-crashes",
+  "title": "Приложение сильно тормозит и часто падает, делая ежедневное отслеживание привычек непрактичным",
+  "obs": 9
+ },
+ {
+  "id": "double-charging",
+  "title": "Приложение списывает деньги дважды — за одну подписку или одновременно за пожизненный и годовой планы",
+  "obs": 8
+ },
+ {
+  "id": "freeze-on-completion-animation",
+  "title": "Приложение зависает на 30 секунд при воспроизведении анимации после отметки привычки выполненной",
+  "obs": 6
+ },
+ {
+  "id": "bundle-required-after-individual-purchase",
+  "title": "Покупка отдельного приложения или пожизненного доступа требует дополнительной покупки всего бандла для разблокировки функций",
+  "obs": 4
+ },
+ {
+  "id": "hidden-charges-after-trial",
+  "title": "После бесплатного пробного периода начинаются скрытые списания без явного уведомления пользователя",
+  "obs": 4
+ },
+ {
+  "id": "data-lost-on-update-or-reinstall",
+  "title": "После обновления приложения или переустановки многолетняя история привычек удаляется без возможности восстановления",
+  "obs": 4
+ },
+ {
+  "id": "upgrade-prompts-for-active-subscribers",
+  "title": "Приложение показывает предложения перейти на премиум пользователям с уже активной платной подпиской",
+  "obs": 3
+ },
+ {
+  "id": "content-ui-content-deleted",
+  "title": "Функция месячных привычек удалена из приложения без объяснения и без альтернативы",
+  "obs": 3
+ },
+ {
+  "id": "edit-resets-sort-order",
+  "title": "После редактирования привычка автоматически перемещается в начало списка, сбивая пользовательский порядок",
+  "obs": 3
+ },
+ {
+  "id": "sync-across-devices-fails",
+  "title": "Синхронизация привычек между устройствами не работает, несмотря на активную подписку",
+  "obs": 3
+ },
+ {
+  "id": "subscription-cancellation-broken",
+  "title": "Отмена подписки недоступна из интерфейса приложения, а поддержка не помогает остановить повторные списания",
+  "obs": 2
+ },
+ {
+  "id": "no-monthly-plan",
+  "title": "Отсутствие месячного плана подписки отталкивает пользователей от пробы — доступен только годовой вариант за $60",
+  "obs": 2
+ },
+ {
+  "id": "widget-cant-complete-tasks",
+  "title": "Виджет на домашнем экране не позволяет отмечать привычки — каждый раз приходится открывать приложение",
+  "obs": 2
+ },
+ {
+  "id": "hide-completed-removed",
+  "title": "После обновления исчезла функция скрытия выполненных задач — экран теперь перегружен",
+  "obs": 2
+ },
+ {
+  "id": "background-resume-delay",
+  "title": "После переключения в фоновый режим и возврата в приложение отзывчивость не восстанавливается около минуты",
+  "obs": 2
+ },
+ {
+  "id": "timezone-breaks-streaks",
+  "title": "При пересечении часовых поясов привычки смещаются на следующий день и рушат историю стриков",
+  "obs": 2
+ },
+ {
+  "id": "activity-counter-wrong",
+  "title": "Счётчик выполнений регистрирует неверное число — показывает 4 вместо 2 или сбрасывает накопленный прогресс",
+  "obs": 2
+ },
+ {
+  "id": "export-data-broken",
+  "title": "Экспорт данных в CSV зависает или выдаёт значения, не совпадающие с данными в приложении",
+  "obs": 2
+ },
+ {
+  "id": "support-ghosting",
+  "title": "Поддержка не отвечает на письма о неприменённых платежах и проблемах с доступом",
+  "obs": 2
+ },
+ {
+  "id": "upsell-outside-app",
+  "title": "Всплывающее окно подписки отображается вне приложения и провоцирует случайные покупки",
+  "obs": 1
+ },
+ {
+  "id": "habit-frequency-removed",
+  "title": "Возможность отслеживать привычку раз в несколько дней исчезла — остались только ежедневные и еженедельные варианты",
+  "obs": 1
+ },
+ {
+  "id": "predefined-habits-only",
+  "title": "Приложение заставляет выбирать из предустановленного списка задач — ввести произвольное название привычки нельзя",
+  "obs": 1
+ },
+ {
+  "id": "swipe-date-removed",
+  "title": "Свайп для смены даты при вводе данных удалён — теперь приходится использовать медленный календарный навигатор",
+  "obs": 1
+ },
+ {
+  "id": "notification-cant-complete-tasks",
+  "title": "Уведомление о привычке не позволяет отметить её выполнение прямо из пуша",
+  "obs": 1
+ },
+ {
+  "id": "custom-groups-broken",
+  "title": "Пустые группы задач удаляются сами по себе, а добавлять задачи в пользовательские группы по-прежнему нельзя",
+  "obs": 1
+ },
+ {
+  "id": "color-palette-changed",
+  "title": "Палитра цветов для задач изменена без предупреждения — старые записи остались в прежних цветах, новые нельзя создать в тех же тонах",
+  "obs": 1
+ },
+ {
+  "id": "counter-tap-requires-multiple",
+  "title": "Для увеличения или уменьшения счётчика привычки требуется несколько нажатий вместо одного",
+  "obs": 1
+ },
+ {
+  "id": "widget-ugly-background",
+  "title": "Виджет отображается с некрасивым белым фоном, не вписывающимся в дизайн домашнего экрана",
+  "obs": 1
+ },
+ {
+  "id": "archive-blocks-new-habits",
+  "title": "После архивирования всех привычек нельзя создать новые — лимит не освобождается",
+  "obs": 1
+ },
+ {
+  "id": "new-day-rollover-freeze",
+  "title": "При наступлении нового дня приложение зависает на текущей дате и требует перезапуска для обновления списка привычек",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-sync-fails",
+  "title": "Прогресс привычек не синхронизируется между iPhone и Apple Watch",
+  "obs": 1
+ },
+ {
+  "id": "apple-health-sync-unstable",
+  "title": "Синхронизация с Apple Health нестабильна и теряет данные о тренировках",
+  "obs": 1
+ },
+ {
+  "id": "ads-degrade-performance",
+  "title": "Добавление рекламы в обновлении замедлило приложение до невозможного использования",
+  "obs": 1
+ },
+ {
+  "id": "free-tier-3-habits-ceiling",
+  "title": "Бесплатный план ограничен тремя привычками — этого хватает для знакомства, но не для реального использования",
+  "obs": 1
+ }
+]

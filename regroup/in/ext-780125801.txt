@@ -1,0 +1,244 @@
+You are grouping 39 mechanism-level insight clusters from inDrive. Save on city rides (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO inDrive. Save on city rides, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 39 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to inDrive. Save on city rides — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to inDrive. Save on city rides>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-780125801.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "sms-verification-blocked",
+  "title": "СМС-код верификации не доставляется — зарегистрироваться невозможно",
+  "obs": 16
+ },
+ {
+  "id": "gps-pickup-inaccurate",
+  "title": "Геолокация показывает неверную точку пикапа — водители ищут пассажира не там",
+  "obs": 10
+ },
+ {
+  "id": "driver-demands-price-hike",
+  "title": "Водитель принимает заказ, а затем требует поднять цену или отменяет поездку",
+  "obs": 8
+ },
+ {
+  "id": "low-fares-unviable-drivers",
+  "title": "Рекомендованные тарифы не покрывают расходы водителя на топливо и обслуживание",
+  "obs": 8
+ },
+ {
+  "id": "app-crash-freeze",
+  "title": "Приложение падает или зависает — сервис становится недоступен",
+  "obs": 7
+ },
+ {
+  "id": "driver-quality-not-vetted",
+  "title": "Водители не проверяются на качество транспорта перед допуском на платформу",
+  "obs": 4
+ },
+ {
+  "id": "driver-vehicle-mismatch",
+  "title": "Марка и номер машины в приложении не совпадают с фактически приехавшим автомобилем",
+  "obs": 3
+ },
+ {
+  "id": "support-ignores-safety",
+  "title": "Служба поддержки не реагирует на обращения по вопросам безопасности и потерянным вещам",
+  "obs": 3
+ },
+ {
+  "id": "driver-tracking-glitchy",
+  "title": "Маркер водителя на карте замирает или прыгает — нельзя понять, едет ли он",
+  "obs": 2
+ },
+ {
+  "id": "geo-wrong-country-state",
+  "title": "Геолокация определяет страну или штат неверно — приложение не показывает доступные машины",
+  "obs": 2
+ },
+ {
+  "id": "low-rating-blocked",
+  "title": "Система не позволяет поставить водителю оценку ниже четырёх звёзд",
+  "obs": 2
+ },
+ {
+  "id": "bots-capture-orders",
+  "title": "Водители используют сторонних ботов для автозахвата заказов — честные водители в проигрыше",
+  "obs": 2
+ },
+ {
+  "id": "app-unavailable-region",
+  "title": "Приложение недоступно в ряде крупных городов и целых странах",
+  "obs": 2
+ },
+ {
+  "id": "app-loses-connection-mid-trip",
+  "title": "Приложение теряет сеть во время активной поездки, хотя другие приложения работают нормально",
+  "obs": 1
+ },
+ {
+  "id": "sms-verification-us-registration-rejected",
+  "title": "Регистрация с американским номером отклоняется без объяснения причины",
+  "obs": 1
+ },
+ {
+  "id": "notifications-broken",
+  "title": "Звук и изображение уведомлений о заказах периодически пропадают",
+  "obs": 1
+ },
+ {
+  "id": "app-icon-invisible",
+  "title": "Иконка приложения не видна на главном экране в режиме стекла",
+  "obs": 1
+ },
+ {
+  "id": "price-rises-mid-trip",
+  "title": "Цена поездки повышается в процессе без объяснения причины",
+  "obs": 1
+ },
+ {
+  "id": "passengers-dont-pay",
+  "title": "Часть пассажиров систематически не платит водителям за поездку",
+  "obs": 1
+ },
+ {
+  "id": "voucher-fraud",
+  "title": "Водители принимают заказы по ваучерам и не забирают пассажира — кредит списывается впустую",
+  "obs": 1
+ },
+ {
+  "id": "driver-charges-for-luggage",
+  "title": "Водители требуют доплату за багаж сверх согласованной фиксированной цены",
+  "obs": 1
+ },
+ {
+  "id": "manual-payment-friction",
+  "title": "Каждую поездку нужно оплачивать вручную — автоматического списания нет",
+  "obs": 1
+ },
+ {
+  "id": "cash-only-no-card",
+  "title": "Приложение принимает только наличные — оплатить картой нельзя",
+  "obs": 1
+ },
+ {
+  "id": "bidding-feature-removed",
+  "title": "Функция выбора цены и заказа на время убрана без объяснений пользователям",
+  "obs": 1
+ },
+ {
+  "id": "pickup-point-selection-hard",
+  "title": "Интерфейс выбора точки пикапа неудобен для точного указания адреса",
+  "obs": 1
+ },
+ {
+  "id": "no-two-simultaneous-orders",
+  "title": "Нельзя создать два заказа одновременно для разных маршрутов",
+  "obs": 1
+ },
+ {
+  "id": "eta-ignores-traffic",
+  "title": "Расчётное время прибытия не учитывает пробки и расходится с реальным",
+  "obs": 1
+ },
+ {
+  "id": "no-cng-filter",
+  "title": "Нет возможности найти автомобиль на газе — фильтр по типу топлива отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "accessibility-screen-reader",
+  "title": "Приложение не совместимо с программами чтения экрана для слабовидящих",
+  "obs": 1
+ },
+ {
+  "id": "driver-arrival-time-slows-accept",
+  "title": "Отображение времени прибытия замедляет принятие заказа — другие водители успевают раньше",
+  "obs": 1
+ },
+ {
+  "id": "no-geographic-coverage-notice",
+  "title": "Приложение просит данные при регистрации, не предупреждая, что сервис недоступен в городе",
+  "obs": 1
+ },
+ {
+  "id": "support-verification-loop",
+  "title": "После смены телефона служба поддержки задаёт одни вопросы по кругу и не восстанавливает доступ",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-complaints",
+  "title": "Жалобы на поведение водителя или несоответствие автомобиля игнорируются службой поддержки",
+  "obs": 1
+ },
+ {
+  "id": "driver-calls-despite-known-address",
+  "title": "Водители звонят с просьбой уточнить адрес, хотя пассажир уже закрепил точку пикапа",
+  "obs": 1
+ },
+ {
+  "id": "driver-detours-route",
+  "title": "Водители отвозят пассажира в другом направлении — механизма защиты от отклонения нет",
+  "obs": 1
+ },
+ {
+  "id": "asymmetric-driver-passenger-protection",
+  "title": "Система всегда встаёт на сторону пассажира — водитель не может оспорить несправедливую оценку",
+  "obs": 1
+ },
+ {
+  "id": "daily-trip-cap-gaming",
+  "title": "Лимит поездок в сутки провоцирует фиктивные поездки и подрывает честное распределение заказов",
+  "obs": 1
+ },
+ {
+  "id": "driver-collusion-price",
+  "title": "Водители договариваются между собой и коллективно отказываются брать заказы по заявленной цене",
+  "obs": 1
+ },
+ {
+  "id": "no-pet-policy",
+  "title": "Нет протокола для поездок с домашними животными — водители отказывают без альтернативы",
+  "obs": 1
+ }
+]

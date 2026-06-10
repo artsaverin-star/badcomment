@@ -1,0 +1,129 @@
+You are grouping 16 mechanism-level insight clusters from CHANI: Your Astrology Guide (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO CHANI: Your Astrology Guide, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 16 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to CHANI: Your Astrology Guide — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to CHANI: Your Astrology Guide>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstfkx711j4ug8p865xj4f7.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "political-content-overload",
+  "title": "Еженедельные чтения заполнены политическими монологами — астрологического содержания остаётся мало",
+  "obs": 5
+ },
+ {
+  "id": "reading-lacks-transit-depth",
+  "title": "Персональные чтения строятся только по асценданту — транзиты для всего натального графика не разбираются",
+  "obs": 2
+ },
+ {
+  "id": "chart-calculation-mismatch",
+  "title": "Натальный график считается иначе, чем на других сайтах, и пользователь получает расходящиеся данные",
+  "obs": 2
+ },
+ {
+  "id": "trial-requires-payment",
+  "title": "Пробный период требует ввода карты заранее — пользователь платит данными, а не получает бесплатный доступ",
+  "obs": 1
+ },
+ {
+  "id": "whole-sign-system-undisclosed",
+  "title": "Приложение использует систему целых знаков, но не объясняет это пользователю — отсюда расхождение с другими сервисами",
+  "obs": 1
+ },
+ {
+  "id": "wrong-moon-phase-displayed",
+  "title": "Приложение показывает устаревшую фазу луны — полнолуние отображается спустя четыре дня после события",
+  "obs": 1
+ },
+ {
+  "id": "unhealthy-advice-in-readings",
+  "title": "Астрологическое чтение советует перегружать расписание и заниматься многозадачностью, что противоречит здоровым практикам",
+  "obs": 1
+ },
+ {
+  "id": "pronunciation-errors",
+  "title": "Ведущая неправильно произносит слова в аудиочтениях, что мешает восприятию",
+  "obs": 1
+ },
+ {
+  "id": "transcript-sync-missing",
+  "title": "При прослушивании аудиочтения нет синхронизированной прокрутки транскрипции",
+  "obs": 1
+ },
+ {
+  "id": "forced-login-before-trial",
+  "title": "Приложение не даёт ознакомиться с контентом без регистрации — вход обязателен до любого взаимодействия",
+  "obs": 1
+ },
+ {
+  "id": "font-size-too-small",
+  "title": "После редизайна шрифт стал настолько мелким, что читать неудобно даже людям с нормальным зрением",
+  "obs": 1
+ },
+ {
+  "id": "lesson-completion-tap-conflict",
+  "title": "Кнопка завершения урока при нажатии запускает урок заново вместо того, чтобы поставить отметку о прохождении",
+  "obs": 1
+ },
+ {
+  "id": "city-not-recognized-at-signup",
+  "title": "Регистрация не завершается, если приложение не распознаёт город рождения пользователя",
+  "obs": 1
+ },
+ {
+  "id": "battery-drain",
+  "title": "Приложение разряжает батарею значительно быстрее других приложений вне зависимости от настроек",
+  "obs": 1
+ },
+ {
+  "id": "public-values-vs-internal-reality",
+  "title": "Публичное позиционирование компании как этичного бренда без ИИ расходится с сообщениями об использовании ИИ внутри",
+  "obs": 1
+ },
+ {
+  "id": "release-schedule-morning",
+  "title": "Переход на воскресное утреннее расписание выпусков совпадает с ритуалом пробуждения пользователей и повышает вовлечённость",
+  "obs": 1
+ }
+]

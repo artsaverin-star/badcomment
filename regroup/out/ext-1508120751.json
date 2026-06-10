@@ -1,0 +1,117 @@
+{
+  "groups": [
+    {
+      "id": "ai-quality-likeness",
+      "name": "Сходство и качество: получается не тот человек",
+      "insight_ids": [
+        "output-doesnt-resemble-original",
+        "filters-dont-match-marketing",
+        "facial-features-altered-unwanted",
+        "custom-art-ignores-text-prompts",
+        "low-quality-output",
+        "gender-changed",
+        "anatomical-deformities",
+        "glasses-not-rendered",
+        "no-customization-presets-only",
+        "no-target-result-specification",
+        "always-changes-whole-face",
+        "hot-body-wrong-changes",
+        "deceptive-marketing-promises"
+      ]
+    },
+    {
+      "id": "racial-bias",
+      "name": "Расовый перекос: осветление кожи и стёртые этнические черты",
+      "insight_ids": [
+        "race-skin-whitening",
+        "few-skin-tone-style-options",
+        "no-black-hairstyles",
+        "ethnic-features-distorted"
+      ]
+    },
+    {
+      "id": "billing-traps",
+      "name": "Платёжные ловушки: списания, фейковый триал и стена оплаты",
+      "insight_ids": [
+        "trial-tap-charges-immediately",
+        "no-free-version-paywall-on-launch",
+        "paid-but-features-locked",
+        "good-stuff-behind-pro",
+        "charge-after-cancellation",
+        "deceptive-two-step-signup",
+        "single-person-limit-hidden-at-purchase",
+        "high-price-weekly",
+        "fullscreen-sub-banner-blocks-ui",
+        "prefers-one-time-over-subscription",
+        "designer-service-no-delivery"
+      ]
+    },
+    {
+      "id": "photo-rejection",
+      "name": "«Лицо не найдено»: придирки к фото и ограничения на вход",
+      "insight_ids": [
+        "rejects-non-frontal-or-partial-face",
+        "rejects-pets-and-objects",
+        "face-not-found-on-valid-photos",
+        "validation-rejects-most-photos",
+        "content-filter-false-positive",
+        "no-group-multi-person"
+      ]
+    },
+    {
+      "id": "breaks-and-regressions",
+      "name": "Поломки и откаты: что сломалось и что вырезали в обновлениях",
+      "insight_ids": [
+        "processing-stuck-loading",
+        "filters-effects-broken",
+        "processing-slow",
+        "errors-after-usage-period",
+        "busy-server-overloaded-error",
+        "removed-feature-objects-scenes",
+        "fewer-output-variations",
+        "dream-look-quality-degraded",
+        "workflow-slower-more-steps",
+        "no-history-of-creations",
+        "lost-multi-variation-preview",
+        "crash-on-specific-effect",
+        "removed-feature-pet-to-cartoon",
+        "removed-celebrity-comparison",
+        "removed-couples-filter"
+      ]
+    },
+    {
+      "id": "shady-behavior-ads",
+      "name": "Реклама, push и сомнительный контент",
+      "insight_ids": [
+        "ad-on-every-button-tap",
+        "no-search-in-filter-catalog",
+        "celebrity-search-porn",
+        "dating-push-notifications",
+        "wants-less-ads-loyal-user"
+      ]
+    },
+    {
+      "id": "how-people-use-it",
+      "name": "Как им пользуются по-настоящему: контент, семья, печать",
+      "insight_ids": [
+        "side-channels-for-content-creation",
+        "social-bonding-use-case",
+        "creative-control-print-use",
+        "flattering-younger-version",
+        "cross-tool-book-creation",
+        "wants-realistic-mode-features"
+      ]
+    },
+    {
+      "id": "loyal-despite-flaws",
+      "name": "Лучше конкурентов, несмотря на шероховатости",
+      "insight_ids": [
+        "captures-likeness-well",
+        "confusing-onboarding-learnable",
+        "better-than-competitors",
+        "minor-bugs-stable-overall",
+        "before-after-uses-user-photo"
+      ]
+    }
+  ]
+}

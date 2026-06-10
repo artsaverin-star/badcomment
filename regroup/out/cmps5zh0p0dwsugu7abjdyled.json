@@ -1,0 +1,91 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Биллинг-капканы: списания, отмена, возвраты",
+      "insight_ids": [
+        "charges-after-cancellation",
+        "trial-no-warning-autocharge",
+        "hidden-billing-model",
+        "charge-at-trial-start",
+        "double-charge",
+        "subscription-not-activated",
+        "refund-denied",
+        "cancel-account-impossible",
+        "apple-billing-invisible",
+        "plan-converted-to-expensive",
+        "child-accidental-purchase"
+      ]
+    },
+    {
+      "id": "id-accuracy-misses",
+      "name": "Распознавание промахивается: точность и пропуски",
+      "insight_ids": [
+        "accuracy-partial-errors-harm-care",
+        "no-variety-level-identification",
+        "zero-accuracy-basic-plants",
+        "unusual-plants-not-recognized",
+        "worse-than-google-images",
+        "wrong-id-known-plant",
+        "toxic-plant-misidentified-safe"
+      ]
+    },
+    {
+      "id": "breakage-outages",
+      "name": "Падает, ломается, бросает: сбои и недоступность",
+      "insight_ids": [
+        "maintenance-mode-blocks-paid-users",
+        "lifetime-lost-after-update",
+        "password-reset-broken",
+        "ai-botanist-language-broken",
+        "developer-site-lorem-ipsum",
+        "support-no-response"
+      ]
+    },
+    {
+      "id": "disease-diagnosis-broken",
+      "name": "Диагностика болезней не работает",
+      "insight_ids": [
+        "ad-mismatch-missing-features",
+        "disease-diagnosis-vague",
+        "disease-feature-crashes",
+        "disease-diagnosis-inconsistent",
+        "disease-diagnosis-nonsense"
+      ]
+    },
+    {
+      "id": "pay-to-try",
+      "name": "Плати, чтобы попробовать: пейволлы и навязчивый апсейл",
+      "insight_ids": [
+        "onboarding-paywall-before-trial",
+        "disease-feature-requires-extra-payment",
+        "confusing-pricing-tiers",
+        "subscription-bad-for-occasional-use",
+        "repeated-subscription-prompts",
+        "core-id-behind-paywall",
+        "free-scans-wrong-no-evaluation"
+      ]
+    },
+    {
+      "id": "care-and-database",
+      "name": "Уход и база данных: что приложение знает о растениях",
+      "insight_ids": [
+        "care-info-contradictory",
+        "care-info-generic",
+        "plant-database-limited-geography",
+        "care-info-typos",
+        "plant-db-outdated-images"
+      ]
+    },
+    {
+      "id": "who-it-works-for",
+      "name": "Кому всё-таки заходит: реальные сценарии использования",
+      "insight_ids": [
+        "accuracy-acceptable-to-satisfied-users",
+        "new-country-flora-exploration",
+        "professional-use-case",
+        "app-monetization-over-value"
+      ]
+    }
+  ]
+}

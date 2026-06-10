@@ -1,0 +1,57 @@
+{
+  "groups": [
+    {
+      "id": "trial-billing-traps",
+      "name": "Платный «бесплатный» пробник и ловушки списаний",
+      "insight_ids": [
+        "trial-charges-full-annual-immediately",
+        "card-required-before-trying",
+        "double-charge-no-refund",
+        "expensive-trial-charge-24h",
+        "price-misrepresented-store",
+        "family-sharing-broken",
+        "no-cancel-button-autorenew-default"
+      ]
+    },
+    {
+      "id": "onboarding-dead-end",
+      "name": "Вопрос о возрасте, на котором всё намертво встаёт",
+      "insight_ids": [
+        "onboarding-stuck-age-question"
+      ]
+    },
+    {
+      "id": "wrong-baby",
+      "name": "Подменённый малыш: путаница лиц и один ребёнок на всех",
+      "insight_ids": [
+        "face-detection-wrong-child",
+        "multiple-children-not-supported"
+      ]
+    },
+    {
+      "id": "auto-memories-miss",
+      "name": "Автоколлажи и шаблоны, которые промахиваются мимо момента",
+      "insight_ids": [
+        "auto-collages-repeat-photos",
+        "holiday-templates-too-late",
+        "content-not-refresh-on-photo-change"
+      ]
+    },
+    {
+      "id": "video-export-loses",
+      "name": "Готовое видео теряет звук, даты и обрезает кадр",
+      "insight_ids": [
+        "video-loses-audio",
+        "video-loses-dates",
+        "aspect-ratio-locked"
+      ]
+    },
+    {
+      "id": "ai-on-baby-photos",
+      "name": "Детские снимки уходят в ИИ без предупреждения",
+      "insight_ids": [
+        "ai-photo-processing-not-disclosed"
+      ]
+    }
+  ]
+}

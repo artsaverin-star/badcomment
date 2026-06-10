@@ -1,0 +1,434 @@
+You are grouping 77 mechanism-level insight clusters from MyFitnessPal: Calorie Counter (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO MyFitnessPal: Calorie Counter, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 77 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to MyFitnessPal: Calorie Counter — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to MyFitnessPal: Calorie Counter>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps5x7v90880ugu7jg5d2emv.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "macros-and-diary-buried-behind-clicks",
+  "title": "Дневной дневник, калории и макросы спрятаны вглубь и требуют множества кликов вместо одного экрана",
+  "obs": 22
+ },
+ {
+  "id": "logging-needs-more-clicks",
+  "title": "Логирование еды стало требовать гораздо больше кликов и шагов, чем раньше",
+  "obs": 14
+ },
+ {
+  "id": "redesign-broke-intuitive-navigation",
+  "title": "После редизайна интерфейс стал менее интуитивным и навигация запутанной",
+  "obs": 10
+ },
+ {
+  "id": "free-app-but-core-needs-paywall",
+  "title": "Приложение рекламируется как бесплатное, но базовые функции заблокированы платной подпиской",
+  "obs": 8
+ },
+ {
+  "id": "celebratory-popups-cannot-disable",
+  "title": "Поздравительные всплывающие окна при каждом логировании нельзя отключить и они отвлекают",
+  "obs": 8
+ },
+ {
+  "id": "barcode-scan-moved-to-paywall",
+  "title": "Сканирование штрих-кода раньше было бесплатным, теперь работает только по платной подписке",
+  "obs": 7
+ },
+ {
+  "id": "ads-block-logging-flow",
+  "title": "Реклама всплывает при каждом действии логирования и блокирует ввод данных",
+  "obs": 7
+ },
+ {
+  "id": "passive-aggressive-notifications",
+  "title": "Мотивационные уведомления звучат угрожающе и пристыжающе, демотивируя вместо поддержки",
+  "obs": 7
+ },
+ {
+  "id": "list-jumps-to-top-on-add",
+  "title": "При добавлении продукта из истории список перескакивает в начало и сбивает серийный ввод",
+  "obs": 5
+ },
+ {
+  "id": "frequent-logout-data-loss",
+  "title": "Приложение постоянно разлогинивает пользователя, теряя историю и сохранённые продукты",
+  "obs": 5
+ },
+ {
+  "id": "meals-split-across-separate-screens",
+  "title": "Приёмы пищи разнесены по отдельным экранам вместо единого списка за день",
+  "obs": 4
+ },
+ {
+  "id": "slow-load-after-update",
+  "title": "После обновления приложение загружается десятки секунд вместо нескольких",
+  "obs": 4
+ },
+ {
+  "id": "freezes-during-logging-or-update",
+  "title": "Приложение зависает при логировании или обновлении и требует перезагрузки с потерей прогресса",
+  "obs": 4
+ },
+ {
+  "id": "goals-change-without-consent",
+  "title": "Персональные цели по калориям и макросам меняются сами без согласия пользователя",
+  "obs": 4
+ },
+ {
+  "id": "barcode-scanner-buried-extra-clicks",
+  "title": "Оплаченный сканер штрих-кода спрятали на несколько кликов вглубь интерфейса",
+  "obs": 4
+ },
+ {
+  "id": "weight-quick-add-button-removed",
+  "title": "Кнопка быстрого добавления веса убрана, теперь нужно несколько шагов и смена даты вручную",
+  "obs": 3
+ },
+ {
+  "id": "recipe-management-broken",
+  "title": "Сохранённые рецепты нельзя редактировать, переименовывать, переупорядочивать или удалять",
+  "obs": 3
+ },
+ {
+  "id": "app-crashes-cannot-log",
+  "title": "После обновлений приложение падает и не даёт логировать еду",
+  "obs": 3
+ },
+ {
+  "id": "logged-foods-disappear",
+  "title": "Логированные продукты исчезают из дневника и не учитываются в калориях",
+  "obs": 3
+ },
+ {
+  "id": "calorie-calculation-wrong",
+  "title": "Приложение показывает завышенные или неправильные значения калорий и макросов",
+  "obs": 3
+ },
+ {
+  "id": "custom-goals-not-saved",
+  "title": "Пользовательские цели по калориям и макросам не сохраняются и сбрасываются на значения по умолчанию",
+  "obs": 3
+ },
+ {
+  "id": "reauth-methods-fail",
+  "title": "Повторный вход через сторонние сервисы не работает и требует сброса пароля",
+  "obs": 3
+ },
+ {
+  "id": "trial-charged-early-and-overpriced",
+  "title": "Пробный период списывает полную годовую сумму раньше срока и дороже объявленной цены",
+  "obs": 2
+ },
+ {
+  "id": "history-of-foods-hidden",
+  "title": "История недавних продуктов скрыта, каждый продукт приходится искать заново",
+  "obs": 2
+ },
+ {
+  "id": "copy-individual-items-removed",
+  "title": "Нельзя скопировать отдельный продукт между приёмами или днями, только весь приём целиком",
+  "obs": 2
+ },
+ {
+  "id": "copy-full-day-harder-or-removed",
+  "title": "Копирование всего дня приёмов пищи усложнили или убрали для планирования недели",
+  "obs": 2
+ },
+ {
+  "id": "today-tab-not-customizable",
+  "title": "Главную вкладку и порядок показателей нельзя настроить под важные пользователю метрики",
+  "obs": 2
+ },
+ {
+  "id": "redesign-removed-color-visual-appeal",
+  "title": "Редизайн убрал цвет и визуальные элементы, приложение стало скучным и демотивирующим",
+  "obs": 2
+ },
+ {
+  "id": "extra-meal-step-and-finish-meal-button",
+  "title": "Добавили обязательный шаг по приёмам пищи и кнопку «завершить приём», ломающую блочное логирование",
+  "obs": 2
+ },
+ {
+  "id": "navigate-between-days-cumbersome",
+  "title": "Навигация между днями и сравнение одинаковых приёмов по дням стали громоздкими",
+  "obs": 2
+ },
+ {
+  "id": "no-rollback-to-old-interface",
+  "title": "Нет возможности выбрать старый интерфейс или откатиться на предыдущую версию",
+  "obs": 2
+ },
+ {
+  "id": "step-count-changes-without-reason",
+  "title": "Счётчик шагов меняется без причины и не совпадает с часами и телефоном",
+  "obs": 2
+ },
+ {
+  "id": "ipad-version-26-bugs",
+  "title": "На планшетной версии не логируются напитки и не виден список съеденного",
+  "obs": 2
+ },
+ {
+  "id": "weight-add-button-disappears",
+  "title": "Кнопка добавления веса периодически исчезает, делая логирование веса невозможным",
+  "obs": 2
+ },
+ {
+  "id": "frequent-pointless-updates",
+  "title": "Приложение обновляется почти ежедневно без видимой причины, а само обновление зацикливается",
+  "obs": 2
+ },
+ {
+  "id": "ad-close-button-broken",
+  "title": "Кнопка закрытия рекламы не срабатывает, приходится перезапускать приложение",
+  "obs": 2
+ },
+ {
+  "id": "malicious-phishing-ads-popups",
+  "title": "Приложение показывает вредоносные рекламные и фишинговые всплывающие окна",
+  "obs": 2
+ },
+ {
+  "id": "chatbot-blocks-human-support",
+  "title": "Чат-бот поддержки не решает проблему и не передаёт обращение живому оператору",
+  "obs": 2
+ },
+ {
+  "id": "support-sends-canned-replies",
+  "title": "Поддержка отвечает шаблонными письмами, игнорируя конкретную обратную связь",
+  "obs": 2
+ },
+ {
+  "id": "fasting-tracker-conflicts-with-logging",
+  "title": "Трекер голодания мешает заранее логировать еду и требует ввода всего интервала сразу",
+  "obs": 2
+ },
+ {
+  "id": "ai-slop-redesign-perceived-upsell",
+  "title": "Пользователи считают, что низкокачественный ИИ-редизайн намеренно усложняет приложение ради перехода на премиум",
+  "obs": 2
+ },
+ {
+  "id": "macros-moved-to-paywall",
+  "title": "Просмотр макронутриентов перенесли в платную подписку из бесплатной версии",
+  "obs": 1
+ },
+ {
+  "id": "permissions-requested-before-price-disclosed",
+  "title": "Приложение запрашивает доступ к данным до того, как раскроет требование платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "paid-features-stopped-working",
+  "title": "Оплаченная премиум-функция перестаёт работать через несколько дней после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "current-day-not-shown-while-logging",
+  "title": "Интерфейс не показывает текущую дату при логировании, продукты можно записать не в тот день",
+  "obs": 1
+ },
+ {
+  "id": "delete-items-one-by-one",
+  "title": "Удаление продуктов требует свайпа по каждому отдельно, нет выбора нескольких сразу",
+  "obs": 1
+ },
+ {
+  "id": "manual-numeric-entry-not-allowed",
+  "title": "Нельзя вручную ввести произвольные числа калорий, только выбор из ограниченного списка",
+  "obs": 1
+ },
+ {
+  "id": "recipe-ingredients-not-visible-while-logging",
+  "title": "При добавлении рецепта в дневник не видно его ингредиентов",
+  "obs": 1
+ },
+ {
+  "id": "recipe-creation-many-clicks",
+  "title": "Создание пользовательского рецепта требует множества кликов по каждому ингредиенту",
+  "obs": 1
+ },
+ {
+  "id": "horizontal-orientation-removed",
+  "title": "Убрали горизонтальный режим для быстрого просмотра разбивки макросов продукта",
+  "obs": 1
+ },
+ {
+  "id": "font-too-small-no-accessibility",
+  "title": "Слишком мелкий шрифт нельзя увеличить через системные настройки",
+  "obs": 1
+ },
+ {
+  "id": "small-screens-not-supported",
+  "title": "Новый интерфейс не помещается на маленьких экранах и требует постоянной прокрутки",
+  "obs": 1
+ },
+ {
+  "id": "water-log-extra-clicks",
+  "title": "Логирование воды требует больше кликов, чем нужно для простой операции",
+  "obs": 1
+ },
+ {
+  "id": "search-scoped-to-one-section",
+  "title": "Поиск работает только в одном разделе и блокирует поиск в других категориях продуктов",
+  "obs": 1
+ },
+ {
+  "id": "my-foods-library-purged",
+  "title": "Часто используемые продукты исчезают из личной библиотеки, если давно не использовались",
+  "obs": 1
+ },
+ {
+  "id": "diary-tab-removed",
+  "title": "Удаление вкладки дневника и его встраивание в другие разделы усложнило доступ к нему",
+  "obs": 1
+ },
+ {
+  "id": "allergy-setup-no-save",
+  "title": "В настройке пищевых аллергий нет видимого способа применить или сохранить введённые данные",
+  "obs": 1
+ },
+ {
+  "id": "diary-print-limited-25-days",
+  "title": "Печать дневника ограничена 25 днями, нельзя выгрузить год данных для врача",
+  "obs": 1
+ },
+ {
+  "id": "weight-chart-x-axis-unreadable",
+  "title": "На графике веса подписи дат по оси неразборчивы и в неудобном формате",
+  "obs": 1
+ },
+ {
+  "id": "device-integration-removed-for-ai-coach",
+  "title": "Убрали связь с весами и фитнес-трекерами, заменив её бесполезным ИИ-коучем",
+  "obs": 1
+ },
+ {
+  "id": "no-offline-mode",
+  "title": "Приложение не работает без интернета, логировать еду без сигнала невозможно",
+  "obs": 1
+ },
+ {
+  "id": "widgets-broke-after-update",
+  "title": "Виджеты отслеживания калорий перестали работать после обновления",
+  "obs": 1
+ },
+ {
+  "id": "recipe-save-server-error",
+  "title": "Сохранение пользовательского рецепта падает с серверной ошибкой",
+  "obs": 1
+ },
+ {
+  "id": "interface-flips-between-versions",
+  "title": "Приложение само переключается между старым и новым интерфейсом без объяснения",
+  "obs": 1
+ },
+ {
+  "id": "account-data-wiped-by-update",
+  "title": "Обновление стёрло всю информацию аккаунта пользователя",
+  "obs": 1
+ },
+ {
+  "id": "barcode-scanner-broke-or-flow-interrupted",
+  "title": "Сканер штрих-кода после нажатия выкидывает на главный экран, прерывая логирование",
+  "obs": 1
+ },
+ {
+  "id": "barcode-no-qr-support",
+  "title": "Сканер читает штрих-коды, но не QR-коды готовых блюд, заставляя вводить вручную",
+  "obs": 1
+ },
+ {
+  "id": "weight-chart-restored-slower",
+  "title": "Утраченный график веса восстановили, но он грузится медленнее прежнего",
+  "obs": 1
+ },
+ {
+  "id": "double-logging-or-lost-entries-on-add",
+  "title": "Приложение дублирует или теряет записи при добавлении, делая подсчёт калорий ненадёжным",
+  "obs": 1
+ },
+ {
+  "id": "guilt-popups-on-missed-day",
+  "title": "При пропуске дня появляются всплывающие окна, воспринимаемые как наказание",
+  "obs": 1
+ },
+ {
+  "id": "support-ignores-billing-issue",
+  "title": "Поддержка не отвечает на обращения по ошибочному списанию и сбоям оплаты",
+  "obs": 1
+ },
+ {
+  "id": "cannot-disable-meal-notifications",
+  "title": "Push-уведомления о приёмах пищи нельзя отключить через системные настройки",
+  "obs": 1
+ },
+ {
+  "id": "ai-coach-misfires-on-fasting",
+  "title": "ИИ-коуч критикует за пропуск приёма, не понимая практику прерывистого голодания",
+  "obs": 1
+ },
+ {
+  "id": "sodium-tracking-removed",
+  "title": "Обновление убрало отслеживание натрия, нужное для контроля давления",
+  "obs": 1
+ },
+ {
+  "id": "timezone-change-requires-web",
+  "title": "Часовой пояс нельзя сменить в приложении, а вход на веб-версию блокирует скрытая почта",
+  "obs": 1
+ },
+ {
+  "id": "app-web-data-mismatch",
+  "title": "Данные в приложении и на веб-версии расходятся между собой",
+  "obs": 1
+ },
+ {
+  "id": "complexity-causes-tracking-abandonment",
+  "title": "Усложнённое логирование заставляет давних пользователей бросить отслеживание питания",
+  "obs": 1
+ }
+]

@@ -1,0 +1,154 @@
+You are grouping 21 mechanism-level insight clusters from Baby Tracker & Newborn Log (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Baby Tracker & Newborn Log, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 21 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Baby Tracker & Newborn Log — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Baby Tracker & Newborn Log>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-551448817.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "update-removed-features",
+  "title": "Обновление убрало привычные функции и добавило шаги — каждое действие стало дольше для занятых родителей",
+  "obs": 5
+ },
+ {
+  "id": "sync-unreliable-realtime",
+  "title": "Синхронизация между родителями работает не в реальном времени — записи одного не появляются у другого без починки",
+  "obs": 5
+ },
+ {
+  "id": "data-wipe-no-cause",
+  "title": "Приложение само стирает годы записей о детях без причины, критично для медицинского учёта",
+  "obs": 4
+ },
+ {
+  "id": "volume-tracking-broken",
+  "title": "После обновления нельзя сразу записать объём сцеживания или бутылочки — сохраняется только время и длительность",
+  "obs": 3
+ },
+ {
+  "id": "timer-stuck-across-devices",
+  "title": "Таймер кормления, запущенный на одном устройстве, нельзя завершить на другом — он висит часами, помогает только удаление записи",
+  "obs": 3
+ },
+ {
+  "id": "mandatory-backup-restore",
+  "title": "Приложение при каждом запуске требует долгого восстановления из резервной копии",
+  "obs": 2
+ },
+ {
+  "id": "widget-watch-wrong-state",
+  "title": "Виджеты и часы показывают неверное состояние — продолжают отсчёт завершённого сеанса",
+  "obs": 2
+ },
+ {
+  "id": "price-jump-renewal-drop",
+  "title": "Цена годовой подписки выросла в несколько раз — давний пользователь отказывается продлевать",
+  "obs": 1
+ },
+ {
+  "id": "paid-but-degraded",
+  "title": "Приложение платное, но в последнюю неделю стало непригодным из-за тормозов",
+  "obs": 1
+ },
+ {
+  "id": "stale-illness-status",
+  "title": "Последний диагноз и температура висят на экране месяцами — нет автоочистки устаревшего статуса здоровья",
+  "obs": 1
+ },
+ {
+  "id": "reminder-no-sound",
+  "title": "Напоминание о кормлении приходит молча — только всплывашка без звука, приходится ставить отдельный будильник",
+  "obs": 1
+ },
+ {
+  "id": "edit-time-needs-stop",
+  "title": "Чтобы исправить время сна, приходится останавливать активный таймер — нельзя править на ходу",
+  "obs": 1
+ },
+ {
+  "id": "adjusted-time-hidden-scroll",
+  "title": "Новый интерфейс прячет отрегулированное время при прокрутке и убрал паузу прямо из уведомления",
+  "obs": 1
+ },
+ {
+  "id": "units-changed-oz-ml",
+  "title": "Обновление сменило единицы измерения с унций на миллилитры и сломало привычный ввод",
+  "obs": 1
+ },
+ {
+  "id": "cross-midnight-sleep-totals",
+  "title": "Часы сна после полуночи не попадают в дневную статистику — итог за сутки занижен",
+  "obs": 1
+ },
+ {
+  "id": "medication-no-favorites",
+  "title": "При добавлении лекарства форму надо заполнять заново — нет избранного или недавних для быстрого ввода",
+  "obs": 1
+ },
+ {
+  "id": "global-stats-distraction",
+  "title": "Обновление добавило галерею с глобальной статистикой сна, которая отвлекает тех, кто следит только за своим ребёнком",
+  "obs": 1
+ },
+ {
+  "id": "sync-total-outage",
+  "title": "Синхронизация полностью отказала на всех устройствах — четыре года данных стали недоступны",
+  "obs": 1
+ },
+ {
+  "id": "slow-after-update",
+  "title": "После обновления приходится ждать перерисовки интерфейса при остановке сеанса — стало медленнее старой версии",
+  "obs": 1
+ },
+ {
+  "id": "export-artifacts",
+  "title": "Экспорт данных содержит артефакты, мешающие анализу трендов",
+  "obs": 1
+ },
+ {
+  "id": "public-live-counter-privacy",
+  "title": "Обновление добавило публичный счётчик кормящихся младенцев — это вызывает опасения за приватность",
+  "obs": 1
+ }
+]

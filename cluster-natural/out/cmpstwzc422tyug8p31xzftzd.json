@@ -1,0 +1,796 @@
+{
+  "groups": [
+    {
+      "id": "upsell-prompts-density-paid-user",
+      "name": "Платящего подписчика атакуют несколькими промо-экранами подряд при каждом открытии — накопленный шум промптов становится главным UI-опытом",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        1,
+        5,
+        17,
+        23,
+        41,
+        82,
+        91,
+        98,
+        117,
+        168,
+        174,
+        214,
+        236,
+        238,
+        243,
+        253
+      ]
+    },
+    {
+      "id": "misc-feature-requests-and-small-bugs",
+      "name": "Отдельные функциональные пожелания и баги: квадратное дыхание, колокол в конце медитации, iOS Shortcuts, Google Fit, autoplay после истории",
+      "sentiment": "suggestion",
+      "novelty": "medium",
+      "observation_ids": [
+        24,
+        49,
+        105,
+        108,
+        119,
+        120,
+        131,
+        138,
+        143,
+        146,
+        149,
+        163,
+        177,
+        184,
+        247,
+        255
+      ]
+    },
+    {
+      "id": "billing-charge-entitlement-broken",
+      "name": "Деньги списаны, но доступ к Premium в приложении не открывается — entitlement так и не привязывается к аккаунту",
+      "sentiment": "criticism",
+      "novelty": "low",
+      "observation_ids": [
+        18,
+        86,
+        96,
+        104,
+        126,
+        161,
+        175,
+        180,
+        183,
+        192,
+        209,
+        263,
+        269
+      ]
+    },
+    {
+      "id": "narrator-as-loyalty-anchor",
+      "name": "Лояльность держится не на приложении, а на конкретном рассказчике — уход или удаление голоса ломает причину оставаться",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        21,
+        45,
+        60,
+        89,
+        94,
+        109,
+        202,
+        218,
+        259
+      ]
+    },
+    {
+      "id": "sleep-story-night-ritual",
+      "name": "Sleep Stories используются как обязательный ночной ритуал засыпания, и без них заснуть уже невозможно",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        0,
+        25,
+        52,
+        53,
+        93,
+        135,
+        221,
+        242
+      ]
+    },
+    {
+      "id": "cancel-friction-support-deadend",
+      "name": "Отмена подписки либо бросает ошибку, либо молча не отменяет биллинг, а служба поддержки не отвечает неделями",
+      "sentiment": "criticism",
+      "novelty": "low",
+      "observation_ids": [
+        57,
+        77,
+        123,
+        124,
+        125,
+        128,
+        186,
+        197
+      ]
+    },
+    {
+      "id": "promo-billing-confusion",
+      "name": "Промо-цена не применяется, продление обрывает доступ или порождает параллельный второй платёж",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        44,
+        115,
+        156,
+        187,
+        217,
+        249,
+        267,
+        268
+      ]
+    },
+    {
+      "id": "high-novelty-unique-usecases",
+      "name": "Редкие специфические сценарии: Calm как замена снотворных, осознанные сновидения, партнёр оплачивает подписку, компания пивотит в физические товары",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        30,
+        32,
+        39,
+        103,
+        106,
+        129,
+        203,
+        279
+      ]
+    },
+    {
+      "id": "catalog-removed-content-churn",
+      "name": "Любимые истории или функции тихо исчезают из каталога, и подписчик теряет единственную причину платить",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        36,
+        37,
+        38,
+        130,
+        164,
+        274
+      ]
+    },
+    {
+      "id": "sleep-story-family-kids-shared",
+      "name": "Sleep Stories используются всей семьёй — дети слушают самостоятельно, взрослые вместе с партнёром",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        10,
+        26,
+        40,
+        58,
+        211,
+        244
+      ]
+    },
+    {
+      "id": "ambient-soundscape-work-creative",
+      "name": "Soundscapes используются как рабочая или творческая атмосфера для концентрации, а не для сна или медитации",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        20,
+        27,
+        101,
+        116,
+        266,
+        277
+      ]
+    },
+    {
+      "id": "content-discovery-search-broken",
+      "name": "Поиск возвращает нерелевантные результаты и не позволяет фильтровать по рассказчику — найти конкретный контент невозможно",
+      "sentiment": "criticism",
+      "novelty": "low",
+      "observation_ids": [
+        169,
+        176,
+        195,
+        200,
+        248,
+        264
+      ]
+    },
+    {
+      "id": "home-screen-overload-anxiety",
+      "name": "Перегруженный главный экран вызывает скачок тревоги у пользователя, который открыл приложение именно чтобы успокоиться",
+      "sentiment": "criticism",
+      "novelty": "high",
+      "observation_ids": [
+        15,
+        34,
+        81,
+        207,
+        232
+      ]
+    },
+    {
+      "id": "b2b-employer-distribution",
+      "name": "Подписку оплачивает работодатель или страховщик — пользователь получает доступ без собственного платежа",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        112,
+        196,
+        252,
+        258,
+        262
+      ]
+    },
+    {
+      "id": "mid-night-reentry-usecase",
+      "name": "Просыпаясь ночью, пользователь снова запускает историю чтобы вернуться в сон — это отдельный сценарий, не вечернее засыпание",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        7,
+        55,
+        114,
+        204,
+        237
+      ]
+    },
+    {
+      "id": "onboarding-account-wall-evaluation",
+      "name": "Обязательная регистрация или долгий онбординг до любого контента блокирует оценку продукта",
+      "sentiment": "criticism",
+      "novelty": "low",
+      "observation_ids": [
+        35,
+        46,
+        147,
+        148,
+        178
+      ]
+    },
+    {
+      "id": "ad-content-mismatch",
+      "name": "Реклама обещает EMDR, персональный план или конкретные функции, которые внутри приложения не находятся",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        14,
+        71,
+        74,
+        172,
+        201
+      ]
+    },
+    {
+      "id": "app-broken-auth-browser-redirect",
+      "name": "После оплаты приложение редиректит в сторонний браузер, который падает — войти в оплаченный аккаунт невозможно",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        6,
+        54,
+        69,
+        70,
+        227
+      ]
+    },
+    {
+      "id": "micro-sessions-workday",
+      "name": "Короткие сессии до 10 минут используются как сброс напряжения между рабочими встречами или во время коммьюта",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        51,
+        140,
+        145,
+        185,
+        276
+      ]
+    },
+    {
+      "id": "narrator-reading-cadence-artificial",
+      "name": "Некоторые рассказчики читают с искусственным ритмом или слишком быстро, что раздражает вместо того чтобы усыплять",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        67,
+        72,
+        159,
+        225,
+        228
+      ]
+    },
+    {
+      "id": "support-refund-billing-dispute",
+      "name": "Разрешение биллинговых споров занимает месяцы, поддержка переключает между каналами, а возвраты бывают частичными",
+      "sentiment": "criticism",
+      "novelty": "low",
+      "observation_ids": [
+        122,
+        144,
+        162,
+        189,
+        194
+      ]
+    },
+    {
+      "id": "sleep-story-catalog-freshness-cadence",
+      "name": "Каталог Sleep Stories не обновляется достаточно часто, и ежедневный слушатель слышит одно и то же по кругу",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        136,
+        198,
+        213,
+        261
+      ]
+    },
+    {
+      "id": "audio-mix-narration-drowned",
+      "name": "Фоновая музыка в историях или медитациях перекрывает голос рассказчика и мешает засыпанию",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        61,
+        66,
+        141,
+        224
+      ]
+    },
+    {
+      "id": "celebrity-narrator-star-pull",
+      "name": "Знаменитости-рассказчики (Harry Styles, LeBron, Matthew McConaughey) — самостоятельная причина открыть приложение",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        88,
+        90,
+        160,
+        275
+      ]
+    },
+    {
+      "id": "beginner-structured-curriculum",
+      "name": "Структурированные многодневные серии для начинающих работают лучше разовых сессий — прогрессивный курс формирует привычку",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        80,
+        85,
+        158,
+        231
+      ]
+    },
+    {
+      "id": "playlist-and-album-autoplay-missing",
+      "name": "Нет плейлиста из любимых историй и нет автопроигрывания альбома — накопленные фавориты приходится выбирать вручную",
+      "sentiment": "suggestion",
+      "novelty": "medium",
+      "observation_ids": [
+        84,
+        102,
+        233,
+        240
+      ]
+    },
+    {
+      "id": "negative-theme-filter-and-content-preferences",
+      "name": "Нет фильтра для исключения нежелательных тем и нет разграничения историй с персонажами от описательного travel-контента",
+      "sentiment": "suggestion",
+      "novelty": "medium",
+      "observation_ids": [
+        47,
+        59,
+        219,
+        222
+      ]
+    },
+    {
+      "id": "asmr-and-nonverbal-sleep-content-missing",
+      "name": "Пользователи хотят ASMR без голоса и вообще нарратив-free сон — этих категорий нет в каталоге",
+      "sentiment": "suggestion",
+      "novelty": "medium",
+      "observation_ids": [
+        87,
+        107,
+        151,
+        234
+      ]
+    },
+    {
+      "id": "daily-reminder-streak-habit",
+      "name": "Ежедневное напоминание и стрик вместе — главный механизм, через который пользователь возвращается к многолетней практике",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        29,
+        79,
+        239,
+        270
+      ]
+    },
+    {
+      "id": "audio-playback-technical-bugs",
+      "name": "Звук не останавливается после закрытия, soundscape не возобновляется после паузы, аудиофайлы с выпадениями",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        31,
+        118,
+        251,
+        278
+      ]
+    },
+    {
+      "id": "content-variations-suggestions",
+      "name": "Пользователи просят короткий sleep-контент, истории про поезда, ASMR, классику и ежедневную upbeat-музыку",
+      "sentiment": "suggestion",
+      "novelty": "medium",
+      "observation_ids": [
+        139,
+        182,
+        190,
+        272
+      ]
+    },
+    {
+      "id": "accessibility-and-niche-gaps",
+      "name": "Отсутствие субтитров для глухих, нет ND-трека для аутичных пользователей, Alexa воспринимается как достаточная альтернатива",
+      "sentiment": "criticism",
+      "novelty": "high",
+      "observation_ids": [
+        76,
+        111,
+        137,
+        254
+      ]
+    },
+    {
+      "id": "content-signal-integrity",
+      "name": "Стрик засчитывается за пропуск конца истории, промокоды раздаются в отзывах, пользователи ставят 5 звёзд с критическим текстом",
+      "sentiment": "criticism",
+      "novelty": "high",
+      "observation_ids": [
+        48,
+        110,
+        150,
+        241
+      ]
+    },
+    {
+      "id": "calm-positioning-confusion",
+      "name": "Calm воспринимается то как sleep-app, то как meditation-app — пользователи путают его с будильником или ожидают sleep-специализации",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        83,
+        167,
+        199,
+        256
+      ]
+    },
+    {
+      "id": "autoplay-soundscape-mutes-search",
+      "name": "При открытии приложения громко включается soundscape без кнопки отключения — тихо найти нужный контент невозможно",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        22,
+        43,
+        216
+      ]
+    },
+    {
+      "id": "sleep-timer-regression",
+      "name": "Таймер автоостановки soundscapes пропал после обновления — звук играет всю ночь",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        50,
+        132,
+        220
+      ]
+    },
+    {
+      "id": "trauma-sensitive-sleep-story-triggers",
+      "name": "Sleep Stories открываются тяжёлыми фактами — вымирание, СПИД, травма Малалы — и активируют ПТСР перед сном",
+      "sentiment": "criticism",
+      "novelty": "high",
+      "observation_ids": [
+        11,
+        12,
+        205
+      ]
+    },
+    {
+      "id": "emdr-bilateral-genuine-value",
+      "name": "EMDR-звуки и билатеральная стимуляция — реальная причина оставаться в приложении для отдельного сегмента пользователей",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        28,
+        75,
+        212
+      ]
+    },
+    {
+      "id": "daily-series-host-loyalty",
+      "name": "Пользователи привязываются к конкретной ежедневной серии (Daily Calm, Daily Jay, Daily Trip) и к её ведущему",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        2,
+        92,
+        99
+      ]
+    },
+    {
+      "id": "family-plan-broken-entitlement",
+      "name": "Переход на семейный план ломает вход в существующий аккаунт или не привязывает участника по invite-ссылке",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        33,
+        142,
+        166
+      ]
+    },
+    {
+      "id": "courses-hidden-no-advanced-path",
+      "name": "Курсы теряются среди рекомендаций, а продвинутые пользователи не находят пути развития практики за базовым уровнем",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        3,
+        100,
+        250
+      ]
+    },
+    {
+      "id": "android-tablet-crash",
+      "name": "После конкретного обновления приложение не открывается на Android-планшете или после кросс-платформенной смены аккаунта",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        95,
+        121,
+        188
+      ]
+    },
+    {
+      "id": "spiritual-prayer-and-chronic-illness",
+      "name": "Calm используется в связке с молитвой и духовной практикой, а также для ежедневного управления стрессом хронических заболеваний",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        56,
+        97,
+        265
+      ]
+    },
+    {
+      "id": "personalization-theatre-onboarding",
+      "name": "Опросники при онбординге или EMDR-квиз собирают предпочтения, но результат — та же полка рекомендаций, что у всех",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        165,
+        170,
+        193
+      ]
+    },
+    {
+      "id": "ui-ux-minor-regressions",
+      "name": "Случайный tap перематывает историю, таймер скрыт за лишним нажатием, soundscape-анимация стала угловатой",
+      "sentiment": "criticism",
+      "novelty": "low",
+      "observation_ids": [
+        62,
+        64,
+        65
+      ]
+    },
+    {
+      "id": "subscription-billing-edge-cases",
+      "name": "Апгрейд без зачёта разницы, пожизненная подписка отзывается, удвоенное продление, частичный возврат",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        16,
+        127,
+        208
+      ]
+    },
+    {
+      "id": "sleep-as-gateway-and-side-outcomes",
+      "name": "Сон служит точкой входа в медитацию, Sleep Stories дают образовательный эффект и осознанные сновидения как побочный результат",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        8,
+        9,
+        271
+      ]
+    },
+    {
+      "id": "streak-gamification-broken-or-missing",
+      "name": "Стрик не сохраняется, не совпадает с расписанием сна, или засчитывает неполное прослушивание — геймификация ненадёжна",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        133,
+        260
+      ]
+    },
+    {
+      "id": "sleep-story-over-categorized-shallow",
+      "name": "Небольшой каталог Sleep Stories размазан по множеству мелких категорий — пользователь хочет один плоский список",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        42,
+        215
+      ]
+    },
+    {
+      "id": "phone-heating-audio-playback",
+      "name": "Приложение сильно нагревает телефон за 20 минут воспроизведения — проблема воспроизводится на разных моделях iPhone",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        19,
+        210
+      ]
+    },
+    {
+      "id": "session-interrupted-resets-start",
+      "name": "Любое прерывание — звонок или переключение приложения — сбрасывает медитацию или историю в начало без точки возобновления",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        134,
+        179
+      ]
+    },
+    {
+      "id": "slow-animation-ui-friction",
+      "name": "Анимации переходов и предыдущий completion-экран раздражают при многократном ежедневном использовании",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        245,
+        246
+      ]
+    },
+    {
+      "id": "ai-generated-content-distrust",
+      "name": "Пользователи специально ищут human-narrated контент и выбирают Calm именно за отсутствие AI-генерации",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        153,
+        235
+      ]
+    },
+    {
+      "id": "therapy-companion-between-sessions",
+      "name": "Calm заполняет промежутки между еженедельными сеансами терапии как инструмент самопомощи",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        13,
+        206
+      ]
+    },
+    {
+      "id": "slumber-competitor-sleep-focused",
+      "name": "Slumber позиционируется как специализированный sleep-app и отбирает пользователей у Calm за счёт частоты обновлений",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        68,
+        226
+      ]
+    },
+    {
+      "id": "calm-healthcare-worker-reset",
+      "name": "Медицинские и социальные работники используют Calm для восстановления между сменами в условиях профессионального выгорания",
+      "sentiment": "praise",
+      "novelty": "medium",
+      "observation_ids": [
+        73,
+        229
+      ]
+    },
+    {
+      "id": "free-tier-paywalled-and-promo-bait",
+      "name": "Контент, который раньше был бесплатным, закрывается за подпиской, а промо-уровень оказывается почти пустым",
+      "sentiment": "criticism",
+      "novelty": "low",
+      "observation_ids": [
+        157,
+        257
+      ]
+    },
+    {
+      "id": "corporate-mindfulness-label",
+      "name": "Calm воспринимается как «корпоративный велнес» — полезный, но лишённый подлинности на фоне practitioner-led альтернатив",
+      "sentiment": "criticism",
+      "novelty": "high",
+      "observation_ids": [
+        113,
+        155
+      ]
+    },
+    {
+      "id": "sleep-story-literary-ip-and-characters",
+      "name": "Адаптации литературы и именные персонажи создают IP-привязанность — пользователи возвращаются к конкретному персонажу",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        154,
+        273
+      ]
+    },
+    {
+      "id": "sleep-stack-multi-app",
+      "name": "Calm используется как один из нескольких sleep-инструментов, иногда в связке с шумоподавляющими наушниками",
+      "sentiment": "praise",
+      "novelty": "high",
+      "observation_ids": [
+        63,
+        223
+      ]
+    },
+    {
+      "id": "video-and-cross-platform-broken",
+      "name": "Видео в Daily Move и Kids-аудио прерывается посреди сессии или ночи на разных платформах",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        171,
+        191
+      ]
+    },
+    {
+      "id": "notification-disrupts-session",
+      "name": "Push-уведомления самого Calm прерывают текущую сессию или будят уснувшего пользователя",
+      "sentiment": "criticism",
+      "novelty": "high",
+      "observation_ids": [
+        152,
+        181
+      ]
+    },
+    {
+      "id": "account-access-recovery-broken",
+      "name": "Письмо для сброса пароля не приходит месяцами, а аутентификация через браузер ломается после обновлений",
+      "sentiment": "criticism",
+      "novelty": "medium",
+      "observation_ids": [
+        78,
+        230
+      ]
+    },
+    {
+      "id": "word-voice-granular-script",
+      "name": "Одно слово, повторяемое шесть раз в любимой медитации, и искусственный голос Jay Shetty становятся причиной отмены подписки",
+      "sentiment": "criticism",
+      "novelty": "high",
+      "observation_ids": [
+        4,
+        173
+      ]
+    }
+  ]
+}

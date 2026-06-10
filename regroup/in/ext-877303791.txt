@@ -1,0 +1,184 @@
+You are grouping 27 mechanism-level insight clusters from Contraction Timer & Counter 9m (Беременность и младенцы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Contraction Timer & Counter 9m, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 27 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Contraction Timer & Counter 9m — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Contraction Timer & Counter 9m>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-877303791.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ad-blocks-record-moment",
+  "title": "Реклама всплывает ровно в момент нажатия кнопки схватки и не закрывается — записать схватку невозможно",
+  "obs": 17
+ },
+ {
+  "id": "rating-popup-during-labor",
+  "title": "Приложение просит оставить отзыв прямо во время активных схваток и повторяет запрос снова и снова",
+  "obs": 10
+ },
+ {
+  "id": "paywall-edit-delete",
+  "title": "Удалить одну ошибочную схватку нельзя без оплаты — бесплатно можно только стереть все данные сразу",
+  "obs": 8
+ },
+ {
+  "id": "labor-misclassification",
+  "title": "Алгоритм путает тренировочные и настоящие схватки, задерживая распознавание начала родов",
+  "obs": 7
+ },
+ {
+  "id": "upgrade-popup-spam",
+  "title": "Поп-ап с предложением купить версию выскакивает при каждом действии, делая отслеживание невозможным",
+  "obs": 6
+ },
+ {
+  "id": "export-email-broken",
+  "title": "Платная отправка истории схваток на почту не работает: нет поля для ввода адреса и постоянная ошибка",
+  "obs": 5
+ },
+ {
+  "id": "ad-frequency-pattern-break",
+  "title": "Реклама появляется каждые несколько схваток, не давая отследить паттерн интервалов",
+  "obs": 5
+ },
+ {
+  "id": "onboarding-paywall-at-start",
+  "title": "Перед первым использованием приложение гонит через долгий онбординг и paywall, теряя контекст в разгар родов",
+  "obs": 4
+ },
+ {
+  "id": "cancel-only-by-email",
+  "title": "Отменить подписку внутри приложения нельзя — только письмом в поддержку, на которое не отвечают",
+  "obs": 3
+ },
+ {
+  "id": "restore-purchase-fails",
+  "title": "Купленный доступ не восстанавливается при переустановке и на другом устройстве — просят платить заново",
+  "obs": 3
+ },
+ {
+  "id": "price-mismatch-charge",
+  "title": "С пользователя списывают не ту сумму, что показана, или снимают деньги без подтверждения и без возврата",
+  "obs": 3
+ },
+ {
+  "id": "fake-widgets",
+  "title": "Приложение продаёт виджеты для экрана блокировки и домашнего экрана, но после оплаты их нет",
+  "obs": 3
+ },
+ {
+  "id": "inaccurate-timer",
+  "title": "Таймер считает длительность схватки неверно и расходится со встроенным таймером телефона на десятки секунд",
+  "obs": 3
+ },
+ {
+  "id": "no-retrospective-entry",
+  "title": "Нельзя добавить или отредактировать схватку задним числом, если телефона не было под рукой в момент схватки",
+  "obs": 3
+ },
+ {
+  "id": "hospital-advice-home-birth",
+  "title": "Приложение навязчиво повторяет «идите в больницу» и не учитывает сценарий домашних родов",
+  "obs": 3
+ },
+ {
+  "id": "ads-persist-after-paying",
+  "title": "Реклама продолжает прерывать таймер и музыку даже после оплаты приложения",
+  "obs": 2
+ },
+ {
+  "id": "ad-close-button-hard",
+  "title": "Кнопка закрытия рекламы стоит в неудобном углу и срабатывает с десятков попыток во время схваток",
+  "obs": 2
+ },
+ {
+  "id": "no-realtime-interval",
+  "title": "Интерфейс не показывает текущий интервал между схватками — чтобы узнать его, надо снова нажать кнопку старта",
+  "obs": 2
+ },
+ {
+  "id": "no-apple-watch",
+  "title": "Нет управления с Apple Watch — во время схваток телефон физически не достать, чтобы запустить таймер",
+  "obs": 2
+ },
+ {
+  "id": "no-dark-mode-battery",
+  "title": "Без тёмного режима экран слишком яркий ночью, будит партнёра и быстро сажает батарею за долгие роды",
+  "obs": 2
+ },
+ {
+  "id": "free-version-unusable-bait",
+  "title": "Приложение подаётся как бесплатное, но бесплатная версия специально непригодна — давление на уязвимую мать ради покупки",
+  "obs": 2
+ },
+ {
+  "id": "hidden-multistep-payments",
+  "title": "Вместо одной оплаты приложение берёт деньги по частям за каждую функцию, создавая ощущение скрытых платежей",
+  "obs": 1
+ },
+ {
+  "id": "no-instructions-free",
+  "title": "В бесплатной версии нельзя даже прочитать инструкцию без покупки полной версии",
+  "obs": 1
+ },
+ {
+  "id": "ad-inappropriate-content",
+  "title": "В приложении для беременных показывают неуместную рекламу, например рекламу абортов",
+  "obs": 1
+ },
+ {
+  "id": "duration-scroll-input",
+  "title": "Длительность схватки приходится выставлять прокруткой минут и часов вместо прямого ввода",
+  "obs": 1
+ },
+ {
+  "id": "hidden-black-ring-misclick",
+  "title": "Скрытая чёрная рамка вокруг кнопки старта ловит случайные нажатия при просмотре записей",
+  "obs": 1
+ },
+ {
+  "id": "no-partner-sync",
+  "title": "Нет синхронизации с партнёром, чтобы один отмечал схватки, а второй видел данные в реальном времени удалённо",
+  "obs": 1
+ }
+]

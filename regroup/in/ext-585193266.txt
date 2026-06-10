@@ -1,0 +1,169 @@
+You are grouping 24 mechanism-level insight clusters from Sygic GPS Navigation & Maps (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sygic GPS Navigation & Maps, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 24 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sygic GPS Navigation & Maps — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sygic GPS Navigation & Maps>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-585193266.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "offline-maps-vanish-over-time",
+  "title": "Загруженные карты самостоятельно исчезают через несколько дней или лет использования без видимой причины",
+  "obs": 3
+ },
+ {
+  "id": "late-voice-prompts",
+  "title": "Голосовые подсказки и обновление позиции запаздывают — водитель узнаёт о повороте уже после того, как его проехал",
+  "obs": 2
+ },
+ {
+  "id": "saved-routes-not-persisted",
+  "title": "Маршруты не сохраняются между сессиями — нельзя повторить поездку с путевыми точками без повторного ввода",
+  "obs": 2
+ },
+ {
+  "id": "home-address-not-saved",
+  "title": "Адрес дома или работы не сохраняется при перезапуске приложения или искажается до неправильного города",
+  "obs": 2
+ },
+ {
+  "id": "carplay-battery-heat",
+  "title": "Использование навигации через CarPlay вызывает сильный перегрев телефона и быстрый разряд батареи",
+  "obs": 2
+ },
+ {
+  "id": "background-cpu-overload",
+  "title": "Приложение перегревает устройство и опустошает батарею при расчёте маршрута и работе в фоновом режиме",
+  "obs": 2
+ },
+ {
+  "id": "subscription-price-bait",
+  "title": "Цена подписки меняется в момент оплаты: анонсированная скидка исчезает и списывается полная сумма",
+  "obs": 1
+ },
+ {
+  "id": "incorrect-turn-instructions",
+  "title": "Приложение даёт противоречивые команды на поворотах и не называет улицы вслух",
+  "obs": 1
+ },
+ {
+  "id": "toll-setting-resets",
+  "title": "Настройка объезда платных дорог сбрасывается при каждом новом маршруте, несмотря на попытки отключить её навсегда",
+  "obs": 1
+ },
+ {
+  "id": "saved-places-not-editable",
+  "title": "Сохранённые места нельзя изменить или удалить после добавления",
+  "obs": 1
+ },
+ {
+  "id": "reroute-requires-manual",
+  "title": "При потере маршрута приложение не перестраивает его автоматически и требует ручного подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-require-internet",
+  "title": "Загруженные карты не работают при отсутствии интернета, хотя приложение показывает их как доступные",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-update-wipes",
+  "title": "Обновление приложения удаляет все ранее загруженные карты, и их приходится скачивать заново",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-login-dependency",
+  "title": "После перезагрузки устройства или выхода из аккаунта доступ к загруженным картам исчезает",
+  "obs": 1
+ },
+ {
+  "id": "carplay-route-unstable",
+  "title": "Маршрут постоянно перестраивается каждые несколько минут при использовании через CarPlay",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-country-broken",
+  "title": "Загруженные карты отдельных стран не открываются или скачиваются частично и становятся непригодными",
+  "obs": 1
+ },
+ {
+  "id": "bluetooth-audio-reverts",
+  "title": "Вывод звука самопроизвольно переключается с Bluetooth обратно на динамик телефона во время навигации",
+  "obs": 1
+ },
+ {
+  "id": "map-download-restarts",
+  "title": "Загрузка большого региона начинается заново при любом прерывании, а не продолжается с остановленного места",
+  "obs": 1
+ },
+ {
+  "id": "dangerous-routes",
+  "title": "Приложение прокладывает маршрут через частные владения и опасные просёлочные дороги",
+  "obs": 1
+ },
+ {
+  "id": "inefficient-routing",
+  "title": "Приложение строит неоптимальный маршрут: ведёт по боковым дорогам вместо ближайшего шоссе",
+  "obs": 1
+ },
+ {
+  "id": "bluetooth-volume-coupled",
+  "title": "Громкость навигационных подсказок привязана к уровню Bluetooth-аудио — услышать подсказки без музыки невозможно",
+  "obs": 1
+ },
+ {
+  "id": "email-change-impossible",
+  "title": "Сменить email аккаунта невозможно ни в приложении, ни через службу поддержки",
+  "obs": 1
+ },
+ {
+  "id": "speedometer-inflated",
+  "title": "Показатель скорости намеренно завышен на фиксированное значение — разработчики подтвердили, что это сделано специально",
+  "obs": 1
+ },
+ {
+  "id": "ev-charging-not-prioritized",
+  "title": "В режиме электромобиля приложение не выводит зарядные станции на первый план и продолжает предлагать заправки",
+  "obs": 1
+ }
+]

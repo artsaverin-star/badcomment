@@ -1,0 +1,224 @@
+You are grouping 35 mechanism-level insight clusters from FaceApp: Perfect Face Editor (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO FaceApp: Perfect Face Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 35 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to FaceApp: Perfect Face Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to FaceApp: Perfect Face Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstfywz12bwug8pcz8m88tq.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "removed-features-after-update",
+  "title": "После обновления исчезли ключевые функции редактирования внешности, ради которых покупали подписку",
+  "obs": 8
+ },
+ {
+  "id": "rate-prompt-spam",
+  "title": "Приложение просит оценить себя после каждого действия и постоянно мешает работе",
+  "obs": 8
+ },
+ {
+  "id": "charged-after-cancel",
+  "title": "Приложение продолжает списывать деньги после отмены подписки, несмотря на подтверждение отмены",
+  "obs": 4
+ },
+ {
+  "id": "free-features-moved-behind-paywall",
+  "title": "Функции, раньше бесплатные, теперь все требуют платную подписку",
+  "obs": 4
+ },
+ {
+  "id": "support-unresponsive",
+  "title": "Служба поддержки не отвечает на обращения и не решает проблемы",
+  "obs": 4
+ },
+ {
+  "id": "few-hairstyle-options",
+  "title": "Вариантов причёсок очень мало и они почти не отличаются друг от друга",
+  "obs": 3
+ },
+ {
+  "id": "wrong-gender-detection",
+  "title": "Алгоритм неверно определяет пол и из-за этого ограничивает доступные фильтры и причёски, без ручной правки",
+  "obs": 3
+ },
+ {
+  "id": "photos-wont-load",
+  "title": "Приложение периодически не загружает фотографии независимо от интернета и зависает",
+  "obs": 3
+ },
+ {
+  "id": "cancel-redirect-payment-operator",
+  "title": "Отменить подписку нельзя внутри приложения — оно отправляет к платёжному оператору",
+  "obs": 2
+ },
+ {
+  "id": "price-hike",
+  "title": "Цена подписки резко выросла — с прежних 4-5 долларов до 10 и выше",
+  "obs": 2
+ },
+ {
+  "id": "trial-empty-shell",
+  "title": "Пробная версия открывает крайне мало функций — реальные возможности требуют ввода платёжных данных",
+  "obs": 2
+ },
+ {
+  "id": "video-editing-removed",
+  "title": "Функция редактирования видео удалена, хотя в описании она обещана",
+  "obs": 2
+ },
+ {
+  "id": "presets-deleted",
+  "title": "Сохранённые пользователем пресеты удаляются из приложения без его ведома",
+  "obs": 2
+ },
+ {
+  "id": "limited-editing-tools",
+  "title": "Набор инструментов редактирования слишком скудный",
+  "obs": 2
+ },
+ {
+  "id": "fake-looking-results",
+  "title": "Результаты выглядят искусственно даже при минимальных изменениях",
+  "obs": 2
+ },
+ {
+  "id": "crashes-loses-work",
+  "title": "Приложение зависает и крашится при обработке фото, теряя несохранённые изменения",
+  "obs": 2
+ },
+ {
+  "id": "errors-after-purchase",
+  "title": "Сразу после покупки подписки приложение начинает выдавать ошибки и перестаёт работать",
+  "obs": 2
+ },
+ {
+  "id": "poor-profile-shots",
+  "title": "Приложение плохо обрабатывает снимки лица в профиль",
+  "obs": 2
+ },
+ {
+  "id": "price-jump-at-checkout",
+  "title": "В момент оплаты цена внезапно оказывается выше заявленной",
+  "obs": 1
+ },
+ {
+  "id": "free-cant-save",
+  "title": "В бесплатной версии нельзя сохранить отредактированное изображение",
+  "obs": 1
+ },
+ {
+  "id": "region-change-shortens-sub",
+  "title": "При смене региона срок оплаченной подписки сокращается на месяцы",
+  "obs": 1
+ },
+ {
+  "id": "sub-one-device-only",
+  "title": "Оплаченная подписка работает только на одном устройстве, хотя оба под одной учётной записью iCloud",
+  "obs": 1
+ },
+ {
+  "id": "cant-pay-apple-id-balance",
+  "title": "Подписку нельзя оплатить средствами с баланса Apple ID",
+  "obs": 1
+ },
+ {
+  "id": "remover-degraded",
+  "title": "После обновления функция «Remover» работает хуже, а «Retouch» не сглаживает края как раньше",
+  "obs": 1
+ },
+ {
+  "id": "face-swap-removed",
+  "title": "Функция замены лиц убрана и не возвращена, несмотря на запросы пользователей",
+  "obs": 1
+ },
+ {
+  "id": "asianizes-features",
+  "title": "Улучшение внешности подменяет оригинальные черты лица азиатскими",
+  "obs": 1
+ },
+ {
+  "id": "hairstyle-overlay-not-replace",
+  "title": "Новая причёска накладывается поверх старой, а не заменяет её, искажая результат",
+  "obs": 1
+ },
+ {
+  "id": "vanish-no-selective-blur",
+  "title": "В режиме «Vanish» нельзя размыть выбранную область вместо полного удаления",
+  "obs": 1
+ },
+ {
+  "id": "filters-dont-work",
+  "title": "Ни один фильтр в приложении не применяется",
+  "obs": 1
+ },
+ {
+  "id": "pro-tools-hidden-until-tap",
+  "title": "Платность инструмента не видна заранее — выясняется только при попытке его применить",
+  "obs": 1
+ },
+ {
+  "id": "no-in-app-help",
+  "title": "Внутри приложения нет справки по использованию функций при редактировании видео",
+  "obs": 1
+ },
+ {
+  "id": "tools-hard-to-use",
+  "title": "Инструменты редактирования сложны и не дают добиться естественного вида",
+  "obs": 1
+ },
+ {
+  "id": "video-broken-after-pro",
+  "title": "После оплаты Pro функция редактирования видео перестаёт быть доступной",
+  "obs": 1
+ },
+ {
+  "id": "batch-too-many-requests",
+  "title": "При одновременном редактировании нескольких фото приложение выдаёт ошибку «слишком много запросов»",
+  "obs": 1
+ },
+ {
+  "id": "ruble-pricing-unaffordable",
+  "title": "Подорожание подписки делает её непосильной для русскоязычных пользователей",
+  "obs": 1
+ }
+]

@@ -1,0 +1,234 @@
+You are grouping 37 mechanism-level insight clusters from VivaCut - AI Video Editor (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO VivaCut - AI Video Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 37 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to VivaCut - AI Video Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to VivaCut - AI Video Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1489090374.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-immediate-full-charge",
+  "title": "Кнопка пробного периода немедленно списывает полный годовой платёж вместо предоставления бесплатного доступа, а отмена в первые часы не останавливает списание",
+  "obs": 48
+ },
+ {
+  "id": "subscription-plus-credits",
+  "title": "Оплаченная подписка не включает AI-функции — для каждого использования требуются дополнительные кредиты поверх годового платежа",
+  "obs": 13
+ },
+ {
+  "id": "performance-degrades-long-session",
+  "title": "При продолжительном редактировании приложение замедляется, зависает и перестаёт экспортировать видео",
+  "obs": 8
+ },
+ {
+  "id": "free-export-limit-watermark",
+  "title": "Бесплатная версия ограничивает экспорт двумя минутами и ставит водяной знак, который удаляется только по платной подписке",
+  "obs": 7
+ },
+ {
+  "id": "ads-interrupt-every-click",
+  "title": "Реклама появляется при каждом нажатии и при закрытии приложения, непрерывно нарушая процесс редактирования",
+  "obs": 6
+ },
+ {
+  "id": "project-corrupts-on-reopen",
+  "title": "При повторном открытии сохранённого проекта экран становится розовым или фиолетовым, и вся проделанная работа теряется",
+  "obs": 6
+ },
+ {
+  "id": "age-inappropriate-templates",
+  "title": "Шаблоны содержат сцены интимного характера, неприемлемые для детей, несмотря на возрастной рейтинг 9+",
+  "obs": 5
+ },
+ {
+  "id": "basic-features-paywalled",
+  "title": "Базовые функции редактирования недоступны без подписки — приложение почти нефункционально без оплаты",
+  "obs": 4
+ },
+ {
+  "id": "unauthorized-repeated-charges",
+  "title": "Приложение списывает средства за функции без явного согласия пользователя и отказывает в возврате",
+  "obs": 4
+ },
+ {
+  "id": "ai-face-inaccuracy",
+  "title": "AI-генерация лиц не воспроизводит внешность загруженных людей — совместные фото выглядят неправдоподобно",
+  "obs": 4
+ },
+ {
+  "id": "full-pivot-to-ai-removed-traditional",
+  "title": "Приложение полностью перешло на AI-генерацию, убрав традиционные шаблоны и инструменты редактирования и потеряв лояльных пользователей",
+  "obs": 4
+ },
+ {
+  "id": "audio-desync-on-transitions",
+  "title": "При добавлении переходов или эффектов аудиодорожка рассинхронизируется с видеорядом",
+  "obs": 2
+ },
+ {
+  "id": "forced-premium-on-decline",
+  "title": "При отказе от покупки подписки приложение блокирует доступ и вынуждает оформить Premium для продолжения работы",
+  "obs": 2
+ },
+ {
+  "id": "session-crash-mid-edit",
+  "title": "Приложение внезапно выбрасывает пользователя из проекта или аварийно завершается прямо в процессе редактирования",
+  "obs": 2
+ },
+ {
+  "id": "crash-on-first-launch",
+  "title": "Приложение зависает и падает с первого запуска, делая редактирование невозможным сразу после оплаты",
+  "obs": 2
+ },
+ {
+  "id": "session-glitch-after-pause",
+  "title": "После паузы в работе или при попытке экспорта проект глючит и требует начинать редактирование заново",
+  "obs": 2
+ },
+ {
+  "id": "false-pro-detection-blocks-export",
+  "title": "Приложение ошибочно определяет бесплатные эффекты как Pro-функции и блокирует экспорт готового видео",
+  "obs": 2
+ },
+ {
+  "id": "lags-competitors-text-effects",
+  "title": "Приложение заметно отстаёт от конкурентов в текстовых эффектах, автосубтитрах и анимациях при схожем интерфейсе",
+  "obs": 2
+ },
+ {
+  "id": "credits-expire-90-days",
+  "title": "Купленные кредиты сгорают через 90 дней — авансовый платёж превращается в потерю денег при редком использовании",
+  "obs": 1
+ },
+ {
+  "id": "credits-not-delivered",
+  "title": "Оплаченные кредиты не поступают на аккаунт, а техподдержка не отвечает на запросы о возврате",
+  "obs": 1
+ },
+ {
+  "id": "false-free-unlock-button",
+  "title": "Кнопка «разблокировать бесплатно» при просмотре шаблона ведёт к оформлению платной подписки",
+  "obs": 1
+ },
+ {
+  "id": "ai-trial-features-nonfunctional",
+  "title": "Заявленные AI-функции в пробном периоде не работают — создание обещанных видео невозможно",
+  "obs": 1
+ },
+ {
+  "id": "bait-template-quality",
+  "title": "Первые шаблоны выглядят привлекательно, но большинство остальных быстро деградируют в качестве или содержат неприемлемый контент",
+  "obs": 1
+ },
+ {
+  "id": "pro-does-not-remove-ads",
+  "title": "Платная Pro-подписка не убирает рекламу — платные пользователи видят рекламу наравне с бесплатными",
+  "obs": 1
+ },
+ {
+  "id": "premium-popup-blocks-feature",
+  "title": "Всплывающее окно с предложением Premium перекрывает доступ к нужной функции без очевидного способа его закрыть",
+  "obs": 1
+ },
+ {
+  "id": "no-effects-search",
+  "title": "Большая библиотека эффектов не имеет поиска — найти нужный эффект можно только перебором вручную",
+  "obs": 1
+ },
+ {
+  "id": "unintuitive-interface",
+  "title": "Интерфейс невозможно освоить самостоятельно — навигация по функциям не поддаётся логике для новичка",
+  "obs": 1
+ },
+ {
+  "id": "subtitles-broken",
+  "title": "Функция добавления субтитров не работает должным образом",
+  "obs": 1
+ },
+ {
+  "id": "interface-language-forced-english",
+  "title": "После обновления интерфейс стал полностью англоязычным — приложение недоступно для пользователей, не владеющих английским",
+  "obs": 1
+ },
+ {
+  "id": "max-two-photos-composite",
+  "title": "Приложение не позволяет добавить более двух фотографий для совместного редактирования",
+  "obs": 1
+ },
+ {
+  "id": "photo-permission-stuck",
+  "title": "При отказе от полного доступа к фотопленке нет способа переоткрыть разрешение — медиафайлы недоступны навсегда",
+  "obs": 1
+ },
+ {
+  "id": "no-batch-mute",
+  "title": "Нет функции одновременного отключения звука для всех клипов — каждый клип приходится глушить вручную",
+  "obs": 1
+ },
+ {
+  "id": "ios-version-unstable",
+  "title": "iOS-версия приложения нестабильна по сравнению с Android: постоянно падает, невозможно пройти стартовый экран",
+  "obs": 1
+ },
+ {
+  "id": "reinstall-blocked",
+  "title": "После удаления приложение невозможно переустановить на том же устройстве",
+  "obs": 1
+ },
+ {
+  "id": "multilayer-timeline-competitive-advantage",
+  "title": "Многослойный таймлайн и поддержка кейфреймов позволяют создавать сложные редактирования на телефоне и выделяют приложение среди мобильных редакторов",
+  "obs": 1
+ },
+ {
+  "id": "instagram-advertised-results-unachievable",
+  "title": "Рекламируемые в Instagram видеорезультаты невозможно воспроизвести в самом приложении — это расхождение маркетинга с реальностью",
+  "obs": 1
+ },
+ {
+  "id": "music-quality-drives-output",
+  "title": "Качество музыкального сопровождения кардинально улучшает итоговое видео и превращает слабые монтажи в профессиональный результат",
+  "obs": 1
+ }
+]

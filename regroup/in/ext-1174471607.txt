@@ -1,0 +1,229 @@
+You are grouping 36 mechanism-level insight clusters from NerdWallet: Smart Money App (Личные финансы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO NerdWallet: Smart Money App, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 36 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to NerdWallet: Smart Money App — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to NerdWallet: Smart Money App>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1174471607.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "otp-never-arrives",
+  "title": "Для входа требуется одноразовый код, но он не приходит и его нельзя настроить в приложении-аутентификаторе",
+  "obs": 3
+ },
+ {
+  "id": "ipad-no-landscape",
+  "title": "На iPad приложение не поддерживает альбомную ориентацию и не занимает весь экран",
+  "obs": 2
+ },
+ {
+  "id": "cancelled-still-charged",
+  "title": "Подписка отменена месяцы назад, но банк списывает $49 без уведомления, поддержка молчит",
+  "obs": 1
+ },
+ {
+  "id": "categories-merge-unrelated",
+  "title": "Жёсткий набор предопределённых категорий заставляет складывать несвязанные покупки в одну",
+  "obs": 1
+ },
+ {
+  "id": "no-split-transaction",
+  "title": "Нельзя разбить одну операцию на несколько категорий, а правка категории сбрасывается при перезапуске",
+  "obs": 1
+ },
+ {
+  "id": "cashflow-double-count",
+  "title": "После обновления раздел денежного потока считает транзакции дважды и раскидывает их по разным категориям",
+  "obs": 1
+ },
+ {
+  "id": "cashflow-spending-no-income",
+  "title": "Денежный поток показывает расходы, но не показывает доходы — отчёт получается неверным",
+  "obs": 1
+ },
+ {
+  "id": "transfers-counted-as-income",
+  "title": "Переводы между своими счетами и платежи по кредитке приложение засчитывает как доход",
+  "obs": 1
+ },
+ {
+  "id": "wrong-auto-category-blank-page",
+  "title": "Автокатегоризация ошибается (ипотека как развлечение), а при попытке исправить открывается пустая страница",
+  "obs": 1
+ },
+ {
+  "id": "reclassify-loses-months",
+  "title": "После переклассификации расходов данные за последние месяцы исчезают из денежного потока",
+  "obs": 1
+ },
+ {
+  "id": "netcost-missing-properties",
+  "title": "После обновления расчёт собственного капитала перестаёт учитывать часть имущества пользователя",
+  "obs": 1
+ },
+ {
+  "id": "manual-accounts-deleted-on-idle",
+  "title": "При простое приложение без предупреждения удаляет вручную добавленные счета и имущество",
+  "obs": 1
+ },
+ {
+  "id": "update-wipes-history",
+  "title": "Обновление стирает без предупреждения вручную добавленные категории и историю транзакций за два года",
+  "obs": 1
+ },
+ {
+  "id": "update-corrupts-investments-loans",
+  "title": "Обновление удаляет вручную добавленные инвестсчета и повреждает данные по кредитам, теряя историю капитала",
+  "obs": 1
+ },
+ {
+  "id": "update-wipes-networth-history",
+  "title": "Обновление стирает всю годовую историю собственного капитала, отслеживание приходится начинать заново",
+  "obs": 1
+ },
+ {
+  "id": "update-removes-bill-tracking",
+  "title": "Обновление целиком убирает раздел отслеживания счетов вместе с датами и суммами платежей",
+  "obs": 1
+ },
+ {
+  "id": "accounts-disconnect-periodically",
+  "title": "Каждые несколько недель счета сами исчезают и переподключаются, делая учёт капитала ненадёжным",
+  "obs": 1
+ },
+ {
+  "id": "credentials-dropped-replaid",
+  "title": "Через неделю приложение теряет учётные данные связанных счетов и заставляет заново подключаться к Plaid",
+  "obs": 1
+ },
+ {
+  "id": "constant-reconnect-accounts",
+  "title": "Пользователю приходится постоянно переподключать счета, что прерывает повседневное использование",
+  "obs": 1
+ },
+ {
+  "id": "linked-accounts-stale",
+  "title": "Связанные счета не обновляются неделями, а ручного обновления или проверки связей в приложении нет",
+  "obs": 1
+ },
+ {
+  "id": "hsa-not-linkable",
+  "title": "Счета медицинских сбережений (HSA) не подключаются, и каждый взнос отображается как падение активов",
+  "obs": 1
+ },
+ {
+  "id": "credit-loan-manual-balances",
+  "title": "Счета кредиток и займов не связываются надёжно, остатки приходится вбивать вручную при каждом изменении",
+  "obs": 1
+ },
+ {
+  "id": "manual-accounts-hidden-after-redesign",
+  "title": "После редизайна вручную добавленные счета пропадают из списка, но их остатки всё ещё влияют на капитал и не редактируются",
+  "obs": 1
+ },
+ {
+  "id": "no-multiple-logins-same-bank",
+  "title": "Приложение не поддерживает несколько логинов одного банка, и часть данных по общему доступу не отображается",
+  "obs": 1
+ },
+ {
+  "id": "treasury-apy-unreachable",
+  "title": "Казначейский счёт требует точного совпадения даты погашения для вывода, из-за чего заявленный APY получить нельзя",
+  "obs": 1
+ },
+ {
+  "id": "removed-monthly-trend-chart",
+  "title": "Из денежного потока убрали кнопку сравнения трат с предыдущими месяцами",
+  "obs": 1
+ },
+ {
+  "id": "trend-shrunk-to-icon",
+  "title": "Сравнение трат по дням месяцев убрали в крошечную иконку, которую невозможно исследовать",
+  "obs": 1
+ },
+ {
+  "id": "removed-category-bar-chart",
+  "title": "Столбчатую диаграмму расходов по категориям заменили длинным списком без группировки и фильтров",
+  "obs": 1
+ },
+ {
+  "id": "ipad-filter-resets",
+  "title": "На iPad выбранный фильтр категорий не запоминается и интерфейс откатывается к исходному",
+  "obs": 1
+ },
+ {
+  "id": "apply-to-all-misclick",
+  "title": "Кнопки «применить ко всем» и «применить к одной» стоят рядом, и случайное нажатие отменяет недели категоризации",
+  "obs": 1
+ },
+ {
+  "id": "frequent-reauth",
+  "title": "Приложение каждые пару недель сбрасывает сессию и требует повторного входа, несмотря на пароль и биометрию устройства",
+  "obs": 1
+ },
+ {
+  "id": "reauth-needs-web",
+  "title": "Вход в приложение не работает, повторно авторизоваться приходится через веб-версию",
+  "obs": 1
+ },
+ {
+  "id": "reauth-from-email",
+  "title": "Переход по ссылке из письма-уведомления каждый раз требует заново входить в приложение",
+  "obs": 1
+ },
+ {
+  "id": "atomic-blocks-deletion",
+  "title": "При попытке удалить аккаунт всплывает неавторизованная регистрация в Atomic, которая блокирует удаление",
+  "obs": 1
+ },
+ {
+  "id": "loan-search-spam-emails",
+  "title": "После поиска кредитов на пользователя сыплется 3-5 рекламных писем в день, а отписка игнорируется",
+  "obs": 1
+ },
+ {
+  "id": "loan-search-phishing-calls",
+  "title": "После поиска кредита на консолидацию долга начинаются фишинговые звонки с разных номеров — похоже на утечку данных",
+  "obs": 1
+ }
+]

@@ -1,0 +1,94 @@
+{
+  "groups": [
+    {
+      "id": "billing-cage",
+      "name": "Деньги внутри клетки: подписка, от которой не сбежать",
+      "insight_ids": [
+        "billing-continues-after-cancel",
+        "trial-charged-despite-cancel",
+        "refund-promised-denied",
+        "promo-wheel-trap",
+        "subscription-blocks-account",
+        "advertised-monthly-charges-yearly",
+        "trial-charges-during-period",
+        "trial-requires-payment-info",
+        "subscription-bypasses-ios-management",
+        "lifetime-deal-payment-loop",
+        "delete-account-forces-payment"
+      ]
+    },
+    {
+      "id": "ad-machine",
+      "name": "Машина продаж: реклама в каждом тапе",
+      "insight_ids": [
+        "ads-on-every-action",
+        "ads-degraded-free-version",
+        "game-ad-on-fasting-complete",
+        "manipulative-upsell-design",
+        "app-became-sales-machine",
+        "onboarding-before-paywall"
+      ]
+    },
+    {
+      "id": "free-betrayed",
+      "name": "Бесплатное, которого больше нет",
+      "insight_ids": [
+        "free-positioning-misleading",
+        "was-free-now-paywalled",
+        "removed-friends-feature",
+        "wants-one-time-payment",
+        "no-ready-recipes",
+        "custom-recipes-paywalled",
+        "ui-bloated-degraded",
+        "timer-moved-from-home"
+      ]
+    },
+    {
+      "id": "fasting-broken-promises",
+      "name": "Голодание вслепую: таймер, статусы и сорванные напоминания",
+      "insight_ids": [
+        "notifications-toggle-broken",
+        "no-eating-window-alert",
+        "reminders-after-timer-stop",
+        "fasting-state-tracking-bug",
+        "no-fasting-day-flexibility",
+        "extended-fast-capped",
+        "ai-unsafe-fasting-advice"
+      ]
+    },
+    {
+      "id": "counter-misses",
+      "name": "Счётчик, которому нельзя верить",
+      "insight_ids": [
+        "food-scanner-inaccurate",
+        "scanner-fails-vegan",
+        "dashboard-not-customizable",
+        "wheelchair-not-tracked",
+        "fasting-good-calories-weak"
+      ]
+    },
+    {
+      "id": "crashes-and-silence",
+      "name": "Краши, мёртвые виджеты и тишина в поддержке",
+      "insight_ids": [
+        "crash-after-update-or-purchase",
+        "paid-but-app-unusable",
+        "widgets-broken",
+        "no-support-channel",
+        "no-apple-watch-support",
+        "no-history-transfer-new-phone",
+        "app-improved-after-break"
+      ]
+    },
+    {
+      "id": "data-and-boundaries",
+      "name": "Данные, что не уходят, и границы, что не соблюдаются",
+      "insight_ids": [
+        "notifications-cant-disable",
+        "calendar-events-persist",
+        "privacy-data-sharing",
+        "age-gate-mismatch"
+      ]
+    }
+  ]
+}

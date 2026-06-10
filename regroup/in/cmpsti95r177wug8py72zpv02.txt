@@ -1,0 +1,199 @@
+You are grouping 30 mechanism-level insight clusters from Facelab: Face & Body Editor (AI-генерация изображений) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Facelab: Face & Body Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 30 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Facelab: Face & Body Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Facelab: Face & Body Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsti95r177wug8py72zpv02.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-charged-before-period-ends",
+  "title": "Плата списывается в первый день или раньше срока пробного периода, хотя обещаны бесплатные дни",
+  "obs": 3
+ },
+ {
+  "id": "charged-after-cancellation",
+  "title": "Плата списывается уже после отмены подписки, иногда дважды и в обход даты возобновления",
+  "obs": 3
+ },
+ {
+  "id": "muscle-feature-broken-after-update",
+  "title": "Инструмент добавления мышц после обновления не запускается или работает хуже прежнего",
+  "obs": 3
+ },
+ {
+  "id": "trial-end-notification-missing",
+  "title": "Обещанное уведомление перед окончанием пробного периода не приходит, и плата списывается внезапно",
+  "obs": 2
+ },
+ {
+  "id": "removed-free-ad-supported-editing",
+  "title": "Убрали бесплатное редактирование за просмотр рекламы, и почти все инструменты ушли за подписку",
+  "obs": 2
+ },
+ {
+  "id": "save-blocked-behind-paywall",
+  "title": "Приложение блокирует любое сохранение отредактированного фото, включая скриншот, без платной подписки",
+  "obs": 2
+ },
+ {
+  "id": "removed-ad-watch-for-watermark",
+  "title": "Убрали удаление водяного знака за просмотр рекламы, реклама осталась, а награды за неё больше нет",
+  "obs": 2
+ },
+ {
+  "id": "crashes-during-editing",
+  "title": "Приложение вылетает прямо во время редактирования и теряет весь прогресс",
+  "obs": 2
+ },
+ {
+  "id": "loved-use-cases-removal-and-body",
+  "title": "Люди ценят приложение за точное удаление лишних объектов и естественную правку тела",
+  "obs": 2
+ },
+ {
+  "id": "hairstyle-tryon-main-draw",
+  "title": "Виртуальная примерка причёсок приводит и удерживает пользователей реалистичностью на фоне конкурентов",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-subscriptions",
+  "title": "Пользователь случайно оформляет сразу две подписки и платит дважды, возврат не дают",
+  "obs": 1
+ },
+ {
+  "id": "price-mismatch-at-charge",
+  "title": "Списанная сумма не совпадает с заявленной ценой подписки",
+  "obs": 1
+ },
+ {
+  "id": "yearly-charge-after-single-use",
+  "title": "После одного использования через месяц списывается оплата за целый год без согласия",
+  "obs": 1
+ },
+ {
+  "id": "dark-pattern-yearly-enroll",
+  "title": "Тёмные паттерны интерфейса незаметно оформляют годовую подписку без осознанного согласия",
+  "obs": 1
+ },
+ {
+  "id": "removed-trial-raised-entry-price",
+  "title": "Убрали пробный период и подняли цену входа с нуля до десятков долларов",
+  "obs": 1
+ },
+ {
+  "id": "too-little-free-to-evaluate",
+  "title": "Бесплатного доступа слишком мало, чтобы оценить качество до покупки",
+  "obs": 1
+ },
+ {
+  "id": "muscle-feature-ignores-clothing",
+  "title": "Обновлённый инструмент мышц не работает поверх одежды на фото",
+  "obs": 1
+ },
+ {
+  "id": "gray-tint-after-update",
+  "title": "После обновления сохранённые фото получают серый оттенок вместо нормальных цветов",
+  "obs": 1
+ },
+ {
+  "id": "reshape-broken-makeup-removed",
+  "title": "После обновления инструмент reshape сломан, а часть макияжных опций удалена",
+  "obs": 1
+ },
+ {
+  "id": "ai-artifacts-unnatural-jaw",
+  "title": "Результаты правки лица выглядят искусственно с явными артефактами и не смягчаются",
+  "obs": 1
+ },
+ {
+  "id": "video-edit-frame-shift",
+  "title": "При редактировании видео кадр смещается, и результат выглядит ненатурально",
+  "obs": 1
+ },
+ {
+  "id": "no-manual-selection-of-people",
+  "title": "Автовыделение людей в групповом фото ошибается, а вручную выбрать человека нельзя",
+  "obs": 1
+ },
+ {
+  "id": "no-targeted-area-editing",
+  "title": "Автокоррекция применяется ко всему фото, нельзя выбрать только конкретную область вручную",
+  "obs": 1
+ },
+ {
+  "id": "group-body-edit-only-leftmost",
+  "title": "Редактирование тела в групповом фото работает только для крайнего левого человека",
+  "obs": 1
+ },
+ {
+  "id": "body-detection-unreliable",
+  "title": "Распознавание тела срабатывает лишь в части попыток на одном и том же фото",
+  "obs": 1
+ },
+ {
+  "id": "limited-export-formats",
+  "title": "При сохранении доступно слишком мало форматов экспорта фото",
+  "obs": 1
+ },
+ {
+  "id": "family-photo-capture-and-edit",
+  "title": "Пользователи встраивают приложение в съёмку и обработку семейных фото как полный рабочий процесс",
+  "obs": 1
+ },
+ {
+  "id": "hairstyle-skin-tone-bias",
+  "title": "Виртуальные причёски рассчитаны на светлую кожу и не смешиваются с кудрявыми волосами и другими тонами кожи",
+  "obs": 1
+ },
+ {
+  "id": "hairstyle-short-hair-limit",
+  "title": "Примерка причёсок не работает для коротких или выбритых волос, выбор типов волос ограничен",
+  "obs": 1
+ },
+ {
+  "id": "ai-fix-female-only",
+  "title": "Автокоррекция лица применяется только к женским чертам и не работает для мужчин",
+  "obs": 1
+ }
+]

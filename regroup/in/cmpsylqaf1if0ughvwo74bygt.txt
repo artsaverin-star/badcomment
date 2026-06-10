@@ -1,0 +1,294 @@
+You are grouping 49 mechanism-level insight clusters from ELSA Speak - English Learning (Изучение языков) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO ELSA Speak - English Learning, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 49 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to ELSA Speak - English Learning — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to ELSA Speak - English Learning>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsylqaf1if0ughvwo74bygt.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "app-freezes-loses-progress",
+  "title": "Приложение зависает посреди урока и теряет весь прогресс, требуя полного перезапуска",
+  "obs": 13
+ },
+ {
+  "id": "speech-recognition-slow",
+  "title": "Анализ произношения занимает несколько минут на слово, делая обучение неэффективным",
+  "obs": 8
+ },
+ {
+  "id": "speech-recognition-fails-detect",
+  "title": "Распознавание речи не слышит голос пользователя даже в тишине и требует многократного повтора одного слова",
+  "obs": 7
+ },
+ {
+  "id": "3d-avatar-clutters-ui",
+  "title": "Несъёмный 3D-аватар занимает половину экрана и отвлекает от учёбы вместо полезного функционала",
+  "obs": 6
+ },
+ {
+  "id": "inaccurate-pronunciation-scoring",
+  "title": "Оценка произношения недостоверна: даёт носителю языка низкий балл и выдаёт разные баллы за одинаковое произношение",
+  "obs": 6
+ },
+ {
+  "id": "subscription-not-recognized",
+  "title": "После оплаты приложение не видит активную подписку и снова требует заплатить, хотя квитанция есть",
+  "obs": 5
+ },
+ {
+  "id": "removed-pronunciation-tool",
+  "title": "После обновления исчезла отдельная тренировка произношения — главный сценарий, ради которого ставили приложение",
+  "obs": 5
+ },
+ {
+  "id": "mic-button-unreliable",
+  "title": "Кнопка микрофона не реагирует или сразу останавливает запись, и упражнение пройти невозможно",
+  "obs": 5
+ },
+ {
+  "id": "trial-charges-immediately",
+  "title": "Кнопка пробного периода сразу списывает полную годовую подписку, не дожидаясь конца триала",
+  "obs": 4
+ },
+ {
+  "id": "removed-playback-self-record",
+  "title": "Убрали возможность прослушать свою запись и сравнить её с эталоном носителя",
+  "obs": 3
+ },
+ {
+  "id": "forced-lesson-plan",
+  "title": "Приложение навязывает фиксированный план уроков и не даёт выбрать темы по интересам пользователя",
+  "obs": 3
+ },
+ {
+  "id": "audio-drops-needs-restart",
+  "title": "Звук во время урока внезапно пропадает и возвращается только после полного перезапуска приложения",
+  "obs": 3
+ },
+ {
+  "id": "hard-to-resume-progress",
+  "title": "Чтобы вернуться к последнему уроку, приходится прокручивать несколько экранов — прогресс спрятан",
+  "obs": 3
+ },
+ {
+  "id": "connection-error-stable-internet",
+  "title": "Распознавание выдаёт ошибку соединения при стабильном интернете и блокирует дальнейшую практику",
+  "obs": 3
+ },
+ {
+  "id": "headphones-incompatible",
+  "title": "Приложение не работает с беспроводными наушниками или самопроизвольно открывает микрофон при их подключении",
+  "obs": 3
+ },
+ {
+  "id": "premium-upgrade-prompts",
+  "title": "Уже оплатившим пользователям приложение продолжает показывать рекламу и предложения купить премиум",
+  "obs": 2
+ },
+ {
+  "id": "ai-replaced-phonics",
+  "title": "Новая AI-версия учит произношению только в рамках выбранной темы вместо системной отработки звуков и фонем",
+  "obs": 2
+ },
+ {
+  "id": "robotic-ai-voice",
+  "title": "AI-наставник озвучивает текст медленным роботизированным голосом без возможности выбрать другой",
+  "obs": 2
+ },
+ {
+  "id": "interrupts-speech",
+  "title": "Приложение прерывает пользователя посреди фразы и не даёт договорить попытку произнесения",
+  "obs": 2
+ },
+ {
+  "id": "no-completion-marking",
+  "title": "Пройденные уроки и курсы не отмечаются как завершённые, отслеживать прогресс приходится вручную",
+  "obs": 2
+ },
+ {
+  "id": "no-target-language-choice",
+  "title": "При первом запуске спрашивают только родной язык, а выбрать изучаемый язык нельзя",
+  "obs": 2
+ },
+ {
+  "id": "incomplete-native-language-list",
+  "title": "В списке родных языков при регистрации не хватает некоторых языков, и нельзя задать верный уровень",
+  "obs": 2
+ },
+ {
+  "id": "crash-after-update",
+  "title": "После обновления приложение падает при каждом открытии и полностью блокирует использование",
+  "obs": 2
+ },
+ {
+  "id": "recognition-degraded-after-update",
+  "title": "После обновления точность распознавания речи заметно упала",
+  "obs": 2
+ },
+ {
+  "id": "no-ipad-support",
+  "title": "Приложение не поддерживает iPad и не переключается в горизонтальную ориентацию на планшете",
+  "obs": 2
+ },
+ {
+  "id": "slow-lesson-loading",
+  "title": "Между короткими уроками долгая загрузка следующего, и времени на загрузку уходит больше, чем на учёбу",
+  "obs": 2
+ },
+ {
+  "id": "certificate-courses-disappear",
+  "title": "Сертификационные курсы пропадают из списка или не запускаются, блокируя прогресс на дни",
+  "obs": 2
+ },
+ {
+  "id": "random-logout",
+  "title": "Приложение случайным образом разлогинивает пользователя посреди обучения и требует повторного входа",
+  "obs": 2
+ },
+ {
+  "id": "email-verification-loop",
+  "title": "Подтверждение почты при регистрации зацикливается: ссылка ведёт в магазин, а проверка так и не завершается",
+  "obs": 2
+ },
+ {
+  "id": "no-error-reporting",
+  "title": "Когда урок распознаёт произношение неверно, нет встроенного способа сообщить об ошибке",
+  "obs": 2
+ },
+ {
+  "id": "upgrade-button-broken",
+  "title": "Кнопка перехода на премиум не доводит оплату до конца",
+  "obs": 1
+ },
+ {
+  "id": "lifetime-stops-working",
+  "title": "Пожизненная подписка перестаёт работать через год, а поддержка не отвечает месяцами",
+  "obs": 1
+ },
+ {
+  "id": "lesson-count-overstated",
+  "title": "Заявленное в рекламе число уроков завышено по сравнению с тем, что есть в приложении",
+  "obs": 1
+ },
+ {
+  "id": "removed-single-word-drill",
+  "title": "Раньше можно было детально отработать одно слово в составе фразы, теперь слово только проигрывается",
+  "obs": 1
+ },
+ {
+  "id": "repeated-questions",
+  "title": "Внутри урока повторяются одни и те же вопросы, что затягивает обучение",
+  "obs": 1
+ },
+ {
+  "id": "wrong-stress-content",
+  "title": "В материалах приложения встречается неверная постановка ударений, что вводит изучающих в заблуждение",
+  "obs": 1
+ },
+ {
+  "id": "recording-click-artifact",
+  "title": "При прослушивании своей записи появился посторонний щелчок",
+  "obs": 1
+ },
+ {
+  "id": "roleplay-no-volume-control",
+  "title": "В ролевой игре нельзя управлять громкостью голоса собеседника",
+  "obs": 1
+ },
+ {
+  "id": "ai-greeting-instead-of-lessons",
+  "title": "Главный экран заменили на AI-наставника, который каждый день спрашивает о целях вместо показа рекомендованных уроков",
+  "obs": 1
+ },
+ {
+  "id": "cannot-change-level-after-purchase",
+  "title": "После покупки подписки нельзя сменить выбранный уровень и области изучения, а поддержка помочь отказывается",
+  "obs": 1
+ },
+ {
+  "id": "ipad-small-buttons",
+  "title": "На iPad кнопка повтора отображается слишком мелко",
+  "obs": 1
+ },
+ {
+  "id": "dated-interface",
+  "title": "Интерфейс выглядит устаревшим и неудобным для навигации по сравнению с конкурентами",
+  "obs": 1
+ },
+ {
+  "id": "processing-never-returns",
+  "title": "После упражнения результат зависает на сообщении об обработке и так и не приходит",
+  "obs": 1
+ },
+ {
+  "id": "crashes-specific-sections",
+  "title": "Приложение вылетает именно в разделах тренировки ударения и других конкретных упражнениях",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-sync",
+  "title": "Прогресс между iPhone и iPad не синхронизируется в реальном времени, данные расходятся",
+  "obs": 1
+ },
+ {
+  "id": "social-login-fails",
+  "title": "Регистрация через Apple ID и Google на отдельных устройствах постоянно завершается ошибкой",
+  "obs": 1
+ },
+ {
+  "id": "support-bot-no-resolution",
+  "title": "Поддержка присылает сгенерированные ИИ ответы без решения и игнорирует запросы на возврат",
+  "obs": 1
+ },
+ {
+  "id": "ai-conversation-pace",
+  "title": "Разговор с ИИ идёт слишком быстро даже на лёгком уровне и не даёт вести беседу в своём темпе",
+  "obs": 1
+ },
+ {
+  "id": "leaderboard-gameable",
+  "title": "В соревнованиях очки можно накручивать повтором уроков, без реального прогресса — рейтинг несправедлив",
+  "obs": 1
+ }
+]

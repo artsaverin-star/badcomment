@@ -1,0 +1,109 @@
+You are grouping 12 mechanism-level insight clusters from Glow Eve Period Tracker (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Glow Eve Period Tracker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 12 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Glow Eve Period Tracker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Glow Eve Period Tracker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1002275138.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ui-redesign-more-steps",
+  "title": "После переработки интерфейса базовые действия — отметить период, открыть календарь — требуют больше шагов",
+  "obs": 19
+ },
+ {
+  "id": "notifications-ad-instead-of-period",
+  "title": "Системные уведомления приложения рекламируют подписку вместо того чтобы сообщать о периоде",
+  "obs": 14
+ },
+ {
+  "id": "previously-free-features-paywalled",
+  "title": "Функции, которые раньше были бесплатны, теперь заблокированы за подпиской",
+  "obs": 10
+ },
+ {
+  "id": "merger-pregnancy-focus-shift",
+  "title": "После слияния с Glow приложение сместилось на трекинг беременности, и пользователи без этого запроса оказались без нужного инструмента",
+  "obs": 8
+ },
+ {
+  "id": "calendar-behind-paywall",
+  "title": "Основной экран календаря цикла перемещён за платный доступ и недоступен без подписки",
+  "obs": 4
+ },
+ {
+  "id": "subscription-popup-every-open",
+  "title": "При каждом открытии приложения появляется полноэкранный попап подписки, который нужно закрывать заново",
+  "obs": 4
+ },
+ {
+  "id": "ad-popups-block-main-feature",
+  "title": "Перед доступом к основному трекеру пользователь вынужден закрывать несколько рекламных и подписочных окон",
+  "obs": 3
+ },
+ {
+  "id": "subscription-price-bait",
+  "title": "Приложение показывает сниженную цену подписки, а при оплате списывает полную годовую сумму",
+  "obs": 1
+ },
+ {
+  "id": "skip-button-unresponsive",
+  "title": "Кнопка закрытия рекламного попапа не реагирует на нажатие — приходится перезапускать приложение",
+  "obs": 1
+ },
+ {
+  "id": "age-restriction-excludes-young-users",
+  "title": "Приложение блокирует вход пользователям младше 16 лет, исключая молодых женщин которым нужен трекер цикла",
+  "obs": 1
+ },
+ {
+  "id": "update-erases-user-data",
+  "title": "После обновления приложение стирает всю историю цикла и требует повторного входа",
+  "obs": 1
+ },
+ {
+  "id": "community-toxic-comments",
+  "title": "Сообщество внутри приложения содержит агрессивные комментарии, которые вызывают тревогу вместо поддержки",
+  "obs": 1
+ }
+]

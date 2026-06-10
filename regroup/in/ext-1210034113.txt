@@ -1,0 +1,234 @@
+You are grouping 37 mechanism-level insight clusters from Photos PDF : Scanner Converter (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Photos PDF : Scanner Converter, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 37 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Photos PDF : Scanner Converter — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Photos PDF : Scanner Converter>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1210034113.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "hidden-free-quota",
+  "title": "Бесплатная квота (3–5 конвертаций) нигде не указана заранее — пользователь узнаёт об ограничении только после его исчерпания",
+  "obs": 5
+ },
+ {
+  "id": "paywall-after-workflow",
+  "title": "Платёжный барьер появляется после завершения работы — пользователь уже отсканировал документы и не может получить результат",
+  "obs": 4
+ },
+ {
+  "id": "store-description-mismatch",
+  "title": "AppStore описывает приложение как бесплатное, но реальная функциональность заблокирована за платёжной стеной",
+  "obs": 4
+ },
+ {
+  "id": "share-email-behind-paywall",
+  "title": "Отправка PDF по email доступна только в платной версии — финальный шаг рабочего процесса заблокирован подпиской",
+  "obs": 4
+ },
+ {
+  "id": "model-change-no-migration",
+  "title": "Приложение переходит с бесплатной на платную модель без предупреждения — ранее работавшие функции блокируются для существующих пользователей",
+  "obs": 4
+ },
+ {
+  "id": "export-save-behind-paywall",
+  "title": "Сохранение и экспорт созданного PDF заблокированы в Pro версии — основная функция недоступна без оплаты",
+  "obs": 3
+ },
+ {
+  "id": "construction-site-usecase",
+  "title": "Строительные рабочие конвертируют фото на объекте и сразу отправляют в управляющую систему — исключают поездку в офис на каждом этапе проекта",
+  "obs": 3
+ },
+ {
+  "id": "free-tier-retention-driver",
+  "title": "Бесплатная базовая конвертация — главная причина, по которой пользователи выбирают это приложение вместо платных конкурентов",
+  "obs": 3
+ },
+ {
+  "id": "share-not-available-after-pro",
+  "title": "Даже после покупки Pro некоторые PDF невозможно отправить — функция раздачи не работает избирательно",
+  "obs": 2
+ },
+ {
+  "id": "multipage-pdf-differentiator",
+  "title": "Возможность создавать многостраничные PDF — ключевое отличие от конкурентов, которые ограничивают количество страниц",
+  "obs": 2
+ },
+ {
+  "id": "student-academic-usecase",
+  "title": "Учащиеся используют приложение для подачи домашних заданий и документов в электронном виде — конвертация фото в PDF для учёбы",
+  "obs": 2
+ },
+ {
+  "id": "lifetime-license-not-restored",
+  "title": "После обновления приложение не распознаёт ранее купленную пожизненную лицензию и требует повторной оплаты",
+  "obs": 1
+ },
+ {
+  "id": "repeated-pro-restore-prompt",
+  "title": "При каждом запуске приложение многократно отклоняет пароль при восстановлении Pro лицензии — рутинная аутентификация повторяется десятки раз",
+  "obs": 1
+ },
+ {
+  "id": "double-billing-confusion",
+  "title": "Пользователь, оплативший Pro ранее, получает повторный запрос платежа при отправке PDF — непонятно, баг или намеренная схема монетизации",
+  "obs": 1
+ },
+ {
+  "id": "accidental-subscription",
+  "title": "Случайное нажатие активирует подписку и блокирует учётную запись Apple до отмены",
+  "obs": 1
+ },
+ {
+  "id": "page-limit-hidden",
+  "title": "Скрытый лимит в 24 страницы для бесплатной версии не объявляется заранее — пользователь упирается в него в середине работы",
+  "obs": 1
+ },
+ {
+  "id": "org-deployment-licensing-shock",
+  "title": "Компания развернула приложение на всю организацию и только потом столкнулась с платным лимитом — обнаружение после массового внедрения",
+  "obs": 1
+ },
+ {
+  "id": "tts-degraded-to-force-payment",
+  "title": "Функция озвучивания текста намеренно отключена, чтобы вынудить к оплате — хотя школа и работодатель пользователя уже оплачивают её через Adobe",
+  "obs": 1
+ },
+ {
+  "id": "no-cloud-backup",
+  "title": "При переустановке приложения все накопленные за годы файлы и папки теряются — нет облачной синхронизации или резервного копирования",
+  "obs": 1
+ },
+ {
+  "id": "large-file-send-fails",
+  "title": "Приложение не может отправить большие PDF — файлы не загружаются или зависают при отправке",
+  "obs": 1
+ },
+ {
+  "id": "ipad-not-supported",
+  "title": "Приложение не работает на iPad — функциональность ограничена только iPhone",
+  "obs": 1
+ },
+ {
+  "id": "support-button-broken",
+  "title": "Кнопка «Связаться с нами» выдаёт ошибку вместо открытия канала поддержки — пользователь не может получить помощь при критическом баге",
+  "obs": 1
+ },
+ {
+  "id": "auto-scan-corner-distortion",
+  "title": "Автоматическое сканирование неправильно интерпретирует загнутые углы и скрепки как перекос — результат масштабируется в нечитаемые пропорции",
+  "obs": 1
+ },
+ {
+  "id": "multi-page-detection-fails",
+  "title": "Автоматическое определение границ страниц путает края, когда несколько документов лежат рядом на одном фото",
+  "obs": 1
+ },
+ {
+  "id": "no-page-reorder",
+  "title": "После выбора фотографий для PDF невозможно изменить порядок страниц — критический недостаток при создании многостраничного документа",
+  "obs": 1
+ },
+ {
+  "id": "no-select-all-batch",
+  "title": "При выборе нескольких файлов для импорта нет кнопки «выбрать все» — каждое фото нужно отмечать по одному",
+  "obs": 1
+ },
+ {
+  "id": "no-library-search",
+  "title": "В библиотеке сохранённых PDF нет поиска — найти нужный файл можно только листая вручную",
+  "obs": 1
+ },
+ {
+  "id": "save-share-ios-unavailable",
+  "title": "После конвертации стандартные операции iOS «сохранить» и «поделиться» недоступны — файл нельзя извлечь из приложения",
+  "obs": 1
+ },
+ {
+  "id": "flash-preference-not-saved",
+  "title": "Приложение сбрасывает настройку вспышки в «выключено» при каждом запуске — предпочтение пользователя не сохраняется между сессиями",
+  "obs": 1
+ },
+ {
+  "id": "email-no-timestamp-metadata",
+  "title": "Функция отправки по email не сохраняет дату и время отправки — нельзя позже восстановить хронологию документооборота",
+  "obs": 1
+ },
+ {
+  "id": "auto-crop-clean-output",
+  "title": "Приложение автоматически подгоняет пропорции и кадрирование документа — результат выглядит как отсканированный, а не как фотография",
+  "obs": 1
+ },
+ {
+  "id": "photo-cleanup-request",
+  "title": "Пользователи хотят автоматическую очистку снимка документа — превращение фотографии в профессионально выглядящий PDF без ручной обработки",
+  "obs": 1
+ },
+ {
+  "id": "mobile-vs-physical-scanner",
+  "title": "Пользователи заменяют физический сканер мобильным приложением — ключевой сценарий устранения отдельного оборудования",
+  "obs": 1
+ },
+ {
+  "id": "job-search-document-prep",
+  "title": "Пользователи готовят документы для трудоустройства через приложение — конвертация и организация файлов в рабочем процессе поиска работы",
+  "obs": 1
+ },
+ {
+  "id": "long-term-pro-user-trust",
+  "title": "Долгосрочные Pro пользователи ценят отсутствие повторных списаний и предсказуемость модели оплаты",
+  "obs": 1
+ },
+ {
+  "id": "bulk-photo-compression-tradeoff",
+  "title": "Приложение сжимает 55 фотографий до 8 для отправки — результат не отличается от отправки напрямую без приложения",
+  "obs": 1
+ },
+ {
+  "id": "niche-physical-project-archive",
+  "title": "Пользователи архивируют проектную документацию физических объектов (изобретения, строительство) — нешаблонный сценарий долгосрочного хранения",
+  "obs": 1
+ }
+]

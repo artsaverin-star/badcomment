@@ -1,0 +1,279 @@
+You are grouping 46 mechanism-level insight clusters from DoorDash: Food, Grocery, More (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO DoorDash: Food, Grocery, More, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 46 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to DoorDash: Food, Grocery, More — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to DoorDash: Food, Grocery, More>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps60xoy0hkrugu7wkboeztv.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "multi-stop-routing-cold-food",
+  "title": "Система маршрутизации объединяет несколько заказов в один маршрут — еда остывает, пока доставщик делает несколько остановок",
+  "obs": 4
+ },
+ {
+  "id": "support-no-resolution",
+  "title": "Поддержка недоступна или не помогает при проблемах с адресом, украденной едой, неправильными заказами",
+  "obs": 3
+ },
+ {
+  "id": "refund-denied-wrong-order",
+  "title": "Поддержка отказывает в возврате за неправильный заказ даже при наличии фото-доказательств, ссылаясь на формальные причины",
+  "obs": 2
+ },
+ {
+  "id": "eta-inflation",
+  "title": "Приложение показывает заниженное время доставки при оформлении заказа, затем сдвигает его на 30+ минут",
+  "obs": 2
+ },
+ {
+  "id": "gift-card-payment-method-lock",
+  "title": "Приложение автоматически списывает гифткарту как способ оплаты без предупреждения и не позволяет сменить способ оплаты или вернуть гифткарту",
+  "obs": 1
+ },
+ {
+  "id": "double-charge-redirect",
+  "title": "Приложение дважды списывает деньги за один заказ, поддержка перенаправляет к банку вместо решения проблемы",
+  "obs": 1
+ },
+ {
+  "id": "billing-inflated-price",
+  "title": "Система выставляет цену многократно выше реальной — блюдо за $10 отображается как $52",
+  "obs": 1
+ },
+ {
+  "id": "billing-overcharge-credit-not-refund",
+  "title": "Система регулярно считает сумму неверно, компенсирует переплату кредитом вместо возврата реальных денег",
+  "obs": 1
+ },
+ {
+  "id": "dashpass-price-gap",
+  "title": "Цены в приложении выше, чем в ресторане напрямую; подписка DashPass даёт минимальную скидку или не применяется к нужным ресторанам",
+  "obs": 1
+ },
+ {
+  "id": "dashpass-subscription-cancel-hidden",
+  "title": "Кнопка отмены подписки убрана из интерфейса — пользователь вынужден искать обходные пути",
+  "obs": 1
+ },
+ {
+  "id": "dashpass-cancel-resubscribe-discount-exploit",
+  "title": "Пользователи намеренно отменяют и возобновляют подписку, чтобы каждый раз получать скидку 60% — система это позволяет",
+  "obs": 1
+ },
+ {
+  "id": "dashpass-forced-resubscribe-to-order",
+  "title": "Приложение блокирует оформление заказа и требует возобновить отменённую подписку для продолжения",
+  "obs": 1
+ },
+ {
+  "id": "dashpass-express-surcharge",
+  "title": "Подписчики DashPass всё равно платят дополнительно за экспресс-доставку, чтобы еда приехала горячей",
+  "obs": 1
+ },
+ {
+  "id": "fee-escalation-pattern",
+  "title": "Сервис сначала вводит низкие комиссии, потом повышает их до исходного уровня и добавляет платную опцию доставки",
+  "obs": 1
+ },
+ {
+  "id": "substitution-overcharge-no-refund",
+  "title": "При нехватке товара доставщик заменяет его на дорогой аналог, приложение взимает полную стоимость замены и отказывает в возврате",
+  "obs": 1
+ },
+ {
+  "id": "refund-policy-tightened",
+  "title": "Политика возврата ужесточилась: раньше поддержка компенсировала щедро, теперь отказывает даже в повторной отправке товара",
+  "obs": 1
+ },
+ {
+  "id": "refund-denied-subscription-exception",
+  "title": "Поддержка не делает исключений по возврату подписки, даже когда пользователь просит скидку или кредит",
+  "obs": 1
+ },
+ {
+  "id": "refund-stolen-order-minimal",
+  "title": "При краже заказа на $70 приложение компенсирует только $4, доставщик не несёт никаких последствий",
+  "obs": 1
+ },
+ {
+  "id": "refund-qualification-categories",
+  "title": "Система отказывает в компенсации за неправильный товар, если ситуация не попадает в заранее определённые категории",
+  "obs": 1
+ },
+ {
+  "id": "tip-nonrefundable-after-bad-service",
+  "title": "Чаевые нельзя вернуть после плохого обслуживания — даже при неправильном и холодном заказе",
+  "obs": 1
+ },
+ {
+  "id": "sauce-refund-minimal",
+  "title": "За пропущенный соус поддержка возвращает $1, даже если соус составляет половину блюда",
+  "obs": 1
+ },
+ {
+  "id": "support-ai-only-minimal-refund",
+  "title": "Поддержка предлагает только чат с ботом и незначительный возврат ($2 на заказ свыше $20), вынуждая спорить через банк",
+  "obs": 1
+ },
+ {
+  "id": "delivery-address-not-updatable",
+  "title": "Приложение не позволяет изменить адрес доставки — показывает старый адрес и не сохраняет новый",
+  "obs": 1
+ },
+ {
+  "id": "navigation-redesign-hides-filters",
+  "title": "После переработки навигации простые фильтры по ресторанам скрыты — пользователь вынужден выбирать категорию кухни",
+  "obs": 1
+ },
+ {
+  "id": "payment-ui-unclear-save-button",
+  "title": "Интерфейс оплаты не объясняет, как сохранить данные карты и вернуться назад",
+  "obs": 1
+ },
+ {
+  "id": "small-font-cluttered-ui",
+  "title": "Шрифт в приложении слишком мелкий, интерфейс переполнен и плохо читается",
+  "obs": 1
+ },
+ {
+  "id": "delivery-instructions-small-text",
+  "title": "Инструкции для доставщиков отображаются мелким шрифтом и легко пропускаются при выполнении заказа",
+  "obs": 1
+ },
+ {
+  "id": "restaurant-blocked-no-explanation",
+  "title": "Некоторые рестораны заблокированы в приложении без объяснения причины",
+  "obs": 1
+ },
+ {
+  "id": "double-dash-removed",
+  "title": "Функция Double Dash удалена из приложения без объяснений",
+  "obs": 1
+ },
+ {
+  "id": "cancel-order-impossible",
+  "title": "Приложение не позволяет отменить заказ даже в первую секунду после подтверждения",
+  "obs": 1
+ },
+ {
+  "id": "auto-load-last-order",
+  "title": "Приложение автоматически загружает последний заказ вместо пустой корзины, что приводит к случайным повторным заказам",
+  "obs": 1
+ },
+ {
+  "id": "rating-timeout-ghost-order",
+  "title": "Всплывающее окно рейтинга вызывает таймаут и размещает старый заказ из кэша без действия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "ghost-order-from-bug",
+  "title": "Технический сбой размещает все товары из корзины без действия пользователя, поддержка отказывает в возврате",
+  "obs": 1
+ },
+ {
+  "id": "ai-reco-crash",
+  "title": "Новая система рекомендаций на основе ИИ вызывает сбои при выборе блюда и не может быть отключена",
+  "obs": 1
+ },
+ {
+  "id": "debit-card-lock-broken",
+  "title": "Функция блокировки и разблокировки карты DoorDash перестала работать в новой версии приложения",
+  "obs": 1
+ },
+ {
+  "id": "drone-delivery-technical-failure",
+  "title": "Доставка дроном отменяется из-за технических сбоев после длительного ожидания",
+  "obs": 1
+ },
+ {
+  "id": "order-blocked-no-reason",
+  "title": "Приложение блокирует оформление заказов без объяснения причины ошибки",
+  "obs": 1
+ },
+ {
+  "id": "wrong-restaurant-routing",
+  "title": "Приложение направляет заказ в далёкий ресторан вместо ближайшего, еда приезжает холодной",
+  "obs": 1
+ },
+ {
+  "id": "driver-identity-mismatch",
+  "title": "Доставщик в приложении отличается от реального — возникают вопросы безопасности и невозможно привлечь виновного к ответственности",
+  "obs": 1
+ },
+ {
+  "id": "driver-theft-no-consequence",
+  "title": "Доставщик фотографирует доставку, затем забирает еду и скрывается; поддержка отказывает в компенсации даже с доказательством",
+  "obs": 1
+ },
+ {
+  "id": "multiple-drivers-same-pickup",
+  "title": "Несколько доставщиков получают одну заявку и приезжают в ресторан впустую — поддержка не может разрешить путаницу",
+  "obs": 1
+ },
+ {
+  "id": "delivery-instructions-ignored",
+  "title": "Некоторые доставщики игнорируют письменные инструкции к адресу доставки",
+  "obs": 1
+ },
+ {
+  "id": "contactless-delivery-left-on-ground",
+  "title": "При опции «доставить в руки» статус показывает «не определён» и доставщик оставляет еду на земле у двери",
+  "obs": 1
+ },
+ {
+  "id": "missing-ingredients-inedible",
+  "title": "Доставщик или ресторан пропускает соусы и ингредиенты, делая блюдо непригодным для еды",
+  "obs": 1
+ },
+ {
+  "id": "restaurant-ratings-inflated",
+  "title": "Рейтинги ресторанов в приложении завышены — заведения с 1-2 звёздами в Google показаны как высокорейтинговые",
+  "obs": 1
+ },
+ {
+  "id": "habitual-replacement-of-cooking",
+  "title": "Частые пользователи полностью заменяют домашнюю готовку сервисом доставки как паттерн поведения",
+  "obs": 1
+ }
+]

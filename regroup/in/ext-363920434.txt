@@ -1,0 +1,144 @@
+You are grouping 19 mechanism-level insight clusters from The DailyHoroscope (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO The DailyHoroscope, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 19 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to The DailyHoroscope — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to The DailyHoroscope>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-363920434.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "strategy-forecast-accuracy-trust",
+  "title": "Пользователи замечают, что прогнозы сбываются — это главный источник доверия к приложению",
+  "obs": 2
+ },
+ {
+  "id": "payment-purchased-feature-revoked",
+  "title": "Единовременная покупка удаления рекламы перестаёт работать после введения подписочной модели",
+  "obs": 1
+ },
+ {
+  "id": "payment-premium-state-lost",
+  "title": "Приложение не сохраняет статус премиум-подписки и показывает рекламу при каждом открытии",
+  "obs": 1
+ },
+ {
+  "id": "content-daily-forecast-repetition",
+  "title": "Ежедневные прогнозы повторяют одну тему несколько дней подряд вместо разнообразного контента",
+  "obs": 1
+ },
+ {
+  "id": "content-annual-format-degraded",
+  "title": "Годовой прогноз изменил формат с тематических разделов на один неструктурированный абзац",
+  "obs": 1
+ },
+ {
+  "id": "content-forecast-too-specific",
+  "title": "Прогноз описывает частные сценарии, которые не подходят большинству пользователей одного знака",
+  "obs": 1
+ },
+ {
+  "id": "content-uneven-quality-by-sign",
+  "title": "Качество и структура прогнозов неравномерны — одни знаки описаны чётко, другие хаотично",
+  "obs": 1
+ },
+ {
+  "id": "content-temporal-mismatch",
+  "title": "Прогноз описывает события прошедшего дня, а не предстоящего, что делает его бесполезным для планирования",
+  "obs": 1
+ },
+ {
+  "id": "content-moralizing-tone",
+  "title": "Прогнозы стали содержать морализм и критику вместо нейтральных наблюдений",
+  "obs": 1
+ },
+ {
+  "id": "content-negative-bias",
+  "title": "Приложение систематически выдаёт негативные прогнозы независимо от ситуации пользователя",
+  "obs": 1
+ },
+ {
+  "id": "content-verbose-structure",
+  "title": "Прогнозы начинаются с многословного вступления, а суть появляется только в последнем предложении",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-tomorrow-forecast",
+  "title": "В приложении нет возможности посмотреть прогноз на завтра — только вчера, сегодня и неделя",
+  "obs": 1
+ },
+ {
+  "id": "ui-wrong-sign-from-birthdate",
+  "title": "При вводе даты рождения приложение определяет неверный астрологический знак",
+  "obs": 1
+ },
+ {
+  "id": "ui-contact-button-broken",
+  "title": "Кнопка «Контакты» не работает — отправляет по кругу обратно в меню вместо формы обращения",
+  "obs": 1
+ },
+ {
+  "id": "reliability-content-unavailable-after-update",
+  "title": "После обновления приложение показывает ошибку «контент недоступен» при выборе любого знака",
+  "obs": 1
+ },
+ {
+  "id": "reliability-crash-iphone15-notification",
+  "title": "На iPhone 15 Pro Max приложение падает при открытии через уведомление",
+  "obs": 1
+ },
+ {
+  "id": "reliability-crash-iphone15-update",
+  "title": "После обновления приложение сразу падает при открытии на iPhone 15",
+  "obs": 1
+ },
+ {
+  "id": "reliability-stale-dates",
+  "title": "Приложение не обновляет даты раздела месяца — в июне отображается март",
+  "obs": 1
+ },
+ {
+  "id": "reliability-inconsistent-forecast-by-sign",
+  "title": "Приложение выдаёт разные прогнозы разным пользователям с одинаковым знаком зодиака",
+  "obs": 1
+ }
+]

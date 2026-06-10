@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "id": "family-shared-home",
+      "name": "Общий дом на всех: семья, дети и приглашения, которые ломаются",
+      "insight_ids": [
+        "family-sharing-paywalled",
+        "no-per-member-schedule",
+        "large-family-task-reassignment",
+        "invite-link-creates-new-home",
+        "family-sync-login-issues",
+        "no-family-completion-notifications",
+        "no-multiple-daily-executions",
+        "no-photo-evidence"
+      ]
+    },
+    {
+      "id": "lost-data-and-login",
+      "name": "Профиль испаряется: потеря данных, вход и восстановление",
+      "insight_ids": [
+        "data-lost-on-reinstall",
+        "data-lost-no-account",
+        "data-not-persisted-restart",
+        "authenticated-user-asked-to-login",
+        "no-account-deletion",
+        "support-account-recovery",
+        "sync-across-devices-broken"
+      ]
+    },
+    {
+      "id": "algorithm-vs-real-life",
+      "name": "Умное расписание против реальной жизни: алгоритм, отпуск и полночь",
+      "insight_ids": [
+        "algorithm-ignores-available-time",
+        "algorithm-rebalance-slow",
+        "algorithm-no-specific-day-assignment",
+        "no-skip-auto-tasks",
+        "no-plan-tomorrow",
+        "vacation-mode-broken",
+        "midnight-task-reset",
+        "recurring-task-scheduling-fails"
+      ]
+    },
+    {
+      "id": "paywall-trial-reviews",
+      "name": "За подпиской спрятано главное: пейволлы, короткий триал и навязчивые отзывы",
+      "insight_ids": [
+        "trial-too-short",
+        "daily-view-paywalled",
+        "premium-ui-broken",
+        "review-prompt-too-early-frequent",
+        "shop-no-new-items",
+        "gamification-virtual-only"
+      ]
+    },
+    {
+      "id": "setup-editing-friction",
+      "name": "Пока заведёшь задачу — устанешь: создание, редактирование и навигация по комнатам",
+      "insight_ids": [
+        "no-global-task-list-view",
+        "no-cancel-in-customize-flow",
+        "task-completion-ui-blocks",
+        "task-setup-requires-multiple-edits",
+        "no-delete-preset-tasks",
+        "no-undo-task-completion",
+        "room-decor-navigation",
+        "add-task-button-disappears",
+        "custom-notes-adhd-use-case",
+        "app-complexity-vs-simplicity"
+      ]
+    },
+    {
+      "id": "signals-that-lie",
+      "name": "Сигналы врут: стрики, прогресс-бары, виджеты и уведомления",
+      "insight_ids": [
+        "streak-counter-broken",
+        "widgets-broken",
+        "progress-bar-labels-wrong",
+        "progress-bar-wrong-color-new-task",
+        "last-cleaned-date-no-year",
+        "notification-generic-no-task-detail",
+        "no-calendar-export"
+      ]
+    }
+  ]
+}

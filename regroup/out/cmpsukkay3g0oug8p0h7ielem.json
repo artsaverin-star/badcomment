@@ -1,0 +1,91 @@
+{
+  "groups": [
+    {
+      "id": "scan-engine-regressions",
+      "name": "Движок сканирования сдаёт после обновлений: границы, фокус, сбои камеры",
+      "insight_ids": [
+        "auto-crop-regression",
+        "auto-scan-regression",
+        "scan-quality-regression",
+        "scan-lost-after-capture",
+        "camera-error-multitasking",
+        "orange-scan-window-intermittent",
+        "screen-rotation-locked",
+        "slow-workflow-regression"
+      ]
+    },
+    {
+      "id": "billing-traps-paywall",
+      "name": "Подписка обесценила старые покупки и заперла базовое за пейволлом",
+      "insight_ids": [
+        "subscription-tiers-devalue-old-purchase",
+        "paywall-basic-print",
+        "plan-comparison-missing-features",
+        "license-transfer-new-device",
+        "paid-subscription-full-service-failure"
+      ]
+    },
+    {
+      "id": "send-export-share",
+      "name": "Финиш ломается: email не доходит, экспорт и iCloud не настроить",
+      "insight_ids": [
+        "email-send-broken",
+        "email-send-delayed",
+        "sms-pdf-share-extra-steps",
+        "export-workflow-no-default-path",
+        "icloud-not-default-own-cloud-pushed",
+        "cross-device-merge-no-docs"
+      ]
+    },
+    {
+      "id": "extra-taps-workflow-friction",
+      "name": "Лишние касания: добавление страниц, переименование, пакетная правка",
+      "insight_ids": [
+        "add-page-extra-step",
+        "add-scan-button-one-hand",
+        "relabel-document-extra-steps",
+        "batch-page-editing-missing",
+        "auto-rename-unreliable",
+        "curvature-correction-manual"
+      ]
+    },
+    {
+      "id": "output-quality-cropping",
+      "name": "Что на выходе: бледная печать, потеря качества и срезанные заголовки",
+      "insight_ids": [
+        "print-output-blurry",
+        "image-quality-loss-on-import",
+        "header-cropped-or-whited-out"
+      ]
+    },
+    {
+      "id": "review-prompt-interrupts",
+      "name": "Запрос оценки бьёт в самый неподходящий момент",
+      "insight_ids": [
+        "review-prompt-blocks-send",
+        "review-prompt-during-scan"
+      ]
+    },
+    {
+      "id": "personal-archive-search",
+      "name": "Личный архив на тысячи документов — когда поиск находит и когда теряет",
+      "insight_ids": [
+        "archive-thousands-docs",
+        "find-saved-documents"
+      ]
+    },
+    {
+      "id": "why-they-stay-replace-scanner",
+      "name": "За что любят: замена сканера, работа в поле и рекомендации друзьям",
+      "insight_ids": [
+        "field-mobile-workflow",
+        "replace-hardware-scanner",
+        "word-of-mouth-recommendation",
+        "damaged-doc-recovery",
+        "auto-processing-vs-apple-photos",
+        "office-quality-auto-scan",
+        "flexible-format-autofocus-power-user"
+      ]
+    }
+  ]
+}

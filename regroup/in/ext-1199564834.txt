@@ -1,0 +1,224 @@
+You are grouping 35 mechanism-level insight clusters from Adobe Scan: PDF & OCR Scanner (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Adobe Scan: PDF & OCR Scanner, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 35 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Adobe Scan: PDF & OCR Scanner — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Adobe Scan: PDF & OCR Scanner>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1199564834.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "basic-save-export-paywalled",
+  "title": "Базовое сохранение PDF и экспорт документов заблокированы подпиской — без оплаты невозможно получить файл",
+  "obs": 4
+ },
+ {
+  "id": "cloud-only-no-local-save",
+  "title": "Приложение не позволяет сохранять отсканированные документы локально — всё принудительно уходит в облако Adobe",
+  "obs": 4
+ },
+ {
+  "id": "pdf-not-downloadable-from-app",
+  "title": "Получить готовый PDF можно только через сайт Adobe или по ссылке — прямое скачивание из приложения недоступно",
+  "obs": 3
+ },
+ {
+  "id": "mobile-replaces-desktop-scanner",
+  "title": "Пользователи полностью отказываются от настольного сканера в пользу мобильного приложения — снижается зависимость от оборудования",
+  "obs": 3
+ },
+ {
+  "id": "free-to-paid-silent-shift",
+  "title": "Приложение молча переводит ранее бесплатные функции за платный барьер после обновления, без предупреждения пользователей",
+  "obs": 2
+ },
+ {
+  "id": "free-features-unclear",
+  "title": "Пользователь не понимает, какие функции доступны бесплатно и как экспортировать скан в другие приложения",
+  "obs": 2
+ },
+ {
+  "id": "auto-filter-no-control",
+  "title": "Приложение автоматически применяет фильтры очистки без запроса — пользователь вынужден замечать и отменять вручную",
+  "obs": 2
+ },
+ {
+  "id": "app-crash-after-update",
+  "title": "Приложение не открывается или крашится после обновления — переустановка и перезагрузка не помогают",
+  "obs": 2
+ },
+ {
+  "id": "scan-blur-low-quality",
+  "title": "Режим быстрого сканирования выдаёт размытые изображения — хуже, чем обычная камера телефона",
+  "obs": 2
+ },
+ {
+  "id": "forced-login-repeated",
+  "title": "Приложение требует повторного входа в аккаунт до 10 раз подряд, хотя учётные данные не менялись",
+  "obs": 2
+ },
+ {
+  "id": "professional-field-use-cases",
+  "title": "Приложение закрывает специфичные профессиональные сценарии: военная логистика, мобильный бизнес, отправка документов на месте",
+  "obs": 2
+ },
+ {
+  "id": "free-tier-attracts-no-payment-users",
+  "title": "Значимый бесплатный функционал привлекает пользователей, которые принципиально ищут сканер без оплаты",
+  "obs": 2
+ },
+ {
+  "id": "speed-efficiency-benefit",
+  "title": "Быстрое сканирование и распознавание существенно экономит время на рутинной обработке рабочих документов",
+  "obs": 2
+ },
+ {
+  "id": "trial-immediate-charge",
+  "title": "Пробный период в 3 дня сразу списывает полную годовую подписку в течение секунд после подтверждения, без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "one-time-purchase-preference",
+  "title": "Пользователи готовы платить за расширенные функции, но предпочитают разовую покупку подписке",
+  "obs": 1
+ },
+ {
+  "id": "saved-document-hard-to-find",
+  "title": "После сохранения в облако Adobe найти документ повторно занимает до 45 минут — файл не лежит там, где ожидает пользователь",
+  "obs": 1
+ },
+ {
+  "id": "no-preview-before-save",
+  "title": "Приложение сразу сохраняет скан в PDF без возможности просмотреть или отредактировать результат",
+  "obs": 1
+ },
+ {
+  "id": "batch-send-failure",
+  "title": "При отправке многостраничного пакета доходит только одна страница из тринадцати — остальные зависают в приложении",
+  "obs": 1
+ },
+ {
+  "id": "slowdown-large-documents",
+  "title": "Приложение критически тормозит при обработке больших многостраничных документов, вынуждая разбивать скан на части",
+  "obs": 1
+ },
+ {
+  "id": "wavy-lines-distorted-scan",
+  "title": "Отсканированные строки текста получаются волнистыми и деформированными, документ непригоден для архивирования",
+  "obs": 1
+ },
+ {
+  "id": "inconsistent-page-sizes",
+  "title": "При многостраничном сканировании последующие страницы получаются другой ширины — размеры не согласованы",
+  "obs": 1
+ },
+ {
+  "id": "auto-rotate-wrong-orientation",
+  "title": "Приложение автоматически переворачивает ориентацию документа — горизонтальный скан становится вертикальным",
+  "obs": 1
+ },
+ {
+  "id": "color-lost-grayscale-output",
+  "title": "Цветные документы после сканирования превращаются в чёрно-белые — цветовая информация теряется",
+  "obs": 1
+ },
+ {
+  "id": "mixed-content-boundary-detection",
+  "title": "Приложение не определяет границы документа при наличии смешанного контента — изображений и текста на одной странице",
+  "obs": 1
+ },
+ {
+  "id": "ocr-handwriting-fails",
+  "title": "OCR не распознаёт обычный рукописный текст — алгоритм работает только с практически идеально написанными буквами",
+  "obs": 1
+ },
+ {
+  "id": "ocr-missing-feature",
+  "title": "Приложение определяет области документа, но не предлагает функцию распознавания текста там, где пользователь её ожидает",
+  "obs": 1
+ },
+ {
+  "id": "autocapture-too-fast",
+  "title": "Автозахват срабатывает слишком быстро — пользователь не успевает подготовиться, документ получается перекошенным",
+  "obs": 1
+ },
+ {
+  "id": "multipage-no-auto-page-detection",
+  "title": "Приложение не определяет автоматически момент готовности следующей страницы — встроенный сканер конкурента это умеет",
+  "obs": 1
+ },
+ {
+  "id": "multipage-capture-mode-tradeoff",
+  "title": "Многостраничное сканирование вынуждает выбирать между медленным ручным режимом и спешным автозахватом, который захватывает руку или смазывает кадр",
+  "obs": 1
+ },
+ {
+  "id": "password-validation-bug",
+  "title": "Валидация пароля при регистрации отклоняет корректный пароль с ошибкой «пароль содержит имя пользователя», хотя это не так",
+  "obs": 1
+ },
+ {
+  "id": "forced-login-data-harvesting-perception",
+  "title": "Обязательный вход в аккаунт воспринимается как скрытый сбор данных — пользователь не видит никакой пользы от требования",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-sync-reliable",
+  "title": "Синхронизация документов через аккаунт Adobe работает надёжно и является ключевой ценностью для части пользователей",
+  "obs": 1
+ },
+ {
+  "id": "intuitive-photo-to-pdf",
+  "title": "Конвертация фотографий в PDF и экспорт на компьютер работают интуитивно — без обучения и документации",
+  "obs": 1
+ },
+ {
+  "id": "share-via-email-sms",
+  "title": "Возможность отправлять отсканированные документы по почте и СМС прямо из приложения ценится пользователями",
+  "obs": 1
+ },
+ {
+  "id": "hands-free-accessibility",
+  "title": "Съёмка без физического касания экрана делает приложение доступным для пользователей с ограниченными возможностями",
+  "obs": 1
+ }
+]

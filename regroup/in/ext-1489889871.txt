@@ -1,0 +1,384 @@
+You are grouping 67 mechanism-level insight clusters from Moonly: Moon Phases & Calendar (Астрология и гороскопы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Moonly: Moon Phases & Calendar, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 67 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Moonly: Moon Phases & Calendar — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Moonly: Moon Phases & Calendar>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1489889871.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "subscription-features-still-paywalled",
+  "title": "Платная подписка не даёт доступа к большинству функций — каждая требует дополнительного платежа",
+  "obs": 13
+ },
+ {
+  "id": "lifetime-not-full-access",
+  "title": "Lifetime-доступ не включает ключевые функции — AI-вопросы, совместимость и прогнозы требуют отдельной оплаты",
+  "obs": 8
+ },
+ {
+  "id": "free-features-moved-to-paywall",
+  "title": "Функции, которые раньше были бесплатными, с каждым обновлением перемещаются за платёж",
+  "obs": 7
+ },
+ {
+  "id": "vedic-calculation-accuracy",
+  "title": "Расчёты зодиакальных знаков и домов натальной карты содержат ошибки — знак, луна и восходящий знак неверны",
+  "obs": 7
+ },
+ {
+  "id": "everything-paywalled-from-start",
+  "title": "Все функции заблокированы с первого момента: бесплатная версия фактически отсутствует",
+  "obs": 6
+ },
+ {
+  "id": "moon-phase-hidden-in-ui",
+  "title": "После обновления фазы луны (главная функция) скрыты глубже в интерфейсе — требуется скроллинг",
+  "obs": 5
+ },
+ {
+  "id": "restore-subscription-friction",
+  "title": "Восстановление подписки при смене устройства или переустановке требует ручного вмешательства поддержки",
+  "obs": 4
+ },
+ {
+  "id": "no-trial-before-payment",
+  "title": "Приложение не предоставляет пробного периода — все функции требуют немедленного платежа",
+  "obs": 4
+ },
+ {
+  "id": "redesign-worsened-navigation",
+  "title": "Редизайн приложения усложнил навигацию и нарушил привычный рабочий процесс",
+  "obs": 4
+ },
+ {
+  "id": "data-loss-after-update",
+  "title": "После обновления пользователи теряют журнал снов, дату рождения и аватар без возможности восстановления",
+  "obs": 4
+ },
+ {
+  "id": "subscription-without-consent",
+  "title": "Система автоматически активирует платную подписку без явного согласия пользователя",
+  "obs": 3
+ },
+ {
+  "id": "moon-phase-accuracy",
+  "title": "Основная функция приложения — фазы луны — показывает неправильную информацию",
+  "obs": 3
+ },
+ {
+  "id": "ai-art-homogeneous",
+  "title": "AI-генерируемые аватары и иллюстрации однообразны: белые женщины стандартной внешности, без разнообразия",
+  "obs": 3
+ },
+ {
+  "id": "ai-art-visual-quality",
+  "title": "AI-иллюстрации воспринимаются как некачественные и подрывают визуальный образ приложения",
+  "obs": 3
+ },
+ {
+  "id": "avatar-generation-broken",
+  "title": "AI-генерация аватара выдаёт ошибку, создаёт неточное изображение или даёт только три попытки",
+  "obs": 3
+ },
+ {
+  "id": "birth-time-edit-broken",
+  "title": "Интерфейс не позволяет редактировать время рождения — наиболее критичное поле для точности натальной карты",
+  "obs": 3
+ },
+ {
+  "id": "app-crash-after-update",
+  "title": "После обновления приложение не запускается, теряет основной функционал или не загружает контент",
+  "obs": 3
+ },
+ {
+  "id": "feature-broken-after-update",
+  "title": "После обновления оплаченные функции (инсайт, натальная карта, таро) перестают работать",
+  "obs": 3
+ },
+ {
+  "id": "notification-spam",
+  "title": "При переходе луны в новый знак приложение отправляет 70–100 дублирующихся уведомлений подряд",
+  "obs": 3
+ },
+ {
+  "id": "price-inconsistency",
+  "title": "Цена на сайте и в приложении не совпадает; цена натальной карты указана неверно",
+  "obs": 2
+ },
+ {
+  "id": "ai-questions-hard-limit",
+  "title": "Лимит вопросов к AI-астрологу срабатывает без предупреждения и требует дополнительного платежа",
+  "obs": 2
+ },
+ {
+  "id": "profile-before-price",
+  "title": "Приложение скрывает цену до 17-го шага онбординга после полного заполнения профиля",
+  "obs": 2
+ },
+ {
+  "id": "subscription-profile-mismatch",
+  "title": "После глубокого погружения система перебрасывает на страницу апгрейда с требованием повторной оплаты",
+  "obs": 2
+ },
+ {
+  "id": "subscription-locked-after-purchase",
+  "title": "После покупки подписки приложение перестаёт запускаться или блокирует все функции",
+  "obs": 2
+ },
+ {
+  "id": "vedic-vs-western-mismatch-content",
+  "title": "Приложение использует ведическую астрологию, но не сообщает об этом до покупки — пользователи западной астрологии дезориентированы",
+  "obs": 2
+ },
+ {
+  "id": "tarot-reversal-removed",
+  "title": "Обновление удалило карты перевёртов из раскладов таро — фундаментальная техника практики исчезла",
+  "obs": 2
+ },
+ {
+  "id": "tarot-third-card-paywalled",
+  "title": "Третья карта в трёхкарточном раскладе требует отдельного платежа, раскладка неполная",
+  "obs": 2
+ },
+ {
+  "id": "healing-sounds-5min-limit",
+  "title": "Звуки для исцеления воспроизводятся максимум 5 минут вместо непрерывного воспроизведения",
+  "obs": 2
+ },
+ {
+  "id": "healing-content-removed",
+  "title": "Обновление удалило медитации для исцеления, информацию о планетах и звуки, которые пользователи регулярно использовали",
+  "obs": 2
+ },
+ {
+  "id": "meditation-synthetic-voice",
+  "title": "Новые медитации озвучены синтетическим голосом вместо человеческого, разрывая эмоциональную связь",
+  "obs": 2
+ },
+ {
+  "id": "dream-journal-daily-limit",
+  "title": "Анализ снов ограничен одним в день; лимит символов не позволяет описать сложный многослойный сон",
+  "obs": 2
+ },
+ {
+  "id": "harmful-recommendations",
+  "title": "Приложение выдаёт рекомендации, которые вредят качеству жизни пользователя, и медицинские советы вне своей компетенции",
+  "obs": 2
+ },
+ {
+  "id": "profile-edit-no-correction",
+  "title": "Система профиля не позволяет исправлять опечатки в введённых данных и путает профили при нескольких натальных картах",
+  "obs": 2
+ },
+ {
+  "id": "accessibility-voiceover",
+  "title": "Приложение полностью несовместимо с VoiceOver и блокирует копирование текста, лишая доступа слабовидящих",
+  "obs": 2
+ },
+ {
+  "id": "widget-ios-color-filters",
+  "title": "Виджеты не совместимы с цветовыми фильтрами iOS 18+ и показывают пустой белый экран",
+  "obs": 2
+ },
+ {
+  "id": "ai-freezes-on-finalization",
+  "title": "AI-помощник зависает на ожидании финализации данных и не отвечает",
+  "obs": 2
+ },
+ {
+  "id": "trial-charge-immediate",
+  "title": "Кнопка пробного периода сразу списывает полную сумму, без отсрочки платежа",
+  "obs": 1
+ },
+ {
+  "id": "double-charge-web-app",
+  "title": "Система берёт два отдельных платежа: на сайте и при загрузке приложения, без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "subscription-continues-after-cancel",
+  "title": "После отмены подписки система продолжает списывать платежи, поддержка не отвечает",
+  "obs": 1
+ },
+ {
+  "id": "refund-denied-accidental",
+  "title": "Система отказывает в возврате случайно совершённой покупки",
+  "obs": 1
+ },
+ {
+  "id": "price-hike-retention",
+  "title": "Частые повышения цены вынуждают долгосрочных пользователей уходить",
+  "obs": 1
+ },
+ {
+  "id": "tarot-interpretation-shallow",
+  "title": "Раскладка таро даёт только однострочные AI-интерпретации вместо детального анализа",
+  "obs": 1
+ },
+ {
+  "id": "dream-decoder-timeout",
+  "title": "AI-декодер снов зависает по таймауту и не возвращает результат",
+  "obs": 1
+ },
+ {
+  "id": "daily-lunar-guidance-removed",
+  "title": "Ежедневные практические советы по лунному календарю (стрижка волос, цвет дня) удалены или перемещены за платёж",
+  "obs": 1
+ },
+ {
+  "id": "nakshatra-content-reduced",
+  "title": "Информация о Накшатрах сократилась с двух до одной записи в день",
+  "obs": 1
+ },
+ {
+  "id": "birth-chart-no-explanation",
+  "title": "Натальная карта показывается визуально, но без письменных объяснений значений символов",
+  "obs": 1
+ },
+ {
+  "id": "healing-sounds-background-removed",
+  "title": "Функция воспроизведения звуков в фоне при использовании других приложений была удалена",
+  "obs": 1
+ },
+ {
+  "id": "dream-voice-input-bug",
+  "title": "Ввод снов голосом удаляет текст при достижении конца, требуя повторного ввода",
+  "obs": 1
+ },
+ {
+  "id": "ai-dialog-broken",
+  "title": "AI-интерпретатор не отправляет ответ пользователя дальше после инициирования диалога",
+  "obs": 1
+ },
+ {
+  "id": "navigation-unintuitive",
+  "title": "Навигация неинтуитивна: нет кнопки «назад», нет ярлыков для основных функций астрологического прогноза",
+  "obs": 1
+ },
+ {
+  "id": "compatibility-input-no-correction",
+  "title": "При ошибке ввода в форме совместимости система не позволяет исправить без повторной покупки отчёта",
+  "obs": 1
+ },
+ {
+  "id": "ai-chatbot-accidental-activation",
+  "title": "AI-чат-помощник расположен неудобно и часто активируется случайно",
+  "obs": 1
+ },
+ {
+  "id": "affirmation-cards-ad-border",
+  "title": "Рамка объявления вокруг карточек аффирмаций создаёт фрикцию при публикации в соцсети",
+  "obs": 1
+ },
+ {
+  "id": "personal-notes-missing",
+  "title": "Приложение не позволяет добавлять личные заметки к дневным записям для отслеживания паттернов",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-too-early",
+  "title": "Приложение запрашивает отзыв сразу после покупки, не дав пользователю изучить продукт",
+  "obs": 1
+ },
+ {
+  "id": "ui-visual-overload",
+  "title": "Перегруженный интерфейс с множеством визуальных элементов создаёт ощущение информационной перегрузки",
+  "obs": 1
+ },
+ {
+  "id": "uncanny-ai-avatar",
+  "title": "AI-помощница со статичным взглядом вызывает психологический дискомфорт при повторяющемся использовании",
+  "obs": 1
+ },
+ {
+  "id": "account-deletion-missing",
+  "title": "Приложение не предоставляет механизма удаления аккаунта; поддержка советует просто удалить приложение",
+  "obs": 1
+ },
+ {
+  "id": "full-moon-time-unintuitive",
+  "title": "Информация о точном времени полнолуния стала менее доступной в новом интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "birth-chart-loading-hang",
+  "title": "Загрузка натальной карты зависает и не завершается даже спустя 30 минут",
+  "obs": 1
+ },
+ {
+  "id": "birth-chart-black-screen",
+  "title": "Натальная карта и другие экраны показывают чёрный экран при наличии активной подписки",
+  "obs": 1
+ },
+ {
+  "id": "date-selector-broken",
+  "title": "Селекторы дат в интерфейсе не функционируют: невозможно выбрать месяц",
+  "obs": 1
+ },
+ {
+  "id": "zodiac-inconsistency-across-sections",
+  "title": "Разные разделы приложения показывают разные зодиакальные знаки для одного пользователя",
+  "obs": 1
+ },
+ {
+  "id": "browser-mobile-bug",
+  "title": "Параллельное использование браузерной и мобильной версии порождает баги доступности",
+  "obs": 1
+ },
+ {
+  "id": "vedic-marketing-mismatch",
+  "title": "Реклама показывает западную астрологию, приложение работает на ведической — ожидания не совпадают",
+  "obs": 1
+ },
+ {
+  "id": "full-paywall-model",
+  "title": "Модель монетизации скрывает бесплатный уровень полностью — пользователи не понимают, что доступно без подписки",
+  "obs": 1
+ },
+ {
+  "id": "no-trial-conversion-friction",
+  "title": "Отсутствие пробного периода создаёт барьер входа: пользователи не могут оценить ценность до оплаты",
+  "obs": 1
+ }
+]

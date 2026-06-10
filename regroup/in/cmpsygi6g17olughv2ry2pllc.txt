@@ -1,0 +1,259 @@
+You are grouping 42 mechanism-level insight clusters from Photo Retouch-Object Removal (Фоторедакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Photo Retouch-Object Removal, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 42 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Photo Retouch-Object Removal — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Photo Retouch-Object Removal>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsygi6g17olughv2ry2pllc.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-charges-immediately",
+  "title": "Объявленный бесплатный пробный период списывает полную сумму сразу при активации, без бесплатного теста",
+  "obs": 7
+ },
+ {
+  "id": "object-removal-blurry",
+  "title": "После удаления объекта область остаётся размытой вместо естественного заполнения фона",
+  "obs": 6
+ },
+ {
+  "id": "object-removal-artifacts",
+  "title": "Удаление объекта оставляет артефакты — пятна, тени или странные элементы вместо чистого фона",
+  "obs": 6
+ },
+ {
+  "id": "object-removal-fails",
+  "title": "Инструмент удаления не убирает объект — он остаётся видимым на фото",
+  "obs": 5
+ },
+ {
+  "id": "cant-save-edits",
+  "title": "Приложение не сохраняет отредактированное фото — изменения теряются при нажатии «готово»",
+  "obs": 5
+ },
+ {
+  "id": "cancel-trial-still-charged",
+  "title": "Отмена пробного периода до конца срока не останавливает списания — платежи продолжают идти",
+  "obs": 4
+ },
+ {
+  "id": "pay-after-editing-trap",
+  "title": "Оплату просят только после завершения редактирования — пользователь не может сохранить уже сделанную работу без покупки",
+  "obs": 3
+ },
+ {
+  "id": "everything-behind-paywall",
+  "title": "Базовые инструменты редактирования заблокированы за подпиской и не работают в бесплатной версии",
+  "obs": 3
+ },
+ {
+  "id": "save-quality-degraded",
+  "title": "Сохранённые фото выходят низкого качества, хотя подписка premium оплачена",
+  "obs": 3
+ },
+ {
+  "id": "crashes-loading-photos",
+  "title": "Приложение крашится и не может загрузить фото при открытии библиотеки",
+  "obs": 3
+ },
+ {
+  "id": "cancel-impossible-no-refund",
+  "title": "Подписку нельзя отменить из приложения, списания продолжаются, разработчик не возвращает деньги",
+  "obs": 2
+ },
+ {
+  "id": "trial-usage-limit-too-tight",
+  "title": "Бесплатный триал ограничен 3 использованиями, причём мелкая правка считается за полное использование",
+  "obs": 2
+ },
+ {
+  "id": "ads-or-pay-to-test",
+  "title": "Каждый шаг требует просмотра рекламы, оплаты или регистрации, чтобы протестировать функции",
+  "obs": 2
+ },
+ {
+  "id": "large-object-removal-unnatural",
+  "title": "При удалении крупных объектов AI выдаёт результат, не соответствующий исходному изображению",
+  "obs": 2
+ },
+ {
+  "id": "face-retouch-unnatural",
+  "title": "Ретушь лица делает кожу размытой и черты искажёнными, лицо выглядит неестественно",
+  "obs": 2
+ },
+ {
+  "id": "edit-all-faces-not-one",
+  "title": "При ретуши группового фото изменения применяются ко всем лицам сразу, нельзя выбрать одного человека",
+  "obs": 2
+ },
+ {
+  "id": "edits-have-no-effect",
+  "title": "Фильтры и инструменты вообще не меняют фото — приложение выдаёт серое размытое изображение вместо результата",
+  "obs": 2
+ },
+ {
+  "id": "tools-shallow-vs-builtin",
+  "title": "Инструменты примитивны и почти не отличаются от встроенного редактора камеры, продвинутого нет",
+  "obs": 2
+ },
+ {
+  "id": "app-freezes-on-edit",
+  "title": "Приложение зависает при попытке редактирования после недавних обновлений",
+  "obs": 2
+ },
+ {
+  "id": "confusing-interface",
+  "title": "Интерфейс хаотичен и перегружен мелким текстом — пользователь не может найти нужные элементы управления",
+  "obs": 2
+ },
+ {
+  "id": "no-onboarding-tutorial",
+  "title": "При первом запуске нет обучающего руководства — новичку непонятно, как пользоваться приложением",
+  "obs": 2
+ },
+ {
+  "id": "no-support-channel",
+  "title": "У приложения нет поддержки ни по телефону, ни в чате, а на запросы о входе не отвечают месяцами",
+  "obs": 2
+ },
+ {
+  "id": "pay-per-edit-not-once",
+  "title": "Приложение берёт плату за каждое редактирование и сохранение отдельно, а не один раз за функцию",
+  "obs": 1
+ },
+ {
+  "id": "cant-cancel-trial-in-app",
+  "title": "Кнопки отмены пробного периода нет в интерфейсе приложения — отменить нельзя",
+  "obs": 1
+ },
+ {
+  "id": "refund-hidden-email-only",
+  "title": "Возврат средств возможен только письмом на странный адрес без ответа, а после списания аккаунт теряет доступ к функциям",
+  "obs": 1
+ },
+ {
+  "id": "price-too-high",
+  "title": "Цена подписки завышена относительно реального функционала приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-charge-warning-on-install",
+  "title": "Приложение не предупреждает о платной подписке при установке — списание $5 в неделю всплывает неожиданно",
+  "obs": 1
+ },
+ {
+  "id": "removal-affects-neighbors",
+  "title": "При удалении одного объекта искажаются или деформируются соседние объекты на фото",
+  "obs": 1
+ },
+ {
+  "id": "group-photo-worse",
+  "title": "Редактирование фото с несколькими людьми даёт результат хуже исходного снимка",
+  "obs": 1
+ },
+ {
+  "id": "eye-color-tool-creepy",
+  "title": "Смена цвета глаз затемняет белки пикселями и создаёт неестественный жуткий вид",
+  "obs": 1
+ },
+ {
+  "id": "slim-tools-poor",
+  "title": "Инструменты похудения лица и тела работают неудовлетворительно",
+  "obs": 1
+ },
+ {
+  "id": "clothing-removal-blurry",
+  "title": "Удаление одежды с людей даёт размытый результат вместо чёткого восстановления",
+  "obs": 1
+ },
+ {
+  "id": "ai-quality-below-ads",
+  "title": "Качество удаления объектов сильно отстаёт от роликов, показанных в рекламе на YouTube",
+  "obs": 1
+ },
+ {
+  "id": "low-light-poor",
+  "title": "Приложение плохо обрабатывает фото в условиях низкой освещённости",
+  "obs": 1
+ },
+ {
+  "id": "video-removal-slow",
+  "title": "Удаление объекта из минутного видео занимает почти 20 минут — обработка видео крайне медленная",
+  "obs": 1
+ },
+ {
+  "id": "freeze-on-background-removal",
+  "title": "Приложение зависает при выборе функции удаления фона",
+  "obs": 1
+ },
+ {
+  "id": "clone-stamp-zoom-broke",
+  "title": "После обновления масштабирование в инструменте штампа клонирования перестало работать",
+  "obs": 1
+ },
+ {
+  "id": "auto-lasso-network-error",
+  "title": "Автоматическое лассо перестало работать с ошибкой сети, хотя ручной инструмент функционирует",
+  "obs": 1
+ },
+ {
+  "id": "ai-jerky-performance",
+  "title": "Приложение работает рывками несмотря на заявленный AI",
+  "obs": 1
+ },
+ {
+  "id": "cancel-screen-freezes",
+  "title": "Закрытие экрана подписки крестиком возвращает к фотопленке и зависает, блокируя доступ к редактору",
+  "obs": 1
+ },
+ {
+  "id": "workflow-requires-exit-reenter",
+  "title": "Чтобы применить другой инструмент, нужно сохранить фото, выйти и заново открыть приложение — нет прямого редактирования",
+  "obs": 1
+ },
+ {
+  "id": "remove-blur-wish",
+  "title": "Пользователь хочет функцию удаления размытия (расфокусировки) с фотографий",
+  "obs": 1
+ }
+]

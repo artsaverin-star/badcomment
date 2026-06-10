@@ -1,0 +1,84 @@
+{
+  "groups": [
+    {
+      "id": "class-breaks-mid-session",
+      "name": "Падает посреди пары: вылеты, белый экран и оборванная сессия",
+      "insight_ids": [
+        "session-disconnect-mid-class",
+        "crash-on-launch",
+        "white-screen-load-fail",
+        "server-unstable",
+        "questions-not-loading",
+        "general-slowness",
+        "crashes-with-multitasking",
+        "intermittent-glitches",
+        "freeze-on-answer-edit"
+      ]
+    },
+    {
+      "id": "billing-traps-mid-question",
+      "name": "Плати или вылетай: триал обрывается посреди вопроса и неработающая подписка",
+      "insight_ids": [
+        "trial-expires-no-warning",
+        "clicker-double-payment",
+        "subscription-not-recognized",
+        "subscription-min-duration",
+        "promo-codes-broken",
+        "review-prompt-loop",
+        "paywall-mid-question",
+        "recurring-charge-unexpected",
+        "apple-pay-unavailable",
+        "payment-flow-difficult",
+        "three-class-limit-silent",
+        "post-trial-subscribe-error"
+      ]
+    },
+    {
+      "id": "gps-attendance-surveillance",
+      "name": "GPS решает за тебя: ложные прогулы и слежка от преподавателя",
+      "insight_ids": [
+        "gps-wrong-location",
+        "attendance-wrong-no-gps",
+        "location-surveillance"
+      ]
+    },
+    {
+      "id": "cant-get-in",
+      "name": "Не пускает в класс: вход, логины и забытые учётки",
+      "insight_ids": [
+        "cant-join-class",
+        "credentials-not-saved",
+        "campus-portal-login-broken",
+        "account-creation-broken"
+      ]
+    },
+    {
+      "id": "answer-friction-lost-points",
+      "name": "Касание не засчиталось: трение ответа и потерянные баллы",
+      "insight_ids": [
+        "no-question-notification",
+        "answer-not-registered",
+        "no-correct-answer-timer",
+        "extra-confirm-button",
+        "attendance-poll-two-steps",
+        "app-focus-lock"
+      ]
+    },
+    {
+      "id": "ipad-second-class-citizen",
+      "name": "iPad на правах пасынка: нет нативной версии и split view с конспектами",
+      "insight_ids": [
+        "ipad-no-native-app",
+        "ipad-no-split-landscape"
+      ]
+    },
+    {
+      "id": "study-tool-not-just-clicker",
+      "name": "Не просто пульт: подготовка по сохранённым вопросам и победа над кликером",
+      "insight_ids": [
+        "saved-questions-study-tool",
+        "app-preferred-over-clicker"
+      ]
+    }
+  ]
+}

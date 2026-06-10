@@ -1,0 +1,279 @@
+You are grouping 46 mechanism-level insight clusters from Sensi (Умный дом) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Sensi, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 46 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Sensi — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Sensi>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-792612452.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "wifi-disconnect-frequent",
+  "title": "Термостат постоянно теряет соединение с WiFi — устройство уходит в офлайн несколько раз в день без видимой причины",
+  "obs": 29
+ },
+ {
+  "id": "session-expiry-daily-relogin",
+  "title": "Приложение разлогинивает пользователя при каждом открытии или несколько раз в день — удалённое управление требует постоянной авторизации",
+  "obs": 10
+ },
+ {
+  "id": "app-cloud-out-of-sync",
+  "title": "Устройство показывает подключение к WiFi, а приложение сообщает офлайн — состояние соединения рассинхронизировано",
+  "obs": 6
+ },
+ {
+  "id": "app-crash-freeze",
+  "title": "Приложение аварийно завершает работу или зависает на загрузке — требуется принудительное закрытие или перезагрузка телефона",
+  "obs": 6
+ },
+ {
+  "id": "wifi-reconnect-after-router-change",
+  "title": "После замены или перенастройки роутера подключить термостат обратно крайне сложно — требуется техническая поддержка",
+  "obs": 5
+ },
+ {
+  "id": "ios-version-incompatibility",
+  "title": "Новая версия приложения требует iOS 16 — пользователи со старыми iPhone на iOS 15 полностью теряют доступ к термостату",
+  "obs": 5
+ },
+ {
+  "id": "remote-control-fails-outside-home",
+  "title": "Удалённое управление не работает вне дома — приложение не может подключиться к термостату через интернет",
+  "obs": 4
+ },
+ {
+  "id": "schedule-not-followed",
+  "title": "Термостат перестаёт следовать запрограммированному расписанию — ночью самопроизвольно переключается на случайные температуры",
+  "obs": 4
+ },
+ {
+  "id": "apple-home-popup-persistent",
+  "title": "При каждом открытии появляется всплывающее окно Apple Home — пользователи, не использующие Apple Home, не могут его отключить",
+  "obs": 4
+ },
+ {
+  "id": "app-commands-not-executed",
+  "title": "Приложение подтверждает отправку команды, но термостат её не выполняет — изменения не применяются без сброса",
+  "obs": 3
+ },
+ {
+  "id": "offline-triggers-unintended-heating",
+  "title": "При потере соединения термостат автоматически включает отопление — устройство выбирает небезопасное состояние по умолчанию",
+  "obs": 3
+ },
+ {
+  "id": "no-fan-timer",
+  "title": "Отсутствует таймер работы вентилятора — нельзя включить вентилятор на заданное время, только постоянно",
+  "obs": 3
+ },
+ {
+  "id": "accessibility-mobility-use-case",
+  "title": "Пользователи с ограниченной мобильностью и слабовидящие — основной сценарий использования смарт-термостата как инструмента доступности",
+  "obs": 3
+ },
+ {
+  "id": "post-update-connection-broken",
+  "title": "После обновления приложения термостат перестаёт подключаться — регрессия, которой не было до обновления",
+  "obs": 2
+ },
+ {
+  "id": "wifi-5ghz-not-supported",
+  "title": "Устройство работает только на сети 2.4GHz — пользователи с современными роутерами вынуждены создавать отдельную сеть",
+  "obs": 2
+ },
+ {
+  "id": "mac-app-support-ended",
+  "title": "Поддержка macOS-версии приложения прекращена — пользователи вынуждены менять оба термостата из-за несовместимости",
+  "obs": 2
+ },
+ {
+  "id": "humidity-control-inaccurate",
+  "title": "Датчик влажности показывает неверные значения — установка 40% даёт реальный уровень около 60%, проблема не решается заменой устройства",
+  "obs": 2
+ },
+ {
+  "id": "heating-doesnt-stop",
+  "title": "Термостат продолжает нагревать помещение после команды выключения — логика управления игнорирует пользовательские команды",
+  "obs": 2
+ },
+ {
+  "id": "manual-override-reverts-to-schedule",
+  "title": "Ручная установка температуры самопроизвольно возвращается к расписанию — отключение расписания не сохраняется",
+  "obs": 2
+ },
+ {
+  "id": "utility-offer-undismissable",
+  "title": "Реклама предложений от коммунальных компаний появляется повторно после отклонения — кнопка отказа не работает стабильно",
+  "obs": 2
+ },
+ {
+  "id": "multi-user-single-account",
+  "title": "Приложение поддерживает только одного пользователя — члены семьи не могут одновременно управлять термостатом с разных телефонов",
+  "obs": 2
+ },
+ {
+  "id": "forced-update-blocks-old-versions",
+  "title": "Принудительное обновление блокирует старые версии приложения — нет возможности отката или заблаговременного предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "mesh-wifi-conflict",
+  "title": "Приложение конфликтует с mesh-роутерами и блокирует Safari — единственное решение перезагрузка телефона",
+  "obs": 1
+ },
+ {
+  "id": "furnace-circuit-reset-required",
+  "title": "Система отопления полностью перестаёт работать и требует ручного сброса автоматического выключателя в подвале",
+  "obs": 1
+ },
+ {
+  "id": "battery-drain-excessive",
+  "title": "Устройство быстро разряжает батареи — расходы на батареи перевешивают экономию на электроэнергии",
+  "obs": 1
+ },
+ {
+  "id": "mode-switching-unpredictable",
+  "title": "Устройство непредсказуемо переключается между режимами отопления и охлаждения — проблема сохраняется после полной переустановки",
+  "obs": 1
+ },
+ {
+  "id": "aux-heat-activates-unintended",
+  "title": "Дополнительное отопление включается при мягкой погоде даже при отключённом режиме boost — перерасход энергии неконтролируем",
+  "obs": 1
+ },
+ {
+  "id": "temperature-cycles-unpredictably",
+  "title": "Термостат циклически меняет температуру на непредсказуемые значения — нормальный климатический режим невозможен",
+  "obs": 1
+ },
+ {
+  "id": "reconnect-requires-physical-access",
+  "title": "Переподключить термостат удалённо невозможно — все инструкции требуют физического доступа к устройству",
+  "obs": 1
+ },
+ {
+  "id": "notification-permission-loop",
+  "title": "Приложение запрашивает разрешение на уведомления при каждом открытии — диалог появляется снова после отклонения",
+  "obs": 1
+ },
+ {
+  "id": "set-temp-display-tiny",
+  "title": "Заданная температура отображается слишком мелким шрифтом — пользователям старше 40 лет сложно разобрать значение",
+  "obs": 1
+ },
+ {
+  "id": "thermostat-list-not-reorderable",
+  "title": "Список термостатов нельзя переупорядочить — часто используемое устройство каждый раз нужно искать вручную",
+  "obs": 1
+ },
+ {
+  "id": "app-ui-regressed-after-update",
+  "title": "После обновления интерфейс стал менее удобным — дизайн воспринимается как откат на много лет назад",
+  "obs": 1
+ },
+ {
+  "id": "slow-app-launch",
+  "title": "Вход в приложение занимает значительное время даже при быстром интернете — быстрый доступ к управлению недоступен",
+  "obs": 1
+ },
+ {
+  "id": "geofence-schedule-no-auto-switch",
+  "title": "Геозоны и расписание работают как взаимоисключающие режимы — нет автоматического переключения между ними",
+  "obs": 1
+ },
+ {
+  "id": "schedule-slot-limit",
+  "title": "Расписание ограничено 8 событиями — недостаточно для гибкого управления климатом в течение дня",
+  "obs": 1
+ },
+ {
+  "id": "interface-lockup-on-manual-control",
+  "title": "Попытка разблокировать ручное управление вызывает новую блокировку — интерфейс делает термостат неуправляемым",
+  "obs": 1
+ },
+ {
+  "id": "auto-mode-renamed-confusing",
+  "title": "Режим автоматического управления диапазоном температур переименован в «learning» — поведение не соответствует ожиданиям пользователей",
+  "obs": 1
+ },
+ {
+  "id": "no-swing-mode",
+  "title": "Отсутствует полноценный режим swing для управления диапазоном температур — есть только цикл без настройки отклонения",
+  "obs": 1
+ },
+ {
+  "id": "no-auto-heat-cool-switchover",
+  "title": "Отсутствует режим автоматического переключения между отоплением и охлаждением — критично в переходные сезоны",
+  "obs": 1
+ },
+ {
+  "id": "room-sensor-no-time-schedule",
+  "title": "Приоритет датчика комнаты переключается только вручную — нет расписания для автоматической смены приоритета по времени суток",
+  "obs": 1
+ },
+ {
+  "id": "display-brightness-no-night-mode",
+  "title": "Яркость дисплея термостата не регулируется по времени суток — слишком яркий экран мешает сну ночью",
+  "obs": 1
+ },
+ {
+  "id": "energy-data-no-history",
+  "title": "История энергопотребления хранится слишком короткий период — анализ долгосрочных тенденций недоступен",
+  "obs": 1
+ },
+ {
+  "id": "realtime-energy-monitoring",
+  "title": "Мониторинг энергопотребления в реальном времени — конкуренты показывают данные с задержкой 24 часа",
+  "obs": 1
+ },
+ {
+  "id": "remote-monitoring-unattended-home",
+  "title": "Мониторинг климата в удалённом доме — критичный сценарий для предотвращения замерзания труб и контроля оборудования",
+  "obs": 1
+ },
+ {
+  "id": "password-reset-loop",
+  "title": "Сброс пароля создаёт цикл недоступности — новый пароль не принимается в приложении, проблема повторяется несколько раз",
+  "obs": 1
+ }
+]

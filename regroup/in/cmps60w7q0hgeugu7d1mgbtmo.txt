@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from McDonald's (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO McDonald's, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to McDonald's — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to McDonald's>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmps60w7q0hgeugu7d1mgbtmo.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "reliability-app-slow",
+  "title": "Приложение загружается 5–15 минут независимо от качества соединения",
+  "obs": 22
+ },
+ {
+  "id": "ui-combo-screen-blank",
+  "title": "При выборе комбо-набора или напитка к нему следующий экран остаётся пустым — заказ невозможно завершить",
+  "obs": 13
+ },
+ {
+  "id": "auth-constant-logout",
+  "title": "Приложение автоматически выходит из аккаунта при каждом открытии или еженедельно",
+  "obs": 12
+ },
+ {
+  "id": "reliability-app-crash",
+  "title": "Приложение падает или зависает при открытии, навигации или завершении заказа",
+  "obs": 9
+ },
+ {
+  "id": "rewards-offers-degraded",
+  "title": "Привлекательные скидки в приложении заменены менее выгодными или убраны совсем",
+  "obs": 6
+ },
+ {
+  "id": "reliability-order-not-synced-kitchen",
+  "title": "Заказ из приложения не передаётся на кухню вовремя — статус «готово» появляется раньше или позже реального",
+  "obs": 6
+ },
+ {
+  "id": "ui-popups-slow-flow",
+  "title": "Всплывающие окна с рекламой прерывают процесс заказа и замедляют получение кода",
+  "obs": 5
+ },
+ {
+  "id": "payment-all-methods-rejected",
+  "title": "Все способы оплаты отклоняются при оформлении заказа, даже при наличии средств",
+  "obs": 4
+ },
+ {
+  "id": "payment-gift-card-unsupported",
+  "title": "Приложение не поддерживает оплату и пополнение подарочными картами",
+  "obs": 4
+ },
+ {
+  "id": "rewards-points-lost-on-logout",
+  "title": "После автоматического выхода из аккаунта накопленные баллы исчезают",
+  "obs": 4
+ },
+ {
+  "id": "rewards-no-combined-use",
+  "title": "Нельзя одновременно использовать скидочный код и баллы даже для разных товаров в одном заказе",
+  "obs": 4
+ },
+ {
+  "id": "rewards-receipt-upload-broken",
+  "title": "Добавить баллы через загрузку квитанции не получается — функция зависает или недоступна",
+  "obs": 4
+ },
+ {
+  "id": "reliability-update-regression",
+  "title": "После обновления часть функций перестаёт работать и не восстанавливается переустановкой",
+  "obs": 4
+ },
+ {
+  "id": "auth-tracking-permission-forced",
+  "title": "Отключение геолокации или отслеживания принудительно выводит из аккаунта",
+  "obs": 4
+ },
+ {
+  "id": "rewards-points-devalued",
+  "title": "Стоимость товаров в баллах планомерно повышается: прежние 1500 баллов теперь стоят 2000 и более",
+  "obs": 3
+ },
+ {
+  "id": "rewards-points-disappear",
+  "title": "Баллы исчезают без объяснения после обновления или без видимой причины",
+  "obs": 3
+ },
+ {
+  "id": "reliability-offers-not-loading",
+  "title": "Предложения и скидки не загружаются, особенно ночью или при приближении к ресторану",
+  "obs": 3
+ },
+ {
+  "id": "reliability-code-invalid-in-store",
+  "title": "Коды из приложения выдают ошибку «invalid» в ресторане или не распознаются персоналом",
+  "obs": 3
+ },
+ {
+  "id": "auth-facebook-captcha-broken",
+  "title": "При входе через Facebook кнопка отправки CAPTCHA не отображается",
+  "obs": 3
+ },
+ {
+  "id": "payment-double-charge",
+  "title": "Приложение дважды списывает оплату за один заказ, а поддержка отказывает в возврате",
+  "obs": 2
+ },
+ {
+  "id": "rewards-points-lost-on-cancel",
+  "title": "При отмене заказа списанные баллы не возвращаются",
+  "obs": 2
+ },
+ {
+  "id": "rewards-fake-discount-used-error",
+  "title": "Приложение ошибочно считает скидку использованной и заставляет ждать перед следующим заказом",
+  "obs": 2
+ },
+ {
+  "id": "rewards-receipt-limit",
+  "title": "Загружать пропущенные квитанции для начисления баллов можно лишь раз в 30 дней",
+  "obs": 2
+ },
+ {
+  "id": "ui-menu-browsing-restricted",
+  "title": "Просмотреть меню без выбора ресторана или без попытки оформить заказ невозможно",
+  "obs": 2
+ },
+ {
+  "id": "ui-more-steps-per-update",
+  "title": "Каждое обновление добавляет дополнительные шаги туда, где раньше всё было проще",
+  "obs": 2
+ },
+ {
+  "id": "ui-location-picker-wrong",
+  "title": "Приложение выбирает неправильный или более дальний ресторан вместо ближайшего",
+  "obs": 2
+ },
+ {
+  "id": "ui-curbside-no-parking-number",
+  "title": "При curbside-получении нельзя указать номер парковочного места через приложение",
+  "obs": 2
+ },
+ {
+  "id": "reliability-mandatory-update-blocks",
+  "title": "Принудительное обновление во время оформления заказа прерывает его и требует хорошего интернета",
+  "obs": 2
+ },
+ {
+  "id": "reliability-order-auto-cancelled",
+  "title": "Приложение автоматически отменяет заказ через 20 минут, пока пользователь едет в ресторан",
+  "obs": 2
+ },
+ {
+  "id": "reliability-location-needed-for-code",
+  "title": "Без включённого точного определения местоположения приложение не генерирует коды и показывает ошибку",
+  "obs": 2
+ },
+ {
+  "id": "auth-email-link-login",
+  "title": "Вход только по ссылке из письма вместо пароля замедляет авторизацию, особенно у киоска или драйв-тру",
+  "obs": 2
+ },
+ {
+  "id": "payment-lost-order",
+  "title": "Платёж списан и подтверждение получено, но заказ исчезает из истории",
+  "obs": 1
+ },
+ {
+  "id": "payment-in-app-broken",
+  "title": "Функция оплаты через приложение периодически не работает",
+  "obs": 1
+ },
+ {
+  "id": "payment-no-refund-doordash",
+  "title": "Доставка через DoorDash не компенсирует неправильную комплектацию заказа",
+  "obs": 1
+ },
+ {
+  "id": "payment-no-refund-wrong-order",
+  "title": "Приложение не предоставляет способ исправить или отменить неправильный заказ и возврат средств",
+  "obs": 1
+ },
+ {
+  "id": "payment-conversion-error-overpay",
+  "title": "Код подтверждения принимается, но в ресторане система выдаёт ошибку конверсии — пользователь вынужден переплачивать и ждать возврата неделю",
+  "obs": 1
+ },
+ {
+  "id": "rewards-expiry-hidden",
+  "title": "Приложение убрало отображение срока истечения баллов, и пользователь теряет их незаметно",
+  "obs": 1
+ },
+ {
+  "id": "rewards-points-delayed",
+  "title": "Баллы за заказ начисляются с многодневной задержкой",
+  "obs": 1
+ },
+ {
+  "id": "ui-add-to-cart-missing",
+  "title": "Кнопка добавления товара в корзину отсутствует или не реагирует",
+  "obs": 1
+ },
+ {
+  "id": "ui-repeat-order-steps",
+  "title": "Повторить предыдущий заказ требует множества шагов — быстрого пути нет",
+  "obs": 1
+ },
+ {
+  "id": "ui-offers-navigation-confusing",
+  "title": "Навигация между разделами предложений, вознаграждений и основного меню неинтуитивна",
+  "obs": 1
+ },
+ {
+  "id": "ui-receipt-checkout-steps",
+  "title": "Получить чек через приложение требует несколько лишних шагов навигации",
+  "obs": 1
+ },
+ {
+  "id": "ui-remove-ingredient-gone",
+  "title": "Обновление удалило возможность убрать ингредиент из заказа одним переключателем",
+  "obs": 1
+ },
+ {
+  "id": "ui-wrong-menu-time",
+  "title": "Приложение показывает меню завтрака вместо обеденного в 11:30",
+  "obs": 1
+ },
+ {
+  "id": "ui-location-loading-stuck",
+  "title": "Экран выбора локации зависает при загрузке и не позволяет ввести адрес вручную",
+  "obs": 1
+ },
+ {
+  "id": "ui-wrong-address-confirmation",
+  "title": "В подтверждении заказа отображается адрес не того ресторана, хотя квитанция правильная",
+  "obs": 1
+ },
+ {
+  "id": "ui-kiosk-code-incompatible",
+  "title": "Код из приложения не принимается в киоске или показывает, что товар не подходит под предложение",
+  "obs": 1
+ },
+ {
+  "id": "reliability-overheating",
+  "title": "Приложение вызывает перегрев телефона",
+  "obs": 1
+ },
+ {
+  "id": "reliability-combo-stuck-after-breakfast",
+  "title": "После окончания завтрака приложение зависает на экране калорий и не позволяет перейти к обеду",
+  "obs": 1
+ },
+ {
+  "id": "reliability-account-deleted",
+  "title": "Приложение удаляет аккаунт и обнуляет его как новый без действий пользователя",
+  "obs": 1
+ },
+ {
+  "id": "reliability-wrong-item-prepared",
+  "title": "Кухня готовит другое блюдо, хотя в приложении был выбран правильный товар",
+  "obs": 1
+ },
+ {
+  "id": "reliability-qr-location-conflict",
+  "title": "QR-код в киоске требует смены разрешений геолокации, хотя они уже включены",
+  "obs": 1
+ },
+ {
+  "id": "reliability-app-not-available-in-store",
+  "title": "Приложение не работает внутри ресторана несмотря на заявленную поддержку заказа на месте",
+  "obs": 1
+ },
+ {
+  "id": "reliability-location-required-ordering",
+  "title": "Приложение активирует приготовление только при физическом прибытии, а не в момент размещения заказа",
+  "obs": 1
+ },
+ {
+  "id": "reliability-no-nearest-restaurant-ordering",
+  "title": "Убрана возможность заказать в любом ближайшем ресторане — теперь нужно выбирать конкретный заранее",
+  "obs": 1
+ },
+ {
+  "id": "ui-search-location-blocks-order",
+  "title": "Использование поиска местоположения блокирует заказ и не позволяет избежать передачи точных координат",
+  "obs": 1
+ },
+ {
+  "id": "auth-password-manager-unsupported",
+  "title": "Приложение не подхватывает сохранённые данные из менеджера паролей и требует вводить email вручную",
+  "obs": 1
+ },
+ {
+  "id": "auth-no-email-change",
+  "title": "Приложение не позволяет изменить email аккаунта — единственный выход создать новый и потерять баллы",
+  "obs": 1
+ },
+ {
+  "id": "auth-no-password-reset",
+  "title": "Функция восстановления пароля не работает",
+  "obs": 1
+ },
+ {
+  "id": "auth-forced-login-switch",
+  "title": "Принудительный вход через Facebook после первоначального входа через Gmail",
+  "obs": 1
+ },
+ {
+  "id": "strategy-slow-app-vs-competition",
+  "title": "Медленное приложение делает McDonald's неконкурентоспособным по сравнению с другими сервисами доставки",
+  "obs": 1
+ }
+]

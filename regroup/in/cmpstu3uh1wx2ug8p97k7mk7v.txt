@@ -1,0 +1,274 @@
+You are grouping 45 mechanism-level insight clusters from Seek by iNaturalist (Распознаватели по фото) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Seek by iNaturalist, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 45 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Seek by iNaturalist — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Seek by iNaturalist>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpstu3uh1wx2ug8p97k7mk7v.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "reliability-camera-crash-after-update",
+  "title": "После обновления камера приложения перестаёт работать — бесконечный символ загрузки или ошибка при каждой попытке сделать фото",
+  "obs": 19
+ },
+ {
+  "id": "id-accuracy-common-species-fail",
+  "title": "Приложение не определяет очевидные, широко известные виды даже в идеальных условиях съёмки",
+  "obs": 17
+ },
+ {
+  "id": "reliability-save-freeze",
+  "title": "При попытке сохранить фото или наблюдение приложение зависает — наблюдение теряется",
+  "obs": 13
+ },
+ {
+  "id": "reliability-id-regressed-after-update",
+  "title": "После обновления модели идентификация стала значительно медленнее и менее точной — регрессия по сравнению со старой версией",
+  "obs": 13
+ },
+ {
+  "id": "id-accuracy-wrong-kingdom",
+  "title": "Приложение систематически путает категории организмов — определяет растения как животных, людей как грибы и наоборот",
+  "obs": 13
+ },
+ {
+  "id": "id-accuracy-inconsistent-results",
+  "title": "Одно и то же животное или растение при повторных попытках или разных углах съёмки определяется как разные виды",
+  "obs": 13
+ },
+ {
+  "id": "id-accuracy-plants-dicot-regression",
+  "title": "Идентификация растений застревает на уровне семейства (двудольные) и не определяет до вида — деградация после смены модели",
+  "obs": 9
+ },
+ {
+  "id": "content-challenges-stopped",
+  "title": "Выпуск новых челленджей прекратился с конца 2024 года — основной элемент игрификации и мотивации исчез",
+  "obs": 8
+ },
+ {
+  "id": "reliability-camera-crash-ios-device",
+  "title": "Камера зависает или выдаёт ошибку на конкретных моделях iPhone и версиях iOS, приложение становится неработающим",
+  "obs": 7
+ },
+ {
+  "id": "reliability-save-photo-broken",
+  "title": "Функция сохранения фотографий в галерею приложения не работает — снимки не загружаются или исчезают после переустановки",
+  "obs": 6
+ },
+ {
+  "id": "reliability-no-sync-between-devices",
+  "title": "Наблюдения не синхронизируются между устройствами через аккаунт — при смене телефона данные теряются",
+  "obs": 6
+ },
+ {
+  "id": "reliability-safety-warning-repeated",
+  "title": "Предупреждение о безопасности показывается при каждом запуске камеры и не отключается — мешает быстро снимать",
+  "obs": 6
+ },
+ {
+  "id": "reliability-general-app-instability",
+  "title": "Приложение нестабильно работает в целом — периодические зависания, ошибки и потеря сессии после общего использования",
+  "obs": 6
+ },
+ {
+  "id": "content-species-info-depth",
+  "title": "Приложение показывает только краткое описание вида без деталей о съедобности, токсичности, опасности и значении для дикой природы",
+  "obs": 5
+ },
+ {
+  "id": "content-safety-risk-identification",
+  "title": "Результаты идентификации ненадёжны для практических решений о съедобности и безопасности — нет механизма проверки до публикации",
+  "obs": 5
+ },
+ {
+  "id": "ui-reject-wrong-id",
+  "title": "Пользователь не может отклонить или исправить неправильное определение вида внутри приложения и вынужден искать вид вручную",
+  "obs": 5
+ },
+ {
+  "id": "ui-all-species-broken",
+  "title": "Кнопка «Все виды» не работает или зависает — пользователь не может просмотреть список видов в своём районе",
+  "obs": 4
+ },
+ {
+  "id": "content-wikipedia-link",
+  "title": "Ссылка на Википедию удалена или открывается во встроенном браузере — пользователь вынужден вручную искать вид",
+  "obs": 3
+ },
+ {
+  "id": "ui-image-zoom-crop",
+  "title": "Приложение не позволяет увеличить, обрезать или кадрировать сохранённые фотографии видов",
+  "obs": 3
+ },
+ {
+  "id": "ui-camera-permission-required",
+  "title": "Приложение требует полный доступ к камере или фотогалерее даже при загрузке отдельных фотографий",
+  "obs": 3
+ },
+ {
+  "id": "reliability-camera-focus-insects",
+  "title": "Камера с трудом фокусируется на насекомых и мелких объектах — определение занимает слишком много времени или невозможно",
+  "obs": 3
+ },
+ {
+  "id": "content-conservation-status",
+  "title": "Приложение не показывает охранный статус вида и не даёт полную классификацию беспозвоночных",
+  "obs": 2
+ },
+ {
+  "id": "ui-species-name-both",
+  "title": "Приложение показывает либо общее, либо научное название вида — нельзя видеть оба одновременно",
+  "obs": 2
+ },
+ {
+  "id": "ui-language-reset",
+  "title": "Настройка языка интерфейса сбрасывается при каждом входе в приложение",
+  "obs": 2
+ },
+ {
+  "id": "ui-manual-species-entry",
+  "title": "Приложение не позволяет вручную указать вид, если автоматическая идентификация недоступна или неверна",
+  "obs": 2
+ },
+ {
+  "id": "ui-save-partial-id",
+  "title": "Приложение не сохраняет наблюдение, определённое только до рода или семейства — требует точного определения до вида",
+  "obs": 2
+ },
+ {
+  "id": "ui-one-photo-per-species",
+  "title": "Приложение хранит только одну фотографию на вид — нельзя документировать вариации и сезонные изменения",
+  "obs": 2
+ },
+ {
+  "id": "ui-autosave-conflicts-intent",
+  "title": "Приложение автоматически предлагает сохранить растение фона, когда пользователь хотел определить насекомое на нём",
+  "obs": 2
+ },
+ {
+  "id": "ui-wishlist-species-hunt",
+  "title": "В приложении нет функции списка желаемых видов для целенаправленной охоты за ними в своём регионе",
+  "obs": 2
+ },
+ {
+  "id": "reliability-camera-selfie-flip",
+  "title": "После обновления камера направлена на пользователя вместо объекта съёмки",
+  "obs": 2
+ },
+ {
+  "id": "reliability-data-loss-login",
+  "title": "После входа в аккаунт или повторного входа все сохранённые наблюдения и определения видов исчезают или изменяются",
+  "obs": 2
+ },
+ {
+  "id": "id-accuracy-fungi-weak",
+  "title": "Идентификация грибов работает очень плохо даже на чётких фотографиях с нескольких углов",
+  "obs": 2
+ },
+ {
+  "id": "id-accuracy-foreground-background-conflict",
+  "title": "При наличии насекомого на растении приложение идентифицирует растение, а не насекомое, игнорируя основной объект интереса",
+  "obs": 2
+ },
+ {
+  "id": "ui-filter-wheel-broken",
+  "title": "Колесо выбора фильтра по типу организма не работает — нельзя отфильтровать наблюдения по грибам или другому классу",
+  "obs": 1
+ },
+ {
+  "id": "ui-collection-white-screen",
+  "title": "При попытке открыть коллекцию наблюдений приложение показывает белый экран вместо данных",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-delete-data",
+  "title": "В приложении нет способа удалить все сохранённые данные пользователя — проблема при смене устройства или переустановке",
+  "obs": 1
+ },
+ {
+  "id": "ui-notifications-no-dates",
+  "title": "Страница уведомлений не отображает даты и названия челленджей, значки без подписей — навигация неудобна",
+  "obs": 1
+ },
+ {
+  "id": "ui-geolocation-forced",
+  "title": "Без разрешения на геолокацию приложение заставляет вручную выбирать место на карте при каждом запуске",
+  "obs": 1
+ },
+ {
+  "id": "ui-map-geography-error",
+  "title": "На карте приложения неверно обозначены географические области",
+  "obs": 1
+ },
+ {
+  "id": "reliability-camera-quality-worse",
+  "title": "Качество фотографий через камеру приложения заметно хуже, чем через встроенную камеру телефона",
+  "obs": 1
+ },
+ {
+  "id": "id-accuracy-outside-north-america",
+  "title": "Точность идентификации резко падает за пределами Северной Америки — модель плохо знает местные виды других регионов",
+  "obs": 1
+ },
+ {
+  "id": "strategy-social-compete-friends",
+  "title": "Пользователи хотят соревноваться с друзьями по количеству определённых видов за период — социальная механика отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "strategy-offline-removed",
+  "title": "Приложение перестало поддерживать офлайн-идентификацию, хотя раньше эта функция была доступна",
+  "obs": 1
+ },
+ {
+  "id": "strategy-photo-quality-threshold",
+  "title": "Для успешной идентификации требуется очень чёткое изображение, что трудно достичь в полевых условиях",
+  "obs": 1
+ },
+ {
+  "id": "strategy-app-abandoned-quality-decline",
+  "title": "Долгосрочные пользователи фиксируют устойчивую деградацию качества приложения и отсутствие реакции разработчиков на регрессии",
+  "obs": 1
+ }
+]

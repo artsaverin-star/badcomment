@@ -1,0 +1,249 @@
+You are grouping 40 mechanism-level insight clusters from Citymapper: All Live Transit (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Citymapper: All Live Transit, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 40 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Citymapper: All Live Transit — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Citymapper: All Live Transit>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-469463298.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "arrival-time-inaccurate",
+  "title": "Прогноз времени прибытия систематически показывает неверные данные",
+  "obs": 6
+ },
+ {
+  "id": "geolocation-inaccurate",
+  "title": "Геолокация пользователя неточна, систематически смещена или не обновляется",
+  "obs": 4
+ },
+ {
+  "id": "regional-data-quality",
+  "title": "Качество данных неравномерно: хуже в небогатых районах и нетуристических регионах",
+  "obs": 3
+ },
+ {
+  "id": "closed-exits-routing",
+  "title": "Приложение прокладывает маршрут через закрытые входы и выходы метро",
+  "obs": 3
+ },
+ {
+  "id": "crash-or-state-loss",
+  "title": "Приложение падает или теряет введённый маршрут при переключении на другой экран",
+  "obs": 3
+ },
+ {
+  "id": "small-city-coverage-gap",
+  "title": "Покрытие маршрутов ограничено: небольшие города и нетуристические районы плохо поддерживаются",
+  "obs": 3
+ },
+ {
+  "id": "data-quality-degraded",
+  "title": "Точность данных со временем деградировала по сравнению с тем, как приложение работало раньше",
+  "obs": 2
+ },
+ {
+  "id": "apple-watch-broken",
+  "title": "Приложение на умных часах перестало работать или требует ручной перезагрузки для обновления",
+  "obs": 2
+ },
+ {
+  "id": "audio-interruption",
+  "title": "Приложение захватывает аудиовыход при открытии и делает паузы в музыке пользователя",
+  "obs": 2
+ },
+ {
+  "id": "poor-signal-instability",
+  "title": "Навигация нестабильна при слабом интернет-сигнале, хотя при хорошей сети работает",
+  "obs": 2
+ },
+ {
+  "id": "dark-mode-missing",
+  "title": "Тёмный режим отсутствует, несмотря на многолетние запросы пользователей",
+  "obs": 2
+ },
+ {
+  "id": "bus-not-reaching-destination",
+  "title": "Автобус в действительности следует не до конечной остановки, указанной в маршруте",
+  "obs": 1
+ },
+ {
+  "id": "weekend-schedule-missing",
+  "title": "Расписание не учитывает выходные дни и рекомендует автобусы, которые в воскресенье не ходят",
+  "obs": 1
+ },
+ {
+  "id": "delays-not-tracked",
+  "title": "Задержки и отмены рейсов не отображаются в реальном времени",
+  "obs": 1
+ },
+ {
+  "id": "vehicle-position-not-updated",
+  "title": "Реальное местоположение поезда или автобуса не обновляется в реальном времени",
+  "obs": 1
+ },
+ {
+  "id": "false-on-train-detection",
+  "title": "Приложение ошибочно определяет пользователя как уже едущего в поезде, хотя он ещё дома",
+  "obs": 1
+ },
+ {
+  "id": "wrong-platform",
+  "title": "Приложение указывает неверную платформу посадки, вынуждая бежать к другой",
+  "obs": 1
+ },
+ {
+  "id": "live-activity-unauthorized",
+  "title": "Активность на экране блокировки включается без согласия пользователя и не отключается после перезагрузки",
+  "obs": 1
+ },
+ {
+  "id": "share-route-hangs",
+  "title": "Отправка ссылки на маршрут через текстовое сообщение зависает и не отправляется",
+  "obs": 1
+ },
+ {
+  "id": "error-report-hangs",
+  "title": "Форма отчёта об ошибочной остановке зависает и не завершает отправку",
+  "obs": 1
+ },
+ {
+  "id": "green-screen-city-search",
+  "title": "При вводе названия города экран поиска становится пустым с зелёным фоном",
+  "obs": 1
+ },
+ {
+  "id": "no-route-personalization",
+  "title": "Приложение не запоминает предпочтения пользователя и не предлагает персонализированные маршруты",
+  "obs": 1
+ },
+ {
+  "id": "no-first-last-mile-preference",
+  "title": "Предпочтения способа доступа на первой и последней миле нельзя задать заранее",
+  "obs": 1
+ },
+ {
+  "id": "no-multistop-planning",
+  "title": "Нет функции планирования маршрута с несколькими остановками подряд на весь день",
+  "obs": 1
+ },
+ {
+  "id": "suboptimal-route-algorithm",
+  "title": "Алгоритм предлагает маршруты с длительным ожиданием, не показывая более быстрые альтернативы",
+  "obs": 1
+ },
+ {
+  "id": "no-budget-routes",
+  "title": "Приложение показывает только дорогостоящие варианты и не предлагает бюджетных альтернатив",
+  "obs": 1
+ },
+ {
+  "id": "no-oyster-balance",
+  "title": "Баланс карты городского транспорта нельзя проверить внутри приложения",
+  "obs": 1
+ },
+ {
+  "id": "metro-entrance-map-confusing",
+  "title": "Карта входов в метро на виде улицы запутана и не даёт понять, где вход относительно пользователя",
+  "obs": 1
+ },
+ {
+  "id": "paid-options-not-default",
+  "title": "Купленные платные опции нельзя установить режимом по умолчанию или переупорядочить",
+  "obs": 1
+ },
+ {
+  "id": "no-elevator-accessibility",
+  "title": "Приложение не показывает наличие лифтов и не строит маршруты для людей с ограниченной мобильностью",
+  "obs": 1
+ },
+ {
+  "id": "time-format-fixed",
+  "title": "Время отображается только в 24-часовом формате без возможности переключения на 12-часовой",
+  "obs": 1
+ },
+ {
+  "id": "no-onboarding",
+  "title": "Приложение не предоставляет инструкций или обучения для новых пользователей",
+  "obs": 1
+ },
+ {
+  "id": "font-size-ignored",
+  "title": "Системный размер шрифта игнорируется, текст трудно читать пользователям с ослабленным зрением",
+  "obs": 1
+ },
+ {
+  "id": "location-tracking-hard-to-disable",
+  "title": "Отключение отслеживания местоположения требует сложной многошаговой последовательности действий",
+  "obs": 1
+ },
+ {
+  "id": "unwanted-notifications",
+  "title": "Приложение отправляет уведомления пользователям, отписавшимся от системных уведомлений",
+  "obs": 1
+ },
+ {
+  "id": "special-routing-needs",
+  "title": "Пользователи с нестандартными требованиями к маршруту ценят широкий выбор альтернатив",
+  "obs": 1
+ },
+ {
+  "id": "accessibility-competitive-advantage",
+  "title": "Приложение опережает конкурентов по доступности для слабовидящих пользователей",
+  "obs": 1
+ },
+ {
+  "id": "urban-canyon-gps",
+  "title": "Приложение сохраняет точность в городских каньонах, где конкуренты теряют сигнал",
+  "obs": 1
+ },
+ {
+  "id": "pedestrian-route-update",
+  "title": "Приложение постоянно корректирует пешеходный маршрут, минимизируя движение в неверном направлении",
+  "obs": 1
+ },
+ {
+  "id": "uninterrupted-guidance",
+  "title": "Голосовое ведение не прерывается в середине маршрута, в отличие от конкурирующих приложений",
+  "obs": 1
+ }
+]

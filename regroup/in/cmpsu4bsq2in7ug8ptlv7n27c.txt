@@ -1,0 +1,304 @@
+You are grouping 51 mechanism-level insight clusters from BODi Home Fitness & Workouts (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO BODi Home Fitness & Workouts, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 51 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to BODi Home Fitness & Workouts — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to BODi Home Fitness & Workouts>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsu4bsq2in7ug8ptlv7n27c.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "short-workouts-for-busy",
+  "title": "Короткие тренировки на пять-двадцать минут встраиваются в плотный график",
+  "obs": 7
+ },
+ {
+  "id": "portability-home-anywhere",
+  "title": "Портативность приложения позволяет тренироваться дома, в поездках и без оборудования",
+  "obs": 7
+ },
+ {
+  "id": "consistency-drives-results",
+  "title": "Видимые результаты — потеря веса и рост силы — приходят только при последовательном соблюдении программы",
+  "obs": 7
+ },
+ {
+  "id": "intensity-levels-per-exercise",
+  "title": "Каждое упражнение имеет несколько уровней интенсивности и модификаций под текущую подготовку",
+  "obs": 5
+ },
+ {
+  "id": "replaces-gym-membership",
+  "title": "Приложение заменяет дорогое членство в спортзале и экономит время на дорогу",
+  "obs": 4
+ },
+ {
+  "id": "all-in-one-health-hub",
+  "title": "Единое приложение объединяет тренировки, медитацию, питание и сообщество для комплексного управления здоровьем",
+  "obs": 4
+ },
+ {
+  "id": "cancelled-but-still-charged",
+  "title": "Списания продолжаются после отмены подписки, и связаться с поддержкой для урегулирования невозможно",
+  "obs": 3
+ },
+ {
+  "id": "program-variety-prevents-boredom",
+  "title": "Разнообразие программ предотвращает скуку и удерживает вовлечённость надолго",
+  "obs": 3
+ },
+ {
+  "id": "coaches-explain-technique",
+  "title": "Тренеры подробно объясняют технику и ощущения, помогая держать правильную форму",
+  "obs": 3
+ },
+ {
+  "id": "scientific-bodybuilding-method",
+  "title": "Программа построена на научной методике бодибилдинга — время под напряжением и дроп-сеты",
+  "obs": 3
+ },
+ {
+  "id": "coach-personal-value",
+  "title": "Пользователи остаются и продлевают подписку ради программ конкретного любимого тренера",
+  "obs": 3
+ },
+ {
+  "id": "simple-start-low-friction",
+  "title": "Открыть, выбрать тренировку и сразу начать — минимум трения при запуске",
+  "obs": 3
+ },
+ {
+  "id": "multi-device-casting",
+  "title": "Тренировку можно вывести на большой экран, используя телефон как контроллер",
+  "obs": 3
+ },
+ {
+  "id": "older-adults-use-case",
+  "title": "Пользователи старшего возраста добиваются результатов, занимаясь в собственном темпе",
+  "obs": 3
+ },
+ {
+  "id": "community-accountability",
+  "title": "Социальный компонент повышает ответственность через групповую поддержку и обмен прогрессом",
+  "obs": 3
+ },
+ {
+  "id": "injury-rehab-use-case",
+  "title": "Программы низкой интенсивности используются для реабилитации после травм без перегрузки суставов",
+  "obs": 3
+ },
+ {
+  "id": "single-program-purchase",
+  "title": "Можно купить отдельную программу вместо подписки на весь каталог",
+  "obs": 2
+ },
+ {
+  "id": "high-content-volume-low-price",
+  "title": "Большой объём контента за низкую цену даёт высокое соотношение цены и ценности",
+  "obs": 2
+ },
+ {
+  "id": "rest-and-transition-pacing",
+  "title": "Между подходами и упражнениями встроены паузы для восстановления и смены снаряжения",
+  "obs": 2
+ },
+ {
+  "id": "nutrition-plan-relationship-with-food",
+  "title": "Встроенный план питания меняет отношение к еде как инструмент долговременного управления весом",
+  "obs": 2
+ },
+ {
+  "id": "no-favorites-list",
+  "title": "Нет списка избранного — любимые тренировки приходится каждый раз искать заново",
+  "obs": 2
+ },
+ {
+  "id": "custom-hybrid-programs",
+  "title": "Пользователь может собрать свою гибридную программу из тренировок разных курсов",
+  "obs": 2
+ },
+ {
+  "id": "chromecast-removed-and-regressed",
+  "title": "Обновление сломало трансляцию на телевизор, и дефект возвращается между версиями",
+  "obs": 2
+ },
+ {
+  "id": "wearable-auto-sync",
+  "title": "Приложение автоматически синхронизируется с умными часами и фиксирует упражнения без ручного ввода",
+  "obs": 2
+ },
+ {
+  "id": "integrated-progress-tracking",
+  "title": "Приложение в одном месте отслеживает тренировки, измерения и план питания",
+  "obs": 2
+ },
+ {
+  "id": "proven-program-longevity",
+  "title": "Старые программы остаются эффективными спустя годы и дают тот же результат при повторном прохождении",
+  "obs": 2
+ },
+ {
+  "id": "gap-pregnancy-postpartum",
+  "title": "Нет специализированных программ для беременности и послеродового восстановления",
+  "obs": 2
+ },
+ {
+  "id": "motherhood-stages-use-case",
+  "title": "Программа адаптируется под разные этапы материнства и возвращение в форму после декрета",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-subscriptions-across-apps",
+  "title": "Переход между отдельными приложениями создаёт две параллельные подписки без автоматической дедупликации",
+  "obs": 1
+ },
+ {
+  "id": "refund-refused-after-error",
+  "title": "Поддержка отказывает в возврате даже после признания ошибочного списания",
+  "obs": 1
+ },
+ {
+  "id": "no-access-to-old-dvd-purchases",
+  "title": "Нельзя привязать ранее купленные физические диски и получить их цифровые копии",
+  "obs": 1
+ },
+ {
+  "id": "low-impact-effective",
+  "title": "Низкоударные программы дают интенсивную нагрузку при минимальном риске травм",
+  "obs": 1
+ },
+ {
+  "id": "no-timer-distraction",
+  "title": "Позитивный тон и отсутствие таймера позволяют не зацикливаться на времени",
+  "obs": 1
+ },
+ {
+  "id": "balanced-multi-muscle-program",
+  "title": "Программа сочетает кардио, силовые и постоянную работу на пресс для комплексного развития",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-music",
+  "title": "Нельзя включить собственную музыку — навязывается встроенный саундтрек программы",
+  "obs": 1
+ },
+ {
+  "id": "audio-video-desync",
+  "title": "После обновления звук рассинхронизируется с видео на несколько секунд",
+  "obs": 1
+ },
+ {
+  "id": "filters-find-workout",
+  "title": "Фильтры по времени, сложности, тренеру и типу упражнения быстро находят тренировку в большом каталоге",
+  "obs": 1
+ },
+ {
+  "id": "video-init-delay-after-update",
+  "title": "После обновления видео долго не запускается и требует ручной инициализации перед тренировкой",
+  "obs": 1
+ },
+ {
+  "id": "no-landscape-after-update",
+  "title": "После обновления видео не переключается в альбомную ориентацию",
+  "obs": 1
+ },
+ {
+  "id": "os-requirement-blocks-access",
+  "title": "Приложение требует версию системы выше поддерживаемой устройством и полностью блокирует доступ при активной подписке",
+  "obs": 1
+ },
+ {
+  "id": "offline-download",
+  "title": "Тренировки можно скачать и выполнять полностью без интернета",
+  "obs": 1
+ },
+ {
+  "id": "return-after-break",
+  "title": "После долгого перерыва форма быстро восстанавливается за несколько дней регулярных тренировок",
+  "obs": 1
+ },
+ {
+  "id": "parents-young-kids",
+  "title": "Родители тренируются дома при детях, подавая пример здорового образа жизни",
+  "obs": 1
+ },
+ {
+  "id": "fun-format-keeps-consistency",
+  "title": "Увлекательный формат, например танец, удерживает тех, кто обычно бросает после пары занятий",
+  "obs": 1
+ },
+ {
+  "id": "gap-osteoporosis-older-women",
+  "title": "Нет силовой программы для женщин старшего возраста с упором на профилактику остеопороза",
+  "obs": 1
+ },
+ {
+  "id": "postural-awareness-side-effect",
+  "title": "Регулярные тренировки повышают осознанность осанки и связь ума с мышцами в повседневной жизни",
+  "obs": 1
+ },
+ {
+  "id": "event-specific-prep",
+  "title": "Есть программы подготовки к конкретным спортивным событиям, например к полумарафону",
+  "obs": 1
+ },
+ {
+  "id": "supplement-not-replacement",
+  "title": "Приложение используется как портативное дополнение к спортзалу и поездкам, а не только как замена",
+  "obs": 1
+ },
+ {
+  "id": "family-different-levels",
+  "title": "Разные уровни подготовки позволяют тренироваться всей семье вместе",
+  "obs": 1
+ },
+ {
+  "id": "switcher-returns-for-consistency",
+  "title": "Пользователи возвращаются с других платформ, найдя только эту способной удержать последовательность при занятости",
+  "obs": 1
+ },
+ {
+  "id": "plateau-breaking",
+  "title": "Переход с раздельного сплита на полноцелевую программу преодолевает плато в наборе массы",
+  "obs": 1
+ }
+]

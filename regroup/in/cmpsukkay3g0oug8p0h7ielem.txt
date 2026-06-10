@@ -1,0 +1,244 @@
+You are grouping 39 mechanism-level insight clusters from Scanner App: Genius Scan (Сканеры документов) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Scanner App: Genius Scan, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 39 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Scanner App: Genius Scan — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Scanner App: Genius Scan>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsukkay3g0oug8p0h7ielem.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "email-send-broken",
+  "title": "Отправка отсканированных документов на email не работает — документы не доходят до получателя",
+  "obs": 3
+ },
+ {
+  "id": "archive-thousands-docs",
+  "title": "Пользователи управляют тысячами документов и находят нужные по дате и названию — приложение заменяет физический архив",
+  "obs": 3
+ },
+ {
+  "id": "subscription-tiers-devalue-old-purchase",
+  "title": "Новая многоуровневая подписка обесценивает разовую покупку — старые пользователи теряют функции без предупреждения",
+  "obs": 2
+ },
+ {
+  "id": "auto-crop-regression",
+  "title": "Автоматическое обнаружение границ страницы перестало работать надёжно после обновления",
+  "obs": 2
+ },
+ {
+  "id": "paywall-basic-print",
+  "title": "Печать документов доступна только в платной подписке, хотя пользователи считают это базовой функцией",
+  "obs": 1
+ },
+ {
+  "id": "plan-comparison-missing-features",
+  "title": "При сравнении тарифов не показаны функции редактирования — пользователь узнаёт об ограничениях уже после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "license-transfer-new-device",
+  "title": "Покупка не переносится при смене телефона, если изменился Apple ID — механизма передачи лицензии нет",
+  "obs": 1
+ },
+ {
+  "id": "paid-subscription-full-service-failure",
+  "title": "Платный пользователь не может использовать приложение вообще — полный отказ в обслуживании при активной подписке",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-blocks-send",
+  "title": "Приложение запрашивает оценку, а затем предлагает оплату в момент отправки документа — двойное прерывание в критический момент",
+  "obs": 1
+ },
+ {
+  "id": "email-send-delayed",
+  "title": "Отправка по email происходит с задержкой, из-за чего пользователи опаздывают с отправкой важных материалов",
+  "obs": 1
+ },
+ {
+  "id": "scan-lost-after-capture",
+  "title": "Отсканированные документы исчезают или становятся недоступны сразу после съёмки",
+  "obs": 1
+ },
+ {
+  "id": "camera-error-multitasking",
+  "title": "Ошибка «камера занята» появляется без причины и блокирует сканирование — нужна перезагрузка приложения",
+  "obs": 1
+ },
+ {
+  "id": "orange-scan-window-intermittent",
+  "title": "Оранжевая рамка сканирования появляется непостоянно — сканирование прерывается без видимой причины",
+  "obs": 1
+ },
+ {
+  "id": "auto-scan-regression",
+  "title": "Функция автоматического сканирования деградировала в последних версиях — требует переделки нескольких страниц",
+  "obs": 1
+ },
+ {
+  "id": "scan-quality-regression",
+  "title": "Качество автоматической обработки экспозиции и фокуса ухудшается с каждым обновлением на современных устройствах",
+  "obs": 1
+ },
+ {
+  "id": "screen-rotation-locked",
+  "title": "После обновления приложение игнорирует настройку поворота экрана и фиксирует интерфейс в одной ориентации",
+  "obs": 1
+ },
+ {
+  "id": "print-output-blurry",
+  "title": "Распечатанные сканы выходят слишком светлыми или размытыми, настройки принтера не помогают",
+  "obs": 1
+ },
+ {
+  "id": "image-quality-loss-on-import",
+  "title": "При импорте изображений в приложение качество снижается в процессе обработки или конвертации",
+  "obs": 1
+ },
+ {
+  "id": "header-cropped-or-whited-out",
+  "title": "Приложение обрезает или закрашивает белым заголовки документов при сканировании, и пользователь не может это исправить",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-during-scan",
+  "title": "Системный запрос оценки появляется прямо во время сканирования и прерывает рабочий процесс",
+  "obs": 1
+ },
+ {
+  "id": "add-page-extra-step",
+  "title": "Добавление следующей страницы при многостраничном сканировании стало требовать лишний шаг выбора — раньше было одно касание",
+  "obs": 1
+ },
+ {
+  "id": "add-scan-button-one-hand",
+  "title": "Кнопка нового сканирования расположена в левом нижнем углу — неудобно при работе одной рукой",
+  "obs": 1
+ },
+ {
+  "id": "find-saved-documents",
+  "title": "Пользователь не может найти ранее отсканированные документы — навигация и поиск по сохранённым файлам не работают",
+  "obs": 1
+ },
+ {
+  "id": "relabel-document-extra-steps",
+  "title": "Изменение метки документа требует лишних шагов — переклассификация с дефолтной метки замедлена",
+  "obs": 1
+ },
+ {
+  "id": "export-workflow-no-default-path",
+  "title": "Нельзя задать путь по умолчанию для сохранения сканов — каждый экспорт требует повторного выбора папки",
+  "obs": 1
+ },
+ {
+  "id": "icloud-not-default-own-cloud-pushed",
+  "title": "Сканы не сохраняются в iCloud по умолчанию — приложение предлагает собственное облако, что отталкивает пользователей с требованиями к безопасности",
+  "obs": 1
+ },
+ {
+  "id": "cross-device-merge-no-docs",
+  "title": "Объединение сканов с разных устройств не имеет документации и неочевидно для платных пользователей",
+  "obs": 1
+ },
+ {
+  "id": "sms-pdf-share-extra-steps",
+  "title": "Отправка PDF через SMS требует лишних шагов или невозможна — пользователь вынужден переключаться на email",
+  "obs": 1
+ },
+ {
+  "id": "curvature-correction-manual",
+  "title": "Автоматическое исправление кривизны не включается в режиме «авто» — приходится активировать вручную для каждой страницы",
+  "obs": 1
+ },
+ {
+  "id": "batch-page-editing-missing",
+  "title": "Нет пакетного редактирования страниц — каждую страницу многостраничного документа нужно открывать отдельно",
+  "obs": 1
+ },
+ {
+  "id": "slow-workflow-regression",
+  "title": "Общий процесс сканирования и редактирования замедлился после последних обновлений",
+  "obs": 1
+ },
+ {
+  "id": "auto-rename-unreliable",
+  "title": "Автоматическое переименование документов работает ненадёжно и требует ручной правки",
+  "obs": 1
+ },
+ {
+  "id": "field-mobile-workflow",
+  "title": "Приложение позволяет сканировать и отправлять документы в полевых условиях, не возвращаясь в офис — ускоряет цикл продаж",
+  "obs": 1
+ },
+ {
+  "id": "replace-hardware-scanner",
+  "title": "Пользователи заменяют сломанный или медленный аппаратный сканер приложением вместо покупки нового оборудования",
+  "obs": 1
+ },
+ {
+  "id": "word-of-mouth-recommendation",
+  "title": "Долгосрочные пользователи активно рекомендуют приложение семье и знакомым — сильный канал органического роста",
+  "obs": 1
+ },
+ {
+  "id": "damaged-doc-recovery",
+  "title": "Приложение позволяет отсканировать повреждённые водой документы, которые обычный сканер не берёт",
+  "obs": 1
+ },
+ {
+  "id": "auto-processing-vs-apple-photos",
+  "title": "Автоматическая очистка теней и складок недоступна во встроенном приложении камеры — это конкурентное преимущество",
+  "obs": 1
+ },
+ {
+  "id": "office-quality-auto-scan",
+  "title": "Автофокус, кадрирование и компенсация экспозиции создают качество, сравнимое с офисным сканером",
+  "obs": 1
+ },
+ {
+  "id": "flexible-format-autofocus-power-user",
+  "title": "Продвинутые пользователи ценят гибкость форматов сохранения, автофокус и кастомизацию экспорта",
+  "obs": 1
+ }
+]

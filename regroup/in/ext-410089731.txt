@@ -1,0 +1,339 @@
+You are grouping 58 mechanism-level insight clusters from Carb Manager: Keto & Macro Log (Калории и питание) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Carb Manager: Keto & Macro Log, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 58 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Carb Manager: Keto & Macro Log — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Carb Manager: Keto & Macro Log>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-410089731.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "food-db-wrong-data",
+  "title": "База данных продуктов содержит неверные данные о питательности, потому что любой пользователь создаёт записи без проверки",
+  "obs": 3
+ },
+ {
+  "id": "macro-recommendation-ignores-goals",
+  "title": "Алгоритм рекомендует калории и углеводы, не учитывая цели кетодиеты пользователя",
+  "obs": 3
+ },
+ {
+  "id": "ai-photo-scan-unreliable",
+  "title": "ИИ-распознавание пищи по фото часто ошибается и выдаёт совсем другие блюда",
+  "obs": 3
+ },
+ {
+  "id": "no-quick-reuse-favorites",
+  "title": "Часто используемую пищу нельзя сохранить и быстро повторить — её каждый раз ищут заново",
+  "obs": 3
+ },
+ {
+  "id": "cluttered-home-screen",
+  "title": "Главный экран перегружен данными и предложениями оплаты, из-за чего метрики макросов не прочитать",
+  "obs": 3
+ },
+ {
+  "id": "new-version-too-complex",
+  "title": "Новая версия перегружена функциями, тогда как простая оригинальная лучше подходила для базового учёта",
+  "obs": 3
+ },
+ {
+  "id": "popups-during-logging",
+  "title": "При каждом логировании пищи всплывает предложение премиума по 2-3 раза за сеанс, делая бесплатную версию неюзабельной",
+  "obs": 2
+ },
+ {
+  "id": "charge-after-cancel",
+  "title": "После подтверждённой отмены подписки приложение продолжает списывать полную плату",
+  "obs": 2
+ },
+ {
+  "id": "duplicate-product-versions",
+  "title": "Для одного продукта существует множество пользовательских версий с разными и часто неверными данными",
+  "obs": 2
+ },
+ {
+  "id": "recipe-import-narrow",
+  "title": "Импорт рецептов с сайтов работает только для редких форматов и не принимает популярные блоги",
+  "obs": 2
+ },
+ {
+  "id": "carb-sum-math-mismatch",
+  "title": "Суммарные макросы не совпадают с ручным подсчётом отдельных продуктов",
+  "obs": 2
+ },
+ {
+  "id": "reload-screen-every-action",
+  "title": "Экран загрузки появляется заново при каждом действии, требуя перезапуска приложения",
+  "obs": 2
+ },
+ {
+  "id": "blank-screen-on-open",
+  "title": "Приложение часто открывается пустым или чёрным экраном",
+  "obs": 2
+ },
+ {
+  "id": "freezes-after-purchase",
+  "title": "После оплаты подписки приложение зависает, делая платную версию неюзабельной",
+  "obs": 2
+ },
+ {
+  "id": "charts-broke-after-ios-update",
+  "title": "После обновления системы перестали отображаться круговая диаграмма и график веса",
+  "obs": 2
+ },
+ {
+  "id": "search-shows-popular-not-match",
+  "title": "Поиск показывает популярные результаты вместо точного совпадения по названию продукта",
+  "obs": 2
+ },
+ {
+  "id": "meal-planner-clunky",
+  "title": "Планирование приёмов пищи неудобно — план не найти позже, рецепты нельзя присвоить разным дням",
+  "obs": 2
+ },
+ {
+  "id": "no-dark-mode",
+  "title": "В приложении нет тёмного режима, что утомляет глаза при долгом использовании",
+  "obs": 2
+ },
+ {
+  "id": "popups-block-free-logging",
+  "title": "Логирование пищи теперь доступно только по подписке, хотя раньше базовый учёт был бесплатным",
+  "obs": 1
+ },
+ {
+  "id": "card-required-before-trial",
+  "title": "Приложение требует платёжные данные до пробного периода, не давая протестировать его сначала",
+  "obs": 1
+ },
+ {
+  "id": "premium-no-weightloss-benefit",
+  "title": "Премиум не даёт обещанного преимущества в снижении веса по сравнению с бесплатной версией",
+  "obs": 1
+ },
+ {
+  "id": "paid-no-access",
+  "title": "После оплаты годовой подписки пользователь не получает доступ к оплаченным функциям",
+  "obs": 1
+ },
+ {
+  "id": "sub-active-not-in-store",
+  "title": "Приложение показывает активную подписку, которой нет в магазине, где её надо отменять",
+  "obs": 1
+ },
+ {
+  "id": "wrong-calorie-product-data",
+  "title": "Приложение показывает завышенную калорийность отдельных продуктов в разы выше нормы",
+  "obs": 1
+ },
+ {
+  "id": "recipes-too-many-carbs",
+  "title": "Встроенные рецепты содержат слишком много углеводов для тех, кто их ограничивает",
+  "obs": 1
+ },
+ {
+  "id": "macro-recompute-before-save",
+  "title": "Приложение ошибается в расчёте калорий и макросов до сохранения записи",
+  "obs": 1
+ },
+ {
+  "id": "keto-misclassification",
+  "title": "Приложение само неверно относит блюда к кетогенным и блокирует ввод тех, что таковыми не являются",
+  "obs": 1
+ },
+ {
+  "id": "camera-scan-not-automatic",
+  "title": "Платное сканирование камерой на деле требует ручного поиска штрих-кодов вместо обещанного снимка",
+  "obs": 1
+ },
+ {
+  "id": "photo-scan-no-carb-breakdown",
+  "title": "При фотографировании еды приложение не показывает углеводы по блюдам и в сумме",
+  "obs": 1
+ },
+ {
+  "id": "no-offline-mode",
+  "title": "Логировать пищу нельзя без интернета — приложение полностью зависит от серверов",
+  "obs": 1
+ },
+ {
+  "id": "update-wiped-data",
+  "title": "Обновление удалило всю историю и кастомные рецепты пользователя без возможности восстановления",
+  "obs": 1
+ },
+ {
+  "id": "error-on-add-meal",
+  "title": "При попытке добавить приём пищи приложение постоянно выдаёт ошибку запроса с первого дня",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-health-sync",
+  "title": "Приложение не синхронизируется с Apple Health, ограничивая интеграцию с экосистемой",
+  "obs": 1
+ },
+ {
+  "id": "ipad-camera-flipped",
+  "title": "Сканирование камерой на iPad даёт перевёрнутое и отражённое изображение, делая считывание невозможным",
+  "obs": 1
+ },
+ {
+  "id": "iphone-login-broken-after-update",
+  "title": "После обновления приложение на iPhone перестаёт принимать учётные данные, хотя на iPad работает",
+  "obs": 1
+ },
+ {
+  "id": "captcha-blocks-login",
+  "title": "Игра-капча при каждой авторизации блокирует вход, не принимая ответы пользователя",
+  "obs": 1
+ },
+ {
+  "id": "scan-button-shifts-ui",
+  "title": "Кнопка сканирования появляется во время ввода и сдвигает элементы, вызывая ошибочные нажатия",
+  "obs": 1
+ },
+ {
+  "id": "plan-ahead-triggers-goal-error",
+  "title": "Планирование еды на будущие дни вызывает ложную ошибку о срыве целей голодания",
+  "obs": 1
+ },
+ {
+  "id": "multi-step-add-food",
+  "title": "Добавление продукта в журнал требует слишком много шагов для базовой операции",
+  "obs": 1
+ },
+ {
+  "id": "recipe-creation-hard",
+  "title": "Создание собственных рецептов — сложный и фрустрирующий процесс",
+  "obs": 1
+ },
+ {
+  "id": "quantity-input-cap",
+  "title": "Поле количества ограничивало ввод, заставляя дробить большие значения на несколько записей",
+  "obs": 1
+ },
+ {
+  "id": "no-fractional-portions",
+  "title": "Нельзя вводить мелкие доли порции для точного учёта ингредиентов в больших блюдах",
+  "obs": 1
+ },
+ {
+  "id": "fiber-not-on-home",
+  "title": "Волокна не выведены на главный экран и требуют лишних кликов для отслеживания",
+  "obs": 1
+ },
+ {
+  "id": "only-four-meal-categories",
+  "title": "Всего четыре категории приёмов пищи, что неудобно тем, кто ест 5-6 раз в день",
+  "obs": 1
+ },
+ {
+  "id": "no-per-meal-macros",
+  "title": "Нельзя менять цели по макросам для отдельного приёма пищи в зависимости от расписания",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-too-much-info",
+  "title": "Приложение требует много личных данных и анкет перед стартом, мешая просто начать считать углеводы",
+  "obs": 1
+ },
+ {
+  "id": "export-pdf-confusing",
+  "title": "Расположение функций трудно запомнить, а экспорт отчётов в PDF запутан",
+  "obs": 1
+ },
+ {
+  "id": "removed-photo-attach",
+  "title": "Возможность прикреплять фото к записям еды убрали в обновлении, а кнопки иногда вводят пищу неверно",
+  "obs": 1
+ },
+ {
+  "id": "deleted-products-still-shown",
+  "title": "Удалённые продукты продолжают отображаться в списке",
+  "obs": 1
+ },
+ {
+  "id": "portion-no-weight-volume",
+  "title": "Размеры порций не указывают вес или объём, мешая пользователям с другими системами измерения",
+  "obs": 1
+ },
+ {
+  "id": "no-friends-search",
+  "title": "В списке друзей нет строки поиска, и нужного друга трудно найти",
+  "obs": 1
+ },
+ {
+  "id": "cant-set-start-weight",
+  "title": "Начальный вес не удаётся задать даже после покупки премиума",
+  "obs": 1
+ },
+ {
+  "id": "accessibility-screenreader",
+  "title": "Видео без аудиоописания и насыщенные цифрами рецепты недоступны для незрячих со скрин-ридером",
+  "obs": 1
+ },
+ {
+  "id": "support-chat-blurred",
+  "title": "Чат-бот поддержки размыт и недоступен, а форма обращения показывает пустой экран",
+  "obs": 1
+ },
+ {
+  "id": "devs-ignore-bugs",
+  "title": "Разработчики подолгу не исправляют ошибки даже после жалоб, оставляя сломанные функции",
+  "obs": 1
+ },
+ {
+  "id": "myfitnesspal-integration-gap",
+  "title": "Приложение слабо интегрируется с платформами и группами похудения в отличие от конкурента",
+  "obs": 1
+ },
+ {
+  "id": "fast-multidevice-sync",
+  "title": "Синхронизация между устройствами работает быстрее и надёжнее, чем у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "tracking-disordered-eating",
+  "title": "Избыточное отслеживание пищи может усиливать проблемы с пищевым поведением",
+  "obs": 1
+ }
+]

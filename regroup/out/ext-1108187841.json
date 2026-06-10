@@ -1,0 +1,87 @@
+{
+  "groups": [
+    {
+      "id": "crashes-freezes-lost-data",
+      "name": "Падения, зависания и тихая потеря напоминаний",
+      "insight_ids": [
+        "slow-launch-lag-crashes",
+        "lost-reminders-silent",
+        "crash-on-open-needs-second-try",
+        "freeze-on-add-after-update",
+        "add-button-dead",
+        "complete-delay-clearing"
+      ]
+    },
+    {
+      "id": "shared-family-lists",
+      "name": "Общие семейные списки: синхрон, режимы и чужая категоризация",
+      "insight_ids": [
+        "shared-sync-unreliable",
+        "auto-categorize-overrides-custom-sections",
+        "no-edit-vs-use-mode-shared",
+        "shared-list-realtime-collab"
+      ]
+    },
+    {
+      "id": "list-management-recurring",
+      "name": "Жизнь списка: порядок, повторы, дубли и редактирование",
+      "insight_ids": [
+        "manual-reorder-fragile",
+        "duplicate-reminders-clutter",
+        "completed-sorted-oldest-first",
+        "no-filter-by-tags",
+        "long-reminders-uneditable",
+        "default-list-on-launch",
+        "no-duplicate-reminder-action",
+        "recurring-removed",
+        "recurring-no-weekday-select"
+      ]
+    },
+    {
+      "id": "notifications-dont-fire",
+      "name": "Уведомления, которые не срабатывают (или срабатывают не так)",
+      "insight_ids": [
+        "no-push-notifications",
+        "completed-still-notifies",
+        "alerts-sometimes-dont-fire",
+        "widget-empty",
+        "notification-sound-too-quiet",
+        "excessive-notifications",
+        "notification-complete-needs-long-press",
+        "support-cant-help",
+        "absolute-time-not-local"
+      ]
+    },
+    {
+      "id": "capture-and-power-use",
+      "name": "Быстрый захват и сценарии продвинутых пользователей",
+      "insight_ids": [
+        "siri-voice-capture",
+        "urgent-alarm-mode",
+        "siri-items-go-to-bottom",
+        "location-based-reminders",
+        "all-in-one-power-user",
+        "task-history-no-retype",
+        "migration-from-other-apps"
+      ]
+    },
+    {
+      "id": "cross-device-ecosystem",
+      "name": "Между устройствами: часы, ПК и привязка к экосистеме Apple",
+      "insight_ids": [
+        "ecosystem-lockin-no-cross-platform",
+        "watch-iphone-sync-unreliable",
+        "watch-quick-capture"
+      ]
+    },
+    {
+      "id": "polish-and-friction",
+      "name": "Шероховатости: лишние нажатия, перевод и навязчивая оценка",
+      "insight_ids": [
+        "too-many-clicks-vs-android",
+        "broken-translation",
+        "rating-prompt-interrupts"
+      ]
+    }
+  ]
+}

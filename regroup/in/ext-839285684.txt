@@ -1,0 +1,269 @@
+You are grouping 44 mechanism-level insight clusters from Workout for Women: Home & Gym (Домашние тренировки и классы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Workout for Women: Home & Gym, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 44 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Workout for Women: Home & Gym — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Workout for Women: Home & Gym>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-839285684.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "trial-charges-immediately",
+  "title": "Кнопка пробного периода обещает «спишется ноль», но полная сумма за год снимается сразу при нажатии",
+  "obs": 10
+ },
+ {
+  "id": "ads-replace-free-model",
+  "title": "Перед короткой тренировкой включается полутораминутная реклама — это ближе к платной модели, чем к «бесплатной с рекламой»",
+  "obs": 10
+ },
+ {
+  "id": "no-truly-free-after-onboarding",
+  "title": "После длинной анкеты выясняется, что бесплатных тренировок нет — остаются только платные подписки",
+  "obs": 6
+ },
+ {
+  "id": "free-to-paywall-erosion",
+  "title": "Годами бесплатное приложение поэтапно убрало доступ: сначала реклама, потом частичный, теперь полный платный доступ",
+  "obs": 5
+ },
+ {
+  "id": "cancel-keeps-billing",
+  "title": "После отмены подписки списания не прекращаются, иногда возобновляются спустя месяцы на удалённом приложении",
+  "obs": 4
+ },
+ {
+  "id": "ai-generated-content-slop",
+  "title": "Тренировки и видео теперь генерируются ИИ и заметно теряют в качестве по сравнению со старым контентом",
+  "obs": 3
+ },
+ {
+  "id": "support-no-response",
+  "title": "Поддержка не отвечает на письма и заявки по проблемам с подпиской и возвратом",
+  "obs": 3
+ },
+ {
+  "id": "exploits-female-body-image",
+  "title": "После перехода на платную модель приложение давит на женские комплексы и обещает нездоровое похудение ради продаж",
+  "obs": 3
+ },
+ {
+  "id": "trial-charged-immediately-second-day",
+  "title": "Приложение, описанное как бесплатное, начинает списывать деньги уже на второй день использования",
+  "obs": 2
+ },
+ {
+  "id": "ad-close-button-hidden",
+  "title": "Кнопку закрытия рекламы не видно или непонятно где она — приходится принудительно закрывать приложение",
+  "obs": 2
+ },
+ {
+  "id": "ad-buggy-no-return",
+  "title": "После просмотра рекламы тренировка не загружается или нельзя вернуться к упражнению",
+  "obs": 2
+ },
+ {
+  "id": "stretch-not-stretch",
+  "title": "Разделы, помеченные как растяжка, на деле оказываются обычными силовыми или аэробными тренировками",
+  "obs": 2
+ },
+ {
+  "id": "ai-images-replace-real-people",
+  "title": "Реальных людей в демонстрациях заменили на ИИ-картинки и иллюстрации, по которым труднее повторять движения",
+  "obs": 2
+ },
+ {
+  "id": "personalization-ignores-survey",
+  "title": "Стартовая анкета не влияет на план — упражнения генерируются одинаково независимо от ответов",
+  "obs": 2
+ },
+ {
+  "id": "forced-weight-loss-goal",
+  "title": "Приложение принудительно требует выбрать цель похудения, даже если пользователю это не нужно",
+  "obs": 2
+ },
+ {
+  "id": "no-progress-sync-across-devices",
+  "title": "Прогресс тренировок не синхронизируется между устройствами и теряется при переходе на новый телефон",
+  "obs": 2
+ },
+ {
+  "id": "home-better-than-gym",
+  "title": "Домашние тренировки воспринимаются как лучше спортзала из-за приватности и имеющегося дома инвентаря",
+  "obs": 2
+ },
+ {
+  "id": "card-required-for-free",
+  "title": "Приложение требует ввести карту «для бесплатного доступа», хотя для настоящего бесплатного не нужна",
+  "obs": 1
+ },
+ {
+  "id": "second-workout-paywall",
+  "title": "На второй тренировке внезапно появляется требование купить премиум без предупреждения",
+  "obs": 1
+ },
+ {
+  "id": "trial-discount-misleading",
+  "title": "Экран пробного периода показывает месячную цену со «скидкой 84%», но списывает всю годовую сумму целиком",
+  "obs": 1
+ },
+ {
+  "id": "free-with-ads-removed",
+  "title": "Вариант «бесплатно с рекламой» исчез из приложения, хотя в маркетинге его всё ещё обещают",
+  "obs": 1
+ },
+ {
+  "id": "subscription-options-unexplained",
+  "title": "Несколько вариантов подписки без объяснения, чем они различаются",
+  "obs": 1
+ },
+ {
+  "id": "reload-replays-ad",
+  "title": "При перезагрузке приложения нужно заново смотреть рекламу перед тем же упражнением",
+  "obs": 1
+ },
+ {
+  "id": "instructor-voice-too-verbose",
+  "title": "Голосовые подсказки инструктора слишком многословны и мешают слушать собственную музыку поверх тренировки",
+  "obs": 1
+ },
+ {
+  "id": "ad-redirects-to-shein",
+  "title": "Во время тренировки приложение само перебрасывает на сторонний магазин без действия пользователя",
+  "obs": 1
+ },
+ {
+  "id": "ads-push-install-other-apps",
+  "title": "Реклама пытается заставить установить другие приложения",
+  "obs": 1
+ },
+ {
+  "id": "no-pregnancy-trimester-workouts",
+  "title": "Нет тренировок для беременных с разбивкой по триместрам — только общая растяжка и послеродовые",
+  "obs": 1
+ },
+ {
+  "id": "demos-hard-to-follow-form",
+  "title": "Иллюстрированные демонстрации упражнений плохо передают правильную форму движения",
+  "obs": 1
+ },
+ {
+  "id": "no-equipment-usage-tips",
+  "title": "Нет иллюстраций и подсказок, как использовать домашний инвентарь вроде лент и йога-блоков",
+  "obs": 1
+ },
+ {
+  "id": "few-long-workouts",
+  "title": "После оплаты в приложении почти нет длинных тренировок дольше десяти минут",
+  "obs": 1
+ },
+ {
+  "id": "excludes-injury-areas-ignored",
+  "title": "Приложение спрашивает, какие травмированные зоны избегать, но потом включает упражнения именно на них",
+  "obs": 1
+ },
+ {
+  "id": "settings-options-not-found",
+  "title": "Заявленные настройки тренировки вроде «без прыжков» невозможно найти в интерфейсе даже после оплаты",
+  "obs": 1
+ },
+ {
+  "id": "monetization-prompt-every-button",
+  "title": "Каждое нажатие любой кнопки вызывает рекламу или предложение покупки — постоянное давление монетизации",
+  "obs": 1
+ },
+ {
+  "id": "no-login-requires-resubscribe",
+  "title": "На другом устройстве нет входа в аккаунт — приложение требует оформить подписку заново вместо доступа к уже оплаченной",
+  "obs": 1
+ },
+ {
+  "id": "reinstall-loses-access",
+  "title": "После переустановки нельзя восстановить даже бесплатный доступ к работавшему приложению",
+  "obs": 1
+ },
+ {
+  "id": "app-frequently-down",
+  "title": "Приложение часто недоступно, из-за чего оплаченная подписка бесполезна",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-not-tracking",
+  "title": "Новая модель часов не регистрирует тренировки, хотя старая работала",
+  "obs": 1
+ },
+ {
+  "id": "support-accuses-fraud",
+  "title": "При обращении из-за продолжающихся списаний поддержка обвиняет самого пользователя в мошенничестве",
+  "obs": 1
+ },
+ {
+  "id": "support-form-blocks-as-spam",
+  "title": "Форма поддержки блокирует обычные вопросы как спам",
+  "obs": 1
+ },
+ {
+  "id": "apple-payment-not-reflected",
+  "title": "Оплата прошла через магазин, но подписка не отражается на странице платежей — пользователь боится скрытого списания",
+  "obs": 1
+ },
+ {
+  "id": "five-star-to-amplify-complaint",
+  "title": "Пользователи ставят пять звёзд только чтобы их критика была заметнее, реально оценивая приложение в ноль",
+  "obs": 1
+ },
+ {
+  "id": "free-version-as-schedule-filler",
+  "title": "Часть пользователей держится только на бесплатной версии ради быстрых тренировок, встроенных в плотный график",
+  "obs": 1
+ },
+ {
+  "id": "heavy-users-churn-after-paywall",
+  "title": "Бывшие ежедневные пользователи полностью бросают приложение после введения платы за каждую тренировку",
+  "obs": 1
+ },
+ {
+  "id": "music-integration-removed",
+  "title": "Возможность слушать музыку из стороннего сервиса во время тренировки удалили",
+  "obs": 1
+ }
+]

@@ -1,0 +1,102 @@
+{
+  "groups": [
+    {
+      "id": "crashes-after-updates",
+      "name": "Зависания и обновления, стирающие прогресс",
+      "insight_ids": [
+        "app-freezes-on-launch",
+        "today-tab-freezes",
+        "logging-screen-hangs",
+        "weight-history-broken",
+        "daily-reinstall-required",
+        "barcode-scan-broken",
+        "update-wiped-progress",
+        "device-migration-data-loss",
+        "family-wide-instability",
+        "freezes-on-popups",
+        "streak-reset-by-update",
+        "step-goal-autoincrement-removed"
+      ]
+    },
+    {
+      "id": "forced-gamification",
+      "name": "Семена, серии и вибрация: геймификация, которую не выключить",
+      "insight_ids": [
+        "mandatory-gamification-no-disable",
+        "no-rest-day-mechanic",
+        "vibration-on-log-no-disable",
+        "fullscreen-animations-slow-logging",
+        "seeds-no-reward",
+        "notifications-all-or-nothing"
+      ]
+    },
+    {
+      "id": "billing-and-paywall-traps",
+      "name": "Биллинг-ловушки: отказ в возврате и платный доступ к простому",
+      "insight_ids": [
+        "refund-after-cancel-denied",
+        "manual-logging-now-paywalled",
+        "signup-loop-broken-account",
+        "signup-wrong-program",
+        "medication-restart-repay",
+        "subscription-management-cluttered"
+      ]
+    },
+    {
+      "id": "logging-friction",
+      "name": "Логировать еду стало тяжелее, чем нужно",
+      "insight_ids": [
+        "food-database-too-small",
+        "no-edit-past-logs",
+        "missing-micronutrients",
+        "branded-meal-sync-broken",
+        "day-starts-at-midnight",
+        "no-favorite-foods",
+        "recipe-no-direct-log",
+        "recipe-create-no-barcode",
+        "recipe-list-resets-position",
+        "speech-logging-harder",
+        "nonlinear-calorie-scale"
+      ]
+    },
+    {
+      "id": "ai-coach-doubt",
+      "name": "ИИ вместо психологии: тренер, камера и сомнительные советы",
+      "insight_ids": [
+        "education-shallow-coach-canned",
+        "pivot-to-ai-from-psychology",
+        "generic-praise-no-feedback",
+        "vegan-misclassification",
+        "color-classification-unstable",
+        "ai-clickbait-recipes",
+        "camera-calorie-inaccurate",
+        "facescan-false-diagnosis"
+      ]
+    },
+    {
+      "id": "steps-and-results",
+      "name": "Шаги, плато и обещанный, но не пришедший результат",
+      "insight_ids": [
+        "no-weight-loss-menopause",
+        "steps-manual-tap-required",
+        "no-manual-step-entry"
+      ]
+    },
+    {
+      "id": "meds-and-support",
+      "name": "Лекарства, врачи и поддержка, которая бросает",
+      "insight_ids": [
+        "med-history-shows-only-last-dose",
+        "support-ignores-account-access",
+        "support-channel-bouncing",
+        "no-doctor-messaging",
+        "clinician-coach-mismatch",
+        "glp1-ads-after-optout",
+        "medication-changed-without-consent",
+        "medication-delivery-unreliable",
+        "no-pause-medication-delivery",
+        "refill-requires-monthly-doctor"
+      ]
+    }
+  ]
+}

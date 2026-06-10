@@ -1,0 +1,83 @@
+{
+  "groups": [
+    {
+      "id": "belyy-ekran-i-mertvye-knopki",
+      "name": "Белый экран и мёртвые кнопки: приложение ломается в самый нужный момент",
+      "insight_ids": [
+        "white-screen-blank",
+        "white-screen-after-repayment",
+        "signup-button-dead",
+        "request-button-loops-home",
+        "broken-blocks-pending-payment",
+        "advance-confirmed-not-delivered",
+        "systemic-not-device",
+        "was-reliable-now-broken"
+      ]
+    },
+    {
+      "id": "spisaniya-bez-spros-i-overdraft",
+      "name": "Списывают раньше срока и без спроса — а на счёте овердрафт",
+      "insight_ids": [
+        "early-debit-before-payday",
+        "max-debit-multiple-attempts",
+        "debit-from-locked-closed-account",
+        "forced-borrow-own-money",
+        "overdraft-cycle-trap"
+      ]
+    },
+    {
+      "id": "data-pogasheniya-vne-kontrolya",
+      "name": "Дата погашения вне контроля: автоопределение зарплаты врёт, перенести нельзя",
+      "insight_ids": [
+        "no-reschedule-repayment",
+        "wrong-payday-detection",
+        "payday-detection-stops",
+        "shorter-repay-window",
+        "extension-shorter-than-promised",
+        "review-hourglass-stuck",
+        "support-lies-blames-bank",
+        "support-unresponsive"
+      ]
+    },
+    {
+      "id": "limit-i-pravo-na-avans-kak-igra",
+      "name": "Лимит и право на аванс как игра: то поднимут, то обнулят",
+      "insight_ids": [
+        "limit-drop-after-max",
+        "lose-eligibility-after-repay",
+        "advance-taken-back-quickly",
+        "auto-applies-new-advance",
+        "fast-limit-growth",
+        "play-games-to-restore-limit",
+        "no-credit-check-but-rejects",
+        "good-flexible-amounts"
+      ]
+    },
+    {
+      "id": "podpiska-kotoruyu-ne-otmenit",
+      "name": "Подписка, которую не отменить, и обещанные деньги, которых не дождаться",
+      "insight_ids": [
+        "charged-while-broken",
+        "cannot-cancel-still-charged",
+        "billing-after-account-deletion",
+        "subscription-required-to-borrow",
+        "auto-subscribe-no-consent",
+        "surveys-points-not-paid",
+        "referral-bonus-not-credited"
+      ]
+    },
+    {
+      "id": "polnyy-dostup-k-schetu-i-dannym",
+      "name": "Полный доступ к счёту в обмен на крошечный аванс — а данные не стереть",
+      "insight_ids": [
+        "cannot-delete-account",
+        "cannot-edit-bank-info",
+        "cannot-link-bank",
+        "full-banking-access-required",
+        "tiny-advance-for-much-data",
+        "no-digital-banks",
+        "state-availability"
+      ]
+    }
+  ]
+}

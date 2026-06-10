@@ -1,0 +1,344 @@
+You are grouping 59 mechanism-level insight clusters from TIDAL Music: HiFi Sound (Стриминг музыки) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO TIDAL Music: HiFi Sound, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 59 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to TIDAL Music: HiFi Sound — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to TIDAL Music: HiFi Sound>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-913943275.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "review-prompt-frequency-extreme",
+  "title": "Диалог с просьбой оставить отзыв появляется каждые несколько минут или при каждом открытии приложения, прерывая использование",
+  "obs": 38
+ },
+ {
+  "id": "review-prompt-loop-after-submission",
+  "title": "Приложение продолжает запрашивать оценку даже после того, как пользователь уже оставил отзыв — диалог появляется при каждом открытии",
+  "obs": 15
+ },
+ {
+  "id": "offline-downloaded-music-not-playing",
+  "title": "Скачанная музыка не воспроизводится без интернета, несмотря на успешно завершённую загрузку",
+  "obs": 13
+ },
+ {
+  "id": "offline-download-partially-fails",
+  "title": "Загрузка музыки для офлайна работает частично: скачиваются только несколько треков из альбома или плейлиста, затем процесс зависает",
+  "obs": 8
+ },
+ {
+  "id": "app-crashes-general",
+  "title": "Приложение часто падает или зависает, оставляя пользователя без музыки в ключевые моменты",
+  "obs": 6
+ },
+ {
+  "id": "network-reconnect-no-auto-resume",
+  "title": "При изменении типа сетевого соединения или потере связи воспроизведение прерывается и не возобновляется автоматически",
+  "obs": 5
+ },
+ {
+  "id": "playback-position-not-saved",
+  "title": "После закрытия и повторного открытия приложения воспроизведение начинается с начала плейлиста вместо продолжения с места остановки",
+  "obs": 4
+ },
+ {
+  "id": "search-duplicate-artist-profiles",
+  "title": "Поиск возвращает дублирующихся или поддельных артистов — чужая музыка загружена под именами оригинальных исполнителей",
+  "obs": 4
+ },
+ {
+  "id": "library-songs-disappear",
+  "title": "Сохранённые и понравившиеся песни пропадают из библиотеки без предупреждения или объяснения причины",
+  "obs": 4
+ },
+ {
+  "id": "offline-download-inconsistent-behavior",
+  "title": "Поведение загрузки для офлайна непоследовательно: одна и та же песня скачивается по-разному на разных устройствах или в разных сеансах",
+  "obs": 3
+ },
+ {
+  "id": "shuffle-repeats-same-songs",
+  "title": "Режим перемешивания при большой коллекции ежедневно повторяет одни и те же треки вместо случайного выбора из всей библиотеки",
+  "obs": 3
+ },
+ {
+  "id": "playlist-order-not-saved",
+  "title": "Порядок песен в плейлисте не сохраняется после редактирования: треки переставляются случайным образом при сохранении",
+  "obs": 3
+ },
+ {
+  "id": "artist-page-loads-empty",
+  "title": "При переходе на страницу артиста альбомы и треки не загружаются с первого раза — требуется повторное нажатие",
+  "obs": 3
+ },
+ {
+  "id": "review-prompt-remind-later-loop",
+  "title": "Кнопка «Напомнить позже» в диалоге оценки повторно показывает тот же запрос через 10 минут, создавая бесконечный цикл",
+  "obs": 2
+ },
+ {
+  "id": "offline-update-breaks-downloads",
+  "title": "После обновления приложения ранее скачанная музыка перестаёт воспроизводиться, хотя файлы остаются на устройстве и занимают место",
+  "obs": 2
+ },
+ {
+  "id": "offline-download-fills-storage",
+  "title": "Загрузка музыки заполняет всю память телефона частично загруженными файлами; занимает больше места, чем у конкурентов",
+  "obs": 2
+ },
+ {
+  "id": "search-shows-social-profile-not-music",
+  "title": "Поиск по имени артиста открывает социальный профиль с кнопкой «подписаться» вместо альбомов и треков",
+  "obs": 2
+ },
+ {
+  "id": "family-plan-ux-complex",
+  "title": "Присоединение к семейному плану требует многократных попыток с разными адресами почты; поддержка не помогает",
+  "obs": 2
+ },
+ {
+  "id": "tidal-connect-state-sync",
+  "title": "Состояние воспроизведения и интерфейс сортировки не синхронизируются между мобильным устройством и подключённым аудиоустройством",
+  "obs": 2
+ },
+ {
+  "id": "explicit-content-radio-default-clean",
+  "title": "Радиостанции по умолчанию проигрывают чистые версии треков вместо версий с явным контентом, без возможности выбора",
+  "obs": 2
+ },
+ {
+  "id": "app-overheats-phone",
+  "title": "Использование приложения вызывает перегрев телефона и быстрый расход батареи",
+  "obs": 2
+ },
+ {
+  "id": "playlist-recommendations-poor",
+  "title": "Система рекомендаций работает плохо: ежедневные плейлисты и радио повторяют одни и те же треки без разнообразия",
+  "obs": 2
+ },
+ {
+  "id": "catalog-missing-tracks",
+  "title": "Значительная часть треков известных артистов отсутствует в каталоге, хотя доступна на конкурирующих платформах",
+  "obs": 2
+ },
+ {
+  "id": "songs-in-playlist-become-unavailable",
+  "title": "Треки, доступные на странице артиста, становятся недоступны или выдают ошибку воспроизведения после добавления в плейлист",
+  "obs": 2
+ },
+ {
+  "id": "slow-playback-start",
+  "title": "После нажатия на трек заметна значительная задержка перед началом воспроизведения; иногда требуется сброс соединения",
+  "obs": 2
+ },
+ {
+  "id": "playback-randomly-stops",
+  "title": "Воспроизведение песен прерывается или полностью останавливается без видимой причины",
+  "obs": 2
+ },
+ {
+  "id": "playlist-deleted-by-app",
+  "title": "Приложение удаляет пользовательские плейлисты или сбрасывает их содержимое без предупреждения",
+  "obs": 2
+ },
+ {
+  "id": "offline-download-cache-management",
+  "title": "Удаление скачанных песен затруднено, а очистка кэша не удаляет загруженные файлы полностью",
+  "obs": 1
+ },
+ {
+  "id": "playlist-randomly-shuffles-without-command",
+  "title": "Плейлисты начинают воспроизводиться в случайном порядке без явной команды пользователя, нарушая подготовленную последовательность",
+  "obs": 1
+ },
+ {
+  "id": "search-requires-exact-match",
+  "title": "Поиск требует точного совпадения запроса и не находит музыку по приблизительным или частичным названиям",
+  "obs": 1
+ },
+ {
+  "id": "ipad-app-launch-failure",
+  "title": "Приложение на iPad часто не запускается при попытке открытия",
+  "obs": 1
+ },
+ {
+  "id": "apple-watch-no-playback",
+  "title": "Приложение для Apple Watch не воспроизводит музыку и не имеет виджета для циферблата",
+  "obs": 1
+ },
+ {
+  "id": "alexa-integration-missing-canada",
+  "title": "Интеграция с голосовым помощником Alexa недоступна в Канаде, что лишает пользователя заявленной функции после переезда",
+  "obs": 1
+ },
+ {
+  "id": "tidal-connect-extra-taps",
+  "title": "Управление Tidal Connect теперь требует на 3–4 нажатия больше, чем раньше, что делает интеграцию с аудиоустройствами неудобной",
+  "obs": 1
+ },
+ {
+  "id": "tidal-connect-loses-app-control",
+  "title": "После начала трансляции через Tidal Connect приложение теряет управление воспроизведением, хотя музыка продолжает играть",
+  "obs": 1
+ },
+ {
+  "id": "tidal-connect-volume-inconsistent",
+  "title": "Управление громкостью при трансляции через Tidal Connect работает непоследовательно",
+  "obs": 1
+ },
+ {
+  "id": "hifi-audio-not-perceptible",
+  "title": "Основное преимущество сервиса — звук высокого разрешения — не ощущается при прослушивании через наушники",
+  "obs": 1
+ },
+ {
+  "id": "stream-count-tracking-bug",
+  "title": "Прослушивания не учитываются корректно при прохождении трека до конца, что влияет на статистику и выплаты артистам",
+  "obs": 1
+ },
+ {
+  "id": "notification-interrupts-playback",
+  "title": "Получение уведомления от другого приложения полностью останавливает воспроизведение музыки во время тренировки",
+  "obs": 1
+ },
+ {
+  "id": "ui-island-accidental-taps",
+  "title": "Нижний элемент интерфейса в форме острова провоцирует случайное нажатие кнопок и непроизвольное переключение треков",
+  "obs": 1
+ },
+ {
+  "id": "autoplay-similar-music-removed",
+  "title": "Функция автоматического воспроизведения похожих песен без пауз удалена в обновлении — пользователи теряют главное преимущество перед конкурентами",
+  "obs": 1
+ },
+ {
+  "id": "share-track-feature-removed",
+  "title": "Быстрый способ поделиться текущим треком убран — теперь требуется включать режим DJ",
+  "obs": 1
+ },
+ {
+  "id": "buffering-regression-after-update",
+  "title": "После обновления буферизация начинается с первого трека вместо нескольких; единственный обходной путь — переключение на предыдущий трек",
+  "obs": 1
+ },
+ {
+  "id": "queue-scroll-broken",
+  "title": "После обновления прокрутка очереди воспроизведения перестала работать",
+  "obs": 1
+ },
+ {
+  "id": "queue-position-resets",
+  "title": "Очередь воспроизведения сбрасывается при паузе в использовании или выходе из автомобиля, требуя повторного поиска трека",
+  "obs": 1
+ },
+ {
+  "id": "playback-starts-unexpectedly-in-car",
+  "title": "Приложение самопроизвольно запускает музыку в автомобиле при плохом сигнале сети без команды пользователя",
+  "obs": 1
+ },
+ {
+  "id": "volume-too-low-no-boost",
+  "title": "Громкость наушников очень низкая, а опция усиления звука в приложении отсутствует",
+  "obs": 1
+ },
+ {
+  "id": "ai-generated-content-in-playlists",
+  "title": "Плейлисты заполнены синтезированной музыкой от ИИ-артистов, без возможности отфильтровать такой контент",
+  "obs": 1
+ },
+ {
+  "id": "login-fails-after-logout",
+  "title": "После выхода из аккаунта пользователь не может войти снова, в том числе через авторизацию Apple",
+  "obs": 1
+ },
+ {
+  "id": "app-logs-out-when-offline",
+  "title": "Приложение выходит из аккаунта при отсутствии мобильного сигнала, делая кэшированную музыку недоступной",
+  "obs": 1
+ },
+ {
+  "id": "repeat-mode-broken",
+  "title": "Режим повтора одной песни самопроизвольно прекращает воспроизведение после нескольких итераций",
+  "obs": 1
+ },
+ {
+  "id": "clear-queue-interrupts-current-track",
+  "title": "Очистка очереди воспроизведения прерывает текущий трек, хотя пользователь хочет только убрать следующие",
+  "obs": 1
+ },
+ {
+  "id": "add-song-to-playlist-fails",
+  "title": "Добавление треков в плейлист периодически не работает без объяснения причины",
+  "obs": 1
+ },
+ {
+  "id": "delete-track-from-active-playlist-no-shortcut",
+  "title": "Из активного плейлиста в режиме перемешивания нет быстрого способа удалить текущий трек — нужно выйти и найти его вручную",
+  "obs": 1
+ },
+ {
+  "id": "nav-buttons-obscure-add-album",
+  "title": "Навигационные кнопки перекрывают полосу воспроизведения, затрудняя добавление полного альбома в плейлист",
+  "obs": 1
+ },
+ {
+  "id": "uploads-section-pollutes-home",
+  "title": "Раздел пользовательских загрузок заполняет главную страницу посторонним контентом и не убирается",
+  "obs": 1
+ },
+ {
+  "id": "ui-regression-after-update",
+  "title": "Новый интерфейс после обновления хуже предыдущей версии по удобству использования",
+  "obs": 1
+ },
+ {
+  "id": "bluesound-playlist-sync-improvement",
+  "title": "Приложение Tidal для Bluesound теперь отображает все плейлисты мобильного приложения — существенное улучшение кросс-платформенного доступа",
+  "obs": 1
+ },
+ {
+  "id": "competitor-switch-due-to-bugs",
+  "title": "Пользователи переходят на конкурентов из-за накопленных ошибок, называя Qobuz как альтернативу",
+  "obs": 1
+ }
+]

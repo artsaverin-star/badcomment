@@ -1,0 +1,354 @@
+You are grouping 61 mechanism-level insight clusters from Pizza Hut - Delivery & Takeout (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Pizza Hut - Delivery & Takeout, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 61 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Pizza Hut - Delivery & Takeout — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Pizza Hut - Delivery & Takeout>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsu8k2g2ravug8p194vpir3.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "ui-login-loop-no-signin-option",
+  "title": "Интерфейс входа предлагает только «Создать аккаунт» — при вводе существующего email сообщает, что аккаунт уже есть, но не даёт войти",
+  "obs": 17
+ },
+ {
+  "id": "payment-card-declined-all-methods",
+  "title": "Все методы оплаты отклоняются при оформлении заказа — кредитная карта, дебетовая карта, Apple Pay",
+  "obs": 8
+ },
+ {
+  "id": "reliability-update-breaks-login",
+  "title": "После обновления приложения пользователи не могут войти в существующий аккаунт",
+  "obs": 8
+ },
+ {
+  "id": "ui-order-history-missing",
+  "title": "История заказов удалена или недоступна — пользователь не видит прошлые покупки и детали товаров",
+  "obs": 7
+ },
+ {
+  "id": "reliability-app-crashes-on-launch",
+  "title": "Приложение падает при каждом открытии и требует переустановки перед каждым использованием",
+  "obs": 7
+ },
+ {
+  "id": "reliability-login-code-never-arrives",
+  "title": "Система входа по коду не отправляет код на email или телефон — несмотря на несколько попыток",
+  "obs": 6
+ },
+ {
+  "id": "strategy-tracking-inaccurate-delivered-early",
+  "title": "Трекер показывает заказ доставленным раньше фактического — пользователь вынужден звонить в магазин",
+  "obs": 6
+ },
+ {
+  "id": "reliability-order-sent-to-wrong-location",
+  "title": "Заказ уходит на другой магазин, а не тот, что выбрал пользователь — даже после подтверждения",
+  "obs": 5
+ },
+ {
+  "id": "ui-login-code-field-mismatch",
+  "title": "Система входа отправляет 6-значный код, но в форме только 5 полей — ввести код невозможно",
+  "obs": 4
+ },
+ {
+  "id": "reliability-update-clears-cart",
+  "title": "Принудительное обновление во время оформления заказа стирает корзину",
+  "obs": 4
+ },
+ {
+  "id": "reliability-cart-stuck-with-phantom-order",
+  "title": "Приложение считает, что заказ уже в обработке, и не позволяет добавить новый заказ в корзину",
+  "obs": 4
+ },
+ {
+  "id": "reliability-general-ordering-errors",
+  "title": "Приложение стабильно выдаёт ошибку при попытке разместить заказ — независимо от обновлений",
+  "obs": 4
+ },
+ {
+  "id": "payment-card-error-clears-cart",
+  "title": "Ошибка карты при оплате стирает корзину, но платёж всё равно проходит — двойное списание",
+  "obs": 3
+ },
+ {
+  "id": "ui-reorder-removed",
+  "title": "Функция быстрого повтора предыдущего заказа удалена в новой версии приложения",
+  "obs": 3
+ },
+ {
+  "id": "ui-order-notes-field-removed",
+  "title": "Поле для заметок к заказу (нарезка, соус, особые пожелания) удалено в новой версии",
+  "obs": 3
+ },
+ {
+  "id": "payment-promo-code-not-applied",
+  "title": "Промо-коды и скидки членства не применяются к заказу — пользователь не видит, как гость он или как участник",
+  "obs": 2
+ },
+ {
+  "id": "content-deals-not-shown-in-app",
+  "title": "Акции и спецпредложения, доступные в магазине или рекламируемые в App Store, не отображаются в приложении",
+  "obs": 2
+ },
+ {
+  "id": "ui-schedule-delivery-time-removed",
+  "title": "Возможность выбрать время доставки удалена — приложение автоматически устанавливает ближайшие 15 минут",
+  "obs": 2
+ },
+ {
+  "id": "ui-cart-overflow-no-scroll",
+  "title": "После обновления элементы корзины становятся слишком крупными и не помещаются на экран — прокрутки нет, кнопка заказа недоступна",
+  "obs": 2
+ },
+ {
+  "id": "ui-email-change-not-allowed",
+  "title": "Приложение не позволяет изменить адрес электронной почты учётной записи",
+  "obs": 2
+ },
+ {
+  "id": "ui-menu-load-fails",
+  "title": "Меню не загружается на протяжении нескольких дней даже после обновления приложения",
+  "obs": 2
+ },
+ {
+  "id": "reliability-notification-settings-all-or-nothing",
+  "title": "Нельзя отключить только маркетинговые уведомления — при отключении отключаются все, включая статус заказа",
+  "obs": 2
+ },
+ {
+  "id": "reliability-wrong-order-type-displayed",
+  "title": "Приложение показывает заказ как доставку вместо самовывоза — или наоборот — отображая неверное местоположение",
+  "obs": 2
+ },
+ {
+  "id": "payment-apple-pay-blocked",
+  "title": "Приложение не поддерживает Apple Pay, хотя другие приложения его принимают",
+  "obs": 1
+ },
+ {
+  "id": "payment-tip-calculation-wrong",
+  "title": "Сумма чаевых при вводе округляется вверх на одну копейку — приложение списывает больше, чем указано",
+  "obs": 1
+ },
+ {
+  "id": "payment-tip-prompt-on-takeout",
+  "title": "При самовывозе приложение принудительно показывает экран чаевых, хотя услуга доставки не оказывается",
+  "obs": 1
+ },
+ {
+  "id": "payment-card-info-not-saved",
+  "title": "Приложение не сохраняет данные платёжной карты — требует вводить их при каждом заказе",
+  "obs": 1
+ },
+ {
+  "id": "payment-no-checkout-screen",
+  "title": "После обновления экран оплаты исчез — товары выбрать можно, но оформить заказ невозможно",
+  "obs": 1
+ },
+ {
+  "id": "payment-paypal-shown-but-cash-required",
+  "title": "Приложение показывает оплату через PayPal, но курьер требует наличные — статус оплаты не доходит до магазина",
+  "obs": 1
+ },
+ {
+  "id": "content-menu-unavailable-when-closed",
+  "title": "Меню нельзя просматривать, когда ресторан закрыт — приложение блокирует просмотр до открытия",
+  "obs": 1
+ },
+ {
+  "id": "content-item-availability-hidden",
+  "title": "Недоступность товара не указана в меню — пользователь узнаёт об этом только после выбора",
+  "obs": 1
+ },
+ {
+  "id": "content-wrong-sauce-in-receipt",
+  "title": "Настройка соуса не сохраняется в квитанции — пользователь не может доказать ошибку при получении заказа",
+  "obs": 1
+ },
+ {
+  "id": "ui-login-code-timeout-too-short",
+  "title": "На проверку email для кода входа отводится 20 секунд — по истечении нужно перезапустить приложение и запросить код заново",
+  "obs": 1
+ },
+ {
+  "id": "ui-login-apple-id-blocked",
+  "title": "Вход через Apple заблокирован после обновления — ошибка возникает и при попытке оформить заказ как гость",
+  "obs": 1
+ },
+ {
+  "id": "ui-order-notes-button-disappears",
+  "title": "При добавлении заметки к заказу кнопка отправки исчезает и заказ нельзя отправить",
+  "obs": 1
+ },
+ {
+  "id": "ui-schedule-time-picker-broken",
+  "title": "Список выбора времени в планировщике заказа не прокручивается — выбрать нужное время невозможно",
+  "obs": 1
+ },
+ {
+  "id": "ui-order-type-default-wrong",
+  "title": "Приложение по умолчанию выбирает самовывоз без подтверждения — пользователь оформляет заказ не того типа",
+  "obs": 1
+ },
+ {
+  "id": "ui-switch-order-type-unintuitive",
+  "title": "Переключение между доставкой и самовывозом требует нелогичной последовательности шагов",
+  "obs": 1
+ },
+ {
+  "id": "ui-delivery-time-not-shown",
+  "title": "После оформления заказа время доставки нигде не отображается",
+  "obs": 1
+ },
+ {
+  "id": "ui-order-total-hard-to-find",
+  "title": "Итоговая стоимость заказа очень сложно найти на экране после оформления",
+  "obs": 1
+ },
+ {
+  "id": "ui-combo-config-lost-between-items",
+  "title": "При настройке комбо-заказа выбранные ингредиенты сбрасываются при переходе между позициями",
+  "obs": 1
+ },
+ {
+  "id": "ui-rewards-balance-wrong",
+  "title": "Количество бонусных очков в приложении не совпадает с тем, что указано в email от компании",
+  "obs": 1
+ },
+ {
+  "id": "ui-promo-email-opens-browser",
+  "title": "Ссылки из рекламных писем открывают браузер вместо приложения — пользователь вынужден повторно входить",
+  "obs": 1
+ },
+ {
+  "id": "ui-location-by-zip-not-distance",
+  "title": "При выборе магазина приложение использует почтовый индекс, а не расстояние от адреса в профиле",
+  "obs": 1
+ },
+ {
+  "id": "ui-no-location-found",
+  "title": "Приложение показывает, что в городе нет доступных ресторанов, хотя они физически рядом",
+  "obs": 1
+ },
+ {
+  "id": "ui-location-requires-gps",
+  "title": "Для ввода почтового индекса приложение требует включить службы определения местоположения",
+  "obs": 1
+ },
+ {
+  "id": "ui-subscriptions-shown-after-order",
+  "title": "После подтверждения заказа приложение показывает четыре экрана с предложением подписок, прежде чем пользователь видит результат",
+  "obs": 1
+ },
+ {
+  "id": "ui-store-hours-wrong",
+  "title": "Приложение показывает магазин закрытым и указывает дату переоткрытия, совпадающую с текущей датой",
+  "obs": 1
+ },
+ {
+  "id": "ui-keyboard-doesnt-close",
+  "title": "Клавиатура не закрывается автоматически и перекрывает поля ввода формы заказа",
+  "obs": 1
+ },
+ {
+  "id": "ui-paste-code-fails",
+  "title": "Код входа копируется в буфер обмена, но не может быть вставлен в поле ввода",
+  "obs": 1
+ },
+ {
+  "id": "ui-login-forced-first-screen",
+  "title": "После открытия приложения единственное доступное действие — выбор типа заказа; проверить аккаунт нельзя",
+  "obs": 1
+ },
+ {
+  "id": "reliability-cart-clears-on-app-switch",
+  "title": "Корзина и выбранное местоположение сбрасываются при переключении на другое приложение",
+  "obs": 1
+ },
+ {
+  "id": "reliability-crash-on-large-order",
+  "title": "При оформлении большого заказа приложение крашится, корзина автоматически очищается",
+  "obs": 1
+ },
+ {
+  "id": "reliability-items-responsive-broken",
+  "title": "Элементы приложения не реагируют на нажатия — показывается спиннер, но действие не выполняется",
+  "obs": 1
+ },
+ {
+  "id": "reliability-topping-removal-fails",
+  "title": "Удаление ингредиента из пиццы при настройке не срабатывает — ингредиент всё равно попадает в заказ",
+  "obs": 1
+ },
+ {
+  "id": "reliability-session-lost-daily",
+  "title": "Приложение выходит из сеанса при переключении на другое приложение или после одного дня",
+  "obs": 1
+ },
+ {
+  "id": "reliability-rewards-lost-on-account-switch",
+  "title": "При потере доступа к старому аккаунту бонусные очки не переносятся в новый",
+  "obs": 1
+ },
+ {
+  "id": "reliability-spam-notifications-after-update",
+  "title": "После обновления приложение начинает отправлять рекламные уведомления каждые 3 часа",
+  "obs": 1
+ },
+ {
+  "id": "reliability-delivery-type-preference-not-saved",
+  "title": "Приложение запоминает карту, но не запоминает выбранный тип доставки — после сбоя нужно устанавливать заново",
+  "obs": 1
+ },
+ {
+  "id": "reliability-deals-trigger-errors",
+  "title": "При выборе акционного предложения приложение выдаёт ошибку веса, методы оплаты загружаются очень долго",
+  "obs": 1
+ },
+ {
+  "id": "strategy-delivery-notification-missing",
+  "title": "Приложение не уведомляет о прибытии курьера — пользователь ориентируется только на звонок в дверь",
+  "obs": 1
+ }
+]

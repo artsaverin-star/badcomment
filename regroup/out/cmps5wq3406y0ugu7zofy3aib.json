@@ -1,0 +1,90 @@
+{
+  "groups": [
+    {
+      "id": "scoring-blind-to-dose-and-context",
+      "name": "Алгоритм, который не верит дозам и контексту",
+      "insight_ids": [
+        "dose-ignored-presence-only",
+        "calorie-overweighting",
+        "no-portion-context",
+        "calorie-baseline-unknown",
+        "missing-vitamins-minerals",
+        "binary-not-reliable-overall"
+      ]
+    },
+    {
+      "id": "strange-scoring-logic",
+      "name": "Странная логика оценок: что наказано, что прощено",
+      "insight_ids": [
+        "identical-products-different-scores",
+        "scores-drift-over-time",
+        "seed-oils-not-flagged",
+        "safe-ingredients-flagged-bad",
+        "greenwashing-rewarded",
+        "regional-bias-cosmetics",
+        "sweeteners-not-warned",
+        "refined-sugar-ignored",
+        "cosmetic-functional-ingredients",
+        "ratings-contradict-reality",
+        "contradictory-recommendations"
+      ]
+    },
+    {
+      "id": "scanner-blind-spots",
+      "name": "Слепые зоны: чего сканер не видит",
+      "insight_ids": [
+        "barcode-requires-physical-pack",
+        "no-photo-ocr-ingredients",
+        "cannot-scan-unpackaged",
+        "no-protein-category"
+      ]
+    },
+    {
+      "id": "not-for-my-life",
+      "name": "Не под мою жизнь: диеты, аллергии, языки",
+      "insight_ids": [
+        "no-keto-diabetic-mode",
+        "no-allergy-personalization",
+        "no-arabic-language"
+      ]
+    },
+    {
+      "id": "paywall-and-dark-patterns",
+      "name": "Платный вход и тёмные паттерны",
+      "insight_ids": [
+        "search-behind-paywall",
+        "premium-oil-filter-missing",
+        "premium-upgrade-path-hidden",
+        "forced-registration",
+        "unwanted-recipe-emails",
+        "email-spam-after-signup"
+      ]
+    },
+    {
+      "id": "breakage-and-lost-data",
+      "name": "Поломки, чёрные экраны и пропавшие данные",
+      "insight_ids": [
+        "account-banned-no-reason",
+        "data-lost-after-update",
+        "app-broken-after-update",
+        "scanner-black-screen",
+        "requires-cellular-in-store",
+        "photo-scan-unreliable",
+        "favorites-no-sorting",
+        "user-submissions-stuck"
+      ]
+    },
+    {
+      "id": "how-yuka-changes-shopping",
+      "name": "Как Yuka меняет покупки и тревожит за столом",
+      "insight_ids": [
+        "in-store-behavior-change",
+        "family-cosmetics-switch",
+        "shock-everyday-foods",
+        "diabetic-low-gi-management",
+        "works-abroad-traveling",
+        "health-anxiety-from-labels"
+      ]
+    }
+  ]
+}

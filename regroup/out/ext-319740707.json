@@ -1,0 +1,111 @@
+{
+  "groups": [
+    {
+      "id": "audio-video-playback-broken",
+      "name": "Звук и видео живут своей жизнью: тишина, двойное аудио, перехват музыки",
+      "insight_ids": [
+        "video-no-sound",
+        "autoplay-hijacks-audio",
+        "background-audio-drain",
+        "video-controls-vanish",
+        "airplay-blocked",
+        "system-media-controls-ignored",
+        "dual-audio-on-launch",
+        "video-content-load-fail",
+        "fullscreen-white-bars",
+        "presenter-audio-quality",
+        "now-playing-bar-blocks-feed"
+      ]
+    },
+    {
+      "id": "ads-everywhere",
+      "name": "Реклама поверх всего: вторжение в чтение, эфир и поток новостей",
+      "insight_ids": [
+        "offensive-ads",
+        "ad-scroll-jump",
+        "ad-cuts-mid-sentence",
+        "ads-visually-indistinct",
+        "news-feed-overloaded-with-ads",
+        "ad-count-exceeded",
+        "flag-ad-backfires",
+        "article-reloads-on-return"
+      ]
+    },
+    {
+      "id": "update-regressions",
+      "name": "Что отняли обновления: пропавшие функции и сломанная навигация",
+      "insight_ids": [
+        "local-news-removed",
+        "stale-headlines",
+        "show-clips-removed",
+        "navigation-overhaul-confusing",
+        "search-removed",
+        "no-internet-false-error",
+        "home-button-broken",
+        "categories-not-configurable",
+        "stronger-connection-required",
+        "multiple-back-taps",
+        "back-gesture-needs-edge"
+      ]
+    },
+    {
+      "id": "tv-platform-breakage",
+      "name": "Большой экран ломается: Apple TV, Mac и iPad",
+      "insight_ids": [
+        "appletv-dual-audio",
+        "appletv-blank-freeze",
+        "appletv-video-glitch",
+        "appletv-av-desync",
+        "appletv-stale-content",
+        "ipad-landscape-broken",
+        "live-stream-drops",
+        "wrong-channel-in-slot",
+        "mac-launch-freeze"
+      ]
+    },
+    {
+      "id": "crashes-and-blank-screens",
+      "name": "Падения, зависания и пустые экраны на старте",
+      "insight_ids": [
+        "app-crash-freeze",
+        "black-screen-on-article",
+        "old-device-unsupported",
+        "mobile-layout-broken",
+        "font-too-small"
+      ]
+    },
+    {
+      "id": "reading-experience-gaps",
+      "name": "Чтение мимо приложения: статьи в браузере, нет закладок и комментариев",
+      "insight_ids": [
+        "feed-position-jump",
+        "notification-opens-safari",
+        "articles-open-in-browser",
+        "no-save-bookmarks",
+        "no-comments",
+        "website-app-content-mismatch"
+      ]
+    },
+    {
+      "id": "paywall-auth-location-gating",
+      "name": "Подписка, кабельный логин и геолокация как барьеры доступа",
+      "insight_ids": [
+        "cable-reauth-daily",
+        "peacock-double-payment",
+        "subscription-redirect-broken",
+        "no-on-demand-without-sub",
+        "zipcode-validator-broken",
+        "gps-required-no-zipcode"
+      ]
+    },
+    {
+      "id": "notifications-and-support",
+      "name": "Навязчивые уведомления и молчащая поддержка",
+      "insight_ids": [
+        "non-breaking-notifications",
+        "notifications-required-to-use",
+        "support-no-response"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "groups": [
+    {
+      "id": "id-accuracy",
+      "name": "Не узнаёт то, что должно: промахи определения видов",
+      "insight_ids": [
+        "id-accuracy-common-species-fail",
+        "id-accuracy-wrong-kingdom",
+        "id-accuracy-inconsistent-results",
+        "id-accuracy-plants-dicot-regression",
+        "reliability-camera-focus-insects",
+        "id-accuracy-fungi-weak",
+        "id-accuracy-foreground-background-conflict",
+        "id-accuracy-outside-north-america",
+        "strategy-photo-quality-threshold"
+      ]
+    },
+    {
+      "id": "camera-save-breakage",
+      "name": "Камера падает, наблюдение не сохраняется",
+      "insight_ids": [
+        "reliability-camera-crash-after-update",
+        "reliability-save-freeze",
+        "reliability-camera-crash-ios-device",
+        "reliability-save-photo-broken",
+        "reliability-safety-warning-repeated",
+        "reliability-general-app-instability",
+        "reliability-camera-selfie-flip",
+        "reliability-camera-quality-worse"
+      ]
+    },
+    {
+      "id": "browse-document",
+      "name": "Просмотр, фильтрация и ведение коллекции наблюдений",
+      "insight_ids": [
+        "ui-all-species-broken",
+        "ui-image-zoom-crop",
+        "ui-camera-permission-required",
+        "ui-one-photo-per-species",
+        "ui-language-reset",
+        "ui-filter-wheel-broken",
+        "ui-collection-white-screen",
+        "ui-notifications-no-dates",
+        "ui-geolocation-forced",
+        "ui-map-geography-error"
+      ]
+    },
+    {
+      "id": "species-knowledge-gaps",
+      "name": "Скудная карточка вида: ни съедобности, ни статуса, ни источника",
+      "insight_ids": [
+        "content-species-info-depth",
+        "content-safety-risk-identification",
+        "content-wikipedia-link",
+        "content-conservation-status",
+        "ui-species-name-both"
+      ]
+    },
+    {
+      "id": "model-regression-decline",
+      "name": "Раньше было лучше: регрессия после смены модели и заброшенность",
+      "insight_ids": [
+        "reliability-id-regressed-after-update",
+        "strategy-app-abandoned-quality-decline"
+      ]
+    },
+    {
+      "id": "gamification-social-loss",
+      "name": "Азарт угас: челленджи, охота за видами и соревнование",
+      "insight_ids": [
+        "content-challenges-stopped",
+        "ui-wishlist-species-hunt",
+        "strategy-social-compete-friends",
+        "strategy-offline-removed"
+      ]
+    },
+    {
+      "id": "correct-and-manual",
+      "name": "Когда определение неверно: нельзя поправить или ввести вручную",
+      "insight_ids": [
+        "ui-reject-wrong-id",
+        "ui-manual-species-entry",
+        "ui-save-partial-id",
+        "ui-autosave-conflicts-intent"
+      ]
+    },
+    {
+      "id": "data-sync-loss",
+      "name": "Наблюдения исчезают: синхронизация и потеря данных при входе",
+      "insight_ids": [
+        "reliability-no-sync-between-devices",
+        "reliability-data-loss-login",
+        "ui-no-delete-data"
+      ]
+    }
+  ]
+}

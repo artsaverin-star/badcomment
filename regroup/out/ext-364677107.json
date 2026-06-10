@@ -1,0 +1,114 @@
+{
+  "groups": [
+    {
+      "id": "crashes-and-breakage-after-update",
+      "name": "Падения, перегрев и тормоза после обновления",
+      "insight_ids": [
+        "app-crash-freeze-post-update",
+        "slow-load-articles",
+        "overheating-battery-drain",
+        "scroll-lag-jank",
+        "app-crashes-other-apps",
+        "apple-watch-app-broken",
+        "layout-broken-iphone16-ipad",
+        "local-news-section-crashes",
+        "app-launch-slow-stuck",
+        "portrait-landscape-links-break",
+        "pip-disappears-with-ap-news",
+        "images-desynced-on-resume",
+        "overlapping-elements-multiple-audio",
+        "settings-not-saved",
+        "captcha-loop-on-setup",
+        "logout-on-update-account-deleted"
+      ]
+    },
+    {
+      "id": "ad-overload-and-paywall-traps",
+      "name": "Рекламный вал и денежные ловушки без платной подписки",
+      "insight_ids": [
+        "ad-oversized-touch-targets",
+        "fullscreen-popup-ads",
+        "excess-ads-no-paid-option",
+        "video-ads-autoplay-with-sound",
+        "ad-layout-shift",
+        "ad-blocks-scroll",
+        "app-unresponsive-near-ads",
+        "false-adblocker-detection",
+        "app-requires-card-to-download",
+        "data-opt-out-paradox"
+      ]
+    },
+    {
+      "id": "reading-text-and-accessibility",
+      "name": "Чтение сломалось: шрифт, текст, закладки и навигация по статье",
+      "insight_ids": [
+        "font-size-broken-after-update",
+        "font-size-setting-no-effect",
+        "font-size-caption-broken",
+        "text-overflows-screen",
+        "article-tap-target-inconsistent",
+        "bookmarks-broken",
+        "article-position-not-saved",
+        "search-partial-match-broken",
+        "screen-reader-loses-position"
+      ]
+    },
+    {
+      "id": "redesign-stripped-features-exodus",
+      "name": "Редизайн вырезал привычное — и лояльные уходят",
+      "insight_ids": [
+        "category-navigation-removed",
+        "comments-added-without-opt-out",
+        "ap-radio-removed",
+        "redesign-trade-offs-user-exodus",
+        "swipe-navigation-removed",
+        "timestamp-removed",
+        "share-function-changed",
+        "email-sharing-removed",
+        "editorial-control-removed",
+        "sticky-header-wastes-screen",
+        "no-pinch-to-zoom-images"
+      ]
+    },
+    {
+      "id": "notifications-noisy-and-broken",
+      "name": "Уведомления: всё «срочное», но многое не доходит",
+      "insight_ids": [
+        "notifications-too-frequent-non-urgent",
+        "notification-filter-broken",
+        "notification-destination-wrong",
+        "push-notifications-broken-post-update",
+        "notification-sound-changed",
+        "notification-button-unresponsive-first-launch"
+      ]
+    },
+    {
+      "id": "editorial-content-and-video-pivot",
+      "name": "Контент: видео вместо текста, чужие фото и сомнительные саммари",
+      "insight_ids": [
+        "local-news-wrong-category",
+        "sponsored-content-mixed-in",
+        "wrong-photos-on-articles",
+        "ai-summaries-low-quality",
+        "video-pivot-text-readers-left-out",
+        "no-video-marker-in-feed",
+        "video-in-article-not-loading",
+        "video-audio-loops-on-page",
+        "fullscreen-photo-no-close-button",
+        "carousel-dead-zone-blocks-scroll"
+      ]
+    },
+    {
+      "id": "stale-feed-and-staleness",
+      "name": "Застывшая лента: новости не обновляются и устаревают",
+      "insight_ids": [
+        "feed-not-refreshing",
+        "feed-frozen-at-date",
+        "today-in-history-date-stuck",
+        "live-label-24h-delay",
+        "coverage-gap-major-story",
+        "ipad-content-stale"
+      ]
+    }
+  ]
+}

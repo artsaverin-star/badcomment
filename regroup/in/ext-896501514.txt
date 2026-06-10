@@ -1,0 +1,214 @@
+You are grouping 33 mechanism-level insight clusters from Period Tracker Period Calendar (Месячные и фертильность) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Period Tracker Period Calendar, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 33 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Period Tracker Period Calendar — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Period Tracker Period Calendar>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-896501514.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "silent-subscription-activation",
+  "title": "Приложение активирует платную подписку без явного согласия — деньги списываются незаметно",
+  "obs": 4
+ },
+ {
+  "id": "ads-volume-spike",
+  "title": "После обновления количество рекламы резко возросло — пользователи уходят в альтернативные приложения",
+  "obs": 4
+ },
+ {
+  "id": "prediction-inaccurate-weeks-off",
+  "title": "Предсказания даты начала менструации смещаются на неделю и более — приложение не корректирует расчёт при изменении данных",
+  "obs": 4
+ },
+ {
+  "id": "free-trial-charges-full-price",
+  "title": "Кнопка «бесплатная неделя» сразу списывает полную годовую подписку без пробного периода",
+  "obs": 2
+ },
+ {
+  "id": "onboarding-complex-young",
+  "title": "Интерфейс слишком сложен для новых и молодых пользователей — навигация и начальные вопросы непонятны",
+  "obs": 2
+ },
+ {
+  "id": "period-end-date-locked",
+  "title": "Приложение автоматически заполняет дату конца периода и не даёт изменить её вручную — значение сбрасывается",
+  "obs": 2
+ },
+ {
+  "id": "data-loss-device-switch",
+  "title": "При смене телефона история за несколько лет не переносится, несмотря на привязку к аккаунту",
+  "obs": 2
+ },
+ {
+  "id": "partner-code-not-appearing",
+  "title": "Код для подключения партнёра не появляется или не активируется даже после переустановки приложения",
+  "obs": 2
+ },
+ {
+  "id": "no-support-contact",
+  "title": "Найти способ связаться с поддержкой невозможно — кнопка скрыта или отсутствует",
+  "obs": 2
+ },
+ {
+  "id": "accidental-charge-no-refund",
+  "title": "При случайном согласии на подписку списывается крупная сумма без возможности возврата",
+  "obs": 1
+ },
+ {
+  "id": "repeated-charge-no-cancel",
+  "title": "Непреднамеренно активированная подписка продолжает регулярно списываться, отменить её невозможно",
+  "obs": 1
+ },
+ {
+  "id": "partner-auto-charged",
+  "title": "При подключении партнёра к режиму совместного отслеживания ему автоматически начисляется платная подписка",
+  "obs": 1
+ },
+ {
+  "id": "ads-in-health-app",
+  "title": "Реклама в приложении для здоровья воспринимается как неуместная для категории",
+  "obs": 1
+ },
+ {
+  "id": "premium-still-shows-ads",
+  "title": "После покупки премиум-подписки реклама остаётся, поддержка недоступна",
+  "obs": 1
+ },
+ {
+  "id": "tag-search-broken",
+  "title": "Поиск по пользовательским тегам не возвращает результатов, хотя записи с тегом существуют",
+  "obs": 1
+ },
+ {
+  "id": "background-cant-change-back",
+  "title": "После ошибочного выбора фона вернуться к предыдущему нельзя — интерфейс не предусматривает такого действия",
+  "obs": 1
+ },
+ {
+  "id": "no-custom-symptoms",
+  "title": "Нельзя добавить собственные симптомы и настроения — список фиксирован, персональные сценарии не учитываются",
+  "obs": 1
+ },
+ {
+  "id": "sexual-content-for-minors",
+  "title": "Приложение показывает функции, связанные с сексуальной активностью, аудитории младше 14 лет",
+  "obs": 1
+ },
+ {
+  "id": "irregular-cycle-auto-fill-wrong",
+  "title": "Нерегулярные циклы приложение заполняет автоматически и выдаёт неправильные расчёты овуляции",
+  "obs": 1
+ },
+ {
+  "id": "crash-after-update",
+  "title": "После обновления приложение постоянно падает и не загружается",
+  "obs": 1
+ },
+ {
+  "id": "onboarding-freeze",
+  "title": "Первый экран настройки зависает и не реагирует на действия — пройти онбординг невозможно",
+  "obs": 1
+ },
+ {
+  "id": "sync-crashes",
+  "title": "Синхронизация данных между устройствами падает с ошибкой и не работает",
+  "obs": 1
+ },
+ {
+  "id": "apple-health-not-syncing",
+  "title": "Приложение заявляет интеграцию с Apple Health, но фактически данные не передаются",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-restore-broken",
+  "title": "Функция восстановления данных не работает — потерянные записи вернуть невозможно",
+  "obs": 1
+ },
+ {
+  "id": "data-lost-pregnancy-switch",
+  "title": "При переходе из режима беременности обратно к обычному циклу вся история менструаций удаляется",
+  "obs": 1
+ },
+ {
+  "id": "partner-mode-removes-features",
+  "title": "После обновления из режима партнёра убраны процентные оценки вероятности беременности и ползунок фертильности",
+  "obs": 1
+ },
+ {
+  "id": "user-data-sold-lawsuit",
+  "title": "Компания признана в иске продающей данные пользователей для таргетированной рекламы",
+  "obs": 1
+ },
+ {
+  "id": "cookie-consent-breaks-privacy-promise",
+  "title": "После обновления приложение требует согласие на отслеживание, нарушая обещание о приватности",
+  "obs": 1
+ },
+ {
+  "id": "no-menopause-mode",
+  "title": "Нет опции отключить напоминания о периоде для пользователей в менопаузе — приходят ложные оповещения о пропущенном цикле",
+  "obs": 1
+ },
+ {
+  "id": "no-emergency-contraception-tracking",
+  "title": "Нет возможности отметить приём экстренной контрацепции — прогнозы после этого становятся недостоверными",
+  "obs": 1
+ },
+ {
+  "id": "partner-mode-blocks-own-tracking",
+  "title": "После подключения партнёра основной пользователь теряет возможность вести собственный трекинг цикла",
+  "obs": 1
+ },
+ {
+  "id": "partner-mode-hides-sex-activity",
+  "title": "В режиме партнёра основной пользователь не видит отметки о половой активности, что мешает понять причину задержки",
+  "obs": 1
+ },
+ {
+  "id": "no-multi-partner-tracking",
+  "title": "Приложение не позволяет отслеживать циклы нескольких партнёров одновременно",
+  "obs": 1
+ }
+]

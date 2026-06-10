@@ -1,0 +1,289 @@
+You are grouping 48 mechanism-level insight clusters from Grubhub: Food Delivery (Доставка еды) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Grubhub: Food Delivery, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 48 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Grubhub: Food Delivery — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Grubhub: Food Delivery>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/cmpsub0to2w4bug8pbai9lmag.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "driver-multi-stop-cold-food",
+  "title": "Водитель развозит несколько заказов подряд — еда доходит холодной из-за дополнительных остановок",
+  "obs": 6
+ },
+ {
+  "id": "driver-ignores-delivery-instructions",
+  "title": "Водитель игнорирует специальные инструкции и оставляет еду не там, где указано",
+  "obs": 5
+ },
+ {
+  "id": "refund-cap-too-low",
+  "title": "Максимальная компенсация ограничена фиксированной суммой независимо от размера заказа",
+  "obs": 4
+ },
+ {
+  "id": "promo-cancelled-after-signup",
+  "title": "Рекламное промо отменяется после того, как пользователь оформил подписку ради этого предложения",
+  "obs": 4
+ },
+ {
+  "id": "support-bot-only-no-human",
+  "title": "Служба поддержки работает только через ИИ-чат — перейти к живому оператору невозможно",
+  "obs": 4
+ },
+ {
+  "id": "support-refuses-refund",
+  "title": "Поддержка отказывает в возврате без объяснений, ссылаясь на «невозможность что-либо сделать»",
+  "obs": 4
+ },
+ {
+  "id": "estimated-time-grossly-wrong",
+  "title": "Фактическое время доставки систематически в два раза превышает обещанное",
+  "obs": 4
+ },
+ {
+  "id": "promo-code-not-applied-at-checkout",
+  "title": "Промо-код отображается как применённый, но при оплате скидка не засчитывается",
+  "obs": 3
+ },
+ {
+  "id": "credit-instead-of-refund",
+  "title": "Вместо возврата на карту приложение выдаёт кредит с ограниченным сроком действия",
+  "obs": 3
+ },
+ {
+  "id": "promo-credits-not-combinable",
+  "title": "Промо-кредиты нельзя объединять с другими кредитами или скидками в одном заказе",
+  "obs": 3
+ },
+ {
+  "id": "prime-membership-fee-still-charged",
+  "title": "Подписчикам Amazon Prime начисляют плату за доставку несмотря на активный статус",
+  "obs": 3
+ },
+ {
+  "id": "driver-not-assigned-long-wait",
+  "title": "После оплаты водитель не назначается часами — отмена возможна только с кредитом, не возвратом",
+  "obs": 3
+ },
+ {
+  "id": "order-cancelled-by-system",
+  "title": "Система отменяет заказы в большинстве случаев — пользователь вынужден ждать возврата",
+  "obs": 3
+ },
+ {
+  "id": "delivery-to-wrong-location",
+  "title": "Еда доставляется по неверному адресу — водители следуют только данным приложения, игнорируя поправки",
+  "obs": 3
+ },
+ {
+  "id": "confirmation-code-bypassed",
+  "title": "Водитель отмечает заказ доставленным без запроса кода подтверждения",
+  "obs": 3
+ },
+ {
+  "id": "contactless-delivery-requires-code",
+  "title": "Опция «безконтактная доставка» всё равно требует передать водителю код доступа",
+  "obs": 3
+ },
+ {
+  "id": "subscription-service-fee-still-charged",
+  "title": "Подписчики платят сервисный сбор поверх абонентской платы — подписка не отменяет комиссию",
+  "obs": 2
+ },
+ {
+  "id": "payment-error-loses-cart-and-promo",
+  "title": "Ошибка платёжного метода отменяет весь заказ и теряет применённый промо-код",
+  "obs": 2
+ },
+ {
+  "id": "loyalty-points-unusable",
+  "title": "Накопленные баллы программы лояльности невозможно потратить в приложении",
+  "obs": 2
+ },
+ {
+  "id": "restaurant-shown-open-but-closed",
+  "title": "Приложение показывает ресторан открытым, но при подтверждении заказа выясняется, что он закрыт",
+  "obs": 2
+ },
+ {
+  "id": "tracking-status-desync",
+  "title": "Уведомления говорят «заказ вот-вот придёт», а статус в приложении — «водитель не назначен»",
+  "obs": 2
+ },
+ {
+  "id": "driver-delivers-wrong-items",
+  "title": "Водитель привозит не тот заказ или забывает напитки",
+  "obs": 2
+ },
+ {
+  "id": "cant-cancel-order-in-app",
+  "title": "Отменить заказ в приложении невозможно даже после полутора часов ожидания",
+  "obs": 2
+ },
+ {
+  "id": "prime-membership-unknown",
+  "title": "Пользователи не знают, что Amazon Prime уже включает доступ к Grubhub+, и покупают подписку повторно",
+  "obs": 1
+ },
+ {
+  "id": "price-markup-vs-restaurant",
+  "title": "Цены в приложении выше, чем в ресторане для самовывоза",
+  "obs": 1
+ },
+ {
+  "id": "bill-mismatch",
+  "title": "Сумма в приложении не совпадает с суммой списания по карте",
+  "obs": 1
+ },
+ {
+  "id": "fake-photo-proof-accepted",
+  "title": "Поддержка принимает чёрный экран или фото чужого места как доказательство доставки и отказывает в возврате",
+  "obs": 1
+ },
+ {
+  "id": "no-food-safety-escalation",
+  "title": "Жалобы на пищевое отравление не получают ответа и не расследуются",
+  "obs": 1
+ },
+ {
+  "id": "unsubscribe-account-deletion-broken",
+  "title": "Отписка от рассылки не работает, удаление аккаунта завершается ошибкой",
+  "obs": 1
+ },
+ {
+  "id": "cancellation-notification-delayed",
+  "title": "Уведомление об отмене приходит с часовой задержкой — пользователь теряет время заказать в другом месте",
+  "obs": 1
+ },
+ {
+  "id": "paid-express-delivery-no-faster",
+  "title": "Платная ускоренная доставка не сокращает время — деньги за ускорение не возвращают",
+  "obs": 1
+ },
+ {
+  "id": "account-hacked-unauthorized-orders",
+  "title": "Чужой человек использует аккаунт для заказов — механизма защиты нет",
+  "obs": 1
+ },
+ {
+  "id": "user-blocked-after-complaints",
+  "title": "Пользователя блокируют в системе после многократных жалоб на ошибки водителей",
+  "obs": 1
+ },
+ {
+  "id": "ipad-no-support",
+  "title": "Приложение не адаптировано для планшета и не поддерживает альбомную ориентацию",
+  "obs": 1
+ },
+ {
+  "id": "driver-cancels-late-no-penalty",
+  "title": "Водитель может отменить заказ после часа ожидания без штрафа",
+  "obs": 1
+ },
+ {
+  "id": "no-driver-rating-system",
+  "title": "Нет возможности оценить водителя или отозвать чаевые после плохой доставки",
+  "obs": 1
+ },
+ {
+  "id": "alcohol-delivery-no-id-check",
+  "title": "Доставка алкоголя происходит без проверки документов, хотя это требуется по закону",
+  "obs": 1
+ },
+ {
+  "id": "driver-language-barrier",
+  "title": "Водители не всегда говорят на языке пользователя, что затрудняет координацию при доставке",
+  "obs": 1
+ },
+ {
+  "id": "no-multi-restaurant-cart",
+  "title": "Нельзя заказать из нескольких ресторанов в одном заказе, в отличие от конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "wrong-default-address-persists",
+  "title": "Приложение по умолчанию подставляет удалённый адрес при каждом новом заказе",
+  "obs": 1
+ },
+ {
+  "id": "cant-edit-delivery-dropoff-point",
+  "title": "Нельзя уточнить точку выгрузки внутри адреса — только переулок вместо входа",
+  "obs": 1
+ },
+ {
+  "id": "cart-cleared-on-address-change",
+  "title": "Смена адреса доставки или способа оплаты удаляет всю корзину",
+  "obs": 1
+ },
+ {
+  "id": "modifier-count-calculation-error",
+  "title": "Счётчик выбранных опций блюда считает неправильно и выдаёт ошибку превышения лимита",
+  "obs": 1
+ },
+ {
+  "id": "duplicate-restaurant-names-in-catalog",
+  "title": "В каталоге несколько ресторанов с одинаковым названием, разными меню и локациями — непонятно, какой выбрать",
+  "obs": 1
+ },
+ {
+  "id": "cant-rate-cancelled-order",
+  "title": "Нельзя оставить отзыв на ресторан, если тот отменил заказ",
+  "obs": 1
+ },
+ {
+  "id": "zero-tip-interpreted-as-cash",
+  "title": "Выбор нулевых чаевых трактуется как «оплата наличными» — водители требуют деньги",
+  "obs": 1
+ },
+ {
+  "id": "reorder-flow-hidden",
+  "title": "Функция повторного заказа скрыта — каждый раз нужно настраивать заказ вручную",
+  "obs": 1
+ },
+ {
+  "id": "review-prompt-too-frequent",
+  "title": "Приложение запрашивает оценку после каждого заказа, что раздражает постоянных пользователей",
+  "obs": 1
+ }
+]

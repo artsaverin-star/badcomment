@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "id": "login-subscription-access",
+      "name": "Постоянные разлогины и подписка, которая не открывает доступ",
+      "insight_ids": [
+        "repeated-logout-appletv",
+        "repeated-logout-general",
+        "subscription-not-recognized",
+        "cable-required-for-streaming",
+        "subscription-content-differs-from-cable",
+        "article-paywall-not-labeled",
+        "apple-id-login-loop",
+        "geo-restriction-outside-usa"
+      ]
+    },
+    {
+      "id": "stream-playback-breakage",
+      "name": "Прямой эфир рвётся: зависания, буферизация, сломанный плеер",
+      "insight_ids": [
+        "video-freeze-on-rotation",
+        "video-close-button-broken",
+        "streaming-lag-buffering",
+        "ad-freeze-blocks-stream",
+        "stream-drops-on-app-switch",
+        "audio-video-desync",
+        "subtitles-broken-on-tv"
+      ]
+    },
+    {
+      "id": "crashes-state-audio",
+      "name": "Вылеты, мёртвый виджет и потеря места после паузы",
+      "insight_ids": [
+        "app-crash-after-update",
+        "audio-interrupted-by-notifications",
+        "no-resume-position",
+        "widget-empty-after-update",
+        "audio-session-capture",
+        "privacy-toggle-broken"
+      ]
+    },
+    {
+      "id": "headline-news-takeover",
+      "name": "Headline News вытесняет основной эфир CNN",
+      "insight_ids": [
+        "auto-switch-to-headlines",
+        "schedule-dominated-by-headlines"
+      ]
+    },
+    {
+      "id": "feed-reading-ux",
+      "name": "Лента мешает читать: случайные клики, автовидео, нет «назад»",
+      "insight_ids": [
+        "scroll-triggers-accidental-clicks",
+        "feed-same-story-repeated",
+        "article-scroll-freeze",
+        "no-back-button-in-articles",
+        "autoplay-video-clutters-feed",
+        "color-scheme-distracting"
+      ]
+    },
+    {
+      "id": "ads-even-when-paid",
+      "name": "Реклама даже у платных: повторы, принудительные вставки, повтор при перемотке",
+      "insight_ids": [
+        "repeated-ads-in-stream",
+        "ads-on-paid-tier",
+        "mandatory-ads-on-stream-switch",
+        "autoplay-ads-without-view",
+        "seek-triggers-ad-replay"
+      ]
+    },
+    {
+      "id": "tv-and-cross-device",
+      "name": "Apple TV, Chromecast, CarPlay — где смотреть не получается",
+      "insight_ids": [
+        "appletv-navigation-slow",
+        "chromecast-not-supported",
+        "carplay-not-working",
+        "airplay-removed",
+        "samsung-tv-unavailable",
+        "content-differs-across-devices"
+      ]
+    }
+  ]
+}

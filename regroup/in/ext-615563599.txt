@@ -1,0 +1,279 @@
+You are grouping 46 mechanism-level insight clusters from Videoshop - Video Editor (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Videoshop - Video Editor, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 46 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Videoshop - Video Editor — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Videoshop - Video Editor>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-615563599.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "subscription-migration-purchase-not-recognized",
+  "title": "Переход на подписку не признаёт историю одноразовой покупки, пользователи теряют доступ к оплаченным функциям",
+  "obs": 4
+ },
+ {
+  "id": "watermark-reappears-after-migration",
+  "title": "После перехода на подписку водяной знак появляется у пользователей с ранее купленной полной версией",
+  "obs": 3
+ },
+ {
+  "id": "chroma-key-missing-or-broken",
+  "title": "Функция зелёного экрана заявлена в описании, но не работает или удалена после обновления",
+  "obs": 3
+ },
+ {
+  "id": "library-videos-invisible-after-update",
+  "title": "После обновления приложение перестаёт отображать видео из галереи телефона для редактирования",
+  "obs": 3
+ },
+ {
+  "id": "lifetime-license-not-restored-new-device",
+  "title": "Пожизненная лицензия не восстанавливается на новом устройстве спустя несколько лет после покупки",
+  "obs": 2
+ },
+ {
+  "id": "music-integration-only-apple-music",
+  "title": "Приложение поддерживает только Apple Music — нет интеграции со Spotify и другими стриминговыми сервисами",
+  "obs": 2
+ },
+ {
+  "id": "projects-lost-on-app-delete",
+  "title": "Все проекты безвозвратно теряются при удалении приложения — облачного резервного копирования нет",
+  "obs": 2
+ },
+ {
+  "id": "arbitrary-upload-restriction",
+  "title": "Приложение произвольно блокирует загрузку контента: одни видео проходят, другие отклоняются без объяснений",
+  "obs": 2
+ },
+ {
+  "id": "support-ignores-restore-requests",
+  "title": "Служба поддержки не отвечает на запросы о восстановлении исторических покупок",
+  "obs": 2
+ },
+ {
+  "id": "restore-purchase-button-hangs",
+  "title": "Кнопка «Восстановить покупку» зависает и не выполняет восстановление",
+  "obs": 1
+ },
+ {
+  "id": "cancellation-not-processed",
+  "title": "Отмена подписки не регистрируется в системе, и платёж продолжает обрабатываться",
+  "obs": 1
+ },
+ {
+  "id": "purchased-sfx-deleted-after-update",
+  "title": "Ранее купленные звуковые эффекты исчезают из библиотеки после обновления приложения",
+  "obs": 1
+ },
+ {
+  "id": "built-in-music-copyright-blocks-monetization",
+  "title": "Треки из встроенной музыкальной библиотеки заблокированы авторским правом и лишают видео монетизации на YouTube",
+  "obs": 1
+ },
+ {
+  "id": "free-label-but-paywall-on-core-features",
+  "title": "Приложение позиционируется как бесплатное, но основные функции редактирования доступны только по подписке",
+  "obs": 1
+ },
+ {
+  "id": "gif-library-explicit-content",
+  "title": "Встроенная библиотека GIF содержит материалы сексуального характера, неприемлемые для семейного использования",
+  "obs": 1
+ },
+ {
+  "id": "stickers-oversized-no-resize",
+  "title": "Стикеры непропорционально большие и не имеют встроенного способа изменить размер",
+  "obs": 1
+ },
+ {
+  "id": "text-overlay-too-large",
+  "title": "Текстовые наложения в видео отображаются слишком крупными без тонкой регулировки размера",
+  "obs": 1
+ },
+ {
+  "id": "no-search-in-music-library",
+  "title": "При добавлении личной музыки нет поиска по библиотеке — приходится прокручивать весь список вручную",
+  "obs": 1
+ },
+ {
+  "id": "project-organization-hard-to-navigate",
+  "title": "Организация сохранённых проектов интуитивно непонятна: трудно найти нужный файл среди многих",
+  "obs": 1
+ },
+ {
+  "id": "no-fade-to-black-preset",
+  "title": "Нет готовых пресетов затухания на чёрный — длительность перехода приходится задавать вручную",
+  "obs": 1
+ },
+ {
+  "id": "no-picture-in-picture",
+  "title": "Нет встроенной функции картинка-в-картинке — видео внутри видео можно сделать только через стикеры",
+  "obs": 1
+ },
+ {
+  "id": "no-nondestructive-editing",
+  "title": "После применения эффекта нельзя вернуться и изменить решение без перезапуска проекта с нуля",
+  "obs": 1
+ },
+ {
+  "id": "cannot-trim-below-minimum-duration",
+  "title": "Нельзя обрезать клипы короче определённого порогового значения длительности",
+  "obs": 1
+ },
+ {
+  "id": "cannot-mute-original-audio-track",
+  "title": "Нет возможности отключить исходный звук клипа при добавлении новой аудиодорожки",
+  "obs": 1
+ },
+ {
+  "id": "no-bulk-volume-adjustment",
+  "title": "Нет массовой регулировки громкости сразу для всех клипов — каждый фрагмент приходится настраивать отдельно",
+  "obs": 1
+ },
+ {
+  "id": "sfx-only-between-clips",
+  "title": "Звуковые эффекты можно добавлять только между клипами, а не в конкретный момент внутри клипа",
+  "obs": 1
+ },
+ {
+  "id": "no-voice-memo-import",
+  "title": "Нет импорта голосовых записей с диктофона в видеопроекты",
+  "obs": 1
+ },
+ {
+  "id": "no-apple-music-library-in-pro",
+  "title": "Даже в версии Pro нельзя использовать треки из личной библиотеки Apple Music",
+  "obs": 1
+ },
+ {
+  "id": "no-audio-extraction-from-clip",
+  "title": "Нет встроенного извлечения звука из видеоклипа — нужно экспортировать и обрабатывать в стороннем приложении",
+  "obs": 1
+ },
+ {
+  "id": "no-standalone-audio-import",
+  "title": "Нет импорта отдельных аудиофайлов — приложение принимает только видео и фотографии",
+  "obs": 1
+ },
+ {
+  "id": "no-icloud-desktop-import",
+  "title": "Нет импорта медиафайлов из папки iCloud Desktop, только из локальной галереи",
+  "obs": 1
+ },
+ {
+  "id": "no-portable-project-export",
+  "title": "Нет экспорта проекта с вложенными медиафайлами для переноса и резервного копирования между устройствами",
+  "obs": 1
+ },
+ {
+  "id": "large-export-requires-local-storage",
+  "title": "Экспорт большого видеофайла невозможен без расхода значительного места на устройстве",
+  "obs": 1
+ },
+ {
+  "id": "itunes-export-removed",
+  "title": "Ранее доступный экспорт видео на компьютер через iTunes удалён после обновления",
+  "obs": 1
+ },
+ {
+  "id": "app-does-not-launch-red-screen",
+  "title": "Приложение не запускается: при старте отображается только красный баннер без основного интерфейса",
+  "obs": 1
+ },
+ {
+  "id": "export-crash-after-update",
+  "title": "После обновления приложение падает при каждой попытке экспортировать видео",
+  "obs": 1
+ },
+ {
+  "id": "import-glitch-flickering-element",
+  "title": "При импорте клипа элемент начинает мерцать в углу экрана и полностью блокирует работу в приложении",
+  "obs": 1
+ },
+ {
+  "id": "core-editing-broken-after-update",
+  "title": "После обновления сломаны базовые операции: редактирование, экспорт и разделение клипов перестают работать",
+  "obs": 1
+ },
+ {
+  "id": "delete-element-corrupts-project",
+  "title": "При удалении одного элемента приложение непредсказуемо удаляет или перемещает другие объекты в проекте",
+  "obs": 1
+ },
+ {
+  "id": "project-limit-blocks-new-creation",
+  "title": "При наличии нескольких проектов приложение отказывается создавать новые, ссылаясь на нехватку места",
+  "obs": 1
+ },
+ {
+  "id": "audio-sync-lost-many-tracks",
+  "title": "При большом количестве аудиодорожек приложение теряет синхронизацию и зависает",
+  "obs": 1
+ },
+ {
+  "id": "export-scaling-wrong",
+  "title": "Экспортированное видео оказывается меньше по размеру, чем в предпросмотре редактора",
+  "obs": 1
+ },
+ {
+  "id": "undo-history-bloats-storage",
+  "title": "История отмены действий чрезмерно расходует хранилище устройства при каждом редактировании",
+  "obs": 1
+ },
+ {
+  "id": "app-uses-too-much-storage",
+  "title": "Приложение занимает слишком много места на устройстве даже для коротких проектов",
+  "obs": 1
+ },
+ {
+  "id": "export-slow-processing-time",
+  "title": "Экспорт минутного видео занимает около 15 секунд — заметно дольше, чем у конкурентов",
+  "obs": 1
+ },
+ {
+  "id": "developer-ignores-feedback-fake-reviews",
+  "title": "Разработчик игнорирует обращения пользователей об ошибках и публикует накрученные положительные отзывы",
+  "obs": 1
+ }
+]

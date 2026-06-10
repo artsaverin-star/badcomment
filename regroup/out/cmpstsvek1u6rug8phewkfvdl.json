@@ -1,0 +1,81 @@
+{
+  "groups": [
+    {
+      "id": "billing-traps",
+      "name": "Невозможно отменить и платежи не прекращаются",
+      "insight_ids": [
+        "subscription-hidden-apple",
+        "charges-after-cancellation",
+        "lifetime-revoked",
+        "double-simultaneous-charges",
+        "trial-charged-immediately",
+        "weekly-billing-hides-cost",
+        "plan-downgrade-refund-denied",
+        "charged-without-consent"
+      ]
+    },
+    {
+      "id": "id-and-diagnosis-fail",
+      "name": "Растение не узнаёт, болезнь придумывает",
+      "insight_ids": [
+        "systematic-id-failure",
+        "vague-incomplete-diagnosis",
+        "specific-plants-missing",
+        "uniform-template-diagnosis",
+        "false-positive-diagnosis",
+        "inconsistent-diagnosis",
+        "wrong-care-advice",
+        "image-size-rejection",
+        "features-degraded-over-time"
+      ]
+    },
+    {
+      "id": "paywall-and-fake-expert",
+      "name": "Платный «эксперт»-бот и пейволл вместо обещанной бесплатности",
+      "insight_ids": [
+        "expert-consult-extra-charge",
+        "freemium-paywall-not-disclosed",
+        "aggressive-upsell-ui",
+        "expert-consult-ai-not-human",
+        "users-switch-competitors"
+      ]
+    },
+    {
+      "id": "care-and-collection-value",
+      "name": "Ради чего остаются: уход, напоминания и коллекция",
+      "insight_ids": [
+        "outdoor-plant-identification",
+        "positive-diagnosis-outcomes",
+        "care-reminders-useful",
+        "free-version-sufficient",
+        "long-term-retention",
+        "pet-safety-check",
+        "support-positive",
+        "better-than-competitors",
+        "individualized-care-info",
+        "id-weak-care-strong"
+      ]
+    },
+    {
+      "id": "library-ui-friction",
+      "name": "Библиотека, попапы и тормоза мешают пользоваться",
+      "insight_ids": [
+        "library-management-missing",
+        "multi-photo-no-support",
+        "popup-roadblocks",
+        "low-contrast-text",
+        "care-timer-broken",
+        "app-slow-photos-fail",
+        "early-review-prompt"
+      ]
+    },
+    {
+      "id": "data-loss-privacy",
+      "name": "Потеря истории и слив данных",
+      "insight_ids": [
+        "data-privacy-providers",
+        "update-deleted-history"
+      ]
+    }
+  ]
+}

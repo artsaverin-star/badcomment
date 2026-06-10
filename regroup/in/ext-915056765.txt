@@ -1,0 +1,249 @@
+You are grouping 40 mechanism-level insight clusters from Apple Maps (Карты и навигация) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Apple Maps, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 40 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Apple Maps — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Apple Maps>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-915056765.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "wrong-entrance-routing",
+  "title": "Маршрут ведёт к переулку, заднему входу или непроезжему участку вместо главного входа",
+  "obs": 7
+ },
+ {
+  "id": "suboptimal-route",
+  "title": "Маршрут строится кружным или значительно более длинным путём, чем очевидный оптимальный",
+  "obs": 6
+ },
+ {
+  "id": "ads-block-navigation",
+  "title": "Реклама перекрывает экран во время вождения и вызывает пропуск поворотов и угрозу безопасности",
+  "obs": 5
+ },
+ {
+  "id": "toll-avoidance-ignored",
+  "title": "Настройка «Избегать платных дорог» игнорируется, и приложение всё равно ведёт по платным участкам",
+  "obs": 4
+ },
+ {
+  "id": "app-lag-freeze",
+  "title": "Приложение зависает на десятки секунд при загрузке, поиске и просмотре информации о месте",
+  "obs": 3
+ },
+ {
+  "id": "storage-bloat",
+  "title": "Приложение накапливает до 20 ГБ мусора на диске, и проблема не устраняется даже переустановкой",
+  "obs": 3
+ },
+ {
+  "id": "gps-location-wrong",
+  "title": "Приложение определяет текущее местоположение неверно — показывает пользователя за несколько километров от реального места",
+  "obs": 3
+ },
+ {
+  "id": "silent-reroute",
+  "title": "Приложение меняет или пересчитывает маршрут без голосового или визуального уведомления пользователя",
+  "obs": 3
+ },
+ {
+  "id": "eta-inaccurate",
+  "title": "Время прибытия рассчитывается без учёта пробок и светофоров и ошибается на десятки процентов",
+  "obs": 3
+ },
+ {
+  "id": "geographic-data-errors",
+  "title": "Географические объекты подписаны неверно или отображаются с явной региональной предвзятостью",
+  "obs": 2
+ },
+ {
+  "id": "business-address-stale",
+  "title": "Адреса бизнеса устарели или привязаны к земельному участку, а не к фактическому входу",
+  "obs": 2
+ },
+ {
+  "id": "sponsored-search-results",
+  "title": "Поиск выдаёт спонсируемые места вместо тех, которые ищет пользователь",
+  "obs": 2
+ },
+ {
+  "id": "wrong-search-results",
+  "title": "Поиск мест возвращает нерелевантные результаты или объекты из других регионов",
+  "obs": 2
+ },
+ {
+  "id": "speed-limit-display",
+  "title": "Ограничение скорости не отображается в режиме поездки или показывает неверное значение",
+  "obs": 2
+ },
+ {
+  "id": "ad-dismiss-impossible",
+  "title": "Закрыть рекламный диалог невозможно, а отключить рекламу можно только ценой отключения геолокации",
+  "obs": 2
+ },
+ {
+  "id": "auto-map-controls",
+  "title": "Автоматическое масштабирование и поворот карты нельзя отключить — пользователь не может управлять картой вручную",
+  "obs": 2
+ },
+ {
+  "id": "highway-avoidance-ignored",
+  "title": "Настройка «Избегать автомагистралей» игнорируется и приложение принудительно ведёт по ним",
+  "obs": 2
+ },
+ {
+  "id": "post-update-regression",
+  "title": "После обновления приложения перестают работать поиск, показ ETA и добавление остановок",
+  "obs": 2
+ },
+ {
+  "id": "satellite-imagery-blurry",
+  "title": "Спутниковые снимки содержат размытые участки, которые мешают визуальной навигации",
+  "obs": 1
+ },
+ {
+  "id": "lebanon-map-gap",
+  "title": "Карта Ливана и Ближнего Востока не содержит данных о сёлах и населённых пунктах",
+  "obs": 1
+ },
+ {
+  "id": "voice-guidance-drops",
+  "title": "Голосовые подсказки пропадают в середине маршрута и водитель вынужден смотреть на экран",
+  "obs": 1
+ },
+ {
+  "id": "tts-pronunciation-wrong",
+  "title": "Голосовая навигация неправильно произносит распространённые названия улиц и типы дорог",
+  "obs": 1
+ },
+ {
+  "id": "view-mode-reset",
+  "title": "Приложение самостоятельно сбрасывает выбранный режим просмотра обратно на стандартный",
+  "obs": 1
+ },
+ {
+  "id": "along-route-poi-search",
+  "title": "Поиск остановок ищет рядом с текущим местом, а не вдоль запланированного маршрута",
+  "obs": 1
+ },
+ {
+  "id": "no-stops-bike-routes",
+  "title": "Добавление промежуточных остановок недоступно для велосипедных маршрутов",
+  "obs": 1
+ },
+ {
+  "id": "siri-stop-no-address",
+  "title": "При добавлении остановки через голосовой помощник показывается только название места, без адреса",
+  "obs": 1
+ },
+ {
+  "id": "more-taps-than-competitor",
+  "title": "Для старта маршрута требуется явно выбрать начальную точку, тогда как конкуренты используют текущее место автоматически",
+  "obs": 1
+ },
+ {
+  "id": "copy-address-missing",
+  "title": "Нельзя скопировать адрес места одним касанием в строке адреса",
+  "obs": 1
+ },
+ {
+  "id": "notifications-no-control",
+  "title": "Баннерные уведомления нельзя отключить — они принудительно включены в любом случае",
+  "obs": 1
+ },
+ {
+  "id": "offline-maps-broken",
+  "title": "Скачанные офлайн-карты остаются пустыми и недоступны без подключения к интернету",
+  "obs": 1
+ },
+ {
+  "id": "route-lost-on-switch",
+  "title": "При переходе в другое приложение и возврате маршрут с несколькими остановками полностью удаляется",
+  "obs": 1
+ },
+ {
+  "id": "add-stop-freezes",
+  "title": "Попытка добавить остановку к активному маршруту вызывает зависание приложения",
+  "obs": 1
+ },
+ {
+  "id": "daily-crashes",
+  "title": "Приложение падает ежедневно вне зависимости от версии и обновлений",
+  "obs": 1
+ },
+ {
+  "id": "carplay-sleep-stops",
+  "title": "При переходе телефона в режим сна навигация на CarPlay перестаёт работать",
+  "obs": 1
+ },
+ {
+  "id": "heading-init-slow",
+  "title": "Приложению требуется 1–2 минуты, чтобы определить направление движения, из-за чего пользователь проезжает нужный поворот",
+  "obs": 1
+ },
+ {
+  "id": "rural-navigation-poor",
+  "title": "За городом приложение прокладывает маршруты по незнакомым дорогам и допускает больше ошибок, чем в городе",
+  "obs": 1
+ },
+ {
+  "id": "compass-inconsistent",
+  "title": "Компас непоследовательно показывает стороны света: в разных сеансах одно и то же место ориентировано по-разному",
+  "obs": 1
+ },
+ {
+  "id": "interruption-error-state",
+  "title": "При входящем звонке или смене контекста приложение переходит в состояние ошибки и теряет маршрут",
+  "obs": 1
+ },
+ {
+  "id": "partner-gas-detour",
+  "title": "Маршрут отклоняется к партнёрским АЗС и становится длиннее, чем мог бы быть",
+  "obs": 1
+ },
+ {
+  "id": "product-outdated-vs-competitors",
+  "title": "Пользователи воспринимают приложение как устаревшее и уступающее конкурентам по точности и гибкости",
+  "obs": 1
+ }
+]

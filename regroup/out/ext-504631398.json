@@ -1,0 +1,88 @@
+{
+  "groups": [
+    {
+      "id": "ne-otkryvaetsya-padaet",
+      "name": "Не открывается, виснет, падает — базовая надёжность",
+      "insight_ids": [
+        "launch-blank-screen",
+        "slow-launch-loading",
+        "requires-restart-to-load",
+        "article-tap-regression",
+        "crash-while-reading",
+        "article-body-missing-from-headline",
+        "watch-app-broken",
+        "vpn-geo-incompatible",
+        "scroll-unreliable",
+        "reading-position-lost-on-resume"
+      ]
+    },
+    {
+      "id": "reklama-poverh-podpiski",
+      "name": "Реклама поверх оплаченной подписки",
+      "insight_ids": [
+        "subscription-active-ads-still-shown",
+        "inline-video-ads-block-reading",
+        "accidental-ad-clicks-on-scroll",
+        "video-loads-ad-not-content",
+        "mid-article-fullscreen-popup",
+        "multiple-popups-small-screen",
+        "ad-repetition-same-article",
+        "forced-ai-banner"
+      ]
+    },
+    {
+      "id": "igry-krossvord-sudoku",
+      "name": "Кроссворды, судоку и комиксы — что сломали и урезали",
+      "insight_ids": [
+        "crossword-keyboard-broken-after-update",
+        "sudoku-broken-unavailable",
+        "crossword-grid-view-removed",
+        "games-unavailable-weekends",
+        "comics-single-panel-view",
+        "crossword-attempt-counter-wrong"
+      ]
+    },
+    {
+      "id": "spisaniya-i-otmena",
+      "name": "Списания, промо-цена и отмена, которую не признают",
+      "insight_ids": [
+        "promo-price-not-applied",
+        "subscription-not-recognized-restore-broken",
+        "trial-cancel-still-charged",
+        "cancel-via-apple-not-honored",
+        "affiliate-newspapers-not-accessible"
+      ]
+    },
+    {
+      "id": "ustarevshiy-vypusk-arhiv",
+      "name": "Несвежий выпуск, тухлые разделы и куцый архив",
+      "insight_ids": [
+        "stale-content-sections",
+        "stale-newspaper-edition",
+        "archive-limited-back-issues",
+        "photo-of-day-not-loading",
+        "format-redesign-removed-features"
+      ]
+    },
+    {
+      "id": "chtenie-i-melkie-treniya",
+      "name": "Чтение статей: мелкий шрифт, поехавшая вёрстка, перехват звука",
+      "insight_ids": [
+        "headline-font-size-not-adjustable",
+        "text-rendering-overflow",
+        "audio-read-feature",
+        "audio-hijack-other-apps",
+        "notification-settings-ignored",
+        "email-unsubscribe-not-accessible"
+      ]
+    },
+    {
+      "id": "sportivnyy-razdel",
+      "name": "Спортивный раздел: занимает место и неудобная навигация",
+      "insight_ids": [
+        "sports-feed-not-customizable",
+        "sports-navigation-league-selection"
+      ]
+    }
+  ]
+}

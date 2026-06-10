@@ -1,0 +1,239 @@
+You are grouping 38 mechanism-level insight clusters from Zoomerang - Ai Video Maker (AI-видео и видео-редакторы) into a SMALL set of bespoke parent themes.
+
+These clusters are already clean and final — DO NOT rewrite, split, or merge them. Your only job is to sort them into parent themes that are SPECIFIC TO Zoomerang - Ai Video Maker, derived from what's actually here — not a generic product-area grid.
+
+YOUR JOB
+1) Read all 38 insight titles.
+2) Invent 5-8 parent themes that genuinely describe THIS app's landscape. Names must be natural Russian, concrete, and specific to Zoomerang - Ai Video Maker — what a thoughtful person would title these clusters if they'd read all of them.
+3) Assign every insight id to EXACTLY ONE parent theme.
+
+THEME NAME STYLE
+✅ GOOD (specific, natural, describes the actual content):
+- "Биллинг-ловушки и навязчивый апсейл"
+- "Голоса и рассказчики — на ком держится лояльность"
+- "Ночной ритуал: сон, истории, переходы"
+- "Как Calm используют на самом деле"
+- "Поломки после обновлений"
+❌ BAD (generic top-down grid — do NOT produce):
+- "Стратегия и сегменты"
+- "Подписка и оплата"
+- "Контент и каталог"
+- "Интерфейс"
+
+Rules:
+- 5-8 themes. Not more, not fewer.
+- Plain Russian. Brand names ok where load-bearing.
+- Each theme should hold a coherent set — if a theme would hold just 1-2 clusters, fold them into the nearest fitting theme.
+- Order themes by total observation count desc (loudest first).
+
+OUTPUT SCHEMA — exactly this shape, no extra keys, no markdown fences
+
+{
+  "groups": [
+    {
+      "id": "<short-kebab-slug>",
+      "name": "<natural Russian theme name specific to Zoomerang - Ai Video Maker>",
+      "insight_ids": ["<id>", ...]
+    }
+  ]
+}
+
+Every id from the INSIGHTS list MUST appear in EXACTLY ONE group's insight_ids.
+
+CRITICAL OPERATING RULES
+- Output ONE JSON object via the Write tool to: /Users/artsaverin/projects/badcomment/regroup/out/ext-1361030006.json
+- Do NOT write helper scripts. Do NOT use Python or Bash. Read → think → write → stop.
+
+INSIGHTS:
+[
+ {
+  "id": "feed-inappropriate-content",
+  "title": "В общей ленте регулярно появляется сексуальный и нецензурный контент, хотя приложение позиционируется как детское",
+  "obs": 5
+ },
+ {
+  "id": "save-limit-pro",
+  "title": "Бесплатный лимит сохранений снизили до одного-двух видео в день — раньше было без ограничений",
+  "obs": 4
+ },
+ {
+  "id": "mandatory-ads-per-video",
+  "title": "После каждого созданного видео принудительно показывается реклама — без Pro её не пропустить",
+  "obs": 2
+ },
+ {
+  "id": "no-content-moderation",
+  "title": "Модерация комментариев и видео фактически отсутствует — нарушения не обрабатываются",
+  "obs": 2
+ },
+ {
+  "id": "no-audio-library",
+  "title": "В приложении нет библиотеки готовых треков — музыку нужно импортировать вручную или записывать самому",
+  "obs": 2
+ },
+ {
+  "id": "account-auto-deleted",
+  "title": "Приложение автоматически удаляет аккаунт пользователя через день-два после создания",
+  "obs": 2
+ },
+ {
+  "id": "phone-number-validation-error",
+  "title": "Приложение отклоняет корректный номер телефона при регистрации с ошибкой валидации",
+  "obs": 2
+ },
+ {
+  "id": "pro-required-at-install",
+  "title": "Базовые функции, ранее бесплатные, теперь требуют Pro с первого запуска",
+  "obs": 1
+ },
+ {
+  "id": "subscription-pricing-deception",
+  "title": "Недельная цена подписки выглядит выгодной рядом с годовой, но обходится в шесть раз дороже",
+  "obs": 1
+ },
+ {
+  "id": "auto-activated-subscription",
+  "title": "Подписка активируется автоматически и не даёт себя отключить",
+  "obs": 1
+ },
+ {
+  "id": "templates-too-childish",
+  "title": "Шаблоны рассчитаны на маленьких детей и не подходят подросткам",
+  "obs": 1
+ },
+ {
+  "id": "trend-lag",
+  "title": "Тренды появляются в приложении с опозданием — к моменту публикации они уже устарели",
+  "obs": 1
+ },
+ {
+  "id": "mixed-age-feed",
+  "title": "В ленте без фильтрации смешаны детские и взрослые видео разного качества",
+  "obs": 1
+ },
+ {
+  "id": "no-parental-controls",
+  "title": "Родители не могут ограничить просмотр контента от других пользователей — встроенного родительского контроля нет",
+  "obs": 1
+ },
+ {
+  "id": "insufficient-editing-tools",
+  "title": "Встроенных инструментов редактирования не хватает — пользователи вынуждены досматривать в сторонних приложениях",
+  "obs": 1
+ },
+ {
+  "id": "video-length-cap",
+  "title": "Максимальная длина видео ограничена 30 секундами — недостаточно для полного танца",
+  "obs": 1
+ },
+ {
+  "id": "no-email-change",
+  "title": "Нельзя изменить привязанный к аккаунту адрес электронной почты",
+  "obs": 1
+ },
+ {
+  "id": "block-user-hard-to-find",
+  "title": "Функция блокировки пользователя неочевидна и её сложно найти в интерфейсе",
+  "obs": 1
+ },
+ {
+  "id": "no-profile-photo-change",
+  "title": "Нет способа изменить фотографию профиля прямо в приложении",
+  "obs": 1
+ },
+ {
+  "id": "email-verification-not-sent",
+  "title": "При регистрации через почту код верификации не приходит — аккаунт создать невозможно",
+  "obs": 1
+ },
+ {
+  "id": "preview-result-mismatch",
+  "title": "Итоговое видео не совпадает с тем, что было показано в макете во время редактирования",
+  "obs": 1
+ },
+ {
+  "id": "modal-not-closeable",
+  "title": "Модальное окно с сезонным контентом не закрывается при нажатии на кнопку закрытия",
+  "obs": 1
+ },
+ {
+  "id": "music-workaround-speaker",
+  "title": "Пользователи воспроизводят музыку через динамик рядом с телефоном во время записи — штатного способа нет",
+  "obs": 1
+ },
+ {
+  "id": "ai-not-on-ipad",
+  "title": "AI-функции работают на iPhone, но недоступны на iPad",
+  "obs": 1
+ },
+ {
+  "id": "audio-lost-on-template-save",
+  "title": "При сохранении шаблона аудио полностью исчезает",
+  "obs": 1
+ },
+ {
+  "id": "timeline-jump-bug",
+  "title": "При редактировании видео само перескакивает на другой фрагмент и фиксируется там",
+  "obs": 1
+ },
+ {
+  "id": "network-freeze",
+  "title": "При слабом интернет-сигнале приложение полностью зависает",
+  "obs": 1
+ },
+ {
+  "id": "internet-required-at-launch",
+  "title": "После обновления приложение требует интернет при запуске, даже когда соединение есть",
+  "obs": 1
+ },
+ {
+  "id": "ai-degraded-core",
+  "title": "Добавление AI-функций ухудшило работу базового функционала приложения",
+  "obs": 1
+ },
+ {
+  "id": "ai-causes-crash",
+  "title": "Тяжёлые AI-операции приводят к полному зависанию и принудительному закрытию приложения",
+  "obs": 1
+ },
+ {
+  "id": "video-lost-on-export",
+  "title": "После нескольких часов редактирования видео полностью теряется при нажатии на кнопку завершения",
+  "obs": 1
+ },
+ {
+  "id": "timeline-misalignment",
+  "title": "Шкала времени сбивается в начало вместо синхронизации с текущей позицией видео",
+  "obs": 1
+ },
+ {
+  "id": "account-recovery-broken",
+  "title": "Войти в старый аккаунт с известным паролем невозможно — функция восстановления доступа не работает",
+  "obs": 1
+ },
+ {
+  "id": "session-expired-error",
+  "title": "Через несколько дней использования приложение выбрасывает с ошибкой об истёкшей сессии",
+  "obs": 1
+ },
+ {
+  "id": "narrow-child-audience",
+  "title": "Платформа ориентирована на маленьких детей — подростки и более старшая аудитория чувствуют себя чужими",
+  "obs": 1
+ },
+ {
+  "id": "ad-density-friction",
+  "title": "Высокая плотность рекламы в интерфейсе существенно мешает созданию контента",
+  "obs": 1
+ },
+ {
+  "id": "addiction-positive-use",
+  "title": "Приложение вызывает сильное привыкание и воспринимается как полезное развлечение при скуке",
+  "obs": 1
+ },
+ {
+  "id": "slow-plus-paywalled-perception",
+  "title": "Пользователи одновременно замечают лаги, жёсткий пейволл и нецензурный контент — три барьера сразу",
+  "obs": 1
+ }
+]

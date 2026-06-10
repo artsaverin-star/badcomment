@@ -1,0 +1,64 @@
+{
+  "groups": [
+    {
+      "id": "offline-maps-disappear",
+      "name": "Офлайн-карты, которые растворяются: скачал — и снова без интернета",
+      "insight_ids": [
+        "offline-maps-vanish-over-time",
+        "offline-maps-require-internet",
+        "offline-maps-update-wipes",
+        "offline-maps-login-dependency",
+        "offline-maps-country-broken",
+        "map-download-restarts"
+      ]
+    },
+    {
+      "id": "routing-leads-astray",
+      "name": "Маршрут заводит не туда: просёлки, платники и сброшенные настройки",
+      "insight_ids": [
+        "incorrect-turn-instructions",
+        "reroute-requires-manual",
+        "dangerous-routes",
+        "inefficient-routing",
+        "toll-setting-resets",
+        "ev-charging-not-prioritized"
+      ]
+    },
+    {
+      "id": "phone-overheats-carplay",
+      "name": "Телефон плавится, а батарея тает: CarPlay и фоновый расчёт",
+      "insight_ids": [
+        "carplay-battery-heat",
+        "background-cpu-overload",
+        "carplay-route-unstable"
+      ]
+    },
+    {
+      "id": "saved-data-forgotten",
+      "name": "Приложение всё забывает: дом, маршруты и сохранённые места",
+      "insight_ids": [
+        "saved-routes-not-persisted",
+        "home-address-not-saved",
+        "saved-places-not-editable"
+      ]
+    },
+    {
+      "id": "voice-prompts-fail",
+      "name": "Подсказки молчат или опаздывают: голос, Bluetooth и громкость",
+      "insight_ids": [
+        "late-voice-prompts",
+        "bluetooth-audio-reverts",
+        "bluetooth-volume-coupled"
+      ]
+    },
+    {
+      "id": "trust-and-account-traps",
+      "name": "Доверие на нуле: подмена цены, завышенная скорость и запертый аккаунт",
+      "insight_ids": [
+        "subscription-price-bait",
+        "speedometer-inflated",
+        "email-change-impossible"
+      ]
+    }
+  ]
+}
