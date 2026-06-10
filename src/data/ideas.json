@@ -524,5 +524,269 @@
       ],
       "monetization": "Разовая покупка $8–12 за «комплект родов и первого года» + семейный доступ. Категория документированно ненавидит платёжные ловушки (45 наблюдений «деньги списаны — доступа нет») и пейвол-крип между беременностями (33), а честную модель прямо называет причиной выбора (80 наблюдений). Возвратная лояльность на 3-4 беременности делает LTV разовой покупки выше, чем кажется."
     }
+  },
+  {
+    "slug": "identifier-that-doesnt-lie",
+    "category": "identifiers",
+    "categoryName": "Определители",
+    "title": "Определитель растений, который не врёт — ни про вид, ни про деньги",
+    "oneLiner": "Категория продаёт магию «навёл — узнал», но систематически ошибается даже на базилике (155+ наблюдений), а монетизируется триал-фродом и зомби-биллингом. Идея — определитель, в котором честны обе стороны: модель показывает уверенность и фильтрует по региону, а цена — разовая и навсегда.",
+    "asOf": "2026-06-10",
+    "stats": {
+      "apps": 10,
+      "reviews": 5000,
+      "observations": 3181
+    },
+    "reviewGrid": [
+      {
+        "quote": "Tried to identify small grapefruit tree few times. Got completely different response, including holly. None were correct.",
+        "rating": 3,
+        "app": "Plantum"
+      },
+      {
+        "quote": "It identified one sparrow as a dove, another as a red-wing blackbird, and a finch as a cardinal.",
+        "rating": 4,
+        "app": "Birdbuddy"
+      },
+      {
+        "quote": "Why being in South Africa am I getting American birds?",
+        "rating": 5,
+        "app": "Picture Bird"
+      },
+      {
+        "quote": "I chose this because it said it was free. It's not free.",
+        "rating": 5,
+        "app": "Planty"
+      },
+      {
+        "quote": "I signed onto this app for 2 days. I was under the impression that there was a free trial period. Two days later I found a charge on my acct for $6.99 + tax",
+        "rating": 5,
+        "app": "Planty"
+      },
+      {
+        "quote": "Charged me after I canceled",
+        "rating": 5,
+        "app": "Picture Insect"
+      },
+      {
+        "quote": "I have tried to cancel this subscription. Even with google I cannot figure out how to do this. They are deceptive with this.",
+        "rating": 2,
+        "app": "Plantum"
+      },
+      {
+        "quote": "The app bribed me to give a 5 star review to unlock more features. I just started using it and I'm not sure about it yet.",
+        "rating": 5,
+        "app": "Planty"
+      },
+      {
+        "quote": "DO NOT use its water calculator because it's absolutely wrong",
+        "rating": 2,
+        "app": "Plantum"
+      },
+      {
+        "quote": "Wish u gave suggestions on treating problem with plant.",
+        "rating": 5,
+        "app": "Plantum"
+      },
+      {
+        "quote": "Some weekends I will spend hours finding new species",
+        "rating": 5,
+        "app": "Seek"
+      },
+      {
+        "quote": "The app identified, diagnosed and gave care recommendations. I highly recommend.",
+        "rating": 5,
+        "app": "Plantum"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Алгоритм систематически ошибается даже на самых обычных видах",
+        "obsCount": 177,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Planty",
+          "Birdbuddy",
+          "Picture Bird"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Кнопка триала списывает годовую сумму немедленно",
+        "obsCount": 70,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Planty",
+          "Picture Bird",
+          "Picture Insect",
+          "Sky Guide"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Зомби-биллинг: списания продолжаются после отмены",
+        "obsCount": 67,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Planty",
+          "Picture Bird"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "«Бесплатно» в сторе — пейвол с первой секунды внутри",
+        "obsCount": 65,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Planty",
+          "Picture Insect"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Одно и то же фото даёт разные ответы при повторных попытках",
+        "obsCount": 58,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Seek",
+          "Picture Bird",
+          "Picture Insect"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Поддержка молчит — особенно на письма о возврате",
+        "obsCount": 57,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Planty",
+          "Birdbuddy"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Кнопка отписки спрятана или сломана — by design",
+        "obsCount": 56,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Planty",
+          "Picture Bird"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Диагноз без лечения: список причин вместо плана действий",
+        "obsCount": 54,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe",
+          "Planty"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Геолокация есть — но результаты не фильтруются по региону",
+        "obsCount": 26,
+        "apps": [
+          "Picture Bird",
+          "Picture Insect",
+          "Birdbuddy"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Советы по уходу убивают растения — без вида и климата",
+        "obsCount": 14,
+        "apps": [
+          "Plantum",
+          "Plant App",
+          "PlantMe"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "«Навёл — узнал» воспринимается как волшебство",
+        "obsCount": 92,
+        "apps": [
+          "Sky Guide",
+          "Plantum",
+          "Plant App",
+          "Planty",
+          "Picture Insect",
+          "Merlin"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Приложение меняет отношение к природе — от страха к хобби",
+        "obsCount": 87,
+        "apps": [
+          "Picture Insect",
+          "Merlin",
+          "Seek",
+          "Planty",
+          "Sky Guide"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Семейный ритуал: дети, внуки и супруги наблюдают вместе",
+        "obsCount": 66,
+        "apps": [
+          "Sky Guide",
+          "Merlin",
+          "Picture Insect",
+          "Birdbuddy"
+        ],
+        "polarity": "love"
+      },
+      {
+        "title": "Коллекция как Покедекс — сбор видов держит годами",
+        "obsCount": 62,
+        "apps": [
+          "Seek",
+          "Merlin",
+          "Picture Bird",
+          "Picture Insect",
+          "Birdbuddy"
+        ],
+        "polarity": "love"
+      }
+    ],
+    "gap": "Категория разделилась на два лагеря: честные некоммерческие определители (Merlin, Seek) без денег на полировку — и подписочные мельницы, где триал-фрод, зомби-биллинг и спрятанная отписка являются бизнес-моделью (70+67+56 наблюдений), а само ядро ошибается на базилике и воробьях (177). При этом пользователи любят категорию глубоко: магия первой минуты, семейные ритуалы, Покедекс-коллекции. Никто не совместил честную модель Merlin с продуктовой полнотой платных: регион-фильтром, стабильным результатом, реальным планом лечения и коллекцией, которая не гибнет при смене телефона.",
+    "idea": {
+      "pitch": "Определитель растений, в котором не врут ни модель, ни прайс. Модель: результат с процентом уверенности, топ-3 кандидата вместо одного самоуверенного ответа, обязательный фильтр по региону и климату, стабильность на повторных снимках как публичная метрика. Деньги: разовая покупка, никакого «бесплатно» в сторе при пейволе внутри, отписка не нужна, потому что подписки нет. Уход: не диагноз, а план лечения по конкретному виду и климату.",
+      "features": [
+        "Уверенность модели на экране: «92% монстера, 6% филодендрон» — честность вместо рулетки",
+        "Регион-фильтр по геолокации: виды, которых нет в вашей местности, не предлагаются",
+        "План лечения, а не диагноз: конкретные шаги по виду, климату и сезону",
+        "Коллекция-Покедекс с локальным бэкапом и экспортом — переживает смену телефона",
+        "Семейный режим: общая коллекция для прогулок с детьми",
+        "Разовая покупка с family sharing — «навсегда» значит навсегда"
+      ],
+      "antiFeatures": [
+        "«Бесплатно» в сторе при пейволе с первой секунды",
+        "Триал, списывающий деньги раньше своего окончания",
+        "Подписка и, как следствие, спрятанные кнопки отписки и зомби-биллинг",
+        "Попап «оцените нас» раньше первого определения",
+        "Самоуверенный единственный ответ без альтернатив"
+      ],
+      "monetization": "Разовая покупка $9–15. Категория документированно платит: люди соглашались на подписки даже у мельниц — спрос на платный определитель доказан (70 наблюдений триал-фрода = 70 человек, готовых были заплатить). Честная цена против задокументированного фрода конкурентов — это и есть маркетинг: страница сравнения «как мы берём деньги» со ссылками на их собственные отзывы."
+    }
   }
 ]
