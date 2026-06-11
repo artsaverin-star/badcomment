@@ -93,7 +93,12 @@ function quoteForObservation(o: Observation): { rating: number; date: string; re
       const endHint = cleanText.indexOf(". ", idx + o.trigger.length);
       const end = endHint > 0 ? endHint + 1 : Math.min(cleanText.length, idx + o.trigger.length + 200);
       quote = cleanText.slice(start, end).trim();
-      if (quote.length > 320) quote = quote.slice(0, 317).trimEnd() + "…";
+      if (quote.length > 320) {
+        let cut = quote.slice(0, 317);
+        // slice() can split an emoji surrogate pair — a lone high surrogate makes the JSON unbuildable
+        if (/[\ud800-\udbff]$/.test(cut)) cut = cut.slice(0, -1);
+        quote = cut.trimEnd() + "…";
+      }
     }
   }
   return { rating: o.rating, date, reviewId: o.review_id, quote };
