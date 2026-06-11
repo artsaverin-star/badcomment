@@ -1,0 +1,67 @@
+{
+  "productId": "cmq7ukx6s0006ugicizvtvqsu",
+  "slug": "pillow",
+  "name": "Pillow: Sleep Tracker",
+  "domain": "Сон и трекинг сна",
+  "oneLiner": "Pillow: Sleep Tracker (Neybox Digital) — автотрекер сна для iPhone/Apple Watch: sleep score, аудиозаписи ночи, умный будильник; iOS",
+  "pricing": "бесплатно с подпиской Premium (триал через карту); исторически была one-time покупка, старых покупателей перевели на feature-gated подписку",
+  "keyFeatures": [
+    "автоматический трекинг сна через Apple Watch / iPhone (датчики движения и пульс)",
+    "sleep score и разбивка по фазам сна",
+    "аудиозаписи ночных звуков (храп, разговоры во сне)",
+    "умный будильник по фазе сна",
+    "интеграция с Apple Health",
+    "звуки для засыпания, дневные nap-сессии"
+  ],
+  "competitors": [
+    "ShutEye: Sleep Tracker & Sound",
+    "Sleep Cycle",
+    "AutoSleep",
+    "SleepWatch",
+    "BetterSleep",
+    "Rise: Sleep Tracker",
+    "встроенный трекинг сна Apple Watch / Apple Health"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Every time I get up to go to the bathroom it resets and gives me low scores.",
+      "observation": "Ночной подъём в туалет обрывает сессию автотрекинга: приложение считает сон законченным и выставляет заниженный sleep score за разорванную ночь.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "When Apple showed I slept 7+ hours but pillow said 4+ hours.",
+      "observation": "Pillow расходится с нативными данными Apple Health в разы (4 часа против 7+ за ту же ночь), что подрывает доверие к sleep score как метрике.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I get up and go to the bathroom and it doesn't register waking up during the night.",
+      "observation": "Автоматический режим пропускает ночные пробуждения: фаза «awake» не фиксируется, хотя пользователь реально вставал — фазовая разбивка получается фиктивной.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The app supposedly has a limited version that can't be accessed without a free trial of the premium.",
+      "observation": "Заявленная бесплатная версия фактически недоступна: онбординг упирается в экран триала с вводом карты, обойти который нельзя — free tier существует только номинально.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I like the app, but it was cruel to lock people who bought your app early on out of all the new features.",
+      "observation": "Переход с one-time покупки на подписку отрезал ранних покупателей от новых функций: заплатившие за приложение получают feature-gate наравне с бесплатными пользователями.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // One-off pipeline helper scripts at repo root, not site code.
+    "extract.ts",
+    "extract-batch.ts",
+    "extract-runner.ts",
   ]),
 ]);
 
