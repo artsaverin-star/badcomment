@@ -1,0 +1,79 @@
+{
+  "productId": "cmpstp9421mgiug8p4gw7jpfq",
+  "slug": "beanstack-tracker",
+  "name": "Beanstack Tracker",
+  "domain": "трекинг чтения / библиотечные челленджи / школьные программы",
+  "oneLiner": "Beanstack (Zoobean / Joyful Reading Co.) — B2B-ориентированный трекер чтения: школьные и библиотечные челленджи (летнее чтение, 1000 книг до детсада), бейджи, стрики, лидерборды; бесплатно для конечного пользователя — оплачивает учреждение",
+  "pricing": "бесплатно для читателей (подписку покупает библиотека или школа); платного тарифа для физлиц нет — доступ через SSO учреждения или через Beanstack Go",
+
+  "keyFeatures": [
+    "библиотечные и школьные reading challenges (летнее чтение, годовые, тематические)",
+    "трекинг времени чтения (таймер или ручной ввод минут/страниц)",
+    "сканер штрих-кода / ISBN для быстрого добавления книг",
+    "стрики (consecutive days reading), бейджи, лидерборды",
+    "несколько профилей читателей в одном аккаунте (для детей)",
+    "фандрайзинг-марафоны чтения: пожертвования за прочитанное",
+    "интеграция с Libby и другими библиотечными платформами",
+    "статистика: суммарное время, среднее, уникальные названия"
+  ],
+
+  "competitors": [
+    "Goodreads: Book Tracker & More",
+    "StoryGraph",
+    "Bookly – Read More Books",
+    "Reading Tracker — Book Log",
+    "Summer Reading (Beanstack Go — тот же вендор, standalone)",
+    "LibraryThing",
+    "Literal — Book Tracker & Club"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "+ > reading > select reader > choose reader > select title (titles hardly ever come up via the search feature so I usually use isbn, so I have to scan the book) > uncheck \"track progress\" > save > and then I can choose quick complete BUT if I'm logging reading from the night before then I have to go on to > log reading > tap calendar > change date > save > check \"book finished\" > done",
+      "observation": "Запись одной книги за прошедший день требует 10+ последовательных тапов со сменой экранов — пользователь документирует весь путь в отзыве. При нескольких детях и активном чтении логирование занимает больше времени, чем само чтение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it has started randomly listing days as not part of my streak in spite of the fact that I have reading logged for those days. I had been just adding in a one minute read on the lapsed date to ensure the continuity of my streak, but it has become too much — multiple days, two years in the past suddenly not counting",
+      "observation": "Алгоритм стрика ретроактивно исключает уже засчитанные дни: записи двухлетней давности внезапно «выпадают» из цепочки. Пользователи разработали воркэраунд (добавить 1-минутную запись), но баг прогрессирует и ломает даже эту схему.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It won't let us log the minutes my son read, it says that's to many and we can't log it. So I have to lie and say it's less and even then it's makes me \"promise\" that he really read that much. But he really read more...",
+      "observation": "Приложение отклоняет правдивые значения времени чтения как «слишком большие» и вынуждает вводить заниженные данные, затем показывает диалог с просьбой «обещать», что это правда — механика, которая прямо конфликтует с реальным поведением активных читателей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app won't acknowledge multiple days logged, totally deleted my 7-year-old's 200+ Day reading streak resulting in her becoming discouraged and unmotivated to read where she was really proud of herself",
+      "observation": "Потеря стрика из-за бага приложения (а не пропуска чтения) подрывает основной поведенческий мотиватор: ребёнок, накопивший 200+ дней, бросает читать после сброса — прямо противоположный эффект от цели продукта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Cannot stay logged in to two separate libraries at once. Gives the option to add an account, then logs out previous account. Would also be nice if I could log a book to multiple people at once. (i.e. I read a book to my children, so we all read the book)",
+      "observation": "Одновременное участие в челленджах двух разных библиотек (школа + публичная) невозможно: добавление второго аккаунта вытесняет первый. Совместное чтение вслух нельзя залогировать для нескольких детей одним действием.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "After the latest update, all my historical reading stats are gone. Even reading I logged after the update doesn't appear. Thankfully my stats still appear from the desktop app",
+      "observation": "Обновление стёрло всю историю чтения в мобильном приложении; данные сохранились только в веб-версии. Пользователи обнаруживают расхождение только когда замечают потерю стрика или бейджа — до этого момента некорректная запись незаметна.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

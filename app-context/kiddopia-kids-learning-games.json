@@ -1,0 +1,78 @@
+{
+  "productId": "cmpstqs3f1pudug8pn0gkygwa",
+  "slug": "kiddopia-kids-learning-games",
+  "name": "Kiddopia: Kids Learning Games",
+  "domain": "детские обучающие игры / edutainment / дошкольное развитие",
+  "oneLiner": "Kiddopia (Kiddopia, Inc.) — подписочная игровая платформа для детей 2–7 лет: 3000+ мини-игр (математика, чтение, ролевые игры, кулинария), без рекламы внутри контента; iOS и Android",
+  "pricing": "бесплатная загрузка, 7-дневный триал с привязкой карты; далее подписка — ~$20/месяц или ~$85–90/год (упоминаются в отзывах); семейная подписка на все устройства; monthly-опция периодически убиралась, оставалась только годовая",
+
+  "keyFeatures": [
+    "3000+ мини-игр по математике, языку, ролевым профессиям, кулинарии, творчеству",
+    "персонажи Barbie и Little Angel от Moonbug",
+    "контент без рекламы и без дополнительных покупок внутри подписки",
+    "COPPA-сертифицированный kidSAFE — не требует родительского надзора",
+    "один аккаунт / подписка на всю семью и все платформы",
+    "регулярный выход нового контента",
+    "игры для детей с ADHD и аутизмом (адаптивный дизайн)"
+  ],
+
+  "competitors": [
+    "ABCmouse: Kids Learning Games",
+    "Khan Academy Kids",
+    "Lingokids: Games & Shows",
+    "Starfall Education",
+    "PBS Kids Games",
+    "Duolingo ABC",
+    "Homer: Learn & Grow"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "every single thing is locked so you have to pay to play",
+      "observation": "Без активной подписки контент заблокирован почти полностью: дети не могут зайти ни в одну игру, а родители видят замки́ по всему экрану. Заявленный «бесплатный» tier фактически не существует — это онбординг-воронка в платную подписку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app was advertised as having a free 7 day trial but charged my account a full year (~$85) and denied a refund when I noticed immediately",
+      "observation": "7-дневный триал с привязкой карты конвертируется в годовую подписку (~$85) без явного предупреждения о сумме списания; возврат после немедленного обнаружения отклоняется — модель использует неожиданную сумму как барьер против отмены.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "whenever my tod opens the app he cannot play a single game because you have to pay even after paying the subscription it says not paid",
+      "observation": "Даже после успешной оплаты подписка не активируется автоматически — приложение продолжает показывать paywall. Пользователям приходится заходить в настройки и вручную «восстанавливать покупку», что родители дошкольников не находят интуитивно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the download resource is absolutely pointless like why do you need a download page? kids dont want to wait for eternities just to play 1 singular game",
+      "observation": "Контент требует предварительного скачивания per-game — это дополнительный барьер после разблокировки подпиской: ребёнок жмёт на игру и видит экран загрузки вместо немедленного старта, что ломает игровой поток.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "this app is good but when i paid around 10 dollars and played it offline on a flight, a lot of things didnt work. whats the point then. i need it during critical situations such as a long haul flight",
+      "observation": "Подписка не гарантирует офлайн-доступ: значительная часть игр не работает без интернета даже при скачанном контенте, что делает приложение бесполезным именно в ситуациях (самолёт, поездка), для которых его чаще всего покупают.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "horrible it yells at my kid and says things like \"ew\" \"yuck\" \"I don't eat that\" and also says \"PUT WATER IN MOUTH NOW\"",
+      "observation": "Персонажи в ряде мини-игр используют отвергающие реплики («ew», «yuck», «I don't eat that»), которые родители воспринимают как нежелательное речевое моделирование для детей 2–5 лет — прямое противоречие позиционированию «nurturing, kid-first».",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}
