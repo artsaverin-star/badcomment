@@ -1,0 +1,74 @@
+{
+  "productId": "cmpt904n81qlnugx3kdqkpjb0",
+  "slug": "vixer-ai-video-editor-maker-1487668791",
+  "name": "Vixer: AI Video Editor & Maker",
+  "domain": "ИИ-редактирование видео / контент для соцсетей",
+  "oneLiner": "Vixer (Popixels Ltd.) — минималистичный видеоредактор для short-form контента; iOS, подписка $69.99/год; выставляет счёт через Stripe/Link вне системы Apple, что делает отмену нестандартной",
+  "pricing": "Бесплатно только в просмотре; экспорт и большинство функций требуют подписки. Годовая подписка ~$69.99 (встречается $39.99, $55.99, $89.99 — ценообразование варьируется). Триал 3 дня через Stripe/Link (не через App Store), поэтому подписка не отображается в Настройках iPhone → Подписки и не может быть отменена через Apple. Продление списывается напрямую с карты.",
+  "keyFeatures": [
+    "Trim, crop, split, merge, rotate с touch-интерфейсом",
+    "Переходы, фильтры, цветокоррекция, текстовые оверлеи",
+    "Слайдшоу / Live Photos → видео",
+    "AI for You — автомонтаж из камеры ролла",
+    "Роялти-фри музыка и звуковые эффекты",
+    "Авто-субтитры / captions",
+    "Экспорт до 4K, быстрый шеринг в TikTok/Instagram/YouTube"
+  ],
+  "competitors": [
+    "CapCut",
+    "InShot",
+    "Splice",
+    "Beatleap",
+    "Canva",
+    "Filmora",
+    "VN Video Editor"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "The checkout went through Stripe (Apple Pay / Link), not the App Store subscription system. After subscribing, I was unable to find the subscription in my iPhone settings or App Store subscriptions, and there was no clear way to cancel inside the app.",
+      "observation": "Подписка оформляется через Stripe/Link вне App Store: она не попадает в стандартный список «Настройки → Подписки», и пользователи не могут отменить её привычным способом — нужно искать Vixer-аккаунт на сайте или писать в поддержку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was charged for a $69.99 subscription after my free trial when I never clicked the 'activate' link/button. Ive emailed them several times, including the founder, and have gotten no response.",
+      "observation": "Списание $69.99 происходит автоматически по окончании триала даже без явного подтверждения активации подписки: пользователи фиксируют отсутствие кнопки «активировать» и невозможность дозвониться до поддержки до и после списания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "My app renewed In May of 2025 for 39.99 for the year. They have billed 39.99/mo also for July and August and I cannot get in contact with anyone for a refund.",
+      "observation": "После годового продления зафиксированы повторные ежемесячные списания той же суммы ($39.99/мес вместо $39.99/год): пользователь переплачивает многократно, а поддержка не отвечает на запросы о возврате.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The 'fade in' option never works. Hit or miss at best. The volume is always at 100 regardless of if you set it to anything above 0. These are issues that have been apparent for at least the past 4 years",
+      "observation": "Базовые аудио-инструменты (fade in, регулировка громкости трека) работают нестабильно уже несколько лет: громкость сбрасывается к 100 независимо от установленного значения, что делает микширование ненадёжным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I have a copyright strike for using the music from vixer! So beware!",
+      "observation": "Музыкальная библиотека Vixer, позиционируемая как royalty-free, на практике содержит треки, по которым правообладатели выставляют страйки на YouTube: платные подписчики несут репутационный и монетизационный ущерб.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "when I export a video it sometimes doesn't look like it does when I am editing. It's extremely annoying because the app is expensive and it takes a long time to edit a video just for it to not turn out as expected.",
+      "observation": "Результат рендеринга при экспорте расходится с превью в редакторе: цвета, обрезка или наложения выглядят иначе, чем в таймлайне — узнать об этом можно только после завершения экспорта.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "productId": "cmqaqqnpu030hugce4ewu8v6x",
+  "slug": "money-manager-expense-budget-560481810",
+  "name": "Money Manager Expense & Budget",
+  "domain": "личные финансы / учёт расходов",
+  "oneLiner": "Money Manager (Realbyte Inc.) — ручной трекер расходов и доходов с двойной бухгалтерией, бюджетами и Wi-Fi-синхронизацией с браузером; iOS+Android, без автосинка с банком",
+  "pricing": "бесплатно (lite: до 10 аккаунтов, реклама); полная версия — отдельное приложение ($4.99 one-time); подписка на облачный Data Sync: $2.49/мес или $19.99/год (только синхронизация данных, не функции)",
+  "keyFeatures": [
+    "ручной ввод транзакций с категориями и подкатегориями",
+    "двойная бухгалтерия (double-entry bookkeeping)",
+    "бюджет на неделю, месяц, год с графиком plan vs actual",
+    "Wi-Fi PC Manager — просмотр и редактирование данных в браузере",
+    "управление кредитными/дебетовыми картами с датой платежа",
+    "платёжные профили (шаблоны частых трат)",
+    "несколько валют на уровне аккаунта и отдельных транзакций",
+    "backup/restore через email, iTunes, iCloud",
+    "поиск и встроенный калькулятор",
+    "календарный вид транзакций"
+  ],
+  "competitors": [
+    "Spendee",
+    "Wallet — Budget Tracker",
+    "1Money",
+    "Monefy",
+    "YNAB",
+    "Goodbudget",
+    "Toshl Finance"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Your account has been restricted. Your device has been detected as hacked after visiting an adult website.",
+      "observation": "В бесплатной версии появились пугающие фейковые pop-up-рекламы («ваше устройство взломано»), маскирующиеся под системные предупреждения — в финансовом приложении, где пользователь вводит данные всех своих расходов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "A really sketchy ad popped up as I was using it saying my account has been locked and to go here to unlock it.",
+      "observation": "Рекламная сеть в бесплатной версии показывает фишинговые объявления о «блокировке аккаунта», что напрямую подрывает доверие к приложению, хранящему финансовую историю пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Werbungsanteil mit nicht abbrechbaren Popups werden immer mehr. Teilweise wird mit Fake „Virusinfizierung\" Angst gemacht um auf Drittanbieterseiten zu kommen.",
+      "observation": "Частота рекламных всплывающих окон в бесплатной версии растёт: появляются неотменяемые попапы и скейр-реклама, имитирующая вирусное заражение и ведущая на сторонние сайты — паттерн, разрушающий доверие к финансовому продукту.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "No option to backup from a file between two devices. iCloud backup doesn't exist in iCloud but shows in app.",
+      "observation": "Функция iCloud-бэкапа отображается в интерфейсе как доступная, но файл резервной копии в iCloud фактически не создаётся — перенос данных между устройствами без платной подписки на Data Sync невозможен.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I hate that everything is done manually. I wish I could connect my bank account and my transactions could get categorized automatically based on rules.",
+      "observation": "Приложение намеренно не имеет автоматического банковского синка: вся модель построена на ручном вводе, что пользователи с высокой транзакционной нагрузкой воспринимают как структурное ограничение, а не выбор.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "no está el apartado de DEUDAS lo que era muy práctico, es un rollo hacerlo en IOs ojalá y lo actualicen y encima no tiene el apartado de guardar cuenta como en Android",
+      "observation": "iOS-версия функционально беднее Android-версии: раздел управления долгами и механизм сохранения/переноса аккаунта между платформами отсутствуют — данные пользователя при смене на не-iOS устройство теряются.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

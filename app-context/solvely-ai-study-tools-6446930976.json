@@ -1,0 +1,78 @@
+{
+  "productId": "cmpstry8g1s8iug8pagfwclpu",
+  "slug": "solvely-ai-study-tools-6446930976",
+  "name": "Solvely - AI Study Tools",
+  "domain": "AI-решение задач и учёбный ассистент",
+  "oneLiner": "Solvely (Aignite Inc.) — AI-сканер домашних заданий с пошаговыми объяснениями по всем предметам: мультимодельная проверка ответов, AI-конспектирование лекций; iOS, 37k+ отзывов",
+  "pricing": "бесплатно с лимитом 2 решения на мобильном; Unlimited от ~$6.99/нед, ~$12.99/мес, ~$77/год; веб-версия с более щедрым free tier; триал требует оформления годовой подписки заранее",
+
+  "keyFeatures": [
+    "фотосканирование задач — snap-and-solve по всем предметам (математика, химия, физика, биология, история)",
+    "мультимодельная кросс-проверка: несколько AI-моделей сверяют ответ перед выдачей",
+    "пошаговые объяснения с логикой каждого шага",
+    "AI Note Taker — транскрипция лекций + автоматические конспекты, флэшкарты и подкаст-пересказ",
+    "Writing Assistant — помощь с эссе, цитирование, расширение текста",
+    "Quiz Generator — превращает конспекты и PDF в тесты для самопроверки",
+    "синхронизация между iPhone и iPad"
+  ],
+
+  "competitors": [
+    "Photomath",
+    "Mathway",
+    "Socratic by Google",
+    "Microsoft Math Solver",
+    "Gauth AI",
+    "Question.AI",
+    "ChatGPT"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "They force you into a 1 year subscription if you even want to try the app for 3 days, so if you don't cancel the free trial, you will be billed for a full year.",
+      "observation": "Трёхдневный пробный период привязан к годовой подписке: пользователь, забывший отменить, автоматически оплачивает полный год вместо месяца — конкуренты привязывают триал к более короткому циклу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "questions started taking 25 seconds to load, follow up questions would never be answered, I now get the majority of my answers wrong",
+      "observation": "После оплаты годовой подписки скорость ответа деградировала с мгновенной (на триале) до 25 секунд, а точность заметно упала — поведение приложения на триале и на платном тарифе физически различается.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid for the All-Access Yearly pass for 46.99/year on January 23rd, 2025. I have been being charged 16.99 every month totaling more than 150$ since that has gone unnoticed until now.",
+      "observation": "Система биллинга тихо переключила пользователя с годового тарифа ($46.99) на ежемесячный ($16.99) — без уведомления, итого за несколько месяцев списалось втрое больше оплаченного.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I have an exam in 5 days and I go to solve the first question I have trouble with and nope gotta either pay which I can't or share 3 friends some code",
+      "observation": "Лимит на бесплатные решения реализован через реферальную стену: чтобы получить дополнительные решения без оплаты, нужно пригласить друзей по коду — барьер появляется при первой реальной потребности.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "it's soooooo slow. It takes at least 4x longer to generate an answer than ChatGPT. For $8 a week I'd expect more consistency.",
+      "observation": "При цене $8/нед скорость генерации ответа в 4 раза медленнее ChatGPT — мультимодельная кросс-проверка, заявленная как конкурентное преимущество, выходит задержкой без пропорционального выигрыша в точности.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "it doesn't wrap the equations and text automatically. If I could just gesture to the side and see the text and equation it would be fine. But you can't do that and need to specify Every-time",
+      "observation": "Длинные уравнения и формулы не переносятся автоматически — пользователь каждый раз обрезает отображение вручную вместо горизонтального свайпа.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

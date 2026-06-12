@@ -1,0 +1,73 @@
+{
+  "productId": "cmpsywx5e2609ughv79t00c1f",
+  "slug": "relive-hike-ride-memories-1201703657",
+  "name": "Relive: Hike & Ride Memories",
+  "domain": "трекинг активностей / 3D-видео / memory sharing",
+  "oneLiner": "Relive (Relive B.V.) — трекер бега, велосипеда, хайкинга с автогенерацией 3D-видеороликов маршрута; iOS+Android, бесплатно с подпиской Relive Plus",
+  "pricing": "бесплатно (1 видео на активность без редактирования, до 3 фото); Relive Plus — monthly / yearly (~€40/год); 50%-скидочные промо-офферы автопролонгируются по полной цене без предупреждения; поддержка жалуется на отказ в рефандах",
+  "keyFeatures": [
+    "3D-визуализация маршрута на рельефной карте",
+    "автогенерация видеоролика с фотографиями, музыкой и 3D-пролётом",
+    "трекинг GPS в реальном времени (бег, вело, хайкинг, лыжи и др.)",
+    "интерактивная карта-таймлайн всех активностей",
+    "интеграция с Garmin, Suunto, Apple Health, Strava и др.",
+    "sharing в Instagram, Facebook, Twitter",
+    "Plus: до 100 фото, музыка, кастом-редактирование, HD, 12 цветовых тем, убрать watermark"
+  ],
+  "competitors": [
+    "Strava",
+    "AllTrails",
+    "Komoot",
+    "Garmin Connect",
+    "Suunto App",
+    "Apple Fitness+ / Apple Health"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "it disconnects every 2 seconds. While AllTrails and Strava remain connected and you have full or enough bars, relive continuously disconnects and doesn't make a sound to even tell you that's it's disconnected so you have to watch it like a hawk",
+      "observation": "GPS-трекинг в реальном времени обрывается многократно за тренировку без звукового алерта: пользователь узнаёт о потере записи только проверив экран — на параллельных Strava/AllTrails разрыва нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they entice you with a 50% discount promotion (6 months free), but as soon as the period ends, they automatically charge your card for a full-price annual renewal WITHOUT ANY WARNING OR REMINDER EMAIL",
+      "observation": "Промо-оффер «-50% / 6 месяцев бесплатно» автопролонгируется по полной годовой цене без email-напоминания: пользователь обнаруживает списание задним числом и получает отказ в рефанде.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Now that it requires access to my entire photo library in order to take photos while in the middle of the activity I am done. I'm going to quit my subscription and use one of the other apps available out there",
+      "observation": "После обновления приложение требует доступ ко всей фотобиблиотеке (а не только камере) для съёмки во время активности: платные подписчики с 15k+ фото отказываются от подписки из-за privacy-требования.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I went on a once in lifetime hike with friends, recorded mine using paid version of relive. Got friends to send me their photos but can I add them to relive in the correct places? Not a chance, the UI for relive 'adding moments' is one of the poorest designs I have ever seen. Can only add by location",
+      "observation": "Добавление фото от других людей в видео возможно только по геотегу, а не по timestamp: фото без точных координат (е.г. снятые на вулкане) невозможно вставить в нужный момент маршрута.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they keep sabotaging every possible feature so that they can lock it behind a paywall. trimming your route and changing the title should still be baseline features",
+      "observation": "Обрезка маршрута и смена названия активности перенесены за paywall: базовые функции редактирования, прежде доступные бесплатно, убраны из free-tier без компенсации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "they even make you close the ad by greying out the TINY x so it's harder to spot. They remove photos, titles and speed from the once available in the free version",
+      "observation": "Кнопка закрытия subscription-попапа намеренно серая и маленькая (dark pattern): одновременно с этим из free-версии убрали фото, название и скорость — это задокументированная прогрессивная деградация бесплатного уровня.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

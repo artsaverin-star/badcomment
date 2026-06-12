@@ -1,0 +1,77 @@
+{
+  "productId": "cmqaqr19703t1ugce6prpgsou",
+  "slug": "10k-runner-couch-to-10k-run-456591673",
+  "name": "10K Runner, Couch to 10K Run",
+  "domain": "бег / интервальные тренировки / программа c0→10K",
+  "oneLiner": "10K Runner (FITNESS22 LTD) — структурированная 14-недельная программа с нуля до 10K: чередование ходьбы/бега с голосовым тренером, GPS, Apple Health; iOS",
+  "pricing": "бесплатная загрузка + обязательная подписка: lifetime ~$39.99–$70 (цена росла несколько раз) или $19.99/3 мес.; paywall открывается только после полного онбординга — до конца анкеты пользователь не знает о стоимости",
+
+  "keyFeatures": [
+    "14-недельный план ходьба/бег с постепенным увеличением беговых интервалов",
+    "голосовой тренер — сообщает когда идти и когда бежать прямо в наушники",
+    "GPS и трекинг дистанции (включая фоновый режим)",
+    "интеграция с Apple Health (калории, тренировки)",
+    "«оптимизированные» дополнительные пробежки (adaptive scheduling)",
+    "достижения и бейджи",
+    "работа на беговой дорожке и на улице"
+  ],
+
+  "competitors": [
+    "Couch to 5K (C25K)",
+    "Nike Run Club",
+    "Runna",
+    "Strava",
+    "Garmin Coach",
+    "встроенный тренер Apple Watch"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Takes you through the whole setup process and only then tells you the plan will cost thirty quid. Should be transparent about cost to begin with. App deleted, I don't like being misled.",
+      "observation": "Полный онбординг — сбор данных о пользователе, построение персонального плана — проходит до показа цены: пользователь инвестирует время и данные, после чего видит paywall. Цена намеренно скрыта до конца воронки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Was more than happy to pay £15 for a lifetime premium membership. Was less than happy to be informed it renews every 3 months. Could I have read what I was signing up for better? Certainly could. Could the plan be renamed so as not be misleading to the average consumer",
+      "observation": "Тариф называется «lifetime premium membership», но фактически является квартальной подпиской с автопродлением — формулировка создаёт ложное ощущение единоразовой оплаты без явного упоминания периодического списания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "$70 for lifetime access? It was recently $40 and before then, much cheaper. They keep raising the price significantly without adding any new features.",
+      "observation": "Цена на lifetime-доступ за несколько лет выросла с разового платежа до $70 без добавления новых функций: пользователи, купившие раньше, видят что приложение не развивается, а те, кто покупает сейчас, платят вдвое больше.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "In this day and age, controls on apps are everything. It kept skipping segments of the workout and I couldn't figure out why. Then I realized there's a pause are the bottom with arrows on either side. If the arrow gets activated (which apparently doesn't take much because even with gloves on it somehow manages to skip segments of the workout)",
+      "observation": "Кнопки перехода между интервалами расположены вплотную к кнопке паузы: случайное касание в перчатках пропускает сегмент вперёд. Обратного перехода нет — ошибочно пропущенный интервал нельзя повторить.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the workout posted to Apple Health was inaccurate, with the distance being the total and the time only being the intervals so the pacing stats were wrong",
+      "observation": "Данные, экспортируемые в Apple Health, некорректны: дистанция записывается за всю тренировку, а время — только за беговые интервалы, из-за чего темп получается завышенным. Пользователь платит за приложение и получает сломанную аналитику.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The only function this app offers that you can't get a million other places for free is that it automatically tells you through your headphones when to run and when to walk. Unfortunately, it can't even do that. When the run intervals exceed 8 minutes, 9 times out of 10 the app will glitch and not tell you to walk.",
+      "observation": "Единственная уникальная функция — голосовое оповещение о смене режима — перестаёт работать на длинных беговых интервалах (от 8 минут): тренер не говорит перейти на шаг, пользователь продолжает бежать неограниченно, не понимая что произошло.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

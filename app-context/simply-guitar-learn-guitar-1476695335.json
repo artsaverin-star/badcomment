@@ -1,0 +1,77 @@
+{
+  "productId": "cmpstqkju1pedug8p6r7y4icu",
+  "slug": "simply-guitar-learn-guitar-1476695335",
+  "name": "Simply Guitar - Learn Guitar",
+  "domain": "обучение игре на гитаре",
+  "oneLiner": "Simply Guitar (JoyTunes) — пошаговое обучение гитаре с аудиораспознаванием игры и видеоуроками; iOS+Android",
+  "pricing": "бесплатно с обязательной подпиской для доступа к курсам; ~£10/мес или ~$10/мес (годовой тариф дешевле); 7-дневный триал, но требует карту; бесплатный доступ фактически ограничен несколькими вводными уроками",
+
+  "keyFeatures": [
+    "аудиораспознавание игры в реальном времени через микрофон телефона",
+    "пошаговые видеоуроки по аккордам, табулатурам, технике страмминга",
+    "библиотека песен с интерактивной практикой (play-along)",
+    "встроенный тюнер для настройки гитары",
+    "трекинг прогресса по урокам и аккордам",
+    "режим свободной практики аккордов"
+  ],
+
+  "competitors": [
+    "Yousician",
+    "Fender Play",
+    "GuitarTuna",
+    "Rocksmith+",
+    "Justin Guitar",
+    "ChordU",
+    "YouTube-уроки гитары (бесплатно)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "What's the point in asking about experience if you force me to complete a ton of reaaally beginner stuff to access anything more difficult than \"what is a fret\" lesson? And once I funally finished this boring first level and wanted to do what I downloaded the app for - train with something challenging - nothing was available for free. Literally nothing except this introduction lessons. So basically everything in the app can be used only after buying premium. That's scummy.",
+      "observation": "Онбординг с выбором уровня опыта — ложная персонализация: опытные игроки всё равно проходят весь материал с нуля, а после вводного уровня весь контент оказывается за пейволлом — воронка маскирует paywall за иллюзией адаптации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "absolute garbage. I was playing exactly what the app was telling me to, and it says I was inaccurate. I repeated it over and over, and I kept failing. my guitar was perfectly in tune and my father, who has been playing for 39 years, came in and watched me fail the lesson. he said I shouldn't have failed because my fingerings were perfect.",
+      "observation": "Система аудиораспознавания аккордов даёт ложные ошибки даже при технически правильном исполнении: приложение выставляет «неверно» пользователю, которого опытный гитарист со стороны оценивает как играющего правильно — ложноотрицательные срабатывания подрывают мотивацию новичков.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Worst note recognition of all the apps I've tried. Will only register if you play super loud, and super clean. I'm not trying to wake my fkn neighbors over here!",
+      "observation": "Аудиораспознавание требует высокой громкости и идеально чистого звука: тихая или слегка приглушённая игра (типичная в квартире) не регистрируется — приложение фактически неприменимо при домашних ограничениях по шуму.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I got to the first song that was gonna teach me how to play and it decided to not let me play it and continually give me the saying for premium plan and im not paying for that",
+      "observation": "Первая песня в курсе используется как конверсионная точка: именно на ней (а не на старте) показывается блокировка с предложением подписки — механика «дай почувствовать прогресс, потом отрежь» создаёт максимальную фрустрацию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The app is amazing but now that I just spent 200$ dollars and still don't work I think the forced payment is stupid just to be able to continue learning, I love the free tutorial but when you get to you're first song they ask you to \"try\" their plan which if you decline they exit you out of you're lesson and make you repeat the payment subscription even though you don't want it",
+      "observation": "Отказ от подписки выбрасывает пользователя из текущего урока и при следующей попытке снова показывает экран оплаты — отсутствие кнопки «нет, спасибо» и принудительное повторение экрана подписки блокируют даже уже оплативших.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Be very careful with this app. I did the 7 day free trial to see if the kids would enjoy this. I'm now constantly harassed saying it was not a free trial and I owe £129 even though I cancelled three days in",
+      "observation": "Триальный период сопровождается агрессивными уведомлениями о долге после отмены: пользователь, отменивший подписку внутри триала, получает требования оплаты — механика создаёт ощущение мошенничества даже при технически корректной отмене.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "productId": "cmpt3n8ur7cplugfeoauhxvgj",
+  "slug": "spending-tracker-548615579",
+  "name": "Spending Tracker",
+  "domain": "Личные финансы / трекинг расходов",
+  "oneLiner": "Spending Tracker (MH Riley Ltd) — минималистичный трекер расходов и доходов с бюджетным режимом и категориями; iOS+Mac, freemium с Pro-апгрейдом (one-time); без привязки к банку — только ручной ввод",
+  "pricing": "Базовое приложение бесплатно с рекламой; Pro-апгрейд — разовая покупка (one-time, цена варьируется ~$3-5). Pro убирает рекламу, открывает экспорт транзакций и повторяющиеся платежи. Часть пользователей, купивших Pro, впоследствии снова видят рекламу после обновлений приложения.",
+  "keyFeatures": [
+    "Ручной ввод расходов и доходов по категориям",
+    "Бюджетный режим с фиксированной суммой и переносом остатка",
+    "Периоды: неделя / месяц / год",
+    "Итоговый экран с разбивкой по категориям",
+    "Интерактивные графики и история трат",
+    "Повторяющиеся транзакции (Pro)",
+    "Экспорт транзакций (Pro)",
+    "Редактируемые категории с иконками"
+  ],
+  "competitors": [
+    "Money Manager: Budget & Finance",
+    "Wallet — Budget Tracker",
+    "Spendee",
+    "Copilot Money",
+    "YNAB (You Need A Budget)",
+    "Mint (закрыт)",
+    "встроенные банковские приложения с аналитикой"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I used my paid Pro version with ad-free for about a year, but after the latest update to version 2.8.1, annoying ads appeared. To remove them, the app requires an additional $3.49. It seems the owner simply fooled me, because the paid version already included add-free",
+      "observation": "Обновление 2.8.1 вернуло рекламу пользователям, купившим Pro с отключённой рекламой: для повторного её отключения приложение предлагает доплатить $3.49 — то есть ту же функцию продают дважды.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Ads show full screen at times and one showed a pop saying my iPhone was filled with viruses and offering to download an app to clean my iPhone.",
+      "observation": "Рекламная сетка в бесплатной версии показывает фишинговые фуллскрин-объявления («ваш iPhone заражён вирусами»): приложение не контролирует содержимое рекламы, что создаёт прямые риски для пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "too often it 'freezes' when an ad pops up. The only way it clears is by restarting the phone",
+      "observation": "Рекламный блок во время ввода транзакции вешает интерфейс: разморозка требует перезагрузки телефона — введённые данные при этом могут теряться.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "my budget splits between two months iregardless of the fact that I turned off the carry over button",
+      "observation": "Бюджетный режим переносит остаток между периодами даже при отключённой настройке carry-over: баланс расщепляется между двумя месяцами, что нарушает точность трекинга.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "enabling the budget feature seems pointless and could be improved to support multiple categories instead. I have 13 categories and 12 budgets for each one. In the settings, the only option is to turn budget mode on or off",
+      "observation": "Бюджетный режим поддерживает только один глобальный лимит на всё — установить отдельные бюджеты по категориям невозможно, что делает функцию непригодной для детального планирования с несколькими статьями.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "when I did some maintenance on the my phone/app, all my history was not stored",
+      "observation": "Данные хранятся только локально без резервной копии и облачной синхронизации: переустановка, очистка или замена устройства необратимо уничтожает всю историю транзакций.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

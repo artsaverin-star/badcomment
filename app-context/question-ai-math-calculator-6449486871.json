@@ -1,0 +1,77 @@
+{
+  "productId": "cmpsts3e41sibug8p1x75c1up",
+  "slug": "question-ai-math-calculator-6449486871",
+  "name": "Question.AI-Math Calculator",
+  "domain": "AI-помощник для учёбы / решение задач / генеральный чатбот",
+  "oneLiner": "Question.AI (D3 Dimension Technology) — общий AI-чатбот с акцентом на решение домашних заданий и математики через фото; iOS, 158k+ отзывов",
+  "pricing": "бесплатно с рекламой; подписка от ~$6/нед и ~$11.99/мес — отписаться через браузер (не App Store), кнопка отмены по отзывам отсутствует; разовая покупка не предусмотрена",
+
+  "keyFeatures": [
+    "AI-чат с вопросами в свободной форме (на базе DeepSeek V3)",
+    "фотосканирование домашнего задания — задаёшь вопрос через камеру",
+    "решение математических задач с пошаговыми объяснениями",
+    "перевод на 140+ языков",
+    "AI-помощь в написании текстов и эссе",
+    "лимит 40 вопросов в день на бесплатной версии"
+  ],
+
+  "competitors": [
+    "ChatGPT",
+    "Photomath",
+    "Mathway",
+    "Socratic by Google",
+    "Gauth AI",
+    "Microsoft Math Solver",
+    "Solvely"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "every 2 seconds (and that's not an exaggeration) a random ad pops up",
+      "observation": "Реклама в бесплатной версии показывается при открытии, между вопросами и при возврате в приложение — фактически каждые 2 секунды активного использования, что делает решение домашнего задания физически невозможным без подписки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "when it came to specific questions that included geometry aka using shapes it just completely flunked",
+      "observation": "Визуальная геометрия (задачи с фигурами и графиками) не распознаётся: приложение требует дополнительного словесного описания условия там, где конкуренты справляются с фото напрямую.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "There is no actual way to cancel your weekly subscription. They tell you to use a web browser to cancel, but when you go there, there is no cancel button and the layout doesn't even match the app.",
+      "observation": "Механизм отмены подписки намеренно сломан: пользователей перенаправляют на веб-сайт, где кнопки «Отмена» нет, а раздел настроек не совпадает с описанием — подписка продолжает списываться.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I checked my Apple ID to see if I could see it there and it showed nothing about the subscription. I got charged for having this subscription too",
+      "observation": "Подписка оформлена не через Apple In-App Purchases, поэтому она не отображается в управлении подписками Apple ID — пользователь видит списания с карты, но не может найти источник через стандартный интерфейс iOS.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I tell it is incorrect, and if it can change the answer due to it being incorrect, it states that I'm wrong and it is right when clearly it is getting the answers wrong",
+      "observation": "При оспаривании неправильного ответа модель не пересчитывает задачу, а настаивает на исходном результате — пользователь не может добиться исправления через диалог.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Every time I ask pass events, such as events of 2025 or 2026 it doesn't know it only knows to the point of 2024",
+      "observation": "Платный тариф ($11/мес) не даёт доступа к актуальной информации: модель обрезана по дате обучения 2024 года и не обновляется в реальном времени, что критично для вопросов по текущим событиям.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

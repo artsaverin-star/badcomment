@@ -1,0 +1,80 @@
+{
+  "productId": "cmqaqp7i600hcugcem48vhb5f",
+  "slug": "sleepzy-sleep-cycle-tracker-1064910141",
+  "name": "Sleepzy - Sleep Cycle Tracker",
+  "domain": "трекинг сна / умный будильник",
+  "oneLiner": "Sleepzy (Mosaic S.r.l. / Bending Spoons) — смарт-будильник с трекингом фаз сна через микрофон/акселерометр, анализом sleep debt и пробуждением в лёгкую фазу; iOS+Android",
+  "pricing": "бесплатно с рекламой; Premium-подписка (около $30-40/год или ~$5/мес); после интереса к приложению в первые часы после установки предлагается скидка 50%; подписка активируется автоматически после триала",
+
+  "keyFeatures": [
+    "смарт-будильник: пробуждение в лёгкую фазу сна в заданном временном окне",
+    "трекинг фаз сна через микрофон и акселерометр (без Apple Watch)",
+    "sleep score и разбивка по фазам (light/deep/REM/awake)",
+    "sleep debt — отслеживание недосыпания",
+    "запись ночных звуков (храп, разговоры во сне)",
+    "звуки для засыпания и Dream Radio (AI-музыка)",
+    "интеграция с Apple Health",
+    "Apple Watch поддержка",
+    "еженедельная статистика и персональные советы по сну"
+  ],
+
+  "competitors": [
+    "Sleep Cycle",
+    "Pillow: Sleep Tracker",
+    "AutoSleep",
+    "ShutEye",
+    "Rise: Sleep Tracker",
+    "BetterSleep",
+    "встроенный трекинг Apple Watch / Apple Health"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I don't normally review apps, but seeing as the customer service's was so bad I thought I had better. The app is a load of rubbish, like others say it just randomly stops working even when you've set it for the night and it then doesn't go off in the morning",
+      "observation": "Приложение-будильник не срабатывает утром без предупреждения: трекинг запускается нормально, но alarm fails silently — рецензии с этой же проблемой датируются 1-2 годами ранее, то есть баг системный и нерешённый.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "there have been many occasions when I have been awake, checked my phone for the time and got up to go to the toilet, only for the app to tell me in the morning that I was fast asleep throughout the period during which I know I was awake",
+      "observation": "Фазовый анализ не распознаёт реальные пробуждения: периоды, когда пользователь точно знал, что не спит (вставал, смотрел на экран), обозначены как «deep sleep» — данные о фазах фиктивны при физической активности ночью.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Elle m'a indiqué que j'avais dormi 8h une nuit oú je n'ai pas dormi plus de 3h. Elle m'a affirmé que j'étais en sommeil profond à des moments où j'étais éveillée",
+      "observation": "Точность анализа сна через микрофон/акселерометр неприемлема: приложение показало 8 часов сна при реальных 3 часах, не зафиксировало апноэ, подтверждённое медицинским оборудованием той же ночью.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the app made my phone crash this morning, I noticed the volume controls stopped working as I woke up on my own later than I was supposed to because the alarm didn't sound",
+      "observation": "Критический сбой: приложение крашит телефон в момент срабатывания будильника — управление громкостью отключается, сам будильник не звонит, устройство зависает на 10 минут.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it works fine until the first time it goes off. I snooze it and tab out of it for a minute to finish the other app and it cancels the alarm and goes to sleep notes",
+      "observation": "Нажатие snooze + переход в другое приложение аннулирует отложенный сигнал: алярм считается завершённым, повторного звонка нет — пользователи вынуждены держать Sleepzy на экране до момента окончательного подъёма.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "pour que tout fonctionne parfaitement il faut que le téléphone soit mis en charge toute la nuit et sous l'oreiller... alors que l'on doit (pour des raisons de santé) être à au moins un mètre du téléphone quand on dors",
+      "observation": "Для надёжного трекинга телефон должен лежать под подушкой и быть на зарядке — это физически противоречит рекомендациям о дистанции от устройств во время сна; приложение не предупреждает об этом ограничении при онбординге.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

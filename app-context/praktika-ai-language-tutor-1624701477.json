@@ -1,0 +1,73 @@
+{
+  "productId": "cmpstqfl91p2aug8pmm3ti0pv",
+  "slug": "praktika-ai-language-tutor-1624701477",
+  "name": "Praktika – AI Language Tutor",
+  "domain": "Изучение языков / разговорная практика / AI-аватары",
+  "oneLiner": "Praktika – AI Language Tutor (Praktika.ai) — разговорный AI-тьютор с реалистичными 3D-аватарами и мультимодальным вводом (фото, аудио, PDF); акцент на устной речи и произношении; 9 языков; iOS",
+  "pricing": "бесплатная загрузка с ограниченным триалом; платная годовая и месячная подписка; рекламируется 7-дневный возврат, на практике отказывают; часть пользователей сообщает о списании full-year вместо выбранного monthly",
+  "keyFeatures": [
+    "разговорные сессии с реалистичными AI-аватарами (Alisha, Charlie, Valentina и др.) с разными акцентами и бэкграундами",
+    "1000+ уроков по уровням: IELTS/TOEFL, карьера, путешествия, повседневная жизнь, сленг",
+    "мультимодальный ввод: загрузка фото, видео, аудио, PDF для контекстных занятий",
+    "фидбэк по произношению и беглости речи с метриками прогресса",
+    "стриковая система и in-app челленджи",
+    "тематические ролевые сценарии (спортивный комментатор, стартапер, турист)"
+  ],
+  "competitors": [
+    "Duolingo",
+    "Babbel",
+    "Rosetta Stone",
+    "Preply (онлайн-репетиторы)",
+    "italki",
+    "EWA: Learn Languages",
+    "Pimsleur"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "I often had to give custom instructions at the beginning of the call, because it has a set pattern it always wants to use. I always had a bunch of custom instructions I kept in the notes",
+      "observation": "AI-аватар следует жёсткому сценарию и не запоминает кастомные инструкции между сессиями: пользователь вынужден вручную переинициализировать контекст каждый раз, что отменяет декларируемую персонализацию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "приложение постоянно путает мой уровень английского. При регистрации я указывал A2, но оно регулярно считает, что у меня A1, и снова начинает давать самые простые задания. Приходится постоянно напоминать о своём уровне.",
+      "observation": "Уровень learner'а, установленный при регистрации, периодически сбрасывается до A1 без явного действия пользователя — сессии начинаются заново с самых базовых заданий, перечёркивая накопленный прогресс.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "AI cannot make adjustments based on my feedback. It uses romaji in quizzes instead of hangul. I asked her to give quizzes in hangul it understood what I wanted promised that it will give quizzes in hangul, first question in hangul second one back to romaji",
+      "observation": "AI-тьютор не способен устойчиво применять пожелания пользователя к формату заданий: соглашается с запросом (перейти на хангыль), выполняет его один раз, затем автоматически возвращается к прежнему формату.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The app looks promising, but is not working as expected (at least for learning Japanese). Once I subscribed, I realised that something was wrong with the settings of the AI tutor in Japanese (repeating some parts of the sentences twice). I reported that and I've been told that it would be resolved 'next week' (AI agent). After two months, and weekly reminders (with the same AI agent answers) it's still not resolved",
+      "observation": "Баг с дублированием фраз в японском тьюторе существует два месяца без исправления: поддержка отвечает одинаковыми AI-ответами «будет исправлено на следующей неделе», не эскалируя проблему разработчикам.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The settings don't reflect what the app is doing. 'Reply length'- long, short, doesn't matter. Still filled with utter gibberish filler sentences. My level is A1, the most basic beginner, yet the AI tutor still uses quite complicated phrases.",
+      "observation": "Настройки длины ответа и уровня сложности не влияют на реальное поведение аватара: тьютор игнорирует параметры и выдаёт усложнённые фразы начинающему пользователю, а также бессмысленные filler-предложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The app and it's huge amount of advertising promised a variety of 'AI tutors' and learning personalization, as well as being able to learn a lot even on a free account. Many of the AI avatars that are being advertised aren't available",
+      "observation": "Рекламные материалы демонстрируют широкий набор AI-аватаров, но после установки большинство из них недоступны без оплаты — фактический free-tier не соответствует заявленному в маркетинге.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

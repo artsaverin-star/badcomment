@@ -1,0 +1,79 @@
+{
+  "productId": "cmqaqqzl503piugcezjukt1x8",
+  "slug": "polar-beat-running-fitness-555252645",
+  "name": "Polar Beat: Running & Fitness",
+  "domain": "бег и фитнес / пульсометрия / тренировочные зоны",
+  "oneLiner": "Polar Beat (Polar Electro) — бесплатный GPS-трекер тренировок с поддержкой пульсометров Polar H9/H10; расчёт зон, голосовое ведение, 100+ спортивных профилей; iOS",
+  "pricing": "бесплатно; продвинутые метрики (калории, Running Index, зоны интенсивности, EnergyPointer) доступны только при подключении платного пульсометра Polar (H9, H10 — от $80); кастомные интервальные тренировки перенесены за пейвол подписки",
+
+  "keyFeatures": [
+    "GPS-трекинг маршрута, темпа и дистанции",
+    "подключение пульсометров Polar по Bluetooth (H9, H10, Sense)",
+    "голосовое ведение тренировки",
+    "100+ спортивных профилей",
+    "расчёт тренировочных зон и интенсивности",
+    "интеграция с Apple Health и Apple Watch",
+    "Polar Fitness Test и Running Index",
+    "синхронизация с Polar Flow для детальной аналитики"
+  ],
+
+  "competitors": [
+    "Polar Flow",
+    "Nike Run Club",
+    "Garmin Connect",
+    "Strava",
+    "MyZone",
+    "Apple Fitness+ / встроенный трекер Apple Watch",
+    "Wahoo Fitness"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "It takes me at least 45 minutes to get my app to connect to my H10 heart rate sensor every time I use it",
+      "observation": "Ежесессионное переподключение H10 занимает до 45 минут: приложение видит датчик через Bluetooth системы iPhone, но само не устанавливает связь — пользователи переустанавливают приложение как единственный выход.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Classic immoral company. Software is limited unless you purchase a second piece of hardware. Example bought a HR sensor… assuming I'd be able to set custom zones for Zone 2 exercise… the app will not let you perform this simple task unless you buy a polar watch",
+      "observation": "Пользователь купил пульсометр H10, ожидая возможности задать кастомные зоны ЧСС — базовую функцию любого зон-2 тренинга. Настройка зон заблокирована до покупки отдельных часов Polar: аксессуар и приложение фактически являются только точкой входа в платную экосистему.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "pairing conflicts with iPhone settings and other app Polar Flow. unusable. shows random status like \"paired\", \"active\", etc, but still doesn't show heart rate during activity.",
+      "observation": "Polar Beat и Polar Flow конкурируют за одно BT-соединение с датчиком: приложение показывает статус «paired» или «active», но пульс в активной тренировке не отображается — раздельная экосистема двух приложений порождает неразрешимый конфликт.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "You used to be able to set your own targeted intervals in this app so i could do a 4x4 but now they've made it way less functional and hidden this obvious stuff behind a subscription paywall.",
+      "observation": "Кастомные интервальные программы (формат 4×4), ранее доступные бесплатно, убраны за пейвол подписки в одном из обновлений: пользователи, платившие за железо, теряют функциональность приложения без предупреждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The app can decide that for some reason it doesn't want to continue sinking with the hrm. The app has also not changed in years, being far surpassed by competitors. Very limited analysis of workouts.",
+      "observation": "Аналитика тренировок не развивалась годами: конкуренты предлагают детальный разбор, тогда как Polar Beat остался на уровне базовых метрик — пользователи отмечают отставание от Nike Run Club и Garmin именно по глубине анализа.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app completely frustrates me; it's honestly ridiculous. I downloaded Polar Flow, which connects to my heart rate sensor perfectly, but I need to use Polar Beat because that is the only app available for my Apple Watch. This wouldn't be an issue if Polar Beat didn't keep failing to connect to my sensor and crashing.",
+      "observation": "Polar Flow стабильно коннектится с H10, но не поддерживает Apple Watch; Polar Beat поддерживает Apple Watch, но нестабильно работает с датчиком — пользователи вынуждены использовать сломанное приложение из-за архитектурного решения разделить функции по двум продуктам.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

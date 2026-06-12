@@ -1,0 +1,75 @@
+{
+  "productId": "cmpstip8s1867ug8pej26s41h",
+  "slug": "video-up-video-editor-maker-1585824635",
+  "name": "Video Up! Video Editor & Maker",
+  "domain": "видеоредактор / AI text-to-image / шаблоны / слайд-шоу",
+  "oneLiner": "Video Up! (MAETCH EXPANSION, S.L.) — мобильный видеоредактор со слайд-шоу, шаблонами, AI text-to-image и музыкой из 5000+ треков; ориентирован на casual-контент и семейные видео; iOS",
+  "pricing": "бесплатный tier сильно ограничен; подписка: ~$9.99/нед или ~$30-45/год; AI credits продаются отдельно (1 credit ≠ 1 видео, реальный расход непрозрачен); free trial срабатывает немедленным списанием у части пользователей; был зафиксирован скрытый биллинг каждые 2 недели после отмены триала",
+  "keyFeatures": [
+    "таймлайн-редактор: trim, crop, split, speed, reverse, layers",
+    "шаблоны для Reels, TikTok, YouTube Shorts",
+    "5000+ встроенных музыкальных треков + импорт своих",
+    "AI text-to-image — генерация изображений по тексту для вставки в видео",
+    "chroma key / замена фона",
+    "субтитры / авто-генерация captions",
+    "слайд-шоу из фото с переходами и музыкой",
+    "экспорт в TikTok, Instagram, YouTube, WhatsApp"
+  ],
+  "competitors": [
+    "CapCut",
+    "Videoleap",
+    "InShot",
+    "Splice",
+    "Canva (видео)",
+    "iMovie",
+    "Kinemaster"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I canceled the trial subscription months ago and realized now that they've been charging me every two weeks ever since. And the charge is hidden in an Apple charge rather than being able to see it as an isolated standalone charge.",
+      "observation": "После отмены триала биллинг продолжается каждые две недели, а платёж отображается как обобщённый «Apple charge» без идентификации приложения — механизм намеренно затрудняет обнаружение повторных списаний.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Bought two credits for AI, said one credit per AI video generated, basically just added a small video before my main video. Terrible and it used both credits.",
+      "observation": "AI-генерация видео списывает credits непредсказуемо: задекларировано «1 credit за видео», по факту на 4-секундный ролик уходит 2 кредита, а результат — короткая нерелевантная вставка вместо сгенерированного контента.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Was going to try free trial and got charged immediately $45. Not even worth it if I wanted to subscribe",
+      "observation": "Кнопка «free trial» инициирует немедленное полное списание годовой подписки ($45) без промежуточного шага подтверждения — паттерн идентичен другим приложениям категории: «триал» является маркетинговым обозначением без технической защиты от немедленного заряда.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "O app diz cobrar um valor mas na verdade cobra outro. Mesmo aceitando pagar o valor semanal ou mensal, em seguida te enviam outra cobrança para editar",
+      "observation": "После оплаты базовой подписки пользователю выставляют дополнительные счета за само редактирование: сумма на экране подтверждения расходится с итоговым списанием, и платёжный слой множится.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "90% of the time I can't access my old projects or even start a new one because the app will just be unresponsive.",
+      "observation": "Приложение зависает при открытии существующих проектов или создании нового в 90% случаев по словам пользователя: core-flow видеоредактора (открыть → редактировать) систематически недоступен, что делает его непригодным для регулярного использования.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "No way to automatically shorten each clip to .5 seconds? I have 500+ photos, I have to do it one by one?!",
+      "observation": "Слайд-шоу из 500+ фото требует вручную задать длительность каждого клипа: функция batch-триминга отсутствует, что превращает базовый сценарий (семейное слайд-шоу из большой фотосессии) в многочасовую механическую работу.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

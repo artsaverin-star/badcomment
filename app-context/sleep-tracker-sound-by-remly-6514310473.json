@@ -1,0 +1,79 @@
+{
+  "productId": "cmpsyxld127hrughvs0smbl52",
+  "slug": "sleep-tracker-sound-by-remly-6514310473",
+  "name": "Sleep Tracker & Sound by Remly",
+  "domain": "сон / трекинг сна / звуки для сна",
+  "oneLiner": "Sleep Tracker & Sound by Remly (Deep Flow Software Services) — звуки + шумовой фон + трекинг сна через микрофон телефона; sleep score, запись ночных звуков, умный будильник; iOS + Android",
+  "pricing": "бесплатно с подпиской Pro; неделя триала требует карты; тариф ~$9.99/неделя или ~$6.99 в неделю (GB); также упоминается 3-дневный триал после которого базовые данные скрываются за пейволом",
+
+  "keyFeatures": [
+    "библиотека звуков для засыпания: природные шумы, белый шум, музыка, кастомные миксы",
+    "трекинг сна через микрофон (без Apple Watch): sleep score, фазы, длительность",
+    "запись и классификация ночных звуков (храп, разговоры, кашель, животные)",
+    "умный будильник по фазе сна",
+    "дневник сна: заметки перед сном, факторы (кофе, алкоголь, стресс), настроение после пробуждения",
+    "дыхательные упражнения с синхронизацией с ЧСС через камеру",
+    "guided meditation треки",
+    "графики и паттерны сна во времени"
+  ],
+
+  "competitors": [
+    "AutoSleep",
+    "Sleep Cycle",
+    "Pillow",
+    "ShutEye",
+    "BetterSleep",
+    "Calm",
+    "встроенный трекинг сна Apple Watch / Apple Health"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Every morning it showed my sleep score as 0, then hours later it would suddenly update",
+      "observation": "Sleep score появляется не утром, а через несколько часов после пробуждения — метрика бесполезна в момент ритуала пробуждения; пользователи, привыкшие к AutoSleep с мгновенным результатом, воспринимают это как поломку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The log showed I snored, talked coughed and hiccuped. When played back they were all gentle snoring.",
+      "observation": "Классификатор ночных звуков выдаёт массово ложные метки: один и тот же звук одновременно помечается как «храп», «речь», «кашель» и «домашнее животное» — аудиозаписи это опровергают, доверие к core-фиче рушится после первой же ночи.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "sleep tracker had turned itself off",
+      "observation": "Запись отключается сама ночью без уведомления: пользователь уверен, что трекинг запущен, но утром обнаруживает пустой экран — систематический сбой на 2-3 ночи подряд делает приложение непригодным для медицинского мониторинга (например, перед визитом к врачу).",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I have a 5 month old and was intrigued to see how much sleep I get",
+      "observation": "При многократных ночных пробуждениях (5 раз за ночь с перерывами по 30+ минут) приложение выдаёт 82% качества сна и 9 часов — данные полностью инвертированы; sleep score не учитывает фрагментированность сна через пробуждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "3 night trial gave no record of sleep activity",
+      "observation": "Первая ночь триала не записывается, на третью ночь данные уже скрыты за пейволом — из трёх пробных ночей реально доступна только одна; пользователь не успевает оценить точность трекинга до требования оплаты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was still charged $9.99 per WEEK",
+      "observation": "Подписка по умолчанию — понедельная ($9.99/нед), что в пересчёте выходит ~$520/год; отмена в приложении в течение «пробного периода» не останавливает списание — пользователи обнаруживают заряды уже после отмены.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "productId": "cmpstp5we1m9aug8p2iuekyhq",
+  "slug": "lingvano-learn-sign-language-1547252782",
+  "name": "Lingvano - Learn Sign Language",
+  "domain": "изучение языков / жестовые языки",
+  "oneLiner": "Lingvano (Lingvano GmbH) — приложение для изучения ASL/BSL по видео-урокам от глухих учителей; 3 млн пользователей; iOS/Android",
+  "pricing": "бесплатно с подпиской Premium: месячная, 3-месячная, годовая (около $17.99/мес или $125/год); есть 7-дневный триал, бесплатный tier ограничен несколькими первыми уроками",
+
+  "keyFeatures": [
+    "видео-уроки с глухими учителями (ASL, BSL, LSM)",
+    "словарь знаков с замедлением воспроизведения (иконка черепахи)",
+    "тренажёр: словарный запас, дактилология (ABCs), числа",
+    "интерактивное зеркало — практика собственных жестов через камеру",
+    "диалоги с разными носителями жестового языка",
+    "информация о культуре глухих (Deaf culture)"
+  ],
+
+  "competitors": [
+    "ASL — Sign Language",
+    "HandSpeak",
+    "SignSchool",
+    "Duolingo (нет жестовых языков, но упоминается как эталон)",
+    "SignIt",
+    "The ASL App"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "app told me it would notify me about the subscription two days before the trial expired, however, I never received that notification",
+      "observation": "Приложение обещает уведомить за 2 дня до окончания триала, но уведомление не приходит — пользователь обнаруживает списание по факту.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app said it would notify me about the subscription two days before the trial expired…was automatically charged $125 for the ANNUAL subscription instead of monthly",
+      "observation": "При оформлении триала выбирается «месячная» подписка, но после конвертации система списывает годовую сумму ($125): разрыв между выбором тарифа и фактическим биллингом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the app wouldn't let me continue with any lessons without setting up a subscription. I couldn't even practice without signing up and paying",
+      "observation": "После нескольких бесплатных уроков приложение блокирует весь прогресс — включая режим практики — до ввода платёжных данных, хотя при установке hard paywall не анонсировался.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "when the app started pausing music everytime you reopen the app, my heart was broken as I couldn't listen to music or podcasts while learning ASL",
+      "observation": "Приложение прерывает воспроизведение фоновой музыки/подкастов при каждом переоткрытии — пользователи не могут совмещать фоновое аудио с занятиями жестовым языком.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I used to be able to type \"back\" and have it marked correct. Now, I have to type \"#BACK\"",
+      "observation": "Обновление изменило формат ввода ответов: раньше принимались обычные слова, теперь требуются теги вида «#BACK» или «WHAT?» — пользователи с многолетними стриками сталкиваются с искусственными ошибками.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Why not add more content if you are wanting people to stay engaged & keep paying each year. Im gutted. I feel like I should've had more to learn",
+      "observation": "Курс BSL/ASL заканчивается: платящие подписчики упираются в потолок контента — повторяют уже пройденное, при этом продолжают платить годовую подписку без новых знаний.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

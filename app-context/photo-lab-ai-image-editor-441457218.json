@@ -1,0 +1,79 @@
+{
+  "productId": "cmpt4y8kk2eibugw6rlajrlfk",
+  "slug": "photo-lab-ai-image-editor-441457218",
+  "name": "Photo Lab — AI Image Editor",
+  "domain": "фотомонтаж / AI-трансформации / арт-эффекты",
+  "oneLiner": "Photo Lab (Linerock Investments) — 1000+ эффектов, фотомонтажи с автодетекцией лица и AI-арт-стили; 230 млн пользователей; iOS+Android",
+  "pricing": "$7.99/неделю (с 3-дневным триалом) или $99.99/год — VIP-подписка; триал автоматически конвертируется в недельную подписку; бесплатная версия существует, но сопровождается рекламой и водяным знаком на результатах; ряд эффектов заблокирован дополнительным VIP-уровнем даже при активной подписке",
+
+  "keyFeatures": [
+    "фотомонтажи с автодетекцией лица (более 100 категорий: астронавт, мультяшный герой, обложка журнала и др.)",
+    "AI-арт-стили (100+ техник: масло, акварель, карандаш, нейросетевой перенос стиля)",
+    "замена фона с AI-сегментацией фигуры",
+    "ретушь (изменение цвета глаз, волос, макияж)",
+    "фотореалистичные монтажи (фото в книге, на экране iPhone и др.)",
+    "поздравительные открытки для праздников",
+    "коллажи из нескольких фото",
+    "встроенный базовый редактор (кроп, яркость, контраст)"
+  ],
+
+  "competitors": [
+    "FaceApp",
+    "Prequel",
+    "Reface",
+    "Picsart",
+    "Canva",
+    "Meitu",
+    "YouCam Makeup"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "aunque compres la suscripción, la mayoría de las opciones salen categorizadas como VIP y no te deja usarlas, hay que subir una vez más de categoría",
+      "observation": "Внутри платной подписки существует дополнительный уровень VIP: стандартный подписчик видит большинство эффектов заблокированными с пометкой VIP, что создаёт двухуровневый пейволл — пользователи узнают об этом только после оплаты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app sends your photos to google for a profit without consent. Disgusting. I read the original agreement which didn't state that they have a right to my image. I deleted the app and find myself on google. Only to go back on the app delete everything and my photo is still up which means they have it saved in a data center.",
+      "observation": "Пользователь обнаружил своё фото в поиске Google после удаления и очистки аккаунта в приложении: фотографии остаются на серверах разработчика после удаления аккаунта — нарушение ожиданий пользователей относительно права на забвение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Keep Removing Features. I've been using this app for a long time with a VIP yearly subscription. I like it a lot but they keep taking away features, like couple face swap and dream manifester. Lately they started limiting VIP generations and you have to buy more despite paying for VIP access.",
+      "observation": "Функции, оплаченные через годовую VIP-подписку, периодически удаляются или переводятся на дополнительную оплату: долгосрочные подписчики теряют оплаченный функционал (face swap, dream manifester) без компенсации и уведомления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They removed the ART LOOK tool which was the most useful creative tool they had. Also, they severely censor creativity while blaming Apple of placing restrictions that don't apply to anyone else as evidenced by other tools that do not censor at all.",
+      "observation": "ART LOOK — главный творческий инструмент — был удалён, а контентная цензурация объясняется ограничениями Apple, которых нет у конкурентов: пользователи воспринимают это как намеренное занижение возможностей с перекладыванием ответственности.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it advertised a free trial for several days. Since the app didn't work for my purposes, I canceled the subscription within 10 minutes or so, but I got charged $9.99",
+      "observation": "3-дневный триал конвертируется в недельную подписку ($9.99) мгновенно после подтверждения — отмена внутри 10 минут не предотвращает списание: механика триала нарушает ожидание «ничего не платить сегодня» несмотря на явную надпись об этом на экране.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "all the work you tried saving is gone as you can't click off the gambling app - how annoying … what seemed to be working fine before is now full of bugs that either make this previously good app , laggy , or freezing",
+      "observation": "Реклама (gambling-баннер) перехватывает управление и блокирует выход из рекламного экрана: несохранённая работа в редакторе теряется, если пользователь нажал на объявление — рекламная интеграция разрушает пользовательский поток при редактировании.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

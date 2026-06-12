@@ -1,0 +1,78 @@
+{
+  "productId": "cmpsynf4a1m3bughvnhzoeh00",
+  "slug": "promova-language-learning-app-1460782849",
+  "name": "Promova: Language Learning App",
+  "domain": "изучение языков / AI-тьютор / разговорная практика",
+  "oneLiner": "Promova (Unlimited Promova Limited) — мультиязычное приложение для 25 млн learners: AI-тьютор, ролевые сценарии, словарные флэшкарты, TV-шоу; iOS/Android; 13 языков",
+  "pricing": "бесплатно с подпиской Premium: месячная или годовая (ранее около $50/квартал; промо-предложения при отмене); 7-дневный триал; есть CarPlay-поддержка",
+
+  "keyFeatures": [
+    "AI-тьютор: голосовые разговоры 24/7, обратная связь по грамматике и словарю",
+    "80+ ролевых сценариев (собеседование, путешествия, small talk, медицина)",
+    "спейсед-репетишн флэшкарты: 400+ тематических наборов",
+    "TV Shows — уроки на базе сериалов на изучаемом языке",
+    "анализ произношения в реальном времени",
+    "режим Dyslexia Mode и белый шум для фокуса",
+    "CarPlay: разговорная практика с AI-тьютором за рулём"
+  ],
+
+  "competitors": [
+    "Duolingo",
+    "Babbel",
+    "Rosetta Stone",
+    "Speak: Language Learning",
+    "italki",
+    "Busuu",
+    "Pimsleur"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "Promova promised me a 7 day free trial, and that then they would remind me about the upcoming payment in 5 days, after which they'd charge me for a yearly subscription…within a couple of hours of signing up for this \"free trial\", I was extremely alarmed to find that Promova had already charged me $170",
+      "observation": "Промо-экран обещает 7-дневный бесплатный триал с напоминанием за 5 дней, но деньги ($170 за годовую подписку) списываются через несколько часов после регистрации — триал существует только в маркетинге.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "around 90% of the lessons still ask for additional payment. Every time I click on a lesson, I see a lock, and when I try to unlock it, I'm asked to pay again",
+      "observation": "Платный подписчик видит замки на 90% уроков и при каждом нажатии получает запрос дополнительной оплаты — Premium не снимает пейволл, а добавляет ещё один уровень монетизации поверх него.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I signed up after seeing an ad that showed a book being read aloud in Spanish with the words highlighted as it was read and the English translation below. However, when I signed up, I could not find that feature anywhere",
+      "observation": "Рекламный ролик демонстрирует функцию «книга читается вслух с подсветкой слов», которой в приложении нет — поддержка не смогла её найти, возврат средств заблокировали требованием пройти 10 уроков.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the first \"lesson\" drilled me on a bunch of soccer/football equipment and terminology. I doubt that the first words a beginner wants to learn are things like shin guards, cleats, jerseys, and stadiums",
+      "observation": "Адаптивный курс для начинающего открывается уроком со спортивной терминологией (щитки, бутсы, трибуны) — алгоритм размещения контента нерелевантен для первого контакта с языком.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The IA role playing speaking does't work as it is announced…It doesn't correct pronunciation neither writing until the end of the dialogue is finished and only gives you 2 or the corrections",
+      "observation": "AI-ролевой диалог даёт обратную связь только по завершении всего сценария и ограничивает её двумя замечаниями — пользователи ожидают пофразную коррекцию, как в описании.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they offered another quarter at £4. Fair enough, I accepted. What of course then happens? They charge me full renewal price to my card",
+      "observation": "Retention-оффер (скидочный квартал за £4) принят пользователем, но система выставляет полную цену — обещанная скидка не применяется, что обнаруживается только после списания.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

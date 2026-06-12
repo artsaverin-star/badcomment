@@ -1,0 +1,75 @@
+{
+  "productId": "cmpstjkul1a2mug8ppp9bi5hp",
+  "slug": "videoleap-ai-video-editor-1255135442",
+  "name": "Videoleap: AI Video Editor",
+  "domain": "видеоредактор / AI-эффекты / социальный контент",
+  "oneLiner": "Videoleap (Lightricks Ltd.) — мобильный видеоредактор с AI-эффектами, таймлапсом, chroma key и шаблонами для Reels/TikTok/Shorts; iOS",
+  "pricing": "бесплатный tier с водяным знаком и лимитом 4 экспорта; подписка: ~$9-10/нед, ~$54/год (исторически); цены существенно выросли; ранее продавалась lifetime-лицензия (~$150), которую впоследствии обесценили — часть функций требует отдельных покупок поверх подписки; отдельные AI-шаблоны продаются поштучно (~$10/шт)",
+  "keyFeatures": [
+    "таймлайн-редактор с keyframe-анимацией и motion tracking",
+    "green screen / chroma key",
+    "AI Video Effects — пресеты и AI-шаблоны (remake trending edits)",
+    "слои: видео, изображения, текст, оверлеи с blending modes",
+    "AI background removal и замена фона",
+    "скоростная коррекция клипа (slow motion / timelapse)",
+    "библиотека переходов, фильтров, звуковых эффектов",
+    "community feed для ремикса чужих шаблонов"
+  ],
+  "competitors": [
+    "CapCut",
+    "DaVinci Resolve (desktop, бесплатный)",
+    "Meta Edits (ранее — Instagram-редактор)",
+    "Splice",
+    "InShot",
+    "Photoleap / Beatleap / Motionleap (другие продукты Lightricks)",
+    "iMovie"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "in the final weeks they've placed a large countdown banner over the editing screen that can't be removed. It blocks the workspace and makes the app difficult to use.",
+      "observation": "В последние недели действующей платной подписки поверх рабочей области редактора появляется неубираемый баннер обратного отсчёта: подписчик платит полную цену, но полноценно использовать купленный инструмент уже не может — функциональное давление встроено в интерфейс.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they removed my *150 DOLLAR lifetime subscription* in favor of **not monthly** but 5-10 Dollars a ***WEEK*** for a membership",
+      "observation": "Единовременная lifetime-лицензия за $150 была де-факто аннулирована: вместо неё теперь только недельная подписка по $5-10 (эквивалент $260-520/год) — пользователи, купившие вечный доступ, лишились его без компенсации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Once you add more than 1-2 minutes of footage the glitches start occurring. The video lags as you edit and now none of my projects will even open to view.",
+      "observation": "Редактор деградирует при проектах длиннее 1-2 минут: таймлайн лагает при каждом кате, проекты перестают открываться — приложение функционально заточено под короткий формат (Reels/Shorts), при длинном форматном монтаже становится непригодным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "After using this app consistently for nearly 5 years I have finally decided enough is enough. There are 2 extremely annoying and prevalent bugs that annoy me whenever I make a video. Firstly, the purple lines that border any emoji within a text layer.",
+      "observation": "Два воспроизводимых визуальных артефакта существуют без исправления 5+ лет: фиолетовые рамки вокруг эмодзи в текстовых слоях и громкий спайк громкости в начале аудио с эффектом fade-in — разработка фокусируется на новых AI-фичах, базовые дефекты рендера не устраняются.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "When I post a video with music added from Videoleap, I get a message from Facebook that I don't have the rights to use this music.",
+      "observation": "Музыка из встроенной библиотеки Videoleap блокируется алгоритмами авторских прав при публикации в Facebook: подписчик платит за контент, который нельзя легально использовать на целевой платформе публикации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I chose this app because I thought I could pay once and be done... After purchasing, I realized there are additional charges for AI features that feel essential even for simple edits.",
+      "observation": "AI-функции, ощущающиеся как базовый инструментарий современного редактора, вынесены за пределы подписки и требуют отдельных micropayment-покупок — пользователь платит подписку и обнаруживает второй платёжный слой уже внутри оплаченного продукта.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

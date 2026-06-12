@@ -1,0 +1,76 @@
+{
+  "productId": "cmqaqr3dt03y2ugcej7rfznvz",
+  "slug": "zombies-run-503519713",
+  "name": "Zombies, Run!",
+  "domain": "бег / аудиоистория / геймификация фитнеса",
+  "oneLiner": "Zombies, Run! (Six to Start / Zombies Run! Ltd) — беговое приложение с иммерсивным аудиосериалом про зомби-апокалипсис: 500+ миссий, зомби-чейсы, строительство базы, GPS; iOS",
+  "pricing": "бесплатно с первыми несколькими эпизодами; подписка для полного доступа к 500+ миссиям (11 сезонов + доп. контент); legacy-пользователи (покупавшие разовые эпизоды до 2018) частично потеряли разблокированный контент после обновления 2024–2025",
+
+  "keyFeatures": [
+    "аудиосериал — 11 сезонов, 500+ миссий, нарратив от соавтора Naomi Alderman",
+    "зомби-чейсы: случайные ускорения во время забега для имитации погони",
+    "строительство базы Abel Township из собранных во время пробежки предметов",
+    "GPS-трекинг маршрута и дистанции",
+    "интервальные тренировки (Radio Mode, Supply Runs)",
+    "интеграция с музыкой пользователя — история перемежается с плейлистом",
+    "совместимость с беговой дорожкой и режимом ходьбы"
+  ],
+
+  "competitors": [
+    "Nike Run Club",
+    "Strava",
+    "Runna",
+    "C25K / Couch to 5K",
+    "Headspace (как нарративный аудиокомпаньон)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "As a result of the latest update, all users have lost all of their previously unlocked episodes, and the company is not going to restore them. Like many other reviewers, I spent YEARS unlocking these episodes. The company's solution? Just spend years doing it all over again, too bad.",
+      "observation": "После крупного обновления (2024) все разблокированные по одному эпизоды пользователей были стёрты; поддержка отказалась восстанавливать прогресс, сославшись на то, что данные не хранились на сервере — пользователи годами накапливали разблокировки, которые хранились только локально.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid $7.99 for a running app in 2012, this is not the app I purposely purchased. If I pay for something, I expect that something to remain the thing that I bought. I've requested a refund.",
+      "observation": "Приложение 2012 года за разовую плату постепенно превратилось в подписочный сервис с Marvel-контентом и другим UI: покупатели ранней версии получили принципиально другой продукт без компенсации и права голоса.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I used to be a huge advocate recommending this app to other runners and fellow Zombie enthusiasts, but the contaminated interface that detracts from the story by intermingling unrelated Marvel characters takes away from the original appeal of the clean interface of the original app.",
+      "observation": "Интеграция Marvel Move в то же приложение превратила чистый нарративный интерфейс в рекламную площадку: пользователи платной подписки видят промо несвязанного Marvel-контента прямо во время беговых сессий.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app is no longer available for Apple Watch despite it's description in the store via iPhone. I wasted a lot of time trying to get it to work. False advertising. Deleted app.",
+      "observation": "Страница App Store декларирует поддержку Apple Watch, но приложение фактически недоступно на устройстве: установить через поиск на Watch невозможно, функция «run without phone» не работает.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "This App USED to be amazing. Since they moved to this Marvels Move/ Zombies Run! Combo it has gone downhill. I was recently away somewhere with no 3/4/5G coverage and limited WiFi access. Shouldn't have been a problem I should've been able to download missions and sync them later. Except it doesn't work.",
+      "observation": "После слияния с Marvel Move офлайн-режим перестал работать стабильно: загруженные миссии не воспроизводятся без сети, синхронизация при восстановлении связи не происходит — приложение стало непригодно для загородных пробежек.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Paid for the app - set the difficulty as high as possible 30% faster and the max chases of 8 per hour. I never seem to get chased and I can out walk the zombies the entire time.",
+      "observation": "Зомби-чейс — центральная геймификационная механика — почти не срабатывает даже при максимальных настройках сложности: пользователи сообщают о единичных погонях за несколько часов использования, механика теряет мотивирующий эффект.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

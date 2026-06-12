@@ -1,0 +1,77 @@
+{
+  "productId": "cmpstpgdv1mviug8pd71cb9q9",
+  "slug": "speak-language-learning-1286609883",
+  "name": "Speak: Language Learning",
+  "domain": "изучение языков / AI-разговорная практика / произношение",
+  "oneLiner": "Speak (Speakeasy Labs) — AI-ориентированный тренажёр разговорной речи: видео-уроки с живыми учителями (постепенно заменяются AI), произношение, ролевые сцены; iOS/Android; 7 языков",
+  "pricing": "бесплатно с подпиской Speak Membership: месячная или годовая (около $100+/год); 7-дневный триал; доступ к голосовой практике закрывается после 1 урока без Premium",
+
+  "keyFeatures": [
+    "видео-уроки с носителями языка (учителя) — постепенно вытесняются AI-аватаром",
+    "AI-тьютор: голосовые разговоры, немедленная обратная связь по произношению",
+    "ролевые сценарии (путешествия, рестораны, знакомства)",
+    "Tutor Q&A — практика через вопрос-ответ с AI в голосе",
+    "словарные тренажёры и повторение пройденного",
+    "адаптивные уроки по уровню (JLPT N4-N3 для японского и др.)"
+  ],
+
+  "competitors": [
+    "Duolingo",
+    "Pimsleur",
+    "Babbel",
+    "Promova",
+    "Rosetta Stone",
+    "italki (живые тьюторы)",
+    "Speechling"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "The real life tutors have been completely phased out in favor of the blue blob cartoon which killed the differentiator Speak had vs every other AI app on the market",
+      "observation": "Ключевой дифференциатор приложения — живые учителя (Dalma, Andres для испанского) — убран и заменён AI-аватаром («синий блоб»): пользователи, платившие именно за это, теряют причину продолжать.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the app processes your responses super slowly and you end up having to say a word multiple (7x-10x) to get it to register. You end up having to say something in a very heavy American accent to be recognized as correct",
+      "observation": "Распознавание речи принимает слова только при очень сильном американском акценте: нейтральное или акцентированное произношение засчитывается как ошибка даже при фонетически корректном ответе.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "The tutor Q&A though is horrendous. No matter how perfectly I pronounce the sentence, it will almost always mark me wrong and when I repeat the same sentence for the second time it will correctly read what I say",
+      "observation": "В Tutor Q&A первая попытка фразы почти всегда засчитывается неправильно, вторая — правильно: система стабильно ошибается на первом распознавании, создавая ложное ощущение собственных ошибок у пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It was much better before they switch everything to AI, I would not have paid for a year subscription if I knew they were going to solely use AI",
+      "observation": "Миграция с живых учителей на AI произошла уже после того, как пользователи купили годовую подписку — продукт изменился принципиально без уведомления и права на возврат.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "you will get penalized for things that were not covered in the lesson when you get to the review. You're expected to know what you haven't even learned yet (I'm learning Korean as an English speaker)",
+      "observation": "Раздел Review проверяет слова и конструкции, которые ещё не были в уроках — штрафует пользователей за незнание непройденного материала, разрушая ощущение прогресса.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I don't like how they don't give you an option to choose wether is a man or woman speaking because everytime they repeat the words it sounds different",
+      "observation": "В уроках японского/испанского голос диктора переключается между мужским и женским без логики — пользователи не могут выбрать целевой регистр речи, что особенно критично для языков с гендерными формами.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "productId": "cmpt18bc22lrgugfedjfbkf5b",
+  "slug": "polarr-photo-filters-editor-988173374",
+  "name": "Polarr: Photo Filters & Editor",
+  "domain": "фоторедактирование / фильтры / AI-ретушь",
+  "oneLiner": "Polarr (Polarrcan Software Inc) — продвинутый мобильный фоторедактор с AI-инструментами, миллионами пользовательских фильтров через QR-коды и маскированием объектов; iOS+Android",
+  "pricing": "бесплатно с ограниченным free-tier; Polarr Lite $1.99/мес или $11.99/год; Polarr Studio $3.99/мес или $23.99/год; сохранение фото — платный feature; бесплатная квота: max 3 сохранённых фильтра; альтернативно — просмотр рекламы за каждое сохранение (один раз в день)",
+
+  "keyFeatures": [
+    "AI-ретушь лица: Face HD, Skin, Liquify, редактирование черт лица",
+    "избирательные AI-маски: небо, человек, фон, объекты",
+    "ручные маски: кисть, радиальная, градиентная, цветовая, яркостная",
+    "наложения (overlays): градиент, duotone, погода, backdrop",
+    "глобальные настройки: свет, цвет, HSL, тонирование, кривые, виньетка, зерно, LUT",
+    "пользовательские фильтры: создание, шаринг и импорт через QR-коды",
+    "синхронизация фильтров через Polarr-аккаунт"
+  ],
+
+  "competitors": [
+    "VSCO",
+    "Lightroom Mobile (Adobe)",
+    "Snapseed",
+    "Snow",
+    "Facetune",
+    "PicsArt"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "why do we need premium to literally save our photos? i was super confused at why my photos weren't being saved and then i realized it was a premium feature",
+      "observation": "Сохранение отредактированного фото — платная функция: пользователь редактирует снимок, применяет фильтры и только потом обнаруживает, что экспорт заблокирован paywall'ом — онбординг это не сообщает.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the free trials per day stopped working completely. like i know you can be greedy in this economy but you can't be this greedy enough to the point where you don't allow users to not VIEW ADS to download a picture within a DAY",
+      "observation": "Бесплатный механизм «посмотри рекламу — сохрани фото» перестал работать полностью: daily ad-quota исчезла без объяснений, оставив free-пользователей без единого способа экспортировать результат.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "you can only save a maximum of three until they ask you to pay for a membership. They are only driving customers away",
+      "observation": "Квота free-tier на фильтры — ровно 3 штуки: пользователь, накопивший 92 сохранённых фильтра, после введения paywall потерял доступ ко всей коллекции разом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I have to log into my account EVERY SINGLE TIME I open the app. I have tried uninstalling, downloading, clearing cache, offloading app, everything.",
+      "observation": "Сессия авторизации не сохраняется между запусками: при каждом открытии требуется повторный логин — проблема не решается переустановкой и сбросом кеша.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I requested a refund for subscription as It took twice the money for a monthly subscription. They didn't reply to my request for days now",
+      "observation": "Двойное списание за подписку: покупка Lite активирует отдельный заряд за Studio, и оба тарифа продолжают биллиться одновременно — возврат денег разработчик игнорирует.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I love how you can share filters and use overlays like one would in a drawing app, though having the free version is VERY limited. you can barely edit your own photos beyond the filters, which you can only make changes to if you save them and you can only save three.",
+      "observation": "Флагманская механика шаринга фильтров через QR-коды и импорт чужих пресетов доступна в free-tier, но результат применения нельзя экспортировать без подписки — квота в 3 сохранённых фильтра делает коллекционирование бессмысленным.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

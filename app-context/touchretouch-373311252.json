@@ -1,0 +1,76 @@
+{
+  "productId": "cmqaqp6ht00h9ugceyue0xa9j",
+  "slug": "touchretouch-373311252",
+  "name": "TouchRetouch",
+  "domain": "фоторедактирование / удаление объектов / ретушь",
+  "oneLiner": "TouchRetouch (ADVA Soft GmbH) — специализированный инструмент для удаления нежелательных объектов с фото: провода, люди, знаки, пятна; AI-детекция + ручной клон-штамп; iOS",
+  "pricing": "исторически one-time purchase; перешли на подписочную модель (около €15/год); старые покупатели переведены на 'Retouch Core' — сохранение отредактированных фото теперь требует подписки; 'вечный доступ' из справки не соответствует реальному поведению приложения",
+
+  "keyFeatures": [
+    "Erase AI: автоматическое удаление фоновых объектов (знаки, урны, провода, люди, тени)",
+    "удаление линий одним касанием: провода, линии электропередач",
+    "автоматическое удаление сеток (mesh detection)",
+    "ручная ретушь кистью + Clone Stamp для точного контроля",
+    "удаление и замена фона (background eraser/changer)",
+    "размытие фона",
+    "edge-aware AI object removal"
+  ],
+
+  "competitors": [
+    "Snapseed (Healing tool)",
+    "Adobe Lightroom Mobile (Remove/Heal)",
+    "Photoshop Mobile",
+    "встроенный Clean Up iOS 18",
+    "Cleanup: Remove Objects"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I have the app for ever it says but delegated to free core so I cannot save or open in any other apps. So what's the use having it. It's a basic thing to save",
+      "observation": "Переход на подписку лишил «вечных» покупателей возможности сохранять результат: приложение открывается, ретушь работает, но экспорт заблокирован — редактирование без сохранения бессмысленно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I cancelled the subscription well within the free trial period and I still got charged $15. I requested a refund for the charges and it was denied. Apple advised no information was provided but the app developer refused to refund",
+      "observation": "Отмена подписки в период бесплатного триала не предотвращает списание: разработчик отклоняет возврат средств, перекладывая ответственность на Apple, хотя Apple подтверждает, что решение о refund принимал сам разработчик.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "seit Einführung des Abos verrichtet die App nicht mehr seinen Dienst, wie sie sollte. Ein öffnen der App ist unmöglich, mir wird nur ein pulsierendes Logo angezeigt",
+      "observation": "После введения подписочной модели прямой запуск приложения сломался: вместо редактора показывается только пульсирующий логотип; единственный обходной путь — открывать фото через стандартное «Фото» iOS и импортировать оттуда.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "24 MP Fotos lassen sich über die Erweiterung in Appels Fotos-App nicht mehr bearbeiten, bzw. werden dann einfach auf 12 MP reduziert ohne zu fragen",
+      "observation": "При обработке через расширение iOS фотографии 24 Мп автоматически даунсэмплируются до 12 Мп без предупреждения: пользователи RAW-съёмки теряют половину разрешения, не зная об этом до экспорта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Paid to upgrade my subscription and was using for a time before being asked to pay even more to upgrade AGAIN. you cannot save them at all meaning the app is completely useless if you don't pay for the upgrade",
+      "observation": "Многоуровневая подписочная лестница с принудительными апгрейдами: оплаченный тариф через некоторое время становится недостаточным для сохранения — пользователь вынужден снова платить, опасаясь, что цикл повторится.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Entfernungen waren nicht mehr zeitgemäß und qualitativ nicht mehr akzeptabel und in macOS gabs gar keine Weiterentwicklung mehr. Bei der mobilen App auch meistens nur 'kleinere Korrekturen und Verbesserungen'",
+      "observation": "Качество удаления объектов деградировало с ростом конкуренции: macOS-версия заброшена, мобильные обновления ограничены «мелкими исправлениями» месяцами подряд — подписчики платят за стагнирующий продукт.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

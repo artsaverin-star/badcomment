@@ -1,0 +1,78 @@
+{
+  "productId": "cmpstigdi17n4ug8pra0vigb0",
+  "slug": "prequel-photo-video-editor-1325756279",
+  "name": "Prequel: Photo & Video Editor",
+  "domain": "редактирование фото и видео / aesthetic-фильтры",
+  "oneLiner": "Prequel (Prequel Inc.) — aesthetic-редактор с 800+ эффектами и AI-фильтрами для фото и видео; iOS+Android",
+  "pricing": "бесплатно с подпиской Prequel Gold (цены варьируются по стране); исторически годовая подписка давала неограниченный доступ к эффектам; в 2024–2025 добавлена система кредитов (coins) для AI-эффектов — платная поверх подписки; бесплатная версия включает часть эффектов и инструментов без AI-функций",
+
+  "keyFeatures": [
+    "800+ эффектов и фильтров (DISCO, VHS, PRISM, MIAMI и др.)",
+    "AI-фильтры для фото и видео (GX7, флэш-эффекты, генеративные трансформации)",
+    "D3D — создание 3D-живых фото с трендовыми эффектами",
+    "шаблоны для быстрого создания aesthetic-видео в один тап",
+    "инструменты коррекции (adjust): экспозиция, контраст, тон кожи, зернистость",
+    "добавление текста (30+ шрифтов), стикеров, музыки",
+    "intro-эффекты для начала видео"
+  ],
+
+  "competitors": [
+    "VSCO",
+    "Lightroom Mobile",
+    "CapCut",
+    "BeautyPlus",
+    "Facetune",
+    "Remini",
+    "RNI Films"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Assinei o plano anual, com acesso ilimitado aos recursos. Do nada, adicionaram um sistema de moedas pra filtros de IA que é pago a cada uso e tem uma quantidade extremamente limitada. O pior é que não dá para saber o resultado das imagens com o filtro, e mesmo só testando, sem fazer o download da imagem, as moedas são utilizadas.",
+      "observation": "Кредиты (coins) для AI-фильтров списываются при каждом предпросмотре, не только при сохранении: пользователь теряет оплаченные кредиты даже при тестировании эффекта без скачивания результата — скрытое «сгорание» токенов при попытке примерить фильтр.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I am extremely disappointed with my experience using the GX7 AI filter on Prequel. As a Black woman, I uploaded several different photos and, on every single occasion, the AI transformed me into a White woman. My skin tone, facial features, and overall appearance were completely altered",
+      "observation": "AI-фильтр GX7 систематически осветляет тон кожи и европеизирует черты лица: темнокожие пользователи получают результат с изменённой расовой идентичностью независимо от исходной фотографии — дефект воспроизводится на всей серии фото одного пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I purchased the Gold subscription for the Prequel iPhone app expecting full access to the features, especially the holiday templates. Unfortunately, despite having an active paid subscription, I cannot use any festive templates because I supposedly reached an AI usage limit. There is no clear information about any AI limits before purchasing the subscription. The app keeps telling me to \"come back later,\" and I have been seeing this message for three days in a row.",
+      "observation": "Gold-подписка содержит скрытый недельный лимит на AI-генерации, не указанный на экране покупки: пользователь исчерпывает лимит и видит «come back later» несколько дней подряд — отсутствие информации о лимите до и после покупки квалифицируется как вводящая в заблуждение реклама.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid for a yearly subscription and now all of the sudden you can't use the A.I. features without buying extra credits to use them when they've always been included in the price you pay a subscription for",
+      "observation": "Ретроактивное введение системы кредитов: AI-функции, ранее включённые в подписку, перенесли на отдельную оплату без предупреждения действующих подписчиков — годовые подписчики обнаруживают деградацию уже оплаченного продукта без права на возврат.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Eleventy billion unskippable \"customize your content\" screens into a set up that lands you at a 2 day free trial for a $6/week subscription. No thank you.",
+      "observation": "Онбординг из множества обязательных экранов «персонализации» замаскирован под настройку вкусов, но ведёт исключительно к экрану подписки: пользователь не может пропустить последовательность и попасть в приложение без ввода платёжных данных.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I paid for a subscription a few months ago and everything was fine, until recently for whatever reason they got rid of the feature to continue editing after you save the photo/video to your gallery. I used to try variations of effects, save to photos, then was able to continue editing as normal, but now once you save a photo or video, it just closes the editor and all your undo history, effect settings, etc are gone",
+      "observation": "После обновления сохранение фото/видео автоматически закрывает редактор и сбрасывает историю правок: итеративный рабочий процесс «применить — сохранить вариант — попробовать другой эффект» стал невозможен — фича была убрана без анонса для платных подписчиков.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

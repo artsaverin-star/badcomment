@@ -1,0 +1,72 @@
+{
+  "productId": "cmpsynxg41n4vughvawku2cie",
+  "slug": "ewa-learn-languages-1200778841",
+  "name": "EWA: Learn Languages",
+  "domain": "Изучение языков / чтение / словарный запас",
+  "oneLiner": "EWA: Learn Languages (Lithium Lab Pte Ltd) — языковая платформа с 10 000+ книг с переводом, видеокурсами на основе кино/сериалов и флэш-картами; фокус на английском, испанском и французском; iOS+Android",
+  "pricing": "бесплатная загрузка; подписка через сторонний платёжный сервис Paddle (не через Apple IAP), что скрывает её из стандартного раздела подписок Apple; подписка не отображается в настройках iPhone — отмена только через веб-сайт; рекламируется 14-дневная гарантия возврата, но на практике отказы систематические",
+  "keyFeatures": [
+    "библиотека 10 000+ книг с параллельным переводом по абзацам и тапом на слово",
+    "видеокурсы с озвучкой из фильмов и сериалов для изучения через живую речь",
+    "флэш-карты с методом интервального повторения (40 000+ карточек)",
+    "разговорные топики-диалоги на повседневные ситуации",
+    "раздел игр для тренировки лексики",
+    "рейтинги и конкурентная статистика прогресса"
+  ],
+  "competitors": [
+    "Duolingo",
+    "Babbel",
+    "Rosetta Stone",
+    "Busuu",
+    "Pimsleur",
+    "Praktika – AI Language Tutor"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "You can't unsubscribe in the app. It doesn't show up in Apple subscription sections. The only indication is the email they send as SOON as they charge you - not earlier to ensure you even want the charge. They use AI, not humans, for support. You have to login on the website to cancel.",
+      "observation": "EWA обходит стандартный механизм подписок Apple, оформляя оплату через Paddle — подписка не видна в настройках iPhone, отмена возможна только через веб-интерфейс, уведомление о списании приходит постфактум.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "If you sign up through the app store it will sneak in a redirect and have you sign in through a method that doesn't show up in your app subscriptions.",
+      "observation": "При регистрации через App Store встроенный редирект переключает пользователя на сторонний аккаунт, выводя подписку за пределы Apple-экосистемы — пользователь не осознаёт, что теряет стандартные инструменты управления и возврата.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the paragraph-by-paragraph translations are excellent. But the feature I expected from an app like this is for each word to have a translation and for me to be able to select each word to see it rather than to compare two paragraphs in different languages to suss out what words mean what. MANY of the words are mis-translated, if they have any translation at all.",
+      "observation": "Пословный перевод в книжном разделе декларируется как ключевая функция, но многие слова либо переведены неверно, либо при тапе возвращают то же исходное слово — основной обучающий механизм работает ненадёжно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I am at an advanced level in Spanish. The app said it could help with growing my vocabulary and getting to a more advanced level. Despite my profile saying advanced, all the lessons were beginner level. I reached out thinking maybe it was a technical issue and their reply was instructions on how to cancel.",
+      "observation": "Уровень пользователя из профиля игнорируется при формировании уроков — продвинутый learner получает beginner-контент; поддержка не пытается устранить проблему и сразу присылает инструкцию по отмене подписки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I purchased a three month subscription thinking it was a low-commitment but after 3 months, they renewed it automatically for another three months. There is no way to cancel in the app and it isn't listed in your Apple account subscriptions. To cancel, I had to log into the website.",
+      "observation": "Трёхмесячная подписка автоматически продлевается ещё на три месяца; поскольку она оформлена вне Apple IAP, стандартное «Управление подписками» iPhone её не показывает — пользователи узнают о продлении только из банковской выписки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The lesson section of my app has been stuck for more than a week. I passed the test for current section, but no new lessons appear. This has happened several times. In the past, writing to support 3+ times eventually gave me more content. Not this time.",
+      "observation": "Прогресс по урокам периодически зависает: пройденный тест не разблокирует следующую секцию, и пользователь не может продвигаться дальше — поддержка не реагирует на повторные обращения.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

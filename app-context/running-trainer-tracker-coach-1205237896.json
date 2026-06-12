@@ -1,0 +1,75 @@
+{
+  "productId": "cmqaqqwi603kaugce7fjqnweu",
+  "slug": "running-trainer-tracker-coach-1205237896",
+  "name": "Running Trainer: Tracker&Coach",
+  "domain": "бег / трекинг / коучинг",
+  "oneLiner": "Running Trainer: Tracker&Coach (FITNESS22 LTD) — GPS-трекер бега с голосовым тренером и тренировочными планами (Couch-to-5K и др.); iOS, бесплатно с подпиской",
+  "pricing": "бесплатно с подпиской (monthly / yearly ~$89.99/год); есть 7-дневный триал — пользователи сообщают о немедленном списании полной суммы при старте триала; поддержка только платным пользователям",
+  "keyFeatures": [
+    "GPS-трекинг дистанции, темпа, каллорий, пульса",
+    "голосовой фидбэк в реальном времени (тренер зачитывает показатели вслух)",
+    "тренировочные планы (Couch-to-5K, 5K, 10K — заявленные; фактически постепенно сокращаются до 3)",
+    "сплиты по милям / километрам",
+    "пульс и зоны усилий (Heart Rate & Effort Zones)",
+    "интеграция с Apple Health",
+    "встроенный музыкальный плеер",
+    "история пробежек и прогресс"
+  ],
+  "competitors": [
+    "Nike Run Club",
+    "Strava",
+    "Couch to 5K (C25K)",
+    "Runkeeper",
+    "MapMyRun",
+    "Garmin Connect",
+    "Apple Fitness+ / встроенный трекинг Apple Watch"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "my « current pace » is always well above 50 minutes per kilometre, making it very difficult to judge my performance during my run. Upon trying to reach out to customer support, all I got back was an automated email saying support is only provided to customers of the paid plan",
+      "observation": "После обновления текущий темп стабильно показывает >50 мин/км при реальных ~6 мин/км: баг делает live-метрику бесполезной. Поддержка отказывает бесплатным пользователям — проблему некому сообщить.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it lags and takes forever to update the mileage so it tracks mileage completely different than it did before. For example, I run the same route in the mornings and before the update, it would count as 1.5 miles. The new update shows I run anywhere from .5 miles to .7 miles",
+      "observation": "GPS-обновление задерживается настолько, что один и тот же маршрут после апдейта даёт 0.5-0.7 миль вместо 1.5: ошибка дистанции ~50-65%, а не drift.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "putting my mile splits behind a pay wall is insane and ruins the purpose of a running app. I loved that it would tell you out loud what mile you were at so I didn't have to look down at my phone, but I refuse to pay for MY own data",
+      "observation": "Сплиты по милям (голосовое оповещение на каждой миле) убраны за paywall: базовая функция трекинга, которой пользователь 6-7 лет пользовался бесплатно, превратилась в платную.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "deleted all running plans, except for 3. There used to be literally dozens of plans. The highest level of training is a 10k",
+      "observation": "Библиотека тренировочных планов сокращена с «десятков» до 3 без объяснений: пользователи, платившие за разнообразие планов, обнаруживают урезанный каталог.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "when you sign up for the trial, they charge you the full $89.99 right then and there rather than the free trial period. I have reported this to Apple",
+      "observation": "При оформлении 7-дневного триала списывается полная годовая сумма ($89.99) немедленно, а не в конце пробного периода: онбординг триала ведёт себя как платная покупка.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I can't create my own workout and intervals, which is very sad and frustrating :( you pay and use their trainings already set up. If you want custom workouts this app is not for you",
+      "observation": "Приложение не поддерживает создание кастомных интервальных тренировок: подписчик получает только готовые планы тренера, без возможности задать собственную структуру.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

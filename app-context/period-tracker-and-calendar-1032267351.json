@@ -1,0 +1,74 @@
+{
+  "productId": "cmqaqpndm01b8ugcejl68zopi",
+  "slug": "period-tracker-and-calendar-1032267351",
+  "name": "Period Tracker and Calendar",
+  "domain": "трекер цикла / фертильность / беременность",
+  "oneLiner": "Period Tracker and Calendar (AppManage LLC) — трекер цикла, овуляции и фертильности с режимами беременности и перименопаузы; CE Class I Medical Device (EU); iOS",
+  "pricing": "бесплатная загрузка с базовым функционалом; Premium-подписка разблокирует трекинг симптомов полностью, расширенные инсайты; после обновления часть ранее бесплатных функций (симптомы, логирование активности) перенесена за paywall",
+  "keyFeatures": [
+    "трекинг цикла, менструации, овуляции и фертильного окна",
+    "логирование 100+ симптомов, настроений, температуры, веса, лекарств",
+    "режим беременности — еженедельный рост плода, советы, отчёты для врача",
+    "режим перименопаузы — трекинг приливов, нарушений сна, нерегулярных циклов",
+    "Simple Mode — скрытый режим без данных об овуляции и фертильности (для подростков)",
+    "backup и restore данных между устройствами",
+    "кастомизация напоминаний и тем оформления, Dark Mode",
+    "CE Class I Medical Device (EU) — регулируемое медицинское приложение"
+  ],
+  "competitors": [
+    "Clue Period Tracker & Calendar",
+    "Flo Period & Ovulation Tracker",
+    "Glow Eve Period Tracker",
+    "Ovia Fertility & Cycle Tracker",
+    "Apple Health (встроенный трекер цикла)",
+    "Cycles: Period & Ovulation App"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "I came off the pill over 5 weeks ago, yet this app STILL thinks I'm on hormonal contraception. There's no option to switch to a natural cycle — the only \"solution\" is to delete all my history, which is ridiculous and not even going to do.",
+      "observation": "После отмены гормональной контрацепции приложение не имеет переключателя «перейти на естественный цикл»: единственный способ сбросить режим — удалить всю историю, что делает функцию непригодной для миллионов женщин, меняющих метод контрацепции.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "most of the symptoms are only \"unlocked\" when you pay for a subscription. I am very disappointed and hope that you change this, otherwise I will not be using again.",
+      "observation": "После обновления большинство пунктов логирования симптомов заблокированы за paywall — пользователи, скачавшие приложение как инструмент для здоровья, обнаруживают, что базовый дневник симптомов стал платным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Elke keer nadat mijn menstruatie stopte (dus geen bloed meer) zei de app je bent 1 dag te laat en de heletijd zo door ik snapte er niks van ik ben net klaar en de app zegt al gelijk je bent te laat",
+      "observation": "Приложение немедленно после окончания менструации показывает уведомление «опаздываешь на 1 день» — алгоритм прогноза не учитывает, что цикл только что завершился, создавая ложную тревогу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Sinds een paar weken kan ik geen backup meer maken, wat erg vervelend is. Hiervoor nooit problemen gehad. Jammer, hierdoor moet ik op zoek naar een vervangende app.",
+      "observation": "Функция резервного копирования сломалась после обновления у множества пользователей — приложение сообщает об ошибке соединения даже при наличии интернета; данные о здоровье оказываются под угрозой потери при смене устройства.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app is incredibly cluttered with unnecessary features, constant buttons, and ads everywhere. Personally, I don't need system tracking, fertility predictions, meditation, articles, or a dozen different tabs. I just want something that reliably tracks my cycle.",
+      "observation": "Добавление режимов беременности, перименопаузы, медитаций и статей в главную навигацию делает интерфейс перегруженным для пользователей, которым нужен только базовый трекер цикла без лишних вкладок.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "De app heeft altijd prima voor me gewerkt om alles vast te leggen wat ik nodig had. Maar na mijn bevalling kon ik niet uit zwangerschapsmodus komen. Ik heb gemaild en kreeg in eerste instantie een reactie, maar daarna heb ik niks meer gehoord.",
+      "observation": "После родов нет автоматического или ручного способа выйти из режима беременности обратно в режим трекинга цикла — пользователь застревает в контексте беременности, поддержка не отвечает.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

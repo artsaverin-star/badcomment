@@ -1,0 +1,77 @@
+{
+  "productId": "cmpt1kr963b47ugfeyy059i94",
+  "slug": "brainscape-study-flashcards-442415567",
+  "name": "Brainscape - Study Flashcards",
+  "domain": "флэшкарты / интервальное повторение / подготовка к экзаменам",
+  "oneLiner": "Brainscape (Bold Learning Solutions) — спейсед-репетишн флэшкарты с самооценкой уверенности 1–5, миллионы готовых колод от экспертов (MCAT, Bar, NCLEX, AP, GRE); iOS + web",
+  "pricing": "бесплатно для текстовых карточек; Pro — $19.99/мес, $59.99/полгода, $95.99/год, $199.99 lifetime; карточки по умолчанию публичны — приватность только в Pro",
+
+  "keyFeatures": [
+    "спейсед-репетишн на основе самооценки уверенности (1–5 после каждой карточки)",
+    "AI-создание флэшкарт из заметок, PDF, изображений, документов",
+    "миллионы готовых колод: Bar Exam (MBE), NCLEX, MCAT, AP, GRE, Series 7, иностранные языки",
+    "пользовательские и экспертные коллекции — поиск по всему каталогу",
+    "мультимедийные карточки: изображения, аудио, совместная работа",
+    "прогресс-трекинг и статистика учёбы по часам",
+    "синхронизация web + mobile"
+  ],
+
+  "competitors": [
+    "Anki",
+    "Quizlet",
+    "RemNote",
+    "Gizmo",
+    "SmartCards+",
+    "Flashcard Hero"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "Nowhere did Brainscape ever say you can only use this AI function twice. I've spent hours creating a docx file to make flash cards for 2 of my 13 chapters to study and of course now they want me to upgrade",
+      "observation": "Лимит на AI-создание карточек не раскрывается в момент начала работы: пользователь тратит часы на подготовку материала, после чего функция блокируется — rug-pull после вложения времени, а не до него.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "All my cards are free for everyone to see AND use, and it's honestly very upsetting.",
+      "observation": "Все созданные карточки по умолчанию публичны и доступны любому пользователю: приватность требует Pro-подписки — пользователь узнаёт об этом после того, как уже наполнил колоду личными учебными материалами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Severe Crashing on iPhone & iPad: The app freezes and crashes repeatedly during card creation and editing. Whether I am using an iPhone or an iPad with a physical Apple keyboard in Split View",
+      "observation": "Редактор карточек системно падает в Split View с внешней клавиатурой на iPad — сценарий типичного серьёзного студента; баги воспроизводимы и задокументированы видео, но остаются нефиксированными.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "you can't just drag to rearrange cards, the order is set which is so counterproductive. Re ordering sets within a class as well, you have to choose the number position, instead of just dragging",
+      "observation": "Переупорядочивание карточек реализовано через ввод номера позиции вместо drag-and-drop — базовая операция организации учебного материала требует многошагового ввода там, где конкуренты предлагают жест.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Horrible user experience. Attempted to upgrade to Lifetime through the app; paid through app with apple id- credit card charge went through; no upgrade though.",
+      "observation": "Оплата Lifetime ($199.99) через Apple In-App не активирует статус Pro: деньги списаны, но аккаунт остаётся в бесплатной версии — ни в приложении, ни на сайте апгрейд не применяется.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Finding your cards is impossible, the search engine is horrible, even if you type the exact thing word that appear on the card, it wont populate",
+      "observation": "Поиск по точной фразе из карточки не возвращает результатов — алгоритм не индексирует содержимое карточек дословно, что делает навигацию по большим колодам нерабочей.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "productId": "cmpszsils3z6iughv59xxrjju",
+  "slug": "quicken-intelligent-money-1449777194",
+  "name": "Quicken: Intelligent Money",
+  "domain": "личные финансы / агрегатор счетов и бюджетирование",
+  "oneLiner": "Quicken Simplifi (Quicken Inc.) — агрегатор банковских счетов, карт, инвестиций и бюджетирования в реальном времени; iOS+Android+Web, ориентирован на полный финансовый профиль включая малый бизнес",
+  "pricing": "только подписка, без бесплатного уровня и без пробного периода; Budgeting ~$3.99/мес или $35.99/год; Personal Finance ~$5.99/мес или $47.99/год; Business & Personal ~$9.99/мес или $71.99/год; Quicken поднял цены в 2024-2025 году без существенных улучшений по мнению пользователей",
+  "keyFeatures": [
+    "автоматический синк с банковскими счетами, кредитными картами, инвестициями, пенсионными счетами",
+    "Spending Plan с «left to spend» и проекцией кэш-флоу",
+    "трекинг чистого капитала (net worth) в реальном времени",
+    "кастомные категории и правила авторетегирования транзакций",
+    "отчёты по категориям с watchlist-персонализацией",
+    "цели накоплений и долгосрочные прогнозы",
+    "подключение стоимости недвижимости через Zillow",
+    "Business & Personal: счёта-фактуры, разделение личных/бизнес-расходов, подготовка Schedule C/F для налогов",
+    "AI-чатбот для вопросов по финансам"
+  ],
+  "competitors": [
+    "Monarch Money",
+    "Copilot Money",
+    "YNAB (You Need A Budget)",
+    "Mint (закрыт, аудитория мигрировала)",
+    "Empower Personal Dashboard",
+    "PocketGuard",
+    "Tiller Money"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Removed the ability to create a rule when renaming/recatogorizing a transaction. A small feature that was fundamental to the app actually being usable, given that transactions are categorized incorrectly about 50% of the time.",
+      "observation": "Обновление убрало возможность создавать правило прямо при ручной корректировке категории транзакции: при ошибочной автокатегоризации ~50% транзакций пользователь теперь вынужден исправлять каждую вручную без возможности обучить систему.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "all transactions are duplicated and double counted, so it is basically useless now",
+      "observation": "После обновления приложение начало дублировать транзакции и считать суммы дважды, делая все балансы и бюджеты недостоверными — базовая корректность расчётов как core-функция сломана.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "After uploading five months of transactions into Quicken Simplifi, Budget, I discovered that there are no memo fields to identify transactions within the software. For instance, PayPal transactions come through as PayPal transaction. But gives you no hint in Simplifi what the transaction was for.",
+      "observation": "Транзакции через платёжных посредников (PayPal, Venmo) приходят без детализации назначения платежа: приложение не передаёт memo-поле и не позволяет добавить описание вручную, делая историю расходов нечитаемой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Simplifi does not require login or biometric authentication to open the app and stays permanently logged in. Anyone with access to your unlocked device can see your entire financial picture.",
+      "observation": "Приложение, агрегирующее все финансовые счета, не имеет биометрической защиты при открытии и остаётся постоянно залогиненным — любой человек с разблокированным устройством видит полный финансовый профиль пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I accidentally deleted my connection to my accounts trying to restore a bank link and it wiped out all my data. 5 years of data. No way to recover.",
+      "observation": "Операция переподключения банковского аккаунта (распространённая из-за частых разрывов) привела к необратимому удалению пяти лет транзакционной истории без предупреждения и без возможности восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The spending plan feature includes a pseudo envelop like system and a \"left to spend\" surplus bucket. The problem is the \"left to spend\" doesn't include any overages in the envelopes.",
+      "observation": "Показатель «доступно к трате» не учитывает перерасход по категориям-конвертам: пользователь видит положительный остаток и считает, что у него есть деньги, хотя реальный баланс уже отрицательный из-за перерасхода в конвертах.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

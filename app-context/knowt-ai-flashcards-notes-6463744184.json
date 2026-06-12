@@ -1,0 +1,73 @@
+{
+  "productId": "cmqaqqcd602beugcejf5hti9z",
+  "slug": "knowt-ai-flashcards-notes-6463744184",
+  "name": "Knowt: AI Flashcards & Notes",
+  "domain": "учёба / карточки / AI-генерация тестов",
+  "oneLiner": "Knowt (Knowt Inc.) — AI-флэшкарты и конспекты для студентов и школьников; позиционируется как бесплатная альтернатива Quizlet; iOS+Android+Web",
+  "pricing": "бесплатный базовый tier (флэшкарты, ограниченный Learn Mode); платные планы: ~$10/нед, ~$13/мес, ~$60/год, ~$120-150/год (Ultra) — цены нестабильны и менялись; был прецедент немедленного списания $102-150 при нажатии на «free trial»; educator-аккаунты ограничены веб-версией",
+  "keyFeatures": [
+    "AI-генерация флэшкарт из заметок, PDF, видео лекций",
+    "Learn Mode (spaced repetition, unlimited rounds в платной версии)",
+    "Practice Test и Match из любого набора карточек",
+    "«Call with Kai» — голосовой AI-ассистент для устной практики",
+    "AP Study Guides — готовые гайды и тесты по AP-экзаменам",
+    "импорт сетов из Quizlet",
+    "синхронизация между мобильным приложением и веб"
+  ],
+  "competitors": [
+    "Quizlet",
+    "Anki",
+    "Brainscape",
+    "Fiveable",
+    "ChatGPT (для генерации карточек вручную)",
+    "Notion / GoodNotes / Notability (конспектирование)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "TWO DAYS BEFORE THE TEST, Knowt PUT UP A PAYWALL. And not a cheap one either, a $150 purchase. For a feature I already had a set plan on.",
+      "observation": "AP-практика, которую студент использовал в активном режиме подготовки, была закрыта платным гейтом за 2 дня до экзамена: функционал, доступный неделями, исчезает мгновенно при изменении монетизации — без предупреждения и в самый критичный момент учебного цикла.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The app kept blocking me from accessing other feature and offered me a free 3-day trial, which made me click 'purchase'. However, the app withdrew $150 away from my bank account right after I had purchased, even though it's supposed to do so after 3 days",
+      "observation": "Кнопка «free trial» инициирует немедленное списание полной суммы годового плана ($150), а не откладывает его на 3 дня — расхождение между заявленной механикой триала и фактическим биллингом систематически воспроизводится у разных пользователей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Twice now, on 2 separate flashcard sets, Knowt's auto-save feature failed to work and deleted hours of work.",
+      "observation": "Автосохранение молча теряет всё содержимое набора карточек: два независимых случая с одним пользователем подтверждают системный характер бага, а не единичный сбой — потерянные карточки недоступны даже через поддержку до прихода человека-агента.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I love the app… however the only reason why I use it for the call with Kai feature. The feature is good at first but then it lags soooo bad",
+      "observation": "«Call with Kai» — голосовой AI-собеседник — деградирует по скорости после первых сессий: задержки делают разговорный формат непригодным, хотя именно эта функция была причиной выбора приложения вместо конкурентов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "If you type over 5 words per minute it glitches and barely functions. You need to combine this with other sources.",
+      "observation": "Текстовый ввод в FRQ-секции (письменные ответы на AP-вопросы) ломается при скорости набора выше ~5 слов/мин: символы теряются или дублируются, что делает экзаменационную практику нефункциональной именно тогда, когда скорость ввода критична.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "built the whole platform off of being the free alternative to quizlet just to cave and become EXACTLY like quizlet - now theres ads on every corner im trying to do my flash cards and my entire screen gets covered by an ad and theres literally no way to get rid of it without refreshing",
+      "observation": "Knowt последовательно копирует монетизационную модель Quizlet — ту самую, от которой пользователи ушли: полноэкранные рекламные оверлеи без кнопки закрытия воспроизводят раздражитель конкурента один в один, уничтожая нишевое позиционирование «бесплатной альтернативы».",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

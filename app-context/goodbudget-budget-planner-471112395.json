@@ -1,0 +1,75 @@
+{
+  "productId": "cmptbo7735aqxugx315m9p6sp",
+  "slug": "goodbudget-budget-planner-471112395",
+  "name": "Goodbudget Budget Planner",
+  "domain": "личные финансы / конвертный метод бюджетирования",
+  "oneLiner": "Goodbudget (Dayspring Technologies) — конвертный бюджет с облачной синхронизацией между устройствами и веб-версией; iOS+Android+Web, совместный доступ для семьи",
+  "pricing": "бесплатно навсегда: 10 конвертов + 10 годовых конвертов, 1 устройство, 1 год истории; Plus-подписка: ~$10/мес или ~$80/год — безлимитные конверты, автосинк с банком, 5 устройств, 7 лет истории",
+  "keyFeatures": [
+    "конвертный метод бюджетирования (envelope budgeting)",
+    "облачная синхронизация между несколькими устройствами и веб-приложением",
+    "совместный бюджет для пары/семьи",
+    "автоматическое пополнение конвертов по расписанию",
+    "автосинк с банком (только в Plus)",
+    "трекинг долгов с графиком прогресса погашения",
+    "отчёты: расходы по конвертам, доходы vs расходы, прогресс долга",
+    "экспорт транзакций в CSV (через веб)"
+  ],
+  "competitors": [
+    "YNAB (You Need A Budget)",
+    "EveryDollar",
+    "Copilot Money",
+    "Monarch Money",
+    "Mint (закрыт)",
+    "Spendee",
+    "PocketGuard"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "There is no way to test the app for free. You sign up for an account and immediately pushed into paying for a month or a year if you want to connect your bank account. If I can't try all the features for 30 days to decide if it meets my needs, then this is an instant fail and delete.",
+      "observation": "Ключевая функция — автосинк с банком — доступна только в Plus-подписке без пробного периода: пользователь не может оценить, работает ли синк с его банком, до оплаты, что превращает подписку в слепую покупку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I've used a lot of budget apps and this app really is not good. I can't even figure out how to fill envelopes from the app. The how-to videos only show it done from desktop—what? Are you kidding me! OMG!",
+      "observation": "Часть базовых операций (пополнение конвертов) не реализована полноценно в мобильном приложении: обучающие материалы демонстрируют только веб-интерфейс, вынуждая мобильных пользователей переключаться на браузер для рутинных задач.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Service was good enough, used this for 14 years. But recently they started putting ads in the top of the transaction register…for paying customers!",
+      "observation": "В реестр транзакций для платных подписчиков были добавлены рекламные баннеры — нарушение неявного контракта с пользователями, оплачивающими подписку именно ради отсутствия рекламы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The app out of blue is not working at all. I keep receiving an error message that it is having trouble syncing. All of my envelopes are gone, it says they are \"user deleted\".",
+      "observation": "После сбоя синхронизации все конверты и транзакции маркируются системой как «user deleted» и исчезают из интерфейса — потеря многолетней истории бюджета без явной ошибки со стороны пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Give us the option to sort envelopes the same way they've always been sorted (by frequency of filling, like in the UI video on the App Store page). This new way of forcing users to sort by arbitrary categories is absolute garbage",
+      "observation": "Обновление изменило сортировку конвертов с привычной (по частоте пополнения) на принудительную категоризацию — долгосрочные пользователи потеряли устоявшуюся навигационную модель без возможности откатиться.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "When I set new \"monthly envelop fills on the app a lot of the time they don't execute the next month so I end up having to manually add the money.",
+      "observation": "Запланированное автоматическое пополнение конвертов ненадёжно срабатывает: конверты не пополняются в начале месяца, и пользователь обнаруживает это уже в процессе трат, нарушая всю логику конвертного метода.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}
