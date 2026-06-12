@@ -1,0 +1,73 @@
+{
+  "productId": "cmpsywlt425b8ughvezwn9wb9",
+  "slug": "boostcamp-workout-programs",
+  "name": "Boostcamp: Workout Programs",
+  "domain": "силовые тренировки / пауэрлифтинг / трекинг прогресса",
+  "oneLiner": "Boostcamp (BPM Health Co.) — библиотека структурированных силовых программ (nSuns, GZCLP, 5/3/1, Reddit PPL и 130+ от экспертных тренеров) + трекер подходов с автопрогрессией; iOS+Android, freemium",
+  "pricing": "бесплатный tier (большинство программ и базовый трекинг); Pro-подписка ~$17/мес или по году; ряд функций (таймер отдыха, кастомные программы, подкачка упражнений) постепенно переносится за paywall",
+  "keyFeatures": [
+    "130+ экспертных программ (nSuns 5/3/1, GZCLP, Candito, PHUL, PHAT, Reddit PPL, Strong Curves и др.)",
+    "10 000+ пользовательских программ",
+    "трекер подходов, повторений, веса + RPE + 1RM",
+    "автопрогрессия весов в программах (nSuns, GZCLP)",
+    "кастомный конструктор программ (Pro)",
+    "замена упражнений (swap)",
+    "графики прогресса и объёма по группам мышц",
+    "офлайн-режим"
+  ],
+  "competitors": [
+    "Strong: Workout Tracker Gym Log",
+    "Hevy — Workout Tracker",
+    "JEFIT: Gym Workout Plan Tracker",
+    "Google Sheets / Excel (исторически — целевая аудитория)",
+    "RepCount Gym Log & Tracker"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "my favorite program that I bought some 2 years ago is now locked behind the monthly PRO pay wall. let this be a reminder, if it's digital, you don't own it.",
+      "observation": "Программа, за которую пользователь заплатил разово 2 года назад, была переведена за Pro-paywall: покупка не конвертировалась в постоянный доступ — пользователь потерял контент без компенсации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "New update lost all of my data.",
+      "observation": "Обновление полностью уничтожило историю тренировок: после апдейта данные либо пропадают сразу, либо исчезают через несколько дней повторно — воспроизводится у нескольких пользователей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "App is great, but the NSUNS program is no longer automatically calculating my progression. That is because it no longer shows the one rep max information.",
+      "observation": "Ключевая механика nSuns — автоматический расчёт весов на основе 1RM — сломана обновлением: поле 1RM пропало из интерфейса, и прогрессия перестала считаться автоматически, что делает программу эквивалентом обычного трекера.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "There used to be a simple calendar view that made [workout history easy to access]. features that were once easy to access have been buried behind additional taps.",
+      "observation": "Редизайн убрал календарный вид истории тренировок и спрятал ранее доступные функции за дополнительные слои навигации: долгосрочный платящий пользователь теряет удобный доступ к собственным данным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I payed for the app so that I could get a full Bullmastiff program only to discover the app doesn't calculate the AMRAP progression but requires you do it manually.",
+      "observation": "Программа Bullmastiff в приложении не реализует AMRAP-прогрессию (ключевую механику программы): пользователь купил Pro именно ради автопрогрессии, но должен считать веса вручную — как в обычной таблице.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Timer does not work in the background when switching to another app.",
+      "observation": "Таймер отдыха между подходами останавливается при переключении в фоновый режим: пользователь, открывший музыку или мессенджер между сетами, теряет счёт паузы и должен запускать таймер заново.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

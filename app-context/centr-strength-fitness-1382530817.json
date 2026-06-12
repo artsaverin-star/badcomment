@@ -1,0 +1,74 @@
+{
+  "productId": "cmpsyx1rk269wughvvlbozdlo",
+  "slug": "centr-strength-fitness",
+  "name": "Centr: Strength & Fitness App",
+  "domain": "силовые тренировки / фитнес / питание",
+  "oneLiner": "Centr (CH Digital Pty Ltd) — all-in-one фитнес-платформа Криса Хемсворта: тренировки с тренерами (coached + self-guided), планы питания, рецепты, медитации; iOS+Android",
+  "pricing": "7-дневный бесплатный триал, далее подписка: 1 мес / 3 мес / 12 мес; ориентировочно ~$30/мес или ~$100/год; автопродление через iTunes",
+  "keyFeatures": [
+    "coached видео-тренировки (HIIT, силовые, пилатес, йога, бокс, MMA, HYROX)",
+    "self-guided тренировки",
+    "персонализированные программы на основе цели, уровня и предпочтений",
+    "планировщик тренировок (плейлист по дням)",
+    "план питания + рецепты с КБЖУ",
+    "медитации и mindfulness-контент",
+    "интеграция с Apple Watch (трекинг во время тренировки)",
+    "Centr-машины (Centr 2, Centr 3) — партнёрское оборудование"
+  ],
+  "competitors": [
+    "Nike Training Club",
+    "Apple Fitness+",
+    "Peloton",
+    "iFIT",
+    "Beachbody / BODi",
+    "Future (персональный тренер)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Latest update removes workouts from the planner if they are not completed on the designated day.",
+      "observation": "Обновление сломало гибкость планировщика: тренировки, пропущенные в запланированный день, автоматически удаляются из очереди — пользователи, которые сдвигают дни из-за восстановления, теряют план и не могут тренироваться вне расписания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Shopping list feature has been non-functional for almost a month on app and website. I use this app for food only and paid for annual membership. They keep saying they're \"working on it.\"",
+      "observation": "Функция списка покупок из рецептов сломана на сайте и в приложении одновременно уже больше месяца: пользователь, купивший годовую подписку ради питания, фактически не получает оплаченный контент, а служба поддержки предлагает скидку только при следующем продлении.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "why can't I turn off the god awful background workout music. I turn it off in options but the app just ignores that and forces us to listen to it.",
+      "observation": "Настройка отключения фоновой музыки тренировки не сохраняется: при каждом запуске опция сбрасывается и музыка включается принудительно, что блокирует пользователей, слушающих собственный плейлист.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The website says you have to cancel in the app, and the app says you have cancel on the web. After you cancel, they will sneak in a subscription charge on your card a year or two later.",
+      "observation": "Процесс отмены подписки организован по кругу: сайт отправляет в приложение, приложение — обратно на сайт; несмотря на видимую отмену, повторное списание происходит через год-два.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "most new workouts are self guided which makes me wonder whether it's still worth the price tag. Please bring back more coached programmes.",
+      "observation": "Продуктовый сдвиг в сторону self-guided тренировок снижает ценностное предложение для аудитории, которая платит именно за coached-формат с тренером на экране: новый контент воспринимается как деградация флагмана.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I was loving the workouts, recipes & meditations up until week 4 then I was prompted to log in from scratch and all my recorded progress & saved recipes have gone!",
+      "observation": "Принудительный повторный логин после ~4 недель использования уничтожает локальный прогресс и сохранённые рецепты — данные не восстанавливаются, и пользователь теряет накопленную историю.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

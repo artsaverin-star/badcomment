@@ -1,0 +1,77 @@
+{
+  "productId": "cmpsta9v00ptxug8pgg465pok",
+  "slug": "wispr-flow-ai-voice-keyboard-6497229487",
+  "name": "Wispr Flow: AI Voice Keyboard",
+  "domain": "диктовка / voice-to-text / AI-клавиатура",
+  "oneLiner": "Wispr Flow (Wispr AI) — плавающая кнопка диктовки, работающая поверх любого приложения: превращает речь в отформатированный текст с удалением слов-паразитов; iOS + Android + Mac + Windows",
+  "pricing": "бесплатно с недельным лимитом слов; Pro — $12/мес (но выставляется как $144/год разово, без очевидного месячного варианта); 14-дней пробный период",
+
+  "keyFeatures": [
+    "плавающая кнопка-пузырь поверх любого приложения (Slack, Email, WhatsApp, ChatGPT, Docs и др.)",
+    "AI-полировка: удаление слов-паразитов, автопунктуация, форматирование абзацев и списков",
+    "персональный словарь — имена, аббревиатуры, фразы",
+    "Snippets — шаблоны текста, вставляемые голосом",
+    "синхронизация между мобильным и десктопом",
+    "поддержка 100+ языков",
+    "история транскрипций внутри приложения"
+  ],
+
+  "competitors": [
+    "Google Voice Typing / Gboard",
+    "Apple встроенная диктовка",
+    "Dragon Dictation / Nuance",
+    "MacWhisper",
+    "Samsung Voice Typing",
+    "Otter.ai"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "The accuracy of transcriptions has gone down for me since my trial ended. I now spend so much time correcting things, even in an absolutely quiet room, speaking clearly into my phone, that it hardly saves any time compared to the regular built-in voice dictation on my phone.",
+      "observation": "Пользователи фиксируют резкое падение точности транскрипции сразу после окончания триала: качество распознавания на платном плане оказывается хуже, чем было в бесплатном периоде, — возникает подозрение в намеренном throttling-е.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Constantly deleting longer Snippets.. after using a long Snippet, which types it out fine right away, but after it gives me an error and deletes the entire snippet from the app",
+      "observation": "Функция Snippets нестабильна на длинных шаблонах: после успешной вставки приложение выдаёт ошибку и удаляет сам сниппет из базы — пользователь теряет подготовленный FAQ-контент.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I hit my limit so I decided to pay the $12/month. I was disappointed when I went to pay and they require that I pay $144 up front. They don't tell you that in the beginning.",
+      "observation": "Цена $12/мес в маркетинге не соответствует реальному экрану оплаты: при попытке подписаться выясняется, что доступен только годовой план ($144 разово), о чём заранее нигде не сообщается.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "When it works it's awesome, the problem is that you don't know if it's actually going to fill in what you just spoke. Which forces you to have to go to the app and copy it.",
+      "observation": "Автовставка в текстовое поле ненадёжна: транскрипция иногда остаётся только внутри приложения, а не вставляется в целевой input — пользователь вынужден вручную копировать текст, теряя смысл hands-free режима.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "In order to activate, you have to open multiple settings that are not recommended settings. Almost every 10 minutes it is closing and breaking.",
+      "observation": "На Android плавающая кнопка-пузырь требует включения нестандартных developer-настроек и самопроизвольно исчезает каждые 10 минут — восстановление занимает около минуты, что делает инструмент ненадёжным в рабочем потоке.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it was good at first, the sentences were near accurate, but when i referred it to people and earned free pro, the accuracy is gone",
+      "observation": "Пользователи, получившие Pro по реферальной программе, замечают деградацию точности по сравнению с платными аккаунтами — создаётся ощущение, что реферальный Pro работает на другом, менее точном уровне.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

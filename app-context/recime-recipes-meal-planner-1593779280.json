@@ -1,0 +1,79 @@
+{
+  "productId": "cmpsu4ydb2jwvug8puqrigf2z",
+  "slug": "recime-recipes-meal-planner",
+  "name": "ReciMe: Recipes & Meal Planner",
+  "domain": "рецепты / организация рецептов / планирование питания",
+  "oneLiner": "ReciMe (recime.app) — агрегатор рецептов из соцсетей: импорт из TikTok, Instagram, YouTube, Pinterest в единую библиотеку с meal plan и grocery list; iOS + Android",
+  "pricing": "бесплатно с лимитом 5 импортов в 7 дней; Premium-подписка ~$39.99/год или ~$4.99/месяц, 7-дневный триал; неограниченный импорт, OCR-фото и расчёт нутриентов только в Premium",
+
+  "keyFeatures": [
+    "smart import рецептов из TikTok, Instagram Reels, YouTube, Pinterest, Facebook по ссылке",
+    "импорт скриншота рецепта (OCR) — только Premium",
+    "meal planner на неделю (завтрак / обед / ужин)",
+    "автоматический grocery list из meal plan с сортировкой по проходу магазина",
+    "расчёт КБЖУ на порцию",
+    "масштабирование порций (scaling)",
+    "кастомные cookbooks / папки для организации",
+    "синхронизация через облако, iOS + Android"
+  ],
+
+  "competitors": [
+    "Paprika Recipe Manager",
+    "Mealime",
+    "Plan to Eat",
+    "Whisk",
+    "Yummly",
+    "Cooklist",
+    "сохранение рецептов вручную в Notes / Google Docs / скриншоты"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "Only the first part of recipe method gets downloaded. For example, it's a cake with frosting but the frosting method is left out completely along with assembly instructions. It seems to stop at the first break in numbered steps.",
+      "observation": "Парсер рецептов обрывается на первом разрыве нумерованного списка шагов: секции «глазурь» и «сборка» целиком пропадают. Пользователь получает неполный рецепт, о котором не предупреждают.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Waited 5 days to reset to import 5 more recipes. Now has gone up to resetting in 7 days but still only 5 recipes. Dissatisfied.",
+      "observation": "Бесплатный лимит импорта молча вырос с 5-дневного сброса до 7-дневного, а квота осталась той же 5 штук — пользователи, уже вложившие время в библиотеку, узнают об изменении постфактум.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "the only thing missing is items stacking up in the grocery list. so if im planning 2 meals or more and they all require garlic for example, just show I need 6 cloves rather than 3 lots of 2 cloves.",
+      "observation": "Grocery list не агрегирует одинаковые ингредиенты из разных рецептов: один и тот же продукт появляется N раз отдельными строками вместо суммы — список становится неудобным при планировании на неделю.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Imports from Instagram often make ingredient items formatted as a heading.",
+      "observation": "Парсер Instagram-постов путает разметку: текстовые ингредиенты получают стиль «заголовка» вместо пункта списка, и пользователь не может поставить их в чеклист без ручного исправления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "sometimes instagram users have their recipes or steps in their pinned comments, and when this happens, the smart import doesn't get them and i have to do it manually.",
+      "observation": "Умный импорт из Instagram не захватывает рецепт из закреплённых комментариев к Reel-у — только тело поста; при популярном паттерне «рецепт в пинне» шаги теряются.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "FIVE per week!!! You only get five downloads per week. Ridiculous!",
+      "observation": "Пользователи не видят квоту до момента, пока не уткнутся в лимит: бесплатная версия позволяет только 5 импортов в неделю — это не отражено на экране онбординга.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

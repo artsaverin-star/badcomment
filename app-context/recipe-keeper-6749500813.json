@@ -1,0 +1,76 @@
+{
+  "productId": "cmpsu7e7s2oucug8pp326ddkm",
+  "slug": "recipe-keeper",
+  "name": "Recipe Keeper: RecipeSnap",
+  "domain": "Рецепты и готовка",
+  "oneLiner": "Recipe Keeper (Tudorspan) — органайзер рецептов с импортом из соцсетей (TikTok, Instagram), OCR из фото и скриншотов, планировщиком питания и списком покупок; Android + iOS + десктоп с раздельной per-platform оплатой",
+  "pricing": "бесплатно до 20 рецептов, затем one-time purchase: ~$20 Android, ~$20 iOS, ~$30 Mac, ~$30 Windows; синхронизация между платформами требует отдельной покупки на каждой — no universal cross-platform license",
+  "keyFeatures": [
+    "импорт рецептов из TikTok, Instagram, Facebook, YouTube и любых веб-сайтов по ссылке",
+    "Screenshot to Recipe — OCR из фото/скриншотов с автоизвлечением ингредиентов и шагов",
+    "органайзер с папками, тегами (vegan, keto, gluten-free) и кастомными категориями",
+    "еженедельный планировщик питания (breakfast/lunch/dinner по дням)",
+    "автогенерация списка покупок с сортировкой по отделам магазина",
+    "расчёт КБЖУ (калории, белки, жиры, углеводы)",
+    "масштабирование порций и конвертер единиц",
+    "шаг-за-шагом режим с блокировкой экрана",
+    "облачное хранилище с синхронизацией (в рамках одной платформы)"
+  ],
+  "competitors": [
+    "Paprika Recipe Manager 3",
+    "Crouton: Recipe Manager",
+    "Whisk: Recipe & Meal Planner",
+    "Mealime Meal Plans & Recipes",
+    "AnyList - Grocery List & Recipes",
+    "Cooklist: Pantry & Meal Planner",
+    "Yummly: Personalized Recipe App"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "if you upgrade to pro, you can sync across all devices, but you have to pay again for each device you want to use. their answer was that you can sync android to android, Apple to Apple etc, you only pay if it's cross platforms",
+      "observation": "Маркетинг позиционирует продукт как cross-platform, но синхронизация работает только внутри одной экосистемы — переход с Android на ПК требует повторной покупки на $30, что пользователи воспринимают как обман.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "my recipes are gone. I paid for pro more than a year ago and my recipes are gone, there's no account and I can't reset the password. reached out to customer support and they were useless and basically blamed me",
+      "observation": "При смене или сбросе устройства пользователь теряет все рецепты — облачный аккаунт не восстанавливается через email/пароль, а саппорт переваливает ответственность на пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "scanning from photos works pretty well, have had to rescan or edit recipes when details weren't pulled in. wanted to try pulling recipes on my laptop when I found out about the $30 more I'd have to pay",
+      "observation": "OCR из фото работает приемлемо, но требует ручной доправки — ингредиенты или шаги иногда не распознаются и не попадают в нужные поля автоматически.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "tried to import recipe from website and it doesn't automatically add the ingredients to the ingredients tab you have to do that yourself before saving. if I'm going to do all that I may as well write it on an index card",
+      "observation": "Импорт по URL не всегда разбирает структуру рецепта: ингредиенты не попадают в поле ingredients автоматически — пользователь должен вручную перенести их, что убивает ценностное предложение функции.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Realized that I could screen shot directly into the app and that sold me. The free ver. is unlocked but 20 recipes max.",
+      "observation": "Скриншот-в-рецепт — ключевой trigger to pay: пользователь попробовал бесплатно, наткнулся на лимит 20 рецептов и осознанно конвертировался в платящего именно из-за этой конкретной фичи.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "purchasing pro has to be done on every platform if you want to sync. $20 on Android, $30 on Mac, $20 on iOS, and $30 on PC",
+      "observation": "Семья из 2+ человек на разных устройствах (Android + iOS + ПК) вынуждена платить $70–100 за одно и то же приложение — per-platform модель делает продукт экономически нецелесообразным для домохозяйства.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

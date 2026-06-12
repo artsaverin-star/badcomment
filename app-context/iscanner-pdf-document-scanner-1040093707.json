@@ -1,0 +1,77 @@
+{
+  "productId": "cmpst4kus0flyug8pxs60cmmd",
+  "slug": "iscanner-pdf-document-scanner",
+  "name": "iScanner: PDF Document Scanner",
+  "domain": "Сканеры документов",
+  "oneLiner": "iScanner: PDF Document Scanner (BPMobile) — AI-сканер документов с OCR, редактором PDF, облачным хранилищем и подписочной монетизацией; iOS + Android, 125M+ пользователей",
+  "pricing": "бесплатно, основные функции (экспорт, OCR, AI-правка) за подпиской iScanner Pro; ранее предлагались one-time и lifetime-покупки, пользователи которых оказались переведены на freemium-gate",
+  "keyFeatures": [
+    "AI-сканирование документов: автодетект границ, выравнивание, шумоподавление, коррекция цвета",
+    "OCR на 20+ языках — in-house, без отправки на сторонние серверы",
+    "экспорт в PDF, JPG, DOC, XLS, PPT, TXT",
+    "AI Chat с PDF: саммари, перевод, вопросы по тексту",
+    "ручная подпись и вставка сигнатуры из изображения",
+    "авто-нейминг файлов по содержимому (AI)",
+    "страница-выравниватель, разбивка и слияние документов, нумерация страниц",
+    "на-устройстве защита: PIN, Face ID, Touch ID, decoy-пароль, password-protected PDF",
+    "AWS-облако + веб-доступ, синхронизация между устройствами",
+    "режимы: Area (измерение), Count (подсчёт объектов), QR-скан, Math (решение уравнений)"
+  ],
+  "competitors": [
+    "Adobe Scan: PDF & OCR Scanner",
+    "CamScanner - PDF Scanner App",
+    "Scanner Pro・Scan PDF Documents",
+    "Scanner App: Genius Scan",
+    "TurboScan™ Pro: PDF scanner",
+    "Microsoft Lens: PDF Scanner",
+    "Tiny Scanner - PDF Scanner App"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I bought this app years ago. It was originally free and then there was a charge which I happily paid. Now, after not using it for a couple of years, I opened it up and I'm told that I can't use the app anymore unless I sign up for a subscription",
+      "observation": "Пользователи, оплатившие one-time версию, при возврате в приложение после паузы обнаруживают, что старая покупка не даёт доступа — оплата заменена подпиской без уведомления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "There is absolutely no indication throughout the entire introduction process that there is a monthly fee. As soon as I opened it up and saw free three day trial, and then you won a hundred",
+      "observation": "Онбординг не раскрывает стоимость подписки до момента, когда пользователь уже прошёл весь флоу и видит экран оплаты — воспринимается как намеренное сокрытие.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Subscribed to straighten pages of sheet music scanned years ago. Only seems to straighten the 1st page of a multi page document. The straightening function was disabled in the trial. I took the chance and wasted my money.",
+      "observation": "Ключевая AI-функция (выравнивание страниц) заблокирована в триале, работает только после оплаты, но затем оказывается применима лишь к первой странице многостраничного документа.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "Got lifetime off stacksocial because subscriptions suck. 5 stars for everything but 4 because the OCR is almost unusable, especially for receipts.",
+      "observation": "OCR для чеков — де-факто нерабочий кейс: пользователь с lifetime-доступом ставит 4 звезды из-за провала именно на коротких малоформатных документах, несмотря на общий позитив.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Automatic file names generator based on content works, but it's not great, cutting things off with some invisible character limit and not adding in relevant dates",
+      "observation": "AI-автонейминг файлов обрезает название по невидимому лимиту символов и не включает дату, что ломает навигацию по однотипным документам (выписки, счета).",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "doesnt allow you to export or share your own documents without paying. these things should be disclosed before. you cant make the app free and then hold scanned document hostage behind a paywall.",
+      "observation": "Экспорт и шаринг отсканированных документов заблокированы бесплатно — пользователь не может забрать собственные данные без оплаты подписки.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

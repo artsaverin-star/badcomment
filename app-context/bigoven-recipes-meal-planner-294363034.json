@@ -1,0 +1,82 @@
+{
+  "productId": "cmpsz0w3e2drkughv7fz60bxp",
+  "slug": "bigoven-recipes-meal-planner",
+  "name": "BigOven Recipes & Meal Planner",
+  "domain": "рецепты / планирование питания / управление остатками продуктов",
+  "oneLiner": "BigOven (bigoven.com) — сообщество 5 млн+ домашних кулинаров: 1 млн+ рецептов, meal planner, grocery list, RecipeScan (OCR фото рецептов), функция «Use Up Leftovers» по ингредиентам из холодильника; iOS + Android",
+  "pricing": "бесплатно с рекламой, ограниченным поиском и 3 фото-скана RecipeScan; Pro — $2.99/месяц или $24.99/год (скидка 30%), 30-дневный триал; Pro даёт: без рекламы, продвинутые фильтры, нутриенты, неограниченный upload, 25 RecipeScan кредитов, расширенный meal planner",
+
+  "keyFeatures": [
+    "1 000 000+ рецептов с комьюнити-рейтингами и фото от пользователей",
+    "Use Up Leftovers — поиск рецептов по ингредиентам из холодильника (до 3 ингредиентов в Pro)",
+    "RecipeScan — OCR-транскрибация рецептов из фото (печатные книги, карточки, рукописи)",
+    "Recipe Clipper — сохранение рецептов с внешних сайтов",
+    "meal planner (день/неделя/месяц)",
+    "grocery list с сортировкой по отделам магазина",
+    "масштабирование порций",
+    "нутриционная информация (Pro)",
+    "кастомные папки для рецептов (Pro)",
+    "кросс-платформа: iPhone, iPad, Apple Watch, Android, веб"
+  ],
+
+  "competitors": [
+    "Paprika Recipe Manager",
+    "AllRecipes",
+    "Yummly",
+    "Mealime",
+    "Cooklist",
+    "AnyList",
+    "Whisk",
+    "Plan to Eat"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "It only allows one ingredient now rather than 3 to find a recipe you can make.",
+      "observation": "Флагманская функция Use Up Leftovers регрессировала: поле для второго и третьего ингредиента перестало принимать ввод после одного из обновлений. Пользователи, которые пришли в приложение именно ради этой механики, обнаруживают её сломанной спустя месяцы без фикса.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Changing the number of servings doesn't change the amount when you add it to the grocery list. This basically makes the grocery list feature useless.",
+      "observation": "Масштабирование порций отвязано от генерации grocery list: если изменить количество порций перед добавлением в список, ингредиенты всё равно попадают в неправильных пропорциях (оригинальный рецепт, а не скорректированный).",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "FYI, the recipe scan function is unusable, in my experience. I have had to submit tickets for the past 20 recipes for which I have used this service included in the Pro membership. I have gotten back totally random recipes instead of the recipes I've submitted.",
+      "observation": "RecipeScan работает через очередь ручных транскрибаторов, а не OCR в реальном времени: пользователи Pro получают обратно случайные рецепты из базы вместо отсканированного — заявки в саппорт остаются без ответа месяцами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The grocery list doesn't aggregate well since recipes might have one slight thing off for similar ingredients such as soft butter vs softened butter.",
+      "observation": "Grocery list не нормализует синонимичные ингредиенты: «soft butter» и «softened butter» создают две отдельные строки вместо одной суммированной — при планировании нескольких рецептов список разбухает дубликатами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "App automatically pastes from clipboard. First time it did it I had relatively sensitive info on my clipboard. Now it's been sent to who-knows-where to be stored under who-knows-what security standards.",
+      "observation": "Приложение автоматически читает и вставляет содержимое буфера обмена при открытии без запроса разрешения: пользователь обнаружил, что конфиденциальные данные из буфера ушли на серверы BigOven без его ведома.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "it doesnt save the meal on the correct date and you have to back in and change it.",
+      "observation": "Meal planner сохраняет рецепт не на выбранную дату: пользователь должен после каждого добавления вручную открывать запись и корректировать дату — систематический баг, не разовый сбой.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

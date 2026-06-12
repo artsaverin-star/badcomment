@@ -1,0 +1,77 @@
+{
+  "productId": "cmpsulclx3hs8ug8pyh0k2sc3",
+  "slug": "blinq-digital-business-card-1324102258",
+  "name": "Blinq: Digital Business Card",
+  "domain": "цифровые визитки / networking / personal CRM",
+  "oneLiner": "Blinq (Blinq Technologies) — цифровая визитка с QR-кодом и NFC, шерингом без установки приложения, командными шаблонами; iOS + Android",
+  "pricing": "бесплатный базовый уровень; Pro ~$8–10/мес (рекламируется как месячная), но при оплате выставляется ~$87–90 годовым платежом; NFC-карта — отдельная покупка ~$60+; 7-дневный пробный период с привязкой карты",
+
+  "keyFeatures": [
+    "цифровая визитка с QR-кодом, доступная без установки приложения получателем",
+    "несколько карточек для разных контекстов (работа, личное, ивент)",
+    "NFC-карта в паре с приложением",
+    "интеграция с Apple Watch и динамические email-подписи",
+    "командный дашборд с брендированными шаблонами",
+    "аннотации к контактам и экспорт в CRM",
+    "20+ полей: соцсети, кастомные ссылки, адрес"
+  ],
+
+  "competitors": [
+    "HiHello",
+    "Haystack",
+    "Linktree",
+    "Popl",
+    "Beaconstac",
+    "обычные бумажные визитки"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "I signed up believing I was starting a $9.99 monthly subscription and was instead charged $87.99 for an annual plan. Yes, this is disclosed in fine print, but relying on fine print rather than clarity is not good business.",
+      "observation": "Blinq отображает цену как месячную ($9.99/мес), но списывает $87.99 единым годовым платежом без явного предупреждения на экране оформления — пользователи узнают о реальной сумме только из банковского уведомления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Someone wanted share their card and to do so it forced me to download the app which then took over my phone and was very invasive. I tried to uninstall and did it on the 8th day and in the 7th day they billed me for a full year which I did not agree to.",
+      "observation": "Получение чужой визитки через Blinq принудительно ведёт к установке приложения и старту триала: пользователь, удаливший приложение на 8-й день, был заряжен за год на 7-й — до формальной даты окончания trial.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I keep losing important contacts. I was unaware that there was a delete contact functionality. it is activated by the same swipe from edge of screen method that my phone uses to 'go back'",
+      "observation": "Жест удаления контакта совпадает со системным жестом «назад» на Android: пользователи случайно стирают контакты, думая, что выходят из приложения, — восстановления нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I could not receive the friend's contact information without purchasing the app, $69! I accepted the trial offer after the app said I would be reminded before I would be charged. I received no reminder on my phone, or on the email that I gave for my contact info.",
+      "observation": "Просмотр чужой карточки требует платной подписки ($69/год): обещанное напоминание перед списанием приходит только на Gmail (не на указанный контактный email), что фактически обходит уведомление.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "when sharing your QR with someone without a Blinq App, rather than making it simple for them to update into their contacts, it simplified marking the app.",
+      "observation": "Ссылка QR-визитки для получателя без приложения ведёт не на vCard-скачивание, а на страницу с призывом установить Blinq — контакт теряется, если получатель не хочет устанавливать ещё одно приложение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was an early adopter of this app but decided a few months ago to stop my premium subscription (£26). I've gone to upgrade again & it's now £89.99 per year.",
+      "observation": "Цена подписки выросла более чем в три раза (£26 → £89.99/год) без уведомления ранних пользователей — возврат в приложение после паузы встречает кратно более дорогой прайс.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "productId": "cmpszhcr13auxughv1s3j9hxo",
+  "slug": "hihello-digital-business-card-1378114205",
+  "name": "HiHello: Digital Business Card",
+  "domain": "цифровые визитки / networking / personal CRM",
+  "oneLiner": "HiHello (HiHello Inc.) — цифровая визитка с QR/NFC/Apple Wallet, AI-сканером бумажных карточек, smart-адресной книгой и email-подписями; iOS + Android; сильный бесплатный уровень",
+  "pricing": "бесплатный уровень с несколькими карточками и QR-шерингом; Professional подписка (цена ~$6–10/мес по отзывам, «reasonable price»); Business/Team план — отдельный корпоративный прайс; AI-сканер бумажных карточек убран из Pro и требует отдельного апгрейда",
+
+  "keyFeatures": [
+    "несколько цифровых визиток с разными профилями (работа, личное, ивент)",
+    "QR-код, NFC, Apple Wallet, Siri, виджет экрана блокировки",
+    "AI-сканер бумажных визиток с human-verification резервом",
+    "smart-адресная книга с тегами, заметками и таймлайном встреч",
+    "динамические email-подписи, совместимые с любым почтовым клиентом",
+    "виртуальные фоны с QR-кодом для видеозвонков",
+    "интеграции: Salesforce, HubSpot, SSO, Active Directory",
+    "аналитика просмотров и вовлечённости карточки"
+  ],
+
+  "competitors": [
+    "Blinq",
+    "Popl",
+    "Linktree",
+    "Haystack",
+    "Beaconstac",
+    "обычные бумажные визитки"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "DECEPTIVE! took away the business card scanning function! now requires 2 upgrade fees. ridiculous cancelled... requires 2 layered upgrades to get useful card scanning functionality that used to be included.",
+      "observation": "AI-сканер бумажных карточек, ранее входивший в Pro, вынесен за отдельный апгрейд: пользователь платит Pro и обнаруживает, что ключевая функция требует второго платного уровня — двухступенчатый пейволл без предупреждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "all of my contacts are gone. Over a 100 contacts down the drain right now. Over a 100 contacts that are essential for my job.",
+      "observation": "IT-продажник потерял 100+ рабочих контактов без видимой причины — база контактов исчезла при открытии приложения; функции восстановления нет ни в приложении, ни через поддержку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The link to your business card is worse than useless for pc and desktop. The web page will produce unprompted pop-ups after 30 seconds and then BEGIN DOWNLOADING TO THEIR PC UNPROMPTED!!",
+      "observation": "Веб-ссылка визитки на десктопе через 30 секунд запускает автоматическое скачивание файла без запроса пользователя — получатель воспринимает это как атаку вредоносного ПО и теряет доверие к отправителю.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Stuck at the first paywall before this app became useful. Let me rephrase. 'Its meaningful features remain inaccessible unless you begin a trial that insists on credit-card information, making the free tier practically unusable'",
+      "observation": "Несмотря на декларируемый бесплатный уровень, ключевые функции заблокированы за триалом с вводом карты — бесплатный tier работает только как витрина, а не как рабочий инструмент.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "contact notes are not searchable, it takes way too many clicks to share and save contact on iPhones, and newly added contacts take many minutes to show up.",
+      "observation": "Smart-адресная книга имеет три системных friction-а: заметки к контактам не индексируются поиском, шеринг на iOS требует избыточных тапов, а новые контакты появляются в списке с задержкой в несколько минут.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Non-existent customer service. I paid $300 to upgrade to the business subscription. They never upgraded my account, and will not respond to my emails. I will be using blinq.",
+      "observation": "Пользователь оплатил Business-план за $300, но аккаунт остался на прежнем тарифе — поддержка не ответила ни на одно письмо, что означает потерю денег без получения услуги.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

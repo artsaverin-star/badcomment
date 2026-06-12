@@ -1,0 +1,80 @@
+{
+  "productId": "cmpsu5yzp2m0hug8pkljz5ewt",
+  "slug": "americas-test-kitchen",
+  "name": "America's Test Kitchen",
+  "domain": "рецепты / кулинарное образование / обзоры техники и ингредиентов",
+  "oneLiner": "America's Test Kitchen (americastestkitchen.com) — приложение журнала/шоу ATK: 14 000+ научно-тестированных рецептов с объяснением механики, обзоры техники, сезонные коллекции, видеоуроки; iOS + Android",
+  "pricing": "только по подписке: ATK Essential ~$40/год или ~$5/месяц, 14-дневный триал с вводом карты; существующие веб-подписчики ATK Essential получают доступ к приложению бесплатно; ATK Classes — отдельный add-on",
+
+  "keyFeatures": [
+    "14 000+ рецептов из ATK, Cook's Illustrated, Cook's Country с разделом «Why This Recipe Works»",
+    "8 000+ обзоров кухонной техники и ингредиентов",
+    "полные эпизоды ТВ-шоу ATK и Cook's Country без рекламы",
+    "пошаговый режим готовки с подсветкой текущего шага и чеклистом ингредиентов",
+    "keep-awake режим (экран не гаснет в процессе готовки)",
+    "сохранение рецептов в избранное, личные заметки",
+    "grocery list",
+    "ATK Classes — on-demand кулинарные курсы с инструкторами (отдельный add-on)",
+    "рекомендации рецептов на основе избранного"
+  ],
+
+  "competitors": [
+    "Epicurious",
+    "Food Network Kitchen",
+    "Yummly",
+    "NYT Cooking",
+    "Milk Street (поглощён ATK)",
+    "сайт americastestkitchen.com (веб-версия)",
+    "печатные журналы Cook's Illustrated / Cook's Country"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Tried searching \"pork apple\" nothing, tried \"pork sage\" nothing, tried \"apple sage\" nothing. Tried my favorites but it would only show 10 of the 240.",
+      "observation": "Поиск не поддерживает многословные запросы по нескольким ингредиентам одновременно: запрос «pork apple» не находит рецепт «Sauteed Pork Tenderloin with Apples», хотя он есть в избранном. Вкладка «Favorites» показывает только первые 10 из 240 сохранённых рецептов без возможности пролистать остальные.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "swiping \"back\" after searching for recipes, it would clear my search criteria and reset all my filters and I had to start all over again.",
+      "observation": "На Android кнопка «Назад» сбрасывает поисковый запрос и все фильтры: пользователь, открывший рецепт из результатов поиска, возвращается на пустой экран поиска и вынужден набирать запрос заново.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I love that the ap has a keep-awake function on my phone, so I don't have to keep touching and unlocking my phone while I cook.",
+      "observation": "Keep-awake функция предотвращает блокировку экрана во время готовки: пользователю не нужно разблокировать телефон мокрыми руками каждый раз, чтобы прочитать следующий шаг.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "The features are ADHD friendly allowing you to select which ingredients you've added and highlight the step you're on.",
+      "observation": "Пошаговый режим позволяет отмечать добавленные ингредиенты и подсвечивать текущий шаг: пользователь не теряет место в рецепте при переключении внимания, что особенно ценно при длинных техничных рецептах.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "it would be so helpful if, in landscape view on my tablet, the ingredients column could be scrolled independently of the recipe instructions.",
+      "observation": "В ландшафтном режиме на планшете колонка ингредиентов и колонка инструкций прокручиваются синхронно: чтобы проверить количество ингредиента на текущем шаге, приходится постоянно скроллить вверх-вниз.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "What happened to the ability to easily find the \"best of\" taste tested items? I put an item in (eg: \"pie crust\") in the search area and there used to be a filter for the best 'store bought' that was taste tested.",
+      "observation": "После обновления исчез фильтр, позволявший искать результаты слепых тест-дегустаций по категории (например, лучшая магазинная «pie crust»): теперь результаты поиска смешивают рецепты и обзоры без возможности отфильтровать только «taste tests».",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}
