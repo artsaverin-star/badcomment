@@ -8,6 +8,9 @@ import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import SegmentSummaryView from "@/components/SegmentSummary";
 import { getSegmentSummary } from "@/lib/segmentSummary";
+import SegmentTabs from "@/components/SegmentTabs";
+import CategoryIdeas from "@/components/CategoryIdeas";
+import { listIdeas } from "@/lib/ideas";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +26,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   if (!cat) notFound();
 
   const summary = getSegmentSummary(slug);
+  const ideas = listIdeas().filter((i) => i.category === slug);
 
   return (
     <main className="mx-auto w-full max-w-[720px] overflow-x-clip px-4 py-6">
@@ -87,7 +91,15 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {summary && <SegmentSummaryView summary={summary} />}
+      {(summary || ideas.length > 0) && (
+        <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
+          <SegmentTabs
+            summary={summary ? <SegmentSummaryView summary={summary} embedded /> : null}
+            ideas={ideas.length > 0 ? <CategoryIdeas ideas={ideas} /> : null}
+            ideasCount={ideas.length}
+          />
+        </div>
+      )}
     </main>
   );
 }

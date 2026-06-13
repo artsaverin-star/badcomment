@@ -681,7 +681,7 @@ function main() {
     // Publication gate: a category synthesis ships ONLY when every one of the
     // 10 catalog apps has a processed разбор fed by the full review sample
     // (500 per app, the pipeline cap). Partial data must never be synthesized.
-    const MIN_APPS = 8;
+    const MIN_APPS = 10;
     const MIN_REVIEWS_PER_APP = 500;
     const fullApps = inScope.filter(
       (p) =>

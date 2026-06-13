@@ -18,13 +18,21 @@ function pluralizeNabludenie(n: number): string {
   return "наблюдений";
 }
 
-export default function SegmentSummaryView({ summary }: { summary: SegmentSummary }) {
+export default function SegmentSummaryView({
+  summary,
+  embedded = false,
+}: {
+  summary: SegmentSummary;
+  embedded?: boolean;
+}) {
   return (
-    <section className="mt-12 border-t border-[var(--color-border-strong)] pt-9">
-      <p className="text-caption font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
-        Инсайты категории
-      </p>
-      <p className="mt-3.5 max-w-[62ch] text-lead text-[var(--color-text-secondary)]">
+    <section className={embedded ? "" : "mt-12 border-t border-[var(--color-border-strong)] pt-9"}>
+      {!embedded && (
+        <p className="text-caption font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
+          Инсайты категории
+        </p>
+      )}
+      <p className={`${embedded ? "" : "mt-3.5"} max-w-[62ch] text-lead text-[var(--color-text-secondary)]`}>
         {summary.lead}
       </p>
       <p className="mt-3 text-caption text-[var(--color-text-tertiary)]">
