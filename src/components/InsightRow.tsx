@@ -9,7 +9,7 @@ import type { Insight } from "@/lib/insights";
 
 function Stars({ n }: { n: number }) {
   return (
-    <span className="tabular-nums text-[11px] text-[var(--color-text-tertiary)]">
+    <span className="tabular-nums text-caption text-[var(--color-text-tertiary)]">
       {"★".repeat(n)}
       {"☆".repeat(Math.max(0, 5 - n))}
     </span>
@@ -30,12 +30,12 @@ export default function InsightRow({ insight }: { insight: Insight; max?: number
       <button
         type="button"
         onClick={open}
-        className="group flex w-full items-baseline justify-between gap-4 border-b border-[var(--color-border-subtle)] py-2.5 text-left last:border-0"
+        className="group flex w-full items-baseline justify-between gap-4 border-b border-[var(--color-border-subtle)] py-3 text-left last:border-0"
       >
-        <span className="text-[14px] leading-[20px] text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)]">
+        <span className="text-callout text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)]">
           {insight.title}
         </span>
-        <span className="shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{count}</span>
+        <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{count}</span>
       </button>
 
       <dialog
@@ -50,7 +50,7 @@ export default function InsightRow({ insight }: { insight: Insight; max?: number
       >
         <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
           <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
-            <span className="text-[15px] font-semibold leading-snug">{insight.title}</span>
+            <span className="text-lead font-semibold leading-snug">{insight.title}</span>
             <button
               type="button"
               onClick={() => ref.current?.close()}
@@ -71,9 +71,9 @@ export default function InsightRow({ insight }: { insight: Insight; max?: number
               >
                 <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
                   <Stars n={e.rating} />
-                  <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
+                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
                 </span>
-                <p className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">{e.quote}</p>
+                <p className="text-footnote text-[var(--color-text-secondary)]">{e.quote}</p>
               </div>
             ))}
           </div>

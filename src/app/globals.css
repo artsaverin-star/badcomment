@@ -4,6 +4,25 @@
    utilities the DS atoms reference (bg-[var(--…)], rounded-[var(--…)], etc.). */
 @source "../../node_modules/@saverin/ui-web/src";
 
+/* ── Type system ──────────────────────────────────────────────────────────
+   Apple-HIG-inspired reading scale. The DS owns the heading kegль (17/22/28/
+   34/48 via its Header atom); this adds the body/secondary roles that were
+   scattered as one-off text-[Npx] values. Each role bundles its line-height so
+   `text-callout` etc. set both. Sizes raise the floor for legibility — no
+   substantive copy below 13px. */
+@theme {
+  --text-caption: 0.75rem; /* 12 — counts, dates, eyebrow meta */
+  --text-caption--line-height: 1.35;
+  --text-footnote: 0.8125rem; /* 13 — quote bodies, dense meta */
+  --text-footnote--line-height: 1.5;
+  --text-callout: 0.9375rem; /* 15 — insight bodies, list copy */
+  --text-callout--line-height: 1.5;
+  --text-body: 1rem; /* 16 — default running text */
+  --text-body--line-height: 1.6;
+  --text-lead: 1.0625rem; /* 17 — ledes / intro paragraphs */
+  --text-lead--line-height: 1.62;
+}
+
 /* The DS sets --brand-font-family to "SF Compact Rounded" (Apple-only, not
    web-loadable) with no fallback, so atoms render in a system serif everywhere
    off-Apple. Redefine it as a real stack: genuine SF Rounded on Apple
@@ -22,6 +41,8 @@
    put — the card just grows in place. The viewport's scroll container is the
    root element, so the rule has to live on html (on body it doesn't take). */
 html {
+  /* Let height animate to/from intrinsic `auto` (Apple-style disclosure). */
+  interpolate-size: allow-keywords;
   overflow-anchor: none;
   /* Keep the vertical scrollbar present at all times. Otherwise a page that
      just fits gains a scrollbar the moment a card is expanded, which narrows
@@ -37,6 +58,46 @@ body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   font-family: var(--brand-font-family);
+  /* Crisp glyphs + a hair of optical tightening, like SF text on Apple OSes. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.003em;
+}
+
+/* Headings carry the negative tracking Apple uses on larger kegль; the bigger
+   the type, the tighter. Applies to native h1–h3 and the DS Header atom output. */
+h1,
+h2 {
+  letter-spacing: -0.02em;
+}
+h3 {
+  letter-spacing: -0.014em;
+}
+
+/* ── Apple-style disclosure ────────────────────────────────────────────────
+   Native <details> animate their height + fade their content open/closed via
+   ::details-content (Chrome 129+/Safari 18.2+). interpolate-size (on html)
+   makes the auto→0 height tween. Unsupported browsers simply toggle instantly
+   — same markup, graceful fallback. Easing matches the iOS/macOS sheet curve. */
+details::details-content {
+  block-size: 0;
+  overflow: clip;
+  opacity: 0;
+  transition:
+    content-visibility 0.4s allow-discrete,
+    opacity 0.3s ease,
+    block-size 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details::details-content {
+    transition: none;
+  }
 }
 
 /* Mobile bottom-sheet entrance for the evidence dialog: slide the panel up from
@@ -57,5 +118,17 @@ body {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Mobile header menu dropping in from under the bar. */
+@keyframes sheet-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

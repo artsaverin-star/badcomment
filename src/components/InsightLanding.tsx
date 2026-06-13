@@ -36,7 +36,7 @@ function Histogram({ hist }: { hist: Record<string, number> }) {
         const count = hist[String(star)] ?? 0;
         const pct = total ? Math.round((count / total) * 100) : 0;
         return (
-          <div key={star} className="flex items-center gap-2 text-[12px] text-[var(--color-text-tertiary)]">
+          <div key={star} className="flex items-center gap-2 text-caption text-[var(--color-text-tertiary)]">
             <span className="w-6 shrink-0 tabular-nums">{star}★</span>
             <span className="h-2 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
               <span
@@ -116,7 +116,7 @@ export default function InsightLanding({
             {data.name}
           </h1>
         </div>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13px] text-[var(--color-text-secondary)]">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-footnote text-[var(--color-text-secondary)]">
           <span>{metaLine}</span>
           {stat.map((e, i) => (
             <span key={i} className="tabular-nums text-[var(--color-text-tertiary)]">
@@ -125,7 +125,7 @@ export default function InsightLanding({
           ))}
         </div>
 
-        <p className="max-w-xl text-[16px] leading-[24px] text-[var(--color-text-secondary)]">
+        <p className="max-w-[60ch] text-lead text-[var(--color-text-secondary)]">
           Прочитано <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов,{" "}
           <span className="tabular-nums text-[var(--color-text-primary)]">{lowPct}%</span> из них 1–2★. Ниже —{" "}
           <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> механизмов, которые пользователи называют сами,

@@ -21,13 +21,13 @@ function pluralizeNabludenie(n: number): string {
 export default function SegmentSummaryView({ summary }: { summary: SegmentSummary }) {
   return (
     <section className="mt-12 border-t border-[var(--color-border-strong)] pt-9">
-      <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
+      <p className="text-caption font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
         Инсайты категории
       </p>
-      <p className="mt-3 max-w-[52ch] text-[15px] leading-[24px] text-[var(--color-text-secondary)]">
+      <p className="mt-3.5 max-w-[62ch] text-lead text-[var(--color-text-secondary)]">
         {summary.lead}
       </p>
-      <p className="mt-3 text-[11px] text-[var(--color-text-tertiary)]">
+      <p className="mt-3 text-caption text-[var(--color-text-tertiary)]">
         {summary.appsCount} приложений · {summary.reviewsScanned.toLocaleString("ru-RU")} отзывов · обновлено {summary.asOf}
       </p>
 
@@ -44,12 +44,12 @@ export default function SegmentSummaryView({ summary }: { summary: SegmentSummar
               >
                 <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h3 className="text-[20px] font-semibold leading-[26px] tracking-[-0.01em] text-[var(--color-text-primary)]">
+              <h3 className="text-[21px] font-semibold leading-[27px] text-[var(--color-text-primary)]">
                 {section.heading}
               </h3>
             </summary>
             {section.dek && (
-              <p className="mt-2.5 max-w-[58ch] pl-[19px] text-[14px] leading-[22px] text-[var(--color-text-secondary)]">
+              <p className="mt-2.5 max-w-[60ch] pl-[19px] text-callout text-[var(--color-text-secondary)]">
                 {section.dek}
               </p>
             )}
@@ -77,13 +77,13 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
         className="flex w-full flex-col gap-1 border-b border-[var(--color-border-subtle)] py-3.5 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
       >
         <span className="flex items-baseline gap-3">
-          <span className="text-[15px] font-medium leading-snug text-[var(--color-text-primary)]">{item.title}</span>
-          <span className="ml-auto shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+          <span className="text-callout font-semibold leading-snug text-[var(--color-text-primary)]">{item.title}</span>
+          <span className="ml-auto shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
             {count} {pluralizeNabludenie(count)}
           </span>
         </span>
-        <span className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">{item.body}</span>
-        <span className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">
+        <span className="text-footnote text-[var(--color-text-secondary)]">{item.body}</span>
+        <span className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
           {item.apps.join(" · ")}
         </span>
       </button>
@@ -98,8 +98,8 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
         <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
           <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
             <span className="flex min-w-0 flex-col gap-1">
-              <span className="text-[11px] text-[var(--color-text-tertiary)]">{themeLabel(item.theme)}</span>
-              <span className="text-[15px] font-semibold">{item.title}</span>
+              <span className="text-caption text-[var(--color-text-tertiary)]">{themeLabel(item.theme)}</span>
+              <span className="text-lead font-semibold">{item.title}</span>
             </span>
             <button
               type="button"
@@ -120,14 +120,14 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
                 className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3"
               >
                 <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  <span className="text-[11px] font-medium text-[var(--color-text-secondary)]">{e.app}</span>
-                  <span className="tabular-nums text-[11px] text-[var(--color-text-tertiary)]">
+                  <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>
+                  <span className="tabular-nums text-caption text-[var(--color-text-tertiary)]">
                     {"★".repeat(e.rating)}
                     {"☆".repeat(Math.max(0, 5 - e.rating))}
                   </span>
-                  <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
+                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
                 </span>
-                <p className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">{e.quote}</p>
+                <p className="text-footnote text-[var(--color-text-secondary)]">{e.quote}</p>
               </div>
             ))}
           </div>

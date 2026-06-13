@@ -71,13 +71,13 @@ function CategoryCard({ cat }: { cat: CategoryView }) {
       </div>
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span
-          className={`truncate text-[14px] font-semibold ${
+          className={`truncate text-callout font-semibold ${
             dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"
           }`}
         >
           {cat.name}
         </span>
-        <span className="truncate text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+        <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
           {cat.apps.length} {appsWord(cat.apps.length)}
         </span>
       </span>

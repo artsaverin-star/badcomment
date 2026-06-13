@@ -29,7 +29,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       <div className="mb-4">
         <Link
           href="/"
-          className="text-[13px] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+          className="text-footnote text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
         >
           ← {tr.market2.backToIndex}
         </Link>
@@ -62,7 +62,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                   <div className="size-6 shrink-0 rounded-full bg-[var(--color-bg-muted)]" />
                 )}
                 <span
-                  className={`truncate text-[12px] ${
+                  className={`truncate text-footnote ${
                     ready ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"
                   }`}
                 >
