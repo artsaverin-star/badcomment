@@ -1,0 +1,74 @@
+{
+  "productId": "ext-1121088244",
+  "slug": "daycount-1121088244",
+  "name": "DayCount",
+  "domain": "счётчик дней / трекер дат / countdown",
+  "oneLiner": "универсальный трекер дат: считает дни вперёд (countdown) и назад (streak/count-up) с виджетами на домашнем экране; iOS; используется для трезвости, памяти об ушедших, отказа от вредных привычек, дней рождения и любых личных вех",
+  "pricing": "бесплатная версия ограничена 3 счётчиками; виджеты, временны́е зоны и дополнительные счётчики — за подпиской (месячная / годовая); разовая покупка отсутствует по данным отзывов; пейволл появился или существенно расширился с обновлением 6.0",
+  "keyFeatures": [
+    "count-up (streak): счёт дней с заданной даты — трезвость, отказ от курения, чистота от самоповреждений",
+    "countdown: обратный отсчёт до события с опцией исключить выходные дни",
+    "виджеты на домашний экран с фоновым фото события",
+    "настраиваемые единицы времени (секунды, минуты, часы, дни, недели, месяцы, годы)",
+    "персональное фото-фон для каждого счётчика",
+    "уведомления и напоминания по дате",
+    "шаринг результата в виде изображения",
+    "категории / группировка счётчиков"
+  ],
+  "competitors": [
+    "Countdown+ Event Count Down App",
+    "Days Until - Countdown Timer",
+    "Streaks",
+    "Nomo - Sobriety Clock",
+    "I Am Sober",
+    "Days Since - Habit Tracker",
+    "встроенные Reminders / Calendar Apple"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Got on today and all my counters were just gone. Account still logged on and everything. Tried contacting support but haven't heard back. It would seem that the information is not held locally so it's not really your own info.",
+      "observation": "Данные счётчиков хранятся на сервере, а не локально: при сбое на стороне приложения все накопленные стрики (в том числе годы трезвости или памяти о близких) исчезают без предупреждения и без возможности восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "On the 2nd anniversary of the death of a family member, this app destroyed 2 years of tracking a date using this timer.",
+      "observation": "Эмоционально значимые счётчики — дата смерти родственника, день начала трезвости — не имеют резервного копирования; потеря данных в момент годовщины наносит психологический удар сверх технической поломки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "When track an event and hit the edit - reset option, the app does NOT reset to zero. It starts a 59 minute countdown and does not track elapsed time for the first hour. You must add one hour onto the displayed time to get the correct time.",
+      "observation": "Функция «сброс» (reset to now) после обновления 6.0 выставляет счётчик на -59 минут вместо нуля: первый час показывает отрицательное смещение, а пользователь вынужден мысленно прибавлять час к каждому показанию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "every time you open the app it prompts you to create a new event and you have to skip 3 pages worth of these prompts to get to your count down or streak pages. I tried to find a way to switch it off but can't.",
+      "observation": "Обновление добавило принудительный онбординг-сценарий «создай новое событие» при каждом запуске: чтобы попасть к уже существующим счётчикам, нужно пройти три экрана промоутинга — это настолько раздражает долгосрочных пользователей, что они отменяют годовую подписку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the only use this app has to me is for widgets. It's laughable that the app won't let you use such basic features without paying a monthly subscription. One-time fee? Maybe. Monthly? Absolutely not.",
+      "observation": "Виджеты — основная причина установки приложения — закрыты за ежемесячной подпиской без разовой альтернативы; пользователи воспринимают это как несоответствие между главной ценностью продукта и моделью монетизации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I put in a date that's about 33 days away. I chose to exclude weekends in the settings and the preview showed that the date was 23 days away. Clicked the check mark and then it automatically changed to 28 days away.",
+      "observation": "Функция «исключить выходные» даёт разные результаты в режиме предпросмотра и после сохранения: число дней меняется само по себе при подтверждении, делая опцию ненадёжной для рабочих дедлайнов.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "Пользователь говорит, что приложение слишком дорогое (commodity)",
+    "Пользователь говорит, что приложение вылетает без деталей (commodity)",
+    "Пользователь любит приложение (не несёт информации)",
+    "Пользователь хочет больше функций (generic ask)",
+    "Пользователь недоволен рекламой (commodity)",
+    "Подписка продлилась автоматически (commodity, если не описан конкретный обман)",
+    "Логин сломан / фича не работает (commodity без воспроизводимых шагов)"
+  ]
+}

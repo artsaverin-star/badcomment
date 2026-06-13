@@ -1,0 +1,72 @@
+{
+  "productId": "ext-1234702272",
+  "slug": "plantsnap-pro-identify-plants-1234702272",
+  "name": "PlantSnap Pro: Identify Plants",
+  "domain": "идентификация растений / plant ID / садоводство",
+  "oneLiner": "PlantSnap — приложение для распознавания растений по фото: наводишь камеру, получаешь название и краткую справку; охватывает цветы, деревья, кустарники, огородные культуры; iOS/Android, требует регистрации",
+  "pricing": "платная Pro-версия (разовая покупка, исторически ~$20 за lifetime); при редизайне интерфейса («bubbles»-версия) пользователи с ранее купленным lifetime сообщают о принудительном повторном приобретении подписки; модель монетизации менялась без чёткого предупреждения",
+  "keyFeatures": [
+    "идентификация растений по фотографии с камеры или из галереи",
+    "база данных цветов, деревьев, кустарников, суккулентов, огородных культур",
+    "краткая справка о растении (происхождение, описание, советы по уходу)",
+    "сохранение идентифицированных растений в персональный каталог (избранное)",
+    "Community-режим: отправка нераспознанных растений на идентификацию сообществом",
+    "использование GPS/метаданных фото для геолоцированного определения вида",
+    "предложения по покупке растений (партнёрские ссылки на Amazon)"
+  ],
+  "competitors": [
+    "iNaturalist",
+    "PictureThis - Plant Identifier",
+    "NatureID",
+    "Pl@ntNet",
+    "Google Lens (встроенный поиск по изображению)",
+    "Merlin Bird App (сравнение точности — упоминается в отзывах)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "I've been using it for several years and find it to be functional, informative, and easy to understand and use. Has worked every time so far, and since I live in the desert, it gets a LOT of use.",
+      "observation": "В засушливых регионах (пустынные зоны США) приложение стабильно распознаёт специфическую флору — пользователи с многолетним опытом отмечают практически нулевой процент ошибок на знакомых видах.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "Flower recognition is great. Foliar recognition is not as good.",
+      "observation": "Точность распознавания напрямую зависит от фотографируемой части растения: цветущие экземпляры определяются значительно надёжнее, чем побеги или листья без цветков — признак, что модель обучена преимущественно на цветочных фото.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "It's Right about 75% of the time. But many of the time there is so many choices I can't deside what the plant is. It's handy because it gets you into the ballpark of what to look for in other resources.",
+      "observation": "Приложение работает как «первый фильтр»: даёт несколько вероятных кандидатов и позволяет сузить поиск для дальнейшей верификации в других ресурсах — пользователи с базовыми знаниями ботаники способны использовать его как отправную точку, а не окончательный ответ.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Nice thing: coordinates from metadata, so identification can be done from the apartment and still have the right location.",
+      "observation": "Функция извлечения GPS-координат из EXIF-данных фотографии позволяет идентифицировать растение позже, находясь дома, — приложение подставляет геолокацию съёмки, а не текущее местоположение пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Why is the percentage/power of the identification gone? Are all presented images 100%? Where is the complete Taxonomie of the plant? Why is this connection to the former database gone with the complete scientific information?",
+      "observation": "В «bubbles»-редизайне убраны показатель уверенности модели (процент совпадения) и полная таксономическая карточка с научными данными — опытные пользователи потеряли инструменты для оценки достоверности результата и теперь получают кандидатов без возможности ранжировать их по надёжности.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "After having purchased the lifetime subscription, they pretended to change version and force you to buy another lifetime subscription.",
+      "observation": "При выходе крупного обновления (смена интерфейса) разработчики фактически сбрасывают статус ранее купленного lifetime-доступа и предлагают приобрести новую подписку — пользователи трактуют это как намеренную перезагрузку монетизации под видом новой версии.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "Пользователь пишет, что приложение неправильное (нет конкретных видов)",
+    "Пользователь говорит, что слишком дорого (commodity)",
+    "Пользователь пишет 'love it' без деталей (нет информации)",
+    "Пользователь жалуется на рекламу (commodity)",
+    "Приложение упало / зависло без воспроизводимых шагов (commodity)",
+    "Пользователь хочет больше растений в базе (generic ask)",
+    "Подписка продлилась автоматически (commodity, если нет специфики о механике обмана)"
+  ]
+}
