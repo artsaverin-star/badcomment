@@ -17093,5 +17093,3049 @@
         "Калибровка дистанции по подтверждённым маршрутам — устраняет систематический недосчёт в 10%, описанный пользователями GPS Tracks"
       ]
     }
+  },
+  {
+    "slug": "sobriety-no-paywall-in-crisis",
+    "category": "sobriety",
+    "categoryName": "Бросить пить, курить, скроллить",
+    "asOf": "2026-06-13",
+    "title": "Помощь не на пейволе: экстренный инструмент, который не просит денег в момент срыва",
+    "oneLiner": "Главный сценарий в категории — открыть приложение, когда невыносимо хочется сорваться. И именно в эту секунду I Am Sober блокирует «Зафиксировать порыв» за оплату, а QUITTR вовсе не пускает без подписки. Идея — приложение трезвости, где каждая кризисная функция бесплатна навсегда, а платят добровольно за лишнее, а не за спасение.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 581
+    },
+    "reviewGrid": [
+      {
+        "quote": "I like it and it's kept me self harm free for 14 days now, but there's always a paid option that I can't afford. Can't anything just be free if it helps someone anymore?",
+        "rating": 4,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "when logging an urge it wouldn't bring you to the 'get sober+' page",
+        "rating": 3,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "Very good, make more achievements for free users too though 😢",
+        "rating": 5,
+        "app": "QuitNow!"
+      },
+      {
+        "quote": "as much locked out as must pay to access..as free simply the group conversations most useful to me..doesnt track dollars save well a glitch",
+        "rating": 5,
+        "app": "Smoke Free - Quit Smoking Now"
+      },
+      {
+        "quote": "you dont have to pay 20$ to break habits. Just free free free.",
+        "rating": 5,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "Thank you for taking the time out of your LIFE to bring this application to the needs of those who really need all the support they can get and not charging us a penny! Unlike other applications, I feel they are abusing people who need help to make some money… BUT NOT PARKER!! everyday I look forward to another day…",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "the owner's words 'i don't want a single dollar to get in the way of someone and their recovery.' i think this is so admirable",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "I've only had this app for about a week and it's already stopped me from relapsing four times.",
+        "rating": 5,
+        "app": "I Am Sober"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Кризисная функция «Зафиксировать порыв» упирается в экран оплаты",
+        "obsCount": 49,
+        "apps": [
+          "I Am Sober",
+          "QuitNow!",
+          "Smoke Free - Quit Smoking Now"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Приложение открывают именно в момент острого желания сорваться",
+        "obsCount": 50,
+        "apps": [
+          "I Am Sober",
+          "Smoke Free - Quit Smoking Now",
+          "QuitNow!"
+        ],
+        "polarity": "delight"
+      },
+      {
+        "title": "Бесплатность воспринимается как моральная позиция и рождает личную благодарность",
+        "obsCount": 58,
+        "apps": [
+          "Nomo -  Sobriety Clocks",
+          "I Am Sober"
+        ],
+        "polarity": "delight"
+      }
+    ],
+    "gap": "Категория устроена с трагической иронией: единственный по-настоящему незаменимый сценарий — открыть приложение в секунду острого желания сорваться — у лидеров заблокирован пейволом. Пользователь логирует порыв, а его перебрасывает на страницу «get sober+»; QUITTR в принципе не работает без подписки. При этом те же люди в восторге, когда приложение спасло их от четырёх срывов за неделю. Зеркальная сторона — Nomo и бесплатные функции I Am Sober получают редкую в App Store реакцию: пользователи благодарят разработчика лично и рекомендуют приложение в группах поддержки именно потому, что их не заставляли платить за спасение. Ни один продукт не провёл чёткую линию: всё, что нужно человеку в кризисный момент — счётчик, фиксация порыва, дыхательная пауза, экстренный контакт — бесплатно навсегда; деньги только за необязательное. Это задокументированная, повторяющаяся боль, а не вкусовщина.",
+    "idea": {
+      "pitch": "Приложение трезвости с жёстким этическим контрактом: всё, что спасает в момент срыва, бесплатно навсегда и без рекламы. Счётчик дней, кнопка «Меня накрыло», дыхательная пауза, список причин и экстренный контакт доступны в один тап без единого платного экрана на пути к ним. Монетизация существует, но живёт строго в стороне от кризиса — за расширенную аналитику, темы и добровольную поддержку разработчика. Платный апселл физически не может встать между человеком и кнопкой помощи.",
+      "features": [
+        "Кнопка «Меня накрыло» на главном экране и в виджете — бесплатна навсегда, ведёт к паузе, а не к оплате",
+        "Счётчик дней, фиксация порыва, дыхательное упражнение и список личных причин без единого платного экрана",
+        "Экстренный контакт спонсора или близкого в один тап, доступный даже без подписки и без интернета",
+        "Платные функции вынесены в отдельный раздел и никогда не всплывают во время кризисного сценария",
+        "Добровольный донат «поддержать разработку» с честным объяснением, на что идут деньги",
+        "Прозрачная карта функций: что бесплатно навсегда, а что в Plus — видно до установки",
+        "Гарантия в описании: помощь в момент срыва никогда не уйдёт за пейвол"
+      ],
+      "antiFeatures": [
+        "Перенаправление на страницу подписки при логировании порыва",
+        "Блокировка счётчика дней или сообщества без оплаты",
+        "Реклама и попапы апселла в кризисном сценарии",
+        "Полная блокировка приложения без подписки, как у QUITTR"
+      ],
+      "monetization": "Кризисное ядро бесплатно навсегда — это и есть виральный двигатель: пользователи благодарят разработчика лично и тащат приложение в группы поддержки именно потому, что их не заставляли платить за спасение. Деньги приходят из добровольных донатов и Plus-набора необязательных функций (темы, расширенная аналитика, экспорт), которые никогда не пересекаются с кнопкой помощи."
+    }
+  },
+  {
+    "slug": "sobriety-streak-vault-portable",
+    "category": "sobriety",
+    "categoryName": "Бросить пить, курить, скроллить",
+    "asOf": "2026-06-13",
+    "title": "Сейф для трезвости: счётчик, который переживёт смену телефона",
+    "oneLiner": "Человек ведёт счётчик 500 дней или 9 лет — а потом меняет телефон и теряет всё, потому что бэкап у I Am Sober платный, вход через Facebook в QuitNow! сломался, а QUITTR не синхронизируется с облаком. Идея — приложение, где годы трезвости защищены, переносимы и не зависят от одного устройства или подписки.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 581
+    },
+    "reviewGrid": [
+      {
+        "quote": "My only thing is that I hate how backing up the app is blocked behind a paywall. I recently had to get a new phone because my old one stopped working suddenly and having all of the progress and my workbook entries wiped, which really sucked.",
+        "rating": 3,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "Unless you want to lose your streak counter, journal entries, and friends. Either back all your stuff up on a separate app or never update it.",
+        "rating": 3,
+        "app": "QUITTR - Break Free Now"
+      },
+      {
+        "quote": "Have had this app since my early sobriety, jut wondering why I had lost my account.",
+        "rating": 5,
+        "app": "My Spiritual Toolkit AA Steps"
+      },
+      {
+        "quote": "Has been  with me for 9+ years and never failed me during my journey!",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "I went years without looking at this app, and then thankfully when I opened it my time was still ticking away.",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "Knowing that I have to reset the clock if I cheat has kept integrity with myself",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "Resetting to 0 days is not an option. Over a year NICOTINE FREE!",
+        "rating": 5,
+        "app": "QuitNow!"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Смена устройства или переустановка стирают годы истории трезвости",
+        "obsCount": 27,
+        "apps": [
+          "I Am Sober",
+          "QUITTR - Break Free Now",
+          "My Spiritual Toolkit AA Steps"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Бэкап заперт за платной подпиской",
+        "obsCount": 27,
+        "apps": [
+          "I Am Sober",
+          "QuitNow!"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Счётчик, переживший годы, воспринимается как незаменимый якорь",
+        "obsCount": 104,
+        "apps": [
+          "Nomo -  Sobriety Clocks",
+          "QuitNow!"
+        ],
+        "polarity": "delight"
+      }
+    ],
+    "gap": "Весь движок категории держится на одном числе — счётчике дней, который страшно потерять. Именно страх обнуления останавливает рецидив сильнее любой позитивной мотивации. Но это же число чудовищно хрупко: бэкап у I Am Sober платный, вход через Facebook в QuitNow! ломается, QUITTR не синхронизируется с облаком, а пользователь My Spiritual Toolkit просто «потерял аккаунт». Для человека, который вёл счётчик 9 лет, это не баг — это уничтожение личного памятника. Парадокс в том, что приложения берут деньги именно за защиту самого ценного актива, который сами же и создали. Никто в категории не сделал перенос истории дефолтом и не дал владельцу полный экспорт своих данных. Сейф для трезвости — очевидная, повторяющаяся у разных брендов незакрытая потребность.",
+    "idea": {
+      "pitch": "Приложение, где счётчик трезвости устроен как несгораемый сейф, а не как запись в памяти одного телефона. Бесплатная облачная синхронизация и локальный экспорт включены по умолчанию: смена устройства, переустановка и обновление переносят все дни, дневник и друзей без единого тапа. История принадлежит пользователю — её можно скачать человекочитаемым файлом и восстановить где угодно, даже если разработчик исчезнет. Защита прошлого никогда не уходит за пейвол.",
+      "features": [
+        "Бесплатный облачный бэкап счётчика, дневника и контактов, включённый по умолчанию",
+        "Вход по email и по коду без зависимости от Facebook или одной соцсети",
+        "Перенос на новый телефон в один шаг — восстановление всех дней и записей при первом запуске",
+        "Локальный экспорт всей истории человекочитаемым файлом для офлайн-хранения",
+        "Защита от потери при обновлении: данные мигрируют автоматически между версиями",
+        "Восстановление аккаунта без поддержки — по email-ссылке, а не через переписку",
+        "Видимая дата последнего бэкапа на главном экране, чтобы человек был спокоен",
+        "Импорт счётчика из других приложений по дате начала трезвости"
+      ],
+      "antiFeatures": [
+        "Платный пейвол на резервное копирование данных",
+        "Привязка истории к единственному соцсетевому входу",
+        "Стирание прогресса при обновлении приложения",
+        "Аккаунт, который восстановить можно только через медленную поддержку"
+      ],
+      "monetization": "Бэкап и экспорт — бесплатны навсегда, потому что брать деньги за защиту чужих лет трезвости категория уже доказала как репутационный яд. Платный план оправдан расширенной аналитикой и темами, но сохранность истории остаётся неотъемлемым правом пользователя и главным аргументом доверия при выборе приложения на годы вперёд."
+    }
+  },
+  {
+    "slug": "sobriety-urge-interrupt-engine",
+    "category": "sobriety",
+    "categoryName": "Бросить пить, курить, скроллить",
+    "asOf": "2026-06-13",
+    "title": "Перехват порыва: приложение, которое работает в ту самую секунду",
+    "oneLiner": "Пользователи описывают один и тот же спасительный момент: открыл приложение, посмотрел на счётчик и статистику — и волна желания схлынула. Это и есть ядро ценности, но оно разбросано по разным экранам и приходит само, без проактивности. Идея — движок, который ловит порыв за секунды: одна кнопка, мгновенная визуализация прогресса и активная пауза вместо пассивного дашборда.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 581
+    },
+    "reviewGrid": [
+      {
+        "quote": "I've only had this app for about a week and it's already stopped me from relapsing four times.",
+        "rating": 5,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "On those days when every part of my being asked, 'Why am I quitting,' it really helped to review my stats on this app, see my progress, throw down a 'Diary Entry' indicating my struggle, all contributing to distracting my thought process and keeping me smoke-free another day.",
+        "rating": 5,
+        "app": "Smoke Free - Quit Smoking Now"
+      },
+      {
+        "quote": "Application efficace qui m’a beaucoup aider et motiver pour arrêter de fumer- je la consulte constamment dès que j ai un moment de faiblesse - merci Quitnow 🙏",
+        "rating": 5,
+        "app": "QuitNow!"
+      },
+      {
+        "quote": "Must try app if you want to quit as I have failed in under 2-3 days on all previous attempts. An improvement it would be for virtual assistant to contact first thing in the morning lunch and evening time as it helps so much. Better than excellent !",
+        "rating": 5,
+        "app": "Smoke Free - Quit Smoking Now"
+      },
+      {
+        "quote": "AMAZING APP it's helped me stop my habits and honestly it's so good cause u can see how many days hours mins seconds etc you have been sober and I feel like seeing how far I've come it helps me not want to relapse there is no ads and there is a community so you never feel alone through ur own journey highly recommend💛",
+        "rating": 5,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "Great for accountability each day I see that number go up makes me want to keep my streak more and more.",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "The daily pledge reminds me of why it's so important to take this step",
+        "rating": 5,
+        "app": "I Am Sober"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Экстренное открытие приложения в момент соблазна прерывает импульс",
+        "obsCount": 50,
+        "apps": [
+          "I Am Sober",
+          "Smoke Free - Quit Smoking Now",
+          "QuitNow!"
+        ],
+        "polarity": "delight"
+      },
+      {
+        "title": "Просмотр счётчика и статистики отвлекает мысль и гасит тягу",
+        "obsCount": 104,
+        "apps": [
+          "I Am Sober",
+          "Smoke Free - Quit Smoking Now",
+          "Nomo -  Sobriety Clocks"
+        ],
+        "polarity": "delight"
+      },
+      {
+        "title": "Запрос на проактивный контакт в нужное время дня",
+        "obsCount": 70,
+        "apps": [
+          "Smoke Free - Quit Smoking Now",
+          "I Am Sober"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Самая сильная сторона категории — перехват порыва — работает почти случайно. Человек сам вспоминает про приложение, сам ищет, где его статистика, сам листает к дневнику. Пользователь Smoke Free прямо просит виртуального ассистента, который связывался бы с ним утром, в обед и вечером, потому что без напоминания удержаться труднее. То есть ядро ценности есть, но оно пассивно: приложение ждёт, пока его откроют, и встречает дашбордом, а не действием. Никто не построил продукт вокруг одного быстрого жеста — мгновенно вытащить человека из импульса за пять секунд и провести через активную паузу, а не оставить разглядывать цифры. Перехват порыва как самостоятельный, проактивный, отрепетированный сценарий — это белое пятно, при том что именно его хвалят чаще всего.",
+    "idea": {
+      "pitch": "Приложение, спроектированное вокруг одной задачи — перехватить порыв за пять секунд. Гигантская кнопка на виджете и блокировке экрана мгновенно запускает короткий сценарий: счётчик крупно, твои причины бросить, дыхательная пауза и выбор «отвлечься или написать спонсору». Приложение не ждёт пассивно — оно умно предлагает чек-ин в твои рисковые часы и после события-триггера. Цель — не дашборд, а активное прохождение волны желания, доказавшее себя на тысячах спасённых срывов.",
+      "features": [
+        "Кнопка перехвата порыва на виджете и Lock Screen — один тап до активного сценария",
+        "Мгновенный экран кризиса: крупный счётчик, твои причины, дыхательная пауза в одном потоке",
+        "Проактивные чек-ины в личные рисковые часы (вечер, после работы) вместо одного фиксированного пуша",
+        "Активная пауза с таймером: переждать пик тяги, пока приложение ведёт через минуту",
+        "Быстрый выбор в кризис: отвлекающая игра, звонок спонсору или запись в дневник",
+        "Лог каждого пережитого порыва, который сам становится мотивирующей статистикой «сколько раз устоял»",
+        "Карта триггеров: приложение учится, когда тебе труднее, и подстраивает напоминания"
+      ],
+      "antiFeatures": [
+        "Пассивный дашборд, который надо самому листать в момент кризиса",
+        "Единственное фиксированное напоминание без учёта рисковых часов",
+        "Долгий путь к кнопке помощи через меню и вкладки",
+        "Пейвол на пути к перехвату порыва"
+      ],
+      "monetization": "Перехват порыва бесплатен — это и точка входа, и виральный момент («остановило четыре срыва за неделю»). Платный план продаёт глубину: персональная карта триггеров, расширенная аналитика устоявших порывов, синхронизация со спонсором. Платят за умную проактивность, а не за саму кнопку спасения."
+    }
+  },
+  {
+    "slug": "sobriety-long-haul-archive",
+    "category": "sobriety",
+    "categoryName": "Бросить пить, курить, скроллить",
+    "asOf": "2026-06-13",
+    "title": "Архив длиною в годы: для тех, кто бросил давно и не уходит",
+    "oneLiner": "Недооценённый сегмент категории — люди с 5–12 годами трезвости, которые заходят редко, но никогда не удаляют приложение: счётчик стал личным памятником и психологическим якорем. Их никто не проектирует — продукты заточены под первые трудные недели. Идея — режим долгожителя: тихий архив, вехи-юбилеи и переход из ученика в наставника.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 581
+    },
+    "reviewGrid": [
+      {
+        "quote": "7 years and 6 months and I check in more than I thought I would. I love to share my progress with my friends and family. This app has helped with my accountability. Thanks for developing this app.",
+        "rating": 5,
+        "app": "Smoke Free - Quit Smoking Now"
+      },
+      {
+        "quote": "I'd check the smoke-free timer often, and after a few months not wanting to reset it if I smoked became extra incentive to avoid cigarettes. ... I rarely check the app anymore, but when I do I'm shocked at money saved and time regained.",
+        "rating": 5,
+        "app": "Smoke Free - Quit Smoking Now"
+      },
+      {
+        "quote": "I went years without looking at this app, and then thankfully when I opened it my time was still ticking away.",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "Has been  with me for 9+ years and never failed me during my journey!",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "I love this app! it helps me with a little reminder of how far I have come from being on Fentanyl and Xylazine.",
+        "rating": 5,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "the community is raw and supportive. i look forward to watching my clock roll forward, and appreciate the opportunity to support others.",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "Being able to communicate with people in the same boat as myself is truly inspiring.",
+        "rating": 5,
+        "app": "I Am Sober"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "После многолетнего успеха приложение становится тихим архивом достижений",
+        "obsCount": 57,
+        "apps": [
+          "Smoke Free - Quit Smoking Now",
+          "Nomo -  Sobriety Clocks",
+          "I Am Sober"
+        ],
+        "polarity": "delight"
+      },
+      {
+        "title": "Долгожители превращаются в рекомендателей и наставников",
+        "obsCount": 97,
+        "apps": [
+          "Nomo -  Sobriety Clocks",
+          "I Am Sober"
+        ],
+        "polarity": "delight"
+      },
+      {
+        "title": "Ценность смещается от ежедневного ритуала к редкому, но трогающему возвращению",
+        "obsCount": 57,
+        "apps": [
+          "Smoke Free - Quit Smoking Now",
+          "Nomo -  Sobriety Clocks"
+        ],
+        "polarity": "delight"
+      }
+    ],
+    "gap": "Категория знает свой самый верный сегмент — и игнорирует его. Люди с 5, 7, 9, 12 годами трезвости открывают приложение редко, но не удаляют: счётчик стал архивом и якорем, к которому возвращаются в трудный день и которым гордятся перед семьёй. Один пользователь годами не заходил и был счастлив, что время всё ещё тикает. Но весь продукт спроектирован под новичка первых недель: ежедневные пуши, обучение, давящие цели. Для долгожителя это шум. При этом именно они — главные рекомендатели и потенциальные наставники для новичков («ценю возможность поддержать других»). Никто не сделал для них отдельный режим: тихое приложение, которое не давит, отмечает юбилеи и даёт направить накопленный опыт на помощь тем, кто только начал. Это огромный, лояльный и неокученный пласт удержания.",
+    "idea": {
+      "pitch": "Приложение с режимом долгожителя для тех, кто бросил давно. После года оно само переключается в тихий архив: никаких ежедневных пушей, только редкие тёплые касания на юбилеи и красивый отчёт о пройденном пути для семьи. Главное — переход из ученика в наставника: годы трезвости становятся правом помогать новичкам, отвечать на их порывы и делиться вехами. Приложение выживает именно потому, что перестаёт давить и даёт смысл оставаться.",
+      "features": [
+        "Авто-переход в режим архива после года: вместо ежедневных пушей — редкие касания на юбилеи",
+        "Памятный отчёт о пути (дни, деньги, восстановленное здоровье), которым легко поделиться с семьёй",
+        "Роль наставника: долгожители могут отвечать новичкам в кризисный момент и быть закреплены за ними",
+        "Лента вех-юбилеев — 5, 7, 10 лет — оформленных как личный памятник, а не дежурный бейдж",
+        "Тихие уведомления по выбору: только годовщины и важные напоминания, без ежедневного шума",
+        "Возвращение без обнуления: даже после года без открытий счётчик и история на месте",
+        "Сертификат стажа для тех, кто становится консультантом по выздоровлению"
+      ],
+      "antiFeatures": [
+        "Ежедневные пуши и давящие цели для человека с 9 годами трезвости",
+        "Обнуление прогресса за неактивность",
+        "Навязчивый онбординг при каждом редком возвращении",
+        "Отсутствие пути применить накопленный опыт"
+      ],
+      "monetization": "Долгожители — самый дешёвый в обслуживании и самый громкий рекамендательский сегмент: они приводят новичков органически. Монетизация мягкая — добровольная поддержка и платный набор для роли наставника (расширенные инструменты помощи, сертификат стажа). Тихий режим бесплатен, потому что само не-давление и есть причина остаться на годы."
+    }
+  },
+  {
+    "slug": "sobriety-moderated-community",
+    "category": "sobriety",
+    "categoryName": "Бросить пить, курить, скроллить",
+    "asOf": "2026-06-13",
+    "title": "Сообщество без триггеров: модерация как продукт, а не как настройка",
+    "oneLiner": "Сообщество — причина номер один не сорваться и одновременно главная точка деградации: без модерации лента заполняется триггерным, негативным контентом, и люди просят кнопку «скрыть сообщество». Идея — продукт, где безопасность ленты встроена в архитектуру: фильтр триггеров, живая модерация и связки «новичок — наставник» вместо токсичного общего чата.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 581
+    },
+    "reviewGrid": [
+      {
+        "quote": "Amazing free app but please make an option to hide the community feature as a lot of the community posts can be very negative and triggering thank you",
+        "rating": 5,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "Being able to communicate with people in the same boat as myself is truly inspiring.",
+        "rating": 5,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "the community is raw and supportive. i look forward to watching my clock roll forward, and appreciate the opportunity to support others.",
+        "rating": 5,
+        "app": "Nomo -  Sobriety Clocks"
+      },
+      {
+        "quote": "This app shows your health improvement as you go along, keeps track of money saved, cigarettes not smoked, and what amount of life you gain back as you remain quit! The chat area is fantastic! Everyone has the others back! There is true comrodery amongst these people! They offer support, encouragement, congratulatio…",
+        "rating": 5,
+        "app": "QuitNow!"
+      },
+      {
+        "quote": "AMAZING APP it's helped me stop my habits and honestly it's so good cause u can see how many days hours mins seconds etc you have been sober and I feel like seeing how far I've come it helps me not want to relapse there is no ads and there is a community so you never feel alone through ur own journey highly recommend💛",
+        "rating": 5,
+        "app": "I Am Sober"
+      },
+      {
+        "quote": "as much locked out as must pay to access..as free simply the group conversations most useful to me..doesnt track dollars save well a glitch",
+        "rating": 5,
+        "app": "Smoke Free - Quit Smoking Now"
+      },
+      {
+        "quote": "I've only had this app for about a week and it's already stopped me from relapsing four times.",
+        "rating": 5,
+        "app": "I Am Sober"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Сообщество снижает одиночество и держит от срыва на старте",
+        "obsCount": 97,
+        "apps": [
+          "I Am Sober",
+          "Nomo -  Sobriety Clocks",
+          "QuitNow!"
+        ],
+        "polarity": "delight"
+      },
+      {
+        "title": "Без модерации лента наполняется негативным и триггерным контентом",
+        "obsCount": 97,
+        "apps": [
+          "I Am Sober",
+          "QuitNow!"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Пользователи просят инструмент скрыть или отфильтровать сообщество",
+        "obsCount": 97,
+        "apps": [
+          "I Am Sober",
+          "QUITTR - Break Free Now"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Сообщество в категории — это двуликий механизм. На старте именно оно снижает ощущение одиночества и становится причиной номер один не сорваться: люди благодарны, что общаются с теми, кто в той же лодке. Но ровно то же сообщество без активной модерации деградирует — лента заполняется негативом и триггерами, и пользователь I Am Sober прямо просит кнопку, чтобы скрыть его. У QuitNow! и QUITTR жалуются на токсичных модераторов и закрытые клики. Все продукты относятся к модерации как к второстепенной настройке: дают общий чат и надеются на лучшее. Никто не сделал безопасность ленты ядром продукта — с фильтром триггерных слов, живой модерацией и структурой, где новичка ведёт наставник, а не безличная толпа. Качество сообщества даёт нелинейное удержание, но именно его никто не строит осознанно.",
+    "idea": {
+      "pitch": "Приложение, где сообщество спроектировано как безопасное по умолчанию, а не как сырой общий чат. Лента проходит фильтр триггерного контента, живые модераторы из числа долгожителей следят за тоном, а новичка с первого дня связывают с проверенным наставником вместо безличной толпы. Каждый может в один тап настроить, сколько сообщества он готов видеть — от полной поддержки до тихого режима. Цель — сохранить ту самую сопричастность, которая держит от срыва, и вырезать токсичность, которая триггерит.",
+      "features": [
+        "Фильтр триггерного контента в ленте по умолчанию с настройкой чувствительности",
+        "Живая модерация силами проверенных долгожителей, а не безличного общего чата",
+        "Связка новичка с персональным наставником с первого дня вместо толпы",
+        "Тумблер «сколько сообщества показывать» — от полной ленты до полного скрытия в один тап",
+        "Поддерживающие реакции и шаблоны вместо открытого поля для негатива",
+        "Мгновенная жалоба и скрытие триггерного поста одним жестом",
+        "Малые тематические группы по веществу и стажу вместо одной шумной ленты",
+        "Прозрачные правила тона и быстрый отклик модерации на нарушения"
+      ],
+      "antiFeatures": [
+        "Безмодерационный общий чат, заполняющийся негативом и триггерами",
+        "Токсичные модераторы и закрытые клики, как жалуются на QuitNow! и QUITTR",
+        "Сообщество, которое нельзя скрыть или приглушить",
+        "Новичок один на один с безличной толпой"
+      ],
+      "monetization": "Базовое безопасное сообщество бесплатно — оно главный удерживающий механизм категории и виральный двигатель рекомендаций. Платный слой оправдан премиум-наставничеством, приватными группами поддержки и расширенными инструментами для модераторов-волонтёров. Платят за глубину связей и качество модерации, а не за вход в чат."
+    }
+  },
+  {
+    "slug": "smart-alarm-system-level-reliability",
+    "category": "smart-alarm-clocks",
+    "categoryName": "Умные будильники с миссиями",
+    "asOf": "2026-06-13",
+    "title": "Будильник, который срабатывает, даже когда телефон спит",
+    "oneLiner": "Вся категория страдает одним пороком: будильник молчит в фоне, требует держать экран всю ночь и опаздывает на работу за пользователя. Идея — будильник на системном уровне, который срабатывает при свёрнутом приложении, заблокированном экране и в беззвучном режиме, потому что пробуждение нельзя доверять обычному push-уведомлению.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 746
+    },
+    "reviewGrid": [
+      {
+        "quote": "Kaç defa işe geç kaldım bu uygulama yüzünden. İndirmeyin arkadaşlar alarmı kuruyorsun ama o dediğin saatte ses yok. Eline alıp tıklıyorsun sonra başlıyor çalmaya. düzgün yapın işinizi bee",
+        "rating": 5,
+        "app": "Mathe Alarm Clock - Math Alarm"
+      },
+      {
+        "quote": "I have a habit of closing out all my apps before turning off my phone and it has been a struggle to remember to leave it open and a lot of the time my alarm just won't go off because I forgot. This is a pain and honestly so frustrating because I have to delete the app and reinstall it every time so that I don't have to go through all those math problems when I decide to set my alarms for the next day. I also have to redo all my alarms when I have to reinstall it.",
+        "rating": 5,
+        "app": "Mathe Alarm Clock - Math Alarm"
+      },
+      {
+        "quote": "All too often the appointed time passes without the alarm kicking in. I wake up anyway, and the music sometimes starts playing when I unlock my phone. That’s not useful at all.",
+        "rating": 2,
+        "app": "Alarm Clock HD"
+      },
+      {
+        "quote": "Eine App ohne Funktion Diese App ist vollkommen sinnfrei programmiert worden.\nHabe mir extra die Weckzeiten für die Arbeit gestellt, da mein Gerät mit der Standardapp massive Probleme hat, die von Apple nicht gelöst werden wollen.\nHabe",
+        "rating": 1,
+        "app": "Step Out! Smart Alarm Clock"
+      },
+      {
+        "quote": "the alarms never goes off on time... Because as most people do I sleep with do not disturb and when it's on do not disturb the alarm doesn't go off",
+        "rating": 2,
+        "app": "Smart Alarm Clock - Waking Up"
+      },
+      {
+        "quote": "plusieurs jours plus tard, le réveil sonne en muet sans que je n'ai touché à quoi que ce, impossible de désactiver le mode silencieux",
+        "rating": 1,
+        "app": "Alarm Clock for Me - Wake Up!"
+      },
+      {
+        "quote": "But it doesn't work on silent mode",
+        "rating": 5,
+        "app": "Step Out! Smart Alarm Clock"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Будильник не срабатывает в фоне — приложение должно оставаться открытым всю ночь",
+        "obsCount": 137,
+        "apps": [
+          "Mathe Alarm Clock - Math Alarm",
+          "Alarm Clock HD",
+          "Step Out! Smart Alarm Clock"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Режим «Не беспокоить» и беззвучный режим глушат будильник",
+        "obsCount": 70,
+        "apps": [
+          "Smart Alarm Clock - Waking Up",
+          "Alarm Clock for Me - Wake Up!",
+          "Step Out! Smart Alarm Clock"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Математика, шаги и фото реально поднимают с постели",
+        "obsCount": 152,
+        "apps": [
+          "Mathe Alarm Clock - Math Alarm",
+          "Alarmy - Loud alarm clock"
+        ],
+        "polarity": "gain"
+      }
+    ],
+    "gap": "Ни одно из семи приложений не решило фундаментальную задачу — гарантированно зазвонить, когда телефон лежит экраном вниз, приложение свёрнуто, а система в режиме «Не беспокоить». Сторонние будильники строятся поверх обычных push-уведомлений и фоновых процессов, которые iOS и Android душат ради экономии батареи; в результате звук либо тихий, либо отложенный, либо появляется только в момент разблокировки — то есть бесполезен. Встроенный Clock от Apple переопределяет беззвучный режим, но не умеет миссий. Пользователи вынуждены держать экран включённым всю ночь, снимать беззвучник вручную и всё равно опаздывать на работу. Это не баг конкретного релиза, а архитектурный провал всей категории: задачу «разбудить» доверили механизму, который ОС считает второстепенным.",
+    "idea": {
+      "pitch": "Будильник, который относится к пробуждению как к критической функции системы, а не к необязательному уведомлению. Он регистрируется через нативные API критических алертов (Critical Alert на iOS, точные будильники и foreground-сервис на Android), переопределяет беззвучный режим и «Не беспокоить», и срабатывает при свёрнутом приложении и заблокированном экране — без необходимости держать экран всю ночь. Каждую ночь перед сном приложение тихо самопроверяется и предупреждает, если что-то помешает звонку.",
+      "features": [
+        "Критический алерт уровня ОС, переопределяющий беззвучный режим и «Не беспокоить» — как у системного будильника, но с миссиями",
+        "Срабатывание при свёрнутом приложении и заблокированном экране без держания экрана включённым",
+        "Ночная самопроверка перед сном: тест звука, прав, заряда и фоновых ограничений с понятным предупреждением",
+        "Резервный канал — локальный планировщик уровня системы, не зависящий от push-серверов и сети",
+        "Watchdog: если основной звонок не стартовал в нужную секунду, через 10 секунд срабатывает дублирующий",
+        "Подсказка по настройке исключений батареи и точных будильников при первом запуске, привязанная к модели телефона",
+        "Сохранение всех будильников и миссий в облаке, чтобы переустановка не сбрасывала настройки"
+      ]
+    }
+  },
+  {
+    "slug": "smart-alarm-tamper-proof-missions",
+    "category": "smart-alarm-clocks",
+    "categoryName": "Умные будильники с миссиями",
+    "asOf": "2026-06-13",
+    "title": "Миссия без лазеек: будильник, который нельзя обмануть спросонья",
+    "oneLiner": "Главная ценность категории — физический барьер пробуждения — рушится из-за лазеек: смахнул из менеджера задач, удалил приложение, нажал громкость, потряс вместо шагов. Идея — будильник, чьи миссии действительно невозможно обойти полусонным мозгом, потому что именно неотменяемость и есть продукт.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 746
+    },
+    "reviewGrid": [
+      {
+        "quote": "this app is great , but my laziness is greater than this , when alarm gets rang instead of snoozing the alarm , i deleted the app 😂😂🥲.",
+        "rating": 5,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "It also lets you turn it off without having to do the task which is a problem when I'm looking for the best way to turn of the alarm and keep sleeping",
+        "rating": 3,
+        "app": "Smart Alarm Clock - Waking Up"
+      },
+      {
+        "quote": "This one you can snooze w the volume button. The old version would not allow you to do that.",
+        "rating": 3,
+        "app": "Step Out! Smart Alarm Clock"
+      },
+      {
+        "quote": "Leider Geld zum Fenster raus 1. man kann den Wecker einfach über die Laut-/Leisertasten leise machen \n\n2. wenn das Handy gesperrt ist, klingelt es nicht sondern gibt nur alle 2 Minuten eine kurze Vibration von sich.\n\n3. für eine Änderung",
+        "rating": 1,
+        "app": "Step Out! Smart Alarm Clock"
+      },
+      {
+        "quote": "mines is always on patterns so when my alarm goes off it won't turn off until I do a pattern three times",
+        "rating": 5,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "I don’t write reviews but I had too cuz the barcode scan has really helped it annoying but it helps get up and start my day",
+        "rating": 5,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "I've been losing jobs over not waking up... I haven't over slept in almost 1 year..",
+        "rating": 5,
+        "app": "Alarmy - Loud alarm clock"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Миссии обходятся — лазейки находят раньше, чем разработчик их закрывает",
+        "obsCount": 43,
+        "apps": [
+          "Alarmy - Loud alarm clock",
+          "Smart Alarm Clock - Waking Up",
+          "Step Out! Smart Alarm Clock"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Математика, шаги и фото реально поднимают с постели",
+        "obsCount": 152,
+        "apps": [
+          "Alarmy - Loud alarm clock",
+          "Step Out! Smart Alarm Clock"
+        ],
+        "polarity": "gain"
+      },
+      {
+        "title": "Категория нужна тем, кого не будит ничего — высокая ставка удержания",
+        "obsCount": 90,
+        "apps": [
+          "Alarmy - Loud alarm clock",
+          "Smart Alarm Clock - Waking Up"
+        ],
+        "polarity": "gain"
+      }
+    ],
+    "gap": "Парадокс категории: пользователи прямо хвалят миссии за то, что те «бесят» и потому работают — но те же люди в три ночи находят способ обойти барьер и спят дальше. Громкость глушит звонок, кнопка отключения видна до выполнения задачи, приложение можно смахнуть из менеджера задач или удалить целиком, тряску засчитывает за шаги. Каждое приложение латает лазейки реактивно, по одной, релиз за релизом, а полусонный мозг изобретательнее любого QA. При этом удалить приложение, чтобы не делать математику, — это самое прямое признание, что продукт работал слишком хорошо. Никто не сделал миссию по-настоящему неотменяемой и при этом честной: чтобы её нельзя было обойти спросонья, но можно было выключить осознанно, в ясном уме, заранее.",
+    "idea": {
+      "pitch": "Будильник, в котором отключить звонок можно только одним способом — выполнив миссию, и все обходные пути закрыты на уровне ОС. Громкость и кнопки питания не глушат звонок, удаление приложения требует разблокировки кодом, а смахивание из менеджера задач возвращает оверлей миссии. Жёсткость настраивается заранее, в трезвом уме: режим «Терминатор» для тех, кто теряет работу из-за просыпа, и мягкий режим для остальных.",
+      "features": [
+        "Перехват кнопок громкости и питания: спросонья ими нельзя приглушить или отложить звонок",
+        "Защита от удаления: чтобы снести приложение, нужно ввести код, недоступный полусонному мозгу",
+        "Возврат оверлея миссии при попытке смахнуть приложение из менеджера задач",
+        "Анти-чит для физических миссий: реальные шаги по геолокации и шагомеру вместо засчитываемой тряски",
+        "Фотомиссия с привязкой к конкретному объекту (раковина, кофемашина) и проверкой, что снят именно он, а не повтор кадра",
+        "Настройка жёсткости заранее, в ясном уме: режим «Терминатор» без отмены и мягкий режим с аварийным выходом",
+        "Аварийный код на крайний случай (пожар, звонок) — длинный, осознанный, с задержкой, чтобы им не злоупотребляли"
+      ]
+    }
+  },
+  {
+    "slug": "smart-alarm-one-time-purchase",
+    "category": "smart-alarm-clocks",
+    "categoryName": "Умные будильники с миссиями",
+    "asOf": "2026-06-13",
+    "title": "Купил будильник — он твой: один платёж вместо аренды пробуждения",
+    "oneLiner": "Пользователи годами любят свой будильник и готовы заплатить — но еженедельная или годовая подписка за функцию «зазвонить утром» воспринимается как абсурд, а реклама на полной громкости в момент пробуждения добивает доверие. Идея — будильник с честной разовой покупкой и без рекламы в самый уязвимый момент дня.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 746
+    },
+    "reviewGrid": [
+      {
+        "quote": "However I really wish the premium was a one time purchase, I'd even be happy to spend like £20 to support the team and get the extra features, but I just hate having even more subscriptions then I've already got.",
+        "rating": 5,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "シンプルで使いやすい。有料版が購入ではなく、週100円か年間3000円なのでレンタルのような感覚。長期利用には向かない気がする。アプリが気に入っても定着しにくいのでは。",
+        "rating": 3,
+        "app": "Alarm Clock for Me - Wake Up!"
+      },
+      {
+        "quote": "it's $10 a week for just different options for alarms I honestly feel like it should be free because we already have a free one... the stuff that would help me is in the premium version",
+        "rating": 2,
+        "app": "Smart Alarm Clock - Waking Up"
+      },
+      {
+        "quote": "Dopo anni di nagware mi sono deciso a pagare 9,99 Euro di abbonamento Premium annuale. Questa App è ormai diventata indispensabile per me dato che mi programmo con una settimana di anticipo tutti i miei appuntamenti.",
+        "rating": 5,
+        "app": "Alarm Clock HD"
+      },
+      {
+        "quote": "5/13/25-it seems I have to get on here every few months to write a poor review about the loud and longer than necessary game ads. This does not encourage me to get any of these games. If anything it is annoying. The ads didn’t used to be so obnoxious.",
+        "rating": 5,
+        "app": "Alarm Clock HD"
+      },
+      {
+        "quote": "I've been using this app for years! But now they've started using ads with sound that autoplay in the app until I manually close it. Terrible decision. Will be switching to a new app.",
+        "rating": 2,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "Had to shut down in middle of night. Google ads came in very bright",
+        "rating": 2,
+        "app": "One Touch Alarm Clock"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Подписочная модель отталкивает лояльных — готовы купить раз, но не платить еженедельно",
+        "obsCount": 39,
+        "apps": [
+          "Smart Alarm Clock - Waking Up",
+          "Alarmy - Loud alarm clock",
+          "Alarm Clock for Me - Wake Up!"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Реклама срабатывает в момент выключения будильника",
+        "obsCount": 59,
+        "apps": [
+          "Alarm Clock HD",
+          "Alarmy - Loud alarm clock",
+          "One Touch Alarm Clock"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Категория нужна тем, кого не будит ничего — высокая ставка удержания",
+        "obsCount": 90,
+        "apps": [
+          "Alarm Clock HD",
+          "Smart Alarm Clock - Waking Up"
+        ],
+        "polarity": "gain"
+      }
+    ],
+    "gap": "Будильник — это утилита, которой пользуются каждый божий день годами, и именно поэтому подписочная модель вызывает особое отторжение: платить $10 в неделю или 3000 иен в год за то, что «зазвонить утром», воспринимается как аренда воздуха, тем более что бесплатный системный будильник уже есть. Люди прямо пишут, что заплатили бы £20 разово, лишь бы не плодить ещё одну подписку. Параллельно работает вторая рана — реклама, которая врывается ровно в момент отключения будильника: полноэкранная, яркая, на полной громкости, в самый уязвимый момент суток. Награда за тяжёлый подъём превращается в наказание. Ни один бренд не предложил модели, где честный разовый платёж снимает и подписочную усталость, и рекламу в момент пробуждения. Это очевидная незанятая позиция: будильник, который покупаешь один раз и который никогда не торгует твоим пробуждением.",
+    "idea": {
+      "pitch": "Будильник с одной честной ценой: купил — пользуешься навсегда, без подписки и без рекламы в момент пробуждения. Базовая версия с надёжным звонком и одной миссией бесплатна и без рекламы; полный набор миссий и тем открывается одним разовым платежом. В самый уязвимый момент — когда ты отключаешь будильник спросонья — приложение никогда не показывает рекламу, потому что это разрушает доверие, ради которого продукт существует.",
+      "features": [
+        "Разовая покупка вместо подписки: полный набор миссий и тем за один платёж навсегда",
+        "Бесплатный уровень без рекламы: надёжный звонок и одна миссия доступны всем без оплаты",
+        "Полный запрет рекламы в момент срабатывания и отключения будильника — никаких полноэкранных вставок спросонья",
+        "Никаких звуковых авто-плей объявлений и яркого контента ночью; реклама, если и есть, только тихая баннерная вне сценария пробуждения",
+        "Пожизненная гарантия купленных функций: ранее оплаченное не уводится за новый пейволл задним числом",
+        "Прозрачная страница цены до покупки: что входит, что навсегда, без скрытого авто-продления",
+        "Семейный разовый доступ на несколько устройств одного аккаунта без повторной оплаты"
+      ]
+    }
+  },
+  {
+    "slug": "smart-alarm-battery-safe-night",
+    "category": "smart-alarm-clocks",
+    "categoryName": "Умные будильники с миссиями",
+    "asOf": "2026-06-13",
+    "title": "Ночь без перегрева: будильник, который не сжигает батарею",
+    "oneLiner": "Чтобы гарантированно зазвонить, приложения держат тяжёлый фоновый процесс — и к утру телефон горячий, разряжен на 25–80% или вовсе выключен до срабатывания. Идея — будильник с минимальным энергоследом, который будит за счёт системного планировщика, а не постоянно работающего экрана и процесса.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 746
+    },
+    "reviewGrid": [
+      {
+        "quote": "If that is true, I would kill my battery keeping it open all night (when I mean open I mean on screen with phone on all night).",
+        "rating": 3,
+        "app": "Smart Alarm Clock - Waking Up"
+      },
+      {
+        "quote": "I'll wake up to find that my phone is so hot that I can hardly hold it. And then, the alarm is going off but I can't disable it because the temperature warning is on my phone",
+        "rating": 2,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "some days it uses 37% of my battery and I'm literally not even on the app. I'm only on that for two minutes in the morning. average day uses 25% of my battery",
+        "rating": 1,
+        "app": "Mathe Alarm Clock - Math Alarm"
+      },
+      {
+        "quote": "Started to slow down my phone. Tons of background work. Uninstalled and never coming back.",
+        "rating": 1,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "I have a habit of closing out all my apps before turning off my phone and it has been a struggle to remember to leave it open and a lot of the time my alarm just won't go off because I forgot. This is a pain and honestly so frustrating because I have to delete the app and reinstall it every time so that I don't have to go through all those math problems when I decide to set my alarms for the next day. I also have to redo all my alarms when I have to reinstall it.",
+        "rating": 5,
+        "app": "Mathe Alarm Clock - Math Alarm"
+      },
+      {
+        "quote": "All too often the appointed time passes without the alarm kicking in. I wake up anyway, and the music sometimes starts playing when I unlock my phone. That’s not useful at all.",
+        "rating": 2,
+        "app": "Alarm Clock HD"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Фоновая работа сжигает 25–80% заряда за ночь — телефон садится до срабатывания",
+        "obsCount": 68,
+        "apps": [
+          "Smart Alarm Clock - Waking Up",
+          "Alarmy - Loud alarm clock",
+          "Mathe Alarm Clock - Math Alarm"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Будильник не срабатывает в фоне — приложение должно оставаться открытым всю ночь",
+        "obsCount": 137,
+        "apps": [
+          "Mathe Alarm Clock - Math Alarm",
+          "Alarm Clock HD"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Категория нужна тем, кого не будит ничего — высокая ставка удержания",
+        "obsCount": 90,
+        "apps": [
+          "Alarmy - Loud alarm clock",
+          "Smart Alarm Clock - Waking Up"
+        ],
+        "polarity": "gain"
+      }
+    ],
+    "gap": "Здесь спрятан жестокий порочный круг всей категории. Чтобы будильник не задушила ОС, приложение держит постоянный фоновый процесс или просит держать экран включённым всю ночь. Это сжигает 25–80% заряда, греет телефон до температурного предупреждения и в худшем случае разряжает устройство в ноль — то есть будильник не срабатывает именно из-за попытки сделать его надёжнее. Один пользователь описывает идеальную ловушку: телефон так раскалён, что звонок идёт, но отключить его нельзя, потому что весь экран занят предупреждением о перегреве. Никто в категории не разорвал этот круг: надёжность достигается грубой силой фонового процесса, а не умным использованием системного планировщика будильников, который ОС обязана исполнить и без сожжённой за ночь батареи.",
+    "idea": {
+      "pitch": "Будильник, который будит надёжно и при этом почти не тратит батарею за ночь, потому что не держит тяжёлый фоновый процесс и не требует включённого экрана. Звонок ставится через нативный системный планировщик точных будильников, который ОС обязана исполнить независимо от энергорежима. Ночью приложение фактически спит вместе с тобой и просыпается ровно в нужную секунду — телефон утром холодный и заряженный.",
+      "features": [
+        "Планирование через нативный системный будильник вместо постоянно работающего фонового процесса",
+        "Никакого требования держать экран включённым: чёрный энергоэффективный ночной экран или полностью спящее приложение",
+        "Отчёт о расходе батареи за ночь с гарантией порога (например, не более 2%) и предупреждением при отклонении",
+        "Защита от перегрева: интерфейс отключения будильника остаётся доступным даже при температурном предупреждении ОС",
+        "Проверка заряда перед сном: предупреждение, если батареи может не хватить до утра при текущем уровне",
+        "Лёгкий режим без анимаций и тяжёлых аудиодвижков для старых телефонов, которые приложение замедляло",
+        "Резервный энергосберегающий звонок, не зависящий от сети и push-серверов"
+      ]
+    }
+  },
+  {
+    "slug": "smart-alarm-chronic-oversleeper-coach",
+    "category": "smart-alarm-clocks",
+    "categoryName": "Умные будильники с миссиями",
+    "asOf": "2026-06-13",
+    "title": "Для тех, кого не будит ничего: будильник как страховка от просыпа",
+    "oneLiner": "Ядро аудитории категории — хронические тяжёлые соньи, люди с СДВГ, нарушениями слуха, те, кто терял работу из-за просыпанных будильников. Для них это не приложение, а страховка от увольнения. Идея — будильник, спроектированный именно под этот сегмент: эскалация, внешние сигналы и доказанная неотменяемость, которой можно доверить работу.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 746
+    },
+    "reviewGrid": [
+      {
+        "quote": "I've been losing jobs over not waking up... I haven't over slept in almost 1 year..",
+        "rating": 5,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "Honestly should probably focus more on getting a full 8 hours, but sometimes that doesn’t happen so this is a job saver for someone who chronically oversleeps.",
+        "rating": 5,
+        "app": "Smart Alarm Clock - Waking Up"
+      },
+      {
+        "quote": "I'm a Muslim and I always struggled to get up before dawn to pray Fajr. This has changed the game for me!",
+        "rating": 5,
+        "app": "Mathe Alarm Clock - Math Alarm"
+      },
+      {
+        "quote": "this app like somehow makes a sound louder than my phone can make, it's so weird. So freaking loud, always wakes me up without fail! And never goes silent like the apple alarm clock does.",
+        "rating": 5,
+        "app": "Mathe Alarm Clock - Math Alarm"
+      },
+      {
+        "quote": "Every day when I get up to go to school and have a normal alarm on I don't wake up but on this app it wakes you up instantly. the people who work here you should make it wear it is not connected to the silence ringer thing cause if one morning I'm in a bad mood I press the button that silences the alarm and then I don't wake up",
+        "rating": 4,
+        "app": "Mathe Alarm Clock - Math Alarm"
+      },
+      {
+        "quote": "this app is great , but my laziness is greater than this , when alarm gets rang instead of snoozing the alarm , i deleted the app 😂😂🥲.",
+        "rating": 5,
+        "app": "Alarmy - Loud alarm clock"
+      },
+      {
+        "quote": "Absolute life changer Firstly, I have to say when I first got the app I was quite irritated by having to leave a review before using it. It was a little off-putting, considering I paid for the app. BUT, after have been using this app for",
+        "rating": 5,
+        "app": "Step Out! Smart Alarm Clock"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Категория нужна тем, кого не будит ничего — высокая ставка удержания",
+        "obsCount": 90,
+        "apps": [
+          "Alarmy - Loud alarm clock",
+          "Smart Alarm Clock - Waking Up",
+          "Mathe Alarm Clock - Math Alarm"
+        ],
+        "polarity": "gain"
+      },
+      {
+        "title": "Математика, шаги и фото реально поднимают с постели",
+        "obsCount": 152,
+        "apps": [
+          "Mathe Alarm Clock - Math Alarm",
+          "Step Out! Smart Alarm Clock"
+        ],
+        "polarity": "gain"
+      },
+      {
+        "title": "Миссии обходятся — лазейки находят раньше, чем разработчик их закрывает",
+        "obsCount": 43,
+        "apps": [
+          "Alarmy - Loud alarm clock",
+          "Smart Alarm Clock - Waking Up"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "За всеми жалобами категории скрывается аудитория с экстремально высокой ставкой: люди, которые теряли работу из-за просыпа, у которых СДВГ или нарушение слуха, кому не помогают десять стандартных звонков. Для них будильник — это буквально страховка от увольнения, и именно поэтому они терпят рекламу, платят подписки и переустанавливают приложение после удаления. Но ни одно приложение не спроектировано целенаправленно под этот сегмент как под основной: миссии можно обойти, звонок тихий для глухих, эскалации нет, а доверие ничем не подкреплено. Тяжёлый соня не может позволить себе «иногда не сработало». Этому персонажу нужен не просто громкий будильник, а система с гарантией: нарастающая эскалация, внешние сигналы помимо звука и доказательство, что сегодня он точно встал, а не выключил будильник во сне.",
+    "idea": {
+      "pitch": "Будильник, спроектированный как страховка от просыпа для тех, кого не будит ничего: хронических сонь, людей с СДВГ и нарушениями слуха. Если ты не подтвердил подъём, система эскалирует — громче, дольше, добавляет вибрацию, вспышку и связанные устройства, а в крайнем случае шлёт сигнал доверенному контакту. Каждое утро ты получаешь доказательство, что встал по-настоящему, а не отключил будильник во сне.",
+      "features": [
+        "Эскалация при отсутствии подтверждения: нарастающая громкость, повторные волны, расширение миссии, если ты не встал",
+        "Внешние сигналы для глухих и слабослышащих: сильная вибрация, вспышка камеры, мигание экрана, поддержка умной лампы и часов",
+        "Связь со страховочными устройствами: дублирование звонка на умные часы, колонку или вторую комнату",
+        "Профиль под персону: пресеты для СДВГ, тяжёлого сони и слабослышащего с разной агрессивностью по умолчанию",
+        "Доказательство подъёма: лог утренних подтверждений и метрика «дней без просыпа», как у пользователя с годом без оверслипа",
+        "Опциональный сигнал доверенному контакту, если ты не встал к критическому дедлайну",
+        "Деликатная подсказка о недосыпе: если приходится спасаться будильником-миссией, мягко предлагает сдвинуть отход ко сну"
+      ]
+    }
+  },
+  {
+    "slug": "cycling-acquisition-proof-ownership",
+    "category": "cycling",
+    "categoryName": "Велоспорт и тренировки",
+    "asOf": "2026-06-13",
+    "title": "Маршрут, который у тебя не отнимут: вело-навигатор без пейволла-после-поглощения",
+    "oneLiner": "Лидеры категории один за другим переходят к холдингам и монетизируют уже накопленное: komoot поднял цену в пять раз и закрыл офлайн-карты подпиской, а пожизненный premium у людей просто отозвали. Идея — навигатор, где купленное остаётся купленным навсегда, а офлайн-карты и маршруты живут локально и экспортируются в открытый формат — никакая смена владельца их не отберёт.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4000,
+      "observations": 660
+    },
+    "reviewGrid": [
+      {
+        "quote": "I am very disappointed to find out that my lifetime premium Komoot access that I had bought legitimately several years ago has been recended without notice! Upon research, I found out the company was taken over by somebody else and I assume they just decided to remove all previous accesses to make people pay again,…",
+        "rating": 2,
+        "app": "komoot - hike, bike & run"
+      },
+      {
+        "quote": "offline zu speichern...nur noch mit einem weiteren Abo",
+        "rating": 5,
+        "app": "komoot - hike, bike & run"
+      },
+      {
+        "quote": "Leider wird die Bedienung immer schlechter und der Preis von 4,99 Euro/Woche ist einfach Abzocke. Früher hatte ich immer das Jahresabo, in dem sogar eine Versicherung inkludiert war. Seitdem diese gestrichen wurde, habe ich gekündigt.",
+        "rating": 2,
+        "app": "komoot - hike, bike & run"
+      },
+      {
+        "quote": "The layout get changed way too much, updates happening way too fast and there's too many unnecessary changes. App gets less workable, readable, and the UX gets worse. It's definitely noticeably that the people working there now aren't avid outdoor people",
+        "rating": 2,
+        "app": "komoot - hike, bike & run"
+      },
+      {
+        "quote": "After entering start and destination, tapping 'Start' will redirect you to a premium menu. I don't want a premium subscription, I want a working app.",
+        "rating": 1,
+        "app": "Bikemap: Bicycle Tracker & GPS"
+      },
+      {
+        "quote": "Footpath ist gut um Ruten zu planen allerdings muss man um sich navigieren zu lassen sich das kaufen",
+        "rating": 4,
+        "app": "Footpath Route Planner"
+      },
+      {
+        "quote": "abbiano spostato la modalità di allenamento con impostazione dell'FTP solo alla versione a pagamento",
+        "rating": 4,
+        "app": "Tacx Training™"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Поглощение холдингом ведёт к скачку цены и закрытию функций подпиской",
+        "obsCount": 36,
+        "apps": [
+          "komoot - hike, bike & run",
+          "Tacx Training™"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Пожизненный premium отзывают без предупреждения после смены владельца",
+        "obsCount": 36,
+        "apps": [
+          "komoot - hike, bike & run"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Офлайн-карты, бывшие бесплатными, прячут за вторым абонементом",
+        "obsCount": 102,
+        "apps": [
+          "komoot - hike, bike & run",
+          "Bikemap: Bicycle Tracker & GPS"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Старт навигации перенаправляет в premium-меню вместо движения",
+        "obsCount": 102,
+        "apps": [
+          "Bikemap: Bicycle Tracker & GPS",
+          "Footpath Route Planner"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Четыре из восьми приложений выборки прошли через поглощение, и каждый раз пользователи фиксируют один и тот же сценарий: новый владелец не строит, а монетизирует накопленное. komoot после перехода к Bending Spoons поднял цену в пять раз, закрыл офлайн-карты за второй подпиской и — самое разрушительное для доверия — отозвал уже оплаченный пожизненный premium «без предупреждения». Bikemap встречает пользователя premium-меню на кнопке «Старт», Footpath берёт деньги за саму навигацию, Tacx после Garmin спрятал настройку FTP в платную версию. Никто в категории не продаёт обратное обещание — что купленное останется у тебя, что карты и маршруты лежат локально и не зависят от сервера и его хозяина, что смена владельца не обнулит твою библиотеку. Это задокументированная, повторяющаяся у разных брендов боль: люди боятся вкладываться в экосистему, которую завтра перепродадут.",
+    "idea": {
+      "pitch": "Велонавигатор, построенный вокруг права собственности, а не аренды. Любая разовая покупка (регион карт, pro-функции) остаётся у пользователя навсегда — даже если компанию завтра продадут: лицензия привязана к устройству и подтверждается локально, без обязательной проверки на сервере. Офлайн-карты, маршруты и история живут в открытом формате (GPX/MBTiles) в файловой системе пользователя, экспортируются одним тапом и читаются любым другим приложением. Старт навигации никогда не упирается в пейволл — платишь только за расширения, и точная цена видна заранее.",
+      "features": [
+        "Разовая покупка регионов и pro-функций с пожизненной лицензией, подтверждаемой офлайн на устройстве",
+        "Офлайн-карты в открытом MBTiles и маршруты в GPX, хранятся локально и экспортируются одним тапом",
+        "Гарантия переносимости: вся библиотека выгружается в zip, читаемый сторонними приложениями",
+        "Старт навигации бесплатен всегда — пейволл только на дополнительных слоях, цена показана до касания",
+        "Публичный changelog-обещание: функции, входящие в покупку, не переезжают в подписку задним числом",
+        "Самостоятельный хостинг тайлов для тех, кто хочет полную независимость от сервера",
+        "Импорт библиотеки komoot/RWGPS/Bikemap по GPX, чтобы уйти от поглощённого сервиса без потерь"
+      ]
+    }
+  },
+  {
+    "slug": "cycling-crash-proof-recording",
+    "category": "cycling",
+    "categoryName": "Велоспорт и тренировки",
+    "asOf": "2026-06-13",
+    "title": "Заезд, который не пропадёт: запись с непрерывным авто-сохранением",
+    "oneLiner": "Сквозная катастрофа категории — запись останавливается сама в середине, приложение падает на кнопке «Сохранить», и часы езды исчезают без восстановления. У одного пользователя пропали 50 км после двух часов. Идея — движок записи, который пишет трек на диск непрерывно, переживает падение приложения и восстанавливает сессию, даже если телефон выключился.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4000,
+      "observations": 660
+    },
+    "reviewGrid": [
+      {
+        "quote": "2 godziny jazdy 50km  i na koniec błąd zapisu i lipa",
+        "rating": 5,
+        "app": "Tacx Training™"
+      },
+      {
+        "quote": "app stopped tracking, once in motion after stopping had to be manually re-engaged",
+        "rating": 4,
+        "app": "Ride with GPS: Bike Navigation"
+      },
+      {
+        "quote": "Angefangen dabei, dass man nicht wirklich sieht, weiter man pausieren kann (auf Ende drücken und kommt nochmal ein Untermenü? Wer soll darauf kommen), wird beim beenden der Navigation die Aufzeichnung gelöscht.",
+        "rating": 3,
+        "app": "Bikemap: Bicycle Tracker & GPS"
+      },
+      {
+        "quote": "app kept glitching out, backing out to the ocean, trying to get me to set routes or sign up for things instead of just clearly tracking. It ultimately did track the route and distance but it was almost hard to not accidentally cancel it trying to clear the pop-ups.",
+        "rating": 3,
+        "app": "Bikemap: Bicycle Tracker & GPS"
+      },
+      {
+        "quote": "Wahoo Tikr had to be re-paired, after noticing HR hadn't been recorded on my last few workouts. apparently they randomly un-pair with this app",
+        "rating": 4,
+        "app": "Ride with GPS: Bike Navigation"
+      },
+      {
+        "quote": "it now crashes 2-3 times during my workout... It also no longer connects with my heart rate monitor",
+        "rating": 2,
+        "app": "Wahoo"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Запись останавливается сама в середине заезда и не возобновляется",
+        "obsCount": 93,
+        "apps": [
+          "Ride with GPS: Bike Navigation",
+          "Tacx Training™"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Трек удаляется при выходе из навигации или сбое на сохранении",
+        "obsCount": 93,
+        "apps": [
+          "Bikemap: Bicycle Tracker & GPS",
+          "Tacx Training™"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Приложение падает несколько раз за тренировку",
+        "obsCount": 90,
+        "apps": [
+          "Wahoo",
+          "Bikemap: Bicycle Tracker & GPS"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Всплывающие окна перекрывают трекинг и провоцируют случайную отмену",
+        "obsCount": 93,
+        "apps": [
+          "Bikemap: Bicycle Tracker & GPS"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Для велосипедиста с дорогим оборудованием и редкими личными рекордами потерянный заезд — не баг, а катастрофа: «2 часа езды, 50 км и в конце ошибка записи». Паттерн воспроизводится у каждого второго бренда — у Tacx сессия исчезает при сбое сохранения, у RWGPS запись сама останавливается после паузы и требует ручного перезапуска, у Bikemap трек удаляется при выходе из навигации, а всплывающие окна провоцируют случайную отмену; Wahoo падает по 2-3 раза за тренировку. Общая первопричина — данные держатся в памяти приложения и фиксируются только в финале, поэтому любой сбой обнуляет весь труд. Ни одно приложение не строит запись как журнал, который пишется на диск непрерывно и восстанавливается после краша. Это задокументированная, сквозная боль категории, где цена потери — реальные часы жизни и невоспроизводимый результат.",
+    "idea": {
+      "pitch": "Трекер заездов, для которого падение, разрядка и принудительное закрытие — штатные ситуации, а не потеря данных. Каждая точка GPS и каждый отсчёт датчика пишутся в журнал на диск сразу, append-only, без зависимости от кнопки «Сохранить». При следующем запуске приложение видит незавершённую сессию и предлагает восстановить её до последней записанной секунды. Пауза и финиш разнесены и подтверждаются явно, так что выход из навигации физически не может стереть трек.",
+      "features": [
+        "Непрерывный append-only журнал на диск: каждая точка фиксируется в момент получения, а не в конце",
+        "Авто-восстановление после краша: при запуске предлагается продолжить незавершённую сессию",
+        "Раздельные, явно подтверждаемые действия «Пауза» и «Завершить» — выход не удаляет запись",
+        "Авто-возобновление трекинга при возобновлении движения после остановки, без ручного перезапуска",
+        "Защита от случайной отмены: завершение требует осознанного свайпа, поп-апы не перекрывают экран",
+        "Локальный архив всех заездов с экспортом в GPX/FIT до любой облачной синхронизации",
+        "Индикатор «запись идёт и сохраняется» с временем последней успешной фиксации на диск"
+      ]
+    }
+  },
+  {
+    "slug": "cycling-safe-routing-residential",
+    "category": "cycling",
+    "categoryName": "Велоспорт и тренировки",
+    "asOf": "2026-06-13",
+    "title": "Маршрут по велодорожкам, а не по трассе: безопасная навигация с приоритетом тихих улиц",
+    "oneLiner": "Навигаторы категории упорно ведут велосипедиста на автострады, против потока и в несуществующие переулки, а голосовая подсказка опаздывает на минуту. Опции «держись жилых улиц» нет ни у кого. Идея — роутинг, который по умолчанию предпочитает велодорожки и тихие улицы, а голосовые подсказки приходят вовремя и работают офлайн.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4000,
+      "observations": 660
+    },
+    "reviewGrid": [
+      {
+        "quote": "I need an app that will route me staying on residential streets... instead it took me on dangerous roads. See no options for this",
+        "rating": 3,
+        "app": "Ride with GPS: Bike Navigation"
+      },
+      {
+        "quote": "Route guidance often follows the road, even though there's a cycle path available",
+        "rating": 3,
+        "app": "komoot - hike, bike & run"
+      },
+      {
+        "quote": "links wo gar kein links ist...Ansage 1 Minute verspätet",
+        "rating": 5,
+        "app": "komoot - hike, bike & run"
+      },
+      {
+        "quote": "Software bugs include lack of internet connection on an iPad with e-sim and wrong turn directions when riding.",
+        "rating": 5,
+        "app": "Ride with GPS: Bike Navigation"
+      },
+      {
+        "quote": "Angefangen dabei, dass man nicht wirklich sieht, weiter man pausieren kann (auf Ende drücken und kommt nochmal ein Untermenü? Wer soll darauf kommen), wird beim beenden der Navigation die Aufzeichnung gelöscht.",
+        "rating": 3,
+        "app": "Bikemap: Bicycle Tracker & GPS"
+      },
+      {
+        "quote": "After entering start and destination, tapping 'Start' will redirect you to a premium menu. I don't want a premium subscription, I want a working app.",
+        "rating": 1,
+        "app": "Bikemap: Bicycle Tracker & GPS"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Роутинг ведёт по проезжей части, игнорируя доступную велодорожку",
+        "obsCount": 65,
+        "apps": [
+          "komoot - hike, bike & run",
+          "Ride with GPS: Bike Navigation"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Неверные подсказки поворотов — «налево там, где нет налево»",
+        "obsCount": 65,
+        "apps": [
+          "komoot - hike, bike & run",
+          "Ride with GPS: Bike Navigation"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Голосовая подсказка опаздывает или приходит без интернета",
+        "obsCount": 65,
+        "apps": [
+          "komoot - hike, bike & run",
+          "Ride with GPS: Bike Navigation"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Нет опции «прокладывать только по тихим жилым улицам»",
+        "obsCount": 65,
+        "apps": [
+          "Ride with GPS: Bike Navigation"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Ошибки маршрутизации повторяются во всех навигационных приложениях категории и стоят дорого: прокол шины, опасный манёвр на трассе, промах мимо нужного поворота. komoot ведёт по дороге, хотя рядом есть велодорожка, и объявляет «налево там, где никакого налево нет», с подсказкой, опоздавшей на минуту; RWGPS прямо признаёт, что у него нет опции остаться на жилых улицах, и выводит на «опасные дороги»; подсказки замолкают без интернета. При этом базовый запрос пользователя предельно конкретен — «дай мне ехать по тихим улицам» — и не реализован ни у кого. Ни одно приложение не делает безопасность профилем по умолчанию: предпочесть выделенную инфраструктуру, избегать магистралей, дать вовремя и офлайн понятную голосовую команду. Это задокументированная боль, где провал продукта означает физический риск для пользователя.",
+    "idea": {
+      "pitch": "Велонавигатор, у которого безопасность — это профиль по умолчанию, а не скрытая настройка. Движок предпочитает выделенные велодорожки и тихие жилые улицы, штрафует магистрали и движение против потока, и честно показывает на карте, какая доля маршрута идёт по защищённой инфраструктуре. Голосовые подсказки рассчитываются заранее под скорость велосипедиста, звучат за нужное число метров до манёвра и полностью работают офлайн — без интернета ничего не замолкает.",
+      "features": [
+        "Профиль маршрута «тихие улицы» по умолчанию: приоритет велодорожкам, штраф магистралям и встречке",
+        "Индикатор безопасности маршрута: доля пути по защищённой инфраструктуре показана до старта",
+        "Голосовые подсказки с упреждением под скорость велосипеда — не рано и не на минуту позже",
+        "Полностью офлайн-навигация: подсказки и пересчёт маршрута без интернета",
+        "Сообщество отмечает опасные участки и ошибочные повороты, исправления попадают в роутинг",
+        "Авто-пересчёт при сходе с маршрута без вывода обратно на опасную дорогу",
+        "Чёткая разметка стороны поворота с превью перекрёстка, чтобы не путать лево и право"
+      ]
+    }
+  },
+  {
+    "slug": "cycling-trainer-rock-solid-sensors",
+    "category": "cycling",
+    "categoryName": "Велоспорт и тренировки",
+    "asOf": "2026-06-13",
+    "title": "Тренажёр, который держит связь: индор-платформа для дорогого железа без отвалов датчиков",
+    "oneLiner": "Владелец смарт-тренажёра за 500-650 евро снова и снова теряет связь с датчиками посреди интервала: пульсометр самопроизвольно отвязывается, мощность замерзает, приложение падает 2-3 раза за тренировку. Идея — индор-платформа, где сопряжение делается один раз и держится намертво, а при кратком разрыве данные не теряются — буферизуются и сшиваются.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4000,
+      "observations": 660
+    },
+    "reviewGrid": [
+      {
+        "quote": "it now crashes 2-3 times during my workout... It also no longer connects with my heart rate monitor",
+        "rating": 2,
+        "app": "Wahoo"
+      },
+      {
+        "quote": "Wahoo Tikr had to be re-paired, after noticing HR hadn't been recorded on my last few workouts. apparently they randomly un-pair with this app",
+        "rating": 4,
+        "app": "Ride with GPS: Bike Navigation"
+      },
+      {
+        "quote": "je n'ai jamais été capable de jumeler ma montre Garmin ni Apple avec l'app pour enregistrer ma fréquence cardiaque.",
+        "rating": 4,
+        "app": "Tacx Training™"
+      },
+      {
+        "quote": "The mileage never seems accurate in the app though the power is spot on",
+        "rating": 4,
+        "app": "Wahoo"
+      },
+      {
+        "quote": "Wenig Trainingsvideos Gute Kompatibilität und gute Werte und Funktionalität mit der Uhr… leider viel zu wenig free Programme, das gesamte Angebot kann man auf 20km zusammenfügen. Find ich sehr mau, dafür dass man 500-650€ für den Trainer",
+        "rating": 4,
+        "app": "Tacx Training™"
+      },
+      {
+        "quote": "So much potential There have been some big improvements to this app, buffering is a lot less frequent, but still a pain when it happens, video selection is impressive and with the Tacx Neo, plus the Tacx Alpine, indoor riding finally",
+        "rating": 4,
+        "app": "Tacx Training™"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Датчики самопроизвольно отвязываются и теряют пульс/мощность во время сессии",
+        "obsCount": 90,
+        "apps": [
+          "Wahoo",
+          "Ride with GPS: Bike Navigation"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Невозможно сопрячь часы Garmin/Apple для записи пульса",
+        "obsCount": 90,
+        "apps": [
+          "Tacx Training™"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Приложение падает по нескольку раз за индор-тренировку",
+        "obsCount": 90,
+        "apps": [
+          "Wahoo"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Скудная библиотека программ для дорогого тренажёра",
+        "obsCount": 102,
+        "apps": [
+          "Tacx Training™"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Для владельца смарт-тренажёра нестабильность приложения буквально обесценивает железо за 500-650 евро. Bluetooth-связь с тренажёрами, пульсометрами и датчиками кадентса нестабильна у Wahoo, Tacx и RWGPS: пульсометр Wahoo Tikr «случайно отвязывается», и пульс не пишется несколько тренировок подряд; Tacx вообще не даёт сопрячь часы Garmin или Apple для записи пульса; Wahoo падает 2-3 раза за сессию и теряет связь с монитором. Поверх этого Tacx с дорогим тренажёром предлагает скудную библиотеку программ, «которую можно уместить в 20 км». Ни одна платформа не строит сопряжение как состояние, которое запоминается и переживает разрывы, и не буферизует данные при кратком отвале, чтобы сшить их обратно. Это задокументированная боль премиального сегмента, где надёжность связи важнее красоты картинки.",
+    "idea": {
+      "pitch": "Индор-платформа, спроектированная вокруг надёжности связи с дорогим железом. Сопряжение тренажёра, пульсометра и датчика кадентса делается один раз и хранится как именованный профиль устройства, который восстанавливается автоматически при каждом старте. Если датчик кратко отваливается, платформа не сбрасывает тренировку: данные буферизуются, а после переподключения интервал сшивается без дыры в мощности и пульсе. Часы Garmin и Apple подключаются как полноценный источник пульса, а не как несовместимое железо.",
+      "features": [
+        "Именованные профили устройств: однократное сопряжение восстанавливается автоматически при каждом старте",
+        "Буферизация при кратком разрыве: данные сшиваются после переподключения, интервал не сбрасывается",
+        "Полноценная поддержка часов Garmin и Apple как источника пульса",
+        "Сторожевой таймер связи показывает статус каждого датчика и предупреждает о замёрзших показаниях",
+        "Сверка одометра с мощностью: расхождение дистанции подсвечивается, а не молча искажает статистику",
+        "Стабильное воспроизведение видео-маршрутов без буферизации, с локальным кэшем трасс",
+        "Открытая библиотека структурированных тренировок и импорт собственных .zwo/ERG-планов"
+      ]
+    }
+  },
+  {
+    "slug": "cycling-rider-first-cockpit",
+    "category": "cycling",
+    "categoryName": "Велоспорт и тренировки",
+    "asOf": "2026-06-13",
+    "title": "Экран для езды, а не для скриншота: кокпит, читаемый на 30 км/ч под дождём",
+    "oneLiner": "Интерфейс велоприложений рисуют за столом, а используют на скорости под дождём: шрифт метрик ужимают до 6-7 пунктов, кастомизацию полей убирают, фоновый рендер велосипедиста занимает 80% экрана вместо цифр. Идея — кокпит, где поля метрик крупные и настраиваемые, экран сам возвращается к нужному виду, а компас и высота видны даже на солнце.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4000,
+      "observations": 660
+    },
+    "reviewGrid": [
+      {
+        "quote": "The new layout is just a column of numbers that all look the same. You need to read the fine print (6 or 7 point) to tell what each item is. this is terrible for use on my bike.",
+        "rating": 2,
+        "app": "Wahoo"
+      },
+      {
+        "quote": "I love tracking my rides and seeing other trails that might be interesting! My only complaint is there is no default view. I would love for the app to return to the default view after a certain period of time (like 15 seconds). Later in my rides when the sweat drops hit my screen, the view changes.",
+        "rating": 5,
+        "app": "Ride with GPS: Bike Navigation"
+      },
+      {
+        "quote": "Aber ich erhöhe meine Bewertung von 3 auf 4! Zusatz: Eine Höhenangabe im Display wäre wünschenswert! Vielleicht ist das bei einer neuen Version machbar? neu: Der kleine Kompass links oben am Display ist besonders bei Sonnenlicht ganz schlecht sehbar.",
+        "rating": 4,
+        "app": "komoot - hike, bike & run"
+      },
+      {
+        "quote": "So much potential There have been some big improvements to this app, buffering is a lot less frequent, but still a pain when it happens, video selection is impressive and with the Tacx Neo, plus the Tacx Alpine, indoor riding finally",
+        "rating": 4,
+        "app": "Tacx Training™"
+      },
+      {
+        "quote": "The workout view where you can see max and current Heart Rate, and current and p/hr calorie burn on ONE SCREEN is back. The colored HR zones is a bonus too",
+        "rating": 5,
+        "app": "Wahoo"
+      },
+      {
+        "quote": "Garmin did away with the Tacx workout builder and forces users to use the Garmin Connect workout builder. The Garmin Connect workout builder is a far inferior product. It is difficult to use and clunky.",
+        "rating": 5,
+        "app": "Tacx Training™"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Шрифт метрик ужат до 6-7 пунктов и нечитаем на ходу",
+        "obsCount": 110,
+        "apps": [
+          "Wahoo",
+          "komoot - hike, bike & run"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Нет авто-возврата к нужному виду — капли пота меняют экран случайно",
+        "obsCount": 110,
+        "apps": [
+          "Ride with GPS: Bike Navigation"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Кастомизацию полей и отображение высоты/компаса убрали из дисплея",
+        "obsCount": 110,
+        "apps": [
+          "Wahoo",
+          "komoot - hike, bike & run"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Хвалят, когда ключевые метрики собраны на одном экране с цветными зонами",
+        "obsCount": 114,
+        "apps": [
+          "Wahoo"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Интерфейс велоприложений проектируют под маркетинговый скриншот, а не под реальный сценарий — мокрые пальцы, капли пота на стекле, тряска и солнце в глаза. Wahoo в новом макете ужал подписи метрик до 6-7 пунктов («ужасно для использования на велосипеде») и убрал настройку полей; komoot жалуются на крошечный компас, нечитаемый на солнце, и отсутствие высоты на дисплее; у RWGPS нет авто-возврата к рабочему виду, и капли пота случайно переключают экран. При этом видно и обратное: пользователи прямо хвалят Wahoo, когда ключевые метрики и цветные зоны пульса собраны на одном экране. Это значит, что правильное решение существует и востребовано, но его регулярно ломают редизайнами «под маркетинг». Ни одно приложение не делает читаемость в движении главным приоритетом кокпита — это задокументированная, повторяющаяся боль.",
+    "idea": {
+      "pitch": "Велокомпьютер-кокпит, где единственный критерий дизайна — читаемость и управляемость на ходу. Поля метрик крупные, с высоким контрастом и настраиваемой раскладкой: пользователь сам решает, что и каким размером видеть, а ключевые показатели с цветными зонами собираются на один экран. Экран автоматически возвращается к выбранному рабочему виду через несколько секунд, так что случайное касание или капля пота не сбивают раскладку. Компас, высота и градиент всегда читаемы, в том числе на прямом солнце.",
+      "features": [
+        "Полностью настраиваемая раскладка полей с крупным шрифтом и регулируемым размером каждой метрики",
+        "Сборка ключевых показателей с цветными зонами пульса и мощности на одном экране",
+        "Авто-возврат к рабочему виду через заданные секунды после случайного переключения",
+        "Высококонтрастный режим для солнца: видимые компас, высота и градиент без мелких иконок",
+        "Большие зоны касания для управления мокрыми пальцами, без точных мелких кнопок",
+        "Профили кокпита под сценарий: «гонка», «прогулка», «индор» — переключение одним тапом",
+        "Опция вернуть классическую читаемую раскладку, если новый редизайн ухудшил отображение"
+      ]
+    }
+  },
+  {
+    "slug": "plant-care-honest-billing-no-paywall-trap",
+    "category": "plant-care",
+    "categoryName": "Уход за растениями",
+    "asOf": "2026-06-13",
+    "title": "Цена на свету: уход за растениями без биллинг-капканов",
+    "oneLiner": "Категория торгует заботой, а монетизирует обманом: списания продолжаются после явной отмены, кнопки отмены нет в приложении, а триал мгновенно превращается в годовой счёт на $300. Идея — приложение, где цена и дата списания видны до касания, отмена живёт в один экран внутри приложения, а «бесплатно» значит бесплатно.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 536
+    },
+    "reviewGrid": [
+      {
+        "quote": "It is a struggle to cancel their subscription. I canceled before my free trail and they are still trying to charge my account.",
+        "rating": 1,
+        "app": "Planta: AI Plant & Garden Care"
+      },
+      {
+        "quote": "They charge repeatedly and will not let you cancel.",
+        "rating": 1,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "I love this app but will not pay over $300/year when it was $28 last year.",
+        "rating": 5,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "Love the app! $9.99 a week is way too much for my consideration. If it was $30 or $40 bucks a year I would purchase the app.",
+        "rating": 5,
+        "app": "Smart Identifier: Plant+Insect"
+      },
+      {
+        "quote": "I downloaded the app because it was free. After downloading it I was offered, as the only option, a one week trial period and an obscure way to cancel. This is false advertising, FREE means FREE",
+        "rating": 3,
+        "app": "Plant Parent: Plant Care Guide"
+      },
+      {
+        "quote": "I used to love this app and use it very frequently, but now the money hungry CEO's make it so I have to pay for a subscription",
+        "rating": 3,
+        "app": "PictureThis - Plant Identifier"
+      },
+      {
+        "quote": "I went to add more plants recently and found I couldn't without a subscription, which is now THIRTY dollars a year.",
+        "rating": 2,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "I was astonished by all the features! I could record my plants progress, log when I repot my plants, mark that it rained… But recently— as in, the past month or so— more and more features have been put behind the paywall. I can no longer mark when I repot a plant, or if it rains. Which is frustrating, considering I…",
+        "rating": 3,
+        "app": "Planta: AI Plant & Garden Care"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Списания продолжаются после подтверждённой отмены",
+        "obsCount": 132,
+        "apps": [
+          "Planta: AI Plant & Garden Care",
+          "Blossom - Plant Care Guide",
+          "PictureThis - Plant Identifier"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Реальная цена скрыта до момента списания ($10/неделя, $300/год)",
+        "obsCount": 132,
+        "apps": [
+          "Blossom - Plant Care Guide",
+          "Smart Identifier: Plant+Insect"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Заявлено «бесплатно», а первый запуск встречает пейволом",
+        "obsCount": 78,
+        "apps": [
+          "Plant Parent: Plant Care Guide",
+          "PictureThis - Plant Identifier",
+          "Blossom - Plant Care Guide"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Привычные функции уходят за пейвол при обновлениях",
+        "obsCount": 78,
+        "apps": [
+          "Planta: AI Plant & Garden Care",
+          "PictureThis - Plant Identifier"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "В категории, которая продаёт заботу о живом, деньги устроены ровно наоборот доверию. Отмена подтверждена — а списания продолжаются; кнопки отмены нет внутри приложения, и пользователь уходит спорить с банком. Реальная цена прячется до момента списания: вчера было $28 в год, сегодня $300, или $9.99 в неделю мелким шрифтом. В App Store стоит «Бесплатно», но первый же экран — подписка без возможности что-либо попробовать, а лояльные пользователи при каждом обновлении находят, что отметку «полил» или «пересадил» теперь тоже отгородили пейволом. Ни одно из семи приложений не делает обратного хода — не показывает полную сумму и дату списания до касания, не даёт отменить в один экран и не оставляет действительно работающий бесплатный уровень. При этом те же люди в один голос говорят «I love this app» — ярость рождается не из контента, а из ощущения, что забота оказалась наживкой.",
+    "idea": {
+      "pitch": "Приложение для ухода за растениями, построенное вокруг доверия к деньгам, а не вокруг трюков с триалом. До любого касания пользователь видит точную сумму, период и дату первого списания — никаких $9.99/неделя, спрятанных под кнопкой «бесплатно». Отмена живёт одним экраном внутри приложения и реально останавливает авто-продление, с письмом-подтверждением. Базовый уровень — настоящий: журнал ухода, отметки полива и пересадки, напоминания для разумного числа растений остаются бесплатными навсегда и не уезжают за пейвол при обновлениях.",
+      "features": [
+        "Экран цены с точной суммой, периодом и датой списания ДО нажатия — без мелкого шрифта",
+        "Триал без немедленного списания: честное напоминание за день до конца, без него ничего не спишется",
+        "Отмена в один экран изнутри приложения с письмом-подтверждением и реальной остановкой renew",
+        "Постоянный бесплатный уровень: журнал, отметки полива/пересадки и напоминания для базовой коллекции",
+        "Гарантия «фичи не уезжают за пейвол»: однажды бесплатное действие остаётся бесплатным в обновлениях",
+        "Прозрачный чек в настройках: что куплено, до какой даты, как вернуть — на одном экране",
+        "Один честный годовой тариф вместо недельной цены, маскирующей реальную годовую сумму"
+      ],
+      "antiFeatures": [
+        "Кнопка «бесплатно», за которой прячется немедленное списание годовой суммы",
+        "Отсутствие кнопки отмены внутри приложения и списания после отмены",
+        "Недельная цена ($9.99/нед), скрывающая реальную годовую стоимость",
+        "Перенос ранее бесплатных отметок (полив, пересадка, дождь) за пейвол при апдейте",
+        "Резкий рост цены с $28 до $300 в год без предупреждения"
+      ],
+      "monetization": "Один прозрачный годовой тариф с видимой ценой и реальным триалом, плюс честный бесплатный уровень для небольших коллекций. Никаких bait-and-switch: именно ощущение обмана при оплате — продолжающиеся списания, скрытая цена, исчезнувшее «бесплатно» — даёт львиную долю однозвёздочных отзывов (132 наблюдения по биллингу). Платить просят только за то, что показано заранее."
+    }
+  },
+  {
+    "slug": "plant-care-adaptive-watering-schedule",
+    "category": "plant-care",
+    "categoryName": "Уход за растениями",
+    "asOf": "2026-06-13",
+    "title": "Полив по реальности: расписание, которое не убивает растения",
+    "oneLiner": "Рекомендованные интервалы полива и подкормки не знают ни типа грунта, ни климата, ни периода покоя — и пользователи теряют растения, буквально следуя советам. «Каждые 13 дней» губит спатифиллум, удобрение приходит зимующему растению. Идея — движок ухода, который адаптируется к виду, сезону и условиям, а не выдаёт всем один интервал.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 536
+    },
+    "reviewGrid": [
+      {
+        "quote": "Ich möchte die App ja mögen, aber … Meine Einblatt hat jetzt kaputte Blätter, weil ich dem ersten Gießvorschlag „alle 13 Tage“ gefolgt bin.",
+        "rating": 3,
+        "app": "Planta: AI Plant & Garden Care"
+      },
+      {
+        "quote": "Today it told me to fertilize a plant that I had winterized, and those plants should not be fertilized.",
+        "rating": 3,
+        "app": "Planta: AI Plant & Garden Care"
+      },
+      {
+        "quote": "I use fertilizer in my water and I always have to scroll down to the fertilizer area and do them first otherwise I might accidentally water them first.",
+        "rating": 5,
+        "app": "Planta: AI Plant & Garden Care"
+      },
+      {
+        "quote": "So far it's looking good as I've been able to select Southern Hemisphere.",
+        "rating": 5,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "Great app for scheduling watering and care of your plants. It's also really good at telling you how much to water and fertilize as well as light sources for each plant. I do wish it had better outdoor plant care, which includes potentially using a weather API to figure out when outdoor plants need more care (or at l…",
+        "rating": 5,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "Along comes a phone update, I lost my plant data, photos and all, so I had to reenter all plants and info. Well guess what? ALL my plants are set on a 14 day schedule! I am unable to correct the watering schedule, or my plant zone. Oh! And I also downloaded the updated GREG app, but it didn’t help.",
+        "rating": 2,
+        "app": "Greg: Plant Identifier & Care"
+      },
+      {
+        "quote": "when I go shopping for new ones, the identification section helps not only with telling me what it is, but also if there's a good spot in my house for it and if it's safe for my cats",
+        "rating": 5,
+        "app": "Planta: AI Plant & Garden Care"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Интервал полива не учитывает грунт, климат и период покоя",
+        "obsCount": 55,
+        "apps": [
+          "Planta: AI Plant & Garden Care",
+          "Blossom - Plant Care Guide",
+          "Plant Parent: Plant Care Guide"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Подкормка предлагается зимующим растениям, которые нельзя удобрять",
+        "obsCount": 55,
+        "apps": [
+          "Planta: AI Plant & Garden Care"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Все растения по умолчанию садятся на единый 14-дневный цикл",
+        "obsCount": 55,
+        "apps": [
+          "Greg: Plant Identifier & Care",
+          "Planta: AI Plant & Garden Care"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Учёт полушария и условий, когда он есть, реально помогает",
+        "obsCount": 64,
+        "apps": [
+          "Blossom - Plant Care Guide",
+          "Planta: AI Plant & Garden Care"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Сердце продукта в этой категории — сказать пользователю, когда и сколько поливать. И именно это ломается чаще всего, причём с летальным исходом для растений. Алгоритм выдаёт средний по больнице интервал — «каждые 13 дней» — не зная, что у спатифиллума тяжёлый грунт и сухая квартира, и листья гниют. Зимующему растению, у которого период покоя, приходит задача подкормки, хотя удобрять его нельзя. После любого сброса данных вся коллекция садится на безликий 14-дневный цикл, который потом даже нельзя поправить. При этом видно, что нужное решение технически достижимо: пользователи радуются, когда удаётся выбрать Южное полушарие, и прямо просят weather API для уличных растений. Ни одно приложение в выборке не довело адаптацию до того, чтобы расписание учитывало вид, сезон, грунт и погоду одновременно — а это ровно та механика, ради которой категорию вообще скачивают.",
+    "idea": {
+      "pitch": "Приложение, где расписание полива и подкормки — это адаптивная модель, а не фиксированный интервал. Каждое растение получает план, который знает свой вид, тип грунта и горшка, освещённость комнаты, ваше полушарие и текущий сезон, включая период покоя. Для уличных растений план подключается к погоде: прошёл дождь — задача полива сдвигается сама. Подкормка автоматически отключается на зимовке, а пользователь видит не «полей сегодня», а почему именно сегодня.",
+      "features": [
+        "Профиль растения с типом грунта, горшка, освещённостью и полушарием как входами расписания",
+        "Сезонная модель с распознаванием периода покоя: подкормка отключается на зимовке автоматически",
+        "Погодная интеграция для уличных растений: дождь сдвигает полив, жара — учащает",
+        "Объяснение каждой задачи: почему этот интервал и этот объём именно для этого вида",
+        "Раздельные, но связанные задачи полива и подкормки, чтобы порядок действий не путался",
+        "Лёгкая корректировка интервала и зоны вручную, которая переживает любой сброс данных",
+        "Калибровка по обратной связи: отметили «грунт ещё влажный» — модель удлиняет цикл"
+      ],
+      "antiFeatures": [
+        "Единый интервал полива для всех видов независимо от грунта и климата",
+        "Задачи подкормки для зимующих и покоящихся растений",
+        "Жёсткий 14-дневный цикл по умолчанию, который нельзя поправить",
+        "Игнорирование дождя и погоды для уличных растений",
+        "Расписание без объяснения, почему предложен именно такой интервал"
+      ],
+      "monetization": "Подписка за адаптивный движок ухода и погодную интеграцию — то, ради чего категорию скачивают и за что пользователи готовы платить, когда расписание реально спасает растения, а не губит их. Базовый ручной журнал и напоминания доступны бесплатно; премиум — за персональную модель полива, сезонные корректировки и погодные сдвиги."
+    }
+  },
+  {
+    "slug": "plant-care-real-diagnosis-vision",
+    "category": "plant-care",
+    "categoryName": "Уход за растениями",
+    "asOf": "2026-06-13",
+    "title": "Диагноз по фото, а не отписка «перелив»",
+    "oneLiner": "Функция диагностики не смотрит на снимок — она задаёт пару общих вопросов и возвращает один и тот же ответ: «перелив или нехватка света, или вредители». Реальные грибок, ожог и хлороз остаются без названия. Идея — диагностика, которая действительно анализирует фото листа и даёт конкретный диагноз с уверенностью и планом лечения.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 536
+    },
+    "reviewGrid": [
+      {
+        "quote": "Really like this app to track plant care but it SUCKS for diagnosing plants! It literally says the exact same thing for EVERY plant situation. \" It's either an overwatering or underwater ingredient problem. Or it could be pests\" Yeah, duh! I know there is a problem!",
+        "rating": 3,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "When using the diagnose feature, it didn't even seem to look at the pictures. Just gave a diagnosis based on the very generic and basic questions asked.",
+        "rating": 3,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "Very good at identifying, terrible at diagnosing problems, labeled a few of my plants as overwatered when they were the exact opposite",
+        "rating": 2,
+        "app": "PictureThis - Plant Identifier"
+      },
+      {
+        "quote": "Anytime it gave a diagnosis, it was a standard diagnosis that included every possibility.",
+        "rating": 1,
+        "app": "Smart Identifier: Plant+Insect"
+      },
+      {
+        "quote": "I know just were to plate my flowers and I can tell what is wrong when bugs try to get them.",
+        "rating": 5,
+        "app": "PictureThis - Plant Identifier"
+      },
+      {
+        "quote": "Even my husband who is very proficient in gardening is now asking me to check for disease and pest guidance. I highly recommend it to the weekend garden warriors!!",
+        "rating": 5,
+        "app": "PictureThis - Plant Identifier"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Диагностика заменяется опросником вместо анализа фото",
+        "obsCount": 58,
+        "apps": [
+          "Blossom - Plant Care Guide",
+          "Smart Identifier: Plant+Insect"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Каждый случай получает один и тот же шаблон «перелив/свет/вредители»",
+        "obsCount": 58,
+        "apps": [
+          "Blossom - Plant Care Guide",
+          "PictureThis - Plant Identifier",
+          "Smart Identifier: Plant+Insect"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Диагноз противоречит реальности (перелив при недоливе)",
+        "obsCount": 58,
+        "apps": [
+          "PictureThis - Plant Identifier"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Когда диагноз помогает находить вредителей — пользователи в восторге",
+        "obsCount": 64,
+        "apps": [
+          "PictureThis - Plant Identifier"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Идентификация в категории работает, а вот диагностика — это театр. Пользователь снимает больной лист, а приложение даже не смотрит на фото: задаёт два общих вопроса и выдаёт универсальную отписку, в которой перечислены сразу все возможные причины — «перелив, или нехватка света, или вредители». Хуже того, диагноз нередко противоречит реальности: растению с недоливом ставят «перелив». Грибок, ожог, хлороз, конкретный вредитель — всё это остаётся без имени, и человек уходит в Google, на форумы и к чат-ботам. При этом спрос огромен и подтверждён восторгом тех редких случаев, когда подсказка про вредителей сработала — за такой функцией приходит даже опытный садовод. Ни одно приложение в выборке не сделало диагностику, которая реально опирается на изображение и даёт один конкретный ответ вместо списка всех возможностей. Это самая очевидная незанятая ниша категории.",
+    "idea": {
+      "pitch": "Приложение, где диагностика болезни действительно начинается с фотографии, а не с опросника. Vision-модель анализирует снимок листа и стебля, выделяет конкретный симптом — пятна грибка, следы вредителя, ожог, хлороз — и возвращает один наиболее вероятный диагноз с честным уровнем уверенности, а не список «всё сразу». Уточняющие вопросы задаются только когда фото неоднозначно, и каждый диагноз сопровождается конкретным планом лечения и фото-эталонами для сравнения.",
+      "features": [
+        "Диагноз начинается с анализа фото листа/стебля, а не с общих вопросов",
+        "Один наиболее вероятный диагноз с уровнем уверенности вместо перечня всех причин",
+        "Фото-эталоны симптомов рядом для самостоятельной проверки совпадения",
+        "Уточняющие вопросы только при неоднозначном снимке, а не вместо анализа",
+        "Конкретный план лечения под диагноз: чем обработать, как часто, чего ждать",
+        "Серия снимков во времени для отслеживания, помогает ли лечение",
+        "Честное «не уверен, нужен более чёткий снимок» вместо ложного шаблонного ответа"
+      ],
+      "antiFeatures": [
+        "Диагноз по двум общим вопросам без взгляда на фотографию",
+        "Шаблонный ответ «перелив/свет/вредители» для любого симптома",
+        "Перечисление сразу всех возможных причин вместо одной вероятной",
+        "Диагноз, противоречащий очевидной реальности (перелив при сухом грунте)",
+        "Уверенный тон при явно неверном или общем диагнозе"
+      ],
+      "monetization": "Платная функция точной vision-диагностики с планом лечения — то, за что пользователи сейчас тщетно платят подписку и в итоге уходят в поиск. Базовая идентификация и журнал бесплатны; премиум — за диагностику по фото, фото-эталоны и отслеживание лечения. Ценность ощутима ровно тогда, когда растение спасено по конкретному диагнозу, а не по отписке."
+    }
+  },
+  {
+    "slug": "plant-care-collection-vault-sync",
+    "category": "plant-care",
+    "categoryName": "Уход за растениями",
+    "asOf": "2026-06-13",
+    "title": "Коллекция, которую нельзя потерять: синхронизация и надёжность",
+    "oneLiner": "Годы записей, фото роста и расписаний исчезают при смене телефона или обновлении — синхронизации нет. А при коллекции в 80–150 растений приложение зависает, не сохраняет галочку полива и перегревает устройство. Идея — приложение, спроектированное под большую коллекцию: облачная синхронизация, импорт после потери и плавная работа на сотнях растений.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 536
+    },
+    "reviewGrid": [
+      {
+        "quote": "I have a lot of plants and I spent a TON of time adding pics and watering schedules. Then I got a new phone and tried to log in and it's ALL GONE.",
+        "rating": 2,
+        "app": "Smart Identifier: Plant+Insect"
+      },
+      {
+        "quote": "Along comes a phone update, I lost my plant data, photos and all, so I had to reenter all plants and info. Well guess what? ALL my plants are set on a 14 day schedule! I am unable to correct the watering schedule, or my plant zone. Oh! And I also downloaded the updated GREG app, but it didn’t help.",
+        "rating": 2,
+        "app": "Greg: Plant Identifier & Care"
+      },
+      {
+        "quote": "I paid for the premium version because i have over 100 houseplants... alas, I think I will need to find a new app bc this app keeps being buggy, closing suddenly, not showing all my plant data. Such a pity.",
+        "rating": 3,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "I was adding new plants. About 8 plants, and my phone became really hot, everything was working slow.",
+        "rating": 3,
+        "app": "Planta: AI Plant & Garden Care"
+      },
+      {
+        "quote": "I'm not able to check off tasks, and I am not able to find help in the help center or get in contact with customer service. Anyone else having this issue?",
+        "rating": 5,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "Been using it for almost a year just to keep track of plants I haven't watered and to sometimes identify a plant. Lately, it keeps crashing though and if doesn't get resolved I'm not even going to renew my plan.",
+        "rating": 2,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "Edit: continuo a pagarla volentieri e ribadisco la volontà di poter cambiare l’icona dell’app, ma più di tutto è necessario migliorare la reattività, è lentissima nei caricamenti e nelle transizioni.",
+        "rating": 5,
+        "app": "Planta: AI Plant & Garden Care"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Данные коллекции исчезают при смене устройства — синхронизации нет",
+        "obsCount": 30,
+        "apps": [
+          "Smart Identifier: Plant+Insect",
+          "Greg: Plant Identifier & Care",
+          "Blossom - Plant Care Guide"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "При 80–150 растениях приложение зависает и вылетает",
+        "obsCount": 49,
+        "apps": [
+          "Blossom - Plant Care Guide",
+          "Planta: AI Plant & Garden Care"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Галочка полива и задачи не сохраняются",
+        "obsCount": 49,
+        "apps": [
+          "Blossom - Plant Care Guide"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Камера при добавлении растений перегревает устройство",
+        "obsCount": 49,
+        "apps": [
+          "Planta: AI Plant & Garden Care"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Самый лояльный сегмент категории — коллекционеры с 80–150 растениями, заплатившие за премиум и потратившие часы на занесение фото и расписаний. И именно по ним продукт бьёт сильнее всего. Синхронизации нет: смена телефона или обновление ОС стирают годы записей, и человек либо вводит всё заново, либо уходит. А при большой коллекции приложение деградирует физически — зависает на загрузках и переходах, не сохраняет галочку полива, перегревает телефон уже на восьмом добавленном растении. Это не косметика, а уничтожение работы и потеря доверия у тех, кто платит. При этом видно, что люди держатся до последнего — «continuo a pagarla volentieri», «such a pity» — и уходят только когда теряют данные. Ни одно приложение в выборке не относится к большой коллекции как к штатному режиму с настоящей облачной синхронизацией. Надёжность здесь — главная фича, а не гигиена.",
+    "idea": {
+      "pitch": "Приложение для ухода за растениями, чьё несгораемое обещание — вашу коллекцию невозможно потерять, и она не тормозит, сколько бы растений в ней ни было. Каждая запись, фото и расписание мгновенно уходят в облако и привязаны к аккаунту, а не к телефону: сменили устройство — вошли и увидели всё на месте. Список из сотен растений листается плавно, галочка полива сохраняется офлайн и синхронизируется потом, а добавление новых растений не превращает телефон в грелку.",
+      "features": [
+        "Облачная синхронизация, привязанная к аккаунту: новое устройство — всё на месте после входа",
+        "Автоматический бэкап фото и расписаний, переживающий обновления ОС и переустановку",
+        "Плавная работа списка на 100+ растениях: ленивая подгрузка, без зависаний и вылетов",
+        "Офлайн-отметки полива, которые надёжно сохраняются и синхронизируются при сети",
+        "Лёгкое добавление растений без перегрева: оптимизированная камера и обработка фото",
+        "Экспорт всей коллекции в файл, чтобы данные принадлежали пользователю при любом исходе",
+        "Восстановление расписаний после миграции без сброса всех растений на единый цикл"
+      ],
+      "antiFeatures": [
+        "Хранение коллекции только на устройстве без облачной синхронизации",
+        "Потеря данных и фото при смене телефона или обновлении ОС",
+        "Зависания и вылеты при коллекции в сотню растений",
+        "Несохранённая галочка полива и пропадающие задачи",
+        "Перегрев устройства при добавлении нескольких растений подряд"
+      ],
+      "monetization": "Подписка за надёжность и облако — ровно то, ради чего коллекционеры уже платят премиум, но не получают. Базовый журнал на небольшую коллекцию бесплатен; премиум — за облачную синхронизацию, бэкап фото и работу с большими коллекциями. Пользователи ставят высокие оценки и уходят только при потере данных, то есть готовы платить тому, у кого коллекция в безопасности."
+    }
+  },
+  {
+    "slug": "plant-care-reliable-reminders-foraging-id",
+    "category": "plant-care",
+    "categoryName": "Уход за растениями",
+    "asOf": "2026-06-13",
+    "title": "Напоминание, которое приходит, и ID, которому можно верить",
+    "oneLiner": "Уведомления о поливе молча перестают приходить, хотя разрешения выданы — и весь смысл подписки обнуляется. А идентификатор уверенно путает съедобное с ядовитым, сея панику или ложное спокойствие. Идея — приложение для тех, кому ID и напоминание жизненно важны: ботаники-новички, владельцы кошек, собиратели — где напоминание не пропадает, а ID честно предупреждает о ядовитости.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4500,
+      "observations": 536
+    },
+    "reviewGrid": [
+      {
+        "quote": "id love to love this app but it doesnt give me notifications when i need to water my plants. i have all notifications on, it just doesnt give me the notification, which is the main reason i downloaded this app.",
+        "rating": 2,
+        "app": "Planta: AI Plant & Garden Care"
+      },
+      {
+        "quote": "I used to love this app for helping me keep track of when to water my plants and providing articles about plant care, but now the app no longer sends me notifications, even after adjusting my settings in both my device and the app.",
+        "rating": 3,
+        "app": "Blossom - Plant Care Guide"
+      },
+      {
+        "quote": "I’ve noticed that even with notifications being marked as enabled. I have to physically tap on the app to receive the notification that my plants need watering rather than receive them normally like any other app.",
+        "rating": 3,
+        "app": "Greg: Plant Identifier & Care"
+      },
+      {
+        "quote": "Virginia Creeper has 5 leaves, yet this app is labeling Virginia Creeper as *AKA poison ivy. Way to incite unnecessary panic! Virginia Creeper is NOT poison ivy!",
+        "rating": 2,
+        "app": "Smart Identifier: Plant+Insect"
+      },
+      {
+        "quote": "This app rated over half my plants outside as \"peach.\" The care advice is always the same. It even told me some of my plants were dead!",
+        "rating": 1,
+        "app": "PictureThis - Plant Identifier"
+      },
+      {
+        "quote": "took pic of my cat sleeping nearby just to make sure my cam was connecting ok when up popped Plantsnap's identification - turns out my furry cat's butt is actually an exotic fungus",
+        "rating": 4,
+        "app": "PlantSnap Pro: Identify Plants"
+      },
+      {
+        "quote": "when I go shopping for new ones, the identification section helps not only with telling me what it is, but also if there's a good spot in my house for it and if it's safe for my cats",
+        "rating": 5,
+        "app": "Planta: AI Plant & Garden Care"
+      },
+      {
+        "quote": "I love figuring out what different plants are instantly! Then when I go to a commercial garden I can look for plants that I can buy and...this app helps me keep the plant healthy.",
+        "rating": 5,
+        "app": "PictureThis - Plant Identifier"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Напоминания о поливе перестают приходить, хотя разрешения выданы",
+        "obsCount": 19,
+        "apps": [
+          "Planta: AI Plant & Garden Care",
+          "Blossom - Plant Care Guide",
+          "Greg: Plant Identifier & Care"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Идентификатор путает ядовитое и съедобное, сея панику",
+        "obsCount": 51,
+        "apps": [
+          "Smart Identifier: Plant+Insect",
+          "PictureThis - Plant Identifier"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Высокая уверенность при неверном результате вводит в заблуждение",
+        "obsCount": 51,
+        "apps": [
+          "PictureThis - Plant Identifier",
+          "PlantSnap Pro: Identify Plants"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Мгновенный ID с подсказкой про безопасность для кошек — крюк удержания",
+        "obsCount": 64,
+        "apps": [
+          "Planta: AI Plant & Garden Care",
+          "PictureThis - Plant Identifier"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Есть персона, для которой идентификация и напоминание — не удобство, а вопрос безопасности: новичок, владелец кошки, собиратель растений на прогулке. Категория обслуживает её плохо в обеих критических точках. Напоминание о поливе — главная причина установки — молча перестаёт приходить: разрешения выданы, настройки верны, но уведомление появляется только если вручную открыть приложение, и весь смысл подписки обнуляется. А идентификатор уверенно ошибается именно там, где ставки максимальны: называет безобидный девичий виноград ядовитым плющом и сеет панику, или наоборот успокаивает ложно. Высокий процент уверенности при неверном ответе только усиливает доверие к ошибке. При этом сам крюк работает блестяще, когда работает: люди обожают мгновенно узнавать растение и проверять, безопасно ли оно для кошки. Ни одно приложение в выборке не соединило надёжное напоминание с честной, осторожной идентификацией для тех, кому цена ошибки реальна.",
+    "idea": {
+      "pitch": "Приложение для новичков, владельцев питомцев и собирателей, где две вещи работают железно: напоминание приходит, а идентификатор честен в том, чего не знает. Уведомления о поливе доставляются как у любого нормального приложения, без необходимости открывать его вручную, и продукт сам проверяет, не сломались ли разрешения. Идентификация при любом совпадении с ядовитым или опасным для кошек видом выдаёт явное предупреждение и показывает уровень уверенности, а при сомнении честно говорит «не уверен», вместо уверенной ошибки.",
+      "features": [
+        "Надёжная доставка напоминаний о поливе без необходимости вручную открывать приложение",
+        "Самопроверка разрешений на уведомления с понятной подсказкой, если что-то отвалилось",
+        "Явный флаг токсичности: ядовито для человека / опасно для кошек и собак при каждом ID",
+        "Показ уровня уверенности и честное «не уверен» вместо ложно-уверенного диагноза",
+        "Несколько вариантов-кандидатов с отличиями, когда вид легко спутать с опасным",
+        "Режим собирателя: предупреждение о двойниках (девичий виноград vs ядовитый плющ)",
+        "Карточка безопасности для дома: безопасно ли растение для детей и питомцев"
+      ],
+      "antiFeatures": [
+        "Тихо отвалившиеся напоминания при формально включённых уведомлениях",
+        "Уведомление, которое приходит только при ручном открытии приложения",
+        "Уверенный ярлык ядовитости/съедобности без предупреждения о двойниках",
+        "Высокий процент уверенности при заведомо неверной идентификации",
+        "Молчание о токсичности растения для кошек и детей"
+      ],
+      "monetization": "Подписка за надёжные напоминания и безопасную идентификацию для тех, кому цена ошибки реальна — владельцев питомцев, родителей, собирателей. Мгновенный ID — подтверждённый крюк удержания, ради которого люди остаются годами; премиум — за проверку токсичности, режим двойников и гарантированную доставку напоминаний. Базовое распознавание бесплатно."
+    }
+  },
+  {
+    "slug": "stretch-honest-trial-no-trap",
+    "category": "stretching-mobility-yoga",
+    "categoryName": "Стретчинг, мобильность, йога",
+    "asOf": "2026-06-13",
+    "title": "Триал, который не врёт: стретчинг без биллинг-капкана",
+    "oneLiner": "Кнопка «7 дней бесплатно» у лидеров категории мгновенно стартует годовой план на $199, отмена не останавливает списания, а деньги уходят месяцами после подтверждённого отказа. Идея — приложение мобильности, где цена и дата списания видны до касания, триал не берёт ни цента, а отмена работает с первого экрана.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 404
+    },
+    "reviewGrid": [
+      {
+        "quote": "Why would you auto start a year long subscription at the end of a seven day trial instead of monthly.",
+        "rating": 1,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "Signed up for a 7 day free trial only to immediately be charged for the entire year! Scam.",
+        "rating": 1,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "1 hafta deneme sürümü teklifini kabul ettim ve uygulama benden yıllık bir para çekti bu dolandırıcılık değilde ne? Şimdi iptal etmek istesem de çok geç!",
+        "rating": 1,
+        "app": "Bend: Stretching & Flexibility"
+      },
+      {
+        "quote": "They then took out the money again a week later for a one-year plan. They have been very unhelpful at straightening this out. EDIT, The response below from Stella, lead to no where, no refund!!!!!",
+        "rating": 1,
+        "app": "Daily Yoga: Yoga for Fitness®"
+      },
+      {
+        "quote": "It’s impossible to cancel this app, when you try to cancel it it takes you through circles of links with each one saying use the other one with only option to cancel it through Apple Store.",
+        "rating": 5,
+        "app": "ALO Wellness Club"
+      },
+      {
+        "quote": "And after cancellation, they still charged me, 2 days later.",
+        "rating": 1,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "I respected this app and its teachers, but found after I unsubscribed that the company continued to charge me the subscription fee—for two years in a row. I have an email from them confirming that I unsubscribed well before the renewal date.",
+        "rating": 1,
+        "app": "ALO Wellness Club"
+      },
+      {
+        "quote": "I stopped my subscription but the app keeps sending funds deduction prompts on my card. for a service am no longer interested in. even when I communicate the triggers are still generated.",
+        "rating": 1,
+        "app": "Daily Yoga: Yoga for Fitness®"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Кнопка «бесплатный триал» мгновенно списывает годовую сумму",
+        "obsCount": 27,
+        "apps": [
+          "pliability: Stretch & Mobility",
+          "Stretching Mobility: STRETCHIT",
+          "Bend: Stretching & Flexibility",
+          "Daily Yoga: Yoga for Fitness®"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Отмена не останавливает списания — деньги уходят месяцами",
+        "obsCount": 40,
+        "apps": [
+          "ALO Wellness Club",
+          "pliability: Stretch & Mobility",
+          "Daily Yoga: Yoga for Fitness®"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Кнопку отмены прячут в кольце переадресующих ссылок",
+        "obsCount": 12,
+        "apps": [
+          "ALO Wellness Club"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Категория продаёт заботу о теле, а монетизирует страхом и обманом. Слово «бесплатный» не соответствует реальности ни у одного из шести брендов: у Pliability после семидневного триала автоматически стартует годовой план на $199, у STRETCHIT полная сумма списывается в первый же день, у Bend триал молча конвертируется в годовую подписку, у Daily Yoga приходит несколько списаний подряд. Хуже того — отмена не останавливает деньги: у ALO платежи шли ещё два года после email-подтверждения отказа, у Pliability снимают спустя дни после отмены и дважды за период, а кнопку отмены прячут в кольце переадресующих ссылок настолько, что часть пользователей шесть месяцев её не находила. Единственный надёжный способ остановить списание — chargeback через банк. Ни одно приложение не делает обратного хода: не показывает точную сумму и дату списания до касания и не даёт остановить авто-renew с первого экрана.",
+    "idea": {
+      "pitch": "Приложение мобильности, построенное вокруг доверия к деньгам, а не вокруг трюков с триалом. До любого касания пользователь видит точную сумму, периодичность (месяц, а не спрятанный год) и дату первого списания. Бесплатный период действительно бесплатен — за день до конца приходит честное напоминание, без подтверждения не списывается ни цента. Отмена живёт на одном экране внутри приложения, мгновенно гасит авто-renew и присылает письмо-подтверждение, а не отправляет в кольцо ссылок к Apple Store.",
+      "features": [
+        "Экран цены до касания: точная сумма, период по умолчанию месячный, дата первого списания крупным шрифтом",
+        "Триал без немедленного charge: списание только после явного подтверждения за день до окончания",
+        "Запрет тихой конвертации триала в годовой план — годовой выбирается отдельным осознанным действием",
+        "Отмена в один экран изнутри приложения с реальной остановкой renew и письмом-подтверждением",
+        "Никаких переадресующих колец «используйте другую ссылку» — статус подписки и кнопка отмены на одной странице",
+        "Прозрачный чек: что куплено, до какой даты, сколько спишут, как вернуть деньги",
+        "Авто-стоп списаний в момент отмены — гарантия отсутствия charge после подтверждённого отказа"
+      ]
+    }
+  },
+  {
+    "slug": "stretch-update-proof-mat-stability",
+    "category": "stretching-mobility-yoga",
+    "categoryName": "Стретчинг, мобильность, йога",
+    "asOf": "2026-06-13",
+    "title": "Утро на мате без крашей: стабильность важнее редизайна",
+    "oneLiner": "Приложение падает при запуске, зависает на загрузочном экране и теряет функции после каждого крупного обновления — а каст на телевизор, ради которого многие и платят, работает через раз. Идея — продукт, где апдейт не ломает базовый сценарий, а оффлайн-кэш и стабильный плеер на ТВ важнее ребрендинга.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 404
+    },
+    "reviewGrid": [
+      {
+        "quote": "Only signed up yesterday. Did one class and the app kept crashing when I tried to play in on my TV. Day two today and it's doing the same",
+        "rating": 5,
+        "app": "ALO Wellness Club"
+      },
+      {
+        "quote": "Whatever update they did freezes. I needed to go to the website to use the daily routines. I've been a payed customer since 2017",
+        "rating": 4,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "This morning I updated the app to the newest version. Then it stopped working. Every time I tapped the app, it just flashes up and shuts down. It must be some compatibility issues.",
+        "rating": 4,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "Ever since it switched to the free model, my classes crash or freeze every few minutes. It has rendered the app unusable for me. :(",
+        "rating": 1,
+        "app": "ALO Wellness Club"
+      },
+      {
+        "quote": "It makes absolutely no sense to not have this function available on Apple TV! At the moment I’m forced to do classes watching the small screen of my iPad or phone.",
+        "rating": 4,
+        "app": "ALO Wellness Club"
+      },
+      {
+        "quote": "Trying to use with my Roku and it's a nightmare. Very rarely casts or screen mirrors. Usually just get a black screen but when it does work it usually stops after the intro",
+        "rating": 3,
+        "app": "ALO Wellness Club"
+      },
+      {
+        "quote": "Since it changed over we have lost sound when casting to tv, so far noone has responded.",
+        "rating": 2,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "Hello Pliability Team, It has been more than 2 weeks now that I have lodged a support request as I am unable to screen cast pliability app on my TV and I have received no response or updates from your end. Screen cast is a very important function for me as I need to watch the exercise on a large screen.",
+        "rating": 1,
+        "app": "pliability: Stretch & Mobility"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Каждое крупное обновление вносит краши и регрессии",
+        "obsCount": 49,
+        "apps": [
+          "pliability: Stretch & Mobility",
+          "ALO Wellness Club",
+          "Stretching Mobility: STRETCHIT"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Каст на телевизор работает ненадёжно или сломан",
+        "obsCount": 47,
+        "apps": [
+          "ALO Wellness Club",
+          "pliability: Stretch & Mobility",
+          "Yoga | Down Dog"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Нативное приложение для Apple TV удалили без предупреждения",
+        "obsCount": 11,
+        "apps": [
+          "ALO Wellness Club"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Продукт, который открывают утром на мате, обязан запускаться с первой попытки — но в этой категории базовая стабильность ломается у всех шести брендов. Приложение падает при запуске, зависает на загрузочном экране, после ребрендинга теряет функции: у Pliability каждое крупное обновление вносит новые баги, у ALO переход на freemium сделал классы практически неработоспособными, у STRETCHIT свежая версия просто вспыхивает и закрывается. И тут же — второй провал: каст на телевизор, главный заявленный сценарий, ради которого и платят за большой экран. Chromecast теряет звук после ребрендинга, нативное приложение Apple TV удалили без предупреждения, Roku показывает чёрный экран, а звук уходит вперёд видео. Поддержка молчит неделями. Никто не сделал стабильность и надёжный плеер на ТВ своим главным обещанием — а именно эта секунда ожидания утром решает, состоится практика или нет.",
+    "idea": {
+      "pitch": "Приложение стретчинга, для которого стабильность — фича номер один, а не побочный эффект. Релизы проходят через регрессионный гейт: ни одно обновление не выходит, пока запуск, воспроизведение и каст не прошли на матрице реальных устройств. Сессии кэшируются оффлайн, поэтому утренняя практика не зависит от сети. Каст на ТВ — нативные приложения Apple TV и Android TV плюс надёжный Chromecast — рассматривается как основной экран, а не как «дополнительная функция», которую можно тихо удалить.",
+      "features": [
+        "Регрессионный гейт на релиз: запуск, плеер и каст проверяются на матрице устройств до публикации",
+        "Оффлайн-кэш сессий — утренняя практика работает без сети и не зависит от обновления сервера",
+        "Нативные приложения Apple TV и Android TV как первоклассный экран, а не временная надстройка",
+        "Стабильный каст с синхронным звуком и автопереподключением при потере Wi-Fi",
+        "Холодный старт под секунду — мгновенный вход в последнюю или дневную рутину без загрузочного экрана",
+        "Откат на предыдущую стабильную версию одним тапом, если апдейт сломал устройство",
+        "Гарантия неудаления функций: каст и оффлайн никогда не убираются при редизайне без альтернативы"
+      ]
+    }
+  },
+  {
+    "slug": "stretch-true-beginner-onramp",
+    "category": "stretching-mobility-yoga",
+    "categoryName": "Стретчинг, мобильность, йога",
+    "asOf": "2026-06-13",
+    "title": "Настоящий вход для негибких: уровень новичка, который реально для новичков",
+    "oneLiner": "Классы с пометкой «beginner» содержат позы, физически недоступные негибким людям, занятие стартует без разминки, а инструктор двигается быстрее, чем описывает позу. Идея — онбординг для скованного тела: каждая поза имеет регрессию, обязательная разминка и темп, в котором успеваешь повторить.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 404
+    },
+    "reviewGrid": [
+      {
+        "quote": "once you select your level of difficulty they should only recommend programs based off that difficulty. I'm currently doing the Stretch and Sweat class and some of the Extra Active classes are beyond beginner level.",
+        "rating": 4,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "some poses are difficult for beginners, some people have stiffness so there must be some option of replacement pose or alternative way for that pose.",
+        "rating": 4,
+        "app": "Yoga | Down Dog"
+      },
+      {
+        "quote": "Il manque pour chaque début de séance quelques minutes d'échauffement. S'étirer sans échauffement n'est pas recommandé.",
+        "rating": 4,
+        "app": "Bend: Stretching & Flexibility"
+      },
+      {
+        "quote": "So In any and every class I've ever taken there is some sort of warm up. While I know I can do this on my own beginners may hurt themselves jumping straight into stretching",
+        "rating": 3,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "I thought I would never be able to do the splits. It's been less than three weeks.",
+        "rating": 5,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "I've been doing Brazilian Jiu Jitsu 13 years and martial arts for 30 but am not flexible in a lot of areas. I have been getting more injuries recently.",
+        "rating": 5,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "The app design is the best part - simple, minimal and to the point. Not only it guides you for the beginners but also bring consistency with their streak reminders. I have seen major improvements in my own mobility with just 25 days of consistency, reduced pain, more active throughout the day and helps in playing Te…",
+        "rating": 5,
+        "app": "Bend: Stretching & Flexibility"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Уровень «для начинающих» недоступен реальным новичкам",
+        "obsCount": 29,
+        "apps": [
+          "Stretching Mobility: STRETCHIT",
+          "Bend: Stretching & Flexibility",
+          "Yoga | Down Dog",
+          "ALO Wellness Club"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Занятие стартует без разминки — риск травмы",
+        "obsCount": 14,
+        "apps": [
+          "Bend: Stretching & Flexibility",
+          "Stretching Mobility: STRETCHIT"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Шпагат и касание пальцев ног становятся реальны за недели",
+        "obsCount": 76,
+        "apps": [
+          "Stretching Mobility: STRETCHIT",
+          "Bend: Stretching & Flexibility"
+        ],
+        "polarity": "gain"
+      }
+    ],
+    "gap": "Самый болезненный момент категории — первый день. Класс с пометкой «beginner» содержит позы, физически недоступные скованному человеку без адаптации: у STRETCHIT «Extra Active» классы рекомендуют людям, выбравшим начальный уровень, у Down Dog нет замены позы для тех, у кого есть скованность, у Bend занятие начинается прямо со стретча без минут разминки. Инструктор двигается быстрее, чем успевает описать позу, а уровень определяется по квизу без иллюстраций. Пользователь получает ощущение неудачи в первый же день и уходит — хотя те, кто доходит до второй недели, впервые касаются пальцев ног и делают шпагат за месяц. Разрыв между маркетингом «для начинающих» и реальной физической доступностью контента — это упущенная конверсия именно тех, кому продукт нужнее всего: травмированных, негибких, испуганных.",
+    "idea": {
+      "pitch": "Приложение, спроектированное от самого скованного тела вверх, а не от инструктора вниз. Каждая поза имеет цепочку регрессий — от «у стены» и «с блоком» до полной формы — и пользователь всегда видит вариант, доступный его телу сегодня. Любая сессия начинается с обязательной разминки, а темп озвучки даёт время найти позу до перехода к следующей. Уровень определяется не квизом, а реальными движениями с иллюстрациями, поэтому «beginner» означает по-настоящему доступно.",
+      "features": [
+        "Цепочка регрессий для каждой позы: у стены, с блоком, с ремнём, полная форма — переключение одним тапом",
+        "Обязательная разминка в начале каждой сессии, которую нельзя случайно пропустить",
+        "Темп озвучки с паузой: инструктор называет позу, даёт время её найти, и только потом ведёт дальше",
+        "Определение уровня по реальным движениям с иллюстрациями, а не по текстовому квизу",
+        "Рекомендации строго в рамках выбранной сложности — никаких «Extra Active» в ленте новичка",
+        "Метка физической доступности у каждого класса: что нужно уметь, чтобы он не травмировал",
+        "Бережный трекинг первого шпагата и касания пальцев ног — видимый прогресс именно для негибких"
+      ]
+    }
+  },
+  {
+    "slug": "stretch-rehab-companion-pain-relief",
+    "category": "stretching-mobility-yoga",
+    "categoryName": "Стретчинг, мобильность, йога",
+    "asOf": "2026-06-13",
+    "title": "Реабилитация на дому: стретчинг для боли и восстановления, а не фитнес",
+    "oneLiner": "Спортсмены после травм, офисные работники с болью от сидячей работы и люди с хроническими состояниями уже используют эти приложения как домашнюю терапию — но ни одно так себя не позиционирует. Идея — компаньон восстановления, где маршруты строятся вокруг боли и травмы, а не вокруг калорий и шпагата.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 404
+    },
+    "reviewGrid": [
+      {
+        "quote": "Instrumental in eliminating back pain that has plagued me from late teens (51 yo male)",
+        "rating": 5,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "Resolvi um problema/lesão com meses no tendão de aquiles.",
+        "rating": 5,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "I've been doing Brazilian Jiu Jitsu 13 years and martial arts for 30 but am not flexible in a lot of areas. I have been getting more injuries recently.",
+        "rating": 5,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "I've been through multiple surgeries and ongoing pain from a gluteal abscess—and through all of it, Yoga Down Dog kept me consistent. Even on painful days, I could still show up",
+        "rating": 5,
+        "app": "Yoga | Down Dog"
+      },
+      {
+        "quote": "I used to think exercise had to be intense to be effective. Daily Yoga proved me wrong. Gentle can also be powerful. My body is toning slowly and beautifully.",
+        "rating": 5,
+        "app": "Daily Yoga: Yoga for Fitness®"
+      },
+      {
+        "quote": "I've seen a marked improvement in my flexibility and strength.",
+        "rating": 5,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "some poses are difficult for beginners, some people have stiffness so there must be some option of replacement pose or alternative way for that pose.",
+        "rating": 4,
+        "app": "Yoga | Down Dog"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Реабилитация и хроническая боль — массовый, но незаявленный сценарий",
+        "obsCount": 42,
+        "apps": [
+          "pliability: Stretch & Mobility",
+          "Stretching Mobility: STRETCHIT",
+          "Yoga | Down Dog",
+          "Daily Yoga: Yoga for Fitness®"
+        ],
+        "polarity": "gain"
+      },
+      {
+        "title": "Уход хронической боли в спине за несколько недель",
+        "obsCount": 76,
+        "apps": [
+          "pliability: Stretch & Mobility",
+          "Daily Yoga: Yoga for Fitness®"
+        ],
+        "polarity": "gain"
+      },
+      {
+        "title": "Нет замены позы для тела с ограничениями и болью",
+        "obsCount": 29,
+        "apps": [
+          "Yoga | Down Dog",
+          "Stretching Mobility: STRETCHIT"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Самая лояльная и самая эмоциональная аудитория категории приходит не за фитнесом, а за лечением — и нигде это явно не названо. Хроническая боль в спине, мучившая с подросткового возраста, уходит за недели у Pliability; месячная травма ахилла рассасывается; человек после нескольких операций и хронической боли продолжает практику даже в болезненные дни с Down Dog; офисная скованность снимается мягкими сессиями Daily Yoga. Эти люди используют приложения как домашнюю терапию, но получают интерфейс, заточенный под калории, шпагат и стрики. Хуже того — когда у тела есть ограничение, замены позы часто нет вовсе. Потеря данных или краш в этом контексте воспринимается не как неудобство, а как прерывание лечения. Никто не построил продукт вокруг боли как точки входа: с маршрутом по конкретной зоне, безопасными прогрессиями и языком восстановления вместо языка достижений.",
+    "idea": {
+      "pitch": "Компаньон восстановления, который начинается с вопроса «что у вас болит и после чего», а не «какая ваша цель по гибкости». Маршруты строятся вокруг конкретной зоны и истории — спина от сидячей работы, ахилл после травмы, плечо после операции — с безопасными прогрессиями и обязательными вариантами для болезненных дней. Язык продукта — про возвращение к движению без боли, а не про калории и шпагат. Прогресс измеряется уменьшением скованности и боли, и его нельзя потерять при крахе приложения.",
+      "features": [
+        "Онбординг от боли и травмы: маршрут по зоне и истории, а не по абстрактной цели гибкости",
+        "Режим болезненного дня — мягкая короткая сессия и безопасные регрессии без давления стрика",
+        "Замена любой позы для тела с ограничениями: альтернатива, доступная даже после операции",
+        "Безопасные прогрессии под восстановление: рост нагрузки только когда зона готова",
+        "Трекинг боли и скованности вместо калорий — видно, как зона возвращается к норме",
+        "Заметки для физиотерапевта: экспорт того, что и как делалось, для очного приёма",
+        "Надёжное хранение истории восстановления — прогресс не теряется при сбое или смене устройства"
+      ]
+    }
+  },
+  {
+    "slug": "stretch-short-daily-fresh-rotation",
+    "category": "stretching-mobility-yoga",
+    "categoryName": "Стретчинг, мобильность, йога",
+    "asOf": "2026-06-13",
+    "title": "10 минут, которые не повторяются: короткий формат с живой ротацией",
+    "oneLiner": "Короткие 10–15-минутные рутины — главный механизм ежедневной регулярности, но приложения либо заменяют их на 25–45-минутные программы, либо крутят одни и те же позы в том же порядке. Идея — продукт, где короткий формат священен, а контент свежий каждый день без потолка вариативности.",
+    "stats": {
+      "apps": 6,
+      "reviews": 4500,
+      "observations": 404
+    },
+    "reviewGrid": [
+      {
+        "quote": "You can taylor the app to what you want to do...cool down, a quick fix or actual workout and in less than 15 min. Only draw back is it doesn't seem to progress.",
+        "rating": 5,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "I love how the stretch routines are short and in the end, I usually end up doing another class. Sometimes it’s hard to “feel” like doing it, but it’s so nice when you just open the app and press play.",
+        "rating": 5,
+        "app": "Stretching Mobility: STRETCHIT"
+      },
+      {
+        "quote": "It makes me stretch everyday when I rarely did before. I am fitter for it. Bend is neatly put together and is quick & easy to use.",
+        "rating": 5,
+        "app": "Bend: Stretching & Flexibility"
+      },
+      {
+        "quote": "This was one of my favorite fitness apps; daily preprogrammed, guided, mobility routines (10-15mins) that fit perfectly into my day. Sadly they ended up dropping the quick routines in favor of 25-45 min routines.",
+        "rating": 2,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "The same stretches, same holds just in a different order. It's not true mobility its really a glorified static stretching app.",
+        "rating": 3,
+        "app": "pliability: Stretch & Mobility"
+      },
+      {
+        "quote": "However I was looking to do full body stretches and there is only one. I would have expected a lot more varied ones to keep it fresh particularly when most people are time limited.",
+        "rating": 4,
+        "app": "Bend: Stretching & Flexibility"
+      },
+      {
+        "quote": "I used to like it more before as they were uploading new workshops every month. still, a comprehensive App for both practicing yoga and meditation.",
+        "rating": 5,
+        "app": "Daily Yoga: Yoga for Fitness®"
+      },
+      {
+        "quote": "kupilam sobie premium na rok i szczerze nie polecam, nie pojawiaja sie zadne nowe cwiczenia ktore moglyby byc interesujace zeby sobie troche zmienic sesje treningowa, funkcja ai dzisla baardzo slabo i poza tym ze aplikacja przypomina o treningach i mozna zdobyc streaki ktore sa motywujace t",
+        "rating": 2,
+        "app": "Bend: Stretching & Flexibility"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Короткий формат 10–20 минут — ключ к ежедневной регулярности",
+        "obsCount": 31,
+        "apps": [
+          "pliability: Stretch & Mobility",
+          "Stretching Mobility: STRETCHIT",
+          "Bend: Stretching & Flexibility"
+        ],
+        "polarity": "gain"
+      },
+      {
+        "title": "Контент застывает: одни рутины в том же порядке без ротации",
+        "obsCount": 21,
+        "apps": [
+          "Bend: Stretching & Flexibility",
+          "pliability: Stretch & Mobility",
+          "Daily Yoga: Yoga for Fitness®"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Замена коротких рутин на длинные программы разрушает сценарий",
+        "obsCount": 31,
+        "apps": [
+          "pliability: Stretch & Mobility"
+        ],
+        "polarity": "pain"
+      }
+    ],
+    "gap": "Главная ценностная единица категории — короткая рутина на 10–15 минут, которую можно встроить в утро без переодевания: «откроешь приложение и нажмёшь play». Именно она работает там, где часовые программы провалились. Но продукты подрывают собственный двигатель регулярности с двух сторон. Первая: Pliability после редизайна заменил быстрые рутины на сессии по 25–45 минут — и потерял ровно тот сценарий, за который его любили. Вторая: те, кто преодолел барьер регулярности, упираются в потолок вариативности — у Bend одна и та же рутина в том же порядке, у Pliability позы повторяются с минимальными изменениями, у Daily Yoga новый контент стал выходить реже. Долгосрочные пользователи уходят именно тогда, когда стали бы самыми ценными подписчиками. Никто не сделал короткий формат неприкосновенным и при этом бесконечно свежим.",
+    "idea": {
+      "pitch": "Приложение, где короткая рутина — догма, а не временная опция, которую отберут при редизайне. Базовая единица всегда 10–15 минут: открыл, нажал play, готов до завтрака. При этом контент не застывает — движок ежедневно собирает свежую последовательность из библиотеки движений под выбранную зону и уровень, так что одни и те же позы не повторяются в том же порядке. Прогресс встроен в короткий формат: те же 12 минут со временем становятся глубже, а не длиннее.",
+      "features": [
+        "Неприкосновенный короткий формат 10–15 минут — длинные программы опциональны, но коротких никогда не отнимут",
+        "Ежедневная свежая последовательность из библиотеки движений — никаких тех же поз в том же порядке",
+        "Прогрессия внутри длительности: те же минуты углубляются, а не растягиваются в час",
+        "Выбор сценария за один тап: разминка, быстрый фикс зоны или полноценная мобильность — всё под 15 минут",
+        "Регулярный приток новых движений и комбинаций, чтобы у ветеранов не было потолка вариативности",
+        "Стрики и напоминания, привязанные к короткой ежедневной сессии, а не к длинным программам",
+        "Гарантия сохранения быстрых рутин при любом редизайне — формат не убирается без эквивалента"
+      ]
+    }
+  },
+  {
+    "slug": "reading-tracker-history-vault",
+    "category": "reading-tracker",
+    "categoryName": "Трекеры чтения",
+    "asOf": "2026-06-13",
+    "title": "Архив, который переживёт обновление: трекер, не теряющий историю",
+    "oneLiner": "Ценность трекера чтения — годами накопленный журнал прочитанного, стрики и часами набранные цитаты. И ровно это уничтожается крупным обновлением: история обнуляется, бэкап не возвращает данные. Идея — продукт, для которого сохранность архива читателя — первое и несгораемое обещание, а не побочный эффект.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4000,
+      "observations": 371
+    },
+    "reviewGrid": [
+      {
+        "quote": "esta app me ha parecido increíble siempre, llevo un año desde que la compre y la version de paga es mil veces mejor pero deje de usarla un mes y se me borraron todas las citas qué tarde HORAS en transcribir, estoy muy molesta y me encantaría una solución a este problema ya que perdi varios transcritos de mis libros…",
+        "rating": 3,
+        "app": "Book Tracker: Bookshelf & TBR"
+      },
+      {
+        "quote": "This app was kind of working fine keeping up with reading history. Then I had to link kids school that was pretty difficult and now reading history gets deleted from log and books get deleted.",
+        "rating": 2,
+        "app": "Beanstack Tracker"
+      },
+      {
+        "quote": "Bruh I love this app so much but for some reason it stopped logging ny hours correctly! It restarts or not logging the hours at all so now instead of the 12hrs it would total more than that.",
+        "rating": 4,
+        "app": "Bookly: Book Tracker"
+      },
+      {
+        "quote": "As someone working toward reading 1,000 books (so close now!), Goodreads makes it so easy to track, review, revisit favorites, and recommend books to others.",
+        "rating": 5,
+        "app": "Goodreads: Book Tracker & More"
+      },
+      {
+        "quote": "by the time I'm onto the next one I forgot what the previous one was about. This app allows me to post my reviews so I can go back and remind myself",
+        "rating": 5,
+        "app": "Goodreads: Book Tracker & More"
+      },
+      {
+        "quote": "I get to see a visual review of my books I've read each year which I LOVE.",
+        "rating": 5,
+        "app": "Goodreads: Book Tracker & More"
+      },
+      {
+        "quote": "Une très bonne bibliothèque virtuelle J’ai longtemps cherché une application pour pouvoir suivre en temps réel mes lectures, ma PAL, ma bibliothèque, et avoir des statistiques annuels. Cette application est parfaite, elle me correspond à",
+        "rating": 5,
+        "app": "Book Tracker: Bookshelf & TBR"
+      },
+      {
+        "quote": "Love this app but would love for display to update faster I really love using this app!! It’s a lovely ethical alternative to goodreads and the recent UI update has been a major improvement. Trying to get more of my friends to make the",
+        "rating": 5,
+        "app": "StoryGraph: Reading Tracker"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Обновление стирает годы истории чтения, стрики и цитаты безвозвратно",
+        "obsCount": 39,
+        "apps": [
+          "Beanstack Tracker",
+          "Book Tracker: Bookshelf & TBR",
+          "Bookly: Book Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Резервная копия не возвращает потерянные данные",
+        "obsCount": 12,
+        "apps": [
+          "Book Tracker: Bookshelf & TBR",
+          "Beanstack Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Накопленный архив — главная причина оставаться годами",
+        "obsCount": 32,
+        "apps": [
+          "Goodreads: Book Tracker & More",
+          "Book Tracker: Bookshelf & TBR",
+          "StoryGraph: Reading Tracker"
+        ],
+        "polarity": "praise"
+      },
+      {
+        "title": "Годовой визуальный обзор прочитанного — личный артефакт читателя",
+        "obsCount": 14,
+        "apps": [
+          "Goodreads: Book Tracker & More",
+          "StoryGraph: Reading Tracker"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Парадокс категории в том, что главный актив продукта — накопленная история чтения — одновременно его самое уязвимое место. Пользователи годами ведут журнал прочитанного, часами вручную перепечатывают цитаты, гонятся за целью в тысячу книг — а потом крупное обновление обнуляет всё, и бэкап не возвращает данные. У Beanstack история удаляется после привязки школьного аккаунта, у Book Tracker исчезают часами набранные цитаты, у Bookly слетает учёт часов. При этом именно архив держит людей в Goodreads крепче любых функций: годовой визуальный обзор, ревью, к которым можно вернуться, — это личный артефакт, а не просто данные. Ни одно приложение в выборке не относится к сохранности этого архива как к контракту: нет версионных снимков, нет проверяемого восстановления, нет гарантии, что обновление не сотрёт смысл всего продукта. Приложение, которое ставит несгораемость истории читателя выше любой новой фичи, закрывает самую болезненную и самую дорогую поломку категории.",
+    "idea": {
+      "pitch": "Трекер чтения, чьё первое и нерушимое обещание — твоя история не исчезнет ни при каком обновлении. Каждое прочитанное, стрик и вручную набранная цитата фиксируются версионными снимками, которые можно открыть и восстановить в один тап до конкретной даты. Перед любым крупным апдейтом создаётся проверяемый бэкап, а восстановление реально тестируется, а не существует только в описании. Архив — это контракт, а не побочный эффект.",
+      "features": [
+        "Версионные снимки библиотеки: откат истории, стриков и цитат к любой прошлой дате в один тап",
+        "Автоматический проверяемый бэкап перед каждым крупным обновлением — с явным подтверждением целостности",
+        "Экспорт всего архива (книги, заметки, цитаты, даты) в открытый формат в любой момент",
+        "Защита цитат: вручную набранный текст хранится отдельно и не затирается синхронизацией",
+        "Реально работающее восстановление из бэкапа — функция, которую тестируют на каждом релизе",
+        "Локальная копия архива на устройстве, не зависящая от серверов и привязки сторонних аккаунтов",
+        "Годовой визуальный обзор прочитанного, собираемый из неприкосновенной истории",
+        "Журнал изменений: видно, что и когда поменялось в библиотеке, и как откатить"
+      ],
+      "antiFeatures": [
+        "Обновление, после которого история чтения исчезает без отката",
+        "Бэкап, который не восстанавливает данные на практике",
+        "Затирание вручную набранных цитат при синхронизации",
+        "Привязка стороннего аккаунта, удаляющая существующую историю",
+        "Хранение архива только на сервере без локальной копии и экспорта"
+      ],
+      "monetization": "Подписка или разовая покупка за продукт, главная фича которого — несгораемый архив читателя. В категории потеря истории при обновлении (борьба борьбами стёртых лет, часами перепечатанные и пропавшие цитаты) — самая болезненная и повторяющаяся причина однозвёздочных отзывов; готовность платить идёт именно тому, кто гарантирует сохранность. Премиум — за расширенные снимки и облачную репликацию, базовая защита архива и экспорт доступны всем."
+    }
+  },
+  {
+    "slug": "reading-tracker-honest-free-tier",
+    "category": "reading-tracker",
+    "categoryName": "Трекеры чтения",
+    "asOf": "2026-06-13",
+    "title": "Честный лимит: трекер без пейволла на середине полки",
+    "oneLiner": "Категория вовлекает бесплатным трекингом, а потом упирает в стену: 5–10 книг — и дальше платно, статистика заблокирована, функции, что были даром при установке, уезжают за подписку. Идея — трекер, где бесплатная версия полезна сама по себе, а платят за усиление, а не за выход из ловушки.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4000,
+      "observations": 371
+    },
+    "reviewGrid": [
+      {
+        "quote": "À partir de 5 livres ça devient payant L’application est vraiment très bien et j’étais ravie d’enfin trouver une application avec autant de possibilités .\nMalheureusement au bout de 5 livres enregistrés impossible de faire autre chose,",
+        "rating": 2,
+        "app": "Book Tracker: Bookshelf & TBR"
+      },
+      {
+        "quote": "The app is good in most ways, i love the statistics BUT only being able to put 10 books on the list is very frustrating. it should be atleast 20.",
+        "rating": 4,
+        "app": "Bookly: Book Tracker"
+      },
+      {
+        "quote": "Tante opzioni anche se molte di queste premium. Ho aggiunto dei libri tra quelli letti ma non spuntano tra le statistiche. Ui scadente",
+        "rating": 3,
+        "app": "StoryGraph: Reading Tracker"
+      },
+      {
+        "quote": "I really hate always having to pay for 'fable +' just to be able to set a page goal.",
+        "rating": 4,
+        "app": "Fable: Track & Discuss Books"
+      },
+      {
+        "quote": "I love the reading timer and the predictions for how long things will take. I think the price point is perfect too.",
+        "rating": 5,
+        "app": "Bookly: Book Tracker"
+      },
+      {
+        "quote": "Tante opzioni anche se molte di queste premium. Ho aggiunto dei libri tra quelli letti ma non spuntano tra le statistiche. Ui scadente",
+        "rating": 3,
+        "app": "StoryGraph: Reading Tracker"
+      },
+      {
+        "quote": "My Book Aura changes even when I don't add new books",
+        "rating": 4,
+        "app": "Fable: Track & Discuss Books"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Лимит в 5–10 книг делает бесплатную версию бесполезной",
+        "obsCount": 60,
+        "apps": [
+          "Book Tracker: Bookshelf & TBR",
+          "Bookly: Book Tracker",
+          "Fable: Track & Discuss Books"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Базовые функции (цель по страницам, статистика) уезжают за пейволл",
+        "obsCount": 18,
+        "apps": [
+          "Fable: Track & Discuss Books",
+          "StoryGraph: Reading Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Функции, бесплатные при установке, постепенно блокируются подпиской",
+        "obsCount": 15,
+        "apps": [
+          "Goodreads: Book Tracker & More",
+          "StoryGraph: Reading Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Честная цена за реальную пользу вызывает лояльность",
+        "obsCount": 11,
+        "apps": [
+          "Bookly: Book Tracker",
+          "Book Tracker: Bookshelf & TBR"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Монетизация в категории устроена как обратный отсчёт до разочарования: пользователь увлекается трекингом, а на пятой-десятой книге упирается в стену и понимает, что без подписки приложение бесполезно. У Book Tracker всё встаёт после пяти книг, у Bookly список ограничен десятью, у Fable за пейволлом оказывается даже базовая цель по страницам, у StoryGraph добавленные книги просто не попадают в статистику без премиума. Хуже того — функции, бесплатные на старте, со временем блокируются подпиской, и пользователи воспринимают это как обман. При этом контрпример рядом: тот же Bookly хвалят за честную цену за реальную пользу — значит, проблема не в платности, а в том, что бесплатный слой обрезан ниже порога полезности и применяется как наживка. Ни один игрок не сделал бесплатную версию самодостаточной, а платную — про усиление, а не про снятие искусственного замка.",
+    "idea": {
+      "pitch": "Трекер чтения, где бесплатная версия закрывает базовую работу читателя целиком: неограниченное число книг, полная личная статистика, цели по страницам и времени — без замка на середине полки. Платная подписка добавляет силу (расширенную аналитику, клубы, синхронизацию между устройствами), но никогда не отнимает то, что уже было бесплатным. Цена и граница «бесплатно / премиум» видны заранее, и ничего из доступного при установке не уезжает за пейволл задним числом.",
+      "features": [
+        "Неограниченное число книг в бесплатной версии — никакого лимита в 5–10",
+        "Полная личная статистика бесплатно: добавленная книга всегда попадает в подсчёты",
+        "Базовые цели по страницам и по времени без подписки",
+        "Граница «бесплатно / премиум» показана честно и не меняется задним числом",
+        "Гарантия неотъёма: функция, бесплатная при установке, остаётся бесплатной навсегда",
+        "Премиум как усиление: расширенная аналитика, клубы, мульти-девайс — поверх рабочей базы",
+        "Прозрачная страница подписки: что входит, сколько стоит, до какой даты"
+      ],
+      "antiFeatures": [
+        "Жёсткий лимит в 5–10 книг, превращающий бесплатную версию в наживку",
+        "Статистика, в которую не попадают добавленные книги без премиума",
+        "Цель по страницам и другие базовые функции за пейволлом",
+        "Постепенный перенос бесплатных функций под подписку",
+        "Скрытая граница платного, обнаруживаемая только после вовлечения"
+      ],
+      "monetization": "Честная подписка за усиление, а не за снятие искусственного замка. В категории главный драйвер злости — обрезанный ниже порога полезности бесплатный слой (платно после пяти книг, цель по страницам за Fable+) и постепенный перенос бесплатных функций под подписку; при этом честную цену за реальную пользу прямо хвалят. Платят добровольно за расширенную аналитику и социальные фичи, тогда как рабочий минимум читателя бесплатен."
+    }
+  },
+  {
+    "slug": "reading-tracker-fair-streak-engine",
+    "category": "reading-tracker",
+    "categoryName": "Трекеры чтения",
+    "asOf": "2026-06-13",
+    "title": "Стрик, который не предаёт: честный движок привычки и таймера",
+    "oneLiner": "Стрик и таймер сессии — главные моторы привычки в категории, и они же чаще всего ломаются: вечернее чтение засчитывается на завтра из-за серверного часового пояса, серия рвётся без причины, таймер сбрасывается при переключении вкладки. Идея — движок привычки, для которого один незаслуженный сброс недопустим.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4000,
+      "observations": 371
+    },
+    "reviewGrid": [
+      {
+        "quote": "The only issue I have is pretty often if you log a reading in the evening it will count it for the next day (even though the date is correct) and will break your streak. You can manually fix it but it's kinda annoying as I pretty much only read at night.",
+        "rating": 5,
+        "app": "Beanstack Tracker"
+      },
+      {
+        "quote": "Strangely, there's a bug where you can't log the current day, and it tries to put it on the next day. Like, possibly because the app servers are in a different future time zone than I am. It's an annoying bug for streaks so I would love it they were to fix it!",
+        "rating": 4,
+        "app": "Beanstack Tracker"
+      },
+      {
+        "quote": "Edit: this new update solved the issue thank you so much for being responsive<3 is it possible we'll get more space in the review area? What happened these last updates... I can't click on a different tab on my phone without my timer resetting. I never had this problem before but it's really upsetting because i can'…",
+        "rating": 5,
+        "app": "Beanstack Tracker"
+      },
+      {
+        "quote": "In love with this app! Helps keep track of how long I've been reading and the more daily streaks the better!",
+        "rating": 5,
+        "app": "Beanstack Tracker"
+      },
+      {
+        "quote": "I absolutely love StoryGraph! I started using it last year when my goal was to fall back in love with reading and it helped me not only reach my book goal but also has helped me to read every single day! Streak tracking, the fun monthly wrap-up graphic, getting to discover new books by seeing what my friends are rea…",
+        "rating": 5,
+        "app": "StoryGraph: Reading Tracker"
+      },
+      {
+        "quote": "I prefer to set time based reading goals over books read per year, so Bookly is perfect for me. I also love that it lets me easily calculate how much I need to read each day to finish by a specific end date.",
+        "rating": 5,
+        "app": "Bookly: Book Tracker"
+      },
+      {
+        "quote": "grateful for the ease of tracking my reading with a built in timer",
+        "rating": 5,
+        "app": "Beanstack Tracker"
+      },
+      {
+        "quote": "Love being able to leave my phone at the other side of the house when I'm reading and still stay focused and on track",
+        "rating": 5,
+        "app": "Book Tracker: Bookshelf & TBR"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Вечернее чтение засчитывается на завтра из-за серверного часового пояса и рвёт серию",
+        "obsCount": 31,
+        "apps": [
+          "Beanstack Tracker",
+          "StoryGraph: Reading Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Таймер сбрасывается при переключении вкладки или уходе в фон",
+        "obsCount": 29,
+        "apps": [
+          "Beanstack Tracker",
+          "Book Tracker: Bookshelf & TBR"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Стрик возвращает любовь к чтению, когда работает",
+        "obsCount": 18,
+        "apps": [
+          "StoryGraph: Reading Tracker",
+          "Beanstack Tracker"
+        ],
+        "polarity": "praise"
+      },
+      {
+        "title": "Таймер мотивирует сильнее самооценки страниц",
+        "obsCount": 14,
+        "apps": [
+          "Bookly: Book Tracker",
+          "Book Tracker: Bookshelf & TBR"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Стрик и таймер — это сердце вовлечения в трекерах чтения: люди прямо пишут, что серия вернула им любовь к чтению, а встроенный таймер мотивирует сильнее, чем подсчёт страниц. Но та же механика устроена так, что один сбой обнуляет мотивацию сильнее, чем её полное отсутствие. У Beanstack вечернее чтение регулярно засчитывается на завтра, потому что серверы живут в чужом часовом поясе, и серия рвётся; таймер сбрасывается, стоит переключить вкладку. Чинить вручную можно — но именно ощущение незаслуженной потери разрушает привычку. Ни одно приложение в выборке не относится к стрику как к обещанию: нет привязки дня к локальному часовому поясу пользователя, нет защиты серии от технических сбросов, нет фонового таймера, который переживает выход из приложения. Движок привычки, который никогда не наказывает за то, чего пользователь не делал, превращает самую любимую и самую хрупкую фичу категории в надёжную.",
+    "idea": {
+      "pitch": "Трекер чтения вокруг движка привычки, который не предаёт. День стрика привязан к локальному часовому поясу читателя, а не к серверу: прочитал вечером — засчиталось сегодня, серия цела. Таймер сессии живёт в фоне и переживает переключение вкладок, звонки и блокировку без сброса. А если технический сбой всё же случился, серия восстанавливается автоматически — пользователь не теряет то, что заслужил.",
+      "features": [
+        "Привязка дня стрика к локальному часовому поясу: вечернее чтение засчитывается сегодня",
+        "Фоновый таймер сессии, переживающий переключение вкладок, звонки и блокировку без сброса",
+        "Автовосстановление серии после технического сбоя — без ручной починки",
+        "Цели по времени и по страницам с расчётом дневной нормы до дедлайна",
+        "Прозрачный лог: видно, какой день куда засчитан, и можно поправить вручную одним тапом",
+        "Защита от накрутки: таймер не плюсует часы в фоне, если чтение реально остановлено",
+        "Монтаж месяца: визуальный wrap-up серии и времени, собранный из честных данных",
+        "Режим «телефон на другом конце комнаты»: таймер идёт, фокус не сбивается"
+      ],
+      "antiFeatures": [
+        "Засчёт вечернего чтения на следующий день из-за серверного часового пояса",
+        "Сброс таймера при переключении вкладки или уходе в фон",
+        "Незаслуженный обрыв серии без возможности восстановить",
+        "Накрутка лишних часов таймером, работающим вхолостую",
+        "Стрик как украшение, не подкреплённый честным учётом дня"
+      ],
+      "monetization": "Подписка или разовая покупка за движок привычки, которому можно доверять. В категории стрик и таймер — самые любимые фичи (серия вернула любовь к чтению, таймер мотивирует сильнее страниц) и одновременно самый частый повод для злости при незаслуженном сбросе; платят тому, у кого они не ломаются. Премиум — за углублённую аналитику привычки и цели, базовый честный стрик и таймер доступны всем."
+    }
+  },
+  {
+    "slug": "reading-tracker-audiobook-first",
+    "category": "reading-tracker",
+    "categoryName": "Трекеры чтения",
+    "asOf": "2026-06-13",
+    "title": "Аудиокнига — это тоже книга: трекер для слушателей",
+    "oneLiner": "В большинстве трекеров аудиокнига — второй сорт: смешивается с бумажным чтением, требует ручного пересчёта часов в страницы или вовсе не идёт в стрик. Goodreads и Audible — у одного владельца, но синхронизации нет. Идея — трекер, где прослушанное учитывается наравне с прочитанным, без ручной арифметики.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4000,
+      "observations": 371
+    },
+    "reviewGrid": [
+      {
+        "quote": "I love this app a lot! But I really wish they would add a way to mark the book as listened to instead of read. Would love to see which books I finished as audio books and which were read.",
+        "rating": 5,
+        "app": "StoryGraph: Reading Tracker"
+      },
+      {
+        "quote": "I can see my «want to read» books in my audible as well",
+        "rating": 5,
+        "app": "Goodreads: Book Tracker & More"
+      },
+      {
+        "quote": "Perfect app but it needs an option for audio books. Also all the alternative covers.",
+        "rating": 5,
+        "app": "Fable: Track & Discuss Books"
+      },
+      {
+        "quote": "But I LOVE this app! Yall are amazing for allowing more than just one type of reading goal! THANK YOU for validating audiobook listeners, an audiobook is still an audiobook.",
+        "rating": 5,
+        "app": "StoryGraph: Reading Tracker"
+      },
+      {
+        "quote": "Pensata per ogni tipo di lettore Che tu sia un lettore ‘tradizionale’, un lettore su eReader, un fruitore di audiolibri, questa app è ottima per tenere traccia delle letture fatte, di quelle in corso e della tua wishlist. Una funzione che",
+        "rating": 5,
+        "app": "Book Tracker: Bookshelf & TBR"
+      },
+      {
+        "quote": "I love the reading timer and the predictions for how long things will take. I think the price point is perfect too.",
+        "rating": 5,
+        "app": "Bookly: Book Tracker"
+      },
+      {
+        "quote": "I prefer to set time based reading goals over books read per year, so Bookly is perfect for me. I also love that it lets me easily calculate how much I need to read each day to finish by a specific end date.",
+        "rating": 5,
+        "app": "Bookly: Book Tracker"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Нет отдельной отметки «прослушано» — аудио смешивается с чтением",
+        "obsCount": 20,
+        "apps": [
+          "StoryGraph: Reading Tracker",
+          "Fable: Track & Discuss Books"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Часы прослушивания приходится вручную пересчитывать в страницы",
+        "obsCount": 12,
+        "apps": [
+          "Goodreads: Book Tracker & More",
+          "Bookly: Book Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Нет синхронизации с Audible и аудио-сервисами даже у одного владельца",
+        "obsCount": 8,
+        "apps": [
+          "Goodreads: Book Tracker & More",
+          "StoryGraph: Reading Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Валидация аудиослушателей вызывает преданность",
+        "obsCount": 14,
+        "apps": [
+          "StoryGraph: Reading Tracker",
+          "Book Tracker: Bookshelf & TBR"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Огромная аудитория слушает больше, чем читает глазами, — и почти каждый трекер относится к ней как ко второму сорту. Аудиокнига либо сваливается в одну кучу с бумажным чтением, либо требует ручного пересчёта часов в страницы, либо вообще не идёт в стрик. Goodreads и Audible принадлежат Amazon, но синхронизации между ними нет, и пользователю приходится вести учёт дважды. При этом отклик на обратное — мгновенный и эмоциональный: «спасибо, что подтверждаете слушателей, аудиокнига — это тоже книга», и люди прямо просят отметку «прослушано» отдельно от «прочитано». Ни одно приложение в выборке не сделало аудиоформат первоклассным гражданином: с собственными целями по времени, автоматическим учётом часов без перевода в страницы, отдельной статистикой и подключением к Audible/Libby. Трекер, спроектированный вокруг слушателя, забирает большой и недообслуженный сегмент, который остальные молча обижают.",
+    "idea": {
+      "pitch": "Трекер чтения, где аудиокнига — полноценная книга, а не приписка. Прослушанное помечается отдельно от прочитанного, учитывается по часам без ручного перевода в страницы и идёт в общий стрик и цели наравне с бумагой. Цели можно ставить по времени, а не только по числу книг, а подключение к Audible и Libby подтягивает прогресс автоматически, чтобы слушатель не вёл учёт дважды.",
+      "features": [
+        "Отдельная отметка «прослушано» и «прочитано» — видно, что закрыто аудио, а что глазами",
+        "Учёт аудиокниг по часам без ручного пересчёта в страницы",
+        "Аудио идёт в общий стрик и годовую цель наравне с бумажным чтением",
+        "Цели по времени прослушивания, а не только по числу прочитанных книг",
+        "Подключение к Audible и Libby с автоматической подтяжкой прогресса",
+        "Раздельная статистика: сколько часов наслушано, сколько страниц прочитано, какой баланс форматов",
+        "Скорость прослушивания учитывается в прогнозе времени до конца книги",
+        "Смешанный формат одной книги: часть прочитал, часть дослушал — единый прогресс"
+      ],
+      "antiFeatures": [
+        "Аудиокнига, неотличимая в статистике от бумажного чтения",
+        "Ручной пересчёт часов прослушивания в страницы",
+        "Аудио, не идущее в стрик и цели",
+        "Отсутствие синхронизации с Audible и библиотечными сервисами",
+        "Цели только по числу книг, без варианта по времени"
+      ],
+      "monetization": "Подписка или разовая покупка за трекер, который наконец уважает слушателя. В категории отсутствие первоклассной поддержки аудио — повторяющаяся слепая зона (нет отметки «прослушано», ручной пересчёт в страницы, нет синка с Audible), а валидация аудиослушателей вызывает прямую преданность; платят тому, кто закрыл этот разрыв. Премиум — за интеграции с Audible/Libby и расширенную аналитику форматов, базовый учёт аудио бесплатен."
+    }
+  },
+  {
+    "slug": "reading-tracker-shelf-import-portability",
+    "category": "reading-tracker",
+    "categoryName": "Трекеры чтения",
+    "asOf": "2026-06-13",
+    "title": "Полка без замка: надёжный сканер и живой импорт из Goodreads",
+    "oneLiner": "Войти в трекер мешают две вещи: сканер штрихкодов регрессирует после обновлений и не знает старые, иностранные и самиздатные книги, а импорт из Goodreads живёт через разовый CSV и не обновляется. Идея — каталогизация любой полки и двусторонняя живая связь с Goodreads, снимающая барьер входа.",
+    "stats": {
+      "apps": 7,
+      "reviews": 4000,
+      "observations": 371
+    },
+    "reviewGrid": [
+      {
+        "quote": "I found about less than 3/4 of the books I scanned could be read by the scanner even though the bar codes were clear and legible.",
+        "rating": 5,
+        "app": "BookBuddy: Book Tracker"
+      },
+      {
+        "quote": "I have a lot of older books with no barcode, or old barcodes that don't scan and had to enter them manually",
+        "rating": 5,
+        "app": "BookBuddy: Book Tracker"
+      },
+      {
+        "quote": "camera bug is fixed thank goodness. 9/12/25 App was great before update, but now we can't use the barcode scanner. Please fix",
+        "rating": 5,
+        "app": "Beanstack Tracker"
+      },
+      {
+        "quote": "The Goodreads import is seamless, all my tags were properly imported as well as 1000s of books, I wish Goodreads import could be done by login into Goodreads account, not just by uploading the .csv file, this way when I add a book on Goodreads it updates in this app.",
+        "rating": 5,
+        "app": "BookBuddy: Book Tracker"
+      },
+      {
+        "quote": "Firstly it imported everything from GoodReads - great! I can easily edit and add books without jumping through the hoops of GoodReads.",
+        "rating": 5,
+        "app": "StoryGraph: Reading Tracker"
+      },
+      {
+        "quote": "Pensata per ogni tipo di lettore Che tu sia un lettore ‘tradizionale’, un lettore su eReader, un fruitore di audiolibri, questa app è ottima per tenere traccia delle letture fatte, di quelle in corso e della tua wishlist. Una funzione che",
+        "rating": 5,
+        "app": "Book Tracker: Bookshelf & TBR"
+      },
+      {
+        "quote": "Une très bonne bibliothèque virtuelle J’ai longtemps cherché une application pour pouvoir suivre en temps réel mes lectures, ma PAL, ma bibliothèque, et avoir des statistiques annuels. Cette application est parfaite, elle me correspond à",
+        "rating": 5,
+        "app": "Book Tracker: Bookshelf & TBR"
+      }
+    ],
+    "mechanisms": [
+      {
+        "title": "Сканер регрессирует после обновлений — камера не открывается, коды не читаются",
+        "obsCount": 51,
+        "apps": [
+          "Beanstack Tracker",
+          "BookBuddy: Book Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "База не охватывает старые, иностранные и самиздатные книги",
+        "obsCount": 22,
+        "apps": [
+          "BookBuddy: Book Tracker",
+          "Book Tracker: Bookshelf & TBR"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Импорт из Goodreads живёт через разовый CSV и не обновляется",
+        "obsCount": 12,
+        "apps": [
+          "BookBuddy: Book Tracker",
+          "StoryGraph: Reading Tracker"
+        ],
+        "polarity": "pain"
+      },
+      {
+        "title": "Бесшовный импорт из Goodreads делает миграцию состоявшейся",
+        "obsCount": 20,
+        "apps": [
+          "StoryGraph: Reading Tracker",
+          "BookBuddy: Book Tracker"
+        ],
+        "polarity": "praise"
+      }
+    ],
+    "gap": "Барьер входа в трекер чтения — это полка, которую невозможно перенести целиком. Сканер штрихкодов работает на установке, а после обновлений регрессирует: камера не открывается, коды не читаются, реагирует медленнее. Параллельно база не знает старые книги без штрихкода, иностранные и самиздатные издания — слушатель с нестандартной библиотекой вынужден вбивать всё вручную. Импорт из Goodreads, наоборот, расхваливают как точку невозврата: бесшовно подтянулись тысячи книг и теги, и миграция считается состоявшейся. Но даже он половинчат — живёт через разовый CSV, и пользователи прямо просят живую связь через логин, чтобы добавленное в Goodreads обновлялось здесь. Ни один игрок не закрыл оба конца: надёжный сканер для любой полки и двустороннюю синхронизацию с Goodreads, которая снимает страх выхода. Приложение, делающее каталогизацию полной, а миграцию обратимой и живой, разрушает главный барьер удержания конкурентов.",
+    "idea": {
+      "pitch": "Трекер чтения, который заносит любую полку и не запирает на ней. Сканер штрихкодов спроектирован как несгораемая базовая функция — тестируется на каждом релизе и не регрессирует после обновлений, а старые, иностранные и самиздатные книги распознаются по обложке, ISBN или ручным вводом с подсказками. Импорт из Goodreads — не разовый CSV, а живая двусторонняя связь через логин: добавил книгу там — она появилась здесь. Полная каталогизация и обратимая миграция вместо барьера выхода.",
+      "features": [
+        "Надёжный сканер штрихкодов, тестируемый на каждом релизе, без регрессий после обновлений",
+        "Распознавание книг без штрихкода: по обложке, ISBN и умному ручному вводу с подсказками",
+        "Поддержка старых, иностранных и самиздатных изданий в каталоге",
+        "Живой двусторонний импорт из Goodreads через логин, а не разовый CSV",
+        "Перенос тегов и полок при импорте — без потери структуры библиотеки",
+        "Открытый экспорт всей полки обратно: миграция обратима, замка нет",
+        "Массовое добавление: сканирование стопкой и пакетная каталогизация физических полок",
+        "Дедупликация при импорте: одно издание не двоится после повторной синхронизации"
+      ],
+      "antiFeatures": [
+        "Сканер, ломающийся после обновления и не открывающий камеру",
+        "База, не находящая старые, иностранные и самиздатные книги",
+        "Импорт из Goodreads только через разовый CSV без обновления",
+        "Невозможность выгрузить свою полку обратно — замок на удержание",
+        "Дубли изданий после повторной синхронизации"
+      ],
+      "monetization": "Подписка или разовая покупка за продукт, который снимает барьер входа и не строит барьер выхода. В категории сломанный сканер и половинчатый CSV-импорт — повторяющаяся боль, а бесшовный импорт из Goodreads прямо называют точкой невозврата при миграции; платят тому, кто перенёс полку целиком и держит связь живой. Премиум — за двустороннюю синхронизацию и пакетную каталогизацию, базовое сканирование и импорт бесплатны."
+    }
   }
 ]
