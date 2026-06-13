@@ -1,0 +1,74 @@
+{
+  "productId": "cmpsz9def2u8aughvi0rsf9o0",
+  "slug": "recreation-gov-1440487780",
+  "name": "Recreation.gov",
+  "domain": "бронирование мест на природе / кемпинг / национальные парки США",
+  "oneLiner": "Официальный федеральный портал США для бронирования кемпингов, пропусков и туров в национальных парках, лесах и заповедниках — единая точка доступа к тысячам объектов BLM, NPS и USFS.",
+  "pricing": "бесплатное приложение; при бронировании взимается сервисный сбор (reservation fee), который уходит подрядчику (Booz Allen Hamilton) а не в парки; скидки для ветеранов, пожилых (Senior Pass) и держателей America the Beautiful Pass",
+  "keyFeatures": [
+    "поиск и бронирование кемпингов, площадок и пермитов в национальных парках, лесах BLM и заповедниках по всей территории США",
+    "карта с видом спутника и фото конкретных площадок для выбора места до приезда",
+    "хранение America the Beautiful Pass / Senior Pass и ветеранских карт внутри приложения",
+    "просмотр отзывов предыдущих гостей по каждому объекту",
+    "корзина для одновременного бронирования нескольких мест",
+    "QR-код на въезде — офлайн-доступ к подтверждённой брони без мобильного сигнала",
+    "тикеты и лотереи на специальные разрешения (sunrise tours, shuttle, garnet дигинг и т.д.)",
+    "уведомления о появлении мест и изменении статуса брони"
+  ],
+  "competitors": [
+    "Reserve America (campspot.com)",
+    "Hipcamp",
+    "The Dyrt",
+    "Campendium",
+    "state park booking apps (ReserveCA, ReserveCalifornia и аналоги)",
+    "прямые сайты отдельных парков (NPS.gov)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "bots scoop up permits and sites before humans can click 'reserve' and they charge us a fee for the pleasure",
+      "observation": "Пользователи фиксируют структурную асимметрию: боты успевают занять пермиты раньше, чем человек нажимает 'reserve', при этом сервисный сбор за каждую транзакцию идёт подрядчику (Booz Allen Hamilton), а не в бюджет парков — двойное ощущение несправедливости.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Instead of opening registration windows for the shuttles, do a lottery instead. That would be easier and more fair than current system where you have to beat 1000 bots at the same time.",
+      "observation": "Даже лояльные пользователи признают, что система 'окно открытия' проигрывает лотерее: при высоком спросе (шаттлы, восходы) победить ботов невозможно, и пользователи сами предлагают альтернативный механизм распределения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "tried for a week to get Cadillac mountain sunrise tickets. even when tickets are available after opening multiple times, unable to select a time in the ticket options",
+      "observation": "Для тикетного потока (sunrise, тур) UI не позволяет выбрать слот времени даже когда доступность показывается — пользователь видит наличие мест, но кнопка выбора времени не срабатывает, и он теряет неделю попыток.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Please Fix the Specific Campground Reviews Section! Prior to last update you could click on a campground and then click the review section for the campground and read all the reviews. Now if you click that all the app will show are the reviews for phone service",
+      "observation": "Обновление сломало ключевую фичу — раздел отзывов по конкретному кемпингу теперь показывает рейтинги мобильной связи вместо отзывов гостей; баг существует несколько версий подряд, хотя фича была одной из самых ценных для выбора места.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I love that I can scan a QR code at the campsite and pay for it offline but recently I haven't been able to finish the process once I'm online. The transaction doesn't appear anywhere but I do receive a notification saying I have a pending transaction",
+      "observation": "Офлайн-QR оплата на месте — уникальная механика, но транзакция зависает в состоянии 'pending' без видимого статуса; пользователь хочет заплатить, не может подтвердить — и вынужден ехать без квитанции.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "alot of campsites fill up and then when you get there a quarter of the campsite are empty. I feel like there should be a option to give up your campsite last minute and people could join a wait list for cancelations on a certain date.",
+      "observation": "Система бронирования создаёт оверкоммитмент: формально всё занято, физически — четверть мест пустует; пользователи самостоятельно приходят к идее листа ожидания на отменённые слоты как к очевидному решению, которого нет.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

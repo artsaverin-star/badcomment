@@ -1,0 +1,71 @@
+{
+  "productId": "cmpsyj7ob1d9rughv27lsf7vu",
+  "slug": "pencil-sketch-photo-editor-680134923",
+  "name": "Pencil Sketch Photo Editor +",
+  "domain": "конвертация фото в карандашный рисунок / photo-to-sketch / арт-фильтры",
+  "oneLiner": "Android-приложение, конвертирующее любую фотографию в карандашный эскиз или рисунок — используется художниками для трассировки референсов, тату-мастерами и студентами арт-школ.",
+  "pricing": "3-дневный бесплатный триал с принудительным переходом в подписку; около $15 в неделю (упоминается пользователями); бесплатная версия существует, но сохранение результата заблокировано пейволлом — вместо чистого изображения выдаётся превью с нарисованной рукой поверх половины картинки; отписка через приложение недоступна, поддержка не отвечает на письма",
+  "keyFeatures": [
+    "конвертация фото в карандашный эскиз (pencil sketch) одним нажатием",
+    "офлайн-режим — обработка изображений без интернета",
+    "трассировочный режим для художников (наложение контуров для срисовки)",
+    "арт-фильтры и стилизация под разные техники рисунка",
+    "галерея готовых эскизов внутри приложения",
+    "экспорт готового изображения (только в платной версии)"
+  ],
+  "competitors": [
+    "Sketch Me! — Sketch & Cartoon",
+    "Photo to Sketch — Pencil Draw",
+    "Prisma Photo Editor",
+    "Clip2Comic & Caricature Maker",
+    "Photo Lab Picture Editor"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I was attacked by so many ads even before getting to a point I could try the app itself. dark patterns to the max!!",
+      "observation": "Рекламный блок срабатывает ещё на стадии загрузки, до того как пользователь видит основной интерфейс — человек не может оценить продукт, не пройдя через несколько принудительных рекламных роликов. Сами пользователи прямо называют это 'dark patterns'.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "worst app ever every time u press a button goes into long long ads. I put up with 4 of them to get my picture and it's the picture with a cartoon hand holding the picture taking up half of it. then they want money to actually get the pic!!!!",
+      "observation": "Механизм двойного захвата: сначала каждое нажатие кнопки запускает длинный рекламный ролик, затем готовый результат отдаётся с watermark в виде нарисованной руки, закрывающей половину изображения — полный файл доступен только за деньги. Пользователь платит временем (реклама) и всё равно не получает продукт.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Somehow I was checking out different photos sketch apps and I must have somehow ended up paying for it, maybe through a free introduction. Anyhow I can't seem to get it out, I tried to cancel through my American Express and it still keeps popping up. trying to figure out how to cancel this.",
+      "observation": "Триал активируется неявно в процессе onboarding — пользователь не осознаёт момент согласия на платёж. Отписка через карту (блокировка у эмитента) не останавливает списания: подписка привязана к аккаунту магазина и продолжает работать даже после блокировки карты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "my son downloaded the app, but there is no option to cancel subscription. after multiple emails I haven't received a single response.",
+      "observation": "В интерфейсе приложения отсутствует явная кнопка отмены подписки, а служба поддержки не отвечает на письма — пользователи вынуждены идти в настройки Google Play напрямую, о чём приложение не информирует.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "no way to stop payment when done with it..have to block it from my card.. should be an option to stop when done 15 dollars a week is ridiculous..",
+      "observation": "Еженедельная подписка в ~$15 при отсутствии кнопки отмены внутри приложения воспринимается как ловушка: единственный известный пользователям выход — блокировать карту у банка, а не отписываться штатным способом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I really love this sketch app. I sketch very well on my own, however I use this app for a quick on the spot delivery.",
+      "observation": "Профессиональные художники используют приложение не как замену ручного скетча, а как инструмент быстрой генерации черновика прямо на месте — приложение занимает нишу 'быстрого референса на ходу', а не конкурирует с полноценными редакторами.",
+      "specificity": "medium"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it has too many ads (commodity — без описания конкретного механизма)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User says quality is bad (commodity — без сравнения с конкурентами или описания артефактов)",
+    "User wants more content or more filters (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

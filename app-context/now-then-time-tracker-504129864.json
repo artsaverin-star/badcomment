@@ -1,0 +1,76 @@
+{
+  "productId": "cmpt3gnwj70mqugfeg49yhvzf",
+  "slug": "now-then-time-tracker-504129864",
+  "name": "Now Then Time Tracker",
+  "_dataNote": "Файл отзывов для этого productId содержит отзывы на Now TV (UK SVOD, Sky) — это ошибка пайплайна харвестинга. Домен, онелайнер и примеры ниже отражают реальный контент отзывов (Now TV), а не time-tracking приложение.",
+  "domain": "видеостриминг / SVOD / платное ТВ (Now TV by Sky, UK)",
+  "oneLiner": "Now TV — британский SVOD-сервис Sky с пакетами Entertainment, Cinema, Sport и Hayu; подписка с несколькими ценовыми уровнями, включая платный Boost для HD/4K и режима без рекламы",
+  "pricing": "базовая подписка Entertainment от ~£9.99/мес; Cinema и Sport — отдельные пакеты; Boost (HD/4K + без рекламы) ~£6-9/мес сверху; разовый дневной пропуск ~£15; при покупке через приложение доступны только 12-месячные планы — ежемесячный тариф только через сайт",
+  "keyFeatures": [
+    "стриминг фильмов, сериалов и ТВ-шоу (включая контент HBO Max)",
+    "пакет Sport с live-трансляциями (Формула 1, футбол, крикет)",
+    "live ТВ-гид с каналами Sky",
+    "загрузка контента для офлайн-просмотра (заявлено, работает не для всего каталога)",
+    "Boost-подписка для HD/4K-стриминга и отключения рекламы",
+    "пакет Hayu с реалити-шоу",
+    "мультиустройственный просмотр (iOS, Android, Apple TV, Firestick, Chromecast, Smart TV)"
+  ],
+  "competitors": [
+    "Netflix",
+    "Amazon Prime Video",
+    "Disney+",
+    "Apple TV+",
+    "HBO Max (прямая подписка)",
+    "Sky TV (прямое спутниковое ТВ)",
+    "BBC iPlayer",
+    "Discovery+"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "everything seems to be locked. every. single. category. the first few shows or movies are all locked. It feels like you are paying to browse at this point",
+      "observation": "Базовая подписка открывает только первые 2-3 позиции в каждой категории, остальное требует добавочного пакета — пользователь оплатил вход, но видит преимущественно пейволл, а не контент.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "useless keeps saying I'm still streaming on my other device (laptop) even though I closed it, tried to open it on my phone app which still said it was open which it wasn't",
+      "observation": "Система DRM не снимает сессию после закрытия приложения на устройстве — пользователь оказывается заблокирован на втором устройстве, и единственный выход — ждать истечения сессии вручную.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Tells me I'm watching on two devices when i just moved from my living room to the bedroom. The generated subtitles stay on the screen longer then needed overwriting the subtitles in the documentary",
+      "observation": "Переход между устройствами в рамках одного домохозяйства ошибочно засчитывается как параллельный стриминг: система блокирует просмотр, хотя предыдущий экран уже неактивен.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I bought a subscription using Apple and when I go to log in I can't and Now say I don't exist. Go to the chat - you don't exist. But I've just paid you. Through Apple? Yes. Talk to them.",
+      "observation": "Покупка через Apple IAP создаёт транзакцию на стороне Apple, но не активирует аккаунт на серверах Now TV — сервис не находит пользователя и перекладывает разрешение ситуации на Apple, оставляя клиента без доступа и без возврата.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I bought a day membership for £15 to watch the football. They took my money, the it said 'no membership' so couldn't watch the football. There's no phone number, email or anyway to contact them",
+      "observation": "Разовый дневной пропуск (~£15) списывает деньги, но не активирует доступ — при этом нет ни телефона, ни email поддержки, только чат, который закрывается без решения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "make sure you cancel the boost too. just cancelled which you do on their site. you could quite easily continue paying the £6 / £9pm charge for watching in 1080p and 4k without adverts",
+      "observation": "Boost — отдельная добавочная подписка, которая не отменяется вместе с основным пакетом: пользователь отписывается от Entertainment, но продолжает платить за Boost, о чём узнаёт только по выписке из банка.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

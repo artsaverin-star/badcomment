@@ -1,0 +1,78 @@
+{
+  "productId": "cmpt50rk12jnlugw63lhmi25y",
+  "slug": "slidebox-984305203",
+  "name": "Slidebox",
+  "domain": "организация галереи / очистка фото / ручная сортировка свайпами",
+  "oneLiner": "Slidebox — инструмент ручной сортировки фотогалереи свайпами: каждый снимок просматривается по одному, пользователь отправляет его в альбом, удаляет или пропускает — без автоматики и ИИ.",
+  "pricing": "подписочная модель без возможности разовой покупки; недельный тариф около $2/неделю; годовой тариф дешевле; бесплатная версия жёстко ограничена (7-8 фото за сессию на Android); триал есть, но пользователи жалуются, что оплата снимается даже после отмены в первый день",
+
+  "keyFeatures": [
+    "пооткрытковая сортировка свайпами: влево — удалить, вправо / вверх — переместить в альбом, вниз — пропустить",
+    "организация по папкам / альбомам с собственной структурой (не только Camera Roll)",
+    "режим 'On This Day' — сортировка по дате съёмки",
+    "режим сортировки по категориям (скриншоты, видео, WhatsApp и т.д.)",
+    "пакетное применение решений через кнопку 'Apply Changes' в конце сессии",
+    "просмотр видео прямо в интерфейсе свайпа",
+    "настраиваемая панель альбомов для быстрого перемещения фото",
+    "работа только с локальным хранилищем устройства (Google Photos не поддерживается)"
+  ],
+
+  "competitors": [
+    "Google Photos (встроенная галерея + облако)",
+    "Samsung Gallery",
+    "Gemini Photos (iOS, автоматическая дедупликация)",
+    "Unfolder - Organize Photos",
+    "Tidy - Photo Organizer & Cleaner",
+    "встроенный Files от Google"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "please.. add a confirmation prompt.. when clicking 'back'.. I was sorting through 1000+ pictures from whatsapp... almost done with it... but I accidentally click back... and I have to do it from the start again",
+      "observation": "Системная кнопка «Назад» на Android прерывает сессию сортировки без предупреждения и без сохранения прогресса: пользователь, отсортировавший 1000+ фото из WhatsApp, теряет всю работу и вынужден начинать заново. Аналогичная проблема подтверждается несколькими отзывами с разными сценариями (системный Back, случайный тап).",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "wasted like an hour of my time going thru thinking i was deleting stuff... and no photos are actually gone from my phone... actually looks like it duplicated each photo so i actually have more photos now than i started with",
+      "observation": "Удаление в приложении не применяется автоматически к галерее: фото остаются на устройстве до нажатия 'Apply Changes', но это не объясняется в интерфейсе. Часть пользователей обнаруживает, что после часа работы галерея не изменилась — или, по ощущению, стала больше из-за отображения дубликатов в разных папках.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "All the folders I set up have disappeared, none of the photos from prior to paying that were sorted exist anymore. No explanation or information about why this happened. All photos that were sorted appear to have been deleted from Gallery.",
+      "observation": "После перехода с бесплатной версии на платную подписку пользователь обнаружил, что все настроенные альбомы исчезли, а ранее отсортированные фото удалились из галереи — без предупреждения и без возможности восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "this app saved my hands. I have a Disability where clicking and moving my fingers is excruciating. this solved a messy phone ui for gallery that developers neglect fixing.",
+      "observation": "Свайп-интерфейс оказывается критически важным для пользователей с моторными ограничениями: стандартный интерфейс галерей требует точных тапов и мелкой моторики, тогда как крупные свайпы всей рукой снижают физическую нагрузку до минимума.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I've contacted slide box twice via their provided email address and have had no reply. I paid for an annual subscription but it won't let me access photos further back in the beginning of 2025.",
+      "observation": "Платная годовая подписка не снимает ограничение доступа к архивным фото: пользователь не может добраться до начала 2025 года через интерфейс приложения, а служба поддержки не отвечает на два обращения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "No option cancel... 'manage subscription' with no option to cancel when they make you sign up before you even use the app... 'Contact us' give a wonky email that you have to edit in order for it to send.",
+      "observation": "Онбординг требует подписки до начала использования; внутри приложения кнопка 'manage subscription' не ведёт к отмене; контактный email в разделе 'Contact Us' передаётся в битом формате и требует ручного исправления перед отправкой — три барьера подряд, каждый по отдельности воспроизводим.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

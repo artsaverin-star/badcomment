@@ -1,0 +1,74 @@
+{
+  "productId": "cmpst9c0u0ntoug8pbou38h8h",
+  "slug": "smart-noter-ai-note-taker-6739575916",
+  "name": "Smart Noter - AI Note Taker",
+  "domain": "AI-транскрипция / запись и конспектирование встреч / голосовые заметки",
+  "oneLiner": "Smart Noter — мобильный рекордер с AI-транскрипцией и авто-саммари для деловых встреч, лекций и диктовки; Android+iOS, freemium с агрессивным пейволлом.",
+  "pricing": "3-дневный бесплатный триал (часть пользователей сообщает об отсутствии реального бесплатного периода без регистрации); далее — запутанная многоуровневая схема: ~$39-43/год за базовый план плюс отдельная ~$9-10/неделя за 'Pro'; некоторые пользователи сообщают о двойных списаниях ($43.19 × 2) и о том, что годовая плата оказалась надбавкой к еженедельной, а не заменой; подписка продолжает списываться после авто-продления, даже если Premium-доступ не разблокирован",
+  "keyFeatures": [
+    "запись аудио в реальном времени (встречи, лекции, диктовка)",
+    "AI-транскрипция записанного или загруженного аудио/видео",
+    "автоматическое AI-саммари с ключевыми пунктами",
+    "загрузка внешних аудио- и видеофайлов для транскрибирования",
+    "PDF-ридер с функцией суммаризации документов",
+    "экспорт и шеринг транскриптов/заметок",
+    "многоязычный режим транскрипции (заявлен, но качество нестабильно)"
+  ],
+  "competitors": [
+    "Otter.ai",
+    "Descript",
+    "Rev Voice Recorder",
+    "Whisper-based приложения",
+    "Google Recorder (встроенный Android)",
+    "Notion AI",
+    "Microsoft Copilot / Teams транскрипция"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "if it records for more than 35 or 40 minutes it is a complete waste of time. It won't transcribe successfully if the recording time exceeds 35 minutes. It has happened to me twice now.",
+      "observation": "Транскрипция молча обрывается на записях длиннее ~35 минут: файл сохраняется, но текст не генерируется, пользователь узнаёт об ошибке только после окончания встречи и попытки открыть результат.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the audio file should be saved to your device but it is not! critical meeting details lost due to a basic function which is not included! audio files should save to your device before uploading! they do not",
+      "observation": "Приложение не делает локальной копии аудиофайла перед отправкой на сервер: если загрузка обрывается или сервер отвергает файл, запись теряется безвозвратно — нет ни файла на устройстве, ни возможности повторить попытку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The AI summary is very generic and it doesn't highlight the items clearly to follow up on. I was hoping for more detailed summary. Another complaint, the description of the annual fee of $42 was supposed to be for using the app for the whole year and I was very happy with that, but it turns out it was an addition to the $10/week",
+      "observation": "AI-саммари производит generic-вывод без конкретных action items; при этом ценовая схема намеренно запутана: годовая плата $42 преподносится как полный тариф, тогда как на деле это надбавка к еженедельным $10 — пользователь обнаруживает реальную стоимость только после списания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I did not buy this app, yet I was charged $43.19 for Smart Noter and another $43.19 for Smart Noter AI. I haven't even used them because I don't know what they are.",
+      "observation": "Существуют два отдельных SKU ('Smart Noter' и 'Smart Noter AI') с отдельными платёжными идентификаторами: пользователи случайно подписываются на оба и получают двойное списание $43.19 × 2 за продукты, которые они не могли сознательно различить.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "after auto renewal, the Smartnoter Premium will not recognize the renewal. Smartnoter support will not help and neither will Google play",
+      "observation": "После авто-продления подписки бэкенд не синхронизирует статус: приложение продолжает показывать бесплатный режим, деньги списаны, поддержка не отвечает, Google Play отказывает в возврате — пользователь оказывается без функций и без денег.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I take HUGE issue with lack of transparency when it comes to being able to check your subscription IN the app. I was taken back by the outrageously high WEEKLY fee and wanted to check for a considerably cheaper option. Can't!",
+      "observation": "В приложении нет раздела управления подпиской: пользователь не может сравнить тарифы, переключить план или посмотреть дату следующего списания изнутри — единственный момент, когда реальная цена становится видна, это страница оплаты в Google Play.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics, no context of what was being recorded)",
+    "User says it is too expensive (no description of which tier or surprise mechanism)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more features (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive flow described)",
+    "Hard to cancel (commodity unless specific friction in cancellation UI described)",
+    "Notes are inaccurate (commodity unless language/dialect/accent specifics given)"
+  ]
+}

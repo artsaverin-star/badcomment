@@ -1,0 +1,73 @@
+{
+  "productId": "cmpszhr903bpxughvc83abjsu",
+  "slug": "hours-tracker-time-tracking-336456412",
+  "name": "Hours Tracker Time Tracking",
+  "domain": "трекинг рабочих часов / расчёт зарплаты / несколько работодателей",
+  "oneLiner": "Мобильный тайм-трекер для почасовых работников и фрилансеров: фиксирует смены по нескольким работодателям, считает заработок и экспортирует табель — iOS и Android.",
+  "pricing": "Бесплатная версия ограничена 21 записью и 5 рабочими местами; после лимита — принудительный пейволл. Ранее продавалась разовая покупка Pro за ~$7, затем модель сменилась на подписку ~$50-60/год (по отзывам встречается и £45/год). Кнопка «Restore Purchase» для старых покупателей в версии 5.0.x не работает. Подписчикам в версии 5.0.14 продолжают показываться реклама.",
+  "keyFeatures": [
+    "Ручной clock-in/clock-out по каждому рабочему месту (job) с расчётом отработанных часов и суммы к получению",
+    "Геозонирование (geofencing): автоматический clock-in/out при входе/выходе из заданного радиуса рабочего места",
+    "Поддержка нескольких работодателей (jobs) в одном интерфейсе",
+    "Расчёт почасовой ставки и итоговой суммы за период",
+    "Экспорт табеля в текстовом формате (email/share)",
+    "Тёмная тема (dark mode)",
+    "Резервное копирование данных в облако (cloud backup — не Google Drive)"
+  ],
+  "competitors": [
+    "Clockify",
+    "Toggl Track",
+    "TSheets (QuickBooks Time)",
+    "Homebase",
+    "When I Work",
+    "HoursTracker (iOS)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "long time user, new version harder to use. It is meant to be automatic. But, when creating a new job site, it requires you to MANUALY enter the stop and start for dome number of CONSECUTIVE entries to that work site before it starts doing it automatically.",
+      "observation": "Автоматический геофенс не включается сразу при создании нового рабочего места: пользователь вынужден несколько раз вручную вбить clock-in/clock-out подряд, прежде чем алгоритм «обучится» и начнёт срабатывать сам — этот порог нигде не задокументирован.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Has everything i want including geofencing to automatically clock in/out... UPDATE: geofencing doesnt work even when done correctly without battery optimization and always allow access to location.",
+      "observation": "Геозонирование заявлено как ключевая фича, но на практике не срабатывает даже при отключённой оптимизации батареи и постоянном разрешении на геолокацию — пользователь перепроверил все настройки Android и всё равно получил нефункциональный автоматический clock-in.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "i paid $7 for the pro version of this app, now i have ads. no respect for og users who helped support the development of the app. edit: the purchase restore option doesn't work. there is a button in the app but it is a fake button, doesn't work.",
+      "observation": "Пользователи, купившие разовую лицензию Pro за $7, после перехода приложения на подписочную модель видят рекламу, а кнопка «Restore Purchase» не восстанавливает доступ — технически присутствует в интерфейсе, но не выполняет никакого действия.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "doesnt ask for payment until youre already relying on it, have been tracking my hours for months and have just hit a limit asking me to pay 45 pounds a year with no notice. Moving to another app and ill have to copy my hour logs manually.",
+      "observation": "Лимит бесплатного тарифа не показывается заранее: пользователь несколько месяцев ведёт табель, а потом в произвольный момент упирается в пейволл — все накопленные данные остаются в приложении, но экспортировать их можно только вручную.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the app switched over but not my purchase so now it's popping up adds and offering me to buy it again. I thought it was a one time purchase plan.",
+      "observation": "При смене телефона разовая покупка Pro не переносится автоматически: приложение воспринимает новое устройство как новую установку и предлагает купить снова — без встроенного механизма привязки к аккаунту Google Play.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "great app for most part once you buy the min package. One bug however, is it won't start my week correctly on Sun, bc even tho its set that way in preferences, it still puts Sun on the week before following the Sat.",
+      "observation": "Настройка начала недели с воскресенья в настройках игнорируется в отображении: воскресенье визуально относится к предыдущей неделе вместе с субботой — итоговые суммы за «рабочую неделю» считаются с ошибочным разбиением.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

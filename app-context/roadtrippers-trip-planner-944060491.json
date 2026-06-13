@@ -1,0 +1,76 @@
+{
+  "productId": "cmpsufv0q35xgug8puonqc83n",
+  "slug": "roadtrippers-trip-planner-944060491",
+  "name": "Roadtrippers - Trip Planner",
+  "domain": "планирование автопутешествий / road trip routing / достопримечательности вдоль маршрута",
+  "oneLiner": "Roadtrippers — американский планировщик автопоездок: строит маршрут с остановками у достопримечательностей, кемпингов и ресторанов, оценивает расход топлива и позволяет экспортировать итинерарий; работает в США, Канаде, Австралии и Новой Зеландии.",
+  "pricing": "бесплатная установка без реальной функциональности; Plus/Premium по подписке ~$39-60/год (цены менялись: $29 → $39 → $59 за 5 лет по данным отзывов); 7-дневный бесплатный триал, отмена которого нетривиальна — часть пользователей сообщает о списаниях после удаления приложения; базовый платный план ограничивает маршрут 20 остановками, сверх этого требует апгрейда до Premium",
+  "keyFeatures": [
+    "построение маршрута с промежуточными остановками (waypoints) — ручной выбор и автоматические предложения",
+    "каталог достопримечательностей, ресторанов, кемпингов и отелей вдоль маршрута с фильтрами по категориям",
+    "AI-ассистент для генерации идей остановок по запросу",
+    "оценка стоимости топлива с учётом типа транспортного средства",
+    "экспорт итинерария в PDF с картой и деталями по каждому дню",
+    "поддержка RV/мотодома как типа транспорта с соответствующими фильтрами остановок",
+    "интеграция с Campendium (кемпинги)",
+    "совместное планирование поездки через веб-версию"
+  ],
+  "competitors": [
+    "Google Maps ('Search along route' / Ask Maps)",
+    "Apple Maps",
+    "Furkot",
+    "TripIt",
+    "Roadside America",
+    "Campendium (поглощён Roadtrippers)",
+    "HipCamp",
+    "Harvest Hosts"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "The map doesn't show cities or routes unless you zoom in to their magical range, whatever it is for that particular road or city, and then its GONE if you zoom one click closer or further away.",
+      "observation": "Карта скрывает города и маршруты за пределами определённого зум-диапазона: одно нажатие в любую сторону — и надписи исчезают. Это делает использование во время поездки опасным: водитель вынужден отрываться от дороги, чтобы найти 'правильный' масштаб.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The app only gave me 4 attractions between Iowa & Florida. The service is unfortunately not worth 59.99 simply forgetting to end the trial period",
+      "observation": "При маршруте через полстраны (Iowa → Florida) алгоритм предложил лишь 4 достопримечательности — основная ценностная характеристика продукта (насыщенность каталога вдоль маршрута) не реализуется на дальних перегонах.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The basic paid membership allows trips with up to 20 stops. I spent a week creating a 16 stop trip. Now they have locked it saying I need to upgrade to the premium membership",
+      "observation": "Пользователь потратил неделю на составление 16-остановочного маршрута внутри лимита базового плана, после чего приложение заблокировало поездку и потребовало апгрейда — правила tier-системы изменились или применялись некорректно, не предупредив пользователя до начала работы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Keep increasing subscription from $29 to $59 over last 5 years. Subscription doesn't show under Apple subscriptions for you to catch it. I was charged for 5 years and didn't know.",
+      "observation": "Подписка оформлена не через стандартный механизм Apple In-App Purchase, а напрямую — поэтому она не отображается в разделе «Подписки» в настройках iOS, и пользователь не может её обнаружить или отменить стандартным способом. За 5 лет цена выросла более чем вдвое без явных уведомлений.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "You could enter point A to point B, choose exactly what you were looking for (cheap restaurants, amusement, weird stops along the way, etc.), and it would show you a ton of options along your route. The new version forces you to answer a few generic questions and then only gives you a tiny handful of suggestions.",
+      "observation": "Старый интерфейс давал прямой доступ к фильтрам по категориям вдоль маршрута и возвращал широкий список вариантов; новый AI-онбординг задаёт общие вопросы и возвращает кратный меньше результатов — ключевая функция обнаружения остановок деградировала при редизайне.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "The summary trip overview (details) is nice and was only a few dollars off in its gas cost estimation which I tracked separately. I'd love to be able to track gas and other expenses right in the app",
+      "observation": "Оценка расхода топлива приложением точна до нескольких долларов на реальную поездку — пользователи, отслеживающие расходы вручную, подтверждают качество модели. При этом отсутствует встроенный трекер реальных расходов, что заставляет вести параллельный учёт.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "productId": "cmpsyda2710upughvi0ln6bqn",
+  "slug": "petdesk-631377773",
+  "name": "PetDesk",
+  "domain": "ветеринарный портал / управление здоровьем питомцев / коммуникация с клиникой",
+  "oneLiner": "PetDesk — мобильный хаб владельца питомца: запись к ветеринару, история вакцинаций, рецептурные рефиллы и мессенджер с клиникой в одном приложении, работает только если ваша клиника подключена к платформе.",
+  "pricing": "бесплатное для владельцев питомцев; монетизация на стороне ветклиники (B2B SaaS); в некоторых клиниках доступна программа лояльности с накоплением баллов за визиты",
+
+  "keyFeatures": [
+    "онлайн-запись на приём без звонка в клинику (запрос → подтверждение по email)",
+    "хранение медицинской истории: вакцинации, анализы, хирургия — по каждому питомцу отдельно",
+    "запрос рефилла рецептурных препаратов прямо из приложения",
+    "напоминания о прививках, визитах и графике приёма лекарств (в том числе сложные схемы дозировки)",
+    "встроенный мессенджер с клиникой: сообщения доходят напрямую до врача без удержания на линии",
+    "несколько питомцев в одном аккаунте с разными ветклиниками",
+    "программа лояльности: баллы за визиты, которые можно конвертировать в скидки",
+    "доступ к результатам лабораторных анализов в приложении"
+  ],
+
+  "competitors": [
+    "VitusVet",
+    "Pawprint",
+    "Vetsource",
+    "MyPetsHealth",
+    "встроенные порталы ветклиник (собственные веб-кабинеты)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "I can schedule appointments, tech visits for little things like nail trims and shots and to look up medical history and current medications. no more waiting on the phone... I can set reminders to make sure everyone gets their meds on time and it helps me keep track of those complicated dosing schedules (like 2 pills 3x day for 5 days then 1 pill 2x day for 10 days then 1 pill daily, etc...)",
+      "observation": "Напоминания о лекарствах в PetDesk позволяют вести разветвлённые схемы дозировки (убывающий курс стероидов, чередование доз) — ту самую задачу, которую врач объясняет устно и которую владелец неизбежно путает через несколько дней.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "it's hard keeping up with 6 animals with different health issues. This has it all in one place! We can request refills, check status of vaccines and make appointments as needed. Plus we can edit things like weight from home.",
+      "observation": "При многопитомцевом хозяйстве (6 животных с разными хроническими проблемами) пользователь перекладывает на приложение задачу отслеживания статусов вакцинаций и сроков рефиллов — иначе это ручная таблица или ежедневный обзвон клиники.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "One of my cat's that hadn't seen the new vet already had a profile on there from the last!",
+      "observation": "Медицинский профиль питомца переносится между ветклиниками внутри сети PetDesk без повторного ввода: пользователь сменил клинику и обнаружил готовый профиль — это снимает один из главных барьеров перехода к другому ветеринару.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "horrible app. Instead of notifying me of upcoming appointments. it wait till a few weeks/months after to tell me that I'm past due on appointments.",
+      "observation": "Логика напоминаний инвертирована: уведомление о «просроченном» визите приходит спустя недели после самой даты, а не заблаговременно — то есть приложение информирует о факте пропуска, а не предотвращает его.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "The app often doesn't sync with the veterinary clinic especially when the appointment gets changed. I also wish there was a way to change the pet listed on appt or to merge pets. I already added all of my new rabbit's information but the vet office scheduled the appointment and created another new pet entry, and there's no way for me to replace their blank pet entry with the one that I created.",
+      "observation": "При рассинхроне между клиникой и приложением система создаёт дублирующий профиль питомца со стороны клиники, и пользователь не может слить его с уже заполненной карточкой — в результате подробные данные (порода, вес, история) остаются в «мёртвом» профиле, а к новому визиту привязан пустой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "why would EVERRRRR think it was a good idea to remove the feature that hosts all your pets vaccine and surgery history! this is a stupid and pointless app now. congrats on ruining a good thing!",
+      "observation": "Обновление версии 8.x удалило раздел полной истории вакцинаций и операций — именно ту функцию, ради которой пользователи выбирали приложение; без неё PetDesk деградирует до простого планировщика встреч.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

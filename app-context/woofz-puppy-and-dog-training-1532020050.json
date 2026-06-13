@@ -1,0 +1,72 @@
+{
+  "productId": "cmpsttr331w5hug8phr8443wj",
+  "slug": "woofz-puppy-and-dog-training-1532020050",
+  "name": "Woofz - Puppy and Dog Training",
+  "domain": "дрессировка собак / pet care / онбординг щенка",
+  "oneLiner": "Woofz — подписочное приложение для дрессировки собак с персонализированным планом уроков по возрасту, полу и породе; позиционируется как замена живому тренеру.",
+  "pricing": "рекламируется как «бесплатно», но требует оплаты уже при онбординге; несколько ценовых точек в разных флоу: разовые пакеты от ~$6–$30, подписка от ~$20–$100/месяц; годовой план около $99.95; триал 3–7 дней с автоматическим переходом на полную подписку без напоминания; несколько пользователей сообщают о $48.95–$99.95/месяц после триала",
+  "keyFeatures": [
+    "персонализированный план тренировок по возрасту, полу и породе собаки",
+    "пошаговые уроки: команды 'сидеть', 'лежать', базовое послушание, отучение от прыжков и укусов",
+    "иллюстрированные (мультяшные) инструкции по каждому упражнению",
+    "трекинг прогресса тренировок",
+    "дополнительные материалы — рабочие тетради (workbooks) и печатные версии за доплату",
+    "чат-поддержка внутри приложения",
+    "контент для разных этапов: от подготовки к появлению щенка до взрослой собаки"
+  ],
+  "competitors": [
+    "Puppr - Dog Training & Tricks",
+    "Dogo - Puppy and Dog Training",
+    "GoodPup",
+    "бесплатные YouTube-каналы по дрессировке (Zak Georges Dog Training)",
+    "локальные профессиональные тренеры"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Completed the lessons. Revisited the site to access the paid for lessons. Apparently that triggered a trial subscription and a subscription at $48.95 a month.",
+      "observation": "Повторный визит на сайт после оплаты разового пакета уроков автоматически активирует триальную подписку — пользователь получает $48.95/месяц без явного согласия. Механизм позволяет компании интерпретировать любой вход в аккаунт как 'активацию триала'.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "After 3 months they billed me $150 without any notice. Went back and forth with support and they said it is impossible to refund my money 1 day after automatic renewal.",
+      "observation": "Приложение не отправляет уведомление перед автопродлением годовой подписки: пользователь обнаруживает списание $150 постфактум, а поддержка отказывает в возврате даже при обращении на следующий день после списания, ссылаясь на политику.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid for the trial. I cancelled it. Now, Woofz has attempted to charge me 4 entirely different amounts, all while telling me I will not be charged anymore, every single time. It's been cancelled. They tell me it's for a previous billing cycle... the charges are for $38, $31, $23, and now, $15.",
+      "observation": "После подтверждённой отмены подписки система продолжает выставлять счета на случайные суммы ($38, $31, $23, $15) с объяснением 'предыдущий биллинговый период' — хотя никакого задолженности нет. Паттерн убывающих сумм указывает на автоматизированный retry-механизм, а не на ручную ошибку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Can not explore app without putting in card details. Company debits your account when you have not subscribed. I downloaded once to explore, never subscribed, my account has been debited twice?",
+      "observation": "Приложение требует банковскую карту для 'просмотра' — пользователь скачал, создал аккаунт, не оформил подписку явно, и получил два списания. Механизм позволяет конвертировать простую регистрацию в биллинг без подтверждённой транзакции.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "no way to access start date of program thru app so you can arrange to cancel before you get charged 5x more than initial trial",
+      "observation": "В приложении намеренно скрыта дата начала триала и дата следующего списания — пользователь не может рассчитать момент отмены без обращения в поддержку. Отсутствие этой информации в аккаунте создаёт системный барьер для своевременной отмены.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Thought they'd help with puppy potty training-that's what I asked for and they started with sit, down, and other stuff I don't need!",
+      "observation": "Онбординг собирает данные о проблеме (приучение к туалету), но сгенерированный 'персональный план' игнорирует запрос и начинает со стандартных базовых команд. Персонализация является маркетинговым обещанием, а не реальной логикой подбора контента.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

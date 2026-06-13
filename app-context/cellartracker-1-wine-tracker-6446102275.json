@@ -1,0 +1,74 @@
+{
+  "productId": "cmpsu71xw2o74ug8p0mpcwgqr",
+  "slug": "cellartracker-1-wine-tracker-6446102275",
+  "name": "CellarTracker: #1 Wine Tracker",
+  "domain": "управление винным погребом / коллекционирование вина / дегустационные заметки",
+  "oneLiner": "CellarTracker — веб-сервис с мобильным приложением для учёта личного винного погреба: инвентарь по бутылкам, окна питья (drinking window), сообщество из десятков тысяч коллекционеров и профессиональные критические оценки в одном месте.",
+  "pricing": "бесплатный базовый доступ; платная подписка масштабируется по количеству бутылок в коллекции — пользователи с ~5 000 бутылок отмечают, что цена растёт быстро; подписка даёт доступ к данным wine-аукционов, оценкам профессиональных критиков (Wine Market Journal и другие) и AI-саммари; сторонние тематические плагины оплачиваются отдельно",
+  "keyFeatures": [
+    "инвентаризация по отдельным бутылкам: место хранения, дата покупки, цена, поставщик, количество",
+    "drinking window и Drinkability Index — когда пить NOW, а что ещё ждать",
+    "сканирование этикеток для быстрого добавления бутылки",
+    "крупная общественная база данных с оценками и дегустационными заметками от других коллекционеров",
+    "интеграция с профессиональными критиками (Wine Spectator, Wine Advocate, Wine Market Journal и др.) по подписке",
+    "AI-саммари по каждому вину на основе отзывов сообщества",
+    "расчёт рыночной стоимости коллекции; фильтрация по региону, сорту, винтажу, цене",
+    "экспорт и печать инвентаря; поддержка web-версии параллельно с мобильным приложением"
+  ],
+  "competitors": [
+    "Vivino",
+    "Delectable Wine",
+    "Wine-Searcher",
+    "Untappd (для крафтового пива)",
+    "Excel / Google Sheets (упоминается как альтернатива напрямую)",
+    "Wine Market Journal (как плагин/партнёр)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "if I have an active filter going (like Bordeaux with a certain price and vintage) and then my wife wants a Skipstone, so I want to search for her. Then I have to clear the filter which takes a few clicks. And then I've lost that filter.",
+      "observation": "Фильтр коллекции и строка поиска конкурируют за один контекст: быстрый поиск отдельной бутылки сбрасывает активный сложный фильтр (регион + цена + винтаж), и пользователь теряет его безвозвратно — сохранить фильтры нельзя. Для больших погребов (5 000+ бутылок) это делает спонтанный поиск практически нерабочим.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "When you search a wine, the small vintage blocks are gone. Bring those back. Also, when you click into a wine, you're now given 'Popular Vintages'. Who asked for this?! This appeals to a much smaller audience than, say, 'Recent Vintages'.",
+      "observation": "Редизайн конца 2025 года убрал блоки винтажей из экрана поиска и заменил 'Recent Vintages' на 'Popular Vintages': коллекционеры, которым нужен именно свежий или нишевый урожай, делают лишний клик там, где раньше попадали сразу. Два независимых отзыва описывают один баг-регресс.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Subscribed / paid Wine Market Journal plug-in data doesn't work any more.",
+      "observation": "После обновления приложения данные платного плагина Wine Market Journal (отдельная подписка) перестали отображаться — пользователь платит за два уровня доступа, но функция сломана и не восстанавливается.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Seven of the first ten wines we tried were not in their database. These were from reputable vineyards in Napa. More of a limited or family reserve type wines.",
+      "observation": "База данных хорошо покрывает массовый коммерческий ассортимент, но пропускает ограниченные и семейные резервы именитых напа-хозяйств: 7 из 10 бутылок оказались вне базы, что делает drinking window и оценку стоимости недоступными именно там, где они нужнее всего.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "The new updates have been amazing!! I always loved getting the email updates with the AI summaries but it was not available in the app. Now that it has been rolled out to every wine, I'm having a blast going through and reading the summaries of each wine.",
+      "observation": "AI-саммари по каждому вину, которые раньше приходили только по email, наконец появились в приложении для всего каталога: пользователи получают агрегированный взгляд сообщества без необходимости листать сотни отдельных заметок.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "You are purged. Why are you sending an account removal request again after 1 minute? We literally say 'Thank for your patience. We will get back to you soon to remove your CellarTracker account.' It is Saturday night. It is done. Amazing.",
+      "observation": "Саппорт ответил на повторный запрос об удалении аккаунта (пришедший через минуту из-за зависания телефона) грубым письмом с насмешкой — и пользователь процитировал его дословно в App Store. Единичный инцидент, но он формирует публичный нарратив о тоне команды.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

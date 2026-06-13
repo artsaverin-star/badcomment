@@ -1,0 +1,74 @@
+{
+  "productId": "cmq7urkp005tmugicdf221c1j",
+  "slug": "podcast-app-1199070742",
+  "name": "Podcast App",
+  "domain": "агрегатор подкастов / podcast player / доступ к эфирному контенту",
+  "oneLiner": "Универсальный плеер подкастов с бесплатным уровнем на рекламе и платной подпиской без рекламы — аналог Apple Podcasts, но с расширенными настройками воспроизведения и мультирегиональным каталогом.",
+  "pricing": "бесплатная версия с агрессивной рекламой (видеоролики между действиями, незакрываемые баннеры); Premium подписка — пользователи называют суммы $20/месяц, $35-38/год, ~$40/год (разные рынки); также упоминается 2-летний план; 7-дневный бесплатный триал присутствует, но кнопка двойного подтверждения списывает за 2 года вместо месяца по ошибке",
+  "keyFeatures": [
+    "каталог подкастов с поиском — US, GB, AU, CA, DE, BR, NL и другие рынки",
+    "воспроизведение с регулируемой скоростью (ускорение; замедление ниже 1x отсутствует в бесплатной версии)",
+    "загрузка эпизодов для офлайн-прослушивания",
+    "очередь воспроизведения и перетасовка скачанных эпизодов",
+    "вкладки 'Избранное', 'Загрузки', 'Последние эпизоды' для быстрой навигации",
+    "CarPlay-интеграция",
+    "импорт подписок (лимитирован в бесплатном уровне)",
+    "сортировка эпизодов (Oldest to Newest — только в Premium)"
+  ],
+  "competitors": [
+    "Apple Podcasts (встроенный, упоминается как прямая бесплатная альтернатива)",
+    "Spotify Podcasts",
+    "Pocket Casts",
+    "Overcast",
+    "Castro",
+    "Google Podcasts (ныне закрыт)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "Ads sometimes 'hijack' the main screen forcing you to need multiple taps or extra steps to clear it off the screen after watching the ad. Some ads appear as if you phone is being hacked asking you to click. You need to look very carefully to find the x to close the screen",
+      "observation": "Рекламные баннеры перехватывают весь экран после просмотра, имитируя уведомления о взломе телефона; кнопка закрытия намеренно спрятана — пользователь вынужден совершить 2-3 нецелевых тапа, чтобы вернуться к подкасту.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "ads make it almost completely unusable. Many of the ads are not able to be closed out",
+      "observation": "Часть видеорекламы не имеет кнопки закрытия или кнопка появляется с задержкой — пользователь не может вернуться к прослушиванию без принудительного перезапуска приложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "when using the app connected to CarPlay you have to click on a tiny X to close the ad before your podcast will play. There's absolutely no way to use it hands free when driving. And the podcast won't play until you click whichever corner the tiny little X is located in.",
+      "observation": "В режиме CarPlay реклама блокирует воспроизведение: крошечная кнопка X требует точного тапа по экрану телефона за рулём — приложение неприменимо для прослушивания в машине без физического взаимодействия с устройством.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Offer a 7 day free trial. Double click and all the sudden they bill you for 2 yr subscription!! Asked for a refund immediately....denied!!",
+      "observation": "Флоу оформления подписки содержит ловушку двойного тапа: случайное второе нажатие списывает 2-летний тариф вместо месячного, и App Store отказывает в возврате средств, т.к. покупка технически подтверждена.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Oldest to Newest is 'Premium'",
+      "observation": "Сортировка эпизодов от старых к новым — базовая функция любого RSS-плеера — заблокирована пейволом, что вынуждает пользователей листать весь список эпизодов вручную в бесплатной версии.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app has advertising. The app does not check the ads properly. It shows phishing ads in it. I had to help my dad get rid of the app because it had phishing ads. I have screenshots of it.",
+      "observation": "Рекламная сеть приложения не проверяет объявления на безопасность: пользователи фиксируют фишинговую рекламу, имитирующую системные предупреждения — проблема документирована со скриншотами, но на жалобы не отвечают.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

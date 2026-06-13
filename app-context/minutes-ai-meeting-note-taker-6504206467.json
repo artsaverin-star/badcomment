@@ -1,0 +1,78 @@
+{
+  "productId": "cmpstcz8o0vs0ug8p4xr6c8iq",
+  "slug": "minutes-ai-meeting-note-taker-6504206467",
+  "name": "Minutes: AI Meeting Note Taker",
+  "domain": "AI-транскрипция встреч / авто-протоколирование / meeting notes",
+  "oneLiner": "Minutes записывает встречи на телефон, автоматически транскрибирует аудио и генерирует саммари с action items — позиционирует себя как замену ручному протоколированию для iOS и Android.",
+  "pricing": "7-дневный триал, затем платная подписка — около $100/год или $23/месяц; ряд пользователей сообщает о списании сразу при установке без ожидания конца триала; возврат средств поддержка отказывает даже при технических сбоях; в 2025 году цена выросла на 33% (с £10 до £15/мес в UK-сегменте)",
+
+  "keyFeatures": [
+    "запись аудио встречи прямо в приложении (iOS + Android + Apple Watch)",
+    "автоматическая транскрипция записи в текст",
+    "AI-саммари: краткое изложение и action items",
+    "загрузка готового аудиофайла для транскрибирования",
+    "определение говорящих (speaker diarization)",
+    "хранение архива протоколов в приложении",
+    "интеграция с Apple Watch для запуска записи с запястья"
+  ],
+
+  "competitors": [
+    "Otter.ai",
+    "Fireflies.ai",
+    "Fathom",
+    "Notion AI (встроенные транскрипции)",
+    "Rev Voice Recorder",
+    "Notta",
+    "встроенные транскрипции Zoom / Teams / Google Meet"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I lost recording when transcribing and could not recover",
+      "observation": "Приложение теряет запись на этапе транскрибирования: аудио было собрано успешно, но при переходе к обработке данные не сохраняются и восстановить их невозможно — потеря происходит именно в момент передачи между двумя стадиями пайплайна, а не при записи.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "occasionally I would get through a meeting, only to find that it has recorded, only for it to have someone else's transcript, audio recording and content. This is a huge security risk",
+      "observation": "Несколько раз пользователь получал в интерфейсе чужой транскрипт и аудио вместо своей встречи — данные другого пользователя отображались полностью, включая содержание, что означает путаницу сессий на стороне сервера: встреча не теряется, а подменяется чужой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I have to download the audio and share it again inorder to get notes that also only I am lucky otherwise it would say processing error. paying almost $23 monthly",
+      "observation": "Штатный путь 'запись → транскрипция' перестаёт работать, и поддержка предлагает workaround: скачать аудио вручную и заново загрузить его в приложение — что само по себе нестабильно и не гарантирует результата.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The claims to record in the background, however if you paused that app and go onto another app, it would delete your recording. Lost nearly 2 hours worth of recordings",
+      "observation": "Приложение декларирует фоновую запись, но при переключении на другое приложение iOS сессия прерывается и весь накопленный аудиобуфер удаляется без предупреждения — обещанная функция не соответствует реальному поведению ОС.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Seems to have issues identifying speakers if there are more than 2 or 3. The transcript is fairly accurate except with the above mentioned issue identifying multiple speakers",
+      "observation": "Диаризация говорящих деградирует при числе участников более 2-3: транскрипт остаётся текстуально точным, но атрибуция реплик смешивается, что делает протокол непригодным для многолюдных совещаний.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 1,
+      "trigger": "Useless, can't upload files larger than 200 megabytes.",
+      "observation": "Лимит на загружаемый файл — 200 МБ, что соответствует примерно 20 минутам несжатого аудио; запись часовой встречи через внешний диктофон (500 МБ) не загружается, и пользователь лишён возможности транскрибировать уже готовый файл.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

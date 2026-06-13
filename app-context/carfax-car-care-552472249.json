@@ -1,0 +1,74 @@
+{
+  "productId": "cmq7ut5e606w1ugic2qz8n4ri",
+  "slug": "carfax-car-care-552472249",
+  "name": "CARFAX Car Care",
+  "domain": "история обслуживания автомобиля / журнал ТО / напоминания о техобслуживании",
+  "oneLiner": "CARFAX Car Care — бесплатный гараж-журнал для iOS и Android: автоматически подтягивает записи от партнёрских сервисных центров по VIN, позволяет добавлять DIY-записи с фото квитанций и следит за сроками масла, тормозов и шин.",
+  "pricing": "бесплатно без подписки; монетизация — реклама партнёрских сервисных центров и продажа отчётов CARFAX; встроенных платных тарифов нет (пользователи отмечают это как плюс: 'it is FREE')",
+  "keyFeatures": [
+    "автоматический импорт записей об обслуживании от партнёрских сервисных центров по VIN",
+    "ручные записи DIY с возможностью прикладывать фото квитанций",
+    "напоминания о ТО: масло, тормозные колодки, ротация шин",
+    "история пробега и прогнозируемый пробег между визитами",
+    "проверка открытых отзывов (recalls) по VIN",
+    "мультигараж — несколько автомобилей в одном аккаунте",
+    "трекер топлива (заправки и расход, MPG)",
+    "оценка текущей рыночной стоимости автомобиля"
+  ],
+  "competitors": [
+    "Drivvo - Car Vehicle Manager",
+    "Fuelly",
+    "aCar - Car Maintenance & Fuel",
+    "AUTOsist Fleet Maintenance",
+    "мобильное приложение AutoZone",
+    "Midas (партнёрское ТО)",
+    "встроенные напоминания Apple CarPlay"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "I used to track everything in a Google spreadsheet. I found this app seven years ago now and have been pleasantly surprised by the ability to blend my individual DIY service records with photo documentation, and any official dealership work that was performed under warranty or recall.",
+      "observation": "Приложение закрывает реальную боль ведения гибридного журнала: DIY-записи с фото квитанций и официальные дилерские работы по гарантии и отзывам хранятся в одной хронологии — пользователь ведёт его уже 7 лет вместо таблицы Google.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "an external entry was added to my records that added 60,000 miles to my car I cannot fix or delete it. So now I can no longer add entries because the app won't let me put the proper entry. Customer support is basically nonexistent!",
+      "observation": "Сторонний сервисный центр может внести запись с произвольным пробегом прямо в VIN-историю пользователя — и приложение блокирует все последующие ручные записи, принимая ошибочное значение за 'последнее достоверное'. Исправить это без поддержки невозможно, а поддержка не отвечает.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Won't allow you to add a later receipt. The image quality of receipts has become so low that you can't read them. Why give us an option to save them, and compress them down so much they are un-legible. This is so frustrating because I wouldn't have throw them away if I had known your app was not reliable.",
+      "observation": "Квитанции, загружённые в приложение, сжимаются до нечитаемого качества — пользователь выбросил бумажные оригиналы, рассчитывая на цифровой архив, и теперь лишился документальной истории ТО.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Even after the Dealer (CarFax affiliated) provided the service record, CarFax still listed the service as overdue (I even uploaded the receipt). It wasn't until I added another duplicate service record entry, did the app update its 'tracking' information. This is the 2nd time in 3 months, I've had to do this double entry.",
+      "observation": "Автоматически импортированная запись от партнёрского дилера не снимает напоминание о просроченном ТО — приложение требует дублирующей ручной записи, чтобы 'понять', что работа выполнена. Проблема воспроизводилась дважды за 3 месяца у одного пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I cannot enter historical data with the odometer reading if the service centre is not a Carfax member. It doesn't allow me to enter an odometer reading that precedes the reading of my last service. I can clearly enter older dates for service.",
+      "observation": "Логика одометра в приложении однонаправленная: можно поставить прошедшую дату, но нельзя ввести пробег меньше последнего зарегистрированного. Это делает восстановление исторических записей от не-партнёрских сервисов фактически невозможным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "After an update over six months ago, the app automatically changed my Model 3 Performance to a Long Range, and won't let me change it back!!! the app no longer recognizes my cars' model, and is therefore completely useless!",
+      "observation": "Обновление перезаписало trim-уровень автомобиля Tesla (Performance → Long Range) без запроса пользователя, и поле trim стало нередактируемым после этого изменения — за полгода проблема осталась неисправленной.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics about trigger or version)",
+    "User says the app is great (non-information)",
+    "User wants more car types supported (generic ask)",
+    "App randomly deleted data (no detail on what action triggered reset)",
+    "Login broken for months (commodity unless reproducible steps described)",
+    "Reminders are annoying (commodity unless specific miscalculation described)",
+    "Subscription auto-renewed (not applicable — app is free, no subscription)"
+  ]
+}

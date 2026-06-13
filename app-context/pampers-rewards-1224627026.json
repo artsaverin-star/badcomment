@@ -1,0 +1,74 @@
+{
+  "productId": "cmq7umjo201snugicxh4np7bp",
+  "slug": "pampers-rewards-1224627026",
+  "name": "Pampers Rewards",
+  "domain": "программа лояльности FMCG / сканирование упаковок подгузников / кешбэк-купоны",
+  "oneLiner": "Официальное приложение Pampers (P&G): сканируй штрихкоды упаковок подгузников и влажных салфеток, копи очки и обменивай их на купоны со скидкой на следующую покупку.",
+  "pricing": "бесплатное приложение без подписки; вознаграждения — купоны на $5, $10 или $30 на продукцию Pampers; ранее были доступны купоны на $20 и подарочные карты Amazon, которые впоследствии убрали",
+
+  "keyFeatures": [
+    "сканирование QR-кода / штрихкода с упаковки подгузников камерой телефона",
+    "ручной ввод кода с упаковки влажных салфеток (QR-код на влажных салфетках не поддерживается)",
+    "накопление очков (звёздочек) к порогу награды — нужно 10 сканирований на один купон",
+    "обмен очков на купоны ($5 / $10 / $30) на покупку продукции Pampers",
+    "статьи и советы для новоиспечённых родителей (уход за ребёнком, выбор размера подгузника)",
+    "история сканирований и текущий прогресс до следующей награды",
+    "push-уведомления о статусе аккаунта и напоминания сканировать"
+  ],
+
+  "competitors": [
+    "Huggies Rewards (Rewards+)",
+    "Luvs (купоны через сайт)",
+    "Ibotta (универсальный кешбэк с подгузниками)",
+    "Fetch Rewards (сканирование чеков, включая Pampers)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "it keeps getting stuck on the page that verifies if you're 'not a robot'",
+      "observation": "Онбординг блокируется CAPTCHA-заглушкой: новый пользователь, пришедший с запасом подарочных упаковок с baby shower, не может пройти дальше страницы верификации. Приложение теряет пользователя в момент пиковой мотивации — сразу после получения большого количества продукта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I can log in on the website with the same account... Support only sent basic troubleshooting steps that did not apply",
+      "observation": "Ошибка аутентификации воспроизводится только в iOS-приложении, но не на сайте с теми же учётными данными — то есть проблема в клиенте, а не в аккаунте. Служба поддержки отправляет стандартный скрипт ('удалите и переустановите'), не признавая системный характер бага, и не даёт альтернативного способа получить уже заработанные купоны.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "as soon as I get close to $20 (because I save my pamper rewards) it logs me out and wipes my reward money",
+      "observation": "Несколько пользователей сообщают об одной и той же схеме: принудительный выход из аккаунта происходит именно тогда, когда накопленная сумма приближается к порогу выплаты, и после входа баланс обнуляется. Паттерн совпадений (близость к $20) провоцирует у пользователей интерпретацию как намеренный сброс.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was two scans away from earning a $10 reward. I scanned the first package... got a message that the code was already scanned. I scanned the second package and the system restarted me back to zero",
+      "observation": "Баг в логике зачёта сканирований: при повторном сканировании (из-за ложной ошибки 'уже отсканировано') счётчик прогресса сбрасывается в ноль, засчитывая только последний скан как первый. Пользователь теряет все накопленные звёздочки без возможности восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I had nine scans in total and they disappeared. I tried to reach out to support, but they keep sending me an automated message",
+      "observation": "Потеря скан-прогресса без видимой причины — повторяющийся сценарий в отзывах. Служба поддержки отвечает только автоответчиком с отсылкой на форумы, не восстанавливая потерянные данные и не предоставляя живого оператора.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Used to be easier/quicker to earn rewards. Now one must scan 10 packages before getting any kind of reward",
+      "observation": "Программа лояльности была ужесточена: минимальный порог для получения первого купона поднят до 10 сканирований, а купон на $20 удалён из линейки (остались $5, $10, $30). Пользователи, выстраивавшие стратегию накопления под старые правила, воспринимают это как ретроспективное изменение условий договора.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says the app crashed (no specifics, single occurrence)",
+    "User loves Pampers diapers (review about the physical product, not the app)",
+    "User says rewards are not good enough (generic, no mechanism described)",
+    "User hates notifications (commodity without specifics on trigger logic)",
+    "User wants Amazon gift cards back (generic wishlist)",
+    "User says login is broken (commodity unless describes specific reproducible flow — see goodObservationExamples for what makes it specific)",
+    "User says customer support was unhelpful (commodity unless specific friction described)"
+  ]
+}

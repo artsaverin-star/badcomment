@@ -1,0 +1,78 @@
+{
+  "productId": "cmpstcae00uaxug8pup9arnvd",
+  "slug": "wave-ai-note-taker-recorder-6451491556",
+  "name": "Wave AI Note Taker & Recorder",
+  "domain": "голосовые заметки / транскрипция встреч / AI-саммари",
+  "oneLiner": "Wave записывает живые встречи и звонки, транскрибирует речь и автоматически генерирует структурированное саммари с темами, тезисами и action items.",
+  "pricing": "бесплатная версия с одной пробной записью; платные тарифы — около $6.99/неделю или $139.99/год (встречается и $2.99 как рекламируемый триал, но пользователи сообщают о немедленном списании годовой суммы); отмена через магазин (Apple/Google), не через само приложение",
+
+  "keyFeatures": [
+    "запись живых разговоров, лекций и встреч через микрофон устройства",
+    "транскрипция речи с разделением по спикерам (speaker diarization)",
+    "автоматическое AI-саммари: главные темы, тезисы, action items",
+    "настраиваемые шаблоны саммари под тип события (встреча, лекция, визит к врачу и пр.)",
+    "запись и транскрипция телефонных звонков (исходящих через приложение; входящие не поддерживаются)",
+    "экспорт и шеринг транскриптов (email, OneNote, Day One и пр.)",
+    "интеграция с Apple Watch для управления записью",
+    "веб-версия для доступа к записям с десктопа"
+  ],
+
+  "competitors": [
+    "Otter.ai",
+    "Fireflies.ai",
+    "Whisper (OpenAI)",
+    "Notta",
+    "Rev Voice Recorder",
+    "встроенная транскрипция Apple (iOS 17+)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "If your phone switches between Wi-Fi and cellular, or if the connection briefly drops, the recording can disconnect very easily. Then you have to reconnect, merge notes together, and sometimes you miss important parts of the conversation.",
+      "observation": "Транскрипция в Wave обрабатывается серверно, а не локально: при переключении между Wi-Fi и сотовой сетью во время записи сессия разрывается, и приложение разбивает запись на фрагменты, которые затем нужно вручную объединять — пропущенный между ними аудио восстановить невозможно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "when I went to stop the recording it had stopped on its own and didn't record a single second. That's a meeting I can't get back",
+      "observation": "Приложение может тихо прекратить запись в фоне (без уведомления пользователю), при этом сохранив в интерфейсе видимость активной сессии — пользователь обнаруживает потерю только в момент попытки остановить запись, когда встреча уже закончена.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Mention a name and suddenly they are a speaker. It's become worthless compared to newer products.",
+      "observation": "Speaker diarization в Wave работает на лексическом уровне: если в разговоре звучит имя человека, система приписывает ему спикерство, а не опирается на распознавание голоса — при большом количестве участников это разрушает разметку диалога.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "signed up for what was advertised as a $2.99 trial, but I was immediately charged $139.99 for a full year. I canceled within minutes and contacted support right away, yet they refused to issue a refund.",
+      "observation": "Рекламируемая цена триала ($2.99) не совпадает с фактически списываемой суммой ($139.99 годовой план): платёж происходит немедленно, отмена в первые минуты не влечёт возврата — механизм ценообразования намеренно скрыт от пользователя до момента списания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "it stopped being able to upload summaries with proper formatting to Day One and OneNote. Now, for OneNote, I have to email it to myself, cope and paste, and then re-bullet which is super cumbersome.",
+      "observation": "Экспорт саммари в сторонние приложения (Day One, OneNote) потерял поддержку форматирования после одного из обновлений: маркированные списки и структура заголовков не передаются, и пользователь вынужден вручную перебивать разметку через промежуточный email.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "This app has been incredibly helpful — it allows me to better understand meetings by breaking them down clearly and making everything easier to process. It has also been a huge help for my son, who is seeing a therapist and has a language delay.",
+      "observation": "Структурированное саммари Wave оказывается особенно полезным для пользователей с когнитивными особенностями (тревожное расстройство, языковая задержка): разбивка на темы и тезисы позволяет перечитать встречу в комфортном темпе без необходимости прослушивать всю запись.",
+      "specificity": "medium"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User wants real-time transcription (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)",
+    "User says transcription is inaccurate (commodity without example of error type)"
+  ]
+}

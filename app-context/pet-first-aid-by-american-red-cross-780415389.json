@@ -1,0 +1,70 @@
+{
+  "productId": "cmpt57y5u2ygjugw61mudwyhd",
+  "slug": "pet-first-aid-by-american-red-cross-780415389",
+  "name": "Pet First Aid by American Red Cross",
+  "domain": "первая помощь / обучение первой помощи / справочник неотложных ситуаций",
+  "oneLiner": "Мобильный справочник и обучающий курс первой помощи от Канадского Красного Креста: пошаговые инструкции при остановке сердца, кровотечениях, переломах и других экстренных ситуациях — бесплатно, без подписки.",
+  "pricing": "полностью бесплатно, без подписки; отдельные пользователи отмечают, что оффлайн-режим зависит от версии — некоторые сборки требуют соединения для загрузки контента",
+  "keyFeatures": [
+    "экстренный раздел быстрого доступа: пошаговые инструкции при остановке сердца (CPR), удушье, опасных кровотечениях",
+    "структурированные учебные курсы по темам: переломы, ожоги, астма, сердечный приступ, инсульт, отравления",
+    "тесты (quizzes) по итогам каждого урока для закрепления знаний",
+    "база номеров экстренных служб для разных стран",
+    "видеоматериалы и визуальные карточки-инструкции",
+    "оффлайн-доступ к контенту (в части версий)"
+  ],
+  "competitors": [
+    "First Aid by British Red Cross",
+    "First Aid: American Red Cross (US-версия)",
+    "St John Ambulance First Aid",
+    "WebMD Health Services",
+    "FEMA Emergency Alert"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "The new version of the app is structured as a learning tool, NOT a reference guide. It's not straightforward to find the information for specific scenarios, except choking, unresponsive/needing CPR, and life-threatening bleeding.",
+      "observation": "После редизайна (версия 4.x) приложение разделилось на два несовместимых режима использования: быстрый доступ оставили только для трёх сценариев (удушье, остановка сердца, опасное кровотечение), всё остальное — ожоги, переломы, аллергические реакции — спрятано внутри учебных уроков, которые нужно проходить последовательно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "If someone is having a emergency I dont want lessons and quizzes. I want basic and clear information about how to address the emergency. That is what the previous version of this app provided.",
+      "observation": "Переориентация на обучающий формат принципиально меняет сценарий применения: старая версия была инструментом 'в момент кризиса', новая — инструментом 'до кризиса'; пользователи, установившие приложение как страховку на экстренный случай, обнаружили, что в реальной ситуации оно требует сначала пройти курс.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app is not helpful in the middle of an incident to treat an injury. It's a learning app with no quick informative areas. The previous app wants you to pass the lessons before being able to see how to treat an injury.",
+      "observation": "Архитектурное решение: доступ к пошаговым инструкциям по конкретным травмам (переломы, ожоги) заблокирован до завершения соответствующего учебного модуля — пользователь, не прошедший курс заранее, в экстренной ситуации не может найти нужную информацию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I used to love the app because of the quick access to information. Now, we have to do lessons before we can find out what's going on with the person in front of us. Really dislike it. Words like 'jaw hurts' isn't even available as a symptom.",
+      "observation": "Поиск по симптомам работает неполно: запрос 'боль в челюсти' (возможный признак сердечного приступа) не даёт результатов — критический пробел именно в тех сценариях, где пользователь не знает диагноза и ищет по описанию симптома.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Missing some critical info that was in old version like heat stroke, heat exhaustion, hypothermia for example.",
+      "observation": "При переходе на новую версию из контентной базы исчезли целые темы — тепловой удар, переохлаждение, гипотермия — которые присутствовали в предыдущем приложении; пользователи, полагавшиеся на эти разделы, обнаруживают пробелы уже после удаления старой версии.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "also I love the quizzes and how it has all the emergency numbers for different countries!",
+      "observation": "База международных номеров экстренных служб и встроенные квизы по итогам модулей — две функции, которые отдельно отмечаются как полезные; квизы воспринимаются как инструмент закрепления, а не барьер, теми, кто использует приложение в режиме обучения, а не справочника.",
+      "specificity": "medium"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too complicated (commodity without specifics)",
+    "User says it crashed (no reproducible steps)",
+    "User loves it (non-information)",
+    "User wants more content (generic ask without naming the gap)",
+    "User says old version was better without specifying what changed",
+    "App requires internet connection (commodity unless specific offline failure described)",
+    "Search returns no results (commodity unless a specific medically-relevant search term named)"
+  ]
+}

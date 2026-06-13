@@ -1,0 +1,79 @@
+{
+  "productId": "cmpsup48m3pzsug8p8kwr2zc2",
+  "slug": "homebase-scheduling-payroll-871544379",
+  "name": "Homebase: Scheduling & Payroll",
+  "domain": "управление сменами / учёт рабочего времени / расчёт зарплаты для почасовых сотрудников",
+  "oneLiner": "Homebase — платформа для малого бизнеса: расписание смен, учёт рабочего времени через клок-ин/аут в мобильном приложении, расчёт зарплаты, внутренний мессенджер и аванс до зарплаты (Cash Out).",
+  "pricing": "базовый план бесплатный для одной локации; платные тарифы для расширенных функций (точные цены в отзывах не упоминаются); функция Cash Out/аванс — отдельная опция с комиссией (упоминается 'fee money grab for early pay')",
+
+  "keyFeatures": [
+    "клок-ин и клок-аут через мобильное приложение с геофенсингом (привязка к местонахождению рабочего места)",
+    "просмотр расписания смен сотрудниками и менеджерами",
+    "отслеживание заработанных денег в реальном времени в течение смены",
+    "Cash Out — аванс заработанных средств до дня выплаты",
+    "внутренний командный мессенджер (чат между сотрудниками и менеджером)",
+    "запрос отгулов и управление доступностью (availability)",
+    "интеграция с Google Календарём для синхронизации смен",
+    "расчёт зарплаты (payroll) — отдельный модуль для работодателей"
+  ],
+
+  "competitors": [
+    "HotSchedules (Fourth)",
+    "When I Work",
+    "Deputy",
+    "7shifts",
+    "Gusto",
+    "Square Payroll",
+    "ADP"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "cannot clock in on android devices. error message you can not clock in outside the grid area while well within the grid",
+      "observation": "Геофенс-проверка при клок-ине даёт ложный отказ: сотрудник физически находится на рабочем месте, но приложение сообщает, что он 'вне зоны' — после обновления 5.1+ проблема воспроизводится именно на Android, тогда как телефон без обновления работает корректно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "in the last month my password has not worked and I have had to change it almost every single time I have tried to log in! I work over 90 hrs for one job - my schedule is usually pretty sporadic through out the day",
+      "observation": "После серии обновлений сессия перестала сохраняться: приложение выбрасывает пользователя при каждом закрытии, биометрия (Face ID / отпечаток) перестаёт работать, а сброс пароля превращается в ритуал перед каждым рабочим входом — особенно болезненно для тех, кто открывает приложение несколько раз за день.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It now makes me log in with a text or email verified code every time I use the app, which is constantly wasting my time. If you have this issue or any other account problems you can't talk to a person, it's trash ai only even if you request a human.",
+      "observation": "Двухфакторная авторизация при каждом входе не отключается настройками: пользователь каждый раз ждёт SMS/email-код, а поддержка закрыта за ботом — даже явный запрос 'поговорить с человеком' не переводит к живому оператору.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Cash out has been unavailable for at least two months. Customer service is no help they ain't trying to fix the app or answer your emails.",
+      "observation": "Функция Cash Out (аванс до зарплаты) отключилась и не восстанавливалась месяцами, при этом поддержка не реагировала на обращения по email — для почасовых работников с низким запасом ликвидности это прямой финансовый ущерб.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Cashed out $500 and was only give $198 back.",
+      "observation": "При операции Cash Out сумма выплаты оказалась почти втрое меньше запрошенной ($198 вместо $500) — механизм расчёта комиссии или лимитов непрозрачен, пользователь не получил объяснений.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "The app is not syncing with my Google calendar correctly and keeps removing my shifts from the calendar so I'm finding it difficult to keep track",
+      "observation": "Интеграция с Google Календарём при синхронизации удаляет уже добавленные смены вместо их обновления — сотрудник теряет видимость расписания именно в том инструменте, которым пользуется для планирования дня.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says the app crashed (no version, no steps to reproduce)",
+    "User says it is too expensive (commodity)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more features (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken (commodity unless tied to specific update version or reproducible flow)"
+  ]
+}

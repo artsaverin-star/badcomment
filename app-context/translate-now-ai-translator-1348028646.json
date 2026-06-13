@@ -1,0 +1,73 @@
+{
+  "productId": "cmpstuujc1ygnug8pblxgmrn6",
+  "slug": "translate-now-ai-translator-1348028646",
+  "name": "Translate Now - AI Translator",
+  "domain": "переводчик / AI-перевод / мультиязычное общение",
+  "oneLiner": "Мобильный переводчик с AI-движком (ChatGPT-интеграция), голосовым вводом, live-переводом разговоров и камерой для перевода текста — iOS+Android, монетизация через агрессивную подписку ($5-10/нед на iOS) и рекламную стену (Android).",
+  "pricing": "iOS: подписка $5/неделя в первую неделю, затем $10/неделю (или ~$15/неделю по ряду отзывов); годовой вариант также доступен. Бесплатная версия фактически заблокирована — почти все функции (голос, live-перевод, камера) закрыты пейволлом сразу после установки. Android: бесплатная версия с крайне агрессивной рекламой (15-секундные ролики перед каждым действием); Premium убирает рекламу. Цена не раскрывается до момента покупки.",
+  "keyFeatures": [
+    "текстовый перевод между большим числом языков",
+    "голосовой ввод и озвучивание перевода (TTS)",
+    "live-перевод разговора в реальном времени (два участника, каждый говорит на своём языке)",
+    "перевод текста с фото / через камеру (OCR + перевод)",
+    "интеграция ChatGPT для контекстных и расширенных переводов",
+    "история переводов и закладки",
+    "поддержка iOS и Android"
+  ],
+  "competitors": [
+    "Google Translate",
+    "Apple Translate (встроенный)",
+    "DeepL Translator",
+    "iTranslate",
+    "Microsoft Translator",
+    "SayHi Translate"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "The button to click out of the app to delete it is conveniently the same button that scans your fingerprint for the purchase, so it is VERY easy to immediately, accidentally subscribe.",
+      "observation": "На iOS при первом запуске приложение показывает оффер подписки, а кнопка «закрыть» физически совмещена с зоной Touch ID/Face ID — нажатие на крестик мгновенно списывает $5 без дополнительного подтверждения. Пользователи массово сообщают о случайных покупках.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "every single feature besides basic text to translate required a paid subscription of $10/week.",
+      "observation": "Функциональная воронка устроена так: базовый текстовый ввод доступен бесплатно, но голос, live-перевод разговора и камера — все за пейволлом. Пользователь скачивает приложение ради этих функций и обнаруживает, что именно они недоступны.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "The intertwining of ChatGTP gives a myriad of useful translations, but for $60 a month the app should mow my lawn and wash the dishes.",
+      "observation": "ChatGPT-интеграция реально улучшает качество контекстных переводов — пользователи это замечают и ценят, — однако цена $15/неделю (~$60/мес) воспринимается как непропорциональная ценности: бесплатный Google Translate закрывает тот же базовый кейс.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Live translation is stuck saying No Connection",
+      "observation": "Live-перевод разговора системно выдаёт ошибку 'No Connection' даже при рабочем Wi-Fi и мобильных данных — это подтверждают несколько независимых отзывов, что указывает на серверную проблему или намеренное ограничение бесплатного уровня под видом ошибки сети.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "this app is impossible to use with ads. oh, I want to translate, 15 second ad. oh I want to change language, 15 second ad. oh I want to go to another page, 15 second ad",
+      "observation": "На Android бесплатная версия показывает 15-секундный рекламный ролик перед каждым действием — сменой языка, переходом между экранами, каждым переводом — делая базовую функцию недоступной без подписки де-факто, хотя формально она бесплатна.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid for a yearly subscription but every time I try to use the app, it try's to get me to subscribe and yes I have tried restoring my purchase.",
+      "observation": "После оплаты годовой подписки приложение продолжает показывать экран подписки и не распознаёт покупку даже после 'Restore Purchases' — пользователь платит и не получает доступ, что превращает поддержку в единственный выход.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

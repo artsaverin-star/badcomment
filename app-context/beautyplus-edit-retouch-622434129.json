@@ -1,0 +1,75 @@
+{
+  "productId": "cmpsti3zz16x1ug8prxv2bzio",
+  "slug": "beautyplus-edit-retouch-622434129",
+  "name": "BeautyPlus-Edit & Retouch",
+  "domain": "селфи-камера / бьюти-ретушь / AI-трансформация лица",
+  "oneLiner": "BeautyPlus — камера и фоторедактор с AI-ретушью лица, сменой причёски и цвета волос, фейсвапом и виртуальным макияжем; позиционируется как массовый инструмент для съёмки и обработки селфи.",
+  "pricing": "бесплатная версия с нарастающими ограничениями (ранее была щедрее, функции планомерно переводятся за пейволл); VIP/Pro подписка — около $10.99/месяц или около $99/год (ранее $3.45/месяц, пользователи фиксируют 3-кратный рост цены); AI-генерация работает на кредитах, входящих в подписку; разовый выкуп результата отсутствует",
+  "keyFeatures": [
+    "встроенная камера с real-time бьюти-фильтрами (сглаживание кожи, коррекция формы лица, увеличение глаз)",
+    "AI-ретушь портретов: удаление тёмных кругов, прыщей, разглаживание морщин",
+    "смена цвета и стиля причёски (AI Hair Color / Hairstyle)",
+    "фейсвап и AI-трансформация образа (смена пола, возраста, стиля)",
+    "примерка виртуальных нарядов (AI Outfit / Virtual Try-On)",
+    "фоновые фильтры и замена фона",
+    "стикеры, коллажи и шаблоны для соцсетей",
+    "видеоредактор с бьюти-эффектами в реальном времени"
+  ],
+  "competitors": [
+    "Facetune",
+    "AirBrush",
+    "YouCam Makeup",
+    "Snow Camera",
+    "Remini",
+    "Meitu",
+    "PicsArt"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the blonde hair used to be free, and now they won't let you even sample it without paying",
+      "observation": "Приложение убрало возможность предпросмотра функции смены цвета волос до оплаты: раньше пользователь мог примерить оттенок и принять решение, теперь пейволл стоит до любого взаимодействия с функцией — покупка вслепую.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "now in may 2026 I have to watch 2-3 mins aliexpress or temu ads, this is not good changing to 1 star",
+      "observation": "Рекламные блоки выросли до 2-3 минут на один обработанный кадр, причём кнопка выхода из рекламы не работает или отсутствует — фактически пользователь платит временем за каждое сохранение, и это хуже, чем просто пейволл.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "When you find the tiny x to not require a subscription immediately, you met with a cookie consent banner without deny-all button, and then it requires to spy on what other apps you have installed or closes itself",
+      "observation": "Онбординг выстроен как последовательность тёмных паттернов: кнопка отказа от подписки намеренно уменьшена, следом идёт consent-баннер без кнопки 'отказать', затем приложение запрашивает список установленных приложений и принудительно закрывается при отказе — без доступа к функционалу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I cancelled my subscription right away when i realised how expensive it is. It got cancelled, then said no refunds will be issued. They took $99 from my account",
+      "observation": "Отмена подписки в течение суток не влечёт автоматического возврата средств: $99 списывается сразу при активации годового плана, политика 'no refunds' применяется даже при немедленном отказе — пользователи не находят контактной почты для споров.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "aside from non photorealistic results, the face swap is pretty great. and also being able to change the hair color and whatnot is awesome but I don't like the limited hairstyle selection",
+      "observation": "Смена цвета волос работает убедительно, но каталог причёсок не охватывает поднятые волосы и пучки: пользователи с убранными волосами получают либо мультяшный результат, либо физически неправдоподобный — при этом подписка не разграничивает качество по этому критерию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "whenever na mag bback ako then pag open ko ulit nito ay na wawala na yung design or work ko, kaya I don't have a choice kundi ulitin ko ulit sya. yun lang, I WANTED SANA NA MAY 'DRAFT' OR 'AUTOSAVE' IN THIS APP",
+      "observation": "Приложение не сохраняет промежуточный результат редактирования: уход из приложения (свернуть, принять звонок) сбрасывает всю сессию без черновика — пользователь начинает сначала, что критично при многошаговых AI-трансформациях.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

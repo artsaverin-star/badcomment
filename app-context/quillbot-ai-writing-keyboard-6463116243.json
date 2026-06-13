@@ -1,0 +1,74 @@
+{
+  "productId": "cmpt0i58t14xbugfe0soz0dy5",
+  "slug": "quillbot-ai-writing-keyboard-6463116243",
+  "name": "QuillBot - AI Writing Keyboard",
+  "domain": "AI-ассистент для письма / перефразирование / грамматика / обнаружение ИИ-текста",
+  "oneLiner": "QuillBot — AI-клавиатура и веб-инструмент для перефразирования, проверки грамматики, суммаризации и детекции ИИ-текста, ориентированный на студентов и non-native спикеров.",
+  "pricing": "бесплатный уровень с ограниченным доступом (перефразирование в базовых режимах, базовая проверка грамматики); Premium — около $9.95/месяц или $49.95/год; 3-дневная гарантия возврата денег формально заявлена, но пользователи фиксируют отказы в возврате даже в пределах этого срока; рефанды выдаются только если 'legally required' по региону",
+  "keyFeatures": [
+    "перефразирование текста в нескольких режимах: Standard, Fluency, Formal, Creative, Expand, Shorten",
+    "проверка грамматики и пунктуации с инлайн-подсветкой ошибок",
+    "суммаризация длинных текстов и документов",
+    "детекция ИИ-сгенерированного текста (AI Detector)",
+    "гуманизатор текста (Humanizer) — делает ИИ-текст менее детектируемым",
+    "клавиатурный режим: QuillBot как системная клавиатура на Android/iOS с всплывающим бабблом-ассистентом",
+    "переводчик (Translator) — функция, которую пользователи теряют из виду после редизайна",
+    "AI Checker — проверка документов на процент ИИ-генерации"
+  ],
+  "competitors": [
+    "Grammarly",
+    "Wordtune",
+    "ProWritingAid",
+    "Hemingway Editor",
+    "GPTZero (в нише детекции ИИ)",
+    "встроенная проверка орфографии iOS/Android"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "it fuses words, removes sentences, and even changes correctly spelled words. The first round is bad, but the second round is even worse",
+      "observation": "Повторный запуск перефразирования ('second revision round') деградирует результат: приложение начинает склеивать слова, удалять целые предложения и ломать правильно написанные слова — поведение, которого не было до редизайна интерфейса.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "QuillBot has been automatically saving every single edit/session as separate 'Untitled documents' without my knowledge. I now have hundreds of auto-saved files cluttering my account. Unfortunately, there appears to be no way to mass-delete projects",
+      "observation": "Автосохранение создаёт отдельный документ при каждой сессии редактирования без уведомления пользователя; накапливаются сотни «Untitled» файлов, а массового удаления не предусмотрено — пользователь вынужден чистить аккаунт вручную по одному файлу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it often flags content I've written entirely on my own as 80-90% AI-generated, which is completely inaccurate. At the same time, when I tested it with actual AI-generated text, it reported only around 20% AI",
+      "observation": "AI Detector выдаёт инвертированные результаты у premium-пользователей: авторский текст маркируется как 80-90% ИИ, а реально ИИ-сгенерированный — как 20%, что делает инструмент ненадёжным в обоих направлениях.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Requested for a refund 30 mins after using the app and finding it trash, only to be rejected as they don't entertain refunds from regions that don't enforce refund by law",
+      "observation": "Компания отказывает в возврате средств пользователям из стран без законодательно закреплённого права на рефанд — даже через 30 минут после оплаты; политика 'legally required' используется как основание для отказа, а не 3-дневная гарантия.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I spent an hour writing something only for this app to glitch when correcting an error and delete half of what I wrote, it doesn't save drafts and there isn't an undo button",
+      "observation": "Приложение не имеет кнопки отмены действий (undo) и не сохраняет черновики: сбой при принятии правки необратимо удаляет написанный текст — без возможности восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "QuillBot is one of the most annoying writing apps I've ever used. Instead of respecting personal writing preferences, the app flags every single one as a grammar error, filling my document, emails and DM's with pointless corrections",
+      "observation": "Грамматический чекер не учитывает пользовательские стилистические предпочтения (например, двойной пробел после точки) и навязывает свои правила как ошибки — создавая постоянный визуальный шум в документах, письмах и личных сообщениях.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

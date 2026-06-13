@@ -1,0 +1,72 @@
+{
+  "productId": "cmpsyoyoy1pdhughv2xo9kkz5",
+  "slug": "bookshelf-389359495",
+  "name": "Bookshelf",
+  "domain": "академический ридер / учебные e-book / VitalSource DRM",
+  "oneLiner": "VitalSource Bookshelf — DRM-ридер для платных академических учебников, навязанный студентам вузами и издательствами как единственный способ открыть купленный e-book.",
+  "pricing": "само приложение бесплатно; контент продаётся напрямую через VitalSource или издательство (учебники от $50 до $100+); доступ ограничен 2 устройствами; нет экспорта в сторонние ридеры (Kindle, e-reader); возвраты — политика 'no refund' даже при постоянных сбоях",
+  "keyFeatures": [
+    "хранение и чтение DRM-защищённых академических e-book (учебников)",
+    "read aloud / text-to-speech с подсветкой читаемого слова",
+    "аннотации: хайлайтинг, заметки на полях, флэшкарточки",
+    "офлайн-доступ (загрузка книги на устройство)",
+    "поиск по тексту книги",
+    "настройка отображения: размер шрифта, межстрочный интервал, ширина полей, тёмный режим",
+    "синхронизация прогресса чтения между устройствами"
+  ],
+  "competitors": [
+    "Kindle (Amazon)",
+    "Adobe Digital Editions",
+    "Chegg eReader",
+    "Pearson+ eTextbook",
+    "RedShelf",
+    "CourseSmart (устаревший, вошёл в VitalSource)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "listen to my e book and watch the words being read light up along the screen",
+      "observation": "Функция read-aloud с синхронной подсветкой слова позволяет студентам одновременно слушать и следить глазами за текстом — особенно востребована для плотных медицинских и научных учебников, где нужно и слуховое, и визуальное подкрепление.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Syncing reading telemetry and usage analytics with Blackboard? Oof.",
+      "observation": "Приложение передаёт телеметрию чтения (время открытия, прогресс, активность) в LMS Blackboard — студенты обнаруживают это, только скачав мобильную версию; пользователи рекомендуют блокировать фоновый доступ к данным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "if I type 'E-form,' this app will search for, 'form,' or 'E' in addition to what I typed. I can get over 200 results for a single search and only 1 or 2 of them will be related to what I want.",
+      "observation": "Поиск по тексту разбивает запрос через дефис на отдельные токены и ищет каждый независимо — при поиске специфичного термина ('E-form') возвращается 200+ нерелевантных совпадений, что делает навигацию по плотным академическим текстам практически бесполезной.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "every time I listen it feels like theres a new, random quirk that the text to speech does that makes it hard to follow",
+      "observation": "TTS-движок ведёт себя непредсказуемо от сессии к сессии: то пропускает предложения, то делает паузы до 15 секунд между фразами, то зачитывает номера страниц и оси таблиц — студенты, использующие аудио как основной режим учёбы, не могут построить на нём стабильный учебный процесс.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "content can only be accessed through their stupid app! The content is then only allowed to be used on 2 devices... I BOUGHT this book and should have access w/o app.",
+      "observation": "Покупатель учебника за $100 обнаруживает, что приобрёл не файл, а лицензию: контент привязан к приложению, ограничен двумя устройствами и недоступен на e-reader — условия DRM нигде явно не раскрыты до покупки, а возврат запрещён политикой платформы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Crashes on average 2 times an hour losing your place in the book. On the bright side, I really really know the intro to every chapter very well.",
+      "observation": "При краше приложение не сохраняет позицию: следующий запуск возвращает пользователя к началу главы, а не к месту, где остановилось чтение — при двух сбоях в час и многочасовых учебных сессиях студент систематически перечитывает уже пройденный материал.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User says app is slow (commodity)",
+    "User wants more content (generic ask)",
+    "Login broken (commodity unless reproducible pattern described)",
+    "Hard to use (no mechanism named)",
+    "App does not open (no version/device context)"
+  ]
+}

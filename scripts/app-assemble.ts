@@ -84,8 +84,8 @@ for (const r of scanned) ratingBreakdown[String(r.rating)]++;
 function quoteForObservation(o: Observation): { rating: number; date: string; reviewId: string; quote: string } {
   const review = reviewById.get(o.review_id);
   const date = review?.postedAt ? review.postedAt.slice(0, 10) : "";
-  let quote = o.trigger;
-  if (review) {
+  let quote = o.trigger || "";
+  if (review && o.trigger) {
     const cleanText = review.text.replace(/\s+/g, " ").trim();
     const idx = cleanText.toLowerCase().indexOf(o.trigger.toLowerCase());
     if (idx >= 0) {

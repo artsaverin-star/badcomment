@@ -1,0 +1,75 @@
+{
+  "productId": "cmpsu0qrs2b5yug8p9x4z13fu",
+  "slug": "liftoff-ranked-gym-workouts-6448081563",
+  "name": "Liftoff - Ranked Gym Workouts",
+  "domain": "силовые тренировки / геймифицированный трекинг / ранговая система",
+  "oneLiner": "Liftoff — трекер силовых тренировок, где каждое упражнение имеет ранг (Bronze → Silver → Gold и выше), а прогресс оформлен как RPG-прокачка персонажа.",
+  "pricing": "бесплатная версия с рангами и базовым трекингом; Premium по подписке — 7-дневный триал, затем ~$50-60/год или ~$7/месяц; отдельный отзыв фиксирует случай немедленного списания годовой суммы сразу после принятия триала без предупреждения; встречается и 30-дневный триал за $3 с последующим списанием",
+  "keyFeatures": [
+    "ранговая система за каждое упражнение (Bronze, Silver, Gold и выше) — ранг рассчитывается по весу и количеству повторений",
+    "глобальные лидерборды по упражнениям и мышечным группам",
+    "большая библиотека упражнений с демонстрационными видео и описанием механики движения",
+    "трекинг рабочих весов, сетов и повторений с историей сессий",
+    "стрик-система (ежедневная серия тренировок)",
+    "калькулятор рангов — ввод лучшего подхода для расчёта текущего ранга",
+    "интеграция со Strava (экспорт тренировок)",
+    "секция питания с базой продуктов (на момент отзывов — в стадии бета/недоделана)",
+    "онбординг-опрос для начального профиля (оборудование, цели, уровень)"
+  ],
+  "competitors": [
+    "Strong - Workout Tracker Gym Log",
+    "Hevy - Gym Log & Workout Tracker",
+    "Boostcamp Powerlifting & Gym App",
+    "Jefit - Gym Workout Plan Tracker",
+    "Gravitus",
+    "Strava (трекинг активности)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "the AI somehow hallucinate that ny lat pulldown should be 40kg (I do sets of 95kg...) but it simultaneously assumes I can do reverse cable flys at 35kg. Sorry, you'd need to be rooted to the floor and be Hercules to do that. Also, 8x110 bench press is Silver rank? What?",
+      "observation": "ИИ-калькулятор рангов использует усреднённые популяционные нормы без учёта реального уровня конкретного пользователя: опытный лифтер с жимом 110 кг получает лишь Silver, тогда как рекомендованный рабочий вес на других упражнениях в разы занижен. Система воспринимается как оскорбительная опытными атлетами и демотивирует именно ту аудиторию, которая может дольше всех удерживаться в приложении.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app seem free but without warning it tells u to pay..make u use much time on profile setup to get screen who says u have to pay, even u get one week free. one week is not enough for anything.",
+      "observation": "Онбординг намеренно длинный — пользователь инвестирует 10-15 минут на заполнение профиля (оборудование, цели, замеры), а экран с пейволлом появляется только в самом конце: к этому моменту психологическая стоимость отказа уже высока. Один отзыв прямо называет это манипуляцией ('cheat app'), другой говорит 'waste of time with all questions'.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it was way better and way more fun when it was an optional free app. I have had this app for 2 years, and then I come back on after not using it for 3 months. randomly, it spits out a trial program and deletes my level 25 account",
+      "observation": "Возврат в приложение после паузы в 3 месяца полностью обнуляет прогресс: вместо сохранённого level 25 система предлагает триал-программу с нуля. Пользователь теряет годы накопленных рангов без предупреждения — механизм особенно болезнен, потому что вся ценность приложения строится именно на этом прогрессе.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Accepted the 7-day free trial and was immediately charged for a full year of Pro. The developer responded to one email, saying 'sorry about that', and then they stopped replying.",
+      "observation": "При принятии 7-дневного триала система немедленно списывает полную стоимость годовой подписки — без дополнительного подтверждения и без предупреждения о сумме. Служба поддержки отвечает один раз ('sorry about that') и прекращает контакт, оставляя пользователя без возврата.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "there's no way to remove incorrectly entered data (in the calculator) or reset a rank. I feel like it's important to be able to correct a mistake in this manner.",
+      "observation": "Калькулятор рангов не позволяет удалить ошибочно введённый подход: случайно завышенный вес фиксирует ложный ранг навсегда, и единственный способ исправить — полный сброс аккаунта. Это критический изъян в приложении, где ранг является центральной мотивационной единицей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I appreciate the demonstrations it provides of lifts and details regarding the mechanics of the lifts. IE Zercher Squats - found those through the app, love them and they are a go to leg day accessory for me now.",
+      "observation": "Библиотека упражнений работает как точка обнаружения: пользователи находят малоизвестные упражнения (Zercher Squat) через карточки с демонстрацией механики — и включают их в постоянную программу. Это формирует удержание не через страх потерять стрик, а через реальный спортивный интерес.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

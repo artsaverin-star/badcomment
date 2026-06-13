@@ -1,0 +1,75 @@
+{
+  "productId": "cmpsyviin22yyughvfnbf84di",
+  "slug": "map-my-run-gps-running-tracker-291890420",
+  "name": "Map My Run GPS Running Tracker",
+  "domain": "GPS-трекинг бега / outdoor fitness / беговой журнал",
+  "oneLiner": "Map My Run (Under Armour) — GPS-трекер для бега и прогулок с голосовыми сплитами, историей маршрутов и интеграцией с MyFitnessPal и Garmin; бесплатная основа, конкурент Strava.",
+  "pricing": "бесплатная версия с рекламой закрывает базовые нужды; MVP (Map My Run Premium) — платная подписка с расширенной аналитикой и без рекламы; точные цены в отзывах не упоминаются; companion-приложение для Samsung Galaxy Watch объявлено unsupported, что вынудило часть платных пользователей уйти",
+  "keyFeatures": [
+    "GPS-трекинг маршрута в реальном времени с записью дистанции, темпа и времени",
+    "голосовые сплиты: автоматические объявления темпа и дистанции во время тренировки (настраиваемые единицы)",
+    "история тренировок и журнал прогресса со сравнением по датам",
+    "трекинг калорий с синхронизацией в MyFitnessPal",
+    "данные набора высоты (elevation) для подготовки к холмистым гонкам",
+    "интеграция с Garmin и другими мониторинговыми устройствами",
+    "маппинг маршрутов заранее (route planner) + Google Maps вид",
+    "поддержка нескольких активностей: бег, ходьба, велосипед, горный байкинг, городские хайки"
+  ],
+  "competitors": [
+    "Strava",
+    "Nike Run Club",
+    "Runkeeper",
+    "Google Fit",
+    "Samsung Health",
+    "Garmin Connect",
+    "MyFitnessPal (интеграция, не прямой конкурент)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the gps is downgraded when battery saver is on. you just want more of everyone's information to sell it has absolutely nothing to do with battery saver",
+      "observation": "При включённом режиме экономии батареи приложение принудительно снижает точность GPS — пользователь воспринимает это не как техническое ограничение, а как намеренное давление с целью сбора более полных данных о местоположении.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Cancelled subscription, because the companion app for Samsung Galaxy watch became unsupported. While it was a good set for personal training, I don't see a reason to pay for the functionality I cannot use.",
+      "observation": "Платная подписка потеряла ценность для части аудитории после того, как companion-приложение для Samsung Galaxy Watch было объявлено unsupported: пользователи отменили подписку и перешли на встроенный Samsung Health.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it's stopped working. It mysteriously shuts down after a mile or two, silently, and I don't notice it until I am back home",
+      "observation": "Приложение молча завершает запись тренировки на отметке 1-2 мили без предупреждения и звукового сигнала — пользователь обнаруживает потерю данных только дома, попытки изменить настройки питания и разрешений не помогают.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I've been using this app for almost 10 years I think and it's great. I like how it even works when I'm running in a forest and I go in and out of places where the GPS catches",
+      "observation": "Алгоритм восстанавливает трек даже при прерывистом GPS-сигнале в лесу: приложение 'склеивает' отрезки маршрута и сохраняет итоговую дистанцию корректной, что нетипично для подобных трекеров.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Elevation is real important if training for a hilly race. I also love that my calorie burn shows up from MapMyRun in my MyFitnessPal app",
+      "observation": "Данные о наборе высоты помогают при подготовке к холмистым гонкам, а автоматическая передача сожжённых калорий в MyFitnessPal позволяет вести единый дневник питания и нагрузки без ручного ввода.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "the automated trainer gives you your per mile time and everything. the log off workouts from years ago is great for planning progression",
+      "observation": "Голосовой 'тренер' объявляет темп на миле прямо во время бега, а накопленный архив тренировок за годы используется для планирования прогрессии — пользователи возвращаются к приложению после перерывов именно из-за ценности этой истории.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "productId": "cmq7umhjv01n4ugickxhj5ubc",
+  "slug": "babycenter-pregnancy-tracker-386022579",
+  "name": "BabyCenter Pregnancy Tracker",
+  "domain": "трекер беременности и развития ребёнка после рождения / community for moms",
+  "oneLiner": "BabyCenter — бесплатный трекер, который ведёт маму от первых недель беременности до школьного возраста ребёнка: еженедельные апдейты развития, логирование симптомов, сообщества по месяцу рождения и статьи от педиатров.",
+  "pricing": "полностью бесплатное приложение без подписки и пейволла; монетизация через рекламу (баннеры в ленте сообщества, иногда всплывающие при попытке набрать текст); партнёрские ссылки на товары и услуги для мам (страховой брест-помп, реестр и др.)",
+
+  "keyFeatures": [
+    "еженедельные апдейты развития плода (размер, органы, ощущения мамы) — с 3D-иллюстрациями и сравнением с фруктами",
+    "логирование симптомов с пояснением, почему они возникают",
+    "счётчик шевелений (kick counter) и таймер схваток",
+    "ежедневные советы и статьи по питанию, физической активности, подготовке к родам",
+    "продолжение трекинга после рождения: еженедельные апдейты развития ребёнка и вех (milestones) до школьного возраста",
+    "тематические сообщества — birth clubs по месяцу рождения, группы по темам",
+    "бампи-фото (bump photo journal) для фиксации прогресса живота",
+    "rewards-система за ежедневный чеклист; ссылки на бесплатный брест-помп по страховке"
+  ],
+
+  "competitors": [
+    "Flo Period & Ovulation Tracker",
+    "What to Expect — Pregnancy & Baby Tracker",
+    "Ovia Pregnancy Tracker",
+    "The Bump — Pregnancy Tracker",
+    "Babylist",
+    "Glow Nurture Pregnancy Tracker"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the new ads that constantly pop up on the bottom of the screen are infuriating. Multiple times a day I try responding to a post, only to be nearly done with my response and somehow click the ad which pops up a full page screen and eats my comment",
+      "observation": "Баннерная реклама в нижней части экрана перекрывает поле ввода комментария в сообществе: случайный тап по баннеру открывает полноэкранный рекламный оверлей и уничтожает набранный текст — пользователь теряет написанный ответ без возможности восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Baby is not here on time, but app set to 'newborn' mode and unable to change. Ended up deleting all the baby's info and now no way to reset it with actual timing.",
+      "observation": "Приложение автоматически переключается в режим «новорождённый» по предполагаемой дате родов — без учёта реальной даты рождения: если роды не совпали с EDD, пользователь оказывается заперт в неправильном режиме и вынужден удалять данные, теряя всю историю беременности.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "According to this app no matter what on your due date your child is born. Now I can't use the contraction timer.",
+      "observation": "Таймер схваток — критичный инструмент в день предполагаемых родов — отключается автоматически в EDD, даже если роды ещё не начались: пользователь теряет доступ к счётчику именно тогда, когда он нужен больше всего.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "getting tons of unsolicited emails from their partner company which I've tried unsubscribing numerous times. Do not recommend based on that alone.",
+      "observation": "Регистрация в приложении подписывает пользователя на рассылки партнёрских компаний: отписка через стандартную ссылку не работает — письма продолжают приходить, что свидетельствует о передаче email третьим сторонам вне контроля пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I started using this app when I got pregnant and I loved it for logging my daily symptoms and for following the development of my body and my baby's. However, both during pregnancy and postpartum, I do wish they went more in depth.",
+      "observation": "Приложение воспринимается как «конденсированный» инструмент: еженедельные карточки дают поверхностный обзор, но не удовлетворяют пользователей, которым нужна клиническая глубина — что именно происходит с органами, какие симптомы требуют обращения к врачу.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 5,
+      "trigger": "Flo used to do that when I was pregnant with my first and now they make you pay for reading information about your week. I haven't fully gone through babylists' app",
+      "observation": "BabyCenter выигрывает у Flo на оси 'бесплатность': пользователи прямо называют переход Flo на платный контент причиной смены приложения — BabyCenter удерживает аудиторию тем, что держит еженедельные апдейты развития полностью бесплатными.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity — without describing the specific UI mechanism that causes data loss)",
+    "User wants more content (generic ask)",
+    "Login broken (commodity unless reproducible flow described)",
+    "User says app is slow (commodity)",
+    "User says notifications are annoying (commodity)"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "productId": "cmq7urexb05ohugic246sufwo",
+  "slug": "apple-podcasts-525463029",
+  "name": "Apple Podcasts",
+  "domain": "подкасты / аудиотека / discovery",
+  "oneLiner": "Встроенный подкаст-клиент Apple для iOS и macOS: доступ к миллионам шоу, офлайн-загрузки, транскрипты, платные подписки на подкасты через Apple ID.",
+  "pricing": "бесплатно (предустановлен на всех устройствах Apple); отдельные шоу могут иметь платные подписки через Apple In-App Purchase — пользователи жалуются, что после оплаты реклама всё равно остаётся",
+
+  "keyFeatures": [
+    "подписка на шоу и библиотека эпизодов с офлайн-загрузками",
+    "транскрипты эпизодов (автоматические субтитры)",
+    "поддержка видеоподкастов (добавлена в версии 4.5)",
+    "очередь воспроизведения (Next Up / Up Next)",
+    "таймер сна (sleep timer)",
+    "платные подписки на отдельные шоу через Apple ID",
+    "интеграция с CarPlay и HomePod",
+    "рекомендательная лента 'Home' с персонализированными предложениями"
+  ],
+
+  "competitors": [
+    "Spotify",
+    "Overcast",
+    "Pocket Casts",
+    "Castro",
+    "Google Podcasts (закрыт, аудитория мигрировала)",
+    "Audible",
+    "YouTube (видеоподкасты)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "after the first podcast it stops playing and lines up some random garbage (which it doesn't play automatically) so you have to stop and go through ten steps to get to the podcast you had lined up",
+      "observation": "Очередь воспроизведения не соблюдается: после первого эпизода приложение вставляет рекомендованное чужое шоу вместо следующего из очереди, при этом оно не запускается автоматически — пользователь вынужден вручную восстанавливать очередь посреди поездки или пробежки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "when i set my chosen window to Library, i want it to stay on Library. it's why i put it there. instead, everytime i close the app's window to look at a different app... it flies back over to Home. this erases where i had scrolled down to so i can listen to an old episode of a cast with over 400 episodes",
+      "observation": "При сворачивании приложения (не закрытии) активная вкладка сбрасывается обратно на Home: пользователь теряет позицию прокрутки в подкасте с 400+ эпизодами и вынужден прокручивать список заново каждый раз, когда переключается на другое приложение или гасит экран.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Why on earth would I want to start a new podcast I haven't listened to at season 74? I have to scroll back all the way to the early seasons each time I finish one",
+      "observation": "Эпизоды в подкасте всегда отсортированы от новых к старым без опции 'с начала': чтобы начать долгоиграющее шоу с первого эпизода, нужно вручную проскроллить весь список вниз — у конкурентов (Spotify) такая сортировка есть как переключатель.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Twice! I have tried to give Apple Podcasts a chance to redeem themselves by subscribing to my favorite podcasts show to remove ads and it never works! Ads still come on and there's no way to report the issue to get support.",
+      "observation": "Платная подписка на шоу через Apple Podcasts не отключает рекламу: пользователь дважды оформлял подписку ради ad-free прослушивания, реклама продолжала выходить, а механизма пожаловаться на это внутри приложения нет — оба запроса на возврат средств были отклонены.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Since introducing the video option this app has been ruined. If you try to forward the audio it only forwards the audio feed while the vocals on the video feed don't forward. So then you hear two clashing audio streams.",
+      "observation": "После добавления видеоподкастов в версии 4.5 перемотка сломалась: аудиопоток и видеопоток перематываются независимо, из-за чего слышны два несинхронизированных потока речи одновременно — баг воспроизводится при перемотке вперёд в видеоэпизодах.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It is NOT designed for serial fiction. Once you've found your podcast, it'll play your selected episode then jump into the most recent instalment of an entirely different, totally unrelated podcast. Nobody wants a health, history or news podcast popping up right in between chapters of a story. There is no setting for 'keep playing this podcast in order.'",
+      "observation": "Приложение не поддерживает режим 'слушать шоу подряд': после выбранного эпизода автоматически включается последний эпизод случайного другого шоу, а настройки 'продолжать это шоу по порядку' не существует — критично для нарративных сериалов, где порядок важен.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)",
+    "App is slow after update (commodity without mechanism)",
+    "User says UI is confusing (commodity without specific flow)"
+  ]
+}

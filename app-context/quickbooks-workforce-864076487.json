@@ -1,0 +1,79 @@
+{
+  "productId": "cmpstbc5o0s66ug8p85u53kas",
+  "slug": "quickbooks-workforce-864076487",
+  "name": "QuickBooks Workforce",
+  "domain": "учёт рабочего времени / расчётные листки / зарплатный трекер для сотрудников",
+  "oneLiner": "Мобильное приложение Intuit для рядовых сотрудников: приходить/уходить одним касанием, смотреть расчётные листки и прогнозировать следующую зарплату — без доступа к самому QuickBooks.",
+  "pricing": "бесплатно для сотрудника (работодатель оплачивает QuickBooks Payroll/Time); дополнительная функция Clair — аванс до следующей зарплаты (до $800) в рамках партнёрской программы",
+
+  "keyFeatures": [
+    "clock in/out с геолокационной привязкой — основной рабочий сценарий приложения",
+    "просмотр расчётных листков и прогноз суммы следующего чека до его выплаты",
+    "табели рабочего времени с разбивкой по заказчикам/проектам и вставкой перерывов",
+    "запрос и отображение баланса PTO/больничных и отпускных дней",
+    "фиксация расходов: фото чеков прямо из приложения",
+    "виджет на рабочий стол — быстрое отображение статуса и таймера смены",
+    "интеграция с Clair: аванс из будущей зарплаты без банковских комиссий",
+    "уведомления о задержке закрытия смены ('вы забыли выбить')"
+  ],
+
+  "competitors": [
+    "Homebase — Time Clock & Scheduling",
+    "When I Work: Employee Scheduling",
+    "Deputy: Shift & Schedule",
+    "Gusto Wallet",
+    "ADP Mobile Solutions",
+    "Clockify Time Tracker",
+    "TSheets (ныне QuickBooks Time — менеджерская версия)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Randomly clocks me in for 8 hour shifts on days I don't work. I have to reset the app data weekly and re log in just to be able to use the app normally.",
+      "observation": "Приложение самопроизвольно создаёт восьмичасовые смены в нерабочие дни — баг в механизме фоновой синхронизации, который не устраняется переустановкой, а только полным сбросом данных приложения. Это прямо искажает табель и расчёт зарплаты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "new update don't give you any notification that the timeclock is running and there's no way to stop the clock either. even after uninstalling the app and re-downloading it the clock is still running.",
+      "observation": "После одного из обновлений таймер смены продолжает работать на сервере даже после полного удаления и переустановки приложения — отключить его нельзя ни локально, ни через переустановку. Часы уходят в оплачиваемые, пока сотрудник не выяснит это у администратора.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the latest update ruined the app. timesheets are now confusing. breaks are not automatically removed from total hours for the day.",
+      "observation": "Обновление убрало автоматический вычет перерывов из суммарного времени смены: кнопка 'Insert Break' исчезла, вместо неё нужно три отдельных пунша — вход, перерыв, выход. Работодатели, оплачивающие перерывы, вынуждены корректировать табели вручную каждый день.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Never have I ever used a clock in app that requires location to be turned on at all times, and will clock you out if you select 'only share location while using the app'. I work an office job in a cube made out of cement.",
+      "observation": "Приложение принудительно требует постоянный доступ к геолокации: если выставить режим 'только при использовании', оно автоматически выбивает сотрудника из смены. Офисные работники без нужды в геотрекинге лишены выбора — работодатель видит их местоположение всё рабочее время.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I still haven't received any updates on the app it still shows my last paycheck from mar 5th they said that they are updated the app but still shows the thing",
+      "observation": "Расчётные листки замирают на дате последней успешной синхронизации и не обновляются, даже после деклараций поддержки о 'починке' — сотрудник не видит актуальных начислений и не может контролировать корректность расчёта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "privacy laws prohibit location tracking while not logged in but if I leave location services on after work, the app keeps tracking my phone.",
+      "observation": "Геолокационный сбор продолжается после завершения смены: приложение отслеживает координаты телефона даже когда сотрудник не залогинирован, что прямо противоречит законодательству о приватности в ряде штатов.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity — платит работодатель, не сотрудник)",
+    "User says it crashed (no specifics — без версии, шагов воспроизведения)",
+    "User loves it (non-information)",
+    "User hates ads (commodity — упоминание рекламы без описания механизма)",
+    "User wants more features (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible with steps)"
+  ]
+}

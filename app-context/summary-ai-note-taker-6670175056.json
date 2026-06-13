@@ -1,0 +1,74 @@
+{
+  "productId": "cmpst75k70j9oug8pzmahp5lk",
+  "slug": "summary-ai-note-taker-6670175056",
+  "name": "Summary - AI Note Taker",
+  "domain": "голосовые заметки / транскрипция встреч / AI-суммаризация",
+  "oneLiner": "Мобильный диктофон с AI-транскрипцией и автоматическим саммари: пишет встречи, лекции и проповеди, затем выдаёт структурированный конспект одним нажатием.",
+  "pricing": "бесплатная версия — только одна транскрипция, затем принудительный апгрейд; 3-дневный триал заявлен бесплатным, но ряд пользователей сообщает о списании ~$5/нед уже при старте; годовая подписка (~$40-50/год по косвенным данным); встречаются жалобы на продолжение списаний после отмены",
+  "keyFeatures": [
+    "живая запись звука прямо в приложении (встречи, лекции, проповеди, полевые заметки)",
+    "автоматическая транскрипция аудио в текст",
+    "AI-саммаризация: структурированный конспект с ключевыми точками из записи",
+    "распознавание нескольких спикеров (diarization — заявлено, на практике путает при 3+ участниках)",
+    "загрузка уже существующих аудиофайлов для транскрипции",
+    "хранение записей и конспектов в истории приложения",
+    "поддержка нескольких языков (английский основной; другие языки — с ошибками)"
+  ],
+  "competitors": [
+    "Otter.ai",
+    "Fireflies.ai",
+    "Whisper (OpenAI)",
+    "Notta",
+    "Rev Voice Recorder",
+    "Google Recorder (встроенный на Pixel)",
+    "Microsoft 365 Transcription"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "only transcribes english and ignores other speakers speaking other languages which makes the summary inaccurate.",
+      "observation": "Когда на встрече одновременно звучат два языка, приложение транскрибирует только английские реплики, молча пропуская остальные — итоговый саммари строится на неполной картине разговора, без предупреждения пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "App is easy to use. I bought the year subscription and within the first hr, it failed to pick up 4 recordings. if the recording was a minute or 2 then the app may transcribe 20 words. if the recording was 30 seconds, I may only get 1 word transcription.",
+      "observation": "Для коротких записей (30 секунд — 2 минуты) транскрипция возвращает 1-20 слов вместо полного текста — механизм, скорее всего, отбрасывает фрагменты ниже порогового размера и молча обрезает вывод.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I recorded an entire meeting yesterday and at no point did the app say there was an error. now my summary is not uploading because of an error",
+      "observation": "Приложение молча записывает встречу без показа ошибок в реальном времени, а отказывает только при попытке загрузить саммари — пользователь узнаёт о потере записи уже после встречи, когда исправить ничего нельзя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "the app mixes the speakers words specially if there are more than 2 speakers. If you are present in the meeting you will know who speaks this and that.",
+      "observation": "Разделение спикеров (diarization) работает приемлемо в разговоре один-на-один, но при трёх и более участниках реплики начинают смешиваться — транскрипт остаётся читаемым для присутствовавшего на встрече, но бесполезен как самостоятельный документ.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it doesn't capture up to 40% of the entire discussion. It focuses on a few areas to emphasise.",
+      "observation": "Алгоритм суммаризации избирательно освещает часть разговора, оставляя до 40% содержания за кадром — для протокола встречи это критично, поскольку выпавшие решения не попадают в итоговый документ.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 5,
+      "trigger": "Dysgraphia be damned... I am researching and writing a book and I also have dysgraphia. This app allows me to think scenes out loud so that I don't have to worry about the writing until, well... I am ready to write. I can take voice notes on books and organize them later.",
+      "observation": "Для пользователей с дисграфией приложение закрывает ключевой разрыв: мысли диктуются вслух в любом порядке, а транскрипт с саммари создаёт структурированный черновик без необходимости держать в голове формат записи.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

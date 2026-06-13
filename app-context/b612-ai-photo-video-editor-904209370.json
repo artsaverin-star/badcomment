@@ -1,0 +1,80 @@
+{
+  "productId": "cmpsyfyon16gqughvo3oeqhzn",
+  "slug": "b612-ai-photo-video-editor-904209370",
+  "name": "B612 AI Photo&Video Editor",
+  "domain": "селфи-камера с живыми фильтрами / AR-макияж / лёгкий видеоредактор",
+  "oneLiner": "B612 (Snow Inc.) — камера-приложение с живыми AR-фильтрами, виртуальным макияжем и базовым видеомонтажом; позиционируется как Snapchat-альтернатива без обязательной регистрации.",
+  "pricing": "бесплатная установка; значительная часть фильтров, AR-эффектов и макияжных пресетов закрыта за VIP-подпиской; валюта внутри приложения — 'beans'; бесплатный триал есть, но его условия пользователи считают непрозрачными — некоторые сообщают о неожиданных списаниях после триала",
+
+  "keyFeatures": [
+    "живые (realtime) AR-фильтры поверх камеры — применяются до съёмки, не после",
+    "виртуальный макияж в реальном времени: помада, румяна, контуринг, aegyo-sal, тональный крем",
+    "reshape / face-tuning прямо в видео (изменение формы лица покадрово)",
+    "портретный режим с боке-фоном и night-портрет",
+    "Auto Skin — автоматическое выравнивание тона кожи",
+    "базовый видеомонтаж с наложением музыки",
+    "съёмка и редактирование без вотермарки (бесплатная часть)",
+    "стикеры и интерактивные жесты ('magic hands' — эффекты от движения рук)"
+  ],
+
+  "competitors": [
+    "Snapchat",
+    "Snow (та же Snow Inc., старший брат B612)",
+    "YouCam Makeup",
+    "FaceApp",
+    "Ulike",
+    "BeautyPlus",
+    "VSCO",
+    "Prequel"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "when you reshape the face in videos the videos glitch it doesnt give that smooth reshape facial structure",
+      "observation": "Функция reshape-лица в видеорежиме давала плавный результат в старых версиях, но после обновлений появились заметные артефакты покадровой деформации — именно на видео, не на фото. Пользователи, выбравшие B612 именно за видео-reshape, воспринимают это как регресс ключевой фичи.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "please tone down the blur background on the portrait mood! my long hair is blurry and I can't see my neck, it's only my face! especially in the night mood, I'm just a face afloat",
+      "observation": "Алгоритм сегментации портретного режима маскирует слишком агрессивно: длинные волосы и шея уходят в боке вместе с фоном, оставляя только лицо 'парящим' — особенно критично в ночном режиме, где боке сильнее.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "all the aegyosals are VIP. before the update, u could use the aegyosals, and now i cant because of this change. its really upsetting because i loved being able to use the makeup feature",
+      "observation": "Конкретный макияжный пресет (aegyo-sal — подводка нижнего века в корейском стиле) был бесплатным и стал VIP в одном из обновлений: пользователи, выбравшие приложение именно за него, обнаруживают деградацию уже установленного инструмента без предупреждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "things I loved about it started getting stripped away (like the 35mm effect ..GONE). And of course it's followed the trend of making free app features, things that you need to pay for",
+      "observation": "Долгосрочные пользователи (5+ лет) фиксируют системный паттерн: конкретные эффекты (35mm плёночный) исчезают полностью между версиями, а другие перемещаются за пейволл — приложение деградирует для тех, кто его выбрал за конкретные бесплатные инструменты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Previously, there was a brightening or whitening type option inside Auto Skin, but after the update, I can't find it",
+      "observation": "Опция отбеливания/выравнивания тона внутри Auto Skin исчезла после обновления без объяснений — пользователи, регулярно использовавшие именно эту настройку, не могут воспроизвести привычный результат.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "You can't exit the app until you watch an ad. Dystopian levels of greed. I'm not paying for bare minimum basic features that used to be free",
+      "observation": "Принудительный просмотр рекламы блокирует выход из приложения — механика, обычно ассоциируемая с мобильными играми, воспринимается пользователями фото-приложения как особенно агрессивная.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

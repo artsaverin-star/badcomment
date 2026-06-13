@@ -1,0 +1,74 @@
+{
+  "productId": "cmpstykzl269vug8paog6r15x",
+  "slug": "owlet-dream-1590590105",
+  "name": "Owlet Dream",
+  "domain": "мониторинг новорождённых / baby tracking postbirth / носок + камера",
+  "oneLiner": "Owlet Dream — аппаратно-программный комплекс для родителей новорождённых: «умный» носок отслеживает пульс и кислород в крови ребёнка в реальном времени, а Dream Camera передаёт ночную видеотрансляцию; всё объединено в одном приложении с историей сна и тревожными уведомлениями.",
+  "pricing": "стоимость оборудования $299–$400+ (Dream Sock + Dream Camera в комплекте); базовый мониторинг включён; подписка Owlet 360 для расширенной аналитики сна — около $9/месяц или $79/год; бесплатной альтернативы без подписки нет для части функций",
+  "keyFeatures": [
+    "Dream Sock — носок с пульсоксиметром: мониторинг SpO₂ и ЧСС новорождённого в реальном времени",
+    "Dream Camera — ночная видеокамера с HD-трансляцией прямо в приложение",
+    "база-станция с автономной звуковой тревогой при выходе показателей за пороги",
+    "приложение: единый дашборд с живыми данными носка, видео и историей сна",
+    "Owlet 360 — аналитика сна: графики, паттерны, рекомендации",
+    "температура и влажность в комнате ребёнка (через камеру)",
+    "уведомления и алерты на несколько устройств одновременно",
+    "поддержка нескольких детей / нескольких камер на одном аккаунте"
+  ],
+  "competitors": [
+    "Nanit Pro (умная камера с ИИ-аналитикой сна)",
+    "Infant Optics DXR (автономный монитор без Wi-Fi)",
+    "Motorola Baby Monitor",
+    "Eufy SpaceView (локальная передача, без облака)",
+    "Blink Camera (универсальная камера)",
+    "Withings Baby Monitor"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Owlet recently added a 'noise filter' to the dream sight, but didn't seem to even test it, because if a white noise machine is used in the same room as the baby (which is a very common use case), any cries from your baby will also be filtered out",
+      "observation": "Owlet принудительно включил шумоподавление в последнем обновлении Dream Camera без возможности отключить — в итоге белый шум (штатная практика для сна новорождённых) глушит в аудиопотоке и плач ребёнка: родители на телефоне не слышат сигнал тревоги. Опция выбора фильтра не предусмотрена в интерфейсе.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it used to be good. it always had its issues... but the you used to be able to hear audio from both at the same time. and recently we have been unable to do both audios at one time.",
+      "observation": "Семьи с двумя детьми и двумя камерами обнаружили, что после одного из обновлений одновременный аудиопоток с обоих устройств перестал работать: на Android-устройствах звук приходит только с одной камеры, вторая — немая. Раньше это работало штатно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the extremely short range due to using BLE means constant drop out alarms waking up whoever is within earshot of the base station. the app needs multiple restarts before it will successfully connect to the base station and turn off the alarm",
+      "observation": "Носок использует Bluetooth Low Energy, а не sub-GHz радио: реальный радиус действия — 3–5 метров, и при переходе родителя на другой этаж база начинает звуковую тревогу. Отключить тревогу через приложение в этот момент нельзя — требуются 2–3 перезапуска приложения для восстановления соединения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Why does the app keep beeping when the alert is cleared using the base or another phone? You all can send a push notification to start the alert but not to end it???",
+      "observation": "Push-система однонаправленная: приложение получает уведомление о тревоге, но не получает сигнал о её сбросе через базу или другой телефон — телефон продолжает звонить, даже когда тревога уже снята физическим нажатием на базу. Ночью родителю приходится разыскивать телефон, чтобы нажать кнопку в приложении вручную.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "there are frequently periods of 'no sleep data.' That's not helpful at all. It's as if he didnt have the sock on.",
+      "observation": "График сна в разделе Owlet 360 регулярно показывает провалы «нет данных» за промежутки, когда носок фактически был надет и показывал онлайн-пульс — то есть данные собирались, но в историческую запись не попали. Пользователи платят за аналитику сна, получая дырявую хронологию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The app takes forever to load and glitches constantly. I have to close & restart the app between 3 - 20 times to get the camera to load and sleep data to display. It doesn't allow me to connect the camera to Google Home, or view from a computer.",
+      "observation": "Камера не интегрируется ни с Google Home, ни с браузером — просмотр возможен только через фирменное приложение Owlet. При этом само приложение требует от 3 до 20 принудительных перезапусков перед тем, как видеопоток загрузится, что исключает быстрый ситуативный доступ.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

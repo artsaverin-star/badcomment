@@ -1,0 +1,75 @@
+{
+  "productId": "cmpstmmg51gpjug8p2ns5viom",
+  "slug": "photogrid-video-collage-maker-543577420",
+  "name": "PhotoGrid: Video Collage Maker",
+  "domain": "фотоколлаж / видеоколлаж / редактирование для соцсетей",
+  "oneLiner": "PhotoGrid — многолетний лидер мобильного коллажирования: объединяет фото и видео в сетки, поддерживает шаблоны, стикеры и AI-генерацию, ориентирован на публикацию в Instagram, Facebook и TikTok.",
+  "pricing": "бесплатная версия с рекламой и принудительным вотермарком; Premium — подписка ~$1.99/мес или ~$19.99/год с 7-дневным триалом; фиксируются массовые автосписания в странах Юго-Восточной Азии через GCash, Dana, Gopay без явного согласия пользователя; пользователи сообщают о списаниях после отмены и о двойной тарификации (оплата на сайте + повторная в приложении)",
+  "keyFeatures": [
+    "фотоколлажи: сетки из нескольких фото с настраиваемыми рамками, цветом бордюра, соотношением сторон",
+    "видеоколлажи: объединение нескольких видео или фото+видео в один ролик",
+    "шаблоны и стикеры: большой каталог готовых макетов, тематические стикеры",
+    "AI-генератор изображений (упоминается пользователями как одна из лучших мобильных реализаций)",
+    "подгонка под форматы Instagram (обход кадрирования), Facebook, TikTok",
+    "базовое редактирование фото: фильтры, обрезка, яркость/контраст",
+    "создание видеомонтажей с музыкой (ограничено на iOS — нельзя добавить трек из библиотеки)",
+    "пакетная обработка нескольких медиафайлов одновременно"
+  ],
+  "competitors": [
+    "PicsArt",
+    "Canva",
+    "Layout from Instagram",
+    "InShot",
+    "CapCut",
+    "Pic Collage",
+    "Unfold"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I paid for a year online, and then went to the app, installed and opened it. What a surprise to find out I have a 7 day free trial and then have to pay again for a year",
+      "observation": "Подписка, оформленная через веб-сайт, не переносится в мобильное приложение автоматически: пользователь, уже заплативший за год, при установке приложения видит экран 7-дневного триала и повторный запрос оплаты — фактически двойное выставление счёта за один и тот же продукт.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Offer a free trial. Cancel it the same day it was activated, and even though it says in red letters that it will cancel under my subscriptions, I was still charged for the full year.",
+      "observation": "Механизм отмены триала показывает красное подтверждение отмены в UI, но на уровне биллинга отмена не проходит — пользователь видит подтверждение в интерфейсе и считает проблему решённой, однако списание за полный год всё равно происходит.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I have a subscription to this APP but I cannot use it without being barraged by ads! Some ads won't disappear even if I try to delete them.",
+      "observation": "Платные подписчики получают рекламу наравне с бесплатными пользователями: часть рекламных блоков технически неотклоняема — кнопка закрытия не срабатывает, что делает базовый аргумент 'заплати и избавься от рекламы' ложным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I had this app on my phone for years to simply edit photos to fit Instagram's annoying crop restrictions. I took it off for some time and recently reinstalled.....why are there so many paywalls now?? Being forced to add a watermark or pay?!?",
+      "observation": "Пользователи, вернувшиеся после перерыва, обнаруживают, что функции, ранее работавшие бесплатно (в том числе базовый экспорт без вотермарка), переведены за пейволл: приложение деградировало для бесплатного сегмента, не предупредив об этом лоялных пользователей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "So my previous problem has been resolved, for now, but now the lower portion of the grid is automatically blank. like, it literally cuts off the bottom of the pictures",
+      "observation": "При сборке видеоколлажа нижняя часть ячеек сетки автоматически обрезается и заменяется серой полосой — фотографии усекаются без предупреждения, готовый коллаж непригоден к публикации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "2 photo&video collages - SO BLURRY that i can't even use it. Need to find another app now cause this one's become useless",
+      "observation": "Экспорт смешанных фото+видео коллажей даёт заметно размытое качество — деградация рендеринга появилась в одном из последних обновлений и превратила флагман продукта (видеоколлаж) в непригодный для публикации результат.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more free templates (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

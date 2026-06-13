@@ -1,0 +1,75 @@
+{
+  "productId": "cmpstba9v0s1xug8pxo4laet0",
+  "slug": "opal-screen-time-for-focus-1497465230",
+  "name": "Opal: Screen Time for Focus",
+  "domain": "контроль экранного времени / блокировка приложений / цифровой детокс",
+  "oneLiner": "Opal блокирует выбранные приложения на время фокус-сессий и геймифицирует снижение экранного времени через очки, стрики и коллекцию кристаллов — iOS.",
+  "pricing": "бесплатная версия ограничена (не более 6 заблокированных приложений, нет «hard mode» без возможности отмены); Pro-подписка около $99/год; функция 'Good Sleep, Good Life', sleep assistant и некоторые ранее бесплатные режимы переехали за пейволл после обновления 4.0",
+  "keyFeatures": [
+    "блокировка приложений по расписанию или по запросу (фокус-сессии с таймером)",
+    "Deep Focus / Hard Mode — режим без возможности досрочной отмены блока",
+    "экстренный пропуск (Emergency Pass) как единственный выход из жёсткой сессии",
+    "нотификации-«нагоняи» при открытии отвлекающих приложений (Nudge-уведомления)",
+    "геймификация: очки фокуса, стрики, коллекция кристаллов Opal Gems, достижения",
+    "виджет с таймером текущей сессии на домашнем экране",
+    "Sleep Assistant / 'Good Sleep, Good Life' — вечерние блоки для улучшения сна",
+    "социальные функции: таблица лидеров (leaderboard), добавление друзей",
+    "интеграция с Apple Shortcuts (приостановлена в версии 4.0)"
+  ],
+  "competitors": [
+    "Apple Screen Time (встроенный)",
+    "Freedom — Block Distractions",
+    "One Sec — App Blocker & Focus",
+    "Roots: Limit Screen Time",
+    "ScreenZen Screen Time Control",
+    "Jomo: Digital Wellbeing"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "hard mode was supposed to make it IMPOSSIBLE to cheat. What's an emergency pass??",
+      "observation": "Режим 'Hard Mode' позиционируется как непреодолимый барьер против импульсивного снятия блока, но в версии 4.0 появился Emergency Pass — лазейка, разрушающая саму идею жёсткой блокировки: пользователи, специально выбравшие Hard Mode ради невозможности сдаться, теряют смысл функции.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "gamifies using the app through achievements and unlocks which encourages screen time by wasting time and checking. Block my apps and be done with it.",
+      "observation": "Геймификация (достижения, кристаллы, стрики) создаёт парадокс: чтобы собрать награды, нужно регулярно открывать само приложение Opal — то есть инструмент борьбы с экранным временем сам генерирует поводы для экранного времени.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "features like App Uninstall, Never Allowed, and Adult content blocking can now be easily be turned off outside of your session which feels counterintuitive to the point of the app",
+      "observation": "После обновления 4.0 постоянные защитные настройки (Never Allowed, блокировка контента для взрослых) перестали быть залоченными — их можно отключить прямо в системных настройках iOS без входа в сессию, что аннулирует ценность Opal как инструмента самоконтроля.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Opal prevented me from deleting my Safari search history (the 'clear' and 'delete' buttons became grayed out)",
+      "observation": "Opal использует профиль Screen Time iOS для управления блокировками, и этот профиль, как побочный эффект, запрещает очищать историю браузера Safari — пользователи обнаруживают это случайно и интерпретируют как слежку, хотя это архитектурное ограничение системного API.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I like the nudge feature but I've explicitly set Discord to never trigger the notifs and yet Opal persists. Frustrating the feature doesn't obey my configuration.",
+      "observation": "Nudge-уведомления игнорируют пользовательские исключения: Discord, явно отмеченный как 'не напоминать', продолжает триггерить нотификации — конфигурация не применяется, и инструмент превращается в источник раздражения вместо поддержки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the widget has been ruined. I used to be able to see how much longer I had during a session and now that's gone. I used to be able to set up a 10 minute or 25 minute focus session from the widget",
+      "observation": "Виджет с таймером текущей сессии и быстрым запуском 10/25-минутного блока — ключевой сценарий для «рабочего стола как напоминалки» — был удалён в версии 4.0, лишив пользователей основного инструмента управления сессией без входа в приложение.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

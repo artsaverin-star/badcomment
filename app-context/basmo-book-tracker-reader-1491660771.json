@@ -1,0 +1,75 @@
+{
+  "productId": "cmq7urbue05j5ugicpvivwe17",
+  "slug": "basmo-book-tracker-reader-1491660771",
+  "name": "Basmo - Book Tracker & Reader",
+  "domain": "трекинг чтения / личная библиотека / читательская статистика",
+  "oneLiner": "Basmo — iOS/macOS-приложение для ведения личной библиотеки и трекинга чтения: сканирование штрих-кодов, таймер чтения, детальная статистика и виджеты; продаётся единовременно, без подписки.",
+  "pricing": "бесплатная версия ограничена 5 книгами; полная версия — единовременная покупка (упоминаются суммы от ~10€ до $16); есть вариант lifetime-подписки (~$16 по отзывам US); никакой рекламы; семейный план через Apple Family Sharing упоминается пользователями; покупка привязана к одному устройству по мнению части пользователей (не всегда ясно применение Universal Purchase)",
+  "keyFeatures": [
+    "сканирование штрих-кодов книг для быстрого добавления в библиотеку",
+    "таймер чтения с Live Activity и виджетами на экране блокировки",
+    "детальная статистика: страниц в день, сравнение неделя/месяц/год, граф активности",
+    "книжный календарь — визуализация, что читалось в каждый конкретный день",
+    "сохранение цитат и личных заметок к каждой книге",
+    "разделение библиотеки по статусам: прочитано / читаю / хочу прочитать / брошено",
+    "синхронизация между iPhone, iPad и macOS",
+    "настраиваемые секции, папки и цвета без захламления интерфейса",
+    "трекинг стоимости покупки книги и расходов на библиотеку"
+  ],
+  "competitors": [
+    "Goodreads",
+    "Apple Books (встроенный трекер)",
+    "StoryGraph",
+    "Libib",
+    "BookSloth",
+    "Book Tracker by Readinglist"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "I mostly engage the timer through the live activity and widget. Easy to start, easy to stop. No other asks.",
+      "observation": "Таймер чтения реализован как минималистичный Live Activity: пользователь не уходит из книги, чтобы найти кнопку в приложении — старт и стоп доступны прямо с экрана блокировки или динамического острова, без дополнительных тапов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I love being able to log quotes that stand out to me as I read! ... the random quotes it shows on the home page are so fun.",
+      "observation": "Система цитат работает в двух направлениях: пользователь сохраняет цитату во время чтения, а приложение затем случайно показывает их на главном экране — превращая архив заметок в живой дневник, а не мёртвый список.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "la scansione del codice a barre che permette di inserire velocemente anche grandi quantità di libri",
+      "observation": "Сканирование штрих-кода позволяет каталогизировать большой стеллаж за одну сессию: книга идентифицируется мгновенно и получает метаданные автоматически — без ручного ввода названия, автора или обложки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I love how customizable it is, how clean and efficient it is ... detailed statistics and the customization without ever feeling cluttered.",
+      "observation": "Приложение предоставляет глубокую кастомизацию (папки, секции, цвета, поля) и при этом не перегружает интерфейс — редкое сочетание для инструментов учёта, где обычно либо гибкость, либо простота.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 5,
+      "trigger": "The reading timer that shows how long it took to read a book and also gives projections on how long it'll take to finish.",
+      "observation": "Таймер накапливает реальное время сессий по книге и на основе темпа пользователя считает прогноз завершения — не абстрактная 'скорость чтения', а конкретная дата окончания текущей книги.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "My favorite part is the book calendar to show what I read each day.",
+      "observation": "Книжный календарь визуализирует историю чтения по дням — пользователь видит не только сколько книг прочитано за год, но и конкретную картину активности: в какие периоды читал интенсивно, а в какие были паузы.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says app is too expensive (commodity)",
+    "User says it crashed without reproducible steps (commodity)",
+    "User loves it, no specifics (non-information)",
+    "User wants Goodreads-style social feed (generic feature request)",
+    "User says barcode did not find a book (commodity unless pattern described)",
+    "Update broke something, no details (commodity)",
+    "User lost books after iOS update without explaining mechanism (commodity)",
+    "Free version too limited / only 5 books (commodity — the paywall is well-documented and not deceptive)"
+  ]
+}

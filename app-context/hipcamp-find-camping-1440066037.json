@@ -1,0 +1,79 @@
+{
+  "productId": "cmptakwty3vdxugx3d9go2ihl",
+  "slug": "hipcamp-find-camping-1440066037",
+  "name": "Hipcamp - Find Camping",
+  "domain": "поиск и бронирование кемпингов / glamping / частные участки на природе",
+  "oneLiner": "Hipcamp — маркетплейс кемпинг-мест на частных фермах и угодьях: «Airbnb для кемперов», позволяющий найти скрытые площадки вне государственных парков как для палатки, так и для автодома или глэмпинга.",
+  "pricing": "Бронирование бесплатно для гостей; сервисный сбор взимается сверх заявленной цены хоста (пользователи жалуются на $60-123 сверху при бронировании на $300); для хостов — комиссионная модель (доля с каждого бронирования); отдельная подписка не требуется",
+
+  "keyFeatures": [
+    "карта и каталог кемпингов на частных фермах, угодьях и малоизвестных локациях",
+    "фильтры по типу размещения: палатка, авто/RV с подключением, глэмпинг, каюта, хижина",
+    "фильтры по удобствам: туалет, душ, электричество, pet-friendly, off-grid",
+    "прямая переписка с хостом внутри приложения до и после бронирования",
+    "функция Road Trip — маршрут с кемпинг-стопами по пути",
+    "профиль гостя с сохранёнными типами транспорта (RV-тип, длина)",
+    "двусторонняя платформа: отдельный интерфейс управления объявлениями для хостов",
+    "отзывы гостей и фото по каждому объекту"
+  ],
+
+  "competitors": [
+    "The Dyrt",
+    "Campendium",
+    "iOverlander",
+    "Reserve America / Recreation.gov",
+    "Airbnb (как альтернатива глэмпинга)",
+    "Harvest Hosts",
+    "Boondockers Welcome"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "First time we have used this and arrived at the booked camping property, only to be told by a passing farmer that the property was sold 22 months ago. Drove 3 hours to get here. Does anyone at hipcamp",
+      "observation": "Hipcamp не верифицирует актуальность листингов: участок может числиться активным спустя почти два года после смены владельца — гость узнаёт об этом только по прибытии, потратив несколько часов дороги. Нет ни автоматической проверки статуса хоста, ни системы оповещения при смене собственника.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Some locations register themselves as if they have toilets, even though they don't. There is also no authority to file a complaint about this. Additionally, this makes finding suitable locations much more difficult. I experienced this at two different",
+      "observation": "Хосты могут самостоятельно отмечать удобства (туалет, душ) без проверки со стороны платформы — фильтр по удобствам становится ненадёжным инструментом. При этом нет механизма жалобы на ложное описание: пользователь остаётся без вариантов, кроме как оставить низкую оценку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They are home to several scammer 'hosts'. they have absolutely no verification process to become a host. then have no accountability for when people get scammed out of the money on their app.",
+      "observation": "Регистрация хоста не требует верификации личности или фото объекта — мошеннические листинги попадают в каталог без проверки. После факта скама платформа не несёт финансовой ответственности, а возмещение зависит от решения службы поддержки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "very disappointing too see i booked 4 nights for paid camping in molesworth through hipcamp Hipcamp charged me $123 service fee no mention of a service fee upon booking never again will I use this app",
+      "observation": "Сервисный сбор не отображается на карточке объекта и не выделяется явно в воронке до момента оплаты: итоговая сумма оказывается значительно выше заявленной цены хоста (например, +$123 к стандартному бронированию). Это структурная проблема ценообразования, а не разовая ошибка.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "1) no phone or chat support. only email support. so if you or your guest have an emergency you have to email and wait for days. 2) you pay more fees than Airbnb 3) if you have multiple properties you have to use desktop",
+      "observation": "Для хостов с несколькими объектами управление возможно только с десктопа — мобильное приложение не поддерживает переключение между листингами. Поддержка работает только через email с многодневными задержками, что критично при экстренных ситуациях на объекте.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "giving it 4 star for now, love most of the app, but having to enter in your RV type and length, when it's stored on your profile, for every single booking is unnecessary, extremely tedious and frustrating.",
+      "observation": "Профиль хранит тип и длину RV, но при каждом бронировании система требует вводить эти данные заново — информация из профиля не подтягивается в форму. Для частых пользователей это ощутимое трение, повторяемое буквально при каждом новом бронировании.",
+      "specificity": "medium"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}
