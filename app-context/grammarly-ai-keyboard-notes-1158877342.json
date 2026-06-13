@@ -1,0 +1,80 @@
+{
+  "productId": "ext-1158877342",
+  "slug": "grammarly-ai-keyboard-notes-1158877342",
+  "name": "Grammarly: AI Keyboard & Notes",
+  "domain": "ИИ-ассистент письма / грамматика и стиль / клавиатура iOS",
+  "oneLiner": "Grammarly — системная клавиатура для iOS с проверкой грамматики, орфографии, тона и стиля в реальном времени; плюс встроенный ИИ-рерайтер и диктовка до 10 минут; конкурирует с нативной клавиатурой Apple и SwiftKey",
+  "pricing": "бесплатный уровень с базовой проверкой; Premium — около $12.99/месяц через сайт, но $29.99/месяц через App Store (разница выявляется пользователями сравнением); годовая подписка дешевле; есть студенческие тарифы; двойное списание (duplicate subscription) при смене email задокументировано в отзывах",
+
+  "keyFeatures": [
+    "системная клавиатура iOS — работает во всех приложениях без переключения контекста",
+    "проверка грамматики, орфографии и пунктуации в реальном времени",
+    "ИИ-рерайтер: смена тона (профессиональный, дружелюбный, формальный), улучшение и перефразирование текста",
+    "диктовка с голоса до 10 минут — встроенный микрофон прямо в клавиатуре",
+    "персональный словарь (personal library) с накоплением привычных слов",
+    "детектор ИИ-сгенерированного текста (AI detection, показания оспариваются пользователями)",
+    "встроенный редактор заметок для длинных текстов внутри приложения",
+    "синхронизация между устройствами (desktop/iOS) — ограниченная, документы, начатые на десктопе, недоступны для редактирования на телефоне"
+  ],
+
+  "competitors": [
+    "нативная клавиатура Apple (QuickType)",
+    "SwiftKey (Microsoft)",
+    "WhisperFlow / Willow (диктовка)",
+    "ProWritingAid",
+    "QuillBot",
+    "Hemingway Editor",
+    "LanguageTool",
+    "ChatGPT (как альтернативный рерайтер)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "you cannot edit things on your phone if it was started on your desktop is a joke in 2026",
+      "observation": "Документы, созданные в десктопной версии Grammarly, недоступны для редактирования через iOS-приложение — пользователи с Premium-подпиской платят за кроссплатформенный инструмент, но получают разрыв между устройствами, который конкуренты (Google Docs, Notion) решили ещё десять лет назад.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Grammarly will just lose what was saved. Why? No idea. Can you manually save your work? No.",
+      "observation": "Редактор заметок внутри iOS-приложения не имеет ручного сохранения — при зависании или сбое приложения весь набранный текст теряется безвозвратно, а служба поддержки предлагает воспроизвести баг, хотя данных уже нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "what I was paying for my monthly Grammarly bill ($29.99) was more than double the price listed ($12.99!) on the Grammarly website",
+      "observation": "Подписка через App Store стоит в 2+ раза дороже той же подписки через сайт Grammarly: Apple берёт комиссию, а Grammarly не выравнивает цену — пользователи обнаруживают разрыв случайно и чувствуют себя обманутыми, хотя технически это стандартная политика платформы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "changed my email address associated with the account, I logged in to realize I was downgraded to 'free user' status even though I had 3 months left",
+      "observation": "Смена email-адреса аккаунта сбрасывает статус подписки до бесплатного уровня — Premium пропадает, тикет поддержки не закрывается неделями, а телефонной линии нет; механизм потери подписки воспроизводится без предупреждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Win for a synonym named defeat!? Dude!!! Defeat is the opposite of win!",
+      "observation": "Тезаурус Grammarly выдаёт антонимы вместо синонимов в режиме замены слов — 'win' получает подсказку 'defeat', что разрушает смысл текста; пользователи, доверяющие автоматическому предложению, вносят семантические ошибки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it picks up some of my mistakes and saves them into the personal library and I can't edit them... keyboard keeps updating my text with wrong suggestions",
+      "observation": "Персональный словарь обучается на опечатках пользователя и не позволяет удалять или редактировать ошибочные записи — со временем клавиатура начинает настойчиво предлагать именно те слова, которые пользователь хотел бы исправить.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content or features (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / keyboard slow (commodity unless reproducible with version)"
+  ]
+}

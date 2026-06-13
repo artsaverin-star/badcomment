@@ -1,0 +1,73 @@
+{
+  "productId": "ext-357421934",
+  "slug": "peakfinder-357421934",
+  "name": "PeakFinder",
+  "domain": "идентификация горных вершин / AR-компас для гор / планирование горных походов",
+  "oneLiner": "PeakFinder (Fabio Soldati) — приложение-компас с AR-наложением: наводишь телефон на горизонт и видишь названия и высоты всех видимых вершин; разовая покупка без подписки, работает офлайн после загрузки регионального пакета данных; iOS+Android",
+  "pricing": "разовая покупка ~5-6 EUR/USD (пользователи отмечают небольшую разницу между App Store и Google Play); никаких подписок и рекламы — это постоянно упоминается как ключевое достоинство; некоторые пользователи владеют приложением 10-15 лет с оригинальной покупкой",
+  "keyFeatures": [
+    "AR-панорама в реальном времени: наводишь камеру на горы — видишь силуэт горизонта с подписанными вершинами и их высотой",
+    "офлайн-режим: скачиваешь региональный пакет данных заранее, далее без интернета",
+    "режим фото-аннотации: импортируешь снятую фотографию и накладываешь панораму вершин поверх неё",
+    "расчёт восхода/захода солнца и луны с привязкой к реальному горизонту — для ландшафтной фотографии и выбора места лагеря",
+    "режим планирования из любой точки: выбираешь локацию на карте и смотришь панораму вершин оттуда",
+    "база данных горных вершин по всему миру (Альпы, Скалистые горы, Тихоокеанский Северо-Запад США, Австралия и т.д.)",
+    "список избранных вершин",
+    "компас с ручной калибровкой при потере ориентации"
+  ],
+  "competitors": [
+    "PeakVisor",
+    "SummitSeeker",
+    "Gaia GPS",
+    "AllTrails",
+    "CalTopo",
+    "встроенный компас iOS"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "it's about 60 degrees off. Don't waste your money get something else",
+      "observation": "Компас в приложении систематически уходит в сторону на 60-90 градусов и перестаёт самокорректироваться — несколько пользователей фиксируют эту проблему как регрессию после обновлений: приложение, которое работало исправно годами, вдруг перестаёт совпадать с реальным направлением. Ручная калибровка не помогает.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It is impossible to download all of the offline map data at once, even after checking iDevice storage and having the full amount of storage available. Why display the entire map if you cannot download it all to view on-demand?",
+      "observation": "Интерфейс загрузки офлайн-данных показывает карту целиком, но не позволяет скачать её одним пакетом — пользователь с достаточным местом на устройстве всё равно вынужден дробить загрузку по регионам вручную. Несоответствие между тем, что показывает карта, и тем, что можно скачать, создаёт ложное ощущение полноты офлайн-покрытия.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I'm in Washington pointing my phone right at Mt Baker and the app is giving me the names of peaks in Canada",
+      "observation": "При корректном GPS-местоположении AR-наложение показывает вершины из неверного направления — пользователь стоит в Вашингтоне, смотрит на гору Бейкер, а приложение отображает канадские пики: это означает, что ошибка в компасном направлении накапливается до 180+ градусов, а не является небольшим сдвигом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Love that it gives Sun and Moon times on the visual horizon of wherever I am for setting up camp for views and morning sunrise",
+      "observation": "Функция солнца/луны привязана не к абстрактным координатам, а к реальному визуальному горизонту с учётом рельефа: пользователь может прокрутить время вперёд и увидеть, за какой именно вершиной взойдёт солнце утром — это делает PeakFinder инструментом планирования ландшафтной съёмки и выбора места лагеря, а не просто идентификатором вершин.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "le mode 'import photo' pourrait etre ameliore. Impossible de bien exporter une photo annotee a posteriori via l'app. Cela prend un screenshot de l'app, cropant la photo originale",
+      "observation": "Режим «импортировать фото» при экспорте делает скриншот интерфейса приложения, обрезая исходный снимок до размеров экрана — оригинальное разрешение фотографии теряется. Пользователи обходят это скриншотом телефона, но тогда в кадр попадают UI-элементы приложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "the dev personally reached out to me via email to get feedback and implemented the change within a month or less",
+      "observation": "Разработчик (один человек — Fabio Soldati) лично пишет пользователям по email при сообщении о проблемах и выкатывает исправления за месяц — несколько отзывов упоминают это как редкое явление для платного приложения; это формирует лояльность даже у пользователей, столкнувшихся с багами.",
+      "specificity": "medium"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User says information is incorrect (no specific peak, region, or reproducible case)",
+    "User wants more content or mountain names (generic ask without mechanism)",
+    "User says it does not work (no reproducible steps)",
+    "App is not worth the money (commodity opinion)",
+    "Peak names not shown (without specifying region download status or settings)"
+  ]
+}

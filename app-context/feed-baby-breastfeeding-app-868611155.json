@@ -1,0 +1,75 @@
+{
+  "productId": "ext-868611155",
+  "slug": "feed-baby-breastfeeding-app-868611155",
+  "name": "Feed Baby - Breastfeeding App",
+  "domain": "трекинг новорождённого / постродовой мониторинг / грудное вскармливание",
+  "oneLiner": "Feed Baby — трекер для новорождённых: грудное вскармливание, бутылочки, сцеживание, подгузники, сон, рост и лекарства; партнёрская синхронизация; iOS + Apple Watch; одноразовый платёж за разблокировку",
+  "pricing": "базовый функционал бесплатно; разблокировка всего приложения — одноразовый платёж (~$6 USD / £4.99 GBP, иногда до $10); оба родителя должны платить отдельно для взаимной синхронизации — это ключевой болевой источник; некоторые функции, ранее бесплатные, переносились за пейволл обновлениями без предупреждения",
+  "keyFeatures": [
+    "таймер и лог грудного вскармливания с запоминанием последней груди",
+    "трекинг бутылочных и смешанных кормлений с объёмом",
+    "лог сцеживания (pumping sessions)",
+    "трекинг подгузников (мокрые, грязные, тип)",
+    "лог сна с таймером и аналитикой паттернов",
+    "рост и вес — динамика кривой роста",
+    "температура, лекарства с дозами и расписанием, вакцины",
+    "партнёрская синхронизация (ручная или по кнопке, платная для обоих)",
+    "Apple Watch-приложение для логирования без телефона"
+  ],
+  "competitors": [
+    "Huckleberry - Baby & Sleep Tracker",
+    "Baby Tracker - Newborn Log",
+    "Glow Baby Newborn Tracker",
+    "Baby Connect",
+    "Owlet",
+    "Snoo (NANIT)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the cash grab hard stop of 6 hours before you can sync again… it just doesn't sync period. Other parent already hit sync? Shouldn't be one sync per pair per 6 hours.",
+      "observation": "Бесплатная синхронизация ограничена одним разом на пару в 6 часов: если один родитель уже нажал «синхронизировать», второй вынужден ждать до следующего окна — даже когда платная версия куплена обоими, механика ручного запуска остаётся, что делает логирование в ночную смену несогласованным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "my wife and I both payed to unlock the app completely, yet we still aren't getting consistent synchronization of data we input. Which also seems silly that both parents have to pay full price despite it being for the same child",
+      "observation": "Модель монетизации требует отдельной покупки от каждого родителя за синхронизацию одних и тех же данных об одном ребёнке; при этом даже двойная оплата не гарантирует стабильной работы синхронизации — данные одного родителя могут не отображаться у второго.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I've accidentally deleted my child's profile and all the history for the last almost 9 months. I constantly had to toggle between the two profiles which I asked multiple times via support email for assistance",
+      "observation": "Переключение между профилями нескольких детей в приложении непредсказуемо: случайное удаление профиля уничтожает все накопленные логи без возможности восстановления, а поддержка не отвечает на обращения по этой теме.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The sync server is always off-line, especially at night, when I need it the most. you have to manually sync it every time you switch shifts with your partner or caregiver",
+      "observation": "Сервер синхронизации систематически недоступен в ночное время — именно тогда, когда родители передают смену друг другу и критически важно видеть актуальные записи о последнем кормлении.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I purchased the unlimited version for $6 because I thought that I could have my data sync across multiple devices like my husbands phone and mine. The watch data never syncs.",
+      "observation": "Даже платная разблокировка не синхронизирует данные Apple Watch с телефоном партнёра: пользователь платит за расширенную синхронизацию, но логи, записанные с запястья, остаются изолированными.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "in the middle of a feed, I went to continue on one side (babies love to fidget) and discovered the app had taken a feature away (while in use!) and put it behind a paywall",
+      "observation": "Приложение перенесло функцию за пейволл во время активного использования — пользователь обнаружил пейволл прямо в процессе кормления, не имея возможности завершить запись без покупки.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

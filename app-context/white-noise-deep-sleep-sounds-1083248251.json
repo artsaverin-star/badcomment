@@ -1,0 +1,75 @@
+{
+  "productId": "ext-1083248251",
+  "slug": "white-noise-deep-sleep-sounds-1083248251",
+  "name": "White Noise Deep Sleep Sounds",
+  "domain": "звуки для сна / белый шум / маскировка окружающего шума",
+  "oneLiner": "White Noise Deep Sleep Sounds — iOS-приложение с библиотекой из сотен фоновых звуков (белый/розовый/коричневый/зелёный шум, природа, бытовые звуки), поддержкой микширования нескольких треков и таймером; позиционируется как инструмент маскировки шума для засыпания, фокуса и путешествий",
+  "pricing": "бесплатная версия с ограниченным набором звуков и лимитом 8 часов на сессию; подписка ~$3/месяц или ~$40/год (упоминается $39.99); пробный период 7 дней; зафиксированы жалобы на списание $39.99 после отмены до истечения триала",
+  "keyFeatures": [
+    "обширная библиотека звуков: цветные шумы (белый, розовый, коричневый, зелёный), природа (океан, дождь, гроза), бытовые (вентилятор, камин, самолёт, кошачье мурлыканье, микроволновка), тета-волны",
+    "микшер (Mix): одновременное воспроизведение нескольких звуков с настройкой громкости каждого — доступен в бесплатной версии (до 2 треков)",
+    "непрерывное воспроизведение без слышимых петель (seamless looping)",
+    "таймер / ограничение сессии: бесплатно — до 8 часов, без ограничения — по подписке",
+    "персональная рекомендация звука при первом запуске (опрос целей: сон, фокус, расслабление)",
+    "счётчик накопленных часов прослушивания",
+    "интеграция с внешними аудиоустройствами (Sonos, AirPlay) — нестабильна по отзывам"
+  ],
+  "competitors": [
+    "Calm",
+    "Headspace",
+    "Sleepzy",
+    "Rain Rain Sleep Sounds",
+    "Relax Melodies",
+    "myNoise",
+    "Endel",
+    "встроенный режим 'Фоновые звуки' Apple (iOS 15+)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "my night mix has 5 sounds mixed, and is ideal. Combining the clock from my childhood, fans, and other ambient sounds is the ultimate in fine tuning",
+      "observation": "Микшер позволяет собрать персональный многослойный сет — пользователи описывают его как 'идеальную настройку': детский будильник + вентиляторы + амбиент; именно возможность точной комбинаторики, а не один готовый пресет, формирует привычку на годы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I use a combination of the 'Airplane Cabin' and 'Fan' sounds to block out external noise and improve my focus. I've found it incredibly helpful for creating a consistent, distraction-free environment",
+      "observation": "Часть аудитории использует приложение не для сна, а для фокусировки при СДВГ: конкретная пара 'Airplane Cabin' + 'Fan' создаёт предсказуемое маскирующее поле и снижает когнитивную нагрузку от внешних раздражителей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I spent a couple of hours tuning the exact sounds I want (I've gone for a mix of fans and rains), and then the app just gets out of the way. The sound plays all night, loops perfectly, no interruptions.",
+      "observation": "Ключевое качество продукта — 'исчезновение' после настройки: пользователи тратят время на подбор микса один раз, после чего интерфейс перестаёт существовать как объект внимания; seamless looping без слышимых стыков принципиален для этого сценария.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "it only stays on for 8 hours and shuts off in the middle of the night so then I have to go on my phone and turn it back on",
+      "observation": "Лимит бесплатной сессии в 8 часов нарушает сон у людей с длинным ночным циклом: приложение отключается и тишина их будит — то есть артефакт пейволла превращается в физический триггер пробуждения, противоположный назначению продукта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the longer you listen to the same sound they add that free sound to the subscription only options. Even if it started out free to begin with.",
+      "observation": "Пользователи обнаруживают, что звуки, привязавшие их к привычке за месяцы использования, тихо переносятся за пейволл обновлениями — зависимость, сформированная бесплатным треком, используется как рычаг монетизации уже после привыкания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "You're unable to use certain apps while playing sounds like Facebook or random gaming apps without it turning itself off and playing music from the apps even if you turn the sound off on the app itself",
+      "observation": "Аудиосессия прерывается при переключении на другие приложения с аудио-активностью (соцсети, игры) — приложение не удерживает приоритет воспроизведения в Audio Session на iOS; родитель, усыпляющий ребёнка, не может одновременно пользоваться телефоном.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

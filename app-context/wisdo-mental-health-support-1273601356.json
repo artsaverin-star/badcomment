@@ -1,0 +1,77 @@
+{
+  "productId": "ext-1273601356",
+  "slug": "wisdo-mental-health-support-1273601356",
+  "name": "Wisdo: Mental Health & Support",
+  "domain": "пир-ту-пир поддержка психического здоровья / peer support community / онлайн-группы взаимопомощи",
+  "oneLiner": "Wisdo — платформа взаимной поддержки: пользователи объединяются в тематические сообщества (депрессия, тревога, одиночество, зависимости и др.) и получают помощь от 'Helpers' — добровольцев, прошедших опыт схожей ситуации; iOS+Android, платная подписка с 2022-2023",
+  "pricing": "до 2022 года — полностью бесплатно; после введения подписки — вступление в сообщества (включая 'depression', 'financial security') требует оплаты; точная цена в отзывах не фигурирует; есть корпоративный B2B-канал через страховщиков и медицинских провайдеров",
+
+  "keyFeatures": [
+    "тематические сообщества по жизненным ситуациям (депрессия, тревога, одиночество, горе, зависимости, бесплодие и др.)",
+    "система 'Helpers' — добровольцы с опытом схожих ситуаций, прошедшие внутренний тренинг и получившие бейдж",
+    "личные сообщения ('buddy' чат) с другими участниками сообщества",
+    "live-события: зум-встречи, тривии, книжные клубы, показ арт-работ — по расписанию",
+    "онбординг через 'my journey' — выбор пережитого опыта для матчинга с релевантными Helpers",
+    "модерация контента: блокировка, репортинг, удаление постов администраторами",
+    "корпоративный доступ через страховых и медицинских партнёров"
+  ],
+
+  "competitors": [
+    "7 Cups",
+    "Supportiv",
+    "Talkspace (community-версия)",
+    "Reddit (r/mentalhealth, r/depression)",
+    "BetterHelp",
+    "TalkLife",
+    "Circles"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Too many bots in the app. You have 'users' that strike conversations with you using the same script.",
+      "observation": "Часть профилей Helpers ведёт себя по одному сценарию — одинаковые фразы, идентичные вопросы при инициации контакта — пользователи идентифицируют их как ботов. Для платформы, построенной на аутентичном человеческом опыте, это фундаментально разрушает доверие к любому новому контакту.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The person who was supposed to be my guide is a bot. When I tried speaking to them over message all of their responses was automated. This honestly was really heartbreaking as someone who doesn't have access to therapy or mental health services.",
+      "observation": "Система матчинга назначает 'гида' при онбординге, но этот гид оказывается ботом с автоматическими ответами — пользователь, для которого Wisdo является единственным доступным ресурсом психологической помощи, обнаруживает это уже после того, как эмоционально открылся.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was on the app 30 minutes and was told I needed to be committed. The moderators advised me that all comments can only be deleted if you delete your account or if they choose to.",
+      "observation": "Пользователь получил оскорбительный комментарий в течение первых 30 минут, однако удалить его самостоятельно невозможно — контент удаляется только администрацией или при полном удалении аккаунта. Система не даёт жертве абьюза немедленного контроля над своими данными.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I got banned because I expressed that I wanted to die. I had to beg the customer support to let me back in.",
+      "observation": "Алгоритм модерации банит пользователей за выражение суицидальных мыслей — именно ту аудиторию, для которой заявлено приложение — вместо того чтобы направлять к кризисным ресурсам. Разблокировка возможна только через ручную переписку с поддержкой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Now you have to pay to join the communities like depression???? And even ones like financial security? Absolutely ridiculous.",
+      "observation": "Сообщества, которые с 2018 года были бесплатными (в т.ч. 'depression', 'financial security'), перекрыты платной подпиской без деградации функций: пользователь, выбравший платформу как безопасное пространство, обнаруживает пейволл на вход в уже знакомые разделы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Read all their 1-Star review replies. 'We charge so we don't have to sell your data' YET they work with payors, providers, and other healthcare whales to harness 'users data in perpetuity' (read their TOS).",
+      "observation": "Wisdo позиционирует платную подписку как замену монетизации через данные, однако ToS допускает передачу данных страховщикам и медицинским провайдерам 'бессрочно'. Противоречие между публичными заявлениями и юридическим текстом выявляется только при самостоятельном анализе документов.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed / won't open (no specifics beyond technical failure)",
+    "User loves it (non-information)",
+    "User wants more support groups / content (generic ask)",
+    "User was blocked by another member (commodity moderation complaint)",
+    "Login broken / account locked out (commodity unless reproducible flow described)",
+    "Subscription auto-renewed unexpectedly (commodity unless specific deceptive mechanism described)"
+  ]
+}

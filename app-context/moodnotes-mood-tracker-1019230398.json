@@ -1,0 +1,77 @@
+{
+  "productId": "ext-1019230398",
+  "slug": "moodnotes-mood-tracker-1019230398",
+  "name": "Moodnotes - Mood Tracker",
+  "domain": "дневник настроения / КПТ-самопомощь",
+  "oneLiner": "CBT-ориентированный трекер настроения и журнал: фиксация эмоций несколько раз в день, выявление когнитивных ловушек и рефрейминг мыслей; iOS; с 2023–2024 принадлежит Bending Spoons",
+  "pricing": "бесплатная версия урезана до одной записи в день и без аналитики; Premium — около $90/год или £3/неделю в UK, в EU до 70€/год; пробный период 7 дней с автоматической подпиской; lifetime-опции нет (пользователи активно просят); часть функций, ранее входивших в разовую покупку, перенесена за пейволл после смены владельца",
+  "keyFeatures": [
+    "фиксация настроения по шкале с детальными эмоциональными тегами несколько раз в день",
+    "идентификация когнитивных ловушек (thinking traps / cognitive distortions) в рамках КПТ-фреймворка",
+    "рефрейминг: после выбора ловушки — поле для оспаривания мысли и повторной оценки настроения",
+    "хронология и графики трендов настроения (за пейволлом)",
+    "анализ триггеров — что влияет на настроение (за пейволлом, но категории слишком широкие)",
+    "пароль / биометрическая защита дневника",
+    "iOS-виджеты для напоминаний и быстрых чек-инов (сломаны более года)",
+    "статьи по ментальному здоровью и цитаты"
+  ],
+  "competitors": [
+    "Daylio",
+    "eMoods",
+    "Bearable",
+    "Moodfit",
+    "Reflectly",
+    "Woebot",
+    "Apple Health — State of Mind (встроенный, бесплатный)",
+    "Jour",
+    "Youper"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "When selecting thinking traps, as soon as you select one, a dropdown text box should open up underneath so you can fight the trap immediately. When you pick 2 or more, and go to next screen, it's impossible to remember them all.",
+      "observation": "Флоу работы с когнитивными ловушками разбит на два несвязанных экрана: на первом пользователь выбирает несколько ловушек, а поле для рефрейминга открывается только на следующем экране — к тому моменту все выбранные ловушки уже не видны. Рабочая память не справляется, и упражнение теряет терапевтическую ценность.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Bending Spoons has recently bought Moodnotes and the app has gone downhill. The app gives away personal information such as your location. The app also uses user data for tracking and advertising and gives this data to Facebook and Google.",
+      "observation": "После приобретения приложения компанией Bending Spoons в политике конфиденциальности появились пункты о передаче данных (геолокации, поведения) в Facebook, Google и Pinterest для таргетированной рекламы — при этом приложение позиционируется как инструмент психического здоровья с платной подпиской. Пользователи, принявшие 'accept all' в меню приватности, не осознавали, что разрешают профилирование.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "The statistics about what influences your emotions are way too broad to give you insights. It would be nice to add more categories like social media, money, meditation, sleep, stress, conflict. Like I have an argument with my friend, so I tap the category 'friends' that I feel bad. The statistics say then friends make me miserable.",
+      "observation": "Система триггеров оперирует широкими категориями вроде 'friends' без субкатегорий — конфликт с другом и совместный ужин попадают в одну корзину. Аналитика на выходе выдаёт бессмысленный вывод ('friends make me miserable'), потому что контекст записи никак не дифференцируется.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "only lets you log moods once and then force's you to pay or join the free trial",
+      "observation": "Фри-тир ограничен одной записью в день — именно то использование (многократный чек-ин), ради которого целевая аудитория скачивает трекер. По сути, платный пейволл стоит на самой базовой функции продукта, а не на расширенной аналитике.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "data entry is fast and easy, especially since I can use the dictation feature on my iPhone for the text fields. the interface is attractive and uncluttered",
+      "observation": "Диктовка в текстовых полях резко снижает порог трения при регулярном логировании: пользователи, которые раньше бросали вести бумажный дневник из-за времязатрат, держат привычку именно благодаря этому пути ввода.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 3,
+      "trigger": "once you delete it, ALL your entries get lost, no sign in, no nothing, how is it CBT if I can't see my progress",
+      "observation": "Данные хранятся только локально на устройстве без привязки к аккаунту — удаление или переустановка приложения необратимо уничтожает весь журнал. Это прямо противоречит терапевтической ценности продукта: долгосрочный дневник настроения для КПТ требует именно сохранности исторического контекста.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

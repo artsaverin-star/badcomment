@@ -1,0 +1,74 @@
+{
+  "productId": "ext-1558991967",
+  "slug": "motorola-nursery-1558991967",
+  "name": "Motorola Nursery",
+  "domain": "приложение-компаньон для умных видеонянь / baby monitor camera companion",
+  "oneLiner": "Motorola (5GenCare) — мобильное приложение для управления умными видеоняни Motorola: живое видео, PTZ-управление камерой, уведомления о плаче, датчик температуры, облачные записи по подписке; iOS + Android",
+  "pricing": "базовый просмотр бесплатно (при наличии камеры Motorola); запись событий и облачное хранение — платная подписка (появилась позже, функции ранее были бесплатными); точная цена в отзывах не указана, но пользователи называют её 'SaaS nonsense' и отмечают, что записи ушли за пейволл без предупреждения",
+  "keyFeatures": [
+    "живое видео с камеры няни в реальном времени (с поддержкой ночного режима)",
+    "PTZ-управление камерой удалённо — поворот и наклон без входа в детскую",
+    "push-уведомления о плаче и движении (cry alerts, motion detection)",
+    "датчик температуры в детской комнате",
+    "воспроизведение колыбельных через камеру из приложения",
+    "журнал активности (feeding, naps и пр.) с доступом нескольким взрослым",
+    "облачная запись событий (по подписке)",
+    "двусторонняя аудиосвязь"
+  ],
+  "competitors": [
+    "Nanit",
+    "Owlet",
+    "Infant Optics DXR-8",
+    "Eufy Baby",
+    "iBaby",
+    "HelloBaby (standalone monitor без приложения)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "The app won't stay open overnight even with device plugged in and screen on",
+      "observation": "Приложение не держит фоновое соединение с камерой: даже при подключённом зарядном устройстве и включённом экране оно разрывает стрим ночью — родитель просыпается не от плача, а потому что монитор давно замолчал.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it only lets us connect one of our phones at a time and it's very inconvenient when it's my time to watch the baby",
+      "observation": "После одного из обновлений одновременное подключение двух телефонов к одной камере перестало работать: второй родитель вытесняется из сессии — семейное дежурство по ночам стало невозможным без ручной передачи доступа.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "All of a sudden recordings are part of a paid subscription, which is very annoying. It's hard to read the temperature on the app, as it's backed by gray shading, which is hard to see in night vision. Also what is going on with that temperature gauge??? Always off by at least 3 degrees. It's saying my son's room is 80 degrees right now when the conditioner is on and set to 71.",
+      "observation": "Датчик температуры систематически завышает показания на 3-7 градусов по Фаренгейту, а UI термометра в ночном режиме теряется на сером фоне — функция, на которую родители полагаются для контроля микроклимата детской, не даёт достоверных данных.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "features were free when I bought my camera. have to pay now. good job kids are getting to the age where I won't need a camera as I wouldn't buy Motorola again",
+      "observation": "Запись событий и ряд функций, входивших в стандартный пакет при покупке железа, были ретроактивно переведены за пейволл — пользователи, купившие дорогую камеру на условии 'всё включено', обнаруживают деградацию сервиса постфактум.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "my baby monitor model is not included in the app vm35, and the pair button on the camera doesn't work anyway",
+      "observation": "Конкретная модель камеры (vm35) отсутствует в списке поддерживаемых устройств в приложении — покупатель физического товара Motorola не может даже начать сопряжение, не получая никакого объяснения от UI.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the latest app update has rendered the app almost unusable. I cannot get the app to launch 9 times out of 10, and when it does launch, it crashes within 5 minutes",
+      "observation": "После конкретного обновления (v2.1.14) приложение стало запускаться менее чем в 10% попыток — пользователь, платящий за подписку и использующий продукт почти два года без проблем, лишился доступа к монитору без каких-либо объяснений в release notes.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

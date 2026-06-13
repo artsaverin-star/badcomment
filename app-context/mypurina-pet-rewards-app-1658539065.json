@@ -1,0 +1,79 @@
+{
+  "productId": "ext-1658539065",
+  "slug": "mypurina-pet-rewards-app-1658539065",
+  "name": "myPurina – Pet Rewards App",
+  "domain": "программа лояльности / кэшбэк за чеки / уход за питомцами",
+  "oneLiner": "myPurina — фирменное приложение Nestle Purina: сканируй чеки за корм и наполнитель, копи баллы, получай купоны и бесплатные товары по почте; iOS+Android, США",
+  "pricing": "бесплатное приложение без подписки; монетизация — продажа данных о потребительских привычках; вознаграждения выдаются купонами на скидку ($5–$10 off) или бесплатными товарами, доставляемыми физической почтой",
+
+  "keyFeatures": [
+    "сканирование бумажных чеков камерой для начисления баллов за покупки Purina",
+    "сканирование штрихкодов на упаковке продуктов для верификации бренда",
+    "каталог вознаграждений: купоны на скидку и на бесплатные товары (корм, лакомства, наполнитель)",
+    "физическая доставка купонов почтой (не цифровые коды)",
+    "профили питомцев: имя, вид, возраст — персонализация советов",
+    "статьи и советы по уходу за кошками и собаками",
+    "опросы о питомцах, бесплатные образцы продуктов",
+    "ограниченные временные акции и промо-кампании на главном экране"
+  ],
+
+  "competitors": [
+    "Purina Pro Plan Vet Direct",
+    "Hill's to Home (Hills Science Diet loyalty)",
+    "Chewy Autoship rewards",
+    "PetSmart Treats loyalty program",
+    "Petco Pals Rewards",
+    "Ibotta (универсальный кэшбэк за чеки)",
+    "Fetch Rewards"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the last time that I redeemed points for what was supposed to be a $10 off coupon, I received an oddly worded coupon that says it's for a FREE 5 lb or larger bag of dry dog food, up to $10. Well, there is no such thing as a 5 lb bag of Purina dry dog food that costs ten dollars or less. It wouldn't scan at the register",
+      "observation": "Купон с формулировкой 'FREE 5 lb or larger bag, up to $10' физически нереализуем: такой упаковки за $10 не существует. Кассиры отказывают — приложение выдало заведомо нерабочий инструмент, при этом поддержка настаивает, что купон корректен, и отправляет искать другой магазин.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Soccer scoreboard promo- won't credit a litter receipt submitted. At one point it wouldn't render the board. Scan a brand new Fancy Feast product - nope - the UPC isn't recognized. Retrieve that Tractor Supply coupon 'while supplies last' and just watch a circle spinning. But they could send me a birthday email for Rudy who isn't in my profile anymore because he died several years ago.",
+      "observation": "Временные акции на главном экране не кликабельны, UPC новых продуктов отсутствуют в базе, купоны 'while supplies last' зависают на спиннере — при этом CRM-автоматизация рассылает поздравления с днём рождения мёртвого питомца, которого давно удалили из профиля.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "requested reward is not what I was sent. Despite emails and promises my requested coupon has been mailed I have not received it. Requested coupon for dog treats but received coupon for Pro Plan food that I can't use for my dog that is on prescription food. Been trying since May 12th to get the correct coupon.",
+      "observation": "При выкупе вознаграждения система отправляет физической почтой не тот купон (корм вместо лакомств) — и исправить ошибку через поддержку месяцами не получается: обещания повторить отправку остаются обещаниями.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "points expire without reminder. cannot link other online accounts for digital receipts",
+      "observation": "Баллы сгорают без предупреждения: приложение не отправляет уведомления о близком истечении срока. При этом нет интеграции с онлайн-ретейлерами (Walmart+, Chewy) для автоматического зачёта электронных чеков — только ручное фотографирование бумажного чека.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "App doesn't support unusual species, I have pet chickens and goats which only eat Purina brand food (from Wilco) but when it asked me to enter my pets it requires that I specify if it's a cat or dog with no other options. I am upset enough about this I'm looking for alternative brands of pet food.",
+      "observation": "Профиль питомца допускает только кошку или собаку — владельцы кур, коз и другой живности, которая реально кормится продуктами Purina (Purina Layena, Purina Goat Chow), не могут зарегистрировать питомца и выпадают из программы лояльности полностью.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "$5.00 off coupons hard to use. They do not scan as coupons so Walmart will not take them. TSC will take them but not all employees know how to key them in so it is hit and miss.",
+      "observation": "Физические купоны не имеют стандартного штрихкода GS1 и не распознаются сканерами Walmart — успех зависит от того, умеет ли конкретный кассир в Tractor Supply вводить их вручную. Несмотря на это пользователь ставит 5★, что маскирует системную проблему инфраструктуры погашения.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says app crashes (no specifics about flow or trigger)",
+    "User loves Purina food and gives 5 stars (review about product, not app)",
+    "User says app won't load (generic, no reproducible steps)",
+    "User says points system is great (non-information)",
+    "User says customer support is bad (no specific failure described)",
+    "User says hard to log in (commodity auth complaint without specifics)",
+    "User hates ads (commodity)",
+    "User wants more coupons (generic ask)"
+  ]
+}

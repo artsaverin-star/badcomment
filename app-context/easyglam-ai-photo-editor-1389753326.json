@@ -1,0 +1,71 @@
+{
+  "productId": "ext-1389753326",
+  "slug": "easyglam-ai-photo-editor-1389753326",
+  "name": "EasyGlam: AI Photo Editor",
+  "domain": "AI-ретушь лица / виртуальный макияж / beauty-фото",
+  "oneLiner": "приложение для AI-ретуши селфи и виртуального макияжа (помада, тени, цвет волос, смена фона, Celebrity Twin); iOS; издатель — Smertrios Limited",
+  "pricing": "полностью платное: бесплатного контента нет совсем; при первом запуске сразу отправляет на экран оплаты и не даёт войти в интерфейс без подписки; тарифы варьировались — от $6.99/неделю до $19.99/месяц и ~$50/год; ранее была разовая покупка 5 фотографий и просмотр рекламы за одно фото, но оба варианта убраны после обновления; оплата иногда проходит не через App Store, а напрямую через компанию Smertrios Limited",
+  "keyFeatures": [
+    "виртуальный макияж на фото: помада, румяна, тени, контуринг",
+    "изменение цвета волос",
+    "ретушь кожи и выравнивание тона",
+    "смена фона и наложение декораций (журнальная обложка, Vogue-стиль)",
+    "Celebrity Twin — подбор звёздного двойника",
+    "фильтры и эффекты в один тап"
+  ],
+  "competitors": [
+    "Airbrush: Easy Photo Editor",
+    "YouCam Makeup",
+    "Perfect365",
+    "Facetune",
+    "PicsArt",
+    "Snapchat (встроенные фильтры)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "There's nowhere in the app where you can cancel the free trial, let alone find it in your subscriptions through your Apple account.",
+      "observation": "Подписка оформляется способом, при котором она не появляется в стандартном списке подписок Apple ID — пользователь не может отменить её ни через настройки iOS, ни через кнопку внутри приложения, которой попросту нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Tried charging my card directly through Smertrios Limited for 19.99. Thank God, my card blocked it as fraud. They have now tried charging my card 3 or 4 times for 19.99 straight through their company SMERTRIOS LIMITED. What kind of scammers do you have to be to charge ppl who never even enabled your free trial!?",
+      "observation": "Приложение предпринимает попытки списать деньги напрямую с карты через компанию Smertrios Limited — в обход биллинга App Store, причём даже у пользователей, не активировавших триал. Банк заблокировал транзакцию как мошенническую.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I bought the VIP membership and the app still won't let me save any of the pictures I did to my phone. I still can't figure out what I am paying for",
+      "observation": "Оплаченный VIP-статус не разблокирует базовую функцию — сохранение отредактированного фото в галерею: приложение продолжает блокировать экспорт, несмотря на активную подписку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "takes you to the payment page and is stuck there until either you pay or delete the app, which is what I'm doing",
+      "observation": "При первом запуске и после каждого обновления приложение намертво блокирует пользователя на экране оплаты — навигация невозможна, единственный выход без оплаты — удалить приложение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "No longer having the option to watch a video for a free picture is a shame. I also liked the purchase of 5 images option but now that's also gone. Such a shame, an app I used frequently used is now useless to me as I refuse to pay $19 for a month",
+      "observation": "После обновления приложение убрало оба альтернативных пути доступа — разовую покупку пакета из 5 фото и просмотр рекламы в обмен на одно сохранение — оставив только дорогую подписку от $19/месяц.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "my card it won't take my Apple ID code. So I've been watching adds for a photo. When I try to save that photo, it won't let me. So I'm watching adds for nothing",
+      "observation": "Обходной путь 'посмотри рекламу — получи одно фото' сломан: после просмотра рекламы кнопка сохранения по-прежнему недоступна, и пользователь не получает ни фото, ни возврата за потраченное время.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics — which action, which device)",
+    "User says it is too expensive (commodity without mechanism)",
+    "User loves the app (non-information)",
+    "User hates ads (commodity)",
+    "User cannot cancel subscription (commodity unless the specific flow gap is described)",
+    "User wants more makeup options (generic ask)",
+    "Support never responded (commodity without timeline or channel detail)"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "productId": "ext-673120263",
+  "slug": "step-out-smart-alarm-clock-673120263",
+  "name": "Step Out! Smart Alarm Clock",
+  "domain": "будильник с принудительным пробуждением / anti-snooze alarm",
+  "oneLiner": "платный (~$2 единоразово) iOS-будильник: отключить сигнал можно только сделав N шагов или сфотографировав другую комнату — механизм, который физически вытаскивает из постели; конкурент Alarmy",
+  "pricing": "разовая покупка около $2; темы оформления разблокируются не деньгами, а принудительным отзывом в App Store — пользователь платит дважды: деньгами и репутацией",
+  "keyFeatures": [
+    "отключение будильника только после N шагов (шагомер через акселерометр)",
+    "альтернативный режим отключения: сфотографировать конкретное место (другая комната, ванная)",
+    "детектор 'suspicious movements' — приложение распознаёт попытку обмануть шагомер тряской телефона лёжа",
+    "настройка времени через круговой аналоговый циферблат (без ввода цифр с клавиатуры)",
+    "уведомления-напоминалки ('Hey, it's time, please wake up!') если будильник не отключён",
+    "темы оформления (разблокировка через принудительный отзыв)",
+    "возможность установить снузз (в старых версиях — с лимитом по числу нажатий)"
+  ],
+  "competitors": [
+    "Alarmy (Sleep If U Can)",
+    "Galarm",
+    "встроенный будильник iOS Clock",
+    "Challenges Alarm Clock"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "forcing me to get up and walk ten steps fr gets me up and awake. that's great and i really rely on this app to get me up. the only problem is that if you somehow manage to trick the app or snooze it or SOMETHING other than actually doing the steps, then it pings you every ten seconds for the next eight hours telling you to wake up",
+      "observation": "Механизм принудительных шагов реально работает как средство подъёма — пользователь признаёт зависимость от него. Но если будильник был снузнут или обойдён любым способом, приложение входит в бесконечный цикл уведомлений (каждые 10 секунд на протяжении 8 часов) без возможности остановить его иначе как удалив приложение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the alarm does not appear to go off automatically. In other words, the alarm is a notification on your Home Screen that you have to manually tap in order to trigger the alarm",
+      "observation": "Из-за ограничений iOS на фоновые процессы приложение не может запустить звук самостоятельно: вместо сирены пользователь получает тихое push-уведомление, которое нужно тапнуть вручную — что делает будильник бесполезным для спящего человека без открытого приложения на экране.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "alarm will keep going off every few minutes even after you've been awake and turned it off, or even deleted the alarm setting. The only way to make it stop now is to delete the whole app off your phone",
+      "observation": "Уже отключённый или удалённый будильник продолжает слать уведомления с периодичностью в несколько минут — единственный способ остановить это поведение — полная деинсталляция приложения, что подтверждают несколько независимых отзывов из разных стран.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Having to set the alarms with that stupid clock is so annoying, not user friendly and doesn't work well. Just let me type in a time not have to turn the hour and minute hand and hope it doesn't change the time 40 times to what I don't want.",
+      "observation": "Единственный способ выставить время — аналоговый круговой циферблат, где нужно перетаскивать стрелки: UX настолько нестабилен, что время сбрасывается в процессе ввода, и несколько попыток не дают нужного результата — при этом ввод цифр с клавиатуры не предусмотрен.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "for a change of design you are forced to give a review. Forces to give a review to use a theme even after paying for it",
+      "observation": "Разблокировка тем оформления завязана не на оплату, а на принудительный отзыв в App Store — пользователь, уже купивший приложение, вынужден публично оценивать продукт до того, как получит доступ к косметическим настройкам, которые маркируются как уже оплаченные.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the app will continue to notify you of the alarm every minute. If you delete the alarm it still notifies you every minute. Setting the volume setting for each alarm doesn't do anything. It just reverts back to its default setting.",
+      "observation": "Настройка громкости для конкретного будильника не сохраняется и молча откатывается к дефолтному значению; параллельно приложение может запускать двойной сигнал — два будильника одновременно — из-за ошибки в обработке очереди уведомлений.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

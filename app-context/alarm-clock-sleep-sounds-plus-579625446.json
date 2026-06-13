@@ -1,0 +1,79 @@
+{
+  "productId": "ext-579625446",
+  "slug": "alarm-clock-sleep-sounds-plus-579625446",
+  "name": "Alarm Clock Sleep Sounds Plus",
+  "domain": "звуки для сна / будильник с природными звуками / белый шум",
+  "oneLiner": "двойной инструмент: набор миксуемых звуков природы для засыпания + мягкий будильник с постепенным нарастанием громкости вместо резкого сигнала; iOS, модель freemium с разовой покупкой Pro-библиотеки",
+  "pricing": "бесплатная версия с базовым набором звуков; Pro-библиотека — разовая покупка (около $5-25, исторически до $25 по отзывам пользователей); ряд звуков и программ, ранее бесплатных, переведены за пейволл после обновлений без предупреждения пользователей",
+
+  "keyFeatures": [
+    "миксер природных звуков с раздельной регулировкой громкости каждого слоя (дождь + гром + морской берег одновременно)",
+    "будильник с плавным нарастанием громкости (fade-in) — пробуждение без резкого кортизольного скачка",
+    "бинауральные биения (binaural beats) как отдельный слой поверх амбиентных звуков",
+    "сохранение пользовательских программ (preset-сессий) для повторного использования",
+    "ночные часы с диммингом и настройкой цвета дисплея",
+    "плавный таймер засыпания (звуки затихают сами) без обрыва петли",
+    "бесшовный луп звуков без заметного повтора — мозг не может нащупать конец петли и отвлечься",
+    "поддержка Bluetooth-колонок для вывода звука"
+  ],
+
+  "competitors": [
+    "Calm",
+    "Headspace",
+    "Sleep Sounds: White Noise",
+    "Relax Melodies",
+    "встроенный будильник iOS",
+    "Sleepzy",
+    "Rain Rain Sleep Sounds"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "my mind always tries to find the ending of the sound loop. None here so I fall asleep faster, not trying to anticipate the end",
+      "observation": "Звуки сделаны как истинный бесшовный луп без слышимой точки повтора: мозг, который у тревожных пользователей автоматически ищет конец петли, не находит его и перестаёт сопротивляться — засыпание ускоряется именно за счёт устранения этого когнитивного крючка.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "slowly and gently raises the volume of the noises you choose, so now I get to calmly wake up to wind and a gentle thunderstorm storm each day, and if that doesn't wake me up it finishes with a rooster",
+      "observation": "Будильник реализован как каскад: пользователь задаёт основные звуки природы с нарастанием и может добавить резервный резкий звук (петух) если первый не сработал — страховочная логика встроена в сам дизайн сценария пробуждения, а не требует отдельного будильника.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "the alarm functions don't work if the app is closed. I usually close all of my apps out of habit to keep from using extra battery, and if I forget to open this one before I go to sleep, the alarm won't go off",
+      "observation": "Приложение требует оставаться открытым в фоне для срабатывания будильника: пользователи с привычкой закрывать все приложения регулярно пропускают подъём — техническое ограничение iOS-фонового аудио приложение не компенсирует предупреждением при установке будильника.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they split the alarm off the better sleep app, and now want more money for me to use the same parts I already paid about $25 for",
+      "observation": "Разработчики разделили изначально единое приложение на два отдельных продукта: пользователи, заплатившие $25 за lifetime-доступ к звукам в основном приложении, обнаружили, что те же звуки в новом будильнике-приложении требуют повторной оплаты — классический кейс дробления продукта без компенсации лояльным покупателям.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "all off the sessions I have created for myself are now off limits unless I start paying for them as it is supposedly now a premium detail",
+      "observation": "Пользовательские сохранённые сессии-программы, созданные в бесплатном режиме, после обновления оказались заблокированы пейволлом: люди потеряли не просто функцию, а конкретные сконфигурированные ими комбинации звуков, которые они годами использовали каждую ночь.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Bei Tinnitus... hilft es mir etwas beim Einschlafen. Ich achte weniger auf die Ohrgeräusche",
+      "observation": "Природные звуки работают как маскирующий слой для тиннитуса: фоновый шум поднимает порог восприятия внутренних шумов уха, пользователь перестаёт фокусироваться на звоне и засыпает — приложение де-факто используется как терапевтический инструмент без позиционирования его таковым.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

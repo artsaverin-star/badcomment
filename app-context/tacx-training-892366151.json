@@ -1,0 +1,74 @@
+{
+  "productId": "ext-892366151",
+  "slug": "tacx-training-892366151",
+  "name": "Tacx Training",
+  "domain": "велотренажёр / indoor cycling / умный тренер (smart trainer)",
+  "oneLiner": "Garmin/Tacx — официальное приложение для умных велотренажёров Tacx: структурированные тренировки по мощности и наклону, видеомаршруты, синхронизация с Garmin Connect; iOS/Android",
+  "pricing": "базовый функционал бесплатно; Premium-подписка для полного доступа к видеомаршрутам и расширенным планам — по отзывам 'too expensive' в сравнении с Zwift и MyWHOOSH; точные цифры в отзывах не фигурируют, ориентировочно сопоставимо с конкурентами (~$10-15/мес)",
+  "keyFeatures": [
+    "тренировки по мощности (Watt) с автоматической регуляцией сопротивления тренажёра",
+    "тренировки по наклону (Slope) с симуляцией рельефа",
+    "видеомаршруты по реальным велотрассам (Alpe d'Huez, Tour de France и др.)",
+    "структурированные планы тренировок с интервалами",
+    "синхронизация с Garmin Connect и экспорт на Strava",
+    "кокпит с метриками в реальном времени: мощность, каденс, пульс, наклон, время",
+    "поддержка датчиков по Bluetooth и ANT+ (пульсометр, каденс, мощность)",
+    "подключение к умным тренажёрам Tacx (NEO, Flux, Vortex и др.)"
+  ],
+  "competitors": [
+    "Zwift",
+    "MyWHOOSH",
+    "Wahoo SYSTM",
+    "TrainerRoad",
+    "Rouvy",
+    "Bkool"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "A recent update completely eliminated the ability to see helpful data during slope rides and made it impossible to customize or see important data fields.",
+      "observation": "Обновление 4.81.3 переработало экран тренировки: вместо полноэкранного кокпита с крупными цифрами появился AI-сгенерированный фон с велосипедистом, а все метрики (мощность, каденс, пульс, время) сжались в маленький угол — при этом кастомизация полей убрана полностью. Пользователи с многолетним стажем массово мигрируют на конкурентов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The stop button disappeared. I couldn't find it to stop the workout",
+      "observation": "После редизайна кнопки паузы и остановки тренировки скрыты за меню из трёх точек вместо прямого доступа — пользователи не могут остановить сессию в разгар нагрузки, особенно с мокрыми от пота пальцами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "an AI generated picture is shown instead of numbers on the screen. The number are 'hidden' very small in a corner. During training I want to see my numbers rather than the AI picture",
+      "observation": "Приложение заменило функциональный дисплей метрик AI-картинкой: данные мощности, каденса и пульса — единственная причина использовать приложение на тренажёре — уходят на второй план ради эстетики, которая никому из опрошенных пользователей не нужна.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "beim speichern nach dem Training wird die Zustimmung zu einer neuen EULA verlangt, man vertippt sich und weg ist das Training",
+      "observation": "Диалог принятия новой EULA появляется в момент сохранения тренировки — когда пользователь полностью измотан. Случайное нажатие не той кнопки уничтожает запись всей сессии без возможности восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Since Tacx joined up with Garmin my rides are no longer saved on Strava, despite ticking the right box",
+      "observation": "После поглощения Tacx компанией Garmin интеграция со Strava перестала работать: галочка 'отправить в Strava' стоит, но данные не передаются — пользователи теряют историю тренировок в основном трекере, где ведут логи годами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Clearly no testing was done by anyone who actually uses a Tacx trainer before this update was released. Stats and graphics are crammed into just the corners and lower edge of the screen while 80% of it is given over to a completely worthless wallpaper pic.",
+      "observation": "Обновление получило единодушную критику на нескольких языках (EN/DE/FR/IT/NL/ES): экран тренировки на iPad отдаёт 80% площади под обои, оставляя метрики в углах — при этом сам дизайн очевидно не тестировался реальными атлетами на реальном оборудовании.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

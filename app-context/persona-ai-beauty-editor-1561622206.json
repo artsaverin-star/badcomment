@@ -1,0 +1,73 @@
+{
+  "productId": "ext-1561622206",
+  "slug": "persona-ai-beauty-editor-1561622206",
+  "name": "Persona: AI Beauty Editor",
+  "domain": "ИИ-ретушь лица / beauty-фильтры / редактирование фото и видео",
+  "oneLiner": "Persona — iOS-приложение для ИИ-ретуши лица на фото и видео в реальном времени: сглаживание кожи, коррекция черт, AR-фильтры; основной конкурент FaceApp и Facetune",
+  "pricing": "подписка: ~$15/мес или ~$57/год (была 100₽/мес, резкий рост цены зафиксирован в отзывах 2026); еженедельная опция ~$7/нед (~$350/год); раньше существовал пожизненный доступ, сейчас убран; бесплатный уровень фактически отсутствует — сохранить результат без подписки невозможно; пробного периода нет",
+  "keyFeatures": [
+    "ИИ-ретушь лица на фото: сглаживание кожи, коррекция двойного подбородка, форма лица",
+    "AR-фильтры красоты в реальном времени для видео (живая камера и постобработка)",
+    "коррекция ресниц, бровей, макияжа (тени, помада) в режиме фильтра",
+    "редактирование видео с наложением beauty-эффектов и последующим экспортом",
+    "регулировка интенсивности эффекта (от натурального до гламурного)",
+    "поддержка обработки уже снятых видео (не только живая камера)",
+    "VIP-каталог масок и фильтров с разбивкой по стилям"
+  ],
+  "competitors": [
+    "FaceApp",
+    "Facetune",
+    "Gradient: AI Photo Editor",
+    "YouCam Makeup",
+    "BeautyPlus",
+    "встроенные фильтры TikTok и Snapchat"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "Saved and restored the beauty in tons of videos of me and my clients because of camera issues making all us strange",
+      "observation": "Приложение используют не только для личных нужд, но и профессионально — фотографы и визажисты применяют его для исправления артефактов камеры в клиентских видео пост-фактум, когда пересъёмка невозможна.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the videos sound isn't synching with the lips! I wish they didn't come out like a poor lip-synch because that really gives it away",
+      "observation": "При обработке видео алгоритм коррекции лица сдвигает видеодорожку относительно аудио — рассинхрон губ становится визуальным маркером того, что видео отредактировано, что полностью уничтожает иллюзию естественности.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The file name will say Persona Video in the info. It's a dead giveaway that you've used an app to add filters to your video",
+      "observation": "Экспортированный файл сохраняется с именем 'Persona Video' в метаданных — получатель в мессенджере видит название приложения в свойствах файла ещё до просмотра, что раскрывает факт редактирования.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "It's so glitchy and obvious on every filter. It's not even lashes it's like blacks dots flickering where lashes should be",
+      "observation": "Слой виртуальных ресниц в фильтрах рендерится с артефактами — вместо ресниц появляются мерцающие чёрные точки, что делает применение фильтра заметным и уничтожает иллюзию натуральности макияжа.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app doesn't support women who are Black and brown, as a result the eyes and skin look weird if you are a woman of color and try to use its features",
+      "observation": "Модель ретуши кожи и коррекции глаз обучена преимущественно на светлых оттенках — для тёмных тонов кожи алгоритм выдаёт некорректные маски и нарушает естественную текстуру, что прямо подтверждают несколько пользователей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app keeps showing 'Your subscription has expired' and blocks VIP features. I tried restoring purchases and restarting, but it still doesn't recognize my active subscription",
+      "observation": "Приложение теряет синхронизацию с Apple-подпиской при продлении: активный пользователь видит экран 'подписка истекла' и не может получить доступ к VIP-функциям, даже нажав 'восстановить покупки' — платный контент заблокирован без ошибки и без поддержки.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says everything is paid now (commodity — no specific deceptive mechanism described)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content / filters (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "App crashed / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

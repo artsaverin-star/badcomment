@@ -1,0 +1,73 @@
+{
+  "productId": "ext-1658822260",
+  "slug": "momo-ai-photo-video-maker-1658822260",
+  "name": "Momo: AI Photo & Video Maker",
+  "domain": "AI-аватары / профессиональные хедшоты / генерация фото и видео на основе селфи",
+  "oneLiner": "Momo генерирует AI-портреты и короткие видео из загруженных пользователем фото — позиционируется как быстрый способ получить профессиональные хедшоты или fun-аватары без студии; iOS/Android; монетизация через недельные/месячные/годовые подписки + внутренняя валюта «монеты» за каждую генерацию",
+  "pricing": "недельная подписка ~$6.99–$11.99 (цены плавают по рынку); месячная ~$9.99–$12.99; годовая есть, конкретная сумма в отзывах не фигурирует; сверху — внутренняя валюта «монеты»: одна генерация фото или видео тратит все монеты из стартового пакета, следующая — ещё $4–$5 или ожидание 163–167 часов (≈7 дней); бесплатного триала фактически нет — подписка списывается немедленно при старте",
+  "keyFeatures": [
+    "генерация AI-портретов (хедшоты, профессиональные фото для LinkedIn/CV) из 7+ загруженных селфи",
+    "генерация коротких AI-видео с лицом пользователя, наложенным на готовые шаблоны",
+    "большая библиотека тематических шаблонов (деловой стиль, путешествия, fun-образы, семейные сцены)",
+    "сканирование лица для повышения точности переноса внешности",
+    "пакеты на пару/группу ('couples or single photos')",
+    "шаблоны с разными фоновыми сценами и образами (офис, природа, студия)"
+  ],
+  "competitors": [
+    "ChatGPT (упоминается напрямую как бесплатная альтернатива в десятках отзывов)",
+    "Lensa AI",
+    "Dawn AI",
+    "Remini",
+    "Facetune",
+    "Prequel",
+    "Photoroom"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "you spend a lot just to use the app then in order to even get one photo you either have to pay another 5$ minimum or wait weeks for 'coins' to replenish. mine never replenished and project was mysteriously gone after a week of not touching the app",
+      "observation": "Механика монет устроена так: подписка даёт ровно один пакет монет — ровно на одну генерацию. Следующая стоит $5+ или нужно ждать ~167 часов. Проект при этом может исчезнуть без предупреждения после недели простоя — монеты не восстанавливаются.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They charged me $11 for a subscription, which I was fine paying because I thought that was the full price to use the app. After paying, I found out it only allows you to make ONE video, then you have to wait 167 hours, which is basically 6 days and 23 hours, before you can make another one. If you want to make additional videos, they charge an extra $5 per video on top of the weekly subscription.",
+      "observation": "Пользователь платит недельную подписку и рассчитывает на неограниченный доступ — по факту получает ровно одну генерацию. Повтор стоит ещё $5, а следующий бесплатный слот открывается через 167 часов — фактически в следующем платёжном цикле. Двойная монетизация не раскрыта на paywall-экране.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Uploaded pics to do just a simple headshot and it shows a bunch of options using THEIR MODELS not even remotely looking like the person in the photos. Thought, maybe I messed it up, did it again, SAME RANDOM MODEL.",
+      "observation": "При генерации хедшота система использует собственную базовую модель вместо лица пользователя: результат визуально не идентифицируется как конкретный человек. Повторная загрузка фотографий не меняет исход — ошибка воспроизводима и не связана с качеством исходных снимков.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I added eight pictures of my little sister who's no longer here. How do I get pictures of a white woman?????? Like, DONT PISS ME TF OFF!!!!!",
+      "observation": "Модель генерации не соблюдает расовые характеристики субъекта из загруженных фото: пользователь загружает снимки чернокожей женщины, получает портреты белой женщины. Для пользователей, использующих приложение для хранения памяти о близком человеке, это наносит прямой эмоциональный ущерб.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I wanted professional photos, and I received six photos that were each different, though they had one thing in common: they were equally terrible and deeply flawed. Some made me look like a Real Housewife, or like I was deformed, or like an animated character. They are awful and unusable. And the worst part is that I scanned my face thinking it would generate more accurate photos.",
+      "observation": "Функция сканирования лица позиционируется как механизм повышения точности, но не улучшает сходство с исходным лицом: результаты варьируются от карикатуры до анатомических деформаций. Пользователь потратил дополнительные шаги (сканирование) и деньги в ожидании более точного результата — ожидание не оправдывается.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the expected wait time goes from around half an hour to 1000+ minutes within a day. Zero transparency on subscription fees, what's included, and the turnaround time for what you actually want.",
+      "observation": "Время обработки нестабильно и непредсказуемо: заявленные 30 минут могут превратиться в 1000+ минут без объяснений. Пользователь не имеет возможности ни отменить запрос, ни отследить реальный статус — интерфейс не раскрывает причин задержки или ориентира по времени.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

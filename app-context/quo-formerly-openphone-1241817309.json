@@ -1,0 +1,77 @@
+{
+  "productId": "ext-1241817309",
+  "slug": "quo-formerly-openphone-1241817309",
+  "name": "Quo (formerly OpenPhone)",
+  "domain": "VoIP бизнес-телефония / виртуальный бизнес-номер",
+  "oneLiner": "Quo (бывший OpenPhone) — VoIP-сервис для малого бизнеса: виртуальный бизнес-номер, звонки и SMS через приложение, командный доступ, запись звонков и AI-ассистент SONA; ребрендинг из OpenPhone состоялся в 2025-2026 году",
+  "pricing": "от $15/мес за линию (на сайте), фактически от $21/мес до налогов и сборов; годовой план рекламируется как более дешёвый, но при оформлении подписки доступен только помесячный вариант; дополнительная одноразовая регистрация SMS-рассылки — $20 (ранее), затем снижена до $15 (не входит в тариф); сбор за регистрацию взимается даже при отказе в верификации",
+  "keyFeatures": [
+    "виртуальный бизнес-номер (US): отдельный номер на своём устройстве без второй SIM-карты",
+    "звонки через VoIP (iOS, Android, desktop-обёртка над веб-приложением)",
+    "SMS и MMS — требуют отдельной регистрации бизнеса (10DLC / A2P)",
+    "запись входящих и исходящих звонков",
+    "командный доступ: несколько сотрудников на одном номере",
+    "AI-ассистент SONA — автоответы, краткое изложение пропущенных звонков",
+    "перенос (porting) существующего номера",
+    "интеграция с Apple CarPlay и Apple Call Waiting",
+    "API для кастомизации и интеграций"
+  ],
+  "competitors": [
+    "Sideline",
+    "Google Voice",
+    "Grasshopper",
+    "RingCentral",
+    "Dialpad",
+    "Vonage Business",
+    "TextNow",
+    "2ndLine"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "they wasted all their money, rebranding their company instead of fixing the product. And they also wasted money on all this AI garbage that nobody wants.",
+      "observation": "Ребрендинг из OpenPhone в Quo воспринимается пользователями как маркетинговое решение, принятое за счёт вложений в надёжность продукта: качество звонков и стабильность соединения не улучшились, а новые AI-функции добавлены поверх нерешённых базовых проблем.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Paid for a personal subscription — account suspended right after for 'non-business use.' No warning during signup. Then came repeated ID verification, endless emails, and zero accountability. They clearly allow you to pay first, then enforce rules later.",
+      "observation": "Сервис принимает оплату при регистрации, не предупреждая, что аккаунты для личного использования запрещены: пользователь оплачивает подписку, а затем аккаунт блокируется с требованием верификации бизнеса — возврат средств при этом зависает между поддержкой Quo и Apple.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I have had to pay so far: $275 for a year subscription, $15x4 because they keep rejecting my application for different reasons. It has been a week of my life, over $300 spent and no results.",
+      "observation": "Регистрация SMS-возможностей (10DLC) взимает сбор при каждой подаче заявки — даже при повторных отказах по техническим причинам: соло-предприниматель без корпоративного сайта может заплатить сбор несколько раз подряд, так и не получив разрешение на отправку сообщений.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "call history and message history are commingled into the same thread list, and it creates a huge organizational problem. There's already a separate category for calls and another for chats, so it doesn't make sense for both histories to still be mixed together.",
+      "observation": "Журнал звонков и история сообщений объединены в одну ленту потоков: при работе с несохранёнными номерами найти нужный текстовый диалог можно только последовательно открывая смешанные треды — это критично для бизнесов, где нужен быстрый поиск переписки с конкретным клиентом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "texts often show as sent but are never received by our clients. In some cases, messages appear unread on our end even after clients have responded, creating confusion and miscommunication.",
+      "observation": "Статус доставки SMS показывает 'отправлено', но сообщение так и не доходит до получателя: бизнес узнаёт об этом только из жалоб клиентов или заметив, что ответ уже есть, а исходное сообщение всё ещё выглядит непрочитанным — невидимый сбой без уведомления об ошибке.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "when someone calls, the call does not ring through and then you get the notification to say missed call, when you try to call back nothing happens it will not connect and stays stuck on the call screen",
+      "observation": "Входящий звонок не рингует на устройстве, а уведомление о пропущенном вызове приходит уже после: попытка перезвонить зависает на экране набора и не соединяется — пользователь видит пропущенный звонок, но физически не может перезвонить через приложение.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed or calls drop (no specifics about conditions or frequency)",
+    "User says customer service is bad (generic, no detail on what happened)",
+    "User loves it (non-information)",
+    "User says it is a scam without describing the mechanism",
+    "User says it is too expensive (commodity)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

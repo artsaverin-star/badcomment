@@ -1,0 +1,78 @@
+{
+  "productId": "ext-1485767959",
+  "slug": "club-pilates-1485767959",
+  "name": "Club Pilates",
+  "domain": "пилатес-студии / групповые занятия на реформере / фитнес по подписке",
+  "oneLiner": "Xponential Fitness — мобильное приложение франчайзинговой сети пилатес-студий Club Pilates (США, Канада); бронирование занятий на реформере, трекинг посещений и milestone-наград, управление членством; iOS + Android",
+  "pricing": "членство в студии: несколько тарифов (2/4/8 занятий в месяц + unlimited); пауза членства стоит ~$35/месяц; опоздание на 5 минут — занятие сгорает; passport-членство позволяет ходить в любую студию сети; само приложение бесплатно, монетизация через абонемент студии",
+
+  "keyFeatures": [
+    "бронирование занятий на реформере и управление листом ожидания",
+    "трекинг посещений и счётчик milestone-классов (50, 100, 250 и т.д.)",
+    "синхронизация расписания с iCal / Google Calendar",
+    "трекинг активности через Apple Watch (Extend-интеграция)",
+    "выбор инструктора при бронировании",
+    "passport-режим для посещения любой студии сети",
+    "история занятий и еженедельный/месячный график посещаемости",
+    "уведомления о подтверждении с листа ожидания"
+  ],
+
+  "competitors": [
+    "Pure Barre (приложение Xponential Fitness)",
+    "Rumble Boxing / StretchLab / YogaSix (другие бренды Xponential)",
+    "Mindbody (агрегатор студий)",
+    "ClassPass",
+    "Barry's Bootcamp",
+    "Solidcore"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "App has stopped updating completed class total, doesn't send out surveys anymore, and doesn't award the class points it's supposed to. I've tried signing in and out, deleting and reinstalling, and resetting my phone and nothing has worked. History notes that I've attended more classes than my completed class total.",
+      "observation": "После обновления от 7 мая счётчик выполненных классов перестал синхронизироваться: история посещений и счётчик показывают разные числа, а milestone-баллы не начисляются — пользователи, следящие за юбилейными классами (250, 500), вынуждены уточнять реальный счёт у стойки ресепшн.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Nearly all of my classmates are experiencing inaccurate attendance numbers. Some off by as much as seven days. Those of us trying to reach a milestone class have to continually check with the front desk to find out where we are. This is a national problem as studios around the country are reporting the same thing.",
+      "observation": "Ошибка в счётчике посещений носит системный характер и затрагивает студии по всей стране: расхождение достигает 7 занятий, и единственный способ узнать реальный счёт — живой запрос на стойке, что разрушает один из ключевых мотивационных механизмов приложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "No longer tracking in class on watch. I have uninstalled and disconnected extend from watch, reinstalled and connected and it just won't start when I try to start my current class. It only tracks attendance with 0s for all the values.",
+      "observation": "Интеграция с Apple Watch через Extend сломалась после обновления: приложение отображает факт посещения, но метрики занятия (усилие, пульс) остаются нулевыми — переустановка не помогает, проблема воспроизводится на iPhone 17 Max Pro + Apple Watch 9.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "You can't favorite teachers, otherwise you get an 'not found' banner. You can't search by level (1, 1.5, 2s) so instead you have to go day at a time.",
+      "observation": "Фильтр по уровню занятия (1.0 / 1.5 / 2.0) в браузере расписания отсутствует: чтобы найти нужный уровень, приходится просматривать слоты день за днём, а кнопка 'избранный инструктор' возвращает ошибку 'not found' вместо сохранения предпочтения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Difficult to get into classes, especially beginners just starting out. They operate on a wait list for just about all evening classes. This means you must book weeks in advance. And it means that if your schedule changes, you will not be able to simply switch to another day that week - they dont give your credit back without calling to ask for an exception if you didnt cancel with more than 24 hours notice.",
+      "observation": "Вечерние классы стабильно заняты и доступны только через лист ожидания, который требует бронирования за несколько недель; отмена менее чем за 24 часа означает потерю кредита без автоматического возврата — перенос возможен лишь через звонок для ручного исключения, что лишает гибкости при живом расписании.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "someone charged me for merchandise I did not buy. All because they had access to my account while I was in class. I was livid and although instructors were sympathetic. No one could help. So I left.",
+      "observation": "Сотрудники студии имеют доступ к платёжному аккаунту участника прямо в приложении и могут проводить покупки товаров без явного подтверждения клиента; ни служба поддержки, ни менеджмент студии не смогли вернуть деньги — клиент ушёл после 4 лет членства.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

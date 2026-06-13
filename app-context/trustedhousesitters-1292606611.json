@@ -1,0 +1,74 @@
+{
+  "productId": "ext-1292606611",
+  "slug": "trustedhousesitters-1292606611",
+  "name": "TrustedHousesitters",
+  "domain": "хаусситтинг / уход за питомцами / обмен жильём",
+  "oneLiner": "двусторонняя платформа: владельцы питомцев находят ситтеров, которые живут в чужом доме бесплатно взамен на уход за животными; iOS+Android+Web; глобальная аудитория (UK, AU, US, DE, CA)",
+  "pricing": "только платная подписка — около $120-170 в год для ситтеров (в разных странах £129, €150, $170), около $200/год для владельцев; бесплатного режима нет; с 2025 введён дополнительный сбор ~£9-10 за каждый подтверждённый сит поверх годовой подписки; 'Money Back Guarantee' декларируется, но на практике почти не выполняется",
+  "keyFeatures": [
+    "поиск ситов по карте и фильтрам (даты, тип питомца, локация, 'can bring pets')",
+    "профили ситтеров с фото, отзывами и верификацией личности",
+    "профили хозяев с описанием дома, питомцев и условий проживания",
+    "внутренний мессенджер для переговоров между хозяевами и ситтерами",
+    "система отзывов после завершения сита (взаимная: хозяин оценивает ситтера, ситтер — хозяина)",
+    "сохранённые поиски с push-уведомлениями о новых ситах",
+    "план-премиум для ситтеров с приоритетным доступом к заявкам"
+  ],
+  "competitors": [
+    "Nomador",
+    "HouseCarers",
+    "MindMyHouse",
+    "Rover",
+    "Wag!",
+    "Pawshake",
+    "Housesitmatch"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "A booking fee of £9 has recently been introduced for sitters on top of the £129+ annual fee! Pet sitting is a huge responsibility so many of us find this unacceptable when pet owners get free pet sitting",
+      "observation": "Платформа ввела дополнительный сбор ~£9 за каждый подтверждённый сит поверх уже оплаченной годовой подписки: ситтеры выполняют работу бесплатно (в обмен на жильё), но теперь ещё и платят за каждое бронирование — при том что хозяева получают присмотр за питомцами даром. Это изменило экономику модели с 'взаимный обмен' на 'ситтер субсидирует платформу дважды'.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Sitter cancelled on the day of our family holiday. Can't leave them a bad review because we didn't technically hire them.",
+      "observation": "Система отзывов допускает публичную оценку только завершённых ситов: если ситтер отменяет в последний момент, хозяин теряет отпуск, но не может оставить предупреждение для других — отменённый сит 'не считается' с точки зрения платформы и ситтер остаётся с чистым профилем.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they make it sound super easy to cancel if you don't use their service but have VERY narrow conditions in reality. They are also very misleading in how they list available sitters.",
+      "observation": "Политика возврата средств маркетингово подаётся как щедрая гарантия, но условия активации прописаны настолько узко, что большинство реальных случаев неиспользования под них не подпадает — платформа удерживает деньги, ссылаясь на нарушение хотя бы одного технического пункта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Our account was suspended after a sitter who wasn't at our home overnight for 13 hours claimed that our cat bit her. No previous issues, incidents, or poor ratings from sitters. No appeal process, just suspended account.",
+      "observation": "При получении жалобы со стороны ситтера платформа может заблокировать аккаунт хозяина без апелляции и без учёта истории из 24 безупречных ситов — система модерации не даёт возможности оспорить одностороннее заявление, даже если у хозяина есть контраргументы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid for the membership expecting the platform to provide real opportunities for house and pet sitting while I was in Mexico. After several months of using the service, I did not get a single confirmed sit.",
+      "observation": "Членство продаётся как доступ к реальным возможностям, но платформа не раскрывает реальное соотношение ситтеров и ситов в конкретных регионах: в странах с малым предложением (Мексика, материковая Европа за пределами UK/DE) ситтер может месяцами не получить ни одного подтверждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They say 'you're busy with another sit.' I'll handle my own schedule, thanks. It loses so many sits.",
+      "observation": "Система автоматически блокирует подачу заявок, если новый сит начинается в тот же день, что заканчивается предыдущий — даже если ситтер готов и оба хозяина согласны. Принудительная 'буферная зона' убирает возможность плотного расписания без возможности ручного override.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

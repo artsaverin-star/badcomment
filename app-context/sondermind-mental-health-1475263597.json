@@ -1,0 +1,78 @@
+{
+  "productId": "ext-1475263597",
+  "slug": "sondermind-mental-health-1475263597",
+  "name": "SonderMind - Mental Health",
+  "domain": "телемедицина / онлайн-психотерапия / подбор терапевта через страховку",
+  "oneLiner": "SonderMind — маркетплейс телетерапии: подбирает лицензированных психотерапевтов и психиатров в сети страховых планов США, видеосессии через мобильное приложение + AI-ассистент между сессиями",
+  "pricing": "оплата через страховку (in-network); без страховки — разовая сессия ~$85-120+; отдельный тариф за пропущенный приём (no-show fee); стоимость до старта лечения явно не раскрывается, что вызывает систематические жалобы",
+
+  "keyFeatures": [
+    "подбор психотерапевта и психиатра по страховому плану (in-network matching)",
+    "видеосессии внутри приложения с лицензированными специалистами",
+    "мессенджер для общения с терапевтом между сессиями",
+    "AI-ассистент / интерактивный журнал между сессиями",
+    "автоматические заметки и саммари после видеосессий",
+    "онлайн-запись и управление расписанием",
+    "биллинг через страховой полис и хранение платёжных реквизитов"
+  ],
+
+  "competitors": [
+    "BetterHelp",
+    "Talkspace",
+    "Cerebral",
+    "Brightside Health",
+    "MDLive",
+    "Teladoc Health",
+    "локальные in-network клиники"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "it wasn't until 7 months later, that I started getting billed by SonderMind, and they're billing me 4 times a month. They said they emailed me - but you're allowed to create an account with Apple ID, which created a unknown email address that you can't access",
+      "observation": "Регистрация через Apple ID генерирует скрытый relay-адрес, на который SonderMind шлёт критические биллинговые уведомления. Пользователь 7 месяцев не видит никаких счетов, а потом получает сразу 4 выставленных платежа в месяц — без возможности оспорить их через поддержку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was billed eleven and a half months after a session had taken place. i went back into my planner and saw there was a session scheduled but the therapist had cancelled it day of. now i get billed almost a year later",
+      "observation": "Платёжная система SonderMind выставляет счёт спустя почти год после отменённой (терапевтом!) сессии — причём поддержка не отвечает на письма, удалить платёжную карту из аккаунта невозможно, и деньги списываются в одностороннем порядке.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "therapist was inappropriate and may have violated HIPAA. made multiple attempts to contact support with no answer. therapist was then matched with me again",
+      "observation": "После жалобы на потенциальное нарушение HIPAA платформа не изолирует проблемного терапевта: алгоритм матчинга снова предлагает того же специалиста тому же клиенту, который его уже отклонил. Поддержка молчит, эскалации нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "after the chat was done, I couldn't find access to the full exchg, and when I checked with my human virtual therapist, she didn't appear to have access to said CLINICAL NOTES either",
+      "observation": "Диалоги с AI-журналом не попадают в клиническую запись терапевта: данные существуют в изолированном хранилище, которое недоступно ни пациенту после сессии, ни лицензированному специалисту — что создаёт разрыв в континуитете лечения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app is not iPad optimized— unacceptable for a video-focused app. Also, I did finally find a good PhD but I was first matched with two poor LPC therapists and I had to complain and drop them",
+      "observation": "Первичный матчинг выдаёт LPC-терапевтов (более низкий уровень квалификации) без учёта запроса на PhD/PsyD: чтобы добраться до подходящего специалиста, пользователь вынужден пройти через двух несовместимых и самостоятельно подать жалобы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "this app doesn't even have the option for notifications, I end up getting emails about messages 30mins to an hour after they're sent",
+      "observation": "Приложение не имеет push-уведомлений о входящих сообщениях от терапевта: единственный канал — email с задержкой 30-60 минут. Для платформы, где мессенджер позиционируется как инструмент между сессиями, это разрушает оперативность общения.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves their therapist (non-information about the platform)",
+    "User hates the app in general (no mechanism)",
+    "Login broken / white screen (commodity unless reproducible pattern described)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Customer service is bad (commodity without specific failure mode)"
+  ]
+}

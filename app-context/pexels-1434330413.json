@@ -1,0 +1,77 @@
+{
+  "productId": "ext-1434330413",
+  "slug": "pexels-1434330413",
+  "name": "Pexels",
+  "domain": "бесплатный стоковый контент / royalty-free фото и видео для контент-мейкеров",
+  "oneLiner": "Pexels — бесплатная библиотека royalty-free фото и видео от сообщества фотографов; главный инструмент контент-мейкеров на нулевом бюджете: B-roll, обложки, reels, обои — всё скачивается без атрибуции",
+  "pricing": "полностью бесплатно для скачивания (нет платных тарифов для потребителей); фотографы загружают контент безвозмездно, часть получает донации напрямую через PayPal от пользователей (кнопка в профиле); без рекламы, без подписки",
+
+  "keyFeatures": [
+    "каталог royalty-free фотографий и видео от сообщества — без платежей и атрибуции",
+    "поиск по ключевым словам с фильтрацией по ориентации, цвету, размеру",
+    "скачивание в нескольких разрешениях (SD / HD / оригинал) прямо в Camera Roll",
+    "загрузка собственных фотографий и видео — участие в сообществе фотографов",
+    "модерация загрузок 'экспертами' перед публикацией (featured / not featured)",
+    "интеграция с Canva — прямое редактирование через внешний редактор",
+    "коллекции (папки/избранное) для сохранения найденного контента",
+    "профиль фотографа со статистикой скачиваний и кнопкой донации"
+  ],
+
+  "competitors": [
+    "Unsplash",
+    "Pixabay",
+    "Shutterstock (платный)",
+    "Getty Images (платный)",
+    "Adobe Stock (платный)",
+    "Pinterest (вдохновение, не скачивание)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Downloads funktionieren nur nach mehrfachen Neustarts der App, Inhalte müssen erst geliked und umständlich über Umwege gespeichert werden, und selbst dann sind oft nur noch sehr niedrige Auflösungen verfügbar",
+      "observation": "Скачивание в приложении требует нескольких перезапусков и обходных манёвров (лайк → коллекция → экспорт), причём после всего этого пользователь получает только низкое разрешение — тогда как на сайте тот же контент отдаётся в оригинале без препятствий. Проблема воспроизводится на iOS, Android и планшетах одновременно, что указывает на системный дефект, а не платформозависимый баг.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I can only download 1 video successfully, than the app crashes on the second one. It's clearly an attempt to get me to sign in or make an account but really bad for on the go social media needs. don't code in a crash after the first video",
+      "observation": "Приложение падает именно на втором видеоскачивании подряд — пользователь воспринимает это как намеренный ограничитель, толкающий к регистрации. Если это так, порог в один файл не сообщается открыто; если это баг — он выглядит как продуктовое решение, что разрушает доверие в обоих случаях.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "if you type in 'young woman with red hair' it doesn't actually show you red haired women, it shows you Asian women wearing red dresses or red tops",
+      "observation": "Алгоритм поиска привязывается к доминирующему цветовому тегу вместо описательного запроса: 'red hair' обрабатывается как 'red [что-то]', и результаты заполняются тематически несвязанными фото с красными элементами. Для контент-мейкеров, ищущих конкретный типаж или сцену, это делает поиск ненадёжным и требует подбора синонимов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the download just gets stuck somewhere between 50-99%, and never moves. My WiFi's just okay, but I've downloaded far larger videos in far less time",
+      "observation": "Прогресс-бар загрузки зависает между 50 и 99% и не продвигается — даже на устойчивом соединении и при скачивании файлов, меньших по размеру, чем те, что без проблем загружаются другими приложениями. Это означает, что проблема не в пропускной способности канала, а во внутренней логике завершения передачи или подтверждения сервера.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "A beautiful landscape does not get featured but half eaten food on a plate with a nasty fork does. A so called still life of an ice cream cone with nuts in it gets featured over a beautiful interesting piece",
+      "observation": "Модерация 'экспертов' (feature/reject) субъективна и непредсказуема: пейзажи проигрывают нестандартным натюрмортам без видимой логики. Для фотографов, загружающих контент ради охвата и доверия аудитории, это воспринимается как произвол, который подрывает мотивацию участвовать в сообществе.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 4,
+      "trigger": "some videos won't show up in my photos app after downloading. Same when I try to use them in a video editing software",
+      "observation": "Часть скачанных видео не появляется ни в стандартной галерее iPhone, ни в видеоредакторах: файл как будто записывается, но не индексируется в Camera Roll. Это делает контент незаметно недоступным для монтажа — пользователь не получает сообщения об ошибке, но и использовать файл не может.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity — Pexels is free)",
+    "User says it crashed (no specifics about trigger or reproducibility)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Login broken (commodity unless specific flow described)",
+    "App is slow (commodity unless tied to specific action or version)"
+  ]
+}

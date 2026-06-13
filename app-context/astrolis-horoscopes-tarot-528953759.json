@@ -1,0 +1,75 @@
+{
+  "productId": "ext-528953759",
+  "slug": "astrolis-horoscopes-tarot-528953759",
+  "name": "Astrolis Horoscopes & Tarot",
+  "domain": "астрология / гороскопы / таро",
+  "oneLiner": "ежедневные гороскопы по солнечному знаку с разбором транзитов планет, натальная карта, карты таро — бесплатный базовый контент + платные углублённые отчёты; iOS и Android",
+  "pricing": "бесплатная версия с рекламой; Premium-подписка убирает рекламу и открывает расширенный контент; разовые платные отчёты (например, 'Destiny Revealed' за ~$60) — доставка по email после оплаты; точная цена подписки в отзывах не упоминается",
+  "keyFeatures": [
+    "ежедневный гороскоп по знаку зодиака с разбором активных транзитов планет",
+    "недельный и месячный гороскоп по темам: любовь, деньги, карьера",
+    "натальная карта (birth chart) — ввод даты, времени и места рождения",
+    "расклад таро: минимум трёхкарточный спред, ежедневная карта",
+    "рейтинги дня по категориям: деньги, любовь, настроение, энергия",
+    "позиции планет в реальном времени",
+    "совместимость знаков (compatibility)",
+    "платные персональные отчёты, доставляемые на email"
+  ],
+  "competitors": [
+    "Co-Star",
+    "The Pattern",
+    "Sanctuary: Astrology & Tarot",
+    "Astro Future",
+    "TimePassages",
+    "Chani",
+    "Cafe Astrology (веб)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "run-on sentences, oh my god. I can't even understand what it's trying to say anymore. 'As much as the Moon is spending the final hours of its first visit to your income sector for the year clashed with the dwarf planet Eris, in her last full day in retrograde motion in your financial sector and this might create some financial tension, with benefits for both.' That's one sentence. idk if AI is used but it's definitely gotten worse..",
+      "observation": "Тексты гороскопов содержат синтаксически сломанные предложения с нагромождением астрологических терминов (транзиты, ретроградность, секторы) без итогового вывода — пользователь не может извлечь практический смысл из одного предложения длиной в несколько строк.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "what?! it's all mercury us here, Jupiter is there, the sun is here. with no real info on how it affects you.",
+      "observation": "Приложение перечисляет позиции планет, но не переводит астрологический язык в понятные пользователю следствия — часть аудитории ожидает конкретных советов, а не сырых планетарных координат.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "WARNING DO NOT BUY ANY REPORTS. I purchased Destiny Revealed package. That was on May 6. It's now the 23. I haven't received the reports. I've tried to contact the developer multiple times. No response. They charged my credit card for $60.95 immediately.",
+      "observation": "Модель разовых платных отчётов (~$61) подразумевает доставку на email, но техподдержка не отвечает на запросы даже спустя 17 дней после оплаты — деньги списываются немедленно, а содержимое отчёта не поступает.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the weekly career and money horoscopes were not being consistently repeated - its really frustrating to keep reading the same thing over and over every few weeks!!!",
+      "observation": "Контент для недельных прогнозов по карьере и деньгам явно ротируется из ограниченного пула текстов: один и тот же текст появляется повторно через несколько недель, что разрушает ощущение актуальности прогноза.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "it forces you to subscribe by playing loud ads if you don't",
+      "observation": "Вместо стандартных баннеров приложение использует громкую аудио-рекламу как механизм давления на бесплатных пользователей — агрессивнее обычных interstitial-форматов и прямо провоцирует переход на подписку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I found out they sell your private information to third parties, not cool",
+      "observation": "Пользователь сообщает о продаже персональных данных третьим сторонам — в приложении, которое собирает дату и время рождения, это создаёт специфический риск для аудитории, воспринимающей астрологический профиль как чувствительную личную информацию.",
+      "specificity": "medium"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

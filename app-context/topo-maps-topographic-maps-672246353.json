@@ -1,0 +1,75 @@
+{
+  "productId": "ext-672246353",
+  "slug": "topo-maps-topographic-maps-672246353",
+  "name": "Topo Maps+: Topographic Maps",
+  "domain": "офлайн-навигация / топографические карты / треккинг и охота",
+  "oneLiner": "Topo Maps+ — профессиональный iOS-картограф с топографическими горизонталями и офлайн-картами для хайкинга, бэкпакинга, охоты и бэккантри; синхронизация iPhone + Apple Watch; конкурент Gaia GPS и AllTrails",
+  "pricing": "7-дневный бесплатный триал (кнопка перехода к нему не очевидна в интерфейсе); платная подписка Elite — около $80/год по отзывам пользователей; есть 90-дневный вариант за ~$45; базовая функциональность ограничена без подписки",
+  "keyFeatures": [
+    "топографические карты с горизонталями и отметками высот (US Topo, USFS, Glacier Hybrid Topo, канадские карты)",
+    "офлайн-режим — карты скачиваются заранее (ограничение: зона не более 75 МБ на загрузку)",
+    "запись и редактирование маршрутов (треков) с фриенд-тул для рисования вручную",
+    "точки интереса (waypoints) с возможностью группировки и массового переключения видимости",
+    "синхронизация в реальном времени между iPhone, iPad и Apple Watch через Bluetooth без сотовой сети",
+    "множество слоёв карт: спутник, USFS, земельная собственность, Back Roads Map Book (Канада)",
+    "импорт пользовательских карт (GeoTiff) и GPX-треков",
+    "облачный бэкап пользовательских данных (маршруты, точки)",
+    "печать карт прямо из приложения"
+  ],
+  "competitors": [
+    "Gaia GPS",
+    "AllTrails",
+    "OnX Backcountry",
+    "Garmin inReach / GPS-устройства",
+    "CalTopo",
+    "Avenza Maps"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "Une zone téléchargeable ne fait que 75 Mo max. A la taille au-dessus c'est 'too huge', non téléchargeable. j'ai compté qu'il me fallait faire dans les 60 téléchargements !!",
+      "observation": "Лимит одного офлайн-тайла — 75 МБ — делает загрузку обширных малонаселённых территорий (Боливия, тундра, пустыня) практически невозможной: пользователь посчитал, что для покрытия нужного района потребовалось бы 60 отдельных загрузок. Затем он упёрся в скрытый потолок общего числа загрузок, после чего подписка за 70€ оказалась бесполезной.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "My track which I was using to retrace my steps while off-trail intermittently disappeared which was quite alarming",
+      "observation": "Активный трек, по которому пользователь собирался вернуться с бездорожья, периодически исчезал с экрана во время движения. Для приложения, позиционирующегося как инструмент выживания в backcountry, исчезновение линии возврата — критический сценарий безопасности, а не просто UX-баг.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "when I zoom in on an area, the text shrinks even more instead of enlarging. So I have to zoom in so far to read the text, and then I lose perspective of the map again",
+      "observation": "Масштабирование карты не увеличивает подписи объектов, а уменьшает их — поведение, противоположное ожидаемому. В результате пользователь вынужден циклически зумировать туда-обратно, чтобы одновременно прочитать название и сохранить пространственный контекст.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I did The Narrows top to bottom in Zion National Park. It said I hiked a little over 29 miles! The trail is only 15miles! That's a little bit of a discrepancy.",
+      "observation": "Приложение завысило итоговый пройденный километраж почти вдвое для маршрута известной длины. Возможная причина — накопление GPS-шума в каньоне с отражениями сигнала, которое не фильтруется алгоритмом трекинга.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "snap-to trail route creating function is almost non-existent. You can only snap to a handful of trails and then only with a specific overlay, and it won't snap to other well-denoted trails or roads on the base map",
+      "observation": "Функция привязки маршрута к тропе (snap-to-trail) работает только с конкретным платным оверлеем и лишь для ничтожной части троп — вместо автопостроения по существующим тропам пользователь рисует маршрут вручную точка за точкой или получает ломаные прямые.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "The ability to import a custom map and navigate on both phone and watch was exactly what I was looking for. It's genuinely making my hikes more satisfying, being able to just glance at my watch at a tricky intersection.",
+      "observation": "Импорт пользовательской GeoTiff-карты (например, местной топосъёмки) с последующей навигацией по ней на Apple Watch без смартфона — редкая связка, которую конкуренты не реализуют: пользователь получает свою нестандартную карту прямо на запястье.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

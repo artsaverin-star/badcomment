@@ -1,0 +1,72 @@
+{
+  "productId": "ext-6472172759",
+  "slug": "visify-ai-photo-generator-6472172759",
+  "name": "Visify: AI Photo Generator",
+  "domain": "AI-аватары и фотогенерация / ретушь портретов",
+  "oneLiner": "мобильный AI-генератор портретных фото и аватаров — загружаешь селфи, получаешь стилизованные снимки (хедшоты, художественные образы, мультяшный стиль, колоризация чёрно-белых фото); iOS, недельная подписка",
+  "pricing": "еженедельная подписка $7.99–$9.99/нед; позиционируется как '7-дневный бесплатный триал', но по массовым жалобам деньги списываются сразу при нажатии на кнопку триала; внутри подписки есть отдельная валюта (монеты/credits) — часть функций стоит 100 монет за изображение даже для подписчиков; водяной знак на всех фото даже после оплаты подписки (убрать можно только вручную)",
+  "keyFeatures": [
+    "генерация AI-портретов и хедшотов из нескольких загруженных селфи",
+    "стилизованные образы: K-pop-идол, фэнтези, аниме, мультфильм, профессиональный хедшот",
+    "колоризация и восстановление старых чёрно-белых фотографий",
+    "фильтры образов и тематические пресеты (дни рождения, праздники, профессиональные стили)",
+    "AI-улучшение качества и резкости фото",
+    "генерация нескольких вариантов изображения за одну сессию"
+  ],
+  "competitors": [
+    "Lensa AI",
+    "Dawn AI",
+    "Remini",
+    "FaceApp",
+    "Photoleap",
+    "Fotor AI Photo Editor"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "The headshots come out surprisingly realistic and professional, and the filters are fun and easy to use. I love how fast everything generates",
+      "observation": "Приложение берёт несколько загруженных селфи и за короткое время синтезирует хедшоты, воспринимаемые пользователями как профессиональные снимки — часть аудитории отмечает скорость генерации как ключевое преимущество перед конкурентами.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 3,
+      "trigger": "after paying but yet to get a photo that looks anything remotely similar to the actual photographed subject",
+      "observation": "Идентичность субъекта не сохраняется стабильно: модель регулярно меняет черты лица, расу или цвет кожи (один отзыв описывает, как темнокожий ребёнок вышел блондином). Это системный дефект генерации, а не единичный глюк.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "There are better apps that don't cost 100 coins to complete an image. I also do not like that they force their watermark onto all their images. This is even after you subscribe.",
+      "observation": "Подписка не даёт полного доступа: каждое изображение стоит дополнительные монеты, а водяной знак остаётся на всех фото даже у оплативших подписчиков — двойной платёж (подписка + внутренняя валюта) при нулевом праве на чистый результат.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Downloaded after seeing Instagram ads showing birthday photos with age-specific elements. These features do not exist in the app. Support confirmed ads show examples only.",
+      "observation": "Instagram-реклама демонстрирует пресеты (тематические дни рождения с возрастными элементами), которых в приложении нет; саппорт официально подтвердил, что рекламные материалы — лишь 'примеры'. Расхождение между рекламой и реальным функционалом системное, а не случайное.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Charged me $8. Are you kidding me? Posing as a fake free trial and scamming people",
+      "observation": "Кнопка 'начать бесплатный триал' инициирует немедленное списание денег — механизм, воспроизводящийся у сотен пользователей из США, Бразилии, Мексики и Канады. Пользователи, отменившие подписку в тот же день, всё равно получают повторные попытки списания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "charging me 9.99 per week somehow for almost a year. I never downloaded it, I don't use ai photos and somehow I can't delete it",
+      "observation": "Как минимум один пользователь сообщает о еженедельных списаниях $9.99 на протяжении почти года без факта использования приложения — и о невозможности удалить подписку стандартными методами; Apple отклонял каждый запрос на возврат средств.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

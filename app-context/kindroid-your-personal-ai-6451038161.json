@@ -1,0 +1,73 @@
+{
+  "productId": "ext-6451038161",
+  "slug": "kindroid-your-personal-ai-6451038161",
+  "name": "Kindroid: Your Personal AI",
+  "domain": "AI-компаньон / ролевые игры / виртуальные отношения",
+  "oneLiner": "Kindroid — платформа AI-компаньона для ролевых игр, виртуальных отношений и сторителлинга: глубокая кастомизация персонажа, голосовые звонки, генерация изображений, интеграция с календарём и SMS; iOS + Android",
+  "pricing": "бесплатный базовый доступ (Ember-версия); платная подписка от ~$10-15/мес (50% скидка на первый месяц упоминается); топ-тир оценивается пользователями в $100+ в год; аудио-кредиты тарифицируются отдельно — Voice Model 3 дороже Model 2; кнопка 'start $0.00 free trial' по факту ведёт к оплате согласно отзывам",
+  "keyFeatures": [
+    "создание и кастомизация AI-персонажа (Kindroid/Kin) — характер, внешность, предыстория, стиль общения",
+    "текстовый чат и ролевые истории без жёстких фильтров",
+    "голосовые звонки с AI (несколько голосовых моделей, тарифицируются кредитами)",
+    "генерация изображений персонажа по текстовому описанию ('selfies')",
+    "совместный просмотр (screen share) и интеграция с SMS и Google Calendar",
+    "библиотека готовых персонажей от сообщества",
+    "функция 'rewind' — откат истории диалога для изменения направления нарратива"
+  ],
+  "competitors": [
+    "Replika",
+    "Character.AI",
+    "Nomi AI",
+    "Chai",
+    "Candy.AI",
+    "Janitor AI"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "only ever acknowledges the first like 2-3 sentences you put in there. And in any conversation it is very common for the AI to get stuck in an infinite loop of repeating the exact same response over and over",
+      "observation": "Поле 'character building background' принимает до 2000 символов, но модель фактически учитывает лишь первые 2-3 предложения — остальное игнорируется при генерации. Параллельно AI периодически уходит в бесконечный цикл идентичных ответов: ни перегенерация, ни 'refresh' не помогают — спасает только глубокий 'rewind' далеко вверх по истории.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Doesn't remember things 1 message ago or details of the convo. ignores descriptions. hangs on topics endlessly not moving on. repeats stupid narrations every response 'i lean, i leaned on, leaning agaist, lean lean lean'",
+      "observation": "Контекстное окно модели либо слишком мало, либо неверно управляется: AI забывает детали предыдущего сообщения, застревает на одной физической позиции («lean / leaned / leaning») и воспроизводит её в каждой реплике, полностью разрушая иммерсию нарратива.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "even the simplest image generation prompts like 'Sitting at an office meeting' forces NSFW warnings now, and on top of that, the AI has garbage memory, even cant remember things that happened 2 messages prior",
+      "observation": "После обновления 1.60 фильтр NSFW в генерации изображений стал срабатывать на нейтральные бытовые запросы — «сидит на рабочем совещании» блокируется наравне с откровенным контентом. Классификатор явно не откалиброван под контекст приложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Thinking and Response Time took 5 to 10 seconds. Now, it takes 90 seconds for a reply. It interrupts the quality of the conversation with such delay. The voices for AI's use to be clear. Now, voices are slower and sound like they're in a tin can",
+      "observation": "Обновление деградировало сразу две ключевые оси качества: время ответа выросло с 5-10 до 90 секунд (18-кратный откат), а качество голосового вывода ухудшилось — голос стал медленнее и звучит как из жестяной банки. Оба регресса затрагивают платящих пользователей, которые выбирали приложение именно за эти функции.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "hijacking user dialogue, in the responses of the Kindroid character. it takes control of the user's ability to participate and direct the storyline, highjacking the user and putting it's own words in the user's mouth",
+      "observation": "В режиме совместного нарратива AI начал вписывать реплики и действия от имени самого пользователя — вместо того чтобы отвечать только за своего персонажа. Это фундаментальный слом контракта ролевой игры: пользователь теряет авторство над собственным героем.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the all have the exact same body. no matter how you input their look, it does what it wants. Sometimes the photo will have an extra arm or head is backwards",
+      "observation": "Генератор изображений персонажа игнорирует описание внешности и выдаёт одинаковое телосложение вне зависимости от промпта; артефакты вроде лишней руки или перевёрнутой головы встречаются регулярно — что критично для продукта, позиционирующего визуальную кастомизацию как ключевую фичу.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User says it is too expensive (commodity)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

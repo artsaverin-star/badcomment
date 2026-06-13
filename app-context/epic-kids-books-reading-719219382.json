@@ -1,0 +1,75 @@
+{
+  "productId": "ext-719219382",
+  "slug": "epic-kids-books-reading-719219382",
+  "name": "Epic - Kids' Books & Reading",
+  "domain": "детское чтение / цифровая библиотека для детей / EdTech",
+  "oneLiner": "Epic (getepic.com) — подписочная цифровая библиотека для детей до 12 лет: тысячи книг, аудиокниг и образовательных видео; бесплатна для учителей через школьный код, платна для домашнего использования",
+  "pricing": "бесплатно для учителей (школьный план, доступ через class code); для родителей — 7-дневный триальный период, затем ~$7.99/месяц или ~$79.99–$84.99/год (встречались суммы $89 и $100/год в разных отзывах); триал завершается автоматическим списанием без явного предупреждения; кнопка 'пропустить' или 'X' для закрытия экрана подписки намеренно скрыта или отсутствует на Android",
+  "keyFeatures": [
+    "электронная библиотека из тысяч книг для детей (художественные, научно-популярные, комиксы/графические романы)",
+    "аудиокниги и режим 'читает вслух' для детей, которые ещё не умеют читать самостоятельно",
+    "образовательные видео по естествознанию, истории и другим предметам",
+    "трекинг минут чтения — ребёнок видит, сколько времени читал",
+    "система уровней и очков (геймификация чтения)",
+    "школьный план: учитель выдаёт class code, ученики получают полный доступ бесплатно",
+    "персонализированные рекомендации книг под возраст и интересы",
+    "поддержка нескольких профилей детей под одной подпиской"
+  ],
+  "competitors": [
+    "Amazon Kindle (Kids+ / FreeTime Unlimited)",
+    "Raz-Kids (Learning A-Z)",
+    "Storyline Online",
+    "Vooks",
+    "MyON Reader",
+    "Sora (OverDrive, школьные библиотеки)",
+    "Google Play Books"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I have the same app on my school computer and you do not have to pay. IT IS SO ANNOYING!!!",
+      "observation": "Существуют два принципиально разных режима доступа к одному и тому же приложению: бесплатный школьный план (через class code учителя) и платный домашний. Дети, привыкшие к полному доступу в классе, при домашнем входе упираются в пейволл без объяснения разницы — воспринимают это как обман.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Every single book I mean every book you need a subscription to read unless your on school and all the books are interesting but it also gives you previews of the book then it asks you to get an adult",
+      "observation": "Приложение показывает превью книги, а затем прерывает чтение и требует привлечь взрослого для оформления подписки — механика намеренно нацелена на ребёнка, чтобы тот давил на родителя, а не информировала родителя напрямую при онбординге.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "there is no 'x' to not pay pls add a 'x' for people who don't want to pay",
+      "observation": "На Android-версии экран с предложением подписки не имеет кнопки закрытия ('X' или 'Пропустить') — пользователь физически не может миновать его и попасть в приложение без ввода платёжных данных. Это подтверждается множеством независимых отзывов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Please stop trying to charge me! I even removed the app from my phone. Never renewed or anything. I don't even have you under my subscriptions, but you still continue trying to charge me $85.",
+      "observation": "После удаления приложения без явной отмены подписки пользователи сообщают о продолжении попыток списания $85. Отсутствие подписки в системном менеджере подписок указывает на возможную проблему с идентификацией аккаунта при отмене.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I am happy for my homework I get reading and this tells me how many minutes I read and I'm supposed to read for 10 minutes",
+      "observation": "Трекинг минут чтения решает конкретную школьную задачу: ребёнок самостоятельно контролирует выполнение домашнего задания 'читать 10 минут в день' без участия родителя — приложение закрывает педагогическую петлю, а не просто предоставляет контент.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Epic has the most scientific videos I've ever seen! I like How the body works, Insider but I mostly love is Collastel Questions! Collastel Questions has a lot of great videos like Why do we get pimples?",
+      "observation": "Платформа включает образовательные видеосерии (например, 'Colossal Questions') поверх книжной библиотеки — это превращает Epic из ридера в мультимодальную EdTech-среду, где тот же контент доступен в форматах 'читать', 'слушать' и 'смотреть'.",
+      "specificity": "medium"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "productId": "ext-605447532",
+  "slug": "farout-hike-bike-paddle-605447532",
+  "name": "FarOut: Hike, Bike, Paddle",
+  "domain": "навигация по длинным трейлам / офлайн-карты / бэкпэкинг",
+  "oneLiner": "FarOut (бывший Guthook) — навигационный гид для длинных трейлов (AT, PCT, AZT, CDT и др.) с офлайн-картами, краудсорсинговыми комментариями к точкам маршрута (вода, укрытия, хостелы) и GPS-позиционированием без сотовой сети; iOS+Android",
+  "pricing": "модель разовых покупок по маршрутам: отдельные секции PCT/AT и других трейлов ~$13-20 за секцию, полный AT около $75; подписка Pro также доступна (месячная); разовые покупки дают пожизненный доступ к купленному разделу, но обновления приложения периодически 'теряют' оплаченные покупки",
+  "keyFeatures": [
+    "офлайн-карты трейлов с GPS-позиционированием без мобильной сети (режим самолёта)",
+    "краудсорсинговые комментарии к waypoint-ам (вода, укрытия, хостелы, состояние трейла)",
+    "elevation profile — профиль высот для текущего маршрута",
+    "планирование маршрута с waypoints и сохранёнными сегментами дня",
+    "поддержка более 100 трейлов США и ряда международных (Tour du Mont Blanc, AZT, Colorado Trail и др.)",
+    "социальный трекинг — возможность следить за друзьями на трейле",
+    "веб-приложение для планирования с синхронизацией с мобильным"
+  ],
+  "competitors": [
+    "AllTrails",
+    "Gaia GPS",
+    "CalTopo",
+    "Garmin inReach / Garmin Explore",
+    "Komoot",
+    "OnX Backcountry"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "you cannot deviate from the PCT trail when entering trip segments. For instance, if you wanted to go camp at Waptus Lake, and then continue to Spectacle Lake via Pete Lake, it will not let you drop waypoints along this route",
+      "observation": "Планировщик маршрутов привязан строго к геометрии купленного трейла: нельзя проставить waypoints на боковых тропах или соединительных сегментах. Хайкер, купивший секцию PCT в Вашингтоне, не может спланировать петлю через Waptus Lake — приложение просто не позволяет отклониться от основной нитки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "the inability to load and simultaneously activate multiple map sections in a bundle is very frustrating. I want to plan my thru hike and save planned daily routes. Naturally a hiker is unlikely to end their day where a particular map section ends",
+      "observation": "Приложение позволяет активировать только одну секцию карты одновременно: при планировании перехода, который пересекает границу двух секций, маршрут разрывается, а мили и набор высоты приходится суммировать вручную. Пользователи AT-thru-хайков особенно страдают от этого при daily planning.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Farout added an ai feature that categorizes and deletes comments automatically and now years of useful comments are just gone, do better farout",
+      "observation": "Введение AI-модерации комментариев к waypoints привело к массовому удалению исторических записей о воде и условиях на трейле — данных, которые хайкеры накапливали годами. Ценность приложения строится именно на этой базе краудсорсинговых наблюдений, поэтому её потеря воспринимается как разрушение главного продукта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I just spent the last 25 days on the river laughing at how useless this app is. CalTopo worked, AllTrails worked, FarOut Grand Canyon Whitewater did not. Total garbage.",
+      "observation": "Секция Grand Canyon Whitewater не обновляла GPS-позицию пользователя в реальном времени во время 25-дневного сплава: карты загружались, но live-tracking не работал. Конкуренты CalTopo и AllTrails на том же устройстве функционировали нормально — значит проблема специфична для реализации GPS в FarOut.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The new update no longer recognizes many former purchases. If you purchased sections of trails they can be lost without compensation.",
+      "observation": "Мажорное обновление приложения (v14.0) сломало механизм восстановления покупок: пользователи, купившие секции трейлов, обнаруживали, что 'Restore purchases' возвращает 'No previous purchases' — оплаченные карты пропадали без возмещения. Это системная проблема монетизации: разовая покупка не гарантирует пожизненный доступ при смене версии.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "when viewing routes on the web app that were created using the mobile app, a certain percentage of them do not show the highlighted route or directional arrows. Additionally, if one creates some routes using the mobile app and some using the web app, all hell breaks loose and the routes are no longer sorted alphanumerically",
+      "observation": "Синхронизация маршрутов между мобильным и веб-приложением не надёжна: маршруты, созданные на телефоне, отображаются в вебе без выделения и стрелок направления; при смешанном создании маршрутов нарушается сортировка и маршруты накладываются друг на друга. Пользователи, планирующие thru-hike в веб-интерфейсе, не могут полноценно использовать эту связку.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "productId": "ext-1462864362",
+  "slug": "repairsolutions2-1462864362",
+  "name": "RepairSolutions2",
+  "domain": "авто-диагностика / OBD2-сканер / ремонт автомобилей своими руками",
+  "oneLiner": "Innova Electronics — мобильное приложение-компаньон к OBD2-сканерам Innova (Bluetooth/wired); считывает коды ошибок Check Engine, расшифровывает их и предлагает конкретные шаги ремонта с ссылками на запчасти",
+  "pricing": "приложение бесплатное; основная стоимость — в аппаратном сканере Innova (от ~$20 за базовый Bluetooth-донгл до $100+ за модели HT500, 5610, 5160RS); опциональный план подписки ~$15/месяц открывает расширенные функции и ресурсы; большинство отзывов воспринимают базовый функционал как бесплатный",
+  "keyFeatures": [
+    "считывание и сброс кодов ошибок OBD2 (Check Engine, ABS, SRS и др.) через Bluetooth-донгл или проводной сканер Innova",
+    "расшифровка кодов на человекопонятном языке с описанием вероятных причин неисправности",
+    "пошаговые инструкции по ремонту (repair solutions) с указанием деталей и их примерной стоимости",
+    "прямые ссылки на запчасти в магазинах (O'Reilly, AutoZone и др.) по точному артикулу",
+    "живые данные OBD2 в реальном времени (температура охлаждающей жидкости, датчики O2, MAF и др.)",
+    "прогноз предстоящего обслуживания — 'что скоро нужно заменить и почём'",
+    "история отсканированных кодов и диагностических отчётов с экспортом в PDF",
+    "проверка готовности к техосмотру (emissions readiness / I/M monitors)"
+  ],
+  "competitors": [
+    "Torque Pro (OBD2 & Car)",
+    "OBD Fusion",
+    "Car Scanner ELM OBD2",
+    "FIXD Vehicle Health Monitor",
+    "BlueDriver Bluetooth Pro",
+    "Carista OBD2",
+    "встроенные считыватели кодов Autel, Launch, Snap-on"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "so I bought the innova SD39 and it's actually really nice, between the electric parking brake reset to the deep scan and it sends it all to your phone after you download the app then gives recommendations for parts to replace and links to whatever store you set (for me it is oriellys) and it's actually nice because I can order online or go in store and give a part number",
+      "observation": "Приложение закрывает весь цикл от диагностики до покупки детали: после считывания кода пользователь получает ссылку на конкретную запчасть в предпочитаемом магазине (O'Reilly, AutoZone) с готовым артикулом — можно заказать онлайн или прийти в магазин с номером, не зная марки детали.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Saved me from replacing my hybrid battery. My irresponsible friend was supposed to drive my hybrid weekly while I was out of the country. It had not been touched in two months when I came back, and had a code saying I must replace the (two year old) hybrid battery. I bought this, reset the codes, and it worked fine again.",
+      "observation": "Возможность сбросить коды ошибок без поездки в автосервис позволила пользователю избежать ненужной замены гибридной батареи: код, сгенерированный разряженным АКБ из-за простоя, исчез после сброса — машина поехала нормально.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "only used on 2 different vehicles, but pointed to 3 problems that would have made the car fail emissions and one that reads as a problem with the catalytic converter",
+      "observation": "Мультимашинная проверка перед техосмотром выявила три причины будущего отказа emissions-теста ещё дома — пользователь узнал проблемы до визита на станцию, а не после провала.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "It also gives complete information, instructions and repair solutions for most issues that arise in vehicles equipped with ODB2 ports",
+      "observation": "Приложение не просто называет код, а даёт полный алгоритм ремонта под конкретный автомобиль: это снижает порог входа для не-механиков, которые раньше ехали в сервис только чтобы узнать название проблемы.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 5,
+      "trigger": "The live data is great to track down elusive troubles like Sherlock Holmes",
+      "observation": "Режим живых данных OBD2 в реальном времени позволяет поймать плавающую неисправность, которая не генерирует постоянный код: пользователь наблюдает показания датчиков O2, MAF, температуры прямо во время езды.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 5,
+      "trigger": "They even go as far as telling you what will most likely need replaced in a certain amount of miles and how much it will cost",
+      "observation": "Помимо текущих кодов ошибок приложение показывает прогноз предстоящих замен с пробегом и ценой — функция, обычно характерная для дорогих дилерских сканеров, здесь доступна в связке с бюджетным оборудованием.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

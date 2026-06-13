@@ -1,0 +1,76 @@
+{
+  "productId": "ext-1085047737",
+  "slug": "bookly-book-tracker-1085047737",
+  "name": "Bookly: Book Tracker",
+  "domain": "трекер чтения / reading habit tracker / геймификация книг",
+  "oneLiner": "Bookly — iOS-трекер чтения с таймером сессий, статистикой скорости, геймификацией (алмазы, значки, персонаж Blu) и ридатонами; позиционируется как 'Duolingo для чтения'",
+  "pricing": "бесплатная версия ограничена 10 книгами в библиотеке; Premium — около $9/месяц или годовая подписка; нет lifetime-варианта (пользователи жалуются на отсутствие); бесплатная версия показывает рекламу и агрессивно предлагает апгрейд",
+  "keyFeatures": [
+    "таймер сессий чтения с паузой и продолжением (stopwatch-режим)",
+    "трекинг страниц и скорости чтения (страниц/час)",
+    "библиотека книг с поиском по базе и сканированием штрих-кода",
+    "статистика — дневные, месячные, годовые цели; история сессий; инфографика",
+    "геймификация — алмазы (diamonds) за сессии, разблокируемые темы и костюмы персонажа Blu",
+    "заметки и цитаты внутри книги",
+    "ридатоны (Bookly Readathons) — тематические челленджи на время",
+    "AI-ассистент для рекомендаций книг (токены ограничены)",
+    "синхронизация с Goodreads (обновление статуса прочитанного)",
+    "виджет на экран блокировки; экспорт инфографики в Instagram"
+  ],
+  "competitors": [
+    "Goodreads",
+    "StoryGraph",
+    "BookSloth",
+    "Kindle (встроенная статистика)",
+    "Kobo (встроенная статистика)",
+    "Apple Books"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "It doesn't sync devices. So I can spend 2 hrs at the library reading and get home and keep reading and don't sync.",
+      "observation": "Bookly не синхронизирует сессии чтения между iPad и iPhone в реальном времени: время, залогированное на одном устройстве, не отражается на другом, и недельная статистика показывает лишь данные последнего устройства — платный пользователь теряет реальный прогресс из аналитики.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "When they transferred all the books and I mean all the books I've read went straight to the books that I need to read. NOT TO THE FINISHED ONES.",
+      "observation": "Импорт библиотеки из Goodreads помещает все книги, включая прочитанные, в полку 'хочу прочитать' — категория 'прочитанное' остаётся пустой, весь исторический контекст разрушен.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the book limit is definitely recent as i have over 30 books logged on as completed and the app no longer lets me log anything at ALL",
+      "observation": "Лимит в 10 книг был введён обновлением и применился задним числом: у пользователей с 30+ уже залогированными книгами заблокировалась возможность добавлять новые сессии — приложение фактически перестало работать без предупреждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "You can't sort your collections by author, title, genre, or rating — arguably the most fundamental feature of any book tracking app. You also can't edit calendar entries.",
+      "observation": "Библиотека не поддерживает сортировку по автору, жанру или оценке, а записи в календаре сессий нельзя редактировать — это делает приложение негодным как организационный инструмент для активного читателя с большой коллекцией.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "In the 22 books I have added to the app, the scan feature has worked for maybe 2 or 3 of them. More than half of them I have simply had to add manually even after the search failed to find them.",
+      "observation": "Сканер штрих-кода и поиск по базе работают лишь для ~10% реальных книг пользователя — большинство приходится добавлять вручную, что устраняет главное удобство быстрого старта сессии.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "With the PAID version you only get so many tokens. Save your money and go somewhere else and use ChatGPT.",
+      "observation": "AI-ассистент для рекомендаций книг, продвигаемый как платная фича, работает на токенах с жёстким лимитом — после исчерпания лимита фича недоступна до следующего цикла, что делает её декоративной надбавкой к подписке.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

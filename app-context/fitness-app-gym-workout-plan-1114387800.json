@@ -1,0 +1,79 @@
+{
+  "productId": "ext-1114387800",
+  "slug": "fitness-app-gym-workout-plan-1114387800",
+  "name": "Fitness App: Gym Workout Plan",
+  "domain": "силовой тренинг / gym workout planner / домашние тренировки",
+  "oneLiner": "Универсальный планировщик силовых тренировок с видеодемонстрацией техники, планами под цели и поддержкой тренировок как в зале, так и дома; iOS+Android; аудитория — от новичков до продвинутых",
+  "pricing": "бесплатная версия с базовыми планами тренировок; Premium-подписка (ориентировочно около 30-50 USD/год, упоминается как 'очень доступная'); большинство функций сверх планов тренировок (расширенная аналитика, питание, AI-чатбот) — за пейволлом; одноразовой покупки нет",
+
+  "keyFeatures": [
+    "готовые планы тренировок под разные цели (похудение, набор массы, тонус) с выбором уровня и доступного оборудования",
+    "видеодемонстрация каждого упражнения с показом правильного и неправильного выполнения",
+    "режим тренировки с таймером отдыха между подходами и логированием весов/повторений",
+    "адаптивный план: приложение подстраивает нагрузку по мере прогресса пользователя",
+    "замена упражнений внутри тренировки на альтернативы для того же мышечного блока",
+    "интеграция с Apple Watch и Apple Health (запись калорий, тренировочный режим на запястье)",
+    "AI-чатбот для рекомендаций по питанию и тренировкам (новая функция, спорная)",
+    "раздел питания с базой рецептов и трекером калорий"
+  ],
+
+  "competitors": [
+    "Strong - Workout Tracker Gym Log",
+    "Jefit Workout Tracker Gym Log",
+    "Hevy - Gym Workout Tracker",
+    "Nike Training Club",
+    "Freeletics - Fitness Coaching",
+    "Gymaholic - Gym Workout Planner",
+    "MyFitnessPal (часть функций по питанию)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "he only bad part is everything other then workout plans were premium but what do u expect from a free app",
+      "observation": "Бесплатная версия покрывает именно то, зачем приходит большинство — готовые планы тренировок — и пользователи воспринимают пейволл на остальное как приемлемый компромисс, а не злоупотребление. Это редкий случай, когда граница freemium ощущается честной.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "он только libera la demonstración del próximo treino após 12h do treino do dia. Bem que poderiam ajustar esse detalhe, que não liberassem a execução, mas que permitisse pelo menos a visualização.",
+      "observation": "Таймер разблокировки следующей тренировки (12 часов) распространяется даже на просмотр её содержания — пользователь не может заранее изучить упражнения и психологически подготовиться, хотя выполнение осознанно заблокировано. Это трение в планировании, а не в самой тренировке.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "quando a academia está cheia consigo usar aparelhos diferentes focando no mesmo grupo muscular. Nunca fico parado na academia esperando liberar equipamento.",
+      "observation": "Функция замены упражнения решает реальную ситуацию в переполненном зале: пользователь меняет снаряд, не выходя из тренировки, и остаётся на той же мышечной группе — приложение выступает как живой навигатор по залу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Um dos principais destaques é a presença de diversos exercícios com vídeos que trazem comparações claras entre a execução correta e incorreta",
+      "observation": "Видео показывают не только правильное, но и распространённое неправильное выполнение — формат 'правильно vs. неправильно' особенно ценен для самостоятельного обучения без тренера и снижает риск травм у начинающих.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "even tho I said I don't have a bench it won't adjust the workouts that require a bench",
+      "observation": "Фильтр оборудования при настройке профиля не распространяется на все упражнения внутри плана: снаряжение, которое пользователь указал как недоступное, всё равно появляется в тренировках — декларируемая персонализация не проникает глубже уровня плана.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "l'appli supprime et remet à 0% des entraînements que j'avais accomplis à 100%. Cela fausse complètement mes statistiques. J'en suis au 11eme jour et les 6 premiers jours d'entraînements ont été remis à zéro",
+      "observation": "Выполненные тренировки (отмеченные на 100%) сбрасываются обратно в 0% без каких-либо действий пользователя — статистика прогресса становится ненадёжной, и сама метрика 'сколько дней я тренировался' теряет ценность.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

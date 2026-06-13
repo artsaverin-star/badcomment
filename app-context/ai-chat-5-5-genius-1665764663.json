@@ -1,0 +1,72 @@
+{
+  "productId": "ext-1665764663",
+  "slug": "ai-chat-5-5-genius-1665764663",
+  "name": "AI Chat 5.5: Genius",
+  "domain": "AI-чатбот общего назначения / GPT-wrapper / мобильный ИИ-ассистент",
+  "oneLiner": "платный мобильный обёрточный чат поверх GPT-4 с агрессивной подпиской ~$89-95/год; позиционируется как самостоятельный ИИ-ассистент, но пользователи массово воспринимают его как клон ChatGPT",
+  "pricing": "3-дневный бесплатный триал, затем обязательная подписка ~$89-95/год; бесплатная версия жёстко ограничена: 3-5 вопросов/день или таймер на 2 минуты; отмена подписки скрыта — пользователи тратят более часа на поиск кнопки и вынуждены писать в поддержку по email; фиксируются случаи несанкционированного списания $95 без ответа поддержки",
+  "keyFeatures": [
+    "чат с языковой моделью (GPT-4 под капотом) — вопрос-ответ в свободной форме",
+    "помощь с домашними заданиями: пошаговые объяснения, разбор фото задач",
+    "написание текстов: деловые письма, документы, песни, сценарии",
+    "выбор между несколькими AI-моделями (позиционируется как отличительная черта)",
+    "распознавание фото / анализ изображений (чтение задач по фото)",
+    "голосовой ввод (упоминается как новая функция, работает нестабильно)",
+    "генерация изображений (только в платной версии, вызывает споры)"
+  ],
+  "competitors": [
+    "ChatGPT (OpenAI)",
+    "Microsoft Copilot",
+    "Google Gemini",
+    "Claude (Anthropic)",
+    "Perplexity AI"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "the app made itself 100% seem like it was a ChatGPT that is definitely not the case also comparing it to Gemini, bro ChatGPT pro and Quadro for the annual membership. I am truly sad to say you 100% wasting your money",
+      "observation": "Лендинг приложения визуально имитирует интерфейс ChatGPT настолько убедительно, что пользователи покупают годовую подписку (~$89-95) в полной уверенности, что платят за ChatGPT — и обнаруживают подмену только после активации. Это классический паттерн brand confusion wrapper.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was charged $95 for a subscription I did not authorize, and the app renewed without my consent. I have emailed the developer multiple times with no response. Apple has been notified",
+      "observation": "Подписка автоматически продлевается на $95 без явного согласия пользователя; команда разработчика не отвечает на письма поддержки, оставляя споры разрешаться через Apple — это указывает на намеренно пассивную политику возвратов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Made an account, accidentally subscribed. Looked for a cancel membership option for at least an hour, between my phone settings, the app settings, etc. Only way I found is to email the support team",
+      "observation": "Кнопка отмены подписки отсутствует в стандартных местах (настройки iOS, настройки приложения) — единственный путь отмены проходит через email поддержки, что создаёт искусственный барьер и повышает retention за счёт трения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This is a wrapper designed around the GPT 4 without the features you get with free versions of GPT powered applications",
+      "observation": "Приложение берёт $89/год за доступ к GPT-4 API, при этом урезая функции, доступные в бесплатной версии самого ChatGPT — пользователи платят больше и получают меньше, чем при прямом доступе к оригинальному продукту.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid for this app and am disappointed to discover that it is only updated to 2023. Therefore it can't give critiques of books published post 2023",
+      "observation": "Подписка продаётся без явного указания даты отсечки знаний модели: пользователи, использующие приложение для анализа книг или актуальных событий, обнаруживают стейл-данные постфактум — после оплаты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I canceled within the timeframe of the free trial and on the last day of the trail I canceled and was still charged",
+      "observation": "Отмена подписки в последний день триала не гарантирует отсутствия списания: несколько пользователей сообщают, что были заряжены несмотря на своевременную отмену, что указывает на баг (или намеренную логику) в обработке дат триала.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

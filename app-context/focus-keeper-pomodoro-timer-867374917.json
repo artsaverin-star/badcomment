@@ -1,0 +1,74 @@
+{
+  "productId": "ext-867374917",
+  "slug": "focus-keeper-pomodoro-timer-867374917",
+  "name": "Focus Keeper - Pomodoro Timer",
+  "domain": "таймер фокуса / pomodoro / продуктивность",
+  "oneLiner": "Focus Keeper — iOS-таймер по методу Помодоро с настраиваемыми интервалами, блокировщиком приложений, фоновыми звуками и статистикой сессий; аудитория — студенты, удалёнщики, люди с ADHD",
+  "pricing": "бесплатная базовая версия (таймер, стандартный 25/5 цикл); Premium по подписке ~$80/год или ~$230 lifetime (цены из отзывов); часть пользователей сообщает о блокировке аккаунта после оплаты $70 и невозможности вернуть деньги без поддержки",
+  "keyFeatures": [
+    "pomodoro-таймер с настраиваемыми интервалами фокуса и коротких/длинных перерывов (пример: 50/10 вместо стандартных 25/5)",
+    "блокировщик приложений (shield mode) — запрещает открывать выбранные приложения во время фокус-сессии",
+    "фоновые звуки для концентрации (ambient noise) и тиканье таймера на перерывах",
+    "Live Activity / виджет на экране блокировки с обратным отсчётом",
+    "Apple Watch-компаньон с хаптик-фидбэком (работал до последних обновлений)",
+    "статистика завершённых сессий, стрики, бейджи и геймификация",
+    "задачи и теги для сортировки сессий по проектам",
+    "онбординг-опросник для подбора оптимального расписания фокуса"
+  ],
+  "competitors": [
+    "Forest - Focus for Productivity",
+    "Be Focused - Focus Timer",
+    "Structured - Daily Planner",
+    "Tiimo - Daily Planner",
+    "Flow - Focus & Pomodoro Timer",
+    "встроенный Screen Time (Apple)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "Annoying pop-ups pushing you to pay for the app create distractions and disrupt focus, the very thing the app says it will help.",
+      "observation": "Промоушен премиума встроен прямо в рабочий экран таймера: всплывающие баннеры появляются во время активной фокус-сессии, разрушая тот самый непрерывный рабочий режим, который приложение обещает создать.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It gave me a long unskippable questionnaire about my ability to focus and I can't even find the basic timer anymore. (25 on, 5 off x4) That is the only feature I am interested in.",
+      "observation": "После крупного обновления онбординг превратился в обязательный мультишаговый опрос без кнопки пропуска: пользователи, которые открыли приложение за таймером, не могут добраться до него, пока не пройдут всю анкету.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app update introduced invasive privacy issues and time wasting questionnaire. It asks questions and requests expansive permissions to things like Screen Time.",
+      "observation": "Обновление добавило запрос полного доступа к Screen Time как часть онбординга — пользователи воспринимают это как монетизацию персональных данных о привычках экранного времени, а не как функциональную необходимость.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it worked awesome on my Apple Watch. It had haptic feedback the UI was simply and easy, and to the point. Now... it does not work on my watch no matter what I do I've reset the whole thing. It just doesn't sync.",
+      "observation": "После обновления до v4.2.x синхронизация с Apple Watch перестала работать для части пользователей: таймер не отображается на запястье, хаптик-уведомления о конце сессии не приходят — несмотря на переустановку и сброс настроек.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "The timer widget on my home screen constantly gets stuck/frozen, and the app crashes a lot in the background for seemingly no reason. All of the other features are cool, but if I can't use the main one, what's the point?",
+      "observation": "Live Activity-виджет на экране блокировки — ключевой способ следить за таймером без входа в приложение — периодически зависает и показывает неверное время; фоновые краши сбрасывают сессию без уведомления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it locked me out and erased all my progress. I paid for this app it's not cheap. I have emailed company I am waiting for response on restoring my account or refunding me my 70$.",
+      "observation": "Платная учётная запись может быть заблокирована системой без видимой причины: пользователь теряет доступ к приложению и к накопленной статистике сессий, а единственный путь к разблокировке — ответ службы поддержки по электронной почте.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "productId": "ext-6466298983",
+  "slug": "retake-ai-face-selfie-editor-6466298983",
+  "name": "Retake AI Face & Selfie Editor",
+  "domain": "ИИ-ретушь селфи / AI-портреты / генерация аватаров",
+  "oneLiner": "Retake (CodeSpace Apps) — мобильный ИИ-редактор лица: загружаешь 10-15 своих фото, приложение строит персональную модель и генерирует натуральные ретушированные портреты без смены внешности; iOS+Android",
+  "pricing": "еженедельная подписка ~$10-15.99/неделю (анонсируется как '7-дневный бесплатный триал', но оплата нередко списывается сразу при активации триала); годовой план (~$40+); лимит генераций даже на платной подписке — 3 фото в неделю по части тарифов; бесплатный функционал фактически отсутствует — без подписки создать профиль нельзя",
+  "keyFeatures": [
+    "построение персональной ИИ-модели лица на основе 10-15 загруженных фото пользователя",
+    "генерация ретушированных портретов и 'профессиональных' фото, сохраняющих черты оригинального лица",
+    "несколько стилей генерации: натуральный ретуш, headshot, лайфстайл",
+    "редактор отдельных зон лица (кожа, освещение, мелкие дефекты)",
+    "пакетная обработка фото из галереи",
+    "сохранение и переиспользование обученного профиля для новых генераций"
+  ],
+  "competitors": [
+    "Facetune",
+    "Remini",
+    "YouCam Perfect",
+    "Dawn AI - Avatar & Photo Editor",
+    "Lensa AI",
+    "EPIK - AI Photo Editor",
+    "Adobe Lightroom (mobile)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "It simply accentuates my best features and removes flaws that the iPhone accentuates... The wrinkles are NOT something we want enhanced on our face lol... Retake simply undoes this enhancement so your photos look like what others see in person",
+      "observation": "Позиционирование приложения как 'коррекция линзовых артефактов iPhone' (широкоугольная линза фронталки подчёркивает морщины и тени) цепляет аудиторию, которая хочет выглядеть 'как в жизни', а не как на инста-фильтре. Это конкурентный нарратив против Facetune и Lensa — не 'сделай красивей', а 'верни себя'.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I paid the subscription 4 one year because it was giving really good results, it seems like really natural photos but after I got the subscription for some reasons all my photos just look like AI so bad... I been using this app 4 almost 8 months now",
+      "observation": "После обновления модели результаты деградировали: пользователь, 8 месяцев получавший 'натуральные' портреты, начал получать явно искусственные — увеличенные губы, избыток 'макияжа'. Обновление генеративной модели, применённое ко всем профилям без предупреждения, уничтожило накопленное качество конкретного пользователя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I got this app bc I'm not photogenic at all but it needed 10-15 GOOD photos to work. I DON'T HAVE ANY GOOD PHOTOS!!!!!!!",
+      "observation": "Онбординг требует 10-15 качественных фото лица для обучения ИИ-модели — это фундаментальный барьер для целевой аудитории (люди, которым 'не везёт' на фото и у которых именно таких фото нет). Воронка ломается именно у тех пользователей, которые пришли за обещанным спасением.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "told me that I got 7 days free before paying $15 a month yet immediately charged me for almost $40 upon signing up for the free trial",
+      "observation": "Триальный флоу анонсирует $15/месяц, однако при активации списывает ~$40 — разница между отображаемой ценой и фактическим списанием не объясняется в интерфейсе. Отсутствие поддержки внутри приложения делает оспаривание невозможным без чарджбэка.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It's $10 per week and canceling is a nightmare. Even after you pay a ridiculous price you can only use it for 3 pictures per week!",
+      "observation": "Даже на платной подписке действует квота генераций — 3 фото в неделю. Пользователи, купившие доступ, сталкиваются с дополнительным лимитом, о котором не предупреждает экран покупки, что воспринимается как дополнительный уровень обмана.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I really do like the app, but I don't like if you're back from vacation and you have a ton of photos that you wanna work on that to cut you off and limit someone you can do that day. And you get a message like 'that's enough for today. Come back tomorrow'",
+      "observation": "Приложение показывает дроссельное сообщение 'That's enough for today. Come back tomorrow' при превышении суточного лимита генераций. Пользователи с накопленными пачками отпускных фото воспринимают это как дефект UX, несовместимый с еженедельной оплатой.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

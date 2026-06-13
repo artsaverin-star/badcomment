@@ -1,0 +1,75 @@
+{
+  "productId": "ext-625759466",
+  "slug": "bikemap-bicycle-tracker-gps-625759466",
+  "name": "Bikemap: Bicycle Tracker & GPS",
+  "domain": "велонавигация / планирование веломаршрутов / трекинг поездок",
+  "oneLiner": "Bikemap — iOS+Android навигатор для велосипедистов с глобальной базой маршрутов, GPX-экспортом, профилями высот и записью поездок; конкурирует с Komoot и Strava Route Builder",
+  "pricing": "бесплатная версия крайне урезана: навигация (кнопка «Start») ведёт на пейволл сразу после ввода точки назначения; Premium ~$55/год или ~5€/неделя; есть или была Lifetime-лицензия (упоминается в отзывах); после смены телефона подписка может не восстановиться автоматически; в приложении показываются рекламные блоки даже при наличии платной подписки",
+  "keyFeatures": [
+    "планирование веломаршрутов с профилями езды (дорожный велосипед, МТБ, туристический, сбалансированный)",
+    "пошаговая навигация с голосовыми подсказками (только Premium)",
+    "запись поездки: трек, дистанция, скорость, набор высоты",
+    "глобальная библиотека пользовательских маршрутов с тепловыми картами популярных веломаршрутов",
+    "офлайн-карты (скачивание регионов)",
+    "профиль высот маршрута",
+    "экспорт/импорт GPX",
+    "интеграция с Garmin Connect и Apple/Google Health"
+  ],
+  "competitors": [
+    "Komoot",
+    "Strava",
+    "Map My Ride",
+    "Google Maps",
+    "Garmin Connect",
+    "Brouter",
+    "eBike Connect (Bosch)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "If it wasn't for the plethora of available routes around the world, I would rate this app a zero... My suggestion is to use this app to find a route you want, export the file to a GPX and then import it into another app that works.",
+      "observation": "Приложение используется как библиотека маршрутов, а не как навигатор: пользователи находят нужный GPX-маршрут в Bikemap, экспортируют его и открывают в другом приложении — это де-факто признание, что навигационный движок нефункционален для многих.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "app kept glitching out, backing out to the ocean, trying to get me to set routes or sign up for things instead of just clearly tracking. It ultimately did track the route and distance but it was almost hard to not accidentally cancel it trying to clear the pop-ups.",
+      "observation": "Во время активного трекинга всплывающие промо-попапы подписки перекрывают кнопку остановки записи — пользователь вынужден закрывать их в движении и рискует случайно отменить текущую сессию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "After entering start and destination, tapping 'Start' will redirect you to a premium menu. I don't want a premium subscription, I want a working app. Bye!",
+      "observation": "Онбординг позиционирует приложение как бесплатное, но кнопка «Start Navigation» немедленно перебрасывает на экран подписки — бесплатный пользователь обнаруживает это только после ввода маршрута, т.е. после вложенных усилий.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Paid for premium then got a new phone and now even when I sign in I'm not in premium... it still shows that I'm signed up until 2027 but in the app premium features are blocked.",
+      "observation": "Смена телефона разрывает привязку подписки: App Store/Play Store подтверждают активную подписку до 2027 года, но само приложение блокирует Premium-функции — восстановить доступ без ручного обращения в поддержку невозможно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Warum zeigt mir ein Fahrradnavi in der Stadt in der ich wohne Unterkünfte an? Warum kann ich das nicht abschalten? Das ist Ablenkend und unnötig. Ich habe eine Lifetime-Lizenz gekauft aber ich werde die App löschen",
+      "observation": "Пользователь с Lifetime-лицензией видит на карте велонавигатора вставки бронирования отелей (предположительно партнёрская интеграция с Booking.com), которые нельзя отключить — платящий пользователь воспринимает это как рекламу внутри уже оплаченного продукта.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Routing ist nicht gut, egal welches Profil ich wähle, gibt es nur Basic-Radwege... GPX heruntergeladen werden, aber - surprise - nur mit Premium. Ich soll also kostenlos Content kreieren und bekomme dafür keinen kostenlosen Content?",
+      "observation": "Бизнес-модель порочного круга: пользователи создают маршруты бесплатно, наполняя базу контентом, но скачать GPX чужого маршрута можно только с Premium — контент-доноры субсидируют платный доступ к тому, что сами же создали.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "productId": "ext-517539894",
+  "slug": "photocircle-517539894",
+  "name": "PhotoCircle",
+  "domain": "совместное хранение и обмен фото/видео в группах",
+  "oneLiner": "PhotoCircle — приватный групповой фотоальбом для семей, тургрупп и мероприятий: участники загружают снимки с iOS и Android в общий круг, скачивают чужие, без соцсетевого шума",
+  "pricing": "бесплатный тариф с рекламой (баннеры и интерстициалы между фото); Pro Monthly — платная подписка без рекламы; пользователи упоминают 'Very affordable' для учителей и групп; при установке на iOS некоторые версии запрашивали платёжные данные до начала использования",
+
+  "keyFeatures": [
+    "приватные групповые альбомы ('circles') с доступом только по приглашению",
+    "кросс-платформенный обмен между iOS и Android без потери качества",
+    "загрузка и скачивание фото и коротких видео (лимит видео — 1 минута)",
+    "несколько участников могут загружать контент в один альбом одновременно",
+    "поддержка веб-версии для просмотра и загрузки с браузера",
+    "лимит пакетной загрузки — 40 фото за раз",
+    "категории / отдельные альбомы внутри одного круга",
+    "возможность оставлять комментарии под фотографиями"
+  ],
+
+  "competitors": [
+    "Google Photos (shared albums)",
+    "iCloud Shared Albums",
+    "Locket Widget",
+    "Cluster",
+    "Flickr",
+    "Family Album (Mitene)"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "Photocircle is very useful when trying to share pictures and video's between Apple and Samsung phones",
+      "observation": "Главная болевая точка, которую закрывает приложение, — кросс-платформенный обмен: участники группы с iPhone и Android попадают в один альбом без потери качества и без необходимости отдельных сервисов. Это прямой ответ на то, что ни iCloud, ни AirDrop не работают за пределами экосистемы Apple.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I used this app for my farm camp. I was able to share pictures and videos of the kids with their parents all week long. My workers could all add to it as well.",
+      "observation": "Приложение используется не только в семейном контексте, но и как профессиональный инструмент для мероприятий с детьми: организатор создаёт круг, все сотрудники лагеря загружают контент параллельно, а родители-зрители получают доступ без возможности что-то испортить. Модель 'несколько авторов — несколько зрителей' без ролевых настроек работает по умолчанию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I would love to see a favorites tab added to the albums, that way we can quickly see our favorite pictures. Also, I think a folder on the main screen would be wonderful! That way several albums can be grouped into 1 category.",
+      "observation": "По мере накопления контента пользователи упираются в плоскую структуру: нет папок, нет избранного — навигация деградирует в линейную ленту. Это типичный сценарий долгосрочных пользователей (семьи, путешественники), у которых накапливается несколько кругов и сотни фото.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I'm really disgusted with the ads that come up on this app trying to trick people into clicking on them. One that I got today said something like my phone had been compromised because of looking at porn.",
+      "observation": "Рекламная сеть, используемая приложением, пропускает скармлинг-объявления (scareware) — пользователь видит сообщение о вирусе, сфабрикованное под системное уведомление iOS. Проблема не в количестве рекламы, а в качестве: рекламодатель и приложение несут репутационный ущерб вместе.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "As my phone is only a 7 iPhone I cannot update the photo circle app. I have lost all my photos, can they be retrieved",
+      "observation": "Обновление требований к минимальной версии iOS (переход на iOS 16+) отрезает пользователей со старыми устройствами: приложение перестаёт обновляться, а вместе с ним — становятся недоступны все загруженные фото. Локального экспорта или резервной копии в этой ситуации нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "App works so great. I had some trouble uploading on the web version, and customer service reached out to me, on a Sunday, which was also Mother's Day(!) to help.",
+      "observation": "Служба поддержки реагирует в нерабочие часы и праздники, что нетипично для мобильного приложения подобного масштаба — это воспринимается как конкурентное преимущество особенно в сравнении с Google Photos, где поддержка фактически автоматизирована.",
+      "specificity": "medium"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

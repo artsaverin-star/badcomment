@@ -1,0 +1,78 @@
+{
+  "productId": "ext-768469908",
+  "slug": "youcam-perfect-ai-photo-editor-768469908",
+  "name": "YouCam Perfect:AI Photo Editor",
+  "domain": "AI-ретушь портретов / beauty-фоторедактор / селфи-редактор",
+  "oneLiner": "Perfect Corp — мобильный beauty-редактор с AI-ретушью лица, коррекцией тела, фильтрами и AI-видео; аудитория от подростков до взрослых, активная с ~2015 года; iOS",
+  "pricing": "7-дневный бесплатный триал (не всегда очевиден путь без подписки), затем годовая подписка ~$80-90/год или ~$20-30/месяц; отдельный tier 'beauty upgrade'; поверх подписки — платные credits на AI-функции (AI-видео, ряд AI-инструментов); бесплатная версия практически без функций",
+
+  "keyFeatures": [
+    "AI-ретушь лица: сглаживание кожи, удаление прыщей и тёмных кругов, отбеливание зубов",
+    "коррекция тела: стройность фигуры ('slims the body naturally'), изменение пропорций",
+    "удаление объектов и фона с фотографий",
+    "AR-фильтры и эффекты в реальном времени (камера + постобработка)",
+    "AI-генерация видеоклипов из фотографий (credits-фича)",
+    "коллажи, рамки, стикеры",
+    "базовая коррекция: яркость, контраст, насыщенность"
+  ],
+
+  "competitors": [
+    "Facetune",
+    "AirBrush: AI Photo Editor",
+    "Remini - AI Photo Enhancer",
+    "Meitu",
+    "Snapseed",
+    "VSCO",
+    "Adobe Lightroom Mobile"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I clearly pushed the weekly subscription and next thing I know I'm charged for the entire year!",
+      "observation": "Интерфейс выбора тарифа размещает кнопку 'недельной' подписки рядом с кнопкой годового плана — случайный тап фиксирует годовую транзакцию на $80+ без промежуточного подтверждения суммы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the first AI video I made was completely unusable. When I tried to fix it, I was told I needed to buy more credits — even though the error was on their end and that one bad video used all my credits",
+      "observation": "AI-видео расходует весь пул credits за один неудачный рендер, который происходит по вине приложения: пользователь, уже оплативший подписку $29.99/месяц, вынужден докупать credits чтобы переделать ту же операцию.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The app is advertised at £2.99 per month, which makes it seem like a low monthly cost. However, I was charged £59.99 upfront for a yearly subscription, which was not clearly explained",
+      "observation": "Цена в £2.99 в месяц подаётся как основная в маркетинге, но при оформлении списывается £59.99 единовременно за год — месячная разбивка видна, итоговая сумма до подтверждения оплаты — нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They removed the best tools. Put back the blemish, the under eyes option and the dark circles. Why remove them????",
+      "observation": "Конкретные инструменты ретуши (blemish, under-eye, dark circles), которые были центральными фичами приложения, убраны из доступного интерфейса обновлением — пользователи, платящие подписку именно за них, теряют функционал без предупреждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Been using it over 2 years. They removed many good stuffs and make you buy credits on top of the subscription.",
+      "observation": "Приложение перевело ранее включённые в подписку функции в отдельный credits-пейволл: долгосрочные подписчики обнаруживают, что то, за что они платили, теперь требует дополнительных трат поверх существующей подписки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "fully clothed same sex couples holding Pride flags is now a sensitive image. The app happily takes the in app purchase amount for an image to video clip that it then asks you to remove",
+      "observation": "AI-модерация помечает однополые пары с флагами как 'sensitive content' и блокирует их обработку — при этом credits уже списываются в момент загрузки задания, до отказа в обработке: пользователь платит за заблокированный результат.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

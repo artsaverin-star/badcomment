@@ -1,0 +1,74 @@
+{
+  "productId": "ext-6532588521",
+  "slug": "quittr-break-free-now-6532588521",
+  "name": "QUITTR - Break Free Now",
+  "domain": "трезвость / отказ от порнографии / NoFap",
+  "oneLiner": "приложение для отказа от порнографии и мастурбации: стрик-трекер, блокировщик NSFW-сайтов, сообщество и дыхательные практики; iOS; целевая аудитория — мужчины, борющиеся с зависимостью от взрослого контента",
+  "pricing": "lifetime-подписка $49.99 (продаётся со скидкой, реальная цена варьируется); годовая подписка ~$29.99/год; месячная подписка присутствует; бесплатного функционала практически нет — онбординг завершается тестом, после которого сразу встаёт пейволл",
+  "keyFeatures": [
+    "стрик-трекер трезвости (отсчёт дней без рецидива)",
+    "блокировщик контента через DNS-профиль (блокирует NSFW-сайты и приложения в Safari)",
+    "режим 'permanent lockdown' — необратимая блокировка без возможности отключить",
+    "лента сообщества — публичные записи участников о своём пути",
+    "обучающие материалы о влиянии порнографии на мозг",
+    "дыхательные упражнения и мини-игры для управления триггерами в момент соблазна",
+    "метрики прогресса и статистика",
+    "подотчётный партнёр (accountability partner)"
+  ],
+  "competitors": [
+    "Brainbuddy",
+    "Fortify",
+    "NoFap App",
+    "Reboot",
+    "Ever Accountable",
+    "Covenant Eyes"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "once it's activated you cannot unlock it ever again. I thought this was perfect for me…just add the apps and websites to my list and go cold turkey. What I didn't know was that once you are permanently locked you cannot go in and add more websites or apps to your block list",
+      "observation": "Режим 'permanent lockdown' необратим, но при этом не позволяет добавлять новые сайты в список блокировок после активации — пользователь, обнаруживший новый триггер-ресурс, оказывается перед выбором: либо терпеть, либо полностью удалить приложение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the way the content blocker works is through a DNS profile which is static vs automatic since that is the case certain websites and or proxy connections have to conform to it thus slowing your phone down",
+      "observation": "Блокировщик реализован через статический DNS-профиль устройства, а не через динамический VPN-фильтр: это означает деградацию скорости загрузки страниц и неспособность блокировать proxy-соединения — технический компромисс, снижающий как надёжность блокировки, так и комфорт использования телефона.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They were delay responses to emails to make sure you wouldn't be able to claim for a refund through Apple",
+      "observation": "Пользователи описывают паттерн: саппорт намеренно затягивает ответы за горизонт 14-дневного окна рефанда Apple — после чего Apple отказывает в возврате, а команда Quittr закрывает тикет без решения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I went from 168 days to under 90 and I have reached out multiple times and no one has gotten back with me and it has not been corrected. Which is very disheartening when you're trying to better yourself and now you just feel defeated",
+      "observation": "Баг в стрик-трекере способен обнулить или занизить накопленный счётчик — для пользователя, который строит мотивацию вокруг визуального прогресса, потеря 78 дней в отображении переживается как эмоциональный регресс, а не технический сбой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they've added so many pointless things it's hard to find anything in the app, there's just too much going on. Please make this app simpler again back to when you could talk to the community and track your progress",
+      "observation": "После серии обновлений навигация усложнилась настолько, что базовые сценарии — сбросить таймер после рецидива и написать в сообщество — стали трудно находимы; пользователи, заплатившие за простой трекер, получили перегруженный интерфейс с 'pointless things'.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "With the new update requiring Face ID I can no longer access the app, most apps allow me to type my password instead of Face ID since my Face ID is broken but it still won't open with my password",
+      "observation": "Обновление сделало Face ID единственным способом входа, убрав fallback на пароль — пользователи со сломанным сканером лица полностью лишились доступа к оплаченной подписке без какого-либо пути обхода.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

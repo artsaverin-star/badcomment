@@ -1,0 +1,74 @@
+{
+  "productId": "ext-1616862692",
+  "slug": "revive-ai-face-photo-animator-1616862692",
+  "name": "Revive: AI Face Photo Animator",
+  "domain": "AI-анимация фото / living portrait / face animator",
+  "oneLiner": "Revive (ранее связан с RefaceAI/RefaceAILTD) — мобильный сервис, оживляющий статичные фотографии лиц: singing portraits, dancing, смена пола, обнимашки; iOS; агрессивная монетизация через веб-биллинг в обход Apple IAP",
+  "pricing": "многоуровневая и непрозрачная: $3.99/неделю (5 генераций), $7.99 за 'полный доступ' (разовый, фактически ограниченный), $12.99/неделю, $19.99/неделю, $39.99 — lifetime/one-time; после отмены подписки заряды продолжают списываться; lifetime-тарифы устанавливают недельный лимит генераций (3-5 шт.) несмотря на декларируемую 'безлимитность'",
+  "keyFeatures": [
+    "Living Portrait — оживление лица на фото: моргание, движение губ, мимика",
+    "Singing mode — портрет 'поёт' выбранную песню (синхронизация губ с аудио)",
+    "Dance AI — тело на фото танцует под музыку (функция рекламируется, но фактически недоступна или сильно ограничена)",
+    "Gender swap / face transformation — смена пола лица на фото",
+    "Hug / embrace animation — анимированные объятия двух персон на фото",
+    "Pet animation — оживление фото животных (работает для собак, не работает для лошадей по отзывам)",
+    "Генерация AI-видео из загруженного фото с выбором музыкального шаблона"
+  ],
+  "competitors": [
+    "Reface",
+    "MyHeritage — Animate My Heritage",
+    "D-ID (Creative Reality Studio)",
+    "HeyGen",
+    "Wombo Dream / Wombo AI",
+    "CapCut (AI-эффекты на видео)",
+    "Lensa AI"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I have been charge with 19.99 usd weekly and I already request the cancellation. Not know what to do",
+      "observation": "Биллинг Revive проходит не через Apple IAP, а через собственный веб-портал компании: отмена подписки в настройках iPhone не останавливает списания — пользователи продолжают получать заряды по $19.99/неделю и не могут найти точку отмены ни в приложении, ни через Apple.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They have taken $120 out of my account in the total of 5 different transactions!! Also these 5 transactions were listed under Revive Lifetime and RefaceAILTD, yet I do not even have the app downloaded on my devices!!",
+      "observation": "Транзакции проходят под двумя разными юридическими именами ('Revive Lifetime' и 'RefaceAILTD') одновременно — пользователи не могут идентифицировать источник списаний и не в состоянии оспорить их как один мерчант; списания продолжаются даже после удаления приложения с устройства.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Joined for life  says it's unlimited …but it's not as a message will tell you that you've reached your weekly limited after 3 tries even if you don't save them",
+      "observation": "Lifetime-тариф за £33.99 декларирует 'unlimited' использование, но система засчитывает попытки генерации даже без сохранения видео — после 3 попыток в неделю приложение блокирует доступ до следующей недели, превращая 'unlimited lifetime' в недельный ратлимит.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Signed up for free trial but could get back in…asked to email me lost password -never emailed. A week later they started charging per day or per times I tried to get back in app so I could cancel",
+      "observation": "Функция 'забыл пароль' не отправляет email (письмо не приходит) — пользователь оказывается заперт снаружи аккаунта, при этом триал заканчивается и начинаются платные списания; отменить подписку без доступа в аккаунт невозможно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This does NOT animate photos for dancing.  Only face animation.  I have been using it for a few months, but still NO dancing/ False advertisement",
+      "observation": "Функция Dance AI активно рекламируется в App Store и в самом приложении, но по факту либо недоступна в базовой/платной подписке, либо ограничена одним танцевальным шаблоном — пользователи месяцами ждут заявленного функционала и требуют возврата годовой подписки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "i paid for $3.99 for a week, and i created 5 videos. app says i generated my weekly max. says to generate more next week, but i have to pay for another week and wait 7 days in order to generate more videos… so it costs $3.99 to generate only 5 videos??",
+      "observation": "Структура монетизации построена так, что каждый тарифный уровень ($3.99, $7.99, $12.99/нед) устанавливает жёсткий недельный лимит генераций (5 шт. на $3.99), при этом счётчик сбрасывается только через 7 дней — пользователи воспринимают это как скрытый per-generation paywall, а не как подписку.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

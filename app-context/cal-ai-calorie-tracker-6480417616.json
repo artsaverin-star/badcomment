@@ -1,0 +1,75 @@
+{
+  "productId": "ext-6480417616",
+  "slug": "cal-ai-calorie-tracker-6480417616",
+  "name": "Cal AI - Calorie Tracker",
+  "domain": "подсчёт калорий / трекинг питания / фото-распознавание еды",
+  "oneLiner": "Cal AI (куплен MyFitnessPal) — трекер калорий с AI-сканером фото блюд; основной сценарий: сфотографировать тарелку → получить КБЖУ автоматически; iOS+Android; позиционируется дешевле конкурентов (~$20-40/год)",
+  "pricing": "нет бесплатной версии для реального использования — онбординг (анкета, персональный план) полностью бесплатен, но доступ к трекингу закрыт за пейволлом без возможности обхода; годовая подписка ~$20-40 (упоминается $20 и $40 в отзывах, канадский App Store — вероятно другой курс); 3-дневный бесплатный триал, после которого списывается полная стоимость года; отдельная микротранзакция $0.99 за восстановление streak; подписка привязана к платформе (Android→iPhone не переносится)",
+  "keyFeatures": [
+    "AI-сканер фото еды: сфотографировать блюдо → автоматическое распознавание ингредиентов и КБЖУ",
+    "сканер штрихкодов упакованных продуктов",
+    "ручной поиск и добавление блюд из базы данных",
+    "дневник питания с историей и дневными целями по калориям/макросам",
+    "трекинг физической активности (ручной ввод сожжённых калорий)",
+    "Health Score — оценка качества питания за день",
+    "интеграция с Apple Health (чтение и запись данных о питании)",
+    "социальные чат-группы внутри приложения",
+    "недельная сводка с кольцами прогресса по дням"
+  ],
+  "competitors": [
+    "MyFitnessPal (купил Cal AI)",
+    "Cronometer",
+    "Lose It!",
+    "Noom",
+    "MacroFactor",
+    "Carbon Diet Coach",
+    "Carb Manager"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "two kiwis show zero fiber. I purchased the app because I wanted accurate calorie and macro tracking, but I spent too much time manually correcting entries and even that was a challenge",
+      "observation": "База данных содержит очевидно неверные нутриционные значения (ноль клетчатки у киви), а ручная коррекция затруднена интерфейсом — то есть AI-сканер перекладывает бремя валидации на пользователя, не снимает его.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I switched from my android to new iPhone and I put my google account on it and it says that I don't have a subscription so I texted the team and they said it's device based subscription and that I need to buy another one",
+      "observation": "Подписка привязана к платформе, а не к аккаунту: переход с Android на iPhone аннулирует оставшееся время (6 месяцев) без компенсации — поддержка официально подтверждает, что нужно покупать снова.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Yesterday I was sick and forgot to add my meals. Today, get a notification saying I lost my 60 day streak but I can restore it by paying $0.99! That is a disgusting business model especially from a company hardly struggling financially since being bought by MyFitnessPal.",
+      "observation": "Поверх годовой подписки приложение монетизирует streak-механику: пропуск одного дня из-за болезни уничтожает 60-дневную серию, а восстановление стоит дополнительно $0.99 — то есть платный пользователь вынужден платить дважды за психологический триггер.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Cal AI does not write nutrition data (calories, carbohydrates, sugar, etc.) to Apple Health. Water sync may work, but food data is simply not transferred",
+      "observation": "Приложение читает данные из Apple Health, но не пишет в него нутриционные данные — это делает Cal AI изолированным хранилищем без синхронизации с экосистемой устройства; пользователи, ведущие агрегированный трекинг здоровья, теряют всю ценность ввода.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "This app decided my daily calories should be 800. Total. As a grown woman. And NOTHING I did could change that. Customer service is all AI automated- no actual humans to help.",
+      "observation": "Алгоритм расчёта суточной нормы калорий выдаёт клинически опасные значения (800 ккал для взрослой женщины) без возможности ручной корректировки, а поддержка полностью автоматизирована — реальной помощи нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I suspect they changed some algorithms and did the update to the app but over the last month or so its performance is not as good at all... it stops listing ingredients where before it did it much better. It lists carbs, but not sugars for food that clearly contain sugar",
+      "observation": "После обновления качество AI-распознавания деградировало: блюда, которые корректно разбирались раньше, теперь упускают ингредиенты; саппорт на жалобу о скрытых сахарах в углеводах ответил, что 'сахара входят в общие углеводы' — то есть снизил детализацию макросов как фичу.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User wants more food in database (generic ask)",
+    "User says AI is inaccurate without specifying what/how (commodity)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "User says it is too expensive (commodity)"
+  ]
+}

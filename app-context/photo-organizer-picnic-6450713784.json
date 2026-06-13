@@ -1,0 +1,72 @@
+{
+  "productId": "ext-6450713784",
+  "slug": "photo-organizer-picnic-6450713784",
+  "name": "Photo Organizer: Picnic",
+  "domain": "очистка и организация фотогалереи / photo cleanup / свайп-интерфейс разбора",
+  "oneLiner": "Picnic — приложение-очиститель фотогалереи iPhone с Tinder-подобным свайп-интерфейсом: листаешь фото одно за другим и решаешь «оставить / удалить»; подача порциями по 100-250 фото/день формирует привычку ежедневного разбора; конкурент Google Photos Cleanup и Gemini",
+  "pricing": "бесплатная версия с ежедневным лимитом свайпов (изначально 250, затем снижен до 150 на версии 4.1.4); Picnic Super (Premium) — ок. $7.99/неделю или $21-30/год, есть бесплатный триал (3-7 дней), после которого некоторые пользователи сообщают о неожиданном списании; ранее продавался lifetime за $20, более не доступен; функция создания альбомов в бесплатной версии была убрана",
+  "keyFeatures": [
+    "свайп-интерфейс (влево — удалить, вправо — оставить) для последовательного разбора всей фотогалереи",
+    "категоризированный просмотр: режим Shuffle (случайный порядок), режим по месяцам/периодам, поиск по категориям (скриншоты, селфи, дубликаты)",
+    "батчевый удалённый: решения накапливаются, затем применяются разом в Apple Photos (через корзину)",
+    "создание и пополнение альбомов прямо в интерфейсе свайпа (доступно в Premium)",
+    "ежедневные напоминания и стрик-система для формирования привычки",
+    "просмотр высвобождённого дискового пространства (счётчик ГБ)",
+    "Picnic Super: неограниченные свайпы, приоритетная сортировка по размеру файла, расширенные категории"
+  ],
+  "competitors": [
+    "Smart Cleaner - Phone Storage",
+    "Gemini Photos: Gallery Cleaner",
+    "Google Photos (встроенный инструмент очистки)",
+    "Unfolder — Photo Organizer",
+    "Slidebox - Photo Album Organizer",
+    "встроенная галерея iOS (ручной разбор)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "the amount of free photos available every day dropped from 250 to 150 so the app can further push its paid subscription",
+      "observation": "Ежедневный бесплатный лимит свайпов был тихо снижен с 250 до 150 в версии 4.1.4 — без уведомления в changelog и без объяснений пользователям, которые уже встроили приложение в ежедневную рутину. Именно этот механизм «ужимания бесплатного слоя» — не цена подписки как таковая — вызвал наибольшее раздражение у лояльной аудитории.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "ever since they introduced picnic super, they've been gradually putting more and more features behind a paywall. reducing the daily free swipes from streaks is really the nail in the coffin",
+      "observation": "Пользователь описывает системную деградацию: сначала урезание категорий, потом удаление создания альбомов, затем сокращение дневного лимита через стрик-систему. Каждый апдейт незаметно сдвигает пейволл вглубь — продукт становился менее ценным для бесплатных пользователей с каждым релизом, хотя именно они были первыми евангелистами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I can't use any premium feature and it prompts me to pay for a subscription. I checked my App Store subscription - active until August 2026. I've emailed 3 times over the course of a few weeks",
+      "observation": "После нескольких месяцев неиспользования активная годовая подписка перестала распознаваться приложением — пользователь видит экран «купи подписку» при наличии действующего платежа. Три обращения в поддержку и сообщение в соцсетях остались без ответа: техническая проблема (сбой верификации receipt) сочетается с полным молчанием поддержки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it won't access my photos anymore unless I open them … I'd literally have to open 40,000 photos each to get picnic to realise they exist. They're all stored locally but all of a sudden it's acting like it doesn't have permissions",
+      "observation": "После одного из обновлений приложение потеряло доступ к локальным фото несмотря на наличие разрешений — и не сумело переобнаружить их автоматически. Единственный обходной путь — открыть каждый из 40 000 снимков вручную, что на практике означает потерю всего прогресса разбора. Поддержка предложила lifetime-доступ, затем отозвала его и прекратила отвечать.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "It's a great alternative to doomscrolling, and it's productive. There are no ads, and the free version is incredibly accessible. This is what sets it apart from other cleanup apps",
+      "observation": "Пользователи с высоким рейтингом описывают Picnic не как утилиту, а как замену бесцельному скроллингу соцсетей: тот же механизм свайпа, но с ощутимым результатом (50 ГБ освобождено). Позиционирование «продуктивный аналог дум-скроллинга» возникло органически из пользовательского опыта, а не из маркетинга.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They let you use it as a trial for a week then charge you for a year fee. There was no option to change to monthly, it's just automaticly charged annually plan",
+      "observation": "Триальный флоу не предлагает выбора тарифа до момента списания: пользователь выбирает 'начать триал' и автоматически оказывается на годовом плане без явного выбора между недельным/месячным/годовым. Отдельные пользователи сообщают о списании $21-30 сразу после регистрации триала, не дождавшись его окончания.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates subscription model in general (commodity)",
+    "User wants more features (generic ask)",
+    "User says it is too expensive without describing pricing mechanism",
+    "Login broken (commodity unless reproducible flow described)",
+    "Hard to cancel (commodity unless specific friction step described)"
+  ]
+}

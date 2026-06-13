@@ -1,0 +1,75 @@
+{
+  "productId": "ext-897446215",
+  "slug": "canva-ai-video-photo-editor-897446215",
+  "name": "Canva: AI Video & Photo Editor",
+  "domain": "графический дизайн / визуальный конструктор / создание контента",
+  "oneLiner": "Canva — браузерно-мобильный drag-and-drop редактор для создания презентаций, постов, флаеров, видео и печатной продукции; основной конкурент Adobe Express и Microsoft Designer; аудитория — педагоги, SMM-менеджеры, малый бизнес",
+  "pricing": "бесплатный план с широким набором шаблонов и элементов, но большинство 'кроновых' ресурсов (часть шаблонов, AI-инструменты, удаление фона) — только Pro; Canva Pro ~13 USD/месяц или ~120 USD/год; Canva for Teams — дороже; бесплатно для учителей и некоммерческих организаций (Canva for Education / Nonprofits); фильтрация контента по признаку 'бесплатный/платный' убрана в последних обновлениях",
+  "keyFeatures": [
+    "шаблоны для соцсетей, презентаций, флаеров, приглашений, сертификатов, инфографики",
+    "редактор видео с наложением эффектов, обрезкой и переходами (мобильная версия сильно лагает)",
+    "AI-инструменты: Magic Eraser, Background Remover, Magic Resize, Text to Image, Magic Write",
+    "встроенная библиотека стоковых фото, иллюстраций и иконок",
+    "коллаборация в реальном времени (Teams)",
+    "офлайн-режим (недавно добавлен, упоминается как выгодное отличие)",
+    "печать и доставка физических продуктов через Canva Print",
+    "Brand Kit для хранения фирменных цветов, шрифтов и логотипов (Pro)"
+  ],
+  "competitors": [
+    "Adobe Express",
+    "Microsoft Designer",
+    "PicsArt",
+    "Crello / VistaCreate",
+    "Figma (для продвинутых)",
+    "PowerPoint / Google Slides",
+    "Photoshop (упоминается как альтернатива экспертами)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "The new update now means the app won't load at all on my phone. I've tried every single thing suggested to try and trouble shoot it but nothing works. Just a blank white screen. Logged in on the website and all my projects are gone.",
+      "observation": "После крупного обновления (версия 4.212.0) у значительной части пользователей на iPhone (особенно в Великобритании) приложение намертво застревает на белом экране — и одновременно исчезают все проекты в веб-версии. Единственный канал поддержки — AI-бот, который не помогает, и пользователь лишается доступа к своей работе без какого-либо пути к восстановлению.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "most photos & stickers are now AI slop. Not worth £10 a month anymore. Work on your app & stop shoving AI down our throat.",
+      "observation": "Платящий пользователь фиксирует деградацию библиотеки: качественный сток вытесняется AI-сгенерированными картинками ('AI slop'), которые снижают воспринимаемую ценность подписки — при этом AI-функции расширяются за счёт именно той аудитории, которая платит за отсутствие шума.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Want to remove a background? Subscribe. Want to export without a watermark the size of a small car? Subscribe. Want to use a font that doesn't look like it was designed for a toddler's birthday party? Subscribe, you peasant.",
+      "observation": "Фри-тир построен как воронка давления: каждый базовый сценарий (экспорт без водяного знака, удаление фона, нормальные шрифты) упирается в пейволл, и пользователь описывает интерфейс как 'ransom note' — инструмент оказывается демо, маскирующимся под полноценное приложение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "You can't even put the filters like 'free' anymore.",
+      "observation": "Canva убрала фильтр 'бесплатные элементы' из поиска по библиотеке: теперь пользователь видит огромный каталог, где большинство привлекательных результатов закрыты кроной — и узнаёт о платности только в момент добавления в дизайн, а не при просмотре.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "After coding something, 4 messages later, it basically forgets what it codes and forgets your name TOO.",
+      "observation": "Встроенный AI-ассистент (Magic Write / Canva AI) теряет контекст разговора уже через несколько ходов: правки, сделанные в начале сессии, не учитываются позже — у пользователя складывается ощущение, что модель 'не была протестирована'.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 4,
+      "trigger": "the ability to resize a design's canvas size without also resizing all the elements, it's real a pain to have to revert the sizing of all elements when simply trying to adjust the canvas size",
+      "observation": "При изменении размера холста Canva масштабирует все элементы пропорционально — нет режима 'только холст'; пользователю приходится вручную откатывать позиции и размеры каждого объекта, что превращает простую операцию в многошаговую правку.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "productId": "ext-514780106",
+  "slug": "fitness-buddy-home-gym-workout-514780106",
+  "name": "Fitness Buddy Home Gym Workout",
+  "domain": "силовые тренировки / трекинг тренировок в зале и дома / кастомные программы",
+  "oneLiner": "Azumio — трекер силовых тренировок с базой упражнений, конструктором кастомных программ и логированием питания; iOS, существует с ~2012; долгая история как «лучшее бесплатное приложение», переход на подписку в 2024 вызвал массовый отток",
+  "pricing": "бесплатная версия — с октября 2024 практически без контента (упражнения и планы заперты за пейволл); Premium ~$29.99/год (рекламируется) или $3.99/месяц; бывший единовременный платёж ($9.99 или выше) упразднён без компенсации лояльным пользователям; рецепты/питание вынесены в отдельную платную поверхность поверх основной подписки",
+  "keyFeatures": [
+    "конструктор кастомных тренировок с ручным порядком упражнений (drag-and-drop, убран в 2024-12)",
+    "библиотека упражнений с видео и описанием техники (частично заперта за пейволл)",
+    "готовые программы тренировок (Discover/пресеты) по целям — похудение, набор, силовая",
+    "лог сетов/повторений/веса с историей прогресса",
+    "трекинг питания с базой продуктов и сканером штрих-кодов",
+    "интеграция с Apple Health и экосистемой Azumio-приложений",
+    "планы питания / рецепты (ранее в составе подписки, сейчас — отдельная секция)"
+  ],
+  "competitors": [
+    "Strong - Workout Tracker Gym Log",
+    "MyFitnessPal",
+    "Jefit",
+    "Nike Training Club",
+    "Hevy",
+    "Gymshark Training",
+    "Apple Fitness+"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "the latest upgrade has locked out my prior fitness data, and removed access to custom built workouts and all access to any pre-built workout without a monthly subscription",
+      "observation": "Обновление октября 2024 ретроактивно заблокировало доступ к данным, которые пользователи накапливали годами — история тренировок и кастомные программы стали недоступны без оформления подписки. Это не просто пейволл, а фактическая конфискация уже записанного прогресса.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they paywalled the portion that gave you recipes and tracked your calories (pay wall after the $30/year subscription). Now, the pre made workout plans are off the app as well and looks like it's in an app that you need to pay for separately, making it the second paywall after subscription",
+      "observation": "Компания последовательно переносила отдельные функции за второй пейволл поверх основной подписки: сначала питание и рецепты, затем готовые программы тренировок. Пользователи платят $30/год и обнаруживают, что базовые функции требуют ещё одного платежа.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The latest update removes the ability to edit custom workouts — which has been a core feature for more than 10 years. You need to fix this.",
+      "observation": "Обновление декабря 2024 удалило из редактора кастомных тренировок drag-and-drop — возможность переупорядочить упражнения после добавления, которая существовала 10+ лет. Функция исчезла без предупреждения и без объявления в changelog.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the size of the app is absolutely huge, it's data can't be backed up to iCloud, so make sure you have plenty of room on your iPhone",
+      "observation": "Приложение весит свыше 6 ГБ и не поддерживает резервное копирование в iCloud — при смене телефона пользователи теряют всю историю тренировок, если не выполнили ручной перенос. Этот технический долг дополнительно усиливает уже задокументированную проблему потери данных.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the whole workout database is gone for over 3 weeks making the app pointless",
+      "observation": "В марте 2024 раздел Discover (база готовых тренировок) пропал для массы пользователей и не восстанавливался более трёх недель: экран оставался пустым. Платные подписчики не получали ни компенсации, ни официального признания инцидента от поддержки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I had a stand alone app which was paid for. They terminated the service and went to a subscription. No grandfathering in for early adopters that supported them.",
+      "observation": "Переход с единовременной покупки на модель подписки прошёл без какого-либо «дедушкиного» пути: пользователи, купившие приложение за полную цену в начале, оказались в той же платной очереди, что и новые. Это уничтожило лояльность аудитории, которая поддерживала продукт больше десяти лет.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

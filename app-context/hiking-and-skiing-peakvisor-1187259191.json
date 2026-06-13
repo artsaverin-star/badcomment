@@ -1,0 +1,75 @@
+{
+  "productId": "ext-1187259191",
+  "slug": "hiking-and-skiing-peakvisor-1187259191",
+  "name": "Hiking and Skiing - PeakVisor",
+  "domain": "горный туризм / навигация на местности / AR-идентификация вершин",
+  "oneLiner": "PeakVisor — 3D-картография и AR-компас для горного туризма, хайкинга, лыжного туринга и скитура: идентификация вершин через камеру, офлайн-карты, планирование маршрутов с превью-облётом и лавинные слои; iOS+Android+Mac",
+  "pricing": "бесплатная версия ограничена одной локацией в день (1 локация/день) и показывает рекламу; Pro lifetime — $100 (ранее), затем цена поднялась до ~€179 на iOS, тогда как на Android аналогичный функционал стоит около €5; годовая подписка — около €40/год; lifetime-покупка не распознаётся на Vision Pro и не покрывает Family Sharing вопреки описанию",
+  "keyFeatures": [
+    "AR-горизонт: наведение камеры на горную панораму с мгновенной подписью всех видимых вершин и расстояний до них",
+    "3D-карты рельефа с офлайн-режимом и несколькими слоями (летний, зимний, спутник, топо)",
+    "планировщик маршрутов с расчётом времени, набора высоты и сложности; flyover-видео по треку",
+    "запись и хранение треков; импорт GPX из Garmin Basecamp, CalTopo и других источников",
+    "лавинный слой и информация о горных приютах, лыжных подъёмниках, озёрах",
+    "идентификация вершин по фото (требует GPS-данных в EXIF)",
+    "геймификация: уровни за посещение вершин, перевалов, приютов и озёр",
+    "синхронизация с Garmin и Apple Health; поддержка Apple Watch (нестабильна)"
+  ],
+  "competitors": [
+    "FatMap (теперь принадлежит Strava — часто упоминается с сожалением о деградации)",
+    "Strava (владеет FatMap, используется как антипример отзывчивости к пользователям)",
+    "CalTopo (упоминается как недоступный в EU)",
+    "Gaia GPS",
+    "PeakFinder",
+    "PeakLens",
+    "komoot"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "it was already too dark to see the trail markings. Luckily, I had tracked the entire route from the tent, so we were able to return swiftly with no issues at all",
+      "observation": "Трекинг маршрута в реальном времени работает без интернета: пользователь в Норвегии вернулся из 6-часовой вылазки по льду в темноте, ориентируясь исключительно по записанному треку в приложении — функция сработала как навигационная страховка.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "Pourquoi l'appli vaut environ 5€ sur Android et 179€ sur l'apple store?",
+      "observation": "Ценовой паритет между iOS и Android отсутствует: пользователи обнаруживают разрыв в 35× (€5 против €179 за lifetime), что воспринимается не как разница платформ, а как целенаправленная дискриминация пользователей Apple.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "j'ai payé l'abonnement vie à 100€ et l'achat n'est pas reconnu sur tous mes appareils... mes autres appareils comme le Vision pro ou le Mac ne peuvent pas non plus récupérer cet achat, contrairement à ce qui est indiqué dans les conditions",
+      "observation": "Lifetime-покупка за €100 не применяется кросс-платформенно: Vision Pro и Mac требуют повторной оплаты, а Family Sharing не работает — всё это противоречит условиям покупки, описанным в App Store. Разработчики не отвечают на письма месяцами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Ausprobiert habe ich die App weil ich anhand eines Bildes die angezeigten Berge ermitteln lassen wollte... Leider funktioniert das nur wenn eine GPS Position im Bild integriert ist",
+      "observation": "Функция идентификации гор по фотографии, заявленная в рекламе как самостоятельная, на деле требует GPS-метки в EXIF: без геотега приложение не может определить вершины, и пользователь получает нулевой результат — тогда как именно этот сценарий (фото без координат) является типичным кейсом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Wege nur optisch übereinander liegen, aber im System nicht miteinander verbunden sind = keine Routenplanung möglich. Manchmal fehlen auch zwischen den Wegen nur einzelne Meter",
+      "observation": "Граф троп в планировщике маршрутов содержит разрывы в несколько метров: визуально тропы смыкаются, но в базе данных не соединены — алгоритм отказывается строить маршрут через «разрыв», вынуждая пользователя планировать один цельный маршрут тремя отдельными сегментами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "appena chiusa e riaperta va immediatamente in crash. Già provato a disinstallare e re-installare più volte anche su Iphone ma senza successo",
+      "observation": "Версия для Apple Watch Ultra 3 крашится при каждом повторном открытии после закрытия: пользователь купил часы специально под PeakVisor для горных выходов, но приложение неработоспособно — проблема воспроизводится стабильно и не решается переустановкой.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

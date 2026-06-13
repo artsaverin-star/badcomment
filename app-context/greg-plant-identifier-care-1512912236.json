@@ -1,86 +1,74 @@
 {
-  "productId": "cmpsyo0vt1ncvughvafy2npjb",
+  "productId": "ext-1512912236",
   "slug": "greg-plant-identifier-care-1512912236",
-  "name": "Plant Watering Reminder: Care For Indoor Plants",
-  "domain": "Уход за растениями",
-  "oneLiner": "Plant Watering Reminder: Care For Indoor Plants — приложение категории «Уход за растениями» (Utilities), iOS",
-  "pricing": "бесплатно с встроенными покупками/подпиской (по отзывам)",
+  "name": "Greg: Plant Identifier & Care",
+  "domain": "уход за комнатными растениями / идентификация растений / расписание полива",
+  "oneLiner": "Greg — трекер полива и AI-идентификатор комнатных растений: пользователь фотографирует растение, приложение определяет вид и составляет индивидуальное расписание полива; социальная лента с форумом; iOS+Android",
+  "pricing": "бесплатная версия крайне ограничена (только базовая идентификация без напоминаний); 'Super Greg' подписка — около $10/месяц или $30/год ($2.50/месяц по отзывам при годовой оплате); напоминания о поливе, диагностика болезней и расписание — только за подписку; исторически была бесплатная версия с трекингом полива, убрана обновлением в 2025 году без предупреждения",
   "keyFeatures": [
-    "This app reminds you to water your plants.",
-    "With this app, you will never forget to water your plants again!",
-    "+ Easy setup",
-    "+ Remind you to water your plants",
-    "+ View all the plants that need to be watered today",
-    "+ Customizable image for plant"
+    "идентификация растений по фото (AI-распознавание вида)",
+    "автоматическое расписание полива на основе вида, размера горшка, освещения и геолокации",
+    "напоминания о поливе (только Super Greg)",
+    "диагностика болезней и вредителей (только Super Greg)",
+    "социальная лента — пользователи делятся фото коллекций, задают вопросы сообществу",
+    "библиотека карточек с инструкциями по уходу за каждым видом",
+    "история полива с ручными отметками 'полил'"
   ],
   "competitors": [
-    "Planta: AI Plant & Garden Care",
-    "Plant Parent: Plant Care Guide",
-    "Blossom - Plant Care Guide",
-    "PlantSnap - Plant Scanner",
-    "Greg: Plant Identifier & Care",
-    "Seed to Spoon - Garden Planner",
-    "Smart Identifier: Plant+Insect",
-    "Plant Daddy — Water Reminders"
+    "PictureThis — Plant Identifier",
+    "PlantIn: Plant Identifier",
+    "Planta — Care for your plants",
+    "NatureID — Plant Identifier",
+    "Blossom — Plant Care Guide",
+    "ChatGPT (пользователи явно уходят к нему для идентификации)",
+    "Google Images (для верификации результатов Greg)"
   ],
   "goodObservationExamples": [
     {
       "rating": 1,
-      "trigger": "after the update it stopped syncing between my phone and ipad",
-      "observation": "После обновления ломается синхронизация между устройствами одного пользователя — данные расходятся, и нет ручного способа их свести.",
+      "trigger": "Advice immediately almost killed my plant. I took the advice and 2 HOURS later? DROOPING.",
+      "observation": "Расписание полива рассчитывается по виду и горшку, но не учитывает текущее состояние почвы: приложение назначило полив цветам раз в 8 дней, хотя конкретный экземпляр требовал воды чаще — растение завяло через 2 часа после того, как начинающий садовод послушался приложения и пропустил полив.",
       "specificity": "high"
     },
     {
       "rating": 2,
-      "trigger": "the free trial charged me the full year on day one",
-      "observation": "Кнопка пробного периода списывает полную годовую подписку сразу, а не в конце триала.",
+      "trigger": "Along comes a phone update, I lost my plant data, photos and all, so I had to reenter all plants and info. Well guess what? ALL my plants are set on a 14 day schedule! I am unable to correct the watering schedule, or my plant zone.",
+      "observation": "После потери данных при обновлении телефона и повторного ввода растений система сбросила все расписания на единый 14-дневный цикл — без возможности отредактировать его вручную или выставить климатическую зону; индивидуальная калибровка, накопленная месяцами, необратимо потеряна.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Scan all your plants, then find out that reminders are a paid feature. Trash app. Misleading.",
+      "observation": "Онбординг позволяет бесплатно добавить и идентифицировать всю коллекцию, но напоминания о поливе — ключевая причина скачивания — оказываются за пейволлом только после того, как пользователь уже инвестировал время во ввод всех растений.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "watering a cactus that frequently is overwatering fix the issue you are going to cause people to lose their plants",
+      "observation": "Алгоритм рекомендовал поливать кактус дважды за два дня подряд — для ксерофита это критически много; система либо не применяет специфические нормы для засухоустойчивых видов, либо баг в расчёте обнуляет интервал после ручной отметки.",
       "specificity": "high"
     },
     {
       "rating": 3,
-      "trigger": "I have to re-enter everything every time the app reopens",
-      "observation": "Приложение теряет введённые данные при перезапуске — нет автосохранения черновика.",
+      "trigger": "I cannot find all these nice articles which Google brings regarding the care for the plants, which supposedly come from the Greg App. On the App I get very short general texts, and on Google I get articles which are a few thousand words each.",
+      "observation": "Детальный контент Greg индексируется Google и доступен снаружи, но внутри приложения те же материалы показываются в усечённой форме — платный подписчик получает меньше информации по своим растениям, чем анонимный пользователь через поисковик.",
       "specificity": "high"
     },
     {
-      "rating": 4,
-      "trigger": "notifications come hours late so the reminder is useless",
-      "observation": "Пуш-напоминания приходят с задержкой в несколько часов, из-за чего ломается основной сценарий «напомнить вовремя».",
-      "specificity": "medium"
-    },
-    {
-      "rating": 5,
-      "trigger": "switched from a spreadsheet because I wanted it on my phone",
-      "observation": "Значимая доля пользователей мигрирует из таблиц/заметок ради мобильного доступа, а не ради уникальных фич.",
-      "specificity": "medium"
-    },
-    {
-      "rating": 5,
-      "trigger": "the offline mode is the only reason I still use it on the subway",
-      "observation": "Полноценная работа без сети удерживает пользователей в сценарии «в метро/самолёте» — это конкретная причина лояльности, а не общая похвала.",
+      "rating": 2,
+      "trigger": "I have been using this app consistently for the last 3-4 years on their free version. I was very disappointed today to learn they have completely gotten rid of their free version, that allowed at minimum, tracking waterings for a small quantity of plants.",
+      "observation": "Функция трекинга полива, которая годами была бесплатной, переведена за пейволл тихим обновлением — многолетние пользователи бесплатной версии обнаружили блокировку без уведомления и без переходного периода.",
       "specificity": "high"
-    },
-    {
-      "rating": 5,
-      "trigger": "I've kept five years of history and it still opens instantly",
-      "observation": "Многолетняя история не тормозит приложение — сохранность и скорость на большом архиве названы причиной, по которой человек не уходит к конкуренту.",
-      "specificity": "high"
-    },
-    {
-      "rating": 4,
-      "trigger": "the widget shows my next thing without opening the app",
-      "observation": "Виджет на экране закрывает основной сценарий без захода в приложение — пользователь ценит именно это как ежедневную пользу.",
-      "specificity": "medium"
     }
   ],
   "badObservationExamples": [
     "User says it's too expensive (commodity)",
     "User says it crashed (no specifics)",
-    "User loves it / great app (non-information)",
+    "User loves it (non-information)",
     "User hates ads (commodity)",
-    "User wants more features (generic ask)",
-    "Subscription auto-renewed (commodity unless a specific deceptive mechanism is described)",
-    "Hard to cancel (commodity unless a specific friction flow is described)",
-    "Login broken / feature X doesn't work (commodity unless reproducible specifics given)"
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
   ]
 }

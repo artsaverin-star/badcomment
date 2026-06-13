@@ -1,0 +1,72 @@
+{
+  "productId": "ext-6449296449",
+  "slug": "gio-ai-photoshoot-generator-6449296449",
+  "name": "GIO - AI Photoshoot Generator",
+  "domain": "AI-аватары / фотосессии и портреты / генерация видео по лицу",
+  "oneLiner": "GIO генерирует AI-фотосессии, портреты и короткие видео на основе загруженных фото пользователя; позиционируется как карманная профессиональная фотостудия; iOS",
+  "pricing": "нет бесплатного пробного периода — онбординг немедленно ведёт к оплате; недельный план ~$7–10 (первая неделя ~$9.99, затем ~$11.99/неделю); месячный ~$29.99; годовой ~$40; поверх подписки — отдельные кредитные пакеты: 10 фото ~$10, 5 видео ~$8, токены для видео ~$8; кредиты расходуются отдельно от подписки и не сбрасываются при продлении по ряду отзывов",
+  "keyFeatures": [
+    "генерация AI-портретов и хедшотов в различных стилях (бизнес, casual, тематические сцены)",
+    "тематические 'фотосессии' (наборы сцен/образов) с примеркой разных образов и нарядов",
+    "AI-видео: анимация фото пользователя под определённые треки или шаблоны (в т.ч. Apex-ролики)",
+    "AI Twin / говорящая аватар: видео с синхронизацией губ по введённому тексту",
+    "загрузка нескольких исходных фото для обучения персональной AI-модели",
+    "скачивание результатов (полное разрешение — только в платном доступе)"
+  ],
+  "competitors": [
+    "Lensa AI",
+    "Dawn AI",
+    "Remini",
+    "PhotoAI",
+    "HeadshotPro",
+    "ChatGPT (image generation)",
+    "Gemini (image generation)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Paid for a week subscription, generated 3 images!!! That's all. Cant even download them except at standard/ low res. When trying to regenerate - Must purchase more credits for another £35.",
+      "observation": "Подписка и кредиты — две независимые платёжные оси: подписка открывает доступ к интерфейсу, но каждая генерация сжигает кредиты из отдельного пула. Пользователь узнаёт об этом только после покупки подписки, когда видит требование докупить кредиты за £35.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I bought a weekly subscription for $10. I made one generation and the app said the limit was reached. Then I bought 30 more generations for $6 and couldn't use a single one, it just keeps saying the limit is reached.",
+      "observation": "У приложения два независимых лимита одновременно — «недельная квота» подписки и «кредиты» из купленного пакета. Израсходовав недельную квоту, пользователь не может потратить уже оплаченные дополнительные кредиты: те замораживаются до следующей недели, хотя об этом нигде не предупреждают.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "After you start the app, you'll eventually reach the predictable payment page. But yay, you'll think; they offer '7-Day Full Access, then $11.99 per week'. Most people will read this as a one-week trial. Pretty standard, right? No. Off to the side is the full price of the 'trial': $9.99.",
+      "observation": "Экран оплаты оформлен как предложение бесплатного триала: крупно написано '7-Day Full Access', но мелким текстом в стороне — цена $9.99. Механически это платная первая неделя со скидкой $2, а не триал; большинство пользователей нажимают на кнопку, ожидая бесплатного периода.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it didn't looked like me and it's one of those apps that love to charge you extra for everything. Just an absolute waste of money!! It changed my body type",
+      "observation": "Генеративная модель систематически нормализует фигуру в сторону стандартных пропорций: пользователи с нестандартным телосложением получают аватар, не похожий на себя. Отсутствие настройки body type делает результат непригодным для деловых хедшотов именно той аудитории, которую приложение таргетирует.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the Apex viral video that they lure you in with doesn't have the correct music attached to it without any option to change. I noticed other videos had terrible sound too.",
+      "observation": "Рекламные ролики в Instagram продвигают конкретный шаблон (Apex с треком The Chemical Brothers), но после оплаты выясняется, что либо шаблон недоступен, либо музыка заменена. Это прямое несоответствие между рекламным контентом и реальным каталогом шаблонов приложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I wanted to see how the AI Twin worked... I wrote what I wanted to say, hi this is my name, welcome to my site... and it didn't generate the video. All it said was inappropriate content!!!",
+      "observation": "Функция AI Twin (говорящий аватар) блокирует совершенно нейтральные приветственные фразы как 'inappropriate content' — по всей видимости, из-за избыточно агрессивных фильтров контента. Пользователь платит за функцию, которая технически недоступна даже для банального представления себя.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves the photos (non-information)",
+    "User wants more free features (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "App doesn't work / low quality (commodity unless reproducible mechanism named)"
+  ]
+}

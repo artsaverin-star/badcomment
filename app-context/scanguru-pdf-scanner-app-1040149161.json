@@ -1,0 +1,73 @@
+{
+  "productId": "ext-1040149161",
+  "slug": "scanguru-pdf-scanner-app-1040149161",
+  "name": "ScanGuru: PDF Scanner App",
+  "domain": "сканирование документов / PDF-конвертация / OCR",
+  "oneLiner": "Мобильный сканер документов с OCR и конвертацией в PDF; iOS; монетизация через «бесплатный» триал с агрессивным биллингом — одна из самых скандальных подписочных ловушек в категории",
+  "pricing": "7-дневный 'бесплатный' триал, после которого автоматически стартует подписка: ~$6.99-$8.99/неделю (по отзывам из US/EU/AU); разные рынки получают разные суммы ($33-$60 единоразово при первом списании). Компания-оператор периодически меняет юрлицо (Solid State → Guru Docs) — это позволяет продолжать списания у пользователей, считавших подписку отменённой.",
+  "keyFeatures": [
+    "сканирование документов камерой телефона с автораспознаванием краёв",
+    "конвертация отсканированных изображений в PDF",
+    "OCR — распознавание текста и конвертация в редактируемый документ (Word)",
+    "сохранение и организация отсканированных файлов внутри приложения",
+    "отправка PDF по email и в другие приложения",
+    "сканирование удостоверений личности (двусторонних ID)",
+    "измерение помещений через камеру (AR-рулетка, функция заявлена в рекламе)"
+  ],
+  "competitors": [
+    "Adobe Scan",
+    "Microsoft Lens",
+    "Scanner Pro by Readdle",
+    "CamScanner",
+    "Apple Notes (встроенное сканирование)",
+    "PDF Expert"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "from march Sollid State did write every month arround 20 off whit nothing where its fore! In November it did change to another company Guru docs!",
+      "observation": "Компания сменила юридическое лицо с Solid State на Guru Docs в ноябре 2025: пользователи, считавшие подписку отменённой, обнаружили, что списания продолжаются — уже под новым именем. Поддержка пообещала полный возврат, но после 40 писем вернула деньги лишь частично.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "tu appuies par habitude sur 'continuer', et bien cette fois-ci, tu as accepte un abonnement de 9 euros par SEMAINE",
+      "observation": "Онбординг построен как серия информационных экранов ('приложение делает то, делает это') — все кнопки подписаны 'Продолжить'. На одном из последних экранов та же кнопка подтверждает подписку за €9/неделю. Пользователь нажимает по инерции, не замечая подмены.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "When you go to Settings > Cancel my Subscription > you would not be able to do so. They are saying go to App Store & once you are there. You would not be able to find it.",
+      "observation": "Встроенный экран отмены перенаправляет в App Store, а в App Store подписка ScanGuru не отображается в списке активных — пользователь оказывается в замкнутом круге без единого работающего пути к отмене.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "La fonctionnalite d OCR bug automatiquement apres 2 ou 3 utilisations. On dirait que ce blocage est automatique car la fonctionnalite refonctionne un ou deux jours plus tard",
+      "observation": "OCR перестаёт работать ровно после 2-3 использований, а через день-два самопроизвольно восстанавливается — пользователи подозревают намеренный throttling, призванный подтолкнуть к покупке полной версии, а не реальный технический сбой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I downloaded product 22 November not realizing I had started free trial and when I did go to use app they charged me on December with button set on free trial like I had never activated it",
+      "observation": "Интерфейс показывал кнопку 'Free Trial' как будто триал не активирован — пользователь зашёл в приложение снова, нажал кнопку повторно, и это засчиталось как подтверждение. Списание произошло без явного предупреждения о дате окончания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "j'ai ete preleve immediatement et sans aucune possibilite d'annuler, alors meme que je n'ai jamais utilise l'application. De plus, le tarif affiche etait de 7,99, mais j'ai ete facture 8,99",
+      "observation": "Отображаемая на экране цена (7.99€) отличается от фактически списанной суммы (8.99€) — расхождение мелкое, но системное: несколько отзывов из разных стран фиксируют одну и ту же дельту, что исключает случайность.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

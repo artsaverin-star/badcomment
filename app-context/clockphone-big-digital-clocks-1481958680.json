@@ -1,0 +1,74 @@
+{
+  "productId": "ext-1481958680",
+  "slug": "clockphone-big-digital-clocks-1481958680",
+  "name": "ClockPhone big digital clocks",
+  "domain": "прикроватные часы / будильник / цифровой дисплей времени",
+  "oneLiner": "ClockPhone — iOS-приложение для превращения iPhone или iPad в большой цифровой будильник и прикроватные часы; поддерживает виджеты, альбомный режим и настройку цвета; платит один раз (~$3.99–$4.99) или бесплатно с ограниченным функционалом",
+  "pricing": "базовая версия бесплатно без рекламы; платная разблокировка функционала — единоразовая покупка около $3.99–$4.99 (по отзывам, иногда два отдельных IAP на $8 суммарно); подписки нет — модель one-time purchase; некоторые ранее бесплатные фичи переносились за пейволл с обновлениями",
+  "keyFeatures": [
+    "полноэкранные большие цифровые часы в портретном и альбомном режимах",
+    "будильник с настраиваемыми звуками и плавным нарастанием громкости (fade-in)",
+    "виджет домашнего экрана с датой, временем и выбором цвета цифр",
+    "настройка цветовой схемы (в т.ч. тёмно-красный для щадящего ночного режима)",
+    "отображение уровня заряда батареи прямо на экране часов",
+    "режим 'Always-on display' для ночного стола — экран не гасится при зарядке",
+    "защита от выгорания экрана (screen burn safety / screen saver mode)",
+    "поддержка CarPlay и нескольких устройств одновременно (несколько старых iPhone/iPad по дому)"
+  ],
+  "competitors": [
+    "Full Screen Clock",
+    "встроенный режим StandBy (Apple iOS 17+)",
+    "Nightstand Central",
+    "Alarm Clock for Me",
+    "Clock mini",
+    "стандартное приложение Часы (Apple Clock)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "I have this app running (constantly) on five old iPhones and iPads that are scattered around my largish (12 room) house, and I never have to mess with them for DST changes.",
+      "observation": "Приложение автоматически применяет переход на летнее/зимнее время без участия пользователя, что делает его пригодным для постоянно работающих 'часов-табличек' из списанных устройств по всему дому — сценарий, который встроенный StandBy не покрывает.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "Unfortunately, the alarm is not working as expected and is not straightforward to set up due to Apple's ecosystem (not the app developer). I'm receiving silent notifications when I need to hear noise. I've run out of ideas to make the app wake me up.",
+      "observation": "Будильник стороннего приложения на iOS получает только уведомление, а не системный аудио-канал будильника: при активных режимах фокусировки (Focus/Do Not Disturb) звук подавляется даже при явном разрешении обходить DND — пользователь получает беззвучное уведомление вместо сигнала.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I purchased this app a few years ago with the understanding that it was a one time charge. Now the app has been changed by the developer so that it will not fill the entire screen on my tablet. This results in two bright wide bands at the top and bottom of my screen... Also the app will no longer display the time all night, it shuts off the display after several minutes. I'm constantly being pestered to pay $3.99 or $4.99 to upgrade",
+      "observation": "Ранее оплаченный one-time purchase не защищает от регрессии функционала: после обновления полноэкранный режим перестал работать на планшете (появились яркие белые полосы сверху и снизу), а ночное дежурство экрана отключилось — то, за что пользователь уже заплатил, перешло в новый пейволл.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "every time I open it I get a 'settings+' popup that wastes at least 10 seconds of my life since the app's animations are horrendously slow. I get flash-banged by every single alarm I set, why? why can't I turn that off?",
+      "observation": "При каждом запуске всплывает модальный оффер 'Settings+' с медленной анимацией, блокирующий доступ к циферблату на ~10 секунд; при срабатывании будильника экран вспыхивает полной яркостью ('flash-bang') без возможности отключить этот эффект в настройках.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I was looking for an app that allowed me to change the colors to deep red, so it doesn't light up my room at night and allows for slow increase of alarm clock sound so that it's a more gentle wake up in the morning.",
+      "observation": "Возможность задать тёмно-красный цвет цифр минимизирует световое загрязнение спальни ночью, а плавное нарастание громкости будильника (fade-in) обеспечивает менее стрессовый подъём — оба параметра пользователи целенаправленно ищут и не находят в стандартном приложении Apple.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "it gave me what I wanted - a friggin bedside clock that I could read without my glasses on that wouldn't fail when particular apps are running in the background or live Sports or some other incomprehensible set of notifications come through",
+      "observation": "Главная ценность для целевого пользователя — надёжность отображения без сбоев от фоновых приложений и потока уведомлений, чего Apple StandBy не гарантирует; плюс достаточно крупный шрифт, читаемый без очков с ночного столика.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

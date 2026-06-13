@@ -1,0 +1,73 @@
+{
+  "productId": "ext-734887606",
+  "slug": "chatbooks-734887606",
+  "name": "Chatbooks",
+  "domain": "печать фотокниг по подписке / photo book printing",
+  "oneLiner": "Chatbooks — сервис подписки на ежемесячные печатные фотокниги из камеры телефона; США, iOS+Android; конкурент Shutterfly и Artifact Uprising",
+  "pricing": "подписочная модель: ранее разовые заказы (60 фото ~$35), затем переход на подписку — от ~$12/книга (ранее) до $16+/книга (2025-2026); Chatbooks Studio — дизайн живым куратором за доп. $10; подарочные подписки; промо '1-я книга за $1' — фактически влечёт доп. $10 за доставку и/или автоподписку; кредиты привязаны к подписке и сгорают при отмене",
+  "keyFeatures": [
+    "автоматический сбор фото по месяцам из камеры телефона (camera roll) в черновик книги",
+    "интеграция с Google Photos и Instagram (функция была урезана обновлениями)",
+    "Chatbooks Studio — живой куратор-дизайнер собирает коллажи за +$10 к заказу",
+    "мини-видео (mini movie) из фото месяца",
+    "разные форматы книг: 5x7 hardcover, мини-книги, годовые альбомы",
+    "подписка с кредитной системой: неиспользованный кредит = 1 книга, срок действия 1 год",
+    "подарочные подписки и разовые промо-заказы"
+  ],
+  "competitors": [
+    "Shutterfly",
+    "Artifact Uprising",
+    "FreePrints Photo Books",
+    "Walgreens Photo",
+    "CVS Photo",
+    "Mpix",
+    "Chatbooks Studio (внутренняя премиум-опция)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "they increased my subscription fee without my consent, and when I said I don't want the higher price, they said if I cancel my 8 book credits that I already paid for will be expire in 30 days, instead of the 6 months that I had",
+      "observation": "При повышении цены подписки пользователь попадает в ловушку: отказ от нового тарифа влечёт немедленное сокращение срока действия уже оплаченных кредитов с 6 месяцев до 30 дней — фактически принудительный выбор между переплатой и потерей книг.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I've lost 17 credits/books due to weird app glitches. I've emailed the support team and did not receive any feedback... After paying $390 for potentially 36 books, 17 have expired, 9 books printed, and I currently have 10 credits left",
+      "observation": "Кредиты сгорают по дате истечения, а не по дате последнего использования: сбой при попытке создать книгу в день дедлайна не останавливает отсчёт — кредит считается истёкшим, даже если заказ не прошёл из-за технической ошибки приложения. При стоимости $390 за 36 книг потеря 17 кредитов полностью бесплатна для компании.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "once the 12 months were up, I still had some unused credits but they automatically started charged me from month-to-month (despite this being a GIFT subscription so should not have been automatically renewed!!), without warning and without asking me",
+      "observation": "Подарочная подписка по истечении срока автоматически переходит в платный режим по месячному тарифу — без уведомления и без явного согласия получателя подарка. Подтверждение о списании пришло только от банка, а не от Chatbooks.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "When you took away the easiest option of using Google Photos, it made making these books so much harder. I just spent almost an hour choosing photos from my May 2025 album in Google Photos and when I went to hit done, it gave me an error code saying that it cannot add photos",
+      "observation": "Интеграция с Google Photos была деградирована обновлением: старый плавный импорт убран, новый путь требует ручного выбора фото и при этом выдаёт ошибку в финале — час работы теряется без сохранения, пользователь уходит на месяцы позади по хронике.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Promo wasn't clear - it's a subscription with expiring credits and not a 'bank of credits' you purchase in advance in lower price - VERY disappointing",
+      "observation": "Промо-предложение позиционируется как 'купи пакет книг по низкой цене', но на деле — это подписка с ежемесячным кредитом и дедлайном сгорания; пользователи узнают об этом только после оплаты, воспринимая разницу как обман.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They push through printing your books with a hidden setting and then will also double charge you. Their customer service will always tell you it has nothing to do with them and there's nothing they will do.",
+      "observation": "В приложении есть скрытая настройка автоматической отправки книги на печать: пользователь неожиданно получает списание за тираж, который не подтверждал вручную, а поддержка отказывается от ответственности.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves the books (non-information)",
+    "User says it is too expensive (commodity without mechanism)",
+    "User hates ads (commodity)",
+    "User wants more content or features (generic ask)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "productId": "ext-1441091033",
+  "slug": "avrora-sleep-sounds-stories-1441091033",
+  "name": "Avrora Sleep Sounds & Stories",
+  "domain": "звуки для сна / истории для засыпания / трекинг сна",
+  "oneLiner": "Avrora — приложение для засыпания с успокаивающими звуками природы, аудиосторями, дыхательными упражнениями, ночной записью сна и смарт-будильником; iOS + Android; ранее freemium, с ~2025 полностью платное",
+  "pricing": "подписка $3.99/неделю или $69.99/год (упоминается пользователями); ранее продавался lifetime-доступ (однократная покупка), который перестали восстанавливать при смене устройства и фактически прекратили поддерживать; бесплатной версии фактически не осталось — вся функциональность заблокирована без оплаты",
+
+  "keyFeatures": [
+    "успокаивающие звуки природы (дождь, амбиент, белый шум) с таймером сна",
+    "аудиостории для засыпания с мужскими голосами (Marko, James и др.)",
+    "дыхательные упражнения и 'sleep ritual' — структурированная процедура отхода ко сну",
+    "ночная запись сна (микрофон фиксирует храп, разговоры во сне, движения)",
+    "смарт-будильник (пробуждение в лёгкую фазу сна)",
+    "статистика и аналитика качества сна по ночам",
+    "поддержка Bluetooth-наушников для ночного режима"
+  ],
+
+  "competitors": [
+    "Calm",
+    "Headspace",
+    "Sleep Sounds by Relaxio",
+    "White Noise Lite",
+    "Sleepzy",
+    "YouTube (неформальная альтернатива для бесплатных звуков)",
+    "Rest",
+    "SleepWell",
+    "TheGrove"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "I invested in the full version of the app when it was new to help it grow. However, I've now found that my paid subscription has inexplicably been removed, leaving me without access to the features I originally purchased.",
+      "observation": "Ранние пользователи, купившие 'full version' или lifetime-доступ как поддержку стартапа, обнаруживают, что их покупка аннулирована без предупреждения — восстановить её невозможно, а lifetime-тариф убран из продажи и заменён дорогой подпиской.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Bought a lifetime subscription years ago because I used the app quite frequently at the time. Stopped using it for a while, broke that phone, replaced it with a new one and what do you know- the lifetime subscription disappeared. Cant restore the purchase, cant find the transaction after all these years and to top it off, they dont even offer the lifetime membership anymore",
+      "observation": "Механизм восстановления lifetime-покупки привязан к транзакции конкретного устройства: при смене телефона и давности покупки система поддержки не может её найти, а тариф уже снят с продажи — пользователь оказывается в тупике без доступа к оплаченному контенту.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Previously Free Features Now Fully Locked Behind Subscription. There are currently no usable free features at all unless you pay $3.99 weekly or $69.99 annually.",
+      "observation": "Приложение перешло от freemium-модели с базовыми бесплатными функциями к полному пейволлу без какого-либо бесплатного слоя — пользователи не могут оценить продукт до оплаты, что делает онбординг непрозрачным и воспринимается как обман.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the rain sound will often just stop in middle of night. and I wake up and have to start it. I have a samsung Z Flip. I literally uninstalled and reinstalled yesterday to try and fix issue",
+      "observation": "Таймер звуков работает непредсказуемо на Android (Samsung Z Flip): звук обрывается ночью независимо от установленного времени, а единственный воркэраунд — переустановка приложения — не даёт стабильного результата.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It just stops. Its a shame because I really liked this app. I cant do a story and sleep sounds right afterwards like I used to be able to do.",
+      "observation": "Связка 'история + звуки природы' — ключевой сценарий засыпания для многих пользователей — перестала работать как очередь после обновления: приложение останавливается между контентными блоками вместо плавного перехода.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it started recording audio throughout the day without my permission. This is a serious security and privacy violation",
+      "observation": "Пользователь платной версии обнаружил, что приложение продолжает писать аудио в течение дня — вне ночного режима и без явного разрешения на фоновую запись, что воспринимается как нарушение приватности.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more stories (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}
