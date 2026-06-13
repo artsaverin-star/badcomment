@@ -1,0 +1,73 @@
+{
+  "productId": "cmpt5f92b3cl6ugw6bt78vajt",
+  "slug": "skoove-piano-1160668178",
+  "name": "Skoove: Easy Piano Lessons",
+  "domain": "обучение игре на фортепиано / музыкальное обучение",
+  "oneLiner": "Skoove — интерактивное приложение для обучения фортепиано: распознаёт ноты в реальном времени через микрофон или MIDI и ведёт ученика от нуля до уровня «играю двумя руками» по структурированным урокам с нотной записью и обратной связью.",
+  "pricing": "бесплатная версия крайне ограничена — доступен фактически один урок/песня, всё остальное за пейволлом; Premium: ~$150/год (упоминается как $150 в отзывах, ранее было ~$50/год — цена повышалась); 7-дневный бесплатный триал (требует ввода карты до начала, ряд пользователей сообщает о немедленном списании); нет упоминания lifetime-опции; клавиатуры Roland/Yamaha иногда идут с промо на 3 месяца Skoove Premium",
+  "keyFeatures": [
+    "интерактивные уроки с прокруткой нотного стана и подсветкой нот в режиме реального времени",
+    "распознавание нот через микрофон (акустическое пианино) или MIDI/USB-кабель",
+    "«следует за игроком» — темп подстраивается под нажатие клавиш (wait-mode)",
+    "видеоуроки с демонстрацией рук преподавателя",
+    "метроном с регулировкой темпа (по умолчанию 80%)",
+    "нотная запись (полная партитура) для каждой учебной пьесы",
+    "библиотека песен — классика, поп, джаз с разбивкой по уровням сложности",
+    "обратная связь по нажатым нотам (feedback-режим)"
+  ],
+  "competitors": [
+    "Simply Piano (JoyTunes)",
+    "Playground Sessions",
+    "Flowkey",
+    "Yousician",
+    "Piano Marvel"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "The missing star is because the longer songs do not have full original sheet music, many seem to be shortened or easier versions, even when choosing advanced.",
+      "observation": "Даже на уровне «advanced» большинство длинных произведений доступны только в упрощённой аранжировке, а не в оригинальной нотной записи — это разочаровывает учеников, которые хотят разобрать полноценную классическую пьесу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "when \"feedback\" is on, it's good at checking that you play all the expected notes, with roughly the right timing. What it misses though is added wrong notes. Example: If you slip playing a C/E/G chord and accidentally add a clashing F, it still says it's OK",
+      "observation": "Алгоритм обратной связи проверяет только наличие нужных нот, но игнорирует лишние: ошибочно добавленная нота в аккорде не засчитывается как ошибка, что обучает неточной пальцевой постановке и снижает ценность режима feedback для работы над чистотой исполнения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "after like 20-30 minutes the app seems to desync. the notes won't register properly and during the warmup, the bar you're following will speed way up past notes you haven't even played yet",
+      "observation": "После 20-30 минут непрерывной сессии прокручивающаяся полоса начинает опережать реальные нажатия: приложение теряет синхронизацию с входным сигналом и засчитывает ноты, которые ещё не были сыграны — баг воспроизводится без смены темпа или переключения режима.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Display timing (the line it scrolls past) is off by a quarter note, making it very hard to play in time. the inability to scroll back as you're playing (if you make a mistake) is frustrating, as is the default of 80% speed and no way to control it whilst playing",
+      "observation": "Визуальная полоса отсчёта смещена примерно на четверть такта относительно реального момента нажатия — это системная проблема, а не вопрос темпа: пользователь вынужден интуитивно «опережать» бегущую строку, что делает игру по нотам почти бессмысленной.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "once you've selected your course and objectives, you can Never change them! You can't start over, change your interests or objectives or reset your account in any way. according to Fin (their Artificial Idiot), you can delete your account and create a new one, but you lose your non-refundable subscription.",
+      "observation": "Начальный онбординг фиксирует выбранный курс и цели намертво: изменить путь обучения, сбросить прогресс или поменять жанровый интерес нельзя без полного удаления аккаунта — а при удалении оплаченная подписка не возвращается.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Patronising \"kiddy friendly\" american \"peppy\" commentary which you can't turn off (\"keeeep you eye ok the score!!\", omg, no, so annoying), very slow to work through the lessons as they're so short and you end up clicking next all the time (after doing 45 seconds of actual playing)",
+      "observation": "Голосовые подсказки преподавателя не отключаются в настройках: взрослые ученики, недовольные чрезмерно бодрым тоном («keeeep your eye on the score!»), не могут убрать комментарии, не прерывая урок — кнопки mute для обучающего аудиодорожки нет.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "productId": "cmpt0tg981rl1ugfewmg4iyr8",
+  "slug": "asana-rebel-1067860796",
+  "name": "Asana Rebel: Get in Shape",
+  "domain": "йога-фитнес / похудение / растяжка",
+  "oneLiner": "Asana Rebel — мобильное приложение для домашних тренировок в стиле йога-фитнес: сочетает силовые сессии, растяжку, пилатес, медитации и советы по питанию в одной подписке; целевая аудитория — женщины, которые хотят начать регулярно двигаться без похода в зал.",
+  "pricing": "подписка оформляется через внешний платёжный шлюз (не через стандартные магазинные in-app покупки): годовая около $71.99–$102.99 (суммы упоминаются пользователями); в отдельных регионах встречается двухлетний тариф (~£102.99); разовые акции на короткий период (например, $29.99/год новым пользователям видны прямо в приложении); бесплатного постоянного доступа фактически нет — триал, условия которого не всегда очевидны",
+  "keyFeatures": [
+    "видеотренировки в формате йога-фитнес: сессии от ~10 до 30 минут (сила, гибкость, пилатес, растяжка)",
+    "структурированные челленджи и программы (тематические подборки по целям)",
+    "утренний «квиз» / daily check-in для подбора тренировки на день",
+    "медитации и аудио-сессии для расслабления и фокуса",
+    "советы по питанию и рецепты (дополнительный раздел, не связанный напрямую с тренировками)",
+    "интеграция с Apple Health (синхронизация калорий и времени активности — работает нестабильно)",
+    "возможность Chromecast / трансляции на TV (работает нестабильно на Android)",
+    "поиск и фильтрация тренировок по продолжительности и интенсивности (функция работает с перебоями)"
+  ],
+  "competitors": [
+    "Down Dog",
+    "Yoga with Adriene (YouTube)",
+    "Daily Yoga",
+    "Keep Yoga",
+    "Alo Moves",
+    "Nike Training Club"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "les derniers entraînements sont fait avec une voix IA qui a un très mauvais rythme et et une mauvaise traduction qui rend ces entraînements inutilisables. Je reste donc sur les anciens entraînements",
+      "observation": "Новые тренировки озвучены ИИ-голосом с неправильным ритмом и плохим переводом — пользователи избегают их и возвращаются к старым записям. Проблема затрагивает контент именно нового производства, тогда как оригинальные тренировки с живыми инструкторами оценены высоко.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Jede Menge Themen-Kacheln. Total unübersichtlich. Ich kann nicht suchen und nicht filtern. Wo finde ich Yoga-Übungen, die etwa 15 Minuten lang sind und eine mittlere Intensität haben?",
+      "observation": "Интерфейс организован как плоская сетка тематических плиток без возможности поиска по параметрам: пользователь не может отфильтровать тренировки одновременно по длительности и интенсивности. Базовый сценарий «найти 15-минутную сессию средней нагрузки» требует ручного перебора всего каталога.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I don't have the possibility to tag or advance filter... Some of the new exercises are more focused on the environment than on the PT that became more difficult to understand the positions because it is very small on the screen",
+      "observation": "В новых видео тренер снимается на фоне природы/интерьеров с широким углом — фигура уменьшается на экране и позиции трудно разобрать. При этом нет системы пометок или архивирования, чтобы отделить понравившиеся сессии от нежелательных.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "in der App bedeutet \"abbrechen\", dass man kündigen, also das Abo abbrechen will. Habe ich aber nur durch Zufall herausgefunden. Entweder ist das eine miese Übersetzung oder Kunden sollen gezielt veralbert werden",
+      "observation": "Немецкая локализация экрана отмены подписки использует слово «abbrechen» (буквально «прервать»), которое в бытовом немецком означает «отменить действие/вернуться назад», а не «расторгнуть контракт» — пользователь случайно обнаружил, что именно эта кнопка отменяет подписку. Намеренная двусмысленность в UX-тексте напрямую удерживает пользователей от отписки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "hidden among several paragraphs of flowery language was a sentence saying my subscription would automatically be renewed. Nowhere in the subject line or even the first paragraph of the email was it made clear that the point of the email was to notify of a subscription renewal",
+      "observation": "Email-уведомление о продлении подписки оформлено как маркетинговое письмо: информация об автосписании спрятана внутри нескольких абзацев PR-текста, ни строка темы, ни первый абзац не указывают на коммерческое уведомление. Пользователь находит предупреждение только при детальном анализе спама задним числом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I can do strength stretching mobility yoga pilates all in one. Plus meditation and nutrition. keeps you accountable and it is a lot cheaper than others",
+      "observation": "Пользователи с опытом нескольких приложений выделяют именно мультидисциплинарный охват как главное преимущество Asana Rebel: в одной подписке закрываются сила, подвижность, растяжка, йога, пилатес и медитация — то, что у конкурентов требует раздельных сервисов.",
+      "specificity": "medium"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

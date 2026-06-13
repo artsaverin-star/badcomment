@@ -1,0 +1,78 @@
+{
+  "productId": "cmpstx4rw235xug8ptzkbqfjn",
+  "slug": "macrofactor-1553503471",
+  "name": "MacroFactor",
+  "domain": "счётчик калорий / макросы / адаптивный коучинг питания",
+  "oneLiner": "MacroFactor — адаптивный трекер макросов и калорий, который еженедельно пересчитывает вашу реальную скорость обмена веществ по фактическим данным веса и логов питания, убирая необходимость угадывать «правильную» цифру TDEE.",
+  "pricing": "только платная подписка, бесплатной версии нет (onboarding собирает данные, а затем закрывает доступ пейволлом — многие пользователи жалуются на это как на сюрприз); около $70/год или ~$13/месяц (упоминается рецензентами); 7-дневный триал упоминается отдельными пользователями",
+
+  "keyFeatures": [
+    "дневник питания с быстрым логированием — штрихкод-сканер, ИИ-фото-распознавание блюд, ручной ввод",
+    "адаптивный алгоритм TDEE: каждую неделю пересчитывает норму калорий по реальной динамике веса, а не по формуле Харриса-Бенедикта",
+    "еженедельные чекины — коуч подводит итог недели и предлагает новую цель на следующие 7 дней",
+    "настройка макросов: выбор профиля (высокий белок, низкие углеводы, высокий жир+белок и др.) или ручная установка",
+    "подробная аналитика: графики веса, потребления, расхода калорий, трендовая линия; микронутриенты доступны при желании",
+    "рецепты и избранные продукты, функция копирования дня или приёма пищи",
+    "нейтральный дизайн без стыдящей риторики — нет уведомлений «ты не залогировал», нет красных предупреждений за превышение",
+    "сопутствующее приложение для тренировок (Barbell — упоминается пользователями как часть экосистемы)"
+  ],
+
+  "competitors": [
+    "MyFitnessPal (MFP)",
+    "Cronometer",
+    "Cal AI",
+    "Noom",
+    "Lose It!",
+    "Carbon Diet Coach"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "the platform doesnt show negative feedback for going over i decided to try it out because i knew i would have no choice but to go over the initial 1500 a day it alotted me. much to my surprise it adjusts to your needs and it now gives me over 1900calories a day to still be in a defecit",
+      "observation": "Алгоритм адаптации работает в обе стороны: кормящая мать, которая не могла удержаться в изначальных 1500 ккал, обнаружила, что приложение само подняло норму до 1900 ккал и всё равно удержало её в дефиците — без ручного перебора настроек.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Great over 20% BF. Fails under due to really bad math. it only keeps restricting more and more to where im working out 4 days a week. 15k steps a day and it wants me to eat 1500 calories. im crashing. manually upped and tracked my calories to 2200 ignoring the apps rec and im still losing weight but the app wants me at 1550",
+      "observation": "Адаптивный алгоритм даёт сбой у атлетов с низким процентом жира и высокой активностью: при 15 000 шагах в день и 4 тренировках в неделю приложение продолжает урезать норму до 1500 ккал, игнорируя фактическое ускорение обмена, что приводит к энергетическому краху.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "it has a much less unhealthy way of indicating your calorie intake (and if you're over/under your target etc). I find myself feeling much less guilty, and logging much more accurately, than I ever did with MFP",
+      "observation": "Отсутствие стыдящей цветовой индикации (красных полос, уведомлений о «превышении») меняет психологию логирования: пользователи, годами избегавшие MFP из-за чувства вины, начинают вносить данные честнее — что парадоксально улучшает точность алгоритма.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "this app starts its tracking capabilities at 7am, disregarding the small albeit possible reality that I would consume a large bag of Nerds Clusters at five in the morning",
+      "observation": "День в приложении стартует в 7 утра, а не в полночь — пользователи с нестандартным режимом (поздние ночи, ночные смены) не могут логировать еду, съеденную до 7:00, в «правильный» день без ручных ухищрений.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "The expenditure algorithm has been game changing for understanding my actual needs and I've been able to cut build and maintain way more effectively",
+      "observation": "Пользователи, прошедшие через несколько фаз (сушка → набор → поддержка), отмечают, что именно алгоритм расчёта расхода — а не дневник питания сам по себе — стал поворотным моментом: цифра TDEE подстраивается под каждую фазу без ручной перекалибровки.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 5,
+      "trigger": "I moved from Cal AI to MacroFactor. I really love it. The interface is so sleek. The Food Log is so so nice and smooth... On the dashboard, for Daily Nutrition; it would be nice if I could flick back to the previous days",
+      "observation": "Дашборд показывает только текущий день и не позволяет листать назад — пользователи с нестандартным суточным ритмом вынуждены каждый раз переходить в Food Log → Nutrition Overview, чтобы увидеть неполный предыдущий день с удобным круговым отображением макросов.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

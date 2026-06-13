@@ -1,0 +1,75 @@
+{
+  "productId": "cmq7utrtv079yugicy7fxugzy",
+  "slug": "seed-to-spoon-1312538762",
+  "name": "From Seed to Spoon Vegetable Garden",
+  "domain": "огород / выращивание овощей / планирование посадок",
+  "oneLiner": "From Seed to Spoon (Carrie and Dale, Oklahoma) — планировщик огорода с визуальной сеткой грядок, персонализированными датами посева по зоне, совместимостью растений и AI-ботом Grobot; iOS+Android.",
+  "pricing": "бесплатная версия с жёсткими ограничениями: максимум 1 грядка и 10 сортов растений; платный план «Plus» — около $46-47/год или месячная подписка (упоминается и недельная); 7-дневный триал; в App Store не указаны in-app purchases, что вызывает претензии пользователей; магазин семян встроен в приложение (партнёрские ссылки Amazon, скидка Park Seed)",
+  "keyFeatures": [
+    "визуальная сетка грядок (garden grid) с drag-and-drop расстановкой растений",
+    "персонализированные даты посева/высадки по геолокации пользователя",
+    "справочник растений с данными о совместимости (companion planting) и антагонистах",
+    "журнал ухода: полив, удобрение, фото, заметки",
+    "Grobot — AI-бот для диагностики болезней, вредителей и идентификации растений по фото",
+    "push-уведомления о заморозках и окнах посева (по данным погоды)",
+    "встроенный магазин семян и товаров для огорода",
+    "YouTube-ролики и обучающий контент от авторов приложения"
+  ],
+  "competitors": [
+    "Planta",
+    "SmartPlant",
+    "Garden Plan Pro",
+    "Gardenize",
+    "GrowVeg Garden Planner",
+    "iScape",
+    "Greg (plant care app)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "sent a notification that a light frost is imminent in my area tonight. it's February 22 in the northern hemisphere, in Michigan. we've had sub freezing temperatures since November.",
+      "observation": "Система погодных уведомлений не адаптирует «заморозка» к реальному климатическому контексту пользователя: жителю Мичигана в феврале приходит предупреждение о лёгком морозе как о событии — хотя суб-нулевые температуры там стоят непрерывно с ноября.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the app recognized my location already. Thought I was crazy so I went into the iPhone's privacy settings and saw that Location services set as 'Never' yet so curious how the app knew my city and zip code without user input",
+      "observation": "Приложение определяет город и zip-код пользователя даже при явном запрете геолокации («Never»), что указывает на использование альтернативного канала определения местоположения — пользователь обнаруживает это в разделе Account, куда зашёл, чтобы ввести zip вручную.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "In the App Store there is no mention of in app purchases. However once you download the app, you really can't do anything unless you purchase a yearly, monthly or weekly membership.",
+      "observation": "App Store-листинг позиционирует приложение как бесплатное (монетизация через партнёрские ссылки Amazon), но после установки пользователь упирается в пейволл на базовые действия — расхождение между страницей магазина и реальным UX воспринимается как ложная реклама.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Dashboard made me subscribe again after starting my trial two times and ran me around in circles for 10 minutes.",
+      "observation": "Онбординг-флоу триала содержит петлю: дашборд повторно предлагает оформить подписку после уже начатого триала, вводя пользователя в неопределённость относительно того, активен ли его доступ — 10 минут потрачено впустую до получения реального контента.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "You can't update the garden grid after the initial placement. Finding the log is not intuitive at all. The ads block doing much of anything.",
+      "observation": "Сетка грядок фиксируется после первоначальной расстановки и не допускает редактирования позиций растений; журнал ухода спрятан настолько неочевидно, что многолетние пользователи не могут его найти; в бесплатной версии рекламные баннеры физически перекрывают интерактивные элементы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "my garden area is 25x100. Doesn't allow that size.",
+      "observation": "Планировщик грядок имеет жёсткое ограничение размеров — участок 25×100 футов не вмещается; пользователям с традиционными большими огородами предлагают обходной путь (несколько грядок вместо одной), который разрушает целостность планирования.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content or more plant species (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

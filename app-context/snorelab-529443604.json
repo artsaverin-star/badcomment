@@ -1,0 +1,73 @@
+{
+  "productId": "cmpsyrw9p1vj0ughvi78mgrb8",
+  "slug": "snorelab-529443604",
+  "name": "SnoreLab",
+  "domain": "трекинг храпа / сон / запись звуков сна",
+  "oneLiner": "SnoreLab — специализированный трекер храпа: записывает звуки за ночь через микрофон смартфона, вычисляет индекс храпа (Snore Score), строит хронологическую карту эпизодов и позволяет отслеживать, как разные средства — подушки, назальные спреи, мандибулярные шины, CPAP — влияют на результат ночь к ночи.",
+  "pricing": "бесплатная версия ограничена: воспроизведение записей и доступ к истории заблокированы (фактически демо); Premium — около $40/год (по словам пользователей, три года назад было ~$11/год, рост ~400%); месячный план около $8/месяц; ранее продавался «пожизненный» доступ (lifetime), который впоследствии фактически аннулирован — новые функции закрыты, пользователи получают «скидку лояльности» на подписку поверх уже оплаченного",
+  "keyFeatures": [
+    "ночная запись звуков через микрофон смартфона (телефон кладётся рядом лицом вниз)",
+    "Snore Score — числовой индекс интенсивности храпа за ночь",
+    "хронологическая карта эпизодов с уровнями громкости (mild / heavy / epic)",
+    "логирование факторов перед сном (алкоголь, позиция сна, назальный спрей, мандибулярная шина, CPAP и др.) для корреляции с результатом",
+    "воспроизведение пиковых фрагментов записи",
+    "история ночей с трендами по дням/неделям/месяцам",
+    "встроенные статьи и советы по снижению храпа",
+    "«Snore Gym» — упражнения для мышц горла"
+  ],
+  "competitors": [
+    "встроенный трекер сна Google Pixel (Sleep by Google)",
+    "ShutEye — Sleep Tracker & Sounds",
+    "Sleep Cycle — Sleep Tracker",
+    "SleepWatch",
+    "ResMed myAir (для пользователей CPAP)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "I only unsubscribed because an incline pillow helped me stop snoring (as confirmed by before/after readings on the app)",
+      "observation": "Пользователь использовал приложение как измерительный инструмент при эксперименте с наклонной подушкой: показания «до/после» стали объективным подтверждением результата и причиной отказа от подписки — то есть приложение выполнило свою функцию настолько хорошо, что стало ненужным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "cuts you off from accessing your past data if you don't renew subscription. That's not nice as you paid for the past data.",
+      "observation": "При истечении подписки доступ к исторической базе ночных записей блокируется — пользователь не может прослушать собственные данные, накопленные за оплаченный период. Это фактически удерживает историю как заложника для вынуждения продления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I purchased the \"one-time\" fee subscription several years ago which supposedly came with permanent access to all app features for \"lifetime\". Now all the new features are blocked and Im being told I need to sign up for an annual subscription on top of what I previously purchased.",
+      "observation": "Продававшийся ранее «пожизненный» доступ де-факто аннулирован: новые функции закрыты за годовой подпиской поверх уже уплаченного, а вместо возврата предлагается «скидка лояльности» — механизм, который пользователи квалифицируют как нечестную практику.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Worthless. Can't tell the difference between a motorcycle outside, people talking, a cat meow, rolling over in bed, a cough or a snore. It puts all the sounds together and tells you you were snoring all night, but there isn't a single snore on the recording.",
+      "observation": "Алгоритм детекции не различает храп и посторонние звуки (мотоцикл, голоса, кашель, движение в кровати): все они засчитываются как эпизоды храпа, в итоге Snore Score за ночь оказывается завышен до максимума, хотя на аудио реальных храпов нет.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "This app made it very apparent that my snoring was of concern. Within a week I got an appointment with my ENT, and I am now scheduled for a sleep study.",
+      "observation": "Записи за несколько ночей дали пользователю конкретный повод для визита к ЛОР-врачу и направления на полисомнографию — приложение сработало как триггер медицинского вмешательства, а не просто как информационный трекер.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Serious issues with the app deleting ALL pinned recordings when deleting full night recording - didn't used to happen.",
+      "observation": "После обновления удаление всей ночной сессии попутно уничтожает закреплённые (pinned) фрагменты — пользователи теряют вручную отобранные клипы, которые хранили для сравнения с врачом или для личного архива.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

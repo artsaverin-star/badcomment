@@ -1,8 +1,776 @@
 {
+  "period-cycle": {
+    "slug": "period-cycle",
+    "lead": "Сведено из реальных отзывов 1–5★ по дюжине трекеров цикла. С одной стороны — общий для всех брендов набор причин уйти: подписочные попапы поверх календаря, триалы, которые списывают годовую сумму сразу, пейволл на собственную многолетнюю историю и алгоритмы, ошибающиеся на неделю. С другой — то, за что держатся годами: точный прогноз, помощь при зачатии, ведение ПКОС, эндометриоза и перименопаузы, дискретность и связь самочувствия с фазами. Одни и те же механизмы повторяются у Flo, Clue, Stardust, Ovia, Femometer, IVY, Life и других — это не придирки к одному приложению, а свойства категории.",
+    "asOf": "2026-06-13",
+    "appsCount": 13,
+    "reviewsScanned": 6700,
+    "items": [
+      {
+        "id": "pc-subscription-popups",
+        "theme": "ui",
+        "title": "Попапы подписки закрывают календарь при каждом открытии",
+        "body": "У большинства брендов первый экран — не цикл, а полноэкранное предложение премиума, которое нужно закрывать заново каждый запуск; иногда у попапа даже нет кнопки закрытия. Сквозной паттерн превращает трекер в маркетинговую воронку.",
+        "apps": [
+          "Flo Cycle & Period Tracker",
+          "Clue Period & Cycle Tracker"
+        ],
+        "observationCount": 121,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-03-26",
+            "reviewId": "13890545522",
+            "quote": "This app has been spot on every time without fail even while I was just starting and things were irregular times.",
+            "app": "Clue Period & Cycle Tracker"
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-31",
+            "reviewId": "14129361368",
+            "quote": "It's annoying with the pop-up to pay. I use the free version It would be nice to have more options in your free version.",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 3,
+            "date": "2026-06-02",
+            "reviewId": "14137959387",
+            "quote": "there's no way to x out of it, do you have to click the \"claim offer\" and all of the buttons after that just to get to the final screen that allows you to x out",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-features-moved-behind-paywall",
+        "theme": "payment",
+        "title": "Ранее бесплатные функции со временем уезжают за пейволл",
+        "body": "Пользователи описывают один сценарий у разных брендов: то, что было бесплатным при установке, постепенно блокируется подпиской — вплоть до основного экрана календаря и логирования периода. Это воспринимается как обман модели freemium.",
+        "apps": [
+          "Flo Cycle & Period Tracker",
+          "Clue Period & Cycle Tracker"
+        ],
+        "observationCount": 17,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-03-23",
+            "reviewId": "13878075895",
+            "quote": "Maybe because of a grandfathered plan? I’m still paying for it from Apple settings, but features are blocked in app. Not a big deal as I hadn’t used the pay features anyway but just annoying to see.",
+            "app": "Clue Period & Cycle Tracker"
+          },
+          {
+            "rating": 3,
+            "date": "2026-04-14",
+            "reviewId": "13957577120",
+            "quote": "I've been using this app for years but I can't help and think how money focused this app has gotten. For what used to be informative, you now have to pay to understand your body.",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-paywall-on-own-data",
+        "theme": "strategy",
+        "title": "Пейволл на собственную многолетнюю историю пользователя",
+        "body": "Отдельно болезненный механизм: данные, которые пользователь сам вносил годами, после смены политики закрываются платным экраном — приложение фактически продаёт человеку обратно его же записи. Паттерн повторяется у Femometer, Glow, GP Apps и Life.",
+        "apps": [],
+        "observationCount": 0,
+        "evidence": []
+      },
+      {
+        "id": "pc-trial-charges-immediately",
+        "theme": "payment",
+        "title": "«Бесплатный триал» сразу списывает годовую подписку",
+        "body": "Кнопка «бесплатная неделя» или «7 дней бесплатно» у нескольких брендов мгновенно снимает полную годовую сумму, либо триал молча перетекает в платную подписку без предупреждения и без возврата. Слово «бесплатный» не соответствует реальности.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 11,
+        "evidence": [
+          {
+            "rating": 3,
+            "date": "2026-05-18",
+            "reviewId": "14077560129",
+            "quote": "Have to pay for a free trial??",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 2,
+            "date": "2026-05-31",
+            "reviewId": "14129753525",
+            "quote": "then y'all take money (WITHOUT ALLOWING REFUNDS) out of our accounts before we can experience the trial of it all",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-cancel-doesnt-stop-billing",
+        "theme": "payment",
+        "title": "Отмена не останавливает списания, а согласия не было",
+        "body": "Сквозной биллинг-капкан: деньги продолжают взиматься после подтверждённой отмены, либо подписка активируется без явного согласия и незаметно. Найти раздел отмены или связаться с поддержкой при этом часто невозможно.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 5,
+        "evidence": [
+          {
+            "rating": 1,
+            "date": "2026-05-30",
+            "reviewId": "14124654422",
+            "quote": "I've tried for 3 months now to cancel but they keep trying to take money I even removed the app from my phone to learn they're still trying to take money",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 1,
+            "date": "2026-05-21",
+            "reviewId": "14088884160",
+            "quote": "How do I stop the subscription?? There's nothing in the app to do that or in my subscriptions on the App Store.",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-prediction-off-by-days",
+        "theme": "reliability",
+        "title": "Прогноз даты ошибается на дни и недели даже после долгой истории",
+        "body": "Главная функция подводит у многих брендов: дата менструации или овуляции смещается на неделю, алгоритм не пересчитывает прогноз при новых данных. Цена ошибки реальна — от отменённых поездок до незапланированной беременности.",
+        "apps": [
+          "Flo Cycle & Period Tracker",
+          "Clue Period & Cycle Tracker"
+        ],
+        "observationCount": 21,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-08",
+            "reviewId": "14043258370",
+            "quote": "It tells me when ima get my period and it’s 97% of the time very accurate and then you just log in how you feel.",
+            "app": "Clue Period & Cycle Tracker"
+          },
+          {
+            "rating": 4,
+            "date": "2026-06-04",
+            "reviewId": "14143491019",
+            "quote": "Usually the days are inaccurate and I have to keep logging my period because it's never accurate when it comes",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-algorithm-ignores-irregular",
+        "theme": "reliability",
+        "title": "Алгоритм не принимает нерегулярность и вмешательства как норму",
+        "body": "Жёсткая модель «28 дней» наказывает тех, у кого цикл варьируется: приложение выдаёт статус «опоздал», тревожные диагнозы болезни и игнорирует ЭКО, контрацепцию и медицинские вмешательства. Паттерн повторяется у Flo, Stardust и других.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 12,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-05",
+            "reviewId": "14030083651",
+            "quote": "it would be handy to have an option to show if you know you have irregular cycles so that it doesn't keep prompting to take another test straight away.",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-14",
+            "reviewId": "13956267022",
+            "quote": "By included in the factors I have listed it would make the app much more useful for users with more complex health needs as I have a grade 3 cancer and have been on chemotherapy which affects fertility. Overall, it is a good app with strong functionality, it is able to predict my period, however, there is room for i…",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 4,
+            "date": "2026-05-05",
+            "reviewId": "14032290149",
+            "quote": "The only thing that needs adjusting is that app needs to have different modes if a woman is using mirena coil or the pill for example.",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-history-wiped-on-update",
+        "theme": "reliability",
+        "title": "Обновление безвозвратно стирает многолетнюю историю",
+        "body": "Самый разрушительный сквозной сбой: после обновления, миграции или смены устройства годы записей исчезают без резервного восстановления. Для людей, которые вели историю ради врача или хронического состояния, это обнуляет весь смысл приложения.",
+        "apps": [
+          "Clue Period & Cycle Tracker"
+        ],
+        "observationCount": 12,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-03-09",
+            "reviewId": "13832378018",
+            "quote": "I LOVE this app. There’s such a wide variety of things that can be tracked, and you can make custom symptoms too.",
+            "app": "Clue Period & Cycle Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-crashes-after-update",
+        "theme": "reliability",
+        "title": "После обновления приложение падает, виснет или не открывается",
+        "body": "Базовая надёжность ломается у многих брендов: долгий запуск, вылеты при входе, экран начальной настройки поверх уже введённых данных. Когда трекер недоступен, недоступна и оплаченная подписка.",
+        "apps": [],
+        "observationCount": 0,
+        "evidence": []
+      },
+      {
+        "id": "pc-pregnancy-mode-breaks-cycle",
+        "theme": "reliability",
+        "title": "Режим беременности ломает или стирает периодный трекинг",
+        "body": "Переключение в режим беременности и обратно у нескольких брендов удаляет историю менструаций или оставляет пользователя в некорректном режиме с ложными предупреждениями. Слияния с pregnancy-продуктами уводят фокус от тех, кому нужен просто цикл.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 1,
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-05-12",
+            "reviewId": "14057639934",
+            "quote": "the app no longer acknowledges the pregnancy and keeps warning me that my cycle is \"too long,\" which feels like a big gap in the user journey",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-partner-mode-broken",
+        "theme": "strategy",
+        "title": "Режим для пар ломается или требует отдельной оплаты",
+        "body": "Совместное отслеживание заявлено как преимущество, но на практике у разных брендов оно либо сломано (партнёр не видит цикл, данные расходятся), либо требует от партнёра отдельной подписки, либо обнуляет трекинг основного пользователя.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 2,
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-05-11",
+            "reviewId": "14053988660",
+            "quote": "The questions for Flo à deux are sympa but l'appli bug toujours et on ne reçoit pas de notif quand l'autre a répondu.",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-reproductive-privacy",
+        "theme": "strategy",
+        "title": "Приватность репродуктивных данных: продажа, иски, ИИ",
+        "body": "Сквозная тревога категории: бренды уличали в продаже интимных данных третьим лицам и в исках, а новые ИИ-функции усиливают опасения о конфиденциальности. В контексте политических рисков доверие к хранению таких данных становится решающим фактором выбора.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 4,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-05-30",
+            "reviewId": "14124680890",
+            "quote": "Flo sells your information. Don't download",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-ignored-segments",
+        "theme": "strategy",
+        "title": "Кого приложение не замечает: подростки, менопауза, ПКОС, ЛГБТК+",
+        "body": "Жёсткие возрастные ограничения отсекают девочек, у которых уже начался цикл, а отсутствие режимов ПКОС, перименопаузы и стерилизации шлёт ложные тревоги. Гетеро-ориентированные прогнозы и однополые пары без поддержки — тот же сквозной слепой угол.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 9,
+        "evidence": [
+          {
+            "rating": 4,
+            "date": "2026-06-05",
+            "reviewId": "14148194652",
+            "quote": "when I was putting my birth year. The year 2015 wasn't displayed",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 3,
+            "date": "2026-06-03",
+            "reviewId": "14139731741",
+            "quote": "I had my tube removes after I was done with having children. I don't want to know when I can pregnant. But there's no options, no section, no mode for sterility.",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-prediction-accuracy-payoff",
+        "theme": "reliability",
+        "title": "Точность растёт с данными и реально окупается",
+        "body": "Позитивный сквозной механизм: у дисциплинированных пользователей прогноз становится надёжным с годами и помогает планировать — вплоть до зачатия после 40 и обнаружения сдвигов цикла после вакцинации. Точность — главный аргумент, за который держатся и ради которого мигрируют.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 3,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-06-05",
+            "reviewId": "14149394289",
+            "quote": "Honestly I’ve used lots of different apps before some at the same time and Flo has always been the most consistent as long as you are consistent with logging recycles and any kind of activity",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      },
+      {
+        "id": "pc-conception-help",
+        "theme": "strategy",
+        "title": "Помощь при зачатии: термометр плюс прогноз окна",
+        "body": "Для планирующих беременность связка базальной температуры, LH-тестов и предсказания фертильного окна — реальная ценность, которая помогает забеременеть после долгих попыток. Это позитивный use-case, ради которого пользователи остаются годами.",
+        "apps": [],
+        "observationCount": 0,
+        "evidence": []
+      },
+      {
+        "id": "pc-chronic-and-discretion",
+        "theme": "strategy",
+        "title": "Ведение хронических состояний, связь с самочувствием и дискретность",
+        "body": "Сквозная сильная сторона: многолетняя история служит инструментом при ПКОС, эндометриозе и перименопаузе, помогает связать настроение и боль с фазами и выгрузить данные врачу. Нейтральное имя и приватный вид добавляют ценность дискретности.",
+        "apps": [
+          "Flo Cycle & Period Tracker"
+        ],
+        "observationCount": 12,
+        "evidence": [
+          {
+            "rating": 5,
+            "date": "2026-06-04",
+            "reviewId": "14143632544",
+            "quote": "it helps me keep track of how I'm feeling throughout the month",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 5,
+            "date": "2026-04-14",
+            "reviewId": "13956267022",
+            "quote": "By included in the factors I have listed it would make the app much more useful for users with more complex health needs as I have a grade 3 cancer and have been on chemotherapy which affects fertility. Overall, it is a good app with strong functionality, it is able to predict my period, however, there is room for i…",
+            "app": "Flo Cycle & Period Tracker"
+          },
+          {
+            "rating": 5,
+            "date": "2026-06-06",
+            "reviewId": "14151007322",
+            "quote": "I love tracking my cycle and being able to note my symptoms for my doctor!",
+            "app": "Flo Cycle & Period Tracker"
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "id": "sec-monetization-wall",
+        "heading": "Стена монетизации поверх здоровья",
+        "dek": "Первое, обо что спотыкается почти каждый пользователь категории, — это не цикл, а подписка. Попапы закрывают календарь, бесплатные функции уезжают за пейволл, а собственную многолетнюю историю человеку продают обратно. Это самый громкий и самый сквозной повод уйти.",
+        "items": [
+          {
+            "id": "pc-subscription-popups",
+            "theme": "ui",
+            "title": "Попапы подписки закрывают календарь при каждом открытии",
+            "body": "У большинства брендов первый экран — не цикл, а полноэкранное предложение премиума, которое нужно закрывать заново каждый запуск; иногда у попапа даже нет кнопки закрытия. Сквозной паттерн превращает трекер в маркетинговую воронку.",
+            "apps": [
+              "Flo Cycle & Period Tracker",
+              "Clue Period & Cycle Tracker"
+            ],
+            "observationCount": 121,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-03-26",
+                "reviewId": "13890545522",
+                "quote": "This app has been spot on every time without fail even while I was just starting and things were irregular times.",
+                "app": "Clue Period & Cycle Tracker"
+              },
+              {
+                "rating": 4,
+                "date": "2026-05-31",
+                "reviewId": "14129361368",
+                "quote": "It's annoying with the pop-up to pay. I use the free version It would be nice to have more options in your free version.",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 3,
+                "date": "2026-06-02",
+                "reviewId": "14137959387",
+                "quote": "there's no way to x out of it, do you have to click the \"claim offer\" and all of the buttons after that just to get to the final screen that allows you to x out",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-features-moved-behind-paywall",
+            "theme": "payment",
+            "title": "Ранее бесплатные функции со временем уезжают за пейволл",
+            "body": "Пользователи описывают один сценарий у разных брендов: то, что было бесплатным при установке, постепенно блокируется подпиской — вплоть до основного экрана календаря и логирования периода. Это воспринимается как обман модели freemium.",
+            "apps": [
+              "Flo Cycle & Period Tracker",
+              "Clue Period & Cycle Tracker"
+            ],
+            "observationCount": 17,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-03-23",
+                "reviewId": "13878075895",
+                "quote": "Maybe because of a grandfathered plan? I’m still paying for it from Apple settings, but features are blocked in app. Not a big deal as I hadn’t used the pay features anyway but just annoying to see.",
+                "app": "Clue Period & Cycle Tracker"
+              },
+              {
+                "rating": 3,
+                "date": "2026-04-14",
+                "reviewId": "13957577120",
+                "quote": "I've been using this app for years but I can't help and think how money focused this app has gotten. For what used to be informative, you now have to pay to understand your body.",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-paywall-on-own-data",
+            "theme": "strategy",
+            "title": "Пейволл на собственную многолетнюю историю пользователя",
+            "body": "Отдельно болезненный механизм: данные, которые пользователь сам вносил годами, после смены политики закрываются платным экраном — приложение фактически продаёт человеку обратно его же записи. Паттерн повторяется у Femometer, Glow, GP Apps и Life.",
+            "apps": [],
+            "observationCount": 0,
+            "evidence": []
+          }
+        ]
+      },
+      {
+        "id": "sec-billing-traps",
+        "heading": "Биллинг-ловушки и капканы триала",
+        "dek": "Там, где монетизация переходит в прямой обман, начинаются деньги. «Бесплатный» триал списывает годовую сумму сразу, отмена не останавливает платежи, а согласия порой никто не спрашивал. Найти способ остановить списание оказывается отдельным квестом.",
+        "items": [
+          {
+            "id": "pc-trial-charges-immediately",
+            "theme": "payment",
+            "title": "«Бесплатный триал» сразу списывает годовую подписку",
+            "body": "Кнопка «бесплатная неделя» или «7 дней бесплатно» у нескольких брендов мгновенно снимает полную годовую сумму, либо триал молча перетекает в платную подписку без предупреждения и без возврата. Слово «бесплатный» не соответствует реальности.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 11,
+            "evidence": [
+              {
+                "rating": 3,
+                "date": "2026-05-18",
+                "reviewId": "14077560129",
+                "quote": "Have to pay for a free trial??",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 2,
+                "date": "2026-05-31",
+                "reviewId": "14129753525",
+                "quote": "then y'all take money (WITHOUT ALLOWING REFUNDS) out of our accounts before we can experience the trial of it all",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-cancel-doesnt-stop-billing",
+            "theme": "payment",
+            "title": "Отмена не останавливает списания, а согласия не было",
+            "body": "Сквозной биллинг-капкан: деньги продолжают взиматься после подтверждённой отмены, либо подписка активируется без явного согласия и незаметно. Найти раздел отмены или связаться с поддержкой при этом часто невозможно.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 5,
+            "evidence": [
+              {
+                "rating": 1,
+                "date": "2026-05-30",
+                "reviewId": "14124654422",
+                "quote": "I've tried for 3 months now to cancel but they keep trying to take money I even removed the app from my phone to learn they're still trying to take money",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 1,
+                "date": "2026-05-21",
+                "reviewId": "14088884160",
+                "quote": "How do I stop the subscription?? There's nothing in the app to do that or in my subscriptions on the App Store.",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec-prediction-engine",
+        "heading": "Двигатель прогноза: где он врёт",
+        "dek": "Главная функция трекера — предсказание — подводит у многих брендов. Дата едет на неделю, жёсткая модель «28 дней» наказывает нерегулярность и шлёт ложные диагнозы, игнорируя контрацепцию и медицинские вмешательства. Цена ошибки — от испорченных планов до незапланированной беременности.",
+        "items": [
+          {
+            "id": "pc-prediction-off-by-days",
+            "theme": "reliability",
+            "title": "Прогноз даты ошибается на дни и недели даже после долгой истории",
+            "body": "Главная функция подводит у многих брендов: дата менструации или овуляции смещается на неделю, алгоритм не пересчитывает прогноз при новых данных. Цена ошибки реальна — от отменённых поездок до незапланированной беременности.",
+            "apps": [
+              "Flo Cycle & Period Tracker",
+              "Clue Period & Cycle Tracker"
+            ],
+            "observationCount": 21,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-05-08",
+                "reviewId": "14043258370",
+                "quote": "It tells me when ima get my period and it’s 97% of the time very accurate and then you just log in how you feel.",
+                "app": "Clue Period & Cycle Tracker"
+              },
+              {
+                "rating": 4,
+                "date": "2026-06-04",
+                "reviewId": "14143491019",
+                "quote": "Usually the days are inaccurate and I have to keep logging my period because it's never accurate when it comes",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-algorithm-ignores-irregular",
+            "theme": "reliability",
+            "title": "Алгоритм не принимает нерегулярность и вмешательства как норму",
+            "body": "Жёсткая модель «28 дней» наказывает тех, у кого цикл варьируется: приложение выдаёт статус «опоздал», тревожные диагнозы болезни и игнорирует ЭКО, контрацепцию и медицинские вмешательства. Паттерн повторяется у Flo, Stardust и других.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 12,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-05-05",
+                "reviewId": "14030083651",
+                "quote": "it would be handy to have an option to show if you know you have irregular cycles so that it doesn't keep prompting to take another test straight away.",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 5,
+                "date": "2026-04-14",
+                "reviewId": "13956267022",
+                "quote": "By included in the factors I have listed it would make the app much more useful for users with more complex health needs as I have a grade 3 cancer and have been on chemotherapy which affects fertility. Overall, it is a good app with strong functionality, it is able to predict my period, however, there is room for i…",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 4,
+                "date": "2026-05-05",
+                "reviewId": "14032290149",
+                "quote": "The only thing that needs adjusting is that app needs to have different modes if a woman is using mirena coil or the pill for example.",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec-data-and-stability",
+        "heading": "Данные исчезают, приложение падает",
+        "dek": "Даже когда прогноз верен, инфраструктура подводит. Обновление безвозвратно стирает годы истории, приложение виснет и не открывается, а переключение режима беременности обнуляет периодный трекинг. Для тех, кто вёл записи ради врача, это обнуляет весь смысл.",
+        "items": [
+          {
+            "id": "pc-history-wiped-on-update",
+            "theme": "reliability",
+            "title": "Обновление безвозвратно стирает многолетнюю историю",
+            "body": "Самый разрушительный сквозной сбой: после обновления, миграции или смены устройства годы записей исчезают без резервного восстановления. Для людей, которые вели историю ради врача или хронического состояния, это обнуляет весь смысл приложения.",
+            "apps": [
+              "Clue Period & Cycle Tracker"
+            ],
+            "observationCount": 12,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-03-09",
+                "reviewId": "13832378018",
+                "quote": "I LOVE this app. There’s such a wide variety of things that can be tracked, and you can make custom symptoms too.",
+                "app": "Clue Period & Cycle Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-pregnancy-mode-breaks-cycle",
+            "theme": "reliability",
+            "title": "Режим беременности ломает или стирает периодный трекинг",
+            "body": "Переключение в режим беременности и обратно у нескольких брендов удаляет историю менструаций или оставляет пользователя в некорректном режиме с ложными предупреждениями. Слияния с pregnancy-продуктами уводят фокус от тех, кому нужен просто цикл.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 1,
+            "evidence": [
+              {
+                "rating": 4,
+                "date": "2026-05-12",
+                "reviewId": "14057639934",
+                "quote": "the app no longer acknowledges the pregnancy and keeps warning me that my cycle is \"too long,\" which feels like a big gap in the user journey",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-crashes-after-update",
+            "theme": "reliability",
+            "title": "После обновления приложение падает, виснет или не открывается",
+            "body": "Базовая надёжность ломается у многих брендов: долгий запуск, вылеты при входе, экран начальной настройки поверх уже введённых данных. Когда трекер недоступен, недоступна и оплаченная подписка.",
+            "apps": [],
+            "observationCount": 0,
+            "evidence": []
+          }
+        ]
+      },
+      {
+        "id": "sec-partners-and-privacy",
+        "heading": "Партнёры, приватность и проданное доверие",
+        "dek": "Совместный режим заявлен как преимущество, но ломается или требует второй подписки. А поверх всего — тревога о том, куда уходят интимные данные: продажа третьим лицам, иски и непрошеный ИИ. В репродуктивной теме доверие — это и есть продукт.",
+        "items": [
+          {
+            "id": "pc-reproductive-privacy",
+            "theme": "strategy",
+            "title": "Приватность репродуктивных данных: продажа, иски, ИИ",
+            "body": "Сквозная тревога категории: бренды уличали в продаже интимных данных третьим лицам и в исках, а новые ИИ-функции усиливают опасения о конфиденциальности. В контексте политических рисков доверие к хранению таких данных становится решающим фактором выбора.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 4,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-05-30",
+                "reviewId": "14124680890",
+                "quote": "Flo sells your information. Don't download",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-partner-mode-broken",
+            "theme": "strategy",
+            "title": "Режим для пар ломается или требует отдельной оплаты",
+            "body": "Совместное отслеживание заявлено как преимущество, но на практике у разных брендов оно либо сломано (партнёр не видит цикл, данные расходятся), либо требует от партнёра отдельной подписки, либо обнуляет трекинг основного пользователя.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 2,
+            "evidence": [
+              {
+                "rating": 4,
+                "date": "2026-05-11",
+                "reviewId": "14053988660",
+                "quote": "The questions for Flo à deux are sympa but l'appli bug toujours et on ne reçoit pas de notif quand l'autre a répondu.",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec-blind-spots",
+        "heading": "Кого приложение не видит",
+        "dek": "Категория обслуживает узкий «средний» профиль и теряет всех остальных. Подростки с начавшимся циклом упираются в возрастной блок, менопауза и ПКОС получают ложные тревоги, а гетеро-ориентированные прогнозы оставляют однополые пары за бортом.",
+        "items": [
+          {
+            "id": "pc-ignored-segments",
+            "theme": "strategy",
+            "title": "Кого приложение не замечает: подростки, менопауза, ПКОС, ЛГБТК+",
+            "body": "Жёсткие возрастные ограничения отсекают девочек, у которых уже начался цикл, а отсутствие режимов ПКОС, перименопаузы и стерилизации шлёт ложные тревоги. Гетеро-ориентированные прогнозы и однополые пары без поддержки — тот же сквозной слепой угол.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 9,
+            "evidence": [
+              {
+                "rating": 4,
+                "date": "2026-06-05",
+                "reviewId": "14148194652",
+                "quote": "when I was putting my birth year. The year 2015 wasn't displayed",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 3,
+                "date": "2026-06-03",
+                "reviewId": "14139731741",
+                "quote": "I had my tube removes after I was done with having children. I don't want to know when I can pregnant. But there's no options, no section, no mode for sterility.",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sec-why-they-stay",
+        "heading": "За что держатся годами",
+        "dek": "Несмотря на всё, у трекеров цикла есть мощные причины остаться. Точность растёт с данными и реально окупается, связка термометра и прогноза помогает зачать, а многолетняя история становится инструментом при хронических состояниях, связи самочувствия с фазами и дискретного ведения здоровья.",
+        "items": [
+          {
+            "id": "pc-chronic-and-discretion",
+            "theme": "strategy",
+            "title": "Ведение хронических состояний, связь с самочувствием и дискретность",
+            "body": "Сквозная сильная сторона: многолетняя история служит инструментом при ПКОС, эндометриозе и перименопаузе, помогает связать настроение и боль с фазами и выгрузить данные врачу. Нейтральное имя и приватный вид добавляют ценность дискретности.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 12,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-06-04",
+                "reviewId": "14143632544",
+                "quote": "it helps me keep track of how I'm feeling throughout the month",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 5,
+                "date": "2026-04-14",
+                "reviewId": "13956267022",
+                "quote": "By included in the factors I have listed it would make the app much more useful for users with more complex health needs as I have a grade 3 cancer and have been on chemotherapy which affects fertility. Overall, it is a good app with strong functionality, it is able to predict my period, however, there is room for i…",
+                "app": "Flo Cycle & Period Tracker"
+              },
+              {
+                "rating": 5,
+                "date": "2026-06-06",
+                "reviewId": "14151007322",
+                "quote": "I love tracking my cycle and being able to note my symptoms for my doctor!",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-prediction-accuracy-payoff",
+            "theme": "reliability",
+            "title": "Точность растёт с данными и реально окупается",
+            "body": "Позитивный сквозной механизм: у дисциплинированных пользователей прогноз становится надёжным с годами и помогает планировать — вплоть до зачатия после 40 и обнаружения сдвигов цикла после вакцинации. Точность — главный аргумент, за который держатся и ради которого мигрируют.",
+            "apps": [
+              "Flo Cycle & Period Tracker"
+            ],
+            "observationCount": 3,
+            "evidence": [
+              {
+                "rating": 5,
+                "date": "2026-06-05",
+                "reviewId": "14149394289",
+                "quote": "Honestly I’ve used lots of different apps before some at the same time and Flo has always been the most consistent as long as you are consistent with logging recycles and any kind of activity",
+                "app": "Flo Cycle & Period Tracker"
+              }
+            ]
+          },
+          {
+            "id": "pc-conception-help",
+            "theme": "strategy",
+            "title": "Помощь при зачатии: термометр плюс прогноз окна",
+            "body": "Для планирующих беременность связка базальной температуры, LH-тестов и предсказания фертильного окна — реальная ценность, которая помогает забеременеть после долгих попыток. Это позитивный use-case, ради которого пользователи остаются годами.",
+            "apps": [],
+            "observationCount": 0,
+            "evidence": []
+          }
+        ]
+      }
+    ]
+  },
   "habit-tracking": {
     "slug": "habit-tracking",
     "lead": "Сведено из 4 972 отзывов 1–5★ по десяти трекерам привычек — от Streaks и Productive до Habit Rabbit и Atoms. Категория держится на хрупком доверии: человек годами носит в приложении свою дисциплину — стрики, историю, купленный «навсегда» доступ. И почти каждая громкая жалоба здесь — про одно из трёх предательств: исчезла история, сгорел стрик, перестала действовать покупка. А удерживают людей, наоборот, самые тихие вещи: минимализм, растущий стрик и честная разовая цена.",
-    "asOf": "2026-06-12",
+    "asOf": "2026-06-13",
     "appsCount": 10,
     "reviewsScanned": 5000,
     "items": [
@@ -1659,9 +2427,9 @@
   "pregnancy-baby": {
     "slug": "pregnancy-baby",
     "lead": "Сведено из отзывов 1–5★ по десяти приложениям беременности и первого года — от таймеров схваток до бэби-трекеров и Nanit. Это категория, где приложение открывают в самые уязвимые моменты жизни: в родах, в три ночи с младенцем на руках, на приёме у врача. Ровно поэтому здесь так бросается в глаза главный сквозной грех — монетизация, влезающая внутрь критического момента: реклама поверх схватки, попап «оцените нас» во время родов, апсейл поверх живого видео ребёнка. И ровно поэтому так сильна лояльность к тем, кто этого не делает: семьи возвращаются к одному приложению на третью и четвёртую беременность.",
-    "asOf": "2026-06-12",
-    "appsCount": 10,
-    "reviewsScanned": 6005,
+    "asOf": "2026-06-13",
+    "appsCount": 11,
+    "reviewsScanned": 6505,
     "items": [
       {
         "id": "pb-ads-in-critical-moment",
@@ -3422,7 +4190,7 @@
   "identifiers": {
     "slug": "identifiers",
     "lead": "Сведено из отзывов 1–5★ по десяти определителям — растений, птиц, насекомых и звёздного неба. Это категория с самым честным вау-моментом в мобильном мире: навёл камеру — узнал, что перед тобой. И одновременно — с самой концентрированной подписочной мельницей: «бесплатные» приложения, списывающие годовую сумму в момент нажатия кнопки триала, продолжающие снимать деньги после отмены и прячущие кнопку отписки. Между магией и мельницей — ядро, которое систематически ошибается даже на базилике и воробьях.",
-    "asOf": "2026-06-12",
+    "asOf": "2026-06-13",
     "appsCount": 10,
     "reviewsScanned": 5000,
     "items": [
@@ -5304,7 +6072,7 @@
   "calendars-tasks": {
     "slug": "calendars-tasks",
     "lead": "Сведено из ~5 000 отзывов 1–5★ по десяти календарям и таск-менеджерам — от Fantastical и Things 3 до MinimaList и Structured. Категория продаёт одно: уверенность, что записанное не пропадёт и напомнит о себе вовремя. Именно эта уверенность ломается чаще всего — и именно за неё пользователи готовы платить разово, а не подпиской.",
-    "asOf": "2026-06-12",
+    "asOf": "2026-06-13",
     "appsCount": 10,
     "reviewsScanned": 5000,
     "items": [
@@ -6627,7 +7395,7 @@
   "news-magazines": {
     "slug": "news-magazines",
     "lead": "Сведено из ~5 000 отзывов 1–5★ по десяти новостным приложениям — от AP News и The Economist до Apple News и Substack. Категория уникальна тем, что её главный актив — не код, а доверие к редакции: пользователи прощают любые краши тому, кого считают честным источником, и не прощают рекламу в оплаченной подписке тому, кому платят именно за её отсутствие.",
-    "asOf": "2026-06-12",
+    "asOf": "2026-06-13",
     "appsCount": 10,
     "reviewsScanned": 5000,
     "items": [
@@ -7768,7 +8536,7 @@
   "photo-editing": {
     "slug": "photo-editing",
     "lead": "Сведено из ~5 000 отзывов 1–5★ по десяти фоторедакторам — от Lightroom и VSCO до Dazz Cam и Snapseed. Это категория с самой острой платёжной войной в каталоге: семь приложений из десяти ретроспективно изымают у пользователей ранее бесплатные функции, и в тех же отзывах люди называют честную разовую покупку причиной многолетней верности. Качество инструмента здесь меряется одним вопросом: можно ли доверить ему свою работу.",
-    "asOf": "2026-06-12",
+    "asOf": "2026-06-13",
     "appsCount": 14,
     "reviewsScanned": 7000,
     "items": [

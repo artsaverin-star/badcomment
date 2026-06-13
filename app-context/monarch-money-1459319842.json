@@ -1,0 +1,75 @@
+{
+  "productId": "cmpsuv52n437iug8pzcuwdwxb",
+  "slug": "monarch-money-1459319842",
+  "name": "Monarch Money",
+  "domain": "личные финансы / агрегатор счетов / бюджет",
+  "oneLiner": "Monarch Money — агрегатор банковских счетов, карт и инвестиций с системой бюджетирования и отслеживания чистого капитала, позиционирует себя как прямую замену Mint после его закрытия.",
+  "pricing": "только платная подписка, бесплатной версии нет; 7-дневный триал с обязательной привязкой карты; ~$99/год или ~$12/месяц при помесячной оплате; периодически предлагается скидка 50% на первый год для новых пользователей; отдельный тариф 'direct billing' открывает feature forecasting, недоступный при оплате через Play Store",
+  "keyFeatures": [
+    "агрегация банковских счетов, кредитных карт, инвестиционных портфелей и кредитов в одном дашборде",
+    "автоматическая категоризация транзакций с настраиваемым движком правил (rule engine)",
+    "бюджетирование по категориям с отслеживанием расходов относительно лимита в реальном времени",
+    "отслеживание чистого капитала (net worth) с историческим графиком",
+    "совместный доступ для пары / домохозяйства",
+    "прогнозирование денежного потока (cash flow forecasting) — только при direct billing",
+    "AI-ассистент для анализа трат и ответов на финансовые вопросы",
+    "кроссплатформенность: мобильное приложение + полноценный веб-интерфейс"
+  ],
+  "competitors": [
+    "Mint (закрыт — основной источник миграции)",
+    "Rocket Money",
+    "YNAB (You Need A Budget)",
+    "Quicken / Quicken Simplifi",
+    "Credit Karma",
+    "Copilot Money",
+    "Personal Capital / Empower"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Plaid connections are beyond terrible and Monarch is complacent about it. Utterly frustrating. This is a known problem for years and it has not been addressed at all.",
+      "observation": "Синхронизация счетов идёт через Plaid как единственного брокера: если банк плохо поддерживается Plaid, приложение систематически теряет соединение — и Monarch не предлагает альтернативного метода подключения, перекладывая ответственность на третью сторону.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "last update forced ai into the app. wouldn't let me load or use the app without the update. no option to shut off ai features. would give zero stars if possible. literally considering going back to calendar reminders to pay my bills on time.",
+      "observation": "Принудительное обновление с AI-функцией сломало базовую навигацию: приложение зависало на простых действиях, а у пользователя не было ни возможности откатить версию, ни кнопки отключить AI — то есть продуктовое решение заблокировало доступ к финансам.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "you can't create an accurate budget in the app because it doesn't count mortgage or loan payments as an expense.",
+      "observation": "Ипотека и погашение кредитов учитываются как переводы (transfers), а не расходы, из-за чего бюджет показывает искажённую картину: реальные фиксированные выплаты исчезают из общей суммы трат, и человек видит ложный профицит.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Transactions conducted via Gpay do not accurately categorize them under the appropriate category. They are all grouped under the shopping category. Costco warehouse and gasoline transactions also fail to correctly categorize. This issue persists despite multiple rules.",
+      "observation": "Транзакции через Google Pay приходят без детализации мерчанта — движок правил видит только 'Google Pay' и кладёт всё в 'Shopping'. Правила, заданные вручную, не срабатывают, потому что исходное описание не содержит имя магазина.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I wanted this app for the forecasting feature. after my trial got billed for a 1 yr subscription. tried to use forecast but its not available unless you do 'direct billing' says I have to cancel and resubscibe. but that will take a year. no one to call to figure it out.",
+      "observation": "Функция forecasting анонсирована в маркетинге, но недоступна пользователям, оформившим подписку через Play Store: для доступа нужен 'direct billing', то есть фактически отмена и переоформление — без поддержки по телефону и при годовом цикле оплаты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "a lot of bugs lately that keep screwing up my categories and recently doubled some transactions, not just new ones, I found doubles of transactions in march, and just a lot of BS since they rolled out the April update.",
+      "observation": "Апрельское обновление внесло регрессию: транзакции начали дублироваться — в том числе исторические записи за прошлые месяцы, которые не должны были измениться, что ломает накопленную историю бюджета.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

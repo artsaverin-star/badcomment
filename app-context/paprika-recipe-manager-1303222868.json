@@ -1,0 +1,80 @@
+{
+  "productId": "cmpsu9dtl2t0xug8ppv76l6lb",
+  "slug": "paprika-recipe-manager-1303222868",
+  "name": "Paprika Recipe Manager 3",
+  "domain": "менеджер рецептов / планирование питания / списки покупок",
+  "oneLiner": "Paprika Recipe Manager 3 — персональный кулинарный органайзер с встроенным браузером для захвата рецептов с любых сайтов, планировщиком питания и умным списком покупок; iOS, Android и macOS; разовая покупка на каждую платформу, без подписки.",
+  "pricing": "разовая покупка на каждой платформе (~$4.99 Android, ~$4.99 iOS, ~$29.99 macOS — продаются отдельно); бесплатная версия ограничена 50 рецептами; подписок нет — это явное конкурентное преимущество, которое пользователи подчёркивают снова и снова",
+
+  "keyFeatures": [
+    "встроенный браузер с автопарсингом рецептов с веб-страниц и соцсетей (Instagram, Pinterest и др.)",
+    "cook mode — пошаговый режим приготовления с крупным текстом и таймерами",
+    "масштабирование рецепта (scale) — пересчёт ингредиентов под нужное количество порций",
+    "планировщик меню (meal planner) с календарём на неделю/месяц",
+    "список покупок с автоматическим вычитанием того, что уже есть в pantry",
+    "кладовая (pantry) — инвентарь домашних запасов, связанный со списком покупок",
+    "облачная синхронизация между устройствами (iOS, Android, macOS, Windows)",
+    "категоризация и поиск рецептов; заметки и личные правки к каждому рецепту"
+  ],
+
+  "competitors": [
+    "Cookmate (formerly My CookBook)",
+    "Evernote (как универсальное хранилище рецептов)",
+    "Mastercook",
+    "ReciMe",
+    "NYT Cooking",
+    "AnyList",
+    "Mealime",
+    "встроенные закладки Safari / Apple Notes"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "the internal browser makes it super easy to turn social media posts right into recipes with ingredient lists. You can build out a pantry of what you have on hand, so when you schedule a recipe it knows what groceries to put on the list",
+      "observation": "Встроенный браузер парсит рецепт прямо из публикации в соцсети, а кладовая связана с планировщиком: когда блюдо ставится в расписание, приложение автоматически вычитает уже имеющиеся ингредиенты из списка покупок — это не просто хранилище, а замкнутый цикл от «нашёл» до «купил».",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "It should be made much easier to schedule a recipe (on rolling calendar date spinner) in fewer clicks and to reschedule a recipe to tomorrow or another night when my cooking plans change. It also lacks an ability for me to just write in 'leftovers' or a meal for which I don't need a recipe.",
+      "observation": "Планировщик меню не позволяет вписать произвольный приём пищи без привязанного рецепта («остатки», «пицца из пиццерии») — в итоге в еженедельном календаре видны только блюда по рецептам, а не реальная картина питания на неделю.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "the more recipes we share the more categories I end up importing! Why not show me on importing what categories it's under or let me pick",
+      "observation": "При импорте рецепта от другого пользователя категории из чужой библиотеки копируются автоматически, без возможности выбрать или переназначить их — пользователь, тщательно организовавший свою библиотеку, обнаруживает, что чужие категории засоряют структуру.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I've been using this app since July 2011 — 13+ years (1700+ recipes and counting). I purchased a desktop version and an iPad version for my kitchen … they all sync together.",
+      "observation": "Платформенная модель Paprika — отдельная покупка на каждую платформу — создаёт многолетнюю лояльность: пользователи инвестируют в экосистему (iPhone + iPad + macOS), при этом не имея единой подписки, что они воспринимают как честную сделку, а не локин.",
+      "specificity": "medium"
+    },
+    {
+      "rating": 1,
+      "trigger": "it randomly will not import recipes - just get a spinning wheel. Contacted support - heard nothing. But then it did work for a few days. Then today, it is even worse. Getting 'server maintenance' and 'recipe can't be imported from this site'",
+      "observation": "Парсинг рецептов периодически полностью ломается на серверной стороне: пользователи видят сообщение «server maintenance» и бесконечный спиннер, при этом обратная связь от поддержки отсутствует неделями — критичная функция недоступна без каких-либо объяснений.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "have been using it for years and absolutely love it. our mother-in-law has our account information and that the age of 92 has put all of her recipes in there so that when she is long gone, we will still have her wonderful creations.",
+      "observation": "Общий аккаунт используется как межпоколенческий семейный архив рецептов: 92-летняя свекровь самостоятельно вносит свои рецепты, которые останутся доступны родственникам — сценарий долговременного хранения, невозможный в подписочных сервисах с риском потери данных при отмене плана.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

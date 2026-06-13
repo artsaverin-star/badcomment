@@ -1,0 +1,74 @@
+{
+  "productId": "cmpsyf0lm14oiughv9g03sdge",
+  "slug": "videogpt-6451396274",
+  "name": "VideoGPT - AI Video Generator",
+  "domain": "ИИ-генерация видео / text-to-video",
+  "oneLiner": "VideoGPT (Elven Labs) — мобильный text-to-video генератор: пишешь промпт, выбираешь стиль и голос, получаешь короткое видео с нарратором; целевая аудитория — контент-криейторы для TikTok/YouTube без навыков монтажа.",
+  "pricing": "кредитная модель: 100 кредитов при регистрации, одно видео стоит ~29 кредитов; после исчерпания — платный пакет кредитов или подписка; подписка от ~$20/неделю (по отзывам, что воспринимается как дорого на фоне $50/месяц у топ-конкурентов); годовая подписка также доступна; отмена подписки вызывает жалобы — кнопки отмены внутри приложения нет, только через email",
+  "keyFeatures": [
+    "генерация видео из текстового промпта (text-to-video)",
+    "выбор визуального стиля (cinematic, animated, реализм и др.)",
+    "AI-нарратор с выбором голоса и языка озвучки",
+    "сценарный режим: несколько сцен в одном видео",
+    "управление темпом повествования через промпт-инструкции",
+    "экспорт готового видео для публикации в TikTok, YouTube, Instagram",
+    "кредитная система — базовые кредиты при регистрации без карты"
+  ],
+  "competitors": [
+    "Kling AI",
+    "Veo (Google)",
+    "Sora (OpenAI)",
+    "Runway",
+    "Pika Labs",
+    "Luma Dream Machine",
+    "InVideo AI"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "you have to begin the narrative with NARRATE AS VERBATIM WITHOUT DRIFTING OFF THE BRAID otherwise the AI will romanticise and deviate from the plot you input",
+      "observation": "Модель склонна «романтизировать» ввод — отклоняться от заданного сюжета к более драматичному или обобщённому нарративу. Опытные пользователи обходят это, вставляя в промпт директиву 'NARRATE AS VERBATIM WITHOUT DRIFTING OFF THE BRAID', что фактически превращает инструкцию по управлению моделью в пользовательский воркэраунд.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it now only generates photos with an audio narrative. Deffinately do not recommend. If you value your money, Kling and Veo are a much better alternative",
+      "observation": "После отключения Sora 2 (OpenAI) как бэкенда приложение деградировало: вместо настоящего видео генерирует слайдшоу из изображений с аудионарративом поверх. Пользователи с действующими подписками платят за продукт, который перестал быть тем, за что его покупали.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it stop on 96% I waited for 30 minutes but the video is still pending",
+      "observation": "Генерация зависает на 96% и остаётся в статусе 'pending' более 30 минут — кредиты при этом уже списаны. Паттерн «почти готово, но не финишировало» воспроизводится у множества пользователей и указывает на инфраструктурную проблему очереди рендеринга, а не на случайный сбой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I want to cancel the subscription, why is there no option to cancel, why do you people keep collecting my money after several email that I want to cancel",
+      "observation": "Кнопки отмены подписки внутри приложения нет — пользователь вынужден писать email в поддержку, но деньги продолжают списываться. Механизм отмены намеренно скрыт за медленным каналом коммуникации, а не автоматизирован через стандартный App Store / Play Store flow.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I had to reformat my phone it refuses to restore my purchase. I bought a 1 year subscription the app still won't restore my purchase",
+      "observation": "Восстановление покупки (restore purchase) после переустановки или форматирования телефона не работает: годовая подписка не привязывается к аккаунту надёжно, и поддержка не решает проблему. Пользователь теряет оплаченный доступ без пути восстановления.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "just do not ask AI to create someone walking, it messes up the feet and also create ghost images",
+      "observation": "Генератор системно ломает анатомию при изображении движения: ноги деформируются, появляются 'ghost images' (призрачные дублирующие контуры тела). Это типичный артефакт диффузионных видеомоделей при сложной кинематике, и приложение не предупреждает об ограничениях.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "productId": "cmpsyssz91xdkughvls4kvd38",
+  "slug": "yazio-946099227",
+  "name": "Yazio",
+  "domain": "счётчик калорий / диета / трекинг питания",
+  "oneLiner": "Yazio — немецкий дневник питания с AI-сканированием еды по фото, большой базой продуктов и планами диет; прямой конкурент MyFitnessPal на рынке iOS+Android.",
+  "pricing": "бесплатная версия с агрессивными ограничениями и рекламой; Pro (Premium) — примерно £35/год (UK) или €84/год (EU, покупка через сайт); 7-дневный бесплатный триал, но при регистрации через сайт подписка автоматически выставляется на год без ясного предупреждения; скидки предлагаются через механику «колесо фортуны» (scripted spin, не случайное); цена через Google Play и через сайт может существенно различаться — пользователи платили €50, тогда как приглашённый друг позже покупал за €21",
+  "keyFeatures": [
+    "дневник питания с базой продуктов (поиск + штрихкод-сканер)",
+    "AI-сканирование блюда по фото (photo AI calorie estimation)",
+    "планы диет и персональный план питания на основе анкеты",
+    "трекинг макронутриентов (белки, жиры, углеводы) и калорий",
+    "создание и сохранение собственных рецептов и блюд",
+    "функция «Buddies» — просмотр прогресса друзей и взаимная поддержка",
+    "интеграция с фитнес-трекерами и приложениями здоровья",
+    "AI-коуч и советы по питанию с геймификацией (стрики, «маскот»)"
+  ],
+  "competitors": [
+    "MyFitnessPal",
+    "Lifesum",
+    "Lose It!",
+    "Cronometer",
+    "Noom",
+    "ChatGPT (упоминается как замена)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "they claim you can take a picture of your meal and it will accurately calculate the calorie profile and I tested it multiple times and it was consistently miscalculating the calories of the meal. For instance, I made chicken and pasta and it claimed it was only 200 calories when I precalculated it myself via scale and common information on packaging and the actual caloric amount exceeded 300",
+      "observation": "AI-функция фотосканирования систематически занижает калорийность: блюдо из курицы и пасты, вручную взвешенное на 300+ ккал, приложение оценивало в 200 — пользователь счёл это ложной рекламой и обратился в банк за возвратом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the AI gets 2/3 of the ingredients wrong, I always just rewrite the text to tell it what I'm eating, which at least is a convenience. The recipes are super basic and not worth paying for either",
+      "observation": "Photo AI правильно распознаёт лишь треть ингредиентов: пользователи вынуждены вручную переписывать состав блюда в текстовое поле — функция фактически деградирует до голосового/текстового ввода, не добавляя ценности поверх платного тарифа.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I have a love hate relationship with yazio, it's a good calorie tracker but the gamification became unbearable. I'm a paid user and there is no way to turn the tips and all around stupidity. I don't want to commit to a streak, I said no for the 6th times today just leave me use the app I pay for.",
+      "observation": "Геймификация (стрики, маскот, коуч-советы) не отключается даже в платном тарифе: платящий пользователь отклоняет предложение включить стрик шесть раз за день, но приложение продолжает задавать вопрос — это воспринимается как дисрспект к выбору.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "every time you don't use it for a few days, it forces you to answer a long string of stupid questions. And I use the paid app! PS: I understand that the questions can be useful. But having to answer them over and over again just because you haven't used the app for a few days makes no sense, especially since you don't have the option to skip them. It seems more like a kind of 'punishment'.",
+      "observation": "Повторный запуск после паузы в несколько дней принудительно запускает полную анкету заново — пропустить нельзя; платящий пользователь воспринимает это как штраф за нерегулярное использование, а не как помощь.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I registered on the website where I had to start a free trial (which I can't even say no to and then extends one year if you forget to cancel) and then I can't even use it on the website. As if this is not enough the button to Cancel the subscription on the website is not working, not sure if bug or intended but now I have to install the app to cancel.",
+      "observation": "Воронка на сайте: невозможно отказаться от триала при регистрации, после окончания он автоматически продлевается на год; кнопка отмены подписки на сайте не работает — пользователь вынужден устанавливать мобильное приложение ради отмены, что создаёт дополнительный барьер.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The new version removed tracking what my buddies are eating in their macros. Why was this removed? We use it to have accountability and hype each other up to be better and now we can't even see what the others have consumed.",
+      "observation": "Обновление удалило возможность видеть дневник питания друзей в функции Buddies: группы пользователей, использовавшие взаимную подотчётность как мотивацию, потеряли ключевой механизм без объяснений и замены.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "productId": "cmpsuemtt33c2ug8pwmlvhv1s",
+  "slug": "tasty-1217456898",
+  "name": "Tasty",
+  "domain": "рецепты / кулинарные видео / планирование питания",
+  "oneLiner": "Tasty от BuzzFeed — каталог пошаговых видеорецептов с планировщиком питания и интеграцией доставки продуктов Instacart; iOS и Android, аудитория от начинающих до увлечённых кулинаров.",
+  "pricing": "бесплатная версия с основным каталогом рецептов; Premium-подписка (ориентировочно ~$30/год) даёт расширенный планировщик питания и дополнительные функции — по отзывам, большинство ключевых рецептов доступны бесплатно",
+
+  "keyFeatures": [
+    "пошаговые видеоинструкции к каждому рецепту (overhead-съёмка BuzzFeed-стиль)",
+    "поиск и фильтрация рецептов по категориям, способу приготовления, диетическим ограничениям",
+    "Meal Maker — подбор рецептов по имеющимся ингредиентам (до 3 ингредиентов в бесплатной версии)",
+    "планировщик питания (meal plan) с автосборкой списка покупок",
+    "интеграция с Instacart для заказа ингредиентов прямо из приложения",
+    "масштабирование порций (rescale servings)",
+    "сохранение рецептов в коллекции; пользовательские комментарии и фото к рецептам",
+    "офлайн-доступ к сохранённым рецептам"
+  ],
+
+  "competitors": [
+    "NYT Cooking: Quick Tasty Meals",
+    "Kitchen Stories: Easy Recipes",
+    "Mealime: Meal Plans & Recipes",
+    "Paprika Recipe Manager 3",
+    "Whisk: Recipe & Meal Planner",
+    "America's Test Kitchen",
+    "BigOven: Recipes & Meal Plan"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "this app was good until they forced Ai in everything. now the photos have ai generated food so who knows if it's even good.",
+      "observation": "После перехода на AI-генерируемые фото блюд пользователи теряют визуальный сигнал качества: реальный снимок готового результата заменяется синтетическим изображением, и невозможно понять, как блюдо получится на самом деле.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "app use to be good until update this month April 2026. I always use to go to the comment section for tips that tend to help the receipe. The comment section for the app on android is gone.",
+      "observation": "Обновление апреля 2026 убрало раздел комментариев под каждым рецептом на Android и заменило его общей вкладкой «Community» с несвязанными постами — пользователи лишились ключевого механизма: живых советов «как я исправил рецепт», которые накапливались под конкретным блюдом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "when I want something sweet...it will show recipe using oven and when I say no bake it's still showing",
+      "observation": "Фильтр «no bake» не работает как исключающий: приложение продолжает показывать рецепты с духовкой, из-за чего поисковый сценарий «найти что-то быстрое без выпечки» ломается на уровне выдачи.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Unable to log back in with Facebook account sign on... I loved this app for meals ideas and had many recipes saved. Will change rating if can be fixed",
+      "observation": "Отключение Facebook-авторизации (при работающих Google/Apple Login) заблокировало целый сегмент пользователей: все сохранённые рецепты хранились в профиле, привязанном к Facebook, и стали недоступны без возможности переноса данных.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I wish you could add more than 3 ingredients to the meal maker option.",
+      "observation": "Функция Meal Maker (подбор рецепта по имеющимся продуктам) ограничена тремя ингредиентами — при большем ассортименте в холодильнике пользователь не может уточнить запрос и получает нерелевантные варианты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I would like an easy way to copy the ingredients to a clipboard instead of to a shopping list dedicated to Instacart.",
+      "observation": "Список покупок из meal plan экспортируется только в Instacart: пользователи, покупающие продукты в другом магазине или через другое приложение, не могут скопировать список в буфер обмена и вынуждены переписывать ингредиенты вручную.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

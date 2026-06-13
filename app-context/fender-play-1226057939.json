@@ -1,0 +1,74 @@
+{
+  "productId": "cmpsynldw1meyughvjwb8yx2n",
+  "slug": "fender-play-1226057939",
+  "name": "Fender Play",
+  "domain": "обучение игре на гитаре / музыкальное обучение",
+  "oneLiner": "Fender Play — подписочный видеокурс бренда Fender для начинающих и средних гитаристов, басистов и укулелистов: структурированные пути обучения, библиотека реальных песен и режим обратной связи в реальном времени",
+  "pricing": "подписка ~$149-150/год (упоминается в отзывах как «$150 a year»); месячная опция упоминается пользователями из UK как ~£11/месяц; бесплатного тарифа фактически нет — онбординг ведёт прямо к выбору плана без видимой кнопки «пропустить»; нередко продаётся как 3-месячный бандл при покупке гитары в Guitar Center или Fender-продукции; иногда предлагается бесплатный триал, после которого списываются деньги",
+  "keyFeatures": [
+    "структурированные пути обучения (Paths) по гитаре, басу и укулеле — от нуля до среднего уровня",
+    "видеоуроки с несколькими преподавателями, разбитые на короткие сегменты",
+    "режим Feedback Mode — реальное время анализа игры через микрофон устройства",
+    "режим Practice Mode — упражнения с метрономом и повтором секций",
+    "библиотека реальных песен с табулатурами (преобладают Metallica и рок-репертуар)",
+    "раздел теории музыки (Chords, Scales, Theory)",
+    "базовый тюнер",
+    "фильтр по жанру / артисту / сложности для поиска песен"
+  ],
+  "competitors": [
+    "Yousician",
+    "Simply Guitar (JoyTunes)",
+    "Gibson App",
+    "Rocksmith+",
+    "Masterclass (упоминается как пример нативной Apple TV-интеграции)",
+    "YouTube / бесплатные ресурсы (неформальный конкурент)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "the parts of the app that rely on the microphone are twitchy though. I wish it supported my audio interface (Focusrite Scarlett = super popular) so that the guitar input would be noise free. Yousician support it, so have been using that app more as a result",
+      "observation": "Feedback Mode принимает сигнал только через встроенный микрофон: при подключении популярных USB-аудиоинтерфейсов (Focusrite Scarlett и аналогов) распознавание ломается из-за шума. Yousician поддерживает внешний ввод — пользователи переключаются туда именно по этой причине.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "every single video lesson along my «path» starts with «have you ever been doing this on guitar…?» No! Obviously I haven't because I have never picked one up in my life!",
+      "observation": "Скрипты видеоуроков написаны из позиции «уже играющего»: преподаватели спрашивают «вы когда-нибудь делали X?», хотя контент позиционируется как курс для абсолютных новичков. Человек, никогда не державший гитару, оказывается в ролевом несоответствии уже на первом уроке своего пути.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I couldn't even get into the app!! I HAD to pick a plan and there was no X button. So I clicked on one and nothing happened",
+      "observation": "Онбординговый экран выбора подписки не содержит кнопки «закрыть» или «продолжить бесплатно»: пользователь физически не может перейти дальше без выбора платного плана. Тап по плану при отсутствии реакции интерфейса оставляет пользователя в тупике.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "When rewinding, to replay, it will randomly start to play from the beginning but overlay over the original. So you end up with multiple plays",
+      "observation": "При перемотке видеоурока назад для повтора секции приложение запускает второй видеопоток поверх первого вместо рестарта — в результате играют два аудиотрека одновременно. Баг воспроизводится стабильно и делает отработку трудных фрагментов невозможной.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Should be called Metallica Play. How about some more variety and less Metallica.. add some more rock songs please",
+      "observation": "Библиотека песен концентрируется вокруг нескольких «лицензионных» исполнителей (Metallica занимает непропорционально большую долю), тогда как крупные рок-акты (U2, Johnny Cash) полностью отсутствуют. Пользователи, пришедшие за конкретным репертуаром, не находят его и расценивают это как маркетинговое обещание, не подкреплённое контентом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Fender has increased considerably the pricing so I don't have access to the platform anymore if I don't upgrade the plan, even with an active plan… they have wait until I have paid this month to reply me saying that I can cancel next month",
+      "observation": "При изменении тарифной сетки Fender заблокировал доступ действующим подписчикам до повторной оплаты по новым ценам — поддержка намеренно тянула ответ до даты следующего списания, после чего предложила отменить «в следующем месяце». Механизм превращает повышение цены в принудительное дополнительное списание.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

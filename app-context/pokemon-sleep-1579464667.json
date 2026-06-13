@@ -1,0 +1,76 @@
+{
+  "productId": "cmq7ukz45004hugic0kbbhm40",
+  "slug": "pokemon-sleep-1579464667",
+  "name": "Pokémon Sleep",
+  "domain": "трекинг сна / игровой трекер сна",
+  "oneLiner": "Pokémon Sleep (The Pokémon Company) — геймифицированный трекер сна: записывает ночь через микрофон или смарт-часы, конвертирует часы и качество сна в игровые очки, на которые появляются новые Покемоны; iOS + Android",
+  "pricing": "бесплатно с ограниченным прогрессом; Sleep Style Pass (~$15/месяц или ~$100/год) даёт ежедневный premium-бисквит, бонусные очки сна и расширенный инвентарь; микротранзакции на кристаллы, бисквиты, благовония; без подписки прогресс крайне медленный, некоторые базовые функции (сон-журнал) за пейволлом",
+  "keyFeatures": [
+    "ночная запись через микрофон телефона или интеграция со смарт-часами (Fitbit/Google Fit/Apple Watch)",
+    "классификация сна по трём типам (дремота / спокойный / глубокий) — влияет на то, какие Покемоны появляются утром",
+    "очки сна (Sleep Points) и оценка (Sleep Score) по итогам ночи — игровая валюта для поимки Покемонов",
+    "команда помощников-Покемонов: собирают ингредиенты и готовят блюда для Снорлакса в течение дня",
+    "умный будильник — просыпается в оптимальную фазу сна в заданном окне",
+    "сезонные события и исследовательские острова — новый биом каждые несколько недель",
+    "Sleep Style Pass: платная подписка с ежедневными бонусами и расширенным инвентарём",
+    "режим дремоты (Nap Mode) для коротких дневных засыпаний"
+  ],
+  "competitors": [
+    "Sleep Cycle — Sleep Tracker",
+    "Pillow — Sleep Tracker",
+    "Oura Ring (аппаратный трекер)",
+    "Fitbit (встроенный трекинг сна)",
+    "Samsung Health (Sleep Coaching)",
+    "AutoSleep (Apple Watch)",
+    "Calm / Headspace (звуки для сна)",
+    "Sleepzy — Sleep Cycle Tracker"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "the daily limits ruin the game for people like me. I adore Pokemon and adore the game but apparently it is only made for children with regular sleep schedules, or adults who can somehow predict their sleep",
+      "observation": "Суточные лимиты очков сна жёстко привязаны к расписанию «стандартной» ночи: сменные рабочие (2 ночи из 6 — с 23:00 до 7:00, остальные — до 23:00) не могут накапливать прогресс, потому что их окно сна не совпадает с форматом, который игра считает легитимным.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "There needs to be some sort of (UNPAID) sleep data editing option for when the app crashes or closes for some random reason while sleeping and doesn't record the whole sleep cycle. Adding it the manual way only counts it as a second cycle",
+      "observation": "Если приложение упало ночью, пользователь не может объединить фрагменты в одну сессию: ручной ввод воспринимается как отдельный цикл, накладывается по времени и выдаёт ошибку «overlap» — ночь фиксируется как серия «нэпов» вместо полноценного сна, портя статистику.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Inventory is paid to be increased, but that's limited?? The main reason I don't buy premium pass or anything in the game these days is because my inventory has been full for over 6 months and i can't upgrade it any further",
+      "observation": "Платное расширение инвентаря имеет абсолютный потолок: пользователи, купившие максимальный объём, обнаруживают, что дальнейшие покупки бессмысленны, а переполненный инвентарь блокирует получение новых предметов от игровых механик.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "basically unplayable since the last merge of Google fit and Fitbit update. info doesn't pass into pokemon sleep even though it's tracked in the fit app",
+      "observation": "Переименование/слияние Fitbit → Google Fit сломало интеграцию на уровне API: данные сна фиксируются в фитнес-приложении, но не передаются в Pokémon Sleep — и поддержка требует огромного пакета технической информации для открытия тикета, что отсеивает большинство пользователей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "My sleep data isn't recording correctly. instead of recording the sleep data for the 24th, it listed it as the day of (25th). I just tried to record my sleep from last night and it didn't work because the prior day was full",
+      "observation": "Если сон переходит за полночь, приложение относит его к текущей дате, а не к дате засыпания: следующей ночью пользователь обнаруживает, что «вчерашний» слот уже занят, и не может добавить пропущенную сессию вручную.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "The useless parts of the app has skips while the longest parts (which most of us don't wanna play) don't have skips. I'm trying to go to bed not play useless games for 10+ minutes",
+      "observation": "Обязательный вечерний ритуал перед сессией (кормление команды, приготовление блюд, подтверждение команды) не имеет кнопки «пропустить», хотя менее важные анимации такую кнопку имеют — человек, который хочет лечь спать, вынужден тратить 10+ минут на клики.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it, sleeps better now (non-information)",
+    "User hates that it costs money (commodity)",
+    "User wants more Pokémon types (generic content ask)",
+    "User says the game is boring (non-information)",
+    "User complains subscription auto-renewed (commodity unless specific deceptive flow described)",
+    "User wants white noise / rain sounds (generic content request)",
+    "Login broken / account not found (commodity unless reproducible flow described)"
+  ]
+}
