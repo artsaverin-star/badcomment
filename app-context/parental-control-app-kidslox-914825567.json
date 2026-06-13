@@ -1,0 +1,73 @@
+{
+  "productId": "ext-914825567",
+  "slug": "parental-control-app-kidslox-914825567",
+  "name": "Parental Control App - Kidslox",
+  "domain": "родительский контроль / экранное время / детская безопасность",
+  "oneLiner": "Kidslox — кроссплатформенный инструмент родительского контроля: ограничение экранного времени по расписанию, блокировка приложений и сайтов через VPN-профиль, дистанционное управление с телефона родителя; iOS+Android",
+  "pricing": "нет бесплатного пробного периода — сразу платная подписка; годовой план (около $40-50/год); пользователи жалуются на отсутствие пробного периода и резкий переход с бесплатного режима на платный без предупреждения",
+  "keyFeatures": [
+    "блокировка приложений и переключение между режимами 'ребёнок' / 'родитель' одной кнопкой",
+    "расписание экранного времени с дневными лимитами и комендантским часом (bedtime lock)",
+    "VPN-профиль на устройстве ребёнка для фильтрации сайтов и приложений",
+    "дистанционное управление: родитель добавляет время или блокирует устройство удалённо",
+    "геолокация ребёнка в реальном времени",
+    "система запросов: ребёнок просит дополнительное время, родитель одобряет",
+    "поддержка нескольких детских устройств из одного родительского аккаунта"
+  ],
+  "competitors": [
+    "Apple Screen Time (встроенный)",
+    "Google Family Link",
+    "Bark",
+    "Qustodio",
+    "Circle",
+    "OurPact",
+    "Net Nanny"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "Unser Kinder umgehen die Sperre indem sie eine Website auf dem Homebildschirm verlinken. Sowohl das Tageslimit als auch die Kindersperre greifen dabei nicht.",
+      "observation": "Блокировка не распространяется на веб-приложения (Web Clips), добавленные на домашний экран: ребёнок добавляет сайт на главный экран и получает полный доступ к интернет-контенту в обход и дневного лимита, и режима блокировки — поддержка об этом знает, но не может исправить.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "when my phone is locked, my home screen app layout is destroyed. It takes time to fix this again as it removes all apps from your home screen so you have to add them all back. The VPN makes virtually all apps impossible to use even during allowed screen time",
+      "observation": "VPN-профиль Kidslox перехватывает трафик всех приложений, а не только заблокированных: игры с интернетом, YouTube и Spotify не работают даже в разрешённое время. Каждое переключение режимов сбрасывает раскладку иконок на домашнем экране — ребёнок вынужден перекладывать все приложения заново после каждой разблокировки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "le PIN parental à 4 chiffres est aujourd'hui trop limité et facilement contournable par certains adolescents. Beaucoup de discussions publiques (notamment sur Reddit) montrent ce problème.",
+      "observation": "Четырёхзначный PIN родителя поддаётся подбору или угадыванию подростками — проблема публично обсуждается на Reddit, но приложение до сих пор не предлагает альфанумерный пароль или Face ID как альтернативу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "at first, notifications came up about 'you have 15 minutes left' and after a month, gone, no warning, just kicks ya out the app you were using and tells you to deal with it. I WAS IN A CALL WITH MY FRIENDS?!?",
+      "observation": "Уведомления об истечении времени перестают приходить после обновления приложения — блокировка случается мгновенно посреди звонка или игры без каких-либо предупреждений, хотя раньше эта функция работала корректно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I lockedcthe device then my kid deleted the app now i cannot open my apps",
+      "observation": "Если ребёнок удаляет приложение Kidslox с устройства в заблокированном режиме, устройство зависает в состоянии полной блокировки без возможности разблокировки — VPN-профиль и MDM-конфигурация остаются активными даже после удаления приложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it locked his phone during mid-uber... it totally made my dad turn into red mist, and it took about what? Around 1-2 hours or maybe 3, however at this hour right now he's still figuring out",
+      "observation": "Kidslox ошибочно переключил телефон взрослого пользователя (родителя) в режим блокировки ребёнка в момент, когда он использовал его для работы (Uber): разблокировка без знания правильной последовательности действий заняла несколько часов.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "Пользователь пишет, что приложение ужасное (без деталей)",
+    "Пользователь пишет, что цена слишком высокая (commodity)",
+    "Пользователь-ребёнок злится, что его заблокировали (не информация о продукте)",
+    "Приложение зависло / краш без описания воспроизводимых шагов",
+    "Пользователь хочет больше функций (generic ask)",
+    "Пользователь говорит, что приложение — вирус (эмоция, без технической специфики)",
+    "Подписка автоматически списала деньги (commodity)"
+  ]
+}

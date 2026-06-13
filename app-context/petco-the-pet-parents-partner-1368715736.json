@@ -1,0 +1,73 @@
+{
+  "productId": "ext-1368715736",
+  "slug": "petco-the-pet-parents-partner-1368715736",
+  "name": "Petco: The Pet Parents Partner",
+  "domain": "зоомагазин / e-commerce / уход за питомцами",
+  "oneLiner": "Мобильное приложение розничной сети Petco (США): онлайн-магазин корма и аксессуаров, запись на груминг и ветеринарные визиты (Vetco), программа лояльности Vital Care",
+  "pricing": "приложение бесплатное; Vital Care Premier — платная подписка ~$10/мес или ~$120/год с бонусами на груминг и ветеринарные услуги; базовая программа Vital Care бесплатна (баллы за покупки, но отдача снижена: раньше $5 с каждых $100, теперь $1 с каждых $100); отписка от Premier возможна только через вкладку в профиле, которая системно не загружается",
+  "keyFeatures": [
+    "каталог товаров: корм, игрушки, аксессуары — с доставкой на дом и самовывозом из магазина",
+    "same-day delivery и pick-up заказы из ближайшего магазина",
+    "запись на груминг (стрижка, купание) через встроенный планировщик",
+    "запись к ветеринару через сервис Vetco Clinics",
+    "программа лояльности Vital Care: накопление баллов, загружаемые купоны, персональные предложения",
+    "профиль питомца: хранение данных о породе, возрасте, вакцинациях",
+    "push-уведомления о скидках и статусе заказа",
+    "AI-чат поддержки (ограниченный, переадресует в колл-центр)"
+  ],
+  "competitors": [
+    "PetSmart",
+    "Chewy",
+    "Amazon — раздел pet supplies",
+    "Walmart — товары для животных",
+    "1-800-PetMeds"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "app makes you build a profile for your pet, but also makes you manually reenter all info every time you want to make an appointment. what was the point in the profile if you require the same info each time",
+      "observation": "Профиль питомца существует как изолированная сущность: при записи на груминг форма не подтягивает данные из профиля, а требует ввода с нуля при каждом визите — функция создана декоративно и не интегрирована в основной flow.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "When you try yo book a grooming appointment the app takes you to a personal information screen. You fill that out then it takes you back to the request services screen. There you click on Grooming again, it again takes you to the personal information page that did not retain the info from your last entry. It keeps going around and around getting nowhere.",
+      "observation": "Флоу записи на груминг входит в бесконечный цикл: после заполнения формы с личными данными кнопка 'Services' возвращает пользователя на ту же форму вместо перехода к выбору времени — сессия записи никогда не завершается.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Not allowing me to unsubscribe membership. The only page that's not functioning: 'vital care premier' tab under profile. One needs this page to load in order to cancel a subscription. Apr 2026 Update: the app finally decided to load the 'vital care premier' page, and allowed me to turn off 'auto renew' OH SO CONVENIENTLY right after the next 'yearly cycle', so im STILL paying $10 a month for the next 11 months till 2027.",
+      "observation": "Вкладка отмены Vital Care Premier систематически не загружается именно на странице управления подпиской: когда страница наконец открылась после многомесячного сбоя, цикл уже продлился — механизм де-факто лишает пользователя возможности отписаться до следующего списания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "You have to proactively load rewards vs them just appearing. Then the reward expires quickly. I've lost about $30 to this.",
+      "observation": "Купоны в программе лояльности не активируются автоматически: пользователь обязан вручную «загрузить» каждый оффер, а срок его действия начинает идти сразу после загрузки, а не с момента покупки — в итоге редкий покупатель успевает применить купон до истечения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "if you add more than 9 items to your cart it constantly glitches. if you switch to another app, and switch back to petco app it stops working",
+      "observation": "Корзина с 10+ позициями вызывает устойчивый глюч приложения; переключение в фоновый режим приводит к сбросу сессии — крупные заказы (характерные для владельцев нескольких питомцев) практически невыполнимы через мобильный клиент.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "App is Fine, Vital Care Removal is the main reason for the 2 star. loyal customer for almost 10 years and they go and set you up with a plan that forces you to pay them more for a year while giving significantly less than the Vital Care subscription used to give",
+      "observation": "Petco заменил старую программу Vital Care на Premier с повышенной ценой и сниженной отдачей (с $5 до $1 за каждые $100 трат): лояльные покупатели, которые планировали бюджет под старые условия, оказываются в платных тарифах с худшим соотношением цена/выгода.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

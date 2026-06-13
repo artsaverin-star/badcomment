@@ -1,0 +1,78 @@
+{
+  "productId": "ext-634845718",
+  "slug": "footpath-route-planner-634845718",
+  "name": "Footpath Route Planner",
+  "domain": "планирование маршрутов / outdoor navigation / мультиспорт",
+  "oneLiner": "Footpath — iOS-первый планировщик маршрутов для бега, ходьбы, велосипеда и хайкинга: рисуешь пальцем по карте, приложение привязывает линию к реальным тропам и дорогам, считает дистанцию и набор высоты, затем ведёт тебя через Apple Watch без необходимости доставать телефон",
+  "pricing": "бесплатная версия покрывает базовое рисование маршрутов и просмотр; голосовая навигация (turn-by-turn) — платная, около $2/мес или $16/год (Elite); пользователи из разных стран жалуются на отсутствие варианта разовой покупки и называют Elite дорогим относительно аналогов вроде bergfex",
+  "keyFeatures": [
+    "рисование маршрута пальцем или стилусом с автоматической привязкой к тропам и дорогам (snap-to-path)",
+    "режим свободного рисования без привязки для off-trail маршрутов",
+    "профиль высот (elevation profile) в реальном времени при планировании",
+    "навигация на Apple Watch без iPhone — полноценная карта и голосовые подсказки только с часами",
+    "параллельная работа с встроенным workout-приложением Apple Watch (можно получать ~50 ч GPS при совместном запуске в ultra low power mode)",
+    "офлайн-карты для использования без связи в горах и за рубежом",
+    "запись активности и синхронизация с Apple Health",
+    "экспорт маршрутов в GPX / Garmin; ограниченная нативная интеграция со Strava (только через сторонние приложения)"
+  ],
+  "competitors": [
+    "AllTrails",
+    "Strava (route builder)",
+    "Komoot",
+    "Gaia GPS",
+    "Garmin Connect",
+    "bergfex",
+    "Openrunner",
+    "Whympr / Fatmap",
+    "CityStrides",
+    "Apple Maps / Google Maps (базовое планирование)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "I found originally from looking for the best app to sync truly offline maps to Apple Watch, ie no iPhone required",
+      "observation": "Ключевое конкурентное преимущество Footpath — полностью автономная навигация на Apple Watch: карта загружается на часы заранее и работает без Bluetooth-связи с телефоном, что критично для трейл-раннеров, которые берут только часы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "Can have map in background (no turn by turn) with stock app in ultra low power mode, meaning you can get ~50 hrs of gps and hr tracking while also being supported by the map",
+      "observation": "Footpath умеет работать параллельно со штатным workout-приложением Apple Watch: при запуске нативного трекера в режиме ультра-низкого энергопотребления часы суммируют навигационную карту Footpath и трекинг пульса/GPS, давая до 50 часов автономной работы — сценарий, недостижимый в приложениях-монополистах.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "saving it can only be done if you intuit that the icon usually meaning 'share' or 'export' (a box in the upper right-hand corner of the route-editing screen) is actually what you tap to do that",
+      "observation": "Сохранение маршрута спрятано за иконкой 'поделиться' (квадрат со стрелкой вверх) — стандартной иконкой экспорта iOS, которую пользователи не воспринимают как 'сохранить': механизм сохранения нарушает ожидание платформы и создаёт барьер даже для опытных пользователей смартфонов.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "bei einer 2 Stunden Tour die ich diese App getestet hab auf einer Apple Watch 9 gleich 46% Akku? Also nur eine 4 Stunden Wanderung möglich",
+      "observation": "При навигации через Footpath на Apple Watch Series 9 приложение потребляет около 23% заряда в час — вдвое больше, чем нативное workout-приложение; это ограничивает использование на длинных однодневных походах и делает приложение непригодным для многодневных треков без доступа к зарядке.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it sticks on footpaths that should run on and sends you off down crazy loops and u-turns when the linkage between two paths is obvious",
+      "observation": "Алгоритм snap-to-path иногда «залипает» на соседней тропе или прокладывает петлю вместо прямого соединения двух очевидных точек — пользователь вынужден многократно корректировать вручную, а редактирование уже размещённой точки описывается как 'fiddly and irritating'.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It won't work for hiking in the UK. The map doesn't show footpaths which are available for public use, or bridleways or byways",
+      "observation": "В Великобритании сеть публичных пешеходных троп (rights of way: footpaths, bridleways, byways) юридически отделена от дорожной сети и хранится в отдельных реестрах — Footpath не показывает эту сеть, из-за чего приложение непригодно для пешего туризма на территории Англии и Уэльса, где движение вне официальных троп незаконно.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

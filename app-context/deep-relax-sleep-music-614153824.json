@@ -1,0 +1,75 @@
+{
+  "productId": "ext-614153824",
+  "slug": "deep-relax-sleep-music-614153824",
+  "name": "Deep Relax Sleep Music",
+  "domain": "сон / ambient звуки / white noise",
+  "oneLiner": "генератор фоновых звуков для сна и медитации: одновременный микс природных звуков, бинауральных ритмов и белого шума; iOS, freemium с подпиской ~$20/год",
+  "pricing": "бесплатно ~8-11 звуков; полная библиотека (~50 звуков) за подпиской ~$20/год (ранее продавалась разовой покупкой — модель сменилась, что вызвало волну протестов от старых покупателей); 7-дневный триал; некоторые категории звуков (дождь на крыше, река, огонь) доступны только платно",
+  "keyFeatures": [
+    "одновременный микс нескольких звуков (природа + бинауральные + белый шум) — несколько треков воспроизводятся параллельно, пользователь собирает свой коктейль",
+    "фоновое воспроизведение поверх других аудио-приложений (Audible, подкасты, Spotify, Apple Music)",
+    "таймер автоотключения — задаётся вручную (обнаружены давние баги: таймер не останавливается или сбрасывается сам по себе)",
+    "бинауральные ритмы (binaural beats) в отдельной категории звуков",
+    "природные звуки: океан, дождь, птицы, лес, река, огонь, музыкальная шкатулка, пение",
+    "белый шум и городские фоны",
+    "простой интерфейс без входа в аккаунт — старт с нуля за секунды"
+  ],
+  "competitors": [
+    "Calm",
+    "Headspace",
+    "Noisli",
+    "Rain Rain Sleep Sounds",
+    "White Noise Lite",
+    "Sleep Sounds - Baby White Noise",
+    "Relax Melodies",
+    "Binaural Beats Therapy"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "This one has binaural plus nature sounds, and you can create custom sound sets. It runs in background when you listen to Kindle, Audible, Music, Podcast, News or anything.",
+      "observation": "Приложение реализует истинное фоновое воспроизведение: пользователь запускает Deep Relax, затем открывает Audible или подкаст — оба аудиопотока играют одновременно. Большинство звуковых приложений глушат фон при переключении на другое медиа; здесь это работает иначе.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I love that I do not have to have two apps to play to different noses I love it",
+      "observation": "Одновременный микс нескольких источников (например, птицы + океан + музыкальная шкатулка) решает задачу, которую раньше пользователи закрывали двумя отдельными приложениями. Механика не требует переключения — все треки живут на одном экране.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I love the ability to play several sounds at once, for any length of time. And there are plenty of free choices.",
+      "observation": "Пользователи, успокаивающие питомцев (собаки во время салютов) используют микс музыкальной шкатулки + птиц + лёгкого пения через Bluetooth-колонку: вариативность микса превращает приложение в инструмент управления акустической средой комнаты, а не просто в плеер.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Got an update to take care of 'bugs' and whatever else, now timer doesn't work to end sounds or exit app",
+      "observation": "Таймер автоотключения перестал работать после одного из обновлений — вместо остановки через заданное время приложение продолжает воспроизведение всю ночь. Проблема упоминается в отзывах разных лет и разных версий iOS, то есть не была устранена за несколько лет активного использования.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Crashes constantly with iOS 13... they have not updated the app to work with iOS 13 and now it won't even open. I have a paid subscription to this app too",
+      "observation": "После выхода iOS 13 (октябрь 2019) приложение перестало запускаться на iPhone и iPad по всему миру: десятки отзывов из США, Бразилии, Германии, Мексики, Австралии описывают crash при открытии. Разработчик не выпускал обновление больше года — платные пользователи потеряли доступ к купленному контенту без компенсации.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "after purchasing it and having it over 6 years I lost all the sounds and it's asking me for money?!? I've reached out 2x to the support contact and no response",
+      "observation": "Переход с модели разовой покупки на подписку лишил долгосрочных пользователей доступа к уже оплаченному контенту — после обновления приложение требует повторную оплату, а поддержка не отвечает на запросы. Механизм восстановления покупок (restore purchases) или не работает, или не задокументирован.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics, no iOS version mentioned)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more sounds (generic ask)",
+    "Subscription auto-renewed (commodity unless deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "App does not work (commodity unless iOS version and reproducible steps given)"
+  ]
+}

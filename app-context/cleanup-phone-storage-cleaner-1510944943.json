@@ -1,0 +1,72 @@
+{
+  "productId": "ext-1510944943",
+  "slug": "cleanup-phone-storage-cleaner-1510944943",
+  "name": "Cleanup: Phone Storage Cleaner",
+  "domain": "очистка хранилища / photo organization / file management",
+  "oneLiner": "iOS-приложение для освобождения памяти телефона: сканирует фото, видео и скриншоты, группирует дубликаты и размытые снимки по категориям для пакетного удаления; дополнительно заявляет функцию отписки от email-рассылок",
+  "pricing": "7-дневный бесплатный триал (требует ввода карты); бесплатная версия ограничена 5 удалениями в день; подписка ~$9.99/неделю или ~$9.99/месяц в зависимости от рынка (бразильский рынок — около 59 BRL/неделю); отмена только через настройки iOS, не через интерфейс приложения; по отзывам ряда пользователей списание начиналось немедленно несмотря на заявленный триал",
+  "keyFeatures": [
+    "сканирование фотобиблиотеки и группировка по категориям: дубликаты, похожие снимки, размытые фото, скриншоты, видео",
+    "пакетный просмотр и выбор для удаления внутри каждой категории",
+    "режим swipe-to-keep/delete для быстрого принятия решений по снимкам (анонсируется в рекламе)",
+    "отчёт о занятом месте с разбивкой по типам контента",
+    "функция отписки от email-спама (email cleaner)",
+    "сохранение «сентиментальных» размытых фото по выбору пользователя",
+    "возврат в то же место после перезапуска приложения"
+  ],
+  "competitors": [
+    "Фото встроенный менеджер iOS (Albums → Duplicates)",
+    "Gemini Photos",
+    "Smart Cleaner - Phone Storage",
+    "iCloud Storage (покупка дополнительного места)",
+    "ручная чистка через стандартное приложение Фото"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "I went to empty the 'recently deleted' tab on my phone and found over 2000 photos deleted that I did NOT delete through the cleanup app",
+      "observation": "Приложение самостоятельно отправило более 2000 фотографий в «Недавно удалённые» без явного подтверждения пользователя: удаление произошло вне сессии работы с приложением, что делает восстановление возможным, но крайне трудоёмким.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the app constantly times out/kicks me out of the app every 10 seconds... I cancelled the 'free trial' less than 15 minutes after I started it",
+      "observation": "Приложение аварийно завершается каждые 30–90 секунд работы: при большой фотобиблиотеке для удаления одной пачки похожих снимков пользователю требуется 10+ перезапусков, а всё время триала уходит на эти циклы, не оставляя возможности оценить продукт до списания.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "After the first time you make the storage thing get rid of your stuff you have to pay $9.99 for no reason",
+      "observation": "Бесплатный режим позволяет выполнить ровно один полный прогон сканирования и удаления, после чего функционал блокируется пейволлом — пользователь узнаёт об этом только после того, как потратил время на разметку фото.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "The trash keeps emptying automatically. And the app wanted permission to compose emails. I didn't feel comfortable with that.",
+      "observation": "Приложение запрашивает разрешение на «сочинение писем» (compose emails) — нестандартный для клинера доступ, который настораживает пользователей; при этом корзина очищается автоматически без предупреждения, исключая возможность восстановить случайно удалённое.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The email cleaner function doesn't work, I spent 20 minutes on the app unsubscribing from old emails and the next day I was still receiving all the spam",
+      "observation": "Email-функция визуально имитирует отписку от рассылок, но реального эффекта нет: пользователь потратил 20 минут на интерфейс отписки и на следующий день получал те же письма — функция декоративная.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the whole swiping to delete/save doesn't exist. It costs money to use, and very hard to cancel subscription. It didn't delete any of my photos after I spent hours on the app",
+      "observation": "Рекламный материал демонстрирует Tinder-подобный свайп для сортировки фото, которого в реальном приложении нет; часть пользователей, проведших в интерфейсе несколько часов, обнаруживает, что удаления так и не произошло — приложение показывает действия, но не применяет их.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics about trigger or data loss)",
+    "User says it is too expensive (commodity)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants to delete more photos (generic ask without mechanism)",
+    "Subscription auto-renewed (commodity unless specific deceptive flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible mechanism)",
+    "User gives 5 stars saying 'great app' with no detail"
+  ]
+}

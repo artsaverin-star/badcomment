@@ -1,0 +1,75 @@
+{
+  "productId": "ext-417571834",
+  "slug": "private-photo-vault-pic-safe-417571834",
+  "name": "Private Photo Vault - Pic Safe",
+  "domain": "приватное хранилище фото и видео / защищённый сейф на устройстве",
+  "oneLiner": "Enchanted Cloud — iOS/Android-сейф для фотографий и видео с пин-кодом/Face ID на каждую папку, отдельным облаком от iCloud/Google и встроенным редактором; конкурентKeepSafe, Best Secret Folder",
+  "pricing": "исторически продавался как lifetime (разовая покупка); с 2024-2025 переведён на подписку Premium (~месячная/годовая); пользователи с lifetime-покупкой получают рекламу и пейволлы поверх оплаченного функционала; бесплатная версия позволяет загрузить фото, но блокирует их скачивание и угрожает удалением при отказе от подписки",
+  "keyFeatures": [
+    "запароленные альбомы с пин-кодом и/или Face ID на каждую папку",
+    "импорт фото и видео из Camera Roll с опциональным удалением оригинала",
+    "собственное облако (отдельное от iCloud и Google Photos) для переноса между устройствами",
+    "встроенный фоторедактор (кроп, фильтры, базовая коррекция)",
+    "встроенный браузер с приватным режимом для скачивания фото напрямую в сейф",
+    "организация по альбомам с отдельными паролями",
+    "поддержка документов, PDF и скриншотов (не только фото)",
+    "функция 'Fake PIN' / отвлекающий PIN для демонстрации пустого хранилища"
+  ],
+  "competitors": [
+    "KeepSafe Photo Vault",
+    "Best Secret Folder",
+    "Calculator+ (скрытый сейф под видом калькулятора)",
+    "Google Photos (закрытая папка)",
+    "Apple Photos (скрытый альбом)",
+    "Folder Lock",
+    "KYMS - Keep Your Media Safe"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "when you buy a new device, their Photo Vault program will forget your passcode. You will enter your code and will get a message that it's wrong.",
+      "observation": "При переходе на новое устройство пароль от хранилища перестаёт работать: приложение не привязывает PIN к аккаунту, а к устройству — пользователь лишается доступа к своим файлам даже при наличии облачного бэкапа, и служба поддержки отказывается создавать новый пароль через email.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "It lets you upload a bunch of memories, then a few weeks in it locks them away, and won't let you download them, saying you need premium to download the photos, it literally blocks the screen, and threatens to delete your photos if you press 'downgrade'",
+      "observation": "Приложение реализует классический dark pattern 'загрузи и попади в ловушку': фото принимаются бесплатно, но экспорт заблокирован за пейволлом, а при отказе от подписки всплывает угроза удаления — контент хранится на устройстве пользователя, но выдаётся за услугу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The latest updates completely ruined the app with 'Premium' subscription advertisements, even if you have already paid full price for this app in the past. No more setting the web homepage (now you are forced to use the one leading to one of their servers - so they can track you?). Pay extra if you want to be able to recover deleted pictures, even if you already paid for the app.",
+      "observation": "После перехода на подписочную модель уже оплаченные пожизненные функции (кастомная стартовая страница браузера, очистка кэша, корзина для удалённых фото) перенесены за новый пейволл, а браузер теперь принудительно открывает домашнюю страницу разработчика — пользователь платил за приватность, получает слежку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "There is now a collections tab which if you click on it will reveal some the contents of folders that were supposed to be private. There is also no option to remove/disable this oversight.",
+      "observation": "Обновление добавило вкладку 'Коллекции', которая агрегирует превью из запароленных альбомов и показывает их без ввода пароля — базовая гарантия приватности нарушена самим же приложением, и отключить эту вкладку в настройках нельзя.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Back in the day I paid for lifetime version. Since then the app has added 'features' and stuff but now it wants me to pay a subscription for it. That's so disrespectful to sell something, full version, lifetime, then add a bunch of new stuff and say nah, not for you.",
+      "observation": "Разработчики монетизировали старых lifetime-покупателей через 'новые фичи': технически старый функционал остался бесплатным, но весь UI теперь заполнен промо-экранами подписки — пользователь не потерял доступ, но потерял UX, за который платил.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it went to pay only and I had to agree to a week free trial just to retrieve existing photos. I got billed even though I do not have it installed.",
+      "observation": "На Android-версии введение подписки заблокировало доступ к уже загруженным фото: чтобы достать свои снимки, пользователь вынужден активировать 'бесплатный' триал, который выставляет счёт даже после удаления приложения.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

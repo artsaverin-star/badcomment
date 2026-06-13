@@ -1,0 +1,73 @@
+{
+  "productId": "ext-6746537171",
+  "slug": "unrot-earn-your-screen-time-6746537171",
+  "name": "Unrot: Earn your Screen Time",
+  "domain": "контроль экранного времени / борьба с думскроллингом / цифровой детокс",
+  "oneLiner": "iOS-приложение против думскроллинга с персонализированным планом через квиз и механикой 'заработай экранное время' — выполняй офлайн-задачи, чтобы разблокировать телефон; только подписка, без бесплатной версии",
+  "pricing": "только подписка, бесплатного уровня нет совсем; тарифы варьируются в зависимости от региона — около £8/неделю или £49/год (UK), $70/год или $8-10/неделю (US), 10€/месяц (EU); есть 'ограниченное по времени предложение', которое на деле не ограничено и висит до момента покупки; приложение листинговано в App Store как 'бесплатное', что вводит пользователей в заблуждение",
+  "keyFeatures": [
+    "персонализированный онбординг-квиз — серия вопросов о привычках и целях, формирует индивидуальный план",
+    "механика 'заработай экранное время' — офлайн-активности (прогулка, уборка, спорт) разблокируют время на телефоне",
+    "таймер экранного времени с блокировкой приложений — список разрешённых приложений задаётся пользователем",
+    "трекинг привычек и ежедневных офлайн-задач",
+    "статистика и визуализация использования телефона (например, пересчёт часов в 'дни в году')",
+    "голосование пользователей за новые функции — разработчики декларируют учёт запросов",
+    "уведомления с предложениями подписки для незарегистрированных пользователей"
+  ],
+  "competitors": [
+    "встроенный Screen Time (iOS Settings) — бесплатный, нативный",
+    "One Sec — пауза перед открытием приложений",
+    "Opal — блокировщик с фокус-сессиями",
+    "BeReal / Daylio — альтернативные якоря для офлайн-привычек",
+    "Forest — метафора 'вырасти дерево пока не трогаешь телефон'"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "I can choose apps that should be unlocked during the timer, however that doesn't work. I can't listen to music while cleaning, have no notes while playing piano and can't do my workouts during the timer",
+      "observation": "Механика таймера блокирует весь телефон, включая приложения, явно добавленные пользователем в список разрешённых в настройках — настройка whitelist де-факто не работает: музыка не играет при уборке, ноты недоступны при игре на пианино.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "the 'limited time deal' isn't limited it's until you buy it",
+      "observation": "Экран с предложением подписки использует счётчик срочности ('ограниченное предложение'), который не сбрасывается: он отображается при каждом открытии приложения до момента оплаты, а не исчезает по истечении таймера.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Should not be labeled on the App Store as 'free'. Completely blocked by a subscription model, no way to try it out, or even test it without paying",
+      "observation": "Приложение листинговано в App Store как бесплатное, однако после длинного квиза пользователь упирается в обязательную подписку без каких-либо возможностей попробовать функционал — фактически онбординг-квиз это единственный бесплатный контент.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Got stuck on getting started page. On iPhone SE and literally can't continue after the page '...and this is how much of that time you spend scrolling' screen literally cutoff",
+      "observation": "На iPhone SE экран статистики экранного времени (ключевой 'aha moment' онбординга) обрезается из-за несовместимости вёрстки с малым экраном — пользователь физически не может пройти дальше и попасть на экран оплаты.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it told me to pay nope not doing it ... I would probably have a positive review if it didn't cost money to even use it. I thought I'd help get rid of my phone addiction but instead I was left with an app that'll only send me notifications about stupid deals to convince me to pay money",
+      "observation": "После отказа от подписки приложение переходит в режим spam-уведомлений с предложениями купить план — пользователь, скачавший приложение для помощи с зависимостью, получает вместо этого маркетинговые пуши.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "This app has told me that I've spent 76 days a year on my phone. This is crazy and I feel like this app is gonna help me so much to not be on my phone",
+      "observation": "Квиз пересчитывает ежедневные часы экранного времени в 'дни в году' (например, 5 часов/день = 76 дней/год) — конкретная цифра создаёт эффект осознания масштаба, который мотивирует пользователей к подписке даже при скептицизме к цене.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity — несмотря на то что это главная жалоба, без деталей конкретной суммы или механизма это commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates having to pay (commodity unless describes specific deceptive mechanism)",
+    "User wants a free version (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)",
+    "App made me stop scrolling (non-information without specifics on how)"
+  ]
+}

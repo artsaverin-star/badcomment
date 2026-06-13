@@ -1,0 +1,75 @@
+{
+  "productId": "ext-1584215688",
+  "slug": "clock-1584215688",
+  "name": "Clock",
+  "domain": "будильники / таймер / секундомер / мировое время",
+  "oneLiner": "Встроенное приложение Apple Clock (iOS) — будильник, таймер, секундомер, мировое время; предустановлено на каждом iPhone; без подписок и альтернатив в системе",
+  "pricing": "бесплатно, предустановлено Apple; монетизации нет — но и удалить или заменить штатными средствами нельзя",
+
+  "keyFeatures": [
+    "будильник с повтором и расписанием по дням недели",
+    "режим «Wake Up» — интеграция с Apple Health / Sleep для плавного пробуждения",
+    "таймер с выбором звука окончания (включая вариант «Стоп»)",
+    "секундомер с кругами",
+    "мировое время — аналоговые и цифровые циферблаты городов мира",
+    "виджет на экране блокировки и домашнем экране",
+    "выбор звука будильника из встроенной библиотеки (Radar, Ripple, Chimes и др.)"
+  ],
+
+  "competitors": [
+    "Alarmy (Sleep If U Can)",
+    "Clocks — Alarm Clock",
+    "Carrot Alarm",
+    "Sleep Cycle",
+    "Google Clock (Android)",
+    "встроенный таймер Apple Watch"
+  ],
+
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "The notification often goes off silently, even when not in silent mode. Not even a vibration.",
+      "observation": "После обновления iOS 26 будильник воспроизводит анимацию срабатывания на экране, но не издаёт звука и не вибрирует — даже при максимальной громкости и выключённом тихом режиме. Это системный регресс в звуковом стеке iOS, а не пользовательская ошибка настроек.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The notification badge often appears at the top of the screen when unlocked and is about the size of a grain of rice, virtually invisible.",
+      "observation": "В iOS 26 уведомление будильника отображается не полноэкранным баннером, а компактным пузырьком в углу экрана (размер с рисовое зёрнышко) — пользователь физически не видит сигнал и не может его отклонить или отложить без разблокировки и поиска элемента.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The stopwatch resets to 0 and has many other stopwatches reappearing after days with upwards of 70 hours logged on it.",
+      "observation": "Секундомер накапливает фантомные сессии: после сброса на экране появляются несуществующие секундомеры с десятками часов набега — вероятно, из-за рассинхрона состояния с фоновым процессом. Результатом становится полная непригодность инструмента для измерения реального времени.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "To have my alarms tied in with the health app sucks. Alarms don't go off. I don't want to be reminded of things through the health app.",
+      "observation": "Apple принудительно связала режим Wake Up с Apple Health: при настройке через Sleep Schedule будильники маршрутизируются через стек здоровья, а не через стандартный звуковой канал — что ломает их надёжность и запутывает пользователей, ожидавших обычного будильника.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I set multiple alarms a day and when I stop the first alarm, they all disable and automatically turn off.",
+      "observation": "При отклонении первого сработавшего будильника приложение автоматически деактивирует все остальные на тот же день — поведение, документально не описанное, которое лишает пользователей резервных сигналов и систематически приводит к опозданиям.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I had to download a new alarm app bc yall deleted all of mine and now won't let me make new ones bc of the sleep schedule feature.",
+      "observation": "Обновление с включённым Sleep Schedule удаляет ранее созданные пользователем будильники и блокирует создание новых через стандартный интерфейс — механизм миграции навязывает режим сна без явного согласия пользователя.",
+      "specificity": "high"
+    }
+  ],
+
+  "badObservationExamples": [
+    "User says alarm doesn't work (no specifics about version, sound setting, or mode)",
+    "User loves the stopwatch (non-information)",
+    "User wants more alarm sounds (generic feature request)",
+    "User complains it's too basic (commodity for a preinstalled utility)",
+    "User says it's just a clock (non-information)",
+    "User hates the new design (commodity UI opinion without mechanism)"
+  ]
+}

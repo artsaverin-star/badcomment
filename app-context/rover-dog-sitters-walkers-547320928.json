@@ -1,0 +1,74 @@
+{
+  "productId": "ext-547320928",
+  "slug": "rover-dog-sitters-walkers-547320928",
+  "name": "Rover—Dog Sitters & Walkers",
+  "domain": "pet care / marketplace выгула и передержки питомцев",
+  "oneLiner": "двусторонний маркетплейс (США, Канада, Европа) для поиска и бронирования сиделок и выгульщиков собак и кошек; два типа пользователей — владельцы питомцев и ситтеры-фрилансеры; iOS+Android",
+  "pricing": "для владельцев: сервисный сбор Rover сверх ставки ситтера (~15-20% к цене); «Rover Cash» как форма компенсации при отменах (истекает, срок не раскрывается заранее); для ситтеров: единоразовый сбор $49-$60 за «profile review» или background check при регистрации; Rover удерживает ~25-31% от суммы каждого бронирования",
+  "keyFeatures": [
+    "карта поиска ситтеров с фильтрами (вид услуги, дата, тип питомца, цена)",
+    "бронирование услуг: boarding (передержка дома у ситтера), house sitting, drop-in visits, doggy day care, dog walking",
+    "система отзывов и рейтингов ситтеров",
+    "мессенджер между владельцем и ситтером внутри приложения",
+    "обновления статуса и GPS-треки прогулок (report cards)",
+    "интеграция с Google Calendar для ситтеров",
+    "Rover Guarantee — страховое покрытие при происшествиях во время бронирования",
+    "профиль ситтера: фото, биография, ставки, календарь доступности"
+  ],
+  "competitors": [
+    "Wag! — Dog Walking & Pet Care",
+    "Cat in a Flat (поглощён Rover в 2025-2026)",
+    "PetSitter.com",
+    "TrustedHousesitters",
+    "Fetch! Pet Care",
+    "Care.com (раздел pet care)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "clicking on someone's profile while searching on the map makes them completely disappear and you can't look again. The map itself returns inconsistent results that vary based on zoom",
+      "observation": "Баг в поисковой карте: тап на профиль ситтера убирает его из выдачи, а результаты меняются при масштабировании — то есть пользователь видит разный пул ситтеров в зависимости от зума, и не может вернуться к только что найденному профилю.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "they blocked my account and told me I had to follow up via my registered email to resolve the issue. Here is the catch: they blocked my registered email too! When I try to reply, they don't receive it because they've blocked the address, yet their support team keeps mindlessly repeating that sending from the original registered email is the 'only way' to solve the case",
+      "observation": "Механизм поддержки содержит тупиковую петлю: при блокировке аккаунта саппорт требует ответа с зарегистрированного email-адреса, который также заблокирован — письма не доходят, а скрипт агента продолжает повторять то же требование, полностью лишая пользователя выхода.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Their new algorithm makes it so when you don't accept every single booking that is sent to you. You are no longer visible to new sitters. Because not everyone can take every dog. I am the highest rated and most booked sitter in my area",
+      "observation": "Алгоритм ранжирования скрывает ситтеров из поиска, если те отклоняют хоть часть запросов — даже топовых по рейтингу и числу бронирований; система не различает «занят» и «выборочно отказывает», что принуждает ситтеров принимать всё подряд ради видимости.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I can't block off just Wednesday morning. I have to either block off the entire day, say I'm never available in the morning, or reduce the number of walks/drop ins I can do that day. If a request comes in for Wednesday morning and I deny it, I get penalized",
+      "observation": "Календарь доступности работает в гранулярности целого дня, не временных слотов: ситтер не может заблокировать одно утро без потери всего дня, а отказ от конкретного запроса (при формально открытом дне) засчитывается системой как несоответствие расписания и снижает видимость профиля.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "it enters bookings that you have not confirmed, and there is no way to delete them. My calendar is now filled with bookings that I do not actually have",
+      "observation": "Синхронизация с Google Calendar добавляет неподтверждённые запросы как реальные события и не предоставляет механизма их удаления — ситтер видит захламлённый календарь с «фантомными» бронированиями, которые нельзя отличить от настоящих.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "any desired refunds are expected to first be approved from the sitter who provided the incomplete/unsatisfactory service. instead of refunding on behalf of the company, as expected, they refer to their sitters as 'small business owners' and make them take the loss",
+      "observation": "Политика возвратов перекладывает ответственность на ситтера: Rover позиционирует их как «независимых предпринимателей» и направляет недовольных клиентов согласовывать возврат напрямую с исполнителем — при этом сам Rover взимает сервисный сбор с каждой транзакции вне зависимости от исхода.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it is too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

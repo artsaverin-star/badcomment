@@ -1,0 +1,74 @@
+{
+  "productId": "ext-987986743",
+  "slug": "trailforks-offline-bike-maps-987986743",
+  "name": "Trailforks: Offline Bike Maps",
+  "domain": "трейл-навигация / горный велосипед / outdoor GPS",
+  "oneLiner": "Trailforks (Pinkbike → Outside Inc.) — краудсорсная база MTB-трейлов с офлайн-картами, записью активностей и интеграцией с Garmin/Strava; iOS+Android; изначально бесплатная платформа, переведённая на подписку после смены владельца",
+  "pricing": "бесплатная версия с жёстко урезанным доступом: один регион, нельзя менять его без Pro, трейлы в радиусе 5 миль не открываются, большой баннер «Upgrade to Pro» перекрывает пол-экрана; Pro — около $53–90/год (цены варьируются по источникам и регионам); входит в пакет Outdoors+ (Gaia GPS + Trailforks), но отмена Gaia не отменяет Trailforks автоматически — пользователи получают двойной чардж",
+  "keyFeatures": [
+    "краудсорсная база MTB-трейлов с рейтингами сложности, фотографиями и актуальными отчётами о состоянии покрытия",
+    "офлайн-карты: скачивание региона для навигации без сети на трейле",
+    "GPS-запись активностей прямо в приложении (ride tracking)",
+    "построение маршрутов (route planner) через карту — в приложении и в вебе",
+    "интеграция с Garmin-часами и Wahoo-компьютерами для синхронизации треков",
+    "синхронизация с Strava",
+    "трейлхед-навигация: как добраться до старта трейла на машине",
+    "community-отчёты о состоянии трейла (trail conditions log)"
+  ],
+  "competitors": [
+    "AllTrails",
+    "Komoot",
+    "MTB Project (REI)",
+    "Gaia GPS",
+    "Strava (segment maps)",
+    "Wahoo Element (встроенный роутинг)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "This was extremely useful on our trip to Bentonville. It's hard to justify the subscription price under normal circumstances, I already have trails memorized in my local area.",
+      "observation": "Ценность приложения резко падает для домашних райдеров, которые знают свои трейлы наизусть: Pro окупается только в поездках на незнакомые площадки, а не как постоянная подписка.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Got this app with Gaia Pro. Canceled my subscription with Gaia thinking it would also cancel Trailforks but nope...got charged $53 on 6/1/26 for an app I no longer use.",
+      "observation": "Trailforks и Gaia GPS продаются как пакет Outdoors+, но биллинг у каждого продукта независимый — отмена Gaia не прекращает подписку Trailforks, и автопродление списывает полную годовую сумму даже если приложение не открывалось ни разу после ренью.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I also dislike the underhanded way it suddenly changed from 'trailforks will always be free' to a practically useless free version and having to pay a subscription to access information that users provided trailforks for free.",
+      "observation": "Платформа строилась на публичном контрибьютинге: пользователи годами добавляли трейлы и отчёты бесплатно. После перехода к Outside Inc. эти же данные оказались за пейволлом — воспринимается как нарушение социального контракта, а не просто рост цены.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Useless unless you pay…. Literally 95% of the app is locked behind a paywall. Just disgusting. You guys ever wonder why AllTrails has over a million downloads? Because you can actually SEE useful information WITHOUT having to pay!",
+      "observation": "В бесплатном режиме нельзя открыть детали трейла дальше 5 миль от текущей позиции — механика, которая делает приложение бесполезным для планирования поездки заранее; AllTrails показывает полные данные без авторизации, что в отзывах ставится прямым сравнением.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Hard to use unless you pay for premium. The big banner blocking half the screen and not being able to information about a trail on the free version makes this app useless for anyone who doesn't want the *fork* over $60 a year.",
+      "observation": "Баннер «Upgrade to Pro» физически перекрывает нижнюю половину экрана карты — это не тонкий апсейл, а интерфейсный барьер, который делает бесплатную карту нечитаемой на мобильном.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "NEW BUG, Waypoints dont save where you place them, but centre on the icon instead. The Slide-out window pane randomly stops working. Viewing user profiles does not work. Region Selection is Buggy, Filters are Buggy.",
+      "observation": "Несколько критических взаимодействий сломаны одновременно: вейпоинты смещаются к иконке вместо точки касания, боковая панель зависает, фильтры трейлов не применяются — платный пользователь описывает состояние как 'need of serious repairs' при том что фиксы выходят медленно.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

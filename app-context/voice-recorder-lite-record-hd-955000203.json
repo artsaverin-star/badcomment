@@ -1,0 +1,72 @@
+{
+  "productId": "ext-955000203",
+  "slug": "voice-recorder-lite-record-hd-955000203",
+  "name": "Voice Recorder Lite: Record HD",
+  "domain": "диктофон / запись аудио / голосовые заметки",
+  "oneLiner": "базовый диктофон для iPhone с HD-качеством записи; бесплатная версия фиксирует звук, но любое действие с файлом (сохранение, экспорт, шеринг) требует Pro за $5.99",
+  "pricing": "бесплатная версия — только запись и прослушивание внутри приложения; Pro ~$5.99 (единоразово) открывает экспорт, шеринг, конвертацию в MP3; бесплатная версия монетизируется агрессивной рекламой (до 5 роликов в минуту)",
+  "keyFeatures": [
+    "запись голоса и окружающего звука в HD-качестве через встроенный микрофон или внешний (Bluetooth)",
+    "воспроизведение записей внутри приложения",
+    "экспорт через iTunes File Sharing (бесплатно) или шеринг/email/облако (только Pro)",
+    "конвертация в MP3/другие форматы (только Pro)",
+    "облачное хранилище записей (только Pro)",
+    "счётчик времени воспроизведения и общий хронометраж библиотеки",
+    "список записей без папок и без поиска"
+  ],
+  "competitors": [
+    "Voice Record Pro",
+    "Встроенные 'Диктофон' (Voice Memos) от Apple",
+    "Rev Voice Recorder",
+    "Otter.ai",
+    "iTalk Recorder"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "you can't save it, share it, or basically do anything with it unless you upgrade to the paid version",
+      "observation": "Бесплатная версия записывает аудио, но намеренно блокирует любой вывод файла за пределы приложения — сохранить на устройство, отправить по email или поделиться через мессенджер невозможно без покупки Pro. Пользователь узнаёт об этом только после того, как уже сделал важную запись.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Ads will play during playback and recording, rendering the app near useless. Exit buttons are often obscured",
+      "observation": "Рекламные ролики запускаются не только между сессиями, но прямо во время активной записи и воспроизведения, перебивая звук; кнопка закрытия рекламы намеренно скрыта или смещена — пользователь не может быстро вернуться в приложение.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Ads pop up that force you to visit a website with no other option. Then a FRAUDULENT 'settings' message tells you you're almost out of memory and prompts you to download an app",
+      "observation": "Часть рекламных баннеров имитирует системные уведомления iOS: поддельное сообщение о «заканчивающейся памяти» ведёт на сторонний сайт — это классический dark pattern, граничащий с мошенничеством и не имеющий отношения к функциям самого приложения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "no soon as you leave the app it stops recording! WHAT IS THE POINT OF A RECORDING APP IF IT DOESN'T RUN IN THE BACK GROUND",
+      "observation": "Запись останавливается при переключении в любое другое приложение: iOS-фоновый режим либо не реализован, либо заблокирован — это делает приложение непригодным для записи встреч, лекций или совещаний, где нужно параллельно пользоваться телефоном.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Although the free version states that you can download to iTunes, the files are nowhere to be found",
+      "observation": "Единственный бесплатный путь экспорта — iTunes File Sharing — задокументирован в описании приложения, но на практике файлы не отображаются в Finder/iTunes, а сам iTunes как приложение уже не существует в новых версиях macOS.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I was trying to test the mic on my Bluetooth headset, when suddenly, this app, without warning, popped up an unbelievably loud, full screen ad, blowing my eardrums out",
+      "observation": "При использовании Bluetooth-наушников с высокой громкостью полноэкранная реклама может запуститься без предупреждения прямо в момент мониторинга микрофона: звук рекламного ролика воспроизводится на максимальной громкости, что физически болезненно и немедленно ведёт к удалению приложения.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}
