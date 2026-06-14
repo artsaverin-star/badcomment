@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -31,9 +32,16 @@ function loadTg(): TgState | null {
 }
 
 function ModalShell({ onClose, ru, children }: { onClose: () => void; ru: boolean; children: React.ReactNode }) {
-  return (
+  // Render into <body> via a portal. The header has backdrop-filter, which makes
+  // it a containing block for position:fixed — without the portal the modal
+  // anchors to the header and flies to the top instead of centering.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-black/50 [animation:sheet-backdrop-in_.2s_ease] sm:items-center"
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 backdrop-blur-sm [animation:sheet-backdrop-in_.2s_ease] sm:items-center"
       onClick={onClose}
     >
       <div
@@ -52,7 +60,8 @@ function ModalShell({ onClose, ru, children }: { onClose: () => void; ru: boolea
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
@@ -320,7 +329,7 @@ export default function AuthModal({
   return (
     <ModalShell onClose={onClose} ru={ru}>
       <div className="mb-6 text-center">
-        <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl bg-[var(--color-text-brand)] text-[22px] font-bold text-white [font-family:var(--brand-font-family)]">
+        <div className="bg-gradient-brand glow-brand mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl text-[22px] font-bold text-white [font-family:var(--brand-font-family)]">
           iA
         </div>
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
@@ -394,7 +403,7 @@ export default function AuthModal({
           <button
             type="submit"
             disabled={loading || !email.trim() || !password}
-            className={`${btnBase} bg-[var(--color-text-brand)] text-white hover:opacity-90`}
+            className={`${btnBase} bg-gradient-brand glow-brand text-white hover:opacity-95`}
           >
             {loading ? "…" : mode === "register" ? (ru ? "Создать аккаунт" : "Create account") : ru ? "Войти" : "Sign in"}
           </button>

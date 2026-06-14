@@ -132,3 +132,64 @@ details[open]::details-content {
     transform: translateY(0);
   }
 }
+
+/* ── Global redesign: deep, glowy dark theme with a vivid violet→blue accent ──
+   A premium "crypto-native" look (getgems-inspired): the whole site reskins by
+   overriding the design-system's semantic tokens — every atom reads from these,
+   so nothing else has to change. tokens.css is imported before globals.css, so
+   these win. */
+
+/* Brand accent — applies to both themes (text-brand, accent-brand, primary
+   button all reference --brand-color-primary). Vivid violet, white on top. */
+:root,
+[data-theme="dark"] {
+  --brand-color-primary: #7b61ff;
+  --brand-color-on-primary: #ffffff;
+  --color-accent-brand: #7b61ff;
+  --color-accent-brand-subtle: #7b61ff2e;
+}
+
+/* Deep, slightly blue-shifted dark palette with more elevation contrast. */
+[data-theme="dark"] {
+  --color-bg-page: #0a0b10;
+  --color-bg-subtle: #0f1118;
+  --color-bg-muted: #1b1e2a;
+  --color-surface-card: #14161f;
+  --color-surface-card-subtle: #1b1e29;
+  --color-surface-overlay: #13151d;
+  --color-surface-pressed: #232734;
+  --color-text-primary: #f4f6fb;
+  --color-text-secondary: #a6adbe;
+  --color-text-tertiary: #6b7283;
+  --color-border-subtle: #222533;
+  --color-border-default: #2b2f3e;
+  --color-border-strong: #3a3f52;
+  --color-button-secondary-bg: #1d2030;
+  --color-button-ghost-bg: #14161f;
+}
+
+/* Ambient glow haze behind the page — fixed so it stays put on scroll. */
+body {
+  background:
+    radial-gradient(900px 540px at 50% -10%, rgba(123, 97, 255, 0.16), transparent 70%),
+    radial-gradient(720px 480px at 100% 0%, rgba(61, 138, 255, 0.1), transparent 72%),
+    var(--color-bg-page);
+  background-attachment: fixed;
+}
+
+/* Signature gradient helpers. */
+.text-gradient-brand {
+  background: linear-gradient(120deg, #a78bff 0%, #6c8cff 55%, #4db8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #8b6dff 0%, #5b7dff 100%);
+}
+.glow-brand {
+  box-shadow:
+    0 10px 34px -10px rgba(123, 97, 255, 0.65),
+    0 2px 8px -2px rgba(91, 125, 255, 0.4);
+}

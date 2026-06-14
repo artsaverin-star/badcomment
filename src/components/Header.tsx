@@ -25,8 +25,7 @@ export default function Header({
             href="/"
             className="shrink-0 text-[22px] font-bold tracking-[-0.2px] [font-family:var(--brand-font-family)]"
           >
-            <span className="text-[var(--color-text-brand)]">in</span>
-            <span className="text-[var(--color-text-primary)]">App</span>
+            <span className="text-gradient-brand">inApp</span>
           </Link>
           <div className="hidden sm:block">
             <NavTabs catalogLabel={tr.nav.catalog} ideasLabel={tr.nav.ideas} />
