@@ -12,8 +12,8 @@ if (!TOKEN) {
 // Two billing options — must mirror the site (src/components/Pricing.tsx):
 // month = 550★ / 30 дней, 6 месяцев = 1650★ / 180 дней (−50%).
 const PLANS = {
-  month: { stars: 550, days: 30, title: "Месяц" },
-  half: { stars: 1650, days: 180, title: "6 месяцев" },
+  month: { stars: 500, days: 30, title: "Месяц" },
+  half: { stars: 1600, days: 180, title: "6 месяцев" },
 };
 const API = `https://api.telegram.org/bot${TOKEN}`;
 const prisma = new PrismaClient();
@@ -43,6 +43,8 @@ async function sendInvoice(chatId, planKey = "month") {
     title: `inApp Премиум — ${p.title}`,
     description: `Доступ ко всем разборам категорий и идеям на ${p.days} дней.`,
     payload: `premium_${planKey}_${Date.now()}`,
+    // Telegram Stars: currency XTR, empty provider_token (required for Stars).
+    provider_token: "",
     currency: "XTR",
     prices: [{ label: p.title, amount: p.stars }],
   });

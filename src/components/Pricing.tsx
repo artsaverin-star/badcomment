@@ -5,8 +5,8 @@ import { useState } from "react";
 // Premium pricing: one plan, two billing options. Monthly 1000 ₽, six months
 // 3000 ₽ (−50% vs paying monthly). Paid in Telegram Stars via the bot.
 const PLANS = {
-  month: { label: "Месяц", rub: 1000, stars: 550, per: "1000 ₽ / мес", note: null as string | null },
-  half: { label: "6 месяцев", rub: 3000, stars: 1650, per: "500 ₽ / мес", note: "−50%" },
+  month: { label: "Месяц", rub: 1000, stars: 500, per: "1000 ₽ / мес", note: null as string | null },
+  half: { label: "6 месяцев", rub: 3000, stars: 1600, per: "500 ₽ / мес", note: "−50%" },
 };
 
 const PERKS = [
