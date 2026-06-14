@@ -188,13 +188,13 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
         </p>
         <div className={`mt-5 grid grid-cols-1 gap-5 ${antiFeatures.length > 0 ? "sm:grid-cols-2" : ""}`}>
           <div>
-            <div className="mb-2 text-footnote font-semibold text-[var(--color-text-secondary)]">
+            <div className="mb-2.5 text-callout font-semibold text-[var(--color-text-secondary)]">
               Что делаем
             </div>
             <ul className="flex flex-col gap-1.5">
               {idea.idea.features.map((f) => (
-                <li key={f} className="flex gap-2 text-footnote leading-snug text-[var(--color-text-primary)]">
-                  <span className="text-[var(--color-text-brand)]">+</span>
+                <li key={f} className="flex gap-2.5 text-[15px] leading-[1.6] text-[var(--color-text-primary)]">
+                  <span className="shrink-0 font-semibold text-[var(--color-text-brand)]">+</span>
                   {f}
                 </li>
               ))}
@@ -202,13 +202,13 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
           </div>
           {antiFeatures.length > 0 && (
             <div>
-              <div className="mb-2 text-footnote font-semibold text-[var(--color-text-secondary)]">
+              <div className="mb-2.5 text-callout font-semibold text-[var(--color-text-secondary)]">
                 Чего сознательно не делаем
               </div>
               <ul className="flex flex-col gap-1.5">
                 {antiFeatures.map((f) => (
-                  <li key={f} className="flex gap-2 text-footnote leading-snug text-[var(--color-text-primary)]">
-                    <span className="text-[var(--color-text-tertiary)]">−</span>
+                  <li key={f} className="flex gap-2.5 text-[15px] leading-[1.6] text-[var(--color-text-primary)]">
+                    <span className="shrink-0 font-semibold text-[var(--color-text-tertiary)]">−</span>
                     {f}
                   </li>
                 ))}

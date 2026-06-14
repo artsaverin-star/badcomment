@@ -40,25 +40,25 @@ export default function InsightCard({
 
   return (
     <>
-      <button
-        type="button"
-        onClick={open}
-        className="group/card flex w-full flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-4 text-left first:border-t-0"
-      >
-        <span className="text-[16px] font-medium leading-snug text-[var(--color-text-primary)]">{title}</span>
+      <div className="flex w-full flex-col items-start gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0">
+        <span className="text-[16px] font-normal leading-snug text-[var(--color-text-primary)]">{title}</span>
         {body && <span className="text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{body}</span>}
         {apps && apps.length > 0 && (
           <span className="text-[12px] leading-relaxed text-[var(--color-text-tertiary)]">{apps.join(" · ")}</span>
         )}
-        <span className="mt-1.5 flex w-fit items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 group-hover/card:bg-[var(--color-accent-brand-subtle)] group-hover/card:text-[var(--color-text-brand)] group-hover/card:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]">
+        <button
+          type="button"
+          onClick={open}
+          className="mt-1.5 flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 hover:bg-[var(--color-accent-brand-subtle)] hover:text-[var(--color-text-brand)] hover:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]"
+        >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
             <path d="M8 7.2v3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             <circle cx="8" cy="5.1" r="0.9" fill="currentColor" />
           </svg>
           {count} {pluralNabl(count)}
-        </span>
-      </button>
+        </button>
+      </div>
 
       <dialog
         ref={ref}

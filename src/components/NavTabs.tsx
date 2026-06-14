@@ -44,15 +44,14 @@ export default function NavTabs({
         <Link
           key={href}
           href={href}
-          aria-label={label}
-          className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[16px] font-semibold transition-colors sm:px-0 sm:py-0 ${
+          className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[15px] font-semibold transition-colors sm:px-0 sm:py-0 sm:text-[16px] ${
             active
               ? "bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] sm:bg-transparent"
-              : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+              : "bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] sm:bg-transparent"
           }`}
         >
           <Icon />
-          <span className="hidden sm:inline">{label}</span>
+          <span>{label}</span>
         </Link>
       ))}
     </nav>
