@@ -67,7 +67,7 @@ export default async function Home() {
       {!loggedIn ? (
         <>
           <Landing apps={landingApps} locale={locale} />
-          <h2 className="mb-6 mt-10 text-[26px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">
+          <h2 className="mb-6 mt-12 text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
             {locale === "en" ? "Catalog" : "Каталог"}
           </h2>
         </>
