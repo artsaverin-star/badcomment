@@ -4,19 +4,24 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
+import type { Locale } from "@/lib/i18n";
 
 type Me = { user: { username: string | null; firstName: string | null; isAdmin: boolean } | null; premium: boolean };
 
-// Auth entry point: opens the login/registration modal (Telegram + Google).
-// When signed in, shows the name, premium star, an admin link, and sign-out.
-export default function AuthButton({ compact = false }: { compact?: boolean }) {
+// Auth entry point: opens the login/registration modal (Telegram + Google +
+// email). When signed in, shows the name, premium star, an admin link, and
+// sign-out. Re-opens the modal automatically if a Telegram login is pending.
+export default function AuthButton({ compact = false, locale = "ru" }: { compact?: boolean; locale?: Locale }) {
   const [me, setMe] = useState<Me | null>(null);
   const [modal, setModal] = useState(false);
 
   useEffect(() => {
     fetch("/api/me")
       .then((r) => r.json())
-      .then(setMe)
+      .then((data: Me) => {
+        setMe(data);
+        if (!data.user && localStorage.getItem("inapp_tg_login")) setModal(true);
+      })
       .catch(() => setMe({ user: null, premium: false }));
   }, []);
 
@@ -38,7 +43,7 @@ export default function AuthButton({ compact = false }: { compact?: boolean }) {
         >
           Войти
         </Button>
-        {modal && <AuthModal onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
+        {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
       </>
     );
   }
@@ -51,10 +56,7 @@ export default function AuthButton({ compact = false }: { compact?: boolean }) {
         {name}
       </span>
       {me.user.isAdmin && (
-        <Link
-          href="/admin"
-          className="text-caption font-medium text-[var(--color-text-brand)] hover:opacity-80"
-        >
+        <Link href="/admin" className="text-caption font-medium text-[var(--color-text-brand)] hover:opacity-80">
           Админка
         </Link>
       )}

@@ -92,7 +92,7 @@ export default function MobileNav({
                 <ThemeSwitch theme={theme} />
               </div>
               <div className="pb-2 pt-2">
-                <AuthButton compact />
+                <AuthButton compact locale={locale} />
               </div>
             </nav>
           </div>

@@ -37,7 +37,7 @@ export default function Header({
         <div className="hidden items-center gap-3 sm:flex">
           <LangSwitch locale={locale} />
           <ThemeSwitch theme={theme} />
-          <AuthButton />
+          <AuthButton locale={locale} />
         </div>
 
         {/* Phone: one menu button → sheet */}
