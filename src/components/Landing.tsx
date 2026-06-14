@@ -137,7 +137,7 @@ export default function Landing({
               const inner = (
                 <>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={a.icon} alt="" className="size-9 shrink-0 rounded-[11px]" />
+                  <img src={a.icon} alt="" className="size-9 shrink-0 rounded-full object-cover" />
                   <span className="flex flex-col leading-tight">
                     <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{a.name}</span>
                     <span className="text-[11px] text-[var(--color-text-tertiary)]">{ru ? "500 отзывов" : "500 reviews"}</span>
