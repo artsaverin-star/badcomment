@@ -52,6 +52,13 @@ export default async function Home() {
       }
     }
   }
+  // Shuffle so the hero "salute" of icons is different on every load
+  // (force-dynamic → re-randomised each request).
+  for (let i = landingApps.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [landingApps[i], landingApps[j]] = [landingApps[j], landingApps[i]];
+  }
+
   const stats = {
     apps: listAppSlugs().length,
     reviews: Object.values(segmentInsights as Record<string, { reviewsScanned?: number }>).reduce(

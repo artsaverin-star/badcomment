@@ -46,13 +46,15 @@ export default function Landing({
   const [modal, setModal] = useState(false);
 
   const withIcon = apps.filter((a) => a.icon);
-  // Scatter a handful of icons around the hero.
-  const floats = withIcon.slice(0, 10);
+  // A scattered "salute" of icons around the hero (the set is shuffled per load).
   const positions = [
-    "left-[4%] top-[8%]", "right-[6%] top-[10%]", "left-[12%] top-[44%]", "right-[10%] top-[40%]",
-    "left-[2%] bottom-[14%]", "right-[3%] bottom-[16%]", "left-[22%] top-[2%]", "right-[24%] bottom-[6%]",
-    "left-[34%] bottom-[2%]", "right-[34%] top-[4%]",
+    "left-[3%] top-[6%]", "right-[5%] top-[9%]", "left-[11%] top-[33%]", "right-[8%] top-[30%]",
+    "left-[1%] bottom-[18%]", "right-[2%] bottom-[20%]", "left-[20%] top-[2%]", "right-[22%] bottom-[5%]",
+    "left-[31%] bottom-[1%]", "right-[31%] top-[3%]", "left-[16%] bottom-[3%]", "right-[13%] bottom-[8%]",
+    "left-[41%] top-[0%]", "right-[43%] bottom-[1%]",
   ];
+  const sizes = ["size-12 lg:size-14", "size-11 lg:size-12", "size-14 lg:size-16"];
+  const floats = withIcon.slice(0, positions.length);
   // Cap the marquee — with hundreds of icons the row is enormous and scrolls
   // visually fast even at a long duration. A short, fixed set drifts slowly.
   const marqueeApps = withIcon.slice(0, 18);
@@ -71,8 +73,8 @@ export default function Landing({
               key={i}
               src={a.icon}
               alt=""
-              className={`ld-float absolute hidden size-12 rounded-[14px] opacity-70 shadow-[0_12px_30px_-12px_rgba(0,0,0,0.8)] sm:block lg:size-14 ${positions[i]}`}
-              style={{ ["--d" as string]: `${5 + (i % 4)}s`, ["--r" as string]: `${(i % 2 ? 6 : -6)}deg`, animationDelay: `${i * 0.3}s` }}
+              className={`ld-float absolute hidden rounded-[14px] opacity-80 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:block ${sizes[i % sizes.length]} ${positions[i]}`}
+              style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${(i % 2 ? 7 : -7)}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
             />
           ))}
         </div>
