@@ -14,7 +14,10 @@ export const FREE_CATEGORIES = [
 
 export async function isPremium(): Promise<boolean> {
   const u = await getSessionUser();
-  return !!(u && u.premiumUntil && new Date(u.premiumUntil) > new Date());
+  if (!u) return false;
+  // Admins (the owner) always have full access.
+  if (u.isAdmin) return true;
+  return !!(u.premiumUntil && new Date(u.premiumUntil) > new Date());
 }
 
 export function isFreeCategory(slug: string): boolean {
