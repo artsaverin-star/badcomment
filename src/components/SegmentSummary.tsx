@@ -42,22 +42,22 @@ export default function SegmentSummaryView({
       <div className="mt-10 flex flex-col gap-11">
         {summary.sections.map((section) => (
           <details key={section.id} open className="group/sec">
-            <summary className="flex cursor-pointer list-none items-baseline gap-2 [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
+              <h3 className="text-[21px] font-semibold leading-[27px] text-[var(--color-text-primary)]">
+                {section.heading}
+              </h3>
               <svg
                 width="11"
                 height="11"
                 viewBox="0 0 10 10"
-                className="shrink-0 translate-y-px text-[var(--color-text-tertiary)] transition-transform group-open/sec:rotate-90"
+                className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open/sec:rotate-90"
                 aria-hidden="true"
               >
                 <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h3 className="text-[21px] font-semibold leading-[27px] text-[var(--color-text-primary)]">
-                {section.heading}
-              </h3>
             </summary>
             {section.dek && (
-              <p className="mt-2.5 max-w-[60ch] pl-[19px] text-callout text-[var(--color-text-secondary)]">
+              <p className="mt-2.5 max-w-[60ch] text-callout text-[var(--color-text-secondary)]">
                 {section.dek}
               </p>
             )}

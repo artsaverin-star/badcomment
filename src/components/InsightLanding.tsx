@@ -159,17 +159,17 @@ export default function InsightLanding({
           ...(leftover.length > 0 ? [{ key: "__rest", name: "Прочее", items: leftover }] : []),
         ].map((section) => (
           <details key={section.key} open className="group/sec">
-            <summary className="mb-3 flex cursor-pointer list-none items-baseline gap-2 border-b border-[var(--color-border-strong,var(--color-text-primary))] pb-2 [&::-webkit-details-marker]:hidden">
+            <summary className="mb-3 flex cursor-pointer list-none items-center justify-between gap-3 border-b border-[var(--color-border-strong,var(--color-text-primary))] pb-2 [&::-webkit-details-marker]:hidden">
+              <h2 className="text-[20px] font-semibold tracking-tight text-[var(--color-text-primary)]">{section.name}</h2>
               <svg
                 width="11"
                 height="11"
                 viewBox="0 0 10 10"
-                className="shrink-0 -translate-y-px text-[var(--color-text-tertiary)] transition-transform group-open/sec:rotate-90"
+                className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open/sec:rotate-90"
                 aria-hidden="true"
               >
                 <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h2 className="text-[20px] font-semibold tracking-tight text-[var(--color-text-primary)]">{section.name}</h2>
             </summary>
             <div className="flex flex-col">
               {section.items.map((i) => (

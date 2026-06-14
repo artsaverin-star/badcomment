@@ -68,8 +68,12 @@ function ThemeSection({
       open
       className="group overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]"
     >
-      <summary className="flex cursor-pointer list-none items-baseline justify-between gap-3 px-3.5 py-2.5 [&::-webkit-details-marker]:hidden">
-        <span className="flex items-center gap-2">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-3.5 py-2.5 [&::-webkit-details-marker]:hidden">
+        <h2 className="text-[14px] font-semibold text-[var(--color-text-primary)]">{bucket.label}</h2>
+        <span className="flex shrink-0 items-center gap-2">
+          <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+            {bucket.insights.length} {pluralizeInsight(bucket.insights.length)}
+          </span>
           <svg
             width="10"
             height="10"
@@ -79,10 +83,6 @@ function ThemeSection({
           >
             <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <h2 className="text-[14px] font-semibold text-[var(--color-text-primary)]">{bucket.label}</h2>
-        </span>
-        <span className="shrink-0 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
-          {bucket.insights.length} {pluralizeInsight(bucket.insights.length)}
         </span>
       </summary>
       <div className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] p-2">
