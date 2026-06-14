@@ -729,8 +729,11 @@ function main() {
         if (!hit) { missing.push(title); continue; }
         apps.add(hit.app);
         observationCount += hit.obs;
-        const top = [...hit.evidence].sort((a, b) => b.rating - a.rating)[0] ?? hit.evidence[0];
-        if (top) evidence.push({ ...top, app: hit.app });
+        // Keep several quotes per member app so the evidence modal is a real
+        // reviews reader, not a teaser of four.
+        for (const e of [...hit.evidence].sort((a, b) => b.rating - a.rating).slice(0, 4)) {
+          evidence.push({ ...e, app: hit.app });
+        }
       }
       if (missing.length) console.log(`  [${def.slug}/${it.id}] UNMATCHED members:\n    - ${missing.join("\n    - ")}`);
       evidence.sort((a, b) => b.rating - a.rating);
@@ -741,7 +744,7 @@ function main() {
         body: it.body,
         apps: [...apps],
         observationCount,
-        evidence: evidence.slice(0, 4),
+        evidence: evidence.slice(0, 16),
       };
     });
 

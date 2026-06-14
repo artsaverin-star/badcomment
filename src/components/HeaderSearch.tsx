@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 
-type Hit = { type: "category" | "app"; name: string; slug: string; sub?: string };
+type Hit = { type: "category" | "app"; name: string; slug: string; sub?: string; icon?: string | null };
 
 // Header catalog search: debounced query against /api/catalog-search, dropdown
 // of category/app hits, click or Enter to navigate. Local data only — instant.
@@ -104,9 +104,14 @@ export default function HeaderSearch({ locale = "ru", compact = false }: { local
                   i === active ? "bg-[var(--color-surface-card-subtle)]" : ""
                 }`}
               >
-                <span className="rounded-md border border-[var(--color-border-subtle)] px-1.5 py-0.5 text-[10px] uppercase tracking-wide text-[var(--color-text-tertiary)]">
-                  {h.type === "app" ? (ru ? "Прил." : "App") : (ru ? "Кат." : "Cat.")}
-                </span>
+                {h.icon ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={h.icon} alt="" className="size-8 shrink-0 rounded-[9px] object-cover" />
+                ) : (
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-[9px] bg-[var(--color-bg-muted)] text-caption text-[var(--color-text-tertiary)]">
+                    {h.type === "app" ? "▦" : "#"}
+                  </span>
+                )}
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-footnote font-medium text-[var(--color-text-primary)]">{h.name}</span>
                   {h.sub && <span className="block truncate text-caption text-[var(--color-text-tertiary)]">{h.sub}</span>}

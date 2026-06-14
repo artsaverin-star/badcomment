@@ -6,7 +6,7 @@ import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 
-type Hit = { type: "category" | "app"; name: string; slug: string; sub?: string };
+type Hit = { type: "category" | "app"; name: string; slug: string; sub?: string; icon?: string | null };
 
 // Fast in-memory search over the local catalog (categories + analyzed apps).
 // No external calls — used by the header search box.
@@ -22,7 +22,8 @@ export async function GET(req: Request) {
   for (const d of listDomains(locale)) {
     for (const c of d.categories) {
       if (c.name.toLowerCase().includes(q)) {
-        cats.push({ type: "category", name: c.name, slug: `/segment/${c.slug}`, sub: d.name });
+        const catIcon = c.apps.find((a) => a.icon)?.icon ?? null;
+        cats.push({ type: "category", name: c.name, slug: `/segment/${c.slug}`, sub: d.name, icon: catIcon });
       }
       for (const a of c.apps) {
         if (!a.productId || !hasInsight(a.productId)) continue;
@@ -30,7 +31,7 @@ export async function GET(req: Request) {
         if (!slug || seenApp.has(slug)) continue;
         if (a.name.toLowerCase().includes(q)) {
           seenApp.add(slug);
-          apps.push({ type: "app", name: a.name, slug: `/${slug}`, sub: c.name });
+          apps.push({ type: "app", name: a.name, slug: `/${slug}`, sub: c.name, icon: a.icon ?? null });
         }
       }
     }

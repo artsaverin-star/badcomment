@@ -26,48 +26,44 @@ export default function SegmentSummaryView({
   embedded?: boolean;
 }) {
   return (
-    <section className={embedded ? "" : "mt-12 border-t border-[var(--color-border-strong)] pt-9"}>
-      {!embedded && (
-        <p className="text-caption font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
-          Инсайты категории
+    <section className={embedded ? "" : "mt-14 border-t border-[var(--color-border-subtle)] pt-10"}>
+      <div className="mx-auto max-w-[680px]">
+        {!embedded && (
+          <p className="text-caption font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
+            Инсайты категории
+          </p>
+        )}
+        <p className={`${embedded ? "" : "mt-4"} text-[20px] leading-[1.7] text-[var(--color-text-secondary)]`}>
+          {summary.lead}
         </p>
-      )}
-      <p className={`${embedded ? "" : "mt-3.5"} max-w-[62ch] text-lead text-[var(--color-text-secondary)]`}>
-        {summary.lead}
-      </p>
-      <p className="mt-3 text-caption text-[var(--color-text-tertiary)]">
-        {summary.appsCount} приложений · {summary.reviewsScanned.toLocaleString("ru-RU")} отзывов · обновлено {summary.asOf}
-      </p>
+        <p className="mt-4 text-caption text-[var(--color-text-tertiary)]">
+          {summary.appsCount} приложений · {summary.reviewsScanned.toLocaleString("ru-RU")} отзывов · обновлено {summary.asOf}
+        </p>
 
-      <div className="mt-10 flex flex-col gap-11">
-        {summary.sections.map((section) => (
-          <details key={section.id} open className="group/sec">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
-              <h3 className="text-[21px] font-semibold leading-[27px] text-[var(--color-text-primary)]">
-                {section.heading}
-              </h3>
-              <svg
-                width="11"
-                height="11"
-                viewBox="0 0 10 10"
-                className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open/sec:rotate-90"
-                aria-hidden="true"
-              >
-                <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </summary>
-            {section.dek && (
-              <p className="mt-2.5 max-w-[60ch] text-callout text-[var(--color-text-secondary)]">
-                {section.dek}
-              </p>
-            )}
-            <div className="mt-4 border-t border-[var(--color-border-subtle)]">
-              {section.items.map((item) => (
-                <CategoryInsightRow key={item.id} item={item} />
-              ))}
-            </div>
-          </details>
-        ))}
+        <div className="mt-12 flex flex-col gap-12">
+          {summary.sections.map((section) => (
+            <details key={section.id} open className="group/sec">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 [&::-webkit-details-marker]:hidden">
+                <h3 className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)]">
+                  {section.heading}
+                </h3>
+                <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-[transform,background-color] group-open/sec:rotate-90 group-hover/sec:bg-[var(--color-bg-muted)]">
+                  <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                    <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </summary>
+              {section.dek && (
+                <p className="mt-4 text-[18px] leading-[1.7] text-[var(--color-text-secondary)]">{section.dek}</p>
+              )}
+              <div className="mt-6 flex flex-col">
+                {section.items.map((item) => (
+                  <CategoryInsightRow key={item.id} item={item} />
+                ))}
+              </div>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -82,16 +78,18 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
       <button
         type="button"
         onClick={() => ref.current?.showModal()}
-        className="flex w-full flex-col gap-1 border-b border-[var(--color-border-subtle)] py-3.5 text-left transition-colors hover:bg-[var(--color-surface-card-subtle)]"
+        className="group/row flex w-full flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-5 text-left first:border-t-0"
       >
-        <span className="flex items-baseline gap-3">
-          <span className="text-callout font-semibold leading-snug text-[var(--color-text-primary)]">{item.title}</span>
-          <span className="ml-auto shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
+        <span className="flex items-start justify-between gap-4">
+          <span className="text-[17px] font-semibold leading-snug text-[var(--color-text-primary)] transition-colors group-hover/row:text-[var(--color-text-brand)]">
+            {item.title}
+          </span>
+          <span className="mt-1 shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
             {count} {pluralizeNabludenie(count)}
           </span>
         </span>
-        <span className="text-footnote text-[var(--color-text-secondary)]">{item.body}</span>
-        <span className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
+        <span className="text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">{item.body}</span>
+        <span className="mt-1 text-[12px] leading-relaxed text-[var(--color-text-tertiary)]">
           {item.apps.join(" · ")}
         </span>
       </button>

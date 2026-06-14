@@ -18,7 +18,7 @@ export default function Header({
 }) {
   const tr = t(locale);
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-page)]">
+    <header className="sticky top-0 z-40 bg-[var(--color-bg-page)]">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:px-6">
         <div className="flex min-w-0 items-center gap-5">
           <Link
