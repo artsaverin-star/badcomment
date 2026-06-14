@@ -35,8 +35,8 @@ export default function Header({
         {/* Desktop search (center) + controls (right) */}
         <div className="ml-auto hidden items-center gap-3 sm:flex">
           <HeaderSearch locale={locale} />
-          <SettingsMenu locale={locale} theme={theme} />
           <AuthButton locale={locale} />
+          <SettingsMenu locale={locale} theme={theme} />
         </div>
 
         {/* Phone: one menu button → sheet */}
