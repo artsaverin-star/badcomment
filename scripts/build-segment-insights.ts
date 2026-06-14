@@ -653,7 +653,11 @@ function applyExtra(defs: SegmentDef[]) {
   try { raw = readFileSync(EXTRA, "utf8"); } catch { return; }
   const extra = JSON.parse(raw) as Record<string, ExtraEntry>;
   for (const [slug, entry] of Object.entries(extra)) {
-    if (!defs.some((d) => d.slug === slug)) defs.push(entry.def);
+    // The external entry is authoritative: replace any hardcoded DEF of the same
+    // slug (the hardcoded one may have stale member titles), else append.
+    const idx = defs.findIndex((d) => d.slug === slug);
+    if (idx >= 0) defs[idx] = entry.def;
+    else defs.push(entry.def);
     SECTIONS[slug] = entry.sections;
   }
 }
@@ -741,10 +745,23 @@ function main() {
       };
     });
 
+    // Drop insights whose members matched no current review (no evidence) — a
+    // stale member title must not surface as an empty "0 наблюдений" row.
+    const dropped = items.filter((it) => it.observationCount === 0 || it.evidence.length === 0);
+    if (dropped.length) console.log(`  [${def.slug}] dropped ${dropped.length} empty item(s): ${dropped.map((d) => d.id).join(", ")}`);
+    const liveItems = items.filter((it) => it.observationCount > 0 && it.evidence.length > 0);
+
+    // If nothing survived (all member titles stale vs current data), withhold
+    // the synthesis entirely rather than ship an empty summary.
+    if (!liveItems.length) {
+      console.log(`[${def.slug}] WITHHELD: 0 items with evidence (stale member titles)`);
+      continue;
+    }
+
     // Thread the resolved items into narrative editorial sections. Items are
     // sorted loudest-first within a section; any item not placed in a section
     // falls into a trailing catch-all so nothing is silently dropped.
-    const itemById = new Map(items.map((it) => [it.id, it]));
+    const itemById = new Map(liveItems.map((it) => [it.id, it]));
     const placed = new Set<string>();
     const sectionDefs = SECTIONS[def.slug] ?? [];
     const sections = sectionDefs
@@ -757,7 +774,7 @@ function main() {
         return { id: s.id, heading: s.heading, dek: s.dek, items: secItems };
       })
       .filter((s) => s.items.length > 0);
-    const orphans = items.filter((it) => !placed.has(it.id));
+    const orphans = liveItems.filter((it) => !placed.has(it.id));
     if (orphans.length) {
       console.log(`  [${def.slug}] ${orphans.length} item(s) not in any section: ${orphans.map((o) => o.id).join(", ")}`);
       sections.push({ id: "sec-other", heading: "Прочие наблюдения", dek: "", items: orphans.sort((a, b) => b.observationCount - a.observationCount) });
@@ -769,11 +786,11 @@ function main() {
       asOf: new Date().toISOString().slice(0, 10),
       appsCount: inScope.length,
       reviewsScanned,
-      items,
+      items: liveItems,
       sections,
     };
-    const totalObs = items.reduce((s, i) => s + i.observationCount, 0);
-    console.log(`[${def.slug}] ${items.length} category insights · ${inScope.length} apps · ${reviewsScanned} reviews · ${totalObs} obs aggregated`);
+    const totalObs = liveItems.reduce((s, i) => s + i.observationCount, 0);
+    console.log(`[${def.slug}] ${liveItems.length} category insights · ${inScope.length} apps · ${reviewsScanned} reviews · ${totalObs} obs aggregated`);
   }
 
   writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");
