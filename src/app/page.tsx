@@ -54,6 +54,12 @@ export default async function Home() {
       }
     }
   }
+  // Analyzed apps (with a разбор page) for the catalog "Приложения" view.
+  const catalogApps = landingApps
+    .filter((a) => a.slug)
+    .map((a) => ({ name: a.name, icon: a.icon, slug: a.slug as string }))
+    .sort((a, b) => a.name.localeCompare(b.name, "ru"));
+
   const stats = {
     apps: listAppSlugs().length,
     reviews: Object.values(segmentInsights as Record<string, { reviewsScanned?: number }>).reduce(
@@ -81,7 +87,7 @@ export default async function Home() {
           description={<span className="mx-auto block max-w-2xl">{tr.market2.indexSubtitle}</span>}
         />
       )}
-      <CatalogBrowser domains={domains} premium={premium} />
+      <CatalogBrowser domains={domains} premium={premium} apps={catalogApps} />
     </main>
   );
 }
