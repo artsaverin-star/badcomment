@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { themeLabel, type SegmentSummary } from "@/lib/segmentSummary";
+import InsightCard from "./InsightCard";
 
 // Category-level editorial synthesis ("инсайты категории"), rendered at the end
 // of a segment page as a magazine-style long-read: a lede, then narrative
@@ -27,15 +27,6 @@ function pickQuote(section: SegmentSummary["sections"][number]) {
   const all = section.items.flatMap((i) => i.evidence);
   const good = all.filter((e) => e.quote.length >= 40 && e.quote.length <= 200);
   return (good.length ? good : all).sort((a, b) => b.rating - a.rating)[0] ?? null;
-}
-
-function pluralizeNabludenie(n: number): string {
-  const d = n % 10;
-  const dd = n % 100;
-  if (dd >= 11 && dd <= 14) return "наблюдений";
-  if (d === 1) return "наблюдение";
-  if (d >= 2 && d <= 4) return "наблюдения";
-  return "наблюдений";
 }
 
 export default function SegmentSummaryView({
@@ -110,89 +101,14 @@ export default function SegmentSummaryView({
 }
 
 function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] }) {
-  const ref = useRef<HTMLDialogElement>(null);
-  const count = item.observationCount;
-  const open = () => {
-    // The scroll container is <html> (globals sets overflow-y:scroll), so lock
-    // that — locking body alone leaves the page scrollable behind the dialog.
-    document.documentElement.style.overflow = "hidden";
-    ref.current?.showModal();
-  };
-
   return (
-    <>
-      <button
-        type="button"
-        onClick={open}
-        className="group/row flex w-full flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-5 text-left first:border-t-0"
-      >
-        <span className="flex items-start justify-between gap-4">
-          <span className="text-[16px] font-semibold leading-snug text-[var(--color-text-primary)]">
-            {item.title}
-          </span>
-          <span className="mt-0.5 flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 group-hover/row:-translate-y-0.5 group-hover/row:bg-[var(--color-accent-brand-subtle)] group-hover/row:text-[var(--color-text-brand)] group-hover/row:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
-              <path d="M8 7.2v3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              <circle cx="8" cy="5.1" r="0.9" fill="currentColor" />
-            </svg>
-            {count} {pluralizeNabludenie(count)}
-          </span>
-        </span>
-        <span className="text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{item.body}</span>
-        <span className="mt-1 text-[12px] leading-relaxed text-[var(--color-text-tertiary)]">
-          {item.apps.join(" · ")}
-        </span>
-      </button>
-
-      <dialog
-        ref={ref}
-        onClose={() => {
-          document.documentElement.style.overflow = "";
-        }}
-        onClick={(e) => {
-          if (e.target === ref.current) ref.current?.close();
-        }}
-        className="mx-0 mb-0 mt-auto w-full max-w-none rounded-[var(--radius-xl)] rounded-b-none border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-0 text-[var(--color-text-primary)] backdrop:bg-black/60 sm:mx-auto sm:mb-auto sm:w-[calc(100vw-2rem)] sm:max-w-2xl sm:rounded-b-[var(--radius-xl)]"
-      >
-        <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
-          <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
-            <span className="flex min-w-0 flex-col gap-1">
-              <span className="text-caption text-[var(--color-text-tertiary)]">{themeLabel(item.theme)}</span>
-              <span className="text-lead font-semibold">{item.title}</span>
-            </span>
-            <button
-              type="button"
-              onClick={() => ref.current?.close()}
-              aria-label="Закрыть"
-              className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] outline-none transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-border-strong)]"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-
-          <div className="flex flex-col gap-3 overflow-y-auto p-4">
-            {item.evidence.map((e, i) => (
-              <div
-                key={i}
-                className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3"
-              >
-                <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>
-                  <span className="tabular-nums text-caption text-[var(--color-text-tertiary)]">
-                    {"★".repeat(e.rating)}
-                    {"☆".repeat(Math.max(0, 5 - e.rating))}
-                  </span>
-                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
-                </span>
-                <p className="text-footnote text-[var(--color-text-secondary)]">{e.quote}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </dialog>
-    </>
+    <InsightCard
+      title={item.title}
+      body={item.body}
+      apps={item.apps}
+      count={item.observationCount}
+      kicker={themeLabel(item.theme)}
+      evidence={item.evidence}
+    />
   );
 }

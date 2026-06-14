@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { buttonVariants, cn } from "@saverin/ui-web";
 import { getProductDetail } from "@/lib/queries";
 import { getProductInsights } from "@/lib/insights";
 import { getProductIdBySlug } from "@/lib/appSlugs";
@@ -55,7 +54,13 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
-      <BackLink fallback="/" className={cn(buttonVariants({ variant: "ghost", size: "S" }), "mb-10 -ml-2")}>
+      <BackLink
+        fallback="/"
+        className="mb-10 inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+      >
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M10 3.5 5.5 8l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
         {tr.nav.back}
       </BackLink>
 
