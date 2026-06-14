@@ -33,7 +33,7 @@ export default async function Home() {
         slug: c.slug,
         name: c.name,
         appsCount: c.apps.length,
-        apps: c.apps.map((a) => ({ name: a.name, icon: a.icon ?? null })),
+        apps: c.apps.map((a) => ({ name: a.name, icon: a.icon ?? null, ready: hasInsight(a.productId) })),
         live,
         free: isFreeCategory(c.slug),
         locked: live && !premium && !isFreeCategory(c.slug),

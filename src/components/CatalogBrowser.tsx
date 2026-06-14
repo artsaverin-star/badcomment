@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export type BrowseApp = { name: string; icon: string | null };
+export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
 export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
 export type BrowseCategory = {
   slug: string;
@@ -152,7 +152,9 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
             key={i}
             src={a.icon ?? ""}
             alt=""
-            className={`size-9 rounded-[11px] object-cover ring-2 ring-[var(--color-surface-card)] ${dim ? "opacity-40 grayscale" : ""}`}
+            // Grey only apps that genuinely lack a разбор — a «Скоро» category can
+            // already have analyzed apps (synthesis just isn't published yet).
+            className={`size-9 rounded-[11px] object-cover ring-2 ring-[var(--color-surface-card)] ${a.ready === false ? "opacity-40 grayscale" : ""}`}
           />
         ))}
       </div>

@@ -8,7 +8,7 @@ import { getSessionUser } from "./session";
 export const FREE_CATEGORIES = [
   "habit-tracking",
   "photo-editing",
-  "ai-chat-assistants",
+  "mood-journaling",
   "language-learning",
 ];
 
