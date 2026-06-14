@@ -50,6 +50,10 @@ jobs:
           # Build never connects to the DB (all pages are force-dynamic), but a
           # valid-looking URL keeps PrismaClient construction at import happy.
           DATABASE_URL: "file:./ci.db"
+          # Public Google OAuth client id (NEXT_PUBLIC_* is inlined at build).
+          # Set repo variable GOOGLE_CLIENT_ID to switch on the Google sign-in
+          # button; empty = button hidden, Telegram login still works.
+          NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ vars.GOOGLE_CLIENT_ID }}
       - name: Package the build for the box
         run: tar -czf next-build.tgz --exclude='.next/cache' .next
       - uses: actions/upload-artifact@v4
