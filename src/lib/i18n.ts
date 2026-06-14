@@ -182,7 +182,7 @@ const DICT: Record<Locale, Dict> = {
     nav: {
       home: "← Home",
       allDirections: "← All directions",
-      back: "← Back",
+      back: "Back",
       seeAllReviews: "See all reviews →",
       more: "Details",
       collapse: "Collapse",
@@ -393,7 +393,7 @@ const DICT: Record<Locale, Dict> = {
     nav: {
       home: "← На главную",
       allDirections: "← Все направления",
-      back: "← Назад",
+      back: "Назад",
       seeAllReviews: "Все отзывы →",
       more: "Подробнее",
       collapse: "Свернуть",

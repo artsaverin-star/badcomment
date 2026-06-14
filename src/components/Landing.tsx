@@ -53,7 +53,10 @@ export default function Landing({
     "left-[2%] bottom-[14%]", "right-[3%] bottom-[16%]", "left-[22%] top-[2%]", "right-[24%] bottom-[6%]",
     "left-[34%] bottom-[2%]", "right-[34%] top-[4%]",
   ];
-  const marquee = [...withIcon, ...withIcon];
+  // Cap the marquee — with hundreds of icons the row is enormous and scrolls
+  // visually fast even at a long duration. A short, fixed set drifts slowly.
+  const marqueeApps = withIcon.slice(0, 18);
+  const marquee = [...marqueeApps, ...marqueeApps];
 
   const nf = (n: number) => n.toLocaleString("ru-RU");
 
@@ -118,7 +121,7 @@ export default function Landing({
       {/* Brand marquee */}
       {withIcon.length > 6 && (
         <section className="relative overflow-hidden py-6 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
-          <div className="ld-marquee flex w-max gap-3" style={{ ["--mq" as string]: "100s" }}>
+          <div className="ld-marquee flex w-max gap-3" style={{ ["--mq" as string]: "120s" }}>
             {marquee.map((a, i) => (
               <span
                 key={i}
