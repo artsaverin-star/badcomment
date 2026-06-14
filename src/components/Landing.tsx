@@ -45,7 +45,24 @@ export default function Landing({
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
 
-  const withIcon = apps.filter((a) => a.icon);
+  // Re-shuffle on the client each mount so the icon salute differs every load
+  // (server stays deterministic; rAF keeps setState out of the effect body).
+  const [shuffled, setShuffled] = useState<LandingApp[]>(apps);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      const arr = apps.slice();
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+      }
+      setShuffled(arr);
+    });
+    return () => cancelAnimationFrame(id);
+  }, [apps]);
+
+  const withIcon = shuffled.filter((a) => a.icon);
   // A scattered "salute" of icons around the hero (the set is shuffled per load).
   const positions = [
     "left-[3%] top-[6%]", "right-[5%] top-[9%]", "left-[11%] top-[33%]", "right-[8%] top-[30%]",
@@ -80,19 +97,11 @@ export default function Landing({
         </div>
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <Link
-            href="/ideas"
-            className="ld-fade inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-caption font-medium text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"
-          >
-            <span className="size-1.5 rounded-full bg-[#4ade80]" />
-            {ru ? "Идеи продуктов из реальных отзывов" : "Product ideas from real reviews"}
-          </Link>
-
-          <h1 className="ld-fade mt-6 text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
+          <h1 className="ld-fade text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
             {ru ? (
-              <>Тысячи отзывов —<br />в готовые выводы</>
+              <>Тысячи отзывов<br />в готовые выводы</>
             ) : (
-              <>Thousands of reviews,<br />distilled into conclusions</>
+              <>Thousands of reviews<br />into clear conclusions</>
             )}
           </h1>
 
@@ -150,20 +159,6 @@ export default function Landing({
               <Counter value={s.v} />
             </div>
             <div className="mt-1 text-footnote text-[var(--color-text-tertiary)]">{s.l}</div>
-          </div>
-        ))}
-      </section>
-
-      {/* Feature cards */}
-      <section className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-4 px-4 py-6 sm:grid-cols-3">
-        {[
-          { t: ru ? "Разборы по отзывам" : "Review breakdowns", d: ru ? "Каждый вывод прослеживается до реальных цитат 1–5★." : "Every conclusion traces to real 1–5★ quotes." },
-          { t: ru ? "Идеи продуктов" : "Product ideas", d: ru ? "Гэпы рынка с доказанным спросом — что строить." : "Market gaps with proven demand — what to build." },
-          { t: ru ? "Поиск по каталогу" : "Catalog search", d: ru ? "Тысячи приложений в десятках категорий." : "Thousands of apps across dozens of categories." },
-        ].map((f) => (
-          <div key={f.t} className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
-            <div className="text-lead font-semibold text-[var(--color-text-primary)]">{f.t}</div>
-            <p className="mt-2 text-callout text-[var(--color-text-secondary)]">{f.d}</p>
           </div>
         ))}
       </section>
