@@ -48,7 +48,9 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
   if (!idea) notFound();
 
   const pains = idea.mechanisms.filter((m) => m.polarity === "pain");
-  const loves = idea.mechanisms.filter((m) => m.polarity === "love");
+  const loves = idea.mechanisms.filter((m) => m.polarity === "love" || (m.polarity as string) === "praise");
+  const antiFeatures = idea.idea.antiFeatures ?? [];
+  const monetization = idea.idea.monetization ?? "";
 
   return (
     <main className="mx-auto w-full max-w-[760px] overflow-x-clip px-4 py-8">
@@ -171,38 +173,42 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
         <p className="text-[15px] leading-relaxed text-[var(--color-text-primary)]">
           {idea.idea.pitch}
         </p>
-        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className={`mt-5 grid grid-cols-1 gap-5 ${antiFeatures.length > 0 ? "sm:grid-cols-2" : ""}`}>
           <div>
-            <div className="mb-2 text-[13px] font-semibold text-[var(--color-text-secondary)]">
+            <div className="mb-2 text-footnote font-semibold text-[var(--color-text-secondary)]">
               Что делаем
             </div>
             <ul className="flex flex-col gap-1.5">
               {idea.idea.features.map((f) => (
-                <li key={f} className="flex gap-2 text-[13.5px] leading-snug text-[var(--color-text-primary)]">
+                <li key={f} className="flex gap-2 text-footnote leading-snug text-[var(--color-text-primary)]">
                   <span className="text-[var(--color-text-brand)]">+</span>
                   {f}
                 </li>
               ))}
             </ul>
           </div>
-          <div>
-            <div className="mb-2 text-[13px] font-semibold text-[var(--color-text-secondary)]">
-              Чего сознательно не делаем
+          {antiFeatures.length > 0 && (
+            <div>
+              <div className="mb-2 text-footnote font-semibold text-[var(--color-text-secondary)]">
+                Чего сознательно не делаем
+              </div>
+              <ul className="flex flex-col gap-1.5">
+                {antiFeatures.map((f) => (
+                  <li key={f} className="flex gap-2 text-footnote leading-snug text-[var(--color-text-primary)]">
+                    <span className="text-[var(--color-text-tertiary)]">−</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="flex flex-col gap-1.5">
-              {idea.idea.antiFeatures.map((f) => (
-                <li key={f} className="flex gap-2 text-[13.5px] leading-snug text-[var(--color-text-primary)]">
-                  <span className="text-[var(--color-text-tertiary)]">−</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
+          )}
+        </div>
+        {monetization && (
+          <div className="mt-5 border-t border-[var(--color-border-subtle)] pt-4 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
+            <span className="font-semibold text-[var(--color-text-primary)]">Монетизация: </span>
+            {monetization}
           </div>
-        </div>
-        <div className="mt-5 border-t border-[var(--color-border-subtle)] pt-4 text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
-          <span className="font-semibold text-[var(--color-text-primary)]">Монетизация: </span>
-          {idea.idea.monetization}
-        </div>
+        )}
       </section>
     </main>
   );
