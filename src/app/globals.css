@@ -166,21 +166,22 @@ details.no-anim::details-content {
    Secondary text is kept bright enough for comfortable long-read body copy. */
 [data-theme="dark"] {
   color-scheme: dark;
-  --color-bg-page: #0e0e11;
-  --color-bg-subtle: #151518;
-  --color-bg-muted: #232327;
-  --color-surface-card: #18181c;
-  --color-surface-card-subtle: #202024;
-  --color-surface-overlay: #1e1e23;
-  --color-surface-pressed: #2a2a30;
+  /* Mobbin-style: near-black page, flat grey plates with barely-there borders. */
+  --color-bg-page: #0a0a0b;
+  --color-bg-subtle: #101012;
+  --color-bg-muted: #1e1e22;
+  --color-surface-card: #161618;
+  --color-surface-card-subtle: #1e1e21;
+  --color-surface-overlay: #1c1c20;
+  --color-surface-pressed: #26262b;
   --color-text-primary: #ffffff;
   --color-text-secondary: #b3b4bc;
   --color-text-tertiary: #74757e;
-  --color-border-subtle: #242429;
-  --color-border-default: #2e2e34;
-  --color-border-strong: #3c3c44;
-  --color-button-secondary-bg: #202024;
-  --color-button-ghost-bg: #18181c;
+  --color-border-subtle: #1e1e22;
+  --color-border-default: #292930;
+  --color-border-strong: #3a3a42;
+  --color-button-secondary-bg: #1e1e21;
+  --color-button-ghost-bg: #161618;
 }
 
 /* Flat solid page background — no fixed/parallax layers (they tank scroll). */
