@@ -1,4 +1,5 @@
 import { getSessionUser } from "./session";
+import { isFriendIdentity } from "./friends";
 
 // Access model: a small set of categories (+ their ideas) is free for everyone;
 // the rest is premium-only. Premium = a logged-in user (Telegram) whose
@@ -17,7 +18,15 @@ export async function isPremium(): Promise<boolean> {
   if (!u) return false;
   // Admins (the owner) always have full access.
   if (u.isAdmin) return true;
+  // Friends get comp access (см. src/data/friends.json).
+  if (isFriendIdentity(u)) return true;
   return !!(u.premiumUntil && new Date(u.premiumUntil) > new Date());
+}
+
+// Whether the current viewer is a hand-listed friend (comp premium).
+export async function isFriend(): Promise<boolean> {
+  const u = await getSessionUser();
+  return !!u && isFriendIdentity(u);
 }
 
 export function isFreeCategory(slug: string): boolean {

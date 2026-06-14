@@ -6,7 +6,7 @@ import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 
-type Me = { user: { username: string | null; firstName: string | null; isAdmin: boolean } | null; premium: boolean };
+type Me = { user: { username: string | null; firstName: string | null; isAdmin: boolean } | null; premium: boolean; friend?: boolean };
 
 // Auth entry point. Logged out → "Войти" opens the modal. Logged in → a round
 // avatar that opens an account dropdown (name, status, admin, sign-out).
@@ -80,7 +80,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           <span className="flex size-7 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-caption font-bold text-[var(--brand-color-on-primary,#fff)]">
             {initial}
           </span>
-          {me.premium && <span title="Премиум">⭐</span>}
+          {(me.premium || me.friend) && <span title={me.friend ? "Друг" : "Премиум"}>⭐</span>}
           {name}
         </span>
         <span className="flex items-center gap-2.5">
@@ -118,7 +118,17 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             <span className="flex min-w-0 flex-col">
               <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{name}</span>
               <span className="text-caption text-[var(--color-text-tertiary)]">
-                {me.premium ? (ru ? "⭐ Премиум" : "⭐ Premium") : ru ? "Бесплатный план" : "Free plan"}
+                {me.friend
+                  ? ru
+                    ? "⭐ Друг"
+                    : "⭐ Friend"
+                  : me.premium
+                    ? ru
+                      ? "⭐ Премиум"
+                      : "⭐ Premium"
+                    : ru
+                      ? "Бесплатный план"
+                      : "Free plan"}
               </span>
             </span>
           </div>
