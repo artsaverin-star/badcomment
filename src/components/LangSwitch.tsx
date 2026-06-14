@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
 
@@ -10,7 +10,6 @@ const LABELS: Record<Locale, string> = { en: "EN", ru: "RU" };
 // Segmented language control with a sliding active chip. Active state updates
 // instantly (local), then the page navigates to the locale-prefixed URL.
 export default function LangSwitch({ locale }: { locale: Locale }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [cur, setCur] = useState<Locale>(locale);
   const idx = ORDER.indexOf(cur);
@@ -20,8 +19,11 @@ export default function LangSwitch({ locale }: { locale: Locale }) {
     setCur(next);
     // eslint-disable-next-line react-hooks/immutability
     document.cookie = `locale=${next}; path=/; max-age=31536000; samesite=lax`;
+    // Hard navigation to the locale-prefixed URL: the client RSC route through
+    // the proxy could hang for ages; a full load is instant (server ~0.1s).
     const base = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
-    router.push(`/${next}${base === "/" ? "" : base}`);
+    // eslint-disable-next-line react-hooks/immutability
+    window.location.href = `/${next}${base === "/" ? "" : base}`;
   }
 
   return (

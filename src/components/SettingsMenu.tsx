@@ -52,15 +52,11 @@ export default function SettingsMenu({ locale, theme }: { locale: Locale; theme:
         onClick={() => setOpen((v) => !v)}
         className="flex size-9 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
       >
-        {open ? (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-          </svg>
-        ) : (
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-          </svg>
-        )}
+        <span className="relative block h-[16px] w-[18px]">
+          <span className={`absolute left-0 h-[1.8px] w-full rounded-full bg-current transition-all duration-300 ${open ? "top-[7px] rotate-45" : "top-[2px]"}`} />
+          <span className={`absolute left-0 top-[7px] h-[1.8px] w-full rounded-full bg-current transition-all duration-200 ${open ? "opacity-0" : "opacity-100"}`} />
+          <span className={`absolute left-0 h-[1.8px] w-full rounded-full bg-current transition-all duration-300 ${open ? "top-[7px] -rotate-45" : "top-[12px]"}`} />
+        </span>
       </button>
 
       {open && (
