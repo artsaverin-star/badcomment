@@ -57,7 +57,7 @@ export default function Landing({
     "left-[31%] bottom-[1%]", "right-[31%] top-[3%]", "left-[16%] bottom-[3%]", "right-[13%] bottom-[8%]",
     "left-[41%] top-[0%]", "right-[43%] bottom-[1%]",
   ];
-  const sizes = ["size-12 lg:size-14", "size-11 lg:size-12", "size-14 lg:size-16"];
+  const sizes = ["size-10 sm:size-12 lg:size-14", "size-9 sm:size-11 lg:size-12", "size-11 sm:size-14 lg:size-16"];
   const floats = withIcon.slice(0, positions.length);
   // Cap the marquee — with hundreds of icons the row is enormous and scrolls
   // visually fast even at a long duration. A short, fixed set drifts slowly.
@@ -79,7 +79,7 @@ export default function Landing({
               key={i}
               src={a.icon}
               alt=""
-              className={`ld-float absolute hidden rounded-[14px] opacity-80 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:block ${sizes[i % sizes.length]} ${positions[i]}`}
+              className={`ld-float absolute block rounded-[14px] opacity-70 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-80 ${sizes[i % sizes.length]} ${positions[i]}`}
               style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${(i % 2 ? 7 : -7)}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
             />
           ))}

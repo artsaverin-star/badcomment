@@ -126,19 +126,23 @@ export default function InsightLanding({
           ))}
         </div>
 
-        <p className="max-w-[60ch] text-lead text-[var(--color-text-secondary)]">
-          Прочитали <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов и
-          собрали <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> повторяющихся наблюдений — то, что
-          пользователи отмечают сами, сгруппированных по{" "}
-          <span className="tabular-nums text-[var(--color-text-primary)]">{themeCount}</span> темам.
-        </p>
+        {!locked && (
+          <>
+            <p className="max-w-[60ch] text-lead text-[var(--color-text-secondary)]">
+              Прочитали <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов и
+              собрали <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> повторяющихся наблюдений — то, что
+              пользователи отмечают сами, сгруппированных по{" "}
+              <span className="tabular-nums text-[var(--color-text-primary)]">{themeCount}</span> темам.
+            </p>
 
-        <div className="mt-2 max-w-md">
-          <Histogram hist={insights.ratingBreakdown} />
-        </div>
+            <div className="mt-2 max-w-md">
+              <Histogram hist={insights.ratingBreakdown} />
+            </div>
+          </>
+        )}
       </header>
 
-      {data.screenshots.length > 0 && (
+      {!locked && data.screenshots.length > 0 && (
         <div className="-mx-6 mt-10 overflow-x-auto px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <div className="flex gap-3">
             {data.screenshots.map((src, i) => (

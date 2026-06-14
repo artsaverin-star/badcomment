@@ -21,11 +21,15 @@ export default function Header({
   return (
     <header className="sticky top-0 z-40 bg-[var(--color-bg-page)]">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:px-6">
-        <Link
-          href="/"
-          className="shrink-0 text-[22px] font-bold tracking-[-0.2px] [font-family:var(--brand-font-family)]"
-        >
-          <span className="text-[var(--color-text-primary)]">inApp</span>
+        <Link href="/" aria-label="inApp" className="flex shrink-0 items-center gap-2">
+          <span className="flex size-8 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-white">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+          </span>
+          <span className="hidden text-[22px] font-bold tracking-[-0.2px] text-[var(--color-text-primary)] [font-family:var(--brand-font-family)] sm:inline">
+            inApp
+          </span>
         </Link>
         <div className="ml-1 sm:ml-3">
           <NavTabs catalogLabel={tr.nav.catalog} ideasLabel={tr.nav.ideas} />
