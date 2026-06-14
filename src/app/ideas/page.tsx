@@ -17,8 +17,7 @@ export default async function IdeasPage() {
   const tr = t(locale);
   const premium = await isPremium();
   const all = listIdeas();
-  const visible = premium ? all : all.filter((i) => isFreeCategory(i.category));
-  const lockedCount = all.length - visible.length;
+  const lockedCount = premium ? 0 : all.filter((i) => !isFreeCategory(i.category)).length;
 
   // category slug → its top-level domain, for the icon filter pills.
   const catToDomain = new Map<string, { slug: string; name: string }>();
@@ -26,7 +25,8 @@ export default async function IdeasPage() {
     for (const c of d.categories) catToDomain.set(c.slug, { slug: d.slug, name: d.name });
   }
 
-  const ideas: IdeaCard[] = visible.map((i) => {
+  // Show ALL ideas to everyone; premium-only ones render locked (badge → /premium).
+  const ideas: IdeaCard[] = all.map((i) => {
     const dom = catToDomain.get(i.category);
     return {
       slug: i.slug,
@@ -37,6 +37,7 @@ export default async function IdeasPage() {
       title: i.title,
       oneLiner: i.oneLiner,
       stats: i.stats,
+      locked: !premium && !isFreeCategory(i.category),
     };
   });
 

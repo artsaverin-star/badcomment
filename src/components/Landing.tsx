@@ -1,11 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 
 export type LandingApp = { name: string; icon: string };
+
+// Count-up animation from 0 to the real value.
+function Counter({ value }: { value: number }) {
+  const [n, setN] = useState(0);
+  const started = useRef(false);
+  useEffect(() => {
+    if (started.current) return;
+    started.current = true;
+    let raf = 0;
+    let start: number | null = null;
+    const dur = 1500;
+    const tick = (ts: number) => {
+      if (start === null) start = ts;
+      const p = Math.min(1, (ts - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setN(Math.round(value * eased));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [value]);
+  return <span className="tabular-nums">{n.toLocaleString("ru-RU")}</span>;
+}
 
 // Marketing landing for logged-out visitors: animated hero with drifting app
 // icons, a stats band, a scrolling brand marquee and feature cards. Original
@@ -110,15 +133,17 @@ export default function Landing({
         </section>
       )}
 
-      {/* Stats band */}
-      <section className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-4 px-4 py-10 sm:grid-cols-3">
+      {/* Stats band — plain numbers, animated count-up */}
+      <section className="mx-auto flex w-full max-w-3xl flex-wrap items-start justify-center gap-x-14 gap-y-8 px-4 py-12 sm:gap-x-24">
         {[
-          { v: nf(stats.reviews), l: ru ? "отзывов прочитано" : "reviews read" },
-          { v: nf(stats.apps), l: ru ? "приложений разобрано" : "apps analyzed" },
-          { v: String(stats.categories), l: ru ? "категорий" : "categories" },
+          { v: stats.reviews, l: ru ? "отзывов прочитано" : "reviews read" },
+          { v: stats.apps, l: ru ? "приложений разобрано" : "apps analyzed" },
+          { v: stats.categories, l: ru ? "категорий" : "categories" },
         ].map((s) => (
-          <div key={s.l} className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 text-center">
-            <div className="text-[34px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{s.v}</div>
+          <div key={s.l} className="text-center">
+            <div className="text-[44px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[56px]">
+              <Counter value={s.v} />
+            </div>
             <div className="mt-1 text-footnote text-[var(--color-text-tertiary)]">{s.l}</div>
           </div>
         ))}

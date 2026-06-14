@@ -12,6 +12,7 @@ export type IdeaCard = {
   title: string;
   oneLiner: string;
   stats: { apps: number; reviews: number; observations: number };
+  locked?: boolean;
 };
 
 // Small line icon per domain (icon filter pills). Falls back to a grid glyph.
@@ -91,12 +92,23 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
           {filtered.map((idea) => (
             <Link
               key={idea.slug}
-              href={`/ideas/${idea.slug}`}
+              href={idea.locked ? "/premium" : `/ideas/${idea.slug}`}
               className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
             >
-              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
-                <DomainIcon slug={idea.domain} />
-                {idea.categoryName}
+              <div className="flex items-center gap-2">
+                <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+                  <DomainIcon slug={idea.domain} />
+                  {idea.categoryName}
+                </span>
+                {idea.locked && (
+                  <span className="flex items-center gap-1 rounded-full bg-[var(--color-accent-brand-subtle)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-brand)]">
+                    <svg width="9" height="9" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
+                      <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="currentColor" strokeWidth="1.4" />
+                    </svg>
+                    Премиум
+                  </span>
+                )}
               </div>
               <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
                 {idea.title}
