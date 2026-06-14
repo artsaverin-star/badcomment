@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Button } from "@saverin/ui-web";
 import LangSwitch from "./LangSwitch";
 import NavTabs from "./NavTabs";
 import ThemeSwitch from "./ThemeSwitch";
 import MobileNav from "./MobileNav";
+import AuthButton from "./AuthButton";
 import { t, type Locale } from "@/lib/i18n";
 
 // Translucent sticky top bar (Apple-style: blurred surface + hairline).
@@ -37,9 +37,7 @@ export default function Header({
         <div className="hidden items-center gap-3 sm:flex">
           <LangSwitch locale={locale} />
           <ThemeSwitch theme={theme} />
-          <Button variant="primary" size="M">
-            {tr.nav.signIn}
-          </Button>
+          <AuthButton />
         </div>
 
         {/* Phone: one menu button → sheet */}

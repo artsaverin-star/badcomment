@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button, IconButton } from "@saverin/ui-web";
+import { IconButton } from "@saverin/ui-web";
 import LangSwitch from "./LangSwitch";
 import ThemeSwitch from "./ThemeSwitch";
+import AuthButton from "./AuthButton";
 import { t, type Locale } from "@/lib/i18n";
 
 // Compact header control for phones: a single menu button that opens a sheet
@@ -90,10 +91,8 @@ export default function MobileNav({
                 <LangSwitch locale={locale} />
                 <ThemeSwitch theme={theme} />
               </div>
-              <div className="pb-2 pt-1">
-                <Button variant="primary" size="M" className="w-full">
-                  {tr.nav.signIn}
-                </Button>
+              <div className="pb-2 pt-2">
+                <AuthButton compact />
               </div>
             </nav>
           </div>

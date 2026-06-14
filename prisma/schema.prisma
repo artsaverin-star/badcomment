@@ -120,3 +120,25 @@ model PositiveReview {
   @@unique([appId, externalId])
   @@index([appId])
 }
+
+// ── Auth / premium (Telegram login + Stars subscription) ──────────────────
+model User {
+  id           String    @id @default(cuid())
+  telegramId   String    @unique
+  username     String?
+  firstName    String?
+  premiumUntil DateTime?
+  isAdmin      Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+}
+
+// Short-lived web login handshake: web creates a token, user opens the bot via
+// t.me/<bot>?start=login_<token>, bot stamps telegramId, web polls + sets session.
+model LoginToken {
+  token      String   @id
+  telegramId String?
+  username   String?
+  firstName  String?
+  createdAt  DateTime @default(now())
+  expiresAt  DateTime
+}

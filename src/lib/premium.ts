@@ -1,10 +1,8 @@
-import { cookies } from "next/headers";
+import { getSessionUser } from "./session";
 
-// Access model (phase 0): a small set of categories (+ their ideas) is free for
-// everyone; the rest is premium-only. Premium is, for now, a signed-ish cookie
-// flag — it will be replaced by the real subscription check (user row set by the
-// Telegram-bot payment flow) once auth/billing land. The gating API stays the
-// same so the swap is local to this file.
+// Access model: a small set of categories (+ their ideas) is free for everyone;
+// the rest is premium-only. Premium = a logged-in user (Telegram) whose
+// subscription (set by the Stars payment in the bot) is still active.
 
 // Free, fully-open categories (slug = catalog/segment slug). Four flagships.
 export const FREE_CATEGORIES = [
@@ -15,8 +13,8 @@ export const FREE_CATEGORIES = [
 ];
 
 export async function isPremium(): Promise<boolean> {
-  const c = await cookies();
-  return c.get("ia_premium")?.value === "1";
+  const u = await getSessionUser();
+  return !!(u && u.premiumUntil && new Date(u.premiumUntil) > new Date());
 }
 
 export function isFreeCategory(slug: string): boolean {
