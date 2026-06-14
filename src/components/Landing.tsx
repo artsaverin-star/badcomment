@@ -95,7 +95,7 @@ export default function Landing({
       {/* Brand marquee */}
       {withIcon.length > 6 && (
         <section className="relative overflow-hidden py-6 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
-          <div className="ld-marquee flex w-max gap-3" style={{ ["--mq" as string]: "48s" }}>
+          <div className="ld-marquee flex w-max gap-3" style={{ ["--mq" as string]: "100s" }}>
             {marquee.map((a, i) => (
               <span
                 key={i}

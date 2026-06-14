@@ -216,7 +216,10 @@ body {
   }
 }
 .ld-marquee {
-  animation: ld-marquee var(--mq, 40s) linear infinite;
+  animation: ld-marquee var(--mq, 90s) linear infinite;
+}
+.ld-marquee:hover {
+  animation-play-state: paused;
 }
 @media (prefers-reduced-motion: reduce) {
   .ld-fade,
