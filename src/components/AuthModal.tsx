@@ -328,7 +328,7 @@ export default function AuthModal({
   return (
     <ModalShell onClose={onClose} ru={ru}>
       <div className="mb-6 text-center">
-        <div className="bg-gradient-brand glow-brand mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl text-[22px] font-bold text-white [font-family:var(--brand-font-family)]">
+        <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] text-[22px] font-bold text-[var(--color-text-primary)] [font-family:var(--brand-font-family)]">
           iA
         </div>
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
@@ -402,7 +402,7 @@ export default function AuthModal({
           <button
             type="submit"
             disabled={loading || !email.trim() || !password}
-            className={`${btnBase} bg-gradient-brand glow-brand text-white hover:opacity-95`}
+            className={`${btnBase} bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)] hover:opacity-90`}
           >
             {loading ? "…" : mode === "register" ? (ru ? "Создать аккаунт" : "Create account") : ru ? "Войти" : "Sign in"}
           </button>

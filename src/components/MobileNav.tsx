@@ -7,6 +7,7 @@ import { IconButton } from "@saverin/ui-web";
 import LangSwitch from "./LangSwitch";
 import ThemeSwitch from "./ThemeSwitch";
 import AuthButton from "./AuthButton";
+import HeaderSearch from "./HeaderSearch";
 import { t, type Locale } from "@/lib/i18n";
 
 // Compact header control for phones: a single menu button that opens a sheet
@@ -73,6 +74,9 @@ export default function MobileNav({
           />
           <div className="absolute inset-x-0 top-full z-40 origin-top border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] shadow-[0_20px_40px_-24px_rgba(0,0,0,0.5)] [animation:sheet-down_.22s_cubic-bezier(0.32,0.72,0,1)]">
             <nav className="mx-auto flex max-w-5xl flex-col px-4 py-2 sm:px-6">
+              <div className="py-3">
+                <HeaderSearch locale={locale} compact />
+              </div>
               {tabs.map((tab) => (
                 <Link
                   key={tab.href}
