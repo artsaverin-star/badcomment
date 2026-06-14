@@ -4,6 +4,7 @@ import { getProductInsights } from "@/lib/insights";
 import { getProductIdBySlug } from "@/lib/appSlugs";
 import { isPublishable } from "@/lib/readyApps";
 import { getAppMetaByProductId, listDomains } from "@/lib/researchCategories";
+import { isPremium, isFreeCategory } from "@/lib/premium";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import Link from "next/link";
@@ -53,15 +54,22 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
   }
   if (!data) notFound();
 
-  // Find a category this app belongs to, for the breadcrumb back to it.
+  // Find a category this app belongs to (for the breadcrumb) and whether any of
+  // its categories is free — that decides premium gating below.
   let cat: { slug: string; name: string } | null = null;
+  let freeApp = false;
   for (const d of listDomains(locale)) {
-    const c = d.categories.find((cc) => cc.apps.some((a) => a.productId === id));
-    if (c) {
-      cat = { slug: c.slug, name: c.name };
-      break;
+    for (const c of d.categories) {
+      if (!c.apps.some((a) => a.productId === id)) continue;
+      if (!cat) cat = { slug: c.slug, name: c.name };
+      if (isFreeCategory(c.slug)) freeApp = true;
     }
   }
+  // Premium gate: the full разбор is open only for free-category apps or premium
+  // viewers. Otherwise the hero/histogram stay as a teaser and a paywall replaces
+  // the insight body.
+  const premium = await isPremium();
+  const locked = !freeApp && !premium;
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
@@ -94,7 +102,7 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
       </div>
 
       {insights ? (
-        <InsightLanding data={data} insights={insights} tr={tr} />
+        <InsightLanding data={data} insights={insights} tr={tr} locked={locked} />
       ) : (
         <p className="mt-16 text-[14px] text-[var(--color-text-secondary)]">
           Качественный разбор для этого приложения ещё не запущен.

@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getIdea } from "@/lib/ideas";
+import { isPremium, canAccessCategory } from "@/lib/premium";
+import Paywall from "@/components/Paywall";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 
@@ -47,6 +49,10 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
   const idea = getIdea(slug);
   if (!idea) notFound();
 
+  // Premium gate: ideas in premium categories are paywalled for non-subscribers.
+  const premium = await isPremium();
+  const locked = !canAccessCategory(idea.category, premium);
+
   const pains = idea.mechanisms.filter((m) => m.polarity === "pain");
   const loves = idea.mechanisms.filter((m) => m.polarity === "love" || (m.polarity as string) === "praise");
   const antiFeatures = idea.idea.antiFeatures ?? [];
@@ -85,6 +91,10 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
         </div>
       </header>
 
+      {locked ? (
+        <Paywall title="Полная идея — в премиуме" />
+      ) : (
+        <>
       {/* Step 1 — the raw voices */}
       <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
         <StepLabel n={1} title="Что пишут в отзывах" />
@@ -213,6 +223,8 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
           </div>
         )}
       </section>
+        </>
+      )}
     </main>
   );
 }
