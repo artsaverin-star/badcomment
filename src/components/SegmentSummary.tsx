@@ -21,6 +21,14 @@ function keepInView(e: React.MouseEvent<HTMLElement>) {
   });
 }
 
+// Pick a magazine-style pull quote for a section: a vivid, medium-length real
+// review (prefer the loudest rating).
+function pickQuote(section: SegmentSummary["sections"][number]) {
+  const all = section.items.flatMap((i) => i.evidence);
+  const good = all.filter((e) => e.quote.length >= 40 && e.quote.length <= 200);
+  return (good.length ? good : all).sort((a, b) => b.rating - a.rating)[0] ?? null;
+}
+
 function pluralizeNabludenie(n: number): string {
   const d = n % 10;
   const dd = n % 100;
@@ -53,31 +61,48 @@ export default function SegmentSummaryView({
         </p>
 
         <div className="mt-10 flex flex-col gap-8">
-          {summary.sections.map((section) => (
-            <details key={section.id} open className="no-anim group/sec">
-              <summary
-                onClick={keepInView}
-                className="-mx-3 flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
-              >
-                <h3 className="text-[19px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
-                  {section.heading}
-                </h3>
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/sec:rotate-90">
-                  <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                    <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </summary>
-              {section.dek && (
-                <p className="mt-2 px-0 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{section.dek}</p>
-              )}
-              <div className="mt-3 flex flex-col">
-                {section.items.map((item) => (
-                  <CategoryInsightRow key={item.id} item={item} />
-                ))}
-              </div>
-            </details>
-          ))}
+          {summary.sections.map((section) => {
+            const pull = pickQuote(section);
+            return (
+              <details key={section.id} open className="no-anim group/sec">
+                <summary
+                  onClick={keepInView}
+                  className="-mx-3 flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
+                >
+                  <h3 className="text-[19px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
+                    {section.heading}
+                  </h3>
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/sec:rotate-90">
+                    <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                      <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </summary>
+                {section.dek && (
+                  <p className="mt-2 px-0 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{section.dek}</p>
+                )}
+                {pull && (
+                  <figure className="my-6 border-l-2 border-[var(--color-text-brand)] pl-5">
+                    <blockquote className="text-[19px] font-medium leading-[1.45] tracking-[-0.01em] text-[var(--color-text-primary)]">
+                      «{pull.quote}»
+                    </blockquote>
+                    <figcaption className="mt-2.5 flex flex-wrap items-center gap-2 text-caption text-[var(--color-text-tertiary)]">
+                      <span className="tabular-nums tracking-wide text-[#f5b301]">
+                        {"★".repeat(pull.rating)}
+                        {"☆".repeat(Math.max(0, 5 - pull.rating))}
+                      </span>
+                      <span>{pull.app}</span>
+                    </figcaption>
+                  </figure>
+                )}
+                <div className="mt-3 flex flex-col">
+                  {section.items.map((item) => (
+                    <CategoryInsightRow key={item.id} item={item} />
+                  ))}
+                </div>
+              </details>
+            );
+          })}
         </div>
       </div>
     </section>
