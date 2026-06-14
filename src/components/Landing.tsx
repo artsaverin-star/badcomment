@@ -7,39 +7,14 @@ import type { Locale } from "@/lib/i18n";
 
 export type LandingApp = { name: string; icon: string; slug?: string | null };
 
-// Count-up animation from 0 to the real value.
-function Counter({ value }: { value: number }) {
-  const [n, setN] = useState(0);
-  const started = useRef(false);
-  useEffect(() => {
-    if (started.current) return;
-    started.current = true;
-    let raf = 0;
-    let start: number | null = null;
-    const dur = 1500;
-    const tick = (ts: number) => {
-      if (start === null) start = ts;
-      const p = Math.min(1, (ts - start) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setN(Math.round(value * eased));
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [value]);
-  return <span className="tabular-nums">{n.toLocaleString("ru-RU")}</span>;
-}
-
-// Marketing landing for logged-out visitors: animated hero with drifting app
-// icons, a stats band, a scrolling brand marquee and feature cards. Original
-// code in the app's own dark theme.
+// Marketing landing for logged-out visitors: animated hero with a salute of
+// drifting app icons + a scrolling brand marquee. Original code in the app's
+// own dark theme.
 export default function Landing({
   apps,
-  stats,
   locale = "ru",
 }: {
   apps: LandingApp[];
-  stats: { apps: number; reviews: number; categories: number };
   locale?: Locale;
 }) {
   const ru = locale !== "en";
@@ -77,8 +52,6 @@ export default function Landing({
   const marqueeApps = withIcon.slice(0, 18);
   const marquee = [...marqueeApps, ...marqueeApps];
 
-  const nf = (n: number) => n.toLocaleString("ru-RU");
-
   return (
     <div className="flex flex-col">
       {/* Hero */}
@@ -107,8 +80,8 @@ export default function Landing({
 
           <p className="ld-fade mx-auto mt-5 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
             {ru
-              ? `Разобрали ${nf(stats.reviews)} отзывов по ${nf(stats.apps)} приложениям и ${stats.categories} категориям. Что пользователи хвалят, на что злятся и какие продукты стоит строить.`
-              : `We read ${nf(stats.reviews)} reviews across ${nf(stats.apps)} apps and ${stats.categories} categories — what users love, hate, and which products are worth building.`}
+              ? "Читаем отзывы 1–5★ по приложениям и собираем их в готовые выводы: что пользователи хвалят, на что злятся и какие продукты стоит строить."
+              : "We read 1–5★ reviews across apps and turn them into clear conclusions: what users love, hate, and which products are worth building."}
           </p>
 
           <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
@@ -159,22 +132,6 @@ export default function Landing({
           </div>
         </section>
       )}
-
-      {/* Stats band — plain numbers, animated count-up */}
-      <section className="mx-auto flex w-full max-w-3xl flex-wrap items-start justify-center gap-x-14 gap-y-8 px-4 py-12 sm:gap-x-24">
-        {[
-          { v: stats.reviews, l: ru ? "отзывов прочитано" : "reviews read" },
-          { v: stats.apps, l: ru ? "приложений разобрано" : "apps analyzed" },
-          { v: stats.categories, l: ru ? "категорий" : "categories" },
-        ].map((s) => (
-          <div key={s.l} className="text-center">
-            <div className="text-[44px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[56px]">
-              <Counter value={s.v} />
-            </div>
-            <div className="mt-1 text-footnote text-[var(--color-text-tertiary)]">{s.l}</div>
-          </div>
-        ))}
-      </section>
 
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
     </div>

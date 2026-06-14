@@ -46,8 +46,8 @@ export default function NavTabs({
           href={href}
           className={`flex items-center gap-1.5 text-[16px] font-semibold transition-colors ${
             active
-              ? "text-[var(--color-text-brand)]"
-              : "text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)]"
+              ? "text-[var(--color-text-primary)]"
+              : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
           }`}
         >
           <Icon />

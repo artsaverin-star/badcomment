@@ -1,6 +1,6 @@
 import { Header } from "@saverin/ui-web";
 import { listDomains } from "@/lib/researchCategories";
-import { listAppSlugs, getSlugByProductId } from "@/lib/appSlugs";
+import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
@@ -62,20 +62,11 @@ export default async function Home() {
   }
   const catalogApps = [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, "ru"));
 
-  const stats = {
-    apps: listAppSlugs().length,
-    reviews: Object.values(segmentInsights as Record<string, { reviewsScanned?: number }>).reduce(
-      (s, c) => s + (c.reviewsScanned ?? 0),
-      0,
-    ),
-    categories: LIVE.size,
-  };
-
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       {!loggedIn ? (
         <>
-          <Landing apps={landingApps} stats={stats} locale={locale} />
+          <Landing apps={landingApps} locale={locale} />
           <h2 className="mb-6 mt-10 text-[26px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">
             {locale === "en" ? "Catalog" : "Каталог"}
           </h2>

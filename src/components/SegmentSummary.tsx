@@ -51,14 +51,18 @@ export default function SegmentSummaryView({
           {summary.appsCount} приложений · {summary.reviewsScanned.toLocaleString("ru-RU")} отзывов · обновлено {summary.asOf}
         </p>
 
-        <div className="mt-10 flex flex-col gap-8">
+        <div className="mt-10 flex flex-col gap-4">
           {summary.sections.map((section) => {
             const pull = pickQuote(section);
             return (
-              <details key={section.id} open className="no-anim group/sec">
+              <details
+                key={section.id}
+                open
+                className="no-anim group/sec overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]"
+              >
                 <summary
                   onClick={keepInView}
-                  className="-mx-3 flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
+                  className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
                 >
                   <h3 className="text-[19px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
                     {section.heading}
@@ -69,27 +73,29 @@ export default function SegmentSummaryView({
                     </svg>
                   </span>
                 </summary>
-                {section.dek && (
-                  <p className="mt-2 px-0 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{section.dek}</p>
-                )}
-                {pull && (
-                  <figure className="my-6 border-l-2 border-[var(--color-text-brand)] pl-5">
-                    <blockquote className="text-[19px] font-medium leading-[1.45] tracking-[-0.01em] text-[var(--color-text-primary)]">
-                      «{pull.quote}»
-                    </blockquote>
-                    <figcaption className="mt-2.5 flex flex-wrap items-center gap-2 text-caption text-[var(--color-text-tertiary)]">
-                      <span className="tabular-nums tracking-wide text-[#f5b301]">
-                        {"★".repeat(pull.rating)}
-                        {"☆".repeat(Math.max(0, 5 - pull.rating))}
-                      </span>
-                      <span>{pull.app}</span>
-                    </figcaption>
-                  </figure>
-                )}
-                <div className="mt-3 flex flex-col">
-                  {section.items.map((item) => (
-                    <CategoryInsightRow key={item.id} item={item} />
-                  ))}
+                <div className="px-5 pb-2">
+                  {section.dek && (
+                    <p className="text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{section.dek}</p>
+                  )}
+                  {pull && (
+                    <figure className="my-5 border-l-2 border-[var(--color-text-brand)] pl-5">
+                      <blockquote className="text-[18px] font-medium leading-[1.45] tracking-[-0.01em] text-[var(--color-text-primary)]">
+                        «{pull.quote}»
+                      </blockquote>
+                      <figcaption className="mt-2.5 flex flex-wrap items-center gap-2 text-caption text-[var(--color-text-tertiary)]">
+                        <span className="tabular-nums tracking-wide text-[#f5b301]">
+                          {"★".repeat(pull.rating)}
+                          {"☆".repeat(Math.max(0, 5 - pull.rating))}
+                        </span>
+                        <span>{pull.app}</span>
+                      </figcaption>
+                    </figure>
+                  )}
+                  <div className="mt-3 flex flex-col">
+                    {section.items.map((item) => (
+                      <CategoryInsightRow key={item.id} item={item} />
+                    ))}
+                  </div>
                 </div>
               </details>
             );

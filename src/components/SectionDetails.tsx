@@ -20,10 +20,10 @@ export default function SectionDetails({
   children: React.ReactNode;
 }) {
   return (
-    <details open className="no-anim group/sec">
+    <details open className="no-anim group/sec overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
       <summary
         onClick={keepInView}
-        className="-mx-3 flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
+        className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
       >
         <h3 className="text-[19px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">{heading}</h3>
         <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/sec:rotate-90">
@@ -32,7 +32,7 @@ export default function SectionDetails({
           </svg>
         </span>
       </summary>
-      {children}
+      <div className="px-5 pb-2">{children}</div>
     </details>
   );
 }
