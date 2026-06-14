@@ -11,7 +11,7 @@ export default function ContactsPage() {
     ["Исполнитель", l.selfEmployed ? `${legalValue(l.fullName)} (самозанятый, НПД)` : legalValue(l.fullName)],
     ["ИНН", legalValue(l.inn)],
     ["E-mail", legalValue(l.email)],
-    ["Телефон", legalValue(l.phone)],
+    ...(l.phone ? ([["Телефон", l.phone]] as Array<[string, string]>) : []),
     ["Сайт", l.site],
   ];
   return (

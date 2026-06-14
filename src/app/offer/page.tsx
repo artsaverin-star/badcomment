@@ -55,8 +55,8 @@ export default function OfferPage() {
       "6. Реквизиты и контакты Исполнителя",
       <>
         {legalValue(l.fullName)}
-        {l.selfEmployed ? " (самозанятый, НПД)" : ""}, ИНН {legalValue(l.inn)}. E-mail: {legalValue(l.email)},
-        телефон: {legalValue(l.phone)}. Полные контакты — на странице{" "}
+        {l.selfEmployed ? " (самозанятый, НПД)" : ""}, ИНН {legalValue(l.inn)}. E-mail: {legalValue(l.email)}
+        {l.phone ? `, телефон: ${l.phone}` : ""}. Полные контакты — на странице{" "}
         <Link href="/contacts" className="text-[var(--color-text-brand)] hover:underline">«Контакты»</Link>.
       </>,
     ],
