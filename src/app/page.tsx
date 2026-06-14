@@ -54,11 +54,13 @@ export default async function Home() {
       }
     }
   }
-  // Analyzed apps (with a разбор page) for the catalog "Приложения" view.
-  const catalogApps = landingApps
-    .filter((a) => a.slug)
-    .map((a) => ({ name: a.name, icon: a.icon, slug: a.slug as string }))
-    .sort((a, b) => a.name.localeCompare(b.name, "ru"));
+  // Analyzed apps (with a разбор page) for the catalog "Приложения" view,
+  // deduped by slug (the same app can appear in several categories).
+  const bySlug = new Map<string, { name: string; icon: string | null; slug: string }>();
+  for (const a of landingApps) {
+    if (a.slug && !bySlug.has(a.slug)) bySlug.set(a.slug, { name: a.name, icon: a.icon, slug: a.slug });
+  }
+  const catalogApps = [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, "ru"));
 
   const stats = {
     apps: listAppSlugs().length,

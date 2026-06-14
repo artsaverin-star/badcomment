@@ -160,7 +160,7 @@ export default function InsightLanding({
           ...(leftover.length > 0 ? [{ key: "__rest", name: "Прочее", items: leftover }] : []),
         ].map((section) => (
           <SectionDetails key={section.key} heading={section.name}>
-            <div className="mt-4 flex flex-col gap-2.5">
+            <div className="mt-3 flex flex-col">
               {section.items.map((i) => (
                 <InsightCard key={i.id} title={i.title} count={obsOf(i)} kicker={section.name} evidence={i.evidence} />
               ))}

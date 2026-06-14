@@ -43,7 +43,7 @@ export default function InsightCard({
       <button
         type="button"
         onClick={open}
-        className="group/card flex w-full flex-col gap-2 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 text-left transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]"
+        className="group/card flex w-full flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-4 text-left first:border-t-0"
       >
         <span className="flex items-start justify-between gap-3">
           <span className="text-[16px] font-semibold leading-snug text-[var(--color-text-primary)]">{title}</span>
