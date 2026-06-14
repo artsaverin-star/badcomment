@@ -5,7 +5,7 @@ import { useRef } from "react";
 // THE single insight card, shared everywhere (category summary, app page,
 // ideas) so the design system stays unified. A card that opens a reviews modal.
 
-export type Evidence = { app?: string; rating: number; date: string; quote: string };
+export type Evidence = { app?: string; rating: number; date: string; quote: string; quoteRu?: string };
 
 function pluralNabl(n: number): string {
   const d = n % 10;
@@ -104,7 +104,7 @@ export default function InsightCard({
                   </span>
                   <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
                 </span>
-                <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{e.quote}</p>
+                <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{e.quoteRu ?? e.quote}</p>
               </div>
             ))}
           </div>

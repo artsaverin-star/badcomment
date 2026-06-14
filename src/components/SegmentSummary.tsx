@@ -80,7 +80,7 @@ export default function SegmentSummaryView({
                   {pull && (
                     <figure className="my-5 border-l-2 border-[var(--color-text-brand)] pl-5">
                       <blockquote className="text-[18px] font-medium leading-[1.45] tracking-[-0.01em] text-[var(--color-text-primary)]">
-                        «{pull.quote}»
+                        «{(pull as { quoteRu?: string }).quoteRu ?? pull.quote}»
                       </blockquote>
                       <figcaption className="mt-2.5 flex flex-wrap items-center gap-2 text-caption text-[var(--color-text-tertiary)]">
                         <span className="tabular-nums tracking-wide text-[#f5b301]">
