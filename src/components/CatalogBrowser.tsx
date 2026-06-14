@@ -3,17 +3,14 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
-// Client catalog: search (category or app name) + a ready/all filter over the
-// domain-grouped category grid. Readiness is precomputed server-side and passed
-// as `ready` so this stays free of server-only libs.
 export type BrowseApp = { name: string; icon: string | null };
 export type BrowseCategory = {
   slug: string;
   name: string;
   appsCount: number;
   apps: BrowseApp[];
-  ready: boolean;
-  deprioritized: boolean;
+  live: boolean; // synthesis published (≥10 разборов)
+  locked: boolean; // live but premium-gated for this viewer
 };
 export type BrowseDomain = { slug: string; name: string; categories: BrowseCategory[] };
 
@@ -25,14 +22,20 @@ function appsWord(n: number): string {
   return "приложений";
 }
 
-export default function CatalogBrowser({ domains }: { domains: BrowseDomain[] }) {
+export default function CatalogBrowser({
+  domains,
+  premium,
+}: {
+  domains: BrowseDomain[];
+  premium: boolean;
+}) {
   const [q, setQ] = useState("");
-  const [onlyReady, setOnlyReady] = useState(false);
+  const [onlyLive, setOnlyLive] = useState(false);
   const nq = q.trim().toLowerCase();
 
   const filtered = useMemo(() => {
     const match = (c: BrowseCategory) => {
-      if (onlyReady && !c.ready) return false;
+      if (onlyLive && !c.live) return false;
       if (!nq) return true;
       if (c.name.toLowerCase().includes(nq)) return true;
       return c.apps.some((a) => a.name.toLowerCase().includes(nq));
@@ -40,9 +43,10 @@ export default function CatalogBrowser({ domains }: { domains: BrowseDomain[] })
     return domains
       .map((d) => ({ ...d, categories: d.categories.filter(match) }))
       .filter((d) => d.categories.length > 0);
-  }, [domains, nq, onlyReady]);
+  }, [domains, nq, onlyLive]);
 
   const total = filtered.reduce((s, d) => s + d.categories.length, 0);
+  const lockedCount = filtered.reduce((s, d) => s + d.categories.filter((c) => c.locked).length, 0);
 
   return (
     <div>
@@ -57,7 +61,6 @@ export default function CatalogBrowser({ domains }: { domains: BrowseDomain[] })
               value={q}
               onChange={(e) => setQ(e.target.value)}
               type="search"
-              inputMode="search"
               placeholder="Поиск категории или приложения"
               className="w-full bg-transparent text-body text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)]"
             />
@@ -70,9 +73,9 @@ export default function CatalogBrowser({ domains }: { domains: BrowseDomain[] })
               <button
                 key={String(f.key)}
                 type="button"
-                onClick={() => setOnlyReady(f.key)}
+                onClick={() => setOnlyLive(f.key)}
                 className={`rounded-full px-3.5 py-1.5 text-footnote font-semibold transition-colors ${
-                  onlyReady === f.key
+                  onlyLive === f.key
                     ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]"
                     : "border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-text-tertiary)]"
                 }`}
@@ -86,6 +89,19 @@ export default function CatalogBrowser({ domains }: { domains: BrowseDomain[] })
           </div>
         </div>
       </div>
+
+      {!premium && lockedCount > 0 && (
+        <Link
+          href="/premium"
+          className="mx-auto mb-8 flex max-w-2xl items-center gap-3 rounded-[var(--radius-xl)] border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3"
+        >
+          <span className="text-[18px]">🔓</span>
+          <span className="flex-1 text-callout text-[var(--color-text-primary)]">
+            Открыто {4} категории бесплатно. Остальные разборы и идеи — в <b>премиуме</b>.
+          </span>
+          <span className="shrink-0 text-footnote font-semibold text-[var(--color-text-brand)]">Подключить →</span>
+        </Link>
+      )}
 
       {total === 0 ? (
         <p className="py-16 text-center text-callout text-[var(--color-text-tertiary)]">
@@ -113,7 +129,7 @@ export default function CatalogBrowser({ domains }: { domains: BrowseDomain[] })
 
 function CategoryCard({ cat }: { cat: BrowseCategory }) {
   const icons = cat.apps.filter((a) => a.icon).slice(0, 4);
-  const dim = cat.deprioritized || !cat.ready;
+  const dim = !cat.live; // «Скоро» categories are greyscale
   const body = (
     <>
       <div className="flex shrink-0 -space-x-1.5">
@@ -123,24 +139,28 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
             key={i}
             src={a.icon ?? ""}
             alt=""
-            className={`size-7 rounded-[var(--radius-sm)] object-cover ring-2 ring-[var(--color-surface-card)] ${
-              dim ? "opacity-40 grayscale" : ""
-            }`}
+            className={`size-7 rounded-[var(--radius-sm)] object-cover ring-2 ring-[var(--color-surface-card)] ${dim ? "opacity-40 grayscale" : ""}`}
           />
         ))}
       </div>
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-        <span className={`truncate text-callout font-semibold ${dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"}`}>
-          {cat.name}
+        <span className={`flex items-center gap-1.5 truncate text-callout font-semibold ${dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"}`}>
+          <span className="truncate">{cat.name}</span>
+          {cat.locked && (
+            <svg width="12" height="12" viewBox="0 0 14 14" className="shrink-0 text-[var(--color-text-tertiary)]" aria-hidden="true">
+              <rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" fill="none" />
+              <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="currentColor" strokeWidth="1.3" fill="none" />
+            </svg>
+          )}
         </span>
         <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
-          {cat.appsCount} {appsWord(cat.appsCount)}
+          {cat.live ? `${cat.appsCount} ${appsWord(cat.appsCount)}` : "Скоро"}
         </span>
       </span>
     </>
   );
 
-  if (cat.deprioritized) {
+  if (!cat.live) {
     return (
       <div className="flex items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-3 py-2.5">
         {body}

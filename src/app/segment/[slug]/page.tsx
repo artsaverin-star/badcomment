@@ -11,6 +11,8 @@ import { getSegmentSummary } from "@/lib/segmentSummary";
 import SegmentTabs from "@/components/SegmentTabs";
 import CategoryIdeas from "@/components/CategoryIdeas";
 import { listIdeas } from "@/lib/ideas";
+import { isPremium, canAccessCategory } from "@/lib/premium";
+import Paywall from "@/components/Paywall";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +29,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
   const summary = getSegmentSummary(slug);
   const ideas = listIdeas().filter((i) => i.category === slug);
+  const premium = await isPremium();
+  const locked = !canAccessCategory(slug, premium);
 
   return (
     <main className="mx-auto w-full max-w-[720px] overflow-x-clip px-4 py-6">
@@ -91,14 +95,18 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {(summary || ideas.length > 0) && (
-        <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
-          <SegmentTabs
-            summary={summary ? <SegmentSummaryView summary={summary} embedded /> : null}
-            ideas={ideas.length > 0 ? <CategoryIdeas ideas={ideas} /> : null}
-            ideasCount={ideas.length}
-          />
-        </div>
+      {locked ? (
+        <Paywall />
+      ) : (
+        (summary || ideas.length > 0) && (
+          <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
+            <SegmentTabs
+              summary={summary ? <SegmentSummaryView summary={summary} embedded /> : null}
+              ideas={ideas.length > 0 ? <CategoryIdeas ideas={ideas} /> : null}
+              ideasCount={ideas.length}
+            />
+          </div>
+        )
       )}
     </main>
   );
