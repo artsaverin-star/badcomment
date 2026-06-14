@@ -38,7 +38,7 @@ function ModalShell({ onClose, ru, children }: { onClose: () => void; ru: boolea
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full rounded-t-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 [animation:sheet-up_.25s_cubic-bezier(0.32,0.72,0,1)] sm:w-[384px] sm:rounded-[var(--radius-2xl)] sm:p-8"
+        className="relative max-h-[92dvh] w-full overflow-y-auto overscroll-contain rounded-t-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 [animation:sheet-up_.25s_cubic-bezier(0.32,0.72,0,1)] sm:my-8 sm:w-[384px] sm:rounded-[var(--radius-2xl)] sm:p-8"
       >
         <button
           type="button"

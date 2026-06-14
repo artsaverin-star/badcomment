@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
 import type { Locale } from "@/lib/i18n";
 
@@ -11,13 +11,17 @@ const LABELS: Record<Locale, string> = { en: "EN", ru: "RU" };
 // active one floats on a raised surface-card chip, the other is bare.
 export default function LangSwitch({ locale }: { locale: Locale }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [pending, startTransition] = useTransition();
 
   function set(next: Locale) {
     if (next === locale) return;
     // eslint-disable-next-line react-hooks/immutability
     document.cookie = `locale=${next}; path=/; max-age=31536000; samesite=lax`;
-    startTransition(() => router.refresh());
+    // pathname is the rewritten (prefix-stripped) path; navigate to the other
+    // locale's prefixed URL so the language is reflected in the address bar.
+    const base = pathname.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
+    startTransition(() => router.push(`/${next}${base === "/" ? "" : base}`));
   }
 
   return (
