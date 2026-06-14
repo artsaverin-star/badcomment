@@ -1,0 +1,75 @@
+{
+  "productId": "ext-1057776523",
+  "slug": "libro-fm-audiobooks-1057776523",
+  "name": "Libro.fm Audiobooks",
+  "domain": "аудиокниги / audiobook marketplace",
+  "oneLiner": "Libro.fm — магазин аудиокниг по кредитной подписке; ключевой дифференциатор: часть выручки уходит в независимый книжный магазин по выбору пользователя, файлы без DRM (реальное владение), конкурент Audible/Amazon",
+  "pricing": "кредитная подписка — 1 кредит/месяц (~$15/мес или ~$150/год); кредиты не сгорают; книги можно покупать и без подписки; DRM-free MP3-файлы доступны для скачивания сразу после покупки; периодические распродажи; часть новинок заблокирована на 90 дней после релиза (publisher window)",
+  "keyFeatures": [
+    "кредитная подписка — 1 кредит в месяц, кредиты не сгорают, можно копить",
+    "привязка к независимому книжному магазину: часть каждой покупки идёт выбранному indie-магазину",
+    "DRM-free MP3: пользователь владеет файлом и может слушать в любом плеере (не только в приложении)",
+    "рекомендации от книготорговцев выбранного магазина прямо в интерфейсе приложения",
+    "CarPlay и Apple Watch интеграция",
+    "закладки с заметками, регулировка скорости, таймер сна",
+    "стриминг и офлайн-скачивание (скачанные треки требуют интернет-соединения для воспроизведения при отсутствии активной сессии)",
+    "ALC (Advance Listening Copies) для букселлеров и пресс-копии от издательств"
+  ],
+  "competitors": [
+    "Audible (Amazon)",
+    "Chirp Books",
+    "Libby / OverDrive (библиотечный сервис)",
+    "Spotify (аудиокниги)",
+    "Scribd",
+    "Apple Books",
+    "Kobo Audiobooks"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "The biggest issue is lack of chapter information, for books that have titled chapters or sections you can't see any of it, just track 1, 2, 3, etc.",
+      "observation": "Плеер не отображает именованные главы из метаданных аудиофайла — пользователь видит только безымянные треки «1, 2, 3». Это критично для сборников рассказов, эссе и книг с несколькими POV: невозможно перепрыгнуть к нужной части или понять, где находишься в структуре произведения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "if you sort the titles by any method, as soon as you go back to the main screen and re-enter the library it's back to the default sorting method every time",
+      "observation": "Пользовательский порядок сортировки библиотеки не сохраняется между сессиями: при каждом возврате на главный экран и повторном входе в библиотеку настройка сбрасывается в дефолт. Дополнительно — скачать книгу теперь нельзя в один клик: нужно зайти в карточку, потом в опции, что откатило ранее удобный workflow для оффлайн-слушателей.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Even with downloaded files, if there is no internet connection (wifi or cellular) the button to play books will not be displayed.",
+      "observation": "Несмотря на наличие скачанных аудиофайлов, кнопка воспроизведения не появляется при полном отсутствии интернета — приложение требует сетевого соединения даже для локального контента. Это ломает сценарий использования в самолёте, метро или в глухих местах, ради которого пользователь и скачивал книги заранее.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "Beware that even if you have credits, you cannot immediately buy certain audiobooks. Some books have a 90-day lock on them.",
+      "observation": "Ряд новинок заблокирован на 90 дней после релиза (publisher exclusivity window): у пользователя есть кредиты и желание купить книгу, но купить её через Libro.fm нельзя, тогда как Audible и Chirp Books предлагают её сразу. Это конкретный потребительский сценарий, в котором альтернатива проигрывает мейнстриму.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "when an audiobook ends it *doesn't* launch into a sample for some book you don't own (it does this on Audible, even with a sleep timer and the abrupt change in voice always wakes me up)",
+      "observation": "Libro.fm не запускает автопромо-сэмплы после окончания книги — в отличие от Audible, где смена голоса в момент засыпания будит пользователя. Это не просто удобство: механизм Audible работает против пользователя как рекламный триггер, а не как функция.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "I love how the app changes a bit when you switch bookstores and you can really get a sense of their personality and causes through their book recs.",
+      "observation": "Интерфейс частично адаптируется под подключённый книжный магазин: в приложении появляются кураторские списки от конкретных книготорговцев с их личным голосом. Это создаёт ощущение сообщества и отличает опыт от безликой витрины крупных платформ.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

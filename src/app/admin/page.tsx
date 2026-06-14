@@ -28,7 +28,7 @@ export default async function AdminPage() {
           <thead className="bg-[var(--color-bg-muted)] text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">
             <tr>
               <th className="px-4 py-2.5 font-semibold">Пользователь</th>
-              <th className="px-4 py-2.5 font-semibold">Telegram ID</th>
+              <th className="px-4 py-2.5 font-semibold">Вход</th>
               <th className="px-4 py-2.5 font-semibold">Премиум</th>
               <th className="px-4 py-2.5 font-semibold">Регистрация</th>
             </tr>
@@ -41,7 +41,15 @@ export default async function AdminPage() {
                   {u.username ? <span className="text-[var(--color-text-tertiary)]"> @{u.username}</span> : null}
                   {u.isAdmin ? <span className="ml-1 text-[var(--color-text-brand)]">admin</span> : null}
                 </td>
-                <td className="px-4 py-2.5 tabular-nums text-[var(--color-text-tertiary)]">{u.telegramId}</td>
+                <td className="px-4 py-2.5 text-[var(--color-text-tertiary)]">
+                  {u.telegramId ? (
+                    <span title={`Telegram ID ${u.telegramId}`}>Telegram</span>
+                  ) : u.googleId ? (
+                    <span title={u.email || "Google"}>Google{u.email ? ` · ${u.email}` : ""}</span>
+                  ) : (
+                    "—"
+                  )}
+                </td>
                 <td className="px-4 py-2.5">
                   {isActive(u) ? (
                     <span className="text-[var(--color-text-primary)]">

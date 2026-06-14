@@ -1,0 +1,76 @@
+{
+  "productId": "ext-360593530",
+  "slug": "notability-ai-notes-pdf-app-360593530",
+  "name": "Notability: AI Notes & PDF app",
+  "domain": "рукописные заметки / PDF-аннотирование / iPad note-taking",
+  "oneLiner": "Notability (Ginger Labs) — классический iPad-конспектировщик с Apple Pencil и PDF-аннотированием; в 2024-2026 добавил проприетарное облако, AI-функции (quiz, summary) и перешёл на подписочную модель, что сопровождается волной массовых потерь данных и агрессивными поп-апами",
+  "pricing": "бесплатный базовый доступ с жёсткими ограничениями; Notability Plus ~$15/год (базовая синхронизация); Notability Pro ~$30/год (AI-функции, расширенное хранилище); пользователи, купившие пожизненную лицензию до 2022 года, получили урезанный классический режим (Classic) без части новых функций; in-app продажа стикер-паков и шаблонов-планнеров отдельно",
+  "keyFeatures": [
+    "рукописные заметки с Apple Pencil: перо, маркер, ластик, конвертация рукописи в текст",
+    "PDF-аннотирование: загрузка, разметка, выделение и подпись PDF прямо в заметках",
+    "аудиозапись синхронно с написанием — воспроизведение прокручивает конспект к нужному месту",
+    "AI-генерация quiz-вопросов и автосаммари из рукописных конспектов (платный Notability Cloud)",
+    "шаблоны страниц: линейки, клетки, нотный стан, планнеры; пользовательские и загруженные",
+    "организация в папки и поиск по рукописному тексту",
+    "синхронизация через Notability Cloud (проприетарный) или iCloud (Classic-режим)",
+    "экспорт в PDF, Word, GoodNotes-совместимый формат"
+  ],
+  "competitors": [
+    "GoodNotes 6",
+    "Apple Notes",
+    "OneNote (Microsoft)",
+    "Goodnotes 5",
+    "Nebo — Smart Notebook & Notes",
+    "Goodnotes для студентов",
+    "PDF Expert",
+    "Procreate (для рисунков)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "NEWEST CLOUD FEATURE DELETED ALL MY NOTES! It forced me to update to their newest cloud platform. Once it finished all my notes are no longer in the original folder. Every single one. Almost all were moved to the unfiled folder. Years of notes, all in one huge unorganized folder.",
+      "observation": "Принудительная миграция на Notability Cloud уничтожила папочную иерархию: все заметки рассыпались в единую папку «All Notes» или исчезли. Пользователь не мог отказаться от миграции — обновление запустило её автоматически без возможности откатиться.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "5 years of notes gone. With the latest update, a failed cloud save deleted every single note I have ever made. All of my years of folders are still there, but every annotated pdf, all of my class notes, and every planner I have created over the past 5 years is gone.",
+      "observation": "Сбой при облачном сохранении во время обновления удалил содержимое заметок, сохранив при этом пустую структуру папок: дерево директорий осталось, но все PDF-аннотации, конспекты и планнеры за 5 лет исчезли — без предупреждения и без механизма восстановления в интерфейсе.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "You cannot lock folders/files on your iPad if you have switched to their web cloud. I migrated back to iCloud, but here's the catch. You lose what you did on their web cloud. Think you can get them back from the *.ntb backup created while on their web cloud. Nope. Your iCloud notability won't import your back up notes (*.ntb). iCloud backups are *.note. You just lose your work.",
+      "observation": "Форматы бэкапов Notability Cloud (.ntb) и iCloud (.note) несовместимы: пользователь, переключившийся на проприетарное облако и затем вернувшийся на iCloud, теряет все заметки, сделанные в период использования Notability Cloud — бэкап существует, но приложение его не читает.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Pop-ups every time I open the app or close a note. No. I don't want your cloud service. Especially since it hands you the privacy of my note content, and you run AI through notes stored on your services according to your privacy policy.",
+      "observation": "Политика конфиденциальности Notability Cloud допускает обработку содержимого заметок AI-системами Ginger Labs: пользователи, читающие мелкий шрифт, обнаруживают, что отказ от iCloud-режима фактически означает согласие на анализ личных конспектов сторонними моделями.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "When I write, a whole bunch of lines appear with almost every stroke causing me to waste time having to erase and start over. Progressively this has gotten worse, with the dock moving when I try to click the eraser or go back to the pen, not allowing me to even click the pen, the screen minimizing by itself.",
+      "observation": "После обновления 16.3.x Apple Pencil начал порождать паразитные линии при каждом штрихе: интерфейсный док смещается при попытке переключить инструмент, а приложение сворачивается самостоятельно — в итоге базовая функция рукописного ввода стала непригодной для учёбы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "This app is CONSTANTLY FREEZING. I think it's trying to backup documents and also load sales advertisements for other features. You cannot choose when to back up so your notes freeze IN THE MIDDLE OF WORKING HOURS. If you had been creating something it is lost.",
+      "observation": "Фоновая синхронизация с Notability Cloud запускается без уведомления прямо во время активной работы: приложение зависает, несохранённые изменения при этом теряются — пользователь не может ни отложить бэкап, ни выбрать момент для синхронизации.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

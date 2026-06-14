@@ -47,7 +47,9 @@ export async function clearSession() {
 
 export type SessionUser = {
   id: string;
-  telegramId: string;
+  telegramId: string | null;
+  googleId: string | null;
+  email: string | null;
   username: string | null;
   firstName: string | null;
   premiumUntil: Date | null;

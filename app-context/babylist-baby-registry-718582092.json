@@ -1,0 +1,74 @@
+{
+  "productId": "ext-718582092",
+  "slug": "babylist-baby-registry-718582092",
+  "name": "Babylist Baby Registry",
+  "domain": "составление реестра подарков для беременных / baby registry",
+  "oneLiner": "Babylist — универсальный реестр подарков для беременных: позволяет добавлять товары с любого магазина (Amazon, Target, Etsy и др.) в один список, которым делишься с близкими через QR-код или ссылку; iOS+Android+Web",
+  "pricing": "бесплатная регистрация и ведение реестра; монетизация через собственный магазин Babylist Shop (продажа товаров по завышенной цене), gift-карты действуют только в Babylist Shop; платная доставка «бесплатной» Babylist Box (образцы для новорождённых)",
+  "keyFeatures": [
+    "универсальный реестр: добавление товаров с любого сайта (Amazon, Target, Etsy, Carter's и пр.) через браузерный extension или поиск внутри приложения",
+    "импорт существующего Amazon Baby Registry одной операцией",
+    "уведомления владельца реестра о каждой покупке гостя в реальном времени",
+    "категоризация и сортировка товаров по секциям (коляска, кроватка, пеленальный столик и пр.)",
+    "чеклист must-have предметов для новорождённого с редакционными рекомендациями",
+    "QR-карточки и ссылка для раздачи гостям; персональная страница реестра с фото",
+    "автоматическая таблица для благодарственных писем (thank-you list)",
+    "руководства и статьи по подготовке к рождению ребёнка; возможность добавить в закладки",
+    "Babylist Box — коробка с образцами товаров при выполнении условий реестра"
+  ],
+  "competitors": [
+    "Amazon Baby Registry",
+    "Target Baby Registry",
+    "Buy Buy Baby Registry",
+    "Zola (свадебные/детские реестры)",
+    "The Bump Baby Registry",
+    "MyRegistry"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "It transferred my entire Amazon registry over so I didn't have to do it one by one",
+      "observation": "Импорт Amazon-реестра работает как одноразовая массовая операция: все позиции переносятся без ручного перебора. Для беременных, уже начавших список на Amazon, это устраняет главный барьер перехода.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "they send you free QR code cards to include with invites, the app guides you through getting a free breast pump, it creates a custom spreadsheet for sending out thank you cards",
+      "observation": "Сервис встраивает в онбординг смежные задачи: помогает оформить молокоотсос через страховку, генерирует таблицу для thank-you-записок и физические QR-карточки для приглашений — расширяя ценность далеко за рамки самого реестра.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I liked how I could categorize items and organize my page how I wanted plus adding pictures to my profile",
+      "observation": "Владелец реестра управляет порядком секций и добавляет матернити-фото — публичная страница воспринимается как персонализированная, а не как безликий корзинный список.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "it prioritizes the babylist price even when other retailers have less expensive offerings. They should price match if they are going to prioritize their own sales link",
+      "observation": "Карточка товара по умолчанию показывает кнопку «Купить на Babylist» даже когда тот же товар дешевле на Amazon или Target — без ценового сравнения. Гостю нужно самостоятельно открыть другую вкладку, чтобы заметить разницу.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Babylist shares your email with partner brands. The opt-out for partner emails is hidden far down the page and not obvious when managing subscriptions",
+      "observation": "Email пользователя автоматически передаётся партнёрским брендам при регистрации; отказ от рассылок зарыт в настройках и не предлагается явно при онбординге — пользователи обнаруживают это только после волны спама.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "gift cards are basically useless unless you want to overpay for everything in their store... if you need to make a return, you have to return it to Babylist headquarters THEN they issue you another damn baby list gift card that you can only use on products listed on their shop",
+      "observation": "Babylist gift-карта жёстко привязана к собственному магазину с завышенными ценами: возврат товара не конвертируется в деньги, а снова выпускается как Babylist-кредит, что замыкает пользователя в закрытом контуре транзакций.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User says it is the best registry (generic praise)",
+    "User says Amazon is better (commodity comparison without mechanism)",
+    "User never received their free box (fulfilment complaint, no product mechanism)",
+    "User says app is slow (commodity without reproducible flow)",
+    "Login broken / feature X does not work (commodity unless reproducible)"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "productId": "ext-1627205148",
+  "slug": "novelflow-unlimited-books-1627205148",
+  "name": "NovelFlow-Unlimited Books",
+  "domain": "мобильное чтение веб-романов / serialized fiction",
+  "oneLiner": "NovelFlow — платформа сериализованных романов (романтика, фэнтези, оборотни) с моделью «смотри рекламу — читай бесплатно»; iOS, глобальная аудитория",
+  "pricing": "бесплатный доступ через просмотр рекламы (30-60 сек на главу); после обновления 3.3.9 введён hourly cap — после нескольких глав пауза 30-60 минут до следующей; платные тарифы: ~$28.99/мес или годовая подписка — снимают рекламу и лимиты; отдельная валюта «коины» для покупки отдельных глав",
+  "keyFeatures": [
+    "библиотека сериализованных романов (романтика, паранормальное, оборотни, офисная драма, romance-fantasy)",
+    "модель чтения через рекламу: просмотр видеоролика разблокирует следующую главу",
+    "аудиорежим — TTS-озвучка книг (синтетический голос)",
+    "внутренняя валюта (коины) для покупки отдельных глав в обход рекламы",
+    "личная библиотека и история чтения",
+    "вознаграждения через Facebook-страницу приложения (бонусные коины)",
+    "подписка Premium без рекламы и без лимитов на главы"
+  ],
+  "competitors": [
+    "GoodNovel",
+    "Dreame",
+    "Webnovel",
+    "Astra Novel",
+    "MoboReader",
+    "Kindle Unlimited",
+    "Radish Fiction"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 3,
+      "trigger": "at quite a cost. Of course you can pay, but I am not convinced the books are worth paying for",
+      "observation": "Модель «бесплатно через рекламу» деградирует по мере продвижения по книге: сначала реклама редкая и быстро исчезает, затем каждая глава требует отдельного ролика, а потом добавляется принудительная пауза в 30+ минут — то есть фактически цена чтения нелинейно растёт к финалу книги.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "unlimited reading is no longer available. If you don't pay you have a limited number of chapters before being blocked. I'm now prevented from reading for an hour. First time block was 10 minutes, then after a chapter it was 35 minutes. Every chapter the time increases.",
+      "observation": "После обновления 3.3.9 введён прогрессивный cooldown: первый блок — 10 минут, следующий — 35 минут, и каждая новая глава увеличивает паузу, то есть механика намеренно давит на пользователя со временем, а не даёт фиксированный дневной лимит.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "wish if you were reading a book and on chapter 20, then listened to audio until chapter 40, when you go back to read the book again, it's back on 20 again",
+      "observation": "Прогресс чтения и прогресс аудиорежима хранятся независимо: переключение между текстом и аудио не синхронизирует позицию — пользователь, прослушавший 20 глав, возвращается к тому месту, где остановился в текстовом режиме.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "Continuous problems with the ads failing to close. Have to delete the app, reload and then it's ok for one or two ads before it freezes again",
+      "observation": "Кнопка закрытия рекламного ролика перекрывается иконкой заряда батареи или перестаёт реагировать — единственный workaround: удалить и переустановить приложение, после чего проблема воспроизводится снова через 1-2 рекламных паузы.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "They have stolen my coins I built up and deleted my library of books and pretending that I have another account and I must be mistaken",
+      "observation": "При конфликте двух аккаунтов (пользователь создал второй, пока был заблокирован из первого) служба поддержки отказывается восстанавливать коины и библиотеку основного аккаунта даже при наличии квитанции об оплате.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "some books have very short chapters and the app has a 1-2 minute advertisement at each break",
+      "observation": "Длина рекламной паузы фиксирована (1-2 минуты), тогда как длина глав варьируется: в книгах с короткими главами отношение время-рекламы к время-чтения смещается в пользу рекламы, что делает некоторые книги объективно дороже других в единицах «просмотренная реклама на минуту чтения».",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -124,7 +124,9 @@ model PositiveReview {
 // ── Auth / premium (Telegram login + Stars subscription) ──────────────────
 model User {
   id           String    @id @default(cuid())
-  telegramId   String    @unique
+  telegramId   String?   @unique
+  googleId     String?   @unique
+  email        String?   @unique
   username     String?
   firstName    String?
   premiumUntil DateTime?

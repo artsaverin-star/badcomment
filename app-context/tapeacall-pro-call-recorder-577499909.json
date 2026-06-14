@@ -1,0 +1,73 @@
+{
+  "productId": "ext-577499909",
+  "slug": "tapeacall-pro-call-recorder-577499909",
+  "name": "TapeACall Pro: Call Recorder",
+  "domain": "запись телефонных звонков / call recording / iOS",
+  "oneLiner": "TapeACall — iOS-рекордер телефонных разговоров через механизм конференц-слияния: приложение дозванивается до собственного сервера, пользователь вручную объединяет звонки в трёхстороннюю конференцию, после чего разговор пишется на сторону; есть транскрипция, нет прямого доступа к микрофону из-за ограничений iOS",
+  "pricing": "исторически продавалась как разовая покупка (~$10) и lifetime-подписка; после смены владельца переведена на подписочную модель: ~$8–10/неделю или ~$50–130/год; старые lifetime- и one-time-покупатели массово сообщают, что их покупки перестали распознаваться и доступ заблокирован до оплаты новой подписки",
+  "keyFeatures": [
+    "запись входящих и исходящих звонков через конференц-слияние (merge call с TapeACall-номером)",
+    "транскрипция записей (автоматическая, без разделения по спикерам)",
+    "хранение записей в облаке на серверах приложения",
+    "воспроизведение и экспорт отдельных записей (bulk-экспорт отсутствует)",
+    "веб-портал для доступа к записям (работает нестабильно, у многих — Error 403/500)",
+    "поддержка lifetime-плана (исторически); сейчас — несколько тарифных ступеней без чёткого описания различий",
+    "уведомления о записи (опциональный beep-интервал отсутствует — запрашиваемая, но не реализованная функция)"
+  ],
+  "competitors": [
+    "Rev Call Recorder",
+    "Google Voice (бесплатная запись входящих в США)",
+    "Otter.ai (транскрипция)",
+    "Notta",
+    "Call Recorder — IntCall",
+    "встроенная запись звонков на Android"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "The TAC merged call immediately drops as soon as the other call is merged",
+      "observation": "Конференц-слияние — единственный механизм записи на iOS — ненадёжно: вызов на сервер TapeACall сбрасывается в момент merge, и разговор прерывается, не записавшись. Баг воспроизводится стабильно на нескольких устройствах и не устраняется переустановкой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "It doesn't just record your calls, there's a timely process after answering. So the most important part of the call, name, company, etc gets missed, also puts your call on hold while merging so the caller hangs up anyway.",
+      "observation": "Процесс инициирования записи (открыть приложение → вызвать TapeACall-номер → дождаться соединения → вручную объединить звонки) занимает 5–10 секунд: начало разговора теряется, а собеседник, попадающий на hold во время merge, часто кладёт трубку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "The transcription did not clearly separate the speakers, but from this experience, I realize that I should identify myself as soon as I start speaking.",
+      "observation": "Транскрипция не разделяет спикеров: весь текст идёт единым потоком без диаризации, что делает расшифровку многостороннего разговора трудночитаемой.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "Just got a $170 phone bill for using the app for an international call while trying to record a half hour phone call with someone from your town.",
+      "observation": "Механизм конференц-слияния требует исходящего звонка на американский номер TapeACall: для пользователей без безлимитного тарифа или при роуминге оператор тарифицирует соединение как международный вызов — в одном случае 30-минутная запись обернулась $170 в счёте AT&T.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I paid a one-time fee they offered (which was a lot) when I purchased the 'PRO' version of this app. However, when I try to open and use it lately, it's requiring that I purchase an ADDITIONAL subscription",
+      "observation": "После смены владельца приложение перестаёт распознавать старые one-time и lifetime-покупки через Apple IAP: пользователи с покупками в истории App Store лишаются доступа к функциям и архиву записей, пока не оформят новую подписку.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "There used to be a web portal that facilitated this, but it no longer works for me. Since I opted not to renew my subscription, I've lost access to all my recordings that weren't downloaded.",
+      "observation": "Записи хранятся исключительно на серверах TapeACall и недоступны при истечении подписки: веб-портал возвращает ошибку, bulk-экспорта нет, а скачать записи поштучно до окончания доступа успевают не все — архив теряется безвозвратно.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

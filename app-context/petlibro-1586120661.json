@@ -1,0 +1,73 @@
+{
+  "productId": "cmpt4m41k1q92ugw6zh1m1fhm",
+  "slug": "petlibro-1586120661",
+  "name": "Petlibro",
+  "domain": "умные устройства для домашних животных / IoT-кормушки и фонтаны / pet care",
+  "oneLiner": "мобильное приложение-пульт для линейки умных автокормушек и фонтанов Petlibro; управление расписаниями кормления, уровнем воды и едой через облако; iOS + Android",
+  "pricing": "базовый функционал бесплатен (расписания, ручная подача); Petlibro Care / Care Plus — платная облачная подписка ~$130/год, открывает аналитику питания, историю активности питомца, доступ к камере и расширенные уведомления; подписка активно продвигается внутри приложения полноэкранными промо-экранами",
+  "keyFeatures": [
+    "настройка расписаний кормления (dry feeder) и ручная подача порций",
+    "мониторинг уровня воды и корма через датчики устройств",
+    "уведомления об офлайне устройства, низком уровне корма, визитах питомца",
+    "аналитика потребления воды и корма (за пейволлом Care-подписки)",
+    "управление несколькими устройствами (кормушки, фонтаны, влажные кормушки с охлаждением)",
+    "трекер замены расходников (десикант, фильтр фонтана)",
+    "профиль питомца: порода, вес, возраст — для персонализированных рекомендаций"
+  ],
+  "competitors": [
+    "WOPET Smart Pet Feeder",
+    "PETKIT Fresh Element / Solo / Infinity",
+    "SureFeed Microchip Pet Feeder",
+    "PetSafe Smart Feed",
+    "Arf Pets Automatic Pet Feeder",
+    "Furbo Dog Camera"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 1,
+      "trigger": "YOU MUST BE CONNECTED TO THEIR SERVER!!! Their server is down now and we can't feed our pets even though we are literally on the same wifi!!!",
+      "observation": "Архитектура приложения требует соединения с облачным сервером Petlibro даже для выполнения расписаний кормления в локальной сети: при падении сервера физическое устройство на том же Wi-Fi становится неуправляемым, питомцы остаются без еды.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "this app logs you out almost every day. why is this a thing? its a dang pet feeder.",
+      "observation": "Сессия авторизации в приложении принудительно сбрасывается с высокой частотой (по отзывам — ежедневно), при этом пуш-уведомления о состоянии устройства продолжают приходить — пользователь видит критическую нотификацию, но не может открыть приложение без повторного логина.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I had to remove the existing device from the app to connect to a new wifi. Now the app doesn't let you reconnect to the feeder device anymore.",
+      "observation": "При смене Wi-Fi-сети единственный задокументированный путь — удалить устройство из приложения и добавить заново; однако после удаления повторное сопряжение не завершается: устройство отображается в Bluetooth-поиске, но кнопки 'Add' и 'Add Manually' не проходят онбординг до конца.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "fullscreen 'PETLIBRO CARE & CARE PLUS' subscription ads break your app. In that, there is no way to 'go back' (the back arrow button doesn't work)",
+      "observation": "Полноэкранные промо-экраны подписки Care/Care Plus блокируют навигацию: кнопка «назад» внутри этих экранов не работает, единственный выход — полностью закрыть и перезапустить приложение, причём при следующем открытии промо может появиться снова.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "The app tells me I have to replace my dessicant bag for my auto feeder as its x days overdue when I literally just reset it on the app... it also never tells me in time when there is literally only a few granules left.",
+      "observation": "Счётчик замены десиканта не синхронизируется с ручным сбросом в приложении и продолжает показывать просрочку, создавая ложную тревогу; параллельно датчик уровня корма сообщает 'Low' задолго до реального опустошения бункера, но не переключается в 'Empty' вовремя — пользователь не может отличить реальный критический уровень от хронически некорректного предупреждения.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "the app withholds medical information about my pets without subscription. Information (existing log data) that should not require making me a slave to their subscription service when I've already paid a premium for their hardware.",
+      "observation": "Данные об активности питомца и истории потребления, собранные самим же устройством пользователя, скрываются за пейволлом Care-подписки: человек уже заплатил за железо, которое физически записало эти логи, но доступ к собственным данным монетизируется отдельно.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Button } from "@saverin/ui-web";
+import AuthModal from "./AuthModal";
 
 type Me = { user: { username: string | null; firstName: string | null; isAdmin: boolean } | null; premium: boolean };
 
-// "Login with Telegram": start → open bot deep link → poll until the bot binds
-// the token → reload so server components pick up the new session.
+// Auth entry point: opens the login/registration modal (Telegram + Google).
+// When signed in, shows the name, premium star, an admin link, and sign-out.
 export default function AuthButton({ compact = false }: { compact?: boolean }) {
   const [me, setMe] = useState<Me | null>(null);
-  const [busy, setBusy] = useState(false);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     fetch("/api/me")
@@ -17,26 +19,6 @@ export default function AuthButton({ compact = false }: { compact?: boolean }) {
       .then(setMe)
       .catch(() => setMe({ user: null, premium: false }));
   }, []);
-
-  async function login() {
-    setBusy(true);
-    try {
-      const { token, url } = await fetch("/api/auth/start", { method: "POST" }).then((r) => r.json());
-      window.open(url, "_blank");
-      const deadline = Date.now() + 10 * 60 * 1000;
-      while (Date.now() < deadline) {
-        await new Promise((r) => setTimeout(r, 2000));
-        const res = await fetch(`/api/auth/poll?token=${token}`).then((r) => r.json());
-        if (res.ok) {
-          location.reload();
-          return;
-        }
-        if (res.error && res.error !== "unknown") break;
-      }
-    } finally {
-      setBusy(false);
-    }
-  }
 
   async function logout() {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -47,19 +29,35 @@ export default function AuthButton({ compact = false }: { compact?: boolean }) {
 
   if (!me.user) {
     return (
-      <Button variant={compact ? "secondary" : "primary"} size="M" onClick={login} className={compact ? "w-full" : ""}>
-        {busy ? "Ожидание Telegram…" : "Войти"}
-      </Button>
+      <>
+        <Button
+          variant={compact ? "secondary" : "primary"}
+          size="M"
+          onClick={() => setModal(true)}
+          className={compact ? "w-full" : ""}
+        >
+          Войти
+        </Button>
+        {modal && <AuthModal onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
+      </>
     );
   }
 
   const name = me.user.firstName || me.user.username || "Аккаунт";
   return (
-    <div className={`flex items-center gap-2 ${compact ? "w-full justify-between" : ""}`}>
+    <div className={`flex items-center gap-2.5 ${compact ? "w-full justify-between" : ""}`}>
       <span className="flex items-center gap-1.5 text-footnote text-[var(--color-text-secondary)]">
         {me.premium && <span title="Премиум">⭐</span>}
         {name}
       </span>
+      {me.user.isAdmin && (
+        <Link
+          href="/admin"
+          className="text-caption font-medium text-[var(--color-text-brand)] hover:opacity-80"
+        >
+          Админка
+        </Link>
+      )}
       <button
         type="button"
         onClick={logout}

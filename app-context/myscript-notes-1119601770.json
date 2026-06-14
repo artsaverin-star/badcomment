@@ -1,0 +1,76 @@
+{
+  "productId": "cmptcp4l0122ougc3f1dcvjh5",
+  "slug": "myscript-notes-1119601770",
+  "name": "MyScript Notes: AI Handwriting",
+  "domain": "рукописные заметки / handwriting-to-text / PDF-аннотации",
+  "oneLiner": "MyScript (компания Myscript SAS) — приложение для рукописных заметок со встроенным движком распознавания почерка в реальном времени (ITM), конвертацией в печатный текст, аннотацией PDF и синхронизацией между Android/iOS/macOS; разовая покупка или подписка",
+  "pricing": "бесплатная версия с ограниченным доступом и навязчивыми попапами подписки; разовая пожизненная покупка (lifetime) — основной аргумент продаж, упоминается как главное преимущество над конкурентами; подписочный тариф также доступен; часть AI-функций (Study Space / квизы, AI-саммари) — только в платных тарифах; на Android часть устройств получает предустановленную полную версию от OEM-партнёров (Lenovo)",
+  "keyFeatures": [
+    "распознавание почерка в реальном времени (ITM-движок MyScript) — конвертация рукописного текста в печатный прямо при написании, поддержка смешанного ввода на нескольких языках одновременно",
+    "аннотация PDF и PPTX — наложение рукописных пометок, хайлайтов и фигур поверх загруженных документов",
+    "автоматическое распознавание и выпрямление фигур (shape detection) — нарисованные от руки прямоугольники, стрелки и линии автоматически превращаются в чистые объекты",
+    "математические формулы — рукописный ввод уравнений с автоматическим форматированием",
+    "кросс-платформенная синхронизация Android / iOS / macOS через облако (MyScript Cloud), интеграция с Dropbox и Google Drive",
+    "Study Space — AI-функция генерации интерактивных квизов из рукописных заметок",
+    "различные типы документов: Notebook (бесконечный холст), Document (форматированный текст), Board (свободная доска)",
+    "экспорт в текст, PDF, DOCX; выделение рукописного фрагмента и мгновенная отправка как текст в другие приложения"
+  ],
+  "competitors": [
+    "GoodNotes 5 / GoodNotes 6",
+    "Notability",
+    "Samsung Notes",
+    "Apple Notes (встроенное)",
+    "Nebo (предыдущее название самого MyScript — упоминается пользователями как отдельный бренд)",
+    "Xodo PDF Reader",
+    "Notewise",
+    "iA Writer"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 5,
+      "trigger": "The handwriting recognition is the real surprise — it handles both my Czech and English perfectly, even when I mix them in a single note.",
+      "observation": "ITM-движок распознаёт смешанный ввод на двух языках в одной заметке без переключения режима — пользователь пишет чешский и английский вперемежку, и оба распознаются корректно без ручной смены языка.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "The ability to select lines of handwritten notes and instantly share them as text into another app is amazing",
+      "observation": "Выделение произвольного фрагмента рукописного текста и его немедленный шер в любое другое приложение работает как системная операция копирования — это позволяет использовать заметки как буфер ввода без ручной перепечатки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 5,
+      "trigger": "I'm one of those oddballs that has a Mac Mini M4, and prefers Android Phones and Tablets... I have been able to use this tool on two Lenovo tablets and my Mac Mini with no problem.",
+      "observation": "iOS-версия запускается нативно на Mac M1/M4 через Rosetta-совместимый слой, что позволяет использовать единую экосистему заметок на Android-планшете, iPhone и macOS без специальной десктопной сборки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 4,
+      "trigger": "It can automate shapes, do maths convert your handwriting into text and the AI is on another level",
+      "observation": "Три слоя автоматизации работают параллельно в одном документе: shape detection превращает контуры в векторные фигуры, math-движок форматирует уравнения, а ITM конвертирует текст — пользователю не нужно переключаться между режимами.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I need folders in folders and/or the possibility to paste pdfs into notebooks... Currently I have to decide between creating a collection for every module which gets hard to navigate across semesters or creating a collection for each semester but then each module is just a long list of files",
+      "observation": "Файловая структура приложения ограничена одним уровнем вложенности (коллекция → файл): студенты, ведущие заметки по нескольким семестрам и дисциплинам одновременно, вынуждены выбирать между навигационным хаосом по горизонтали или длинными плоскими списками внутри коллекции.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "let us turn off handwriting recognition/whatever that makes the app lag with longer notes",
+      "observation": "ITM-движок работает в фоне постоянно и не отключаем — на длинных заметках накопленная нагрузка от real-time распознавания вызывает лаги, даже если пользователю конвертация в данный момент не нужна.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more features (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken (commodity unless reproducible flow described)",
+    "User says it's too expensive (commodity)"
+  ]
+}

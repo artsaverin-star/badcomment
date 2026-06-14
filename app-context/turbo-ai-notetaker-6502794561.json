@@ -1,0 +1,74 @@
+{
+  "productId": "ext-6502794561",
+  "slug": "turbo-ai-notetaker-6502794561",
+  "name": "Turbo AI - Notetaker",
+  "domain": "AI-учёба / конспекты из документов / генерация флеш-карточек",
+  "oneLiner": "TurboLearn AI — мобильный ИИ-ассистент для учёбы: загружаешь файл, ссылку на YouTube или запись голоса, получаешь структурированный конспект, флеш-карточки, квизы и подкаст; целевая аудитория — школьники и студенты, iOS+Android",
+  "pricing": "фримиум: бесплатно ровно одна «сессия» (один конспект/набор флеш-карточек), после чего весь функционал за пейволлом; подписка около $20/месяц (по отзывам из App Store США); на Google Play ряд пользователей сообщает о ~400+ в месяц в местной валюте (Филиппины); бесплатного пути после первого использования фактически нет — приложение агрессивно предлагает подписку при каждом действии",
+  "keyFeatures": [
+    "загрузка файла (PDF, документ) или вставка ссылки YouTube → автоматический AI-конспект",
+    "запись голоса / лекции прямо в приложении → транскрипция и конспект",
+    "автогенерация флеш-карточек по материалу",
+    "квизы и мини-тесты по загруженной теме",
+    "режим «подкаст» — ИИ озвучивает учебный материал в формате аудио",
+    "AI-чат по содержимому загруженного документа (история чата не сохраняется между сессиями)",
+    "поддержка нескольких языков интерфейса (не все языки доступны; Afrikaans, Malayalam, Macedonian, Odia — отсутствуют)"
+  ],
+  "competitors": [
+    "Quizlet",
+    "Anki",
+    "Notion AI",
+    "ChatGPT (упоминается в отзывах как альтернатива)",
+    "NotebookLM (Google)",
+    "Brainscape",
+    "Khanmigo / Khan Academy"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 4,
+      "trigger": "I find it so confusing, I thought i would just be able to write down my notes but I have to import files, record myself or paste a YouTube link",
+      "observation": "Приложение позиционирует себя как «заметки», но не поддерживает ручной ввод текста — единственные входные форматы это файл, YouTube-ссылка или голосовая запись; пользователи, ожидающие обычного блокнота, натыкаются на этот барьер сразу после онбординга.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I got confused about my notes  their not dated and not chronologically arranged when you open one note it automatically goes first in the list . I don't know which one is for which week exam",
+      "observation": "Конспекты не имеют дат и не упорядочены хронологически: открытие любой записи перемещает её в начало списка, что делает навигацию бесполезной при подготовке к нескольким экзаменам одновременно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "With errors and not comprehensive. It missed a lot of important things, had a lot of errors and didn't summarize the book properly. It will left out a bunch of information and chapters. Not reliable",
+      "observation": "При обработке полного учебника ИИ пропускает целые главы и генерирует фактические ошибки — конспект содержит существенные пробелы относительно исходного материала, что делает его ненадёжным для подготовки к экзамену.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "after one topic note this app doesn't give anything . it says to pay for the next sessions",
+      "observation": "Бесплатный лимит — ровно один конспект: после первого использования все дальнейшие действия блокируются пейволлом; приложение не показывает этот лимит до момента блокировки.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "I used this appp to study for my history test and it was great all I did was upload the review sheet my teacher posted and it taught me everything but as soon as I finished and tried to study for another test a week later it said that I couldn't make a new study thing for another month",
+      "observation": "После единственного бесплатного использования система заблокировала создание нового учебного набора на месяц — пользователь обнаружил это только когда снова открыл приложение перед следующим тестом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "After uploading a material, if i use the chat option to ask about the content, if I exit the chat option and come back again, I don't find the history. Please make the app so it saves the chat histories.",
+      "observation": "AI-чат по загруженному материалу не сохраняет историю: при выходе из режима чата и возврате все предыдущие вопросы и ответы пропадают, что вынуждает переформулировать запросы заново.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

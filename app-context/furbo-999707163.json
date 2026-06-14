@@ -1,0 +1,73 @@
+{
+  "productId": "cmq7uu1kv07ivugic1lukp4rh",
+  "slug": "furbo-999707163",
+  "name": "Furbo",
+  "domain": "умный pet-мониторинг / камера с дозатором угощений",
+  "oneLiner": "Tomofun — IoT-камера для питомцев с дистанционным дозатором лакомств, двусторонним аудио, AI-нотификациями о лае и действиях, облачным архивом; iOS+Android+Alexa",
+  "pricing": "устройство стоит от $35 (Furbo Mini) до ~$180 (360° версия); подписка обязательна для большинства AI-функций — базовый план показывается как $5.99/мес, но при выборе требует предоплаты за 2 года или 3 месяца минимум; 'ежемесячный' вариант $9.99/мес фактически недоступен без предоплаты 3 месяцев; ранее базовые функции были бесплатны, сейчас перенесены за пейволл; функция 'Furbo Nanny' (облачный архив + AI-события) входит в подписку",
+  "keyFeatures": [
+    "прямая трансляция с камеры на смартфон (live view, днём и ночью)",
+    "дистанционный дозатор лакомств — бросок угощения через приложение",
+    "двустороннее аудио: слышать питомца и говорить с ним",
+    "AI-оповещения о лае, присутствии человека и действиях питомца (Dog Nanny)",
+    "ежедневный видеодайджест ('Day Summary') — автомонтаж из значимых моментов за день",
+    "облачное хранилище видеоклипов (требует подписку)",
+    "360°-версия с автопанорамированием по питомцу",
+    "интеграция с Amazon Alexa"
+  ],
+  "competitors": [
+    "Wyze Cam",
+    "Google Home / Nest Camera",
+    "Ring Camera",
+    "Petcube Bites",
+    "Eufy Pet Camera"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "No way to simply export a barking protocol showing when and for how long barking was detected over a week or day.",
+      "observation": "Приложение фиксирует события лая внутри облака, но не даёт экспортировать хронологию и длительность — владелец не может проанализировать паттерн тревожности питомца в числах, хотя сырые данные у сервиса есть.",
+      "specificity": "high"
+    },
+    {
+      "rating": 2,
+      "trigger": "You cannot add users, you have to give your account login to others in the house which I do not like at all. Would love to give family members the ability to give my dogs a treat without giving them full access to a camera in my house.",
+      "observation": "Furbo не поддерживает многопользовательские роли: чтобы члены семьи могли бросать угощение, им нужно передать полный логин от аккаунта — то есть доступ ко всей камере домашнего наблюдения без разграничения прав.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "it gives a plan option of $5.99 for basic or $9.99 for premium per month, then if you select basic it says it's really $9.99 a month unless you pay for 2 yrs up front which they would discount to $5.99 per month break down... it will take you to payment but say you have to pay 3 months upfront",
+      "observation": "Экраны выбора подписки показывают цену $5.99/мес, которая активируется только при предоплате 2 лет; 'ежемесячный' тариф $9.99 требует минимум 3 месяца авансом — каждый шаг онбординга меняет условия по сравнению с предыдущим.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "my Furbo for about 4 years, and it worked without issue. Since the January 2026 update, my app is broken.",
+      "observation": "Обновление приложения в январе 2026 сломало совместимость со старыми устройствами Furbo: камера, работавшая 4 года без нареканий, перестала подключаться — компания систематически прекращает поддержку старых моделей через обновления ПО.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "I contacted the online chat. My dog passed away and wanted to see about canceling the nanny subscription. There was videos I wanted to download. I told them I wanted to download it before I cancel. He did not pay attention and cancelled without my permission.",
+      "observation": "Агент чат-поддержки отменил подписку без подтверждения пользователя во время запроса о скачивании видео — после отмены доступ к облачному архиву прекратился, и записи стали недоступны.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "notifications would stop calling my female dog a good boy... also WHY is there no home/away automation? I have to set it up through Alexa instead which doesn't always work and then I miss videos of my dog because I'll realize the camera's been off the whole time",
+      "observation": "Furbo не имеет встроенной автоматики home/away на основе геолокации: пользователь вынужден настраивать отключение камеры через Alexa-рутину, которая ненадёжна — при сбое рутины камера остаётся выключенной и не пишет видео весь день.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}

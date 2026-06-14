@@ -1,0 +1,73 @@
+{
+  "productId": "ext-799061555",
+  "slug": "banfield-pet-hospital-799061555",
+  "name": "Banfield Pet Hospital",
+  "domain": "ветеринарная клиника / управление здоровьем питомца / wellness-план для животных",
+  "oneLiner": "Официальное приложение сети ветеринарных клиник Banfield (США, ~1 000 локаций внутри PetSmart): запись на приём, история болезней питомца, чат с ветеринаром, управление подпиской Optimum Wellness Plan (OWP)",
+  "pricing": "Приложение бесплатное; основной продукт — подписка Optimum Wellness Plan (OWP): ежемесячное списание ~$45–72/мес в зависимости от уровня (Essential, Active Care, Active Care Plus, Special Care); план включает неограниченные плановые визиты, вакцинации и базовые анализы; лекарства и экстренные услуги — за доп. плату; виртуальная консультация Pet Chat требует наличия активного плана или предыдущего визита",
+  "keyFeatures": [
+    "запись на приём в ближайшую клинику сети (включая просмотр доступности нескольких локаций)",
+    "профиль питомца с историей визитов, вакцинаций и назначений",
+    "загрузка и скачивание медицинских документов и счетов",
+    "Pet Chat — живой чат с ветеринарным персоналом (только для клиентов с активным планом или историей визитов)",
+    "управление подпиской Optimum Wellness Plan (OWP): оплата, смена плана",
+    "push-напоминания о плановых визитах и прививках",
+    "связь с экстренными ветеринарными службами через приложение"
+  ],
+  "competitors": [
+    "VCA Animal Hospitals (приложение MyVCA)",
+    "BluePearl Pet Hospital",
+    "PetDesk (агрегатор ветклиник)",
+    "Chewy Connect (телемедицина для животных)",
+    "Vetster (онлайн-консультации ветеринара)",
+    "Airvet (виртуальная ветеринарная помощь)"
+  ],
+  "goodObservationExamples": [
+    {
+      "rating": 2,
+      "trigger": "App confirms appointment via email and calendar invite, but then I get called by the office of each location I've tried to tell me that the appointment needs rescheduled. What is the point of scheduling through the app if nothing listed is real?!",
+      "observation": "Приложение показывает слоты и отправляет подтверждение по email, но доступность в реальном времени не синхронизируется с расписанием конкретной клиники — пользователи получают звонок с отменой уже после подтверждения записи, что делает онлайн-запись декоративной.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "There's all these features that serve no function. You can submit a request for your pet's medical records but then the app either freezes or won't register the request. No matter how many times you request, refresh, or open/close the app, it will not work. The invoices don't show anything and visit summaries don't reflect the actual visit",
+      "observation": "Раздел медицинских документов и счетов существует в интерфейсе, но не функционирует: запросы зависают, выписки о визитах не содержат реальной информации — весь пласт «доступа к истории болезни питомца» является нерабочим фасадом.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The live chat is really bad. I asked a question, waited patiently for an answer and the second the answer was sent the chat was closed by the person on the other end giving me 0 seconds to read and I cant go back and look at it because it gets cleared out and sends you back to the initial page",
+      "observation": "Pet Chat закрывается оператором сразу после отправки ответа, не давая пользователю времени прочитать его, а история переписки не сохраняется — диалог исчезает и вернуться к нему невозможно.",
+      "specificity": "high"
+    },
+    {
+      "rating": 3,
+      "trigger": "I will randomly get alerts that I need to take a specific pet in for a routine visit that is overdue. However, when I make the appointment & show up the vet tech seemed confused as to why we're there. in fact, part of the reason I decided to write this review was I logged in today and it said one of my pets was overdue for a routine visit when he was there on Monday",
+      "observation": "Уведомления о просроченных визитах генерируются без синхронизации с реальной историей приёмов: приложение требует явиться на «просроченный» осмотр на следующий день после реального визита — клиника о поводе обращения не осведомлена.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "you have to spend money in one of their vet offices before you can ask them a question for free on the app. that is unbelievable and asinine",
+      "observation": "Чат с ветеринаром (Pet Chat) заблокирован до первого оплаченного визита в физическую клинику — пользователи, скачавшие приложение для консультации до записи, обнаруживают, что эта функция для них недоступна.",
+      "specificity": "high"
+    },
+    {
+      "rating": 1,
+      "trigger": "The update made everything not work. It claimed appointment availability the office didn't have. Made it useless.",
+      "observation": "После обновления приложение стало показывать фантомные слоты, которых нет в расписании клиники, — базовая функция записи полностью деградировала вместо улучшения.",
+      "specificity": "high"
+    }
+  ],
+  "badObservationExamples": [
+    "User says it's too expensive (commodity)",
+    "User says it crashed (no specifics)",
+    "User loves it (non-information)",
+    "User hates ads (commodity)",
+    "User wants more content (generic ask)",
+    "Subscription auto-renewed (commodity unless specific deceptive mechanism described)",
+    "Hard to cancel (commodity unless specific friction flow described)",
+    "Login broken / feature X doesn't work (commodity unless reproducible)"
+  ]
+}
