@@ -60,7 +60,19 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
     return [...m.entries()];
   }, [ideas]);
 
-  const filtered = domain === "all" ? ideas : ideas.filter((i) => i.domain === domain);
+  // A domain is locked when every idea in it is premium-only (no free access).
+  const domainLocked = useMemo(() => {
+    const m = new Map<string, boolean>();
+    for (const [slug] of domains) {
+      const ds = ideas.filter((i) => i.domain === slug);
+      m.set(slug, ds.length > 0 && ds.every((i) => i.locked));
+    }
+    return m;
+  }, [domains, ideas]);
+
+  // Only accessible (non-locked) ideas are ever rendered — premium content stays
+  // behind the paywall.
+  const filtered = ideas.filter((i) => !i.locked && (domain === "all" || i.domain === domain));
 
   const pillBase =
     "flex items-center gap-2 rounded-full border px-3.5 py-2 text-footnote font-semibold transition-colors";
@@ -77,12 +89,26 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
         <button type="button" onClick={() => setDomain("all")} className={pillClass(domain === "all")}>
           Все
         </button>
-        {domains.map(([slug, name]) => (
-          <button key={slug} type="button" onClick={() => setDomain(slug)} className={pillClass(domain === slug)}>
-            <DomainIcon slug={slug} />
-            {name}
-          </button>
-        ))}
+        {domains.map(([slug, name]) =>
+          domainLocked.get(slug) ? (
+            <Link
+              key={slug}
+              href="/premium"
+              className={`${pillBase} border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]`}
+            >
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="currentColor" strokeWidth="1.4" />
+              </svg>
+              {name}
+            </Link>
+          ) : (
+            <button key={slug} type="button" onClick={() => setDomain(slug)} className={pillClass(domain === slug)}>
+              <DomainIcon slug={slug} />
+              {name}
+            </button>
+          ),
+        )}
       </div>
 
       {filtered.length === 0 ? (
@@ -92,24 +118,13 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
           {filtered.map((idea) => (
             <Link
               key={idea.slug}
-              href={idea.locked ? "/premium" : `/ideas/${idea.slug}`}
+              href={`/ideas/${idea.slug}`}
               className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
             >
-              <div className="flex items-center gap-2">
-                <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
-                  <DomainIcon slug={idea.domain} />
-                  {idea.categoryName}
-                </span>
-                {idea.locked && (
-                  <span className="flex items-center gap-1 rounded-full bg-[var(--color-accent-brand-subtle)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-brand)]">
-                    <svg width="9" height="9" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                      <rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
-                      <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="currentColor" strokeWidth="1.4" />
-                    </svg>
-                    Премиум
-                  </span>
-                )}
-              </div>
+              <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+                <DomainIcon slug={idea.domain} />
+                {idea.categoryName}
+              </span>
               <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
                 {idea.title}
               </div>

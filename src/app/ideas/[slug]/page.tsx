@@ -86,13 +86,13 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
       </header>
 
       {/* Step 1 — the raw voices */}
-      <section>
+      <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
         <StepLabel n={1} title="Что пишут в отзывах" />
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
           {idea.reviewGrid.map((q, i) => (
             <figure
               key={i}
-              className="flex flex-col gap-2 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-3"
+              className="flex flex-col gap-2 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3"
             >
               <Stars rating={q.rating} />
               <blockquote className="text-[12.5px] leading-snug text-[var(--color-text-primary)]">
