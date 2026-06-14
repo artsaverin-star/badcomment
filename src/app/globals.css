@@ -181,20 +181,69 @@ body {
   background: var(--color-bg-page);
 }
 
+/* ── Landing (logged-out) animations ──────────────────────────────────── */
+@keyframes ld-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.ld-fade {
+  animation: ld-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes ld-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-16px) rotate(var(--r, 0deg));
+  }
+}
+.ld-float {
+  animation: ld-float var(--d, 6s) ease-in-out infinite;
+}
+@keyframes ld-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ld-marquee {
+  animation: ld-marquee var(--mq, 40s) linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ld-fade,
+  .ld-float,
+  .ld-marquee {
+    animation: none;
+  }
+}
+
 /* Free categories: a gently pulsing green frame so they stand out. */
 @keyframes free-glow {
   0%,
   100% {
-    border-color: color-mix(in srgb, #30d158 40%, transparent);
-    box-shadow: 0 0 0 0 rgba(48, 209, 88, 0);
+    border-color: color-mix(in srgb, #30d158 55%, transparent);
+    box-shadow:
+      0 0 10px -1px rgba(48, 209, 88, 0.3),
+      0 0 0 0 rgba(48, 209, 88, 0);
   }
   50% {
-    border-color: color-mix(in srgb, #30d158 85%, transparent);
-    box-shadow: 0 0 0 3px rgba(48, 209, 88, 0.16);
+    border-color: #2bff7a;
+    box-shadow:
+      0 0 22px 1px rgba(48, 209, 88, 0.6),
+      0 0 0 3px rgba(48, 209, 88, 0.14);
   }
 }
 .free-card {
-  border-color: color-mix(in srgb, #30d158 55%, transparent);
+  border-color: #30d158;
   animation: free-glow 2.6s ease-in-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {

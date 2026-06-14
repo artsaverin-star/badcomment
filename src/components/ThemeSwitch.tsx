@@ -55,8 +55,14 @@ export default function ThemeSwitch({ theme }: { theme: Theme }) {
     setCur(next);
   }
 
+  const idx = OPTIONS.findIndex((o) => o.theme === cur);
   return (
-    <div className="flex items-center rounded-full bg-[var(--color-bg-muted)] p-[3px]">
+    <div className="relative flex w-[74px] rounded-full bg-[var(--color-bg-muted)] p-[3px]">
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full bg-[var(--color-surface-card)] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.06),0px_1px_1px_0px_rgba(0,0,0,0.08)] transition-transform duration-200 ease-out"
+        style={{ transform: `translateX(${idx * 100}%)` }}
+      />
       {OPTIONS.map(({ theme: t, icon: Icon, label }) => {
         const active = t === cur;
         return (
@@ -65,10 +71,8 @@ export default function ThemeSwitch({ theme }: { theme: Theme }) {
             onClick={() => set(t)}
             aria-pressed={active}
             aria-label={label}
-            className={`flex size-[34px] items-center justify-center rounded-full transition-colors [&_svg]:size-5 ${
-              active
-                ? "bg-[var(--color-surface-card)] text-[var(--color-text-primary)] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.04),0px_1px_1px_0px_rgba(0,0,0,0.06)]"
-                : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+            className={`relative z-10 flex h-[34px] flex-1 items-center justify-center rounded-full transition-colors [&_svg]:size-5 ${
+              active ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
             }`}
           >
             <Icon />

@@ -113,7 +113,9 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
   const ref = useRef<HTMLDialogElement>(null);
   const count = item.observationCount;
   const open = () => {
-    document.body.style.overflow = "hidden";
+    // The scroll container is <html> (globals sets overflow-y:scroll), so lock
+    // that — locking body alone leaves the page scrollable behind the dialog.
+    document.documentElement.style.overflow = "hidden";
     ref.current?.showModal();
   };
 
@@ -128,8 +130,8 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
           <span className="text-[16px] font-semibold leading-snug text-[var(--color-text-primary)]">
             {item.title}
           </span>
-          <span className="mt-0.5 flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] font-medium tabular-nums text-[var(--color-text-secondary)] transition-colors group-hover/row:bg-[var(--color-surface-pressed)] group-hover/row:text-[var(--color-text-primary)]">
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <span className="mt-0.5 flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 group-hover/row:-translate-y-0.5 group-hover/row:bg-[var(--color-accent-brand-subtle)] group-hover/row:text-[var(--color-text-brand)] group-hover/row:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
               <path d="M8 7.2v3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               <circle cx="8" cy="5.1" r="0.9" fill="currentColor" />
@@ -146,7 +148,7 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
       <dialog
         ref={ref}
         onClose={() => {
-          document.body.style.overflow = "";
+          document.documentElement.style.overflow = "";
         }}
         onClick={(e) => {
           if (e.target === ref.current) ref.current?.close();
@@ -163,7 +165,7 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
               type="button"
               onClick={() => ref.current?.close()}
               aria-label="Закрыть"
-              className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
+              className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] outline-none transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-border-strong)]"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
