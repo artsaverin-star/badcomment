@@ -49,14 +49,18 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         title={cat.name}
       />
 
-      <section className="mb-6 flex flex-col gap-2">
-        <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3 md:grid-cols-4">
+      <section className="mb-6 flex flex-col gap-3">
+        <h2 className="text-caption font-semibold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
+          {locale === "en" ? "Analyzed apps" : "Разобранные приложения"} ·{" "}
+          <span className="tabular-nums">{cat.apps.filter((a) => hasInsight(a.productId)).length}</span>
+        </h2>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           {cat.apps.map((a) => {
             const linkSlug = a.productId ? getSlugByProductId(a.productId) : null;
             // Colour only apps that have a shipped разбор; the rest stay greyscale.
             const ready = hasInsight(a.productId);
             const tileClass =
-              "flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1 pl-1 pr-2.5";
+              "flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2.5";
             const inner = (
               <>
                 {a.icon ? (
@@ -64,25 +68,30 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                   <img
                     src={a.icon}
                     alt=""
-                    className={`size-6 shrink-0 rounded-full object-cover ${ready ? "" : "opacity-40 grayscale"}`}
+                    className={`size-9 shrink-0 rounded-[12px] object-cover ${ready ? "" : "opacity-40 grayscale"}`}
                   />
                 ) : (
-                  <div className="size-6 shrink-0 rounded-full bg-[var(--color-bg-muted)]" />
+                  <div className="size-9 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />
                 )}
                 <span
-                  className={`truncate text-footnote ${
+                  className={`min-w-0 flex-1 truncate text-callout font-medium ${
                     ready ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"
                   }`}
                 >
                   {a.name}
                 </span>
+                {ready && linkSlug && (
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
+                    <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
               </>
             );
             return ready && linkSlug ? (
               <Link
                 key={a.query}
                 href={`/${linkSlug}`}
-                className={`${tileClass} transition-colors hover:border-[var(--color-text-tertiary)]`}
+                className={`${tileClass} transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]`}
               >
                 {inner}
               </Link>

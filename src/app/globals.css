@@ -150,23 +150,24 @@ details[open]::details-content {
   --color-accent-brand-subtle: #3f6fff24;
 }
 
-/* Neutral near-black palette with clear elevation steps (getgems-like). */
+/* Neutral near-black palette with clear elevation steps (getgems-like).
+   Secondary text is kept bright enough for comfortable long-read body copy. */
 [data-theme="dark"] {
-  --color-bg-page: #0d0d0f;
-  --color-bg-subtle: #141416;
-  --color-bg-muted: #1c1c20;
-  --color-surface-card: #161618;
-  --color-surface-card-subtle: #1e1e22;
-  --color-surface-overlay: #1c1c20;
-  --color-surface-pressed: #26262c;
+  --color-bg-page: #0e0e11;
+  --color-bg-subtle: #151518;
+  --color-bg-muted: #232327;
+  --color-surface-card: #18181c;
+  --color-surface-card-subtle: #202024;
+  --color-surface-overlay: #1e1e23;
+  --color-surface-pressed: #2a2a30;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #9c9ca5;
-  --color-text-tertiary: #6a6a73;
-  --color-border-subtle: #232327;
-  --color-border-default: #2c2c32;
-  --color-border-strong: #3a3a41;
-  --color-button-secondary-bg: #1e1e22;
-  --color-button-ghost-bg: #161618;
+  --color-text-secondary: #b3b4bc;
+  --color-text-tertiary: #74757e;
+  --color-border-subtle: #242429;
+  --color-border-default: #2e2e34;
+  --color-border-strong: #3c3c44;
+  --color-button-secondary-bg: #202024;
+  --color-button-ghost-bg: #18181c;
 }
 
 /* Flat solid page background — no fixed/parallax layers (they tank scroll). */

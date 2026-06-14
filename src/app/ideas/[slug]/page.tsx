@@ -161,7 +161,7 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
 
       {/* Step 3 — the gap */}
       <section>
-        <StepLabel n={3} title="Щель" />
+        <StepLabel n={3} title="Возможность" />
         <p className="text-[15px] leading-relaxed text-[var(--color-text-primary)]">{idea.gap}</p>
       </section>
 

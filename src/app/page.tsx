@@ -27,6 +27,7 @@ export default async function Home() {
         appsCount: c.apps.length,
         apps: c.apps.map((a) => ({ name: a.name, icon: a.icon ?? null })),
         live,
+        free: isFreeCategory(c.slug),
         locked: live && !premium && !isFreeCategory(c.slug),
       };
     }),

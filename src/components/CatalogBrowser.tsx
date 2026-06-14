@@ -9,6 +9,7 @@ export type BrowseCategory = {
   appsCount: number;
   apps: BrowseApp[];
   live: boolean; // synthesis published (≥10 разборов)
+  free: boolean; // free for everyone (the flagship set)
   locked: boolean; // live but premium-gated for this viewer
 };
 export type BrowseDomain = { slug: string; name: string; categories: BrowseCategory[] };
@@ -31,7 +32,7 @@ export default function CatalogBrowser({
     <div className="flex flex-col gap-10">
       {domains.map((d) => (
         <section key={d.slug} className="flex flex-col gap-3">
-          <h2 className="border-b border-[var(--color-border-subtle)] pb-2 text-[20px] font-semibold text-[var(--color-text-primary)]">
+          <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
             {d.name}
           </h2>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -45,50 +46,60 @@ export default function CatalogBrowser({
   );
 }
 
+function StatusBadge({ kind }: { kind: "free" | "premium" | "soon" }) {
+  const map = {
+    free: { label: "Бесплатно", cls: "bg-[color-mix(in_srgb,#30d158_18%,transparent)] text-[#4ade80]" },
+    premium: { label: "Премиум", cls: "bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-brand)]" },
+    soon: { label: "Скоро", cls: "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]" },
+  }[kind];
+  return (
+    <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${map.cls}`}>{map.label}</span>
+  );
+}
+
 function CategoryCard({ cat }: { cat: BrowseCategory }) {
   const icons = cat.apps.filter((a) => a.icon).slice(0, 4);
   const dim = !cat.live; // «Скоро» categories are greyscale
+  const status: "free" | "premium" | "soon" = !cat.live ? "soon" : cat.free ? "free" : "premium";
   const body = (
     <>
-      <div className="flex shrink-0 -space-x-1.5">
+      <div className="flex shrink-0 -space-x-2">
         {icons.map((a, i) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             key={i}
             src={a.icon ?? ""}
             alt=""
-            className={`size-7 rounded-[var(--radius-sm)] object-cover ring-2 ring-[var(--color-surface-card)] ${dim ? "opacity-40 grayscale" : ""}`}
+            className={`size-9 rounded-[11px] object-cover ring-2 ring-[var(--color-surface-card)] ${dim ? "opacity-40 grayscale" : ""}`}
           />
         ))}
       </div>
-      <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-        <span className={`flex items-center gap-1.5 truncate text-callout font-semibold ${dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"}`}>
-          <span className="truncate">{cat.name}</span>
-          {cat.locked && (
-            <svg width="12" height="12" viewBox="0 0 14 14" className="shrink-0 text-[var(--color-text-tertiary)]" aria-hidden="true">
-              <rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" fill="none" />
-              <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="currentColor" strokeWidth="1.3" fill="none" />
-            </svg>
-          )}
+      <span className="flex min-w-0 flex-1 flex-col gap-1">
+        <span className={`truncate text-callout font-semibold ${dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"}`}>
+          {cat.name}
         </span>
-        <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
-          {cat.live ? `${cat.appsCount} ${appsWord(cat.appsCount)}` : "Скоро"}
+        <span className="flex items-center gap-2">
+          <StatusBadge kind={status} />
+          {cat.live && (
+            <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
+              {cat.appsCount} {appsWord(cat.appsCount)}
+            </span>
+          )}
         </span>
       </span>
     </>
   );
 
+  const shell =
+    "flex items-center gap-3 rounded-2xl border px-3.5 py-3 transition-colors";
+
   if (!cat.live) {
-    return (
-      <div className="flex items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-3 py-2.5">
-        {body}
-      </div>
-    );
+    return <div className={`${shell} border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)]`}>{body}</div>;
   }
   return (
     <Link
       href={`/segment/${cat.slug}`}
-      className="flex items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2.5 transition-colors hover:border-[var(--color-text-tertiary)]"
+      className={`${shell} border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]`}
     >
       {body}
     </Link>

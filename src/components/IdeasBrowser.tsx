@@ -94,7 +94,8 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
               href={`/ideas/${idea.slug}`}
               className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
             >
-              <div className="text-caption font-semibold uppercase tracking-[0.08em] text-[var(--color-text-brand)]">
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+                <DomainIcon slug={idea.domain} />
                 {idea.categoryName}
               </div>
               <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
