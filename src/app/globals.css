@@ -181,6 +181,28 @@ body {
   background: var(--color-bg-page);
 }
 
+/* Free categories: a gently pulsing green frame so they stand out. */
+@keyframes free-glow {
+  0%,
+  100% {
+    border-color: color-mix(in srgb, #30d158 40%, transparent);
+    box-shadow: 0 0 0 0 rgba(48, 209, 88, 0);
+  }
+  50% {
+    border-color: color-mix(in srgb, #30d158 85%, transparent);
+    box-shadow: 0 0 0 3px rgba(48, 209, 88, 0.16);
+  }
+}
+.free-card {
+  border-color: color-mix(in srgb, #30d158 55%, transparent);
+  animation: free-glow 2.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .free-card {
+    animation: none;
+  }
+}
+
 /* Subtle neutral elevation glow for raised primary surfaces (no colour). */
 .glow-brand {
   box-shadow:

@@ -57,9 +57,12 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
       <div className="mb-6">
         <Link
           href="/ideas"
-          className="text-[13px] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+          className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
         >
-          ← {tr.ideas.title}
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3.5 5.5 8l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {tr.ideas.title}
         </Link>
       </div>
 

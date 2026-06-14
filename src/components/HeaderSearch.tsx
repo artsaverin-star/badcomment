@@ -71,7 +71,7 @@ export default function HeaderSearch({ locale = "ru", compact = false }: { local
 
   return (
     <div ref={box} className={`relative ${compact ? "w-full" : "w-[260px] lg:w-[320px]"}`}>
-      <div className="flex items-center gap-2.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-4 py-2.5 focus-within:border-[var(--color-border-strong)]">
+      <div className="flex h-9 items-center gap-2.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-4 focus-within:border-[var(--color-border-strong)]">
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
           <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
           <path d="m17 17-3.5-3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />

@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useState } from "react";
 
 type Theme = "light" | "dark";
 
@@ -43,23 +42,23 @@ const OPTIONS: { theme: Theme; icon: () => React.ReactElement; label: string }[]
 // kind of cookie as the language switch, then refreshes so the server re-renders
 // <html data-theme>.
 export default function ThemeSwitch({ theme }: { theme: Theme }) {
-  const router = useRouter();
-  const [pending, startTransition] = useTransition();
+  // Theme is pure CSS (data-theme on <html>), so apply it on the client
+  // instantly — no server round-trip. Local state keeps the toggle in sync.
+  const [cur, setCur] = useState<Theme>(theme);
 
   function set(next: Theme) {
-    if (next === theme) return;
+    if (next === cur) return;
     // eslint-disable-next-line react-hooks/immutability
     document.cookie = `theme=${next}; path=/; max-age=31536000; samesite=lax`;
-    startTransition(() => router.refresh());
+    // eslint-disable-next-line react-hooks/immutability
+    document.documentElement.dataset.theme = next;
+    setCur(next);
   }
 
   return (
-    <div
-      className="flex items-center rounded-full bg-[var(--color-bg-muted)] p-[3px]"
-      aria-busy={pending}
-    >
+    <div className="flex items-center rounded-full bg-[var(--color-bg-muted)] p-[3px]">
       {OPTIONS.map(({ theme: t, icon: Icon, label }) => {
-        const active = t === theme;
+        const active = t === cur;
         return (
           <button
             key={t}

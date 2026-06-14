@@ -45,33 +45,33 @@ export default function SegmentSummaryView({
             Инсайты категории
           </p>
         )}
-        <p className={`${embedded ? "" : "mt-4"} text-[20px] leading-[1.7] text-[var(--color-text-secondary)]`}>
+        <p className={`${embedded ? "" : "mt-4"} text-[17px] leading-[1.7] text-[var(--color-text-secondary)]`}>
           {summary.lead}
         </p>
         <p className="mt-4 text-caption text-[var(--color-text-tertiary)]">
           {summary.appsCount} приложений · {summary.reviewsScanned.toLocaleString("ru-RU")} отзывов · обновлено {summary.asOf}
         </p>
 
-        <div className="mt-12 flex flex-col gap-12">
+        <div className="mt-10 flex flex-col gap-8">
           {summary.sections.map((section) => (
             <details key={section.id} open className="no-anim group/sec">
               <summary
                 onClick={keepInView}
-                className="flex cursor-pointer list-none items-start justify-between gap-4 [&::-webkit-details-marker]:hidden"
+                className="-mx-3 flex cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-3 py-2 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
               >
-                <h3 className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)]">
+                <h3 className="text-[19px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
                   {section.heading}
                 </h3>
-                <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/sec:rotate-90">
-                  <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/sec:rotate-90">
+                  <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                     <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
               </summary>
               {section.dek && (
-                <p className="mt-4 text-[18px] leading-[1.7] text-[var(--color-text-secondary)]">{section.dek}</p>
+                <p className="mt-2 px-0 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{section.dek}</p>
               )}
-              <div className="mt-6 flex flex-col">
+              <div className="mt-3 flex flex-col">
                 {section.items.map((item) => (
                   <CategoryInsightRow key={item.id} item={item} />
                 ))}
@@ -100,7 +100,7 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
         className="group/row flex w-full flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-5 text-left first:border-t-0"
       >
         <span className="flex items-start justify-between gap-4">
-          <span className="text-[17px] font-semibold leading-snug text-[var(--color-text-primary)] transition-colors group-hover/row:text-[var(--color-text-brand)]">
+          <span className="text-[16px] font-semibold leading-snug text-[var(--color-text-primary)]">
             {item.title}
           </span>
           <span className="mt-0.5 flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] font-medium tabular-nums text-[var(--color-text-secondary)] transition-colors group-hover/row:bg-[var(--color-surface-pressed)] group-hover/row:text-[var(--color-text-primary)]">
@@ -112,7 +112,7 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
             {count} {pluralizeNabludenie(count)}
           </span>
         </span>
-        <span className="text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">{item.body}</span>
+        <span className="text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{item.body}</span>
         <span className="mt-1 text-[12px] leading-relaxed text-[var(--color-text-tertiary)]">
           {item.apps.join(" · ")}
         </span>

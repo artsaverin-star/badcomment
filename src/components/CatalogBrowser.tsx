@@ -63,17 +63,6 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
   const status: "free" | "premium" | "soon" = !cat.live ? "soon" : cat.free ? "free" : "premium";
   const body = (
     <>
-      <div className="flex shrink-0 -space-x-2">
-        {icons.map((a, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={i}
-            src={a.icon ?? ""}
-            alt=""
-            className={`size-9 rounded-[11px] object-cover ring-2 ring-[var(--color-surface-card)] ${dim ? "opacity-40 grayscale" : ""}`}
-          />
-        ))}
-      </div>
       <span className="flex min-w-0 flex-1 flex-col gap-1">
         <span className={`truncate text-callout font-semibold ${dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"}`}>
           {cat.name}
@@ -87,11 +76,21 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
           )}
         </span>
       </span>
+      <div className="flex shrink-0 -space-x-2">
+        {icons.map((a, i) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={i}
+            src={a.icon ?? ""}
+            alt=""
+            className={`size-9 rounded-[11px] object-cover ring-2 ring-[var(--color-surface-card)] ${dim ? "opacity-40 grayscale" : ""}`}
+          />
+        ))}
+      </div>
     </>
   );
 
-  const shell =
-    "flex items-center gap-3 rounded-2xl border px-3.5 py-3 transition-colors";
+  const shell = "flex items-center gap-3 rounded-2xl border px-3.5 py-3 transition-colors";
 
   if (!cat.live) {
     return <div className={`${shell} border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)]`}>{body}</div>;
@@ -99,7 +98,9 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
   return (
     <Link
       href={`/segment/${cat.slug}`}
-      className={`${shell} border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]`}
+      className={`${shell} bg-[var(--color-surface-card)] hover:bg-[var(--color-surface-card-subtle)] ${
+        cat.free ? "free-card" : "border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)]"
+      }`}
     >
       {body}
     </Link>

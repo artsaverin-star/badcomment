@@ -3,8 +3,28 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Section tabs in the top bar: Каталог (the category/разбор index at "/") and
-// Идеи (review-derived app ideas at "/ideas"). Active section is underlined.
+function GridIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <rect x="3" y="3" width="6" height="6" rx="1.6" />
+      <rect x="11" y="3" width="6" height="6" rx="1.6" />
+      <rect x="3" y="11" width="6" height="6" rx="1.6" />
+      <rect x="11" y="11" width="6" height="6" rx="1.6" />
+    </svg>
+  );
+}
+
+function BulbIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M10 2.5a5 5 0 0 0-3 9v1.5h6V11.5a5 5 0 0 0-3-9Z" />
+      <path d="M8 16.5h4M8.5 18.5h3" />
+    </svg>
+  );
+}
+
+// Top-bar section tabs (getgems-style): icon + label, active tab in the brand
+// colour. No underline.
 export default function NavTabs({
   catalogLabel,
   ideasLabel,
@@ -15,22 +35,23 @@ export default function NavTabs({
   const pathname = usePathname();
   const inIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
   const tabs = [
-    { href: "/", label: catalogLabel, active: !inIdeas },
-    { href: "/ideas", label: ideasLabel, active: inIdeas },
+    { href: "/", label: catalogLabel, active: !inIdeas, Icon: GridIcon },
+    { href: "/ideas", label: ideasLabel, active: inIdeas, Icon: BulbIcon },
   ];
   return (
-    <nav className="flex items-center gap-4">
-      {tabs.map((tab) => (
+    <nav className="flex items-center gap-5">
+      {tabs.map(({ href, label, active, Icon }) => (
         <Link
-          key={tab.href}
-          href={tab.href}
-          className={`text-[15px] font-semibold transition-colors ${
-            tab.active
-              ? "text-[var(--color-text-primary)] underline decoration-[var(--color-text-brand)] decoration-2 underline-offset-8"
-              : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+          key={href}
+          href={href}
+          className={`flex items-center gap-2 text-[16px] font-semibold transition-colors ${
+            active
+              ? "text-[var(--color-text-brand)]"
+              : "text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)]"
           }`}
         >
-          {tab.label}
+          <Icon />
+          {label}
         </Link>
       ))}
     </nav>
