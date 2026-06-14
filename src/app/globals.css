@@ -29,8 +29,9 @@
    (ui-rounded), the loaded Nunito webfont everywhere else. Scoped to :root so the
    yandex brand override still wins for that brand. */
 :root {
-  --brand-font-family: "SF Compact Rounded", "SF Pro Rounded", ui-rounded,
-    var(--font-nunito), system-ui, sans-serif;
+  /* Crisp modern grotesque (getgems-like) as the primary UI face. */
+  --brand-font-family: var(--font-inter), "SF Pro Text", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
 /* Page chrome is fully token-driven; theme/brand swap via data-theme/data-brand
@@ -139,33 +140,33 @@ details[open]::details-content {
    so nothing else has to change. tokens.css is imported before globals.css, so
    these win. */
 
-/* Monochrome accent — no chromatic colour. Primary actions are near-white on
-   dark; the brand token drives text-brand, accent-brand and primary buttons. */
+/* getgems-style accent — a clean, flat royal blue for primary actions (no glow,
+   no gradient). Drives text-brand, accent-brand and primary buttons. */
 :root,
 [data-theme="dark"] {
-  --brand-color-primary: #f4f5f7;
-  --brand-color-on-primary: #0a0b0e;
-  --color-accent-brand: #f4f5f7;
-  --color-accent-brand-subtle: #ffffff1f;
+  --brand-color-primary: #3f6fff;
+  --brand-color-on-primary: #ffffff;
+  --color-accent-brand: #3f6fff;
+  --color-accent-brand-subtle: #3f6fff24;
 }
 
-/* Deep neutral dark palette with clear elevation contrast (no blue tint). */
+/* Neutral near-black palette with clear elevation steps (getgems-like). */
 [data-theme="dark"] {
-  --color-bg-page: #0a0a0c;
-  --color-bg-subtle: #101013;
-  --color-bg-muted: #1d1d22;
-  --color-surface-card: #141417;
-  --color-surface-card-subtle: #1b1b20;
-  --color-surface-overlay: #141417;
+  --color-bg-page: #0d0d0f;
+  --color-bg-subtle: #141416;
+  --color-bg-muted: #1c1c20;
+  --color-surface-card: #161618;
+  --color-surface-card-subtle: #1e1e22;
+  --color-surface-overlay: #1c1c20;
   --color-surface-pressed: #26262c;
-  --color-text-primary: #f6f6f8;
-  --color-text-secondary: #a7a7b0;
-  --color-text-tertiary: #6d6d77;
-  --color-border-subtle: #232328;
-  --color-border-default: #2c2c33;
-  --color-border-strong: #3a3a43;
-  --color-button-secondary-bg: #1e1e23;
-  --color-button-ghost-bg: #141417;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9c9ca5;
+  --color-text-tertiary: #6a6a73;
+  --color-border-subtle: #232327;
+  --color-border-default: #2c2c32;
+  --color-border-strong: #3a3a41;
+  --color-button-secondary-bg: #1e1e22;
+  --color-button-ghost-bg: #161618;
 }
 
 /* Flat solid page background — no fixed/parallax layers (they tank scroll). */

@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { Nunito } from "next/font/google";
+import { Inter, Nunito } from "next/font/google";
 import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
 import { getLocale } from "@/lib/i18n.server";
 
-// The @saverin design system's brand font is "SF Compact Rounded" (Apple-only,
-// not distributable on the web). Nunito is the closest free rounded face and is
-// wired in as the cross-platform fallback (see --brand-font-family in
-// globals.css). Cyrillic subset is required for the Russian UI.
+// Inter is the primary UI face — a crisp modern grotesque (getgems-like). It
+// drives --brand-font-family (see globals.css). Nunito stays loaded as the
+// rounded fallback variable for any brand override. Cyrillic subset for the RU UI.
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+});
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +40,7 @@ export default async function RootLayout({
       lang={locale}
       data-theme={theme}
       data-brand="saverin"
-      className={`${nunito.variable} h-full antialiased`}
+      className={`${inter.variable} ${nunito.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header locale={locale} theme={theme} />

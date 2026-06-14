@@ -40,7 +40,7 @@ function ModalShell({ onClose, ru, children }: { onClose: () => void; ru: boolea
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 backdrop-blur-sm [animation:sheet-backdrop-in_.2s_ease] sm:items-center"
+      className="fixed inset-0 z-[100] flex items-end justify-center bg-black/70 [animation:sheet-backdrop-in_.2s_ease] sm:items-center"
       onClick={onClose}
     >
       <div
