@@ -9,6 +9,18 @@ import { themeLabel, type SegmentSummary } from "@/lib/segmentSummary";
 // as hairline rows. Every figure traces to real reviews — see
 // scripts/build-segment-insights.ts.
 
+// Keep the clicked section header in the same viewport position across a
+// collapse/expand so the page doesn't jump (sections collapse instantly via the
+// .no-anim CSS override, so one rAF sees the settled layout).
+function keepInView(e: React.MouseEvent<HTMLElement>) {
+  const el = e.currentTarget;
+  const before = el.getBoundingClientRect().top;
+  requestAnimationFrame(() => {
+    const delta = el.getBoundingClientRect().top - before;
+    if (delta) window.scrollBy(0, delta);
+  });
+}
+
 function pluralizeNabludenie(n: number): string {
   const d = n % 10;
   const dd = n % 100;
@@ -42,12 +54,15 @@ export default function SegmentSummaryView({
 
         <div className="mt-12 flex flex-col gap-12">
           {summary.sections.map((section) => (
-            <details key={section.id} open className="group/sec">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 [&::-webkit-details-marker]:hidden">
+            <details key={section.id} open className="no-anim group/sec">
+              <summary
+                onClick={keepInView}
+                className="flex cursor-pointer list-none items-start justify-between gap-4 [&::-webkit-details-marker]:hidden"
+              >
                 <h3 className="text-[26px] font-bold leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)]">
                   {section.heading}
                 </h3>
-                <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-[transform,background-color] group-open/sec:rotate-90 group-hover/sec:bg-[var(--color-bg-muted)]">
+                <span className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/sec:rotate-90">
                   <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                     <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
@@ -72,19 +87,28 @@ export default function SegmentSummaryView({
 function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] }) {
   const ref = useRef<HTMLDialogElement>(null);
   const count = item.observationCount;
+  const open = () => {
+    document.body.style.overflow = "hidden";
+    ref.current?.showModal();
+  };
 
   return (
     <>
       <button
         type="button"
-        onClick={() => ref.current?.showModal()}
+        onClick={open}
         className="group/row flex w-full flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-5 text-left first:border-t-0"
       >
         <span className="flex items-start justify-between gap-4">
           <span className="text-[17px] font-semibold leading-snug text-[var(--color-text-primary)] transition-colors group-hover/row:text-[var(--color-text-brand)]">
             {item.title}
           </span>
-          <span className="mt-1 shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">
+          <span className="mt-0.5 flex shrink-0 items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] font-medium tabular-nums text-[var(--color-text-secondary)] transition-colors group-hover/row:bg-[var(--color-surface-pressed)] group-hover/row:text-[var(--color-text-primary)]">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
+              <path d="M8 7.2v3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="8" cy="5.1" r="0.9" fill="currentColor" />
+            </svg>
             {count} {pluralizeNabludenie(count)}
           </span>
         </span>
@@ -96,6 +120,9 @@ function CategoryInsightRow({ item }: { item: SegmentSummary["items"][number] })
 
       <dialog
         ref={ref}
+        onClose={() => {
+          document.body.style.overflow = "";
+        }}
         onClick={(e) => {
           if (e.target === ref.current) ref.current?.close();
         }}

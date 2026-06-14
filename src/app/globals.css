@@ -101,6 +101,12 @@ details[open]::details-content {
   }
 }
 
+/* Sections that preserve scroll on toggle collapse instantly (the JS scroll
+   compensation reads the settled layout in one frame). */
+details.no-anim::details-content {
+  transition: none;
+}
+
 /* Mobile bottom-sheet entrance for the evidence dialog: slide the panel up from
    below the fold and fade the backdrop in. Scoped via max-sm: utilities in the
    component, so it only animates when the dialog is anchored to the bottom. */
