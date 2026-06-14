@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { IconButton } from "@saverin/ui-web";
 import LangSwitch from "./LangSwitch";
 import ThemeSwitch from "./ThemeSwitch";
 import type { Locale } from "@/lib/i18n";
@@ -46,24 +45,23 @@ export default function SettingsMenu({ locale, theme }: { locale: Locale; theme:
 
   return (
     <div ref={box} className="relative">
-      <IconButton
-        variant="ghost"
-        size="M"
+      <button
+        type="button"
         aria-label={ru ? "Меню" : "Menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        icon={
-          open ? (
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-            </svg>
-          )
-        }
-      />
+        className="flex size-9 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+      >
+        {open ? (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+        ) : (
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+        )}
+      </button>
 
       {open && (
         <div className="absolute right-0 top-[calc(100%+10px)] z-50 w-[260px] rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-4 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.8)]">
