@@ -55,7 +55,6 @@ export default async function IdeasPage() {
           href="/premium"
           className="mx-auto mb-6 flex max-w-2xl items-center gap-3 rounded-[var(--radius-xl)] border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3"
         >
-          <span className="text-[18px]">🔓</span>
           <span className="flex-1 text-callout text-[var(--color-text-primary)]">
             Ещё <b>{lockedCount}</b> идей открыто по премиум-подписке.
           </span>

@@ -4,8 +4,7 @@ import Link from "next/link";
 export default function Paywall({ title }: { title?: string }) {
   return (
     <div className="mx-auto mt-10 max-w-md rounded-[var(--radius-2xl)] border border-[var(--color-text-brand)] bg-[var(--color-surface-card)] p-8 text-center">
-      <div className="text-[28px]">🔒</div>
-      <h2 className="mt-3 text-[22px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">
+      <h2 className="text-[22px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">
         {title ?? "Доступно в премиуме"}
       </h2>
       <p className="mx-auto mt-2.5 max-w-xs text-callout text-[var(--color-text-secondary)]">

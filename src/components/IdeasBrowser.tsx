@@ -91,17 +91,18 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
         </button>
         {domains.map(([slug, name]) =>
           domainLocked.get(slug) ? (
-            <Link
+            <span
               key={slug}
-              href="/premium"
-              className={`${pillBase} border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]`}
+              aria-disabled="true"
+              title="Доступно в премиуме"
+              className={`${pillBase} cursor-not-allowed border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] opacity-55`}
             >
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <rect x="2.5" y="6" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
-                <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6" stroke="currentColor" strokeWidth="1.4" />
-              </svg>
+              <DomainIcon slug={slug} />
               {name}
-            </Link>
+              <span className="ml-0.5 rounded-full bg-[var(--color-accent-brand-subtle)] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-brand)]">
+                Премиум
+              </span>
+            </span>
           ) : (
             <button key={slug} type="button" onClick={() => setDomain(slug)} className={pillClass(domain === slug)}>
               <DomainIcon slug={slug} />
