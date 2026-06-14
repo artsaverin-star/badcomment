@@ -100,9 +100,6 @@ export default function InsightLanding({
       }));
   const leftover = hasGroups ? ordered.filter((i) => !i.group) : all.filter((i) => !i.theme);
 
-  const hist = insights.ratingBreakdown ?? {};
-  const histTotal = [1, 2, 3, 4, 5].reduce((s, n) => s + (hist[String(n)] ?? 0), 0);
-  const lowPct = histTotal ? Math.round((((hist["1"] ?? 0) + (hist["2"] ?? 0)) / histTotal) * 100) : 0;
   const themeCount = sections.filter((s) => s.items.length > 0).length;
 
   return (
@@ -127,10 +124,10 @@ export default function InsightLanding({
         </div>
 
         <p className="max-w-[60ch] text-lead text-[var(--color-text-secondary)]">
-          Прочитано <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов,{" "}
-          <span className="tabular-nums text-[var(--color-text-primary)]">{lowPct}%</span> из них 1–2★. Ниже —{" "}
-          <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> механизмов, которые пользователи называют сами,
-          сгруппированных по <span className="tabular-nums text-[var(--color-text-primary)]">{themeCount}</span> темам.
+          Прочитали <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов и
+          собрали <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> повторяющихся наблюдений — то, что
+          пользователи отмечают сами, сгруппированных по{" "}
+          <span className="tabular-nums text-[var(--color-text-primary)]">{themeCount}</span> темам.
         </p>
 
         <div className="mt-2 max-w-md">

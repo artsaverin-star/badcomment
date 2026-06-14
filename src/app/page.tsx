@@ -2,12 +2,13 @@ import { Header } from "@saverin/ui-web";
 import { listDomains } from "@/lib/researchCategories";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
+import { getProductInsights } from "@/lib/insights";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import { getSessionUser } from "@/lib/session";
 import { isPremium, isFreeCategory } from "@/lib/premium";
 import segmentInsights from "@/data/segment-insights.json";
-import CatalogBrowser, { type BrowseDomain } from "@/components/CatalogBrowser";
+import CatalogBrowser, { type BrowseDomain, type BrowseAppItem } from "@/components/CatalogBrowser";
 import Landing, { type LandingApp } from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -40,7 +41,16 @@ export default async function Home() {
     }),
   }));
 
-  // Landing data (logged-out only): a sample of app icons + headline stats.
+  // Products that sit in at least one free category are free for everyone.
+  const freeProducts = new Set<string>();
+  for (const d of domainViews) {
+    for (const c of d.categories) {
+      if (!isFreeCategory(c.slug)) continue;
+      for (const a of c.apps) if (a.productId) freeProducts.add(a.productId);
+    }
+  }
+
+  // Landing data (logged-out only): app icons + real per-app review counts.
   const landingApps: LandingApp[] = [];
   const seen = new Set<string>();
   for (const d of domainViews) {
@@ -48,25 +58,32 @@ export default async function Home() {
       for (const a of c.apps) {
         if (a.icon && !seen.has(a.name)) {
           seen.add(a.name);
-          const slug = a.productId && hasInsight(a.productId) ? getSlugByProductId(a.productId) : null;
-          landingApps.push({ name: a.name, icon: a.icon, slug });
+          const ready = !!(a.productId && hasInsight(a.productId));
+          const slug = ready ? getSlugByProductId(a.productId!) : null;
+          const reviews = ready ? getProductInsights(a.productId!)?.reviewsScanned ?? 0 : 0;
+          const free = !!(a.productId && freeProducts.has(a.productId));
+          landingApps.push({ name: a.name, icon: a.icon, slug, reviews, free });
         }
       }
     }
   }
   // Analyzed apps (with a разбор page) for the catalog "Приложения" view,
   // deduped by slug (the same app can appear in several categories).
-  const bySlug = new Map<string, { name: string; icon: string | null; slug: string }>();
+  const bySlug = new Map<string, BrowseAppItem>();
   for (const a of landingApps) {
-    if (a.slug && !bySlug.has(a.slug)) bySlug.set(a.slug, { name: a.name, icon: a.icon, slug: a.slug });
+    if (a.slug && !bySlug.has(a.slug)) {
+      bySlug.set(a.slug, { name: a.name, icon: a.icon, slug: a.slug, reviews: a.reviews ?? 0, free: a.free ?? false });
+    }
   }
   const catalogApps = [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, "ru"));
+  // Real grand total of reviews analyzed across the published deck.
+  const totalReviews = catalogApps.reduce((s, a) => s + a.reviews, 0);
 
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       {!loggedIn ? (
         <>
-          <Landing apps={landingApps} locale={locale} />
+          <Landing apps={landingApps} locale={locale} totalReviews={totalReviews} />
           <h2 className="mb-6 mt-12 text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
             {locale === "en" ? "Catalog" : "Каталог"}
           </h2>

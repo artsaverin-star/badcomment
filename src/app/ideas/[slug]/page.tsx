@@ -109,13 +109,13 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
       <FunnelArrow />
 
       {/* Step 2 — what they sum into */}
-      <section>
+      <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
         <StepLabel n={2} title="Во что это складывается" />
         <div className="flex flex-col gap-2">
           {pains.map((m) => (
             <div
               key={m.title}
-              className="flex items-baseline gap-3 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3"
+              className="flex items-baseline gap-3 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3"
             >
               <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] font-semibold tabular-nums text-[var(--color-text-secondary)]">
                 {m.obsCount}
@@ -140,7 +140,7 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
               {loves.map((m) => (
                 <div
                   key={m.title}
-                  className="flex items-baseline gap-3 rounded-xl border border-[var(--color-border-subtle)] px-4 py-3"
+                  className="flex items-baseline gap-3 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3"
                 >
                   <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] font-semibold tabular-nums text-[var(--color-text-secondary)]">
                     {m.obsCount}
@@ -163,7 +163,7 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
       <FunnelArrow />
 
       {/* Step 3 — the gap */}
-      <section>
+      <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
         <StepLabel n={3} title="Возможность" />
         <p className="text-[15px] leading-relaxed text-[var(--color-text-primary)]">{idea.gap}</p>
       </section>

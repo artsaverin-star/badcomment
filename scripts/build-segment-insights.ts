@@ -796,6 +796,26 @@ function main() {
     console.log(`[${def.slug}] ${liveItems.length} category insights · ${inScope.length} apps · ${reviewsScanned} reviews · ${totalObs} obs aggregated`);
   }
 
+  // Bake Russian translations of pull-quote review snippets (hand-translated,
+  // stored in quote-ru.json) onto matching evidence so the UI shows quoteRu.
+  try {
+    const qru = JSON.parse(readFileSync("src/data/quote-ru.json", "utf8")) as Record<string, string>;
+    let applied = 0;
+    for (const cat of Object.values(out) as Array<{ items?: Array<{ evidence?: Array<{ quote: string; quoteRu?: string }> }> }>) {
+      for (const it of cat.items ?? []) {
+        for (const e of it.evidence ?? []) {
+          if (qru[e.quote]) {
+            e.quoteRu = qru[e.quote];
+            applied++;
+          }
+        }
+      }
+    }
+    console.log(`applied ${applied} RU quote translations`);
+  } catch {
+    /* no quote-ru.json yet */
+  }
+
   writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");
   console.log(`wrote ${OUT}`);
 }

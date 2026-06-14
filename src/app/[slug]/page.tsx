@@ -7,6 +7,7 @@ import { getAppMetaByProductId, listDomains } from "@/lib/researchCategories";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import Link from "next/link";
+import BackLink from "@/components/BackLink";
 import InsightLanding, { type LandingProduct } from "@/components/InsightLanding";
 
 export const dynamic = "force-dynamic";
@@ -64,7 +65,7 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
-      <nav className="mb-10 flex flex-wrap items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)]">
+      <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)]">
         <Link href="/" className="transition-colors hover:text-[var(--color-text-primary)]">
           {locale === "en" ? "Catalog" : "Каталог"}
         </Link>
@@ -79,6 +80,18 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
         <span aria-hidden>/</span>
         <span className="text-[var(--color-text-secondary)]">{data.name}</span>
       </nav>
+
+      <div className="mb-10">
+        <BackLink
+          fallback={cat ? `/segment/${cat.slug}` : "/"}
+          className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+        >
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3.5 5.5 8l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          {locale === "en" ? "Back" : "Назад"}
+        </BackLink>
+      </div>
 
       {insights ? (
         <InsightLanding data={data} insights={insights} tr={tr} />

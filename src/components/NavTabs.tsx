@@ -39,19 +39,20 @@ export default function NavTabs({
     { href: "/ideas", label: ideasLabel, active: inIdeas, Icon: BulbIcon },
   ];
   return (
-    <nav className="flex items-center gap-5">
+    <nav className="flex items-center gap-2 sm:gap-5">
       {tabs.map(({ href, label, active, Icon }) => (
         <Link
           key={href}
           href={href}
-          className={`flex items-center gap-1.5 text-[16px] font-semibold transition-colors ${
+          aria-label={label}
+          className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-[16px] font-semibold transition-colors sm:px-0 sm:py-0 ${
             active
-              ? "text-[var(--color-text-primary)]"
+              ? "bg-[var(--color-bg-muted)] text-[var(--color-text-primary)] sm:bg-transparent"
               : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
           }`}
         >
           <Icon />
-          {label}
+          <span className="hidden sm:inline">{label}</span>
         </Link>
       ))}
     </nav>

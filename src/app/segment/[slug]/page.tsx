@@ -7,6 +7,7 @@ import { hasInsight } from "@/lib/readyApps";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import SegmentSummaryView from "@/components/SegmentSummary";
+import SegmentAppList from "@/components/SegmentAppList";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import SegmentTabs from "@/components/SegmentTabs";
 import CategoryIdeas from "@/components/CategoryIdeas";
@@ -20,6 +21,11 @@ export const dynamic = "force-dynamic";
 // cross-app category synthesis ("инсайты категории").
 
 type CatApp = { query: string; name: string; icon: string; productId: string | null };
+
+// Prepositional-case plural: «в 1 приложении», «в 11 приложениях».
+function appsPrep(n: number): string {
+  return n % 10 === 1 && n % 100 !== 11 ? "приложении" : "приложениях";
+}
 
 function AppTile({ a }: { a: CatApp }) {
   const linkSlug = a.productId ? getSlugByProductId(a.productId) : null;
@@ -70,6 +76,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const cat = getResearchCategory(slug, locale);
   if (!cat) notFound();
 
+  const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const summary = getSegmentSummary(slug);
   const ideas = listIdeas().filter((i) => i.category === slug);
   const premium = await isPremium();
@@ -96,33 +103,27 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       />
 
       <section className="mb-6 flex flex-col gap-3">
-        <h2 className="text-caption font-semibold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
-          {locale === "en" ? "Analyzed apps" : "Разобранные приложения"} ·{" "}
-          <span className="tabular-nums">{cat.apps.filter((a) => hasInsight(a.productId)).length}</span>
+        <h2 className="text-callout text-[var(--color-text-secondary)]">
+          {locale === "en" ? (
+            <>
+              Analyzed every review across{" "}
+              <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{readyCount}</span> apps
+            </>
+          ) : (
+            <>
+              Разобрали все отзывы в{" "}
+              <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{readyCount}</span>{" "}
+              {appsPrep(readyCount)}
+            </>
+          )}
         </h2>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {cat.apps.slice(0, 10).map((a) => (
+        <SegmentAppList
+          total={cat.apps.length}
+          locale={locale}
+          tiles={cat.apps.map((a) => (
             <AppTile key={a.query} a={a} />
           ))}
-        </div>
-        {cat.apps.length > 10 && (
-          <details className="group/apps">
-            <summary className="flex cursor-pointer list-none items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-2.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] [&::-webkit-details-marker]:hidden">
-              <span className="group-open/apps:hidden">
-                {locale === "en" ? `Show ${cat.apps.length - 10} more` : `Показать ещё ${cat.apps.length - 10}`}
-              </span>
-              <span className="hidden group-open/apps:inline">{locale === "en" ? "Show less" : "Свернуть"}</span>
-              <svg width="12" height="12" viewBox="0 0 10 10" fill="none" aria-hidden="true" className="transition-transform group-open/apps:rotate-180">
-                <path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </summary>
-            <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {cat.apps.slice(10).map((a) => (
-                <AppTile key={a.query} a={a} />
-              ))}
-            </div>
-          </details>
-        )}
+        />
       </section>
 
       {locked ? (

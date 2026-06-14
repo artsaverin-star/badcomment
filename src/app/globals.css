@@ -156,9 +156,16 @@ details.no-anim::details-content {
   --color-accent-brand-subtle: #ff7a1a26;
 }
 
+/* Let native UI (scrollbars, form controls, caret) match the active theme so
+   switching never leaves a dark scrollbar on a light page (read as a "glitch"). */
+:root {
+  color-scheme: light;
+}
+
 /* Neutral near-black palette with clear elevation steps (getgems-like).
    Secondary text is kept bright enough for comfortable long-read body copy. */
 [data-theme="dark"] {
+  color-scheme: dark;
   --color-bg-page: #0e0e11;
   --color-bg-subtle: #151518;
   --color-bg-muted: #232327;

@@ -1,11 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 
-export type LandingApp = { name: string; icon: string; slug?: string | null };
+export type LandingApp = { name: string; icon: string; slug?: string | null; reviews?: number; free?: boolean };
+
+// Russian plural for "отзыв" (review): 1 отзыв, 2–4 отзыва, 5+ отзывов.
+function reviewsWord(n: number): string {
+  const d = n % 10;
+  const dd = n % 100;
+  if (dd >= 11 && dd <= 14) return "отзывов";
+  if (d === 1) return "отзыв";
+  if (d >= 2 && d <= 4) return "отзыва";
+  return "отзывов";
+}
 
 // Marketing landing for logged-out visitors: animated hero with a salute of
 // drifting app icons + a scrolling brand marquee. Original code in the app's
@@ -13,9 +23,11 @@ export type LandingApp = { name: string; icon: string; slug?: string | null };
 export default function Landing({
   apps,
   locale = "ru",
+  totalReviews = 0,
 }: {
   apps: LandingApp[];
   locale?: Locale;
+  totalReviews?: number;
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
@@ -49,7 +61,11 @@ export default function Landing({
   const floats = withIcon.slice(0, positions.length);
   // Cap the marquee — with hundreds of icons the row is enormous and scrolls
   // visually fast even at a long duration. A short, fixed set drifts slowly.
-  const marqueeApps = withIcon.slice(0, 18);
+  // Prefer ready apps (clickable + carry a real review count).
+  const marqueeApps = (withIcon.filter((a) => a.slug).slice(0, 18).length >= 6
+    ? withIcon.filter((a) => a.slug)
+    : withIcon
+  ).slice(0, 18);
   const marquee = [...marqueeApps, ...marqueeApps];
 
   return (
@@ -80,9 +96,18 @@ export default function Landing({
 
           <p className="ld-fade mx-auto mt-5 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
             {ru
-              ? "Читаем отзывы 1–5★ по приложениям и собираем их в готовые выводы: что пользователи хвалят, на что злятся и какие продукты стоит строить."
-              : "We read 1–5★ reviews across apps and turn them into clear conclusions: what users love, hate, and which products are worth building."}
+              ? "Читаем отзывы по приложениям и собираем их в готовые выводы: что пользователи хвалят, на что злятся. А ещё предлагаем идеи новых приложений — на основе того, что люди просят, в реальном времени."
+              : "We read app reviews and turn them into clear conclusions: what users love and what they hate. And we surface ideas for new apps from what people ask for — in real time."}
           </p>
+          {totalReviews > 0 && (
+            <p className="ld-fade mx-auto mt-3 text-callout text-[var(--color-text-tertiary)]" style={{ animationDelay: "0.13s" }}>
+              {ru ? "Уже разобрали " : "Already analyzed "}
+              <span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">
+                {totalReviews.toLocaleString(ru ? "ru-RU" : "en-US")}
+              </span>
+              {ru ? ` ${reviewsWord(totalReviews)}` : " reviews"}
+            </p>
+          )}
 
           <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
             <button
@@ -113,7 +138,11 @@ export default function Landing({
                   <img src={a.icon} alt="" className="size-9 shrink-0 rounded-full object-cover" />
                   <span className="flex flex-col leading-tight">
                     <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{a.name}</span>
-                    <span className="text-[11px] text-[var(--color-text-tertiary)]">{ru ? "500 отзывов" : "500 reviews"}</span>
+                    {a.reviews && a.reviews > 0 ? (
+                      <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+                        {ru ? `разобрали ${a.reviews.toLocaleString("ru-RU")} ${reviewsWord(a.reviews)}` : `${a.reviews.toLocaleString("en-US")} reviews`}
+                      </span>
+                    ) : null}
                   </span>
                 </>
               );

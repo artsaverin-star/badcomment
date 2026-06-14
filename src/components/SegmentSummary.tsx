@@ -62,12 +62,12 @@ export default function SegmentSummaryView({
               >
                 <summary
                   onClick={keepInView}
-                  className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 transition-colors hover:bg-[var(--color-surface-card-subtle)] [&::-webkit-details-marker]:hidden"
+                  className="group/sum flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden"
                 >
                   <h3 className="text-[19px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
                     {section.heading}
                   </h3>
-                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/sec:rotate-90">
+                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-[transform,background-color,color] group-open/sec:rotate-90 group-hover/sum:bg-[var(--color-accent-brand-subtle)] group-hover/sum:text-[var(--color-text-brand)]">
                     <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                       <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
