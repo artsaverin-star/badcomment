@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 // Premium pricing: one plan, two billing options. Monthly 1000 ₽, six months
 // 3000 ₽ (−50% vs paying monthly). Paid in Telegram Stars via the bot.
@@ -17,9 +18,29 @@ const PERKS = [
   "Новые категории по мере готовности",
 ];
 
-export default function Pricing({ botUrl }: { botUrl: string }) {
+export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: string; cardEnabled?: boolean }) {
   const [billing, setBilling] = useState<"month" | "half">("half");
+  const [paying, setPaying] = useState(false);
+  const [payErr, setPayErr] = useState<string | null>(null);
   const plan = PLANS[billing];
+
+  async function payByCard() {
+    setPaying(true);
+    setPayErr(null);
+    try {
+      const r = await fetch("/api/pay/yookassa", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan: billing }),
+      });
+      const d = await r.json();
+      if (!r.ok || !d.url) throw new Error(d.error || "Не удалось создать платёж");
+      window.location.href = d.url;
+    } catch (e) {
+      setPayErr((e as Error).message);
+      setPaying(false);
+    }
+  }
 
   return (
     <div className="mx-auto max-w-[460px]">
@@ -78,6 +99,22 @@ export default function Pricing({ botUrl }: { botUrl: string }) {
           Оформить в Telegram
         </a>
 
+        {cardEnabled && (
+          <button
+            type="button"
+            onClick={payByCard}
+            disabled={paying}
+            className="mt-3 flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-6 py-3.5 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)] disabled:opacity-60"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
+              <path d="M2.5 9.5h19" />
+            </svg>
+            {paying ? "Создаём платёж…" : "Оплатить картой РФ"}
+          </button>
+        )}
+        {payErr && <p className="mt-2 text-center text-caption text-[var(--color-accent-danger)]">{payErr}</p>}
+
         <ul className="mt-6 flex flex-col gap-3 border-t border-[var(--color-border-subtle)] pt-6">
           {PERKS.map((p) => (
             <li key={p} className="flex gap-2.5 text-callout text-[var(--color-text-secondary)]">
@@ -91,7 +128,9 @@ export default function Pricing({ botUrl }: { botUrl: string }) {
       </div>
 
       <p className="mt-4 text-center text-caption text-[var(--color-text-tertiary)]">
-        Оплата через Telegram Stars в боте. Отмена в любой момент.
+        {cardEnabled ? "Оплата картой РФ через ЮKassa или Telegram Stars. " : "Оплата через Telegram Stars в боте. "}
+        Доступ открывается автоматически сразу после оплаты. Условия — в{" "}
+        <Link href="/offer" className="hover:text-[var(--color-text-primary)] hover:underline">оферте</Link>.
       </p>
     </div>
   );

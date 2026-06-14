@@ -4,6 +4,7 @@ import { Inter, Nunito } from "next/font/google";
 import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { getLocale } from "@/lib/i18n.server";
 
 // Inter is the primary UI face — a crisp modern grotesque (getgems-like). It
@@ -45,6 +46,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header locale={locale} theme={theme} />
         {children}
+        <Footer />
       </body>
     </html>
   );

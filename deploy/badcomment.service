@@ -9,6 +9,9 @@ WorkingDirectory=/opt/badcomment
 Environment=NODE_ENV=production
 Environment=PORT=3000
 Environment=DATABASE_URL=file:/opt/badcomment/data/prod.db
+# Secrets (YOOKASSA_SHOP_ID/SECRET, SESSION_SECRET, Google client secret, etc.)
+# live only in this gitignored file (chmod 600). Leading "-" makes it optional.
+EnvironmentFile=-/opt/badcomment/.env
 ExecStart=/usr/bin/npm run start
 Restart=always
 RestartSec=5
