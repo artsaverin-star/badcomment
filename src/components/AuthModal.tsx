@@ -34,10 +34,9 @@ function loadTg(): TgState | null {
 function ModalShell({ onClose, ru, children }: { onClose: () => void; ru: boolean; children: React.ReactNode }) {
   // Render into <body> via a portal. The header has backdrop-filter, which makes
   // it a containing block for position:fixed — without the portal the modal
-  // anchors to the header and flies to the top instead of centering.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  // anchors to the header and flies to the top instead of centering. The modal
+  // only ever mounts client-side (after a click), so document is always present.
+  if (typeof document === "undefined") return null;
 
   return createPortal(
     <div
