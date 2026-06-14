@@ -1,6 +1,7 @@
 import { Header } from "@saverin/ui-web";
 import { listDomains } from "@/lib/researchCategories";
-import { listAppSlugs } from "@/lib/appSlugs";
+import { listAppSlugs, getSlugByProductId } from "@/lib/appSlugs";
+import { hasInsight } from "@/lib/readyApps";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import { getSessionUser } from "@/lib/session";
@@ -47,7 +48,8 @@ export default async function Home() {
       for (const a of c.apps) {
         if (a.icon && !seen.has(a.name)) {
           seen.add(a.name);
-          landingApps.push({ name: a.name, icon: a.icon });
+          const slug = a.productId && hasInsight(a.productId) ? getSlugByProductId(a.productId) : null;
+          landingApps.push({ name: a.name, icon: a.icon, slug });
         }
       }
     }

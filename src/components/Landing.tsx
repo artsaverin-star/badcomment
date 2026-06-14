@@ -5,7 +5,7 @@ import Link from "next/link";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 
-export type LandingApp = { name: string; icon: string };
+export type LandingApp = { name: string; icon: string; slug?: string | null };
 
 // Count-up animation from 0 to the real value.
 function Counter({ value }: { value: number }) {
@@ -133,16 +133,29 @@ export default function Landing({
       {withIcon.length > 6 && (
         <section className="relative overflow-hidden py-6 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
           <div className="ld-marquee flex w-max gap-3" style={{ ["--mq" as string]: "120s" }}>
-            {marquee.map((a, i) => (
-              <span
-                key={i}
-                className="flex shrink-0 items-center gap-2.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1.5 pl-1.5 pr-4"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={a.icon} alt="" className="size-8 rounded-[9px]" />
-                <span className="text-footnote font-medium text-[var(--color-text-secondary)]">{a.name}</span>
-              </span>
-            ))}
+            {marquee.map((a, i) => {
+              const inner = (
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={a.icon} alt="" className="size-9 shrink-0 rounded-[11px]" />
+                  <span className="flex flex-col leading-tight">
+                    <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{a.name}</span>
+                    <span className="text-[11px] text-[var(--color-text-tertiary)]">{ru ? "500 отзывов" : "500 reviews"}</span>
+                  </span>
+                </>
+              );
+              const cls =
+                "flex shrink-0 items-center gap-3 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-2 pl-2 pr-5 transition-colors hover:border-[var(--color-border-strong)]";
+              return a.slug ? (
+                <Link key={i} href={`/${a.slug}`} className={cls}>
+                  {inner}
+                </Link>
+              ) : (
+                <span key={i} className={cls}>
+                  {inner}
+                </span>
+              );
+            })}
           </div>
         </section>
       )}
