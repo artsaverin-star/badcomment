@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
@@ -50,9 +50,34 @@ export default function Pricing({
   const [paying, setPaying] = useState(false);
   const [payErr, setPayErr] = useState<string | null>(null);
   const [widgetOpen, setWidgetOpen] = useState(false);
+  const [token, setToken] = useState<string | null>(null);
   const [showAuth, setShowAuth] = useState(false);
   const [authAction, setAuthAction] = useState<"card" | "tg">("card");
   const plan = PLANS[billing];
+
+  // Рендерим виджет ЮKassa ТОЛЬКО когда контейнер #yk-widget уже в DOM
+  // (эффект выполняется после коммита, иначе «Element ... is not found»).
+  useEffect(() => {
+    if (!widgetOpen || !token) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const YK = await loadYooKassa();
+        if (cancelled) return;
+        const checkout = new YK({
+          confirmation_token: token,
+          return_url: window.location.origin + "/premium",
+          error_callback: () => setPayErr("Ошибка платежа, попробуйте ещё раз"),
+        });
+        checkout.render("#yk-widget");
+      } catch {
+        if (!cancelled) setPayErr("Не удалось открыть форму оплаты");
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [widgetOpen, token]);
 
   async function payByCard() {
     setPaying(true);
@@ -72,15 +97,8 @@ export default function Pricing({
       }
       const d = await r.json();
       if (!r.ok || !d.token) throw new Error(d.error || "Не удалось создать платёж");
-      const YK = await loadYooKassa();
+      setToken(d.token);
       setWidgetOpen(true);
-      await new Promise((res) => requestAnimationFrame(() => res(null)));
-      const checkout = new YK({
-        confirmation_token: d.token,
-        return_url: window.location.origin + "/premium",
-        error_callback: () => setPayErr("Ошибка платежа, попробуйте ещё раз"),
-      });
-      checkout.render("#yk-widget");
       setPaying(false);
     } catch (e) {
       setPayErr((e as Error).message);
@@ -196,13 +214,19 @@ export default function Pricing({
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
           onClick={(e) => {
-            if (e.target === e.currentTarget) setWidgetOpen(false);
+            if (e.target === e.currentTarget) {
+              setWidgetOpen(false);
+              setToken(null);
+            }
           }}
         >
           <div className="relative w-full max-w-[480px] rounded-[var(--radius-2xl)] bg-white p-4 shadow-2xl">
             <button
               type="button"
-              onClick={() => setWidgetOpen(false)}
+              onClick={() => {
+                setWidgetOpen(false);
+                setToken(null);
+              }}
               aria-label="Закрыть"
               className="absolute right-3 top-3 z-10 flex size-8 items-center justify-center rounded-full bg-black/5 text-[18px] leading-none text-black/50 hover:bg-black/10"
             >
