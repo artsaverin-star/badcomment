@@ -7,10 +7,10 @@ import { isFriendIdentity } from "./friends";
 
 // Free, fully-open categories (slug = catalog/segment slug). Four flagships.
 export const FREE_CATEGORIES = [
-  "habit-tracking",
-  "photo-editing",
-  "mood-journaling",
-  "language-learning",
+  "meditation-mindfulness",
+  "sleep-audio",
+  "sleep-tracking",
+  "stretching-mobility-yoga",
 ];
 
 export async function isPremium(): Promise<boolean> {
