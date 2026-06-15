@@ -24,13 +24,26 @@ export default function Landing({
   apps,
   locale = "ru",
   totalReviews = 0,
+  loggedIn = false,
 }: {
   apps: LandingApp[];
   locale?: Locale;
   totalReviews?: number;
+  loggedIn?: boolean;
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
+  const steps = ru
+    ? [
+        { t: "Читаем все отзывы", d: "Берём сотни отзывов 1–5★ по каждому приложению в категории." },
+        { t: "Собираем выводы", d: "Что хвалят, на что злятся, какие проблемы повторяются у разных приложений." },
+        { t: "Предлагаем идеи", d: "Готовые идеи новых приложений — на основе того, что люди реально просят." },
+      ]
+    : [
+        { t: "Read every review", d: "Hundreds of 1–5★ reviews for each app in a category." },
+        { t: "Distill conclusions", d: "What users love, hate, and which problems repeat across apps." },
+        { t: "Surface ideas", d: "Ready product ideas based on what people actually ask for." },
+      ];
 
   // Re-shuffle on the client each mount so the icon salute differs every load
   // (server stays deterministic; rAF keeps setState out of the effect body).
@@ -110,13 +123,22 @@ export default function Landing({
           )}
 
           <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
-            <button
-              type="button"
-              onClick={() => setModal(true)}
-              className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
-            >
-              {ru ? "Начать бесплатно" : "Start free"}
-            </button>
+            {loggedIn ? (
+              <Link
+                href="/catalog"
+                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+              >
+                {ru ? "Открыть каталог" : "Open catalog"}
+              </Link>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setModal(true)}
+                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+              >
+                {ru ? "Начать бесплатно" : "Start free"}
+              </button>
+            )}
             <Link
               href="/premium"
               className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
@@ -161,6 +183,45 @@ export default function Landing({
           </div>
         </section>
       )}
+
+      {/* How it works */}
+      <section className="mx-auto mt-10 w-full max-w-5xl">
+        <h2 className="mb-6 text-center text-[24px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+          {ru ? "Как это работает" : "How it works"}
+        </h2>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {steps.map((s, i) => (
+            <div
+              key={s.t}
+              className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6"
+            >
+              <span className="flex size-9 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-callout font-bold text-white">
+                {i + 1}
+              </span>
+              <h3 className="mt-4 text-lead font-semibold text-[var(--color-text-primary)]">{s.t}</h3>
+              <p className="mt-1.5 text-callout leading-[1.6] text-[var(--color-text-secondary)]">{s.d}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 flex justify-center">
+          {loggedIn ? (
+            <Link
+              href="/catalog"
+              className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+            >
+              {ru ? "Открыть каталог" : "Open catalog"}
+            </Link>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setModal(true)}
+              className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+            >
+              {ru ? "Начать бесплатно" : "Start free"}
+            </button>
+          )}
+        </div>
+      </section>
 
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
     </div>
