@@ -9,8 +9,9 @@ import InsightCard from "./InsightCard";
 // the billing/stability/account "hygiene" is collapsed below — it's table
 // stakes, not what makes a category interesting.
 
-// Themes that are baseline expectations (the "water"): kept, but out of focus.
-const HYGIENE: Theme[] = ["payment", "reliability", "support"];
+// Pure money/account hygiene stays collapsed; reliability is product-relevant
+// (a broken core feature is an insight), so it surfaces as a card.
+const HYGIENE: Theme[] = ["payment", "support"];
 // Product-signal themes, in display priority.
 const PRODUCT_ORDER: Theme[] = ["strategy", "content", "ui", "playback"];
 

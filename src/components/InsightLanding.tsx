@@ -4,9 +4,9 @@ import { formatCount } from "@/lib/format";
 import type { t } from "@/lib/i18n";
 import InsightCard from "@/components/InsightCard";
 
-// Baseline-expectation themes (billing/stability/account) — kept but collapsed
-// below the product signal, same as the category summary.
-const HYGIENE: Theme[] = ["payment", "reliability", "support"];
+// Pure money/account hygiene stays collapsed; reliability is product-relevant
+// (a broken core feature is an insight), so it surfaces as a card.
+const HYGIENE: Theme[] = ["payment", "support"];
 
 // Only the store-level header fields are needed to render the long-read, so the
 // component takes this narrow slice — a full ProductDetail satisfies it, and so
