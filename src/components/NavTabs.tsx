@@ -41,8 +41,10 @@ export default function NavTabs({
   appsLabel: string;
   ideasLabel: string;
 }) {
-  const pathname = usePathname();
+  const rawPath = usePathname();
   const sp = useSearchParams();
+  // Strip the /ru|/en locale prefix the proxy adds to the browser URL.
+  const pathname = rawPath.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const inIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
   const inApps = pathname === "/catalog" && sp.get("view") === "apps";
   const inCats = pathname === "/catalog" && !inApps;

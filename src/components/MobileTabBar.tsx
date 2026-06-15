@@ -52,8 +52,11 @@ export default function MobileTabBar({
   ideasLabel: string;
   searchLabel: string;
 }) {
-  const pathname = usePathname();
+  const rawPath = usePathname();
   const sp = useSearchParams();
+  // The browser URL carries a locale prefix (/ru, /en) that the proxy rewrites
+  // away server-side — strip it so the active-tab match works.
+  const pathname = rawPath.replace(/^\/(ru|en)(?=\/|$)/, "") || "/";
   const inIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
   const inSearch = pathname === "/search";
   const inApps = pathname === "/catalog" && sp.get("view") === "apps";
