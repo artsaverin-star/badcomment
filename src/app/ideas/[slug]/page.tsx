@@ -98,17 +98,17 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
       {/* Step 1 — the raw voices */}
       <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
         <StepLabel n={1} title="Что пишут в отзывах" />
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <div className="-mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {idea.reviewGrid.map((q, i) => (
             <figure
               key={i}
-              className="flex flex-col gap-2 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3"
+              className="flex w-[260px] shrink-0 snap-start flex-col gap-2 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-4"
             >
               <Stars rating={q.rating} />
-              <blockquote className="text-[12.5px] leading-snug text-[var(--color-text-primary)]">
+              <blockquote className="text-[13px] leading-snug text-[var(--color-text-primary)]">
                 “{q.quote}”
               </blockquote>
-              <figcaption className="mt-auto text-[11px] text-[var(--color-text-tertiary)]">
+              <figcaption className="mt-auto pt-1 text-[11px] text-[var(--color-text-tertiary)]">
                 {q.app}
               </figcaption>
             </figure>
