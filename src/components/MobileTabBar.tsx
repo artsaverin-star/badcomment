@@ -79,7 +79,7 @@ export default function MobileTabBar({
           {/* Sliding highlight under the active tab — стиль как у переключателя темы. */}
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-y-1.5 left-1.5 w-[calc(25%-3px)] rounded-full bg-[var(--color-surface-card)] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.06),0px_1px_1px_0px_rgba(0,0,0,0.08)] transition-[transform,opacity] duration-300 ease-out"
+            className="pointer-events-none absolute inset-y-1.5 left-1.5 w-[calc(25%-3px)] rounded-full bg-[color-mix(in_srgb,#ffffff_10%,var(--color-bg-muted))] shadow-[0_3px_10px_-2px_rgba(0,0,0,0.5)] transition-[transform,opacity] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]"
             style={{ transform: `translateX(${Math.max(0, activeIndex) * 100}%)`, opacity: activeIndex < 0 ? 0 : 1 }}
           />
           {tabs.map(({ href, label, active, Icon }) => (
