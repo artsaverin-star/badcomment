@@ -56,7 +56,8 @@ export default function MobileTabBar({
   const inIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
   const inSearch = pathname === "/search";
   const inApps = pathname === "/" && sp.get("view") === "apps";
-  const inCats = !inIdeas && !inSearch && !inApps;
+  // «Категории» активны только на главной, не на страницах приложений/категорий.
+  const inCats = pathname === "/" && !inApps;
 
   const tabs = [
     { href: "/", label: catalogLabel, active: inCats, Icon: GridIcon },

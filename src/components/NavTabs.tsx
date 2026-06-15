@@ -45,7 +45,8 @@ export default function NavTabs({
   const sp = useSearchParams();
   const inIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
   const inApps = pathname === "/" && sp.get("view") === "apps";
-  const inCats = !inIdeas && !inApps;
+  // Подсвечиваем «Категории» только на главной (не на страницах приложений/категорий).
+  const inCats = pathname === "/" && !inApps;
 
   const tabs = [
     { href: "/", label: catalogLabel, active: inCats, Icon: GridIcon },
