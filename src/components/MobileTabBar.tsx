@@ -71,8 +71,8 @@ export default function MobileTabBar({
         aria-hidden
         className="pointer-events-none fixed inset-x-0 bottom-0 z-40 h-32 bg-gradient-to-t from-[var(--color-bg-page)] via-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] to-transparent sm:hidden"
       />
-      <nav className="tabbar-in fixed inset-x-0 bottom-4 z-50 flex items-stretch justify-center gap-2.5 px-4 sm:hidden">
-        <div className="flex items-center gap-1 rounded-full border border-[var(--color-border-default)] bg-[color-mix(in_srgb,var(--color-surface-card)_96%,transparent)] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] backdrop-blur-xl">
+      <nav className="tabbar-in fixed inset-x-0 bottom-4 z-50 flex items-center justify-center gap-2.5 px-4 sm:hidden">
+        <div className="flex h-16 items-center gap-1 rounded-full border border-[var(--color-border-default)] bg-[color-mix(in_srgb,var(--color-surface-card)_96%,transparent)] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] backdrop-blur-xl">
           {tabs.map(({ href, label, active, Icon }) => (
             <Link
               key={label}
@@ -91,7 +91,7 @@ export default function MobileTabBar({
         <Link
           href="/search"
           aria-label={searchLabel}
-          className={`flex aspect-square shrink-0 items-center justify-center rounded-full border shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] backdrop-blur-xl transition-all duration-200 active:scale-90 ${
+          className={`flex size-16 shrink-0 items-center justify-center rounded-full border shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] backdrop-blur-xl transition-all duration-200 active:scale-90 ${
             inSearch
               ? "border-transparent bg-[var(--color-accent-brand)] text-white shadow-[0_10px_30px_-6px_var(--color-accent-brand)]"
               : "border-[var(--color-border-default)] bg-[color-mix(in_srgb,var(--color-surface-card)_96%,transparent)] text-[var(--color-text-primary)]"
