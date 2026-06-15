@@ -6,7 +6,11 @@ import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
 import type { Locale } from "@/lib/i18n";
 
-type Me = { user: { username: string | null; firstName: string | null; isAdmin: boolean } | null; premium: boolean; friend?: boolean };
+type Me = {
+  user: { username: string | null; firstName: string | null; isAdmin: boolean; premiumUntil?: string | null } | null;
+  premium: boolean;
+  friend?: boolean;
+};
 
 // Auth entry point. Logged out → "Войти" opens the modal. Logged in → a round
 // avatar that opens an account dropdown (name, status, admin, sign-out).
@@ -133,6 +137,21 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             </span>
           </div>
           <div className="border-t border-[var(--color-border-subtle)] p-2">
+            <Link
+              href="/premium"
+              onClick={() => setMenu(false)}
+              className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
+            >
+              <span className="text-[15px] leading-none">⭐</span>
+              <span className="flex min-w-0 flex-col">
+                <span>{me.friend ? "Премиум · Друг" : me.premium ? "Премиум" : "Оформить премиум"}</span>
+                {me.premium && !me.friend && me.user.premiumUntil && (
+                  <span className="text-caption text-[var(--color-text-tertiary)]">
+                    активен до {new Date(me.user.premiumUntil).toISOString().slice(0, 10)}
+                  </span>
+                )}
+              </span>
+            </Link>
             {me.user.isAdmin && (
               <Link
                 href="/admin"

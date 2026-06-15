@@ -3,6 +3,7 @@ import { isPremium, FREE_CATEGORIES } from "@/lib/premium";
 import { yookassaEnabled } from "@/lib/yookassa";
 import { getLocale } from "@/lib/i18n.server";
 import { getSessionUser } from "@/lib/session";
+import { isFriendIdentity } from "@/lib/friends";
 import Pricing from "@/components/Pricing";
 
 export const dynamic = "force-dynamic";
@@ -18,6 +19,8 @@ export default async function PremiumPage() {
   // именно этому аккаунту (даже если он залогинен через Google).
   const bot = process.env.BOT_USERNAME || "inAppProBot";
   const botUrl = user ? `https://t.me/${bot}?start=premium_${user.id}` : `https://t.me/${bot}?start=premium`;
+  const friend = !!user && isFriendIdentity(user);
+  const paidUntil = user?.premiumUntil && new Date(user.premiumUntil) > new Date() ? new Date(user.premiumUntil) : null;
 
   return (
     <main className="mx-auto w-full max-w-[640px] px-4 py-14">
@@ -36,9 +39,25 @@ export default async function PremiumPage() {
       />
 
       {premium ? (
-        <div className="mx-auto mt-8 max-w-[440px] rounded-[var(--radius-2xl)] border border-[#30d158]/40 bg-[color-mix(in_srgb,#30d158_8%,transparent)] p-6 text-center">
-          <p className="text-callout text-[var(--color-text-primary)]">⭐ Премиум активен — весь каталог открыт.</p>
-        </div>
+        <>
+          <div className="mx-auto mt-8 max-w-[440px] rounded-[var(--radius-2xl)] border border-[#30d158]/40 bg-[color-mix(in_srgb,#30d158_8%,transparent)] p-6 text-center">
+            <p className="text-callout text-[var(--color-text-primary)]">
+              {paidUntil
+                ? `⭐ Премиум активен до ${paidUntil.toISOString().slice(0, 10)} — весь каталог открыт.`
+                : friend
+                  ? "⭐ Доступ открыт — статус «Друг». Весь каталог и идеи доступны."
+                  : "⭐ Премиум активен — весь каталог открыт."}
+            </p>
+          </div>
+          {paidUntil && (
+            <div className="mt-12">
+              <h2 className="mb-6 text-center text-[20px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+                Продлить подписку
+              </h2>
+              <Pricing botUrl={botUrl} cardEnabled={cardEnabled} locale={locale} loggedIn={!!user} />
+            </div>
+          )}
+        </>
       ) : (
         <div className="mt-10">
           <Pricing botUrl={botUrl} cardEnabled={cardEnabled} locale={locale} loggedIn={!!user} />
