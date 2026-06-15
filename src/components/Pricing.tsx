@@ -3,6 +3,21 @@
 import { useState } from "react";
 import Link from "next/link";
 
+// ЮKassa embedded widget — оплата картой прямо на сайте, без переадресации.
+type YKWidget = { render: (selector: string) => void };
+type YKCtor = new (opts: { confirmation_token: string; return_url?: string; error_callback?: () => void }) => YKWidget;
+function loadYooKassa(): Promise<YKCtor> {
+  return new Promise((resolve, reject) => {
+    const w = window as unknown as { YooMoneyCheckoutWidget?: YKCtor };
+    if (w.YooMoneyCheckoutWidget) return resolve(w.YooMoneyCheckoutWidget);
+    const s = document.createElement("script");
+    s.src = "https://yookassa.ru/checkout-widget/v1/checkout-widget.js";
+    s.onload = () => (w.YooMoneyCheckoutWidget ? resolve(w.YooMoneyCheckoutWidget) : reject(new Error("widget load failed")));
+    s.onerror = () => reject(new Error("widget script error"));
+    document.body.appendChild(s);
+  });
+}
+
 // Premium pricing: one plan, two billing options. Monthly 1000 ₽, six months
 // 3000 ₽ (−50% vs paying monthly). Paid in Telegram Stars via the bot.
 const PLANS = {
@@ -22,6 +37,7 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
   const [billing, setBilling] = useState<"month" | "half">("half");
   const [paying, setPaying] = useState(false);
   const [payErr, setPayErr] = useState<string | null>(null);
+  const [widgetOpen, setWidgetOpen] = useState(false);
   const plan = PLANS[billing];
 
   async function payByCard() {
@@ -34,11 +50,21 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
         body: JSON.stringify({ plan: billing }),
       });
       const d = await r.json();
-      if (!r.ok || !d.url) throw new Error(d.error || "Не удалось создать платёж");
-      window.location.href = d.url;
+      if (!r.ok || !d.token) throw new Error(d.error || "Не удалось создать платёж");
+      const YK = await loadYooKassa();
+      setWidgetOpen(true);
+      await new Promise((res) => requestAnimationFrame(() => res(null)));
+      const checkout = new YK({
+        confirmation_token: d.token,
+        return_url: window.location.origin + "/premium",
+        error_callback: () => setPayErr("Ошибка платежа, попробуйте ещё раз"),
+      });
+      checkout.render("#yk-widget");
+      setPaying(false);
     } catch (e) {
       setPayErr((e as Error).message);
       setPaying(false);
+      setWidgetOpen(false);
     }
   }
 
@@ -128,6 +154,27 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
         Доступ открывается автоматически сразу после оплаты. Условия — в{" "}
         <Link href="/offer" className="hover:text-[var(--color-text-primary)] hover:underline">оферте</Link>.
       </p>
+
+      {widgetOpen && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setWidgetOpen(false);
+          }}
+        >
+          <div className="relative w-full max-w-[480px] rounded-[var(--radius-2xl)] bg-white p-4 shadow-2xl">
+            <button
+              type="button"
+              onClick={() => setWidgetOpen(false)}
+              aria-label="Закрыть"
+              className="absolute right-3 top-3 z-10 flex size-8 items-center justify-center rounded-full bg-black/5 text-[18px] leading-none text-black/50 hover:bg-black/10"
+            >
+              ×
+            </button>
+            <div id="yk-widget" className="min-h-[320px] pt-6" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

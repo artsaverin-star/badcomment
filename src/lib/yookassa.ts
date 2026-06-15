@@ -19,9 +19,8 @@ export async function createPayment(opts: {
   amountRub: number;
   description: string;
   metadata: Record<string, string>;
-  returnUrl: string;
   idempotenceKey: string;
-}): Promise<{ confirmation?: { confirmation_url?: string } }> {
+}): Promise<{ confirmation?: { confirmation_token?: string } }> {
   const res = await fetch(`${API}/payments`, {
     method: "POST",
     headers: {
@@ -32,7 +31,8 @@ export async function createPayment(opts: {
     body: JSON.stringify({
       amount: { value: opts.amountRub.toFixed(2), currency: "RUB" },
       capture: true,
-      confirmation: { type: "redirect", return_url: opts.returnUrl },
+      // Embedded widget — оплата прямо на сайте, без переадресации.
+      confirmation: { type: "embedded" },
       description: opts.description,
       metadata: opts.metadata,
     }),

@@ -22,18 +22,16 @@ export async function POST(req: Request) {
   const p = PLANS[body.plan ?? ""];
   if (!p) return NextResponse.json({ error: "Неизвестный тариф" }, { status: 400 });
 
-  const origin = new URL(req.url).origin;
   try {
     const payment = await createPayment({
       amountRub: p.rub,
       description: `inApp Премиум — ${p.title}`,
       metadata: { userId: u.id, plan: body.plan as string, days: String(p.days) },
-      returnUrl: `${origin}/premium`,
       idempotenceKey: crypto.randomUUID(),
     });
-    const url = payment?.confirmation?.confirmation_url ?? null;
-    if (!url) return NextResponse.json({ error: "ЮKassa не вернула ссылку" }, { status: 502 });
-    return NextResponse.json({ url });
+    const token = payment?.confirmation?.confirmation_token ?? null;
+    if (!token) return NextResponse.json({ error: "ЮKassa не вернула токен" }, { status: 502 });
+    return NextResponse.json({ token });
   } catch (e) {
     return NextResponse.json({ error: (e as Error).message }, { status: 502 });
   }
