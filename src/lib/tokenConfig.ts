@@ -23,12 +23,17 @@ export type TokenPack = {
   badge?: string; // marketing label (e.g. discount)
 };
 
-// RU-affordable ladder, increasing discount with size. Anchor: 100 tokens ≈ 990₽.
+// RU-affordable ladder, increasing discount with size. Base: 100 tokens = 990₽
+// (9.9₽/token); bigger packs drop the per-token price.
 export const TOKEN_PACKS: TokenPack[] = [
-  { id: "s", tokens: 50, rub: 590, stars: 300 },
-  { id: "m", tokens: 100, rub: 990, stars: 500, badge: "−16%" },
-  { id: "l", tokens: 300, rub: 2490, stars: 1250, badge: "−30%" },
+  { id: "s", tokens: 100, rub: 990, stars: 500 },
+  { id: "m", tokens: 300, rub: 2490, stars: 1250, badge: "−16%" },
+  { id: "l", tokens: 700, rub: 4990, stars: 2500, badge: "−28%" },
 ];
+
+// One-time "everything forever" SKU: unlocks all apps, ideas and categories
+// permanently (User.lifetime). ≈ half the à-la-carte price of buying everything.
+export const LIFETIME = { rub: 10000, stars: 5000 };
 
 export function getPack(id: string): TokenPack | null {
   return TOKEN_PACKS.find((p) => p.id === id) ?? null;

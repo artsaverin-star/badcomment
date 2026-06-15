@@ -8,7 +8,7 @@ export async function GET() {
   const u = await getSessionUser();
   if (!u) return NextResponse.json({ user: null, premium: false, friend: false });
   const friend = isFriendIdentity(u);
-  const unlimited = u.isAdmin || friend || !!(u.premiumUntil && new Date(u.premiumUntil) > new Date());
+  const unlimited = u.isAdmin || u.lifetime || friend || !!(u.premiumUntil && new Date(u.premiumUntil) > new Date());
   return NextResponse.json({
     user: { username: u.username, firstName: u.firstName, isAdmin: u.isAdmin, premiumUntil: u.premiumUntil },
     premium: unlimited,

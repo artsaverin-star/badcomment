@@ -22,6 +22,7 @@ export async function getAccess(): Promise<Access> {
 
   const unlimited =
     user.isAdmin ||
+    user.lifetime ||
     isFriendIdentity(user) ||
     !!(user.premiumUntil && new Date(user.premiumUntil) > new Date());
 

@@ -77,9 +77,12 @@ export default function UnlockGate({
           </svg>
         </span>
         <h2 className="mt-4 text-[22px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">
-          Открыть {NOUN[type]}
+          Открыть {NOUN[type]} за {cost} {tokensWord(cost)}
         </h2>
         <p className="mx-auto mt-2 max-w-xs text-callout text-[var(--color-text-secondary)]">{WHAT[type]}</p>
+        <p className="mx-auto mt-2 max-w-xs text-caption text-[var(--color-text-tertiary)]">
+          Токены — внутренняя валюта inApp. {loggedIn ? "Купить можно в разделе «Токены»." : `За регистрацию дарим ${SIGNUP_GRANT}.`}
+        </p>
 
         <button
           type="button"

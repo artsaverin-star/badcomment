@@ -95,6 +95,12 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           {name}
         </span>
         <span className="flex items-center gap-2.5">
+          <Link href="/library" className="text-caption font-medium text-[var(--color-text-secondary)]">
+            {ru ? "Купленное" : "Library"}
+          </Link>
+          <Link href="/tokens" className="text-caption font-medium text-[var(--color-text-brand)]">
+            {ru ? "Токены" : "Tokens"}
+          </Link>
           {me.user.isAdmin && (
             <Link href="/admin" className="text-caption font-medium text-[var(--color-text-brand)]">
               {ru ? "Админка" : "Admin"}
@@ -152,6 +158,16 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
                     : `Баланс: ${me.balance ?? 0} ${tokensWord(me.balance ?? 0)} · Пополнить`}
                 </span>
               </span>
+            </Link>
+            <Link
+              href="/library"
+              onClick={() => setMenu(false)}
+              className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
+            >
+              <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
+                <path d="M4 4.5h8a1.5 1.5 0 0 1 1.5 1.5v10l-3-2-3 2V6A1.5 1.5 0 0 1 9 4.5M14 6.5h2a0 0 0 0 1 0 0v9.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {ru ? "Купленное" : "Library"}
             </Link>
             {me.user.isAdmin && (
               <Link

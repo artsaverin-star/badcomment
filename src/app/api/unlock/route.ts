@@ -19,8 +19,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "bad request" }, { status: 400 });
   }
 
-  // Admins / friends / legacy comp already see everything — nothing to charge.
-  const unlimited = u.isAdmin || isFriendIdentity(u) || !!(u.premiumUntil && new Date(u.premiumUntil) > new Date());
+  // Admins / lifetime / friends / legacy comp already see everything.
+  const unlimited =
+    u.isAdmin || u.lifetime || isFriendIdentity(u) || !!(u.premiumUntil && new Date(u.premiumUntil) > new Date());
   if (unlimited) return NextResponse.json({ ok: true, already: true, balance: u.tokens ?? 0 });
 
   const res = await unlockItem(u.id, type as UnlockType, slug);

@@ -26,14 +26,23 @@ export async function POST(req: Request) {
 
   const userId = payment?.metadata?.userId;
   const tokens = Number(payment?.metadata?.tokens || 0);
+  const lifetime = payment?.metadata?.lifetime === "1";
   const ref = `yk:${id}`;
-  if (!userId || !tokens) return NextResponse.json({ ok: true });
+  if (!userId || (!tokens && !lifetime)) return NextResponse.json({ ok: true });
 
   try {
     const already = await prisma.tokenLedger.findFirst({ where: { ref } });
     if (already) return NextResponse.json({ ok: true });
     const user = await prisma.user.findUnique({ where: { id: userId } });
-    if (user) await grantTokens(userId, tokens, "purchase", ref);
+    if (!user) return NextResponse.json({ ok: true });
+    if (lifetime) {
+      await prisma.user.update({ where: { id: userId }, data: { lifetime: true } });
+      await prisma.tokenLedger.create({
+        data: { userId, delta: 0, reason: "lifetime", ref, balanceAfter: user.tokens },
+      });
+    } else {
+      await grantTokens(userId, tokens, "purchase", ref);
+    }
   } catch {
     /* swallow — ack anyway, ЮKassa retries on non-200 */
   }

@@ -15,11 +15,10 @@ export default async function TokensPage() {
   const locale = await getLocale();
 
   const bot = process.env.BOT_USERNAME || "inAppProBot";
-  // The bot reads start=buy_<packId>_<userId> and sends a Stars invoice for that
-  // pack, crediting this exact site account (even if logged in via Google).
-  const botBase = access.user
-    ? `https://t.me/${bot}?start=buy_${access.user.id}_`
-    : `https://t.me/${bot}?start=buy_`;
+  // The bot reads start=buy_<userId>_<packId> / start=life_<userId> and sends a
+  // Stars invoice, crediting this exact site account (even via Google login).
+  const botStart = `https://t.me/${bot}?start=`;
+  const uid = access.user?.id ?? "";
 
   return (
     <main className="mx-auto w-full max-w-[560px] px-4 py-14">
@@ -41,7 +40,8 @@ export default async function TokensPage() {
           unlimited={access.unlimited}
           loggedIn={access.loggedIn}
           cardEnabled={cardEnabled}
-          botBase={botBase}
+          botStart={botStart}
+          uid={uid}
           locale={locale}
         />
       </div>

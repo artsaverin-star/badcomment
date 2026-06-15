@@ -54,6 +54,7 @@ export type SessionUser = {
   firstName: string | null;
   premiumUntil: Date | null;
   tokens: number;
+  lifetime: boolean;
   isAdmin: boolean;
 };
 

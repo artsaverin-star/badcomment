@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { getSessionUser } from "@/lib/session";
 import { createPayment, yookassaEnabled } from "@/lib/yookassa";
-import { getPack, tokensWord } from "@/lib/tokenConfig";
+import { getPack, tokensWord, LIFETIME } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -13,9 +13,12 @@ export async function POST(req: Request) {
   const u = await getSessionUser();
   if (!u) return NextResponse.json({ error: "Нужно войти" }, { status: 401 });
 
-  const body = (await req.json().catch(() => ({}))) as { pack?: string };
-  const p = getPack(body.pack ?? "");
-  if (!p) return NextResponse.json({ error: "Неизвестный пак" }, { status: 400 });
+  const body = (await req.json().catch(() => ({}))) as { pack?: string; kind?: string };
+
+  // Either a token pack or the one-time lifetime SKU.
+  const lifetime = body.kind === "lifetime";
+  const p = lifetime ? null : getPack(body.pack ?? "");
+  if (!lifetime && !p) return NextResponse.json({ error: "Неизвестный пак" }, { status: 400 });
 
   // За nginx req.url видит localhost:3000 — строим публичный адрес из
   // forwarded-заголовков или SITE_URL, иначе вернёт на localhost.
@@ -24,9 +27,11 @@ export async function POST(req: Request) {
   const origin = process.env.SITE_URL || (fwdHost ? `${fwdProto}://${fwdHost}` : new URL(req.url).origin);
   try {
     const payment = await createPayment({
-      amountRub: p.rub,
-      description: `inApp — ${p.tokens} ${tokensWord(p.tokens)}`,
-      metadata: { userId: u.id, pack: p.id, tokens: String(p.tokens) },
+      amountRub: lifetime ? LIFETIME.rub : p!.rub,
+      description: lifetime ? "inApp — Lifetime (всё навсегда)" : `inApp — ${p!.tokens} ${tokensWord(p!.tokens)}`,
+      metadata: lifetime
+        ? { userId: u.id, lifetime: "1" }
+        : { userId: u.id, pack: p!.id, tokens: String(p!.tokens) },
       returnUrl: `${origin}/tokens`,
       idempotenceKey: crypto.randomUUID(),
     });

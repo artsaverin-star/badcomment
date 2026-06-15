@@ -9,12 +9,13 @@ if (!TOKEN) {
   console.error("TELEGRAM_BOT_TOKEN missing");
   process.exit(1);
 }
-// Token packs — must mirror src/lib/tokenConfig.ts (TOKEN_PACKS).
+// Token packs — must mirror src/lib/tokenConfig.ts (TOKEN_PACKS + LIFETIME).
 const PACKS = {
-  s: { tokens: 50, stars: 300 },
-  m: { tokens: 100, stars: 500 },
-  l: { tokens: 300, stars: 1250 },
+  s: { tokens: 100, stars: 500 },
+  m: { tokens: 300, stars: 1250 },
+  l: { tokens: 700, stars: 2500 },
 };
+const LIFETIME = { stars: 5000 };
 const API = `https://api.telegram.org/bot${TOKEN}`;
 const prisma = new PrismaClient();
 
@@ -33,9 +34,12 @@ const pendingUid = new Map();
 
 function packsKb() {
   return {
-    inline_keyboard: Object.entries(PACKS).map(([id, p]) => [
-      { text: `◎ ${p.tokens} токенов — ${p.stars} ⭐`, callback_data: `buy_${id}` },
-    ]),
+    inline_keyboard: [
+      ...Object.entries(PACKS).map(([id, p]) => [
+        { text: `◎ ${p.tokens} токенов — ${p.stars} ⭐`, callback_data: `buy_${id}` },
+      ]),
+      [{ text: `♾️ Lifetime (всё навсегда) — ${LIFETIME.stars} ⭐`, callback_data: "buy_life" }],
+    ],
   };
 }
 
@@ -52,6 +56,42 @@ async function sendInvoice(chatId, packId = "m", uid = "") {
     currency: "XTR",
     prices: [{ label: `${p.tokens} токенов`, amount: p.stars }],
   });
+}
+
+async function sendLifetimeInvoice(chatId, uid = "") {
+  return tg("sendInvoice", {
+    chat_id: chatId,
+    title: "inApp — Lifetime",
+    description: "Полный доступ ко всем разборам, идеям и категориям inApp — навсегда.",
+    payload: `life_${uid}_${Date.now()}`,
+    provider_token: "",
+    currency: "XTR",
+    prices: [{ label: "Lifetime — всё навсегда", amount: LIFETIME.stars }],
+  });
+}
+
+// Grant lifetime once. ref makes re-delivery idempotent.
+async function grantLifetime({ userId, telegramFrom, ref }) {
+  let user = null;
+  if (userId) user = await prisma.user.findUnique({ where: { id: userId } }).catch(() => null);
+  if (!user && telegramFrom) {
+    const tgId = String(telegramFrom.id);
+    user = await prisma.user.upsert({
+      where: { telegramId: tgId },
+      update: { username: telegramFrom.username ?? null, firstName: telegramFrom.first_name ?? null },
+      create: { telegramId: tgId, username: telegramFrom.username ?? null, firstName: telegramFrom.first_name ?? null },
+    });
+  }
+  if (!user) return false;
+  if (ref) {
+    const dup = await prisma.tokenLedger.findFirst({ where: { ref } }).catch(() => null);
+    if (dup) return true;
+  }
+  await prisma.user.update({ where: { id: user.id }, data: { lifetime: true } });
+  await prisma.tokenLedger.create({
+    data: { userId: user.id, delta: 0, reason: "lifetime", ref: ref ?? null, balanceAfter: user.tokens },
+  });
+  return true;
 }
 
 // Credit tokens once. ref (telegram charge id) makes re-delivery idempotent.
@@ -84,11 +124,26 @@ async function handleMessage(m) {
 
   if (m.successful_payment) {
     const sp = m.successful_payment;
-    const parts = (sp.invoice_payload || "").split("_");
+    const payload = sp.invoice_payload || "";
+    const parts = payload.split("_");
+    const ref = sp.telegram_payment_charge_id ? `tg:${sp.telegram_payment_charge_id}` : null;
+
+    if (payload.startsWith("life_")) {
+      const uid = parts[1] || "";
+      const ok = await grantLifetime({ userId: uid, telegramFrom: m.from, ref });
+      await tg("sendMessage", {
+        chat_id: chatId,
+        text: ok
+          ? "♾️ Lifetime активен — весь каталог открыт навсегда. Вернитесь на сайт."
+          : "⭐ Оплата получена. Вернитесь на сайт inApp.",
+      });
+      return;
+    }
+
+    // tokens_<packId>_<uid>_<ts>
     const packId = parts[1];
     const uid = parts[2] || "";
     const amount = (PACKS[packId] || PACKS.m).tokens;
-    const ref = sp.telegram_payment_charge_id ? `tg:${sp.telegram_payment_charge_id}` : null;
     const balance = await creditTokens({ userId: uid, telegramFrom: m.from, amount, ref });
     await tg("sendMessage", {
       chat_id: chatId,
@@ -114,6 +169,12 @@ async function handleMessage(m) {
       } else {
         await tg("sendMessage", { chat_id: chatId, text: "Ссылка для входа истекла. Откройте вход на сайте заново." });
       }
+      return;
+    }
+    if (arg.startsWith("life_")) {
+      const uid = arg.slice("life_".length);
+      if (uid) pendingUid.set(chatId, uid);
+      await sendLifetimeInvoice(chatId, uid);
       return;
     }
     if (arg.startsWith("buy_")) {
@@ -153,8 +214,9 @@ async function handleCallback(cq) {
   if (typeof cq.data === "string" && cq.data.startsWith("buy_")) {
     await tg("answerCallbackQuery", { callback_query_id: cq.id });
     const chatId = cq.message.chat.id;
-    const packId = cq.data.slice("buy_".length);
-    if (PACKS[packId]) await sendInvoice(chatId, packId, pendingUid.get(chatId) || "");
+    const key = cq.data.slice("buy_".length);
+    if (key === "life") await sendLifetimeInvoice(chatId, pendingUid.get(chatId) || "");
+    else if (PACKS[key]) await sendInvoice(chatId, key, pendingUid.get(chatId) || "");
   }
 }
 
