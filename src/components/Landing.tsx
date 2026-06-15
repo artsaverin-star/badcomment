@@ -351,42 +351,6 @@ export default function Landing({
         </Reveal>
       )}
 
-      {/* Final CTA */}
-      <Reveal className="mx-auto mt-14 w-full max-w-3xl">
-        <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-12 text-center">
-          <h2 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[34px]">
-            {ru ? "Откройте весь каталог" : "Open the full catalog"}
-          </h2>
-          <p className="mx-auto mt-2.5 max-w-md text-lead text-[var(--color-text-secondary)]">
-            {ru ? "Разборы, идеи и отзывы — по сотням приложений." : "Breakdowns, ideas and reviews across hundreds of apps."}
-          </p>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            {loggedIn ? (
-              <Link
-                href="/catalog"
-                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
-              >
-                {ru ? "Открыть каталог" : "Open catalog"}
-              </Link>
-            ) : (
-              <button
-                type="button"
-                onClick={() => setModal(true)}
-                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
-              >
-                {ru ? "Начать бесплатно" : "Start free"}
-              </button>
-            )}
-            <Link
-              href="/tokens"
-              className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
-            >
-              {ru ? "Токены" : "Tokens"}
-            </Link>
-          </div>
-        </div>
-      </Reveal>
-
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
     </div>
   );
