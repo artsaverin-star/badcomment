@@ -4,7 +4,9 @@ import { getProductInsights } from "@/lib/insights";
 import { getProductIdBySlug } from "@/lib/appSlugs";
 import { isPublishable } from "@/lib/readyApps";
 import { getAppMetaByProductId, listDomains } from "@/lib/researchCategories";
-import { isPremium, isFreeCategory } from "@/lib/premium";
+import { getAccess } from "@/lib/access";
+import { UNLOCK_COST } from "@/lib/tokenConfig";
+import UnlockGate from "@/components/UnlockGate";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import Link from "next/link";
@@ -54,22 +56,19 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
   }
   if (!data) notFound();
 
-  // Find a category this app belongs to (for the breadcrumb) and whether any of
-  // its categories is free — that decides premium gating below.
+  // Find a category this app belongs to (for the breadcrumb).
   let cat: { slug: string; name: string } | null = null;
-  let freeApp = false;
   for (const d of listDomains(locale)) {
     for (const c of d.categories) {
       if (!c.apps.some((a) => a.productId === id)) continue;
       if (!cat) cat = { slug: c.slug, name: c.name };
-      if (isFreeCategory(c.slug)) freeApp = true;
     }
   }
-  // Premium gate: the full разбор is open only for free-category apps or premium
-  // viewers. Otherwise the hero/histogram stay as a teaser and a paywall replaces
+  // Token gate: the full разбор unlocks per-app (or via its category bundle).
+  // Otherwise the hero/histogram stay as a teaser and an unlock card replaces
   // the insight body.
-  const premium = await isPremium();
-  const locked = !freeApp && !premium;
+  const access = await getAccess();
+  const locked = !access.has("app", slug);
 
   return (
     <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
@@ -102,7 +101,22 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
       </div>
 
       {insights ? (
-        <InsightLanding data={data} insights={insights} tr={tr} locked={locked} />
+        <InsightLanding
+          data={data}
+          insights={insights}
+          tr={tr}
+          locked={locked}
+          gate={
+            <UnlockGate
+              type="app"
+              slug={slug}
+              cost={UNLOCK_COST.app}
+              loggedIn={access.loggedIn}
+              balance={access.balance}
+              locale={locale}
+            />
+          }
+        />
       ) : (
         <p className="mt-16 text-[14px] text-[var(--color-text-secondary)]">
           Качественный разбор для этого приложения ещё не запущен.

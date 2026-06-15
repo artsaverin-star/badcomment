@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getPayment, yookassaEnabled } from "@/lib/yookassa";
+import { grantTokens } from "@/lib/tokens";
 
 export const dynamic = "force-dynamic";
 
 // ЮKassa payment notification. We never trust the body — we re-fetch the payment
-// from the API and grant premium only if it's actually succeeded+paid. Always
-// answer 200 so ЮKassa doesn't retry forever.
+// from the API and credit tokens only if it's actually succeeded+paid. The
+// payment id is the ledger ref, so a re-delivered webhook can't double-credit.
+// Always answer 200 so ЮKassa doesn't retry forever.
 export async function POST(req: Request) {
   if (!yookassaEnabled()) return NextResponse.json({ ok: true });
 
@@ -23,17 +25,15 @@ export async function POST(req: Request) {
   if (payment?.status !== "succeeded" || payment?.paid !== true) return NextResponse.json({ ok: true });
 
   const userId = payment?.metadata?.userId;
-  const days = Number(payment?.metadata?.days || 0);
-  if (!userId || !days) return NextResponse.json({ ok: true });
+  const tokens = Number(payment?.metadata?.tokens || 0);
+  const ref = `yk:${id}`;
+  if (!userId || !tokens) return NextResponse.json({ ok: true });
 
   try {
+    const already = await prisma.tokenLedger.findFirst({ where: { ref } });
+    if (already) return NextResponse.json({ ok: true });
     const user = await prisma.user.findUnique({ where: { id: userId } });
-    if (user) {
-      const now = new Date();
-      const base = user.premiumUntil && new Date(user.premiumUntil) > now ? new Date(user.premiumUntil) : now;
-      const until = new Date(base.getTime() + days * 86400000);
-      await prisma.user.update({ where: { id: userId }, data: { premiumUntil: until } });
-    }
+    if (user) await grantTokens(userId, tokens, "purchase", ref);
   } catch {
     /* swallow — ack anyway, ЮKassa retries on non-200 */
   }

@@ -60,21 +60,9 @@ export default function CatalogBrowser({
   );
 }
 
-function StatusBadge({ kind }: { kind: "free" | "premium" | "soon" }) {
-  const map = {
-    free: { label: "Бесплатно", cls: "bg-[color-mix(in_srgb,#30d158_18%,transparent)] text-[#4ade80]" },
-    premium: { label: "Премиум", cls: "bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-brand)]" },
-    soon: { label: "Скоро", cls: "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]" },
-  }[kind];
-  return (
-    <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${map.cls}`}>{map.label}</span>
-  );
-}
-
 function CategoryCard({ cat }: { cat: BrowseCategory }) {
   const icons = cat.apps.filter((a) => a.icon).slice(0, 4);
   const dim = !cat.live; // «Скоро» categories are greyscale
-  const status: "free" | "premium" | "soon" = !cat.live ? "soon" : cat.free ? "free" : "premium";
   const body = (
     <>
       <span className="flex min-w-0 flex-1 flex-col gap-1">
@@ -82,10 +70,13 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
           {cat.name}
         </span>
         <span className="flex items-center gap-2">
-          <StatusBadge kind={status} />
-          {cat.live && (
+          {cat.live ? (
             <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
               {cat.appsCount} {appsWord(cat.appsCount)}
+            </span>
+          ) : (
+            <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] font-semibold text-[var(--color-text-tertiary)]">
+              Скоро
             </span>
           )}
         </span>
@@ -117,9 +108,7 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
   return (
     <Link
       href={`/segment/${cat.slug}`}
-      className={`${shell} bg-[var(--color-surface-card)] hover:bg-[var(--color-surface-card-subtle)] ${
-        cat.free ? "free-card" : "border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)]"
-      }`}
+      className={`${shell} border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]`}
     >
       {body}
     </Link>

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { setSession } from "@/lib/session";
+import { grantTokens } from "@/lib/tokens";
+import { SIGNUP_GRANT } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -20,6 +22,7 @@ export async function GET(req: Request) {
 
   const adminIds = (process.env.ADMIN_TG_IDS || "").split(",").map((s) => s.trim()).filter(Boolean);
   const firstUser = (await prisma.user.count()) === 0;
+  const before = await prisma.user.findUnique({ where: { telegramId: lt.telegramId } });
   const user = await prisma.user.upsert({
     where: { telegramId: lt.telegramId },
     update: { username: lt.username, firstName: lt.firstName },
@@ -30,6 +33,7 @@ export async function GET(req: Request) {
       isAdmin: firstUser || adminIds.includes(lt.telegramId),
     },
   });
+  if (!before) await grantTokens(user.id, SIGNUP_GRANT, "signup");
   await prisma.loginToken.delete({ where: { token } }).catch(() => {});
   await setSession(user.id);
   const premium = !!(user.premiumUntil && new Date(user.premiumUntil) > new Date());

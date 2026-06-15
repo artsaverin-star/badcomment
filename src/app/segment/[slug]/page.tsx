@@ -12,8 +12,9 @@ import { getSegmentSummary } from "@/lib/segmentSummary";
 import SegmentTabs from "@/components/SegmentTabs";
 import CategoryIdeas from "@/components/CategoryIdeas";
 import { listIdeas } from "@/lib/ideas";
-import { isPremium, canAccessCategory } from "@/lib/premium";
-import Paywall from "@/components/Paywall";
+import { getAccess } from "@/lib/access";
+import { UNLOCK_COST } from "@/lib/tokenConfig";
+import UnlockGate from "@/components/UnlockGate";
 
 export const dynamic = "force-dynamic";
 
@@ -81,8 +82,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const summary = getSegmentSummary(slug);
   const ideas = listIdeas().filter((i) => i.category === slug);
-  const premium = await isPremium();
-  const locked = !canAccessCategory(slug, premium);
+  const access = await getAccess();
+  const locked = !access.has("category", slug);
 
   return (
     <main className="mx-auto w-full max-w-[720px] overflow-x-clip px-4 py-6">
@@ -129,7 +130,14 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       </section>
 
       {locked ? (
-        <Paywall />
+        <UnlockGate
+          type="category"
+          slug={slug}
+          cost={UNLOCK_COST.category}
+          loggedIn={access.loggedIn}
+          balance={access.balance}
+          locale={locale}
+        />
       ) : (
         (summary || ideas.length > 0) && (
           <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">

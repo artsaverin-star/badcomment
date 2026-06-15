@@ -53,6 +53,7 @@ export type SessionUser = {
   username: string | null;
   firstName: string | null;
   premiumUntil: Date | null;
+  tokens: number;
   isAdmin: boolean;
 };
 

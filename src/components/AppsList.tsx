@@ -33,15 +33,6 @@ function AppCard({ a }: { a: BrowseAppItem }) {
           </span>
         )}
       </span>
-      <span
-        className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
-          a.free
-            ? "bg-[color-mix(in_srgb,#30d158_18%,transparent)] text-[#4ade80]"
-            : "bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-brand)]"
-        }`}
-      >
-        {a.free ? "Бесплатно" : "Премиум"}
-      </span>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
         <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>

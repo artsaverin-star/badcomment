@@ -2,14 +2,9 @@ import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { getSessionUser } from "@/lib/session";
 import { createPayment, yookassaEnabled } from "@/lib/yookassa";
+import { getPack, tokensWord } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
-
-// Plans must mirror Pricing.tsx / the bot: month 1000₽/30д, 6 мес 3000₽/180д.
-const PLANS: Record<string, { rub: number; days: number; title: string }> = {
-  month: { rub: 1000, days: 30, title: "Месяц" },
-  half: { rub: 3000, days: 180, title: "6 месяцев" },
-};
 
 export async function POST(req: Request) {
   if (!yookassaEnabled()) {
@@ -18,9 +13,9 @@ export async function POST(req: Request) {
   const u = await getSessionUser();
   if (!u) return NextResponse.json({ error: "Нужно войти" }, { status: 401 });
 
-  const body = (await req.json().catch(() => ({}))) as { plan?: string };
-  const p = PLANS[body.plan ?? ""];
-  if (!p) return NextResponse.json({ error: "Неизвестный тариф" }, { status: 400 });
+  const body = (await req.json().catch(() => ({}))) as { pack?: string };
+  const p = getPack(body.pack ?? "");
+  if (!p) return NextResponse.json({ error: "Неизвестный пак" }, { status: 400 });
 
   // За nginx req.url видит localhost:3000 — строим публичный адрес из
   // forwarded-заголовков или SITE_URL, иначе вернёт на localhost.
@@ -30,9 +25,9 @@ export async function POST(req: Request) {
   try {
     const payment = await createPayment({
       amountRub: p.rub,
-      description: `inApp Премиум — ${p.title}`,
-      metadata: { userId: u.id, plan: body.plan as string, days: String(p.days) },
-      returnUrl: `${origin}/premium`,
+      description: `inApp — ${p.tokens} ${tokensWord(p.tokens)}`,
+      metadata: { userId: u.id, pack: p.id, tokens: String(p.tokens) },
+      returnUrl: `${origin}/tokens`,
       idempotenceKey: crypto.randomUUID(),
     });
     const url = payment?.confirmation?.confirmation_url ?? null;

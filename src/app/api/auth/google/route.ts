@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { setSession } from "@/lib/session";
+import { grantTokens } from "@/lib/tokens";
+import { SIGNUP_GRANT } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +31,7 @@ export async function POST(req: Request) {
     user = await prisma.user.update({ where: { id: user.id }, data: { googleId: ti.sub, email: email ?? user.email, firstName: user.firstName ?? name } });
   } else {
     user = await prisma.user.create({ data: { googleId: ti.sub, email, firstName: name, isAdmin: firstUser } });
+    await grantTokens(user.id, SIGNUP_GRANT, "signup");
   }
   await setSession(user.id);
   const premium = !!(user.premiumUntil && new Date(user.premiumUntil) > new Date());

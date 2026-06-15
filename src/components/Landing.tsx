@@ -293,10 +293,10 @@ export default function Landing({
               </button>
             )}
             <Link
-              href="/premium"
+              href="/tokens"
               className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
             >
-              {ru ? "Тарифы" : "Pricing"}
+              {ru ? "Токены" : "Tokens"}
             </Link>
           </div>
         </div>
@@ -378,10 +378,10 @@ export default function Landing({
               </button>
             )}
             <Link
-              href="/premium"
+              href="/tokens"
               className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
             >
-              {ru ? "Тарифы" : "Pricing"}
+              {ru ? "Токены" : "Tokens"}
             </Link>
           </div>
         </div>

@@ -4,12 +4,15 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
+import { tokensWord } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Me = {
   user: { username: string | null; firstName: string | null; isAdmin: boolean; premiumUntil?: string | null } | null;
   premium: boolean;
   friend?: boolean;
+  unlimited?: boolean;
+  balance?: number;
 };
 
 // Auth entry point. Logged out → "Войти" opens the modal. Logged in → a round
@@ -84,7 +87,11 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           <span className="flex size-7 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-caption font-bold text-[var(--brand-color-on-primary,#fff)]">
             {initial}
           </span>
-          {(me.premium || me.friend) && <span title={me.friend ? "Друг" : "Премиум"}>⭐</span>}
+          {me.unlimited ? (
+            <span title={me.friend ? "Друг" : "Полный доступ"}>⭐</span>
+          ) : (
+            <span className="tabular-nums font-semibold text-[var(--color-text-brand)]">◎ {me.balance ?? 0}</span>
+          )}
           {name}
         </span>
         <span className="flex items-center gap-2.5">
@@ -122,34 +129,28 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             <span className="flex min-w-0 flex-col">
               <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{name}</span>
               <span className="text-caption text-[var(--color-text-tertiary)]">
-                {me.friend
-                  ? ru
+                {me.unlimited
+                  ? me.friend
                     ? "⭐ Друг"
-                    : "⭐ Friend"
-                  : me.premium
-                    ? ru
-                      ? "⭐ Премиум"
-                      : "⭐ Premium"
-                    : ru
-                      ? "Бесплатный план"
-                      : "Free plan"}
+                    : "⭐ Полный доступ"
+                  : `${me.balance ?? 0} ${tokensWord(me.balance ?? 0)}`}
               </span>
             </span>
           </div>
           <div className="border-t border-[var(--color-border-subtle)] p-2">
             <Link
-              href="/premium"
+              href="/tokens"
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
-              <span className="text-[15px] leading-none">⭐</span>
+              <span className="text-[15px] leading-none text-[var(--color-text-brand)]">◎</span>
               <span className="flex min-w-0 flex-col">
-                <span>{me.friend ? "Премиум · Друг" : me.premium ? "Премиум" : "Оформить премиум"}</span>
-                {me.premium && !me.friend && me.user.premiumUntil && (
-                  <span className="text-caption text-[var(--color-text-tertiary)]">
-                    активен до {new Date(me.user.premiumUntil).toISOString().slice(0, 10)}
-                  </span>
-                )}
+                <span>{me.unlimited ? "Токены" : "Мои токены"}</span>
+                <span className="text-caption text-[var(--color-text-tertiary)]">
+                  {me.unlimited
+                    ? "Полный доступ"
+                    : `Баланс: ${me.balance ?? 0} ${tokensWord(me.balance ?? 0)} · Пополнить`}
+                </span>
               </span>
             </Link>
             {me.user.isAdmin && (

@@ -315,6 +315,38 @@ body {
   }
 }
 
+/* ── Card-unlock reveal animation ───────────────────────────────────────── */
+@keyframes unlock-backdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes unlock-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  55% { transform: scale(1.06); opacity: 1; }
+  70% { transform: scale(0.98); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes unlock-ring {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes unlock-spark {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--sx), var(--sy)) scale(0.2); opacity: 0; }
+}
+@keyframes unlock-lift {
+  0% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.unlock-backdrop { animation: unlock-backdrop 0.25s ease both; }
+.unlock-pop { animation: unlock-pop 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.unlock-ring { animation: unlock-ring 0.9s ease-out both; }
+.unlock-spark { animation: unlock-spark 0.85s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.unlock-lift { animation: unlock-lift 0.4s ease both 0.35s; }
+@media (prefers-reduced-motion: reduce) {
+  .unlock-pop, .unlock-ring, .unlock-spark, .unlock-lift, .unlock-backdrop { animation-duration: 0.01s; }
+}
+
 /* Subtle neutral elevation glow for raised primary surfaces (no colour). */
 .glow-brand {
   box-shadow:

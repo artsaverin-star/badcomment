@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getIdea } from "@/lib/ideas";
-import { isPremium, canAccessCategory } from "@/lib/premium";
-import Paywall from "@/components/Paywall";
+import { getAccess } from "@/lib/access";
+import { UNLOCK_COST } from "@/lib/tokenConfig";
+import UnlockGate from "@/components/UnlockGate";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
@@ -41,9 +42,9 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
   const idea = getIdea(slug);
   if (!idea) notFound();
 
-  // Premium gate: ideas in premium categories are paywalled for non-subscribers.
-  const premium = await isPremium();
-  const locked = !canAccessCategory(idea.category, premium);
+  // Token gate: the full idea is unlocked per-idea (or via its category bundle).
+  const access = await getAccess();
+  const locked = !access.has("idea", slug);
 
   const pains = idea.mechanisms.filter((m) => m.polarity === "pain");
   const loves = idea.mechanisms.filter((m) => m.polarity === "love" || (m.polarity as string) === "praise");
@@ -84,7 +85,14 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
       </header>
 
       {locked ? (
-        <Paywall title="Полная идея — в премиуме" />
+        <UnlockGate
+          type="idea"
+          slug={slug}
+          cost={UNLOCK_COST.idea}
+          loggedIn={access.loggedIn}
+          balance={access.balance}
+          locale={locale}
+        />
       ) : (
         <>
       {/* Step 1 — the raw voices (no island; coverflow carousel) */}

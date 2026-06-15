@@ -4,7 +4,6 @@ import { formatCount } from "@/lib/format";
 import type { t } from "@/lib/i18n";
 import InsightCard from "@/components/InsightCard";
 import SectionDetails from "@/components/SectionDetails";
-import Paywall from "@/components/Paywall";
 
 // Only the store-level header fields are needed to render the long-read, so the
 // component takes this narrow slice — a full ProductDetail satisfies it, and so
@@ -61,11 +60,13 @@ export default function InsightLanding({
   insights,
   tr,
   locked = false,
+  gate,
 }: {
   data: LandingProduct;
   insights: ProductInsights;
   tr: ReturnType<typeof t>;
   locked?: boolean;
+  gate?: React.ReactNode;
 }) {
   const metaLine = [data.developer, data.stores.map((st) => STORE_LABEL[st]).join(" + ")]
     .filter(Boolean)
@@ -161,7 +162,7 @@ export default function InsightLanding({
       )}
 
       {locked ? (
-        <Paywall title="Полный разбор — в премиуме" />
+        gate ?? null
       ) : (
         <div className="mt-12 flex flex-col gap-8">
           {[

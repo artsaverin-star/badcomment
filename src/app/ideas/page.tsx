@@ -5,19 +5,19 @@ import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import Link from "next/link";
 import IdeasBrowser, { type IdeaCard } from "@/components/IdeasBrowser";
-import { isPremium, isFreeCategory } from "@/lib/premium";
+import { getAccess } from "@/lib/access";
+import { SIGNUP_GRANT, UNLOCK_COST, tokensWord } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
 // Ideas index: searchable + category-filterable grid of review-derived app
 // ideas; each card links to the full derivation (review grid → mechanisms →
-// gap → pitch).
+// gap → pitch). Opening an idea spends tokens (see UnlockGate).
 export default async function IdeasPage() {
   const locale = await getLocale();
   const tr = t(locale);
-  const premium = await isPremium();
+  const access = await getAccess();
   const all = listIdeas();
-  const lockedCount = premium ? 0 : all.filter((i) => !isFreeCategory(i.category)).length;
 
   // category slug → its top-level domain, for the icon filter pills.
   const catToDomain = new Map<string, { slug: string; name: string }>();
@@ -25,7 +25,6 @@ export default async function IdeasPage() {
     for (const c of d.categories) catToDomain.set(c.slug, { slug: d.slug, name: d.name });
   }
 
-  // Show ALL ideas to everyone; premium-only ones render locked (badge → /premium).
   const ideas: IdeaCard[] = all.map((i) => {
     const dom = catToDomain.get(i.category);
     return {
@@ -37,7 +36,6 @@ export default async function IdeasPage() {
       title: i.title,
       oneLiner: i.oneLiner,
       stats: i.stats,
-      locked: !premium && !isFreeCategory(i.category),
     };
   });
 
@@ -50,17 +48,29 @@ export default async function IdeasPage() {
         title={tr.ideas.title}
         description={<span className="mx-auto block max-w-2xl">{tr.ideas.desc}</span>}
       />
-      {!premium && lockedCount > 0 && (
-        <Link
-          href="/premium"
-          className="mx-auto mb-6 flex max-w-2xl items-center gap-3 rounded-[var(--radius-xl)] border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3"
-        >
-          <span className="flex-1 text-callout text-[var(--color-text-primary)]">
-            Ещё <b>{lockedCount}</b> идей открыто по премиум-подписке.
-          </span>
-          <span className="shrink-0 text-footnote font-semibold text-[var(--color-text-brand)]">Подключить →</span>
-        </Link>
-      )}
+      <Link
+        href="/tokens"
+        className="mx-auto mb-6 flex max-w-2xl items-center gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] px-4 py-3 transition-colors hover:border-[var(--color-text-brand)]"
+      >
+        <span className="flex-1 text-callout text-[var(--color-text-primary)]">
+          {access.loggedIn ? (
+            access.unlimited ? (
+              <>У тебя полный доступ ко всем идеям.</>
+            ) : (
+              <>
+                Баланс: <b className="tabular-nums">{access.balance}</b> {tokensWord(access.balance)}. Идея — {UNLOCK_COST.idea} {tokensWord(UNLOCK_COST.idea)}.
+              </>
+            )
+          ) : (
+            <>
+              Зарегистрируйся и получи <b>{SIGNUP_GRANT}</b> {tokensWord(SIGNUP_GRANT)} на старте.
+            </>
+          )}
+        </span>
+        <span className="shrink-0 text-footnote font-semibold text-[var(--color-text-brand)]">
+          {access.loggedIn && !access.unlimited ? "Пополнить →" : "Подробнее →"}
+        </span>
+      </Link>
       {ideas.length === 0 ? (
         <p className="mt-10 text-center text-callout text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (

@@ -1,6 +1,6 @@
-// inApp Telegram bot (@inAppProBot): web login binding + premium via Telegram
-// Stars. Dependency-free (raw Bot API over fetch) + Prisma for the shared
-// prod.db. Run as its own process; token/db come from env (never hardcoded).
+// inApp Telegram bot (@inAppProBot): web login binding + token packs via
+// Telegram Stars. Dependency-free (raw Bot API over fetch) + Prisma for the
+// shared prod.db. Run as its own process; token/db come from env.
 //   TELEGRAM_BOT_TOKEN, DATABASE_URL
 import { PrismaClient } from "@prisma/client";
 
@@ -9,11 +9,11 @@ if (!TOKEN) {
   console.error("TELEGRAM_BOT_TOKEN missing");
   process.exit(1);
 }
-// Two billing options — must mirror the site (src/components/Pricing.tsx):
-// month = 550★ / 30 дней, 6 месяцев = 1650★ / 180 дней (−50%).
-const PLANS = {
-  month: { stars: 500, days: 30, title: "Месяц" },
-  half: { stars: 1600, days: 180, title: "6 месяцев" },
+// Token packs — must mirror src/lib/tokenConfig.ts (TOKEN_PACKS).
+const PACKS = {
+  s: { tokens: 50, stars: 300 },
+  m: { tokens: 100, stars: 500 },
+  l: { tokens: 300, stars: 1250 },
 };
 const API = `https://api.telegram.org/bot${TOKEN}`;
 const prisma = new PrismaClient();
@@ -27,59 +27,55 @@ async function tg(method, body) {
   return r.json();
 }
 
-// chatId -> site userId, переданный из веба через deep link ?start=premium_<id>.
-// Нужен, чтобы начислить премиум именно сайт-аккаунту (даже если он на Google),
-// а не отдельному телеграм-пользователю.
+// chatId -> site userId, passed from the web via ?start=buy_<userId>_<pack>. Used
+// to credit the exact site account (even if it logged in via Google).
 const pendingUid = new Map();
 
-function premiumKb() {
+function packsKb() {
   return {
-    inline_keyboard: [
-      [{ text: `⭐ Месяц — ${PLANS.month.stars} Stars / ${PLANS.month.days} дней`, callback_data: "buy_month" }],
-      [{ text: `⭐ 6 месяцев — ${PLANS.half.stars} Stars / ${PLANS.half.days} дней (−50%)`, callback_data: "buy_half" }],
-    ],
+    inline_keyboard: Object.entries(PACKS).map(([id, p]) => [
+      { text: `◎ ${p.tokens} токенов — ${p.stars} ⭐`, callback_data: `buy_${id}` },
+    ]),
   };
 }
 
-async function sendInvoice(chatId, planKey = "month", uid = "") {
-  const p = PLANS[planKey] || PLANS.month;
+async function sendInvoice(chatId, packId = "m", uid = "") {
+  const p = PACKS[packId] || PACKS.m;
   return tg("sendInvoice", {
     chat_id: chatId,
-    title: `inApp Премиум — ${p.title}`,
-    description: `Доступ ко всем разборам категорий и идеям на ${p.days} дней.`,
-    // payload: premium_<plan>_<siteUserId|>_<ts>
-    payload: `premium_${planKey}_${uid}_${Date.now()}`,
+    title: `inApp — ${p.tokens} токенов`,
+    description: `${p.tokens} токенов на открытие разборов, идей и категорий в inApp.`,
+    // payload: tokens_<packId>_<siteUserId|>_<ts>
+    payload: `tokens_${packId}_${uid}_${Date.now()}`,
     // Telegram Stars: currency XTR, empty provider_token (required for Stars).
     provider_token: "",
     currency: "XTR",
-    prices: [{ label: p.title, amount: p.stars }],
+    prices: [{ label: `${p.tokens} токенов`, amount: p.stars }],
   });
 }
 
-async function grantPremium(from, days) {
-  const tgId = String(from.id);
-  const now = new Date();
-  const existing = await prisma.user.findUnique({ where: { telegramId: tgId } });
-  const base = existing?.premiumUntil && new Date(existing.premiumUntil) > now ? new Date(existing.premiumUntil) : now;
-  const until = new Date(base.getTime() + days * 24 * 60 * 60 * 1000);
-  await prisma.user.upsert({
-    where: { telegramId: tgId },
-    update: { premiumUntil: until, username: from.username ?? null, firstName: from.first_name ?? null },
-    create: { telegramId: tgId, username: from.username ?? null, firstName: from.first_name ?? null, premiumUntil: until },
-  });
-  return until;
-}
-
-// Начислить премиум конкретному сайт-аккаунту по его id (для оплаты звёздами,
-// когда пользователь залогинен через Google/email, а не Telegram).
-async function grantPremiumById(userId, days) {
-  const now = new Date();
-  const user = await prisma.user.findUnique({ where: { id: userId } }).catch(() => null);
+// Credit tokens once. ref (telegram charge id) makes re-delivery idempotent.
+async function creditTokens({ userId, telegramFrom, amount, ref }) {
+  let user = null;
+  if (userId) user = await prisma.user.findUnique({ where: { id: userId } }).catch(() => null);
+  if (!user && telegramFrom) {
+    const tgId = String(telegramFrom.id);
+    user = await prisma.user.upsert({
+      where: { telegramId: tgId },
+      update: { username: telegramFrom.username ?? null, firstName: telegramFrom.first_name ?? null },
+      create: { telegramId: tgId, username: telegramFrom.username ?? null, firstName: telegramFrom.first_name ?? null },
+    });
+  }
   if (!user) return null;
-  const base = user.premiumUntil && new Date(user.premiumUntil) > now ? new Date(user.premiumUntil) : now;
-  const until = new Date(base.getTime() + days * 24 * 60 * 60 * 1000);
-  await prisma.user.update({ where: { id: userId }, data: { premiumUntil: until } });
-  return until;
+  if (ref) {
+    const dup = await prisma.tokenLedger.findFirst({ where: { ref } }).catch(() => null);
+    if (dup) return user.tokens;
+  }
+  const updated = await prisma.user.update({ where: { id: user.id }, data: { tokens: { increment: amount } } });
+  await prisma.tokenLedger.create({
+    data: { userId: user.id, delta: amount, reason: "purchase", ref: ref ?? null, balanceAfter: updated.tokens },
+  });
+  return updated.tokens;
 }
 
 async function handleMessage(m) {
@@ -87,16 +83,19 @@ async function handleMessage(m) {
   const text = m.text || "";
 
   if (m.successful_payment) {
-    const parts = (m.successful_payment.invoice_payload || "").split("_");
-    const planKey = parts[1];
+    const sp = m.successful_payment;
+    const parts = (sp.invoice_payload || "").split("_");
+    const packId = parts[1];
     const uid = parts[2] || "";
-    const days = (PLANS[planKey] || PLANS.month).days;
-    // Сначала пытаемся начислить сайт-аккаунту из payload, иначе — по telegram.
-    let until = uid ? await grantPremiumById(uid, days) : null;
-    if (!until) until = await grantPremium(m.from, days);
+    const amount = (PACKS[packId] || PACKS.m).tokens;
+    const ref = sp.telegram_payment_charge_id ? `tg:${sp.telegram_payment_charge_id}` : null;
+    const balance = await creditTokens({ userId: uid, telegramFrom: m.from, amount, ref });
     await tg("sendMessage", {
       chat_id: chatId,
-      text: `⭐ Премиум активен до ${until.toISOString().slice(0, 10)}. Вернитесь на сайт — всё открыто.`,
+      text:
+        balance != null
+          ? `⭐ Начислено ${amount} токенов. Баланс: ◎ ${balance}. Вернитесь на сайт — открывайте разборы.`
+          : `⭐ Оплата получена. Вернитесь на сайт inApp.`,
     });
     return;
   }
@@ -117,41 +116,51 @@ async function handleMessage(m) {
       }
       return;
     }
-    if (arg.startsWith("premium_")) {
-      const uid = arg.slice("premium_".length);
+    if (arg.startsWith("buy_")) {
+      // buy_<userId>_<packId>  (web, logged in) | buy_<packId> | buy_
+      const rest = arg.slice("buy_".length);
+      const segs = rest ? rest.split("_") : [];
+      let uid = "";
+      let packId = "";
+      if (segs.length >= 2) {
+        uid = segs[0];
+        packId = segs[1];
+      } else if (segs.length === 1) {
+        packId = segs[0];
+      }
       if (uid) pendingUid.set(chatId, uid);
-      await tg("sendMessage", { chat_id: chatId, text: "Выберите тариф inApp Премиум:", reply_markup: premiumKb() });
+      if (packId && PACKS[packId]) {
+        await sendInvoice(chatId, packId, uid);
+      } else {
+        await tg("sendMessage", { chat_id: chatId, text: "Выберите пак токенов:", reply_markup: packsKb() });
+      }
       return;
     }
     await tg("sendMessage", {
       chat_id: chatId,
-      text: "inApp — разборы отзывов приложений с выводами.\nОформите премиум, чтобы открыть весь каталог и идеи:",
-      reply_markup: premiumKb(),
+      text: "inApp — разборы отзывов приложений с выводами.\nПополните токены, чтобы открывать разборы, идеи и категории:",
+      reply_markup: packsKb(),
     });
     return;
   }
 
-  if (text === "/premium") {
-    await tg("sendMessage", {
-      chat_id: chatId,
-      text: "Выберите тариф inApp Премиум:",
-      reply_markup: premiumKb(),
-    });
+  if (text === "/tokens" || text === "/buy" || text === "/premium") {
+    await tg("sendMessage", { chat_id: chatId, text: "Выберите пак токенов:", reply_markup: packsKb() });
   }
 }
 
 async function handleCallback(cq) {
-  if (cq.data === "buy_month" || cq.data === "buy_half") {
+  if (typeof cq.data === "string" && cq.data.startsWith("buy_")) {
     await tg("answerCallbackQuery", { callback_query_id: cq.id });
     const chatId = cq.message.chat.id;
-    await sendInvoice(chatId, cq.data === "buy_half" ? "half" : "month", pendingUid.get(chatId) || "");
+    const packId = cq.data.slice("buy_".length);
+    if (PACKS[packId]) await sendInvoice(chatId, packId, pendingUid.get(chatId) || "");
   }
 }
 
 async function loop() {
   let offset = 0;
   console.log("inApp bot started, polling…");
-  // eslint-disable-next-line no-constant-condition
   while (true) {
     try {
       const res = await tg("getUpdates", {

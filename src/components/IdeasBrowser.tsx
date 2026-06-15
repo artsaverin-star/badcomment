@@ -63,19 +63,8 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
 
   const currentLabel = domain === "all" ? "Все категории" : domains.find(([s]) => s === domain)?.[1] ?? "Все категории";
 
-  // A domain is locked when every idea in it is premium-only (no free access).
-  const domainLocked = useMemo(() => {
-    const m = new Map<string, boolean>();
-    for (const [slug] of domains) {
-      const ds = ideas.filter((i) => i.domain === slug);
-      m.set(slug, ds.length > 0 && ds.every((i) => i.locked));
-    }
-    return m;
-  }, [domains, ideas]);
-
-  // Only accessible (non-locked) ideas are ever rendered — premium content stays
-  // behind the paywall.
-  const filtered = ideas.filter((i) => !i.locked && (domain === "all" || i.domain === domain));
+  // All ideas are listed; opening one leads to the per-idea unlock gate.
+  const filtered = ideas.filter((i) => domain === "all" || i.domain === domain);
 
   const pillBase =
     "flex items-center gap-2 rounded-full border px-3.5 py-2 text-footnote font-semibold transition-colors";
@@ -128,21 +117,7 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
             >
               Все
             </button>
-            {domains.map(([slug, name]) =>
-          domainLocked.get(slug) ? (
-            <span
-              key={slug}
-              aria-disabled="true"
-              title="Доступно в премиуме"
-              className={`${pillBase} cursor-not-allowed border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] opacity-55`}
-            >
-              <DomainIcon slug={slug} />
-              {name}
-              <span className="ml-0.5 rounded-full bg-[var(--color-accent-brand-subtle)] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-brand)]">
-                Премиум
-              </span>
-            </span>
-          ) : (
+            {domains.map(([slug, name]) => (
               <button
                 key={slug}
                 type="button"
@@ -155,8 +130,7 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
                 <DomainIcon slug={slug} />
                 {name}
               </button>
-            ),
-            )}
+            ))}
           </div>
         )}
       </div>

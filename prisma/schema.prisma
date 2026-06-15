@@ -121,7 +121,7 @@ model PositiveReview {
   @@index([appId])
 }
 
-// ── Auth / premium (Telegram login + Stars subscription) ──────────────────
+// ── Auth + token wallet (Telegram/Google/email login; pay-per-unlock) ──────
 model User {
   id           String    @id @default(cuid())
   telegramId   String?   @unique
@@ -130,9 +130,43 @@ model User {
   passwordHash String?
   username     String?
   firstName    String?
-  premiumUntil DateTime?
+  premiumUntil DateTime? // legacy comp access (friends/old subscribers); still honored
+  tokens       Int       @default(0) // wallet balance
   isAdmin      Boolean   @default(false)
   createdAt    DateTime  @default(now())
+
+  unlocks Unlock[]
+  ledger  TokenLedger[]
+}
+
+// A permanent unlock: once bought, the user owns this item forever. Buying a
+// category writes a row for the category AND a (cost 0) row for every app/idea
+// in that genre (the bundle), so access checks stay a simple set lookup.
+model Unlock {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  type      String // "app" | "idea" | "category"
+  slug      String
+  cost      Int      @default(0) // tokens actually charged (bundle children = 0)
+  createdAt DateTime @default(now())
+
+  @@unique([userId, type, slug])
+  @@index([userId])
+}
+
+// Append-only wallet log for support/audit (signup grant, purchase, unlock, comp).
+model TokenLedger {
+  id           String   @id @default(cuid())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String
+  delta        Int // +grant / -spend
+  reason       String // "signup" | "purchase" | "unlock" | "comp" | "admin"
+  ref          String? // pack id / unlock "type:slug" / payment id
+  balanceAfter Int
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
 }
 
 // Short-lived web login handshake: web creates a token, user opens the bot via
