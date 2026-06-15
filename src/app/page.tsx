@@ -17,29 +17,28 @@ export default async function Home() {
     .slice(0, 48)
     .map((a) => ({ name: a.name, icon: a.icon ?? "", slug: a.slug, reviews: a.reviews, free: a.free }));
   const categories = domains
-    .flatMap((d) => d.categories)
+    .flatMap((d) => d.categories.map((c) => ({ ...c, domain: d.slug })))
     .filter((c) => c.live)
     .slice(0, 16)
-    .map((c) => {
-      const icon = (c.apps.find((a) => a.ready && a.icon) ?? c.apps.find((a) => a.icon))?.icon ?? "";
-      return { name: c.name, slug: c.slug, count: c.appsCount, icon };
-    });
-  const allIdeas = listIdeas();
-  const ideas = allIdeas.slice(0, 4).map((i) => ({ title: i.title, slug: i.slug, categoryName: i.categoryName }));
-  const liveCats = domains.flatMap((d) => d.categories).filter((c) => c.live).length;
-  const stats = {
-    reviews: totalReviews,
-    apps: catalogApps.length,
-    categories: liveCats,
-    ideas: allIdeas.length,
-  };
+    .map((c) => ({ name: c.name, slug: c.slug, count: c.appsCount, domain: c.domain }));
+  const catToDomain = new Map<string, string>();
+  for (const d of domains) for (const c of d.categories) catToDomain.set(c.slug, d.slug);
+  const ideas = listIdeas()
+    .slice(0, 10)
+    .map((i) => ({
+      title: i.title,
+      slug: i.slug,
+      categoryName: i.categoryName,
+      oneLiner: i.oneLiner,
+      domain: catToDomain.get(i.category) ?? "",
+      stats: i.stats,
+    }));
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       <Landing
         apps={apps}
         categories={categories}
         ideas={ideas}
-        stats={stats}
         locale={locale}
         totalReviews={totalReviews}
         loggedIn={loggedIn}

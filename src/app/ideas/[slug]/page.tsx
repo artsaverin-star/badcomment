@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getIdea } from "@/lib/ideas";
 import { isPremium, canAccessCategory } from "@/lib/premium";
 import Paywall from "@/components/Paywall";
+import ReviewCarousel from "@/components/ReviewCarousel";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 
@@ -12,15 +13,6 @@ export const dynamic = "force-dynamic";
 // review quotes, step 2 the mechanisms they aggregate into (with real
 // observation counts), step 3 the gap, step 4 the pitch. The layout deliberately
 // reads top-down like a funnel: many voices → few mechanisms → one idea.
-
-function Stars({ rating }: { rating: number }) {
-  return (
-    <span className="text-[11px] tracking-tight text-[var(--color-text-tertiary)]">
-      {"★".repeat(rating)}
-      <span className="opacity-30">{"★".repeat(5 - rating)}</span>
-    </span>
-  );
-}
 
 function StepLabel({ n, title }: { n: number; title: string }) {
   return (
@@ -95,25 +87,10 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
         <Paywall title="Полная идея — в премиуме" />
       ) : (
         <>
-      {/* Step 1 — the raw voices */}
-      <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
+      {/* Step 1 — the raw voices (no island; coverflow carousel) */}
+      <section>
         <StepLabel n={1} title="Что пишут в отзывах" />
-        <div className="-mx-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {idea.reviewGrid.map((q, i) => (
-            <figure
-              key={i}
-              className="flex w-[260px] shrink-0 snap-start flex-col gap-2 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-4"
-            >
-              <Stars rating={q.rating} />
-              <blockquote className="text-[13px] leading-snug text-[var(--color-text-primary)]">
-                “{q.quote}”
-              </blockquote>
-              <figcaption className="mt-auto pt-1 text-[11px] text-[var(--color-text-tertiary)]">
-                {q.app}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        <ReviewCarousel items={idea.reviewGrid} />
       </section>
 
       <FunnelArrow />
