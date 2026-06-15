@@ -23,6 +23,7 @@ export default function InsightCard({
   count,
   kicker,
   evidence,
+  card = false,
 }: {
   title: string;
   body?: string;
@@ -30,6 +31,7 @@ export default function InsightCard({
   count: number;
   kicker?: string;
   evidence: Evidence[];
+  card?: boolean; // boxed card (category summary grid) vs hairline row
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const open = () => {
@@ -40,8 +42,25 @@ export default function InsightCard({
 
   return (
     <>
-      <div className="flex w-full flex-col items-start gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0">
-        <span className="text-[16px] font-normal leading-snug text-[var(--color-text-primary)]">{title}</span>
+      <div
+        className={
+          card
+            ? "flex h-full w-full flex-col items-start gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
+            : "flex w-full flex-col items-start gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0"
+        }
+      >
+        {card && kicker && (
+          <span className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{kicker}</span>
+        )}
+        <span
+          className={
+            card
+              ? "text-[18px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]"
+              : "text-[16px] font-normal leading-snug text-[var(--color-text-primary)]"
+          }
+        >
+          {title}
+        </span>
         {body && <span className="text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{body}</span>}
         {apps && apps.length > 0 && (
           <span className="text-[12px] leading-relaxed text-[var(--color-text-tertiary)]">{apps.join(" · ")}</span>
@@ -49,7 +68,7 @@ export default function InsightCard({
         <button
           type="button"
           onClick={open}
-          className="mt-1.5 flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 hover:bg-[var(--color-accent-brand-subtle)] hover:text-[var(--color-text-brand)] hover:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]"
+          className={`${card ? "mt-auto pt-1.5" : "mt-1.5"} flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 hover:bg-[var(--color-accent-brand-subtle)] hover:text-[var(--color-text-brand)] hover:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]`}
         >
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
