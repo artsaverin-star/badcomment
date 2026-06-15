@@ -151,6 +151,8 @@ export default function InsightLanding({
                 key={i}
                 src={src}
                 alt=""
+                loading="lazy"
+                decoding="async"
                 className="h-64 w-auto shrink-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] object-cover"
               />
             ))}

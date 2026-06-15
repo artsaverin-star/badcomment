@@ -54,11 +54,11 @@ export default function CatalogBrowser({
             <Link
               key={a.slug}
               href={`/${a.slug}`}
-              className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]"
+              className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_66px] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]"
             >
               {a.icon ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={a.icon} alt="" className="size-10 shrink-0 rounded-[11px] object-cover" />
+                <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
               ) : (
                 <div className="size-10 shrink-0 rounded-[11px] bg-[var(--color-bg-muted)]" />
               )}
@@ -132,6 +132,8 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
             key={i}
             src={a.icon ?? ""}
             alt=""
+            loading="lazy"
+            decoding="async"
             // Grey only apps that genuinely lack a разбор — a «Скоро» category can
             // already have analyzed apps (synthesis just isn't published yet).
             className={`size-9 rounded-[11px] object-cover ring-2 ring-[var(--color-surface-card)] ${a.ready === false ? "opacity-40 grayscale" : ""}`}
@@ -141,7 +143,8 @@ function CategoryCard({ cat }: { cat: BrowseCategory }) {
     </>
   );
 
-  const shell = "flex items-center gap-3 rounded-2xl border px-3.5 py-3 transition-colors";
+  const shell =
+    "flex items-center gap-3 rounded-2xl border px-3.5 py-3 transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_66px]";
 
   if (!cat.live) {
     return <div className={`${shell} border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)]`}>{body}</div>;

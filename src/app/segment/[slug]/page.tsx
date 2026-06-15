@@ -40,6 +40,8 @@ function AppTile({ a }: { a: CatApp }) {
         <img
           src={a.icon}
           alt=""
+          loading="lazy"
+          decoding="async"
           className={`size-9 shrink-0 rounded-[12px] object-cover ${ready ? "" : "opacity-40 grayscale"}`}
         />
       ) : (

@@ -93,7 +93,7 @@ export default function Landing({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 pb-16 pt-16 sm:pt-24">
+      <section className="relative overflow-x-clip px-4 pb-16 pt-20 sm:pt-28">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           {floats.map((a, i) => (
             // eslint-disable-next-line @next/next/no-img-element
@@ -190,7 +190,7 @@ export default function Landing({
               const inner = (
                 <>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={a.icon} alt="" className="size-9 shrink-0 rounded-full object-cover" />
+                  <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-9 shrink-0 rounded-full object-cover" />
                   <span className="flex flex-col leading-tight">
                     <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{a.name}</span>
                     {a.reviews && a.reviews > 0 ? (
@@ -262,7 +262,7 @@ export default function Landing({
                 className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors hover:border-[var(--color-border-strong)]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={a.icon} alt="" className="size-10 shrink-0 rounded-[11px] object-cover" />
+                <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
                 <span className="flex min-w-0 flex-col">
                   <span className="truncate text-callout font-medium text-[var(--color-text-primary)]">{a.name}</span>
                   {a.reviews && a.reviews > 0 ? (
