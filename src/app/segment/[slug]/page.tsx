@@ -9,6 +9,7 @@ import { getLocale } from "@/lib/i18n.server";
 import SegmentSummaryView from "@/components/SegmentSummary";
 import SegmentAppList from "@/components/SegmentAppList";
 import { getSegmentSummary } from "@/lib/segmentSummary";
+import { categoryCards } from "@/lib/regenCards";
 import SegmentTabs from "@/components/SegmentTabs";
 import CategoryIdeas from "@/components/CategoryIdeas";
 import { listIdeas } from "@/lib/ideas";
@@ -142,7 +143,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         (summary || ideas.length > 0) && (
           <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
             <SegmentTabs
-              summary={summary ? <SegmentSummaryView summary={summary} embedded /> : null}
+              summary={summary ? <SegmentSummaryView summary={summary} cards={categoryCards(slug)} embedded /> : null}
               ideas={ideas.length > 0 ? <CategoryIdeas ideas={ideas} /> : null}
               ideasCount={ideas.length}
             />

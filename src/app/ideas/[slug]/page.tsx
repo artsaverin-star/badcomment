@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getIdea } from "@/lib/ideas";
+import { ideaCard } from "@/lib/regenCards";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import UnlockGate from "@/components/UnlockGate";
@@ -44,6 +45,9 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
 
   const idea = getIdea(slug);
   if (!idea) notFound();
+  const ov = ideaCard(slug);
+  const ideaTitle = ov?.title ?? idea.title;
+  const ideaOneLiner = ov?.oneLiner ?? idea.oneLiner;
 
   // Token gate: the full idea is unlocked per-idea (or via its category bundle).
   const access = await getAccess();
@@ -76,10 +80,10 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
           {idea.categoryName}
         </Link>
         <h1 className="mx-auto mt-3 max-w-[18ch] text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[40px]">
-          {idea.title}
+          {ideaTitle}
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-lead leading-relaxed text-[var(--color-text-secondary)]">
-          {idea.oneLiner}
+          {ideaOneLiner}
         </p>
         <div className="mt-4 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
           {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}

@@ -6,6 +6,7 @@ import { getLocale } from "@/lib/i18n.server";
 import Link from "next/link";
 import IdeasBrowser, { type IdeaCard } from "@/components/IdeasBrowser";
 import { getAccess } from "@/lib/access";
+import { ideaCard } from "@/lib/regenCards";
 import { SIGNUP_GRANT, UNLOCK_COST, tokensWord } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
@@ -27,14 +28,15 @@ export default async function IdeasPage() {
 
   const ideas: IdeaCard[] = all.map((i) => {
     const dom = catToDomain.get(i.category);
+    const ov = ideaCard(i.slug);
     return {
       slug: i.slug,
       category: i.category,
       categoryName: i.categoryName,
       domain: dom?.slug ?? "other",
       domainName: dom?.name ?? "Прочее",
-      title: i.title,
-      oneLiner: i.oneLiner,
+      title: ov?.title ?? i.title,
+      oneLiner: ov?.oneLiner ?? i.oneLiner,
       stats: i.stats,
     };
   });

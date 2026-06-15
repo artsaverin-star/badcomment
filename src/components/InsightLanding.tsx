@@ -64,12 +64,14 @@ export default function InsightLanding({
   tr,
   locked = false,
   gate,
+  cards,
 }: {
   data: LandingProduct;
   insights: ProductInsights;
   tr: ReturnType<typeof t>;
   locked?: boolean;
   gate?: React.ReactNode;
+  cards?: import("@/lib/regenCards").RegenSet | null;
 }) {
   const metaLine = [data.developer, data.stores.map((st) => STORE_LABEL[st]).join(" + ")]
     .filter(Boolean)
@@ -83,12 +85,23 @@ export default function InsightLanding({
 
   const ordered = insights.insights ?? [];
   const all = [...ordered].sort((a, b) => obsOf(b) - obsOf(a));
-
-  // Product signal first; billing/stability/account collapsed into «База».
-  const product = all.filter((i) => !(i.theme && HYGIENE.includes(i.theme)));
-  const hygiene = all.filter((i) => i.theme && HYGIENE.includes(i.theme));
-  const hygieneTotal = hygiene.reduce((s, i) => s + obsOf(i), 0);
   const kickerOf = (i: Insight) => i.group?.name ?? (i.theme ? THEME_LABEL[i.theme] : undefined);
+
+  // Prefer the regenerated overlay; otherwise build from raw insights.
+  const fallback = (i: Insight): import("@/lib/regenCards").RegenCard => ({
+    title: i.title,
+    body: i.story || undefined,
+    count: obsOf(i),
+    kicker: kickerOf(i),
+    evidence: i.evidence,
+  });
+  const product = cards
+    ? cards.product
+    : all.filter((i) => !(i.theme && HYGIENE.includes(i.theme))).map(fallback);
+  const hygiene = cards
+    ? cards.hygiene
+    : all.filter((i) => i.theme && HYGIENE.includes(i.theme)).map(fallback);
+  const hygieneTotal = hygiene.reduce((s, c) => s + c.count, 0);
 
   return (
     <>
@@ -149,15 +162,17 @@ export default function InsightLanding({
       ) : (
         <div className="mt-12">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {product.map((i) => (
+            {product.map((c, i) => (
               <InsightCard
-                key={i.id}
+                key={i}
                 card
-                title={i.title}
-                body={i.story || undefined}
-                count={obsOf(i)}
-                kicker={kickerOf(i)}
-                evidence={i.evidence}
+                title={c.title}
+                body={c.body}
+                plus={c.plus}
+                minus={c.minus}
+                count={c.count}
+                kicker={c.kicker}
+                evidence={c.evidence}
               />
             ))}
           </div>
@@ -180,15 +195,8 @@ export default function InsightLanding({
                 </span>
               </summary>
               <div className="px-5 pb-2">
-                {hygiene.map((i) => (
-                  <InsightCard
-                    key={i.id}
-                    title={i.title}
-                    body={i.story || undefined}
-                    count={obsOf(i)}
-                    kicker={kickerOf(i)}
-                    evidence={i.evidence}
-                  />
+                {hygiene.map((c, i) => (
+                  <InsightCard key={i} title={c.title} body={c.body} count={c.count} kicker={c.kicker} evidence={c.evidence} />
                 ))}
               </div>
             </details>

@@ -23,6 +23,8 @@ export default function InsightCard({
   count,
   kicker,
   evidence,
+  plus,
+  minus,
   card = false,
 }: {
   title: string;
@@ -31,6 +33,8 @@ export default function InsightCard({
   count: number;
   kicker?: string;
   evidence: Evidence[];
+  plus?: string; // что хвалят
+  minus?: string; // на что злятся
   card?: boolean; // boxed card (category summary grid) vs hairline row
 }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -49,9 +53,6 @@ export default function InsightCard({
             : "flex w-full flex-col items-start gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0"
         }
       >
-        {card && kicker && (
-          <span className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{kicker}</span>
-        )}
         <span
           className={
             card
@@ -62,6 +63,18 @@ export default function InsightCard({
           {title}
         </span>
         {body && <span className="text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{body}</span>}
+        {plus && (
+          <span className="flex gap-2 text-[14px] leading-[1.5]">
+            <span className="shrink-0 font-bold text-[#4ade80]">＋</span>
+            <span className="text-[var(--color-text-secondary)]">{plus}</span>
+          </span>
+        )}
+        {minus && (
+          <span className="flex gap-2 text-[14px] leading-[1.5]">
+            <span className="shrink-0 font-bold text-[#ff8585]">－</span>
+            <span className="text-[var(--color-text-secondary)]">{minus}</span>
+          </span>
+        )}
         {apps && apps.length > 0 && (
           <span className="text-[12px] leading-relaxed text-[var(--color-text-tertiary)]">{apps.join(" · ")}</span>
         )}

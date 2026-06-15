@@ -3,6 +3,7 @@ import { isPremium } from "@/lib/premium";
 import { getSessionUser } from "@/lib/session";
 import { getCatalogData } from "@/lib/catalogData";
 import { listIdeas } from "@/lib/ideas";
+import { ideaCard } from "@/lib/regenCards";
 import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -25,14 +26,17 @@ export default async function Home() {
   for (const d of domains) for (const c of d.categories) catToDomain.set(c.slug, d.slug);
   const ideas = listIdeas()
     .slice(0, 10)
-    .map((i) => ({
-      title: i.title,
-      slug: i.slug,
-      categoryName: i.categoryName,
-      oneLiner: i.oneLiner,
-      domain: catToDomain.get(i.category) ?? "",
-      stats: i.stats,
-    }));
+    .map((i) => {
+      const ov = ideaCard(i.slug);
+      return {
+        title: ov?.title ?? i.title,
+        slug: i.slug,
+        categoryName: i.categoryName,
+        oneLiner: ov?.oneLiner ?? i.oneLiner,
+        domain: catToDomain.get(i.category) ?? "",
+        stats: i.stats,
+      };
+    });
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       <Landing

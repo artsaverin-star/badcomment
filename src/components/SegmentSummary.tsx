@@ -2,38 +2,51 @@
 
 import { themeLabel, type SegmentSummary } from "@/lib/segmentSummary";
 import type { Theme } from "@/lib/insights";
+import type { RegenCard, RegenSet } from "@/lib/regenCards";
 import InsightCard from "./InsightCard";
 
-// Category-level synthesis as a grid of concise insight cards (title + dek + a
-// «N наблюдений» button that opens the verbatim reviews). Product signal first;
-// the billing/stability/account "hygiene" is collapsed below — it's table
-// stakes, not what makes a category interesting.
+// Category synthesis as a grid of concise, share-worthy insight cards (title +
+// what users praise/hate + a «N наблюдений» button → verbatim reviews). Prefers
+// the regenerated overlay; falls back to the original synthesis split by theme.
 
-// Pure money/account hygiene stays collapsed; reliability is product-relevant
-// (a broken core feature is an insight), so it surfaces as a card.
 const HYGIENE: Theme[] = ["payment", "support"];
-// Product-signal themes, in display priority.
-const PRODUCT_ORDER: Theme[] = ["strategy", "content", "ui", "playback"];
-
-function rank(theme: Theme): number {
+const PRODUCT_ORDER: Theme[] = ["strategy", "content", "ui", "playback", "reliability"];
+const rank = (theme: Theme) => {
   const i = PRODUCT_ORDER.indexOf(theme);
   return i === -1 ? PRODUCT_ORDER.length : i;
+};
+
+function fromSummary(summary: SegmentSummary): RegenSet {
+  const toCard = (it: SegmentSummary["items"][number]): RegenCard => ({
+    title: it.title,
+    body: it.body,
+    count: it.observationCount,
+    apps: it.apps,
+    kicker: themeLabel(it.theme),
+    evidence: it.evidence,
+  });
+  const product = summary.items
+    .filter((it) => !HYGIENE.includes(it.theme))
+    .sort((a, b) => rank(a.theme) - rank(b.theme) || b.observationCount - a.observationCount)
+    .map(toCard);
+  const hygiene = summary.items
+    .filter((it) => HYGIENE.includes(it.theme))
+    .sort((a, b) => b.observationCount - a.observationCount)
+    .map(toCard);
+  return { product, hygiene };
 }
 
 export default function SegmentSummaryView({
   summary,
+  cards,
   embedded = false,
 }: {
   summary: SegmentSummary;
+  cards?: RegenSet | null;
   embedded?: boolean;
 }) {
-  const product = summary.items
-    .filter((it) => !HYGIENE.includes(it.theme))
-    .sort((a, b) => rank(a.theme) - rank(b.theme) || b.observationCount - a.observationCount);
-  const hygiene = summary.items
-    .filter((it) => HYGIENE.includes(it.theme))
-    .sort((a, b) => b.observationCount - a.observationCount);
-  const hygieneTotal = hygiene.reduce((s, it) => s + it.observationCount, 0);
+  const { product, hygiene } = cards ?? fromSummary(summary);
+  const hygieneTotal = hygiene.reduce((s, c) => s + c.count, 0);
 
   return (
     <section className={embedded ? "" : "mt-14 border-t border-[var(--color-border-subtle)] pt-10"}>
@@ -48,15 +61,17 @@ export default function SegmentSummaryView({
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {product.map((it) => (
+          {product.map((c, i) => (
             <InsightCard
-              key={it.id}
+              key={i}
               card
-              title={it.title}
-              body={it.body}
-              count={it.observationCount}
-              kicker={themeLabel(it.theme)}
-              evidence={it.evidence}
+              title={c.title}
+              body={c.body}
+              plus={c.plus}
+              minus={c.minus}
+              count={c.count}
+              kicker={c.kicker}
+              evidence={c.evidence}
             />
           ))}
         </div>
@@ -79,15 +94,8 @@ export default function SegmentSummaryView({
               </span>
             </summary>
             <div className="px-5 pb-2">
-              {hygiene.map((it) => (
-                <InsightCard
-                  key={it.id}
-                  title={it.title}
-                  body={it.body}
-                  count={it.observationCount}
-                  kicker={themeLabel(it.theme)}
-                  evidence={it.evidence}
-                />
+              {hygiene.map((c, i) => (
+                <InsightCard key={i} title={c.title} body={c.body} count={c.count} kicker={c.kicker} evidence={c.evidence} />
               ))}
             </div>
           </details>
