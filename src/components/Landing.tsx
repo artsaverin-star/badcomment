@@ -25,11 +25,15 @@ export default function Landing({
   locale = "ru",
   totalReviews = 0,
   loggedIn = false,
+  categories = [],
+  ideas = [],
 }: {
   apps: LandingApp[];
   locale?: Locale;
   totalReviews?: number;
   loggedIn?: boolean;
+  categories?: { name: string; slug: string; count: number }[];
+  ideas?: { title: string; slug: string; categoryName: string }[];
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
@@ -180,6 +184,92 @@ export default function Landing({
                 </span>
               );
             })}
+          </div>
+        </section>
+      )}
+
+      {/* Categories preview */}
+      {categories.length > 0 && (
+        <section className="mx-auto mt-12 w-full max-w-5xl">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+              {ru ? "Категории" : "Categories"}
+            </h2>
+            <Link href="/catalog" className="text-footnote font-semibold text-[var(--color-text-brand)] hover:underline">
+              {ru ? "Все →" : "All →"}
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {categories.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/segment/${c.slug}`}
+                className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]"
+              >
+                <span className="truncate font-medium text-[var(--color-text-primary)]">{c.name}</span>
+                <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{c.count}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Apps preview */}
+      {apps.length > 0 && (
+        <section className="mx-auto mt-10 w-full max-w-5xl">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+              {ru ? "Приложения" : "Apps"}
+            </h2>
+            <Link href="/catalog?view=apps" className="text-footnote font-semibold text-[var(--color-text-brand)] hover:underline">
+              {ru ? "Все →" : "All →"}
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {apps.slice(0, 6).map((a) => (
+              <Link
+                key={a.slug}
+                href={`/${a.slug}`}
+                className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors hover:border-[var(--color-border-strong)]"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={a.icon} alt="" className="size-10 shrink-0 rounded-[11px] object-cover" />
+                <span className="flex min-w-0 flex-col">
+                  <span className="truncate text-callout font-medium text-[var(--color-text-primary)]">{a.name}</span>
+                  {a.reviews && a.reviews > 0 ? (
+                    <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
+                      {ru ? `разобрали ${a.reviews.toLocaleString("ru-RU")} ${reviewsWord(a.reviews)}` : `${a.reviews} reviews`}
+                    </span>
+                  ) : null}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Ideas preview */}
+      {ideas.length > 0 && (
+        <section className="mx-auto mt-10 w-full max-w-5xl">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+              {ru ? "Идеи" : "Ideas"}
+            </h2>
+            <Link href="/ideas" className="text-footnote font-semibold text-[var(--color-text-brand)] hover:underline">
+              {ru ? "Все →" : "All →"}
+            </Link>
+          </div>
+          <div className="flex flex-col gap-2">
+            {ideas.map((i) => (
+              <Link
+                key={i.slug}
+                href={`/ideas/${i.slug}`}
+                className="flex flex-col gap-0.5 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]"
+              >
+                <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{i.categoryName}</span>
+                <span className="font-medium leading-snug text-[var(--color-text-primary)]">{i.title}</span>
+              </Link>
+            ))}
           </div>
         </section>
       )}

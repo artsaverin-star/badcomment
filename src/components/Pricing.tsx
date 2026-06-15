@@ -94,16 +94,24 @@ export default function Pricing({
 
       {/* Plan card */}
       <div className="mt-6 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7">
-        <div className="flex items-baseline gap-2">
+        <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+          {billing === "half" && (
+            <span className="text-[22px] font-semibold text-[var(--color-text-tertiary)] line-through">6 000 ₽</span>
+          )}
           <span className="text-[40px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">
             {plan.rub.toLocaleString("ru-RU")} ₽
           </span>
+          {billing === "half" && (
+            <span className="rounded-full bg-[color-mix(in_srgb,#30d158_22%,transparent)] px-2 py-0.5 text-[12px] font-bold text-[#4ade80]">
+              −50%
+            </span>
+          )}
           <span className="text-callout text-[var(--color-text-tertiary)]">
             {billing === "half" ? "за 6 месяцев" : "в месяц"}
           </span>
         </div>
         <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">
-          {billing === "half" ? `${plan.per} · экономия 3000 ₽` : plan.per}
+          {billing === "half" ? `${plan.per} · экономия 3 000 ₽` : plan.per}
         </p>
         {loggedIn ? (
           <a

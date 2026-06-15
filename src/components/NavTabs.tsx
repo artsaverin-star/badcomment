@@ -3,14 +3,6 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
-function HomeIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M3 9.5 10 3l7 6.5" />
-      <path d="M5 8.5V16h10V8.5" />
-    </svg>
-  );
-}
 function GridIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -41,25 +33,21 @@ function BulbIcon() {
 // Top-bar section tabs (desktop): Главная / Категории / Приложения / Идеи.
 // /catalog drives Категории/Приложения via ?view=apps.
 export default function NavTabs({
-  homeLabel,
   catalogLabel,
   appsLabel,
   ideasLabel,
 }: {
-  homeLabel: string;
   catalogLabel: string;
   appsLabel: string;
   ideasLabel: string;
 }) {
   const pathname = usePathname();
   const sp = useSearchParams();
-  const inHome = pathname === "/";
   const inIdeas = pathname === "/ideas" || pathname.startsWith("/ideas/");
   const inApps = pathname === "/catalog" && sp.get("view") === "apps";
   const inCats = pathname === "/catalog" && !inApps;
 
   const tabs = [
-    { href: "/", label: homeLabel, active: inHome, Icon: HomeIcon },
     { href: "/catalog", label: catalogLabel, active: inCats, Icon: GridIcon },
     { href: "/catalog?view=apps", label: appsLabel, active: inApps, Icon: AppsIcon },
     { href: "/ideas", label: ideasLabel, active: inIdeas, Icon: BulbIcon },

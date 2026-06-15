@@ -35,7 +35,6 @@ export default function Header({
         {/* Nav lives in the header on desktop; on phones it moves to the bottom tab bar. */}
         <div className="ml-3 hidden sm:block">
           <NavTabs
-            homeLabel={ru ? "Главная" : "Home"}
             catalogLabel={ru ? "Категории" : "Categories"}
             appsLabel={ru ? "Приложения" : "Apps"}
             ideasLabel={tr.nav.ideas}
