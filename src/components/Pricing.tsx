@@ -83,10 +83,6 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
         <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">
           {billing === "half" ? `${plan.per} · экономия 3000 ₽` : plan.per}
         </p>
-        <p className="mt-1 flex items-center gap-1.5 text-caption text-[var(--color-text-tertiary)]">
-          ≈ <span className="font-semibold text-[#f5b301]">{plan.stars} ⭐</span> Telegram Stars
-        </p>
-
         <a
           href={botUrl}
           target="_blank"
@@ -96,7 +92,7 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1 .5l.36-5.1L17.9 6.2c.4-.36-.09-.56-.62-.2L6.7 12.9l-4.98-1.56c-1.08-.34-1.1-1.08.23-1.6l19.46-7.5c.9-.33 1.69.2 1.49 1.06Z" />
           </svg>
-          Оформить в Telegram
+          Оплатить {plan.stars} <span className="text-[#ffd54a]">⭐</span> в Telegram
         </a>
 
         {cardEnabled && (
@@ -110,7 +106,7 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
               <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
               <path d="M2.5 9.5h19" />
             </svg>
-            {paying ? "Создаём платёж…" : "Оплатить картой РФ"}
+            {paying ? "Создаём платёж…" : `Оплатить картой РФ — ${plan.rub.toLocaleString("ru-RU")} ₽`}
           </button>
         )}
         {payErr && <p className="mt-2 text-center text-caption text-[var(--color-accent-danger)]">{payErr}</p>}

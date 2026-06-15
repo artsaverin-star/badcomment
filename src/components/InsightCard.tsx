@@ -88,11 +88,12 @@ export default function InsightCard({
             </button>
           </div>
 
-          <div className="flex flex-col gap-3 overflow-y-auto overscroll-contain p-4">
+          <div className="flex flex-col overflow-y-auto overscroll-contain px-4 py-1">
             {evidence.map((e, i) => (
               <div
                 key={i}
-                className="flex flex-col gap-1.5 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3"
+                className="rev-in flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0"
+                style={{ animationDelay: `${Math.min(i, 14) * 0.04}s` }}
               >
                 <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
                   {e.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>}

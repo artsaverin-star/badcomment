@@ -203,6 +203,15 @@ body {
 .ld-fade {
   animation: ld-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+/* Reviews fade/slide in (staggered via inline animation-delay). */
+.rev-in {
+  animation: ld-fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rev-in {
+    animation: none;
+  }
+}
 @keyframes ld-float {
   0%,
   100% {
