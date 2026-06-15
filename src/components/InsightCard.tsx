@@ -44,6 +44,11 @@ export default function InsightCard({
     ref.current?.showModal();
   };
 
+  // Tone of the observation, from the average rating of its evidence: люди
+  // довольны (👍) или злятся (👎).
+  const avg = evidence.length ? evidence.reduce((s, e) => s + (e.rating || 0), 0) / evidence.length : 0;
+  const tone: "up" | "down" | "info" = avg >= 3.5 ? "up" : avg > 0 && avg <= 2.6 ? "down" : "info";
+
   return (
     <>
       <div
@@ -56,21 +61,21 @@ export default function InsightCard({
         <span
           className={
             card
-              ? "text-[18px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]"
+              ? "text-[15px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]"
               : "text-[16px] font-normal leading-snug text-[var(--color-text-primary)]"
           }
         >
           {title}
         </span>
-        {body && <span className="text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{body}</span>}
+        {body && <span className="text-[13.5px] leading-[1.55] text-[var(--color-text-secondary)]">{body}</span>}
         {plus && (
-          <span className="flex gap-2 text-[14px] leading-[1.5]">
+          <span className="flex gap-2 text-[13.5px] leading-[1.5]">
             <span className="shrink-0 font-bold text-[#4ade80]">＋</span>
             <span className="text-[var(--color-text-secondary)]">{plus}</span>
           </span>
         )}
         {minus && (
-          <span className="flex gap-2 text-[14px] leading-[1.5]">
+          <span className="flex gap-2 text-[13.5px] leading-[1.5]">
             <span className="shrink-0 font-bold text-[#ff8585]">－</span>
             <span className="text-[var(--color-text-secondary)]">{minus}</span>
           </span>
@@ -83,11 +88,21 @@ export default function InsightCard({
           onClick={open}
           className={`${card ? "mt-auto pt-1.5" : "mt-1.5"} flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 hover:bg-[var(--color-accent-brand-subtle)] hover:text-[var(--color-text-brand)] hover:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]`}
         >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
-            <path d="M8 7.2v3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            <circle cx="8" cy="5.1" r="0.9" fill="currentColor" />
-          </svg>
+          {tone === "up" ? (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80" aria-hidden="true">
+              <path d="M2 10h3.5v11H2zM7.5 10 12 1.8c1.6.1 2.8 1.5 2.5 3.1L13.8 9h6a2.4 2.4 0 0 1 2.4 2.9l-1.5 7.2A2.4 2.4 0 0 1 18.3 21H7.5V10Z" />
+            </svg>
+          ) : tone === "down" ? (
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#ff8585" aria-hidden="true">
+              <path d="M22 14h-3.5V3H22zM16.5 14 12 22.2c-1.6-.1-2.8-1.5-2.5-3.1L10.2 15h-6a2.4 2.4 0 0 1-2.4-2.9l1.5-7.2A2.4 2.4 0 0 1 5.7 3h10.8v11Z" />
+            </svg>
+          ) : (
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.3" />
+              <path d="M8 7.2v3.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="8" cy="5.1" r="0.9" fill="currentColor" />
+            </svg>
+          )}
           {count} {pluralNabl(count)}
         </button>
       </div>

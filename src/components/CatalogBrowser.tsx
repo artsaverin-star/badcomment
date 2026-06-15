@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AppsList from "./AppsList";
+import CatGlyph from "./CatGlyph";
 
 export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
 export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
@@ -49,7 +50,7 @@ export default function CatalogBrowser({
               <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{d.name}</h2>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {d.categories.map((c) => (
-                  <CategoryCard key={c.slug} cat={c} />
+                  <CategoryCard key={c.slug} cat={c} domain={d.slug} />
                 ))}
               </div>
             </section>
@@ -60,42 +61,31 @@ export default function CatalogBrowser({
   );
 }
 
-function CategoryCard({ cat }: { cat: BrowseCategory }) {
-  const icons = cat.apps.filter((a) => a.icon).slice(0, 4);
+function CategoryCard({ cat, domain }: { cat: BrowseCategory; domain?: string }) {
   const dim = !cat.live; // «Скоро» categories are greyscale
   const body = (
     <>
-      <span className="flex min-w-0 flex-1 flex-col gap-1">
+      <span
+        className={`flex size-10 shrink-0 items-center justify-center rounded-xl ${
+          dim
+            ? "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)]"
+            : "bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-brand)]"
+        }`}
+      >
+        <CatGlyph domain={domain} />
+      </span>
+      <span className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className={`truncate text-callout font-semibold ${dim ? "text-[var(--color-text-tertiary)]" : "text-[var(--color-text-primary)]"}`}>
           {cat.name}
         </span>
-        <span className="flex items-center gap-2">
-          {cat.live ? (
-            <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
-              {cat.appsCount} {appsWord(cat.appsCount)}
-            </span>
-          ) : (
-            <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] font-semibold text-[var(--color-text-tertiary)]">
-              Скоро
-            </span>
-          )}
-        </span>
+        {cat.live ? (
+          <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
+            разобрали {cat.appsCount} {appsWord(cat.appsCount)}
+          </span>
+        ) : (
+          <span className="text-caption text-[var(--color-text-tertiary)]">Скоро</span>
+        )}
       </span>
-      <div className="flex shrink-0 -space-x-2">
-        {icons.map((a, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={i}
-            src={a.icon ?? ""}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            // Grey only apps that genuinely lack a разбор — a «Скоро» category can
-            // already have analyzed apps (synthesis just isn't published yet).
-            className={`size-9 rounded-[11px] object-cover ring-2 ring-[var(--color-surface-card)] ${a.ready === false ? "opacity-40 grayscale" : ""}`}
-          />
-        ))}
-      </div>
     </>
   );
 
