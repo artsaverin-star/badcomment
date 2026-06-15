@@ -166,22 +166,22 @@ details.no-anim::details-content {
    Secondary text is kept bright enough for comfortable long-read body copy. */
 [data-theme="dark"] {
   color-scheme: dark;
-  /* Mobbin-style: near-black page, flat grey plates with barely-there borders. */
-  --color-bg-page: #0a0a0b;
-  --color-bg-subtle: #101012;
-  --color-bg-muted: #1e1e22;
-  --color-surface-card: #161618;
-  --color-surface-card-subtle: #1e1e21;
-  --color-surface-overlay: #1c1c20;
-  --color-surface-pressed: #26262b;
+  /* Soft graphite (not pure black): lighter page, visible grey plates/chips. */
+  --color-bg-page: #1a1a1c;
+  --color-bg-subtle: #202023;
+  --color-bg-muted: #34343b;
+  --color-surface-card: #232327;
+  --color-surface-card-subtle: #2a2a2f;
+  --color-surface-overlay: #26262b;
+  --color-surface-pressed: #34343b;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #b3b4bc;
-  --color-text-tertiary: #74757e;
-  --color-border-subtle: #1e1e22;
-  --color-border-default: #292930;
-  --color-border-strong: #3a3a42;
-  --color-button-secondary-bg: #1e1e21;
-  --color-button-ghost-bg: #161618;
+  --color-text-secondary: #b9bac1;
+  --color-text-tertiary: #83848d;
+  --color-border-subtle: #2b2b31;
+  --color-border-default: #383840;
+  --color-border-strong: #4a4a53;
+  --color-button-secondary-bg: #2a2a2f;
+  --color-button-ghost-bg: #232327;
 }
 
 /* Flat solid page background — no fixed/parallax layers (they tank scroll). */
