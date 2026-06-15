@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
 export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
@@ -36,19 +33,21 @@ function reviewsWord(n: number): string {
 export default function CatalogBrowser({
   domains,
   apps = [],
+  view: viewProp = "cats",
 }: {
   domains: BrowseDomain[];
   premium?: boolean;
   apps?: BrowseAppItem[];
+  view?: "cats" | "apps";
 }) {
   const hasApps = apps.length > 0;
-  // View is driven by the URL (?view=apps) — switched via the header nav /
-  // bottom tab bar (Категории / Приложения), not a local toggle.
-  const sp = useSearchParams();
-  const view = sp.get("view") === "apps" && hasApps ? "apps" : "cats";
+  // View is driven by the URL (?view=apps), read server-side in page.tsx and
+  // passed in — keeps this a server component (no client serialization of the
+  // whole catalog into the HTML).
+  const view = viewProp === "apps" && hasApps ? "apps" : "cats";
 
   return (
-    <div key={view} className="route-fade flex flex-col gap-8">
+    <div className="route-fade flex flex-col gap-8">
       {view === "apps" && hasApps ? (
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {apps.map((a) => (

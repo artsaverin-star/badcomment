@@ -17,11 +17,12 @@ export const dynamic = "force-dynamic";
 // show a «Скоро» status. Live categories outside the free set are premium-locked.
 const LIVE = new Set(Object.keys(segmentInsights as Record<string, unknown>));
 
-export default async function Home() {
+export default async function Home({ searchParams }: { searchParams: Promise<{ view?: string }> }) {
   const locale = await getLocale();
   const tr = t(locale);
   const premium = await isPremium();
   const loggedIn = !!(await getSessionUser());
+  const view = (await searchParams).view === "apps" ? "apps" : "cats";
 
   const domainViews = listDomains(locale);
   const domains: BrowseDomain[] = domainViews.map((d) => ({
@@ -83,7 +84,7 @@ export default async function Home() {
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       {!loggedIn ? (
         <>
-          <Landing apps={landingApps} locale={locale} totalReviews={totalReviews} />
+          <Landing apps={catalogApps.slice(0, 48)} locale={locale} totalReviews={totalReviews} />
           <h2 className="mb-6 mt-12 text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
             {locale === "en" ? "Catalog" : "Каталог"}
           </h2>
@@ -97,7 +98,7 @@ export default async function Home() {
           description={<span className="mx-auto block max-w-2xl">{tr.market2.indexSubtitle}</span>}
         />
       )}
-      <CatalogBrowser domains={domains} premium={premium} apps={catalogApps} />
+      <CatalogBrowser domains={domains} premium={premium} apps={catalogApps} view={view} />
     </main>
   );
 }

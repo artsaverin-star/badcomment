@@ -75,11 +75,11 @@ export default function MobileTabBar({
         className="pointer-events-none fixed inset-x-0 bottom-0 z-40 h-32 bg-gradient-to-t from-[var(--color-bg-page)] via-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] to-transparent sm:hidden"
       />
       <nav className="tabbar-in fixed inset-x-0 bottom-4 z-50 px-4 sm:hidden">
-        <div className="relative mx-auto flex max-w-[440px] items-stretch rounded-full border border-[var(--color-border-default)] bg-[color-mix(in_srgb,var(--color-surface-card)_96%,transparent)] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] backdrop-blur-xl">
-          {/* Sliding highlight under the active tab. */}
+        <div className="relative mx-auto flex max-w-[440px] items-stretch rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)]">
+          {/* Sliding highlight under the active tab — стиль как у переключателя темы. */}
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-y-1.5 left-1.5 w-[calc(25%-3px)] rounded-full bg-[var(--color-bg-muted)] transition-[transform,opacity] duration-300 ease-out"
+            className="pointer-events-none absolute inset-y-1.5 left-1.5 w-[calc(25%-3px)] rounded-full bg-[var(--color-surface-card)] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.06),0px_1px_1px_0px_rgba(0,0,0,0.08)] transition-[transform,opacity] duration-300 ease-out"
             style={{ transform: `translateX(${Math.max(0, activeIndex) * 100}%)`, opacity: activeIndex < 0 ? 0 : 1 }}
           />
           {tabs.map(({ href, label, active, Icon }) => (
