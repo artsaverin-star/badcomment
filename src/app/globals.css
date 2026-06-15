@@ -221,6 +221,15 @@ body {
 .tabbar-in {
   animation: tabbar-in 0.45s cubic-bezier(0.32, 0.72, 0, 1) both;
 }
+/* Переход между разделами — мягкий фейд-вверх контента страницы. */
+.route-fade {
+  animation: ld-fade-up 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-fade {
+    animation: none;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .rev-in {
     animation: none;

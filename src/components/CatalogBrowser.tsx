@@ -48,7 +48,7 @@ export default function CatalogBrowser({
   const view = sp.get("view") === "apps" && hasApps ? "apps" : "cats";
 
   return (
-    <div className="flex flex-col gap-8">
+    <div key={view} className="route-fade flex flex-col gap-8">
       {view === "apps" && hasApps ? (
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {apps.map((a) => (
