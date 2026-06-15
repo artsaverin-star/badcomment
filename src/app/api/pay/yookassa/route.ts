@@ -22,7 +22,11 @@ export async function POST(req: Request) {
   const p = PLANS[body.plan ?? ""];
   if (!p) return NextResponse.json({ error: "Неизвестный тариф" }, { status: 400 });
 
-  const origin = new URL(req.url).origin;
+  // За nginx req.url видит localhost:3000 — строим публичный адрес из
+  // forwarded-заголовков или SITE_URL, иначе вернёт на localhost.
+  const fwdHost = req.headers.get("x-forwarded-host") || req.headers.get("host");
+  const fwdProto = req.headers.get("x-forwarded-proto") || "https";
+  const origin = process.env.SITE_URL || (fwdHost ? `${fwdProto}://${fwdHost}` : new URL(req.url).origin);
   try {
     const payment = await createPayment({
       amountRub: p.rub,
