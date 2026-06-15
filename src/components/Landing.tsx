@@ -152,7 +152,7 @@ export default function Landing({
               href="/premium"
               className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
             >
-              {ru ? "Тарифы →" : "Pricing →"}
+              {ru ? "Тарифы" : "Pricing"}
             </Link>
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function Landing({
               {ru ? "Категории" : "Categories"}
             </h2>
             <Link href="/catalog" className="text-footnote font-semibold text-[var(--color-text-brand)] hover:underline">
-              {ru ? "Все →" : "All →"}
+              {ru ? "Все" : "All"}
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -251,7 +251,7 @@ export default function Landing({
               {ru ? "Приложения" : "Apps"}
             </h2>
             <Link href="/catalog?view=apps" className="text-footnote font-semibold text-[var(--color-text-brand)] hover:underline">
-              {ru ? "Все →" : "All →"}
+              {ru ? "Все" : "All"}
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -285,15 +285,15 @@ export default function Landing({
               {ru ? "Идеи" : "Ideas"}
             </h2>
             <Link href="/ideas" className="text-footnote font-semibold text-[var(--color-text-brand)] hover:underline">
-              {ru ? "Все →" : "All →"}
+              {ru ? "Все" : "All"}
             </Link>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {ideas.map((i) => (
               <Link
                 key={i.slug}
                 href={`/ideas/${i.slug}`}
-                className="flex flex-col gap-0.5 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]"
+                className="flex flex-col gap-1.5 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
               >
                 <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{i.categoryName}</span>
                 <span className="font-medium leading-snug text-[var(--color-text-primary)]">{i.title}</span>
@@ -379,7 +379,7 @@ export default function Landing({
               href="/premium"
               className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
             >
-              {ru ? "Тарифы →" : "Pricing →"}
+              {ru ? "Тарифы" : "Pricing"}
             </Link>
           </div>
         </div>

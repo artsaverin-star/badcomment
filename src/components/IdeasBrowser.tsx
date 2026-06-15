@@ -115,7 +115,7 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
       {filtered.length === 0 ? (
         <p className="py-16 text-center text-callout text-[var(--color-text-tertiary)]">Ничего не найдено.</p>
       ) : (
-        <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((idea) => (
             <Link
               key={idea.slug}
