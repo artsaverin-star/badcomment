@@ -31,7 +31,8 @@ export default function Header({
             inApp
           </span>
         </Link>
-        <div className="ml-1 sm:ml-3">
+        {/* Nav lives in the header on desktop; on phones it moves to the bottom tab bar. */}
+        <div className="ml-3 hidden sm:block">
           <NavTabs catalogLabel={tr.nav.catalog} ideasLabel={tr.nav.ideas} />
         </div>
 
@@ -42,11 +43,6 @@ export default function Header({
           <AuthButton locale={locale} />
           <SettingsMenu locale={locale} theme={theme} />
         </div>
-      </div>
-
-      {/* Phone: full-width search under the bar */}
-      <div className="px-4 pb-3 sm:hidden">
-        <HeaderSearch locale={locale} compact />
       </div>
     </header>
   );

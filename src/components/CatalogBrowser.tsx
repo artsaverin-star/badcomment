@@ -43,8 +43,6 @@ export default function CatalogBrowser({
 }) {
   const [view, setView] = useState<"cats" | "apps">("cats");
   const hasApps = apps.length > 0;
-  // Бесплатные категории показываем первой секцией; в доменах ниже — только платные.
-  const freeCats = domains.flatMap((d) => d.categories).filter((c) => c.free);
 
   return (
     <div className="flex flex-col gap-8">
@@ -101,35 +99,16 @@ export default function CatalogBrowser({
         </div>
       ) : (
         <div className="flex flex-col gap-10">
-          {freeCats.length > 0 && (
-            <section className="flex flex-col gap-3">
-              <h2 className="flex items-center gap-2 text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
-                Бесплатно
-                <span className="rounded-full bg-[color-mix(in_srgb,#30d158_18%,transparent)] px-2 py-0.5 text-[11px] font-bold text-[#4ade80]">
-                  открыто всем
-                </span>
-              </h2>
+          {domains.map((d) => (
+            <section key={d.slug} className="flex flex-col gap-3">
+              <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{d.name}</h2>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                {freeCats.map((c) => (
+                {d.categories.map((c) => (
                   <CategoryCard key={c.slug} cat={c} />
                 ))}
               </div>
             </section>
-          )}
-          {domains.map((d) => {
-            const cats = d.categories.filter((c) => !c.free);
-            if (cats.length === 0) return null;
-            return (
-              <section key={d.slug} className="flex flex-col gap-3">
-                <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{d.name}</h2>
-                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                  {cats.map((c) => (
-                    <CategoryCard key={c.slug} cat={c} />
-                  ))}
-                </div>
-              </section>
-            );
-          })}
+          ))}
         </div>
       )}
     </div>
