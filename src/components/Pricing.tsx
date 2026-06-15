@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import AuthModal from "./AuthModal";
+import type { Locale } from "@/lib/i18n";
 
 // ЮKassa embedded widget — оплата картой прямо на сайте, без переадресации.
 type YKWidget = { render: (selector: string) => void };
@@ -33,11 +35,20 @@ const PERKS = [
   "Новые категории по мере готовности",
 ];
 
-export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: string; cardEnabled?: boolean }) {
+export default function Pricing({
+  botUrl,
+  cardEnabled = false,
+  locale = "ru",
+}: {
+  botUrl: string;
+  cardEnabled?: boolean;
+  locale?: Locale;
+}) {
   const [billing, setBilling] = useState<"month" | "half">("half");
   const [paying, setPaying] = useState(false);
   const [payErr, setPayErr] = useState<string | null>(null);
   const [widgetOpen, setWidgetOpen] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
   const plan = PLANS[billing];
 
   async function payByCard() {
@@ -49,6 +60,12 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ plan: billing }),
       });
+      // Не залогинен — открываем авторизацию вместо ошибки.
+      if (r.status === 401) {
+        setShowAuth(true);
+        setPaying(false);
+        return;
+      }
       const d = await r.json();
       if (!r.ok || !d.token) throw new Error(d.error || "Не удалось создать платёж");
       const YK = await loadYooKassa();
@@ -174,6 +191,17 @@ export default function Pricing({ botUrl, cardEnabled = false }: { botUrl: strin
             <div id="yk-widget" className="min-h-[320px] pt-6" />
           </div>
         </div>
+      )}
+
+      {showAuth && (
+        <AuthModal
+          locale={locale}
+          onClose={() => setShowAuth(false)}
+          onSuccess={() => {
+            setShowAuth(false);
+            payByCard();
+          }}
+        />
       )}
     </div>
   );

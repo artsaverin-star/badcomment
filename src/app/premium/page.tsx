@@ -1,6 +1,7 @@
 import { Header } from "@saverin/ui-web";
 import { isPremium, FREE_CATEGORIES } from "@/lib/premium";
 import { yookassaEnabled } from "@/lib/yookassa";
+import { getLocale } from "@/lib/i18n.server";
 import Pricing from "@/components/Pricing";
 
 export const dynamic = "force-dynamic";
@@ -10,6 +11,7 @@ export const dynamic = "force-dynamic";
 export default async function PremiumPage() {
   const premium = await isPremium();
   const cardEnabled = yookassaEnabled();
+  const locale = await getLocale();
   const botUrl = `https://t.me/${process.env.BOT_USERNAME || "inAppProBot"}?start=premium`;
 
   return (
@@ -34,7 +36,7 @@ export default async function PremiumPage() {
         </div>
       ) : (
         <div className="mt-10">
-          <Pricing botUrl={botUrl} cardEnabled={cardEnabled} />
+          <Pricing botUrl={botUrl} cardEnabled={cardEnabled} locale={locale} />
         </div>
       )}
     </main>
