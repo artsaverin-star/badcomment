@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getSessionUser } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
+import { isFriendIdentity } from "@/lib/friends";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,9 @@ export default async function AdminPage() {
   const users = await prisma.user.findMany({ orderBy: { createdAt: "desc" } });
   const now = new Date();
   const isActive = (u: { premiumUntil: Date | null }) => !!(u.premiumUntil && new Date(u.premiumUntil) > now);
-  const premiumCount = users.filter(isActive).length;
+  const isFriend = (u: { telegramId: string | null; username: string | null; email: string | null }) =>
+    isFriendIdentity(u);
+  const premiumCount = users.filter((u) => isActive(u) || isFriend(u)).length;
 
   return (
     <main className="mx-auto w-full max-w-[760px] px-4 py-10">
@@ -55,6 +58,8 @@ export default async function AdminPage() {
                     <span className="text-[var(--color-text-primary)]">
                       ⭐ до {new Date(u.premiumUntil as Date).toISOString().slice(0, 10)}
                     </span>
+                  ) : isFriend(u) ? (
+                    <span className="text-[var(--color-text-primary)]">⭐ Друг</span>
                   ) : (
                     <span className="text-[var(--color-text-tertiary)]">—</span>
                   )}
