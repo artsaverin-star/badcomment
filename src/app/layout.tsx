@@ -52,7 +52,8 @@ export default async function RootLayout({
         {children}
         <Footer />
         <MobileTabBar
-          catalogLabel={tr.nav.catalog}
+          catalogLabel={locale === "en" ? "Categories" : "Категории"}
+          appsLabel={locale === "en" ? "Apps" : "Приложения"}
           ideasLabel={tr.nav.ideas}
           searchLabel={locale === "en" ? "Search" : "Поиск"}
         />

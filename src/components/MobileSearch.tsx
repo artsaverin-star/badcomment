@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Locale } from "@/lib/i18n";
 
@@ -12,12 +12,7 @@ export default function MobileSearch({ locale = "ru" }: { locale?: Locale }) {
   const ru = locale !== "en";
   const [q, setQ] = useState("");
   const [hits, setHits] = useState<Hit[]>([]);
-  const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
-
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, []);
 
   useEffect(() => {
     const term = q.trim();
@@ -43,7 +38,6 @@ export default function MobileSearch({ locale = "ru" }: { locale?: Locale }) {
           <path d="m17 17-3.5-3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
         <input
-          ref={inputRef}
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder={ru ? "Поиск приложений и категорий" : "Search apps and categories"}

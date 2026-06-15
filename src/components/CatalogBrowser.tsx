@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
 export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
@@ -41,33 +41,14 @@ export default function CatalogBrowser({
   premium?: boolean;
   apps?: BrowseAppItem[];
 }) {
-  const [view, setView] = useState<"cats" | "apps">("cats");
   const hasApps = apps.length > 0;
+  // View is driven by the URL (?view=apps) — switched via the header nav /
+  // bottom tab bar (Категории / Приложения), not a local toggle.
+  const sp = useSearchParams();
+  const view = sp.get("view") === "apps" && hasApps ? "apps" : "cats";
 
   return (
     <div className="flex flex-col gap-8">
-      {hasApps && (
-        <div className="relative flex w-[260px] self-center rounded-full bg-[var(--color-bg-muted)] p-1 sm:self-start">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full bg-[var(--color-surface-card)] shadow-[0_4px_10px_-4px_rgba(0,0,0,0.5)] transition-transform duration-200 ease-out"
-            style={{ transform: `translateX(${view === "apps" ? "100%" : "0"})` }}
-          />
-          {(["cats", "apps"] as const).map((v) => (
-            <button
-              key={v}
-              type="button"
-              onClick={() => setView(v)}
-              className={`relative z-10 flex-1 rounded-full py-2 text-footnote font-semibold transition-colors ${
-                view === v ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-              }`}
-            >
-              {v === "cats" ? "Категории" : "Приложения"}
-            </button>
-          ))}
-        </div>
-      )}
-
       {view === "apps" && hasApps ? (
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {apps.map((a) => (
