@@ -296,7 +296,7 @@ export default function Landing({
               href="/tokens"
               className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
             >
-              {ru ? "Токены" : "Tokens"}
+              {ru ? "Энергия" : "Energy"}
             </Link>
           </div>
         </div>

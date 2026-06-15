@@ -67,12 +67,12 @@ export default function TokenStore({
       {/* Balance */}
       <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 text-center">
         {unlimited ? (
-          <p className="text-lead font-semibold text-[var(--color-text-primary)]">⭐ Полный доступ — токены не нужны</p>
+          <p className="text-lead font-semibold text-[var(--color-text-primary)]">⭐ Полный доступ — энергия не нужна</p>
         ) : (
           <>
             <div className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">Баланс</div>
             <div className="mt-1 text-[40px] font-bold tabular-nums tracking-[-0.02em] text-[var(--color-text-primary)]">
-              ◎ {loggedIn ? balance : 0}
+              ⚡ {loggedIn ? balance : 0}
             </div>
             <div className="text-callout text-[var(--color-text-secondary)]">{tokensWord(loggedIn ? balance : 0)}</div>
           </>
@@ -82,7 +82,7 @@ export default function TokenStore({
       {/* What tokens unlock */}
       <div>
         <p className="mb-3 text-center text-callout text-[var(--color-text-secondary)]">
-          Токены — внутренняя валюта inApp. Тратишь их на раскрытие контента:
+          Энергия — внутренняя валюта inApp. Тратишь её на раскрытие контента:
         </p>
         <div className="grid grid-cols-3 gap-2.5">
           {[
@@ -105,7 +105,7 @@ export default function TokenStore({
       {!unlimited && (
         <div className="flex flex-col gap-3">
           <h2 className="text-center text-[20px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
-            Пополнить токены
+            Пополнить энергию
           </h2>
           {TOKEN_PACKS.map((p) => (
             <div
@@ -114,7 +114,7 @@ export default function TokenStore({
             >
               <div className="flex min-w-0 flex-1 flex-col">
                 <span className="flex items-center gap-2 text-lead font-bold tabular-nums text-[var(--color-text-primary)]">
-                  ◎ {p.tokens}
+                  ⚡ {p.tokens}
                   {p.badge && (
                     <span className="rounded-full bg-[var(--color-accent-brand-subtle)] px-2 py-0.5 text-[11px] font-bold text-[var(--color-text-brand)]">
                       {p.badge}
@@ -161,7 +161,7 @@ export default function TokenStore({
               </span>
             </div>
             <p className="text-footnote text-[var(--color-text-secondary)]">
-              Все приложения, идеи и категории — навсегда. Без токенов и ограничений.
+              Все приложения, идеи и категории — навсегда. Без энергии и ограничений.
             </p>
             <div className="flex flex-col gap-2 sm:flex-row">
               {cardEnabled && (

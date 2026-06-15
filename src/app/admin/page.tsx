@@ -28,7 +28,7 @@ export default async function AdminPage() {
       <h1 className="text-[28px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Админка</h1>
       <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
         Пользователей: <b className="tabular-nums">{users.length}</b> · безлимит:{" "}
-        <b className="tabular-nums">{premiumCount}</b> · токенов на балансах:{" "}
+        <b className="tabular-nums">{premiumCount}</b> · энергии на балансах:{" "}
         <b className="tabular-nums">{tokensTotal}</b> · потрачено всего:{" "}
         <b className="tabular-nums">
           {tokensSpent} {tokensWord(tokensSpent)}
@@ -40,7 +40,7 @@ export default async function AdminPage() {
           <thead className="bg-[var(--color-bg-muted)] text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">
             <tr>
               <th className="px-4 py-2.5 font-semibold">Пользователь</th>
-              <th className="px-4 py-2.5 font-semibold">Токены</th>
+              <th className="px-4 py-2.5 font-semibold">Энергия</th>
               <th className="px-4 py-2.5 font-semibold">Вход</th>
               <th className="px-4 py-2.5 font-semibold">Премиум</th>
               <th className="px-4 py-2.5 font-semibold">Регистрация</th>

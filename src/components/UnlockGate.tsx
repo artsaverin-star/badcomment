@@ -81,7 +81,7 @@ export default function UnlockGate({
         </h2>
         <p className="mx-auto mt-2 max-w-xs text-callout text-[var(--color-text-secondary)]">{WHAT[type]}</p>
         <p className="mx-auto mt-2 max-w-xs text-caption text-[var(--color-text-tertiary)]">
-          Токены — внутренняя валюта inApp. {loggedIn ? "Купить можно в разделе «Токены»." : `За регистрацию дарим ${SIGNUP_GRANT}.`}
+          Энергия — внутренняя валюта inApp. {loggedIn ? "Пополнить можно в разделе «Энергия»." : `За регистрацию дарим ${SIGNUP_GRANT}.`}
         </p>
 
         <button
@@ -95,7 +95,7 @@ export default function UnlockGate({
           ) : !loggedIn ? (
             `Войти и получить ${SIGNUP_GRANT} ${tokensWord(SIGNUP_GRANT)}`
           ) : short ? (
-            "Пополнить токены"
+            "Пополнить энергию"
           ) : (
             <>
               Открыть за {cost} {tokensWord(cost)}

@@ -26,10 +26,10 @@ export default async function TokensPage() {
         size="L"
         as="h1"
         className="mb-3 items-center text-center"
-        title="Токены"
+        title="Энергия"
         description={
           <span className="mx-auto block max-w-md">
-            Открывай разборы, идеи и целые категории за токены. На старте дарим {SIGNUP_GRANT}{" "}
+            Открывай разборы, идеи и целые категории за энергию. На старте дарим {SIGNUP_GRANT}{" "}
             {tokensWord(SIGNUP_GRANT)}.
           </span>
         }

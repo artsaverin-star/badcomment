@@ -5,31 +5,34 @@ import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import UnlockGate from "@/components/UnlockGate";
 import ReviewCarousel from "@/components/ReviewCarousel";
+import Reveal from "@/components/Reveal";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 
 export const dynamic = "force-dynamic";
 
-// Idea detail: the derivation chain made visible. Step 1 is a grid of verbatim
-// review quotes, step 2 the mechanisms they aggregate into (with real
-// observation counts), step 3 the gap, step 4 the pitch. The layout deliberately
-// reads top-down like a funnel: many voices → few mechanisms → one idea.
+// Idea detail as an editorial landing: many voices → few mechanisms → one idea.
+// Centered headings, no card "islands", scroll-reveal animations.
 
 function StepLabel({ n, title }: { n: number; title: string }) {
   return (
-    <div className="mb-4 flex items-center gap-3">
-      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-text-brand)] text-[13px] font-bold text-white">
+    <div className="mb-7 flex flex-col items-center gap-3 text-center">
+      <span className="flex size-9 items-center justify-center rounded-full bg-[var(--color-accent-brand-subtle)] text-callout font-bold text-[var(--color-text-brand)]">
         {n}
       </span>
-      <h2 className="text-[20px] font-semibold text-[var(--color-text-primary)]">{title}</h2>
+      <h2 className="text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{title}</h2>
     </div>
   );
 }
 
-function FunnelArrow() {
+function Mechanism({ obsCount, title, apps }: { obsCount: number; title: string; apps: string[] }) {
   return (
-    <div className="my-6 flex justify-center text-[24px] text-[var(--color-text-tertiary)]" aria-hidden>
-      ↓
+    <div className="flex items-baseline gap-3.5 border-b border-[var(--color-border-subtle)] py-3.5 last:border-0">
+      <span className="shrink-0 text-[17px] font-bold tabular-nums text-[var(--color-text-brand)]">{obsCount}</span>
+      <div className="min-w-0">
+        <div className="text-[15px] font-medium leading-snug text-[var(--color-text-primary)]">{title}</div>
+        <div className="mt-0.5 text-[11.5px] text-[var(--color-text-tertiary)]">{apps.join(" · ")}</div>
+      </div>
     </div>
   );
 }
@@ -52,8 +55,8 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
   const monetization = idea.idea.monetization ?? "";
 
   return (
-    <main className="mx-auto w-full max-w-[760px] overflow-x-clip px-4 py-8">
-      <div className="mb-6">
+    <main className="mx-auto w-full max-w-[680px] overflow-x-clip px-4 py-8">
+      <div className="mb-8">
         <Link
           href="/ideas"
           className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
@@ -65,22 +68,22 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
         </Link>
       </div>
 
-      <header className="mb-10 text-center">
+      <header className="ld-fade mb-4 text-center">
         <Link
           href={`/segment/${idea.category}`}
-          className="text-[12px] font-semibold uppercase tracking-wide text-[var(--color-text-brand)] hover:underline"
+          className="text-[12px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-brand)] hover:underline"
         >
           {idea.categoryName}
         </Link>
-        <h1 className="mt-2 text-[28px] font-bold leading-tight text-[var(--color-text-primary)]">
+        <h1 className="mx-auto mt-3 max-w-[18ch] text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[40px]">
           {idea.title}
         </h1>
-        <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+        <p className="mx-auto mt-4 max-w-xl text-lead leading-relaxed text-[var(--color-text-secondary)]">
           {idea.oneLiner}
         </p>
-        <div className="mt-3 text-[12px] text-[var(--color-text-tertiary)]">
+        <div className="mt-4 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
           {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
-          {idea.stats.observations.toLocaleString("ru-RU")} наблюдений · {idea.asOf}
+          {idea.stats.observations.toLocaleString("ru-RU")} наблюдений
         </div>
       </header>
 
@@ -95,119 +98,83 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
         />
       ) : (
         <>
-      {/* Step 1 — the raw voices (no island; coverflow carousel) */}
-      <section>
-        <StepLabel n={1} title="Что пишут в отзывах" />
-        <ReviewCarousel items={idea.reviewGrid} />
-      </section>
+          {/* Step 1 — the raw voices (coverflow carousel, no island) */}
+          <Reveal className="mt-14">
+            <StepLabel n={1} title="Что пишут в отзывах" />
+            <ReviewCarousel items={idea.reviewGrid} />
+          </Reveal>
 
-      <FunnelArrow />
-
-      {/* Step 2 — what they sum into */}
-      <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
-        <StepLabel n={2} title="Во что это складывается" />
-        <div className="flex flex-col gap-2">
-          {pains.map((m) => (
-            <div
-              key={m.title}
-              className="flex items-baseline gap-3 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3"
-            >
-              <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] font-semibold tabular-nums text-[var(--color-text-secondary)]">
-                {m.obsCount}
-              </span>
-              <div className="min-w-0">
-                <div className="text-[14px] font-medium leading-snug text-[var(--color-text-primary)]">
-                  {m.title}
-                </div>
-                <div className="mt-0.5 text-[11.5px] text-[var(--color-text-tertiary)]">
-                  {m.apps.join(" · ")}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        {loves.length > 0 && (
-          <>
-            <div className="mb-2 mt-5 text-[13px] font-semibold text-[var(--color-text-secondary)]">
-              А это — то, за что категорию любят (и что нельзя терять):
-            </div>
-            <div className="flex flex-col gap-2">
-              {loves.map((m) => (
-                <div
-                  key={m.title}
-                  className="flex items-baseline gap-3 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3"
-                >
-                  <span className="shrink-0 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] font-semibold tabular-nums text-[var(--color-text-secondary)]">
-                    {m.obsCount}
-                  </span>
-                  <div className="min-w-0">
-                    <div className="text-[14px] font-medium leading-snug text-[var(--color-text-primary)]">
-                      {m.title}
-                    </div>
-                    <div className="mt-0.5 text-[11.5px] text-[var(--color-text-tertiary)]">
-                      {m.apps.join(" · ")}
-                    </div>
-                  </div>
-                </div>
+          {/* Step 2 — what they sum into */}
+          <Reveal className="mt-20">
+            <StepLabel n={2} title="Во что это складывается" />
+            <div className="mx-auto max-w-xl">
+              {pains.map((m) => (
+                <Mechanism key={m.title} obsCount={m.obsCount} title={m.title} apps={m.apps} />
               ))}
             </div>
-          </>
-        )}
-      </section>
-
-      <FunnelArrow />
-
-      {/* Step 3 — the gap */}
-      <section className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6">
-        <StepLabel n={3} title="Возможность" />
-        <p className="text-[15px] leading-relaxed text-[var(--color-text-primary)]">{idea.gap}</p>
-      </section>
-
-      <FunnelArrow />
-
-      {/* Step 4 — the idea */}
-      <section className="rounded-2xl border-2 border-[var(--color-text-brand)] bg-[var(--color-surface-card)] p-6">
-        <StepLabel n={4} title="Идея" />
-        <p className="text-[15px] leading-relaxed text-[var(--color-text-primary)]">
-          {idea.idea.pitch}
-        </p>
-        <div className={`mt-5 grid grid-cols-1 gap-5 ${antiFeatures.length > 0 ? "sm:grid-cols-2" : ""}`}>
-          <div>
-            <div className="mb-2.5 text-callout font-semibold text-[var(--color-text-secondary)]">
-              Что делаем
-            </div>
-            <ul className="flex flex-col gap-1.5">
-              {idea.idea.features.map((f) => (
-                <li key={f} className="flex gap-2.5 text-[15px] leading-[1.6] text-[var(--color-text-primary)]">
-                  <span className="shrink-0 font-semibold text-[var(--color-text-brand)]">+</span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-          {antiFeatures.length > 0 && (
-            <div>
-              <div className="mb-2.5 text-callout font-semibold text-[var(--color-text-secondary)]">
-                Чего сознательно не делаем
-              </div>
-              <ul className="flex flex-col gap-1.5">
-                {antiFeatures.map((f) => (
-                  <li key={f} className="flex gap-2.5 text-[15px] leading-[1.6] text-[var(--color-text-primary)]">
-                    <span className="shrink-0 font-semibold text-[var(--color-text-tertiary)]">−</span>
-                    {f}
-                  </li>
+            {loves.length > 0 && (
+              <div className="mx-auto mt-10 max-w-xl">
+                <p className="mb-2 text-center text-footnote font-semibold text-[var(--color-text-secondary)]">
+                  За что категорию любят — и что нельзя терять
+                </p>
+                {loves.map((m) => (
+                  <Mechanism key={m.title} obsCount={m.obsCount} title={m.title} apps={m.apps} />
                 ))}
-              </ul>
+              </div>
+            )}
+          </Reveal>
+
+          {/* Step 3 — the gap */}
+          <Reveal className="mt-20">
+            <StepLabel n={3} title="Возможность" />
+            <p className="mx-auto max-w-2xl text-center text-[21px] font-medium leading-[1.5] tracking-[-0.01em] text-[var(--color-text-primary)]">
+              {idea.gap}
+            </p>
+          </Reveal>
+
+          {/* Step 4 — the idea */}
+          <Reveal className="mt-20">
+            <StepLabel n={4} title="Идея" />
+            <p className="mx-auto max-w-2xl text-center text-lead leading-relaxed text-[var(--color-text-primary)]">
+              {idea.idea.pitch}
+            </p>
+            <div className={`mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-8 ${antiFeatures.length > 0 ? "sm:grid-cols-2" : ""}`}>
+              <div>
+                <div className="mb-3 text-center text-callout font-semibold text-[var(--color-text-secondary)] sm:text-left">
+                  Что делаем
+                </div>
+                <ul className="flex flex-col gap-2">
+                  {idea.idea.features.map((f) => (
+                    <li key={f} className="flex gap-2.5 text-[15px] leading-[1.6] text-[var(--color-text-primary)]">
+                      <span className="shrink-0 font-semibold text-[var(--color-text-brand)]">+</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {antiFeatures.length > 0 && (
+                <div>
+                  <div className="mb-3 text-center text-callout font-semibold text-[var(--color-text-secondary)] sm:text-left">
+                    Чего сознательно не делаем
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {antiFeatures.map((f) => (
+                      <li key={f} className="flex gap-2.5 text-[15px] leading-[1.6] text-[var(--color-text-primary)]">
+                        <span className="shrink-0 font-semibold text-[var(--color-text-tertiary)]">−</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-        {monetization && (
-          <div className="mt-5 border-t border-[var(--color-border-subtle)] pt-4 text-footnote leading-relaxed text-[var(--color-text-secondary)]">
-            <span className="font-semibold text-[var(--color-text-primary)]">Монетизация: </span>
-            {monetization}
-          </div>
-        )}
-      </section>
+            {monetization && (
+              <p className="mx-auto mt-10 max-w-xl border-t border-[var(--color-border-subtle)] pt-5 text-center text-footnote leading-relaxed text-[var(--color-text-secondary)]">
+                <span className="font-semibold text-[var(--color-text-primary)]">Монетизация: </span>
+                {monetization}
+              </p>
+            )}
+          </Reveal>
         </>
       )}
     </main>

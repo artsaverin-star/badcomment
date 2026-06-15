@@ -76,7 +76,7 @@ export default function ReviewCarousel({ items }: { items: ReviewQuote[] }) {
       <div
         ref={ref}
         onScroll={update}
-        className="flex snap-x snap-mandatory items-center gap-4 overflow-x-auto px-[calc(50%-140px)] py-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory items-center gap-4 overflow-x-auto px-[calc(50%-140px)] py-10 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {items.map((q, i) => {
           const on = i === active;

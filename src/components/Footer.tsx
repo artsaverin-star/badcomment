@@ -4,7 +4,7 @@ import Link from "next/link";
 // reachable from every page, which payment providers (ЮKassa) check for.
 export default function Footer() {
   const links = [
-    { href: "/tokens", label: "Токены" },
+    { href: "/tokens", label: "Энергия" },
     { href: "/offer", label: "Оферта" },
     { href: "/contacts", label: "Контакты" },
   ];

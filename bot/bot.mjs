@@ -36,7 +36,7 @@ function packsKb() {
   return {
     inline_keyboard: [
       ...Object.entries(PACKS).map(([id, p]) => [
-        { text: `◎ ${p.tokens} токенов — ${p.stars} ⭐`, callback_data: `buy_${id}` },
+        { text: `⚡ ${p.tokens} энергии — ${p.stars} ⭐`, callback_data: `buy_${id}` },
       ]),
       [{ text: `♾️ Lifetime (всё навсегда) — ${LIFETIME.stars} ⭐`, callback_data: "buy_life" }],
     ],
@@ -47,14 +47,14 @@ async function sendInvoice(chatId, packId = "m", uid = "") {
   const p = PACKS[packId] || PACKS.m;
   return tg("sendInvoice", {
     chat_id: chatId,
-    title: `inApp — ${p.tokens} токенов`,
-    description: `${p.tokens} токенов на открытие разборов, идей и категорий в inApp.`,
+    title: `inApp — ${p.tokens} энергии`,
+    description: `${p.tokens} энергии на открытие разборов, идей и категорий в inApp.`,
     // payload: tokens_<packId>_<siteUserId|>_<ts>
     payload: `tokens_${packId}_${uid}_${Date.now()}`,
     // Telegram Stars: currency XTR, empty provider_token (required for Stars).
     provider_token: "",
     currency: "XTR",
-    prices: [{ label: `${p.tokens} токенов`, amount: p.stars }],
+    prices: [{ label: `${p.tokens} энергии`, amount: p.stars }],
   });
 }
 
@@ -149,7 +149,7 @@ async function handleMessage(m) {
       chat_id: chatId,
       text:
         balance != null
-          ? `⭐ Начислено ${amount} токенов. Баланс: ◎ ${balance}. Вернитесь на сайт — открывайте разборы.`
+          ? `⭐ Начислено ${amount} энергии. Баланс: ⚡ ${balance}. Вернитесь на сайт — открывайте разборы.`
           : `⭐ Оплата получена. Вернитесь на сайт inApp.`,
     });
     return;
@@ -193,20 +193,20 @@ async function handleMessage(m) {
       if (packId && PACKS[packId]) {
         await sendInvoice(chatId, packId, uid);
       } else {
-        await tg("sendMessage", { chat_id: chatId, text: "Выберите пак токенов:", reply_markup: packsKb() });
+        await tg("sendMessage", { chat_id: chatId, text: "Выберите пакет энергии:", reply_markup: packsKb() });
       }
       return;
     }
     await tg("sendMessage", {
       chat_id: chatId,
-      text: "inApp — разборы отзывов приложений с выводами.\nПополните токены, чтобы открывать разборы, идеи и категории:",
+      text: "inApp — разборы отзывов приложений с выводами.\nПополните энергию, чтобы открывать разборы, идеи и категории:",
       reply_markup: packsKb(),
     });
     return;
   }
 
   if (text === "/tokens" || text === "/buy" || text === "/premium") {
-    await tg("sendMessage", { chat_id: chatId, text: "Выберите пак токенов:", reply_markup: packsKb() });
+    await tg("sendMessage", { chat_id: chatId, text: "Выберите пакет энергии:", reply_markup: packsKb() });
   }
 }
 

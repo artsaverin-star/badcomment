@@ -39,12 +39,11 @@ export function getPack(id: string): TokenPack | null {
   return TOKEN_PACKS.find((p) => p.id === id) ?? null;
 }
 
-// Plural for "токен": 1 токен, 2-4 токена, 5+ токенов.
+// «Энергия» as a game-style resource: 1 энергия, остальное — «энергии»
+// (mass-noun genitive: «90 энергии», «−10 энергии»).
 export function tokensWord(n: number): string {
   const d = n % 10;
   const dd = n % 100;
-  if (dd >= 11 && dd <= 14) return "токенов";
-  if (d === 1) return "токен";
-  if (d >= 2 && d <= 4) return "токена";
-  return "токенов";
+  if (d === 1 && dd !== 11) return "энергия";
+  return "энергии";
 }

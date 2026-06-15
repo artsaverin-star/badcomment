@@ -90,7 +90,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           {me.unlimited ? (
             <span title={me.friend ? "Друг" : "Полный доступ"}>⭐</span>
           ) : (
-            <span className="tabular-nums font-semibold text-[var(--color-text-brand)]">◎ {me.balance ?? 0}</span>
+            <span className="tabular-nums font-semibold text-[var(--color-text-brand)]">⚡ {me.balance ?? 0}</span>
           )}
           {name}
         </span>
@@ -99,7 +99,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             {ru ? "Купленное" : "Library"}
           </Link>
           <Link href="/tokens" className="text-caption font-medium text-[var(--color-text-brand)]">
-            {ru ? "Токены" : "Tokens"}
+            {ru ? "Энергия" : "Energy"}
           </Link>
           {me.user.isAdmin && (
             <Link href="/admin" className="text-caption font-medium text-[var(--color-text-brand)]">
@@ -149,9 +149,9 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
-              <span className="text-[15px] leading-none text-[var(--color-text-brand)]">◎</span>
+              <span className="text-[15px] leading-none text-[var(--color-text-brand)]">⚡</span>
               <span className="flex min-w-0 flex-col">
-                <span>{me.unlimited ? "Токены" : "Мои токены"}</span>
+                <span>{me.unlimited ? "Энергия" : "Моя энергия"}</span>
                 <span className="text-caption text-[var(--color-text-tertiary)]">
                   {me.unlimited
                     ? "Полный доступ"

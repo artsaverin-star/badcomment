@@ -22,7 +22,7 @@ function describe(r: LedgerRow): { icon: string; label: string } {
   }
   if (r.reason === "purchase") {
     const src = (r.ref ?? "").startsWith("tg:") ? "Telegram Stars" : (r.ref ?? "").startsWith("yk:") ? "карта" : "покупка";
-    return { icon: "💳", label: `Покупка токенов · ${src}` };
+    return { icon: "💳", label: `Покупка энергии · ${src}` };
   }
   if (r.reason === "signup") return { icon: "🎁", label: "Грант за регистрацию" };
   if (r.reason === "comp") return { icon: "⭐", label: "Начисление (комп)" };
@@ -70,9 +70,9 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
           setOpen(true);
         }}
         className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2.5 py-1 text-footnote font-semibold tabular-nums text-[var(--color-text-brand)] transition-colors hover:border-[var(--color-border-strong)]"
-        title="История токенов"
+        title="История энергии"
       >
-        ◎ {balance}
+        ⚡ {balance}
       </button>
 
       {open && (
@@ -88,7 +88,7 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
               <div className="min-w-0">
                 <div className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{name}</div>
                 <div className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
-                  Баланс ◎ {balance} · потрачено {Math.abs(spent)} · платных открытий {paid}
+                  Баланс ⚡ {balance} · потрачено {Math.abs(spent)} · платных открытий {paid}
                 </div>
               </div>
               <button
