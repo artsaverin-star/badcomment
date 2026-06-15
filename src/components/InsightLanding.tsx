@@ -1,9 +1,12 @@
 import type { ProductDetail } from "@/lib/queries";
-import { THEME_LABEL, THEME_ORDER, type Insight, type ProductInsights } from "@/lib/insights";
+import { THEME_LABEL, type Insight, type Theme, type ProductInsights } from "@/lib/insights";
 import { formatCount } from "@/lib/format";
 import type { t } from "@/lib/i18n";
 import InsightCard from "@/components/InsightCard";
-import SectionDetails from "@/components/SectionDetails";
+
+// Baseline-expectation themes (billing/stability/account) — kept but collapsed
+// below the product signal, same as the category summary.
+const HYGIENE: Theme[] = ["payment", "reliability", "support"];
 
 // Only the store-level header fields are needed to render the long-read, so the
 // component takes this narrow slice — a full ProductDetail satisfies it, and so
@@ -81,30 +84,11 @@ export default function InsightLanding({
   const ordered = insights.insights ?? [];
   const all = [...ordered].sort((a, b) => obsOf(b) - obsOf(a));
 
-  const groupOrder: Array<{ id: string; name: string; items: Insight[] }> = [];
-  const groupIdx = new Map<string, number>();
-  for (const i of ordered) {
-    if (!i.group) continue;
-    let gi = groupIdx.get(i.group.id);
-    if (gi === undefined) {
-      gi = groupOrder.length;
-      groupIdx.set(i.group.id, gi);
-      groupOrder.push({ id: i.group.id, name: i.group.name, items: [] });
-    }
-    groupOrder[gi].items.push(i);
-  }
-  const hasGroups = groupOrder.length > 0;
-
-  const sections = hasGroups
-    ? groupOrder.map((g) => ({ key: g.id, name: g.name, items: g.items }))
-    : THEME_ORDER.map((th) => ({
-        key: th,
-        name: THEME_LABEL[th],
-        items: all.filter((i) => i.theme === th),
-      }));
-  const leftover = hasGroups ? ordered.filter((i) => !i.group) : all.filter((i) => !i.theme);
-
-  const themeCount = sections.filter((s) => s.items.length > 0).length;
+  // Product signal first; billing/stability/account collapsed into «База».
+  const product = all.filter((i) => !(i.theme && HYGIENE.includes(i.theme)));
+  const hygiene = all.filter((i) => i.theme && HYGIENE.includes(i.theme));
+  const hygieneTotal = hygiene.reduce((s, i) => s + obsOf(i), 0);
+  const kickerOf = (i: Insight) => i.group?.name ?? (i.theme ? THEME_LABEL[i.theme] : undefined);
 
   return (
     <>
@@ -132,8 +116,7 @@ export default function InsightLanding({
             <p className="max-w-[60ch] text-lead text-[var(--color-text-secondary)]">
               Прочитали <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов и
               собрали <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> повторяющихся наблюдений — то, что
-              пользователи отмечают сами, сгруппированных по{" "}
-              <span className="tabular-nums text-[var(--color-text-primary)]">{themeCount}</span> темам.
+              пользователи отмечают сами.
             </p>
 
             <div className="mt-2 max-w-md">
@@ -164,19 +147,52 @@ export default function InsightLanding({
       {locked ? (
         gate ?? null
       ) : (
-        <div className="mt-12 flex flex-col gap-8">
-          {[
-            ...sections.filter((s) => s.items.length > 0),
-            ...(leftover.length > 0 ? [{ key: "__rest", name: "Прочее", items: leftover }] : []),
-          ].map((section) => (
-            <SectionDetails key={section.key} heading={section.name}>
-              <div className="mt-3 flex flex-col">
-                {section.items.map((i) => (
-                  <InsightCard key={i.id} title={i.title} count={obsOf(i)} kicker={section.name} evidence={i.evidence} />
+        <div className="mt-12">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {product.map((i) => (
+              <InsightCard
+                key={i.id}
+                card
+                title={i.title}
+                body={i.story || undefined}
+                count={obsOf(i)}
+                kicker={kickerOf(i)}
+                evidence={i.evidence}
+              />
+            ))}
+          </div>
+
+          {hygiene.length > 0 && (
+            <details className="no-anim group/hyg mt-4 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)]">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden">
+                <span className="flex flex-col">
+                  <span className="text-callout font-semibold text-[var(--color-text-primary)]">
+                    База: оплата, стабильность, аккаунт
+                  </span>
+                  <span className="text-caption text-[var(--color-text-tertiary)]">
+                    Базовая гигиена — {hygieneTotal} наблюдений
+                  </span>
+                </span>
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/hyg:rotate-90">
+                  <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                    <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </summary>
+              <div className="px-5 pb-2">
+                {hygiene.map((i) => (
+                  <InsightCard
+                    key={i.id}
+                    title={i.title}
+                    body={i.story || undefined}
+                    count={obsOf(i)}
+                    kicker={kickerOf(i)}
+                    evidence={i.evidence}
+                  />
                 ))}
               </div>
-            </SectionDetails>
-          ))}
+            </details>
+          )}
         </div>
       )}
     </>
