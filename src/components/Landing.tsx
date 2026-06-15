@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
+import Reveal from "./Reveal";
 import type { Locale } from "@/lib/i18n";
 
 export type LandingApp = { name: string; icon: string; slug?: string | null; reviews?: number; free?: boolean };
@@ -27,6 +28,8 @@ export default function Landing({
   loggedIn = false,
   categories = [],
   ideas = [],
+  stats,
+  quotes = [],
 }: {
   apps: LandingApp[];
   locale?: Locale;
@@ -34,6 +37,8 @@ export default function Landing({
   loggedIn?: boolean;
   categories?: { name: string; slug: string; count: number }[];
   ideas?: { title: string; slug: string; categoryName: string }[];
+  stats?: { reviews: number; apps: number; categories: number; ideas: number };
+  quotes?: string[];
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
@@ -153,9 +158,33 @@ export default function Landing({
         </div>
       </section>
 
+      {/* Stats band */}
+      {stats && (
+        <Reveal className="mx-auto mt-6 w-full max-w-4xl">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {[
+              { n: stats.reviews, l: ru ? "отзывов разобрано" : "reviews analyzed" },
+              { n: stats.apps, l: ru ? "приложений" : "apps" },
+              { n: stats.categories, l: ru ? "категорий" : "categories" },
+              { n: stats.ideas, l: ru ? "идей продуктов" : "product ideas" },
+            ].map((s) => (
+              <div
+                key={s.l}
+                className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-5 text-center"
+              >
+                <div className="text-[26px] font-bold tabular-nums tracking-[-0.01em] text-[var(--color-text-primary)]">
+                  {s.n.toLocaleString(ru ? "ru-RU" : "en-US")}
+                </div>
+                <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      )}
+
       {/* Brand marquee */}
       {withIcon.length > 6 && (
-        <section className="relative overflow-hidden py-6 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
+        <section className="relative mt-10 overflow-hidden py-6 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
           <div className="ld-marquee flex w-max gap-3" style={{ ["--mq" as string]: "120s" }}>
             {marquee.map((a, i) => {
               const inner = (
@@ -190,7 +219,7 @@ export default function Landing({
 
       {/* Categories preview */}
       {categories.length > 0 && (
-        <section className="mx-auto mt-12 w-full max-w-5xl">
+        <Reveal className="mx-auto mt-12 w-full max-w-5xl">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
               {ru ? "Категории" : "Categories"}
@@ -211,12 +240,12 @@ export default function Landing({
               </Link>
             ))}
           </div>
-        </section>
+        </Reveal>
       )}
 
       {/* Apps preview */}
       {apps.length > 0 && (
-        <section className="mx-auto mt-10 w-full max-w-5xl">
+        <Reveal className="mx-auto mt-10 w-full max-w-5xl">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
               {ru ? "Приложения" : "Apps"}
@@ -245,12 +274,12 @@ export default function Landing({
               </Link>
             ))}
           </div>
-        </section>
+        </Reveal>
       )}
 
       {/* Ideas preview */}
       {ideas.length > 0 && (
-        <section className="mx-auto mt-10 w-full max-w-5xl">
+        <Reveal className="mx-auto mt-10 w-full max-w-5xl">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
               {ru ? "Идеи" : "Ideas"}
@@ -271,11 +300,36 @@ export default function Landing({
               </Link>
             ))}
           </div>
-        </section>
+        </Reveal>
+      )}
+
+      {/* Real review quotes */}
+      {quotes.length > 0 && (
+        <Reveal className="mx-auto mt-14 w-full max-w-5xl">
+          <h2 className="mb-1 text-[24px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+            {ru ? "Что пишут пользователи" : "What users write"}
+          </h2>
+          <p className="mb-5 text-callout text-[var(--color-text-secondary)]">
+            {ru ? "Реальные отзывы из приложений — из них и собираются выводы." : "Real app reviews — the source of every conclusion."}
+          </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {quotes.map((q, i) => (
+              <figure
+                key={i}
+                className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5"
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
+                  <path d="M8 10h8M8 14h5M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12Z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <blockquote className="mt-3 text-callout leading-[1.6] text-[var(--color-text-secondary)]">«{q}»</blockquote>
+              </figure>
+            ))}
+          </div>
+        </Reveal>
       )}
 
       {/* How it works */}
-      <section className="mx-auto mt-10 w-full max-w-5xl">
+      <Reveal className="mx-auto mt-14 w-full max-w-5xl">
         <h2 className="mb-6 text-center text-[24px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
           {ru ? "Как это работает" : "How it works"}
         </h2>
@@ -293,25 +347,43 @@ export default function Landing({
             </div>
           ))}
         </div>
-        <div className="mt-8 flex justify-center">
-          {loggedIn ? (
+      </Reveal>
+
+      {/* Final CTA */}
+      <Reveal className="mx-auto mt-14 w-full max-w-3xl">
+        <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-12 text-center">
+          <h2 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[34px]">
+            {ru ? "Откройте весь каталог" : "Open the full catalog"}
+          </h2>
+          <p className="mx-auto mt-2.5 max-w-md text-lead text-[var(--color-text-secondary)]">
+            {ru ? "Разборы, идеи и отзывы — по сотням приложений." : "Breakdowns, ideas and reviews across hundreds of apps."}
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            {loggedIn ? (
+              <Link
+                href="/catalog"
+                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+              >
+                {ru ? "Открыть каталог" : "Open catalog"}
+              </Link>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setModal(true)}
+                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+              >
+                {ru ? "Начать бесплатно" : "Start free"}
+              </button>
+            )}
             <Link
-              href="/catalog"
-              className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+              href="/premium"
+              className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
             >
-              {ru ? "Открыть каталог" : "Open catalog"}
+              {ru ? "Тарифы →" : "Pricing →"}
             </Link>
-          ) : (
-            <button
-              type="button"
-              onClick={() => setModal(true)}
-              className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
-            >
-              {ru ? "Начать бесплатно" : "Start free"}
-            </button>
-          )}
+          </div>
         </div>
-      </section>
+      </Reveal>
 
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
     </div>
