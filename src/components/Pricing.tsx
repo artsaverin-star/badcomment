@@ -39,16 +39,19 @@ export default function Pricing({
   botUrl,
   cardEnabled = false,
   locale = "ru",
+  loggedIn = false,
 }: {
   botUrl: string;
   cardEnabled?: boolean;
   locale?: Locale;
+  loggedIn?: boolean;
 }) {
   const [billing, setBilling] = useState<"month" | "half">("half");
   const [paying, setPaying] = useState(false);
   const [payErr, setPayErr] = useState<string | null>(null);
   const [widgetOpen, setWidgetOpen] = useState(false);
   const [showAuth, setShowAuth] = useState(false);
+  const [authAction, setAuthAction] = useState<"card" | "tg">("card");
   const plan = PLANS[billing];
 
   async function payByCard() {
@@ -62,6 +65,7 @@ export default function Pricing({
       });
       // Не залогинен — открываем авторизацию вместо ошибки.
       if (r.status === 401) {
+        setAuthAction("card");
         setShowAuth(true);
         setPaying(false);
         return;
@@ -126,17 +130,33 @@ export default function Pricing({
         <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">
           {billing === "half" ? `${plan.per} · экономия 3000 ₽` : plan.per}
         </p>
-        <a
-          href={botUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3.5 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1 .5l.36-5.1L17.9 6.2c.4-.36-.09-.56-.62-.2L6.7 12.9l-4.98-1.56c-1.08-.34-1.1-1.08.23-1.6l19.46-7.5c.9-.33 1.69.2 1.49 1.06Z" />
-          </svg>
-          Оплатить {plan.stars} <span className="text-[#ffd54a]">⭐</span> в Telegram
-        </a>
+        {loggedIn ? (
+          <a
+            href={botUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3.5 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1 .5l.36-5.1L17.9 6.2c.4-.36-.09-.56-.62-.2L6.7 12.9l-4.98-1.56c-1.08-.34-1.1-1.08.23-1.6l19.46-7.5c.9-.33 1.69.2 1.49 1.06Z" />
+            </svg>
+            Оплатить {plan.stars} <span className="text-[#ffd54a]">⭐</span> в Telegram
+          </a>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              setAuthAction("tg");
+              setShowAuth(true);
+            }}
+            className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3.5 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.9 4.3 18.6 20c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1 .5l.36-5.1L17.9 6.2c.4-.36-.09-.56-.62-.2L6.7 12.9l-4.98-1.56c-1.08-.34-1.1-1.08.23-1.6l19.46-7.5c.9-.33 1.69.2 1.49 1.06Z" />
+            </svg>
+            Оплатить {plan.stars} <span className="text-[#ffd54a]">⭐</span> в Telegram
+          </button>
+        )}
 
         {cardEnabled && (
           <button
@@ -199,7 +219,10 @@ export default function Pricing({
           onClose={() => setShowAuth(false)}
           onSuccess={() => {
             setShowAuth(false);
-            payByCard();
+            // После входа: карта — сразу продолжаем оплату; звёзды — перезагрузка,
+            // чтобы ссылка на бота получила id аккаунта (тогда кнопка ведёт в бота).
+            if (authAction === "card") payByCard();
+            else window.location.reload();
           }}
         />
       )}

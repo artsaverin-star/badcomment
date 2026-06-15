@@ -27,6 +27,11 @@ async function tg(method, body) {
   return r.json();
 }
 
+// chatId -> site userId, переданный из веба через deep link ?start=premium_<id>.
+// Нужен, чтобы начислить премиум именно сайт-аккаунту (даже если он на Google),
+// а не отдельному телеграм-пользователю.
+const pendingUid = new Map();
+
 function premiumKb() {
   return {
     inline_keyboard: [
@@ -36,13 +41,14 @@ function premiumKb() {
   };
 }
 
-async function sendInvoice(chatId, planKey = "month") {
+async function sendInvoice(chatId, planKey = "month", uid = "") {
   const p = PLANS[planKey] || PLANS.month;
   return tg("sendInvoice", {
     chat_id: chatId,
     title: `inApp Премиум — ${p.title}`,
     description: `Доступ ко всем разборам категорий и идеям на ${p.days} дней.`,
-    payload: `premium_${planKey}_${Date.now()}`,
+    // payload: premium_<plan>_<siteUserId|>_<ts>
+    payload: `premium_${planKey}_${uid}_${Date.now()}`,
     // Telegram Stars: currency XTR, empty provider_token (required for Stars).
     provider_token: "",
     currency: "XTR",
@@ -64,14 +70,30 @@ async function grantPremium(from, days) {
   return until;
 }
 
+// Начислить премиум конкретному сайт-аккаунту по его id (для оплаты звёздами,
+// когда пользователь залогинен через Google/email, а не Telegram).
+async function grantPremiumById(userId, days) {
+  const now = new Date();
+  const user = await prisma.user.findUnique({ where: { id: userId } }).catch(() => null);
+  if (!user) return null;
+  const base = user.premiumUntil && new Date(user.premiumUntil) > now ? new Date(user.premiumUntil) : now;
+  const until = new Date(base.getTime() + days * 24 * 60 * 60 * 1000);
+  await prisma.user.update({ where: { id: userId }, data: { premiumUntil: until } });
+  return until;
+}
+
 async function handleMessage(m) {
   const chatId = m.chat.id;
   const text = m.text || "";
 
   if (m.successful_payment) {
-    const planKey = (m.successful_payment.invoice_payload || "").split("_")[1];
+    const parts = (m.successful_payment.invoice_payload || "").split("_");
+    const planKey = parts[1];
+    const uid = parts[2] || "";
     const days = (PLANS[planKey] || PLANS.month).days;
-    const until = await grantPremium(m.from, days);
+    // Сначала пытаемся начислить сайт-аккаунту из payload, иначе — по telegram.
+    let until = uid ? await grantPremiumById(uid, days) : null;
+    if (!until) until = await grantPremium(m.from, days);
     await tg("sendMessage", {
       chat_id: chatId,
       text: `⭐ Премиум активен до ${until.toISOString().slice(0, 10)}. Вернитесь на сайт — всё открыто.`,
@@ -95,6 +117,12 @@ async function handleMessage(m) {
       }
       return;
     }
+    if (arg.startsWith("premium_")) {
+      const uid = arg.slice("premium_".length);
+      if (uid) pendingUid.set(chatId, uid);
+      await tg("sendMessage", { chat_id: chatId, text: "Выберите тариф inApp Премиум:", reply_markup: premiumKb() });
+      return;
+    }
     await tg("sendMessage", {
       chat_id: chatId,
       text: "inApp — разборы отзывов приложений с выводами.\nОформите премиум, чтобы открыть весь каталог и идеи:",
@@ -115,7 +143,8 @@ async function handleMessage(m) {
 async function handleCallback(cq) {
   if (cq.data === "buy_month" || cq.data === "buy_half") {
     await tg("answerCallbackQuery", { callback_query_id: cq.id });
-    await sendInvoice(cq.message.chat.id, cq.data === "buy_half" ? "half" : "month");
+    const chatId = cq.message.chat.id;
+    await sendInvoice(chatId, cq.data === "buy_half" ? "half" : "month", pendingUid.get(chatId) || "");
   }
 }
 
