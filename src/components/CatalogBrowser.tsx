@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AppsList from "./AppsList";
 
 export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
 export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
@@ -21,15 +22,6 @@ function appsWord(n: number): string {
   return "приложений";
 }
 
-function reviewsWord(n: number): string {
-  const d = n % 10;
-  const dd = n % 100;
-  if (dd >= 11 && dd <= 14) return "отзывов";
-  if (d === 1) return "отзыв";
-  if (d >= 2 && d <= 4) return "отзыва";
-  return "отзывов";
-}
-
 export default function CatalogBrowser({
   domains,
   apps = [],
@@ -49,34 +41,7 @@ export default function CatalogBrowser({
   return (
     <div className="route-fade flex flex-col gap-8">
       {view === "apps" && hasApps ? (
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {apps.map((a) => (
-            <Link
-              key={a.slug}
-              href={`/${a.slug}`}
-              className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors [content-visibility:auto] [contain-intrinsic-size:auto_66px] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]"
-            >
-              {a.icon ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
-              ) : (
-                <div className="size-10 shrink-0 rounded-[11px] bg-[var(--color-bg-muted)]" />
-              )}
-              <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-                <span className="truncate text-callout font-medium text-[var(--color-text-primary)]">{a.name}</span>
-                {a.reviews > 0 && (
-                  <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                    разобрали {a.reviews.toLocaleString("ru-RU")} {reviewsWord(a.reviews)}
-                  </span>
-                )}
-              </span>
-              <StatusBadge kind={a.free ? "free" : "premium"} />
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
-                <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-          ))}
-        </div>
+        <AppsList initial={apps.slice(0, 60)} total={apps.length} />
       ) : (
         <div className="flex flex-col gap-10">
           {domains.map((d) => (
