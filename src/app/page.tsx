@@ -3,7 +3,6 @@ import { isPremium } from "@/lib/premium";
 import { getSessionUser } from "@/lib/session";
 import { getCatalogData } from "@/lib/catalogData";
 import { listIdeas } from "@/lib/ideas";
-import quoteRu from "@/data/quote-ru.json";
 import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -20,8 +19,11 @@ export default async function Home() {
   const categories = domains
     .flatMap((d) => d.categories)
     .filter((c) => c.live)
-    .slice(0, 6)
-    .map((c) => ({ name: c.name, slug: c.slug, count: c.appsCount }));
+    .slice(0, 16)
+    .map((c) => {
+      const icon = (c.apps.find((a) => a.ready && a.icon) ?? c.apps.find((a) => a.icon))?.icon ?? "";
+      return { name: c.name, slug: c.slug, count: c.appsCount, icon };
+    });
   const allIdeas = listIdeas();
   const ideas = allIdeas.slice(0, 4).map((i) => ({ title: i.title, slug: i.slug, categoryName: i.categoryName }));
   const liveCats = domains.flatMap((d) => d.categories).filter((c) => c.live).length;
@@ -31,11 +33,6 @@ export default async function Home() {
     categories: liveCats,
     ideas: allIdeas.length,
   };
-  // Несколько реальных цитат из отзывов (RU) — социальное доказательство.
-  const quotes = Object.values(quoteRu as Record<string, string>)
-    .filter((q) => q.length >= 50 && q.length <= 150)
-    .slice(0, 6);
-
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       <Landing
@@ -43,7 +40,6 @@ export default async function Home() {
         categories={categories}
         ideas={ideas}
         stats={stats}
-        quotes={quotes}
         locale={locale}
         totalReviews={totalReviews}
         loggedIn={loggedIn}

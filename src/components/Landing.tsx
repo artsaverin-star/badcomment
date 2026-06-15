@@ -18,9 +18,91 @@ function reviewsWord(n: number): string {
   return "отзывов";
 }
 
+// One scrolling row of the two-row carousels. Content is doubled so the
+// translateX(-50%) loop is seamless; hover pauses (via .ld-marquee).
+function MarqueeRow({
+  items,
+  reverse = false,
+  speed = "90s",
+}: {
+  items: React.ReactNode[];
+  reverse?: boolean;
+  speed?: string;
+}) {
+  return (
+    <div className="overflow-hidden py-1 [mask-image:linear-gradient(90deg,transparent,#000_5%,#000_95%,transparent)]">
+      <div
+        className="ld-marquee flex w-max gap-2.5"
+        style={{ ["--mq" as string]: speed, animationDirection: reverse ? "reverse" : undefined }}
+      >
+        {items}
+        {items.map((n, i) => (
+          <div key={`dup-${i}`} className="contents">
+            {n}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// A single app pill in the «Приложения» carousel (icon + name + review count).
+function AppBrick({ a, ru }: { a: LandingApp; ru: boolean }) {
+  const cls =
+    "flex shrink-0 items-center gap-3 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-2 pl-2 pr-5 transition-colors hover:border-[var(--color-border-strong)]";
+  const inner = (
+    <>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-full object-cover" />
+      <span className="flex flex-col leading-tight">
+        <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{a.name}</span>
+        {a.reviews && a.reviews > 0 ? (
+          <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+            {ru ? `разобрали ${a.reviews.toLocaleString("ru-RU")} ${reviewsWord(a.reviews)}` : `${a.reviews.toLocaleString("en-US")} reviews`}
+          </span>
+        ) : null}
+      </span>
+    </>
+  );
+  return a.slug ? (
+    <Link href={`/${a.slug}`} className={cls}>
+      {inner}
+    </Link>
+  ) : (
+    <span className={cls}>{inner}</span>
+  );
+}
+
+function appsWord(n: number): string {
+  const m10 = n % 10;
+  const m100 = n % 100;
+  if (m10 === 1 && m100 !== 11) return "приложение";
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return "приложения";
+  return "приложений";
+}
+
+// A single category pill in the «Категории» carousel (icon + name + app count).
+function CatBrick({ c, ru }: { c: { name: string; slug: string; count: number; icon?: string }; ru: boolean }) {
+  return (
+    <Link
+      href={`/segment/${c.slug}`}
+      className="flex shrink-0 items-center gap-3 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-2 pl-2 pr-5 transition-colors hover:border-[var(--color-border-strong)]"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={c.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
+      <span className="flex flex-col leading-tight">
+        <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{c.name}</span>
+        <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
+          {ru ? `${c.count} ${appsWord(c.count)}` : `${c.count} apps`}
+        </span>
+      </span>
+    </Link>
+  );
+}
+
 // Marketing landing for logged-out visitors: animated hero with a salute of
-// drifting app icons + a scrolling brand marquee. Original code in the app's
-// own dark theme.
+// drifting app icons + scrolling app/category carousels. Original code in the
+// app's own dark theme.
 export default function Landing({
   apps,
   locale = "ru",
@@ -29,30 +111,17 @@ export default function Landing({
   categories = [],
   ideas = [],
   stats,
-  quotes = [],
 }: {
   apps: LandingApp[];
   locale?: Locale;
   totalReviews?: number;
   loggedIn?: boolean;
-  categories?: { name: string; slug: string; count: number }[];
+  categories?: { name: string; slug: string; count: number; icon?: string }[];
   ideas?: { title: string; slug: string; categoryName: string }[];
   stats?: { reviews: number; apps: number; categories: number; ideas: number };
-  quotes?: string[];
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
-  const steps = ru
-    ? [
-        { t: "Читаем все отзывы", d: "Берём сотни отзывов 1–5★ по каждому приложению в категории." },
-        { t: "Собираем выводы", d: "Что хвалят, на что злятся, какие проблемы повторяются у разных приложений." },
-        { t: "Предлагаем идеи", d: "Готовые идеи новых приложений — на основе того, что люди реально просят." },
-      ]
-    : [
-        { t: "Read every review", d: "Hundreds of 1–5★ reviews for each app in a category." },
-        { t: "Distill conclusions", d: "What users love, hate, and which problems repeat across apps." },
-        { t: "Surface ideas", d: "Ready product ideas based on what people actually ask for." },
-      ];
 
   // Re-shuffle on the client each mount so the icon salute differs every load
   // (server stays deterministic; rAF keeps setState out of the effect body).
@@ -81,14 +150,14 @@ export default function Landing({
   ];
   const sizes = ["size-10 sm:size-12 lg:size-14", "size-9 sm:size-11 lg:size-12", "size-11 sm:size-14 lg:size-16"];
   const floats = withIcon.slice(0, positions.length);
-  // Cap the marquee — with hundreds of icons the row is enormous and scrolls
-  // visually fast even at a long duration. A short, fixed set drifts slowly.
-  // Prefer ready apps (clickable + carry a real review count).
-  const marqueeApps = (withIcon.filter((a) => a.slug).slice(0, 18).length >= 6
-    ? withIcon.filter((a) => a.slug)
-    : withIcon
-  ).slice(0, 18);
-  const marquee = [...marqueeApps, ...marqueeApps];
+
+  // App bricks for the «Приложения» carousel — prefer clickable (ready) apps.
+  const carouselApps = (withIcon.filter((a) => a.slug).length >= 8 ? withIcon.filter((a) => a.slug) : withIcon).slice(0, 40);
+  const appsRowA = carouselApps.filter((_, i) => i % 2 === 0);
+  const appsRowB = carouselApps.filter((_, i) => i % 2 === 1);
+  const withCatIcon = categories.filter((c) => c.icon);
+  const catsRowA = withCatIcon.filter((_, i) => i % 2 === 0);
+  const catsRowB = withCatIcon.filter((_, i) => i % 2 === 1);
 
   return (
     <div className="flex flex-col">
@@ -182,45 +251,10 @@ export default function Landing({
         </Reveal>
       )}
 
-      {/* Brand marquee */}
-      {withIcon.length > 6 && (
-        <section className="relative mt-10 overflow-hidden py-6 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
-          <div className="ld-marquee flex w-max gap-3" style={{ ["--mq" as string]: "120s" }}>
-            {marquee.map((a, i) => {
-              const inner = (
-                <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-9 shrink-0 rounded-full object-cover" />
-                  <span className="flex flex-col leading-tight">
-                    <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{a.name}</span>
-                    {a.reviews && a.reviews > 0 ? (
-                      <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
-                        {ru ? `разобрали ${a.reviews.toLocaleString("ru-RU")} ${reviewsWord(a.reviews)}` : `${a.reviews.toLocaleString("en-US")} reviews`}
-                      </span>
-                    ) : null}
-                  </span>
-                </>
-              );
-              const cls =
-                "flex shrink-0 items-center gap-3 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-2 pl-2 pr-5 transition-colors hover:border-[var(--color-border-strong)]";
-              return a.slug ? (
-                <Link key={i} href={`/${a.slug}`} className={cls}>
-                  {inner}
-                </Link>
-              ) : (
-                <span key={i} className={cls}>
-                  {inner}
-                </span>
-              );
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* Categories preview */}
-      {categories.length > 0 && (
-        <Reveal className="mx-auto mt-12 w-full max-w-5xl">
-          <div className="mb-4 flex items-center justify-between">
+      {/* Categories carousel (two rows, icons) */}
+      {withCatIcon.length > 2 && (
+        <Reveal className="mt-12 w-full">
+          <div className="mx-auto mb-4 flex max-w-5xl items-center justify-between px-1">
             <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
               {ru ? "Категории" : "Categories"}
             </h2>
@@ -228,25 +262,19 @@ export default function Landing({
               {ru ? "Все" : "All"}
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {categories.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/segment/${c.slug}`}
-                className="flex items-center justify-between gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]"
-              >
-                <span className="truncate font-medium text-[var(--color-text-primary)]">{c.name}</span>
-                <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{c.count}</span>
-              </Link>
-            ))}
+          <div className="flex flex-col gap-2.5">
+            <MarqueeRow speed="75s" items={catsRowA.map((c) => <CatBrick key={c.slug} c={c} ru={ru} />)} />
+            {catsRowB.length > 0 && (
+              <MarqueeRow speed="85s" reverse items={catsRowB.map((c) => <CatBrick key={c.slug} c={c} ru={ru} />)} />
+            )}
           </div>
         </Reveal>
       )}
 
-      {/* Apps preview */}
-      {apps.length > 0 && (
-        <Reveal className="mx-auto mt-10 w-full max-w-5xl">
-          <div className="mb-4 flex items-center justify-between">
+      {/* Apps carousel (two rows, bricks) */}
+      {carouselApps.length > 3 && (
+        <Reveal className="mt-12 w-full">
+          <div className="mx-auto mb-4 flex max-w-5xl items-center justify-between px-1">
             <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
               {ru ? "Приложения" : "Apps"}
             </h2>
@@ -254,25 +282,11 @@ export default function Landing({
               {ru ? "Все" : "All"}
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {apps.slice(0, 6).map((a) => (
-              <Link
-                key={a.slug}
-                href={`/${a.slug}`}
-                className="flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3 transition-colors hover:border-[var(--color-border-strong)]"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
-                <span className="flex min-w-0 flex-col">
-                  <span className="truncate text-callout font-medium text-[var(--color-text-primary)]">{a.name}</span>
-                  {a.reviews && a.reviews > 0 ? (
-                    <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                      {ru ? `разобрали ${a.reviews.toLocaleString("ru-RU")} ${reviewsWord(a.reviews)}` : `${a.reviews} reviews`}
-                    </span>
-                  ) : null}
-                </span>
-              </Link>
-            ))}
+          <div className="flex flex-col gap-2.5">
+            <MarqueeRow speed="95s" items={appsRowA.map((a, i) => <AppBrick key={`a-${i}`} a={a} ru={ru} />)} />
+            {appsRowB.length > 0 && (
+              <MarqueeRow speed="110s" reverse items={appsRowB.map((a, i) => <AppBrick key={`b-${i}`} a={a} ru={ru} />)} />
+            )}
           </div>
         </Reveal>
       )}
@@ -302,52 +316,6 @@ export default function Landing({
           </div>
         </Reveal>
       )}
-
-      {/* Real review quotes */}
-      {quotes.length > 0 && (
-        <Reveal className="mx-auto mt-14 w-full max-w-5xl">
-          <h2 className="mb-1 text-[24px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
-            {ru ? "Что пишут пользователи" : "What users write"}
-          </h2>
-          <p className="mb-5 text-callout text-[var(--color-text-secondary)]">
-            {ru ? "Реальные отзывы из приложений — из них и собираются выводы." : "Real app reviews — the source of every conclusion."}
-          </p>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {quotes.map((q, i) => (
-              <figure
-                key={i}
-                className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5"
-              >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
-                  <path d="M8 10h8M8 14h5M21 12a8 8 0 0 1-11.6 7.1L3 21l1.9-6.4A8 8 0 1 1 21 12Z" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <blockquote className="mt-3 text-callout leading-[1.6] text-[var(--color-text-secondary)]">«{q}»</blockquote>
-              </figure>
-            ))}
-          </div>
-        </Reveal>
-      )}
-
-      {/* How it works */}
-      <Reveal className="mx-auto mt-14 w-full max-w-5xl">
-        <h2 className="mb-6 text-center text-[24px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
-          {ru ? "Как это работает" : "How it works"}
-        </h2>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {steps.map((s, i) => (
-            <div
-              key={s.t}
-              className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6"
-            >
-              <span className="flex size-9 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-callout font-bold text-white">
-                {i + 1}
-              </span>
-              <h3 className="mt-4 text-lead font-semibold text-[var(--color-text-primary)]">{s.t}</h3>
-              <p className="mt-1.5 text-callout leading-[1.6] text-[var(--color-text-secondary)]">{s.d}</p>
-            </div>
-          ))}
-        </div>
-      </Reveal>
 
       {/* Final CTA */}
       <Reveal className="mx-auto mt-14 w-full max-w-3xl">
