@@ -50,15 +50,18 @@ function DomainIcon({ slug }: { slug: string }) {
   );
 }
 
-// Ideas index browser: icon filter pills by domain (no search box).
+// Ideas index browser: icon filter pills by domain (collapsed behind a button).
 export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
   const [domain, setDomain] = useState("all");
+  const [open, setOpen] = useState(false);
 
   const domains = useMemo(() => {
     const m = new Map<string, string>();
     ideas.forEach((i) => m.set(i.domain, i.domainName));
     return [...m.entries()];
   }, [ideas]);
+
+  const currentLabel = domain === "all" ? "Все категории" : domains.find(([s]) => s === domain)?.[1] ?? "Все категории";
 
   // A domain is locked when every idea in it is premium-only (no free access).
   const domainLocked = useMemo(() => {
@@ -85,11 +88,47 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
 
   return (
     <div>
-      <div className="mb-8 flex flex-wrap gap-2">
-        <button type="button" onClick={() => setDomain("all")} className={pillClass(domain === "all")}>
-          Все
+      <div className="mb-8">
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          className="flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)]"
+        >
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M2 4h12M4.5 8h7M6.5 12h3" />
+          </svg>
+          Фильтры
+          <span className="text-[var(--color-text-tertiary)]">· {currentLabel}</span>
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          >
+            <path d="m4 6 4 4 4-4" />
+          </svg>
         </button>
-        {domains.map(([slug, name]) =>
+
+        {open && (
+          <div className="rev-in mt-3 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setDomain("all");
+                setOpen(false);
+              }}
+              className={pillClass(domain === "all")}
+            >
+              Все
+            </button>
+            {domains.map(([slug, name]) =>
           domainLocked.get(slug) ? (
             <span
               key={slug}
@@ -104,18 +143,28 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
               </span>
             </span>
           ) : (
-            <button key={slug} type="button" onClick={() => setDomain(slug)} className={pillClass(domain === slug)}>
-              <DomainIcon slug={slug} />
-              {name}
-            </button>
-          ),
+              <button
+                key={slug}
+                type="button"
+                onClick={() => {
+                  setDomain(slug);
+                  setOpen(false);
+                }}
+                className={pillClass(domain === slug)}
+              >
+                <DomainIcon slug={slug} />
+                {name}
+              </button>
+            ),
+            )}
+          </div>
         )}
       </div>
 
       {filtered.length === 0 ? (
         <p className="py-16 text-center text-callout text-[var(--color-text-tertiary)]">Ничего не найдено.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {filtered.map((idea) => (
             <Link
               key={idea.slug}

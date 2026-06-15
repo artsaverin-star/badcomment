@@ -73,18 +73,27 @@ export default function MobileTabBar({
         className="pointer-events-none fixed inset-x-0 bottom-0 z-40 h-32 bg-gradient-to-t from-[var(--color-bg-page)] via-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] to-transparent sm:hidden"
       />
       <nav className="tabbar-in fixed inset-x-0 bottom-4 z-50 px-4 sm:hidden">
-        <div className="mx-auto flex max-w-[440px] items-stretch gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)]">
+        <div className="mx-auto flex max-w-[440px] items-stretch gap-1 rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)]">
           {tabs.map(({ href, label, active, Icon }) => (
             <Link
               key={label}
               href={href}
-              className={`flex flex-1 flex-col items-center gap-0.5 rounded-full py-2 text-[10px] font-semibold transition-colors duration-200 active:scale-90 ${
+              aria-current={active ? "page" : undefined}
+              className={`flex flex-1 flex-col items-center gap-1 rounded-[20px] py-2 text-[10px] font-semibold transition-all duration-200 ease-out active:scale-90 ${
                 active
-                  ? "bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-brand)]"
+                  ? "bg-[color-mix(in_srgb,var(--color-text-primary)_13%,transparent)] text-[var(--color-text-brand)] shadow-[0_2px_10px_-4px_rgba(0,0,0,0.5)]"
                   : "text-[var(--color-text-tertiary)]"
               }`}
             >
-              <Icon />
+              <span
+                className={`flex size-7 items-center justify-center rounded-full transition-colors duration-200 ${
+                  active
+                    ? "bg-[var(--color-accent-brand)] text-white"
+                    : "bg-[color-mix(in_srgb,var(--color-text-primary)_8%,transparent)] text-[var(--color-text-secondary)]"
+                }`}
+              >
+                <Icon />
+              </span>
               {label}
             </Link>
           ))}
