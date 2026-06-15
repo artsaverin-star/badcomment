@@ -84,7 +84,13 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ v
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       {!loggedIn ? (
         <>
-          <Landing apps={catalogApps.slice(0, 48)} locale={locale} totalReviews={totalReviews} />
+          <Landing
+            apps={catalogApps
+              .slice(0, 48)
+              .map((a) => ({ name: a.name, icon: a.icon ?? "", slug: a.slug, reviews: a.reviews, free: a.free }))}
+            locale={locale}
+            totalReviews={totalReviews}
+          />
           <h2 className="mb-6 mt-12 text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
             {locale === "en" ? "Catalog" : "Каталог"}
           </h2>
