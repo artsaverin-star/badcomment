@@ -65,30 +65,41 @@ export default function MobileTabBar({
   ];
 
   return (
-    <nav className="fixed inset-x-0 bottom-4 z-50 flex justify-center gap-2.5 px-4 sm:hidden">
-      <div className="flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_92%,transparent)] p-1.5 shadow-[0_12px_32px_-10px_rgba(0,0,0,0.7)] backdrop-blur-md">
-        {tabs.map(({ href, label, active, Icon }) => (
-          <Link
-            key={label}
-            href={href}
-            className={`flex flex-col items-center gap-0.5 rounded-full px-3.5 py-1.5 text-[10px] font-semibold transition-colors ${
-              active ? "bg-[var(--color-bg-muted)] text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)]"
-            }`}
-          >
-            <Icon />
-            {label}
-          </Link>
-        ))}
-      </div>
-      <Link
-        href="/search"
-        aria-label={searchLabel}
-        className={`flex size-[52px] shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] shadow-[0_12px_32px_-10px_rgba(0,0,0,0.7)] backdrop-blur-md transition-colors ${
-          inSearch ? "bg-[var(--color-accent-brand)] text-white" : "bg-[color-mix(in_srgb,var(--color-surface-card)_92%,transparent)] text-[var(--color-text-primary)]"
-        }`}
-      >
-        <SearchIcon />
-      </Link>
-    </nav>
+    <>
+      {/* Scrim: фейдит контент у низа экрана, чтобы меню не сливалось. */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-x-0 bottom-0 z-40 h-32 bg-gradient-to-t from-[var(--color-bg-page)] via-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] to-transparent sm:hidden"
+      />
+      <nav className="tabbar-in fixed inset-x-0 bottom-4 z-50 flex items-stretch justify-center gap-2.5 px-4 sm:hidden">
+        <div className="flex items-center gap-1 rounded-full border border-[var(--color-border-default)] bg-[color-mix(in_srgb,var(--color-surface-card)_96%,transparent)] p-1.5 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] backdrop-blur-xl">
+          {tabs.map(({ href, label, active, Icon }) => (
+            <Link
+              key={label}
+              href={href}
+              className={`flex flex-col items-center gap-0.5 rounded-full px-3.5 py-2 text-[10px] font-semibold transition-all duration-200 active:scale-90 ${
+                active
+                  ? "bg-[var(--color-bg-muted)] text-[var(--color-text-primary)]"
+                  : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+              }`}
+            >
+              <Icon />
+              {label}
+            </Link>
+          ))}
+        </div>
+        <Link
+          href="/search"
+          aria-label={searchLabel}
+          className={`flex aspect-square shrink-0 items-center justify-center rounded-full border shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] backdrop-blur-xl transition-all duration-200 active:scale-90 ${
+            inSearch
+              ? "border-transparent bg-[var(--color-accent-brand)] text-white shadow-[0_10px_30px_-6px_var(--color-accent-brand)]"
+              : "border-[var(--color-border-default)] bg-[color-mix(in_srgb,var(--color-surface-card)_96%,transparent)] text-[var(--color-text-primary)]"
+          }`}
+        >
+          <SearchIcon />
+        </Link>
+      </nav>
+    </>
   );
 }
