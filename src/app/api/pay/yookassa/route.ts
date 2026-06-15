@@ -13,12 +13,14 @@ export async function POST(req: Request) {
   const u = await getSessionUser();
   if (!u) return NextResponse.json({ error: "Нужно войти" }, { status: 401 });
 
-  const body = (await req.json().catch(() => ({}))) as { pack?: string; kind?: string };
+  const body = (await req.json().catch(() => ({}))) as { pack?: string; kind?: string; method?: string };
 
   // Either a token pack or the one-time lifetime SKU.
   const lifetime = body.kind === "lifetime";
   const p = lifetime ? null : getPack(body.pack ?? "");
   if (!lifetime && !p) return NextResponse.json({ error: "Неизвестный пак" }, { status: 400 });
+
+  const method = body.method === "sbp" ? "sbp" : body.method === "bank_card" ? "bank_card" : undefined;
 
   // За nginx req.url видит localhost:3000 — строим публичный адрес из
   // forwarded-заголовков или SITE_URL, иначе вернёт на localhost.
@@ -34,6 +36,7 @@ export async function POST(req: Request) {
         : { userId: u.id, pack: p!.id, tokens: String(p!.tokens) },
       returnUrl: `${origin}/tokens`,
       idempotenceKey: crypto.randomUUID(),
+      method,
     });
     const url = payment?.confirmation?.confirmation_url ?? null;
     if (!url) return NextResponse.json({ error: "ЮKassa не вернула ссылку" }, { status: 502 });

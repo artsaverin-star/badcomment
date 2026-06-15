@@ -21,6 +21,7 @@ export async function createPayment(opts: {
   metadata: Record<string, string>;
   returnUrl: string;
   idempotenceKey: string;
+  method?: "bank_card" | "sbp"; // force a specific method (e.g. СБП); omit = show all
 }): Promise<{ confirmation?: { confirmation_url?: string } }> {
   const res = await fetch(`${API}/payments`, {
     method: "POST",
@@ -35,6 +36,7 @@ export async function createPayment(opts: {
       // Оплата на защищённой странице ЮKassa (надёжно во всех браузерах, включая
       // Safari). Это домен ЮKassa, а не уход на сторонний сайт.
       confirmation: { type: "redirect", return_url: opts.returnUrl },
+      ...(opts.method ? { payment_method_data: { type: opts.method } } : {}),
       description: opts.description,
       metadata: opts.metadata,
     }),

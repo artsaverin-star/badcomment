@@ -31,7 +31,7 @@ export default function TokenStore({
   const packStars = (id: string) => `${botStart}buy_${uid ? `${uid}_` : ""}${id}`;
   const lifeStars = `${botStart}life_${uid}`;
 
-  async function buyCard(body: { pack?: string; kind?: string }, key: string) {
+  async function buyCard(body: { pack?: string; kind?: string; method?: string }, key: string) {
     if (!loggedIn) {
       setAuth(true);
       return;
@@ -57,8 +57,10 @@ export default function TokenStore({
     }
   }
 
-  const starsBtn =
-    "rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2 text-center text-footnote font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]";
+  const primaryBtn =
+    "rounded-full bg-[var(--color-button-primary-bg)] px-4 py-2 text-center text-footnote font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60";
+  const secBtn =
+    "rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2 text-center text-footnote font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)] disabled:opacity-60";
 
   return (
     <div className="flex flex-col gap-8">
@@ -121,23 +123,23 @@ export default function TokenStore({
                 </span>
                 <span className="text-caption text-[var(--color-text-tertiary)]">{p.rub} ₽ · или {p.stars} ⭐</span>
               </div>
-              <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+              <div className="flex shrink-0 flex-wrap justify-end gap-2">
                 {cardEnabled && (
-                  <button
-                    type="button"
-                    onClick={() => buyCard({ pack: p.id }, p.id)}
-                    disabled={busy === p.id}
-                    className="rounded-full bg-[var(--color-button-primary-bg)] px-4 py-2 text-footnote font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
-                  >
-                    {busy === p.id ? "…" : `${p.rub} ₽ картой`}
+                  <button type="button" onClick={() => buyCard({ pack: p.id, method: "bank_card" }, `${p.id}c`)} disabled={busy === `${p.id}c`} className={primaryBtn}>
+                    {busy === `${p.id}c` ? "…" : "Картой"}
+                  </button>
+                )}
+                {cardEnabled && (
+                  <button type="button" onClick={() => buyCard({ pack: p.id, method: "sbp" }, `${p.id}s`)} disabled={busy === `${p.id}s`} className={secBtn}>
+                    {busy === `${p.id}s` ? "…" : "СБП"}
                   </button>
                 )}
                 {loggedIn ? (
-                  <a href={packStars(p.id)} className={starsBtn}>
+                  <a href={packStars(p.id)} className={secBtn}>
                     {p.stars} ⭐
                   </a>
                 ) : (
-                  <button type="button" onClick={() => setAuth(true)} className={starsBtn}>
+                  <button type="button" onClick={() => setAuth(true)} className={secBtn}>
                     {p.stars} ⭐
                   </button>
                 )}
@@ -165,19 +167,29 @@ export default function TokenStore({
               {cardEnabled && (
                 <button
                   type="button"
-                  onClick={() => buyCard({ kind: "lifetime" }, "life")}
-                  disabled={busy === "life"}
-                  className="flex-1 rounded-full bg-[var(--color-button-primary-bg)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
+                  onClick={() => buyCard({ kind: "lifetime", method: "bank_card" }, "lifec")}
+                  disabled={busy === "lifec"}
+                  className={`${primaryBtn} flex-1`}
                 >
-                  {busy === "life" ? "…" : `${LIFETIME.rub.toLocaleString("ru-RU")} ₽ картой`}
+                  {busy === "lifec" ? "…" : "Картой"}
+                </button>
+              )}
+              {cardEnabled && (
+                <button
+                  type="button"
+                  onClick={() => buyCard({ kind: "lifetime", method: "sbp" }, "lifes")}
+                  disabled={busy === "lifes"}
+                  className={`${secBtn} flex-1`}
+                >
+                  {busy === "lifes" ? "…" : "СБП"}
                 </button>
               )}
               {loggedIn ? (
-                <a href={lifeStars} className={`${starsBtn} flex-1`}>
+                <a href={lifeStars} className={`${secBtn} flex-1`}>
                   {LIFETIME.stars} ⭐
                 </a>
               ) : (
-                <button type="button" onClick={() => setAuth(true)} className={`${starsBtn} flex-1`}>
+                <button type="button" onClick={() => setAuth(true)} className={`${secBtn} flex-1`}>
                   {LIFETIME.stars} ⭐
                 </button>
               )}
