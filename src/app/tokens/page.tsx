@@ -21,7 +21,7 @@ export default async function TokensPage() {
   const uid = access.user?.id ?? "";
 
   return (
-    <main className="mx-auto w-full max-w-[560px] px-4 py-14">
+    <main className="mx-auto w-full max-w-5xl px-4 py-14">
       <Header
         size="L"
         as="h1"
