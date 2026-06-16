@@ -88,11 +88,13 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
           {idea.categoryName}
         </Link>
         <h1 className="mx-auto mt-3 max-w-[18ch] text-[34px] font-bold leading-[1.08] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[40px]">
-          {ideaTitle}
+          {locked ? "Идея под замком" : ideaTitle}
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-lead leading-relaxed text-[var(--color-text-secondary)]">
-          {ideaOneLiner}
-        </p>
+        {!locked && (
+          <p className="mx-auto mt-4 max-w-xl text-lead leading-relaxed text-[var(--color-text-secondary)]">
+            {ideaOneLiner}
+          </p>
+        )}
         <div className="mt-4 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
           {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
           {idea.stats.observations.toLocaleString("ru-RU")} наблюдений

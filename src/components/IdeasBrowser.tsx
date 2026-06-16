@@ -13,6 +13,7 @@ export type IdeaCard = {
   oneLiner: string;
   stats: { apps: number; reviews: number; observations: number };
   locked?: boolean;
+  cost?: number;
 };
 
 // Small line icon per domain (icon filter pills). Falls back to a grid glyph.
@@ -46,6 +47,14 @@ function DomainIcon({ slug }: { slug: string }) {
       className="shrink-0"
     >
       {p[slug] ?? <path d="M2.5 2.5h4v4h-4zM9.5 2.5h4v4h-4zM2.5 9.5h4v4h-4zM9.5 9.5h4v4h-4z" />}
+    </svg>
+  );
+}
+
+function Bolt() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13 2 4.5 13.2c-.42.55-.03 1.3.66 1.3H11l-1.4 7.6c-.13.7.78 1.1 1.2.5L19.5 11.4c.42-.55.03-1.3-.66-1.3H13l1.4-7.7c.13-.7-.78-1.08-1.2-.5z" />
     </svg>
   );
 }
@@ -143,16 +152,36 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
             <Link
               key={idea.slug}
               href={`/ideas/${idea.slug}`}
-              className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
+              className="group flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
             >
               <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
                 <DomainIcon slug={idea.domain} />
                 {idea.categoryName}
               </span>
-              <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
-                {idea.title}
-              </div>
-              <p className="text-callout text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
+              {idea.locked ? (
+                <div className="flex flex-1 flex-col items-start gap-2 py-1">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-muted)] px-3.5 py-2 text-callout font-semibold text-[var(--color-text-primary)] transition-colors group-hover:border-[var(--color-text-brand)]">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <rect x="4" y="10" width="16" height="10" rx="2.5" />
+                      <path d="M8 10V7a4 4 0 0 1 8 0" strokeLinecap="round" />
+                    </svg>
+                    Раскрыть за
+                    <span className="inline-flex items-center gap-0.5 text-[var(--color-text-brand)]">
+                      <Bolt /> {idea.cost ?? 10}
+                    </span>
+                  </span>
+                  <p className="text-footnote text-[var(--color-text-tertiary)]">
+                    Название и суть идеи — после разблокировки
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
+                    {idea.title}
+                  </div>
+                  <p className="text-callout text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
+                </>
+              )}
               <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">
                 {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
                 {idea.stats.observations.toLocaleString("ru-RU")} наблюдений

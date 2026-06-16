@@ -5,6 +5,8 @@ import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
 import IdeasBrowser, { type IdeaCard } from "@/components/IdeasBrowser";
 import { ideaCard } from "@/lib/regenCards";
+import { getAccess } from "@/lib/access";
+import { UNLOCK_COST } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +17,7 @@ export default async function IdeasPage() {
   const locale = await getLocale();
   const tr = t(locale);
   const all = listIdeas();
+  const access = await getAccess();
 
   // category slug → its top-level domain, for the icon filter pills.
   const catToDomain = new Map<string, { slug: string; name: string }>();
@@ -22,18 +25,23 @@ export default async function IdeasPage() {
     for (const c of d.categories) catToDomain.set(c.slug, { slug: d.slug, name: d.name });
   }
 
+  // The idea's name + pitch are the paid part: for locked ideas we keep the
+  // category + stats (the teaser) but never ship the title/oneLiner to the client.
   const ideas: IdeaCard[] = all.map((i) => {
     const dom = catToDomain.get(i.category);
     const ov = ideaCard(i.slug);
+    const locked = !access.has("idea", i.slug);
     return {
       slug: i.slug,
       category: i.category,
       categoryName: i.categoryName,
       domain: dom?.slug ?? "other",
       domainName: dom?.name ?? "Прочее",
-      title: ov?.title ?? i.title,
-      oneLiner: ov?.oneLiner ?? i.oneLiner,
+      title: locked ? "" : ov?.title ?? i.title,
+      oneLiner: locked ? "" : ov?.oneLiner ?? i.oneLiner,
       stats: i.stats,
+      locked,
+      cost: UNLOCK_COST.idea,
     };
   });
 
