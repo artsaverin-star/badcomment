@@ -36,6 +36,7 @@ export type Idea = {
     antiFeatures: string[];
     monetization: string;
   };
+  score?: number; // critic-assigned strength (demand/uniqueness/virality/buildability)
 };
 
 const ideas = ideasData as Idea[];
@@ -48,7 +49,10 @@ import segmentInsights from "@/data/segment-insights.json";
 const PUBLISHED_CATEGORIES = new Set(Object.keys(segmentInsights as Record<string, unknown>));
 
 export function listIdeas(): Idea[] {
-  return ideas.filter((i) => PUBLISHED_CATEGORIES.has(i.category));
+  // Best ideas first (critic score), then by validated demand.
+  return ideas
+    .filter((i) => PUBLISHED_CATEGORIES.has(i.category))
+    .sort((a, b) => (b.score ?? 0) - (a.score ?? 0) || (b.stats?.observations ?? 0) - (a.stats?.observations ?? 0));
 }
 
 export function getIdea(slug: string): Idea | null {
