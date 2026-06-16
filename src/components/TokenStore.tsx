@@ -178,12 +178,12 @@ export default function TokenStore({
               ))}
             </ul>
 
-            <div className="mt-6 flex flex-col gap-2">
+            <div className="mt-auto flex flex-col gap-2.5 pt-7">
               <button
                 type="button"
                 onClick={() => (cardEnabled ? buyCard({ ...s.body, method: "bank_card" }, `${s.id}c`) : setAuth(true))}
                 disabled={busy === `${s.id}c`}
-                className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
+                className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-footnote font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
               >
                 {busy === `${s.id}c` ? "…" : "Купить картой"}
               </button>
@@ -202,7 +202,7 @@ export default function TokenStore({
                   href={s.starsHref}
                   className="flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
                 >
-                  <span aria-hidden>⭐</span> {s.stars.toLocaleString("ru-RU")} Stars
+                  <span aria-hidden>⭐</span> {s.stars.toLocaleString("ru-RU")} Telegram
                 </a>
               ) : (
                 <button
@@ -210,7 +210,7 @@ export default function TokenStore({
                   onClick={() => setAuth(true)}
                   className="flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
                 >
-                  <span aria-hidden>⭐</span> {s.stars.toLocaleString("ru-RU")} Stars
+                  <span aria-hidden>⭐</span> {s.stars.toLocaleString("ru-RU")} Telegram
                 </button>
               )}
             </div>
