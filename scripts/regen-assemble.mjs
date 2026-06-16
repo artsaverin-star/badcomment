@@ -34,15 +34,19 @@ const insights = J(path.join(ROOT, "src/data/insights.json"));
 const clean = (s) => (typeof s === "string" && s.trim() ? s.trim() : undefined);
 
 // Build a product/hygiene RegenSet from a source item list + agent rewrites.
+// If the agent classified items (kind "base"|"insight"), route by that; else
+// fall back to theme-based hygiene from the unchosen source items.
 function buildSet(srcItems, rewrites, { bodyField, kickerOf }) {
   const byId = new Map(srcItems.map((it) => [it.id, it]));
   const chosen = new Set();
   const product = [];
+  const baseFromKind = [];
+  const usedKind = (rewrites || []).some((r) => r.kind === "base" || r.kind === "insight");
   for (const r of rewrites || []) {
     const it = byId.get(r.id);
     if (!it) continue;
     chosen.add(r.id);
-    product.push({
+    const card = {
       title: clean(r.title) || it.title,
       plus: clean(r.plus),
       minus: clean(r.minus),
@@ -50,18 +54,21 @@ function buildSet(srcItems, rewrites, { bodyField, kickerOf }) {
       apps: it.apps,
       kicker: kickerOf(it),
       evidence: it.evidence || [],
-    });
+    };
+    (r.kind === "base" ? baseFromKind : product).push(card);
   }
-  const hygiene = srcItems
-    .filter((it) => !chosen.has(it.id) && HYGIENE.has(it.theme))
-    .sort((a, b) => (b.observationCount ?? 0) - (a.observationCount ?? 0))
-    .map((it) => ({
-      title: it.title,
-      body: clean(it[bodyField]),
-      count: it.observationCount ?? (it.evidence ? it.evidence.length : 0),
-      kicker: kickerOf(it),
-      evidence: it.evidence || [],
-    }));
+  const hygiene = usedKind
+    ? baseFromKind.sort((a, b) => b.count - a.count)
+    : srcItems
+        .filter((it) => !chosen.has(it.id) && HYGIENE.has(it.theme))
+        .sort((a, b) => (b.observationCount ?? 0) - (a.observationCount ?? 0))
+        .map((it) => ({
+          title: it.title,
+          body: clean(it[bodyField]),
+          count: it.observationCount ?? (it.evidence ? it.evidence.length : 0),
+          kicker: kickerOf(it),
+          evidence: it.evidence || [],
+        }));
   return { product, hygiene };
 }
 
