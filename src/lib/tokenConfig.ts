@@ -5,7 +5,7 @@
 // packs (₽ via YooKassa, ⭐ via the Telegram bot). A category unlock is a bundle
 // that opens the whole genre (synthesis + every app + every idea in it).
 
-export const SIGNUP_GRANT = 50;
+export const SIGNUP_GRANT = 150;
 
 export type UnlockType = "app" | "idea" | "category";
 
