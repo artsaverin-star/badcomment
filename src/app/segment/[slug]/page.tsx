@@ -143,7 +143,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           loggedIn={access.loggedIn}
           balance={access.balance}
           locale={locale}
-          title={`Общие наблюдения из всех ${cat.apps.length} приложений`}
+          title={`Все ${cat.apps.length} приложений, идеи и общий разбор категории`}
         />
       ) : (
         (summary || ideas.length > 0) && (
