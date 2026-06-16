@@ -11,31 +11,10 @@ declare global {
   }
 }
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-type TgState = { token: string; url: string; expiresAt: number; waiting: boolean };
-const TG_KEY = "inapp_tg_login";
-
-function loadTg(): TgState | null {
-  try {
-    const raw = localStorage.getItem(TG_KEY);
-    if (!raw) return null;
-    const s = JSON.parse(raw) as TgState;
-    if (s.expiresAt < Date.now()) {
-      localStorage.removeItem(TG_KEY);
-      return null;
-    }
-    return s;
-  } catch {
-    return null;
-  }
-}
-
 function ModalShell({ onClose, ru, children }: { onClose: () => void; ru: boolean; children: React.ReactNode }) {
   // Render into <body> via a portal. The header has backdrop-filter, which makes
   // it a containing block for position:fixed — without the portal the modal
-  // anchors to the header and flies to the top instead of centering. The modal
-  // only ever mounts client-side (after a click), so document is always present.
+  // anchors to the header and flies to the top instead of centering.
   if (typeof document === "undefined") return null;
 
   return createPortal(
@@ -64,15 +43,7 @@ function ModalShell({ onClose, ru, children }: { onClose: () => void; ru: boolea
   );
 }
 
-const TG_ICON = (
-  <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-  </svg>
-);
-
-// Login / registration modal — full provider set (Telegram + Google + email),
-// mirroring the phenom-adapt flow including Telegram's instruction / waiting
-// states with localStorage resume.
+// Login modal — social sign-in only: Google and VK.
 export default function AuthModal({
   onClose,
   onSuccess,
@@ -83,19 +54,12 @@ export default function AuthModal({
   locale?: Locale;
 }) {
   const ru = locale !== "en";
-  const [mode, setMode] = useState<"login" | "register">("login");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // Lazy init resumes a pending Telegram login (e.g. tab reopened). The modal
-  // only mounts client-side (after hydration), so reading localStorage here is
-  // safe — no SSR mismatch.
-  const [tg, setTg] = useState<TgState | null>(() => (typeof window === "undefined" ? null : loadTg()));
   const [googleInited, setGoogleInited] = useState(false);
   const googleBtnRef = useRef<HTMLDivElement>(null);
   const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  const VK_CLIENT_ID = process.env.NEXT_PUBLIC_VK_CLIENT_ID;
 
   // Lock scroll + Escape.
   useEffect(() => {
@@ -168,163 +132,25 @@ export default function AuthModal({
     });
   }
 
-  // ── Telegram ────────────────────────────────────────────────────────
-  async function handleTelegramClick() {
-    setError(null);
+  // ── VK ID (OAuth redirect) ──────────────────────────────────────────
+  function handleVkClick() {
+    if (!VK_CLIENT_ID) return;
+    const redirectUri = `${window.location.origin}/api/auth/vk`;
+    // Remember where to come back to after the round-trip.
     try {
-      const { token, url } = await fetch("/api/auth/start", { method: "POST" }).then((r) => r.json());
-      if (!token) {
-        setError(ru ? "Не удалось начать вход через Telegram" : "Failed to start Telegram login");
-        return;
-      }
-      setTg({ token, url, expiresAt: Date.now() + 10 * 60 * 1000, waiting: false });
+      sessionStorage.setItem("vk_return", window.location.pathname + window.location.search);
     } catch {
-      setError(ru ? "Не удалось начать вход через Telegram" : "Telegram login failed");
+      /* ignore */
     }
-  }
-
-  function handleStartTg() {
-    if (!tg) return;
-    const s = { ...tg, waiting: true };
-    localStorage.setItem(TG_KEY, JSON.stringify(s));
-    setTg(s);
-    window.open(tg.url, "_blank");
-  }
-
-  function cancelTg() {
-    localStorage.removeItem(TG_KEY);
-    setTg(null);
-  }
-
-  // Poll while waiting for the bot to bind the token.
-  useEffect(() => {
-    if (!tg?.waiting) return;
-    let cancelled = false;
-    (async () => {
-      while (!cancelled) {
-        if (Date.now() > tg.expiresAt) {
-          localStorage.removeItem(TG_KEY);
-          setTg(null);
-          setError(ru ? "Время истекло. Попробуйте снова." : "Login expired. Try again.");
-          return;
-        }
-        try {
-          const res = await fetch(`/api/auth/poll?token=${tg.token}`).then((r) => r.json());
-          if (res.ok) {
-            localStorage.removeItem(TG_KEY);
-            onSuccess();
-            return;
-          }
-          if (res.error && res.error !== "unknown") {
-            localStorage.removeItem(TG_KEY);
-            setTg(null);
-            setError(ru ? "Время истекло. Попробуйте снова." : "Login expired. Try again.");
-            return;
-          }
-        } catch {
-          /* network blip, retry */
-        }
-        await sleep(2000);
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [tg?.waiting, tg?.token, tg?.expiresAt, onSuccess, ru]);
-
-  // ── Email ───────────────────────────────────────────────────────────
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError(null);
-    setLoading(true);
-    try {
-      const r = await fetch(mode === "register" ? "/api/auth/register" : "/api/auth/login", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email, password, name }),
-      }).then((x) => x.json());
-      if (r.ok) onSuccess();
-      else setError(r.error || (ru ? "Что-то пошло не так" : "Something went wrong"));
-    } catch {
-      setError(ru ? "Что-то пошло не так" : "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
+    const url =
+      `https://oauth.vk.com/authorize?client_id=${encodeURIComponent(VK_CLIENT_ID)}` +
+      `&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=email&display=page&v=5.199`;
+    window.location.assign(url);
   }
 
   const btnBase =
     "flex w-full items-center justify-center gap-2.5 rounded-full px-5 py-3 text-callout font-semibold transition-opacity disabled:opacity-60";
 
-  // ── Telegram: waiting state ─────────────────────────────────────────
-  if (tg?.waiting) {
-    const expiry = new Date(tg.expiresAt).toLocaleTimeString();
-    return (
-      <ModalShell onClose={onClose} ru={ru}>
-        <div className="flex flex-col items-center gap-4 py-2 text-center">
-          <div className="flex size-14 items-center justify-center rounded-full bg-[#2AABEE] text-white">{TG_ICON}</div>
-          <h3 className="text-lead font-semibold text-[var(--color-text-primary)]">
-            {ru ? "Вход через Telegram" : "Log in with Telegram"}
-          </h3>
-          <p className="text-callout leading-relaxed text-[var(--color-text-secondary)]">
-            {ru ? (
-              <>Нажмите <strong>Start</strong> в Telegram и вернитесь на эту вкладку.</>
-            ) : (
-              <>Click <strong>Start</strong> in Telegram, then come back to this tab.</>
-            )}
-          </p>
-          <div className="flex items-center gap-2 text-[#2AABEE]">
-            <svg className="size-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeDasharray="31.4 31.4" strokeLinecap="round" />
-            </svg>
-            <span className="text-callout font-medium">{ru ? "Жду подтверждения…" : "Waiting for confirmation…"}</span>
-          </div>
-          <p className="text-caption text-[var(--color-text-tertiary)]">
-            {ru ? `Ссылка действует до ${expiry}` : `Link valid until ${expiry}`}
-          </p>
-          <a href={tg.url} target="_blank" rel="noreferrer" className="text-footnote text-[#2AABEE] hover:underline">
-            {ru ? "Если Telegram не открылся — открыть бота" : "If Telegram didn't open — open the bot"}
-          </a>
-          <button onClick={cancelTg} className="text-caption text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
-            {ru ? "Отмена" : "Cancel"}
-          </button>
-        </div>
-      </ModalShell>
-    );
-  }
-
-  // ── Telegram: instruction state ─────────────────────────────────────
-  if (tg) {
-    const expiry = new Date(tg.expiresAt).toLocaleTimeString();
-    return (
-      <ModalShell onClose={onClose} ru={ru}>
-        <div className="flex flex-col items-center gap-4 py-2 text-center">
-          <div className="flex size-14 items-center justify-center rounded-full bg-[#2AABEE] text-white">{TG_ICON}</div>
-          <h3 className="text-lead font-semibold text-[var(--color-text-primary)]">
-            {ru ? "Вход через Telegram" : "Log in with Telegram"}
-          </h3>
-          <p className="text-callout leading-relaxed text-[var(--color-text-secondary)]">
-            {ru ? (
-              <>Сейчас откроем бота. Нажмите <strong>Start</strong> в Telegram и вернитесь на эту вкладку.</>
-            ) : (
-              <>We&apos;ll open the bot. Click <strong>Start</strong> in Telegram, then come back to this tab.</>
-            )}
-          </p>
-          <button onClick={handleStartTg} className={`${btnBase} bg-[#2AABEE] text-white hover:opacity-90`}>
-            {TG_ICON}
-            {ru ? "Начать вход" : "Start login"}
-          </button>
-          <p className="text-caption text-[var(--color-text-tertiary)]">
-            {ru ? `Ссылка действует до ${expiry}` : `Link valid until ${expiry}`}
-          </p>
-          <button onClick={cancelTg} className="text-caption text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
-            {ru ? "Отмена" : "Cancel"}
-          </button>
-        </div>
-      </ModalShell>
-    );
-  }
-
-  // ── Normal login / registration form ────────────────────────────────
   return (
     <ModalShell onClose={onClose} ru={ru}>
       <div className="mb-6 text-center">
@@ -340,11 +166,7 @@ export default function AuthModal({
       </div>
 
       <div className="flex flex-col items-center gap-3">
-        <button onClick={handleTelegramClick} disabled={loading} className={`${btnBase} bg-[#2AABEE] text-white hover:opacity-90`}>
-          {TG_ICON}
-          {ru ? "Войти через Telegram" : "Log in with Telegram"}
-        </button>
-
+        {/* hidden GSI button GIS renders into; we proxy clicks to it */}
         <div
           ref={googleBtnRef}
           style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", opacity: 0, pointerEvents: "none" }}
@@ -366,71 +188,17 @@ export default function AuthModal({
           </button>
         )}
 
-        <div className="flex w-full items-center gap-3 py-1">
-          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-          <span className="text-caption uppercase text-[var(--color-text-tertiary)]">{ru ? "или" : "or"}</span>
-          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-        </div>
-
-        <form onSubmit={handleSubmit} className="flex w-full flex-col gap-2.5">
-          {mode === "register" && (
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder={ru ? "Имя" : "Name"}
-              className="w-full rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] px-4 py-3 text-callout text-[var(--color-text-primary)] outline-none focus:border-[var(--color-text-brand)]"
-            />
-          )}
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-            className="w-full rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] px-4 py-3 text-callout text-[var(--color-text-primary)] outline-none focus:border-[var(--color-text-brand)]"
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder={ru ? "Пароль" : "Password"}
-            required
-            minLength={6}
-            className="w-full rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] px-4 py-3 text-callout text-[var(--color-text-primary)] outline-none focus:border-[var(--color-text-brand)]"
-          />
-          <button
-            type="submit"
-            disabled={loading || !email.trim() || !password}
-            className={`${btnBase} bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)] hover:opacity-90`}
-          >
-            {loading ? "…" : mode === "register" ? (ru ? "Создать аккаунт" : "Create account") : ru ? "Войти" : "Sign in"}
+        {VK_CLIENT_ID && (
+          <button onClick={handleVkClick} disabled={loading} className={`${btnBase} bg-[#0077FF] text-white hover:opacity-90`}>
+            <svg className="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13.16 18.94c-6.84 0-10.74-4.69-10.9-12.49h3.43c.11 5.73 2.64 8.16 4.64 8.66V6.45h3.23v4.94c1.98-.21 4.06-2.46 4.76-4.94h3.23c-.54 3.06-2.79 5.31-4.39 6.24 1.6.75 4.16 2.71 5.13 6.25h-3.56c-.76-2.36-2.66-4.19-5.17-4.44v4.44z" />
+            </svg>
+            {ru ? "Продолжить с VK" : "Continue with VK"}
           </button>
-        </form>
+        )}
 
         {error && <p className="text-center text-footnote text-[#e5484d]">{error}</p>}
-
-        <button
-          type="button"
-          onClick={() => {
-            setMode(mode === "login" ? "register" : "login");
-            setError(null);
-          }}
-          className="text-footnote text-[var(--color-text-brand)] hover:underline"
-        >
-          {mode === "login"
-            ? ru
-              ? "Нет аккаунта? Зарегистрироваться"
-              : "Don't have an account? Sign up"
-            : ru
-              ? "Уже есть аккаунт? Войти"
-              : "Already have an account? Sign in"}
-        </button>
       </div>
-
-      <p className="mt-6 text-center text-caption text-[var(--color-text-tertiary)]">
-        {ru ? "Оплата премиума — через Telegram Stars в боте." : "Premium is paid via Telegram Stars in the bot."}
-      </p>
     </ModalShell>
   );
 }
