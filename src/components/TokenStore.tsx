@@ -185,7 +185,7 @@ export default function TokenStore({
                 disabled={busy === `${s.id}c`}
                 className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-footnote font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
               >
-                {busy === `${s.id}c` ? "…" : "Купить картой"}
+                {busy === `${s.id}c` ? "…" : "Купить картой РФ"}
               </button>
               {cardEnabled && (
                 <button
