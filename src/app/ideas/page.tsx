@@ -57,7 +57,7 @@ export default async function IdeasPage() {
       {ideas.length === 0 ? (
         <p className="mt-10 text-center text-callout text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
-        <IdeasBrowser ideas={ideas} />
+        <IdeasBrowser ideas={ideas} loggedIn={access.loggedIn} balance={access.balance} locale={locale} />
       )}
     </main>
   );

@@ -1,7 +1,27 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import AuthModal from "./AuthModal";
+import type { Locale } from "@/lib/i18n";
+
+// Deterministic compact starfield for the locked-idea shimmer (matches UnlockGate
+// style at card scale; module-level so SSR markup is stable, no Math.random).
+const frac = (x: number) => x - Math.floor(x);
+const rng = (i: number, s: number) => frac(Math.sin((i + 1) * s) * 43758.5453);
+const DOTS = Array.from({ length: 46 }, (_, i) => {
+  const r = rng(i, 3.17);
+  return {
+    left: rng(i, 12.9898) * 100,
+    top: rng(i, 78.233) * 100,
+    size: 0.6 + r * r * 2,
+    d: 2.2 + rng(i, 5.7) * 3.6,
+    delay: rng(i, 9.13) * 5,
+    o0: 0.05 + rng(i, 1.31) * 0.12,
+    o1: 0.4 + rng(i, 2.61) * 0.5,
+  };
+});
 
 export type IdeaCard = {
   slug: string;
@@ -59,10 +79,123 @@ function Bolt() {
   );
 }
 
+// A locked idea card: TG-style shimmer blur + an in-place «Раскрыть за ⚡N» pill
+// that spends tokens right here (no detour to a second purchase screen) and
+// reveals the card via router.refresh().
+function LockedIdeaCard({ idea, loggedIn, onAuth }: { idea: IdeaCard; loggedIn: boolean; onAuth: () => void }) {
+  const router = useRouter();
+  const [phase, setPhase] = useState<"idle" | "working" | "reveal">("idle");
+  const cost = idea.cost ?? 10;
+
+  async function unlock() {
+    if (!loggedIn) return onAuth();
+    setPhase("working");
+    try {
+      const r = await fetch("/api/unlock", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ type: "idea", slug: idea.slug }),
+      });
+      if (r.status === 402) return router.push("/tokens");
+      if (!r.ok) return setPhase("idle");
+      setPhase("reveal");
+      window.setTimeout(() => router.refresh(), 480);
+    } catch {
+      setPhase("idle");
+    }
+  }
+
+  return (
+    <div
+      className={`relative flex min-h-[168px] flex-col overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] ${
+        phase === "reveal" ? "spoiler-out" : ""
+      }`}
+    >
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div
+          className="spoiler-blob absolute -left-1/4 -top-1/4 size-[70%] rounded-full bg-[var(--color-text-tertiary)] opacity-25 blur-[40px]"
+          style={{ ["--d" as string]: "20s" }}
+        />
+        <div
+          className="spoiler-blob absolute -right-1/5 bottom-0 size-[60%] rounded-full bg-[var(--color-accent-brand)] opacity-[0.14] blur-[44px]"
+          style={{ ["--d" as string]: "16s", ["--delay" as string]: "-5s" }}
+        />
+      </div>
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        {DOTS.map((p, i) => (
+          <span
+            key={i}
+            className="spoiler-dot absolute rounded-full bg-[var(--color-text-primary)]"
+            style={{
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              ["--d" as string]: `${p.d}s`,
+              ["--delay" as string]: `${p.delay}s`,
+              ["--o0" as string]: p.o0,
+              ["--o1" as string]: p.o1,
+            }}
+          />
+        ))}
+      </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(ellipse 60% 50% at 50% 55%, color-mix(in srgb, var(--color-bg-page) 45%, transparent), transparent 72%)" }}
+      />
+
+      <div className="relative z-10 flex flex-1 flex-col gap-2 p-5">
+        <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+          <DomainIcon slug={idea.domain} />
+          {idea.categoryName}
+        </span>
+        <div className="flex flex-1 flex-col items-start justify-center gap-1.5 py-1">
+          <button
+            type="button"
+            onClick={unlock}
+            disabled={phase === "working"}
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] px-4 py-2.5 text-callout font-semibold text-[var(--color-text-primary)] backdrop-blur-md transition-all hover:scale-[1.03] hover:border-[var(--color-text-brand)] disabled:opacity-60"
+          >
+            {phase === "working" ? (
+              "Открываем…"
+            ) : !loggedIn ? (
+              "Войти и раскрыть"
+            ) : (
+              <>
+                Раскрыть за
+                <span className="inline-flex items-center gap-0.5 text-[var(--color-text-brand)]">
+                  <Bolt /> {cost}
+                </span>
+              </>
+            )}
+          </button>
+          <p className="text-footnote text-[var(--color-text-tertiary)]">Название и суть идеи — после разблокировки</p>
+        </div>
+        <div className="text-caption text-[var(--color-text-tertiary)]">
+          {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
+          {idea.stats.observations.toLocaleString("ru-RU")} наблюдений
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Ideas index browser: icon filter pills by domain (collapsed behind a button).
-export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
+export default function IdeasBrowser({
+  ideas,
+  loggedIn = false,
+  locale = "ru",
+}: {
+  ideas: IdeaCard[];
+  loggedIn?: boolean;
+  balance?: number;
+  locale?: Locale;
+}) {
+  const router = useRouter();
   const [domain, setDomain] = useState("all");
   const [open, setOpen] = useState(false);
+  const [auth, setAuth] = useState(false);
 
   const domains = useMemo(() => {
     const m = new Map<string, string>();
@@ -148,48 +281,34 @@ export default function IdeasBrowser({ ideas }: { ideas: IdeaCard[] }) {
         <p className="py-16 text-center text-callout text-[var(--color-text-tertiary)]">Ничего не найдено.</p>
       ) : (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {filtered.map((idea) => (
-            <Link
-              key={idea.slug}
-              href={`/ideas/${idea.slug}`}
-              className="group flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
-            >
-              <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
-                <DomainIcon slug={idea.domain} />
-                {idea.categoryName}
-              </span>
-              {idea.locked ? (
-                <div className="flex flex-1 flex-col items-start gap-2 py-1">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-muted)] px-3.5 py-2 text-callout font-semibold text-[var(--color-text-primary)] transition-colors group-hover:border-[var(--color-text-brand)]">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                      <rect x="4" y="10" width="16" height="10" rx="2.5" />
-                      <path d="M8 10V7a4 4 0 0 1 8 0" strokeLinecap="round" />
-                    </svg>
-                    Раскрыть за
-                    <span className="inline-flex items-center gap-0.5 text-[var(--color-text-brand)]">
-                      <Bolt /> {idea.cost ?? 10}
-                    </span>
-                  </span>
-                  <p className="text-footnote text-[var(--color-text-tertiary)]">
-                    Название и суть идеи — после разблокировки
-                  </p>
+          {filtered.map((idea) =>
+            idea.locked ? (
+              <LockedIdeaCard key={idea.slug} idea={idea} loggedIn={loggedIn} onAuth={() => setAuth(true)} />
+            ) : (
+              <Link
+                key={idea.slug}
+                href={`/ideas/${idea.slug}`}
+                className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
+              >
+                <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+                  <DomainIcon slug={idea.domain} />
+                  {idea.categoryName}
+                </span>
+                <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
+                  {idea.title}
                 </div>
-              ) : (
-                <>
-                  <div className="text-[19px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
-                    {idea.title}
-                  </div>
-                  <p className="text-callout text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
-                </>
-              )}
-              <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">
-                {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
-                {idea.stats.observations.toLocaleString("ru-RU")} наблюдений
-              </div>
-            </Link>
-          ))}
+                <p className="text-callout text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
+                <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">
+                  {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
+                  {idea.stats.observations.toLocaleString("ru-RU")} наблюдений
+                </div>
+              </Link>
+            ),
+          )}
         </div>
       )}
+
+      {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => router.refresh()} />}
     </div>
   );
 }
