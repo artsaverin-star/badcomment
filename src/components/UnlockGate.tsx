@@ -51,6 +51,7 @@ export default function UnlockGate({
   loggedIn,
   balance,
   locale = "ru",
+  title,
 }: {
   type: UnlockType;
   slug: string;
@@ -58,6 +59,7 @@ export default function UnlockGate({
   loggedIn: boolean;
   balance: number;
   locale?: Locale;
+  title?: string;
 }) {
   const router = useRouter();
   const [auth, setAuth] = useState(false);
@@ -148,6 +150,11 @@ export default function UnlockGate({
 
         {/* Centre content */}
         <div className="relative z-10 flex min-h-[360px] flex-col items-center justify-center gap-3 px-6 py-12 text-center">
+          {title && (
+            <h2 className="mb-1 max-w-md text-[22px] font-bold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)] [text-shadow:0_1px_12px_rgba(0,0,0,0.4)]">
+              {title}
+            </h2>
+          )}
           <button
             type="button"
             onClick={unlock}

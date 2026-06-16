@@ -109,6 +109,7 @@ export default async function IdeaPage({ params }: { params: Promise<{ slug: str
           loggedIn={access.loggedIn}
           balance={access.balance}
           locale={locale}
+          title="Готовая идея: суть, механики и что строить"
         />
       ) : (
         <>

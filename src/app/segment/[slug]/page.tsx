@@ -16,6 +16,7 @@ import CategoryIdeas from "@/components/CategoryIdeas";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
+import { categoryPrice } from "@/lib/tokens";
 import UnlockGate from "@/components/UnlockGate";
 
 export const dynamic = "force-dynamic";
@@ -87,6 +88,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const ideas = listIdeas().filter((i) => i.category === slug);
   const access = await getAccess();
   const locked = !access.has("category", slug);
+  // Bundle price drops by the value of apps/ideas already owned (floored).
+  const catCost = access.user ? await categoryPrice(access.user.id, slug) : UNLOCK_COST.category;
 
   return (
     <main className="mx-auto w-full max-w-[720px] overflow-x-clip px-4 py-6">
@@ -136,10 +139,11 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         <UnlockGate
           type="category"
           slug={slug}
-          cost={UNLOCK_COST.category}
+          cost={catCost}
           loggedIn={access.loggedIn}
           balance={access.balance}
           locale={locale}
+          title={`Общие наблюдения из всех ${cat.apps.length} приложений`}
         />
       ) : (
         (summary || ideas.length > 0) && (

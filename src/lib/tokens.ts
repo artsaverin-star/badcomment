@@ -1,10 +1,22 @@
 import { prisma } from "./prisma";
-import { UNLOCK_COST, type UnlockType } from "./tokenConfig";
+import { UNLOCK_COST, CATEGORY_MIN_PRICE, type UnlockType } from "./tokenConfig";
 import { categoryMembers } from "./bundles";
 
 export type UnlockResult =
   | { ok: true; already: boolean; balance: number }
   | { ok: false; reason: "auth" | "funds"; balance: number; needed: number };
+
+// Dynamic category-bundle price: base cost minus the value of the apps/ideas in
+// the genre the user already unlocked individually (never pay twice), floored at
+// CATEGORY_MIN_PRICE (the bundle still opens the remaining ideas + synthesis).
+export async function categoryPrice(userId: string, slug: string): Promise<number> {
+  const { apps, ideas } = categoryMembers(slug);
+  const sets = await getUnlockSets(userId);
+  let credit = 0;
+  for (const a of apps) if (sets.app.has(a)) credit += UNLOCK_COST.app;
+  for (const i of ideas) if (sets.idea.has(i)) credit += UNLOCK_COST.idea;
+  return Math.max(CATEGORY_MIN_PRICE, UNLOCK_COST.category - credit);
+}
 
 // Credit tokens (signup grant, pack purchase, comp). Append-only ledger row.
 export async function grantTokens(
@@ -42,7 +54,7 @@ export async function getUnlockSets(userId: string): Promise<Record<UnlockType, 
 // unlock is a bundle — it also writes (cost 0) rows for every app/idea in the
 // genre, so later access checks are a plain set lookup.
 export async function unlockItem(userId: string, type: UnlockType, slug: string): Promise<UnlockResult> {
-  const cost = UNLOCK_COST[type];
+  const cost = type === "category" ? await categoryPrice(userId, slug) : UNLOCK_COST[type];
 
   // Already owned? (free, idempotent)
   const existing = await prisma.unlock.findUnique({

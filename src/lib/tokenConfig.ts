@@ -15,6 +15,11 @@ export const UNLOCK_COST: Record<UnlockType, number> = {
   category: 50,
 };
 
+// A category bundle is priced dynamically: its base cost minus the value of the
+// apps/ideas in it the viewer already owns (so you never pay twice), floored at
+// CATEGORY_MIN — because the bundle still opens the remaining ideas + synthesis.
+export const CATEGORY_MIN_PRICE = 10;
+
 export type TokenPack = {
   id: string;
   tokens: number;
