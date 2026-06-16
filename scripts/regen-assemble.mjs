@@ -25,7 +25,7 @@ const THEME_LABEL = {
   support: "Поддержка и аккаунт",
   strategy: "Стратегия и сегменты",
 };
-const HYGIENE = new Set(["payment", "support"]);
+const HYGIENE = new Set(["payment", "reliability"]);
 
 const seg = J(path.join(ROOT, "src/data/segment-insights.json"));
 const ideas = J(path.join(ROOT, "src/data/ideas.json"));

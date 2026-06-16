@@ -6,7 +6,7 @@ import InsightCard from "@/components/InsightCard";
 
 // Pure money/account hygiene stays collapsed; reliability is product-relevant
 // (a broken core feature is an insight), so it surfaces as a card.
-const HYGIENE: Theme[] = ["payment", "support"];
+const HYGIENE: Theme[] = ["payment", "reliability"];
 
 // Only the store-level header fields are needed to render the long-read, so the
 // component takes this narrow slice — a full ProductDetail satisfies it, and so

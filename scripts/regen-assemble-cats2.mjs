@@ -21,7 +21,7 @@ const THEME_LABEL = {
   ui: "Интерфейс и навигация", reliability: "Стабильность и устройства", support: "Поддержка и аккаунт",
   strategy: "Стратегия и сегменты",
 };
-const HYGIENE = new Set(["payment", "support"]);
+const HYGIENE = new Set(["payment", "reliability"]);
 const clean = (s) => (typeof s === "string" && s.trim() ? s.trim() : undefined);
 
 const categories = J("src/data/categories.json");
@@ -81,6 +81,16 @@ for (const slug of Object.keys(seg)) {
       for (const e of o.evidence) ev.push({ ...e, app: o.app });
     }
     ev.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    // Dedupe quotes; keep up to 40 so the modal is rich and scrollable.
+    const seen = new Set();
+    const evidence = [];
+    for (const e of ev) {
+      const key = (e.quoteRu || e.quote || "").trim();
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      evidence.push(e);
+      if (evidence.length >= 40) break;
+    }
     const topTheme = Object.entries(themes).sort((a, b) => b[1] - a[1])[0]?.[0];
     const card = {
       title: clean(c.title) || "",
@@ -89,10 +99,12 @@ for (const slug of Object.keys(seg)) {
       count: count || ids.length,
       apps: [...apps].slice(0, 3),
       kicker: topTheme ? THEME_LABEL[topTheme] : undefined,
-      evidence: ev.slice(0, 5),
+      evidence,
     };
-    // Billing/account clusters → collapsed «База», не в продуктовые.
-    (HYGIENE.has(topTheme) ? hygiene : product).push(card);
+    // Route to «База» only if the agent marked it base (pure billing complaint
+    // or a bug/crash/data-loss). Fallback to theme when kind is missing.
+    const isBase = c.kind === "base" || (!c.kind && HYGIENE.has(topTheme));
+    (isBase ? hygiene : product).push(card);
   }
   if (!product.length) {
     miss++;

@@ -9,7 +9,7 @@ import InsightCard from "./InsightCard";
 // what users praise/hate + a «N наблюдений» button → verbatim reviews). Prefers
 // the regenerated overlay; falls back to the original synthesis split by theme.
 
-const HYGIENE: Theme[] = ["payment", "support"];
+const HYGIENE: Theme[] = ["payment", "reliability"];
 const PRODUCT_ORDER: Theme[] = ["strategy", "content", "ui", "playback", "reliability"];
 const rank = (theme: Theme) => {
   const i = PRODUCT_ORDER.indexOf(theme);
