@@ -77,12 +77,6 @@ export default function InsightLanding({
     .filter(Boolean)
     .join(" · ");
 
-  const stat = [
-    data.avgRating != null ? `★ ${data.avgRating.toFixed(1)}` : null,
-    data.installs != null ? tr.marketDash.mInstalls(formatCount(data.installs)) : null,
-    data.ratingCount != null ? tr.product.ratingsScale(formatCount(data.ratingCount)) : null,
-  ].filter(Boolean);
-
   const ordered = insights.insights ?? [];
   const all = [...ordered].sort((a, b) => obsOf(b) - obsOf(a));
   const kickerOf = (i: Insight) => i.group?.name ?? (i.theme ? THEME_LABEL[i.theme] : undefined);
@@ -103,45 +97,68 @@ export default function InsightLanding({
     : all.filter((i) => i.theme && HYGIENE.includes(i.theme)).map(fallback);
   const hygieneTotal = hygiene.reduce((s, c) => s + c.count, 0);
 
+  // Rating summary: average + count (fall back to histogram when the store
+  // detail is missing).
+  const histTotal = [1, 2, 3, 4, 5].reduce((s, n) => s + (insights.ratingBreakdown[String(n)] ?? 0), 0);
+  const histAvg =
+    histTotal > 0
+      ? [1, 2, 3, 4, 5].reduce((s, n) => s + n * (insights.ratingBreakdown[String(n)] ?? 0), 0) / histTotal
+      : 0;
+  const avgRating = data.avgRating ?? (histAvg || null);
+  const ratingCount = data.ratingCount ?? (histTotal || null);
+
   return (
     <>
-      <header className="flex flex-col gap-5">
-        <div className="flex items-center gap-4">
-          {data.icon ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={data.icon} alt="" className="h-14 w-14 shrink-0 rounded-[var(--radius-lg)]" />
-          ) : null}
-          <h1 className="text-[32px] font-bold leading-[1.05] tracking-tight text-[var(--color-text-primary)] sm:text-[42px]">
-            {data.name}
-          </h1>
-        </div>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-footnote text-[var(--color-text-secondary)]">
+      <header className="flex flex-col items-center gap-5 text-center">
+        {data.icon ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={data.icon} alt="" className="size-20 shrink-0 rounded-[22px] shadow-[0_12px_36px_-12px_rgba(0,0,0,0.6)]" />
+        ) : null}
+        <h1 className="text-[40px] font-bold leading-[1.02] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[56px]">
+          {data.name}
+        </h1>
+        <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-footnote text-[var(--color-text-secondary)]">
           <span>{metaLine}</span>
-          {stat.map((e, i) => (
-            <span key={i} className="tabular-nums text-[var(--color-text-tertiary)]">
-              · {e}
-            </span>
-          ))}
+          {data.installs != null && (
+            <span className="tabular-nums text-[var(--color-text-tertiary)]">· {tr.marketDash.mInstalls(formatCount(data.installs))}</span>
+          )}
         </div>
 
         {!locked && (
           <>
-            <p className="max-w-[60ch] text-lead text-[var(--color-text-secondary)]">
+            <p className="mx-auto max-w-[58ch] text-lead leading-relaxed text-[var(--color-text-secondary)]">
               Прочитали <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов и
               собрали <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> повторяющихся наблюдений — то, что
               пользователи отмечают сами.
             </p>
 
-            <div className="mt-2 max-w-md">
-              <Histogram hist={insights.ratingBreakdown} />
+            {/* Rating: big average + histogram on one level */}
+            <div className="mx-auto flex w-full max-w-xl flex-col items-stretch gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 sm:flex-row">
+              {avgRating != null && (
+                <div className="flex shrink-0 flex-col items-center justify-center gap-1 sm:border-r sm:border-[var(--color-border-subtle)] sm:pr-5">
+                  <div className="text-[44px] font-bold leading-none tabular-nums text-[var(--color-text-primary)]">
+                    {avgRating.toFixed(1)}
+                  </div>
+                  <div className="tabular-nums tracking-tight text-[#f5b301]">
+                    {"★".repeat(Math.round(avgRating))}
+                    {"☆".repeat(Math.max(0, 5 - Math.round(avgRating)))}
+                  </div>
+                  {ratingCount != null && (
+                    <div className="text-caption text-[var(--color-text-tertiary)]">{formatCount(ratingCount)} оценок</div>
+                  )}
+                </div>
+              )}
+              <div className="flex-1">
+                <Histogram hist={insights.ratingBreakdown} />
+              </div>
             </div>
           </>
         )}
       </header>
 
       {!locked && data.screenshots.length > 0 && (
-        <div className="-mx-6 mt-10 overflow-x-auto px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="flex gap-3">
+        <div className="-mx-4 mt-12 overflow-x-auto px-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mx-6 sm:px-6">
+          <div className="mx-auto flex w-max gap-4">
             {data.screenshots.map((src, i) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -150,7 +167,7 @@ export default function InsightLanding({
                 alt=""
                 loading="lazy"
                 decoding="async"
-                className="h-64 w-auto shrink-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] object-cover"
+                className="h-[440px] w-auto shrink-0 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] object-cover"
               />
             ))}
           </div>

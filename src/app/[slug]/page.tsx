@@ -72,7 +72,7 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
   const locked = !access.has("app", slug);
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-12 sm:py-16">
+    <main className="mx-auto w-full max-w-4xl px-6 py-12 sm:py-16">
       <nav className="mb-4 flex flex-wrap items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)]">
         <Link href="/" className="transition-colors hover:text-[var(--color-text-primary)]">
           {locale === "en" ? "Catalog" : "Каталог"}
