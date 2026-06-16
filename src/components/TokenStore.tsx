@@ -117,27 +117,14 @@ export default function TokenStore({
 
   return (
     <div className="flex flex-col gap-8">
-      {/* Balance + what costs what */}
-      <div className="flex flex-col items-center gap-4">
-        <div className="text-center">
+      {/* Balance plate */}
+      <div className="flex justify-center">
+        <span className="inline-flex items-center gap-2.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] px-5 py-2.5">
           <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">Баланс</span>
-          <div className="text-[34px] font-bold tabular-nums leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">
+          <span className="text-[20px] font-bold tabular-nums leading-none tracking-[-0.01em] text-[var(--color-text-primary)]">
             ⚡ {loggedIn ? balance : 0}
-          </div>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] px-5 py-2.5">
-          {[
-            { icon: "📱", l: "Приложение", c: UNLOCK_COST.app },
-            { icon: "💡", l: "Идея", c: UNLOCK_COST.idea },
-            { icon: "🗂", l: "Категория", c: UNLOCK_COST.category },
-          ].map((x) => (
-            <span key={x.l} className="flex items-center gap-1.5 text-footnote text-[var(--color-text-secondary)]">
-              <span>{x.icon}</span>
-              {x.l}
-              <span className="font-bold tabular-nums text-[var(--color-text-brand)]">{x.c} ⚡</span>
-            </span>
-          ))}
-        </div>
+          </span>
+        </span>
       </div>
 
       {/* Pricing cards */}
@@ -189,7 +176,7 @@ export default function TokenStore({
               ))}
             </ul>
 
-            <div className="mt-6 flex flex-col gap-2.5">
+            <div className="mt-6 flex flex-col gap-2">
               <button
                 type="button"
                 onClick={() => (cardEnabled ? buyCard({ ...s.body, method: "bank_card" }, `${s.id}c`) : setAuth(true))}
@@ -198,25 +185,31 @@ export default function TokenStore({
               >
                 {busy === `${s.id}c` ? "…" : "Купить картой"}
               </button>
-              <div className="flex items-center justify-center gap-3 text-footnote font-medium text-[var(--color-text-secondary)]">
+              <div className="flex gap-2">
                 {cardEnabled && (
                   <button
                     type="button"
                     onClick={() => buyCard({ ...s.body, method: "sbp" }, `${s.id}s`)}
                     disabled={busy === `${s.id}s`}
-                    className="transition-colors hover:text-[var(--color-text-primary)]"
+                    className="flex-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
                   >
-                    СБП
+                    {busy === `${s.id}s` ? "…" : "СБП"}
                   </button>
                 )}
-                {cardEnabled && <span className="text-[var(--color-border-strong)]">·</span>}
                 {loggedIn ? (
-                  <a href={s.starsHref} className="transition-colors hover:text-[var(--color-text-primary)]">
-                    {s.stars} ⭐ Telegram Stars
+                  <a
+                    href={s.starsHref}
+                    className="flex flex-1 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                  >
+                    ⭐ {s.stars} Stars
                   </a>
                 ) : (
-                  <button type="button" onClick={() => setAuth(true)} className="transition-colors hover:text-[var(--color-text-primary)]">
-                    {s.stars} ⭐ Telegram Stars
+                  <button
+                    type="button"
+                    onClick={() => setAuth(true)}
+                    className="flex-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                  >
+                    ⭐ {s.stars} Stars
                   </button>
                 )}
               </div>
