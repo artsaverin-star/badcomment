@@ -26,13 +26,21 @@ function StepLabel({ n, title }: { n: number; title: string }) {
   );
 }
 
+function nablWord(n: number): string {
+  const d = n % 10, dd = n % 100;
+  if (dd >= 11 && dd <= 14) return "наблюдений";
+  if (d === 1) return "наблюдение";
+  if (d >= 2 && d <= 4) return "наблюдения";
+  return "наблюдений";
+}
+
 function Mechanism({ obsCount, title, apps }: { obsCount: number; title: string; apps: string[] }) {
   return (
-    <div className="flex items-baseline gap-3.5 border-b border-[var(--color-border-subtle)] py-3.5 last:border-0">
-      <span className="shrink-0 text-[17px] font-bold tabular-nums text-[var(--color-text-brand)]">{obsCount}</span>
-      <div className="min-w-0">
-        <div className="text-[15px] font-medium leading-snug text-[var(--color-text-primary)]">{title}</div>
-        <div className="mt-0.5 text-[11.5px] text-[var(--color-text-tertiary)]">{apps.join(" · ")}</div>
+    <div className="border-b border-[var(--color-border-subtle)] py-3.5 text-center last:border-0">
+      <div className="text-[15px] font-medium leading-snug text-[var(--color-text-primary)]">{title}</div>
+      <div className="mt-1 text-[11.5px] text-[var(--color-text-tertiary)]">
+        {obsCount} {nablWord(obsCount)}
+        {apps.length > 0 && <> · {apps.join(" · ")}</>}
       </div>
     </div>
   );
