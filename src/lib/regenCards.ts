@@ -20,10 +20,10 @@ export type RegenCard = {
 export type RegenSet = { product: RegenCard[]; hygiene: RegenCard[] };
 
 export function categoryCards(slug: string): RegenSet | null {
-  return (segCards as Record<string, RegenSet>)[slug] ?? null;
+  return (segCards as unknown as Record<string, RegenSet>)[slug] ?? null;
 }
 export function appCardsFor(productId: string): RegenSet | null {
-  return (appCards as Record<string, RegenSet>)[productId] ?? null;
+  return (appCards as unknown as Record<string, RegenSet>)[productId] ?? null;
 }
 export function ideaCard(slug: string): { title?: string; oneLiner?: string } | null {
   return (ideaCards as Record<string, { title?: string; oneLiner?: string }>)[slug] ?? null;
