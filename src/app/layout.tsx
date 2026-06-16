@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import Script from "next/script";
 import { Inter, Nunito } from "next/font/google";
 import "@saverin/tokens/css";
 import "./globals.css";
@@ -56,6 +57,14 @@ export default async function RootLayout({
           appsLabel={locale === "en" ? "Apps" : "Приложения"}
           ideasLabel={tr.nav.ideas}
           searchLabel={locale === "en" ? "Search" : "Поиск"}
+        />
+        {/* DataFast privacy-friendly analytics */}
+        <Script
+          defer
+          data-website-id="dfid_PVKv8dyF6ckAxf79RiAsf"
+          data-domain="inapp.pro"
+          src="https://datafa.st/js/script.js"
+          strategy="afterInteractive"
         />
       </body>
     </html>
