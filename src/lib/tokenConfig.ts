@@ -38,7 +38,7 @@ export const TOKEN_PACKS: TokenPack[] = [
 
 // One-time "everything forever" SKU: unlocks all apps, ideas and categories
 // permanently (User.lifetime). ≈ half the à-la-carte price of buying everything.
-export const LIFETIME = { rub: 10000, stars: 5000 };
+export const LIFETIME = { rub: 9990, stars: 5000 };
 
 export function getPack(id: string): TokenPack | null {
   return TOKEN_PACKS.find((p) => p.id === id) ?? null;
