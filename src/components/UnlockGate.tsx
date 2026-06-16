@@ -6,11 +6,17 @@ import AuthModal from "./AuthModal";
 import { tokensWord, type UnlockType, SIGNUP_GRANT } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
-const NOUN: Record<UnlockType, string> = { app: "разбор приложения", idea: "идею", category: "категорию целиком" };
-const WHAT: Record<UnlockType, string> = {
+const NOUN_RU: Record<UnlockType, string> = { app: "разбор приложения", idea: "идею", category: "категорию целиком" };
+const NOUN_EN: Record<UnlockType, string> = { app: "the app breakdown", idea: "the idea", category: "the whole category" };
+const WHAT_RU: Record<UnlockType, string> = {
   app: "Полный разбор всех отзывов этого приложения.",
   idea: "Готовая идея: отзывы → механики → возможность → продукт.",
   category: "Весь жанр сразу — синтез, все приложения и все идеи внутри.",
+};
+const WHAT_EN: Record<UnlockType, string> = {
+  app: "The full breakdown of every review for this app.",
+  idea: "A ready idea: reviews → mechanics → opportunity → product.",
+  category: "The whole genre at once — synthesis, every app and every idea inside.",
 };
 
 // Deterministic «starfield» — computed once at module load so server and client
@@ -65,6 +71,9 @@ export default function UnlockGate({
   const [auth, setAuth] = useState(false);
   const [phase, setPhase] = useState<"idle" | "working" | "reveal" | "error">("idle");
   const short = loggedIn && balance < cost;
+  const ru = locale !== "en";
+  const NOUN = ru ? NOUN_RU : NOUN_EN;
+  const WHAT = ru ? WHAT_RU : WHAT_EN;
 
   async function unlock() {
     if (!loggedIn) {
@@ -162,14 +171,14 @@ export default function UnlockGate({
             className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] px-7 py-3.5 text-[17px] font-semibold text-[var(--color-text-primary)] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all hover:scale-[1.03] hover:border-[var(--color-text-brand)] disabled:opacity-60"
           >
             {phase === "working" ? (
-              "Открываем…"
+              ru ? "Открываем…" : "Unlocking…"
             ) : !loggedIn ? (
-              "Войти и открыть"
+              ru ? "Войти и открыть" : "Sign in to unlock"
             ) : short ? (
-              "Пополнить энергию"
+              ru ? "Пополнить энергию" : "Top up energy"
             ) : (
               <>
-                Раскрыть за
+                {ru ? "Раскрыть за" : "Unlock for"}
                 <Bolt className="text-[var(--color-text-brand)]" />
                 <span className="tabular-nums">{cost}</span>
               </>
@@ -177,28 +186,26 @@ export default function UnlockGate({
           </button>
 
           <p className="max-w-xs text-footnote text-[var(--color-text-secondary)]">
-            {NOUN[type] === "идею" ? WHAT[type] : `Открыть ${NOUN[type]}. ${WHAT[type]}`}
+            {type === "idea" ? WHAT[type] : ru ? `Открыть ${NOUN[type]}. ${WHAT[type]}` : `Unlock ${NOUN[type]}. ${WHAT[type]}`}
           </p>
 
           {loggedIn ? (
             <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
-              {short ? (
-                <>
-                  Не хватает {cost - balance} {tokensWord(cost - balance)} · у тебя {balance}
-                </>
-              ) : (
-                <>
-                  Спишется {cost} из {balance} · навсегда
-                </>
-              )}
+              {short
+                ? ru
+                  ? `Не хватает ${cost - balance} ${tokensWord(cost - balance)} · у тебя ${balance}`
+                  : `Need ${cost - balance} more · you have ${balance}`
+                : ru
+                  ? `Спишется ${cost} из ${balance} · навсегда`
+                  : `Spends ${cost} of ${balance} · forever`}
             </p>
           ) : (
             <p className="text-caption text-[var(--color-text-tertiary)]">
-              За регистрацию дарим {SIGNUP_GRANT} {tokensWord(SIGNUP_GRANT)}
+              {ru ? `За регистрацию дарим ${SIGNUP_GRANT} ${tokensWord(SIGNUP_GRANT)}` : `Get ${SIGNUP_GRANT} energy free on signup`}
             </p>
           )}
 
-          {phase === "error" && <p className="text-caption text-[#ff6b6b]">Не получилось. Попробуй ещё раз.</p>}
+          {phase === "error" && <p className="text-caption text-[#ff6b6b]">{ru ? "Не получилось. Попробуй ещё раз." : "Something went wrong. Try again."}</p>}
         </div>
       </div>
 

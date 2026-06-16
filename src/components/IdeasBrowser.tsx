@@ -82,7 +82,7 @@ function Bolt() {
 // A locked idea card: TG-style shimmer blur + an in-place «Раскрыть за ⚡N» pill
 // that spends tokens right here (no detour to a second purchase screen) and
 // reveals the card via router.refresh().
-function LockedIdeaCard({ idea, loggedIn, onAuth }: { idea: IdeaCard; loggedIn: boolean; onAuth: () => void }) {
+function LockedIdeaCard({ idea, loggedIn, onAuth, ru }: { idea: IdeaCard; loggedIn: boolean; onAuth: () => void; ru: boolean }) {
   const router = useRouter();
   const [phase, setPhase] = useState<"idle" | "working" | "reveal">("idle");
   const cost = idea.cost ?? 10;
@@ -158,23 +158,23 @@ function LockedIdeaCard({ idea, loggedIn, onAuth }: { idea: IdeaCard; loggedIn: 
             className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] px-4 py-2.5 text-callout font-semibold text-[var(--color-text-primary)] backdrop-blur-md transition-all hover:scale-[1.03] hover:border-[var(--color-text-brand)] disabled:opacity-60"
           >
             {phase === "working" ? (
-              "Открываем…"
+              ru ? "Открываем…" : "Unlocking…"
             ) : !loggedIn ? (
-              "Войти и раскрыть"
+              ru ? "Войти и раскрыть" : "Sign in to unlock"
             ) : (
               <>
-                Раскрыть за
+                {ru ? "Раскрыть за" : "Unlock for"}
                 <span className="inline-flex items-center gap-0.5 text-[var(--color-text-brand)]">
                   <Bolt /> {cost}
                 </span>
               </>
             )}
           </button>
-          <p className="text-footnote text-[var(--color-text-tertiary)]">Название и суть идеи — после разблокировки</p>
+          <p className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Название и суть идеи — после разблокировки" : "Name and gist — after unlocking"}</p>
         </div>
         <div className="text-caption text-[var(--color-text-tertiary)]">
-          {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
-          {idea.stats.observations.toLocaleString("ru-RU")} наблюдений
+          {idea.stats.apps} {ru?"приложений":"apps"} · {idea.stats.reviews.toLocaleString(ru?"ru-RU":"en-US")} {ru?"отзывов":"reviews"} ·{" "}
+          {idea.stats.observations.toLocaleString(ru?"ru-RU":"en-US")} {ru?"наблюдений":"observations"}
         </div>
       </div>
     </div>
@@ -193,6 +193,7 @@ export default function IdeasBrowser({
   locale?: Locale;
 }) {
   const router = useRouter();
+  const ru = locale !== "en";
   const [domain, setDomain] = useState("all");
   const [open, setOpen] = useState(false);
   const [auth, setAuth] = useState(false);
@@ -203,7 +204,7 @@ export default function IdeasBrowser({
     return [...m.entries()];
   }, [ideas]);
 
-  const currentLabel = domain === "all" ? "Все категории" : domains.find(([s]) => s === domain)?.[1] ?? "Все категории";
+  const currentLabel = domain === "all" ? (ru ? "Все категории" : "All categories") : domains.find(([s]) => s === domain)?.[1] ?? (ru ? "Все категории" : "All categories");
 
   // All ideas are listed; opening one leads to the per-idea unlock gate.
   const filtered = ideas.filter((i) => domain === "all" || i.domain === domain);
@@ -229,7 +230,7 @@ export default function IdeasBrowser({
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M2 4h12M4.5 8h7M6.5 12h3" />
           </svg>
-          Фильтры
+          {ru ? "Фильтры" : "Filters"}
           <span className="text-[var(--color-text-tertiary)]">· {currentLabel}</span>
           <svg
             width="13"
@@ -257,7 +258,7 @@ export default function IdeasBrowser({
               }}
               className={pillClass(domain === "all")}
             >
-              Все
+              {ru ? "Все" : "All"}
             </button>
             {domains.map(([slug, name]) => (
               <button
@@ -278,12 +279,12 @@ export default function IdeasBrowser({
       </div>
 
       {filtered.length === 0 ? (
-        <p className="py-16 text-center text-callout text-[var(--color-text-tertiary)]">Ничего не найдено.</p>
+        <p className="py-16 text-center text-callout text-[var(--color-text-tertiary)]">{ru ? "Ничего не найдено." : "Nothing found."}</p>
       ) : (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {filtered.map((idea) =>
             idea.locked ? (
-              <LockedIdeaCard key={idea.slug} idea={idea} loggedIn={loggedIn} onAuth={() => setAuth(true)} />
+              <LockedIdeaCard key={idea.slug} idea={idea} loggedIn={loggedIn} onAuth={() => setAuth(true)} ru={ru} />
             ) : (
               <Link
                 key={idea.slug}
@@ -299,8 +300,8 @@ export default function IdeasBrowser({
                 </div>
                 <p className="text-callout text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
                 <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">
-                  {idea.stats.apps} приложений · {idea.stats.reviews.toLocaleString("ru-RU")} отзывов ·{" "}
-                  {idea.stats.observations.toLocaleString("ru-RU")} наблюдений
+                  {idea.stats.apps} {ru?"приложений":"apps"} · {idea.stats.reviews.toLocaleString(ru?"ru-RU":"en-US")} {ru?"отзывов":"reviews"} ·{" "}
+                  {idea.stats.observations.toLocaleString(ru?"ru-RU":"en-US")} {ru?"наблюдений":"observations"}
                 </div>
               </Link>
             ),

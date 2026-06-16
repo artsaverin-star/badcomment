@@ -26,11 +26,12 @@ export default async function TokensPage() {
         size="L"
         as="h1"
         className="mb-3 items-center text-center"
-        title="Энергия"
+        title={locale === "en" ? "Energy" : "Энергия"}
         description={
           <span className="mx-auto block max-w-md">
-            Открывай разборы, идеи и целые категории за энергию. На старте дарим {SIGNUP_GRANT}{" "}
-            {tokensWord(SIGNUP_GRANT)}.
+            {locale === "en"
+              ? `Unlock breakdowns, ideas and whole categories with energy. ${SIGNUP_GRANT} free on signup.`
+              : `Открывай разборы, идеи и целые категории за энергию. На старте дарим ${SIGNUP_GRANT} ${tokensWord(SIGNUP_GRANT)}.`}
           </span>
         }
       />

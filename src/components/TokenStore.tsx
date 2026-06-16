@@ -31,6 +31,7 @@ export default function TokenStore({
   const [auth, setAuth] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [err, setErr] = useState<string | null>(null);
+  const ru = locale !== "en";
 
   const packStars = (id: string) => `${botStart}buy_${uid ? `${uid}_` : ""}${id}`;
   const lifeStars = `${botStart}life_${uid}`;
@@ -47,9 +48,9 @@ export default function TokenStore({
       });
       const d = await r.json().catch(() => ({}));
       if (r.ok && d.url) return window.location.assign(d.url);
-      setErr(d.error || "Не удалось создать платёж");
+      setErr(d.error || (ru ? "Не удалось создать платёж" : "Couldn't create payment"));
     } catch {
-      setErr("Сеть недоступна");
+      setErr(ru ? "Сеть недоступна" : "Network unavailable");
     } finally {
       setBusy(null);
     }
@@ -75,32 +76,38 @@ export default function TokenStore({
       const anchor = Math.round((p.tokens * BASE_RATE) / 10) * 10;
       return {
         id: p.id,
-        name: p.id === "s" ? "Старт" : p.id === "m" ? "Выгодный" : "Про",
+        name: p.id === "s" ? (ru?"Старт":"Starter") : p.id === "m" ? (ru?"Выгодный":"Value") : (ru?"Про":"Pro"),
         tokens: p.tokens,
         rub: p.rub,
         stars: p.stars,
         anchor: anchor > p.rub ? anchor : undefined,
         badge: p.badge,
         popular: p.id === "l",
-        features: [
-          `до ${Math.floor(p.tokens / UNLOCK_COST.category)} категорий целиком`,
-          `или ${Math.floor(p.tokens / UNLOCK_COST.idea)} идей`,
-          `или ${Math.floor(p.tokens / UNLOCK_COST.app)} приложений`,
-        ],
+        features: ru
+          ? [
+              `до ${Math.floor(p.tokens / UNLOCK_COST.category)} категорий целиком`,
+              `или ${Math.floor(p.tokens / UNLOCK_COST.idea)} идей`,
+              `или ${Math.floor(p.tokens / UNLOCK_COST.app)} приложений`,
+            ]
+          : [
+              `up to ${Math.floor(p.tokens / UNLOCK_COST.category)} full categories`,
+              `or ${Math.floor(p.tokens / UNLOCK_COST.idea)} ideas`,
+              `or ${Math.floor(p.tokens / UNLOCK_COST.app)} apps`,
+            ],
         body: { pack: p.id },
         starsHref: packStars(p.id),
       };
     }),
     {
       id: "life",
-      name: "Навсегда",
+      name: ru ? "Навсегда" : "Forever",
       tokens: null,
       rub: LIFETIME.rub,
       stars: LIFETIME.stars,
       anchor: 17000,
-      badge: "всё включено",
+      badge: ru ? "всё включено" : "all included",
       hero: true,
-      features: ["Все категории, идеи и приложения", "Без энергии и ограничений", "Один раз — навсегда"],
+      features: ru ? ["Все категории, идеи и приложения", "Без энергии и ограничений", "Один раз — навсегда"] : ["All categories, ideas and apps", "No energy, no limits", "One time — forever"],
       body: { kind: "lifetime" },
       starsHref: lifeStars,
     },
@@ -109,8 +116,8 @@ export default function TokenStore({
   if (unlimited) {
     return (
       <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-8 text-center">
-        <p className="text-lead font-semibold text-[var(--color-text-primary)]">⭐ Полный доступ — энергия не нужна</p>
-        <p className="mt-2 text-callout text-[var(--color-text-secondary)]">У тебя открыты все приложения, идеи и категории.</p>
+        <p className="text-lead font-semibold text-[var(--color-text-primary)]">{ru ? "⭐ Полный доступ — энергия не нужна" : "⭐ Full access — no energy needed"}</p>
+        <p className="mt-2 text-callout text-[var(--color-text-secondary)]">{ru ? "У тебя открыты все приложения, идеи и категории." : "You have every app, idea and category unlocked."}</p>
       </div>
     );
   }
@@ -120,7 +127,7 @@ export default function TokenStore({
       {/* Balance plate */}
       <div className="flex justify-center">
         <span className="inline-flex items-center gap-2.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] px-5 py-2.5">
-          <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">Баланс</span>
+          <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Баланс" : "Balance"}</span>
           <span className="text-[20px] font-bold tabular-nums leading-none tracking-[-0.01em] text-[var(--color-text-primary)]">
             ⚡ {loggedIn ? balance : 0}
           </span>
@@ -142,7 +149,7 @@ export default function TokenStore({
           >
             {(s.popular || s.hero) && (
               <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-[var(--color-accent-brand)] px-3 py-0.5 text-[11px] font-bold text-white">
-                {s.hero ? "Лучшая цена" : "Популярный"}
+                {s.hero ? (ru?"Лучшая цена":"Best price") : (ru?"Популярный":"Popular")}
               </span>
             )}
 
@@ -164,7 +171,7 @@ export default function TokenStore({
               </span>
             </div>
             <div className="mt-2 whitespace-nowrap text-callout font-semibold text-[var(--color-text-brand)]">
-              {s.tokens != null ? `⚡ ${s.tokens} ${tokensWord(s.tokens)}` : "♾️ Навсегда"}
+              {s.tokens != null ? `⚡ ${s.tokens} ${ru ? tokensWord(s.tokens) : "energy"}` : ru ? "♾️ Навсегда" : "♾️ Forever"}
             </div>
 
             <ul className="mt-5 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-5">
@@ -185,7 +192,7 @@ export default function TokenStore({
                 disabled={busy === `${s.id}c`}
                 className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-footnote font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
               >
-                {busy === `${s.id}c` ? "…" : "Купить картой РФ"}
+                {busy === `${s.id}c` ? "…" : (ru ? "Купить картой РФ" : "Pay by card (RU)")}
               </button>
               {cardEnabled && (
                 <button
@@ -194,7 +201,7 @@ export default function TokenStore({
                   disabled={busy === `${s.id}s`}
                   className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
                 >
-                  {busy === `${s.id}s` ? "…" : "Оплатить через СБП"}
+                  {busy === `${s.id}s` ? "…" : (ru ? "Оплатить через СБП" : "Pay via SBP")}
                 </button>
               )}
               {loggedIn ? (
@@ -221,7 +228,7 @@ export default function TokenStore({
       {err && <p className="text-center text-caption text-[#ff6b6b]">{err}</p>}
       {!cardEnabled && (
         <p className="text-center text-caption text-[var(--color-text-tertiary)]">
-          Оплата картой скоро — пока доступны Telegram Stars.
+          {ru ? "Оплата картой скоро — пока доступны Telegram Stars." : "Card payments coming soon — Telegram Stars available now."}
         </p>
       )}
 

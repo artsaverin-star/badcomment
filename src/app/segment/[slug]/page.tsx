@@ -143,13 +143,17 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           loggedIn={access.loggedIn}
           balance={access.balance}
           locale={locale}
-          title={`Все ${cat.apps.length} приложений, идеи и общий разбор категории`}
+          title={
+            locale === "en"
+              ? `All ${cat.apps.length} apps, ideas and the category overview`
+              : `Все ${cat.apps.length} приложений, идеи и общий разбор категории`
+          }
         />
       ) : (
         (summary || ideas.length > 0) && (
           <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
             <SegmentTabs
-              summary={summary ? <SegmentSummaryView summary={summary} cards={categoryCards(slug)} embedded /> : null}
+              summary={summary ? <SegmentSummaryView summary={summary} cards={categoryCards(slug, locale)} embedded /> : null}
               ideas={ideas.length > 0 ? <CategoryIdeas ideas={ideas} /> : null}
               ideasCount={ideas.length}
             />

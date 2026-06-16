@@ -65,6 +65,7 @@ export default function InsightLanding({
   locked = false,
   gate,
   cards,
+  locale = "ru",
 }: {
   data: LandingProduct;
   insights: ProductInsights;
@@ -72,7 +73,9 @@ export default function InsightLanding({
   locked?: boolean;
   gate?: React.ReactNode;
   cards?: import("@/lib/regenCards").RegenSet | null;
+  locale?: import("@/lib/i18n").Locale;
 }) {
+  const ru = locale !== "en";
   const metaLine = [data.developer, data.stores.map((st) => STORE_LABEL[st]).join(" + ")]
     .filter(Boolean)
     .join(" · ");
@@ -133,9 +136,19 @@ export default function InsightLanding({
         {!locked && (
           <>
             <p className="mx-auto max-w-[58ch] text-lead leading-relaxed text-[var(--color-text-secondary)]">
-              Прочитали <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов и
-              собрали <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> повторяющихся наблюдений — то, что
-              пользователи отмечают сами.
+              {ru ? (
+                <>
+                  Прочитали <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> отзывов и
+                  собрали <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> повторяющихся наблюдений — то, что
+                  пользователи отмечают сами.
+                </>
+              ) : (
+                <>
+                  Read <span className="tabular-nums text-[var(--color-text-primary)]">{formatCount(insights.reviewsScanned)}</span> reviews and
+                  distilled <span className="tabular-nums text-[var(--color-text-primary)]">{all.length}</span> recurring observations — what
+                  users point out themselves.
+                </>
+              )}
             </p>
 
             {/* Rating: big average + histogram on one level */}
@@ -150,7 +163,7 @@ export default function InsightLanding({
                     {"☆".repeat(Math.max(0, 5 - Math.round(avgRating)))}
                   </div>
                   {ratingCount != null && (
-                    <div className="text-caption text-[var(--color-text-tertiary)]">{formatCount(ratingCount)} оценок</div>
+                    <div className="text-caption text-[var(--color-text-tertiary)]">{formatCount(ratingCount)} {ru ? "оценок" : "ratings"}</div>
                   )}
                 </div>
               )}
@@ -204,11 +217,9 @@ export default function InsightLanding({
             <details className="no-anim group/hyg mt-4 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)]">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden">
                 <span className="flex flex-col">
-                  <span className="text-callout font-semibold text-[var(--color-text-primary)]">
-                    База: оплата, стабильность, аккаунт
-                  </span>
+                  <span className="text-callout font-semibold text-[var(--color-text-primary)]">{ru ? "База: оплата, стабильность, аккаунт" : "Basics: billing, stability, account"}</span>
                   <span className="text-caption text-[var(--color-text-tertiary)]">
-                    Базовая гигиена — {hygieneTotal} наблюдений
+                    {ru ? "Базовая гигиена" : "Housekeeping"} — {hygieneTotal} {ru ? "наблюдений" : "observations"}
                   </span>
                 </span>
                 <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/hyg:rotate-180">

@@ -27,7 +27,7 @@ export default async function Home() {
   const ideas = listIdeas()
     .slice(0, 10)
     .map((i) => {
-      const ov = ideaCard(i.slug);
+      const ov = ideaCard(i.slug, locale);
       return {
         title: ov?.title ?? i.title,
         slug: i.slug,

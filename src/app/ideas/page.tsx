@@ -19,22 +19,26 @@ export default async function IdeasPage() {
   const all = listIdeas();
   const access = await getAccess();
 
-  // category slug → its top-level domain, for the icon filter pills.
+  // category slug → its top-level domain (for icon pills) + localized category name.
   const catToDomain = new Map<string, { slug: string; name: string }>();
+  const catName = new Map<string, string>();
   for (const d of listDomains(locale)) {
-    for (const c of d.categories) catToDomain.set(c.slug, { slug: d.slug, name: d.name });
+    for (const c of d.categories) {
+      catToDomain.set(c.slug, { slug: d.slug, name: d.name });
+      catName.set(c.slug, c.name);
+    }
   }
 
   // The idea's name + pitch are the paid part: for locked ideas we keep the
   // category + stats (the teaser) but never ship the title/oneLiner to the client.
   const ideas: IdeaCard[] = all.map((i) => {
     const dom = catToDomain.get(i.category);
-    const ov = ideaCard(i.slug);
+    const ov = ideaCard(i.slug, locale);
     const locked = !access.has("idea", i.slug);
     return {
       slug: i.slug,
       category: i.category,
-      categoryName: i.categoryName,
+      categoryName: catName.get(i.category) ?? i.categoryName,
       domain: dom?.slug ?? "other",
       domainName: dom?.name ?? "Прочее",
       title: locked ? "" : ov?.title ?? i.title,

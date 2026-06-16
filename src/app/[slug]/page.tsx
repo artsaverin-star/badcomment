@@ -5,7 +5,7 @@ import { getProductIdBySlug } from "@/lib/appSlugs";
 import { isPublishable } from "@/lib/readyApps";
 import { getAppMetaByProductId, listDomains } from "@/lib/researchCategories";
 import { getAccess } from "@/lib/access";
-import { appCardsFor } from "@/lib/regenCards";
+import { appCardsFor, descriptionFor } from "@/lib/regenCards";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import UnlockGate from "@/components/UnlockGate";
 import { t } from "@/lib/i18n";
@@ -104,10 +104,11 @@ export default async function AppInsightsPage({ params }: { params: Promise<{ sl
       {insights ? (
         <InsightLanding
           data={data}
-          insights={insights}
+          insights={{ ...insights, description: descriptionFor(id, locale, insights.description) }}
           tr={tr}
+          locale={locale}
           locked={locked}
-          cards={appCardsFor(id)}
+          cards={appCardsFor(id, locale)}
           gate={
             <UnlockGate
               type="app"
