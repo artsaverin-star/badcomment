@@ -3,6 +3,7 @@ import { hasInsight } from "./readyApps";
 import { getSlugByProductId } from "./appSlugs";
 import { getProductInsights } from "./insights";
 import { isFreeCategory } from "./premium";
+import { isActiveCategory } from "./categoryVisibility";
 import segmentInsights from "@/data/segment-insights.json";
 import type { Locale } from "./i18n";
 import type { BrowseDomain, BrowseAppItem } from "@/components/CatalogBrowser";
@@ -18,10 +19,11 @@ export function getCatalogData(locale: Locale, premium: boolean): {
   totalReviews: number;
 } {
   const domainViews = listDomains(locale);
-  const domains: BrowseDomain[] = domainViews.map((d) => ({
+  const domains: BrowseDomain[] = domainViews
+    .map((d) => ({
     slug: d.slug,
     name: d.name,
-    categories: d.categories.map((c) => {
+    categories: d.categories.filter((c) => isActiveCategory(c.slug)).map((c) => {
       const live = LIVE.has(c.slug);
       return {
         slug: c.slug,
@@ -33,7 +35,8 @@ export function getCatalogData(locale: Locale, premium: boolean): {
         locked: live && !premium && !isFreeCategory(c.slug),
       };
     }),
-  }));
+    }))
+    .filter((d) => d.categories.length > 0);
 
   const freeProducts = new Set<string>();
   for (const d of domainViews) {
@@ -47,6 +50,7 @@ export function getCatalogData(locale: Locale, premium: boolean): {
   const seen = new Set<string>();
   for (const d of domainViews) {
     for (const c of d.categories) {
+      if (!isActiveCategory(c.slug)) continue;
       for (const a of c.apps) {
         if (!a.icon || seen.has(a.name)) continue;
         seen.add(a.name);

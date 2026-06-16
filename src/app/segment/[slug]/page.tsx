@@ -10,6 +10,7 @@ import SegmentSummaryView from "@/components/SegmentSummary";
 import SegmentAppList from "@/components/SegmentAppList";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import { categoryCards } from "@/lib/regenCards";
+import { isActiveCategory } from "@/lib/categoryVisibility";
 import SegmentTabs from "@/components/SegmentTabs";
 import CategoryIdeas from "@/components/CategoryIdeas";
 import { listIdeas } from "@/lib/ideas";
@@ -77,6 +78,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const locale = await getLocale();
   const tr = t(locale);
 
+  if (!isActiveCategory(slug)) notFound();
   const cat = getResearchCategory(slug, locale);
   if (!cat) notFound();
 
