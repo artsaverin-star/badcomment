@@ -124,6 +124,12 @@ export default function InsightLanding({
           )}
         </div>
 
+        {insights.description && (
+          <p className="mx-auto max-w-[56ch] text-callout leading-relaxed text-[var(--color-text-secondary)]">
+            {insights.description}
+          </p>
+        )}
+
         {!locked && (
           <>
             <p className="mx-auto max-w-[58ch] text-lead leading-relaxed text-[var(--color-text-secondary)]">

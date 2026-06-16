@@ -86,6 +86,7 @@ export type ProductInsights = {
   pipeline: string;
   asOf: string;
   sampleSize: number;
+  description?: string; // short "what this app is" line, shown under the title
   insights: Insight[];
   personaPatterns: PersonaPattern[];
   commodityBaseline: CommodityRow[];
