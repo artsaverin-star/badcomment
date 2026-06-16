@@ -18,15 +18,19 @@ const WHAT: Record<UnlockType, string> = {
 // scatters position, size, twinkle speed/phase and opacity range.
 const frac = (x: number) => x - Math.floor(x);
 const rng = (i: number, s: number) => frac(Math.sin((i + 1) * s) * 43758.5453);
-const DOTS = Array.from({ length: 80 }, (_, i) => ({
-  left: rng(i, 12.9898) * 100,
-  top: rng(i, 78.233) * 100,
-  size: 1 + rng(i, 3.17) * 2.6,
-  d: 2.4 + rng(i, 5.7) * 3.6,
-  delay: rng(i, 9.13) * 4,
-  o0: 0.06 + rng(i, 1.31) * 0.12,
-  o1: 0.45 + rng(i, 2.61) * 0.5,
-}));
+const DOTS = Array.from({ length: 240 }, (_, i) => {
+  const r = rng(i, 3.17);
+  return {
+    left: rng(i, 12.9898) * 100,
+    top: rng(i, 78.233) * 100,
+    size: 0.6 + r * r * 2.4, // bias toward many tiny + a few larger sparks
+    d: 2.2 + rng(i, 5.7) * 4,
+    delay: rng(i, 9.13) * 5,
+    o0: 0.04 + rng(i, 1.31) * 0.1,
+    o1: 0.4 + rng(i, 2.61) * 0.55,
+    glow: r > 0.86, // the brightest few get a soft halo
+  };
+});
 
 // Bolt = «Энергия» glyph.
 function Bolt({ className = "" }: { className?: string }) {
@@ -85,7 +89,7 @@ export default function UnlockGate({
         return;
       }
       setPhase("reveal");
-      window.setTimeout(() => router.refresh(), 1700);
+      window.setTimeout(() => router.refresh(), 620);
     } catch {
       setPhase("error");
     }
@@ -93,7 +97,11 @@ export default function UnlockGate({
 
   return (
     <>
-      <div className="relative mx-auto mt-10 min-h-[360px] max-w-xl overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)]">
+      <div
+        className={`relative mx-auto mt-10 min-h-[360px] max-w-xl overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] ${
+          phase === "reveal" ? "spoiler-out" : ""
+        }`}
+      >
         {/* Drifting blurred blobs — neutral + a touch of brand, readable on both themes */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div
@@ -121,6 +129,7 @@ export default function UnlockGate({
                 top: `${p.top}%`,
                 width: `${p.size}px`,
                 height: `${p.size}px`,
+                boxShadow: p.glow ? "0 0 6px 1px color-mix(in srgb, var(--color-text-primary) 60%, transparent)" : undefined,
                 ["--d" as string]: `${p.d}s`,
                 ["--delay" as string]: `${p.delay}s`,
                 ["--o0" as string]: p.o0,
@@ -186,44 +195,7 @@ export default function UnlockGate({
         </div>
       </div>
 
-      {phase === "reveal" && <RevealOverlay cost={cost} newBalance={Math.max(0, balance - cost)} />}
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => router.refresh()} />}
     </>
-  );
-}
-
-// Full-screen celebratory reveal: a popping card, an expanding ring, sparks and
-// the new balance lifting in. Auto-dismissed by the parent's router.refresh().
-function RevealOverlay({ cost, newBalance }: { cost: number; newBalance: number }) {
-  const sparks = Array.from({ length: 12 }, (_, i) => {
-    const ang = (i / 12) * Math.PI * 2;
-    return { sx: `${Math.cos(ang) * 120}px`, sy: `${Math.sin(ang) * 120}px`, d: i * 0.03 };
-  });
-  return (
-    <div className="unlock-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)] backdrop-blur-sm">
-      <div className="relative flex flex-col items-center">
-        <div className="absolute size-28 rounded-full border-2 border-[var(--color-text-brand)] unlock-ring" />
-        <div className="absolute size-28">
-          {sparks.map((s, i) => (
-            <span
-              key={i}
-              className="unlock-spark absolute left-1/2 top-1/2 size-2 rounded-full bg-[var(--color-text-brand)]"
-              style={{ ["--sx" as string]: s.sx, ["--sy" as string]: s.sy, animationDelay: `${s.d}s` }}
-            />
-          ))}
-        </div>
-        <div className="unlock-pop flex size-24 items-center justify-center rounded-[26px] bg-[var(--color-accent-brand)] text-white shadow-[0_24px_60px_-16px_rgba(0,0,0,0.7)]">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
-            <path d="M5 12.5 10 17.5 19 7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <div className="unlock-lift mt-6 text-center">
-          <div className="text-[20px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">Открыто!</div>
-          <div className="mt-1 text-callout tabular-nums text-[var(--color-text-secondary)]">
-            −{cost} · осталось {newBalance} {tokensWord(newBalance)}
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }

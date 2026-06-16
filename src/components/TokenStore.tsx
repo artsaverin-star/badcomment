@@ -155,13 +155,15 @@ export default function TokenStore({
               )}
             </div>
 
-            <div className="mt-3 flex items-end gap-2">
-              {s.anchor && <s className="text-[17px] text-[var(--color-text-tertiary)]">{fmt(s.anchor)} ₽</s>}
-              <span className="text-[30px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">
-                {fmt(s.rub)} ₽
+            <div className="mt-3">
+              {s.anchor && (
+                <s className="block text-[14px] leading-none text-[var(--color-text-tertiary)]">{fmt(s.anchor)}&nbsp;₽</s>
+              )}
+              <span className="mt-1 block whitespace-nowrap text-[28px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">
+                {fmt(s.rub)}&nbsp;₽
               </span>
             </div>
-            <div className="mt-1.5 text-callout font-semibold text-[var(--color-text-brand)]">
+            <div className="mt-2 whitespace-nowrap text-callout font-semibold text-[var(--color-text-brand)]">
               {s.tokens != null ? `⚡ ${s.tokens} ${tokensWord(s.tokens)}` : "♾️ Навсегда"}
             </div>
 
@@ -185,34 +187,32 @@ export default function TokenStore({
               >
                 {busy === `${s.id}c` ? "…" : "Купить картой"}
               </button>
-              <div className="flex gap-2">
-                {cardEnabled && (
-                  <button
-                    type="button"
-                    onClick={() => buyCard({ ...s.body, method: "sbp" }, `${s.id}s`)}
-                    disabled={busy === `${s.id}s`}
-                    className="flex-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
-                  >
-                    {busy === `${s.id}s` ? "…" : "СБП"}
-                  </button>
-                )}
-                {loggedIn ? (
-                  <a
-                    href={s.starsHref}
-                    className="flex flex-1 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-                  >
-                    ⭐ {s.stars} Stars
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setAuth(true)}
-                    className="flex-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-                  >
-                    ⭐ {s.stars} Stars
-                  </button>
-                )}
-              </div>
+              {cardEnabled && (
+                <button
+                  type="button"
+                  onClick={() => buyCard({ ...s.body, method: "sbp" }, `${s.id}s`)}
+                  disabled={busy === `${s.id}s`}
+                  className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
+                >
+                  {busy === `${s.id}s` ? "…" : "Оплатить через СБП"}
+                </button>
+              )}
+              {loggedIn ? (
+                <a
+                  href={s.starsHref}
+                  className="flex w-full items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                >
+                  ⭐ {s.stars} Telegram Stars
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setAuth(true)}
+                  className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                >
+                  ⭐ {s.stars} Telegram Stars
+                </button>
+              )}
             </div>
           </div>
         ))}
