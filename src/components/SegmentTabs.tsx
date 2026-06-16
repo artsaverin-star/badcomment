@@ -33,7 +33,7 @@ export default function SegmentTabs({
       <div
         role="tablist"
         aria-label="Разделы категории"
-        className="inline-flex gap-1 rounded-full bg-[var(--color-bg-muted)] p-1"
+        className="mx-auto flex w-fit gap-1 rounded-full bg-[var(--color-bg-muted)] p-1"
       >
         {tabs.map((tb) => {
           const on = tb.key === active;
