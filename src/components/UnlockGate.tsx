@@ -9,13 +9,37 @@ import type { Locale } from "@/lib/i18n";
 const NOUN: Record<UnlockType, string> = { app: "разбор приложения", idea: "идею", category: "категорию целиком" };
 const WHAT: Record<UnlockType, string> = {
   app: "Полный разбор всех отзывов этого приложения.",
-  idea: "Готовую идею: отзывы → механики → возможность → продукт.",
-  category: "Весь жанр сразу — синтез категории, все приложения и все идеи внутри.",
+  idea: "Готовая идея: отзывы → механики → возможность → продукт.",
+  category: "Весь жанр сразу — синтез, все приложения и все идеи внутри.",
 };
 
-// Token-spend gate shown in place of locked content. Click → spend animation →
-// router.refresh() reveals the now-unlocked page. Logged-out users are sent to
-// register (free starter grant); short-on-tokens users to the buy page.
+// Deterministic «starfield» — computed once at module load so server and client
+// markup match (no hydration mismatch, no Math.random). A cheap hash per index
+// scatters position, size, twinkle speed/phase and opacity range.
+const frac = (x: number) => x - Math.floor(x);
+const rng = (i: number, s: number) => frac(Math.sin((i + 1) * s) * 43758.5453);
+const DOTS = Array.from({ length: 80 }, (_, i) => ({
+  left: rng(i, 12.9898) * 100,
+  top: rng(i, 78.233) * 100,
+  size: 1 + rng(i, 3.17) * 2.6,
+  d: 2.4 + rng(i, 5.7) * 3.6,
+  delay: rng(i, 9.13) * 4,
+  o0: 0.06 + rng(i, 1.31) * 0.12,
+  o1: 0.45 + rng(i, 2.61) * 0.5,
+}));
+
+// Bolt = «Энергия» glyph.
+function Bolt({ className = "" }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M13 2 4.5 13.2c-.42.55-.03 1.3.66 1.3H11l-1.4 7.6c-.13.7.78 1.1 1.2.5L19.5 11.4c.42-.55.03-1.3-.66-1.3H13l1.4-7.7c.13-.7-.78-1.08-1.2-.5z" />
+    </svg>
+  );
+}
+
+// Token-spend gate shown in place of locked content. Telegram-style: an animated
+// shimmering blur (purely decorative — the real content is never sent until paid)
+// with a frosted «Раскрыть за ⚡ N» pill. Click → spend → router.refresh() reveals.
 export default function UnlockGate({
   type,
   slug,
@@ -69,56 +93,97 @@ export default function UnlockGate({
 
   return (
     <>
-      <div className="mx-auto mt-10 max-w-md rounded-[var(--radius-2xl)] border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] p-8 text-center">
-        <span className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-brand)]">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <rect x="4" y="10" width="16" height="10" rx="2.5" />
-            <path d="M8 10V7a4 4 0 0 1 8 0" strokeLinecap="round" />
-          </svg>
-        </span>
-        <h2 className="mt-4 text-[22px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">
-          Открыть {NOUN[type]} за {cost} {tokensWord(cost)}
-        </h2>
-        <p className="mx-auto mt-2 max-w-xs text-callout text-[var(--color-text-secondary)]">{WHAT[type]}</p>
-        <p className="mx-auto mt-2 max-w-xs text-caption text-[var(--color-text-tertiary)]">
-          Энергия — внутренняя валюта inApp. {loggedIn ? "Пополнить можно в разделе «Энергия»." : `За регистрацию дарим ${SIGNUP_GRANT}.`}
-        </p>
+      <div className="relative mx-auto mt-10 min-h-[360px] max-w-xl overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)]">
+        {/* Drifting blurred blobs — neutral + a touch of brand, readable on both themes */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div
+            className="spoiler-blob absolute -left-1/4 -top-1/4 size-[70%] rounded-full bg-[var(--color-text-tertiary)] opacity-30 blur-[55px]"
+            style={{ ["--d" as string]: "21s" }}
+          />
+          <div
+            className="spoiler-blob absolute -right-1/5 top-1/4 size-[60%] rounded-full bg-[var(--color-accent-brand)] opacity-[0.18] blur-[60px]"
+            style={{ ["--d" as string]: "17s", ["--delay" as string]: "-4s" }}
+          />
+          <div
+            className="spoiler-blob absolute bottom-[-20%] left-1/3 size-[55%] rounded-full bg-[var(--color-text-secondary)] opacity-20 blur-[50px]"
+            style={{ ["--d" as string]: "25s", ["--delay" as string]: "-9s" }}
+          />
+        </div>
 
-        <button
-          type="button"
-          onClick={unlock}
-          disabled={phase === "working"}
-          className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
-        >
-          {phase === "working" ? (
-            "Открываем…"
-          ) : !loggedIn ? (
-            `Войти и получить ${SIGNUP_GRANT} ${tokensWord(SIGNUP_GRANT)}`
-          ) : short ? (
-            "Пополнить энергию"
-          ) : (
-            <>
-              Открыть за {cost} {tokensWord(cost)}
-            </>
-          )}
-        </button>
+        {/* Twinkling starfield */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          {DOTS.map((p, i) => (
+            <span
+              key={i}
+              className="spoiler-dot absolute rounded-full bg-[var(--color-text-primary)]"
+              style={{
+                left: `${p.left}%`,
+                top: `${p.top}%`,
+                width: `${p.size}px`,
+                height: `${p.size}px`,
+                ["--d" as string]: `${p.d}s`,
+                ["--delay" as string]: `${p.delay}s`,
+                ["--o0" as string]: p.o0,
+                ["--o1" as string]: p.o1,
+              }}
+            />
+          ))}
+        </div>
 
-        {loggedIn && (
-          <p className="mt-3 text-caption text-[var(--color-text-tertiary)]">
-            {short ? (
-              <>
-                Не хватает {cost - balance} {tokensWord(cost - balance)} · у тебя {balance}
-              </>
+        {/* Soft centre scrim so the pill + caption stay legible over the shimmer */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 50% 42% at 50% 50%, color-mix(in srgb, var(--color-bg-page) 55%, transparent), transparent 70%)" }}
+        />
+
+        {/* Centre content */}
+        <div className="relative z-10 flex min-h-[360px] flex-col items-center justify-center gap-3 px-6 py-12 text-center">
+          <button
+            type="button"
+            onClick={unlock}
+            disabled={phase === "working"}
+            className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] px-7 py-3.5 text-[17px] font-semibold text-[var(--color-text-primary)] shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all hover:scale-[1.03] hover:border-[var(--color-text-brand)] disabled:opacity-60"
+          >
+            {phase === "working" ? (
+              "Открываем…"
+            ) : !loggedIn ? (
+              "Войти и открыть"
+            ) : short ? (
+              "Пополнить энергию"
             ) : (
               <>
-                Спишется {cost} из {balance} · разблокировка навсегда
+                Раскрыть за
+                <Bolt className="text-[var(--color-text-brand)]" />
+                <span className="tabular-nums">{cost}</span>
               </>
             )}
+          </button>
+
+          <p className="max-w-xs text-footnote text-[var(--color-text-secondary)]">
+            {NOUN[type] === "идею" ? WHAT[type] : `Открыть ${NOUN[type]}. ${WHAT[type]}`}
           </p>
-        )}
-        {phase === "error" && (
-          <p className="mt-3 text-caption text-[#ff6b6b]">Не получилось. Попробуй ещё раз.</p>
-        )}
+
+          {loggedIn ? (
+            <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
+              {short ? (
+                <>
+                  Не хватает {cost - balance} {tokensWord(cost - balance)} · у тебя {balance}
+                </>
+              ) : (
+                <>
+                  Спишется {cost} из {balance} · навсегда
+                </>
+              )}
+            </p>
+          ) : (
+            <p className="text-caption text-[var(--color-text-tertiary)]">
+              За регистрацию дарим {SIGNUP_GRANT} {tokensWord(SIGNUP_GRANT)}
+            </p>
+          )}
+
+          {phase === "error" && <p className="text-caption text-[#ff6b6b]">Не получилось. Попробуй ещё раз.</p>}
+        </div>
       </div>
 
       {phase === "reveal" && <RevealOverlay cost={cost} newBalance={Math.max(0, balance - cost)} />}
