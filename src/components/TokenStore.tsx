@@ -200,17 +200,17 @@ export default function TokenStore({
               {loggedIn ? (
                 <a
                   href={s.starsHref}
-                  className="flex w-full items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                  className="flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
                 >
-                  ⭐ {s.stars} Telegram Stars
+                  <span aria-hidden>⭐</span> {s.stars.toLocaleString("ru-RU")} Stars
                 </a>
               ) : (
                 <button
                   type="button"
                   onClick={() => setAuth(true)}
-                  className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                  className="flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
                 >
-                  ⭐ {s.stars} Telegram Stars
+                  <span aria-hidden>⭐</span> {s.stars.toLocaleString("ru-RU")} Stars
                 </button>
               )}
             </div>
