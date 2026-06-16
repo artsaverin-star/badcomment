@@ -202,6 +202,7 @@ export default function InsightLanding({
               <InsightCard
                 key={i}
                 card
+                locale={locale}
                 title={c.title}
                 body={c.body}
                 plus={c.plus}
@@ -230,7 +231,7 @@ export default function InsightLanding({
               </summary>
               <div className="px-5 pb-2">
                 {hygiene.map((c, i) => (
-                  <InsightCard key={i} title={c.title} body={c.body} count={c.count} kicker={c.kicker} evidence={c.evidence} />
+                  <InsightCard key={i} locale={locale} title={c.title} body={c.body} count={c.count} kicker={c.kicker} evidence={c.evidence} />
                 ))}
               </div>
             </details>

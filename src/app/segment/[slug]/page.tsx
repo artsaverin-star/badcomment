@@ -153,8 +153,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         (summary || ideas.length > 0) && (
           <div className="mt-10 border-t border-[var(--color-border-strong)] pt-8">
             <SegmentTabs
-              summary={summary ? <SegmentSummaryView summary={summary} cards={categoryCards(slug, locale)} embedded /> : null}
-              ideas={ideas.length > 0 ? <CategoryIdeas ideas={ideas} /> : null}
+              locale={locale}
+              summary={summary ? <SegmentSummaryView summary={summary} cards={categoryCards(slug, locale)} embedded locale={locale} /> : null}
+              ideas={ideas.length > 0 ? <CategoryIdeas ideas={ideas} locale={locale} /> : null}
               ideasCount={ideas.length}
             />
           </div>

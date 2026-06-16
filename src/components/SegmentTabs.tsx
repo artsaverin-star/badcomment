@@ -9,15 +9,18 @@ export default function SegmentTabs({
   summary,
   ideas,
   ideasCount,
+  locale = "ru",
 }: {
   summary: ReactNode | null;
   ideas: ReactNode | null;
   ideasCount: number;
+  locale?: import("@/lib/i18n").Locale;
 }) {
+  const ru = locale !== "en";
   const tabs = [
-    summary ? { key: "summary", label: "Саммари", node: summary } : null,
+    summary ? { key: "summary", label: ru ? "Саммари" : "Summary", node: summary } : null,
     ideas && ideasCount > 0
-      ? { key: "ideas", label: `Идеи · ${ideasCount}`, node: ideas }
+      ? { key: "ideas", label: `${ru ? "Идеи" : "Ideas"} · ${ideasCount}`, node: ideas }
       : null,
   ].filter(Boolean) as { key: string; label: string; node: ReactNode }[];
 
@@ -32,7 +35,7 @@ export default function SegmentTabs({
     <div>
       <div
         role="tablist"
-        aria-label="Разделы категории"
+        aria-label={ru ? "Разделы категории" : "Category sections"}
         className="mx-auto flex w-fit gap-1 rounded-full bg-[var(--color-bg-muted)] p-1"
       >
         {tabs.map((tb) => {

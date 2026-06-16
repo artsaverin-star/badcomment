@@ -7,7 +7,8 @@ import { useRef } from "react";
 
 export type Evidence = { app?: string; rating: number; date: string; quote: string; quoteRu?: string };
 
-function pluralNabl(n: number): string {
+function pluralNabl(n: number, ru: boolean): string {
+  if (!ru) return n === 1 ? "observation" : "observations";
   const d = n % 10;
   const dd = n % 100;
   if (dd >= 11 && dd <= 14) return "наблюдений";
@@ -26,6 +27,7 @@ export default function InsightCard({
   plus,
   minus,
   card = false,
+  locale = "ru",
 }: {
   title: string;
   body?: string;
@@ -36,7 +38,9 @@ export default function InsightCard({
   plus?: string; // что хвалят
   minus?: string; // на что злятся
   card?: boolean; // boxed card (category summary grid) vs hairline row
+  locale?: import("@/lib/i18n").Locale;
 }) {
+  const ru = locale !== "en";
   const ref = useRef<HTMLDialogElement>(null);
   const open = () => {
     // <html> is the scroll container (globals: overflow-y:scroll) — lock it.
@@ -103,7 +107,7 @@ export default function InsightCard({
               <circle cx="8" cy="5.1" r="0.9" fill="currentColor" />
             </svg>
           )}
-          {count} {pluralNabl(count)}
+          {count} {pluralNabl(count, ru)}
         </button>
       </div>
 
@@ -126,7 +130,7 @@ export default function InsightCard({
             <button
               type="button"
               onClick={() => ref.current?.close()}
-              aria-label="Закрыть"
+              aria-label={ru ? "Закрыть" : "Close"}
               className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] outline-none transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)] focus-visible:ring-2 focus-visible:ring-[var(--color-border-strong)]"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

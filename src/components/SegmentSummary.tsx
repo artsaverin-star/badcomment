@@ -40,11 +40,14 @@ export default function SegmentSummaryView({
   summary,
   cards,
   embedded = false,
+  locale = "ru",
 }: {
   summary: SegmentSummary;
   cards?: RegenSet | null;
   embedded?: boolean;
+  locale?: import("@/lib/i18n").Locale;
 }) {
+  const ru = locale !== "en";
   const { product, hygiene } = cards ?? fromSummary(summary);
   const hygieneTotal = hygiene.reduce((s, c) => s + c.count, 0);
 
@@ -53,10 +56,10 @@ export default function SegmentSummaryView({
       <div className="mx-auto max-w-[760px]">
         <div className="mb-6 text-center">
           <p className="text-caption font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
-            Инсайты категории
+            {ru ? "Инсайты категории" : "Category insights"}
           </p>
           <p className="mt-2 text-caption text-[var(--color-text-tertiary)]">
-            {summary.appsCount} приложений · {summary.reviewsScanned.toLocaleString("ru-RU")} отзывов · обновлено {summary.asOf}
+            {summary.appsCount} {ru?"приложений":"apps"} · {summary.reviewsScanned.toLocaleString(ru?"ru-RU":"en-US")} {ru?"отзывов":"reviews"} · {ru?"обновлено":"updated"} {summary.asOf}
           </p>
         </div>
 
@@ -65,6 +68,7 @@ export default function SegmentSummaryView({
             <InsightCard
               key={i}
               card
+              locale={locale}
               title={c.title}
               body={c.body}
               plus={c.plus}
@@ -81,10 +85,10 @@ export default function SegmentSummaryView({
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 [&::-webkit-details-marker]:hidden">
               <span className="flex flex-col">
                 <span className="text-callout font-semibold text-[var(--color-text-primary)]">
-                  База: оплата, стабильность, аккаунт
+                  {ru ? "База: оплата, стабильность, аккаунт" : "Basics: billing, stability, account"}
                 </span>
                 <span className="text-caption text-[var(--color-text-tertiary)]">
-                  Базовая гигиена категории — {hygieneTotal} наблюдений
+                  {ru ? "Базовая гигиена категории" : "Category housekeeping"} — {hygieneTotal} {ru?"наблюдений":"observations"}
                 </span>
               </span>
               <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/hyg:rotate-180">
@@ -95,7 +99,7 @@ export default function SegmentSummaryView({
             </summary>
             <div className="px-5 pb-2">
               {hygiene.map((c, i) => (
-                <InsightCard key={i} title={c.title} body={c.body} count={c.count} kicker={c.kicker} evidence={c.evidence} />
+                <InsightCard key={i} locale={locale} title={c.title} body={c.body} count={c.count} kicker={c.kicker} evidence={c.evidence} />
               ))}
             </div>
           </details>
