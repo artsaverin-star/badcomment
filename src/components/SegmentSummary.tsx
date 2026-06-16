@@ -87,9 +87,9 @@ export default function SegmentSummaryView({
                   Базовая гигиена категории — {hygieneTotal} наблюдений
                 </span>
               </span>
-              <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/hyg:rotate-90">
+              <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/hyg:rotate-180">
                 <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                  <path d="M3 1l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M1 3l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
             </summary>
