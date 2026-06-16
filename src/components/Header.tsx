@@ -28,13 +28,8 @@ export default function Header({
               <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
             </svg>
           </span>
-          <span className="hidden flex-col leading-none sm:flex">
-            <span className="text-[22px] font-bold tracking-[-0.2px] text-[var(--color-text-primary)] [font-family:var(--brand-font-family)]">
-              inApp
-            </span>
-            <span className="mt-0.5 text-[10.5px] font-medium tracking-[0.01em] text-[var(--color-text-tertiary)]">
-              {ru ? "разбор отзывов · идеи приложений" : "app reviews · product ideas"}
-            </span>
+          <span className="hidden text-[22px] font-bold tracking-[-0.2px] text-[var(--color-text-primary)] [font-family:var(--brand-font-family)] sm:inline">
+            inApp
           </span>
         </Link>
         {/* Nav lives in the header on desktop; on phones it moves to the bottom tab bar. */}
