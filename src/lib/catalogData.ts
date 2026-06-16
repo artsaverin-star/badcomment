@@ -5,11 +5,18 @@ import { getProductInsights } from "./insights";
 import { isFreeCategory } from "./premium";
 import { isActiveCategory } from "./categoryVisibility";
 import segmentInsights from "@/data/segment-insights.json";
+import hidden from "@/data/hidden-categories.json";
 import type { Locale } from "./i18n";
 import type { BrowseDomain, BrowseAppItem } from "@/components/CatalogBrowser";
 
 // A category is "live" once its synthesis is published (≥10 разборов).
 const LIVE = new Set(Object.keys(segmentInsights as Record<string, unknown>));
+
+// Catalog clean-up: whole domains and individual categories the user retired
+// from the catalog (were stale «Скоро» placeholders). Filtered out everywhere
+// catalog data is read (catalog pages + home landing).
+const HIDDEN_DOMAINS = new Set(hidden.domains);
+const HIDDEN_CATEGORIES = new Set(hidden.categories);
 
 // Shared catalog data for the «Категории/Приложения» pages and the «Главная»
 // landing (which only needs a slice + total).
@@ -18,11 +25,12 @@ export function getCatalogData(locale: Locale, premium: boolean): {
   catalogApps: BrowseAppItem[];
   totalReviews: number;
 } {
-  const domainViews = listDomains(locale);
-  const domains: BrowseDomain[] = domainViews.map((d) => ({
+  const domainViews = listDomains(locale).filter((d) => !HIDDEN_DOMAINS.has(d.slug));
+  const domains: BrowseDomain[] = domainViews
+    .map((d) => ({
     slug: d.slug,
     name: d.name,
-    categories: d.categories.map((c) => {
+    categories: d.categories.filter((c) => !HIDDEN_CATEGORIES.has(c.slug)).map((c) => {
       // "Скоро" for everything except the active (rebuilt) categories.
       const live = LIVE.has(c.slug) && isActiveCategory(c.slug);
       return {
@@ -35,7 +43,8 @@ export function getCatalogData(locale: Locale, premium: boolean): {
         locked: live && !premium && !isFreeCategory(c.slug),
       };
     }),
-  }));
+    }))
+    .filter((d) => d.categories.length > 0);
 
   const freeProducts = new Set<string>();
   for (const d of domainViews) {
