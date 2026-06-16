@@ -36,7 +36,7 @@ for (const cl of summary) {
     minus: clean(cl.minus) || undefined,
     count: count || members.length,
     apps: [...apps].slice(0, 3),
-    evidence: ev.slice(0, 12),
+    evidence: ev.slice(0, 40),
   };
   catCards.push({ ...card, kind: cl.kind });
   (cl.kind === "base" ? hygiene : product).push(card);

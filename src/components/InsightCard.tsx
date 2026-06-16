@@ -69,14 +69,14 @@ export default function InsightCard({
         </span>
         {body && <span className="text-[13.5px] leading-[1.55] text-[var(--color-text-secondary)]">{body}</span>}
         {plus && (
-          <span className="flex gap-2 text-[13.5px] leading-[1.5]">
-            <span className="shrink-0 font-bold text-[#4ade80]">＋</span>
+          <span className="flex items-start gap-2 text-[13.5px] leading-[1.5]">
+            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
             <span className="text-[var(--color-text-secondary)]">{plus}</span>
           </span>
         )}
         {minus && (
-          <span className="flex gap-2 text-[13.5px] leading-[1.5]">
-            <span className="shrink-0 font-bold text-[#ff8585]">－</span>
+          <span className="flex items-start gap-2 text-[13.5px] leading-[1.5]">
+            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
             <span className="text-[var(--color-text-secondary)]">{minus}</span>
           </span>
         )}

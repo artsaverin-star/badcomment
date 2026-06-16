@@ -19,12 +19,12 @@ export function getCatalogData(locale: Locale, premium: boolean): {
   totalReviews: number;
 } {
   const domainViews = listDomains(locale);
-  const domains: BrowseDomain[] = domainViews
-    .map((d) => ({
+  const domains: BrowseDomain[] = domainViews.map((d) => ({
     slug: d.slug,
     name: d.name,
-    categories: d.categories.filter((c) => isActiveCategory(c.slug)).map((c) => {
-      const live = LIVE.has(c.slug);
+    categories: d.categories.map((c) => {
+      // "Скоро" for everything except the active (rebuilt) categories.
+      const live = LIVE.has(c.slug) && isActiveCategory(c.slug);
       return {
         slug: c.slug,
         name: c.name,
@@ -35,8 +35,7 @@ export function getCatalogData(locale: Locale, premium: boolean): {
         locked: live && !premium && !isFreeCategory(c.slug),
       };
     }),
-    }))
-    .filter((d) => d.categories.length > 0);
+  }));
 
   const freeProducts = new Set<string>();
   for (const d of domainViews) {
