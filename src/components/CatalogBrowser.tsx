@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AppsList from "./AppsList";
 import CatGlyph from "./CatGlyph";
+import type { Locale } from "@/lib/i18n";
 
 export type BrowseApp = { name: string; icon: string | null; ready?: boolean };
 export type BrowseAppItem = { name: string; icon: string | null; slug: string; reviews: number; free: boolean };
@@ -15,23 +16,30 @@ export type BrowseCategory = {
 };
 export type BrowseDomain = { slug: string; name: string; categories: BrowseCategory[] };
 
-function appsWord(n: number): string {
+function analyzedCount(n: number, locale: Locale): string {
+  if (locale === "en") return `${n} ${n === 1 ? "app" : "apps"} analyzed`;
   const m10 = n % 10;
   const m100 = n % 100;
-  if (m10 === 1 && m100 !== 11) return "приложение";
-  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return "приложения";
-  return "приложений";
+  const word =
+    m10 === 1 && m100 !== 11
+      ? "приложение"
+      : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)
+        ? "приложения"
+        : "приложений";
+  return `разобрали ${n} ${word}`;
 }
 
 export default function CatalogBrowser({
   domains,
   apps = [],
   view: viewProp = "cats",
+  locale = "ru",
 }: {
   domains: BrowseDomain[];
   premium?: boolean;
   apps?: BrowseAppItem[];
   view?: "cats" | "apps";
+  locale?: Locale;
 }) {
   const hasApps = apps.length > 0;
   // View is driven by the URL (?view=apps), read server-side in page.tsx and
@@ -42,7 +50,7 @@ export default function CatalogBrowser({
   return (
     <div className="route-fade flex flex-col gap-8">
       {view === "apps" && hasApps ? (
-        <AppsList initial={apps.slice(0, 60)} total={apps.length} />
+        <AppsList initial={apps.slice(0, 60)} total={apps.length} locale={locale} />
       ) : (
         <div className="flex flex-col gap-10">
           {domains.map((d) => (
@@ -50,7 +58,7 @@ export default function CatalogBrowser({
               <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{d.name}</h2>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
                 {d.categories.map((c) => (
-                  <CategoryCard key={c.slug} cat={c} domain={d.slug} />
+                  <CategoryCard key={c.slug} cat={c} domain={d.slug} locale={locale} />
                 ))}
               </div>
             </section>
@@ -61,7 +69,7 @@ export default function CatalogBrowser({
   );
 }
 
-function CategoryCard({ cat, domain }: { cat: BrowseCategory; domain?: string }) {
+function CategoryCard({ cat, domain, locale }: { cat: BrowseCategory; domain?: string; locale: Locale }) {
   const dim = !cat.live; // «Скоро» categories are greyscale
   const body = (
     <>
@@ -80,10 +88,10 @@ function CategoryCard({ cat, domain }: { cat: BrowseCategory; domain?: string })
         </span>
         {cat.live ? (
           <span className="truncate text-caption tabular-nums text-[var(--color-text-tertiary)]">
-            разобрали {cat.appsCount} {appsWord(cat.appsCount)}
+            {analyzedCount(cat.appsCount, locale)}
           </span>
         ) : (
-          <span className="text-caption text-[var(--color-text-tertiary)]">Скоро</span>
+          <span className="text-caption text-[var(--color-text-tertiary)]">{locale === "en" ? "Coming soon" : "Скоро"}</span>
         )}
       </span>
     </>
