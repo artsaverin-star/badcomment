@@ -255,6 +255,24 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     <main className="mx-auto w-full max-w-3xl px-4 py-10 sm:py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
+      {/* Section nav — pinned to the top from the start, detailed by point */}
+      <nav
+        aria-label={ru ? "Разделы" : "Sections"}
+        className="sticky top-0 z-40 -mx-4 -mt-10 mb-6 border-b border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)] px-4 py-2.5 backdrop-blur-md sm:-mt-14"
+      >
+        <div className="flex gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {nav.map((n) => (
+            <a
+              key={n.h}
+              href={n.h}
+              className="shrink-0 truncate rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+            >
+              {n.label}
+            </a>
+          ))}
+        </div>
+      </nav>
+
       <div className="mx-auto max-w-[640px]">
         <div className="mb-8 flex items-center justify-between gap-3">
           <Link
@@ -304,29 +322,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
               </>
             )}
           </p>
-          <p className="text-caption text-[var(--color-text-tertiary)]">
-            {ru ? "Обычно такой маркет-ресёрч — это недели работы и большой бюджет. Здесь он уже готов." : "Market research like this usually takes weeks and a big budget. Here it’s already done."}
-          </p>
         </header>
       </div>
-
-      {/* Section nav — pinned to the top like a header, detailed by point */}
-      <nav
-        aria-label={ru ? "Разделы" : "Sections"}
-        className="sticky top-0 z-40 -mx-4 mt-8 border-y border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)] px-4 py-2.5 backdrop-blur-md"
-      >
-        <div className="flex gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {nav.map((n) => (
-            <a
-              key={n.h}
-              href={n.h}
-              className="shrink-0 truncate rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-            >
-              {n.label}
-            </a>
-          ))}
-        </div>
-      </nav>
 
       {/* The story feed — first cards free, the rest unlock for «энергия» */}
       <section id="story" className="mt-10 scroll-mt-24">
