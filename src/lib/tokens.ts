@@ -44,7 +44,7 @@ export async function getBalance(userId: string): Promise<number> {
 // All of a user's unlocks, grouped by type, as sets for O(1) access checks.
 export async function getUnlockSets(userId: string): Promise<Record<UnlockType, Set<string>>> {
   const rows = await prisma.unlock.findMany({ where: { userId }, select: { type: true, slug: true } });
-  const sets: Record<UnlockType, Set<string>> = { app: new Set(), idea: new Set(), category: new Set() };
+  const sets: Record<UnlockType, Set<string>> = { app: new Set(), idea: new Set(), chapter: new Set(), category: new Set() };
   for (const r of rows) sets[r.type as UnlockType]?.add(r.slug);
   return sets;
 }

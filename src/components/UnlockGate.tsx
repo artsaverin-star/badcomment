@@ -6,16 +6,18 @@ import AuthModal from "./AuthModal";
 import { tokensWord, type UnlockType, SIGNUP_GRANT } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
-const NOUN_RU: Record<UnlockType, string> = { app: "разбор приложения", idea: "идею", category: "категорию целиком" };
-const NOUN_EN: Record<UnlockType, string> = { app: "the app breakdown", idea: "the idea", category: "the whole category" };
+const NOUN_RU: Record<UnlockType, string> = { app: "разбор приложения", idea: "идею", chapter: "главу", category: "категорию целиком" };
+const NOUN_EN: Record<UnlockType, string> = { app: "the app breakdown", idea: "the idea", chapter: "the chapter", category: "the whole category" };
 const WHAT_RU: Record<UnlockType, string> = {
   app: "Полный разбор всех отзывов этого приложения.",
   idea: "Готовая идея: отзывы → механики → возможность → продукт.",
+  chapter: "Целая глава: выводы, приложения и идеи по этой теме.",
   category: "Весь жанр сразу — синтез, все приложения и все идеи внутри.",
 };
 const WHAT_EN: Record<UnlockType, string> = {
   app: "The full breakdown of every review for this app.",
   idea: "A ready idea: reviews → mechanics → opportunity → product.",
+  chapter: "A whole chapter: conclusions, apps and ideas on this theme.",
   category: "The whole genre at once — synthesis, every app and every idea inside.",
 };
 

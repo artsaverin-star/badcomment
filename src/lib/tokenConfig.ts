@@ -7,11 +7,12 @@
 
 export const SIGNUP_GRANT = 150;
 
-export type UnlockType = "app" | "idea" | "category";
+export type UnlockType = "app" | "idea" | "chapter" | "category";
 
 export const UNLOCK_COST: Record<UnlockType, number> = {
   app: 5,
   idea: 10,
+  chapter: 20,
   category: 50,
 };
 
