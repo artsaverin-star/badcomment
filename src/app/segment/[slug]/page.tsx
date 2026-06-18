@@ -247,7 +247,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       {/* Section nav — pinned to the top from the start, detailed by point */}
       <nav
         aria-label={ru ? "Разделы" : "Sections"}
-        className="sticky top-0 z-40 -mx-4 -mt-10 mb-6 border-b border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)] px-4 py-2.5 backdrop-blur-md sm:-mt-14"
+        className="sticky top-14 z-30 -mx-4 -mt-6 mb-6 border-b border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)] px-4 py-2.5 backdrop-blur-md sm:-mt-8"
       >
         <div className="flex gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {nav.map((n) => (
@@ -315,7 +315,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       </div>
 
       {/* The story feed — first cards free, the rest unlock for «энергия» */}
-      <section id="story" className="mt-10 scroll-mt-24">
+      <section id="story" className="mt-10 scroll-mt-28">
         <CardCarousel slides={visibleDeck} locale={ru ? "ru" : "en"} layout="feed" />
         {catLocked && (
           <div className="mx-auto mt-6 max-w-[640px]">
@@ -334,7 +334,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       {/* Ideas — each unlocks individually for «энергия» */}
       {ideaCards.length > 0 && (
-        <section id="ideas" className="mx-auto mt-20 max-w-[640px] scroll-mt-24">
+        <section id="ideas" className="mx-auto mt-20 max-w-[640px] scroll-mt-28">
           <h2 className="mb-1 text-center text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
             {ru ? `${ideaCards.length} идей приложений из этих отзывов` : `${ideaCards.length} app ideas from these reviews`}
           </h2>
@@ -417,7 +417,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       {/* Per-app breakdowns — each app's cards, unlocked individually */}
       {appSections.length > 0 && (
-        <section id="apps" className="mx-auto mt-20 max-w-[760px] scroll-mt-24">
+        <section id="apps" className="mx-auto mt-20 max-w-[760px] scroll-mt-28">
           <h2 className="mb-1 text-center text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
             {ru ? `Разбор всех ${appSections.length} приложений` : `Breakdown of all ${appSections.length} apps`}
           </h2>
@@ -463,7 +463,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
               const desc = app.description && <p className="mx-auto max-w-[42ch] text-footnote leading-relaxed text-[var(--color-text-secondary)]">{app.description}</p>;
 
               return app.unlocked ? (
-                <details key={i} id={`app-${i}`} className="group scroll-mt-20 overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
+                <details key={i} id={`app-${i}`} className="group scroll-mt-28 overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
                   <summary className="relative cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                     {glow}
                     <span className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open:rotate-180">
@@ -482,12 +482,12 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       </span>
                     </div>
                   </summary>
-                  <div className="border-t border-[var(--color-border-subtle)] p-3 sm:p-4">
+                  <div className="details-reveal border-t border-[var(--color-border-subtle)] p-3 sm:p-4">
                     <CardCarousel slides={app.slides} locale={ru ? "ru" : "en"} layout="feed" />
                   </div>
                 </details>
               ) : (
-                <div key={i} id={`app-${i}`} className="relative scroll-mt-20 overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
+                <div key={i} id={`app-${i}`} className="relative scroll-mt-28 overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
                   {glow}
                   <div className="relative flex flex-col items-center gap-3.5 px-6 pb-7 pt-8 text-center">
                     {iconEl}

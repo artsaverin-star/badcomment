@@ -1,9 +1,8 @@
 import Link from "next/link";
-import NavTabs from "./NavTabs";
 import AuthButton from "./AuthButton";
 import HeaderSearch from "./HeaderSearch";
 import SettingsMenu from "./SettingsMenu";
-import { t, type Locale } from "@/lib/i18n";
+import { type Locale } from "@/lib/i18n";
 
 // Sticky top bar — identical structure on phone and desktop (getgems-style): the
 // wordmark + section nav on the left, the catalog search + sign-in + the animated
@@ -17,8 +16,6 @@ export default function Header({
   locale: Locale;
   theme: "light" | "dark";
 }) {
-  const tr = t(locale);
-  const ru = locale !== "en";
   return (
     <header className="sticky top-0 z-40 bg-[var(--color-bg-page)]">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:px-6">
@@ -32,14 +29,6 @@ export default function Header({
             inApp
           </span>
         </Link>
-        {/* Nav lives in the header on desktop; on phones it moves to the bottom tab bar. */}
-        <div className="ml-3 hidden sm:block">
-          <NavTabs
-            catalogLabel={ru ? "Категории" : "Categories"}
-            appsLabel={ru ? "Приложения" : "Apps"}
-            ideasLabel={tr.nav.ideas}
-          />
-        </div>
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
           <div className="hidden sm:block">

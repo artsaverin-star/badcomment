@@ -8,7 +8,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileTabBar from "@/components/MobileTabBar";
 import { getLocale } from "@/lib/i18n.server";
-import { t } from "@/lib/i18n";
 
 // Inter is the primary UI face — a crisp modern grotesque (getgems-like). It
 // drives --brand-font-family (see globals.css). Nunito stays loaded as the
@@ -40,7 +39,6 @@ export default async function RootLayout({
   // The DS ships light as :root and dark under [data-theme="dark"]; default to
   // dark (the established look) and let the header's ThemeSwitch flip the cookie.
   const theme = (await cookies()).get("theme")?.value === "light" ? "light" : "dark";
-  const tr = t(locale);
   return (
     <html
       lang={locale}
@@ -53,12 +51,7 @@ export default async function RootLayout({
         <Header locale={locale} theme={theme} />
         {children}
         <Footer />
-        <MobileTabBar
-          catalogLabel={locale === "en" ? "Categories" : "Категории"}
-          appsLabel={locale === "en" ? "Apps" : "Приложения"}
-          ideasLabel={tr.nav.ideas}
-          searchLabel={locale === "en" ? "Search" : "Поиск"}
-        />
+        <MobileTabBar searchLabel={locale === "en" ? "Search" : "Поиск"} />
         {/* DataFast privacy-friendly analytics */}
         <Script
           defer

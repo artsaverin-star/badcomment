@@ -50,6 +50,9 @@ function ideasWord(n: number): string {
   return "идей";
 }
 
+// Distinct accent per category card (all readable with white button text).
+const PALETTE = ["#ff7a3c", "#34c759", "#3b82f6", "#a855f7", "#ec4899", "#14b8a6", "#f97316", "#ef4444", "#6366f1", "#06b6d4"];
+
 const CARD_POS = [
   "left-[4%] top-[8%]",
   "right-[5%] top-[6%]",
@@ -65,14 +68,15 @@ const CARD_POS = [
 
 // A big, selling category card — the segment cover (app-icon salute + headline
 // + hook + stats) condensed, with a «Смотреть разбор» CTA.
-function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
+function CategoryCoverCard({ c, ru, color }: { c: CatCard; ru: boolean; color: string }) {
   const icons = c.icons.filter(Boolean).slice(0, CARD_POS.length);
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group relative block overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] transition-colors hover:border-[var(--color-border-strong)] sm:p-8"
+      className="group relative block overflow-hidden rounded-[28px] border bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] transition-colors sm:p-8"
+      style={{ borderColor: `color-mix(in srgb, ${color} 28%, var(--color-border-subtle))` }}
     >
-      <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-40 opacity-[0.16]" style={{ background: "radial-gradient(120% 80% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-44 opacity-[0.22]" style={{ background: `radial-gradient(120% 80% at 50% 0%, ${color} 0%, transparent 70%)` }} />
       {icons.length > 0 && (
         <div aria-hidden className="pointer-events-none absolute inset-0">
           {icons.map((src, i) => (
@@ -123,7 +127,7 @@ function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
             </>
           )}
         </p>
-        <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-callout font-semibold text-[var(--color-button-primary-text)] transition-transform group-hover:scale-[1.03]">
+        <span className="mt-2 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout font-semibold text-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] transition-transform group-hover:scale-[1.04]" style={{ background: color }}>
           {ru ? "Смотреть разбор" : "See the breakdown"}
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
@@ -212,11 +216,7 @@ export default function Landing({
           )}
 
           <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
-            {loggedIn ? (
-              <Link href="/catalog" className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
-                {ru ? "Открыть каталог" : "Open catalog"}
-              </Link>
-            ) : (
+            {!loggedIn && (
               <button type="button" onClick={() => setModal(true)} className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                 {ru ? "Начать бесплатно" : "Start free"}
               </button>
@@ -232,8 +232,8 @@ export default function Landing({
       {catCards.length > 0 && (
         <Reveal className="w-full">
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-2">
-            {catCards.map((c) => (
-              <CategoryCoverCard key={c.slug} c={c} ru={ru} />
+            {catCards.map((c, idx) => (
+              <CategoryCoverCard key={c.slug} c={c} ru={ru} color={PALETTE[idx % PALETTE.length]} />
             ))}
           </div>
         </Reveal>
