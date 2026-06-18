@@ -121,20 +121,20 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
   };
 
   return (
-    <div className="mx-auto w-full max-w-[520px] select-none" onKeyDown={onKey} tabIndex={0}>
+    <div className="mx-auto w-full max-w-[520px] select-none outline-none" onKeyDown={onKey} tabIndex={0}>
       <div className="relative">
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth px-[9%] py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth px-[5%] py-3 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-[9%] [&::-webkit-scrollbar]:hidden"
           style={{
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%)",
-            maskImage: "linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%)",
           }}
         >
           {slides.map((s, i) => (
             <div
               key={i}
-              className="w-[82%] shrink-0 snap-center transition-[opacity,transform] duration-300 will-change-transform"
+              className="w-[90%] shrink-0 snap-center transition-[opacity,transform] duration-300 will-change-transform sm:w-[82%]"
               style={{ opacity: i === active ? 1 : 0.4, transform: i === active ? "scale(1)" : "scale(0.93)" }}
             >
               {s.kind === "cover" ? (
@@ -319,85 +319,118 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
     dialog.current?.showModal();
   };
   const hasImage = !!s.image;
+
+  const toneTag = (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide"
+      style={{ background: `color-mix(in srgb, ${tone.glow} 18%, transparent)`, color: tone.glow }}
+    >
+      {s.kicker || tone.label[ru ? "ru" : "en"]}
+    </span>
+  );
+  const pos =
+    s.pos != null && s.ofTotal != null ? (
+      <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
+        {s.pos}/{s.ofTotal}
+      </span>
+    ) : null;
+  const countButton = (
+    <button
+      type="button"
+      onClick={openReviews}
+      disabled={s.evidence.length === 0}
+      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
+      style={{ background: `color-mix(in srgb, ${tone.glow} 16%, transparent)`, color: tone.glow, ["--glow" as string]: tone.glow }}
+    >
+      {s.count} {obsWord(s.count, ru)}
+      {s.evidence.length > 0 && (
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )}
+    </button>
+  );
+  const wordmark = <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>;
+
   return (
     <Frame glow={tone.glow}>
-      <div className="relative mb-4 flex items-center justify-between">
-        <span
-          className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide"
-          style={{ background: `color-mix(in srgb, ${tone.glow} 18%, transparent)`, color: tone.glow }}
-        >
-          {s.kicker || tone.label[ru ? "ru" : "en"]}
-        </span>
-        {s.pos != null && s.ofTotal != null && (
-          <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
-            {s.pos}/{s.ofTotal}
-          </span>
-        )}
-      </div>
-
-      <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
-        <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
-
-        {s.tone === "mixed" ? (
-          // Both polarities present — keep the +/− markers so they read apart.
-          <>
-            {s.plus && (
-              <p className={`flex items-start gap-2 text-[14px] leading-[1.5] ${hasImage ? "line-clamp-2" : ""}`}>
-                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
-                <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
-              </p>
-            )}
-            {s.minus && (
-              <p className={`flex items-start gap-2 text-[14px] leading-[1.5] ${hasImage ? "line-clamp-2" : ""}`}>
-                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
-                <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
-              </p>
-            )}
-          </>
-        ) : (
-          // The tone tag already says praise/gripe — drop the marker, just a lede.
-          (s.plus || s.minus) && (
-            <p className={`text-[15px] leading-[1.55] text-[var(--color-text-secondary)] ${hasImage ? "line-clamp-3" : ""}`}>{s.plus || s.minus}</p>
-          )
-        )}
-
-        {hasImage ? (
-          <div className="mt-1 flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] p-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={s.image} alt="" loading="lazy" decoding="async" className="max-h-full max-w-full rounded-[var(--radius-lg)] object-contain" />
-          </div>
-        ) : s.quote ? (
-          <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
-            <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
-              {s.quote.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{s.quote.app}</span>}
-              <span className="text-caption tabular-nums text-[#f5b301]">
-                {"★".repeat(s.quote.rating)}
-                {"☆".repeat(Math.max(0, 5 - s.quote.rating))}
-              </span>
-              <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{s.quote.date}</span>
+      {hasImage ? (
+        // Screenshot card: text on the left, a tall screenshot panel on the right
+        // (phone screenshots are tall, so this crops far less than a wide strip).
+        <div className="relative flex h-full gap-3.5">
+          <div className="flex min-w-0 flex-1 flex-col">
+            <div className="mb-3 flex items-center justify-between gap-2">
+              {toneTag}
+              {pos}
             </div>
-            <p className="line-clamp-4 text-[13px] italic leading-relaxed text-[var(--color-text-secondary)]">“{s.quote.text}”</p>
-          </figure>
-        ) : null}
-      </div>
+            <h2 className="text-[19px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
+            {(s.plus || s.minus) && (
+              <p className="mt-2 line-clamp-5 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{s.minus || s.plus}</p>
+            )}
+            <div className="mt-auto flex items-center justify-between gap-2 pt-3">
+              {countButton}
+              {wordmark}
+            </div>
+          </div>
+          <div className="w-[40%] shrink-0 self-stretch overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={s.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="relative mb-4 flex items-center justify-between">
+            {toneTag}
+            {pos}
+          </div>
 
-      <div className="relative mt-4 flex items-center justify-between">
-        <button
-          type="button"
-          onClick={openReviews}
-          disabled={s.evidence.length === 0}
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
-          style={{ background: `color-mix(in srgb, ${tone.glow} 16%, transparent)`, color: tone.glow, ["--glow" as string]: tone.glow }}
-        >
-          {s.count} {obsWord(s.count, ru)}
-          {s.evidence.length > 0 && (
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          )}
-        </button>
-        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
-      </div>
+          <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
+            <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
+
+            {s.tone === "mixed" ? (
+              // Both polarities present — keep the +/− markers so they read apart.
+              <>
+                {s.plus && (
+                  <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+                    <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
+                    <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
+                  </p>
+                )}
+                {s.minus && (
+                  <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+                    <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
+                    <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
+                  </p>
+                )}
+              </>
+            ) : (
+              // The tone tag already says praise/gripe — drop the marker, just a lede.
+              (s.plus || s.minus) && (
+                <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
+              )
+            )}
+
+            {s.quote && (
+              <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
+                <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                  {s.quote.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{s.quote.app}</span>}
+                  <span className="text-caption tabular-nums text-[#f5b301]">
+                    {"★".repeat(s.quote.rating)}
+                    {"☆".repeat(Math.max(0, 5 - s.quote.rating))}
+                  </span>
+                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{s.quote.date}</span>
+                </div>
+                <p className="line-clamp-4 text-[13px] italic leading-relaxed text-[var(--color-text-secondary)]">“{s.quote.text}”</p>
+              </figure>
+            )}
+          </div>
+
+          <div className="relative mt-4 flex items-center justify-between">
+            {countButton}
+            {wordmark}
+          </div>
+        </>
+      )}
 
       <dialog
         ref={dialog}
