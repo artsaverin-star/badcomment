@@ -5,11 +5,10 @@ import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getLocale } from "@/lib/i18n.server";
-import { categoryCards, ideaContentEn, type RegenCard } from "@/lib/regenCards";
+import { ideaContentEn } from "@/lib/regenCards";
 import { getSegmentSummary, type SegmentSummaryEvidence } from "@/lib/segmentSummary";
 import { listIdeas } from "@/lib/ideas";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
-import type { Evidence } from "@/components/InsightCard";
 
 export const dynamic = "force-dynamic";
 
@@ -26,14 +25,6 @@ function toneOfEv(ev: EvLike[]): Tone {
   const a = ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length;
   return a >= 3.6 ? "up" : a <= 2.7 ? "down" : "info";
 }
-function toneOfCard(c: RegenCard): Tone {
-  const p = !!c.plus?.trim();
-  const m = !!c.minus?.trim();
-  if (p && m) return "mixed";
-  if (p) return "up";
-  if (m) return "down";
-  return "info";
-}
 const elen = (e: EvLike) => (e.quote?.length ?? 0);
 const evQuote = (e: EvLike, ru: boolean) => ({ app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote });
 function orderEv(ev: EvLike[], tone: Tone, ru: boolean) {
@@ -43,8 +34,9 @@ function orderEv(ev: EvLike[], tone: Tone, ru: boolean) {
   return pool.map((e) => evQuote(e, ru));
 }
 
-// Narrative arc: hold → retain → friction → loss.
-const ARC = ["механик", "сообществ", "кризис", "прогресс", "истор"];
+// Narrative arc: what holds → retains for years → erases progress → betrays in
+// crisis (the moral climax) → then the ideas.
+const ARC = ["механик", "сообществ", "прогресс", "истор", "кризис"];
 const arcRank = (h: string) => {
   const i = ARC.findIndex((k) => h.toLowerCase().includes(k));
   return i === -1 ? ARC.length : i;
@@ -91,15 +83,26 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
   if (!summary) notFound();
 
   const ideas = listIdeas().filter((i) => i.category === slug);
-  const granular = categoryCards(slug, locale)?.product ?? [];
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const sections = [...summary.sections].sort((a, b) => arcRank(a.heading) - arcRank(b.heading));
   const observations = summary.items.reduce((s, i) => s + i.observationCount, 0);
 
   // ── Build the narrative deck ───────────────────────────────────────────
-  const chapters = sections.length + (granular.length ? 1 : 0) + (ideas.length ? 1 : 0);
+  // Cover → authored narrative chapters (the category's story) → ideas chapter.
+  const chapters = sections.length + (ideas.length ? 1 : 0);
   let ci = 0;
-  const deck: Slide[] = [];
+  const deck: Slide[] = [
+    {
+      kind: "cover",
+      name: cat.name,
+      icon: null,
+      description: ru ? `Разбор категории · 2026 — на основе ${readyCount} приложений` : `Category breakdown · 2026 — ${readyCount} apps`,
+      reviewsScanned: summary.reviewsScanned,
+      observations,
+      avgRating: null,
+      ratingCount: null,
+    },
+  ];
 
   sections.forEach((sec) => {
     ci += 1;
@@ -110,22 +113,6 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
       deck.push({ kind: "insight", title: item.title, body: item.body, count: item.observationCount, tone, quote: ordered[0], evidence: ordered });
     }
   });
-
-  if (granular.length) {
-    ci += 1;
-    deck.push({
-      kind: "chapter",
-      index: ci,
-      total: chapters,
-      heading: ru ? "Что ещё заметили в отзывах" : "What else the reviews showed",
-      dek: ru ? "Точечные наблюдения по всей категории — то, что хвалят и на что злятся." : "Granular observations across the category — the loves and the gripes.",
-    });
-    for (const c of granular) {
-      const tone = toneOfCard(c);
-      const ordered = orderEv(c.evidence as EvLike[], tone, ru);
-      deck.push({ kind: "insight", kicker: c.kicker, title: c.title, plus: c.plus, minus: c.minus, count: c.count, tone, quote: ordered[0], evidence: ordered });
-    }
-  }
 
   if (ideas.length) {
     ci += 1;
