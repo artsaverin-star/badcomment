@@ -11,6 +11,7 @@ export type CoverSlide = {
   kind: "cover";
   name: string;
   icon: string | null;
+  icons?: string[];
   developer?: string;
   description?: string;
   reviewsScanned: number;
@@ -18,6 +19,21 @@ export type CoverSlide = {
   avgRating: number | null;
   ratingCount: number | null;
 };
+
+// Scattered "salute" of app icons around the cover, like the homepage hero.
+const SALUTE_POS = [
+  "left-[5%] top-[6%]",
+  "right-[6%] top-[5%]",
+  "left-[2%] top-[33%]",
+  "right-[3%] top-[31%]",
+  "left-[7%] bottom-[12%]",
+  "right-[6%] bottom-[14%]",
+  "left-[26%] top-[1%]",
+  "right-[28%] bottom-[3%]",
+  "left-[40%] bottom-[0%]",
+  "right-[42%] top-[0%]",
+];
+const SALUTE_SIZE = ["size-10 sm:size-12", "size-9 sm:size-11", "size-11 sm:size-14"];
 
 export type StatsSlide = {
   kind: "stats";
@@ -249,8 +265,27 @@ function Frame({ children, glow }: { children: React.ReactNode; glow?: string })
 }
 
 function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
+  const salute = s.icons?.filter(Boolean).slice(0, SALUTE_POS.length) ?? [];
   return (
     <Frame glow="var(--color-text-brand)">
+      {salute.length > 0 && (
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          {salute.map((src, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={i}
+              src={src}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className={`ld-float absolute block rounded-[14px] opacity-50 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-60 ${SALUTE_SIZE[i % SALUTE_SIZE.length]} ${SALUTE_POS[i]}`}
+              style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
+            />
+          ))}
+          {/* центральный скрим, чтобы текст читался поверх иконок */}
+          <span className="absolute inset-0" style={{ background: "radial-gradient(58% 46% at 50% 50%, var(--color-surface-card) 38%, transparent 100%)" }} />
+        </div>
+      )}
       <div className="relative flex flex-1 flex-col items-center justify-center gap-5 text-center">
         {s.icon ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -568,7 +603,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
         <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
 
         {s.body ? (
-          <p className="line-clamp-[8] text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.body}</p>
+          <p className="line-clamp-[15] text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:line-clamp-[12]">{s.body}</p>
         ) : s.tone === "mixed" ? (
           // Both polarities present — keep the +/− markers so they read apart.
           <>
@@ -592,7 +627,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
           )
         )}
 
-        {s.quote && (
+        {!s.body && s.quote && (
           <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
             <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
               {s.quote.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{s.quote.app}</span>}

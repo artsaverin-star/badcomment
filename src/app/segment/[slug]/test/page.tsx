@@ -96,6 +96,7 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
       kind: "cover",
       name: cat.name,
       icon: null,
+      icons: cat.apps.map((a) => a.icon).filter(Boolean),
       description: ru ? `Разбор категории · 2026 — на основе ${readyCount} приложений` : `Category breakdown · 2026 — ${readyCount} apps`,
       reviewsScanned: summary.reviewsScanned,
       observations,
@@ -173,23 +174,10 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
             <span>{observations.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "наблюдений" : "observations"}</span>
           </div>
         </header>
-
-        {/* App roster */}
-        <section className="mt-14">
-          <h2 className="mb-4 text-center text-callout font-semibold text-[var(--color-text-secondary)]">
-            {ru ? `Разобрали все отзывы в ${readyCount} приложениях` : `Analyzed every review across ${readyCount} apps`}
-          </h2>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {cat.apps.map((a) => (
-              <AppTile key={a.query} a={a as CatApp} />
-            ))}
-          </div>
-        </section>
-
       </div>
 
       {/* The story deck */}
-      <section className="mt-20">
+      <section className="mt-14">
         <div className="mx-auto mb-8 max-w-[640px] text-center">
           <h2 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Вся история категории — в карточках" : "The whole category story — in cards"}</h2>
           <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
@@ -197,6 +185,18 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
           </p>
         </div>
         <CardCarousel slides={deck} locale={ru ? "ru" : "en"} />
+      </section>
+
+      {/* App roster */}
+      <section className="mx-auto mt-20 max-w-[640px]">
+        <h2 className="mb-4 text-center text-callout font-semibold text-[var(--color-text-secondary)]">
+          {ru ? `Разобрали все отзывы в ${readyCount} приложениях` : `Analyzed every review across ${readyCount} apps`}
+        </h2>
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {cat.apps.map((a) => (
+            <AppTile key={a.query} a={a as CatApp} />
+          ))}
+        </div>
       </section>
     </main>
   );
