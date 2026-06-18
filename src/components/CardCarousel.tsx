@@ -12,6 +12,7 @@ export type CoverSlide = {
   name: string;
   icon: string | null;
   developer?: string;
+  description?: string;
   reviewsScanned: number;
   observations: number;
   avgRating: number | null;
@@ -32,14 +33,6 @@ export type ShotSlide = {
   name: string;
 };
 
-export type AboutSlide = {
-  kind: "about";
-  name: string;
-  icon: string | null;
-  developer?: string;
-  description: string;
-};
-
 export type Quote = { app?: string; rating: number; date: string; text: string };
 
 export type Tone = "up" | "down" | "mixed" | "info";
@@ -58,7 +51,7 @@ export type InsightSlide = {
   ofTotal?: number;
 };
 
-export type Slide = CoverSlide | AboutSlide | StatsSlide | ShotSlide | InsightSlide;
+export type Slide = CoverSlide | StatsSlide | ShotSlide | InsightSlide;
 
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
@@ -152,8 +145,6 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
             >
               {s.kind === "cover" ? (
                 <Cover s={s} ru={ru} />
-              ) : s.kind === "about" ? (
-                <About s={s} ru={ru} />
               ) : s.kind === "stats" ? (
                 <Stats s={s} ru={ru} />
               ) : s.kind === "shot" ? (
@@ -239,6 +230,9 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
           <img src={s.icon} alt="" className="size-20 rounded-[22px] shadow-[0_12px_36px_-12px_rgba(0,0,0,0.6)]" />
         ) : null}
         <h1 className="text-[30px] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--color-text-primary)]">{s.name}</h1>
+        {s.description && (
+          <p className="max-w-[30ch] text-[15px] leading-relaxed text-[var(--color-text-secondary)]">{s.description}</p>
+        )}
         {s.avgRating != null && (
           <div className="flex flex-col items-center gap-1">
             <div className="text-[15px] tabular-nums tracking-tight text-[#f5b301]">
@@ -269,34 +263,6 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
         <span className="font-semibold tracking-tight text-[var(--color-text-secondary)]">inapp.pro</span>
         <span aria-hidden>·</span>
         <span>{ru ? "листайте →" : "swipe →"}</span>
-      </div>
-    </Frame>
-  );
-}
-
-function About({ s, ru }: { s: AboutSlide; ru: boolean }) {
-  return (
-    <Frame glow="var(--color-text-brand)">
-      <div className="relative mb-2">
-        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
-          {ru ? "О приложении" : "About"}
-        </span>
-      </div>
-      <div className="relative flex flex-1 flex-col justify-center gap-5">
-        <div className="flex items-center gap-3.5">
-          {s.icon ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={s.icon} alt="" className="size-14 shrink-0 rounded-[16px] shadow-[0_10px_28px_-12px_rgba(0,0,0,0.6)]" />
-          ) : null}
-          <div className="flex min-w-0 flex-col">
-            <span className="text-[20px] font-bold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)]">{s.name}</span>
-            {s.developer && <span className="truncate text-caption text-[var(--color-text-tertiary)]">{s.developer}</span>}
-          </div>
-        </div>
-        <p className="text-[17px] leading-[1.5] text-[var(--color-text-secondary)]">{s.description}</p>
-      </div>
-      <div className="relative mt-4 flex justify-end">
-        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
       </div>
     </Frame>
   );
@@ -356,24 +322,25 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
   );
 }
 
-// Standalone screenshot slide between text cards — the full screenshot, no crop.
+// Standalone screenshot slide between text cards — full-bleed, no black frames;
+// label + wordmark overlaid on gradient scrims for legibility.
 function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
   return (
-    <Frame glow="var(--color-text-brand)">
-      <div className="relative mb-3 flex items-center justify-between">
-        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
+    <div className="relative flex h-[78svh] max-h-[680px] min-h-[520px] w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={s.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-top" />
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
+      <div className="relative z-10 flex items-center justify-between gap-2 p-5">
+        <span className="inline-flex rounded-full bg-black/40 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white backdrop-blur-sm">
           {ru ? "Экран" : "Screen"}
         </span>
-        <span className="truncate text-caption text-[var(--color-text-tertiary)]">{s.name}</span>
+        <span className="truncate text-caption font-medium text-white/85">{s.name}</span>
       </div>
-      <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] p-3">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={s.image} alt="" loading="lazy" decoding="async" className="max-h-full max-w-full rounded-[var(--radius-lg)] object-contain shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)]" />
+      <div className="relative z-10 mt-auto flex justify-end p-5">
+        <span className="text-caption font-semibold tracking-tight text-white/85">inapp.pro</span>
       </div>
-      <div className="relative mt-4 flex justify-end">
-        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
-      </div>
-    </Frame>
+    </div>
   );
 }
 

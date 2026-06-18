@@ -114,12 +114,12 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
       name,
       icon,
       developer,
+      description,
       reviewsScanned: insights.reviewsScanned,
       observations,
       avgRating,
       ratingCount,
     },
-    ...(description ? [{ kind: "about" as const, name, icon, developer, description }] : []),
     {
       kind: "stats",
       title: ru ? "Распределение оценок" : "Rating distribution",
