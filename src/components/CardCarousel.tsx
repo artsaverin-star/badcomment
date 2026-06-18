@@ -20,6 +20,8 @@ export type CoverSlide = {
 
 export type Quote = { app?: string; rating: number; date: string; text: string };
 
+export type Tone = "up" | "down" | "mixed" | "info";
+
 export type InsightSlide = {
   kind: "insight";
   kicker?: string;
@@ -27,7 +29,7 @@ export type InsightSlide = {
   plus?: string;
   minus?: string;
   count: number;
-  tone: "up" | "down" | "info";
+  tone: Tone;
   quote?: Quote;
 };
 
@@ -36,6 +38,7 @@ export type Slide = CoverSlide | InsightSlide;
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
   down: { glow: "#ff8585", label: { ru: "Злятся", en: "Hated" } },
+  mixed: { glow: "#f5b301", label: { ru: "Спорно", en: "Mixed" } },
   info: { glow: "var(--color-text-tertiary)", label: { ru: "Наблюдение", en: "Observation" } },
 } as const;
 

@@ -7,7 +7,7 @@ import { getAppMetaByProductId } from "@/lib/researchCategories";
 import { getProductDetail } from "@/lib/queries";
 import { appCardsFor } from "@/lib/regenCards";
 import { getLocale } from "@/lib/i18n.server";
-import CardCarousel, { type Slide } from "@/components/CardCarousel";
+import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
 import type { RegenCard } from "@/lib/regenCards";
 import type { Evidence } from "@/components/InsightCard";
 
@@ -16,14 +16,32 @@ export const dynamic = "force-dynamic";
 // Experiment: the per-app review breakdown reframed as a social-media style
 // swipeable card deck. Same data as /<slug>, presented as story frames.
 
-function toneOf(ev: Evidence[]): "up" | "down" | "info" {
-  const avg = ev.length ? ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length : 0;
-  return avg >= 3.5 ? "up" : avg > 0 && avg <= 2.6 ? "down" : "info";
+// Tone comes from the authored polarity (plus / minus), NOT the average star
+// rating of the evidence — the tagged reviews are noisy (a complaint card can
+// still carry generic 5★ quotes), so stars would mislabel a clear gripe as
+// "loved".
+function toneOf(c: RegenCard): Tone {
+  const hasPlus = !!c.plus?.trim();
+  const hasMinus = !!c.minus?.trim();
+  if (hasPlus && hasMinus) return "mixed";
+  if (hasPlus) return "up";
+  if (hasMinus) return "down";
+  return "info";
 }
 
-function pickQuote(ev: Evidence[], ru: boolean) {
-  const e = ev[0];
-  if (!e) return undefined;
+const qlen = (e: Evidence) => (e.quote?.length ?? 0);
+
+// Pick a quote that actually matches the card's tone: for a complaint, the
+// lowest-rated (most likely the real gripe) and most specific; for praise, the
+// highest-rated and most specific. Avoids stapling a 5★ "Extremely productive"
+// onto a card about a broken widget.
+function pickQuote(ev: Evidence[], tone: Tone, ru: boolean) {
+  if (!ev.length) return undefined;
+  const pool = [...ev];
+  if (tone === "down") pool.sort((a, b) => a.rating - b.rating || qlen(b) - qlen(a));
+  else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || qlen(b) - qlen(a));
+  else pool.sort((a, b) => qlen(b) - qlen(a));
+  const e = pool[0];
   return { app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote };
 }
 
@@ -69,16 +87,19 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
       avgRating,
       ratingCount,
     },
-    ...product.map((c) => ({
-      kind: "insight" as const,
-      kicker: c.kicker,
-      title: c.title,
-      plus: c.plus || undefined,
-      minus: c.minus || undefined,
-      count: c.count,
-      tone: toneOf(c.evidence),
-      quote: pickQuote(c.evidence, ru),
-    })),
+    ...product.map((c) => {
+      const tone = toneOf(c);
+      return {
+        kind: "insight" as const,
+        kicker: c.kicker,
+        title: c.title,
+        plus: c.plus || undefined,
+        minus: c.minus || undefined,
+        count: c.count,
+        tone,
+        quote: pickQuote(c.evidence, tone, ru),
+      };
+    }),
   ];
 
   return (
