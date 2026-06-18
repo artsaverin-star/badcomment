@@ -10,6 +10,7 @@ export type SegmentSummaryEvidence = {
   date: string;
   reviewId: string;
   quote: string;
+  quoteRu?: string;
   app: string;
 };
 

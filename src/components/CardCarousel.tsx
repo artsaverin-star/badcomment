@@ -41,6 +41,7 @@ export type InsightSlide = {
   kind: "insight";
   kicker?: string;
   title: string;
+  body?: string;
   plus?: string;
   minus?: string;
   count: number;
@@ -49,6 +50,14 @@ export type InsightSlide = {
   evidence: Quote[];
   pos?: number;
   ofTotal?: number;
+};
+
+export type ChapterSlide = {
+  kind: "chapter";
+  index: number;
+  total: number;
+  heading: string;
+  dek: string;
 };
 
 export type IdeaSlide = {
@@ -62,7 +71,7 @@ export type IdeaSlide = {
   evidence: Quote[];
 };
 
-export type Slide = CoverSlide | StatsSlide | ShotSlide | InsightSlide | IdeaSlide;
+export type Slide = CoverSlide | StatsSlide | ShotSlide | ChapterSlide | InsightSlide | IdeaSlide;
 
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
@@ -160,6 +169,8 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
                 <Stats s={s} ru={ru} />
               ) : s.kind === "shot" ? (
                 <Shot s={s} ru={ru} />
+              ) : s.kind === "chapter" ? (
+                <Chapter s={s} ru={ru} />
               ) : s.kind === "idea" ? (
                 <IdeaCard s={s} ru={ru} />
               ) : (
@@ -357,6 +368,25 @@ function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
   );
 }
 
+// Chapter divider — announces the next narrative beat of the category story.
+function Chapter({ s, ru }: { s: ChapterSlide; ru: boolean }) {
+  return (
+    <Frame glow="var(--color-text-brand)">
+      <div className="relative flex flex-1 flex-col justify-center gap-5">
+        <span className="text-caption font-bold uppercase tracking-[0.14em] text-[var(--color-text-brand)]">
+          {(ru ? "Глава " : "Chapter ") + s.index} · {s.total}
+        </span>
+        <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[34px]">{s.heading}</h2>
+        <p className="text-[16px] leading-relaxed text-[var(--color-text-secondary)]">{s.dek}</p>
+      </div>
+      <div className="relative flex items-center justify-between gap-2">
+        <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "листайте →" : "swipe →"}</span>
+        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
+      </div>
+    </Frame>
+  );
+}
+
 // Reusable reviews bottom-sheet, shared by insight and idea cards.
 function ReviewsDialog({
   dref,
@@ -534,7 +564,9 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
       <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
         <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
 
-        {s.tone === "mixed" ? (
+        {s.body ? (
+          <p className="line-clamp-[8] text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.body}</p>
+        ) : s.tone === "mixed" ? (
           // Both polarities present — keep the +/− markers so they read apart.
           <>
             {s.plus && (

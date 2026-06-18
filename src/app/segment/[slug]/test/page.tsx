@@ -1,46 +1,41 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCategoryBySlug } from "@/lib/researchCategories";
-import { getAppMetaByProductId } from "@/lib/researchCategories";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getLocale } from "@/lib/i18n.server";
-import { categoryCards, ideaContentEn } from "@/lib/regenCards";
-import { getSegmentSummary } from "@/lib/segmentSummary";
+import { ideaContentEn } from "@/lib/regenCards";
+import { getSegmentSummary, type SegmentSummaryEvidence } from "@/lib/segmentSummary";
 import { listIdeas } from "@/lib/ideas";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
-import type { RegenCard } from "@/lib/regenCards";
-import type { Evidence } from "@/components/InsightCard";
 
 export const dynamic = "force-dynamic";
 
-// Experiment: the whole category as one swipeable deck — cross-app insight
-// cards, the ideas they imply, and app screenshots, woven into a single read.
-// No separate sections, no jumping away. Same data as /segment/<slug>.
+// Experiment: the whole category as one narrative deck. Built from the authored
+// editorial sections (segment-insights) — each section is a chapter (divider +
+// its observation cards), then a final "what to build" chapter of ideas. Tells
+// a story rather than shuffling cards. Same data as /segment/<slug>.
 
-function toneOf(c: RegenCard): Tone {
-  const hasPlus = !!c.plus?.trim();
-  const hasMinus = !!c.minus?.trim();
-  if (hasPlus && hasMinus) return "mixed";
-  if (hasPlus) return "up";
-  if (hasMinus) return "down";
-  return "info";
+function toneOfEv(ev: SegmentSummaryEvidence[]): Tone {
+  if (!ev.length) return "info";
+  const a = ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length;
+  return a >= 3.6 ? "up" : a <= 2.7 ? "down" : "mixed";
 }
-const qlen = (e: Evidence) => (e.quote?.length ?? 0);
-const toQuote = (e: Evidence, ru: boolean) => ({ app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote });
-function pickQuote(ev: Evidence[], tone: Tone, ru: boolean) {
-  if (!ev.length) return undefined;
+const elen = (e: SegmentSummaryEvidence) => (e.quote?.length ?? 0);
+const evQuote = (e: SegmentSummaryEvidence, ru: boolean) => ({ app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote });
+function orderEv(ev: SegmentSummaryEvidence[], tone: Tone, ru: boolean) {
   const pool = [...ev];
-  if (tone === "down") pool.sort((a, b) => a.rating - b.rating || qlen(b) - qlen(a));
-  else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || qlen(b) - qlen(a));
-  else pool.sort((a, b) => qlen(b) - qlen(a));
-  return toQuote(pool[0], ru);
+  if (tone === "down") pool.sort((a, b) => a.rating - b.rating || elen(b) - elen(a));
+  else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || elen(b) - elen(a));
+  return pool.map((e) => evQuote(e, ru));
 }
-function orderedEvidence(ev: Evidence[], tone: Tone, ru: boolean) {
-  const pool = [...ev];
-  if (tone === "down") pool.sort((a, b) => a.rating - b.rating || qlen(b) - qlen(a));
-  else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || qlen(b) - qlen(a));
-  return pool.map((e) => toQuote(e, ru));
+
+// Narrative arc: hold → retain → friction → loss. Order sections by heading.
+const ARC = ["механик", "сообществ", "кризис", "прогресс", "истор"];
+function arcRank(heading: string): number {
+  const h = heading.toLowerCase();
+  const i = ARC.findIndex((k) => h.includes(k));
+  return i === -1 ? ARC.length : i;
 }
 
 export default async function SegmentDeckTest({ params }: { params: Promise<{ slug: string }> }) {
@@ -51,63 +46,57 @@ export default async function SegmentDeckTest({ params }: { params: Promise<{ sl
   if (!isActiveCategory(slug)) notFound();
   const cat = getCategoryBySlug(slug, locale);
   if (!cat) notFound();
-
   const summary = getSegmentSummary(slug);
-  const cards = categoryCards(slug, locale)?.product ?? [];
+  if (!summary) notFound();
+
   const ideas = listIdeas().filter((i) => i.category === slug);
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
-  const reviews = summary?.reviewsScanned ?? readyCount * 500;
-  const observations = cards.reduce((s, c) => s + c.count, 0);
+  const sections = [...summary.sections].sort((a, b) => arcRank(a.heading) - arcRank(b.heading));
+  const totalChapters = sections.length + (ideas.length ? 1 : 0);
 
-  // One screenshot per app (those that have them) → standalone shot slides.
-  const shots: Slide[] = [];
-  for (const a of cat.apps) {
-    const meta = a.productId ? getAppMetaByProductId(a.productId) : null;
-    const src = meta?.screenshots?.[0];
-    if (src) shots.push({ kind: "shot", image: src, name: a.name });
-  }
-
-  const insightSlides: Slide[] = cards.map((c) => {
-    const tone = toneOf(c);
-    return {
-      kind: "insight",
-      kicker: c.kicker,
-      title: c.title,
-      plus: c.plus || undefined,
-      minus: c.minus || undefined,
-      count: c.count,
-      tone,
-      quote: pickQuote(c.evidence, tone, ru),
-      evidence: orderedEvidence(c.evidence, tone, ru),
-    };
-  });
-
-  const ideaSlides: Slide[] = ideas.map((idea) => {
-    const en = ideaContentEn(idea.slug, locale);
-    return {
-      kind: "idea",
-      title: en?.title || idea.title,
-      oneLiner: en?.oneLiner || idea.oneLiner,
-      pitch: en?.pitch || idea.idea.pitch,
-      features: en?.features?.length ? en.features : idea.idea.features,
-      apps: idea.stats.apps,
-      observations: idea.stats.observations,
-      evidence: idea.reviewGrid.map((q) => ({ app: q.app, rating: q.rating, date: "", text: q.quote })),
-    };
-  });
-
-  // Weave the three streams: an idea after every couple of insight cards, a
-  // screenshot every few — so a swipe mixes разбор → идея → скрин → разбор.
   const deck: Slide[] = [];
-  let ideaI = 0;
-  let shotI = 0;
-  insightSlides.forEach((s, i) => {
-    deck.push(s);
-    if (ideaI < ideaSlides.length && (i + 1) % 2 === 0) deck.push(ideaSlides[ideaI++]);
-    if (shotI < shots.length && (i + 1) % 3 === 0) deck.push(shots[shotI++]);
+
+  sections.forEach((sec, ci) => {
+    deck.push({ kind: "chapter", index: ci + 1, total: totalChapters, heading: sec.heading, dek: sec.dek });
+    for (const item of sec.items) {
+      const tone = toneOfEv(item.evidence);
+      const ordered = orderEv(item.evidence, tone, ru);
+      deck.push({
+        kind: "insight",
+        title: item.title,
+        body: item.body,
+        count: item.observationCount,
+        tone,
+        quote: ordered[0],
+        evidence: ordered,
+      });
+    }
   });
-  while (ideaI < ideaSlides.length) deck.push(ideaSlides[ideaI++]);
-  while (shotI < shots.length) deck.push(shots[shotI++]);
+
+  if (ideas.length) {
+    deck.push({
+      kind: "chapter",
+      index: totalChapters,
+      total: totalChapters,
+      heading: ru ? "Что из этого можно построить" : "What you could build from this",
+      dek: ru
+        ? "Те же боли и опоры, но с другой стороны: продукты, которые закрывают разрывы категории."
+        : "The same pains and anchors, flipped: products that close the category's gaps.",
+    });
+    for (const idea of ideas) {
+      const en = ideaContentEn(idea.slug, locale);
+      deck.push({
+        kind: "idea",
+        title: en?.title || idea.title,
+        oneLiner: en?.oneLiner || idea.oneLiner,
+        pitch: en?.pitch || idea.idea.pitch,
+        features: en?.features?.length ? en.features : idea.idea.features,
+        apps: idea.stats.apps,
+        observations: idea.stats.observations,
+        evidence: idea.reviewGrid.map((q) => ({ app: q.app, rating: q.rating, date: "", text: q.quote })),
+      });
+    }
+  }
 
   const slides: Slide[] = [
     {
@@ -115,8 +104,8 @@ export default async function SegmentDeckTest({ params }: { params: Promise<{ sl
       name: cat.name,
       icon: null,
       description: ru ? `Разбор ${readyCount} приложений — по 500 последних отзывов в каждом` : `${readyCount} apps — 500 latest reviews each`,
-      reviewsScanned: reviews,
-      observations: observations || cards.length,
+      reviewsScanned: summary.reviewsScanned,
+      observations: summary.items.reduce((s, i) => s + i.observationCount, 0),
       avgRating: null,
       ratingCount: null,
     },
@@ -140,7 +129,7 @@ export default async function SegmentDeckTest({ params }: { params: Promise<{ sl
 
       <h1 className="mb-1 text-center text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{cat.name}</h1>
       <p className="mb-8 text-center text-callout text-[var(--color-text-secondary)]">
-        {ru ? "Вся категория в карточках — разбор и идеи, листайте вправо" : "The whole category in cards — breakdown & ideas, swipe right"}
+        {ru ? "История категории в карточках — от того, что держит, к тому, что построить" : "The category's story in cards — from what holds to what to build"}
       </p>
 
       <CardCarousel slides={slides} locale={ru ? "ru" : "en"} />
