@@ -4,12 +4,19 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import Reveal from "./Reveal";
-import CatGlyph from "./CatGlyph";
 import type { Locale } from "@/lib/i18n";
 
-export type LandingApp = { name: string; icon: string; slug?: string | null; reviews?: number; free?: boolean };
+export type CatCard = {
+  slug: string;
+  name: string;
+  icons: string[];
+  apps: number;
+  reviews: number;
+  observations: number;
+  ideas: number;
+  painHook: string;
+};
 
-// Russian plural for "отзыв" (review): 1 отзыв, 2–4 отзыва, 5+ отзывов.
 function reviewsWord(n: number): string {
   const d = n % 10;
   const dd = n % 100;
@@ -18,184 +25,148 @@ function reviewsWord(n: number): string {
   if (d >= 2 && d <= 4) return "отзыва";
   return "отзывов";
 }
-
-// One scrolling row of the two-row carousels. Content is doubled so the
-// translateX(-50%) loop is seamless; hover pauses (via .ld-marquee).
-function MarqueeRow({
-  items,
-  reverse = false,
-  speed = "90s",
-}: {
-  items: React.ReactNode[];
-  reverse?: boolean;
-  speed?: string;
-}) {
-  return (
-    <div className="overflow-hidden py-1 [mask-image:linear-gradient(90deg,transparent,#000_5%,#000_95%,transparent)]">
-      <div
-        className="ld-marquee flex w-max gap-2.5"
-        style={{ ["--mq" as string]: speed, animationDirection: reverse ? "reverse" : undefined }}
-      >
-        {items}
-        {items.map((n, i) => (
-          <div key={`dup-${i}`} className="contents">
-            {n}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// A single app pill in the «Приложения» carousel (icon + name + review count).
-function AppBrick({ a, ru }: { a: LandingApp; ru: boolean }) {
-  const cls =
-    "flex shrink-0 items-center gap-3 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-2 pl-2 pr-5 transition-colors hover:border-[var(--color-border-strong)]";
-  const inner = (
-    <>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-full object-cover" />
-      <span className="flex flex-col leading-tight">
-        <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{a.name}</span>
-        {a.reviews && a.reviews > 0 ? (
-          <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
-            {ru ? `разобрали ${a.reviews.toLocaleString("ru-RU")} ${reviewsWord(a.reviews)}` : `${a.reviews.toLocaleString("en-US")} reviews`}
-          </span>
-        ) : null}
-      </span>
-    </>
-  );
-  return a.slug ? (
-    <Link href={`/${a.slug}`} className={cls}>
-      {inner}
-    </Link>
-  ) : (
-    <span className={cls}>{inner}</span>
-  );
-}
-
 function appsWord(n: number): string {
-  const m10 = n % 10;
-  const m100 = n % 100;
-  if (m10 === 1 && m100 !== 11) return "приложение";
-  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return "приложения";
+  const d = n % 10;
+  const dd = n % 100;
+  if (dd >= 11 && dd <= 14) return "приложений";
+  if (d === 1) return "приложение";
+  if (d >= 2 && d <= 4) return "приложения";
   return "приложений";
 }
-
-// Centered section heading + subtitle + «Все» link.
-function SectionHead({ title, subtitle, href, all }: { title: string; subtitle: string; href: string; all: string }) {
-  return (
-    <div className="mx-auto mb-6 flex max-w-xl flex-col items-center gap-1.5 px-4 text-center">
-      <h2 className="text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{title}</h2>
-      <p className="text-callout text-[var(--color-text-secondary)]">{subtitle}</p>
-      <Link href={href} className="mt-1 text-footnote font-semibold text-[var(--color-text-brand)] hover:underline">
-        {all}
-      </Link>
-    </div>
-  );
+function obsWord(n: number): string {
+  const d = n % 10;
+  const dd = n % 100;
+  if (dd >= 11 && dd <= 14) return "наблюдений";
+  if (d === 1) return "наблюдение";
+  if (d >= 2 && d <= 4) return "наблюдения";
+  return "наблюдений";
+}
+function ideasWord(n: number): string {
+  const d = n % 10;
+  const dd = n % 100;
+  if (dd >= 11 && dd <= 14) return "идей";
+  if (d === 1) return "идея";
+  if (d >= 2 && d <= 4) return "идеи";
+  return "идей";
 }
 
+const CARD_POS = [
+  "left-[4%] top-[8%]",
+  "right-[5%] top-[6%]",
+  "left-[2%] top-[42%]",
+  "right-[3%] top-[40%]",
+  "left-[6%] bottom-[12%]",
+  "right-[5%] bottom-[14%]",
+  "left-[23%] top-[2%]",
+  "right-[25%] bottom-[4%]",
+  "left-[40%] bottom-[1%]",
+  "right-[42%] top-[1%]",
+];
 
-// A single category pill in the «Категории» carousel — distinct from app pills:
-// a brand-tinted glyph (not an app logo) + «разобрали N приложений».
-function CatBrick({ c, ru }: { c: { name: string; slug: string; count: number; domain?: string }; ru: boolean }) {
+// A big, selling category card — the segment cover (app-icon salute + headline
+// + hook + stats) condensed, with a «Смотреть разбор» CTA.
+function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
+  const icons = c.icons.filter(Boolean).slice(0, CARD_POS.length);
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="flex shrink-0 items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] py-2.5 pl-2.5 pr-5 transition-colors hover:border-[var(--color-border-strong)]"
+      className="group relative block overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] transition-colors hover:border-[var(--color-border-strong)] sm:p-8"
     >
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-accent-brand-subtle)] text-[var(--color-text-brand)]">
-        <CatGlyph domain={c.domain} />
-      </span>
-      <span className="flex flex-col leading-tight">
-        <span className="text-footnote font-semibold text-[var(--color-text-primary)]">{c.name}</span>
-        <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">
-          {ru ? `разобрали ${c.count} ${appsWord(c.count)}` : `${c.count} apps analyzed`}
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-40 opacity-[0.16]" style={{ background: "radial-gradient(120% 80% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
+      {icons.length > 0 && (
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          {icons.map((src, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={i}
+              src={src}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className={`ld-float absolute block size-11 rounded-[13px] opacity-50 shadow-[0_12px_30px_-12px_rgba(0,0,0,0.85)] sm:size-12 ${CARD_POS[i]}`}
+              style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
+            />
+          ))}
+          <span className="absolute inset-0" style={{ background: "radial-gradient(62% 56% at 50% 48%, var(--color-surface-card) 36%, transparent 100%)" }} />
+        </div>
+      )}
+
+      <div className="relative flex flex-col items-center gap-3 text-center">
+        <h3 className="text-[28px] font-bold leading-[1.08] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[34px]">{c.name}</h3>
+        <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
+          {ru ? `Разбор категории · 2026 · ${c.apps} ${appsWord(c.apps)}` : `Category breakdown · 2026 · ${c.apps} apps`}
+        </p>
+        {c.painHook && (
+          <p className="mx-auto max-w-[44ch] text-callout leading-relaxed text-[var(--color-text-secondary)]">
+            {ru ? (
+              <>
+                А знаете, на что злятся сильнее всего? <b className="text-[var(--color-text-primary)]">{c.painHook.charAt(0).toLowerCase() + c.painHook.slice(1)}</b>. Сделайте без этого — и у вас потенциальный хит.
+              </>
+            ) : (
+              <>
+                The #1 thing people hate here? <b className="text-[var(--color-text-primary)]">{c.painHook}</b>. Build one without it — and you’ve got a hit.
+              </>
+            )}
+          </p>
+        )}
+        <p className="text-footnote text-[var(--color-text-secondary)]">
+          {ru ? (
+            <>
+              Прочитали <b className="tabular-nums text-[var(--color-text-primary)]">{c.reviews.toLocaleString("ru-RU")}</b> {reviewsWord(c.reviews)} · собрали{" "}
+              <b className="tabular-nums text-[var(--color-text-primary)]">{c.observations}</b> {obsWord(c.observations)}
+              {c.ideas > 0 ? <> · <b className="tabular-nums text-[var(--color-text-primary)]">{c.ideas}</b> {ideasWord(c.ideas)}</> : null}
+            </>
+          ) : (
+            <>
+              Read <b className="tabular-nums text-[var(--color-text-primary)]">{c.reviews.toLocaleString("en-US")}</b> reviews · {c.observations} observations
+              {c.ideas > 0 ? <> · {c.ideas} ideas</> : null}
+            </>
+          )}
+        </p>
+        <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-callout font-semibold text-[var(--color-button-primary-text)] transition-transform group-hover:scale-[1.03]">
+          {ru ? "Смотреть разбор" : "See the breakdown"}
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </span>
-      </span>
+      </div>
     </Link>
   );
 }
 
-// A rich idea card (matches the /ideas page) sized for the carousel.
-function IdeaBrick({
-  i,
-  ru,
-}: {
-  i: { title: string; slug: string; categoryName: string; oneLiner?: string; domain?: string; stats?: { apps: number; reviews: number; observations: number } };
-  ru: boolean;
-}) {
-  return (
-    <Link
-      href={`/ideas/${i.slug}`}
-      className="flex w-[300px] shrink-0 flex-col gap-2 self-stretch whitespace-normal rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]"
-    >
-      <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
-        <CatGlyph domain={i.domain} size={14} />
-        <span className="truncate">{i.categoryName}</span>
-      </span>
-      <span className="text-[18px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">
-        {i.title}
-      </span>
-      {i.oneLiner ? (
-        <p className="line-clamp-4 text-footnote leading-[1.55] text-[var(--color-text-secondary)]">{i.oneLiner}</p>
-      ) : null}
-      {i.stats ? (
-        <span className="mt-auto pt-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">
-          {i.stats.apps} {appsWord(i.stats.apps)} · {i.stats.reviews.toLocaleString(ru ? "ru-RU" : "en-US")} отзывов
-        </span>
-      ) : null}
-    </Link>
-  );
-}
-
-// Marketing landing for logged-out visitors: animated hero with a salute of
-// drifting app icons + scrolling app/category carousels. Original code in the
-// app's own dark theme.
+// Marketing landing: animated hero with a salute of drifting app icons, then a
+// gallery of selling category cards (no more genre/app/idea carousels).
 export default function Landing({
-  apps,
+  catCards = [],
   locale = "ru",
   totalReviews = 0,
   loggedIn = false,
-  categories = [],
-  ideas = [],
 }: {
-  apps: LandingApp[];
+  catCards?: CatCard[];
   locale?: Locale;
   totalReviews?: number;
   loggedIn?: boolean;
-  categories?: { name: string; slug: string; count: number; icon?: string; domain?: string }[];
-  ideas?: {
-    title: string;
-    slug: string;
-    categoryName: string;
-    oneLiner?: string;
-    domain?: string;
-    stats?: { apps: number; reviews: number; observations: number };
-  }[];
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
 
-  // Re-shuffle on the client each mount so the icon salute differs every load
-  // (server stays deterministic; rAF keeps setState out of the effect body).
-  const [shuffled, setShuffled] = useState<LandingApp[]>(apps);
+  // Hero salute — icons flattened from the category cards, shuffled per load.
+  const baseIcons = catCards.flatMap((c) => c.icons).filter(Boolean);
+  const [icons, setIcons] = useState<string[]>(baseIcons);
   useEffect(() => {
     const id = requestAnimationFrame(() => {
-      const arr = apps.slice();
+      const arr = catCards.flatMap((c) => c.icons).filter(Boolean);
       for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         const t = arr[i];
         arr[i] = arr[j];
         arr[j] = t;
       }
-      setShuffled(arr);
+      setIcons(arr);
     });
     return () => cancelAnimationFrame(id);
-  }, [apps]);
+  }, [catCards]);
 
-  const withIcon = shuffled.filter((a) => a.icon);
-  // A scattered "salute" of icons around the hero (the set is shuffled per load).
   const positions = [
     "left-[3%] top-[6%]", "right-[5%] top-[9%]", "left-[11%] top-[33%]", "right-[8%] top-[30%]",
     "left-[1%] bottom-[18%]", "right-[2%] bottom-[20%]", "left-[20%] top-[2%]", "right-[22%] bottom-[5%]",
@@ -203,39 +174,28 @@ export default function Landing({
     "left-[41%] top-[0%]", "right-[43%] bottom-[1%]",
   ];
   const sizes = ["size-10 sm:size-12 lg:size-14", "size-9 sm:size-11 lg:size-12", "size-11 sm:size-14 lg:size-16"];
-  const floats = withIcon.slice(0, positions.length);
-
-  // App bricks for the «Приложения» carousel — prefer clickable (ready) apps.
-  const carouselApps = (withIcon.filter((a) => a.slug).length >= 8 ? withIcon.filter((a) => a.slug) : withIcon).slice(0, 40);
-  const appsRowA = carouselApps.filter((_, i) => i % 2 === 0);
-  const appsRowB = carouselApps.filter((_, i) => i % 2 === 1);
-  const catsRowA = categories.filter((_, i) => i % 2 === 0);
-  const catsRowB = categories.filter((_, i) => i % 2 === 1);
+  const floats = icons.slice(0, positions.length);
 
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-x-clip px-4 pb-16 pt-20 sm:pt-28">
+      <section className="relative overflow-x-clip px-4 pb-12 pt-20 sm:pt-28">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          {floats.map((a, i) => (
+          {floats.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               key={i}
-              src={a.icon}
+              src={src}
               alt=""
               className={`ld-float absolute block rounded-[14px] opacity-70 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-80 ${sizes[i % sizes.length]} ${positions[i]}`}
-              style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${(i % 2 ? 7 : -7)}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
+              style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
             />
           ))}
         </div>
 
         <div className="relative mx-auto max-w-3xl text-center">
           <h1 className="ld-fade text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
-            {ru ? (
-              <>Тысячи отзывов<br />в готовые выводы</>
-            ) : (
-              <>Thousands of reviews<br />into clear conclusions</>
-            )}
+            {ru ? <>Тысячи отзывов<br />в готовые выводы</> : <>Thousands of reviews<br />into clear conclusions</>}
           </h1>
 
           <p className="ld-fade mx-auto mt-5 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
@@ -246,86 +206,36 @@ export default function Landing({
           {totalReviews > 0 && (
             <p className="ld-fade mx-auto mt-3 text-callout text-[var(--color-text-tertiary)]" style={{ animationDelay: "0.13s" }}>
               {ru ? "Уже разобрали " : "Already analyzed "}
-              <span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">
-                {totalReviews.toLocaleString(ru ? "ru-RU" : "en-US")}
-              </span>
+              <span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{totalReviews.toLocaleString(ru ? "ru-RU" : "en-US")}</span>
               {ru ? ` ${reviewsWord(totalReviews)}` : " reviews"}
             </p>
           )}
 
           <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
             {loggedIn ? (
-              <Link
-                href="/catalog"
-                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
-              >
+              <Link href="/catalog" className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                 {ru ? "Открыть каталог" : "Open catalog"}
               </Link>
             ) : (
-              <button
-                type="button"
-                onClick={() => setModal(true)}
-                className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
-              >
+              <button type="button" onClick={() => setModal(true)} className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                 {ru ? "Начать бесплатно" : "Start free"}
               </button>
             )}
-            <Link
-              href="/tokens"
-              className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]"
-            >
+            <Link href="/tokens" className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]">
               {ru ? "Энергия" : "Energy"}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Categories carousel (two rows, glyph icons) */}
-      {categories.length > 2 && (
-        <Reveal className="mt-16 w-full">
-          <SectionHead
-            title={ru ? "Категории" : "Categories"}
-            subtitle={ru ? "Разборы по жанрам приложений — что внутри каждой ниши." : "Breakdowns by app genre — what's inside each niche."}
-            href="/catalog"
-            all={ru ? "Все категории" : "All categories"}
-          />
-          <div className="flex flex-col gap-2.5">
-            <MarqueeRow speed="160s" items={catsRowA.map((c) => <CatBrick key={c.slug} c={c} ru={ru} />)} />
-            {catsRowB.length > 0 && (
-              <MarqueeRow speed="185s" items={catsRowB.map((c) => <CatBrick key={c.slug} c={c} ru={ru} />)} />
-            )}
+      {/* Category cover cards */}
+      {catCards.length > 0 && (
+        <Reveal className="w-full">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-2">
+            {catCards.map((c) => (
+              <CategoryCoverCard key={c.slug} c={c} ru={ru} />
+            ))}
           </div>
-        </Reveal>
-      )}
-
-      {/* Apps carousel (two rows, bricks) */}
-      {carouselApps.length > 3 && (
-        <Reveal className="mt-16 w-full">
-          <SectionHead
-            title={ru ? "Приложения" : "Apps"}
-            subtitle={ru ? "Сотни приложений, по каждому разобрали все отзывы." : "Hundreds of apps — every review analyzed."}
-            href="/catalog?view=apps"
-            all={ru ? "Все приложения" : "All apps"}
-          />
-          <div className="flex flex-col gap-2.5">
-            <MarqueeRow speed="170s" items={appsRowA.map((a, i) => <AppBrick key={`a-${i}`} a={a} ru={ru} />)} />
-            {appsRowB.length > 0 && (
-              <MarqueeRow speed="195s" items={appsRowB.map((a, i) => <AppBrick key={`b-${i}`} a={a} ru={ru} />)} />
-            )}
-          </div>
-        </Reveal>
-      )}
-
-      {/* Ideas carousel (rich cards) */}
-      {ideas.length > 0 && (
-        <Reveal className="mt-16 w-full">
-          <SectionHead
-            title={ru ? "Идеи" : "Ideas"}
-            subtitle={ru ? "Готовые идеи новых приложений — на основе того, что люди реально просят." : "Ready product ideas from what people actually ask for."}
-            href="/ideas"
-            all={ru ? "Все идеи" : "All ideas"}
-          />
-          <MarqueeRow speed="200s" items={ideas.map((i) => <IdeaBrick key={i.slug} i={i} ru={ru} />)} />
         </Reveal>
       )}
 
