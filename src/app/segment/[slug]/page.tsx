@@ -122,7 +122,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const ideas = listIdeas().filter((i) => i.category === slug);
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const sections = [...summary.sections].sort((a, b) => arcRank(a.heading) - arcRank(b.heading));
-  const observations = summary.items.reduce((s, i) => s + i.observationCount, 0);
 
   // Hook: the most-MENTIONED pain (highest count among genuinely negative items),
   // not the rarest 1★ outlier — evidence ratings are noisy, so gate on avg<3.4
@@ -144,19 +143,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   // their own per-energy sections below). First 3 cards are a free taste. ──
   const chapters = sections.length;
   let ci = 0;
-  const deck: Slide[] = [
-    {
-      kind: "cover",
-      name: cat.name,
-      icon: null,
-      icons: cat.apps.map((a) => a.icon).filter(Boolean),
-      description: ru ? `Разбор категории · 2026 — на основе ${readyCount} приложений` : `Category breakdown · 2026 — ${readyCount} apps`,
-      reviewsScanned: summary.reviewsScanned,
-      observations,
-      avgRating: null,
-      ratingCount: null,
-    },
-  ];
+  // No cover slide — the page hero already covers the intro; the deck dives
+  // straight into the story so the free preview is real substance.
+  const deck: Slide[] = [];
   sections.forEach((sec) => {
     ci += 1;
     deck.push({ kind: "chapter", index: ci, total: chapters, heading: sec.heading, dek: sec.dek });
@@ -313,12 +302,12 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
             {ru ? (
               <>
                 Мы разобрали {readyCount} приложений и собрали <b className="text-[var(--color-text-primary)]">{ideas.length}</b> идей улучшений, которые люди сами
-                просят в отзывах. Все — ниже.
+                просят в отзывах. Открывайте ниже.
               </>
             ) : (
               <>
                 We analyzed {readyCount} apps and pulled together <b className="text-[var(--color-text-primary)]">{ideas.length}</b> improvement ideas users ask for
-                themselves. All below.
+                themselves. Open them below.
               </>
             )}
           </p>
