@@ -218,11 +218,11 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     })
     .filter((a) => a.total > 0);
 
-  // Section nav (left chips on desktop, sticky bar on mobile).
+  // Section nav — detailed: the story, the ideas, then each app by name.
   const nav = [
-    { h: "#story", label: ru ? "История" : "Story" },
+    { h: "#story", label: ru ? "Разбор" : "Story" },
     ...(ideaCards.length ? [{ h: "#ideas", label: ru ? "Идеи" : "Ideas" }] : []),
-    ...(appSections.length ? [{ h: "#apps", label: ru ? "Приложения" : "Apps" }] : []),
+    ...appSections.map((a, i) => ({ h: `#app-${i}`, label: a.name })),
   ];
 
   // Schema.org structured data — helps search engines and LLMs parse the page
@@ -310,17 +310,22 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         </header>
       </div>
 
-      {/* Section nav — sticky chip bar on top */}
-      <nav aria-label={ru ? "Разделы" : "Sections"} className="sticky top-2 z-30 mt-8 flex flex-wrap justify-center gap-2">
-        {nav.map((n) => (
-          <a
-            key={n.h}
-            href={n.h}
-            className="rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_90%,transparent)] px-4 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] backdrop-blur transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-          >
-            {n.label}
-          </a>
-        ))}
+      {/* Section nav — pinned to the top like a header, detailed by point */}
+      <nav
+        aria-label={ru ? "Разделы" : "Sections"}
+        className="sticky top-0 z-40 -mx-4 mt-8 border-y border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)] px-4 py-2.5 backdrop-blur-md"
+      >
+        <div className="flex gap-2 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {nav.map((n) => (
+            <a
+              key={n.h}
+              href={n.h}
+              className="shrink-0 truncate rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+            >
+              {n.label}
+            </a>
+          ))}
+        </div>
       </nav>
 
       {/* The story feed — first cards free, the rest unlock for «энергия» */}
@@ -472,7 +477,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
               const desc = app.description && <p className="mx-auto max-w-[42ch] text-footnote leading-relaxed text-[var(--color-text-secondary)]">{app.description}</p>;
 
               return app.unlocked ? (
-                <details key={i} className="group overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
+                <details key={i} id={`app-${i}`} className="group scroll-mt-20 overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
                   <summary className="relative cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                     {glow}
                     <span className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open:rotate-180">
@@ -496,7 +501,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                   </div>
                 </details>
               ) : (
-                <div key={i} className="relative overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
+                <div key={i} id={`app-${i}`} className="relative scroll-mt-20 overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
                   {glow}
                   <div className="relative flex flex-col items-center gap-3.5 px-6 pb-7 pt-8 text-center">
                     {iconEl}
