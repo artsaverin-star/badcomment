@@ -189,7 +189,7 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
 
         {/* App roster */}
         <section className="mt-14">
-          <h2 className="mb-4 text-callout font-semibold text-[var(--color-text-secondary)]">
+          <h2 className="mb-4 text-center text-callout font-semibold text-[var(--color-text-secondary)]">
             {ru ? `Разобрали все отзывы в ${readyCount} приложениях` : `Analyzed every review across ${readyCount} apps`}
           </h2>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -199,22 +199,6 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
           </div>
         </section>
 
-        {/* Key takeaways 2026 */}
-        <section className="mt-16">
-          <h2 className="mb-1 text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Основные выводы · 2026" : "Key takeaways · 2026"}</h2>
-          <p className="mb-6 text-callout text-[var(--color-text-tertiary)]">{ru ? "Коротко — а ниже полная история в карточках." : "The gist — the full story is in the cards below."}</p>
-          <div className="flex flex-col gap-3">
-            {sections.map((sec, i) => (
-              <div key={i} className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5">
-                <div className="mb-1.5 flex items-baseline gap-2">
-                  <span className="text-caption font-bold tabular-nums text-[var(--color-text-brand)]">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="text-lead font-semibold leading-snug text-[var(--color-text-primary)]">{sec.heading}</h3>
-                </div>
-                <p className="pl-6 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{sec.dek}</p>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
 
       {/* The story deck */}
