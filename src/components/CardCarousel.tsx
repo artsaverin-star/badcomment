@@ -80,6 +80,9 @@ const TONE = {
   info: { glow: "var(--color-text-tertiary)", label: { ru: "Наблюдение", en: "Observation" } },
 } as const;
 
+// Card box: tall portrait on mobile, wider/shorter on desktop.
+const BOX = "h-[78svh] max-h-[680px] min-h-[520px] sm:h-[66svh] sm:max-h-[560px] sm:min-h-[460px]";
+
 function obsWord(n: number, ru: boolean): string {
   if (!ru) return n === 1 ? "observation" : "observations";
   const d = n % 10;
@@ -147,7 +150,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
   };
 
   return (
-    <div className="mx-auto w-full max-w-[520px] select-none outline-none" onKeyDown={onKey} tabIndex={0}>
+    <div className="mx-auto w-full max-w-[520px] select-none outline-none sm:max-w-[760px]" onKeyDown={onKey} tabIndex={0}>
       <div className="relative">
         <div
           ref={trackRef}
@@ -160,7 +163,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
           {slides.map((s, i) => (
             <div
               key={i}
-              className="w-[90%] shrink-0 snap-center transition-[opacity,transform] duration-300 will-change-transform sm:w-[82%]"
+              className="w-[90%] shrink-0 snap-center transition-[opacity,transform] duration-300 will-change-transform sm:w-[86%]"
               style={{ opacity: i === active ? 1 : 0.4, transform: i === active ? "scale(1)" : "scale(0.93)" }}
             >
               {s.kind === "cover" ? (
@@ -230,7 +233,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
 function Frame({ children, glow }: { children: React.ReactNode; glow?: string }) {
   return (
     <div
-      className="relative flex h-[78svh] max-h-[680px] min-h-[520px] w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]"
+      className={`relative flex ${BOX} w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] sm:p-8`}
       style={glow ? { boxShadow: `0 24px 60px -30px rgba(0,0,0,0.7), inset 0 1px 0 0 color-mix(in srgb, ${glow} 30%, transparent)` } : undefined}
     >
       {glow && (
@@ -350,7 +353,7 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
 // label + wordmark overlaid on gradient scrims for legibility.
 function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
   return (
-    <div className="relative flex h-[78svh] max-h-[680px] min-h-[520px] w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]">
+    <div className={`relative flex ${BOX} w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={s.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-top" />
       <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />

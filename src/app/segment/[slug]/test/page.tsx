@@ -1,44 +1,85 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCategoryBySlug } from "@/lib/researchCategories";
+import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getLocale } from "@/lib/i18n.server";
-import { ideaContentEn } from "@/lib/regenCards";
+import { categoryCards, ideaContentEn, type RegenCard } from "@/lib/regenCards";
 import { getSegmentSummary, type SegmentSummaryEvidence } from "@/lib/segmentSummary";
 import { listIdeas } from "@/lib/ideas";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
+import type { Evidence } from "@/components/InsightCard";
 
 export const dynamic = "force-dynamic";
 
-// Experiment: the whole category as one narrative deck. Built from the authored
-// editorial sections (segment-insights) — each section is a chapter (divider +
-// its observation cards), then a final "what to build" chapter of ideas. Tells
-// a story rather than shuffling cards. Same data as /segment/<slug>.
+// Experiment: a full category landing. Editorial top (what inApp is + the apps
+// + key 2026 takeaways) for a first-time visitor, then a narrative card deck at
+// the bottom that tells the category's story chapter by chapter. Same data as
+// /segment/<slug>.
 
-function toneOfEv(ev: SegmentSummaryEvidence[]): Tone {
+type CatApp = { query: string; name: string; icon: string; productId: string | null };
+type EvLike = { app?: string; rating: number; date: string; quote: string; quoteRu?: string };
+
+function toneOfEv(ev: EvLike[]): Tone {
   if (!ev.length) return "info";
   const a = ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length;
-  return a >= 3.6 ? "up" : a <= 2.7 ? "down" : "mixed";
+  return a >= 3.6 ? "up" : a <= 2.7 ? "down" : "info";
 }
-const elen = (e: SegmentSummaryEvidence) => (e.quote?.length ?? 0);
-const evQuote = (e: SegmentSummaryEvidence, ru: boolean) => ({ app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote });
-function orderEv(ev: SegmentSummaryEvidence[], tone: Tone, ru: boolean) {
+function toneOfCard(c: RegenCard): Tone {
+  const p = !!c.plus?.trim();
+  const m = !!c.minus?.trim();
+  if (p && m) return "mixed";
+  if (p) return "up";
+  if (m) return "down";
+  return "info";
+}
+const elen = (e: EvLike) => (e.quote?.length ?? 0);
+const evQuote = (e: EvLike, ru: boolean) => ({ app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote });
+function orderEv(ev: EvLike[], tone: Tone, ru: boolean) {
   const pool = [...ev];
   if (tone === "down") pool.sort((a, b) => a.rating - b.rating || elen(b) - elen(a));
   else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || elen(b) - elen(a));
   return pool.map((e) => evQuote(e, ru));
 }
 
-// Narrative arc: hold → retain → friction → loss. Order sections by heading.
+// Narrative arc: hold → retain → friction → loss.
 const ARC = ["механик", "сообществ", "кризис", "прогресс", "истор"];
-function arcRank(heading: string): number {
-  const h = heading.toLowerCase();
-  const i = ARC.findIndex((k) => h.includes(k));
+const arcRank = (h: string) => {
+  const i = ARC.findIndex((k) => h.toLowerCase().includes(k));
   return i === -1 ? ARC.length : i;
+};
+
+function AppTile({ a }: { a: CatApp }) {
+  const ready = hasInsight(a.productId);
+  const linkSlug = ready && a.productId ? getSlugByProductId(a.productId) : null;
+  const tile = "flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2.5";
+  const inner = (
+    <>
+      {a.icon ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={a.icon} alt="" loading="lazy" decoding="async" className={`size-9 shrink-0 rounded-[12px] object-cover ${ready ? "" : "opacity-40 grayscale"}`} />
+      ) : (
+        <div className="size-9 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />
+      )}
+      <span className={`min-w-0 flex-1 truncate text-callout font-medium ${ready ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>{a.name}</span>
+      {linkSlug && (
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
+          <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      )}
+    </>
+  );
+  return linkSlug ? (
+    <Link href={`/${linkSlug}`} className={`${tile} transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]`}>
+      {inner}
+    </Link>
+  ) : (
+    <div className={tile}>{inner}</div>
+  );
 }
 
-export default async function SegmentDeckTest({ params }: { params: Promise<{ slug: string }> }) {
+export default async function SegmentLandingTest({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const locale = await getLocale();
   const ru = locale !== "en";
@@ -50,38 +91,50 @@ export default async function SegmentDeckTest({ params }: { params: Promise<{ sl
   if (!summary) notFound();
 
   const ideas = listIdeas().filter((i) => i.category === slug);
+  const granular = categoryCards(slug, locale)?.product ?? [];
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const sections = [...summary.sections].sort((a, b) => arcRank(a.heading) - arcRank(b.heading));
-  const totalChapters = sections.length + (ideas.length ? 1 : 0);
+  const observations = summary.items.reduce((s, i) => s + i.observationCount, 0);
 
+  // ── Build the narrative deck ───────────────────────────────────────────
+  const chapters = sections.length + (granular.length ? 1 : 0) + (ideas.length ? 1 : 0);
+  let ci = 0;
   const deck: Slide[] = [];
 
-  sections.forEach((sec, ci) => {
-    deck.push({ kind: "chapter", index: ci + 1, total: totalChapters, heading: sec.heading, dek: sec.dek });
+  sections.forEach((sec) => {
+    ci += 1;
+    deck.push({ kind: "chapter", index: ci, total: chapters, heading: sec.heading, dek: sec.dek });
     for (const item of sec.items) {
-      const tone = toneOfEv(item.evidence);
-      const ordered = orderEv(item.evidence, tone, ru);
-      deck.push({
-        kind: "insight",
-        title: item.title,
-        body: item.body,
-        count: item.observationCount,
-        tone,
-        quote: ordered[0],
-        evidence: ordered,
-      });
+      const tone = toneOfEv(item.evidence as SegmentSummaryEvidence[]);
+      const ordered = orderEv(item.evidence as EvLike[], tone, ru);
+      deck.push({ kind: "insight", title: item.title, body: item.body, count: item.observationCount, tone, quote: ordered[0], evidence: ordered });
     }
   });
 
-  if (ideas.length) {
+  if (granular.length) {
+    ci += 1;
     deck.push({
       kind: "chapter",
-      index: totalChapters,
-      total: totalChapters,
+      index: ci,
+      total: chapters,
+      heading: ru ? "Что ещё заметили в отзывах" : "What else the reviews showed",
+      dek: ru ? "Точечные наблюдения по всей категории — то, что хвалят и на что злятся." : "Granular observations across the category — the loves and the gripes.",
+    });
+    for (const c of granular) {
+      const tone = toneOfCard(c);
+      const ordered = orderEv(c.evidence as EvLike[], tone, ru);
+      deck.push({ kind: "insight", kicker: c.kicker, title: c.title, plus: c.plus, minus: c.minus, count: c.count, tone, quote: ordered[0], evidence: ordered });
+    }
+  }
+
+  if (ideas.length) {
+    ci += 1;
+    deck.push({
+      kind: "chapter",
+      index: ci,
+      total: chapters,
       heading: ru ? "Что из этого можно построить" : "What you could build from this",
-      dek: ru
-        ? "Те же боли и опоры, но с другой стороны: продукты, которые закрывают разрывы категории."
-        : "The same pains and anchors, flipped: products that close the category's gaps.",
+      dek: ru ? "Те же боли и опоры, с другой стороны: продукты, которые закрывают разрывы категории." : "The same pains and anchors, flipped into products that close the gaps.",
     });
     for (const idea of ideas) {
       const en = ideaContentEn(idea.slug, locale);
@@ -98,41 +151,82 @@ export default async function SegmentDeckTest({ params }: { params: Promise<{ sl
     }
   }
 
-  const slides: Slide[] = [
-    {
-      kind: "cover",
-      name: cat.name,
-      icon: null,
-      description: ru ? `Разбор ${readyCount} приложений — по 500 последних отзывов в каждом` : `${readyCount} apps — 500 latest reviews each`,
-      reviewsScanned: summary.reviewsScanned,
-      observations: summary.items.reduce((s, i) => s + i.observationCount, 0),
-      avgRating: null,
-      ratingCount: null,
-    },
-    ...deck,
-  ];
-
   return (
-    <main className="mx-auto w-full max-w-2xl px-4 py-10 sm:py-14">
-      <div className="mb-6 flex items-center justify-between gap-3">
-        <Link
-          href={`/segment/${slug}`}
-          className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-        >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M10 3.5 5.5 8l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          {ru ? "К категории" : "To the category"}
-        </Link>
-        <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "тест" : "test"}</span>
+    <main className="mx-auto w-full max-w-3xl px-4 py-10 sm:py-14">
+      <div className="mx-auto max-w-[640px]">
+        <div className="mb-8 flex items-center justify-between gap-3">
+          <Link
+            href={`/segment/${slug}`}
+            className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+          >
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M10 3.5 5.5 8l4.5 4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            {ru ? "К категории" : "To the category"}
+          </Link>
+          <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "тест" : "test"}</span>
+        </div>
+
+        {/* Hero — introduces the service, no prior knowledge assumed */}
+        <header className="flex flex-col items-center gap-4 text-center">
+          <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-3 py-1 text-caption font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
+            {ru ? "inApp · разбор категории" : "inApp · category breakdown"}
+          </span>
+          <h1 className="text-[40px] font-bold leading-[1.04] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[54px]">{cat.name}</h1>
+          <p className="mx-auto max-w-[56ch] text-lead leading-relaxed text-[var(--color-text-secondary)]">
+            {ru
+              ? "inApp читает отзывы приложений и собирает из них разбор: что в категории общего, что держит людей и что бесит, и какие продукты напрашиваются. Разобрали 10 приложений — прочитали по 500 последних отзывов в каждом."
+              : "inApp reads app reviews and turns them into a breakdown: what the category shares, what keeps people and what enrages them, and which products the gaps imply. We broke down 10 apps — 500 of the latest reviews each."}
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
+            <span>{readyCount} {ru ? "приложений" : "apps"}</span>
+            <span aria-hidden>·</span>
+            <span>{summary.reviewsScanned.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "отзывов" : "reviews"}</span>
+            <span aria-hidden>·</span>
+            <span>{observations.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "наблюдений" : "observations"}</span>
+          </div>
+        </header>
+
+        {/* App roster */}
+        <section className="mt-14">
+          <h2 className="mb-4 text-callout font-semibold text-[var(--color-text-secondary)]">
+            {ru ? `Разобрали все отзывы в ${readyCount} приложениях` : `Analyzed every review across ${readyCount} apps`}
+          </h2>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {cat.apps.map((a) => (
+              <AppTile key={a.query} a={a as CatApp} />
+            ))}
+          </div>
+        </section>
+
+        {/* Key takeaways 2026 */}
+        <section className="mt-16">
+          <h2 className="mb-1 text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Основные выводы · 2026" : "Key takeaways · 2026"}</h2>
+          <p className="mb-6 text-callout text-[var(--color-text-tertiary)]">{ru ? "Коротко — а ниже полная история в карточках." : "The gist — the full story is in the cards below."}</p>
+          <div className="flex flex-col gap-3">
+            {sections.map((sec, i) => (
+              <div key={i} className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5">
+                <div className="mb-1.5 flex items-baseline gap-2">
+                  <span className="text-caption font-bold tabular-nums text-[var(--color-text-brand)]">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="text-lead font-semibold leading-snug text-[var(--color-text-primary)]">{sec.heading}</h3>
+                </div>
+                <p className="pl-6 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{sec.dek}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
 
-      <h1 className="mb-1 text-center text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{cat.name}</h1>
-      <p className="mb-8 text-center text-callout text-[var(--color-text-secondary)]">
-        {ru ? "История категории в карточках — от того, что держит, к тому, что построить" : "The category's story in cards — from what holds to what to build"}
-      </p>
-
-      <CardCarousel slides={slides} locale={ru ? "ru" : "en"} />
+      {/* The story deck */}
+      <section className="mt-20">
+        <div className="mx-auto mb-8 max-w-[640px] text-center">
+          <h2 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Вся история категории — в карточках" : "The whole category story — in cards"}</h2>
+          <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
+            {ru ? "Листайте по главам: от того, что держит людей, к тому, что можно построить." : "Swipe through the chapters: from what holds people to what you could build."}
+          </p>
+        </div>
+        <CardCarousel slides={deck} locale={ru ? "ru" : "en"} />
+      </section>
     </main>
   );
 }
