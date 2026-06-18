@@ -35,6 +35,21 @@ const SALUTE_POS = [
 ];
 const SALUTE_SIZE = ["size-10 sm:size-12", "size-9 sm:size-11", "size-11 sm:size-14"];
 
+// Thematic line glyphs for the chapter-divider salute (generic wellbeing/habit
+// symbols — heart, shield, streak, check, star, clock, growth, chat, leaf, target).
+const CHAPTER_GLYPHS = [
+  "M12 20S4 14.5 4 9a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 5.5-8 11-8 11Z",
+  "M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3Z",
+  "M12 3c1.2 3-1.8 4.2-1.8 7a4 4 0 0 0 7.8 0c0-1.4-.7-2.7-1.6-3.8.4 2-1.2 3.3-2.2 3.3.6-2.2-.9-5.5-2.2-6.5Z",
+  "M4 12l5 5L20 6",
+  "m12 3 2.6 5.6 6 .7-4.4 4.1 1.2 6L12 17.8 6.6 19.4l1.2-6L3.4 9.3l6-.7L12 3Z",
+  "M12 7v5l3.5 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z",
+  "M4 20V4M4 20h16M7 15l3.5-4 3 2L19 7",
+  "M5 5h14v10H10l-4 4v-4H5V5Z",
+  "M12 21c-7 0-9-6-9-9 5 0 9 1 9 9Zm0 0c0-8 4-9 9-9 0 3-2 9-9 9Z",
+  "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z",
+];
+
 export type StatsSlide = {
   kind: "stats";
   title: string;
@@ -410,6 +425,20 @@ function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
 function Chapter({ s, ru }: { s: ChapterSlide; ru: boolean }) {
   return (
     <Frame glow="var(--color-text-brand)">
+      <div aria-hidden className="pointer-events-none absolute inset-0 text-[var(--color-text-brand)]">
+        {SALUTE_POS.map((pos, i) => (
+          <span
+            key={i}
+            className={`ld-float absolute block opacity-[0.16] ${SALUTE_SIZE[i % SALUTE_SIZE.length]} ${pos}`}
+            style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-full">
+              <path d={CHAPTER_GLYPHS[i % CHAPTER_GLYPHS.length]} />
+            </svg>
+          </span>
+        ))}
+        <span className="absolute inset-0" style={{ background: "radial-gradient(60% 50% at 50% 50%, var(--color-surface-card) 30%, transparent 100%)" }} />
+      </div>
       <div className="relative flex flex-1 flex-col justify-center gap-5">
         <span className="text-caption font-bold uppercase tracking-[0.14em] text-[var(--color-text-brand)]">
           {(ru ? "Глава " : "Chapter ") + s.index} · {s.total}
@@ -599,11 +628,11 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
         {pos}
       </div>
 
-      <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
-        <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
+      <div className="relative flex flex-1 flex-col gap-3 overflow-y-auto overscroll-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <h2 className="text-[20px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[21px]">{s.title}</h2>
 
         {s.body ? (
-          <p className="line-clamp-[15] text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:line-clamp-[12]">{s.body}</p>
+          <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[14.5px]">{s.body}</p>
         ) : s.tone === "mixed" ? (
           // Both polarities present — keep the +/− markers so they read apart.
           <>

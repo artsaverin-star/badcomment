@@ -166,24 +166,11 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
               ? "inApp читает отзывы приложений и собирает из них разбор: что в категории общего, что держит людей и что бесит, и какие продукты напрашиваются. Разобрали 10 приложений — прочитали по 500 последних отзывов в каждом."
               : "inApp reads app reviews and turns them into a breakdown: what the category shares, what keeps people and what enrages them, and which products the gaps imply. We broke down 10 apps — 500 of the latest reviews each."}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
-            <span>{readyCount} {ru ? "приложений" : "apps"}</span>
-            <span aria-hidden>·</span>
-            <span>{summary.reviewsScanned.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "отзывов" : "reviews"}</span>
-            <span aria-hidden>·</span>
-            <span>{observations.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "наблюдений" : "observations"}</span>
-          </div>
         </header>
       </div>
 
       {/* The story deck */}
-      <section className="mt-14">
-        <div className="mx-auto mb-8 max-w-[640px] text-center">
-          <h2 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Вся история категории — в карточках" : "The whole category story — in cards"}</h2>
-          <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
-            {ru ? "Листайте по главам: от того, что держит людей, к тому, что можно построить." : "Swipe through the chapters: from what holds people to what you could build."}
-          </p>
-        </div>
+      <section className="mt-12">
         <CardCarousel slides={deck} locale={ru ? "ru" : "en"} />
       </section>
 
