@@ -31,6 +31,13 @@ function toneOf(c: RegenCard): Tone {
 
 const qlen = (e: Evidence) => (e.quote?.length ?? 0);
 
+const toQuote = (e: Evidence, ru: boolean) => ({
+  app: e.app,
+  rating: e.rating,
+  date: e.date,
+  text: ru ? e.quoteRu ?? e.quote : e.quote,
+});
+
 // Pick a quote that actually matches the card's tone: for a complaint, the
 // lowest-rated (most likely the real gripe) and most specific; for praise, the
 // highest-rated and most specific. Avoids stapling a 5★ "Extremely productive"
@@ -41,8 +48,16 @@ function pickQuote(ev: Evidence[], tone: Tone, ru: boolean) {
   if (tone === "down") pool.sort((a, b) => a.rating - b.rating || qlen(b) - qlen(a));
   else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || qlen(b) - qlen(a));
   else pool.sort((a, b) => qlen(b) - qlen(a));
-  const e = pool[0];
-  return { app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote };
+  return toQuote(pool[0], ru);
+}
+
+// Order the full review list to match the card's tone (the gripe / the praise
+// first), so the opened modal reads coherently with the slide.
+function orderedEvidence(ev: Evidence[], tone: Tone, ru: boolean) {
+  const pool = [...ev];
+  if (tone === "down") pool.sort((a, b) => a.rating - b.rating || qlen(b) - qlen(a));
+  else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || qlen(b) - qlen(a));
+  return pool.map((e) => toQuote(e, ru));
 }
 
 export default async function CarouselTestPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -98,6 +113,7 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
         count: c.count,
         tone,
         quote: pickQuote(c.evidence, tone, ru),
+        evidence: orderedEvidence(c.evidence, tone, ru),
       };
     }),
   ];

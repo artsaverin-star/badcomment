@@ -31,13 +31,14 @@ export type InsightSlide = {
   count: number;
   tone: Tone;
   quote?: Quote;
+  evidence: Quote[];
 };
 
 export type Slide = CoverSlide | InsightSlide;
 
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
-  down: { glow: "#ff8585", label: { ru: "Злятся", en: "Hated" } },
+  down: { glow: "#ff8585", label: { ru: "Не нравится", en: "Disliked" } },
   mixed: { glow: "#f5b301", label: { ru: "Спорно", en: "Mixed" } },
   info: { glow: "var(--color-text-tertiary)", label: { ru: "Наблюдение", en: "Observation" } },
 } as const;
@@ -209,7 +210,7 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
         </p>
       </div>
       <div className="relative flex items-center justify-center gap-1.5 text-caption text-[var(--color-text-tertiary)]">
-        <span className="font-semibold tracking-tight text-[var(--color-text-secondary)]">inApp</span>
+        <span className="font-semibold tracking-tight text-[var(--color-text-secondary)]">inapp.pro</span>
         <span aria-hidden>·</span>
         <span>{ru ? "листайте →" : "swipe →"}</span>
       </div>
@@ -219,6 +220,11 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
 
 function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index: number; total: number }) {
   const tone = TONE[s.tone];
+  const dialog = useRef<HTMLDialogElement>(null);
+  const openReviews = () => {
+    document.documentElement.style.overflow = "hidden";
+    dialog.current?.showModal();
+  };
   return (
     <Frame glow={tone.glow}>
       <div className="relative mb-4 flex items-center justify-between">
@@ -275,14 +281,72 @@ function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index:
       </div>
 
       <div className="relative mt-4 flex items-center justify-between">
-        <span
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold tabular-nums"
-          style={{ background: `color-mix(in srgb, ${tone.glow} 16%, transparent)`, color: tone.glow }}
+        <button
+          type="button"
+          onClick={openReviews}
+          disabled={s.evidence.length === 0}
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
+          style={{ background: `color-mix(in srgb, ${tone.glow} 16%, transparent)`, color: tone.glow, ["--glow" as string]: tone.glow }}
         >
           {s.count} {obsWord(s.count, ru)}
-        </span>
-        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inApp</span>
+          {s.evidence.length > 0 && (
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          )}
+        </button>
+        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
       </div>
+
+      <dialog
+        ref={dialog}
+        onClose={() => {
+          document.documentElement.style.overflow = "";
+        }}
+        onClick={(e) => {
+          if (e.target === dialog.current) dialog.current?.close();
+        }}
+        className="mx-0 mb-0 mt-auto w-full max-w-none rounded-[var(--radius-2xl)] rounded-b-none border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-0 text-left text-[var(--color-text-primary)] backdrop:bg-black/70 sm:mx-auto sm:mb-auto sm:w-[calc(100vw-2rem)] sm:max-w-lg sm:rounded-b-[var(--radius-2xl)]"
+      >
+        <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
+          <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
+            <span className="flex min-w-0 flex-col gap-1">
+              <span
+                className="w-fit rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+                style={{ background: `color-mix(in srgb, ${tone.glow} 18%, transparent)`, color: tone.glow }}
+              >
+                {s.kicker || tone.label[ru ? "ru" : "en"]}
+              </span>
+              <span className="text-lead font-semibold leading-snug">{s.title}</span>
+            </span>
+            <button
+              type="button"
+              onClick={() => dialog.current?.close()}
+              aria-label={ru ? "Закрыть" : "Close"}
+              className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] outline-none transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div className="flex flex-col overflow-y-auto overscroll-contain px-4 py-1">
+            {s.evidence.map((e, i) => (
+              <div key={i} className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0">
+                <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                  {e.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>}
+                  <span className="tabular-nums text-caption text-[#f5b301]">
+                    {"★".repeat(e.rating)}
+                    {"☆".repeat(Math.max(0, 5 - e.rating))}
+                  </span>
+                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
+                </span>
+                <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{e.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </dialog>
     </Frame>
   );
 }
