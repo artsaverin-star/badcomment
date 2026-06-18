@@ -3,9 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 
 // Social-media-style swipeable carousel of insight cards. Each slide is a fixed
-// rectangle (portrait, story-like) that snaps into place; swipe / arrows / keys
-// move between them. Built for the /<slug>/test experiment — share-worthy frames
-// generated straight from the app's review breakdown.
+// portrait rectangle; neighbours peek on both sides and fade toward the edges.
+// Swipe / arrows / keys move between them. Built for the /<slug>/test experiment
+// — share-worthy frames generated straight from the app's review breakdown.
 
 export type CoverSlide = {
   kind: "cover";
@@ -15,6 +15,14 @@ export type CoverSlide = {
   reviewsScanned: number;
   observations: number;
   avgRating: number | null;
+  ratingCount: number | null;
+};
+
+export type StatsSlide = {
+  kind: "stats";
+  title: string;
+  hist: Record<string, number>;
+  avg: number | null;
   ratingCount: number | null;
 };
 
@@ -32,9 +40,12 @@ export type InsightSlide = {
   tone: Tone;
   quote?: Quote;
   evidence: Quote[];
+  image?: string;
+  pos?: number;
+  ofTotal?: number;
 };
 
-export type Slide = CoverSlide | InsightSlide;
+export type Slide = CoverSlide | StatsSlide | InsightSlide;
 
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
@@ -58,8 +69,9 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
-  // Track which slide is centered, from scroll position (so swipe + buttons stay
-  // in sync without per-slide observers).
+  // Centre detection + programmatic scroll are measurement-based (read each
+  // slide's real offset) so they work with the peek layout where a slide is
+  // narrower than the scrollport.
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
@@ -67,8 +79,19 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
     const onScroll = () => {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        const i = Math.round(el.scrollLeft / el.clientWidth);
-        setActive(Math.max(0, Math.min(slides.length - 1, i)));
+        const center = el.scrollLeft + el.clientWidth / 2;
+        let best = 0;
+        let bestDist = Infinity;
+        for (let i = 0; i < el.children.length; i++) {
+          const c = el.children[i] as HTMLElement;
+          const cc = c.offsetLeft + c.clientWidth / 2;
+          const d = Math.abs(cc - center);
+          if (d < bestDist) {
+            bestDist = d;
+            best = i;
+          }
+        }
+        setActive(best);
       });
     };
     el.addEventListener("scroll", onScroll, { passive: true });
@@ -82,7 +105,9 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
     const el = trackRef.current;
     if (!el) return;
     const clamped = Math.max(0, Math.min(slides.length - 1, i));
-    el.scrollTo({ left: clamped * el.clientWidth, behavior: "smooth" });
+    const child = el.children[clamped] as HTMLElement | undefined;
+    if (!child) return;
+    el.scrollTo({ left: child.offsetLeft - (el.clientWidth - child.clientWidth) / 2, behavior: "smooth" });
   };
 
   const onKey = (e: React.KeyboardEvent) => {
@@ -96,15 +121,25 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
   };
 
   return (
-    <div className="mx-auto w-full max-w-[440px] select-none" onKeyDown={onKey} tabIndex={0}>
+    <div className="mx-auto w-full max-w-[520px] select-none" onKeyDown={onKey} tabIndex={0}>
       <div className="relative">
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth px-[9%] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {slides.map((s, i) => (
-            <div key={i} className="w-full shrink-0 snap-center px-1">
-              {s.kind === "cover" ? <Cover s={s} ru={ru} /> : <Insight s={s} ru={ru} index={i} total={slides.length} />}
+            <div
+              key={i}
+              className="w-[82%] shrink-0 snap-center transition-[opacity,transform] duration-300 will-change-transform"
+              style={{ opacity: i === active ? 1 : 0.4, transform: i === active ? "scale(1)" : "scale(0.93)" }}
+            >
+              {s.kind === "cover" ? (
+                <Cover s={s} ru={ru} />
+              ) : s.kind === "stats" ? (
+                <Stats s={s} ru={ru} />
+              ) : (
+                <Insight s={s} ru={ru} />
+              )}
             </div>
           ))}
         </div>
@@ -115,7 +150,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
           onClick={() => go(active - 1)}
           aria-label={ru ? "Назад" : "Previous"}
           disabled={active === 0}
-          className="absolute left-[-18px] top-1/2 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-lg transition-opacity hover:text-[var(--color-text-primary)] disabled:opacity-0 sm:flex"
+          className="absolute left-[-6px] top-1/2 z-10 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-lg transition-opacity hover:text-[var(--color-text-primary)] disabled:opacity-0 sm:flex"
         >
           <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M10 3.5 5.5 8l4.5 4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
@@ -126,7 +161,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
           onClick={() => go(active + 1)}
           aria-label={ru ? "Вперёд" : "Next"}
           disabled={active === slides.length - 1}
-          className="absolute right-[-18px] top-1/2 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-lg transition-opacity hover:text-[var(--color-text-primary)] disabled:opacity-0 sm:flex"
+          className="absolute right-[-6px] top-1/2 z-10 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] shadow-lg transition-opacity hover:text-[var(--color-text-primary)] disabled:opacity-0 sm:flex"
         >
           <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="m6 3.5 4.5 4.5L6 12.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
@@ -218,13 +253,68 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
   );
 }
 
-function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index: number; total: number }) {
+function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
+  const rows = [5, 4, 3, 2, 1];
+  const total = rows.reduce((a, n) => a + (s.hist[String(n)] ?? 0), 0);
+  const max = Math.max(1, ...rows.map((n) => s.hist[String(n)] ?? 0));
+  const color = (star: number) => (star <= 2 ? "#ff8585" : star === 3 ? "#f5b301" : "var(--color-text-tertiary)");
+  return (
+    <Frame glow="var(--color-text-brand)">
+      <div className="relative mb-2">
+        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
+          {ru ? "Оценки" : "Ratings"}
+        </span>
+      </div>
+
+      <div className="relative flex flex-1 flex-col justify-center gap-6">
+        {s.avg != null && (
+          <div className="flex flex-col items-center gap-1">
+            <div className="text-[52px] font-bold leading-none tabular-nums text-[var(--color-text-primary)]">{s.avg.toFixed(1)}</div>
+            <div className="text-[18px] tabular-nums tracking-tight text-[#f5b301]">
+              {"★".repeat(Math.round(s.avg))}
+              {"☆".repeat(Math.max(0, 5 - Math.round(s.avg)))}
+            </div>
+            {s.ratingCount != null && (
+              <div className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
+                {s.ratingCount.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "оценок" : "ratings"}
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="flex flex-col gap-2">
+          {rows.map((star) => {
+            const count = s.hist[String(star)] ?? 0;
+            const pct = total ? Math.round((count / total) * 100) : 0;
+            return (
+              <div key={star} className="flex items-center gap-2.5 text-caption text-[var(--color-text-tertiary)]">
+                <span className="w-6 shrink-0 tabular-nums">{star}★</span>
+                <span className="h-2.5 flex-1 overflow-hidden rounded-full bg-[var(--color-bg-muted)]">
+                  <span className="block h-full rounded-full" style={{ width: `${Math.max(2, (count / max) * 100)}%`, background: color(star) }} />
+                </span>
+                <span className="w-9 shrink-0 text-right tabular-nums">{pct}%</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="relative mt-4 flex items-center justify-between">
+        <span className="text-caption text-[var(--color-text-tertiary)]">{s.title}</span>
+        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
+      </div>
+    </Frame>
+  );
+}
+
+function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
   const tone = TONE[s.tone];
   const dialog = useRef<HTMLDialogElement>(null);
   const openReviews = () => {
     document.documentElement.style.overflow = "hidden";
     dialog.current?.showModal();
   };
+  const hasImage = !!s.image;
   return (
     <Frame glow={tone.glow}>
       <div className="relative mb-4 flex items-center justify-between">
@@ -234,9 +324,11 @@ function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index:
         >
           {s.kicker || tone.label[ru ? "ru" : "en"]}
         </span>
-        <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
-          {index}/{total - 1}
-        </span>
+        {s.pos != null && s.ofTotal != null && (
+          <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
+            {s.pos}/{s.ofTotal}
+          </span>
+        )}
       </div>
 
       <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
@@ -246,13 +338,13 @@ function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index:
           // Both polarities present — keep the +/− markers so they read apart.
           <>
             {s.plus && (
-              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+              <p className={`flex items-start gap-2 text-[14px] leading-[1.5] ${hasImage ? "line-clamp-2" : ""}`}>
                 <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
                 <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
               </p>
             )}
             {s.minus && (
-              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+              <p className={`flex items-start gap-2 text-[14px] leading-[1.5] ${hasImage ? "line-clamp-2" : ""}`}>
                 <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
                 <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
               </p>
@@ -261,11 +353,16 @@ function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index:
         ) : (
           // The tone tag already says praise/gripe — drop the marker, just a lede.
           (s.plus || s.minus) && (
-            <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
+            <p className={`text-[15px] leading-[1.55] text-[var(--color-text-secondary)] ${hasImage ? "line-clamp-3" : ""}`}>{s.plus || s.minus}</p>
           )
         )}
 
-        {s.quote && (
+        {hasImage ? (
+          <div className="mt-1 min-h-0 flex-1 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={s.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
+          </div>
+        ) : s.quote ? (
           <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
             <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
               {s.quote.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{s.quote.app}</span>}
@@ -277,7 +374,7 @@ function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index:
             </div>
             <p className="line-clamp-4 text-[13px] italic leading-relaxed text-[var(--color-text-secondary)]">“{s.quote.text}”</p>
           </figure>
-        )}
+        ) : null}
       </div>
 
       <div className="relative mt-4 flex items-center justify-between">

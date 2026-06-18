@@ -90,6 +90,7 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
 
   const product: RegenCard[] = cards?.product ?? [];
   const observations = (insights.insights ?? []).length || product.length;
+  const screenshots = detail?.screenshots ?? meta?.screenshots ?? [];
 
   const slides: Slide[] = [
     {
@@ -102,7 +103,16 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
       avgRating,
       ratingCount,
     },
-    ...product.map((c) => {
+    {
+      kind: "stats",
+      title: ru ? "Распределение оценок" : "Rating distribution",
+      hist: insights.ratingBreakdown,
+      avg: avgRating,
+      ratingCount,
+    },
+    // Screenshots are spread one-per-card across the first few insight slides,
+    // so the deck mixes a visual with the verbatim text instead of all-text.
+    ...product.map((c, i) => {
       const tone = toneOf(c);
       return {
         kind: "insight" as const,
@@ -114,6 +124,9 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
         tone,
         quote: pickQuote(c.evidence, tone, ru),
         evidence: orderedEvidence(c.evidence, tone, ru),
+        image: screenshots[i] || undefined,
+        pos: i + 1,
+        ofTotal: product.length,
       };
     }),
   ];
