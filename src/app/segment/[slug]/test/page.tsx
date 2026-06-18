@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCategoryBySlug } from "@/lib/researchCategories";
@@ -5,19 +6,51 @@ import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getLocale } from "@/lib/i18n.server";
-import { ideaContentEn } from "@/lib/regenCards";
+import { appCardsFor, ideaContentEn } from "@/lib/regenCards";
 import { getSegmentSummary, type SegmentSummaryEvidence } from "@/lib/segmentSummary";
 import { listIdeas } from "@/lib/ideas";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
 
 export const dynamic = "force-dynamic";
 
+// SEO: target what an aspiring app-maker actually searches — "какое приложение
+// сделать в нише X", "идеи приложений 2026". Title + description carry the
+// keywords; the page body is real review research (good for LLM citation).
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  if (!isActiveCategory(slug)) return {};
+  const locale = await getLocale();
+  const ru = locale !== "en";
+  const cat = getCategoryBySlug(slug, locale);
+  if (!cat) return {};
+  const summary = getSegmentSummary(slug);
+  const ideaCount = listIdeas().filter((i) => i.category === slug).length;
+  const reviews = summary?.reviewsScanned ?? 5000;
+
+  const title = ru
+    ? `Идеи приложений: ${cat.name} — что построить в нише 2026`
+    : `App ideas: ${cat.name} — what to build in this niche 2026`;
+  const description = ru
+    ? `Какое приложение сделать в нише «${cat.name}»? Разобрали ${summary?.appsCount ?? 10} приложений и ${reviews.toLocaleString("ru-RU")} отзывов: на что злятся пользователи, чего им не хватает и какие ${ideaCount} идей напрашиваются.`
+    : `What app to build in the "${cat.name}" niche? We analyzed ${summary?.appsCount ?? 10} apps and ${reviews.toLocaleString("en-US")} reviews: what users hate, what's missing, and ${ideaCount} ideas worth building.`;
+
+  return {
+    title,
+    description,
+    keywords: ru
+      ? ["идеи приложений", "какое приложение сделать", "ниша для приложения", cat.name, "идея для стартапа", "2026"]
+      : ["app ideas", "what app to build", "app niche", cat.name, "startup idea", "2026"],
+    openGraph: { title, description, type: "article" },
+    twitter: { card: "summary_large_image", title, description },
+    robots: { index: true, follow: true },
+  };
+}
+
 // Experiment: a full category landing. Editorial top (what inApp is + the apps
 // + key 2026 takeaways) for a first-time visitor, then a narrative card deck at
 // the bottom that tells the category's story chapter by chapter. Same data as
 // /segment/<slug>.
 
-type CatApp = { query: string; name: string; icon: string; productId: string | null };
 type EvLike = { app?: string; rating: number; date: string; quote: string; quoteRu?: string };
 
 function toneOfEv(ev: EvLike[]): Tone {
@@ -42,35 +75,6 @@ const arcRank = (h: string) => {
   return i === -1 ? ARC.length : i;
 };
 
-function AppTile({ a }: { a: CatApp }) {
-  const ready = hasInsight(a.productId);
-  const linkSlug = ready && a.productId ? getSlugByProductId(a.productId) : null;
-  const tile = "flex items-center gap-3 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2.5";
-  const inner = (
-    <>
-      {a.icon ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={a.icon} alt="" loading="lazy" decoding="async" className={`size-9 shrink-0 rounded-[12px] object-cover ${ready ? "" : "opacity-40 grayscale"}`} />
-      ) : (
-        <div className="size-9 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />
-      )}
-      <span className={`min-w-0 flex-1 truncate text-callout font-medium ${ready ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>{a.name}</span>
-      {linkSlug && (
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
-          <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )}
-    </>
-  );
-  return linkSlug ? (
-    <Link href={`/${linkSlug}`} className={`${tile} transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-card-subtle)]`}>
-      {inner}
-    </Link>
-  ) : (
-    <div className={tile}>{inner}</div>
-  );
-}
-
 export default async function SegmentLandingTest({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const locale = await getLocale();
@@ -86,6 +90,32 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const sections = [...summary.sections].sort((a, b) => arcRank(a.heading) - arcRank(b.heading));
   const observations = summary.items.reduce((s, i) => s + i.observationCount, 0);
+
+  // Hook: the most-MENTIONED pain (highest count among genuinely negative items),
+  // not the rarest 1★ outlier — evidence ratings are noisy, so gate on avg<3.4
+  // then rank by volume.
+  const itemAvg = (ev: SegmentSummaryEvidence[]) => (ev.length ? ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length : 5);
+  const negatives = summary.items.filter((it) => itemAvg(it.evidence) < 3.4);
+  const painItem = (negatives.length ? negatives : summary.items).sort((a, b) => b.observationCount - a.observationCount)[0];
+  const painHook = painItem ? painItem.title.split(/\s[—–-]\s/)[0].trim() : "";
+  const painLower = painHook ? painHook.charAt(0).toLowerCase() + painHook.slice(1) : "";
+
+  // Reinforcement: each app + its single biggest gripe + a per-app unlock CTA.
+  const appFlaws = cat.apps
+    .filter((a) => hasInsight(a.productId))
+    .map((a) => {
+      const pid = a.productId as string;
+      const cards = appCardsFor(pid, locale)?.product ?? [];
+      const flawCard = cards.filter((c) => c.minus?.trim()).sort((x, y) => y.count - x.count)[0];
+      return {
+        name: a.name,
+        icon: a.icon,
+        slug: getSlugByProductId(pid),
+        flaw: flawCard?.minus?.trim() || flawCard?.title || "",
+        total: cards.length,
+      };
+    })
+    .filter((a) => a.flaw);
 
   // ── Build the narrative deck ───────────────────────────────────────────
   // Cover → authored narrative chapters (the category's story) → ideas chapter.
@@ -139,8 +169,34 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
     }
   }
 
+  // Schema.org structured data — helps search engines and LLMs parse the page
+  // as a research article with a list of app ideas.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: ru ? `Идеи приложений: ${cat.name} — что построить в нише 2026` : `App ideas: ${cat.name} — what to build in 2026`,
+    inLanguage: ru ? "ru" : "en",
+    about: cat.name,
+    keywords: ru ? `идеи приложений, какое приложение сделать, ниша для приложения, ${cat.name}` : `app ideas, what app to build, app niche, ${cat.name}`,
+    author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
+    publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
+    mainEntity: {
+      "@type": "ItemList",
+      name: ru ? `Идеи приложений: ${cat.name}` : `App ideas: ${cat.name}`,
+      numberOfItems: ideas.length,
+      itemListElement: ideas.map((idea, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: ideaContentEn(idea.slug, locale)?.title || idea.title,
+        description: ideaContentEn(idea.slug, locale)?.oneLiner || idea.oneLiner,
+        url: `https://inapp.pro/${ru ? "ru" : "en"}/ideas/${idea.slug}`,
+      })),
+    },
+  };
+
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-10 sm:py-14">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mx-auto max-w-[640px]">
         <div className="mb-8 flex items-center justify-between gap-3">
           <Link
@@ -155,33 +211,88 @@ export default async function SegmentLandingTest({ params }: { params: Promise<{
           <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "тест" : "test"}</span>
         </div>
 
-        {/* Hero — introduces the service, no prior knowledge assumed */}
+        {/* Hero — hook-first, no internal mechanics */}
         <header className="flex flex-col items-center gap-4 text-center">
           <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-3 py-1 text-caption font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
-            {ru ? "inApp · разбор категории" : "inApp · category breakdown"}
+            {ru ? "Идея для приложения · ниша 2026" : "App idea · niche 2026"}
           </span>
-          <h1 className="text-[40px] font-bold leading-[1.04] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[54px]">{cat.name}</h1>
-          <p className="mx-auto max-w-[56ch] text-lead leading-relaxed text-[var(--color-text-secondary)]">
-            {ru
-              ? "inApp читает отзывы приложений и собирает из них разбор: что в категории общего, что держит людей и что бесит, и какие продукты напрашиваются. Разобрали 10 приложений — прочитали по 500 последних отзывов в каждом."
-              : "inApp reads app reviews and turns them into a breakdown: what the category shares, what keeps people and what enrages them, and which products the gaps imply. We broke down 10 apps — 500 of the latest reviews each."}
+          <h1 className="text-[34px] font-bold leading-[1.06] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[48px]">
+            {ru ? <>Идеи приложений: {cat.name}</> : <>App ideas: {cat.name}</>}
+          </h1>
+          {painLower && (
+            <p className="mx-auto max-w-[54ch] text-lead leading-relaxed text-[var(--color-text-secondary)]">
+              {ru ? (
+                <>
+                  А знаете, на что в этих приложениях злятся сильнее всего? <b className="text-[var(--color-text-primary)]">{painLower}</b>. Сделайте приложение без
+                  этого — и у вас потенциальный хит.
+                </>
+              ) : (
+                <>
+                  Want to know the one thing people hate most in these apps? <b className="text-[var(--color-text-primary)]">{painLower}</b>. Build one without it —
+                  and you’ve got a potential hit.
+                </>
+              )}
+            </p>
+          )}
+          <p className="mx-auto max-w-[52ch] text-callout leading-relaxed text-[var(--color-text-secondary)]">
+            {ru ? (
+              <>
+                Мы разобрали {readyCount} приложений и собрали <b className="text-[var(--color-text-primary)]">{ideas.length}</b> идей улучшений, которые люди сами
+                просят в отзывах. Все — ниже.
+              </>
+            ) : (
+              <>
+                We analyzed {readyCount} apps and pulled together <b className="text-[var(--color-text-primary)]">{ideas.length}</b> improvement ideas users ask for
+                themselves. All below.
+              </>
+            )}
+          </p>
+          <p className="text-caption text-[var(--color-text-tertiary)]">
+            {ru ? "Обычно такой маркет-ресёрч — это недели работы и большой бюджет. Здесь он уже готов." : "Market research like this usually takes weeks and a big budget. Here it’s already done."}
           </p>
         </header>
       </div>
 
-      {/* The story deck */}
-      <section className="mt-12">
-        <CardCarousel slides={deck} locale={ru ? "ru" : "en"} />
+      {/* The story feed */}
+      <section className="mt-14">
+        <CardCarousel slides={deck} locale={ru ? "ru" : "en"} layout="feed" />
       </section>
 
-      {/* App roster */}
+      {/* Reinforcement: apps + their biggest flaw + per-app unlock CTA */}
       <section className="mx-auto mt-20 max-w-[640px]">
-        <h2 className="mb-4 text-center text-callout font-semibold text-[var(--color-text-secondary)]">
-          {ru ? `Разобрали все отзывы в ${readyCount} приложениях` : `Analyzed every review across ${readyCount} apps`}
+        <h2 className="mb-2 text-center text-[24px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+          {ru ? "А по каждому приложению — ещё глубже" : "And on every app — deeper still"}
         </h2>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {cat.apps.map((a) => (
-            <AppTile key={a.query} a={a as CatApp} />
+        <p className="mb-6 text-center text-callout text-[var(--color-text-secondary)]">
+          {ru ? "Главный косяк каждого из разобранных приложений. Внутри — десятки конкретных инсайтов." : "The biggest flaw of each app we analyzed. Inside — dozens of specific insights."}
+        </p>
+        <div className="flex flex-col gap-2.5">
+          {appFlaws.map((a, i) => (
+            <div key={i} className="flex flex-col gap-3 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 sm:flex-row sm:items-center">
+              <div className="flex min-w-0 flex-1 items-start gap-3">
+                {a.icon ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[13px] object-cover" />
+                ) : (
+                  <div className="size-11 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
+                )}
+                <div className="flex min-w-0 flex-col gap-0.5">
+                  <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{a.name}</span>
+                  <span className="flex items-start gap-1.5 text-footnote leading-snug text-[var(--color-text-secondary)]">
+                    <span className="mt-0.5 shrink-0 font-bold text-[#ff8585]">−</span>
+                    <span className="line-clamp-2">{a.flaw}</span>
+                  </span>
+                </div>
+              </div>
+              {a.slug && a.total > 1 && (
+                <Link
+                  href={`/${a.slug}`}
+                  className="shrink-0 self-start rounded-full bg-[var(--color-accent-brand)] px-4 py-2 text-footnote font-semibold text-white transition-opacity hover:opacity-90 sm:self-center"
+                >
+                  {ru ? `Ещё ${a.total - 1} инсайтов · $3` : `${a.total - 1} more insights · $3`}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
       </section>

@@ -1,6 +1,40 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+
+// Cards render in two layouts: a horizontal swipe carousel, or a vertical feed
+// where each card reveals on scroll. Frame/Shot read this to pick their box.
+const LayoutCtx = createContext<"carousel" | "feed">("carousel");
+
+// Fade + rise a child in once it scrolls into view (used by the feed layout).
+function Reveal({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div
+      ref={ref}
+      className="transition-all duration-700 ease-out will-change-transform"
+      style={{ opacity: shown ? 1 : 0, transform: shown ? "translateY(0) scale(1)" : "translateY(28px) scale(0.97)" }}
+    >
+      {children}
+    </div>
+  );
+}
 
 // Social-media-style swipeable carousel of insight cards. Each slide is a fixed
 // portrait rectangle; neighbours peek on both sides and fade toward the edges.
@@ -124,7 +158,7 @@ function obsWord(n: number, ru: boolean): string {
   return "наблюдений";
 }
 
-export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[]; locale?: "ru" | "en" }) {
+export default function CardCarousel({ slides, locale = "ru", layout = "carousel" }: { slides: Slide[]; locale?: "ru" | "en"; layout?: "carousel" | "feed" }) {
   const ru = locale !== "en";
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -180,7 +214,36 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
     }
   };
 
+  const renderCard = (s: Slide) =>
+    s.kind === "cover" ? (
+      <Cover s={s} ru={ru} />
+    ) : s.kind === "stats" ? (
+      <Stats s={s} ru={ru} />
+    ) : s.kind === "shot" ? (
+      <Shot s={s} ru={ru} />
+    ) : s.kind === "chapter" ? (
+      <Chapter s={s} ru={ru} />
+    ) : s.kind === "idea" ? (
+      <IdeaCard s={s} ru={ru} />
+    ) : (
+      <Insight s={s} ru={ru} />
+    );
+
+  // Vertical feed: cards stacked, each revealing as it scrolls into view.
+  if (layout === "feed") {
+    return (
+      <LayoutCtx.Provider value="feed">
+        <div className="mx-auto flex w-full max-w-[640px] flex-col gap-4">
+          {slides.map((s, i) => (
+            <Reveal key={i}>{renderCard(s)}</Reveal>
+          ))}
+        </div>
+      </LayoutCtx.Provider>
+    );
+  }
+
   return (
+    <LayoutCtx.Provider value="carousel">
     <div className="mx-auto w-full max-w-[520px] select-none outline-none sm:max-w-[760px]" onKeyDown={onKey} tabIndex={0}>
       <div className="relative">
         <div
@@ -197,19 +260,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
               className="w-[90%] shrink-0 snap-center transition-[opacity,transform] duration-300 will-change-transform sm:w-[86%]"
               style={{ opacity: i === active ? 1 : 0.4, transform: i === active ? "scale(1)" : "scale(0.93)" }}
             >
-              {s.kind === "cover" ? (
-                <Cover s={s} ru={ru} />
-              ) : s.kind === "stats" ? (
-                <Stats s={s} ru={ru} />
-              ) : s.kind === "shot" ? (
-                <Shot s={s} ru={ru} />
-              ) : s.kind === "chapter" ? (
-                <Chapter s={s} ru={ru} />
-              ) : s.kind === "idea" ? (
-                <IdeaCard s={s} ru={ru} />
-              ) : (
-                <Insight s={s} ru={ru} />
-              )}
+              {renderCard(s)}
             </div>
           ))}
         </div>
@@ -257,14 +308,17 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
         {active + 1} / {slides.length}
       </p>
     </div>
+    </LayoutCtx.Provider>
   );
 }
 
-// A slide is a fixed-aspect portrait rectangle, like a story frame.
+// A slide is a fixed-height story frame in the carousel; in the feed it grows
+// to fit its content (no inner scroll, no clipped text).
 function Frame({ children, glow }: { children: React.ReactNode; glow?: string }) {
+  const box = useContext(LayoutCtx) === "feed" ? "min-h-[300px]" : BOX;
   return (
     <div
-      className={`relative flex ${BOX} w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] sm:p-8`}
+      className={`relative flex ${box} w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] sm:p-8`}
       style={glow ? { boxShadow: `0 24px 60px -30px rgba(0,0,0,0.7), inset 0 1px 0 0 color-mix(in srgb, ${glow} 30%, transparent)` } : undefined}
     >
       {glow && (
@@ -402,8 +456,10 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
 // Standalone screenshot slide between text cards — full-bleed, no black frames;
 // label + wordmark overlaid on gradient scrims for legibility.
 function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const box = useContext(LayoutCtx) === "feed" ? "h-[70svh] max-h-[620px] min-h-[440px]" : BOX;
   return (
-    <div className={`relative flex ${BOX} w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]`}>
+    <div className={`relative flex ${box} w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={s.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-top" />
       <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />

@@ -25,6 +25,7 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://inapp.pro"),
   title: "inApp — reviews from popular apps, with conclusions",
   description:
     "An aggregator of app-store reviews with conclusions. Find the gaps worth building.",
