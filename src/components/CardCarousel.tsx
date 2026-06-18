@@ -51,7 +51,18 @@ export type InsightSlide = {
   ofTotal?: number;
 };
 
-export type Slide = CoverSlide | StatsSlide | ShotSlide | InsightSlide;
+export type IdeaSlide = {
+  kind: "idea";
+  title: string;
+  oneLiner: string;
+  pitch: string;
+  features: string[];
+  apps: number;
+  observations: number;
+  evidence: Quote[];
+};
+
+export type Slide = CoverSlide | StatsSlide | ShotSlide | InsightSlide | IdeaSlide;
 
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
@@ -149,6 +160,8 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
                 <Stats s={s} ru={ru} />
               ) : s.kind === "shot" ? (
                 <Shot s={s} ru={ru} />
+              ) : s.kind === "idea" ? (
+                <IdeaCard s={s} ru={ru} />
               ) : (
                 <Insight s={s} ru={ru} />
               )}
@@ -344,6 +357,133 @@ function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
   );
 }
 
+// Reusable reviews bottom-sheet, shared by insight and idea cards.
+function ReviewsDialog({
+  dref,
+  glow,
+  kicker,
+  title,
+  evidence,
+  ru,
+}: {
+  dref: React.RefObject<HTMLDialogElement | null>;
+  glow: string;
+  kicker: string;
+  title: string;
+  evidence: Quote[];
+  ru: boolean;
+}) {
+  return (
+    <dialog
+      ref={dref}
+      onClose={() => {
+        document.documentElement.style.overflow = "";
+      }}
+      onClick={(e) => {
+        if (e.target === dref.current) dref.current?.close();
+      }}
+      className="mx-0 mb-0 mt-auto w-full max-w-none rounded-[var(--radius-2xl)] rounded-b-none border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-0 text-left text-[var(--color-text-primary)] backdrop:bg-black/70 sm:mx-auto sm:mb-auto sm:w-[calc(100vw-2rem)] sm:max-w-lg sm:rounded-b-[var(--radius-2xl)]"
+    >
+      <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
+        <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
+          <span className="flex min-w-0 flex-col gap-1">
+            <span className="w-fit rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
+              {kicker}
+            </span>
+            <span className="text-lead font-semibold leading-snug">{title}</span>
+          </span>
+          <button
+            type="button"
+            onClick={() => dref.current?.close()}
+            aria-label={ru ? "Закрыть" : "Close"}
+            className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] outline-none transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+        </div>
+        <div className="flex flex-col overflow-y-auto overscroll-contain px-4 py-1">
+          {evidence.map((e, i) => (
+            <div key={i} className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0">
+              <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                {e.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>}
+                <span className="tabular-nums text-caption text-[#f5b301]">
+                  {"★".repeat(e.rating)}
+                  {"☆".repeat(Math.max(0, 5 - e.rating))}
+                </span>
+                {e.date && <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>}
+              </span>
+              <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{e.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </dialog>
+  );
+}
+
+function IdeaCard({ s, ru }: { s: IdeaSlide; ru: boolean }) {
+  const glow = "var(--color-text-brand)";
+  const dialog = useRef<HTMLDialogElement>(null);
+  const openReviews = () => {
+    document.documentElement.style.overflow = "hidden";
+    dialog.current?.showModal();
+  };
+  return (
+    <Frame glow={glow}>
+      <div className="relative mb-4 flex items-center justify-between gap-2">
+        <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
+          {ru ? "Идея" : "Idea"}
+        </span>
+        <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
+          {s.apps} {ru ? "прил." : "apps"} · {s.observations} {ru ? "набл." : "obs"}
+        </span>
+      </div>
+
+      <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
+        <h2 className="text-[22px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
+        <p className="line-clamp-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{s.oneLiner}</p>
+        {s.pitch && (
+          <div className="flex flex-col gap-1.5">
+            <span className="text-caption font-semibold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</span>
+            <p className="line-clamp-4 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{s.pitch}</p>
+          </div>
+        )}
+        {s.features.length > 0 && (
+          <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
+            {s.features.slice(0, 4).map((f, i) => (
+              <span key={i} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)]">
+                {f}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="relative mt-4 flex items-center justify-between">
+        <button
+          type="button"
+          onClick={openReviews}
+          disabled={s.evidence.length === 0}
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
+          style={{ background: `color-mix(in srgb, ${glow} 16%, transparent)`, color: glow, ["--glow" as string]: glow }}
+        >
+          {s.observations} {obsWord(s.observations, ru)}
+          {s.evidence.length > 0 && (
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          )}
+        </button>
+        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
+      </div>
+
+      <ReviewsDialog dref={dialog} glow={glow} kicker={ru ? "Идея" : "Idea"} title={s.title} evidence={s.evidence} ru={ru} />
+    </Frame>
+  );
+}
+
 function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
   const tone = TONE[s.tone];
   const dialog = useRef<HTMLDialogElement>(null);
@@ -437,55 +577,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
         {wordmark}
       </div>
 
-      <dialog
-        ref={dialog}
-        onClose={() => {
-          document.documentElement.style.overflow = "";
-        }}
-        onClick={(e) => {
-          if (e.target === dialog.current) dialog.current?.close();
-        }}
-        className="mx-0 mb-0 mt-auto w-full max-w-none rounded-[var(--radius-2xl)] rounded-b-none border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-0 text-left text-[var(--color-text-primary)] backdrop:bg-black/70 sm:mx-auto sm:mb-auto sm:w-[calc(100vw-2rem)] sm:max-w-lg sm:rounded-b-[var(--radius-2xl)]"
-      >
-        <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
-          <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
-            <span className="flex min-w-0 flex-col gap-1">
-              <span
-                className="w-fit rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide"
-                style={{ background: `color-mix(in srgb, ${tone.glow} 18%, transparent)`, color: tone.glow }}
-              >
-                {s.kicker || tone.label[ru ? "ru" : "en"]}
-              </span>
-              <span className="text-lead font-semibold leading-snug">{s.title}</span>
-            </span>
-            <button
-              type="button"
-              onClick={() => dialog.current?.close()}
-              aria-label={ru ? "Закрыть" : "Close"}
-              className="flex size-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] outline-none transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-              </svg>
-            </button>
-          </div>
-          <div className="flex flex-col overflow-y-auto overscroll-contain px-4 py-1">
-            {s.evidence.map((e, i) => (
-              <div key={i} className="flex flex-col gap-1.5 border-t border-[var(--color-border-subtle)] py-4 first:border-t-0">
-                <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  {e.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{e.app}</span>}
-                  <span className="tabular-nums text-caption text-[#f5b301]">
-                    {"★".repeat(e.rating)}
-                    {"☆".repeat(Math.max(0, 5 - e.rating))}
-                  </span>
-                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.date}</span>
-                </span>
-                <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{e.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </dialog>
+      <ReviewsDialog dref={dialog} glow={tone.glow} kicker={s.kicker || tone.label[ru ? "ru" : "en"]} title={s.title} evidence={s.evidence} ru={ru} />
     </Frame>
   );
 }
