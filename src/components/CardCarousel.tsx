@@ -390,10 +390,8 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
           )}
         </p>
       </div>
-      <div className="relative flex items-center justify-center gap-1.5 text-caption text-[var(--color-text-tertiary)]">
+      <div className="relative flex items-center justify-center text-caption text-[var(--color-text-tertiary)]">
         <span className="font-semibold tracking-tight text-[var(--color-text-secondary)]">inapp.pro</span>
-        <span aria-hidden>·</span>
-        <span>{ru ? "листайте →" : "swipe →"}</span>
       </div>
     </Frame>
   );
@@ -502,8 +500,7 @@ function Chapter({ s, ru }: { s: ChapterSlide; ru: boolean }) {
         <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[34px]">{s.heading}</h2>
         <p className="text-[16px] leading-relaxed text-[var(--color-text-secondary)]">{s.dek}</p>
       </div>
-      <div className="relative flex items-center justify-between gap-2">
-        <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? "листайте →" : "swipe →"}</span>
+      <div className="relative flex items-center justify-end">
         <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
       </div>
     </Frame>
@@ -517,6 +514,7 @@ function ReviewsDialog({
   kicker,
   title,
   evidence,
+  total,
   ru,
 }: {
   dref: React.RefObject<HTMLDialogElement | null>;
@@ -524,6 +522,7 @@ function ReviewsDialog({
   kicker: string;
   title: string;
   evidence: Quote[];
+  total?: number;
   ru: boolean;
 }) {
   return (
@@ -544,6 +543,11 @@ function ReviewsDialog({
               {kicker}
             </span>
             <span className="text-lead font-semibold leading-snug">{title}</span>
+            {total != null && total > evidence.length && (
+              <span className="text-caption text-[var(--color-text-tertiary)]">
+                {ru ? `Показываем ${evidence.length} примеров из ${total} наблюдений` : `Showing ${evidence.length} of ${total} observations`}
+              </span>
+            )}
           </span>
           <button
             type="button"
@@ -632,7 +636,7 @@ function IdeaCard({ s, ru }: { s: IdeaSlide; ru: boolean }) {
         <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
       </div>
 
-      <ReviewsDialog dref={dialog} glow={glow} kicker={ru ? "Идея" : "Idea"} title={s.title} evidence={s.evidence} ru={ru} />
+      <ReviewsDialog dref={dialog} glow={glow} kicker={ru ? "Идея" : "Idea"} title={s.title} evidence={s.evidence} total={s.observations} ru={ru} />
     </Frame>
   );
 }
@@ -732,7 +736,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
         {wordmark}
       </div>
 
-      <ReviewsDialog dref={dialog} glow={tone.glow} kicker={s.kicker || tone.label[ru ? "ru" : "en"]} title={s.title} evidence={s.evidence} ru={ru} />
+      <ReviewsDialog dref={dialog} glow={tone.glow} kicker={s.kicker || tone.label[ru ? "ru" : "en"]} title={s.title} evidence={s.evidence} total={s.count} ru={ru} />
     </Frame>
   );
 }
