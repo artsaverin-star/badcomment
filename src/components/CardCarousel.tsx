@@ -32,6 +32,14 @@ export type ShotSlide = {
   name: string;
 };
 
+export type AboutSlide = {
+  kind: "about";
+  name: string;
+  icon: string | null;
+  developer?: string;
+  description: string;
+};
+
 export type Quote = { app?: string; rating: number; date: string; text: string };
 
 export type Tone = "up" | "down" | "mixed" | "info";
@@ -50,7 +58,7 @@ export type InsightSlide = {
   ofTotal?: number;
 };
 
-export type Slide = CoverSlide | StatsSlide | ShotSlide | InsightSlide;
+export type Slide = CoverSlide | AboutSlide | StatsSlide | ShotSlide | InsightSlide;
 
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
@@ -144,6 +152,8 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
             >
               {s.kind === "cover" ? (
                 <Cover s={s} ru={ru} />
+              ) : s.kind === "about" ? (
+                <About s={s} ru={ru} />
               ) : s.kind === "stats" ? (
                 <Stats s={s} ru={ru} />
               ) : s.kind === "shot" ? (
@@ -205,7 +215,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
 function Frame({ children, glow }: { children: React.ReactNode; glow?: string }) {
   return (
     <div
-      className="relative flex aspect-[5/7] w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]"
+      className="relative flex h-[78svh] max-h-[680px] min-h-[520px] w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]"
       style={glow ? { boxShadow: `0 24px 60px -30px rgba(0,0,0,0.7), inset 0 1px 0 0 color-mix(in srgb, ${glow} 30%, transparent)` } : undefined}
     >
       {glow && (
@@ -259,6 +269,34 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
         <span className="font-semibold tracking-tight text-[var(--color-text-secondary)]">inapp.pro</span>
         <span aria-hidden>·</span>
         <span>{ru ? "листайте →" : "swipe →"}</span>
+      </div>
+    </Frame>
+  );
+}
+
+function About({ s, ru }: { s: AboutSlide; ru: boolean }) {
+  return (
+    <Frame glow="var(--color-text-brand)">
+      <div className="relative mb-2">
+        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
+          {ru ? "О приложении" : "About"}
+        </span>
+      </div>
+      <div className="relative flex flex-1 flex-col justify-center gap-5">
+        <div className="flex items-center gap-3.5">
+          {s.icon ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={s.icon} alt="" className="size-14 shrink-0 rounded-[16px] shadow-[0_10px_28px_-12px_rgba(0,0,0,0.6)]" />
+          ) : null}
+          <div className="flex min-w-0 flex-col">
+            <span className="text-[20px] font-bold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)]">{s.name}</span>
+            {s.developer && <span className="truncate text-caption text-[var(--color-text-tertiary)]">{s.developer}</span>}
+          </div>
+        </div>
+        <p className="text-[17px] leading-[1.5] text-[var(--color-text-secondary)]">{s.description}</p>
+      </div>
+      <div className="relative mt-4 flex justify-end">
+        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
       </div>
     </Frame>
   );
@@ -395,20 +433,20 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
             {s.plus && (
               <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
                 <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
-                <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
+                <span className="line-clamp-4 text-[var(--color-text-secondary)]">{s.plus}</span>
               </p>
             )}
             {s.minus && (
               <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
                 <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
-                <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
+                <span className="line-clamp-4 text-[var(--color-text-secondary)]">{s.minus}</span>
               </p>
             )}
           </>
         ) : (
           // The tone tag already says praise/gripe — drop the marker, just a lede.
           (s.plus || s.minus) && (
-            <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
+            <p className="line-clamp-[7] text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
           )
         )}
 

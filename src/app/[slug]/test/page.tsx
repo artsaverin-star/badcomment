@@ -5,7 +5,7 @@ import { getProductIdBySlug } from "@/lib/appSlugs";
 import { isPublishable } from "@/lib/readyApps";
 import { getAppMetaByProductId } from "@/lib/researchCategories";
 import { getProductDetail } from "@/lib/queries";
-import { appCardsFor } from "@/lib/regenCards";
+import { appCardsFor, descriptionFor } from "@/lib/regenCards";
 import { getLocale } from "@/lib/i18n.server";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
 import type { RegenCard } from "@/lib/regenCards";
@@ -106,6 +106,7 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
   const product: RegenCard[] = cards?.product ?? [];
   const observations = (insights.insights ?? []).length || product.length;
   const screenshots = detail?.screenshots ?? meta?.screenshots ?? [];
+  const description = descriptionFor(id, locale, insights.description)?.trim();
 
   const slides: Slide[] = [
     {
@@ -118,6 +119,7 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
       avgRating,
       ratingCount,
     },
+    ...(description ? [{ kind: "about" as const, name, icon, developer, description }] : []),
     {
       kind: "stats",
       title: ru ? "Распределение оценок" : "Rating distribution",
