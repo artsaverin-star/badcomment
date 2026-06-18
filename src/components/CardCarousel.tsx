@@ -125,7 +125,11 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
       <div className="relative">
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth px-[9%] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth px-[9%] py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%)",
+            maskImage: "linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%)",
+          }}
         >
           {slides.map((s, i) => (
             <div
@@ -358,9 +362,9 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
         )}
 
         {hasImage ? (
-          <div className="mt-1 min-h-0 flex-1 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)]">
+          <div className="mt-1 flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] p-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={s.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
+            <img src={s.image} alt="" loading="lazy" decoding="async" className="max-h-full max-w-full rounded-[var(--radius-lg)] object-contain" />
           </div>
         ) : s.quote ? (
           <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
