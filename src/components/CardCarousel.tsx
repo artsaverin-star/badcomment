@@ -236,17 +236,27 @@ function Insight({ s, ru, index, total }: { s: InsightSlide; ru: boolean; index:
       <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
         <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
 
-        {s.plus && (
-          <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
-            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
-            <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
-          </p>
-        )}
-        {s.minus && (
-          <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
-            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
-            <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
-          </p>
+        {s.tone === "mixed" ? (
+          // Both polarities present — keep the +/− markers so they read apart.
+          <>
+            {s.plus && (
+              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
+                <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
+              </p>
+            )}
+            {s.minus && (
+              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
+                <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
+              </p>
+            )}
+          </>
+        ) : (
+          // The tone tag already says praise/gripe — drop the marker, just a lede.
+          (s.plus || s.minus) && (
+            <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
+          )
         )}
 
         {s.quote && (
