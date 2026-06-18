@@ -110,42 +110,15 @@ const arcRank = (h: string) => {
   return i === -1 ? ARC.length : i;
 };
 
-// ── Assign ideas/apps to chapters by text overlap with the chapter's theme ──
-const STOP = new Set([
-  "это","что","как","для","или","при","без","там","себя","свой","свои","того","этот","эта","эти","нет","все","всё","они","она","оно","его","еще","ещё",
-  "когда","потом","тоже","быть","есть","были","было","будет","того","чтобы","который","которые","которая","можно","надо","раз","два","три","app","the","and","for","with",
-]);
-function tokenize(s: string): string[] {
-  return (s || "")
-    .toLowerCase()
-    .split(/[^a-zа-яё0-9]+/i)
-    .filter((w) => w.length >= 4 && !STOP.has(w));
-}
-// Greedy best-match assignment with a per-chapter cap so each chapter gets a
-// balanced handful (every item lands somewhere — best available chapter).
-function assignToChapters(itemTokens: string[][], chapterVocab: Set<string>[], cap: number): number[] {
-  const n = chapterVocab.length;
-  const score = (toks: string[], v: Set<string>) => toks.reduce((s, t) => s + (v.has(t) ? 1 : 0), 0);
-  const best = itemTokens.map((toks) => Math.max(0, ...chapterVocab.map((v) => score(toks, v))));
-  const order = itemTokens.map((_, i) => i).sort((a, b) => best[b] - best[a]);
-  const counts = new Array(n).fill(0);
-  const out = new Array(itemTokens.length).fill(0);
-  for (const i of order) {
-    const ranked = [...Array(n).keys()].sort((x, y) => score(itemTokens[i], chapterVocab[y]) - score(itemTokens[i], chapterVocab[x]));
-    let placed = -1;
-    for (const c of ranked) if (counts[c] < cap) { placed = c; break; }
-    if (placed === -1) placed = counts.indexOf(Math.min(...counts));
-    out[i] = placed;
-    counts[placed]++;
-  }
-  return out;
-}
-
 type ConclusionItem = { title: string; body?: string; count: number; evidence: Evidence[] };
-type IdeaView = { slug: string; title: string; oneLiner: string; gap: string; pitch: string; features: string[]; observations: number };
+type OppQuote = { app: string; rating: number; text: string };
+type OppView = {
+  slug: string; title: string; oneLiner: string; gap: string; pitch: string; features: string[]; monetization: string;
+  gapApps: string[]; quotes: OppQuote[]; observations: number; apps: number; unlocked: boolean;
+};
 type AppView = {
   name: string; icon: string | null; slug: string | null; description?: string;
-  avgRating: number | null; ratingCount: number | null; reviewsScanned: number; observations: number; hook: string; total: number; slides: Slide[];
+  avgRating: number | null; ratingCount: number | null; reviewsScanned: number; observations: number; hook: string; total: number; slides: Slide[]; unlocked: boolean;
 };
 
 export default async function SegmentPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -185,7 +158,18 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     const ordered = orderEv(c.evidence as EvLike[], tone, ru);
     return { kind: "insight", kicker: c.kicker, title: c.title, plus: c.plus, minus: c.minus, count: c.count, tone, quote: ordered[0], evidence: ordered };
   };
-  const ideaViews: IdeaView[] = ideas.map((idea) => {
+  // ── Overview (free chapter 0): the whole research narrative as conclusions ──
+  const conclusions: ConclusionItem[] = sections.flatMap((sec) =>
+    sec.items.map((item) => {
+      const tone = toneOfEv(item.evidence as SegmentSummaryEvidence[]);
+      const ordered = orderEv(item.evidence as EvLike[], tone, ru);
+      return { title: item.title, body: item.body, count: item.observationCount, evidence: ordered.map((q) => ({ app: q.app, rating: q.rating, date: q.date, quote: q.text })) };
+    }),
+  );
+  const totalObs = sections.reduce((s, sec) => s + sec.items.reduce((t, it) => t + it.observationCount, 0), 0);
+
+  // ── Opportunities (paid chapters): each idea, fully developed ──
+  const opps: OppView[] = ideas.map((idea) => {
     const en = ideaContentEn(idea.slug, locale);
     return {
       slug: idea.slug,
@@ -194,13 +178,21 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       gap: en?.gap || idea.gap,
       pitch: en?.pitch || idea.idea.pitch,
       features: en?.features?.length ? en.features : idea.idea.features,
+      monetization: en?.monetization || idea.idea.monetization,
+      gapApps: [...new Set(idea.mechanisms.flatMap((m) => m.apps))].slice(0, 8),
+      quotes: idea.reviewGrid.slice(0, 8).map((q) => ({ app: q.app, rating: q.rating, text: q.quote })),
       observations: idea.stats.observations,
+      apps: idea.stats.apps,
+      unlocked: !catLocked || access.has("idea", idea.slug),
     };
   });
+
+  // ── Apps (competitor deep-dive, per-app unlock) ──
   const appViews: AppView[] = cat.apps
     .filter((a) => hasInsight(a.productId))
     .map((a) => {
       const pid = a.productId as string;
+      const aslug = getSlugByProductId(pid);
       const cards = appCardsFor(pid, locale)?.product ?? [];
       const flawCard = cards.filter((c) => c.minus?.trim()).sort((x, y) => y.count - x.count)[0];
       const ins = getProductInsights(pid);
@@ -210,7 +202,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       return {
         name: a.name,
         icon: a.icon,
-        slug: getSlugByProductId(pid),
+        slug: aslug,
         description: descriptionFor(pid, locale, ins?.description),
         avgRating: avg,
         ratingCount: histTotal || null,
@@ -219,47 +211,16 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         hook: flawCard?.minus?.trim() || flawCard?.title || "",
         total: cards.length,
         slides: cards.map(cardToSlide),
+        unlocked: !catLocked || (aslug ? access.has("app", aslug) : false),
       };
     })
     .filter((a) => a.total > 0);
 
-  // ── Chapters: each authored theme + the ideas & apps it implies, sold as a
-  // unit. Ch.1 is free; the rest unlock individually (or all via category). ──
-  const nSec = sections.length;
-  const chapterVocab = sections.map((sec) => new Set([...tokenize(sec.heading), ...sec.items.flatMap((it) => [...tokenize(it.title), ...tokenize(it.body)])]));
-  const ideaAssign = nSec ? assignToChapters(ideaViews.map((iv) => [...tokenize(iv.title), ...tokenize(iv.gap), ...tokenize(iv.pitch), ...tokenize(iv.oneLiner)]), chapterVocab, Math.ceil(ideaViews.length / nSec)) : [];
-  const appAssign = nSec ? assignToChapters(appViews.map((av) => [...tokenize(av.hook), ...tokenize(av.name)]), chapterVocab, Math.ceil(appViews.length / nSec)) : [];
-
-  const chapters = nSec
-    ? sections.map((sec, i) => {
-        const conclusion: ConclusionItem[] = sec.items.map((item) => {
-          const tone = toneOfEv(item.evidence as SegmentSummaryEvidence[]);
-          const ordered = orderEv(item.evidence as EvLike[], tone, ru);
-          return { title: item.title, body: item.body, count: item.observationCount, evidence: ordered.map((q) => ({ app: q.app, rating: q.rating, date: q.date, quote: q.text })) };
-        });
-        const chIdeas = ideaViews.filter((_, idx) => ideaAssign[idx] === i);
-        const chApps = appViews.filter((_, idx) => appAssign[idx] === i);
-        const chapterSlug = `${slug}__ch${i + 1}`;
-        const free = i === 0;
-        const unlocked = !catLocked || free || access.has("chapter", chapterSlug);
-        return { i, slug: chapterSlug, heading: sec.heading, dek: sec.dek, conclusion, ideas: chIdeas, apps: chApps, free, unlocked };
-      })
-    : [
-        // No authored narrative — one open chapter with all apps & ideas.
-        {
-          i: 0,
-          slug: `${slug}__ch1`,
-          heading: ru ? "Разбор категории" : "Category breakdown",
-          dek: summary.lead || (ru ? "Что общего у приложений ниши и что можно построить." : "What the niche's apps share and what to build."),
-          conclusion: [] as ConclusionItem[],
-          ideas: ideaViews,
-          apps: appViews,
-          free: true,
-          unlocked: true,
-        },
-      ];
-
-  const nav = chapters.map((_, i) => ({ h: `#ch-${i}`, label: ru ? `Глава ${i + 1}` : `Chapter ${i + 1}` }));
+  const nav = [
+    { h: "#overview", label: ru ? "Обзор" : "Overview" },
+    ...opps.map((_, i) => ({ h: `#op-${i}`, label: ru ? `Возможность ${i + 1}` : `Opportunity ${i + 1}` })),
+    ...(appViews.length ? [{ h: "#apps", label: ru ? "Приложения" : "Apps" }] : []),
+  ];
 
   // Schema.org structured data — helps search engines and LLMs parse the page
   // as a research article with a list of app ideas.
@@ -361,120 +322,194 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         </header>
       </div>
 
-      {/* Chapters — each a single cohesive panel: one theme, divided into
-          conclusions → where it shows (apps) → what to build (ideas). */}
-      {chapters.map((ch) => (
-        <section key={ch.i} id={`ch-${ch.i}`} className="mx-auto mt-8 max-w-[660px] scroll-mt-28">
+      {/* OVERVIEW — free chapter 0: the whole research narrative */}
+      <section id="overview" className="mx-auto mt-8 max-w-[660px] scroll-mt-28">
+        <div className="overflow-hidden rounded-[28px] border border-[color-mix(in_srgb,var(--color-text-brand)_22%,var(--color-border-subtle))] bg-[var(--color-surface-card)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]">
+          <div className="relative px-6 pb-6 pt-7 sm:px-8">
+            <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.2]" style={{ background: "radial-gradient(120% 80% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
+            <div className="relative">
+              <div className="mb-2 flex flex-wrap items-center gap-2">
+                <span className="text-caption font-bold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">{ru ? "Обзор ниши" : "Niche overview"}</span>
+                <span className="rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#4ade80]">{ru ? "бесплатно" : "free"}</span>
+              </div>
+              <h2 className="text-[24px] font-bold leading-[1.16] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{ru ? "Что общего у приложений ниши" : "What the niche's apps share"}</h2>
+              {summary.lead && <p className="mt-2 text-callout leading-relaxed text-[var(--color-text-secondary)]">{summary.lead}</p>}
+              <div className="mt-4 flex flex-wrap gap-x-2.5 gap-y-1 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
+                <span>{readyCount} {ru ? "приложений" : "apps"}</span>
+                <span aria-hidden>·</span>
+                <span>{summary.reviewsScanned.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "отзывов" : "reviews"}</span>
+                <span aria-hidden>·</span>
+                <span>{totalObs.toLocaleString(ru ? "ru-RU" : "en-US")} {ru ? "наблюдений" : "observations"}</span>
+                <span aria-hidden>·</span>
+                <span className="font-semibold text-[var(--color-text-brand)]">{opps.length} {ru ? "возможностей" : "opportunities"}</span>
+              </div>
+            </div>
+          </div>
+          {conclusions.length > 0 && (
+            <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
+              <h3 className="mb-1 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что выяснили" : "What we found"}</h3>
+              {conclusions.map((c, k) => (
+                <InsightCard key={k} locale={locale} title={c.title} body={c.body} count={c.count} evidence={c.evidence} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* OPPORTUNITIES — each idea, fully developed; unlock per opportunity */}
+      {opps.map((op, i) => (
+        <section key={i} id={`op-${i}`} className="mx-auto mt-8 max-w-[660px] scroll-mt-28">
           <div className="overflow-hidden rounded-[28px] border border-[color-mix(in_srgb,var(--color-text-brand)_22%,var(--color-border-subtle))] bg-[var(--color-surface-card)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]">
-            {/* Header */}
             <div className="relative px-6 pb-6 pt-7 sm:px-8">
               <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.2]" style={{ background: "radial-gradient(120% 80% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
+              <div aria-hidden className="pointer-events-none absolute inset-0 text-[var(--color-text-brand)]">
+                {SALUTE_POS.map((pos, k) => (
+                  <span key={k} className={`ld-float absolute block opacity-[0.14] ${k % 3 === 0 ? "size-10" : "size-8"} ${pos}`} style={{ ["--d" as string]: `${4.5 + (k % 5) * 0.7}s`, ["--r" as string]: `${k % 2 ? 7 : -7}deg`, animationDelay: `${(k % 6) * 0.25}s` }}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-full">
+                      <path d={IDEA_GLYPHS[k % IDEA_GLYPHS.length]} />
+                    </svg>
+                  </span>
+                ))}
+                <span className="absolute inset-0" style={{ background: "radial-gradient(72% 70% at 50% 40%, var(--color-surface-card) 26%, transparent 100%)" }} />
+              </div>
               <div className="relative">
-                <div className="mb-2 flex flex-wrap items-center gap-2">
-                  <span className="text-caption font-bold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">{ru ? `Глава ${ch.i + 1} · ${chapters.length}` : `Chapter ${ch.i + 1} · ${chapters.length}`}</span>
-                  {ch.free && <span className="rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#4ade80]">{ru ? "бесплатно" : "free"}</span>}
-                </div>
-                <h2 className="text-[25px] font-bold leading-[1.14] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[30px]">{ch.heading}</h2>
-                <p className="mt-2 text-callout leading-relaxed text-[var(--color-text-secondary)]">{ch.dek}</p>
+                <span className="text-caption font-bold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">{ru ? `Возможность ${i + 1} · спрос ${op.observations} наблюдений` : `Opportunity ${i + 1} · demand ${op.observations} observations`}</span>
+                {op.unlocked ? (
+                  <>
+                    <h2 className="mt-2 text-[24px] font-bold leading-[1.14] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{op.title}</h2>
+                    <p className="mt-2 text-callout leading-relaxed text-[var(--color-text-secondary)]">{op.oneLiner}</p>
+                  </>
+                ) : (
+                  <p className="mt-2 text-[20px] font-bold leading-snug text-[var(--color-text-primary)]">{ru ? "Готовая возможность под подтверждённый спрос" : "A ready opportunity for proven demand"}</p>
+                )}
               </div>
             </div>
 
-            {ch.unlocked ? (
+            {op.unlocked ? (
               <>
-                {ch.conclusion.length > 0 && (
+                <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
+                  <h3 className="mb-1.5 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Разрыв" : "The gap"}</h3>
+                  <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{op.gap}</p>
+                </div>
+                {op.quotes.length > 0 && (
                   <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
-                    <h3 className="mb-1 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что выяснили" : "What we found"}</h3>
-                    {ch.conclusion.map((c, k) => (
-                      <InsightCard key={k} locale={locale} title={c.title} body={c.body} count={c.count} evidence={c.evidence} />
-                    ))}
-                  </div>
-                )}
-
-                {ch.apps.length > 0 && (
-                  <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
-                    <h3 className="mb-2 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Где это видно" : "Where you see it"}</h3>
-                    <div className="flex flex-col divide-y divide-[var(--color-border-subtle)]">
-                      {ch.apps.map((app, k) => (
-                        <details key={k} id={`ch${ch.i}-app${k}`} className="group/app scroll-mt-28">
-                          <summary className="flex cursor-pointer list-none items-center gap-3 py-3 [&::-webkit-details-marker]:hidden">
-                            {app.icon ? (
-                              // eslint-disable-next-line @next/next/no-img-element
-                              <img src={app.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
-                            ) : (
-                              <div className="size-10 shrink-0 rounded-[11px] bg-[var(--color-bg-muted)]" />
-                            )}
-                            <span className="flex min-w-0 flex-1 flex-col">
-                              <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{app.name}</span>
-                              <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                                {app.avgRating != null ? `★ ${app.avgRating.toFixed(1)} · ` : ""}{app.total} {ru ? "наблюдений" : "observations"}
-                              </span>
-                            </span>
-                            <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/app:rotate-180">
-                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
-                            </span>
-                          </summary>
-                          <div className="details-reveal pb-3">
-                            {app.description && <p className="mb-3 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{app.description}</p>}
-                            <CardCarousel slides={app.slides} locale={ru ? "ru" : "en"} layout="feed" />
-                          </div>
-                        </details>
+                    <h3 className="mb-2.5 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Доказательства из отзывов" : "Evidence from reviews"}</h3>
+                    <div className="flex flex-col gap-3">
+                      {op.quotes.slice(0, 6).map((q, k) => (
+                        <figure key={k} className="border-l-2 border-[color-mix(in_srgb,var(--color-text-brand)_50%,transparent)] pl-3">
+                          <p className="text-footnote italic leading-relaxed text-[var(--color-text-secondary)]">“{q.text}”</p>
+                          <figcaption className="mt-1 text-caption text-[var(--color-text-tertiary)]">{q.app} · <span className="text-[#f5b301]">{"★".repeat(q.rating)}</span></figcaption>
+                        </figure>
                       ))}
                     </div>
                   </div>
                 )}
-
-                {ch.ideas.length > 0 && (
+                {op.gapApps.length > 0 && (
                   <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
-                    <h3 className="mb-2 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что построить" : "What to build"}</h3>
-                    <div className="flex flex-col divide-y divide-[var(--color-border-subtle)]">
-                      {ch.ideas.map((idea, k) => {
-                        const n = ideaViews.findIndex((v) => v.slug === idea.slug) + 1;
-                        return (
-                          <div key={k} className="py-4 first:pt-0">
-                            <span className="text-caption font-bold uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? `Идея №${n} · спрос ${idea.observations} наблюдений` : `Idea #${n} · demand ${idea.observations} observations`}</span>
-                            <h4 className="mt-1.5 text-[19px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">{idea.title}</h4>
-                            <p className="mt-1.5 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
-                            <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                              <div className="flex flex-col gap-1">
-                                <span className="text-caption font-semibold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Разрыв" : "The gap"}</span>
-                                <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{idea.gap}</p>
-                              </div>
-                              <div className="flex flex-col gap-1">
-                                <span className="text-caption font-semibold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</span>
-                                <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{idea.pitch}</p>
-                              </div>
-                            </div>
-                            {idea.features.length > 0 && (
-                              <div className="mt-3 flex flex-wrap gap-1.5">
-                                {idea.features.slice(0, 6).map((f, j) => (
-                                  <span key={j} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)]">{f}</span>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
+                    <h3 className="mb-2 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Где эта дыра" : "Where the gap is"}</h3>
+                    <div className="flex flex-wrap gap-1.5">
+                      {op.gapApps.map((a, k) => (
+                        <span key={k} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)]">{a}</span>
+                      ))}
                     </div>
+                  </div>
+                )}
+                <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
+                  <h3 className="mb-1.5 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</h3>
+                  <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{op.pitch}</p>
+                  {op.features.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {op.features.slice(0, 6).map((f, k) => (
+                        <span key={k} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)]">{f}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {op.monetization && (
+                  <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
+                    <h3 className="mb-1.5 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Как монетизировать" : "How to monetize"}</h3>
+                    <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{op.monetization}</p>
                   </div>
                 )}
               </>
             ) : (
               <div className="flex flex-col items-start gap-3 border-t border-[var(--color-border-subtle)] px-6 py-6 sm:px-8">
+                {op.quotes[0] && (
+                  <figure className="border-l-2 border-[color-mix(in_srgb,var(--color-text-brand)_50%,transparent)] pl-3">
+                    <p className="text-footnote italic leading-relaxed text-[var(--color-text-secondary)]">“{op.quotes[0].text}”</p>
+                    <figcaption className="mt-1 text-caption text-[var(--color-text-tertiary)]">{op.quotes[0].app} · <span className="text-[#f5b301]">{"★".repeat(op.quotes[0].rating)}</span></figcaption>
+                  </figure>
+                )}
                 <p className="text-footnote text-[var(--color-text-tertiary)]">
-                  {ru ? `Внутри: ${ch.conclusion.length} выводов · ${ch.apps.length} приложений · ${ch.ideas.length} идей` : `Inside: ${ch.conclusion.length} conclusions · ${ch.apps.length} apps · ${ch.ideas.length} ideas`}
+                  {ru ? `Это одна из жалоб. Внутри — разрыв, ещё ${Math.max(0, op.quotes.length - 1)} доказательств, у каких приложений и что строить + монетизация.` : `One of the complaints. Inside — the gap, ${Math.max(0, op.quotes.length - 1)} more proofs, which apps have it, and what to build + monetization.`}
                 </p>
-                <EnergyUnlockButton type="chapter" slug={ch.slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть главу" : "Unlock chapter"} />
+                <EnergyUnlockButton type="idea" slug={op.slug} cost={UNLOCK_COST.idea} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть возможность" : "Unlock opportunity"} />
               </div>
             )}
           </div>
         </section>
       ))}
 
-      {/* Buy-all — the whole category (every chapter) at a bundle price */}
+      {/* APPS — competitor deep-dive, per-app unlock */}
+      {appViews.length > 0 && (
+        <section id="apps" className="mx-auto mt-12 max-w-[660px] scroll-mt-28">
+          <div className="overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]">
+            <div className="relative px-6 pb-6 pt-7 sm:px-8">
+              <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-28 opacity-[0.16]" style={{ background: "radial-gradient(120% 80% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
+              <div className="relative">
+                <span className="text-caption font-bold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">{ru ? "Конкуренты" : "Competitors"}</span>
+                <h2 className="text-[24px] font-bold leading-[1.16] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{ru ? `Разбор ${appViews.length} приложений` : `Breakdown of ${appViews.length} apps`}</h2>
+                <p className="mt-2 text-callout leading-relaxed text-[var(--color-text-secondary)]">{ru ? "По каждому — что хвалят, на что злятся, где косяк. Откройте за энергию." : "For each — what's loved, hated, and broken. Unlock for energy."}</p>
+              </div>
+            </div>
+            <div className="flex flex-col divide-y divide-[var(--color-border-subtle)] border-t border-[var(--color-border-subtle)] px-6 py-2 sm:px-8">
+              {appViews.map((app, k) =>
+                app.unlocked ? (
+                  <details key={k} id={`app-${k}`} className="group/app scroll-mt-28">
+                    <summary className="flex cursor-pointer list-none items-center gap-3 py-3 [&::-webkit-details-marker]:hidden">
+                      {app.icon ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={app.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
+                      ) : (
+                        <div className="size-10 shrink-0 rounded-[11px] bg-[var(--color-bg-muted)]" />
+                      )}
+                      <span className="flex min-w-0 flex-1 flex-col">
+                        <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{app.name}</span>
+                        <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{app.avgRating != null ? `★ ${app.avgRating.toFixed(1)} · ` : ""}{app.total} {ru ? "наблюдений" : "observations"}</span>
+                      </span>
+                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open/app:rotate-180">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      </span>
+                    </summary>
+                    <div className="details-reveal pb-3">
+                      {app.description && <p className="mb-3 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{app.description}</p>}
+                      <CardCarousel slides={app.slides} locale={ru ? "ru" : "en"} layout="feed" />
+                    </div>
+                  </details>
+                ) : (
+                  <div key={k} id={`app-${k}`} className="flex scroll-mt-28 items-center gap-3 py-3">
+                    {app.icon ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={app.icon} alt="" loading="lazy" decoding="async" className="size-10 shrink-0 rounded-[11px] object-cover" />
+                    ) : (
+                      <div className="size-10 shrink-0 rounded-[11px] bg-[var(--color-bg-muted)]" />
+                    )}
+                    <span className="flex min-w-0 flex-1 flex-col">
+                      <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{app.name}</span>
+                      <span className="truncate text-caption text-[var(--color-text-tertiary)]">{app.hook || `${app.total} ${ru ? "наблюдений" : "observations"}`}</span>
+                    </span>
+                    <EnergyUnlockButton type="app" slug={app.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть" : "Unlock"} />
+                  </div>
+                ),
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Buy-all — the whole category at a bundle price */}
       {catLocked && (
-        <div className="mx-auto mt-12 max-w-[640px]">
+        <div className="mx-auto mt-12 max-w-[660px]">
           <UnlockGate
             type="category"
             slug={slug}
@@ -482,7 +517,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
             loggedIn={loggedIn}
             balance={balance}
             locale={locale}
-            title={ru ? "Открыть всю категорию: все главы, приложения и идеи" : "Unlock the whole category: every chapter, app and idea"}
+            title={ru ? "Открыть всё разом: обзор, все возможности и приложения" : "Unlock everything: overview, all opportunities and apps"}
           />
         </div>
       )}
