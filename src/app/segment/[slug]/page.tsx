@@ -80,6 +80,26 @@ function orderEv(ev: EvLike[], tone: Tone, ru: boolean) {
   return pool.map((e) => evQuote(e, ru));
 }
 
+// Chapter-style salute for idea cards: floating lightbulbs (+ a spark).
+const SALUTE_POS = [
+  "left-[5%] top-[12%]",
+  "right-[6%] top-[9%]",
+  "left-[3%] top-[46%]",
+  "right-[4%] top-[42%]",
+  "left-[8%] bottom-[16%]",
+  "right-[7%] bottom-[18%]",
+  "left-[27%] top-[5%]",
+  "right-[29%] bottom-[9%]",
+  "left-[43%] bottom-[3%]",
+  "right-[45%] top-[3%]",
+];
+const IDEA_GLYPHS = [
+  // lightbulb
+  "M9 18h6M9.5 21h5M12 3a6 6 0 0 1 3.6 10.8c-.5.4-.85 1-.95 1.7L14.5 18h-5l-.15-2.5c-.1-.7-.45-1.3-.95-1.7A6 6 0 0 1 12 3Z",
+  // 4-point spark
+  "M12 2c.6 4.2 1.8 5.4 6 6-4.2.6-5.4 1.8-6 6-.6-4.2-1.8-5.4-6-6 4.2-.6 5.4-1.8 6-6Z",
+];
+
 // Narrative arc: what holds → retains for years → erases progress → betrays in
 // crisis (the moral climax) → then the ideas.
 const ARC = ["механик", "сообществ", "прогресс", "истор", "кризис"];
@@ -235,19 +255,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     <main className="mx-auto w-full max-w-3xl px-4 py-10 sm:py-14">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Section nav — fixed chips on the left (desktop) */}
-      <nav aria-label={ru ? "Разделы" : "Sections"} className="fixed left-6 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-2 xl:flex">
-        {nav.map((n) => (
-          <a
-            key={n.h}
-            href={n.h}
-            className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-2 text-footnote font-medium text-[var(--color-text-secondary)] shadow-sm transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-          >
-            {n.label}
-          </a>
-        ))}
-      </nav>
-
       <div className="mx-auto max-w-[640px]">
         <div className="mb-8 flex items-center justify-between gap-3">
           <Link
@@ -303,13 +310,13 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         </header>
       </div>
 
-      {/* Section nav — sticky chip bar (mobile / tablet) */}
-      <nav aria-label={ru ? "Разделы" : "Sections"} className="sticky top-2 z-30 mt-8 flex flex-wrap justify-center gap-2 xl:hidden">
+      {/* Section nav — sticky chip bar on top */}
+      <nav aria-label={ru ? "Разделы" : "Sections"} className="sticky top-2 z-30 mt-8 flex flex-wrap justify-center gap-2">
         {nav.map((n) => (
           <a
             key={n.h}
             href={n.h}
-            className="rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_88%,transparent)] px-3.5 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] backdrop-blur transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+            className="rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_90%,transparent)] px-4 py-1.5 text-footnote font-medium text-[var(--color-text-secondary)] backdrop-blur transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
           >
             {n.label}
           </a>
@@ -345,14 +352,29 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           </p>
           <div className="flex flex-col gap-3">
             {ideaCards.map((idea, i) => (
-              <article key={i} className="rounded-[var(--radius-2xl)] border border-[color-mix(in_srgb,var(--color-text-brand)_30%,transparent)] bg-[var(--color-accent-brand-subtle)] p-5 sm:p-6">
-                <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--color-text-brand)_18%,transparent)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-brand)]">{ru ? `Идея №${i + 1}` : `Idea #${i + 1}`}</span>
-                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{ru ? `спрос: ${idea.stats.observations} наблюдений` : `demand: ${idea.stats.observations} observations`}</span>
+              <article key={i} className="relative overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.7)] sm:p-7">
+                <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.18]" style={{ background: "radial-gradient(120% 90% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
+                <div aria-hidden className="pointer-events-none absolute inset-0 text-[var(--color-text-brand)]">
+                  {SALUTE_POS.map((pos, k) => (
+                    <span
+                      key={k}
+                      className={`ld-float absolute block opacity-[0.16] ${k % 3 === 0 ? "size-11" : "size-9"} ${pos}`}
+                      style={{ ["--d" as string]: `${4.5 + (k % 5) * 0.7}s`, ["--r" as string]: `${k % 2 ? 7 : -7}deg`, animationDelay: `${(k % 6) * 0.25}s` }}
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-full">
+                        <path d={IDEA_GLYPHS[k % IDEA_GLYPHS.length]} />
+                      </svg>
+                    </span>
+                  ))}
+                  <span className="absolute inset-0" style={{ background: "radial-gradient(72% 62% at 50% 45%, var(--color-surface-card) 28%, transparent 100%)" }} />
                 </div>
+                <div className="relative">
+                  <span className="text-caption font-bold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">
+                    {ru ? `Идея №${i + 1} · спрос ${idea.stats.observations} наблюдений` : `Idea #${i + 1} · demand ${idea.stats.observations} observations`}
+                  </span>
                 {idea.unlocked ? (
                   <>
-                    <h3 className="text-[21px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{idea.title}</h3>
+                    <h3 className="mt-3 text-[24px] font-bold leading-[1.15] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[27px]">{idea.title}</h3>
                     <p className="mt-2 text-callout leading-relaxed text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
                     <div className="mt-4 flex flex-col gap-4">
                       <div className="grid gap-4 sm:grid-cols-2">
@@ -395,6 +417,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                     </div>
                   </>
                 )}
+                </div>
               </article>
             ))}
           </div>
@@ -411,78 +434,88 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
             {ru ? "По каждому приложению — все наблюдения карточками. Откройте любое за энергию." : "Every app's observations as cards. Unlock any for energy."}
           </p>
           <div className="mx-auto flex max-w-[640px] flex-col gap-3">
-            {appSections.map((app, i) => (
-              <details key={i} className="group overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
-                <summary className="relative cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                  <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.18]" style={{ background: "radial-gradient(120% 90% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
-                  <span className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open:rotate-180">
-                    <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  <div className="relative flex flex-col items-center gap-3 px-6 pb-6 pt-8 text-center">
-                    {app.icon ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={app.icon} alt="" loading="lazy" decoding="async" className="size-[72px] rounded-[20px] shadow-[0_12px_36px_-12px_rgba(0,0,0,0.6)]" />
-                    ) : (
-                      <div className="size-[72px] rounded-[20px] bg-[var(--color-bg-muted)]" />
-                    )}
-                    <h3 className="text-[24px] font-bold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)]">{app.name}</h3>
-                    {app.description && <p className="mx-auto max-w-[42ch] text-footnote leading-relaxed text-[var(--color-text-secondary)]">{app.description}</p>}
-                    {app.avgRating != null && (
-                      <div className="flex flex-col items-center gap-0.5">
-                        <div className="text-[15px] tabular-nums tracking-tight text-[#f5b301]">
-                          {"★".repeat(Math.round(app.avgRating))}
-                          {"☆".repeat(Math.max(0, 5 - Math.round(app.avgRating)))}
-                        </div>
-                        <div className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                          {app.avgRating.toFixed(1)}
-                          {app.ratingCount != null ? ` · ${app.ratingCount.toLocaleString(ru ? "ru-RU" : "en-US")} ${ru ? "оценок" : "ratings"}` : ""}
-                        </div>
-                      </div>
-                    )}
-                    <p className="text-footnote text-[var(--color-text-secondary)]">
-                      {ru ? (
-                        <>
-                          Прочитали <b className="tabular-nums text-[var(--color-text-primary)]">{app.reviewsScanned.toLocaleString("ru-RU")}</b> отзывов · собрали{" "}
-                          <b className="tabular-nums text-[var(--color-text-primary)]">{app.observations}</b> наблюдений
-                        </>
-                      ) : (
-                        <>
-                          Read <b className="tabular-nums text-[var(--color-text-primary)]">{app.reviewsScanned.toLocaleString("en-US")}</b> reviews · distilled{" "}
-                          <b className="tabular-nums text-[var(--color-text-primary)]">{app.observations}</b> observations
-                        </>
-                      )}
-                    </p>
-                    <span className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-caption font-semibold text-[var(--color-text-secondary)] transition-colors group-hover:text-[var(--color-text-primary)]">
-                      {app.unlocked
-                        ? ru
-                          ? `Смотреть ${app.total} карточек`
-                          : `View ${app.total} cards`
-                        : ru
-                          ? `🔒 Открыть разбор за энергию`
-                          : `🔒 Unlock for energy`}
-                    </span>
+            {appSections.map((app, i) => {
+              const glow = <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-32 opacity-[0.18]" style={{ background: "radial-gradient(120% 90% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />;
+              const iconEl = app.icon ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={app.icon} alt="" loading="lazy" decoding="async" className="size-[72px] rounded-[20px] shadow-[0_12px_36px_-12px_rgba(0,0,0,0.6)]" />
+              ) : (
+                <div className="size-[72px] rounded-[20px] bg-[var(--color-bg-muted)]" />
+              );
+              const rating = app.avgRating != null && (
+                <div className="flex flex-col items-center gap-0.5">
+                  <div className="text-[15px] tabular-nums tracking-tight text-[#f5b301]">
+                    {"★".repeat(Math.round(app.avgRating))}
+                    {"☆".repeat(Math.max(0, 5 - Math.round(app.avgRating)))}
                   </div>
-                </summary>
-                <div className="border-t border-[var(--color-border-subtle)] p-3 sm:p-4">
-                  {app.unlocked ? (
-                    <CardCarousel slides={app.slides} locale={ru ? "ru" : "en"} layout="feed" />
-                  ) : (
-                    <div className="flex flex-col gap-3 text-center">
-                      {app.hook && (
-                        <p className="mx-auto max-w-[48ch] text-callout leading-relaxed text-[var(--color-text-secondary)]">
-                          {ru ? <>«{app.hook}» — и это лишь одно из <b className="text-[var(--color-text-primary)]">{app.total}</b> наблюдений внутри.</> : <>“{app.hook}” — just one of <b className="text-[var(--color-text-primary)]">{app.total}</b> observations inside.</>}
-                        </p>
-                      )}
-                      <div className="mx-auto">
-                        <EnergyUnlockButton type="app" slug={app.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть ${app.total} карточек` : `Unlock ${app.total} cards`} />
-                      </div>
-                    </div>
-                  )}
+                  <div className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
+                    {app.avgRating.toFixed(1)}
+                    {app.ratingCount != null ? ` · ${app.ratingCount.toLocaleString(ru ? "ru-RU" : "en-US")} ${ru ? "оценок" : "ratings"}` : ""}
+                  </div>
                 </div>
-              </details>
-            ))}
+              );
+              const stats = (
+                <p className="text-footnote text-[var(--color-text-secondary)]">
+                  {ru ? (
+                    <>
+                      Прочитали <b className="tabular-nums text-[var(--color-text-primary)]">{app.reviewsScanned.toLocaleString("ru-RU")}</b> отзывов · собрали{" "}
+                      <b className="tabular-nums text-[var(--color-text-primary)]">{app.observations}</b> наблюдений
+                    </>
+                  ) : (
+                    <>
+                      Read <b className="tabular-nums text-[var(--color-text-primary)]">{app.reviewsScanned.toLocaleString("en-US")}</b> reviews · distilled{" "}
+                      <b className="tabular-nums text-[var(--color-text-primary)]">{app.observations}</b> observations
+                    </>
+                  )}
+                </p>
+              );
+              const desc = app.description && <p className="mx-auto max-w-[42ch] text-footnote leading-relaxed text-[var(--color-text-secondary)]">{app.description}</p>;
+
+              return app.unlocked ? (
+                <details key={i} className="group overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
+                  <summary className="relative cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    {glow}
+                    <span className="absolute right-4 top-4 z-10 flex size-8 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-transform group-open:rotate-180">
+                      <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                        <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    <div className="relative flex flex-col items-center gap-3 px-6 pb-6 pt-8 text-center">
+                      {iconEl}
+                      <h3 className="text-[24px] font-bold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)]">{app.name}</h3>
+                      {desc}
+                      {rating}
+                      {stats}
+                      <span className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-caption font-semibold text-[var(--color-text-secondary)] transition-colors group-hover:text-[var(--color-text-primary)]">
+                        {ru ? `Смотреть ${app.total} карточек` : `View ${app.total} cards`}
+                      </span>
+                    </div>
+                  </summary>
+                  <div className="border-t border-[var(--color-border-subtle)] p-3 sm:p-4">
+                    <CardCarousel slides={app.slides} locale={ru ? "ru" : "en"} layout="feed" />
+                  </div>
+                </details>
+              ) : (
+                <div key={i} className="relative overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]">
+                  {glow}
+                  <div className="relative flex flex-col items-center gap-3.5 px-6 pb-7 pt-8 text-center">
+                    {iconEl}
+                    <h3 className="text-[24px] font-bold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)]">{app.name}</h3>
+                    {app.hook && (
+                      <p className="mx-auto max-w-[46ch] text-callout leading-relaxed text-[var(--color-text-secondary)]">
+                        {ru ? <>«{app.hook}» — и это лишь одно из <b className="text-[var(--color-text-primary)]">{app.total}</b> наблюдений внутри.</> : <>“{app.hook}” — just one of <b className="text-[var(--color-text-primary)]">{app.total}</b> observations inside.</>}
+                      </p>
+                    )}
+                    <EnergyUnlockButton type="app" slug={app.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть ${app.total} карточек` : `Unlock ${app.total} cards`} />
+                    <div className="mt-1 flex flex-col items-center gap-3 opacity-90">
+                      {desc}
+                      {rating}
+                      {stats}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
       )}
