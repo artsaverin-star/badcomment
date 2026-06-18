@@ -26,6 +26,12 @@ export type StatsSlide = {
   ratingCount: number | null;
 };
 
+export type ShotSlide = {
+  kind: "shot";
+  image: string;
+  name: string;
+};
+
 export type Quote = { app?: string; rating: number; date: string; text: string };
 
 export type Tone = "up" | "down" | "mixed" | "info";
@@ -40,12 +46,11 @@ export type InsightSlide = {
   tone: Tone;
   quote?: Quote;
   evidence: Quote[];
-  image?: string;
   pos?: number;
   ofTotal?: number;
 };
 
-export type Slide = CoverSlide | StatsSlide | InsightSlide;
+export type Slide = CoverSlide | StatsSlide | ShotSlide | InsightSlide;
 
 const TONE = {
   up: { glow: "#4ade80", label: { ru: "Хвалят", en: "Loved" } },
@@ -141,6 +146,8 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
                 <Cover s={s} ru={ru} />
               ) : s.kind === "stats" ? (
                 <Stats s={s} ru={ru} />
+              ) : s.kind === "shot" ? (
+                <Shot s={s} ru={ru} />
               ) : (
                 <Insight s={s} ru={ru} />
               )}
@@ -198,7 +205,7 @@ export default function CardCarousel({ slides, locale = "ru" }: { slides: Slide[
 function Frame({ children, glow }: { children: React.ReactNode; glow?: string }) {
   return (
     <div
-      className="relative flex aspect-[4/5] w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]"
+      className="relative flex aspect-[5/7] w-full flex-col overflow-hidden rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)]"
       style={glow ? { boxShadow: `0 24px 60px -30px rgba(0,0,0,0.7), inset 0 1px 0 0 color-mix(in srgb, ${glow} 30%, transparent)` } : undefined}
     >
       {glow && (
@@ -311,6 +318,27 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
   );
 }
 
+// Standalone screenshot slide between text cards — the full screenshot, no crop.
+function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
+  return (
+    <Frame glow="var(--color-text-brand)">
+      <div className="relative mb-3 flex items-center justify-between">
+        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
+          {ru ? "Экран" : "Screen"}
+        </span>
+        <span className="truncate text-caption text-[var(--color-text-tertiary)]">{s.name}</span>
+      </div>
+      <div className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] p-3">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={s.image} alt="" loading="lazy" decoding="async" className="max-h-full max-w-full rounded-[var(--radius-lg)] object-contain shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)]" />
+      </div>
+      <div className="relative mt-4 flex justify-end">
+        <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
+      </div>
+    </Frame>
+  );
+}
+
 function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
   const tone = TONE[s.tone];
   const dialog = useRef<HTMLDialogElement>(null);
@@ -318,7 +346,6 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
     document.documentElement.style.overflow = "hidden";
     dialog.current?.showModal();
   };
-  const hasImage = !!s.image;
 
   const toneTag = (
     <span
@@ -354,83 +381,56 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
 
   return (
     <Frame glow={tone.glow}>
-      {hasImage ? (
-        // Screenshot card: text on the left, a tall screenshot panel on the right
-        // (phone screenshots are tall, so this crops far less than a wide strip).
-        <div className="relative flex h-full gap-3.5">
-          <div className="flex min-w-0 flex-1 flex-col">
-            <div className="mb-3 flex items-center justify-between gap-2">
-              {toneTag}
-              {pos}
+      <div className="relative mb-4 flex items-center justify-between">
+        {toneTag}
+        {pos}
+      </div>
+
+      <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
+        <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
+
+        {s.tone === "mixed" ? (
+          // Both polarities present — keep the +/− markers so they read apart.
+          <>
+            {s.plus && (
+              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
+                <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
+              </p>
+            )}
+            {s.minus && (
+              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
+                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
+                <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
+              </p>
+            )}
+          </>
+        ) : (
+          // The tone tag already says praise/gripe — drop the marker, just a lede.
+          (s.plus || s.minus) && (
+            <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
+          )
+        )}
+
+        {s.quote && (
+          <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
+            <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+              {s.quote.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{s.quote.app}</span>}
+              <span className="text-caption tabular-nums text-[#f5b301]">
+                {"★".repeat(s.quote.rating)}
+                {"☆".repeat(Math.max(0, 5 - s.quote.rating))}
+              </span>
+              <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{s.quote.date}</span>
             </div>
-            <h2 className="text-[19px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
-            {(s.plus || s.minus) && (
-              <p className="mt-2 line-clamp-5 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{s.minus || s.plus}</p>
-            )}
-            <div className="mt-auto flex items-center justify-between gap-2 pt-3">
-              {countButton}
-              {wordmark}
-            </div>
-          </div>
-          <div className="w-[40%] shrink-0 self-stretch overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={s.image} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover object-top" />
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className="relative mb-4 flex items-center justify-between">
-            {toneTag}
-            {pos}
-          </div>
+            <p className="line-clamp-3 text-[13px] italic leading-relaxed text-[var(--color-text-secondary)]">“{s.quote.text}”</p>
+          </figure>
+        )}
+      </div>
 
-          <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
-            <h2 className="text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
-
-            {s.tone === "mixed" ? (
-              // Both polarities present — keep the +/− markers so they read apart.
-              <>
-                {s.plus && (
-                  <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
-                    <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
-                    <span className="text-[var(--color-text-secondary)]">{s.plus}</span>
-                  </p>
-                )}
-                {s.minus && (
-                  <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
-                    <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
-                    <span className="text-[var(--color-text-secondary)]">{s.minus}</span>
-                  </p>
-                )}
-              </>
-            ) : (
-              // The tone tag already says praise/gripe — drop the marker, just a lede.
-              (s.plus || s.minus) && (
-                <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
-              )
-            )}
-
-            {s.quote && (
-              <figure className="mt-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-3.5">
-                <div className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                  {s.quote.app && <span className="text-caption font-semibold text-[var(--color-text-secondary)]">{s.quote.app}</span>}
-                  <span className="text-caption tabular-nums text-[#f5b301]">
-                    {"★".repeat(s.quote.rating)}
-                    {"☆".repeat(Math.max(0, 5 - s.quote.rating))}
-                  </span>
-                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{s.quote.date}</span>
-                </div>
-                <p className="line-clamp-4 text-[13px] italic leading-relaxed text-[var(--color-text-secondary)]">“{s.quote.text}”</p>
-              </figure>
-            )}
-          </div>
-
-          <div className="relative mt-4 flex items-center justify-between">
-            {countButton}
-            {wordmark}
-          </div>
-        </>
-      )}
+      <div className="relative mt-4 flex items-center justify-between">
+        {countButton}
+        {wordmark}
+      </div>
 
       <dialog
         ref={dialog}

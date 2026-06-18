@@ -60,6 +60,21 @@ function orderedEvidence(ev: Evidence[], tone: Tone, ru: boolean) {
   return pool.map((e) => toQuote(e, ru));
 }
 
+// Weave screenshot slides between the text cards so the deck alternates
+// text → screenshot → text instead of a wall of text or a photo dump.
+function weave(cards: Slide[], shots: Slide[]): Slide[] {
+  if (shots.length === 0) return cards;
+  const step = Math.max(2, Math.floor(cards.length / shots.length));
+  const out: Slide[] = [];
+  let si = 0;
+  cards.forEach((c, i) => {
+    out.push(c);
+    if (si < shots.length && (i + 1) % step === 0) out.push(shots[si++]);
+  });
+  while (si < shots.length) out.push(shots[si++]);
+  return out;
+}
+
 export default async function CarouselTestPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const id = getProductIdBySlug(slug);
@@ -110,25 +125,25 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
       avg: avgRating,
       ratingCount,
     },
-    // Screenshots are spread one-per-card across the first few insight slides,
-    // so the deck mixes a visual with the verbatim text instead of all-text.
-    ...product.map((c, i) => {
-      const tone = toneOf(c);
-      return {
-        kind: "insight" as const,
-        kicker: c.kicker,
-        title: c.title,
-        plus: c.plus || undefined,
-        minus: c.minus || undefined,
-        count: c.count,
-        tone,
-        quote: pickQuote(c.evidence, tone, ru),
-        evidence: orderedEvidence(c.evidence, tone, ru),
-        image: screenshots[i] || undefined,
-        pos: i + 1,
-        ofTotal: product.length,
-      };
-    }),
+    ...weave(
+      product.map((c, i) => {
+        const tone = toneOf(c);
+        return {
+          kind: "insight" as const,
+          kicker: c.kicker,
+          title: c.title,
+          plus: c.plus || undefined,
+          minus: c.minus || undefined,
+          count: c.count,
+          tone,
+          quote: pickQuote(c.evidence, tone, ru),
+          evidence: orderedEvidence(c.evidence, tone, ru),
+          pos: i + 1,
+          ofTotal: product.length,
+        };
+      }),
+      screenshots.map((src) => ({ kind: "shot" as const, image: src, name })),
+    ),
   ];
 
   return (
