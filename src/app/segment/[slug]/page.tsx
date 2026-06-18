@@ -6,13 +6,14 @@ import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getLocale } from "@/lib/i18n.server";
-import { appCardsFor, ideaContentEn } from "@/lib/regenCards";
+import { appCardsFor, ideaContentEn, type RegenCard } from "@/lib/regenCards";
 import { getSegmentSummary, type SegmentSummaryEvidence } from "@/lib/segmentSummary";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { categoryPrice } from "@/lib/tokens";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import UnlockGate from "@/components/UnlockGate";
+import EnergyUnlockButton from "@/components/EnergyUnlockButton";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
 
 export const dynamic = "force-dynamic";
@@ -61,6 +62,14 @@ function toneOfEv(ev: EvLike[]): Tone {
   const a = ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length;
   return a >= 3.6 ? "up" : a <= 2.7 ? "down" : "info";
 }
+function toneOfCard(c: RegenCard): Tone {
+  const p = !!c.plus?.trim();
+  const m = !!c.minus?.trim();
+  if (p && m) return "mixed";
+  if (p) return "up";
+  if (m) return "down";
+  return "info";
+}
 const elen = (e: EvLike) => (e.quote?.length ?? 0);
 const evQuote = (e: EvLike, ru: boolean) => ({ app: e.app, rating: e.rating, date: e.date, text: ru ? e.quoteRu ?? e.quote : e.quote });
 function orderEv(ev: EvLike[], tone: Tone, ru: boolean) {
@@ -103,26 +112,16 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const painHook = painItem ? painItem.title.split(/\s[—–-]\s/)[0].trim() : "";
   const painLower = painHook ? painHook.charAt(0).toLowerCase() + painHook.slice(1) : "";
 
-  // Reinforcement: each app + its single biggest gripe + a per-app unlock CTA.
-  const appFlaws = cat.apps
-    .filter((a) => hasInsight(a.productId))
-    .map((a) => {
-      const pid = a.productId as string;
-      const cards = appCardsFor(pid, locale)?.product ?? [];
-      const flawCard = cards.filter((c) => c.minus?.trim()).sort((x, y) => y.count - x.count)[0];
-      return {
-        name: a.name,
-        icon: a.icon,
-        slug: getSlugByProductId(pid),
-        flaw: flawCard?.minus?.trim() || flawCard?.title || "",
-        total: cards.length,
-      };
-    })
-    .filter((a) => a.flaw);
+  // ── Access (category / per-idea / per-app gates) ──────────────────────
+  const access = await getAccess();
+  const loggedIn = access.loggedIn;
+  const balance = access.balance;
+  const catLocked = !access.has("category", slug);
+  const catCost = access.user ? await categoryPrice(access.user.id, slug) : UNLOCK_COST.category;
 
-  // ── Build the narrative deck ───────────────────────────────────────────
-  // Cover → authored narrative chapters (the category's story) → ideas chapter.
-  const chapters = sections.length + (ideas.length ? 1 : 0);
+  // ── Category deck: cover + authored narrative chapters (ideas & apps live in
+  // their own per-energy sections below). First 3 cards are a free taste. ──
+  const chapters = sections.length;
   let ci = 0;
   const deck: Slide[] = [
     {
@@ -137,7 +136,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       ratingCount: null,
     },
   ];
-
   sections.forEach((sec) => {
     ci += 1;
     deck.push({ kind: "chapter", index: ci, total: chapters, heading: sec.heading, dek: sec.dek });
@@ -147,38 +145,48 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       deck.push({ kind: "insight", title: item.title, body: item.body, count: item.observationCount, tone, quote: ordered[0], evidence: ordered });
     }
   });
-
-  if (ideas.length) {
-    ci += 1;
-    deck.push({
-      kind: "chapter",
-      index: ci,
-      total: chapters,
-      heading: ru ? "Что из этого можно построить" : "What you could build from this",
-      dek: ru ? "Те же боли и опоры, с другой стороны: продукты, которые закрывают разрывы категории." : "The same pains and anchors, flipped into products that close the gaps.",
-    });
-    for (const idea of ideas) {
-      const en = ideaContentEn(idea.slug, locale);
-      deck.push({
-        kind: "idea",
-        title: en?.title || idea.title,
-        oneLiner: en?.oneLiner || idea.oneLiner,
-        pitch: en?.pitch || idea.idea.pitch,
-        features: en?.features?.length ? en.features : idea.idea.features,
-        apps: idea.stats.apps,
-        observations: idea.stats.observations,
-        evidence: idea.reviewGrid.map((q) => ({ app: q.app, rating: q.rating, date: "", text: q.quote })),
-      });
-    }
-  }
-
-  // Token gate: the first 3 cards (cover + chapter 1 + its first insight) are a
-  // free taste; the rest of the category story + ideas unlock for «энергия».
-  const access = await getAccess();
-  const locked = !access.has("category", slug);
-  const catCost = access.user ? await categoryPrice(access.user.id, slug) : UNLOCK_COST.category;
   const FREE = 3;
-  const visibleDeck = locked ? deck.slice(0, FREE) : deck;
+  const visibleDeck = catLocked ? deck.slice(0, FREE) : deck;
+
+  // ── Ideas: each unlocks individually for «энергия» ──
+  const ideaCards = ideas.map((idea) => {
+    const en = ideaContentEn(idea.slug, locale);
+    return {
+      slug: idea.slug,
+      title: en?.title || idea.title,
+      oneLiner: en?.oneLiner || idea.oneLiner,
+      gap: en?.gap || idea.gap,
+      pitch: en?.pitch || idea.idea.pitch,
+      features: en?.features?.length ? en.features : idea.idea.features,
+      stats: idea.stats,
+      unlocked: access.has("idea", idea.slug),
+    };
+  });
+
+  // ── Per-app breakdowns: each app's review cards, unlocked individually ──
+  const cardToSlide = (c: RegenCard): Slide => {
+    const tone = toneOfCard(c);
+    const ordered = orderEv(c.evidence as EvLike[], tone, ru);
+    return { kind: "insight", kicker: c.kicker, title: c.title, plus: c.plus, minus: c.minus, count: c.count, tone, quote: ordered[0], evidence: ordered };
+  };
+  const appSections = cat.apps
+    .filter((a) => hasInsight(a.productId))
+    .map((a) => {
+      const pid = a.productId as string;
+      const aslug = getSlugByProductId(pid);
+      const cards = appCardsFor(pid, locale)?.product ?? [];
+      const flawCard = cards.filter((c) => c.minus?.trim()).sort((x, y) => y.count - x.count)[0];
+      return {
+        name: a.name,
+        icon: a.icon,
+        slug: aslug,
+        hook: flawCard?.minus?.trim() || flawCard?.title || "",
+        total: cards.length,
+        unlocked: aslug ? access.has("app", aslug) : false,
+        slides: cards.map(cardToSlide),
+      };
+    })
+    .filter((a) => a.total > 0);
 
   // Schema.org structured data — helps search engines and LLMs parse the page
   // as a research article with a list of app ideas.
@@ -266,66 +274,116 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       {/* The story feed — first cards free, the rest unlock for «энергия» */}
       <section className="mt-14">
         <CardCarousel slides={visibleDeck} locale={ru ? "ru" : "en"} layout="feed" />
-        {locked && (
+        {catLocked && (
           <div className="mx-auto mt-6 max-w-[640px]">
             <UnlockGate
               type="category"
               slug={slug}
               cost={catCost}
-              loggedIn={access.loggedIn}
-              balance={access.balance}
+              loggedIn={loggedIn}
+              balance={balance}
               locale={locale}
-              title={
-                ru
-                  ? `Открыть весь разбор: ${deck.length - FREE} карточек, главы и ${ideas.length} идей`
-                  : `Unlock the full breakdown: ${deck.length - FREE} more cards, chapters and ${ideas.length} ideas`
-              }
+              title={ru ? `Открыть весь разбор категории: ${deck.length - FREE} карточек и главы` : `Unlock the full category breakdown: ${deck.length - FREE} more cards and chapters`}
             />
           </div>
         )}
       </section>
 
-      {/* Reinforcement: apps + their biggest flaw + per-app unlock CTA */}
-      <section className="mx-auto mt-20 max-w-[640px]">
-        <h2 className="mb-2 text-center text-[24px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
-          {ru ? "А по каждому приложению — ещё глубже" : "And on every app — deeper still"}
-        </h2>
-        <p className="mb-6 text-center text-callout text-[var(--color-text-secondary)]">
-          {ru ? "Главный косяк каждого из разобранных приложений. Внутри — десятки конкретных инсайтов." : "The biggest flaw of each app we analyzed. Inside — dozens of specific insights."}
-        </p>
-        <div className="flex flex-col gap-2.5">
-          {appFlaws.map((a, i) => (
-            <div key={i} className="flex flex-col gap-3 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 sm:flex-row sm:items-center">
-              <div className="flex min-w-0 flex-1 items-start gap-3">
-                {a.icon ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[13px] object-cover" />
-                ) : (
-                  <div className="size-11 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
-                )}
-                <div className="flex min-w-0 flex-col gap-0.5">
-                  <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{a.name}</span>
-                  <span className="flex items-start gap-1.5 text-footnote leading-snug text-[var(--color-text-secondary)]">
-                    <span className="mt-0.5 shrink-0 font-bold text-[#ff8585]">−</span>
-                    <span className="line-clamp-2">{a.flaw}</span>
-                  </span>
+      {/* Ideas — each unlocks individually for «энергия» */}
+      {ideaCards.length > 0 && (
+        <section className="mx-auto mt-20 max-w-[640px]">
+          <h2 className="mb-1 text-center text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+            {ru ? `${ideaCards.length} идей приложений из этих отзывов` : `${ideaCards.length} app ideas from these reviews`}
+          </h2>
+          <p className="mb-6 text-center text-callout text-[var(--color-text-secondary)]">
+            {ru ? "Готовые продукты, которые закрывают разрывы категории. Откройте любую за энергию." : "Ready products that close the category's gaps. Unlock any for energy."}
+          </p>
+          <div className="flex flex-col gap-3">
+            {ideaCards.map((idea, i) => (
+              <article key={i} className="rounded-[var(--radius-2xl)] border border-[color-mix(in_srgb,var(--color-text-brand)_30%,transparent)] bg-[var(--color-accent-brand-subtle)] p-5 sm:p-6">
+                <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--color-text-brand)_18%,transparent)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-brand)]">{ru ? "Идея" : "Idea"}</span>
+                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{ru ? `из ${idea.stats.observations} наблюдений` : `from ${idea.stats.observations} observations`}</span>
                 </div>
+                <h3 className="text-[21px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{idea.title}</h3>
+                <p className="mt-2 text-callout leading-relaxed text-[var(--color-text-secondary)]">{idea.oneLiner}</p>
+                {idea.unlocked ? (
+                  <div className="mt-4 flex flex-col gap-4">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="flex flex-col gap-1.5">
+                        <span className="text-caption font-semibold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Разрыв" : "The gap"}</span>
+                        <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{idea.gap}</p>
+                      </div>
+                      <div className="flex flex-col gap-1.5">
+                        <span className="text-caption font-semibold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</span>
+                        <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{idea.pitch}</p>
+                      </div>
+                    </div>
+                    {idea.features.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5">
+                        {idea.features.slice(0, 6).map((f, j) => (
+                          <span key={j} className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)]">{f}</span>
+                        ))}
+                      </div>
+                    )}
+                    <Link href={`/ideas/${idea.slug}`} className="inline-flex w-fit items-center gap-1.5 text-footnote font-semibold text-[var(--color-text-brand)] hover:opacity-80">
+                      {ru ? "Идея целиком" : "Full idea"} →
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="mt-4">
+                    <EnergyUnlockButton type="idea" slug={idea.slug} cost={UNLOCK_COST.idea} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть идею" : "Unlock idea"} />
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Per-app breakdowns — each app's cards, unlocked individually */}
+      {appSections.length > 0 && (
+        <section className="mx-auto mt-20 max-w-[760px]">
+          <h2 className="mb-1 text-center text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+            {ru ? `Разбор всех ${appSections.length} приложений` : `Breakdown of all ${appSections.length} apps`}
+          </h2>
+          <p className="mb-8 text-center text-callout text-[var(--color-text-secondary)]">
+            {ru ? "По каждому приложению — все наблюдения карточками. Откройте любое за энергию." : "Every app's observations as cards. Unlock any for energy."}
+          </p>
+          <div className="flex flex-col gap-10">
+            {appSections.map((app, i) => (
+              <div key={i}>
+                <div className="mx-auto mb-4 flex max-w-[640px] items-center gap-3">
+                  {app.icon ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={app.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[14px] object-cover" />
+                  ) : (
+                    <div className="size-12 shrink-0 rounded-[14px] bg-[var(--color-bg-muted)]" />
+                  )}
+                  <div className="flex min-w-0 flex-col">
+                    <span className="truncate text-lead font-bold text-[var(--color-text-primary)]">{app.name}</span>
+                    <span className="text-caption text-[var(--color-text-tertiary)]">{ru ? `${app.total} наблюдений в разборе` : `${app.total} observations`}</span>
+                  </div>
+                </div>
+                {app.unlocked ? (
+                  <CardCarousel slides={app.slides} locale={ru ? "ru" : "en"} layout="feed" />
+                ) : (
+                  <div className="mx-auto flex max-w-[640px] flex-col gap-3 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-center">
+                    {app.hook && (
+                      <p className="mx-auto max-w-[48ch] text-callout leading-relaxed text-[var(--color-text-secondary)]">
+                        {ru ? <>«{app.hook}» — и это лишь одно из <b className="text-[var(--color-text-primary)]">{app.total}</b> наблюдений внутри.</> : <>“{app.hook}” — just one of <b className="text-[var(--color-text-primary)]">{app.total}</b> observations inside.</>}
+                      </p>
+                    )}
+                    <div className="mx-auto">
+                      <EnergyUnlockButton type="app" slug={app.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть ${app.total} карточек` : `Unlock ${app.total} cards`} />
+                    </div>
+                  </div>
+                )}
               </div>
-              {a.slug && a.total > 1 && (
-                <Link
-                  href={`/${a.slug}`}
-                  className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full bg-[var(--color-accent-brand)] px-4 py-2 text-footnote font-semibold text-white transition-opacity hover:opacity-90 sm:self-center"
-                >
-                  {ru ? `Ещё ${a.total - 1} инсайтов · ${UNLOCK_COST.app}` : `${a.total - 1} more insights · ${UNLOCK_COST.app}`}
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5Z" />
-                  </svg>
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
