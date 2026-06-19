@@ -296,11 +296,16 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const findingLabel = (i: number) => (ru ? `Вывод ${`0${i + 1}`}` : `Finding ${`0${i + 1}`}`);
 
   return (
-    <main className="relative mx-auto w-full max-w-[720px] px-6 pb-28 pt-16 sm:pt-24">
+    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Soft glow behind the hero */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[440px] opacity-60" style={{ background: "radial-gradient(120% 100% at 50% 0%, color-mix(in srgb, var(--color-accent-brand) 14%, transparent) 0%, transparent 60%)" }} />
+      {/* Soft full-bleed glow behind the hero — fades to transparent inside its own
+          box so it never reads as a hard rectangle. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[560px] w-screen max-w-[1400px] -translate-x-1/2"
+        style={{ background: "radial-gradient(46% 58% at 50% 0%, color-mix(in srgb, var(--color-accent-brand) 11%, transparent) 0%, transparent 72%)" }}
+      />
 
       <Link href="/" className="text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         ← {ru ? "Все ниши" : "All niches"}
