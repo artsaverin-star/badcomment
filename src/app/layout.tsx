@@ -48,7 +48,7 @@ export default async function RootLayout({
       <body className="flex min-h-full flex-col">
         <Header locale={locale} theme={theme} />
         {children}
-        <Footer />
+        <Footer locale={locale} />
         {/* DataFast privacy-friendly analytics */}
         <Script
           defer

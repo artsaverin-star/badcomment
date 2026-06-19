@@ -1,12 +1,14 @@
 import Link from "next/link";
+import { type Locale } from "@/lib/i18n";
 
 // Site footer — keeps the legally-required pages (оферта, контакты, тарифы)
 // reachable from every page, which payment providers (ЮKassa) check for.
-export default function Footer() {
+export default function Footer({ locale = "ru" }: { locale?: Locale }) {
+  const ru = locale !== "en";
   const links = [
-    { href: "/tokens", label: "Энергия" },
-    { href: "/offer", label: "Оферта" },
-    { href: "/contacts", label: "Контакты" },
+    { href: "/tokens", label: ru ? "Энергия" : "Energy" },
+    { href: "/offer", label: ru ? "Оферта" : "Terms" },
+    { href: "/contacts", label: ru ? "Контакты" : "Contacts" },
   ];
   return (
     <footer className="mt-auto border-t border-[var(--color-border-subtle)] px-4 py-8">
