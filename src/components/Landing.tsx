@@ -58,8 +58,11 @@ function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
       href={`/segment/${c.slug}`}
       className="group flex h-full flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-8"
     >
+      <h3 className="text-[28px] font-semibold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[34px]">{c.name}</h3>
+      <p className="mt-2.5 text-[13px] text-[var(--color-text-tertiary)]">{ru ? `Разбор категории · ${c.apps} ${appsWord(c.apps)}` : `Category breakdown · ${c.apps} apps`}</p>
+
       {icons.length > 0 && (
-        <div className="mb-7 flex items-center gap-2">
+        <div className="mt-6 flex items-center gap-2">
           {icons.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-10 rounded-[12px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
@@ -67,15 +70,13 @@ function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
         </div>
       )}
 
-      <h3 className="text-[28px] font-semibold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[34px]">{c.name}</h3>
-      <p className="mt-2.5 text-[13px] text-[var(--color-text-tertiary)]">{ru ? `Разбор категории · ${c.apps} ${appsWord(c.apps)}` : `Category breakdown · ${c.apps} apps`}</p>
-      {c.blurb && <p className="mt-5 line-clamp-3 text-[16px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[17px]">{c.blurb}</p>}
+      {c.blurb && <p className="mt-6 line-clamp-4 text-[16px] font-light leading-[1.55] text-[var(--color-text-secondary)] sm:text-[17px]">{c.blurb}</p>}
 
       <div className="mt-auto pt-7">
         <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
           {ru
-            ? `${c.reviews.toLocaleString("ru-RU")} ${reviewsWord(c.reviews)} · ${c.observations} ${obsWord(c.observations)}${c.ideas > 0 ? ` · ${c.ideas} ${ideasWord(c.ideas)}` : ""}`
-            : `${c.reviews.toLocaleString("en-US")} reviews · ${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`}
+            ? `${c.observations} ${obsWord(c.observations)}${c.ideas > 0 ? ` · ${c.ideas} ${ideasWord(c.ideas)}` : ""}`
+            : `${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`}
         </p>
         <span className="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--color-text-primary)]">
           {ru ? "Смотреть разбор" : "See the breakdown"}
@@ -165,16 +166,13 @@ export default function Landing({
             </p>
           )}
 
-          <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
-            {!loggedIn && (
+          {!loggedIn && (
+            <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
               <button type="button" onClick={() => setModal(true)} className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                 {ru ? "Начать бесплатно" : "Start free"}
               </button>
-            )}
-            <Link href="/tokens" className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]">
-              {ru ? "Энергия" : "Energy"}
-            </Link>
-          </div>
+            </div>
+          )}
         </div>
       </section>
 

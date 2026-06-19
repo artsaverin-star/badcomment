@@ -6,7 +6,6 @@ import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import MobileTabBar from "@/components/MobileTabBar";
 import { getLocale } from "@/lib/i18n.server";
 
 // Inter is the primary UI face — a crisp modern grotesque (getgems-like). It
@@ -46,12 +45,10 @@ export default async function RootLayout({
       data-brand="saverin"
       className={`${inter.variable} ${nunito.variable} h-full antialiased`}
     >
-      {/* pb on phones clears the fixed bottom tab bar */}
-      <body className="flex min-h-full flex-col pb-24 sm:pb-0">
+      <body className="flex min-h-full flex-col">
         <Header locale={locale} theme={theme} />
         {children}
         <Footer />
-        <MobileTabBar searchLabel={locale === "en" ? "Search" : "Поиск"} />
         {/* DataFast privacy-friendly analytics */}
         <Script
           defer

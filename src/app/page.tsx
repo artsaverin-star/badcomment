@@ -12,6 +12,7 @@ export const dynamic = "force-dynamic";
 // «Главная» — лендинг про продукт (для всех). Каталог живёт на /catalog.
 export default async function Home() {
   const locale = await getLocale();
+  const ru = locale !== "en";
   const premium = await isPremium();
   const loggedIn = !!(await getSessionUser());
   const { domains, totalReviews } = getCatalogData(locale, premium);
@@ -23,15 +24,28 @@ export default async function Home() {
     .map((c) => {
       const summary = getSegmentSummary(c.slug);
       if (!summary) return null;
-      // Prefer the authored governing thought (same schema as the breakdown);
-      // fall back to the category lead. Drops the old "на что злятся" gimmick.
-      const blurb = getNicheThesis(c.slug)?.governing || summary.lead || "";
+      // McKinsey-style teaser: a data-grounded scope sentence (real review count +
+      // named apps) + the authored governing thought (same schema as the
+      // breakdown), falling back to the category lead.
+      const names = c.apps.map((a) => a.name).filter((x): x is string => !!x);
+      const span =
+        names.length >= 4
+          ? ru
+            ? `от ${names[0]} и ${names[1]} до ${names[names.length - 2]} и ${names[names.length - 1]}`
+            : `from ${names[0]} and ${names[1]} to ${names[names.length - 2]} and ${names[names.length - 1]}`
+          : names.join(", ");
+      const reviews = summary.reviewsScanned;
+      const scope = ru
+        ? `Сведено из ${reviews.toLocaleString("ru-RU")} отзывов 1–5★ по ${c.appsCount} приложениям${span ? ` — ${span}` : ""}.`
+        : `Distilled from ${reviews.toLocaleString("en-US")} 1–5★ reviews across ${c.appsCount} apps${span ? ` — ${span}` : ""}.`;
+      const insight = getNicheThesis(c.slug)?.governing || summary.lead || "";
+      const blurb = insight ? `${scope} ${insight}` : scope;
       return {
         slug: c.slug,
         name: c.name,
         icons: c.apps.map((a) => a.icon).filter((x): x is string => !!x),
         apps: c.appsCount,
-        reviews: summary.reviewsScanned,
+        reviews,
         observations: summary.items.reduce((s, i) => s + i.observationCount, 0),
         ideas: listIdeas().filter((i) => i.category === c.slug).length,
         blurb,
