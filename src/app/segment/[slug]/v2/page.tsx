@@ -303,7 +303,7 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
                         <figcaption className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">{op.quotes[0].app} · <span className="text-[#f5b301]">{"★".repeat(op.quotes[0].rating)}</span></figcaption>
                       </figure>
                     )}
-                    <p className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Внутри — разрыв, доказательства, у каких приложений и что строить + монетизация." : "Inside — the gap, evidence, which apps, what to build + monetization."}</p>
+                    <p className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Внутри — клин ниши, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the market wedge, what to build, features, monetization and evidence."}</p>
                     <EnergyUnlockButton type="idea" slug={op.slug} cost={UNLOCK_COST.idea} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть возможность" : "Unlock opportunity"} />
                   </div>
                 )}
