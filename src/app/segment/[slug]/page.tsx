@@ -6,17 +6,14 @@ import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
 import { getLocale } from "@/lib/i18n.server";
-import { appCardsFor, ideaContentEn, descriptionFor, type RegenCard } from "@/lib/regenCards";
+import { appCardsFor, categoryCards, ideaContentEn, descriptionFor, type RegenCard } from "@/lib/regenCards";
 import { getProductInsights } from "@/lib/insights";
 import { getSegmentSummary, type SegmentSummaryEvidence } from "@/lib/segmentSummary";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
-import { categoryPrice } from "@/lib/tokens";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
-import UnlockGate from "@/components/UnlockGate";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
-import InsightCard, { type Evidence } from "@/components/InsightCard";
 import { type Locale } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
@@ -110,7 +107,6 @@ const arcRank = (h: string) => {
   return i === -1 ? ARC.length : i;
 };
 
-type ConclusionItem = { title: string; body?: string; count: number; evidence: Evidence[] };
 type OppQuote = { app: string; rating: number; text: string };
 type OppView = {
   slug: string; title: string; oneLiner: string; gap: string; pitch: string; features: string[]; monetization: string;
@@ -150,7 +146,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const loggedIn = access.loggedIn;
   const balance = access.balance;
   const catLocked = !access.has("category", slug);
-  const catCost = access.user ? await categoryPrice(access.user.id, slug) : UNLOCK_COST.category;
 
   // ── Idea & app views ──
   const cardToSlide = (c: RegenCard): Slide => {
@@ -158,15 +153,12 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     const ordered = orderEv(c.evidence as EvLike[], tone, ru);
     return { kind: "insight", kicker: c.kicker, title: c.title, plus: c.plus, minus: c.minus, count: c.count, tone, quote: ordered[0], evidence: ordered };
   };
-  // ── Overview (free chapter 0): the whole research narrative as conclusions ──
-  const conclusions: ConclusionItem[] = sections.flatMap((sec) =>
-    sec.items.map((item) => {
-      const tone = toneOfEv(item.evidence as SegmentSummaryEvidence[]);
-      const ordered = orderEv(item.evidence as EvLike[], tone, ru);
-      return { title: item.title, body: item.body, count: item.observationCount, evidence: ordered.map((q) => ({ app: q.app, rating: q.rating, date: q.date, quote: q.text })) };
-    }),
-  );
-  const totalObs = sections.reduce((s, sec) => s + sec.items.reduce((t, it) => t + it.observationCount, 0), 0);
+  // ── Overview (free): the category breakdown — the insight cards (plus/minus
+  // with evidence), highest-signal first. Hygiene (payment/bugs noise) excluded
+  // so the overview reads as findings, not complaints. ──
+  const catProduct = (categoryCards(slug, locale)?.product ?? []).slice().sort((a, b) => b.count - a.count);
+  const overviewSlides: Slide[] = catProduct.slice(0, 12).map(cardToSlide);
+  const totalObs = catProduct.reduce((s, c) => s + c.count, 0) || sections.reduce((s, sec) => s + sec.items.reduce((t, it) => t + it.observationCount, 0), 0);
 
   // ── Opportunities (paid chapters): each idea, fully developed ──
   const opps: OppView[] = ideas.map((idea) => {
@@ -333,7 +325,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                 <span className="rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#4ade80]">{ru ? "бесплатно" : "free"}</span>
               </div>
               <h2 className="text-[24px] font-bold leading-[1.16] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{ru ? "Что общего у приложений ниши" : "What the niche's apps share"}</h2>
-              {summary.lead && <p className="mt-2 text-callout leading-relaxed text-[var(--color-text-secondary)]">{summary.lead}</p>}
+              {summary.lead && <p className="mt-3 text-[16px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-lead">{summary.lead}</p>}
               <div className="mt-4 flex flex-wrap gap-x-2.5 gap-y-1 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
                 <span>{readyCount} {ru ? "приложений" : "apps"}</span>
                 <span aria-hidden>·</span>
@@ -345,15 +337,13 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
               </div>
             </div>
           </div>
-          {conclusions.length > 0 && (
-            <div className="border-t border-[var(--color-border-subtle)] px-6 py-5 sm:px-8">
-              <h3 className="mb-1 text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что выяснили" : "What we found"}</h3>
-              {conclusions.map((c, k) => (
-                <InsightCard key={k} locale={locale} title={c.title} body={c.body} count={c.count} evidence={c.evidence} />
-              ))}
-            </div>
-          )}
         </div>
+        {overviewSlides.length > 0 && (
+          <div className="mt-5">
+            <h3 className="mx-auto mb-3 max-w-[640px] text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что выяснили — разбор по всей нише" : "What we found — the whole-niche breakdown"}</h3>
+            <CardCarousel slides={overviewSlides} locale={ru ? "ru" : "en"} layout="feed" />
+          </div>
+        )}
       </section>
 
       {/* OPPORTUNITIES — each idea, fully developed; unlock per opportunity */}
@@ -505,21 +495,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
         </section>
-      )}
-
-      {/* Buy-all — the whole category at a bundle price */}
-      {catLocked && (
-        <div className="mx-auto mt-12 max-w-[660px]">
-          <UnlockGate
-            type="category"
-            slug={slug}
-            cost={catCost}
-            loggedIn={loggedIn}
-            balance={balance}
-            locale={locale}
-            title={ru ? "Открыть всё разом: обзор, все возможности и приложения" : "Unlock everything: overview, all opportunities and apps"}
-          />
-        </div>
       )}
     </main>
   );
