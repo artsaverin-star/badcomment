@@ -27,7 +27,7 @@ function PillarFull({ p, label }: { p: ExpPillar; label: string }) {
     <div>
       <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{label}</div>
       <h3 className="mt-4 text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[34px]">{tg(p.title)}</h3>
-      <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
+      <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
       {p.findings.length > 0 && (
         <div className="mt-8 border-t border-[var(--color-border-subtle)]">
           {p.findings.map((f: ExpFinding, k: number) => (
@@ -298,9 +298,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши" : "Niche research"}</div>
         <h1 className="mt-6 text-[clamp(46px,12vw,84px)] font-semibold leading-[0.96] tracking-[-0.045em] text-[var(--color-text-primary)]">{cat.name}</h1>
         {thesis ? (
-          <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
+          <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
         ) : (
-          summary.lead && <p className="mt-8 max-w-[58ch] text-[19px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{tg(summary.lead)}</p>
+          summary.lead && <p className="mt-8 max-w-[58ch] text-[19px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[23px]">{tg(summary.lead)}</p>
         )}
 
         {/* STATS — borderless big-number band */}

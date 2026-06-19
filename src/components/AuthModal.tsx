@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
 
@@ -77,11 +77,9 @@ export default function AuthModal({
   locale?: Locale;
 }) {
   const ru = locale !== "en";
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tg, setTg] = useState<TgState | null>(() => (typeof window === "undefined" ? null : loadTg()));
-  const [googleInited, setGoogleInited] = useState(false);
-  const googleBtnRef = useRef<HTMLDivElement>(null);
   const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
 
   // Lock scroll + Escape.
@@ -95,78 +93,12 @@ export default function AuthModal({
     };
   }, [onClose]);
 
-  // ── Google Identity Services ────────────────────────────────────────
-  const initGoogle = useCallback(() => {
-    if (!CLIENT_ID || !window.google?.accounts?.id || googleInited) return false;
-    window.google.accounts.id.initialize({
-      client_id: CLIENT_ID,
-      callback: async (resp: { credential: string }) => {
-        setError(null);
-        setLoading(true);
-        try {
-          const r = await fetch("/api/auth/google", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify({ credential: resp.credential }),
-          }).then((x) => x.json());
-          if (r.ok) onSuccess();
-          else setError(ru ? "Не удалось войти через Google" : "Google login failed");
-        } finally {
-          setLoading(false);
-        }
-      },
-    });
-    if (googleBtnRef.current) {
-      window.google.accounts.id.renderButton(googleBtnRef.current, { type: "icon", size: "large", width: 1 });
-    }
-    setGoogleInited(true);
-    return true;
-  }, [CLIENT_ID, googleInited, onSuccess, ru]);
-
-  useEffect(() => {
-    if (!CLIENT_ID) return;
-    const ensure = () => {
-      if (initGoogle()) return;
-      if (window.google) return;
-      const s = document.createElement("script");
-      s.src = "https://accounts.google.com/gsi/client";
-      s.async = true;
-      s.onload = () => {
-        const iv = setInterval(() => initGoogle() && clearInterval(iv), 200);
-      };
-      document.head.appendChild(s);
-    };
-    ensure();
-    const iv = setInterval(() => initGoogle() && clearInterval(iv), 200);
-    return () => clearInterval(iv);
-  }, [CLIENT_ID, initGoogle]);
-
-  // Robust fallback: if GIS never loaded (content blocker like Wipr killed the
-  // script/iframes), use the server redirect flow — a plain navigation Google
-  // can't be blocked from.
-  const googleRedirect = () => {
-    window.location.href = "/api/auth/google/start";
-  };
-
+  // ── Google sign-in ──────────────────────────────────────────────────
+  // Clean server redirect flow for everyone: a plain top-level navigation to
+  // Google → back, logged in. Works with content blockers (Wipr) and avoids
+  // Google's confusing corner One-Tap popup that used to overlap our modal.
   function handleGoogleClick() {
-    if (!googleInited || !window.google?.accounts?.id) {
-      googleRedirect();
-      return;
-    }
-    try {
-      window.google.accounts.id.prompt((n: any) => {
-        if (n.isNotDisplayed?.() || n.isSkippedMoment?.()) {
-          const btn =
-            (googleBtnRef.current?.querySelector('[role="button"]') as HTMLElement) ||
-            (googleBtnRef.current?.querySelector("div[style]") as HTMLElement) ||
-            (googleBtnRef.current?.querySelector("iframe")?.parentElement as HTMLElement);
-          if (btn) btn.click();
-          else googleRedirect();
-        }
-      });
-    } catch {
-      googleRedirect();
-    }
+    window.location.href = "/api/auth/google/start";
   }
 
   // ── Telegram ────────────────────────────────────────────────────────
@@ -325,12 +257,6 @@ export default function AuthModal({
           {TG_ICON}
           {ru ? "Войти через Telegram" : "Log in with Telegram"}
         </button>
-
-        {/* hidden GSI button GIS renders into; we proxy clicks to it */}
-        <div
-          ref={googleBtnRef}
-          style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", opacity: 0, pointerEvents: "none" }}
-        />
 
         {CLIENT_ID && (
           <button
