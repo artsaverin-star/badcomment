@@ -6,17 +6,45 @@ import AuthModal from "./AuthModal";
 import type { UnlockType } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
-const ENERGY_COLORS = ["#ff7a1a", "#ffb347", "#ffd9a8", "#ffcf5c", "#ffffff"];
+// Button-coloured shards so it reads as the button itself crumbling.
+const SHARD_COLORS = ["#ff7a1a", "#ff922b", "#ffb347", "#ffd9a8", "#ffffff"];
 
-// Fire a bolt-confetti salute from a point (viewport-normalized 0..1).
-async function fireSalute(x: number, y: number) {
+// Disintegrate the button into particles: small shards burst from several points
+// across its width (so the whole bar crumbles), plus a few energy bolts on top.
+async function fireDisintegrate(rect: DOMRect) {
   const confetti = (await import("canvas-confetti")).default;
-  // A lightning-bolt shape from emoji when supported, plus bright circles.
-  const bolt = typeof confetti.shapeFromText === "function" ? confetti.shapeFromText({ text: "⚡", scalar: 2.2 }) : "star";
-  const base = { origin: { x, y }, disableForReducedMotion: true, ticks: 160, gravity: 0.85 };
-  confetti({ ...base, particleCount: 26, spread: 75, startVelocity: 38, scalar: 1.7, shapes: [bolt], flat: true });
-  confetti({ ...base, particleCount: 50, spread: 95, startVelocity: 30, scalar: 0.9, colors: ENERGY_COLORS });
-  confetti({ ...base, particleCount: 18, spread: 130, startVelocity: 22, scalar: 1.2, colors: ENERGY_COLORS });
+  const W = window.innerWidth;
+  const H = window.innerHeight;
+  const y = (rect.top + rect.height / 2) / H;
+  const N = 7;
+  for (let i = 0; i < N; i++) {
+    const x = (rect.left + (rect.width * (i + 0.5)) / N) / W;
+    confetti({
+      particleCount: 12,
+      startVelocity: 18,
+      spread: 58,
+      origin: { x, y },
+      colors: SHARD_COLORS,
+      scalar: 0.62,
+      ticks: 85,
+      gravity: 1.25,
+      shapes: ["square", "circle"],
+      disableForReducedMotion: true,
+    });
+  }
+  const bolt = typeof confetti.shapeFromText === "function" ? confetti.shapeFromText({ text: "⚡", scalar: 1.8 }) : "star";
+  confetti({
+    particleCount: 12,
+    spread: 100,
+    startVelocity: 30,
+    origin: { x: (rect.left + rect.width / 2) / W, y },
+    shapes: [bolt],
+    scalar: 1.4,
+    ticks: 120,
+    gravity: 0.7,
+    colors: ["#ff9a3c"],
+    disableForReducedMotion: true,
+  });
 }
 
 // Lightweight per-item unlock button. Spends «энергия» via /api/unlock, plays a
@@ -55,12 +83,9 @@ export default function EnergyUnlockButton({
       router.push("/tokens");
       return;
     }
-    // Salute + pop-out immediately on tap, from the button's centre.
+    // Disintegrate + pop-out immediately on tap, using the button's own bounds.
     const el = btnRef.current;
-    if (el) {
-      const r = el.getBoundingClientRect();
-      void fireSalute((r.left + r.width / 2) / window.innerWidth, (r.top + r.height / 2) / window.innerHeight);
-    }
+    if (el) void fireDisintegrate(el.getBoundingClientRect());
     setDone(true);
     setWorking(true);
     try {
@@ -78,7 +103,7 @@ export default function EnergyUnlockButton({
         setDone(false);
         return;
       }
-      setTimeout(() => router.refresh(), 560);
+      setTimeout(() => router.refresh(), 680);
     } catch {
       setWorking(false);
       setDone(false);

@@ -170,23 +170,27 @@ details.no-anim::details-content {
     background-position: -200% 50%;
   }
 }
-/* Unlock button exit — a quick pulse, then fade/scale out as content reveals. */
+/* Unlock button exit — a quick pulse, then dissolve: scale down, drift up, blur
+   out, while a particle burst crumbles it into pieces (canvas-confetti). */
 @keyframes btn-pop-out {
   0% {
-    transform: scale(1);
+    transform: scale(1) translateY(0);
     opacity: 1;
+    filter: blur(0);
   }
-  28% {
-    transform: scale(1.07);
+  22% {
+    transform: scale(1.06) translateY(0);
     opacity: 1;
+    filter: blur(0);
   }
   100% {
-    transform: scale(0.86);
+    transform: scale(0.78) translateY(-14px);
     opacity: 0;
+    filter: blur(7px);
   }
 }
 .btn-pop-out {
-  animation: btn-pop-out 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: btn-pop-out 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 @media (prefers-reduced-motion: reduce) {
   .btn-pop-out {
