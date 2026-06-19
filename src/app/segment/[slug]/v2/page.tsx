@@ -10,6 +10,7 @@ import { appCardsFor, categoryCards, ideaContentEn, type RegenCard } from "@/lib
 import { getProductInsights } from "@/lib/insights";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import { getNicheThesis } from "@/lib/nicheThesis";
+import { getNicheOpportunities } from "@/lib/nicheOpportunities";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
@@ -86,6 +87,7 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
       }))
     : [];
 
+  const regenList = ru ? getNicheOpportunities(slug) : [];
   const opps = ideas.map((idea) => {
     const en = ideaContentEn(idea.slug, locale);
     return {
@@ -100,6 +102,8 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
       quotes: idea.reviewGrid.slice(0, 6).map((q) => ({ app: q.app, rating: q.rating, text: q.quote })),
       observations: idea.stats.observations,
       unlocked: !catLocked || access.has("idea", idea.slug),
+      // Regenerated, sharper thesis (RU only) joined by original idea title.
+      regen: regenList.find((o) => o.src === idea.title) ?? null,
     };
   });
 
@@ -218,26 +222,79 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
                   <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{ru ? `спрос ${op.observations}` : `demand ${op.observations}`}</span>
                 </div>
                 {op.unlocked ? (
-                  <>
-                    <h3 className="mt-2.5 text-[22px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[25px]">{op.title}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-[var(--color-text-secondary)]">{op.oneLiner}</p>
-                    <dl className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2">
-                      <Field label={ru ? "Разрыв" : "The gap"} value={op.gap} />
-                      <Field label={ru ? "Что строить" : "What to build"} value={op.pitch} />
-                      {op.gapApps.length > 0 && <Field label={ru ? "Где видно" : "Where"} value={op.gapApps.join(" · ")} />}
-                      {op.monetization && <Field label={ru ? "Монетизация" : "Monetize"} value={op.monetization} />}
-                    </dl>
-                    {op.quotes.length > 0 && (
-                      <div className="mt-5 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-4">
-                        {op.quotes.slice(0, 3).map((q, j) => (
-                          <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-3">
-                            <p className="text-caption italic leading-relaxed text-[var(--color-text-tertiary)]">“{q.text}”</p>
-                            <figcaption className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">{q.app} · <span className="text-[#f5b301]">{"★".repeat(q.rating)}</span></figcaption>
-                          </figure>
-                        ))}
+                  op.regen ? (
+                    <>
+                      <h3 className="mt-2.5 text-[24px] font-bold leading-[1.14] tracking-[-0.015em] text-[var(--color-text-primary)] sm:text-[28px]">{op.regen.title}</h3>
+                      <p className="mt-2.5 text-[16px] font-medium leading-[1.5] text-[var(--color-text-secondary)]">{op.regen.tagline}</p>
+                      <p className="mt-2.5 text-footnote leading-relaxed text-[var(--color-text-tertiary)]">
+                        <span className="font-semibold text-[var(--color-text-secondary)]">Для кого: </span>{op.regen.forWhom}
+                      </p>
+
+                      {/* The wedge — the centerpiece insight */}
+                      <div className="mt-5 rounded-[14px] border-l-[3px] border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] py-4 pl-4 pr-4">
+                        <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-brand)]">Клин</div>
+                        <p className="mt-1.5 text-[15px] leading-[1.62] text-[var(--color-text-primary)]">{op.regen.wedge}</p>
                       </div>
-                    )}
-                  </>
+
+                      <dl className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2">
+                        <Field label="Что строить" value={op.regen.build} />
+                        <Field label="Монетизация" value={op.regen.monetization} />
+                      </dl>
+
+                      <div className="mt-5">
+                        <div className="text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">Фичи</div>
+                        <div className="mt-2.5 flex flex-wrap gap-2">
+                          {op.regen.features.map((f, j) => (
+                            <span key={j} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] py-1.5 pl-2.5 pr-3 text-caption text-[var(--color-text-secondary)]">
+                              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-brand)]">
+                                <path d="M8 1.5a4.5 4.5 0 0 0-2.7 8.1c.4.3.6.7.7 1.1l.1.8h3.8l.1-.8c.1-.4.3-.8.7-1.1A4.5 4.5 0 0 0 8 1.5Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
+                                <path d="M6.3 14h3.4M6.8 12.5h2.4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+                              </svg>
+                              {f}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {op.gapApps.length > 0 && (
+                        <p className="mt-5 text-footnote leading-relaxed text-[var(--color-text-tertiary)]">
+                          <span className="font-semibold text-[var(--color-text-secondary)]">Где видно: </span>{op.gapApps.join(" · ")}
+                        </p>
+                      )}
+
+                      {op.quotes.length > 0 && (
+                        <div className="mt-5 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-4">
+                          {op.quotes.slice(0, 3).map((q, j) => (
+                            <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-3">
+                              <p className="text-caption italic leading-relaxed text-[var(--color-text-tertiary)]">“{q.text}”</p>
+                              <figcaption className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">{q.app} · <span className="text-[#f5b301]">{"★".repeat(q.rating)}</span></figcaption>
+                            </figure>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <h3 className="mt-2.5 text-[22px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[25px]">{op.title}</h3>
+                      <p className="mt-2 text-[15px] leading-relaxed text-[var(--color-text-secondary)]">{op.oneLiner}</p>
+                      <dl className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2">
+                        <Field label={ru ? "Разрыв" : "The gap"} value={op.gap} />
+                        <Field label={ru ? "Что строить" : "What to build"} value={op.pitch} />
+                        {op.gapApps.length > 0 && <Field label={ru ? "Где видно" : "Where"} value={op.gapApps.join(" · ")} />}
+                        {op.monetization && <Field label={ru ? "Монетизация" : "Monetize"} value={op.monetization} />}
+                      </dl>
+                      {op.quotes.length > 0 && (
+                        <div className="mt-5 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-4">
+                          {op.quotes.slice(0, 3).map((q, j) => (
+                            <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-3">
+                              <p className="text-caption italic leading-relaxed text-[var(--color-text-tertiary)]">“{q.text}”</p>
+                              <figcaption className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">{q.app} · <span className="text-[#f5b301]">{"★".repeat(q.rating)}</span></figcaption>
+                            </figure>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  )
                 ) : (
                   <div className="mt-3 flex flex-col gap-3">
                     {op.quotes[0] && (
