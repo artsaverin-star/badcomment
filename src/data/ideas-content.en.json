@@ -2855,5 +2855,313 @@
    "Compliance UI elements never placed over the core value screen"
   ],
   "monetization": "Transparent subscription and a one-time lifetime purchase option (which users explicitly ask for). Ads only as an opt-in to earn a bonus — never on the path to an answer."
+ },
+ "identifiers-1": {
+  "categoryName": "Распознаватели по фото",
+  "title": "An identifier with honest confidence scores",
+  "oneLiner": "Every result comes with a confidence percentage and a \"that's not it\" button that retrains the output",
+  "gap": "Users value an honest \"not sure\" over a confident wrong answer and consistently ask for a way to dismiss incorrect results — but commercial identifiers give one categorical answer with no feedback loop and permanently log the false discovery.",
+  "pitch": "Show the top-3 candidates with percentages and visible differences between them. One tap of \"not this one\" removes the false log entry, refines future output, and builds a local truth layer for that user. Honest uncertainty becomes the primary signal of reliability.",
+  "features": [
+   "Top-3 candidates with confidence percentages",
+   "One-tap \"reject / correct\" that blocks the result from entering the collection",
+   "Visual diff highlighting between similar species",
+   "A silence threshold: better to say nothing than guess wrong",
+   "Personal correction log that improves local accuracy over time"
+  ],
+  "monetization": "Basic ID with confidence scores is free; subscription unlocks unlimited corrections, expert review of disputed frames, and a full correction history"
+ },
+ "identifiers-2": {
+  "categoryName": "Распознаватели по фото",
+  "title": "A safety-first identifier for dangerous species",
+  "oneLiner": "Free instant danger assessment for bites, venom, and toxicity — never behind a paywall",
+  "gap": "With spiders, snakes, mushrooms, and toxic plants the cost of a wrong answer is someone's health, yet specialist apps gate the danger rating behind a subscription at exactly the moment of panic: \"dangerous to humans — find out why for a fee.\"",
+  "pitch": "Position as a safety tool, not an ID toy. \"Safe / dangerous\" and first-aid guidance are always free and instant — that openness on risk is what earns trust and word-of-mouth. Monetize depth, not survival.",
+  "features": [
+   "Danger traffic-light shown immediately, before any gate",
+   "First-aid card for bites and toxic contact",
+   "Separate confidence calibration for venomous and toxic taxa",
+   "Side-by-side photo comparison with dangerous look-alike species",
+   "Offline database for use in the field without signal"
+  ],
+  "monetization": "Danger assessment and first aid free forever; subscription covers treatment reference, expert verification of a dangerous find, and family sharing"
+ },
+ "identifiers-3": {
+  "categoryName": "Распознаватели по фото",
+  "title": "Plant doctor, not just a name tag",
+  "oneLiner": "Not \"what is it called\" but \"what's wrong and what do I do right now\"",
+  "gap": "Naming the plant is the easy part Google already handles; people arrive with a sick plant and get either vague filler like \"nitrogen / potassium\" or a lethal \"your plant is healthy\" verdict on something visibly dying.",
+  "pitch": "Make diagnosis the core feature and identification the side effect. Recognize the symptom from a photo of the leaf, return a concrete step-by-step treatment plan with doses and timing, and honestly say \"this can't be saved\" when it can't. False optimism is forbidden — it kills the plant and the trust.",
+  "features": [
+   "Symptom diagnosis from a photo, not just species ID",
+   "Step-by-step treatment plan with doses and timelines",
+   "Honest \"unsaveable\" verdict instead of a false \"healthy\"",
+   "Care reminders tied to the specific diagnosis",
+   "Photo diary tracking the plant's recovery"
+  ],
+  "monetization": "One identification and a basic diagnosis are free; subscription unlocks unlimited diagnoses, full treatment plans and recovery tracking; one-off \"rescue consultation\" purchase available"
+ },
+ "identifiers-4": {
+  "categoryName": "Распознаватели по фото",
+  "title": "A real-life Pokédex for nature",
+  "oneLiner": "A collection, badges, and challenges turn every walk into a species hunt",
+  "gap": "The strongest retention driver is the game: \"a real-life Pokédex,\" \"catch 'em all,\" badges for the weekend. But it only works when the collection survives a reinstall — and Seek and Merlin store observations in the app, not the account.",
+  "pitch": "Build retention around the ritual of discovery: a personal life-list, rarity scores for finds, seasonal challenges, and shared family hunts. The cardinal rule: data lives in the cloud account, indestructible across phone changes. The collection is an emotional lock stronger than accuracy.",
+  "features": [
+   "Life-list stored in the cloud account, not the app",
+   "Badges and seasonal challenges",
+   "Rarity score for each find",
+   "Family and kids co-hunt mode",
+   "Map of \"what lives near me\""
+  ],
+  "monetization": "Collection and basic challenges free as a hook; subscription unlocks exclusive challenges, extended stats, and family profiles"
+ },
+ "identifiers-5": {
+  "categoryName": "Распознаватели по фото",
+  "title": "Sound-only bird ID — no description required",
+  "oneLiner": "Identify a bird by its call from your garden — just listen, don't describe",
+  "gap": "Sound ID is its own magic: people sit in the garden and collect invisible singers. But advertising promises \"by sound\" while the app asks you to describe a bird you can't see, or collapses everything into a great horned owl or a crow.",
+  "pitch": "Make a pure sound mode first-class: open the app, record the ambient soundscape, get a timestamped list of who sang when. No questions asking you to describe an invisible bird. Noise suppression and detection of distant quiet song are exactly what people love Merlin for — own that sound market.",
+  "features": [
+   "Ambient recording with a who-sang-when timeline",
+   "Background noise suppression and detection of distant quiet birds",
+   "Zero prompts to \"describe the bird\"",
+   "Regional voice filter",
+   "Save a \"sound collection\" to the life-list"
+  ],
+  "monetization": "Basic sound ID is free; subscription covers long recordings, multi-species chorus separation, and sonogram export"
+ },
+ "identifiers-6": {
+  "categoryName": "Распознаватели по фото",
+  "title": "Geo-filtered ID with a subject selector",
+  "oneLiner": "Filter out impossible species by region and let users tap to pick what to identify in frame",
+  "gap": "Two UX pain points that have nothing to do with the model: the app suggests species that aren't present in the region (persimmon in Puget Sound, European birds in Sydney), and it stubbornly IDs the wrong subject when a plant and an insect appear in the same frame.",
+  "pitch": "Use geolocation as a hard plausibility filter — it eliminates the most embarrassing misses for free. Let users draw around the subject and use a \"plant / insect / bird\" toggle to specify what to identify. This is cheap to build and instantly raises perceived accuracy.",
+  "features": [
+   "Geolocation filter that cuts species outside their range",
+   "Tap-to-draw subject selection in frame",
+   "Subject type toggle: plant / insect / bird",
+   "Ignore list (people, palm trees, background elements)",
+   "Travel mode that updates the regional context"
+  ],
+  "monetization": "Geo-filter and subject selector are free as a trust baseline; subscription covers multi-subject frame analysis and species range and distribution data"
+ },
+ "identifiers-7": {
+  "categoryName": "Распознаватели по фото",
+  "title": "Honest free tier vs. dark-pattern subscription",
+  "oneLiner": "A working free tier and gallery ID — no login required, no bait",
+  "gap": "The niche is poisoned by dark patterns: fake \"free\" claims, mandatory login that breaks the first launch, and removing promised features from the free tier. Yet a generous, working free tier reliably produces loud advocates who eventually upgrade.",
+  "pitch": "Make honesty the brand position. Let users start without a mandatory account, identify from existing photos in their gallery, and never remove something already promised from the free tier. Transparent pricing and a genuinely working free tier are a loyalty funnel that is almost entirely vacant in this niche — which makes it a winning position.",
+  "features": [
+   "Start without a mandatory login",
+   "Identify from gallery and photo archive",
+   "A permanently working free tier",
+   "Honest pricing screen with no \"free\" bait-and-switch",
+   "A standing guarantee: nothing promised in free ever moves behind a paywall"
+  ],
+  "monetization": "ID and collection are free; subscription covers diagnostics, unlimited scans, export, and premium databases; no dark trials, cancel in one tap"
+ },
+ "document-scanners-1": {
+  "categoryName": "Сканеры документов",
+  "title": "ShotSent — the scanner with \"no surprises at the finish line\"",
+  "oneLiner": "A scanner where the path from \"photographed\" to \"readable PDF in the recipient's hands\" is guaranteed and visible upfront — no paywall at the save step.",
+  "gap": "Market leaders let you scan for free, then block saving and sharing after all the work is done — this is the number-one source of rage and uninstalls.",
+  "pitch": "One screen, one swipe to send. Pricing and limits are shown before scanning starts, not after. The result can always be saved locally and shared — delivery is never behind a paywall.",
+  "features": [
+   "Full PDF preview and explicit limits shown BEFORE scanning begins",
+   "One-tap \"Send to myself\" via email or WhatsApp",
+   "Local export to a chosen folder with no cloud required",
+   "Auto edge detection and multi-page mode without quality loss"
+  ],
+  "monetization": "Free: unlimited scanning and local saving. Paid: cloud sync, OCR packs, fax. Basic sharing is never paywalled."
+ },
+ "document-scanners-2": {
+  "categoryName": "Сканеры документов",
+  "title": "PerScan — pay-per-document for the \"few times a year\" user",
+  "oneLiner": "A scanner with per-document or pack pricing instead of a subscription — built for the massive segment of occasional users.",
+  "gap": "Students and one-time users explicitly ask for \"a dollar per scan\" and a one-time payment; subscriptions repel them and generate a flood of refund requests.",
+  "pitch": "No subscription, no auto-renewal. Scan packs or a one-time Lifetime purchase. Honest economics eliminates the main source of one-star reviews that plague competitors.",
+  "features": [
+   "Scan packs: 10 / 50 / unlimited — credits never expire",
+   "One-time Lifetime license with no recurring charge",
+   "Zero credit-card requirement to use the free tier",
+   "Transparent counter showing remaining scans"
+  ],
+  "monetization": "Micro scan packs plus a one-time Lifetime license; business plan with cloud sold separately. Zero auto-renewals."
+ },
+ "document-scanners-3": {
+  "categoryName": "Сканеры документов",
+  "title": "OffScan — on-device scanner for sensitive documents",
+  "oneLiner": "A scanner that processes passports, bank statements, and medical records strictly on the device — no silent cloud uploads.",
+  "gap": "People scan their most sensitive documents while apps quietly ship everything to the cloud and demand access to all files — privacy is a genuine feature here, not a slogan.",
+  "pitch": "All processing happens locally by default. Cloud is explicit and opt-in only. Permission requested for specific files, not the entire disk. Brand position: \"your documents never leave your phone.\"",
+  "features": [
+   "100% on-device OCR and image processing",
+   "Explicit, toggleable cloud sync — off by default",
+   "Scoped file access using the Android Photo Picker",
+   "Local encrypted storage for scanned documents"
+  ],
+  "monetization": "Free: fully functional local scanner. Paid: encrypted cloud backup, cross-device sync, export packs."
+ },
+ "document-scanners-4": {
+  "categoryName": "Сканеры документов",
+  "title": "VisaReady — a \"will it pass review\" quality guarantee",
+  "oneLiner": "A scanner that checks sharpness and legibility against visa / hospital / government requirements before you send anything.",
+  "gap": "A blurry scan means a rejected visa or a refused medical submission. People switch apps specifically for clarity, but no one actually guarantees \"it will pass the intake check.\"",
+  "pitch": "Before export, an automatic check for sharpness, contrast, and cropped text, with a warning if the scan needs to be retaken. No downscaling of the original. Clarity is a promise, not a side effect.",
+  "features": [
+   "Sharpness and contrast check before saving",
+   "No automatic downscaling of the source image (200 MP supported)",
+   "Templates for visa / ID / medical forms with required DPI presets",
+   "Highlighting of text clipped at document edges"
+  ],
+  "monetization": "Free: basic quality check. Paid: \"document-grade\" export packs, institution-specific templates, premium OCR."
+ },
+ "document-scanners-5": {
+  "categoryName": "Сканеры документов",
+  "title": "OneTap — the lightest scanner that does exactly one thing",
+  "oneLiner": "A minimalist scanner with no AI add-ons and no feature overload: open, shoot, get a PDF — and muscle memory never breaks between updates.",
+  "gap": "Beloved apps have \"gotten complicated,\" grown AI clutter and updates that break gestures built up over a decade of daily use.",
+  "pitch": "One screen, a fixed flow, no surprise UI reshuffles. Small install size, no cloud by default. Interface stability as an explicit brand promise.",
+  "features": [
+   "Single fixed flow: scan → PDF, no menu labyrinth",
+   "Guaranteed gesture and layout consistency across versions",
+   "Minimal app weight, no background ad cache",
+   "AI is optional and can be fully disabled"
+  ],
+  "monetization": "Free: the core is simple and stays that way forever. Paid: batch mode, advanced filters, cloud."
+ },
+ "document-scanners-6": {
+  "categoryName": "Сканеры документов",
+  "title": "MyFiles — scans that are always findable and never disappear",
+  "oneLiner": "A scanner with transparent, system-visible storage: every file lives in a normal device folder and can never silently vanish.",
+  "gap": "The scan exists in the app but can't be pulled into a system folder or gallery; for some users hundreds of old documents have disappeared without a trace — destroying trust in the app as an archive.",
+  "pitch": "Every scan is immediately written to a visible device folder with a sensible file name. Version history and local backup so that \"hundreds of documents\" cannot physically disappear.",
+  "features": [
+   "Auto-save to the system Documents folder, visible to any file manager",
+   "Short, editable default file names out of the box",
+   "Local trash and history with protection against disappearing files",
+   "Direct access from the gallery or Files app without export gymnastics"
+  ],
+  "monetization": "Free: reliable local storage. Paid: cloud backup with versioning, cross-device sync."
+ },
+ "document-scanners-7": {
+  "categoryName": "Сканеры документов",
+  "title": "BatchPro — multi-page and batch scanning for people who scan in bulk",
+  "oneLiner": "A scanner for data-entry workers and office use: dozens of pages in sequence with consistent sharpness, no duplicate captures, and no ad pages embedded in the PDF.",
+  "gap": "Multi-page mode is the top pain point: inconsistent sharpness, duplicate frames of the same page, page-count caps — and on top of it all, an ad sheet baked right into an official document.",
+  "pitch": "Shoot the whole stack, then process — uniform sharpness across every page, automatic duplicate removal, no page limit, and nothing injected into your PDF that wasn't there to begin with.",
+  "features": [
+   "Burst capture with deferred processing and consistent output quality",
+   "Auto detection and removal of duplicate frames of the same page",
+   "No page limit and no watermark or ad insert in the PDF",
+   "Page reordering and batch PDF export"
+  ],
+  "monetization": "Free: basic multi-page with no watermarks. Paid: unlimited batch, team cloud, extended OCR pack."
+ },
+ "running-1": {
+  "categoryName": "Бег и кардио",
+  "title": "Echo — the coaching voice that never hijacks your ears",
+  "oneLiner": "A running app where the AI coach chimes in at the right moment and blends smoothly into your music or podcast instead of cutting across it.",
+  "gap": "Everyone loves the emotional lift of a coaching voice, but almost everyone complains that it drowns out music, talks over podcasts, or fails to announce run/walk transitions at all — nobody has made audio cues that are simultaneously useful and unobtrusive.",
+  "pitch": "Imagine a coach who whispers \"200 meters left\" exactly in the pause between podcast sentences, dipping the volume for a second rather than killing it. Echo builds its audio layer around whatever you're already listening to — so runners never mute it.",
+  "features": [
+   "smart voice blending that ducks under the current audio track without cutting it off",
+   "clear run/walk transition calls for beginner intervals",
+   "configurable prompt frequency and content (pace only, distance only, etc.)",
+   "warm coaching persona timed to land when fatigue peaks",
+   "offline mode with no battery drain from background tracking"
+  ],
+  "monetization": "Subscription for expanded voice personas and advanced plans; baseline audio coaching is free as a habit hook."
+ },
+ "running-2": {
+  "categoryName": "Бег и кардио",
+  "title": "Ironclad Track — the app that never loses your run",
+  "oneLiner": "A tracker built on a single promise: once a run is finished, it's saved — locally and in the cloud — even if the connection, screen, or account fails.",
+  "gap": "The most painful complaint across every app is a run disappearing at save, the \"spinning wheel\" that never stops, or history gone after a logout. It's the strongest driver of app switching, yet nobody has made data safety their core promise.",
+  "pitch": "Every meter is written to the device the instant it happens, surviving crashes, no signal, and forced logouts. Your effort cannot be lost — that's a contract, not a feature. For any runner who has ever lost their longest run, this is the decisive reason to switch.",
+  "features": [
+   "instant local write on every step, survives crash and offline",
+   "interrupted-run recovery on app restart",
+   "no account required — data never disappears without one",
+   "run-screen lock to block accidental taps mid-run",
+   "clear \"saved\" indicator the moment you finish"
+  ],
+  "monetization": "Free and rock-solid core tracker; subscription for unlimited cloud archive and analytics."
+ },
+ "running-3": {
+  "categoryName": "Бег и кардио",
+  "title": "Live Plan — training that moves with you",
+  "oneLiner": "A running plan that automatically reshapes itself around injury, heat, and a packed week instead of breaking against real life.",
+  "gap": "Paid plans (Runna, Joggo) get praised for structure but slammed for rigidity: they don't adapt to injury, weather, or intermediate fitness — people burn out or blow up on race day, even though adaptation is the whole point of a \"personalized\" plan.",
+  "pitch": "Miss a week with an injury and the plan eases back without piling on guilt. Training in Florida heat? Paces shift automatically. This is a coach that responds to your life, not a script you have to contort yourself to follow. Adaptation is what people will pay for — and what nobody has honestly delivered yet.",
+  "features": [
+   "auto-recalculation after missed weeks or injury, no guilt messaging",
+   "pace adjustment for heat and weather conditions",
+   "dedicated modes for intermediate runners and returners, not just beginners",
+   "free drag-and-drop rescheduling within a busy week",
+   "honest race-readiness assessment without inflated predictions"
+  ],
+  "monetization": "Subscription for the adaptive plan engine; one-time plan purchase for a specific race as the entry point."
+ },
+ "running-4": {
+  "categoryName": "Бег и кардио",
+  "title": "Watch-first — built for Android wearables from day one",
+  "oneLiner": "A full running plan and tracker that lives on Wear OS, Galaxy, and Garmin — so Android runners can leave the phone at home.",
+  "gap": "An entire segment is furious: Apple Watch is supported, while Galaxy, Wear OS, and Garmin have been \"promised soon\" for years. People cancel subscriptions or run with a phone in hand. It's a massive abandoned audience with no good solution.",
+  "pitch": "Start a workout from your wrist, hear the plan and coaching on the watch, leave the phone at home. We build for Android watches first — not as a belated port. For millions of Galaxy and Pixel Watch owners, this is finally an app that respects them.",
+  "features": [
+   "standalone plan launch and tracking on Wear OS and Galaxy Watch",
+   "sync with Garmin and Polar sensors",
+   "voice coaching delivered directly on the watch without a phone",
+   "large, readable run/walk status display sized for a watch face",
+   "offline run storage on the watch itself"
+  ],
+  "monetization": "Subscription for plans and analytics; watch-native tracking is free as the wedge into the underserved segment."
+ },
+ "running-5": {
+  "categoryName": "Бег и кардио",
+  "title": "Back to Running — a gentle re-entry for returners",
+  "oneLiner": "A program that removes the fear of starting for people coming back after a break, injury, or who have never run before.",
+  "gap": "A large segment of returners and complete beginners credits C25K and Joggo for making the start feel safe, but those products gate the program or don't allow graceful regression — and it's exactly the gentleness of that entry that creates loyalty lasting years.",
+  "pitch": "\"I've never been in shape, I've never run\" — and by the end someone crosses a 5K. We make the entry to running so non-intimidating that people look forward to their next session. The emotional hit of a first success is the strongest retention hook in the entire niche.",
+  "features": [
+   "ultra-gradual progression with the ability to repeat or slow down any day",
+   "warm, encouraging voice that speaks up in moments of doubt",
+   "explicit support for people who are very out of shape or dealing with poor sleep",
+   "progress history as personal proof that \"I did it\"",
+   "safe return path after a long break or injury"
+  ],
+  "monetization": "Full basic program free to build trust; subscription for personalization, voice options, and what comes after 5K."
+ },
+ "running-6": {
+  "categoryName": "Бег и кардио",
+  "title": "My Archive — running without surveillance or lock-in",
+  "oneLiner": "A tracker with privacy by default: your data belongs to you, exports in one tap, and is never held hostage when you decline to share it.",
+  "gap": "A growing group of runners is enraged by mandatory consent to harvest sensitive data just to use a timer, and by losing their archive on logout — \"data vultures\" is a direct quote. Privacy as a positioning angle in this niche is almost completely vacant.",
+  "pitch": "We won't close your account for refusing to share data, and we won't ask for precise location just to run a stopwatch. Your running history is yours: export it, keep it, leave whenever you want. For the privacy-conscious runner tired of surveillance and lock-in, this is a reason to switch and stay.",
+  "features": [
+   "privacy by default — run without a mandatory account",
+   "full data and heart rate graph export in one tap",
+   "minimal permissions scoped strictly to the active workout",
+   "local history storage with no forced cloud upload",
+   "no archive loss on account logout"
+  ],
+  "monetization": "Paid subscription instead of data sales — the honest model is part of the positioning; premium analytics on top."
+ },
+ "running-7": {
+  "categoryName": "Бег и кардио",
+  "title": "Zones Made Simple — heart rate for serious runners, no museum UI",
+  "oneLiner": "A modern heart rate zone app where threshold and zones are configured in under a minute and visible live during your run.",
+  "gap": "Serious runners cling to Polar and TrainingPeaks for heart rate data but hate the \"2010s UI,\" the inability to configure zones and threshold, and features hidden behind expensive hardware — there is no modern, open alternative for zone-based training.",
+  "pitch": "Plug in any chest strap and instantly see your zone live on the run, set your fat-burn threshold and max HR in under a minute — no watch costing hundreds of euros required. For the runner who trains by heart rate, this is a clean, fast, honest tool instead of a museum exhibit.",
+  "features": [
+   "heart rate zone and threshold configuration in under a minute",
+   "large live zone display during the run",
+   "works with any chest strap, no proprietary hardware required",
+   "post-run graph analysis by zone segment",
+   "alert when you drift outside your target zone"
+  ],
+  "monetization": "Subscription for analytics and zone history; live zone display during the run is free."
  }
 }

@@ -12698,5 +12698,1514 @@
    "antiFeatures": [],
    "monetization": "Прозрачная подписка и разовая покупка lifetime (которую люди прямо просят). Реклама — только опционально за бонус, никогда не на пути к ответу."
   }
+ },
+ {
+  "slug": "identifiers-1",
+  "category": "identifiers",
+  "categoryName": "Распознаватели по фото",
+  "title": "Определитель с честной уверенностью",
+  "oneLiner": "Каждый ответ — с процентом уверенности и кнопкой «это не то», переобучающей выдачу",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 140
+  },
+  "reviewGrid": [
+   {
+    "quote": "I want to be able to nullify my scan result, So that I can avoid a \"false discovery\"",
+    "rating": 4,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "I like that it says what it could be but doesn't assume and risk an incorrect id.",
+    "rating": 4,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "I just use Gemini which always works and will give confidence percentage",
+    "rating": 2,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "cant rate the identification when you know it is wrong",
+    "rating": 1,
+    "app": "Plantum - AI Plant Identifier"
+   },
+   {
+    "quote": "there is no way as far as I can tell to report back to the model that this was a bad match",
+    "rating": 1,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "gets pretty close. repeated may change info.",
+    "rating": 3,
+    "app": "Plant Identifier, Care: Planty"
+   },
+   {
+    "quote": "opposite diagnosis of the same plant from different angles",
+    "rating": 1,
+    "app": "Plantum - AI Plant Identifier"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Определитель с честной уверенностью",
+    "obsCount": 7,
+    "apps": [
+     "Seek by iNaturalist",
+     "Plantum - AI Plant Identifier",
+     "Plant Identifier, Care: Planty"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Пользователи ценят честное «не уверен» выше уверенной ошибки и массово просят способ отклонить неверный результат — но коммерческие определители выдают один категоричный ответ без обратной связи и навсегда записывают ложное открытие.",
+  "idea": {
+   "pitch": "Покажи топ-3 кандидата с процентами и видимыми различиями между ними. Дай одно касание «не он» — оно убирает ложную запись, уточняет выдачу и копит локальную правду пользователя. Честность про неуверенность становится главным сигналом надёжности.",
+   "features": [
+    "Топ-3 кандидата с процентом уверенности",
+    "Кнопка «отклонить/исправить» без записи в коллекцию",
+    "Подсветка отличий между похожими видами",
+    "Порог «лучше промолчать, чем соврать»",
+    "Лог личных поправок улучшает локальную точность"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно базовое определение с уверенностью; подписка — неограниченные поправки, экспертная перепроверка спорных кадров и история уточнений"
+  }
+ },
+ {
+  "slug": "identifiers-2",
+  "category": "identifiers",
+  "categoryName": "Распознаватели по фото",
+  "title": "Безопасный определитель опасного",
+  "oneLiner": "Бесплатная оценка риска укуса/яда/токсичности в первую секунду — без замка",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 140
+  },
+  "reviewGrid": [
+   {
+    "quote": "to view information that could save your life you have to pay a subscription",
+    "rating": 1,
+    "app": "Picture Insect: Bug Identifier"
+   },
+   {
+    "quote": "it says the spider is dangerous to humans and pets. However, you can't click it unless you pay",
+    "rating": 1,
+    "app": "Picture Insect: Bug Identifier"
+   },
+   {
+    "quote": "frequently misidentifies dangerously toxic plants, fungi, and other wildlife",
+    "rating": 1,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "I can finally tell spiders and reduce my fear!",
+    "rating": 5,
+    "app": "Picture Insect: Bug Identifier"
+   },
+   {
+    "quote": "even said one with significant venom was relatively harmless",
+    "rating": 1,
+    "app": "Picture Insect: Bug Identifier"
+   },
+   {
+    "quote": "I'm scared to touch anything in my backyard right now",
+    "rating": 4,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "incase any venoums or nonvenmous insects bite you",
+    "rating": 5,
+    "app": "Picture Insect: Bug Identifier"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Безопасный определитель опасного",
+    "obsCount": 7,
+    "apps": [
+     "Picture Insect: Bug Identifier",
+     "Seek by iNaturalist"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "В пауках, змеях, грибах и токсичных растениях цена ошибки — здоровье, а профильные приложения прячут оценку опасности за подписку ровно в момент паники: «опасен для человека — узнай чем за деньги».",
+  "idea": {
+   "pitch": "Позиционируйся как инструмент безопасности, а не определитель-игрушка. Оценка «опасно/безопасно» и первая помощь — всегда бесплатны и мгновенны; именно открытость на риске рождает доверие и сарафан. Монетизируй глубину, а не выживание.",
+   "features": [
+    "Светофор опасности сразу, до любого замка",
+    "Карточка первой помощи при укусе/контакте",
+    "Отдельная калибровка под ядовитые таксоны",
+    "Фото-сравнение с опасным двойником вида",
+    "Оффлайн-база для леса без связи"
+   ],
+   "antiFeatures": [],
+   "monetization": "Оценка риска и первая помощь бесплатны навсегда; подписка — справочник лечения, экспертная верификация опасной находки, семейный доступ"
+  }
+ },
+ {
+  "slug": "identifiers-3",
+  "category": "identifiers",
+  "categoryName": "Распознаватели по фото",
+  "title": "Доктор растений вместо ярлыка",
+  "oneLiner": "Не «как называется», а «что не так и что делать прямо сейчас»",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 140
+  },
+  "reviewGrid": [
+   {
+    "quote": "it didn't tell me what is wrong with my plant and what to do about it",
+    "rating": 1,
+    "app": "Plant App: Plant Identifier"
+   },
+   {
+    "quote": "I'm taking pictures of the dead leaves on my cucumbers, and it's telling me it's a healthy plant.",
+    "rating": 1,
+    "app": "Plant Identifier, Care: Planty"
+   },
+   {
+    "quote": "vague descriptions of what to do, like \"nitrogen\" or \"potassium\" so just like regular web info",
+    "rating": 3,
+    "app": "Plant Identifier, Care: Planty"
+   },
+   {
+    "quote": "apps like these should show you the \"HOW TO\"",
+    "rating": 3,
+    "app": "Plant Identifier - PlantMe"
+   },
+   {
+    "quote": "told me that w plant that is clearly dying is healthy and to keep growing buddy",
+    "rating": 1,
+    "app": "Plant Identifier, Care: Planty"
+   },
+   {
+    "quote": "it doesn't give any info on that. You have to know when to do that.",
+    "rating": 3,
+    "app": "Plantum - AI Plant Identifier"
+   },
+   {
+    "quote": "I followed the advice and they are limping and look ill and weak.",
+    "rating": 2,
+    "app": "Plant App: Plant Identifier"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Доктор растений вместо ярлыка",
+    "obsCount": 7,
+    "apps": [
+     "Plant App: Plant Identifier",
+     "Plant Identifier, Care: Planty",
+     "Plant Identifier - PlantMe",
+     "Plantum - AI Plant Identifier"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Назвать растение — лёгкая часть, которую уже умеет гугл; люди приходят с больным растением, а получают либо общие фразы уровня «азот/калий», либо губительное «растение здорово» на явно гибнущем.",
+  "idea": {
+   "pitch": "Сделай диагностику ядром, а определение — побочным. Распознай симптом по фото листа, выдай конкретный пошаговый план лечения с дозами и сроками и честно скажи «спасти нельзя», когда нельзя. Ложный оптимизм запрещён — он убивает и растение, и доверие.",
+   "features": [
+    "Диагноз по фото симптома, не только вида",
+    "Пошаговый план с дозами и сроками",
+    "Честный вердикт «не спасти» вместо «здорово»",
+    "Напоминания, привязанные к конкретному диагнозу",
+    "Фото-дневник восстановления растения"
+   ],
+   "antiFeatures": [],
+   "monetization": "Одно определение и базовый диагноз бесплатно; подписка — неограниченные диагнозы, план лечения и трекинг выздоровления; разовая «спасательная консультация»"
+  }
+ },
+ {
+  "slug": "identifiers-4",
+  "category": "identifiers",
+  "categoryName": "Распознаватели по фото",
+  "title": "Покедекс живой природы",
+  "oneLiner": "Коллекция, бейджи и челленджи превращают каждую прогулку в охоту за видами",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 140
+  },
+  "reviewGrid": [
+   {
+    "quote": "great app! basically a real-life Pokédex. gotta collect them all!",
+    "rating": 5,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "It's fun going out each weekend trying to acquire a new badge",
+    "rating": 4,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "almost 9 years of survey work across all of California gone. data should be saved to the account, not the app itself.",
+    "rating": 1,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "The bird of the day challenge is also nice if you like collecting and using the app daily",
+    "rating": 5,
+    "app": "Merlin Bird ID by Cornell Lab"
+   },
+   {
+    "quote": "took several days inputting my 50+ plants. I have lost everything again.",
+    "rating": 4,
+    "app": "Plantum - AI Plant Identifier"
+   },
+   {
+    "quote": "Have never rated an app, but this forced me to.",
+    "rating": 5,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "Achievement/challenge progress resets when reinstalling the app",
+    "rating": 3,
+    "app": "Seek by iNaturalist"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Покедекс живой природы",
+    "obsCount": 7,
+    "apps": [
+     "Seek by iNaturalist",
+     "Merlin Bird ID by Cornell Lab",
+     "Plantum - AI Plant Identifier"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сильнейший драйвер удержания — игра: «реальный покедекс», «собери всех», бейджи за выходные. Но это работает только если коллекция не исчезает при переустановке, а у Seek/Merlin наблюдения живут в приложении, а не в аккаунте.",
+  "idea": {
+   "pitch": "Построй удержание вокруг ритуала открытия: личный лайф-лист, редкость находок, сезонные челленджи и совместные семейные прогулки. Главное правило — данные в облаке аккаунта, неубиваемые сменой телефона. Коллекция — это эмоциональный замок, который сильнее точности.",
+   "features": [
+    "Лайф-лист в облаке аккаунта, не в приложении",
+    "Бейджи и сезонные челленджи",
+    "Показатель редкости находки",
+    "Семейный/детский режим совместной охоты",
+    "Карта «что водится рядом со мной»"
+   ],
+   "antiFeatures": [],
+   "monetization": "Коллекция и базовые челленджи бесплатны как крючок; подписка — эксклюзивные челленджи, расширенная статистика, семейные профили"
+  }
+ },
+ {
+  "slug": "identifiers-5",
+  "category": "identifiers",
+  "categoryName": "Распознаватели по фото",
+  "title": "Определитель по звуку без описания",
+  "oneLiner": "Узнай птицу по голосу из сада — слушай, а не описывай",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 140
+  },
+  "reviewGrid": [
+   {
+    "quote": "The ad said it could tell me the bird by SOUND, then it wanted me to describe a bird I can't even see.",
+    "rating": 1,
+    "app": "Merlin Bird ID by Cornell Lab"
+   },
+   {
+    "quote": "it can detect every birdsong even in the far distance!",
+    "rating": 5,
+    "app": "Merlin Bird ID by Cornell Lab"
+   },
+   {
+    "quote": "there are so many birds both seen and unseen that you can discover",
+    "rating": 5,
+    "app": "Merlin Bird ID by Cornell Lab"
+   },
+   {
+    "quote": "The sound ID kept telling me everything was either a great horned owl or a crow.",
+    "rating": 1,
+    "app": "Picture Bird: Bird identifier"
+   },
+   {
+    "quote": "great sound id, even with very quiet birds",
+    "rating": 5,
+    "app": "Merlin Bird ID by Cornell Lab"
+   },
+   {
+    "quote": "Excellent for identifying bird sounds. One improvement would be better filtration of background noise.",
+    "rating": 5,
+    "app": "Merlin Bird ID by Cornell Lab"
+   },
+   {
+    "quote": "Picture Bird picked up only one bird out of several birds singing",
+    "rating": 2,
+    "app": "Picture Bird: Bird identifier"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Определитель по звуку без описания",
+    "obsCount": 7,
+    "apps": [
+     "Merlin Bird ID by Cornell Lab",
+     "Picture Bird: Bird identifier"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Распознавание по звуку — это отдельная магия: люди сидят в саду и собирают невидимых певцов. Но реклама обещает «по звуку», а внутри просят описать птицу, которую не видно, или путают всё с вороной и совой.",
+  "idea": {
+   "pitch": "Сделай чистый звуковой режим первоклассным: открыл, записал, получил список с временными метками, кто когда пел. Никаких просьб описать невидимую птицу. Шумоподавление и работа с далёким тихим пением — то, за что Merlin обожают; добей этим рынок звука.",
+   "features": [
+    "Запись окружения с разметкой кто-когда пел",
+    "Шумоподавление фона и далёких тихих птиц",
+    "Ноль вопросов «опиши птицу»",
+    "Региональный фильтр голосов",
+    "Сохранение «звуковой коллекции» в лайф-лист"
+   ],
+   "antiFeatures": [],
+   "monetization": "Базовое распознавание звука бесплатно; подписка — длинные записи, разбор хора из нескольких видов, экспорт сонограмм"
+  }
+ },
+ {
+  "slug": "identifiers-6",
+  "category": "identifiers",
+  "categoryName": "Распознаватели по фото",
+  "title": "Определитель с геофильтром и прицелом",
+  "oneLiner": "Отсекаем невозможные виды по региону и даём указать объект в кадре",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 140
+  },
+  "reviewGrid": [
+   {
+    "quote": "Maybe if it used location services to rule out obvious misses, like we don't grow persimmon in the Puget Sound area.",
+    "rating": 3,
+    "app": "Plantum - AI Plant Identifier"
+   },
+   {
+    "quote": "it identifies almost all local (Sydney) birds as US or European birds",
+    "rating": 3,
+    "app": "Picture Bird: Bird identifier"
+   },
+   {
+    "quote": "Please add an option to manually circle or highlight the specific organism in the photo",
+    "rating": 3,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "If I see an insect on a plant and click \"insect\" it still preferentially identifies the plant.",
+    "rating": 4,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "Needs capability to ignore certain species it is overly eager to classify, like humans or palm trees.",
+    "rating": 3,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "One can easily pick a species not even present in the country or region.",
+    "rating": 3,
+    "app": "Picture Insect: Bug Identifier"
+   },
+   {
+    "quote": "good app but wish it had info on native ranges of insects.",
+    "rating": 3,
+    "app": "Picture Insect: Bug Identifier"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Определитель с геофильтром и прицелом",
+    "obsCount": 7,
+    "apps": [
+     "Plantum - AI Plant Identifier",
+     "Picture Bird: Bird identifier",
+     "Seek by iNaturalist",
+     "Picture Insect: Bug Identifier"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Две управленческие, а не модельные боли: приложение предлагает виды, которых в регионе нет (хурма в Пьюджет-Саунде, европтицы в Сиднее), и упорно опознаёт не тот объект на кадре, где растение и насекомое сразу.",
+  "idea": {
+   "pitch": "Используй геолокацию как жёсткий фильтр правдоподобия — это убирает самые позорные промахи бесплатно. Дай обвести объект пальцем и переключателем «растение/насекомое/птица» указать, что именно определять. Это дёшево в разработке и мгновенно поднимает воспринимаемую точность.",
+   "features": [
+    "Геофильтр отсекает виды вне ареала",
+    "Обводка объекта пальцем в кадре",
+    "Переключатель типа: растение/насекомое/птица",
+    "Игнор-лист (люди, пальмы, фон)",
+    "Метка региона при путешествиях"
+   ],
+   "antiFeatures": [],
+   "monetization": "Геофильтр и прицел бесплатны как база доверия; подписка — мультивидовой разбор сложного кадра, ареалы и распределение видов"
+  }
+ },
+ {
+  "slug": "identifiers-7",
+  "category": "identifiers",
+  "categoryName": "Распознаватели по фото",
+  "title": "Честный free против тёмной подписки",
+  "oneLiner": "Рабочий бесплатный уровень и определение из галереи — без логина и приманок",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 140
+  },
+  "reviewGrid": [
+   {
+    "quote": "Can't identify from an existing photo and app is pushing for camera access. Smells like a scam.",
+    "rating": 1,
+    "app": "Seek by iNaturalist"
+   },
+   {
+    "quote": "it says \"signing you in\" and then nothing happens.",
+    "rating": 1,
+    "app": "Plant Identifier - PlantMe"
+   },
+   {
+    "quote": "primary, advertised parts of their product behind a paywall",
+    "rating": 1,
+    "app": "Birdbuddy: ID & Collect Birds"
+   },
+   {
+    "quote": "FREE TO USE. You can pay if you want the full version but is pretty great as it is.",
+    "rating": 5,
+    "app": "Picture Bird: Bird identifier"
+   },
+   {
+    "quote": "very good free tier, and a reasonably priced pro tier too.",
+    "rating": 5,
+    "app": "Picture Insect: Bug Identifier"
+   },
+   {
+    "quote": "I don't want to use my Google profile, but it won't show the login with email page.",
+    "rating": 1,
+    "app": "Plant Identifier - PlantMe"
+   },
+   {
+    "quote": "I had the paid version for a while but wasnt using it so didnt renew but im back",
+    "rating": 5,
+    "app": "Picture Bird: Bird identifier"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный free против тёмной подписки",
+    "obsCount": 7,
+    "apps": [
+     "Seek by iNaturalist",
+     "Plant Identifier - PlantMe",
+     "Birdbuddy: ID & Collect Birds",
+     "Picture Bird: Bird identifier",
+     "Picture Insect: Bug Identifier"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Ниша отравлена тёмными паттернами: фейковый «free», обязательный логин, ломающий первый запуск, и снятие обещанных фич из бесплатного. При этом щедрый рабочий free растит громких адвокатов, которые возвращаются к платному.",
+  "idea": {
+   "pitch": "Сделай честность позиционированием. Пусти в дело без обязательного аккаунта, определяй из готового фото и галереи, никогда не убирай уже обещанное из бесплатного. Прозрачная цена и работающий free — это воронка лояльности, которая в этой нише почти пуста и потому выигрышна.",
+   "features": [
+    "Старт без обязательного логина",
+    "Определение из галереи и архива фото",
+    "Постоянный рабочий бесплатный уровень",
+    "Честный экран цены без приманки «free»",
+    "Гарантия: обещанное в free не уходит за замок"
+   ],
+   "antiFeatures": [],
+   "monetization": "Определение и коллекция бесплатны; подписка — диагностика, безлимит, экспорт, премиум-базы; никаких тёмных триалов, отмена в один тап"
+  }
+ },
+ {
+  "slug": "document-scanners-1",
+  "category": "document-scanners",
+  "categoryName": "Сканеры документов",
+  "title": "СнялОтправил — сканер «без сюрпризов на финише»",
+  "oneLiner": "Сканер, где путь «сфотографировал → читаемый PDF у адресата» гарантирован и виден заранее, без пейволла на шаге сохранения.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 126
+  },
+  "reviewGrid": [
+   {
+    "quote": "free to scan but have to pay to send it. uninstalling and will not use. bait and switch",
+    "rating": 1,
+    "app": "Scanner – Scan PDF & Document"
+   },
+   {
+    "quote": "otherwise you will not be able to get your document. this is extortion.",
+    "rating": 1,
+    "app": "Scan Hero: PDF Scanner"
+   },
+   {
+    "quote": "you xant make the app free and then hold scanned document hostage behimd a paywall.",
+    "rating": 1,
+    "app": "iScanner: PDF Document Scanner"
+   },
+   {
+    "quote": "I was able to get the task done. And it's easy to use!",
+    "rating": 5,
+    "app": "Scanner – Scan PDF & Document"
+   },
+   {
+    "quote": "it was telling me I had to pay to save and export it. disgusting.",
+    "rating": 1,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "easily scanning and exporting documents very quickly.",
+    "rating": 5,
+    "app": "Mobile Scanner App - Scan PDF"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "СнялОтправил — сканер «без сюрпризов на финише»",
+    "obsCount": 6,
+    "apps": [
+     "Scanner – Scan PDF & Document",
+     "Scan Hero: PDF Scanner",
+     "iScanner: PDF Document Scanner",
+     "Mobile Scanner App - Scan PDF"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Лидеры дают сканировать бесплатно, но блокируют сохранение/отправку после всей работы — это №1 источник ненависти и удалений.",
+  "idea": {
+   "pitch": "Один экран, один свайп до отправки. Цена и лимиты показаны до сканирования, а не после. Результат всегда можно сохранить локально и отправить — доставка никогда не за пейволлом.",
+   "features": [
+    "Превью полного PDF и явные лимиты ДО начала сканирования",
+    "Кнопка «Отправить себе» в почту/WhatsApp одним тапом",
+    "Локальный экспорт в выбранную папку без облака",
+    "Авто-границы и мультистраница без падения резкости"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно: неограниченный скан + сохранение локально. Платно: облако-синк, OCR-пакеты, факс. Никогда не блокируется базовая отправка."
+  }
+ },
+ {
+  "slug": "document-scanners-2",
+  "category": "document-scanners",
+  "categoryName": "Сканеры документов",
+  "title": "PerScan — плата за документ для «несколько раз в год»",
+  "oneLiner": "Сканер с оплатой за документ/пакет вместо подписки — для огромного сегмента редких пользователей.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 126
+  },
+  "reviewGrid": [
+   {
+    "quote": "charge one dollar/pound per scan would be great.. 8 pounds a month is crazy. especially for somebody who doesnt really need the service.",
+    "rating": 3,
+    "app": "Scanner – Scan PDF & Document"
+   },
+   {
+    "quote": "NO subscriptions please. A reasonable one-time purchase fee would be nice.",
+    "rating": 1,
+    "app": "Scanner App: Genius Scan"
+   },
+   {
+    "quote": "For a once in a while user, I shouldn't have been tricked in a year subscription",
+    "rating": 3,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "it is too expensive for using it once a year. used to be good, now it's nothing.",
+    "rating": 1,
+    "app": "CamScanner - PDF Scanner App"
+   },
+   {
+    "quote": "1 star for another subscription based app. A one-time payment is usually best.",
+    "rating": 1,
+    "app": "iScanner: PDF Document Scanner"
+   },
+   {
+    "quote": "does what it says it will do - great value!",
+    "rating": 5,
+    "app": "Mobile Scanner App - Scan PDF"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "PerScan — плата за документ для «несколько раз в год»",
+    "obsCount": 6,
+    "apps": [
+     "Scanner – Scan PDF & Document",
+     "Scanner App: Genius Scan",
+     "Mobile Scanner App - Scan PDF",
+     "CamScanner - PDF Scanner App",
+     "iScanner: PDF Document Scanner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Студенты и разовые пользователи прямым текстом просят «доллар за скан» и разовую оплату; подписка их отталкивает и плодит требования возврата.",
+  "idea": {
+   "pitch": "Никакой подписки и автосписаний. Пакеты сканов или разовая Lifetime-покупка. Честная экономика убивает главный поток единичных отзывов конкурентов.",
+   "features": [
+    "Пакеты: 10/50/безлимит сканов, не сгорают",
+    "Разовый Lifetime без рекуррента",
+    "Нулевой credit-card для бесплатного режима",
+    "Прозрачный счётчик оставшихся сканов"
+   ],
+   "antiFeatures": [],
+   "monetization": "Микро-пакеты сканов + разовая Lifetime-лицензия; бизнес-тариф с облаком отдельно. Ноль авто-renew."
+  }
+ },
+ {
+  "slug": "document-scanners-3",
+  "category": "document-scanners",
+  "categoryName": "Сканеры документов",
+  "title": "OffScan — он-девайс сканер для приватных документов",
+  "oneLiner": "Сканер, который обрабатывает паспорта, выписки и медкарты строго на устройстве, без молчаливой выгрузки в облако.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 126
+  },
+  "reviewGrid": [
+   {
+    "quote": "Uploads documents to the cloud for editing without any notification to the user. It's really sneaky practice by the app. Please avoid!",
+    "rating": 1,
+    "app": "iLovePDF - PDF Editor & Scan"
+   },
+   {
+    "quote": "Requires absolute access to all files on disk, instead of using standard secure Android feature of requesting access to specific files.",
+    "rating": 1,
+    "app": "iLovePDF - PDF Editor & Scan"
+   },
+   {
+    "quote": "App uploads document to process it. No on device processing.",
+    "rating": 4,
+    "app": "iLovePDF - PDF Editor & Scan"
+   },
+   {
+    "quote": "you need to enter credit card info.... it is Not common practice. only means you have to give up privaate info to try something. GDPR ?",
+    "rating": 1,
+    "app": "iScanner: PDF Document Scanner"
+   },
+   {
+    "quote": "for keeping photos of shopping receipts and so much more.",
+    "rating": 5,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "very useful. allows quick copy of important documents for filing and printing.",
+    "rating": 5,
+    "app": "CamScanner - PDF Scanner App"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "OffScan — он-девайс сканер для приватных документов",
+    "obsCount": 6,
+    "apps": [
+     "iLovePDF - PDF Editor & Scan",
+     "iScanner: PDF Document Scanner",
+     "Mobile Scanner App - Scan PDF",
+     "CamScanner - PDF Scanner App"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди сканируют самое чувствительное, а приложения тихо грузят это в облако и требуют доступ ко всем файлам — приватность тут реальная фича, а не лозунг.",
+  "idea": {
+   "pitch": "Вся обработка локально, по умолчанию. Облако — только явно и по кнопке. Запрос доступа к конкретным файлам, а не ко всему диску. Позиционирование «ваши документы не покидают телефон».",
+   "features": [
+    "100% он-девайс OCR и обработка",
+    "Явный, отключаемый облако-синк",
+    "Точечный доступ к файлам (Android Photo Picker)",
+    "Локальное шифрование хранилища сканов"
+   ],
+   "antiFeatures": [],
+   "monetization": "Платно: зашифрованное облако-резервирование, синк между устройствами, экспорт-пакеты. Базовый локальный сканер бесплатен."
+  }
+ },
+ {
+  "slug": "document-scanners-4",
+  "category": "document-scanners",
+  "categoryName": "Сканеры документов",
+  "title": "VisaReady — гарантия «пройдёт приёмку» по чёткости",
+  "oneLiner": "Сканер, который проверяет резкость и читаемость под требования визы/больницы/госуслуг до отправки.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 126
+  },
+  "reviewGrid": [
+   {
+    "quote": "my visa application has been denied 2x due to blurred caption of 2 other scanner apps...but when I use scan hero....awesome..got my visa approved because its so clear",
+    "rating": 5,
+    "app": "Scan Hero: PDF Scanner"
+   },
+   {
+    "quote": "the software is automatically downscaling the images before cropping, which is leading to it being too blurry for text extraction.",
+    "rating": 1,
+    "app": "CamScanner - PDF Scanner App"
+   },
+   {
+    "quote": "they came out missing part of the information, like information can't be read at some parts of the document",
+    "rating": 1,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "It chops parts/texts off, and alters the color",
+    "rating": 2,
+    "app": "Scanner App: Genius Scan"
+   },
+   {
+    "quote": "Super crisp and easy scans, love this app (and I've used many)!",
+    "rating": 5,
+    "app": "Scan Hero: PDF Scanner"
+   },
+   {
+    "quote": "Not good, Blurred scan image, poor quality.",
+    "rating": 3,
+    "app": "Scanner App: Genius Scan"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "VisaReady — гарантия «пройдёт приёмку» по чёткости",
+    "obsCount": 6,
+    "apps": [
+     "Scan Hero: PDF Scanner",
+     "CamScanner - PDF Scanner App",
+     "Mobile Scanner App - Scan PDF",
+     "Scanner App: Genius Scan"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Размытый скан = отклонённая виза, непринятая медсправка. Люди меняют приложение именно ради чёткости, но никто не гарантирует «пройдёт приёмку».",
+  "idea": {
+   "pitch": "Перед экспортом — авто-проверка резкости, контраста и обрезки текста с подсказкой «перескань, иначе не примут». Никакого даунскейла оригинала. Чёткость — это обещание, а не побочка.",
+   "features": [
+    "Проверка резкости/контраста перед сохранением",
+    "Запрет авто-даунскейла исходника (200MP ok)",
+    "Шаблоны под визу/ID/медформу с нужным DPI",
+    "Подсветка обрезанного по краям текста"
+   ],
+   "antiFeatures": [],
+   "monetization": "Платно: пакеты «document-grade» экспортов, шаблоны под учреждения, премиум-OCR. Базовая проверка качества бесплатна."
+  }
+ },
+ {
+  "slug": "document-scanners-5",
+  "category": "document-scanners",
+  "categoryName": "Сканеры документов",
+  "title": "OneTap — самый лёгкий сканер, делающий ровно одну вещь",
+  "oneLiner": "Минималистичный сканер без AI-надстроек и перегруза: открыл, снял, получил PDF — и привычка не ломается обновлениями.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 126
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app used to be so simple and amazing not its way too over complicated. I just want to scan a document please.",
+    "rating": 1,
+    "app": "Tiny Scanner - PDF Scanner App"
+   },
+   {
+    "quote": "stop updating it and changing things that didn't need to be changed. it was so easy to use before.",
+    "rating": 1,
+    "app": "Tiny Scanner - PDF Scanner App"
+   },
+   {
+    "quote": "Lots of over-engineered AI stuff that just adds friction.",
+    "rating": 1,
+    "app": "iScanner: PDF Document Scanner"
+   },
+   {
+    "quote": "been using this for almost 10 years please go back to normal",
+    "rating": 1,
+    "app": "CamScanner - PDF Scanner App"
+   },
+   {
+    "quote": "So simple and so clean. Well done app developers.",
+    "rating": 5,
+    "app": "Tiny Scanner - PDF Scanner App"
+   },
+   {
+    "quote": "wonderful app, no ads, simple and easy to use, nice result",
+    "rating": 5,
+    "app": "Scanner App: Genius Scan"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "OneTap — самый лёгкий сканер, делающий ровно одну вещь",
+    "obsCount": 6,
+    "apps": [
+     "Tiny Scanner - PDF Scanner App",
+     "iScanner: PDF Document Scanner",
+     "CamScanner - PDF Scanner App",
+     "Scanner App: Genius Scan"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Любимые приложения «усложнились», обросли AI-слопом и обновлениями, ломающими жесты у тех, кто пользуется десятилетие.",
+  "idea": {
+   "pitch": "Один экран, фиксированный поток, никаких внезапных перестановок UI. Лёгкий вес, без облака по умолчанию. Стабильность интерфейса как явное обещание бренда.",
+   "features": [
+    "Один фиксированный поток скан→PDF, без меню-лабиринта",
+    "Гарантия неизменности расположения жестов между версиями",
+    "Малый вес приложения, без фоновой рекламы-балласта",
+    "Без обязательного AI — он опционален и отключаем"
+   ],
+   "antiFeatures": [],
+   "monetization": "Платно: батч-режим, продвинутые фильтры, облако. Ядро навсегда простое и бесплатное."
+  }
+ },
+ {
+  "slug": "document-scanners-6",
+  "category": "document-scanners",
+  "categoryName": "Сканеры документов",
+  "title": "MyFiles — сканы, которые всегда находятся и не пропадают",
+  "oneLiner": "Сканер с прозрачным, системно-видимым хранилищем: файл лежит в обычной папке устройства и никогда не исчезает.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 126
+  },
+  "reviewGrid": [
+   {
+    "quote": "I have just discovered that hundreds of documents have vanished from the app. Hundreds.",
+    "rating": 1,
+    "app": "Tiny Scanner - PDF Scanner App"
+   },
+   {
+    "quote": "there is no intuitive way to actually access the file outside of it, like in my documents folder.",
+    "rating": 1,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "scanned files are hard to find on your drive.",
+    "rating": 3,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "the default file names are so long now and take more effort to change.",
+    "rating": 3,
+    "app": "Tiny Scanner - PDF Scanner App"
+   },
+   {
+    "quote": "Worst scanner apl. You'll be able to \"save\" your file but you can't even locate its storage directory.",
+    "rating": 1,
+    "app": "Scan Hero: PDF Scanner"
+   },
+   {
+    "quote": "it doesn't waste too much of memory and space. it has great performance in scanning documents and so good in file management.",
+    "rating": 5,
+    "app": "Scanner App: Genius Scan"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "MyFiles — сканы, которые всегда находятся и не пропадают",
+    "obsCount": 6,
+    "apps": [
+     "Tiny Scanner - PDF Scanner App",
+     "Mobile Scanner App - Scan PDF",
+     "Scan Hero: PDF Scanner",
+     "Scanner App: Genius Scan"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Скан есть в приложении, но в системную папку/галерею его не вытащить; у части людей сотни старых документов пропали без следа — это рушит доверие к продукту-архиву.",
+  "idea": {
+   "pitch": "Каждый скан сразу пишется в видимую папку устройства с понятным именем. Резервная копия и история версий — чтобы «сотни документов» физически не могли исчезнуть.",
+   "features": [
+    "Авто-сохранение в системную папку Documents, видимую файлменеджеру",
+    "Короткие редактируемые имена файлов по умолчанию",
+    "Локальная корзина/история, защита от пропажи",
+    "Прямой доступ в галерею/Files без экспорт-танцев"
+   ],
+   "antiFeatures": [],
+   "monetization": "Платно: облачный бэкап с версиями, синк между устройствами. Локальное надёжное хранилище — бесплатно."
+  }
+ },
+ {
+  "slug": "document-scanners-7",
+  "category": "document-scanners",
+  "categoryName": "Сканеры документов",
+  "title": "BatchPro — многостраничник и батч для тех, кто сканирует пачками",
+  "oneLiner": "Сканер для дата-энкодеров и офиса: десятки страниц подряд с ровной резкостью, без дублей и без вшитых рекламных листов в PDF.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 126
+  },
+  "reviewGrid": [
+   {
+    "quote": "I do ALOT of scanning, would love it if I can like add multiple photoes or like take a dozen or so photoes before getting sent to the filter or cropping slide.",
+    "rating": 5,
+    "app": "iLovePDF - PDF Editor & Scan"
+   },
+   {
+    "quote": "has issues with consistency in sharpness if trying to scan something spanning multiple pages. Often have to re-scan pages and edit PDFs manually.",
+    "rating": 3,
+    "app": "Tiny Scanner - PDF Scanner App"
+   },
+   {
+    "quote": "It takes multiple pictures of the same page in quick succession, with seemingly no way to delete duplicates",
+    "rating": 1,
+    "app": "Mobile Scanner App - Scan PDF"
+   },
+   {
+    "quote": "the extra page is pain , need another app to delete it, or waste paper to print it",
+    "rating": 3,
+    "app": "Scan Hero: PDF Scanner"
+   },
+   {
+    "quote": "could do with being able to scan more than a set amount of pages",
+    "rating": 4,
+    "app": "Scan Hero: PDF Scanner"
+   },
+   {
+    "quote": "the auto doc detect feature of it make scanning too many pages way faster and efficient and it doesn't lower the quality.",
+    "rating": 5,
+    "app": "Scanner App: Genius Scan"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "BatchPro — многостраничник и батч для тех, кто сканирует пачками",
+    "obsCount": 6,
+    "apps": [
+     "iLovePDF - PDF Editor & Scan",
+     "Tiny Scanner - PDF Scanner App",
+     "Mobile Scanner App - Scan PDF",
+     "Scan Hero: PDF Scanner",
+     "Scanner App: Genius Scan"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Многостраничный режим — главная боль: непостоянная резкость, дубли одной страницы, кап на страницы, а сверху ещё рекламная страница прямо в официальном документе.",
+  "idea": {
+   "pitch": "Снимаешь пачкой, потом обрабатываешь — ровная резкость на всех страницах, авто-удаление дублей, без лимита страниц и без чужих вставок в твой PDF.",
+   "features": [
+    "Серийная съёмка с отложенной обработкой и единым качеством",
+    "Авто-детект и удаление дубль-кадров одной страницы",
+    "Без лимита страниц и без рекламной/водяной вставки в PDF",
+    "Переупорядочивание и пакетный экспорт PDF"
+   ],
+   "antiFeatures": [],
+   "monetization": "Платно: безлимит батча, командное облако, расширенный OCR-пакет. Базовая мультистраница бесплатна и без водяных знаков."
+  }
+ },
+ {
+  "slug": "running-1",
+  "category": "running",
+  "categoryName": "Бег и кардио",
+  "title": "Эхо — голосовой спутник, который не глушит уши",
+  "oneLiner": "Бег-приложение, где ИИ-тренер подсказывает вовремя и аккуратно подмешивается в музыку и подкаст, а не перебивает их.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 144
+  },
+  "reviewGrid": [
+   {
+    "quote": "I would like the option to automatically pause my music / podcast when receiving voice feedback as it is annoying when this talks over an important part of a podcast",
+    "rating": 4,
+    "app": "Map My Run GPS Running Tracker"
+   },
+   {
+    "quote": "I just want to get back to listening to my audiobook.",
+    "rating": 2,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "the nice running coach lady tells me how far I have ran so far and how much more I have to complete, and it seems like her timing is always perfect",
+    "rating": 5,
+    "app": "Running Trainer: Tracker&Coach"
+   },
+   {
+    "quote": "the prompts to walk and run are not loud enough",
+    "rating": 2,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "I like the voice reminder of the distance and time covered. I don't have to keep looking at my phone every time",
+    "rating": 4,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "the voice announcements are annoying AF and are too intrusive. they can't be turned off",
+    "rating": 2,
+    "app": "Polar Beat: Running & Fitness"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Эхо — голосовой спутник, который не глушит уши",
+    "obsCount": 6,
+    "apps": [
+     "Map My Run GPS Running Tracker",
+     "Couch to 5K® - Run training",
+     "Running Trainer: Tracker&Coach",
+     "Nike Run Club: Running Coach",
+     "Polar Beat: Running & Fitness"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все хвалят голос-тренера за эмоцию, но почти все ругают, что он глушит музыку, говорит поверх подкаста или вовсе не озвучивает переход бег/шаг — никто не сделал звук одновременно полезным и ненавязчивым.",
+  "idea": {
+   "pitch": "Представьте тренера, который шепнёт «осталось 200 метров» ровно в паузе между словами подкаста, чуть приглушив звук на секунду, а не оборвав его. Эхо строит звуковое сопровождение вокруг того, что вы уже слушаете, и потому бегун никогда его не выключает.",
+   "features": [
+    "умное подмешивание голоса в текущий трек без обрыва",
+    "чёткая озвучка переходов бег/шаг для новичков",
+    "выбор частоты и содержания подсказок (только темп, только дистанция)",
+    "тёплый тренер с таймингом «в момент усталости»",
+    "офлайн-режим без жжёной батареи"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за расширенные голоса и планы; базовое звуковое сопровождение бесплатно как крючок привычки."
+  }
+ },
+ {
+  "slug": "running-2",
+  "category": "running",
+  "categoryName": "Бег и кардио",
+  "title": "Несгораемый трек — приложение, которое не теряет пробежки",
+  "oneLiner": "Трекер с гарантией, что завершённая пробежка сохранится локально и в облаке, даже если связь, экран и аккаунт подведут.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 144
+  },
+  "reviewGrid": [
+   {
+    "quote": "Spins that roulette wheel when I am trying to end my run, only thing, it never stops.",
+    "rating": 2,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "i have lost 15 miles already this month and it's no way to recover it",
+    "rating": 1,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "when it crashes like it did today and loses my run data, I hate it. Nothing worse than losing my data.",
+    "rating": 3,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "Stopped recording in the middle of my longest run",
+    "rating": 1,
+    "app": "Strava: Run, Bike, Walk"
+   },
+   {
+    "quote": "the fact that the app constantly restarts and doesn't save progress is a big problem",
+    "rating": 3,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "Tapped Record and at the end of the activity nothing was recorded. Need a way to lock the screen",
+    "rating": 3,
+    "app": "Strava: Run, Bike, Walk"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Несгораемый трек — приложение, которое не теряет пробежки",
+    "obsCount": 6,
+    "apps": [
+     "Nike Run Club: Running Coach",
+     "Strava: Run, Bike, Walk",
+     "Couch to 5K® - Run training"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Самая болезненная жалоба по всем приложениям — пробежка теряется при сохранении, «крутит колесо» или исчезает после логаута; это сильнее всего гонит людей к конкурентам, но никто не сделал сохранность главным обещанием.",
+  "idea": {
+   "pitch": "Каждый метр пишется на устройство мгновенно и переживает краш, разрыв сети и принудительный выход. Ваше усилие нельзя потерять — это контракт, а не функция. Для бегуна, который однажды лишился самой длинной пробежки, это решающий аргумент сменить приложение.",
+   "features": [
+    "мгновенная локальная запись, переживающая краш и офлайн",
+    "восстановление прерванной пробежки после перезапуска",
+    "вход не обязателен — данные не пропадают без аккаунта",
+    "блокировка экрана от случайных нажатий во время бега",
+    "видимый индикатор «сохранено» сразу после финиша"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатное надёжное ядро трекинга; подписка за облачный архив без лимитов и аналитику."
+  }
+ },
+ {
+  "slug": "running-3",
+  "category": "running",
+  "categoryName": "Бег и кардио",
+  "title": "Живой план — тренировки, которые двигаются вместе с тобой",
+  "oneLiner": "План бега, который сам переносит и смягчает нагрузку при травме, жаре и занятой неделе, а не ломается о реальную жизнь.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 144
+  },
+  "reviewGrid": [
+   {
+    "quote": "The plans feel overly aggressive, with no adjustment for weather (I live in Florida. I train in the summer)",
+    "rating": 3,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "Got an injury, 3 weeks out, start back light, could pause my plan but not go back",
+    "rating": 2,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "Plans don't automatically adjust",
+    "rating": 1,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "completely useless if you're an intermediate runner trying to improve your level",
+    "rating": 2,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "the ease to move workouts around during the week so I can adapt it to my busy schedule",
+    "rating": 5,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "got me running after an injury",
+    "rating": 5,
+    "app": "Runna: Running Plans & Coach"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Живой план — тренировки, которые двигаются вместе с тобой",
+    "obsCount": 6,
+    "apps": [
+     "Runna: Running Plans & Coach"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Платные планы (Runna, Joggo) хвалят за структуру, но ругают за жёсткость: не подстраиваются под травму, погоду, средний уровень — человек выгорает или бонкует на гонке, хотя именно адаптация и есть смысл «персонального».",
+  "idea": {
+   "pitch": "Пропустили неделю из-за травмы — план мягко откатится, а не завалит виной за «пропуски». Жара во Флориде — темпы сдвинутся. Это тренер, который реагирует на вашу жизнь, а не сценарий, под который вы должны прогибаться. Адаптация — то, за что готовы платить, но чего пока никто честно не дал.",
+   "features": [
+    "авто-пересчёт плана после пропусков и травм без чувства вины",
+    "поправка темпа на погоду и жару",
+    "режимы для среднего бегуна и возвращенцев, не только новичков",
+    "свободный перенос тренировок под занятую неделю",
+    "честная оценка готовности к гонке без завышенных прогнозов"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на адаптивный план; одноразовая покупка плана под конкретную гонку как вход."
+  }
+ },
+ {
+  "slug": "running-4",
+  "category": "running",
+  "categoryName": "Бег и кардио",
+  "title": "С часов без телефона — для брошенного Android",
+  "oneLiner": "Бег-план и трекинг, полноценно живущие на Wear OS / Galaxy / Garmin, чтобы Android-бегун не таскал телефон в руке.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 144
+  },
+  "reviewGrid": [
+   {
+    "quote": "They only connect to apple watch, not Galaxy watch or android. they said 2+ years ago they were going to add this as a feature and still have not",
+    "rating": 1,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "why is there not a Runna app for the Pixel watch4 /wear OS but there's one for the Apple Watch?",
+    "rating": 5,
+    "app": "Runna: Running Plans & Coach"
+   },
+   {
+    "quote": "It would be great however if it could be supported on wearOS so that I don't have to take my phone with me!",
+    "rating": 3,
+    "app": "Running Trainer: Tracker&Coach"
+   },
+   {
+    "quote": "Cancelled subscription, because the companion app for Samsung Galaxy watch became unsupported",
+    "rating": 1,
+    "app": "Map My Run GPS Running Tracker"
+   },
+   {
+    "quote": "Would be better if it integrated with my Samsung watch. Bit annoying having to take my phone.",
+    "rating": 3,
+    "app": "Running Trainer: Tracker&Coach"
+   },
+   {
+    "quote": "Great app and great for the journey. Only issue I have is that I use it on my watch where the text is too small for my eyes.",
+    "rating": 4,
+    "app": "Couch to 5K® - Run training"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "С часов без телефона — для брошенного Android",
+    "obsCount": 6,
+    "apps": [
+     "Runna: Running Plans & Coach",
+     "Running Trainer: Tracker&Coach",
+     "Map My Run GPS Running Tracker",
+     "Couch to 5K® - Run training"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Целый сегмент в ярости: Apple Watch поддержан, а Galaxy, Wear OS и Garmin годами «обещают и не делают» — люди отменяют подписку или бегают с телефоном в руке. Это огромная брошенная аудитория без хорошего решения.",
+  "idea": {
+   "pitch": "Запускаете тренировку с запястья, голос и план идут на часах, телефон остаётся дома. Мы строим продукт сначала под Android-часы, а не как запоздалый порт. Для миллионов владельцев Galaxy и Pixel Watch это единственное приложение, которое наконец их уважает.",
+   "features": [
+    "автономный запуск плана и трекинга на Wear OS/Galaxy",
+    "синхронизация с Garmin и Polar-сенсорами",
+    "голосовые подсказки прямо на часах без телефона",
+    "крупный читаемый экран статуса бег/шаг для часов",
+    "офлайн-сохранение пробежки на часах"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на планы и аналитику; трекинг с часов бесплатен как захват недообслуженного сегмента."
+  }
+ },
+ {
+  "slug": "running-5",
+  "category": "running",
+  "categoryName": "Бег и кардио",
+  "title": "Снова в бег — мягкий вход для возвращенцев",
+  "oneLiner": "Программа, которая снимает страх старта для тех, кто возвращается после паузы, травмы или никогда не бегал.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 144
+  },
+  "reviewGrid": [
+   {
+    "quote": "I've never been fit. I've never ran. C25K helped me run 5k.",
+    "rating": 5,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "Got me back into running safely after about 3 years away from the track.",
+    "rating": 5,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "this app makes it so much less intimidating. Highly recommended for beginner runners!",
+    "rating": 5,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "This is the perfect app for beginners and/or those returning to running. I actually look forward to my runs",
+    "rating": 5,
+    "app": "Running Trainer: Tracker&Coach"
+   },
+   {
+    "quote": "Third, the program is set, no customization at all. I'm really out of shape (and have sleep issues) so I need more time.",
+    "rating": 2,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "It's a great gradual start and gets you there at a good pace.",
+    "rating": 5,
+    "app": "Couch to 5K® - Run training"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Снова в бег — мягкий вход для возвращенцев",
+    "obsCount": 6,
+    "apps": [
+     "Couch to 5K® - Run training",
+     "Running Trainer: Tracker&Coach"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Огромный сегмент «возвращенцев» и абсолютных новичков благодарит C25K и Joggo за нестрашный вход, но эти продукты прячут программу за стенами или не дают плавной регрессии — а именно мягкость старта рождает многолетнюю лояльность.",
+  "idea": {
+   "pitch": "«Я никогда не была в форме, я никогда не бегала» — и через программу человек пробегает 5 км. Мы делаем вход в бег настолько нестрашным, что человек ждёт следующей пробежки. Эмоция первого успеха — самый сильный крючок удержания во всей нише.",
+   "features": [
+    "сверхплавная прогрессия с возможностью повторить и замедлить день",
+    "тёплый ободряющий голос в момент сомнения",
+    "учёт того, что человек «совсем не в форме» или со сном-проблемами",
+    "история прогресса как доказательство «я смог»",
+    "безопасный возврат после долгой паузы или травмы"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатная полная базовая программа как доверие; подписка за персонализацию, голоса и продолжение после 5 км."
+  }
+ },
+ {
+  "slug": "running-6",
+  "category": "running",
+  "categoryName": "Бег и кардио",
+  "title": "Мой архив — бег без слежки и без замка",
+  "oneLiner": "Трекер с приватностью по умолчанию: ваши данные принадлежат вам, экспортируются и не отбираются за отказ от сбора.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 144
+  },
+  "reviewGrid": [
+   {
+    "quote": "Just consent to letting us collect all your data, you can withdraw later.....how about let me refuse now?? Ridiculous. I'm tired of all the data vultures.",
+    "rating": 1,
+    "app": "Map My Run GPS Running Tracker"
+   },
+   {
+    "quote": "polar closed my account of 15 years for not agreeing to be data farmed.",
+    "rating": 1,
+    "app": "Polar Beat: Running & Fitness"
+   },
+   {
+    "quote": "I don't understand why a glorified timer needs my precise location.",
+    "rating": 3,
+    "app": "Couch to 5K® - Run training"
+   },
+   {
+    "quote": "cannot download data to share, or to print heart-rate graphs.",
+    "rating": 1,
+    "app": "Polar Beat: Running & Fitness"
+   },
+   {
+    "quote": "I've noticed that the app has randomly dropped some of my runs, even after finishing and saving. Also, it seems like you can't export your data in bulk",
+    "rating": 1,
+    "app": "Nike Run Club: Running Coach"
+   },
+   {
+    "quote": "I stopped making an account due to the absurd amount of private info they wanted access to.",
+    "rating": 2,
+    "app": "Polar Beat: Running & Fitness"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Мой архив — бег без слежки и без замка",
+    "obsCount": 6,
+    "apps": [
+     "Map My Run GPS Running Tracker",
+     "Polar Beat: Running & Fitness",
+     "Couch to 5K® - Run training",
+     "Nike Run Club: Running Coach"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Растущая группа бегунов в ярости от принудительного согласия на сбор чувствительных данных ради таймера и от потери архива при логине; «дата-стервятники» — прямая цитата. Приватность как позиционирование в нише почти не занята.",
+  "idea": {
+   "pitch": "Мы не закроем ваш аккаунт за отказ делиться данными и не запросим точную геолокацию ради секундомера. Ваш бег — ваш: экспортируйте, храните, уходите когда хотите. Для приватного бегуна, уставшего от слежки и замков, это причина перейти и остаться.",
+   "features": [
+    "приватность по умолчанию, бег без обязательного аккаунта",
+    "полный экспорт данных и графиков пульса в один тап",
+    "минимум запрашиваемых разрешений под конкретную активность",
+    "локальное хранение истории без принудительного облака",
+    "никаких потерь архива при выходе из аккаунта"
+   ],
+   "antiFeatures": [],
+   "monetization": "Платная подписка вместо продажи данных — честная модель как часть позиционирования; премиум-аналитика сверху."
+  }
+ },
+ {
+  "slug": "running-7",
+  "category": "running",
+  "categoryName": "Бег и кардио",
+  "title": "Зоны просто — пульс для серьёзных без старья",
+  "oneLiner": "Современное приложение пульсовых зон, где порог и зоны настраиваются за минуту и видны прямо во время бега.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 144
+  },
+  "reviewGrid": [
+   {
+    "quote": "Doesn't give Zone information during runs. Zones can't be customized. UI is from 2010s.",
+    "rating": 1,
+    "app": "Polar Beat: Running & Fitness"
+   },
+   {
+    "quote": "Bought a 100 EUR heart rate strap from Polar, but to unlock full functionality of the app requires a Polar watch costing additional hundreds of euros.",
+    "rating": 1,
+    "app": "Polar Beat: Running & Fitness"
+   },
+   {
+    "quote": "It would be nice also to be able to adjust the fat/fit threshold (if you know yours) like you can adjust your max HR.",
+    "rating": 3,
+    "app": "Polar Beat: Running & Fitness"
+   },
+   {
+    "quote": "I found it Impossible to setup my heart rate zones",
+    "rating": 1,
+    "app": "TrainingPeaks: Plan Train Lift"
+   },
+   {
+    "quote": "It does almost everything perfect, I just wish I could set an alert for going over my target HR and also be able to highlight and analyze specific parts of my workout graph afterwards.",
+    "rating": 4,
+    "app": "Polar Beat: Running & Fitness"
+   },
+   {
+    "quote": "It's a great app to clearly show your heart rate and which zone you're in.",
+    "rating": 5,
+    "app": "Polar Beat: Running & Fitness"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Зоны просто — пульс для серьёзных без старья",
+    "obsCount": 6,
+    "apps": [
+     "Polar Beat: Running & Fitness",
+     "TrainingPeaks: Plan Train Lift"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Серьёзные бегуны держатся за Polar и TrainingPeaks ради пульса, но ненавидят интерфейс «из 2010-х», невозможность настроить зоны и порог и то, что функции спрятаны за дорогими часами — современного и открытого решения зон нет.",
+  "idea": {
+   "pitch": "Подключаете любой нагрудный датчик — и сразу видите зону прямо на бегу, настраиваете порог жиросжигания и максимальный пульс за минуту, без покупки часов за сотни евро. Для бегуна, тренирующегося по пульсу, это чистый, быстрый и честный инструмент вместо музейного интерфейса.",
+   "features": [
+    "настройка пульсовых зон и порога за минуту",
+    "крупная зона пульса видна во время бега",
+    "работа с любым нагрудным датчиком без привязки к часам",
+    "пост-анализ участков тренировки по графику пульса",
+    "алерт при выходе за целевую зону"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за аналитику и историю зон; базовое отображение зоны во время бега бесплатно."
+  }
  }
 ]

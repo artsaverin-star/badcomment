@@ -2492,5 +2492,295 @@
    }
   ],
   "hygiene": []
+ },
+ "identifiers": {
+  "product": [
+   {
+    "title": "No \"that's wrong\" button",
+    "plus": null,
+    "minus": "The user sees a misidentification but has no way to dismiss it, correct it, or delete it — so the app logs a false \"discovery\" in their collection"
+   },
+   {
+    "title": "An honest \"not sure\" beats a confident wrong answer",
+    "plus": "People forgive \"I don't know yet\" and praise apps that don't risk a wrong ID — restraint reads as reliability",
+    "minus": null
+   },
+   {
+    "title": "A wrong ID isn't a cosmetic flaw — it's a health risk",
+    "plus": null,
+    "minus": "With mushrooms, snakes, and spiders, a wrong answer can mean poisoning or a bite; users explicitly say they fear trusting the app and threaten legal action over a false \"safe\""
+   },
+   {
+    "title": "Safety info locked behind a paywall at the worst possible moment",
+    "plus": null,
+    "minus": "Danger assessments are gated exactly when they're most urgent: you see \"dangerous to humans\" but can only find out why with a subscription"
+   },
+   {
+    "title": "A general-purpose AI outperforms the specialist app",
+    "plus": null,
+    "minus": "ChatGPT and Gemini identify species more accurately than apps built specifically for it — users switch to them and see it as an embarrassment for the niche product"
+   },
+   {
+    "title": "ID is the easy part — people want a diagnosis and next steps",
+    "plus": null,
+    "minus": "Naming the species is the easy part; people come with a sick plant and get generic phrases no better than a Google search"
+   },
+   {
+    "title": "\"Looks healthy\" on a dying plant destroys trust",
+    "plus": null,
+    "minus": "The most common and loudest complaint about diagnostics — a cheerful \"your plant is healthy\" on something visibly dying; the user follows the advice and loses the plant"
+   },
+   {
+    "title": "Collecting turns an identifier into a game",
+    "plus": "Life-lists, badges, challenges, and \"catch 'em all\" mechanics retain users better than accuracy does — people go on walks to earn a new badge and leave their first-ever app review",
+    "minus": null
+   },
+   {
+    "title": "Losing your life-list means losing the point of the app",
+    "plus": null,
+    "minus": "Observations are stored in the app, not the account: reinstalling or switching phones wipes years of data, and users experience it as a personal loss"
+   },
+   {
+    "title": "Location-awareness would filter out impossible answers",
+    "plus": null,
+    "minus": "The app suggests species that don't exist in the region (persimmon in Puget Sound, European birds in Sydney) — a simple geolocation filter would eliminate the most embarrassing misses"
+   },
+   {
+    "title": "Sound ID is its own magic — and its own market",
+    "plus": "Identifying birds by call delivers a \"wow\" that doesn't require seeing the bird at all — people sit in their gardens and collect invisible singers, an emotion of a completely different order",
+    "minus": null
+   },
+   {
+    "title": "Sound mode is advertised, but then you're asked to describe a bird you can't see",
+    "plus": null,
+    "minus": "The ad promises \"identify by sound,\" but the app then asks you to describe a bird you can't see — the gap between promise and mechanic is more infuriating than poor accuracy"
+   },
+   {
+    "title": "No way to specify what in the photo to identify",
+    "plus": null,
+    "minus": "A frame has both a plant and an insect — the app stubbornly IDs the wrong one and there's no way to draw a box or switch the target type; this is a control problem, not a model problem"
+   },
+   {
+    "title": "Identify from an existing photo, not just a live camera",
+    "plus": null,
+    "minus": "People want to ID a photo they already took or upload from their gallery; forcing camera access and blocking gallery use reads like a scam"
+   },
+   {
+    "title": "A walk with kids is the biggest unspoken use case",
+    "plus": "The strongest emotional hook is discovering the world together with children on a walk; the learning and \"finding out together\" moment drives five-star reviews more reliably than accuracy does",
+    "minus": null
+   },
+   {
+    "title": "Regression after an update is the main threat to a beloved app",
+    "plus": null,
+    "minus": "\"Used to work, now it doesn't\" is the most common story of loyal users leaving: a new model or camera change breaks what people loved for years, and devotion turns to hurt"
+   },
+   {
+    "title": "A working free tier is marketing, not charity",
+    "plus": "Users left with a working, ad-free free tier become loud advocates and come back to paid — a generous free tier builds loyalty rather than cannibalizing revenue",
+    "minus": null
+   },
+   {
+    "title": "Removing a feature from free is a public betrayal",
+    "plus": null,
+    "minus": "Moving auto-ID behind a paywall on a smart feeder doesn't cause churn — it causes rage from devoted early buyers: \"promised at launch,\" \"bait and switch,\" five-star reviews flipping to one-star"
+   },
+   {
+    "title": "\"AI for AI's sake\" alienates a nature audience",
+    "plus": null,
+    "minus": "Bird-feeder users wanted a simple tool about birds and got an intrusive \"remix your photo with AI\" prompt and a manual AI button instead of automation — for them that's a downgrade, not a feature"
+   },
+   {
+    "title": "Google-only login breaks the first launch entirely",
+    "plus": null,
+    "minus": "Mandatory Google-only sign-in loops and never gets past the login screen — the user never reaches their first ID and leaves a one-star review"
+   }
+  ],
+  "hygiene": []
+ },
+ "document-scanners": {
+  "product": [
+   {
+    "title": "\"Just photograph a piece of paper\" — now it's a maze",
+    "plus": null,
+    "minus": "The basic job got harder: people want one shot and a PDF, instead they get extra steps, AI add-ons, and an overloaded interface."
+   },
+   {
+    "title": "Swipe-upgrade: a loyal decade-long user suddenly feels like a stranger",
+    "plus": null,
+    "minus": "People lived in the app for ten years, muscle memory built into gestures and layout — then an update breaks all of it and pushes them out."
+   },
+   {
+    "title": "Sharpness is currency: a blurry scan means a rejected visa or hospital refusal",
+    "plus": "When a scan comes out genuinely crisp, it handles life-defining documents — visa approved where two other apps failed.",
+    "minus": "A blurry, skewed, or clipped result isn't just a bad photo — it's a rejected application and a lost opportunity."
+   },
+   {
+    "title": "Multi-page scanning: the biggest pain point and the ceiling for professional use",
+    "plus": "Auto edge detection and a fast multi-page mode are what people love: \"scanning many pages way faster.\"",
+    "minus": "Inconsistent sharpness across pages, duplicate captures of the same page, page-count caps — users end up re-scanning and fixing PDFs by hand."
+   },
+   {
+    "title": "File held hostage: documents vanish or can't be found anywhere",
+    "plus": null,
+    "minus": "The scan exists in the app, but there's no way to pull it into a system folder or gallery; for some users hundreds of old scans have simply disappeared."
+   },
+   {
+    "title": "\"Pay up or lose it\": the paywall appears only after all the work is done",
+    "plus": null,
+    "minus": "The real flaw isn't the price — it's the timing: users scan 15–200 pages and only when they go to save or share do they learn the result is locked."
+   },
+   {
+    "title": "Deadline mode: the app is called in a moment of panic, not for leisure",
+    "plus": "The core driver of love is last-minute rescue: no working scanner at hand, submission due right now — the app saves the day.",
+    "minus": "In that exact moment, any extra step or surprise charge hurts the most — the person drops the app and never comes back."
+   },
+   {
+    "title": "The real competitor is the phone camera and Google Drive, not another scanner app",
+    "plus": null,
+    "minus": "When the app frustrates them, users don't switch to a rival app — they switch to the built-in Google Drive scanner or system camera: \"faster, no ads, cleaner output.\""
+   },
+   {
+    "title": "Send-to-self / share is the actual product — and that's exactly what gets cut",
+    "plus": "The real job isn't \"make a scan\" — it's \"deliver the document\": email it to yourself, send via WhatsApp, push to company cloud. That's what people use daily and love.",
+    "minus": "Sharing is precisely what gets paywalled (3-document cap, sharing in paid tier only) — and the app instantly loses its point."
+   },
+   {
+    "title": "The \"a few times a year\" segment: a subscription doesn't fit by design",
+    "plus": null,
+    "minus": "A huge group are occasional users — a student before a submission deadline, a one-off medical form. A weekly or annual subscription is alien to them; they want a one-time purchase or pay-per-document."
+   },
+   {
+    "title": "OCR / text recognition — promised, but collapses on handwriting and forms",
+    "plus": "When OCR actually works it feels like a small miracle and earns loyalty: \"I love that the OCR actually works.\"",
+    "minus": "On handwritten text and forms, recognition breaks down and kills the entire subscription rationale — \"this defeats the purpose.\""
+   },
+   {
+    "title": "Niche modes (area calculator, fax, expense reports) — sold but broken",
+    "plus": "Specialized features attract focused segments: area measurement for tradespeople, fax for bureaucratic workflows, expense reports for business — users come in specifically for these.",
+    "minus": "They're advertised but don't work: \"area mode\" isn't supported, fax charges credits without delivering them, expense totals don't add up — the promised value is hollow."
+   },
+   {
+    "title": "An ad page baked into the PDF — embarrassing on an official document",
+    "plus": null,
+    "minus": "The app inserts an ad sheet or watermark directly into the finished PDF: humiliating on official paperwork, it prints as an extra page and costs users clients."
+   },
+   {
+    "title": "Rating prompt before the first scan — a self-inflicted trust wound",
+    "plus": null,
+    "minus": "The app asks for a review before anyone has used it, and prompts four times within sixty seconds — this destroys trust and generates one-star reviews on its own."
+   },
+   {
+    "title": "Silent upload to the cloud — a failure for private documents",
+    "plus": null,
+    "minus": "People scan passports, bank statements, medical records — and the app quietly uploads them to the cloud without any notification, demanding access to all files. Privacy here is a real feature, not a tagline."
+   },
+   {
+    "title": "Lightness and absence of bloat — the quiet but decisive factor in choosing an app",
+    "plus": "Those who stay value \"less bloated than anything else\": light, doesn't eat storage, exports PDF to a chosen folder on device. That's the positioning gap.",
+    "minus": "The market leaders move the opposite way — 80 MB install size, ad caches eating gigabytes, features piled on features."
+   },
+   {
+    "title": "Replacing the office scanner and printer — that's the real mental model",
+    "plus": "People think of the app as a \"pocket scanner / copier\": a replacement for a trip to the library, the printer, the copy shop. It saves money, time, and travel — which is why they use it every day.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "running": {
+  "product": [
+   {
+    "title": "The coaching voice that pulls you through at exactly the right moment",
+    "plus": "When the voice says \"almost there\" precisely when you want to quit, runners fall in love with the app and stick around for years",
+    "minus": null
+   },
+   {
+    "title": "Voice cues that talk over your music and podcast",
+    "plus": null,
+    "minus": "Audio prompts drown out music and cut across the best part of a podcast — runners end up switching the voice off entirely and lose half the value"
+   },
+   {
+    "title": "Distance accuracy is what trust in an app is built on",
+    "plus": null,
+    "minus": "When GPS draws phantom routes and inflates mileage, runners stop believing any number the app shows and switch to a competitor"
+   },
+   {
+    "title": "Android with a smartwatch — the abandoned segment",
+    "plus": null,
+    "minus": "Apple Watch works great; Galaxy, Wear OS, and Garmin have gone unsupported for years — Android owners end up running with a phone in hand or leaving for good"
+   },
+   {
+    "title": "A plan that doesn't bend to real life",
+    "plus": null,
+    "minus": "After an injury, in a heat wave, or for an intermediate runner, the plan stays rigid — it doesn't shift or adapt, and people burn out or blow up on race day"
+   },
+   {
+    "title": "Running as proof: \"if it's not logged, it didn't happen\"",
+    "plus": "Logging a run is both a certificate and part of a runner's identity; people hold onto the activity log and progress breakdown for years",
+    "minus": null
+   },
+   {
+    "title": "Losing a run at the save screen is a trust-destroying moment",
+    "plus": null,
+    "minus": "When the app hangs and swallows a finished run, runners feel their effort was stolen — it's the single strongest trigger for switching apps"
+   },
+   {
+    "title": "Run/walk audio cues are a lifeline for beginners",
+    "plus": null,
+    "minus": "Without a voice prompt for \"run/walk\" transitions, beginners have to stare at the screen, the rhythm breaks — and they leave for an app that speaks up"
+   },
+   {
+    "title": "Getting back to running: a massive segment of \"returners\"",
+    "plus": "People coming back after a break, injury, or COVID need a safe, gentle entry point — whoever removes the fear of starting earns loyalty for years",
+    "minus": null
+   },
+   {
+    "title": "Social features and challenges as fuel for motivation",
+    "plus": "Kudos, friends, and shared challenges turn a solo run into a commitment to a community and push people out the door",
+    "minus": null
+   },
+   {
+    "title": "Accuracy at the cost of a lit screen and a drained battery",
+    "plus": null,
+    "minus": "To keep the track accurate, you have to leave the screen on and burn through the battery — on long distances, that makes the app useless"
+   },
+   {
+    "title": "Heart rate zones and serious data demand actual configuration",
+    "plus": null,
+    "minus": "Serious runners want to see and configure heart rate zones and threshold, but the UI is stuck in the 2010s and buries the controls behind expensive hardware"
+   },
+   {
+    "title": "Reliving a run: the memory layer as its own product",
+    "plus": "A video replay of your route with photos delivers pride and a reason to share — that's standalone value beyond tracking",
+    "minus": null
+   },
+   {
+    "title": "An AI coach feels fake when it doesn't know your numbers",
+    "plus": null,
+    "minus": "When \"AI feedback\" isn't grounded in real runner metrics it reads as a cheap substitute for an actual coach"
+   },
+   {
+    "title": "Forced re-login wipes out a year of progress",
+    "plus": null,
+    "minus": "Constant logouts and failed sign-ins erase years of history — for a runner, losing the archive is more devastating than any other bug"
+   },
+   {
+    "title": "Mandatory data collection drives privacy-conscious users away",
+    "plus": null,
+    "minus": "Demanding consent to harvest sensitive data just to use a basic timer or heart rate monitor pushes privacy-conscious users out within minutes"
+   },
+   {
+    "title": "The freedom to reschedule workouts around your week",
+    "plus": "Being able to drag a workout to fit a packed schedule is exactly what people praise and stay for; a locked calendar with no rescheduling frustrates everyone",
+    "minus": null
+   },
+   {
+    "title": "Visible progress toward a personal record keeps runners hooked",
+    "plus": "When runners see an improved PR and VO2 max over a few weeks, they become fans and publicly recommend the app",
+    "minus": null
+   }
+  ],
+  "hygiene": []
  }
 }
