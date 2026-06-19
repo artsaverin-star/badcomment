@@ -13,8 +13,54 @@ import { getNicheThesis } from "@/lib/nicheThesis";
 import { getNicheOpportunities } from "@/lib/nicheOpportunities";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
+import { UNLOCK_COST } from "@/lib/tokenConfig";
+import EnergyUnlockButton from "@/components/EnergyUnlockButton";
 import type { Slide, Tone } from "@/components/CardCarousel";
-import SegmentExplorer, { type ExpPillar, type ExpOpp, type ExpApp, type ExpFlaw, type ExpQuote } from "./SegmentExplorer";
+import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpFlaw, type ExpQuote } from "./SegmentExplorer";
+
+const TONE_DOT: Record<string, string> = { up: "#4ade80", down: "#ff8585", mixed: "#f5b301" };
+
+// One key finding rendered inline on the page: action title + dek + the routed
+// breakdown observations (tone dot · headline · count · expandable quotes).
+function PillarFull({ p }: { p: ExpPillar }) {
+  return (
+    <div className="flex gap-4">
+      <span className="shrink-0 text-[34px] font-bold leading-none tabular-nums text-[color-mix(in_srgb,var(--color-text-brand)_70%,transparent)]">{p.num}</span>
+      <div className="min-w-0 flex-1">
+        <h3 className="text-[21px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[24px]">{p.title}</h3>
+        <p className="mt-2.5 text-footnote leading-[1.6] text-[var(--color-text-secondary)]">{p.dek}</p>
+        {p.findings.length > 0 && (
+          <div className="mt-5 flex flex-col divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
+            {p.findings.map((f: ExpFinding, k: number) => (
+              <details key={k} className="group/f">
+                <summary className="flex cursor-pointer list-none items-center gap-3 py-3 [&::-webkit-details-marker]:hidden">
+                  <span className="size-2 shrink-0 rounded-full" style={{ background: TONE_DOT[f.tone] }} />
+                  <span className="min-w-0 flex-1 text-footnote font-medium leading-snug text-[var(--color-text-primary)]">{f.title}</span>
+                  <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </summary>
+                <div className="pb-4 pl-5">
+                  {f.plus && <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]"><span className="font-semibold text-[#4ade80]">+ </span>{f.plus}</p>}
+                  {f.minus && <p className="mt-1 text-footnote leading-relaxed text-[var(--color-text-secondary)]"><span className="font-semibold text-[#ff8585]">− </span>{f.minus}</p>}
+                  {f.quotes.length > 0 && (
+                    <div className="mt-3 flex flex-col gap-2.5">
+                      {f.quotes.slice(0, 4).map((q, j) => (
+                        <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-3">
+                          <p className="text-caption italic leading-relaxed text-[var(--color-text-tertiary)]">“{q.text}”</p>
+                          <figcaption className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">{q.app} · <span className="text-[#f5b301]">{"★".repeat(q.rating)}</span></figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </details>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export const dynamic = "force-dynamic";
 
@@ -122,6 +168,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const access = await getAccess();
   const { loggedIn, balance } = access;
   const catLocked = !access.has("category", slug);
+  // Overview: first finding free, the other two unlock inline for energy.
+  const overviewUnlocked = !catLocked || access.has("chapter", slug);
 
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const ideas = listIdeas().filter((i) => i.category === slug);
@@ -272,9 +320,53 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         ))}
       </div>
 
+      {/* KEY FINDINGS — inline: first free, the other two unlock for energy */}
+      {pillars.length > 0 && (
+        <section className="mt-14">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Главное · три вывода" : "Key findings · three"}</span>
+            <span className="rounded-full bg-[color-mix(in_srgb,#4ade80_18%,transparent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#4ade80]">{ru ? "первый — бесплатно" : "first — free"}</span>
+          </div>
+          <div className="mt-7 flex flex-col divide-y divide-[var(--color-border-subtle)]">
+            <div className="pb-9">
+              <PillarFull p={pillars[0]} />
+            </div>
+            {overviewUnlocked ? (
+              pillars.slice(1).map((p, i) => (
+                <div key={i} className="py-9 last:pb-0">
+                  <PillarFull p={p} />
+                </div>
+              ))
+            ) : (
+              <div className="pt-9">
+                <div className="rounded-[22px] border border-[color-mix(in_srgb,var(--color-text-brand)_26%,var(--color-border-subtle))] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] sm:p-7">
+                  <div className="flex flex-col gap-3.5">
+                    {pillars.slice(1).map((p, i) => (
+                      <div key={i} className="flex items-baseline gap-3.5">
+                        <span className="shrink-0 text-[22px] font-bold leading-none tabular-nums text-[color-mix(in_srgb,var(--color-text-brand)_55%,transparent)]">{p.num}</span>
+                        <span className="flex-1 text-[17px] font-bold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]">{p.title}</span>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)]">
+                          <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
+                          <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" strokeWidth="1.3" />
+                        </svg>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-5 text-footnote leading-relaxed text-[var(--color-text-tertiary)]">
+                    {ru ? "Ещё два вывода — с разбором по наблюдениям и цитатами из отзывов. Откройте прямо здесь за энергию." : "Two more findings — with the breakdown and review quotes. Unlock right here for energy."}
+                  </p>
+                  <div className="mt-4">
+                    <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть ещё два вывода" : "Unlock the other two"} />
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       <SegmentExplorer
         locale={locale}
-        pillars={pillars}
         opps={opps}
         apps={apps}
         competitorRead={thesis?.competitorRead}

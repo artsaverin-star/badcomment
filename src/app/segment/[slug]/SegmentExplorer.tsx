@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
@@ -39,13 +40,10 @@ export type ExpApp = {
 };
 export type ExpFlaw = { label: string; color: string; n: number };
 
-const TONE_DOT: Record<string, string> = { up: "#4ade80", down: "#ff8585", mixed: "#f5b301" };
-
-type Active = { kind: "overview" } | { kind: "idea"; i: number } | { kind: "app"; i: number } | null;
+type Active = { kind: "idea"; i: number } | { kind: "app"; i: number } | null;
 
 export default function SegmentExplorer({
   locale,
-  pillars,
   opps,
   apps,
   competitorRead,
@@ -54,7 +52,6 @@ export default function SegmentExplorer({
   balance,
 }: {
   locale: Locale;
-  pillars: ExpPillar[];
   opps: ExpOpp[];
   apps: ExpApp[];
   competitorRead?: string;
@@ -93,32 +90,6 @@ export default function SegmentExplorer({
 
   return (
     <>
-      {/* ── OVERVIEW CARD → three findings modal ── */}
-      {pillars.length > 0 && (
-        <button
-          type="button"
-          onClick={() => setActive({ kind: "overview" })}
-          className="group relative mt-12 block w-full overflow-hidden rounded-[24px] border border-[color-mix(in_srgb,var(--color-text-brand)_24%,var(--color-border-subtle))] bg-[var(--color-surface-card)] p-6 text-left shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] transition-colors hover:border-[var(--color-text-brand)] sm:p-7"
-        >
-          <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-28 opacity-[0.2]" style={{ background: "radial-gradient(120% 80% at 50% 0%, var(--color-text-brand) 0%, transparent 70%)" }} />
-          <div className="relative">
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-brand)]">{ru ? "Обзор ниши · бесплатно" : "Niche overview · free"}</span>
-              <span className="shrink-0 text-caption text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5">{ru ? "Открыть →" : "Open →"}</span>
-            </div>
-            <h2 className="mt-2 text-[24px] font-bold leading-[1.16] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{ru ? "Главное · три вывода" : "Key findings · three"}</h2>
-            <ol className="mt-4 flex flex-col gap-2.5">
-              {pillars.map((p, i) => (
-                <li key={i} className="flex items-baseline gap-3">
-                  <span className="shrink-0 text-footnote font-bold tabular-nums text-[color-mix(in_srgb,var(--color-text-brand)_75%,transparent)]">{p.num}</span>
-                  <span className="text-footnote leading-snug text-[var(--color-text-secondary)]">{p.title}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </button>
-      )}
-
       {/* ── IDEA MINI CARDS → idea modal ── */}
       {opps.length > 0 && (
         <section className="mt-12">
@@ -208,14 +179,16 @@ export default function SegmentExplorer({
         </section>
       )}
 
-      {/* ── MODAL ── */}
-      {active && (
-        <div className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
+      {/* ── MODAL — portalled to <body> to escape transformed/blurred ancestors ── */}
+      {active &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
           <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setActive(null)} className="absolute inset-0 bg-black/55 backdrop-blur-sm" />
           <div className="relative z-10 flex max-h-[88vh] w-full max-w-[640px] flex-col overflow-hidden rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_60px_-20px_rgba(0,0,0,0.6)] sm:rounded-[24px]">
             <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-5 py-3.5">
               <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-brand)]">
-                {active.kind === "overview" ? (ru ? "Главное · три вывода" : "Key findings") : active.kind === "idea" ? (ru ? `Возможность ${active.i + 1}` : `Opportunity ${active.i + 1}`) : ru ? "Разбор приложения" : "App breakdown"}
+                {active.kind === "idea" ? (ru ? `Возможность ${active.i + 1}` : `Opportunity ${active.i + 1}`) : ru ? "Разбор приложения" : "App breakdown"}
               </span>
               <button type="button" onClick={() => setActive(null)} className="flex size-8 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                 <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>
@@ -223,40 +196,6 @@ export default function SegmentExplorer({
             </div>
 
             <div className="overflow-y-auto px-5 py-6 sm:px-7">
-              {/* OVERVIEW — three findings */}
-              {active.kind === "overview" && (
-                <div className="flex flex-col">
-                  {pillars.map((p, i) => (
-                    <div key={i} className="border-t border-[var(--color-border-subtle)] py-7 first:border-t-0 first:pt-0">
-                      <div className="flex gap-4">
-                        <span className="shrink-0 text-[34px] font-bold leading-none tabular-nums text-[color-mix(in_srgb,var(--color-text-brand)_70%,transparent)]">{p.num}</span>
-                        <div className="min-w-0 flex-1">
-                          <h3 className="text-[21px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{p.title}</h3>
-                          <p className="mt-2.5 text-footnote leading-[1.6] text-[var(--color-text-secondary)]">{p.dek}</p>
-                          <div className="mt-5 flex flex-col divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
-                            {p.findings.map((f, k) => (
-                              <details key={k} className="group/f">
-                                <summary className="flex cursor-pointer list-none items-center gap-3 py-3 [&::-webkit-details-marker]:hidden">
-                                  <span className="size-2 shrink-0 rounded-full" style={{ background: TONE_DOT[f.tone] }} />
-                                  <span className="min-w-0 flex-1 text-footnote font-medium leading-snug text-[var(--color-text-primary)]">{f.title}</span>
-                                  <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
-                                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                                </summary>
-                                <div className="pb-4 pl-5">
-                                  {f.plus && <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]"><span className="font-semibold text-[#4ade80]">+ </span>{f.plus}</p>}
-                                  {f.minus && <p className="mt-1 text-footnote leading-relaxed text-[var(--color-text-secondary)]"><span className="font-semibold text-[#ff8585]">− </span>{f.minus}</p>}
-                                  {f.quotes.length > 0 && <div className="mt-3"><Quotes list={f.quotes} /></div>}
-                                </div>
-                              </details>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
               {/* IDEA */}
               {active.kind === "idea" && (() => {
                 const op = opps[active.i];
@@ -369,8 +308,9 @@ export default function SegmentExplorer({
               })()}
             </div>
           </div>
-        </div>
-      )}
+        </div>,
+          document.body,
+        )}
     </>
   );
 }
