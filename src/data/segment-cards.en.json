@@ -4302,5 +4302,375 @@
    }
   ],
   "hygiene": []
+ },
+ "weather-apps": {
+  "product": [
+   {
+    "title": "\"Rain\" on screen — clear sky out the window",
+    "plus": null,
+    "minus": "The one job a weather app has is to match what you actually see outside, yet apps routinely show precipitation that isn't there and miss the rain that is. Every mismatch erodes trust faster than any bug ever could."
+   },
+   {
+    "title": "Sirens blaring — app silent",
+    "plus": null,
+    "minus": "At the exact moment weather turns dangerous, the app fails to issue a tornado or storm warning — the one thing people kept it for. A single miss like that means an instant uninstall."
+   },
+   {
+    "title": "Radar widget pulled — users left en masse",
+    "plus": null,
+    "minus": "The live radar on the home screen was the only reason people kept MyRadar. Moving it behind a paywall triggered a mass exodus — users migrated directly to whichever app still offered the widget for free."
+   },
+   {
+    "title": "Radar shows the past; people need the future",
+    "plus": null,
+    "minus": "People open radar to see what's coming at them, yet they get a 5–120 minute loop with no forward view. Future cast is a separate job — and it's frequently locked behind a paywall or simply broken."
+   },
+   {
+    "title": "Temperature off by 10 degrees",
+    "plus": null,
+    "minus": "A user dresses for the app's reading, steps outside, and finds reality 10–13 degrees different. Getting the single most basic number wrong wipes out everything else — people stop planning their day around the app."
+   },
+   {
+    "title": "Storm rolls in — app won't open",
+    "plus": null,
+    "minus": "Reliability during severe weather isn't just another bug; it's a strategic responsibility. That's precisely when apps crash most often or drown in ads — and precisely when it's unforgivable."
+   },
+   {
+    "title": "Whole professions run on weather, yet no tool is built for them",
+    "plus": "Painters, sailors, pilots, anglers, truckers, cyclists, storm chasers — each has one decisive parameter (dew point, gusts, swell, lightning), and they pay for whatever source doesn't lie to them.",
+    "minus": null
+   },
+   {
+    "title": "Multi-model comparison — an underrated superpower",
+    "plus": "Being able to compare GFS and ECMWF side by side under one map is exactly why enthusiasts and professionals stick with Windy and Weawow. It turns the app from a single opinion into a decision-making tool.",
+    "minus": null
+   },
+   {
+    "title": "A local sensor beats a pretty map",
+    "plus": null,
+    "minus": "People in \"difficult\" locations — mountains, gorges, coastlines, underserved regions — routinely get wrong radar readings. Whoever builds out station density and delivers real local Doppler takes this loyal segment outright."
+   },
+   {
+    "title": "Humor and personality give people a reason to open the app",
+    "plus": "CARROT proved that a weather app's character creates a daily ritual and emotional attachment that keeps users coming back. That's a rare non-functional moat in a category where everyone shows the same numbers.",
+    "minus": null
+   },
+   {
+    "title": "Personality without a volume knob — reason to delete",
+    "plus": null,
+    "minus": "The same character, forced at the wrong moment or with no off-switch (audio on the bus, jokes that land wrong), repels users. Delight only works when users control the tone and the volume."
+   },
+   {
+    "title": "Forced AI assistant alienates loyal users",
+    "plus": null,
+    "minus": "A floating chatbot with no dismiss button jammed into a weather app reads as contempt for anyone who just wants numbers. AI for its own sake is a negative feature — it drives away longtime paying users."
+   },
+   {
+    "title": "Ads kill the moment of use",
+    "plus": null,
+    "minus": "A structural gap: the entire category monetizes through aggressive, fake-close ads placed directly in the path to the radar. A clean, ad-free paid product reads as a positioning statement, not just a feature."
+   },
+   {
+    "title": "Privacy as a deliberate buying decision",
+    "plus": "A growing segment chooses a weather app specifically because data isn't sold and tracking can be turned off. \"No tracking\" earns the same loud praise as accuracy — this is a mature market signal, not a fringe concern.",
+    "minus": null
+   },
+   {
+    "title": "Notifications: either floods you or goes quiet",
+    "plus": null,
+    "minus": "Fine-grained alert control is unfinished work across the board: lightning pings every three minutes, hurricane warnings for locations 5,000 km away, flood alerts where there's no water. Control by type, distance, and severity barely exists anywhere."
+   },
+   {
+    "title": "The widget is the product",
+    "plus": null,
+    "minus": "For most users the app is the home-screen widget: broken refresh cycles, wrong temperatures, and missing features there hurt more than anything inside the app. The glanceable layer cannot be treated as secondary."
+   },
+   {
+    "title": "Data source transparency is the currency of trust",
+    "plus": null,
+    "minus": "When users can see where a number came from (NOAA, a specific model), trust grows; when \"NOAA\" is just a label over third-party data, trust collapses. Transparent data provenance is a strategic lever."
+   },
+   {
+    "title": "Activity planning is its own forecast job",
+    "plus": "People don't \"check the weather\" — they plan a hike, a bike ride, a fishing trip, a paint job, a surf session. A forecast built around a specific activity with a clear go/no-go verdict is a distinct product, not a table row.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "travel-planning": {
+  "product": [
+   {
+    "title": "Auto-import from email — promised, but broken",
+    "plus": null,
+    "minus": "Parsing emails and PDFs from airlines and travel agents is the category's flagship feature, and it falls apart in practice: a quarter of emails never get picked up, bookings duplicate, and PDFs still have to be typed in by hand."
+   },
+   {
+    "title": "The website does everything; the app is a stripped-down shadow",
+    "plus": null,
+    "minus": "The web version offers prices, filters, routes, and transport options — the mobile app loses half of that. People give it one star and go back to the browser on their phone."
+   },
+   {
+    "title": "Group planning — when it works, it's the reason people stay",
+    "plus": "Being able to plan a trip together with family and fellow travelers takes the pressure off the sole organizer and keeps everyone on the same page — this is the most commonly cited reason to love the app.",
+    "minus": null
+   },
+   {
+    "title": "No shareable trip link — just archaic email",
+    "plus": null,
+    "minus": "You can't invite a travel companion via a link: either blast everyone an email, or the invitee can't join someone else's trip at all. In 2026, this kills the entire point of a collaborative tool."
+   },
+   {
+    "title": "Logs you out mid-trip and won't let you back in",
+    "plus": null,
+    "minus": "The app signs you out on its own and refuses to let you log back in — at exactly the moment you need it most, while traveling. Data isn't cached locally, so without a connection your whole itinerary disappears."
+   },
+   {
+    "title": "Dragging stops and auto-shifting dates drives people crazy",
+    "plus": null,
+    "minus": "Building a route by dragging waypoints should be simple, but stops won't budge or jump wildly; adding dates auto-reorders everything else. A five-minute job turns into a half-hour fight."
+   },
+   {
+    "title": "Interrogated before seeing a single useful screen",
+    "plus": null,
+    "minus": "Ten questions, mandatory date of birth, full name, address, and forced GPS — all before the user has seen what the app can even do. Huge numbers uninstall without ever reaching their first trip."
+   },
+   {
+    "title": "The planner mutates into a paid-tour storefront",
+    "plus": null,
+    "minus": "Beloved planning tools have been hollowed out into catalogs of third-party tours: custom addresses and places can no longer be added, customization has been stripped, and you're left choosing from preset packages. Classic enshittification, happening in plain sight."
+   },
+   {
+    "title": "Outside the US and Google Maps coverage — nothing",
+    "plus": null,
+    "minus": "Apps fail to recognize addresses in the UK, Mexico, and Canada, and break entirely in China and South Korea without Google Maps. Whole regions are left uncovered, leaving travelers stranded."
+   },
+   {
+    "title": "Place data has gone stale — closed venues still listed as open",
+    "plus": null,
+    "minus": "Burned-down and long-closed attractions still appear in pre-built itineraries, opening hours are wrong, and coordinates lead to the wrong spot. Trust in the planner collapses the first time something fails on the ground."
+   },
+   {
+    "title": "AI \"assistant\" wipes weeks of hand-built work",
+    "plus": null,
+    "minus": "The forced AI reshuffles everything into a single day, shreds a plan on the morning of a trip, and erases a month of work when starting a new itinerary. Automation without undo and without a safety net is an anti-feature."
+   },
+   {
+    "title": "\"Everything in one place\" — a winning idea when it actually comes together",
+    "plus": "Flights, hotels, bookings, restaurants, and budget all in one place instead of an email folder and a spreadsheet — that's exactly why people come, and exactly why they give five stars. Centralizing a complex multi-city trip is the core value.",
+    "minus": null
+   },
+   {
+    "title": "The day map as a logistics artifact",
+    "plus": "The central value is seeing your whole day on a map with distances and walking times between stops, so you can sequence things sensibly and not zigzag across a city. The map — not a list — is what makes a trip feel doable.",
+    "minus": null
+   },
+   {
+    "title": "Proactive trip-watching — an underrated \"wow\" moment",
+    "plus": "When the app monitors a flight on its own, catches a disruption, and issues a refund without the user lifting a finger — that turns a one-time tool into a permanent habit and drives word-of-mouth.",
+    "minus": null
+   },
+   {
+    "title": "Trip journal and memories — a beloved job in its own right",
+    "plus": "Documenting the journey, sharing it with loved ones along the way, and ending up with a photo book — this is a standalone use case that people pay for willingly and without any resentment about ads.",
+    "minus": null
+   },
+   {
+    "title": "Live route tracking draws straight lines instead of the actual path",
+    "plus": null,
+    "minus": "The travel tracker's headline feature — an automatic trail of your journey — has been drawing straight-line outliers instead of real routes for years, even at maximum accuracy. People end up disabling the very thing they downloaded the app for."
+   },
+   {
+    "title": "Can't add your own places — locked inside someone else's database",
+    "plus": null,
+    "minus": "Hotels can't be found by name or address, custom locations can't be inserted into a route, and wishlist items aren't selectable. A planner that rejects the user's own data stops being a planner."
+   }
+  ],
+  "hygiene": []
+ },
+ "audiobooks": {
+  "product": [
+   {
+    "title": "You \"unlocked\" a book — and lose it the moment you cancel",
+    "plus": null,
+    "minus": "You spent a credit on a book, but it vanishes the instant you stop paying: you're essentially renting something you paid for separately. This is the single biggest reason people flee Everand, Storytel, and BookBeat back to Audible."
+   },
+   {
+    "title": "$15 a month buys you one book — and the credit expires",
+    "plus": null,
+    "minus": "A monthly subscription gives you exactly one credit for a book that costs the same price elsewhere, and the unused credit burns without warning. People do the math and conclude it's cheaper to just buy the book outright."
+   },
+   {
+    "title": "Pay for hours, not books — and quit a bad one guilt-free",
+    "plus": "The \"pay for listening hours rather than credits\" model eliminates the core pain: you can abandon a boring book after an hour without losing an expensive credit. That's a direct argument for switching from Audible.",
+    "minus": null
+   },
+   {
+    "title": "The app loses your place over and over",
+    "plus": null,
+    "minus": "The genre's number-one technical pain: the player rewinds to the start of a chapter or to where the session began, forcing you to scrub manually for where you left off. On long books this destroys the whole use case."
+   },
+   {
+    "title": "Sleep timer broken: rewinds the book after it stops",
+    "plus": null,
+    "minus": "Instead of being convenient, the sleep timer has become a source of fury: after you doze off the player rewinds, and there's no way to cancel the rewind. For people who listen while working, a forced timer makes the app essentially unusable."
+   },
+   {
+    "title": "The narrator makes a book — or buries it",
+    "plus": "When a narrator voices each character and holds the pace, listeners live inside the book and tear through the whole series. A great narrator is the biggest driver of upsells.",
+    "minus": "The reverse is equally true: flat or robotic delivery kills even a strong story — people abandon a book because of the voice, not the plot."
+   },
+   {
+    "title": "Backlash against AI narration and AI-generated descriptions",
+    "plus": null,
+    "minus": "The listener community aggressively rejects generative AI: adding AI features tanks ratings overnight, AI narrators and garbled AI summaries are dismissed as \"AI slop.\" \"Narrated by a real human\" is becoming a quality mark."
+   },
+   {
+    "title": "A library in your pocket for free — but with a 20-week wait",
+    "plus": "Access to thousands of audiobooks at no cost via a library card is Libby's core value; for visually impaired users and people who get through two or three books a week, it's a financial lifesaver.",
+    "minus": "But the limit on digital copies creates waits stretching into weeks and months: half of users simply cancel their holds. That's the opening paid services walk through."
+   },
+   {
+    "title": "Geo- and language lock: you pay but you can't listen",
+    "plus": null,
+    "minus": "Apps bind you tightly to a country and a language: Swedish is forced on Swedish users, Finnish books are pushed at English speakers, and a just-announced title is \"not available in your region.\" A huge population of migrants and multilingual listeners simply can't use these services."
+   },
+   {
+    "title": "\"Snap a photo of the book and we'll read it to you\" — the ads lie",
+    "plus": null,
+    "minus": "A TTS service lures users with the promise of \"photograph a book and listen,\" but in practice only the cover text is read, or you have to scan every page individually. The gap between the promise and reality triggers a wave of outrage and instant cancellations."
+   },
+   {
+    "title": "TTS skips paragraphs and stumbles over words",
+    "plus": "For people with dyslexia, learners, and those with impaired vision, TTS narration of any document or PDF is genuine value worth paying for.",
+    "minus": "But the engine skips sentences and paragraphs, mispronounces homographs, and runs sentences together without pauses — it falls apart on serious or technical texts. Synthesis quality is the product's hard ceiling."
+   },
+   {
+    "title": "Reading and listening at the same time — unmet demand",
+    "plus": null,
+    "minus": "The same unsatisfied request surfaces across every app: show the text in sync with the audio. Language learners, people parsing unfamiliar words, and anyone who wants to follow along visually all want it — and almost no app offers it."
+   },
+   {
+    "title": "The visually impaired are a core audience, not a niche",
+    "plus": "For people with vision loss, audiobooks aren't a convenience — they're the only way to \"read\"; these users become the most loyal daily listeners.",
+    "minus": "Yet services trip over basic accessibility: screen readers can't even log in — a blind user is stopped at the door."
+   },
+   {
+    "title": "Fine-grained speed control and chapter navigation — for power listeners",
+    "plus": null,
+    "minus": "Experienced listeners want precise speed adjustment (1% steps, not 10%) and proper chapter navigation, but the progress bar almost everywhere spans the entire book, accidental scrubs are constant, and jumping to a chapter is often impossible."
+   },
+   {
+    "title": "Search and discovery are broken — nothing new to find",
+    "plus": null,
+    "minus": "Finding a specific book or stumbling on something new is nearly impossible: filters are erratic, search dumps you back into ebooks, you can't filter by duration or genre. Users are stuck cycling through the same Top 100 and coming up empty."
+   },
+   {
+    "title": "Classic books for free — but ads and grifters ruin everything",
+    "plus": "Free public-domain audiobooks narrated by human volunteers are powerful value for fans of the classics and bedtime listeners.",
+    "minus": "Unofficial wrappers profit off volunteers' work: ear-splitting ads in foreign languages between chapters, phantom charges, AI-voiced announcements. Trust in the brand itself gets eroded."
+   },
+   {
+    "title": "Offline promised, but fails on planes and without signal",
+    "plus": null,
+    "minus": "\"Downloaded\" books refuse to play without internet: either \"download expired\" or your place is lost when you lose signal. For listeners commuting, riding the subway, or flying, this breaks the primary use case."
+   }
+  ],
+  "hygiene": []
+ },
+ "affirmations": {
+  "product": [
+   {
+    "title": "Your own voice changes everything: recording affirmations yourself",
+    "plus": "The deepest user attachment comes from hearing affirmations in their own voice — it \"brings the inner voice to life\" and hits negative thought patterns harder than any pre-made content.",
+    "minus": null
+   },
+   {
+    "title": "Self-recording is fragile: clips cut off and disappear",
+    "plus": null,
+    "minus": "The signature feature — recording your own voice — is technically unreliable: clips cut off mid-sentence, don't back up to the cloud, and vanish when you switch phones. Users lose months of personal work."
+   },
+   {
+    "title": "AI voices kill the feeling: artificiality pushes people away",
+    "plus": null,
+    "minus": "Synthetic AI voices and AI-generated images read as fake in exactly the place where authenticity matters most — users don't trust a machine telling them to love themselves."
+   },
+   {
+    "title": "Your own words for your own situation — not generic slogans",
+    "plus": "The most frequent feature request is \"let me write my own\"; the value is in crafting an affirmation around a specific pain, healing, abuse, or upcoming meeting.",
+    "minus": null
+   },
+   {
+    "title": "Your personal library wiped out when you switch phones",
+    "plus": null,
+    "minus": "A user's accumulated affirmation library is emotional labor, and losing it on a phone upgrade or app update feels like a personal loss — not a bug."
+   },
+   {
+    "title": "Widgets and pop-ups catch you at exactly the right moment",
+    "plus": "Delivery is everything: an affirmation on a home-screen widget all day, and random reminders that hit right when your mood dips — that's the mechanism that actually works.",
+    "minus": null
+   },
+   {
+    "title": "When delivery breaks, the whole point collapses",
+    "plus": null,
+    "minus": "If notifications, pop-ups, or background playback stop working, the product's core mechanism fails: an active practice without delivery is just a useless icon."
+   },
+   {
+    "title": "Affirmations as a quiet anchor in crisis",
+    "plus": "Affirmations genuinely work as a lifeline during acute periods — trauma, loss, depression, recovery; this isn't a \"nice habit,\" it's a tool for staying grounded on the hardest days.",
+    "minus": null
+   },
+   {
+    "title": "A warm companion turns practice into habit",
+    "plus": "A pet-chick character, nurturing it and going on adventures together, gives users a reason to return every day; gamification makes self-care feel like a pleasure rather than a chore.",
+    "minus": null
+   },
+   {
+    "title": "Companion bloat kills the self-care experience",
+    "plus": null,
+    "minus": "Endless features, shops, and cross-promotions turn a simple morning practice into an exhausting quest; the core \"check in and feel calm\" gets buried under layers of clutter."
+   },
+   {
+    "title": "Content runs out: repetition kills the effect",
+    "plus": null,
+    "minus": "Ready-made affirmations loop quickly — users see the same text over and over, novelty disappears, and emotional resonance disappears with it. Fresh content drives retention."
+   },
+   {
+    "title": "Pushed religion alienates secular users",
+    "plus": null,
+    "minus": "Slipping in references to God and advertising Christian apps inside a paid product feels like an intrusion; faith personalization is a real dividing line in this segment."
+   },
+   {
+    "title": "Listening as you fall asleep: the audio ritual before bed",
+    "plus": "Looped audio with a sleep timer and background music has become an evening ritual — people fall asleep to their own affirmations; this is a distinct use case, not just a \"daytime\" one.",
+    "minus": null
+   },
+   {
+    "title": "Playing on top of your own music and podcasts",
+    "plus": "Users want to hear affirmations layered over their own playlist, YouTube, or as ambient background — the product as an audio layer of life, not a standalone app demanding full attention.",
+    "minus": null
+   },
+   {
+    "title": "Audio sessions cut out via background play and Bluetooth",
+    "plus": null,
+    "minus": "A long audio session is the product's foundation — and it breaks: playback cuts out after 10 minutes, Bluetooth earbuds disconnect. A ritual that doesn't finish can't become a habit."
+   },
+   {
+    "title": "Prompts turn a blank page into a practice",
+    "plus": "Pre-written guiding questions remove the paralysis of a blank page: people don't know where to start, and a \"answer this question\" structure makes reflection manageable and keeps them coming back.",
+    "minus": null
+   },
+   {
+    "title": "Blunt prompts wound vulnerable users",
+    "plus": null,
+    "minus": "Overly direct prompts (\"what do you love about yourself?\") on day one hurt people who are already struggling; food-centric goals can trigger people with eating disorders. Tone care is essential."
+   },
+   {
+    "title": "Manipulative onboarding poisons the first touch",
+    "plus": null,
+    "minus": "Ten to twenty minutes of \"personal questions\" disguised as a mental health assessment, then a surprise paywall at the end: users feel deceived by the very product that promised to care for them. Trust collapses before the first real experience."
+   }
+  ],
+  "hygiene": []
  }
 }

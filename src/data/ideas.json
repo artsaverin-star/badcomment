@@ -22122,5 +22122,2006 @@
    "antiFeatures": [],
    "monetization": "Финансируется брендами/ретейлом как канал удержания; премиум-уровень для мультипитомцев."
   }
+ },
+ {
+  "slug": "weather-apps-1",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Честный погодник «совпало/нет»",
+  "oneLiner": "Погодник, который ежедневно показывает, насколько вчерашний прогноз совпал с реальностью, и выбирает источник по фактической точности в твоей точке.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 172
+  },
+  "reviewGrid": [
+   {
+    "quote": "Right now, the app says \"Rain,\" and yet there is barely a cloud in the sky. Nothing but false information.",
+    "rating": 1,
+    "app": "Weawow Weather"
+   },
+   {
+    "quote": "Reality of weather rarely matches the widgets or the forecast.",
+    "rating": 2,
+    "app": "Weawow Weather"
+   },
+   {
+    "quote": "it shows dark red in my area but not even drizzle.",
+    "rating": 1,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "I appreciate that you can compare different forecast models.",
+    "rating": 5,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "Compare forecast models is the most unique and killer feature that nearly makes up for it.",
+    "rating": 3,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "I found that you were more accurate, when it came to the place I live.",
+    "rating": 5,
+    "app": "AccuWeather"
+   },
+   {
+    "quote": "95 times your info or prediction is 100% wrong, 5 times by luck it's 99% right.",
+    "rating": 1,
+    "app": "AccuWeather"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный погодник «совпало/нет»",
+    "obsCount": 7,
+    "apps": [
+     "Weawow Weather",
+     "RainViewer",
+     "Windy.com",
+     "AccuWeather"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все приложения обещают точность, но ни одно её не доказывает; пользователь узнаёт о промахе, только выйдя на улицу под «несуществующий» дождь.",
+  "idea": {
+   "pitch": "Доверие — единственная валюта категории, и оно сейчас держится на слепой вере. Приложение, которое открыто меряет себя реальностью и автоматически переключается на наиболее точную для региона модель, забирает тех, кого уже однажды обманули конкуренты.",
+   "features": [
+    "ежедневный «score совпадения» вчерашнего прогноза с фактом",
+    "авто-выбор лучшей модели по истории точности в точке",
+    "пометка, какой источник дал каждое число",
+    "кнопка «у меня сейчас иначе» — краудфидбек для калибровки",
+    "честный индикатор уверенности вместо ложно-точного процента"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка без рекламы за полную историю точности и сравнение моделей; базовый слой с текущим прогнозом бесплатен, чтобы не нарушать ожидание «погода должна быть доступна»."
+  }
+ },
+ {
+  "slug": "weather-apps-2",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Радар-виджет, который не отнимут",
+  "oneLiner": "Живой радар на домашнем экране как ядро продукта, навсегда бесплатный и без рекламы поверх него.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 172
+  },
+  "reviewGrid": [
+   {
+    "quote": "literally downloaded it for the live radar widget. the latest update removed that, so I will be uninstalling and finding another app that provides a radar widget.",
+    "rating": 1,
+    "app": "MyRadar Weather Radar"
+   },
+   {
+    "quote": "The homescreen widget displaying radar map is now paywallwed behind a subscription. The free widget was the only reason I use this weather app",
+    "rating": 1,
+    "app": "MyRadar Weather Radar"
+   },
+   {
+    "quote": "Since MyRadar decided to place their best free feature (radar widget) behind a subscription paywall, I decided to install Rain Viewer",
+    "rating": 5,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "try Rain Viewer - has a similar radar widget in the free app.",
+    "rating": 1,
+    "app": "MyRadar Weather Radar"
+   },
+   {
+    "quote": "Randomly took away radar widget. probably to put it with premium features. uninstall.",
+    "rating": 1,
+    "app": "MyRadar Weather Radar"
+   },
+   {
+    "quote": "the widget no longer refreshes automatically",
+    "rating": 3,
+    "app": "Flowx Weather"
+   },
+   {
+    "quote": "the widget was the only part I really used",
+    "rating": 1,
+    "app": "1Weather Forecast"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Радар-виджет, который не отнимут",
+    "obsCount": 7,
+    "apps": [
+     "MyRadar Weather Radar",
+     "RainViewer",
+     "Flowx Weather",
+     "1Weather Forecast"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "MyRadar и Clime запаролили или сломали именно радар-виджет — единственное, ради чего их держали, — и тысячи людей прямо сейчас ищут замену.",
+  "idea": {
+   "pitch": "На наших глазах произошёл готовый исход: пользователи открыто называют, к кому уходят. Продукт, чей манифест — «радар-виджет бесплатен всегда», ловит миграционную волну и строит доверие на обещании не делать того, что сделали конкуренты.",
+   "features": [
+    "настраиваемый живой радар-виджет нескольких размеров",
+    "плавная анимация прошлого и будущего на самом виджете",
+    "обновление в фоне без открытия приложения",
+    "выбор слоёв (дождь, молнии, снег) прямо на виджете",
+    "явное обещание: ядро виджета не уйдёт в подписку"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за расширенные слои, длинный футуркаст и приоритетные алерты; сам радар-виджет и базовый слой осадков бесплатны как принципиальная позиция бренда."
+  }
+ },
+ {
+  "slug": "weather-apps-3",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Защитник в опасную погоду",
+  "oneLiner": "Погодник, чья одна работа — гарантированно предупредить о торнадо, шторме и молнии и мгновенно открыть радар без рекламы.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 172
+  },
+  "reviewGrid": [
+   {
+    "quote": "The tornado siren went off, the news says tornado warning. But the app says lightning detected, thats it.",
+    "rating": 1,
+    "app": "AccuWeather"
+   },
+   {
+    "quote": "Literally sitting in a tornado warning for 10 minutes and this app still can't warn me.",
+    "rating": 1,
+    "app": "Weawow Weather"
+   },
+   {
+    "quote": "We experienced a huge storm with tornado watch warnings. I received alerts from google but not this weather app.",
+    "rating": 1,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "When there's a severe storm approaching and I need to check the radar quickly, the last thing I want is to sit through ads.",
+    "rating": 1,
+    "app": "AccuWeather"
+   },
+   {
+    "quote": "I have a dangerous winter storm approaching and the app decides to not work, app won't launch at all",
+    "rating": 3,
+    "app": "Clime NOAA Weather Radar"
+   },
+   {
+    "quote": "not getting tornado warnings in my area.",
+    "rating": 2,
+    "app": "AccuWeather"
+   },
+   {
+    "quote": "i enjoy the fact it has tornado and other inclement weather warnings",
+    "rating": 5,
+    "app": "1Weather Forecast"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Защитник в опасную погоду",
+    "obsCount": 7,
+    "apps": [
+     "AccuWeather",
+     "Weawow Weather",
+     "Weather Underground",
+     "Clime NOAA Weather Radar",
+     "1Weather Forecast"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Именно в минуту, ради которой держат приложение, оно молчит, не открывается или топит сирену в рекламе — и это единственный непрощаемый провал.",
+  "idea": {
+   "pitch": "Безопасность — самый сильный мотив удержания и самая частая точка предательства. Продукт, который ставит во главу угла безотказность алертов и мгновенный доступ к радару в шторм, занимает позицию «приложение, которое не подведёт, когда это важнее всего».",
+   "features": [
+    "дублирование официальных алертов (NWS/локальные) с проверкой доставки",
+    "мгновенный экран опасности без рекламы и без загрузки",
+    "тонкая настройка: тип угрозы, расстояние, порог важности",
+    "офлайн-режим последнего известного радара при потере сети",
+    "тихий режим для дальних событий, громкий — для приближающихся"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за расширенный футуркаст, треки штормов и приоритетные пуш-каналы; базовые предупреждения о смертельной погоде бесплатны всегда — это вопрос репутации, а не дохода."
+  }
+ },
+ {
+  "slug": "weather-apps-4",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Погода под дело: профессии и активности",
+  "oneLiner": "Прогноз, переведённый в ответ «годится или нет» для покраски, похода, рыбалки, велозаезда, полёта или серфинга.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 172
+  },
+  "reviewGrid": [
+   {
+    "quote": "I'm a professional painter who does a lot of exterior work so it's critical that I know exactly what the temperature, humidity, chance of rain, dew point etc. is",
+    "rating": 5,
+    "app": "AccuWeather"
+   },
+   {
+    "quote": "I have a sailboat and I use this app everyday I may use it three or four times a day",
+    "rating": 5,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "This is THE BEST weather forecasting app I've used, and I've used it for 7 or 8 years now.",
+    "rating": 5,
+    "app": "Flowx Weather"
+   },
+   {
+    "quote": "the long distant forecasts, including Bike and Running forecasts are very helpful.",
+    "rating": 4,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "As someone who works outdoors, I really miss seeing lightning data.",
+    "rating": 3,
+    "app": "Clime NOAA Weather Radar"
+   },
+   {
+    "quote": "very authentic and rely on for everyday activities and sailing",
+    "rating": 5,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "use windfinder instead at least u will able to plan your works correctly",
+    "rating": 1,
+    "app": "Windy.com"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Погода под дело: профессии и активности",
+    "obsCount": 7,
+    "apps": [
+     "AccuWeather",
+     "Windy.com",
+     "Flowx Weather",
+     "Weather Underground",
+     "Clime NOAA Weather Radar"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Маляры, моряки, пилоты, рыбаки и велосипедисты сами вычитывают решающий параметр из общей таблицы; ни одно приложение не собирает прогноз вокруг их конкретной работы.",
+  "idea": {
+   "pitch": "Эти пользователи проверяют погоду по три-четыре раза в день и платят за источник, который не врёт по их параметру. Профильные профили (точка росы для маляра, порывы и волна для моряка, окна без осадков для велосипедиста) превращают погодник в профессиональный инструмент с высокой готовностью платить.",
+   "features": [
+    "профили активностей с собственным решающим параметром",
+    "вердикт «окно подходит / не подходит» вместо сырых цифр",
+    "точка росы, порывы, волна, видимость, молнии по запросу профиля",
+    "напоминание о ближайшем подходящем окне для дела",
+    "сохранённые места и расписания под повторяющиеся занятия"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка по профессиональным профилям и расширенным параметрам (морской, авиационный, аграрный пакеты); общий бытовой прогноз бесплатен как точка входа."
+  }
+ },
+ {
+  "slug": "weather-apps-5",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Спокойный погодник: без рекламы, без трекинга, без ИИ",
+  "oneLiner": "Приложение-антипод осады: чистый экран, никакой слежки, никакого навязанного чат-бота — только погода.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 172
+  },
+  "reviewGrid": [
+   {
+    "quote": "Best weather app by far. Customizable, clean, no ads, no tracking.",
+    "rating": 5,
+    "app": "Weawow Weather"
+   },
+   {
+    "quote": "great weather app, but most importantly it cares about privacy, all collected data is anonymous and never sold :D",
+    "rating": 5,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "There is so much data tracking here and no easy way to turn it all off: it destroys all trust.",
+    "rating": 1,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "New Update Has an AI Chatbot. Why? I can read and I can scroll.",
+    "rating": 2,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "get rid of the AI assistant, nobody cares about AI.",
+    "rating": 1,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "This app is so infiltrated with ads that it makes it impossible to use.",
+    "rating": 1,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "It has everything you need without ads. It is customizable.",
+    "rating": 5,
+    "app": "Weawow Weather"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Спокойный погодник: без рекламы, без трекинга, без ИИ",
+    "obsCount": 7,
+    "apps": [
+     "Weawow Weather",
+     "Windy.com",
+     "RainViewer",
+     "1Weather Forecast"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Категория массово монетизирует через фейково-закрываемую рекламу и впихнутый ИИ-ассистент без выключателя, выгоняя даже платных лояльных пользователей.",
+  "idea": {
+   "pitch": "Лояльность хвалит «no ads, no tracking» так же громко, как точность, а навязанный ИИ стал триггером удаления. Позиционирование «спокойный, приватный, уважительный погодник» — это ров на ценностях, который рекламно-зависимым лидерам структурно трудно скопировать.",
+   "features": [
+    "принципиально без рекламы во всех платных слоях",
+    "отключаемый трекинг и прозрачная политика «данные не продаём»",
+    "никаких навязанных ИИ-ассистентов; ИИ только по явному запросу",
+    "чистый быстрый интерфейс с приоритетом информации",
+    "честная разовая покупка как альтернатива подписке"
+   ],
+   "antiFeatures": [],
+   "monetization": "Недорогая подписка или честный lifetime за полный набор без рекламы; ценность продаётся как спокойствие и приватность, а не как «снятие» искусственных ограничений."
+  }
+ },
+ {
+  "slug": "weather-apps-6",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Футуркаст «что идёт на меня»",
+  "oneLiner": "Радар, который по умолчанию показывает будущее — куда движутся осадки и через сколько накроет конкретно тебя.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 172
+  },
+  "reviewGrid": [
+   {
+    "quote": "How about a future cast ? It's actually called a forecast for a reason.",
+    "rating": 3,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "can't run the future map anymore. only back 2 hours to now. used to be the best app to see what's coming.",
+    "rating": 1,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "Why doesn't the radar show the future anymore?",
+    "rating": 3,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "Excellent rain start and stop notifications!",
+    "rating": 5,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "Rain Viewer accurately shows rain coming in from some time/distance away, and accurately informs in time when it will arrive",
+    "rating": 5,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "I love this weather app, especially the minute by minute rain",
+    "rating": 5,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "you can't view more than 2h ahead in the free version",
+    "rating": 3,
+    "app": "RainViewer"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Футуркаст «что идёт на меня»",
+    "obsCount": 7,
+    "apps": [
+     "Weather Underground",
+     "1Weather Forecast",
+     "RainViewer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Половина приложений показывают только прошлые 5–120 минут радара или прячут футуркаст в подписку, хотя люди открывают радар именно чтобы увидеть «что приближается».",
+  "idea": {
+   "pitch": "Главный вопрос пользователя — не «что было», а «через сколько начнётся дождь у меня». Продукт, где футуркаст с минутным обратным отсчётом до осадков в точке — стандартный бесплатный слой, закрывает самую частую невыполненную работу радара.",
+   "features": [
+    "футуркаст-радар по умолчанию вместо петли прошлого",
+    "обратный отсчёт «дождь через N минут» для текущей точки",
+    "уведомления о начале и окончании осадков",
+    "плавная шкала прошлое↔будущее одним движением",
+    "честная пометка снижения уверенности на дальнем горизонте"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за длинный горизонт футуркаста и точные минутные уведомления по нескольким местам; короткий футуркаст и старт/стоп дождя для одной точки бесплатны."
+  }
+ },
+ {
+  "slug": "weather-apps-7",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Гиперлокальный радар для «слепых зон»",
+  "oneLiner": "Погодник, который доводит плотность доплеровских станций и народных сенсоров там, где у больших радаров покрытия нет.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 172
+  },
+  "reviewGrid": [
+   {
+    "quote": "there's no radar coverage. I'd like to see more radar stations, especially Guiuan's local Doppler radar.",
+    "rating": 3,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "I live in a weird place, The New River Gorge in W.V.",
+    "rating": 1,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "They recently either removed or lost access to ALOT of weather stations so actual weather conditions are now massively inaccurate.",
+    "rating": 2,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "Shows radar everywhere but my location.",
+    "rating": 2,
+    "app": "MyRadar Weather Radar"
+   },
+   {
+    "quote": "Best meteorological app in Europe. One of the only few that have doppler velocities for EU.",
+    "rating": 5,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "Not accurate for where I live in Seeley Lake MT especially the temperature",
+    "rating": 4,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "keeps me posted of weather right where I am and not the city next to me.",
+    "rating": 5,
+    "app": "AccuWeather"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Гиперлокальный радар для «слепых зон»",
+    "obsCount": 7,
+    "apps": [
+     "RainViewer",
+     "Weather Underground",
+     "Windy.com",
+     "MyRadar Weather Radar",
+     "AccuWeather"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Жители гор, ущелий, побережий и регионов без покрытия систематически получают неверный радар, а крупные игроки ещё и теряют доступ к станциям.",
+  "idea": {
+   "pitch": "Точность по своей точке — то, за что держатся даже при слабом интерфейсе. Продукт, агрегирующий локальные доплеры, народные метеостанции и краудфидбек для «слепых зон», забирает лояльный, благодарный и почти не имеющий альтернатив сегмент в этих регионах.",
+   "features": [
+    "агрегация локальных доплеров и народных метеостанций",
+    "карта покрытия с честным указанием, где данных мало",
+    "краудсорс-подтверждение «идёт ли дождь у тебя сейчас»",
+    "приоритет ближайшей станции вместо усреднённой модели",
+    "запрос на добавление местного радара от сообщества"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за доступ к расширенной сети станций и высокому разрешению по региону; базовое покрытие и краудфидбек бесплатны, чтобы наращивать плотность данных."
+  }
+ },
+ {
+  "slug": "travel-planning-1",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "Папка-в-план: импорт без ручного ввода",
+  "oneLiner": "Пересылаешь любое письмо или PDF брони — через минуту получаешь структурированный день с рейсом, отелем и трансфером, без единого ручного поля.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 108
+  },
+  "reviewGrid": [
+   {
+    "quote": "About 1/4 of the emails actually import correctly. So, this app requires a lot of hours inputting plans manually",
+    "rating": 2,
+    "app": "Wanderlog Travel Planner"
+   },
+   {
+    "quote": "Document upload does not work when the travel itinerary comes in a pdf from a travel agent. One still has to manually load in every detail from the pdf",
+    "rating": 2,
+    "app": "TripIt"
+   },
+   {
+    "quote": "I forwarded by email airbnb reservations which it couldn't figure out. Then when I granted access to my Gmail it figured it out but put it in twice",
+    "rating": 2,
+    "app": "Wanderlog Travel Planner"
+   },
+   {
+    "quote": "tripit still has unfiled tab and Can't parse emails for the right info. it's comically bad and outdated",
+    "rating": 3,
+    "app": "TripIt"
+   },
+   {
+    "quote": "crashes to often. can't import my trips via email. now this app is useless",
+    "rating": 1,
+    "app": "TripIt"
+   },
+   {
+    "quote": "you can create one in Tripit in a tenth of the time by having it pull the reservations from your email",
+    "rating": 5,
+    "app": "TripIt"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Папка-в-план: импорт без ручного ввода",
+    "obsCount": 6,
+    "apps": [
+     "Wanderlog Travel Planner",
+     "TripIt"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Лидеры обещают автоимпорт, но парсят четверть писем, дублируют брони и не справляются с PDF турагента — все вынуждены забивать вручную.",
+  "idea": {
+   "pitch": "Сделай распознавание броней главным и единственным героем продукта: один адрес для пересылки, точный парсинг почты и PDF, мгновенная ручная правка спорных полей и дедупликация. Это и точка входа без онбординг-допроса, и ров, который лидеры годами не закрывают.",
+   "features": [
+    "Единый адрес для пересылки писем и общий «расшарь в приложение» для PDF и скриншотов",
+    "Парсер рейсов/отелей/трансферов с показом «уверенности» и быстрой ручной правкой",
+    "Автодедупликация одинаковых броней",
+    "Импорт из скриншота билета и фото бумажного ваучера",
+    "Подтверждение спорного поля в один тап, без переписывания всей брони"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — первая поездка и базовый импорт; подписка за безлимит поездок, парсинг PDF турагентов и приоритетную обработку. Честная ценность: продаём сэкономленные часы ввода, а не отключение базовых функций."
+  }
+ },
+ {
+  "slug": "travel-planning-2",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "Офлайн-первый план поездки",
+  "oneLiner": "Весь маршрут, брони и документы лежат на телефоне и открываются мгновенно в самолёте и в роуминге — без логина, без сети, без сюрпризов.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 108
+  },
+  "reviewGrid": [
+   {
+    "quote": "Why the app isn't designed to locally cache your info to always be available is beyond me. if you can't depend on it, what is the point?",
+    "rating": 1,
+    "app": "TripIt"
+   },
+   {
+    "quote": "Bug automatically signs me out and crashes. I'm in the middle of my trip. Thanks a lot. 2 years later this is still a problem",
+    "rating": 1,
+    "app": "TripIt"
+   },
+   {
+    "quote": "no longer working after update. just showing preffered langage pop up. we are in the MIDDLE of our trip",
+    "rating": 1,
+    "app": "Wanderlog Travel Planner"
+   },
+   {
+    "quote": "You can't actually have attachnents or use without wifi unless you subscribe",
+    "rating": 1,
+    "app": "Wanderlog Travel Planner"
+   },
+   {
+    "quote": "I am worried this will happen while on my trip and it will take as much time or more than I could have just had it all in my notes",
+    "rating": 3,
+    "app": "TripIt"
+   },
+   {
+    "quote": "it's very good in offline mode. definitely the Best one",
+    "rating": 4,
+    "app": "Sygic Travel Maps"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Офлайн-первый план поездки",
+    "obsCount": 6,
+    "apps": [
+     "TripIt",
+     "Wanderlog Travel Planner",
+     "Sygic Travel Maps"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Конкуренты выкидывают из аккаунта посреди поездки, не кэшируют данные локально и без сети показывают пустой экран — ровно когда план нужнее всего.",
+  "idea": {
+   "pitch": "Построй продукт по принципу local-first: данные всегда на устройстве, синхронизация — фоновая и опциональная. Биометрия вместо повторных логинов, полный офлайн-доступ к плану и вложениям. Это снимает самую болезненную и самую частую жалобу путешественников.",
+   "features": [
+    "Полный офлайн-доступ к маршруту, броням и вложениям",
+    "Вход по биометрии без повторных паролей и принудительных логаутов",
+    "Фоновая синхронизация, которая не блокирует доступ при потере сети",
+    "Скачиваемые офлайн-карты дня с точками и пешими маршрутами",
+    "Локальный кэш документов: посадочные, ваучеры, страховки"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — офлайн одной активной поездки; подписка за офлайн-карты, неограниченное хранилище вложений и историю прошлых поездок. Платим за спокойствие в дороге, а не за разблокировку базового доступа."
+  }
+ },
+ {
+  "slug": "travel-planning-3",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "Поездка по ссылке: совместность без трения",
+  "oneLiner": "Одна ссылка — и вся компания смотрит и редактирует план вместе, без установки приложения для просмотра и без рассылки писем.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 108
+  },
+  "reviewGrid": [
+   {
+    "quote": "It's 2026, how is there still NO option to share your trip itinerary from the app with a link? Only option is to email people, which is so archaic",
+    "rating": 2,
+    "app": "TripIt"
+   },
+   {
+    "quote": "my wife created a trip but I can't link it to my account in the app. yes, she has shared it with me, etc... This makes the app useless",
+    "rating": 3,
+    "app": "TripIt"
+   },
+   {
+    "quote": "when someone else books for you and sends you the itinerary you cant change your own status to one of the travellers",
+    "rating": 1,
+    "app": "TripIt"
+   },
+   {
+    "quote": "I have a link for someone else's trip, asks to install the app, does NOT link the trip invitation. need to do a LOT better",
+    "rating": 2,
+    "app": "Polarsteps"
+   },
+   {
+    "quote": "Super easy to collaborate with others while planning a trip. It has spread the responsibility for everything and made me less stressed out by being the sole planner",
+    "rating": 5,
+    "app": "Wanderlog Travel Planner"
+   },
+   {
+    "quote": "easy to use, very helpful with figuring out logistics, and synching up plans with multiple people",
+    "rating": 5,
+    "app": "Wanderlog Travel Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Поездка по ссылке: совместность без трения",
+    "obsCount": 6,
+    "apps": [
+     "TripIt",
+     "Polarsteps",
+     "Wanderlog Travel Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Шеринг работает только через архаичную почту, приглашённый не присоединяется к чужой поездке, а статус «я тоже еду» поменять нельзя.",
+  "idea": {
+   "pitch": "Сделай совместность нулевым трением: публичная ссылка для просмотра в браузере, редактирование по приглашению, мгновенное присоединение к чужой поездке. Совместное планирование — самая называемая причина любить такие приложения; убери барьеры — и удержание вырастет за счёт сетевого эффекта компании.",
+   "features": [
+    "Ссылка-просмотр, открывающаяся в браузере без установки приложения",
+    "Редактирование по приглашению с ролями организатора и попутчика",
+    "Присоединение к чужой поездке и смена своего статуса участника в один тап",
+    "Живые правки нескольких человек без перезаписи чужих изменений",
+    "Раздел кто-что-добавил, чтобы снять нагрузку с единственного организатора"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — просмотр и базовое соредактирование; подписка за неограниченное число попутчиков, разделение расходов и приватные группы. Сетевой вход бесплатен, монетизируем глубину совместной работы."
+  }
+ },
+ {
+  "slug": "travel-planning-4",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "Холст дня: маршрут под контролем человека",
+  "oneLiner": "Тащишь точки, видишь карту с пешими временами, меняешь порядок — и никакой ИИ или автосдвиг дат не ломает то, что ты собрал руками.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 108
+  },
+  "reviewGrid": [
+   {
+    "quote": "this new update (5/14) makes it nearly impossible to rearrange your stops. You drag, they don't move, and if they do, it's way too far up or down",
+    "rating": 1,
+    "app": "Roadtrippers"
+   },
+   {
+    "quote": "When I tried to use AI to start a new itinerary , it erased my whole entire trip although it said I would only water the itinerary page. A whole month's worth of work down the drain!!!",
+    "rating": 1,
+    "app": "Wanderlog Travel Planner"
+   },
+   {
+    "quote": "every other stop on your list automatically changes the dates to fill that week even when the following stops are hundreds of miles away",
+    "rating": 3,
+    "app": "Roadtrippers"
+   },
+   {
+    "quote": "Will not let me plan a trip unless I use its bs AI tool. Uninstall forever",
+    "rating": 1,
+    "app": "Roadtrippers"
+   },
+   {
+    "quote": "It even provides a map view to help with the logistics of a day full of events",
+    "rating": 5,
+    "app": "Wanderlog Travel Planner"
+   },
+   {
+    "quote": "It gives tourist attraction sites in proximity order, but you can rearrange the itinerary as you need. Includes walking times between attractions",
+    "rating": 5,
+    "app": "Visit A City"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Холст дня: маршрут под контролем человека",
+    "obsCount": 6,
+    "apps": [
+     "Roadtrippers",
+     "Wanderlog Travel Planner",
+     "Visit A City"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Перетаскивание не срабатывает или прыгает, добавление дат само переставляет остановки, а принудительный ИИ крушит план в утро поездки без отмены.",
+  "idea": {
+   "pitch": "Дай ручному планированию первоклассный инструмент: предсказуемый драг-н-дроп, карта дня с расстояниями и пешими временами, история версий с откатом. ИИ — только по явному запросу и в песочнице-черновике, никогда не поверх готового. Контроль человека плюс надёжный откат — то, чего рынок лишает пользователя.",
+   "features": [
+    "Предсказуемое перетаскивание точек без прыжков и автосдвига дат",
+    "Карта дня с расстояниями и временем пешком между точками",
+    "История версий и откат к любому состоянию плана",
+    "ИИ-предложения только в отдельном черновике, не поверх собранного",
+    "Фиксация длительности остановки без авторасползания по соседним дням"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — ручная сборка и карта дня; подписка за историю версий, оптимизацию порядка точек и многогородские маршруты. Продаём мощность планирования, а не отнимаем базовое перетаскивание."
+  }
+ },
+ {
+  "slug": "travel-planning-5",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "Честные места: живые часы и свежие закрытия",
+  "oneLiner": "Маршрут опирается на реальные часы работы и статус «открыто/закрыто/снесено», а спорное место можно поправить и добавить своё за пару тапов.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 108
+  },
+  "reviewGrid": [
+   {
+    "quote": "Visit a city still lists attractions as open that were burned down in the fire, such as the sacred Banyon tree",
+    "rating": 1,
+    "app": "Visit A City"
+   },
+   {
+    "quote": "the first thing on all the itineraries is the Viking Ship Museum. Seriously, it's closed UNTIL 2026",
+    "rating": 2,
+    "app": "Visit A City"
+   },
+   {
+    "quote": "plans created do not reflect opening/closing times. Can't visit night markets at 0900 hrs",
+    "rating": 3,
+    "app": "Visit A City"
+   },
+   {
+    "quote": "a lot of information is inaccurate or out of date, including hours of operation and actual locations/addresses",
+    "rating": 3,
+    "app": "Visit A City"
+   },
+   {
+    "quote": "some prominent new attractions like IconSiam can't be found & added to app",
+    "rating": 3,
+    "app": "Visit A City"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честные места: живые часы и свежие закрытия",
+    "obsCount": 5,
+    "apps": [
+     "Visit A City"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Готовые маршруты ведут к сгоревшим и закрытым на годы достопримечательностям, часы работы неверны, а свои места и отели в базу не добавить.",
+  "idea": {
+   "pitch": "Построй доверие на свежести данных: подтверждение часов и статуса из нескольких источников, краудсорс-правки с быстрой проверкой, открытое добавление любого места и адреса. Одна ошибка на месте убивает доверие к планировщику — сделай актуальность данных конкурентным преимуществом.",
+   "features": [
+    "Статус места «открыто/временно закрыто/закрыто навсегда» с датой проверки",
+    "Учёт часов работы и сезонности при построении дня",
+    "Краудсорс-правки от путешественников с быстрой модерацией",
+    "Свободное добавление любого места, отеля и адреса в маршрут",
+    "Метка устаревших данных и подсказка проверить перед визитом"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — базовые места и добавление своих; подписка за офлайн-пакеты данных по городу и приоритетную верификацию часов. Монетизируем актуальность и охват, а не запираем кастомизацию."
+  }
+ },
+ {
+  "slug": "travel-planning-6",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "Тихий догляд: приложение само следит за поездкой",
+  "oneLiner": "Пока ты живёшь, оно мониторит рейсы, ловит задержки и ошибки в бронях и пишет первым — а не ты бегаешь по поддержкам.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 108
+  },
+  "reviewGrid": [
+   {
+    "quote": "I had no idea that HOPPER monitored. Finally flying home, HOPPER emailed me that they were fully refunding me. I sang their praises all over social media",
+    "rating": 5,
+    "app": "Hopper"
+   },
+   {
+    "quote": "thanks to using it i realized I had messed up some of the dates on my bookings and was able to fix them in time",
+    "rating": 5,
+    "app": "TripIt"
+   },
+   {
+    "quote": "Really useful to get reminders of prices going up",
+    "rating": 5,
+    "app": "Hopper"
+   },
+   {
+    "quote": "Seemed ok on first couple of trips, but latest airline flight I added on next trip does not match the flight times on my reservation",
+    "rating": 3,
+    "app": "TripIt"
+   },
+   {
+    "quote": "It even suggests steps for you if you miss some depending on the places you have been to",
+    "rating": 5,
+    "app": "Polarsteps"
+   },
+   {
+    "quote": "love the total summary updates as we add bookings",
+    "rating": 5,
+    "app": "TripIt"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Тихий догляд: приложение само следит за поездкой",
+    "obsCount": 6,
+    "apps": [
+     "Hopper",
+     "TripIt",
+     "Polarsteps"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Проактивный мониторинг рейсов и возврат денег без обращения вызывают восторг и сарафан, но почти никто из планировщиков этого не делает системно.",
+  "idea": {
+   "pitch": "Преврати пассивный список в активного ассистента: следи за статусами рейсов, замечай расхождения дат и времён в бронях, предупреждай о закрытиях по маршруту. Проактивная польза в дороге даёт самый сильный эмоциональный отклик и органический рост через рекомендации.",
+   "features": [
+    "Мониторинг статуса рейса и уведомления о задержках и сменах гейта",
+    "Проверка броней на конфликты дат и нестыковки времён",
+    "Предупреждение о закрытиях и изменениях по точкам маршрута",
+    "Напоминания о регистрации, визах и сроках действия документов",
+    "Сводка «что важного сегодня» утром каждого дня поездки"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — базовые уведомления по рейсам; подписка за мониторинг всех сегментов, проверку конфликтов и приоритетные оповещения. Платят за то, что приложение бережёт поездку само."
+  }
+ },
+ {
+  "slug": "travel-planning-7",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "След и память: журнал поездки, который сам собирается",
+  "oneLiner": "Путь рисуется по реальному маршруту, фото с геометками сами становятся остановками, а в конце — готовая фотокнига для близких.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 108
+  },
+  "reviewGrid": [
+   {
+    "quote": "The photo book created at the end of 4 weeks in Europe was so good we bought it",
+    "rating": 5,
+    "app": "Polarsteps"
+   },
+   {
+    "quote": "The app does not seem to use the location data stored in photos to add \"steps\" making it difficult to add a trip after the fact",
+    "rating": 3,
+    "app": "Polarsteps"
+   },
+   {
+    "quote": "annoying that you have to download same photos everttime you open the app, rather than be able to only download latest photos",
+    "rating": 3,
+    "app": "Polarsteps"
+   },
+   {
+    "quote": "perfect for recording memories and routes from a trip. no sign of ads or other monetisation so far",
+    "rating": 5,
+    "app": "Polarsteps"
+   },
+   {
+    "quote": "love the ability to follow the trip privately. comments from those following only. not from the peanut gallery like in other social networks",
+    "rating": 5,
+    "app": "Polarsteps"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "След и память: журнал поездки, который сам собирается",
+    "obsCount": 5,
+    "apps": [
+     "Polarsteps"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сценарий памяти о поездке любят и платят за фотокниги добровольно, но трекинг рисует прямые линии вместо пути, а фото с геоданными не превращаются в остановки.",
+  "idea": {
+   "pitch": "Возьми отдельную, эмоционально заряженную работу — документировать и делиться путешествием — и сделай её надёжной: честный трек по дорогам, автосоставление шагов из геометок фото, приватный шеринг для своих. Это другой вход в категорию: не логистика, а память, с естественной монетизацией через печать.",
+   "features": [
+    "Точный трек пути с привязкой к дорогам без прямых линий-выбросов",
+    "Автосоставление остановок из геометок и времени съёмки фото",
+    "Приватная лента поездки для близких без публичных комментариев",
+    "Дозагрузка только новых фото вместо повторной выкачки всех",
+    "Сборка фотокниги и видео поездки из уже добавленного контента"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — журнал и приватный шеринг; деньги за печатные фотокниги, видео поездки и расширенное хранилище. Добровольная покупка артефакта памяти, а не плата за базовый дневник."
+  }
+ },
+ {
+  "slug": "audiobooks-1",
+  "category": "audiobooks",
+  "categoryName": "Аудиокниги",
+  "title": "Купил — твоё навсегда",
+  "oneLiner": "Аудиокниги по модели честного владения: оплаченное остаётся у тебя даже после отмены подписки.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 138
+  },
+  "reviewGrid": [
+   {
+    "quote": "wont let you keep books after your subscription ends.",
+    "rating": 1,
+    "app": "Everand"
+   },
+   {
+    "quote": "I am disappointed to note that the unlocked book no longer functions following the expiration of my subscription. Given this experience, I will be transitioning to Audible",
+    "rating": 1,
+    "app": "Everand"
+   },
+   {
+    "quote": "you can build a perfect library of the books you love, but as soon as you stop paying monthly they will remove access to your books immediately.",
+    "rating": 1,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "all the books you have \"unlocked\" become unavailable if you're not actively subscribed.",
+    "rating": 1,
+    "app": "Everand"
+   },
+   {
+    "quote": "it is upsetting to notice if i cancel my subscription i loce access to all audiobooks ive paid for.",
+    "rating": 1,
+    "app": "Audible: Audiobooks & Podcasts"
+   },
+   {
+    "quote": "you lose the free books if you stop paying a monthly subscription. Should be illegal.",
+    "rating": 1,
+    "app": "Everand"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Купил — твоё навсегда",
+    "obsCount": 6,
+    "apps": [
+     "Everand",
+     "BookBeat: Audiobooks & E-books",
+     "Audible: Audiobooks & Podcasts"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Everand, Storytel и BookBeat массово отнимают «разблокированные» книги при отмене подписки — это триггер №1 для оттока, и люди прямо уходят обратно к Audible именно за сохранением купленного.",
+  "idea": {
+   "pitch": "Сервис, который превращает главный страх рынка в обещание на лендинге: всё, на что ты потратил кредит или часы, навсегда твоё в офлайне — даже если завтра перестанешь платить.",
+   "features": [
+    "Вечный офлайн-доступ к разблокированным книгам после отмены",
+    "Прозрачный счётчик: что куплено навсегда, что временно по подписке",
+    "Экспорт/резерв скачанного без потери при паузе подписки",
+    "Гибрид: часы прослушивания + опция выкупить понравившееся в собственность"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на часы + микро-выкуп понравившейся книги в вечное владение (доплата сверх подписки), вместо сгорающих кредитов."
+  }
+ },
+ {
+  "slug": "audiobooks-2",
+  "category": "audiobooks",
+  "categoryName": "Аудиокниги",
+  "title": "Плати за часы, бросай без сожаления",
+  "oneLiner": "Подписка на часы прослушивания: бросил скучную книгу через час — ничего не потерял.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 138
+  },
+  "reviewGrid": [
+   {
+    "quote": "You pay for listening time rather than credits. This works SO MUCH better than A**ble for me - I've lost many an expensive credit on books that flatline an hour or so in and I can't finish.",
+    "rating": 5,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "This app doesn't allow hours to be carried over , there's no sample option, the book just starts off eating into the hours.",
+    "rating": 2,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "i completely dislike the update that if we dont use the monthly credit we lose it (it wont stack)",
+    "rating": 1,
+    "app": "Audible: Audiobooks & Podcasts"
+   },
+   {
+    "quote": "you actually get a long enough sample read on audiobooks to determine if you want to read the book, most apps give you a sample of 5 minutes or less",
+    "rating": 5,
+    "app": "Everand"
+   },
+   {
+    "quote": "I really hate the nearly non-existent search function, because the available filters are s***. I'm forced to look through \"Top 100\" lists",
+    "rating": 2,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "These audiobook plans are getting dumb, but I will give it a try. I'm trying to find a everand alternative.",
+    "rating": 3,
+    "app": "BookBeat: Audiobooks & E-books"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Плати за часы, бросай без сожаления",
+    "obsCount": 6,
+    "apps": [
+     "BookBeat: Audiobooks & E-books",
+     "Audible: Audiobooks & Podcasts",
+     "Everand"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Кредитная модель наказывает за неудачный выбор: дорогой кредит сгорает на книге, которую бросил. BookBeat доказал, что «часы вместо кредитов» переманивают людей с Audible, но у него слабый каталог и поиск.",
+  "idea": {
+   "pitch": "Дать любителям аудиокниг свободу пробовать: единая копилка часов, никакого «жалко бросать дорогой кредит», плюс сильный каталог и подбор, которых нет у BookBeat.",
+   "features": [
+    "Единый баланс часов вместо штучных кредитов",
+    "Бесплатные длинные сэмплы, чтобы отсеять провальную книгу до траты часов",
+    "Перенос неиспользованных часов на следующий месяц",
+    "Умный подбор «дочитают такие же, как ты», а не «Топ-100»"
+   ],
+   "antiFeatures": [],
+   "monetization": "Тарифы по часам (20/50/100 ч в месяц) с переносом остатка; апселл — безлимит для запойных слушателей."
+  }
+ },
+ {
+  "slug": "audiobooks-3",
+  "category": "audiobooks",
+  "categoryName": "Аудиокниги",
+  "title": "Плеер, который никогда не теряет место",
+  "oneLiner": "Аудио-плеер для книг с одержимостью надёжностью: точная позиция, офлайн без сюрпризов, умный таймер сна.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 138
+  },
+  "reviewGrid": [
+   {
+    "quote": "it will continuously return to the same point and not allow me to skip ahead to my last point.",
+    "rating": 1,
+    "app": "Audible: Audiobooks & Podcasts"
+   },
+   {
+    "quote": "after listening for couple hours stops and when push play it goes backto the place when I started. very annoying.",
+    "rating": 3,
+    "app": "Storytel - Audiobooks Library"
+   },
+   {
+    "quote": "if you continue after the sleep timer ended through tapping resume on your headphones and you then go back into the app it asks if you want to rewind some minutes but there is NO option to not rewind.",
+    "rating": 2,
+    "app": "Storytel - Audiobooks Library"
+   },
+   {
+    "quote": "yes, there is a function what allows \"download\" but whatever you download will not work without a connection. so whats the point?",
+    "rating": 4,
+    "app": "Everand"
+   },
+   {
+    "quote": "The playback speed steps down and up by 10%: from 20% to 300%. I have never wanted to go above 100% (1x), and I would love to slow down many audiobooks just a bit.",
+    "rating": 3,
+    "app": "Chirp Audiobooks"
+   },
+   {
+    "quote": "Progress bar is always the whole book's length, not individual chapters; accidental jumps are way too common",
+    "rating": 3,
+    "app": "BookBeat: Audiobooks & E-books"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Плеер, который никогда не теряет место",
+    "obsCount": 6,
+    "apps": [
+     "Audible: Audiobooks & Podcasts",
+     "Storytel - Audiobooks Library",
+     "Everand",
+     "Chirp Audiobooks",
+     "BookBeat: Audiobooks & E-books"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Потеря места, откат таймера сна и неработающий офлайн — сквозная боль ВСЕХ приложений жанра, от Audible до Kobo. Это не каталожная гонка, а вопрос базовой инженерной аккуратности, который все провалили.",
+  "idea": {
+   "pitch": "Не воевать за каталог, а сделать самый надёжный движок прослушивания: книга всегда продолжается с той же секунды, скачанное играет в самолёте, таймер сна не отматывает назад.",
+   "features": [
+    "Сохранение позиции с секундной точностью и синхронизацией между устройствами",
+    "Гарантированный офлайн: скачал — играет без сети и «истёкших загрузок»",
+    "Таймер сна с опцией «не отматывать» при возобновлении",
+    "Прогресс-бар по главе, а не по всей книге, и защита от случайной перемотки",
+    "Точная скорость с шагом 1%"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на сам надёжный плеер + интеграция с библиотеками и сторонними магазинами (плати за движок, а не за лок-ин каталога)."
+  }
+ },
+ {
+  "slug": "audiobooks-4",
+  "category": "audiobooks",
+  "categoryName": "Аудиокниги",
+  "title": "Слушай и читай: режим для изучающих язык",
+  "oneLiner": "Аудиокниги с синхронным подсвеченным текстом для изучающих язык и тех, кто хочет следить глазами.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 138
+  },
+  "reviewGrid": [
+   {
+    "quote": "I'm trying to improve my english while I listen to audiobooks, it would be great if I could read the book at the same time as I listening to",
+    "rating": 5,
+    "app": "Storytel - Audiobooks Library"
+   },
+   {
+    "quote": "super overkill for language learning 🤣 so well priced too, u can get some langs for like a few usd a month",
+    "rating": 5,
+    "app": "Storytel - Audiobooks Library"
+   },
+   {
+    "quote": "I am trying to learn Dutch and it is quite difficult for me to just listen without text.. and when I open the ebook version, there is no audio button.. please improve this. Then you can be one of the best audiobook apps.",
+    "rating": 3,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "it would be better if a running text was offered while listening, sometimes it's difficult to gauge the spellings of words or for difficult books it helps to have a visual text in front of you.",
+    "rating": 4,
+    "app": "Audible: Audiobooks & Podcasts"
+   },
+   {
+    "quote": "for audiobook that has ebook, the screen shout at least show the book's text when the audiobook plays",
+    "rating": 3,
+    "app": "Everand"
+   },
+   {
+    "quote": "love it! especially when it reads back to you. helps me out hug.",
+    "rating": 5,
+    "app": "Storytel - Audiobooks Library"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Слушай и читай: режим для изучающих язык",
+    "obsCount": 6,
+    "apps": [
+     "Storytel - Audiobooks Library",
+     "BookBeat: Audiobooks & E-books",
+     "Audible: Audiobooks & Podcasts",
+     "Everand"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Запрос «читать и слушать одновременно» проходит через Audible, Storytel, Everand и BookBeat — и почти нигде не реализован. Storytel сам признаёт, что им пользуются для изучения языков «с перебором».",
+  "idea": {
+   "pitch": "Сделать аудиокнигу инструментом изучения языка: текст подсвечивается синхронно с озвучкой, тап по слову — перевод, регулируемая скорость для тренировки восприятия на слух.",
+   "features": [
+    "Синхронная подсветка текста под живую озвучку",
+    "Тап по слову — мгновенный перевод и определение",
+    "Замедление до 90% для аудирования без искажения голоса",
+    "Книги-билингвы и параллельные языковые дорожки",
+    "Карточки слов из книги в повторение"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка с премиум-уровнем «изучение языка» (параллельные тексты, словарь, карточки); связка с продуктами для изучения языков."
+  }
+ },
+ {
+  "slug": "audiobooks-5",
+  "category": "audiobooks",
+  "categoryName": "Аудиокниги",
+  "title": "Только живые голоса",
+  "oneLiner": "Курируемая аудио-библиотека с гарантией: каждая книга начитана живым человеком, ноль AI-озвучки.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 138
+  },
+  "reviewGrid": [
+   {
+    "quote": "decided to change my 5 star review for 1 star after the addition of AI features into Libby. these features were unwanted and unwelcome.",
+    "rating": 1,
+    "app": "Libby by OverDrive"
+   },
+   {
+    "quote": "A great resource having many audiobook titles in a real reader voice. I have not seen any Ai reading garbage to date",
+    "rating": 5,
+    "app": "Libby by OverDrive"
+   },
+   {
+    "quote": "Storytel is slowly but surely becoming ai slop- first it was the readers, now it's the story summaires which are just plainly wrong more often than not.",
+    "rating": 2,
+    "app": "Storytel - Audiobooks Library"
+   },
+   {
+    "quote": "The narrator was great! She did voices for all the characters, and made it interesting. I will be buying more!",
+    "rating": 5,
+    "app": "Chirp Audiobooks"
+   },
+   {
+    "quote": "it's nice to find a reader you really like.",
+    "rating": 5,
+    "app": "LibriVox Audiobooks"
+   },
+   {
+    "quote": "the speaker (AI generated?) did not convey the emotion of the words.",
+    "rating": 1,
+    "app": "Chirp Audiobooks"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Только живые голоса",
+    "obsCount": 6,
+    "apps": [
+     "Libby by OverDrive",
+     "Storytel - Audiobooks Library",
+     "Chirp Audiobooks",
+     "LibriVox Audiobooks"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сообщество слушателей агрессивно отвергает AI-чтецов и AI-описания — добавление AI обрушивает рейтинги Libby и Storytel, а «начитано живым человеком» уже воспринимается как знак качества.",
+  "idea": {
+   "pitch": "Превратить анти-AI настроения в позиционирование: бренд, который публично обещает только человеческую озвучку и показывает чтеца как звезду — с возможностью выбирать книги по любимым голосам.",
+   "features": [
+    "Знак «начитано живым человеком» на каждой книге, ноль AI",
+    "Профили чтецов: подписка на любимый голос и подбор по нему",
+    "Сэмпл голоса до покупки, чтобы оценить чтеца",
+    "Рейтинги и заметки слушателей именно про озвучку, а не сюжет"
+   ],
+   "antiFeatures": [],
+   "monetization": "Премиум-подписка с упором на эксклюзивные начитки топ-чтецов; ревеню-шеринг с озвучивающими актёрами как маркетинг."
+  }
+ },
+ {
+  "slug": "audiobooks-6",
+  "category": "audiobooks",
+  "categoryName": "Аудиокниги",
+  "title": "Без очередей и без билета",
+  "oneLiner": "Доступная аудио-библиотека, закрывающая зазор Libby: ценность общественной библиотеки без 20-недельных очередей.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 138
+  },
+  "reviewGrid": [
+   {
+    "quote": "the wait times are insaine for most books I just end up canceling. get another app.",
+    "rating": 2,
+    "app": "Libby by OverDrive"
+   },
+   {
+    "quote": "Do not like how long I have to wait for an audiobook & then if I don't finish I usually can't renew it, have to put a hold on it & wait another 19-20 wks to listen again.",
+    "rating": 2,
+    "app": "Libby by OverDrive"
+   },
+   {
+    "quote": "I would be poor if it wasnt for Libby and my local library.",
+    "rating": 5,
+    "app": "Libby by OverDrive"
+   },
+   {
+    "quote": "It's great. However seems dumb that there is a limited number of digital copies. Some books have crazy wait times.",
+    "rating": 3,
+    "app": "Libby by OverDrive"
+   },
+   {
+    "quote": "Sadly I've been waiting on hold for a book for 45 days now so that sucks.",
+    "rating": 5,
+    "app": "Libby by OverDrive"
+   },
+   {
+    "quote": "great quality but the good books always take several weeks on hold",
+    "rating": 3,
+    "app": "Libby by OverDrive"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Без очередей и без билета",
+    "obsCount": 6,
+    "apps": [
+     "Libby by OverDrive"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Libby обожают за бесплатность по читательскому билету, но лимит цифровых копий рождает очереди в недели и месяцы — половина пользователей просто отменяет ожидание и ищет, куда уйти.",
+  "idea": {
+   "pitch": "Поймать тех, кого Libby оттолкнул очередями: дешёвый тариф без лимита копий и листов ожидания, с тем же ощущением «недорого читаю как маньяк», но без надписи «вы 45-й в очереди».",
+   "features": [
+    "Никаких очередей и листов ожидания — мгновенный доступ",
+    "Дешёвый тариф специально для запойных читателей по 2-3 книги в неделю",
+    "Импорт списка холдов из Libby как онбординг",
+    "Полки и теги с синхронизацией между всеми устройствами"
+   ],
+   "antiFeatures": [],
+   "monetization": "Низкий ценовой тариф «безлимит без очередей» против бесплатного, но медленного Libby; партнёрства с библиотеками для допкаталога."
+  }
+ },
+ {
+  "slug": "audiobooks-7",
+  "category": "audiobooks",
+  "categoryName": "Аудиокниги",
+  "title": "Доступ без границ и языковых замков",
+  "oneLiner": "Аудиокниги без гео- и язык-замков: слушай на родном языке, где бы ты ни жил.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 138
+  },
+  "reviewGrid": [
+   {
+    "quote": "cannot unselect Swedish as a book language (it is locked). Just because i am fluent in Swedish doesn't mean I like listening to books in Swedish!",
+    "rating": 1,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "i can not hear books in my native language if i do not live in my country. stupid!",
+    "rating": 1,
+    "app": "Storytel - Audiobooks Library"
+   },
+   {
+    "quote": "just because I've signed up from Finland, 90% of the content and 75% plof the menus are in Finnish and there is no way to change it.",
+    "rating": 2,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "no Google play payment, also your library is locked into a \"marketplace\" so god forbid you change countries, you lose all your purchased titles.",
+    "rating": 1,
+    "app": "Audible: Audiobooks & Podcasts"
+   },
+   {
+    "quote": "App won't let me turn off seeing polish books. I want to listen to a book? Nppe, not today, you can only listen to the polish version",
+    "rating": 3,
+    "app": "BookBeat: Audiobooks & E-books"
+   },
+   {
+    "quote": "App is in English but I can't choose any English speaking country for where I live.",
+    "rating": 1,
+    "app": "Storytel - Audiobooks Library"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Доступ без границ и языковых замков",
+    "obsCount": 6,
+    "apps": [
+     "BookBeat: Audiobooks & E-books",
+     "Storytel - Audiobooks Library",
+     "Audible: Audiobooks & Podcasts"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Storytel и BookBeat жёстко привязывают к стране и языку — навязывают шведский шведам за рубежом, финские книги англоязычным, а купленное теряется при смене страны. Огромный пласт мигрантов и многоязычных слушателей отрезан.",
+  "idea": {
+   "pitch": "Сервис для тех, кто живёт не там, где родился: свободный выбор языка контента и интерфейса независимо от страны проживания, без потери библиотеки при переезде.",
+   "features": [
+    "Выбор языка контента вручную, не привязан к гео",
+    "Каталог на родном языке доступен из любой страны",
+    "Библиотека и покупки переезжают вместе с тобой при смене страны",
+    "Фильтр и скрытие нежелательных языков в выдаче"
+   ],
+   "antiFeatures": [],
+   "monetization": "Единая глобальная подписка без региональной фрагментации; премиум для многоязычных слушателей (несколько языковых каталогов сразу)."
+  }
+ },
+ {
+  "slug": "affirmations-1",
+  "category": "affirmations",
+  "categoryName": "Аффирмации и манифестация",
+  "title": "Свой голос — навсегда",
+  "oneLiner": "Аффирмации твоим голосом, которые невозможно потерять и нельзя оборвать.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 111
+  },
+  "reviewGrid": [
+   {
+    "quote": "I lost over 70+ recordings when I got a new phone & Support has offered NO solution or refund",
+    "rating": 1,
+    "app": "ThinkUp Affirmations"
+   },
+   {
+    "quote": "my recordings are still getting cutoff in the middle",
+    "rating": 1,
+    "app": "ThinkUp Affirmations"
+   },
+   {
+    "quote": "give option of backup of recorded affirmations & give option to record new affirmations every year",
+    "rating": 5,
+    "app": "ThinkUp Affirmations"
+   },
+   {
+    "quote": "It's like bringing that little voice in my head to life!",
+    "rating": 4,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "Every time I change my device I lose all of my typed affirmations.",
+    "rating": 2,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "the timer option so you can listen as you fall asleep and it will turn off the app at your set time",
+    "rating": 5,
+    "app": "ThinkUp Affirmations"
+   },
+   {
+    "quote": "the affirmations will stop part way through but the music continues",
+    "rating": 2,
+    "app": "Innertune Affirmations"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Свой голос — навсегда",
+    "obsCount": 7,
+    "apps": [
+     "ThinkUp Affirmations",
+     "My Affirmations",
+     "Innertune Affirmations"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "ThinkUp и My Affirmations дают самую глубокую привязанность через запись своего голоса, но рушат её технически: ролики обрезаются, не бэкапятся, исчезают при смене телефона.",
+  "idea": {
+   "pitch": "Записывай аффирмации своим голосом без лимита длины, с надёжным облачным бэкапом и бесшовным переносом на новый телефон. Зацикленное воспроизведение поверх музыки и на засыпание, которое не глохнет через 10 минут. Твоя личная библиотека переживёт любую смену устройства.",
+   "features": [
+    "Запись своего голоса без лимита по длине",
+    "Автобэкап в облако и перенос при смене телефона",
+    "Зацикленный плеер с таймером сна и микшером громкости голос/музыка",
+    "История записей по годам: слышать, как растёт твоя уверенность",
+    "Фоновое воспроизведение поверх Spotify/YouTube без обрывов"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за облачный бэкап и неограниченную запись; честный платный экран до онбординга, без скрытых вопросов."
+  }
+ },
+ {
+  "slug": "affirmations-2",
+  "category": "affirmations",
+  "categoryName": "Аффирмации и манифестация",
+  "title": "Виджет, который ловит вовремя",
+  "oneLiner": "Аффирмация настигает тебя ровно в момент, когда настроение проседает.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 111
+  },
+  "reviewGrid": [
+   {
+    "quote": "I love that there is a widget for it, so everytime I look at my phone I see my affirmation",
+    "rating": 5,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "It pops up at the times I need a little love, or a motivational boost the most!",
+    "rating": 5,
+    "app": "I am Daily affirmations"
+   },
+   {
+    "quote": "I am glad that I can control how many times per day they pop in, some days I need it more than others.",
+    "rating": 5,
+    "app": "I am Daily affirmations"
+   },
+   {
+    "quote": "all of a sudden the affirmations dont pop up anymore and i didnt change any settings.",
+    "rating": 2,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "I need those reminders throughout the day, it helps me back to my center",
+    "rating": 5,
+    "app": "Unique Daily Affirmations"
+   },
+   {
+    "quote": "suddenly it stops showing the popped notification for my daily update",
+    "rating": 3,
+    "app": "My Affirmations"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Виджет, который ловит вовремя",
+    "obsCount": 6,
+    "apps": [
+     "My Affirmations",
+     "I am Daily affirmations",
+     "Unique Daily Affirmations"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Пользователи обожают виджет и случайные всплывашки именно за то, что они ловят их вовремя, но доставка часто молча ломается, и весь смысл продукта отключается.",
+  "idea": {
+   "pitch": "Главный экран продукта — не лента, а доставка: виджет на домашнем экране, который пользователь оставляет на весь день, и напоминания, частоту которых он полностью контролирует. Надёжный механизм, который не отваливается после обновления телефона.",
+   "features": [
+    "Настраиваемый виджет с ротацией своих аффирмаций",
+    "Полный контроль частоты и времени напоминаний",
+    "Случайные «вбросы» в течение дня для эффекта неожиданной поддержки",
+    "Диагностика и автопочинка доставки при смене прошивки",
+    "Тихие часы и контекстные триггеры (утро, вечер, рабочая встреча)"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатный базовый виджет с честной ценностью; подписка за несколько виджетов, темы и расширенные триггеры."
+  }
+ },
+ {
+  "slug": "affirmations-3",
+  "category": "affirmations",
+  "categoryName": "Аффирмации и манифестация",
+  "title": "Опора на тяжёлый день",
+  "oneLiner": "Аффирмации, заточенные под кризис: травму, утрату, восстановление, абьюз.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 111
+  },
+  "reviewGrid": [
+   {
+    "quote": "I learned through a rehab place the benifits of daily affirmations and I SWEAR by doing it at least Morning & Night",
+    "rating": 5,
+    "app": "I am Daily affirmations"
+   },
+   {
+    "quote": "one of the best apps that helped me get rid of porn abdication",
+    "rating": 5,
+    "app": "Gratitude Journal"
+   },
+   {
+    "quote": "leaving family meant letting go a lifetime of abuse",
+    "rating": 2,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "This app is helping me so far get through my summer depression",
+    "rating": 5,
+    "app": "Unique Daily Affirmations"
+   },
+   {
+    "quote": "Day 2 has asked What I Love About Me and congratulated me when I couldn't think of anything.",
+    "rating": 1,
+    "app": "Gratitude Journal"
+   },
+   {
+    "quote": "I'm a therapist and I've been recommending it to my clients.",
+    "rating": 1,
+    "app": "Shine Self-Care"
+   },
+   {
+    "quote": "I am REALLY uncomfortable with you repeatedly marketing a Christian/Bible app to me within this app",
+    "rating": 3,
+    "app": "I am Daily affirmations"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Опора на тяжёлый день",
+    "obsCount": 7,
+    "apps": [
+     "I am Daily affirmations",
+     "Gratitude Journal",
+     "My Affirmations",
+     "Unique Daily Affirmations",
+     "Shine Self-Care"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Многие пользуются аффирмациями как опорой в реабилитации, депрессии, после утраты или ухода от абьюза — но массовые приложения дают обобщённые лозунги и навязывают чужую веру, не учитывая боль.",
+  "idea": {
+   "pitch": "Не «банк позитива», а инструмент удержания в острые периоды. Дорожки под конкретные ситуации — восстановление от зависимости, переживание утраты, выход из абьюзивных отношений — с бережным тоном и без навязанной религии. Можно писать и озвучивать аффирмации под свою историю.",
+   "features": [
+    "Тематические дорожки под кризисные сценарии",
+    "Бережный тон без жёстких промптов в первый день",
+    "Полное отключение религиозного контента",
+    "Свои аффирмации под личную травму, с записью голосом",
+    "Мягкая эскалация: ссылки на профессиональную помощь в острые моменты"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка; партнёрства с реабилитационными центрами и терапевтами как канал (один отзыв — от терапевта, рекомендующего клиентам)."
+  }
+ },
+ {
+  "slug": "affirmations-4",
+  "category": "affirmations",
+  "categoryName": "Аффирмации и манифестация",
+  "title": "Лёгкий компаньон без раздувания",
+  "oneLiner": "Тёплый питомец-якорь для ежедневной практики, который не превращается в утомительный квест.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 111
+  },
+  "reviewGrid": [
+   {
+    "quote": "my little finch Jumpies os always happy to see me and has helped me through a few dark episodes",
+    "rating": 5,
+    "app": "Shine Self-Care"
+   },
+   {
+    "quote": "They've added so much tacked on to just the simple \"daily check in\" to where it's annoying to really open the app.",
+    "rating": 2,
+    "app": "Shine Self-Care"
+   },
+   {
+    "quote": "I would love the ability to turn off features.",
+    "rating": 2,
+    "app": "Aloe Bud"
+   },
+   {
+    "quote": "the app just keeps getting bloated with more add ons",
+    "rating": 1,
+    "app": "Shine Self-Care"
+   },
+   {
+    "quote": "This is just a fancy goal checklist now.",
+    "rating": 3,
+    "app": "Aloe Bud"
+   },
+   {
+    "quote": "it helps my ADHD brain can stay on track",
+    "rating": 4,
+    "app": "Shine Self-Care"
+   },
+   {
+    "quote": "I do find a lot of the food centric goals a bit concerning from an ED awareness perspective",
+    "rating": 3,
+    "app": "Shine Self-Care"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Лёгкий компаньон без раздувания",
+    "obsCount": 7,
+    "apps": [
+     "Shine Self-Care",
+     "Aloe Bud"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Finch/Shine лучше всех держат привычку через питомца и заботу, но раздуваются магазинами, кросс-промо и фичами, пока простое «отметился — успокоился» не тонет.",
+  "idea": {
+   "pitch": "Сохранить эмоциональное ядро компаньона — питомец рад тебе, растёт вместе с тобой — но держать продукт намеренно лёгким. Аффирмация и короткая рефлексия в центре, всё лишнее отключаемо. Спокойная забота вместо лутбоксов.",
+   "features": [
+    "Питомец-компаньон, реагирующий на твою практику",
+    "Минималистичный ежедневный чек-ин: настроение + аффирмация",
+    "Возможность отключить любые геймификационные слои",
+    "Никаких магазинов с реальными деньгами и кросс-промо",
+    "Бережные цели без еда-центричных формулировок"
+   ],
+   "antiFeatures": [],
+   "monetization": "Одна честная подписка за расширенного питомца и кастомизацию; без покупок предметов за реальные деньги."
+  }
+ },
+ {
+  "slug": "affirmations-5",
+  "category": "affirmations",
+  "categoryName": "Аффирмации и манифестация",
+  "title": "Аффирмации на засыпание",
+  "oneLiner": "Звуковой ритуал, под который засыпаешь со своими аффирмациями.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 111
+  },
+  "reviewGrid": [
+   {
+    "quote": "I want it on loop even when I'm idle or sleeping. Bcos the affirmations stop even when I still want to listen.",
+    "rating": 4,
+    "app": "ThinkUp Affirmations"
+   },
+   {
+    "quote": "fall asleep to music, frequencies, binaural beats, etc., this app is a must have!!",
+    "rating": 5,
+    "app": "Innertune Affirmations"
+   },
+   {
+    "quote": "When listening through headphones or earbuds, playback stops after about 10 minutes every time.",
+    "rating": 2,
+    "app": "Innertune Affirmations"
+   },
+   {
+    "quote": "the timer option so you can listen as you fall asleep and it will turn off the app at your set time",
+    "rating": 5,
+    "app": "ThinkUp Affirmations"
+   },
+   {
+    "quote": "the Airpods are suddenly disconnecting / power cycling every couple of minutes",
+    "rating": 2,
+    "app": "Innertune Affirmations"
+   },
+   {
+    "quote": "abruptly stops playing sessions after a few minutes",
+    "rating": 1,
+    "app": "Innertune Affirmations"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Аффирмации на засыпание",
+    "obsCount": 6,
+    "apps": [
+     "ThinkUp Affirmations",
+     "Innertune Affirmations"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Существует чёткий сценарий «слушать на засыпание» — зацикленное аудио с таймером и музыкой — но именно здесь воспроизведение чаще всего обрывается через 10 минут или по Bluetooth.",
+  "idea": {
+   "pitch": "Отдельный вечерний режим: аффирмации твоим или мягким голосом поверх эмбиента, с надёжным циклом, который не глохнет, корректным таймером сна и стабильной работой по Bluetooth всю ночь.",
+   "features": [
+    "Вечерний режим с эмбиент-дорожками и бинауральными ритмами",
+    "Зацикливание без авто-паузы при простое",
+    "Таймер сна с плавным затуханием",
+    "Стабильное Bluetooth-воспроизведение всю сессию",
+    "Микшер громкости голос/фон"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за библиотеку звуков и неограниченные ночные сессии."
+  }
+ },
+ {
+  "slug": "affirmations-6",
+  "category": "affirmations",
+  "categoryName": "Аффирмации и манифестация",
+  "title": "Сейф личной библиотеки",
+  "oneLiner": "Облачное хранилище и перенос для накопленных аффирмаций — твой труд не пропадёт.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 111
+  },
+  "reviewGrid": [
+   {
+    "quote": "Deletes your affirmations whenever he updates it",
+    "rating": 1,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "after the most recent update, I've lost ALL of the affirmations and quotes I added.",
+    "rating": 3,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "Got a new phone and had to manually add all my affirmations again 😕",
+    "rating": 2,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "unable to take a copy of my own data without upgrading to premium",
+    "rating": 3,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "I have more than 1000 affirmations, I can't sort them",
+    "rating": 3,
+    "app": "My Affirmations"
+   },
+   {
+    "quote": "switched phones and can no longer get into my account. Unfortunately lost all my data.",
+    "rating": 1,
+    "app": "ThinkUp Affirmations"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Сейф личной библиотеки",
+    "obsCount": 6,
+    "apps": [
+     "My Affirmations",
+     "ThinkUp Affirmations"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Накопленная библиотека аффирмаций — эмоциональный труд многих лет, но обновления и смена телефона стирают её, и это переживается как личная утрата, отгоняя самых преданных пользователей.",
+  "idea": {
+   "pitch": "Продукт, для которого сохранность библиотеки — это обещание №1. Автобэкап, синхронизация между устройствами, восстановление после переустановки, экспорт своих данных. Свои аффирмации, фото и записи следуют за тобой на любой телефон.",
+   "features": [
+    "Автоматический облачный бэкап всех записей и текстов",
+    "Синхронизация телефон/планшет в реальном времени",
+    "Восстановление по аккаунту без привязки к одному логину",
+    "Ручной экспорт своих данных без премиума",
+    "Сортировка и поиск по большой библиотеке (A–Z для 1000+ записей)"
+   ],
+   "antiFeatures": [],
+   "monetization": "Базовый бэкап бесплатно как доверие; подписка за мульти-устройство, версии и большой объём."
+  }
+ },
+ {
+  "slug": "affirmations-7",
+  "category": "affirmations",
+  "categoryName": "Аффирмации и манифестация",
+  "title": "Честный старт без допроса",
+  "oneLiner": "Прозрачный онбординг и бережный тон с первого касания.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 111
+  },
+  "reviewGrid": [
+   {
+    "quote": "trying to pitch a subscription in the guise of assessing mental health",
+    "rating": 1,
+    "app": "Motivation Daily quotes"
+   },
+   {
+    "quote": "no mention of a \"premium\" cost until after 25+ taps of the skip button",
+    "rating": 1,
+    "app": "I am Daily affirmations"
+   },
+   {
+    "quote": "You don’t see the actual cost until after downloading and answering questions.",
+    "rating": 1,
+    "app": "Gratitude Journal"
+   },
+   {
+    "quote": "Endless survey and questions. Not worth the subscription.",
+    "rating": 1,
+    "app": "Motivation Daily quotes"
+   },
+   {
+    "quote": "MAKE THE UNSUSCRIBE BUTTON VISIBLE.",
+    "rating": 1,
+    "app": "ThinkUp Affirmations"
+   },
+   {
+    "quote": "Prompts include mentions of God etc ye no thanks don't force religion subtly on us",
+    "rating": 1,
+    "app": "Gratitude Journal"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный старт без допроса",
+    "obsCount": 6,
+    "apps": [
+     "Motivation Daily quotes",
+     "I am Daily affirmations",
+     "Gratitude Journal",
+     "ThinkUp Affirmations"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Лидеры рынка отравляют первое впечатление: 10–20 минут «личных вопросов» под видом оценки психики, а в конце внезапный платный экран и грубые промпты — доверие рушится до первого опыта.",
+  "idea": {
+   "pitch": "Продукт, который выигрывает на контрасте: цена и суть видны сразу, онбординг короткий и уважительный, первый день мягкий. В нише о душевном состоянии честность входа — это и есть позиционирование.",
+   "features": [
+    "Цена и формат подписки видны до любых вопросов",
+    "Короткий онбординг без псевдо-диагностики психики",
+    "Мягкий первый день без жёстких промптов о себе",
+    "Прозрачная отмена и заметная кнопка отписки",
+    "Светский тон по умолчанию, вера — только по явному выбору"
+   ],
+   "antiFeatures": [],
+   "monetization": "Честная подписка с понятным пробным периодом и видимой ценой; ставка на удержание через доверие, а не на забытую отмену."
+  }
  }
 ]
