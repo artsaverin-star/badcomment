@@ -6,9 +6,22 @@ import AuthModal from "./AuthModal";
 import type { UnlockType } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
-// Lightweight per-item unlock pill (no starfield) — for gating many ideas/apps
-// on one page where a full UnlockGate per item would be too heavy. Spends
-// «энергия» via /api/unlock, then refreshes so the content reveals inline.
+// Energy-salute particles — bolts burst out of the button on a successful unlock.
+// Deterministic spread (no Math.random → no hydration mismatch).
+const PARTICLES = Array.from({ length: 12 }, (_, i) => {
+  const a = (i / 12) * Math.PI * 2;
+  const dist = 44 + (i % 3) * 16;
+  return {
+    tx: Math.round(Math.cos(a) * dist),
+    ty: Math.round(Math.sin(a) * dist) - 10,
+    rot: (i % 2 ? 1 : -1) * (30 + (i % 4) * 12),
+    size: 12 + (i % 3) * 4,
+    delay: (i % 4) * 25,
+  };
+});
+
+// Lightweight per-item unlock button. Spends «энергия» via /api/unlock, plays a
+// bolt salute, then refreshes so the content reveals inline.
 export default function EnergyUnlockButton({
   type,
   slug,
@@ -29,6 +42,7 @@ export default function EnergyUnlockButton({
   const router = useRouter();
   const [auth, setAuth] = useState(false);
   const [working, setWorking] = useState(false);
+  const [burst, setBurst] = useState(false);
   const ru = locale !== "en";
   const short = loggedIn && balance < cost;
 
@@ -56,7 +70,9 @@ export default function EnergyUnlockButton({
         setWorking(false);
         return;
       }
-      router.refresh();
+      // Salute, then reveal — give the burst time to play before the refresh.
+      setBurst(true);
+      setTimeout(() => router.refresh(), 620);
     } catch {
       setWorking(false);
     }
@@ -68,7 +84,7 @@ export default function EnergyUnlockButton({
         type="button"
         onClick={unlock}
         disabled={working}
-        className="btn-shimmer inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-70"
+        className="btn-shimmer relative inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-80"
       >
         {working ? (
           ru ? "Открываем…" : "Unlocking…"
@@ -84,6 +100,24 @@ export default function EnergyUnlockButton({
             </svg>
             <span className="tabular-nums">{cost}</span>
           </>
+        )}
+
+        {burst && (
+          <span aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 z-10">
+            {PARTICLES.map((p, i) => (
+              <svg
+                key={i}
+                width={p.size}
+                height={p.size}
+                viewBox="0 0 24 24"
+                fill="#ffe6c2"
+                className="energy-particle absolute drop-shadow-[0_0_6px_rgba(255,180,90,0.8)]"
+                style={{ ["--tx" as string]: `${p.tx}px`, ["--ty" as string]: `${p.ty}px`, ["--rot" as string]: `${p.rot}deg`, animationDelay: `${p.delay}ms` }}
+              >
+                <path d="M13 2 4.5 13.2c-.42.55-.03 1.3.66 1.3H11l-1.4 7.6c-.13.7.78 1.1 1.2.5L19.5 11.4c.42-.55.03-1.3-.66-1.3H13l1.4-7.7c.13-.7-.78-1.08-1.2-.5z" />
+              </svg>
+            ))}
+          </span>
         )}
       </button>
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => router.refresh()} />}

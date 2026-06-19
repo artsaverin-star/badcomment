@@ -196,7 +196,7 @@ export default function SegmentExplorer({
                     {a.description && <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.description}</span>}
                   </span>
                   <div className="shrink-0">
-                    <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть" : "Open"} />
+                    <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть разбор" : "Open"} />
                   </div>
                 </div>
               ) : (
