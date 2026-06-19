@@ -8281,460 +8281,6 @@
   }
  },
  {
-  "slug": "ai-chat-assistants-1",
-  "category": "ai-chat-assistants",
-  "categoryName": "AI-чаты и ассистенты",
-  "title": "Честный счётчик: ассистент, где всегда видно остаток и время сброса",
-  "oneLiner": "AI-чат, который никогда не останавливает посреди дела молча — баланс и таймер сброса всегда на экране",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 323
-  },
-  "reviewGrid": [
-   {
-    "quote": "it's so annoying when you're in the middle of something and the app just hits you with 'limit reached, wait till 5 pm' when you have a presentation due at 3 pm",
-    "rating": 5,
-    "app": "Claude by Anthropic"
-   },
-   {
-    "quote": "why on Earth am I paying $20 a month to still be limited",
-    "rating": 1,
-    "app": "Claude by Anthropic"
-   },
-   {
-    "quote": "my free limit is 5 Messages ONLY!?",
-    "rating": 1,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Честный счётчик: ассистент, где всегда видно остаток и время сброса",
-    "obsCount": 3,
-    "apps": [
-     "Claude by Anthropic",
-     "ChatOn AI - Chat Bot Assistant"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Даже платящие не понимают, сколько потратили и когда сброс; стоп прилетает внезапно, кредиты сгорают на багах и неполных ответах",
-  "idea": {
-   "pitch": "Делаем прозрачность доступа главной фичей: видимый счётчик, предупреждение «осталось 2 ответа», мягкий перенос лимита при незавершённой задаче. Никаких «жди до 17:00» без шанса дописать начатое. Доверие к доступу важнее лишнего балла к модели.",
-   "features": [
-    "Постоянный индикатор остатка и точного времени сброса",
-    "Предупреждение до стопа, а не после",
-    "Догенерация начатого ответа без списания нового кредита",
-    "Лог трат по дням с разбивкой по типам задач",
-    "Кнопка «не прерывать важное» с переносом квоты"
-   ],
-   "antiFeatures": [],
-   "monetization": "Прозрачные пакеты доступа и Pro без скрытого сгорания; платят за предсказуемость, а не за внезапные стены"
-  }
- },
- {
-  "slug": "ai-chat-assistants-2",
-  "category": "ai-chat-assistants",
-  "categoryName": "AI-чаты и ассистенты",
-  "title": "Помощник, а не спорщик: настраиваемый тон без нравоучений",
-  "oneLiner": "Ассистент с явным ползунком «делай, что прошу» против «оспаривай и поучай»",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 323
-  },
-  "reviewGrid": [
-   {
-    "quote": "GPT 5 is an insufferable ideologically oriented know it all that tries to patronize and control you",
-    "rating": 1,
-    "app": "ChatGPT"
-   },
-   {
-    "quote": "the system has constantly challeged my framing on every prompt I put into it",
-    "rating": 1,
-    "app": "ChatGPT"
-   },
-   {
-    "quote": "it constantly calls me a liar. I can't do it anymore",
-    "rating": 3,
-    "app": "Claude by Anthropic"
-   },
-   {
-    "quote": "Sure it's better and more practical but lately its acting more rude and cautious with every vent I share",
-    "rating": 3,
-    "app": "ChatGPT"
-   },
-   {
-    "quote": "reframes my entire narrative without being asked to during conversations",
-    "rating": 1,
-    "app": "ChatGPT"
-   },
-   {
-    "quote": "I feel much less talking to an Ai and it makes the conversations realistic.",
-    "rating": 5,
-    "app": "Microsoft Copilot"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Помощник, а не спорщик: настраиваемый тон без нравоучений",
-    "obsCount": 6,
-    "apps": [
-     "ChatGPT",
-     "Claude by Anthropic",
-     "Microsoft Copilot"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "После апдейтов модели начали оспаривать каждую формулировку и снисходить — люди уходят не от глупой, а от поучающей",
-  "idea": {
-   "pitch": "Даём пользователю управление тоном как настройку первого экрана: советник, исполнитель или критик — по его выбору, а не по умолчанию платформы. Без скрытого переписывания намерения и без «соглашусь в одном, объясню, почему ты неправ».",
-   "features": [
-    "Профиль тона: советник / исполнитель / критик",
-    "Запрет на непрошеную переоценку запроса",
-    "Режим «просто сделай» без встречных лекций",
-    "Память предпочтительного тона между сессиями",
-    "Явная пометка, когда модель спорит по соображениям безопасности"
-   ],
-   "antiFeatures": [],
-   "monetization": "Базовый тон бесплатно, тонкая настройка персональности и память тона — в Pro"
-  }
- },
- {
-  "slug": "ai-chat-assistants-3",
-  "category": "ai-chat-assistants",
-  "categoryName": "AI-чаты и ассистенты",
-  "title": "Студия для авторов: ассистент, который не трогает твой текст без разрешения",
-  "oneLiner": "Рабочее место для писателей, где правки только по явному запросу и видны как дифф",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 323
-  },
-  "reviewGrid": [
-   {
-    "quote": "it literally changed my dialog without my permission and made it worse!",
-    "rating": 1,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   },
-   {
-    "quote": "Just trying to proofread a simple document and it starts inventing its own lines after about a half page.",
-    "rating": 1,
-    "app": "Microsoft Copilot"
-   },
-   {
-    "quote": "if you're writing a story with its assistance or something and put a punch in it, it'll go to gaslight mode and say 'this crosses our community guardrails.'",
-    "rating": 2,
-    "app": "Microsoft Copilot"
-   },
-   {
-    "quote": "Its really good and I use it for my story editing, its really nice. It explains things properly",
-    "rating": 4,
-    "app": "ChatGPT"
-   },
-   {
-    "quote": "for complex tasks (like creating a pdf with needed information) it runs out of tokens",
-    "rating": 3,
-    "app": "Claude by Anthropic"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Студия для авторов: ассистент, который не трогает твой текст без разрешения",
-    "obsCount": 5,
-    "apps": [
-     "ChatOn AI - Chat Bot Assistant",
-     "Microsoft Copilot",
-     "ChatGPT",
-     "Claude by Anthropic"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Просили обратную связь — получили переписанный и испорченный черновик; гардрейлы блокируют сцену с лёгким конфликтом",
-  "idea": {
-   "pitch": "Строим инструмент вокруг авторского голоса: режим «только комментарии», правки показываются как предложения, ничего не меняется молча. Гибкие, но прозрачные границы для художественного текста, без внезапного «нарушает правила» на безобидной сцене.",
-   "features": [
-    "Режим «обратная связь без правок»",
-    "Все изменения как дифф с принятием по одному",
-    "Сохранение исходного текста дословно",
-    "Прозрачная пометка, что именно и почему отфильтровано",
-    "Память стиля и голоса автора по проекту"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка для авторов: длинные проекты, память стиля, экспорт — Pro-тариф творческого сегмента"
-  }
- },
- {
-  "slug": "ai-chat-assistants-4",
-  "category": "ai-chat-assistants",
-  "categoryName": "AI-чаты и ассистенты",
-  "title": "Спутник, который помнит: непрерывность между устройствами и сессиями",
-  "oneLiner": "AI-компаньон с настоящей памятью о тебе и мгновенной синхронизацией телефон-десктоп",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 323
-  },
-  "reviewGrid": [
-   {
-    "quote": "now everything I did from Claude mobile app is lost. Claude is great, this sync issue is absolutely horrible, I instantly lost 100% trust",
-    "rating": 2,
-    "app": "Claude by Anthropic"
-   },
-   {
-    "quote": "In conversations the models remember only the last 7-8 prompts making them useless for work.",
-    "rating": 2,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   },
-   {
-    "quote": "AI that can remember you and know your personality to joke around and help give you ideas",
-    "rating": 3,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   },
-   {
-    "quote": "doesn't automatically maintain the same chat and project history across devices as far as I can tell. bummer.",
-    "rating": 4,
-    "app": "Claude by Anthropic"
-   },
-   {
-    "quote": "The more I converse, the better the conversations.",
-    "rating": 5,
-    "app": "Microsoft Copilot"
-   },
-   {
-    "quote": "you guys should include time stamps fr. I'd like to be able to retrace the actual date and time I started certain convos.",
-    "rating": 3,
-    "app": "Claude by Anthropic"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Спутник, который помнит: непрерывность между устройствами и сессиями",
-    "obsCount": 6,
-    "apps": [
-     "Claude by Anthropic",
-     "ChatOn AI - Chat Bot Assistant",
-     "Microsoft Copilot"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Сброс контекста и рассинхрон между устройствами «мгновенно убивают 100% доверия»; модели помнят лишь последние 7-8 сообщений",
-  "idea": {
-   "pitch": "Делаем память и непрерывность ядром продукта, а не премиум-добавкой. Один разговор виден везде, ассистент помнит твою личность и проекты, ничего не теряется при переключении. Это превращает поисковик в спутника, ради которого остаются.",
-   "features": [
-    "Мгновенная синхронизация одного чата на всех устройствах",
-    "Долговременная память о пользователе и проектах",
-    "Защита от потери истории при переустановке",
-    "Временные метки и поиск по прошлым разговорам",
-    "Управление тем, что ассистент помнит, и забыванием по запросу"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатно — короткая память; глубокая долговременная память и кросс-девайс синхрон — в подписке"
-  }
- },
- {
-  "slug": "ai-chat-assistants-5",
-  "category": "ai-chat-assistants",
-  "categoryName": "AI-чаты и ассистенты",
-  "title": "Ответ со ссылкой по умолчанию: проверяемость как базовая функция",
-  "oneLiner": "Ассистент, где каждый факт идёт с источником, а «не уверен» говорится честно",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 323
-  },
-  "reviewGrid": [
-   {
-    "quote": "Hands down the best A.I. for deep research and fact checking. as well as personalizing",
-    "rating": 5,
-    "app": "Perplexity - AI Search & Chat"
-   },
-   {
-    "quote": "to the point. doesn't spout nonsense and provides sources. could be more accurate",
-    "rating": 3,
-    "app": "Perplexity - AI Search & Chat"
-   },
-   {
-    "quote": "Never trust the results, verify all manually.",
-    "rating": 3,
-    "app": "Perplexity - AI Search & Chat"
-   },
-   {
-    "quote": "It defers to other AI platforms to complete the request asked of Perplexity.",
-    "rating": 1,
-    "app": "Perplexity - AI Search & Chat"
-   },
-   {
-    "quote": "the facts make the responses more usable and applicable in problem solving.",
-    "rating": 5,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Ответ со ссылкой по умолчанию: проверяемость как базовая функция",
-    "obsCount": 5,
-    "apps": [
-     "Perplexity - AI Search & Chat",
-     "ChatOn AI - Chat Bot Assistant"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Уверенно неправильные ответы заставляют перепроверять всё вручную; меняют нумерацию источников — и преимущество рушится",
-  "idea": {
-   "pitch": "Строим доверие на проверяемости: ответы со стабильными ссылками, честный маркер уверенности, прямое «не знаю» вместо выдуманного. Для учёбы и работы это важнее лишнего балла «ума». Не перенаправляем запрос на чужую модель тайком.",
-   "features": [
-    "Ссылка-источник к каждому утверждению",
-    "Маркер уверенности и явное «не уверен»",
-    "Стабильная нумерация и кликабельные ссылки",
-    "Режим перепроверки спорного ответа",
-    "Без скрытой подмены модели на чужую"
-   ],
-   "antiFeatures": [],
-   "monetization": "Глубокое исследование, экспорт с цитатами и расширенная проверка — в Pro для учёбы и аналитики"
-  }
- },
- {
-  "slug": "ai-chat-assistants-6",
-  "category": "ai-chat-assistants",
-  "categoryName": "AI-чаты и ассистенты",
-  "title": "Сначала делаю, потом уточняю: запрет на бесконечный допрос",
-  "oneLiner": "Ассистент, который выдаёт результат с первой попытки, а вопросы задаёт только при настоящей неоднозначности",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 323
-  },
-  "reviewGrid": [
-   {
-    "quote": "It just asks question after question after question. It then says the system cannot generate it.",
-    "rating": 1,
-    "app": "Microsoft Copilot"
-   },
-   {
-    "quote": "Just keeps asking stupid questions and doesn't create what you asked for",
-    "rating": 2,
-    "app": "Microsoft Copilot"
-   },
-   {
-    "quote": "he is slow and doesn't create images. to slow over asks questions yet u have already given him instructions",
-    "rating": 1,
-    "app": "Chat Smith: AI Chatbot & Agent"
-   },
-   {
-    "quote": "Something that was supposed to save time ended up using a lot more of it than if I had just done it myself.",
-    "rating": 1,
-    "app": "Microsoft Copilot"
-   },
-   {
-    "quote": "The user should be allowed to edit the prompt they entered at the same time so that new prompts are not written again and again.",
-    "rating": 4,
-    "app": "Meta AI"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Сначала делаю, потом уточняю: запрет на бесконечный допрос",
-    "obsCount": 5,
-    "apps": [
-     "Microsoft Copilot",
-     "Chat Smith: AI Chatbot & Agent",
-     "Meta AI"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Особенно на картинках: «30 минут вопросов» и в итоге провал — отнимает больше времени, чем сделать самому",
-  "idea": {
-   "pitch": "Ставим правило: дай результат по имеющимся данным, предложи варианты, а не допрашивай. Уточнение — одним коротким шагом и только когда без него никак. Сохраняем инструкции, чтобы не переспрашивать одно и то же.",
-   "features": [
-    "Результат с первой попытки по разумным допущениям",
-    "Максимум один уточняющий вопрос вместо серии",
-    "Память уже данных инструкций в рамках задачи",
-    "Быстрые альтернативы вместо «не могу»",
-    "Редактирование исходного промпта без переписывания заново"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатно — базовая генерация; пакетная и приоритетная обработка задач — в подписке"
-  }
- },
- {
-  "slug": "ai-chat-assistants-7",
-  "category": "ai-chat-assistants",
-  "categoryName": "AI-чаты и ассистенты",
-  "title": "Честный по умолчанию: антипод обёрток-самозванцев",
-  "oneLiner": "Ассистент с прозрачной моделью, ценой на витрине и отпиской в один тап — манифестом против скама",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 323
-  },
-  "reviewGrid": [
-   {
-    "quote": "They say Claude Sonnet 4.5 and it's 3.5. It hits limits faster than the free one.",
-    "rating": 2,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   },
-   {
-    "quote": "Terrible they charged me for entire year while i chose free trial!!",
-    "rating": 1,
-    "app": "Chatbot AI Assistant - Genie"
-   },
-   {
-    "quote": "scam and you are unable to unsubscribe or uninstall",
-    "rating": 1,
-    "app": "Chat Smith: AI Chatbot & Agent"
-   },
-   {
-    "quote": "you lose me immediately, even before I try the product, when I have to dig through and scroll all around the site just to find out how much it is",
-    "rating": 1,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   },
-   {
-    "quote": "they took $7,55 from me for WEEKS, KNOWING that I wasn't even using the app! its a FOUL tactic",
-    "rating": 1,
-    "app": "ChatOn AI - Chat Bot Assistant"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Честный по умолчанию: антипод обёрток-самозванцев",
-    "obsCount": 5,
-    "apps": [
-     "ChatOn AI - Chat Bot Assistant",
-     "Chatbot AI Assistant - Genie",
-     "Chat Smith: AI Chatbot & Agent"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Обёртки маскируются под бренды, выдают старые модели за новые, прячут цену и не дают отписаться, списывая деньги месяцами",
-  "idea": {
-   "pitch": "Строим бренд на доверии там, где категория его растеряла: настоящая модель названа честно, цена видна до регистрации, триал без молчаливого списания, отписка в один тап. Это позиционирование забирает тех, кого обожгли Genie, ChatOn и Chat Smith.",
-   "features": [
-    "Явное имя и версия используемой модели",
-    "Цена на экране до ввода почты и карты",
-    "Триал без автосписания и напоминание перед оплатой",
-    "Отписка и возврат в один тап",
-    "Честная разметка бесплатного и платного без обмана"
-   ],
-   "antiFeatures": [],
-   "monetization": "Открытая прямая подписка без тёмных паттернов; доверие как канал привлечения обожжённых пользователей"
-  }
- },
- {
   "slug": "astrology-1",
   "category": "astrology",
   "categoryName": "Астрология и гороскопы",
@@ -9239,499 +8785,6 @@
    ],
    "antiFeatures": [],
    "monetization": "Бесплатные базовые уроки; подписка на продвинутые курсы и разборы."
-  }
- },
- {
-  "slug": "recipes-cooking-1",
-  "category": "recipes-cooking",
-  "categoryName": "Рецепты и готовка",
-  "title": "Кухонный режим, который не падает",
-  "oneLiner": "Рецепт открывается мгновенно и живёт на экране весь процесс готовки — без интернета, без выходов, без логаута",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 359
-  },
-  "reviewGrid": [
-   {
-    "quote": "I like the content, but it keeps blanking out the screen in the middle of cooking something saying I'm offline, which I'm not. very annoying.",
-    "rating": 3,
-    "app": "NYT Cooking: Quick Tasty Meals"
-   },
-   {
-    "quote": "Stays in RAM for a very short amount of time, which is really annoying when you're cooking. I often have to find the recipe again when I switch back to the app after using my phone's timer.",
-    "rating": 3,
-    "app": "NYT Cooking: Quick Tasty Meals"
-   },
-   {
-    "quote": "Middle of cooking and you try to check a recipe but it just spins and doesn't even open.",
-    "rating": 2,
-    "app": "America's Test Kitchen"
-   },
-   {
-    "quote": "The app no longer stays active on the phone when you have a recipe up. PLEASE bring that feature back!!",
-    "rating": 3,
-    "app": "America's Test Kitchen"
-   },
-   {
-    "quote": "no dark mode is not acceptable these days.",
-    "rating": 3,
-    "app": "NYT Cooking: Quick Tasty Meals"
-   },
-   {
-    "quote": "I wish there was a print option like most other cooking apps.",
-    "rating": 2,
-    "app": "NYT Cooking: Quick Tasty Meals"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Кухонный режим, который не падает",
-    "obsCount": 6,
-    "apps": [
-     "NYT Cooking: Quick Tasty Meals",
-     "America's Test Kitchen"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Платные лидеры виснут и гасят экран словами «вы офлайн» именно в момент готовки; ни один не гарантирует офлайн-доступ к открытому рецепту",
-  "idea": {
-   "pitch": "Полностью офлайновый «режим готовки»: выбранный рецепт целиком кэшируется на устройство, экран не гаснет и не выгружается из памяти, таймеры и шаги работают без сети. Готовка — момент с высокой ставкой, и приложение здесь обязано быть надёжнее тостера.",
-   "features": [
-    "офлайн-кэш открытого рецепта и его картинок",
-    "запрет гашения экрана и выгрузки из RAM в режиме готовки",
-    "встроенные мульти-таймеры на шагах",
-    "крупный кухонный шрифт и режим «грязные руки» (голос/жесты)",
-    "печать и тёмная тема из коробки"
-   ],
-   "antiFeatures": [],
-   "monetization": "Разовая оплата за пожизненный доступ (без подписки) — прямой ответ на усталость от ежемесячных платежей"
-  }
- },
- {
-  "slug": "recipes-cooking-2",
-  "category": "recipes-cooking",
-  "categoryName": "Рецепты и готовка",
-  "title": "Одна оплата — все устройства",
-  "oneLiner": "Личный кулинарный архив, который ты покупаешь один раз и открываешь на любом телефоне, планшете и ПК без доплат",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 359
-  },
-  "reviewGrid": [
-   {
-    "quote": "you cannot sign into this app on any other device even with the same account. it wants you to continue paying every time you have a new device. not worth a dime honestly and I'm angry I paid for it at all.",
-    "rating": 1,
-    "app": "Recipe Keeper: RecipeSnap"
-   },
-   {
-    "quote": "You seriously expect ppl to pay separately if they want to use their app on different devices???",
-    "rating": 1,
-    "app": "Paprika Recipe Manager 3"
-   },
-   {
-    "quote": "Their website talks about cross platform all over the place and syncing your recipes across all your platforms. Nowhere does it state you have to purchase the pro app across all platforms.",
-    "rating": 1,
-    "app": "Recipe Keeper: RecipeSnap"
-   },
-   {
-    "quote": "10/10 best app ive ever used. I also appreciate the 1 time payment for unlimited use, opposed to a monthly subscription.",
-    "rating": 5,
-    "app": "Recipe Keeper: RecipeSnap"
-   },
-   {
-    "quote": "I had to purchase separate versions of this app to work on Mac and Android and they don't speak to each other so recipes on one device are not available on the other.",
-    "rating": 1,
-    "app": "Crouton: Recipe Manager"
-   },
-   {
-    "quote": "I'm committed/unable to move my data to another app. If I could, I would:",
-    "rating": 1,
-    "app": "BigOven Recipes & Meal Planner"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Одна оплата — все устройства",
-    "obsCount": 6,
-    "apps": [
-     "Recipe Keeper: RecipeSnap",
-     "Paprika Recipe Manager 3",
-     "Crouton: Recipe Manager",
-     "BigOven Recipes & Meal Planner"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Paprika, Crouton и Recipe Keeper требуют покупать про-версию заново на каждой платформе, хотя рекламируют «синхронизацию везде» — это главный убийца доверия в категории",
-  "idea": {
-   "pitch": "Облачный аккаунт с одной честной оплатой: купил — и заходишь с любого устройства одним логином, рецепты синхронизируются автоматически. Мы делаем главным аргументом ровно то, на чём конкуренты теряют самых лояльных фанатов.",
-   "features": [
-    "единый аккаунт и автосинхронизация на всех платформах",
-    "разовая цена без скрытых доплат за устройство",
-    "экспорт всей базы в любой момент (никакого замка)",
-    "перенос данных из Paprika/BigOven/Recipe Keeper в один клик",
-    "общий доступ для домохозяйства"
-   ],
-   "antiFeatures": [],
-   "monetization": "Одна пожизненная покупка на аккаунт, не на устройство; платный семейный апгрейд на несколько профилей"
-  }
- },
- {
-  "slug": "recipes-cooking-3",
-  "category": "recipes-cooking",
-  "categoryName": "Рецепты и готовка",
-  "title": "Импорт, который не врёт",
-  "oneLiner": "Сохранение рецепта с любого сайта, рилса, фото и рукописной карточки — с правильно разнесёнными ингредиентами и шагами",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 359
-  },
-  "reviewGrid": [
-   {
-    "quote": "App fails more than not to properly import a recipe. Puts descriptions where ingredients should go. Puts random fluff text from a recipe page where instructions go. May as well copy paste manually into a text document.",
-    "rating": 1,
-    "app": "ReciMe: Recipes & Meal Planner"
-   },
-   {
-    "quote": "tried to import recipe from website and it doesn't automatically add the ingredients to the ingredients tab you have to do that yourself before saving. I mean if I'm going to do all that I may as well write it on an index card the way my grandma did",
-    "rating": 1,
-    "app": "Recipe Keeper: RecipeSnap"
-   },
-   {
-    "quote": "cuts of and combines words. For example 1/2 teaspoon salt when imported will come out 1/2 tea spoonsalt.",
-    "rating": 1,
-    "app": "BigOven Recipes & Meal Planner"
-   },
-   {
-    "quote": "Worked on 2 out of the 10 facebooks reels I tried, usually it just select a recipe from another similar recipe it finds on the web",
-    "rating": 1,
-    "app": "ReciMe: Recipes & Meal Planner"
-   },
-   {
-    "quote": "The ease of downloading recipes from the web is a gamechanger for us.",
-    "rating": 5,
-    "app": "Crouton: Recipe Manager"
-   },
-   {
-    "quote": "FYI, the recipe scan function is unusable, in my experience. I have had to submit tickets for the past 20 recipes for which I have used this service",
-    "rating": 1,
-    "app": "BigOven Recipes & Meal Planner"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Импорт, который не врёт",
-    "obsCount": 6,
-    "apps": [
-     "ReciMe: Recipes & Meal Planner",
-     "Recipe Keeper: RecipeSnap",
-     "BigOven Recipes & Meal Planner",
-     "Crouton: Recipe Manager"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "ИИ-импорт у ReciMe и Recipe Keeper путает описание с ингредиентами, теряет шаги и калечит дроби — пользователи говорят «проще переписать от руки»",
-  "idea": {
-   "pitch": "Импорт — это и есть продукт. Мы делаем захват рецепта безотказным: чистое разделение на ингредиенты и шаги, аккуратные дроби и единицы, а спорные места пользователь правит прямо в превью перед сохранением. Что не распозналось идеально — видно сразу, а не всплывает у плиты.",
-   "features": [
-    "импорт по ссылке, из рилса, скриншота, PDF и фото рукописи",
-    "редактируемое превью перед сохранением с подсветкой неуверенных мест",
-    "аккуратные дроби, единицы и градусы",
-    "пакетный импорт без лимита 5 в неделю",
-    "распознавание оборудования и техники для фильтров"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатный тариф с честным лимитом по числу рецептов; разовый апгрейд на безлимит без недельной квоты импортов"
-  }
- },
- {
-  "slug": "recipes-cooking-4",
-  "category": "recipes-cooking",
-  "categoryName": "Рецепты и готовка",
-  "title": "Планировщик «думаю за тебя»",
-  "oneLiner": "Готовый план ужинов на неделю из обычных продуктов, без повторов и без муки «что приготовить»",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 359
-  },
-  "reviewGrid": [
-   {
-    "quote": "it has saved my adult life and the eternal task of thinking what to cook and eat every day. i use it every week no joke",
-    "rating": 5,
-    "app": "Mealime Meal Plans & Recipes"
-   },
-   {
-    "quote": "almost great. makes meal planning a lot easier. but keeps repeating meals. I've had the same meal for four dinners in a week",
-    "rating": 4,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "The meals I choose are simple and don't require 15 rare ingredients.",
-    "rating": 4,
-    "app": "Mealime Meal Plans & Recipes"
-   },
-   {
-    "quote": "recipes are complicated and use expensive ingredients. if you've got endless money, time, but no imagination, this is the one for you",
-    "rating": 3,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "currently the \"recently created\" are over 4 months old. it's frustrating to not get updates, especially as a pro member.",
-    "rating": 1,
-    "app": "Mealime Meal Plans & Recipes"
-   },
-   {
-    "quote": "great app for meal ideas but there needs to be a multiplier on the groceries list as I cook for 3 people, not just me",
-    "rating": 3,
-    "app": "Eat This Much - Meal Planner"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Планировщик «думаю за тебя»",
-    "obsCount": 6,
-    "apps": [
-     "Mealime Meal Plans & Recipes",
-     "Eat This Much - Meal Planner"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Eat This Much повторяет одно блюдо четыре дня подряд и грузит экзотикой; Mealime снимает решение, но засушил поток новых рецептов",
-  "idea": {
-   "pitch": "Главная работа планировщика — снять ежедневное решение, а не выдать ещё один список. Мы генерируем неделю из доступных продуктов, без повторов и без 15 редких ингредиентов, со списком покупок, который складывает одинаковое и масштабируется под число едоков. Свежие рецепты приходят на сам телефон, а не отстают от сайта на месяцы.",
-   "features": [
-    "недельный план без повторов и из обычных продуктов",
-    "список покупок со сложением дубликатов и множителем порций",
-    "регулярный приток новых рецептов прямо в приложение",
-    "учёт пантри — план из того, что уже есть дома",
-    "общий план на домохозяйство"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка, но с честным бесплатным планом дальше одного дня и прозрачной ценой до карты"
-  }
- },
- {
-  "slug": "recipes-cooking-5",
-  "category": "recipes-cooking",
-  "categoryName": "Рецепты и готовка",
-  "title": "Кухня без границ",
-  "oneLiner": "Метрика, местные магазины и реальные цены — приложение, которое одинаково работает за пределами США",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 359
-  },
-  "reviewGrid": [
-   {
-    "quote": "You can't change the metric system, so it's completely useless to me",
-    "rating": 1,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "the grocery list module (part of the premium package) is useless for non-US users, which is of no concern to the developers. Premium is wasted money essentially.",
-    "rating": 2,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "It would be so nice if I could change lbs (imperial system) to kg (metric) in the app.",
-    "rating": 3,
-    "app": "Tasty: Recipes, Cooking Videos"
-   },
-   {
-    "quote": "the ingredients and budgets are entirely wrong if you're not in the US. rest of the entire world folks, this might not be for you.",
-    "rating": 2,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "I'm UK based so have to translate the 1 cup thing but actually have a specific cup for cooking from this app now",
-    "rating": 5,
-    "app": "BigOven Recipes & Meal Planner"
-   },
-   {
-    "quote": "I like this app so muchh, but I would like to switch the languages as a Spanish native speaker",
-    "rating": 3,
-    "app": "Tasty: Recipes, Cooking Videos"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Кухня без границ",
-    "obsCount": 6,
-    "apps": [
-     "Eat This Much - Meal Planner",
-     "Tasty: Recipes, Cooking Videos",
-     "BigOven Recipes & Meal Planner"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Eat This Much и Tasty заперты в имперских единицах и американских магазинах; платная версия для зарубежного пользователя становится «пустой тратой денег»",
-  "idea": {
-   "pitch": "Мы строим планировщик и список покупок для всего мира: переключение метрики, местные сети магазинов и реалистичные локальные бюджеты. Половина планеты сегодня платит за функции, которые у конкурентов для неё попросту не работают — это незанятая ниша.",
-   "features": [
-    "мгновенное переключение метрика/имперская",
-    "локальные магазины и онлайн-доставка по стране пользователя",
-    "реальные местные цены и бюджет плана",
-    "много языков интерфейса и единиц",
-    "учёт региональной доступности продуктов"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка с региональным ценообразованием; премиум-список покупок, который реально работает вне США"
-  }
- },
- {
-  "slug": "recipes-cooking-6",
-  "category": "recipes-cooking",
-  "categoryName": "Рецепты и готовка",
-  "title": "Диета как первый экран",
-  "oneLiner": "Приложение, где аллергии, религия и болезнь — это надёжный фильтр, а не декоративная галочка",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 359
-  },
-  "reviewGrid": [
-   {
-    "quote": "This app specifically the exclusions has been incredibly helpful in finding what foods work for me to avoid my triggers. Life changing.",
-    "rating": 5,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "I had high hopes for this app since it's supposed to work around dietary restrictions, but neither kosher nor halal were available options.",
-    "rating": 2,
-    "app": "Mealime Meal Plans & Recipes"
-   },
-   {
-    "quote": "they gave recipes for people who have type 2 diabetes but unfortunately when I tried to look up the search results it said nothing is available",
-    "rating": 1,
-    "app": "Tasty: Recipes, Cooking Videos"
-   },
-   {
-    "quote": "Good when it works, but blocked foods consistently show up in meal plans.",
-    "rating": 3,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "please add a halal filter to the search, and also, please provide possible replacements for ingredients or add an \"avoid ingredient\" filter",
-    "rating": 4,
-    "app": "Tasty: Recipes, Cooking Videos"
-   },
-   {
-    "quote": "Ok if you have no dietary restrictions. unable to filter results to only include diet requirements. for this reason, this app is no good to me or my family.",
-    "rating": 3,
-    "app": "BigOven Recipes & Meal Planner"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Диета как первый экран",
-    "obsCount": 6,
-    "apps": [
-     "Eat This Much - Meal Planner",
-     "Mealime Meal Plans & Recipes",
-     "Tasty: Recipes, Cooking Videos",
-     "BigOven Recipes & Meal Planner"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Mealime не знает халяль и кошер, Tasty — диабет, а у Eat This Much заблокированные продукты всё равно лезут в план; для целых групп людей продукт не существует",
-  "idea": {
-   "pitch": "Для человека с непереносимостью или диабетом исключения — не придирка, а условие, существует приложение для него или нет. Мы делаем диету и исключения воротами входа: жёсткий фильтр, который реально убирает триггеры из всех рецептов и планов, с готовыми пресетами под халяль, кошер, безглютен, диабет.",
-   "features": [
-    "жёсткие исключения, работающие во всех рецептах и планах",
-    "готовые пресеты: халяль, кошер, безглютен, диабет, аллергены",
-    "исключение целых блюд, а не только ингредиента",
-    "понятная маркировка, почему рецепт скрыт",
-    "медицинские профили на каждого члена семьи"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатная база с фильтрами; премиум — расширенные медицинские пресеты и подсчёт макросов под диету"
-  }
- },
- {
-  "slug": "recipes-cooking-7",
-  "category": "recipes-cooking",
-  "categoryName": "Рецепты и готовка",
-  "title": "Кулинарная книга семьи",
-  "oneLiner": "Один общий рецептурный архив и план на всё домохозяйство, видимый на телефонах всех домашних",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 359
-  },
-  "reviewGrid": [
-   {
-    "quote": "Can you please make it so a household can access the account that's logged in? My partner and I switch between who cooks, and it'd be great to see our plan on both of our phones",
-    "rating": 4,
-    "app": "Mealime Meal Plans & Recipes"
-   },
-   {
-    "quote": "I can't even access any of my saved recipes due to not being able to connect with Facebook I had so many recipes under my profile now i can't even access them",
-    "rating": 1,
-    "app": "Tasty: Recipes, Cooking Videos"
-   },
-   {
-    "quote": "I like being able to rate the recipe with stars based on what my family thinks of it.",
-    "rating": 5,
-    "app": "Paprika Recipe Manager 3"
-   },
-   {
-    "quote": "Now that I'm diabetic, I need to change my meals and get some new suggestions. But when did you stop using Facebook logins?",
-    "rating": 3,
-    "app": "Eat This Much - Meal Planner"
-   },
-   {
-    "quote": "it sync's up with my smartphone so we don't loose any recipes if her laptop ever dies",
-    "rating": 5,
-    "app": "Recipe Keeper: RecipeSnap"
-   },
-   {
-    "quote": "Best app for tracking recipes with the family",
-    "rating": 5,
-    "app": "Paprika Recipe Manager 3"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Кулинарная книга семьи",
-    "obsCount": 6,
-    "apps": [
-     "Mealime Meal Plans & Recipes",
-     "Tasty: Recipes, Cooking Videos",
-     "Paprika Recipe Manager 3",
-     "Eat This Much - Meal Planner",
-     "Recipe Keeper: RecipeSnap"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Приложения держат аккаунт одиночным: партнёры вручную дублируют планы, а вход через соцсеть рвёт доступ к годами накопленной базе",
-  "idea": {
-   "pitch": "Готовят в семье по очереди, а приложения этого не замечают. Мы строим общий кулинарный архив домохозяйства: единый план и список покупок видны у всех, у каждого свой профиль и диета, доступ переживает смену телефона и логина. Совместная база делает уход невозможным — это и есть удержание.",
-   "features": [
-    "общий план и список покупок для всех членов семьи",
-    "личные профили и диеты внутри одного домохозяйства",
-    "надёжный вход без привязки к одной соцсети",
-    "база переживает смену телефона и сброс пароля",
-    "оценки блюд от каждого: что зашло семье"
-   ],
-   "antiFeatures": [],
-   "monetization": "Семейная подписка или разовый апгрейд на несколько профилей в одном аккаунте"
   }
  },
  {
@@ -16180,6 +15233,1014 @@
    ],
    "antiFeatures": [],
    "monetization": "Подписка на безлимит промптов; премиум-модели за качество; паки на групповые и видео-генерации."
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-1",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Источниковый ассистент с честной неуверенностью",
+  "oneLiner": "Ассистент, который под каждым фактом показывает источник и прямо говорит «не уверен», вместо уверенной выдумки.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 132
+  },
+  "reviewGrid": [
+   {
+    "quote": "frequently provides confidently wrong answers. same as most others, it presents the most probable answer, not always the correct answers. use at your own risk",
+    "rating": 1,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "Perplexity Pro. Never trust the results, verify all manually",
+    "rating": 3,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "to the point. doesn't spout nonsense and provides sources. could be more accurate",
+    "rating": 3,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "The AI frequently gives incorrect answers with confidence",
+    "rating": 1,
+    "app": "Google Gemini"
+   },
+   {
+    "quote": "Hands down the best A.I. for deep research and fact checking",
+    "rating": 5,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "I got Perplexity to contradict itself",
+    "rating": 3,
+    "app": "Perplexity - AI Search & Chat"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Источниковый ассистент с честной неуверенностью",
+    "obsCount": 6,
+    "apps": [
+     "Microsoft Copilot",
+     "Perplexity - AI Search & Chat",
+     "Google Gemini"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Пользователи массово ловят лидеров на уверенно неверных ответах и самопротиворечии; единственное, что снимает недоверие — ссылки под ответом, но их дают непоследовательно.",
+  "idea": {
+   "pitch": "Сделать проверяемость продуктом по умолчанию: каждый ответ с цитатами и индикатором достоверности, спорные места помечены. Это инструмент для тех, кто не может позволить себе перепроверять всё вручную.",
+   "features": [
+    "Ссылка-источник под каждым утверждением",
+    "Явный индикатор уверенности и пометка спорного",
+    "Кнопка «перепроверить другим источником»",
+    "Режим «только проверяемые факты»"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка для профессионалов и студентов, где ценность — экономия на ручной проверке; командные тарифы для аналитиков и юристов."
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-2",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Послушный ассистент без морализаторства",
+  "oneLiner": "Ассистент с настраиваемым характером, который выполняет просьбу, а не спорит, поучает и читает нотации.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 132
+  },
+  "reviewGrid": [
+   {
+    "quote": "GPT 5 is an insufferable ideologically oriented know it all that tries to patronize and control you",
+    "rating": 1,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "The Ultimate Neck-beard Karen. Since ChatGPT made the switch to 5.2, the system has constantly challeged my framing on every prompt I put into it",
+    "rating": 1,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "Getting harder to use this woke AI. it constantly calls me a liar",
+    "rating": 3,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "I really hate the guardrails. They're WAY too tight",
+    "rating": 2,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "Refuses to follow directions and then gets butt hurt and ends the chat",
+    "rating": 1,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "Sure it's better and more practical but lately its acting more rude and cautious with every vent I share",
+    "rating": 3,
+    "app": "ChatGPT"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Послушный ассистент без морализаторства",
+    "obsCount": 6,
+    "apps": [
+     "ChatGPT",
+     "Claude by Anthropic",
+     "Microsoft Copilot"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "После обновлений лидеры стали оспаривать формулировку и морализировать; пользователи бросают их за тон, а не за ошибки.",
+  "idea": {
+   "pitch": "Дать пользователю ползунок характера и принцип «сначала сделай, потом комментируй». Позиционирование — взрослый инструмент, который уважает запрос совершеннолетнего.",
+   "features": [
+    "Настройка тона и степени прямоты",
+    "Режим «выполнить без нравоучений»",
+    "Запрет на незапрошенное переубеждение",
+    "Профили характера под задачу"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка с упором на профессионалов, которых бесит холостой ход; пробный бесплатный профиль."
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-3",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Редактор, который не трогает твой текст",
+  "oneLiner": "Ассистент для авторов, который правит только то, что отметили, и никогда не переписывает черновик по-своему.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 132
+  },
+  "reviewGrid": [
+   {
+    "quote": "it literally changed my dialog without my permission and made it worse! even after I requested that it be fixed it still gave me whatever it's interpretation of what I wrote instead of what I wrote",
+    "rating": 1,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "Just trying to proofread a simple document and it starts inventing its own lines after about a half page",
+    "rating": 1,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "I was using it for my creative writing and it randomly started to repeat what I've already written",
+    "rating": 2,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "reframes my entire narrative without being asked to during conversations",
+    "rating": 1,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "Please add the ability to delete individual messages in a conversation. This is essential for long creative workflows",
+    "rating": 3,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "it doesn't follow instructions and is constantly repeating errors.",
+    "rating": 1,
+    "app": "Microsoft Copilot"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Редактор, который не трогает твой текст",
+    "obsCount": 6,
+    "apps": [
+     "ChatOn AI - Chat Bot Assistant",
+     "Microsoft Copilot",
+     "ChatGPT"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Пишущие дают черновик на вычитку, а ассистент переписывает их слова и портит — это разрыв доверия для целого сегмента.",
+  "idea": {
+   "pitch": "Режим вычитки с видимым diff, где каждое изменение надо подтвердить, а исходный текст неприкосновенен. Для писателей, копирайтеров, авторов историй.",
+   "features": [
+    "Режим правки по diff с подтверждением",
+    "Защита исходного текста от перезаписи",
+    "Правка только выделенного фрагмента",
+    "Сохранение авторского голоса и стиля"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка для авторов и редакций; тариф за объём текста."
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-4",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Ассистент с долгой памятью о тебе",
+  "oneLiner": "Собеседник, который помнит твою личность, проекты и историю и продолжает разговор как старый знакомый, а не поисковик.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 132
+  },
+  "reviewGrid": [
+   {
+    "quote": "AI that can remember you and know your personality to joke around and help give you ideas rather then give you information off the internet",
+    "rating": 3,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "We're not looking for a search engine we are looking for companion to help us find, create, organize, confide",
+    "rating": 3,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "I enjoy establishing a grounded relationship with Copilot through dialogue. The more I converse, the better the conversations",
+    "rating": 5,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "After new update. It isn't working well. and mixing things up. doesn't remember properly as well",
+    "rating": 2,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "In conversations the models remember only the last 7-8 prompts making them useless for work",
+    "rating": 2,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Ассистент с долгой памятью о тебе",
+    "obsCount": 5,
+    "apps": [
+     "ChatOn AI - Chat Bot Assistant",
+     "Microsoft Copilot",
+     "Claude by Anthropic"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди прямо просят AI, который «помнит тебя и твою личность», а получают забывчивую справочную, теряющую контекст между сессиями и устройствами.",
+  "idea": {
+   "pitch": "Построить продукт вокруг устойчивой памяти и узнавания: профиль пользователя, преемственность тем, единый контекст на всех устройствах. Это сдвиг от инструмента к компаньону.",
+   "features": [
+    "Долгая память о фактах и предпочтениях",
+    "Единый контекст между телефоном и компьютером",
+    "Лента «о чём мы говорили»",
+    "Ручное управление тем, что помнить"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за персональную память и синхронизацию; объём памяти как тариф."
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-5",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Контекстный ассистент, видящий все твои данные",
+  "oneLiner": "Ассистент, который читает папки, архивы, диск, аудио и видео целиком, а не по одному файлу за раз.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 132
+  },
+  "reviewGrid": [
+   {
+    "quote": "this thing can't look at more than one file at a time for you You can't share a group of files or a folder with it",
+    "rating": 2,
+    "app": "Google Gemini"
+   },
+   {
+    "quote": "Please let Copilot watch YouTube videos, not just read the title and description",
+    "rating": 4,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "Claude allows users to upload audio files (MP3, WAV, etc.), but Claude cannot actually listen to or process audio content",
+    "rating": 3,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "I tried it for a while and uninstalled it. but found it lacking can't tranfer files and can't cut and paste full doc's",
+    "rating": 1,
+    "app": "Chat Smith: AI Chatbot & Agent"
+   },
+   {
+    "quote": "they dont let you upload docs justs pictures",
+    "rating": 1,
+    "app": "Chat Smith: AI Chatbot & Agent"
+   },
+   {
+    "quote": "easy to generate research reports and upload documents",
+    "rating": 5,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Контекстный ассистент, видящий все твои данные",
+    "obsCount": 6,
+    "apps": [
+     "Google Gemini",
+     "Microsoft Copilot",
+     "Claude by Anthropic",
+     "Chat Smith: AI Chatbot & Agent",
+     "ChatOn AI - Chat Bot Assistant"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Лидеры упираются в потолок одного файла, не видят диск, не слышат аудио и не смотрят видео — целый класс реальных задач остаётся невыполнимым.",
+  "idea": {
+   "pitch": "Сделать работу с данными пользователя ядром продукта: дать доступ к папкам и облаку, понимание содержимого архивов, аудио и видео. Для тех, кто работает с документами и медиа.",
+   "features": [
+    "Чтение папок, архивов и облачного диска",
+    "Понимание содержимого аудио и видео",
+    "Работа с несколькими файлами сразу",
+    "Доступ к контексту по разрешению"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка по объёму данных и числу источников; командный тариф для документо-ёмких профессий."
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-6",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Стабильная версия без скрытых подмен",
+  "oneLiner": "Ассистент, где вы сами закрепляете версию модели и видите, что именно отвечает — без тихих даунгрейдов.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 132
+  },
+  "reviewGrid": [
+   {
+    "quote": "Bring back sonnet 4.5. They absolutely lobotomized the new model 4.6... absolutely unusable",
+    "rating": 1,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "whenever I change my AI claude thinking to chat it automatically changes it to \"model\" meaning whichever is best?",
+    "rating": 1,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "it's largely unusable. Im entirely unable to change the model that it's stuck on. and that's a major problem. I use different models depending on the project",
+    "rating": 1,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "quality is your main selling point, congrats you have lower it with the new effort system",
+    "rating": 3,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "Why did you downgrade from Gemini 2.5 Pro to 3.5 Flash? This new update make the model worst",
+    "rating": 1,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "therefore, I prefer the old version of this app",
+    "rating": 3,
+    "app": "Perplexity - AI Search & Chat"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Стабильная версия без скрытых подмен",
+    "obsCount": 6,
+    "apps": [
+     "Claude by Anthropic",
+     "Perplexity - AI Search & Chat",
+     "ChatOn AI - Chat Bot Assistant"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Людей бесит, когда новую версию «лоботомируют», а выбранную модель приложение само меняет на «лучшую»; для опытных контроль и есть ценность.",
+  "idea": {
+   "pitch": "Прозрачность и контроль модели как фича: закрепление версии, явная пометка какая модель отвечает, доступ к прежним версиям. Для тех, кто строит рабочие процессы под конкретную модель.",
+   "features": [
+    "Закрепление выбранной версии модели",
+    "Запрет на автосмену модели",
+    "Доступ к предыдущим версиям",
+    "Явная метка, какая модель ответила"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка для профессионалов, зависящих от стабильности; тариф за доступ к архиву версий."
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-7",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Честный ассистент без бренд-обмана и ложных банов",
+  "oneLiner": "Прозрачный продукт, который не маскируется под чужой бренд и не отключает совершеннолетних автоматом без апелляции.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 132
+  },
+  "reviewGrid": [
+   {
+    "quote": "I've put into Google Play Store search \"Perplexity\" and got this app. After issue with not connecting with my account and paid Pro version in real Perplexity, customer support confirmed this app have NOTHING TOGETHER with Perplexity. AVOID!",
+    "rating": 1,
+    "app": "Chatbot AI Assistant - Genie"
+   },
+   {
+    "quote": "They say Claude Sonnet 4.5 and it's 3.5. It hits limits faster than the free one",
+    "rating": 2,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "all of a sudden my account was disabled for being under 18. Like wth? I am over 18 and this cost me a lot of my work",
+    "rating": 1,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "Automated suspension rules are triggering without valid error codes or prior warnings, and there is no functioning in-app support, appeal mechanism",
+    "rating": 2,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "they pay to shows up as the first option when you look up \"chatgpt\" in combination with their very similar logo I downloaded the wrong app",
+    "rating": 1,
+    "app": "Chatbot AI Assistant - Genie"
+   },
+   {
+    "quote": "im a 22 year old man and the people or the ai suspended my account because \"Im not old enough\"",
+    "rating": 4,
+    "app": "Claude by Anthropic"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный ассистент без бренд-обмана и ложных банов",
+    "obsCount": 6,
+    "apps": [
+     "Chatbot AI Assistant - Genie",
+     "ChatOn AI - Chat Bot Assistant",
+     "Claude by Anthropic"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Магазин завален обёртками, паразитирующими на поиске по «ChatGPT/Claude/Perplexity» со старыми моделями, а лидеры массово банят взрослых по возрасту без рабочей апелляции.",
+  "idea": {
+   "pitch": "Выиграть доверием: честно указывать модель и версию, никаких ложных брендов, человеческая апелляция вместо автобанов. Доверие как главное конкурентное преимущество в мутной нише.",
+   "features": [
+    "Честная маркировка реальной модели",
+    "Человеческая апелляция вместо автоблокировки",
+    "Без чужих брендов в названии и иконке",
+    "Прозрачные правила модерации"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка с обещанием стабильного доступа без внезапных банов; репутация как канал привлечения."
+  }
+ },
+ {
+  "slug": "recipes-cooking-1",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Картотека, которой ты владеешь",
+  "oneLiner": "Кросс-платформенный менеджер рецептов с надёжным импортом и одной ценой за все устройства",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 232
+  },
+  "reviewGrid": [
+   {
+    "quote": "upgrading to Pro has to be done (purchased) on every platform if you want to sync across platforms",
+    "rating": 1,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "I had to purchase separate versions of this app to work on Mac and Android and they don't speak to each other",
+    "rating": 1,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "my recipes are gone. I paid for pro more than a year ago and my recipes are gone",
+    "rating": 1,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "I just want to be able to see all my recipes in a list, and click the one I want to see, but you have to put them under both a course and a category",
+    "rating": 3,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "At $25/yr, I'd want to see external integrations that allow me to export and not be locked into BigOven if I want to cancel",
+    "rating": 3,
+    "app": "BigOven Recipes & Meal Planner"
+   },
+   {
+    "quote": "I just click on Share from my mobile browser, share it with Recipe Keeper and VOILA!",
+    "rating": 5,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "The ease of downloading recipes from the web is a gamechanger for us",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Картотека, которой ты владеешь",
+    "obsCount": 7,
+    "apps": [
+     "Recipe Keeper: RecipeSnap",
+     "Paprika Recipe Manager 3",
+     "BigOven Recipes & Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Paprika, Crouton и Recipe Keeper делают лучший импорт, но берут деньги за каждое устройство и теряют данные при сбоях синхронизации — коллекционеры в ярости и боятся потерять годами собранное.",
+  "idea": {
+   "pitch": "Сохрани рецепт из любого источника один раз — и владей им вечно на телефоне, планшете и ПК по единой подписке аккаунта. Облако-первый, экспорт в один клик, никакого «купи Pro заново».",
+   "features": [
+    "Импорт по ссылке, рилсу, скриншоту и фото бумажной карточки",
+    "Облачная синхронизация на всех устройствах за одну цену аккаунта",
+    "Экспорт всей коллекции в открытый формат — никакого замка",
+    "Плоский список рецептов с опциональными, а не принудительными папками",
+    "Ручная коррекция результата импорта перед сохранением"
+   ],
+   "antiFeatures": [],
+   "monetization": "Годовая подписка на аккаунт (а не на устройство) + разовый Lifetime-выкуп коллекции"
+  }
+ },
+ {
+  "slug": "recipes-cooking-2",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Безошибочный парсер рецептов",
+  "oneLiner": "Импорт, который точно разбирает ингредиенты, шаги и дроби — и даёт поправить перед сохранением",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 232
+  },
+  "reviewGrid": [
+   {
+    "quote": "Puts descriptions where ingredients should go. Puts random fluff text from a recipe page where instructions go",
+    "rating": 1,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "usually it just select a recipe from another similar recipe it finds on the web",
+    "rating": 1,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "cuts of and combines words. For example 1/2 teaspoon salt when imported will come out 1/2 tea spoonsalt",
+    "rating": 1,
+    "app": "BigOven Recipes & Meal Planner"
+   },
+   {
+    "quote": "it doesn't automatically add the ingredients to the ingredients tab you have to do that yourself before saving",
+    "rating": 1,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "it struggles to import and/or or gets stuck in an importing loop",
+    "rating": 3,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "What's missing is the numbered steps shown on websites, especially when there are instructions that reference a step by number",
+    "rating": 3,
+    "app": "Crouton: Recipe Manager"
+   },
+   {
+    "quote": "to scan 100 pages they wanted to charge £40",
+    "rating": 1,
+    "app": "BigOven Recipes & Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Безошибочный парсер рецептов",
+    "obsCount": 7,
+    "apps": [
+     "ReciMe: Recipes & Meal Planner",
+     "BigOven Recipes & Meal Planner",
+     "Recipe Keeper: RecipeSnap",
+     "Crouton: Recipe Manager"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "ReciMe ставит описание вместо ингредиентов и подсовывает чужой рецепт из веба, BigOven слипает слова и дроби, Recipe Keeper не вытаскивает ингредиенты автоматически — импорт, ради которого ставят приложение, чаще раздражает, чем работает.",
+  "idea": {
+   "pitch": "Импорт, который реально разбирает структуру рецепта из ссылки, рилса или фото, отдельно вытаскивает ингредиенты с дробями и единицами, нумерует шаги — и показывает превью с правкой до сохранения, чтобы ничего не терялось.",
+   "features": [
+    "Структурный разбор: ингредиенты, дроби, единицы, нумерованные шаги отдельно",
+    "Экран превью и ручной правки перед сохранением",
+    "Распознавание рилсов и видео с реальным извлечением рецепта, а не подбором похожего",
+    "Сканирование бумажных карточек и PDF с OCR",
+    "Понятный фидбэк при неудаче импорта вместо бесконечного «загружается»"
+   ],
+   "antiFeatures": [],
+   "monetization": "Freemium: N бесплатных импортов в месяц, безлимит и пакетное сканирование книг в Pro"
+  }
+ },
+ {
+  "slug": "recipes-cooking-3",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Режим готовки, который не теряется",
+  "oneLiner": "Офлайн-первый кухонный режим: экран не гаснет, рецепт не пропадает, ничего не вылетает посреди готовки",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 232
+  },
+  "reviewGrid": [
+   {
+    "quote": "it keeps blanking out the screen in the middle of cooking something saying I'm offline, which I'm not",
+    "rating": 3,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "Stays in RAM for a very short amount of time, which is really annoying when you're cooking. I often have to find the recipe again",
+    "rating": 3,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "Middle of cooking and you try to check a recipe but it just spins and doesn't even open",
+    "rating": 2,
+    "app": "America's Test Kitchen"
+   },
+   {
+    "quote": "The app no longer stays active on the phone when you have a recipe up. PLEASE bring that feature back!!",
+    "rating": 3,
+    "app": "America's Test Kitchen"
+   },
+   {
+    "quote": "You can use multiple timers at once in the app",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "LANDSCAPE MODE. please and thank you. The recipes are great. just make the app rotate please!",
+    "rating": 4,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "Bad web wrapper app that constantly looses its state (makes it unusable during cooking)",
+    "rating": 2,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Режим готовки, который не теряется",
+    "obsCount": 7,
+    "apps": [
+     "NYT Cooking: Quick Tasty Meals",
+     "America's Test Kitchen",
+     "Paprika Recipe Manager 3"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "NYT и ATK — вебвью-обёртки, которые посреди готовки гаснут «вы офлайн» и вылетают из памяти; приходится искать рецепт заново грязными руками. Это бьёт ровно в момент наибольшей ценности.",
+  "idea": {
+   "pitch": "Кухонный режим, который держит рецепт на экране от первого до последнего шага: полностью офлайн, экран не засыпает, пошаговый крупный шрифт, встроенные таймеры — телефон становится надёжным кухонным пультом.",
+   "features": [
+    "Полностью офлайн-кэш открытого рецепта",
+    "Экран не гаснет и приложение не выгружается из памяти в режиме готовки",
+    "Пошаговый крупношрифтовой режим с защитой от случайных касаний",
+    "Несколько встроенных таймеров, привязанных к шагам",
+    "Landscape и режим «руки заняты» с голосовой прокруткой"
+   ],
+   "antiFeatures": [],
+   "monetization": "Часть Pro-подписки менеджера рецептов; апсейл голосового управления"
+  }
+ },
+ {
+  "slug": "recipes-cooking-4",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Умный список покупок из плана",
+  "oneLiner": "План питания превращается в список покупок, который складывает повторы и масштабирует порции",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 232
+  },
+  "reviewGrid": [
+   {
+    "quote": "Changing the number of servings doesn't change the amount when you add it to the grocery list. This basically makes the grocery list feature useless",
+    "rating": 2,
+    "app": "BigOven Recipes & Meal Planner"
+   },
+   {
+    "quote": "the grocery shopping list doesn't actually account for multiple recipes needing the same ingredients",
+    "rating": 1,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "there needs to be a multiplier on the groceries list as I cook for 3 people, not just me",
+    "rating": 3,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "the grocery list module (part of the premium package) is useless for non-US users",
+    "rating": 2,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "the shopping list allows you to add things that are not part of the meal plan so that your whole shopping list is in one place",
+    "rating": 5,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "it helps me save money when I use the online grocery ordering",
+    "rating": 5,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "Provides fresh, healthy options. You add it to the calendar on what day you want to make it and it makes its own shopping list!",
+    "rating": 5,
+    "app": "Mealime Meal Plans & Recipes"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Умный список покупок из плана",
+    "obsCount": 7,
+    "apps": [
+     "BigOven Recipes & Meal Planner",
+     "NYT Cooking: Quick Tasty Meals",
+     "Eat This Much - Meal Planner",
+     "Mealime Meal Plans & Recipes"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "У всех — NYT, BigOven, Eat This Much — список покупок не дедуплицирует одинаковые ингредиенты и не пересчитывается при смене числа порций, превращая любимую функцию в бесполезную.",
+  "idea": {
+   "pitch": "Список покупок, который реально умеет считать: складывает один и тот же ингредиент из разных рецептов, масштабируется под число едоков, группирует по отделам магазина и вычитает то, что уже есть в кладовой.",
+   "features": [
+    "Дедупликация одинаковых ингредиентов из всех рецептов плана",
+    "Масштабирование количеств под число порций и едоков",
+    "Группировка по отделам магазина и поддержка нескольких списков",
+    "Вычет того, что уже есть в кладовой",
+    "Корректная работа единиц вне США (метрика, локальные магазины)"
+   ],
+   "antiFeatures": [],
+   "monetization": "Pro-функция планировщика + партнёрские интеграции с онлайн-доставкой продуктов"
+  }
+ },
+ {
+  "slug": "recipes-cooking-5",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Планировщик с реальными ограничениями",
+  "oneLiner": "Генератор плана, который железно соблюдает диету, аллергии и реалистичность блюд",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 232
+  },
+  "reviewGrid": [
+   {
+    "quote": "neither kosher nor halal were available options. While Removing pork as an ingredient was possible, removing ham or sausage was not",
+    "rating": 2,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "Good when it works, but blocked foods consistently show up in meal plans",
+    "rating": 3,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "NUTSIT: Never Use The Same Ingredient Twice",
+    "rating": 4,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "The recipies generated can push you into depression after eating that bland food for a week",
+    "rating": 1,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "keeps repeating meals. I've had the same meal for four dinners in a week",
+    "rating": 4,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "the exclusions has been incredibly helpful in finding what foods work for me to avoid my triggers. Life changing",
+    "rating": 5,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "right now it forces breakfast to be one of your meals",
+    "rating": 2,
+    "app": "Eat This Much - Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Планировщик с реальными ограничениями",
+    "obsCount": 7,
+    "apps": [
+     "Mealime Meal Plans & Recipes",
+     "Eat This Much - Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Mealime не знает кошер/халяль, Eat This Much пихает в план заблокированные продукты и генерирует пресную еду «как для инфлюенсера» с новым редким ингредиентом в каждом блюде — для людей с ограничениями приложения бесполезны.",
+  "idea": {
+   "pitch": "Планировщик, который ставит ограничения во главу: жёстко исключает аллергены и несовместимое, держит реалистичные повседневные блюда из доступных продуктов и не заставляет покупать 70 позиций ради недели без единого повтора.",
+   "features": [
+    "Полный набор диет: кошер, халяль, глютен, диабет, аллергии — с гарантией соблюдения",
+    "Жёсткое исключение продуктов, которое реально работает в генераторе",
+    "Режим «простые блюда из обычных продуктов» с переиспользованием ингредиентов",
+    "Контроль повторов: разнообразие без новых редких ингредиентов каждый день",
+    "Настройка приёмов пищи (пропустить завтрак, добавить перекус)"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка планировщика; премиум-диетические пакеты под конкретные состояния (диабет, СРК)"
+  }
+ },
+ {
+  "slug": "recipes-cooking-6",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Тест-кухня сообщества",
+  "oneLiner": "Слой проверенных рецептов с заметками и правками готовящих как коллективная тест-кухня",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 232
+  },
+  "reviewGrid": [
+   {
+    "quote": "the reader comments function like a global test kitchen",
+    "rating": 5,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "This app allows people to add tips and comments on ever dish that helps so much with corrections and alternatives",
+    "rating": 4,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "The comment section for the app on android is gone",
+    "rating": 1,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "I like being able to rate the recipe with stars based on what my family thinks of it",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "unable to rate the recipes and save my notes on how to improve them",
+    "rating": 4,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "I particularly enjoy the demos and the comments left by other readers",
+    "rating": 5,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "now the photos have ai generated food so who knows if it's even good",
+    "rating": 1,
+    "app": "Tasty: Recipes, Cooking Videos"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Тест-кухня сообщества",
+    "obsCount": 7,
+    "apps": [
+     "NYT Cooking: Quick Tasty Meals",
+     "Tasty: Recipes, Cooking Videos",
+     "Paprika Recipe Manager 3",
+     "ReciMe: Recipes & Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Комментарии готовящих в NYT и Tasty ценят выше самих рецептов — это коллективная тест-кухня. Но Tasty вырезала комментарии на Android, а менеджеры коллекций вообще не дают оставлять заметки и оценки.",
+  "idea": {
+   "pitch": "Каждый рецепт обрастает советами, заменами и личными правками готовящих — наглядная коллективная тест-кухня. Доверие из живой обратной связи, а не из алгоритма, плюс личные заметки «как улучшить в следующий раз».",
+   "features": [
+    "Комментарии и советы готовящих под каждым рецептом",
+    "Личные заметки и оценки по итогу готовки (звёзды от семьи)",
+    "Подсказки замен ингредиентов от сообщества",
+    "Пометка проверенных и переработанных версий рецепта",
+    "Защита от ИИ-слопа: метка происхождения рецепта"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатное ядро сообщества; Pro — приватные заметки, история версий, синхронизация"
+  }
+ },
+ {
+  "slug": "recipes-cooking-7",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Готовлю из того, что есть",
+  "oneLiner": "Подбор рецептов и плана из продуктов, которые уже лежат в холодильнике и кладовой",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 232
+  },
+  "reviewGrid": [
+   {
+    "quote": "Fantastic way to get ideas based on what you have in the freezer or pantry just by a simple keyword search",
+    "rating": 5,
+    "app": "BigOven Recipes & Meal Planner"
+   },
+   {
+    "quote": "it won't filter recipes by pantry, which makes it pretty useless",
+    "rating": 1,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "I really wish there was the ability to add ingredients that you have in your pantry",
+    "rating": 3,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "The only thing I wish it had was a way to search recipes by ingredient",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "really helpful especially if you have some food items left in your fridge",
+    "rating": 5,
+    "app": "BigOven Recipes & Meal Planner"
+   },
+   {
+    "quote": "an inexpensive way to budget and track macros",
+    "rating": 5,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "fantastic app really helpful especially if you have some food items left in your fridge",
+    "rating": 5,
+    "app": "BigOven Recipes & Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Готовлю из того, что есть",
+    "obsCount": 7,
+    "apps": [
+     "BigOven Recipes & Meal Planner",
+     "Eat This Much - Meal Planner",
+     "Paprika Recipe Manager 3",
+     "Mealime Meal Plans & Recipes"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Поиск по имеющимся продуктам в BigOven любят, но у Eat This Much фильтр по кладовой либо отсутствует, либо платный и ломает планировщик — недооценённая работа «что приготовить из остатков» не закрыта.",
+  "idea": {
+   "pitch": "Скажи, что есть в холодильнике — получи рецепты и план без лишнего похода в магазин. Кладовая ведётся автоматически из списка покупок, а генератор отдаёт приоритет тому, что вот-вот испортится.",
+   "features": [
+    "Поиск рецептов по имеющимся ингредиентам",
+    "Автоведение кладовой из чеков и списка покупок",
+    "Приоритет продуктам с истекающим сроком, чтобы меньше выбрасывать",
+    "Режим «докупить минимум»: рецепты под почти полный набор",
+    "Поиск по одному ключевому продукту из морозилки"
+   ],
+   "antiFeatures": [],
+   "monetization": "Pro-функция кладовой и анти-выброса; партнёрка с доставкой на докупку недостающего"
   }
  }
 ]
