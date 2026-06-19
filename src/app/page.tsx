@@ -47,8 +47,27 @@ export default async function Home() {
     })
     .filter((c): c is NonNullable<typeof c> => !!c);
 
+  const lp = ru ? "ru" : "en";
+  const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: ru ? "inApp — разборы ниш приложений и идеи" : "inApp — app-niche research and ideas",
+    description: ru
+      ? "Разборы приложений по нишам из реальных отзывов: что хвалят, на что злятся, каких приложений не хватает и какие идеи напрашиваются."
+      : "App-niche research from real reviews: what users love and hate, which apps are missing, and which ideas are worth building.",
+    inLanguage: lp,
+    url: `https://inapp.pro/${lp}`,
+    isPartOf: { "@id": "https://inapp.pro/#website" },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: catCards.length,
+      itemListElement: catCards.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, url: `https://inapp.pro/${lp}/segment/${c.slug}` })),
+    },
+  };
+
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }} />
       <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} />
     </main>
   );

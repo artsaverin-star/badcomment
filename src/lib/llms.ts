@@ -3,7 +3,7 @@ import { getCategoryBySlug } from "@/lib/researchCategories";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { getNicheOpportunities } from "@/lib/nicheOpportunities";
 import { getSegmentSummary } from "@/lib/segmentSummary";
-import { categoryCards, ideaContentEn, descriptionFor } from "@/lib/regenCards";
+import { categoryCards, appCardsFor, ideaContentEn, descriptionFor } from "@/lib/regenCards";
 import { getProductInsights } from "@/lib/insights";
 import { listIdeas } from "@/lib/ideas";
 import type { Locale } from "@/lib/i18n";
@@ -40,7 +40,8 @@ export function buildLlmsIndex(): string {
   }
   out.push("");
   out.push("## Full content");
-  out.push(`- [Full research, all niches (Markdown)](${BASE}/llms-full.txt)`);
+  out.push(`- [Full research, all niches — English (Markdown)](${BASE}/llms-full.txt)`);
+  out.push(`- [Полное исследование, все ниши — Russian (Markdown)](${BASE}/llms-full.ru.txt)`);
   out.push("");
   out.push("## About");
   out.push(`- [inApp](${BASE}): ${oneLine(INTRO.en)}`);
@@ -102,13 +103,18 @@ export function buildLlmsFull(locale: Locale = "en"): string {
       out.push("");
     }
 
-    // Apps analysed.
+    // Apps analysed — description + what's loved / hated (real review synthesis).
     out.push("### Apps analysed");
     cat.apps.forEach((a) => {
       const pid = a.productId as string;
       const ins = getProductInsights(pid);
       const desc = descriptionFor(pid, locale, ins?.description);
+      const cards = (appCardsFor(pid, locale)?.product ?? []).slice().sort((x, y) => y.count - x.count);
+      const loved = cards.find((c) => c.plus?.trim())?.title;
+      const hated = cards.find((c) => c.minus?.trim())?.title;
       out.push(`- **${a.name}**${desc ? ` — ${oneLine(desc)}` : ""}`);
+      if (loved) out.push(`  - Loved: ${oneLine(loved)}`);
+      if (hated) out.push(`  - Pain: ${oneLine(hated)}`);
     });
     out.push("");
   }
