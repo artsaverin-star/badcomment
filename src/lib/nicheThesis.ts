@@ -5,7 +5,7 @@ import data from "@/data/niche-thesis.json";
 // category breakdown cards under the right pillar. Authored per category;
 // categories without an entry fall back to a flat breakdown.
 export type NichePillar = { title: string; dek: string; match: string[] };
-export type NicheThesis = { headline?: string; governing: string; pillars: NichePillar[]; competitorRead?: string };
+export type NicheThesis = { governing: string; pillars: NichePillar[]; competitorRead?: string };
 
 export function getNicheThesis(slug: string): NicheThesis | null {
   return (data as Record<string, NicheThesis>)[slug] ?? null;

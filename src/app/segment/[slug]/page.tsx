@@ -254,7 +254,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       {/* HERO */}
       <header className="mt-10">
         <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши · 2026" : "Niche research · 2026"}</div>
-        <h1 className="mt-3 text-[44px] font-bold leading-[1.02] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[64px]">{thesis?.headline || cat.name}</h1>
+        <h1 className="mt-3 text-[44px] font-bold leading-[1.02] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[64px]">{cat.name}</h1>
         {thesis ? (
           <p className="mt-6 max-w-[60ch] text-[20px] font-medium leading-[1.45] text-[var(--color-text-primary)] sm:text-[24px]">{thesis.governing}</p>
         ) : (
