@@ -134,13 +134,14 @@ export default function SegmentExplorer({
           <div className="mt-12 border-t border-[var(--color-border-subtle)]">
             {opps.map((op, i) =>
               op.locked ? (
-                // Locked: withhold the idea (skeleton, no title/quote) + unlock button.
+                // Locked: the real idea title/tagline is in the DOM (crawlable) but
+                // visually frosted; the user unlocks to read it + the breakdown.
                 <div key={i} className="flex items-start gap-6 border-b border-[var(--color-border-subtle)] py-7 sm:gap-9">
                   <span className="shrink-0 pt-1 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{`0${i + 1}`}</span>
                   <div className="min-w-0 flex-1">
-                    <div className="flex flex-col gap-2.5" aria-hidden>
-                      <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i % 2 ? "70%" : "84%" }} />
-                      <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i % 2 ? "46%" : "56%" }} />
+                    <div className="pointer-events-none select-none opacity-55 blur-[5px]">
+                      <span className="block text-[21px] font-semibold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[25px]">{op.regen?.title || op.title}</span>
+                      <span className="mt-2 line-clamp-2 block text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[16px]">{op.regen?.tagline || op.oneLiner}</span>
                     </div>
                     <div className="mt-3 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
                       {ru ? `спрос · ${op.demand} ${wordObs(op.demand)}` : `demand · ${op.demand}`}

@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import active from "@/data/active-categories.json";
-import appSlugs from "@/data/app-slugs.json";
 
 const BASE = "https://inapp.pro";
 
@@ -8,16 +7,14 @@ const BASE = "https://inapp.pro";
 // locale prefixes via hreflang alternates so RU and EN both get indexed.
 export default function sitemap(): MetadataRoute.Sitemap {
   const cats = active as string[];
-  const appKeys = Object.keys(appSlugs as Record<string, string>);
 
-  // Idea detail pages (/ideas/<slug>) are retired — they redirect to the category
-  // page, so they're not listed here.
+  // Standalone idea (/ideas/<slug>) and app (/<app>) pages are retired — they
+  // redirect to the category page, so all findability funnels through the
+  // in-interface category pages. Not listed here.
   const paths: { p: string; priority: number }[] = [
     { p: "", priority: 1 },
     { p: "/catalog", priority: 0.9 },
-    { p: "/ideas", priority: 0.9 },
-    ...cats.map((s) => ({ p: `/segment/${s}`, priority: 0.8 })),
-    ...appKeys.map((s) => ({ p: `/${s}`, priority: 0.6 })),
+    ...cats.map((s) => ({ p: `/segment/${s}`, priority: 0.85 })),
   ];
 
   return paths.map(({ p, priority }) => ({

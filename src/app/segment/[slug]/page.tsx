@@ -327,27 +327,33 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                 pillars.slice(1).map((p, i) => <PillarFull key={i} p={p} label={findingLabel(i + 1)} />)
               ) : (
                 <div className="pt-4">
-                  {/* Withhold the payload — the finding titles ARE the insight, so
-                      show locked placeholders, not the real text. */}
-                  <div className="flex flex-col gap-10">
-                    {pillars.slice(1).map((p, i) => (
-                      <div key={i} aria-hidden>
-                        <div className="flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
-                          {findingLabel(i + 1)}
+                  {/* Paywalled content: the real findings are rendered in the DOM
+                      (crawlable by Google/Yandex/LLMs), but visually frosted — the
+                      user unlocks to read. Legit per Google's paywalled-content
+                      guidance (see isAccessibleForFree in the JSON-LD). */}
+                  <div className="relative">
+                    <div className="pointer-events-none flex select-none flex-col gap-12 opacity-50 blur-[6px] sm:gap-16">
+                      {pillars.slice(1).map((p, i) => (
+                        <PillarFull key={i} p={p} label={findingLabel(i + 1)} />
+                      ))}
+                    </div>
+                    <div className="absolute inset-x-0 top-0 flex justify-center px-2 pt-12 sm:pt-16">
+                      <div className="w-full max-w-[440px] rounded-[22px] border border-[color-mix(in_srgb,var(--color-accent-brand)_26%,var(--color-border-subtle))] bg-[var(--color-surface-card)] p-6 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] sm:p-7">
+                        <div className="flex items-center justify-center gap-2 text-[13px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
+                          {ru ? "Выводы 02 и 03" : "Findings 02 & 03"}
                           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="text-[var(--color-text-tertiary)]" aria-hidden="true">
                             <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
                             <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" strokeWidth="1.3" />
                           </svg>
                         </div>
-                        <div className="mt-4 flex flex-col gap-2.5">
-                          <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i ? "72%" : "88%" }} />
-                          <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i ? "48%" : "60%" }} />
+                        <p className="mt-3 text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">
+                          {ru ? "Ещё два вывода — с разбором по наблюдениям и цитатами из отзывов." : "Two more findings — with the breakdown and review quotes."}
+                        </p>
+                        <div className="mt-5 flex justify-center">
+                          <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть 2 вывода" : "Unlock 2 findings"} />
                         </div>
                       </div>
-                    ))}
-                  </div>
-                  <div className="mt-10 flex flex-col items-start">
-                    <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть 2 вывода" : "Unlock 2 findings"} />
+                    </div>
                   </div>
                 </div>
               )}
