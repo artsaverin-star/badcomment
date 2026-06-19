@@ -19656,5 +19656,472 @@
    "antiFeatures": [],
    "monetization": "Бесплатное ядро ради сетевого эффекта; Pro — офлайн-паки, расширенные слои и бэкап, разовой покупкой."
   }
+ },
+ {
+  "slug": "ai-video-creation-1",
+  "category": "ai-video-creation",
+  "categoryName": "AI-видео и видео-редакторы",
+  "title": "TruePrompt — ИИ-видео, которое делает ровно то, что попросили",
+  "oneLiner": "Генератор коротких роликов с жёстким контролем промпта: показывает, что из задания вошло в кадр, и не уплывает в романтизацию сюжета.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "you have to begin the narrative with NARRATE AS VERBATIM WITHOUT DRIFTING OFF THE BRAID otherwise the AI will romanticise and deviate from the plot you input",
+    "rating": 5,
+    "app": "VideoGPT - AI Video Generator"
+   },
+   {
+    "quote": "I put 5 things about yellow stone it named 2.",
+    "rating": 3,
+    "app": "VideoGPT - AI Video Generator"
+   },
+   {
+    "quote": "absolute rubbish just gave me a slideshow",
+    "rating": 1,
+    "app": "VideoGPT - AI Video Generator"
+   },
+   {
+    "quote": "it now only generates photos with an audio narrative",
+    "rating": 1,
+    "app": "VideoGPT - AI Video Generator"
+   },
+   {
+    "quote": "love it but not that the videos are 3 seconds",
+    "rating": 3,
+    "app": "VideoGPT - AI Video Generator"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "TruePrompt — ИИ-видео, которое делает ровно то, что попросили",
+    "obsCount": 5,
+    "apps": [
+     "VideoGPT - AI Video Generator"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Существующие генераторы выдают слайдшоу вместо видео, игнорируют половину промпта и заставляют писать капс-заклинания, чтобы модель не отклонялась. Контроля над выходом нет.",
+  "idea": {
+   "pitch": "Founder строит генератор вокруг verifiable prompt-adherence: каждое заданное условие подсвечивается как выполненное/невыполненное в превью, есть детерминированный режим «буквально», а не художественная интерпретация. Это превращает рулетку кредитов в управляемый инструмент.",
+   "features": [
+    "чек-лист промпта: видно, какие элементы вошли в кадр, какие нет",
+    "режим «буквально» против авто-романтизации сюжета",
+    "перегенерация только отклонившегося сегмента без траты всех кредитов",
+    "настоящее движущееся видео, а не озвученное слайдшоу",
+    "прозрачный счётчик кредитов с предсказуемой ценой за сцену"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка с честным пулом кредитов + докупка пакетами; цена за сцену фиксирована и показана заранее, без скрытых тиров."
+  }
+ },
+ {
+  "slug": "ai-video-creation-2",
+  "category": "ai-video-creation",
+  "categoryName": "AI-видео и видео-редакторы",
+  "title": "CleanFrame — ИИ-стирание объектов, которое реально работает",
+  "oneLiner": "Узкий инструмент: убрать с готового видео объект, текст или ватермарку — то, что все рекламируют, но никто не делает.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "All I wanted to do was remove one object from a video, and I couldn't figure out how to do it. The ad I saw for this app said it could do that",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "You can't \"remove\" anything from the video! you can't remove objects or watermarks. the only \"remove\" tool it has, just removes the video",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "Doesn't remove text from across the screen of your video as it says it does.",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "oh look, it doesn't remove objects from your video. what a waste of time. dont bother.",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "I paid for the pro version simply so I can delete some white strings that I found on my black clothing in a video",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "this app often gives water marks even when u have paid 1 whole year of subscription",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "CleanFrame — ИИ-стирание объектов, которое реально работает",
+    "obsCount": 6,
+    "apps": [
+     "Videoleap: AI Video Editor"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди приходят за одной задачей из рекламы — стереть объект/текст — и обнаруживают, что функции нет или она удаляет весь клип. Это самая частая причина платной подписки и мгновенной отмены.",
+  "idea": {
+   "pitch": "Founder делает то, на что ловят рекламой конкуренты, но честно: object/text removal как ядро, с превью результата ДО оплаты. Захватывает поисковый трафик «remove object from video», на котором обжигаются на Videoleap.",
+   "features": [
+    "удаление объекта/человека по обводке кистью",
+    "стирание выжженного текста и подписей с любого участка кадра",
+    "удаление ватермарки из чужого футажа",
+    "превью результата до любой оплаты",
+    "пакетная обработка кадров без рассинхрона звука"
+   ],
+   "antiFeatures": [],
+   "monetization": "Pay-per-clip за обработку + подписка для частых; бесплатное превью результата конвертирует именно потому, что конкуренты обманывают на этом шаге."
+  }
+ },
+ {
+  "slug": "ai-video-creation-3",
+  "category": "ai-video-creation",
+  "categoryName": "AI-видео и видео-редакторы",
+  "title": "FlowCut — редактор без рекламы посреди монтажа и с автосейвом проекта",
+  "oneLiner": "Мобильный редактор, в котором поток монтажа никогда не рвётся: ни рекламой, ни вылетом на сохранении, ни чёрным кадром.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "YOULL EDIT EVERYTHING AND WHEN YOURE ABOUT TO SAVE, IT CRASHES, THE FILES STOP WORKING AND IT GETS STUCK WHILE SAVING",
+    "rating": 1,
+    "app": "Filmmaker Pro - Video Editor"
+   },
+   {
+    "quote": "the screen has turned blank, footage disappearing that hasn't been deleted off phone",
+    "rating": 2,
+    "app": "Splice - Video Editor & Maker"
+   },
+   {
+    "quote": "my project I made for hours and it's all gone. All of my progress was made for nothing",
+    "rating": 5,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "the ads are frustrating,I hate them ,it makes exporting really slow and tiresome",
+    "rating": 1,
+    "app": "CapCut: Photo & Video Editor"
+   },
+   {
+    "quote": "the music stops in between while you're editing so you have to restart the app",
+    "rating": 3,
+    "app": "VivaCut - AI Video Editor"
+   },
+   {
+    "quote": "felt like uninstalling after only a few attempts at editing a video, consistently foiled by ads and a ton of stuff locked behind premium paywalls",
+    "rating": 2,
+    "app": "CapCut: Photo & Video Editor"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "FlowCut — редактор без рекламы посреди монтажа и с автосейвом проекта",
+    "obsCount": 6,
+    "apps": [
+     "Filmmaker Pro - Video Editor",
+     "Splice - Video Editor & Maker",
+     "Videoleap: AI Video Editor",
+     "CapCut: Photo & Video Editor",
+     "VivaCut - AI Video Editor"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Конкуренты вставляют рекламу в каждое действие, музыка обрывается, а проект чернеет или вылетает именно на экспорте — час работы пропадает. Это прямая причина смены инструмента.",
+  "idea": {
+   "pitch": "Founder продаёт надёжность как фичу №1: непрерывный автосейв каждого шага, экспорт без обрывов, без рекламы в рабочей зоне. Захватывает CapCut-перебежчиков, которым «жадность» сломала привычный поток.",
+   "features": [
+    "непрерывный автосейв: проект восстанавливается после вылета",
+    "ноль рекламы внутри редактора и при экспорте",
+    "гарантированный экспорт без чёрных кадров и пропавшего футажа",
+    "фоновый рендер, чтобы не блокировать телефон",
+    "история версий проекта"
+   ],
+   "antiFeatures": [],
+   "monetization": "Чистая подписка без рекламы и без скрытых тиров; обещание «твой проект не пропадёт» как ядро ценности."
+  }
+ },
+ {
+  "slug": "ai-video-creation-4",
+  "category": "ai-video-creation",
+  "categoryName": "AI-видео и видео-редакторы",
+  "title": "OwnPass — переносимая лицензия, которая переживает любой телефон",
+  "oneLiner": "Редактор с честным lifetime: лицензия привязана к аккаунту и работает на всех устройствах пользователя без повторной оплаты.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "even after buying the pass for life time this app does not allow the pro version on my other phones or computers, even though I paid for it",
+    "rating": 5,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "didn't hold my paid subscription status and wants repayment everytime I open it when it said for a lifetime price",
+    "rating": 4,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "I purchased the app (life long) . Yesterday reformatted my phone. app says I must pay to remove.",
+    "rating": 1,
+    "app": "Filmmaker Pro - Video Editor"
+   },
+   {
+    "quote": "every update adds another layer of their \"security\" which makes editing hell i can't use the app if i change my network",
+    "rating": 1,
+    "app": "CapCut: Photo & Video Editor"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "OwnPass — переносимая лицензия, которая переживает любой телефон",
+    "obsCount": 4,
+    "apps": [
+     "Videoleap: AI Video Editor",
+     "Filmmaker Pro - Video Editor",
+     "CapCut: Photo & Video Editor"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Lifetime-покупка испаряется при переустановке, смене телефона или входе с другого устройства, и снова требуют денег. Отсюда самые яростные «scam»-отзывы и уход.",
+  "idea": {
+   "pitch": "Founder превращает в ров то, на чём конкуренты теряют доверие: облачный аккаунт владения, синхронизация Pro между телефоном, планшетом и ПК, восстановление после reset. «Купил один раз — твоё навсегда и везде» как обещание бренда.",
+   "features": [
+    "лицензия на аккаунт, а не на устройство",
+    "Pro синхронизируется на всех твоих устройствах одновременно",
+    "восстановление покупки после сброса/смены телефона в один тап",
+    "прозрачная страница: что входит в твой тир, без скрытого Professional",
+    "офлайн-работа без сетевых и региональных замков"
+   ],
+   "antiFeatures": [],
+   "monetization": "Одноразовый lifetime + опциональная подписка на ИИ-кредиты; доверие к владению снижает отток и питает сарафан среди обманутых на конкурентах."
+  }
+ },
+ {
+  "slug": "ai-video-creation-5",
+  "category": "ai-video-creation",
+  "categoryName": "AI-видео и видео-редакторы",
+  "title": "SyncStudio — длинные ролики без рассинхрона звука и без потолка качества",
+  "oneLiner": "Редактор для длинного и высокого: 30+ минут, 4K, реакции и музыкальные клипы без уезжающего аудио и без даунгрейда до 720p.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "after a while, the audio becomes completely distinct from the original and it's very annoying seems to happen to anything that's longer than 30 minutes",
+    "rating": 3,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "It can't even handle cutting a clip down to be shorter without the audio becoming desynced",
+    "rating": 2,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "i shoot in 2k but it only allows me to downgrade the quality or falsely upgrade it",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "Can't process 4k videos on Pixel 10 pro.",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "the only issue, the sound sync, i get around by doing the sound in my screen recorder app",
+    "rating": 5,
+    "app": "Videoshop - Video Editor"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "SyncStudio — длинные ролики без рассинхрона звука и без потолка качества",
+    "obsCount": 5,
+    "apps": [
+     "Videoleap: AI Video Editor",
+     "Videoshop - Video Editor"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "На длинных роликах и при простой обрезке звук уезжает от картинки даже у платных, а экспорт упирается в 720p/1080p — потолок для тех, кто публикует профессионально.",
+  "idea": {
+   "pitch": "Founder целится в монтёров реакций, музыкальных и обучающих видео — сегмент, который конкуренты теряют на двух технических провалах. Гарантированная синхронизация на длинных таймлайнах и честный 4K-экспорт как обещание.",
+   "features": [
+    "sample-accurate синхронизация аудио на роликах любой длины",
+    "обрезка клипа без рассинхрона дорожки",
+    "честный экспорт в исходном 2K/4K без фейкового апскейла",
+    "стабильная работа с длинными таймлайнами 30+ минут",
+    "режим реакций: видео поверх видео без потери звука"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка для creator-сегмента (YouTube/реакции/музыка), где высокое качество и длина критичны и оправдывают цену."
+  }
+ },
+ {
+  "slug": "ai-video-creation-6",
+  "category": "ai-video-creation",
+  "categoryName": "AI-видео и видео-редакторы",
+  "title": "CaptionCraft — точные подписи и текст-анимация с покадровым контролем",
+  "oneLiner": "Редактор, где текст — первоклассный гражданин: ручной тайминг fade, TTS, реверс, кросс-фейд для вирусного короткого формата.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "I should be able to choose whether my text fades out in 3.0 seconds, or 2.8 seconds, or 0.5 seconds, etc. but we're forced to use a pre-determined length",
+    "rating": 3,
+    "app": "Splice - Video Editor & Maker"
+   },
+   {
+    "quote": "I don't like the fact that it doesn't have text to speech",
+    "rating": 4,
+    "app": "Splice - Video Editor & Maker"
+   },
+   {
+    "quote": "add text mirroring (reversing text), and more frequent updates",
+    "rating": 4,
+    "app": "Splice - Video Editor & Maker"
+   },
+   {
+    "quote": "No 7 day trial for pro subscription. Only 2 font effects. Got ripped off",
+    "rating": 1,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "1 best to edit 2 amazing captions 3 great filters",
+    "rating": 5,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "and can you please add an CC on for Deaf Community",
+    "rating": 5,
+    "app": "Splice - Video Editor & Maker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "CaptionCraft — точные подписи и текст-анимация с покадровым контролем",
+    "obsCount": 6,
+    "apps": [
+     "Splice - Video Editor & Maker",
+     "Videoleap: AI Video Editor"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Креаторам нужен точный контроль длительности fade текста (3.0 vs 0.5 сек), TTS и анимации, а конкуренты дают жёсткие пресеты и пару шрифтов, гоня людей в другой редактор.",
+  "idea": {
+   "pitch": "Founder делает подписи и кинетический текст ядром, а не довеском: ручной тайминг каждого перехода, авто-субтитры из речи, библиотека анимаций. Подписи — половина вовлечения короткого видео, и тут все недокручены.",
+   "features": [
+    "ручной тайминг fade in/out с точностью до десятых секунды",
+    "авто-субтитры из речи с правкой по словам",
+    "встроенный text-to-speech с разными голосами",
+    "кинетическая анимация текста, реверс и кросс-фейд",
+    "большая библиотека шрифтов и стилей подписей"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка для контент-креаторов TikTok/Reels/YouTube Shorts; шаблоны подписей как точка апселла."
+  }
+ },
+ {
+  "slug": "ai-video-creation-7",
+  "category": "ai-video-creation",
+  "categoryName": "AI-видео и видео-редакторы",
+  "title": "MemoryReel — авто-ролики прямо из Google Photos для семейного сегмента",
+  "oneLiner": "Простой авто-редактор, который тянет видео и фото напрямую из облака и собирает воспоминания в правильном хронологическом порядке.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 97
+  },
+  "reviewGrid": [
+   {
+    "quote": "it's one of the few that pulls videos directly from Google Photos (where most of my videos are stored, and they don't download easily or drag/drop into most applications from there)",
+    "rating": 2,
+    "app": "Magisto Video Editor & Maker"
+   },
+   {
+    "quote": "the auto movie maker didn't order the clips chronologically",
+    "rating": 3,
+    "app": "Videoleap: AI Video Editor"
+   },
+   {
+    "quote": "now it only allows me to use four pictures for a video. Ridiculous. Why am I paying for a subscription?",
+    "rating": 1,
+    "app": "Magisto Video Editor & Maker"
+   },
+   {
+    "quote": "Senior citizens can spend free time and enjoy the self creativity video's of our own",
+    "rating": 5,
+    "app": "Splice - Video Editor & Maker"
+   },
+   {
+    "quote": "patching together old videos and pictures was a breeze. love this app",
+    "rating": 5,
+    "app": "Videoshop - Video Editor"
+   },
+   {
+    "quote": "good app only that I couldn't add music from my device had to use music from the app",
+    "rating": 3,
+    "app": "Magisto Video Editor & Maker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "MemoryReel — авто-ролики прямо из Google Photos для семейного сегмента",
+    "obsCount": 6,
+    "apps": [
+     "Magisto Video Editor & Maker",
+     "Videoleap: AI Video Editor",
+     "Splice - Video Editor & Maker",
+     "Videoshop - Video Editor"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Семейные пользователи и не-креаторы хотят собрать ролик из архива в Google Photos, откуда файлы не выгружаются, а авто-сборщики путают порядок клипов и режут до 4 фото. Underserved сегмент «воспоминания без монтажа».",
+  "idea": {
+   "pitch": "Founder обслуживает огромный не-профессиональный сегмент, который лидеры игнорируют ради креаторов: прямой импорт из облака, корректная хронология, без жёстких лимитов на число фото. «Воспоминания за минуту, ничего не качая».",
+   "features": [
+    "прямой импорт из Google Photos и облака без выгрузки на телефон",
+    "авто-сборка в правильном хронологическом порядке",
+    "без искусственных лимитов на число фото/клипов",
+    "своя музыка из устройства без блокировки copyright",
+    "простой режим для пожилых и новичков"
+   ],
+   "antiFeatures": [],
+   "monetization": "Freemium с водяным знаком на бесплатном; недорогая подписка для семей, апселл на длину и качество вывода."
+  }
  }
 ]
