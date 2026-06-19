@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
-import Reveal from "./Reveal";
 import type { Locale } from "@/lib/i18n";
 
 export type CatCard = {
@@ -228,15 +227,13 @@ export default function Landing({
         </div>
       </section>
 
-      {/* Category cover cards */}
+      {/* Category cover cards — shown immediately, no scroll-reveal */}
       {catCards.length > 0 && (
-        <Reveal className="w-full">
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-2">
-            {catCards.map((c, idx) => (
-              <CategoryCoverCard key={c.slug} c={c} ru={ru} color={PALETTE[idx % PALETTE.length]} />
-            ))}
-          </div>
-        </Reveal>
+        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-5 lg:grid-cols-2">
+          {catCards.map((c, idx) => (
+            <CategoryCoverCard key={c.slug} c={c} ru={ru} color={PALETTE[idx % PALETTE.length]} />
+          ))}
+        </div>
       )}
 
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
