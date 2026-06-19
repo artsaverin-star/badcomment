@@ -140,6 +140,45 @@ details.no-anim::details-content {
   }
 }
 
+/* Category-page modal: backdrop fades, panel rises (mobile) / scale-fades (desktop). */
+@keyframes modal-panel-up {
+  from {
+    opacity: 0;
+    transform: translateY(44px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes modal-panel-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.modal-backdrop {
+  animation: sheet-backdrop-in 0.22s ease both;
+}
+.modal-panel {
+  animation: modal-panel-up 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (min-width: 640px) {
+  .modal-panel {
+    animation: modal-panel-pop 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop,
+  .modal-panel {
+    animation: none;
+  }
+}
+
 /* ── Global redesign: deep, glowy dark theme with a vivid violet→blue accent ──
    A premium "crypto-native" look (getgems-inspired): the whole site reskins by
    overriding the design-system's semantic tokens — every atom reads from these,
