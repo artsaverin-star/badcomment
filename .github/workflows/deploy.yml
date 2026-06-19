@@ -83,7 +83,6 @@ jobs:
             next-build.tgz \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/badcomment/next-build.tgz"
       - name: Sync runtime secrets to the box (.env)
-        if: ${{ secrets.GOOGLE_CLIENT_SECRET != '' }}
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
