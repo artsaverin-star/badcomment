@@ -86,7 +86,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
-            "touch /opt/badcomment/.env && sed -i '/^GOOGLE_CLIENT_SECRET=/d' /opt/badcomment/.env && printf 'GOOGLE_CLIENT_SECRET=%s\n' '${{ secrets.GOOGLE_CLIENT_SECRET }}' >> /opt/badcomment/.env"
+            "sudo touch /opt/badcomment/.env && sudo sed -i '/^GOOGLE_CLIENT_SECRET=/d' /opt/badcomment/.env && printf 'GOOGLE_CLIENT_SECRET=%s\n' '${{ secrets.GOOGLE_CLIENT_SECRET }}' | sudo tee -a /opt/badcomment/.env > /dev/null"
       - name: Swap in the build and restart (no build on the box)
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
