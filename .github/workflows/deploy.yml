@@ -82,6 +82,12 @@ jobs:
           scp -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             next-build.tgz \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/badcomment/next-build.tgz"
+      - name: Sync runtime secrets to the box (.env)
+        if: ${{ secrets.GOOGLE_CLIENT_SECRET != '' }}
+        run: |
+          ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
+            "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
+            "touch /opt/badcomment/.env && sed -i '/^GOOGLE_CLIENT_SECRET=/d' /opt/badcomment/.env && printf 'GOOGLE_CLIENT_SECRET=%s\n' '${{ secrets.GOOGLE_CLIENT_SECRET }}' >> /opt/badcomment/.env"
       - name: Swap in the build and restart (no build on the box)
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
