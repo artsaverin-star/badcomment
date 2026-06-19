@@ -37,6 +37,29 @@ function Sec({ children }: { children: React.ReactNode }) {
   return <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{children}</div>;
 }
 
+// Classify a competitor's headline flaw into a strategic bucket, so the
+// competitor section reads as a positioned teardown, not a flat list.
+type FlawTag = { label: string; color: string };
+const FLAW_BUCKETS: { label: string; color: string; kws: string[] }[] = [
+  { label: "Платная стена", color: "#ff8585", kws: ["подписк", "плат", "деньг", "бесплат", "выкачив", "пробн", "режим", "оплат", "free", "trial", "выход за"] },
+  { label: "Чужой контент", color: "#c084fc", kws: ["youtube", "ютуб", "ролик", "спикер", "контент", "чуж", "видео", "нарезк", "цитат"] },
+  { label: "Точность и баги", color: "#f5b301", kws: ["подсчёт", "подсчет", "счита", "сбива", "застрева", "отмеч", "вис", "перелист", "точн", "глюк", "баг", "ошиб", "вылет", "крэш"] },
+  { label: "Интерфейс", color: "#60a5fa", kws: ["интерфейс", "навигац", "устарев", "неудоб", "2005", "2010", "дизайн", "громоздк"] },
+];
+function flawTag(hook: string): FlawTag | null {
+  const h = hook.toLowerCase();
+  let best: FlawTag | null = null;
+  let bs = 0;
+  for (const b of FLAW_BUCKETS) {
+    const sc = b.kws.reduce((s, kw) => s + (h.includes(kw) ? 1 : 0), 0);
+    if (sc > bs) {
+      bs = sc;
+      best = { label: b.label, color: b.color };
+    }
+  }
+  return best;
+}
+
 export default async function SegmentV2({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const locale = await getLocale();
@@ -117,17 +140,31 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
       const hist = ins?.ratingBreakdown ?? {};
       const t = [1, 2, 3, 4, 5].reduce((s, n) => s + (hist[String(n)] ?? 0), 0);
       const avg = t > 0 ? [1, 2, 3, 4, 5].reduce((s, n) => s + n * (hist[String(n)] ?? 0), 0) / t : null;
+      const hook = flaw?.minus?.trim() || flaw?.title || "";
       return {
         name: a.name,
         icon: a.icon,
         slug: getSlugByProductId(pid),
         avg,
-        hook: flaw?.minus?.trim() || flaw?.title || "",
+        hook,
+        tag: flawTag(hook),
         total: cards.length,
         unlocked: !catLocked || (getSlugByProductId(pid) ? access.has("app", getSlugByProductId(pid) as string) : false),
       };
     })
     .filter((a) => a.total > 0);
+
+  // Distribution of competitor flaws — the "so what" across the field.
+  const flawDist = (() => {
+    const m = new Map<string, { color: string; n: number }>();
+    apps.forEach((a) => {
+      if (!a.tag) return;
+      const cur = m.get(a.tag.label) ?? { color: a.tag.color, n: 0 };
+      cur.n += 1;
+      m.set(a.tag.label, cur);
+    });
+    return [...m.entries()].map(([label, v]) => ({ label, ...v })).sort((x, y) => y.n - x.n);
+  })();
 
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const stats = [
@@ -232,7 +269,7 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
 
                       {/* The wedge — the centerpiece insight */}
                       <div className="mt-5 rounded-[14px] border-l-[3px] border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] py-4 pl-4 pr-4">
-                        <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-brand)]">Клин</div>
+                        <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-brand)]">Почему это шанс</div>
                         <p className="mt-1.5 text-[15px] leading-[1.62] text-[var(--color-text-primary)]">{op.regen.wedge}</p>
                       </div>
 
@@ -303,7 +340,7 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
                         <figcaption className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">{op.quotes[0].app} · <span className="text-[#f5b301]">{"★".repeat(op.quotes[0].rating)}</span></figcaption>
                       </figure>
                     )}
-                    <p className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Внутри — клин ниши, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the market wedge, what to build, features, monetization and evidence."}</p>
+                    <p className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Внутри — в чём разрыв и почему это шанс, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the gap and why it's an opening, what to build, features, monetization and evidence."}</p>
                     <EnergyUnlockButton type="idea" slug={op.slug} cost={UNLOCK_COST.idea} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть возможность" : "Unlock opportunity"} />
                   </div>
                 )}
@@ -313,34 +350,55 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
         </section>
       )}
 
-      {/* COMPETITORS */}
+      {/* COMPETITORS — positioned teardown */}
       {apps.length > 0 && (
         <section className="mt-20">
           <Sec>{ru ? `Конкуренты · ${apps.length} приложений` : `Competitors · ${apps.length} apps`}</Sec>
-          <div className="mt-8 flex flex-col divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
+          {ru && thesis?.competitorRead && (
+            <p className="mt-4 max-w-[60ch] text-[17px] leading-[1.55] text-[var(--color-text-primary)]">{thesis.competitorRead}</p>
+          )}
+          {flawDist.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {flawDist.map((d) => (
+                <span key={d.label} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] py-1 pl-2.5 pr-3 text-caption text-[var(--color-text-secondary)]">
+                  <span className="size-2 rounded-full" style={{ background: d.color }} />
+                  {d.label}
+                  <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{d.n}</span>
+                </span>
+              ))}
+            </div>
+          )}
+          <div className="mt-7 flex flex-col divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
             {apps.map((a, i) => (
-              <div key={i} className="flex items-center gap-3.5 py-3.5">
+              <div key={i} className="flex items-center gap-3.5 py-4">
                 {a.icon ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
                 ) : (
                   <div className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />
                 )}
-                <div className="flex min-w-0 flex-1 flex-col">
-                  <span className="flex items-center gap-2 text-callout font-semibold text-[var(--color-text-primary)]">
-                    <span className="truncate">{a.name}</span>
+                <div className="flex min-w-0 flex-1 flex-col gap-1">
+                  <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <span className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{a.name}</span>
                     {a.avg != null && <span className="shrink-0 text-caption tabular-nums text-[#f5b301]">★ {a.avg.toFixed(1)}</span>}
+                    {a.tag && (
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold" style={{ background: `color-mix(in srgb, ${a.tag.color} 16%, transparent)`, color: a.tag.color }}>
+                        {a.tag.label}
+                      </span>
+                    )}
                   </span>
-                  <span className="truncate text-caption text-[var(--color-text-tertiary)]">{a.hook || `${a.total} ${ru ? "наблюдений" : "observations"}`}</span>
+                  <span className="text-caption leading-snug text-[var(--color-text-tertiary)]">{a.hook || `${a.total} ${ru ? "наблюдений" : "observations"}`}</span>
                 </div>
                 {a.unlocked ? (
                   a.slug && (
-                    <Link href={`/${a.slug}`} className="shrink-0 text-footnote font-semibold text-[var(--color-text-brand)] hover:opacity-80">
+                    <Link href={`/${a.slug}`} className="shrink-0 self-center text-footnote font-semibold text-[var(--color-text-brand)] hover:opacity-80">
                       {ru ? "Разбор →" : "Open →"}
                     </Link>
                   )
                 ) : (
-                  <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть" : "Unlock"} />
+                  <div className="shrink-0 self-center">
+                    <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть" : "Unlock"} />
+                  </div>
                 )}
               </div>
             ))}
