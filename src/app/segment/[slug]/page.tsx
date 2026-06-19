@@ -15,8 +15,8 @@ import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
-import type { Slide, Tone } from "@/components/CardCarousel";
-import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpFlaw, type ExpQuote } from "./SegmentExplorer";
+import type { Tone } from "@/components/CardCarousel";
+import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpFlaw, type ExpQuote } from "./SegmentExplorer";
 
 const TONE_DOT: Record<string, string> = { up: "#4ade80", down: "#ff8585", mixed: "#f5b301" };
 
@@ -119,10 +119,17 @@ function orderEv(ev: EvLike[], tone: Tone, ru: boolean) {
   else if (tone === "up") pool.sort((a, b) => b.rating - a.rating || elen(b) - elen(a));
   return pool.map((e) => evQuote(e, ru));
 }
-function cardToSlide(c: RegenCard, ru: boolean): Slide {
+function cardToObs(c: RegenCard, ru: boolean): ExpObs {
   const tone = toneOfCard(c);
   const ordered = orderEv(c.evidence as EvLike[], tone, ru);
-  return { kind: "insight", kicker: c.kicker, title: c.title, plus: c.plus, minus: c.minus, count: c.count, tone, quote: ordered[0], evidence: ordered };
+  return {
+    title: c.title,
+    plus: c.plus,
+    minus: c.minus,
+    count: c.count,
+    tone: tone === "info" ? "up" : tone,
+    evidence: ordered.map((e) => ({ app: e.app ?? "", rating: e.rating, text: e.text })),
+  };
 }
 function findingTone(c: RegenCard): "up" | "down" | "mixed" {
   const p = !!c.plus?.trim();
@@ -244,10 +251,10 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         hook,
         description: descriptionFor(pid, locale, ins?.description),
         total: cards.reduce((s, c) => s + c.count, 0) || cards.length,
-        slides: cards.map((c) => cardToSlide(c, ru)),
+        observations: cards.map((c) => cardToObs(c, ru)),
       };
     })
-    .filter((a) => a.slides.length > 0);
+    .filter((a) => a.observations.length > 0);
 
   const flawDist: ExpFlaw[] = (() => {
     const m = new Map<string, { color: string; n: number }>();

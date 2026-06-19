@@ -2,13 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
-import CardCarousel, { type Slide } from "@/components/CardCarousel";
 
 export type ExpQuote = { app: string; rating: number; text: string };
+export type ExpObs = { title: string; plus?: string; minus?: string; count: number; tone: "up" | "down" | "mixed" | "info"; evidence: ExpQuote[] };
 export type ExpFinding = { title: string; plus?: string; minus?: string; count: number; tone: "up" | "down" | "mixed"; quotes: ExpQuote[] };
 export type ExpPillar = { num: string; title: string; dek: string; findings: ExpFinding[] };
 export type ExpRegen = { title: string; tagline: string; forWhom: string; wedge: string; build: string; features: string[]; monetization: string };
@@ -36,7 +35,7 @@ export type ExpApp = {
   hook: string;
   description?: string;
   total: number;
-  slides: Slide[];
+  observations: ExpObs[];
 };
 export type ExpFlaw = { label: string; color: string; n: number };
 
@@ -294,13 +293,42 @@ export default function SegmentExplorer({
                       </div>
                     ) : (
                       <div className="mt-5">
-                        {a.description && <p className="mb-4 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{a.description}</p>}
-                        {a.slides.length > 0 && <CardCarousel slides={a.slides} locale={ru ? "ru" : "en"} layout="feed" />}
-                        {a.slug && (
-                          <Link href={`/${a.slug}`} className="mt-5 inline-flex items-center gap-1.5 text-footnote font-semibold text-[var(--color-text-brand)] hover:opacity-80">
-                            {ru ? "Полный разбор приложения →" : "Full app breakdown →"}
-                          </Link>
-                        )}
+                        {a.description && <p className="mb-5 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{a.description}</p>}
+                        {[
+                          { key: "up", label: ru ? "Сильные стороны" : "Strengths", color: "#4ade80", items: a.observations.filter((s) => s.tone === "up" || s.tone === "info").slice().sort((x, y) => y.count - x.count) },
+                          { key: "mixed", label: ru ? "Спорно" : "Mixed", color: "#f5b301", items: a.observations.filter((s) => s.tone === "mixed").slice().sort((x, y) => y.count - x.count) },
+                          { key: "down", label: ru ? "Слабые места" : "Weak spots", color: "#ff8585", items: a.observations.filter((s) => s.tone === "down").slice().sort((x, y) => y.count - x.count) },
+                        ]
+                          .filter((g) => g.items.length > 0)
+                          .map((g) => (
+                            <div key={g.key} className="mb-6 last:mb-0">
+                              <div className="mb-1 flex items-center gap-2">
+                                <span className="size-2 rounded-full" style={{ background: g.color }} />
+                                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{g.label}</span>
+                                <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{g.items.length}</span>
+                              </div>
+                              <div className="flex flex-col divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
+                                {g.items.map((s, k) => (
+                                  <details key={k} className="group/f">
+                                    <summary className="flex cursor-pointer list-none items-center gap-3 py-3 [&::-webkit-details-marker]:hidden">
+                                      <span className="min-w-0 flex-1 text-footnote font-medium leading-snug text-[var(--color-text-primary)]">{s.title}</span>
+                                      <span className="shrink-0 text-caption tabular-nums text-[var(--color-text-tertiary)]">{s.count}</span>
+                                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                                    </summary>
+                                    <div className="pb-4">
+                                      {s.plus && <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]"><span className="font-semibold text-[#4ade80]">+ </span>{s.plus}</p>}
+                                      {s.minus && <p className="mt-1 text-footnote leading-relaxed text-[var(--color-text-secondary)]"><span className="font-semibold text-[#ff8585]">− </span>{s.minus}</p>}
+                                      {s.evidence.length > 0 && (
+                                        <div className="mt-3">
+                                          <Quotes list={s.evidence} />
+                                        </div>
+                                      )}
+                                    </div>
+                                  </details>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
                       </div>
                     )}
                   </div>
