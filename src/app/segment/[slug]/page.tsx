@@ -169,8 +169,10 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     ? thesis.pillars.map((p, pi) =>
         catProduct
           .filter((c) => {
-            const t = `${c.title} ${c.plus ?? ""} ${c.minus ?? ""}`.toLowerCase();
-            const scoreOf = (kws: string[]) => kws.reduce((s, kw) => s + (t.includes(kw) ? 1 : 0), 0);
+            const title = (c.title ?? "").toLowerCase();
+            const body = `${c.plus ?? ""} ${c.minus ?? ""}`.toLowerCase();
+            // Title carries the card's headline meaning → weight it 2×.
+            const scoreOf = (kws: string[]) => kws.reduce((s, kw) => s + (title.includes(kw) ? 2 : 0) + (body.includes(kw) ? 1 : 0), 0);
             let best = 0;
             let bestScore = -1;
             thesis.pillars.forEach((q, qi) => {
