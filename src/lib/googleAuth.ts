@@ -3,6 +3,15 @@ import { setSession } from "./session";
 import { grantTokens } from "./tokens";
 import { SIGNUP_GRANT } from "./tokenConfig";
 
+// Public origin for OAuth redirect URIs. Behind nginx, req.url is the internal
+// localhost:3000, so hardcode the prod origin (overridable via APP_ORIGIN);
+// fall back to the request origin in dev.
+export function appOrigin(req: Request): string {
+  if (process.env.APP_ORIGIN) return process.env.APP_ORIGIN;
+  if (process.env.NODE_ENV === "production") return "https://inapp.pro";
+  return new URL(req.url).origin;
+}
+
 // Upsert a Google-authenticated user (by googleId, then email), grant the signup
 // bonus to brand-new accounts, and open a session. Shared by the GIS credential
 // flow (POST /api/auth/google) and the redirect code flow (callback) so both

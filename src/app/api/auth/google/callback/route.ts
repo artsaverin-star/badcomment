@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { loginWithGoogle, verifyGoogleIdToken } from "@/lib/googleAuth";
+import { loginWithGoogle, verifyGoogleIdToken, appOrigin } from "@/lib/googleAuth";
 
 export const dynamic = "force-dynamic";
 
@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 // verify the ID token, open a session, and bounce home.
 export async function GET(req: Request) {
   const url = new URL(req.url);
-  const origin = url.origin;
+  const origin = appOrigin(req);
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
   const cookieState = (await cookies()).get("g_oauth_state")?.value;
