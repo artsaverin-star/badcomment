@@ -92,3 +92,7 @@ jobs:
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
             'cd /opt/badcomment && bash deploy/deploy.sh'
+      - name: Ping IndexNow (Bing / Yandex)
+        run: |
+          sleep 60
+          curl -s -m 30 "https://inapp.pro/api/indexnow" || true
