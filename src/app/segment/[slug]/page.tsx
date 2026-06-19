@@ -11,7 +11,6 @@ import { getProductInsights } from "@/lib/insights";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { getNicheOpportunities } from "@/lib/nicheOpportunities";
-import { getCategoryColor } from "@/lib/categoryColor";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
@@ -167,7 +166,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const summary = getSegmentSummary(slug);
   if (!summary) notFound();
   const thesis = getNicheThesis(slug);
-  const catColor = getCategoryColor(slug);
 
   const access = await getAccess();
   const { loggedIn, balance } = access;
@@ -289,16 +287,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
-      {/* Per-category mesh glow — two soft hues fading to transparent inside their
-          own box (no hard edges), full-bleed across the viewport. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[640px] w-screen max-w-[1600px] -translate-x-1/2"
-        style={{
-          background: `radial-gradient(46% 52% at 26% 0%, color-mix(in srgb, ${catColor.from} 30%, transparent) 0%, transparent 60%), radial-gradient(44% 48% at 76% 6%, color-mix(in srgb, ${catColor.to} 24%, transparent) 0%, transparent 56%)`,
-        }}
-      />
 
       <Link href="/" className="text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         ← {ru ? "Все ниши" : "All niches"}
