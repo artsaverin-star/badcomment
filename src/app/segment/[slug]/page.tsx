@@ -165,7 +165,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   if (!cat) notFound();
   const summary = getSegmentSummary(slug);
   if (!summary) notFound();
-  const thesis = getNicheThesis(slug);
+  const thesis = getNicheThesis(slug, locale);
 
   const access = await getAccess();
   const { loggedIn, balance } = access;

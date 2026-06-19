@@ -180,7 +180,7 @@ export default function SegmentExplorer({
           <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
             {apps.length} {ru ? wordApp(apps.length) : "apps"}
           </h2>
-          {ru && competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
+          {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
           <div className="mt-12 border-t border-[var(--color-border-subtle)]">
             {apps.map((a, i) =>
               a.locked ? (

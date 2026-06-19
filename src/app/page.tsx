@@ -27,7 +27,7 @@ export default async function Home() {
       // Hook = the governing thought (the niche's core insight) — the "затравка"
       // pulled from the breakdown. Blurb = a short plain line about what the card
       // is. No store app-names (they're messy: "App: Subtitle, ...").
-      const hook = getNicheThesis(c.slug)?.governing || summary.lead || "";
+      const hook = getNicheThesis(c.slug, locale)?.governing || summary.lead || "";
       const reviews = summary.reviewsScanned;
       const blurb = ru
         ? `Прочитали ${reviews.toLocaleString("ru-RU")} отзывов на ${c.appsCount} приложений: что хвалят, на что злятся и каких не хватает — готовый разбор для тех, кто думает сделать своё.`
