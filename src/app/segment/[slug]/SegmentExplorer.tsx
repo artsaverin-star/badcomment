@@ -326,9 +326,7 @@ export default function SegmentExplorer({
                     </div>
 
                     {a.locked ? (
-                      <div className="mt-7 flex flex-col gap-5">
-                        {a.hook && <p className="text-[20px] font-medium leading-[1.3] tracking-[-0.01em] text-[var(--color-text-primary)]">{a.hook}</p>}
-                        <p className="text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? `Внутри — что хвалят, на что злятся и где косяк: ${a.total} ${wordObs(a.total)}.` : `Inside — what's loved, hated and broken: ${a.total} observations.`}</p>
+                      <div className="mt-8">
                         <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть разбор" : "Unlock breakdown"} />
                       </div>
                     ) : (

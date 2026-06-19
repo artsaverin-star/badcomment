@@ -4,7 +4,6 @@ import { getSessionUser } from "@/lib/session";
 import { getCatalogData } from "@/lib/catalogData";
 import { listIdeas } from "@/lib/ideas";
 import { getSegmentSummary } from "@/lib/segmentSummary";
-import { getNicheThesis } from "@/lib/nicheThesis";
 import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -24,22 +23,13 @@ export default async function Home() {
     .map((c) => {
       const summary = getSegmentSummary(c.slug);
       if (!summary) return null;
-      // McKinsey-style teaser: a data-grounded scope sentence (real review count +
-      // named apps) + the authored governing thought (same schema as the
-      // breakdown), falling back to the category lead.
+      // Plain, human one-liner for a first-time visitor — what this card is.
       const names = c.apps.map((a) => a.name).filter((x): x is string => !!x);
-      const span =
-        names.length >= 4
-          ? ru
-            ? `от ${names[0]} и ${names[1]} до ${names[names.length - 2]} и ${names[names.length - 1]}`
-            : `from ${names[0]} and ${names[1]} to ${names[names.length - 2]} and ${names[names.length - 1]}`
-          : names.join(", ");
+      const ex = names.slice(0, 2);
       const reviews = summary.reviewsScanned;
-      const scope = ru
-        ? `Сведено из ${reviews.toLocaleString("ru-RU")} отзывов 1–5★ по ${c.appsCount} приложениям${span ? ` — ${span}` : ""}.`
-        : `Distilled from ${reviews.toLocaleString("en-US")} 1–5★ reviews across ${c.appsCount} apps${span ? ` — ${span}` : ""}.`;
-      const insight = getNicheThesis(c.slug)?.governing || summary.lead || "";
-      const blurb = insight ? `${scope} ${insight}` : scope;
+      const blurb = ru
+        ? `Прочитали ${reviews.toLocaleString("ru-RU")} отзывов на ${c.appsCount} приложений${ex.length ? ` вроде ${ex.join(" и ")}` : ""} и разобрали, что людям нравится, на что они злятся и каких приложений им не хватает.`
+        : `We read ${reviews.toLocaleString("en-US")} reviews of ${c.appsCount} apps${ex.length ? ` like ${ex.join(" and ")}` : ""} and broke down what people love, what frustrates them, and which apps are missing.`;
       return {
         slug: c.slug,
         name: c.name,

@@ -161,6 +161,33 @@ details.no-anim::details-content {
     transform: none;
   }
 }
+/* Shimmering purchase button — a flowing gradient sheen ("переливается"). */
+@keyframes btn-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+.btn-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-accent-brand) 0%,
+    color-mix(in srgb, var(--color-accent-brand) 55%, #ffd9a8) 25%,
+    var(--color-accent-brand) 50%,
+    color-mix(in srgb, var(--color-accent-brand) 55%, #ffd9a8) 75%,
+    var(--color-accent-brand) 100%
+  );
+  background-size: 200% 100%;
+  animation: btn-shimmer 3.2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-shimmer {
+    animation: none;
+  }
+}
+
 .modal-backdrop {
   animation: sheet-backdrop-in 0.22s ease both;
 }

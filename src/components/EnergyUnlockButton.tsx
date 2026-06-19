@@ -68,7 +68,7 @@ export default function EnergyUnlockButton({
         type="button"
         onClick={unlock}
         disabled={working}
-        className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-accent-brand)] px-4 py-2 text-footnote font-semibold text-white shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)] transition-all hover:scale-[1.03] hover:opacity-95 disabled:opacity-60"
+        className="btn-shimmer inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-70"
       >
         {working ? (
           ru ? "Открываем…" : "Unlocking…"
@@ -79,7 +79,7 @@ export default function EnergyUnlockButton({
         ) : (
           <>
             {label}
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M13 2 4.5 13.2c-.42.55-.03 1.3.66 1.3H11l-1.4 7.6c-.13.7.78 1.1 1.2.5L19.5 11.4c.42-.55.03-1.3-.66-1.3H13l1.4-7.7c.13-.7-.78-1.08-1.2-.5z" />
             </svg>
             <span className="tabular-nums">{cost}</span>

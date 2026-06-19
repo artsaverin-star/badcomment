@@ -299,14 +299,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Soft full-bleed glow behind the hero — fades to transparent inside its own
-          box so it never reads as a hard rectangle. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[560px] w-screen max-w-[1400px] -translate-x-1/2"
-        style={{ background: "radial-gradient(46% 58% at 50% 0%, color-mix(in srgb, var(--color-accent-brand) 11%, transparent) 0%, transparent 72%)" }}
-      />
-
       <Link href="/" className="text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         ← {ru ? "Все ниши" : "All niches"}
       </Link>
@@ -364,11 +356,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       </div>
                     ))}
                   </div>
-                  <div className="mt-12 flex flex-col items-start gap-5">
-                    <p className="max-w-[48ch] text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">
-                      {ru ? "Ещё два вывода — с разбором, наблюдениями и цитатами из отзывов. Откройте, чтобы прочитать." : "Two more findings — with the breakdown, observations and review quotes. Unlock to read."}
-                    </p>
-                    <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть выводы 02 и 03" : "Unlock findings 02 & 03"} />
+                  <div className="mt-10 flex flex-col items-start">
+                    <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть 2 вывода" : "Unlock 2 findings"} />
                   </div>
                 </div>
               )}
