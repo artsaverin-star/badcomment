@@ -170,26 +170,27 @@ details.no-anim::details-content {
     background-position: -200% 50%;
   }
 }
-/* Energy salute — bolt particles burst out of the unlock button on click. */
-@keyframes energy-burst {
+/* Unlock button exit — a quick pulse, then fade/scale out as content reveals. */
+@keyframes btn-pop-out {
   0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: scale(1);
+    opacity: 1;
   }
-  18% {
+  28% {
+    transform: scale(1.07);
     opacity: 1;
   }
   100% {
+    transform: scale(0.86);
     opacity: 0;
-    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.15) rotate(var(--rot));
   }
 }
-.energy-particle {
-  animation: energy-burst 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+.btn-pop-out {
+  animation: btn-pop-out 0.55s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 @media (prefers-reduced-motion: reduce) {
-  .energy-particle {
-    display: none;
+  .btn-pop-out {
+    animation: none;
   }
 }
 

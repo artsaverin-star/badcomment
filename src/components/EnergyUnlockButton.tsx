@@ -1,27 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import AuthModal from "./AuthModal";
 import type { UnlockType } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
-// Energy-salute particles — bolts burst out of the button on a successful unlock.
-// Deterministic spread (no Math.random → no hydration mismatch).
-const PARTICLES = Array.from({ length: 12 }, (_, i) => {
-  const a = (i / 12) * Math.PI * 2;
-  const dist = 44 + (i % 3) * 16;
-  return {
-    tx: Math.round(Math.cos(a) * dist),
-    ty: Math.round(Math.sin(a) * dist) - 10,
-    rot: (i % 2 ? 1 : -1) * (30 + (i % 4) * 12),
-    size: 12 + (i % 3) * 4,
-    delay: (i % 4) * 25,
-  };
-});
+const ENERGY_COLORS = ["#ff7a1a", "#ffb347", "#ffd9a8", "#ffcf5c", "#ffffff"];
+
+// Fire a bolt-confetti salute from a point (viewport-normalized 0..1).
+async function fireSalute(x: number, y: number) {
+  const confetti = (await import("canvas-confetti")).default;
+  // A lightning-bolt shape from emoji when supported, plus bright circles.
+  const bolt = typeof confetti.shapeFromText === "function" ? confetti.shapeFromText({ text: "⚡", scalar: 2.2 }) : "star";
+  const base = { origin: { x, y }, disableForReducedMotion: true, ticks: 160, gravity: 0.85 };
+  confetti({ ...base, particleCount: 26, spread: 75, startVelocity: 38, scalar: 1.7, shapes: [bolt], flat: true });
+  confetti({ ...base, particleCount: 50, spread: 95, startVelocity: 30, scalar: 0.9, colors: ENERGY_COLORS });
+  confetti({ ...base, particleCount: 18, spread: 130, startVelocity: 22, scalar: 1.2, colors: ENERGY_COLORS });
+}
 
 // Lightweight per-item unlock button. Spends «энергия» via /api/unlock, plays a
-// bolt salute, then refreshes so the content reveals inline.
+// confetti salute + pop-out, then refreshes so the content reveals.
 export default function EnergyUnlockButton({
   type,
   slug,
@@ -40,9 +39,10 @@ export default function EnergyUnlockButton({
   locale?: Locale;
 }) {
   const router = useRouter();
+  const btnRef = useRef<HTMLButtonElement>(null);
   const [auth, setAuth] = useState(false);
   const [working, setWorking] = useState(false);
-  const [burst, setBurst] = useState(false);
+  const [done, setDone] = useState(false);
   const ru = locale !== "en";
   const short = loggedIn && balance < cost;
 
@@ -55,44 +55,46 @@ export default function EnergyUnlockButton({
       router.push("/tokens");
       return;
     }
-    // Fire the salute immediately on tap, so it always shows regardless of how
-    // fast the unlock resolves.
-    setBurst(true);
+    // Salute + pop-out immediately on tap, from the button's centre.
+    const el = btnRef.current;
+    if (el) {
+      const r = el.getBoundingClientRect();
+      void fireSalute((r.left + r.width / 2) / window.innerWidth, (r.top + r.height / 2) / window.innerHeight);
+    }
+    setDone(true);
     setWorking(true);
     try {
-      const r = await fetch("/api/unlock", {
+      const res = await fetch("/api/unlock", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ type, slug }),
       });
-      if (r.status === 402) {
+      if (res.status === 402) {
         router.push("/tokens");
         return;
       }
-      if (!r.ok) {
+      if (!res.ok) {
         setWorking(false);
-        setBurst(false);
+        setDone(false);
         return;
       }
-      // Let the burst play before revealing the content.
-      setTimeout(() => router.refresh(), 600);
+      setTimeout(() => router.refresh(), 560);
     } catch {
       setWorking(false);
-      setBurst(false);
+      setDone(false);
     }
   }
 
   return (
     <>
       <button
+        ref={btnRef}
         type="button"
         onClick={unlock}
         disabled={working}
-        className="btn-shimmer relative inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-80"
+        className={`btn-shimmer inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:cursor-default ${done ? "btn-pop-out" : ""}`}
       >
-        {working ? (
-          ru ? "Открываем…" : "Unlocking…"
-        ) : !loggedIn ? (
+        {!loggedIn ? (
           ru ? "Войти и открыть" : "Sign in to unlock"
         ) : short ? (
           ru ? "Пополнить энергию" : "Top up energy"
@@ -104,24 +106,6 @@ export default function EnergyUnlockButton({
             </svg>
             <span className="tabular-nums">{cost}</span>
           </>
-        )}
-
-        {burst && (
-          <span aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 z-10">
-            {PARTICLES.map((p, i) => (
-              <svg
-                key={i}
-                width={p.size}
-                height={p.size}
-                viewBox="0 0 24 24"
-                fill="#ffe6c2"
-                className="energy-particle absolute drop-shadow-[0_0_6px_rgba(255,180,90,0.8)]"
-                style={{ ["--tx" as string]: `${p.tx}px`, ["--ty" as string]: `${p.ty}px`, ["--rot" as string]: `${p.rot}deg`, animationDelay: `${p.delay}ms` }}
-              >
-                <path d="M13 2 4.5 13.2c-.42.55-.03 1.3.66 1.3H11l-1.4 7.6c-.13.7.78 1.1 1.2.5L19.5 11.4c.42-.55.03-1.3-.66-1.3H13l1.4-7.7c.13-.7-.78-1.08-1.2-.5z" />
-              </svg>
-            ))}
-          </span>
         )}
       </button>
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => router.refresh()} />}
