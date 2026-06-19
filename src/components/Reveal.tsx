@@ -26,10 +26,18 @@ export default function Reveal({
           io.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      // Pre-reveal: extend the root's bottom 22% past the viewport so content
+      // begins fading in just before it scrolls into view — never sits blank.
+      { threshold: 0, rootMargin: "0px 0px 22% 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Safety net: if the observer never fires (very tall sections, edge cases),
+    // reveal anyway so content can't stay invisible.
+    const t = window.setTimeout(() => setShown(true), 1500);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
   }, []);
 
   return (

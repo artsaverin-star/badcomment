@@ -114,7 +114,7 @@ export default function SegmentExplorer({
     <>
       {/* ── OPPORTUNITIES — editorial list → idea modal ── */}
       {opps.length > 0 && (
-        <Reveal className="mt-28 sm:mt-40">
+        <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
           <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
@@ -154,7 +154,7 @@ export default function SegmentExplorer({
 
       {/* ── COMPETITORS — synthesis + clean list → app modal ── */}
       {apps.length > 0 && (
-        <Reveal className="mt-28 sm:mt-40">
+        <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
           <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">

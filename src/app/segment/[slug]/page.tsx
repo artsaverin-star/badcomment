@@ -334,12 +334,12 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       {/* KEY FINDINGS — inline: first free, the other two unlock for energy */}
       {pillars.length > 0 && (
-        <Reveal className="mt-28 sm:mt-40">
+        <Reveal className="mt-20 sm:mt-28">
           <section>
             <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Главное" : "Key findings"}</div>
             <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">{ru ? "Три вывода" : "Three findings"}</h2>
 
-            <div className="mt-14 flex flex-col gap-16 sm:gap-20">
+            <div className="mt-12 flex flex-col gap-12 sm:gap-16">
               <PillarFull p={pillars[0]} label={findingLabel(0)} />
               {overviewUnlocked ? (
                 pillars.slice(1).map((p, i) => <PillarFull key={i} p={p} label={findingLabel(i + 1)} />)
