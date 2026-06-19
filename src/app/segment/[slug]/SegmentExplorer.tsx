@@ -76,24 +76,12 @@ function Arrow() {
     </svg>
   );
 }
-// A clear "this costs energy to open" affordance — reads as a price, not a label.
-function PricePill({ cost }: { cost: number }) {
-  return (
-    <span className="inline-flex shrink-0 items-center gap-1 self-start rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-muted)] px-2.5 py-1 text-[13px] font-semibold text-[var(--color-text-primary)] transition-colors group-hover:border-[var(--color-text-brand)]">
-      <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="text-[var(--color-text-brand)]">
-        <path d="M9.3 1 3 9h4l-.6 6L13 7H8.7z" />
-      </svg>
-      {cost}
-    </span>
-  );
-}
 
 export default function SegmentExplorer({
   locale,
   opps,
   apps,
   competitorRead,
-  flawDist,
   loggedIn,
   balance,
 }: {
@@ -101,7 +89,6 @@ export default function SegmentExplorer({
   opps: ExpOpp[];
   apps: ExpApp[];
   competitorRead?: string;
-  flawDist: ExpFlaw[];
   loggedIn: boolean;
   balance: number;
 }) {
@@ -135,28 +122,41 @@ export default function SegmentExplorer({
             {ru ? "Идеи, которые пользователи просят сами — каждая под подтверждённый спрос." : "Ideas users ask for themselves — each backed by proven demand."}
           </p>
           <div className="mt-12 border-t border-[var(--color-border-subtle)]">
-            {opps.map((op, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActive({ kind: "idea", i })}
-                className="group flex w-full items-start gap-6 border-b border-[var(--color-border-subtle)] py-7 text-left sm:gap-9"
-              >
-                <span className="shrink-0 pt-1 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{`0${i + 1}`}</span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[21px] font-semibold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[25px]">
-                    {op.locked ? (ru ? "Готовая возможность под спрос" : "A ready opportunity") : op.regen?.title || op.title}
+            {opps.map((op, i) =>
+              op.locked ? (
+                // Locked: withhold the idea (skeleton, no title/quote) + unlock button.
+                <div key={i} className="flex items-start gap-6 border-b border-[var(--color-border-subtle)] py-7 sm:gap-9">
+                  <span className="shrink-0 pt-1 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{`0${i + 1}`}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-col gap-2.5" aria-hidden>
+                      <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i % 2 ? "70%" : "84%" }} />
+                      <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i % 2 ? "46%" : "56%" }} />
+                    </div>
+                    <div className="mt-3 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
+                      {ru ? `спрос · ${op.demand} ${wordObs(op.demand)}` : `demand · ${op.demand}`}
+                    </div>
+                    <div className="mt-4">
+                      <EnergyUnlockButton type="idea" slug={op.slug} cost={UNLOCK_COST.idea} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть идею" : "Unlock idea"} />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActive({ kind: "idea", i })}
+                  className="group flex w-full items-start gap-6 border-b border-[var(--color-border-subtle)] py-7 text-left sm:gap-9"
+                >
+                  <span className="shrink-0 pt-1 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{`0${i + 1}`}</span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[21px] font-semibold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[25px]">{op.regen?.title || op.title}</span>
+                    <span className="mt-2 line-clamp-2 block text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[16px]">{op.regen?.tagline || op.oneLiner}</span>
+                    <span className="mt-3 block text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{ru ? `спрос · ${op.demand} ${wordObs(op.demand)}` : `demand · ${op.demand}`}</span>
                   </span>
-                  <span className="mt-2 line-clamp-2 block text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[16px]">
-                    {op.locked ? (op.quotes[0] ? `«${op.quotes[0].text}»` : "") : op.regen?.tagline || op.oneLiner}
-                  </span>
-                  <span className="mt-3 block text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
-                    {ru ? `спрос · ${op.demand} ${wordObs(op.demand)}` : `demand · ${op.demand}`}
-                  </span>
-                </span>
-                {op.locked ? <PricePill cost={UNLOCK_COST.idea} /> : <Arrow />}
-              </button>
-            ))}
+                  <Arrow />
+                </button>
+              ),
+            )}
           </div>
           </section>
         </Reveal>
@@ -171,44 +171,53 @@ export default function SegmentExplorer({
             {apps.length} {ru ? wordApp(apps.length) : "apps"}
           </h2>
           {ru && competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
-          {flawDist.length > 0 && (
-            <p className="mt-6 text-[14px] tabular-nums text-[var(--color-text-tertiary)]">{flawDist.map((d) => `${d.label} — ${d.n}`).join("    ·    ")}</p>
-          )}
           <div className="mt-12 border-t border-[var(--color-border-subtle)]">
-            {apps.map((a, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => setActive({ kind: "app", i })}
-                className="group flex w-full items-center gap-5 border-b border-[var(--color-border-subtle)] py-5 text-left"
-              >
-                {a.icon ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[13px] object-cover" />
-                ) : (
-                  <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
-                )}
-                <span className="flex min-w-0 flex-1 flex-col gap-1">
-                  <span className="flex items-center gap-2.5">
-                    <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                    {a.avg != null && <span className="shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
+            {apps.map((a, i) =>
+              a.locked ? (
+                <div key={i} className="flex items-center gap-5 border-b border-[var(--color-border-subtle)] py-5">
+                  {a.icon ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[13px] object-cover" />
+                  ) : (
+                    <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
+                  )}
+                  <span className="flex min-w-0 flex-1 flex-col gap-1">
+                    <span className="flex items-center gap-2.5">
+                      <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
+                      {a.avg != null && <span className="shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
+                    </span>
+                    <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.tag?.label || a.hook}</span>
                   </span>
-                  <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.tag?.label || a.hook}</span>
-                </span>
-                {a.locked ? (
-                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-muted)] px-2.5 py-1 text-[13px] font-semibold text-[var(--color-text-primary)] transition-colors group-hover:border-[var(--color-text-brand)]">
-                    <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="text-[var(--color-text-brand)]">
-                      <path d="M9.3 1 3 9h4l-.6 6L13 7H8.7z" />
-                    </svg>
-                    {UNLOCK_COST.app}
+                  <div className="shrink-0">
+                    <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть" : "Open"} />
+                  </div>
+                </div>
+              ) : (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActive({ kind: "app", i })}
+                  className="group flex w-full items-center gap-5 border-b border-[var(--color-border-subtle)] py-5 text-left"
+                >
+                  {a.icon ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[13px] object-cover" />
+                  ) : (
+                    <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
+                  )}
+                  <span className="flex min-w-0 flex-1 flex-col gap-1">
+                    <span className="flex items-center gap-2.5">
+                      <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
+                      {a.avg != null && <span className="shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
+                    </span>
+                    <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.tag?.label || a.hook}</span>
                   </span>
-                ) : (
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-text-secondary)]">
                     <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                )}
-              </button>
-            ))}
+                </button>
+              ),
+            )}
           </div>
           </section>
         </Reveal>

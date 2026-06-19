@@ -17,7 +17,7 @@ import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
 import Reveal from "@/components/Reveal";
 import type { Tone } from "@/components/CardCarousel";
-import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpFlaw, type ExpQuote } from "./SegmentExplorer";
+import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpQuote } from "./SegmentExplorer";
 
 // One key finding: eyebrow index · action title · dek · the routed breakdown
 // observations as quiet expandable rows (headline · count → dek + quotes).
@@ -251,17 +251,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     })
     .filter((a) => a.observations.length > 0);
 
-  const flawDist: ExpFlaw[] = (() => {
-    const m = new Map<string, { color: string; n: number }>();
-    apps.forEach((a) => {
-      if (!a.tag) return;
-      const cur = m.get(a.tag.label) ?? { color: a.tag.color, n: 0 };
-      cur.n += 1;
-      m.set(a.tag.label, cur);
-    });
-    return [...m.entries()].map(([label, v]) => ({ label, ...v })).sort((x, y) => y.n - x.n);
-  })();
-
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const stats = [
     { n: `${readyCount}`, l: ru ? "приложений" : "apps" },
@@ -336,7 +325,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
               {overviewUnlocked ? (
                 pillars.slice(1).map((p, i) => <PillarFull key={i} p={p} label={findingLabel(i + 1)} />)
               ) : (
-                <div className="border-t border-[var(--color-border-subtle)] pt-14">
+                <div className="pt-4">
                   {/* Withhold the payload — the finding titles ARE the insight, so
                       show locked placeholders, not the real text. */}
                   <div className="flex flex-col gap-10">
@@ -371,7 +360,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         opps={opps}
         apps={apps}
         competitorRead={thesis?.competitorRead}
-        flawDist={flawDist}
         loggedIn={loggedIn}
         balance={balance}
       />
