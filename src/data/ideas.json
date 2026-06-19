@@ -6350,496 +6350,6 @@
   }
  },
  {
-  "slug": "focus-screentime-1",
-  "category": "focus-screentime",
-  "categoryName": "Фокус и контроль экранного времени",
-  "title": "Стена без лазеек: блокировка, которую сам автор не вскроет",
-  "oneLiner": "Блокировщик, чья единственная гордость — невозможность обхода на любом Android, включая Xiaomi и жесты.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 326
-  },
-  "reviewGrid": [
-   {
-    "quote": "Found a Easy Focus Mode bypass on Android: open any app during focus , wait for the Focus popup, then quickly use the navigation gesture to exit and re-enter. Popup often won't appear again.",
-    "rating": 3,
-    "app": "Forest: Focus for Productivity"
-   },
-   {
-    "quote": "sadly there is a very easy work around on Android where you just press and hold the blocked app from the recents view (three line button) and it open a pop-up view.",
-    "rating": 1,
-    "app": "Brick - Ditch Distractions"
-   },
-   {
-    "quote": "The concept is interesting but too easy to bypass on a Xiaomi device, simply by turning on and off accessibility settings... So the whole concept of the \"Brick\" is pointless.",
-    "rating": 3,
-    "app": "Brick - Ditch Distractions"
-   },
-   {
-    "quote": "doesn't work on pixel 8. it regularly doesn't lock me out of apps when it's supposed to, resets accessibility settings daily.",
-    "rating": 1,
-    "app": "Brick - Ditch Distractions"
-   },
-   {
-    "quote": "i really can't use my phone when I've scheduled a no-phone session. no overrides",
-    "rating": 5,
-    "app": "BePresent: Screen Time Control"
-   },
-   {
-    "quote": "they made the no breaks option pro😏.. that's the only problem",
-    "rating": 4,
-    "app": "Opal: Screen Time Control"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Стена без лазеек: блокировка, которую сам автор не вскроет",
-    "obsCount": 6,
-    "apps": [
-     "Forest: Focus for Productivity",
-     "Brick - Ditch Distractions",
-     "BePresent: Screen Time Control",
-     "Opal: Screen Time Control"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Каждый конкурент имеет публично известную лазейку (жест выхода, спецвозможности, удержание из недавних), и одна найденная дыра обесценивает весь продукт.",
-  "idea": {
-   "pitch": "Мы продаём не функции, а доверие к стене: режим, который невозможно вскрыть привычными трюками, с честным списком закрытых лазеек прямо в онбординге. Для зависимого человека неприступность важнее красоты и аналитики.",
-   "features": [
-    "защита от жеста выхода и удержания из недавних",
-    "перехват включения-выключения спецвозможностей",
-    "публичный аудит закрытых обходов в приложении",
-    "режим без послаблений, недоступный к отключению на лету",
-    "проверка на Xiaomi/Pixel/Samsung до покупки"
-   ],
-   "antiFeatures": [],
-   "monetization": "Разовая покупка навсегда плюс необязательный апселл за семейный и расписания; никаких рекламы и подписки на ядро."
-  }
- },
- {
-  "slug": "focus-screentime-2",
-  "category": "focus-screentime",
-  "categoryName": "Фокус и контроль экранного времени",
-  "title": "Пауза-привычка: лечим жест, а не время",
-  "oneLiner": "Минималистичный слой заминки перед открытием залипающих приложений — растущая пауза, дыхание, вопрос вместо жёсткого блока.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 326
-  },
-  "reviewGrid": [
-   {
-    "quote": "It makes you stop and think long enough to make better decisions. And the quotes are very inspiring.",
-    "rating": 5,
-    "app": "ClearSpace: Reduce Screen Time"
-   },
-   {
-    "quote": "it makes me think if I should continue to open it or not, this makes me in the present where I escape to a trap loop",
-    "rating": 4,
-    "app": "ClearSpace: Reduce Screen Time"
-   },
-   {
-    "quote": "haven't doomscrolled in literally months because of clearspace. 10/10",
-    "rating": 5,
-    "app": "ClearSpace: Reduce Screen Time"
-   },
-   {
-    "quote": "after the latest update the timer to unblock a app is only 5 seconds compared to before where it started at 10 and gradually lasted longer as amount of unlocks increased.",
-    "rating": 1,
-    "app": "Opal: Screen Time Control"
-   },
-   {
-    "quote": "the time for unblocking an distracting app kept increasing before the update but after the update, when we go to unblock the app, after the use of the app, the timer is always set to 5seconds",
-    "rating": 5,
-    "app": "Opal: Screen Time Control"
-   },
-   {
-    "quote": "Its a great app. Puts a lot of friction between me and my Apps.",
-    "rating": 4,
-    "app": "ClearSpace: Reduce Screen Time"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Пауза-привычка: лечим жест, а не время",
-    "obsCount": 6,
-    "apps": [
-     "ClearSpace: Reduce Screen Time",
-     "Opal: Screen Time Control"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Самая работающая механика (секунда заминки) у конкурентов второстепенна и ломается обновлениями (Opal срезал растущий таймер до 5 секунд).",
-  "idea": {
-   "pitch": "Главный продукт — не блок, а растущая пауза, которая разрывает компульсивный жест разблокировки. Чем чаще тянешься, тем дольше заминка, и человек сам решает не открывать. Это лечит импульс, а не симптом.",
-   "features": [
-    "растущая пауза, удлиняющаяся с каждым открытием",
-    "экран дыхания и личного вопроса перед входом",
-    "честная вдохновляющая цитата без ИИ-генерации",
-    "счётчик предотвращённых открытий",
-    "никакой рекламы на экране фокуса"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатное ядро на неограниченное число приложений; платно — статистика прогресса и тонкая настройка пауз."
-  }
- },
- {
-  "slug": "focus-screentime-3",
-  "category": "focus-screentime",
-  "categoryName": "Фокус и контроль экранного времени",
-  "title": "Один платёж навсегда: честная цена против предательства подписок",
-  "oneLiner": "Блокировщик с разовой покупкой и обещанием, что купленное никогда не уедет за новый ярус подписки.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 326
-  },
-  "reviewGrid": [
-   {
-    "quote": "After buying a Lifetime Pro account, they added a new Plus tier that hides features behind a monthly subscription. I've essentially been made into their new version of a non-pro user. Feels like they betrayed the users they built their company on.",
-    "rating": 1,
-    "app": "Forest: Focus for Productivity"
-   },
-   {
-    "quote": "This used to be a simple app and you could pay once for cool extra features that weren't needed but optional",
-    "rating": 2,
-    "app": "Forest: Focus for Productivity"
-   },
-   {
-    "quote": "I don't like subscriptions, I would rather pay twice or thrice the amount for a lifetime purchase.",
-    "rating": 3,
-    "app": "ClearSpace: Reduce Screen Time"
-   },
-   {
-    "quote": "i hate apps with recurring subs. i got the pro version on day 2 of using the app but now i don't even want to open the app by introducing subs.",
-    "rating": 1,
-    "app": "Forest: Focus for Productivity"
-   },
-   {
-    "quote": "this device is affordable, not a subscription, has no ads, and has improved my quality of life substantially.",
-    "rating": 5,
-    "app": "Brick - Ditch Distractions"
-   },
-   {
-    "quote": "Cool idea but why do we have to pay that's just doing too much now.",
-    "rating": 2,
-    "app": "ClearSpace: Reduce Screen Time"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Один платёж навсегда: честная цена против предательства подписок",
-    "obsCount": 6,
-    "apps": [
-     "Forest: Focus for Productivity",
-     "ClearSpace: Reduce Screen Time",
-     "Brick - Ditch Distractions"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Forest потерял лояльных, введя Plus поверх купленного навсегда Pro; вся категория ненавидит ползучие подписки и перевод старых фич за деньги.",
-  "idea": {
-   "pitch": "Мы строим продукт на моральном контракте: что куплено — то твоё навсегда, новые фичи добавляются бесплатно или отдельной разовой покупкой. Позиционирование «никаких подписок» само по себе становится крючком в нише, выжженной апселлами.",
-   "features": [
-    "пожизненная лицензия без скрытых ярусов",
-    "новые функции бесплатно для купивших",
-    "опциональные разовые докупки по модулям",
-    "ноль апселл-попапов внутри сессии",
-    "публичное обещание не вводить подписку"
-   ],
-   "antiFeatures": [],
-   "monetization": "Разовая покупка ядра плюс разовые модули (семья, расписания); цена выше подписочной за месяц, но честная."
-  }
- },
- {
-  "slug": "focus-screentime-4",
-  "category": "focus-screentime",
-  "categoryName": "Фокус и контроль экранного времени",
-  "title": "Кросс-платформенная подотчётность: учимся вместе, неважно iOS или Android",
-  "oneLiner": "Совместный фокус с друзьями и семьёй, где андроид и айфон видят друг друга и соревнуются без барьеров.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 326
-  },
-  "reviewGrid": [
-   {
-    "quote": "the one thing I wanted this app for - making my study friends hold me accountable - isn't possible because none of my friends have an android phone.",
-    "rating": 1,
-    "app": "Flora - Green Focus"
-   },
-   {
-    "quote": "I was HEARTBROKEN this morning when me and my (apple user) bestie tried to add eachother. Huge flaw. please make this cross platform. stop punishing android users",
-    "rating": 2,
-    "app": "Flora - Green Focus"
-   },
-   {
-    "quote": "at the end of every weekday, me and my son get to share our forest together and be in awe at the beauty.",
-    "rating": 5,
-    "app": "Forest: Focus for Productivity"
-   },
-   {
-    "quote": "Please add an option for android users and iphone users to add each other as friends",
-    "rating": 3,
-    "app": "Flora - Green Focus"
-   },
-   {
-    "quote": "Also leaderboard entries showing 18+ hours daily focus seem unrealistic and may be exploiting loopholes.",
-    "rating": 3,
-    "app": "Forest: Focus for Productivity"
-   },
-   {
-    "quote": "I wish study with friends wasn't so dead but it's a good tracker",
-    "rating": 5,
-    "app": "Study Bunny: Focus Timer"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Кросс-платформенная подотчётность: учимся вместе, неважно iOS или Android",
-    "obsCount": 6,
-    "apps": [
-     "Flora - Green Focus",
-     "Forest: Focus for Productivity",
-     "Study Bunny: Focus Timer"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Flora и Forest рвут самый сильный крючок удержания на границе ОС: «не могу добавить лучшую подругу с айфоном» — массовая боль.",
-  "idea": {
-   "pitch": "Социальная подотчётность держит сильнее любой награды, но конкуренты рубят её платформенной стеной. Мы делаем добавление в друзья и совместные сессии полностью кросс-платформенными с первого дня — учёба и дисциплина становятся общими для всей семьи.",
-   "features": [
-    "добавление друзей по коду между iOS и Android",
-    "общие комнаты фокуса и таблицы результатов",
-    "семейный режим с совместным прогрессом",
-    "честная защита от накруток в таблице лидеров",
-    "уведомления подотчётности от близких"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатное ядро для соло; платно — расширенные группы, семейные планы и история совместного прогресса."
-  }
- },
- {
-  "slug": "focus-screentime-5",
-  "category": "focus-screentime",
-  "categoryName": "Фокус и контроль экранного времени",
-  "title": "Андроид как первоклассный гражданин",
-  "oneLiner": "Блокировщик, где Android получает ту же аналитику и фичи, что и iOS, а не урезанный огрызок за ту же цену.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 326
-  },
-  "reviewGrid": [
-   {
-    "quote": "I paid the same amount of money as an iPhone user, so why do I not have the same things available to me in the app? edited to add: IOS users get far more analytics.",
-    "rating": 3,
-    "app": "Brick - Ditch Distractions"
-   },
-   {
-    "quote": "Love this app on iOS - totally nonfunctional on Pixel. There is no task function, only a simple focus pomodoro timer.",
-    "rating": 1,
-    "app": "Focus Keeper - Pomodoro Timer"
-   },
-   {
-    "quote": "No love for the android users? :'( the android version looks unfinished compared to the iOS one.",
-    "rating": 3,
-    "app": "ClearSpace: Reduce Screen Time"
-   },
-   {
-    "quote": "It doesn't support landscape mode and so it's useless for my tablet",
-    "rating": 1,
-    "app": "Refocus: Block Apps & Websites"
-   },
-   {
-    "quote": "there is no dark mode, hence risking burn in on my phone screen.",
-    "rating": 1,
-    "app": "Focus Keeper - Pomodoro Timer"
-   },
-   {
-    "quote": "pls update android version like the ios one",
-    "rating": 2,
-    "app": "ClearSpace: Reduce Screen Time"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Андроид как первоклассный гражданин",
-    "obsCount": 6,
-    "apps": [
-     "Brick - Ditch Distractions",
-     "Focus Keeper - Pomodoro Timer",
-     "ClearSpace: Reduce Screen Time",
-     "Refocus: Block Apps & Websites"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Brick, ClearSpace, Focus Keeper, Opal стабильно отдают андроидщикам меньше за те же деньги — массовое чувство несправедливости.",
-  "idea": {
-   "pitch": "Половина рынка платит ту же цену за второсортный продукт и злится. Мы делаем Android-версию ведущей, а не догоняющей: полная аналитика, задачи, темная тема, виджеты. Позиционирование «сделано для Android в первую очередь» — пустая ниша.",
-   "features": [
-    "полная аналитика и графики на Android",
-    "тёмная тема и настраиваемые виджеты",
-    "паритет фич с iOS как принцип релиза",
-    "поддержка планшетов и альбомной ориентации",
-    "никакой цены iOS за урезанный продукт"
-   ],
-   "antiFeatures": [],
-   "monetization": "Прозрачный единый ценник для обеих платформ за одинаковый набор; платно — командная аналитика."
-  }
- },
- {
-  "slug": "focus-screentime-6",
-  "category": "focus-screentime",
-  "categoryName": "Фокус и контроль экранного времени",
-  "title": "Честный обмен: экранное время в обмен на реальное действие",
-  "oneLiner": "Зарабатывай минуты скролла шагами, тренировкой и делами — с соразмерной усилию экономикой.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 326
-  },
-  "reviewGrid": [
-   {
-    "quote": "ITS ACTUALLY MAKING ME GO OUTSIDE AND quit being on the phone all Day likeee... clock it,QUEEENNNN",
-    "rating": 4,
-    "app": "Unrot: Earn your Screen Time"
-   },
-   {
-    "quote": "some of these tasks are by the hour which to me doesn't make any sense like why would I do deep breathing for an hour just to get 10 coin??",
-    "rating": 4,
-    "app": "Unrot: Earn your Screen Time"
-   },
-   {
-    "quote": "how come journaling is the same as napping or resting? there should be more consideration put forth on the activities, having varying amts of coins.",
-    "rating": 4,
-    "app": "Unrot: Earn your Screen Time"
-   },
-   {
-    "quote": "the push up challenge felt like a joke but also useful ! I doomscroll almost everyday and I've also been losing weight.",
-    "rating": 4,
-    "app": "ClearSpace: Reduce Screen Time"
-   },
-   {
-    "quote": "i downloaded it as a troll at first. didn't expect it to actually work and make me more active😭",
-    "rating": 5,
-    "app": "ClearSpace: Reduce Screen Time"
-   },
-   {
-    "quote": "in unrot it blocks apps. like I was in my room scrolling....now I'm touching grass",
-    "rating": 5,
-    "app": "Unrot: Earn your Screen Time"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Честный обмен: экранное время в обмен на реальное действие",
-    "obsCount": 6,
-    "apps": [
-     "Unrot: Earn your Screen Time",
-     "ClearSpace: Reduce Screen Time"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Unrot и ClearSpace нащупали свежую механику «заработай время трудом», но губят её несоразмерностью награды (час дыхания за 10 монет).",
-  "idea": {
-   "pitch": "Идея выгонять людей в реальный мир за право на скролл работает: «теперь я трогаю траву». Мы делаем экономику честной — награда строго пропорциональна усилию и пользе, а не уравнивает сон с журналированием. Дисциплина превращается в осмысленную игру.",
-   "features": [
-    "минуты за реальные шаги и тренировки",
-    "соразмерная награда: больше усилий — больше времени",
-    "интеграция со счётчиком шагов и здоровьем",
-    "блок выбранных приложений до выполнения задания",
-    "без фейковых заданий ради растяжки времени"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатное ядро; платно — кастомные задания, интеграции со здоровьем и расширенная статистика активности."
-  }
- },
- {
-  "slug": "focus-screentime-7",
-  "category": "focus-screentime",
-  "categoryName": "Фокус и контроль экранного времени",
-  "title": "Тихий таймер: минимализм без рекламы, подписки и сети",
-  "oneLiner": "Надёжный помодоро с гибкой длиной сессии, работающий офлайн и без единого попапа о покупке.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 326
-  },
-  "reviewGrid": [
-   {
-    "quote": "beautiful no ads perfect timer customization and not begging me to purchase anything and the END NOTIFICATION STAYS ON THE SCREEN",
-    "rating": 5,
-    "app": "Refocus: Block Apps & Websites"
-   },
-   {
-    "quote": "Nice and minimal pomodoro timer. Has exactly the options needed, without any bloat.",
-    "rating": 5,
-    "app": "Refocus: Block Apps & Websites"
-   },
-   {
-    "quote": "Isn't it counterproductive to have ads on the very screen that is supposed to be a focus screen? The whole point is to avoid distractions and lock in",
-    "rating": 1,
-    "app": "Focus Keeper - Pomodoro Timer"
-   },
-   {
-    "quote": "can you please increase the time 60 to maybe 120 min or more I know it's pomodoro but sometimes we want to do deep work long session",
-    "rating": 4,
-    "app": "Focus Keeper - Pomodoro Timer"
-   },
-   {
-    "quote": "everything is good but the bad thing is that it needs internet. But I m sure if it works offline it will be the best app for study.",
-    "rating": 4,
-    "app": "Study Bunny: Focus Timer"
-   },
-   {
-    "quote": "As a future doctor, this app has increased my attention span from 15 mins to straight 5 hours of sitting. Minimalism>",
-    "rating": 5,
-    "app": "Refocus: Block Apps & Websites"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Тихий таймер: минимализм без рекламы, подписки и сети",
-    "obsCount": 6,
-    "apps": [
-     "Refocus: Block Apps & Websites",
-     "Focus Keeper - Pomodoro Timer",
-     "Study Bunny: Focus Timer"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Refocus собрал фанатов чистотой, но рынок забит таймерами с рекламой на экране фокуса, обязательным онлайном и потолком в 25–60 минут.",
-  "idea": {
-   "pitch": "Целая аудитория хочет ровно одно: таймер, который держит время, не клянчит денег и не тянет в сеть. Мы даём гибкую длину под гиперфокус и глубокую работу, офлайн-режим и тишину как фичу. Это нельзя монетизировать в лоб — и в этом сила позиционирования.",
-   "features": [
-    "любая длина сессии, включая 120+ минут",
-    "полная работа офлайн без логина",
-    "ноль рекламы и апселлов на экране фокуса",
-    "уведомление об окончании, остающееся на экране",
-    "опциональные фоновые звуки и тиканье"
-   ],
-   "antiFeatures": [],
-   "monetization": "Разовая поддержка разработчика и платные звуковые паки; ядро бесплатно навсегда, без рекламы."
-  }
- },
- {
   "slug": "photo-editing-1",
   "category": "photo-editing",
   "categoryName": "Фоторедакторы",
@@ -16231,6 +15741,493 @@
    ],
    "antiFeatures": [],
    "monetization": "Подписка; тихий режим как часть базового ценностного предложения, а не платная надстройка."
+  }
+ },
+ {
+  "slug": "focus-screentime-1",
+  "category": "focus-screentime",
+  "categoryName": "Фокус и контроль экранного времени",
+  "title": "Эскалатор: задержка, что растёт с каждым срывом",
+  "oneLiner": "Блокировщик, где время разблокировки растёт с каждым вскрытием за день и обнуляется к утру — штраф за рецидив, а не плоская цена.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "before it got increasing like 30 secs to 90 secs to 120 secs",
+    "rating": 5,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "the timer is always set to 5seconds , but before it got increasing",
+    "rating": 1,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "you can pretty much open your apps anytime you want. It basically doesn't do what it's intended",
+    "rating": 1,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "It makes you stop and think long enough to make better decisions",
+    "rating": 5,
+    "app": "ClearSpace: Reduce Screen Time"
+   },
+   {
+    "quote": "this makes me in the present where I escape to a trap loop",
+    "rating": 4,
+    "app": "ClearSpace: Reduce Screen Time"
+   },
+   {
+    "quote": "It's now 5 seconds, and you can pretty much open your apps anytime you want",
+    "rating": 1,
+    "app": "Opal: Screen Time Control"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Эскалатор: задержка, что растёт с каждым срывом",
+    "obsCount": 6,
+    "apps": [
+     "Opal: Screen Time Control",
+     "ClearSpace: Reduce Screen Time"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Opal обрушил рейтинг, ужав задержку до фиксированных 5 секунд; именно растущую (30, 90, 120 сек) задержку пользователи называют тем, что реально ломало компульсию. Никто не сделал прогрессию ядром продукта.",
+  "idea": {
+   "pitch": "Каждое вскрытие соцсети дорожает: первое — 10 секунд паузы на осознание, десятое — две минуты приседаний. Чем чаще срываешься, тем дороже следующий заход. Утром счётчик обнуляется — новый честный старт.",
+   "features": [
+    "Прогрессивная задержка с настраиваемой кривой роста",
+    "Сброс к выбранному часу утра",
+    "Экран-пауза с дыханием и вопросом «точно сейчас?»",
+    "Статистика: сколько срывов и сколько паузы сэкономило экрана",
+    "Опция физического усилия вместо ожидания"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за продвинутые кривые штрафа и аналитику исхода; базовая линейная задержка бесплатна навсегда, чтобы ценность ощущалась до пейвола."
+  }
+ },
+ {
+  "slug": "focus-screentime-2",
+  "category": "focus-screentime",
+  "categoryName": "Фокус и контроль экранного времени",
+  "title": "Движение в обмен на экран",
+  "oneLiner": "Единственный барьер, который нельзя пролистать насквозь: минуты ленты покупаются приседаниями, отжиманиями или шагами.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "I doomscroll almost everyday and I've also been losing weight. this app has helped a lot",
+    "rating": 4,
+    "app": "ClearSpace: Reduce Screen Time"
+   },
+   {
+    "quote": "ITS ACTUALLY MAKING ME GO OUTSIDE AND quit being on the phone all Day",
+    "rating": 4,
+    "app": "Unrot: Earn your Screen Time"
+   },
+   {
+    "quote": "didn't expect it to actually work and make me more active",
+    "rating": 5,
+    "app": "ClearSpace: Reduce Screen Time"
+   },
+   {
+    "quote": "the main reason I got it, since I can't do push-ups",
+    "rating": 2,
+    "app": "ClearSpace: Reduce Screen Time"
+   },
+   {
+    "quote": "Detection is cheatable by rotation camera",
+    "rating": 2,
+    "app": "ClearSpace: Reduce Screen Time"
+   },
+   {
+    "quote": "having varying amts of coins. like most of the activities are 10 coins",
+    "rating": 4,
+    "app": "Unrot: Earn your Screen Time"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Движение в обмен на экран",
+    "obsCount": 6,
+    "apps": [
+     "ClearSpace: Reduce Screen Time",
+     "Unrot: Earn your Screen Time"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "ClearSpace годами рекламирует отжимания-разблокировки, но на Android их нет — люди платят за год и чувствуют обман; Unrot даёт идею, но плохо считает награды. Чистой, честной реализации «тело за экран» на Android не существует.",
+  "idea": {
+   "pitch": "Хочешь 10 минут TikTok — сделай 15 приседаний или пройди 500 шагов. Камера и шагомер считают локально. Побочный эффект из отзывов: люди худеют и выходят на улицу. Барьер, который нельзя обмануть тапом.",
+   "features": [
+    "Засчёт упражнений по камере и шагомеру локально",
+    "Выбор валюты усилия: отжимания, приседания, шаги, прогулка",
+    "Честный курс «усилие в минуты» без скрытых множителей",
+    "Защита от накрутки поворотом камеры",
+    "Дневник: экран обменян на движение за неделю"
+   ],
+   "antiFeatures": [],
+   "monetization": "Разовая покупка набора упражнений и pro-детекции; без подписки — аудитория категории прямо просит lifetime вместо подписки."
+  }
+ },
+ {
+  "slug": "focus-screentime-3",
+  "category": "focus-screentime",
+  "categoryName": "Фокус и контроль экранного времени",
+  "title": "Неломаемый блок для Android",
+  "oneLiner": "Блокировщик, который реально нельзя обойти жестом recents или тумблером спецвозможностей — закрывает дыру, на которой горят все конкуренты.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "Found a Easy Focus Mode bypass on Android: open any app during focus , wait for the Focus popup, then quickly use the navigation gesture to exit and re-enter",
+    "rating": 3,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "you just press and hold the blocked app from the recents view (three line button) and it open a pop-up view",
+    "rating": 1,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "too easy to bypass on a Xiaomi device, simply by turning on and off accessibility settings",
+    "rating": 3,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "it regularly doesn't lock me out of apps when it's supposed to, resets accessibility settings daily",
+    "rating": 1,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "Not very useful for Android users who want to block websites as well as apps",
+    "rating": 2,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "It's not actually blocking the app, you can enter by simply clicking on them as before",
+    "rating": 1,
+    "app": "Brick - Ditch Distractions"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Неломаемый блок для Android",
+    "obsCount": 6,
+    "apps": [
+     "Forest: Focus for Productivity",
+     "Brick - Ditch Distractions"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Forest, Brick и другие публично описывают обходы на Android: долгое нажатие в recents, вкл/выкл accessibility, поворот камеры. Контракт «я не смогу» — главная причина установки — рушится именно на Android.",
+  "idea": {
+   "pitch": "Мы лечим конкретные дыры: перехват recents-превью, мониторинг сброса спецвозможностей с мгновенным повторным локом, защита от деинсталляции в режиме обязательства. Android, которому можно доверить силу воли.",
+   "features": [
+    "Перехват обхода через recents и split-screen",
+    "Сторож спецвозможностей: сбросили — блок вернулся",
+    "Режим обязательства с защитой от удаления до конца сессии",
+    "Блок сайтов в мобильных браузерах, включая Firefox",
+    "Прозрачный лог попыток обхода"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на «режим обязательства» и защиту от удаления; одиночный мягкий блок бесплатен. Целим в готовый платить Android-сегмент, обделённый паритетом."
+  }
+ },
+ {
+  "slug": "focus-screentime-4",
+  "category": "focus-screentime",
+  "categoryName": "Фокус и контроль экранного времени",
+  "title": "Тег жизни: исход вместо очков",
+  "oneLiner": "Не сад и не зверёк, а зеркало результата: сон, прочитанные страницы, прогулки — продаём новую жизнь, а не геймификацию.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "my depression has almost completely disappeared. I ran a 10k. I started reading books",
+    "rating": 5,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "Instead of solitaire, I embroider",
+    "rating": 5,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "Opal helped me cut down my screen time by 70% and I became more productive",
+    "rating": 5,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "it's basically useless now because of how ironically distracting everything in it is",
+    "rating": 2,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "haven't doomscrolled in literally months because of clearspace",
+    "rating": 5,
+    "app": "ClearSpace: Reduce Screen Time"
+   },
+   {
+    "quote": "I used to have brain fog everyday. I never got anything done",
+    "rating": 5,
+    "app": "Brick - Ditch Distractions"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Тег жизни: исход вместо очков",
+    "obsCount": 6,
+    "apps": [
+     "Brick - Ditch Distractions",
+     "Opal: Screen Time Control",
+     "Forest: Focus for Productivity",
+     "ClearSpace: Reduce Screen Time"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сильнейшие отзывы Brick и ClearSpace говорят про исход (ушёл туман, начал читать, бегать), но трекеры показывают только минуты и деревья. Геймификация при этом скатывается в самоотвлечение. Никто не делает исход ядром интерфейса.",
+  "idea": {
+   "pitch": "Дашборд показывает не «сколько фокуса», а что ты получил взамен: плюс 47 минут сна, 3 главы книги, 2 прогулки. Минималистично, без челленджей-отвлекалок. Язык, на котором эта категория реально продаётся.",
+   "features": [
+    "Карточки исхода вместо деревьев и монет",
+    "Связка сэкономленного экрана с реальными действиями: книга, спорт, сон",
+    "Еженедельное письмо-итог об отвоёванной жизни",
+    "Ноль рекламы и геймификации на фокус-экране",
+    "Импорт сна и шагов из системы здоровья"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за расширенную аналитику исхода и историю; ядро-трекер бесплатен. Продаём трансформацию, а не косметику."
+  }
+ },
+ {
+  "slug": "focus-screentime-5",
+  "category": "focus-screentime",
+  "categoryName": "Фокус и контроль экранного времени",
+  "title": "Рабочий перерыв: дозированный доступ для тех, кому соцсети нужны",
+  "oneLiner": "Блок с честными окнами доступа для SMM, фрилансеров и людей с тяжёлыми днями — не запрет, а дозировка.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "I need social media for work but don't want to scroll it all day. I loved thar I could give myself short moments of access via the breaks",
+    "rating": 3,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "I was more than happy to pay for the app just for that feature but its not worth it without it",
+    "rating": 3,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "as someone who has chronic pain that sometimes use social media to distract in painful days. But when I'm better I can turn on again easily",
+    "rating": 5,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "can't whitelist apps that are allowed during study",
+    "rating": 3,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "people don't rely on books anymore, they might need to search Internet",
+    "rating": 4,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "I put a single minute to keep an app blocked after using up the time because I know it's time to put my phone down",
+    "rating": 3,
+    "app": "Opal: Screen Time Control"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Рабочий перерыв: дозированный доступ для тех, кому соцсети нужны",
+    "obsCount": 6,
+    "apps": [
+     "Opal: Screen Time Control",
+     "Flora - Green Focus"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Opal убрал перерывы — и платящие профи ушли: они прямо писали, что были рады платить только за эту фичу. Сегмент «соцсети нужны по работе, но не весь день» сейчас обслуживается случайно и его теряют.",
+  "idea": {
+   "pitch": "Задаёшь: 3 окна по 10 минут в день для Instagram-работы, остальное — жёсткий блок. Можно поставить правила на паузу в тяжёлый день и легко вернуть. Контроль для тех, кому нельзя просто всё выключить.",
+   "features": [
+    "Настраиваемые окна доступа по числу и длине",
+    "Пауза правил в один тап с напоминанием вернуть",
+    "Разделение «рабочие» и «залипательные» приложения",
+    "Лимит на день поверх окон",
+    "Календарная привязка окон к рабочим часам"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка для профи за гибкие окна и командные правила; этот сегмент уже доказал готовность платить именно за перерывы."
+  }
+ },
+ {
+  "slug": "focus-screentime-6",
+  "category": "focus-screentime",
+  "categoryName": "Фокус и контроль экранного времени",
+  "title": "Парный фокус: подотчётность, что не упирается в платформу",
+  "oneLiner": "Совместные фокус-сессии и взаимная подотчётность, которые работают между Android и iPhone — то, на чём ломаются Flora и Forest.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "me and my son get to share our forest together and be in awe at the beauty",
+    "rating": 5,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "making my study friends hold me accountable - isn't possible because none of my friends have an android phone",
+    "rating": 1,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "you can't add friends who use a different OS",
+    "rating": 2,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "I wish study with friends wasn't so dead but it's a good tracker",
+    "rating": 5,
+    "app": "Study Bunny: Focus Timer"
+   },
+   {
+    "quote": "you can compete with your friends to improve yourself",
+    "rating": 4,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "Please add an option for android users and iphone users to add each other as friends",
+    "rating": 3,
+    "app": "Flora - Green Focus"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Парный фокус: подотчётность, что не упирается в платформу",
+    "obsCount": 6,
+    "apps": [
+     "Forest: Focus for Productivity",
+     "Flora - Green Focus",
+     "Study Bunny: Focus Timer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди ставят такие апп ради друзей и семьи (делить лес с сыном, соревноваться), но кросс-платформенное добавление друзей сломано: Android не добавляет iPhone, «study with friends» мёртв. Рвётся ровно та фича, ради которой ставят.",
+  "idea": {
+   "pitch": "Сессия фокуса на двоих по простому коду-приглашению, неважно Android или iPhone. Видишь, что напарник держится — держишься сам. Социальная петля сильнее одинокого таймера, и она наконец без платформенной стены.",
+   "features": [
+    "Кросс-платформенное приглашение по коду без привязки к OS",
+    "Совместная сессия с живым статусом напарника",
+    "Лёгкие лиги и соревнования без превращения в игру",
+    "Семейный режим: общий итог дня",
+    "Уведомление напарнику при срыве по согласию"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за группы и лиги; пара друзей бесплатно, чтобы петля подотчётности запускалась до пейвола."
+  }
+ },
+ {
+  "slug": "focus-screentime-7",
+  "category": "focus-screentime",
+  "categoryName": "Фокус и контроль экранного времени",
+  "title": "Один контур фокуса: телефон и ноутбук синхронно, офлайн",
+  "oneLiner": "Фокус-сессия, которая блокирует отвлечения и на телефоне, и в браузере ноутбука одновременно — и работает без интернета.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 160
+  },
+  "reviewGrid": [
+   {
+    "quote": "Using the phone to check my garden defeats the purpose of focus and causes distraction",
+    "rating": 3,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "as a student, I do all my studies on my laptop. The current Chrome extension is too limited",
+    "rating": 3,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "I want to sync my stats on both the pc and my phone",
+    "rating": 2,
+    "app": "Focus Keeper - Pomodoro Timer"
+   },
+   {
+    "quote": "the app requires to be online (anoying popups on every screen telling you to reconnect), which seems counter productive",
+    "rating": 2,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "i can't set timers offline. please do something about this especially because I'm usually without internet",
+    "rating": 3,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "I suggest you add that you can use selected apps like social medias, Google and YouTube tutorial",
+    "rating": 4,
+    "app": "Flora - Green Focus"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Один контур фокуса: телефон и ноутбук синхронно, офлайн",
+    "obsCount": 6,
+    "apps": [
+     "Forest: Focus for Productivity",
+     "Focus Keeper - Pomodoro Timer",
+     "Flora - Green Focus"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Студенты и работники живут в ноутбуке, а блок только на телефоне («проверять сад на телефоне отрицает сам смысл»). Плюс многие апп требуют сеть и пугают попапами офлайн — против собственной сути.",
+  "idea": {
+   "pitch": "Стартуешь сессию на телефоне — блок мгновенно встаёт и в браузере на ноуте. Никакого интернета не нужно: всё локально. Один таймер, один контур, ни одной лазейки сменить устройство и сорваться.",
+   "features": [
+    "Синхронный блок телефон плюс десктоп-расширение",
+    "Полностью офлайн-таймер без попапов о сети",
+    "Белый список нужного: калькулятор, словарь, гайд",
+    "Единая статистика по всем устройствам локально",
+    "Стоп-кран только через осознанный барьер на обоих устройствах"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка за десктоп-контур и синхронизацию; одиночный офлайн-таймер на телефоне бесплатен. Закрываем слепую зону учёбы и работы."
   }
  }
 ]
