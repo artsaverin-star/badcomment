@@ -46,6 +46,40 @@ export default async function RootLayout({
       className={`${inter.variable} ${nunito.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        {/* Brand entity for search + LLM grounding (Organization + WebSite). */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://inapp.pro/#org",
+                  name: "inApp",
+                  url: "https://inapp.pro",
+                  description:
+                    locale === "en"
+                      ? "inApp reads thousands of App Store and Google Play reviews and turns them into market research for app builders: what users love and hate, which apps are missing, and which ideas are worth building."
+                      : "inApp читает тысячи отзывов из App Store и Google Play и превращает их в рыночное исследование для тех, кто делает приложения.",
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://inapp.pro/#website",
+                  url: "https://inapp.pro",
+                  name: "inApp",
+                  inLanguage: locale === "en" ? "en" : "ru",
+                  publisher: { "@id": "https://inapp.pro/#org" },
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: { "@type": "EntryPoint", urlTemplate: `https://inapp.pro/${locale}/search?q={search_term_string}` },
+                    "query-input": "required name=search_term_string",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <Header locale={locale} theme={theme} />
         {children}
         <Footer locale={locale} />

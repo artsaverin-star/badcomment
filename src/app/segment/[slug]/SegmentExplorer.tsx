@@ -139,7 +139,7 @@ export default function SegmentExplorer({
                 <div key={i} className="flex items-start gap-6 border-b border-[var(--color-border-subtle)] py-7 sm:gap-9">
                   <span className="shrink-0 pt-1 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{`0${i + 1}`}</span>
                   <div className="min-w-0 flex-1">
-                    <div className="pointer-events-none select-none opacity-55 blur-[5px]">
+                    <div className="gated-content pointer-events-none select-none opacity-55 blur-[5px]">
                       <span className="block text-[21px] font-semibold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[25px]">{op.regen?.title || op.title}</span>
                       <span className="mt-2 line-clamp-2 block text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[16px]">{op.regen?.tagline || op.oneLiner}</span>
                     </div>

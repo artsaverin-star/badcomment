@@ -260,28 +260,74 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     { n: `${opps.length}`, l: ru ? "возможностей" : "opportunities" },
   ];
 
-  // Schema.org — research article with a list of (gated) app ideas.
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: ru ? `Идеи приложений: ${cat.name} — что построить в нише 2026` : `App ideas: ${cat.name} — what to build in 2026`,
-    inLanguage: ru ? "ru" : "en",
-    about: cat.name,
-    keywords: ru ? `идеи приложений, какое приложение сделать, ниша для приложения, ${cat.name}` : `app ideas, what app to build, app niche, ${cat.name}`,
-    author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
-    publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
-    mainEntity: {
+  // ── Schema.org @graph — rich structured data for search + LLM grounding ──
+  const localePrefix = ru ? "ru" : "en";
+  const pageUrl = `https://inapp.pro/${localePrefix}/segment/${slug}`;
+  const org = { "@type": "Organization", name: "inApp", url: "https://inapp.pro" };
+
+  // Each analysed app as a SoftwareApplication with a real AggregateRating.
+  const appSchemas = cat.apps
+    .filter((a) => hasInsight(a.productId))
+    .map((a) => {
+      const pid = a.productId as string;
+      const ins = getProductInsights(pid);
+      const hist = ins?.ratingBreakdown ?? {};
+      const cnt = [1, 2, 3, 4, 5].reduce((s, n) => s + (hist[String(n)] ?? 0), 0);
+      const avg = cnt > 0 ? [1, 2, 3, 4, 5].reduce((s, n) => s + n * (hist[String(n)] ?? 0), 0) / cnt : 0;
+      if (!cnt || !avg) return null;
+      const desc = descriptionFor(pid, locale, ins?.description);
+      return {
+        "@type": "SoftwareApplication",
+        name: a.name,
+        applicationCategory: "MobileApplication",
+        operatingSystem: "iOS, Android",
+        ...(desc ? { description: desc } : {}),
+        ...(a.icon ? { image: a.icon } : {}),
+        aggregateRating: { "@type": "AggregateRating", ratingValue: Math.round(avg * 10) / 10, ratingCount: cnt, bestRating: 5, worstRating: 1 },
+      } as Record<string, unknown>;
+    })
+    .filter((x): x is Record<string, unknown> => x !== null);
+
+  // FAQ from the authored research — matches real search intent + LLM Q&A.
+  const faqItems = thesis
+    ? [
+        { q: ru ? `Что пользователи ценят и на что злятся в приложениях «${cat.name}»?` : `What do users love and hate in ${cat.name} apps?`, a: tg(thesis.governing) },
+        thesis.competitorRead ? { q: ru ? `Чего не хватает приложениям «${cat.name}»?` : `What are ${cat.name} apps missing?`, a: tg(thesis.competitorRead) } : null,
+        opps.length ? { q: ru ? `Какое приложение сделать в нише «${cat.name}»?` : `What app to build in the "${cat.name}" niche?`, a: (ru ? `${opps.length} идей под подтверждённый спрос: ` : `${opps.length} ideas backed by proven demand: `) + opps.map((o) => o.regen?.title || o.title).filter(Boolean).join("; ") } : null,
+      ].filter((x): x is { q: string; a: string } => !!x)
+    : [];
+
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "Article",
+      headline: ru ? `Идеи приложений: ${cat.name} — что построить в нише 2026` : `App ideas: ${cat.name} — what to build in 2026`,
+      inLanguage: ru ? "ru" : "en",
+      about: cat.name,
+      keywords: ru ? `идеи приложений, какое приложение сделать, ниша для приложения, ${cat.name}` : `app ideas, what app to build, app niche, ${cat.name}`,
+      author: org,
+      publisher: org,
+      mainEntityOfPage: pageUrl,
+      // Paywalled-content signal: the gated synthesis is in the HTML, not free.
+      isAccessibleForFree: false,
+      hasPart: { "@type": "WebPageElement", isAccessibleForFree: false, cssSelector: ".gated-content" },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: ru ? "Главная" : "Home", item: `https://inapp.pro/${localePrefix}` },
+        { "@type": "ListItem", position: 2, name: cat.name, item: pageUrl },
+      ],
+    },
+    {
       "@type": "ItemList",
       name: ru ? `Идеи приложений: ${cat.name}` : `App ideas: ${cat.name}`,
       numberOfItems: ideas.length,
-      itemListElement: ideas.map((idea, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: ru ? `Идея №${i + 1} · спрос ${idea.stats.observations} наблюдений` : `Idea #${i + 1} · demand ${idea.stats.observations} observations`,
-        url: `https://inapp.pro/${ru ? "ru" : "en"}/ideas/${idea.slug}`,
-      })),
+      itemListElement: ideas.map((idea, i) => ({ "@type": "ListItem", position: i + 1, name: ru ? `Идея №${i + 1} · спрос ${idea.stats.observations}` : `Idea #${i + 1} · demand ${idea.stats.observations}`, url: pageUrl })),
     },
-  };
+    ...appSchemas,
+    ...(faqItems.length ? [{ "@type": "FAQPage", mainEntity: faqItems.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }] : []),
+  ];
+  const jsonLd = { "@context": "https://schema.org", "@graph": graph };
 
   const findingLabel = (i: number) => (ru ? `Вывод ${`0${i + 1}`}` : `Finding ${`0${i + 1}`}`);
 
@@ -332,7 +378,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       user unlocks to read. Legit per Google's paywalled-content
                       guidance (see isAccessibleForFree in the JSON-LD). */}
                   <div className="relative">
-                    <div className="pointer-events-none flex select-none flex-col gap-12 opacity-50 blur-[6px] sm:gap-16">
+                    <div className="gated-content pointer-events-none flex select-none flex-col gap-12 opacity-50 blur-[6px] sm:gap-16">
                       {pillars.slice(1).map((p, i) => (
                         <PillarFull key={i} p={p} label={findingLabel(i + 1)} />
                       ))}
