@@ -141,18 +141,32 @@ export default function AuthModal({
     return () => clearInterval(iv);
   }, [CLIENT_ID, initGoogle]);
 
+  // Robust fallback: if GIS never loaded (content blocker like Wipr killed the
+  // script/iframes), use the server redirect flow — a plain navigation Google
+  // can't be blocked from.
+  const googleRedirect = () => {
+    window.location.href = "/api/auth/google/start";
+  };
+
   function handleGoogleClick() {
-    if (!googleInited) return;
-    window.google.accounts.id.prompt((n: any) => {
-      if (n.isNotDisplayed?.() || n.isSkippedMoment?.()) {
-        const btn =
-          (googleBtnRef.current?.querySelector('[role="button"]') as HTMLElement) ||
-          (googleBtnRef.current?.querySelector("div[style]") as HTMLElement) ||
-          (googleBtnRef.current?.querySelector("iframe")?.parentElement as HTMLElement);
-        if (btn) btn.click();
-        else setError(ru ? "Google недоступен. Обновите страницу." : "Google Sign-In unavailable. Refresh the page.");
-      }
-    });
+    if (!googleInited || !window.google?.accounts?.id) {
+      googleRedirect();
+      return;
+    }
+    try {
+      window.google.accounts.id.prompt((n: any) => {
+        if (n.isNotDisplayed?.() || n.isSkippedMoment?.()) {
+          const btn =
+            (googleBtnRef.current?.querySelector('[role="button"]') as HTMLElement) ||
+            (googleBtnRef.current?.querySelector("div[style]") as HTMLElement) ||
+            (googleBtnRef.current?.querySelector("iframe")?.parentElement as HTMLElement);
+          if (btn) btn.click();
+          else googleRedirect();
+        }
+      });
+    } catch {
+      googleRedirect();
+    }
   }
 
   // ── Telegram ────────────────────────────────────────────────────────
@@ -321,7 +335,7 @@ export default function AuthModal({
         {CLIENT_ID && (
           <button
             onClick={handleGoogleClick}
-            disabled={loading || !googleInited}
+            disabled={loading}
             className={`${btnBase} border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]`}
           >
             <svg className="size-5" viewBox="0 0 24 24" aria-hidden="true">

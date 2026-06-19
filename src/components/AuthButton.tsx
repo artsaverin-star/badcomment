@@ -60,7 +60,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
       <>
         {compact ? (
           <Button variant="secondary" size="M" onClick={() => setModal(true)} className="w-full">
-            Войти
+            {ru ? "Войти" : "Sign in"}
           </Button>
         ) : (
           <button
@@ -68,7 +68,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             onClick={() => setModal(true)}
             className="flex h-9 items-center rounded-full bg-[var(--color-button-primary-bg)] px-5 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
           >
-            Войти
+            {ru ? "Войти" : "Sign in"}
           </button>
         )}
         {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
