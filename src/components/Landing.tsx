@@ -13,7 +13,7 @@ export type CatCard = {
   reviews: number;
   observations: number;
   ideas: number;
-  painHook: string;
+  blurb: string;
 };
 
 function reviewsWord(n: number): string {
@@ -49,87 +49,38 @@ function ideasWord(n: number): string {
   return "идей";
 }
 
-// Distinct accent per category card (all readable with white button text).
-const PALETTE = ["#ff7a3c", "#34c759", "#3b82f6", "#a855f7", "#ec4899", "#14b8a6", "#f97316", "#ef4444", "#6366f1", "#06b6d4"];
-
-const CARD_POS = [
-  "left-[4%] top-[8%]",
-  "right-[5%] top-[6%]",
-  "left-[2%] top-[42%]",
-  "right-[3%] top-[40%]",
-  "left-[6%] bottom-[12%]",
-  "right-[5%] bottom-[14%]",
-  "left-[23%] top-[2%]",
-  "right-[25%] bottom-[4%]",
-  "left-[40%] bottom-[1%]",
-  "right-[42%] top-[1%]",
-];
-
-// A big, selling category card — the segment cover (app-icon salute + headline
-// + hook + stats) condensed, with a «Смотреть разбор» CTA.
-function CategoryCoverCard({ c, ru, color }: { c: CatCard; ru: boolean; color: string }) {
-  const icons = c.icons.filter(Boolean).slice(0, CARD_POS.length);
+// A clean, Apple-style category card — tidy app-icon row, big headline, the
+// governing thought, quiet stats, and a restrained «Смотреть разбор» link.
+function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
+  const icons = c.icons.filter(Boolean).slice(0, 6);
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group relative block overflow-hidden rounded-[28px] border bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] transition-colors sm:p-8"
-      style={{ borderColor: `color-mix(in srgb, ${color} 28%, var(--color-border-subtle))` }}
+      className="group flex h-full flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-8"
     >
-      <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-44 opacity-[0.22]" style={{ background: `radial-gradient(120% 80% at 50% 0%, ${color} 0%, transparent 70%)` }} />
       {icons.length > 0 && (
-        <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div className="mb-7 flex items-center gap-2">
           {icons.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={i}
-              src={src}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className={`ld-float absolute block size-11 rounded-[13px] opacity-50 shadow-[0_12px_30px_-12px_rgba(0,0,0,0.85)] sm:size-12 ${CARD_POS[i]}`}
-              style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
-            />
+            <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-10 rounded-[12px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
           ))}
-          <span className="absolute inset-0" style={{ background: "radial-gradient(62% 56% at 50% 48%, var(--color-surface-card) 36%, transparent 100%)" }} />
         </div>
       )}
 
-      <div className="relative flex flex-col items-center gap-3 text-center">
-        <h3 className="text-[28px] font-bold leading-[1.08] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[34px]">{c.name}</h3>
-        <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
-          {ru ? `Разбор категории · 2026 · ${c.apps} ${appsWord(c.apps)}` : `Category breakdown · 2026 · ${c.apps} apps`}
+      <h3 className="text-[28px] font-semibold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[34px]">{c.name}</h3>
+      <p className="mt-2.5 text-[13px] text-[var(--color-text-tertiary)]">{ru ? `Разбор категории · ${c.apps} ${appsWord(c.apps)}` : `Category breakdown · ${c.apps} apps`}</p>
+      {c.blurb && <p className="mt-5 line-clamp-3 text-[16px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[17px]">{c.blurb}</p>}
+
+      <div className="mt-auto pt-7">
+        <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
+          {ru
+            ? `${c.reviews.toLocaleString("ru-RU")} ${reviewsWord(c.reviews)} · ${c.observations} ${obsWord(c.observations)}${c.ideas > 0 ? ` · ${c.ideas} ${ideasWord(c.ideas)}` : ""}`
+            : `${c.reviews.toLocaleString("en-US")} reviews · ${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`}
         </p>
-        {c.painHook && (
-          <p className="mx-auto max-w-[44ch] text-callout leading-relaxed text-[var(--color-text-secondary)]">
-            {ru ? (
-              <>
-                А знаете, на что злятся сильнее всего? <b className="text-[var(--color-text-primary)]">{c.painHook.charAt(0).toLowerCase() + c.painHook.slice(1)}</b>. Сделайте без этого — и у вас потенциальный хит.
-              </>
-            ) : (
-              <>
-                The #1 thing people hate here? <b className="text-[var(--color-text-primary)]">{c.painHook}</b>. Build one without it — and you’ve got a hit.
-              </>
-            )}
-          </p>
-        )}
-        <p className="text-footnote text-[var(--color-text-secondary)]">
-          {ru ? (
-            <>
-              Прочитали <b className="tabular-nums text-[var(--color-text-primary)]">{c.reviews.toLocaleString("ru-RU")}</b> {reviewsWord(c.reviews)} · собрали{" "}
-              <b className="tabular-nums text-[var(--color-text-primary)]">{c.observations}</b> {obsWord(c.observations)}
-              {c.ideas > 0 ? <> · <b className="tabular-nums text-[var(--color-text-primary)]">{c.ideas}</b> {ideasWord(c.ideas)}</> : null}
-            </>
-          ) : (
-            <>
-              Read <b className="tabular-nums text-[var(--color-text-primary)]">{c.reviews.toLocaleString("en-US")}</b> reviews · {c.observations} observations
-              {c.ideas > 0 ? <> · {c.ideas} ideas</> : null}
-            </>
-          )}
-        </p>
-        <span className="mt-2 inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout font-semibold text-white shadow-[0_10px_30px_-12px_rgba(0,0,0,0.6)] transition-transform group-hover:scale-[1.04]" style={{ background: color }}>
+        <span className="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--color-text-primary)]">
           {ru ? "Смотреть разбор" : "See the breakdown"}
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="text-[var(--color-text-brand)] transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
       </div>
@@ -230,8 +181,8 @@ export default function Landing({
       {/* Category cover cards — shown immediately, no scroll-reveal */}
       {catCards.length > 0 && (
         <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-5 lg:grid-cols-2">
-          {catCards.map((c, idx) => (
-            <CategoryCoverCard key={c.slug} c={c} ru={ru} color={PALETTE[idx % PALETTE.length]} />
+          {catCards.map((c) => (
+            <CategoryCoverCard key={c.slug} c={c} ru={ru} />
           ))}
         </div>
       )}

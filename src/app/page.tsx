@@ -4,6 +4,7 @@ import { getSessionUser } from "@/lib/session";
 import { getCatalogData } from "@/lib/catalogData";
 import { listIdeas } from "@/lib/ideas";
 import { getSegmentSummary } from "@/lib/segmentSummary";
+import { getNicheThesis } from "@/lib/nicheThesis";
 import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -22,10 +23,9 @@ export default async function Home() {
     .map((c) => {
       const summary = getSegmentSummary(c.slug);
       if (!summary) return null;
-      const itemAvg = (ev: { rating: number }[]) => (ev.length ? ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length : 5);
-      const negs = summary.items.filter((it) => itemAvg(it.evidence) < 3.4);
-      const painItem = (negs.length ? negs : summary.items).sort((a, b) => b.observationCount - a.observationCount)[0];
-      const painHook = painItem ? painItem.title.split(/\s[—–-]\s/)[0].trim() : "";
+      // Prefer the authored governing thought (same schema as the breakdown);
+      // fall back to the category lead. Drops the old "на что злятся" gimmick.
+      const blurb = getNicheThesis(c.slug)?.governing || summary.lead || "";
       return {
         slug: c.slug,
         name: c.name,
@@ -34,7 +34,7 @@ export default async function Home() {
         reviews: summary.reviewsScanned,
         observations: summary.items.reduce((s, i) => s + i.observationCount, 0),
         ideas: listIdeas().filter((i) => i.category === c.slug).length,
-        painHook,
+        blurb,
       };
     })
     .filter((c): c is NonNullable<typeof c> => !!c);
