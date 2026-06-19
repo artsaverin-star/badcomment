@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { getSessionUser, type SessionUser } from "./session";
 import { isFriendIdentity } from "./friends";
 import { getUnlockSets } from "./tokens";
@@ -20,11 +21,17 @@ export async function getAccess(): Promise<Access> {
     return { user: null, loggedIn: false, unlimited: false, balance: 0, has: () => false };
   }
 
+  // "Buyer preview": a cookie that downgrades the current session to a normal
+  // token user (admin/lifetime/friend все обходят гейты) so the owner can see the
+  // real purchase flow. Harmless — it only removes access, never grants it.
+  const asBuyer = (await cookies()).get("as_buyer")?.value === "1";
+
   const unlimited =
-    user.isAdmin ||
-    user.lifetime ||
-    isFriendIdentity(user) ||
-    !!(user.premiumUntil && new Date(user.premiumUntil) > new Date());
+    !asBuyer &&
+    (user.isAdmin ||
+      user.lifetime ||
+      isFriendIdentity(user) ||
+      !!(user.premiumUntil && new Date(user.premiumUntil) > new Date()));
 
   if (unlimited) {
     return { user, loggedIn: true, unlimited: true, balance: user.tokens ?? 0, has: () => true };
