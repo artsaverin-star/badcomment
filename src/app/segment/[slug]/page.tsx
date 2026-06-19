@@ -11,6 +11,7 @@ import { getProductInsights } from "@/lib/insights";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { getNicheOpportunities } from "@/lib/nicheOpportunities";
+import { tg, deepTg } from "@/lib/typo";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
@@ -25,24 +26,24 @@ function PillarFull({ p, label }: { p: ExpPillar; label: string }) {
   return (
     <div>
       <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{label}</div>
-      <h3 className="mt-4 text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[34px]">{p.title}</h3>
-      <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-[var(--color-text-secondary)] sm:text-[18px]">{p.dek}</p>
+      <h3 className="mt-4 text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[34px]">{tg(p.title)}</h3>
+      <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
       {p.findings.length > 0 && (
         <div className="mt-8 border-t border-[var(--color-border-subtle)]">
           {p.findings.map((f: ExpFinding, k: number) => (
             <details key={k} className="group/f border-b border-[var(--color-border-subtle)]">
               <summary className="flex cursor-pointer list-none items-start gap-5 py-4 [&::-webkit-details-marker]:hidden">
-                <span className="min-w-0 flex-1 text-[16px] font-medium leading-[1.45] text-[var(--color-text-primary)] transition-colors group-hover/f:text-[var(--color-text-secondary)]">{f.title}</span>
+                <span className="min-w-0 flex-1 text-[16px] font-medium leading-[1.45] text-[var(--color-text-primary)] transition-colors group-hover/f:text-[var(--color-text-secondary)]">{tg(f.title)}</span>
                 <span className="mt-0.5 shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </summary>
               <div className="details-reveal pb-6 pr-1 sm:pr-8">
-                {(f.plus || f.minus) && <p className="text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{[f.plus, f.minus].filter(Boolean).join(" ")}</p>}
+                {(f.plus || f.minus) && <p className="text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg([f.plus, f.minus].filter(Boolean).join(" "))}</p>}
                 {f.quotes.length > 0 && (
                   <div className="mt-5 flex flex-col gap-2.5">
                     {f.quotes.slice(0, 3).map((q, j) => (
                       <figure key={j} className="rounded-[16px] bg-[var(--color-bg-muted)] px-4 py-3">
-                        <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{q.text}</p>
+                        <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{tg(q.text)}</p>
                         <figcaption className="mt-1.5 text-[12px] text-[var(--color-text-tertiary)]">{q.app}</figcaption>
                       </figure>
                     ))}
@@ -297,9 +298,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши" : "Niche research"}</div>
         <h1 className="mt-6 text-[clamp(46px,12vw,84px)] font-semibold leading-[0.96] tracking-[-0.045em] text-[var(--color-text-primary)]">{cat.name}</h1>
         {thesis ? (
-          <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[27px]">{thesis.governing}</p>
+          <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
         ) : (
-          summary.lead && <p className="mt-8 max-w-[58ch] text-[19px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{summary.lead}</p>
+          summary.lead && <p className="mt-8 max-w-[58ch] text-[19px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{tg(summary.lead)}</p>
         )}
 
         {/* STATS — borderless big-number band */}
@@ -357,9 +358,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       <SegmentExplorer
         locale={locale}
-        opps={opps}
-        apps={apps}
-        competitorRead={thesis?.competitorRead}
+        opps={deepTg(opps)}
+        apps={deepTg(apps)}
+        competitorRead={thesis?.competitorRead ? tg(thesis.competitorRead) : undefined}
         loggedIn={loggedIn}
         balance={balance}
       />

@@ -5,6 +5,7 @@ import { getCatalogData } from "@/lib/catalogData";
 import { listIdeas } from "@/lib/ideas";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import { getNicheThesis } from "@/lib/nicheThesis";
+import { tg } from "@/lib/typo";
 import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -40,8 +41,8 @@ export default async function Home() {
         reviews,
         observations: summary.items.reduce((s, i) => s + i.observationCount, 0),
         ideas: listIdeas().filter((i) => i.category === c.slug).length,
-        hook,
-        blurb,
+        hook: tg(hook),
+        blurb: tg(blurb),
       };
     })
     .filter((c): c is NonNullable<typeof c> => !!c);
