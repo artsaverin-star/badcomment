@@ -23,13 +23,12 @@ export default async function Home() {
     .map((c) => {
       const summary = getSegmentSummary(c.slug);
       if (!summary) return null;
-      // Plain, human one-liner for a first-time visitor — what this card is.
-      const names = c.apps.map((a) => a.name).filter((x): x is string => !!x);
-      const ex = names.slice(0, 2);
+      // Plain, human one-liner for a first-time visitor — what this card is and
+      // why it's useful. No store app-names (they're messy: "App: Subtitle, ...").
       const reviews = summary.reviewsScanned;
       const blurb = ru
-        ? `Прочитали ${reviews.toLocaleString("ru-RU")} отзывов на ${c.appsCount} приложений${ex.length ? ` вроде ${ex.join(" и ")}` : ""} и разобрали, что людям нравится, на что они злятся и каких приложений им не хватает.`
-        : `We read ${reviews.toLocaleString("en-US")} reviews of ${c.appsCount} apps${ex.length ? ` like ${ex.join(" and ")}` : ""} and broke down what people love, what frustrates them, and which apps are missing.`;
+        ? `Прочитали ${reviews.toLocaleString("ru-RU")} реальных отзывов на ${c.appsCount} приложений и разобрали, что людям нравится, на что они злятся и каких приложений им не хватает — готовый разбор ниши, если думаете сделать своё.`
+        : `We read ${reviews.toLocaleString("en-US")} real reviews of ${c.appsCount} apps and broke down what people love, what frustrates them, and which apps are missing — a ready niche breakdown if you're thinking of building your own.`;
       return {
         slug: c.slug,
         name: c.name,
