@@ -205,14 +205,14 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       }))
     : [];
 
-  const regenList = ru ? getNicheOpportunities(slug) : [];
+  const regenList = getNicheOpportunities(slug, locale);
   const opps: ExpOpp[] = ideas.map((idea) => {
     const en = ideaContentEn(idea.slug, locale);
     return {
       slug: idea.slug,
       locked: catLocked && !access.has("idea", idea.slug),
       demand: idea.stats.observations,
-      regen: regenList.find((o) => o.src === idea.title) ?? null,
+      regen: regenList.find((o) => o.slug === idea.slug) ?? null,
       title: en?.title || idea.title,
       oneLiner: en?.oneLiner || idea.oneLiner,
       gap: en?.gap || idea.gap,
