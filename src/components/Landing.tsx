@@ -13,6 +13,7 @@ export type CatCard = {
   reviews: number;
   observations: number;
   ideas: number;
+  hook: string;
   blurb: string;
 };
 
@@ -70,7 +71,8 @@ function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
         </div>
       )}
 
-      {c.blurb && <p className="mt-6 line-clamp-4 text-[16px] font-light leading-[1.55] text-[var(--color-text-secondary)] sm:text-[17px]">{c.blurb}</p>}
+      {c.hook && <p className="mt-6 text-[16px] font-light leading-[1.5] text-[var(--color-text-primary)] sm:text-[17px]">{c.hook}</p>}
+      {c.blurb && <p className="mt-4 text-[14px] leading-[1.5] text-[var(--color-text-tertiary)]">{c.blurb}</p>}
 
       <div className="mt-auto pt-7">
         <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
