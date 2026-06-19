@@ -55,6 +55,9 @@ export default function EnergyUnlockButton({
       router.push("/tokens");
       return;
     }
+    // Fire the salute immediately on tap, so it always shows regardless of how
+    // fast the unlock resolves.
+    setBurst(true);
     setWorking(true);
     try {
       const r = await fetch("/api/unlock", {
@@ -68,13 +71,14 @@ export default function EnergyUnlockButton({
       }
       if (!r.ok) {
         setWorking(false);
+        setBurst(false);
         return;
       }
-      // Salute, then reveal — give the burst time to play before the refresh.
-      setBurst(true);
-      setTimeout(() => router.refresh(), 620);
+      // Let the burst play before revealing the content.
+      setTimeout(() => router.refresh(), 600);
     } catch {
       setWorking(false);
+      setBurst(false);
     }
   }
 
