@@ -9,6 +9,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { appCardsFor, categoryCards, ideaContentEn, descriptionFor, type RegenCard } from "@/lib/regenCards";
 import { getProductInsights } from "@/lib/insights";
 import { getSegmentSummary, type SegmentSummaryEvidence } from "@/lib/segmentSummary";
+import { getNicheThesis } from "@/lib/nicheThesis";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
@@ -159,6 +160,32 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const catProduct = (categoryCards(slug, locale)?.product ?? []).slice().sort((a, b) => b.count - a.count);
   const overviewSlides: Slide[] = catProduct.slice(0, 12).map(cardToSlide);
   const totalObs = catProduct.reduce((s, c) => s + c.count, 0) || sections.reduce((s, sec) => s + sec.items.reduce((t, it) => t + it.observationCount, 0), 0);
+
+  // McKinsey pyramid: governing thought → 3 MECE pillars → evidence cards under
+  // each (routed by keyword match). Categories without an authored thesis fall
+  // back to the flat breakdown above.
+  const thesis = getNicheThesis(slug);
+  const pillarSlides = thesis
+    ? thesis.pillars.map((p, pi) =>
+        catProduct
+          .filter((c) => {
+            const t = `${c.title} ${c.plus ?? ""} ${c.minus ?? ""}`.toLowerCase();
+            const scoreOf = (kws: string[]) => kws.reduce((s, kw) => s + (t.includes(kw) ? 1 : 0), 0);
+            let best = 0;
+            let bestScore = -1;
+            thesis.pillars.forEach((q, qi) => {
+              const sc = scoreOf(q.match);
+              if (sc > bestScore) {
+                bestScore = sc;
+                best = qi;
+              }
+            });
+            return best === pi;
+          })
+          .slice(0, 5)
+          .map(cardToSlide),
+      )
+    : [];
 
   // ── Opportunities (paid chapters): each idea, fully developed ──
   const opps: OppView[] = ideas.map((idea) => {
@@ -324,8 +351,14 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                 <span className="text-caption font-bold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">{ru ? "Обзор ниши" : "Niche overview"}</span>
                 <span className="rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#4ade80]">{ru ? "бесплатно" : "free"}</span>
               </div>
-              <h2 className="text-[24px] font-bold leading-[1.16] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{ru ? "Что общего у приложений ниши" : "What the niche's apps share"}</h2>
-              {summary.lead && <p className="mt-3 text-[16px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-lead">{summary.lead}</p>}
+              {thesis ? (
+                <h2 className="text-[23px] font-bold leading-[1.22] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{thesis.governing}</h2>
+              ) : (
+                <>
+                  <h2 className="text-[24px] font-bold leading-[1.16] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[28px]">{ru ? "Что общего у приложений ниши" : "What the niche's apps share"}</h2>
+                  {summary.lead && <p className="mt-3 text-[16px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-lead">{summary.lead}</p>}
+                </>
+              )}
               <div className="mt-4 flex flex-wrap gap-x-2.5 gap-y-1 text-footnote tabular-nums text-[var(--color-text-tertiary)]">
                 <span>{readyCount} {ru ? "приложений" : "apps"}</span>
                 <span aria-hidden>·</span>
@@ -338,11 +371,28 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
         </div>
-        {overviewSlides.length > 0 && (
-          <div className="mt-5">
-            <h3 className="mx-auto mb-3 max-w-[640px] text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что выяснили — разбор по всей нише" : "What we found — the whole-niche breakdown"}</h3>
-            <CardCarousel slides={overviewSlides} locale={ru ? "ru" : "en"} layout="feed" />
+
+        {thesis ? (
+          // McKinsey key line: 3 MECE pillars, each an action title + evidence.
+          <div className="mt-8 flex flex-col gap-10">
+            {thesis.pillars.map((p, pi) => (
+              <div key={pi}>
+                <div className="mx-auto mb-3 max-w-[640px]">
+                  <span className="text-caption font-bold uppercase tracking-[0.12em] text-[var(--color-text-brand)]">{ru ? `Столп ${pi + 1} · ${thesis.pillars.length}` : `Pillar ${pi + 1} · ${thesis.pillars.length}`}</span>
+                  <h3 className="mt-1 text-[21px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[24px]">{p.title}</h3>
+                  <p className="mt-2 text-footnote leading-relaxed text-[var(--color-text-secondary)]">{p.dek}</p>
+                </div>
+                {pillarSlides[pi]?.length > 0 && <CardCarousel slides={pillarSlides[pi]} locale={ru ? "ru" : "en"} layout="feed" />}
+              </div>
+            ))}
           </div>
+        ) : (
+          overviewSlides.length > 0 && (
+            <div className="mt-5">
+              <h3 className="mx-auto mb-3 max-w-[640px] text-caption font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что выяснили — разбор по всей нише" : "What we found — the whole-niche breakdown"}</h3>
+              <CardCarousel slides={overviewSlides} locale={ru ? "ru" : "en"} layout="feed" />
+            </div>
+          )
         )}
       </section>
 
