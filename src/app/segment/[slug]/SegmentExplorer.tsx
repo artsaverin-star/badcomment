@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
+import Reveal from "@/components/Reveal";
 
 export type ExpQuote = { app: string; rating: number; text: string };
 export type ExpObs = { title: string; plus?: string; minus?: string; count: number; tone: "up" | "down" | "mixed" | "info"; evidence: ExpQuote[] };
@@ -113,7 +114,8 @@ export default function SegmentExplorer({
     <>
       {/* ── OPPORTUNITIES — editorial list → idea modal ── */}
       {opps.length > 0 && (
-        <section className="mt-28 sm:mt-40">
+        <Reveal className="mt-28 sm:mt-40">
+          <section>
           <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
           <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
             {opps.length} {ru ? wordOpp(opps.length) : "opportunities"}
@@ -146,12 +148,14 @@ export default function SegmentExplorer({
               </button>
             ))}
           </div>
-        </section>
+          </section>
+        </Reveal>
       )}
 
       {/* ── COMPETITORS — synthesis + clean list → app modal ── */}
       {apps.length > 0 && (
-        <section className="mt-28 sm:mt-40">
+        <Reveal className="mt-28 sm:mt-40">
+          <section>
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
           <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
             {apps.length} {ru ? wordApp(apps.length) : "apps"}
@@ -187,7 +191,8 @@ export default function SegmentExplorer({
               </button>
             ))}
           </div>
-        </section>
+          </section>
+        </Reveal>
       )}
 
       {/* ── MODAL — portalled to <body> to escape transformed/blurred ancestors ── */}
