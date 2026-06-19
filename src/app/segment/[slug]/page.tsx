@@ -39,11 +39,11 @@ function PillarFull({ p, label }: { p: ExpPillar; label: string }) {
               <div className="details-reveal pb-6 pr-1 sm:pr-8">
                 {(f.plus || f.minus) && <p className="text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{[f.plus, f.minus].filter(Boolean).join(" ")}</p>}
                 {f.quotes.length > 0 && (
-                  <div className="mt-5 flex flex-col gap-4">
+                  <div className="mt-5 flex flex-col gap-2.5">
                     {f.quotes.slice(0, 3).map((q, j) => (
-                      <figure key={j}>
-                        <p className="text-[14px] italic leading-[1.6] text-[var(--color-text-tertiary)]">“{q.text}”</p>
-                        <figcaption className="mt-1.5 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
+                      <figure key={j} className="rounded-[16px] bg-[var(--color-bg-muted)] px-4 py-3">
+                        <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{q.text}</p>
+                        <figcaption className="mt-1.5 text-[12px] text-[var(--color-text-tertiary)]">{q.app}</figcaption>
                       </figure>
                     ))}
                   </div>

@@ -56,11 +56,11 @@ const wordApp = (n: number) => plural(n, "приложение", "приложе
 
 function Quotes({ list, n = 3 }: { list: ExpQuote[]; n?: number }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2.5">
       {list.slice(0, n).map((q, j) => (
-        <figure key={j}>
-          <p className="text-[14px] italic leading-[1.6] text-[var(--color-text-tertiary)]">“{q.text}”</p>
-          <figcaption className="mt-1.5 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
+        <figure key={j} className="rounded-[16px] bg-[var(--color-bg-muted)] px-4 py-3">
+          <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{q.text}</p>
+          <figcaption className="mt-1.5 text-[12px] text-[var(--color-text-tertiary)]">{q.app}</figcaption>
         </figure>
       ))}
     </div>
@@ -192,11 +192,8 @@ export default function SegmentExplorer({
                     <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
                   )}
                   <span className="flex min-w-0 flex-1 flex-col gap-1">
-                    <span className="flex items-center gap-2.5">
-                      <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                      {a.avg != null && <span className="shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
-                    </span>
-                    <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.tag?.label || a.hook}</span>
+                    <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
+                    {a.description && <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.description}</span>}
                   </span>
                   <div className="shrink-0">
                     <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть" : "Open"} />
@@ -216,11 +213,8 @@ export default function SegmentExplorer({
                     <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
                   )}
                   <span className="flex min-w-0 flex-1 flex-col gap-1">
-                    <span className="flex items-center gap-2.5">
-                      <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                      {a.avg != null && <span className="shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
-                    </span>
-                    <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.tag?.label || a.hook}</span>
+                    <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
+                    {a.description && <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.description}</span>}
                   </span>
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-text-secondary)]">
                     <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -336,11 +330,7 @@ export default function SegmentExplorer({
                       )}
                       <div className="flex min-w-0 flex-1 flex-col gap-1.5">
                         <span className="text-[22px] font-semibold leading-tight tracking-[-0.02em] text-[var(--color-text-primary)]">{a.name}</span>
-                        <span className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
-                          {a.avg != null && <span>{a.avg.toFixed(1)}★</span>}
-                          {a.tag && a.avg != null && <span aria-hidden>·</span>}
-                          {a.tag && <span>{a.tag.label}</span>}
-                        </span>
+                        {a.description && <span className="text-[14px] leading-snug text-[var(--color-text-tertiary)]">{a.description}</span>}
                       </div>
                     </div>
 
@@ -350,7 +340,6 @@ export default function SegmentExplorer({
                       </div>
                     ) : (
                       <div className="mt-7">
-                        {a.description && <p className="mb-7 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{a.description}</p>}
                         {[
                           { key: "up", label: ru ? "Сильные стороны" : "Strengths", items: a.observations.filter((s) => s.tone === "up" || s.tone === "info").slice().sort((x, y) => y.count - x.count) },
                           { key: "mixed", label: ru ? "Спорно" : "Mixed", items: a.observations.filter((s) => s.tone === "mixed").slice().sort((x, y) => y.count - x.count) },
