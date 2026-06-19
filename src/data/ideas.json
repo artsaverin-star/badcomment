@@ -8279,5 +8279,1459 @@
    "antiFeatures": [],
    "monetization": "Разовый Pro плюс честная необязательная подписка; явный отказ от тёмных паттернов как часть позиционирования."
   }
+ },
+ {
+  "slug": "ai-chat-assistants-1",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Честный счётчик: ассистент, где всегда видно остаток и время сброса",
+  "oneLiner": "AI-чат, который никогда не останавливает посреди дела молча — баланс и таймер сброса всегда на экране",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 323
+  },
+  "reviewGrid": [
+   {
+    "quote": "it's so annoying when you're in the middle of something and the app just hits you with 'limit reached, wait till 5 pm' when you have a presentation due at 3 pm",
+    "rating": 5,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "why on Earth am I paying $20 a month to still be limited",
+    "rating": 1,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "my free limit is 5 Messages ONLY!?",
+    "rating": 1,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный счётчик: ассистент, где всегда видно остаток и время сброса",
+    "obsCount": 3,
+    "apps": [
+     "Claude by Anthropic",
+     "ChatOn AI - Chat Bot Assistant"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Даже платящие не понимают, сколько потратили и когда сброс; стоп прилетает внезапно, кредиты сгорают на багах и неполных ответах",
+  "idea": {
+   "pitch": "Делаем прозрачность доступа главной фичей: видимый счётчик, предупреждение «осталось 2 ответа», мягкий перенос лимита при незавершённой задаче. Никаких «жди до 17:00» без шанса дописать начатое. Доверие к доступу важнее лишнего балла к модели.",
+   "features": [
+    "Постоянный индикатор остатка и точного времени сброса",
+    "Предупреждение до стопа, а не после",
+    "Догенерация начатого ответа без списания нового кредита",
+    "Лог трат по дням с разбивкой по типам задач",
+    "Кнопка «не прерывать важное» с переносом квоты"
+   ],
+   "antiFeatures": [],
+   "monetization": "Прозрачные пакеты доступа и Pro без скрытого сгорания; платят за предсказуемость, а не за внезапные стены"
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-2",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Помощник, а не спорщик: настраиваемый тон без нравоучений",
+  "oneLiner": "Ассистент с явным ползунком «делай, что прошу» против «оспаривай и поучай»",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 323
+  },
+  "reviewGrid": [
+   {
+    "quote": "GPT 5 is an insufferable ideologically oriented know it all that tries to patronize and control you",
+    "rating": 1,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "the system has constantly challeged my framing on every prompt I put into it",
+    "rating": 1,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "it constantly calls me a liar. I can't do it anymore",
+    "rating": 3,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "Sure it's better and more practical but lately its acting more rude and cautious with every vent I share",
+    "rating": 3,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "reframes my entire narrative without being asked to during conversations",
+    "rating": 1,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "I feel much less talking to an Ai and it makes the conversations realistic.",
+    "rating": 5,
+    "app": "Microsoft Copilot"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Помощник, а не спорщик: настраиваемый тон без нравоучений",
+    "obsCount": 6,
+    "apps": [
+     "ChatGPT",
+     "Claude by Anthropic",
+     "Microsoft Copilot"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "После апдейтов модели начали оспаривать каждую формулировку и снисходить — люди уходят не от глупой, а от поучающей",
+  "idea": {
+   "pitch": "Даём пользователю управление тоном как настройку первого экрана: советник, исполнитель или критик — по его выбору, а не по умолчанию платформы. Без скрытого переписывания намерения и без «соглашусь в одном, объясню, почему ты неправ».",
+   "features": [
+    "Профиль тона: советник / исполнитель / критик",
+    "Запрет на непрошеную переоценку запроса",
+    "Режим «просто сделай» без встречных лекций",
+    "Память предпочтительного тона между сессиями",
+    "Явная пометка, когда модель спорит по соображениям безопасности"
+   ],
+   "antiFeatures": [],
+   "monetization": "Базовый тон бесплатно, тонкая настройка персональности и память тона — в Pro"
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-3",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Студия для авторов: ассистент, который не трогает твой текст без разрешения",
+  "oneLiner": "Рабочее место для писателей, где правки только по явному запросу и видны как дифф",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 323
+  },
+  "reviewGrid": [
+   {
+    "quote": "it literally changed my dialog without my permission and made it worse!",
+    "rating": 1,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "Just trying to proofread a simple document and it starts inventing its own lines after about a half page.",
+    "rating": 1,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "if you're writing a story with its assistance or something and put a punch in it, it'll go to gaslight mode and say 'this crosses our community guardrails.'",
+    "rating": 2,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "Its really good and I use it for my story editing, its really nice. It explains things properly",
+    "rating": 4,
+    "app": "ChatGPT"
+   },
+   {
+    "quote": "for complex tasks (like creating a pdf with needed information) it runs out of tokens",
+    "rating": 3,
+    "app": "Claude by Anthropic"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Студия для авторов: ассистент, который не трогает твой текст без разрешения",
+    "obsCount": 5,
+    "apps": [
+     "ChatOn AI - Chat Bot Assistant",
+     "Microsoft Copilot",
+     "ChatGPT",
+     "Claude by Anthropic"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Просили обратную связь — получили переписанный и испорченный черновик; гардрейлы блокируют сцену с лёгким конфликтом",
+  "idea": {
+   "pitch": "Строим инструмент вокруг авторского голоса: режим «только комментарии», правки показываются как предложения, ничего не меняется молча. Гибкие, но прозрачные границы для художественного текста, без внезапного «нарушает правила» на безобидной сцене.",
+   "features": [
+    "Режим «обратная связь без правок»",
+    "Все изменения как дифф с принятием по одному",
+    "Сохранение исходного текста дословно",
+    "Прозрачная пометка, что именно и почему отфильтровано",
+    "Память стиля и голоса автора по проекту"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка для авторов: длинные проекты, память стиля, экспорт — Pro-тариф творческого сегмента"
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-4",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Спутник, который помнит: непрерывность между устройствами и сессиями",
+  "oneLiner": "AI-компаньон с настоящей памятью о тебе и мгновенной синхронизацией телефон-десктоп",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 323
+  },
+  "reviewGrid": [
+   {
+    "quote": "now everything I did from Claude mobile app is lost. Claude is great, this sync issue is absolutely horrible, I instantly lost 100% trust",
+    "rating": 2,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "In conversations the models remember only the last 7-8 prompts making them useless for work.",
+    "rating": 2,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "AI that can remember you and know your personality to joke around and help give you ideas",
+    "rating": 3,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "doesn't automatically maintain the same chat and project history across devices as far as I can tell. bummer.",
+    "rating": 4,
+    "app": "Claude by Anthropic"
+   },
+   {
+    "quote": "The more I converse, the better the conversations.",
+    "rating": 5,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "you guys should include time stamps fr. I'd like to be able to retrace the actual date and time I started certain convos.",
+    "rating": 3,
+    "app": "Claude by Anthropic"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Спутник, который помнит: непрерывность между устройствами и сессиями",
+    "obsCount": 6,
+    "apps": [
+     "Claude by Anthropic",
+     "ChatOn AI - Chat Bot Assistant",
+     "Microsoft Copilot"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сброс контекста и рассинхрон между устройствами «мгновенно убивают 100% доверия»; модели помнят лишь последние 7-8 сообщений",
+  "idea": {
+   "pitch": "Делаем память и непрерывность ядром продукта, а не премиум-добавкой. Один разговор виден везде, ассистент помнит твою личность и проекты, ничего не теряется при переключении. Это превращает поисковик в спутника, ради которого остаются.",
+   "features": [
+    "Мгновенная синхронизация одного чата на всех устройствах",
+    "Долговременная память о пользователе и проектах",
+    "Защита от потери истории при переустановке",
+    "Временные метки и поиск по прошлым разговорам",
+    "Управление тем, что ассистент помнит, и забыванием по запросу"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — короткая память; глубокая долговременная память и кросс-девайс синхрон — в подписке"
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-5",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Ответ со ссылкой по умолчанию: проверяемость как базовая функция",
+  "oneLiner": "Ассистент, где каждый факт идёт с источником, а «не уверен» говорится честно",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 323
+  },
+  "reviewGrid": [
+   {
+    "quote": "Hands down the best A.I. for deep research and fact checking. as well as personalizing",
+    "rating": 5,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "to the point. doesn't spout nonsense and provides sources. could be more accurate",
+    "rating": 3,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "Never trust the results, verify all manually.",
+    "rating": 3,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "It defers to other AI platforms to complete the request asked of Perplexity.",
+    "rating": 1,
+    "app": "Perplexity - AI Search & Chat"
+   },
+   {
+    "quote": "the facts make the responses more usable and applicable in problem solving.",
+    "rating": 5,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Ответ со ссылкой по умолчанию: проверяемость как базовая функция",
+    "obsCount": 5,
+    "apps": [
+     "Perplexity - AI Search & Chat",
+     "ChatOn AI - Chat Bot Assistant"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Уверенно неправильные ответы заставляют перепроверять всё вручную; меняют нумерацию источников — и преимущество рушится",
+  "idea": {
+   "pitch": "Строим доверие на проверяемости: ответы со стабильными ссылками, честный маркер уверенности, прямое «не знаю» вместо выдуманного. Для учёбы и работы это важнее лишнего балла «ума». Не перенаправляем запрос на чужую модель тайком.",
+   "features": [
+    "Ссылка-источник к каждому утверждению",
+    "Маркер уверенности и явное «не уверен»",
+    "Стабильная нумерация и кликабельные ссылки",
+    "Режим перепроверки спорного ответа",
+    "Без скрытой подмены модели на чужую"
+   ],
+   "antiFeatures": [],
+   "monetization": "Глубокое исследование, экспорт с цитатами и расширенная проверка — в Pro для учёбы и аналитики"
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-6",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Сначала делаю, потом уточняю: запрет на бесконечный допрос",
+  "oneLiner": "Ассистент, который выдаёт результат с первой попытки, а вопросы задаёт только при настоящей неоднозначности",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 323
+  },
+  "reviewGrid": [
+   {
+    "quote": "It just asks question after question after question. It then says the system cannot generate it.",
+    "rating": 1,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "Just keeps asking stupid questions and doesn't create what you asked for",
+    "rating": 2,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "he is slow and doesn't create images. to slow over asks questions yet u have already given him instructions",
+    "rating": 1,
+    "app": "Chat Smith: AI Chatbot & Agent"
+   },
+   {
+    "quote": "Something that was supposed to save time ended up using a lot more of it than if I had just done it myself.",
+    "rating": 1,
+    "app": "Microsoft Copilot"
+   },
+   {
+    "quote": "The user should be allowed to edit the prompt they entered at the same time so that new prompts are not written again and again.",
+    "rating": 4,
+    "app": "Meta AI"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Сначала делаю, потом уточняю: запрет на бесконечный допрос",
+    "obsCount": 5,
+    "apps": [
+     "Microsoft Copilot",
+     "Chat Smith: AI Chatbot & Agent",
+     "Meta AI"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Особенно на картинках: «30 минут вопросов» и в итоге провал — отнимает больше времени, чем сделать самому",
+  "idea": {
+   "pitch": "Ставим правило: дай результат по имеющимся данным, предложи варианты, а не допрашивай. Уточнение — одним коротким шагом и только когда без него никак. Сохраняем инструкции, чтобы не переспрашивать одно и то же.",
+   "features": [
+    "Результат с первой попытки по разумным допущениям",
+    "Максимум один уточняющий вопрос вместо серии",
+    "Память уже данных инструкций в рамках задачи",
+    "Быстрые альтернативы вместо «не могу»",
+    "Редактирование исходного промпта без переписывания заново"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — базовая генерация; пакетная и приоритетная обработка задач — в подписке"
+  }
+ },
+ {
+  "slug": "ai-chat-assistants-7",
+  "category": "ai-chat-assistants",
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Честный по умолчанию: антипод обёрток-самозванцев",
+  "oneLiner": "Ассистент с прозрачной моделью, ценой на витрине и отпиской в один тап — манифестом против скама",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 323
+  },
+  "reviewGrid": [
+   {
+    "quote": "They say Claude Sonnet 4.5 and it's 3.5. It hits limits faster than the free one.",
+    "rating": 2,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "Terrible they charged me for entire year while i chose free trial!!",
+    "rating": 1,
+    "app": "Chatbot AI Assistant - Genie"
+   },
+   {
+    "quote": "scam and you are unable to unsubscribe or uninstall",
+    "rating": 1,
+    "app": "Chat Smith: AI Chatbot & Agent"
+   },
+   {
+    "quote": "you lose me immediately, even before I try the product, when I have to dig through and scroll all around the site just to find out how much it is",
+    "rating": 1,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   },
+   {
+    "quote": "they took $7,55 from me for WEEKS, KNOWING that I wasn't even using the app! its a FOUL tactic",
+    "rating": 1,
+    "app": "ChatOn AI - Chat Bot Assistant"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный по умолчанию: антипод обёрток-самозванцев",
+    "obsCount": 5,
+    "apps": [
+     "ChatOn AI - Chat Bot Assistant",
+     "Chatbot AI Assistant - Genie",
+     "Chat Smith: AI Chatbot & Agent"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Обёртки маскируются под бренды, выдают старые модели за новые, прячут цену и не дают отписаться, списывая деньги месяцами",
+  "idea": {
+   "pitch": "Строим бренд на доверии там, где категория его растеряла: настоящая модель названа честно, цена видна до регистрации, триал без молчаливого списания, отписка в один тап. Это позиционирование забирает тех, кого обожгли Genie, ChatOn и Chat Smith.",
+   "features": [
+    "Явное имя и версия используемой модели",
+    "Цена на экране до ввода почты и карты",
+    "Триал без автосписания и напоминание перед оплатой",
+    "Отписка и возврат в один тап",
+    "Честная разметка бесплатного и платного без обмана"
+   ],
+   "antiFeatures": [],
+   "monetization": "Открытая прямая подписка без тёмных паттернов; доверие как канал привлечения обожжённых пользователей"
+  }
+ },
+ {
+  "slug": "astrology-1",
+  "category": "astrology",
+  "categoryName": "Астрология и гороскопы",
+  "title": "Прозрачная карта: астрология, где расчёт можно проверить",
+  "oneLiner": "Гороскоп-приложение, выигрывающее на одном — натальная карта, которой можно доверять, с показанной «математикой».",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 452
+  },
+  "reviewGrid": [
+   {
+    "quote": "The app is calculating incorrect ascendants due to broken time zone handling.",
+    "rating": 3,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "It got all of my birth chart positioning wrong except my sun sign",
+    "rating": 1,
+    "app": "Astra - Life Advice"
+   },
+   {
+    "quote": "if you're not paying attention it will give you the wrong birth chart. updating your stats doesn't stick on the app",
+    "rating": 2,
+    "app": "Astra - Life Advice"
+   },
+   {
+    "quote": "My Venus and Mercury are currently shown in House 7, which is simply incorrect, and the entire reading is based on this wrong information.",
+    "rating": 1,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "please switch to placidus houses. my rising is in late degrees and my houses are skewed",
+    "rating": 3,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "I tried to tell it multiple times my Saturn was in Aries, it understood but kept getting everything wrong.",
+    "rating": 1,
+    "app": "Astra - Life Advice"
+   },
+   {
+    "quote": "I have never been able to add my location. Nothing happens when I enter it",
+    "rating": 3,
+    "app": "Astra - Life Advice"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Прозрачная карта: астрология, где расчёт можно проверить",
+    "obsCount": 7,
+    "apps": [
+     "Co–Star Personalized Astrology",
+     "Astra - Life Advice",
+     "The Pattern: Astrology"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Все конкуренты периодически путают дома, асцендент и транзиты из-за ошибок часовых поясов, а правка данных «не прилипает» — и это рушит доверие к фундаменту.",
+  "idea": {
+   "pitch": "Мы делаем корректность расчёта публичным обещанием: показываем источник эфемерид, часовой пояс и метод домов, позволяем мгновенно править время и место рождения. Пользователь видит, почему его асцендент именно такой, и больше не ловит продукт на «ложь».",
+   "features": [
+    "Прозрачный расчёт с показом часового пояса и системы домов",
+    "Мгновенная правка даты/времени/места без потери изменений",
+    "Переключатель западная/ведическая/сидерическая",
+    "Сверка с реальными эфемеридами и пометка точности"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатная базовая карта; подписка за расширенные транзиты и совместимость, без скрытых доплат поверх неё."
+  }
+ },
+ {
+  "slug": "astrology-2",
+  "category": "astrology",
+  "categoryName": "Астрология и гороскопы",
+  "title": "Написано человеком: чтения с авторами, а не генерацией",
+  "oneLiner": "Астрология, где под каждым текстом стоит живой астролог — и это видно.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 452
+  },
+  "reviewGrid": [
+   {
+    "quote": "Recently turned into verbose and glazing AI slop. Every day's reading includes an Em-dash and a triplet now.",
+    "rating": 1,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "Please hire real artists and stop using AI slop. So much potential for nothing. 🫩",
+    "rating": 1,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "glad to see humans actually write back to you and they make it clear When's somethings an automated message",
+    "rating": 4,
+    "app": "Astro Future - Daily Horoscope"
+   },
+   {
+    "quote": "I miss whoever wrote before. They were so much better. They knew how to write.",
+    "rating": 1,
+    "app": "The DailyHoroscope"
+   },
+   {
+    "quote": "Yodha astrology was closest to the human experience I have been receiving. thank you",
+    "rating": 5,
+    "app": "Astro Future - Daily Horoscope"
+   },
+   {
+    "quote": "This app used to be excellent and so thoughtful and now it's just mindless AI garbage.",
+    "rating": 1,
+    "app": "The Pattern: Astrology"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Написано человеком: чтения с авторами, а не генерацией",
+    "obsCount": 6,
+    "apps": [
+     "Co–Star Personalized Astrology",
+     "Moonly: Moon Phases & Calendar",
+     "Astro Future - Daily Horoscope",
+     "The DailyHoroscope",
+     "The Pattern: Astrology"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Лояльные годами пользователи массово уходят, едва узнают ИИ по тире, повторам и AI-картинкам; они прямо просят «нанять настоящих авторов».",
+  "idea": {
+   "pitch": "Мы строим продукт вокруг команды живых астрологов и подписываем чтения именами. Никакой генеративной графики и штампованных текстов — только узнаваемый человеческий голос, который старожилы и распознают как ценность.",
+   "features": [
+    "Чтения за подписью конкретного астролога",
+    "Никакого ИИ-арта — иллюстрации художников",
+    "Метка «написано человеком» на каждом материале",
+    "Возможность выбрать любимого автора"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на премиум-чтения избранных авторов; разовые глубокие разборы от конкретного астролога."
+  }
+ },
+ {
+  "slug": "astrology-3",
+  "category": "astrology",
+  "categoryName": "Астрология и гороскопы",
+  "title": "Зеркало: астрология как инструмент самопонимания",
+  "oneLiner": "Не предсказание судьбы, а язык, чтобы понять и описать себя.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 452
+  },
+  "reviewGrid": [
+   {
+    "quote": "the insight and clarity i have received from the pattern has truly helped me understand things about myself that I have always felt but never put into words.",
+    "rating": 5,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "This app has been an unbelievable help to my personal growth and mental health",
+    "rating": 5,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "Everything now reads more like a fortune cookie than genuine insights or food for thought. I hate it.",
+    "rating": 3,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "feel like it really does help with self-reflection and insight.",
+    "rating": 5,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "it has made me understand myself a little better.",
+    "rating": 5,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "Some of the things that I've been working to try & understand for over 20yrs, this app has opened my eyes to see why & how I do the things I do.",
+    "rating": 5,
+    "app": "The Pattern: Astrology"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Зеркало: астрология как инструмент самопонимания",
+    "obsCount": 6,
+    "apps": [
+     "The Pattern: Astrology",
+     "Co–Star Personalized Astrology",
+     "Moonly: Moon Phases & Calendar"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сильнейшая привязанность рождается, когда приложение помогает «выразить то, что всегда чувствовал», но конкуренты скатываются в поверхностные ярлыки и «печенье с предсказанием».",
+  "idea": {
+   "pitch": "Мы позиционируем продукт как зеркало для рефлексии: чтения формулируют черты через активацию и затухание частей личности, дают повод подумать, а не приговор. Это превращает астрологию в инструмент роста и ментального здоровья.",
+   "features": [
+    "Глубокие разборы черт личности через карту",
+    "Психологический, не директивный язык чтений",
+    "Дневник рефлексии и отметки «откликнулось»",
+    "Тематические погружения о себе"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на углублённые разборы и тематические погружения; продаётся как дешевле сессии терапевта."
+  }
+ },
+ {
+  "slug": "astrology-4",
+  "category": "astrology",
+  "categoryName": "Астрология и гороскопы",
+  "title": "Без ловушек: честная подписка с одним ценником",
+  "oneLiner": "Астрология, где подписка открывает всё — и отписаться можно в один тап.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 452
+  },
+  "reviewGrid": [
+   {
+    "quote": "I SUPER regret spending $50 on the lifetime subscription, because all it covers is an AI chat bot and meditations I could get on YouTube for free.",
+    "rating": 1,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "Although i subscribed, most of things apart from initial chart is not included, i need to pay. To get every other report, you need to purchase extra.",
+    "rating": 2,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "This app is malicious in that you cannot cancel the subscription from Google play, and they will continue to bill you even after speaking to support.",
+    "rating": 1,
+    "app": "Astro Future - Daily Horoscope"
+   },
+   {
+    "quote": "I want to unsubscribe from this app. it keeps charging my account. it's not popping up on subscription page on Google play.",
+    "rating": 1,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "I paid a lot for a subscription & still almost everything interesting will cost extra. Its just quite mercenary feeling.",
+    "rating": 3,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "Now ots a paid app. They started to gauge me for a monthly fee without consent",
+    "rating": 1,
+    "app": "Astro Future - Daily Horoscope"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Без ловушек: честная подписка с одним ценником",
+    "obsCount": 6,
+    "apps": [
+     "Moonly: Moon Phases & Calendar",
+     "Astro Future - Daily Horoscope"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Категория отравлена двойным доением (доплаты поверх подписки), списаниями после отмены и невозможностью отписаться через Google Play.",
+  "idea": {
+   "pitch": "Мы делаем прозрачность ценностным оружием: одна подписка открывает весь контент, никаких доплат за отдельные отчёты, отмена в один тап прямо в магазине. В нише, где конкуренты воспринимаются как мошенники, честная цена сама становится маркетингом.",
+   "features": [
+    "Одна подписка = весь контент, без доплат",
+    "Отмена в один тап через Google Play",
+    "Понятный экран «что входит» до оплаты",
+    "Письмо-подтверждение каждого списания"
+   ],
+   "antiFeatures": [],
+   "monetization": "Единая подписка месяц/год + честный пожизненный доступ, который реально открывает всё."
+  }
+ },
+ {
+  "slug": "astrology-5",
+  "category": "astrology",
+  "categoryName": "Астрология и гороскопы",
+  "title": "Утренний ритуал, который не ломают",
+  "oneLiner": "Спокойный ежедневный ритуал с виджетом, который годами остаётся узнаваемым.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 452
+  },
+  "reviewGrid": [
+   {
+    "quote": "its the first thing I open in the morning and the last thing I check in the evening",
+    "rating": 4,
+    "app": "Daily Horoscope - Astrology!"
+   },
+   {
+    "quote": "I won't delete the app because it's part of my morning routine, but I'm disappointed by the change.",
+    "rating": 3,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "Widgets do not work on Android. if they did, it would be five stars all day long!",
+    "rating": 3,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "sad to uninstall this after 10 years of having it on my phone. this constant total remake keeps getting worse.",
+    "rating": 1,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "Dont fix things that arent broken.",
+    "rating": 1,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "the notes do not save, which is very disappointing since I like to have an archive of my thoughts",
+    "rating": 3,
+    "app": "The DailyHoroscope"
+   },
+   {
+    "quote": "I just adore this app. I go to it first thing in the mor ong and plan my day.",
+    "rating": 5,
+    "app": "Moonly: Moon Phases & Calendar"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Утренний ритуал, который не ломают",
+    "obsCount": 7,
+    "apps": [
+     "Daily Horoscope - Astrology!",
+     "Co–Star Personalized Astrology",
+     "Moonly: Moon Phases & Calendar",
+     "The Pattern: Astrology",
+     "The DailyHoroscope"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сильнейший крючок удержания — утренняя привычка — хрупок: конкуренты ломают её ремейками, теряют виджеты и убирают привычные рубрики.",
+  "idea": {
+   "pitch": "Мы строим продукт вокруг неприкосновенности привычки: стабильный домашний экран, надёжный виджет на Android, плавная эволюция вместо разрушительных ремейков. Каждый день — короткий, спокойный, точный ритуал, который человек встраивает в утро и не хочет терять.",
+   "features": [
+    "Надёжный виджет на Android и iOS",
+    "Стабильный домашний экран без внезапных переделок",
+    "Короткое спокойное утреннее чтение",
+    "Архив прошлых чтений и заметки, которые сохраняются"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатный ежедневный ритуал; подписка за глубину и историю чтений."
+  }
+ },
+ {
+  "slug": "astrology-6",
+  "category": "astrology",
+  "categoryName": "Астрология и гороскопы",
+  "title": "Совместная астрология: карты с друзьями и партнёром",
+  "oneLiner": "Гороскоп как совместный ритуал — сравнивай карты с близкими, а не читай в одиночку.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 452
+  },
+  "reviewGrid": [
+   {
+    "quote": "sending messages to friends is my favorite thing about this app!",
+    "rating": 5,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "I love it. helps me and my partner to understand each other deeper level",
+    "rating": 5,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "I like that I can add family members and people who don't want to sign up.",
+    "rating": 4,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "the compatibility charts (actually I had almost zero compatibility with my ex 🤣🤣) in one place is so worth it.",
+    "rating": 5,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "The dating feature, 'Connect', is useless, though. Full of inactive profiles, like checking ghosts.",
+    "rating": 5,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "Forcing social connections before even vetting the content. That's super lame.",
+    "rating": 1,
+    "app": "Co–Star Personalized Astrology"
+   },
+   {
+    "quote": "letting them read it to themselves it will be 2/3 of the time on point for them too.",
+    "rating": 5,
+    "app": "Daily Astrology Horoscope"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Совместная астрология: карты с друзьями и партнёром",
+    "obsCount": 7,
+    "apps": [
+     "Co–Star Personalized Astrology",
+     "The Pattern: Astrology",
+     "Moonly: Moon Phases & Calendar",
+     "Daily Astrology Horoscope"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Социальность и совместимость — недооценённый крючок (люди скачивают ради друзей), но конкуренты губят его мёртвыми профилями и навязыванием соцсвязей до контента.",
+  "idea": {
+   "pitch": "Мы делаем совместимость и обмен чтениями сердцем продукта: добавляй друзей и партнёра, в том числе без их регистрации, сравнивай карты, отправляй им инсайты. Одиночный гороскоп превращается в повод общаться — и в вирусный канал роста.",
+   "features": [
+    "Сравнение карт с друзьями и партнёром",
+    "Добавление близких без обязательной регистрации",
+    "Отправка персональных инсайтов в чат",
+    "Совместимость с пояснением, а не только баллом"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатное добавление близких; подписка за глубокие отчёты о совместимости."
+  }
+ },
+ {
+  "slug": "astrology-7",
+  "category": "astrology",
+  "categoryName": "Астрология и гороскопы",
+  "title": "Школа звёзд: научи читать собственную карту",
+  "oneLiner": "Астрология, которая переводит планетный жаргон в понятный язык и учит понимать себя.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 452
+  },
+  "reviewGrid": [
+   {
+    "quote": "what?! it's all mercury us here, Jupiter is there, the sun is here. with no real info on how it affects you.",
+    "rating": 1,
+    "app": "Astrolis Horoscopes & Tarot"
+   },
+   {
+    "quote": "I'm so confused by sun leaving Saturn & the moon entering the & Pluto leaving Uranus! It just sound like bunch of hog wash! get to the point",
+    "rating": 3,
+    "app": "Astrolis Horoscopes & Tarot"
+   },
+   {
+    "quote": "the run-on sentences, oh my god. I can't even understand what it's trying to say anymore.",
+    "rating": 2,
+    "app": "Astrolis Horoscopes & Tarot"
+   },
+   {
+    "quote": "It's not the astrology app to learn astrology from which was what I was looking for.",
+    "rating": 3,
+    "app": "Moonly: Moon Phases & Calendar"
+   },
+   {
+    "quote": "I've learned how to read my chart and so much more.",
+    "rating": 5,
+    "app": "The Pattern: Astrology"
+   },
+   {
+    "quote": "the detail in which it explains each planets effects on your sign is crazy.",
+    "rating": 5,
+    "app": "Astrolis Horoscopes & Tarot"
+   },
+   {
+    "quote": "I like it just wish it give you a little bit better disrespect of what the house and eastern and the western for the ones who are just learning about it",
+    "rating": 3,
+    "app": "Astrolis Horoscopes & Tarot"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Школа звёзд: научи читать собственную карту",
+    "obsCount": 7,
+    "apps": [
+     "Astrolis Horoscopes & Tarot",
+     "Moonly: Moon Phases & Calendar",
+     "The Pattern: Astrology"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Поток про «Меркурий ретроградный в секторе финансов» без вывода «и что это значит» отпугивает; новички — главный сегмент роста — просят объяснений простым языком.",
+  "idea": {
+   "pitch": "Мы соединяем ежедневное чтение с обучением: каждое влияние планеты объясняется человеческим языком и привязывается к жизни, а не оставляется набором терминов. Любопытные становятся учениками, которые учатся читать свою карту — и остаются надолго.",
+   "features": [
+    "Перевод каждого транзита в «что это значит для тебя»",
+    "Уроки чтения собственной карты для новичков",
+    "Короткие связные тексты без запутанных предложений",
+    "Глоссарий терминов в один тап"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатные базовые уроки; подписка на продвинутые курсы и разборы."
+  }
+ },
+ {
+  "slug": "recipes-cooking-1",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Кухонный режим, который не падает",
+  "oneLiner": "Рецепт открывается мгновенно и живёт на экране весь процесс готовки — без интернета, без выходов, без логаута",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 359
+  },
+  "reviewGrid": [
+   {
+    "quote": "I like the content, but it keeps blanking out the screen in the middle of cooking something saying I'm offline, which I'm not. very annoying.",
+    "rating": 3,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "Stays in RAM for a very short amount of time, which is really annoying when you're cooking. I often have to find the recipe again when I switch back to the app after using my phone's timer.",
+    "rating": 3,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "Middle of cooking and you try to check a recipe but it just spins and doesn't even open.",
+    "rating": 2,
+    "app": "America's Test Kitchen"
+   },
+   {
+    "quote": "The app no longer stays active on the phone when you have a recipe up. PLEASE bring that feature back!!",
+    "rating": 3,
+    "app": "America's Test Kitchen"
+   },
+   {
+    "quote": "no dark mode is not acceptable these days.",
+    "rating": 3,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "I wish there was a print option like most other cooking apps.",
+    "rating": 2,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Кухонный режим, который не падает",
+    "obsCount": 6,
+    "apps": [
+     "NYT Cooking: Quick Tasty Meals",
+     "America's Test Kitchen"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Платные лидеры виснут и гасят экран словами «вы офлайн» именно в момент готовки; ни один не гарантирует офлайн-доступ к открытому рецепту",
+  "idea": {
+   "pitch": "Полностью офлайновый «режим готовки»: выбранный рецепт целиком кэшируется на устройство, экран не гаснет и не выгружается из памяти, таймеры и шаги работают без сети. Готовка — момент с высокой ставкой, и приложение здесь обязано быть надёжнее тостера.",
+   "features": [
+    "офлайн-кэш открытого рецепта и его картинок",
+    "запрет гашения экрана и выгрузки из RAM в режиме готовки",
+    "встроенные мульти-таймеры на шагах",
+    "крупный кухонный шрифт и режим «грязные руки» (голос/жесты)",
+    "печать и тёмная тема из коробки"
+   ],
+   "antiFeatures": [],
+   "monetization": "Разовая оплата за пожизненный доступ (без подписки) — прямой ответ на усталость от ежемесячных платежей"
+  }
+ },
+ {
+  "slug": "recipes-cooking-2",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Одна оплата — все устройства",
+  "oneLiner": "Личный кулинарный архив, который ты покупаешь один раз и открываешь на любом телефоне, планшете и ПК без доплат",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 359
+  },
+  "reviewGrid": [
+   {
+    "quote": "you cannot sign into this app on any other device even with the same account. it wants you to continue paying every time you have a new device. not worth a dime honestly and I'm angry I paid for it at all.",
+    "rating": 1,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "You seriously expect ppl to pay separately if they want to use their app on different devices???",
+    "rating": 1,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "Their website talks about cross platform all over the place and syncing your recipes across all your platforms. Nowhere does it state you have to purchase the pro app across all platforms.",
+    "rating": 1,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "10/10 best app ive ever used. I also appreciate the 1 time payment for unlimited use, opposed to a monthly subscription.",
+    "rating": 5,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "I had to purchase separate versions of this app to work on Mac and Android and they don't speak to each other so recipes on one device are not available on the other.",
+    "rating": 1,
+    "app": "Crouton: Recipe Manager"
+   },
+   {
+    "quote": "I'm committed/unable to move my data to another app. If I could, I would:",
+    "rating": 1,
+    "app": "BigOven Recipes & Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Одна оплата — все устройства",
+    "obsCount": 6,
+    "apps": [
+     "Recipe Keeper: RecipeSnap",
+     "Paprika Recipe Manager 3",
+     "Crouton: Recipe Manager",
+     "BigOven Recipes & Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Paprika, Crouton и Recipe Keeper требуют покупать про-версию заново на каждой платформе, хотя рекламируют «синхронизацию везде» — это главный убийца доверия в категории",
+  "idea": {
+   "pitch": "Облачный аккаунт с одной честной оплатой: купил — и заходишь с любого устройства одним логином, рецепты синхронизируются автоматически. Мы делаем главным аргументом ровно то, на чём конкуренты теряют самых лояльных фанатов.",
+   "features": [
+    "единый аккаунт и автосинхронизация на всех платформах",
+    "разовая цена без скрытых доплат за устройство",
+    "экспорт всей базы в любой момент (никакого замка)",
+    "перенос данных из Paprika/BigOven/Recipe Keeper в один клик",
+    "общий доступ для домохозяйства"
+   ],
+   "antiFeatures": [],
+   "monetization": "Одна пожизненная покупка на аккаунт, не на устройство; платный семейный апгрейд на несколько профилей"
+  }
+ },
+ {
+  "slug": "recipes-cooking-3",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Импорт, который не врёт",
+  "oneLiner": "Сохранение рецепта с любого сайта, рилса, фото и рукописной карточки — с правильно разнесёнными ингредиентами и шагами",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 359
+  },
+  "reviewGrid": [
+   {
+    "quote": "App fails more than not to properly import a recipe. Puts descriptions where ingredients should go. Puts random fluff text from a recipe page where instructions go. May as well copy paste manually into a text document.",
+    "rating": 1,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "tried to import recipe from website and it doesn't automatically add the ingredients to the ingredients tab you have to do that yourself before saving. I mean if I'm going to do all that I may as well write it on an index card the way my grandma did",
+    "rating": 1,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "cuts of and combines words. For example 1/2 teaspoon salt when imported will come out 1/2 tea spoonsalt.",
+    "rating": 1,
+    "app": "BigOven Recipes & Meal Planner"
+   },
+   {
+    "quote": "Worked on 2 out of the 10 facebooks reels I tried, usually it just select a recipe from another similar recipe it finds on the web",
+    "rating": 1,
+    "app": "ReciMe: Recipes & Meal Planner"
+   },
+   {
+    "quote": "The ease of downloading recipes from the web is a gamechanger for us.",
+    "rating": 5,
+    "app": "Crouton: Recipe Manager"
+   },
+   {
+    "quote": "FYI, the recipe scan function is unusable, in my experience. I have had to submit tickets for the past 20 recipes for which I have used this service",
+    "rating": 1,
+    "app": "BigOven Recipes & Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Импорт, который не врёт",
+    "obsCount": 6,
+    "apps": [
+     "ReciMe: Recipes & Meal Planner",
+     "Recipe Keeper: RecipeSnap",
+     "BigOven Recipes & Meal Planner",
+     "Crouton: Recipe Manager"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "ИИ-импорт у ReciMe и Recipe Keeper путает описание с ингредиентами, теряет шаги и калечит дроби — пользователи говорят «проще переписать от руки»",
+  "idea": {
+   "pitch": "Импорт — это и есть продукт. Мы делаем захват рецепта безотказным: чистое разделение на ингредиенты и шаги, аккуратные дроби и единицы, а спорные места пользователь правит прямо в превью перед сохранением. Что не распозналось идеально — видно сразу, а не всплывает у плиты.",
+   "features": [
+    "импорт по ссылке, из рилса, скриншота, PDF и фото рукописи",
+    "редактируемое превью перед сохранением с подсветкой неуверенных мест",
+    "аккуратные дроби, единицы и градусы",
+    "пакетный импорт без лимита 5 в неделю",
+    "распознавание оборудования и техники для фильтров"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатный тариф с честным лимитом по числу рецептов; разовый апгрейд на безлимит без недельной квоты импортов"
+  }
+ },
+ {
+  "slug": "recipes-cooking-4",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Планировщик «думаю за тебя»",
+  "oneLiner": "Готовый план ужинов на неделю из обычных продуктов, без повторов и без муки «что приготовить»",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 359
+  },
+  "reviewGrid": [
+   {
+    "quote": "it has saved my adult life and the eternal task of thinking what to cook and eat every day. i use it every week no joke",
+    "rating": 5,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "almost great. makes meal planning a lot easier. but keeps repeating meals. I've had the same meal for four dinners in a week",
+    "rating": 4,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "The meals I choose are simple and don't require 15 rare ingredients.",
+    "rating": 4,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "recipes are complicated and use expensive ingredients. if you've got endless money, time, but no imagination, this is the one for you",
+    "rating": 3,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "currently the \"recently created\" are over 4 months old. it's frustrating to not get updates, especially as a pro member.",
+    "rating": 1,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "great app for meal ideas but there needs to be a multiplier on the groceries list as I cook for 3 people, not just me",
+    "rating": 3,
+    "app": "Eat This Much - Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Планировщик «думаю за тебя»",
+    "obsCount": 6,
+    "apps": [
+     "Mealime Meal Plans & Recipes",
+     "Eat This Much - Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Eat This Much повторяет одно блюдо четыре дня подряд и грузит экзотикой; Mealime снимает решение, но засушил поток новых рецептов",
+  "idea": {
+   "pitch": "Главная работа планировщика — снять ежедневное решение, а не выдать ещё один список. Мы генерируем неделю из доступных продуктов, без повторов и без 15 редких ингредиентов, со списком покупок, который складывает одинаковое и масштабируется под число едоков. Свежие рецепты приходят на сам телефон, а не отстают от сайта на месяцы.",
+   "features": [
+    "недельный план без повторов и из обычных продуктов",
+    "список покупок со сложением дубликатов и множителем порций",
+    "регулярный приток новых рецептов прямо в приложение",
+    "учёт пантри — план из того, что уже есть дома",
+    "общий план на домохозяйство"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка, но с честным бесплатным планом дальше одного дня и прозрачной ценой до карты"
+  }
+ },
+ {
+  "slug": "recipes-cooking-5",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Кухня без границ",
+  "oneLiner": "Метрика, местные магазины и реальные цены — приложение, которое одинаково работает за пределами США",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 359
+  },
+  "reviewGrid": [
+   {
+    "quote": "You can't change the metric system, so it's completely useless to me",
+    "rating": 1,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "the grocery list module (part of the premium package) is useless for non-US users, which is of no concern to the developers. Premium is wasted money essentially.",
+    "rating": 2,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "It would be so nice if I could change lbs (imperial system) to kg (metric) in the app.",
+    "rating": 3,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "the ingredients and budgets are entirely wrong if you're not in the US. rest of the entire world folks, this might not be for you.",
+    "rating": 2,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "I'm UK based so have to translate the 1 cup thing but actually have a specific cup for cooking from this app now",
+    "rating": 5,
+    "app": "BigOven Recipes & Meal Planner"
+   },
+   {
+    "quote": "I like this app so muchh, but I would like to switch the languages as a Spanish native speaker",
+    "rating": 3,
+    "app": "Tasty: Recipes, Cooking Videos"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Кухня без границ",
+    "obsCount": 6,
+    "apps": [
+     "Eat This Much - Meal Planner",
+     "Tasty: Recipes, Cooking Videos",
+     "BigOven Recipes & Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Eat This Much и Tasty заперты в имперских единицах и американских магазинах; платная версия для зарубежного пользователя становится «пустой тратой денег»",
+  "idea": {
+   "pitch": "Мы строим планировщик и список покупок для всего мира: переключение метрики, местные сети магазинов и реалистичные локальные бюджеты. Половина планеты сегодня платит за функции, которые у конкурентов для неё попросту не работают — это незанятая ниша.",
+   "features": [
+    "мгновенное переключение метрика/имперская",
+    "локальные магазины и онлайн-доставка по стране пользователя",
+    "реальные местные цены и бюджет плана",
+    "много языков интерфейса и единиц",
+    "учёт региональной доступности продуктов"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка с региональным ценообразованием; премиум-список покупок, который реально работает вне США"
+  }
+ },
+ {
+  "slug": "recipes-cooking-6",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Диета как первый экран",
+  "oneLiner": "Приложение, где аллергии, религия и болезнь — это надёжный фильтр, а не декоративная галочка",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 359
+  },
+  "reviewGrid": [
+   {
+    "quote": "This app specifically the exclusions has been incredibly helpful in finding what foods work for me to avoid my triggers. Life changing.",
+    "rating": 5,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "I had high hopes for this app since it's supposed to work around dietary restrictions, but neither kosher nor halal were available options.",
+    "rating": 2,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "they gave recipes for people who have type 2 diabetes but unfortunately when I tried to look up the search results it said nothing is available",
+    "rating": 1,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "Good when it works, but blocked foods consistently show up in meal plans.",
+    "rating": 3,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "please add a halal filter to the search, and also, please provide possible replacements for ingredients or add an \"avoid ingredient\" filter",
+    "rating": 4,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "Ok if you have no dietary restrictions. unable to filter results to only include diet requirements. for this reason, this app is no good to me or my family.",
+    "rating": 3,
+    "app": "BigOven Recipes & Meal Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Диета как первый экран",
+    "obsCount": 6,
+    "apps": [
+     "Eat This Much - Meal Planner",
+     "Mealime Meal Plans & Recipes",
+     "Tasty: Recipes, Cooking Videos",
+     "BigOven Recipes & Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Mealime не знает халяль и кошер, Tasty — диабет, а у Eat This Much заблокированные продукты всё равно лезут в план; для целых групп людей продукт не существует",
+  "idea": {
+   "pitch": "Для человека с непереносимостью или диабетом исключения — не придирка, а условие, существует приложение для него или нет. Мы делаем диету и исключения воротами входа: жёсткий фильтр, который реально убирает триггеры из всех рецептов и планов, с готовыми пресетами под халяль, кошер, безглютен, диабет.",
+   "features": [
+    "жёсткие исключения, работающие во всех рецептах и планах",
+    "готовые пресеты: халяль, кошер, безглютен, диабет, аллергены",
+    "исключение целых блюд, а не только ингредиента",
+    "понятная маркировка, почему рецепт скрыт",
+    "медицинские профили на каждого члена семьи"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатная база с фильтрами; премиум — расширенные медицинские пресеты и подсчёт макросов под диету"
+  }
+ },
+ {
+  "slug": "recipes-cooking-7",
+  "category": "recipes-cooking",
+  "categoryName": "Рецепты и готовка",
+  "title": "Кулинарная книга семьи",
+  "oneLiner": "Один общий рецептурный архив и план на всё домохозяйство, видимый на телефонах всех домашних",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 359
+  },
+  "reviewGrid": [
+   {
+    "quote": "Can you please make it so a household can access the account that's logged in? My partner and I switch between who cooks, and it'd be great to see our plan on both of our phones",
+    "rating": 4,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "I can't even access any of my saved recipes due to not being able to connect with Facebook I had so many recipes under my profile now i can't even access them",
+    "rating": 1,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "I like being able to rate the recipe with stars based on what my family thinks of it.",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "Now that I'm diabetic, I need to change my meals and get some new suggestions. But when did you stop using Facebook logins?",
+    "rating": 3,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "it sync's up with my smartphone so we don't loose any recipes if her laptop ever dies",
+    "rating": 5,
+    "app": "Recipe Keeper: RecipeSnap"
+   },
+   {
+    "quote": "Best app for tracking recipes with the family",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Кулинарная книга семьи",
+    "obsCount": 6,
+    "apps": [
+     "Mealime Meal Plans & Recipes",
+     "Tasty: Recipes, Cooking Videos",
+     "Paprika Recipe Manager 3",
+     "Eat This Much - Meal Planner",
+     "Recipe Keeper: RecipeSnap"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Приложения держат аккаунт одиночным: партнёры вручную дублируют планы, а вход через соцсеть рвёт доступ к годами накопленной базе",
+  "idea": {
+   "pitch": "Готовят в семье по очереди, а приложения этого не замечают. Мы строим общий кулинарный архив домохозяйства: единый план и список покупок видны у всех, у каждого свой профиль и диета, доступ переживает смену телефона и логина. Совместная база делает уход невозможным — это и есть удержание.",
+   "features": [
+    "общий план и список покупок для всех членов семьи",
+    "личные профили и диеты внутри одного домохозяйства",
+    "надёжный вход без привязки к одной соцсети",
+    "база переживает смену телефона и сброс пароля",
+    "оценки блюд от каждого: что зашло семье"
+   ],
+   "antiFeatures": [],
+   "monetization": "Семейная подписка или разовый апгрейд на несколько профилей в одном аккаунте"
+  }
  }
 ]

@@ -1917,5 +1917,313 @@
    "Full data and file export — you own what you put in"
   ],
   "monetization": "One-time Pro plus an honest optional subscription; explicit rejection of dark patterns as part of the positioning."
+ },
+ "ai-chat-assistants-1": {
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Honest counter: an assistant where you always see your balance and reset time",
+  "oneLiner": "An AI chat that never silently stops you mid-task — balance and reset timer always on screen",
+  "gap": "Even paying users don't know how much they've spent or when the reset hits; the stop arrives without warning, and credits burn on bugs and partial responses",
+  "pitch": "Make access transparency the headline feature: a live counter, an \"only 2 responses left\" heads-up, and a soft carry-over when a task is in progress. No \"wait until 5 pm\" without a chance to finish what you started. Trust in access is worth more than an extra model quality point.",
+  "features": [
+   "Persistent indicator showing remaining balance and exact reset time",
+   "Warning before the stop, not after",
+   "Complete the started response without consuming a new credit",
+   "Spend log by day, broken down by task type",
+   "\"Don't interrupt this\" button that carries quota forward"
+  ],
+  "monetization": "Transparent access packages and a Pro tier with no hidden burn; users pay for predictability, not surprise walls"
+ },
+ "ai-chat-assistants-2": {
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Assistant, not debater: configurable tone with no moralizing",
+  "oneLiner": "An AI assistant with an explicit \"just do it\" vs. \"push back and lecture\" slider",
+  "gap": "After updates, models started challenging every prompt and talking down to users — people leave not because the model is dumb but because it's preachy",
+  "pitch": "Give users tone control as a first-screen setting: advisor, executor, or critic — their choice, not the platform default. No silent re-framing of intent, no \"I'll agree on one point and then explain why you're wrong.\"",
+  "features": [
+   "Tone profile: advisor / executor / critic",
+   "Block unsolicited re-evaluation of the user's request",
+   "\"Just do it\" mode with no counter-lectures",
+   "Tone preference remembered across sessions",
+   "Explicit label when the model is pushing back for safety reasons"
+  ],
+  "monetization": "Basic tone free; fine-grained personality tuning and tone memory in Pro"
+ },
+ "ai-chat-assistants-3": {
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Author's studio: an assistant that never touches your text without permission",
+  "oneLiner": "A workspace for writers where edits only happen on explicit request and appear as a diff",
+  "gap": "They asked for feedback and got a rewritten, worsened draft; guardrails block scenes with mild conflict",
+  "pitch": "Build the product around the author's voice: a \"comments only\" mode, changes shown as suggestions, nothing altered silently. Flexible but transparent content boundaries for creative writing — no sudden \"violates guidelines\" on an innocuous scene.",
+  "features": [
+   "\"Feedback without edits\" mode",
+   "All changes surfaced as a diff, accepted one at a time",
+   "Original text preserved verbatim",
+   "Clear label for what was filtered and why",
+   "Author voice and style memory per project"
+  ],
+  "monetization": "Writer subscription: long projects, style memory, export — Pro tier for the creative segment"
+ },
+ "ai-chat-assistants-4": {
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "A companion that remembers: continuity across devices and sessions",
+  "oneLiner": "An AI companion with genuine memory of you and instant phone-to-desktop sync",
+  "gap": "Context resets and device desyncs \"instantly destroy 100% of trust\"; models remember only the last 7–8 messages",
+  "pitch": "Make memory and continuity the product core, not a premium add-on. One conversation visible everywhere, the assistant knows your identity and projects, nothing is lost on a device switch. That is what turns a search engine into a companion people stay for.",
+  "features": [
+   "Instant sync of a single chat across all devices",
+   "Long-term memory of the user's identity and projects",
+   "History protection on reinstall",
+   "Timestamps and search across past conversations",
+   "User control over what the assistant remembers and on-demand forgetting"
+  ],
+  "monetization": "Free tier: short-term memory; deep long-term memory and cross-device sync in subscription"
+ },
+ "ai-chat-assistants-5": {
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Sources by default: verifiability as a baseline feature",
+  "oneLiner": "An assistant where every factual claim comes with a source and \"I'm not sure\" is said honestly",
+  "gap": "Confidently wrong answers force users to manually verify everything; change the source numbering and the trust advantage collapses",
+  "pitch": "Build trust on verifiability: stable linked citations, honest confidence markers, a direct \"I don't know\" instead of fabrication. For studying and work, that beats an extra intelligence benchmark point. No silent rerouting of requests to a third-party model.",
+  "features": [
+   "Linked source for every factual claim",
+   "Confidence marker and explicit \"uncertain\" flag",
+   "Stable numbering and clickable citations",
+   "\"Challenge this answer\" re-verification mode",
+   "No hidden model substitution"
+  ],
+  "monetization": "Deep research, export with citations, and extended fact-checking in Pro for students and analysts"
+ },
+ "ai-chat-assistants-6": {
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Deliver first, ask later: a ban on infinite interrogation loops",
+  "oneLiner": "An assistant that produces output on the first try and only asks when there is genuine ambiguity",
+  "gap": "Especially for image generation: \"30 minutes of questions\" ending in failure — wastes more time than doing it yourself",
+  "pitch": "Establish the rule: give a result based on available information, offer variants, don't interrogate. One short clarifying step only when it's truly unavoidable. Remember instructions already given so the same thing is never asked twice.",
+  "features": [
+   "Output on the first attempt using reasonable assumptions",
+   "At most one clarifying question instead of a series",
+   "Memory of instructions already given within the task",
+   "Quick alternatives instead of \"I can't do this\"",
+   "Edit the original prompt without starting over"
+  ],
+  "monetization": "Free: basic generation; batch and priority task processing in subscription"
+ },
+ "ai-chat-assistants-7": {
+  "categoryName": "AI-чаты и ассистенты",
+  "title": "Honest by default: the anti-impostor",
+  "oneLiner": "An assistant with a transparent model name, visible pricing before signup, and one-tap unsubscribe — a manifesto against scam",
+  "gap": "Wrapper apps mimic brand names, pass old models off as new ones, hide pricing, and make unsubscribing impossible while charging for months",
+  "pitch": "Build the brand on trust where the category has squandered it: the actual model is named honestly, pricing is visible before email or card entry, no silent trial charges, and one-tap unsubscribe and refund. This positioning captures everyone burned by Genie, ChatOn, and Chat Smith.",
+  "features": [
+   "Explicit name and version of the model in use",
+   "Pricing shown before email or payment entry",
+   "Trial with no auto-charge and a reminder before billing",
+   "Unsubscribe and refund in one tap",
+   "Honest labeling of free vs. paid — no dark patterns"
+  ],
+  "monetization": "Open, straightforward subscription with no dark patterns; trust itself is the acquisition channel for burned users"
+ },
+ "astrology-1": {
+  "categoryName": "Астрология и гороскопы",
+  "title": "Transparent Chart: astrology where you can verify the math",
+  "oneLiner": "A horoscope app that wins on one thing — a natal chart you can actually trust, with the calculation shown.",
+  "gap": "Every competitor occasionally scrambles houses, ascendants, and transits through timezone bugs, and edits don't stick — destroying the foundation of trust.",
+  "pitch": "We make calculation correctness a public promise: we show the ephemeris source, the timezone used, and the house system, and let users instantly correct birth time and place. Users see exactly why their ascendant is what it is — and can no longer catch the product in a \"lie\".",
+  "features": [
+   "Transparent calculation showing timezone and house system",
+   "Instant edit of date, time, and place without losing changes",
+   "Western / Vedic / sidereal toggle",
+   "Cross-check against real ephemerides with an accuracy label"
+  ],
+  "monetization": "Free basic chart; subscription for extended transits and compatibility with no hidden add-on charges."
+ },
+ "astrology-2": {
+  "categoryName": "Астрология и гороскопы",
+  "title": "Written by Humans: readings with named authors, not generators",
+  "oneLiner": "Astrology where every piece of writing has a real astrologer's name on it — and you can see it.",
+  "gap": "Users loyal for years leave en masse the moment they recognize AI by its em-dashes, repetitions, and AI artwork; they explicitly ask for the app to \"hire real writers\".",
+  "pitch": "We build the product around a team of living astrologers and byline every reading. No generative art, no templated copy — only a recognizable human voice that longtime users identify as the real value.",
+  "features": [
+   "Readings bylined by a specific astrologer",
+   "No AI art — illustrations by human artists",
+   "\"Written by a human\" label on every piece of content",
+   "Ability to follow a favorite author"
+  ],
+  "monetization": "Subscription to premium readings from featured authors; one-off deep-dive reports from a specific astrologer."
+ },
+ "astrology-3": {
+  "categoryName": "Астрология и гороскопы",
+  "title": "Mirror: astrology as a tool for self-understanding",
+  "oneLiner": "Not a prediction of your fate, but a language to understand and describe yourself.",
+  "gap": "The deepest attachment forms when an app helps users \"put into words what they always felt\", but competitors slide toward surface labels and fortune-cookie copy.",
+  "pitch": "We position the product as a mirror for reflection: readings frame personality traits through the activation and fading of different parts of the self, giving users something to think about rather than a verdict to obey. This turns astrology into a mental-health and personal-growth tool.",
+  "features": [
+   "Deep personality-trait breakdowns through the natal chart",
+   "Psychological, non-directive reading language",
+   "Reflection journal with \"this resonated\" markers",
+   "Themed deep-dives about yourself"
+  ],
+  "monetization": "Subscription to in-depth breakdowns and themed deep-dives; positioned as cheaper than a single therapy session."
+ },
+ "astrology-4": {
+  "categoryName": "Астрология и гороскопы",
+  "title": "No Traps: one honest subscription that unlocks everything",
+  "oneLiner": "Astrology where one subscription opens everything — and cancelling takes one tap.",
+  "gap": "The category is poisoned by double-dipping (charges on top of subscriptions), billing after cancellation, and cancellation flows that bypass Google Play entirely.",
+  "pitch": "We make transparency a competitive weapon: one subscription unlocks all content, no add-on fees for individual reports, cancel in one tap directly in the store. In a niche where competitors read as scammers, honest pricing becomes its own marketing.",
+  "features": [
+   "One subscription = all content, no extras",
+   "One-tap cancellation via Google Play",
+   "Clear \"what's included\" screen before payment",
+   "Confirmation email for every charge"
+  ],
+  "monetization": "Single monthly / annual subscription plus an honest lifetime plan that genuinely unlocks everything."
+ },
+ "astrology-5": {
+  "categoryName": "Астрология и гороскопы",
+  "title": "The Morning Ritual That Doesn't Break",
+  "oneLiner": "A calm daily ritual with a widget that stays recognizable year after year.",
+  "gap": "The strongest retention hook — the morning habit — is fragile: competitors shatter it with remakes, lose their widgets, and cut familiar sections.",
+  "pitch": "We build the product around the inviolability of habit: a stable home screen, a reliable Android widget, incremental evolution instead of destructive remakes. Every day — a short, calm, accurate ritual the user weaves into their morning and never wants to lose.",
+  "features": [
+   "Reliable widget for Android and iOS",
+   "Stable home screen with no surprise overhauls",
+   "Short, calm daily morning reading",
+   "Archive of past readings and notes that actually save"
+  ],
+  "monetization": "Free daily ritual; subscription for deeper content and reading history."
+ },
+ "astrology-6": {
+  "categoryName": "Астрология и гороскопы",
+  "title": "Social Astrology: charts with friends and partners",
+  "oneLiner": "Horoscope as a shared ritual — compare charts with the people you love, not a solo read.",
+  "gap": "Social features and compatibility are an underrated hook (people download because of a friend), but competitors ruin it with ghost-town profiles and forcing social signup before any content.",
+  "pitch": "We make compatibility and shared readings the heart of the product: add friends and a partner — including without requiring them to register — compare charts, send insights. A solitary horoscope becomes a reason to connect, and a viral growth channel.",
+  "features": [
+   "Chart comparison with friends and partners",
+   "Adding loved ones without mandatory signup",
+   "Sending personalized insights in a chat thread",
+   "Compatibility with explanations, not just a score"
+  ],
+  "monetization": "Free to add close contacts; subscription for in-depth compatibility reports."
+ },
+ "astrology-7": {
+  "categoryName": "Астрология и гороскопы",
+  "title": "Star School: learn to read your own chart",
+  "oneLiner": "Astrology that translates planetary jargon into plain language and teaches you to understand yourself.",
+  "gap": "A stream of \"Mercury retrograde in the financial sector\" with no takeaway of \"and what does that mean\" drives users away; beginners — the primary growth segment — are actively asking for plain-language explanations.",
+  "pitch": "We connect the daily reading with education: every planetary influence is explained in human language and tied to real life, not left as a jargon cluster. Curious users become students learning to read their own chart — and they stay for the long term.",
+  "features": [
+   "Every transit translated into \"what this means for you\"",
+   "Chart-reading lessons for beginners",
+   "Short, coherent copy with no run-on sentences",
+   "One-tap glossary for astrology terms"
+  ],
+  "monetization": "Free beginner lessons; subscription for advanced courses and personalized chart breakdowns."
+ },
+ "recipes-cooking-1": {
+  "categoryName": "Рецепты и готовка",
+  "title": "The cook mode that never crashes",
+  "oneLiner": "A recipe opens instantly and stays on screen through the entire cooking process — no internet required, no app evictions, no logouts",
+  "gap": "Paid market leaders freeze and dim the screen with \"you're offline\" exactly when cooking is in progress; not one guarantees offline access to an open recipe",
+  "pitch": "A fully offline \"cook mode\": the selected recipe is cached entirely to the device, the screen never sleeps and is never evicted from memory, timers and steps work without a network connection. Cooking is a high-stakes moment, and the app must be more reliable here than the toaster.",
+  "features": [
+   "offline cache of the open recipe and all its images",
+   "screen-awake and RAM-lock while cook mode is active",
+   "built-in multi-step timers per cooking step",
+   "large kitchen typography and a hands-free mode (voice and gestures)",
+   "print and dark theme included out of the box"
+  ],
+  "monetization": "One-time lifetime purchase (no subscription) — a direct answer to subscription fatigue"
+ },
+ "recipes-cooking-2": {
+  "categoryName": "Рецепты и готовка",
+  "title": "One payment, every device",
+  "oneLiner": "Your personal culinary archive, bought once, accessible on any phone, tablet, or PC with no extra charges",
+  "gap": "Paprika, Crouton, and Recipe Keeper require repurchasing the pro version on every platform despite advertising \"sync everywhere\" — the single biggest trust-killer in the category",
+  "pitch": "A cloud account with one honest purchase: buy it once and sign in from any device with a single login, recipes sync automatically. We make the main selling point exactly what competitors use to lose their most loyal users.",
+  "features": [
+   "unified account with automatic sync across all platforms",
+   "single price with no hidden per-device surcharges",
+   "full data export at any time — no lock-in",
+   "one-click migration from Paprika, BigOven, and Recipe Keeper",
+   "household sharing for multiple family members"
+  ],
+  "monetization": "One lifetime purchase per account, not per device; paid family upgrade for multiple profiles"
+ },
+ "recipes-cooking-3": {
+  "categoryName": "Рецепты и готовка",
+  "title": "Import that actually works",
+  "oneLiner": "Save a recipe from any website, reel, photo, or handwritten card — with ingredients and steps correctly separated",
+  "gap": "AI import in ReciMe and Recipe Keeper confuses descriptions with ingredients, loses steps, and garbles fractions — users say it's faster to copy the recipe onto an index card by hand",
+  "pitch": "Import is the product. We make recipe capture bulletproof: clean separation of ingredients and steps, accurate fractions and units, and an editable preview before saving where anything uncertain is highlighted. Problems surface before the cook, not during it.",
+  "features": [
+   "import via URL, reel, screenshot, PDF, and handwritten photo",
+   "editable preview before saving with uncertain fields flagged",
+   "accurate fractions, units, and temperatures",
+   "batch import with no arbitrary weekly limit",
+   "equipment and technique detection for search filters"
+  ],
+  "monetization": "Free tier with an honest recipe-count cap; one-time upgrade to unlimited import with no weekly quota"
+ },
+ "recipes-cooking-4": {
+  "categoryName": "Рецепты и готовка",
+  "title": "The planner that thinks for you",
+  "oneLiner": "A ready week of dinners from everyday ingredients — no repeats, no \"what should I cook tonight\" agony",
+  "gap": "Eat This Much repeats the same dish four days in a row and leans on exotic produce; Mealime lifts the decision burden but has let its recipe stream go stale",
+  "pitch": "A planner's core job is to remove the daily decision, not to produce yet another list. We generate a week of meals from accessible ingredients, without repeats and without 15 rare items, with a grocery list that consolidates duplicates and scales to any number of eaters. New recipes arrive on the phone directly, not months after the website.",
+  "features": [
+   "weekly plan with no repeated meals, built from everyday ingredients",
+   "grocery list with duplicate consolidation and a serving-size multiplier",
+   "steady stream of new recipes pushed directly to the app",
+   "pantry mode — plan built around what you already have at home",
+   "shared household plan for the whole family"
+  ],
+  "monetization": "Subscription, but with an honest free tier beyond day one and a fully transparent price shown before any card is required"
+ },
+ "recipes-cooking-5": {
+  "categoryName": "Рецепты и готовка",
+  "title": "Kitchen without borders",
+  "oneLiner": "Metric units, local stores, and real local prices — an app that works equally well outside the United States",
+  "gap": "Eat This Much and Tasty are locked into imperial units and US grocery chains; the paid version becomes \"wasted money\" for international users",
+  "pitch": "We build the planner and grocery list for the entire world: instant unit switching, local grocery chains and delivery options, and realistic localized budgets. Half the planet is currently paying for features that simply don't work for them — that is an open niche.",
+  "features": [
+   "instant metric/imperial toggle throughout the app",
+   "local grocery stores and online delivery options by the user's country",
+   "real local prices and plan budget estimates",
+   "multi-language interface and regional unit conventions",
+   "regional ingredient availability awareness in the planner"
+  ],
+  "monetization": "Subscription with regional pricing; premium grocery list that actually works outside the US"
+ },
+ "recipes-cooking-6": {
+  "categoryName": "Рецепты и готовка",
+  "title": "Diet as the first screen",
+  "oneLiner": "An app where allergies, religion, and medical conditions are a reliable filter — not a decorative checkbox",
+  "gap": "Mealime has no halal or kosher options, Tasty has no diabetic results, and Eat This Much lets blocked foods slip back into plans; for entire groups of people the product simply does not exist",
+  "pitch": "For someone with a food intolerance or diabetes, exclusions are not a preference — they are the condition under which the app exists for that person at all. We make diet and exclusions the front door: a strict filter that genuinely removes triggers from every recipe and every plan, with ready-made presets for halal, kosher, gluten-free, and diabetic needs.",
+  "features": [
+   "hard exclusions that apply consistently across all recipes and plans",
+   "ready-made presets: halal, kosher, gluten-free, diabetic, common allergens",
+   "exclusion of whole dishes, not just individual ingredients",
+   "clear labeling explaining why a recipe is hidden",
+   "separate medical dietary profiles for each family member"
+  ],
+  "monetization": "Free base tier with filters; premium unlocks extended medical presets and macronutrient tracking per dietary profile"
+ },
+ "recipes-cooking-7": {
+  "categoryName": "Рецепты и готовка",
+  "title": "The family cookbook",
+  "oneLiner": "One shared recipe archive and weekly plan for the whole household, visible on every family member's phone",
+  "gap": "Apps keep accounts single-user: partners manually duplicate plans across two phones, and social logins cut people off from years of saved recipes",
+  "pitch": "Families take turns cooking, but apps don't notice. We build a shared household culinary archive: a unified plan and grocery list visible to everyone, individual dietary profiles per member, and access that survives a phone change or a login reset. A shared collection makes leaving nearly impossible — that is the retention.",
+  "features": [
+   "shared plan and shopping list visible to all household members",
+   "individual profiles and dietary settings within one household account",
+   "robust login that is not tied to a single social network",
+   "collection survives phone replacement and password resets",
+   "per-dish ratings from each family member to track household favorites"
+  ],
+  "monetization": "Family subscription or one-time upgrade to multiple profiles within a single account"
  }
 }
