@@ -76,6 +76,17 @@ function Arrow() {
     </svg>
   );
 }
+// A clear "this costs energy to open" affordance — reads as a price, not a label.
+function PricePill({ cost }: { cost: number }) {
+  return (
+    <span className="inline-flex shrink-0 items-center gap-1 self-start rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-muted)] px-2.5 py-1 text-[13px] font-semibold text-[var(--color-text-primary)] transition-colors group-hover:border-[var(--color-text-brand)]">
+      <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="text-[var(--color-text-brand)]">
+        <path d="M9.3 1 3 9h4l-.6 6L13 7H8.7z" />
+      </svg>
+      {cost}
+    </span>
+  );
+}
 
 export default function SegmentExplorer({
   locale,
@@ -141,10 +152,9 @@ export default function SegmentExplorer({
                   </span>
                   <span className="mt-3 block text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
                     {ru ? `спрос · ${op.demand} ${wordObs(op.demand)}` : `demand · ${op.demand}`}
-                    {op.locked && <span className="text-[var(--color-text-tertiary)]"> · {ru ? "энергия" : "energy"}</span>}
                   </span>
                 </span>
-                <Arrow />
+                {op.locked ? <PricePill cost={UNLOCK_COST.idea} /> : <Arrow />}
               </button>
             ))}
           </div>
@@ -185,9 +195,18 @@ export default function SegmentExplorer({
                   </span>
                   <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.tag?.label || a.hook}</span>
                 </span>
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-text-secondary)]">
-                  <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                {a.locked ? (
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-muted)] px-2.5 py-1 text-[13px] font-semibold text-[var(--color-text-primary)] transition-colors group-hover:border-[var(--color-text-brand)]">
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" className="text-[var(--color-text-brand)]">
+                      <path d="M9.3 1 3 9h4l-.6 6L13 7H8.7z" />
+                    </svg>
+                    {UNLOCK_COST.app}
+                  </span>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-text-secondary)]">
+                    <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
               </button>
             ))}
           </div>

@@ -345,19 +345,30 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                 pillars.slice(1).map((p, i) => <PillarFull key={i} p={p} label={findingLabel(i + 1)} />)
               ) : (
                 <div className="border-t border-[var(--color-border-subtle)] pt-14">
+                  {/* Withhold the payload — the finding titles ARE the insight, so
+                      show locked placeholders, not the real text. */}
                   <div className="flex flex-col gap-10">
                     {pillars.slice(1).map((p, i) => (
-                      <div key={i}>
-                        <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{findingLabel(i + 1)}</div>
-                        <h3 className="mt-4 text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[color-mix(in_srgb,var(--color-text-primary)_55%,transparent)] sm:text-[34px]">{p.title}</h3>
+                      <div key={i} aria-hidden>
+                        <div className="flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+                          {findingLabel(i + 1)}
+                          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="text-[var(--color-text-tertiary)]" aria-hidden="true">
+                            <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
+                            <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" strokeWidth="1.3" />
+                          </svg>
+                        </div>
+                        <div className="mt-4 flex flex-col gap-2.5">
+                          <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i ? "72%" : "88%" }} />
+                          <div className="h-6 rounded-md bg-[var(--color-bg-muted)]" style={{ width: i ? "48%" : "60%" }} />
+                        </div>
                       </div>
                     ))}
                   </div>
                   <div className="mt-12 flex flex-col items-start gap-5">
                     <p className="max-w-[48ch] text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">
-                      {ru ? "Ещё два вывода — с разбором по наблюдениям и цитатами из отзывов. Откройте прямо здесь за энергию." : "Two more findings — with the breakdown and review quotes. Unlock right here for energy."}
+                      {ru ? "Ещё два вывода — с разбором, наблюдениями и цитатами из отзывов. Откройте, чтобы прочитать." : "Two more findings — with the breakdown, observations and review quotes. Unlock to read."}
                     </p>
-                    <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть ещё два вывода" : "Unlock the other two"} />
+                    <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть выводы 02 и 03" : "Unlock findings 02 & 03"} />
                   </div>
                 </div>
               )}
