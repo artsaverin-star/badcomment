@@ -95,15 +95,25 @@ export default function SegmentExplorer({
   const ru = locale !== "en";
   const [active, setActive] = useState<Active>(null);
 
-  // Lock body scroll + close on Esc while a modal is open.
+  // Lock background scroll (iOS-safe: overflow:hidden alone leaks on Safari, so
+  // pin the body in place and restore the scroll position on close) + close on Esc.
   useEffect(() => {
     if (!active) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const prev = { position: body.style.position, top: body.style.top, width: body.style.width, overflow: body.style.overflow };
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActive(null);
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = prev;
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.width = prev.width;
+      body.style.overflow = prev.overflow;
+      window.scrollTo(0, scrollY);
       window.removeEventListener("keydown", onKey);
     };
   }, [active]);
@@ -239,7 +249,7 @@ export default function SegmentExplorer({
               </button>
             </div>
 
-            <div className="overflow-y-auto px-6 py-7 sm:px-8 sm:py-8">
+            <div className="overflow-y-auto overscroll-contain px-6 py-7 sm:px-8 sm:py-8">
               {/* IDEA */}
               {active.kind === "idea" && (() => {
                 const op = opps[active.i];
