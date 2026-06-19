@@ -15,7 +15,6 @@ import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
 import CardCarousel, { type Slide, type Tone } from "@/components/CardCarousel";
-import { type Locale } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
 
@@ -58,11 +57,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 type EvLike = { app?: string; rating: number; date: string; quote: string; quoteRu?: string };
 
-function toneOfEv(ev: EvLike[]): Tone {
-  if (!ev.length) return "info";
-  const a = ev.reduce((s, e) => s + (e.rating || 0), 0) / ev.length;
-  return a >= 3.6 ? "up" : a <= 2.7 ? "down" : "info";
-}
 function toneOfCard(c: RegenCard): Tone {
   const p = !!c.plus?.trim();
   const m = !!c.minus?.trim();

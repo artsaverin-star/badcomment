@@ -32,6 +32,10 @@ function tone(c: RegenCard): "up" | "down" | "mixed" {
 }
 const TONE_DOT: Record<string, string> = { up: "#4ade80", down: "#ff8585", mixed: "#f5b301" };
 
+function Sec({ children }: { children: React.ReactNode }) {
+  return <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{children}</div>;
+}
+
 export default async function SegmentV2({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const locale = await getLocale();
@@ -128,10 +132,6 @@ export default async function SegmentV2({ params }: { params: Promise<{ slug: st
     { n: nf(totalObs), l: ru ? "наблюдений" : "observations" },
     { n: opps.length, l: ru ? "возможностей" : "opportunities" },
   ];
-
-  const Sec = ({ children }: { children: React.ReactNode }) => (
-    <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{children}</div>
-  );
 
   return (
     <main className="mx-auto w-full max-w-[760px] px-5 py-12 sm:py-16">
