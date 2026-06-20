@@ -34,11 +34,11 @@ export default function Image() {
               borderRadius: 16,
               background: "#f5a524",
               color: "#0a0a0b",
-              fontSize: 38,
+              fontSize: 36,
               fontWeight: 800,
             }}
           >
-            ★
+            i
           </div>
           <div style={{ color: "#fff", fontSize: 40, fontWeight: 700, letterSpacing: -1 }}>inApp</div>
         </div>

@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 import active from "@/data/active-categories.json";
+import { getCategoryBySlug } from "@/lib/researchCategories";
+import { getSlugByProductId } from "@/lib/appSlugs";
+import { hasInsight } from "@/lib/readyApps";
 
 const BASE = "https://inapp.pro";
 
@@ -8,13 +11,25 @@ const BASE = "https://inapp.pro";
 export default function sitemap(): MetadataRoute.Sitemap {
   const cats = active as string[];
 
-  // Standalone idea (/ideas/<slug>) and app (/<app>) pages are retired — they
-  // redirect to the category page, so all findability funnels through the
-  // in-interface category pages. Not listed here.
+  // Per-app teardown pages (/<app-slug>) are now real indexed landing pages that
+  // funnel into the niche — list every one so search engines can reach them.
+  const appSlugs = new Set<string>();
+  for (const cs of cats) {
+    const cat = getCategoryBySlug(cs, "en");
+    if (!cat) continue;
+    for (const a of cat.apps) {
+      if (!a.productId || !hasInsight(a.productId)) continue;
+      const s = getSlugByProductId(a.productId);
+      if (s) appSlugs.add(s);
+    }
+  }
+
   const paths: { p: string; priority: number }[] = [
     { p: "", priority: 1 },
     { p: "/catalog", priority: 0.9 },
+    { p: "/apps", priority: 0.6 },
     ...cats.map((s) => ({ p: `/segment/${s}`, priority: 0.85 })),
+    ...[...appSlugs].map((s) => ({ p: `/${s}`, priority: 0.7 })),
   ];
 
   const lastModified = new Date("2026-06-20");

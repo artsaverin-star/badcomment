@@ -6,6 +6,7 @@ import { type Locale } from "@/lib/i18n";
 export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   const ru = locale !== "en";
   const links = [
+    { href: "/apps", label: ru ? "Все приложения" : "All apps" },
     { href: "/tokens", label: ru ? "Энергия" : "Energy" },
     { href: "/offer", label: ru ? "Оферта" : "Terms" },
     { href: "/contacts", label: ru ? "Контакты" : "Contacts" },
