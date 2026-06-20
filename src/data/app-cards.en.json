@@ -20893,5 +20893,695 @@
    }
   ],
   "hygiene": []
+ },
+ "inv-password-managers-0": {
+  "product": [
+   {
+    "title": "Autofill fires intermittently and misses password fields",
+    "plus": null,
+    "minus": "The most common pain: autofill works one moment and not the next, fails to detect input fields, and forces users to manually copy login and password. For the core reason people install a manager, that defeats the whole point."
+   },
+   {
+    "title": "Search removed from the autofill screen — you can't link a login anymore",
+    "plus": null,
+    "minus": "A recent update removed the search button during autofill: when the manager picks the wrong login, you can no longer find and insert the right one manually — you have to leave the app and copy fields by hand. Many openly threaten to switch."
+   },
+   {
+    "title": "Keeps demanding the master password and ignores the PIN you set",
+    "plus": null,
+    "minus": "The app repeatedly asks for the master password instead of the PIN or biometrics you configured, even mid-session. You used to be able to sign in without exposing the master password — now you must type it over and over, which is both insecure and maddening."
+   },
+   {
+    "title": "Forced accessibility-service consent blocks you out of the app",
+    "plus": null,
+    "minus": "After an update a notice about the “optional” accessibility autofill appears, but the only button is “Accept”: refuse it and you can't open the app at all, locked away from your own passwords."
+   },
+   {
+    "title": "Crashes on launch and freezes on a range of Android devices",
+    "plus": null,
+    "minus": "On newer Android handsets (Xiaomi, OnePlus, Samsung) the app crashes right at startup or freezes after login, and neither reinstalling nor clearing the cache helps — access to passwords disappears entirely."
+   },
+   {
+    "title": "Nagging review-prompt pop-ups get in the way of actual use",
+    "plus": null,
+    "minus": "The “rate us” dialog pops up exactly when someone is urgently trying to grab a password — even after repeated “not now” taps. It reads as poor UX."
+   },
+   {
+    "title": "Forget the master password and you're permanently locked out",
+    "plus": null,
+    "minus": "If the master password suddenly stops being recognized or is forgotten, there's no reset: the site only offers an emailed hint, you can't sign in on a new device, and you can't even delete the account. Several users lost access to all their accounts, including crypto wallets."
+   },
+   {
+    "title": "Broken sync strands new passwords — and your work laptop access",
+    "plus": null,
+    "minus": "Saved passwords and authenticator codes sometimes fail to sync across devices, and self-hosters report that updates break Vaultwarden login. One user updated a work password, it didn't sync, and they were locked out of their own laptop."
+   },
+   {
+    "title": "Open source with zero-knowledge encryption of your vault",
+    "plus": "The headline reason for the love: the project is open source, transparent, and encrypts everything on-device — passwords, usernames, notes, custom fields — so the service itself has zero knowledge of your vault. For a password manager, that's the very foundation of trust.",
+    "minus": null
+   },
+   {
+    "title": "The free tier covers everything an average person needs",
+    "plus": "The free version is powerful, ad-free, and fully featured — many buy a subscription just to support the devs rather than out of need. The paid plan, meanwhile, is described as remarkably cheap.",
+    "minus": null
+   },
+   {
+    "title": "Seamless sync across every OS, device and browser",
+    "plus": "When it works, cross-platform is the killer feature: one encrypted vault syncs across macOS, Windows, Linux, Android and iOS and every browser, plus a web vault and portable access. Sharing household logins via organizations and folders is easy.",
+    "minus": null
+   },
+   {
+    "title": "Self-hosting via Vaultwarden — a haven for control and privacy",
+    "plus": "Power users love being able to stand up their own Bitwarden or Vaultwarden server and keep passwords entirely under their own control; paired with Tailscale the Android client runs essentially flawlessly. That same community reacts sharply to news about the new CEO and the fate of the free tier.",
+    "minus": null
+   },
+   {
+    "title": "A years-trusted password generator that just keeps working",
+    "plus": "The loyalty backbone — people keep every password here for 5–10 years without a single failure, prize the strong generator, and value that it “just works” and stays out of the way. For many it's cheaper than their old LastPass or Roboform with no loss of features.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-1": {
+  "product": [
+   {
+    "title": "Android autofill is the core pain: it doesn't trigger, forcing manual copy-paste",
+    "plus": null,
+    "minus": "Dozens of users report the app stops detecting login and password fields — especially in Chrome, Brave and Firefox — so instead of the promised autofill they have to open 1Password itself and copy the password by hand. Many note it used to work and has degraded over the past year."
+   },
+   {
+    "title": "Biometrics break down: it demands the long master password every time despite a configured fingerprint",
+    "plus": null,
+    "minus": "A very common complaint: after some update, fingerprint or face unlock simply stops working, and the app asks for the long master password over and over — even with \"never require\" set in settings. Reinstalling and re-enrolling fingerprints usually doesn't help."
+   },
+   {
+    "title": "A sharp price hike (30-50% at once) is driving longtime subscribers to Bitwarden and Proton Pass",
+    "plus": null,
+    "minus": "An email announcing a 30-50% price jump in one shot was the last straw for many loyal users. They name specific alternatives — Bitwarden, Proton Pass, Google Password Manager — and leave, especially since free options do the same job."
+   },
+   {
+    "title": "The app hangs on unlock: an endless spinner instead of access to passwords",
+    "plus": null,
+    "minus": "A distinct cluster: the app simply won't open — after entering the password or fingerprint, an endless spinner just turns, the screen stays blank, and the only fix is force-stopping and restarting. For a password manager this is critical: people are locked out exactly when they need the password."
+   },
+   {
+    "title": "Best-in-class for cross-platform sync: one password works across every device and OS",
+    "plus": "The main reason people stay and pay: flawless vault sync across Windows, macOS, Linux, Android and iOS, plus browser extensions. Families praise shared vaults, developers love the CLI and env integration. It's the reliability that earns forgiveness for the bugs.",
+    "minus": null
+   },
+   {
+    "title": "When autofill works it feels \"magical\": one-click login changes daily life",
+    "plus": "Those who have autofill set up correctly describe it as magic: one button fills login, password, even clicks sign-in. The strong-password generator, card storage and 2FA in one place — users call it life-changing and can't imagine going back to manual passwords.",
+    "minus": null
+   },
+   {
+    "title": "Bolting AI into a paid security product reads as a betrayal of trust",
+    "plus": null,
+    "minus": "Some subscribers learned about AI being added from the same price-hike email — and judged it an unacceptable lapse for a security product. For them, \"paying for AI\" in a password manager is a reason to migrate, not stay. Many ask for at least an off-by-default toggle."
+   },
+   {
+    "title": "Support is slow and phone-less: only tickets and auto-replies when access is lost",
+    "plus": null,
+    "minus": "When something breaks — and the stakes are access to every password at once — support is slow, there's no phone line, and replies are often automated. Users feel abandoned at the critical moment and lose trust in a service they handed everything to."
+   },
+   {
+    "title": "The \"secret key\" and re-login system turns switching devices into a lockout nightmare",
+    "plus": null,
+    "minus": "The secret-key plus QR-on-new-device security model trips many up: switching phones leaves people locked out, the QR won't scan, and they're left responsible for a key file for years. Security so tightly wound that it blocks access to your own passwords."
+   },
+   {
+    "title": "Creating a new item forces the wrong type (\"Identity\" instead of \"Login\") with no way to fix it",
+    "plus": null,
+    "minus": "A specific UX bug: when signing up on a new site, the app decides to create an \"Identity\" rather than a \"Login\", and the type can't be changed. You have to leave the form, manually open 1Password, copy the URL and create the entry separately — exactly the chore the manager is supposed to remove."
+   },
+   {
+    "title": "The move from a v7 purchase to a v8 cloud subscription reads to many as \"holding data hostage\"",
+    "plus": null,
+    "minus": "Longtime owners of the one-time-purchase version 7 (and earlier) feel cheated: the \"lifetime\" license no longer works, export is buried, and the only path forward is the paid cloud subscription. To them it turned an honest product into a money grab."
+   },
+   {
+    "title": "Family plan and sharing are a genuine strength: safely share logins with loved ones",
+    "plus": "Families and couples single out shared vaults: you can safely share logins, keep some items private by choice, and a travelling partner keeps access to accounts. For many the family plan alone is why they stay and find the subscription worth it.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-2": {
+  "product": [
+   {
+    "title": "The free tier vanished without warning — locking passwords behind a paywall",
+    "plus": null,
+    "minus": "Dozens of long-time users report the same arc: there was a free plan, it was quietly trimmed, then removed entirely. Without a subscription the app won't even let you view your own passwords — only export to CSV or pay. People call it ransom and holding data hostage."
+   },
+   {
+    "title": "Sudden account lockout while the paid subscription is still active",
+    "plus": null,
+    "minus": "A recurring story: payment went through and is confirmed in Google Play, yet the app suddenly claims the plan is \"expired\" and blocks access across all devices with no warning. People have the receipts and an active subscription — and are still locked out of their own password vault."
+   },
+   {
+    "title": "No support: a chatbot that can't find your account, and no human anywhere",
+    "plus": null,
+    "minus": "When something breaks, there's nowhere to turn: the AI bot answers in templates, claims no account exists for that email, and refuses to connect you to a human unless you're a paying member. But to pay you first need to log in — which is the exact problem. A closed loop."
+   },
+   {
+    "title": "Autofill has decayed: it no longer fires, forcing manual copy-paste",
+    "plus": null,
+    "minus": "The core feature broke for many, especially on Android. The prompt doesn't pop up over the keyboard, or it pops up but fills nothing. The result: open the app, copy username and password, switch back, paste. A password manager reduced to mere storage."
+   },
+   {
+    "title": "Constantly demands the master password — sometimes 6-7 times an hour",
+    "plus": null,
+    "minus": "The app asks for the master password over and over, even right after you've entered it, and won't keep you logged in on the phone. Biometrics often fail and fall back to manual entry. For a tool meant to save time, it becomes a constant ordeal."
+   },
+   {
+    "title": "Data loss: passwords vanish, accounts \"deleted\", no recovery",
+    "plus": null,
+    "minus": "The worst scenario for a password vault: people update or lose a phone — and lose 10+ years of passwords. Some get an email saying \"your account has been deleted\" while paid through year-end. Some watch half their logins vanish, replaced by strangers' old passwords."
+   },
+   {
+    "title": "Deleting your account is nearly impossible — needs a browser and extension",
+    "plus": null,
+    "minus": "Want to leave? Not so fast. You can't delete the account from your phone — you must install a browser extension on a computer, and even that often fails. And if you've already been logged out, deletion is unavailable entirely — your data stays with the company forever."
+   },
+   {
+    "title": "Prices jumped sharply and legacy plans were killed — VPN and extras forced on you",
+    "plus": null,
+    "minus": "Loyal users on old cheap plans are pushed onto a single expensive tier ($60/year, more elsewhere), bundling in VPN, dark-web monitoring and identity protection many don't want. Competitors like Bitwarden cost a third as much, and people are leaving."
+   },
+   {
+    "title": "Older devices abruptly declared unsupported — with no warning",
+    "plus": null,
+    "minus": "Long-time customers are cut off from their vault when their phone or tablet is declared \"too old\" with no notice. Since the only way in is the app (web access was removed), that means total loss of access to passwords — sometimes after 9 years of loyalty."
+   },
+   {
+    "title": "Web access removed — everything now goes through a clumsy browser extension",
+    "plus": null,
+    "minus": "You used to be able to log into the Dashlane website directly; now nothing works without the installed extension. Managing the family plan, adding people, accessing data from a computer — all funnel through an extension that's blocked on many work machines or simply clunky."
+   },
+   {
+    "title": "For the years-long faithful — a reliable, convenient vault that saves time",
+    "plus": "Despite the wave of anger, there's a large happy core: people have kept Dashlane for 5-10+ years, praising the clean interface, cross-platform reach, strong-password generation, and the peace of mind of having everything in one place. For them it's an indispensable tool that's saved them more than once.",
+    "minus": null
+   },
+   {
+    "title": "When support does come through — it rescues access in hopeless situations",
+    "plus": "Amid the complaints there are also stories where a real agent genuinely helped: restored access after a lost email and 2FA via a rigorous identity check, answered a question, offered a good deal to retain the customer. A minority, but these show good support is possible here.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-3": {
+  "product": [
+   {
+    "title": "Autofill is the core promise and the core pain: it rarely fires",
+    "plus": null,
+    "minus": "Users pile up complaints that autofill works one time in five or worse: they end up opening the app and copy-pasting credentials by hand, which defeats the whole point of a password manager. The problem persists across browsers, keyboards and settings — people have tried everything."
+   },
+   {
+    "title": "The app hangs and won't open — locking people out of their own passwords",
+    "plus": null,
+    "minus": "A frequent grievance: the app crashes on launch or hangs forever on the Nord logo, and suddenly your only password vault is unreachable. Reinstalling doesn't help, and a useless «something went wrong» often appears. On some firmware (HyperOS, MIUI, Android 16) it's a black screen and total failure."
+   },
+   {
+    "title": "Cross-device sync breaks — passwords don't make it across",
+    "plus": null,
+    "minus": "A password made on the phone may never show up on the tablet or PC — not in 15 minutes, not in weeks. People are forced to dig out a laptop to find an entry missing from the mobile app. Sync used to work — updates broke it."
+   },
+   {
+    "title": "The Nord-account coupling spawns extra passwords and login loops",
+    "plus": null,
+    "minus": "A password manager that forces you to remember several passwords at once: a master password, a Nord-account password and a VPN one. It regularly kicks you out to a browser to verify your identity, and the process loops endlessly. The paradox: the Nord-account password lives inside the very vault you can't open without it."
+   },
+   {
+    "title": "Biometrics and quick unlock turn themselves off, forcing the master password",
+    "plus": null,
+    "minus": "After updates, fingerprint unlock vanishes — the option simply disappears from settings, leaving only the manual master password. Some are fully logged out every day and asked for an emailed code instead of a fingerprint, turning quick access into a multi-step ordeal."
+   },
+   {
+    "title": "Account recovery is a dead end: forget the master password, lose everything",
+    "plus": null,
+    "minus": "Lose your master password or recovery code and support won't restore your data — the only «fix» offered is wiping the entire vault. Backup codes often don't work, and identity verification demands data the person no longer has access to."
+   },
+   {
+    "title": "Support is deaf: canned replies, an AI bot on a loop and refusal to help",
+    "plus": null,
+    "minus": "Paying customers spend weeks unable to cancel, change their email or delete their account — support sends links to videos, asks the same question three times and won't connect them to a human. Several escalated to a card dispute because there was no other way to stop the charges."
+   },
+   {
+    "title": "A paywall and pushy upsells: basic features moved into Premium",
+    "plus": null,
+    "minus": "People resent that using a second device, the authenticator and other basics got locked behind a subscription, while the interface is plastered with «upgrade» banners. The real price after the discount hook has to be hunted down on the website, and many feel milked."
+   },
+   {
+    "title": "Digits and letters are indistinguishable: 0/O and l/I blur when reading a password",
+    "plus": null,
+    "minus": "An update removed the digit highlighting (or left it only in edit mode), so when typing by hand you can't tell a zero from an O, or a lowercase L from an uppercase I. To read a password you must enter edit mode and risk accidentally overwriting it."
+   },
+   {
+    "title": "No offline mode: with no internet, the password vault is unreachable",
+    "plus": null,
+    "minus": "Several users discovered that with no connection the app kicks them back to the login screen and won't show passwords — which is critical on a plane or abroad. For a password manager, many see this cloud dependency as fundamentally wrong design."
+   },
+   {
+    "title": "When it works — a clean, fast, pleasant vault people love for years",
+    "plus": "Happy users praise the clean interface, speed and sense of reliability for years on end: everything in one place, easy to add and find passwords. Many switched from LastPass, Keeper, RoboForm or Google and find NordPass noticeably better and cheaper.",
+    "minus": null
+   },
+   {
+    "title": "The breach and dark-web scanner — a feature people stay for",
+    "plus": "The built-in breach scanner and dark-web monitor come up again and again as a favourite feature: it warns in time about compromised accounts, passwords and emails, including old breaches. For some, this — not the password storage — became the main value.",
+    "minus": null
+   },
+   {
+    "title": "Price and the Nord ecosystem bundle — a strong reason to switch",
+    "plus": "Many came for the attractive price (especially bundled with NordVPN) and stayed satisfied: importing passwords was easy and the feature set richer than their previous manager. For Nord ecosystem users, one unified security service is a real plus.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-4": {
+  "product": [
+   {
+    "title": "Prices jacked 100-300% in a single cycle, no explanation and no loyalty discount",
+    "plus": null,
+    "minus": "The single biggest driver of churn: people paid $15/year for 10-15 years, then got an email bumping it to $40-70 with no new features. Long-timers aren't grandfathered, deals go only to new sign-ups, and loyal users bail for Bitwarden and open-source."
+   },
+   {
+    "title": "Once the subscription lapses your data is held hostage: no editing, deleting, or exporting",
+    "plus": null,
+    "minus": "After cancelling, the free tier is read-only: you can't add, edit, or delete a record. Even exporting your own passwords is paywalled, so you can't leave for a competitor without paying first. Users flatly call it ransom and a scam."
+   },
+   {
+    "title": "Mobile-browser autofill works only intermittently, especially after updates and in Samsung Internet/Chrome",
+    "plus": null,
+    "minus": "Autofill is praised on desktop, but on phones Keeper Fill fails to detect login/password fields, doesn't work in Samsung Internet, breaks after updates, and forces manual copy-paste of passwords — itself a security risk."
+   },
+   {
+    "title": "You can't reach support without a paid subscription — even to fix a billing problem",
+    "plus": null,
+    "minus": "A vicious loop: you got double-charged or your subscription didn't activate, but you can't contact support because the system treats you as a free user. Emails go unanswered for weeks and replies are canned."
+   },
+   {
+    "title": "Billing trap: auto-renews three weeks early, charges after cancellation, hard no on refunds",
+    "plus": null,
+    "minus": "Auto-renewal fires three weeks before expiry, users get billed years after cancelling, and a strict no-refund/30-day policy blocks refunds even on double charges. Double and phantom charges through Google Play are routine."
+   },
+   {
+    "title": "The app crashes on launch after recent updates, only fixed by endless reinstalls",
+    "plus": null,
+    "minus": "After the late-2025 updates the app stops opening: it crashes on launch and only a reinstall helps, and only for a day or two. For a password manager you reach for at a critical moment, that's especially painful."
+   },
+   {
+    "title": "Constantly demands you re-enter the master password and sign in — sometimes three or four times in a row",
+    "plus": null,
+    "minus": "The extension and app re-prompt for the master password every couple of days, autofill won't fire without manually opening the app, and the browser makes you log in several times over. Users themselves flag this as a security risk."
+   },
+   {
+    "title": "Nagging upsells and ad notifications for add-ons you can't turn off",
+    "plus": null,
+    "minus": "Even paying subscribers get constant prompts to buy dark-web monitoring and storage, plus push ads that can't be disabled — users say they're effectively paying to be served ads."
+   },
+   {
+    "title": "Years of rock-solid reliability and security — the reason long-time users stay",
+    "plus": "The core strength: people keep passwords, crypto seed phrases, and documents here for 5-15 years, sync across every device just works, and there's a genuine sense the data is truly safe. Many call Keeper the best manager they've tried.",
+    "minus": null
+   },
+   {
+    "title": "When support does engage, it's fast, human, and account-saving",
+    "plus": "A counterpoint to the complaints: those who reach a real person praise them by name (Clariece, Rene, Dann) — recovering accounts after a lost master password, fixing double charges, and instead of canned replies setting up a call that traced the bug to a specific Chrome version.",
+    "minus": null
+   },
+   {
+    "title": "Duplicate records: the app spawns password copies and loses shared entries on the family plan",
+    "plus": null,
+    "minus": "After updates and on import Keeper creates two or three copies of the same entry, prompts to save what's already saved, and on the family plan shared records suddenly stop being shared — discovered at the worst possible moment."
+   },
+   {
+    "title": "Web checkout is blocked in many countries — you're forced to renew only through app stores",
+    "plus": null,
+    "minus": "In India, Thailand, Singapore, Egypt the site refuses payment (\"Website checkout is not available for your country\") and pushes you to the Google/Apple store, where prices are higher with no proper invoices or payment flexibility. For long-time customers it's a sudden loss of renewal access."
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-5": {
+  "product": [
+   {
+    "title": "Android autofill is the core pain: it fires rarely and unpredictably",
+    "plus": null,
+    "minus": "Even with everything configured and Proton set as default, autofill simply doesn't show up when you need it: it skips the field, vanishes before you can tap, or stays silent on most sites and apps — forcing people to copy-paste credentials by hand."
+   },
+   {
+    "title": "Fills only one field: username yes, password no",
+    "plus": null,
+    "minus": "A recurring pattern: autofill drops in the username but not the password (or vice versa), then offers to \"update\" the entry and saves a duplicate with only half the data. Multi-page logins don't work at all."
+   },
+   {
+    "title": "Proton's privacy and the all-in-one subscription are the main reason people stay",
+    "plus": "People come for the Swiss jurisdiction, open source, end-to-end encryption, and the fact that Proton doesn't sell their data. One annual bill covering VPN, mail, drive and passwords is the argument that keeps them even when the app misbehaves.",
+    "minus": null
+   },
+   {
+    "title": "The app logs you out on its own — and the passwords are gone for good",
+    "plus": null,
+    "minus": "The scariest scenario: after a long stretch of biometric unlock the app suddenly demands the master password no one remembers. With no recovery phrase, access is gone and support shrugs — people lose dozens of saved passwords."
+   },
+   {
+    "title": "\"Could not create login\" — you can't save a new password",
+    "plus": null,
+    "minus": "For a chunk of users the basic act of saving is broken: the app offers to save a password but on \"Save\" throws \"unable to create entry\" / \"could not create login\" with no reason given. Existing entries still edit fine."
+   },
+   {
+    "title": "Duplicates multiply, and there's no way to merge them",
+    "plus": null,
+    "minus": "The app saves the same account multiple times, fails to recognise a password change, and offers no merge — leaving people to clean hundreds of duplicates by hand. It also flags false \"duplicates\" where a login simply has two addresses."
+   },
+   {
+    "title": "Basic organisation is paywalled: no folders, custom fields or icons",
+    "plus": null,
+    "minus": "It grates that elementary things are paywalled or just missing: custom fields are paid, the promised folders still aren't out, and you can't set your own categories, colours or icons. Everything ends up in one jumbled pile."
+   },
+   {
+    "title": "The free tier is generous — and that wins people over",
+    "plus": "Many switch from Dashlane, Bitwarden, Google and Samsung Pass and are stunned by how much is free: password generator, notes, email aliases, unlimited devices. \"Best free password manager I've tried.\"",
+    "minus": null
+   },
+   {
+    "title": "Email aliases (SimpleLogin) are the killer feature that keeps people",
+    "plus": "Built-in throwaway email aliases you can disable or trash whenever you like are, for many, the deciding factor. Together with built-in 2FA, it makes Proton Pass their primary manager.",
+    "minus": null
+   },
+   {
+    "title": "A clean, pleasant UI — noticeably sleeker than Bitwarden",
+    "plus": "Even people frustrated by the features praise the looks: the interface gets called slick, clean and prettier than Bitwarden's. For many it lends a premium feel to simple daily use.",
+    "minus": null
+   },
+   {
+    "title": "Passkeys are advertised but barely work",
+    "plus": null,
+    "minus": "Passkeys let people down: on some phones Google pops up instead of Proton, on Android 12 the feature is unavailable, and without FIDO CXP/CXF the keys are locked into the vault with no export — vendor lock-in that Dashlane and 1Password already solved."
+   },
+   {
+    "title": "Import/export is tied to the desktop — you can't set it up on a phone alone",
+    "plus": null,
+    "minus": "To move passwords in you need a desktop browser extension — there's no built-in import/export in the app itself. For anyone without a PC that's a blocker, and people keep asking for in-app backup and transfer."
+   },
+   {
+    "title": "When it works, it \"just works\" and stays out of the way",
+    "plus": "For a portion of users it's smooth sailing: autofill fires, PC-to-phone sync is seamless, and the app stays out of the way until needed. Migrating to a new phone was effortless for them.",
+    "minus": null
+   },
+   {
+    "title": "Nagging \"save password?\" prompts with no per-app off switch",
+    "plus": null,
+    "minus": "The app pops up offering to save a password where none is being typed (and stays silent where one is), keeps nagging to save other authenticators' codes like MS Authenticator — and there's no \"never save for this app\" option."
+   },
+   {
+    "title": "Sync lags, or needs the app force-killed to update",
+    "plus": null,
+    "minus": "New and edited entries take ages to appear on other devices, sometimes never syncing at all. Some people have to kill the app and wipe its storage just to force a sync through."
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-6": {
+  "product": [
+   {
+    "title": "The «lifetime» Pro license was retroactively downgraded, with Premium pushed on top",
+    "plus": null,
+    "minus": "Users who bought Pro «for life» years ago found features moved into a new paid Premium tier, and are now asked to buy yet another lifetime license. It reads as a bait-and-switch and is the number-one reason people are leaving for Bitwarden or KeePass."
+   },
+   {
+    "title": "Autofill keeps breaking — especially on Android, Firefox and Samsung",
+    "plus": null,
+    "minus": "The most frequent technical complaint: autofill stops working after updates, fills only the username but not the password, and breaks in Firefox and Chrome for months. For a password manager this kills the core use case, forcing manual copy-paste."
+   },
+   {
+    "title": "The killer feature — vault stored in your own cloud/NAS, not the developer's servers",
+    "plus": "The most-loved reason to stay: data lives wherever you choose — Google Drive, OneDrive, your own NextCloud, a NAS — not in an Enpass database. After the LastPass breach this is, for many, the decisive privacy argument.",
+    "minus": null
+   },
+   {
+    "title": "The free tier is useless: a 25- (or 10-) item cap that even shows random entries",
+    "plus": null,
+    "minus": "The free cap was cut to 25 — for some just 10 — items, and those items show up at random, so you can't find the password you need. Some users suddenly found their previously «unlimited» vault clamped down to 25."
+   },
+   {
+    "title": "Cross-platform support that just works: Windows, Mac, Linux, Android, iOS",
+    "plus": "Long-term users praise seamless operation across every OS at once — Windows, Linux, Mac, Android, iPad. For many it's the best cross-platform manager they found after a long search.",
+    "minus": null
+   },
+   {
+    "title": "A buy-once lifetime license instead of an endless subscription — the core money win",
+    "plus": "People choose Enpass specifically for the one-time purchase: no never-ending monthly fee like Bitwarden or 1Password. Many moved here when 1Password went subscription-only.",
+    "minus": null
+   },
+   {
+    "title": "Ads and pushy «buy Premium» banners inside an already-paid app",
+    "plus": null,
+    "minus": "Paying users are furious at constant upsell screens and a red subscription-nag banner that can't be dismissed. Having paid full price, they feel attacked by ads."
+   },
+   {
+    "title": "Vault syncing constantly fails — Wi-Fi, Dropbox, OneDrive, Google Drive",
+    "plus": null,
+    "minus": "Wi-Fi sync needs reconnecting every couple of months, Dropbox won't link, OneDrive drops out, Google Drive reports «cancelled by user». Those who refuse to push passwords to the cloud are left without sync entirely."
+   },
+   {
+    "title": "The app crashes when viewing and searching passwords",
+    "plus": null,
+    "minus": "Frequent crashes when opening an entry or searching — especially on Android and Chromebook, where the app sometimes won't even launch after an update. For long-time fans this became the last straw."
+   },
+   {
+    "title": "Import from other managers is broken or missing — migrating in is nearly impossible",
+    "plus": null,
+    "minus": "There's no proper import: entries must be added by hand one at a time, and when import does run it assigns the wrong templates. It turns away new users at the very first step."
+   },
+   {
+    "title": "A dangerous catch-22: re-activation and master-password prompts lock you out of your own data",
+    "plus": null,
+    "minus": "Sudden re-activation demands (the code goes to an email whose password is inside Enpass), daily master-password nagging, and «lost» licenses leave people locked out of their own vault. It's described as ransomware."
+   },
+   {
+    "title": "Support replies with canned templates or goes silent — license disputes drag on for weeks",
+    "plus": null,
+    "minus": "Support either never replies or sends the same canned response. Users have to prove with invoices, repeatedly, that they paid for a license — only for it to be downgraded again 20 days later."
+   },
+   {
+    "title": "Backup produces zero-byte files and won't restore",
+    "plus": null,
+    "minus": "Several updates in a row broke backup: files are created at zero bytes, restore fails, and the master password stops working after reinstall. For an app trusted with vital data this is critical."
+   },
+   {
+    "title": "Stable and reliable for years — a manager people trust daily",
+    "plus": "A large core of loyal users has kept Enpass for 5-7+ years without trouble, opens it many times a day, and rates it best in class. Simple, clear, never loses passwords.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-7": {
+  "product": [
+   {
+    "title": "Flawless on desktop, painful on the phone",
+    "plus": null,
+    "minus": "The same users praise the desktop build and curse the mobile one: on Android it won't pick up logins, won't autofill, and degrades into a clumsy manual password lookup."
+   },
+   {
+    "title": "The vault outlives every device you own",
+    "plus": "The core reason for 10-to-20-year loyalty: long passwords collapse into one master password, sync across every device, and survive every phone and computer swap.",
+    "minus": null
+   },
+   {
+    "title": "The app insists on being a browser",
+    "plus": null,
+    "minus": "Instead of showing the saved login, the mobile app drags you to the website or googles your query — the built-in browser infuriates people who only wanted to grab a password."
+   },
+   {
+    "title": "Autofill pops up whenever it feels like it",
+    "plus": null,
+    "minus": "The login prompt shows up half the time at best; more often you have to dig out the credentials by hand — especially inside Android apps rather than the browser."
+   },
+   {
+    "title": "Password generator plus breach alerts",
+    "plus": "Beyond storage, users value the strong-password generator and the warnings about compromised or reused passwords — it turns the manager into a hygiene tool, not just a vault.",
+    "minus": null
+   },
+   {
+    "title": "Unquestioned trust in its security",
+    "plus": "Across decades users recall no breaches, and the master password plus biometrics and cloud backup gives a sense of full control — there's even emergency access for heirs in case of death.",
+    "minus": null
+   },
+   {
+    "title": "Biometrics and login break for no reason",
+    "plus": null,
+    "minus": "Login fails on a correct password, the emailed OTP screen vanishes when you switch to your mail app, or biometrics simply stops working — and support doesn't fix it."
+   },
+   {
+    "title": "Recent updates break the app",
+    "plus": null,
+    "minus": "Recent updates cause freezes on load and error messages; a separate gripe is a new version that chimes on every action with no way to silence it, even via notification settings."
+   },
+   {
+    "title": "Browser integration keeps falling out",
+    "plus": null,
+    "minus": "Integration with Firefox, DuckDuckGo and certain sites on Android either doesn't work or forces you to pick the password manually for each login — the app stops recognizing pages."
+   },
+   {
+    "title": "Cheaper for newcomers than for loyalists",
+    "plus": null,
+    "minus": "Long-time users resent that renewal discounts go to newcomers: to get the good price you have to re-register with a new email address."
+   },
+   {
+    "title": "Sync sometimes loses passwords",
+    "plus": null,
+    "minus": "Though sync is usually praised, for some users data doesn't make it across devices: a saved password simply never shows up on the phone."
+   },
+   {
+    "title": "Replaces the password notebook for non-techies",
+    "plus": "Even non-technical users master it quickly and value that it ends passwords-on-scraps-of-paper; the address and card form-filling is called a lifesaver that saves hours.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-8": {
+  "product": [
+   {
+    "title": "Autofill works only half the time — you end up opening the app and copying the password by hand",
+    "plus": null,
+    "minus": "The core job — filling in passwords — fires inconsistently. Users say they have to open the app, find the entry and paste manually, which defeats the entire point of a password manager."
+   },
+   {
+    "title": "Constantly signs you out and demands the master password over and over",
+    "plus": null,
+    "minus": "The app logs people out again and again and forces the master password several times a day — even with biometrics on. The same phone gets flagged as a \"new device.\""
+   },
+   {
+    "title": "Forget the master password and you lose the whole vault — there is no recovery",
+    "plus": null,
+    "minus": "If the master password is forgotten or suddenly stops being accepted, there's no way back: every recovery method (OTP, passkey, emailed code) fails and a decade of passwords is gone for good."
+   },
+   {
+    "title": "Support is locked behind login — exactly when you can't log in",
+    "plus": null,
+    "minus": "To contact support you must be logged in — but the people who need help are the ones who can't log in. Even paying users can't reach a human, and chat bounces them to a \"you're not logged in\" screen."
+   },
+   {
+    "title": "The data breach broke the one core promise — \"zero-trust\"",
+    "plus": null,
+    "minus": "Users point directly at the vault breach: data leaked, URLs turned out unencrypted, and trust in a product whose only job is security collapsed. Many leave specifically over this."
+   },
+   {
+    "title": "Useless offline — it hides your passwords exactly when you lose internet",
+    "plus": null,
+    "minus": "The app stops showing passwords when the connection drops, even if you were already authenticated. It hits hardest on a plane, where you need a password to get online in the first place."
+   },
+   {
+    "title": "Basic mobile-app access got pushed behind a paywall",
+    "plus": null,
+    "minus": "You used to use both phone and computer for free — now you must pick one device type or pay. Users call it a shakedown and walk away."
+   },
+   {
+    "title": "Every update makes the app worse — textbook \"enshittification\"",
+    "plus": null,
+    "minus": "Long-time users describe a downward arc: things that worked for years break after each update — biometrics, the notes window, the password editor. People openly call it product decay."
+   },
+   {
+    "title": "Drops compatibility with phones it ran fine on for years",
+    "plus": null,
+    "minus": "Paying users suddenly get \"not compatible with your device\" on the same phone the app ran on for years — Android 10/11 support was cut, and people demand refunds."
+   },
+   {
+    "title": "Charges money after cancellation and for long-dead accounts",
+    "plus": null,
+    "minus": "Users report unauthorized charges: billed a year after last use, money taken from a card whose details the company shouldn't have, renewals on a cancelled subscription."
+   },
+   {
+    "title": "Clutters the vault with duplicate entries for the same account",
+    "plus": null,
+    "minus": "The app spawns several entries for one site (sometimes up to six), there's no easy way to merge them, and the built-in duplicate finder stopped detecting them — the vault turns into a mess."
+   },
+   {
+    "title": "For long-time users it's a memory lifesaver and a shared family password vault",
+    "plus": "Those for whom it works value the cross-device access, strong-password generation, and family sharing. People with memory issues and families sharing one account are especially grateful.",
+    "minus": null
+   },
+   {
+    "title": "A loyal subset simply never hits the problems everyone else complains about",
+    "plus": "Dozens of multi-year users say it runs smoothly and trouble-free for them for years. Some explicitly note they see the negative reviews but don't experience those issues themselves.",
+    "minus": null
+   }
+  ],
+  "hygiene": []
+ },
+ "inv-password-managers-9": {
+  "product": [
+   {
+    "title": "\"No internet connection\" on master password — even though the network is fine",
+    "plus": null,
+    "minus": "By far the most common complaint: entering the master password throws a \"no internet\" error while Wi-Fi and mobile data work fine. The same account logs in on the web — so it's an app bug, not the connection."
+   },
+   {
+    "title": "Years of saved passwords vanish at once, with no warning",
+    "plus": null,
+    "minus": "People open the app to an empty vault or \"0 passwords\": everything built up over years gone after an update. No recovery, no heads-up beforehand."
+   },
+   {
+    "title": "The SMS login code never arrives on a new device — locking the whole account",
+    "plus": null,
+    "minus": "Logging in on a new phone needs an SMS code that never arrives, and \"resend\" returns a server error. With no backup verification method, users get fully cut off from their passwords."
+   },
+   {
+    "title": "Support is paywalled — and the broken login won't even let you open a ticket",
+    "plus": null,
+    "minus": "You can only reach support with a paid subscription, and the form makes you log in first — but login is exactly what's broken. Free users end up at a bot that just links the paywalled section."
+   },
+   {
+    "title": "The mobile app won't sync with the browser and desktop",
+    "plus": null,
+    "minus": "Desktop and the extension work, but the phone lags behind: new passwords don't pull through and some entries never arrive. Out-of-sync passwords get rejected — making the vault useless on the go."
+   },
+   {
+    "title": "You can't change the master password: every attempt hits a connection error",
+    "plus": null,
+    "minus": "Changing the master password fails with a \"connection error\" or \"unknown error\" in both the app and the web. The only way out is a reset that wipes every saved record."
+   },
+   {
+    "title": "Dark mode breaks autofill: white text on a white background",
+    "plus": null,
+    "minus": "In dark mode the autofill popup renders as white text on a white background, so you can't tell which login you're picking. It hits recent Samsung Galaxy phones hardest after a OneUI update."
+   },
+   {
+    "title": "Autofill works only half the time — you end up copying by hand",
+    "plus": null,
+    "minus": "The login popup appears inconsistently, and the app fails to recognise some fields as password fields at all. So you open the app separately and copy-paste the password by hand."
+   },
+   {
+    "title": "Free, on every device, ad-free — the reason people stay for years",
+    "plus": "The core reason for the love: a full password manager for free, syncing across phone, PC and browser, with no ads. Many have used it 4-6 years and are amazed it's still not paid.",
+    "minus": null
+   },
+   {
+    "title": "Simple, friendly interface — easy even for beginners",
+    "plus": "For those whose setup didn't break, the praise is about simplicity: a clear interface, fingerprint unlock, auto-generated passwords and notes per entry. They specifically note it isn't intimidating — good for first-time password-manager users.",
+    "minus": null
+   },
+   {
+    "title": "A built-in 2FA authenticator, all in one app",
+    "plus": "Some users value that it stores both passwords and 2FA codes together — a replacement for Microsoft or Google Authenticator. Keeping everything in one app across devices is the draw.",
+    "minus": null
+   },
+   {
+    "title": "No import or export — you can't move in, and you can't get your passwords out",
+    "plus": null,
+    "minus": "There's no way to bring passwords in from another manager, nor to export your own out of Avira. So newcomers can't migrate in, and victims of a glitch can't even rescue their data to CSV."
+   }
+  ],
+  "hygiene": []
  }
 }
