@@ -28,8 +28,8 @@ export async function generateMetadata() {
       canonical: url,
       languages: { ru: "https://inapp.pro/ru", en: "https://inapp.pro/en", "x-default": "https://inapp.pro/en" },
     },
-    openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US" },
-    twitter: { card: "summary_large_image" as const, title, description },
+    openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: ["https://inapp.pro/opengraph-image"] },
+    twitter: { card: "summary_large_image" as const, title, description, images: ["https://inapp.pro/opengraph-image"] },
     robots: { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1 },
   };
 }

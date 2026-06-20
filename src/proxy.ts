@@ -40,7 +40,9 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  // Run on everything except API routes, Next internals and files with an
+  // Run on everything except API routes, Next internals, generated metadata
+  // image routes (opengraph-image/twitter-image/icon — no file extension, so
+  // they'd otherwise get the locale redirect and 307), and files with an
   // extension (favicon, images, etc.).
-  matcher: ["/((?!api|_next/static|_next/image|.*\\..*).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|opengraph-image|twitter-image|icon|apple-icon|.*\\..*).*)"],
 };
