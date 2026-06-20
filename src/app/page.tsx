@@ -10,6 +10,30 @@ import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
 
+export async function generateMetadata() {
+  const locale = await getLocale();
+  const ru = locale !== "en";
+  const lp = ru ? "ru" : "en";
+  const url = `https://inapp.pro/${lp}`;
+  const title = ru
+    ? "inApp — тысячи отзывов на приложения в готовые выводы"
+    : "inApp — thousands of app reviews into clear conclusions";
+  const description = ru
+    ? "Читаем отзывы из App Store и Google Play по нишам и собираем в готовые разборы: что хвалят, на что злятся, каких приложений не хватает и какие идеи напрашиваются. Без регистрации."
+    : "We read App Store and Google Play reviews by niche and turn them into clear breakdowns: what users love and hate, which apps are missing, and which ideas are worth building. No sign-up.";
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { ru: "https://inapp.pro/ru", en: "https://inapp.pro/en", "x-default": "https://inapp.pro/en" },
+    },
+    openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US" },
+    twitter: { card: "summary_large_image" as const, title, description },
+    robots: { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1 },
+  };
+}
+
 // «Главная» — лендинг про продукт (для всех). Каталог живёт на /catalog.
 export default async function Home() {
   const locale = await getLocale();

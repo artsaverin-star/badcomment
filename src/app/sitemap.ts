@@ -17,10 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...cats.map((s) => ({ p: `/segment/${s}`, priority: 0.85 })),
   ];
 
+  const lastModified = new Date("2026-06-20");
   return paths.map(({ p, priority }) => ({
     url: `${BASE}/ru${p || "/"}`,
+    lastModified,
     changeFrequency: "weekly",
     priority,
-    alternates: { languages: { ru: `${BASE}/ru${p || "/"}`, en: `${BASE}/en${p || "/"}` } },
+    alternates: { languages: { ru: `${BASE}/ru${p || "/"}`, en: `${BASE}/en${p || "/"}`, "x-default": `${BASE}/en${p || "/"}` } },
   }));
 }

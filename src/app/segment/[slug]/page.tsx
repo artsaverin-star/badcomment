@@ -86,15 +86,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     ? `Какое приложение сделать в нише «${cat.name}»? Разобрали ${summary?.appsCount ?? 10} приложений и ${reviews.toLocaleString("ru-RU")} отзывов: на что злятся пользователи, чего им не хватает и какие ${ideaCount} идей напрашиваются.`
     : `What app to build in the "${cat.name}" niche? We analyzed ${summary?.appsCount ?? 10} apps and ${reviews.toLocaleString("en-US")} reviews: what users hate, what's missing, and ${ideaCount} ideas worth building.`;
 
+  const lp = ru ? "ru" : "en";
+  const url = `https://inapp.pro/${lp}/segment/${slug}`;
   return {
     title,
     description,
     keywords: ru
-      ? ["идеи приложений", "какое приложение сделать", "ниша для приложения", cat.name, "идея для стартапа", "2026"]
-      : ["app ideas", "what app to build", "app niche", cat.name, "startup idea", "2026"],
-    openGraph: { title, description, type: "article" },
+      ? ["идеи приложений", "какое приложение сделать", "ниша для приложения", cat.name, "идея для стартапа", "анализ отзывов", "2026"]
+      : ["app ideas", "what app to build", "app niche", cat.name, "startup idea", "review analysis", "2026"],
+    alternates: {
+      canonical: url,
+      languages: {
+        ru: `https://inapp.pro/ru/segment/${slug}`,
+        en: `https://inapp.pro/en/segment/${slug}`,
+        "x-default": `https://inapp.pro/en/segment/${slug}`,
+      },
+    },
+    openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US" },
     twitter: { card: "summary_large_image", title, description },
-    robots: { index: true, follow: true },
+    robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   };
 }
 
