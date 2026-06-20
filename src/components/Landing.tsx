@@ -50,49 +50,103 @@ function ideasWord(n: number): string {
   return "идей";
 }
 
-// A clean, Apple-style category card — tidy app-icon row, big headline, the
-// governing thought, quiet stats, and a restrained «Смотреть разбор» link.
-function CategoryCoverCard({ c, ru }: { c: CatCard; ru: boolean }) {
-  const icons = c.icons.filter(Boolean).slice(0, 6);
+const Arrow = ({ className = "" }: { className?: string }) => (
+  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className={`text-[var(--color-text-brand)] transition-transform duration-300 group-hover:translate-x-1 ${className}`}>
+    <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+function metaLine(c: CatCard, ru: boolean): string {
+  return ru
+    ? `${c.observations} ${obsWord(c.observations)}${c.ideas > 0 ? ` · ${c.ideas} ${ideasWord(c.ideas)}` : ""}`
+    : `${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`;
+}
+
+// Big "hero" tile (Apple-store featured) — bold headline, full icon row, the
+// governing thought, a blurb, stats and CTA.
+function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
+  const icons = c.icons.filter(Boolean).slice(0, 7);
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-8"
+      className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9"
     >
-      <h3 className="text-[28px] font-semibold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[34px]">{c.name}</h3>
-      <p className="mt-2.5 text-[13px] text-[var(--color-text-tertiary)]">{ru ? `Разбор категории · ${c.apps} ${appsWord(c.apps)}` : `Category breakdown · ${c.apps} apps`}</p>
-
+      <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
+      <h3 className="mt-2 text-[30px] font-semibold leading-[1.04] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
       {icons.length > 0 && (
-        <div className="mt-6 flex items-center gap-2">
+        <div className="mt-6 flex flex-wrap items-center gap-2">
           {icons.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
-            <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-10 rounded-[12px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+            <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-11 rounded-[13px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
           ))}
         </div>
       )}
-
-      {c.hook && <p className="mt-6 text-[16px] font-light leading-[1.5] text-[var(--color-text-primary)] sm:text-[17px]">{c.hook}</p>}
+      {c.hook && <p className="mt-6 text-[17px] font-light leading-[1.5] text-[var(--color-text-primary)] sm:text-[19px]">{c.hook}</p>}
       {c.blurb && <p className="mt-4 text-[14px] leading-[1.5] text-[var(--color-text-tertiary)]">{c.blurb}</p>}
-
       <div className="mt-auto pt-7">
-        <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
-          {ru
-            ? `${c.observations} ${obsWord(c.observations)}${c.ideas > 0 ? ` · ${c.ideas} ${ideasWord(c.ideas)}` : ""}`
-            : `${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`}
-        </p>
+        <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
         <span className="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--color-text-primary)]">
           {ru ? "Смотреть разбор" : "See the breakdown"}
-          <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="text-[var(--color-text-brand)] transition-transform duration-300 group-hover:translate-x-1">
-            <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <Arrow />
         </span>
       </div>
     </Link>
   );
 }
 
-// Marketing landing: animated hero with a salute of drifting app icons, then a
-// gallery of selling category cards (no more genre/app/idea carousels).
+// Compact tile — headline, small icon row, the hook, quiet stats.
+function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
+  const icons = c.icons.filter(Boolean).slice(0, 4);
+  return (
+    <Link
+      href={`/segment/${c.slug}`}
+      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
+    >
+      <h3 className="text-[21px] font-semibold leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[23px]">{c.name}</h3>
+      {icons.length > 0 && (
+        <div className="mt-4 flex items-center gap-1.5">
+          {icons.map((src, i) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-8 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
+          ))}
+        </div>
+      )}
+      {c.hook && <p className="mt-4 line-clamp-3 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{c.hook}</p>}
+      <div className="mt-auto flex items-center justify-between pt-5">
+        <p className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
+        <Arrow className="shrink-0" />
+      </div>
+    </Link>
+  );
+}
+
+// One row in list view.
+function ListRow({ c, ru }: { c: CatCard; ru: boolean }) {
+  const icons = c.icons.filter(Boolean).slice(0, 4);
+  return (
+    <Link
+      href={`/segment/${c.slug}`}
+      className="group flex items-center gap-4 border-b border-[var(--color-border-subtle)] px-2 py-4 transition-colors hover:bg-[var(--color-surface-card)] sm:gap-5 sm:px-4"
+    >
+      <div className="hidden shrink-0 items-center -space-x-2 sm:flex">
+        {icons.map((src, i) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-9 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)] ring-offset-1 ring-offset-[var(--color-surface-page)]" />
+        ))}
+      </div>
+      <div className="min-w-0 flex-1">
+        <h3 className="text-[17px] font-semibold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[18px]">{c.name}</h3>
+        {c.hook && <p className="mt-1 line-clamp-1 text-[13px] leading-snug text-[var(--color-text-tertiary)]">{c.hook}</p>}
+      </div>
+      <p className="hidden shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)] md:block">{metaLine(c, ru)}</p>
+      <Arrow className="shrink-0" />
+    </Link>
+  );
+}
+
+// Marketing landing: animated hero, then a switchable gallery of category
+// breakdowns — an Apple-store-style bento (richer niches featured larger) or a
+// compact list.
 export default function Landing({
   catCards = [],
   locale = "ru",
@@ -106,10 +160,26 @@ export default function Landing({
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
+  const [view, setView] = useState<"cards" | "list">("cards");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("home-view");
+    if (saved !== "cards" && saved !== "list") return;
+    const id = requestAnimationFrame(() => setView(saved));
+    return () => cancelAnimationFrame(id);
+  }, []);
+  const setViewPersist = (v: "cards" | "list") => {
+    setView(v);
+    try { localStorage.setItem("home-view", v); } catch { /* ignore */ }
+  };
+
+  // Editorial ranking: the richer the breakdown (observations, then ideas), the
+  // more "popular" we treat it — featured larger in the bento.
+  const ranked = [...catCards].sort((a, b) => b.observations - a.observations || b.ideas - a.ideas);
+  const FEATURED = 4;
 
   // Hero salute — icons flattened from the category cards, shuffled per load.
-  const baseIcons = catCards.flatMap((c) => c.icons).filter(Boolean);
-  const [icons, setIcons] = useState<string[]>(baseIcons);
+  const [icons, setIcons] = useState<string[]>(catCards.flatMap((c) => c.icons).filter(Boolean));
   useEffect(() => {
     const id = requestAnimationFrame(() => {
       const arr = catCards.flatMap((c) => c.icons).filter(Boolean);
@@ -178,12 +248,49 @@ export default function Landing({
         </div>
       </section>
 
-      {/* Category cover cards — shown immediately, no scroll-reveal */}
+      {/* Gallery */}
       {catCards.length > 0 && (
-        <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-5 lg:grid-cols-2">
-          {catCards.map((c) => (
-            <CategoryCoverCard key={c.slug} c={c} ru={ru} />
-          ))}
+        <div className="mx-auto w-full max-w-5xl px-1">
+          {/* Header + view toggle */}
+          <div className="mb-6 flex items-center justify-between px-1">
+            <h2 className="text-[19px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[22px]">
+              {ru ? `Разборы ниш · ${catCards.length}` : `Niche breakdowns · ${catCards.length}`}
+            </h2>
+            <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-1">
+              {(["cards", "list"] as const).map((v) => (
+                <button
+                  key={v}
+                  type="button"
+                  onClick={() => setViewPersist(v)}
+                  aria-pressed={view === v}
+                  className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-medium transition-colors ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                >
+                  {v === "cards" ? (
+                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /></svg>
+                  ) : (
+                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="7" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="11.5" width="13" height="2" rx="1" fill="currentColor" /></svg>
+                  )}
+                  <span className="hidden sm:inline">{v === "cards" ? (ru ? "Карточки" : "Cards") : (ru ? "Список" : "List")}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {view === "cards" ? (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
+              {ranked.map((c, i) =>
+                i < FEATURED ? (
+                  <div key={c.slug} className="lg:col-span-3"><CardLarge c={c} ru={ru} /></div>
+                ) : (
+                  <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
+                )
+              )}
+            </div>
+          ) : (
+            <div className="overflow-hidden rounded-[18px] border border-[var(--color-border-subtle)]">
+              {ranked.map((c) => <ListRow key={c.slug} c={c} ru={ru} />)}
+            </div>
+          )}
         </div>
       )}
 

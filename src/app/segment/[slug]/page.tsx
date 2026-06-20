@@ -254,7 +254,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const stats = [
-    { n: `${readyCount}`, l: ru ? "приложений" : "apps" },
+    { n: `${readyCount || cat.apps.length}`, l: ru ? "приложений" : "apps" },
     { n: nf(summary.reviewsScanned), l: ru ? "отзывов" : "reviews" },
     { n: nf(totalObs), l: ru ? "наблюдений" : "observations" },
     { n: `${opps.length}`, l: ru ? "возможностей" : "opportunities" },
