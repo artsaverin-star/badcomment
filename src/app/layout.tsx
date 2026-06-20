@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   title: "inApp — reviews from popular apps, with conclusions",
   description:
     "An aggregator of app-store reviews with conclusions. Find the gaps worth building.",
+  alternates: {
+    types: { "application/rss+xml": "https://inapp.pro/feed.xml" },
+  },
 };
 
 export default async function RootLayout({

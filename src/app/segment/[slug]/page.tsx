@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getCategoryBySlug } from "@/lib/researchCategories";
+import { getCategoryBySlug, listDomains } from "@/lib/researchCategories";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
@@ -262,6 +262,23 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     })
     .filter((a) => a.observations.length > 0);
 
+  // Related niches — internal links boost crawl depth + ranking. Prefer
+  // same-domain siblings, then fill from other live niches.
+  const isLive = (s: string) => isActiveCategory(s) && !!getSegmentSummary(s);
+  const allDomains = listDomains(locale);
+  const myDomain = allDomains.find((d) => d.categories.some((c) => c.slug === slug));
+  const related: { slug: string; name: string }[] = [];
+  for (const c of myDomain?.categories ?? []) {
+    if (c.slug !== slug && isLive(c.slug)) related.push({ slug: c.slug, name: c.name });
+  }
+  for (const d of allDomains) {
+    for (const c of d.categories) {
+      if (related.length >= 6) break;
+      if (c.slug !== slug && isLive(c.slug) && !related.some((r) => r.slug === c.slug)) related.push({ slug: c.slug, name: c.name });
+    }
+  }
+  const relatedTop = related.slice(0, 6);
+
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const stats = [
     { n: `${readyCount || cat.apps.length}`, l: ru ? "приложений" : "apps" },
@@ -426,6 +443,20 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         loggedIn={loggedIn}
         balance={balance}
       />
+
+      {relatedTop.length > 0 && (
+        <section className="mt-20 border-t border-[var(--color-border-subtle)] pt-10 sm:mt-28">
+          <h2 className="text-[20px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Похожие ниши" : "Related niches"}</h2>
+          <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+            {relatedTop.map((r) => (
+              <Link key={r.slug} href={`/segment/${r.slug}`} className="group flex items-center justify-between rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]">
+                <span className="text-[15px] font-medium text-[var(--color-text-primary)]">{r.name}</span>
+                <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="text-[var(--color-text-brand)] transition-transform group-hover:translate-x-1"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
