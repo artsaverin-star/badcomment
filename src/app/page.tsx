@@ -27,6 +27,7 @@ export async function generateMetadata() {
     alternates: {
       canonical: url,
       languages: { ru: "https://inapp.pro/ru", en: "https://inapp.pro/en", "x-default": "https://inapp.pro/en" },
+      types: { "application/rss+xml": "https://inapp.pro/feed.xml" },
     },
     openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: ["https://inapp.pro/opengraph-image"] },
     twitter: { card: "summary_large_image" as const, title, description, images: ["https://inapp.pro/opengraph-image"] },
