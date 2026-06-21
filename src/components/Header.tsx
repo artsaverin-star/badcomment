@@ -25,7 +25,7 @@ export default function Header({
           aria-label="inApp"
           className="flex shrink-0 items-center transition-opacity hover:opacity-70"
         >
-          <Logo className="text-[22px]" />
+          <Logo iconSize={28} textClassName="text-[20px]" />
         </Link>
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">

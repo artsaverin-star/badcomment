@@ -276,7 +276,7 @@ export default function AuthModal({
     <ModalShell onClose={onClose} ru={ru}>
       <div className="mb-6 text-center">
         <div className="mb-4 flex justify-center">
-          <Logo className="text-[34px]" />
+          <Logo iconSize={40} textClassName="text-[30px]" />
         </div>
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
           {ru ? "Добро пожаловать в inApp" : "Welcome to inApp"}

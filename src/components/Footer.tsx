@@ -15,7 +15,7 @@ export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   return (
     <footer className="mt-auto border-t border-[var(--color-border-subtle)] px-4 py-8">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 sm:flex-row">
-        <span className="flex items-center gap-1.5 text-caption text-[var(--color-text-tertiary)]">© {"2026"} <Logo className="text-[15px]" /></span>
+        <span className="flex items-center gap-2 text-caption text-[var(--color-text-tertiary)]"><Logo iconSize={18} textClassName="text-[15px]" /> <span>© 2026</span></span>
         <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
           {links.map((l) => (
             <Link key={l.href} href={l.href} className="text-footnote text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]">

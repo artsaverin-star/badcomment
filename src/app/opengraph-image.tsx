@@ -23,8 +23,23 @@ export default function Image() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <div style={{ color: "#fff", fontSize: 54, fontWeight: 900, letterSpacing: -2.5 }}>inApp</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 76,
+              height: 76,
+              borderRadius: 19,
+              backgroundImage: "linear-gradient(135deg, #FFA62B 0%, #FF5C8A 35%, #B14DEA 66%, #4CB8F5 100%)",
+            }}
+          >
+            <svg width="46" height="46" viewBox="0 0 24 24" fill="#fff">
+              <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+            </svg>
+          </div>
+          <div style={{ color: "#fff", fontSize: 56, fontWeight: 900, letterSpacing: -2.5 }}>inApp</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
