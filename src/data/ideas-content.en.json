@@ -167,169 +167,6 @@
   "title": "Light on Any Tablet",
   "oneLiner": "A learning app that won't freeze or crash and runs on old, low-end devices"
  },
- "notes-pkm-1": {
-  "categoryName": "Notes & PKM",
-  "gap": "The niche's biggest nightmare: sync overwrites fresh text with an old backup, notes silently disappear, no reliable cloud copy exists — and it hits even paying users",
-  "pitch": "Every other app treats sync as a background process that occasionally breaks. Here it works the other way: no edit ever overwrites another, a device conflict never loses a single line — it shows both versions side by side. You can roll back any note to any point over the last six months, even without a subscription. The cloud copy is mirrored to plain files visible in the file manager — if the service ever shuts down, your writing stays with you.",
-  "features": [
-   "Per-note version history with timeline rollback, available for free",
-   "Lossless conflict resolution: when devices diverge, both versions are shown — nothing is overwritten",
-   "Mirror to plain markdown files in a visible folder on the device",
-   "A change log showing what changed and when, with the ability to restore deleted notes"
-  ],
-  "antiFeatures": [
-   "We don't hide version restore behind a paywall",
-   "We don't do silent last-write-wins overwriting"
-  ],
-  "monetization": "Free: full version history and local mirror. Paid: history beyond one year and encrypted cloud with multi-generation backups",
-  "mechanisms": [
-   "Crashes and failures: black screen, post-update crashes",
-   "Data loss and broken notes on sync",
-   "Simplicity and minimalism — that's why people choose it"
-  ],
-  "title": "Backup You Can't Break",
-  "oneLiner": "Notes that survive every sync — every edit is saved as a version you can roll back with one tap"
- },
- "notes-pkm-2": {
-  "categoryName": "Notes & PKM",
-  "gap": "Forced accounts, confirmation emails that never arrive, and video ads on launch kill the whole point of a quick note; yet simplicity and an instant start are what people value most",
-  "pitch": "A note is needed the second a thought appears. Here, the first note is created before any account — just open and write. Registration is only offered when you want sync, and uses a code, not an email that never arrives. No pop-ups on every launch, no video before entry, no constant review-begging. Clean screen, color-coding, autosave — and nothing else.",
-  "features": [
-   "First note without registration; account only needed for sync",
-   "Code-based sign-in, no confirmation emails",
-   "Zero interstitial ads and subscription pop-ups on launch",
-   "Instant startup and autosave of every character"
-  ],
-  "antiFeatures": [
-   "We don't show ads before notes open",
-   "We don't log users out or demand repeated sign-in",
-   "We don't beg for a rating on top of your work"
-  ],
-  "monetization": "Free forever with no ads; paid — sync across devices and cloud backup",
-  "mechanisms": [
-   "Subscription price and payment issues",
-   "High barrier to entry for powerful tools",
-   "Organizing and searching a large note library"
-  ],
-  "title": "Just Start Writing",
-  "oneLiner": "Open it and you're already typing — no sign-up, no pop-ups, no ad before you reach your notes"
- },
- "notes-pkm-3": {
-  "categoryName": "Notes & PKM",
-  "gap": "The niche's most painful betrayal: basic functions and even access to years of personal notes suddenly get locked behind a subscription; people store their lives here for 5–15 years",
-  "pitch": "People entrust notes with thoughts, documents, and journals for years — this is their second brain. Locking someone's memory behind a payment is the surest way to destroy trust. The promise here: what you've already written is always open for reading, searching, and exporting, even after a subscription ends. You pay only for new conveniences, not to ransom your own past. Bulk export to open files is always available — there's no exit gate.",
-  "features": [
-   "Guarantee: the full existing archive stays readable and searchable without a subscription",
-   "Bulk export of all notes to markdown and PDF at any time",
-   "Import from other apps when migrating",
-   "Clear account deletion with one-button data download"
-  ],
-  "antiFeatures": [
-   "We don't block access to previously created notes after payment ends",
-   "We don't hide export behind a paid tier"
-  ],
-  "monetization": "Subscription only for new features (extended sync, larger attachments); reading and exporting your own archive is free forever",
-  "mechanisms": [
-   "Aggressive subscription prompts and ads inside a notes app",
-   "Sync and collaboration across devices",
-   "Capturing and editing text on a phone is often painful"
-  ],
-  "title": "Your Old Notes Stay Yours",
-  "oneLiner": "Your archive never gets locked behind a subscription — you can always read and export everything"
- },
- "notes-pkm-4": {
-  "categoryName": "Notes & PKM",
-  "gap": "The mobile version is almost always weaker than the desktop, and text input on a phone is painful: selection and paste break, the cursor jumps to the end, paragraphs shift",
-  "pitch": "Most note editors were born on a computer, and the phone got the leftover. Here it's the other way around: everything is designed for a finger and a small screen. Large text-selection handles, reliable paste without cursor jumps, stable paragraphs in long notes. Tables and formatting are adapted for a narrow screen, not just crammed in. A long note doesn't lag while typing. The desktop follows the mobile design — not the reverse.",
-  "features": [
-   "Rebuilt editor: stable cursor, large selection handles, reliable paste",
-   "No lag when typing very long notes",
-   "Tables and formatting recomposed for a narrow screen",
-   "One-handed gestures for frequent actions"
-  ],
-  "antiFeatures": [
-   "We don't blindly copy the desktop layout to a phone",
-   "We don't let the cursor jump to the end when editing the middle"
-  ],
-  "monetization": "Basic editor free; paid — sync with the desktop version and advanced tables",
-  "mechanisms": [
-   "Mobile version lags behind the desktop",
-   "Capturing and editing text on a phone is often painful",
-   "Heavy and sluggish: hangs, slow to launch, heats up the phone"
-  ],
-  "title": "Built for the Phone in Your Pocket",
-  "oneLiner": "A mobile app designed for phones from the ground up, not a stripped-down copy of the desktop version"
- },
- "notes-pkm-5": {
-  "categoryName": "Notes & PKM",
-  "gap": "Databases and a knowledge graph are the main strength for complex tasks, but the steep learning curve puts people off; users explicitly ask for built-in tutorials and in-app hints",
-  "pitch": "Powerful tools intimidate with a blank screen full of hundreds of options. Here, the power is revealed in layers: you start as with a simple notepad, and links, databases, and the graph are suggested exactly when enough notes have accumulated to make them useful. Hints live inside your work — the app notices you're repeating a structure and offers to turn it into a database. No separate courses: you learn by continuing to write.",
-  "features": [
-   "Progressive feature disclosure as the library grows",
-   "Contextual hints inside the note instead of a separate onboarding",
-   "Linked pages and knowledge graph with a gentle introduction",
-   "Database templates that emerge from your recurring note patterns"
-  ],
-  "antiFeatures": [
-   "We don't dump all complexity on the first screen",
-   "We don't send users to external videos and docs to learn"
-  ],
-  "monetization": "Simple notes and basic links free; paid — large databases, the graph, and advanced templates",
-  "mechanisms": [
-   "Local storage and privacy: your data belongs to you",
-   "\"Second Brain\": one place for your whole life, work, and study",
-   "Handwriting and S Pen — the main reason people choose it"
-  ],
-  "title": "Power Without the Cliff",
-  "oneLiner": "Linked pages, databases, and a knowledge graph that reveal themselves gradually through built-in hints"
- },
- "notes-pkm-6": {
-  "categoryName": "Notes & PKM",
-  "gap": "Tag and folder organization holds up well, but in-note search is weak and unreliable; users ask for nested folders and drag-and-drop for large libraries",
-  "pitch": "The bigger the archive, the more important it is to find a line fast — and this is exactly where the niche falls short: search misses matches inside text, handwriting, and attachments. Here, search looks everywhere — in text, in recognized handwritten notes, in filenames and image captions — and highlights where the match was found. Folders nest to any depth; notes are dragged between them with a mouse or finger. A large library finally becomes manageable.",
-  "features": [
-   "Full-text search across text, handwriting, attachments, and captions with match highlighting",
-   "Nested folders to arbitrary depth",
-   "Drag-and-drop of notes and folders by finger",
-   "Saved smart collections by tags and filters"
-  ],
-  "antiFeatures": [
-   "We don't limit search to titles only",
-   "We don't restrict folder nesting"
-  ],
-  "monetization": "Search and folders free; paid — search across very large archives and handwriting recognition in search",
-  "mechanisms": [
-   "Organizing and searching a large note library",
-   "Handwriting and S Pen — the main reason people choose it",
-   "Rich note content: text, images, audio, files"
-  ],
-  "title": "Search That Actually Finds It",
-  "oneLiner": "Full-text search that genuinely works — plus nested folders and drag-and-drop organizing"
- },
- "notes-pkm-7": {
-  "categoryName": "Notes & PKM",
-  "gap": "Forced AI that can't be turned off loses context and data, and the free tier is heavily cut — yet meeting transcription and navigation help are sometimes genuinely useful",
-  "pitch": "AI in notes has become an uninvited guest: it gets into every field, loses context, drops text, can't be disabled, and hides the useful parts behind credit charges. Here, AI is a button, not a background. By default it's off entirely; you invoke it manually for a specific task — transcribe a meeting recording, build a table of contents, find related notes. It never touches or rewrites a note without an explicit command and works with your text, not instead of it. Want silence — flip one switch, permanently.",
-  "features": [
-   "Full AI disable with one toggle, off by default",
-   "Manual invocation only, for a specific task",
-   "Meeting and audio transcription as an optional tool",
-   "AI never edits or deletes a note without confirmation"
-  ],
-  "antiFeatures": [
-   "We don't embed AI in every field by force",
-   "We don't charge separately for credits on basic actions",
-   "We don't let AI silently change text"
-  ],
-  "monetization": "Activation and basic assistance free within a reasonable quota; paid — high-volume meeting transcription with no per-credit charges",
-  "mechanisms": [
-   "Controversial updates break familiar interfaces",
-   "Support and trust in the developer",
-   "Users want basic text formatting"
-  ],
-  "title": "AI Only When You Ask",
-  "oneLiner": "An AI assistant that kicks in only when you summon it — and switches off completely"
- },
  "period-cycle-1": {
   "categoryName": "Period & Fertility",
   "gap": "Mainstream apps anchor to a 28-day average and perpetually mark users as 'late'. For PCOS, long cycles, or double cycles, the prediction breaks and never self-corrects. A 15–20 day cap on period length and a ban on a second cycle per month exclude an entire audience.",
@@ -7058,5 +6895,110 @@
    "Flash that behaves like a real camera — fires at capture"
   ],
   "monetization": "Free base cameras as a hook; a subscription for premium cameras, video and cloud presets; camera packs by season/aesthetic."
+ },
+ "notes-pkm-1": {
+  "categoryName": "Заметки и PKM",
+  "title": "Lightning",
+  "oneLiner": "A local-first notepad that opens and writes instantly, types without lag and never drops into read-only — speed as the only feature.",
+  "gap": "Every mass product gets heavier: Notion lags 30 seconds, Evernote opens in a minute and a half, Zoho is pretty but slow. Incumbents can't slim down — they carry desktop-first DNA and accumulated weight. Cold-start speed remains an unoccupied niche.",
+  "pitch": "The fastest path from thought to note on Android: tap the icon — the cursor is already blinking, typing with no delay, writes stored locally with background sync; on a network failure you keep writing instead of hitting «read-only».",
+  "features": [
+   "Opens in <300ms, straight into a new note",
+   "Local writes with deferred sync, never read-only",
+   "A quick-note widget that actually works",
+   "Lag-free typing even on 10k-word notes",
+   "One-tap voice capture for «hands busy»"
+  ],
+  "monetization": "Core free forever; a one-time Lifetime purchase for cross-device cloud sync (the Obsidian model fans defend with donations), no subscription for the basics."
+ },
+ "notes-pkm-2": {
+  "categoryName": "Заметки и PKM",
+  "title": "Moving Day",
+  "oneLiner": "A notebook whose storefront is a «migrate from Evernote/Notion/OneNote in one pass» button, catching the refugee stream the incumbents are evicting themselves.",
+  "gap": "Incumbents monetize accumulated dependence (Evernote ×2–×10 price, Zoho hides covers behind a subscription, Notion forces AI), and users migrate en masse, naming the alternative right in the review. Zoho proved that a built-in «Migrate from Evernote» is a ready-made growth channel.",
+  "pitch": "Not «another notebook» but a concrete exit for the disgruntled: import thousands of notes in one pass with structure preserved, a price many times lower, no AI shoved in and no sign-up wall on entry.",
+  "features": [
+   "One-button import from Evernote/Notion/OneNote/Keep, with attachments",
+   "Preserves the notebook→section→page hierarchy on import",
+   "Local trial mode with no account (subscribe only if you liked it)",
+   "Transparent export anytime (zero exit cost as a promise)",
+   "AI fully optional and disableable"
+  ],
+  "monetization": "A one-time Lifetime instead of a subscription (explicit Evernote contrast: «the same as a year of theirs»); paid only for cloud sync, everything local is free."
+ },
+ "notes-pkm-3": {
+  "categoryName": "Заметки и PKM",
+  "title": "Traffic Light",
+  "oneLiner": "A notebook where color is a full navigation system: tabs, filters and widgets sorted by color, readable at a glance.",
+  "gap": "ColorNote and WeNote have retained people on color alone for a decade, but are stuck in «text-only», with no formatting, photos or iOS. Nobody has brought color navigation to a modern level with media and cross-platform at the same time.",
+  "pitch": "Your chaos becomes manageable at a glance: color tabs and widgets like ColorNote, but with photos, basic formatting, in-note search and sync to iOS/PC — the wall the old leaders ran into.",
+  "features": [
+   "Color tabs and filtering by color",
+   "Color widgets showing real note text on the home screen",
+   "Photo and attachment support inline in text",
+   "ADHD mode: visual layout, minimal cognitive load",
+   "Cross-platform Android/iOS/web"
+  ],
+  "monetization": "Free with colors and widgets; premium for unlimited attachments, signature palettes/covers and sync (but never move basic color behind a paywall — the Zoho lesson)."
+ },
+ "notes-pkm-4": {
+  "categoryName": "Заметки и PKM",
+  "title": "Pen, No Code",
+  "oneLiner": "An editor for writers: WYSIWYG writing with no visible syntax and no forced blocks — what neither Obsidian nor Notion offers.",
+  "gap": "Powerful products invite writers as a «writing platform», but their editor is built for code and structure: an asterisk italicizes a space, a line break jumps into a new block, the source can't be turned off. Prose writers, screenwriters and poets flee from «everything is code».",
+  "pitch": "Open and write prose like on paper: formatting renders immediately, no markdown symbols on screen and no forced break into blocks/pages, but with full structure under the hood for those who need it.",
+  "features": [
+   "WYSIWYG: #heading and **bold** render, syntax never shows",
+   "Continuous text flow, no forced pages/blocks",
+   "Basic formatting (bold, headings, size) in one tap",
+   "In-note search with highlight (Ctrl+F)",
+   "Export to PDF/.docx to move into office software"
+  ],
+  "monetization": "Free writing and single-device sync; premium for cloud sync, export formats, fonts and themes for long-form."
+ },
+ "notes-pkm-5": {
+  "categoryName": "Заметки и PKM",
+  "title": "Vault",
+  "oneLiner": "A notebook built around privacy from the start: per-note lock, local storage and zero forced AI — for logins, journals and the sensitive.",
+  "gap": "People mass-store passwords, medical info and personal journals in notes, but Keep has no lock at all, Zoho's lock blurs titles so you can't find the entry, and forced AI reads as access to the private. Privacy as the product's core has barely been done cleanly.",
+  "pitch": "The one safe place for what you can't lose and can't show: a lock on every note and the app, data on the device, AI off by default that never reaches into your thoughts.",
+  "features": [
+   "Per-note and app-level lock (biometrics/password) with the title still visible",
+   "Local encrypted storage, optional E2E sync",
+   "A private folder hidden from the main list",
+   "AI off by default, an explicit toggle, no note scanning",
+   "Import of passwords/logins from rival notes"
+  ],
+  "monetization": "Free basic lock; premium for E2E cloud sync, unlimited protected notes, biometrics on individual folders."
+ },
+ "notes-pkm-6": {
+  "categoryName": "Заметки и PKM",
+  "title": "Day by Day",
+  "oneLiner": "A journaling notepad where every entry is auto-dated and keeps its original date forever — for diaries, logs and timelines that Keep breaks on the first edit.",
+  "gap": "Keep shows only the last-edited date, and the creation date vanishes after the smallest edit — killing a whole class of use cases (diary, journal, timeline). Users explicitly ask for auto-dating and a preserved original date, and the emotional «write out your feelings» job proved a powerful retention hook on Samsung.",
+  "pitch": "Keep a life over time, not a note dump: a new entry automatically gets a date and time, the creation date is never lost, and it all flows into a timeline.",
+  "features": [
+   "Auto date and time on every entry, an immutable creation date",
+   "Timeline feed and a calendar of entries",
+   "Mood/tags for emotional journaling",
+   "A lock on the journal + local storage",
+   "Search by date and inside an entry"
+  ],
+  "monetization": "Free journaling; premium for cloud sync, export of the whole journal to PDF/book, advanced mood analytics."
+ },
+ "notes-pkm-7": {
+  "categoryName": "Заметки и PKM",
+  "title": "Family List",
+  "oneLiner": "Lists and reminders that actually share and sync between people in real time — where Keep, OneNote and Samsung stumble on collaboration.",
+  "gap": "A shopping list is the most frequent daily job, but sharing is lame everywhere: Keep won't let you copy/sort a list, OneNote throws «page conflict» on shared notes, Samsung corrupts shared notes or limits them to its own users, and Keep pushed reminders out so they don't fire.",
+  "pitch": "One shared family list that doesn't conflict or vanish: add an item and it updates instantly for everyone, a reminder on a specific item rather than the whole block, and it works with any phone.",
+  "features": [
+   "Real-time list sharing by link, cross-platform",
+   "A reminder on an individual item, not the whole block",
+   "Sort/copy/export the whole list",
+   "Check-off with auto-collapse of bought items, no «popping» back up",
+   "A shared-list widget on every member's home screen"
+  ],
+  "monetization": "Free up to N shared lists; a family subscription for unlimited members, change history and private lists."
  }
 }
