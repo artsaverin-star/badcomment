@@ -72,6 +72,16 @@ export default async function Home() {
     })
     .filter((c): c is NonNullable<typeof c> => !!c);
 
+  // Premium-10: the popular, vibe-coder-buildable niches we re-authored to
+  // ultra quality (per-app v3 + niche synthesis). Pin them to the top of the
+  // homepage list, in popularity order; everything else keeps its order below.
+  const PREMIUM = [
+    "notes-pkm", "photo-editing", "calendars-tasks", "study-aids", "nutrition-calories",
+    "document-scanners", "weather-apps", "intermittent-fasting", "habit-tracking", "personal-finance",
+  ];
+  const premiumRank = (slug: string) => { const i = PREMIUM.indexOf(slug); return i === -1 ? PREMIUM.length : i; };
+  catCards.sort((a, b) => premiumRank(a.slug) - premiumRank(b.slug));
+
   const lp = ru ? "ru" : "en";
   const homeJsonLd = {
     "@context": "https://schema.org",
