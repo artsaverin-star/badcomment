@@ -1592,64 +1592,84 @@
  "g-anydo": {
   "product": [
    {
-    "title": "Basic functions are locked behind a paid subscription",
+    "title": "Reminders fire unpredictably — which kills the very reason to adopt a planner",
     "plus": null,
-    "minus": "Recurring tasks, colours, kanban, even dark mode — things competitors give away — all require premium here. Users read it as greed and uninstall the moment they hit the first paywall."
+    "minus": "People adopt a planner for one guarantee: 'the app will remind me, so I can forget.' When reminders silently vanish, drift, or never fire even with permissions on, what breaks isn't a feature — it's the trust contract. The user stops offloading cognitive load to the app and falls back on their own memory. That's the most expensive churn: it loses the very person who already built the habit."
    },
    {
-    "title": "Billing shocks: charges with no consent and hundreds of dollars",
-    "plus": null,
-    "minus": "A $4.99 plan turns into a nearly $500 charge; money is taken after unsubscribing and even a year of non-use. The trial is built so you can't cancel within 3 days, and refunds are nearly impossible."
-   },
-   {
-    "title": "Reminders and alarms fire unpredictably",
-    "plus": null,
-    "minus": "The one job of a reminder app — to remind — works only sometimes: missed alerts, no sound, repeats that switch themselves off. It's especially bad on Samsung and smartwatches."
-   },
-   {
-    "title": "Forced account just to use a simple checklist",
-    "plus": null,
-    "minus": "You must register just to open the app, and to delete it you first have to set a password. For people who only wanted a checklist this is a needless wall, and they bounce immediately."
-   },
-   {
-    "title": "Pushy premium pop-ups and ads break the flow",
-    "plus": null,
-    "minus": "Buy-premium prompts pop up at max volume and interrupt the work: users see \"17 different ads\" before even getting in and feel they're being pressured."
-   },
-   {
-    "title": "It auto-assigns dates and won't let you change them",
-    "plus": null,
-    "minus": "The app turns numbers in a task into a date and throws the task into the future, then won't let you change the day. It makes you less productive, not more."
-   },
-   {
-    "title": "Widget and calendar glitch: wrong month, lost dates",
-    "plus": null,
-    "minus": "The widget shows the wrong month, flickers, vanishes after reboots and updates; in the calendar you can't get back to today. For people who came specifically for the widget, that's a dealbreaker."
-   },
-   {
-    "title": "Updates break data and lock up the app",
-    "plus": null,
-    "minus": "After updates subtasks disappear with no way to recover them, old tasks get wiped during sync, and the app even managed to tangle itself into the phone's lock screen."
-   },
-   {
-    "title": "A lifesaver for people with ADHD and forgetfulness",
-    "plus": "Many with ADHD call it the best: location-based reminders, an over-screen reminder and a simple daily brain-dump genuinely help them not forget and stay on plan.",
+    "title": "Zen simplicity is the real moat: people stay 10+ years precisely because the app stays out of the way",
+    "plus": "Any.do's core asset isn't features — it's the feeling of 'nothing extra.' Long-timers explicitly say they tried competitors and came back because here there are fewer clicks and no visual noise. That's a rare product moat in an overcrowded category: simplicity as the reason not to leave. It lands hardest with the ADHD crowd, for whom minimalism equals lower friction to action.",
     "minus": null
    },
    {
-    "title": "Simple, clean interface without clutter",
-    "plus": "Loyal users value the minimalism: nothing extra, easy to jot something down fast, intuitive. For those who want just a to-do list, this is the main draw.",
-    "minus": null
-   },
-   {
-    "title": "Long-haul loyalty: years of use across devices",
-    "plus": "Some have used it for 10+ years across phone, tablet and PC, praising solid sync, shared lists and cross-platform reach. It's a \"trusted sidekick\" that hasn't let them down.",
-    "minus": null
-   },
-   {
-    "title": "Calendar and integrations weaker than rivals",
+    "title": "The home-screen widget IS the product; when it breaks, the daily entry point is gone",
     "plus": null,
-    "minus": "There's no native Google Calendar integration — only via paid Zapier; event colours aren't picked up, you can't select a time window, there's no time-blocking. People compare it to Todoist and leave."
+    "minus": "For a large slice of users the widget matters more than the app itself — it's the zero-click path to tasks and the one surface they see hundreds of times a day. But the widget is chronically unstable: it disappears after reboots and updates, shows the wrong month, won't advance dates, flickers on scroll. What breaks isn't 'a widget feature' — it's the daily ritual of touching the product, and the user starts hunting for a replacement even while loving the app."
+   },
+   {
+    "title": "Merging tasks and calendar events in one widget is the feature people seek Any.do out for",
+    "plus": "Most apps show either a to-do list or a calendar; Any.do puts tasks and events on one screen/widget — and that solves a real, years-long pain. Users describe finding this combo as the end of a long search. It's a clean wedge of differentiation: not 'another to-do app,' but a single 'what's on today' canvas across two normally separated worlds.",
+    "minus": null
+   },
+   {
+    "title": "A forced account on the first screen turns users away before they ever see the value",
+    "plus": null,
+    "minus": "To try a simple checklist, the user is forced to create an account and password before ever touching the product — and registration sometimes fails with 'try again later.' This turns away exactly the audience Any.do sells simplicity to: they want a list, not a login. Worst of all, a password is demanded even to delete the app, turning the first experience into a trap and generating anger instead of an indifferent exit."
+   },
+   {
+    "title": "Auto-parsing numbers into dates silently flings tasks into the future — the productivity app makes users less productive",
+    "plus": null,
+    "minus": "The smart 'detect a date in the text' feature triggers without asking: any number in a task title becomes a deadline, and the task vanishes into a future date the user then has to go hunt down. It's the classic 'magic without control' failure — the system acts on the user's behalf and errs silently. For a tool whose job is to relieve the anxiety of 'I'll forget something,' silently relocating tasks erodes trust harder than any bug."
+   },
+   {
+    "title": "Recurring-task logic is designed against real life: miss one occurrence and the whole chain breaks",
+    "plus": null,
+    "minus": "The recurrence mechanic rests on a false assumption that the user always marks completion. Miss today's task and tomorrow's reminder never comes. But forgetful people are exactly who needs reminders: the system punishes its target audience for the very behavior it's installed to fix. Add no time-zone handling and no flexible rules ('every 3rd Tuesday') and the core of the habit turns out to be unreliable."
+   },
+   {
+    "title": "The work/personal split turns the app into a work-life-balance tool, not just a list",
+    "plus": "The ability to keep work and personal in separate spaces is something users call out and value: it moves the product from 'checklist' into 'life-organization system.' For overloaded audiences (parents, freelancers, ADHD), separating contexts lowers anxiety and gives a sense of control. That's a reason to stay, not just to tick boxes.",
+    "minus": null
+   },
+   {
+    "title": "Shared lists and cross-device sync make the app family infrastructure, not a personal tool",
+    "plus": "Real stickiness shows up where the list becomes shared: a wife and kids add to the grocery list, a crew sees its punch lists, a task from the phone surfaces on PC and the Nest Hub. Once the product is embedded in other people's phones and a family's routine, switching to a competitor costs not one person but the whole group — the strongest retention mechanism in the category.",
+    "minus": null
+   },
+   {
+    "title": "Google Calendar integration is shallow: events are only displayed, colors and interaction are lost",
+    "plus": null,
+    "minus": "Any.do sells itself as 'tasks + calendar,' yet the Google Calendar link is one-directional: events are merely listed, color coding falls apart, there's no native two-way sync (only via paid Zapier), and events can't be meaningfully tied to tasks. For the user who picked the app precisely for the unified canvas, this undercuts the product's central promise."
+   },
+   {
+    "title": "An on-screen reminder over the lock screen at unlock is the killer feature competitors lack",
+    "plus": "Fans specifically name the fact that a task can be not a 'lost notification' but a full-screen alarm or a banner that pops at the bottom of the screen on unlock. For a forgetful audience this solves the root problem: ordinary notifications drown in the stream, an insistent reminder doesn't. It's a behavioral mechanism that keeps people even when the widget is buggy.",
+    "minus": null
+   },
+   {
+    "title": "Reminder time can't be set precisely: the clock UI is broken, a 5-minute floor, exact times ignored",
+    "plus": null,
+    "minus": "The atomic act — setting an exact reminder time — physically fails for a slice of users: the time sticks at '+5 minutes,' the analog dial won't move, you can't set a 20-minute interval, and instead of the exact time the app sends a string of pre-deadline notifications. When the planner's atomic operation breaks, the rest of the feature richness is moot — the product isn't doing the job it was installed for."
+   },
+   {
+    "title": "Calendar mode is a showcase, not a workspace: no time-blocking, tiny fonts, not editable",
+    "plus": null,
+    "minus": "The calendar is pitched as a key half of the product but built 'for viewing': you can't drag-select a time window, there's no time-blocking or planning like Google Calendar, you can't edit past days, fonts are tiny and low-contrast. The result: the task half is strong but the calendar half lags — and users who came for a unified canvas still keep a second calendar alongside."
+   },
+   {
+    "title": "'My Day' wipes the unfinished after midnight — the cleanup feature deletes what the user wanted to keep",
+    "plus": null,
+    "minus": "A redesign that force-opens on 'My Day' added behavior that works against the user: what you jot in the evening is wiped after midnight, and the late-night thought is gone. The 'start the day with a clean slate' logic clashes with the real scenario — people use that field as a quick buffer. When the product deletes user data at its own discretion, even multi-year fans write that it 'messes with productivity.'"
+   },
+   {
+    "title": "The most intuitive quick-add — typing the date inside the task text — is hidden and never onboarded",
+    "plus": "The app's biggest 'wow' mechanic — type the date and time right in the task line and they get recognized — transforms speed of use, yet users stumble onto it by accident after months of 'too many clicks' frustration. It's a missed activation: the feature that turns a skeptic into a fan is shown to no one during onboarding, and part of the audience leaves over exactly the friction this feature removes.",
+    "minus": null
+   },
+   {
+    "title": "Foundational task features sit behind the paywall, so users hit the wall before the product proves value",
+    "plus": null,
+    "minus": "It's not the subscription itself but WHAT sits behind it: recurring tasks, task colors, kanban — these are the foundation of the habit, not premium luxury. The user hits the wall on the very first action ('I create my first recurring task — pay'), i.e. BEFORE getting any value or forming attachment. Churn lands before activation: people leave with a ready free alternative in hand rather than after coming to love the product."
    }
   ],
   "hygiene": []
@@ -1782,64 +1802,74 @@
  "g-bizcal": {
   "product": [
    {
-    "title": "Full-screen ads lock the phone mid-task while you create an event",
-    "plus": null,
-    "minus": "Ads pop up the moment you add or edit an event, go full-screen, and can't be dismissed until they finish playing — often unskippable video with a fake close button that dumps you into the Play Store. Users lose unsaved data and miss appointments."
-   },
-   {
-    "title": "The one-time Pro purchase was swapped for a subscription — paid features taken back",
-    "plus": null,
-    "minus": "Users who bought a perpetual Pro license years ago suddenly lose access after an update: basic features like drag-and-drop and widget font size move behind a paid subscription, with ads served instead. It reads as stealing from paying customers."
-   },
-   {
-    "title": "The best interface and customization of any Android calendar",
-    "plus": "The core reason for years of loyalty: a thoughtful, information-dense interface, flexible week and month views, color-coding of calendars, and far more options than Google Calendar. People try rivals and come back.",
+    "title": "Information density and color-coding are the real hook, not just a feature",
+    "plus": "People stay not for the calendar itself but for the ability to see their whole life at once: many accounts in distinct colors, toggling individual calendars with one tap, a dense week-and-month overview. It becomes a personal control panel — and on exactly this axis Google Calendar reads as the stripped-down version.",
     "minus": null
    },
    {
-    "title": "Home-screen widgets are what people stay for",
-    "plus": "Customizable month, week, and agenda widgets are a standout: you can shrink the font to pack the most onto a screen and keep several views at once. Smartwatch tiles and complications get praise too.",
+    "title": "The widget isn't decoration — it's the primary interaction surface",
+    "plus": "Many barely open the app itself: they live in the home-screen widget (month + week) that drives the entire rhythm of their day. Being able to shrink the font to pack the most onto a screen and keep several views at once is the strongest retention mechanism — the widget is baked into the morning \"what's on today\" habit.",
     "minus": null
    },
    {
-    "title": "Google Calendar sync regularly stops working",
-    "plus": null,
-    "minus": "After years of reliability, Google sync breaks: events arrive days late, the weekly view shows different events than the monthly one, and manual refresh doesn't help. Missed new meetings push people back to Google Calendar."
-   },
-   {
-    "title": "Reminders and notifications fire unreliably",
-    "plus": null,
-    "minus": "Even paid Pro users get hit-or-miss notifications: after Android 14 reminders don't pop up for hours until you unlock the phone, and alarms sometimes make no sound at all. Some keep Google Calendar notifications on in parallel as a safety net."
-   },
-   {
-    "title": "Won't act as a separate calendar — demands personal access and deletes in Google",
-    "plus": null,
-    "minus": "An app called \"Business Calendar\" refuses to run without access to your entire personal calendar and can't stand apart from Google: delete a calendar in the app and it deletes the Google one too. For anyone wanting an isolated work calendar, that defeats the purpose."
-   },
-   {
-    "title": "All events and calendars suddenly vanish",
-    "plus": null,
-    "minus": "The scariest failure: one day all events or connected accounts simply disappear — even though they're still in Google Calendar — and re-syncing brings nothing back. For people who trusted the app with their whole life for years, it's the final straw."
-   },
-   {
-    "title": "Years of stability and one-time purchase — the loyalty bedrock",
-    "plus": "Dozens report using it 7–10+ years without issues, install it on every device, and call it the backbone of their lives. Many specifically value that it was a one-time purchase, not a subscription, and gladly paid for Pro.",
+    "title": "Templates and drag-and-drop save clicks for people who create events by the dozen",
+    "plus": "Heavy users (two jobs, business, family) value not the calendar but the speed of entry: templates for recurring events, drag-and-drop of appointments, linking to a contact with auto-populated info. This turns the app from a viewer into an active planning tool — and explains why people stay for years despite the irritants.",
     "minus": null
    },
    {
-    "title": "Weak non-Google support: Outlook, CalDAV, Microsoft accounts",
+    "title": "The grid \"week at a glance\" view is a niche but irreplaceable way to perceive time",
     "plus": null,
-    "minus": "The Google focus leaves holes everywhere else: work Microsoft accounts demand admin rights and won't add, Outlook 365 sync breaks after the initial import, and CalDAV (Synology NAS, private CAs) stops connecting. It's the app's weakest area versus rivals."
+    "minus": "When the product removes a rare display mode (the grid-style week view with a choice of day direction), it hits the very users who picked it for that format: it literally matches how they think about time, and there's no substitute anywhere on the market. The signal: display options here are the core of the product, not cosmetics."
    },
    {
-    "title": "Licenses don't carry across stores and regions — you pay again",
-    "plus": null,
-    "minus": "A license bought in the Galaxy Store or an old legacy purchase won't transfer to Google Play and won't survive a region change while travelling: the app breaks after an update or country switch and demands a new purchase. Pro isn't even buyable in some countries, including the US."
+    "title": "The shared couple/family calendar quietly retains an entire household",
+    "plus": "When a husband and wife view each other's calendars to plan shared events, the app stops being a personal choice and becomes household infrastructure. Leaving is harder: the decision to switch now has to be coordinated with family. This multiplies retention versus a solo user.",
+    "minus": null
    },
    {
-    "title": "Calendar gets spammed with junk and the language switches on its own",
+    "title": "The \"separate business calendar\" promise is broken: the app can't live without the personal Google calendar",
     "plus": null,
-    "minus": "Beyond ads, odd bugs creep in: the calendar fills with junk \"payment\" events from unknown people and spam with no way to manage categories, while the interface or tasks suddenly flip to an Asian language the user can't switch back to English."
+    "minus": "The headline segment — people who want an isolated work calendar separate from personal — hits an architectural dead end: the app demands access to the entire personal calendar, and deleting a calendar in the app deletes it in Google too. Someone who came for work/life separation gets the exact opposite and leaves feeling betrayed by the app's own name."
+   },
+   {
+    "title": "A calendar is a memory system, so unreliable sync attacks the very basis of trust",
+    "plus": null,
+    "minus": "Because the app is an overlay, not a source of truth, sync drift with Google/Outlook means the widget shows a stale picture of the day: the weekly view disagrees with the monthly, updates lag by days, manual refresh doesn't help. Users show up to cancelled meetings and miss new ones — the app actively misinforms at the highest-stakes moment, and one such episode outweighs years of good service."
+   },
+   {
+    "title": "Forcing a reminder onto every event turns a helper into a source of noise",
+    "plus": null,
+    "minus": "The app forces a reminder onto events where the user never set one, and offers no \"default to no reminder\" option. For people with dozens of entries a day this turns notifications into background hum they stop noticing — and then the core value of reminders collapses: the few that matter drown in the noise. Default management here is a product lever, not a detail."
+   },
+   {
+    "title": "Silent data loss is the catastrophe nobody comes back from",
+    "plus": null,
+    "minus": "The most destructive scenario: events or whole accounts suddenly vanish, sometimes after an update, and the proposed fix — delete and re-add accounts — is unacceptable. For a tool trusted with life-memory, a single data-loss event tears up the contract for good: even multi-year fans leave because \"I can't afford to have everything disappear again.\""
+   },
+   {
+    "title": "Only Google is truly supported: Outlook/CalDAV is a segment the product promises but loses",
+    "plus": null,
+    "minus": "Despite the \"business\" positioning, corporate users hit a wall: a work Microsoft account demands admin rights and won't add, Outlook 365 won't sync updates after the initial import, CalDAV (Synology NAS, private CAs) won't connect. The most willing-to-pay B2B segment falls off exactly where other calendars cope — that's a structural ceiling on growth, not a bug."
+   },
+   {
+    "title": "The wealth of options becomes overload for people who just want a simple calendar",
+    "plus": null,
+    "minus": "The very depth of customization that holds power users repels the opposite segment: for an everyday to-do-and-reminder list the app is \"too busy,\" something to remember and maintain. The product polarizes its audience — it wins customization enthusiasts and loses those who just want to \"see what's on today.\""
+   },
+   {
+    "title": "Unreliable notification delivery undermines the one job a calendar is hired for",
+    "plus": null,
+    "minus": "Reminders arrive late or not at all — especially after an Android version change and in background mode. Users keep Google Calendar notifications on too \"as a backstop,\" running a parallel fallback. If the app can't be left as the sole signal source, its role as the primary calendar collapses from within."
+   },
+   {
+    "title": "Subtask search and deleting one event from a series — small features whole workflows hang on",
+    "plus": null,
+    "minus": "Users build workflows around specific micro-features: searching text inside subtasks, deleting one day from a recurring series, showing recurring tasks on every week. When an update silently breaks such a detail, it's not a \"feature\" that breaks but the user's entire system — and trust in update stability itself. That's the cost of deep embedding: every change risks toppling someone's construction."
+   },
+   {
+    "title": "Spam injected straight into the calendar — a sync vulnerability that feels like an invasion",
+    "plus": null,
+    "minus": "Phantom \"events\" leak into the calendar through sync — spam, payments from unknown people. Because the calendar is felt as a trusted personal space, this intrusion lands especially hard: the user can't fathom how it's even possible and blames the app. The lack of category control and spam filtering turns sync openness into a hole in trust."
    }
   ],
   "hygiene": []
@@ -3177,69 +3207,79 @@
  "g-gcal": {
   "product": [
    {
-    "title": "Updates routinely break what used to work",
+    "title": "The calendar icon is frozen on \"31\" — the one surface where people expect a date, it refuses to show one",
     "plus": null,
-    "minus": "The defining pain: every update fixes one thing and breaks another — the app won't open and crashes, click-to-call from a note dies, freshly added features vanish. Rolling back to the old version is often the only fix."
+    "minus": "People keep a calendar on the home screen precisely to catch today's date at a glance without opening it — a reflex trained by decades of paper calendars. The static \"31\" breaks exactly that micro-job: users glance at the icon, get a wrong date 11 months out of 12, and are forced to open the app. It's the single most frequent and most emotional complaint in the whole corpus — a tiny thing that grates daily."
    },
    {
-    "title": "The app icon is frozen on \"31\"",
+    "title": "Creating an event is a ladder of extra taps that discourages daily logging",
     "plus": null,
-    "minus": "A widespread irritation: the app icon shows a static \"31\" instead of today's date. Users want the number to rotate daily like other calendars and find the current behavior pointless and misleading."
+    "minus": "A calendar's value rests on the habit of dumping everything into it, and that habit survives only on minimal friction. Here, creating an entry means tapping a date, then tapping again in a separate Event/Task/Birthday menu, and editing means opening the item and hitting a pencil. Each extra tap raises the odds a small task never makes it in — and a calendar without complete data is useless."
    },
    {
-    "title": "The widget keeps going blank and breaking",
-    "plus": null,
-    "minus": "The calendar widget — vital for many — either shows a blank panel or disappears entirely after Android updates. Restarting and clearing cache only help temporarily, and people find the available widget sizes and formats too limited."
-   },
-   {
-    "title": "The monthly grid confuses with adjacent-month dates",
-    "plus": null,
-    "minus": "The new month view bleeds previous- and next-month dates into the empty cells, making it easy to lose track. People ask to show strictly the current month's 1–30/31, make its numbers stand out, and open on the week containing today."
-   },
-   {
-    "title": "Backlash over the new blue icon",
-    "plus": null,
-    "minus": "The icon redesign angered long-time users: the blue badge clashes with Google's rainbow set, looks \"like a startup's,\" and people can't find the app among the rest. The ask is simple — bring the old one back."
-   },
-   {
-    "title": "Forced holidays you can't turn off",
-    "plus": null,
-    "minus": "The calendar auto-adds holidays with notifications — often from another country or religion, sometimes on the wrong date — with no in-app way to disable or delete them. Same goes for graphic banners injected on trigger words with no off switch."
-   },
-   {
-    "title": "Too many extra taps to create and edit an event",
-    "plus": null,
-    "minus": "Creating an entry means tapping a date, then a separate Event/Task/Birthday menu; editing means tapping the item, then a pencil. Needless confirmations like the \"OK\" button after the time wheel grate too."
-   },
-   {
-    "title": "Time handling: auto-shifts, DST and fraction parsing",
-    "plus": null,
-    "minus": "Time misbehaves: changing an event's start auto-moves its end, events aren't corrected for daylight savings, tapping a cell saves 15 minutes early, and typing a size like \"3/4\\\"\" in a note suddenly jumps you to March 4th 2027."
-   },
-   {
-    "title": "Sync stumbles with web and Exchange",
-    "plus": null,
-    "minus": "Sync isn't always smooth: events land on the wrong dates, deleted meetings keep popping up with notifications, web changes don't reach the app, and pairing with Microsoft Exchange forces keeping two calendars so nothing slips."
-   },
-   {
-    "title": "A reliable planning backbone that never loses data",
-    "plus": "What users love: for years it loses neither events nor settings, keeps everything in sync across devices, and reliably reminds an hour, a day, a week ahead. For many it's the cornerstone of their organization they'd \"be lost\" without.",
+    "title": "Deep sync is the real moat: people tolerate the irritants because the data simply never gets lost",
+    "plus": "The product's core asset isn't the interface — it's trust in cross-device sync. Power users who've tried dozens of calendars stay precisely because the others lost sync, wiped backups, forgot settings — and this one never loses anything and remembers your last state. That's exactly why even furious users explicitly write \"I'd ditch it if it weren't so tightly integrated.\"",
     "minus": null
    },
    {
-    "title": "All-in-one: events, tasks and birthdays",
-    "plus": "A strength: events, tasks and birthdays live in one app, with Google Tasks and Gemini integration — no separate apps needed. A clean interface and cross-platform reach make it handy for both personal and work planning.",
-    "minus": null
-   },
-   {
-    "title": "Event colors are loved — but there aren't enough",
-    "plus": "Color-coding events is loved and heavily used for categories — students color their subjects so they don't miss deadlines, and the newly added colors were a hit.",
-    "minus": null
-   },
-   {
-    "title": "Demands a Google account and ignores other calendars",
+    "title": "Color-coding is the main organizing tool, but a 7-color palette hits the ceiling of a user's life",
     "plus": null,
-    "minus": "The mandatory Google account grates: without one it won't work or pull in third-party app data. People also ask for alternative calendars — Islamic, Shamsi, Afghan, regional — while current support is either missing or shows the wrong dates."
+    "minus": "Colors aren't cosmetics — they're how people layer their lives: students tag subjects, parents tag kids, professionals tag projects. When the palette caps at roughly seven shades, the system collapses: different categories share a color and the whole point of visual navigation is lost. The most engaged users — the retention core — are the first to hit this wall."
+   },
+   {
+    "title": "Changing the start time silently drags the end time — the product overwrites a decision the user already made",
+    "plus": null,
+    "minus": "When a user has manually set an end time and then edits the start, the app unilaterally shifts the end too, erasing deliberate input. This breaks a foundational trust principle for a planning tool: software should preserve what a person explicitly set, not \"outsmart\" them. The result — meetings land on the wrong duration, and the user stops trusting their own calendar."
+   },
+   {
+    "title": "The widget is the no-open entry point, and its constant rework is exactly what dislodges power users",
+    "plus": null,
+    "minus": "For a large share of users the widget is the primary interface: they read the day or week straight from the home screen without launching the app. When updates strip flexible sizes, the horizontal week format, or just leave a blank panel, the daily planning ritual breaks. It stings most for iOS switchers used to configurable widgets — their first impression turns sour instantly."
+   },
+   {
+    "title": "The mandatory Google account cuts out an entire segment — people who just want a calendar",
+    "plus": null,
+    "minus": "A slice of users wants a basic calendar with no account tie — for privacy, or simply to pull event details from third-party apps (like work scheduling tools). The hard Google-account requirement pushes that segment out entirely, even though the app often ships preinstalled. The product turns a neutral utility into a mandatory gateway into the ecosystem — and loses everyone who doesn't want the gateway."
+   },
+   {
+    "title": "Injected holidays and graphic banners clutter the grid, and there's no way to switch them off",
+    "plus": null,
+    "minus": "The app injects holidays (often irrelevant to the user's country) and, on trigger words in event titles (\"lunch,\" \"birthday,\" \"travel\"), inserts graphic banners — and in both cases there's no setting to turn it off. A calendar is personal planning space; when the product fills it unbidden with content you can't remove, the user loses any sense of control over their own grid."
+   },
+   {
+    "title": "The month grid shows neighboring months' dates — a simplification that breaks focus on the current month",
+    "plus": null,
+    "minus": "In month view, dates from the previous and next months bleed into the empty grid cells without clear visual separation, so people struggle to tell at a glance which dates belong to the current month. The calendar's basic job — instant temporal orientation — trips over its own layout. It's worsened by the month name not being pinned at the top, so scrolling ahead it's easy to lose track of where you are."
+   },
+   {
+    "title": "Forced icon and UI redesigns alienate the most loyal — the ones who'd configured everything just so",
+    "plus": null,
+    "minus": "Long-term users build a stable visual system on their phone: placement, color, a recognizable icon. When an update swaps the blue icon (an oddball in Google's rainbow set) or the layout without asking, they spend minutes hunting for \"where did the app go\" and redo their home screen. The paradox: the product attacks the habit of exactly the users whose habit is its retention."
+   },
+   {
+    "title": "Strong demand for alternative calendars (Hijri, Shamsi, Afghan) — an untapped retention segment",
+    "plus": null,
+    "minus": "A visible, geographically spread group of users asks for a secondary calendar system alongside the Gregorian one — Islamic, Iranian Shamsi, Afghan. For them the app is incomplete without it: they're forced to keep separate apps for religious and national dates. Worse, the existing alternative-calendar support shows wrong dates — so the segment isn't just unserved, it's served incorrectly."
+   },
+   {
+    "title": "Rigid reminder lead-time (10-minute minimum) doesn't match how people actually plan",
+    "plus": null,
+    "minus": "The reminder is the moment a calendar exists for: nudging the user at the right time. But for some, 10 minutes is too much (they need 0-3 to leave right now); others want flexible intervals like \"every 5 hours\" or a birthday reminder on the day itself, not days ahead. When the product imposes its own rhythm, some events fire at the wrong time and trust in the alerts erodes."
+   },
+   {
+    "title": "Auto date-parsing in notes hijacks the user to a random date when they type sizes and fractions",
+    "plus": null,
+    "minus": "Some people use the day cell as a notepad — jotting a note for today. But the auto-parser sees \"3/4\" (three-quarter inch) in the text and helpfully throws the entry onto March 4th, even when the fraction sits mid-description. A smart feature meant to save time instead breaks input and files data in the wrong place — a classic case of \"magic\" hurting predictability."
+   },
+   {
+    "title": "The Tasks-vs-Events split fractures planning into two disconnected streams",
+    "plus": null,
+    "minus": "People think of a day as one list of things to do, but the product splits items by type — events, tasks, birthdays — and treats them differently. After a recent update, uncompleted reminders stopped living as their own list and got mixed in with appointments, stuck to the original day; users have to hunt them down by hand. When the tool won't let you collect everything into one view, you lose the one thing that matters — the whole picture of your day."
+   },
+   {
+    "title": "For people coordinating life for several others, event-sharing is the indispensable workhorse",
+    "plus": "The product's most valuable advocates are the \"dispatchers\" of other people's schedules: parents juggling kids' and doctors' appointments, caregivers handling affairs for six people. For them, creating an event and emailing it to everyone isn't a feature — it's the backbone of daily work; they literally call the app \"the cornerstone of my organization.\" This segment gives the warmest reviews and retains hardest.",
+    "minus": null
    }
   ],
   "hygiene": []
@@ -3322,64 +3362,74 @@
  "g-gtasks": {
   "product": [
    {
-    "title": "Reminders silently fail — the app's one job goes undone",
+    "title": "Recurring tasks hide until their due date — so the app stops being a planning tool",
     "plus": null,
-    "minus": "The loudest, angriest complaint by far: notifications simply don't fire. People miss tasks and events, open the app manually to force a reminder out of it, and switch to other task apps — because firing a reminder on time is this app's entire job."
+    "minus": "Recurring items don't appear in the list until they come due, so a user literally cannot see what's coming over the next week. For anyone running life on a schedule (bills, maintenance, routines) the list stops being a map of the future and becomes a pile of today-only reminders — and they leave for competitors just to get a forward view."
    },
    {
-    "title": "Seamless deep integration with Calendar and Gmail",
-    "plus": "The fans' favourite trait: tasks auto-appear in Google Calendar, pull from Gmail, and show up on Google Home. You can drag tasks onto the calendar on desktop, set deadlines, and keep everything in one place — Google's real trump card.",
+    "title": "Notifications are quiet and swipe-away — the app fails its one job: making sure you don't forget",
+    "plus": null,
+    "minus": "A reminder shows up as an ordinary gentle notification, drowns in the stream of other Android alerts, and is easily swiped away before the task is done. For a to-do app this is fatal: people build trust on being nudged on time, and once the nudge misses they stop relying on it and switch to apps where the reminder is more insistent (Samsung Reminder, Microsoft To Do)."
+   },
+   {
+    "title": "The total absence of search breaks the app exactly when the list gets long",
+    "plus": null,
+    "minus": "There is no search at all — not across tasks, not across subtasks. While you have few items it's invisible, but it's precisely the heavy users whose lists balloon, making a given entry impossible to find. So the app punishes its most loyal audience: the more you use it, the worse it works."
+   },
+   {
+    "title": "The Gmail + Calendar tie-in is the real moat: the app wins whoever already lives in Google",
+    "plus": "The main reason to stay isn't features, it's the place in the ecosystem: a task born from an email, a deadline in Calendar, a drag-and-drop check-off on desktop. For someone whose day already runs through Gmail and Calendar this is zero friction and a single view — something standalone to-do apps can't match no matter how feature-rich they are.",
     "minus": null
    },
    {
-    "title": "No search — the app collapses once your list grows",
-    "plus": null,
-    "minus": "Dozens of users are stunned there's no search bar. Once you've piled up tasks, finding one is nearly impossible; people have begged for years for a basic feature that even the desktop version of Tasks already has."
-   },
-   {
-    "title": "Recurring tasks are buggy and hidden until they're due",
-    "plus": null,
-    "minus": "Recurring tasks only appear in the list on the day they're due, so you can't plan ahead. Completing one fails to create the next instance or jumps it to next year instead of next month, and rescheduling one instance breaks the whole chain."
-   },
-   {
-    "title": "A minimalism that genuinely helps you focus",
-    "plus": "A huge camp loves the app precisely for its clean simplicity: add a task fast, check it off, no clutter and (on this account) no ads. Many — especially people with ADHD and students — call it indispensable for staying focused.",
+    "title": "Voice capture through Gemini turns it into a to-do app you barely have to open",
+    "plus": "The strongest new hook is adding tasks by voice through Gemini with one button: capture is now faster than the app itself. This especially grabs people with ADHD and those on the move (driving, walking): the thought gets logged the instant it appears, before it can slip away. It's capture speed, not management, that holds this segment.",
     "minus": null
    },
    {
-    "title": "The new icon enraged users — it looks like the clock app",
+    "title": "Force-routing Keep reminders through here enrages the people for whom Keep worked for years",
     "plus": null,
-    "minus": "The logo redesign triggered a wave of fury: the new round check-mark icon gets confused with the Clock app, Messenger and Bixby. People call it \"ugly\", \"headache-inducing\", and sarcastically \"thank\" Google for a pointless update instead of real features."
+    "minus": "Google rerouted Keep reminders into Tasks, and users suddenly landed in a poorer app: photo reminders gone, location pinning gone, the familiar single-place flow gone. Migrating breaks an established habit without consent — the most painful kind of change — and it pushes a long-loyal base to look for an exit rather than welcome the 'unified' app."
    },
    {
-    "title": "The widget got broken: won't refresh, no transparency, no colour control",
+    "title": "Losing location reminders evicts an entire 'remind me when I leave' use case",
     "plus": null,
-    "minus": "After an update the widget regressed: it won't refresh until you open the app, lost transparency and its custom black colour, stopped showing subtasks, and truncates the list behind a \"show all\" button. Former widget lovers now call it useless."
+    "minus": "Tying tasks to a place was removed — and that was a distinct, irreplaceable behavioral use case: the reminder fires not by time but by leaving home or arriving at a store. For these users the feature was the core, and competitors (Samsung) retain them on exactly that. By deleting it, Google voluntarily handed away a segment that won't come back on its own."
    },
    {
-    "title": "Too bare-bones: no priorities, colours, history or smart date input",
+    "title": "No way to share a list shuts the app out of families and teams",
     "plus": null,
-    "minus": "For many, the simplicity tips into feature poverty: no priorities, no colour categories, no completion history, no natural-language dates, no advanced sorting — all things Todoist and Microsoft To Do have had for years. Some call it \"barely an app\" stuck in maintenance mode."
+    "minus": "Lists can't be shared with a partner, roommate, or colleague — the collaborative use case (shared shopping, household chores, a work team) simply doesn't exist. This cuts out a huge class of tasks that are collaborative by nature, and every such user is forced to keep a second app alongside. The decision makes Tasks a strictly single-player tool by design."
    },
    {
-    "title": "No list sharing — useless for teams and families",
-    "plus": null,
-    "minus": "The lack of shared lists is a recurring pain: people want to split tasks with a partner, family, coworkers or assign them to their kids, and simply can't. For collaboration the app is a non-starter."
-   },
-   {
-    "title": "The Gemini pairing turns voice task-adding into a superpower",
-    "plus": "A growing camp loves the Gemini pairing: you can dictate a task with a deadline by voice with one button press, and never open the app itself. For ADHD folks and busy people it's a \"game changer\" that keeps them organised.",
+    "title": "Radical simplicity is the product: it wins the people scared off by Todoist's complexity",
+    "plus": "Minimalism isn't a gap, it's positioning. Open, jot, check off — no onboarding, projects, or settings. This wins students, busy parents, and everyone who tried 'powerful' planners and quit: they want a list that starts instantly, not a second job maintaining it. It's this audience that gives five stars for the app being 'just what you need and no more'.",
     "minus": null
    },
    {
-    "title": "Forced merger with Keep angered long-time users",
+    "title": "No completion history strips the app of any habit-tracking function",
     "plus": null,
-    "minus": "Google rerouted Keep reminders through Tasks and many are furious: picture reminders and location-based tasks vanished, the transfer is clunky, and Keep notifications now arrive late. People are begging to split the apps apart again."
+    "minus": "There's no completed-task log: you can't check whether you did yesterday's recurring chore, and you can't see progress. For a user running routines (water, cleaning, meds) this turns the to-do list into pure amnesia — it reminds but never confirms. The segment that cares about discipline and accountability can't build a habit on it."
    },
    {
-    "title": "Notifications are too easy to dismiss — no persistent alerts or alarm",
+    "title": "No multi-select — bulk-rescheduling tasks becomes a manual ordeal",
     "plus": null,
-    "minus": "Even when a notification does arrive, it gets lost in the Android stream and is easily swiped away without staying pinned until the task is done. People want a loud alarm, full-screen alerts with snooze, and high-priority notifications like Samsung Reminder and Microsoft To Do offer."
+    "minus": "There's no multi-select: to move a dozen tasks to another day you must open and edit each one individually. This hits the people who actually plan a week and reshuffle it when the plan slips — i.e. the most engaged ones. A basic operation of any planner is missing, and the power user hits the ceiling exactly when they start taking the work seriously."
+   },
+   {
+    "title": "The widget degraded and only refreshes when you open the app — defeating the point of a widget",
+    "plus": null,
+    "minus": "A widget update made it passive: it doesn't reflect added or checked-off items until you open the app itself, shows only some entries, and lost its subtask indicator. A widget exists precisely for a glance without opening — and now you have to open it. It's a quiet but destructive regression: it breaks the daily micro-ritual the habit rests on."
+   },
+   {
+    "title": "Overlap with Calendar raises an existential question: why is this a separate app at all",
+    "plus": null,
+    "minus": "Users notice that Google Calendar does the same thing and can't see why they'd keep a separate to-do app. This isn't a functional bug but a positioning problem: the product doesn't articulate its distinct value, and part of the audience treats it as a redundant icon. When an app can't answer 'why do I exist', it's easy to delete at the first home-screen cleanup."
+   },
+   {
+    "title": "The perceived 'maintenance mode' erodes trust in the product's future",
+    "plus": null,
+    "minus": "Part of the audience openly views the app as abandoned by Google: basic things haven't shipped for years, and the only visible update is a new icon. This creates a behavioral risk: a user won't invest in a tool they don't believe will last, and keeps a backup to-do app on standby in advance. The reputation of neglect deters people even before any actual missing feature."
    }
   ],
   "hygiene": []
@@ -4397,69 +4447,79 @@
  "g-mstodo": {
   "product": [
    {
-    "title": "The home-screen widget flickers and reloads endlessly",
-    "plus": null,
-    "minus": "The widget — the main reason people install the app — has been continuously flickering, stuck on \"loading\" or \"all done,\" and ignoring taps for months for huge numbers of users. The only fix is deleting and re-adding the widget or restarting the phone, and even then only for a few hours. Reinstalling, clearing cache, switching launchers — nothing fixes it for long."
-   },
-   {
-    "title": "In long notes the keyboard covers the text and you can't scroll to it",
-    "plus": null,
-    "minus": "Once a task note grows past a certain length you can neither see nor edit the bottom: the on-screen keyboard covers the text and scrolling down stops working. Reviewers say the bug is literally years old (one counts from 2016), returned after an update, and turns note-editing into a guessing game."
-   },
-   {
-    "title": "Every launch it nags you to turn on notifications and won't take no for an answer",
-    "plus": null,
-    "minus": "Anyone who deliberately turned reminders off gets a \"Reminder settings turned off\" pop-up or an enable-notifications prompt on every single launch. There's no \"never\" option, so you dismiss the same dialog over and over — reviewers furiously write \"No means No, Microsoft.\""
-   },
-   {
-    "title": "Simple, clean, ad-free — and that's exactly why people love it",
-    "plus": "The core value is zero clutter and zero ads: nested lists, steps within tasks, \"My Day,\" and sharing lists with family. People keep everything here for years — from grocery lists to career goals — and call it the best to-do app they've tried.",
+    "title": "The home-screen widget is the product, not the app",
+    "plus": "For a huge share of users the value isn't the program itself but the widget: they tick and add tasks straight from the home screen without ever opening the app. This glance-and-check-on-the-go behavior is what sustains the daily habit — a task lands in the list in a second, before the thought slips away.",
     "minus": null
    },
    {
-    "title": "Free sync across phone, PC and Mac is the main hook",
-    "plus": "Tasks appear instantly on every device, fit neatly into the Microsoft 365 and Windows ecosystem — and it's all free. For many that's the deciding factor: jot it on the laptop at work, see it on your phone.",
+    "title": "Account binding makes your personal list your employer's property",
+    "plus": null,
+    "minus": "The most trust-destroying scenario: the list is set up on a work or school Microsoft account — and when you leave the company the account is shut down, and years of personal lists (shopping, travel, books) vanish for good. The product quietly makes the user a hostage of their employer, and the data loss hits exactly the most loyal users who kept lists for a decade."
+   },
+   {
+    "title": "Instant phone-to-PC sync is the hook that keeps people for years",
+    "plus": "Seamless sync between phone and computer is what keeps people for years: jot a task on the PC during work, see it later on Android, and vice versa. For those living in Windows and Office it closes the loop as a one-stop tool — one list available everywhere, and it's that, not features, that retains the user.",
     "minus": null
    },
    {
-    "title": "Forces you to re-login every few days, even corporate users",
+    "title": "\"My Day\" starts empty every morning — you re-add tasks by hand",
     "plus": null,
-    "minus": "The app demands a login almost daily, while other Microsoft apps (Outlook) keep the session for 5 days under the same policy. For To Do this has gone unfixed for years, annoying people enough to leave for Google."
+    "minus": "A deliberate product decision: \"My Day\" wipes itself every morning and doesn't pull in overdue or recurring tasks. On paper it's \"mindful daily planning\"; in practice it's manual labor — people re-add their routines every day, and yesterday's missed tasks must be hunted down in \"Planned.\" A mechanic meant to focus you becomes a daily re-setup."
    },
    {
-    "title": "A painful Microsoft-account sign-in — too many hoops for a simple list",
-    "plus": null,
-    "minus": "Just to start a to-do list you're forced through multi-step verification — password, last digits of phone, a puzzle captcha, a code, a backup email, then verifying that. People give up at step 6 or 7. And tying it to a work/school account means losing your data when you leave the company."
+    "title": "Ad-free simplicity is what wins love, not features",
+    "plus": "The app wins not through feature richness but the opposite: a clean, ad-free, clutter-free interface and an instant learning curve. People name the absence of ads as the reason they love it and contrast it with bloated rivals. This is the segment that wants \"just a list\" — and the product hooks them precisely with its austerity.",
+    "minus": null
    },
    {
-    "title": "The Wunderlist shadow: Microsoft is seen as having ruined what worked perfectly",
-    "plus": null,
-    "minus": "Long-time users remember Wunderlist and say in unison that after the Microsoft acquisition the app became less intuitive, buggier, and lost its charm. \"If it ain't broke don't fix it\" is a recurring refrain; for them it's a symbol of a good product being enshittified."
+    "title": "Nested lists and sub-tasks defuse the feeling of overload",
+    "plus": "A key behavioral benefit: keeping a \"list inside a list\" and breaking tasks into steps removes the feeling of having too much to do. It especially resonates with people who struggle to organize — such as those with ADHD, who flatly call the app a lifesaver. The hierarchy turns chaos into manageable chunks.",
+    "minus": null
    },
    {
-    "title": "No way to bulk-delete completed tasks",
-    "plus": null,
-    "minus": "Completed tasks pile up forever and you have to clear them one by one — there's no \"delete all completed\" or \"uncheck all.\" For recurring lists (groceries, packing, checklists) it's tedious; people openly envy Google Tasks' \"Delete completed\" button."
+    "title": "Shared lists turn a personal organizer into a family and team tool",
+    "plus": "List sharing extends the product beyond the individual: families run shared shopping lists, teams split the workload, and this becomes its own reason to stay. From \"my to-do list\" the app grows into a shared coordination surface — and a shared list is harder to abandon because others depend on it.",
+    "minus": null
    },
    {
-    "title": "Recurring tasks and reminders get garbled — DST, time zones, snooze",
+    "title": "Categories exist on web but are cut from the app — the versions don't match",
     "plus": null,
-    "minus": "The reminder logic is unreliable: at DST changes the recurrence shifts by a day or hour, while travelling reminders stay in the old time zone, and dismissing one notification of a recurring task kills the next. Snooze glitches too. For an app whose whole point is reminders, that's critical."
+    "minus": "Different capabilities on web, desktop and phone break a single workflow: grouping by category (e.g. by school class) exists in the browser but is unavailable on Android — and it used to be there and was removed. The user configures a system in one place and loses it in another, and it's the unpredictability, not the missing feature, that destroys trust in the product as one tool."
    },
    {
-    "title": "Bottom-edge buttons land under the system nav and become useless",
+    "title": "No bulk \"delete completed\" — the list becomes a junkyard",
     "plus": null,
-    "minus": "The \"More\"/save/delete-list buttons sit right at the bottom edge and get covered by the gesture bar or the phone's Google button — you can't reach them. Worse, the delete-list button in the corner is easily brushed by your palm."
+    "minus": "Completed tasks pile up forever, and there's no way to bulk-delete or bulk-uncheck. For reusable lists (shopping, packing, checklists) this is fatal: every cycle you manually clear or re-uncheck items one by one. Rivals like Google Tasks solve it with a single button — and users name this as their reason to leave."
    },
    {
-    "title": "Won't merge tasks from multiple Microsoft accounts or show them in the calendar",
+    "title": "An accidental swipe destroys a task with no undo and no history",
     "plus": null,
-    "minus": "Anyone with work and personal life in separate MS accounts is forced to keep switching — the app won't show everything together. On top of that, tasks don't surface in the calendar and there's no Outlook integration on Android, pushing people toward the Google or Apple ecosystem."
+    "minus": "The swipe gesture and the handy \"done\" button right on the widget turn against the user: a shaky hand or a thumb misfire instantly marks and deletes a task with no confirmation, no trash, no history. People lose tasks without even knowing what they had \"to do.\" The input speed the widget exists for becomes data fragility — it needs a trash bin and a way to disable swipe."
    },
    {
-    "title": "Far too easy to accidentally complete a task — and it vanishes with no history",
+    "title": "Recurring tasks break on daylight saving and ignore the deadline",
     "plus": null,
-    "minus": "A swipe or a stray tap on the widget instantly marks a task done and it disappears — you can't disable the swipe, there's no history and no trash for accidental deletions. It hits hardest for people whose hands shake or who tap with a thumb."
+    "minus": "The product's core — recurring reminders — behaves unreliably: on a daylight-saving change the task shifts a day forward or back, and \"repeat on weekdays\" silently erases the due date instead of treating it as the end deadline. For a tool people rely on as their memory, unpredictable recurrence undermines the very reason to trust it."
+   },
+   {
+    "title": "No calendar view and no link between tasks and the schedule",
+    "plus": null,
+    "minus": "The product deliberately stays a flat list: no calendar view, no export of tasks to Outlook or Google Calendar, no time-boxing. For users who think in time rather than lines, that's a ceiling — they want to drag a task into a calendar slot and see the day's load, and they leave for Google, where tasks appear in the calendar on their own. The missing task-to-time bridge cuts off an entire segment of planners."
+   },
+   {
+    "title": "No search across lists — long lists become impassable",
+    "plus": null,
+    "minus": "The heaviest users have dozens of lists and hundreds of tasks, and they're exactly the ones who hit the lack of search: there's no way to find a specific item in a long list. The paradox is that the longer someone uses the app and the more they invest in it, the harder this gap hits them — the product punishes its most loyal audience."
+   },
+   {
+    "title": "Rich task notes turn the to-do list into a personal knowledge base",
+    "plus": "An unexpected strength: the notes-and-links field inside a task makes people use the app far beyond to-dos — storing appliance filter numbers, recipes, bill dates, gift ideas, brainstorming links. The extra detail on a task turns a simple list into a long-term reference system, and that retains harder than any \"to do.\"",
+    "minus": null
+   },
+   {
+    "title": "There's nowhere in the app to report a problem — feedback loops in circles",
+    "plus": null,
+    "minus": "Users describe the same breakages for years and see that no one reads them: there's no in-app feedback channel, submission \"goes in circles,\" emails bounce. This breeds the feeling of an abandoned product and nudges people to leave — it's not the breakage itself but the developer's silence that kills the loyalty of those who were willing to stay and wait for a fix."
    }
   ],
   "hygiene": []
@@ -5332,64 +5392,64 @@
  "g-sectograph": {
   "product": [
    {
-    "title": "The circular clock face, not a linear list, is the whole point",
-    "plus": "The core thing users love: the day rendered as sectors on a clock face, so you instantly grasp how much time is left until the next thing and how full the day is. For many it clicks far better than the usual vertical calendars.",
+    "title": "The circular clock face isn't decoration — it's a prosthetic for people who can't feel time",
+    "plus": "A linear to-do list never shows HOW MUCH time is left — the circle shows it physically: the wedge visibly shrinks as the moment approaches. For people with ADHD and time-blindness this changes behavior: they finally see the day as space, not a column, and it keeps them on task. This is the product's core — the thing for which everything else is forgiven.",
     "minus": null
    },
    {
-    "title": "A lifeline for ADHD and time blindness",
-    "plus": "A huge share of the rave reviews come from neurodivergent users: the visual clock literally helps them \"see\" time and stay on schedule where ordinary planners failed them.",
+    "title": "The home screen is the real product; the app exists only to configure the widget",
+    "plus": "People don't buy «another planner app» — they buy the glance: the widget takes half the screen and the schedule reads in one eye-flick without opening anything. That's why it lives on the home screen for years like furniture — the value is precisely that you never have to open it.",
     "minus": null
    },
    {
-    "title": "The home-screen widget is what people install it for",
-    "plus": "Users keep the sectograph widget on their home screen as their main planner: one glance shows what's coming. For many the widget, not the app itself, is the product.",
+    "title": "It's a viewer of someone else's calendar, not a calendar — both its strength and its ceiling",
+    "plus": null,
+    "minus": "Sectograph stores nothing of its own — it merely renders your Google/Outlook calendar. Users keep hitting this wall: they want to enter events manually, inside the app, untethered from an external calendar, and discover the product is empty without one connected. Dependence on someone else's infrastructure makes it a hostage: leave Google and the app becomes useless."
+   },
+   {
+    "title": "The wrist face is the reason to buy; lose one watch model and the entire reason to pay evaporates",
+    "plus": null,
+    "minus": "The main reason to upgrade is seeing the schedule on the watch face without reaching for the phone. When the face stops living on a newer model, what breaks isn't «a feature» but the only scenario the user paid for — they already have the phone. Strategically, the product pinned its value to the most volatile part of the stack: wearable OSes it doesn't control."
+   },
+   {
+    "title": "No tasks — the single most-requested feature; the product shows time, but not to-dos",
+    "plus": null,
+    "minus": "Dozens of loyal users ask for the same thing: task integration (Google Tasks, TickTick, CalDAV). Sectograph renders time-anchored events, but has nowhere to put time-less to-dos — a direct consequence of its «calendar viewer» model. Several would pay for Pro specifically to get tasks, so this isn't a whim — it's an unrealized wallet."
+   },
+   {
+    "title": "The free version is so complete that people buy Pro out of gratitude, not need",
+    "plus": "The key move: the core function — the circular-schedule widget — sits outside the paywall. This kills the «I'm being milked» anxiety and produces a rare pattern: users explicitly say the free version works perfectly, yet they bought Pro to support the developer. Trust built by a generous free tier converts into voluntary payment.",
     "minus": null
    },
    {
-    "title": "Watch sync keeps breaking — and the watch is why people bought Pro",
+    "title": "The learning curve scares people at the door, but survivors become fans for years",
     "plus": null,
-    "minus": "The most painful complaint: events vanish from the watch face and sync drops out — and Pro was bought precisely to see the schedule on the wrist. When it fails, the purchase feels wasted."
+    "minus": "The clock face with three or four numbers per sector confuses people at the start: some brains (ironically the very ADHD ones) see «chaos» and uninstall. The paradigm demands a mental shift, and without strong onboarding the product loses its ideal user on the first screen — the people who'd ultimately need it most."
    },
    {
-    "title": "WearOS updates break compatibility with Samsung/Pixel/Galaxy watches",
+    "title": "Pro tied to one device/account turns switching phones into losing the purchase",
     "plus": null,
-    "minus": "Time and again newer watch models drop out of support: \"device isn't compatible\", the face won't install. For users who chose it specifically for the watch, that turns the app useless."
+    "minus": "Here the paywall isn't greed — it's an architectural failure: purchased Pro won't carry to a second device, a new phone, or a switched Google account, and there's no clear «restore purchase». The most loyal users — those who paid years ago — suddenly face the paywall again and feel cheated. Loyalty snaps precisely at the device-upgrade moment, when the user is most invested."
    },
    {
-    "title": "The Pro purchase doesn't carry across devices or accounts",
+    "title": "Color is the day's coding system, so breaking it kills the whole point",
     "plus": null,
-    "minus": "A recurring pain: paid Pro reverts, isn't recognized on a second device, there's no restore button and no way to migrate the purchase to a new phone or account — users are forced to pay again."
+    "minus": "Users color-code their day — not cosmetics, but the way they read the circle at a glance. When only part of the palette is available or changing color is buried, the very read-at-a-glance mechanic breaks. It hits colorblind users hardest: without distinguishable colors the circle is unreadable for them, and the product simply cuts that segment off."
    },
    {
-    "title": "Hard dependency on Google Calendar — no Proton, flaky Outlook",
+    "title": "The circle's weak spot: absolute time reads worse than relative time",
     "plus": null,
-    "minus": "The app stores almost nothing itself — it just draws someone else's calendar. Anyone who left Google (for Proton) or lives on Outlook/Exchange hits a wall: events don't pull in and the app becomes useless."
+    "minus": "The circle answers «how much is left» brilliantly but «what time is it now» poorly: arcs cover the minute ticks, there are no clear time markings, and the past portion vanishes. In precision scenarios (e.g. timing a presentation in one-hour mode), the paradigm's strength becomes its weakness — a structural limit of the visualization, not a bug."
    },
    {
-    "title": "The free tier is generous — Pro feels optional",
-    "plus": "A real draw: the essentials aren't paywalled — the free version works fully, the widget is available, and people buy Pro more to support the devs than out of need.",
+    "title": "The analog metaphor wins watch-lovers — and loses everyone else",
+    "plus": "For people who think in analog clock hands, putting plans on a clock face «just makes sense» — not a feature but recognition of a native format. The segment that spent years drawing schedules on a paper circle finds exactly what it waited for and turns evangelist. Sharp segmentation: not for everyone, but it owns its segment completely.",
     "minus": null
    },
    {
-    "title": "Constant ask: show tasks (Google Tasks, TickTick, CalDAV), not just events",
+    "title": "The narrow reminder window (max ~2 days) confines it to a «today» planner",
     "plus": null,
-    "minus": "The top feature request from fans: the app only draws calendar events, with no task integration. People would pay for Pro to get Google Tasks/CalDAV, but for now they keep a separate to-do list."
-   },
-   {
-    "title": "Widget glitches: clock freezes, resizes itself",
-    "plus": null,
-    "minus": "The very widget people install it for has its own ailments: the clock freezes and won't advance until you open the app, and the widget resizes itself due to a bug."
-   },
-   {
-    "title": "Steep learning curve; the dial can overwhelm at first",
-    "plus": null,
-    "minus": "Some users stumble at the start: the dial feels chaotic and hard to parse, a single sector crams in too many numbers, and labels collide. Many get the hang of it, but the barrier to entry is real."
-   },
-   {
-    "title": "Paywalled color hurts colorblind users; no desktop/web version",
-    "plus": null,
-    "minus": "Two structural limits: changing colors sits behind Pro, which locks colorblind users out entirely, and there's no desktop/web version — your schedule is trapped on phone and watch."
+    "minus": "Reminders can't be set beyond a couple of days — yet users want a week, two weeks, a month out. This pins the product to the short-horizon «what's now and today» niche and stops it becoming the place you trust with deadlines. The window's edge directly determines how deep into the user's life the product can root."
    }
   ],
   "hygiene": []
@@ -5632,69 +5692,84 @@
  "g-ticktick": {
   "product": [
    {
-    "title": "The best \"second brain\" for people who forget everything",
-    "plus": "Long-term users run their whole life on it for years — tasks, habits and reminders in one place; for many it's literally a memory replacement.",
+    "title": "Merging tasks, habits and calendar into one view is the core retention mechanism",
+    "plus": "People stay for years not for any single feature but because tasks, habits and appointments live in one day in the right order — turning the app into a daily route, not a list. This is exactly why they call it a 'second brain'.",
     "minus": null
    },
    {
-    "title": "Downloads as \"free\" but basic features sit behind a paywall",
-    "plus": null,
-    "minus": "Event duration, the full month view, more than 10 lists, sharing and even a simple reminder all hit the subscription wall — users feel cheated and uninstall."
-   },
-   {
-    "title": "The free tier is enough for everyday work",
-    "plus": "Despite the paywall complaints, many run the free version for years and get reminders, lists, tags and widgets with no ads.",
+    "title": "The app became the go-to tool for the ADHD brain",
+    "plus": "An entire ADHD segment describes TickTick as fixing executive function: it holds the chaos of school, habits and projects in one place without the pressure of streaks. It's an organically found niche competitors don't own as clearly.",
     "minus": null
    },
    {
-    "title": "A lifesaver for the ADHD brain",
-    "plus": "People with ADHD specifically call out that it helps their executive function and keeps the chaos of tasks in one clear view.",
+    "title": "Unreliable background sync breaks trust even for paying users",
+    "plus": null,
+    "minus": "Tasks a user sorted into sections jump back to 'Not Sectioned', and edits take hours to reach other devices — even on a paid plan. For a 'second brain' this is fatal: if the data can't be trusted, people stop putting their life in it."
+   },
+   {
+    "title": "Reminders only work if the app stays open — a failure of the core job",
+    "plus": null,
+    "minus": "A reminder app is useless if it needs to stay open: users flatly say it doesn't help unless you sit at a desk. It breaks the very reason people install one — to catch you when you've forgotten."
+   },
+   {
+    "title": "Tick-off-from-widget without opening the app is an underrated habit hook",
+    "plus": "Ticking a task straight from the home-screen widget is what makes people switch from other apps. It removes the friction between 'remembered' and 'checked off', and users name this small thing as the deciding factor.",
     "minus": null
    },
    {
-    "title": "Cross-device sync misbehaves",
+    "title": "Forced account creation kills people at the very first step",
     "plus": null,
-    "minus": "Tasks and habits fail to sync between phone, PC and watch for hours, sections reset to \"not sectioned\" — even on a paid account."
+    "minus": "Being unable to make a simple list without an account scares off a whole class of users who want a quick notepad, not a service. They leave before seeing a single strong feature — a loss at the cheapest point of the funnel."
    },
    {
-    "title": "The home-screen widget gets things done in seconds",
-    "plus": "You can check items off straight from the widget without opening the app — for many that's the decisive convenience.",
+    "title": "Smart date recognition in text speeds entry — but sometimes guesses wrong",
+    "plus": "Parsing dates and times straight from the task text removes the most tedious step and users call it really handy. It lowers entry friction enough that people capture more than in rival apps.",
     "minus": null
    },
    {
-    "title": "Forced to pay before you even see the product",
+    "title": "The schedule is buried in unintuitive views — losing neurodivergent users",
     "plus": null,
-    "minus": "An onboarding of a dozen screens demanding your email and pushing the purchase before letting you try anything reads as predatory, and many uninstall on the spot."
+    "minus": "The irony: the app is loved for being ADHD-friendly, yet some neurodivergent users can't even find their day — red minuses mean 'active', green checks mean 'not', views are scattered. For a brain that needs clarity, this creates anxiety and pushes them out."
    },
    {
-    "title": "Lists, calendar and Pomodoro fused into one app",
-    "plus": "Its core strength is that tasks, calendar events, habits and a Pomodoro timer all live together instead of across five separate apps.",
+    "title": "Forcing recurring tasks into the inbox breaks list hygiene",
+    "plus": null,
+    "minus": "Any recurring task is forced into the inbox where you can't remove it except by deleting, and even a tagged shopping list is painful to build. For users who came for structure, this turns tidying into a chore."
+   },
+   {
+    "title": "The built-in pomodoro turns the planner into a focus tool",
+    "plus": "A pomodoro timer right inside tasks moves the app from 'where to write it' to 'how to do it'. Students and procrastinators cite it specifically as the productivity driver, not just the list.",
     "minus": null
    },
    {
-    "title": "Unusable without an account and constant connection",
-    "plus": null,
-    "minus": "Just to make a to-do list you're forced to create a Google account, and the model expects the app stay open — otherwise reminders don't arrive."
+    "title": "Cross-platform mobile+desktop+web keeps professionals locked in",
+    "plus": "Starting a list on the phone and continuing on desktop without losing context is what keeps professionals for years. It turns the app into a workstation, not a phone gadget, and raises the cost of leaving.",
+    "minus": null
    },
    {
-    "title": "Reminders and alarms fire blind",
+    "title": "Weak smartwatch/WearOS support cuts off the on-the-go scenario",
     "plus": null,
-    "minus": "The alarm rings with no notification and no idea which task it's for, and for some the phone vibrates even after notifications are fully disabled — the app ignores Android permissions."
+    "minus": "On Galaxy Watch functions don't work and users get sent back to the phone; there are no tiles or complications. For an app meant to catch you on the move, this drives users to rivals exactly when they need a quick glance."
    },
    {
-    "title": "False ads for an AI feature that isn't there",
+    "title": "Eisenhower matrix defaults everything to 'not important' — a feature with no effect",
     "plus": null,
-    "minus": "People buy Pro for an advertised AI tool that doesn't exist and feel scammed; others are angry that AI was added where they didn't want it at all."
+    "minus": "The Eisenhower matrix should force prioritization, but it dumps everything into 'not urgent, not important' by default, and the habit tracker is equally passive — it doesn't nudge you to keep the habit. The tools exist but the behavioral push doesn't."
    },
    {
-    "title": "Watch and Wear OS are a stripped second-class experience",
+    "title": "No per-day custom time for habits — breaks real-life schedules",
     "plus": null,
-    "minus": "On Galaxy Watch some functions don't work and bounce you back to the phone, with no tiles or complications — users envy the Apple Watch experience."
+    "minus": "A habit can only have one time across the whole week, but real life is gym Monday at 9, Tuesday at 12. This rigidity pushes out exactly the users who wanted to merge habit gamification with their actual schedule."
    },
    {
-    "title": "Voice task entry simply doesn't work",
+    "title": "To see the week ahead you must assign tasks to days — no planning view",
     "plus": null,
-    "minus": "Creating reminders by voice consistently fails even with the Google app installed."
+    "minus": "The app is a great daily checklist but a poor planning tool: you can't view a week without nailing tasks to specific days, and you can't keep a calendar event without turning it into a task. It traps people in 'today' mode and blocks thinking ahead."
+   },
+   {
+    "title": "An aggressive upfront paywall hits activation before the product proves value",
+    "plus": null,
+    "minus": "Basics — event duration, full-month calendar, more than 10 lists — sit behind the subscription, and the paywall pops on the first clicks, before anyone sees their first organized day. The wall lands before activation, so churn happens before the 'second brain' ever hooks."
    }
   ],
   "hygiene": []
@@ -5832,69 +5907,74 @@
  "g-timetree": {
   "product": [
    {
-    "title": "Auto-playing audio ads blare out in waiting rooms and offices",
-    "plus": null,
-    "minus": "The single most common complaint: open a date and a video ad unmutes itself at full volume, sometimes even in silent mode. People are scared to open the app at the doctor's, at work, in a restaurant; you can mute it, but moving to another date brings the sound straight back."
-   },
-   {
-    "title": "Burying memos deep in menus broke a feature families relied on",
-    "plus": null,
-    "minus": "Memos (shopping lists, to-dos, notes) used to open right from the home screen, but after the update they're buried several taps deep inside a specific calendar. For many users memos were the whole reason they used the app, and now they're leaving for competitors."
-   },
-   {
-    "title": "The calendar-navigation revamp overcomplicated everything",
-    "plus": null,
-    "minus": "After the redesign you must first pick a calendar, then hunt for the right tab; buttons move from page to page, events land in the wrong calendar by accident, and labels get scrambled. Many long-time users beg for the old interface back, or at least an option to keep it."
-   },
-   {
-    "title": "A forever-subscription for \"just a calendar\" reads as greed",
-    "plus": null,
-    "minus": "Paying monthly forever for a calendar feels absurd to people, especially when the subscription can't be bought once and shared with the family — each person needs their own paid account. Many ask for a one-time purchase or a family plan and leave, calling the ad-removal-by-subscription model extortion."
-   },
-   {
-    "title": "Updates cut off support for older devices",
-    "plus": null,
-    "minus": "Users suddenly lose access: the app demands an update, but the Play Store says it's \"no longer compatible with your device.\" People who'd been on TimeTree since 2020 are left with a locked calendar and no way back in."
-   },
-   {
-    "title": "No export or sync — your data is trapped",
-    "plus": null,
-    "minus": "You can't export TimeTree events to Google Calendar or Outlook, and deleting them means going one at a time through a multi-step process. After piling up years of entries, users find themselves locked in: either start a fresh calendar from scratch, or stay forever."
-   },
-   {
-    "title": "Sync failures and vanishing events erode trust",
-    "plus": null,
-    "minus": "After updates people lose saved appointments, events won't save, a partner's additions don't sync, and shopping-list items disappear on their own. For an app where users keep hospital appointments and work schedules, these losses cut especially deep."
-   },
-   {
-    "title": "AI training on user data and a new privacy policy spook users",
-    "plus": null,
-    "minus": "The fresh policy lets the app collect names, notes, locations, photos and behaviour and feed it all into AI services. Some users see this as selling their personal data and leave on principle; bolting AI onto a calendar also strikes them as pointless."
-   },
-   {
-    "title": "Multiple colour-coded calendars in one app — a lifeline for families and couples",
-    "plus": "What users love most: you can keep separate calendars (work, family, personal, business) yet see them all at once, everything colour-coded. Mixed iPhone-and-Android families, couples, divorced parents, small businesses — all praise it as the thing that finally brought order to their lives.",
+    "title": "People don't buy a calendar — they buy one screen showing everyone's schedule at once",
+    "plus": "The real job is collapsing a couple's, family's or team's schedules into one color-coded grid so no one double-books and no one negotiates over chat. It isn't 'another calendar' but a coordination tool between people, which is why households use it daily for years: the value is in seeing others' time, not your own.",
     "minus": null
    },
    {
-    "title": "The free version genuinely does the job — a rare honesty",
-    "plus": "Many use it free for years and stress that everything they need is available without a subscription, storage is plenty, and some even pay \"to support the devs\" rather than out of necessity. For a subset of users the ads really are unobtrusive and stay out of the way.",
-    "minus": null
-   },
-   {
-    "title": "Per-event chat and notes turn the calendar into a comms tool",
-    "plus": "Users value that every event has its own message thread and that you can attach photos, notes, locations and reminders. For collaborating, coordinating shifts and planning hangouts with friends it works as an extension of the group chat.",
-    "minus": null
-   },
-   {
-    "title": "Simple, visual, ADHD-friendly — it lifts the schedule anxiety",
-    "plus": "Many call it a lifeline for organising their lives: intuitive design, clarity, colour-coding. Several note it's the only planner they've managed to stick with consistently, including people with ADHD.",
-    "minus": null
-   },
-   {
-    "title": "Missing flexible recurrence and editing options",
+    "title": "The redesign forced users to pick a calendar before they could even view their own",
     "plus": null,
-    "minus": "Users miss recurrence options like \"every 4 weeks\" or \"the last Saturday of the month,\" bulk-deleting events, and quick time edits without extra taps. For bills, shifts and cyclical tasks the current repeat options simply aren't enough."
+    "minus": "The update removed the default calendar: to reach your usual view or add an event you now have to first select a calendar from a top list. For people juggling several shared calendars it turned an instant action into a click chain and broke the open-and-see habit. The pain lands precisely on power users with many calendars — the product's core."
+   },
+   {
+    "title": "You can't tell which calendar you're writing to — so events reliably land in the wrong one",
+    "plus": null,
+    "minus": "After the redesign it became unclear which calendar is active, and users keep adding events to the wrong one. In a product whose whole point is separating work from private life across people, that isn't cosmetic: the office sees what should have stayed private, and a spouse misses what they needed. Misrouting breaks the core promise of separate shared calendars."
+   },
+   {
+    "title": "Memos and shopping lists are a second product inside the calendar — and they got buried",
+    "plus": null,
+    "minus": "A huge share of families use TimeTree not for events but for shared memos, shopping and to-do lists — for them that's the primary feature, once reachable from the first screen. The update pushed memos deep behind calendar selection, and some users are already moving lists to Google Keep. The lesson: a 'side feature' can be the second retention driver, and burying it for cleaner calendar navigation costs users."
+   },
+   {
+    "title": "No export turns years of history into a trap",
+    "plus": null,
+    "minus": "TimeTree won't let you export events to Google, Outlook or any other calendar, and deletes them only one at a time. The longer you stay, the more data is stranded — years of entries you can't take with you. It retains through hostage-taking, not loyalty: leaving means losing your history, and many stay for that reason rather than satisfaction."
+   },
+   {
+    "title": "The iPhone-to-Android bridge is something native calendars can't offer",
+    "plus": "The key non-obvious win: mixed households where some carry iPhone and others Android have no shared native calendar — and TimeTree fills exactly that gap. That's why couples and multigenerational families pick it: grandparents shuttling kids, spouses on different platforms. It isn't a feature rival to Google Calendar but the only neutral layer sitting over both ecosystems.",
+    "minus": null
+   },
+   {
+    "title": "Every event is a chat thread, quietly turning the app into a coordination messenger",
+    "plus": "Each event carries its own message thread, and groups use it as an extension of their group chat — discussing a specific plan right in the context of its date. This turns the calendar into a lightweight coordination messenger and deepens stickiness: people come not just to check but to talk. Tellingly, removing the general group chat was felt as losing the very reason some installed it.",
+    "minus": null
+   },
+   {
+    "title": "Color-coding and a legible grid make it the calendar for ADHD brains",
+    "plus": "Many specifically note it's the only planner they've stuck with for long, crediting the per-person color-coding and an at-a-glance grid. For users who struggle with organization (they name ADHD outright), visual legibility isn't decoration but a retention feature. The product accidentally owns an 'ADHD-friendly' niche — a strong, underrated segment.",
+    "minus": null
+   },
+   {
+    "title": "Premium is sold per person, but the buyer is a household — the model fights its own use case",
+    "plus": null,
+    "minus": "The product is built around families and groups, yet the paid subscription is purchased individually: to remove ads for everyone in the house, each person must pay separately. That directly contradicts the use case — users are willing to pay but ask for a family plan and a one-time option, and instead get the price multiplied by household size. Monetization is wired as if this were a personal app, while the value is collective."
+   },
+   {
+    "title": "On travel the calendar silently shifts events by timezone — breaking trust where it matters most",
+    "plus": null,
+    "minus": "When the timezone changes the app shifts every event's time with no warning, and users only find out after missing a prepaid booking. A calendar you can't trust while traveling fails at the highest-stakes moment — when flights and reservations hinge on exact times. Fixing it forces people to manually recreate every event, finishing off the 'reliable shared family memory' image."
+   },
+   {
+    "title": "Hidden search devalues years of accumulated entries",
+    "plus": null,
+    "minus": "The search button was moved behind an extra menu, and for long-time users this hurts more than it looks: a shared calendar's value compounds with history, and without fast search years of entries become a dead archive. The more data you've accumulated, the harder the degraded access bites — the product devalues its own main retention asset."
+   },
+   {
+    "title": "Importing external calendars is one-way: easy to pull in, impossible to clean out",
+    "plus": null,
+    "minus": "You can pull events from an external calendar (say, a work one), but you can't switch that source off and remove its events in bulk — only one by one. After leaving a job, a person keeps seeing their ex-employer's meetings in their personal calendar for years. The 'easy to add, painful to remove' asymmetry makes syncing a trap and clutters the very shared screen the app was installed for."
+   },
+   {
+    "title": "Audio-autoplay ads turned the public act of 'opening the calendar' into a social risk",
+    "plus": null,
+    "minus": "Here ads aren't the usual monetization gripe but a strategic misfire striking the product's essence. People open the calendar precisely where they can't make noise — a doctor's office, a meeting, a restaurant — yet video ads auto-unmute on every date you open. The product made its own core gesture publicly embarrassing, and long-loyal users leave not over money but over shame. Monetization attacked the exact moment of use the habit rests on."
+   },
+   {
+    "title": "'Just a calendar they won't stop tinkering with': users read added complexity as a threat",
+    "plus": null,
+    "minus": "The product's strength was simplicity, and the audience states the expectation plainly: it's 'just a calendar,' don't overcomplicate it. Every update adding bars, navigation and options reads not as improvement but as damage to a working tool — hence the mass pleas to 'bring back the old version.' For a habit-driven utility, novelty is risk, not value: a 'more features' roadmap actively repels the core."
    }
   ],
   "hygiene": []
@@ -5972,84 +6052,84 @@
  "g-todoist": {
   "product": [
    {
-    "title": "Natural-language task entry is the standout reason people stay",
-    "plus": "You write or speak a task in plain words and the app parses the date, time and recurrence itself. Users call it a joy and the single thing that makes Todoist great.",
+    "title": "Natural-language entry is the hook that earns forgiveness for everything else",
+    "plus": "You type \"buy milk tomorrow at 9\" and the app parses the date and time itself — killing the friction of calendar dropdowns and making capture faster than thought. Power users name this exact mechanic as why they stay for years and switch from rivals.",
     "minus": null
    },
    {
-    "title": "The $60/year price and the doubled tariff are a reason to leave",
-    "plus": null,
-    "minus": "The sharp price hike (up to 3100 INR in India vs TickTick's 1390) angers even loyal users. People say the app helped with their disability but is now unaffordable, and they switch to free alternatives."
-   },
-   {
-    "title": "Core features (calendar, deadlines, reminders) are locked behind the paywall",
-    "plus": null,
-    "minus": "Calendar view, deadlines, more than one reminder, more than 5 projects and filters are all behind Pro. Users find charging for deadlines in a to-do app absurd and call the free tier a limp trial."
-   },
-   {
-    "title": "Reminders simply don't fire — it breaks the core use case",
-    "plus": null,
-    "minus": "Notifications for individual tasks stop arriving (often after an update), while the morning and evening summaries still come. People miss things because of Todoist and leave after turning off every battery saver."
-   },
-   {
-    "title": "The send button turns into a mic after you switch away",
-    "plus": null,
-    "minus": "After the voice-input update the red send button shares space with the record button: switch away and back and it no longer turns into save, forcing a force-close after every single task."
-   },
-   {
-    "title": "Forced sign-up before you can even try it drives people off",
-    "plus": null,
-    "minus": "You can't even try the app without an account and email. Many delete it on principle, and for others the sign-up just freezes on the welcome screen or fails outright."
-   },
-   {
-    "title": "Login and sign-up are broken: Google fails, every password is 'too weak'",
-    "plus": null,
-    "minus": "Google auth throws exceptions, and on sign-up the password is rejected as too weak even at 25–128 characters with special symbols. People can't get in and uninstall before they start."
-   },
-   {
-    "title": "Engagement spam emails you can't unsubscribe from in one click",
-    "plus": null,
-    "minus": "The app sends daily 'create/check a list' emails and signs you up for newsletters without asking, while unsubscribe works one category at a time or not at all — people block the sender as spam."
-   },
-   {
-    "title": "Completing a recurring task late corrupts the next day's schedule",
-    "plus": null,
-    "minus": "Mark yesterday's daily task done today and the app also completes today's, and shifts the time the user set by hand. Plain daily repeats sometimes just don't show up the next day at all."
-   },
-   {
-    "title": "Tasks vanish and don't save, and sync diverges from the web",
-    "plus": null,
-    "minus": "Entries disappear, duplicate or revert to an old version; collapse a list and 20 tasks are gone. Meanwhile the web shows a completely different state and manual sync does nothing — fatal for a to-do app."
-   },
-   {
-    "title": "Gamification and 'helpful' nudges feel hostile to neurodivergent users",
-    "plus": null,
-    "minus": "Confetti, achievements, 'overdue' labels and '0/5' counters create artificial shame and anxiety. ADHD users call it the opposite of accessible, even as other ADHD users call the same app a lifesaver."
-   },
-   {
-    "title": "Demand for a one-time / lifetime purchase instead of a subscription",
-    "plus": null,
-    "minus": "The very idea that a to-do list is a subscription service strikes people as insane. Many, especially from lower-income countries, explicitly ask for a one-time or lifetime option and refuse to pay recurring."
-   },
-   {
-    "title": "Cross-platform sync and widgets keep people for years",
-    "plus": "For most this is an indispensable daily tool: clean sync across phone, desktop and web, great widgets, watch support and an API. People call it the best to-do app after trying many others.",
+    "title": "Voice capture (Ramble) turns scattered thoughts into a structured list",
+    "plus": "The user rambles a stream of to-dos and the app accurately transcribes and sorts them into dated tasks — pulling \"open loops\" into the system that would otherwise rot in a notes app and be forgotten. For ADHD users and on-the-go capturers it's the deciding feature.",
     "minus": null
    },
    {
-    "title": "The widget breaks after almost every update",
+    "title": "Merging the send button into the record button breaks the core multitasking flow",
     "plus": null,
-    "minus": "The home-screen widget is a favorite feature, yet it stops loading or loses its add-task button on practically every update, forcing users to delete and re-add it."
+    "minus": "After an update the send button shares space with the voice-record button and stops switching back to \"send\" once you minimize the app — forcing a force-close per task. It kills the exact flow the product is loved for: adding items one by one while glancing at other apps. The hook feature itself becomes the churn trigger."
    },
    {
-    "title": "Silent, unresponsive support even for paying subscribers",
+    "title": "Recurring tasks rewrite the next occurrence's time and date, stripping user control",
     "plus": null,
-    "minus": "Support requests (calendar-sync failures, a cancelled subscription with no refund, Pro reverting to basic with money still charged) go unanswered for days, directly hurting users' productivity."
+    "minus": "Complete a daily task late and the app shifts the next occurrence's time to when you closed it — or even auto-completes tomorrow's task early. For someone who deliberately set a fixed medication time, this \"smart\" behavior breaks trust in the schedule: the system overrides what the user intentionally locked in."
    },
    {
-    "title": "A lifesaver for people with ADHD and for students",
-    "plus": "Many ADHD users and students call it life-changing: it helps them see what needs doing, remember the small stuff and lower cognitive load, all with a short learning curve.",
+    "title": "Gamification frames organization through shame — alienating the neurodivergent users it courts",
+    "plus": null,
+    "minus": "Confetti, \"overdue\" labels, \"0/5 tasks\" counters and manufactured urgency build a loop of failure and anxiety. The paradox: the app explicitly courts ADHD users, yet that exact audience calls the gamification \"the opposite of accessible\" — it imposes guilt on the people who need support, not punishment."
+   },
+   {
+    "title": "Cross-platform sync is the loyalty driver, but a silent Android sync break destroys trust",
+    "plus": null,
+    "minus": "Seamless sync across phone, desktop and web is what keeps users in the system for years. So when Android silently desyncs and the web shows a different state, the blow lands on the very foundation of trust: the user works for days unaware the data diverged, then leaves — because a planner you can't trust has no reason to exist."
+   },
+   {
+    "title": "Reminders routinely fail to fire — killing the planner's one essential job",
+    "plus": null,
+    "minus": "Users disable battery savers and reconfigure everything, yet per-task notifications still don't arrive on time — even as the morning \"you have N tasks\" digest fires reliably. The result: people miss more tasks with the app than without it, because reminders are \"stuck\" inside and you'd need another app to remind you to check this one. The core function's failure zeroes out all value."
+   },
+   {
+    "title": "Tasks silently vanish and fail to save — a fatal flaw for a system you trust with memory",
+    "plus": null,
+    "minus": "Collapsing a section by its arrow wipes 20+ tasks at once; written tasks don't save, vanish, or revert to old versions; there's no trash bin for deletions. A planner exists so you can offload memory into the system and stop holding everything in your head — and a system that loses data breaks the one contract it was hired for."
+   },
+   {
+    "title": "Deep hierarchy and customization make the app a \"life OS\" for power users",
+    "plus": "Nested subtasks, projects, filters, templates, an API and webhooks let users build any methodology around themselves — GTD, PARA, team boards. This pulls in disciplined users willing to invest in a system: they call it a tool that could \"run the systems of any CEO,\" and they stay because the app scales with the complexity of their lives.",
     "minus": null
+   },
+   {
+    "title": "That same depth scares off newcomers who just want a list",
+    "plus": null,
+    "minus": "The power that retains advanced users becomes chaos for those who just want a simple list: on first launch no tasks appear on the home screen, undated items \"fall\" into projects and show up nowhere, and false \"you completed everything\" messages appear. The app tries to serve two opposite segments — methodology nerds and people who want a notepad — and the second leaves before figuring it out."
+   },
+   {
+    "title": "Forced sign-up before first use cuts users off at the doorstep",
+    "plus": null,
+    "minus": "The first thing a user sees is a login screen: you can't even try the product without handing over an email and creating an account. Some delete it instantly on principle (\"I don't want to log in just to make a to-do list\"), and deleting the account afterward takes far longer than installing. The activation barrier stands before the product ever proves value once."
+   },
+   {
+    "title": "The widget is a beloved feature that breaks on nearly every update",
+    "plus": null,
+    "minus": "The home-screen widget is something users praise specifically and keep the app visible for. But it systematically breaks with every update: it stops loading, loses its add-task button, or has to be deleted and re-added. Repeatedly breaking the very feature baked into the daily habit slowly erodes trust even among loyalists."
+   },
+   {
+    "title": "Two-way Google Calendar sync is a promise that reliably works only one direction",
+    "plus": null,
+    "minus": "Calendar integration is the stated reason many install, but the sync is often one-way: events flow from the app into Google Calendar yet almost never come back, no matter how often you refresh. Users with two calendars (Outlook + Google) can only connect one. The feature people come for falls short in exactly the scenario where it promises to unify everything in one place."
+   },
+   {
+    "title": "Relentless \"helpful\" emails turn engagement into spam and burn trust",
+    "plus": null,
+    "minus": "Daily \"create/check your list\" emails are meant as a retention mechanic but backfire: unsubscribe works one category at a time or not at all, and people keep getting mail even after uninstalling. The \"retain at any cost\" strategy converts users from indifferent to actively hostile — they block the sender and mark it as spam."
+   },
+   {
+    "title": "Password policy and broken OAuth block account creation — churn before the first screen",
+    "plus": null,
+    "minus": "Google login regularly fails with an exception, and the password validator rejects even 25- and 128-character strings full of special characters as \"too weak.\" Combined with forced sign-up, this means the user physically can't get in and deletes the app before seeing the product. The most expensive churn happens at the stage that needs no feature at all — just a working login form."
+   },
+   {
+    "title": "Locking calendar view and deadlines behind Pro turns the calendar into a bait-and-wall",
+    "plus": null,
+    "minus": "The product's own name promises a calendar, and many install precisely for the calendar view — but it's locked behind the paid plan, as are task deadlines, which users rightly consider a core function of any to-do app. The bait sits on the storefront (the name, the ads), and the key mechanic turns out to be walled off the moment the user arrives to use it — so they leave feeling deceived, not overcharged."
    }
   ],
   "hygiene": []

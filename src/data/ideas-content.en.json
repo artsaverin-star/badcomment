@@ -1,172 +1,4 @@
 {
- "calendars-tasks-1": {
-  "categoryName": "Calendars & Tasks",
-  "gap": "Notifications silently stop firing, arrive late, get swiped away in one motion, and vanish after updates — the entire category stumbles on its single most critical feature",
-  "pitch": "Most planners consider a task 'reminded' the moment a notification appears — and then it disappears into the notification shade. We build the app around one idea: a reminder is delivered only when the user has responded to it. The alert repeats with escalating intensity, can't be swiped away accidentally, survives reboots and updates, and every reminder keeps a delivery log so you can see exactly what failed and why.",
-  "features": [
-   "Signal escalation: silent → loud → alarm until you tap 'done' or 'snooze'",
-   "Delivery log for every reminder: shown, ignored, snoozed, missed by the system",
-   "Background health check — the app tests whether the OS is killing it and tells you what to enable",
-   "Exact time to the minute with a custom sound per task, plus a snooze-by-N button",
-   "Fallback channel: if a notification wasn't delivered, we repeat the alert on your watch or via email"
-  ],
-  "antiFeatures": [
-   "We don't hide time and sound settings behind a paywall",
-   "We don't silence repeat reminders in the name of 'a clean screen'"
-  ],
-  "monetization": "Reminder core free with no limits; subscription for the delivery log with history, fallback channels, and unlimited parallel escalations",
-  "mechanisms": [
-   "Reminders are the weak link across the entire category",
-   "No flexible control over reminder time and sound",
-   "Updates break the app, wipe and lose data"
-  ],
-  "title": "The Reminder That Won't Quit",
-  "oneLiner": "A reminder that keeps nagging until you confirm you've actually done it."
- },
- "calendars-tasks-2": {
-  "categoryName": "Calendars & Tasks",
-  "gap": "Connecting to Google, Outlook, Microsoft 365, and CalDAV is often one-way, corrupts event colors, and the app's own sync drops records or brings them back without their section",
-  "pitch": "Sync in this category is a black box: something went missing, something changed color, and there's no way to tell whose fault it was. We build a calendar-planner where sync is transparent and reversible. Every change passes through a visible queue: you see what was sent to Google, what arrived from Outlook, where a conflict occurred — and you can roll it back. Colors and sections are preserved on our side even when the external service doesn't support them.",
-  "features": [
-   "Sync panel: outgoing and incoming queue, status per record, manual retry",
-   "Human-readable conflict resolution: we show both versions, you choose, nothing is silently overwritten",
-   "Our own color and section mapping layered over external calendars — the remote service can't erase them",
-   "Genuine two-way sync for CalDAV, Google, and Microsoft 365, with explicit labels for anything that's one-way only",
-   "Sync trash: everything 'lost' is held for 30 days and restored in one tap"
-  ],
-  "antiFeatures": [
-   "We don't pass off a one-way bridge as 'full sync'",
-   "We don't lock calendar export behind a paid subscription"
-  ],
-  "monetization": "Basic two-way bridge with one external calendar free; subscription for multiple accounts, the color map, and extended conflict history",
-  "mechanisms": [
-   "Cross-device sync — the reason people stay and the reason they leave",
-   "Two-way sync with third-party calendars is broken",
-   "Weak smartwatch and desktop versions; poor offline support"
-  ],
-  "title": "Honest Sync",
-  "oneLiner": "Two-way sync with outside calendars that never scrambles your colors or drops a task."
- },
- "calendars-tasks-3": {
-  "categoryName": "Calendars & Tasks",
-  "gap": "Shared calendars are valuable for couples and families, but there's one password for everyone — no individual access — and shared list sync is unreliable",
-  "pitch": "Family planners rely on a single password for the whole household: either everything is visible to everyone, or you manage separate apps for personal use. We separate shared and private in one account. Each family member has their own login, their own private space, and their own color in the shared calendar. Shifts, kids' practice, and chores are visible to all; doctor appointments and surprise gifts are visible only to you. Shared list sync runs on the same reliable queue as personal data.",
-  "features": [
-   "Individual login per family profile, no shared password",
-   "Visibility layers: shared with everyone, shared with selected members, private to me only",
-   "Color by person in the shared calendar and shared shopping list",
-   "Reliable shared sync with a log of who changed what and when",
-   "Shift and rotation mode: repeating schedules with substitutions, no duplicates"
-  ],
-  "antiFeatures": [
-   "We don't require one account for the whole family",
-   "We don't show personal events to other members by default"
-  ],
-  "monetization": "Free for up to 2 people; 'Family' subscription for 6 profiles with private layers, per-person colors, and shift scheduling",
-  "mechanisms": [
-   "Shared and family calendars are the core value for couples and families",
-   "Shared shopping lists and notes built into the calendar",
-   "Unauthorized charges, painful cancellations, and fragile accounts"
-  ],
-  "title": "Shared, but Private",
-  "oneLiner": "A family calendar where everyone gets their own login and their own private space."
- },
- "calendars-tasks-4": {
-  "categoryName": "Calendars & Tasks",
-  "gap": "Updates wipe and lose data, recurring tasks spawn duplicates and fall into Inbox, swipe deletes without confirmation, and no app in the category has a trash bin for recovery",
-  "pitch": "Every planner user's quiet fear is losing years of records from a single update or accidental swipe. We build the app around full reversibility. Every deletion, every recurrence change, every data migration during an update is logged and can be rolled back. A trash bin holds deleted items, and a time machine shows the state of your calendar on any past date and restores it. Recurring tasks are edited explicitly: 'this one', 'this and all following', or 'all' — no silent duplicates.",
-  "features": [
-   "Task and event trash with one-tap restore",
-   "Version history: roll back the calendar's state to any past date",
-   "Safe updates: data is migrated to a copy first; if migration fails, we roll back automatically",
-   "Explicit recurrence editing — 'this / this and following / all' — with duplicate protection",
-   "Swipe-to-delete confirmation and undo last action"
-  ],
-  "antiFeatures": [
-   "We don't delete on swipe without an undo option",
-   "We don't keep a single copy of your data without a backup"
-  ],
-  "monetization": "30-day trash bin free; subscription for unlimited version history and cloud backup with restore on a new device",
-  "mechanisms": [
-   "Updates break the app, wipe and lose data",
-   "Recurring tasks are buggy",
-   "Unauthorized charges, painful cancellations, and fragile accounts"
-  ],
-  "title": "Undo for Your Plans",
-  "oneLiner": "A planner where nothing is ever gone for good — not even after an update."
- },
- "calendars-tasks-5": {
-  "categoryName": "Calendars & Tasks",
-  "gap": "Widgets are a top reason to install but they're fragile: flickering, wrong month, no scrolling, no customization, no transparent background",
-  "pitch": "The home-screen widget is the planner's storefront — and it's the first thing to break after an update. We make the widget a first-class product, not an afterthought. It self-heals after system updates, scrolls through months, combines tasks and events on one screen, and is fully customizable: transparency, density, what to show. Under the hood, lightweight data refresh keeps it snappy and current.",
-  "features": [
-   "Unified widget: today's tasks and calendar events on one screen",
-   "Self-recovery after OS updates, no stuck month",
-   "Scroll through months and days directly in the widget",
-   "Full customization: transparent background, density, font size, visible fields",
-   "Multiple widgets for different roles: work, family, shopping"
-  ],
-  "antiFeatures": [
-   "We don't hide transparent background or widget settings behind a paywall",
-   "We don't ship a heavy refresh that makes the widget flicker"
-  ],
-  "monetization": "Basic widget free; subscription for multiple customizable widgets, themes, and role-based widget sets",
-  "mechanisms": [
-   "Home-screen widgets are loved but fragile",
-   "Users want calendar, tasks, habits, and reminders unified",
-   "Paywalling core features pushes users away"
-  ],
-  "title": "The Widget That Stays Put",
-  "oneLiner": "One tasks-and-calendar widget that survives every OS update without breaking."
- },
- "calendars-tasks-6": {
-  "categoryName": "Calendars & Tasks",
-  "gap": "People with ADHD and time blindness benefit from clock-face views, but guilt-driven gamification and pressure messaging drive neurodivergent users away",
-  "pitch": "A standard task list doesn't work for people who can't feel how much time is left until a deadline. We build a planner around visual time: the day is a clock face that shows occupied and free hours and how long until the next task. No points, no streaks, no guilt messages — just a calm picture of the day and gentle, precise reminders. Natural language entry lets you drop in a task in one phrase without fighting a form.",
-  "features": [
-   "Circular day view showing time remaining until the next event",
-   "Natural entry: 'call mom tomorrow at 6' — deadline and reminder set automatically",
-   "Soft reminders with no guilt, adjustable volume and escalation",
-   "Break a big task into steps directly on the clock face",
-   "Calm mode: nothing extra on screen, minimal decisions at a time"
-  ],
-  "antiFeatures": [
-   "We don't pressure users with streaks, points, or failure messages",
-   "We don't flood the screen with features requiring lengthy setup"
-  ],
-  "monetization": "Clock face and natural entry free; subscription for step-by-step task breakdown, cross-device sync, and advanced reminders",
-  "mechanisms": [
-   "Users want calendar, tasks, habits, and reminders unified",
-   "Natural and voice task entry — type the deadline right in the title",
-   "No flexible control over reminder time and sound"
-  ],
-  "title": "Your Day as a Clock",
-  "oneLiner": "A planner for people who can't feel time — your day as a circle, with the hours that are left."
- },
- "calendars-tasks-7": {
-  "categoryName": "Calendars & Tasks",
-  "gap": "Shared shopping lists are valued but reorder on their own, swipe deletes without confirmation, there's no sorting or search, and recipes and meal plans live separately from the calendar",
-  "pitch": "A shopping list inside a calendar is usually an afterthought: order jumps around, an accidental swipe erases everything, nothing is searchable. We turn it into a reliable family food tool. Plan the week's meals in the calendar — ingredients automatically flow into a shopping list grouped by store aisle. Whoever's at the store crosses items off in real time; the order doesn't jump; deletions require confirmation; the list has search and sorting.",
-  "features": [
-   "Weekly meal plan in the calendar; ingredients automatically go to the shopping list",
-   "Shopping list organized by store aisle, order doesn't change on its own",
-   "Collaborative crossing-off in real time, with visibility into who added what",
-   "Search, sorting, and delete confirmation instead of a silent swipe",
-   "Recipe vault with one-tap ingredient transfer to the shopping list"
-  ],
-  "antiFeatures": [
-   "We don't delete items on an accidental swipe",
-   "We don't split recipes and the calendar across unconnected screens"
-  ],
-  "monetization": "Lists and basic meal planning free; 'Family' subscription for unlimited recipes, monthly meal planning, and shared access for all profiles",
-  "mechanisms": [
-   "Shared shopping lists and notes built into the calendar",
-   "Shared and family calendars are the core value for couples and families",
-   "Users want calendar, tasks, habits, and reminders unified"
-  ],
-  "title": "The Family Kitchen",
-  "oneLiner": "Meals, recipes, and a shopping list, all stitched into the family calendar."
- },
  "kids-learning-1": {
   "categoryName": "Kids Learning",
   "gap": "The category's method praises wrong answers, accepts a letter traced any which way, and lets kids cycle through options until they accidentally get it right — children learn to guess, not to understand (card 19); parents pay for results and get the illusion of progress",
@@ -7114,5 +6946,110 @@
    "A public changelog of complaint-driven fixes — proof they listen"
   ],
   "monetization": "Free core; Pro with priority support and cloud archive backup — support itself becomes the paid value."
+ },
+ "calendars-tasks-1": {
+  "categoryName": "Календари и задачи",
+  "title": "Anchor — the planner that never loses and insistently reminds",
+  "oneLiner": "To-do + calendar where two things are flawless: nothing vanishes and the reminder actually nudges, even with the app closed.",
+  "gap": "Across the category reminders drown in the stream and fail to fire with permissions on, and tasks silently vanish with no trash bin. Incumbents treat this as solved and invest in prettiness, while the foundation of trust is exactly what breaks — losing the most valuable, already-habituated user.",
+  "pitch": "Not 'another pretty to-do app' but 'the one you can trust': insistent reminders (full-screen alarm + banner on unlock), a trash bin with history on every deletion, and recurrence that survives a missed check-off.",
+  "features": [
+   "Full-screen alarm and a reminder banner on screen unlock",
+   "Trash bin + full change history with undo on any task",
+   "Recurrence that doesn't die on a missed check-off and never silently shifts time",
+   "Guaranteed background delivery with battery-saver block diagnostics",
+   "One-tap export of all data (no hostage-taking)"
+  ],
+  "monetization": "Free core (capture, reminders, trash); Pro — insistent location and time alarms, unlimited history, team/family lists."
+ },
+ "calendars-tasks-2": {
+  "categoryName": "Календари и задачи",
+  "title": "One Day — tasks, events and habits in a single route",
+  "oneLiner": "A single 'what's on today' canvas where appointments, to-dos and habits sit in one day in the right order, not three separate worlds.",
+  "gap": "The market split the to-do app and the calendar, and even leaders fracture items by type, won't let you see a week without nailing tasks to days, and won't drop a task into a calendar slot. People leave for Google precisely so a task appears in the schedule on its own.",
+  "pitch": "Not a list OR a calendar but a daily route: drag a task into a time slot and it becomes part of the day; habits ride the same stream. A 'second brain' that shows the whole picture of a day in one screen.",
+  "features": [
+   "Drag-and-drop a task into a calendar slot (time-boxing)",
+   "One stream: events + tasks + habits in one day, in order",
+   "Week-ahead view without forcing tasks onto specific days",
+   "Two-way sync with Google/Outlook without losing color or linkage",
+   "A built-in focus timer right on the day's task"
+  ],
+  "monetization": "Free — the single canvas and basic time-boxing; Pro — two-way sync of multiple calendars, habits with analytics, team boards."
+ },
+ "calendars-tasks-3": {
+  "categoryName": "Календари и задачи",
+  "title": "A family nervous system with an honest family plan",
+  "oneLiner": "Shared calendar + lists for the whole family on any phones, with one purchase for the household instead of a per-person subscription.",
+  "gap": "Products are built around families but sell the subscription individually, turn ads on for everyone, and monetize like a personal app. People explicitly ask for a family/Lifetime plan and are willing to pay — but get the price multiplied by household size.",
+  "pitch": "Family as the primary unit: one household account, one payment removes ads for everyone, an iPhone↔Android bridge out of the box — what native calendars don't give.",
+  "features": [
+   "One family account, shared calendar and grocery lists in real time",
+   "A chat thread under each event for coordination",
+   "Native iPhone↔Android bridge with no third-party services",
+   "Offline access to lists (works in a store with no signal)",
+   "One family payment / Lifetime removes ads for everyone in the house"
+  ],
+  "monetization": "One family plan (and a Lifetime option) for the whole household removes ads and unlocks premium for all members — instead of multiplying the price by people."
+ },
+ "calendars-tasks-4": {
+  "categoryName": "Календари и задачи",
+  "title": "A widget-first calendar that doesn't break on updates",
+  "oneLiner": "A product where the main screen is the home-screen widget: dense, customizable and rock-stable from update to update.",
+  "gap": "The widget is the strongest retention surface and at the same time the most fragile: it breaks on nearly every update — disappears, won't refresh without opening the app, loses its buttons. Incumbents treat it as an afterthought, while for the user it IS the product.",
+  "pitch": "The widget as product #1: multiple views (month/week/day), check off a task right from the home screen, adjustable font size for density — and a 'the widget won't break on updates' commitment as a feature.",
+  "features": [
+   "Multiple simultaneous widgets: month, week, day, list",
+   "Check off / add a task right from the widget without opening the app",
+   "Adjustable font and density to pack the most onto a screen",
+   "Instant widget refresh without launching the app",
+   "Widget regression tests as a public stability commitment"
+  ],
+  "monetization": "Free — one widget; Pro — multiple simultaneous views, custom themes, watch tiles and complications."
+ },
+ "calendars-tasks-5": {
+  "categoryName": "Календари и задачи",
+  "title": "A time-seeing planner for time-blindness",
+  "oneLiner": "A calendar that shows not 'what' but 'how much is left' — a circular/spatial timer of the day for the ADHD brain.",
+  "gap": "Linear lists don't answer 'how much time until my next thing,' and the one strong player in visualization is tied to someone else's calendar, has no tasks, and loses value on a timezone or account change. The segment is devoted but underserved.",
+  "pitch": "Perceiving time as a distinct job: the wedge shrinks before your eyes, the day reads as space. Standalone (not just a Google viewer), with tasks and a transferable purchase.",
+  "features": [
+   "Circular day clock with a shrinking wedge to the next thing",
+   "Own event storage + optional sync (not a hostage to Google)",
+   "Task integration (Google Tasks/CalDAV) alongside timed events",
+   "Watch face and widget with purchase transfer across devices",
+   "Colorblind-safe palette and expandable color sets"
+  ],
+  "monetization": "A generous free tier (the core widget free, like the niche leader) → Pro bought on trust; Pro — tasks, watch faces, themes; the purchase transfers across devices."
+ },
+ "calendars-tasks-6": {
+  "categoryName": "Календари и задачи",
+  "title": "Anti-paywall: a simple list with no account and no ads",
+  "oneLiner": "Open, jot, check off — no sign-up, no ads, no onboarding; sync later and optional.",
+  "gap": "Forced accounts and a paywall on the first clicks drive off a whole segment before the product proves value, and audio-autoplay ads turn the public act of 'opening the calendar' into a social risk. The audience that just wants a list leaves for minimalist rivals.",
+  "pitch": "Radical simplicity as positioning: a local no-login mode, zero ads, instant start — for students, busy parents and ADHD users who need action, not a second job.",
+  "features": [
+   "Local no-account mode; sync is an option, not an entry condition",
+   "Total absence of ads (let alone audio ones)",
+   "Instant start with no onboarding or projects",
+   "Search across all lists and bulk-clear of completed",
+   "Optional progressive complexity for those who grow into it"
+  ],
+  "monetization": "A one-time Pro purchase or a cheap subscription (multi-device sync, themes, team lists); the core stays free forever and ad-free."
+ },
+ "calendars-tasks-7": {
+  "categoryName": "Календари и задачи",
+  "title": "A neutral layer over all calendars with honest life separation",
+  "oneLiner": "One calendar over Google, Outlook and CalDAV at once — with real work/personal isolation and no hostage-taking.",
+  "gap": "'Business' calendars promise to separate work and life but demand access to the entire personal calendar, truly support only Google, lose B2B on Outlook/CalDAV, and import external calendars one-way — easy to pull in, impossible to clean out.",
+  "pitch": "Switzerland over the ecosystems: connect any sources (Google/Outlook/CalDAV), keep work and personal visually and privately separate, and switch any source off in one tap without deleting entries one by one.",
+  "features": [
+   "Full sync of Google + Outlook 365 + CalDAV in one view",
+   "True isolation of work and personal calendars (privacy by routing)",
+   "One-tap disconnect and bulk-clear of any imported source",
+   "Spam filter for phantom events leaking in through sync",
+   "Dense multi-account overview with an expandable color palette"
+  ],
+  "monetization": "Free — Google + one source; Pro — Outlook/CalDAV, unlimited accounts, context isolation, spam filter (the willing-to-pay B2B segment)."
  }
 }

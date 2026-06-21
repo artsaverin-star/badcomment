@@ -2024,727 +2024,6 @@
   }
  },
  {
-  "slug": "calendars-tasks-1",
-  "category": "calendars-tasks",
-  "categoryName": "Календари и задачи",
-  "title": "Сторож напоминаний",
-  "oneLiner": "Напоминание, которое не сдастся, пока ты не подтвердишь, что сделал",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 310
-  },
-  "reviewGrid": [
-   {
-    "rating": 1,
-    "quote": "the Google Keep tasks and reminders have been moved to calendar as tasks, and it's the worst UI, the reminders don't trigger on time. they trigger at 12am on the day... a User have to update status on google keep, and Google Calendar as well which is duplication of work, duplication of reminders, and huge timewaste",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "old google tasks are popping up, which is kinda annoying.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "recent update removed swipe to mark Completed. can you bring that back.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "Reminders constantly drop off the tasks failing to send a notification which is key for my use. Seems to be a known issue for users going on for a while.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "after the last update I no longer get notifications for my reminders. I get the morning notification... but the notifications for the actual tasks have stopped coming through at the specified times.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "notifications never seem to work or notify on time. turned off all battery saver options.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "my reminders are stuck in the app, and it won't notify me about them unless I pay or open the app.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "delayed notifications, reached out to support and no response.",
-    "app": "Todoist: To Do List & Calendar"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Напоминания — слабое звено всей ниши",
-    "obsCount": 114,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Нет гибкой настройки времени и звука напоминаний",
-    "obsCount": 65,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Обновления ломают приложение, стирают и теряют данные",
-    "obsCount": 131,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Уведомления тихо перестают срабатывать, приходят с опозданием, смахиваются одним движением и теряются после обновлений — вся ниша спотыкается именно на самом главном звене",
-  "idea": {
-   "pitch": "Большинство планировщиков считают задачу 'напомнённой' в момент показа уведомления — а дальше она исчезает в шторке. Мы строим приложение вокруг единственной идеи: напоминание доставлено только тогда, когда человек на него ответил. Сигнал повторяется по нарастающей, не смахивается случайно, переживает перезагрузку и обновление, и каждое напоминание ведёт журнал доставки, чтобы ты видел, что именно не сработало и почему.",
-   "features": [
-    "Эскалация сигнала: тихо → громко → будильник, пока не нажмёшь «сделал» или «отложить»",
-    "Журнал доставки каждого напоминания: показано, проигнорировано, отложено, пропущено системой",
-    "Самопроверка фоновой работы — приложение тестирует, не душит ли его система энергосбережения, и подсказывает, что включить",
-    "Точное время до минуты и свой звук на каждую задачу, кнопка «отложить на N»",
-    "Резервный канал: если уведомление не доставлено, дублируем сигнал на часах или письмом"
-   ],
-   "antiFeatures": [
-    "Не прячем настройку времени и звука за подписку",
-    "Не глушим повторное напоминание ради «чистоты экрана»"
-   ],
-   "monetization": "Бесплатно ядро напоминаний без ограничений; подписка за журнал доставки с историей, резервные каналы и неограниченное число параллельных эскалаций"
-  }
- },
- {
-  "slug": "calendars-tasks-2",
-  "category": "calendars-tasks",
-  "categoryName": "Календари и задачи",
-  "title": "Честный мост",
-  "oneLiner": "Двусторонняя синхронизация со сторонними календарями, которая не ломает цвета и не теряет задачи",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 279
-  },
-  "reviewGrid": [
-   {
-    "rating": 5,
-    "quote": "Works perfectly! Love the color coding and reminders. Always in sync with all my devices. Couldn't function without my Google calendar!!!",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "Google Calendar is a simple, reliable, and well-organized app... seamless synchronization across devices make planning daily tasks easy and efficient.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "it's Google so it's synced up with everything you need ya know. lol",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "loves being able to see all accounts tasks in 1 place!!",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "Great for work, organization and synchronicity.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "Became extremely unreliable, entries appear as duplicates, or just vanish randomly. When checking in the web version, they don't even exist.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "Several times the app did not save the task I wrote down. One time a task disappeared completely, and another time I updated my task, and when I checked later, it reverted to an old version.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "The sync is completely broken on android which I discovered after a few days of work, as the web app was showing a completely different state. Manually syncing did nothing.",
-    "app": "Todoist: To Do List & Calendar"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Синхронизация между устройствами — то, ради чего остаются и из-за чего уходят",
-    "obsCount": 121,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Двусторонняя связка со сторонними календарями работает криво",
-    "obsCount": 59,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Слабые версии для умных часов, ПК и работа без сети",
-    "obsCount": 99,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Связка с Google, Outlook, Microsoft 365 и CalDAV то односторонняя, то ломает цвета и поведение событий, а собственная синхронизация теряет записи и возвращает их «без секции»",
-  "idea": {
-   "pitch": "Синхронизация в нише сделана как чёрный ящик: что-то пропало, что-то перекрасилось, и не понять, на чьей стороне сбой. Мы делаем календарь-планировщик, где синхронизация прозрачна и обратима. Каждое изменение проходит через видимую очередь: ты видишь, что улетело в Google, что пришло из Outlook, где возник конфликт — и можешь откатить. Цвета и разделы сохраняются на нашей стороне, даже если внешний сервис их не поддерживает.",
-   "features": [
-    "Панель синхронизации: очередь отправленного и принятого, статус каждой записи, ручной повтор",
-    "Разрешение конфликтов по-человечески: показываем обе версии, даёшь выбрать, ничего не затирается молча",
-    "Своя карта цветов и разделов поверх внешних календарей — внешний сервис их не стирает",
-    "Настоящая двусторонность для CalDAV, Google и Microsoft 365 с явной пометкой, что именно односторонне",
-    "Корзина синхронизации: всё «пропавшее» лежит 30 дней и возвращается одним нажатием"
-   ],
-   "antiFeatures": [
-    "Не делаем вид, что односторонний мост — это «полная синхронизация»",
-    "Не привязываем экспорт календаря к платной подписке"
-   ],
-   "monetization": "Базовый двусторонний мост с одним внешним календарём бесплатно; подписка за несколько аккаунтов, карту цветов и расширенную историю конфликтов"
-  }
- },
- {
-  "slug": "calendars-tasks-3",
-  "category": "calendars-tasks",
-  "categoryName": "Календари и задачи",
-  "title": "Общий, но не общий",
-  "oneLiner": "Семейный календарь, где у каждого свой вход и своя приватная часть",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 372
-  },
-  "reviewGrid": [
-   {
-    "rating": 5,
-    "quote": "Great app allows multiple personal and group calendars",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "Great calendar for a busy family!",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "This works great with the Skylight home calendar. It keeps my family highly organized and on track.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "this is the best calendar ever existed, I can add and select different Callender, easy to use",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "I use it for punch lists around the house as well as a grocery list that my wife and kids can add things to.",
-    "app": "Any.do - To do list & Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "I can't make a grocery list",
-    "app": "Any.do - To do list & Calendar"
-   },
-   {
-    "rating": 3,
-    "quote": "Grocery list on desktop allows subtasks, but you can't view them on mobile, so what's the point?",
-    "app": "Any.do - To do list & Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "listele comuna de cumparaturi cu familia nu mai sincronizeaza. Adaug produse dar nu apar si celorlalti utilizatori, doar daca am premium",
-    "app": "Any.do - To do list & Calendar"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Общие и семейные календари — главная ценность для пар и семей",
-    "obsCount": 206,
-    "apps": [
-     "Google Calendar",
-     "Any.do - To do list & Calendar",
-     "Microsoft To Do: Lists & Tasks"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Общие списки покупок и заметки прямо в календаре",
-    "obsCount": 81,
-    "apps": [
-     "TickTick:To Do List & Calendar",
-     "Microsoft To Do: Lists & Tasks",
-     "Google Tasks"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Списания без согласия, мучительная отписка и хрупкий аккаунт",
-    "obsCount": 85,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Общие календари ценят пары и семьи, но вход один на всех — нет личного доступа, и синхронизация общего списка подводит",
-  "idea": {
-   "pitch": "Семейные планировщики держатся на одном пароле на всю семью: либо всё видно всем, либо приходится заводить отдельные приложения для личного. Мы разделяем общее и личное в одном аккаунте. У каждого члена семьи свой вход, своё личное пространство и свой цвет в общем календаре. Смены, тренировки детей, дежурства видны всем; врач и подарок-сюрприз — только тебе. Синхронизация общего списка построена на той же надёжной очереди, что и личного.",
-   "features": [
-    "Личный вход для каждого профиля внутри семьи, без общего пароля",
-    "Слои видимости: общее всем, общее выбранным, личное только мне",
-    "Цвет по человеку в общем календаре и в общем списке покупок",
-    "Надёжная общая синхронизация с журналом, кто и что изменил",
-    "Режим смен и дежурств: повторяющиеся графики с подменами без дублей"
-   ],
-   "antiFeatures": [
-    "Не требуем один аккаунт на всю семью",
-    "Не показываем личные события другим членам «по умолчанию»"
-   ],
-   "monetization": "Семья до 2 человек бесплатно; подписка «Семья» на 6 профилей с приватными слоями, цветами по людям и графиками смен"
-  }
- },
- {
-  "slug": "calendars-tasks-4",
-  "category": "calendars-tasks",
-  "categoryName": "Календари и задачи",
-  "title": "Корзина и машина времени",
-  "oneLiner": "Планировщик, где ничто не пропадает навсегда — даже после обновления",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 275
-  },
-  "reviewGrid": [
-   {
-    "rating": 1,
-    "quote": "Doesn't load events older than a year",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 3,
-    "quote": "Appointments and such need to stay. Nothing should get deleted. I hate that I can't go back more than a year to see when I had a procedure done. I refer to my calendars all year.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "it wiped out my events prior to may 2025",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "I can not select previous years with ease unless I scroll back so long a time to an old year",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "After last update, Calender app not opening!",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "Why after update my calendar can't open",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "My calendar freezes several times a day. I have to close the app and reopen. Even after I've updated the app, it still freezes up.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "please improve your app performance, it is slow now, and dont work properly like before.",
-    "app": "Google Calendar"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Обновления ломают приложение, стирают и теряют данные",
-    "obsCount": 131,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Повторяющиеся дела работают со сбоями",
-    "obsCount": 59,
-    "apps": [
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Списания без согласия, мучительная отписка и хрупкий аккаунт",
-    "obsCount": 85,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Обновления стирают и теряют данные, повторы плодят дубли и падают во «Входящие», смахивание стирает без подтверждения, а корзины для восстановления нет нигде",
-  "idea": {
-   "pitch": "Главный скрытый страх пользователя планировщика — потерять годы записей из-за одного апдейта или случайного свайпа. Мы строим приложение вокруг полной обратимости. Любое удаление, любое изменение повтора, любая миграция при обновлении логируется и откатывается. Корзина хранит удалённое, а «машина времени» показывает состояние календаря на любую дату в прошлом и возвращает его. Повторяющиеся задачи редактируются явно: «это», «это и дальше» или «все» — без молчаливых дублей.",
-   "features": [
-    "Корзина задач и событий с восстановлением в один тап",
-    "История версий: откат состояния календаря на любую прошедшую дату",
-    "Безопасные обновления: данные мигрируют в копию, при сбое откатываемся автоматически",
-    "Явное редактирование повторов «это / это и дальше / все», защита от дублей",
-    "Подтверждение на удаление свайпом и отмена последнего действия"
-   ],
-   "antiFeatures": [
-    "Не удаляем по свайпу без возможности отмены",
-    "Не храним единственную копию данных без резерва"
-   ],
-   "monetization": "Корзина на 30 дней бесплатно; подписка за безлимитную историю версий и облачный резерв с восстановлением на новом устройстве"
-  }
- },
- {
-  "slug": "calendars-tasks-5",
-  "category": "calendars-tasks",
-  "categoryName": "Календари и задачи",
-  "title": "Виджет, который не ломается",
-  "oneLiner": "Один виджет задач и календаря, переживающий любое обновление системы",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 394
-  },
-  "reviewGrid": [
-   {
-    "rating": 3,
-    "quote": "calendar changed are ok, but please give me my flexible widget back! it's too small to use for viewing even one day.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "Need to improve calendar widget. Just switching from ios to android and a bit upset with gcal widget. Please update 3x3/5x2 calendar size with task & event show on the right.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "I want more color in 'event', want transparent in background widget.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "have lost the widget from home Screen Please place the widget on home screen.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 3,
-    "quote": "the recent update removed the add task button from the widget, making this app a much less usable product for me",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "One recent issue I've had is the widget just breaking and having to be deleted and readded. Worked fine for months but now it happens constantly.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "Can you please, PLEASE stop breaking the widget. It breaks on basically every single update.",
-    "app": "Todoist: To Do List & Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "the widget became a little bit of a hassle for me since i can't press the circle checklist to check off the tasks i finished",
-    "app": "Todoist: To Do List & Calendar"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Виджеты на главном экране любят, но они хрупкие",
-    "obsCount": 209,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Просят объединить календарь, задачи, привычки и напоминания",
-    "obsCount": 69,
-    "apps": [
-     "Google Calendar",
-     "TickTick:To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Платный замок ключевых функций отталкивает",
-    "obsCount": 116,
-    "apps": [
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Виджеты — частая причина установки, но они хрупкие: мигают, показывают не тот месяц, не листаются, не настраиваются и не дают прозрачный фон",
-  "idea": {
-   "pitch": "Виджет на главном экране — витрина планировщика, и именно он чаще всего разваливается после апдейта. Мы делаем виджет первоклассным продуктом, а не довеском. Он сам восстанавливается после обновления системы, листается по месяцам, объединяет задачи и события на одном экране и настраивается полностью: прозрачность, плотность, что показывать. Под капотом — лёгкое обновление данных, чтобы виджет не подвисал и не показывал вчерашний день.",
-   "features": [
-    "Единый виджет: задачи на сегодня и события календаря на одном экране",
-    "Самовосстановление после обновлений ОС, без «застрявшего» месяца",
-    "Листание по месяцам и дням прямо в виджете",
-    "Полная настройка: прозрачный фон, плотность, размер шрифта, набор полей",
-    "Несколько виджетов под разные роли: работа, семья, покупки"
-   ],
-   "antiFeatures": [
-    "Не прячем прозрачный фон и настройку виджета за подписку",
-    "Не ставим тяжёлое обновление, от которого виджет мигает"
-   ],
-   "monetization": "Базовый виджет бесплатно; подписка за несколько настраиваемых виджетов, темы и виджеты по ролям"
-  }
- },
- {
-  "slug": "calendars-tasks-6",
-  "category": "calendars-tasks",
-  "categoryName": "Календари и задачи",
-  "title": "Циферблат дня",
-  "oneLiner": "Планировщик для тех, кто не чувствует время: день как круг с остатком",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 160
-  },
-  "reviewGrid": [
-   {
-    "rating": 1,
-    "quote": "Do you plan to add a feature on Android that allows users to specify a task end time? It's been available on the web for a while already and I cannot believe you still haven't shipped it to android.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 3,
-    "quote": "Please add a 'Duplicate' option for Calendar Tasks just like Calendar Events. Also, allow users to select multiple custom dates at once when creating a task.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "Gibt nur sehr wenig... Bitte machen, da dass man in Tasks auch Erinnerungen festlegen kann wie in Events auch.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "the option to mark the event busy or free is not available on Calender phone app... meetings get booked because the busy and free option always stays free by default. it has to be done by laptop or chrome which is more hassle.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "Can't invite or forward scheduled meetings to people?! Lol what is the point of a calendar if you can't send to others your itineraries and scheduled events?? It's hilarious that there's no \"today\" button on the event.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 1,
-    "quote": "wish this was baked into Gmail instead of being a separate app.",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "Where is the artificial intelligence, recurring habits support similar to reclaim.ai? Using google calendar feels so old school",
-    "app": "Google Calendar"
-   },
-   {
-    "rating": 2,
-    "quote": "I thought with Google's AI it would let us know if you schedule an event, task, or appointment which overlaps another. But no.",
-    "app": "Google Calendar"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Просят объединить календарь, задачи, привычки и напоминания",
-    "obsCount": 69,
-    "apps": [
-     "Google Calendar",
-     "TickTick:To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Естественный и голосовой ввод задач — пишешь срок прямо в названии",
-    "obsCount": 26,
-    "apps": [
-     "Todoist: To Do List & Calendar",
-     "TickTick:To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Нет гибкой настройки времени и звука напоминаний",
-    "obsCount": 65,
-    "apps": [
-     "Google Calendar",
-     "Todoist: To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Людям с СДВГ и «слепотой ко времени» помогают необычные виды вроде циферблата, но давящая геймификация и упрёки отталкивают нейроотличных",
-  "idea": {
-   "pitch": "Стандартный список задач не работает для тех, кто не чувствует, сколько осталось до дедлайна. Мы строим планировщик вокруг визуального времени: день — это циферблат, где видно занятые и свободные часы и сколько осталось до следующего дела. Никаких очков, серий и виноватых сообщений — только спокойная картина дня и мягкие, точные напоминания. Естественный ввод позволяет бросить задачу одной фразой, не сражаясь с формами.",
-   "features": [
-    "Круговой вид суток с остатком времени до следующего события",
-    "Естественный ввод: «позвонить маме завтра в 6» — срок и напоминание ставятся сами",
-    "Мягкие напоминания без упрёков, с настройкой громкости и эскалации",
-    "Разбивка большого дела на шаги прямо на циферблате",
-    "Спокойный режим: ничего лишнего на экране, минимум решений за раз"
-   ],
-   "antiFeatures": [
-    "Не давим сериями, очками и сообщениями про «провал»",
-    "Не заваливаем экран функциями, требующими долгой настройки"
-   ],
-   "monetization": "Циферблат и ввод бесплатно; подписка за разбивку дел на шаги, синхронизацию между устройствами и расширенные напоминания"
-  }
- },
- {
-  "slug": "calendars-tasks-7",
-  "category": "calendars-tasks",
-  "categoryName": "Календари и задачи",
-  "title": "Семейная кухня",
-  "oneLiner": "Меню, рецепты и список покупок, сшитые с семейным календарём",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 356
-  },
-  "reviewGrid": [
-   {
-    "rating": 2,
-    "quote": "it is sooooo difficult to make a simple shopping list that has tags for each store I plan to visit... I am still frustrated in how to get something done in a straight-forward way. I.e. print a list, share a list, export a list.",
-    "app": "TickTick:To Do List & Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "Best thing for easy and simple collaboration. I can't speak to any of the paid features sadly.",
-    "app": "TickTick:To Do List & Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "My daughter started using this originally and got me on it so we could keep track of our grocery shopping list.",
-    "app": "TickTick:To Do List & Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "one thing I wish I could do is make a task list thats not dated- just a need to do when you get a minute list.",
-    "app": "TickTick:To Do List & Calendar"
-   },
-   {
-    "rating": 4,
-    "quote": "It is a challenge to add an item in a list without having items appearing in the IN box and have a task date.",
-    "app": "TickTick:To Do List & Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "everything is fine but I want place where I can write down my master goals, so I can make small goals to achieve it",
-    "app": "TickTick:To Do List & Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "I want a way to set the status of a task as in-progress, not only complete.",
-    "app": "TickTick:To Do List & Calendar"
-   },
-   {
-    "rating": 5,
-    "quote": "This let's me have To do list inside my To do list and not be overwhelmed. And it let's me pick out which task I will work on for the day.",
-    "app": "Microsoft To Do: Lists & Tasks"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Общие списки покупок и заметки прямо в календаре",
-    "obsCount": 81,
-    "apps": [
-     "TickTick:To Do List & Calendar",
-     "Microsoft To Do: Lists & Tasks",
-     "Google Tasks"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Общие и семейные календари — главная ценность для пар и семей",
-    "obsCount": 206,
-    "apps": [
-     "Google Calendar",
-     "Any.do - To do list & Calendar",
-     "Microsoft To Do: Lists & Tasks"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Просят объединить календарь, задачи, привычки и напоминания",
-    "obsCount": 69,
-    "apps": [
-     "Google Calendar",
-     "TickTick:To Do List & Calendar",
-     "Any.do - To do list & Calendar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Общие списки покупок ценят, но они самовольно меняют порядок, смахивание стирает без подтверждения, нет сортировки и поиска, а рецепты и меню живут отдельно от календаря",
-  "idea": {
-   "pitch": "Список покупок в календаре обычно сделан небрежно: порядок прыгает, случайный свайп стирает, найти нужное нельзя. Мы превращаем его в надёжный семейный инструмент еды. Планируешь меню на неделю в календаре — продукты сами собираются в список покупок, сгруппированный по отделам магазина. Тот, кто в магазине, вычёркивает в реальном времени, порядок не скачет, удаление спрашивает подтверждение, по списку работают поиск и сортировка.",
-   "features": [
-    "Меню недели в календаре, продукты автоматически уходят в список покупок",
-    "Список покупок по отделам магазина, без самовольной перестановки",
-    "Совместное вычёркивание в реальном времени, видно кто что добавил",
-    "Поиск, сортировка и подтверждение на удаление вместо тихого свайпа",
-    "Хранилище рецептов с переносом ингредиентов в покупки одним тапом"
-   ],
-   "antiFeatures": [
-    "Не стираем позицию по случайному смахиванию",
-    "Не разносим рецепты и календарь по разным несвязанным экранам"
-   ],
-   "monetization": "Списки и базовое меню бесплатно; подписка «Семья» за неограниченные рецепты, планирование меню на месяц и общий доступ для всех профилей"
-  }
- },
- {
   "slug": "notes-pkm-1",
   "category": "notes-pkm",
   "categoryName": "Заметки и PKM",
@@ -33180,6 +32459,423 @@
    ],
    "antiFeatures": [],
    "monetization": "Бесплатное ядро; Pro с приоритетной поддержкой и облачным бэкапом архива — поддержка сама становится платной ценностью."
+  }
+ },
+ {
+  "slug": "calendars-tasks-1",
+  "category": "calendars-tasks",
+  "categoryName": "Календари и задачи",
+  "title": "Якорь — планировщик, который не теряет и навязчиво напоминает",
+  "oneLiner": "To-do + календарь, где две вещи безупречны: ничего не пропадает и напоминание реально дёргает, даже если приложение закрыто.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 764
+  },
+  "reviewGrid": [
+   {
+    "quote": "never actually reminds me - the notifications are terrible",
+    "rating": 1,
+    "app": "Google Tasks"
+   },
+   {
+    "quote": "This app is still better than any other tasks app due to the display over-app reminders. The reminder being on-screen at the bottom of my phone when I unlock it is necessary.",
+    "rating": 4,
+    "app": "Any.do"
+   },
+   {
+    "quote": "Todoist doesn't have a trash bin for deleted tasks",
+    "rating": 1,
+    "app": "Todoist"
+   },
+   {
+    "quote": "The recurring tasks mechanism is broken by design: if for some reason you didn't complete today's occurrence, then you won't be notified about tomorrow's.",
+    "rating": 2,
+    "app": "Any.do"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Якорь — планировщик, который не теряет и навязчиво напоминает",
+    "obsCount": 4,
+    "apps": [
+     "Google Tasks",
+     "Any.do",
+     "Todoist"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Через всю категорию напоминания тонут в потоке и не приходят при включённых разрешениях, а задачи молча исчезают без корзины. Инкумбенты считают это решённым и вкладываются в красоту, тогда как ломается именно фундамент доверия — и уходит самый ценный, уже привыкший пользователь.",
+  "idea": {
+   "pitch": "Не «ещё один красивый тудушник», а «тот, которому можно верить»: навязчивое напоминание (полноэкранный аларм + плашка при разблокировке), корзина с историей на каждое удаление, и повтор, переживающий пропуск отметки.",
+   "features": [
+    "Полноэкранный аларм и плашка-напоминание при разблокировке экрана",
+    "Корзина + полная история изменений с откатом любой задачи",
+    "Повтор, который не обрывается при пропуске отметки и не сдвигает время молча",
+    "Гарантированная фоновая доставка с диагностикой блокировок энергосбережения",
+    "Экспорт всех данных в один тап (никакого заложничества)"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно ядро (захват, напоминания, корзина); Pro — навязчивые алармы по гео и времени, неограниченная история, командные/семейные списки."
+  }
+ },
+ {
+  "slug": "calendars-tasks-2",
+  "category": "calendars-tasks",
+  "categoryName": "Календари и задачи",
+  "title": "Один день — задачи, события и привычки в едином маршруте",
+  "oneLiner": "Единое полотно «что у меня сегодня», где встречи, дела и привычки лежат в одном дне в нужном порядке, а не в трёх разных мирах.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 764
+  },
+  "reviewGrid": [
+   {
+    "quote": "Love that I can put both habits and tasks into the same calendar view (which also has may appts) so the whole thing runs as a to do list for the day in the order I need to do it",
+    "rating": 5,
+    "app": "TickTick"
+   },
+   {
+    "quote": "best to do.... but could be better incorporated into calendar (eg could drag task in to \"time box\" calendar on phone)",
+    "rating": 4,
+    "app": "Microsoft To Do"
+   },
+   {
+    "quote": "the ability to view a task list for the week ahead, without actually allocating tasks to specific days",
+    "rating": 4,
+    "app": "TickTick"
+   },
+   {
+    "quote": "I've been looking for an app to manage tasks and calendar events for years and this is it! Finally can see and create tasks as well as calendar events on same widget!!!",
+    "rating": 5,
+    "app": "Any.do"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Один день — задачи, события и привычки в едином маршруте",
+    "obsCount": 4,
+    "apps": [
+     "TickTick",
+     "Microsoft To Do",
+     "Any.do"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Рынок разнёс тудушник и календарь, и даже лидеры дробят дела по типам, не дают увидеть неделю без привязки к дням и не пускают задачу в календарный слот. Люди уходят к Google ровно за тем, чтобы задача сама появилась в расписании.",
+  "idea": {
+   "pitch": "Не список ИЛИ календарь, а дневной маршрут: перетащил задачу в слот времени — она стала частью дня; привычки идут той же лентой. «Второй мозг», который показывает целую картину дня одним экраном.",
+   "features": [
+    "Drag-and-drop задачи в слот календаря (таймбоксинг)",
+    "Единая лента: события + задачи + привычки в одном дне по порядку",
+    "Просмотр недели вперёд без обязательной привязки задач к дням",
+    "Двусторонний синк с Google/Outlook без потери цвета и связи",
+    "Встроенный фокус-таймер прямо на задаче дня"
+   ],
+   "antiFeatures": [],
+   "monetization": "Free — единое полотно и базовый таймбоксинг; Pro — двусторонний синк нескольких календарей, привычки с аналитикой, командные доски."
+  }
+ },
+ {
+  "slug": "calendars-tasks-3",
+  "category": "calendars-tasks",
+  "categoryName": "Календари и задачи",
+  "title": "Семейная нервная система с честным семейным тарифом",
+  "oneLiner": "Общий календарь + списки для всей семьи на любых телефонах, с одной покупкой на дом, а не подпиской на каждого.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 764
+  },
+  "reviewGrid": [
+   {
+    "quote": "you can't buy it once and share it with the family, each individual person has to have a subscription.",
+    "rating": 2,
+    "app": "TimeTree"
+   },
+   {
+    "quote": "missing family type subscription, and ideally Lifetime subscription.",
+    "rating": 5,
+    "app": "TimeTree"
+   },
+   {
+    "quote": "As a family with iPhone and Android users, this app has been a game changer.",
+    "rating": 5,
+    "app": "TimeTree"
+   },
+   {
+    "quote": "I can't open the app when I don't have service. If I'm somewhere shopping and don't have service, I still need access to my list!",
+    "rating": 3,
+    "app": "Cozi"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Семейная нервная система с честным семейным тарифом",
+    "obsCount": 4,
+    "apps": [
+     "TimeTree",
+     "Cozi"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Продукты построены вокруг семьи, но продают подписку индивидуально, рекламу включают на всех, а монетизацию строят как для личного приложения. Люди прямо просят семейный/Lifetime-тариф и готовы платить — но получают цену, умноженную на состав семьи.",
+  "idea": {
+   "pitch": "Семья как первичный юнит: один аккаунт-дом, один платёж снимает рекламу у всех, мост iPhone↔Android из коробки — то, чего родные календари не дают.",
+   "features": [
+    "Один семейный аккаунт, общий календарь и списки покупок в реальном времени",
+    "Чат-ветка под каждым событием для координации",
+    "Нативный мост iPhone↔Android без сторонних сервисов",
+    "Офлайн-доступ к спискам (работает в магазине без связи)",
+    "Один семейный платёж / Lifetime убирает рекламу у всех в доме"
+   ],
+   "antiFeatures": [],
+   "monetization": "Один семейный тариф (и Lifetime-опция) на весь дом убирает рекламу и открывает премиум всем участникам — вместо умножения цены на людей."
+  }
+ },
+ {
+  "slug": "calendars-tasks-4",
+  "category": "calendars-tasks",
+  "categoryName": "Календари и задачи",
+  "title": "Виджет-первый календарь, который не ломается на апдейтах",
+  "oneLiner": "Продукт, где главный экран — это домашний виджет: плотный, настраиваемый и железно стабильный из обновления в обновление.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 764
+  },
+  "reviewGrid": [
+   {
+    "quote": "the best app widget that lets you check off items without jumping to the app",
+    "rating": 5,
+    "app": "TickTick"
+   },
+   {
+    "quote": "Doesn't refresh when you add or check things off, until you actually open the app.",
+    "rating": 1,
+    "app": "Google Tasks"
+   },
+   {
+    "quote": "especially reducing size of font etc so can see a lot on the one phone screen",
+    "rating": 5,
+    "app": "Business Calendar 2"
+   },
+   {
+    "quote": "Homescreen widget, which is the most important part of the app, is completely broken since the last updates. An excellent app otherwise, but this renders it almost useless.",
+    "rating": 1,
+    "app": "Microsoft To Do"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Виджет-первый календарь, который не ломается на апдейтах",
+    "obsCount": 4,
+    "apps": [
+     "TickTick",
+     "Google Tasks",
+     "Business Calendar 2",
+     "Microsoft To Do"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Виджет — самая сильная поверхность удержания и одновременно самая хрупкая: он ломается почти на каждом апдейте — пропадает, не обновляется без открытия приложения, теряет кнопки. Инкумбенты обращаются с ним как с довеском, а для пользователя это и есть продукт.",
+  "idea": {
+   "pitch": "Виджет как продукт №1: несколько видов (месяц/неделя/день), отметка дела прямо с домашнего экрана, регулируемый размер шрифта под плотность — и обязательство «виджет не ломается на апдейтах» как фича.",
+   "features": [
+    "Несколько одновременных виджетов: месяц, неделя, день, список",
+    "Отметка/добавление задачи прямо из виджета без открытия приложения",
+    "Регулируемый шрифт и плотность, чтобы уместить максимум на экран",
+    "Мгновенное обновление виджета без запуска приложения",
+    "Регрессионные тесты виджета как публичное обязательство стабильности"
+   ],
+   "antiFeatures": [],
+   "monetization": "Free — один виджет; Pro — несколько одновременных видов, кастом-темы, watch-tiles и комплизации."
+  }
+ },
+ {
+  "slug": "calendars-tasks-5",
+  "category": "calendars-tasks",
+  "categoryName": "Календари и задачи",
+  "title": "Время-видящий планер для слепоты ко времени",
+  "oneLiner": "Календарь, который показывает не «что», а «сколько осталось» — круговой/пространственный таймер дня для мозга с СДВГ.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 764
+  },
+  "reviewGrid": [
+   {
+    "quote": "the circular representations of events /tasks is more informative then the traditional vertical design of most calendars",
+    "rating": 5,
+    "app": "Sectograph"
+   },
+   {
+    "quote": "wish it was more functional as a standalone calendar i.e wasn't reliant on connecting with other apps",
+    "rating": 5,
+    "app": "Sectograph"
+   },
+   {
+    "quote": "Only thing I'm missing is to see Google Tasks in the app.",
+    "rating": 4,
+    "app": "Sectograph"
+   },
+   {
+    "quote": "I really don't want to re-set up and rebuy pro, and theres no obvious way to migrate.",
+    "rating": 4,
+    "app": "Sectograph"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Время-видящий планер для слепоты ко времени",
+    "obsCount": 4,
+    "apps": [
+     "Sectograph"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Линейные списки не отвечают на вопрос «сколько у меня времени до следующего дела», а единственный сильный игрок в визуализации привязан к чужому календарю, не имеет задач и теряет ценность при смене часов или аккаунта. Сегмент преданный, но недообслужен.",
+  "idea": {
+   "pitch": "Восприятие времени как отдельный джоб: сектор сжимается на глазах, день виден как пространство. Самостоятельный (не только вьюер Google), с задачами и переносимой покупкой.",
+   "features": [
+    "Круговой циферблат дня с сжимающимся сектором до следующего дела",
+    "Собственное хранилище событий + опциональный синк (не заложник Google)",
+    "Интеграция задач (Google Tasks/CalDAV) рядом с временными событиями",
+    "Watch face и виджет с переносом покупки между устройствами",
+    "Палитра для дальтоников и расширяемые цветовые наборы"
+   ],
+   "antiFeatures": [],
+   "monetization": "Щедрый free (ядро-виджет бесплатно, как у лидера ниши) → Pro покупают из доверия; Pro — задачи, watch faces, темы; покупка переносится между устройствами."
+  }
+ },
+ {
+  "slug": "calendars-tasks-6",
+  "category": "calendars-tasks",
+  "categoryName": "Календари и задачи",
+  "title": "Антипейволл: простой список без аккаунта и без рекламы",
+  "oneLiner": "Открыл — записал — отметил, без регистрации, без рекламы, без онбординга; синк потом и по желанию.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 764
+  },
+  "reviewGrid": [
+   {
+    "quote": "I don't want to have to log on to a service just to create a to do list on my phone!",
+    "rating": 1,
+    "app": "Todoist"
+   },
+   {
+    "quote": "Great app. Just what you need and no more.",
+    "rating": 5,
+    "app": "Google Tasks"
+   },
+   {
+    "quote": "REALLY ANNOYING THAT NOW THERE ARE LOUD ADVERTS SO YOU OPEN YOUR CALENDAR IN THE OFFICE OR RESTAURANT AND SOME OBNOXIOUS ADVERT STARTS PLAYING LOUDLY",
+    "rating": 1,
+    "app": "TimeTree"
+   },
+   {
+    "quote": "no search function, once you've lots tasks on hand, very difficult to find the tasks need to update.",
+    "rating": 1,
+    "app": "Google Tasks"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Антипейволл: простой список без аккаунта и без рекламы",
+    "obsCount": 4,
+    "apps": [
+     "Todoist",
+     "Google Tasks",
+     "TimeTree"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Принудительный аккаунт и пейволл на первых кликах гонят целый сегмент ещё до того, как продукт доказал ценность, а реклама с автозвуком превращает публичный жест «открыть календарь» в социальный риск. Аудитория, которой нужен просто список, уходит к минималистичным конкурентам.",
+  "idea": {
+   "pitch": "Радикальная простота как позиционирование: локальный режим без логина, ноль рекламы, мгновенный старт — для студентов, занятых родителей и людей с СДВГ, которым нужно действие, а не вторая работа.",
+   "features": [
+    "Локальный режим без аккаунта; синк — опция, а не условие входа",
+    "Полное отсутствие рекламы (тем более со звуком)",
+    "Мгновенный старт без онбординга и проектов",
+    "Поиск по всем спискам и массовая очистка выполненного",
+    "Опциональное прогрессивное усложнение для тех, кто дорастёт"
+   ],
+   "antiFeatures": [],
+   "monetization": "Разовая покупка Pro или дешёвая подписка (синк нескольких устройств, темы, командные списки); ядро навсегда бесплатно и без рекламы."
+  }
+ },
+ {
+  "slug": "calendars-tasks-7",
+  "category": "calendars-tasks",
+  "categoryName": "Календари и задачи",
+  "title": "Нейтральный слой поверх всех календарей с честным разделением жизни",
+  "oneLiner": "Один календарь поверх Google, Outlook и CalDAV сразу — с реальной изоляцией «работа/личное» и без затягивания в заложники.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 764
+  },
+  "reviewGrid": [
+   {
+    "quote": "the whole point of downloading this app was to have a separate calendar but they do not you do that. useless",
+    "rating": 1,
+    "app": "Business Calendar 2"
+   },
+   {
+    "quote": "Does not sync with Outlook 365 for updates beyond the initial import",
+    "rating": 1,
+    "app": "Business Calendar 2"
+   },
+   {
+    "quote": "No way to remove an external calendar that was synced in without having to delete each entry one at a time.",
+    "rating": 1,
+    "app": "TimeTree"
+   },
+   {
+    "quote": "Now I'm getting SPAM in my calendar! How is that even possible?!",
+    "rating": 3,
+    "app": "Business Calendar 2"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Нейтральный слой поверх всех календарей с честным разделением жизни",
+    "obsCount": 4,
+    "apps": [
+     "Business Calendar 2",
+     "TimeTree"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "«Деловые» календари обещают разделение работы и жизни, но требуют доступ ко всему личному календарю, поддерживают по-настоящему только Google, теряют B2B на Outlook/CalDAV, а импорт чужих календарей работает в одну сторону — втянуть легко, вычистить нельзя.",
+  "idea": {
+   "pitch": "Швейцария поверх экосистем: подключи любые источники (Google/Outlook/CalDAV), держи рабочее и личное визуально и приватно раздельно, и отключи любой источник в один тап без удаления по одному.",
+   "features": [
+    "Полноценный синк Google + Outlook 365 + CalDAV в одном виде",
+    "Настоящая изоляция рабочего и личного календарей (приватность по адресации)",
+    "Отключение и массовая очистка любого импортированного источника в один тап",
+    "Фильтр спама и фантомных событий, проникающих через синк",
+    "Плотный многоаккаунтный обзор с расширяемой палитрой цветов"
+   ],
+   "antiFeatures": [],
+   "monetization": "Free — Google + один источник; Pro — Outlook/CalDAV, неограниченные аккаунты, изоляция контекстов, спам-фильтр (платёжеспособный B2B-сегмент)."
   }
  }
 ]
