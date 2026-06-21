@@ -21,6 +21,18 @@ const FONTS = [
 const STAR = "M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z";
 const GRAD = "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)";
 
+// Trim to ~max chars on a word boundary, ending on a whole sentence where one
+// fits, else a clean word + ellipsis — never a chopped-off word.
+function clip(text: string, max: number): string {
+  const s = (text || "").trim();
+  if (s.length <= max) return s;
+  const head = s.slice(0, max);
+  const lastStop = Math.max(head.lastIndexOf(". "), head.lastIndexOf("! "), head.lastIndexOf("? "));
+  if (lastStop > max * 0.5) return head.slice(0, lastStop + 1);
+  const lastSpace = head.lastIndexOf(" ");
+  return (lastSpace > 0 ? head.slice(0, lastSpace) : head).replace(/[\s,;:—-]+$/, "") + "…";
+}
+
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const slug = url.searchParams.get("slug") || "";
@@ -69,7 +81,7 @@ export async function GET(req: Request) {
     body = (
       <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
         <div style={{ fontSize: 64, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.08, color: "#fff", maxWidth: 920 }}>{p?.title || ""}</div>
-        {p?.dek && <div style={{ fontSize: 33, fontWeight: 500, lineHeight: 1.4, color: "#b6b6bd", maxWidth: 920 }}>{p.dek.slice(0, 220)}</div>}
+        {p?.dek && <div style={{ fontSize: 33, fontWeight: 500, lineHeight: 1.4, color: "#b6b6bd", maxWidth: 920 }}>{clip(p.dek, 230)}</div>}
       </div>
     );
   } else {
@@ -77,7 +89,7 @@ export async function GET(req: Request) {
     body = (
       <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
         <div style={{ fontSize: 70, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.05, color: "#fff", maxWidth: 920 }}>{idea?.title || cat.name}</div>
-        {idea?.oneLiner && <div style={{ fontSize: 35, fontWeight: 500, lineHeight: 1.4, color: "#b6b6bd", maxWidth: 920 }}>{idea.oneLiner.slice(0, 200)}</div>}
+        {idea?.oneLiner && <div style={{ fontSize: 35, fontWeight: 500, lineHeight: 1.4, color: "#b6b6bd", maxWidth: 920 }}>{clip(idea.oneLiner, 210)}</div>}
         {idea?.stats?.observations ? (
           <div style={{ marginTop: 8, display: "flex", fontSize: 30, fontWeight: 500, color: accent, border: `2px solid ${accent}`, borderRadius: 999, padding: "12px 26px" }}>
             спрос: {idea.stats.observations} наблюдений
