@@ -63,7 +63,7 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
       className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9"
     >
       <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
-      <h3 className="mt-2 text-[30px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
+      <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
       {icons.length > 0 && (
         <div className="mt-6 flex flex-wrap items-center gap-2">
           {icons.map((src, i) => (
@@ -212,7 +212,7 @@ export default function Landing({
         </div>
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <h1 className="glow-sweep ld-fade text-[40px] font-black leading-[1.02] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
+          <h1 className="glow-sweep ld-fade text-[clamp(27px,7.4vw,40px)] font-black leading-[1.04] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
             {ru ? (
               <>Проанализировали<br /><span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов</>
             ) : (
@@ -265,7 +265,7 @@ export default function Landing({
               )}
             </div>
           ) : (
-            <div className="overflow-hidden rounded-[18px] border border-[var(--color-border-subtle)]">
+            <div className="border-t border-[var(--color-border-subtle)]">
               {ranked.map((c) => <ListRow key={c.slug} c={c} ru={ru} />)}
             </div>
           )}
