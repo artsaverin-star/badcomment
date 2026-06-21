@@ -414,7 +414,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       ))}
                     </div>
                     <div className="absolute inset-x-0 top-0 flex justify-center px-2 pt-12 sm:pt-16">
-                      <div className="w-full max-w-[440px] rounded-[22px] border border-[color-mix(in_srgb,var(--color-accent-brand)_26%,var(--color-border-subtle))] bg-[var(--color-surface-card)] p-6 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] sm:p-7">
+                      <div className="w-full max-w-[440px] rounded-[22px] border border-[color-mix(in_srgb,var(--color-accent-brand)_26%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-bg-page)_60%,transparent)] p-6 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] backdrop-blur-xl sm:p-7">
                         <div className="flex items-center justify-center gap-2 text-[13px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
                           {ru ? "Выводы 02 и 03" : "Findings 02 & 03"}
                           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="text-[var(--color-text-tertiary)]" aria-hidden="true">

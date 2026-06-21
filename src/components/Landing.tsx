@@ -60,7 +60,7 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9"
+      className="group flex h-full transform-gpu flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9"
     >
       <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
       <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
@@ -91,7 +91,7 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
+      className="group flex h-full transform-gpu flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
     >
       <h3 className="text-[21px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[23px]">{c.name}</h3>
       {icons.length > 0 && (
@@ -234,7 +234,7 @@ export default function Landing({
         <div className="mx-auto w-full max-w-5xl px-1">
           {/* Header + view toggle */}
           <div className="mb-8 flex justify-center px-1">
-            <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-1.5">
+            <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
               {(["cards", "list"] as const).map((v) => (
                 <button
                   key={v}

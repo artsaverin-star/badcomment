@@ -330,10 +330,26 @@ html:not([data-theme="dark"]) .atmosphere {
   100% { text-shadow: none; }
 }
 .glow-sweep {
-  animation: glow-sweep 1.05s ease-out 0.15s 1 both;
+  animation: glow-sweep 3.2s ease-out 0.15s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
   .glow-sweep { animation: none; }
+}
+
+/* Chat-message bubble: a little tail at the bottom-left, same colour as the
+   bubble (--color-bg-muted). */
+.msg-bubble {
+  position: relative;
+}
+.msg-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -5px;
+  width: 13px;
+  height: 13px;
+  background: var(--color-bg-muted);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
 /* ── Landing (logged-out) animations ──────────────────────────────────── */

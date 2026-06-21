@@ -58,9 +58,9 @@ function Quotes({ list, n = 3 }: { list: ExpQuote[]; n?: number }) {
   return (
     <div className="flex flex-col gap-2.5">
       {list.slice(0, n).map((q, j) => (
-        <figure key={j} className="rounded-[16px] bg-[var(--color-bg-muted)] px-4 py-3">
-          <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{q.text}</p>
-          <figcaption className="mt-1.5 text-[12px] text-[var(--color-text-tertiary)]">{q.app}</figcaption>
+        <figure key={j} className="msg-bubble max-w-[90%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">
+          <p className="text-[14px] italic leading-[1.55] text-[var(--color-text-secondary)]">{q.text}</p>
+          <figcaption className="mt-1.5 text-[12px] not-italic text-[var(--color-text-tertiary)]">{q.app}</figcaption>
         </figure>
       ))}
     </div>

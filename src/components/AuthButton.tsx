@@ -154,9 +154,9 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               <span className="text-caption text-[var(--color-text-tertiary)]">
                 {me.unlimited
                   ? me.friend
-                    ? "⭐ Друг"
-                    : "⭐ Полный доступ"
-                  : `${me.balance ?? 0} ${tokensWord(me.balance ?? 0)}`}
+                    ? ru ? "⭐ Друг" : "⭐ Friend"
+                    : ru ? "⭐ Полный доступ" : "⭐ Full access"
+                  : `${me.balance ?? 0} ${ru ? tokensWord(me.balance ?? 0) : "energy"}`}
               </span>
             </span>
           </div>
@@ -168,11 +168,13 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             >
               <span className="text-[15px] leading-none text-[var(--color-text-brand)]">⚡</span>
               <span className="flex min-w-0 flex-col">
-                <span>{me.unlimited ? "Энергия" : "Моя энергия"}</span>
+                <span>{me.unlimited ? (ru ? "Энергия" : "Energy") : ru ? "Моя энергия" : "My energy"}</span>
                 <span className="text-caption text-[var(--color-text-tertiary)]">
                   {me.unlimited
-                    ? "Полный доступ"
-                    : `Баланс: ${me.balance ?? 0} ${tokensWord(me.balance ?? 0)} · Пополнить`}
+                    ? ru ? "Полный доступ" : "Full access"
+                    : ru
+                      ? `Баланс: ${me.balance ?? 0} ${tokensWord(me.balance ?? 0)} · Пополнить`
+                      : `Balance: ${me.balance ?? 0} energy · Top up`}
                 </span>
               </span>
             </Link>
