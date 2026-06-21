@@ -135,14 +135,15 @@ export default function EnergyUnlockButton({
     } catch {
       pending = null;
     }
-    if (pending && pending.type === type && pending.slug === slug) {
-      try {
-        localStorage.removeItem(PENDING_KEY);
-      } catch {
-        /* ignore */
-      }
-      void spend();
+    if (!pending || pending.type !== type || pending.slug !== slug) return;
+    try {
+      localStorage.removeItem(PENDING_KEY);
+    } catch {
+      /* ignore */
     }
+    // Defer out of the effect so we don't setState synchronously during it.
+    const t = setTimeout(() => void spend(), 0);
+    return () => clearTimeout(t);
   }, [loggedIn, short, type, slug, spend]);
 
   return (
