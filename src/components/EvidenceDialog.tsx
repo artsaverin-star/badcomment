@@ -390,7 +390,7 @@ export default function EvidenceDialog({
                       )}
                     </span>
                     {e.title && <span className="text-[13px] font-medium">{e.title}</span>}
-                    <p className="text-[13px] leading-[19px] text-[var(--color-text-secondary)]">
+                    <p className="text-[13px] italic leading-[19px] text-[var(--color-text-secondary)]">
                       {highlight(e.text, e.match)}
                     </p>
                   </div>

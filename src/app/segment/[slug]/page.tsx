@@ -44,9 +44,9 @@ function PillarFull({ p, label }: { p: ExpPillar; label: string }) {
                 {f.quotes.length > 0 && (
                   <div className="mt-5 flex flex-col gap-2.5">
                     {f.quotes.slice(0, 3).map((q, j) => (
-                      <figure key={j} className="rounded-[16px] bg-[var(--color-bg-muted)] px-4 py-3">
-                        <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{tg(q.text)}</p>
-                        <figcaption className="mt-1.5 text-[12px] text-[var(--color-text-tertiary)]">{q.app}</figcaption>
+                      <figure key={j} className="msg-bubble max-w-[92%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">
+                        <p className="text-[14px] italic leading-[1.55] text-[var(--color-text-secondary)]">{tg(q.text)}</p>
+                        <figcaption className="mt-1.5 text-[12px] not-italic text-[var(--color-text-tertiary)]">{q.app}</figcaption>
                       </figure>
                     ))}
                   </div>
