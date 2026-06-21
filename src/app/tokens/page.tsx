@@ -35,6 +35,18 @@ export default async function TokensPage() {
           </span>
         }
       />
+      <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-4 text-center">
+        <p className="text-callout font-semibold text-[var(--color-text-primary)]">
+          {locale === "en"
+            ? "🚀 Beta: founder lifetime access — 2990 ₽ instead of 9990 ₽"
+            : "🚀 Бета: доступ основателя навсегда — 2990 ₽ вместо 9990 ₽"}
+        </p>
+        <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">
+          {locale === "en"
+            ? "This price holds only during the beta. One time — every niche, conclusion and idea open forever."
+            : "Цена действует только пока идёт бета. Один раз — и все ниши, выводы и идеи открыты навсегда."}
+        </p>
+      </div>
       <div className="mt-8">
         <TokenStore
           balance={access.balance}
