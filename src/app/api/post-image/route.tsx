@@ -52,7 +52,7 @@ export async function GET(req: Request) {
         </div>
         <div style={{ fontSize: 58, fontWeight: 800, letterSpacing: -2, color: "#fff" }}>отзывов прочитали</div>
         <div style={{ marginTop: 18, fontSize: 40, fontWeight: 500, color: "#c8c8cf" }}>{apps} приложений в нише «{cat.name}»</div>
-        <div style={{ marginTop: 28, fontSize: 36, fontWeight: 500, color: accent }}>что хвалят, на что злятся и что построить 👉</div>
+        <div style={{ marginTop: 28, fontSize: 36, fontWeight: 500, color: accent }}>что хвалят, на что злятся и что построить</div>
       </div>
     );
   } else if (i === 1 || i === 2) {
