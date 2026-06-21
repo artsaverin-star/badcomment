@@ -16,6 +16,19 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 type TgState = { token: string; url: string; expiresAt: number; waiting: boolean };
 const TG_KEY = "inapp_tg_login";
 
+// Google OAuth refuses embedded webviews (Threads/Instagram/FB/etc.) with
+// `disallowed_useragent`. Detect them so we can steer the user to Telegram or to
+// their real browser instead of a dead-end 403.
+function isInAppWebView(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent || "";
+  if (/(Threads|Instagram|FBAN|FBAV|FB_IAB|Line\/|Twitter|TikTok|Snapchat|Pinterest|MicroMessenger|GSA\/|VKClient|OdklApp)/i.test(ua)) return true;
+  if (/\bwv\b/.test(ua) || /; wv\)/.test(ua)) return true; // Android WebView
+  // iOS in-app webview: WebKit without the Safari/Chrome/Firefox tokens.
+  if (/(iPhone|iPod|iPad)/.test(ua) && /AppleWebKit/.test(ua) && !/Safari/.test(ua) && !/(CriOS|FxiOS|EdgiOS)/.test(ua)) return true;
+  return false;
+}
+
 function loadTg(): TgState | null {
   try {
     const raw = localStorage.getItem(TG_KEY);
@@ -80,7 +93,26 @@ export default function AuthModal({
   const [loading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tg, setTg] = useState<TgState | null>(() => (typeof window === "undefined" ? null : loadTg()));
+  const [inApp, setInApp] = useState(false);
+  const [copied, setCopied] = useState(false);
   const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+
+  // Detect the embedded-webview case on the client (avoids SSR/hydration drift).
+  // Deferred so we don't setState synchronously inside the effect body.
+  useEffect(() => {
+    const t = setTimeout(() => setInApp(isInAppWebView()), 0);
+    return () => clearTimeout(t);
+  }, []);
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard blocked — the user can still use the ⋯ menu */
+    }
+  }
 
   // Lock scroll + Escape.
   useEffect(() => {
@@ -253,13 +285,29 @@ export default function AuthModal({
         </p>
       </div>
 
+      {inApp && (
+        <div className="mb-4 rounded-2xl border border-[color-mix(in_srgb,#f5a623_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,#f5a623_10%,transparent)] p-4 text-left">
+          <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">
+            {ru
+              ? "Вы во встроенном браузере (Threads/Instagram и т.п.). Google-вход тут блокируется. Войдите через Telegram, либо откройте сайт в Safari/Chrome (меню ⋯ вверху → «Открыть в браузере»)."
+              : "You're in an in-app browser (Threads/Instagram, etc.). Google sign-in is blocked here. Use Telegram, or open the site in Safari/Chrome (⋯ menu → “Open in browser”)."}
+          </p>
+          <button
+            onClick={copyLink}
+            className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-1.5 text-caption font-semibold text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]"
+          >
+            {copied ? (ru ? "Ссылка скопирована ✓" : "Link copied ✓") : (ru ? "Скопировать ссылку" : "Copy link")}
+          </button>
+        </div>
+      )}
+
       <div className="flex flex-col items-center gap-3">
         <button onClick={handleTelegramClick} disabled={loading} className={`${btnBase} bg-[#2AABEE] text-white hover:opacity-90`}>
           {TG_ICON}
           {ru ? "Войти через Telegram" : "Log in with Telegram"}
         </button>
 
-        {CLIENT_ID && (
+        {CLIENT_ID && !inApp && (
           <button
             onClick={handleGoogleClick}
             disabled={loading}
