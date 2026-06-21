@@ -41,7 +41,11 @@ export default function MobileSearch({ locale = "ru" }: { locale?: Locale }) {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder={ru ? "Поиск приложений и категорий" : "Search apps and categories"}
-          className="w-full bg-transparent text-callout text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)]"
+          autoComplete="off"
+          autoCorrect="off"
+          enterKeyHint="search"
+          /* ≥16px so iOS Safari doesn't auto-zoom (and break the layout) on focus. */
+          className="w-full bg-transparent text-[16px] text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)]"
         />
       </div>
 
