@@ -29,8 +29,8 @@ export async function generateMetadata() {
       languages: { ru: "https://inapp.pro/ru", en: "https://inapp.pro/en", "x-default": "https://inapp.pro/en" },
       types: { "application/rss+xml": "https://inapp.pro/feed.xml" },
     },
-    openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: ["https://inapp.pro/opengraph-image"] },
-    twitter: { card: "summary_large_image" as const, title, description, images: ["https://inapp.pro/opengraph-image"] },
+    openGraph: { title, description, type: "website" as const, url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    twitter: { card: "summary_large_image" as const, title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
     robots: { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1 },
   };
 }

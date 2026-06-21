@@ -87,8 +87,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       canonical: url,
       languages: { ru: `https://inapp.pro/ru/${slug}`, en: `https://inapp.pro/en/${slug}`, "x-default": `https://inapp.pro/en/${slug}` },
     },
-    openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: ["https://inapp.pro/opengraph-image"] },
-    twitter: { card: "summary_large_image", title, description, images: ["https://inapp.pro/opengraph-image"] },
+    openGraph: { title, description, type: "article", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    twitter: { card: "summary_large_image", title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
     robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   };
 }

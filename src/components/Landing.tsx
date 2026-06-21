@@ -16,15 +16,6 @@ export type CatCard = {
   hook: string;
   blurb: string;
 };
-
-function reviewsWord(n: number): string {
-  const d = n % 10;
-  const dd = n % 100;
-  if (dd >= 11 && dd <= 14) return "отзывов";
-  if (d === 1) return "отзыв";
-  if (d >= 2 && d <= 4) return "отзыва";
-  return "отзывов";
-}
 function appsWord(n: number): string {
   const d = n % 10;
   const dd = n % 100;
@@ -173,9 +164,10 @@ export default function Landing({
     try { localStorage.setItem("home-view", v); } catch { /* ignore */ }
   };
 
-  // Editorial ranking: the richer the breakdown (observations, then ideas), the
-  // more "popular" we treat it — featured larger in the bento.
-  const ranked = [...catCards].sort((a, b) => b.observations - a.observations || b.ideas - a.ideas);
+  // Order comes from the server (page.tsx pins the hand-curated premium niches to
+  // the front); keep it so the gallery leads with the best breakdowns, not just
+  // the highest observation counts. Featured = the first four (top premium).
+  const ranked = catCards;
   const FEATURED = 4;
 
   // Hero salute — icons flattened from the category cards, shuffled per load.
@@ -221,22 +213,19 @@ export default function Landing({
         </div>
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <h1 className="ld-fade text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
-            {ru ? <>Тысячи отзывов<br />в готовые выводы</> : <>Thousands of reviews<br />into clear conclusions</>}
+          <h1 className="ld-fade text-[40px] font-bold leading-[1.04] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
+            {ru ? (
+              <>Проанализировали<br /><span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов</>
+            ) : (
+              <>We analyzed <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span><br />app reviews</>
+            )}
           </h1>
 
           <p className="ld-fade mx-auto mt-5 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
             {ru
-              ? "Читаем отзывы по приложениям и собираем их в готовые выводы: что пользователи хвалят, на что злятся. А ещё предлагаем идеи новых приложений — на основе того, что люди просят."
-              : "We read app reviews and turn them into clear conclusions: what users love and what they hate. And we surface ideas for new apps from what people ask for."}
+              ? "Разложили всё по нишам, выводам и сразу конкретным идеям — какие приложения людям реально нужны."
+              : "Broken down by niche, clear conclusions and concrete ideas — which apps people actually need."}
           </p>
-          {totalReviews > 0 && (
-            <p className="ld-fade mx-auto mt-3 text-callout text-[var(--color-text-tertiary)]" style={{ animationDelay: "0.13s" }}>
-              {ru ? "Уже разобрали " : "Already analyzed "}
-              <span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{totalReviews.toLocaleString(ru ? "ru-RU" : "en-US")}</span>
-              {ru ? ` ${reviewsWord(totalReviews)}` : " reviews"}
-            </p>
-          )}
 
           {!loggedIn && (
             <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
@@ -252,25 +241,22 @@ export default function Landing({
       {catCards.length > 0 && (
         <div className="mx-auto w-full max-w-5xl px-1">
           {/* Header + view toggle */}
-          <div className="mb-6 flex items-center justify-between px-1">
-            <h2 className="text-[19px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[22px]">
-              {ru ? `Разборы ниш · ${catCards.length}` : `Niche breakdowns · ${catCards.length}`}
-            </h2>
-            <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-1">
+          <div className="mb-8 flex justify-center px-1">
+            <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-1.5">
               {(["cards", "list"] as const).map((v) => (
                 <button
                   key={v}
                   type="button"
                   onClick={() => setViewPersist(v)}
                   aria-pressed={view === v}
-                  className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-medium transition-colors ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                  className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-semibold transition-colors ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
                 >
                   {v === "cards" ? (
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /></svg>
                   ) : (
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="7" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="11.5" width="13" height="2" rx="1" fill="currentColor" /></svg>
                   )}
-                  <span className="hidden sm:inline">{v === "cards" ? (ru ? "Карточки" : "Cards") : (ru ? "Список" : "List")}</span>
+                  <span>{v === "cards" ? (ru ? "Карточки" : "Cards") : (ru ? "Список" : "List")}</span>
                 </button>
               ))}
             </div>
