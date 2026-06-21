@@ -2,6 +2,7 @@ import Link from "next/link";
 import AuthButton from "./AuthButton";
 import HeaderSearch from "./HeaderSearch";
 import SettingsMenu from "./SettingsMenu";
+import Logo from "./Logo";
 import { type Locale } from "@/lib/i18n";
 
 // Sticky top bar — identical structure on phone and desktop (getgems-style): the
@@ -22,14 +23,9 @@ export default function Header({
         <Link
           href="/"
           aria-label="inApp"
-          className="flex shrink-0 items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] py-1 pl-1 pr-3.5 transition-colors hover:border-[var(--color-border-strong)]"
+          className="flex shrink-0 items-center transition-opacity hover:opacity-70"
         >
-          <span className="flex size-7 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-white">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-            </svg>
-          </span>
-          <span className="text-[18px] font-bold leading-none tracking-[-0.2px] text-[var(--color-text-primary)] [font-family:var(--brand-font-family)]">inApp</span>
+          <Logo className="text-[22px]" />
         </Link>
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">

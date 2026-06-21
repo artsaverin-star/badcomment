@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import Logo from "./Logo";
 import type { Locale } from "@/lib/i18n";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -274,8 +275,8 @@ export default function AuthModal({
   return (
     <ModalShell onClose={onClose} ru={ru}>
       <div className="mb-6 text-center">
-        <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] text-[22px] font-bold text-[var(--color-text-primary)] [font-family:var(--brand-font-family)]">
-          iA
+        <div className="mb-4 flex justify-center">
+          <Logo className="text-[34px]" />
         </div>
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
           {ru ? "Добро пожаловать в inApp" : "Welcome to inApp"}

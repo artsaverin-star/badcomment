@@ -23,24 +23,8 @@ export default function Image() {
           fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 56,
-              height: 56,
-              borderRadius: 16,
-              background: "#f5a524",
-              color: "#0a0a0b",
-              fontSize: 36,
-              fontWeight: 800,
-            }}
-          >
-            i
-          </div>
-          <div style={{ color: "#fff", fontSize: 40, fontWeight: 700, letterSpacing: -1 }}>inApp</div>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ color: "#fff", fontSize: 54, fontWeight: 900, letterSpacing: -2.5 }}>inApp</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
