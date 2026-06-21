@@ -81,6 +81,13 @@ export default async function Home() {
     "document-scanners", "weather-apps", "intermittent-fasting", "affirmations", "plant-care",
     "habit-tracking", "personal-finance", "astrology",
   ];
+  // Drop slug duplicates (a few niches live in two domain blocks in the source).
+  const seenSlugs = new Set<string>();
+  for (let i = 0; i < catCards.length; ) {
+    if (seenSlugs.has(catCards[i].slug)) catCards.splice(i, 1);
+    else { seenSlugs.add(catCards[i].slug); i++; }
+  }
+
   const premiumRank = (slug: string) => { const i = PREMIUM.indexOf(slug); return i === -1 ? PREMIUM.length : i; };
   catCards.sort((a, b) => premiumRank(a.slug) - premiumRank(b.slug));
 

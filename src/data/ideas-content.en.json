@@ -5636,530 +5636,222 @@
   ],
   "monetization": "Subscription for expanded credit monitoring and premium analytics; partner offers triggered by verified score improvement."
  },
- "habit-tracking-1": {
-  "categoryName": "Привычки и стрики",
-  "title": "OneTap — a tracker that lives entirely on the lock screen and the widget",
-  "oneLiner": "Habits get ticked in a second from the lock screen and an interactive widget — no need to open the app at all.",
-  "gap": "For nearly every incumbent the widget is either behind a paywall, won't react without opening the app, or is out of sync with the tracker itself. Yet the widget is the main return mechanism: without it people forget the app within days.",
-  "pitch": "Make the atomic gesture flawless and free: interactive widget + Live Activity on the lock screen + a reliable full-screen alarm. Everything that accumulates later (sync, analytics) goes into the paid layer.",
+ "notes-pkm-1": {
+  "categoryName": "Заметки и PKM",
+  "title": "Lightning",
+  "oneLiner": "A local-first notepad that opens and writes instantly, types without lag and never drops into read-only — speed as the only feature.",
+  "gap": "Every mass product gets heavier: Notion lags 30 seconds, Evernote opens in a minute and a half, Zoho is pretty but slow. Incumbents can't slim down — they carry desktop-first DNA and accumulated weight. Cold-start speed remains an unoccupied niche.",
+  "pitch": "The fastest path from thought to note on Android: tap the icon — the cursor is already blinking, typing with no delay, writes stored locally with background sync; on a network failure you keep writing instead of hitting «read-only».",
   "features": [
-   "Interactive widget with one-tap check-off and a visible streak",
-   "Live Activity / routine player on the lock screen",
-   "Full-screen alarm nudge, adjustable in intensity",
-   "Retro check-in and undo straight from the widget",
-   "Notification testing on aggressive ROMs (Samsung, Xiaomi)"
+   "Opens in <300ms, straight into a new note",
+   "Local writes with deferred sync, never read-only",
+   "A quick-note widget that actually works",
+   "Lag-free typing even on 10k-word notes",
+   "One-tap voice capture for «hands busy»"
   ],
-  "monetization": "Core loop free forever; paid — cross-device cloud sync, advanced analytics, unlimited widget themes. A lifetime purchase as the anti-subscription argument."
+  "monetization": "Core free forever; a one-time Lifetime purchase for cross-device cloud sync (the Obsidian model fans defend with donations), no subscription for the basics."
  },
- "habit-tracking-2": {
-  "categoryName": "Привычки и стрики",
-  "title": "Quitter — a tracker built for 'quitting,' not 'doing'",
-  "oneLiner": "Counts clean days off smoking, vaping, sugar and alcohol, and shows the money and health saved as a growing streak.",
-  "gap": "Most trackers only handle achievement habits; a 'negative habit' is run via an inversion workaround, with no mode where a tick = abstinence. Yet the segment is huge and emotionally engaged — quitting drives the most heartfelt reviews.",
-  "pitch": "A first-class anti-habit mode: a clean-day counter, auto-marked abstinence, 'money/health saved,' and gentle handling of a relapse without nuking all motivation.",
+ "notes-pkm-2": {
+  "categoryName": "Заметки и PKM",
+  "title": "Moving Day",
+  "oneLiner": "A notebook whose storefront is a «migrate from Evernote/Notion/OneNote in one pass» button, catching the refugee stream the incumbents are evicting themselves.",
+  "gap": "Incumbents monetize accumulated dependence (Evernote ×2–×10 price, Zoho hides covers behind a subscription, Notion forces AI), and users migrate en masse, naming the alternative right in the review. Zoho proved that a built-in «Migrate from Evernote» is a ready-made growth channel.",
+  "pitch": "Not «another notebook» but a concrete exit for the disgruntled: import thousands of notes in one pass with structure preserved, a price many times lower, no AI shoved in and no sign-up wall on entry.",
   "features": [
-   "A 'positive/negative' flag at habit creation",
-   "Auto-tick of abstinence unless you log a relapse",
-   "A counter of money saved and health regained",
-   "A 'relapsed' button with support instead of shame, plus grace logic",
-   "Milestones (24h / 7 / 30 / 100 days) with a visual streak"
+   "One-button import from Evernote/Notion/OneNote/Keep, with attachments",
+   "Preserves the notebook→section→page hierarchy on import",
+   "Local trial mode with no account (subscribe only if you liked it)",
+   "Transparent export anytime (zero exit cost as a promise)",
+   "AI fully optional and disableable"
   ],
-  "monetization": "One or two quits free; paid — multiple parallel addictions, substance-specific medical milestones, progress export for a therapist."
+  "monetization": "A one-time Lifetime instead of a subscription (explicit Evernote contrast: «the same as a year of theirs»); paid only for cloud sync, everything local is free."
  },
- "habit-tracking-3": {
-  "categoryName": "Привычки и стрики",
-  "title": "FlexStreak — a tracker where the streak respects '3 times a week'",
-  "oneLiner": "Flexible 'N times per period' frequency as a first-class feature, and a streak that doesn't break on a planned off-day.",
-  "gap": "The rigid 'every day' model is the most widespread pain: the streak gets capped for anyone taking days off, and the visual grid reads planned rest as a lapse. Only a few handle irregular goals, and people abandon the rest for it.",
-  "pitch": "Make an irregular habit the norm, not the exception: '3 times a week on any days,' 'weekdays/weekends,' a floating day — and a streak and board that honestly account for it.",
+ "notes-pkm-3": {
+  "categoryName": "Заметки и PKM",
+  "title": "Traffic Light",
+  "oneLiner": "A notebook where color is a full navigation system: tabs, filters and widgets sorted by color, readable at a glance.",
+  "gap": "ColorNote and WeNote have retained people on color alone for a decade, but are stuck in «text-only», with no formatting, photos or iOS. Nobody has brought color navigation to a modern level with media and cross-platform at the same time.",
+  "pitch": "Your chaos becomes manageable at a glance: color tabs and widgets like ColorNote, but with photos, basic formatting, in-note search and sync to iOS/PC — the wall the old leaders ran into.",
   "features": [
-   "'N times per Y days' and 'specific weekdays' frequency",
-   "A streak that counts the period, not consecutive days",
-   "Neutral/hollow marks on off-days so the board doesn't scare",
-   "Reminders that adapt to a floating day",
-   "A weekly/monthly overview instead of a narrow 5-day window"
+   "Color tabs and filtering by color",
+   "Color widgets showing real note text on the home screen",
+   "Photo and attachment support inline in text",
+   "ADHD mode: visual layout, minimal cognitive load",
+   "Cross-platform Android/iOS/web"
   ],
-  "monetization": "Basic flexible frequency free; paid — advanced frequency-completion analytics, trends, export."
+  "monetization": "Free with colors and widgets; premium for unlimited attachments, signature palettes/covers and sync (but never move basic color behind a paywall — the Zoho lesson)."
  },
- "habit-tracking-4": {
-  "categoryName": "Привычки и стрики",
-  "title": "Companion — caring for a character as the engine for those with no energy for themselves",
-  "oneLiner": "Habits get done for a creature that depends on you — motivation by ricochet, with no guilt and no punishment.",
-  "gap": "Finch proved huge demand for 'routing care,' but it drifts into a dress-up app, overloads with shops, and removed the mood tracker. Disciplinary trackers have no such mechanism at all, and punishment mechanics scare off the target segment.",
-  "pitch": "A clean mental-health companion: you get up for it, skipping is fine, no resets and no shame. Minimal effort to engage, a gentle start, the mood tracker in the core rather than behind 'sparkly' items.",
+ "notes-pkm-4": {
+  "categoryName": "Заметки и PKM",
+  "title": "Pen, No Code",
+  "oneLiner": "An editor for writers: WYSIWYG writing with no visible syntax and no forced blocks — what neither Obsidian nor Notion offers.",
+  "gap": "Powerful products invite writers as a «writing platform», but their editor is built for code and structure: an asterisk italicizes a space, a line break jumps into a new block, the source can't be turned off. Prose writers, screenwriters and poets flee from «everything is code».",
+  "pitch": "Open and write prose like on paper: formatting renders immediately, no markdown symbols on screen and no forced break into blocks/pages, but with full structure under the hood for those who need it.",
   "features": [
-   "A character that depends on completion but doesn't die or scold",
-   "Skip/snooze as a normal choice, with no loss of the whole streak",
-   "A mood tracker and 'how are you?' in the core, not paywalled",
-   "A gentle onboarding without option overload",
-   "An option to disable the social layer — the journal private by default"
+   "WYSIWYG: #heading and **bold** render, syntax never shows",
+   "Continuous text flow, no forced pages/blocks",
+   "Basic formatting (bold, headings, size) in one tap",
+   "In-note search with highlight (Ctrl+F)",
+   "Export to PDF/.docx to move into office software"
   ],
-  "monetization": "A generous free tier (it IS the trust-and-word-of-mouth engine); paid — cosmetics and extra tools as a bonus, never the basic care. A channel through therapists."
+  "monetization": "Free writing and single-device sync; premium for cloud sync, export formats, fonts and themes for long-form."
  },
- "habit-tracking-5": {
-  "categoryName": "Привычки и стрики",
-  "title": "ADHD-First — a tracker designed around broken action-initiation",
-  "oneLiner": "A morning/evening routine in timed steps with voice and a visible timer, but without the sound bomb or the race.",
-  "gap": "Routinery proved demand for 'autopilot steps' for time-blind users, but it fails on details: an alarm with no off-button, reminders only after the fact, a 2-routine cap, routines lost after updates.",
-  "pitch": "Make the same 'don't decide what's next' mechanism reliable and humane: mid-task reminders, a controllable alarm, an anchor widget, and a generous free routine cap.",
+ "notes-pkm-5": {
+  "categoryName": "Заметки и PKM",
+  "title": "Vault",
+  "oneLiner": "A notebook built around privacy from the start: per-note lock, local storage and zero forced AI — for logins, journals and the sensitive.",
+  "gap": "People mass-store passwords, medical info and personal journals in notes, but Keep has no lock at all, Zoho's lock blurs titles so you can't find the entry, and forced AI reads as access to the private. Privacy as the product's core has barely been done cleanly.",
+  "pitch": "The one safe place for what you can't lose and can't show: a lock on every note and the app, data on the device, AI off by default that never reaches into your thoughts.",
   "features": [
-   "A step-by-step routine with a visible timer and voice guide",
-   "Reminders mid-task, not just at 'time's up'",
-   "An alarm with a visible button that respects silent mode",
-   "A lock-screen routine widget/player with 'next/skip'",
-   "Per-weekday tasks; a weekly schedule without a subscription"
+   "Per-note and app-level lock (biometrics/password) with the title still visible",
+   "Local encrypted storage, optional E2E sync",
+   "A private folder hidden from the main list",
+   "AI off by default, an explicit toggle, no note scanning",
+   "Import of passwords/logins from rival notes"
   ],
-  "monetization": "3-4 routines free (enough for the core use case); paid — unlimited routines, watch, team/kids profiles. Never gate the basic flow."
+  "monetization": "Free basic lock; premium for E2E cloud sync, unlimited protected notes, biometrics on individual folders."
  },
- "habit-tracking-6": {
-  "categoryName": "Привычки и стрики",
-  "title": "Anywhere — a tracker that truly lives on every screen",
-  "oneLiner": "Phone, browser, desktop and watch with honest instant sync — tick on your wrist, see it in Chrome.",
-  "gap": "Cross-platform is a rare retention lock people buy lifetime for, yet even Habitify's Android trails iOS, and the watch crashes. Most apps are 'phone only,' and the absence of sync systematically loses the most engaged users.",
-  "pitch": "Make connectivity the main USP and the foundation, not an afterthought: identical parity across platforms, real-time auto-sync, a native watch app as a first-class client.",
+ "notes-pkm-6": {
+  "categoryName": "Заметки и PKM",
+  "title": "Day by Day",
+  "oneLiner": "A journaling notepad where every entry is auto-dated and keeps its original date forever — for diaries, logs and timelines that Keep breaks on the first edit.",
+  "gap": "Keep shows only the last-edited date, and the creation date vanishes after the smallest edit — killing a whole class of use cases (diary, journal, timeline). Users explicitly ask for auto-dating and a preserved original date, and the emotional «write out your feelings» job proved a powerful retention hook on Samsung.",
+  "pitch": "Keep a life over time, not a note dump: a new entry automatically gets a date and time, the creation date is never lost, and it all flows into a timeline.",
   "features": [
-   "Feature parity across iOS, Android, web and desktop",
-   "Instant auto-sync with no manual backup",
-   "A native watch app with check-off and timer",
-   "Health Connect / Apple Health integration",
-   "Cloud/email auto-backup by default"
+   "Auto date and time on every entry, an immutable creation date",
+   "Timeline feed and a calendar of entries",
+   "Mood/tags for emotional journaling",
+   "A lock on the journal + local storage",
+   "Search by date and inside an entry"
   ],
-  "monetization": "One phone free; paid (ideally lifetime) — multi-device sync, web and desktop, watch. Connectivity is exactly what people say they'd pay more for."
+  "monetization": "Free journaling; premium for cloud sync, export of the whole journal to PDF/book, advanced mood analytics."
  },
- "habit-tracking-7": {
-  "categoryName": "Привычки и стрики",
-  "title": "Honest — an anti-subscription tracker with a transparent monetization line",
-  "oneLiner": "The entire core habit loop is free forever; you pay once and only for what accumulates over time.",
-  "gap": "The category is crowded with aggressive subscriptions, hidden bundles, charges after cancellation, and a paywall on the check-off itself. Users explicitly contrast that with 'honest' products with lifetime pricing and a generous free tier — and stay for years.",
-  "pitch": "Turn honesty into a competitive weapon: zero ads, zero dark patterns, a one-time lifetime purchase, one-tap cancellation. Trust in the product (and in a named indie developer) converts where the feature set alone wouldn't.",
+ "notes-pkm-7": {
+  "categoryName": "Заметки и PKM",
+  "title": "Family List",
+  "oneLiner": "Lists and reminders that actually share and sync between people in real time — where Keep, OneNote and Samsung stumble on collaboration.",
+  "gap": "A shopping list is the most frequent daily job, but sharing is lame everywhere: Keep won't let you copy/sort a list, OneNote throws «page conflict» on shared notes, Samsung corrupts shared notes or limits them to its own users, and Keep pushed reminders out so they don't fire.",
+  "pitch": "One shared family list that doesn't conflict or vanish: add an item and it updates instantly for everyone, a reminder on a specific item rather than the whole block, and it works with any phone.",
   "features": [
-   "The full core loop (check-off, widget, reminders, streak) free",
-   "A lifetime purchase instead of a subscription",
-   "Paid only for what accumulates: sync, deep analytics, themes",
-   "No charges after cancellation, one-tap cancel, no quizzes",
-   "A public, responsive developer who ships requests"
+   "Real-time list sharing by link, cross-platform",
+   "A reminder on an individual item, not the whole block",
+   "Sort/copy/export the whole list",
+   "Check-off with auto-collapse of bought items, no «popping» back up",
+   "A shared-list widget on every member's home screen"
   ],
-  "monetization": "A one-time lifetime ('for the cost of lunch') plus an optional 'to support' subscription. A generous free tier as a word-of-mouth engine, not lost revenue."
+  "monetization": "Free up to N shared lists; a family subscription for unlimited members, change history and private lists."
  },
- "personal-finance-1": {
-  "categoryName": "Личные финансы",
-  "title": "The unbreakable ledger: a tracker you physically cannot lose",
-  "oneLiner": "Lightning-fast manual tracking with automatic invisible backup to your own cloud from first launch — history can't be lost on any phone change.",
-  "gap": "The category's sharpest and most repeated failure is losing years of accumulated data on a phone switch or breakage, because backup is local or off by default. Leaders punish exactly the most loyal, the ones with the most history.",
-  "pitch": "Not 'one more tracker' but a promise: your financial history will NEVER disappear. Backup is on from the first transaction, encrypted, and placed in your own Google Drive/iCloud/Dropbox with no mandatory account — privacy segment and loss-fear closed at once.",
+ "photo-editing-1": {
+  "categoryName": "Фоторедакторы",
+  "title": "TryMe — an honest virtual fitting room for haircuts and outfits",
+  "oneLiner": "See yourself with a genuinely different cut, beard or outfit — before the salon and before the purchase, across all lengths, genders and group photos.",
+  "gap": "The category flagship (Facetune) pulls people in with 'try a haircut before deciding', but the engine only re-textures existing hair, offers ~10 near-identical long options, and abandons men and short cuts. The demand is huge and willing to pay, yet the product breaks at the exact moment users came for.",
+  "pitch": "Not a 'photo editor' but a decision tool: one screen, real length and shape changes (pixie, bob, men's cuts, beard), outfits — with an honest 'still me'. One free result before the paywall so the user sees the quality before paying.",
   "features": [
-   "Automatic encrypted backup from first launch, no manual toggle",
-   "Storage choice: Google Drive, iCloud, Dropbox or local — no mandatory cloud account",
-   "One-tap restore when installing on a new phone",
-   "Lightning-fast expense entry: one screen, calculator, category",
-   "Honest export of all history to CSV/spreadsheet at any time"
+   "Real length/shape change of hair, not texture over the existing",
+   "Full catalog: short, pixie, men's cuts, beards, outfits",
+   "Multi-face detection for group and couple photos",
+   "Realistic mode with no face repaint ('this is still me')",
+   "Matching to face shape and color season — navigation to 'your' look",
+   "One guaranteed free result before subscription"
   ],
-  "monetization": "Free — the entire core loop and backup forever; a one-time Lifetime purchase (not a subscription) for multi-device, forecast and pro reports."
+  "monetization": "Free for one full result, then a subscription for unlimited try-ons and HD saving; affiliate links to salons and clothing/outfit stores."
  },
- "personal-finance-2": {
-  "categoryName": "Личные финансы",
-  "title": "Will I have enough: a tracker that looks forward, not back",
-  "oneLiner": "Tracking where recurring income and bills automatically roll up into a forecast of 'how much will I actually have left after all payments' through end of period.",
-  "gap": "Leaders record the past brilliantly but are almost all blind to the future: the balance forecast is missing or broken, and people are forced to keep a spreadsheet just for it. Where the forecast existed and got broken, users drop to one star — it's the most valuable unclosed job.",
-  "pitch": "Shifting the question from 'where did the money go' to 'how much will I have left' moves the product from tracker to planner — the exact thing people can't abandon their Excel for.",
+ "photo-editing-2": {
+  "categoryName": "Фоторедакторы",
+  "title": "CleanSweep — an object and watermark eraser that always hands the result back",
+  "oneLiner": "Select — erase — save at original resolution; one sharp job carried to the finish with no wall mid-process.",
+  "gap": "Object erasers win the non-technical beginner ('select-erase-done'), but they trap the result itself: no Save button, original resolution paywalled, the pay-line switches on mid 'free' trial. Activation never happens, yet churn already has.",
+  "pitch": "Grant one free success at full quality and monetize the volume (batch processing, video). AI that actually rebuilds the background under the erased thing, and a clone stamp with real manual control — exactly where rivals stumble.",
   "features": [
-   "Recurring payments and income automatically subtract from the projected future balance",
-   "A future cash-flow calendar with a balance for each day",
-   "Forecast anchored to an arbitrary payday period, not the 1st of the month",
-   "Replacing the homemade spreadsheet: CSV import and the same 'free balance' calculation",
-   "Alert if the forecast shows the balance going negative before payday"
+   "Guaranteed save at original resolution — never a screenshot",
+   "AI inpainting that truly reconstructs the background, not a smeared blob",
+   "A clone stamp that mirrors the finger movement, with return-to-point",
+   "Offline mode for weak connectivity",
+   "Targeted watermark removal as a dedicated preset",
+   "Multilingual interface with a language toggle"
   ],
-  "monetization": "Free tracking and a basic forecast for the current period; subscription/Lifetime for forecasting several periods ahead and 'what-if' scenarios."
+  "monetization": "One free result at full quality; a subscription for batch processing, video and priority AI; a one-off 'remove watermark ×N' purchase."
  },
- "personal-finance-3": {
-  "categoryName": "Личные финансы",
-  "title": "Our budget: shared tracking for a couple with no duplicates or losses",
-  "oneLiner": "A shared wallet for two where a partner's edits appear instantly and sync merges changes rather than overwriting them 'last-write-wins'.",
-  "gap": "A shared budget is constant demand and the most broken scenario: some offer no shared access and lose the user at the moment of marriage; others' sync spawns duplicates, drops records and dumps the partner's transactions into the main account. A 'whole-backup' architecture instead of merge makes couples impossible.",
-  "pitch": "Build the product around the household from the start: true multi-user with change-merge, personal and shared envelopes — the in-family network effect raises the switching cost for two at once.",
+ "photo-editing-3": {
+  "categoryName": "Фоторедакторы",
+  "title": "FontCloud — 'text on photos' for micro-business with your fonts in the cloud",
+  "oneLiner": "Caption a photo, flyer or notice in a minute — with your own TTFs that sync and don't vanish on a phone change.",
+  "gap": "Phonto won loyalty with one rare mechanic — loading any font — but locked it behind two failures: downloaded fonts live only locally and die on reinstall, and a clunky Android onboarding turns away newcomers right at the killer feature. Micro-businesses and creators use it daily but lose their collection and hit a typography ceiling.",
+  "pitch": "The same fast 'text on photos' easier than Canva, but with fonts tied to an account and in the cloud, one-tap TTF import with a clear guide, and the fine typography (curving, per-letter color, recents) the leader lacks.",
   "features": [
-   "Real change-merge from two devices, no duplicates or overwrites",
-   "Shared and personal wallets in one household: 'both on the same page' without clearing every spend",
-   "Access rights: partner can view-only or edit",
-   "A monthly reconciliation report 'who contributed how much' for settling between cohabitants",
-   "Real-time notification to the partner about a spend from the shared wallet"
+   "Cloud library of your fonts — never lost on reinstall",
+   "One-tap TTF import with a step-by-step guide for Android",
+   "Recent and favorite fonts history, library search",
+   "Fine typography: curving, per-letter color, per-word bold",
+   "Transparent-PNG export to slot into someone's pipeline",
+   "Reopening saved projects and a reliable undo"
   ],
-  "monetization": "Free for one; subscription/Lifetime 'Family' for a second+ member and shared wallets — they pay exactly once the value is already proven."
+  "monetization": "A free 'text on photos' core with no watermark; a subscription for cloud font sync, fine typography and PNG export for those who earn with it."
  },
- "personal-finance-4": {
-  "categoryName": "Личные финансы",
-  "title": "Pay cycle: a budget on your real money rhythm",
-  "oneLiner": "A tracker with an arbitrary accounting period anchored to payday that doesn't break already-closed past periods.",
-  "gap": "The whole category offers only a calendar month or 'last 30 days', but a huge segment is paid biweekly or every four weeks (Australia especially), and some run a cycle from the 7th to the 7th. Shifting the period start is either impossible or destroys past history.",
-  "pitch": "One cheap but almost-nowhere-implemented mechanism — a flexible payday-to-payday period with frozen past — single-handedly wins back an entire underserved segment that today leaves or recalculates by hand.",
+ "photo-editing-4": {
+  "categoryName": "Фоторедакторы",
+  "title": "ShelfPro — a product-photo editor for small business with an export guarantee",
+  "oneLiner": "Clean background, professional look, banners and logos — embedded in a store's revenue stream, where export never lets you down.",
+  "gap": "The category's most defensible segment is people who earn: product shots, ad banners, logos. Bazaart attracts them with free background removal but loses them on weak export (a blurry file worse than the preview), lag under the load of multi-layer projects, and a watermark sitting exactly where everyone sees it.",
+  "pitch": "Aim straight at the micro-business: one screen from 'raw product shot' to finished listing, export at original quality as an iron guarantee, no degradation under load. For this audience price isn't the argument — reliability is.",
   "features": [
-   "Period out of the box: weekly, biweekly, 4-weekly, monthly or arbitrary",
-   "Anchoring period start to the payday date, not the 1st of the month",
-   "Freezing closed past periods: changing the date doesn't rewrite history",
-   "Auto carry-over of the unspent balance into the new period (no false 'it's all gone' panic)",
-   "Percentage allocation of income across categories for variable earnings"
+   "Background removal + AI backdrop with no watermark on paid",
+   "Export strictly at preview quality, no upscaling bait",
+   "Multi-layer stability with no vanishing layers",
+   "Banner and logo templates as a start, but a blank canvas by choice",
+   "Ready-made formats for marketplaces and social feeds",
+   "Project autosave — work isn't lost on a crash"
   ],
-  "monetization": "Free basic period; subscription/Lifetime for arbitrary periods, percentage allocation and binding to multiple income sources."
+  "monetization": "A business subscription for unlimited HD exports and background removal; team plans; one-off template packs per niche (bakery, apparel, services)."
  },
- "personal-finance-5": {
-  "categoryName": "Личные финансы",
-  "title": "The full picture: one screen of cash, savings and investments",
-  "oneLiner": "A tracker where a transfer between your own accounts doesn't count as spending, and savings and investments roll up into an honest net worth growing over time.",
-  "gap": "Leaders' base model 'every movement is income or expense' lies in the key number: a transfer to your own account logs as a spend, money into savings is flagged 'gone', credit-card debt counts as income. Those who outgrow expense tracking hit a ceiling and keep a second app for savings.",
-  "pitch": "A correct data model — transfer transaction, savings/goals and investments as separate entities — turns an expense tracker into a single wealth dashboard, closing the door users leave through to a rival.",
+ "photo-editing-5": {
+  "categoryName": "Фоторедакторы",
+  "title": "SteadyPro — an ageless pro editor with no AI shove and no habit demolition",
+  "oneLiner": "A fast, offline editor with manual control, RAW and presets that promises: we will never break your muscle memory with an update.",
+  "gap": "Snapseed's 4.0 redesign broke a decade-long habit contract overnight: reshuffled UI, slowed loop, removed RAW, hid undo in masking — and veterans sideload the old APK en masse. VSCO and Lightroom repeat the pattern: updates take away, break the workflow, chase the AI mass and lose the pros who held the reputation.",
+  "pitch": "Position as the anti-influencer tool: stable, fast, manual control, offline, no ads. The flagship feature is a toggle to the classic interface and a backward-compatibility promise. Pros pay for predictability.",
   "features": [
-   "A transfer between your own accounts as a separate transaction type that doesn't affect spending",
-   "Goals and savings with progress, separated from expenses",
-   "Tracking investments and credit cards so debt reduces, not inflates, net worth",
-   "A single historical trajectory of cash + savings + investments",
-   "An account's opening balance not counted as income"
+   "A toggle to the classic interface — an escape hatch always",
+   "An instant editing loop with no preset delays",
+   "Full RAW support (.NEF/.CR2/.ARW/.DNG, new cameras)",
+   "Reliable undo inside masking and precise manual masks",
+   "Export with a folder picker, no quality loss, offline",
+   "Cloud backup of presets and albums — an update won't wipe the work"
   ],
-  "monetization": "Free — spending and transfers; subscription/Lifetime for the wealth module: investments, net worth, savings goals."
+  "monetization": "A one-off purchase or a cheap subscription with no AI markup; paid cloud backup of presets; strictly no ads and no clawing back free features."
  },
- "personal-finance-6": {
-  "categoryName": "Личные финансы",
-  "title": "Quiet parser: auto-capture of spends from SMS with no banking passwords handed over",
-  "oneLiner": "A local engine that reads bank SMS and push right on the phone and offers a ready-made transaction — automation without giving away account access.",
-  "gap": "The category is split: the privacy segment refuses to hand over bank username-password-OTP, and the sync segment is tired of typing by hand. SMS auto-parsing is named outright as a reason to leave, but leaders either demand bank access or break the parsing with updates.",
-  "pitch": "Close the gap between two warring segments: parsing happens on the device, nothing leaves for a server, no banking password needed — the speed of automation with privacy preserved.",
+ "photo-editing-6": {
+  "categoryName": "Фоторедакторы",
+  "title": "MirrorMe — realistic face and body retouch with a strict 'still me'",
+  "oneLiner": "Delicate correction of skin, shape and makeup with no plastic look and no face repaint — with a preview and no loss of original quality.",
+  "gap": "Peachy wins precisely on realism ('doesn't make you look superficial'), but loses willing payers on two seams: card-only payment cuts off card-less markets, the license doesn't carry to a new phone (one user bought it three times), and editing happens blind with no preview. Facetune, meanwhile, repaints the whole face instead of a targeted edit — 'not me'.",
+  "pitch": "The same realistic 'everything in one' retouch kit, but with a live preview of each edit, original-size saving, flexible payment (card/wallet/cash-equivalent), and a cloud license that travels with the user.",
   "features": [
-   "On-device reading of bank SMS and push notifications, no cloud",
-   "A ready draft transaction with guessed category and amount — confirm with one tap",
-   "Category learning: remembers how the user filed similar charges",
-   "Fully switchable off for those who want pure manual entry",
-   "No access to the bank account, username, password or OTP"
+   "Live preview of an edit before applying",
+   "Realistic mode with no caricature/AI sheen",
+   "Saving the photo's original size and quality",
+   "Flexible payment for markets without bank cards",
+   "Cloud license — moves to a new phone with no re-buy",
+   "Tactile shape modeling with a finger stroke"
   ],
-  "monetization": "Free manual entry; subscription/Lifetime for auto-capture from SMS/notifications and smart categorization."
+  "monetization": "A generous free tier as a loyalty hook; a subscription or a lifetime cloud license; alternative payment methods for non-card markets."
  },
- "personal-finance-7": {
-  "categoryName": "Личные финансы",
-  "title": "City of habits: gamification that rewards smart money, not spending",
-  "oneLiner": "A finance tracker with an emotional game layer where what grows isn't a city of purchases but progress for no-spend days, goals hit and staying within budget.",
-  "gap": "Gamification provenly hooks the bored segment and ADHD users (recommended by their therapists), but the leading example rewards the act of spending — users spot the paradox themselves: an app about saving incentivizes spending. The reward is tied to the wrong behavior.",
-  "pitch": "Keep the dopamine loop that alone retains 'non-serious' budgeters, but redirect the reward to the useful: you saved, didn't spend, stayed within the limit — your world grows.",
+ "photo-editing-7": {
+  "categoryName": "Фоторедакторы",
+  "title": "FilmToTaste — a vintage camera with curation to 'your' look and video",
+  "oneLiner": "Shoot and edit in a film aesthetic where the app guides you to your look — and works in video, where the trends live.",
+  "gap": "Dazz Cam wins with an instant one-tap vintage look but loses on curation (part of the audience 'couldn't find their filter'), on the absence of favorite cameras, on crashes when importing from the gallery, and on the lack of video — the dominant format where the film look monetizes best.",
+  "pitch": "Not a dump of hundreds of cameras but navigation to 'your' look: matching by vibe, favorite cameras with settings, reliable gallery import and a video mode. A recognizable aesthetic as a brand people seek out deliberately.",
   "features": [
-   "Reward for no-spend days, savings goals hit and staying within budget, not for spending",
-   "A gentle, non-shaming tone instead of mocking an overspend",
-   "Fast entry with no mandatory game fiddling for those in a hurry",
-   "An ADHD mode: short daily goals and visible progress",
-   "Arbitrary period and balance carry-over so the loop matches payday"
+   "Look matching by vibe/mood instead of blind scrolling",
+   "Favorite cameras with saved fader settings",
+   "Reliable editing of imported gallery photos with no crashes",
+   "A video mode with the same film look",
+   "Fast saving even after a heavy grain effect",
+   "Flash that behaves like a real camera — fires at capture"
   ],
-  "monetization": "Free tracking and a basic game; subscription/Lifetime for world cosmetics, advanced goals and habit analytics."
- },
- "nutrition-calories-1": {
-  "categoryName": "Калории и питание",
-  "title": "One tap and lunch is logged",
-  "oneLiner": "An offline-first calorie tracker tuned for one metric — repeat-log speed — with no AI chatter and no gamification.",
-  "gap": "Every incumbent, on maturing, bolted an AI chat in front of the log, pop-up queues and streaks, adding taps to an action people do 5x a day. The \"I know the calories, I just want to type and close\" segment flees in bulk, but there's no perfect fast tracker for them to flee to.",
-  "pitch": "Open it and yesterday's food is already on screen, \"repeat lunch\" is one tap, gram entry is a direct keypad, and everything works without a network. No AI between you and the record; AI and charts are optional, on top, behind a toggle.",
-  "features": [
-   "One-tap \"same as yesterday\" and copy-whole-day",
-   "Direct number and gram entry — no dials, no \"servings\"",
-   "Fully offline logging with background sync",
-   "Swipe between days and recent/frequent/favorites on the home screen",
-   "Global \"minimal mode\" toggle to kill all tips, animations, streaks"
-  ],
-  "monetization": "Free core forever (log, database, barcode, custom recipes); subscription only for cloud backup, export and advanced analytics."
- },
- "nutrition-calories-2": {
-  "categoryName": "Калории и питание",
-  "title": "Curated base: one correct entry per food",
-  "oneLiner": "A tracker with a curated, verified food database — no ten duplicates with different calories.",
-  "gap": "An open crowdsourced base makes the catalog huge and poisons it at once: a dozen entries per food with different numbers, \"verified\" ones that are wrong, no way to mark the correct one. Users log junk for years and lose trust in the number itself.",
-  "pitch": "Every food is one canonical entry with a source (label/USDA/brand), a \"this is right/wrong\" button, and a clear hierarchy: verified always outranks user-submitted. Search returns the best entry, not a wall of noise.",
-  "features": [
-   "Canonical entries with the data source shown",
-   "\"Correct/incorrect\" voting and one-tap error reporting",
-   "Verified foods always first in results",
-   "Photo the label → auto-fill macros with a check",
-   "Personal recipe library layered over the shared base"
-  ],
-  "monetization": "Free basic search and log; premium — priority addition of missing foods and an unlimited personal base."
- },
- "nutrition-calories-3": {
-  "categoryName": "Калории и питание",
-  "title": "Local food: a tracker for your own cuisine",
-  "oneLiner": "A calorie tracker with a deep non-Western base — Indian, Asian, Middle Eastern, post-Soviet food in grams and local barcodes.",
-  "gap": "Every major tracker is built for the US/West: local dishes are missing, the barcode won't scan, units are in \"cups,\" the week starts Sunday. Whole markets leave because they can't log a plain chicken fillet or a local product.",
-  "pitch": "A base built around regional cuisine and local brands, with grams by default and a working local barcode. Where incumbents silently lose the international segment, you take it whole.",
-  "features": [
-   "Regional dish bases and local brands with home recipes",
-   "Local barcodes and country-specific catalogs",
-   "Grams and local units/standards (net carbs, salt instead of sodium) by default",
-   "Configurable week start and a localized interface",
-   "Moderated community contributions per region"
-  ],
-  "monetization": "Free log and local base; premium — offline country-base packs and advanced local-cuisine analytics."
- },
- "nutrition-calories-4": {
-  "categoryName": "Калории и питание",
-  "title": "Neutral tracker: zero shame",
-  "oneLiner": "A food tracker with no traffic-lights and no moralizing — for people with an ED history and anyone who wants facts, not verdicts.",
-  "gap": "In a niche where the audience is by definition vulnerable, incumbents color food \"good/bad,\" send sad faces and AI \"swap for something healthy\" tips — and contradict themselves (spinach orange, cheeseburger green). It's an ethical risk and a trust-killer. A safe, neutral tracker barely exists.",
-  "pitch": "Numbers and trends only, no judgments about food. An optional \"hide calories\" mode (habit and nutrient tracking without the numbers), and a no-pressure tone — \"do it as well as you can, approximate still counts.\"",
-  "features": [
-   "No color scoring and no \"bad food\" — data only",
-   "Calorie-hiding mode for ED recovery",
-   "No-pressure tone and gentle, non-manipulative reminders",
-   "Focus on nutrients and well-being, not the deficit",
-   "Hard age/safety-conscious design reviewed by specialists"
-  ],
-  "monetization": "Free core; premium — deeper nutrient insights and integration with a therapist/dietitian."
- },
- "nutrition-calories-5": {
-  "categoryName": "Калории и питание",
-  "title": "Keto/diabetes: honest net carbs",
-  "oneLiner": "A macro tracker tuned for keto and diabetes: accurate net-carb and sugar accounting, manual goal, no calorie dictate.",
-  "gap": "The most motivated, paying segment comes for net carbs and sugar control, yet \"carb managers\" front-load a calorie goal, AI counts chia as 10 net carbs instead of zero, and you can't set the goal manually. For people whose blood sugar spikes, that's a medical risk.",
-  "pitch": "From the first screen, carbs and sugar are central, net carbs are computed correctly and transparently, and the goal is set by you or your doctor. Exclude foods by fructose/allergies, log glucose next to meals.",
-  "features": [
-   "Correct net-carb math with a transparent formula",
-   "Manual goal-setting for calories and every macro",
-   "Glucose/insulin logging next to meals",
-   "Exclusion filters (fructose, allergens) in suggestions",
-   "One-tap export of logs to a doctor/dietitian"
-  ],
-  "monetization": "Free basic keto log; premium — medical reports, export and glucometer/CGM integration."
- },
- "nutrition-calories-6": {
-  "categoryName": "Калории и питание",
-  "title": "Couples tracker: losing weight together",
-  "oneLiner": "A calorie tracker with a shared log for couples and families — shared recipes and mutual accountability double retention.",
-  "gap": "Logging food jointly with a partner is a social lock: two accounts hold each other and neither leaves. Yet incumbents remove meal sharing, turning the couples scenario into manual double-entry — and the stickiest cohort leaves together at once.",
-  "pitch": "One recipe — both diaries, shared progress and gentle accountability without pressure. Cooked dinner for two, both logged in one action; your partner sees your streak, you see theirs.",
-  "features": [
-   "Shared recipes and meals synced across accounts",
-   "Couple/family goals and joint progress",
-   "Mutual reminders and accountability without competition",
-   "Separate private mode for weight/measurements",
-   "Shared shopping list from logged recipes"
-  ],
-  "monetization": "Free solo log; a couple/family premium cheaper than two single subscriptions — a built-in incentive to retain both."
- },
- "nutrition-calories-7": {
-  "categoryName": "Калории и питание",
-  "title": "Your data, yours forever",
-  "oneLiner": "A tracker that guarantees data immortality: auto-backup, instant transfer to a new phone, and full export of logs.",
-  "gap": "For multi-year users the accumulated history is emotional capital and the main lock. But incumbents lose years of logs on a phone reset or update bug, offer no export or API — and the most loyal leave for good and angry, specifically over data fragility.",
-  "pitch": "Every log mirrors to the cloud encrypted; a new phone means log in and everything's there to the last entry. File export and an API are built in so you can take logs to a doctor, dietitian or your own spreadsheet. The data can't be lost and can't be locked in.",
-  "features": [
-   "Auto-backup of every log with encryption",
-   "Seamless device transfer with no loss",
-   "CSV/PDF export and an open API",
-   "Weekly/monthly calorie and macro reports",
-   "Versioning: restore accidentally deleted entries"
-  ],
-  "monetization": "Free log with basic backup; premium — unlimited history, advanced reports, API access and doctor-export."
- },
- "intermittent-fasting-1": {
-  "categoryName": "Интервальное голодание",
-  "title": "FastBare — an offline-first timer that never loses your fast",
-  "oneLiner": "A minimalist fasting tracker with no account and no internet, where any forgotten or mistaken fast is editable and backdatable in two taps.",
-  "gap": "Almost every incumbent bloated the timer into a server-dependent health platform and does NOT let you fix a forgotten fast after the fact — which kills trust among the most disciplined. The basic 'forgive me the missed tap' mechanic is properly implemented by no one.",
-  "pitch": "Open it — straight to the timer, no quiz, no account. Forget to tap start last night? Backdate it to 'yesterday, 10 pm.' Everything works offline, because marking a moment in time shouldn't need a server. Streaks you can trust.",
-  "features": [
-   "Timer launches on the first screen with no registration",
-   "Backdate start/stop and edit any past fast, delete a mistaken one",
-   "Fully offline mode, sync optional",
-   "Free manual mode: any window (16:8, OMAD, ADF, 36h) with no cap and no paywall",
-   "Home-screen widget and shade counter (count-up and count-down)"
-  ],
-  "monetization": "Free core forever (timer + edits + offline); a one-time Pro purchase for cloud backup, cross-device sync and themes — no subscription on the timer itself."
- },
- "intermittent-fasting-2": {
-  "categoryName": "Интервальное голодание",
-  "title": "BodyClock — a live narrative of what your body is doing right now",
-  "oneLiner": "A tracker where each hour of the fast is a chapter: what's happening inside, why to push through, when to train.",
-  "gap": "The educational stage narrative is the single shared reason to return across all 10 apps, yet in most it's buried under paywalls, ads and bloat. No one has made it the polished hero of the product.",
-  "pitch": "Not 'four hours left' but 'you're entering fat-burning — here's what that means.' Content people read exactly when willpower fades, to keep from breaking. The timer becomes a coach for the hard moment.",
-  "features": [
-   "An hour-by-hour stage feed with plain explanations of body processes",
-   "A content push timed to the hard final hours of the window",
-   "'When best to train' hints by phase",
-   "Non-judgmental tone: no scoldings for a slip, you can return without guilt",
-   "Short beginner lessons that remove the 'am I doing this right' fear"
-  ],
-  "monetization": "Free timer plus the basic narrative; subscription for a deep content course, personalized stages for long fasts and audio guidance — shown AFTER the first completed fast."
- },
- "intermittent-fasting-3": {
-  "categoryName": "Интервальное голодание",
-  "title": "HydraStreak — water as the entry point into fasting",
-  "oneLiner": "Start with the easiest win — drinking water — and gently grow into a fasting window.",
-  "gap": "Over and over the favorite feature named isn't the timer but the water reminder — a cheap micro-habit with a daily sense of accomplishment. But no one builds the product AROUND it as an entry funnel into IF.",
-  "pitch": "First we just help you drink enough (especially those who don't). The small daily win hooks you, and once the habit holds we suggest adding a fasting window. A low barrier to entry instead of a quiz wall.",
-  "features": [
-   "Smart water reminders with scheduling and a quiet overnight window",
-   "Backdating yesterday's missed water (which rivals lack)",
-   "A smooth upsell from water into a fasting window, with no mandatory quiz",
-   "Micro-streaks and small achievable goals",
-   "A home-screen widget for water and fast status"
-  ],
-  "monetization": "Free: water plus a basic timer; Pro for richer stats, integrations and cyclical goals. The anchor price is low because we enter via a cheap habit, not a 'weight-loss program.'"
- },
- "intermittent-fasting-4": {
-  "categoryName": "Интервальное голодание",
-  "title": "OpenFast — a tracker for the experienced that listens to your regimen instead of imposing its own",
-  "oneLiner": "No caps and no paywalls on windows: 16:8, OMAD, ADF, 36h and shift schedules — all free and editable.",
-  "gap": "Experienced practitioners — the most motivated, retainable segment — leave en masse because apps hide their regimens behind a 'coach,' cap them at 23 hours, or force a weekly plan rebuild. They're literally pushed out.",
-  "pitch": "Set any protocol, repeat the week in one tap, run long fasts with no limit. A product that trusts your body and simply records reality accurately rather than arguing with it.",
-  "features": [
-   "Any window or protocol with no cap and no paywall, including ADF and 36h+",
-   "Saved and recurring weekly plans, night-shift support",
-   "Free manual start/stop and editing after the fact",
-   "Data export (CSV/for a doctor) — which even paid apps lack",
-   "Optional count-up: see how long you've already held, as a reward"
-  ],
-  "monetization": "A free full-featured core for practitioners; Pro for trend analytics, export and cross-device sync. We monetize data depth, not the basic right to fast your own way."
- },
- "intermittent-fasting-5": {
-  "categoryName": "Интервальное голодание",
-  "title": "KindFast — shame-free fasting for those who slip",
-  "oneLiner": "A non-judgmental tracker that forgives a slip and welcomes the return instead of punishing with guilt.",
-  "gap": "Half the apps motivate through guilt — an overseer mascot, scoldings for stepping out of the window, body-shaming onboarding — and lose exactly the audience wrestling with eating habits. Mirror to that: products with a non-judgmental tone retain the lapse-prone, but it's rare.",
-  "pitch": "Miss a day and the app says 'it happens, let's restart,' not a sad face. A safe space for those who feared 'failing' on other diets turns a one-off attempt into a lifestyle.",
-  "features": [
-   "A judgment-free tone: no scoldings for a slip or for leaving the window",
-   "Onboarding with no body-shaming and no mandatory BMI label",
-   "An optional AI companion you're not ashamed to confess a slip to",
-   "Easy restart after a break, history doesn't reset",
-   "A mode for those who fast not for weight loss (autophagy, mental clarity, maintenance)"
-  ],
-  "monetization": "Free core; subscription for personalized gentle support and an AI review of slips. We never press guilt for the sake of retention — that's the product differentiation."
- },
- "intermittent-fasting-6": {
-  "categoryName": "Интервальное голодание",
-  "title": "WristFast — fasting from the wrist and the shade, with no phone in hand",
-  "oneLiner": "A Wear OS / Samsung / Garmin app and widget to start and end a fast with one button, without opening the phone.",
-  "gap": "Fasting is a background process measured in hours, yet nearly all apps make you pull out the phone for one button, and a watch app is missing even from the leaders. 'It's the only thing keeping it from five stars' is the most common loyal request.",
-  "pitch": "Status — 'fasting / eating / N left' — always on your wrist and in the shade. No opening the app, no ad on launch, no waiting for a load — tap the widget and the fast is closed. The habit holds because it needs no ritual.",
-  "features": [
-   "Full apps for Wear OS, Samsung Watch, Garmin",
-   "A home/lock-screen widget and a persistent shade counter",
-   "Start/stop/edit straight from the watch, offline",
-   "Quiet, non-intrusive window-change reminders with no ads",
-   "Two-way sync with Health Connect / Google Fit / Samsung Health"
-  ],
-  "monetization": "Free: phone plus widget; Pro (a one-time purchase) for the watch app and richer integrations with health ecosystems."
- },
- "intermittent-fasting-7": {
-  "categoryName": "Интервальное голодание",
-  "title": "ProveFirst — a fasting tracker that proves value before the quiz and the payment",
-  "oneLiner": "First a completed fast and a visible result, then — and only optionally — the quiz, the plan and the subscription.",
-  "gap": "Every incumbent puts a 50-question quiz / contract / paywall BEFORE the first fast, so churn lands before activation. The quiz's false 'personalization' disappoints those who get through. No one has flipped the funnel.",
-  "pitch": "Open it — you're fasting. Finish your first fast, see the stage narrative and maybe a first drop on the scale — now, if you want, answer a couple of questions for personalization. We ask for money from someone who already felt the benefit, not from a curious visitor at the door.",
-  "features": [
-   "An instant timer on the first screen, the quiz deferred and skippable",
-   "Honest personalization: a real algorithm or we don't promise it at all",
-   "A generous free tier as proof of value (plans, water, stages)",
-   "The subscription offer only after the first completed fast",
-   "Transparency: no hidden 'coach=PDF,' clear on what the paid tier includes"
-  ],
-  "monetization": "Free-to-value: a free core proves the benefit; subscription for a genuinely personal plan, content and integrations — conversion from the activated, not from installs."
- },
- "document-scanners-1": {
-  "categoryName": "Сканеры документов",
-  "title": "OneShot — a one-gesture scanner, free forever at the core",
-  "oneLiner": "Open — point — and the file is already in 'Documents' and in the share sheet: one screen, zero walls between the scan and sending it.",
-  "gap": "Every incumbent spent years training the market on a free reflex, then locked it behind an annual subscription at the final 'Save'. The niche left a huge segment that needs exactly one dependable gesture with no unlock ritual.",
-  "pitch": "The core gesture 'scan → clean PDF → hand over' is free forever and watermark-free; you only pay for the add-on. No wall between you and the file you already made — and that takes the whole base enraged by CamScanner/Tiny Scanner.",
-  "features": [
-   "One-tap capture with auto-crop and a clear, large 'Done' button",
-   "Save straight to the system 'Documents' folder and the gallery, file visible without the app",
-   "Direct one-tap share to email/WhatsApp, no upgrade modals",
-   "Zero ads and watermarks on the free tier",
-   "App size under 100MB, no forced login"
-  ],
-  "monetization": "Free core forever; paid add-on (OCR, sync, large archive) priced one-off cheap or via a cheap month, no annual lock."
- },
- "document-scanners-2": {
-  "categoryName": "Сканеры документов",
-  "title": "LocalVault — a scanner with local ownership and on-device processing for sensitive documents",
-  "oneLiner": "Passports, statements and medical records are scanned and processed right on the device; the files live in your folder, not in someone else's cloud.",
-  "gap": "People scan the sensitive stuff, but incumbents silently route the document through the cloud and lose the archive on a new phone. There's a deliberate segment fleeing US/China apps that can't be poached on price.",
-  "pitch": "On-device processing by default, files in an open device folder, no hidden cloud account — a 'your documents stay yours' positioning closes the privacy segment others give away for free.",
-  "features": [
-   "Fully offline scan processing and on-device OCR",
-   "Files in the system folder + auto-backup to the user's own cloud (their Google Drive/iCloud), not ours",
-   "A clear 'processed locally, nothing went to a server' indicator",
-   "Import/export of the whole archive as one file, a lossless move to a new phone",
-   "No forced account and no demand for all-files disk access"
-  ],
-  "monetization": "One-time Pro purchase (local OCR, unlimited archive) — a model aligned with privacy: not a watching subscription but a tool bought for good."
- },
- "document-scanners-3": {
-  "categoryName": "Сканеры документов",
-  "title": "PayPerScan — a one-off charge per scan instead of an annual subscription",
-  "oneLiner": "Scan for free, pay pennies only to export a specific document — pricing matched to the rhythm of rare need.",
-  "gap": "A huge share of the market scans a couple of times a year and is willing to pay, just not for a year — yet incumbents offer only an annual wall and lose that honest payer entirely.",
-  "pitch": "Demand packaged to the event: zero commitment, pay one-off for a specific export or take a cheap month during an actually active period. You capture the 'needed once a year' segment that CamScanner and Tiny Scanner push to free alternatives.",
-  "features": [
-   "Packs of 'energy'/tokens for N exports, non-expiring",
-   "Optional cheap month for active periods (exam session, a move)",
-   "Transparent price BEFORE the scan, no hidden annual charges",
-   "Free preview of the finished file without a watermark",
-   "A family/team token wallet for offices"
-  ],
-  "monetization": "Pay-per-export micro-payments + an optional monthly plan; a lifetime pack for heavy users."
- },
- "document-scanners-4": {
-  "categoryName": "Сканеры документов",
-  "title": "BulkSafe — a multi-page scanner with incremental autosave that never loses the work",
-  "oneLiner": "Scan a stack of 20-50 pages with a clear 'Stop' button; each page saves immediately, a crash wipes nothing.",
-  "gap": "Real work is multi-page, but incumbents keep only the first page, duplicate it, scramble the order, or crash on the 27th page with no autosave — losing exactly the most loyal, heavy segment.",
-  "pitch": "Reliability at volume as the headline feature: per-page incremental autosave, a clear end-of-series, drag-to-reorder. You win libraries, musicians, students and data encoders whom everyone else drops.",
-  "features": [
-   "Autosave of each captured page to a draft session, recovery after a crash",
-   "A large, clear 'Done/Stop series' button",
-   "Drag-and-drop reordering and duplicate removal before the PDF is assembled",
-   "Stable on 20-50 pages and heavy files with no timeout",
-   "Batch auto-crop with manual per-page correction"
-  ],
-  "monetization": "Free up to N pages/document; Pro lifts the page cap and adds batch OCR — the upsell lands squarely on the heavy user."
- },
- "document-scanners-5": {
-  "categoryName": "Сканеры документов",
-  "title": "TrueCrop — auto-crop with an honest manual toggle and a visible guide",
-  "oneLiner": "Auto-capture magic by default, but one tap to the full frame, a thick visible guide and edge-dragging.",
-  "gap": "Aggressive 'auto' with no override clips borders and loses power users; the manual fallback in every app is helpless — a thin invisible guide, corners-only dragging.",
-  "pitch": "Both magic and control in one product: the newcomer gets point-and-done, the pro gets precise manual editing. You take both the mass segment and those who leave for a rival over fine-tuning.",
-  "features": [
-   "An 'auto/full frame' toggle right on the capture screen",
-   "A thick, high-contrast crop guide with grid, draggable by edges and corners",
-   "Manual filter-intensity and contrast adjustment",
-   "Save as a clean image, not only a PDF",
-   "Settings memory for non-standard formats (book, artwork, curled page)"
-  ],
-  "monetization": "Free core; Pro — advanced filters, batch processing and watermark-free bulk export."
- },
- "document-scanners-6": {
-  "categoryName": "Сканеры документов",
-  "title": "OfficialReady — a 'pass-the-review' scanner: visas, insurance, applications, watermark-free and legibility-guaranteed",
-  "oneLiner": "A scan that will pass formal review: high contrast, shadow cleanup, zero stamp, a legibility check before sending.",
-  "gap": "Documents are sent to people who judge by appearance; a watermark, an extra promo page and a blurry result directly fail a visa or a send to an employer — and incumbents spoil the official scenario in exactly this way.",
-  "pitch": "Positioning on a measurable outcome, not convenience: an approved visa instead of a rejected one. Templates for specific formal documents and a quality validator before sending make you the default for the 'high-stakes' segment.",
-  "features": [
-   "Presets for visa/ID/insurance with the right contrast and size",
-   "Auto shadow/glare cleanup + a 'legible enough to submit' indicator",
-   "Zero watermarks and promo pages even on the free tier",
-   "File-size control for submission-portal limits",
-   "Two-sided ID into one document in a single pass"
-  ],
-  "monetization": "Free N official scans/month; Pro — unlimited, extended presets and priority support for those whose stakes are high."
- },
- "document-scanners-7": {
-  "categoryName": "Сканеры документов",
-  "title": "TrustLoop — a scanner with fast support and recovery as a built-in retention mechanism",
-  "oneLiner": "Lost a file, stuck at a wall, a crash — you message from inside the app and a human fixes it within hours; negativity turns into loyalty.",
-  "gap": "Across every app it's visible: a meaningful share of negativity is reversible through a fast reply — people flip one-stars into fives when their files are recovered or a refund is made. But support is 'non-existent, email only', and the chance is missed.",
-  "pitch": "Support as a product, not a cosmetic: an in-app channel, session recovery from autosave, a transparent refund on first contact. You convert the enraged into advocates in a category where word of mouth is the primary install engine.",
-  "features": [
-   "In-app support chat with recovery of the last scan session",
-   "Draft autosave so 'lost' files actually come back",
-   "A transparent one-tap refund inside the trial, no disputes",
-   "A rating prompt ONLY after a successful export, not at start",
-   "A public changelog of complaint-driven fixes — proof they listen"
-  ],
-  "monetization": "Free core; Pro with priority support and cloud archive backup — support itself becomes the paid value."
+  "monetization": "Free base cameras as a hook; a subscription for premium cameras, video and cloud presets; camera packs by season/aesthetic."
  },
  "calendars-tasks-1": {
   "categoryName": "Календари и задачи",
@@ -6371,6 +6063,216 @@
   ],
   "monetization": "A cheap local subscription matched to the market's purchasing power; volume over high ticket price."
  },
+ "nutrition-calories-1": {
+  "categoryName": "Калории и питание",
+  "title": "One tap and lunch is logged",
+  "oneLiner": "An offline-first calorie tracker tuned for one metric — repeat-log speed — with no AI chatter and no gamification.",
+  "gap": "Every incumbent, on maturing, bolted an AI chat in front of the log, pop-up queues and streaks, adding taps to an action people do 5x a day. The \"I know the calories, I just want to type and close\" segment flees in bulk, but there's no perfect fast tracker for them to flee to.",
+  "pitch": "Open it and yesterday's food is already on screen, \"repeat lunch\" is one tap, gram entry is a direct keypad, and everything works without a network. No AI between you and the record; AI and charts are optional, on top, behind a toggle.",
+  "features": [
+   "One-tap \"same as yesterday\" and copy-whole-day",
+   "Direct number and gram entry — no dials, no \"servings\"",
+   "Fully offline logging with background sync",
+   "Swipe between days and recent/frequent/favorites on the home screen",
+   "Global \"minimal mode\" toggle to kill all tips, animations, streaks"
+  ],
+  "monetization": "Free core forever (log, database, barcode, custom recipes); subscription only for cloud backup, export and advanced analytics."
+ },
+ "nutrition-calories-2": {
+  "categoryName": "Калории и питание",
+  "title": "Curated base: one correct entry per food",
+  "oneLiner": "A tracker with a curated, verified food database — no ten duplicates with different calories.",
+  "gap": "An open crowdsourced base makes the catalog huge and poisons it at once: a dozen entries per food with different numbers, \"verified\" ones that are wrong, no way to mark the correct one. Users log junk for years and lose trust in the number itself.",
+  "pitch": "Every food is one canonical entry with a source (label/USDA/brand), a \"this is right/wrong\" button, and a clear hierarchy: verified always outranks user-submitted. Search returns the best entry, not a wall of noise.",
+  "features": [
+   "Canonical entries with the data source shown",
+   "\"Correct/incorrect\" voting and one-tap error reporting",
+   "Verified foods always first in results",
+   "Photo the label → auto-fill macros with a check",
+   "Personal recipe library layered over the shared base"
+  ],
+  "monetization": "Free basic search and log; premium — priority addition of missing foods and an unlimited personal base."
+ },
+ "nutrition-calories-3": {
+  "categoryName": "Калории и питание",
+  "title": "Local food: a tracker for your own cuisine",
+  "oneLiner": "A calorie tracker with a deep non-Western base — Indian, Asian, Middle Eastern, post-Soviet food in grams and local barcodes.",
+  "gap": "Every major tracker is built for the US/West: local dishes are missing, the barcode won't scan, units are in \"cups,\" the week starts Sunday. Whole markets leave because they can't log a plain chicken fillet or a local product.",
+  "pitch": "A base built around regional cuisine and local brands, with grams by default and a working local barcode. Where incumbents silently lose the international segment, you take it whole.",
+  "features": [
+   "Regional dish bases and local brands with home recipes",
+   "Local barcodes and country-specific catalogs",
+   "Grams and local units/standards (net carbs, salt instead of sodium) by default",
+   "Configurable week start and a localized interface",
+   "Moderated community contributions per region"
+  ],
+  "monetization": "Free log and local base; premium — offline country-base packs and advanced local-cuisine analytics."
+ },
+ "nutrition-calories-4": {
+  "categoryName": "Калории и питание",
+  "title": "Neutral tracker: zero shame",
+  "oneLiner": "A food tracker with no traffic-lights and no moralizing — for people with an ED history and anyone who wants facts, not verdicts.",
+  "gap": "In a niche where the audience is by definition vulnerable, incumbents color food \"good/bad,\" send sad faces and AI \"swap for something healthy\" tips — and contradict themselves (spinach orange, cheeseburger green). It's an ethical risk and a trust-killer. A safe, neutral tracker barely exists.",
+  "pitch": "Numbers and trends only, no judgments about food. An optional \"hide calories\" mode (habit and nutrient tracking without the numbers), and a no-pressure tone — \"do it as well as you can, approximate still counts.\"",
+  "features": [
+   "No color scoring and no \"bad food\" — data only",
+   "Calorie-hiding mode for ED recovery",
+   "No-pressure tone and gentle, non-manipulative reminders",
+   "Focus on nutrients and well-being, not the deficit",
+   "Hard age/safety-conscious design reviewed by specialists"
+  ],
+  "monetization": "Free core; premium — deeper nutrient insights and integration with a therapist/dietitian."
+ },
+ "nutrition-calories-5": {
+  "categoryName": "Калории и питание",
+  "title": "Keto/diabetes: honest net carbs",
+  "oneLiner": "A macro tracker tuned for keto and diabetes: accurate net-carb and sugar accounting, manual goal, no calorie dictate.",
+  "gap": "The most motivated, paying segment comes for net carbs and sugar control, yet \"carb managers\" front-load a calorie goal, AI counts chia as 10 net carbs instead of zero, and you can't set the goal manually. For people whose blood sugar spikes, that's a medical risk.",
+  "pitch": "From the first screen, carbs and sugar are central, net carbs are computed correctly and transparently, and the goal is set by you or your doctor. Exclude foods by fructose/allergies, log glucose next to meals.",
+  "features": [
+   "Correct net-carb math with a transparent formula",
+   "Manual goal-setting for calories and every macro",
+   "Glucose/insulin logging next to meals",
+   "Exclusion filters (fructose, allergens) in suggestions",
+   "One-tap export of logs to a doctor/dietitian"
+  ],
+  "monetization": "Free basic keto log; premium — medical reports, export and glucometer/CGM integration."
+ },
+ "nutrition-calories-6": {
+  "categoryName": "Калории и питание",
+  "title": "Couples tracker: losing weight together",
+  "oneLiner": "A calorie tracker with a shared log for couples and families — shared recipes and mutual accountability double retention.",
+  "gap": "Logging food jointly with a partner is a social lock: two accounts hold each other and neither leaves. Yet incumbents remove meal sharing, turning the couples scenario into manual double-entry — and the stickiest cohort leaves together at once.",
+  "pitch": "One recipe — both diaries, shared progress and gentle accountability without pressure. Cooked dinner for two, both logged in one action; your partner sees your streak, you see theirs.",
+  "features": [
+   "Shared recipes and meals synced across accounts",
+   "Couple/family goals and joint progress",
+   "Mutual reminders and accountability without competition",
+   "Separate private mode for weight/measurements",
+   "Shared shopping list from logged recipes"
+  ],
+  "monetization": "Free solo log; a couple/family premium cheaper than two single subscriptions — a built-in incentive to retain both."
+ },
+ "nutrition-calories-7": {
+  "categoryName": "Калории и питание",
+  "title": "Your data, yours forever",
+  "oneLiner": "A tracker that guarantees data immortality: auto-backup, instant transfer to a new phone, and full export of logs.",
+  "gap": "For multi-year users the accumulated history is emotional capital and the main lock. But incumbents lose years of logs on a phone reset or update bug, offer no export or API — and the most loyal leave for good and angry, specifically over data fragility.",
+  "pitch": "Every log mirrors to the cloud encrypted; a new phone means log in and everything's there to the last entry. File export and an API are built in so you can take logs to a doctor, dietitian or your own spreadsheet. The data can't be lost and can't be locked in.",
+  "features": [
+   "Auto-backup of every log with encryption",
+   "Seamless device transfer with no loss",
+   "CSV/PDF export and an open API",
+   "Weekly/monthly calorie and macro reports",
+   "Versioning: restore accidentally deleted entries"
+  ],
+  "monetization": "Free log with basic backup; premium — unlimited history, advanced reports, API access and doctor-export."
+ },
+ "document-scanners-1": {
+  "categoryName": "Сканеры документов",
+  "title": "OneShot — a one-gesture scanner, free forever at the core",
+  "oneLiner": "Open — point — and the file is already in 'Documents' and in the share sheet: one screen, zero walls between the scan and sending it.",
+  "gap": "Every incumbent spent years training the market on a free reflex, then locked it behind an annual subscription at the final 'Save'. The niche left a huge segment that needs exactly one dependable gesture with no unlock ritual.",
+  "pitch": "The core gesture 'scan → clean PDF → hand over' is free forever and watermark-free; you only pay for the add-on. No wall between you and the file you already made — and that takes the whole base enraged by CamScanner/Tiny Scanner.",
+  "features": [
+   "One-tap capture with auto-crop and a clear, large 'Done' button",
+   "Save straight to the system 'Documents' folder and the gallery, file visible without the app",
+   "Direct one-tap share to email/WhatsApp, no upgrade modals",
+   "Zero ads and watermarks on the free tier",
+   "App size under 100MB, no forced login"
+  ],
+  "monetization": "Free core forever; paid add-on (OCR, sync, large archive) priced one-off cheap or via a cheap month, no annual lock."
+ },
+ "document-scanners-2": {
+  "categoryName": "Сканеры документов",
+  "title": "LocalVault — a scanner with local ownership and on-device processing for sensitive documents",
+  "oneLiner": "Passports, statements and medical records are scanned and processed right on the device; the files live in your folder, not in someone else's cloud.",
+  "gap": "People scan the sensitive stuff, but incumbents silently route the document through the cloud and lose the archive on a new phone. There's a deliberate segment fleeing US/China apps that can't be poached on price.",
+  "pitch": "On-device processing by default, files in an open device folder, no hidden cloud account — a 'your documents stay yours' positioning closes the privacy segment others give away for free.",
+  "features": [
+   "Fully offline scan processing and on-device OCR",
+   "Files in the system folder + auto-backup to the user's own cloud (their Google Drive/iCloud), not ours",
+   "A clear 'processed locally, nothing went to a server' indicator",
+   "Import/export of the whole archive as one file, a lossless move to a new phone",
+   "No forced account and no demand for all-files disk access"
+  ],
+  "monetization": "One-time Pro purchase (local OCR, unlimited archive) — a model aligned with privacy: not a watching subscription but a tool bought for good."
+ },
+ "document-scanners-3": {
+  "categoryName": "Сканеры документов",
+  "title": "PayPerScan — a one-off charge per scan instead of an annual subscription",
+  "oneLiner": "Scan for free, pay pennies only to export a specific document — pricing matched to the rhythm of rare need.",
+  "gap": "A huge share of the market scans a couple of times a year and is willing to pay, just not for a year — yet incumbents offer only an annual wall and lose that honest payer entirely.",
+  "pitch": "Demand packaged to the event: zero commitment, pay one-off for a specific export or take a cheap month during an actually active period. You capture the 'needed once a year' segment that CamScanner and Tiny Scanner push to free alternatives.",
+  "features": [
+   "Packs of 'energy'/tokens for N exports, non-expiring",
+   "Optional cheap month for active periods (exam session, a move)",
+   "Transparent price BEFORE the scan, no hidden annual charges",
+   "Free preview of the finished file without a watermark",
+   "A family/team token wallet for offices"
+  ],
+  "monetization": "Pay-per-export micro-payments + an optional monthly plan; a lifetime pack for heavy users."
+ },
+ "document-scanners-4": {
+  "categoryName": "Сканеры документов",
+  "title": "BulkSafe — a multi-page scanner with incremental autosave that never loses the work",
+  "oneLiner": "Scan a stack of 20-50 pages with a clear 'Stop' button; each page saves immediately, a crash wipes nothing.",
+  "gap": "Real work is multi-page, but incumbents keep only the first page, duplicate it, scramble the order, or crash on the 27th page with no autosave — losing exactly the most loyal, heavy segment.",
+  "pitch": "Reliability at volume as the headline feature: per-page incremental autosave, a clear end-of-series, drag-to-reorder. You win libraries, musicians, students and data encoders whom everyone else drops.",
+  "features": [
+   "Autosave of each captured page to a draft session, recovery after a crash",
+   "A large, clear 'Done/Stop series' button",
+   "Drag-and-drop reordering and duplicate removal before the PDF is assembled",
+   "Stable on 20-50 pages and heavy files with no timeout",
+   "Batch auto-crop with manual per-page correction"
+  ],
+  "monetization": "Free up to N pages/document; Pro lifts the page cap and adds batch OCR — the upsell lands squarely on the heavy user."
+ },
+ "document-scanners-5": {
+  "categoryName": "Сканеры документов",
+  "title": "TrueCrop — auto-crop with an honest manual toggle and a visible guide",
+  "oneLiner": "Auto-capture magic by default, but one tap to the full frame, a thick visible guide and edge-dragging.",
+  "gap": "Aggressive 'auto' with no override clips borders and loses power users; the manual fallback in every app is helpless — a thin invisible guide, corners-only dragging.",
+  "pitch": "Both magic and control in one product: the newcomer gets point-and-done, the pro gets precise manual editing. You take both the mass segment and those who leave for a rival over fine-tuning.",
+  "features": [
+   "An 'auto/full frame' toggle right on the capture screen",
+   "A thick, high-contrast crop guide with grid, draggable by edges and corners",
+   "Manual filter-intensity and contrast adjustment",
+   "Save as a clean image, not only a PDF",
+   "Settings memory for non-standard formats (book, artwork, curled page)"
+  ],
+  "monetization": "Free core; Pro — advanced filters, batch processing and watermark-free bulk export."
+ },
+ "document-scanners-6": {
+  "categoryName": "Сканеры документов",
+  "title": "OfficialReady — a 'pass-the-review' scanner: visas, insurance, applications, watermark-free and legibility-guaranteed",
+  "oneLiner": "A scan that will pass formal review: high contrast, shadow cleanup, zero stamp, a legibility check before sending.",
+  "gap": "Documents are sent to people who judge by appearance; a watermark, an extra promo page and a blurry result directly fail a visa or a send to an employer — and incumbents spoil the official scenario in exactly this way.",
+  "pitch": "Positioning on a measurable outcome, not convenience: an approved visa instead of a rejected one. Templates for specific formal documents and a quality validator before sending make you the default for the 'high-stakes' segment.",
+  "features": [
+   "Presets for visa/ID/insurance with the right contrast and size",
+   "Auto shadow/glare cleanup + a 'legible enough to submit' indicator",
+   "Zero watermarks and promo pages even on the free tier",
+   "File-size control for submission-portal limits",
+   "Two-sided ID into one document in a single pass"
+  ],
+  "monetization": "Free N official scans/month; Pro — unlimited, extended presets and priority support for those whose stakes are high."
+ },
+ "document-scanners-7": {
+  "categoryName": "Сканеры документов",
+  "title": "TrustLoop — a scanner with fast support and recovery as a built-in retention mechanism",
+  "oneLiner": "Lost a file, stuck at a wall, a crash — you message from inside the app and a human fixes it within hours; negativity turns into loyalty.",
+  "gap": "Across every app it's visible: a meaningful share of negativity is reversible through a fast reply — people flip one-stars into fives when their files are recovered or a refund is made. But support is 'non-existent, email only', and the chance is missed.",
+  "pitch": "Support as a product, not a cosmetic: an in-app channel, session recovery from autosave, a transparent refund on first contact. You convert the enraged into advocates in a category where word of mouth is the primary install engine.",
+  "features": [
+   "In-app support chat with recovery of the last scan session",
+   "Draft autosave so 'lost' files actually come back",
+   "A transparent one-tap refund inside the trial, no disputes",
+   "A rating prompt ONLY after a successful export, not at start",
+   "A public changelog of complaint-driven fixes — proof they listen"
+  ],
+  "monetization": "Free core; Pro with priority support and cloud archive backup — support itself becomes the paid value."
+ },
  "weather-apps-1": {
   "categoryName": "Погода",
   "title": "Dry Window",
@@ -6476,222 +6378,320 @@
   ],
   "monetization": "Free and ad-free; a voluntary 'thank the developer' donation plus an optional Pro for data depth. The ethical stance as part of the positioning."
  },
- "photo-editing-1": {
-  "categoryName": "Фоторедакторы",
-  "title": "TryMe — an honest virtual fitting room for haircuts and outfits",
-  "oneLiner": "See yourself with a genuinely different cut, beard or outfit — before the salon and before the purchase, across all lengths, genders and group photos.",
-  "gap": "The category flagship (Facetune) pulls people in with 'try a haircut before deciding', but the engine only re-textures existing hair, offers ~10 near-identical long options, and abandons men and short cuts. The demand is huge and willing to pay, yet the product breaks at the exact moment users came for.",
-  "pitch": "Not a 'photo editor' but a decision tool: one screen, real length and shape changes (pixie, bob, men's cuts, beard), outfits — with an honest 'still me'. One free result before the paywall so the user sees the quality before paying.",
+ "intermittent-fasting-1": {
+  "categoryName": "Интервальное голодание",
+  "title": "FastBare — an offline-first timer that never loses your fast",
+  "oneLiner": "A minimalist fasting tracker with no account and no internet, where any forgotten or mistaken fast is editable and backdatable in two taps.",
+  "gap": "Almost every incumbent bloated the timer into a server-dependent health platform and does NOT let you fix a forgotten fast after the fact — which kills trust among the most disciplined. The basic 'forgive me the missed tap' mechanic is properly implemented by no one.",
+  "pitch": "Open it — straight to the timer, no quiz, no account. Forget to tap start last night? Backdate it to 'yesterday, 10 pm.' Everything works offline, because marking a moment in time shouldn't need a server. Streaks you can trust.",
   "features": [
-   "Real length/shape change of hair, not texture over the existing",
-   "Full catalog: short, pixie, men's cuts, beards, outfits",
-   "Multi-face detection for group and couple photos",
-   "Realistic mode with no face repaint ('this is still me')",
-   "Matching to face shape and color season — navigation to 'your' look",
-   "One guaranteed free result before subscription"
+   "Timer launches on the first screen with no registration",
+   "Backdate start/stop and edit any past fast, delete a mistaken one",
+   "Fully offline mode, sync optional",
+   "Free manual mode: any window (16:8, OMAD, ADF, 36h) with no cap and no paywall",
+   "Home-screen widget and shade counter (count-up and count-down)"
   ],
-  "monetization": "Free for one full result, then a subscription for unlimited try-ons and HD saving; affiliate links to salons and clothing/outfit stores."
+  "monetization": "Free core forever (timer + edits + offline); a one-time Pro purchase for cloud backup, cross-device sync and themes — no subscription on the timer itself."
  },
- "photo-editing-2": {
-  "categoryName": "Фоторедакторы",
-  "title": "CleanSweep — an object and watermark eraser that always hands the result back",
-  "oneLiner": "Select — erase — save at original resolution; one sharp job carried to the finish with no wall mid-process.",
-  "gap": "Object erasers win the non-technical beginner ('select-erase-done'), but they trap the result itself: no Save button, original resolution paywalled, the pay-line switches on mid 'free' trial. Activation never happens, yet churn already has.",
-  "pitch": "Grant one free success at full quality and monetize the volume (batch processing, video). AI that actually rebuilds the background under the erased thing, and a clone stamp with real manual control — exactly where rivals stumble.",
+ "intermittent-fasting-2": {
+  "categoryName": "Интервальное голодание",
+  "title": "BodyClock — a live narrative of what your body is doing right now",
+  "oneLiner": "A tracker where each hour of the fast is a chapter: what's happening inside, why to push through, when to train.",
+  "gap": "The educational stage narrative is the single shared reason to return across all 10 apps, yet in most it's buried under paywalls, ads and bloat. No one has made it the polished hero of the product.",
+  "pitch": "Not 'four hours left' but 'you're entering fat-burning — here's what that means.' Content people read exactly when willpower fades, to keep from breaking. The timer becomes a coach for the hard moment.",
   "features": [
-   "Guaranteed save at original resolution — never a screenshot",
-   "AI inpainting that truly reconstructs the background, not a smeared blob",
-   "A clone stamp that mirrors the finger movement, with return-to-point",
-   "Offline mode for weak connectivity",
-   "Targeted watermark removal as a dedicated preset",
-   "Multilingual interface with a language toggle"
+   "An hour-by-hour stage feed with plain explanations of body processes",
+   "A content push timed to the hard final hours of the window",
+   "'When best to train' hints by phase",
+   "Non-judgmental tone: no scoldings for a slip, you can return without guilt",
+   "Short beginner lessons that remove the 'am I doing this right' fear"
   ],
-  "monetization": "One free result at full quality; a subscription for batch processing, video and priority AI; a one-off 'remove watermark ×N' purchase."
+  "monetization": "Free timer plus the basic narrative; subscription for a deep content course, personalized stages for long fasts and audio guidance — shown AFTER the first completed fast."
  },
- "photo-editing-3": {
-  "categoryName": "Фоторедакторы",
-  "title": "FontCloud — 'text on photos' for micro-business with your fonts in the cloud",
-  "oneLiner": "Caption a photo, flyer or notice in a minute — with your own TTFs that sync and don't vanish on a phone change.",
-  "gap": "Phonto won loyalty with one rare mechanic — loading any font — but locked it behind two failures: downloaded fonts live only locally and die on reinstall, and a clunky Android onboarding turns away newcomers right at the killer feature. Micro-businesses and creators use it daily but lose their collection and hit a typography ceiling.",
-  "pitch": "The same fast 'text on photos' easier than Canva, but with fonts tied to an account and in the cloud, one-tap TTF import with a clear guide, and the fine typography (curving, per-letter color, recents) the leader lacks.",
+ "intermittent-fasting-3": {
+  "categoryName": "Интервальное голодание",
+  "title": "HydraStreak — water as the entry point into fasting",
+  "oneLiner": "Start with the easiest win — drinking water — and gently grow into a fasting window.",
+  "gap": "Over and over the favorite feature named isn't the timer but the water reminder — a cheap micro-habit with a daily sense of accomplishment. But no one builds the product AROUND it as an entry funnel into IF.",
+  "pitch": "First we just help you drink enough (especially those who don't). The small daily win hooks you, and once the habit holds we suggest adding a fasting window. A low barrier to entry instead of a quiz wall.",
   "features": [
-   "Cloud library of your fonts — never lost on reinstall",
-   "One-tap TTF import with a step-by-step guide for Android",
-   "Recent and favorite fonts history, library search",
-   "Fine typography: curving, per-letter color, per-word bold",
-   "Transparent-PNG export to slot into someone's pipeline",
-   "Reopening saved projects and a reliable undo"
+   "Smart water reminders with scheduling and a quiet overnight window",
+   "Backdating yesterday's missed water (which rivals lack)",
+   "A smooth upsell from water into a fasting window, with no mandatory quiz",
+   "Micro-streaks and small achievable goals",
+   "A home-screen widget for water and fast status"
   ],
-  "monetization": "A free 'text on photos' core with no watermark; a subscription for cloud font sync, fine typography and PNG export for those who earn with it."
+  "monetization": "Free: water plus a basic timer; Pro for richer stats, integrations and cyclical goals. The anchor price is low because we enter via a cheap habit, not a 'weight-loss program.'"
  },
- "photo-editing-4": {
-  "categoryName": "Фоторедакторы",
-  "title": "ShelfPro — a product-photo editor for small business with an export guarantee",
-  "oneLiner": "Clean background, professional look, banners and logos — embedded in a store's revenue stream, where export never lets you down.",
-  "gap": "The category's most defensible segment is people who earn: product shots, ad banners, logos. Bazaart attracts them with free background removal but loses them on weak export (a blurry file worse than the preview), lag under the load of multi-layer projects, and a watermark sitting exactly where everyone sees it.",
-  "pitch": "Aim straight at the micro-business: one screen from 'raw product shot' to finished listing, export at original quality as an iron guarantee, no degradation under load. For this audience price isn't the argument — reliability is.",
+ "intermittent-fasting-4": {
+  "categoryName": "Интервальное голодание",
+  "title": "OpenFast — a tracker for the experienced that listens to your regimen instead of imposing its own",
+  "oneLiner": "No caps and no paywalls on windows: 16:8, OMAD, ADF, 36h and shift schedules — all free and editable.",
+  "gap": "Experienced practitioners — the most motivated, retainable segment — leave en masse because apps hide their regimens behind a 'coach,' cap them at 23 hours, or force a weekly plan rebuild. They're literally pushed out.",
+  "pitch": "Set any protocol, repeat the week in one tap, run long fasts with no limit. A product that trusts your body and simply records reality accurately rather than arguing with it.",
   "features": [
-   "Background removal + AI backdrop with no watermark on paid",
-   "Export strictly at preview quality, no upscaling bait",
-   "Multi-layer stability with no vanishing layers",
-   "Banner and logo templates as a start, but a blank canvas by choice",
-   "Ready-made formats for marketplaces and social feeds",
-   "Project autosave — work isn't lost on a crash"
+   "Any window or protocol with no cap and no paywall, including ADF and 36h+",
+   "Saved and recurring weekly plans, night-shift support",
+   "Free manual start/stop and editing after the fact",
+   "Data export (CSV/for a doctor) — which even paid apps lack",
+   "Optional count-up: see how long you've already held, as a reward"
   ],
-  "monetization": "A business subscription for unlimited HD exports and background removal; team plans; one-off template packs per niche (bakery, apparel, services)."
+  "monetization": "A free full-featured core for practitioners; Pro for trend analytics, export and cross-device sync. We monetize data depth, not the basic right to fast your own way."
  },
- "photo-editing-5": {
-  "categoryName": "Фоторедакторы",
-  "title": "SteadyPro — an ageless pro editor with no AI shove and no habit demolition",
-  "oneLiner": "A fast, offline editor with manual control, RAW and presets that promises: we will never break your muscle memory with an update.",
-  "gap": "Snapseed's 4.0 redesign broke a decade-long habit contract overnight: reshuffled UI, slowed loop, removed RAW, hid undo in masking — and veterans sideload the old APK en masse. VSCO and Lightroom repeat the pattern: updates take away, break the workflow, chase the AI mass and lose the pros who held the reputation.",
-  "pitch": "Position as the anti-influencer tool: stable, fast, manual control, offline, no ads. The flagship feature is a toggle to the classic interface and a backward-compatibility promise. Pros pay for predictability.",
+ "intermittent-fasting-5": {
+  "categoryName": "Интервальное голодание",
+  "title": "KindFast — shame-free fasting for those who slip",
+  "oneLiner": "A non-judgmental tracker that forgives a slip and welcomes the return instead of punishing with guilt.",
+  "gap": "Half the apps motivate through guilt — an overseer mascot, scoldings for stepping out of the window, body-shaming onboarding — and lose exactly the audience wrestling with eating habits. Mirror to that: products with a non-judgmental tone retain the lapse-prone, but it's rare.",
+  "pitch": "Miss a day and the app says 'it happens, let's restart,' not a sad face. A safe space for those who feared 'failing' on other diets turns a one-off attempt into a lifestyle.",
   "features": [
-   "A toggle to the classic interface — an escape hatch always",
-   "An instant editing loop with no preset delays",
-   "Full RAW support (.NEF/.CR2/.ARW/.DNG, new cameras)",
-   "Reliable undo inside masking and precise manual masks",
-   "Export with a folder picker, no quality loss, offline",
-   "Cloud backup of presets and albums — an update won't wipe the work"
+   "A judgment-free tone: no scoldings for a slip or for leaving the window",
+   "Onboarding with no body-shaming and no mandatory BMI label",
+   "An optional AI companion you're not ashamed to confess a slip to",
+   "Easy restart after a break, history doesn't reset",
+   "A mode for those who fast not for weight loss (autophagy, mental clarity, maintenance)"
   ],
-  "monetization": "A one-off purchase or a cheap subscription with no AI markup; paid cloud backup of presets; strictly no ads and no clawing back free features."
+  "monetization": "Free core; subscription for personalized gentle support and an AI review of slips. We never press guilt for the sake of retention — that's the product differentiation."
  },
- "photo-editing-6": {
-  "categoryName": "Фоторедакторы",
-  "title": "MirrorMe — realistic face and body retouch with a strict 'still me'",
-  "oneLiner": "Delicate correction of skin, shape and makeup with no plastic look and no face repaint — with a preview and no loss of original quality.",
-  "gap": "Peachy wins precisely on realism ('doesn't make you look superficial'), but loses willing payers on two seams: card-only payment cuts off card-less markets, the license doesn't carry to a new phone (one user bought it three times), and editing happens blind with no preview. Facetune, meanwhile, repaints the whole face instead of a targeted edit — 'not me'.",
-  "pitch": "The same realistic 'everything in one' retouch kit, but with a live preview of each edit, original-size saving, flexible payment (card/wallet/cash-equivalent), and a cloud license that travels with the user.",
+ "intermittent-fasting-6": {
+  "categoryName": "Интервальное голодание",
+  "title": "WristFast — fasting from the wrist and the shade, with no phone in hand",
+  "oneLiner": "A Wear OS / Samsung / Garmin app and widget to start and end a fast with one button, without opening the phone.",
+  "gap": "Fasting is a background process measured in hours, yet nearly all apps make you pull out the phone for one button, and a watch app is missing even from the leaders. 'It's the only thing keeping it from five stars' is the most common loyal request.",
+  "pitch": "Status — 'fasting / eating / N left' — always on your wrist and in the shade. No opening the app, no ad on launch, no waiting for a load — tap the widget and the fast is closed. The habit holds because it needs no ritual.",
   "features": [
-   "Live preview of an edit before applying",
-   "Realistic mode with no caricature/AI sheen",
-   "Saving the photo's original size and quality",
-   "Flexible payment for markets without bank cards",
-   "Cloud license — moves to a new phone with no re-buy",
-   "Tactile shape modeling with a finger stroke"
+   "Full apps for Wear OS, Samsung Watch, Garmin",
+   "A home/lock-screen widget and a persistent shade counter",
+   "Start/stop/edit straight from the watch, offline",
+   "Quiet, non-intrusive window-change reminders with no ads",
+   "Two-way sync with Health Connect / Google Fit / Samsung Health"
   ],
-  "monetization": "A generous free tier as a loyalty hook; a subscription or a lifetime cloud license; alternative payment methods for non-card markets."
+  "monetization": "Free: phone plus widget; Pro (a one-time purchase) for the watch app and richer integrations with health ecosystems."
  },
- "photo-editing-7": {
-  "categoryName": "Фоторедакторы",
-  "title": "FilmToTaste — a vintage camera with curation to 'your' look and video",
-  "oneLiner": "Shoot and edit in a film aesthetic where the app guides you to your look — and works in video, where the trends live.",
-  "gap": "Dazz Cam wins with an instant one-tap vintage look but loses on curation (part of the audience 'couldn't find their filter'), on the absence of favorite cameras, on crashes when importing from the gallery, and on the lack of video — the dominant format where the film look monetizes best.",
-  "pitch": "Not a dump of hundreds of cameras but navigation to 'your' look: matching by vibe, favorite cameras with settings, reliable gallery import and a video mode. A recognizable aesthetic as a brand people seek out deliberately.",
+ "intermittent-fasting-7": {
+  "categoryName": "Интервальное голодание",
+  "title": "ProveFirst — a fasting tracker that proves value before the quiz and the payment",
+  "oneLiner": "First a completed fast and a visible result, then — and only optionally — the quiz, the plan and the subscription.",
+  "gap": "Every incumbent puts a 50-question quiz / contract / paywall BEFORE the first fast, so churn lands before activation. The quiz's false 'personalization' disappoints those who get through. No one has flipped the funnel.",
+  "pitch": "Open it — you're fasting. Finish your first fast, see the stage narrative and maybe a first drop on the scale — now, if you want, answer a couple of questions for personalization. We ask for money from someone who already felt the benefit, not from a curious visitor at the door.",
   "features": [
-   "Look matching by vibe/mood instead of blind scrolling",
-   "Favorite cameras with saved fader settings",
-   "Reliable editing of imported gallery photos with no crashes",
-   "A video mode with the same film look",
-   "Fast saving even after a heavy grain effect",
-   "Flash that behaves like a real camera — fires at capture"
+   "An instant timer on the first screen, the quiz deferred and skippable",
+   "Honest personalization: a real algorithm or we don't promise it at all",
+   "A generous free tier as proof of value (plans, water, stages)",
+   "The subscription offer only after the first completed fast",
+   "Transparency: no hidden 'coach=PDF,' clear on what the paid tier includes"
   ],
-  "monetization": "Free base cameras as a hook; a subscription for premium cameras, video and cloud presets; camera packs by season/aesthetic."
+  "monetization": "Free-to-value: a free core proves the benefit; subscription for a genuinely personal plan, content and integrations — conversion from the activated, not from installs."
  },
- "notes-pkm-1": {
-  "categoryName": "Заметки и PKM",
-  "title": "Lightning",
-  "oneLiner": "A local-first notepad that opens and writes instantly, types without lag and never drops into read-only — speed as the only feature.",
-  "gap": "Every mass product gets heavier: Notion lags 30 seconds, Evernote opens in a minute and a half, Zoho is pretty but slow. Incumbents can't slim down — they carry desktop-first DNA and accumulated weight. Cold-start speed remains an unoccupied niche.",
-  "pitch": "The fastest path from thought to note on Android: tap the icon — the cursor is already blinking, typing with no delay, writes stored locally with background sync; on a network failure you keep writing instead of hitting «read-only».",
+ "habit-tracking-1": {
+  "categoryName": "Привычки и стрики",
+  "title": "OneTap — a tracker that lives entirely on the lock screen and the widget",
+  "oneLiner": "Habits get ticked in a second from the lock screen and an interactive widget — no need to open the app at all.",
+  "gap": "For nearly every incumbent the widget is either behind a paywall, won't react without opening the app, or is out of sync with the tracker itself. Yet the widget is the main return mechanism: without it people forget the app within days.",
+  "pitch": "Make the atomic gesture flawless and free: interactive widget + Live Activity on the lock screen + a reliable full-screen alarm. Everything that accumulates later (sync, analytics) goes into the paid layer.",
   "features": [
-   "Opens in <300ms, straight into a new note",
-   "Local writes with deferred sync, never read-only",
-   "A quick-note widget that actually works",
-   "Lag-free typing even on 10k-word notes",
-   "One-tap voice capture for «hands busy»"
+   "Interactive widget with one-tap check-off and a visible streak",
+   "Live Activity / routine player on the lock screen",
+   "Full-screen alarm nudge, adjustable in intensity",
+   "Retro check-in and undo straight from the widget",
+   "Notification testing on aggressive ROMs (Samsung, Xiaomi)"
   ],
-  "monetization": "Core free forever; a one-time Lifetime purchase for cross-device cloud sync (the Obsidian model fans defend with donations), no subscription for the basics."
+  "monetization": "Core loop free forever; paid — cross-device cloud sync, advanced analytics, unlimited widget themes. A lifetime purchase as the anti-subscription argument."
  },
- "notes-pkm-2": {
-  "categoryName": "Заметки и PKM",
-  "title": "Moving Day",
-  "oneLiner": "A notebook whose storefront is a «migrate from Evernote/Notion/OneNote in one pass» button, catching the refugee stream the incumbents are evicting themselves.",
-  "gap": "Incumbents monetize accumulated dependence (Evernote ×2–×10 price, Zoho hides covers behind a subscription, Notion forces AI), and users migrate en masse, naming the alternative right in the review. Zoho proved that a built-in «Migrate from Evernote» is a ready-made growth channel.",
-  "pitch": "Not «another notebook» but a concrete exit for the disgruntled: import thousands of notes in one pass with structure preserved, a price many times lower, no AI shoved in and no sign-up wall on entry.",
+ "habit-tracking-2": {
+  "categoryName": "Привычки и стрики",
+  "title": "Quitter — a tracker built for 'quitting,' not 'doing'",
+  "oneLiner": "Counts clean days off smoking, vaping, sugar and alcohol, and shows the money and health saved as a growing streak.",
+  "gap": "Most trackers only handle achievement habits; a 'negative habit' is run via an inversion workaround, with no mode where a tick = abstinence. Yet the segment is huge and emotionally engaged — quitting drives the most heartfelt reviews.",
+  "pitch": "A first-class anti-habit mode: a clean-day counter, auto-marked abstinence, 'money/health saved,' and gentle handling of a relapse without nuking all motivation.",
   "features": [
-   "One-button import from Evernote/Notion/OneNote/Keep, with attachments",
-   "Preserves the notebook→section→page hierarchy on import",
-   "Local trial mode with no account (subscribe only if you liked it)",
-   "Transparent export anytime (zero exit cost as a promise)",
-   "AI fully optional and disableable"
+   "A 'positive/negative' flag at habit creation",
+   "Auto-tick of abstinence unless you log a relapse",
+   "A counter of money saved and health regained",
+   "A 'relapsed' button with support instead of shame, plus grace logic",
+   "Milestones (24h / 7 / 30 / 100 days) with a visual streak"
   ],
-  "monetization": "A one-time Lifetime instead of a subscription (explicit Evernote contrast: «the same as a year of theirs»); paid only for cloud sync, everything local is free."
+  "monetization": "One or two quits free; paid — multiple parallel addictions, substance-specific medical milestones, progress export for a therapist."
  },
- "notes-pkm-3": {
-  "categoryName": "Заметки и PKM",
-  "title": "Traffic Light",
-  "oneLiner": "A notebook where color is a full navigation system: tabs, filters and widgets sorted by color, readable at a glance.",
-  "gap": "ColorNote and WeNote have retained people on color alone for a decade, but are stuck in «text-only», with no formatting, photos or iOS. Nobody has brought color navigation to a modern level with media and cross-platform at the same time.",
-  "pitch": "Your chaos becomes manageable at a glance: color tabs and widgets like ColorNote, but with photos, basic formatting, in-note search and sync to iOS/PC — the wall the old leaders ran into.",
+ "habit-tracking-3": {
+  "categoryName": "Привычки и стрики",
+  "title": "FlexStreak — a tracker where the streak respects '3 times a week'",
+  "oneLiner": "Flexible 'N times per period' frequency as a first-class feature, and a streak that doesn't break on a planned off-day.",
+  "gap": "The rigid 'every day' model is the most widespread pain: the streak gets capped for anyone taking days off, and the visual grid reads planned rest as a lapse. Only a few handle irregular goals, and people abandon the rest for it.",
+  "pitch": "Make an irregular habit the norm, not the exception: '3 times a week on any days,' 'weekdays/weekends,' a floating day — and a streak and board that honestly account for it.",
   "features": [
-   "Color tabs and filtering by color",
-   "Color widgets showing real note text on the home screen",
-   "Photo and attachment support inline in text",
-   "ADHD mode: visual layout, minimal cognitive load",
-   "Cross-platform Android/iOS/web"
+   "'N times per Y days' and 'specific weekdays' frequency",
+   "A streak that counts the period, not consecutive days",
+   "Neutral/hollow marks on off-days so the board doesn't scare",
+   "Reminders that adapt to a floating day",
+   "A weekly/monthly overview instead of a narrow 5-day window"
   ],
-  "monetization": "Free with colors and widgets; premium for unlimited attachments, signature palettes/covers and sync (but never move basic color behind a paywall — the Zoho lesson)."
+  "monetization": "Basic flexible frequency free; paid — advanced frequency-completion analytics, trends, export."
  },
- "notes-pkm-4": {
-  "categoryName": "Заметки и PKM",
-  "title": "Pen, No Code",
-  "oneLiner": "An editor for writers: WYSIWYG writing with no visible syntax and no forced blocks — what neither Obsidian nor Notion offers.",
-  "gap": "Powerful products invite writers as a «writing platform», but their editor is built for code and structure: an asterisk italicizes a space, a line break jumps into a new block, the source can't be turned off. Prose writers, screenwriters and poets flee from «everything is code».",
-  "pitch": "Open and write prose like on paper: formatting renders immediately, no markdown symbols on screen and no forced break into blocks/pages, but with full structure under the hood for those who need it.",
+ "habit-tracking-4": {
+  "categoryName": "Привычки и стрики",
+  "title": "Companion — caring for a character as the engine for those with no energy for themselves",
+  "oneLiner": "Habits get done for a creature that depends on you — motivation by ricochet, with no guilt and no punishment.",
+  "gap": "Finch proved huge demand for 'routing care,' but it drifts into a dress-up app, overloads with shops, and removed the mood tracker. Disciplinary trackers have no such mechanism at all, and punishment mechanics scare off the target segment.",
+  "pitch": "A clean mental-health companion: you get up for it, skipping is fine, no resets and no shame. Minimal effort to engage, a gentle start, the mood tracker in the core rather than behind 'sparkly' items.",
   "features": [
-   "WYSIWYG: #heading and **bold** render, syntax never shows",
-   "Continuous text flow, no forced pages/blocks",
-   "Basic formatting (bold, headings, size) in one tap",
-   "In-note search with highlight (Ctrl+F)",
-   "Export to PDF/.docx to move into office software"
+   "A character that depends on completion but doesn't die or scold",
+   "Skip/snooze as a normal choice, with no loss of the whole streak",
+   "A mood tracker and 'how are you?' in the core, not paywalled",
+   "A gentle onboarding without option overload",
+   "An option to disable the social layer — the journal private by default"
   ],
-  "monetization": "Free writing and single-device sync; premium for cloud sync, export formats, fonts and themes for long-form."
+  "monetization": "A generous free tier (it IS the trust-and-word-of-mouth engine); paid — cosmetics and extra tools as a bonus, never the basic care. A channel through therapists."
  },
- "notes-pkm-5": {
-  "categoryName": "Заметки и PKM",
-  "title": "Vault",
-  "oneLiner": "A notebook built around privacy from the start: per-note lock, local storage and zero forced AI — for logins, journals and the sensitive.",
-  "gap": "People mass-store passwords, medical info and personal journals in notes, but Keep has no lock at all, Zoho's lock blurs titles so you can't find the entry, and forced AI reads as access to the private. Privacy as the product's core has barely been done cleanly.",
-  "pitch": "The one safe place for what you can't lose and can't show: a lock on every note and the app, data on the device, AI off by default that never reaches into your thoughts.",
+ "habit-tracking-5": {
+  "categoryName": "Привычки и стрики",
+  "title": "ADHD-First — a tracker designed around broken action-initiation",
+  "oneLiner": "A morning/evening routine in timed steps with voice and a visible timer, but without the sound bomb or the race.",
+  "gap": "Routinery proved demand for 'autopilot steps' for time-blind users, but it fails on details: an alarm with no off-button, reminders only after the fact, a 2-routine cap, routines lost after updates.",
+  "pitch": "Make the same 'don't decide what's next' mechanism reliable and humane: mid-task reminders, a controllable alarm, an anchor widget, and a generous free routine cap.",
   "features": [
-   "Per-note and app-level lock (biometrics/password) with the title still visible",
-   "Local encrypted storage, optional E2E sync",
-   "A private folder hidden from the main list",
-   "AI off by default, an explicit toggle, no note scanning",
-   "Import of passwords/logins from rival notes"
+   "A step-by-step routine with a visible timer and voice guide",
+   "Reminders mid-task, not just at 'time's up'",
+   "An alarm with a visible button that respects silent mode",
+   "A lock-screen routine widget/player with 'next/skip'",
+   "Per-weekday tasks; a weekly schedule without a subscription"
   ],
-  "monetization": "Free basic lock; premium for E2E cloud sync, unlimited protected notes, biometrics on individual folders."
+  "monetization": "3-4 routines free (enough for the core use case); paid — unlimited routines, watch, team/kids profiles. Never gate the basic flow."
  },
- "notes-pkm-6": {
-  "categoryName": "Заметки и PKM",
-  "title": "Day by Day",
-  "oneLiner": "A journaling notepad where every entry is auto-dated and keeps its original date forever — for diaries, logs and timelines that Keep breaks on the first edit.",
-  "gap": "Keep shows only the last-edited date, and the creation date vanishes after the smallest edit — killing a whole class of use cases (diary, journal, timeline). Users explicitly ask for auto-dating and a preserved original date, and the emotional «write out your feelings» job proved a powerful retention hook on Samsung.",
-  "pitch": "Keep a life over time, not a note dump: a new entry automatically gets a date and time, the creation date is never lost, and it all flows into a timeline.",
+ "habit-tracking-6": {
+  "categoryName": "Привычки и стрики",
+  "title": "Anywhere — a tracker that truly lives on every screen",
+  "oneLiner": "Phone, browser, desktop and watch with honest instant sync — tick on your wrist, see it in Chrome.",
+  "gap": "Cross-platform is a rare retention lock people buy lifetime for, yet even Habitify's Android trails iOS, and the watch crashes. Most apps are 'phone only,' and the absence of sync systematically loses the most engaged users.",
+  "pitch": "Make connectivity the main USP and the foundation, not an afterthought: identical parity across platforms, real-time auto-sync, a native watch app as a first-class client.",
   "features": [
-   "Auto date and time on every entry, an immutable creation date",
-   "Timeline feed and a calendar of entries",
-   "Mood/tags for emotional journaling",
-   "A lock on the journal + local storage",
-   "Search by date and inside an entry"
+   "Feature parity across iOS, Android, web and desktop",
+   "Instant auto-sync with no manual backup",
+   "A native watch app with check-off and timer",
+   "Health Connect / Apple Health integration",
+   "Cloud/email auto-backup by default"
   ],
-  "monetization": "Free journaling; premium for cloud sync, export of the whole journal to PDF/book, advanced mood analytics."
+  "monetization": "One phone free; paid (ideally lifetime) — multi-device sync, web and desktop, watch. Connectivity is exactly what people say they'd pay more for."
  },
- "notes-pkm-7": {
-  "categoryName": "Заметки и PKM",
-  "title": "Family List",
-  "oneLiner": "Lists and reminders that actually share and sync between people in real time — where Keep, OneNote and Samsung stumble on collaboration.",
-  "gap": "A shopping list is the most frequent daily job, but sharing is lame everywhere: Keep won't let you copy/sort a list, OneNote throws «page conflict» on shared notes, Samsung corrupts shared notes or limits them to its own users, and Keep pushed reminders out so they don't fire.",
-  "pitch": "One shared family list that doesn't conflict or vanish: add an item and it updates instantly for everyone, a reminder on a specific item rather than the whole block, and it works with any phone.",
+ "habit-tracking-7": {
+  "categoryName": "Привычки и стрики",
+  "title": "Honest — an anti-subscription tracker with a transparent monetization line",
+  "oneLiner": "The entire core habit loop is free forever; you pay once and only for what accumulates over time.",
+  "gap": "The category is crowded with aggressive subscriptions, hidden bundles, charges after cancellation, and a paywall on the check-off itself. Users explicitly contrast that with 'honest' products with lifetime pricing and a generous free tier — and stay for years.",
+  "pitch": "Turn honesty into a competitive weapon: zero ads, zero dark patterns, a one-time lifetime purchase, one-tap cancellation. Trust in the product (and in a named indie developer) converts where the feature set alone wouldn't.",
   "features": [
-   "Real-time list sharing by link, cross-platform",
-   "A reminder on an individual item, not the whole block",
-   "Sort/copy/export the whole list",
-   "Check-off with auto-collapse of bought items, no «popping» back up",
-   "A shared-list widget on every member's home screen"
+   "The full core loop (check-off, widget, reminders, streak) free",
+   "A lifetime purchase instead of a subscription",
+   "Paid only for what accumulates: sync, deep analytics, themes",
+   "No charges after cancellation, one-tap cancel, no quizzes",
+   "A public, responsive developer who ships requests"
   ],
-  "monetization": "Free up to N shared lists; a family subscription for unlimited members, change history and private lists."
+  "monetization": "A one-time lifetime ('for the cost of lunch') plus an optional 'to support' subscription. A generous free tier as a word-of-mouth engine, not lost revenue."
+ },
+ "personal-finance-1": {
+  "categoryName": "Личные финансы",
+  "title": "The unbreakable ledger: a tracker you physically cannot lose",
+  "oneLiner": "Lightning-fast manual tracking with automatic invisible backup to your own cloud from first launch — history can't be lost on any phone change.",
+  "gap": "The category's sharpest and most repeated failure is losing years of accumulated data on a phone switch or breakage, because backup is local or off by default. Leaders punish exactly the most loyal, the ones with the most history.",
+  "pitch": "Not 'one more tracker' but a promise: your financial history will NEVER disappear. Backup is on from the first transaction, encrypted, and placed in your own Google Drive/iCloud/Dropbox with no mandatory account — privacy segment and loss-fear closed at once.",
+  "features": [
+   "Automatic encrypted backup from first launch, no manual toggle",
+   "Storage choice: Google Drive, iCloud, Dropbox or local — no mandatory cloud account",
+   "One-tap restore when installing on a new phone",
+   "Lightning-fast expense entry: one screen, calculator, category",
+   "Honest export of all history to CSV/spreadsheet at any time"
+  ],
+  "monetization": "Free — the entire core loop and backup forever; a one-time Lifetime purchase (not a subscription) for multi-device, forecast and pro reports."
+ },
+ "personal-finance-2": {
+  "categoryName": "Личные финансы",
+  "title": "Will I have enough: a tracker that looks forward, not back",
+  "oneLiner": "Tracking where recurring income and bills automatically roll up into a forecast of 'how much will I actually have left after all payments' through end of period.",
+  "gap": "Leaders record the past brilliantly but are almost all blind to the future: the balance forecast is missing or broken, and people are forced to keep a spreadsheet just for it. Where the forecast existed and got broken, users drop to one star — it's the most valuable unclosed job.",
+  "pitch": "Shifting the question from 'where did the money go' to 'how much will I have left' moves the product from tracker to planner — the exact thing people can't abandon their Excel for.",
+  "features": [
+   "Recurring payments and income automatically subtract from the projected future balance",
+   "A future cash-flow calendar with a balance for each day",
+   "Forecast anchored to an arbitrary payday period, not the 1st of the month",
+   "Replacing the homemade spreadsheet: CSV import and the same 'free balance' calculation",
+   "Alert if the forecast shows the balance going negative before payday"
+  ],
+  "monetization": "Free tracking and a basic forecast for the current period; subscription/Lifetime for forecasting several periods ahead and 'what-if' scenarios."
+ },
+ "personal-finance-3": {
+  "categoryName": "Личные финансы",
+  "title": "Our budget: shared tracking for a couple with no duplicates or losses",
+  "oneLiner": "A shared wallet for two where a partner's edits appear instantly and sync merges changes rather than overwriting them 'last-write-wins'.",
+  "gap": "A shared budget is constant demand and the most broken scenario: some offer no shared access and lose the user at the moment of marriage; others' sync spawns duplicates, drops records and dumps the partner's transactions into the main account. A 'whole-backup' architecture instead of merge makes couples impossible.",
+  "pitch": "Build the product around the household from the start: true multi-user with change-merge, personal and shared envelopes — the in-family network effect raises the switching cost for two at once.",
+  "features": [
+   "Real change-merge from two devices, no duplicates or overwrites",
+   "Shared and personal wallets in one household: 'both on the same page' without clearing every spend",
+   "Access rights: partner can view-only or edit",
+   "A monthly reconciliation report 'who contributed how much' for settling between cohabitants",
+   "Real-time notification to the partner about a spend from the shared wallet"
+  ],
+  "monetization": "Free for one; subscription/Lifetime 'Family' for a second+ member and shared wallets — they pay exactly once the value is already proven."
+ },
+ "personal-finance-4": {
+  "categoryName": "Личные финансы",
+  "title": "Pay cycle: a budget on your real money rhythm",
+  "oneLiner": "A tracker with an arbitrary accounting period anchored to payday that doesn't break already-closed past periods.",
+  "gap": "The whole category offers only a calendar month or 'last 30 days', but a huge segment is paid biweekly or every four weeks (Australia especially), and some run a cycle from the 7th to the 7th. Shifting the period start is either impossible or destroys past history.",
+  "pitch": "One cheap but almost-nowhere-implemented mechanism — a flexible payday-to-payday period with frozen past — single-handedly wins back an entire underserved segment that today leaves or recalculates by hand.",
+  "features": [
+   "Period out of the box: weekly, biweekly, 4-weekly, monthly or arbitrary",
+   "Anchoring period start to the payday date, not the 1st of the month",
+   "Freezing closed past periods: changing the date doesn't rewrite history",
+   "Auto carry-over of the unspent balance into the new period (no false 'it's all gone' panic)",
+   "Percentage allocation of income across categories for variable earnings"
+  ],
+  "monetization": "Free basic period; subscription/Lifetime for arbitrary periods, percentage allocation and binding to multiple income sources."
+ },
+ "personal-finance-5": {
+  "categoryName": "Личные финансы",
+  "title": "The full picture: one screen of cash, savings and investments",
+  "oneLiner": "A tracker where a transfer between your own accounts doesn't count as spending, and savings and investments roll up into an honest net worth growing over time.",
+  "gap": "Leaders' base model 'every movement is income or expense' lies in the key number: a transfer to your own account logs as a spend, money into savings is flagged 'gone', credit-card debt counts as income. Those who outgrow expense tracking hit a ceiling and keep a second app for savings.",
+  "pitch": "A correct data model — transfer transaction, savings/goals and investments as separate entities — turns an expense tracker into a single wealth dashboard, closing the door users leave through to a rival.",
+  "features": [
+   "A transfer between your own accounts as a separate transaction type that doesn't affect spending",
+   "Goals and savings with progress, separated from expenses",
+   "Tracking investments and credit cards so debt reduces, not inflates, net worth",
+   "A single historical trajectory of cash + savings + investments",
+   "An account's opening balance not counted as income"
+  ],
+  "monetization": "Free — spending and transfers; subscription/Lifetime for the wealth module: investments, net worth, savings goals."
+ },
+ "personal-finance-6": {
+  "categoryName": "Личные финансы",
+  "title": "Quiet parser: auto-capture of spends from SMS with no banking passwords handed over",
+  "oneLiner": "A local engine that reads bank SMS and push right on the phone and offers a ready-made transaction — automation without giving away account access.",
+  "gap": "The category is split: the privacy segment refuses to hand over bank username-password-OTP, and the sync segment is tired of typing by hand. SMS auto-parsing is named outright as a reason to leave, but leaders either demand bank access or break the parsing with updates.",
+  "pitch": "Close the gap between two warring segments: parsing happens on the device, nothing leaves for a server, no banking password needed — the speed of automation with privacy preserved.",
+  "features": [
+   "On-device reading of bank SMS and push notifications, no cloud",
+   "A ready draft transaction with guessed category and amount — confirm with one tap",
+   "Category learning: remembers how the user filed similar charges",
+   "Fully switchable off for those who want pure manual entry",
+   "No access to the bank account, username, password or OTP"
+  ],
+  "monetization": "Free manual entry; subscription/Lifetime for auto-capture from SMS/notifications and smart categorization."
+ },
+ "personal-finance-7": {
+  "categoryName": "Личные финансы",
+  "title": "City of habits: gamification that rewards smart money, not spending",
+  "oneLiner": "A finance tracker with an emotional game layer where what grows isn't a city of purchases but progress for no-spend days, goals hit and staying within budget.",
+  "gap": "Gamification provenly hooks the bored segment and ADHD users (recommended by their therapists), but the leading example rewards the act of spending — users spot the paradox themselves: an app about saving incentivizes spending. The reward is tied to the wrong behavior.",
+  "pitch": "Keep the dopamine loop that alone retains 'non-serious' budgeters, but redirect the reward to the useful: you saved, didn't spend, stayed within the limit — your world grows.",
+  "features": [
+   "Reward for no-spend days, savings goals hit and staying within budget, not for spending",
+   "A gentle, non-shaming tone instead of mocking an overspend",
+   "Fast entry with no mandatory game fiddling for those in a hurry",
+   "An ADHD mode: short daily goals and visible progress",
+   "Arbitrary period and balance carry-over so the loop matches payday"
+  ],
+  "monetization": "Free tracking and a basic game; subscription/Lifetime for world cosmetics, advanced goals and habit analytics."
  },
  "plant-care-1": {
   "categoryName": "Уход за растениями",
