@@ -48,10 +48,10 @@ export async function GET(req: Request) {
     body = (
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 18 }}>
-          <div style={{ fontSize: 132, fontWeight: 800, letterSpacing: -4, lineHeight: 0.95, color: "#fff" }}>{reviews}</div>
+          <div style={{ fontSize: 172, fontWeight: 800, letterSpacing: -6, lineHeight: 0.92, color: "#fff" }}>{reviews}</div>
         </div>
         <div style={{ fontSize: 58, fontWeight: 800, letterSpacing: -2, color: "#fff" }}>отзывов прочитали</div>
-        <div style={{ marginTop: 18, fontSize: 40, fontWeight: 500, color: "#c8c8cf" }}>{apps} приложений в нише «{cat.name}»</div>
+        <div style={{ marginTop: 18, fontSize: 40, fontWeight: 500, color: "#c8c8cf" }}>{`${apps} приложений в нише «${cat.name}»`}</div>
         <div style={{ marginTop: 28, fontSize: 36, fontWeight: 500, color: accent }}>что хвалят, на что злятся и что построить</div>
       </div>
     );
