@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
@@ -23,16 +24,32 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
   const [modal, setModal] = useState(false);
   const [menu, setMenu] = useState(false);
   const box = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
+  // Refetch on every navigation (no-store) so the balance is never stale.
   useEffect(() => {
-    fetch("/api/me")
+    let alive = true;
+    fetch("/api/me", { cache: "no-store" })
       .then((r) => r.json())
       .then((data: Me) => {
+        if (!alive) return;
         setMe(data);
         if (!data.user && localStorage.getItem("inapp_tg_login")) setModal(true);
       })
-      .catch(() => setMe({ user: null, premium: false }));
-  }, []);
+      .catch(() => alive && setMe({ user: null, premium: false }));
+    return () => {
+      alive = false;
+    };
+  }, [pathname]);
+
+  // Also refresh the balance whenever the dropdown is opened.
+  useEffect(() => {
+    if (!menu) return;
+    fetch("/api/me", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((data: Me) => setMe(data))
+      .catch(() => {});
+  }, [menu]);
 
   useEffect(() => {
     if (!menu) return;

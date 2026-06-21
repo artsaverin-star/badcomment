@@ -36,6 +36,14 @@ export async function grantTokens(
   return u.tokens;
 }
 
+// Idempotent signup grant — credits the bonus only if this user has never been
+// granted one before. Guards against double-grants from races / repeated logins.
+export async function grantSignupOnce(userId: string, amount: number): Promise<void> {
+  const existing = await prisma.tokenLedger.findFirst({ where: { userId, reason: "signup" } });
+  if (existing) return;
+  await grantTokens(userId, amount, "signup");
+}
+
 export async function getBalance(userId: string): Promise<number> {
   const u = await prisma.user.findUnique({ where: { id: userId }, select: { tokens: true } });
   return u?.tokens ?? 0;

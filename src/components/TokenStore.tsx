@@ -100,16 +100,24 @@ export default function TokenStore({
 
   const life: Sku = {
     id: "life",
-    name: ru ? "Доступ основателя" : "Founder access",
+    name: ru ? "Ранний доступ" : "Early access",
     tokens: null,
     rub: LIFETIME.rub,
     stars: LIFETIME.stars,
     anchor: LIFETIME_REGULAR,
-    badge: ru ? `после беты ${fmt(LIFETIME_REGULAR)} ₽` : `${fmt(LIFETIME_REGULAR)} ₽ after beta`,
+    badge: ru ? `потом ${fmt(LIFETIME_REGULAR)} ₽` : `then ${fmt(LIFETIME_REGULAR)} ₽`,
     hero: true,
     features: ru
-      ? ["Все ниши, выводы, идеи и приложения — навсегда", "Без энергии и лимитов", "Цена основателя — только пока идёт бета"]
-      : ["All niches, conclusions, ideas and apps — forever", "No energy, no limits", "Founder price — only during the beta"],
+      ? [
+          "Проект только начинается — вы заходите одним из первых",
+          "Все разделы, ниши, выводы и идеи — открыты навсегда",
+          "Доступ остаётся с вами навсегда, платить снова не нужно",
+        ]
+      : [
+          "The project is just starting — you're getting in early",
+          "Every section, niche, conclusion and idea — open forever",
+          "Your access stays forever — never pay again",
+        ],
     body: { kind: "lifetime" },
     starsHref: lifeStars,
   };
@@ -127,7 +135,7 @@ export default function TokenStore({
     >
       {(s.popular || s.hero) && (
         <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--color-accent-brand)] px-3 py-0.5 text-[11px] font-bold text-white">
-          {s.hero ? (ru ? "🔥 Цена основателя" : "🔥 Founder price") : (ru ? "Популярный" : "Popular")}
+          {s.hero ? (ru ? "🔥 Ранний доступ" : "🔥 Early access") : (ru ? "Популярный" : "Popular")}
         </span>
       )}
       <div className="flex items-center justify-between gap-2">

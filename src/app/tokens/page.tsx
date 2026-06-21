@@ -38,13 +38,13 @@ export default async function TokensPage() {
       <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-4 text-center">
         <p className="text-callout font-semibold text-[var(--color-text-primary)]">
           {locale === "en"
-            ? "🚀 Beta: founder lifetime access — 2990 ₽ instead of 9990 ₽"
-            : "🚀 Бета: доступ основателя навсегда — 2990 ₽ вместо 9990 ₽"}
+            ? "🚀 Early access forever — 2990 ₽ (then 9990 ₽)"
+            : "🚀 Ранний доступ навсегда — 2990 ₽ (потом 9990 ₽)"}
         </p>
         <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">
           {locale === "en"
-            ? "This price holds only during the beta. One time — every niche, conclusion and idea open forever."
-            : "Цена действует только пока идёт бета. Один раз — и все ниши, выводы и идеи открыты навсегда."}
+            ? "The project is just starting. Get in early — and every section, niche, conclusion and idea stays open for you forever."
+            : "Проект только начинается. Зайдите одним из первых — и все разделы, ниши, выводы и идеи останутся открыты для вас навсегда."}
         </p>
       </div>
       <div className="mt-8">
