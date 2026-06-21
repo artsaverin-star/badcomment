@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import AuthModal from "./AuthModal";
 import type { UnlockType } from "@/lib/tokenConfig";
@@ -73,17 +73,12 @@ export default function EnergyUnlockButton({
   const [done, setDone] = useState(false);
   const ru = locale !== "en";
   const short = loggedIn && balance < cost;
+  // Survives the Google sign-in full-page redirect: we stash the intended unlock,
+  // then auto-resume it once the user lands back logged-in.
+  const PENDING_KEY = "inapp_pending_unlock";
 
-  async function unlock() {
-    if (!loggedIn) {
-      setAuth(true);
-      return;
-    }
-    if (short) {
-      router.push("/tokens");
-      return;
-    }
-    // Disintegrate + pop-out immediately on tap, using the button's own bounds.
+  // The actual spend (logged-in, has-balance path): confetti + /api/unlock + reveal.
+  const spend = useCallback(async () => {
     const el = btnRef.current;
     if (el) void fireDisintegrate(el.getBoundingClientRect());
     setDone(true);
@@ -108,7 +103,47 @@ export default function EnergyUnlockButton({
       setWorking(false);
       setDone(false);
     }
+  }, [type, slug, router]);
+
+  async function unlock() {
+    if (!loggedIn) {
+      // Remember what the user wanted so we can finish it after sign-in.
+      try {
+        localStorage.setItem(PENDING_KEY, JSON.stringify({ type, slug }));
+      } catch {
+        /* ignore */
+      }
+      setAuth(true);
+      return;
+    }
+    if (short) {
+      router.push("/tokens");
+      return;
+    }
+    void spend();
   }
+
+  // Auto-resume a pending unlock after the user returns signed-in (Google redirect
+  // lands them back here; Telegram refreshes in place). Only the button matching
+  // the stashed intent fires, and only when there's enough balance.
+  useEffect(() => {
+    if (!loggedIn || short) return;
+    let pending: { type?: string; slug?: string } | null = null;
+    try {
+      const raw = localStorage.getItem(PENDING_KEY);
+      pending = raw ? JSON.parse(raw) : null;
+    } catch {
+      pending = null;
+    }
+    if (pending && pending.type === type && pending.slug === slug) {
+      try {
+        localStorage.removeItem(PENDING_KEY);
+      } catch {
+        /* ignore */
+      }
+      void spend();
+    }
+  }, [loggedIn, short, type, slug, spend]);
 
   return (
     <>

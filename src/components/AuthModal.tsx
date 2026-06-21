@@ -98,7 +98,8 @@ export default function AuthModal({
   // Google → back, logged in. Works with content blockers (Wipr) and avoids
   // Google's confusing corner One-Tap popup that used to overlap our modal.
   function handleGoogleClick() {
-    window.location.href = "/api/auth/google/start";
+    const rt = encodeURIComponent(window.location.pathname + window.location.search);
+    window.location.href = `/api/auth/google/start?return_to=${rt}`;
   }
 
   // ── Telegram ────────────────────────────────────────────────────────

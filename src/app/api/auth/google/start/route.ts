@@ -13,6 +13,10 @@ export async function GET(req: Request) {
   const origin = appOrigin(req);
   if (!clientId) return NextResponse.redirect(new URL("/?auth=google_unconfigured", origin));
 
+  // Remember where the user was so the callback bounces them back (not home).
+  const rawReturn = new URL(req.url).searchParams.get("return_to") || "";
+  const returnTo = rawReturn.startsWith("/") && !rawReturn.startsWith("//") ? rawReturn : "/";
+
   const state = randomBytes(16).toString("hex");
   const auth = new URL("https://accounts.google.com/o/oauth2/v2/auth");
   auth.searchParams.set("client_id", clientId);
@@ -23,7 +27,8 @@ export async function GET(req: Request) {
   auth.searchParams.set("prompt", "select_account");
 
   const res = NextResponse.redirect(auth.toString());
-  // SameSite=Lax so the cookie survives the top-level redirect back from Google.
+  // SameSite=Lax so the cookies survive the top-level redirect back from Google.
   res.cookies.set("g_oauth_state", state, { httpOnly: true, secure: true, sameSite: "lax", path: "/", maxAge: 600 });
+  res.cookies.set("g_oauth_return", returnTo, { httpOnly: true, secure: true, sameSite: "lax", path: "/", maxAge: 600 });
   return res;
 }
