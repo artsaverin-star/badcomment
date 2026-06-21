@@ -831,174 +831,6 @@
   "title": "Birth Control Mode: Pills, Reminders, No False Alarms",
   "oneLiner": "Track pills, IUDs, and the ring with reminders — so your tracker stops flagging false 'late' days while you're on contraception"
  },
- "personal-finance-1": {
-  "categoryName": "Personal Finance",
-  "gap": "Almost every app offers only a monthly budget starting on the 1st — no weekly, biweekly, or payday-anchored option; no rollover, no single cap across a category group",
-  "pitch": "Most people don't get paid on the 1st — they get paid twice a month or every two weeks, and every ready-made tracker falls apart around that. Here the budget starts on whatever payday you set. The cycle can be weekly, biweekly, or tied to your specific schedule. Unspent money rolls over automatically to the next cycle, and you can set a single cap across a whole category group instead of micromanaging each one.",
-  "features": [
-   "Budget cycle starting on any day, at any length: weekly, biweekly, or custom schedule",
-   "Auto-rollover of remaining balance and overage to the next period",
-   "Single spending cap across a category group (e.g., \"Entertainment\" as a whole)",
-   "Forecast: will the money last until next payday at your current spending pace?",
-   "Highlight days when routine spending is on track to exceed the limit"
-  ],
-  "antiFeatures": [
-   "No bank linking, no SMS reading",
-   "No preset categories pushed on you — just an empty framework to build your own"
-  ],
-  "monetization": "One cycle and basic categories free; one-time lifetime purchase unlocks category groups, rollover, and forecast — no subscription",
-  "mechanisms": [
-   "Savings and investments are treated as money spent",
-   "Weak and inflexible budget mode",
-   "Manual entry is valued for mindfulness, but many find it exhausting"
-  ],
-  "title": "Payday Cycle",
-  "oneLiner": "A budget that runs from paycheck to paycheck, not from the 1st of the month"
- },
- "personal-finance-2": {
-  "categoryName": "Personal Finance",
-  "gap": "Attaching a receipt photo is constantly requested and almost never available; manual entry wears people out, and receipt scanning remains a dream",
-  "pitch": "Logging an expense starts with the camera, not the keyboard: photograph a receipt, the app pulls the amount, date, and merchant, and you just confirm. The photo stays attached to the record forever — for reference, warranty claims, and disputed charges. Users who value the mindfulness of manual entry keep that option; those who find it a chore can let the camera handle most of the work.",
-  "features": [
-   "Reads amount, date, and merchant from a receipt photo",
-   "Receipt stays attached to the transaction and is accessible any time",
-   "Manual confirmation before saving — no silent auto-fill",
-   "Search across receipts: find every purchase at a specific store",
-   "Warranty folder: receipts for electronics with an expiry reminder"
-  ],
-  "antiFeatures": [
-   "Receipt photos are not sent to third-party servers without consent — on-device processing by default",
-   "Receipt not required — transactions can still be added manually"
-  ],
-  "monetization": "Manual entry and N scans per month free; one-time lifetime purchase removes the scan limit and unlocks the warranty archive",
-  "mechanisms": [
-   "Automatic tracking from bank SMS and receipt scanning is still a dream",
-   "Paywalled core features and aggressive subscription prompts",
-   "Flexible custom categories, subcategories, and tags"
-  ],
-  "title": "Snap the Receipt",
-  "oneLiner": "Every expense is a photographed receipt, not just a row of numbers"
- },
- "personal-finance-3": {
-  "categoryName": "Personal Finance",
-  "gap": "Transfers between your own accounts count as expenses, savings show up as spending, card debt breaks the balance, and fees vanish — three separate failures that distort the whole picture",
-  "pitch": "The most common pain in personal finance apps is numbers you can't trust. Transfer money to a savings account — the app logs an expense. Pay down part of a debt — the balance goes haywire. Here, a transfer between your own accounts never appears in expenses; it has a separate fee field. Savings live in their own section with goal jars. Debts and credit cards decrease when you make a payment and accept partial payments. You can finally trust your expense stats.",
-  "features": [
-   "Transfers between accounts excluded from expenses, with a separate fee field",
-   "Savings section with goal jars, separate from spending",
-   "Correct debt and credit card tracking: partial payments, balance decreases properly",
-   "Reconciliation: flag the gap between actual and calculated account balance",
-   "Envelope method on top of honest balances"
-  ],
-  "antiFeatures": [
-   "No retroactive history rewrites when settings or currency change",
-   "No basic transaction types locked behind a paywall"
-  ],
-  "monetization": "Honest core accounting free; one-time lifetime purchase unlocks envelopes, goal jars, and extended account reconciliation",
-  "mechanisms": [
-   "Debt and credit card tracking is broken and skews balances",
-   "Transfers between accounts count as expenses and ignore fees",
-   "Users want to attach receipt photos to transactions"
-  ],
-  "title": "True Balance",
-  "oneLiner": "Counts your money honestly — transfers, debts, and savings never skew the stats"
- },
- "personal-finance-4": {
-  "categoryName": "Personal Finance",
-  "gap": "Switching from a lifetime purchase to a subscription is the top trigger for rage reviews; ads return after payment; forced registration scares users about privacy",
-  "pitch": "An entire product category is built to make you distrust it: you paid \"forever\" and got a subscription demand a year later; you paid to remove ads and they came back after an update; you didn't give your email and the app didn't let you in. The promise here is simple and in writing: one purchase, permanent, non-reversible; zero ads anywhere; everything runs locally with no mandatory account. You pay for quality, not as a hostage.",
-  "features": [
-   "Local storage, sign-up optional — not gated before you can explore",
-   "Zero ads on every screen, including the free tier",
-   "Public guarantee: a lifetime purchase will never be converted to a subscription",
-   "Full data export, free, no paywall",
-   "Purchase transfer to a new device via a local key file"
-  ],
-  "antiFeatures": [
-   "No subscription prompt on launch or right after install",
-   "No basic features (budget, dark mode, past months) locked behind payment",
-   "No subscription dressed up as a lifetime purchase"
-  ],
-  "monetization": "One-time purchase for the full feature set; optional cosmetic themes; no subscriptions, no ads",
-  "mechanisms": [
-   "Ads disrupt entry flow and come back even after payment",
-   "Years of data lost during an update or phone switch",
-   "Gamification and delightful design turn boring bookkeeping into a hobby"
-  ],
-  "title": "Yours Forever",
-  "oneLiner": "Expense tracking with no account, no ads, and no risk of suddenly going paid"
- },
- "personal-finance-5": {
-  "categoryName": "Personal Finance",
-  "gap": "Real-time shared budgeting is loved, but where it's missing it's constantly requested — and where it exists, it sometimes requires a paid subscription per device; sync also breaks often",
-  "pitch": "Couples and families want to see one wallet from two phones at once — who spent what from the shared envelope. Here, shared access is paid once for the whole family, not per member on subscription. Changes appear instantly, conflicts from simultaneous entry are resolved without losing records, and personal spending stays separate from shared.",
-  "features": [
-   "Shared budget in real time across multiple devices",
-   "Single family payment — not a per-member subscription",
-   "Personal and shared envelopes in one app",
-   "Reliable merge on simultaneous entry with no data loss",
-   "Summary of who contributed and spent how much over a period"
-  ],
-  "antiFeatures": [
-   "No extra charge for a second or third device",
-   "No bank link required for shared access"
-  ],
-  "monetization": "One wallet free; one-time family lifetime purchase for shared access and unlimited envelopes",
-  "mechanisms": [
-   "Envelope method and category budgets keep spending in check",
-   "Weak and inflexible budget mode",
-   "Gamification and delightful design turn boring bookkeeping into a hobby"
-  ],
-  "title": "Shared Envelope",
-  "oneLiner": "A couple's joint budget in real time, without paying for each partner"
- },
- "personal-finance-6": {
-  "categoryName": "Personal Finance",
-  "gap": "Multi-currency is essential for travelers but rarely works well: rates must be entered manually and aren't remembered, changing the base currency breaks balances and rewrites history retroactively",
-  "pitch": "For people living between countries, switching currencies isn't an edge case — it's the norm, and existing trackers break under that load. Here, exchange rates are fetched and remembered at the date of the transaction; changing your base currency rewrites nothing in the past; historical transactions stay in the currency they were made in. You see the local amount and the home-currency equivalent at the same time.",
-  "features": [
-   "Rate locked to the transaction date — remembered, no manual re-entry every time",
-   "Changing the base currency leaves past balances and history untouched",
-   "Dual display: transaction in local currency and home currency simultaneously",
-   "Accounts in different currencies with honest conversion and a fee field",
-   "Offline mode: last known rate is saved for use without internet"
-  ],
-  "antiFeatures": [
-   "No retroactive recalculation when the current rate changes",
-   "No constant connection required for basic tracking"
-  ],
-  "monetization": "Single currency free; one-time lifetime purchase unlocks multi-currency and automatic rates — no subscription",
-  "mechanisms": [
-   "Shared budget for couples and families in real time",
-   "Transfers between accounts count as expenses and ignore fees",
-   "Gamification and delightful design turn boring bookkeeping into a hobby"
-  ],
-  "title": "Nomad",
-  "oneLiner": "Multi-currency tracking for people who live between countries"
- },
- "personal-finance-7": {
-  "categoryName": "Personal Finance",
-  "gap": "Losing years of data during an update or phone switch is a widespread pain point; restoring backups often fails; exporting your own data is frequently paywalled",
-  "pitch": "People track for 5–10 years — and lose everything on a phone switch because the backup was manual or the restore failed. Here, a backup is created automatically and, crucially, verified regularly to confirm it can actually be restored — the app alerts you if it's corrupt. Restoration is one step, even on a new device. Data export is free and unlocked. A checkpoint backup runs before any risky app update.",
-  "features": [
-   "Automatic backup to the storage of your choice",
-   "Regular backup integrity check with an alert if the backup is broken",
-   "One-step restore, including on a new device",
-   "Checkpoint backup before an app update",
-   "Free export to spreadsheet and PDF, no paywall"
-  ],
-  "antiFeatures": [
-   "Export and restore of your own data not locked behind a subscription",
-   "Backup not tied to a single cloud provider with no alternative"
-  ],
-  "monetization": "Local backup and one cloud backup free; one-time lifetime purchase unlocks multiple storage destinations, custom schedule, and integrity verification",
-  "mechanisms": [
-   "Bank sync and account linking keep breaking",
-   "Support goes silent for months — and that amplifies every other problem"
-  ],
-  "title": "Never Lost",
-  "oneLiner": "Years of records you can't lose — backups run themselves and get verified"
- },
  "sobriety-1": {
   "categoryName": "Quit drinking, smoking, scrolling",
   "gap": "Many trackers have no \"I slipped\" button — a relapse resets everything and you can't change the date manually. Switching phones or cancelling a subscription wipes years of progress.",
@@ -7237,5 +7069,110 @@
    "A public, responsive developer who ships requests"
   ],
   "monetization": "A one-time lifetime ('for the cost of lunch') plus an optional 'to support' subscription. A generous free tier as a word-of-mouth engine, not lost revenue."
+ },
+ "personal-finance-1": {
+  "categoryName": "Личные финансы",
+  "title": "The unbreakable ledger: a tracker you physically cannot lose",
+  "oneLiner": "Lightning-fast manual tracking with automatic invisible backup to your own cloud from first launch — history can't be lost on any phone change.",
+  "gap": "The category's sharpest and most repeated failure is losing years of accumulated data on a phone switch or breakage, because backup is local or off by default. Leaders punish exactly the most loyal, the ones with the most history.",
+  "pitch": "Not 'one more tracker' but a promise: your financial history will NEVER disappear. Backup is on from the first transaction, encrypted, and placed in your own Google Drive/iCloud/Dropbox with no mandatory account — privacy segment and loss-fear closed at once.",
+  "features": [
+   "Automatic encrypted backup from first launch, no manual toggle",
+   "Storage choice: Google Drive, iCloud, Dropbox or local — no mandatory cloud account",
+   "One-tap restore when installing on a new phone",
+   "Lightning-fast expense entry: one screen, calculator, category",
+   "Honest export of all history to CSV/spreadsheet at any time"
+  ],
+  "monetization": "Free — the entire core loop and backup forever; a one-time Lifetime purchase (not a subscription) for multi-device, forecast and pro reports."
+ },
+ "personal-finance-2": {
+  "categoryName": "Личные финансы",
+  "title": "Will I have enough: a tracker that looks forward, not back",
+  "oneLiner": "Tracking where recurring income and bills automatically roll up into a forecast of 'how much will I actually have left after all payments' through end of period.",
+  "gap": "Leaders record the past brilliantly but are almost all blind to the future: the balance forecast is missing or broken, and people are forced to keep a spreadsheet just for it. Where the forecast existed and got broken, users drop to one star — it's the most valuable unclosed job.",
+  "pitch": "Shifting the question from 'where did the money go' to 'how much will I have left' moves the product from tracker to planner — the exact thing people can't abandon their Excel for.",
+  "features": [
+   "Recurring payments and income automatically subtract from the projected future balance",
+   "A future cash-flow calendar with a balance for each day",
+   "Forecast anchored to an arbitrary payday period, not the 1st of the month",
+   "Replacing the homemade spreadsheet: CSV import and the same 'free balance' calculation",
+   "Alert if the forecast shows the balance going negative before payday"
+  ],
+  "monetization": "Free tracking and a basic forecast for the current period; subscription/Lifetime for forecasting several periods ahead and 'what-if' scenarios."
+ },
+ "personal-finance-3": {
+  "categoryName": "Личные финансы",
+  "title": "Our budget: shared tracking for a couple with no duplicates or losses",
+  "oneLiner": "A shared wallet for two where a partner's edits appear instantly and sync merges changes rather than overwriting them 'last-write-wins'.",
+  "gap": "A shared budget is constant demand and the most broken scenario: some offer no shared access and lose the user at the moment of marriage; others' sync spawns duplicates, drops records and dumps the partner's transactions into the main account. A 'whole-backup' architecture instead of merge makes couples impossible.",
+  "pitch": "Build the product around the household from the start: true multi-user with change-merge, personal and shared envelopes — the in-family network effect raises the switching cost for two at once.",
+  "features": [
+   "Real change-merge from two devices, no duplicates or overwrites",
+   "Shared and personal wallets in one household: 'both on the same page' without clearing every spend",
+   "Access rights: partner can view-only or edit",
+   "A monthly reconciliation report 'who contributed how much' for settling between cohabitants",
+   "Real-time notification to the partner about a spend from the shared wallet"
+  ],
+  "monetization": "Free for one; subscription/Lifetime 'Family' for a second+ member and shared wallets — they pay exactly once the value is already proven."
+ },
+ "personal-finance-4": {
+  "categoryName": "Личные финансы",
+  "title": "Pay cycle: a budget on your real money rhythm",
+  "oneLiner": "A tracker with an arbitrary accounting period anchored to payday that doesn't break already-closed past periods.",
+  "gap": "The whole category offers only a calendar month or 'last 30 days', but a huge segment is paid biweekly or every four weeks (Australia especially), and some run a cycle from the 7th to the 7th. Shifting the period start is either impossible or destroys past history.",
+  "pitch": "One cheap but almost-nowhere-implemented mechanism — a flexible payday-to-payday period with frozen past — single-handedly wins back an entire underserved segment that today leaves or recalculates by hand.",
+  "features": [
+   "Period out of the box: weekly, biweekly, 4-weekly, monthly or arbitrary",
+   "Anchoring period start to the payday date, not the 1st of the month",
+   "Freezing closed past periods: changing the date doesn't rewrite history",
+   "Auto carry-over of the unspent balance into the new period (no false 'it's all gone' panic)",
+   "Percentage allocation of income across categories for variable earnings"
+  ],
+  "monetization": "Free basic period; subscription/Lifetime for arbitrary periods, percentage allocation and binding to multiple income sources."
+ },
+ "personal-finance-5": {
+  "categoryName": "Личные финансы",
+  "title": "The full picture: one screen of cash, savings and investments",
+  "oneLiner": "A tracker where a transfer between your own accounts doesn't count as spending, and savings and investments roll up into an honest net worth growing over time.",
+  "gap": "Leaders' base model 'every movement is income or expense' lies in the key number: a transfer to your own account logs as a spend, money into savings is flagged 'gone', credit-card debt counts as income. Those who outgrow expense tracking hit a ceiling and keep a second app for savings.",
+  "pitch": "A correct data model — transfer transaction, savings/goals and investments as separate entities — turns an expense tracker into a single wealth dashboard, closing the door users leave through to a rival.",
+  "features": [
+   "A transfer between your own accounts as a separate transaction type that doesn't affect spending",
+   "Goals and savings with progress, separated from expenses",
+   "Tracking investments and credit cards so debt reduces, not inflates, net worth",
+   "A single historical trajectory of cash + savings + investments",
+   "An account's opening balance not counted as income"
+  ],
+  "monetization": "Free — spending and transfers; subscription/Lifetime for the wealth module: investments, net worth, savings goals."
+ },
+ "personal-finance-6": {
+  "categoryName": "Личные финансы",
+  "title": "Quiet parser: auto-capture of spends from SMS with no banking passwords handed over",
+  "oneLiner": "A local engine that reads bank SMS and push right on the phone and offers a ready-made transaction — automation without giving away account access.",
+  "gap": "The category is split: the privacy segment refuses to hand over bank username-password-OTP, and the sync segment is tired of typing by hand. SMS auto-parsing is named outright as a reason to leave, but leaders either demand bank access or break the parsing with updates.",
+  "pitch": "Close the gap between two warring segments: parsing happens on the device, nothing leaves for a server, no banking password needed — the speed of automation with privacy preserved.",
+  "features": [
+   "On-device reading of bank SMS and push notifications, no cloud",
+   "A ready draft transaction with guessed category and amount — confirm with one tap",
+   "Category learning: remembers how the user filed similar charges",
+   "Fully switchable off for those who want pure manual entry",
+   "No access to the bank account, username, password or OTP"
+  ],
+  "monetization": "Free manual entry; subscription/Lifetime for auto-capture from SMS/notifications and smart categorization."
+ },
+ "personal-finance-7": {
+  "categoryName": "Личные финансы",
+  "title": "City of habits: gamification that rewards smart money, not spending",
+  "oneLiner": "A finance tracker with an emotional game layer where what grows isn't a city of purchases but progress for no-spend days, goals hit and staying within budget.",
+  "gap": "Gamification provenly hooks the bored segment and ADHD users (recommended by their therapists), but the leading example rewards the act of spending — users spot the paradox themselves: an app about saving incentivizes spending. The reward is tied to the wrong behavior.",
+  "pitch": "Keep the dopamine loop that alone retains 'non-serious' budgeters, but redirect the reward to the useful: you saved, didn't spend, stayed within the limit — your world grows.",
+  "features": [
+   "Reward for no-spend days, savings goals hit and staying within budget, not for spending",
+   "A gentle, non-shaming tone instead of mocking an overspend",
+   "Fast entry with no mandatory game fiddling for those in a hurry",
+   "An ADHD mode: short daily goals and visible progress",
+   "Arbitrary period and balance carry-over so the loop matches payday"
+  ],
+  "monetization": "Free tracking and a basic game; subscription/Lifetime for world cosmetics, advanced goals and habit analytics."
  }
 }

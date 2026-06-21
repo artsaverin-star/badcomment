@@ -1382,69 +1382,74 @@
  "g-1money": {
   "product": [
    {
-    "title": "Lifetime licenses were swapped for a subscription with no warning",
-    "plus": null,
-    "minus": "People who years ago paid for a \"lifetime\" license suddenly saw only monthly/yearly plans after an update — and at a far higher price than before. For long-time users it feels like outright deception and theft of what they already paid for."
-   },
-   {
-    "title": "The update logs you out and the password-reset email never arrives",
-    "plus": null,
-    "minus": "After the update users were forcibly logged out and simply can't get back in: there's no sign-in button, or the password-reset email never arrives. People end up locked out of their own premium account."
-   },
-   {
-    "title": "The update wipes years of accumulated transactions",
-    "plus": null,
-    "minus": "On updating and re-logging in, many users simply lost everything — 3, 5, even 6 years of financial history. Restoring from a local backup often fails, and years of work vanish for good."
-   },
-   {
-    "title": "Basic features were suddenly locked behind paid premium",
-    "plus": null,
-    "minus": "After the update the essentials got blocked: you can't add a transaction to your main wallet, use more than one account, or export/import your own data. Even categories you were already using turn premium-only."
-   },
-   {
-    "title": "Support goes silent for months",
-    "plus": null,
-    "minus": "Dozens wrote to support about a lost license, a locked account or vanished data — and got not a single reply. The developer's silence, while users lose real money and history, feels like a scam."
-   },
-   {
-    "title": "Currency conversion breaks: everything recalculated one-to-one",
-    "plus": null,
-    "minus": "After the update, multi-currency users found old transactions recalculated at 1:1 — 1 won equal to 1 euro. All their accumulated stats turned retroactively meaningless, fixable only by editing every transaction by hand."
-   },
-   {
-    "title": "The simplest, fastest expense tracker — nothing extra",
-    "plus": "The core love for this app is its speed and cleanliness: logging spending takes seconds, the UI isn't cluttered, everything is editable. People try dozens of rivals and come back to this one.",
+    "title": "The core pitch is NOT linking a bank: privacy sold as the product, not a feature",
+    "plus": "Users deliberately choose manual entry precisely because nothing leaves for a server and the app never touches a bank account. This segment isn't looking for automation — it's fleeing from it, and pays and stays for years for the feeling that the money data lives only on their phone.",
     "minus": null
    },
    {
-    "title": "Local data with no bank link is exactly the appeal",
-    "plus": "Many chose the app precisely because it doesn't connect to bank accounts and keeps finances local on the phone. For privacy that's a win — your data never goes to someone else's server.",
+    "title": "Speed of entry is the real engine of the daily habit",
+    "plus": "\"So fast to use, so little fuss\" — the app wins not on features but on logging a spend taking seconds with an uncluttered UI. That's what turns tracking into a daily ritual instead of a chore dropped after a week: users report using it \"every day\" for 5-6 years.",
     "minus": null
    },
    {
-    "title": "Pays for itself in savings: you spend less when you see where money goes",
-    "plus": "Users say the app genuinely changes their financial behavior: a clear picture of spending makes them more conscious, and the license cost pays back many times over in money saved.",
-    "minus": null
-   },
-   {
-    "title": "The comeback after a year offline brought back both love and dread",
-    "plus": "The app vanished from the store for nearly a year (the devs are from Russia, sanctions broke payments), and many greeted its return with joy — sync came back to life and some lifetime licenses were restored.",
-    "minus": null
-   },
-   {
-    "title": "Lifetime access can actually be recovered — by following the steps",
-    "plus": "Some of the affected found a working path: export data, clear Play Store cache, reinstall and sign in with the same Google account — lifetime license and data come back. Those who completed the quest bumped their rating back to 5 stars.",
-    "minus": null
-   },
-   {
-    "title": "Missing cloud sync and a way to move to a new phone",
+    "title": "No account means no safety net: all history lives on one manual backup",
     "plus": null,
-    "minus": "During the spell when cloud sync was removed and only local backup remained, people were afraid to switch phones: without an account link, years of records are easy to lose. Many ask for reliable sync and a proper import to come back."
+    "minus": "Local-only storage with no mandatory login is the flip side of privacy: switch phones, reinstall, or hit a glitch and years of data vanish because the backup had to be made by hand. Users lose 4-6 years of records and realize the privacy \"convenience\" was the trap. It's a structural product risk: loyalty is built over years and collapses in a single day with no warning."
    },
    {
-    "title": "A frequent request: attach a receipt photo to an expense",
+    "title": "Cross-device sync is the retention backbone, not just a feature",
     "plus": null,
-    "minus": "The top wish among happy users is the ability to attach a photo or scan of a receipt to a transaction. People want to see what a purchase actually included, right there in the expense entry."
+    "minus": "For a large share of payers, sync was the entire reason to buy — a shared budget with a partner, access from two phones. When sync was removed the app became instantly \"useless\" to them and they left for competitors; when it returned, the same people came straight back. It reveals what actually holds the top segment: not categories, but data following the person across devices."
+   },
+   {
+    "title": "Multi-currency silently recalculated all history at 1:1 and wiped years of stats",
+    "plus": null,
+    "minus": "For expats and anyone spending across currencies, conversion is the core of the value. After an update old transactions were retroactively recomputed as 1=1 (1 won = 1 euro) and all accumulated stats became meaningless. The nature of multi-currency tracking is that an FX error isn't local — it retroactively poisons every past report, fixable only by re-entering every transaction by hand."
+   },
+   {
+    "title": "The paywall hits the second account and second category — exactly where the habit matures",
+    "plus": null,
+    "minus": "The free tier doesn't cap an advanced feature — it caps a basic growth moment: the instant a user wants a second account or second category (i.e. actually starts budgeting), they're blocked. The limit sits right at the move from \"tried it\" to \"built it into life,\" so it reads as confiscation of a working tool rather than an honest demo boundary."
+   },
+   {
+    "title": "Depth for power users: accounts, debts, lend/repay, subcategories retain the serious tracker",
+    "plus": "Beyond simple entry the app handles credit accounts, debts with lend/repay mechanics, subcategories and fully editable transactions. It's this depth-with-simplicity combination that retains people who \"tried 17 money managers\" — they want flexibility without overload, and few apps strike that balance.",
+    "minus": null
+   },
+   {
+    "title": "A loop hole: a spend deducts from the account but never shows in categories",
+    "plus": null,
+    "minus": "A bug broke the very point of tracking: a spend reduces the account balance but never lands in the category list/history, and sometimes entering an expense silently turns into a transfer between accounts. For a tracker this is fatal — the user stops trusting the numbers because balance and analytics diverge, and the app's whole value is that they reconcile."
+   },
+   {
+    "title": "The happiest users' top request — attach a receipt photo to a spend",
+    "plus": null,
+    "minus": "Happy 4-5★ users keep hitting the same ceiling: you can't attach a receipt or invoice photo to a transaction. This isn't a gripe but a signal of the next job-to-be-done — people want the tracker to replace the shoebox of receipts, not just the numbers. Closing this gap would turn the tracker into a proof archive and raise the switching cost."
+   },
+   {
+    "title": "Invisibility in Play Store search strangles the main growth channel — word of mouth",
+    "plus": null,
+    "minus": "Loyal users actively recommend the app to friends — but the friends can't find it: it doesn't surface in store search, as if shadow-banned. For a product that grows almost entirely on word of mouth rather than ads, this kills the very distribution engine: the referral exists but can't be acted on."
+   },
+   {
+    "title": "The redesign bloated fonts and added taps — the speed users came for regressed",
+    "plus": null,
+    "minus": "The UI overhaul hit exactly what was the strength: fonts grew larger, less fits on screen, the same actions take more taps, and scrolling appeared where everything used to be visible at once. When a product lives on \"see your budget at a glance\" and fast entry, cosmetics that break information density feel like degradation, not a refresh."
+   },
+   {
+    "title": "Recurring transactions exist, but without confirmation and timeline visibility they're half-blind",
+    "plus": null,
+    "minus": "Recurring transactions are implemented and valued, but users ask for the next layer: a confirm button for a scheduled payment, future recurrences shown on the timeline, and a calendar view. Without these the automation stays \"blind\" — you can't quickly verify charges matched the plan, yet predictability of recurring spend is the whole reason to set them up."
+   },
+   {
+    "title": "A rigid budget period hurts users whose payday shifts",
+    "plus": null,
+    "minus": "The budget is tied to a calendar month/week, but on a job change or non-standard payday, shifting the start date breaks already-closed past months. Users ask to \"lock\" prior periods and set an arbitrary interval. For a money app this is a meaningful segment — freelancers and job-switchers whose real financial cycle doesn't line up with the 1st of the month."
+   },
+   {
+    "title": "A loved product with no support net: emails to support vanish",
+    "plus": null,
+    "minus": "Even satisfied users go years without a single reply to support emails. For an app where data is local and there's no account, missing support is especially dangerous: when something breaks (restore, FX bug, missing transactions) the user has nowhere to turn and the only exit is a competitor. Support silence turns any minor problem into a churn trigger."
    }
   ],
   "hygiene": []
@@ -1842,64 +1847,74 @@
  "g-bluecoins": {
   "product": [
    {
-    "title": "The major UI overhaul turned a beloved app clunky and slow",
-    "plus": null,
-    "minus": "Long-time users say in unison: the v13/2.0 redesign killed the fast entry they relied on — the keyboard jumps, the screen lurches, a single transaction now takes extra taps, and there's no option to revert to the old interface."
-   },
-   {
-    "title": "Updates wipe out years of accumulated data",
-    "plus": null,
-    "minus": "The nightmare scenario happens repeatedly: after an auto-update people lose months or years of transactions, and a backup from the new version often can't be restored in an older one."
-   },
-   {
-    "title": "Paid premium silently drops, and ads come back",
-    "plus": null,
-    "minus": "People who bought lifetime premium complain the app demands payment again, drops them to Standard and shows ads — sometimes because of a second Google account on the phone. The developer's only fix is reinstalling."
-   },
-   {
-    "title": "Support ignores even paying users",
-    "plus": null,
-    "minus": "Support emails go unanswered for months — even for premium customers. What stings most: replies to reviews ask users to post their personal email in a public field instead of giving out a support address."
-   },
-   {
-    "title": "Balances and calculations went haywire after the update",
-    "plus": null,
-    "minus": "The one thing a finance app must get right — accuracy — breaks: running balances vanish, transfers flip, editing a note randomly changes an account balance, and reconciliation no longer adds up."
-   },
-   {
-    "title": "Cloud sync and backup are unreliable",
-    "plus": null,
-    "minus": "QuickSync gets disabled, Google Drive stops connecting, Dropbox crashes the app, and changes don't upload in time — so when you switch phones you restore a stale backup and lose months of data."
-   },
-   {
-    "title": "SMS and bank-notification capture broke",
-    "plus": null,
-    "minus": "For those who relied on auto-logging transactions from SMS and bank notifications, the update removed the key automation: capture misses notifications, fails to fill in the amount, or stopped working entirely."
-   },
-   {
-    "title": "The app became sluggish, especially on large datasets",
-    "plus": null,
-    "minus": "After the update, adding or editing a transaction takes seconds — sometimes a full minute; lists won't load and animations lag. With 30k+ transactions the app becomes nearly unusable."
-   },
-   {
-    "title": "One-time premium with no subscription is the top reason to love it",
-    "plus": "Amid subscription fatigue, users especially value that the powerful premium is a one-time purchase forever, at a very affordable price — many even donate to the developer on top.",
+    "title": "Double-entry bookkeeping is the moat that makes pros forgive everything else",
+    "plus": "Bluecoins wins a narrow but high-value segment — people who think like accountants and need a balance sheet, P&L and reconciliation, not a cute spend tracker. It's the only app offering true double-entry on a phone, so users with an accounting background land here after sampling a dozen rivals and stay for years.",
     "minus": null
    },
    {
-    "title": "Double-entry and deep reporting make it the best for serious bookkeeping",
-    "plus": "For those who need real bookkeeping, it's a rare app with double-entry, balance sheet, P&L, cash-flow projections, multi-currency and split transactions — a replacement for the departed Quicken, MS Money and Anmoney.",
+    "title": "One-time purchase instead of a subscription is the filter that attracts lifers",
+    "plus": "The pay-once-own-forever model acts as a selection mechanism: in a category exhausted by monthly charges, it attracts people willing to invest in a system for years rather than rent it. That's why users donate on top of the price and call premium \"fair\" — the absence of a subscription itself becomes a reason for loyalty.",
     "minus": null
    },
    {
-    "title": "Abandonment fears: no Play Store updates for years",
+    "title": "Importing 30 years of Quicken/MS Money history is the moment of capture",
+    "plus": "The real retention engine isn't features, it's migration: people bring decades of data from dead Quicken and MS Money, and the app swallows QIF/CSV across a dozen accounts. Once an entire financial life lives inside, the cost of leaving becomes prohibitive — that's the true moat, stronger than any feature.",
+    "minus": null
+   },
+   {
+    "title": "Future-dated transactions folded into the balance is the feature people come for",
+    "plus": "The core job-to-be-done isn't \"log the past\", it's \"show me what I'll actually have left\". Users pick Bluecoins precisely because an upcoming bill is subtracted from the balance on entry. That shifts behavior from accounting to planning — and when an update broke this, exactly these users dropped to one star: it killed the very reason they paid.",
+    "minus": null
+   },
+   {
+    "title": "The v13/2.0 rewrite split the base into \"refugees\" and \"adapters\"",
     "plus": null,
-    "minus": "Many are unsettled that the Play Store shows a last update of August 2024, the new version never reaches some devices, and the developer's forum is long dead — so people start hunting for a replacement."
+    "minus": "The redesign broke the muscle memory of multi-year users: what took one swipe now needs many taps and scrolls. For an app where transactions get punched in several times a day, extra touches per entry are a tax on the core habit. Part of the base adapted, but the loudest voices are the loyal veterans whose daily ritual got broken."
    },
    {
-    "title": "A years-long habit: the tracker people return to after every alternative",
-    "plus": "A huge share of reviews come from users with 5–8+ years of use who tried dozens of apps and settled here; many credit it with their financial discipline and call it the best in its category.",
+    "title": "Numbers users stop trusting is the death of a finance app",
+    "plus": null,
+    "minus": "After the update balances drift: totals don't add up, transfers between accounts show identical remainders, editing a note on an account changes the balance by a random number. For a spend tracker a bug is annoyance; for a double-entry app a wrong number is a betrayal of the core promise. Users start entering fake transactions to \"force\" the balance right — which means they no longer trust the system."
+   },
+   {
+    "title": "Performance doesn't scale for the very users who need the app most",
+    "plus": null,
+    "minus": "A paradox: the longer and more seriously you keep your books, the worse the app runs. At 30,000 transactions, adding one takes 15-20 seconds and lists won't load. The most valuable long-term users with deep histories hit the degradation precisely because they invested the most — and they're the ones loudest about leaving for a competitor."
+   },
+   {
+    "title": "The license is tied to the device Google account — premium silently vanishes",
+    "plus": null,
+    "minus": "This isn't a price gripe but a flaw in the access architecture: premium is bound to a Google account, and having a second account on the phone (or installing on a second device) drops paying users back to the ad-supported free tier. The mechanism meant to protect the purchase punishes the payers — the most loyal segment periodically loses what they bought for life."
+   },
+   {
+    "title": "Capturing transactions from SMS and notifications is the invisible habit engine",
+    "plus": null,
+    "minus": "Automatic parsing of bank SMS and push notifications removed the biggest friction — manual entry. When an update broke that capture, the habit fell apart: people used to transactions appearing on their own won't go back to typing them in and quietly drift away. The more \"invisible\" the feature, the more painful its loss — users never noticed it working until it was gone."
+   },
+   {
+    "title": "\"Last-write-wins\" cloud sync kills shared household accounting",
+    "plus": null,
+    "minus": "Sync is built as a whole-backup upload, not a merge of changes: when a husband and wife run a shared budget from two devices, each save overwrites the other's entries. The app markets itself for family finances, but the architecture supports strictly one user — an entire segment of couples discovers this only weeks in, after losing data."
+   },
+   {
+    "title": "Backup incompatibility across versions turns rollback into a trap",
+    "plus": null,
+    "minus": "A backup from a new version can't be restored in an old one — so users unhappy with an update physically cannot roll back: the app forces them to update again or the data won't open. This turns a voluntary migration into a one-way ticket and strips users of their only self-defense lever, the rollback. The v12/v13 incompatibility multiplies panic around an already painful redesign."
+   },
+   {
+    "title": "The app loses context on switch — and wipes a half-entered transaction",
+    "plus": null,
+    "minus": "The real entry flow is: switch to your banking app, check the amount, come back and finish logging. But after the update, returning resets the app to the home screen, losing the half-entered transaction. This breaks the natural workflow of exactly the meticulous users who verify every figure — and turns a simple entry into a source of frustration."
+   },
+   {
+    "title": "Local-first storage with no required account is a magnet for privacy-minded users",
+    "plus": "Bluecoins wins the segment fleeing cloud finance services: data stored locally, backups to your own Google Drive or Dropbox, no account required to use it. For people unwilling to hand their financial life to someone else's server, this is the deciding factor — the privacy model itself becomes a selling feature, not a settings checkbox.",
     "minus": null
+   },
+   {
+    "title": "Inability to edit recurring transactions breaks trust in automation",
+    "plus": null,
+    "minus": "Recurring transactions are set once and then can't be edited: if you didn't set a reminder up front, you can't change or remove them later, and \"ghost\" recurring entries pop up every month with no way to delete them. Automation you can't correct is scarier than manual entry — the user loses control over their data exactly where they expected to save effort."
    }
   ],
   "hygiene": []
@@ -3037,64 +3052,79 @@
  "g-fortunecity": {
   "product": [
    {
-    "title": "Forced ads after an update killed long-timers' loyalty",
-    "plus": null,
-    "minus": "A recent update imposed unskippable ads that pop up seconds after opening and after every transaction or building upgrade. Users with 5-8 years of history are leaving en masse to find an alternative, even though ads used to be purely opt-in for a reward."
-   },
-   {
-    "title": "The paradox: an app about saving rewards you for spending",
-    "plus": null,
-    "minus": "The city only grows when you log expenses, so no-spend days bring no progress — the mechanic literally nudges you to spend in order to build. For a finance tracker, users feel this contradicts its whole purpose."
-   },
-   {
-    "title": "Gamification keeps logging fun for people who'd otherwise quit",
-    "plus": "Building a cute city turns dull bookkeeping into a pleasure — users open the app daily and genuinely want to log expenses. Several specifically note it works for people with ADHD who struggle with normal budgeting apps.",
+    "title": "Gamification turns dull data-entry into a daily habit",
+    "plus": "The core mechanism: each expense builds a building in your city, and the urge to grow the city overrides the tedium of logging. People track not out of discipline but because it's fun — the app cracks the exact problem that 'serious' budgeting apps fail at.",
     "minus": null
    },
    {
-    "title": "Core tracking has been reliable for years",
-    "plus": "Many users have tracked expenses here for 5-8 years, valuing the simplicity, the no-bank-connection self-tracking, and the clear visual breakdown of spending by category.",
+    "title": "Rewarding spending undermines the whole point — saving",
+    "plus": null,
+    "minus": "The city grows only when you log an expense, so the mechanic literally incentivizes spending for the sake of game progress. Users spot the paradox themselves: an app meant to teach saving turns purchases into a dopamine source and punishes 'no-spend' days with zero progress."
+   },
+   {
+    "title": "Budgeting sits behind the paywall — yet it's the app's whole point",
+    "plus": null,
+    "minus": "The most basic financial function — set a monthly budget and watch the balance — is locked behind premium. Users read it as a broken promise: an expense tracker that won't let you do the core tracking job for free loses trust before it ever proves its value."
+   },
+   {
+    "title": "A perfect fit for ADHD users — external dopamine keeps the discipline going",
+    "plus": "A distinct segment the app wins on purpose: ADHD users (some recommended it by their therapists) describe how the gamification delivers the very reward they need to not abandon budgeting. The 'log an expense → dopamine hit' loop solves their core problem — failing to follow through on routine.",
     "minus": null
    },
    {
-    "title": "Basic budgeting and income tracking are locked behind a subscription",
+    "title": "No account transfers — moving money counts as spending and skews the data",
     "plus": null,
-    "minus": "Setting a budget, tracking income, and viewing trends sit behind a paywall, even though users consider those the whole point of a finance app. Many resent the logic of paying for an app meant to save money."
+    "minus": "The missing 'transfer between accounts' feature is the most repeated structural gripe from loyal users. Without it, moving money has to be logged as an expense plus an income, which inflates both spending and budget and breaks the core value — an accurate financial picture. It's the one thing keeping fans from giving five stars."
    },
    {
-    "title": "Login breaks and wipes out years of data",
+    "title": "Manual entry with no bank link — both the feature and the ceiling",
     "plus": null,
-    "minus": "After updates users get logged out, login hangs on a \"credentials expired\" error, and years of expense history vanish with no way to recover it. This is the most painful of the technical failures."
+    "minus": "Fully manual entry delights some users as mindful and private, but many hit its limits: no bank auto-categorization, a daily building cap lower than their real number of transactions, and slow progress for anyone who spends infrequently. The 'mindfulness' strength becomes friction for power users."
    },
    {
-    "title": "Crashes and incompatibility with OneUI 6 / Android 14",
+    "title": "Categories can't be customized — a rigid catalog loses users who need their own buckets",
     "plus": null,
-    "minus": "After OS updates (especially Samsung OneUI 6 and Android 14) the app simply won't open, crashes at the logo, or sends the phone into a reboot loop. Users go weeks unable to track while waiting for a fix."
+    "minus": "The category set is hardcoded and uneditable: no 'education', no way to split or rename buckets, odd buildings (a robot lab but no school). Some users abandon the app right at onboarding, unable to model their real spending structure — the product loses them before first value."
    },
    {
-    "title": "The growing city lags and won't zoom out",
+    "title": "The growing city eventually becomes a burden — no zoom-out, no bulk actions",
     "plus": null,
-    "minus": "The bigger the city, the worse the lag when merging and upgrading buildings — sometimes a 5-minute wait for a menu. On top of that there's no full zoom-out, so a large city can't be properly viewed or organized."
+    "minus": "The very mechanic that hooks people becomes a problem for long-timers: the city sprawls, becomes unmanageable, with no full zoom-out and no way to bulk-sell or delete buildings. The reward for loyalty is growing friction; 5+ year veterans describe their city as a 'mess' that's painful to reorganize."
    },
    {
-    "title": "Ad-for-diamonds is broken: ads won't load, rewards aren't granted",
+    "title": "Monthly-only tracking — breaks for users who think in years or weeks",
     "plus": null,
-    "minus": "The key way to earn diamonds — watching an ad — has been broken for months: ads won't load, it says \"no ads available,\" and the close button after the reward doesn't respond, so the developer gets ad revenue while the player gets no diamonds."
+    "minus": "The tracking cycle is hardwired to the month: no carry-over of balance, no annual savings summary, no bi-weekly cycle to match paychecks. Users whose finances run on a different rhythm can't model their real money flow — and it caps the value they get."
    },
    {
-    "title": "Steep subscription, and ads persist even after paying",
+    "title": "Covers only spending — no savings, investments, debt, or opening balance",
     "plus": null,
-    "minus": "The yearly subscription runs as high as $77-200, which feels mocking for a finance app, and ads plus \"watch a video\" prompts remain even for paying subscribers. Many would rather pay once than subscribe."
+    "minus": "The app models only the expense flow, not the rest of financial life: you can't set an account's opening balance, set money aside as 'savings', or track investments or debt. For users who want a full picture of their net worth, it turns a powerful tracker into a partial tool."
    },
    {
-    "title": "No transfer between accounts — moving money inflates expenses",
+    "title": "Multi-currency is broken — dollar-pivot conversion drives off international users",
     "plus": null,
-    "minus": "You can't simply move money between accounts: you have to make two transactions (an expense + an income), so a transfer counts as spending and skews the stats. There's also no starting balance and no \"transfer\" option — a frequent ask that holds back the fifth star."
+    "minus": "For a global audience the currency mechanic is a failure point: entries still default to dollars, switching currency reverts the amount to USD, Indian users can't see rupees. Some have to convert by hand with a calculator — friction so high that people leave for competitors."
    },
    {
-    "title": "Rigid categories and currency that won't customize",
+    "title": "The 'cute' aesthetic isn't cosmetic — it's the retention hook itself",
+    "plus": "The charming graphics, music, and characters aren't decoration — they're the core reason people return. Users say it outright: sometimes you just need cute music and animations to bother with finances at all. The emotional tone does what features can't — it builds a warm attachment to a chore.",
+    "minus": null
+   },
+   {
+    "title": "The city grows but buildings yield nothing, and the game loop runs out of steam",
     "plus": null,
-    "minus": "The default categories can't be edited or extended (education, etc.), which makes some users quit on day one. Currency handling is shaky too: entries still go in dollars and get converted, and amounts may not match the user's real currency."
+    "minus": "The game engine is under-tuned: buildings are supposed to generate income but don't, diamonds are painfully slow to earn, and progress stalls once levels max out. The very players gamification hooked lose motivation — the reward loop the whole habit rests on eventually breaks."
+   },
+   {
+    "title": "Gamification can pull focus away from finance toward the game",
+    "plus": null,
+    "minus": "The flip side of the main hook: for some users the game layer outweighs the finance one — the app 'takes away from the core focus', floods them with notifications, and demands time fiddling with the city. For those who want fast, plain logging, the gamification gets in the way: they just want to record an expense, not play."
+   },
+   {
+    "title": "Self-tracking without a bank builds the awareness auto-trackers can't",
+    "plus": "Logging each expense by hand isn't a bug, it's the awareness mechanism: the act of recording forces users to notice where money goes. People describe seeing their spending patterns for the first time and becoming more mindful — the app changes behavior precisely because it doesn't auto-track for you.",
+    "minus": null
    }
   ],
   "hygiene": []
@@ -3172,69 +3202,74 @@
  "g-goodbudget": {
   "product": [
    {
-    "title": "Manual envelope method with no bank linking is the core reason people love it",
-    "plus": "The devoted core stays for exactly this: you enter money yourself, no auto-sync to your account, and that gives a feeling of control and mindful spending. Many have budgeted here for 5-10 years and never left.",
+    "title": "No bank sync isn't a missing feature — it is the product",
+    "plus": "The loyal core picks this app precisely because it does NOT touch the bank: logging each transaction by hand makes them pay attention and keeps their 'hands in' the budget. This segment leaves Mint and YNAB on purpose, because automation made them complacent about spending.",
     "minus": null
    },
    {
-    "title": "The free version caps you at 10 envelopes — and that's where many quit",
+    "title": "That same manual entry loses anyone with high transaction volume",
     "plus": null,
-    "minus": "The most common newcomer complaint: 10 envelopes isn't enough for a real budget, so you either merge categories or pay. Many uninstall before even starting, calling the cap greedy."
+    "minus": "The lack of bank sync that anchors some users is a dealbreaker for others: with a high flow of purchases, entering everything by hand is impossible, so people go back to Excel or look for an app that links to the account. The product splits the market in two and hands half of it to competitors."
    },
    {
-    "title": "Monthly and yearly cycles only — but people get paid and budget weekly or biweekly",
+    "title": "The monthly cycle ejects everyone paid every two weeks",
     "plus": null,
-    "minus": "A huge source of churn: no weekly or biweekly cycle, yet that's exactly how many people are paid (Australia especially — fortnightly). The budget doesn't match the real account, so people leave for competitors or Excel."
+    "minus": "Envelopes fill only monthly or yearly — yet a huge segment is paid biweekly or every four weeks (Australia especially). They're forced to recalculate by hand or quit in the first month: people's pay cycle simply doesn't match the product's one and only model."
    },
    {
-    "title": "Sync breaks and loses data — budgets built up over years get wiped",
+    "title": "The app does less than the website — which kills the point of the app",
     "plus": null,
-    "minus": "The most painful bug: the app hangs on \"trouble syncing\", envelopes won't fill, and on a forced sync the phone's transactions get overwritten by the server's. Loyal multi-year users suddenly lose everything."
+    "minus": "Core actions — adding income, paying debt, importing CSV, seeing envelope groups — only work in the browser. The user gets stuck mid-task and is sent to the website, asking every time why the mobile app exists at all."
    },
    {
-    "title": "Half the functions live only on the web; the app just says \"go to the website\"",
+    "title": "The 10-envelope cap breaks the granular-tracking promise before activation",
     "plus": null,
-    "minus": "Basic actions — adding income, paying a credit-card debt, importing CSV, fixing settings — get punted to the browser. People don't understand the point of the app and see it as an unfinished shadow of the website."
+    "minus": "The free version gives exactly 10 envelopes, so people must merge categories — which kills the whole idea of 'tracking everything in detail.' They hit the wall during setup, before the product has proven any value, and leave on day one saying 'I didn't even get to try it.'"
    },
    {
-    "title": "The Android version lags behind iOS and the web: no envelope groups, missing features",
-    "plus": null,
-    "minus": "Android users explicitly complain that features ship for iPhone while they only get bug fixes. The app ignores the envelope groups the website has, and lacks the biweekly cycle available on iOS."
-   },
-   {
-    "title": "The numbers just don't add up: envelopes go negative, income doubles, balances lie",
-    "plus": null,
-    "minus": "Fatal for a budgeting app: a $10 transaction posts but the envelope still shows the old amount; income clones and doubles; graphs and the unallocated total compute wrong. People stop trusting the numbers and leave."
-   },
-   {
-    "title": "Input gets wiped when you switch apps — the daily-grind annoyance",
-    "plus": null,
-    "minus": "A very specific, years-old bug: open a calculator or banking app to check a figure and all your unsaved input in Goodbudget is erased. Plus the list jumps back to the top after every refresh. It maddens even loyal fans."
-   },
-   {
-    "title": "A recurring subscription instead of a one-time purchase — a dealbreaker for many",
-    "plus": null,
-    "minus": "People are willing to pay, but once, not monthly for \"digital envelopes\". $50-70 a year feels steep for the modest feature set; many explicitly ask for a lifetime license or a one-time fee."
-   },
-   {
-    "title": "Dated interface: number entry via an on-screen calculator, text spilling off-screen",
-    "plus": null,
-    "minus": "The UI looks straight out of the 90s: an on-screen calculator instead of the normal keypad, no automatic decimal point, text overwriting elements and not scaling to the screen. For some newcomers it's off-puttingly confusing."
-   },
-   {
-    "title": "Stability and longevity: couples run a shared budget for years and save real money",
-    "plus": "The loyal core's strongest plus: a shared two-person budget with synced edits, years without glitches, and concrete financial wins — a paid-off house, thousands saved. Many switched from pricey YNAB and are happy.",
+    "title": "Real-time shared budget is the main hook for couples and families",
+    "plus": "Multiple devices see one budget and one spouse's edits instantly appear for the other — turning the app from a tracker into a shared instrument of agreement. Couples stay for years for exactly this: 'both on the same page' plus personal envelopes 'without talking to each other.'",
     "minus": null
    },
    {
-    "title": "No instructions — the learning curve is steep, and \"help\" just nudges you to buy premium",
+    "title": "The envelope metaphor is both the teaching hook and the entry wall",
     "plus": null,
-    "minus": "Newcomers can't figure out how to add an envelope, income, or split a spend; the help describes buttons that aren't in the app, and support replies \"read the manual / watch YouTube\". Some give up during setup."
+    "minus": "The 'first fill the envelope, then spend from it' model runs backwards to some people's intuition: they want to just log spending and watch a total rise, not a budget fall. Without the tutorial videos, newcomers don't grasp the logic and quit, convinced the app 'adds the expense to the envelope instead of subtracting it.'"
    },
    {
-    "title": "Requests for percentage allocation, bank linking and photo attachments — the missing features",
+    "title": "The input draft wipes when you switch apps — breaking reconciliation",
     "plus": null,
-    "minus": "Even happy users list gaps: no percentage-based income allocation (key for variable income), no auto bank sync, no attaching a receipt photo, weak credit-card debt handling."
+    "minus": "The core workflow is logging an expense while glancing at the amount in the banking app. But switching to another app and back wipes everything already typed. This hits exactly the people who cross-check transactions — the most active, hands-on users the product exists for."
+   },
+   {
+    "title": "Income can't be changed after the fact, and you can't allocate by percentage",
+    "plus": null,
+    "minus": "The product is designed around a fixed monthly income: with variable earnings you can neither update the amount later nor split by percentage ('50% to investing, 25%+25% to the rest'). The variable-income segment — freelancers, paid-per-check — runs into a rigid model and leaves."
+   },
+   {
+    "title": "A decade of longevity is the quiet retention moat against dead competitors",
+    "plus": "People have budgeted here for 8–12 years, back to the EEBA name, and don't look for a replacement — the app runs for years and produces real results (a paid-off house, thousands saved). Against a dead YNAB and a shuttered Mint, that track record becomes an argument in itself: users trust what outlived the competition.",
+    "minus": null
+   },
+   {
+    "title": "One-tap splitting of an expense across envelopes sustains discipline",
+    "plus": "Splitting one purchase across several envelopes at once — with the math done automatically — removes the main friction of daily logging: a mixed receipt is allocated in seconds. Together with the 'all envelopes' overview it sustains the habit of logging EVERY transaction.",
+    "minus": null
+   },
+   {
+    "title": "Playful envelope captions motivate some and push others to uninstall",
+    "plus": null,
+    "minus": "The 'sad'/'happy' faces and lines like 'booo in the red' were meant as gamification, but for a budgeting newcomer still fumbling the setup, mocking an overspend backfires — it pushes them to delete the app rather than improve. A positive tone would have kept the same segment."
+   },
+   {
+    "title": "Number entry via a custom calculator instead of the keyboard is daily friction",
+    "plus": null,
+    "minus": "Amounts are entered through a built-in on-screen calculator rather than the phone's native keyboard, and the decimal point must be added manually by swapping keyboards. For an app where you log a transaction every day, this is micro-friction on the most frequent action — it accumulates and drags the rating down even among fans."
+   },
+   {
+    "title": "A location prompt on every transaction contradicts the 'we don't touch your data' promise",
+    "plus": null,
+    "minus": "The app asks for location access on every expense entry, and the refusal isn't remembered — it asks again and again, even with location disabled in settings. For a budget app whose whole reputation rests on privacy and not linking to your bank, this directly undercuts the positioning: users who paid for years downgrade specifically over it."
    }
   ],
   "hygiene": []
@@ -4052,69 +4087,84 @@
  "g-monefy": {
   "product": [
    {
-    "title": "The lifetime Pro people bought was voided, and now they're forced to re-pay via subscription",
-    "plus": null,
-    "minus": "People who bought lifetime access years ago find, after switching phone or account, that their purchase is no longer recognized, Pro is gone, and a subscription has taken its place. It reads as a betrayal of loyal paying customers."
-   },
-   {
-    "title": "Support goes silent for months, and emails bounce back",
-    "plus": null,
-    "minus": "Dozens of emails to support go unanswered, including paid issues like data loss, license transfer and refunds. Some users report emails bouncing outright, while the daily review-replies look like for-show theater."
-   },
-   {
-    "title": "The subscription is too pricey, and the one-time purchase is gone",
-    "plus": null,
-    "minus": "The move to subscriptions put many off: the price is called too high (e.g. ~7€/month or ₹2600/year), and losing the one-time option is the biggest grievance. Users flat-out ask for the single purchase back."
-   },
-   {
-    "title": "Data vanishes with no warning and no auto-backup",
-    "plus": null,
-    "minus": "One wrong tap or a phone change, and months of entries are gone for good — there's no automatic backup and no delete confirmation. For a finance tracker, this is the most painful failure of all."
-   },
-   {
-    "title": "Sync demands payment on every device — and still doesn't work",
-    "plus": null,
-    "minus": "To sync expenses across devices you must buy a subscription on EACH one, and even then the data often won't sync. Dropbox sync simply stopped working for many users."
-   },
-   {
-    "title": "Fast entry and the pie chart are the heart of the love",
-    "plus": "Quick expense entry, a clear category pie chart, and a minimalist interface make daily tracking easy and even enjoyable. Many have used it for years as their main tool.",
+    "title": "One-tap entry is the engine of the daily habit",
+    "plus": "Monefy's core value is the speed of logging a spend: open, tap a category, type the amount on the built-in calculator. That instantaneity is what turns expense tracking into a daily ritual people keep for years instead of abandoning in a week. This IS the product; everything else is secondary.",
     "minus": null
    },
    {
-    "title": "You can't edit categories, icons or sub-categories — even basics are locked in Pro",
-    "plus": null,
-    "minus": "Customizing categories, adding sub-categories, renaming and picking icons is either missing or paywalled. Many want a bigger icon set and the ability to upload their own."
-   },
-   {
-    "title": "Dark mode, currency switching and recurring entries sit behind the paywall",
-    "plus": null,
-    "minus": "Users are especially outraged that even dark mode is paid. Currency switching and a repeat-transactions mode are also locked in Pro, which many feel is greed over trivial things."
-   },
-   {
-    "title": "Freezes and crashes when typing notes and descriptions",
-    "plus": null,
-    "minus": "When typing a note, the app often hangs with a \"close or wait\" toast, and the recent version crashes right while entering an expense description. Heavy entry history brings performance issues too."
-   },
-   {
-    "title": "Budget mode and carrying balances over are poorly done",
-    "plus": null,
-    "minus": "You can't carry a surplus or deficit from month to month, and there's no balance forecast or cash-flow projection. Changing the budget figure rewrites it across all past months, making budget mode useless."
-   },
-   {
-    "title": "Side swipes accidentally flip months while scrolling",
-    "plus": null,
-    "minus": "Horizontal swipes switch months right as you scroll the expense list vertically, with no way to turn it off. Opening categories also sometimes refuses to register taps."
-   },
-   {
-    "title": "Missing receipt photos, category reports and auto-entry from SMS",
-    "plus": null,
-    "minus": "Users ask for attaching receipt photos, printing and exporting per-category monthly reports, and auto-entry of expenses from SMS notifications or voice, so they don't have to type every record by hand."
-   },
-   {
-    "title": "The free version is enough for daily tracking, with no ads",
-    "plus": "For many, the free version is enough for everyday expense tracking, and it's especially praised for having no intrusive ads. That outweighs the gripes about paid features for a lot of users.",
+    "title": "The pie chart isn't a report — it's the emotional hook",
+    "plus": "Users describe a feeling, not numbers: \"see at a glance where money goes,\" \"makes money fun.\" The home screen's category pie gives instant feedback with zero report-building — and that's what actually changes behavior and makes people cut wasteful categories.",
     "minus": null
+   },
+   {
+    "title": "It's a spend tracker masquerading as a budgeter — and it loses the planners",
+    "plus": null,
+    "minus": "Budget mode is built so that changing the budget figure rewrites it across all past months, and the surplus or deficit never carries forward to the next month. For anyone who wants to plan rather than just record the past, budget mode becomes unusable. The app brilliantly answers \"how much did I spend\" but not \"how much can I spend.\""
+   },
+   {
+    "title": "A rigid category model: one global set across every account",
+    "plus": null,
+    "minus": "Categories are shared across all accounts: delete an \"unneeded\" one in a single account and it vanishes everywhere, notes included. No sub-categories, no separate sets for \"cash\" vs \"savings.\" Users who build multiple accounts for different goals hit a flat structure and lose data trying to organize it."
+   },
+   {
+    "title": "Transfers between your own accounts log as expenses — breaking the balance picture",
+    "plus": null,
+    "minus": "When someone moves money from their own account to another of their own, Monefy records it as an expense. For a user with several accounts (cash, bank, savings) this distorts both total spend and each account's balance — the app doesn't grasp that the money never left the owner. The base \"every movement is income or expense\" model never accounted for internal transfers."
+   },
+   {
+    "title": "Horizontal month-swipe fights the vertical list scroll",
+    "plus": null,
+    "minus": "The core month-switching gesture — a side swipe — fires when a user merely tries to scroll the expense list vertically. The screen keeps jumping to the previous month, with no way to turn it off. A gesture designed for speed becomes a constant irritant on long lists."
+   },
+   {
+    "title": "No reports or exports — a glass ceiling for the power user",
+    "plus": null,
+    "minus": "There's no report generation, no printing, no per-category breakdown over a period. A user who matures into tracking and wants to analyze \"how much went to transport over six months\" or share a summary finds nothing there. Monefy onboards perfectly but doesn't grow with the user — the ceiling arrives exactly once the habit is locked in."
+   },
+   {
+    "title": "Manual entry is the convenience ceiling — no SMS or voice capture",
+    "plus": null,
+    "minus": "However fast manual entry is, it's still manual — every spend must be keyed in by hand. The most engaged users ask for auto-capture of amounts from bank SMS or voice commands, and it's precisely this missing automation that caps how deeply someone keeps tracking. The \"remember and log\" friction quietly attrits part of the audience."
+   },
+   {
+    "title": "Per-transaction notes choke the app as history grows",
+    "plus": null,
+    "minus": "Users who diligently add a note to every transaction eventually hit freezes: when entering a note the app pulls similar past entries and stalls, offering to close or wait. The most disciplined audience — those who fill in everything — is punished with slowdowns precisely for heavy use."
+   },
+   {
+    "title": "Daily granularity, not timestamped — loses the minute-by-minute logger",
+    "plus": null,
+    "minus": "Monefy is built around daily and monthly totals: a spend is tied to a day, not a moment. For a user who wants to see spends in time order or sort the feed by entry time, that data model simply doesn't exist. It's a deliberate focus on \"how much per day\" that cuts off the segment keeping a chronological ledger."
+   },
+   {
+    "title": "No guard against accidental wipe — one touch erases months of tracking",
+    "plus": null,
+    "minus": "Several users describe the same scenario: an accidental touch erased all their entered data with no confirmation and no auto-save. For an app whose value compounds over months of daily entry, the absence of an \"are you sure?\" dialog and a local backup destroys the very asset the person keeps the app for."
+   },
+   {
+    "title": "A thin icon set bumps into the urge to make the app one's own",
+    "plus": null,
+    "minus": "The cute category illustrations are part of Monefy's charm, but there are too few, and users keep asking for more icons, custom images, or at least renaming. The urge to \"make it mine\" is strong precisely because the app is opened daily; the limited icon palette undercuts the sense of ownership the habit feeds on."
+   },
+   {
+    "title": "The spartan design reads as clean to some, dated to others",
+    "plus": null,
+    "minus": "Monefy's minimalism cuts both ways. Part of the audience praises the clean, pleasant interface, but another part calls it \"90s window software\" and notices the app hasn't changed in years. The same stability that makes the habit dependable looks like stagnation to newcomers — a perception risk against fresher competitors."
+   },
+   {
+    "title": "Multi-year retention — the product embeds into life for years",
+    "plus": "A striking number of reviews measure usage in years, even a decade: \"since 2016,\" \"almost a decade,\" \"5 years and never looked back.\" That's an unusually strong PMF signal for an expense tracker — people don't just download it, they fold it into their financial routine for the long haul. The habit built on entry-simplicity turns out to be remarkably sticky.",
+    "minus": null
+   },
+   {
+    "title": "An ad-free experience — a rare value in a free finance app",
+    "plus": "Users specifically call out the lack of intrusive ads even in the free version — against rivals where ads won't even let you see how to use the thing. In a category where the app is opened several times a day, an ad-free flow isn't a detail — it's a reason people stay and recommend.",
+    "minus": null
+   },
+   {
+    "title": "License tied to device and account makes switching phones a failure point",
+    "plus": null,
+    "minus": "The mechanism meant to protect the product — binding access and backup to a device or Google/Drive account — turns against the long-tenured user at phone-switch time: years of accumulated data suddenly become inaccessible on the new device. It's a structural transfer flaw: the highest-value moment in the lifecycle (migrating to a new phone) is exactly when the product most often fails its most loyal users."
    }
   ],
   "hygiene": []
@@ -4122,74 +4172,84 @@
  "g-moneylover": {
   "product": [
    {
-    "title": "Past months' history suddenly locked behind a paywall",
-    "plus": null,
-    "minus": "Once-free, the app retroactively locked all past transactions: users are furious at being asked to pay just to view their own data stored right on their phone."
-   },
-   {
-    "title": "Lifetime premium vanishes after a phone change and won't restore",
-    "plus": null,
-    "minus": "People who bought a lifetime license years ago suddenly drop to free accounts after switching devices or reinstalling; the restore-purchase button finds no payment and support doesn't help."
-   },
-   {
-    "title": "Sync hangs on \"syncing your data\" and won't pull records on a new device",
-    "plus": null,
-    "minus": "After signing in on a new phone the app gets stuck on the syncing screen for weeks; premium users can't get their data, and some leave for competitors before it ever finishes."
-   },
-   {
-    "title": "Balances miscalculate: totals drift, go negative, double up",
-    "plus": null,
-    "minus": "The tracker's core job — accurate accounting — fails: totals don't match a manual count, and balances drift negative or double on their own without a single new transaction."
-   },
-   {
-    "title": "\"Please check the update of Google service\" blocks login and signup",
-    "plus": null,
-    "minus": "A cryptic \"update Google service\" error suddenly throws people out and blocks both login and signup — even though there's nothing on the phone to update."
-   },
-   {
-    "title": "Recent updates break what used to work: categories, design, navigation",
-    "plus": null,
-    "minus": "Long-time users complain updates strip familiar features and the comfortable old interface: global categories break nesting, detailed reports vanish, and the new design feels cluttered."
-   },
-   {
-    "title": "Nagging intrusive screens: surveys, rate prompts, motivational pushes",
-    "plus": null,
-    "minus": "Every launch greets users with pushy \"share/take survey\" screens and rate prompts that won't dismiss even after completion, plus new motivational notifications with no off switch."
-   },
-   {
-    "title": "Subscription creep and rising prices anger long-time users",
-    "plus": null,
-    "minus": "Those who once paid a single price resent the shift to a subscription model and price hikes, feeling the free version is deliberately crippled."
-   },
-   {
-    "title": "Freezes, lag, and duplicate transactions on save",
-    "plus": null,
-    "minus": "The once-smooth app now lags and hangs, especially with a lot of data; pressing Save sometimes fails, then spawns a pile of duplicate entries."
-   },
-   {
-    "title": "A years-loved tracker with a clear interface and multi-device sync",
-    "plus": "Many have used it for years and call it the best: a clean, simple, intuitive interface with handy widgets and wallets makes daily expense tracking almost effortless.",
+    "title": "Frictionless manual entry IS the product — it's what earns forgiveness for everything else",
+    "plus": "The habit core is logging a spend the instant it happens: people who never tracked money before get hooked precisely because entering an expense is easier than skipping it. That converts one-time skeptics into daily users who stay 5-10 years.",
     "minus": null
    },
    {
-    "title": "One-time lifetime payment is the standout argument against subscription rivals",
-    "plus": "For those whose lifetime works, the \"pay once, use forever\" model is a prized rarity and a strong reason to stay, unlike rivals' endless subscriptions.",
+    "title": "Multi-wallet plus inter-wallet transfers is what retains people who run several accounts",
+    "plus": "Being able to keep separate wallets (cash, card, credit) and move money between them makes the app the single hub for people with complex finances — and this is the exact feature users name as the reason they stay instead of switching to simpler rivals.",
     "minus": null
    },
    {
-    "title": "Responsive support often rescues users from data trouble",
-    "plus": "When things break — premium lost, transactions gone — the support team often responds and fixes it within a couple of days, which many cite as a real strength.",
+    "title": "Broken sync hits the exact center of trust — and drives even paying users to competitors",
+    "plus": null,
+    "minus": "Cross-device sync was sold as the main reason to pay, so when a new device hangs forever on \"syncing your data\", what breaks isn't a feature but the contract itself. A user who has already moved their entire financial history in finds themselves locked out of their own data and leaves — often mid-review."
+   },
+   {
+    "title": "When the balance stops adding up, the product loses the one thing it exists for",
+    "plus": null,
+    "minus": "A finance tracker sells exactly one thing — a number you can trust. So a balance that silently changes or doubles isn't merely a bug but the collapse of the whole reason to use it: people who trusted the totals for years start re-checking them on a calculator and, once they find a mismatch, never trust them again. That's deadlier than any crash."
+   },
+   {
+    "title": "Duplicate entries on save sabotage the very mechanic of manual logging",
+    "plus": null,
+    "minus": "The habit rests on trusting the Save button: one tap, one record. When the button \"doesn't work\" and a restart spawns a dozen identical transactions, the user loses control of their own data and has to clean up the mess by hand. It destroys the very ease-of-entry the whole product is built on."
+   },
+   {
+    "title": "Global categories across all wallets — a simplification that actually took away control",
+    "plus": null,
+    "minus": "Making a new category global to every wallet by default inverted the expectation: people created a category for one specific account and it spread everywhere, breaking their nesting. Control over the structure of one's own ledger — the thing that makes a tracker feel like yours — was taken away, and power users read it as a loss of control, not a convenience."
+   },
+   {
+    "title": "Smart amount-based category suggestions made entry near-automatic — losing them feels like a regression",
+    "plus": null,
+    "minus": "The app used to predict the category from the amount entered and recent spends, turning logging into a single tap — that was the secret of the \"ease\". The new update either removed the hint or made it inaccurate (referring to the oldest, not the latest transaction), and every entry now requires a search again. The main lever of habit retention is gone."
+   },
+   {
+    "title": "Shared wallets for couples are a strong acquisition hook — but sync inside them breaks and corrupts the main account",
+    "plus": null,
+    "minus": "Running a household budget with a partner is a frequent reason to pick this app specifically. But when the shared wallet won't sync, drops transactions and — worse — dumps them into the owner's main wallet, the one reason people came becomes a source of corrupted data. A couple loses trust two users at a time, not one."
+   },
+   {
+    "title": "The web version going read-only kills the desktop-entry use case people paid for",
+    "plus": null,
+    "minus": "A segment bought premium specifically for convenient entry and editing from a computer via the web. Pushing the web to read-only left them with view-only — the lever that turned a phone tracker into full household accounting is gone. For heavy loggers, mobile-only entry without desktop reduces the product to a viewer, not a tool."
+   },
+   {
+    "title": "Budgets are locked to one wallet and one category — and don't match how people actually plan",
+    "plus": null,
+    "minus": "People think of a budget as a \"cap on a group of spends\" (food + cafe + delivery), but the app only lets you budget either one category or all of them with no exclusions. Being unable to assemble an arbitrary set of categories makes users abandon the very feature they came to plan with — and it's a request repeated for years."
+   },
+   {
+    "title": "Future and recurring transactions don't feed the projected balance — breaking planning around payday",
+    "plus": null,
+    "minus": "The key use case \"how much will I have left after all my bills\" only works if future and recurring payments correctly subtract from the forecast. The app doesn't do this right for non-standard pay periods, so a user who isn't paid \"on the 1st\" can't trust the projection and loses the main reason to plan ahead."
+   },
+   {
+    "title": "The missing savings tracker pushes users into a parallel app",
+    "plus": null,
+    "minus": "Expense tracking is only half of financial life; the other half is savings and goals. Without a proper savings tab, loyal users keep a second app alongside just for savings, which lowers their dependence on Money Lover and makes leaving at any point less painful. An unclosed use case is an open door to a rival."
+   },
+   {
+    "title": "Responsive support is an underrated asset that single-handedly rescues retention",
+    "plus": "When bugs wipe data or reset premium, it's the live support fixing the issue in a couple of days that flips an angry review into gratitude. Many users say outright they stayed only because the team resolved their case — support acts as a safety net for a mature but fragile product.",
     "minus": null
    },
    {
-    "title": "Web version in \"read-only\" mode kills the loved desktop-entry workflow",
+    "title": "The redesign traded minimalism for \"mess\" — alienating the very users who valued simplicity",
     "plus": null,
-    "minus": "The once-handy web sync for desktop entry now only allows viewing; people who bought premium for it lost editing and are asking for a proper desktop version."
+    "minus": "These users came for a minimalist, easy-on-the-eyes interface — that was their reason to pick the product. The new design reads as \"confusing\" and \"messy\", and basic actions (viewing transactions by date) now take extra taps. When an update changes the thing people stayed for, the loyal core considers leaving for the first time."
    },
    {
-    "title": "No proper savings/goals and no bulk import of past transactions",
+    "title": "Forcing an account at the door turns away the privacy segment before the first transaction",
     "plus": null,
-    "minus": "Users hit missing table-stakes features: no savings/goals tracker and no bulk import of old records, forcing a manual start from zero."
+    "minus": "A budgeting app handles the most sensitive data, so demanding an account and personal info right at the entrance — before the product has proven anything — is an instant no for the privacy-minded segment. These users uninstall before the first entry: the barrier stands up before any value appears."
+   },
+   {
+    "title": "Locking past history behind the paywall turns \"your own notebook\" into a hostage — activation breaks before value lands",
+    "plus": null,
+    "minus": "A strategically fatal choice: what got hidden behind premium isn't an advanced feature but access to one's own past spending history — the thing a user sees as \"my notebook on my phone\". The paywall lands on data the person entered themselves, so it hits the sense of ownership before the product can prove the value of advanced features. It converts loyalty into a feeling of betrayal and triggers churn among exactly the most engaged users, the ones with the most history."
    }
   ],
   "hygiene": []
@@ -4197,64 +4257,79 @@
  "g-moneymanager": {
   "product": [
    {
-    "title": "A simple, clean interface that keeps people for years",
-    "plus": "The core reason people love it is the no-noise minimalism: the interface is clear, customizable, and fast for daily entries. Many say they've used it for 7–10 years and found nothing better.",
+    "title": "Manual entry isn't a flaw — it's the habit-building mechanism",
+    "plus": "The most loyal users value precisely the fact that they must type expenses by hand: the act of logging forces awareness of every purchase, and within 20 days people see for the first time that they spend recklessly. Forcing entry turns the app from a spreadsheet into a behavioral-discipline tool.",
     "minus": null
    },
    {
-    "title": "Backup lives only in Google Drive — and people lose years of data",
+    "title": "No SMS reading is the single biggest reason users defect",
     "plus": null,
-    "minus": "There's no automatic cloud backup on the app's own servers: data sits in Google Drive, and if a user didn't set it up or switched phones, everything vanishes. Several people lost two years or more of transactions."
+    "minus": "An entire segment is ready to switch to any app that parses bank SMS itself: the manual entry that retains loyalists repels those who value speed over ritual. Competitors with SMS auto-capture are named outright as the reason to switch — this is the product's sharpest hole."
    },
    {
-    "title": "Paid premium doesn't kill the ads — they come back after updates",
+    "title": "Manual-only Google Drive backup makes users lose years of data on phone change",
     "plus": null,
-    "minus": "People buy premium to remove ads, but after each update the ads reappear and they have to reinstall the app. Many ask for a login page so premium status doesn't reset."
+    "minus": "Backup must be enabled by hand, and nobody learns this until they switch phones and find years of transactions gone. An app whose value is accumulated history jeopardizes that history through a 'backup off by default' design decision. The loyal user is punished precisely for loyalty."
    },
    {
-    "title": "Ads pop up right while you're adding money — breaking quick entry",
+    "title": "No cross-device sync breaks the family and multi-platform use case",
     "plus": null,
-    "minus": "Even on the free plan, ads fire at the moment you add an entry, breaking the core use case of logging a spend quickly. Some tolerate it, knowing ads pay for the free tier, but ask to dial it down."
+    "minus": "Data is locked to one device: a couple with an iPhone and an Android can't share a budget, and a phone-plus-tablet owner can't see the same expenses. For a household-finance app, the inability to co-track cuts out an entire segment of families and two-OS users."
    },
    {
-    "title": "No automatic SMS reading — everything is entered by hand",
-    "plus": null,
-    "minus": "The most common request is automatic reading of bank SMS to log transactions. For some the feature simply doesn't work despite granting permission, and some leave for competitors specifically because it's missing."
-   },
-   {
-    "title": "Double-entry and subcategories give honest control over spending",
-    "plus": "Power users value the real double-entry system, accounts, transfers between them, and subcategories — it gives transparent bookkeeping of daily spending. For those who know debit/credit, the app is near-perfect.",
+    "title": "Double-entry makes spending transparent for those who know debit-credit",
+    "plus": "Accounting-style accounts and transfers between them give 'proper' bookkeeping to the financially literate: for them it's not a toy but a real ledger. The same mechanism filters out novices but firmly binds those who understand debit and credit — a narrow but devoted core.",
     "minus": null
    },
    {
-    "title": "No cross-device sync — a couple can't share one budget",
+    "title": "Inability to change main currency traps expats and travelers",
     "plus": null,
-    "minus": "One account doesn't work across devices: premium won't log in on PC, there's no phone-to-tablet sync, and spouses on iPhone and Android can't keep shared expenses in sync."
+    "minus": "You can't change the main currency without breaking all old balances — moving to another country turns accumulated history into a mess of wrong exchange rates. For an app praised for multi-currency support, it's a paradox: it tracks several currencies but won't let you switch the primary one, losing the very mobile, international segment."
    },
    {
-    "title": "Years of reliability reshaped users' financial discipline",
-    "plus": "People with 7–10 years of history say the app genuinely changed how they handle money: yearly trends are visible, they see where income goes, and they build financial literacy and a habit of control.",
+    "title": "Stats won't filter by category, account or subcategory — analytics stalls halfway",
+    "plus": null,
+    "minus": "Data goes in cleanly but you can't pull the slice you need: there's no stats filter by category, account or subcategory, and no subcategory totals. The advanced user — the one who logs the most data — hits a ceiling: the app collects but won't let you truly analyze."
+   },
+   {
+    "title": "Moving money to savings and investments counts as spent — the app hides net-worth growth",
+    "plus": null,
+    "minus": "Money moved into savings or investments is flagged as 'gone,' so the app hides real net-worth growth. Strong at controlling daily spending, it's blind to long-term wealth: there's no unified view of cash, savings and investments. For those who outgrow expense tracking, it's the ceiling."
+   },
+   {
+    "title": "Ads between every entry destroy the core use case — fast logging on the go",
+    "plus": null,
+    "minus": "The app sells speed of entry but inserts an ad at the exact moment you add an expense — breaking the very fast-logging ritual the habit depends on. The ads hit not patience but the core value: 'quick and efficient' becomes impossible, and in real life the tool stops working."
+   },
+   {
+    "title": "Editing an amount wipes the whole number instead of one digit — micro-friction at every step",
+    "plus": null,
+    "minus": "When editing an amount you can't delete a single digit — the whole number is wiped and you retype it. In an app whose entire point is fast manual entry, this small thing repeats dozens of times a day and erodes the core promise. The frustration accrues to the most active users, who type the most."
+   },
+   {
+    "title": "Deep category and subcategory customization is the retention engine for power users",
+    "plus": "The freedom to create your own categories, subcategories and accounts gives a sense that 'the app bends to my life,' not the reverse. That flexibility is what turns casual users into people who've tuned the system to themselves and won't leave — customization is the moat.",
     "minus": null
    },
    {
-    "title": "Free with no push to subscribe — a value in itself",
-    "plus": "Many specifically note you can fully use the app for free, with no mandatory subscription to unlock features. Some buy premium out of gratitude rather than coercion.",
+    "title": "No future cash-flow forecast — users fall back to spreadsheets",
+    "plus": null,
+    "minus": "Recurring income and expenses don't roll up into a forecast of future months — the single most powerful budgeting tool is missing. People keep a separate spreadsheet just for this and can't abandon it. The app records the past brilliantly but is blind to the future, losing the planners."
+   },
+   {
+    "title": "Being free without forcing a subscription builds trust and brand advocates",
+    "plus": "That the full feature set is available free and without subscription pressure is something users flag as rare and a reason to recommend the app. The absence of coercion turns the budget-conscious segment into advocates: they buy premium voluntarily, out of gratitude and long-term attachment, not because of a paywall.",
     "minus": null
    },
    {
-    "title": "Editing an amount wipes the whole number instead of one digit",
-    "plus": null,
-    "minus": "An everyday entry annoyance: you can't delete a single digit or edit part of an amount — the app erases the whole number and you retype it. There isn't even copy-paste."
+    "title": "A low entry barrier rewires beginners' financial behavior — from chaos to awareness",
+    "plus": "Entry friction is so low that people stick with tracking as a habit for the first time in their lives and say outright the app 'changed' their life and financial decisions. Even users with ADHD note the interface doesn't distract — the product wins where complex rivals scare people off, turning tracking into a durable habit.",
+    "minus": null
    },
    {
-    "title": "Multi-currency management is a sore spot for movers",
-    "plus": null,
-    "minus": "Single-currency accounts work fine, but the moment you need multiple currencies or to change your main currency after moving countries, the exchange-rate recalculation breaks old transactions and balances go wrong."
-   },
-   {
-    "title": "Stats lack filtering and subcategory totals",
-    "plus": null,
-    "minus": "The charts get praise, but in stats you can't filter by specific categories, accounts, or period, and a subcategory's total isn't shown separately — only the parent category's sum. Analytics hits this ceiling."
+    "title": "Clean, minimalist interface is the reason for decade-long loyalty",
+    "plus": "The core asset is the absence of noise: the app does exactly what it promises without bloat, which is why people stay for 7-10 years. In a category where rivals compete on features, the 'nothing extra' discipline wins — and it is itself the switching barrier.",
+    "minus": null
    }
   ],
   "hygiene": []
@@ -5312,84 +5387,84 @@
  "g-spendee": {
   "product": [
    {
-    "title": "The paywall greets you before the product does",
-    "plus": null,
-    "minus": "A subscription is demanded within the first taps: you can't add a second wallet, connect a bank or even look around without paying. Users compare it to paying a restaurant cover charge before seeing the menu, and uninstall before they ever evaluate it."
-   },
-   {
-    "title": "Bank sync never finishes the connection",
-    "plus": null,
-    "minus": "The single most common complaint: after authorizing at the bank, the app dumps you back on the Spendee site or an app-download screen, and the account never links. People run the flow three or four times, often after paying, and hit the same error — a total show-stopper for a finance tracker."
-   },
-   {
-    "title": "After the update the timeline opens on your very first transaction",
-    "plus": null,
-    "minus": "A recent bug breaks daily use at scale: every launch jumps to the oldest month (2015, 2016, 2021), so logging a new expense means scrolling through years of history. Many dropped their rating from 5 to 1-2 stars purely over this."
-   },
-   {
-    "title": "Years of creeping lag and freezes",
-    "plus": null,
-    "minus": "Long-time users (since 2015-2017) describe steady decay: 7-30 second cold starts, lag between tap and action, freezes on input — even on brand-new flagships. Their common plea is to optimize performance instead of adding trendy AI features."
-   },
-   {
-    "title": "Upgrade ads pop up even for paying subscribers",
-    "plus": null,
-    "minus": "Every launch greets you with a full-screen, unskippable subscription promo — and infuriatingly, it shows even to active premium users. The close (X) button often doesn't work, and support confirmed the ads are served to paying customers too."
-   },
-   {
-    "title": "The free trial charges your card immediately",
-    "plus": null,
-    "minus": "The ads promise a 7-day free trial, but the card is charged instantly, sometimes twice; cancelling and getting a refund is hard, and some were billed for a full year with no chance to exit the trial. The subscription sometimes doesn't even appear in Google, deepening the sense of a scam."
-   },
-   {
-    "title": "Bank coverage is missing outside a handful of countries",
-    "plus": null,
-    "minus": "For India, Mexico, Peru, Colombia, Malaysia, Vietnam, Nigeria and more, the bank list is either empty or cut down to two or three institutions. You only find out after creating an account and sharing data — the app won't let you check coverage before paying."
-   },
-   {
-    "title": "The free tier caps you at one wallet and one budget",
-    "plus": null,
-    "minus": "Splitting cash from bank, a second wallet in another currency, or a second budget — all locked behind the subscription. Users are outraged that such basic calculator-level functionality is paywalled, especially in an app whose whole point is to save money."
-   },
-   {
-    "title": "The app gets stuck in a boot loop and loses data",
-    "plus": null,
-    "minus": "Some users can't even open the app: it crashes at the logo, spins in a boot loop or flashes without responding. Reinstalling doesn't help, and often years of data vanish with it — the most painful outcome for a finance tracker."
-   },
-   {
-    "title": "Responsive support that actually fixes things and refunds",
-    "plus": "Despite the bugs, the support team earns real praise: it responds fast, ships fixes within a week, helps with local bank file formats and issues full refunds when something goes wrong. For many users that's the reason they stay and pay.",
+    "title": "Manual entry isn't a flaw — it's the accountability mechanism users stay for",
+    "plus": "Users who deliberately skip bank sync describe manually logging every expense as a self-discipline ritual: the moment of entry forces the question 'do I need to spend this?'. That turns a plain tracker into a behavior-change tool and creates loyalty without any automation.",
     "minus": null
    },
    {
-    "title": "A clean, beautiful interface with easy categorization",
-    "plus": "The core love for Spendee is its look and ease: a minimalist, pleasant design, custom categories, labels, colors and clear spending visuals. Many call it the prettiest and most usable tracker they've tried.",
+    "title": "Shared wallets with live sync are the real hook for couples and families",
+    "plus": "Running one wallet together and seeing your partner's spending in real time across devices is exactly why people pick Spendee over solo trackers. It's a household network effect: the more members in a wallet, the higher the switching cost.",
     "minus": null
    },
    {
-    "title": "Shared wallets and real-time cross-platform sync",
-    "plus": "A real strength is shared wallets for couples or families: others' spending shows up instantly, and sync works across Android, iOS and web in real time from one account. For joint budgeting it's a key reason people pick Spendee.",
+    "title": "The cross-platform, web-based layer is what local-only competitors lack",
+    "plus": "Data lives in the cloud and is equally reachable from iOS, Android and the browser under one login — users explicitly contrast this with rivals where data is trapped on a single device. It removes the fear of losing history when switching phones and makes the product a long-term 'home' for records.",
     "minus": null
    },
    {
-    "title": "A one-time lifetime purchase instead of endless subscription",
-    "plus": "Against a tide of subscriptions, users especially value paying once for pro, calling it a refreshing and generous move. Those who need less appreciate the generous free tier with clear visualization and no intrusive ads.",
+    "title": "Visualization and color categories make tracking pleasant, not a chore",
+    "plus": "A clean minimalist design, color-coded categories, tags and charts make the act of budgeting enjoyable — users call it 'fun' and 'beautiful'. Aesthetics function as retention here: people come back because they like looking at their data.",
     "minus": null
    },
    {
-    "title": "Missing split transactions, widgets and subcategories",
-    "plus": null,
-    "minus": "A persistent feature-gap list: you can't split one transaction across categories, there are no subcategories, home-screen widgets and tablet mode were removed, and you can't duplicate an entry as a template. Over split transactions and a cheaper lifetime, some paying users leave for Wallet."
+    "title": "Geo-tagging and photo receipts are surprise features that sell the product",
+    "plus": "Pinning a transaction to a place on the map and attaching unlimited receipt photos are details users flag as unexpectedly valuable. It signals that depth of data per transaction — not just the amount — is an underrated differentiator in this niche.",
+    "minus": null
    },
    {
-    "title": "Credit cards and debts are counted as assets, not liabilities",
-    "plus": null,
-    "minus": "A serious accounting flaw: linked credit cards and loans add to your net worth instead of subtracting from it, and card payments show up as income. There's no way to mark an account as debt with a negative balance — making it useless for figuring out what you actually have."
+    "title": "Responsive support rescues trust where the product itself stumbles",
+    "plus": "When something breaks, prompt support with fast fixes and refunds repeatedly turns an angry user into an advocate — people raise their rating specifically because of how the team handled them. It shows the human layer is an underrated retention lever in finance apps.",
+    "minus": null
    },
    {
-    "title": "Data export is capped at one year and holds history hostage",
+    "title": "The free 'one wallet' ceiling kills the exact job people install the app to do",
     "plus": null,
-    "minus": "Leaving with your own data is hard: the Excel export gives only the last year, the rest is paywalled, and there's no CSV import/export. Users call it extortion and a GDPR data-access violation; migrating years of history is nearly impossible."
+    "minus": "The free tier allows only one wallet and one budget — yet comparing 'cash vs card' or 'personal vs shared' is the very reason people install it. Someone trying to see where they overspend hits the wall before the first insight: the product blocks its own core job."
+   },
+   {
+    "title": "You can't hand-fix a synced bank — auto-sync strips control over transactions",
+    "plus": null,
+    "minus": "When transactions are pulled automatically from the bank, users lose the ability to correct them: you can't mark a transaction cleared, can't split a purchase across categories, can't turn a refund into a correct entry. The automation that should save effort actually strips control over the picture — and people leave for Wallet/Snoop to regain manual edits."
+   },
+   {
+    "title": "Linked credit cards break net worth: debt counts as income",
+    "plus": null,
+    "minus": "The app treats a credit-card balance as cash and a debt payment as income, so 'net worth' grows the deeper you go into the red. For the core job — knowing how much money you actually have free — this is a fatal inversion: the product lies in exactly the number people install it for."
+   },
+   {
+    "title": "No transaction split or subcategories — tracking stays coarse where life isn't",
+    "plus": null,
+    "minus": "A single purchase can't be split across categories, and categories can't nest. For families and precise budgeters this is a detail ceiling: a real basket of groceries plus a gift collapses into one line — and that's exactly why people migrate to Wallet."
+   },
+   {
+    "title": "Categorization misfires: the app forgets your choice and overrides it",
+    "plus": null,
+    "minus": "Auto-categorization picks 'public transport' over the user's own 'taxi' and doesn't remember how similar purchases were filed. In a tracker where the category is the core unit of meaning, this breaks trust in the stats and forces manual re-sorting of nearly everything."
+   },
+   {
+    "title": "Clunky transaction entry wears down the single most frequent action",
+    "plus": null,
+    "minus": "Adding an expense is the action repeated many times a day, yet it's awkward: you can't duplicate an entry as a template, can't switch currency on the fly, and have to hunt for the right category every time. Accumulated friction in the core flow is the top reason people abandon daily tracking."
+   },
+   {
+    "title": "No widget robs the app of instant quick-entry",
+    "plus": null,
+    "minus": "A quick-add widget that once existed was removed — and users have been asking for it back for years, because without it every expense means opening the app and walking the full path. For a tracker that lives on entry frequency, losing the fastest entry point directly erodes how regularly people log."
+   },
+   {
+    "title": "Scheduled transactions can't be edited — the planning feature is half-broken",
+    "plus": null,
+    "minus": "You can set a recurring or scheduled payment, but then can't change its amount, move the date, or delete it from the list. For people budgeting ahead, this turns a useful feature into a source of stuck, wrong entries and undermines trust in the forecast."
+   },
+   {
+    "title": "AI Magic Scan was bolted on top of the UI — a trendy feature crowded out core utility",
+    "plus": null,
+    "minus": "The AI scanner tab was added so that it covers the labels list and degrades navigation, while still not splitting a receipt into categories. It's a textbook case of chasing the AI trend at the expense of the daily flow — long-time users explicitly ask for optimization instead of 'trendy' features."
+   },
+   {
+    "title": "Export is capped at one year — the app holds history hostage on the way out",
+    "plus": null,
+    "minus": "Leaving with your own data is nearly impossible: the Excel export returns only the last year, there's no CSV import/export, and years of history can't be moved. It creates a hard data lock-in — people stay not out of love but because years of records are effectively trapped inside."
    }
   ],
   "hygiene": []
@@ -5397,64 +5472,84 @@
  "g-spendingtracker": {
   "product": [
    {
-    "title": "Simplicity is the main reason people stay for years",
-    "plus": "Users explicitly value the lack of clutter: a clean interface, fast entry and obvious logic with no learning curve. Many compared it to fancier apps and came back precisely for the simplicity.",
+    "title": "Manual entry isn't a flaw — it self-selects the audience",
+    "plus": "The app deliberately makes you type each expense by hand and never touches your bank — and that is exactly what retains people who want to feel every dollar leave. They describe it as a daily ritual of open-log-see-the-balance, and that micro-habit makes the product irreplaceable for years.",
     "minus": null
    },
    {
-    "title": "Ads turned loud, full-screen and with audio — the top irritant",
-    "plus": null,
-    "minus": "Ads went from tolerable to intrusive full-screen interstitials that take over the phone for tens of seconds and blast audio. Some people uninstall purely because of this, especially complaining about Temu spots."
-   },
-   {
-    "title": "Paid Pro version starts showing ads again after an update",
-    "plus": null,
-    "minus": "People who paid years ago for the ad-free version suddenly see ads again after updates — and the app asks them to pay again. It reads as a betrayal and undermines trust in the one-time purchase."
-   },
-   {
-    "title": "Switching phones is a disaster: data is lost without paid backup",
-    "plus": null,
-    "minus": "Backup and history transfer are tied to a paid feature and Dropbox, so a broken or replaced phone wipes out years of records. Restoring the purchase on a new device often fails too."
-   },
-   {
-    "title": "No custom date ranges or pay-cycle periods to match real paychecks",
-    "plus": null,
-    "minus": "The app only offers day/week/month/year, but people paid biweekly or four-weekly find that insufficient. The most common request is a custom date range and a personal pay cycle."
-   },
-   {
-    "title": "Multiple accounts are broken: you can create them but can't switch",
-    "plus": null,
-    "minus": "People create several accounts but then can't switch between or open them — and drop their rating specifically over this. For anyone running separate wallets, it's a blocking problem."
-   },
-   {
-    "title": "No shared access for couples — people are forced to switch apps",
-    "plus": null,
-    "minus": "Those who loved the app while single miss two-user sync after marriage or for a joint budget. Without shared access even loyal users are ready to leave."
-   },
-   {
-    "title": "The widget and quick expense entry from the home screen are loved on their own",
-    "plus": "Being able to add a purchase in a couple of seconds — via a home-screen shortcut or widget — is singled out as what makes tracking actually happen instead of being forgotten. It removes the main friction of daily logging.",
+    "title": "Simplicity is the product, not a phase it'll grow out of",
+    "plus": "Users openly compare it to fancier rivals and choose it precisely for what it lacks: a clean screen, no setup, instant entry. For them any extra button is a loss, not a gain, and that stance wins a loyal niche that complex apps scare away.",
     "minus": null
    },
    {
-    "title": "Custom categories with icons and colors fit tracking to real life",
-    "plus": "Being able to create unlimited custom categories, rename them and pick a symbol and color is a frequent reason for love. People tailor tracking to their lifestyle, down to separate spending for family and spouse.",
+    "title": "All history lives on the device — a new phone wipes out years",
+    "plus": null,
+    "minus": "Because data lives locally, switching or breaking a phone wipes out multiple years of records — and people learn this at the worst moment. The product is kept for years precisely for its history, yet it fails to protect the one scenario it exists for, turning the most loyal users into the most burned."
+   },
+   {
+    "title": "Dropbox-only backup excludes anyone in another ecosystem",
+    "plus": null,
+    "minus": "The only way to save data is Dropbox, leaving Google Drive, OneDrive and local-storage users unprotected. People plainly say they don't use Dropbox and will therefore lose everything when upgrading; tying backup to one cloud makes the promised sync unreachable for a whole slice of the base."
+   },
+   {
+    "title": "One global budget instead of per-category limits breaks real budgeting",
+    "plus": null,
+    "minus": "It tallies where money went well, but only lets you set one global budget figure rather than a limit per category. People who came to plan, not just record, hit a wall: there's tracking but no forward control of spending, pushing them toward more 'real' budgeting apps."
+   },
+   {
+    "title": "Fixed periods (day/week/month) hurt anyone paid biweekly",
+    "plus": null,
+    "minus": "The app slices time only into day, week, month and year — but a huge group is paid fortnightly or every four weeks and can't align tracking to their real pay cycle. The mismatch between period and paycheck makes the balance meaningless for exactly the paycheck-to-paycheck users it should serve."
+   },
+   {
+    "title": "No custom date range blocks trip- and project-level analysis",
+    "plus": null,
+    "minus": "The single most common ask from multi-year users is a custom date range — expenses for a trip, a project, or a personal month running the 10th to the 9th. Without it the product only shows calendar periods, and people who need to cost a specific event hit a ceiling they'll forgive but that keeps them off five stars."
+   },
+   {
+    "title": "Manual carry-over of the balance triggers false panic",
+    "plus": null,
+    "minus": "The unspent balance doesn't roll into the new period automatically — you must re-enter it as income. As a result, when a new week or month starts people think they've lost all their money and panic until they figure it out. A default that scares the user at the start of every cycle is a behavioral bug, not a setting."
+   },
+   {
+    "title": "Widget and quick-add turn tracking into an impulse micro-action",
+    "plus": "A home-screen shortcut and built-in widget let people log a purchase at the register in seconds — and that speed is exactly what keeps expenses from being forgotten. Users note that small cash, otherwise written off as lost, now gets captured on the spot; the product wins by cutting friction to near zero.",
     "minus": null
    },
    {
-    "title": "Support stays silent and the app hasn't been updated in ages",
-    "plus": null,
-    "minus": "Some users complain the developer doesn't reply to emails or suggestions, and the feature set hasn't moved in years. Against the purchase and backup problems, it deepens the feeling of being abandoned."
-   },
-   {
-    "title": "Free, it does exactly what's needed — tracking spending against a budget",
-    "plus": "For most it's a dependable daily tool: you see where money goes and how much is left against a fixed budget. Many have used it for years and call it the best simple tracker.",
+    "title": "Custom categories with color and icon make the ledger feel personal",
+    "plus": "Being able to create unlimited custom categories and change the name, symbol and color makes the app feel built around the user's life rather than the other way round. This personalization is a quiet retention engine: people have invested setup time tuning it to themselves and don't want to start over with a rival.",
     "minus": null
    },
    {
-    "title": "Missing receipts, subcategories and Excel/CSV export",
+    "title": "Deleting a category erases all its history — a trap for long-timers",
     "plus": null,
-    "minus": "Power users hit a ceiling: you can't attach a receipt to a purchase, there are no subcategories, and bank CSV/Excel import-export doesn't work for everyone. For deeper bookkeeping the app lacks these basics."
+    "minus": "You can't delete an outdated category without losing every past-year entry tied to it, so long-term users' lists fill up with dead items. The people who've tracked the longest are punished for loyalty with a cluttered interface, and the workaround (rename with a prefix) is something they have to invent themselves."
+   },
+   {
+    "title": "No shared access — the product loses users at the moment of marriage",
+    "plus": null,
+    "minus": "The app is built strictly for one person: no shared account, no sync between partners. Users describe the exact turning point — they were single and loved the simplicity, now they're married and forced to leave because two people can't share a budget. The product misses the natural life-stage upgrade."
+   },
+   {
+    "title": "Multiple accounts can be created but not switched — a feature that teases",
+    "plus": null,
+    "minus": "People set up several accounts (personal, family, investments) but then can't switch between them or reopen them — and they cut their rating specifically over this. A half-working feature is worse than none: it promises multi-account tracking, draws the user in, then locks their data inside an unreachable account."
+   },
+   {
+    "title": "Spreadsheet export makes the data yours, not the app's hostage",
+    "plus": "Being able to export entries to a spreadsheet and pull a yearly report matters to people who need to do taxes, report, or simply own their numbers outside the app. This data openness lowers lock-in fear and paradoxically retains: users stay calm knowing they can take everything with them, so they stay.",
+    "minus": null
+   },
+   {
+    "title": "Years of 'invisible' daily use is the clearest sign of product-market fit",
+    "plus": "Dozens of users say they've tracked here for 5, 7, 10, even 15 years and carried it phone to phone — and the highest praise is 'it's one of those apps you never think about because you use it every day and it just works'. That invisible daily habit is the strongest moat a niche tool can have.",
+    "minus": null
+   },
+   {
+    "title": "Pro doesn't survive updates or device changes — trust breaks after payment",
+    "plus": null,
+    "minus": "The core protective value — ad-free for a one-time payment — collapses on updates and migration: Pro buyers see ads again, lose their status, and can't find 'restore purchase'. When the very paid trait fails to survive basic lifecycle events, the product punishes its most committed users, and churn arrives not at onboarding but after payment — where trust should be highest."
    }
   ],
   "hygiene": []
@@ -5952,64 +6047,74 @@
  "g-wallet": {
   "product": [
    {
-    "title": "Bank sync is the headline paid feature, and it keeps breaking",
+    "title": "Premium sells bank sync, which is the least reliable part of the product",
     "plus": null,
-    "minus": "People buy premium specifically for automatic bank sync, and it dies after a couple of days, throws credential errors, or simply stops refreshing records — for months on end with no fix."
+    "minus": "People pay (often lifetime, up front) for one feature — automatic bank sync — and it drops every few days, demands constant re-authorization, and stays broken for months. Activation and value diverge: the user has already paid, but the exact feature he paid for doesn't work, which produces the angriest reviews."
    },
    {
-    "title": "Support ghosts you, and bugs sit unresolved for years",
+    "title": "Bank coverage ends where half the user base lives",
     "plus": null,
-    "minus": "Even premium users have no working support channel: the BudgetBakers team acknowledges a bug but leaves it broken for 3, 6, 11 months, replies with canned messages, or vanishes after the first email."
+    "minus": "Sync is built for the US and Europe, while the reviews come from India, Mexico, Indonesia, Vietnam, Kazakhstan, Qatar, Botswana. A user buys premium specifically for his bank — then learns after paying that his country or bank isn't on the list. This isn't a bug but a structural segmentation failure: the product sells a feature globally that it supports only regionally."
    },
    {
-    "title": "You can't make a top-level category — only a sub-sub-category",
+    "title": "You can't create top-level categories, only ones under a subcategory",
     "plus": null,
-    "minus": "The app forces its own bloated category list: you can only add a new one nested under a sub-category, and you can't delete or rename the existing ones — everyone's spending is structured differently, and it frustrates even fans."
+    "minus": "Everyone's spending structure is different, but the app only lets you add sub-sub-categories inside its bloated default list — never a root category. For an app whose whole job is to mirror YOUR money, being unable to make your own category breaks the basic premise; it surfaces from both fans and people who therefore can't use the app at all."
    },
    {
-    "title": "A clean, simple, visual interface — the main reason people love it",
-    "plus": "The app's core strength: a screen that's clear at a glance, intuitive charts and pie diagrams of spending by category; people keep it as a daily tool for years and recommend it freely.",
+    "title": "Manual entry isn't the fallback — it's the happiest path",
+    "plus": "Paradox: the people who never connect a bank and type expenses by hand are the most satisfied segment. They get the visuals (pie charts, category breakdowns), spending awareness, and zero dependence on fragile sync. The product effectively rests on manual trackers while monetizing automation. The signal for a competitor: the core value lives in fast simple entry and visualization, not in integrations.",
     "minus": null
    },
    {
-    "title": "Manual entry works great — the app is useful even without a bank",
-    "plus": "Many users deliberately enter expenses by hand and are happy: it's easy to categorise spending, spot overspending per category, and keep a budget overview, and the free version covers all the basics.",
+    "title": "Spending visuals turn logging into awareness",
+    "plus": "The core behavioral effect isn't 'I logged it' but 'I saw it'. Pie charts and category breakdowns give people their first-ever overview of where money goes and catch accidental overspending. The exact words — 'aware', 'whole picture', 'reality check' — recur among the most loyal. The product sells not bookkeeping but the feeling of being in control of money.",
     "minus": null
    },
    {
-    "title": "Bank coverage is thin: outside the US/EU your bank often just isn't listed",
-    "plus": null,
-    "minus": "Users from India, Mexico, Indonesia, Kazakhstan, Vietnam, Qatar and elsewhere buy premium for sync — then find their bank or country isn't supported, with no warning before they paid."
-   },
-   {
-    "title": "Data vanishes: sudden logouts, disappearing records, sync duplicates",
-    "plus": null,
-    "minus": "The scariest class of complaint: the app logs you out on its own and your data won't reappear on re-login; records come and go, and sync either spawns duplicates or stalls with a 'Cloud Sync Deadlock'."
-   },
-   {
-    "title": "The lifetime license is a beloved alternative to endless subscriptions",
-    "plus": "For those whose sync works, the option to pay once for lifetime access instead of a perpetual subscription is a real draw — cited directly as the reason to switch from competitors like YNAB.",
+    "title": "The lifetime license is the main trust anchor in a category of forever-subscriptions",
+    "plus": "The 'pay once instead of an endless subscription' option is its own reason to love the product: people explicitly say they chose it because they weren't forced into a forever subscription, and switched from competitors like YNAB for it. That's a strong trust signal in a category where everyone milks you monthly.",
     "minus": null
    },
    {
-    "title": "Premium banners and upsell notifications clutter the home screen",
+    "title": "Forced login wipes local data and destroys trust",
     "plus": null,
-    "minus": "Constant premium banners on the home screen and intrusive pop-ups spoil the experience; it gets absurd — notifications arrive offering to 'upgrade my lifetime license to a lifetime license'."
+    "minus": "An update that forces account login wiped some people's prior records, and spontaneous sign-outs 'lose' all data. For a finance tracker the data IS the product; making it vanish because of a login requirement turns multi-year users into ex-users in a single update. The 'tie everything to the cloud' decision works against retention here."
    },
    {
-    "title": "Exchange rates are fixed and don't update, multi-currency is half-baked",
+    "title": "A chunk of the audience refuses to hand over banking passwords — and wants offline",
     "plus": null,
-    "minus": "Exchange rates are hard-coded and won't pull live values, and changing a rate retroactively rewrites the whole history; separate two-currency accounting and the rates tab have stayed unfinished for years."
+    "minus": "A whole segment deliberately refuses automation because sync demands their net-banking username, password, and OTP. These people just want offline tracking with no email and no account access — and run into a product that pulls ever harder toward cloud and integrations. Strategically it's a fork: the privacy segment and the sync segment want opposite things, and the product optimizes for the latter."
    },
    {
-    "title": "Forced login and online-banking access — with no offline mode",
-    "plus": null,
-    "minus": "Some people just want a private offline tracker, but the app forces an email login (wiping old records) and asks for online-banking username/password/OTP to import — a dealbreaker at onboarding."
+    "title": "The web + app combo with cross-device sync holds the most devoted users",
+    "plus": "When the cloud works, it works for retention: people value that the same data lives in the browser and on the phone and syncs fast across devices. For multi-year users that's the reason not to leave — the app becomes part of a daily routine, not a one-off utility.",
+    "minus": null
    },
    {
-    "title": "Lag, freezes, and regressions after every update",
+    "title": "Frozen exchange rates break the books for multi-currency users",
     "plus": null,
-    "minus": "Complaints about sluggishness, freezing report tabs and blank screens, plus the sense that every update breaks something: search stops finding anything, or a breaking login regression lands on Android."
+    "minus": "The app does multi-currency, but rates are fixed and don't update, and changing a rate rewrites the entire history instead of keeping the rate as of each transaction's date. For people with foreign accounts and several currencies this turns the 'financial overview' into wrong numbers — breaking exactly the use case they picked a flexible app for."
+   },
+   {
+    "title": "A rigid monthly cycle doesn't match people's pay rhythms",
+    "plus": null,
+    "minus": "Budgets and periods are tied to the calendar month or 'last 30 days', but people live on their own cycles: paid every 4 weeks, twice-monthly, a personal period from the 7th to the 7th. Not being able to shift the period start forces manual budget re-entry every time and breaks planning — for a budgeting app that hits the core."
+   },
+   {
+    "title": "Logging a single expense is a 'circus' of extra swipes and taps",
+    "plus": null,
+    "minus": "The most frequent action — quickly jotting an amount and a name — is made clumsy: adding a description requires swiping into a side panel, and labels appear by default so you remove them every single time. For an app that lives on daily manual entry, friction in this micro-flow directly erodes the very habit it's installed for."
+   },
+   {
+    "title": "Sync that duplicates and loses records poisons shared use",
+    "plus": null,
+    "minus": "When two people (a couple, a family) or several devices share the app, sync spawns duplicates, drops records, and jumps between accounts. The demand for a 'shared budget with your partner' is right there in the reviews, but the current sync engine makes exactly that scenario unbearable — the product misses a natural growth path through households."
+   },
+   {
+    "title": "Income analysis is the blind spot of an app that nails expenses",
+    "plus": null,
+    "minus": "The app's whole strength is breaking down spending by category with charts, but it shows income flat: no equivalent breakdown of how much comes from where. Users explicitly ask for mirror-image income analytics. For a product that builds its identity on the 'full financial picture', it's an asymmetry that leaves half the picture in the dark."
    }
   ],
   "hygiene": []
