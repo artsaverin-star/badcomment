@@ -18252,540 +18252,6 @@
   }
  },
  {
-  "slug": "weather-apps-1",
-  "category": "weather-apps",
-  "categoryName": "Погода",
-  "title": "Честный погодник «совпало/нет»",
-  "oneLiner": "Погодник, который ежедневно показывает, насколько вчерашний прогноз совпал с реальностью, и выбирает источник по фактической точности в твоей точке.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 172
-  },
-  "reviewGrid": [
-   {
-    "quote": "Right now, the app says \"Rain,\" and yet there is barely a cloud in the sky. Nothing but false information.",
-    "rating": 1,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "Reality of weather rarely matches the widgets or the forecast.",
-    "rating": 2,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "it shows dark red in my area but not even drizzle.",
-    "rating": 1,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "I appreciate that you can compare different forecast models.",
-    "rating": 5,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "Compare forecast models is the most unique and killer feature that nearly makes up for it.",
-    "rating": 3,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "I found that you were more accurate, when it came to the place I live.",
-    "rating": 5,
-    "app": "AccuWeather"
-   },
-   {
-    "quote": "95 times your info or prediction is 100% wrong, 5 times by luck it's 99% right.",
-    "rating": 1,
-    "app": "AccuWeather"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Честный погодник «совпало/нет»",
-    "obsCount": 7,
-    "apps": [
-     "Weawow Weather",
-     "RainViewer",
-     "Windy.com",
-     "AccuWeather"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Все приложения обещают точность, но ни одно её не доказывает; пользователь узнаёт о промахе, только выйдя на улицу под «несуществующий» дождь.",
-  "idea": {
-   "pitch": "Доверие — единственная валюта категории, и оно сейчас держится на слепой вере. Приложение, которое открыто меряет себя реальностью и автоматически переключается на наиболее точную для региона модель, забирает тех, кого уже однажды обманули конкуренты.",
-   "features": [
-    "ежедневный «score совпадения» вчерашнего прогноза с фактом",
-    "авто-выбор лучшей модели по истории точности в точке",
-    "пометка, какой источник дал каждое число",
-    "кнопка «у меня сейчас иначе» — краудфидбек для калибровки",
-    "честный индикатор уверенности вместо ложно-точного процента"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка без рекламы за полную историю точности и сравнение моделей; базовый слой с текущим прогнозом бесплатен, чтобы не нарушать ожидание «погода должна быть доступна»."
-  }
- },
- {
-  "slug": "weather-apps-2",
-  "category": "weather-apps",
-  "categoryName": "Погода",
-  "title": "Радар-виджет, который не отнимут",
-  "oneLiner": "Живой радар на домашнем экране как ядро продукта, навсегда бесплатный и без рекламы поверх него.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 172
-  },
-  "reviewGrid": [
-   {
-    "quote": "literally downloaded it for the live radar widget. the latest update removed that, so I will be uninstalling and finding another app that provides a radar widget.",
-    "rating": 1,
-    "app": "MyRadar Weather Radar"
-   },
-   {
-    "quote": "The homescreen widget displaying radar map is now paywallwed behind a subscription. The free widget was the only reason I use this weather app",
-    "rating": 1,
-    "app": "MyRadar Weather Radar"
-   },
-   {
-    "quote": "Since MyRadar decided to place their best free feature (radar widget) behind a subscription paywall, I decided to install Rain Viewer",
-    "rating": 5,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "try Rain Viewer - has a similar radar widget in the free app.",
-    "rating": 1,
-    "app": "MyRadar Weather Radar"
-   },
-   {
-    "quote": "Randomly took away radar widget. probably to put it with premium features. uninstall.",
-    "rating": 1,
-    "app": "MyRadar Weather Radar"
-   },
-   {
-    "quote": "the widget no longer refreshes automatically",
-    "rating": 3,
-    "app": "Flowx Weather"
-   },
-   {
-    "quote": "the widget was the only part I really used",
-    "rating": 1,
-    "app": "1Weather Forecast"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Радар-виджет, который не отнимут",
-    "obsCount": 7,
-    "apps": [
-     "MyRadar Weather Radar",
-     "RainViewer",
-     "Flowx Weather",
-     "1Weather Forecast"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "MyRadar и Clime запаролили или сломали именно радар-виджет — единственное, ради чего их держали, — и тысячи людей прямо сейчас ищут замену.",
-  "idea": {
-   "pitch": "На наших глазах произошёл готовый исход: пользователи открыто называют, к кому уходят. Продукт, чей манифест — «радар-виджет бесплатен всегда», ловит миграционную волну и строит доверие на обещании не делать того, что сделали конкуренты.",
-   "features": [
-    "настраиваемый живой радар-виджет нескольких размеров",
-    "плавная анимация прошлого и будущего на самом виджете",
-    "обновление в фоне без открытия приложения",
-    "выбор слоёв (дождь, молнии, снег) прямо на виджете",
-    "явное обещание: ядро виджета не уйдёт в подписку"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка за расширенные слои, длинный футуркаст и приоритетные алерты; сам радар-виджет и базовый слой осадков бесплатны как принципиальная позиция бренда."
-  }
- },
- {
-  "slug": "weather-apps-3",
-  "category": "weather-apps",
-  "categoryName": "Погода",
-  "title": "Защитник в опасную погоду",
-  "oneLiner": "Погодник, чья одна работа — гарантированно предупредить о торнадо, шторме и молнии и мгновенно открыть радар без рекламы.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 172
-  },
-  "reviewGrid": [
-   {
-    "quote": "The tornado siren went off, the news says tornado warning. But the app says lightning detected, thats it.",
-    "rating": 1,
-    "app": "AccuWeather"
-   },
-   {
-    "quote": "Literally sitting in a tornado warning for 10 minutes and this app still can't warn me.",
-    "rating": 1,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "We experienced a huge storm with tornado watch warnings. I received alerts from google but not this weather app.",
-    "rating": 1,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "When there's a severe storm approaching and I need to check the radar quickly, the last thing I want is to sit through ads.",
-    "rating": 1,
-    "app": "AccuWeather"
-   },
-   {
-    "quote": "I have a dangerous winter storm approaching and the app decides to not work, app won't launch at all",
-    "rating": 3,
-    "app": "Clime NOAA Weather Radar"
-   },
-   {
-    "quote": "not getting tornado warnings in my area.",
-    "rating": 2,
-    "app": "AccuWeather"
-   },
-   {
-    "quote": "i enjoy the fact it has tornado and other inclement weather warnings",
-    "rating": 5,
-    "app": "1Weather Forecast"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Защитник в опасную погоду",
-    "obsCount": 7,
-    "apps": [
-     "AccuWeather",
-     "Weawow Weather",
-     "Weather Underground",
-     "Clime NOAA Weather Radar",
-     "1Weather Forecast"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Именно в минуту, ради которой держат приложение, оно молчит, не открывается или топит сирену в рекламе — и это единственный непрощаемый провал.",
-  "idea": {
-   "pitch": "Безопасность — самый сильный мотив удержания и самая частая точка предательства. Продукт, который ставит во главу угла безотказность алертов и мгновенный доступ к радару в шторм, занимает позицию «приложение, которое не подведёт, когда это важнее всего».",
-   "features": [
-    "дублирование официальных алертов (NWS/локальные) с проверкой доставки",
-    "мгновенный экран опасности без рекламы и без загрузки",
-    "тонкая настройка: тип угрозы, расстояние, порог важности",
-    "офлайн-режим последнего известного радара при потере сети",
-    "тихий режим для дальних событий, громкий — для приближающихся"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка за расширенный футуркаст, треки штормов и приоритетные пуш-каналы; базовые предупреждения о смертельной погоде бесплатны всегда — это вопрос репутации, а не дохода."
-  }
- },
- {
-  "slug": "weather-apps-4",
-  "category": "weather-apps",
-  "categoryName": "Погода",
-  "title": "Погода под дело: профессии и активности",
-  "oneLiner": "Прогноз, переведённый в ответ «годится или нет» для покраски, похода, рыбалки, велозаезда, полёта или серфинга.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 172
-  },
-  "reviewGrid": [
-   {
-    "quote": "I'm a professional painter who does a lot of exterior work so it's critical that I know exactly what the temperature, humidity, chance of rain, dew point etc. is",
-    "rating": 5,
-    "app": "AccuWeather"
-   },
-   {
-    "quote": "I have a sailboat and I use this app everyday I may use it three or four times a day",
-    "rating": 5,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "This is THE BEST weather forecasting app I've used, and I've used it for 7 or 8 years now.",
-    "rating": 5,
-    "app": "Flowx Weather"
-   },
-   {
-    "quote": "the long distant forecasts, including Bike and Running forecasts are very helpful.",
-    "rating": 4,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "As someone who works outdoors, I really miss seeing lightning data.",
-    "rating": 3,
-    "app": "Clime NOAA Weather Radar"
-   },
-   {
-    "quote": "very authentic and rely on for everyday activities and sailing",
-    "rating": 5,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "use windfinder instead at least u will able to plan your works correctly",
-    "rating": 1,
-    "app": "Windy.com"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Погода под дело: профессии и активности",
-    "obsCount": 7,
-    "apps": [
-     "AccuWeather",
-     "Windy.com",
-     "Flowx Weather",
-     "Weather Underground",
-     "Clime NOAA Weather Radar"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Маляры, моряки, пилоты, рыбаки и велосипедисты сами вычитывают решающий параметр из общей таблицы; ни одно приложение не собирает прогноз вокруг их конкретной работы.",
-  "idea": {
-   "pitch": "Эти пользователи проверяют погоду по три-четыре раза в день и платят за источник, который не врёт по их параметру. Профильные профили (точка росы для маляра, порывы и волна для моряка, окна без осадков для велосипедиста) превращают погодник в профессиональный инструмент с высокой готовностью платить.",
-   "features": [
-    "профили активностей с собственным решающим параметром",
-    "вердикт «окно подходит / не подходит» вместо сырых цифр",
-    "точка росы, порывы, волна, видимость, молнии по запросу профиля",
-    "напоминание о ближайшем подходящем окне для дела",
-    "сохранённые места и расписания под повторяющиеся занятия"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка по профессиональным профилям и расширенным параметрам (морской, авиационный, аграрный пакеты); общий бытовой прогноз бесплатен как точка входа."
-  }
- },
- {
-  "slug": "weather-apps-5",
-  "category": "weather-apps",
-  "categoryName": "Погода",
-  "title": "Спокойный погодник: без рекламы, без трекинга, без ИИ",
-  "oneLiner": "Приложение-антипод осады: чистый экран, никакой слежки, никакого навязанного чат-бота — только погода.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 172
-  },
-  "reviewGrid": [
-   {
-    "quote": "Best weather app by far. Customizable, clean, no ads, no tracking.",
-    "rating": 5,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "great weather app, but most importantly it cares about privacy, all collected data is anonymous and never sold :D",
-    "rating": 5,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "There is so much data tracking here and no easy way to turn it all off: it destroys all trust.",
-    "rating": 1,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "New Update Has an AI Chatbot. Why? I can read and I can scroll.",
-    "rating": 2,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "get rid of the AI assistant, nobody cares about AI.",
-    "rating": 1,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "This app is so infiltrated with ads that it makes it impossible to use.",
-    "rating": 1,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "It has everything you need without ads. It is customizable.",
-    "rating": 5,
-    "app": "Weawow Weather"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Спокойный погодник: без рекламы, без трекинга, без ИИ",
-    "obsCount": 7,
-    "apps": [
-     "Weawow Weather",
-     "Windy.com",
-     "RainViewer",
-     "1Weather Forecast"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Категория массово монетизирует через фейково-закрываемую рекламу и впихнутый ИИ-ассистент без выключателя, выгоняя даже платных лояльных пользователей.",
-  "idea": {
-   "pitch": "Лояльность хвалит «no ads, no tracking» так же громко, как точность, а навязанный ИИ стал триггером удаления. Позиционирование «спокойный, приватный, уважительный погодник» — это ров на ценностях, который рекламно-зависимым лидерам структурно трудно скопировать.",
-   "features": [
-    "принципиально без рекламы во всех платных слоях",
-    "отключаемый трекинг и прозрачная политика «данные не продаём»",
-    "никаких навязанных ИИ-ассистентов; ИИ только по явному запросу",
-    "чистый быстрый интерфейс с приоритетом информации",
-    "честная разовая покупка как альтернатива подписке"
-   ],
-   "antiFeatures": [],
-   "monetization": "Недорогая подписка или честный lifetime за полный набор без рекламы; ценность продаётся как спокойствие и приватность, а не как «снятие» искусственных ограничений."
-  }
- },
- {
-  "slug": "weather-apps-6",
-  "category": "weather-apps",
-  "categoryName": "Погода",
-  "title": "Футуркаст «что идёт на меня»",
-  "oneLiner": "Радар, который по умолчанию показывает будущее — куда движутся осадки и через сколько накроет конкретно тебя.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 172
-  },
-  "reviewGrid": [
-   {
-    "quote": "How about a future cast ? It's actually called a forecast for a reason.",
-    "rating": 3,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "can't run the future map anymore. only back 2 hours to now. used to be the best app to see what's coming.",
-    "rating": 1,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "Why doesn't the radar show the future anymore?",
-    "rating": 3,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "Excellent rain start and stop notifications!",
-    "rating": 5,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "Rain Viewer accurately shows rain coming in from some time/distance away, and accurately informs in time when it will arrive",
-    "rating": 5,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "I love this weather app, especially the minute by minute rain",
-    "rating": 5,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "you can't view more than 2h ahead in the free version",
-    "rating": 3,
-    "app": "RainViewer"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Футуркаст «что идёт на меня»",
-    "obsCount": 7,
-    "apps": [
-     "Weather Underground",
-     "1Weather Forecast",
-     "RainViewer"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Половина приложений показывают только прошлые 5–120 минут радара или прячут футуркаст в подписку, хотя люди открывают радар именно чтобы увидеть «что приближается».",
-  "idea": {
-   "pitch": "Главный вопрос пользователя — не «что было», а «через сколько начнётся дождь у меня». Продукт, где футуркаст с минутным обратным отсчётом до осадков в точке — стандартный бесплатный слой, закрывает самую частую невыполненную работу радара.",
-   "features": [
-    "футуркаст-радар по умолчанию вместо петли прошлого",
-    "обратный отсчёт «дождь через N минут» для текущей точки",
-    "уведомления о начале и окончании осадков",
-    "плавная шкала прошлое↔будущее одним движением",
-    "честная пометка снижения уверенности на дальнем горизонте"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка за длинный горизонт футуркаста и точные минутные уведомления по нескольким местам; короткий футуркаст и старт/стоп дождя для одной точки бесплатны."
-  }
- },
- {
-  "slug": "weather-apps-7",
-  "category": "weather-apps",
-  "categoryName": "Погода",
-  "title": "Гиперлокальный радар для «слепых зон»",
-  "oneLiner": "Погодник, который доводит плотность доплеровских станций и народных сенсоров там, где у больших радаров покрытия нет.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 172
-  },
-  "reviewGrid": [
-   {
-    "quote": "there's no radar coverage. I'd like to see more radar stations, especially Guiuan's local Doppler radar.",
-    "rating": 3,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "I live in a weird place, The New River Gorge in W.V.",
-    "rating": 1,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "They recently either removed or lost access to ALOT of weather stations so actual weather conditions are now massively inaccurate.",
-    "rating": 2,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "Shows radar everywhere but my location.",
-    "rating": 2,
-    "app": "MyRadar Weather Radar"
-   },
-   {
-    "quote": "Best meteorological app in Europe. One of the only few that have doppler velocities for EU.",
-    "rating": 5,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "Not accurate for where I live in Seeley Lake MT especially the temperature",
-    "rating": 4,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "keeps me posted of weather right where I am and not the city next to me.",
-    "rating": 5,
-    "app": "AccuWeather"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Гиперлокальный радар для «слепых зон»",
-    "obsCount": 7,
-    "apps": [
-     "RainViewer",
-     "Weather Underground",
-     "Windy.com",
-     "MyRadar Weather Radar",
-     "AccuWeather"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Жители гор, ущелий, побережий и регионов без покрытия систематически получают неверный радар, а крупные игроки ещё и теряют доступ к станциям.",
-  "idea": {
-   "pitch": "Точность по своей точке — то, за что держатся даже при слабом интерфейсе. Продукт, агрегирующий локальные доплеры, народные метеостанции и краудфидбек для «слепых зон», забирает лояльный, благодарный и почти не имеющий альтернатив сегмент в этих регионах.",
-   "features": [
-    "агрегация локальных доплеров и народных метеостанций",
-    "карта покрытия с честным указанием, где данных мало",
-    "краудсорс-подтверждение «идёт ли дождь у тебя сейчас»",
-    "приоритет ближайшей станции вместо усреднённой модели",
-    "запрос на добавление местного радара от сообщества"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка за доступ к расширенной сети станций и высокому разрешению по региону; базовое покрытие и краудфидбек бесплатны, чтобы наращивать плотность данных."
-  }
- },
- {
   "slug": "travel-planning-1",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
@@ -32808,6 +32274,424 @@
    ],
    "antiFeatures": [],
    "monetization": "Дешёвая локальная подписка под покупательную способность рынка; объём вместо высокого чека."
+  }
+ },
+ {
+  "slug": "weather-apps-1",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Выходное Окно",
+  "oneLiner": "Приложение отвечает не «какая погода», а «есть ли у тебя сухое окно в ближайшие 2 часа, чтобы сделать конкретное дело» — выгулять собаку, скосить газон, доехать на велосипеде.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 796
+  },
+  "reviewGrid": [
+   {
+    "quote": "as a cyclists I can now with confidence plan my travel to work.",
+    "rating": 5,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "amazing! finally, a truly accurate short-term weather prediction app that can help me decide when or how to go out!",
+    "rating": 5,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "love the fact that it tells me how long I have before it starts raining",
+    "rating": 5,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "The Radar used to be awesome, going every 15 min per slide now it goes hour to hour, definitely feel gipped",
+    "rating": 3,
+    "app": "1Weather Forecast"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Выходное Окно",
+    "obsCount": 4,
+    "apps": [
+     "RainViewer",
+     "1Weather Forecast"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Радар-наукастинг есть, но он показывает карту, а решение «выезжать / переждать» пользователь принимает сам. Никто не закрывает последний шаг — превратить движение дождя в прямой ответ «да/нет, и вот твоё окно с 14:10 до 15:40».",
+  "idea": {
+   "pitch": "Один экран = один ответ. Выбираешь занятие (велосипед / газон / прогулка / стройка), задаёшь нужную длительность, получаешь «следующее сухое окно: 47 минут начиная сейчас» — без карты, без процентов, без обучения.",
+   "features": [
+    "профили активностей с нужной длительностью и порогом дождя",
+    "вычисление ближайшего сухого окна из радар-наукастинга",
+    "алерт «окно закрывается через 10 минут»",
+    "виджет с одним числом — минуты до дождя / минуты сухого окна",
+    "поминутный тайминг старта и конца осадков"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно базовое окно «сейчас»; Pro — несколько профилей активностей, окна на день вперёд, умные алерты по расписанию (выгул в 7:00). Никакой рекламы на пути к ответу."
+  }
+ },
+ {
+  "slug": "weather-apps-2",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Дворовый Прогноз",
+  "oneLiner": "Гиперлокальный погодник, который привязывает прогноз к конкретной точке пользователя (двор, поле, стройплощадка), а не к ближайшему городу — и честно говорит, когда данных по точке нет.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 796
+  },
+  "reviewGrid": [
+   {
+    "quote": "you can see temperature were you are and surrounding posts reporting very local readings, from private stations that could be less than a mile appart, tell me which other app does that?",
+    "rating": 5,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "it initially has my location correct but then it \"corrects\" the location to be about 10 to 15 mi away",
+    "rating": 1,
+    "app": "Clime NOAA Weather Radar"
+   },
+   {
+    "quote": "actually gets close to the remote area i live instead of defaulting to closest city",
+    "rating": 5,
+    "app": "Clime NOAA Weather Radar"
+   },
+   {
+    "quote": "Love the feature which quickly tells me is it cooler or warmer than yesterday.",
+    "rating": 5,
+    "app": "Weather Underground"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Дворовый Прогноз",
+    "obsCount": 4,
+    "apps": [
+     "Weather Underground",
+     "Clime NOAA Weather Radar"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Большие приложения «корректируют» локацию на ближайший крупный город за 10-15 миль, а тот, кто живёт в горах или в глуши, видит чужую погоду. Сеть частных станций доказала спрос, но управление точкой и честность покрытия у всех хромают.",
+  "idea": {
+   "pitch": "Закрепи СВОЮ точку намертво — она не уплывёт на соседний город после апдейта. Приложение подтягивает ближайшие частные станции и прямо показывает, насколько близко реальный датчик, а не делает вид, что знает погоду там, где станций нет.",
+   "features": [
+    "жёсткая привязка точки без авто-перецентровки",
+    "агрегация ближайших частных метеостанций с расстоянием до датчика",
+    "честный индикатор покрытия «ближайший датчик в 1.2 км»",
+    "сравнение «теплее/холоднее, чем вчера»",
+    "подключение собственной метеостанции"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — одна закреплённая точка и базовые станции рядом; Pro — несколько точек (дом/дача/поле), история по точке, приоритет данных собственной станции."
+  }
+ },
+ {
+  "slug": "weather-apps-3",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Тихий Алерт",
+  "oneLiner": "Погодные уведомления, которые срабатывают ТОЛЬКО когда угроза реально близко и реально важна — с фильтром по расстоянию и интенсивности, и без шума про чужие страны.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 796
+  },
+  "reviewGrid": [
+   {
+    "quote": "Literally sitting in a tornado warning for 10 minutes and this app still can't warn me. The weather is saying to take shelter and this says nothing.",
+    "rating": 1,
+    "app": "Weawow Weather"
+   },
+   {
+    "quote": "woken up at midnight by a random notification telling me that a hurricane 2,000 miles away has been downgraded",
+    "rating": 4,
+    "app": "Clime NOAA Weather Radar"
+   },
+   {
+    "quote": "I would like to have a setting for the intensity of the rain (example: light rain) at notifications because I receive many notifications for drizzle.",
+    "rating": 2,
+    "app": "RainViewer"
+   },
+   {
+    "quote": "the alerts are SUPER LOUD and with earbuds it's extremely startling and hurts my ears. please fix this.",
+    "rating": 1,
+    "app": "AccuWeather"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Тихий Алерт",
+    "obsCount": 4,
+    "apps": [
+     "Weawow Weather",
+     "Clime NOAA Weather Radar",
+     "RainViewer",
+     "AccuWeather"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Алерты везде ломаются в обе стороны: молчат под торнадо или валят 14 пустых пушей, ураган за 2000 миль и новости. Нет умной фильтрации — и пользователь глушит всё разом, теряя спасающую функцию.",
+  "idea": {
+   "pitch": "Ты сам ставишь правила: «буди меня только при грозе ближе 20 км», «не дёргай из-за мороси», «severe — всегда, даже ночью». Один канал, только про твою погоду, ноль новостей и ноль ураганов из другого полушария.",
+   "features": [
+    "фильтр алертов по расстоянию и интенсивности",
+    "раздельные каналы: severe-weather всегда, бытовое — по расписанию",
+    "тихие часы с исключением для опасных явлений",
+    "никаких новостных и маркетинговых пушей в погодном канале",
+    "регулировка громкости и тона алерта"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — базовые severe-алерты по геолокации; Pro — тонкие правила, несколько точек, кастомные пороги по явлениям (молния/град/ветер)."
+  }
+ },
+ {
+  "slug": "weather-apps-4",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Модельный Микшер",
+  "oneLiner": "Карта погоды для энтузиастов, где можно сравнить и взвесить метеомодели (GFS, ECMWF, HRRR) — но с человеческим онбордингом, который не отпугивает новичка «синей пустотой».",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 796
+  },
+  "reviewGrid": [
+   {
+    "quote": "Compare forecast models is the most unique and killer feature that nearly makes up for it.",
+    "rating": 3,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "Just take 5 minutes to read the Help guide and learn how to use it, it's ABSOLUTELY WORTH IT",
+    "rating": 5,
+    "app": "Flowx Weather"
+   },
+   {
+    "quote": "What do the wavy lines at top of page mean? And why is there no legend? WORST graphic representation I have seen in years!",
+    "rating": 1,
+    "app": "Flowx Weather"
+   },
+   {
+    "quote": "Listen. I fell asleep and wanted to know if it rained 4 hours ago... all my applications could NOT tell me. THIS ONE CAN! You have to go into settings. So I am keeping this very useful application.",
+    "rating": 5,
+    "app": "RainViewer"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Модельный Микшер",
+    "obsCount": 4,
+    "apps": [
+     "Windy.com",
+     "Flowx Weather",
+     "RainViewer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Сравнение моделей — киллер-фича, которой почти ни у кого нет и которая замыкает гиков. Но продукты, которые её дают (Flowx, Windy), хоронят её под отсутствием легенды и туториала — и теряют всех, кто пришёл учиться.",
+  "idea": {
+   "pitch": "Та же мощь сравнения моделей, что любят профи, но с легендой на каждый слой, объяснением «что значит этот цвет» и режимом «просто покажи мне ответ» для новичка. Сложность открывается по мере готовности, а не вываливается на старте.",
+   "features": [
+    "сравнение и взвешивание нескольких метеомоделей",
+    "легенда и подсказки на каждом слое",
+    "режим «новичок / профи» с градуируемой сложностью",
+    "промотка времени пальцем по карте",
+    "история радара назад — «шёл ли дождь, пока я спал»"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — одна модель и базовые слои; Pro — все модели, взвешивание, длинная история радара. Оплата как поддержка этичного разработчика без рекламы и трекеров."
+  }
+ },
+ {
+  "slug": "weather-apps-5",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Честный Виджет",
+  "oneLiner": "Продукт, где виджет — это и есть приложение: мгновенный, всегда свежий, настраиваемый, с живым радаром на домашнем экране и без всякой стены перед ним.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 796
+  },
+  "reviewGrid": [
+   {
+    "quote": "The only reason I had this app was for the radar widget. Widget is gone, I'm finding a different app.",
+    "rating": 1,
+    "app": "MyRadar Weather Radar"
+   },
+   {
+    "quote": "The widget wil not update. It's there to see at a glance but if it isn't up to date, it's useless!",
+    "rating": 1,
+    "app": "AccuWeather"
+   },
+   {
+    "quote": "I love the custom widgets, and the option to just have the important stuff on my screen (temp, humidity, precipitation, cloud cover) without the date, location, or time showing",
+    "rating": 5,
+    "app": "Weawow Weather"
+   },
+   {
+    "quote": "every time I am in a new town/city, my weather banner updates to that location, which is great. However, when I leave that place and come back home, I still get the banner from the previously visited location",
+    "rating": 3,
+    "app": "1Weather Forecast"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Честный Виджет",
+    "obsCount": 4,
+    "apps": [
+     "MyRadar Weather Radar",
+     "AccuWeather",
+     "Weawow Weather",
+     "1Weather Forecast"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Виджет для огромной доли аудитории и есть весь продукт, но инкумбенты ломают его системно: уводят за подписку (MyRadar), не обновляют (AccuWeather), залипают на городе из поездки (1Weather). Тот, кто сделает glanceable-поверхность священной, заберёт мигрирующих.",
+  "idea": {
+   "pitch": "Поставил виджет — увидел погоду, точка. Живой радар прямо на экране, температура всегда свежая, локация возвращается домой после поездки сама. Никакого «открой приложение, чтобы обновить», никакого пейвола перед базовой фичей.",
+   "features": [
+    "живой радар-виджет на домашнем экране в бесплатной версии",
+    "автообновление без открытия приложения",
+    "конструктор виджетов: что показать, что скрыть",
+    "надёжный возврат локации домой после поездки",
+    "прозрачный интерактивный дизайн с почасовым прогнозом"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно — основной радар-виджет и базовая погода; Pro — расширенные слои, несколько виджетов/точек, длинный горизонт. Ноль рекламы на пути к взгляду."
+  }
+ },
+ {
+  "slug": "weather-apps-6",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Рабочая Смена",
+  "oneLiner": "Погодник для тех, у кого погода — это работа: дальнобойщиков, кровельщиков, подрядчиков — с маршрутным радаром, таймингом старта/конца осадков и офлайн-картами для глуши.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 796
+  },
+  "reviewGrid": [
+   {
+    "quote": "i work in construction so got to be outside it help to know when the the storm starts an ends",
+    "rating": 5,
+    "app": "MyRadar Weather Radar"
+   },
+   {
+    "quote": "As an exteriors contractor, I use it every day to plan and schedule my jobs",
+    "rating": 5,
+    "app": "Clime NOAA Weather Radar"
+   },
+   {
+    "quote": "if you have Offline Maps in Google Maps, it saves you data and time",
+    "rating": 5,
+    "app": "Clime NOAA Weather Radar"
+   },
+   {
+    "quote": "lightning tracking is not showing after paying for a subscription. This is why I paid for it",
+    "rating": 1,
+    "app": "Clime NOAA Weather Radar"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Рабочая Смена",
+    "obsCount": 4,
+    "apps": [
+     "MyRadar Weather Radar",
+     "Clime NOAA Weather Radar"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Самый ценный и платёжеспособный сегмент во всей категории — профи под открытым небом — обслуживается приложениями, которые сначала их завоёвывают, а потом проедают доверие (мёртвый трекер молний, реклама, смена владельца). Никто не строит продукт ПОД этот сегмент с нуля.",
+  "idea": {
+   "pitch": "Погода вдоль твоего маршрута, а не в одной точке: когда на трассе начнётся и кончится дождь, где переждать град, успеешь ли уложить кровлю до грозы. Работает в глуши на офлайн-картах, экономит трафик, держит несколько объектов сразу.",
+   "features": [
+    "радар и тайминг осадков вдоль маршрута, а не в точке",
+    "несколько рабочих объектов в простом списке",
+    "офлайн-карты и экономия данных для зон плохой связи",
+    "ранние severe-алерты с упреждением для перепланировки",
+    "трекер молний с честным статусом работоспособности"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на профи-функции (маршрут, несколько объектов, длинный горизонт) — сегмент платит без торга за инструмент, от которого зависит заработок. Без рекламы принципиально."
+  }
+ },
+ {
+  "slug": "weather-apps-7",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Спокойная Погода",
+  "oneLiner": "Минималистичный погодник без рекламы, новостей, AI и анимаций — открыл, увидел температуру и графики за 1 секунду, закрыл; красивый, но честный про точность.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 796
+  },
+  "reviewGrid": [
+   {
+    "quote": "I don't want a news feed I have to sit through before I can see the forecast this is a weather ap that's all I want",
+    "rating": 1,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "Let me disable Skyla I don't need AI to tell me the weather",
+    "rating": 1,
+    "app": "1Weather Forecast"
+   },
+   {
+    "quote": "The only weather app that doesn't force disruptive fullscreen ads on the consumer?",
+    "rating": 5,
+    "app": "Weawow Weather"
+   },
+   {
+    "quote": "Customizable, clean, no ads, no tracking",
+    "rating": 5,
+    "app": "Weawow Weather"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Спокойная Погода",
+    "obsCount": 4,
+    "apps": [
+     "1Weather Forecast",
+     "Weawow Weather"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Целое поколение пользователей бежит от приложений, которые превратились в медиа-платформы: новости перед прогнозом, навязанный AI без тумблера, брендовая анимация на старте, реклама на пути к радару. Спрос на «просто покажи погоду» огромен и не закрыт у крупных игроков.",
+  "idea": {
+   "pitch": "Никаких лент, никакого Skyla, никакой 2-минутной рекламы перед радаром. Открыл — мгновенно температура и графики вместо столбца чисел. Меняющиеся фоны для красоты, но данные всегда читаемы и совпадают с небом за окном.",
+   "features": [
+    "мгновенный запуск без анимаций и новостных экранов",
+    "графики температуры/ветра/осадков вместо голых списков",
+    "никакого встроенного AI и контентной ленты",
+    "минимум разрешений, без слежки и продажи локации",
+    "опциональные красивые фоны, не мешающие читаемости"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно и ad-free; добровольный донат «отблагодарить разработчика» плюс необязательный Pro за глубину данных. Этичная позиция как часть позиционирования."
   }
  }
 ]
