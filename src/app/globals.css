@@ -317,38 +317,23 @@ html:not([data-theme="dark"]) .atmosphere {
 
 /* One-shot glow that travels across a heading left → right once on load: a bright
    band of the accent colour sweeps over the text (clipped to the glyphs). */
-/* The heading text stays its normal solid colour (always visible, never clipped).
-   A soft bright light-blob rides across it left → right once on load — a real
-   glow sweep — via an ::after that can't affect the text itself. */
+/* Simple one-shot glow flash on a heading once on load — the version that read
+   well. Text stays solid; only a soft text-shadow blooms then fades. Colour comes
+   from the page's --glow-c (category / random hue). */
 @keyframes glow-sweep {
-  from { background-position: -25% 50%; }
-  to { background-position: 125% 50%; }
+  0% { text-shadow: none; }
+  22% {
+    text-shadow:
+      0 0 16px color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 75%, transparent),
+      0 0 44px color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 42%, transparent);
+  }
+  100% { text-shadow: none; }
 }
 .glow-sweep {
-  position: relative;
-}
-.glow-sweep::after {
-  content: "";
-  position: absolute;
-  top: -0.4em;
-  bottom: -0.4em;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  background-image: radial-gradient(
-    closest-side,
-    color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 55%, #fff) 0%,
-    transparent 100%
-  );
-  background-repeat: no-repeat;
-  background-size: 30% 135%;
-  background-position: -25% 50%;
-  opacity: 0.9;
-  filter: blur(10px);
-  animation: glow-sweep 1.5s ease-out 0.25s 1 both;
+  animation: glow-sweep 1.05s ease-out 0.15s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
-  .glow-sweep::after { display: none; }
+  .glow-sweep { animation: none; }
 }
 
 /* ── Landing (logged-out) animations ──────────────────────────────────── */
