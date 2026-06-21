@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { tokensWord } from "@/lib/tokenConfig";
 
 type LedgerRow = {
@@ -75,7 +76,7 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
         ⚡ {balance}
       </button>
 
-      {open && (
+      {open && typeof document !== "undefined" && createPortal(
         <div
           className="fixed inset-0 z-[100] flex items-end justify-center bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] p-0 backdrop-blur-sm sm:items-center sm:p-4"
           onClick={() => setOpen(false)}
@@ -133,7 +134,8 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getSessionUser } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { isFriendIdentity } from "@/lib/friends";
-import { tokensWord } from "@/lib/tokenConfig";
+import { tokensWord, TOKEN_PACKS, LIFETIME } from "@/lib/tokenConfig";
 import TokenHistory from "@/components/TokenHistory";
 
 export const dynamic = "force-dynamic";
@@ -23,8 +23,33 @@ export default async function AdminPage() {
   const spent = await prisma.tokenLedger.aggregate({ _sum: { delta: true }, where: { delta: { lt: 0 } } });
   const tokensSpent = Math.abs(spent._sum.delta ?? 0);
 
+  // Real money paid per user — derived from purchase/lifetime ledger entries by
+  // mapping each back to its pack price (we don't store the ₽/⭐ amount itself).
+  // ref "yk:" = card (₽), "tg:" = Telegram Stars (⭐).
+  const payEntries = await prisma.tokenLedger.findMany({
+    where: { reason: { in: ["purchase", "lifetime"] } },
+    select: { userId: true, delta: true, reason: true, ref: true },
+  });
+  const moneyBy = new Map<string, { rub: number; stars: number }>();
+  for (const e of payEntries) {
+    const m = moneyBy.get(e.userId) ?? { rub: 0, stars: 0 };
+    const isStars = (e.ref ?? "").startsWith("tg:");
+    if (e.reason === "lifetime") {
+      if (isStars) m.stars += LIFETIME.stars;
+      else m.rub += LIFETIME.rub;
+    } else {
+      const pack = TOKEN_PACKS.find((p) => p.tokens === e.delta);
+      if (pack) {
+        if (isStars) m.stars += pack.stars;
+        else m.rub += pack.rub;
+      }
+    }
+    moneyBy.set(e.userId, m);
+  }
+  const fmtDateTime = (d: Date) => new Date(d).toISOString().slice(0, 16).replace("T", " ");
+
   return (
-    <main className="mx-auto w-full max-w-[760px] px-4 py-10">
+    <main className="mx-auto w-full max-w-[1200px] px-4 py-10">
       <h1 className="text-[28px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Админка</h1>
       <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
         Пользователей: <b className="tabular-nums">{users.length}</b> · безлимит:{" "}
@@ -42,8 +67,9 @@ export default async function AdminPage() {
               <th className="px-4 py-2.5 font-semibold">Пользователь</th>
               <th className="px-4 py-2.5 font-semibold">Энергия</th>
               <th className="px-4 py-2.5 font-semibold">Вход</th>
+              <th className="px-4 py-2.5 font-semibold">Оплата</th>
               <th className="px-4 py-2.5 font-semibold">Премиум</th>
-              <th className="px-4 py-2.5 font-semibold">Регистрация</th>
+              <th className="whitespace-nowrap px-4 py-2.5 font-semibold">Регистрация</th>
             </tr>
           </thead>
           <tbody>
@@ -70,6 +96,19 @@ export default async function AdminPage() {
                     "—"
                   )}
                 </td>
+                <td className="whitespace-nowrap px-4 py-2.5 tabular-nums">
+                  {(() => {
+                    const m = moneyBy.get(u.id);
+                    if (!m || (!m.rub && !m.stars)) return <span className="text-[var(--color-text-tertiary)]">—</span>;
+                    return (
+                      <span className="font-semibold text-[var(--color-text-primary)]">
+                        {m.rub ? `${m.rub.toLocaleString("ru-RU")} ₽` : ""}
+                        {m.rub && m.stars ? " · " : ""}
+                        {m.stars ? `${m.stars} ⭐` : ""}
+                      </span>
+                    );
+                  })()}
+                </td>
                 <td className="px-4 py-2.5">
                   {isActive(u) ? (
                     <span className="text-[var(--color-text-primary)]">
@@ -81,14 +120,14 @@ export default async function AdminPage() {
                     <span className="text-[var(--color-text-tertiary)]">—</span>
                   )}
                 </td>
-                <td className="px-4 py-2.5 tabular-nums text-[var(--color-text-tertiary)]">
-                  {new Date(u.createdAt).toISOString().slice(0, 10)}
+                <td className="whitespace-nowrap px-4 py-2.5 tabular-nums text-[var(--color-text-tertiary)]">
+                  {fmtDateTime(u.createdAt)}
                 </td>
               </tr>
             ))}
             {users.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-8 text-center text-callout text-[var(--color-text-tertiary)]">
+                <td colSpan={6} className="px-4 py-8 text-center text-callout text-[var(--color-text-tertiary)]">
                   Пока нет зарегистрированных пользователей.
                 </td>
               </tr>
