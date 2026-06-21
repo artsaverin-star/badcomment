@@ -6,15 +6,16 @@ import { getSegmentSummary } from "@/lib/segmentSummary";
 import { listIdeas } from "@/lib/ideas";
 import { hueFromSlug } from "@/lib/categoryGradient";
 
-// Square (1080×1080) carousel slide for a category, for social posts. ?slug=&i=0..7
-//   0      = hook cover (big reviews number + provocation)
-//   1..5   = the five most-observed findings (real, punchy item titles + counts)
-//   6      = the idea to build
-//   7      = read-in-full / follow CTA
-// Viral-first: ONE idea per slide, big type, little text. Cyrillic via the bundled
-// Inter subsets. NO emoji on images (Satori has no emoji source → would 502); keep
-// emoji for the post caption only. Any <div> with >1 child MUST set display:flex.
-const SLIDE_COUNT = 8;
+// Square (1080×1080) carousel slide for a category, for social posts. ?slug=&i=0..6
+//   0      = hook cover (big reviews number + "what to build" promise)
+//   1..5   = the five top product ideas to build, ranked by real demand
+//   6      = read-in-full / follow CTA
+// The ideas are the hook: concrete "build this" propositions backed by demand —
+// NOT complaints about price or bugs (those are not insights — see memory). ONE
+// idea per slide, big type, little text. Cyrillic via the bundled Inter subsets.
+// NO emoji on images (Satori has no emoji source → would 502); keep emoji for the
+// caption only. Any <div> with >1 child MUST set display:flex.
+const SLIDE_COUNT = 7;
 
 const fontFile = (name: string) => readFileSync(join(process.cwd(), "public/og-fonts", name));
 const FONTS = [
@@ -63,6 +64,13 @@ function clip(text: string, max: number): string {
   const head = s.slice(0, max);
   const sp = head.lastIndexOf(" ");
   return (sp > 0 ? head.slice(0, sp) : head).replace(/[\s,;:—-]+$/, "") + "…";
+}
+// Short ideas read as-is (keep their punch); long ones collapse to the lead name
+// before the " — " / ": " tagline (the oneLiner carries the description anyway).
+function ideaName(title: string): string {
+  const t = (title || "").trim();
+  if (t.length <= 34) return t;
+  return (t.split(/\s—\s|:\s/)[0].trim() || t).slice(0, 42);
 }
 
 // The shared chrome: logo header, eyebrow + content block, footer.
@@ -113,13 +121,12 @@ export async function GET(req: Request) {
   const accent = `hsl(${hue} 88% 68%)`;
   const reviews = (summary.reviewsScanned || 5000).toLocaleString("ru-RU");
   const apps = summary.appsCount || 10;
-  const idea = listIdeas().find((x) => x.category === slug);
 
-  // The five most-observed findings — short, punchy, real titles.
-  const obs = summary.items
-    .filter((it) => it.title && it.title.length <= 72)
-    .sort((a, b) => b.observationCount - a.observationCount)
-    .slice(0, 5);
+  // The category's ideas, ranked by real demand — the top five become slides.
+  const ideas = listIdeas()
+    .filter((x) => x.category === slug)
+    .sort((a, b) => (b.stats?.observations || 0) - (a.stats?.observations || 0));
+  const top = ideas.slice(0, 5);
 
   let node: React.ReactNode;
 
@@ -128,29 +135,24 @@ export async function GET(req: Request) {
       <div key="n" style={{ fontSize: 168, fontWeight: 800, letterSpacing: -6, lineHeight: 0.92, color: "#fff" }}>{reviews}</div>,
       <div key="r" style={{ fontSize: 50, fontWeight: 800, letterSpacing: -1.5, color: "#fff" }}>отзывов прочитали</div>,
       <div key="a" style={{ marginTop: 14, fontSize: 37, fontWeight: 500, color: "#c9c9d2" }}>{`${apps} приложений · «${cat.name}»`}</div>,
-      <div key="p" style={{ marginTop: 30, fontSize: 38, fontWeight: 800, letterSpacing: -1, color: accent }}>за что их любят — и за что сносят</div>,
+      <div key="p" style={{ marginTop: 30, fontSize: 39, fontWeight: 800, letterSpacing: -1, color: accent }}>5 идей, что построить — под живой спрос</div>,
     ]);
   } else if (i >= 1 && i <= 5) {
-    const it = obs[i - 1] || obs[obs.length - 1];
-    const n = it?.observationCount || 0;
-    node = frame(hue, accent, `${n} ${plural(n, "НАБЛЮДЕНИЕ", "НАБЛЮДЕНИЯ", "НАБЛЮДЕНИЙ")}`, [
-      <div key="t" style={{ fontSize: 66, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.07, color: "#fff", maxWidth: 930 }}>{it?.title || ""}</div>,
-    ]);
-  } else if (i === 6) {
-    const dObs = idea?.stats?.observations || 0;
-    node = frame(hue, accent, "ЧТО ПОСТРОИТЬ", [
-      <div key="t" style={{ fontSize: 74, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.04, color: "#fff", maxWidth: 930 }}>{idea?.title || cat.name}</div>,
-      idea?.oneLiner ? <div key="o" style={{ marginTop: 22, fontSize: 35, fontWeight: 500, lineHeight: 1.38, color: "#c2c2cc", maxWidth: 930 }}>{clip(idea.oneLiner, 150)}</div> : null,
-      dObs ? (
-        <div key="d" style={{ marginTop: 26, display: "flex", alignSelf: "flex-start", fontSize: 30, fontWeight: 800, color: accent, border: `2px solid ${accent}`, borderRadius: 999, padding: "12px 26px" }}>
-          {`спрос: ${dObs} ${plural(dObs, "наблюдение", "наблюдения", "наблюдений")}`}
+    const idea = top[i - 1] || top[top.length - 1];
+    const d = idea?.stats?.observations || 0;
+    node = frame(hue, accent, `ИДЕЯ 0${i}`, [
+      <div key="t" style={{ fontSize: 78, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.02, color: "#fff", maxWidth: 930 }}>{ideaName(idea?.title || "")}</div>,
+      idea?.oneLiner ? <div key="o" style={{ marginTop: 22, fontSize: 35, fontWeight: 500, lineHeight: 1.38, color: "#c2c2cc", maxWidth: 930 }}>{clip(idea.oneLiner, 140)}</div> : null,
+      d ? (
+        <div key="d" style={{ marginTop: 28, display: "flex", alignSelf: "flex-start", fontSize: 30, fontWeight: 800, color: accent, border: `2px solid ${accent}`, borderRadius: 999, padding: "12px 26px" }}>
+          {`спрос: ${d} ${plural(d, "наблюдение", "наблюдения", "наблюдений")}`}
         </div>
       ) : null,
     ]);
   } else {
     node = frame(hue, accent, "ЧИТАЙ ЦЕЛИКОМ", [
       <div key="t" style={{ fontSize: 70, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.05, color: "#fff", maxWidth: 930 }}>{`Полный разбор «${cat.name}»`}</div>,
-      <div key="s" style={{ marginTop: 22, fontSize: 36, fontWeight: 500, color: "#c2c2cc", maxWidth: 930 }}>10 приложений · 3 вывода · идея, что построить</div>,
+      <div key="s" style={{ marginTop: 22, fontSize: 36, fontWeight: 500, color: "#c2c2cc", maxWidth: 930 }}>{`${apps} приложений · разбор · ${ideas.length} идей`}</div>,
       <div key="u" style={{ marginTop: 34, fontSize: 52, fontWeight: 800, letterSpacing: -1.5, color: accent }}>inApp.pro</div>,
       <div key="c" style={{ marginTop: 10, fontSize: 33, fontWeight: 500, color: "#9a9aa4" }}>Подпишись — впереди новые ниши</div>,
     ]);
