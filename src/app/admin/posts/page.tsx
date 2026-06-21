@@ -27,14 +27,17 @@ export default async function AdminPostsPage() {
     const reviews = (summary.reviewsScanned || 5000).toLocaleString("ru-RU");
     const apps = summary.appsCount || 10;
     const idea = listIdeas().find((x) => x.category === slug);
-    const gov = (thesis.governing || "").trim();
+    // The whole governing paragraph reads like a McKinsey memo — too dense for a
+    // post. Take only its first sentence (the punchy, human thesis) and wrap it
+    // in casual, lively copy.
+    const govLead = (thesis.governing || "").trim().split(/(?<=[.!?])\s+/)[0] || "";
 
     const caption =
-      `Проанализировали ${reviews} отзывов на ${apps} приложений в нише «${cat.name}».\n\n` +
-      `${gov}\n\n` +
-      (idea ? `И главное — что построить: «${idea.title}». ${idea.oneLiner}\n\n` : "") +
-      `3 вывода + идея под подтверждённый спрос — в карусели 👉\n\n` +
-      `Полный разбор: inApp.pro/ru/segment/${slug}`;
+      `Прочитали ${reviews} отзывов на ${apps} приложений для ниши «${cat.name}» — и вот что важно.\n\n` +
+      (govLead ? `${govLead}\n\n` : "") +
+      (idea ? `А ещё придумали, что тут можно построить — «${idea.title}»: ${idea.oneLiner.charAt(0).toLowerCase()}${idea.oneLiner.slice(1)}\n\n` : "") +
+      `Все три вывода и идею показали в карусели — листай 👉\n\n` +
+      `Весь разбор: inApp.pro/ru/segment/${slug}`;
 
     return { slug, name: cat.name, caption };
   }).filter((p): p is { slug: string; name: string; caption: string } => !!p);

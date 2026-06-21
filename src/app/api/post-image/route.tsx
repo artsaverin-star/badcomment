@@ -40,6 +40,14 @@ export async function GET(req: Request) {
 
   const accent = `hsl(${h} 85% 62%)`;
   const eyebrowColor = `hsl(${h} 80% 66%)`;
+  // Same single-hue top bloom as the site's page atmosphere, but Satori-safe:
+  // only the smooth top layers (the site's lower radial bands into concentric
+  // rings under Satori), over a same-hue near-black base.
+  const baseBg = `hsl(${h} 34% 6%)`;
+  const atmoBg = [
+    `radial-gradient(70% 55% at 50% -8%, hsl(${h} 78% 56% / 0.50), hsl(${h} 62% 40% / 0.18) 40%, transparent 66%)`,
+    `radial-gradient(130% 90% at 50% -30%, hsl(${h} 55% 30% / 0.28), transparent 70%)`,
+  ].join(", ");
 
   let eyebrow = "РАЗБОР НИШИ";
   let body: React.ReactNode = null;
@@ -88,14 +96,12 @@ export async function GET(req: Request) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0a0a0c",
+          backgroundColor: baseBg,
+          backgroundImage: atmoBg,
           padding: "76px 76px 60px",
           fontFamily: "Inter",
         }}
       >
-        {/* soft category glow */}
-        <div style={{ position: "absolute", top: -180, left: -120, width: 760, height: 760, background: `radial-gradient(closest-side, hsl(${h} 80% 50% / 0.5), transparent)` }} />
-
         {/* header: logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 56, height: 56, borderRadius: 14, backgroundImage: GRAD }}>
