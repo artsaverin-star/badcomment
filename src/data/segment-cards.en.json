@@ -5528,94 +5528,99 @@
  "intermittent-fasting": {
   "product": [
    {
-    "title": "No way to fix a forgotten fast start or end",
-    "plus": null,
-    "minus": "The category's core failure: you forgot to tap start last night or stop this morning, and correcting the record after the fact is nearly impossible. You can't backdate a start to yesterday, you can't delete an accidental entry, you can't log a fast already in progress when you first install the app. One slip wrecks the entire log and your streak."
-   },
-   {
-    "title": "The app resets and rewrites your fast on its own",
-    "plus": null,
-    "minus": "Worse than a forgotten button is a timer that lies by itself. The eating window closes randomly at night; fasts start or end without any input; the app shows 43 hours when it's only been 19. Tracking is the only job these apps have, and it's exactly the part that breaks."
-   },
-   {
-    "title": "The timer needs an internet connection just to start or stop a fast",
-    "plus": null,
-    "minus": "A stopwatch should work offline — but Zero forces a server sync for every single action. You want to end your fast and eat, and the app won't load without a connection. That kills the whole point of the tool and drives people to offline competitors."
-   },
-   {
-    "title": "What was a clean timer became a bloated all-in-one with AI junk",
-    "plus": null,
-    "minus": "People loved these apps precisely for their minimalism. Then came AI food scanners, coaches, banners, and goal rings — and the core feature drowned. Veterans who had given five stars leave looking for \"just a timer.\""
-   },
-   {
-    "title": "Long and non-standard fasts are locked behind a paywall or flat-out impossible",
-    "plus": null,
-    "minus": "People who do 24-hour-plus fasts, ADF, and dry windows are a distinct audience. But apps cap the ceiling at 12 to 23 hours, charge a subscription for anything longer, or break the schedule entirely when the window runs long. Experienced users feel pushed out."
-   },
-   {
-    "title": "A mascot that shames you for skipping repels instead of motivating",
-    "plus": null,
-    "minus": "To drive retention, apps introduced animal coaches. But the childish tone and guilt trips for an unlogged day read as blame and manipulation. People come for their health and get a slot machine with a sad little face — then leave."
-   },
-   {
-    "title": "Gamification and animations can't be turned off even on a paid plan",
-    "plus": null,
-    "minus": "Streaks, diamonds, a bouncing yeti, \"I'm committed\" pop-ups — all of it is hard-wired into every action. Paying users ask for a single \"disable the noise\" toggle, but it doesn't exist. Logging a meal in ten seconds turns into a minute of tapping through screens."
-   },
-   {
-    "title": "AI photo food recognition gets it wrong consistently",
-    "plus": null,
-    "minus": "The camera scanner is the flagship premium hook, but it confuses portions and dishes: the same sandwich is 475 calories one day and 1,079 the next; a salad comes out hundreds of calories off; rice adds 200 on top. And you usually can't edit the ingredient or the weight, so the error goes straight into your diary."
-   },
-   {
-    "title": "Hour-by-hour explanations of what's happening in your body are why people keep coming back",
-    "plus": "The best retention hook isn't the timer — it's the education: which fat-burning or autophagy stage you're in right now. People read these notes precisely when willpower falters, and that keeps them in the fast. This is emotional value, not a feature.",
+    "title": "Retention comes not from the timer but the running narration of what your body is doing this hour",
+    "plus": "One mechanism runs through all 10 apps: people come back not for the stopwatch but for the feed that explains, hour by hour, which stage they're in — fat-burning, ketosis, autophagy, HGH. It reframes hunger from 'enduring emptiness' into 'watching a process,' and users deliberately open the app in the hard final hours to read what's happening inside and not break. It's this educational narrative, not the number on screen, that earns five stars.",
     "minus": null
    },
    {
-    "title": "Manual mode and a flexible window are what earns praise for simpler apps",
-    "plus": "Against rigid plans, people love being able to open and close the window by hand and backdate a start to last night. Flexibility that fits their life instead of the app's schedule is explicitly cited as the reason they chose Window and Fasting Tracker.",
+    "title": "Inability to edit or backdate a fast is the single biggest trust-killer for the disciplined user",
+    "plus": null,
+    "minus": "The category's most destructive shared flaw: forget to tap start at night or stop in the morning and the day is lost, because you can't move to yesterday's date to fix the time and a mistaken fast won't delete. The app punishes exactly the people who take fasting seriously and want a clean history and streaks. One uncorrectable mistake poisons all the stats — and they leave to find a tool they can trust."
+   },
+   {
+    "title": "A long quiz before the product isn't onboarding — it's a wall that filters out 'I just want a timer'",
+    "plus": null,
+    "minus": "A huge segment arrives with one job — 'just time my fast' — and slams into dozens of personal questions over 10–30 minutes, an account, and 'signing a contract' before the first fast. The funnel was designed for payment but works as a filter: it screens out exactly the people who wanted to try first. They uninstall at the sign-up step, never reaching the value."
+   },
+   {
+    "title": "The paywall lands before the first result — churn happens before activation, not after",
+    "plus": null,
+    "minus": "The strategically decisive mechanism of the whole category: the very thing people install a fasting tracker for — classic 16:8, OMAD, ADF, long fasts — is locked behind a subscription, and the quiz dead-ends straight into a 'subscribe' screen. The user must pay before seeing any value and hits the wall before the fasting stages ever hook them. This isn't a price gripe — it's a sequencing error in how value gets proven: the wall stands before activation."
+   },
+   {
+    "title": "The AI food scanner pulls people in, then falls apart on accuracy and the inability to correct it",
+    "plus": null,
+    "minus": "Photo-scanning a plate is a hook that converts skeptics ('it nailed what was in my food!'), but it can't retain them: recognition misses, calories land multiples off, non-European cuisine isn't recognized, and you can't fix the result. Some users end up typing everything by hand — the exact chore they were fleeing. The app sells automation but delivers manual labor, and that breaks trust in the numbers right when the user started relying on the scanner."
+   },
+   {
+    "title": "Rigid window presets disqualify the experienced — the product argues with their body instead of serving it",
+    "plus": null,
+    "minus": "Apps push their own fasting windows and resist manual edits: 23:1, 18:6, OMAD, ADF, and shift schedules are either not offered, locked behind a 'coach,' or hard-capped at 23 hours. For an experienced faster with their own protocol it's a disqualifier — they feel 'this isn't for me' and leave for an app that just listens to a button. The category loses its most motivated, retainable segment precisely by refusing to serve their regimen."
+   },
+   {
+    "title": "Widget and notification-shade timer — the passive nudge without which the habit doesn't hold",
+    "plus": "Fasting is a background process measured in hours, and status must be visible without opening the app. A persistent counter in the notification shade and a home-screen widget embed the fast into daily life: the user doesn't open the app on purpose but always sees whether they're fasting or eating. Where it exists, users call it 'not letting myself forget'; where it doesn't, it's the most common fan request and a direct reason to leave for a rival whose widget works.",
     "minus": null
    },
    {
-    "title": "A widget and notification-bar timer are the killer habit-retention feature",
-    "plus": "A constant reminder in plain sight sustains the habit: a home screen widget, a counter in the notification bar. This is the most requested \"small\" feature. But for many apps it either doesn't work, doesn't exist at all — and Zero doesn't even have a watch app.",
+    "title": "The drink-water reminder — a cheap micro-habit carrying a disproportionate share of retention",
+    "plus": "A paradox recurring in half the apps: users name their favorite feature not the fasting timer but the water reminder. It's an easy-to-complete micro-habit with a daily sense of accomplishment — it hooks them on a small win while the big goal (weight loss) is still far off. People who drank 200ml a day reach a litre within a week and credit the app directly. The cheapest feature widens the reason to open the product and retains users, especially the non-techy and older audience.",
     "minus": null
    },
    {
-    "title": "Cycle-synced fasting for women's hormones is covered by nobody",
+    "title": "A timer that needs the internet breaks the entire point of fasting",
     "plus": null,
-    "minus": "\"Fast Like a Girl\" is driving real traffic, and people are searching for fasting protocols tied to their cycle. But apps exploit the demand without delivering the functionality: you can't pause a fast during the pre-period week, and cycle phases are never factored in. A clear, unfilled niche with proven demand."
+    "minus": "Apps make the simplest action — ending a fast so you can eat — depend on a server round-trip. A user stands at the fridge unable to close their fast while it syncs; updates take the app down for whole days with a 'no internet' error on working Wi-Fi. For a tool whose only job is to mark a moment in time, that's absurd: offline reliability here isn't a feature but the core, and people leave for offline alternatives."
    },
    {
-    "title": "A wall of questions and a paywall before you can even touch the product",
+    "title": "The timer opens and closes windows on its own — users see provably false numbers",
     "plus": null,
-    "minus": "Fifteen to thirty minutes of surveys, fifty personal questions like \"how many kids do you have\" — and at the end, a paywall before you've seen a single screen of the actual app. Someone who came looking for a free timer leaves feeling their data was harvested for nothing. The entry barrier torches the funnel."
+    "minus": "Many users describe the same behavior: the app ends a fast in the middle of the night or opens an eating window at 2–3 am, on its own, even while closed. Because you can't fix it by hand, the user sees '43 hours instead of 19' in their stats. For a tracker whose only value is timing accuracy, a timer that resets itself voids trust in the entire product."
    },
    {
-    "title": "Ads on every action make the free version unusable",
-    "plus": null,
-    "minus": "Add one item — two video ads and four premium banners. The ads can't be closed, they redirect you to the Play Store, and they loop the app back on itself. This isn't merely annoying; it literally prevents you from logging a fast or a meal — people delete the app and switch to a competitor."
-   },
-   {
-    "title": "Watch and scale sync is a blind spot for almost every app",
-    "plus": null,
-    "minus": "People don't carry their phone all day — steps and weight should pull from a watch. But sync only covers Fitbit and Google; there's no Garmin, Samsung, Apple, or manual step entry. Paired \"smart\" scales drop the connection because of a bug. Broken basic integration kills retention."
-   },
-   {
-    "title": "Losing weight and seeing real results is what cements loyalty",
-    "plus": "People forgive a lot for numbers on the scale. Minus 100 pounds, minus 56, minus 40 kg — reviews like these turn a user into an advocate. Fasting \"works,\" and the app becomes part of a lifestyle precisely because of a visible outcome.",
+    "title": "A genuinely generous free tier converts skeptics into brand advocates",
+    "plus": "In a niche where almost everything sits behind a paywall, the winner is whoever makes the free version actually sufficient: tracker, plans, tips, water. This creates a rare class of loyal free users who return for years, rebut the 'scam' accusations themselves in reviews, and recommend the app. The free tier functions as proof of value — and it, not the subscription, turns out to be the real retention engine.",
     "minus": null
    },
    {
-    "title": "The weight-loss framing is broken: it pushes unsafe rates and shames healthy people",
+    "title": "Bloating a simple timer into a health platform crowds out the thing people loved",
     "plus": null,
-    "minus": "Every app is locked onto weight loss: calling lean people \"overweight,\" pushing dangerous pace targets, with no concept of maintenance or muscle gain. Athletic, healthy users and anyone with an eating-disorder history feel harmed and leave. An entire \"not about weight\" segment goes unserved."
+    "minus": "Goal rings, water, steps, food, sleep and 'four pillars' pile on top of the timer and bury the quick answer to the only question — 'how long have I been fasting.' Users who want fasting alone can't switch the extras off, and regression updates turn once-instant actions into multi-tap slogs. Loyal veterans call it 'losing focus on what made it great' and leave for minimalist competitors."
    },
    {
-    "title": "Predatory billing and impossible cancellation are burning trust across the whole category",
+    "title": "Refusing to sync with fitness ecosystems turns 'all-in-one' into an island",
     "plus": null,
-    "minus": "A distinct but loud layer: charges after cancellation, a $1 trial that becomes $48, a cancel button stuck in infinite loading, refunds denied. This isn't about the product — it's about the reputation of the niche as a whole. Because of it, people give one star without ever giving the app a real chance."
+    "minus": "Links to Fitbit, Garmin, Samsung Health, Health Connect and Apple Watch either don't work or broke — and some apps won't even let you enter steps by hand. A user with an existing health ecosystem must re-enter weight, sleep and activity manually or go without their data entirely. The target audience (often older, at home) doesn't carry their phone, and 'just keep your phone on you' reads as mockery — people leave for a tool where data flows in automatically."
+   },
+   {
+    "title": "Manual mode with a backdated start is the one feature that forgives real life",
+    "plus": "Unlike rigid preset plans, manual mode lets you start the count and push the start back to 'yesterday, 10 pm' for someone who only opens the app in the morning. People constantly forget to log the fast start — at work, in a rush — and those who can backfill the time stay. For people who fast intuitively (longer on weekdays, shorter on weekends) it's exactly the flexibility worth five stars, and a product that survives the user's own lapses becomes a 'home' they return to months later.",
+    "minus": null
+   },
+   {
+    "title": "A shaming tone (overseer mascot, scoldings, body-shaming onboarding) repels the audience it invited to lose weight",
+    "plus": null,
+    "minus": "Motivation through guilt systematically misfires: a cartoon turns passive-aggressive when you miss a log, the app fires a 'nastygram' if you step two seconds past your eating window, and onboarding makes you pick a figure type from 'normal / flabby / extra.' For an audience already wrestling with eating habits and weight, shame reads as punishment, not motivation — and people quit over the tone, not the features."
+   },
+   {
+    "title": "An emotionally safe, no-pressure tone retains the lapse-prone — the flip side of shame",
+    "plus": "Mirror to shame, forgiveness works: people who fear diets precisely because of the guilt of breaking them stay where the app doesn't pressure — you can shift the window, break the fast, and get no scolding. This retains the 'slipper' segment that quits stricter trackers: the product forgives, so they return after a lapse instead of deleting it. An unexpected neighbor — the AI format: some people are more honest with a bot than with a live dietitian, because admitting a slip isn't shameful.",
+    "minus": null
+   },
+   {
+    "title": "The daily accountability ritual — not fasting itself — drives the real results and the comebacks",
+    "plus": "Those who actually lose weight describe one mechanism: the daily logging of food, water, weight and movement keeps them honest. The value isn't fasting per se but the ritual of honest daily tracking — 'accountable,' 'mindful,' 'on track' recur among those dropping 10–34 lbs. The very act of logging what you ate makes you more mindful of what goes in your mouth; the app becomes a 'friend that keeps you honest.' An early visible result on the scale in week one locks in the habit faster than any gamification.",
+    "minus": null
+   },
+   {
+    "title": "Broken streaks, badges and 'calibration' snuff out the exact motivator that held the habit",
+    "plus": null,
+    "minus": "Gamification is the core retention hook of a habit tracker, and when it starts lying about progress it hits the best users. 1800+ day streaks suddenly reset, 50-day badges fail to unlock, the 'calibration percentage' hangs on 'day 29' and threatens to zero out the ideal user who checks in every single day. A system that punishes the disciplined destroys faith in the progress mechanism itself — and loses the very people paying through term."
+   },
+   {
+    "title": "The quiz's 'personalized plan' turns out to be a set of presets and template recipes with no diet filter",
+    "plus": null,
+    "minus": "A long quiz creates the expectation of an individualized program — but on the inside the user picks their own window, decides what to eat themselves, and the 'personalized' recipes ignore the stated diet: a vegetarian is offered meat, an allergic user their allergen, a keto plan surfaces pasta and bread. The promise that 'your answers mattered' is contradicted by the very first recipe, and that feels like a bigger betrayal than any price. The 'coach' the subscription sells turns out to be a PDF of googlable tips with no feedback."
    }
   ],
   "hygiene": []
