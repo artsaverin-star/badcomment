@@ -124,42 +124,36 @@ export async function GET(req: Request) {
   let node: React.ReactNode;
 
   if (i === 0) {
-    node = frame(hue, accent, "РАЗБОР НИШИ", (
-      <>
-        <div style={{ fontSize: 168, fontWeight: 800, letterSpacing: -6, lineHeight: 0.92, color: "#fff" }}>{reviews}</div>
-        <div style={{ fontSize: 50, fontWeight: 800, letterSpacing: -1.5, color: "#fff" }}>отзывов прочитали</div>
-        <div style={{ marginTop: 14, fontSize: 37, fontWeight: 500, color: "#c9c9d2" }}>{`${apps} приложений · «${cat.name}»`}</div>
-        <div style={{ marginTop: 30, fontSize: 38, fontWeight: 800, letterSpacing: -1, color: accent }}>за что их любят — и за что сносят</div>
-      </>
-    ));
+    node = frame(hue, accent, "РАЗБОР НИШИ", [
+      <div key="n" style={{ fontSize: 168, fontWeight: 800, letterSpacing: -6, lineHeight: 0.92, color: "#fff" }}>{reviews}</div>,
+      <div key="r" style={{ fontSize: 50, fontWeight: 800, letterSpacing: -1.5, color: "#fff" }}>отзывов прочитали</div>,
+      <div key="a" style={{ marginTop: 14, fontSize: 37, fontWeight: 500, color: "#c9c9d2" }}>{`${apps} приложений · «${cat.name}»`}</div>,
+      <div key="p" style={{ marginTop: 30, fontSize: 38, fontWeight: 800, letterSpacing: -1, color: accent }}>за что их любят — и за что сносят</div>,
+    ]);
   } else if (i >= 1 && i <= 5) {
     const it = obs[i - 1] || obs[obs.length - 1];
     const n = it?.observationCount || 0;
-    node = frame(hue, accent, `${n} ${plural(n, "НАБЛЮДЕНИЕ", "НАБЛЮДЕНИЯ", "НАБЛЮДЕНИЙ")}`, (
-      <div style={{ fontSize: 66, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.07, color: "#fff", maxWidth: 930 }}>{it?.title || ""}</div>
-    ));
+    node = frame(hue, accent, `${n} ${plural(n, "НАБЛЮДЕНИЕ", "НАБЛЮДЕНИЯ", "НАБЛЮДЕНИЙ")}`, [
+      <div key="t" style={{ fontSize: 66, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.07, color: "#fff", maxWidth: 930 }}>{it?.title || ""}</div>,
+    ]);
   } else if (i === 6) {
     const dObs = idea?.stats?.observations || 0;
-    node = frame(hue, accent, "ЧТО ПОСТРОИТЬ", (
-      <>
-        <div style={{ fontSize: 74, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.04, color: "#fff", maxWidth: 930 }}>{idea?.title || cat.name}</div>
-        {idea?.oneLiner ? <div style={{ marginTop: 22, fontSize: 35, fontWeight: 500, lineHeight: 1.38, color: "#c2c2cc", maxWidth: 930 }}>{clip(idea.oneLiner, 150)}</div> : null}
-        {dObs ? (
-          <div style={{ marginTop: 26, display: "flex", alignSelf: "flex-start", fontSize: 30, fontWeight: 800, color: accent, border: `2px solid ${accent}`, borderRadius: 999, padding: "12px 26px" }}>
-            {`спрос: ${dObs} ${plural(dObs, "наблюдение", "наблюдения", "наблюдений")}`}
-          </div>
-        ) : null}
-      </>
-    ));
+    node = frame(hue, accent, "ЧТО ПОСТРОИТЬ", [
+      <div key="t" style={{ fontSize: 74, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.04, color: "#fff", maxWidth: 930 }}>{idea?.title || cat.name}</div>,
+      idea?.oneLiner ? <div key="o" style={{ marginTop: 22, fontSize: 35, fontWeight: 500, lineHeight: 1.38, color: "#c2c2cc", maxWidth: 930 }}>{clip(idea.oneLiner, 150)}</div> : null,
+      dObs ? (
+        <div key="d" style={{ marginTop: 26, display: "flex", alignSelf: "flex-start", fontSize: 30, fontWeight: 800, color: accent, border: `2px solid ${accent}`, borderRadius: 999, padding: "12px 26px" }}>
+          {`спрос: ${dObs} ${plural(dObs, "наблюдение", "наблюдения", "наблюдений")}`}
+        </div>
+      ) : null,
+    ]);
   } else {
-    node = frame(hue, accent, "ЧИТАЙ ЦЕЛИКОМ", (
-      <>
-        <div style={{ fontSize: 70, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.05, color: "#fff", maxWidth: 930 }}>{`Полный разбор «${cat.name}»`}</div>
-        <div style={{ marginTop: 22, fontSize: 36, fontWeight: 500, color: "#c2c2cc", maxWidth: 930 }}>10 приложений · 3 вывода · идея, что построить</div>
-        <div style={{ marginTop: 34, fontSize: 52, fontWeight: 800, letterSpacing: -1.5, color: accent }}>inApp.pro</div>
-        <div style={{ marginTop: 10, fontSize: 33, fontWeight: 500, color: "#9a9aa4" }}>Подпишись — впереди новые ниши</div>
-      </>
-    ));
+    node = frame(hue, accent, "ЧИТАЙ ЦЕЛИКОМ", [
+      <div key="t" style={{ fontSize: 70, fontWeight: 800, letterSpacing: -2.5, lineHeight: 1.05, color: "#fff", maxWidth: 930 }}>{`Полный разбор «${cat.name}»`}</div>,
+      <div key="s" style={{ marginTop: 22, fontSize: 36, fontWeight: 500, color: "#c2c2cc", maxWidth: 930 }}>10 приложений · 3 вывода · идея, что построить</div>,
+      <div key="u" style={{ marginTop: 34, fontSize: 52, fontWeight: 800, letterSpacing: -1.5, color: accent }}>inApp.pro</div>,
+      <div key="c" style={{ marginTop: 10, fontSize: 33, fontWeight: 500, color: "#9a9aa4" }}>Подпишись — впереди новые ниши</div>,
+    ]);
   }
 
   return new ImageResponse(node, {
