@@ -372,7 +372,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       {/* HERO */}
       <header className="ld-fade mt-12">
         <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши" : "Niche research"}</div>
-        <h1 className="glow-sweep relative mt-6 text-[clamp(46px,12vw,84px)] font-black leading-[0.94] tracking-[-0.05em] text-[var(--color-text-primary)]">{cat.name}</h1>
+        <h1 className="glow-sweep mt-6 text-[clamp(38px,9.5vw,72px)] font-black leading-[0.96] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">{cat.name}</h1>
         {thesis ? (
           <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
         ) : (

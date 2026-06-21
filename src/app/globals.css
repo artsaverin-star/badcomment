@@ -295,12 +295,21 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 1100px;
+  height: 1200px;
   z-index: -1;
   pointer-events: none;
+  /* Very gradual multi-stop falloff so the glow has no perceptible edge — it just
+     melts into the dark instead of showing an ellipse boundary. */
   background:
-    radial-gradient(72% 85% at 26% -22%, hsl(var(--atmo-h, 28) 82% 56% / 0.45), transparent 62%),
-    radial-gradient(95% 80% at 12% -28%, hsl(var(--atmo-h, 28) 62% 38% / 0.28), transparent 74%);
+    radial-gradient(85% 100% at 24% -28%,
+      hsl(var(--atmo-h, 28) 82% 56% / 0.4) 0%,
+      hsl(var(--atmo-h, 28) 74% 48% / 0.22) 24%,
+      hsl(var(--atmo-h, 28) 62% 40% / 0.08) 48%,
+      transparent 78%),
+    radial-gradient(120% 110% at 8% -40%,
+      hsl(var(--atmo-h, 28) 60% 40% / 0.18) 0%,
+      hsl(var(--atmo-h, 28) 50% 32% / 0.05) 45%,
+      transparent 80%);
 }
 html:not([data-theme="dark"]) .atmosphere {
   display: none;
@@ -308,36 +317,38 @@ html:not([data-theme="dark"]) .atmosphere {
 
 /* One-shot glow that travels across a heading left → right once on load: a bright
    band of the accent colour sweeps over the text (clipped to the glyphs). */
-/* Position stays within [0%,100%] so the (260%-wide) gradient ALWAYS fully covers
-   the text — outside that range the glyphs fall off the image and, with a
-   transparent text-fill, would vanish. The bright band sweeps left → right; both
-   ends settle on solid text-primary (the band is parked off-glyph). */
+/* The heading text stays its normal solid colour (always visible, never clipped).
+   A soft bright light-blob rides across it left → right once on load — a real
+   glow sweep — via an ::after that can't affect the text itself. */
 @keyframes glow-sweep {
-  from { background-position: 100% 0; }
-  to { background-position: 0% 0; }
+  from { background-position: -25% 50%; }
+  to { background-position: 125% 50%; }
 }
 .glow-sweep {
-  background-image: linear-gradient(
-    100deg,
-    var(--color-text-primary) 0%,
-    var(--color-text-primary) 42%,
-    var(--glow-c, var(--color-accent-brand)) 50%,
-    var(--color-text-primary) 58%,
-    var(--color-text-primary) 100%
+  position: relative;
+}
+.glow-sweep::after {
+  content: "";
+  position: absolute;
+  top: -0.4em;
+  bottom: -0.4em;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 55%, #fff) 0%,
+    transparent 100%
   );
-  background-size: 260% 100%;
   background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glow-sweep 1.25s ease-out 0.2s 1 both;
+  background-size: 30% 135%;
+  background-position: -25% 50%;
+  opacity: 0.9;
+  filter: blur(10px);
+  animation: glow-sweep 1.5s ease-out 0.25s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
-  .glow-sweep {
-    animation: none;
-    background: none;
-    -webkit-text-fill-color: currentColor;
-  }
+  .glow-sweep::after { display: none; }
 }
 
 /* ── Landing (logged-out) animations ──────────────────────────────────── */
