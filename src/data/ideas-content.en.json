@@ -498,178 +498,6 @@
   "title": "AI Only When You Ask",
   "oneLiner": "An AI assistant that kicks in only when you summon it — and switches off completely"
  },
- "nutrition-calories-1": {
-  "categoryName": "Calories & Nutrition",
-  "gap": "Asian, Indian, Arabic, Nigerian, and Russian-language foods are missing from large databases; non-local items are hard to find and familiar entries disappear after updates",
-  "pitch": "Big calorie counters are built around American brands — everything else has to be entered by hand, over and over. Your Kitchen flips the logic: your personal catalog of foods and dishes is primary, and updates never wipe it. Photograph a label in any language — the app reads the nutrition info and saves the item permanently. Regional packs (Uzbek, Georgian, Indian, Arabic cuisine) are compiled and verified by the community, not pushed from the top.",
-  "features": [
-   "Personal food catalog that database updates never touch",
-   "Label and nutrition recognition in any language, saved to your catalog",
-   "Ready-made regional dish packs verified by the community",
-   "Search that looks in your catalog first, then the global database",
-   "Export your foods and dishes when switching apps"
-  ],
-  "antiFeatures": [
-   "We don't replace a found item with a similar-sounding one",
-   "We don't delete your products when syncing with the global database"
-  ],
-  "monetization": "Personal catalog and manual entry are free; one-time token for bulk label recognition and for regional dish packs",
-  "mechanisms": [
-   "Massive barcode-enabled food database is the main reason people stay",
-   "Gaps in local and ethnic cuisine force manual entry",
-   "Photo food recognition saves time but misses portion size and calorie counts",
-   "Search and barcode scanner are unreliable — items end up entered manually"
-  ],
-  "title": "Your Own Kitchen",
-  "oneLiner": "A food diary that builds a personal food database around your local and ethnic cuisine"
- },
- "nutrition-calories-2": {
-  "categoryName": "Calories & Nutrition",
-  "gap": "Data is user-submitted: one product has multiple conflicting values, duplicates, absurd serving sizes; prepared dishes are calculated by raw weight, and there's no way to report an error",
-  "pitch": "The core problem with large databases — you can't trust the number and you can't fix it. Disputed Number shows the source (label, official registry, user) and confidence level for every entry. Discrepancies with the label are corrected in one tap, the edit goes to moderation, and lands for everyone. Prepared dishes are immediately flagged as raw or cooked weight so you never double-count.",
-  "features": [
-   "Source and confidence label on every entry",
-   "One-tap correction of calories and macros with edit moderation",
-   "Explicit raw/cooked weight flag on dishes",
-   "Merge duplicates and report an absurd serving size",
-   "User-pinned corrections are not reset on database update"
-  ],
-  "antiFeatures": [
-   "We don't publish edits without review",
-   "We don't hide where the number comes from"
-  ],
-  "monetization": "Search and corrections are free; token for priority moderation of your edits and for exporting a verified diary to a doctor",
-  "mechanisms": [
-   "Calories and macros in the database don't match labels and can't be corrected",
-   "Weak reporting, data export, and water tracking"
-  ],
-  "title": "Numbers You Can Trust",
-  "oneLiner": "Calories and macros with a visible source and a fix-it button right where you log"
- },
- "nutrition-calories-3": {
-  "categoryName": "Calories & Nutrition",
-  "gap": "Photo recognition misses portion volume and calorie counts, misidentifies foods, and resets manual corrections on the next open",
-  "pitch": "AI recognition is appealing for speed, but it lies with confidence: under- or overcounting calories, unable to estimate volume. No Scale takes the opposite approach — it shows a range and a confidence level, and when in doubt asks one clarifying question (bowl or plate, with oil or without). Every correction is saved permanently and trains your personal estimate, not reset the next time you open the app.",
-  "features": [
-   "Calorie estimate with a range and confidence level, not a single fixed number",
-   "One clarifying question about portion size instead of a silent guess",
-   "Portion correction is saved and applied to similar dishes",
-   "Portion size compared to a familiar object for calibration",
-   "Voice input as a quick fallback"
-  ],
-  "antiFeatures": [
-   "We don't give a precise number when the model isn't confident",
-   "We don't reset manual corrections on recalculation"
-  ],
-  "monetization": "A few recognitions per day are free; token for a recognition pack and for personalized estimate calibration",
-  "mechanisms": [
-   "Photo food recognition saves time but misses portion size and calorie counts",
-   "Calories and macros in the database don't match labels and can't be corrected"
-  ],
-  "title": "No Scale Needed",
-  "oneLiner": "Honest portion estimates from a photo: it tells you how sure it is and asks instead of guessing"
- },
- "nutrition-calories-4": {
-  "categoryName": "Calories & Nutrition",
-  "gap": "Post-update logging takes longer: menus, mandatory AI chat, cartoon mascots, and unskippable animations slow things down; a long onboarding quiz and mandatory sign-up put off new users",
-  "pitch": "Most people want one thing — log their food quickly and see remaining calories. Competitors bury that under animations, diamonds, virtual pets, and mandatory chats. Just a Counter starts with the first entry, no account or quiz required, copies yesterday's meals in one tap, and keeps a widget on the home screen. No gamification. No food traffic lights.",
-  "features": [
-   "First food entry without sign-up or onboarding quiz",
-   "Widget and one-tap repeat of yesterday's meals",
-   "Entry saves instantly, no 'Done' button required",
-   "Watch and desktop versions with the same fast input",
-   "Edit any past day and jump to any date"
-  ],
-  "antiFeatures": [
-   "No gamification, virtual pets, or unskippable animations",
-   "No good/bad food scores",
-   "We don't push AI chat in place of a plain search"
-  ],
-  "monetization": "Basic counter is free forever; token for advanced reports, export, and desktop sync",
-  "mechanisms": [
-   "Post-update food logging has become slower and more confusing",
-   "Logged food disappears without confirmation, and past history can't be edited",
-   "Syncing with scales, watches, and trackers is often inaccurate",
-   "A long onboarding quiz and mandatory sign-up discourage new users",
-   "Users want widgets, a watch app, a desktop version, and meal sharing"
-  ],
-  "title": "Just a Counter",
-  "oneLiner": "A food log with no games, scores, or quizzes: open, log, done in five seconds"
- },
- "nutrition-calories-5": {
-  "categoryName": "Calories & Nutrition",
-  "gap": "Everything is tuned for weight loss: the diary often can't be opened without a weight-loss goal, maintenance and muscle-gain modes are scarce, and flexible per-day targets are missing",
-  "pitch": "Calorie counters treat weight loss as the only valid goal: without a target to drop kilos, the diary often won't open, and bulk and maintenance modes are buried. Any Goal puts every goal on equal footing — gaining, maintaining, recovering from illness, or peaking for a sports season. Targets flex by day (training vs. rest), the focus is protein adequacy and sufficient calories, not a deficit.",
-  "features": [
-   "Gain, maintenance, and recovery goals on par with weight loss",
-   "Different daily targets for training and rest days",
-   "Focus on adequate protein and calories, not a deficit",
-   "Integration with strength training for needs calculation",
-   "Diary without a mandatory weight-loss selection"
-  ],
-  "antiFeatures": [
-   "We don't shame you for exceeding your target when your goal is gaining",
-   "We don't default to a calorie deficit"
-  ],
-  "monetization": "Diary and goals are free; token for protein planning around training and integration with strength programs",
-  "mechanisms": [
-   "Weight-loss focus gets in the way of users maintaining or gaining weight",
-   "Exercise section is thin and calorie burn estimates are inaccurate",
-   "Daily calorie target calculation is not trusted"
-  ],
-  "title": "Any Goal Weight",
-  "oneLiner": "A food diary for people maintaining or gaining weight, not just losing it"
- },
- "nutrition-calories-6": {
-  "categoryName": "Calories & Nutrition",
-  "gap": "Harsh reminders, good/bad traffic-light ratings, and low scores for healthy foods attach labels and trigger guilt; non-dismissible tips and unrealistic meal swaps pop up after every entry",
-  "pitch": "For many people — especially those with eating disorders — a standard calorie counter is toxic: it judges food, shames you for numbers, and floods you with pushy meal swaps. Gentle Log removes all scores and ratings, lets you hide calorie numbers if you choose, and keeps only the observation of what you eat and how you feel. No non-dismissible tips. No jarring reminders. A number-free mode for users whose doctor does the counting.",
-  "features": [
-   "No food scores, traffic lights, or ratings",
-   "Calorie-free mode — observe your diet without numbers",
-   "Link entries to how you feel and your mood instead of metrics",
-   "All reminders and tips are optional and gentle",
-   "Export the diary to a treating physician or specialist"
-  ],
-  "antiFeatures": [
-   "We don't suggest meal swaps or judge your choices",
-   "We don't make weight reminders persistent",
-   "We don't gamify calorie restriction"
-  ],
-  "monetization": "Gentle diary is free; token for specialist export and shared mode with a doctor",
-  "mechanisms": [
-   "Judgmental framing of weight, food scores, and pushy tips is harmful — especially for eating disorders",
-   "Lessons, coaching, and community motivate behavior change",
-   "Weak reporting, data export, and water tracking"
-  ],
-  "title": "Gentle Tracking",
-  "oneLiner": "Food tracking with no traffic lights, labels, or pushy nudges — safe for eating-disorder recovery"
- },
- "nutrition-calories-7": {
-  "categoryName": "Calories & Nutrition",
-  "gap": "Fiber, vitamins, minerals, and caffeine are not prominently visible; many users want gram-based input and fractional servings instead of cups, ounces, and rounded values",
-  "pitch": "For anyone counting seriously — on keto, with diabetes, in sport — cups, ounces, and rounded values get in the way, and the nutrients they need are buried. Grams & Nutrients delivers precise gram-based and fractional-serving input, net carbs for keto, and a customizable panel of fiber, vitamins, minerals, and caffeine right on the home screen. Allergies and intolerances are set hard — the filter lets nothing through.",
-  "features": [
-   "Gram and fractional serving input, no forced cups or ounces",
-   "Customizable nutrient panel on the home screen",
-   "Net carbs, fiber, caffeine, and dozens of vitamins and minerals",
-   "Hard allergy and intolerance filters in recipes",
-   "Custom recipes with automatic macro calculation that don't vanish from the list"
-  ],
-  "antiFeatures": [
-   "We don't round grams to convenient cups",
-   "We don't hide nutrients behind extra screens"
-  ],
-  "monetization": "Basic nutrient tracking is free; token for the full vitamin and mineral panel and for advanced diet presets",
-  "mechanisms": [
-   "Users want more nutrients, precise units, and sensible serving sizes",
-   "Tracking macros and nutrients teaches mindful eating",
-   "Support for special diets, fasting, and health conditions",
-   "Custom recipes with automatic macro calculation are essential for home cooks"
-  ],
-  "title": "Grams and Nutrients",
-  "oneLiner": "Precise entry in grams and fractions with vitamins, minerals, and caffeine front and center"
- },
  "period-cycle-1": {
   "categoryName": "Period & Fertility",
   "gap": "Mainstream apps anchor to a 28-day average and perpetually mark users as 'late'. For PCOS, long cycles, or double cycles, the prediction breaks and never self-corrects. A 15–20 day cap on period length and a ban on a second cycle per month exclude an entire audience.",
@@ -7174,5 +7002,110 @@
    "Arbitrary period and balance carry-over so the loop matches payday"
   ],
   "monetization": "Free tracking and a basic game; subscription/Lifetime for world cosmetics, advanced goals and habit analytics."
+ },
+ "nutrition-calories-1": {
+  "categoryName": "Калории и питание",
+  "title": "One tap and lunch is logged",
+  "oneLiner": "An offline-first calorie tracker tuned for one metric — repeat-log speed — with no AI chatter and no gamification.",
+  "gap": "Every incumbent, on maturing, bolted an AI chat in front of the log, pop-up queues and streaks, adding taps to an action people do 5x a day. The \"I know the calories, I just want to type and close\" segment flees in bulk, but there's no perfect fast tracker for them to flee to.",
+  "pitch": "Open it and yesterday's food is already on screen, \"repeat lunch\" is one tap, gram entry is a direct keypad, and everything works without a network. No AI between you and the record; AI and charts are optional, on top, behind a toggle.",
+  "features": [
+   "One-tap \"same as yesterday\" and copy-whole-day",
+   "Direct number and gram entry — no dials, no \"servings\"",
+   "Fully offline logging with background sync",
+   "Swipe between days and recent/frequent/favorites on the home screen",
+   "Global \"minimal mode\" toggle to kill all tips, animations, streaks"
+  ],
+  "monetization": "Free core forever (log, database, barcode, custom recipes); subscription only for cloud backup, export and advanced analytics."
+ },
+ "nutrition-calories-2": {
+  "categoryName": "Калории и питание",
+  "title": "Curated base: one correct entry per food",
+  "oneLiner": "A tracker with a curated, verified food database — no ten duplicates with different calories.",
+  "gap": "An open crowdsourced base makes the catalog huge and poisons it at once: a dozen entries per food with different numbers, \"verified\" ones that are wrong, no way to mark the correct one. Users log junk for years and lose trust in the number itself.",
+  "pitch": "Every food is one canonical entry with a source (label/USDA/brand), a \"this is right/wrong\" button, and a clear hierarchy: verified always outranks user-submitted. Search returns the best entry, not a wall of noise.",
+  "features": [
+   "Canonical entries with the data source shown",
+   "\"Correct/incorrect\" voting and one-tap error reporting",
+   "Verified foods always first in results",
+   "Photo the label → auto-fill macros with a check",
+   "Personal recipe library layered over the shared base"
+  ],
+  "monetization": "Free basic search and log; premium — priority addition of missing foods and an unlimited personal base."
+ },
+ "nutrition-calories-3": {
+  "categoryName": "Калории и питание",
+  "title": "Local food: a tracker for your own cuisine",
+  "oneLiner": "A calorie tracker with a deep non-Western base — Indian, Asian, Middle Eastern, post-Soviet food in grams and local barcodes.",
+  "gap": "Every major tracker is built for the US/West: local dishes are missing, the barcode won't scan, units are in \"cups,\" the week starts Sunday. Whole markets leave because they can't log a plain chicken fillet or a local product.",
+  "pitch": "A base built around regional cuisine and local brands, with grams by default and a working local barcode. Where incumbents silently lose the international segment, you take it whole.",
+  "features": [
+   "Regional dish bases and local brands with home recipes",
+   "Local barcodes and country-specific catalogs",
+   "Grams and local units/standards (net carbs, salt instead of sodium) by default",
+   "Configurable week start and a localized interface",
+   "Moderated community contributions per region"
+  ],
+  "monetization": "Free log and local base; premium — offline country-base packs and advanced local-cuisine analytics."
+ },
+ "nutrition-calories-4": {
+  "categoryName": "Калории и питание",
+  "title": "Neutral tracker: zero shame",
+  "oneLiner": "A food tracker with no traffic-lights and no moralizing — for people with an ED history and anyone who wants facts, not verdicts.",
+  "gap": "In a niche where the audience is by definition vulnerable, incumbents color food \"good/bad,\" send sad faces and AI \"swap for something healthy\" tips — and contradict themselves (spinach orange, cheeseburger green). It's an ethical risk and a trust-killer. A safe, neutral tracker barely exists.",
+  "pitch": "Numbers and trends only, no judgments about food. An optional \"hide calories\" mode (habit and nutrient tracking without the numbers), and a no-pressure tone — \"do it as well as you can, approximate still counts.\"",
+  "features": [
+   "No color scoring and no \"bad food\" — data only",
+   "Calorie-hiding mode for ED recovery",
+   "No-pressure tone and gentle, non-manipulative reminders",
+   "Focus on nutrients and well-being, not the deficit",
+   "Hard age/safety-conscious design reviewed by specialists"
+  ],
+  "monetization": "Free core; premium — deeper nutrient insights and integration with a therapist/dietitian."
+ },
+ "nutrition-calories-5": {
+  "categoryName": "Калории и питание",
+  "title": "Keto/diabetes: honest net carbs",
+  "oneLiner": "A macro tracker tuned for keto and diabetes: accurate net-carb and sugar accounting, manual goal, no calorie dictate.",
+  "gap": "The most motivated, paying segment comes for net carbs and sugar control, yet \"carb managers\" front-load a calorie goal, AI counts chia as 10 net carbs instead of zero, and you can't set the goal manually. For people whose blood sugar spikes, that's a medical risk.",
+  "pitch": "From the first screen, carbs and sugar are central, net carbs are computed correctly and transparently, and the goal is set by you or your doctor. Exclude foods by fructose/allergies, log glucose next to meals.",
+  "features": [
+   "Correct net-carb math with a transparent formula",
+   "Manual goal-setting for calories and every macro",
+   "Glucose/insulin logging next to meals",
+   "Exclusion filters (fructose, allergens) in suggestions",
+   "One-tap export of logs to a doctor/dietitian"
+  ],
+  "monetization": "Free basic keto log; premium — medical reports, export and glucometer/CGM integration."
+ },
+ "nutrition-calories-6": {
+  "categoryName": "Калории и питание",
+  "title": "Couples tracker: losing weight together",
+  "oneLiner": "A calorie tracker with a shared log for couples and families — shared recipes and mutual accountability double retention.",
+  "gap": "Logging food jointly with a partner is a social lock: two accounts hold each other and neither leaves. Yet incumbents remove meal sharing, turning the couples scenario into manual double-entry — and the stickiest cohort leaves together at once.",
+  "pitch": "One recipe — both diaries, shared progress and gentle accountability without pressure. Cooked dinner for two, both logged in one action; your partner sees your streak, you see theirs.",
+  "features": [
+   "Shared recipes and meals synced across accounts",
+   "Couple/family goals and joint progress",
+   "Mutual reminders and accountability without competition",
+   "Separate private mode for weight/measurements",
+   "Shared shopping list from logged recipes"
+  ],
+  "monetization": "Free solo log; a couple/family premium cheaper than two single subscriptions — a built-in incentive to retain both."
+ },
+ "nutrition-calories-7": {
+  "categoryName": "Калории и питание",
+  "title": "Your data, yours forever",
+  "oneLiner": "A tracker that guarantees data immortality: auto-backup, instant transfer to a new phone, and full export of logs.",
+  "gap": "For multi-year users the accumulated history is emotional capital and the main lock. But incumbents lose years of logs on a phone reset or update bug, offer no export or API — and the most loyal leave for good and angry, specifically over data fragility.",
+  "pitch": "Every log mirrors to the cloud encrypted; a new phone means log in and everything's there to the last entry. File export and an API are built in so you can take logs to a doctor, dietitian or your own spreadsheet. The data can't be lost and can't be locked in.",
+  "features": [
+   "Auto-backup of every log with encryption",
+   "Seamless device transfer with no loss",
+   "CSV/PDF export and an open API",
+   "Weekly/monthly calorie and macro reports",
+   "Versioning: restore accidentally deleted entries"
+  ],
+  "monetization": "Free log with basic backup; premium — unlimited history, advanced reports, API access and doctor-export."
  }
 }

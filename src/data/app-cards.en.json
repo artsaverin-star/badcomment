@@ -1997,64 +1997,84 @@
  "g-carbmanager": {
   "product": [
    {
-    "title": "The free tier genuinely covers the basics: scanner, custom foods, macros",
-    "plus": "Many users stay on the free version for years without feeling cheated: barcode scanning, custom recipes and tracking of protein, carbs and calories all work without paying — rare among trackers where these usually sit behind a paywall.",
+    "title": "The free barcode scanner is the hook that pulls people off MyFitnessPal",
+    "plus": "Rivals lock the scanner and custom foods behind a paywall; here they ship free, so the core scan-and-log loop works without paying and kills entry friction on day one. That's the actual switching trigger: users call the scanner fast, unlimited, and the deciding factor over paid competitors.",
     "minus": null
    },
    {
-    "title": "Barcode scanner and a huge food database make logging fast",
-    "plus": "The barcode scanner is the single most praised feature: it's fast and finds even obscure products, and the large macro database plus day-copy shortcuts cut the daily friction of logging food.",
+    "title": "The crowdsourced database is both the catalog's breadth and the poison in its trust",
+    "plus": null,
+    "minus": "The same food sits in the database as several conflicting entries because users publish them with no moderation. For an app whose whole point is accurate macro counting, that breaks the core function: people stop trusting any number and end up hand-checking every entry, which eats the very time savings the tracker promised."
+   },
+   {
+    "title": "The recipe calculator does its own math wrong — and that hurts the core worse than bad user entries",
+    "plus": null,
+    "minus": "Even when the user enters verified ingredients themselves, the recipe and daily totals don't reconcile: 15g of carbs becomes 25–26, and the calorie budget contradicts the protein/fat/carb budget. This isn't crowdsourcing — it's the app's own arithmetic, and it's what finally breaks trust: a tracker that can't add up is pointless."
+   },
+   {
+    "title": "The \"carb manager\" promise collides with a calorie-first onboarding",
+    "plus": null,
+    "minus": "The name promises carb tracking, but the first screen forces a calorie goal and behaves like a calorie counter — which directly contradicts the low-carb audience's logic, who came to lower insulin, not cut calories. The most precise users (keto, diabetic) catch the conflict instantly and read it as a betrayal of the exact promise they downloaded for."
+   },
+   {
+    "title": "The custom-recipe builder turns the database into a personal one — loyalty is built here",
+    "plus": "When the shared database lacks a food or lies, the user can build their own recipe and food with verified values — and that's what retains home cooks and complex-diet users who'd otherwise have nothing to lean on. The ability to \"fix\" the data for yourself turns the database's weakness into a retention tool: leaving means losing the personal library you've built.",
     "minus": null
    },
    {
-    "title": "Relentless \"buy premium\" pop-ups after every action wear users down",
+    "title": "The always-online architecture kills the app exactly where a tracker is needed most",
     "plus": null,
-    "minus": "Every food entry triggers an upsell, the premium ads can't be turned off, and after a couple of calm weeks the flood of subscription prompts becomes unbearable — some users quit within a day over it."
+    "minus": "The app demands internet even for basic logging: on a weak connection a splash screen pops up and blocks access to your own data until the network returns. For a food tracker opened on the move — in a store, a cafe, on the road — that's a failure at the exact moment of use: people leave not over features but because they can't log lunch without wifi."
    },
    {
-    "title": "User-entered data is riddled with errors: one food, many conflicting numbers",
+    "title": "The captcha login locks out existing users — and cuts off the very people with vision issues",
     "plus": null,
-    "minus": "Anyone can publish a food without verification, so the same item shows up with different carb values, and reported errors go unfixed for years — for a tracker where accuracy is critical to staying in ketosis, this undermines trust in every calculation."
+    "minus": "To get into their own account, users must clear a visual hCaptcha puzzle that fails over and over — especially for people with vision problems who physically can't read the images. This isn't new-user onboarding, it's a returning user with all their data inside: the app locks the person out of their own history and pushes them to a competitor."
    },
    {
-    "title": "Online-only design: with no internet the app simply won't open",
-    "plus": null,
-    "minus": "The app is always-online, and if the connection drops before launch it greets you with an \"offline\" splash that blocks even basic logging; often it claims no connection while every other app works fine."
-   },
-   {
-    "title": "Hangs on the startup logo and loads painfully slowly",
-    "plus": null,
-    "minus": "The app frequently gets stuck on the animated logo splash, takes several tries to open, or stops launching entirely after a month of use, and the usual fixes — clearing cache, restart, reinstall — don't help."
-   },
-   {
-    "title": "The headline feature — counting carbs — is locked behind the paywall",
-    "plus": null,
-    "minus": "People come specifically to count carbs or per-meal calories, yet a manually entered meal isn't scored, and recipes plus the macro breakdown require premium — an app called a \"carb manager\" won't let you count carbs without paying."
-   },
-   {
-    "title": "Real weight and health results keep people coming back for years",
-    "plus": "The warmest reviews are about outcomes: people drop dozens of pounds, lower their glucose, reach maintenance; daily logging keeps them accountable, and many have used the app for 3–5 years and recommend it to others.",
+    "title": "Long-term retention rides on visible weight and blood-sugar results",
+    "plus": "The most loyal reviews aren't about features but measurable outcomes: 100–125 lbs lost in a year, glucose dropping, reaching maintenance. When the tracker attaches to a concrete health result it stops being an app and becomes part of a regimen — hence the multi-year users and the switching away from other trackers to this one.",
     "minus": null
    },
    {
-    "title": "A captcha puzzle at sign-in locks users out of their own account",
-    "plus": null,
-    "minus": "Login is gated by an hCaptcha \"match the similar images\" puzzle that's impossible to pass with vision issues or when the tiles simply don't fit — users can't get into the account they created and leave without ever trying the app."
+    "title": "Gamification (challenges, milestones, feed) turns logging into a habit for people who hate tracking",
+    "plus": "Monthly challenges, milestones and a social feed turn dull food logging into accountability through competition with others — and that pulls in the audience that normally quits trackers within a week. Some users say outright they hate tracking but here it's \"even enjoyable\": the streak-of-progress and community mechanic keeps them in the loop.",
+    "minus": null
    },
    {
-    "title": "Forced account creation and a survey before use turn people away",
+    "title": "Integrations with wearables shine — but the Samsung Health gap cuts half the Android base",
     "plus": null,
-    "minus": "Before first use the app forces you through questions, a mandatory \"plan\" and account creation; some users see no reason a carb tracker needs sign-up and uninstall on the spot."
+    "minus": "The app links easily to Fitbit, Garmin and Apple Health, but won't push data to Samsung Health or Health Connect — a huge slice of Android users on Samsung watches. People explicitly dock a star and keep a third-party workaround solely over this gap: an integration strength becomes a pinpoint loss exactly where the ecosystem is largest."
    },
    {
-    "title": "US-centric: pounds, ounces, cups and American brands",
+    "title": "Ounces-and-cups defaults push out everyone outside the US",
     "plus": null,
-    "minus": "Metric is hard to set, foods and data skew to US brands, and default measures are ounces and cups — users in Australia and the UK end up manually converting grams, making logging painfully slow."
+    "minus": "The database and units are built for the US: weight only in ounces, portions in \"cups\", American brands, and the Australian/British net-carb logic has to be recomputed by hand. For an app where logging speed is half the value, this turns every entry into a conversion: international users leave not over quality but over the geographic blindness of the defaults."
    },
    {
-    "title": "No Android widget and poor Samsung Health / Health Connect sync",
+    "title": "The catalog is stuffed with packaged goods but fails on whole foods",
     "plus": null,
-    "minus": "Users have begged for an Android home-screen widget for quick entry for years — still none; data isn't shared to Health Connect, and Samsung Health sync is either missing or constantly breaking, forcing third-party workarounds."
+    "minus": "The database overflows with processed and brand-name items, but a plain carrot or some greens can't be found — exactly the audience that cooks from whole foods and needs honest keto tracking most. The barcode scanner, the headline hook, is useless on unpackaged food, so the most \"clean-eating\" users hit manual entry and leave."
+   },
+   {
+    "title": "Under the hood it's a wrapper over the website, not a native app — and the speed shows it",
+    "plus": null,
+    "minus": "The app essentially renders their website: javascript hangs, the loading screen drags, search lags, and building a single meal takes longer than cooking it. This architectural choice explains the whole scatter of \"slow to open\" complaints with one root cause — the product isn't native, and for a tracker valued for low-friction quick entry, that's a systemic ceiling on quality."
+   },
+   {
+    "title": "The missing Android widget is a quiet retention leak among loyal payers",
+    "plus": null,
+    "minus": "A tracker's core value is instant entry, yet Android has no home-screen widget while iOS does and reportedly once did. This isn't a whim: users have asked for years and say plainly it's why they'll stop paying for premium. A quiet pain among the most valuable cohort — long-term active payers for whom every extra daily tap costs the subscription."
+   },
+   {
+    "title": "The free tier is generous enough to be the product itself",
+    "plus": "Unlike rivals where nothing works without paying, here basic calorie/carb/protein/water tracking, the scanner and custom recipes are all free — and many users stay on the free tier for years without feeling crippled. That generosity is the acquisition strategy: it defuses the \"pay for everything again\" fear and turns happy free users into word-of-mouth.",
+    "minus": null
+   },
+   {
+    "title": "The visual macro presentation (pie chart) is what keeps visual learners",
+    "plus": "The macro pie chart gives an instant at-a-glance picture of where you stand on protein/fat/carbs — and that hooks the audience that processes information visually and abandons table-of-numbers trackers. The presentation of data, not the data itself, becomes the differentiator: people name the pie chart specifically as why they finally understand their eating and stick with the app.",
+    "minus": null
    }
   ],
   "hygiene": []
@@ -2202,74 +2222,79 @@
  "g-cronometer": {
   "product": [
    {
-    "title": "Full-screen ads pop up right in the middle of logging food",
-    "plus": null,
-    "minus": "The single most common complaint: while you're typing a food name, an ad takes over the whole screen, the keyboard disappears, and what you typed sometimes isn't saved. Users call it a dark pattern — the ad seems to catch the exact moment you have a number in your head and need to get it down."
-   },
-   {
-    "title": "Ads are gentle for the first few days, then turn brutal — a classic bait and switch",
-    "plus": null,
-    "minus": "Many specifically flag the mechanic: the first days you see only banners and think it's tolerable, you enter your custom foods — then on day 3–4 the full-screen timed videos kick in several times a day. Users call it bait and switch outright and accuse the app of wearing them down into paying."
-   },
-   {
-    "title": "Ads with fake close buttons won't dismiss and force an app restart",
-    "plus": null,
-    "minus": "Worse than the frequency is that the videos can't be closed: the 'X' button doesn't work or is fake and redirects to an external site, sometimes mimicking Cronometer's own interface. The only escape is to force-close the app and sign back in."
-   },
-   {
-    "title": "Since a recent update the app crashes a couple of seconds after opening",
-    "plus": null,
-    "minus": "A whole wave of reviews: the app opens and crashes within 2–5 seconds, sometimes showing a white or black screen. Reinstalling, clearing cache and re-logging-in help only briefly. It stings most for people who paid for the subscription and now can't log a single meal."
-   },
-   {
-    "title": "Micronutrient depth is the main reason people stay specifically here",
-    "plus": "Fans value the detail, not the calories: vitamins, minerals, B12, iron, fibre, omegas, up to 8 trackable micronutrients. It's the one tracker that shows more than just macros, and people discover they were short on protein or fibre. Many call it the gold standard for anyone serious about nutrition.",
+    "title": "The real hook is micronutrients, not calories: it retains medically-motivated users",
+    "plus": "Vitamins, minerals, omegas, fibre, sugar — this data layer turns food logging into a health-management tool, not a weight-loss one. It's what retains diabetics (A1C from 13 to 4.5), menopausal users and people whose doctor prescribed the tracker: they see what rivals don't show, so they don't leave.",
     "minus": null
    },
    {
-    "title": "The free tier is unusually generous — barcode scanning and nutrients without paying",
-    "plus": "The headline plus for most happy users: you get free what rivals charge for — barcode scanner, full nutrient summary, adding your own foods. People compare it directly to what MyFitnessPal used to be before it 'got greedy' and say they'd never pay for a food tracker after this one.",
+    "title": "The generous free tier is the funnel: users get hooked free, then pay voluntarily",
+    "plus": "Barcode scanner, custom recipes and full nutrient summaries are free — enough to make a user settle in. Many say outright: \"used the free version for a year, then upgraded not because I had to, but because I love the app.\" The free tier doesn't cripple the product, it sells it.",
     "minus": null
    },
    {
-    "title": "Barcode scanning and photo-of-label autofill work fast, no 'not in our database'",
-    "plus": "A beloved feature: point the camera at a barcode and the nutrients fill in instantly, no eternal loading. And if a product is missing, you can photograph the front and the label and the app fills it in for you. People note this works where rivals keep saying 'this doesn't exist in our database'.",
+    "title": "Ads kick in on day 4 — the product breaks the very habit it just built",
+    "plus": null,
+    "minus": "Ads don't appear at first — they switch on after a few days, exactly once the user is hooked on logging. And they arrive full-screen, mid-entry, stealing focus and the keyboard. This isn't \"too many ads,\" it's a deliberate bait-and-switch: the product waits for the habit to form, then attacks that habit to force the subscription. The effect backfires: users describe wanting to uninstall, not to buy."
+   },
+   {
+    "title": "The food database is the retention ceiling: regional gaps push out non-Americans",
+    "plus": null,
+    "minus": "The app's strength is data accuracy, but it's also its weak spot: for Indian, Punjabi, South Indian, Algerian and UK dishes the database barely exists. A non-US user hits constant manual food creation — and the logging they came here to simplify becomes work. Regional food gaps are the quiet churn channel outside North America."
+   },
+   {
+    "title": "Barcode scan and photo-add are the engine that makes logging stick",
+    "plus": "Free barcode scanning, and when an item isn't in the base, a photo of the front and the label that the app auto-fills from. This removes the friction that made users quit other trackers (\"oops, this doesn't exist in our database\"). It's frictionless input, not analytics, that gets people logging daily — and daily is the precondition for any result.",
     "minus": null
    },
    {
-    "title": "The food database thins out on local and non-US brand items",
+    "title": "The app miscounts calories itself — and that kills trust in paying",
     "plus": null,
-    "minus": "A frequent gripe even from people who like the app: the database lacks local and national dishes — Indian, Punjabi, South Indian, Algerian — and popular brand items like Costco, In-N-Out, hot dogs. This turns logging into manual busywork, and the calorie guesses can be off by hundreds."
+    "minus": "A known bug: when logging multi-component meals, total calories and macros are computed wrong and the user has to check the math by hand. For a product whose one basic job is \"to count,\" that's fatal — people say outright it's why they didn't buy Pro. An error in the core voids the whole micronutrient superstructure on top of it."
    },
    {
-    "title": "It genuinely drives weight loss and health gains — with concrete numbers in reviews",
-    "plus": "The strongest reviews are about results: people cite concrete figures. Down 60–70 lbs from tracking alone, A1C from 13 to 4.5, A1C from 6.4 to 5.9 in two months, a journey from 365 to 114 lbs. For many the app was eye-opening about what they actually eat and changed how they relate to food.",
+    "title": "You can't set a calorie goal manually — the app imposes its own plan on people who don't want it",
+    "plus": null,
+    "minus": "The app derives the calorie goal from profile data, and manual override is either hidden or broken. For a user who just wants to \"track macros\" against a specific doctor's or dietitian's advice, this turns the tool into an obstacle: they either fight imposed goals or start anxiously obsessing over them. Control over your own target is exactly what the medically-driven (not weight-loss) segment loses."
+   },
+   {
+    "title": "You can't edit a single ingredient in a saved recipe — for daily users this compounds into pain",
+    "plus": null,
+    "minus": "To change one ingredient's weight in a saved recipe (20g → 5g) you must delete the old entry and re-add a new one. For people who cook their own recipes daily and log meal prep — the most loyal, paying segment — small friction multiplied by frequency becomes \"pulling teeth.\" The regression stings more because editing used to work."
+   },
+   {
+    "title": "The app for MyFitnessPal refugees: it catches the exact moment a rival gets greedy",
+    "plus": "A huge share of users arrived after MFP stripped free features or Fitbit made logging \"6x harder.\" Cronometer positions as \"MFP before they got greedy\" — and retains on exactly that contrast. It's a strategic moat: growth comes from rivals' mistakes, not marketing, and the refugees stay because the free tier here actually works.",
     "minus": null
    },
    {
-    "title": "Constant logouts and sign-in problems with slow or black-screen loading",
-    "plus": null,
-    "minus": "The app keeps logging users out, and signing back in stalls: a black screen, 'Sorry, this is taking longer than usual', sometimes 10–20 minutes just to open. For people logging on the go or breaking a fast, it's especially infuriating."
-   },
-   {
-    "title": "You can't set your own calorie target manually, and recipe editing is broken",
-    "plus": null,
-    "minus": "Imposed limits on control grate: the app computes your calorie goal from your profile and setting it manually is near-impossible. After an update, paid users lost the ability to edit ingredients in recipes — to change 20g to 5g you have to delete and re-add the item."
-   },
-   {
-    "title": "Strong Garmin and Fitbit sync — a lifeline after the Fitbit app fell apart",
-    "plus": "Many came over because Google 'massacred' the Fitbit app, and Cronometer became the replacement: it seamlessly pulls calories and activity from Garmin, Fitbit, Withings, and adjusts the calorie budget live after a workout. For some, the smartwatch sync is the best feature, full stop.",
+    "title": "Seamless tracker sync — what keeps the data-driven users in",
+    "plus": "Integration with Garmin, Withings, Fitbit pulls in calories burned and biometrics and dynamically adjusts the day's calorie budget. For a user who's built a closed loop of eat-burn-weigh, that loop is the product: one user hit 10% body fat precisely on it. The hardware tie-in turns a food tracker into a body-management system.",
     "minus": null
    },
    {
-    "title": "Health Connect and Fitbit duplicate entries and reset data",
+    "title": "Health Connect double-counts calories and meals — the product breaks on someone else's migration",
     "plus": null,
-    "minus": "The flip side of the integrations: after Google's move to Health Connect the app double-logs meals and activity (pulling from both Fitbit and Health Connect), resets water after years of use, and sometimes adds full BMR on top of its estimate — making the calorie goal meaningless."
+    "minus": "After Fitbit's move to Google Health Connect the integration turned hostile: meals and activity get duplicated, full BMR is added on top of the estimate — and the calorie budget becomes meaningless. The app's strength (hardware sync) turns against it when the ecosystem shifts underneath. Users can't tell Google's fault from the app's — and they leave the app."
    },
    {
-    "title": "The Gold subscription feels overpriced for what some call little more than a notepad",
+    "title": "The learning curve filters out novices, but it's what forges the advanced, loyal user",
+    "plus": "The interface isn't intuitive at first, adding custom food needs an \"operator's manual,\" and some features require googling. This sheds casual users — but those who cross the threshold call the \"highly customizable\" dashboard \"pure genius\" and stay for years. The entry barrier acts as a filter: it scares off the casual crowd and keeps the people who genuinely need the depth.",
+    "minus": null
+   },
+   {
+    "title": "The rigid breakfast-lunch-dinner structure loses people who eat differently",
     "plus": null,
-    "minus": "Skeptics find the price steep ($50–60/year, £8/month), with no one-time or lifetime option and no regional pricing. Some say outright the free version is 'a word document with ads' and that paying gives you nothing you couldn't do with a notepad and a calculator."
+    "minus": "You can't add an extra meal (brunch, a second dinner for 5-meals-a-day eaters), there's no multi-add into one meal, and you can't copy yesterday's breakfast in one tap — even though people eat the same things in streaks. The default day model is tuned for an average user and creates small daily friction for anyone whose eating pattern doesn't fit three slots."
+   },
+   {
+    "title": "Default nutrient targets carry a dietary stance — advanced users argue with the app's philosophy",
+    "plus": null,
+    "minus": "By default the app steers toward a high-carb model (269g carbs/day as default), and for keto/low-carb users that's not a bug but an imposed stance they distrust. When a product is deeply about nutrients, its default recommendations read as a health claim — and part of the advanced, most valuable audience treats them as an ideological conflict."
+   },
+   {
+    "title": "It's a desktop tool in a mobile skin — the data depth lives on the big screen",
+    "plus": null,
+    "minus": "Veterans say it plainly: for all the data they prefer the web version, mobile is a compromise. The app doesn't rotate to landscape on tablets (where most people hold a tablet), there's no undo, charts are unreadable, and the 2022 redesign struck some users as a regression from a \"super beauty app.\" The product is built around a rich desktop dashboard, and the phone screen is its bottleneck, not its home."
    }
   ],
   "hygiene": []
@@ -2987,63 +3012,83 @@
  "g-foodvisor": {
   "product": [
    {
-    "title": "The headline feature, photo logging, is locked behind a paywall after one shot",
+    "title": "AI photo is both the hook and the fatal flaw: it systematically underestimates calories",
     "plus": null,
-    "minus": "People install it specifically for the AI food photo from the ads, then get one or two free shots before the paywall. It reads as a bait-and-switch: advertised one thing, delivered another."
+    "minus": "The food photo is what the ads sell and what makes people install — but the AI almost always undercounts the portion by 100-300 kcal. For an app whose only job is to keep you in a deficit, this sabotages the core: users trust the number, think they're on plan, and don't lose weight. The diligent ones start double-checking every value, at which point the whole 'fast photo' value proposition collapses."
    },
    {
-    "title": "An endless onboarding survey: 10-20 minutes of questions before you can log a thing",
-    "plus": null,
-    "minus": "Before you can use it there's a 10-20 minute questionnaire, and a paywall waiting at the end. People who just want a tracker bail mid-way, feeling interrogated purely to reel them in."
-   },
-   {
-    "title": "Dark patterns: a discount fortune-wheel and countdown pressure you before you've even tried it",
-    "plus": null,
-    "minus": "Fake calculation animations, a Temu-style fortune wheel you always 'win', and a '10-minute special offer' timer — a manipulative funnel that repels even people who were willing to pay."
-   },
-   {
-    "title": "AI recognition systematically lowballs calories by hundreds — undercutting its whole premise",
-    "plus": null,
-    "minus": "Photos and descriptions return calories well below reality (by 100-300+), and corrections barely help. For an app whose USP is AI accuracy, this undermines the entire point of the product."
-   },
-   {
-    "title": "Stacked paywalls: you pay for premium, then workouts and meal plans demand more money",
-    "plus": null,
-    "minus": "Premium is sold as access to workouts and meal plans, but after paying those sections demand even more — a 'super premium'. People feel falsely advertised to and lose all trust."
-   },
-   {
-    "title": "Surprise billing: quoted monthly, charged yearly; the 'free trial' takes money unprompted",
-    "plus": null,
-    "minus": "A recurring pattern: a monthly price is shown but the yearly amount is charged; the 'trial' bills you on day one. Refunds are nearly impossible — support stays silent and Google points back to the developer."
-   },
-   {
-    "title": "Gamification (the growing 'seed', streaks, animations) flipped from charm to nuisance",
-    "plus": null,
-    "minus": "After updates, every log drowns in unskippable animations, streaks and a 'seed' pet. For people who just want to record a meal it stretches the routine, and there's no way to turn it off."
-   },
-   {
-    "title": "Color-coded food 'ratings' and a judgy tone are dangerous for people with eating disorders",
-    "plus": null,
-    "minus": "The app asks about eating disorders, then color-codes food as 'good/bad' and sends sad faces over a donut — even healthy items get warnings. It revives shame and guilt with no safeguards."
-   },
-   {
-    "title": "Health Connect sync is one-way: it reads your data but won't write calories or nutrition",
-    "plus": null,
-    "minus": "The integration imports weight and activity but won't export calories and macros to Google/Samsung Health. For paying users it's a half-broken feature: data stays trapped and isn't part of their wider health setup."
-   },
-   {
-    "title": "Thin food database and painful manual entry: common foods missing, fixes sit for weeks",
-    "plus": null,
-    "minus": "The database lacks vegetables, restaurant and non-Western foods; adding your own is a chore, and corrections can't be made instantly — only 'reported' and left waiting. Search returns junk instead of the obvious item."
-   },
-   {
-    "title": "When the features click, photo/barcode/voice make logging fast and genuinely drive weight loss",
-    "plus": "The loyal core loves it: log food by photo, barcode or voice in seconds, the basic scanner is free, and macro plus fiber tracking genuinely helps. Dozens report losing 10-45+ lbs over months.",
+    "title": "When the photo nails it, it triggers a 'wow' moment that earns a review on the spot",
+    "plus": "For a chunk of users the recognition is accurate enough to become a genuine delight — they photograph a mixed table and get a sensible breakdown. That 'it actually guessed it!' moment is the single biggest driver of five-star reviews and emotional buy-in, and it's what gets people to pay for a year.",
     "minus": null
    },
    {
-    "title": "The same 'seed' and cute design that annoy some are the very thing that keeps others coming back",
-    "plus": "For a meaningful slice of users gamification is the draw, not a flaw: the cute seed pet, gems for streaks and a pleasant interface make routine logging fun and keep the habit alive.",
+    "title": "The 'Seedy' plant retains some and enrages others: gamification splits the base in two",
+    "plus": null,
+    "minus": "The virtual plant that grows as you log is, for some, a cute motivator they open the app for. But for the 'I just want to record my food' segment it turns a 20-second task into a chore wrapped in animations. The core pain is the missing toggle: these users explicitly say they're leaving for MyFitnessPal precisely because the tool got slower with no added benefit."
+   },
+   {
+    "title": "For another segment that same plant is the whole reason they come back daily",
+    "plus": "The very mechanic that annoys the efficiency crowd works, for the emotionally-engaged segment, as a real habit engine: users buy outfits for the plant with earned gems and log meals just to make it grow. It turns dull calorie accounting into a game and keeps people on hundred-day streaks — a rare case where a Tamagotchi genuinely moves retention in a utility app.",
+    "minus": null
+   },
+   {
+    "title": "The 'good/bad food' traffic-light is dangerous for users with eating disorders",
+    "plus": null,
+    "minus": "The app paints meals red-amber-green and sends sad faces for 'bad' food. For the segment with an ED history this is a direct trigger: it demonises healthy foods (nuts get a warning, grapes get a green smile) and reactivates old shame. The app asks about disordered eating yet does nothing to safeguard — not a cosmetic issue but an ethical failure in a niche where a large slice of the audience is vulnerable."
+   },
+   {
+    "title": "The traffic-light doesn't just judge — it contradicts itself, and that kills trust",
+    "plus": null,
+    "minus": "The quality score is based on the average meal score rather than your macro targets, so the same food flips between green and orange and adding a glass of water 'upgrades' a meal. Users spot the absurdity (a cheeseburger rates 'good', a protein shake 'ok') and stop trusting the signature layer. The coaching that was meant to be the differentiator reads as random."
+   },
+   {
+    "title": "The long onboarding questionnaire loses the 'just count calories' segment before activation",
+    "plus": null,
+    "minus": "Before the first log the app runs a 10-20 minute questionnaire for a 'personalised plan'. It's a behavioural filter: people who came for a simple tracker abandon mid-survey, never reaching the product. Worse, the answers are barely used ('you're a busy parent!'), so the entry cost is high while the payoff for the user is nil."
+   },
+   {
+    "title": "Four ways to log a meal — a genuine speed advantage over competitors",
+    "plus": "Barcode, search, AI photo and voice describe let the user pick the fastest path for the moment: barcode at home, photo at a restaurant, dictate on the run. It's this multimodality — not any single feature — that makes people abandon MyFitnessPal: the act of entering food feels fast and pleasant, which is what a daily habit lives or dies on.",
+    "minus": null
+   },
+   {
+    "title": "Health Connect reads but won't write — data is trapped, and that drives away the 'systems' user",
+    "plus": null,
+    "minus": "The app pulls weight in from Health Connect but won't push the thing that matters out — calories, macros, nutrition. For the segment building an integrated health stack (Fitbit, Garmin, Google Health, a Gemini coach), it's a deal-breaker: their food data stays siloed. These users are loyal and pay annually, yet they churn specifically over the export gap — losing the most valuable cohort for a technical, not product, reason."
+   },
+   {
+    "title": "Daily-only goals break the realistic dieter, whose calories fluctuate day to day",
+    "plus": null,
+    "minus": "The app insists you hit a daily target and micromanages each meal, but offers no weekly summary — even though the weekly trend is what actually matters in a deficit. For people experienced with macro counting it's both inaccurate and psychologically punishing: you can't 'make it up' later in the week. The plea for weekly goals is the single most common mature feature-request from retained users."
+   },
+   {
+    "title": "The food database is small and Western-centric — it loses anyone who doesn't eat Western",
+    "plus": null,
+    "minus": "Search returns a thin list, many everyday foods (spring onion, Asian dishes) simply aren't there, and adding your own is a slog of manual macro entry. This is a segment loss: users from non-Western cultures find their daily food isn't recognised and leave. For an app with AI ambitions, a narrow Western-centric database is a structural ceiling on growth in international markets."
+   },
+   {
+    "title": "The recipe bug: splitting into servings multiplies calories instead of dividing them",
+    "plus": null,
+    "minus": "When a user enters their own recipe and sets the serving count, the app multiplies the ingredient weights instead of dividing — a 5-serving meal at 1000 kcal becomes 25000 kcal per serving. It hits the most valuable, engaged segment: home cooks who track precisely. The bug recurs across dozens of reviews over months and quietly erodes trust in the whole tool's accuracy."
+   },
+   {
+    "title": "The calorie-goal calculation runs high — users don't lose weight and don't notice why",
+    "plus": null,
+    "minus": "The daily target the app sets after the questionnaire runs noticeably higher than third-party calculators for some users. It's a silent failure of the core job: a person dutifully stays under 'goal' yet there's no deficit — and they blame themselves, not the app. The mirror failure is a goal set too low for those trying to gain weight: the 'weight loss only' assumption is wired in so hard it repels whole segments."
+   },
+   {
+    "title": "The AI swap suggestions are detached from reality — 'eat sea urchins'",
+    "plus": null,
+    "minus": "The advice section recommends exotica an ordinary user can't get (sea urchins, unidentified fish) and ignores stated preferences and allergies. Because the AI doesn't remember that someone is vegan or lives in a specific country, the suggestions read as generative noise. The feature meant to separate the 'coach' from a plain counter breeds memes instead of trust — and zeroes out the premium value."
+   },
+   {
+    "title": "Logging silently drops entered food unless you tap 'Done' — undermining trust in the record itself",
+    "plus": null,
+    "minus": "The calorie counter ticks up when you add a meal, but the entry isn't saved unless you hit a non-obvious 'Done' button in the corner — so food 'mysteriously' vanishes. For a tracker whose value is a complete diary, this is fatal: people start screenshotting every meal as insurance. Once a user stops trusting that their data will persist, the entire point of the tool collapses."
+   },
+   {
+    "title": "Tracking fiber alongside the macros — a niche but real differentiator",
+    "plus": "Unlike most counters, the app puts fiber on the same footing as protein-fat-carbs and tells you how much you need. For users who care about more than calories, it's a rare reason to choose this one and stay — a concrete, recognisable plus that people call out as 'the only app that does this'. A small but loyal cohort sticks around specifically for it.",
     "minus": null
    }
   ],
@@ -3807,58 +3852,73 @@
  "g-lifesum": {
   "product": [
    {
-    "title": "The AI overhaul turned a beloved app into a mess",
+    "title": "AI sits in FRONT of the log, not beside it — it became a gate, not an accelerator",
     "plus": null,
-    "minus": "The single loudest pain: people who loved the app for years woke up to a mandatory AI logger instead of the tracker they knew, and they're leaving in droves. The old ease, transparency and tidy layout they paid for are gone."
+    "minus": "The «+» used to open a list and logging took seconds; now the same button routes into an AI chat where you describe food in words. The muscle-memory reflex «open — pick yesterday's — log» is replaced by a dialogue that types one letter at a time and gets things wrong. For logging meant to repeat 5x a day forever, the extra steps kill the habit itself — people quit not over AI quality but because the fast path vanished."
    },
    {
-    "title": "The AI invents calorie numbers you can't trust",
+    "title": "Number accuracy was the only asset — AI traded it for a «guess»",
     "plus": null,
-    "minus": "The AI calorie estimates wildly miss: 711 kcal for a cup of tea, 7000 kcal in a mug of coffee, 65,608 kcal for one serving of fish. It counts the same food differently every time, so the whole point of a food diary collapses."
+    "minus": "A calorie tracker sells exactly one thing: you can trust the number. The same food gets different values run to run (carrot — protein from 4 to 12g, coffee — 7000 cal), and the user loses the reason to keep a diary at all: if numbers are invented, the diet is built on noise. This hits the product's core — not «inconvenient» but «pointless»."
    },
    {
-    "title": "The AI replaced search and made logging painfully slow",
-    "plus": null,
-    "minus": "Food used to take seconds to add via search; now you must dictate to an AI chat that types one letter at a time, picks the wrong item, and won't let you choose manually. What was instant is now a multi-step chore for every single meal."
-   },
-   {
-    "title": "\"Sorry, something went wrong\" — logging just breaks",
-    "plus": null,
-    "minus": "Paying subscribers hit \"Sorry, something went wrong\" for days on end and can't log food at all — not manually, not by camera. Restarting the phone doesn't help, and there's no button to report the issue."
-   },
-   {
-    "title": "Basic settings are locked behind the paywall",
-    "plus": null,
-    "minus": "Adjusting your own calories and macros for keto or diabetes is now premium-only, as is the AI scanner. Users are furious they must pay for what's free elsewhere and used to be free here too."
-   },
-   {
-    "title": "A \"buy premium\" takeover pops up mid-logging",
-    "plus": null,
-    "minus": "A full-screen subscription prompt appears every time you open the app and right in the middle of adding food — several times a day, for years. It's so aggravating it kills any desire to ever pay."
-   },
-   {
-    "title": "Beloved features quietly vanished: fasting, meal sharing, water",
-    "plus": null,
-    "minus": "The intermittent fasting timer, meal sharing with a partner, and the water tracker simply disappeared after updates — often the very features people paid for. No way to bring them back, no explanation."
-   },
-   {
-    "title": "Slow, laggy and crashing even for paid users",
-    "plus": null,
-    "minus": "Every action drags 10-30 seconds, sometimes times out, and lately the app crashes a couple seconds after launch. Even typing into the diary lags and drops characters."
-   },
-   {
-    "title": "Steps and workouts don't turn into burned calories",
-    "plus": null,
-    "minus": "Health Connect, Fitbit, Samsung — workout and step sync works poorly: 10,000 steps a day show 0 burned calories, or conversely walking and steps get double-counted. MyFitnessPal handles this better."
-   },
-   {
-    "title": "The free tier and clean interface still win newcomers over",
-    "plus": "Despite the storm, many praise the generous free tier, the rich multilingual food database, and the clean, intuitive interface. For calorie-counting newcomers it's an easy, visual start with no intrusive ads.",
+    "title": "A hidden «multimodal tracking» toggle restores the old app — but they kept silent about it",
+    "plus": "Buried in settings is a toggle that disables AI and restores the old search-with-database flow; those who find it instantly get the fast input and accuracy back. It's an escape hatch that retains a slice of would-be churn.",
     "minus": null
    },
    {
-    "title": "Long-term results: real weight loss over the years",
-    "plus": "For loyal users it genuinely works: people report losing 21, 30, even 150 pounds over years of consistent tracking. Keto mode with net-carb counting, recipes, and sustained results are why they pay and keep coming back.",
+    "title": "Silently removing the intermittent-fasting timer pulled out the single reason some people paid",
+    "plus": null,
+    "minus": "For a whole paying segment the IF timer was the core of usage — not calories, the fasting window. It vanished with no warning and no way to bring it back, and these people aren't «disappointed in a feature» — their reason to subscribe disappeared mid paid-term. Deleting an anchor feature from a paying segment turns manageable churn into resentment."
+   },
+   {
+    "title": "Killing meal-sharing evicted the couples who dieted together and doubled retention",
+    "plus": null,
+    "minus": "Logging meals jointly with a partner wasn't a nicety but a social lock-in: two accounts hold each other and neither leaves. Removing sharing turned the couples scenario into manual double-entry of the same food — and now both look for a new app at once. The stickiest cohort became the angriest."
+   },
+   {
+    "title": "A rich multilingual database and fast barcode scan — that's what actually held people for years",
+    "plus": "The real retention engine isn't AI but the catalog: almost any brand is in the database, the barcode pulls a product instantly, and it works across many languages with no wall on the basic flow. This is exactly what brought people over from MyFitnessPal and kept them for 5-10 years.",
+    "minus": null
+   },
+   {
+    "title": "Merging photo and barcode into one button broke autofocus — and killed the most frequent gesture",
+    "plus": null,
+    "minus": "Fusing photo recognition and the barcode scanner into one button sounds like simplification, but in practice the camera stopped focusing on barcodes: people describe a workaround of «add new food → scan → confirm item exists». The single most frequent daily gesture — barcode scan — became a quest because it got subordinated to the AI flow."
+   },
+   {
+    "title": "No «same as yesterday» forces every repeated meal through a fresh entry — against the nature of tracking",
+    "plus": null,
+    "minus": "People eat the same things day to day — the base pattern that makes logging effortless. The AI version won't let you favorite a meal, doesn't remember ingredients individually, and suggests not «lunch for lunch» but «yesterday's dinner». Every repeat is forced through a fresh AI query — the product fights the very repetition that makes tracking sustainable."
+   },
+   {
+    "title": "The clean, beautiful diary is the reason people forgive the rest",
+    "plus": "Even scathing reviews almost always note the interface is pleasant, the main-screen navigation tidy, the colors and visuals enjoyable. That aesthetic is an emotional anchor: it pulled people to premium and makes them give the app «one more chance» instead of deleting instantly.",
+    "minus": null
+   },
+   {
+    "title": "An auto-assigned 870-1198 kcal goal undermines trust with the very people it's meant to help",
+    "plus": null,
+    "minus": "The app auto-sets dangerously low daily goals, and a newcomer can't change them. For someone who doesn't know nutrition, this isn't just a limit — it's a risk: a health product nudges toward an unhealthy deficit. The disordered-eating segment is hit by this mechanism directly — trust in a «healthy» app turns into a hazard."
+   },
+   {
+    "title": "The keto/diabetic scenario hinges on net carbs — and that's exactly where AI misses most dangerously",
+    "plus": null,
+    "minus": "The keto/diabetic segment came for one thing: accurate net-carb accounting and sugar tracking. Here the AI errs critically (chia as 10 net carbs instead of zero), and you can neither exclude fructose recipes nor reliably fix macros. For a user whose blood sugar spikes, a wrong number isn't an inconvenience but a medical risk — and the product loses its most motivated segment."
+   },
+   {
+    "title": "Logging depends on the server — every entry waits on the network, and the offline habit falls apart",
+    "plus": null,
+    "minus": "AI recognition routes every entry to the server, so the simplest food log hits 10-30 second delays and timeouts, and on mobile data it doesn't work at all. A food tracker by definition is needed at the moment of eating — in a cafe, on the road, off Wi-Fi; by tying the basic log to an online call, the product broke the scenario exactly where it matters."
+   },
+   {
+    "title": "«AI» in the name became a distrust signal for an audience that came for honest accounting",
+    "plus": null,
+    "minus": "A food tracker's audience is people who want verifiable numbers and control over their data, not a «guessing game». For them «AI» in the name and the forced upload of their diet to the cloud read as a negative, not a feature: they explicitly refuse to give AI access to their data and leave to find an AI-free alternative. A brand built on trust in the number slapped on a label that repels its own core."
+   },
+   {
+    "title": "Multi-year discipline (day 105, 700 days) is the real product; the streak IS the retention",
+    "plus": "The strongest value signal is people who log hundreds of days straight and drop 21-150 pounds, crediting the result to daily logging in Lifesum specifically. These streaks aren't a metric, they're the product: as long as the app made repeat logging frictionless, it was effectively selling discipline. Any change that lengthens the daily gesture hits this asset directly.",
     "minus": null
    }
   ],
@@ -3947,74 +4007,74 @@
  "g-loseit": {
   "product": [
    {
-    "title": "Basic features that were free for years got moved behind a paywall",
-    "plus": null,
-    "minus": "The core grievance of loyal users: setting a daily calorie budget, viewing macros, the barcode scanner, manually entering calories — all of it used to be free, and now demands a subscription. People don't read this as «new features cost money», they read it as having something taken away that they already relied on."
-   },
-   {
-    "title": "An ad fires every single time you log a piece of food",
-    "plus": null,
-    "minus": "Ads aren't in the background, they're spliced into the core action: you have to watch a clip before you can log a food or scan a barcode. It kills the app's main advantage — speed of entry — and pushes longtime users with thousand-day streaks out the door."
-   },
-   {
-    "title": "An endless onboarding quiz before they ever show the price",
-    "plus": null,
-    "minus": "Before you can start, the app asks dozens of personal questions with no skip button, and only at the very end reveals it's paid. People came to log food, not to tell an AI their life story, and they uninstall en masse around question 18, 30, or 40."
-   },
-   {
-    "title": "Listed as «free» but paid after sign-up — the hidden price",
-    "plus": null,
-    "minus": "The app shows up under «free calorie counter», walks you through the whole onboarding and email capture, and only then mentions a 7-day trial and an $80/year subscription. You can't even see the premium price without making an account, and the website doesn't list it either. People call it false marketing and a dark pattern."
-   },
-   {
-    "title": "Forced account creation to harvest personal data",
-    "plus": null,
-    "minus": "Just to count calories, the app forces you to create an account and pulls a pile of personal data up front — even questions about your family. There's no guest mode to try it first, and users flat-out accuse the developer of collecting and selling data under the guise of «mysterious plans»."
-   },
-   {
-    "title": "Billing surprises: charges without consent, cancellation that doesn't work",
-    "plus": null,
-    "minus": "A whole layer of money complaints: surprise charges of $42/$80/$87 to people who deleted the app long ago, double charges, and billing even after cancelling at the end of the trial. Finding how to unsubscribe is sometimes impossible. This isn't about «expensive» — it's about unpredictable billing behavior."
-   },
-   {
-    "title": "Fitbit/Google Health sync is broken: steps and burned calories don't pull through",
-    "plus": null,
-    "minus": "After Fitbit moved to Google Health Connect, sync fell apart: steps pull through intermittently and burned calories don't come at all — only the step count arrives. For people who paid for premium specifically to sync and compute their deficit, this makes the app useless and drives cancellations."
-   },
-   {
-    "title": "Food search dies with a «slow connection» error on a perfectly fine network",
-    "plus": null,
-    "minus": "After one of the updates, food-database search stopped working for many: an endless spinner or a «slow connection» message, even at 150 Mbps with a clean speedtest. The barcode scanner fails right after. Without search, a food-logging app loses its point."
-   },
-   {
-    "title": "UI updates break familiar flows: the «done logging» button got hidden",
-    "plus": null,
-    "minus": "The team keeps moving things and swapping colors: the «done logging» toggle got buried at the bottom of the log, the handy Quick Add was removed as «underused», and macros now require a toggle instead of a dropdown. Longtime users, including lifetime owners, just want the old version back."
-   },
-   {
-    "title": "The food database is huge but clogged with duplicates carrying wrong calories",
-    "plus": null,
-    "minus": "The crowdsourced database gives breadth, but searching one item returns a pile of variants with differing calories, and almost none are right — you end up creating your own. There's no thumbs-up/down to flag accurate entries, so the database fills up with useless duplicates."
-   },
-   {
-    "title": "Simple entry and a big database make logging fast — the thing people love most",
-    "plus": "Over the years this became many people's most convenient tracker: a clean interface, a huge food selection (including Indian/Asian dishes), voice, photo, and scan entry. Logging is so simple it becomes a habit — it's exactly the speed and simplicity that keeps bringing people back.",
+    "title": "Logging speed is the real reason people return, not features",
+    "plus": "The core hook isn't charts or a plan — it's how fast food gets into the log: barcode scan, photo, and voice strip friction out of a daily ritual, and it's that speed that pulls people off MyFitnessPal and brings them back for years. The habit lives on the seconds saved per meal.",
     "minus": null
    },
    {
-    "title": "It genuinely helps people lose weight — through the habit of honestly logging everything",
-    "plus": "The headline outcome people praise: users drop tens of pounds and come back years later. It's not magic but the act of daily honest logging that raises food awareness — reviewers literally write «5 lbs in a week», «50+ lbs», «311 down to 154».",
+    "title": "The streak and the act of logging change behaviour on their own — even without precision",
+    "plus": "The strongest mechanism isn't the math — it's the daily act of honest logging: people lose tens of pounds simply because they finally see how much they actually eat. Multi-year streaks (300+, 600+ days) turn tracking into identity, and the ritual works even when the numbers are only approximate.",
     "minus": null
    },
    {
-    "title": "The barcode scanner and photo capture are the beloved feature — for speed, when they work",
-    "plus": "Barcode scanning and snapping a photo of a meal are what users call the app's best part: it removes typing the product and brand, making tracking fast and nearly automatic. Many bought lifetime specifically for the scanner. The catch — after several updates the scanner started throwing errors for some.",
+    "title": "A no-pressure tone breaks perfectionist paralysis — a rare design choice",
+    "plus": "Tips like \"don't worry if your tracking isn't exact, just do it as well as you can\" disarm exactly the users whom a demand for perfect measurement usually kills. For someone with food anxiety this isn't cosmetic — it's what lets them start at all and not quit, a behavioural move most trackers never make.",
     "minus": null
    },
    {
-    "title": "You can't enter portions in grams — only weird «serving sizes»",
+    "title": "Broken fitness-tracker sync nullifies the whole point of premium",
     "plus": null,
-    "minus": "For people who weigh food on a kitchen scale this is critical: many items offer no grams option, only cups and spoons, which blocks an accurate count. Grams are more precise than measuring spoons, and without them the app becomes nearly unusable for some users."
+    "minus": "People pay for premium for exactly one thing — to merge calories-in and calories-out in one place. When Fitbit, Google Health, or Samsung Health pull steps but not burned calories (or report double), the entire reason to subscribe evaporates: the user is back to juggling two apps and computing their deficit by hand. It's the failure of the core job they bought it for."
+   },
+   {
+    "title": "A duplicate-ridden crowdsourced database quietly destroys the accuracy the whole app is for",
+    "plus": null,
+    "minus": "The database is huge but clogged with duplicates carrying different calorie values and no way to flag the correct one — users log a wrong number for years and think they're in control. There's no thumbs-up and no way to report bad entries, so the junk never gets cleaned. For a tracker whose one job is accuracy, this rots trust from the inside."
+   },
+   {
+    "title": "No gram-level logging pushes out the most disciplined users",
+    "plus": null,
+    "minus": "Users with a kitchen scale — the most motivated, most retainable cohort — hit a wall where many foods only offer \"cups\" and \"servings,\" never grams. For someone weighing food for precision this makes the app nearly unusable: the design is tuned for the casual logger and loses exactly the accuracy-obsessed core willing to pay for it."
+   },
+   {
+    "title": "The default starting calorie target is so high it breaks trust on the first screen",
+    "plus": null,
+    "minus": "The app hands out a starting goal like 2400 kcal \"per FDA recommendation\" before it knows the person's actual day — and the user feels nudged to overeat. Trust in a weight-loss tracker hinges on the plausibility of that first number; an inflated default reads as incompetence at the exact moment the stay-or-go decision is made."
+   },
+   {
+    "title": "A buried \"done logging\" button breaks the ritual for the most loyal users",
+    "plus": null,
+    "minus": "The daily \"close the day\" tap is where the streak and the sense of control are forged. Moving that button and killing Quick Add as \"underused\" hit the heaviest users — they close the day multiple times daily. When a product breaks the micro-ritual the habit rests on, even multi-year users start shopping for a replacement."
+   },
+   {
+    "title": "An endless onboarding quiz kills intent before the first log",
+    "plus": null,
+    "minus": "People arrive with one intent — log food — and are met with 30-40 screens of questions about their family and world cuisines, with no skip button. Intent is finite: users uninstall at question #18, #30, never reaching the interface. The long quiz exists to personalize, but it torches activation for exactly the people who wanted simplicity."
+   },
+   {
+    "title": "Constant UI reshuffling punishes veterans' muscle memory",
+    "plus": null,
+    "minus": "A familiar tracker's power is that your hands already know where to tap. Monthly button moves, colour swaps, and toggling macros through settings erase that muscle memory and turn a habitual action into mental effort. For a product that retains people for 5-10 years, frequent cosmetic rebuilds sabotage its own greatest asset."
+   },
+   {
+    "title": "Forcing users to confirm pre-planned meals punishes the planners",
+    "plus": null,
+    "minus": "People who plan a week ahead are among the most engaged users, yet the app greys out future items and forces a manual tap to confirm each one after eating. For a planner that's hundreds of extra taps a year across a fussy hit-zone. A design that should reward discipline instead penalizes it — directly alienating the power-user core."
+   },
+   {
+    "title": "Switching phones wipes progress — and trust in the longest habit",
+    "plus": null,
+    "minus": "The entire point of multi-year tracking is the accumulated history, and for this cohort the data is emotional capital. When a phone reset or reinstall loses days and years of logs (and the web version doesn't save you), the one irreplaceable thing breaks. Data fragility hurts the most loyal harder than any barrier — they leave for good."
+   },
+   {
+    "title": "Cross-metric tracking (weight, measurements, body fat) turns the tracker into a long-haul retention system",
+    "plus": "Keeping calories, weight, measurements, body-fat %, and macros in one place is what moves a user from \"losing weight\" to \"watching my health for life.\" After the goal, what remains isn't calorie counting but a body-metrics dashboard — and that's what retains people for years and feeds lifetime purchases. A rival can't just clone the food log; they'd need the whole metric history.",
+    "minus": null
+   },
+   {
+    "title": "The social layer adds accountability but rots without moderation",
+    "plus": "Support groups and recipes shared with a partner add accountability a solo tracker lacks — for some users that's the very reason they pick it. But without moderation or blocking the layer rots: some treat it as a dating app, and removing \"challenges\" killed the one thing that made it the best. The social mechanic is both a hook and an unmanaged liability.",
+    "minus": null
    }
   ],
   "hygiene": []
@@ -4407,79 +4467,79 @@
  "g-myfitnesspal": {
   "product": [
    {
-    "title": "2026 redesign: seeing your whole day now means tapping into each meal one by one",
-    "plus": null,
-    "minus": "The redesign's core wound: the single day-view is gone. The whole diary used to be visible at once; now breakfast, lunch and dinner are collapsed and you have to open each one. For people who logged daily for 10-15 years, it's extra taps at every meal."
-   },
-   {
-    "title": "Day-to-day swipe is gone — now you tap a date at the top and get stuck on it",
-    "plus": null,
-    "minus": "The left/right swipe between days was cut. To check yesterday you tap the date at the top, then must remember to return to today or you log food onto the wrong day. A small gesture people relied on for years."
-   },
-   {
-    "title": "Barcode scanner and basic features moved behind Premium after years of being free",
-    "plus": null,
-    "minus": "What stings isn't the price itself but the clawback: barcode scanning, adding your own foods, time-of-day logging — all free for years, now Premium-only at ~$20/month. Many read it as a betrayal and leave for competitors."
-   },
-   {
-    "title": "The huge food database is the one thing keeping many users from leaving",
-    "plus": "Even the angriest reviews concede it: the food database is enormous, and it's what keeps people. Finding almost any food, saving your own recipes and meals — that's what they tolerate everything else for.",
+    "title": "The food database carries the whole product — even furious users stay for it",
+    "plus": "The one real moat is the huge, user-built food database. People who hate everything else say outright they stay only for it: type grams off a kitchen scale and get accurate macros in a second. That turns a one-off tracker into a daily ritual nobody wants to abandon.",
     "minus": null
    },
    {
-    "title": "A genuine weight-loss tool: people credit it with dozens and hundreds of pounds lost",
-    "plus": "Beneath the anger sits real gratitude: users drop 20, 30, 80, 150, even 160 pounds and name the app as the reason. The draw is the plain accountability mechanic — \"the facts speak for themselves\" — with no fad diet.",
+    "title": "The 2026 redesign killed the at-a-glance day — and that drove out decade-long veterans",
+    "plus": null,
+    "minus": "The whole food diary used to read on one screen; now each meal is hidden behind its own tap and you can't see the day as a whole. For a calorie diary that's fatal — the product exists for the quick 'how much is left' glance, and the redesign buried it under taps and scrolls. Users with 10-15 year histories leave over exactly this, not over price."
+   },
+   {
+    "title": "Swiping between days was muscle memory — removing it breaks the daily flow",
+    "plus": null,
+    "minus": "Swiping left-right between days was wired into the habit: open, swipe to yesterday, check. The redesign replaced it with a date picker at the top, so people get stuck on the wrong day, log food into it, then delete. A tiny gesture, but it was the heart of the daily ritual — without it every session became friction."
+   },
+   {
+    "title": "Removing batch actions turned fixing a mistake into a punishment",
+    "plus": null,
+    "minus": "You used to delete a whole meal or copy an entire day in one action. Now it's one item at a time. This compounds a second flaw: the UI makes it easy to accidentally copy yesterday's food onto today, and you can only clean it up line by line. The product creates the mistake and then removes the fast way to undo it."
+   },
+   {
+    "title": "Accumulated history is the strongest lock-in: quitting means throwing away years of data",
+    "plus": "Saved recipes, custom foods and a years-long log become a personal asset you can't carry to a rival. That keeps people through redesign rage — leaving means losing 'years of recipes.' But the lock is brittle: when an update wipes workouts or history, the exact thing holding people vanishes, and the exit is instant and bitter.",
     "minus": null
    },
    {
-    "title": "Post-update, Google sign-in mass-fails — people simply can't get back in",
+    "title": "Switching from 'calories remaining' to a count-up broke the point of the diary",
     "plus": null,
-    "minus": "A whole wave of it: after updating, the app logs people out and won't let them back in via Google — grey screen, endless spinner, \"email incorrect\". Some go weeks locked out and finally uninstall, losing years of history."
+    "minus": "The core value of a calorie diary is the instant answer to 'how many calories can I still eat.' The update swapped the counting-down remainder for a counting-up total, so users lose the main cue for 'eat or not.' This isn't cosmetic, it's a mental-model swap: the product stopped answering the single question people open it for before every meal."
    },
    {
-    "title": "No way to delete a whole meal or multiple items — only one at a time",
-    "plus": null,
-    "minus": "You used to delete an entire meal or copy a whole day; now it's line by line. Meanwhile copying yesterday's food has become too easy, and if you slip you undo it one item at a time. A direct hit to the daily workflow."
-   },
-   {
-    "title": "Steps and workouts won't sync — or duplicate themselves five times over",
-    "plus": null,
-    "minus": "The Fitbit / Garmin / Samsung Watch / Health Connect link is a chronic sore: steps either don't pull through, arrive wildly off, or a workout duplicates 5 times and wrecks the calorie balance. And you can't enter steps manually."
-   },
-   {
-    "title": "Logging reminders are nagging and try-hard \"cringe\"",
-    "plus": null,
-    "minus": "The new reminder wording reads as manipulative and try-hard: \"log your food it freaks us out\", \"the truest horror story — you not logging your meal\". On top of that, streak notifications can't be disabled and fire at the wrong times."
-   },
-   {
-    "title": "It makes you configure everything, then springs a paywall and surprise charges",
-    "plus": null,
-    "minus": "The hated flow: spend 20 minutes configuring meal plans, then pay $99-180/year. Then come triple charges, deductions off a backup card, trials you can't cancel, and charges years after uninstalling. Many call it a scam."
-   },
-   {
-    "title": "Custom foods and goals need Premium — and even then they reset on you",
-    "plus": null,
-    "minus": "The database is user-built, yet adding your own food or nutrients is now Premium-only. And paying users can't set macro goals flexibly (only 5% steps), can't see protein and fiber at once, and watch their settings revert to defaults."
-   },
-   {
-    "title": "Boot loops, crashes and lost data after updates",
-    "plus": null,
-    "minus": "After updates the app often hangs in a loading loop (\"Please wait...\", the logo screen on repeat) or won't open at all. Worst of all is data loss: wiped workouts, vanished foods, months of history gone, calories duplicated into the past."
-   },
-   {
-    "title": "User-built database = noise: the same food with different calorie counts",
-    "plus": null,
-    "minus": "The flip side of the huge database: entries are user-submitted, so the same food shows up with a dozen different calorie counts. Lots of \"unverified\" junk, and finding the entry with the correct nutrition is genuinely hard."
-   },
-   {
-    "title": "Forced data transfer to the US drives privacy-minded users away",
-    "plus": null,
-    "minus": "Some users hit a mandatory consent to transfer personal and health data to the US just to use the app. For a subset that's a privacy red line, and they refuse to use it at all."
-   },
-   {
-    "title": "The free tier still delivers real motivation and accountability",
-    "plus": "Despite the cuts, plenty still praise the free tier specifically: simple food logging, macros, reports, copying past meals — and that's enough to stay accountable and lose weight without paying.",
+    "title": "Habit and accountability are the real product, not the number-crunching",
+    "plus": "The strongest emotional hook isn't accuracy, it's the feeling of being accountable to yourself. People recount multi-year stories of losing 20, 80, 150+ lbs and say it 'holds me accountable' and won't let them gaslight themselves. Logging becomes a near-automatic ritual. That explains the abnormal loyalty: the product sells discipline, and the numbers are just its instrument.",
     "minus": null
+   },
+   {
+    "title": "Streak notifications flipped from support to 'cringe' — and push people toward the door",
+    "plus": null,
+    "minus": "Streak gamification is meant to pull people back into the habit, but the new 'quirky' notification tone ('not logging? you'll make us sad') reads as manipulative and infantilizing. For an audience that already logs automatically the streak is useless, and you can't turn it off. A retention mechanism became an irritant people explicitly cite as making them want to uninstall."
+   },
+   {
+    "title": "Step and workout integrations are a promise that barely works",
+    "plus": null,
+    "minus": "Pairing with Fitbit, Garmin, Samsung and Health Connect is sold as the edge — burned calories sync automatically. In practice steps are off by multiples, workouts either never arrive or duplicate five times and wreck the calorie remainder, and you can't enter steps manually. Half the 'eaten minus burned' equation is unreliable, so the product falls short of the one-stop health hub it pitches."
+   },
+   {
+    "title": "The open database is double-edged: depth versus the noise of duplicates",
+    "plus": null,
+    "minus": "The very thing that makes the database huge — open user entry — also clogs it. A single food surfaces a dozen entries with different calories and you have to guess which is right; even 'verified' ones can be wrong. Logging quality hinges on whether the user picked the correct row, which quietly erodes trust in the number the whole thing exists to provide."
+   },
+   {
+    "title": "Rigid dashboard presets won't let you see the nutrients you actually track",
+    "plus": null,
+    "minus": "The diary only shows fixed nutrient sets, and you can't see, say, protein and fiber at once — you must pick one. For users with a specific goal (diabetes, keto, fiber) this defeats the point: they pay yet can't assemble on one screen the exact metrics they came for. Customization — the thing that would turn a tracker into a personal tool — is locked away."
+   },
+   {
+    "title": "AI photo logging can't tell portions apart — so it saves no manual entry at all",
+    "plus": null,
+    "minus": "Photo food recognition is the flagship new feature, but it can't tell a 60-calorie small yogurt from a 250-calorie full cup. And since you end up typing the quantity by hand anyway, it removes none of the logging friction it was pitched to kill. It becomes a demo feature: impressive at install, useless in the real daily loop, and people fall back to manual entry."
+   },
+   {
+    "title": "US-only units and week-start quietly alienate everyone outside America",
+    "plus": null,
+    "minus": "Recipes in 'cups,' a week that starts on Sunday, salt only as 'sodium' — small things that, for a non-American, turn every entry into a conversion. You can't align the week to your weigh-in day, can't track salt by the European standard. Individually trivial, together a constant friction tax that leaves international users feeling second-class."
+   },
+   {
+    "title": "Forcing a US data transfer as a condition of entry scares off privacy-minded users at the threshold",
+    "plus": null,
+    "minus": "To use the app at all you must consent to transferring your data to the US — and a segment of users balks right here, especially given how sensitive health data is. This isn't a buried policy line, it's a blocking screen at the very start: the product loses cautious users before it ever proves value, and declining means you can't get in at all."
+   },
+   {
+    "title": "A long onboarding before the wall — the failure lands after the time is already invested",
+    "plus": null,
+    "minus": "This is the single money card — and it's about a mechanism, not a price gripe. The app walks you through 20 minutes of goal and meal-plan setup, then reveals the subscription only at the very end. The user invests time, feels the sunk-cost pull — and hits the wall right there. Activation arrives after trust is already spent, so the refusal reads as bait-and-switch and people score it zero before a single real use."
    }
   ],
   "hygiene": []
@@ -4487,64 +4547,74 @@
  "g-mynetdiary": {
   "product": [
    {
-    "title": "Genuinely drives weight loss — dozens of confirmed stories",
-    "plus": "The core reason people love it: users log for years and drop anywhere from 10 to 100 pounds. The tracker turns portion control into a habit rather than a diet, and many call it a life-changing tool.",
+    "title": "The free tier does almost everything — and it's what builds the habit",
+    "plus": "The core retention mechanism: the essentials — logging, the database, barcode scanning, recipes — all work unpaid, so people weave the app into a daily ritual before money ever comes up. The habit forms on free, and payment later feels like a thank-you, not an entry toll.",
     "minus": null
    },
    {
-    "title": "The free tier gives away nearly everything — rare in this category",
-    "plus": "Many note that features locked behind paywalls elsewhere are free here: barcode scanner, the huge database, custom recipes, fasting. A lot of users see no reason to ever pay.",
+    "title": "It's the landing pad for MyFitnessPal refugees",
+    "plus": "Growth comes not from beginners but from a rival's disillusioned base: people leave MyFitnessPal once it walled off familiar features, and land here because they find those features free. This segment already knows how to log food and judges not 'is it easy to start' but 'are they greedy' — and the comparison lands in this app's favor.",
     "minus": null
    },
    {
-    "title": "Hidden paywall: «free» turns out to be a 7-day trial",
-    "plus": null,
-    "minus": "The most frequent complaint: people search for a «free calorie tracker», go through the whole onboarding, then hit a paywall exactly where the plan should appear. The trial isn't disclosed until after install, and it feels like a bait-and-switch."
-   },
-   {
-    "title": "Pushy premium nagging on every launch",
-    "plus": null,
-    "minus": "Subscription promo banners and pop-ups appear constantly, eat up half the screen, and chase even paying annual users. People describe it as manipulation and pressure."
-   },
-   {
-    "title": "Barcode scanner and AI meal recognition — but not in every country",
-    "plus": "The barcode scanner and photo meal recognition are called best-in-class: snap a plate and calories are counted. The catch — accuracy wobbles, and in Turkey, Japan, or with local foods the scanner often comes up empty.",
+    "title": "Visible weight-loss results turn users into evangelists",
+    "plus": "The strongest growth engine isn't marketing but the numbers themselves: people credit the app with specific pounds and kilos lost and then retell it to family and friends unprompted. When the product is woven into a successful weight-loss story, the review becomes a personal referral — the cheapest and most persuasive acquisition channel there is.",
     "minus": null
    },
    {
-    "title": "Basic functions and data reset locked behind subscription",
+    "title": "A long onboarding questionnaire scares off people who just want a quick count",
     "plus": null,
-    "minus": "Things that used to be free were moved behind the paywall over time: food photos, editing entries, and — most outrageous — resetting your data for a «Fresh Start» requires either deleting your account or paying for premium."
+    "minus": "The costliest funnel leak: the product makes people grind through a multi-step survey about their diet, body and goals before they ever reach the tracker. The 'I just want to know the calories in this dish' segment reads it as friction and uninstalls before logging a single meal — before the product ever proves its worth."
    },
    {
-    "title": "Subscription nightmare: charges, refusals to refund, locked out of what you paid for",
-    "plus": null,
-    "minus": "A whole cluster of furious billing reviews: surprise annual charges, inability to cancel, refused refunds. Worst of all — cancelling kills your premium even for a year you already paid for."
+    "title": "AI photo meal-recognition delights exactly as much as it disappoints",
+    "plus": "For a chunk of users the photo-recognition of a meal is the 'wow' moment that removes logging's biggest pain: snap a picture, the app guesses the food and the calories, and the habit sustains itself. For people eating out or estimating, 'close enough' is enough — and that one feature is what binds them to the product.",
+    "minus": null
    },
    {
-    "title": "Cluttered interface: too much going on for simple tracking",
+    "title": "When the photo-scan misses, it misses loudly and erodes trust in the numbers",
     "plus": null,
-    "minus": "People who just wanted to count calories drown in buttons, menus and text. Logging a recipe takes six menus; the front page is a wall of text. Some uninstall before even reaching the tracker."
+    "minus": "The flip side of the same mechanism: for some, the meal recognition guesses 'wildly wrong,' and that's worse than a simple glitch — a calorie tracker is only worth its accuracy, so a crude AI miss undermines trust in the whole product. Those who came specifically for photo-logging as the headline feature feel cheated and leave."
    },
    {
-    "title": "Endless onboarding questionnaire before you can count anything",
-    "plus": null,
-    "minus": "Reaching the tracker means 10-15 minutes of questions and self-promotion. People who just wanted «how many calories are in this item» uninstall right at onboarding."
+    "title": "The barcode scanner and database depth are the speed that keeps logging alive",
+    "plus": "Food logging only survives if it's fast, and here the combo of 'barcode + a huge catalog + restaurant menus' removes the core friction: no manual thinking or counting. That speed mechanism is what keeps people for years and makes them call the app a 'habit' rather than a chore.",
+    "minus": null
    },
    {
-    "title": "Inaccurate calorie math and a messy food database",
+    "title": "The database is Western-skewed and loses anyone eating non-Western food",
     "plus": null,
-    "minus": "Some users report overestimated maintenance calories, wrong macros, and a user-filled database riddled with errors. For a few it quietly stalled their progress before they noticed."
+    "minus": "A hidden market boundary: the catalog and scanner cover Western foods well, but users in Turkey, Japan, India and Pakistan hit a dead barcode and missing dishes without macros. For them fast logging collapses — they must hand-enter everything — and they defect to local rivals. The product quietly loses its entire non-Western segment."
    },
    {
-    "title": "Forced Generative AI alienates part of the base",
+    "title": "Overestimated maintenance calories quietly sabotages results",
     "plus": null,
-    "minus": "Adding generative AI sparked its own backlash: some find it pointless and environmentally tone-deaf, others say its meal guesses are way off — and the AI features got walled into a new paid tier on top."
+    "minus": "The most insidious failure because it's invisible: the calculation engine overstates maintenance calories and the deficit, so a person faithfully 'follows the app' yet doesn't lose weight. Since the product's entire value is an accurate budget, an error in the very core nullifies results — and the user only realizes it after months of lost progress, then leaves blaming the app for being 'inaccurate.'"
    },
    {
-    "title": "Flaky sync with Fitbit, Garmin and Health Connect",
+    "title": "Wearable sync locks users in — until it silently breaks",
     "plus": null,
-    "minus": "Integrations are a sore spot: Fitbit sync drops out, calories from Health Connect get ignored in favour of the app's own «wild guess», and Garmin won't connect. Support fixes it for some, but not everyone."
+    "minus": "A two-edged lock-in mechanism: tying into Fitbit, Garmin and Samsung Health makes the app the hub of a fitness stack, and people move here precisely after Google broke the native Fitbit app. But when sync silently stops, or the app ignores Health Connect's burned calories and substitutes a 'wild assed guess,' it breaks the exact reason the person chose the product — and trust drops harder than it would for an app with no integrations at all."
+   },
+   {
+    "title": "Rigid measurement units repel people who think in grams",
+    "plus": null,
+    "minus": "A narrow but decisive friction: the product pushes servings, cups and ounces, and for some won't let them type a food's weight in grams directly. For people used to a kitchen scale and precise weighing — the most disciplined, loyal segment — being unable to work in their own units is reason enough to delete on the spot, before judging anything else."
+   },
+   {
+    "title": "'It used to be simple' — feature bloat is smothering the original value",
+    "plus": null,
+    "minus": "A mature product's strategic debt: veterans remember a clean, simple app and now face an overloaded interface with ten buttons for one function and six menus for a single action. The more that's crammed in, the harder it is to keep the habit — yet simplicity was once the very advantage. The product risks losing the same 'I just want to count calories' segment it keeps attracting."
+   },
+   {
+    "title": "Recurring weigh-ins and visible progress are the built-in motivation hook",
+    "plus": "A quiet retention engine: the app turns weight loss into a measurable ritual — weekly weigh-ins, charts, auto-adjusting calories to the past week. This 'measure → see the shift → keep going' loop is what turns dull bookkeeping into something people come back to daily, and keeps the disciplined users for years.",
+    "minus": null
+   },
+   {
+    "title": "Constant premium nagging reads as manipulation — even to paying users",
+    "plus": null,
+    "minus": "Not a complaint about 'too expensive' but a strategic self-sabotage: a product whose strength is a generous free core aggressively pushes premium banners and pop-ups on every open — and does so even to users who have ALREADY paid for a year. It thereby destroys with its own hands the 'they're not greedy' feeling that draws people over from MyFitnessPal. The upsell's intrusiveness strikes at the exact positioning advantage that makes the app win."
    }
   ],
   "hygiene": []
@@ -4552,68 +4622,73 @@
  "g-noom": {
   "product": [
    {
-    "title": "The psychology and micro-lessons are what people genuinely love",
-    "plus": "The loyal core values not the calorie counter but the daily lessons, the CBT approach and the rewiring of one's relationship with food — that, they say, is what finally makes change stick rather than being a \"quick fix\".",
+    "title": "It sells thought-retraining, not tracking",
+    "plus": "Noom's core product isn't the calorie counter but the daily psychology-of-eating micro-lessons and habit work; people who failed every diet because they hate restriction stay precisely because the program explains WHY they eat rather than banning foods. It retains the segment that needs meaning, not a spreadsheet.",
     "minus": null
    },
    {
-    "title": "Core features moved behind the paywall — and long-time users feel cheated",
-    "plus": null,
-    "minus": "Those who remember the free 2018–2020 version are furious: food logging, editing past days, adding exercise, typing entries in — everything that used to be free now demands a subscription costing nearly $30 a month."
-   },
-   {
-    "title": "Food logging got worse: the database can't find items and loses your entries",
-    "plus": null,
-    "minus": "The one function that has to work is broken: barcodes don't scan, search says \"the database needs to download\", and manually added foods vanish on the next open — pushing people back to MyFitnessPal."
-   },
-   {
-    "title": "Bait and switch: pushing GLP-1 access, laying off coaches for AI",
-    "plus": null,
-    "minus": "Returning users describe the company's pivot as \"repulsive\": instead of human coaching there's pushy GLP-1 drug selling and canned AI replies, and many delete their account precisely because of it."
-   },
-   {
-    "title": "The weight loss really works — for those who follow the plan",
-    "plus": "Plenty of reviews come with concrete numbers: 10–55 lbs over weeks or months. People who log their food and hold their calorie and protein goals see results and come back for \"round 2\".",
+    "title": "Duolingo-grade gamification turns weight loss into a game",
+    "plus": "Seeds, levels, streaks and micro-challenges pull people back daily — users openly admit they're \"ridiculously motivated by earning meaningless seeds.\" It's a rare case where the behavioral hook drives the daily logging habit rather than one-time novelty.",
     "minus": null
    },
    {
-    "title": "Cancellation and refunds are built like a trap",
+    "title": "The same gamification crossed the line into annoying noise",
     "plus": null,
-    "minus": "You can't cancel inside the app, there's no renewal reminder, and after the charge no refund is given \"because it's a renewal\" — people get billed $100–200 for a service they never used."
+    "minus": "When seeds, unskippable streak animations and \"art break\" pushes pile on top of logging, the same hook starts to repel: people force-quit the app over animations and cancel specifically over the \"distractions.\" By over-tuning engagement, Noom drives out the very users it used to retain."
    },
    {
-    "title": "GLP-1 price shock: $900 for 3 months and a microdose instead of what was promised",
+    "title": "Photo meal logging is the wow-hook that breaks on a real plate",
     "plus": null,
-    "minus": "Those who came for the meds describe a \"total scam\": pay three months upfront, the drug price only surfaces after you've paid, the dose turns out lower than the microdose, and shipments and prescriptions are delayed."
+    "minus": "Noom sells AI photo food recognition as a flagship feature, but it consistently misreads: a cup of spinach with an apple is graded \"red,\" a labeled 280-cal cookie logs as 190. The onboarding wow-moment turns into distrust of every number — and trust in the tracker is the whole product."
    },
    {
-    "title": "Step counting and tracker sync simply don't work",
+    "title": "The food database is US-only and empty for everyone else",
     "plus": null,
-    "minus": "A chronic pain point: Noom shows 1000 steps instead of 7000, won't sync with Samsung/Galaxy/Fitbit, and won't let you add steps manually — yet the calorie budget is tied to activity, so the whole tracking breaks."
+    "minus": "The barcode scanner and search find US, Canadian, UK and Australian products — and nothing else; users outside those markets simply can't log their food. For an app whose core is logging, this isn't a localization bug but a total loss of the international segment, which leaves for MyFitnessPal."
    },
    {
-    "title": "The app lags, freezes and won't load its own content",
+    "title": "Logged food vanishes — the tracker's memory leaks",
     "plus": null,
-    "minus": "The product is technically unstable: crashes on open, an \"Art Break\" that spins forever, a medical intake that gets stuck, and freezes worse than physics-heavy games — while support just parrots the steps the user already tried."
+    "minus": "Again and again users add a food to the database, then can't find it on the next visit; identical meals return different calories. A tracker that doesn't remember what you ate breaks the entire reason to keep a diary — and people leave for MyFitnessPal specifically for reliable re-logging."
    },
    {
-    "title": "Android is a second-class citizen next to iOS",
+    "title": "Android is a second-class citizen with no recipes or custom meals",
     "plus": null,
-    "minus": "On Android there's no recipe builder or saved meals to re-log, no way to add exercise beyond steps, and no progress tab — features iOS users have and that even free apps offer."
+    "minus": "The recipe builder and saving your own meals exist on iOS but are cut on Android — users discover it after the fact and abandon the app. For people who cook their own food, the absence of reusable recipes makes daily logging unbearable, and it's a stated reason not to renew."
    },
    {
-    "title": "The food color system and calorie accuracy break trust",
+    "title": "The calorie budget is tied to steps, and steps don't count",
     "plus": null,
-    "minus": "Users find the \"green/yellow/orange\" system illogical — vegetables and lean protein land in \"orange\" — and the photo AI and scanner return wrong calories, sometimes not even matching the numbers printed on the label."
+    "minus": "Noom computes the daily calorie budget from activity, but step sync with Samsung/Fitbit/watches broadly fails and manual entry was removed. The result breaks not one feature but the program's whole math: without correct steps you can't trust the calorie goal either, leaving the user with no compass."
    },
    {
-    "title": "The \"seeds\" gamification turned from motivator into an irritant",
+    "title": "The green-yellow-orange color system punishes healthy food",
     "plus": null,
-    "minus": "The reward system gets praise when it works — but the update forced unskippable notifications and \"streak\" animations, cut the rewards for articles, and the promised gift cards arrive late or never."
+    "minus": "The traffic-light classification is Noom's signature teaching tool, yet it drops vegetables, vegan protein and whole foods into the \"orange\" zone, contradicting actual nutrient density. For a nutritionally literate user it undermines trust in the app's core pedagogical mechanism."
    },
    {
-    "title": "Photo meal logging is the favorite feature — for those it works for",
-    "plus": "When the AI recognition works, people adore it: snap the plate and get a meal breakdown. Some users call it the most convenient part of tracking.",
+    "title": "The human coach was swapped for AI — and the reason people came back left",
+    "plus": null,
+    "minus": "Personal human coaching and psychological support used to be what set Noom apart from plain counters; laying off coaches for AI hollowed the coach out — it just points to materials the user already has. Loyal past customers return, see the AI shift, and leave in disgust."
+   },
+   {
+    "title": "The GLP-1 pivot turns a habit program into a drug-sales funnel",
+    "plus": null,
+    "minus": "Users come for a behavioral program, then after months of lessons the app starts pushing its own GLP-1 drugs — a \"slap in the face\" to a paying customer. Strategically Noom monetizes meds on top of the subscription, but at the cost of the very \"healthy without drugs\" positioning that brought its audience in."
+   },
+   {
+    "title": "Navigation bloated: simple calorie counting is now buried in menus",
+    "plus": null,
+    "minus": "What used to be quick food and exercise logging now takes several screens: activity logging is hidden in a \"get your steps in\" section, viewing past days is unobvious. Interface bloat raises friction on the core daily action and actively demotivates — people quit over the navigation itself."
+   },
+   {
+    "title": "Spinning-dial serving entry — small friction that breaks the habit",
+    "plus": null,
+    "minus": "To set a serving size the user must \"spin a dial for five minutes to enter 160\" instead of typing the number directly. In an app where logging should be instant, this per-meal micro-frustration compounds and erodes the daily discipline the whole product depends on."
+   },
+   {
+    "title": "The weight loss genuinely works — but only for those who follow the plan",
+    "plus": "Despite the chaos, the program's core delivers durable results for the disciplined segment: people lose 40-55 lbs and keep it off for years, attributing it to compounding habits and lessons rather than a quick fix. This is the success cohort whose stories sell the subscription to newcomers.",
     "minus": null
    }
   ],
@@ -6252,64 +6327,79 @@
  "g-yazio": {
   "product": [
    {
-    "title": "An ad after every entry turns a 10-second log into minutes",
+    "title": "Gamification turned a 10-second action into a chore that pushes users to competitors",
     "plus": null,
-    "minus": "To add a single dish, a free user sits through one or two full-screen video ads (often with no close button — you have to open the advertised app's Play Store page to skip), then several more screens pushing premium. This happens after every meal."
+    "minus": "A calorie tracker is valuable precisely because it's fast: add food, close. Yazio bolted streak screens, a yeti mascot, chests, and an \"I'm committed\" button on top of every log, so now a mini-game stands between the user and recording a meal. That breaks the exact behavior the app is downloaded for: people explicitly say they quit tracking or switch to a feature-poorer competitor because logging there is faster. Retention-through-engagement is killing retention-through-habit."
    },
    {
-    "title": "Duolingo-style gamification enrages people who just want to count calories",
+    "title": "The missing \"turn everything off\" toggle drives even paying users out the door",
     "plus": null,
-    "minus": "The yeti mascot, streaks, chests, diamonds and a daily \"I'm committed\" tap feel like kindergarten, not an adult tracker. There's no way to turn it off, even with premium, and many leave for competitors because of it."
+    "minus": "The complaint isn't that animations and tips exist — it's that they can't be turned off, even when you pay. That converts Pro subscribers, the most valuable segment, into people counting down the days until their paid period ends. The same script repeats: \"I pay, I've been loyal for years, give me one toggle — or I'm gone.\" A missing minimal mode isn't an absent feature; it's an active churn mechanism aimed at the most profitable customers."
    },
    {
-    "title": "An endless onboarding quiz — dozens of questions before you see the app",
+    "title": "The multi-minute onboarding quiz kills activation before the product proves anything",
     "plus": null,
-    "minus": "Before you can use it you must answer 50+ questions (down to how many kids you have and what clothes you'll wear after losing weight), with no skip option. Many delete the app before ever reaching the tracker. Worse, the survey repeats if you skip a few days."
+    "minus": "Yazio greets a new user with 50–100 unskippable questions (down to \"how many kids do you have\" and \"what clothes do you want to wear after losing weight\"). The experienced segment — people who already know their calorie target — drops out inside the funnel: they uninstall before ever reaching the tracking screen. The quiz feeds personalization and the AI, but the cost is losing the most motivated users, who only wanted a notepad for calories."
    },
    {
-    "title": "Aggressive subscription pushing and a \"free\" trial that isn't",
+    "title": "Re-onboarding after a break punishes exactly the users they're trying to win back",
     "plus": null,
-    "minus": "After onboarding you hit a paywall and can't test the key features. The rigged \"discount\" spin wheel, fake free-trial advertising and full charges instead of the promised price all read as dark patterns."
+    "minus": "The most self-defeating decision: skip the app for a few days and it runs you through the entire intro quiz again — even for paying subscribers. This hits the real usage pattern: people track episodically, drop in for their saved recipes, return after a break. Instead of a frictionless return they face a wall of weight questions, which they describe as \"punishment.\" A mechanism meant to retain makes coming back as painful as possible."
    },
    {
-    "title": "AI photo recognition systematically undercounts calories",
-    "plus": null,
-    "minus": "The headline feature works poorly: the AI confuses ingredients, can't judge portion size, and consistently undercounts calories by 30-40% versus manual entry. For a calorie tracker that's not just inaccurate, it's potentially dangerous."
-   },
-   {
-    "title": "You can't turn off tips and animations even on the paid plan",
-    "plus": null,
-    "minus": "After every logged meal come \"meal tips\" and unskippable animations that slow you down. Users have begged for a settings toggle for years, and the devs answer \"by design\". Some note that the \"swap this for something healthier\" advice triggers eating disorders."
-   },
-   {
-    "title": "Recent updates broke the app: black screens, freezes, \"no connection\"",
-    "plus": null,
-    "minus": "In spring 2026 paying users report en masse that the app won't load, hangs on \"Get Started\", or shows \"no internet connection\" all day on a working Wi-Fi. There's no offline logging — a server outage locks you out of even your already-entered data."
-   },
-   {
-    "title": "Basic features locked behind the paywall — free users can't even see the day's log",
-    "plus": null,
-    "minus": "Many find it absurd that the free version hides the day's details, weight trend, or fiber. Returning users discover that features that used to be free — and even their own contributed food data — are now paywalled."
-   },
-   {
-    "title": "A huge food database and a clean, pretty interface — what users genuinely love",
-    "plus": "The standout strength is the broad database (you can find almost any product), a working barcode scanner, and a pleasant, intuitive design. Even the angriest reviews admit it's functionally the best calorie tracker out there.",
+    "title": "The widest food database in the niche is the real, under-leveraged moat",
+    "plus": "Even in furious reviews, users concede that Yazio's database has almost everything, and many stay only for it. It's a network effect built over years of users entering local products and recipes — something a competitor can't copy quickly. The segment that stays despite the gamification holds on precisely because of database completeness: \"I use it because it's the most popular, so the database is bigger.\" It's a genuine asset the product keeps undermining with everything else.",
     "minus": null
    },
    {
-    "title": "It genuinely works for weight loss — those who stay drop the kilos",
-    "plus": "For users who survive the onboarding and ads, the app delivers: staying in a deficit gets easier, and people report losing 9-21 pounds in a couple of months. For some, the streaks actually do help with motivation.",
-    "minus": null
-   },
-   {
-    "title": "Support replies fast, and disliked features do sometimes get fixed",
-    "plus": "Despite the overall anger, a notable share of reviews are edits up: the team issues refunds, replies quickly in chat, and added an option to snooze meal tips for two weeks — which people reward with a higher rating.",
-    "minus": null
-   },
-   {
-    "title": "No proper reports or data export — a dead end for serious trackers",
+    "title": "AI photo recognition systematically undercounts calories — more dangerous the more it's trusted",
     "plus": null,
-    "minus": "Paying users complain about the lack of weekly/monthly summaries, file or API export, and history beyond a couple of years. You can't hand your food diary to a doctor or dietitian — for an 84€ app that becomes a deal-breaker."
+    "minus": "Photo recognition is pitched as the flagship feature, but reviews consistently show it undercounting calories by 30–40% versus manual entry. For an app about a calorie deficit that's not a cosmetic bug — it sabotages the outcome: the user thinks they're under-eating when they're over-eating. It's compounded by being unable to adjust recognized values by portion weight, and edits often zero out the data. The headline feature works against the product's goal, and power users end up entering everything by hand anyway."
+   },
+   {
+    "title": "Replacing manual entry with an AI chat took away the product's fastest user",
+    "plus": null,
+    "minus": "The update that replaced the \"add manually\" button with a text AI hit the segment most valuable to a tracker: people who know the calories of their food and just want to type a number. They don't need the AI's guessing — they need speed. By removing direct manual entry, the product forced an AI dialogue where two taps used to be, and these users openly promise to cancel. The strategic pivot to AI knocked the legs out from under the most loyal, fastest cohort."
+   },
+   {
+    "title": "Post-log interstitials turned \"log and close\" into a 5-screen gauntlet",
+    "plus": null,
+    "minus": "After every food entry Yazio serves not one screen but a queue: a tip of the day, a motivational animation, a Pro upsell screen, sometimes a discount wheel. Because people log 3–6 times a day and often return to fix something, that queue multiplies by frequency and makes the core action unbearable. This isn't about money per se — it's that the product monetizes every micro-moment of use and thereby destroys the very frequency the habit depends on."
+   },
+   {
+    "title": "When the team finally shipped \"snooze tips,\" returning users restored five stars — feedback loops work",
+    "plus": "A rare positive mechanism: after a wave of complaints, Yazio added the ability to snooze or almost fully disable post-log tips, and users literally return to bump their rating back up to 4–5 stars. It shows the entire gamification problem is reversible with one configurable toggle, and that the product has an audience ready to forgive the moment the friction is removed. A team that responds to reviews converts the angry into advocates — and here you can watch it happen.",
+    "minus": null
+   },
+   {
+    "title": "Double-counting activity from connected trackers skews the result by hundreds of kcal",
+    "plus": null,
+    "minus": "The fitness-tracker integration counts activity twice — both phone steps and watch/Garmin/S-Health data — inflating \"burned\" calories by up to 1000 kcal. For a deficit app that directly misleads the user: it tells them they can eat more than they can. The scary part is that users notice it themselves — \"it makes me want to eat more.\" A feature meant to raise accuracy through integration ends up undermining trust in the single most important number in the product."
+   },
+   {
+    "title": "AI \"nutrition coach\" tips trigger eating-disorder relapses — a reputational landmine",
+    "plus": null,
+    "minus": "After every log, the mascot and AI judge the user's food choices and suggest swapping out the \"unhealthy\" — and a meaningful group describes this as a relapse into disordered eating and obsession. In the calorie-tracking niche, where the audience is by definition vulnerable, a moralizing tone isn't a minor flaw but direct harm and a legal/reputational risk. Users explicitly ask for a toggle and a higher age rating. A preachy AI turns a neutral logging tool into a source of guilt."
+   },
+   {
+    "title": "The redesign added clicks where one tap used to be — a regression of the core flow",
+    "plus": null,
+    "minus": "The recent redesign buried \"Recent / Frequent / Favorites\" and access to created recipes under dropdown menus, adding an extra click to the most frequent action. For long-time users with a built-up recipe library that's a direct loss of speed: what was one tap is now two or three. \"Every update makes the app worse\" repeats again and again. It's the classic mature-product trap: the team optimizes for novelty and AI while breaking the well-worn path the veterans rely on."
+   },
+   {
+    "title": "The fasting tracker is built as a dictator-timer, not an editable log — and is useless for it",
+    "plus": null,
+    "minus": "The intermittent-fasting module is rigidly tied to a pre-chosen fasting type: it decides when your fast started and ended, won't let you set the real start/end time, and won't let you edit past entries. That clashes with how people actually fast — flexibly, after the fact. The result is that even on the paid plan the feature gets called \"the dumbest thing.\" A rigid data model instead of an editable log kills an entire advertised use case."
+   },
+   {
+    "title": "No weekly/monthly reports or export drives away the most serious user",
+    "plus": null,
+    "minus": "Yazio logs a day well but stops exactly where the point of long-term tracking begins: no weekly/monthly summaries of calories and macros, no file export or API. The most serious segment — people who bring logs to a doctor or dietitian, who analyze trends — hits a wall and calls it a \"deal-breaker,\" vowing not to renew Pro. The product collects a mountain of valuable data and won't let the user take it out or make sense of it, losing exactly the users willing to pay the longest."
+   },
+   {
+    "title": "The discount wheel and fake \"spin\" erode price trust more than the price itself",
+    "plus": null,
+    "minus": "Here monetization genuinely defines the product's face, and what matters is the mechanism, not the number: Yazio shows a discount \"wheel of fortune\" that users quickly read as scripted and hard-coded, plus multi-step \"final offers.\" The effect is the opposite of intended — people stop believing the listed price is real (if there's always 85% off, that must be the real price), and the manipulative framing scares off even those who were willing to pay. The dark pattern around the purchase destroys trust more than the sticker price does."
    }
   ],
   "hygiene": []
