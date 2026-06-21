@@ -77,7 +77,8 @@ export default async function Home() {
   // homepage list, in popularity order; everything else keeps its order below.
   const PREMIUM = [
     "notes-pkm", "photo-editing", "calendars-tasks", "study-aids", "nutrition-calories",
-    "document-scanners", "weather-apps", "intermittent-fasting", "habit-tracking", "personal-finance",
+    "document-scanners", "weather-apps", "intermittent-fasting", "affirmations", "plant-care",
+    "habit-tracking", "personal-finance", "astrology",
   ];
   const premiumRank = (slug: string) => { const i = PREMIUM.indexOf(slug); return i === -1 ? PREMIUM.length : i; };
   catCards.sort((a, b) => premiumRank(a.slug) - premiumRank(b.slug));
