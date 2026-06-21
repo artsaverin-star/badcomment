@@ -22,7 +22,7 @@ export default function PostCard({ slug, name, caption }: { slug: string; name: 
       <h2 className="text-[20px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{name}</h2>
 
       <div className="mt-4 flex gap-3 overflow-x-auto pb-1">
-        {[0, 1, 2, 3].map((i) => (
+        {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
           <a
             key={i}
             href={`/api/post-image?slug=${slug}&i=${i}`}

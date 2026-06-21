@@ -33,10 +33,11 @@ export default async function AdminPostsPage() {
     const govLead = (thesis.governing || "").trim().split(/(?<=[.!?])\s+/)[0] || "";
 
     const caption =
-      `Прочитали ${reviews} отзывов на ${apps} приложений для ниши «${cat.name}» — и вот что важно.\n\n` +
+      `Прочитали ${reviews} отзывов на ${apps} приложений в нише «${cat.name}» — и собрали, за что их любят и за что сносят 👀\n\n` +
       (govLead ? `${govLead}\n\n` : "") +
       (idea ? `А ещё придумали, что тут можно построить — «${idea.title}»: ${idea.oneLiner.charAt(0).toLowerCase()}${idea.oneLiner.slice(1)}\n\n` : "") +
-      `Все три вывода и идею показали в карусели — листай 👉\n\n` +
+      `Реальные наблюдения + идея под живой спрос — листай карусель 👉\n\n` +
+      `Подпишись, чтобы не пропустить новые ниши.\n` +
       `Весь разбор: inApp.pro/ru/segment/${slug}`;
 
     return { slug, name: cat.name, caption };
@@ -46,8 +47,8 @@ export default async function AdminPostsPage() {
     <main className="mx-auto w-full max-w-3xl px-4 py-10">
       <h1 className="text-[28px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Посты</h1>
       <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
-        Готовые посты по качественным нишам ({posts.length}): цепляющий текст + карусель из 4 картинок
-        (хук с цифрами → 2 вывода → идея, что построить). Внизу каждой картинки — inApp.pro.
+        Готовые посты по качественным нишам ({posts.length}): цепляющий текст + карусель из 8 картинок
+        (хук с цифрами → 5 реальных наблюдений → идея, что построить → подписка). Внизу каждой картинки — inApp.pro.
         Кликни картинку, чтобы открыть/скачать.
       </p>
       <div className="mt-8 flex flex-col gap-6">
