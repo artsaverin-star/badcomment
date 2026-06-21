@@ -38,8 +38,8 @@ export default async function TokensPage() {
       <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-4 text-center">
         <p className="text-callout font-semibold text-[var(--color-text-primary)]">
           {locale === "en"
-            ? "🚀 Early access forever — 2990 ₽ (then 9990 ₽)"
-            : "🚀 Ранний доступ навсегда — 2990 ₽ (потом 9990 ₽)"}
+            ? "🚀 Early access forever — 2990 ₽"
+            : "🚀 Ранний доступ навсегда — 2990 ₽"}
         </p>
         <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">
           {locale === "en"

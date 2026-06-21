@@ -105,7 +105,6 @@ export default function TokenStore({
     rub: LIFETIME.rub,
     stars: LIFETIME.stars,
     anchor: LIFETIME_REGULAR,
-    badge: ru ? `потом ${fmt(LIFETIME_REGULAR)} ₽` : `then ${fmt(LIFETIME_REGULAR)} ₽`,
     hero: true,
     features: ru
       ? [
