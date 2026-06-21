@@ -1,7 +1,7 @@
 // A deterministic, distinct brand gradient per category — derived from the slug,
 // so every niche gets its own colour identity (same slug → same gradient always).
 
-function hueFromSlug(slug: string): number {
+export function hueFromSlug(slug: string): number {
   let h = 0;
   for (let i = 0; i < slug.length; i++) h = (h * 31 + slug.charCodeAt(i)) >>> 0;
   return h % 360;
@@ -39,7 +39,11 @@ export function categoryAtmosphere(slug: string): string {
   return atmosphere(hueFromSlug(slug));
 }
 
-// Non-category pages (home, etc.) use the inApp brand-orange hue.
-export function brandAtmosphere(): string {
-  return atmosphere(28);
+// Hue-based variants — for pages that pick a hue at runtime (e.g. the home page
+// rolls a fresh random colour each load).
+export function atmosphereForHue(h: number): string {
+  return atmosphere(h);
+}
+export function accentForHue(h: number): string {
+  return `hsl(${h} 85% 62%)`;
 }

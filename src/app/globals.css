@@ -260,8 +260,10 @@ details.no-anim::details-content {
    Secondary text is kept bright enough for comfortable long-read body copy. */
 [data-theme="dark"] {
   color-scheme: dark;
-  /* Near-black so the single-hue atmosphere glow reads richly out of the dark. */
-  --color-bg-page: #0a0a0c;
+  /* Near-black, but faintly tinted toward the page's atmosphere hue (set on
+     <html> by AtmosphereSetter) — so the base is "a touch green / brown", never
+     flat black. Falls back to brand-orange before the hue is set. */
+  --color-bg-page: hsl(var(--atmo-h, 28) 24% 5%);
   --color-bg-subtle: #1a1a1d;
   --color-bg-muted: #34343b;
   --color-surface-card: #232327;
@@ -284,34 +286,54 @@ body {
   background: var(--color-bg-page);
 }
 
-/* Full-bleed atmosphere layer — one rich single-hue glow per page, à la oryzo.ai.
-   Fixed (one cheap composited layer, not background-attachment), behind content.
-   Dark theme only — on light theme the dark hue-wash would muddy the page. */
+/* Atmosphere — ONE single-hue glow as a circle off to the side at the TOP of the
+   page, blooming out of the tinted near-black. Absolute (scrolls away after the
+   hero — "only at the start"), full-bleed, behind content. Hue from --atmo-h
+   (set per page on <html>). Dark theme only. */
 .atmosphere {
-  position: fixed;
-  inset: 0;
-  z-index: -10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 820px;
+  z-index: -1;
   pointer-events: none;
+  background:
+    radial-gradient(44% 64% at 22% -14%, hsl(var(--atmo-h, 28) 78% 55% / 0.4), transparent 60%),
+    radial-gradient(64% 60% at 14% -22%, hsl(var(--atmo-h, 28) 58% 36% / 0.26), transparent 72%);
 }
 html:not([data-theme="dark"]) .atmosphere {
   display: none;
 }
 
-/* One-shot "hop" glow that sweeps a heading once on load. */
-@keyframes glow-hop {
-  0% { text-shadow: none; }
-  20% {
-    text-shadow:
-      0 0 14px color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 75%, transparent),
-      0 0 38px color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 45%, transparent);
-  }
-  100% { text-shadow: none; }
+/* One-shot glow that travels across a heading left → right once on load: a bright
+   band of the accent colour sweeps over the text (clipped to the glyphs). */
+@keyframes glow-sweep {
+  from { background-position: 170% 0; }
+  to { background-position: -70% 0; }
 }
-.glow-hop {
-  animation: glow-hop 1s ease-out 0.12s 1 both;
+.glow-sweep {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-text-primary) 0%,
+    var(--color-text-primary) 41%,
+    var(--glow-c, var(--color-accent-brand)) 50%,
+    var(--color-text-primary) 59%,
+    var(--color-text-primary) 100%
+  );
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow-sweep 1.15s ease-out 0.2s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
-  .glow-hop { animation: none; }
+  .glow-sweep {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
 }
 
 /* ── Landing (logged-out) animations ──────────────────────────────────── */

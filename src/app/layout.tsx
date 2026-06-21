@@ -49,6 +49,7 @@ export default async function RootLayout({
       className={`${inter.variable} ${nunito.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <div className="atmosphere" aria-hidden />
         {/* Brand entity for search + LLM grounding (Organization + WebSite). */}
         <script
           type="application/ld+json"

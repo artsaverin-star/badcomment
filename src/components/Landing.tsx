@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
-import { categoryGlow } from "@/lib/categoryGradient";
 import type { Locale } from "@/lib/i18n";
 
 export type CatCard = {
@@ -61,11 +60,10 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      style={{ backgroundImage: categoryGlow(c.slug, 0.2) }}
       className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9"
     >
       <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
-      <h3 className="mt-2 text-[30px] font-semibold leading-[1.04] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
+      <h3 className="mt-2 text-[30px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
       {icons.length > 0 && (
         <div className="mt-6 flex flex-wrap items-center gap-2">
           {icons.map((src, i) => (
@@ -93,10 +91,9 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      style={{ backgroundImage: categoryGlow(c.slug, 0.18) }}
       className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
     >
-      <h3 className="text-[21px] font-semibold leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[23px]">{c.name}</h3>
+      <h3 className="text-[21px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[23px]">{c.name}</h3>
       {icons.length > 0 && (
         <div className="mt-4 flex items-center gap-1.5">
           {icons.map((src, i) => (
@@ -129,7 +126,7 @@ function ListRow({ c, ru }: { c: CatCard; ru: boolean }) {
         ))}
       </div>
       <div className="min-w-0 flex-1">
-        <h3 className="text-[17px] font-semibold leading-tight tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[18px]">{c.name}</h3>
+        <h3 className="text-[17px] font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[18px]">{c.name}</h3>
         {c.hook && <p className="mt-1 line-clamp-1 text-[13px] leading-snug text-[var(--color-text-tertiary)]">{c.hook}</p>}
       </div>
       <p className="hidden shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)] md:block">{metaLine(c, ru)}</p>
@@ -145,7 +142,6 @@ export default function Landing({
   catCards = [],
   locale = "ru",
   totalReviews = 0,
-  loggedIn = false,
 }: {
   catCards?: CatCard[];
   locale?: Locale;
@@ -216,7 +212,7 @@ export default function Landing({
         </div>
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <h1 className="glow-hop ld-fade text-[40px] font-bold leading-[1.04] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
+          <h1 className="glow-sweep ld-fade text-[40px] font-black leading-[1.02] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
             {ru ? (
               <>Проанализировали<br /><span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов</>
             ) : (
@@ -230,13 +226,6 @@ export default function Landing({
               : "Broken down by niche, clear conclusions and concrete ideas — which apps people actually need."}
           </p>
 
-          {!loggedIn && (
-            <div className="ld-fade mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "0.15s" }}>
-              <button type="button" onClick={() => setModal(true)} className="rounded-full bg-[var(--color-button-primary-bg)] px-6 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
-                {ru ? "Начать бесплатно" : "Start free"}
-              </button>
-            </div>
-          )}
         </div>
       </section>
 

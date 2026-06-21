@@ -6,7 +6,7 @@ import { listIdeas } from "@/lib/ideas";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { tg } from "@/lib/typo";
-import { brandAtmosphere } from "@/lib/categoryGradient";
+import AtmosphereSetter from "@/components/AtmosphereSetter";
 import Landing from "@/components/Landing";
 
 export const dynamic = "force-dynamic";
@@ -104,7 +104,7 @@ export default async function Home() {
 
   return (
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
-      <div aria-hidden className="atmosphere" style={{ background: brandAtmosphere() }} />
+      <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }} />
       <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} />
     </main>
