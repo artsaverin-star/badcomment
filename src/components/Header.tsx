@@ -17,7 +17,7 @@ export default function Header({
 }) {
   return (
     <header className="sticky top-0 z-40 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="mx-auto flex h-12 max-w-5xl items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] pl-4 pr-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:h-14 sm:pl-5 sm:pr-2.5">
+      <div className="mx-auto flex h-12 max-w-lg items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] pl-4 pr-2 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:h-14 sm:pl-5 sm:pr-2.5">
         <Link
           href="/"
           aria-label="inApp"
