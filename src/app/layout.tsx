@@ -95,6 +95,14 @@ export default async function RootLayout({
           src="https://datafa.st/js/script.js"
           strategy="afterInteractive"
         />
+        {/* Google Analytics (gtag.js) */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G3J6K8VBD6" strategy="afterInteractive" />
+        <Script id="ga-gtag" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-G3J6K8VBD6');`}
+        </Script>
       </body>
     </html>
   );
