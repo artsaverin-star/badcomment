@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCategoryBySlug, listDomains } from "@/lib/researchCategories";
-import { categoryAccent, categoryGlow } from "@/lib/categoryGradient";
+import { categoryAccent, categoryAtmosphere } from "@/lib/categoryGradient";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
@@ -361,9 +361,10 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main
-      style={{ ["--glow-c" as string]: categoryAccent(slug), backgroundImage: categoryGlow(slug, 0.13), backgroundRepeat: "no-repeat", backgroundSize: "100% 460px" }}
+      style={{ ["--glow-c" as string]: categoryAccent(slug) }}
       className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24"
     >
+      <div aria-hidden className="atmosphere" style={{ background: categoryAtmosphere(slug) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Link href="/" className="text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">

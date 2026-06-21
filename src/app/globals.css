@@ -260,8 +260,8 @@ details.no-anim::details-content {
    Secondary text is kept bright enough for comfortable long-read body copy. */
 [data-theme="dark"] {
   color-scheme: dark;
-  /* Soft graphite (not pure black): lighter page, visible grey plates/chips. */
-  --color-bg-page: #121214;
+  /* Near-black so the single-hue atmosphere glow reads richly out of the dark. */
+  --color-bg-page: #0a0a0c;
   --color-bg-subtle: #1a1a1d;
   --color-bg-muted: #34343b;
   --color-surface-card: #232327;
@@ -278,23 +278,23 @@ details.no-anim::details-content {
   --color-button-ghost-bg: #232327;
 }
 
-/* Atmospheric brand background — soft radial brand glows at the top fading into
-   the base, à la oryzo.ai. Painted on body (scrolls, no fixed/parallax layers, so
-   it never tanks scroll). Light theme keeps it whisper-subtle. */
+/* Flat base; the atmospheric single-hue glow lives on a per-page .atmosphere
+   layer (see categoryGradient.ts) so each niche owns ONE cohesive colour. */
 body {
-  background:
-    radial-gradient(72% 40% at 74% -6%, rgba(255, 122, 26, 0.08), transparent 60%),
-    radial-gradient(60% 38% at 8% 4%, rgba(155, 93, 229, 0.06), transparent 60%),
-    var(--color-bg-page);
-  background-repeat: no-repeat;
+  background: var(--color-bg-page);
 }
-[data-theme="dark"] body {
-  background:
-    radial-gradient(70% 42% at 75% -8%, rgba(255, 122, 26, 0.22), transparent 60%),
-    radial-gradient(58% 40% at 6% 2%, rgba(155, 93, 229, 0.18), transparent 60%),
-    radial-gradient(85% 52% at 46% -2%, rgba(76, 184, 245, 0.1), transparent 55%),
-    #0b0b0d;
-  background-repeat: no-repeat;
+
+/* Full-bleed atmosphere layer — one rich single-hue glow per page, à la oryzo.ai.
+   Fixed (one cheap composited layer, not background-attachment), behind content.
+   Dark theme only — on light theme the dark hue-wash would muddy the page. */
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+}
+html:not([data-theme="dark"]) .atmosphere {
+  display: none;
 }
 
 /* One-shot "hop" glow that sweeps a heading once on load. */

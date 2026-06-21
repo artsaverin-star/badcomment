@@ -23,3 +23,23 @@ export function categoryGlow(slug: string, strength = 0.16): string {
 export function categoryAccent(slug: string): string {
   return `hsl(${hueFromSlug(slug)} 85% 62%)`;
 }
+
+// Full-page atmosphere — ONE rich single-hue glow that blooms from the top and
+// melts into a same-hue near-black, à la oryzo.ai. Layered for a smooth, "deep"
+// falloff (not a flat tint). Painted on a fixed full-bleed layer (dark theme only).
+function atmosphere(h: number): string {
+  return [
+    `radial-gradient(56% 48% at 50% -6%, hsl(${h} 74% 53% / 0.42), hsl(${h} 64% 42% / 0.20) 34%, transparent 60%)`,
+    `radial-gradient(135% 95% at 50% -32%, hsl(${h} 58% 32% / 0.30), transparent 72%)`,
+    `radial-gradient(120% 120% at 50% 65%, hsl(${h} 48% 9% / 0.6), transparent 80%)`,
+  ].join(", ");
+}
+
+export function categoryAtmosphere(slug: string): string {
+  return atmosphere(hueFromSlug(slug));
+}
+
+// Non-category pages (home, etc.) use the inApp brand-orange hue.
+export function brandAtmosphere(): string {
+  return atmosphere(28);
+}
