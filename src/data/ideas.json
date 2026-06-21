@@ -1366,716 +1366,6 @@
   }
  },
  {
-  "slug": "habit-tracking-1",
-  "category": "habit-tracking",
-  "categoryName": "Привычки и стрики",
-  "title": "Несгораемая серия",
-  "oneLiner": "Трекер, где серия дней не обнуляется в ноль, а лишь честно «замораживается» при пропуске",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 128
-  },
-  "reviewGrid": [
-   {
-    "rating": 1,
-    "quote": "Unfinished tasks also do a ton of damage compared to the rewards when you complete them, so you can't even make enough money to heal yourself",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 1,
-    "quote": "then you lose all of your gold ... You lose a level ... takes a really long time to grind out a level And is extremely discouraging.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 1,
-    "quote": "lost all my avatars health just trying to figure out how the app works and was going to have to pay to revive.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 2,
-    "quote": "ALL my health drains out within the day ... I dropped from level 16 to level 9",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 1,
-    "quote": "app randomly crashed and lost a month of progress and broke my 365 day streak and reset it back at day 1.",
-    "app": "Finch: Self-Care Pet"
-   },
-   {
-    "rating": 1,
-    "quote": "This app keep saying that you're not doing a day even when you do a day! then it makes you lose your repair hammers!",
-    "app": "Finch: Self-Care Pet"
-   },
-   {
-    "rating": 1,
-    "quote": "Constantly being told I skipped a day. it got to the point where I set an alarm to do my daily tasks and I still didn't get credit for the day. Lost my 346 day streak.",
-    "app": "Finch: Self-Care Pet"
-   },
-   {
-    "rating": 1,
-    "quote": "A glitch ruined my 410 day streak. I had 2 streak freezes which were not applied one day and I lost my streak. I'm devastated.",
-    "app": "Finch: Self-Care Pet"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Серия дней — главный мотор: страх оборвать цепочку заставляет возвращаться каждый день",
-    "obsCount": 40,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Habitify: Habit Tracker",
-     "Finch: Self-Care Pet"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Бережный тон без чувства вины за пропуск — то, за что любят",
-    "obsCount": 19,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Finch: Self-Care Pet"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Хотят отметить задним числом, исправить ошибку и пометить день как невыполненный",
-    "obsCount": 69,
-    "apps": [
-     "Loop Habit Tracker",
-     "Habitify: Habit Tracker",
-     "Productive - Habit tracker"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Жёсткое обнуление длинной серии за один пропуск или из-за сбоя обесценивает месяцы и заставляет бросить вовсе — главная боль ниши, при этом бережный тон без чувства вины любят сильнее всего",
-  "idea": {
-   "pitch": "Серия дней — двигатель привычки, но именно она и убивает мотивацию: один пропуск стирает три месяца. Мы переворачиваем механику. Пропуск не обнуляет цепочку, а ставит её на паузу: серия тускнеет, но не исчезает, и накопленный прогресс остаётся виден отдельной несгораемой цифрой «всего дней». Есть запас «заморозок», которые тратятся автоматически за пропущенный день, и возможность отметить день задним числом, если просто забыл нажать. Тон бережный: не «ты всё потерял», а «продолжим с того места».",
-   "features": [
-    "Две метрики рядом: текущая серия и несгораемое «всего выполнено», которое не падает никогда",
-    "Запас автоматических заморозок за активность, прикрывающих случайный пропуск",
-    "Отметка задним числом и пометка дня как честно пропущенного, а не просто неотмеченного",
-    "Мягкое возвращающее сообщение вместо штрафа после пропуска"
-   ],
-   "antiFeatures": [
-    "Никакой потери здоровья, уровней или снаряжения за пропуск",
-    "Не обнуляем длинную серию из-за технического сбоя — сначала спрашиваем"
-   ],
-   "monetization": "Базовый трекер с несгораемой серией бесплатен без лимита на число привычек; подписка или разовая покупка навсегда открывает расширенную статистику, годовую сетку и облачную копию"
-  }
- },
- {
-  "slug": "habit-tracking-2",
-  "category": "habit-tracking",
-  "categoryName": "Привычки и стрики",
-  "title": "Только сегодня",
-  "oneLiner": "Один экран на день для людей с СДВГ и тревогой: видишь лишь то, что нужно сделать прямо сейчас",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 451
-  },
-  "reviewGrid": [
-   {
-    "rating": 5,
-    "quote": "It's hard to overstate how good this app can be for you if you have adhd. I would be so much less functional without this app.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "I have ADHD, and it feels like I've tried every app there is. Only this one stuck.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "The best app for people with lack of motivation, concentration and dopamine. So suitable for ADHD and AuDHD.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 4,
-    "quote": "must needed app for neurodivergent guys",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "helps me with managing tasks a must have for someone with ADHD like myself",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 2,
-    "quote": "it sort-of worked for a couple of weeks then I lost interest after less than 2 months. its a cute idea but no match for my ADHD.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "I can't begin to describe how much it helped me through tough times. Big thanks to everyone in Team Habitica!",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "Best mental health and discipline aid , I have used it for more than 10 years",
-    "app": "Habitica: Gamify Your Tasks"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Трекеры реально вытягивают людей с СДВГ, тревогой и в трудные периоды",
-    "obsCount": 112,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Finch: Self-Care Pet",
-     "Fabulous Daily Routine Planner"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Простой минималистичный интерфейс ценят выше всего, перегруз отталкивает",
-    "obsCount": 230,
-    "apps": [
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner",
-     "Habitify: Habit Tracker"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Навязчивость отталкивает: окна подписки, спорные ИИ-функции и допродажи при каждом входе",
-    "obsCount": 109,
-    "apps": [
-     "Finch: Self-Care Pet",
-     "Fabulous Daily Routine Planner",
-     "Productive - Habit tracker"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Трекеры реально вытягивают людей с СДВГ и тревогой, разбивая день на шаги, но перегруженный интерфейс и обилие функций их же и добивают — простоту ценят выше всего",
-  "idea": {
-   "pitch": "Большинство трекеров для человека с СДВГ — это стена из списков, графиков и настроек, которая вызывает паралич. Мы делаем ровно обратное: экран показывает только привычки на текущий момент дня, по одной карточке, одна большая кнопка-галочка. Никакой ленты прошлого и будущего, никаких всплывающих окон. Утренние дела утром, вечерние вечером. Когда всё на сегодня сделано — пустой спокойный экран как награда. Статистика спрятана в одно касание, чтобы не отвлекать.",
-   "features": [
-    "Лента «сейчас»: видны только привычки текущего отрезка дня",
-    "Одна крупная кнопка-галочка без анимаций после каждой отметки",
-    "Готовые маленькие шаги: большую привычку можно разбить на подзадачи-чеклист",
-    "Тихий режим без допродаж и окон подписки при входе"
-   ],
-   "antiFeatures": [
-    "Нет шумного главного экрана со всеми привычками сразу",
-    "Нет тяжёлых анимаций и звуков после отметки",
-    "Не показываем социальную ленту и насаждаемый ИИ"
-   ],
-   "monetization": "Разовая покупка навсегда за умеренную цену вместо подписки; ничего не прячем за пейволлом при каждом входе"
-  }
- },
- {
-  "slug": "habit-tracking-3",
-  "category": "habit-tracking",
-  "categoryName": "Привычки и стрики",
-  "title": "Виджет, который правда отмечает",
-  "oneLiner": "Трекер, построенный вокруг одного сводного виджета, где галочка мгновенно доходит до приложения",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 368
-  },
-  "reviewGrid": [
-   {
-    "rating": 5,
-    "quote": "Very handy app, the little tile widgets are great for quickly marking the item done without any fuss or nonsense. 5 stars",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "It's so good and super useful, besides it is free and the widgets are really so useful.",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "the widgets specially make tracking so so easy. and no hassle use. just make a task, and keeo track.",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "One of the best habit apps I've tried... It's widgets are compact and really helpful, making it easy to remember a given task is pending and checking it right away.",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "I just have one request I'd like the developer to add: a universal widget that includes all the habits in a single widget with scrolling capability.",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 4,
-    "quote": "Perhaps a widget that displays all habits in a window-like format, with interactive elements, would be very useful.",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 4,
-    "quote": "necesita un widget de uso general, quisiera ver TODOS mis habitos en la semana, como el dashboard principal de la app, sin tener que abrir la app",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "I love using the widget so I can see all my streaks in once place.",
-    "app": "Loop Habit Tracker"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Виджет на главном экране держит привычки на виду — но просят сводный и рабочий",
-    "obsCount": 124,
-    "apps": [
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner",
-     "Productive - Habit tracker"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Напоминания приходят с задержкой или не приходят вовсе",
-    "obsCount": 118,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Отзывчивая поддержка чинит проблемы и слушает пожелания — но не всегда отвечает",
-    "obsCount": 126,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "HabitNow Daily Routine Planner",
-     "Habitify: Habit Tracker"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Отметка из виджета и уведомления часто не синхронизируется, под каждую привычку нужен отдельный виджет, а кнопка «выполнено» иногда лишь открывает экран оплаты — при том что виджет на виду люди очень ценят",
-  "idea": {
-   "pitch": "Виджет — самый удобный способ отметить привычку, не открывая приложение, но в нише он сломан: галочка не доходит, нужен отдельный виджет под каждое дело, текст мелкий. Мы делаем виджет главным героем продукта. Один сводный виджет показывает все привычки дня, отметка срабатывает на месте и мгновенно отражается внутри, даже без интернета. Размер текста настраивается, есть отметка прямо из уведомления. Никаких платных замков на кнопке «готово».",
-   "features": [
-    "Единый сводный виджет со всеми привычками дня и крупным настраиваемым текстом",
-    "Мгновенная локальная отметка, синхронизируемая в приложение без интернета",
-    "Отметка выполнения прямо в уведомлении-напоминании",
-    "Несколько размеров виджета под главный экран и блокировку"
-   ],
-   "antiFeatures": [
-    "Кнопка «выполнено» никогда не ведёт на экран оплаты",
-    "Не требуем отдельный виджет под каждую привычку"
-   ],
-   "monetization": "Бесплатный полнофункциональный виджет как крючок; подписка открывает историю, темы и веб-версию"
-  }
- },
- {
-  "slug": "habit-tracking-4",
-  "category": "habit-tracking",
-  "categoryName": "Привычки и стрики",
-  "title": "Привычки без отрыва",
-  "oneLiner": "Локальный трекер с работой без интернета и автоматической бесшовной синхронизацией телефон-часы-компьютер",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 270
-  },
-  "reviewGrid": [
-   {
-    "rating": 4,
-    "quote": "the only missing features imo is the standalone PC version, offline mode",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "Please make this app multi-platform🙏",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 4,
-    "quote": "I do like how it works on both PC and Android, syncing between the two.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "Great app, caved in and got the premium version. Please come out with a desktop version as well, that's all that's missing",
-    "app": "HabitNow Daily Routine Planner"
-   },
-   {
-    "rating": 3,
-    "quote": "Access on PC and Mac for cross platform tracking ... fix this and you're golden.",
-    "app": "HabitNow Daily Routine Planner"
-   },
-   {
-    "rating": 4,
-    "quote": "Create a web app and you have my money. Otherwise, solid",
-    "app": "HabitNow Daily Routine Planner"
-   },
-   {
-    "rating": 5,
-    "quote": "The only thing that makes this not THE best out there is that you don't have a PC option to work with - otherwise... my favorite.",
-    "app": "HabitNow Daily Routine Planner"
-   },
-   {
-    "rating": 5,
-    "quote": "I highly enjoyed using this app. ... I would like to use this app in Windows too!!",
-    "app": "HabitNow Daily Routine Planner"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Просят выходить за телефон: компьютер, браузер, умные часы и планшет",
-    "obsCount": 92,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "HabitNow Daily Routine Planner",
-     "Habitify: Habit Tracker"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Свобода данных: работа без интернета, локальное хранение и полный экспорт",
-    "obsCount": 81,
-    "apps": [
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner",
-     "Habitify: Habit Tracker"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Синхронизация и потеря данных: между устройствами не переносится, история и прогресс пропадают",
-    "obsCount": 97,
-    "apps": [
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner",
-     "Habitify: Habit Tracker"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Синхронизация между устройствами часто отсутствует или ломается, данные и серии теряются при переустановке, нет настольной, веб- и часовой версий — а работу без интернета и автономность отдельно ценят",
-  "idea": {
-   "pitch": "Две боли ниши тянут в разные стороны: люди хотят и автономность с работой без интернета, и чтобы привычки были на всех экранах. Мы решаем обе. Данные живут локально, приложение полностью работает без интернета и без регистрации. При этом синхронизация автоматическая и фоновая через ваше облако — телефон, часы, планшет и браузер показывают одно и то же, без потери истории при переустановке. Полный экспорт в файл и автоматическая копия, чтобы прогресс нельзя было потерять.",
-   "features": [
-    "Полная офлайн-работа без обязательной регистрации",
-    "Автоматическая фоновая синхронизация телефон-часы-планшет-браузер",
-    "Веб-версия и приложение для умных часов с отметкой прямо там",
-    "Автоматическая облачная копия плюс ручной экспорт в файл"
-   ],
-   "antiFeatures": [
-    "Не блокируем работу при отсутствии интернета",
-    "Не теряем историю и серии при обновлении или переустановке"
-   ],
-   "monetization": "Разовая покупка навсегда с восстановлением на новом устройстве; синхронизация и веб входят в покупку, а не отдельной подпиской"
-  }
- },
- {
-  "slug": "habit-tracking-5",
-  "category": "habit-tracking",
-  "categoryName": "Привычки и стрики",
-  "title": "Ритуал по шагам",
-  "oneLiner": "Маршрут утра и вечера: последовательность шагов с мягким таймером, который выводит из дома вовремя",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
-  },
-  "reviewGrid": [
-   {
-    "rating": 5,
-    "quote": "This is the best routine app I've ve tried for my daughter who has ADHD",
-    "app": "Routine Planner, Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "I have ADHD and the ability to make Routinery work for ME is absolutely amazing. When I am struggling with decision paralysis having the routines already laid out and timed makes it possible to drag myself into productivity.",
-    "app": "Routine Planner, Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "Routinely has helped my ADHD brain immensely. It keeps me on track and motivates me to stick to a routine and get things done.",
-    "app": "Routine Planner, Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "I have never been so productive and relaxed. With inattentive ADHD I always forgot about routine and get lost with time.",
-    "app": "Routine Planner, Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "good for ADHD people, procrastination and and who distract in schedule",
-    "app": "Routine Planner, Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "Best routine app hands down. Life saver for neurodivergent people.",
-    "app": "Routine Planner, Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "I can now stay on track in the morning and get up and out of the house with everything done with no distractions.",
-    "app": "Routine Planner, Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "This became my most essential app. it helps me organize my time in the morning, and I went from late arrivals to work to coming to work and ending work day earlier.",
-    "app": "Routine Planner, Habit Tracker"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Структура утра и вечера: пошаговый маршрут с таймером выводит из дома вовремя",
-    "obsCount": 37,
-    "apps": [
-     "Routine Planner, Habit Tracker"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Встроенный таймер и Pomodoro хотят, но он нестабилен",
-    "obsCount": 52,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "HabitNow Daily Routine Planner",
-     "Habitify: Habit Tracker"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Бережный тон без чувства вины за пропуск — то, за что любят",
-    "obsCount": 19,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Finch: Self-Care Pet"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Готовая пошаговая структура утра и вечера с визуальным отсчётом убирает «а что дальше» и помогает не опаздывать, но жёсткий тайминг по часам напрягает перфекционистов",
-  "idea": {
-   "pitch": "Обычный трекер — это список галочек, но утро и вечер живут иначе: важен порядок и плавный ход времени. Мы строим маршрут-ленту шагов с мягким отсчётом, который показывает, сколько примерно осталось, чтобы выйти вовремя или вовремя лечь. Отсчёт — ориентир, а не надзиратель: отстал — лента спокойно пересчитает остаток, без красных цифр и паники. Подходит и для сборов утром, и для ритуала засыпания.",
-   "features": [
-    "Маршрут-лента шагов утра и вечера с понятным «что дальше»",
-    "Мягкий отсчёт-ориентир, который пересчитывает остаток при отставании",
-    "Гибкий таймер фокуса, продолжающий идти при гаснущем экране",
-    "Готовые шаблоны ритуалов сбора и засыпания"
-   ],
-   "antiFeatures": [
-    "Нет жёсткого тайминга по часам с наказанием за отставание",
-    "Нет резкого звука на финише без возможности отключить"
-   ],
-   "monetization": "Базовый ритуал бесплатен; подписка открывает свои шаблоны маршрутов, статистику по утрам и интеграцию с фокус-таймером"
-  }
- },
- {
-  "slug": "habit-tracking-6",
-  "category": "habit-tracking",
-  "categoryName": "Привычки и стрики",
-  "title": "Как угодно часто",
-  "oneLiner": "Трекер, где расписание и тип привычки настраиваются свободнее, чем где-либо: дни недели, N раз, дроби, на снижение",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 298
-  },
-  "reviewGrid": [
-   {
-    "rating": 4,
-    "quote": "i just want to suggest being able to add on which days of the week you need to do your habit, not only daily, weekly or monthly.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 4,
-    "quote": "more flexible dailies like 3x a week instead of selecting specific days",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 2,
-    "quote": "cool idea but I want to use for doing homework, and there is no way to set a specific time",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "One feature I would love to see is the ability to set daily tasks to activate after certain times, like after 6pm every day.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 3,
-    "quote": "It does not work well for weekly tasks or things that need to be done by the end of the week.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "i think i have tried multiple apps but none can compete when it comes to the setting up frequency of habits. Like x times in y days. Best recommended.",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "the frequencies are so flexible, I can personalise it exactly as I need, from multiple times a day to once a year, and every combination in between.",
-    "app": "Loop Habit Tracker"
-   },
-   {
-    "rating": 5,
-    "quote": "Simple and clean with no mandatory login... while I can't specify days for a schedule, 'x days per week' is a satisfactory workaround",
-    "app": "Loop Habit Tracker"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Гибкое расписание — ключевой запрос: дни недели, «N раз в неделю», интервалы, несколько отметок за день",
-    "obsCount": 110,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Просят больше типов привычек: измеримые с дробями, вредные «на снижение», вода, здоровье, финансы",
-    "obsCount": 78,
-    "apps": [
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner",
-     "Habit Tracker - HabitGenius"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Просят гибкость инструментов: подзадачи и списки дел, заметки к дням, своя сортировка, группы и теги",
-    "obsCount": 110,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Loop Habit Tracker",
-     "HabitNow Daily Routine Planner"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Главный функциональный запрос ниши — гибкое расписание (дни недели, «3-6 раз в неделю», через день, несколько отметок за день) и больше типов привычек (дробные, вредные на снижение, вода, финансы); этого почти везде не хватает",
-  "idea": {
-   "pitch": "Жёсткое «каждый день» не описывает реальную жизнь: лекарства три раза в день, спорт три-шесть раз в неделю, вода по стаканам, а вредную привычку хочется не отметить, а снижать к потолку. Мы делаем расписание и тип привычки по-настоящему свободными. Любая частота, несколько отметок за день, дробные и числовые цели с графиком, режим «на снижение» с лимитом. И всё это без перегруза интерфейса — сложность прячется в настройке, а ежедневный экран остаётся простым.",
-   "features": [
-    "Любое расписание: дни недели, N раз в неделю, через день, интервалы",
-    "Несколько отметок за день для воды, лекарств, подходов",
-    "Дробные и числовые цели с графиком и привычки «на снижение» с потолком",
-    "Группы, теги и ручная сортировка для длинного списка"
-   ],
-   "antiFeatures": [
-    "Сложность настройки не выносим на ежедневный экран",
-    "Не ограничиваем число привычек тремя-семью в бесплатной версии"
-   ],
-   "monetization": "Щедрый бесплатный уровень без лимита привычек; подписка или разовая покупка открывает продвинутые типы целей, графики и группы"
-  }
- },
- {
-  "slug": "habit-tracking-7",
-  "category": "habit-tracking",
-  "categoryName": "Привычки и стрики",
-  "title": "Тёплый азарт",
-  "oneLiner": "Игра без штрафов и без выгорания: совместные задания и питомец, которому не делают больно за ваш пропуск",
-  "asOf": "2026-06-16",
-  "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 189
-  },
-  "reviewGrid": [
-   {
-    "rating": 5,
-    "quote": "such a beautiful idea, adore this habit tracker, first one that has genuinely made me stick to my goals!",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "A very creative way to help with self improvement and actually feels like self improvement is becoming a video game",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "having so much fun doing tasks now 😂",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "I find this app an awesome way to make boring tasks feel rewarding and also a good way to improve accountability",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "Gamification is a proven method of getting humans to repeat certain patterns. Habitica definitely succeeds at making me want to complete the mundane tasks of life.",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "best app to gamify your life and reach success enjoyably",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "This app has made me procrastinate way less",
-    "app": "Habitica: Gamify Your Tasks"
-   },
-   {
-    "rating": 5,
-    "quote": "The best Todo app out there. Coming from a chronic procrastinator, this app is helping me finish my tasks and manage my time more effectively.",
-    "app": "Habitica: Gamify Your Tasks"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Игровые механики (питомец, ролевая игра, награды) превращают скучные дела в желанные",
-    "obsCount": 105,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Finch: Self-Care Pet"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Сообщество, совместные цели и общие задания держат в тонусе",
-    "obsCount": 65,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "HabitNow Daily Routine Planner",
-     "Habitify: Habit Tracker"
-    ],
-    "polarity": "pain"
-   },
-   {
-    "title": "Бережный тон без чувства вины за пропуск — то, за что любят",
-    "obsCount": 19,
-    "apps": [
-     "Habitica: Gamify Your Tasks",
-     "Finch: Self-Care Pet"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Игровые механики дают радость и удерживают, но со временем приедаются и кажутся пустыми, а жёсткие штрафы демотивируют; совместные функции мотивируют, но в нише они труднодоступны и их сворачивают",
-  "idea": {
-   "pitch": "Игровые механики цепляют, но в нише они выгорают и наказывают: питомец болеет за ваш пропуск, награды пустеют, гильдии закрывают. Мы строим тёплый азарт. Питомец и прогресс никогда не страдают от пропуска — растёт только то, что вы делаете. Свежесть держим за счёт лёгких совместных заданий с партнёром или семьёй: подотчётность мотивирует сильнее одиноких очков, а пригласить человека можно в одно касание. Награды привязаны к реальным целям, а не к бесконечной шкале.",
-   "features": [
-    "Питомец и прогресс, которые только растут и не страдают от пропуска",
-    "Совместные челленджи с партнёром или семьёй, приглашение в один тап",
-    "Социальная подотчётность без публичной ленты и сравнения с чужими",
-    "Награды, привязанные к личным целям, а не к бесконечной шкале очков"
-   ],
-   "antiFeatures": [
-    "Нет потери здоровья, уровней и снаряжения за пропущенный день",
-    "Не сворачиваем совместные функции после запуска",
-    "Не закапываем приглашение за десятки нажатий и нерабочие ссылки"
-   ],
-   "monetization": "Совместные челленджи и питомец бесплатны для удержания; подписка открывает косметику питомца, расширенные семейные цели и статистику группы"
-  }
- },
- {
   "slug": "personal-finance-1",
   "category": "personal-finance",
   "categoryName": "Личные финансы",
@@ -34164,6 +33454,451 @@
    ],
    "antiFeatures": [],
    "monetization": "Подписка на расширенный мониторинг кредита и премиум-аналитику; партнёрские предложения по факту реального роста рейтинга."
+  }
+ },
+ {
+  "slug": "habit-tracking-1",
+  "category": "habit-tracking",
+  "categoryName": "Привычки и стрики",
+  "title": "OneTap — трекер, который весь живёт на экране блокировки и виджете",
+  "oneLiner": "Привычки отмечаются за секунду с экрана блокировки и интерактивного виджета — приложение открывать вообще не нужно.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 636
+  },
+  "reviewGrid": [
+   {
+    "quote": "a good concept but without one glance tap widget, within days, I'll stop opening the app all together even when I am doing my tasks. so basically it will become useless.",
+    "rating": 2,
+    "app": "HabitKit"
+   },
+   {
+    "quote": "with the absence of widgets, you always forget about this application",
+    "rating": 2,
+    "app": "Productive"
+   },
+   {
+    "quote": "this widget doesn't auto-refresh in the morning without clicking into the app and the check box doesn't react without going into the app",
+    "rating": 2,
+    "app": "Habitica"
+   },
+   {
+    "quote": "Very handy app, the little tile widgets are great for quickly marking the item done without any fuss or nonsense. 5 stars",
+    "rating": 5,
+    "app": "Loop Habit Tracker"
+   },
+   {
+    "quote": "the only thing i would really appreciate is a music-app-like media player so i could check the running routine on the lock screen",
+    "rating": 5,
+    "app": "Routine Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "OneTap — трекер, который весь живёт на экране блокировки и виджете",
+    "obsCount": 5,
+    "apps": [
+     "HabitKit",
+     "Productive",
+     "Habitica",
+     "Loop Habit Tracker",
+     "Routine Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Почти у всех инкумбентов виджет либо за пейволлом, либо не реагирует без открытия приложения, либо рассинхронен с самим трекером. А именно виджет — главный механизм возврата: без него о приложении забывают за пару дней.",
+  "idea": {
+   "pitch": "Сделать атомарный жест безупречным и бесплатным: интерактивный виджет + Live Activity на экране блокировки + надёжный полноэкранный alarm. Всё, что копится позже (синхронизация, аналитика), — в платном слое.",
+   "features": [
+    "Интерактивный виджет с отметкой в один тап и видимым стриком",
+    "Live Activity / плеер рутины на экране блокировки",
+    "Полноэкранный alarm-пинок, настраиваемый по интенсивности",
+    "Ретро-отметка и undo прямо из виджета",
+    "Тест уведомлений на агрессивных прошивках (Samsung, Xiaomi)"
+   ],
+   "antiFeatures": [],
+   "monetization": "Базовая петля бесплатно навсегда; платно — облачная синхронизация между устройствами, расширенная аналитика, неограниченные темы виджета. Lifetime-покупка как анти-подписочный аргумент."
+  }
+ },
+ {
+  "slug": "habit-tracking-2",
+  "category": "habit-tracking",
+  "categoryName": "Привычки и стрики",
+  "title": "Quitter — трекер, заточенный под «бросить», а не «делать»",
+  "oneLiner": "Считает чистые дни без курения, вейпа, сахара и алкоголя, показывает сэкономленные деньги и здоровье как растущую серию.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 636
+  },
+  "reviewGrid": [
+   {
+    "quote": "It helped me quit smoking, vaping, sugar and other embarrassing addictions. This app played a huge role in helping me break bad habits and build better ones.",
+    "rating": 5,
+    "app": "HabitNow"
+   },
+   {
+    "quote": "The only thing missing for me is negative habits (Not smoking etc). Being able to setup an anti habit which ticks itself at a set time each day if I've not updated it to say I failed would be perfection.",
+    "rating": 5,
+    "app": "HabitKit"
+   },
+   {
+    "quote": "It does not support negative habits, like quitting smoking, or limiting drinks per week.",
+    "rating": 2,
+    "app": "HabitKit"
+   },
+   {
+    "quote": "best to make your streak and being consistent to your habit that you want to quit or make",
+    "rating": 5,
+    "app": "HabitNow"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Quitter — трекер, заточенный под «бросить», а не «делать»",
+    "obsCount": 4,
+    "apps": [
+     "HabitNow",
+     "HabitKit"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Большинство трекеров умеют только привычки-достижения; «негативную привычку» ведут через костыль-инверсию, без режима, где галочка = воздержание. А сегмент огромный и эмоционально вовлечённый — именно про отказ пишут самые благодарные отзывы.",
+  "idea": {
+   "pitch": "Первоклассный режим анти-привычки: счётчик чистых дней, авто-отметка воздержания, «деньги/здоровье сэкономлено», мягкая обработка срыва без обнуления всей мотивации.",
+   "features": [
+    "Флаг «позитивная/негативная» при создании привычки",
+    "Авто-тик воздержания, если не отметил срыв",
+    "Счётчик сэкономленных денег и восстановленного здоровья",
+    "Кнопка «сорвался» с поддержкой вместо стыда и grace-логикой",
+    "Майлстоуны (24ч / 7 / 30 / 100 дней) с визуальной серией"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно один-два отказа; платно — несколько параллельных зависимостей, медицинские майлстоуны по веществу, экспорт прогресса для терапевта."
+  }
+ },
+ {
+  "slug": "habit-tracking-3",
+  "category": "habit-tracking",
+  "categoryName": "Привычки и стрики",
+  "title": "FlexStreak — трекер, где серия уважает «3 раза в неделю»",
+  "oneLiner": "Гибкая частота «N раз за период» как первоклассная фича, и стрик, который не рвётся в запланированный выходной.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 636
+  },
+  "reviewGrid": [
+   {
+    "quote": "I can't select a habit frequency that is \"some days in a period\". Dealer breaker. I want to read 3 times a week",
+    "rating": 2,
+    "app": "Habitify"
+   },
+   {
+    "quote": "i think i have tried multiple apps but none can compete when it comes to the setting up frequency of habits. Like x times in y days. Best recommended.",
+    "rating": 5,
+    "app": "Loop Habit Tracker"
+   },
+   {
+    "quote": "streaks only work for everyday habits. As I take Sundays off, my maximum streak is capped at 6, even if I do everything perfectly all year.",
+    "rating": 2,
+    "app": "Habitify"
+   },
+   {
+    "quote": "With Habitkit, the days I don't need to complete the habit are just left blank (no streak for you!). It's very demotivating.",
+    "rating": 2,
+    "app": "HabitKit"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "FlexStreak — трекер, где серия уважает «3 раза в неделю»",
+    "obsCount": 4,
+    "apps": [
+     "Habitify",
+     "Loop Habit Tracker",
+     "HabitKit"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Жёсткая модель «каждый день» — самая массовая боль: стрик обрезается у тех, кто берёт выходные, а визуальная сетка читает плановый отдых как срыв. Лишь единицы умеют нерегулярные цели, и за это люди бросают остальных.",
+  "idea": {
+   "pitch": "Сделать нерегулярную привычку нормой, а не исключением: «3 раза в неделю в любые дни», «по будням/выходным», плавающий день — и серия с доской, которые это честно учитывают.",
+   "features": [
+    "Частота «N раз за Y дней» и «специфические дни недели»",
+    "Стрик, считающий период, а не подряд идущие дни",
+    "Нейтральные/пустые отметки в не-нужные дни, чтобы доска не пугала",
+    "Напоминания, подстраивающиеся под плавающий день",
+    "Недельный/месячный обзор вместо узкого 5-дневного окна"
+   ],
+   "antiFeatures": [],
+   "monetization": "Базовая гибкая частота бесплатно; платно — продвинутая аналитика по выполнению частоты, тренды, экспорт."
+  }
+ },
+ {
+  "slug": "habit-tracking-4",
+  "category": "habit-tracking",
+  "categoryName": "Привычки и стрики",
+  "title": "Companion — забота о персонаже как двигатель для тех, у кого нет сил ради себя",
+  "oneLiner": "Привычки выполняются ради существа, которое зависит от тебя, — мотивация рикошетом, без вины и без наказания.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 636
+  },
+  "reviewGrid": [
+   {
+    "quote": "I felt like I had somebody (other than the Lord above) as my little birdy was cheering me on. I couldn't let the little fella down",
+    "rating": 5,
+    "app": "Finch"
+   },
+   {
+    "quote": "Your birb doesn't die if you miss a day, and it doesn't reprimand you if you can't manage something, or choose to skip a task.",
+    "rating": 5,
+    "app": "Finch"
+   },
+   {
+    "quote": "they got rid of the mood tracker? WHY? That was one of the only features that made it feel like a mental health app rather than a dressup app.",
+    "rating": 3,
+    "app": "Finch"
+   },
+   {
+    "quote": "I'm a therapist and I've been recommending it to my clients. It's so simple and doesn't require a huge effort to be successful. That's really good for people who struggle with low motivation.",
+    "rating": 1,
+    "app": "Finch"
+   },
+   {
+    "quote": "plus the almost forcing us to add friends. stop it! my journey is private.",
+    "rating": 2,
+    "app": "Finch"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Companion — забота о персонаже как двигатель для тех, у кого нет сил ради себя",
+    "obsCount": 5,
+    "apps": [
+     "Finch"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Finch доказал огромный спрос на «перенос заботы», но дрейфует в наряжалку, перегружается магазинами и убирает трекер настроения. Дисциплинарные трекеры этого механизма не имеют вовсе, а наказание-механики отпугивают целевой сегмент.",
+  "idea": {
+   "pitch": "Чистый ментально-здоровый компаньон: встаёшь ради него, скип — это нормально, никакого обнуления и стыда. Минимальное усилие на вход, мягкий старт, трекер настроения в ядре, а не за «блестящими» предметами.",
+   "features": [
+    "Персонаж, который зависит от выполнения, но не умирает и не ругает",
+    "Скип/снуз как нормальный выбор, без потери всей серии",
+    "Трекер настроения и «как ты?» в ядре, не за пейволлом",
+    "Мягкий онбординг без перегруза опциями",
+    "Опция отключить соцслой — журнал приватен по умолчанию"
+   ],
+   "antiFeatures": [],
+   "monetization": "Щедрый free-tier (он и есть мотор доверия и сарафана); платно — косметика и доп-инструменты как бонус, никогда — базовая забота. Канал через терапевтов."
+  }
+ },
+ {
+  "slug": "habit-tracking-5",
+  "category": "habit-tracking",
+  "categoryName": "Привычки и стрики",
+  "title": "ADHD-First — трекер, спроектированный вокруг сломанной инициации действия",
+  "oneLiner": "Утренняя/вечерняя рутина по шагам с голосом и видимым таймером, но без звуковой бомбы и гонки.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 636
+  },
+  "reviewGrid": [
+   {
+    "quote": "When I am struggling with decision paralysis having the routines already laid out and timed makes it possible to drag myself into productivity.",
+    "rating": 5,
+    "app": "Routine Planner"
+   },
+   {
+    "quote": "It doesn't help me that when I'm doing a 10 minute task and get distracted it tells me it finished and I need to go to the next one",
+    "rating": 2,
+    "app": "Routine Planner"
+   },
+   {
+    "quote": "It overrides your phone's notification and volume settings to set off a MAX VOLUME, extremely obnoxious alarm and it is the DEFAULT SETTING. you have to switch it off for every routine. It makes this app a sound bomb",
+    "rating": 1,
+    "app": "Routine Planner"
+   },
+   {
+    "quote": "I wanted to use this app to have a morning routine and ones for my gym days, but the limitations for the free versions ruins the app.",
+    "rating": 2,
+    "app": "Routine Planner"
+   },
+   {
+    "quote": "I wish there was a home widget showing the timer in progress with the options to complete or skip for example",
+    "rating": 4,
+    "app": "Routine Planner"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "ADHD-First — трекер, спроектированный вокруг сломанной инициации действия",
+    "obsCount": 5,
+    "apps": [
+     "Routine Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Routinery доказал спрос на «шаги-автопилот» для людей с временной слепотой, но проваливается на деталях: будильник без кнопки выключения, напоминания только постфактум, лимит в 2 рутины, потеря рутин после обновлений.",
+  "idea": {
+   "pitch": "Сделать тот же механизм «не решай, что дальше» надёжным и гуманным: напоминания ПО ХОДУ задачи, контролируемый alarm, виджет-якорь, и щедрый бесплатный лимит рутин.",
+   "features": [
+    "Пошаговая рутина с видимым таймером и голосовым гидом",
+    "Напоминания в середине задачи, а не только «время вышло»",
+    "Alarm с видимой кнопкой и уважением к беззвучному режиму",
+    "Виджет/плеер рутины на экране блокировки с «дальше/пропустить»",
+    "Привычки-задачи по дням недели; недельный распорядок без подписки"
+   ],
+   "antiFeatures": [],
+   "monetization": "3-4 рутины бесплатно (хватает на главный сценарий); платно — неограниченные рутины, часы, командные/детские профили. Никогда не запирать базовый поток."
+  }
+ },
+ {
+  "slug": "habit-tracking-6",
+  "category": "habit-tracking",
+  "categoryName": "Привычки и стрики",
+  "title": "Anywhere — трекер, который реально живёт на всех экранах",
+  "oneLiner": "Телефон, браузер, десктоп и часы с честной мгновенной синхронизацией — отметил на запястье, увидел в Chrome.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 636
+  },
+  "reviewGrid": [
+   {
+    "quote": "Stands out because I can use it on the PC (using Chrome/Edge). So purchased lifetime, and using regularly since 2020.",
+    "rating": 5,
+    "app": "Habitify"
+   },
+   {
+    "quote": "I keep going back to habitify even though I do not like the UI or widget because of 3 MAIN reasons... #1. Watch Widget. #2. Access on PC and Mac for cross platform tracking #3. connection to health connect",
+    "rating": 3,
+    "app": "HabitNow"
+   },
+   {
+    "quote": "it doesn't automatically sync your data. So I have to keep syncing it manually on one device then download the data on the other one, too much work",
+    "rating": 4,
+    "app": "HabitGenius"
+   },
+   {
+    "quote": "i need to buy the pro on each phone or else leave all my 250 days progress",
+    "rating": 1,
+    "app": "HabitKit"
+   },
+   {
+    "quote": "the features available on iOS are far ahead compared to the Android version. It seems like the team prioritizes iOS over Android.",
+    "rating": 3,
+    "app": "Habitify"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Anywhere — трекер, который реально живёт на всех экранах",
+    "obsCount": 5,
+    "apps": [
+     "Habitify",
+     "HabitNow",
+     "HabitGenius",
+     "HabitKit"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Кросс-платформенность — редкий замок удержания, за который покупают lifetime, но даже у Habitify Android отстаёт от iOS, а часы падают. Большинство приложений — «только телефон», и отсутствие синхронизации системно теряет самых вовлечённых.",
+  "idea": {
+   "pitch": "Сделать связность главным УТП и фундаментом, а не доделкой: одинаковый паритет на всех платформах, автосинхронизация в реальном времени, нативные часы как первоклассный клиент.",
+   "features": [
+    "Паритет фич между iOS, Android, веб и десктоп",
+    "Мгновенная автосинхронизация без ручного бэкапа",
+    "Нативное приложение для часов с отметкой и таймером",
+    "Интеграция с Health Connect / Apple Health",
+    "Автобэкап в облако/почту по умолчанию"
+   ],
+   "antiFeatures": [],
+   "monetization": "Один телефон бесплатно; платно (предпочтительно lifetime) — мультидевайс-синхронизация, веб и десктоп, часы. Связность — именно то, за что люди прямо готовы платить больше."
+  }
+ },
+ {
+  "slug": "habit-tracking-7",
+  "category": "habit-tracking",
+  "categoryName": "Привычки и стрики",
+  "title": "Honest — анти-подписочный трекер с прозрачной линией монетизации",
+  "oneLiner": "Вся базовая петля привычки бесплатна навсегда; платишь один раз и только за то, что копится со временем.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 636
+  },
+  "reviewGrid": [
+   {
+    "quote": "Absolutely love this app, no predatory microtransactions or subscriptions, clean and straightforward UI, and really good options.",
+    "rating": 5,
+    "app": "Loop Habit Tracker"
+   },
+   {
+    "quote": "I love that there's an option for a lifetime subscription. Do yourself a favor: sign-up today, upgrade your personal accountability, and even sub Pro for the cost of lunch",
+    "rating": 5,
+    "app": "HabitKit"
+   },
+   {
+    "quote": "premium is not a subscription, it's a very reasonable one-time purchase so of course I bought it to support a great app",
+    "rating": 5,
+    "app": "HabitNow"
+   },
+   {
+    "quote": "Even if you cancel your subscription, they will charge your bank account months later.",
+    "rating": 1,
+    "app": "Fabulous"
+   },
+   {
+    "quote": "the developer takes suggestions and it seems very seriously as this app has only gotten even better",
+    "rating": 5,
+    "app": "HabitGenius"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Honest — анти-подписочный трекер с прозрачной линией монетизации",
+    "obsCount": 5,
+    "apps": [
+     "Loop Habit Tracker",
+     "HabitKit",
+     "HabitNow",
+     "Fabulous",
+     "HabitGenius"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Категория забита агрессивными подписками, скрытыми бандлами, списаниями после отмены и пейволлом на самой отметке. Пользователи прямо противопоставляют этому «честные» продукты с lifetime и щедрым free — и остаются на годы.",
+  "idea": {
+   "pitch": "Превратить честность в конкурентное оружие: ноль рекламы, ноль тёмных паттернов, разовая lifetime-покупка, отмена в один тап. Доверие к продукту (и к личности инди-разработчика) конвертирует там, где функционал не дотянул бы.",
+   "features": [
+    "Полная базовая петля (отметка, виджет, напоминания, серия) бесплатно",
+    "Lifetime-покупка вместо подписки",
+    "Платно только то, что копится: синхронизация, глубокая аналитика, темы",
+    "Никаких списаний после отмены, отмена в один тап, без квизов",
+    "Публичный, отзывчивый разработчик, который внедряет просьбы"
+   ],
+   "antiFeatures": [],
+   "monetization": "Разовый lifetime (\"за цену обеда\") + опциональная подписка «в поддержку». Щедрый free как мотор сарафана, а не упущенная выручка."
   }
  }
 ]
