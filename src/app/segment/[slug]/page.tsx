@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCategoryBySlug, listDomains } from "@/lib/researchCategories";
+import { categoryAccent, categoryGlow } from "@/lib/categoryGradient";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
@@ -359,7 +360,10 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const findingLabel = (i: number) => (ru ? `Вывод ${`0${i + 1}`}` : `Finding ${`0${i + 1}`}`);
 
   return (
-    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
+    <main
+      style={{ ["--glow-c" as string]: categoryAccent(slug), backgroundImage: categoryGlow(slug, 0.13), backgroundRepeat: "no-repeat", backgroundSize: "100% 460px" }}
+      className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24"
+    >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <Link href="/" className="text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
@@ -369,7 +373,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       {/* HERO */}
       <header className="ld-fade mt-12">
         <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши" : "Niche research"}</div>
-        <h1 className="mt-6 text-[clamp(46px,12vw,84px)] font-semibold leading-[0.96] tracking-[-0.045em] text-[var(--color-text-primary)]">{cat.name}</h1>
+        <h1 className="glow-hop relative mt-6 text-[clamp(46px,12vw,84px)] font-semibold leading-[0.96] tracking-[-0.045em] text-[var(--color-text-primary)]">{cat.name}</h1>
         {thesis ? (
           <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
         ) : (
@@ -392,7 +396,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         <Reveal className="mt-20 sm:mt-28">
           <section>
             <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Главное" : "Key findings"}</div>
-            <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">{ru ? "Три вывода" : "Three findings"}</h2>
+            <h2 className="glow-hop mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">{ru ? "Три вывода" : "Three findings"}</h2>
 
             <div className="mt-12 flex flex-col gap-12 sm:gap-16">
               <PillarFull p={pillars[0]} label={findingLabel(0)} />

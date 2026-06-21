@@ -278,9 +278,40 @@ details.no-anim::details-content {
   --color-button-ghost-bg: #232327;
 }
 
-/* Flat solid page background — no fixed/parallax layers (they tank scroll). */
+/* Atmospheric brand background — soft radial brand glows at the top fading into
+   the base, à la oryzo.ai. Painted on body (scrolls, no fixed/parallax layers, so
+   it never tanks scroll). Light theme keeps it whisper-subtle. */
 body {
-  background: var(--color-bg-page);
+  background:
+    radial-gradient(72% 40% at 74% -6%, rgba(255, 122, 26, 0.08), transparent 60%),
+    radial-gradient(60% 38% at 8% 4%, rgba(155, 93, 229, 0.06), transparent 60%),
+    var(--color-bg-page);
+  background-repeat: no-repeat;
+}
+[data-theme="dark"] body {
+  background:
+    radial-gradient(70% 42% at 75% -8%, rgba(255, 122, 26, 0.22), transparent 60%),
+    radial-gradient(58% 40% at 6% 2%, rgba(155, 93, 229, 0.18), transparent 60%),
+    radial-gradient(85% 52% at 46% -2%, rgba(76, 184, 245, 0.1), transparent 55%),
+    #0b0b0d;
+  background-repeat: no-repeat;
+}
+
+/* One-shot "hop" glow that sweeps a heading once on load. */
+@keyframes glow-hop {
+  0% { text-shadow: none; }
+  20% {
+    text-shadow:
+      0 0 14px color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 75%, transparent),
+      0 0 38px color-mix(in srgb, var(--glow-c, var(--color-accent-brand)) 45%, transparent);
+  }
+  100% { text-shadow: none; }
+}
+.glow-hop {
+  animation: glow-hop 1s ease-out 0.12s 1 both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow-hop { animation: none; }
 }
 
 /* ── Landing (logged-out) animations ──────────────────────────────────── */

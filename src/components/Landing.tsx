@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
+import { categoryGlow } from "@/lib/categoryGradient";
 import type { Locale } from "@/lib/i18n";
 
 export type CatCard = {
@@ -60,6 +61,7 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
+      style={{ backgroundImage: categoryGlow(c.slug, 0.2) }}
       className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9"
     >
       <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
@@ -91,6 +93,7 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
+      style={{ backgroundImage: categoryGlow(c.slug, 0.18) }}
       className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
     >
       <h3 className="text-[21px] font-semibold leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[23px]">{c.name}</h3>
@@ -213,7 +216,7 @@ export default function Landing({
         </div>
 
         <div className="relative mx-auto max-w-3xl text-center">
-          <h1 className="ld-fade text-[40px] font-bold leading-[1.04] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
+          <h1 className="glow-hop ld-fade text-[40px] font-bold leading-[1.04] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
             {ru ? (
               <>Проанализировали<br /><span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов</>
             ) : (
