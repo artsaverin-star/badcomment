@@ -176,7 +176,7 @@ export default function CardDeck({
   return (
     <div className="mt-12 flex flex-col items-center">
       {/* ── the hand ── */}
-      {dealt && (
+      {dealt && !paywall && (
         <div className="flex items-center justify-center gap-1.5 sm:gap-3">
           {hand.map((s, i) => (
             <Fragment key={s.key}>
@@ -224,7 +224,7 @@ export default function CardDeck({
       )}
 
       {/* ── controls ── */}
-      {!dealt ? (
+      {!paywall && (!dealt ? (
         <button type="button" onClick={deal} className="btn-shimmer inline-flex items-center gap-2.5 rounded-full px-9 py-4 text-[17px] font-semibold text-white shadow-[0_14px_36px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]">
           🎴 {ru ? "Раздать 2 карты" : "Deal 2 cards"}
         </button>
@@ -237,37 +237,42 @@ export default function CardDeck({
         >
           {ru ? "Раздать ещё 2" : "Deal 2 more"} {allFlipped ? "" : "🔀"}
         </button>
+      ))}
+
+      {!paywall && (
+        <div className="mt-3.5 text-center text-[13px] text-[var(--color-text-tertiary)]">
+          {done ? (
+            ru ? "🎉 Ты открыл все идеи в колоде" : "🎉 You've drawn the whole deck"
+          ) : unlimited ? (
+            ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
+          ) : !loggedIn ? (
+            ru ? `Первые ${guestCap} карты бесплатно — дальше вход` : `First ${guestCap} cards free — then sign in`
+          ) : (
+            ru ? "Открывай карты — потом вся колода целиком" : "Reveal cards — then unlock the whole deck"
+          )}
+        </div>
       )}
 
-      <div className="mt-3.5 text-center text-[13px] text-[var(--color-text-tertiary)]">
-        {done ? (
-          ru ? "🎉 Ты открыл все идеи в колоде" : "🎉 You've drawn the whole deck"
-        ) : unlimited ? (
-          ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
-        ) : !loggedIn ? (
-          ru ? `Первые ${guestCap} карты бесплатно — дальше вход` : `First ${guestCap} cards free — then sign in`
-        ) : (
-          ru ? "Открывай карты — потом вся колода целиком" : "Reveal cards — then unlock the whole deck"
-        )}
-      </div>
-
       {paywall && (
-        <div className="mt-6 flex w-full max-w-[460px] flex-col items-center rounded-[20px] border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-6 text-center">
-          <div className="text-[16px] font-bold text-[var(--color-text-primary)]">{ru ? "Бесплатные карты кончились" : "Free cards used up"}</div>
-          <p className="mx-auto mb-4 mt-2 max-w-[42ch] text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
-            {ru
-              ? `Открой всю колоду — ${deckCount} карт с идеями, лучшее из каждой ниши, по реальным отзывам. Навсегда.`
-              : `Unlock the whole deck — ${deckCount} idea cards, the best of every niche, from real reviews. Forever.`}
-          </p>
-          <BuyButton
-            kind="deck"
-            price={deckPrice}
-            label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock deck — ${deckPrice} ₽`}
-            loggedIn={loggedIn}
-            locale={locale}
-            title={ru ? "Колода идей" : "Idea deck"}
-            subtitle={ru ? `${deckCount} карт с идеями — лучшее из каждой ниши, навсегда.` : `${deckCount} idea cards — the best of every niche, forever.`}
-          />
+        <div className="w-full max-w-[420px]">
+          <div className="flex flex-col items-center gap-1 rounded-[24px] border-2 border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,var(--color-surface-card))] p-7 text-center shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
+            <div className="text-[34px] leading-none" aria-hidden>🃏</div>
+            <div className="mt-1 text-[20px] font-black tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Колода идей" : "Idea deck"}</div>
+            <p className="mx-auto mb-5 mt-1.5 max-w-[34ch] text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
+              {ru
+                ? `Открой всю колоду — ${deckCount} карт с идеями, лучшее из каждой ниши, по реальным отзывам. Навсегда.`
+                : `Unlock the whole deck — ${deckCount} idea cards, the best of every niche, from real reviews. Forever.`}
+            </p>
+            <BuyButton
+              kind="deck"
+              price={deckPrice}
+              label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock deck — ${deckPrice} ₽`}
+              loggedIn={loggedIn}
+              locale={locale}
+              title={ru ? "Колода идей" : "Idea deck"}
+              subtitle={ru ? `${deckCount} карт с идеями — лучшее из каждой ниши, навсегда.` : `${deckCount} idea cards — the best of every niche, forever.`}
+            />
+          </div>
         </div>
       )}
       {err === "error" && <p className="mt-4 text-center text-[14px] text-[var(--color-text-secondary)]">{ru ? "Что-то пошло не так, попробуй ещё раз." : "Something went wrong, try again."}</p>}
