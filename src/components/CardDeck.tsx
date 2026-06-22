@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BoltIcon from "./BoltIcon";
-import PeopleIcon from "./PeopleIcon";
+import MessageIcon from "./MessageIcon";
 import type { Locale } from "@/lib/i18n";
 
 type Card = {
@@ -145,7 +145,7 @@ export default function CardDeck({
                   {s.card && (
                     <>
                       <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold tabular-nums text-[var(--color-text-brand)]"><PeopleIcon size={11} /> {s.card.demand}</span>
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold tabular-nums text-[var(--color-text-brand)]"><MessageIcon size={11} /> {s.card.demand}</span>
                       </div>
                       <div className="mt-1 line-clamp-1 text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{s.card.categoryName}</div>
                       <div className="mt-auto text-[15px] font-black leading-[1.12] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[17px]">{shortName(s.card.title)}</div>
@@ -218,7 +218,7 @@ export default function CardDeck({
                 </button>
               </div>
               <div className="overflow-y-auto overscroll-contain px-6 py-7 sm:px-8">
-                <div className="flex items-center gap-2 text-[13px] font-semibold tabular-nums text-[var(--color-text-brand)]"><PeopleIcon size={14} /> {modal.demand} <span className="font-normal text-[var(--color-text-tertiary)]">{wordObs(modal.demand)}</span></div>
+                <div className="flex items-center gap-2 text-[13px] font-semibold tabular-nums text-[var(--color-text-brand)]"><MessageIcon size={14} /> {modal.demand} <span className="font-normal text-[var(--color-text-tertiary)]">{wordObs(modal.demand)}</span></div>
                 <h2 className="mt-3 text-[28px] font-black leading-[1.1] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[32px]">{modal.title}</h2>
                 <p className="mt-3 text-[18px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[20px]">{modal.oneLiner}</p>
                 <div className="mt-7 flex flex-col gap-6">
