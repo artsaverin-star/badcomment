@@ -6,7 +6,7 @@ import { UNLOCK_COST, type UnlockType } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
-const TYPES: UnlockType[] = ["app", "idea", "chapter", "category"];
+const TYPES: UnlockType[] = ["app", "idea", "chapter", "category", "ideas", "apps"];
 
 // Spend tokens to permanently unlock a piece of content. Returns the new balance
 // (or 401 / 402 with the shortfall so the UI can route to the buy-tokens page).

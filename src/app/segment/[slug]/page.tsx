@@ -440,6 +440,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       <SegmentExplorer
         locale={locale}
+        slug={slug}
         opps={deepTg(opps)}
         apps={deepTg(apps)}
         competitorRead={thesis?.competitorRead ? tg(thesis.competitorRead) : undefined}

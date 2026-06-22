@@ -52,7 +52,7 @@ export async function getBalance(userId: string): Promise<number> {
 // All of a user's unlocks, grouped by type, as sets for O(1) access checks.
 export async function getUnlockSets(userId: string): Promise<Record<UnlockType, Set<string>>> {
   const rows = await prisma.unlock.findMany({ where: { userId }, select: { type: true, slug: true } });
-  const sets: Record<UnlockType, Set<string>> = { app: new Set(), idea: new Set(), chapter: new Set(), category: new Set() };
+  const sets: Record<UnlockType, Set<string>> = { app: new Set(), idea: new Set(), chapter: new Set(), category: new Set(), ideas: new Set(), apps: new Set() };
   for (const r of rows) sets[r.type as UnlockType]?.add(r.slug);
   return sets;
 }
@@ -88,10 +88,15 @@ export async function unlockItem(userId: string, type: UnlockType, slug: string)
   const rows: { userId: string; type: string; slug: string; cost: number }[] = [
     { userId, type, slug, cost },
   ];
-  if (type === "category") {
-    const { apps, ideas } = categoryMembers(slug);
-    for (const a of apps) rows.push({ userId, type: "app", slug: a, cost: 0 });
+  // Bundles fan out (cost 0) to the items they open, so later access checks are a
+  // plain set lookup. "ideas" → all ideas; "apps" → all teardowns; "category" → both.
+  if (type === "category" || type === "ideas") {
+    const { ideas } = categoryMembers(slug);
     for (const i of ideas) rows.push({ userId, type: "idea", slug: i, cost: 0 });
+  }
+  if (type === "category" || type === "apps") {
+    const { apps } = categoryMembers(slug);
+    for (const a of apps) rows.push({ userId, type: "app", slug: a, cost: 0 });
   }
   // Children may already be owned individually — SQLite createMany has no
   // skipDuplicates, so filter against what's already there.

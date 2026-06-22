@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
+import BoltIcon from "@/components/BoltIcon";
 import Reveal from "@/components/Reveal";
 
 export type ExpQuote = { app: string; rating: number; text: string };
@@ -50,7 +51,6 @@ function plural(n: number, one: string, few: string, many: string) {
   if (d >= 2 && d <= 4) return few;
   return many;
 }
-const wordObs = (n: number) => plural(n, "наблюдение", "наблюдения", "наблюдений");
 const wordOpp = (n: number) => plural(n, "возможность", "возможности", "возможностей");
 const wordApp = (n: number) => plural(n, "приложение", "приложения", "приложений");
 
@@ -71,14 +71,52 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 function Arrow() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-text-secondary)]">
-      <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-brand)] transition-transform duration-300 group-hover:translate-x-1">
+      <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
+  );
+}
+
+// A compact "deck": the whole locked pack shown as a stack of cards (a couple peek
+// out behind the front one), with one bundle-unlock CTA. Replaces the long blurred
+// list — no endless scrolling through frosted items on mobile.
+function DeckPile({
+  big,
+  title,
+  subtitle,
+  note,
+  button,
+}: {
+  kind: "idea" | "app";
+  big: string;
+  title: string;
+  subtitle: string;
+  note: string;
+  button: React.ReactNode;
+}) {
+  return (
+    <div className="mt-12 flex justify-center">
+      <div className="pile relative w-full max-w-[440px]">
+        {/* cards peeking from behind to read as a stack */}
+        <div className="pile-peek pile-peek-2" aria-hidden />
+        <div className="pile-peek pile-peek-1" aria-hidden />
+        <div className="blueprint relative z-10 rounded-[22px] border border-[color-mix(in_srgb,var(--color-accent-brand)_22%,var(--color-border-subtle))] bg-[var(--color-surface-card)] p-7 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] sm:p-8">
+          <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{note}</div>
+          <div className="mt-3 flex items-end justify-center gap-2.5">
+            <span className="text-[64px] font-black leading-[0.9] tracking-[-0.04em] text-[var(--color-text-primary)]">{big}</span>
+            <span className="mb-1.5 text-[19px] font-bold leading-tight text-[var(--color-text-primary)] text-balance">{title}</span>
+          </div>
+          <p className="mx-auto mt-4 max-w-[34ch] text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{subtitle}</p>
+          <div className="mt-6 flex justify-center">{button}</div>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default function SegmentExplorer({
   locale,
+  slug,
   opps,
   apps,
   competitorRead,
@@ -86,6 +124,7 @@ export default function SegmentExplorer({
   balance,
 }: {
   locale: Locale;
+  slug: string;
   opps: ExpOpp[];
   apps: ExpApp[];
   competitorRead?: string;
@@ -94,6 +133,8 @@ export default function SegmentExplorer({
 }) {
   const ru = locale !== "en";
   const [active, setActive] = useState<Active>(null);
+  const ideasLocked = opps.some((o) => o.locked);
+  const appsLocked = apps.some((a) => a.locked);
 
   // Lock background scroll (iOS-safe: overflow:hidden alone leaks on Safari, so
   // pin the body in place and restore the scroll position on close) + close on Esc.
@@ -131,44 +172,40 @@ export default function SegmentExplorer({
           <p className="mt-5 max-w-[56ch] text-[17px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-[18px]">
             {ru ? "Идеи, которые пользователи просят сами — каждая под подтверждённый спрос." : "Ideas users ask for themselves — each backed by proven demand."}
           </p>
-          <div className="mt-12 border-t border-[var(--color-border-subtle)]">
-            {opps.map((op, i) =>
-              op.locked ? (
-                // Locked: the real idea title/tagline is in the DOM (crawlable) but
-                // visually frosted; the user unlocks to read it + the breakdown.
-                <div key={i} className="flex items-start gap-6 border-b border-[var(--color-border-subtle)] py-7 sm:gap-9">
-                  <span className="shrink-0 pt-1 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{`0${i + 1}`}</span>
-                  <div className="min-w-0 flex-1">
-                    <div className="gated-content pointer-events-none select-none opacity-55 blur-[5px]">
-                      <span className="block text-[21px] font-semibold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[25px]">{op.regen?.title || op.title}</span>
-                      <span className="mt-2 line-clamp-2 block text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[16px]">{op.regen?.tagline || op.oneLiner}</span>
-                    </div>
-                    <div className="mt-3 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">
-                      {ru ? `спрос · ${op.demand} ${wordObs(op.demand)}` : `demand · ${op.demand}`}
-                    </div>
-                    <div className="mt-4">
-                      <EnergyUnlockButton type="idea" slug={op.slug} cost={UNLOCK_COST.idea} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть идею" : "Unlock idea"} />
-                    </div>
-                  </div>
-                </div>
-              ) : (
+          {ideasLocked ? (
+            <DeckPile
+              kind="idea"
+              note={ru ? "Готовый пакет" : "Ready pack"}
+              big={`${opps.length}`}
+              title={ru ? `${wordOpp(opps.length)} под спрос` : "ideas backed by demand"}
+              subtitle={ru ? "Что и зачем строить, фичи, монетизация и цитаты из отзывов — по каждой идее." : "What to build and why, features, monetization and review quotes — for each idea."}
+              button={
+                <EnergyUnlockButton type="ideas" slug={slug} cost={UNLOCK_COST.ideas} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${opps.length}` : `Unlock all ${opps.length}`} />
+              }
+            />
+          ) : (
+            <div className="deck-grid mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {opps.map((op, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => setActive({ kind: "idea", i })}
-                  className="group flex w-full items-start gap-6 border-b border-[var(--color-border-subtle)] py-7 text-left sm:gap-9"
+                  style={{ animationDelay: `${Math.min(i, 8) * 55}ms` }}
+                  className="deck-card blueprint group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
                 >
-                  <span className="shrink-0 pt-1 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{`0${i + 1}`}</span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-[21px] font-semibold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[25px]">{op.regen?.title || op.title}</span>
-                    <span className="mt-2 line-clamp-2 block text-[15px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[16px]">{op.regen?.tagline || op.oneLiner}</span>
-                    <span className="mt-3 block text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{ru ? `спрос · ${op.demand} ${wordObs(op.demand)}` : `demand · ${op.demand}`}</span>
-                  </span>
-                  <Arrow />
+                  <div className="flex w-full items-center justify-between">
+                    <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? `Идея ${`0${i + 1}`}` : `Idea ${`0${i + 1}`}`}</span>
+                    <span className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1 text-[12px] font-semibold tabular-nums text-[var(--color-text-brand)]">
+                      <BoltIcon size={11} /> {op.demand}
+                    </span>
+                  </div>
+                  <span className="mt-3.5 block text-[20px] font-black leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[22px]">{op.regen?.title || op.title}</span>
+                  <span className="mt-2 line-clamp-3 block text-[14px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[15px]">{op.regen?.tagline || op.oneLiner}</span>
+                  <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"} <Arrow /></span>
                 </button>
-              ),
-            )}
-          </div>
+              ))}
+            </div>
+          )}
           </section>
         </Reveal>
       )}
@@ -182,30 +219,26 @@ export default function SegmentExplorer({
             {apps.length} {ru ? wordApp(apps.length) : "apps"}
           </h2>
           {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
-          <div className="mt-12 border-t border-[var(--color-border-subtle)]">
-            {apps.map((a, i) =>
-              a.locked ? (
-                <div key={i} className="flex items-center gap-5 border-b border-[var(--color-border-subtle)] py-5">
-                  {a.icon ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[13px] object-cover" />
-                  ) : (
-                    <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
-                  )}
-                  <span className="flex min-w-0 flex-1 flex-col gap-1">
-                    <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                    {a.description && <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.description}</span>}
-                  </span>
-                  <div className="shrink-0">
-                    <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть разбор" : "Open"} />
-                  </div>
-                </div>
-              ) : (
+          {appsLocked ? (
+            <DeckPile
+              kind="app"
+              note={ru ? "Готовый пакет" : "Ready pack"}
+              big={`${apps.length}`}
+              title={ru ? `${wordApp(apps.length)} с разбором` : "app teardowns"}
+              subtitle={ru ? "По каждому приложению — сильные стороны, слабые места и цитаты из реальных отзывов." : "For each app — strengths, weak spots and real review quotes."}
+              button={
+                <EnergyUnlockButton type="apps" slug={slug} cost={UNLOCK_COST.apps} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${apps.length}` : `Unlock all ${apps.length}`} />
+              }
+            />
+          ) : (
+            <div className="deck-grid mt-12 flex flex-col gap-3">
+              {apps.map((a, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => setActive({ kind: "app", i })}
-                  className="group flex w-full items-center gap-5 border-b border-[var(--color-border-subtle)] py-5 text-left"
+                  style={{ animationDelay: `${Math.min(i, 10) * 45}ms` }}
+                  className="deck-card group flex w-full items-center gap-4 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
                 >
                   {a.icon ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -213,17 +246,20 @@ export default function SegmentExplorer({
                   ) : (
                     <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
                   )}
-                  <span className="flex min-w-0 flex-1 flex-col gap-1">
-                    <span className="truncate text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                    {a.description && <span className="truncate text-[14px] text-[var(--color-text-tertiary)]">{a.description}</span>}
+                  <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                    <span className="truncate text-[17px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
+                    {a.description && <span className="truncate text-[13px] text-[var(--color-text-tertiary)]">{a.description}</span>}
                   </span>
-                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-text-secondary)]">
+                  {a.avg != null && (
+                    <span className="shrink-0 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)]">{a.avg.toFixed(1)}★</span>
+                  )}
+                  <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-0.5">
                     <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-              ),
-            )}
-          </div>
+              ))}
+            </div>
+          )}
           </section>
         </Reveal>
       )}

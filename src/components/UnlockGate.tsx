@@ -6,19 +6,23 @@ import AuthModal from "./AuthModal";
 import { tokensWord, type UnlockType, SIGNUP_GRANT } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
-const NOUN_RU: Record<UnlockType, string> = { app: "разбор приложения", idea: "идею", chapter: "главу", category: "категорию целиком" };
-const NOUN_EN: Record<UnlockType, string> = { app: "the app breakdown", idea: "the idea", chapter: "the chapter", category: "the whole category" };
+const NOUN_RU: Record<UnlockType, string> = { app: "разбор приложения", idea: "идею", chapter: "главу", category: "категорию целиком", ideas: "все идеи", apps: "все разборы приложений" };
+const NOUN_EN: Record<UnlockType, string> = { app: "the app breakdown", idea: "the idea", chapter: "the chapter", category: "the whole category", ideas: "all ideas", apps: "all app teardowns" };
 const WHAT_RU: Record<UnlockType, string> = {
   app: "Полный разбор всех отзывов этого приложения.",
   idea: "Готовая идея: отзывы → механики → возможность → продукт.",
   chapter: "Целая глава: выводы, приложения и идеи по этой теме.",
   category: "Весь жанр сразу — синтез, все приложения и все идеи внутри.",
+  ideas: "Все идеи ниши сразу — под подтверждённый спрос, с разбором каждой.",
+  apps: "Все разборы приложений ниши сразу — сильные и слабые места, цитаты.",
 };
 const WHAT_EN: Record<UnlockType, string> = {
   app: "The full breakdown of every review for this app.",
   idea: "A ready idea: reviews → mechanics → opportunity → product.",
   chapter: "A whole chapter: conclusions, apps and ideas on this theme.",
   category: "The whole genre at once — synthesis, every app and every idea inside.",
+  ideas: "Every idea in the niche at once — backed by demand, each broken down.",
+  apps: "Every app teardown in the niche at once — strengths, weak spots, quotes.",
 };
 
 // Deterministic «starfield» — computed once at module load so server and client

@@ -7,13 +7,17 @@
 
 export const SIGNUP_GRANT = 100;
 
-export type UnlockType = "app" | "idea" | "chapter" | "category";
+// Per-item types (app/idea/chapter) + bundles. "ideas" opens ALL ideas in a
+// category at once; "apps" opens ALL app teardowns; "category" opens everything.
+export type UnlockType = "app" | "idea" | "chapter" | "category" | "ideas" | "apps";
 
 export const UNLOCK_COST: Record<UnlockType, number> = {
   app: 5,
   idea: 10,
   chapter: 20,
   category: 50,
+  ideas: 25, // all ideas in a category, sold as one pack
+  apps: 25, // all app teardowns in a category, sold as one pack
 };
 
 // A category bundle is priced dynamically: its base cost minus the value of the
