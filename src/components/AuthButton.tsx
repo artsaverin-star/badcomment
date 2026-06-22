@@ -5,8 +5,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@saverin/ui-web";
 import AuthModal from "./AuthModal";
-import BoltIcon from "./BoltIcon";
-import { tokensWord } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Me = {
@@ -14,7 +12,6 @@ type Me = {
   premium: boolean;
   friend?: boolean;
   unlimited?: boolean;
-  balance?: number;
 };
 
 // Auth entry point. Logged out → "Войти" opens the modal. Logged in → a round
@@ -105,11 +102,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           <span className="flex size-7 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-caption font-bold text-[var(--brand-color-on-primary,#fff)]">
             {initial}
           </span>
-          {me.unlimited ? (
-            <span title={me.friend ? "Друг" : "Полный доступ"}>⭐</span>
-          ) : (
-            <span className="inline-flex items-center gap-1 tabular-nums font-semibold text-[var(--color-text-brand)]"><BoltIcon size={13} /> {me.balance ?? 0}</span>
-          )}
+          {me.unlimited && <span title={me.friend ? "Друг" : "Полный доступ"}>⭐</span>}
           {name}
         </span>
         <span className="flex items-center gap-2.5">
@@ -117,7 +110,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
             {ru ? "Купленное" : "Library"}
           </Link>
           <Link href="/tokens" className="text-caption font-medium text-[var(--color-text-brand)]">
-            {ru ? "Энергия" : "Energy"}
+            {ru ? "Доступ" : "Access"}
           </Link>
           {me.user.isAdmin && (
             <Link href="/admin" className="text-caption font-medium text-[var(--color-text-brand)]">
@@ -157,7 +150,7 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
                   ? me.friend
                     ? ru ? "⭐ Друг" : "⭐ Friend"
                     : ru ? "⭐ Полный доступ" : "⭐ Full access"
-                  : `${me.balance ?? 0} ${ru ? tokensWord(me.balance ?? 0) : "energy"}`}
+                  : ru ? "Открыть доступ" : "Get access"}
               </span>
             </span>
           </div>
@@ -167,15 +160,13 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
-              <span className="leading-none text-[var(--color-text-brand)]"><BoltIcon size={16} /></span>
+              <span className="leading-none text-[var(--color-text-brand)]" aria-hidden>✦</span>
               <span className="flex min-w-0 flex-col">
-                <span>{me.unlimited ? (ru ? "Энергия" : "Energy") : ru ? "Моя энергия" : "My energy"}</span>
+                <span>{ru ? "Доступ" : "Access"}</span>
                 <span className="text-caption text-[var(--color-text-tertiary)]">
                   {me.unlimited
                     ? ru ? "Полный доступ" : "Full access"
-                    : ru
-                      ? `Баланс: ${me.balance ?? 0} ${tokensWord(me.balance ?? 0)} · Пополнить`
-                      : `Balance: ${me.balance ?? 0} energy · Top up`}
+                    : ru ? "Колода и Lifetime" : "Deck & Lifetime"}
                 </span>
               </span>
             </Link>

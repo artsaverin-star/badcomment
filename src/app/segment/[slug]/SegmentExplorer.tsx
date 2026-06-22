@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
-import { UNLOCK_COST } from "@/lib/tokenConfig";
-import EnergyUnlockButton from "@/components/EnergyUnlockButton";
+import CategoryGate from "@/components/CategoryGate";
 import MessageIcon from "@/components/MessageIcon";
 import DeckPile from "@/components/DeckPile";
 import Reveal from "@/components/Reveal";
@@ -85,7 +84,9 @@ export default function SegmentExplorer({
   apps,
   competitorRead,
   loggedIn,
-  balance,
+  sellable,
+  price,
+  pregenDate,
 }: {
   locale: Locale;
   slug: string;
@@ -93,7 +94,9 @@ export default function SegmentExplorer({
   apps: ExpApp[];
   competitorRead?: string;
   loggedIn: boolean;
-  balance: number;
+  sellable: boolean;
+  price: number;
+  pregenDate: string;
 }) {
   const ru = locale !== "en";
   const [active, setActive] = useState<Active>(null);
@@ -135,7 +138,7 @@ export default function SegmentExplorer({
               title={ru ? `${opps.length} идей под спрос` : `${opps.length} demand-backed ideas`}
               subtitle={ru ? "Каждую люди просят сами. Внутри по каждой — что строить, для кого и как на этом заработать, с цитатами из отзывов." : "Each one users ask for themselves. Inside — what to build, for whom and how to monetize, with review quotes."}
               button={
-                <EnergyUnlockButton type="ideas" slug={slug} cost={UNLOCK_COST.ideas} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${opps.length}` : `Unlock all ${opps.length}`} />
+                <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
               }
             />
           ) : (
@@ -192,7 +195,7 @@ export default function SegmentExplorer({
               subtitle={ru ? "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовая карта конкурентов по реальным отзывам, чтобы не повторять их ошибок." : "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor map from real reviews."}
               icons={apps.map((a) => a.icon)}
               button={
-                <EnergyUnlockButton type="apps" slug={slug} cost={UNLOCK_COST.apps} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${apps.length}` : `Unlock all ${apps.length}`} />
+                <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
               }
             />
           ) : (
@@ -264,7 +267,7 @@ export default function SegmentExplorer({
                         </figure>
                       )}
                       <p className="text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? "Внутри — в чём разрыв и почему это шанс, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the gap and why it's an opening, what to build, features, monetization and evidence."}</p>
-                      <EnergyUnlockButton type="idea" slug={op.slug} cost={UNLOCK_COST.idea} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть возможность" : "Unlock opportunity"} />
+                      <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
                     </div>
                   );
                 }
@@ -342,7 +345,7 @@ export default function SegmentExplorer({
 
                     {a.locked ? (
                       <div className="mt-8">
-                        <EnergyUnlockButton type="app" slug={a.slug as string} cost={UNLOCK_COST.app} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть разбор" : "Unlock breakdown"} />
+                        <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
                       </div>
                     ) : (
                       <div className="mt-7">

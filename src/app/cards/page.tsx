@@ -4,7 +4,7 @@ import { getAccess } from "@/lib/access";
 import { drawnCards } from "@/lib/tokens";
 import { listIdeas } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
-import { DRAW_COST, GUEST_DRAWS } from "@/lib/tokenConfig";
+import { DECK_PRICE_RUB, FREE_ANON_CARDS } from "@/lib/tokenConfig";
 import insightsData from "@/data/insights.json";
 import CardDeck from "@/components/CardDeck";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
@@ -55,12 +55,11 @@ export default async function CardsPage() {
       <CardDeck
         locale={locale}
         loggedIn={access.loggedIn}
-        balance={access.balance}
         unlimited={access.unlimited}
-        drawCost={DRAW_COST}
+        deckPrice={DECK_PRICE_RUB}
         initialCollection={initialCollection}
         guestUsed={guestUsed}
-        guestCap={GUEST_DRAWS}
+        guestCap={FREE_ANON_CARDS}
       />
     </main>
   );

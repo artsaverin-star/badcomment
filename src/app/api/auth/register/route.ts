@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { setSession } from "@/lib/session";
 import { hashPassword } from "@/lib/password";
-import { grantSignupOnce } from "@/lib/tokens";
-import { SIGNUP_GRANT } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -28,7 +26,6 @@ export async function POST(req: Request) {
       isAdmin: firstUser,
     },
   });
-  await grantSignupOnce(user.id, SIGNUP_GRANT);
   await setSession(user.id);
   const premium = user.isAdmin || !!(user.premiumUntil && new Date(user.premiumUntil) > new Date());
   return NextResponse.json({ ok: true, premium });

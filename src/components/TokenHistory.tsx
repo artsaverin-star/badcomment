@@ -22,10 +22,12 @@ function describe(r: LedgerRow): { icon: string; label: string } {
     const slug = rest.join(":");
     return { icon: type === "category" ? "🗂️" : type === "idea" ? "💡" : "📱", label: `Открыл ${TYPE_NOUN[type] ?? "контент"} · ${slug}` };
   }
-  if (r.reason === "purchase") {
-    const src = (r.ref ?? "").startsWith("tg:") ? "Telegram Stars" : (r.ref ?? "").startsWith("yk:") ? "карта" : "покупка";
-    return { icon: "💳", label: `Покупка энергии · ${src}` };
-  }
+  const src = (r.ref ?? "").startsWith("tg:") ? "Telegram Stars" : (r.ref ?? "").startsWith("yk:") ? "карта" : "—";
+  if (r.reason === "buy_deck") return { icon: "🃏", label: `Колода · ${src}` };
+  if (r.reason === "buy_category") return { icon: "🗂️", label: `Категория · ${src}` };
+  if (r.reason === "lifetime") return { icon: "♾️", label: `Lifetime · ${src}` };
+  if (r.reason === "purchase") return { icon: "💳", label: `Покупка энергии · ${src}` };
+  if (r.reason === "draw") return { icon: "🎴", label: "Карта из колоды" };
   if (r.reason === "signup") return { icon: "🎁", label: "Грант за регистрацию" };
   if (r.reason === "comp") return { icon: "⭐", label: "Начисление (комп)" };
   if (r.reason === "admin") return { icon: "🛠️", label: "Начисление (админ)" };
