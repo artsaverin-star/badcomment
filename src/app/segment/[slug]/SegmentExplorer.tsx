@@ -153,7 +153,7 @@ export default function SegmentExplorer({
                   type="button"
                   onClick={() => setActive({ kind: "idea", i })}
                   style={{ animationDelay: `${Math.min(i, 8) * 55}ms` }}
-                  className="deck-card group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_80%,transparent)] p-5 text-left backdrop-blur-xl transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
+                  className="deck-card group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
                 >
                   <div className="flex w-full items-center justify-between">
                     <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? `Идея ${`0${i + 1}`}` : `Idea ${`0${i + 1}`}`}</span>
@@ -203,7 +203,7 @@ export default function SegmentExplorer({
                   type="button"
                   onClick={() => setActive({ kind: "app", i })}
                   style={{ animationDelay: `${Math.min(i, 10) * 45}ms` }}
-                  className="deck-card group flex w-full items-center gap-4 rounded-[18px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_80%,transparent)] px-4 py-3.5 text-left backdrop-blur-xl transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
+                  className="deck-card group flex w-full items-center gap-4 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
                 >
                   {a.icon ? (
                     // eslint-disable-next-line @next/next/no-img-element

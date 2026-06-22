@@ -258,7 +258,7 @@ export default function CardDeck({
                 key={c.slug}
                 type="button"
                 onClick={() => setModal(c)}
-                className="deck-card group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_80%,transparent)] p-5 text-left backdrop-blur-xl transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
+                className="deck-card group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
               >
                 <div className="flex w-full items-center justify-between gap-2">
                   <span className="line-clamp-1 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{c.categoryName}</span>

@@ -22,7 +22,7 @@ export default function DeckPile({
       <div className="pile relative w-full">
         <div className="pile-peek pile-peek-2" aria-hidden />
         <div className="pile-peek pile-peek-1" aria-hidden />
-        <div className="relative z-10 rounded-[26px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_80%,transparent)] px-6 py-8 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.85)] backdrop-blur-xl sm:px-9 sm:py-10">
+        <div className="relative z-10 rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-8 shadow-[0_30px_70px_-40px_rgba(0,0,0,0.85)] sm:px-9 sm:py-10">
           {icons && icons.length > 0 && (
             <div className="mb-6 flex flex-wrap items-center gap-1.5">
               {icons.slice(0, 12).map((ic, i) =>
