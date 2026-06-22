@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSessionUser } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
@@ -29,13 +28,17 @@ export default async function AdminPage() {
   // ref "yk:" = card (₽), "tg:" = Telegram Stars (⭐).
   const payEntries = await prisma.tokenLedger.findMany({
     where: { reason: { in: ["purchase", "lifetime", "buy_deck", "buy_category"] } },
-    select: { userId: true, delta: true, reason: true, ref: true },
+    select: { userId: true, delta: true, reason: true, ref: true, amountRub: true },
   });
   const moneyBy = new Map<string, { rub: number; stars: number }>();
   for (const e of payEntries) {
     const m = moneyBy.get(e.userId) ?? { rub: 0, stars: 0 };
     const isStars = (e.ref ?? "").startsWith("tg:");
-    if (e.reason === "lifetime") {
+    if (e.amountRub != null) {
+      // Real charged amount (stored since the rubles rebuild) — exact.
+      if (isStars) m.stars += e.amountRub;
+      else m.rub += e.amountRub;
+    } else if (e.reason === "lifetime") {
       if (isStars) m.stars += LIFETIME.stars;
       else m.rub += LIFETIME.rub;
     } else if (e.reason === "buy_deck") {
@@ -83,12 +86,7 @@ export default async function AdminPage() {
 
   return (
     <main className="mx-auto w-full max-w-[1200px] px-4 py-10">
-      <div className="flex items-center gap-4">
-        <h1 className="text-[28px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Админка</h1>
-        <Link href="/admin/posts" className="rounded-full border border-[var(--color-border-subtle)] px-4 py-1.5 text-callout font-medium text-[var(--color-text-brand)] transition-colors hover:border-[var(--color-border-strong)]">
-          Посты →
-        </Link>
-      </div>
+      <h1 className="text-[28px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Админка</h1>
       <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
         Пользователей: <b className="tabular-nums">{users.length}</b> · безлимит:{" "}
         <b className="tabular-nums">{premiumCount}</b> · платящих:{" "}

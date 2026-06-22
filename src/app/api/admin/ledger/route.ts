@@ -13,11 +13,12 @@ export async function GET(req: Request) {
   const userId = new URL(req.url).searchParams.get("userId");
   if (!userId) return NextResponse.json({ error: "bad request" }, { status: 400 });
 
-  const [user, ledger, unlocks] = await Promise.all([
+  const [user, ledger, unlocks, pageViews] = await Promise.all([
     prisma.user.findUnique({ where: { id: userId }, select: { tokens: true } }),
     prisma.tokenLedger.findMany({ where: { userId }, orderBy: { createdAt: "desc" }, take: 300 }),
     prisma.unlock.count({ where: { userId, cost: { gt: 0 } } }),
+    prisma.pageView.findMany({ where: { userId }, orderBy: { createdAt: "desc" }, take: 200, select: { path: true, title: true, createdAt: true } }),
   ]);
 
-  return NextResponse.json({ balance: user?.tokens ?? 0, paidUnlocks: unlocks, ledger });
+  return NextResponse.json({ balance: user?.tokens ?? 0, paidUnlocks: unlocks, ledger, pageViews });
 }

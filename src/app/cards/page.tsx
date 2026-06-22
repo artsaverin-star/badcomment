@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { getAccess } from "@/lib/access";
 import { drawnCards } from "@/lib/tokens";
-import { listIdeas } from "@/lib/ideas";
+import { deckIdeaSlugs } from "@/lib/deck";
 import { getLocale } from "@/lib/i18n.server";
 import { DECK_PRICE_RUB, FREE_ANON_CARDS } from "@/lib/tokenConfig";
 import insightsData from "@/data/insights.json";
@@ -22,7 +22,7 @@ export default async function CardsPage() {
   const access = await getAccess();
 
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
-  const ideasCount = listIdeas().length;
+  const ideasCount = deckIdeaSlugs().length;
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
 
   // Restore the player's state: logged-in → their drawn collection; guest → how many
@@ -42,11 +42,11 @@ export default async function CardsPage() {
         <p className="mx-auto mt-6 max-w-[46ch] text-[17px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[19px]">
           {ru ? (
             <>
-              Мы прочитали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> отзывов и собрали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> идей, которые люди реально просят. Тяни карту — и тебе выпадет готовая идея, что построить.
+              Мы прочитали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> отзывов и отобрали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> лучших идей из разных ниш. Тяни карту — и тебе выпадет готовая идея, что построить.
             </>
           ) : (
             <>
-              We read <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> reviews and pulled out <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> ideas people actually ask for. Draw a card — you get a ready idea to build.
+              We read <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> reviews and picked the <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> best ideas across niches. Draw a card — you get a ready idea to build.
             </>
           )}
         </p>

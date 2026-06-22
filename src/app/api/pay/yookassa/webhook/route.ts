@@ -28,6 +28,7 @@ export async function POST(req: Request) {
   const meta = payment?.metadata ?? {};
   const userId = meta.userId;
   const ref = `yk:${id}`;
+  const amountRub = Math.round(Number(payment?.amount?.value || 0)); // real ₽ charged
   if (!userId) return NextResponse.json({ ok: true });
 
   try {
@@ -36,7 +37,7 @@ export async function POST(req: Request) {
 
     // New direct-₽ model: metadata.kind = deck | category | lifetime.
     if (meta.kind === "deck" || meta.kind === "category" || meta.kind === "lifetime") {
-      await grantUnlock(userId, meta.kind as BuyKind, meta.slug ?? null, ref);
+      await grantUnlock(userId, meta.kind as BuyKind, meta.slug ?? null, ref, amountRub);
       return NextResponse.json({ ok: true });
     }
 
@@ -48,7 +49,7 @@ export async function POST(req: Request) {
     if (already) return NextResponse.json({ ok: true });
     if (lifetime) {
       await prisma.user.update({ where: { id: userId }, data: { lifetime: true } });
-      await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: "lifetime", ref, balanceAfter: user.tokens } });
+      await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: "lifetime", ref, balanceAfter: user.tokens, amountRub } });
     } else {
       await grantTokens(userId, tokens, "purchase", ref);
     }

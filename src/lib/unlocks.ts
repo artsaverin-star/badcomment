@@ -19,14 +19,15 @@ export async function ownsDeck(userId: string): Promise<boolean> {
 
 // Grant ownership from a SUCCESSFUL ₽ purchase. Writes Unlock rows directly — no
 // energy. Idempotent: the payment ref guards against webhook re-delivery (a ledger
-// row tagged with that ref means we've already credited this payment).
-export async function grantUnlock(userId: string, kind: BuyKind, slug: string | null, ref: string): Promise<void> {
+// row tagged with that ref means we've already credited this payment). `amountRub`
+// is the real charged ₽ (from YooKassa) — the source of truth for revenue reports.
+export async function grantUnlock(userId: string, kind: BuyKind, slug: string | null, ref: string, amountRub: number): Promise<void> {
   const already = await prisma.tokenLedger.findFirst({ where: { ref } });
   if (already) return;
 
   if (kind === "lifetime") {
     await prisma.user.update({ where: { id: userId }, data: { lifetime: true } });
-    await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: REASON.lifetime, ref, balanceAfter: 0 } });
+    await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: REASON.lifetime, ref, balanceAfter: 0, amountRub } });
     return;
   }
 

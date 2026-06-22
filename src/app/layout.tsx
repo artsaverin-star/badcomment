@@ -6,6 +6,7 @@ import "@saverin/tokens/css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageTracker from "@/components/PageTracker";
 import { getLocale } from "@/lib/i18n.server";
 
 // Inter is the primary UI face — a crisp modern grotesque (getgems-like). It
@@ -85,6 +86,7 @@ export default async function RootLayout({
           }}
         />
         <Header locale={locale} theme={theme} />
+        <PageTracker />
         {children}
         <Footer locale={locale} />
         {/* DataFast privacy-friendly analytics */}

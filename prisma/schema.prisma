@@ -137,8 +137,9 @@ model User {
   isAdmin      Boolean   @default(false)
   createdAt    DateTime  @default(now())
 
-  unlocks Unlock[]
-  ledger  TokenLedger[]
+  unlocks   Unlock[]
+  ledger    TokenLedger[]
+  pageViews PageView[]
 }
 
 // A permanent unlock: once bought, the user owns this item forever. Buying a
@@ -163,10 +164,23 @@ model TokenLedger {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId       String
   delta        Int // +grant / -spend
-  reason       String // "signup" | "purchase" | "unlock" | "comp" | "admin"
+  reason       String // "buy_deck" | "buy_category" | "lifetime" | "purchase" | "unlock" | "draw" | "comp" | "admin"
   ref          String? // pack id / unlock "type:slug" / payment id
   balanceAfter Int
+  amountRub    Int? // actual ₽ charged (paid SKUs) — source of truth for revenue
   createdAt    DateTime @default(now())
+
+  @@index([userId])
+}
+
+// Page-view log — what each user opened, for the admin activity history.
+model PageView {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  path      String
+  title     String?
+  createdAt DateTime @default(now())
 
   @@index([userId])
 }

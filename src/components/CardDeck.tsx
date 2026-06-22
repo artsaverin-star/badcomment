@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
@@ -78,6 +78,35 @@ export default function CardDeck({
   const [collection, setCollection] = useState<Card[]>(initialCollection);
 
   const [modal, setModal] = useState<Card | null>(null);
+
+  // Persist drawn cards locally so they survive a reload — notably the full-page
+  // redirect during sign-in (anon cards no longer vanish after registering).
+  const STORE_KEY = "inapp_cards";
+  useEffect(() => {
+    // Deferred so we don't setState synchronously inside the effect body.
+    const t = setTimeout(() => {
+      try {
+        const raw = localStorage.getItem(STORE_KEY);
+        const saved = raw ? (JSON.parse(raw) as Card[]) : [];
+        if (!Array.isArray(saved) || saved.length === 0) return;
+        setCollection((cur) => {
+          const have = new Set(cur.map((c) => c.slug));
+          return [...cur, ...saved.filter((c) => c?.slug && !have.has(c.slug))];
+        });
+        setSeen((cur) => [...new Set([...cur, ...(saved.map((c) => c?.slug).filter(Boolean) as string[])])]);
+      } catch {
+        /* ignore */
+      }
+    }, 0);
+    return () => clearTimeout(t);
+  }, []);
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(collection.slice(0, 60)));
+    } catch {
+      /* ignore */
+    }
+  }, [collection]);
 
   const guestBlocked = !loggedIn && guestUsed >= guestCap;
 
