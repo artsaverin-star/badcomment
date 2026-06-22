@@ -179,15 +179,18 @@ export default function SegmentExplorer({
           <section>
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
           {!appsLocked && (
-            <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
-              {apps.length} {ru ? wordApp(apps.length) : "apps"}
-            </h2>
+            <>
+              <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
+                {apps.length} {ru ? wordApp(apps.length) : "apps"}
+              </h2>
+              {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
+            </>
           )}
-          {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
           {appsLocked ? (
             <DeckPile
-              title={ru ? `${apps.length} разборов приложений` : `${apps.length} app teardowns`}
-              subtitle={ru ? "Сильные и слабые места каждого — дословно из реальных отзывов." : "Strengths and weak spots of each — verbatim from real reviews."}
+              title={ru ? `Разбор ${apps.length} приложений` : `${apps.length} app teardowns`}
+              body={competitorRead}
+              subtitle={competitorRead ? undefined : ru ? "Сильные и слабые места каждого — дословно из реальных отзывов." : "Strengths and weak spots of each — verbatim from real reviews."}
               icons={apps.map((a) => a.icon)}
               button={
                 <EnergyUnlockButton type="apps" slug={slug} cost={UNLOCK_COST.apps} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${apps.length}` : `Unlock all ${apps.length}`} />
