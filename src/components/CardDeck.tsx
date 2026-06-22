@@ -200,12 +200,10 @@ export default function CardDeck({
             ? ru ? "Войди, чтобы раздать ещё" : "Sign in to deal more"
             : ru ? `Без входа — ${GUEST_DRAWS} карт бесплатно` : `No sign-in — ${GUEST_DRAWS} free cards`
         ) : (
-          <span className="inline-flex items-center gap-1.5">
-            {ru ? "Первая бесплатно, далее" : "First free, then"} {drawCost}
-            <BoltIcon size={12} className="text-[var(--color-text-brand)]" />· {ru ? "баланс" : "balance"}
-            <BoltIcon size={12} className="text-[var(--color-text-brand)]" />
-            <span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{balance}</span>
-            {opened > 0 && <span className="text-[var(--color-text-tertiary)]">· {ru ? "открыто" : "opened"} {opened}</span>}
+          <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1">
+            <span className="inline-flex items-center gap-1">{ru ? "Первая бесплатно, далее" : "First free, then"} {drawCost}<BoltIcon size={12} className="text-[var(--color-text-brand)]" /></span>
+            <span className="inline-flex items-center gap-1">{ru ? "баланс" : "balance"} <BoltIcon size={12} className="text-[var(--color-text-brand)]" /><span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{balance}</span></span>
+            {opened > 0 && <span>{ru ? "открыто" : "opened"} {opened}</span>}
           </span>
         )}
       </div>

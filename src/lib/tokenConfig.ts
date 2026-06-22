@@ -27,7 +27,7 @@ export const CATEGORY_MIN_PRICE = 10;
 
 // «Колода идей» — gamified draw. One card draw fully unlocks a random top idea
 // for less than the regular idea price (the "lucky draw" discount). First draw free.
-export const DRAW_COST = 1;
+export const DRAW_COST = 5;
 export const GUEST_DRAWS = 6; // free cards a logged-out visitor may flip before sign-in
 
 export type TokenPack = {
