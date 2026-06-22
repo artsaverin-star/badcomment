@@ -71,8 +71,13 @@ export default function CategoryGate({
           ? "…"
           : !loggedIn
             ? ru ? "Войти и открыть" : "Sign in to unlock"
-            : ru ? `Открыть категорию — ${price} ₽` : `Unlock category — ${price} ₽`}
+            : ru ? `Открыть всю категорию — ${price} ₽` : `Unlock the whole category — ${price} ₽`}
       </button>
+      <p className="mt-2.5 max-w-[42ch] text-caption text-[var(--color-text-tertiary)]">
+        {ru
+          ? "Одна покупка открывает всё в нише: выводы, все идеи и разбор конкурентов."
+          : "One purchase unlocks everything in the niche: findings, all ideas and the competitor teardown."}
+      </p>
       {err && <p className="mt-2 text-caption text-[#ff6b6b]">{err}</p>}
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
     </>
