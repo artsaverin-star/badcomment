@@ -19,7 +19,10 @@ export default async function AdminPage() {
   const isActive = (u: { premiumUntil: Date | null }) => !!(u.premiumUntil && new Date(u.premiumUntil) > now);
   const isFriend = (u: { telegramId: string | null; username: string | null; email: string | null }) =>
     isFriendIdentity(u);
-  const premiumCount = users.filter((u) => isActive(u) || isFriend(u)).length;
+  // "Безлимит" mirrors access.ts getAccess(): admin / lifetime / friend / valid legacy premium.
+  const isUnlimited = (u: { isAdmin: boolean; lifetime: boolean; premiumUntil: Date | null; telegramId: string | null; username: string | null; email: string | null }) =>
+    u.isAdmin || u.lifetime || isFriend(u) || isActive(u);
+  const premiumCount = users.filter(isUnlimited).length;
   const tokensTotal = users.reduce((s, u) => s + (u.tokens ?? 0), 0);
   const spent = await prisma.tokenLedger.aggregate({ _sum: { delta: true }, where: { delta: { lt: 0 } } });
   const tokensSpent = Math.abs(spent._sum.delta ?? 0);
@@ -160,8 +163,8 @@ export default async function AdminPage() {
                   {u.isAdmin ? <span className="ml-1 text-[var(--color-text-brand)]">admin</span> : null}
                 </td>
                 <td className="px-4 py-2.5">
-                  {u.isAdmin || isFriend(u) || isActive(u) ? (
-                    <span className="text-[18px] font-semibold text-[var(--color-text-brand)]" title="Безлимит">∞</span>
+                  {isUnlimited(u) ? (
+                    <span className="text-[18px] font-semibold text-[var(--color-text-brand)]" title={u.lifetime ? "Lifetime — полный доступ" : "Безлимит"}>∞</span>
                   ) : (
                     <TokenHistory
                       userId={u.id}
@@ -195,7 +198,9 @@ export default async function AdminPage() {
                   })()}
                 </td>
                 <td className="px-4 py-2.5">
-                  {isActive(u) ? (
+                  {u.lifetime ? (
+                    <span className="font-medium text-[var(--color-text-brand)]">⭐ Lifetime</span>
+                  ) : isActive(u) ? (
                     <span className="text-[var(--color-text-primary)]">
                       ⭐ до {new Date(u.premiumUntil as Date).toISOString().slice(0, 10)}
                     </span>
