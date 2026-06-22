@@ -49,16 +49,28 @@ export default async function AdminPage() {
   }
   // Moscow time (DB stores UTC) — so timestamps match what the owner sees locally.
   // ── Энергетика: на что тратят грант и доходят ли до стены ──
+  // Исключаем тесты владельца и друзей, чтобы цифры были по реальным людям.
+  const OWNER_EMAILS = new Set(["artsaverin@gmail.com", "artsaverin@taxi.yandex.ru"]);
+  const isTestAcct = (u: { isAdmin: boolean; email: string | null; username: string | null; telegramId: string | null }) =>
+    u.isAdmin ||
+    isFriendIdentity(u) ||
+    (u.email ? OWNER_EMAILS.has(u.email.toLowerCase()) : false) ||
+    (u.username ? u.username.toLowerCase() === "artsaverinadmin" : false);
+  const realUsers = users.filter((u) => !isTestAcct(u));
+  const realIds = new Set(realUsers.map((u) => u.id));
+  const realCount = realUsers.length;
+
   const spendByUser = await prisma.tokenLedger.groupBy({ by: ["userId"], where: { delta: { lt: 0 } }, _sum: { delta: true } });
   const spendMap = new Map(spendByUser.map((s) => [s.userId, Math.abs(s._sum.delta ?? 0)]));
-  const allSpends = users.map((u) => spendMap.get(u.id) ?? 0);
+  const drawByUser = await prisma.tokenLedger.groupBy({ by: ["userId"], where: { reason: "draw" }, _count: { _all: true } });
+  const allSpends = realUsers.map((u) => spendMap.get(u.id) ?? 0);
   const engagedSpends = allSpends.filter((n) => n > 0).sort((a, b) => a - b);
   const engaged = engagedSpends.length;
   const medianSpend = engaged ? engagedSpends[Math.floor((engaged - 1) / 2)] : 0;
   const avgSpend = engaged ? Math.round(engagedSpends.reduce((a, b) => a + b, 0) / engaged) : 0;
-  const ranOut = users.filter((u) => (u.tokens ?? 0) === 0 && (spendMap.get(u.id) ?? 0) > 0).length;
-  const paidUsers = moneyBy.size;
-  const drawTotal = await prisma.tokenLedger.count({ where: { reason: "draw" } });
+  const ranOut = realUsers.filter((u) => (u.tokens ?? 0) === 0 && (spendMap.get(u.id) ?? 0) > 0).length;
+  const paidUsers = [...moneyBy.keys()].filter((id) => realIds.has(id)).length;
+  const drawTotal = drawByUser.filter((d) => realIds.has(d.userId)).reduce((s, d) => s + (d._count?._all ?? 0), 0);
   const BUCKETS = ["0", "1–15", "16–30", "31–50", "51+"] as const;
   const bkt = (n: number) => (n === 0 ? "0" : n <= 15 ? "1–15" : n <= 30 ? "16–30" : n <= 50 ? "31–50" : "51+");
   const dist: Record<string, number> = { "0": 0, "1–15": 0, "16–30": 0, "31–50": 0, "51+": 0 };
@@ -98,7 +110,7 @@ export default async function AdminPage() {
         <div className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">Энергетика — настройка гранта</div>
         <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 lg:grid-cols-6">
           {[
-            { l: "Тратили энергию", v: `${engaged} из ${users.length}` },
+            { l: "Тратили энергию", v: `${engaged} из ${realCount}` },
             { l: "Медиана трат", v: `${medianSpend}` },
             { l: "Средние траты", v: `${avgSpend}` },
             { l: "Дошли до нуля", v: `${ranOut}` },
@@ -148,11 +160,15 @@ export default async function AdminPage() {
                   {u.isAdmin ? <span className="ml-1 text-[var(--color-text-brand)]">admin</span> : null}
                 </td>
                 <td className="px-4 py-2.5">
-                  <TokenHistory
-                    userId={u.id}
-                    balance={u.tokens ?? 0}
-                    name={u.firstName || u.username || u.email || u.id.slice(0, 8)}
-                  />
+                  {u.isAdmin || isFriend(u) || isActive(u) ? (
+                    <span className="text-[18px] font-semibold text-[var(--color-text-brand)]" title="Безлимит">∞</span>
+                  ) : (
+                    <TokenHistory
+                      userId={u.id}
+                      balance={u.tokens ?? 0}
+                      name={u.firstName || u.username || u.email || u.id.slice(0, 8)}
+                    />
+                  )}
                 </td>
                 <td className="px-4 py-2.5 text-[var(--color-text-tertiary)]">
                   {u.telegramId ? (
