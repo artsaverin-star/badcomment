@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BoltIcon from "./BoltIcon";
@@ -20,6 +21,11 @@ type Card = {
   categoryName: string;
 };
 
+type Slot = { key: string; card: Card | null; loading: boolean };
+
+const HAND = 3;
+const TILT = [-5, 0, 5];
+
 function wordObs(n: number) {
   const d = n % 10, dd = n % 100;
   if (dd >= 11 && dd <= 14) return "наблюдений";
@@ -27,30 +33,11 @@ function wordObs(n: number) {
   if (d >= 2 && d <= 4) return "наблюдения";
   return "наблюдений";
 }
-
-// The face-down deck shown before / between draws — a small fan of card backs.
-function DeckBacks() {
-  return (
-    <div className="relative mx-auto h-[180px] w-[140px]" aria-hidden>
-      {[-14, -7, 0].map((rot, i) => (
-        <div
-          key={i}
-          className="absolute inset-0 flex items-center justify-center rounded-[16px] border border-[var(--color-border-subtle)] shadow-[0_18px_44px_-26px_rgba(0,0,0,0.8)]"
-          style={{
-            transform: `rotate(${rot}deg) translateY(${i * -2}px)`,
-            transformOrigin: "bottom center",
-            backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)",
-          }}
-        >
-          <div className="flex size-full items-center justify-center rounded-[15px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" className="text-[var(--color-text-tertiary)]">
-              <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
-            </svg>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+// Short headline for the small face-up card — the product name before the dash/colon.
+function shortName(title: string) {
+  const t = (title || "").trim();
+  if (t.length <= 22) return t;
+  return (t.split(/\s—\s|:\s/)[0].trim() || t).slice(0, 26);
 }
 
 export default function CardDeck({
@@ -68,26 +55,42 @@ export default function CardDeck({
 }) {
   const ru = locale !== "en";
   const [auth, setAuth] = useState(false);
-  const [drawing, setDrawing] = useState(false);
   const [balance, setBalance] = useState(balance0);
-  const [cards, setCards] = useState<Card[]>([]);
+  const [round, setRound] = useState(0);
+  const [hand, setHand] = useState<Slot[]>([]);
   const [err, setErr] = useState<null | "funds" | "error">(null);
   const [done, setDone] = useState(false);
+  const [opened, setOpened] = useState(0);
+  const [modal, setModal] = useState<Card | null>(null);
 
-  async function draw() {
+  function deal() {
     if (!loggedIn) {
       setAuth(true);
       return;
     }
-    if (drawing || done) return;
     setErr(null);
-    setDrawing(true);
+    const r = round + 1;
+    setRound(r);
+    setHand(Array.from({ length: HAND }, (_, i) => ({ key: `${r}-${i}`, card: null, loading: false })));
+  }
+
+  async function flip(i: number) {
+    const slot = hand[i];
+    if (!slot) return;
+    if (slot.card) {
+      setModal(slot.card); // already open → show full breakdown
+      return;
+    }
+    if (slot.loading) return;
+    if (!loggedIn) {
+      setAuth(true);
+      return;
+    }
+    setErr(null);
+    setHand((h) => h.map((s, j) => (j === i ? { ...s, loading: true } : s)));
     try {
       const res = await fetch("/api/draw", { method: "POST" });
-      if (res.status === 401) {
-        setAuth(true);
-        return;
-      }
+      if (res.status === 401) return setAuth(true);
       if (res.status === 402) {
         setErr("funds");
         return;
@@ -98,54 +101,97 @@ export default function CardDeck({
         return;
       }
       if (data.ok) {
-        setCards((c) => [data.card as Card, ...c]);
+        setHand((h) => h.map((s, j) => (j === i ? { ...s, card: data.card as Card } : s)));
         if (typeof data.balance === "number") setBalance(data.balance);
-      } else {
-        setErr("error");
-      }
+        setOpened((n) => n + 1);
+      } else setErr("error");
     } catch {
       setErr("error");
     } finally {
-      setDrawing(false);
+      setHand((h) => h.map((s, j) => (j === i ? { ...s, loading: false } : s)));
     }
   }
 
-  const drawn = cards.length;
-  const btnLabel = drawing
-    ? ru ? "Тянем…" : "Drawing…"
-    : drawn === 0
-      ? ru ? "Тяни карту" : "Draw a card"
-      : ru ? "Тяни ещё" : "Draw again";
+  const dealt = hand.length > 0;
+  const allFlipped = dealt && hand.every((s) => s.card);
 
   return (
-    <div className="mt-14 flex flex-col items-center">
-      {drawn === 0 && <DeckBacks />}
+    <div className="mt-12 flex flex-col items-center">
+      {/* ── the hand ── */}
+      {dealt && (
+        <div className="flex items-start justify-center gap-2 sm:gap-4">
+          {hand.map((s, i) => (
+            <button
+              key={s.key}
+              type="button"
+              onClick={() => flip(i)}
+              style={{ ["--tilt"]: `${TILT[i] ?? 0}deg`, animationDelay: `${i * 90}ms` } as React.CSSProperties}
+              className="card-deal-in group relative aspect-[5/7] w-[clamp(98px,29vw,184px)] shrink-0 [perspective:1100px]"
+              aria-label={s.card ? s.card.title : ru ? "Перевернуть карту" : "Flip card"}
+            >
+              <div className={`flip3d size-full ${s.card ? "is-up" : ""}`}>
+                {/* back */}
+                <div className="flip-face flex items-center justify-center rounded-[16px] border border-white/15 p-1.5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}>
+                  <div className="flex size-full items-center justify-center rounded-[12px] bg-[color-mix(in_srgb,var(--color-bg-page)_80%,transparent)]">
+                    {s.loading ? (
+                      <span className="text-[12px] font-medium text-[var(--color-text-tertiary)]">…</span>
+                    ) : (
+                      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" className="text-white/70"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" /></svg>
+                    )}
+                  </div>
+                </div>
+                {/* front (idea) */}
+                <div className="flip-face flip-front flex flex-col rounded-[16px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-3 text-left shadow-[0_20px_50px_-24px_rgba(0,0,0,0.85)] sm:p-4">
+                  {s.card && (
+                    <>
+                      <div className="flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold tabular-nums text-[var(--color-text-brand)]"><PeopleIcon size={11} /> {s.card.demand}</span>
+                      </div>
+                      <div className="mt-1 line-clamp-1 text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{s.card.categoryName}</div>
+                      <div className="mt-auto text-[15px] font-black leading-[1.12] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[17px]">{shortName(s.card.title)}</div>
+                      <div className="mt-1.5 line-clamp-3 text-[11px] leading-[1.35] text-[var(--color-text-secondary)] sm:text-[12px]">{s.card.oneLiner}</div>
+                      <div className="mt-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-text-brand)]">{ru ? "Тап — разбор" : "Tap — open"}</div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+      )}
 
-      <button
-        type="button"
-        onClick={draw}
-        disabled={drawing || done}
-        className="btn-shimmer mt-9 inline-flex items-center gap-2.5 rounded-full px-9 py-4 text-[17px] font-semibold text-white shadow-[0_14px_36px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-70"
-      >
-        {btnLabel}
-      </button>
+      {/* ── controls ── */}
+      {!dealt ? (
+        <button type="button" onClick={deal} className="btn-shimmer inline-flex items-center gap-2.5 rounded-full px-9 py-4 text-[17px] font-semibold text-white shadow-[0_14px_36px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]">
+          🎴 {ru ? "Раздать 3 карты" : "Deal 3 cards"}
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={deal}
+          disabled={done}
+          className="mt-9 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] px-7 py-3.5 text-[15px] font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-text-tertiary)] disabled:opacity-60"
+        >
+          {ru ? "Раздать ещё 3" : "Deal 3 more"} {allFlipped ? "" : "🔀"}
+        </button>
+      )}
 
-      <div className="mt-3.5 text-[13px] text-[var(--color-text-tertiary)]">
-        {done
-          ? ru ? "🎉 Ты открыл все идеи в колоде" : "🎉 You've drawn the whole deck"
-          : unlimited
-            ? ru ? "У тебя полный доступ — тяни сколько хочешь" : "Full access — draw freely"
-            : !loggedIn
-              ? ru ? "Войди — первая карта бесплатно" : "Sign in — first card is free"
-              : (
-                <span className="inline-flex items-center gap-1.5">
-                  {ru ? "Первая бесплатно, далее" : "First free, then"} {drawCost}
-                  <BoltIcon size={12} className="text-[var(--color-text-brand)]" />
-                  {ru ? " · баланс" : " · balance"}
-                  <BoltIcon size={12} className="text-[var(--color-text-brand)]" />
-                  <span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{balance}</span>
-                </span>
-              )}
+      <div className="mt-3.5 text-center text-[13px] text-[var(--color-text-tertiary)]">
+        {done ? (
+          ru ? "🎉 Ты открыл все идеи в колоде" : "🎉 You've drawn the whole deck"
+        ) : unlimited ? (
+          ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
+        ) : !loggedIn ? (
+          ru ? "Войди — первая карта бесплатно" : "Sign in — first card is free"
+        ) : (
+          <span className="inline-flex items-center gap-1.5">
+            {ru ? "Первая бесплатно, далее" : "First free, then"} {drawCost}
+            <BoltIcon size={12} className="text-[var(--color-text-brand)]" />· {ru ? "баланс" : "balance"}
+            <BoltIcon size={12} className="text-[var(--color-text-brand)]" />
+            <span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{balance}</span>
+            {opened > 0 && <span className="text-[var(--color-text-tertiary)]">· {ru ? "открыто" : "opened"} {opened}</span>}
+          </span>
+        )}
       </div>
 
       {err === "funds" && (
@@ -156,73 +202,55 @@ export default function CardDeck({
       )}
       {err === "error" && <p className="mt-4 text-center text-[14px] text-[var(--color-text-secondary)]">{ru ? "Что-то пошло не так, попробуй ещё раз." : "Something went wrong, try again."}</p>}
 
-      {/* the collection — newest first, the latest one flips in */}
-      {drawn > 0 && (
-        <div className="mt-12 flex w-full flex-col gap-4">
-          {cards.map((c, i) => (
-            <article
-              key={c.slug}
-              className={`rounded-[22px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_82%,transparent)] p-6 backdrop-blur-xl sm:p-7 ${i === 0 ? "card-reveal" : ""}`}
-            >
-              <div className="flex items-center justify-between gap-3">
-                <Link href={`/segment/${c.category}`} className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
-                  {c.categoryName}
-                </Link>
-                <span className="inline-flex shrink-0 items-center gap-1.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]" title={`${c.demand} ${wordObs(c.demand)}`}>
-                  <PeopleIcon size={13} /> {c.demand}
-                </span>
-              </div>
-              <h3 className="mt-3 text-[24px] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[27px]">{c.title}</h3>
-              <p className="mt-2.5 text-[16px] leading-[1.5] text-[var(--color-text-secondary)]">{c.oneLiner}</p>
+      {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => setAuth(false)} />}
 
-              <details open={i === 0} className="group/d mt-5 border-t border-[var(--color-border-subtle)] pt-4">
-                <summary className="flex cursor-pointer list-none items-center gap-1.5 text-[13px] font-semibold text-[var(--color-text-brand)] [&::-webkit-details-marker]:hidden">
-                  {ru ? "Полный разбор" : "Full breakdown"}
-                  <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden className="transition-transform duration-300 group-open/d:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </summary>
-                <div className="mt-4 flex flex-col gap-5">
-                  {c.gap && (
+      {/* ── full-breakdown modal ── */}
+      {modal &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
+            <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setModal(null)} className="modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-md" />
+            <div className="modal-panel relative z-10 flex max-h-[90vh] w-full max-w-[600px] flex-col overflow-hidden rounded-t-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[28px]">
+              <div className="flex shrink-0 items-center justify-between gap-3 px-6 pt-5">
+                <Link href={`/segment/${modal.category}`} className="text-[13px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{modal.categoryName}</Link>
+                <button type="button" onClick={() => setModal(null)} className="-mr-1 flex size-9 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
+                </button>
+              </div>
+              <div className="overflow-y-auto overscroll-contain px-6 py-7 sm:px-8">
+                <div className="flex items-center gap-2 text-[13px] font-semibold tabular-nums text-[var(--color-text-brand)]"><PeopleIcon size={14} /> {modal.demand} <span className="font-normal text-[var(--color-text-tertiary)]">{wordObs(modal.demand)}</span></div>
+                <h2 className="mt-3 text-[28px] font-black leading-[1.1] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[32px]">{modal.title}</h2>
+                <p className="mt-3 text-[18px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[20px]">{modal.oneLiner}</p>
+                <div className="mt-7 flex flex-col gap-6">
+                  {modal.gap && <Section label={ru ? "Почему это шанс" : "Why it's an opening"} text={modal.gap} strong />}
+                  {modal.pitch && <Section label={ru ? "Что строить" : "What to build"} text={modal.pitch} />}
+                  {modal.features.length > 0 && (
                     <div>
-                      <div className="text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? "Почему это шанс" : "Why it's an opening"}</div>
-                      <p className="mt-2 text-[15px] leading-[1.6] text-[var(--color-text-primary)]">{c.gap}</p>
-                    </div>
-                  )}
-                  {c.pitch && (
-                    <div>
-                      <div className="text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</div>
-                      <p className="mt-2 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{c.pitch}</p>
-                    </div>
-                  )}
-                  {c.features.length > 0 && (
-                    <div>
-                      <div className="text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
-                      <ul className="mt-2.5 flex flex-col gap-2">
-                        {c.features.map((f, j) => (
-                          <li key={j} className="flex gap-2.5 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">
-                            <span className="select-none text-[var(--color-text-tertiary)]">—</span>
-                            <span>{f}</span>
-                          </li>
+                      <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                      <ul className="mt-3 flex flex-col gap-2.5">
+                        {modal.features.map((f, j) => (
+                          <li key={j} className="flex gap-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]"><span className="select-none text-[var(--color-text-tertiary)]">—</span><span>{f}</span></li>
                         ))}
                       </ul>
                     </div>
                   )}
-                  {c.monetization && (
-                    <div>
-                      <div className="text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? "Монетизация" : "Monetize"}</div>
-                      <p className="mt-2 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{c.monetization}</p>
-                    </div>
-                  )}
-                  <Link href={`/segment/${c.category}`} className="inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-brand)]">
-                    {ru ? `Вся ниша «${c.categoryName}»` : `Full niche "${c.categoryName}"`} →
-                  </Link>
+                  {modal.monetization && <Section label={ru ? "Монетизация" : "Monetize"} text={modal.monetization} />}
+                  <Link href={`/segment/${modal.category}`} className="inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-brand)]">{ru ? `Вся ниша «${modal.categoryName}»` : `Full niche "${modal.categoryName}"`} →</Link>
                 </div>
-              </details>
-            </article>
-          ))}
-        </div>
-      )}
+              </div>
+            </div>
+          </div>,
+          document.body,
+        )}
+    </div>
+  );
+}
 
-      {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => { setAuth(false); void draw(); }} />}
+function Section({ label, text, strong }: { label: string; text: string; strong?: boolean }) {
+  return (
+    <div className={strong ? "border-l border-[var(--color-border-strong)] pl-5" : undefined}>
+      <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{label}</div>
+      <p className={`mt-2.5 text-[16px] leading-[1.65] ${strong ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)]"}`}>{text}</p>
     </div>
   );
 }

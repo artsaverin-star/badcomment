@@ -391,14 +391,31 @@ html:not([data-theme="dark"]) .atmosphere {
   .edge-glow::before { animation: none; }
 }
 
-/* «Колода идей» — a drawn card flips in. */
-@keyframes card-reveal {
-  from { opacity: 0; transform: perspective(900px) rotateY(58deg) translateY(10px) scale(0.96); }
-  to { opacity: 1; transform: perspective(900px) rotateY(0deg) translateY(0) scale(1); }
+/* «Колода идей» — deal-in + 3D flip. The tilt is carried in --tilt so it survives
+   the deal animation's final keyframe. */
+@keyframes card-deal {
+  from { opacity: 0; transform: translateY(-44px) scale(0.7) rotate(0deg); }
+  to { opacity: 1; transform: translateY(0) scale(1) rotate(var(--tilt, 0deg)); }
 }
-.card-reveal { animation: card-reveal 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.card-deal-in { animation: card-deal 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+.flip3d {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.flip3d.is-up { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.flip-front { transform: rotateY(180deg); }
+
 @media (prefers-reduced-motion: reduce) {
-  .card-reveal { animation: none; }
+  .card-deal-in { animation: none; }
+  .flip3d { transition: none; }
 }
 
 /* Chat-message bubble: a little tail at the bottom-left, same colour as the
