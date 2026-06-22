@@ -32,8 +32,10 @@ function describe(r: LedgerRow): { icon: string; label: string } {
   return { icon: "•", label: r.reason };
 }
 
-// Admin: a balance chip that opens a token-history popup for one user.
-export default function TokenHistory({ userId, balance, name }: { userId: string; balance: number; name: string }) {
+// Admin: a balance chip that opens a token-history popup for one user. `display`
+// overrides the chip content (e.g. ∞ for unlimited users) while keeping the same
+// clickable popup, so the owner can inspect a lifetime/friend account's ledger too.
+export default function TokenHistory({ userId, balance, name, display }: { userId: string; balance: number; name: string; display?: React.ReactNode }) {
   const [open, setOpen] = useState(false);
   const [rows, setRows] = useState<LedgerRow[] | null>(null);
   const [paid, setPaid] = useState(0);
@@ -74,7 +76,7 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
         className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2.5 py-1 text-footnote font-semibold tabular-nums text-[var(--color-text-brand)] transition-colors hover:border-[var(--color-border-strong)]"
         title="История энергии"
       >
-        <span className="inline-flex items-center gap-1"><BoltIcon size={12} /> {balance}</span>
+        {display ?? <span className="inline-flex items-center gap-1"><BoltIcon size={12} /> {balance}</span>}
       </button>
 
       {open && typeof document !== "undefined" && createPortal(

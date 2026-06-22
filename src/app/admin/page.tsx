@@ -163,15 +163,16 @@ export default async function AdminPage() {
                   {u.isAdmin ? <span className="ml-1 text-[var(--color-text-brand)]">admin</span> : null}
                 </td>
                 <td className="px-4 py-2.5">
-                  {isUnlimited(u) ? (
-                    <span className="text-[18px] font-semibold text-[var(--color-text-brand)]" title={u.lifetime ? "Lifetime — полный доступ" : "Безлимит"}>∞</span>
-                  ) : (
-                    <TokenHistory
-                      userId={u.id}
-                      balance={u.tokens ?? 0}
-                      name={u.firstName || u.username || u.email || u.id.slice(0, 8)}
-                    />
-                  )}
+                  <TokenHistory
+                    userId={u.id}
+                    balance={u.tokens ?? 0}
+                    name={u.firstName || u.username || u.email || u.id.slice(0, 8)}
+                    display={
+                      isUnlimited(u) ? (
+                        <span className="text-[18px] font-semibold leading-none text-[var(--color-text-brand)]" title={u.lifetime ? "Lifetime — полный доступ" : "Безлимит"}>∞</span>
+                      ) : undefined
+                    }
+                  />
                 </td>
                 <td className="px-4 py-2.5 text-[var(--color-text-tertiary)]">
                   {u.telegramId ? (
