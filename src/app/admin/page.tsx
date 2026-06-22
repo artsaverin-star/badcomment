@@ -47,7 +47,18 @@ export default async function AdminPage() {
     }
     moneyBy.set(e.userId, m);
   }
-  const fmtDateTime = (d: Date) => new Date(d).toISOString().slice(0, 16).replace("T", " ");
+  // Moscow time (DB stores UTC) — so timestamps match what the owner sees locally.
+  const fmtDateTime = (d: Date) =>
+    new Date(d)
+      .toLocaleString("ru-RU", {
+        timeZone: "Europe/Moscow",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      })
+      .replace(",", "");
 
   return (
     <main className="mx-auto w-full max-w-[1200px] px-4 py-10">
@@ -75,7 +86,7 @@ export default async function AdminPage() {
               <th className="px-4 py-2.5 font-semibold">Вход</th>
               <th className="px-4 py-2.5 font-semibold">Оплата</th>
               <th className="px-4 py-2.5 font-semibold">Премиум</th>
-              <th className="whitespace-nowrap px-4 py-2.5 font-semibold">Регистрация</th>
+              <th className="whitespace-nowrap px-4 py-2.5 font-semibold">Регистрация (МСК)</th>
             </tr>
           </thead>
           <tbody>
