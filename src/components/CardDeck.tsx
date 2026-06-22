@@ -81,7 +81,7 @@ export default function CardDeck({
   const [seen, setSeen] = useState<string[]>(initialCollection.map((c) => c.slug));
   const [collection, setCollection] = useState<Card[]>(initialCollection);
 
-  // Out of energy → push the 999 ₽ lifetime offer instead of nudging packs.
+  // Out of energy → push the lifetime offer instead of nudging packs.
   const outOfEnergy = loggedIn && !unlimited && (err === "funds" || balance <= 0);
   const [modal, setModal] = useState<Card | null>(null);
 
