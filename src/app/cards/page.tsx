@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { getAccess } from "@/lib/access";
+import { drawnCards } from "@/lib/tokens";
 import { listIdeas } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
-import { DRAW_COST } from "@/lib/tokenConfig";
+import { DRAW_COST, GUEST_DRAWS } from "@/lib/tokenConfig";
 import insightsData from "@/data/insights.json";
 import CardDeck from "@/components/CardDeck";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
@@ -22,6 +24,11 @@ export default async function CardsPage() {
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
   const ideasCount = listIdeas().length;
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
+
+  // Restore the player's state: logged-in → their drawn collection; guest → how many
+  // free cards they've already used (cookie, so a reload can't reset the freebies).
+  const initialCollection = access.loggedIn && access.user ? await drawnCards(access.user.id) : [];
+  const guestUsed = access.loggedIn ? 0 : Number((await cookies()).get("gd")?.value || 0);
 
   return (
     <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
@@ -51,6 +58,9 @@ export default async function CardsPage() {
         balance={access.balance}
         unlimited={access.unlimited}
         drawCost={DRAW_COST}
+        initialCollection={initialCollection}
+        guestUsed={guestUsed}
+        guestCap={GUEST_DRAWS}
       />
     </main>
   );

@@ -173,30 +173,54 @@ export async function drawIdea(userId: string, unlimited: boolean, exclude: stri
   const ex = new Set(exclude);
   const all = listIdeas(); // best-first (critic score, then demand)
   const owned = (await getUnlockSets(userId)).idea;
-  const fresh = all.filter((i) => !ex.has(i.slug) && (unlimited || !owned.has(i.slug)));
+  // Exclude already-owned for everyone — so a returning user (incl. admins) never
+  // re-draws a card and the deck picks up where they left off.
+  const fresh = all.filter((i) => !ex.has(i.slug) && !owned.has(i.slug));
   if (fresh.length === 0) return { ok: false, reason: "empty", balance: await getBalance(userId) };
 
   const pick = pickIdea(fresh);
 
-  if (unlimited) {
-    return { ok: true, card: toCard(pick), free: true, cost: 0, balance: await getBalance(userId), remaining: fresh.length };
-  }
-
-  const priorDraws = await prisma.tokenLedger.count({ where: { userId, reason: "draw" } });
-  const free = priorDraws < FREE_DRAWS; // first FREE_DRAWS cards are free
-  const cost = free ? 0 : DRAW_COST;
-
-  if (cost > 0) {
-    const debit = await prisma.user.updateMany({
-      where: { id: userId, tokens: { gte: cost } },
-      data: { tokens: { decrement: cost } },
-    });
-    if (debit.count === 0) return { ok: false, reason: "funds", balance: await getBalance(userId), needed: cost };
+  let free = true;
+  let cost = 0;
+  if (!unlimited) {
+    const priorDraws = await prisma.tokenLedger.count({ where: { userId, reason: "draw" } });
+    free = priorDraws < FREE_DRAWS; // first FREE_DRAWS cards are free
+    cost = free ? 0 : DRAW_COST;
+    if (cost > 0) {
+      const debit = await prisma.user.updateMany({
+        where: { id: userId, tokens: { gte: cost } },
+        data: { tokens: { decrement: cost } },
+      });
+      if (debit.count === 0) return { ok: false, reason: "funds", balance: await getBalance(userId), needed: cost };
+    }
   }
   const balance = await getBalance(userId);
+  // Log every draw (delta 0 when free) so the count + the persisted collection work
+  // for everyone, and record the unlock so the idea opens later.
   await prisma.tokenLedger.create({ data: { userId, delta: -cost, reason: "draw", ref: `draw:${pick.slug}`, balanceAfter: balance } });
   const existing = await prisma.unlock.findUnique({ where: { userId_type_slug: { userId, type: "idea", slug: pick.slug } } });
   if (!existing) await prisma.unlock.create({ data: { userId, type: "idea", slug: pick.slug, cost } });
 
   return { ok: true, card: toCard(pick), free, cost, balance, remaining: fresh.length - 1 };
+}
+
+// The cards a user has already drawn (newest first) — to restore their collection
+// when they return to /cards. Reconstructed from the "draw" ledger refs.
+export async function drawnCards(userId: string): Promise<DrawCard[]> {
+  const rows = await prisma.tokenLedger.findMany({
+    where: { userId, reason: "draw" },
+    orderBy: { id: "desc" },
+    select: { ref: true },
+  });
+  const bySlug = new Map(listIdeas().map((i) => [i.slug, i]));
+  const out: DrawCard[] = [];
+  const seen = new Set<string>();
+  for (const r of rows) {
+    const slug = (r.ref || "").replace(/^draw:/, "");
+    if (!slug || seen.has(slug)) continue;
+    seen.add(slug);
+    const idea = bySlug.get(slug);
+    if (idea) out.push(toCard(idea));
+  }
+  return out;
 }

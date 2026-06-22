@@ -6,7 +6,7 @@ import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BoltIcon from "./BoltIcon";
 import MessageIcon from "./MessageIcon";
-import { GUEST_DRAWS, FREE_DRAWS } from "@/lib/tokenConfig";
+import { FREE_DRAWS } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Card = {
@@ -41,17 +41,33 @@ function shortName(title: string) {
   return (t.split(/\s—\s|:\s/)[0].trim() || t).slice(0, 26);
 }
 
+// Neon confetti salute fired from the revealed card.
+async function fireNeon(rect?: DOMRect) {
+  const confetti = (await import("canvas-confetti")).default;
+  const x = rect ? (rect.left + rect.width / 2) / window.innerWidth : 0.5;
+  const y = rect ? (rect.top + rect.height / 2) / window.innerHeight : 0.42;
+  const NEON = ["#00E5FF", "#FF2EF7", "#7C4DFF", "#39FF14", "#FFE600"];
+  confetti({ particleCount: 55, spread: 95, startVelocity: 40, origin: { x, y }, colors: NEON, ticks: 110, scalar: 0.9, gravity: 0.9, disableForReducedMotion: true });
+  confetti({ particleCount: 22, spread: 130, startVelocity: 26, origin: { x, y }, colors: NEON, ticks: 150, scalar: 1.35, shapes: ["star"], gravity: 0.7, disableForReducedMotion: true });
+}
+
 export default function CardDeck({
   locale,
   loggedIn,
   unlimited,
   drawCost,
+  initialCollection = [],
+  guestUsed: guestUsed0 = 0,
+  guestCap = 6,
 }: {
   locale: Locale;
   loggedIn: boolean;
   balance: number;
   unlimited: boolean;
   drawCost: number;
+  initialCollection?: Card[];
+  guestUsed?: number;
+  guestCap?: number;
 }) {
   const ru = locale !== "en";
   const [auth, setAuth] = useState(false);
@@ -59,26 +75,25 @@ export default function CardDeck({
   const [hand, setHand] = useState<Slot[]>([]);
   const [err, setErr] = useState<null | "funds" | "error">(null);
   const [done, setDone] = useState(false);
-  const [deals, setDeals] = useState(0);
-  const [seen, setSeen] = useState<string[]>([]); // slugs shown this session → no repeats
-  const [collection, setCollection] = useState<Card[]>([]); // opened cards accumulate below
+  const [guestUsed, setGuestUsed] = useState(guestUsed0);
+  const [seen, setSeen] = useState<string[]>(initialCollection.map((c) => c.slug));
+  const [collection, setCollection] = useState<Card[]>(initialCollection);
   const [modal, setModal] = useState<Card | null>(null);
 
-  const guestDealCap = Math.floor(GUEST_DRAWS / HAND); // free deals before sign-in
+  const guestBlocked = !loggedIn && guestUsed >= guestCap;
 
   function deal() {
-    if (!loggedIn && deals >= guestDealCap) {
-      setAuth(true); // guest used their free deals — ask to sign in on the next one
+    if (guestBlocked) {
+      setAuth(true); // guest used their free cards — ask to sign in
       return;
     }
     setErr(null);
     const r = round + 1;
     setRound(r);
-    setDeals((d) => d + 1);
     setHand(Array.from({ length: HAND }, (_, i) => ({ key: `${r}-${i}`, card: null, loading: false })));
   }
 
-  async function flip(i: number) {
+  async function flip(i: number, el?: HTMLElement) {
     const slot = hand[i];
     if (!slot) return;
     if (slot.card) {
@@ -86,6 +101,10 @@ export default function CardDeck({
       return;
     }
     if (slot.loading) return;
+    if (guestBlocked) {
+      setAuth(true);
+      return;
+    }
     setErr(null);
     setHand((h) => h.map((s, j) => (j === i ? { ...s, loading: true } : s)));
     try {
@@ -110,6 +129,8 @@ export default function CardDeck({
         setHand((h) => h.map((s, j) => (j === i ? { ...s, card } : s)));
         setSeen((sl) => [...sl, card.slug]);
         setCollection((c) => [card, ...c]);
+        if (typeof data.guestUsed === "number") setGuestUsed(data.guestUsed);
+        void fireNeon(el?.getBoundingClientRect());
       } else setErr("error");
     } catch {
       setErr("error");
@@ -135,7 +156,7 @@ export default function CardDeck({
               )}
               <button
                 type="button"
-                onClick={() => flip(i)}
+                onClick={(e) => flip(i, e.currentTarget)}
                 style={{ ["--tilt"]: `${TILT[i] ?? 0}deg`, animationDelay: `${i * 90}ms` } as React.CSSProperties}
                 className="card-deal-in group relative aspect-[5/7] w-[clamp(98px,29vw,184px)] shrink-0 [perspective:1100px]"
                 aria-label={s.card ? s.card.title : ru ? "Перевернуть карту" : "Flip card"}
