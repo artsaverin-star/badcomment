@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Header } from "@saverin/ui-web";
 import { getAccess } from "@/lib/access";
 import { getLibrary, type LibItem } from "@/lib/library";
-import { tokensWord } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -29,13 +28,13 @@ export default async function LibraryPage() {
           </Link>
         </div>
       ) : (
-        <Library balance={access.balance} userId={access.user!.id} />
+        <Library userId={access.user!.id} />
       )}
     </main>
   );
 }
 
-async function Library({ balance, userId }: { balance: number; userId: string }) {
+async function Library({ userId }: { userId: string }) {
   const { categories, ideas, apps } = await getLibrary(userId);
   const empty = categories.length + ideas.length + apps.length === 0;
 
@@ -45,10 +44,8 @@ async function Library({ balance, userId }: { balance: number; userId: string })
         href="/tokens"
         className="flex items-center justify-between gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] px-4 py-3 transition-colors hover:border-[var(--color-text-brand)]"
       >
-        <span className="text-callout text-[var(--color-text-primary)]">
-          Баланс: <b className="tabular-nums">{balance}</b> {tokensWord(balance)}
-        </span>
-        <span className="shrink-0 text-footnote font-semibold text-[var(--color-text-brand)]">Пополнить →</span>
+        <span className="text-callout text-[var(--color-text-primary)]">Открыть больше — колода и Lifetime</span>
+        <span className="shrink-0 text-footnote font-semibold text-[var(--color-text-brand)]">В магазин →</span>
       </Link>
 
       {empty ? (

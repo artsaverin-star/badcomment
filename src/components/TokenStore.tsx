@@ -64,7 +64,7 @@ export default function TokenStore({
 
   const lifePrice = ownsDeck ? LIFETIME.rub - DECK_CREDIT_RUB : LIFETIME.rub;
 
-  const CardButton = ({ kind, label }: { kind: string; label: string }) => (
+  const cardButton = (kind: string, label: string) => (
     <div className="mt-auto flex flex-col gap-2.5 pt-7">
       <button
         type="button"
@@ -115,7 +115,7 @@ export default function TokenStore({
               </li>
             ))}
           </ul>
-          <CardButton kind="lifetime" label={ru ? "Купить картой РФ" : "Pay by card (RU)"} />
+          {cardButton("lifetime", ru ? "Купить картой РФ" : "Pay by card (RU)")}
           {loggedIn ? (
             <a href={lifeStars} className="mt-2.5 flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
               <span aria-hidden>⭐</span> {LIFETIME.stars.toLocaleString("ru-RU")} Telegram
@@ -152,7 +152,7 @@ export default function TokenStore({
           {ownsDeck ? (
             <p className="mt-7 rounded-full bg-[var(--color-surface-card-subtle)] px-4 py-3 text-center text-footnote font-semibold text-[var(--color-text-tertiary)]">{ru ? "Колода уже открыта ✓" : "Deck already unlocked ✓"}</p>
           ) : (
-            <CardButton kind="deck" label={ru ? "Открыть колоду картой РФ" : "Unlock deck by card (RU)"} />
+            cardButton("deck", ru ? "Открыть колоду картой РФ" : "Unlock deck by card (RU)")
           )}
         </div>
       </div>
