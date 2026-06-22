@@ -6,6 +6,7 @@ import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BoltIcon from "./BoltIcon";
 import MessageIcon from "./MessageIcon";
+import { LIFETIME } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Card = {
@@ -53,6 +54,7 @@ async function fireNeon(rect?: DOMRect) {
 export default function CardDeck({
   locale,
   loggedIn,
+  balance: balance0,
   unlimited,
   drawCost,
   initialCollection = [],
@@ -74,9 +76,13 @@ export default function CardDeck({
   const [hand, setHand] = useState<Slot[]>([]);
   const [err, setErr] = useState<null | "funds" | "error">(null);
   const [done, setDone] = useState(false);
+  const [balance, setBalance] = useState(balance0);
   const [guestUsed, setGuestUsed] = useState(guestUsed0);
   const [seen, setSeen] = useState<string[]>(initialCollection.map((c) => c.slug));
   const [collection, setCollection] = useState<Card[]>(initialCollection);
+
+  // Out of energy → push the 999 ₽ lifetime offer instead of nudging packs.
+  const outOfEnergy = loggedIn && !unlimited && (err === "funds" || balance <= 0);
   const [modal, setModal] = useState<Card | null>(null);
 
   const guestBlocked = !loggedIn && guestUsed >= guestCap;
@@ -128,6 +134,7 @@ export default function CardDeck({
         setHand((h) => h.map((s, j) => (j === i ? { ...s, card } : s)));
         setSeen((sl) => [...sl, card.slug]);
         setCollection((c) => [card, ...c]);
+        if (typeof data.balance === "number") setBalance(data.balance);
         if (typeof data.guestUsed === "number") setGuestUsed(data.guestUsed);
         void fireNeon(el?.getBoundingClientRect());
       } else setErr("error");
@@ -221,11 +228,21 @@ export default function CardDeck({
         )}
       </div>
 
-      {err === "funds" && (
-        <p className="mt-4 text-center text-[14px] text-[var(--color-text-secondary)]">
-          {ru ? "Не хватает энергии. " : "Not enough energy. "}
-          <Link href="/tokens" className="font-semibold text-[var(--color-text-brand)] underline-offset-2 hover:underline">{ru ? "Пополнить" : "Top up"}</Link>
-        </p>
+      {outOfEnergy && (
+        <div className="mt-6 w-full max-w-[460px] rounded-[20px] border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-6 text-center">
+          <div className="text-[16px] font-bold text-[var(--color-text-primary)]">{ru ? "Энергия кончилась 🪫" : "Out of energy 🪫"}</div>
+          <p className="mx-auto mt-2 max-w-[40ch] text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
+            {ru
+              ? `Тут золотой контент уровня McKinsey 😎 Открой ВСЁ навсегда за ${LIFETIME.rub} ₽ — пока ты первый.`
+              : `Gold content, McKinsey-grade 😎 Unlock everything forever for ${LIFETIME.rub} ₽ — while you're early.`}
+          </p>
+          <Link href="/tokens" className="btn-shimmer mt-4 inline-flex items-center rounded-full px-7 py-3 text-[15px] font-semibold text-white">
+            {ru ? `Открыть всё навсегда — ${LIFETIME.rub} ₽` : `Unlock everything — ${LIFETIME.rub} ₽`}
+          </Link>
+          <div className="mt-2.5">
+            <Link href="/tokens" className="text-[12.5px] text-[var(--color-text-tertiary)] underline-offset-2 hover:underline">{ru ? "или докупить энергии" : "or top up energy"}</Link>
+          </div>
+        </div>
       )}
       {err === "error" && <p className="mt-4 text-center text-[14px] text-[var(--color-text-secondary)]">{ru ? "Что-то пошло не так, попробуй ещё раз." : "Something went wrong, try again."}</p>}
 

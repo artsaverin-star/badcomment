@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import AuthModal from "./AuthModal";
-import type { UnlockType } from "@/lib/tokenConfig";
+import { LIFETIME, type UnlockType } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 // Button-coloured shards so it reads as the button itself crumbling.
@@ -158,7 +158,7 @@ export default function EnergyUnlockButton({
         {!loggedIn ? (
           ru ? "Войти и открыть" : "Sign in to unlock"
         ) : short ? (
-          ru ? "Пополнить энергию" : "Top up energy"
+          ru ? `Открыть всё навсегда — ${LIFETIME.rub} ₽` : `Unlock everything forever — ${LIFETIME.rub} ₽`
         ) : (
           <>
             {label}
