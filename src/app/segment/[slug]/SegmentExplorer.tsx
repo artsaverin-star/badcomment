@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
-import BoltIcon from "@/components/BoltIcon";
+import PeopleIcon from "@/components/PeopleIcon";
 import DeckPile from "@/components/DeckPile";
 import Reveal from "@/components/Reveal";
 
@@ -157,8 +157,8 @@ export default function SegmentExplorer({
                 >
                   <div className="flex w-full items-center justify-between">
                     <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? `Идея ${`0${i + 1}`}` : `Idea ${`0${i + 1}`}`}</span>
-                    <span className="inline-flex items-center gap-1 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">
-                      <BoltIcon size={11} /> {op.demand}
+                    <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]" title={ru ? `спрос: ${op.demand} наблюдений` : `demand: ${op.demand} observations`}>
+                      <PeopleIcon size={13} /> {op.demand}
                     </span>
                   </div>
                   <span className="mt-3.5 block text-[19px] font-bold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{op.regen?.title || op.title}</span>
