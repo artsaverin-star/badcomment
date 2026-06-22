@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AuthModal from "./AuthModal";
+import BoltIcon from "./BoltIcon";
 import { TOKEN_PACKS, UNLOCK_COST, LIFETIME, LIFETIME_REGULAR, tokensWord } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
@@ -152,7 +153,9 @@ export default function TokenStore({
         </span>
       </div>
       <div className="mt-2 whitespace-nowrap text-callout font-semibold text-[var(--color-text-brand)]">
-        {s.tokens != null ? `⚡ ${s.tokens} ${ru ? tokensWord(s.tokens) : "energy"}` : ru ? "♾️ Навсегда" : "♾️ Forever"}
+        {s.tokens != null ? (
+          <span className="inline-flex items-center gap-1"><BoltIcon size={14} /> {s.tokens} {ru ? tokensWord(s.tokens) : "energy"}</span>
+        ) : ru ? "♾️ Навсегда" : "♾️ Forever"}
       </div>
       <ul className="mt-5 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-5">
         {s.features.map((f) => (
@@ -218,8 +221,8 @@ export default function TokenStore({
       <div className="flex justify-center">
         <span className="inline-flex items-center gap-2.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] px-5 py-2.5">
           <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Баланс" : "Balance"}</span>
-          <span className="text-[20px] font-bold tabular-nums leading-none tracking-[-0.01em] text-[var(--color-text-primary)]">
-            ⚡ {loggedIn ? balance : 0}
+          <span className="inline-flex items-center gap-1.5 text-[20px] font-bold tabular-nums leading-none tracking-[-0.01em] text-[var(--color-text-primary)]">
+            <BoltIcon size={17} className="text-[var(--color-text-brand)]" /> {loggedIn ? balance : 0}
           </span>
         </span>
       </div>

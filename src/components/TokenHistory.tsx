@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import BoltIcon from "./BoltIcon";
 import { tokensWord } from "@/lib/tokenConfig";
 
 type LedgerRow = {
@@ -73,7 +74,7 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
         className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-2.5 py-1 text-footnote font-semibold tabular-nums text-[var(--color-text-brand)] transition-colors hover:border-[var(--color-border-strong)]"
         title="История энергии"
       >
-        ⚡ {balance}
+        <span className="inline-flex items-center gap-1"><BoltIcon size={12} /> {balance}</span>
       </button>
 
       {open && typeof document !== "undefined" && createPortal(
@@ -89,7 +90,7 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
               <div className="min-w-0">
                 <div className="truncate text-callout font-semibold text-[var(--color-text-primary)]">{name}</div>
                 <div className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
-                  Баланс ⚡ {balance} · потрачено {Math.abs(spent)} · платных открытий {paid}
+                  Баланс <BoltIcon size={11} className="inline" /> {balance} · потрачено {Math.abs(spent)} · платных открытий {paid}
                 </div>
               </div>
               <button
