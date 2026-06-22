@@ -48,10 +48,24 @@ export const TOKEN_PACKS: TokenPack[] = [
 ];
 
 // One-time "everything forever" SKU: unlocks all apps, ideas and categories
-// permanently (User.lifetime). Founding / beta price — the cheap, urgent headline
-// offer; goes up to LIFETIME_REGULAR after the beta.
-export const LIFETIME = { rub: 990, stars: 500 };
-export const LIFETIME_REGULAR = 2990; // struck "after beta" anchor
+// permanently (User.lifetime).
+export const LIFETIME = { rub: 3990, stars: 2000 };
+export const LIFETIME_REGULAR = 2990; // legacy struck anchor (unused in the new store)
+
+// ── New direct-₽ model (replaces the energy wallet) ────────────────────────
+// Ownership in rubles, no virtual currency. Three SKUs + a free card meter.
+export const DECK_PRICE_RUB = 290; // unlock the whole best-of deck (top-2 × premium niches) forever
+export const CATEGORY_PRICE_RUB = 590; // unlock one full premium category (ideas + chapters + apps)
+export const DECK_CREDIT_RUB = DECK_PRICE_RUB; // deck price credits toward a later category/lifetime
+export const TOP_PER_CATEGORY = 2; // how many top ideas of each niche go into the deck
+
+// Free card meter (replaces the signup energy grant): a taste, then the paywall.
+export const FREE_ANON_CARDS = 2; // reveals before sign-in (cookie-tracked)
+export const FREE_REG_CARDS = 2; // additional reveals after sign-in (real unlocks)
+
+// Non-premium categories aren't sellable yet — they show this status instead.
+export const PREGEN_DATE_RU = "субботу, 28 июня";
+export const PREGEN_DATE_EN = "Saturday, June 28";
 
 export function getPack(id: string): TokenPack | null {
   return TOKEN_PACKS.find((p) => p.id === id) ?? null;
