@@ -6,7 +6,6 @@ import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BoltIcon from "./BoltIcon";
 import MessageIcon from "./MessageIcon";
-import { FREE_DRAWS } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Card = {
@@ -213,11 +212,11 @@ export default function CardDeck({
           ru ? "🎉 Ты открыл все идеи в колоде" : "🎉 You've drawn the whole deck"
         ) : unlimited ? (
           ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
+        ) : !loggedIn ? (
+          ru ? `Первые ${guestCap} карты бесплатно — потом вход` : `First ${guestCap} cards free — then sign in`
         ) : (
           <span className="inline-flex items-center gap-1">
-            {ru ? `Первые ${FREE_DRAWS} бесплатно, далее ${drawCost}` : `First ${FREE_DRAWS} free, then ${drawCost}`}
-            <BoltIcon size={12} className="text-[var(--color-text-brand)]" />
-            {ru ? "энергии" : "energy"}
+            {drawCost}<BoltIcon size={12} className="text-[var(--color-text-brand)]" />{ru ? "энергии за карту" : "energy per card"}
           </span>
         )}
       </div>
