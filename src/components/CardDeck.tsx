@@ -6,7 +6,7 @@ import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BoltIcon from "./BoltIcon";
 import MessageIcon from "./MessageIcon";
-import { GUEST_DRAWS } from "@/lib/tokenConfig";
+import { GUEST_DRAWS, FREE_DRAWS } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Card = {
@@ -44,7 +44,6 @@ function shortName(title: string) {
 export default function CardDeck({
   locale,
   loggedIn,
-  balance: balance0,
   unlimited,
   drawCost,
 }: {
@@ -56,14 +55,13 @@ export default function CardDeck({
 }) {
   const ru = locale !== "en";
   const [auth, setAuth] = useState(false);
-  const [balance, setBalance] = useState(balance0);
   const [round, setRound] = useState(0);
   const [hand, setHand] = useState<Slot[]>([]);
   const [err, setErr] = useState<null | "funds" | "error">(null);
   const [done, setDone] = useState(false);
-  const [opened, setOpened] = useState(0);
   const [deals, setDeals] = useState(0);
   const [seen, setSeen] = useState<string[]>([]); // slugs shown this session → no repeats
+  const [collection, setCollection] = useState<Card[]>([]); // opened cards accumulate below
   const [modal, setModal] = useState<Card | null>(null);
 
   const guestDealCap = Math.floor(GUEST_DRAWS / HAND); // free deals before sign-in
@@ -111,8 +109,7 @@ export default function CardDeck({
         const card = data.card as Card;
         setHand((h) => h.map((s, j) => (j === i ? { ...s, card } : s)));
         setSeen((sl) => [...sl, card.slug]);
-        if (typeof data.balance === "number") setBalance(data.balance);
-        setOpened((n) => n + 1);
+        setCollection((c) => [card, ...c]);
       } else setErr("error");
     } catch {
       setErr("error");
@@ -195,15 +192,11 @@ export default function CardDeck({
           ru ? "🎉 Ты открыл все идеи в колоде" : "🎉 You've drawn the whole deck"
         ) : unlimited ? (
           ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
-        ) : !loggedIn ? (
-          deals >= guestDealCap
-            ? ru ? "Войди, чтобы раздать ещё" : "Sign in to deal more"
-            : ru ? `Без входа — ${GUEST_DRAWS} карт бесплатно` : `No sign-in — ${GUEST_DRAWS} free cards`
         ) : (
-          <span className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1">
-            <span className="inline-flex items-center gap-1">{ru ? "Первая бесплатно, далее" : "First free, then"} {drawCost}<BoltIcon size={12} className="text-[var(--color-text-brand)]" /></span>
-            <span className="inline-flex items-center gap-1">{ru ? "баланс" : "balance"} <BoltIcon size={12} className="text-[var(--color-text-brand)]" /><span className="font-semibold tabular-nums text-[var(--color-text-secondary)]">{balance}</span></span>
-            {opened > 0 && <span>{ru ? "открыто" : "opened"} {opened}</span>}
+          <span className="inline-flex items-center gap-1">
+            {ru ? `Первые ${FREE_DRAWS} бесплатно, далее ${drawCost}` : `First ${FREE_DRAWS} free, then ${drawCost}`}
+            <BoltIcon size={12} className="text-[var(--color-text-brand)]" />
+            {ru ? "энергии" : "energy"}
           </span>
         )}
       </div>
@@ -215,6 +208,33 @@ export default function CardDeck({
         </p>
       )}
       {err === "error" && <p className="mt-4 text-center text-[14px] text-[var(--color-text-secondary)]">{ru ? "Что-то пошло не так, попробуй ещё раз." : "Something went wrong, try again."}</p>}
+
+      {/* ── opened cards collect below, landing-style ── */}
+      {collection.length > 0 && (
+        <div className="mt-16 w-full border-t border-[var(--color-border-subtle)] pt-12">
+          <div className="text-center text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
+            {ru ? `Твои идеи · ${collection.length}` : `Your ideas · ${collection.length}`}
+          </div>
+          <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {collection.map((c) => (
+              <button
+                key={c.slug}
+                type="button"
+                onClick={() => setModal(c)}
+                className="deck-card group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-surface-card)_80%,transparent)] p-5 text-left backdrop-blur-xl transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
+              >
+                <div className="flex w-full items-center justify-between gap-2">
+                  <span className="line-clamp-1 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{c.categoryName}</span>
+                  <span className="inline-flex shrink-0 items-center gap-1.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]"><MessageIcon size={13} /> {c.demand}</span>
+                </div>
+                <span className="mt-3 block text-[19px] font-bold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{c.title}</span>
+                <span className="mt-2 line-clamp-2 block text-[14px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[15px]">{c.oneLiner}</span>
+                <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"} →</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => setAuth(false)} />}
 

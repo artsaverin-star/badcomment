@@ -1,5 +1,5 @@
 import { prisma } from "./prisma";
-import { UNLOCK_COST, CATEGORY_MIN_PRICE, DRAW_COST, type UnlockType } from "./tokenConfig";
+import { UNLOCK_COST, CATEGORY_MIN_PRICE, DRAW_COST, FREE_DRAWS, type UnlockType } from "./tokenConfig";
 import { categoryMembers } from "./bundles";
 import { listIdeas } from "./ideas";
 import { PREMIUM_NICHE_SET } from "./premiumNiches";
@@ -182,8 +182,8 @@ export async function drawIdea(userId: string, unlimited: boolean, exclude: stri
     return { ok: true, card: toCard(pick), free: true, cost: 0, balance: await getBalance(userId), remaining: fresh.length };
   }
 
-  const priorDraw = await prisma.tokenLedger.findFirst({ where: { userId, reason: "draw" } });
-  const free = !priorDraw;
+  const priorDraws = await prisma.tokenLedger.count({ where: { userId, reason: "draw" } });
+  const free = priorDraws < FREE_DRAWS; // first FREE_DRAWS cards are free
   const cost = free ? 0 : DRAW_COST;
 
   if (cost > 0) {
