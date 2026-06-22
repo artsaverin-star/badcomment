@@ -99,6 +99,7 @@ export default function AuthModal({
   const [email, setEmail] = useState("");
   const [emailBusy, setEmailBusy] = useState(false);
   const [emailSent, setEmailSent] = useState<string | null>(null); // address we mailed a link to
+  const [emailError, setEmailError] = useState<string | null>(null); // shown under the email input, not at the bottom
   const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
   const EMAIL_ON = process.env.NEXT_PUBLIC_EMAIL_LOGIN === "1";
 
@@ -147,6 +148,7 @@ export default function AuthModal({
     const addr = email.trim();
     if (!addr || emailBusy) return;
     setError(null);
+    setEmailError(null);
     setEmailBusy(true);
     try {
       const returnTo = window.location.pathname + window.location.search;
@@ -168,9 +170,9 @@ export default function AuthModal({
         disabled: { ru: "Вход по почте сейчас недоступен.", en: "Email sign-in is unavailable right now." },
       };
       const m = messages[data.error as string];
-      setError(m ? (ru ? m.ru : m.en) : ru ? "Что-то пошло не так. Попробуйте ещё раз." : "Something went wrong. Try again.");
+      setEmailError(m ? (ru ? m.ru : m.en) : ru ? "Что-то пошло не так. Попробуйте ещё раз." : "Something went wrong. Try again.");
     } catch {
-      setError(ru ? "Не удалось отправить письмо. Попробуйте ещё раз." : "Couldn't send the email. Try again.");
+      setEmailError(ru ? "Не удалось отправить письмо. Попробуйте ещё раз." : "Couldn't send the email. Try again.");
     } finally {
       setEmailBusy(false);
     }
@@ -396,6 +398,7 @@ export default function AuthModal({
           >
             {emailBusy ? (ru ? "Отправляем…" : "Sending…") : ru ? "Получить ссылку для входа" : "Get a sign-in link"}
           </button>
+          {emailError && <p className="px-1 text-center text-footnote text-[#e5484d]">{emailError}</p>}
         </form>
       )}
 
