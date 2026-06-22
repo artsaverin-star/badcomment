@@ -2,6 +2,7 @@ import { prisma } from "./prisma";
 import { UNLOCK_COST, CATEGORY_MIN_PRICE, DRAW_COST, type UnlockType } from "./tokenConfig";
 import { categoryMembers } from "./bundles";
 import { listIdeas } from "./ideas";
+import { PREMIUM_NICHE_SET } from "./premiumNiches";
 
 export type UnlockResult =
   | { ok: true; already: boolean; balance: number }
@@ -146,14 +147,23 @@ function toCard(i: ReturnType<typeof listIdeas>[number]): DrawCard {
   };
 }
 
+// Ideas from finished (premium) niches go FIRST — they read in plain human
+// language. Only once those are drained for this user do we fall through to the
+// rest. Within the chosen set, pick a random card from the top by demand.
+function pickIdea(fresh: ReturnType<typeof listIdeas>) {
+  const premium = fresh.filter((i) => PREMIUM_NICHE_SET.has(i.category));
+  const base = premium.length > 0 ? premium : fresh;
+  const pool = base.slice(0, POOL_SIZE);
+  return pool[Math.floor(Math.random() * pool.length)];
+}
+
 // A free draw for logged-out visitors — a random top card with the full breakdown
 // (the generous hook). The route caps how many a guest may take before sign-in.
 export function peekIdea(exclude: string[] = []): DrawCard | null {
   const ex = new Set(exclude);
   const fresh = listIdeas().filter((i) => !ex.has(i.slug));
   if (fresh.length === 0) return null;
-  const pool = fresh.slice(0, POOL_SIZE);
-  return toCard(pool[Math.floor(Math.random() * pool.length)]);
+  return toCard(pickIdea(fresh));
 }
 
 // Pull a random card from the top of the deck. For normal users it costs DRAW_COST
@@ -166,8 +176,7 @@ export async function drawIdea(userId: string, unlimited: boolean, exclude: stri
   const fresh = all.filter((i) => !ex.has(i.slug) && (unlimited || !owned.has(i.slug)));
   if (fresh.length === 0) return { ok: false, reason: "empty", balance: await getBalance(userId) };
 
-  const pool = fresh.slice(0, POOL_SIZE);
-  const pick = pool[Math.floor(Math.random() * pool.length)];
+  const pick = pickIdea(fresh);
 
   if (unlimited) {
     return { ok: true, card: toCard(pick), free: true, cost: 0, balance: await getBalance(userId), remaining: fresh.length };
