@@ -413,10 +413,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                     ))}
                   </div>
                   <DeckPile
-                    accent={`hsl(${hueFromSlug(slug)} 85% 64%)`}
-                    big="2"
-                    title={ru ? "вывода ещё" : "more findings"}
-                    subtitle={ru ? "Ещё два ключевых вывода ниши — с разбором по наблюдениям и прямыми цитатами из отзывов." : "Two more key findings — with the breakdown and direct review quotes."}
+                    title={ru ? "Ещё 2 вывода" : "2 more findings"}
+                    subtitle={ru ? "Разбор по наблюдениям и прямые цитаты из отзывов." : "The breakdown by observation and direct review quotes."}
                     button={
                       <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть 2 вывода" : "Unlock 2 findings"} />
                     }
