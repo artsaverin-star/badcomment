@@ -153,7 +153,7 @@ export default function AuthModal({
       const res = await fetch("/api/auth/email/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: addr, return_to: returnTo }),
+        body: JSON.stringify({ email: addr, return_to: returnTo, locale: ru ? "ru" : "en" }),
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.ok) {

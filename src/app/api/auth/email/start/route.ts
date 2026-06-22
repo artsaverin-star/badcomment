@@ -17,6 +17,7 @@ export async function POST(req: Request) {
   const email = typeof body?.email === "string" ? body.email.trim() : "";
   const rawReturn = typeof body?.return_to === "string" ? body.return_to : "";
   const returnTo = rawReturn.startsWith("/") && !rawReturn.startsWith("//") ? rawReturn : "/cards";
+  const locale = body?.locale === "en" ? "en" : "ru";
 
   if (!isValidEmail(email)) return NextResponse.json({ error: "bad_email" }, { status: 400 });
   if (isDisposable(email)) return NextResponse.json({ error: "disposable" }, { status: 400 });
@@ -29,7 +30,7 @@ export async function POST(req: Request) {
   const url = `${appOrigin(req)}/api/auth/email/verify?token=${encodeURIComponent(token)}&rt=${encodeURIComponent(returnTo)}`;
 
   try {
-    await sendMagicLink(email.toLowerCase(), url);
+    await sendMagicLink(email.toLowerCase(), url, locale);
   } catch {
     return NextResponse.json({ error: "send_failed" }, { status: 502 });
   }
