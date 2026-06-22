@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getSessionUser } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { isFriendIdentity } from "@/lib/friends";
-import { tokensWord, TOKEN_PACKS, LIFETIME } from "@/lib/tokenConfig";
+import { tokensWord, TOKEN_PACKS, LIFETIME, SIGNUP_GRANT } from "@/lib/tokenConfig";
 import TokenHistory from "@/components/TokenHistory";
 
 export const dynamic = "force-dynamic";
@@ -48,6 +48,22 @@ export default async function AdminPage() {
     moneyBy.set(e.userId, m);
   }
   // Moscow time (DB stores UTC) — so timestamps match what the owner sees locally.
+  // ── Энергетика: на что тратят грант и доходят ли до стены ──
+  const spendByUser = await prisma.tokenLedger.groupBy({ by: ["userId"], where: { delta: { lt: 0 } }, _sum: { delta: true } });
+  const spendMap = new Map(spendByUser.map((s) => [s.userId, Math.abs(s._sum.delta ?? 0)]));
+  const allSpends = users.map((u) => spendMap.get(u.id) ?? 0);
+  const engagedSpends = allSpends.filter((n) => n > 0).sort((a, b) => a - b);
+  const engaged = engagedSpends.length;
+  const medianSpend = engaged ? engagedSpends[Math.floor((engaged - 1) / 2)] : 0;
+  const avgSpend = engaged ? Math.round(engagedSpends.reduce((a, b) => a + b, 0) / engaged) : 0;
+  const ranOut = users.filter((u) => (u.tokens ?? 0) === 0 && (spendMap.get(u.id) ?? 0) > 0).length;
+  const paidUsers = moneyBy.size;
+  const drawTotal = await prisma.tokenLedger.count({ where: { reason: "draw" } });
+  const BUCKETS = ["0", "1–15", "16–30", "31–50", "51+"] as const;
+  const bkt = (n: number) => (n === 0 ? "0" : n <= 15 ? "1–15" : n <= 30 ? "16–30" : n <= 50 ? "31–50" : "51+");
+  const dist: Record<string, number> = { "0": 0, "1–15": 0, "16–30": 0, "31–50": 0, "51+": 0 };
+  for (const s of allSpends) dist[bkt(s)]++;
+
   const fmtDateTime = (d: Date) =>
     new Date(d)
       .toLocaleString("ru-RU", {
@@ -76,6 +92,40 @@ export default async function AdminPage() {
           {tokensSpent} {tokensWord(tokensSpent)}
         </b>
       </p>
+
+      {/* ── Энергетика: сколько тратят и доходят ли до стены 990 ── */}
+      <div className="mt-6 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5">
+        <div className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">Энергетика — настройка гранта</div>
+        <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-3 lg:grid-cols-6">
+          {[
+            { l: "Тратили энергию", v: `${engaged} из ${users.length}` },
+            { l: "Медиана трат", v: `${medianSpend}` },
+            { l: "Средние траты", v: `${avgSpend}` },
+            { l: "Дошли до нуля", v: `${ranOut}` },
+            { l: "Розыгрышей карт", v: `${drawTotal}` },
+            { l: "Купили (₽/⭐)", v: `${paidUsers}` },
+          ].map((s) => (
+            <div key={s.l} className="flex flex-col">
+              <span className="text-[22px] font-bold tabular-nums tracking-[-0.02em] text-[var(--color-text-primary)]">{s.v}</span>
+              <span className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">{s.l}</span>
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 border-t border-[var(--color-border-subtle)] pt-4">
+          <div className="text-caption text-[var(--color-text-tertiary)]">Распределение трат (энергии на человека)</div>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {BUCKETS.map((b) => (
+              <span key={b} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] px-3 py-1 text-footnote">
+                <span className="text-[var(--color-text-tertiary)]">{b}:</span>
+                <b className="tabular-nums text-[var(--color-text-primary)]">{dist[b]}</b>
+              </span>
+            ))}
+          </div>
+          <p className="mt-3 text-caption text-[var(--color-text-tertiary)]">
+            Грант сейчас: <b className="text-[var(--color-text-secondary)]">{SIGNUP_GRANT}</b> энергии. Если «дошли до нуля» мало, а медиана трат ниже гранта — грант великоват, до оффера 990 не доходят. Хочется, чтобы медиана ≈ гранту.
+          </p>
+        </div>
+      </div>
 
       <div className="mt-6 overflow-x-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)]">
         <table className="w-full text-left">
