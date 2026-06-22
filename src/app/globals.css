@@ -413,6 +413,13 @@ html:not([data-theme="dark"]) .atmosphere {
 }
 .flip-front { transform: rotateY(180deg); }
 
+/* Real-card-back lattice — a fine cross-hatch of diamonds on the card back. */
+.card-back-pattern {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.11) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.11) 0 1px, transparent 1px 8px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card-deal-in { animation: none; }
   .flip3d { transition: none; }

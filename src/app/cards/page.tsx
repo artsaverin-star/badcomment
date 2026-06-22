@@ -4,7 +4,6 @@ import { listIdeas } from "@/lib/ideas";
 import { getLocale } from "@/lib/i18n.server";
 import { DRAW_COST } from "@/lib/tokenConfig";
 import insightsData from "@/data/insights.json";
-import segmentInsights from "@/data/segment-insights.json";
 import CardDeck from "@/components/CardDeck";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 
@@ -22,7 +21,6 @@ export default async function CardsPage() {
 
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
   const ideasCount = listIdeas().length;
-  const nichesCount = Object.keys(segmentInsights as Record<string, unknown>).length;
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
 
   return (
@@ -37,11 +35,11 @@ export default async function CardsPage() {
         <p className="mx-auto mt-6 max-w-[46ch] text-[17px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[19px]">
           {ru ? (
             <>
-              <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> отзывов → <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> идей под спрос из <span className="tabular-nums">{nf(nichesCount)}</span> ниш. Каждая карта — готовая идея, что построить.
+              Мы прочитали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> отзывов и собрали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> идей, которые люди реально просят. Тяни карту — и тебе выпадет готовая идея, что построить.
             </>
           ) : (
             <>
-              <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> reviews → <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> demand-backed ideas across <span className="tabular-nums">{nf(nichesCount)}</span> niches. Every card is a ready idea to build.
+              We read <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> reviews and pulled out <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> ideas people actually ask for. Draw a card — you get a ready idea to build.
             </>
           )}
         </p>

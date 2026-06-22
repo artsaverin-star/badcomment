@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BoltIcon from "./BoltIcon";
 import MessageIcon from "./MessageIcon";
+import { GUEST_DRAWS } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Card = {
@@ -61,13 +62,12 @@ export default function CardDeck({
   const [err, setErr] = useState<null | "funds" | "error">(null);
   const [done, setDone] = useState(false);
   const [opened, setOpened] = useState(0);
+  const [seen, setSeen] = useState<string[]>([]); // slugs shown this session → no repeats
   const [modal, setModal] = useState<Card | null>(null);
 
+  const guestLimited = !loggedIn && opened >= GUEST_DRAWS;
+
   function deal() {
-    if (!loggedIn) {
-      setAuth(true);
-      return;
-    }
     setErr(null);
     const r = round + 1;
     setRound(r);
@@ -78,18 +78,22 @@ export default function CardDeck({
     const slot = hand[i];
     if (!slot) return;
     if (slot.card) {
-      setModal(slot.card); // already open → show full breakdown
+      setModal(slot.card); // already open → show full breakdown (or sign-in CTA for guests)
       return;
     }
     if (slot.loading) return;
-    if (!loggedIn) {
-      setAuth(true);
+    if (guestLimited) {
+      setAuth(true); // guest used their free cards
       return;
     }
     setErr(null);
     setHand((h) => h.map((s, j) => (j === i ? { ...s, loading: true } : s)));
     try {
-      const res = await fetch("/api/draw", { method: "POST" });
+      const res = await fetch("/api/draw", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ exclude: seen }),
+      });
       if (res.status === 401) return setAuth(true);
       if (res.status === 402) {
         setErr("funds");
@@ -101,7 +105,9 @@ export default function CardDeck({
         return;
       }
       if (data.ok) {
-        setHand((h) => h.map((s, j) => (j === i ? { ...s, card: data.card as Card } : s)));
+        const card = data.card as Card;
+        setHand((h) => h.map((s, j) => (j === i ? { ...s, card } : s)));
+        setSeen((sl) => [...sl, card.slug]);
         if (typeof data.balance === "number") setBalance(data.balance);
         setOpened((n) => n + 1);
       } else setErr("error");
@@ -114,29 +120,35 @@ export default function CardDeck({
 
   const dealt = hand.length > 0;
   const allFlipped = dealt && hand.every((s) => s.card);
+  const guestLeft = Math.max(0, GUEST_DRAWS - opened);
 
   return (
     <div className="mt-12 flex flex-col items-center">
       {/* ── the hand ── */}
       {dealt && (
-        <div className="flex items-start justify-center gap-2 sm:gap-4">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-3">
           {hand.map((s, i) => (
-            <button
-              key={s.key}
-              type="button"
-              onClick={() => flip(i)}
-              style={{ ["--tilt"]: `${TILT[i] ?? 0}deg`, animationDelay: `${i * 90}ms` } as React.CSSProperties}
-              className="card-deal-in group relative aspect-[5/7] w-[clamp(98px,29vw,184px)] shrink-0 [perspective:1100px]"
-              aria-label={s.card ? s.card.title : ru ? "Перевернуть карту" : "Flip card"}
-            >
-              <div className={`flip3d size-full ${s.card ? "is-up" : ""}`}>
+            <Fragment key={s.key}>
+              {i > 0 && (
+                <span className="shrink-0 text-[var(--color-text-tertiary)] opacity-60" aria-hidden>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 6.4L16 8l-6.4 1.6L8 16l-1.6-6.4L0 8l6.4-1.6z" /></svg>
+                </span>
+              )}
+              <button
+                type="button"
+                onClick={() => flip(i)}
+                style={{ ["--tilt"]: `${TILT[i] ?? 0}deg`, animationDelay: `${i * 90}ms` } as React.CSSProperties}
+                className="card-deal-in group relative aspect-[5/7] w-[clamp(98px,29vw,184px)] shrink-0 [perspective:1100px]"
+                aria-label={s.card ? s.card.title : ru ? "Перевернуть карту" : "Flip card"}
+              >
+                <div className={`flip3d size-full ${s.card ? "is-up" : ""}`}>
                 {/* back */}
                 <div className="flip-face flex items-center justify-center rounded-[16px] border border-white/15 p-1.5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}>
-                  <div className="flex size-full items-center justify-center rounded-[12px] bg-[color-mix(in_srgb,var(--color-bg-page)_80%,transparent)]">
+                  <div className="card-back-pattern flex size-full items-center justify-center rounded-[12px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
                     {s.loading ? (
-                      <span className="text-[12px] font-medium text-[var(--color-text-tertiary)]">…</span>
+                      <span className="text-[12px] font-medium text-white/70">…</span>
                     ) : (
-                      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" className="text-white/70"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" /></svg>
+                      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" className="text-white/80"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" /></svg>
                     )}
                   </div>
                 </div>
@@ -155,7 +167,8 @@ export default function CardDeck({
                   )}
                 </div>
               </div>
-            </button>
+              </button>
+            </Fragment>
           ))}
         </div>
       )}
@@ -182,7 +195,9 @@ export default function CardDeck({
         ) : unlimited ? (
           ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
         ) : !loggedIn ? (
-          ru ? "Войди — первая карта бесплатно" : "Sign in — first card is free"
+          guestLimited
+            ? ru ? "Бесплатные карты кончились — войди, чтобы открывать ещё" : "Free cards used — sign in to keep drawing"
+            : ru ? `${guestLeft} из ${GUEST_DRAWS} бесплатных карт — без входа` : `${guestLeft} of ${GUEST_DRAWS} free cards — no sign-in`
         ) : (
           <span className="inline-flex items-center gap-1.5">
             {ru ? "Первая бесплатно, далее" : "First free, then"} {drawCost}
@@ -221,22 +236,31 @@ export default function CardDeck({
                 <div className="flex items-center gap-2 text-[13px] font-semibold tabular-nums text-[var(--color-text-brand)]"><MessageIcon size={14} /> {modal.demand} <span className="font-normal text-[var(--color-text-tertiary)]">{wordObs(modal.demand)}</span></div>
                 <h2 className="mt-3 text-[28px] font-black leading-[1.1] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[32px]">{modal.title}</h2>
                 <p className="mt-3 text-[18px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[20px]">{modal.oneLiner}</p>
-                <div className="mt-7 flex flex-col gap-6">
-                  {modal.gap && <Section label={ru ? "Почему это шанс" : "Why it's an opening"} text={modal.gap} strong />}
-                  {modal.pitch && <Section label={ru ? "Что строить" : "What to build"} text={modal.pitch} />}
-                  {modal.features.length > 0 && (
-                    <div>
-                      <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
-                      <ul className="mt-3 flex flex-col gap-2.5">
-                        {modal.features.map((f, j) => (
-                          <li key={j} className="flex gap-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]"><span className="select-none text-[var(--color-text-tertiary)]">—</span><span>{f}</span></li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {modal.monetization && <Section label={ru ? "Монетизация" : "Monetize"} text={modal.monetization} />}
-                  <Link href={`/segment/${modal.category}`} className="inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-brand)]">{ru ? `Вся ниша «${modal.categoryName}»` : `Full niche "${modal.categoryName}"`} →</Link>
-                </div>
+                {(modal.gap || modal.pitch || modal.features.length || modal.monetization) ? (
+                  <div className="mt-7 flex flex-col gap-6">
+                    {modal.gap && <Section label={ru ? "Почему это шанс" : "Why it's an opening"} text={modal.gap} strong />}
+                    {modal.pitch && <Section label={ru ? "Что строить" : "What to build"} text={modal.pitch} />}
+                    {modal.features.length > 0 && (
+                      <div>
+                        <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                        <ul className="mt-3 flex flex-col gap-2.5">
+                          {modal.features.map((f, j) => (
+                            <li key={j} className="flex gap-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]"><span className="select-none text-[var(--color-text-tertiary)]">—</span><span>{f}</span></li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {modal.monetization && <Section label={ru ? "Монетизация" : "Monetize"} text={modal.monetization} />}
+                    <Link href={`/segment/${modal.category}`} className="inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-brand)]">{ru ? `Вся ниша «${modal.categoryName}»` : `Full niche "${modal.categoryName}"`} →</Link>
+                  </div>
+                ) : (
+                  <div className="mt-7 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 text-center">
+                    <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{ru ? "Полный разбор — почему это шанс, что строить, фичи и монетизация — открывается после входа." : "The full breakdown — the gap, what to build, features and monetization — opens after sign-in."}</p>
+                    <button type="button" onClick={() => { setModal(null); setAuth(true); }} className="btn-shimmer mt-5 inline-flex items-center rounded-full px-7 py-3 text-[15px] font-semibold text-white">
+                      {ru ? "Войти и открыть" : "Sign in to unlock"}
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>,

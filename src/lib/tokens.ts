@@ -146,13 +146,25 @@ function toCard(i: ReturnType<typeof listIdeas>[number]): DrawCard {
   };
 }
 
+// A free teaser for logged-out visitors: a random top card, no breakdown, no charge.
+export function peekIdea(exclude: string[] = []): DrawCard | null {
+  const ex = new Set(exclude);
+  const fresh = listIdeas().filter((i) => !ex.has(i.slug));
+  if (fresh.length === 0) return null;
+  const pool = fresh.slice(0, POOL_SIZE);
+  const pick = pool[Math.floor(Math.random() * pool.length)];
+  // teaser only — keep the paid breakdown server-side
+  return { ...toCard(pick), gap: "", pitch: "", features: [], monetization: "" };
+}
+
 // Pull a random card from the top of the deck. For normal users it costs DRAW_COST
-// (first draw free), fully unlocks the idea, and avoids ones already owned. Admins /
-// lifetime / friends draw freely without spending or writing unlocks.
-export async function drawIdea(userId: string, unlimited: boolean): Promise<DrawResult> {
+// (first draw free), fully unlocks the idea, and avoids ones already owned (and any
+// already shown this session). Admins / lifetime / friends draw freely.
+export async function drawIdea(userId: string, unlimited: boolean, exclude: string[] = []): Promise<DrawResult> {
+  const ex = new Set(exclude);
   const all = listIdeas(); // best-first (critic score, then demand)
   const owned = (await getUnlockSets(userId)).idea;
-  const fresh = unlimited ? all : all.filter((i) => !owned.has(i.slug));
+  const fresh = all.filter((i) => !ex.has(i.slug) && (unlimited || !owned.has(i.slug)));
   if (fresh.length === 0) return { ok: false, reason: "empty", balance: await getBalance(userId) };
 
   const pool = fresh.slice(0, POOL_SIZE);
