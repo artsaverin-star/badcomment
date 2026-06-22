@@ -62,15 +62,21 @@ export default function CardDeck({
   const [err, setErr] = useState<null | "funds" | "error">(null);
   const [done, setDone] = useState(false);
   const [opened, setOpened] = useState(0);
+  const [deals, setDeals] = useState(0);
   const [seen, setSeen] = useState<string[]>([]); // slugs shown this session → no repeats
   const [modal, setModal] = useState<Card | null>(null);
 
-  const guestLimited = !loggedIn && opened >= GUEST_DRAWS;
+  const guestDealCap = Math.floor(GUEST_DRAWS / HAND); // free deals before sign-in
 
   function deal() {
+    if (!loggedIn && deals >= guestDealCap) {
+      setAuth(true); // guest used their free deals — ask to sign in on the next one
+      return;
+    }
     setErr(null);
     const r = round + 1;
     setRound(r);
+    setDeals((d) => d + 1);
     setHand(Array.from({ length: HAND }, (_, i) => ({ key: `${r}-${i}`, card: null, loading: false })));
   }
 
@@ -78,14 +84,10 @@ export default function CardDeck({
     const slot = hand[i];
     if (!slot) return;
     if (slot.card) {
-      setModal(slot.card); // already open → show full breakdown (or sign-in CTA for guests)
+      setModal(slot.card); // already open → show full breakdown
       return;
     }
     if (slot.loading) return;
-    if (guestLimited) {
-      setAuth(true); // guest used their free cards
-      return;
-    }
     setErr(null);
     setHand((h) => h.map((s, j) => (j === i ? { ...s, loading: true } : s)));
     try {
@@ -100,6 +102,7 @@ export default function CardDeck({
         return;
       }
       const data = await res.json();
+      if (data.needAuth) return setAuth(true);
       if (data.done) {
         setDone(true);
         return;
@@ -120,7 +123,6 @@ export default function CardDeck({
 
   const dealt = hand.length > 0;
   const allFlipped = dealt && hand.every((s) => s.card);
-  const guestLeft = Math.max(0, GUEST_DRAWS - opened);
 
   return (
     <div className="mt-12 flex flex-col items-center">
@@ -159,10 +161,9 @@ export default function CardDeck({
                       <div className="flex items-center justify-between">
                         <span className="inline-flex items-center gap-1 text-[11px] font-bold tabular-nums text-[var(--color-text-brand)]"><MessageIcon size={11} /> {s.card.demand}</span>
                       </div>
-                      <div className="mt-1 line-clamp-1 text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{s.card.categoryName}</div>
-                      <div className="mt-auto text-[15px] font-black leading-[1.12] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[17px]">{shortName(s.card.title)}</div>
-                      <div className="mt-1.5 line-clamp-3 text-[11px] leading-[1.35] text-[var(--color-text-secondary)] sm:text-[12px]">{s.card.oneLiner}</div>
-                      <div className="mt-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-text-brand)]">{ru ? "Тап — разбор" : "Tap — open"}</div>
+                      <div className="mt-1 line-clamp-2 text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{s.card.categoryName}</div>
+                      <div className="mt-auto text-[16px] font-black leading-[1.12] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[19px]">{shortName(s.card.title)}</div>
+                      <div className="mt-2.5 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-text-brand)]">{ru ? "Тап — разбор" : "Tap — open"}</div>
                     </>
                   )}
                 </div>
@@ -195,9 +196,9 @@ export default function CardDeck({
         ) : unlimited ? (
           ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
         ) : !loggedIn ? (
-          guestLimited
-            ? ru ? "Бесплатные карты кончились — войди, чтобы открывать ещё" : "Free cards used — sign in to keep drawing"
-            : ru ? `${guestLeft} из ${GUEST_DRAWS} бесплатных карт — без входа` : `${guestLeft} of ${GUEST_DRAWS} free cards — no sign-in`
+          deals >= guestDealCap
+            ? ru ? "Войди, чтобы раздать ещё" : "Sign in to deal more"
+            : ru ? `Без входа — ${GUEST_DRAWS} карт бесплатно` : `No sign-in — ${GUEST_DRAWS} free cards`
         ) : (
           <span className="inline-flex items-center gap-1.5">
             {ru ? "Первая бесплатно, далее" : "First free, then"} {drawCost}

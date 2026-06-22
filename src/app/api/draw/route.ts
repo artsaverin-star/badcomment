@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/session";
 import { isFriendIdentity } from "@/lib/friends";
 import { drawIdea, peekIdea } from "@/lib/tokens";
+import { GUEST_DRAWS } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ export async function POST(req: Request) {
 
   const u = await getSessionUser();
   if (!u) {
+    if (exclude.length >= GUEST_DRAWS) return NextResponse.json({ needAuth: true });
     const card = peekIdea(exclude);
     if (!card) return NextResponse.json({ done: true });
     return NextResponse.json({ ok: true, card, guest: true, free: true, cost: 0 });

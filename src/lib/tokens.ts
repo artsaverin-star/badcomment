@@ -146,15 +146,14 @@ function toCard(i: ReturnType<typeof listIdeas>[number]): DrawCard {
   };
 }
 
-// A free teaser for logged-out visitors: a random top card, no breakdown, no charge.
+// A free draw for logged-out visitors — a random top card with the full breakdown
+// (the generous hook). The route caps how many a guest may take before sign-in.
 export function peekIdea(exclude: string[] = []): DrawCard | null {
   const ex = new Set(exclude);
   const fresh = listIdeas().filter((i) => !ex.has(i.slug));
   if (fresh.length === 0) return null;
   const pool = fresh.slice(0, POOL_SIZE);
-  const pick = pool[Math.floor(Math.random() * pool.length)];
-  // teaser only — keep the paid breakdown server-side
-  return { ...toCard(pick), gap: "", pitch: "", features: [], monetization: "" };
+  return toCard(pool[Math.floor(Math.random() * pool.length)]);
 }
 
 // Pull a random card from the top of the deck. For normal users it costs DRAW_COST
