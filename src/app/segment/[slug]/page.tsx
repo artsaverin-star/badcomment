@@ -16,8 +16,10 @@ import { getNicheOpportunities } from "@/lib/nicheOpportunities";
 import { tg, deepTg } from "@/lib/typo";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
-import { UNLOCK_COST } from "@/lib/tokenConfig";
-import EnergyUnlockButton from "@/components/EnergyUnlockButton";
+import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, PREGEN_DATE_RU, PREGEN_DATE_EN } from "@/lib/tokenConfig";
+import { PREMIUM_NICHE_SET } from "@/lib/premiumNiches";
+import { ownsDeck } from "@/lib/unlocks";
+import CategoryGate from "@/components/CategoryGate";
 import DeckPile from "@/components/DeckPile";
 import Reveal from "@/components/Reveal";
 import type { Tone } from "@/components/CardCarousel";
@@ -182,10 +184,16 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const thesis = getNicheThesis(slug, locale);
 
   const access = await getAccess();
-  const { loggedIn, balance } = access;
+  const { loggedIn } = access;
   const catLocked = !access.has("category", slug);
-  // Overview: first finding free, the other two unlock inline for energy.
+  // Overview: first finding free, the other two open once the category is bought.
   const overviewUnlocked = !catLocked || access.has("chapter", slug);
+
+  // Only premium niches are sellable; the rest show a "in preparation" status.
+  const sellable = PREMIUM_NICHE_SET.has(slug);
+  const hasDeck = access.user ? await ownsDeck(access.user.id) : false;
+  const catPrice = hasDeck ? CATEGORY_PRICE_RUB - DECK_CREDIT_RUB : CATEGORY_PRICE_RUB;
+  const pregenDate = ru ? PREGEN_DATE_RU : PREGEN_DATE_EN;
 
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const ideas = listIdeas().filter((i) => i.category === slug);
@@ -416,7 +424,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                     title={ru ? "Ещё 2 вывода" : "2 more findings"}
                     subtitle={ru ? "Разбор по наблюдениям и прямые цитаты из отзывов." : "The breakdown by observation and direct review quotes."}
                     button={
-                      <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть 2 вывода" : "Unlock 2 findings"} />
+                      <CategoryGate slug={slug} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
                     }
                   />
                 </div>
@@ -433,7 +441,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         apps={deepTg(apps)}
         competitorRead={thesis?.competitorRead ? tg(thesis.competitorRead) : undefined}
         loggedIn={loggedIn}
-        balance={balance}
+        sellable={sellable}
+        price={catPrice}
+        pregenDate={pregenDate}
       />
 
       {relatedTop.length > 0 && (

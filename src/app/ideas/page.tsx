@@ -6,7 +6,6 @@ import { getLocale } from "@/lib/i18n.server";
 import IdeasBrowser, { type IdeaCard } from "@/components/IdeasBrowser";
 import { ideaCard } from "@/lib/regenCards";
 import { getAccess } from "@/lib/access";
-import { UNLOCK_COST } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -45,7 +44,6 @@ export default async function IdeasPage() {
       oneLiner: locked ? "" : ov?.oneLiner ?? i.oneLiner,
       stats: i.stats,
       locked,
-      cost: UNLOCK_COST.idea,
     };
   });
 
@@ -61,7 +59,7 @@ export default async function IdeasPage() {
       {ideas.length === 0 ? (
         <p className="mt-10 text-center text-callout text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
       ) : (
-        <IdeasBrowser ideas={ideas} loggedIn={access.loggedIn} balance={access.balance} locale={locale} />
+        <IdeasBrowser ideas={ideas} loggedIn={access.loggedIn} locale={locale} />
       )}
     </main>
   );
