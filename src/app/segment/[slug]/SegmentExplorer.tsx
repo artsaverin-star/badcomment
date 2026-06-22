@@ -140,7 +140,7 @@ export default function SegmentExplorer({
             />
           ) : (
             <>
-            <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
+            <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">
               {opps.length} {ru ? wordOpp(opps.length) : "opportunities"}
             </h2>
             <p className="mt-5 max-w-[56ch] text-[17px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-[18px]">
@@ -180,7 +180,7 @@ export default function SegmentExplorer({
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
           {!appsLocked && (
             <>
-              <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
+              <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">
                 {apps.length} {ru ? wordApp(apps.length) : "apps"}
               </h2>
               {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}

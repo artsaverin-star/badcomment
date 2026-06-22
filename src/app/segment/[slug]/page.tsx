@@ -396,7 +396,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         <Reveal className="mt-20 sm:mt-28">
           <section>
             <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Главное" : "Key findings"}</div>
-            <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">{ru ? "Три вывода" : "Three findings"}</h2>
+            <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">{ru ? "Три вывода" : "Three findings"}</h2>
 
             <div className="mt-12 flex flex-col gap-12 sm:gap-16">
               <PillarFull p={pillars[0]} label={findingLabel(0)} />
