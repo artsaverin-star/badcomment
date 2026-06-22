@@ -133,7 +133,7 @@ export default function SegmentExplorer({
           {ideasLocked ? (
             <DeckPile
               title={ru ? `${opps.length} идей под спрос` : `${opps.length} demand-backed ideas`}
-              subtitle={ru ? "Что строить и как на этом заработать — по каждой, с цитатами из отзывов." : "What to build and how to monetize — for each, with review quotes."}
+              subtitle={ru ? "Каждую люди просят сами. Внутри по каждой — что строить, для кого и как на этом заработать, с цитатами из отзывов." : "Each one users ask for themselves. Inside — what to build, for whom and how to monetize, with review quotes."}
               button={
                 <EnergyUnlockButton type="ideas" slug={slug} cost={UNLOCK_COST.ideas} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${opps.length}` : `Unlock all ${opps.length}`} />
               }
@@ -189,8 +189,7 @@ export default function SegmentExplorer({
           {appsLocked ? (
             <DeckPile
               title={ru ? `Разбор ${apps.length} приложений` : `${apps.length} app teardowns`}
-              body={competitorRead}
-              subtitle={competitorRead ? undefined : ru ? "Сильные и слабые места каждого — дословно из реальных отзывов." : "Strengths and weak spots of each — verbatim from real reviews."}
+              subtitle={ru ? "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовая карта конкурентов по реальным отзывам, чтобы не повторять их ошибок." : "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor map from real reviews."}
               icons={apps.map((a) => a.icon)}
               button={
                 <EnergyUnlockButton type="apps" slug={slug} cost={UNLOCK_COST.apps} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${apps.length}` : `Unlock all ${apps.length}`} />
