@@ -43,8 +43,8 @@ export default async function TokensPage() {
         </p>
         <p className="mx-auto mt-2 max-w-[52ch] text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
           {locale === "en"
-            ? "Honestly — I've put a lot of time and money into this project, and I'm just trying to recoup some of it. So I'm giving lifetime access to everything for the price of one coffee — getting in early is the best thing you can do here. Thank you for being here 🙏"
-            : "Честно — я вложил в этот проект кучу времени и денег, и сейчас просто пытаюсь хоть как-то их отбить. Поэтому отдаю доступ ко всему навсегда за цену одной чашки кофе — зайти сейчас одним из первых и есть лучшее, что тут можно сделать. Спасибо, что вы здесь 🙏"}
+            ? "This is gold: thousands of real reviews turned into ready ideas and conclusions. McKinsey charges a fortune and six months of a serious face for this 😎 Here it's yours forever, for the price of one coffee. So cheap because you're early (and because I've sunk so much in that there's no turning back)."
+            : "Тут золотой контент: тысячи реальных отзывов, разобранные в готовые идеи и выводы. За такое McKinsey берёт тонну денег и полгода с умным лицом 😎 А тут — навсегда и за цену одной чашки кофе. Так дёшево, потому что вы заходите первыми (ну и потому что я уже столько вложил, что отступать некуда)."}
         </p>
       </div>
       <div className="mt-8">
