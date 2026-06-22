@@ -6,7 +6,9 @@ import type { Locale } from "@/lib/i18n";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
 import BoltIcon from "@/components/BoltIcon";
+import DeckPile from "@/components/DeckPile";
 import Reveal from "@/components/Reveal";
+import { hueFromSlug } from "@/lib/categoryGradient";
 
 export type ExpQuote = { app: string; rating: number; text: string };
 export type ExpObs = { title: string; plus?: string; minus?: string; count: number; tone: "up" | "down" | "mixed" | "info"; evidence: ExpQuote[] };
@@ -71,46 +73,9 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 }
 function Arrow() {
   return (
-    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-brand)] transition-transform duration-300 group-hover:translate-x-1">
+    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-300 group-hover:translate-x-1">
       <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
-  );
-}
-
-// A compact "deck": the whole locked pack shown as a stack of cards (a couple peek
-// out behind the front one), with one bundle-unlock CTA. Replaces the long blurred
-// list — no endless scrolling through frosted items on mobile.
-function DeckPile({
-  big,
-  title,
-  subtitle,
-  note,
-  button,
-}: {
-  kind: "idea" | "app";
-  big: string;
-  title: string;
-  subtitle: string;
-  note: string;
-  button: React.ReactNode;
-}) {
-  return (
-    <div className="mt-12 flex justify-center">
-      <div className="pile relative w-full max-w-[440px]">
-        {/* cards peeking from behind to read as a stack */}
-        <div className="pile-peek pile-peek-2" aria-hidden />
-        <div className="pile-peek pile-peek-1" aria-hidden />
-        <div className="blueprint relative z-10 rounded-[22px] border border-[color-mix(in_srgb,var(--color-accent-brand)_22%,var(--color-border-subtle))] bg-[var(--color-surface-card)] p-7 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] sm:p-8">
-          <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{note}</div>
-          <div className="mt-3 flex items-end justify-center gap-2.5">
-            <span className="text-[64px] font-black leading-[0.9] tracking-[-0.04em] text-[var(--color-text-primary)]">{big}</span>
-            <span className="mb-1.5 text-[19px] font-bold leading-tight text-[var(--color-text-primary)] text-balance">{title}</span>
-          </div>
-          <p className="mx-auto mt-4 max-w-[34ch] text-[14px] leading-[1.55] text-[var(--color-text-secondary)]">{subtitle}</p>
-          <div className="mt-6 flex justify-center">{button}</div>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -135,6 +100,7 @@ export default function SegmentExplorer({
   const [active, setActive] = useState<Active>(null);
   const ideasLocked = opps.some((o) => o.locked);
   const appsLocked = apps.some((a) => a.locked);
+  const accent = `hsl(${hueFromSlug(slug)} 85% 64%)`;
 
   // Lock background scroll (iOS-safe: overflow:hidden alone leaks on Safari, so
   // pin the body in place and restore the scroll position on close) + close on Esc.
@@ -174,11 +140,10 @@ export default function SegmentExplorer({
           </p>
           {ideasLocked ? (
             <DeckPile
-              kind="idea"
-              note={ru ? "Готовый пакет" : "Ready pack"}
+              accent={accent}
               big={`${opps.length}`}
-              title={ru ? `${wordOpp(opps.length)} под спрос` : "ideas backed by demand"}
-              subtitle={ru ? "Что и зачем строить, фичи, монетизация и цитаты из отзывов — по каждой идее." : "What to build and why, features, monetization and review quotes — for each idea."}
+              title={ru ? "идей под спрос" : "ideas, demand-backed"}
+              subtitle={ru ? "По каждой идее: где у рынка дыра, что именно строить, ключевые функции и как на этом заработать — со ссылками на отзывы." : "Each idea: the market gap, exactly what to build, the core features and how to monetize — backed by review quotes."}
               button={
                 <EnergyUnlockButton type="ideas" slug={slug} cost={UNLOCK_COST.ideas} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${opps.length}` : `Unlock all ${opps.length}`} />
               }
@@ -190,18 +155,18 @@ export default function SegmentExplorer({
                   key={i}
                   type="button"
                   onClick={() => setActive({ kind: "idea", i })}
-                  style={{ animationDelay: `${Math.min(i, 8) * 55}ms` }}
-                  className="deck-card blueprint group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
+                  style={{ animationDelay: `${Math.min(i, 8) * 55}ms`, ["--ec"]: accent } as React.CSSProperties}
+                  className="deck-card edge-glow blueprint group relative flex flex-col items-start overflow-hidden rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-left transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_-26px_var(--ec)] sm:p-6"
                 >
                   <div className="flex w-full items-center justify-between">
                     <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? `Идея ${`0${i + 1}`}` : `Idea ${`0${i + 1}`}`}</span>
-                    <span className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] px-2.5 py-1 text-[12px] font-semibold tabular-nums text-[var(--color-text-brand)]">
+                    <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[12px] font-bold tabular-nums" style={{ color: accent, borderColor: `color-mix(in srgb, ${accent} 40%, transparent)` }}>
                       <BoltIcon size={11} /> {op.demand}
                     </span>
                   </div>
                   <span className="mt-3.5 block text-[20px] font-black leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[22px]">{op.regen?.title || op.title}</span>
                   <span className="mt-2 line-clamp-3 block text-[14px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[15px]">{op.regen?.tagline || op.oneLiner}</span>
-                  <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"} <Arrow /></span>
+                  <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold" style={{ color: accent }}>{ru ? "Разобрать" : "Open"} <Arrow /></span>
                 </button>
               ))}
             </div>
@@ -221,11 +186,10 @@ export default function SegmentExplorer({
           {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
           {appsLocked ? (
             <DeckPile
-              kind="app"
-              note={ru ? "Готовый пакет" : "Ready pack"}
+              accent={accent}
               big={`${apps.length}`}
-              title={ru ? `${wordApp(apps.length)} с разбором` : "app teardowns"}
-              subtitle={ru ? "По каждому приложению — сильные стороны, слабые места и цитаты из реальных отзывов." : "For each app — strengths, weak spots and real review quotes."}
+              title={ru ? "разборов приложений" : "app teardowns"}
+              subtitle={ru ? "Как устроены лидеры ниши: за что их любят, где слабеют и чего требуют пользователи — дословно из отзывов." : "How the niche leaders work: what users love, where they fall short and what they demand — verbatim from reviews."}
               button={
                 <EnergyUnlockButton type="apps" slug={slug} cost={UNLOCK_COST.apps} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? `Открыть все ${apps.length}` : `Unlock all ${apps.length}`} />
               }
@@ -237,8 +201,8 @@ export default function SegmentExplorer({
                   key={i}
                   type="button"
                   onClick={() => setActive({ kind: "app", i })}
-                  style={{ animationDelay: `${Math.min(i, 10) * 45}ms` }}
-                  className="deck-card group flex w-full items-center gap-4 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
+                  style={{ animationDelay: `${Math.min(i, 10) * 45}ms`, ["--ec"]: accent } as React.CSSProperties}
+                  className="deck-card edge-glow group relative flex w-full items-center gap-4 overflow-hidden rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3.5 text-left transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-26px_var(--ec)]"
                 >
                   {a.icon ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -246,12 +210,21 @@ export default function SegmentExplorer({
                   ) : (
                     <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />
                   )}
-                  <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-                    <span className="truncate text-[17px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                    {a.description && <span className="truncate text-[13px] text-[var(--color-text-tertiary)]">{a.description}</span>}
+                  <span className="flex min-w-0 flex-1 flex-col gap-1">
+                    <span className="flex items-center gap-2">
+                      <span className="truncate text-[17px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
+                      {a.avg != null && <span className="shrink-0 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
+                    </span>
+                    {a.hook ? (
+                      <span className="truncate text-[13px] leading-snug text-[var(--color-text-secondary)]">{a.hook}</span>
+                    ) : (
+                      a.description && <span className="truncate text-[13px] text-[var(--color-text-tertiary)]">{a.description}</span>
+                    )}
                   </span>
-                  {a.avg != null && (
-                    <span className="shrink-0 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)]">{a.avg.toFixed(1)}★</span>
+                  {a.tag && (
+                    <span className="hidden shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-semibold sm:inline" style={{ color: a.tag.color, borderColor: `color-mix(in srgb, ${a.tag.color} 38%, transparent)` }}>
+                      {a.tag.label}
+                    </span>
                   )}
                   <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-0.5">
                     <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

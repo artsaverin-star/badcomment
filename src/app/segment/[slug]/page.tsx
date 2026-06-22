@@ -18,6 +18,7 @@ import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { UNLOCK_COST } from "@/lib/tokenConfig";
 import EnergyUnlockButton from "@/components/EnergyUnlockButton";
+import DeckPile from "@/components/DeckPile";
 import Reveal from "@/components/Reveal";
 import type { Tone } from "@/components/CardCarousel";
 import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpQuote } from "./SegmentExplorer";
@@ -411,23 +412,15 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       <PillarFull key={i} p={p} label={findingLabel(i + 1)} />
                     ))}
                   </div>
-                  <div className="flex justify-center">
-                    <div className="w-full max-w-[440px] rounded-[22px] border border-[color-mix(in_srgb,var(--color-accent-brand)_26%,var(--color-border-subtle))] bg-[var(--color-surface-card)] p-6 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.8)] sm:p-7">
-                      <div className="flex items-center justify-center gap-2 text-[13px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
-                        {ru ? "Выводы 02 и 03" : "Findings 02 & 03"}
-                        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="text-[var(--color-text-tertiary)]" aria-hidden="true">
-                          <rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" />
-                          <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor" strokeWidth="1.3" />
-                        </svg>
-                      </div>
-                      <p className="mt-3 text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">
-                        {ru ? "Ещё два вывода — с разбором по наблюдениям и цитатами из отзывов." : "Two more findings — with the breakdown and review quotes."}
-                      </p>
-                      <div className="mt-5 flex justify-center">
-                        <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть 2 вывода" : "Unlock 2 findings"} />
-                      </div>
-                    </div>
-                  </div>
+                  <DeckPile
+                    accent={`hsl(${hueFromSlug(slug)} 85% 64%)`}
+                    big="2"
+                    title={ru ? "вывода ещё" : "more findings"}
+                    subtitle={ru ? "Ещё два ключевых вывода ниши — с разбором по наблюдениям и прямыми цитатами из отзывов." : "Two more key findings — with the breakdown and direct review quotes."}
+                    button={
+                      <EnergyUnlockButton type="chapter" slug={slug} cost={UNLOCK_COST.chapter} loggedIn={loggedIn} balance={balance} locale={locale} label={ru ? "Открыть 2 вывода" : "Unlock 2 findings"} />
+                    }
+                  />
                 </div>
               )}
             </div>

@@ -367,6 +367,30 @@ html:not([data-theme="dark"]) .atmosphere {
   .deck-card { animation: none; }
 }
 
+/* Shimmering gradient edge ("переливание по краям") in the category accent (--ec).
+   A 1px gradient ring drawn via a masked ::before that sweeps along the border. */
+.edge-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 32%, color-mix(in srgb, var(--ec, var(--color-accent-brand)) 60%, transparent) 50%, transparent 68%);
+  background-size: 240% 100%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: edge-shimmer 4.5s linear infinite;
+}
+@keyframes edge-shimmer {
+  from { background-position: 130% 0; }
+  to { background-position: -130% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .edge-glow::before { animation: none; }
+}
+
 /* Chat-message bubble: a little tail at the bottom-left, same colour as the
    bubble (--color-bg-muted). */
 .msg-bubble {
