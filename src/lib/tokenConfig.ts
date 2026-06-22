@@ -25,6 +25,10 @@ export const UNLOCK_COST: Record<UnlockType, number> = {
 // CATEGORY_MIN — because the bundle still opens the remaining ideas + synthesis.
 export const CATEGORY_MIN_PRICE = 10;
 
+// «Колода идей» — gamified draw. One card draw fully unlocks a random top idea
+// for less than the regular idea price (the "lucky draw" discount). First draw free.
+export const DRAW_COST = 5;
+
 export type TokenPack = {
   id: string;
   tokens: number;

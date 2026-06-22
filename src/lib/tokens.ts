@@ -1,6 +1,7 @@
 import { prisma } from "./prisma";
-import { UNLOCK_COST, CATEGORY_MIN_PRICE, type UnlockType } from "./tokenConfig";
+import { UNLOCK_COST, CATEGORY_MIN_PRICE, DRAW_COST, type UnlockType } from "./tokenConfig";
 import { categoryMembers } from "./bundles";
+import { listIdeas } from "./ideas";
 
 export type UnlockResult =
   | { ok: true; already: boolean; balance: number }
@@ -109,4 +110,73 @@ export async function unlockItem(userId: string, type: UnlockType, slug: string)
   if (fresh.length > 0) await prisma.unlock.createMany({ data: fresh });
 
   return { ok: true, already: false, balance };
+}
+
+// ── «Колода идей»: draw a random top idea ──────────────────────────────────
+export type DrawCard = {
+  slug: string;
+  title: string;
+  oneLiner: string;
+  gap: string;
+  pitch: string;
+  features: string[];
+  monetization: string;
+  demand: number;
+  category: string;
+  categoryName: string;
+};
+export type DrawResult =
+  | { ok: true; card: DrawCard; free: boolean; cost: number; balance: number; remaining: number }
+  | { ok: false; reason: "funds" | "empty"; balance: number; needed?: number };
+
+const POOL_SIZE = 60; // draw from the top-N strongest ideas only
+
+function toCard(i: ReturnType<typeof listIdeas>[number]): DrawCard {
+  return {
+    slug: i.slug,
+    title: i.title,
+    oneLiner: i.oneLiner,
+    gap: i.gap,
+    pitch: i.idea?.pitch ?? "",
+    features: i.idea?.features ?? [],
+    monetization: i.idea?.monetization ?? "",
+    demand: i.stats?.observations ?? 0,
+    category: i.category,
+    categoryName: i.categoryName,
+  };
+}
+
+// Pull a random card from the top of the deck. For normal users it costs DRAW_COST
+// (first draw free), fully unlocks the idea, and avoids ones already owned. Admins /
+// lifetime / friends draw freely without spending or writing unlocks.
+export async function drawIdea(userId: string, unlimited: boolean): Promise<DrawResult> {
+  const all = listIdeas(); // best-first (critic score, then demand)
+  const owned = (await getUnlockSets(userId)).idea;
+  const fresh = unlimited ? all : all.filter((i) => !owned.has(i.slug));
+  if (fresh.length === 0) return { ok: false, reason: "empty", balance: await getBalance(userId) };
+
+  const pool = fresh.slice(0, POOL_SIZE);
+  const pick = pool[Math.floor(Math.random() * pool.length)];
+
+  if (unlimited) {
+    return { ok: true, card: toCard(pick), free: true, cost: 0, balance: await getBalance(userId), remaining: fresh.length };
+  }
+
+  const priorDraw = await prisma.tokenLedger.findFirst({ where: { userId, reason: "draw" } });
+  const free = !priorDraw;
+  const cost = free ? 0 : DRAW_COST;
+
+  if (cost > 0) {
+    const debit = await prisma.user.updateMany({
+      where: { id: userId, tokens: { gte: cost } },
+      data: { tokens: { decrement: cost } },
+    });
+    if (debit.count === 0) return { ok: false, reason: "funds", balance: await getBalance(userId), needed: cost };
+  }
+  const balance = await getBalance(userId);
+  await prisma.tokenLedger.create({ data: { userId, delta: -cost, reason: "draw", ref: `draw:${pick.slug}`, balanceAfter: balance } });
+  const existing = await prisma.unlock.findUnique({ where: { userId_type_slug: { userId, type: "idea", slug: pick.slug } } });
+  if (!existing) await prisma.unlock.create({ data: { userId, type: "idea", slug: pick.slug, cost } });
+
+  return { ok: true, card: toCard(pick), free, cost, balance, remaining: fresh.length - 1 };
 }

@@ -391,6 +391,16 @@ html:not([data-theme="dark"]) .atmosphere {
   .edge-glow::before { animation: none; }
 }
 
+/* «Колода идей» — a drawn card flips in. */
+@keyframes card-reveal {
+  from { opacity: 0; transform: perspective(900px) rotateY(58deg) translateY(10px) scale(0.96); }
+  to { opacity: 1; transform: perspective(900px) rotateY(0deg) translateY(0) scale(1); }
+}
+.card-reveal { animation: card-reveal 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .card-reveal { animation: none; }
+}
+
 /* Chat-message bubble: a little tail at the bottom-left, same colour as the
    bubble (--color-bg-muted). */
 .msg-bubble {

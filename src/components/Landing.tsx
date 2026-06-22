@@ -226,6 +226,15 @@ export default function Landing({
               : "Broken down by niche, clear conclusions and concrete ideas — which apps people actually need."}
           </p>
 
+          <div className="ld-fade mt-7 flex justify-center" style={{ animationDelay: "0.15s" }}>
+            <Link
+              href="/cards"
+              className="btn-shimmer inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_14px_36px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+            >
+              🎴 {ru ? "Колода идей — тяни карту" : "Idea deck — draw a card"}
+            </Link>
+          </div>
+
         </div>
       </section>
 
