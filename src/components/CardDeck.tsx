@@ -4,6 +4,7 @@ import { Fragment, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
+import BuyButton from "./BuyButton";
 import MessageIcon from "./MessageIcon";
 import type { Locale } from "@/lib/i18n";
 
@@ -54,6 +55,7 @@ export default function CardDeck({
   loggedIn,
   unlimited,
   deckPrice,
+  deckCount,
   initialCollection = [],
   guestUsed: guestUsed0 = 0,
   guestCap = 2,
@@ -62,6 +64,7 @@ export default function CardDeck({
   loggedIn: boolean;
   unlimited: boolean;
   deckPrice: number;
+  deckCount: number;
   initialCollection?: Card[];
   guestUsed?: number;
   guestCap?: number;
@@ -249,16 +252,22 @@ export default function CardDeck({
       </div>
 
       {paywall && (
-        <div className="mt-6 w-full max-w-[460px] rounded-[20px] border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-6 text-center">
+        <div className="mt-6 flex w-full max-w-[460px] flex-col items-center rounded-[20px] border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-6 text-center">
           <div className="text-[16px] font-bold text-[var(--color-text-primary)]">{ru ? "Бесплатные карты кончились" : "Free cards used up"}</div>
-          <p className="mx-auto mt-2 max-w-[42ch] text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mx-auto mb-4 mt-2 max-w-[42ch] text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
             {ru
-              ? "Открой всю колоду — лучшие идеи из каждой ниши, разобранные по реальным отзывам. Навсегда."
-              : "Unlock the whole deck — the best idea from every niche, broken down from real reviews. Forever."}
+              ? `Открой всю колоду — ${deckCount} карт с идеями, лучшее из каждой ниши, по реальным отзывам. Навсегда.`
+              : `Unlock the whole deck — ${deckCount} idea cards, the best of every niche, from real reviews. Forever.`}
           </p>
-          <Link href="/tokens" className="btn-shimmer mt-4 inline-flex items-center rounded-full px-7 py-3 text-[15px] font-semibold text-white">
-            {ru ? `Открыть всю колоду — ${deckPrice} ₽` : `Unlock the whole deck — ${deckPrice} ₽`}
-          </Link>
+          <BuyButton
+            kind="deck"
+            price={deckPrice}
+            label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock deck — ${deckPrice} ₽`}
+            loggedIn={loggedIn}
+            locale={locale}
+            title={ru ? "Колода идей" : "Idea deck"}
+            subtitle={ru ? `${deckCount} карт с идеями — лучшее из каждой ниши, навсегда.` : `${deckCount} idea cards — the best of every niche, forever.`}
+          />
         </div>
       )}
       {err === "error" && <p className="mt-4 text-center text-[14px] text-[var(--color-text-secondary)]">{ru ? "Что-то пошло не так, попробуй ещё раз." : "Something went wrong, try again."}</p>}

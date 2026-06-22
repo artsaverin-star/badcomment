@@ -57,6 +57,7 @@ export default async function CardsPage() {
         loggedIn={access.loggedIn}
         unlimited={access.unlimited}
         deckPrice={DECK_PRICE_RUB}
+        deckCount={ideasCount}
         initialCollection={initialCollection}
         guestUsed={guestUsed}
         guestCap={FREE_ANON_CARDS}
