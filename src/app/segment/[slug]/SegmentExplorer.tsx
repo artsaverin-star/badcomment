@@ -130,12 +130,6 @@ export default function SegmentExplorer({
         <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
-          <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
-            {opps.length} {ru ? wordOpp(opps.length) : "opportunities"}
-          </h2>
-          <p className="mt-5 max-w-[56ch] text-[17px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-[18px]">
-            {ru ? "Идеи, которые пользователи просят сами — каждая под подтверждённый спрос." : "Ideas users ask for themselves — each backed by proven demand."}
-          </p>
           {ideasLocked ? (
             <DeckPile
               title={ru ? `${opps.length} идей под спрос` : `${opps.length} demand-backed ideas`}
@@ -145,6 +139,13 @@ export default function SegmentExplorer({
               }
             />
           ) : (
+            <>
+            <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
+              {opps.length} {ru ? wordOpp(opps.length) : "opportunities"}
+            </h2>
+            <p className="mt-5 max-w-[56ch] text-[17px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-[18px]">
+              {ru ? "Идеи, которые пользователи просят сами — каждая под подтверждённый спрос." : "Ideas users ask for themselves — each backed by proven demand."}
+            </p>
             <div className="deck-grid mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {opps.map((op, i) => (
                 <button
@@ -166,6 +167,7 @@ export default function SegmentExplorer({
                 </button>
               ))}
             </div>
+            </>
           )}
           </section>
         </Reveal>
@@ -176,9 +178,11 @@ export default function SegmentExplorer({
         <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
-          <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
-            {apps.length} {ru ? wordApp(apps.length) : "apps"}
-          </h2>
+          {!appsLocked && (
+            <h2 className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[46px]">
+              {apps.length} {ru ? wordApp(apps.length) : "apps"}
+            </h2>
+          )}
           {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
           {appsLocked ? (
             <DeckPile
