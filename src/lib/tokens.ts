@@ -1,8 +1,9 @@
 import { prisma } from "./prisma";
-import { UNLOCK_COST, CATEGORY_MIN_PRICE, DRAW_COST, FREE_DRAWS, type UnlockType } from "./tokenConfig";
+import { UNLOCK_COST, CATEGORY_MIN_PRICE, FREE_REG_CARDS, type UnlockType } from "./tokenConfig";
 import { categoryMembers } from "./bundles";
 import { listIdeas } from "./ideas";
-import { PREMIUM_NICHE_SET } from "./premiumNiches";
+import { deckIdeaSlugs } from "./deck";
+import { ownsDeck } from "./unlocks";
 
 export type UnlockResult =
   | { ok: true; already: boolean; balance: number }
@@ -127,10 +128,8 @@ export type DrawCard = {
   categoryName: string;
 };
 export type DrawResult =
-  | { ok: true; card: DrawCard; free: boolean; cost: number; balance: number; remaining: number }
-  | { ok: false; reason: "funds" | "empty"; balance: number; needed?: number };
-
-const POOL_SIZE = 60; // draw from the top-N strongest ideas only
+  | { ok: true; card: DrawCard; remaining: number }
+  | { ok: false; reason: "paywall" | "empty" };
 
 function toCard(i: ReturnType<typeof listIdeas>[number]): DrawCard {
   return {
@@ -147,61 +146,47 @@ function toCard(i: ReturnType<typeof listIdeas>[number]): DrawCard {
   };
 }
 
-// Ideas from finished (premium) niches go FIRST — they read in plain human
-// language. Only once those are drained for this user do we fall through to the
-// rest. Within the chosen set, pick a random card from the top by demand.
-function pickIdea(fresh: ReturnType<typeof listIdeas>) {
-  const premium = fresh.filter((i) => PREMIUM_NICHE_SET.has(i.category));
-  const base = premium.length > 0 ? premium : fresh;
-  const pool = base.slice(0, POOL_SIZE);
-  return pool[Math.floor(Math.random() * pool.length)];
+// The deck pool = the curated best-of (top-N ideas per premium niche), in ranking
+// order. This is exactly the set the 290₽ deck unlocks and the free meter samples.
+function deckPool(): ReturnType<typeof listIdeas> {
+  const bySlug = new Map(listIdeas().map((i) => [i.slug, i]));
+  const out: ReturnType<typeof listIdeas> = [];
+  for (const s of deckIdeaSlugs()) {
+    const i = bySlug.get(s);
+    if (i) out.push(i);
+  }
+  return out;
 }
 
-// A free draw for logged-out visitors — a random top card with the full breakdown
+// A free peek for logged-out visitors — a random deck card with the full breakdown
 // (the generous hook). The route caps how many a guest may take before sign-in.
 export function peekIdea(exclude: string[] = []): DrawCard | null {
   const ex = new Set(exclude);
-  const fresh = listIdeas().filter((i) => !ex.has(i.slug));
+  const fresh = deckPool().filter((i) => !ex.has(i.slug));
   if (fresh.length === 0) return null;
-  return toCard(pickIdea(fresh));
+  return toCard(fresh[Math.floor(Math.random() * fresh.length)]);
 }
 
-// Pull a random card from the top of the deck. For normal users it costs DRAW_COST
-// (first draw free), fully unlocks the idea, and avoids ones already owned (and any
-// already shown this session). Admins / lifetime / friends draw freely.
+// Reveal a deck card and grant ownership of that idea (free). Free logged-in users
+// get FREE_REG_CARDS reveals, then hit the paywall (buy the deck). Deck owners and
+// unlimited users (admin/lifetime/friend) reveal freely.
 export async function drawIdea(userId: string, unlimited: boolean, exclude: string[] = []): Promise<DrawResult> {
   const ex = new Set(exclude);
-  const all = listIdeas(); // best-first (critic score, then demand)
   const owned = (await getUnlockSets(userId)).idea;
-  // Exclude already-owned for everyone — so a returning user (incl. admins) never
-  // re-draws a card and the deck picks up where they left off.
-  const fresh = all.filter((i) => !ex.has(i.slug) && !owned.has(i.slug));
-  if (fresh.length === 0) return { ok: false, reason: "empty", balance: await getBalance(userId) };
+  const fresh = deckPool().filter((i) => !ex.has(i.slug) && !owned.has(i.slug));
+  if (fresh.length === 0) return { ok: false, reason: "empty" };
 
-  const pick = pickIdea(fresh);
-
-  let free = true;
-  let cost = 0;
-  if (!unlimited) {
-    const priorDraws = await prisma.tokenLedger.count({ where: { userId, reason: "draw" } });
-    free = priorDraws < FREE_DRAWS; // first FREE_DRAWS cards are free
-    cost = free ? 0 : DRAW_COST;
-    if (cost > 0) {
-      const debit = await prisma.user.updateMany({
-        where: { id: userId, tokens: { gte: cost } },
-        data: { tokens: { decrement: cost } },
-      });
-      if (debit.count === 0) return { ok: false, reason: "funds", balance: await getBalance(userId), needed: cost };
-    }
+  if (!unlimited && !(await ownsDeck(userId))) {
+    const usedFree = await prisma.tokenLedger.count({ where: { userId, reason: "draw" } });
+    if (usedFree >= FREE_REG_CARDS) return { ok: false, reason: "paywall" };
   }
-  const balance = await getBalance(userId);
-  // Log every draw (delta 0 when free) so the count + the persisted collection work
-  // for everyone, and record the unlock so the idea opens later.
-  await prisma.tokenLedger.create({ data: { userId, delta: -cost, reason: "draw", ref: `draw:${pick.slug}`, balanceAfter: balance } });
-  const existing = await prisma.unlock.findUnique({ where: { userId_type_slug: { userId, type: "idea", slug: pick.slug } } });
-  if (!existing) await prisma.unlock.create({ data: { userId, type: "idea", slug: pick.slug, cost } });
 
-  return { ok: true, card: toCard(pick), free, cost, balance, remaining: fresh.length - 1 };
+  const pick = fresh[Math.floor(Math.random() * fresh.length)];
+  await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: "draw", ref: `draw:${pick.slug}`, balanceAfter: 0 } });
+  const existing = await prisma.unlock.findUnique({ where: { userId_type_slug: { userId, type: "idea", slug: pick.slug } } });
+  if (!existing) await prisma.unlock.create({ data: { userId, type: "idea", slug: pick.slug, cost: 0 } });
+
+  return { ok: true, card: toCard(pick), remaining: fresh.length - 1 };
 }
 
 // The cards a user has already drawn (newest first) — to restore their collection

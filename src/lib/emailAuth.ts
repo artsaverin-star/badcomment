@@ -1,8 +1,6 @@
 import crypto from "node:crypto";
 import { prisma } from "./prisma";
 import { setSession } from "./session";
-import { grantSignupOnce } from "./tokens";
-import { SIGNUP_GRANT } from "./tokenConfig";
 
 // Magic-link tokens are HMAC-signed with the same SESSION_SECRET as the session
 // cookie. Namespaced with k:"el" so they can't be confused with session tokens.
@@ -54,7 +52,6 @@ export async function loginWithEmail(email: string) {
   let user = await prisma.user.findUnique({ where: { email: e } });
   if (!user) {
     user = await prisma.user.create({ data: { email: e, isAdmin: firstUser } });
-    await grantSignupOnce(user.id, SIGNUP_GRANT);
   }
   await setSession(user.id);
   return user;

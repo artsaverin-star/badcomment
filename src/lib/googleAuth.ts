@@ -1,7 +1,5 @@
 import { prisma } from "./prisma";
 import { setSession } from "./session";
-import { grantSignupOnce } from "./tokens";
-import { SIGNUP_GRANT } from "./tokenConfig";
 
 // Public origin for OAuth redirect URIs. Behind nginx, req.url is the internal
 // localhost:3000, so hardcode the prod origin (overridable via APP_ORIGIN);
@@ -27,7 +25,6 @@ export async function loginWithGoogle(sub: string, email: string | null, name: s
     });
   } else {
     user = await prisma.user.create({ data: { googleId: sub, email, firstName: name, isAdmin: firstUser } });
-    await grantSignupOnce(user.id, SIGNUP_GRANT);
   }
   await setSession(user.id);
   return user;

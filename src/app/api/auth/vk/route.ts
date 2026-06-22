@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { setSession } from "@/lib/session";
-import { grantSignupOnce } from "@/lib/tokens";
-import { SIGNUP_GRANT } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
@@ -59,7 +57,6 @@ export async function GET(req: Request) {
     });
   } else {
     user = await prisma.user.create({ data: { vkId, email, firstName: name, isAdmin: firstUser } });
-    await grantSignupOnce(user.id, SIGNUP_GRANT);
   }
   await setSession(user.id);
   return NextResponse.redirect(new URL(back, url.origin));
