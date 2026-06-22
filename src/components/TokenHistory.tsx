@@ -122,7 +122,7 @@ export default function TokenHistory({ userId, balance, name }: { userId: string
                       <span className="flex min-w-0 flex-1 flex-col">
                         <span className="truncate text-footnote text-[var(--color-text-primary)]">{label}</span>
                         <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
-                          {new Date(r.createdAt).toISOString().slice(0, 16).replace("T", " ")} · баланс {r.balanceAfter}
+                          {new Date(r.createdAt).toLocaleString("ru-RU", { timeZone: "Europe/Moscow", day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" }).replace(",", "")} · баланс {r.balanceAfter}
                         </span>
                       </span>
                       <span className={`shrink-0 text-footnote font-semibold tabular-nums ${pos ? "text-[#4ade80]" : "text-[var(--color-text-secondary)]"}`}>
