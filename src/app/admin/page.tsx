@@ -155,7 +155,7 @@ export default async function AdminPage() {
             {users.map((u) => (
               <tr key={u.id} className="border-t border-[var(--color-border-subtle)] text-footnote">
                 <td className="px-4 py-2.5 text-[var(--color-text-primary)]">
-                  {u.firstName || u.username || "—"}
+                  {u.firstName || u.username || u.email || "—"}
                   {u.username ? <span className="text-[var(--color-text-tertiary)]"> @{u.username}</span> : null}
                   {u.isAdmin ? <span className="ml-1 text-[var(--color-text-brand)]">admin</span> : null}
                 </td>
@@ -175,6 +175,8 @@ export default async function AdminPage() {
                     <span title={`Telegram ID ${u.telegramId}`}>Telegram</span>
                   ) : u.googleId ? (
                     <span title={u.email || "Google"}>Google{u.email ? ` · ${u.email}` : ""}</span>
+                  ) : u.email ? (
+                    <span title={u.email}>Email</span>
                   ) : (
                     "—"
                   )}
