@@ -54,6 +54,10 @@ jobs:
           # Set repo variable GOOGLE_CLIENT_ID to switch on the Google sign-in
           # button; empty = button hidden, Telegram login still works.
           NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ vars.GOOGLE_CLIENT_ID }}
+          # Email magic-link sign-in. Set repo variable EMAIL_LOGIN_ENABLED=1 to
+          # show the email form (also needs the YC_SMTP_* secrets below, else the
+          # server returns "disabled"). Empty = form hidden, other logins work.
+          NEXT_PUBLIC_EMAIL_LOGIN: ${{ vars.EMAIL_LOGIN_ENABLED }}
       - name: Package the build for the box
         run: tar -czf next-build.tgz --exclude='.next/cache' .next
       - uses: actions/upload-artifact@v4
@@ -83,10 +87,17 @@ jobs:
             next-build.tgz \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/badcomment/next-build.tgz"
       - name: Sync runtime secrets to the box (.env)
+        # Re-writes the managed keys on every deploy: delete the old line, append
+        # the current secret. Empty secrets append a blank value (harmless — the
+        # feature just stays off until the secret is set).
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \
             "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
-            "sudo touch /opt/badcomment/.env && sudo sed -i '/^GOOGLE_CLIENT_SECRET=/d' /opt/badcomment/.env && printf 'GOOGLE_CLIENT_SECRET=%s\n' '${{ secrets.GOOGLE_CLIENT_SECRET }}' | sudo tee -a /opt/badcomment/.env > /dev/null"
+            "sudo touch /opt/badcomment/.env \
+             && sudo sed -i '/^GOOGLE_CLIENT_SECRET=/d;/^YC_SMTP_USER=/d;/^YC_SMTP_PASS=/d' /opt/badcomment/.env \
+             && { printf 'GOOGLE_CLIENT_SECRET=%s\n' '${{ secrets.GOOGLE_CLIENT_SECRET }}'; \
+                  printf 'YC_SMTP_USER=%s\n' '${{ secrets.YC_SMTP_USER }}'; \
+                  printf 'YC_SMTP_PASS=%s\n' '${{ secrets.YC_SMTP_PASS }}'; } | sudo tee -a /opt/badcomment/.env > /dev/null"
       - name: Swap in the build and restart (no build on the box)
         run: |
           ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes \

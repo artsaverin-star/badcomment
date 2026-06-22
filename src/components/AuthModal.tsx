@@ -96,7 +96,11 @@ export default function AuthModal({
   const [tg, setTg] = useState<TgState | null>(() => (typeof window === "undefined" ? null : loadTg()));
   const [inApp, setInApp] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailBusy, setEmailBusy] = useState(false);
+  const [emailSent, setEmailSent] = useState<string | null>(null); // address we mailed a link to
   const CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
+  const EMAIL_ON = process.env.NEXT_PUBLIC_EMAIL_LOGIN === "1";
 
   // Detect the embedded-webview case on the client (avoids SSR/hydration drift).
   // Deferred so we don't setState synchronously inside the effect body.
@@ -133,6 +137,43 @@ export default function AuthModal({
   function handleGoogleClick() {
     const rt = encodeURIComponent(window.location.pathname + window.location.search);
     window.location.href = `/api/auth/google/start?return_to=${rt}`;
+  }
+
+  // ── Email magic link ────────────────────────────────────────────────
+  // Works everywhere, including in-app webviews where Google is blocked. We
+  // POST the address, the server mails a 15-minute link, the user clicks it.
+  async function handleEmailSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const addr = email.trim();
+    if (!addr || emailBusy) return;
+    setError(null);
+    setEmailBusy(true);
+    try {
+      const returnTo = window.location.pathname + window.location.search;
+      const res = await fetch("/api/auth/email/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: addr, return_to: returnTo }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        setEmailSent(addr.toLowerCase());
+        return;
+      }
+      const messages: Record<string, { ru: string; en: string }> = {
+        bad_email: { ru: "Проверьте адрес почты.", en: "Check the email address." },
+        disposable: { ru: "Временные адреса не поддерживаются. Укажите постоянную почту.", en: "Disposable addresses aren't supported. Use a permanent one." },
+        rate: { ru: "Слишком много попыток. Попробуйте позже.", en: "Too many attempts. Try again later." },
+        send_failed: { ru: "Не удалось отправить письмо. Попробуйте ещё раз.", en: "Couldn't send the email. Try again." },
+        disabled: { ru: "Вход по почте сейчас недоступен.", en: "Email sign-in is unavailable right now." },
+      };
+      const m = messages[data.error as string];
+      setError(m ? (ru ? m.ru : m.en) : ru ? "Что-то пошло не так. Попробуйте ещё раз." : "Something went wrong. Try again.");
+    } catch {
+      setError(ru ? "Не удалось отправить письмо. Попробуйте ещё раз." : "Couldn't send the email. Try again.");
+    } finally {
+      setEmailBusy(false);
+    }
   }
 
   // ── Telegram ────────────────────────────────────────────────────────
@@ -201,6 +242,40 @@ export default function AuthModal({
 
   const btnBase =
     "flex w-full items-center justify-center gap-2.5 rounded-full px-5 py-3 text-callout font-semibold transition-opacity disabled:opacity-60";
+
+  // ── Email: link-sent confirmation ──────────────────────────────────
+  if (emailSent) {
+    return (
+      <ModalShell onClose={onClose} ru={ru}>
+        <div className="flex flex-col items-center gap-4 py-2 text-center">
+          <div className="flex size-14 items-center justify-center rounded-full bg-[var(--color-accent-brand)] text-[var(--brand-color-on-primary,#fff)]">
+            <svg className="size-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 7.5 12 13l9-5.5M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <h3 className="text-lead font-semibold text-[var(--color-text-primary)]">
+            {ru ? "Проверьте почту" : "Check your email"}
+          </h3>
+          <p className="text-callout leading-relaxed text-[var(--color-text-secondary)]">
+            {ru ? (
+              <>Отправили ссылку для входа на <strong className="text-[var(--color-text-primary)]">{emailSent}</strong>. Откройте её на этом устройстве — ссылка действует 15 минут.</>
+            ) : (
+              <>We sent a sign-in link to <strong className="text-[var(--color-text-primary)]">{emailSent}</strong>. Open it on this device — the link is valid for 15 minutes.</>
+            )}
+          </p>
+          <p className="text-caption text-[var(--color-text-tertiary)]">
+            {ru ? "Не пришло? Загляните в «Спам»." : "Not there? Check your spam folder."}
+          </p>
+          <button
+            onClick={() => { setEmailSent(null); setError(null); }}
+            className="text-caption text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
+          >
+            {ru ? "Использовать другой адрес" : "Use a different address"}
+          </button>
+        </div>
+      </ModalShell>
+    );
+  }
 
   // ── Telegram: waiting state ─────────────────────────────────────────
   if (tg?.waiting) {
@@ -290,8 +365,8 @@ export default function AuthModal({
         <div className="mb-4 rounded-2xl border border-[color-mix(in_srgb,#f5a623_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,#f5a623_10%,transparent)] p-4 text-left">
           <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">
             {ru
-              ? "Вы во встроенном браузере (Threads/Instagram и т.п.). Google-вход тут блокируется. Войдите через Telegram, либо откройте сайт в Safari/Chrome (меню ⋯ вверху → «Открыть в браузере»)."
-              : "You're in an in-app browser (Threads/Instagram, etc.). Google sign-in is blocked here. Use Telegram, or open the site in Safari/Chrome (⋯ menu → “Open in browser”)."}
+              ? `Вы во встроенном браузере (Threads/Instagram и т.п.). Google-вход тут блокируется. Войдите ${EMAIL_ON ? "по почте или " : ""}через Telegram, либо откройте сайт в Safari/Chrome (меню ⋯ вверху → «Открыть в браузере»).`
+              : `You're in an in-app browser (Threads/Instagram, etc.). Google sign-in is blocked here. Use ${EMAIL_ON ? "email or " : ""}Telegram, or open the site in Safari/Chrome (⋯ menu → “Open in browser”).`}
           </p>
           <button
             onClick={copyLink}
@@ -299,6 +374,36 @@ export default function AuthModal({
           >
             {copied ? (ru ? "Ссылка скопирована ✓" : "Link copied ✓") : (ru ? "Скопировать ссылку" : "Copy link")}
           </button>
+        </div>
+      )}
+
+      {EMAIL_ON && (
+        <form onSubmit={handleEmailSubmit} className="mb-3 flex flex-col gap-2.5">
+          <input
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={ru ? "Ваша почта" : "Your email"}
+            className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-5 py-3 text-callout text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
+          />
+          <button
+            type="submit"
+            disabled={emailBusy || !email.trim()}
+            className={`${btnBase} bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)] hover:opacity-90`}
+          >
+            {emailBusy ? (ru ? "Отправляем…" : "Sending…") : ru ? "Получить ссылку для входа" : "Get a sign-in link"}
+          </button>
+        </form>
+      )}
+
+      {EMAIL_ON && (
+        <div className="mb-3 flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
+          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+          {ru ? "или" : "or"}
+          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
         </div>
       )}
 
