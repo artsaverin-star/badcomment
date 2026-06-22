@@ -50,8 +50,8 @@ export const TOKEN_PACKS: TokenPack[] = [
 // One-time "everything forever" SKU: unlocks all apps, ideas and categories
 // permanently (User.lifetime). Founding / beta price — the cheap, urgent headline
 // offer; goes up to LIFETIME_REGULAR after the beta.
-export const LIFETIME = { rub: 2990, stars: 1500 };
-export const LIFETIME_REGULAR = 9990; // struck "after beta" anchor
+export const LIFETIME = { rub: 999, stars: 500 };
+export const LIFETIME_REGULAR = 2990; // struck "after beta" anchor
 
 export function getPack(id: string): TokenPack | null {
   return TOKEN_PACKS.find((p) => p.id === id) ?? null;

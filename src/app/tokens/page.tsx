@@ -2,7 +2,7 @@ import { Header } from "@saverin/ui-web";
 import { yookassaEnabled } from "@/lib/yookassa";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
-import { SIGNUP_GRANT, tokensWord } from "@/lib/tokenConfig";
+import { SIGNUP_GRANT, LIFETIME, tokensWord } from "@/lib/tokenConfig";
 import TokenStore from "@/components/TokenStore";
 
 export const dynamic = "force-dynamic";
@@ -38,8 +38,8 @@ export default async function TokensPage() {
       <div className="mx-auto mt-6 max-w-xl rounded-2xl border border-[color-mix(in_srgb,var(--color-text-brand)_40%,var(--color-border-subtle))] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] p-4 text-center">
         <p className="text-callout font-semibold text-[var(--color-text-primary)]">
           {locale === "en"
-            ? "🚀 Early access forever — 2990 ₽"
-            : "🚀 Ранний доступ навсегда — 2990 ₽"}
+            ? `🚀 Early access forever — ${LIFETIME.rub} ₽`
+            : `🚀 Ранний доступ навсегда — ${LIFETIME.rub} ₽`}
         </p>
         <p className="mt-1 text-footnote text-[var(--color-text-secondary)]">
           {locale === "en"
