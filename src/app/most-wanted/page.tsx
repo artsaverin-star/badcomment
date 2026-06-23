@@ -29,10 +29,10 @@ function iconsFor(slug: string, locale: Locale): string[] {
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const title = ru ? "Чего люди на самом деле хотят от приложений — разбор 555 000 отзывов" : "What people actually want from apps — a read of 555,000 reviews";
+  const title = ru ? "Почему скучные приложения побеждают умные — разбор 555 000 отзывов" : "Why boring apps beat smart ones — a read of 555,000 reviews";
   const description = ru
-    ? "Все приложения соревнуются, кто умнее. А люди остаются у тех, кто сделал простые скучные вещи безупречно. Разбор по нишам — на реальных отзывах."
-    : "Every app competes on who's smarter. People stay with whoever nailed the boring simple things. A niche-by-niche read, from real reviews.";
+    ? "Разработчики соревнуются в уме. Люди ставят пять звёзд за обратное — за скучную работу, сделанную безупречно. Пять ниш: что хвалят зря, что держит людей и что под живой спрос никто не построил."
+    : "Developers compete on intelligence. People give five stars to the opposite — the boring job done flawlessly. Five niches: what's overpraised, what keeps people, and what no one has built despite the demand.";
   const url = `https://inapp.pro/${ru ? "ru" : "en"}/most-wanted`;
   return {
     title,
@@ -148,7 +148,7 @@ export default async function MostWantedPage() {
   const eyebrowCls = "text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-brand)]";
   const h2 = "mt-3 text-[26px] font-black leading-[1.14] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[33px]";
 
-  const graph = { "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: ru ? "Чего люди на самом деле хотят от приложений" : "What people actually want from apps", inLanguage: ru ? "ru" : "en", author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" }, publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" } }] };
+  const graph = { "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: ru ? "Почему скучные приложения побеждают умные" : "Why boring apps beat the smart ones", inLanguage: ru ? "ru" : "en", author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" }, publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" } }] };
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
@@ -159,13 +159,13 @@ export default async function MostWantedPage() {
       <header>
         <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Разбор рынка по отзывам" : "A market read from reviews"}</div>
         <h1 className="glow-sweep mt-6 max-w-[20ch] text-[clamp(30px,7.4vw,54px)] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
-          {ru ? "Чего люди на самом деле хотят от приложений" : "What people actually want from apps"}
+          {ru ? "Почему скучные приложения побеждают умные" : "Why boring apps beat the smart ones"}
         </h1>
         <p className="mt-7 max-w-[62ch] text-[18px] leading-[1.65] text-[var(--color-text-secondary)] sm:text-[20px]">
           {ru ? (
-            <>Почти каждый разработчик уверен: побеждает тот, кто умнее — больше ИИ, больше функций, больше геймификации. Мы прогнали через анализ <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> отзывов на <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> приложений и прочитали, за что люди на самом деле ставят пять звёзд. Почти везде — за обратное. Люди скачивают приложения ради скучных, простых вещей и остаются не у самых умных, а у тех, кто эти простые вещи сделал так, что не подкопаешься. Вот пять ниш, где это видно лучше всего.</>
+            <>Разработчики соревнуются в уме: больше ИИ, больше функций, больше геймификации. Мы прогнали через анализ <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> отзывов на <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> приложений и прочитали, за что люди ставят пять звёзд. Почти везде — за обратное: за то, что скучную, простую работу сделали безупречно. Разобрали пять ниш. В каждой — одно и то же: главную фичу хвалят зря, держит людей совсем другое, а под живой спрос приложение до сих пор никто не сделал.</>
           ) : (
-            <>Almost every developer is sure the smartest app wins — more AI, more features, more gamification. We ran <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> reviews across <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> apps through analysis and read what people actually give five stars for. Almost always, the opposite. People download apps for boring, simple things and stay not with the smartest, but with whoever made those simple things flawless. Here are five niches where you can see it best.</>
+            <>Developers compete on intelligence: more AI, more features, more gamification. We ran <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> reviews across <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> apps through analysis and read what earns five stars. Almost always, the opposite — nailing the boring, simple job. We dug into five niches. Each shows the same thing: the headline feature is overpraised, something else keeps people, and the app the demand is begging for still doesn't exist.</>
           )}
         </p>
       </header>
