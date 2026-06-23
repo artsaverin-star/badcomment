@@ -451,9 +451,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
           <h2 className="text-[20px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Похожие ниши" : "Related niches"}</h2>
           <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {relatedTop.map((r) => (
-              <Link key={r.slug} href={`/segment/${r.slug}`} className="group flex items-center justify-between rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]">
+              <Link key={r.slug} href={`/segment/${r.slug}`} className="flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]">
                 <span className="text-[15px] font-medium text-[var(--color-text-primary)]">{r.name}</span>
-                <svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="text-[var(--color-text-brand)] transition-transform group-hover:translate-x-1"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             ))}
           </div>

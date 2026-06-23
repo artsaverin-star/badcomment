@@ -91,7 +91,7 @@ export default function CardDeck({
 
   // Persist drawn cards locally so they survive a reload — notably the full-page
   // redirect during sign-in (anon cards no longer vanish after registering).
-  const STORE_KEY = "inapp_cards";
+  const STORE_KEY = "inapp_cards2";
   useEffect(() => {
     // Deferred so we don't setState synchronously inside the effect body.
     const t = setTimeout(() => {
@@ -165,9 +165,14 @@ export default function CardDeck({
       if (data.ok) {
         const card = data.card as Card;
         setHand((h) => h.map((s, j) => (j === i ? { ...s, card } : s)));
-        setSeen((sl) => [...sl, card.slug]);
-        setCollection((c) => [card, ...c]);
-        if (typeof data.guestUsed === "number") setGuestUsed(data.guestUsed);
+        if (data.replay) {
+          // Deck already fully opened — show the card for fun, don't re-collect it.
+          setDone(true);
+        } else {
+          setSeen((sl) => [...sl, card.slug]);
+          setCollection((c) => [card, ...c]);
+          if (typeof data.guestUsed === "number") setGuestUsed(data.guestUsed);
+        }
         void fireNeon(el?.getBoundingClientRect());
       } else setErr("error");
     } catch {
@@ -239,8 +244,7 @@ export default function CardDeck({
         <button
           type="button"
           onClick={deal}
-          disabled={done}
-          className="mt-9 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] px-7 py-3.5 text-[15px] font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-text-tertiary)] disabled:opacity-60"
+          className="mt-9 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] px-7 py-3.5 text-[15px] font-semibold text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-text-tertiary)]"
         >
           {ru ? "Раздать ещё 2" : "Deal 2 more"} {allFlipped ? "" : "🔀"}
         </button>
@@ -249,7 +253,7 @@ export default function CardDeck({
       {!paywall && (
         <div className="mt-3.5 text-center text-[13px] text-[var(--color-text-tertiary)]">
           {done ? (
-            ru ? "🎉 Ты открыл все идеи в колоде" : "🎉 You've drawn the whole deck"
+            ru ? "🎉 Ты открыл все идеи в колоде — крути дальше, новые в «Твои идеи» не добавятся" : "🎉 You've drawn the whole deck — keep flipping, new ones won't be collected"
           ) : unlimited ? (
             ru ? "У тебя полный доступ — открывай сколько хочешь" : "Full access — open freely"
           ) : !loggedIn ? (
@@ -308,7 +312,7 @@ export default function CardDeck({
                 </div>
                 <span className="mt-3 block text-[19px] font-bold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{c.title}</span>
                 <span className="mt-2 line-clamp-2 block text-[14px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[15px]">{c.oneLiner}</span>
-                <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"} →</span>
+                <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"}</span>
               </button>
             ))}
           </div>
@@ -349,7 +353,7 @@ export default function CardDeck({
                       </div>
                     )}
                     {modal.monetization && <Section label={ru ? "Монетизация" : "Monetize"} text={modal.monetization} />}
-                    <Link href={`/segment/${modal.category}`} className="inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-brand)]">{ru ? `Вся ниша «${modal.categoryName}»` : `Full niche "${modal.categoryName}"`} →</Link>
+                    <Link href={`/segment/${modal.category}`} className="flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 text-[15px] font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]">{ru ? `Вся ниша «${modal.categoryName}»` : `Full niche "${modal.categoryName}"`}</Link>
                   </div>
                 ) : (
                   <div className="mt-7 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 text-center">

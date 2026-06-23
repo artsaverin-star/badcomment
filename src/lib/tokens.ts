@@ -49,7 +49,7 @@ export type DrawCard = {
   categoryName: string;
 };
 export type DrawResult =
-  | { ok: true; card: DrawCard; remaining: number }
+  | { ok: true; card: DrawCard; remaining: number; replay?: boolean }
   | { ok: false; reason: "paywall" | "empty" };
 
 function toCard(i: ReturnType<typeof listIdeas>[number]): DrawCard {
@@ -94,8 +94,16 @@ export function peekIdea(exclude: string[] = []): DrawCard | null {
 export async function drawIdea(userId: string, unlimited: boolean, exclude: string[] = []): Promise<DrawResult> {
   const ex = new Set(exclude);
   const owned = (await getUnlockSets(userId)).idea;
-  const fresh = deckPool().filter((i) => !ex.has(i.slug) && !owned.has(i.slug));
-  if (fresh.length === 0) return { ok: false, reason: "empty" };
+  const pool = deckPool();
+  const fresh = pool.filter((i) => !ex.has(i.slug) && !owned.has(i.slug));
+  if (fresh.length === 0) {
+    // Deck exhausted (owns/seen all) — let them keep flipping for fun. No new
+    // ownership or ledger row; the client just shows the card, doesn't collect it.
+    if (pool.length === 0) return { ok: false, reason: "empty" };
+    const notSeen = pool.filter((i) => !ex.has(i.slug));
+    const src = notSeen.length ? notSeen : pool;
+    return { ok: true, card: toCard(src[Math.floor(Math.random() * src.length)]), remaining: 0, replay: true };
+  }
 
   if (!unlimited && !(await ownsDeck(userId))) {
     const usedFree = await prisma.tokenLedger.count({ where: { userId, reason: "draw" } });

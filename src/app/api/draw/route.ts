@@ -37,5 +37,5 @@ export async function POST(req: Request) {
     if (res.reason === "paywall") return NextResponse.json({ paywall: true });
     return NextResponse.json({ done: true });
   }
-  return NextResponse.json({ ok: true, card: res.card, remaining: res.remaining });
+  return NextResponse.json({ ok: true, card: res.card, remaining: res.remaining, replay: res.replay });
 }

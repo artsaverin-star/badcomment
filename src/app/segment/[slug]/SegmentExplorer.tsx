@@ -69,13 +69,6 @@ function Quotes({ list, n = 3 }: { list: ExpQuote[]; n?: number }) {
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{children}</div>;
 }
-function Arrow() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-300 group-hover:translate-x-1">
-      <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export default function SegmentExplorer({
   locale,
@@ -173,7 +166,7 @@ export default function SegmentExplorer({
                   </div>
                   <span className="mt-3.5 block text-[19px] font-bold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{op.regen?.title || op.title}</span>
                   <span className="mt-2 line-clamp-3 block text-[14px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[15px]">{op.regen?.tagline || op.oneLiner}</span>
-                  <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"} <Arrow /></span>
+                  <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"}</span>
                 </button>
               ))}
             </div>

@@ -83,7 +83,7 @@ function LockedIdeaCard({ idea, ru }: { idea: IdeaCard; ru: boolean }) {
         </span>
         <div className="flex flex-1 flex-col items-start justify-center gap-1.5 py-1">
           <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[color-mix(in_srgb,var(--color-bg-page)_70%,transparent)] px-4 py-2.5 text-callout font-semibold text-[var(--color-text-primary)] backdrop-blur-md">
-            {ru ? "Открыть в разборе ниши" : "Open inside the niche"} →
+            {ru ? "Открыть в разборе ниши" : "Open inside the niche"}
           </span>
           <p className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Название и суть идеи — внутри разбора" : "Name and gist — inside the breakdown"}</p>
         </div>

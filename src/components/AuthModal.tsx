@@ -379,37 +379,6 @@ export default function AuthModal({
         </div>
       )}
 
-      {EMAIL_ON && (
-        <form onSubmit={handleEmailSubmit} className="mb-3 flex flex-col gap-2.5">
-          <input
-            type="email"
-            inputMode="email"
-            autoComplete="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={ru ? "Ваша почта" : "Your email"}
-            className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-5 py-3 text-callout text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
-          />
-          <button
-            type="submit"
-            disabled={emailBusy || !email.trim()}
-            className={`${btnBase} bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)] hover:opacity-90`}
-          >
-            {emailBusy ? (ru ? "Отправляем…" : "Sending…") : ru ? "Получить ссылку для входа" : "Get a sign-in link"}
-          </button>
-          {emailError && <p className="px-1 text-center text-footnote text-[#e5484d]">{emailError}</p>}
-        </form>
-      )}
-
-      {EMAIL_ON && (
-        <div className="mb-3 flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
-          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-          {ru ? "или" : "or"}
-          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-        </div>
-      )}
-
       <div className="flex flex-col items-center gap-3">
         <button onClick={handleTelegramClick} disabled={loading} className={`${btnBase} bg-[#2AABEE] text-white hover:opacity-90`}>
           {TG_ICON}
@@ -434,6 +403,37 @@ export default function AuthModal({
 
         {error && <p className="text-center text-footnote text-[#e5484d]">{error}</p>}
       </div>
+
+      {EMAIL_ON && (
+        <div className="my-3 flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
+          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+          {ru ? "или по почте" : "or by email"}
+          <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+        </div>
+      )}
+
+      {EMAIL_ON && (
+        <form onSubmit={handleEmailSubmit} className="flex flex-col gap-2.5">
+          <input
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={ru ? "Ваша почта" : "Your email"}
+            className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-5 py-3 text-callout text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-border-strong)]"
+          />
+          <button
+            type="submit"
+            disabled={emailBusy || !email.trim()}
+            className={`${btnBase} border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]`}
+          >
+            {emailBusy ? (ru ? "Отправляем…" : "Sending…") : ru ? "Войти по почте" : "Sign in by email"}
+          </button>
+          {emailError && <p className="px-1 text-center text-footnote text-[#e5484d]">{emailError}</p>}
+        </form>
+      )}
     </ModalShell>
   );
 }
