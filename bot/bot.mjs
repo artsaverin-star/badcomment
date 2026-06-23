@@ -16,7 +16,7 @@ const PACKS = {
   l: { tokens: 700, stars: 2500 },
 };
 // Stars prices — mirror src/lib/tokenConfig.ts (LIFETIME.stars / DECK_STARS / CATEGORY_STARS).
-const LIFETIME = { stars: 2000 };
+const LIFETIME = { stars: 1500 };
 const DECK_STARS = 150;
 const CATEGORY_STARS = 200;
 const API = `https://api.telegram.org/bot${TOKEN}`;

@@ -7,7 +7,7 @@
 export type UnlockType = "app" | "idea" | "chapter" | "category" | "ideas" | "apps";
 
 // One-time "everything forever" SKU (User.lifetime). Stars ≈ ₽/2 (1⭐ ≈ ~2₽).
-export const LIFETIME = { rub: 3990, stars: 2000 };
+export const LIFETIME = { rub: 2990, stars: 1500 };
 
 // ── Direct-₽ model ─────────────────────────────────────────────────────────
 export const DECK_PRICE_RUB = 290; // unlock the whole best-of deck (top-2 × premium niches) forever
