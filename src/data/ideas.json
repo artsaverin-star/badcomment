@@ -15599,461 +15599,6 @@
   }
  },
  {
-  "slug": "pet-care-1",
-  "category": "pet-care",
-  "categoryName": "Уход за питомцами",
-  "title": "Трекер, который громче всего работает, когда питомец потерян",
-  "oneLiner": "GPS-ошейник и приложение, где режим поиска (живая локация, громкий звук, маяк) включается без ограничений именно при потере связи или слёте ошейника.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 8,
-   "reviews": 4000,
-   "observations": 28
-  },
-  "reviewGrid": [
-   {
-    "quote": "if the tracker falls off, because of your cheaply made clips, that you are then unable to use the live tracking feature as well as the noise and sound to find the tracker",
-    "rating": 1,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "the audio in radar mode is so quiet the rustling of the trees drowns it out",
-    "rating": 1,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "my dogs GPS just popped for my old address, which is easily 20 miles away. are you fabricating GPS coordinates?",
-    "rating": 1,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "The GPS is worthelss if the app needs internet to find my pet. There should be an option for offline maps like Google Maps.",
-    "rating": 1,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "New high power routers make a zone a mile across, unusable.",
-    "rating": 3,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "Thunderstorm popped up while we were away, dog bolted. The tracker did exactly what it's designed to do, led me right to him.",
-    "rating": 5,
-    "app": "Tractive GPS for Dogs and Cats"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Трекер, который громче всего работает, когда питомец потерян",
-    "obsCount": 6,
-    "apps": [
-     "Tractive GPS for Dogs and Cats"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Лидеры отключают живой поиск и звук в power-saving зоне и при слёте ошейника — ровно в критический момент. Звук радара тонет в листве.",
-  "idea": {
-   "pitch": "Переверните логику: батарею экономят в покое, но при триггере «вне зоны / снят» устройство переходит в максимально слышимый и видимый режим. Громкий пьезо-маяк, последняя достоверная точка (не старый «безопасный» адрес), офлайн-карта.",
-   "features": [
-    "Принудительный громкий маяк и стробоскоп при потере",
-    "Живая локация доступна в любой момент, без блокировки в зоне",
-    "Последняя достоверная точка вместо адреса «безопасной зоны»",
-    "Офлайн-карты для слабого покрытия",
-    "Адаптивный размер забора с защитой от мощных роутеров"
-   ],
-   "antiFeatures": [],
-   "monetization": "Устройство + честная подписка с бесплатным базовым слоем после покупки; платный «health+поиск» уровень."
-  }
- },
- {
-  "slug": "pet-care-2",
-  "category": "pet-care",
-  "categoryName": "Уход за питомцами",
-  "title": "Ранний детектор болезни питомца по данным активности",
-  "oneLiner": "Сервис, который превращает данные пульса и отдыха с любого трекера в понятные предупреждения о возможных проблемах со здоровьем.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 8,
-   "reviews": 4000,
-   "observations": 25
-  },
-  "reviewGrid": [
-   {
-    "quote": "It helps me track my dog's resting heart rate for his stage 3/6 enlarged heart & murmur. noticed when he has less rest too",
-    "rating": 5,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "He was starting to have a collapsed trachea. so I believe this device & app is a miracle helper.",
-    "rating": 5,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "the new features to monitor there health is a cool addition",
-    "rating": 5,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "My Tractive Dog 6 XL will not sync for heath data",
-    "rating": 1,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "I appreciate that it tells me how far we walk every day.",
-    "rating": 5,
-    "app": "Tractive GPS for Dogs and Cats"
-   },
-   {
-    "quote": "Decent app but the rewards program is a joke",
-    "rating": 3,
-    "app": "Petco: The Pet Parents Partner"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Ранний детектор болезни питомца по данным активности",
-    "obsCount": 6,
-    "apps": [
-     "Tractive GPS for Dogs and Cats",
-     "Petco: The Pet Parents Partner"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Владельцы уже ловят сердечную недостаточность и коллапс трахеи по падению отдыха — но это случайные находки, а не продукт. Здоровье в трекерах — «приятный бонус», не ядро.",
-  "idea": {
-   "pitch": "Сделать здоровье ядром, а не довеском: базовые тренды (пульс, сон, активность) с понятным языком «обратитесь к ветеринару», экспорт отчёта для клиники, сравнение с породными нормами.",
-   "features": [
-    "Тренды пульса, отдыха и активности с алертами об отклонениях",
-    "Отчёт одной кнопкой для ветеринара",
-    "Сравнение с нормами по породе и возрасту",
-    "Заметки о приёме лекарств и симптомах",
-    "Импорт данных со сторонних ошейников"
-   ],
-   "antiFeatures": [],
-   "monetization": "Подписка на health-аналитику; партнёрство с клиниками за экспорт отчётов."
-  }
- },
- {
-  "slug": "pet-care-3",
-  "category": "pet-care",
-  "categoryName": "Уход за питомцами",
-  "title": "Ситтинг для кошек и экзотики, где «не собака» — это норма",
-  "oneLiner": "Маркетплейс присмотра, спроектированный вокруг кошек, мелких и экзотических питомцев и медицинских процедур (инсулин, таблетки).",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 8,
-   "reviews": 4000,
-   "observations": 25
-  },
-  "reviewGrid": [
-   {
-    "quote": "it's pretty impossible finding cat sitters in amongst all the people offering dog services. Rover haven't even bothered to apply a filter.",
-    "rating": 1,
-    "app": "Rover—Dog Sitters & Walkers"
-   },
-   {
-    "quote": "can't find anyone to feed my cats and give my one cat his insulin.",
-    "rating": 3,
-    "app": "Rover—Dog Sitters & Walkers"
-   },
-   {
-    "quote": "Such good care of my senior cat and so knowledgeable. Animals are in great and loving care",
-    "rating": 5,
-    "app": "Rover—Dog Sitters & Walkers"
-   },
-   {
-    "quote": "terrible switch from Cat in a Flat, I lost all my regular bookings.",
-    "rating": 1,
-    "app": "Rover—Dog Sitters & Walkers"
-   },
-   {
-    "quote": "Galianna was great with my cats. She did a wonderful job caring for them and is very dependable.",
-    "rating": 5,
-    "app": "Rover—Dog Sitters & Walkers"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Ситтинг для кошек и экзотики, где «не собака» — это норма",
-    "obsCount": 5,
-    "apps": [
-     "Rover—Dog Sitters & Walkers"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "После поглощений кошачьи сервисы растворились среди собачьих: нет фильтра «кошки», нет ухода за курами/козами, никто не вводит инсулин — целые сегменты уходят.",
-  "idea": {
-   "pitch": "Сделать кошек и экзотику первым классом: фильтр по виду по умолчанию, навыки «даю лекарства/инсулин», профили с особенностями характера пугливых животных. Это сегмент, от которого собако-центричные платформы открыто отказываются.",
-   "features": [
-    "Фильтр и онбординг по виду питомца (кошка, экзот, ферма)",
-    "Метки навыков: инъекции, таблетки, спецдиета",
-    "Профили пугливых животных и инструкции по адаптации",
-    "Визиты на дом, а не передержка — для котов",
-    "Проверяемые отзывы по конкретному ситтеру"
-   ],
-   "antiFeatures": [],
-   "monetization": "Комиссия с одной стороны (владельца), бесплатно для ситтера; платные верификации навыков."
-  }
- },
- {
-  "slug": "pet-care-4",
-  "category": "pet-care",
-  "categoryName": "Уход за питомцами",
-  "title": "Ситтинг с прозрачной односторонней комиссией и реальной безопасностью",
-  "oneLiner": "Платформа присмотра, где платит только одна сторона, а доверие подкреплено настоящей верификацией и защитой от мести в отзывах.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 8,
-   "reviews": 4000,
-   "observations": 25
-  },
-  "reviewGrid": [
-   {
-    "quote": "they go and spit in the face of their users with a £10 fee for every house sit",
-    "rating": 1,
-    "app": "TrustedHousesitters"
-   },
-   {
-    "quote": "A sitter gave a fake address, left my puppy locked in a cage in its waste, and extorted me for a $200 off-platform fee",
-    "rating": 1,
-    "app": "Rover—Dog Sitters & Walkers"
-   },
-   {
-    "quote": "do they even do background checks? I dont know why i would trust just anybody with $200 bucks to spare to watch my pets for up to 2 weeks.",
-    "rating": 2,
-    "app": "TrustedHousesitters"
-   },
-   {
-    "quote": "Now, Rover lets the sitter edit his profile to hide violations while actively keeping his retaliatory, provable lies on my page.",
-    "rating": 1,
-    "app": "Rover—Dog Sitters & Walkers"
-   },
-   {
-    "quote": "They increased the percentage they remove from the sitters posted asking price! Mine had been 15%. Now they are taking 20%.",
-    "rating": 1,
-    "app": "Rover—Dog Sitters & Walkers"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Ситтинг с прозрачной односторонней комиссией и реальной безопасностью",
-    "obsCount": 5,
-    "apps": [
-     "TrustedHousesitters",
-     "Rover—Dog Sitters & Walkers"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Двойная комиссия (членство + сбор с обоих) заставляет стороны уходить «напрямую». Скрининга нет, поддержка предлагала «оплатить вымогательство через чаевые», отзыв-месть удалить нельзя.",
-  "idea": {
-   "pitch": "Доверие — это продукт. Одна прозрачная комиссия, верификация личности и адреса, страховка инцидента, модерация отзывов-мести и экстренная линия с человеком. Уберите стимул обходить платформу.",
-   "features": [
-    "Одна прозрачная комиссия, видимая до брони",
-    "Верификация личности и адреса ситтера",
-    "Страховка/гарантия на случай инцидента",
-    "Защита от ответных отзывов-мести",
-    "Экстренная поддержка с живым человеком"
-   ],
-   "antiFeatures": [],
-   "monetization": "Единая комиссия с владельца + платная страховка/гарантия; премиум-верификация ситтера."
-  }
- },
- {
-  "slug": "pet-care-5",
-  "category": "pet-care",
-  "categoryName": "Уход за питомцами",
-  "title": "Адопшен с честным гео и живым статусом «пристроен»",
-  "oneLiner": "Приложение для подбора питомца, где фильтр «рядом» реально работает, а каждое объявление честно помечается как доступно/пристроено.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 8,
-   "reviews": 4000,
-   "observations": 25
-  },
-  "reviewGrid": [
-   {
-    "quote": "The \"local pets only\" option used to work. Now, I can go through tens of pages and still only see dogs that can be shipped (\"0 miles\" away",
-    "rating": 1,
-    "app": "Petfinder - Adopt a Pet"
-   },
-   {
-    "quote": "I want to meet the pet before I bring it home!! make sure it likes my family and my other pets!! I also don't want to pay extra for pet transport",
-    "rating": 1,
-    "app": "Petfinder - Adopt a Pet"
-   },
-   {
-    "quote": "pets that are marked as favorites never reflect if they've been adopted. Every pet I've ever marked still shows as \"available\"",
-    "rating": 3,
-    "app": "Petfinder - Adopt a Pet"
-   },
-   {
-    "quote": "Animals that has multiple pictures have a listing for each picture. A dog with 5 pictures will have 5 listings.",
-    "rating": 1,
-    "app": "Petfinder - Adopt a Pet"
-   },
-   {
-    "quote": "such a huge help to shelters! and people",
-    "rating": 5,
-    "app": "Petfinder - Adopt a Pet"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Адопшен с честным гео и живым статусом «пристроен»",
-    "obsCount": 5,
-    "apps": [
-     "Petfinder - Adopt a Pet"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Гео-фильтр сломан — «0 миль» оказывается за тысячи миль с платной перевозкой; пристроенные животные годами висят доступными; одно фото = один дубль-листинг.",
-  "idea": {
-   "pitch": "Владелец хочет познакомить питомца с семьёй лично. Дайте честный радиус, обязательное подтверждение приютом статуса раз в N дней, дедупликацию листингов и сохранение поисков. Простая надёжность бьёт раздутую витрину.",
-   "features": [
-    "Честный фильтр по реальному расстоянию",
-    "Обязательное подтверждение статуса приютом раз в N дней",
-    "Дедупликация: одно животное — одно объявление",
-    "Сохранённые поиски и устойчивый вход в аккаунт",
-    "Локальные приюты в приоритете выдачи"
-   ],
-   "antiFeatures": [],
-   "monetization": "Бесплатно для усыновителей; платные инструменты для приютов (продвижение, аналитика)."
-  }
- },
- {
-  "slug": "pet-care-6",
-  "category": "pet-care",
-  "categoryName": "Уход за питомцами",
-  "title": "Личная карта здоровья питомца, независимая от клиники и бренда",
-  "oneLiner": "Приложение-сейф истории питомца (прививки, операции, рецепты, анализы), которое принадлежит владельцу и переживает смену вета.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 8,
-   "reviews": 4000,
-   "observations": 25
-  },
-  "reviewGrid": [
-   {
-    "quote": "why would EVERRRRR think it was a good idea to remove the feature that hosts all your pets vaccine and surgery history! this is a stupid and pointless app now",
-    "rating": 1,
-    "app": "PetDesk"
-   },
-   {
-    "quote": "I need to be able to pull / view vac records on a website on my computer.",
-    "rating": 1,
-    "app": "PetDesk"
-   },
-   {
-    "quote": "Every one of my dead Pets (over the last 15 years) is showing up as \"active\".",
-    "rating": 3,
-    "app": "PetDesk"
-   },
-   {
-    "quote": "never loads, impossible to get records from app",
-    "rating": 1,
-    "app": "Banfield Pet Hospital"
-   },
-   {
-    "quote": "the vet office scheduled the appointment and created another new pet entry, and there's no way for me to replace their blank pet entry",
-    "rating": 3,
-    "app": "PetDesk"
-   },
-   {
-    "quote": "Very user-friendly and easy to use! It keeps track of medical records and you can refill meds easily",
-    "rating": 5,
-    "app": "Banfield Pet Hospital"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Личная карта здоровья питомца, независимая от клиники и бренда",
-    "obsCount": 6,
-    "apps": [
-     "PetDesk",
-     "Banfield Pet Hospital"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Порталы клиник вырезают историю прививок, не дают скачать анализы, теряют смысл при удалении функции; данные привязаны к одной клинике и недоступны с компьютера.",
-  "idea": {
-   "pitch": "История питомца должна принадлежать владельцу, а не клинике. Импорт записей, экспорт PDF, веб-доступ, жизненный цикл карточки (включая бережный архив умершего питомца), напоминания о прививках. Нейтральный слой поверх любых клиник.",
-   "features": [
-    "Хранилище прививок, операций, рецептов, анализов с экспортом PDF",
-    "Веб-доступ, не только телефон",
-    "Импорт из разных клиник и слияние дублей карточек",
-    "Бережный архив умершего питомца вместо вечного «активен»",
-    "Напоминания о прививках и продлении рецептов"
-   ],
-   "antiFeatures": [],
-   "monetization": "Freemium: базовое хранение бесплатно, платный экспорт/семейный доступ; B2B-интеграция с клиниками."
-  }
- },
- {
-  "slug": "pet-care-7",
-  "category": "pet-care",
-  "categoryName": "Уход за питомцами",
-  "title": "Лояльность для питомца, где баллы реально тратятся",
-  "oneLiner": "Программа наград, привязанная к фактической диете питомца, с автоматическим чтением цифровых чеков и цифровыми, релевантными призами.",
-  "asOf": "2026-06-20",
-  "stats": {
-   "apps": 8,
-   "reviews": 4000,
-   "observations": 25
-  },
-  "reviewGrid": [
-   {
-    "quote": "Chewy receipts fail every time I upload them, despite having ALL the info it asks for. I spend $250+ every month for prescription wet food",
-    "rating": 3,
-    "app": "myPurina – Pet Rewards App"
-   },
-   {
-    "quote": "the coupon rewards (which are paper) do me no good because no stores carry the pro plan. If the paper coupons were digital instead and could be redeemed on Amazon, I would give the app 5 stars.",
-    "rating": 2,
-    "app": "myPurina – Pet Rewards App"
-   },
-   {
-    "quote": "You have to proactively load rewards vs them just appearing. Then the reward expires quickly. I've lost about $30 to this.",
-    "rating": 3,
-    "app": "Petco: The Pet Parents Partner"
-   },
-   {
-    "quote": "The reward coupons are a huge help and benefit and because its the only food both my cats and dog prefer its easy to accumulate points.",
-    "rating": 5,
-    "app": "myPurina – Pet Rewards App"
-   }
-  ],
-  "mechanisms": [
-   {
-    "title": "Лояльность для питомца, где баллы реально тратятся",
-    "obsCount": 4,
-    "apps": [
-     "myPurina – Pet Rewards App",
-     "Petco: The Pet Parents Partner"
-    ],
-    "polarity": "pain"
-   }
-  ],
-  "gap": "Чеки с Amazon/Chewy не читаются, баллы начисляются неверно; купоны бумажные и на корм, которого нет в магазине или который не подходит питомцу на спецдиете; призы не доходят.",
-  "idea": {
-   "pitch": "Привяжите награды к реальному профилю питомца: цифровая привязка магазинов вместо фото-чеков, призы под фактическую диету (включая прескрипшн), цифровые купоны под онлайн-заказ. Сделайте трату баллов такой же простой, как накопление.",
-   "features": [
-    "Привязка онлайн-магазинов для авточтения чеков",
-    "Призы под реальную диету питомца, включая прескрипшн",
-    "Цифровые купоны для онлайн-заказа",
-    "Прозрачный учёт начислений без «дубликатов»",
-    "Напоминания об истечении баллов"
-   ],
-   "antiFeatures": [],
-   "monetization": "Финансируется брендами/ретейлом как канал удержания; премиум-уровень для мультипитомцев."
-  }
- },
- {
   "slug": "travel-planning-1",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
@@ -32157,6 +31702,482 @@
    ],
    "antiFeatures": [],
    "monetization": "Базовый архив бесплатно; платно — безлимит истории, анализ паттернов по своим заметкам и экспорт."
+  }
+ },
+ {
+  "slug": "pet-care-1",
+  "category": "pet-care",
+  "categoryName": "Уход за питомцами",
+  "title": "Трекер, который громче всего работает, когда питомец потерян",
+  "oneLiner": "GPS-ошейник и приложение, где режим поиска — живая локация, громкий звук, яркий маяк — включается без ограничений именно при потере связи или слёте ошейника.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 46
+  },
+  "reviewGrid": [
+   {
+    "quote": "if the tracker falls off, because of your cheaply made clips, that you are then unable to use the live tracking feature as well as the noise and sound to find the tracker",
+    "rating": 1,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "the audio in radar mode is so quiet the rustling of the trees drowns it out",
+    "rating": 1,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "my dogs GPS just popped for my old address, which is easily 20 miles away. are you fabricating GPS coordinates?",
+    "rating": 1,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "The GPS is worthelss if the app needs internet to find my pet. There should be an option for offline maps like Google Maps.",
+    "rating": 1,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "New high power routers make a zone a mile across, unusable.",
+    "rating": 3,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "Thunderstorm popped up while we were away, dog bolted. The tracker did exactly what it's designed to do, led me right to him.",
+    "rating": 5,
+    "app": "Tractive GPS for Dogs and Cats"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Трекер, который громче всего работает, когда питомец потерян",
+    "obsCount": 46,
+    "apps": [
+     "Tractive GPS for Dogs and Cats"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Лидеры глушат живой поиск и звук в power-saving зоне и при слёте ошейника — ровно в критический момент; звук радара тонет в листве, точка берётся из старого «безопасного» адреса.",
+  "idea": {
+   "pitch": "Переверните логику: батарею экономят в покое, но при триггере «вне зоны / снят» устройство уходит в максимально слышимый и видимый режим. Громкий пьезо-маяк, последняя достоверная точка вместо старого адреса, карта без интернета. Верните то, за что любили компактный Whistle.",
+   "features": [
+    "Принудительный громкий маяк и стробоскоп при потере",
+    "Живая локация доступна в любой момент, без блокировки в зоне",
+    "Последняя достоверная точка вместо адреса «безопасной зоны»",
+    "Карты без интернета для слабого покрытия",
+    "Адаптивный забор с защитой от мощных роутеров"
+   ],
+   "antiFeatures": [],
+   "monetization": "Устройство + честная подписка с бесплатным базовым слоем после покупки; платный уровень «здоровье+поиск»."
+  }
+ },
+ {
+  "slug": "pet-care-2",
+  "category": "pet-care",
+  "categoryName": "Уход за питомцами",
+  "title": "Ранний детектор болезни по данным активности",
+  "oneLiner": "Сервис, который превращает пульс, сон и активность с любого ошейника в понятные предупреждения о возможных проблемах со здоровьем.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 31
+  },
+  "reviewGrid": [
+   {
+    "quote": "It helps me track my dog's resting heart rate for his stage 3/6 enlarged heart & murmur. noticed when he has less rest too",
+    "rating": 5,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "He was starting to have a collapsed trachea. so I believe this device & app is a miracle helper.",
+    "rating": 5,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "the new features to monitor there health is a cool addition",
+    "rating": 5,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "helps us keep our dogs active and healthy with the way it monitors their heart etc.",
+    "rating": 5,
+    "app": "Tractive GPS for Dogs and Cats"
+   },
+   {
+    "quote": "Having all this information readily available for our vet has been a game-changer.",
+    "rating": 5,
+    "app": "11Pets: Pet Care"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Ранний детектор болезни по данным активности",
+    "obsCount": 31,
+    "apps": [
+     "Tractive GPS for Dogs and Cats",
+     "11Pets: Pet Care"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Владельцы уже ловят сердечную недостаточность и коллапс трахеи по падению покоя — но это случайные находки, а не продукт; здоровье в трекерах остаётся приятным довеском, не ядром.",
+  "idea": {
+   "pitch": "Сделать здоровье ядром, а не довеском: тренды пульса, сна и активности понятным языком «покажите ветеринару», отчёт одной кнопкой для клиники, сравнение с нормами по породе и возрасту. Импорт данных со сторонних ошейников.",
+   "features": [
+    "Тренды пульса, отдыха и активности с понятными предупреждениями",
+    "Отчёт одной кнопкой для ветеринара",
+    "Сравнение с нормами по породе и возрасту",
+    "Заметки о приёме лекарств и симптомах",
+    "Импорт данных со сторонних ошейников"
+   ],
+   "antiFeatures": [],
+   "monetization": "Подписка на аналитику здоровья; партнёрство с клиниками за экспорт отчётов."
+  }
+ },
+ {
+  "slug": "pet-care-3",
+  "category": "pet-care",
+  "categoryName": "Уход за питомцами",
+  "title": "Личная карта здоровья питомца, независимая от клиники и бренда",
+  "oneLiner": "Приложение-сейф истории питомца (прививки, операции, рецепты, анализы), которое принадлежит владельцу и переживает смену вета, бренда и платной модели.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 64
+  },
+  "reviewGrid": [
+   {
+    "quote": "why would EVERRRRR think it was a good idea to remove the feature that hosts all your pets vaccine and surgery history! this is a stupid and pointless app now",
+    "rating": 1,
+    "app": "PetDesk"
+   },
+   {
+    "quote": "I need to be able to pull / view vac records on a website on my computer.",
+    "rating": 1,
+    "app": "PetDesk"
+   },
+   {
+    "quote": "They hold your pet's data hostage and you have to specifically contact them to get it, no in-app option exists.",
+    "rating": 1,
+    "app": "11Pets: Pet Care"
+   },
+   {
+    "quote": "never loads, impossible to get records from app",
+    "rating": 1,
+    "app": "Banfield Pet Hospital"
+   },
+   {
+    "quote": "Every one of my dead Pets (over the last 15 years) is showing up as \"active\".",
+    "rating": 3,
+    "app": "PetDesk"
+   },
+   {
+    "quote": "I love that it has it's own cloud and keeps my pets' data safe.",
+    "rating": 5,
+    "app": "11Pets: Pet Care"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Личная карта здоровья питомца, независимая от клиники и бренда",
+    "obsCount": 64,
+    "apps": [
+     "PetDesk",
+     "11Pets: Pet Care",
+     "Banfield Pet Hospital"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Порталы клиник вырезают историю прививок, не дают скачать анализы; логбук уходит на подписку и запирает годы записей в заложники; данные привязаны к одной клинике и недоступны с компьютера.",
+  "idea": {
+   "pitch": "История питомца принадлежит владельцу, а не клинике или бренду. Импорт записей, экспорт PDF, веб-доступ, слияние дублей, бережный архив умершего питомца вместо вечного «активен». Никаких заложников: данные забираешь в один клик. Нейтральный слой поверх любых клиник.",
+   "features": [
+    "Хранилище прививок, операций, рецептов, анализов с экспортом PDF",
+    "Веб-доступ, не только телефон",
+    "Импорт из разных клиник и слияние дублей карточек",
+    "Бережный архив умершего питомца",
+    "Данные выгружаются в один клик, без заложников"
+   ],
+   "antiFeatures": [],
+   "monetization": "Базовое хранение бесплатно, платный экспорт и семейный доступ; B2B-интеграция с клиниками."
+  }
+ },
+ {
+  "slug": "pet-care-4",
+  "category": "pet-care",
+  "categoryName": "Уход за питомцами",
+  "title": "Логбук ухода с надёжными напоминаниями и учётом запасов",
+  "oneLiner": "Приложение для мультипитомцев и любых видов, где напоминания о лекарствах не подводят, а корм и расходники сами просят докупить.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 54
+  },
+  "reviewGrid": [
+   {
+    "quote": "It's gone from an inaffective app to one that's darn right dangerous to rely on.",
+    "rating": 1,
+    "app": "11Pets: Pet Care"
+   },
+   {
+    "quote": "reminders are not working, which is the primary reason why people/I use this app in the first place",
+    "rating": 1,
+    "app": "11Pets: Pet Care"
+   },
+   {
+    "quote": "No longer supports multiple pets so lost two dogs logs",
+    "rating": 1,
+    "app": "11Pets: Pet Care"
+   },
+   {
+    "quote": "One of my favorite features was tracking supplies and it would give me an idea of when I'd run out and need more. Thar doesn't seem to be a feature of the new app at all.",
+    "rating": 1,
+    "app": "11Pets: Pet Care"
+   },
+   {
+    "quote": "I have 60 cats. and this is the app help me keep records of all of them.",
+    "rating": 5,
+    "app": "11Pets: Pet Care"
+   },
+   {
+    "quote": "Especially for the senior cat who requires medication every other day, the notifications are great.",
+    "rating": 5,
+    "app": "11Pets: Pet Care"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Логбук ухода с надёжными напоминаниями и учётом запасов",
+    "obsCount": 54,
+    "apps": [
+     "11Pets: Pet Care"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Когда напоминания ломаются, владельцы пропускают дегельминтизацию и дозы хронически больной собаки — логбук становится «опасным»; лимит «один питомец» выбивает мультипитомцев, а учёт запасов вырезали.",
+  "idea": {
+   "pitch": "Напоминание о таблетке — функция, от которой зависит жизнь: дублируйте каналы (пуш плюс системный будильник), не теряйте при потере интернета. Любое число питомцев и видов — от рептилий до фермы. Подсказка «скоро закончится корм» возвращает то, ради чего оставались.",
+   "features": [
+    "Надёжные напоминания о лекарствах: пуш плюс системный будильник",
+    "Без лимита на число питомцев и виды (рептилии, птицы, ферма)",
+    "Учёт корма и расходников с подсказкой «пора докупить»",
+    "Работа без постоянного интернета",
+    "График приёма для хронических питомцев"
+   ],
+   "antiFeatures": [],
+   "monetization": "Freemium без жёсткого лимита на питомцев; платный семейный доступ и облачный архив."
+  }
+ },
+ {
+  "slug": "pet-care-5",
+  "category": "pet-care",
+  "categoryName": "Уход за питомцами",
+  "title": "Ситтинг, где владелец сам выбирает человека и видит цену сразу",
+  "oneLiner": "Маркетплейс присмотра, который никогда не подставляет чужака, показывает цену до брони и строит доверие на конкретном ситтере, а не на бренде.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 61
+  },
+  "reviewGrid": [
+   {
+    "quote": "Wag will reassign to a different walker without asking for your approval and then share with them your home information.",
+    "rating": 1,
+    "app": "Wag! - Dog Walkers & Sitters"
+   },
+   {
+    "quote": "I hate that I can't see the total cost until after I message the sitter. That's a huge contributor for me. I have multiple pets so I can't budget or plan trips",
+    "rating": 2,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "Absolutely hate that I can't filter/sort pet sitters by prices or even location!",
+    "rating": 1,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "Now, Rover lets the sitter edit his profile to hide violations while actively keeping his retaliatory, provable lies on my page.",
+    "rating": 1,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "She took to Connie immediately!",
+    "rating": 5,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "the pictures everyday gave us peace of mind while we were away",
+    "rating": 5,
+    "app": "Wag! - Dog Walkers & Sitters"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Ситтинг, где владелец сам выбирает человека и видит цену сразу",
+    "obsCount": 61,
+    "apps": [
+     "Wag! - Dog Walkers & Sitters",
+     "Rover—Dog Sitters & Walkers"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Платформы авто-назначают ситтера, которого владелец не выбирал, и отдают ему доступ к дому; цену не видно, пока не напишешь; скрининга нет, а отзыв-месть удалить нельзя.",
+  "idea": {
+   "pitch": "Контроль и прозрачность — это продукт. Никаких авто-замен без согласия владельца, цена и итог видны до брони, фильтр по стоимости и виду питомца. Реальная верификация ситтера, модерация отзывов-мести. Лояльность строится на возврате к конкретному человеку.",
+   "features": [
+    "Никаких авто-назначений: ситтера утверждает только владелец",
+    "Цена и итог видны до сообщения и брони",
+    "Фильтр по стоимости, виду питомца и медпроцедурам",
+    "Верификация личности и защита от отзывов-мести",
+    "Закрепление за любимым ситтером и быстрый повторный заказ"
+   ],
+   "antiFeatures": [],
+   "monetization": "Одна прозрачная комиссия с владельца; платная премиум-верификация ситтера."
+  }
+ },
+ {
+  "slug": "pet-care-6",
+  "category": "pet-care",
+  "categoryName": "Уход за питомцами",
+  "title": "Ситтинг для кошек и экзотики, где «не собака» — это норма",
+  "oneLiner": "Маркетплейс присмотра, спроектированный вокруг кошек, мелких и экзотических питомцев и медицинских процедур (инсулин, таблетки).",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 26
+  },
+  "reviewGrid": [
+   {
+    "quote": "it's pretty impossible finding cat sitters in amongst all the people offering dog services. Rover haven't even bothered to apply a filter.",
+    "rating": 1,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "can't find anyone to feed my cats and give my one cat his insulin.",
+    "rating": 3,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "I have a pet who requires insulin injections and I shouldn't have to click into each sitter to figure out if they are capable of this care.",
+    "rating": 2,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "I have pet chickens and goats which only eat Purina brand food",
+    "rating": 1,
+    "app": "myPurina – Pet Rewards App"
+   },
+   {
+    "quote": "Nicole is my cat whisperer! Such good care of my senior cat and so knowledgeable.",
+    "rating": 5,
+    "app": "Rover—Dog Sitters & Walkers"
+   },
+   {
+    "quote": "Galianna was great with my cats. She did a wonderful job caring for them and is very dependable.",
+    "rating": 5,
+    "app": "Rover—Dog Sitters & Walkers"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Ситтинг для кошек и экзотики, где «не собака» — это норма",
+    "obsCount": 26,
+    "apps": [
+     "Rover—Dog Sitters & Walkers",
+     "myPurina – Pet Rewards App"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "После поглощений кошачьи сервисы растворились среди собачьих: нет фильтра «кошки», никто не вводит инсулин, нет ухода за курами и козами — целые группы владельцев уходят.",
+  "idea": {
+   "pitch": "Сделать кошек и экзотику первым классом: фильтр по виду по умолчанию, навыки «даю лекарства/инсулин», профили пугливых животных с инструкцией по адаптации, визиты на дом вместо передержки. Это аудитория, от которой собако-центричные платформы открыто отказываются.",
+   "features": [
+    "Фильтр и первое знакомство по виду питомца (кошка, экзот, ферма)",
+    "Метки навыков: инъекции, таблетки, спецдиета",
+    "Профили пугливых животных и инструкции по адаптации",
+    "Визиты на дом, а не передержка — для кошек",
+    "Проверяемые отзывы по конкретному ситтеру"
+   ],
+   "antiFeatures": [],
+   "monetization": "Комиссия со стороны владельца, бесплатно для ситтера; платная верификация навыков."
+  }
+ },
+ {
+  "slug": "pet-care-7",
+  "category": "pet-care",
+  "categoryName": "Уход за питомцами",
+  "title": "Адопшен с честным гео и живым статусом «пристроен»",
+  "oneLiner": "Приложение для подбора питомца, где фильтр «рядом» реально работает, объявление честно помечается «пристроен», а заявка точно доходит до приюта.",
+  "asOf": "2026-06-20",
+  "stats": {
+   "apps": 10,
+   "reviews": 5000,
+   "observations": 61
+  },
+  "reviewGrid": [
+   {
+    "quote": "The \"local pets only\" option used to work. Now, I can go through tens of pages and still only see dogs that can be shipped (\"0 miles\" away",
+    "rating": 1,
+    "app": "Petfinder - Adopt a Pet"
+   },
+   {
+    "quote": "I want to meet the pet before I bring it home!! make sure it likes my family and my other pets!! I also don't want to pay extra for pet transport",
+    "rating": 1,
+    "app": "Petfinder - Adopt a Pet"
+   },
+   {
+    "quote": "pets that are marked as favorites never reflect if they've been adopted. Every pet I've ever marked still shows as \"available\"",
+    "rating": 3,
+    "app": "Petfinder - Adopt a Pet"
+   },
+   {
+    "quote": "Animals that has multiple pictures have a listing for each picture. A dog with 5 pictures will have 5 listings.",
+    "rating": 1,
+    "app": "Petfinder - Adopt a Pet"
+   },
+   {
+    "quote": "Inquiries don't make it to the foster/shelter. So why have the app?",
+    "rating": 1,
+    "app": "Petfinder - Adopt a Pet"
+   },
+   {
+    "quote": "scrolling through dogs when I'm having a hard time always cheers me up",
+    "rating": 2,
+    "app": "Petfinder - Adopt a Pet"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Адопшен с честным гео и живым статусом «пристроен»",
+    "obsCount": 61,
+    "apps": [
+     "Petfinder - Adopt a Pet"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Гео-фильтр сломан — «0 миль» оказывается за тысячи миль с платной перевозкой; пристроенные животные годами висят доступными; одно фото = один дубль; заявки в приют пропадают.",
+  "idea": {
+   "pitch": "Владелец хочет познакомить питомца с семьёй лично. Дайте честный радиус, обязательное подтверждение приютом статуса раз в N дней, дедупликацию и гарантированную доставку заявки с подтверждением. А ленту-утешение для тех, кто переживает потерю, оставьте как есть — она лечит.",
+   "features": [
+    "Честный фильтр по реальному расстоянию",
+    "Подтверждение приютом статуса «доступен» раз в N дней",
+    "Дедупликация: одно животное — одно объявление",
+    "Гарантированная доставка заявки приюту с подтверждением",
+    "Лента просмотра как утешение для переживающих потерю"
+   ],
+   "antiFeatures": [],
+   "monetization": "Бесплатно для усыновителей; платные инструменты для приютов (продвижение, аналитика)."
   }
  }
 ]

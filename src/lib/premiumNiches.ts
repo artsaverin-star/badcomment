@@ -15,6 +15,7 @@ export const PREMIUM_NICHES = [
   "habit-tracking",
   "personal-finance",
   "astrology",
+  "pet-care",
 ] as const;
 
 export const PREMIUM_NICHE_SET: ReadonlySet<string> = new Set(PREMIUM_NICHES);
