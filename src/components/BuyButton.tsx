@@ -20,6 +20,7 @@ export default function BuyButton({
   subtitle,
   starsHref,
   starsLabel,
+  lifetimePrice,
 }: {
   kind: "deck" | "category";
   slug?: string;
@@ -31,6 +32,7 @@ export default function BuyButton({
   subtitle: string;
   starsHref?: string;
   starsLabel?: string;
+  lifetimePrice?: number;
 }) {
   const ru = locale !== "en";
   const [auth, setAuth] = useState(false);
@@ -47,14 +49,14 @@ export default function BuyButton({
     setOpen(true);
   }
 
-  async function pay(method: "bank_card" | "sbp") {
-    setBusy(method);
+  async function pay(method: "bank_card" | "sbp", payKind: "deck" | "category" | "lifetime" = kind) {
+    setBusy(`${payKind}:${method}`);
     setErr(null);
     try {
       const r = await fetch("/api/pay/yookassa", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ kind, slug, method }),
+        body: JSON.stringify({ kind: payKind, slug: payKind === "category" ? slug : undefined, method }),
       });
       const d = await r.json().catch(() => ({}));
       if (r.ok && d.url) return window.location.assign(d.url);
@@ -100,7 +102,7 @@ export default function BuyButton({
                 disabled={!!busy}
                 className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
               >
-                {busy === "bank_card" ? "…" : ru ? "Картой РФ" : "Card (RU)"}
+                {busy === `${kind}:bank_card` ? "…" : ru ? "Картой РФ" : "Card (RU)"}
               </button>
               <button
                 type="button"
@@ -108,7 +110,7 @@ export default function BuyButton({
                 disabled={!!busy}
                 className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
               >
-                {busy === "sbp" ? "…" : ru ? "Через СБП" : "Via SBP"}
+                {busy === `${kind}:sbp` ? "…" : ru ? "Через СБП" : "Via SBP"}
               </button>
               {starsHref && (
                 <a
@@ -119,6 +121,24 @@ export default function BuyButton({
                 </a>
               )}
             </div>
+
+            {lifetimePrice ? (
+              <>
+                <div className="flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
+                  <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+                  {ru ? "или открой всё" : "or unlock everything"}
+                  <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => pay("bank_card", "lifetime")}
+                  disabled={!!busy}
+                  className="w-full rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-opacity hover:opacity-90 disabled:opacity-60"
+                >
+                  {busy === "lifetime:bank_card" ? "…" : ru ? `♾️ Lifetime — всё навсегда, ${lifetimePrice} ₽` : `♾️ Lifetime — everything forever, ${lifetimePrice} ₽`}
+                </button>
+              </>
+            ) : null}
             {err && <p className="text-center text-caption text-[#ff6b6b]">{err}</p>}
           </div>
         </div>,

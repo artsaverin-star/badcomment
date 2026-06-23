@@ -6,6 +6,7 @@ import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BuyButton from "./BuyButton";
 import MessageIcon from "./MessageIcon";
+import { LIFETIME } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 type Card = {
@@ -259,7 +260,7 @@ export default function CardDeck({
 
       {paywall && (
         <div className="w-full max-w-[420px]">
-          <div className="flex flex-col items-center gap-1 rounded-[24px] border-2 border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,var(--color-surface-card))] p-7 text-center shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
+          <div className="card-deal-in flex flex-col items-center gap-1 rounded-[24px] border-2 border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,var(--color-surface-card))] p-7 text-center shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]">
             <div className="text-[34px] leading-none" aria-hidden>🃏</div>
             <div className="mt-1 text-[20px] font-black tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Колода идей" : "Idea deck"}</div>
             <p className="mx-auto mb-5 mt-1.5 max-w-[34ch] text-[13.5px] leading-relaxed text-[var(--color-text-secondary)]">
@@ -277,6 +278,7 @@ export default function CardDeck({
               subtitle={ru ? `${deckCount} карт с идеями — лучшее из каждой ниши, навсегда.` : `${deckCount} idea cards — the best of every niche, forever.`}
               starsHref={starsHref}
               starsLabel={starsLabel}
+              lifetimePrice={LIFETIME.rub}
             />
           </div>
         </div>

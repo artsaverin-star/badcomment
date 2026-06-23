@@ -427,7 +427,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                     title={ru ? "Ещё 2 вывода" : "2 more findings"}
                     subtitle={ru ? "Разбор по наблюдениям и прямые цитаты из отзывов." : "The breakdown by observation and direct review quotes."}
                     button={
-                      <CategoryGate slug={slug} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={catStarsHref} starsLabel={catStarsLabel} />
+                      <CategoryGate slug={slug} categoryName={cat.name} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={catStarsHref} starsLabel={catStarsLabel} />
                     }
                   />
                 </div>
@@ -440,6 +440,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       <SegmentExplorer
         locale={locale}
         slug={slug}
+        categoryName={cat.name}
         opps={deepTg(opps)}
         apps={deepTg(apps)}
         competitorRead={thesis?.competitorRead ? tg(thesis.competitorRead) : undefined}

@@ -28,7 +28,7 @@ export default async function CardsPage() {
   // Restore the player's state: logged-in → their drawn collection; guest → how many
   // free cards they've already used (cookie, so a reload can't reset the freebies).
   const initialCollection = access.loggedIn && access.user ? await drawnCards(access.user.id) : [];
-  const guestUsed = access.loggedIn ? 0 : Number((await cookies()).get("gd")?.value || 0);
+  const guestUsed = access.loggedIn ? 0 : Number((await cookies()).get("fc")?.value || 0);
 
   return (
     <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">

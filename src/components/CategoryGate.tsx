@@ -1,12 +1,14 @@
 "use client";
 
 import BuyButton from "./BuyButton";
+import { LIFETIME } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 // Premium category → one ₽ purchase opens everything (a payment-options popup).
 // Non-premium niches aren't sellable yet — they show a "in preparation" status.
 export default function CategoryGate({
   slug,
+  categoryName,
   sellable,
   price,
   loggedIn,
@@ -16,6 +18,7 @@ export default function CategoryGate({
   starsLabel,
 }: {
   slug: string;
+  categoryName?: string;
   sellable: boolean;
   price: number;
   loggedIn: boolean;
@@ -44,10 +47,11 @@ export default function CategoryGate({
         label={ru ? `Открыть за ${price} ₽` : `Unlock for ${price} ₽`}
         loggedIn={loggedIn}
         locale={locale}
-        title={ru ? "Разбор категории" : "Category breakdown"}
+        title={(ru ? "Разбор категории" : "Category breakdown") + (categoryName ? ` ${categoryName}` : "")}
         subtitle={ru ? "Выводы, все идеи и разбор конкурентов ниши — открывается навсегда." : "Findings, all ideas and the competitor teardown — unlocked forever."}
         starsHref={starsHref}
         starsLabel={starsLabel}
+        lifetimePrice={LIFETIME.rub}
       />
       {loggedIn && (
         <p className="max-w-[42ch] text-caption text-[var(--color-text-tertiary)]">

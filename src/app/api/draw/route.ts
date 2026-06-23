@@ -7,7 +7,7 @@ import { FREE_ANON_CARDS } from "@/lib/tokenConfig";
 
 export const dynamic = "force-dynamic";
 
-const GUEST_COOKIE = "gd"; // anon free-reveal count — server-enforced (survives reload)
+const GUEST_COOKIE = "fc"; // anon free-reveal count — server-enforced (survives reload)
 
 // «Колода»: reveal one deck card. Anon visitors get FREE_ANON_CARDS free reveals
 // (cookie-capped, so a reload can't reset them). Logged-in non-owners get

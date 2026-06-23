@@ -56,7 +56,7 @@ function metaLine(c: CatCard, ru: boolean): string {
 // Big "hero" tile (Apple-store featured) — bold headline, full icon row, the
 // governing thought, a blurb, stats and CTA.
 function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
-  const icons = c.icons.filter(Boolean).slice(0, 7);
+  const icons = c.icons.filter(Boolean).slice(0, 6);
   return (
     <Link
       href={`/segment/${c.slug}`}
