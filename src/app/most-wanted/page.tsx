@@ -107,6 +107,40 @@ export default async function MostWantedPage() {
         ? <>Я бы сделал трекер, который прощает. Пропустил — не «начинай с нуля», а «ничего, продолжаем». Та же галочка, тот же виджет, та же красивая карта — но без наказания за то, что ты живой человек.</>
         : <>I'd build a tracker that forgives. Missed a day — not "start over" but "no problem, carry on." Same checkbox, same widget, same pretty grid — minus the punishment for being a human being.</>,
     },
+    {
+      slug: "nutrition-calories",
+      eyebrow: ru ? "Подсчёт калорий" : "Calorie counting",
+      title: ru ? "«Нелепо мотивирован зарабатывать бессмысленные семена» — это пятизвёздочный отзыв" : "\"Ridiculously motivated by earning meaningless seeds\" — that's a five-star review",
+      setup: ru
+        ? <>Категория продаёт точность: самая большая база продуктов, распознавание еды по фото, граммы и макросы до запятой. А держат людей, как ни странно, две совсем другие вещи:</>
+        : <>The category sells precision: the biggest food database, photo recognition, grams and macros to the decimal. What actually keeps people logging is, oddly, two other things:</>,
+      quotes: ru
+        ? [{ text: "Сканируешь штрихкод — и всё. Больше никаких раздумий и подсчётов.", app: "MyNetDiary", rating: 5 }, { text: "Я нелепо мотивирован зарабатывать бессмысленные семена.", app: "Noom", rating: 5 }]
+        : [{ text: "Scanning barcodes, even better. No more thinking and counting calories.", app: "MyNetDiary", rating: 5 }, { text: "I am ridiculously motivated by earning meaningless seeds.", app: "Noom", rating: 5 }],
+      reveal: ru
+        ? <>Подсчёт калорий — это рутина, которую никто не любит. Люди бросают не потому, что база маленькая, а потому что заносить еду — труд, а табло то и дело заставляет чувствовать себя виноватым. Выигрывают те, кто превратил занесение в одно касание (скан штрихкода, «повторить вчера») и подкупает дурацкой наградой, в бессмысленности которой человек сам честно признаётся, — и это работает. Точность до грамма впечатляет в сторе. Скан и виртуальный росток заставляют возвращаться.</>
+        : <>Calorie counting is a chore no one enjoys. People quit not because the database is small, but because logging is work and the scoreboard keeps making them feel guilty. The winners turned logging into one tap (barcode scan, "repeat yesterday") and bribe you with a silly reward whose pointlessness people openly admit — and it works. Accuracy to the gram impresses in the store. The scan and the virtual sprout are what bring people back.</>,
+      build: ru
+        ? <>Я бы убрал из подсчёта весь труд: одно касание, «повторить вчера», скан — и одну честную маленькую награду, без стыда и красных цифр «ты превысил». Чтобы возни не осталось, в отзывах просили {nf(demandOf("nutrition-calories"), ru)} раз.</>
+        : <>I'd strip all the labor out of logging: one tap, "repeat yesterday," scan — plus one honest little reward, no shame, no red "you went over" numbers. People asked for the chore to disappear {nf(demandOf("nutrition-calories"), ru)} times.</>,
+    },
+    {
+      slug: "intermittent-fasting",
+      eyebrow: ru ? "Интервальное голодание" : "Intermittent fasting",
+      title: ru ? "Голодание — это просто ожидание. Выигрывает тот, кто сделает ожидание интересным" : "Fasting is just waiting. Whoever makes the wait interesting wins",
+      setup: ru
+        ? <>Приложения продают протоколы, планы, коучинг, анкеты на старте. Но голодание — это по большей части... ничего не происходит и ты ждёшь. Вот за что благодарят на самом деле:</>
+        : <>Apps sell protocols, plans, coaching, an onboarding quiz. But fasting is mostly... nothing happening while you wait. Here's what people actually thank them for:</>,
+      quotes: ru
+        ? [{ text: "Постоянный таймер в уведомлениях — не могу забыть и не могу отмахнуться.", app: "Fasting Tracker", rating: 5 }, { text: "Люблю, что приложение рассказывает, что в это время происходит с телом.", app: "Fasting Tracker", rating: 5 }]
+        : [{ text: "The constant timer in my notifications ensures I can't forget and don't shrug it off.", app: "Fasting Tracker", rating: 5 }, { text: "I love that it tells you what your body is doing through your fasts.", app: "Fasting Tracker", rating: 5 }],
+      reveal: ru
+        ? <>Голодание — это часы, когда ничего не происходит. И работа тут не «диета», а превратить пустое ожидание в ощущение прогресса. Таймер, который всегда на глазах и не даёт забыть, и короткий рассказ о том, что прямо сейчас творится внутри тебя (кетоз, аутофагия), — и скука становится смыслом. Выигрывают те, кто живёт на экране блокировки и комментирует ожидание. Проигрывают те, кто требует пройти анкету и заплатить раньше, чем ты успел хоть что-то почувствовать.</>
+        : <>Fasting is hours of nothing happening. The job isn't a diet — it's turning the empty wait into a feeling of progress. A timer that's always in sight and won't let you forget, plus a short note on what's going on inside you right now (ketosis, autophagy) — and the boredom becomes meaning. The winners live on the lock screen and narrate the wait. The losers make you fill out a quiz and pay before you've felt a single thing.</>,
+      build: ru
+        ? <>Я бы сделал голодание, которое целиком живёт на экране блокировки и в виджете: взглянул — таймер, тапнул — одна строка о том, что сейчас с телом. Без анкеты и контракта до того, как ты почувствовал пользу. Об этом просили {nf(demandOf("intermittent-fasting"), ru)} раз.</>
+        : <>I'd build a fast that lives entirely on the lock screen and a widget: glance for the timer, tap for one line about what your body is doing now. No quiz, no contract before you've felt the benefit. People asked for this {nf(demandOf("intermittent-fasting"), ru)} times.</>,
+    },
   ];
 
   const para = "mt-5 max-w-[64ch] text-[17px] leading-[1.75] text-[var(--color-text-secondary)] sm:text-[18px]";
@@ -129,9 +163,9 @@ export default async function MostWantedPage() {
         </h1>
         <p className="mt-7 max-w-[62ch] text-[18px] leading-[1.65] text-[var(--color-text-secondary)] sm:text-[20px]">
           {ru ? (
-            <>Мы прогнали через анализ <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> отзывов на <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> приложений. И почти везде — одно и то же. Приложения соревнуются, кто умнее: больше ИИ, больше функций, больше геймификации. А люди скачивают их ради скучных, простых вещей — и остаются не у самых умных, а у тех, кто эти простые вещи сделал так, что не подкопаешься. Вот три ниши, где это видно лучше всего.</>
+            <>Почти каждый разработчик уверен: побеждает тот, кто умнее — больше ИИ, больше функций, больше геймификации. Мы прогнали через анализ <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> отзывов на <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> приложений и прочитали, за что люди на самом деле ставят пять звёзд. Почти везде — за обратное. Люди скачивают приложения ради скучных, простых вещей и остаются не у самых умных, а у тех, кто эти простые вещи сделал так, что не подкопаешься. Вот пять ниш, где это видно лучше всего.</>
           ) : (
-            <>We ran <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> reviews across <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> apps through analysis. And it's almost always the same. Apps compete on who's smarter: more AI, more features, more gamification. People download them for boring, simple things — and stay not with the smartest, but with whoever made those simple things flawless. Here are three niches where you can see it best.</>
+            <>Almost every developer is sure the smartest app wins — more AI, more features, more gamification. We ran <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> reviews across <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> apps through analysis and read what people actually give five stars for. Almost always, the opposite. People download apps for boring, simple things and stay not with the smartest, but with whoever made those simple things flawless. Here are five niches where you can see it best.</>
           )}
         </p>
       </header>
@@ -142,6 +176,11 @@ export default async function MostWantedPage() {
           const icons = iconsFor(ins.slug, locale);
           return (
             <Reveal key={ins.slug}>
+              {i === 3 && (
+                <p className="mb-24 max-w-[18ch] text-[clamp(26px,6vw,40px)] font-black leading-[1.08] tracking-[-0.035em] text-[var(--color-text-primary)] sm:mb-32">
+                  {ru ? "Люди платят не за то, что приложение умное. А за то, что оно перестаёт быть в тягость." : "People don't pay for the app being smart. They pay for it to stop being a burden."}
+                </p>
+              )}
               <article>
                 {icons.length > 0 && (
                   <div className="mb-6 flex flex-wrap items-center gap-2">
@@ -179,8 +218,8 @@ export default async function MostWantedPage() {
           <h2 className={h2}>{ru ? "«Рынок занят» — смотря чем мерить" : "\"The market is taken\" — depends what you measure"}</h2>
           <p className={para}>
             {ru
-              ? <>Сложите три ниши — и виден общий закон. Все воюют за то, кто умнее: ИИ, функции, геймификация. А люди голосуют за того, кто честнее сделал скучную работу: быстро, надёжно, без выпендрёжа. Эти два почти не пересекаются — поэтому в каждой нише есть тихий лидер, который проще своих «инновационных» соседей и держит людей годами. Если мерить умом — рынок занят. Если мерить работой — он почти везде пустой.</>
-              : <>Stack the three niches and a single law appears. Everyone fights over who's smarter: AI, features, gamification. People vote for whoever did the boring work more honestly: fast, reliable, no showing off. The two barely overlap — which is why every niche has a quiet leader, simpler than its "innovative" neighbors, that holds people for years. Measured by intelligence, the market is taken. Measured by the job, it's almost everywhere empty.</>}
+              ? <>Сложите пять ниш — и виден общий закон. Все воюют за то, кто умнее: ИИ, функции, геймификация. А люди голосуют за того, кто честнее сделал скучную работу: быстро, надёжно, без выпендрёжа. Эти два почти не пересекаются — поэтому в каждой нише есть тихий лидер, который проще своих «инновационных» соседей и держит людей годами. Если мерить умом — рынок занят. Если мерить работой — он почти везде пустой.</>
+              : <>Stack the five niches and a single law appears. Everyone fights over who's smarter: AI, features, gamification. People vote for whoever did the boring work more honestly: fast, reliable, no showing off. The two barely overlap — which is why every niche has a quiet leader, simpler than its "innovative" neighbors, that holds people for years. Measured by intelligence, the market is taken. Measured by the job, it's almost everywhere empty.</>}
           </p>
           <p className="mt-8 max-w-[44ch] text-[22px] font-light leading-[1.4] text-[var(--color-text-primary)] sm:text-[26px]">
             {ru ? "Чтобы выиграть, не нужно изобретать. Нужно взять то, что уже любят, и убрать всё, что мешает любить." : "To win, you don't need to invent. Take what's already loved, and remove everything that gets in the way of loving it."}
