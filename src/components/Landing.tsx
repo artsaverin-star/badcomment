@@ -238,22 +238,25 @@ export default function Landing({
 
       {/* Two feature doors: the special report + the idea deck (the third block —
           category breakdowns — is the gallery below). */}
-      <section className="mx-auto mt-2 w-full max-w-5xl px-4">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Link href="/most-wanted" className="group flex flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9">
-            <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Спец-разбор" : "Special report"}</p>
-            <h3 className="mt-2 text-[24px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? "Приложения, которые умоляют сделать" : "Apps people beg for"}</h3>
-            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Самые громкие разрывы по отзывам: спрос огромный, а приложения нет." : "The loudest gaps in the reviews: huge demand, no app."}</p>
-            <span className="mt-auto pt-7 text-[15px] font-semibold text-[var(--color-text-primary)]">{ru ? "Читать разбор" : "Read the report"}</span>
+      <section className="mx-auto mt-2 flex w-full max-w-3xl flex-col gap-3 px-4">
+        {[
+          { href: "/most-wanted", eyebrow: ru ? "Спец-разбор" : "Special report", title: ru ? "Приложения, которые умоляют сделать" : "Apps people beg for", sub: ru ? "Спрос огромный, а приложения нет." : "Huge demand, no app.", cta: ru ? "Читать" : "Read", emoji: "" },
+          { href: "/cards", eyebrow: ru ? "Колода идей" : "Idea deck", title: ru ? "Тяни карту — выпадет идея" : "Draw a card — get an idea", sub: ru ? "Готовая идея под подтверждённый спрос." : "A ready idea backed by proven demand.", cta: ru ? "Открыть" : "Open", emoji: "🎴" },
+        ].map((b) => (
+          <Link key={b.href} href={b.href} className="group flex items-center justify-between gap-4 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-4 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-7 sm:py-5">
+            <div className="min-w-0">
+              <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{b.emoji ? `${b.emoji} ` : ""}{b.eyebrow}</p>
+              <h3 className="mt-1 text-[18px] font-black leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[21px]">{b.title}</h3>
+              <p className="mt-1 truncate text-[13.5px] text-[var(--color-text-tertiary)]">{b.sub}</p>
+            </div>
+            <span className="flex shrink-0 items-center gap-1.5 text-[14px] font-semibold text-[var(--color-text-primary)]">
+              <span className="hidden sm:inline">{b.cta}</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
+                <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
           </Link>
-
-          <Link href="/cards" className="group flex flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9">
-            <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</p>
-            <h3 className="mt-2 text-[24px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? "Тяни карту — выпадет идея" : "Draw a card — get an idea"}</h3>
-            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Готовая идея под подтверждённый спрос — в одно касание." : "A ready idea backed by proven demand — in one tap."}</p>
-            <span className="mt-auto pt-7 text-[15px] font-semibold text-[var(--color-text-primary)]">🎴 {ru ? "Открыть колоду" : "Open the deck"}</span>
-          </Link>
-        </div>
+        ))}
       </section>
 
       {/* Gallery — the third block: category breakdowns */}
