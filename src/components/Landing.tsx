@@ -233,22 +233,37 @@ export default function Landing({
               : "Broken down by niche, clear conclusions and concrete ideas — which apps people actually need."}
           </p>
 
-          <div className="ld-fade mt-7 flex justify-center" style={{ animationDelay: "0.15s" }}>
-            <Link
-              href="/cards"
-              className="btn-shimmer inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_14px_36px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
-            >
-              🎴 {ru ? "Колода идей — тяни карту" : "Idea deck — draw a card"}
-            </Link>
-          </div>
-
         </div>
       </section>
 
-      {/* Gallery */}
+      {/* Two feature doors: the special report + the idea deck (the third block —
+          category breakdowns — is the gallery below). */}
+      <section className="mx-auto mt-2 w-full max-w-5xl px-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <Link href="/most-wanted" className="group flex flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9">
+            <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Спец-разбор" : "Special report"}</p>
+            <h3 className="mt-2 text-[24px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? "Приложения, которые умоляют сделать" : "Apps people beg for"}</h3>
+            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Самые громкие разрывы по отзывам: спрос огромный, а приложения нет." : "The loudest gaps in the reviews: huge demand, no app."}</p>
+            <span className="mt-auto pt-7 text-[15px] font-semibold text-[var(--color-text-primary)]">{ru ? "Читать разбор" : "Read the report"}</span>
+          </Link>
+
+          <Link href="/cards" className="group flex flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-9">
+            <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</p>
+            <h3 className="mt-2 text-[24px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? "Тяни карту — выпадет идея" : "Draw a card — get an idea"}</h3>
+            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Готовая идея под подтверждённый спрос — в одно касание." : "A ready idea backed by proven demand — in one tap."}</p>
+            <span className="mt-auto pt-7 text-[15px] font-semibold text-[var(--color-text-primary)]">🎴 {ru ? "Открыть колоду" : "Open the deck"}</span>
+          </Link>
+        </div>
+      </section>
+
+      {/* Gallery — the third block: category breakdowns */}
       {catCards.length > 0 && (
         <div className="mx-auto w-full max-w-5xl px-1">
-          {/* Header + view toggle */}
+          <div className="mb-7 mt-20 text-center">
+            <h2 className="text-[clamp(24px,6vw,34px)] font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? "Разбор категорий" : "Niche breakdowns"}</h2>
+            <p className="mx-auto mt-2 max-w-md text-callout text-[var(--color-text-secondary)]">{ru ? "Каждая ниша разобрана по отзывам: выводы, идеи и конкуренты." : "Each niche broken down from reviews: findings, ideas and competitors."}</p>
+          </div>
+          {/* view toggle */}
           <div className="mb-8 flex justify-center px-1">
             <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
               {(["cards", "list"] as const).map((v) => (

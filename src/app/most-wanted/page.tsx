@@ -57,6 +57,7 @@ export default async function MostWantedPage() {
   const gaps = pickGaps();
 
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
+  const totalApps = (insightsData as unknown[]).length;
   const totalIdeas = listIdeas().length;
 
   // Pick the punchiest evidence: complaints first (low rating reads as "this is missing"), shortest first.
@@ -108,14 +109,14 @@ export default async function MostWantedPage() {
         <h1 className="glow-sweep mx-auto mt-6 max-w-[16ch] text-[clamp(32px,8.5vw,64px)] font-black leading-[0.98] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
           {ru ? "Приложения, которые люди умоляют сделать" : "Apps people beg for"}
         </h1>
-        <p className="mx-auto mt-7 max-w-[52ch] text-[18px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[21px]">
+        <p className="mx-auto mt-7 max-w-[54ch] text-[18px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[21px]">
           {ru ? (
             <>
-              Мы прочитали <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> отзывов. В каждой нише — одни и те же мольбы, которые так никто и не закрыл. Вот они — с реальными цитатами и цифрами спроса.
+              Я месяц читал отзывы — <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> штук на <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> приложений — чтобы найти, чего людям не хватает. В каждой нише одни и те же мольбы, которые так никто и не закрыл. Вот они — с реальными цитатами и цифрами спроса.
             </>
           ) : (
             <>
-              We read <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> reviews. Every niche has the same unmet pleas nobody has closed. Here they are — with real quotes and demand counts.
+              I spent a month reading <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> reviews across <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> apps to find what people are missing. Every niche has the same unmet pleas nobody closed. Here they are — with real quotes and demand counts.
             </>
           )}
         </p>
