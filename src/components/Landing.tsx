@@ -124,7 +124,7 @@ function ListRow({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex items-center gap-4 border-b border-[var(--color-border-subtle)] px-2 py-4 transition-colors hover:bg-[var(--color-surface-card)] sm:gap-5 sm:px-4"
+      className="group flex items-center gap-4 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3.5 transition-colors hover:border-[var(--color-border-strong)] sm:gap-5 sm:px-5"
     >
       <div className="hidden shrink-0 items-center -space-x-2 sm:flex">
         {icons.map((src, i) => (
@@ -298,7 +298,7 @@ export default function Landing({
               )}
             </div>
           ) : (
-            <div className="border-t border-[var(--color-border-subtle)]">
+            <div className="mx-auto flex max-w-3xl flex-col gap-2.5">
               {ranked.map((c) => <ListRow key={c.slug} c={c} ru={ru} />)}
             </div>
           )}
