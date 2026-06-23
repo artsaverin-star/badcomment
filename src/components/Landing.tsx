@@ -262,9 +262,8 @@ export default function Landing({
       {/* Gallery — the third block: category breakdowns */}
       {catCards.length > 0 && (
         <div className="mx-auto w-full max-w-5xl px-1">
-          <div className="mb-7 mt-20 text-center">
+          <div className="mb-6 mt-10 text-center">
             <h2 className="text-[clamp(24px,6vw,34px)] font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? "Разбор категорий" : "Niche breakdowns"}</h2>
-            <p className="mx-auto mt-2 max-w-md text-callout text-[var(--color-text-secondary)]">{ru ? "Каждая ниша разобрана по отзывам: выводы, идеи и конкуренты." : "Each niche broken down from reviews: findings, ideas and competitors."}</p>
           </div>
           {/* view toggle */}
           <div className="mb-8 flex justify-center px-1">
