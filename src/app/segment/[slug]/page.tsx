@@ -19,8 +19,7 @@ import { getAccess } from "@/lib/access";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, PREGEN_DATE_RU, PREGEN_DATE_EN } from "@/lib/tokenConfig";
 import { PREMIUM_NICHE_SET } from "@/lib/premiumNiches";
 import { ownsDeck } from "@/lib/unlocks";
-import CategoryGate from "@/components/CategoryGate";
-import DeckPile from "@/components/DeckPile";
+import CategoryOffer from "@/components/CategoryOffer";
 import Reveal from "@/components/Reveal";
 import type { Tone } from "@/components/CardCarousel";
 import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpQuote } from "./SegmentExplorer";
@@ -423,13 +422,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       <PillarFull key={i} p={p} label={findingLabel(i + 1)} />
                     ))}
                   </div>
-                  <DeckPile
-                    title={ru ? "Ещё 2 вывода" : "2 more findings"}
-                    subtitle={ru ? "Разбор по наблюдениям и прямые цитаты из отзывов." : "The breakdown by observation and direct review quotes."}
-                    button={
-                      <CategoryGate slug={slug} categoryName={cat.name} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={catStarsHref} starsLabel={catStarsLabel} />
-                    }
-                  />
+                  <CategoryOffer slug={slug} categoryName={cat.name} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} ideasCount={opps.length} appsCount={apps.length} starsHref={catStarsHref} starsLabel={catStarsLabel} />
                 </div>
               )}
             </div>

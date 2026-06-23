@@ -53,13 +53,6 @@ export default function CategoryGate({
         starsLabel={starsLabel}
         lifetimePrice={LIFETIME.rub}
       />
-      {loggedIn && (
-        <p className="max-w-[42ch] text-caption text-[var(--color-text-tertiary)]">
-          {ru
-            ? "Одна покупка открывает всё в нише: выводы, все идеи и разбор конкурентов."
-            : "One purchase unlocks everything in the niche: findings, all ideas and the competitor teardown."}
-        </p>
-      )}
     </div>
   );
 }

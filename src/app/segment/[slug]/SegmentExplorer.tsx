@@ -134,8 +134,9 @@ export default function SegmentExplorer({
 
   return (
     <>
-      {/* ── OPPORTUNITIES — editorial list → idea modal ── */}
-      {opps.length > 0 && (
+      {/* ── OPPORTUNITIES — editorial list → idea modal (hidden when locked; the
+            unified CategoryOffer card on the page covers it) ── */}
+      {opps.length > 0 && !ideasLocked && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
@@ -182,8 +183,8 @@ export default function SegmentExplorer({
         </Reveal>
       )}
 
-      {/* ── COMPETITORS — synthesis + clean list → app modal ── */}
-      {apps.length > 0 && (
+      {/* ── COMPETITORS — synthesis + clean list → app modal (hidden when locked) ── */}
+      {apps.length > 0 && !appsLocked && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
