@@ -9,6 +9,11 @@ export type UnlockType = "app" | "idea" | "chapter" | "category" | "ideas" | "ap
 // One-time "everything forever" SKU (User.lifetime). Stars ≈ ₽/2 (1⭐ ≈ ~2₽).
 export const LIFETIME = { rub: 2990, stars: 1500 };
 
+// Launch promo «Друг проекта»: the same lifetime ownership at a discounted launch
+// price. Grants lifetime (metadata.kind = "lifetime" on the payment).
+export const FRIEND_PRICE_RUB = 990;
+export const FRIEND_DISCOUNT_PCT = Math.round((1 - FRIEND_PRICE_RUB / LIFETIME.rub) * 100); // −67%
+
 // ── Direct-₽ model ─────────────────────────────────────────────────────────
 export const DECK_PRICE_RUB = 290; // unlock the whole best-of deck (top-2 × premium niches) forever
 export const CATEGORY_PRICE_RUB = 390; // unlock one full premium category (ideas + chapters + apps)

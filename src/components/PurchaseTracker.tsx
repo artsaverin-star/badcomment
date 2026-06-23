@@ -8,6 +8,7 @@ const NAMES: Record<string, string> = {
   deck: "Колода идей",
   category: "Разбор категории",
   lifetime: "Lifetime",
+  friend: "Друг проекта",
   pack: "Энергия",
 };
 

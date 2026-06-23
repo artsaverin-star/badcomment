@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTracker from "@/components/PageTracker";
 import { getLocale } from "@/lib/i18n.server";
+import { getAccess } from "@/lib/access";
 
 // Inter is the primary UI face — a crisp modern grotesque (getgems-like). It
 // drives --brand-font-family (see globals.css). Nunito stays loaded as the
@@ -42,6 +43,9 @@ export default async function RootLayout({
   // The DS ships light as :root and dark under [data-theme="dark"]; default to
   // dark (the established look) and let the header's ThemeSwitch flip the cookie.
   const theme = (await cookies()).get("theme")?.value === "light" ? "light" : "dark";
+  // Show the launch «Друг проекта» badge to everyone who doesn't already own
+  // everything (lifetime / admin / friend).
+  const access = await getAccess();
   return (
     <html
       lang={locale}
@@ -85,7 +89,7 @@ export default async function RootLayout({
             }),
           }}
         />
-        <Header locale={locale} theme={theme} />
+        <Header locale={locale} theme={theme} loggedIn={access.loggedIn} showOffer={!access.unlimited} />
         <PageTracker />
         {children}
         <Footer locale={locale} />

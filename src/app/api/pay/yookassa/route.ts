@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { getSessionUser } from "@/lib/session";
 import { createPayment, yookassaEnabled } from "@/lib/yookassa";
-import { getPack, tokensWord, LIFETIME, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
+import { getPack, tokensWord, LIFETIME, FRIEND_PRICE_RUB, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
 import { PREMIUM_NICHE_SET } from "@/lib/premiumNiches";
 import { ownsDeck } from "@/lib/unlocks";
 
@@ -41,6 +41,12 @@ export async function POST(req: Request) {
     amountRub = Math.max(1, LIFETIME.rub - credit);
     description = "inApp — Lifetime (всё навсегда)";
     metadata = { userId: u.id, kind: "lifetime" };
+  } else if (body.kind === "friend") {
+    // Launch promo «Друг проекта» — lifetime ownership at the discounted price.
+    // Grants lifetime via metadata.kind so the webhook needs no special case.
+    amountRub = FRIEND_PRICE_RUB;
+    description = "inApp — Друг проекта (всё навсегда)";
+    metadata = { userId: u.id, kind: "lifetime", promo: "friend" };
   } else {
     // Legacy token pack (kept for backward compatibility; not shown in UI).
     const p = getPack(body.pack ?? "");
@@ -56,7 +62,7 @@ export async function POST(req: Request) {
   const fwdProto = req.headers.get("x-forwarded-proto") || "https";
   const origin = process.env.SITE_URL || (fwdHost ? `${fwdProto}://${fwdHost}` : new URL(req.url).origin);
   const idem = crypto.randomUUID();
-  const skuLabel = body.kind === "deck" || body.kind === "category" || body.kind === "lifetime" ? body.kind : "pack";
+  const skuLabel = ["deck", "category", "lifetime", "friend"].includes(body.kind ?? "") ? (body.kind as string) : "pack";
   try {
     const payment = await createPayment({
       amountRub,

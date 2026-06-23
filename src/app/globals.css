@@ -431,6 +431,30 @@ html:not([data-theme="dark"]) .atmosphere {
   position: relative;
 }
 
+/* Launch-promo discount badge in the header: a soft breathing glow so it draws
+   the eye without being obnoxious. */
+@keyframes promo-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 55%, transparent);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 18px 2px color-mix(in srgb, var(--color-accent-brand) 45%, transparent);
+  }
+}
+.promo-badge {
+  animation: promo-glow 2.4s ease-in-out infinite;
+}
+.promo-badge:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-badge {
+    animation: none;
+  }
+}
+
 /* ── Landing (logged-out) animations ──────────────────────────────────── */
 @keyframes ld-fade-up {
   from {

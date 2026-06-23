@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AuthButton from "./AuthButton";
 import SettingsMenu from "./SettingsMenu";
+import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
 import { type Locale } from "@/lib/i18n";
 
@@ -11,9 +12,13 @@ import { type Locale } from "@/lib/i18n";
 export default function Header({
   locale,
   theme,
+  loggedIn = false,
+  showOffer = false,
 }: {
   locale: Locale;
   theme: "light" | "dark";
+  loggedIn?: boolean;
+  showOffer?: boolean;
 }) {
   return (
     <header className="sticky top-0 z-40 px-3 pt-3 sm:px-4 sm:pt-4">
@@ -27,6 +32,7 @@ export default function Header({
         </Link>
 
         <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
+          {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
           <Link
             href="/search"
             aria-label={locale === "en" ? "Search" : "Поиск"}
