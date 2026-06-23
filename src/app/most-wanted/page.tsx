@@ -198,7 +198,7 @@ export default async function MostWantedPage() {
                 <div className="mt-7 flex flex-col gap-3">
                   {ins.quotes.map((q, k) => (
                     <div key={k} className="flex flex-col gap-1">
-                      <div className="msg-bubble max-w-[88%] self-start rounded-[20px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-4 py-2.5 text-[14.5px] leading-[1.45] text-[var(--color-text-primary)]">{q.text}</div>
+                      <div className="msg-bubble w-fit max-w-[85%] self-start rounded-[20px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-4 py-2.5 text-[14.5px] italic leading-[1.45] text-[var(--color-text-primary)]">{q.text}</div>
                       <span className="pl-2 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</span>
                     </div>
                   ))}
