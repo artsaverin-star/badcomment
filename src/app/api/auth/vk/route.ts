@@ -34,7 +34,7 @@ export async function GET(req: Request) {
   }
 
   const vkId = String(tok.user_id);
-  const email: string | null = tok.email ?? null;
+  const email: string | null = tok.email ? String(tok.email).toLowerCase() : null;
 
   // Fetch the display name (best-effort).
   let name: string | null = null;

@@ -15,16 +15,17 @@ export function appOrigin(req: Request): string {
 // flow (POST /api/auth/google) and the redirect code flow (callback) so both
 // behave identically.
 export async function loginWithGoogle(sub: string, email: string | null, name: string | null) {
+  const e = email ? email.toLowerCase() : null; // match emailAuth's lowercase storage → merge, never duplicate
   const firstUser = (await prisma.user.count()) === 0;
   let user = await prisma.user.findUnique({ where: { googleId: sub } });
-  if (!user && email) user = await prisma.user.findUnique({ where: { email } });
+  if (!user && e) user = await prisma.user.findUnique({ where: { email: e } });
   if (user) {
     user = await prisma.user.update({
       where: { id: user.id },
-      data: { googleId: sub, email: email ?? user.email, firstName: user.firstName ?? name },
+      data: { googleId: sub, email: e ?? user.email, firstName: user.firstName ?? name },
     });
   } else {
-    user = await prisma.user.create({ data: { googleId: sub, email, firstName: name, isAdmin: firstUser } });
+    user = await prisma.user.create({ data: { googleId: sub, email: e, firstName: name, isAdmin: firstUser } });
   }
   await setSession(user.id);
   return user;
