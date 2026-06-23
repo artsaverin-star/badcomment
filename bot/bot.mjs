@@ -15,8 +15,15 @@ const PACKS = {
   m: { tokens: 300, stars: 1250 },
   l: { tokens: 700, stars: 2500 },
 };
-const LIFETIME = { stars: 5000 };
+// Stars prices — mirror src/lib/tokenConfig.ts (LIFETIME.stars / DECK_STARS / CATEGORY_STARS).
+const LIFETIME = { stars: 2000 };
+const DECK_STARS = 150;
+const CATEGORY_STARS = 300;
 const API = `https://api.telegram.org/bot${TOKEN}`;
+// Internal grant: the bot calls the site (same box) to reuse grantUnlock for
+// deck/category Stars purchases. Auth by the shared SESSION_SECRET.
+const SECRET = process.env.SESSION_SECRET || "dev-insecure-secret";
+const SITE = process.env.SITE_URL || "https://inapp.pro";
 const prisma = new PrismaClient();
 
 async function tg(method, body) {
@@ -68,6 +75,62 @@ async function sendLifetimeInvoice(chatId, uid = "") {
     currency: "XTR",
     prices: [{ label: "Lifetime — всё навсегда", amount: LIFETIME.stars }],
   });
+}
+
+async function sendDeckInvoice(chatId, uid = "") {
+  return tg("sendInvoice", {
+    chat_id: chatId,
+    title: "inApp — Колода идей",
+    description: "Лучшая идея из каждой премиум-ниши, разобранная по реальным отзывам — навсегда.",
+    payload: `deck_${uid}_${Date.now()}`,
+    provider_token: "",
+    currency: "XTR",
+    prices: [{ label: "Колода идей", amount: DECK_STARS }],
+  });
+}
+
+async function sendCategoryInvoice(chatId, uid = "", slug = "") {
+  return tg("sendInvoice", {
+    chat_id: chatId,
+    title: "inApp — Разбор категории",
+    description: "Вся ниша: выводы, все идеи и разбор конкурентов — навсегда.",
+    payload: `cat_${uid}_${slug}_${Date.now()}`,
+    provider_token: "",
+    currency: "XTR",
+    prices: [{ label: "Разбор категории", amount: CATEGORY_STARS }],
+  });
+}
+
+// Resolve the site userId (by uid from the web, else upsert by telegram id).
+async function resolveUserId({ userId, telegramFrom }) {
+  if (userId) {
+    const u = await prisma.user.findUnique({ where: { id: userId } }).catch(() => null);
+    if (u) return u.id;
+  }
+  if (telegramFrom) {
+    const tgId = String(telegramFrom.id);
+    const u = await prisma.user
+      .upsert({
+        where: { telegramId: tgId },
+        update: { username: telegramFrom.username ?? null, firstName: telegramFrom.first_name ?? null },
+        create: { telegramId: tgId, username: telegramFrom.username ?? null, firstName: telegramFrom.first_name ?? null },
+      })
+      .catch(() => null);
+    if (u) return u.id;
+  }
+  return null;
+}
+
+// Grant deck/category via the site (reuses grantUnlock). ref makes it idempotent.
+async function grantViaSite({ userId, kind, slug, ref }) {
+  const r = await fetch(`${SITE}/api/internal/grant`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ secret: SECRET, userId, kind, slug: slug ?? null, ref }),
+  })
+    .then((x) => x.json())
+    .catch(() => null);
+  return !!(r && r.ok);
 }
 
 // Grant lifetime once. ref makes re-delivery idempotent.
@@ -140,6 +203,20 @@ async function handleMessage(m) {
       return;
     }
 
+    if (payload.startsWith("deck_")) {
+      const userId = await resolveUserId({ userId: parts[1] || "", telegramFrom: m.from });
+      const ok = userId && (await grantViaSite({ userId, kind: "deck", ref }));
+      await tg("sendMessage", { chat_id: chatId, text: ok ? "🃏 Колода открыта — все карты с идеями ваши навсегда. Вернитесь на сайт." : "⭐ Оплата получена. Вернитесь на сайт inApp." });
+      return;
+    }
+
+    if (payload.startsWith("cat_")) {
+      const userId = await resolveUserId({ userId: parts[1] || "", telegramFrom: m.from });
+      const ok = userId && (await grantViaSite({ userId, kind: "category", slug: parts[2] || "", ref }));
+      await tg("sendMessage", { chat_id: chatId, text: ok ? "🗂️ Категория открыта — выводы, идеи и конкуренты. Вернитесь на сайт." : "⭐ Оплата получена. Вернитесь на сайт inApp." });
+      return;
+    }
+
     // tokens_<packId>_<uid>_<ts>
     const packId = parts[1];
     const uid = parts[2] || "";
@@ -175,6 +252,21 @@ async function handleMessage(m) {
       const uid = arg.slice("life_".length);
       if (uid) pendingUid.set(chatId, uid);
       await sendLifetimeInvoice(chatId, uid);
+      return;
+    }
+    if (arg.startsWith("deck_")) {
+      const uid = arg.slice("deck_".length);
+      if (uid) pendingUid.set(chatId, uid);
+      await sendDeckInvoice(chatId, uid);
+      return;
+    }
+    if (arg.startsWith("cat_")) {
+      const rest = arg.slice("cat_".length); // <uid>_<slug>
+      const us = rest.split("_");
+      const uid = us[0] || "";
+      const slug = us[1] || "";
+      if (uid) pendingUid.set(chatId, uid);
+      await sendCategoryInvoice(chatId, uid, slug);
       return;
     }
     if (arg.startsWith("buy_")) {

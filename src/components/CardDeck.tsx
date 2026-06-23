@@ -56,6 +56,8 @@ export default function CardDeck({
   unlimited,
   deckPrice,
   deckCount,
+  starsHref,
+  starsLabel,
   initialCollection = [],
   guestUsed: guestUsed0 = 0,
   guestCap = 2,
@@ -65,6 +67,8 @@ export default function CardDeck({
   unlimited: boolean;
   deckPrice: number;
   deckCount: number;
+  starsHref?: string;
+  starsLabel?: string;
   initialCollection?: Card[];
   guestUsed?: number;
   guestCap?: number;
@@ -271,6 +275,8 @@ export default function CardDeck({
               locale={locale}
               title={ru ? "Колода идей" : "Idea deck"}
               subtitle={ru ? `${deckCount} карт с идеями — лучшее из каждой ниши, навсегда.` : `${deckCount} idea cards — the best of every niche, forever.`}
+              starsHref={starsHref}
+              starsLabel={starsLabel}
             />
           </div>
         </div>

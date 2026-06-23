@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getSessionUser } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 import { isFriendIdentity } from "@/lib/friends";
-import { TOKEN_PACKS, LIFETIME, DECK_PRICE_RUB, CATEGORY_PRICE_RUB } from "@/lib/tokenConfig";
+import { TOKEN_PACKS, LIFETIME, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_STARS, CATEGORY_STARS } from "@/lib/tokenConfig";
 import TokenHistory from "@/components/TokenHistory";
 
 export const dynamic = "force-dynamic";
@@ -42,9 +42,11 @@ export default async function AdminPage() {
       if (isStars) m.stars += LIFETIME.stars;
       else m.rub += LIFETIME.rub;
     } else if (e.reason === "buy_deck") {
-      m.rub += DECK_PRICE_RUB;
+      if (isStars) m.stars += DECK_STARS;
+      else m.rub += DECK_PRICE_RUB;
     } else if (e.reason === "buy_category") {
-      m.rub += CATEGORY_PRICE_RUB;
+      if (isStars) m.stars += CATEGORY_STARS;
+      else m.rub += CATEGORY_PRICE_RUB;
     } else {
       const pack = TOKEN_PACKS.find((p) => p.tokens === e.delta);
       if (pack) {

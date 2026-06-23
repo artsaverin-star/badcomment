@@ -18,6 +18,8 @@ export default function BuyButton({
   locale = "ru",
   title,
   subtitle,
+  starsHref,
+  starsLabel,
 }: {
   kind: "deck" | "category";
   slug?: string;
@@ -27,6 +29,8 @@ export default function BuyButton({
   locale?: Locale;
   title: string;
   subtitle: string;
+  starsHref?: string;
+  starsLabel?: string;
 }) {
   const ru = locale !== "en";
   const [auth, setAuth] = useState(false);
@@ -106,6 +110,14 @@ export default function BuyButton({
               >
                 {busy === "sbp" ? "…" : ru ? "Через СБП" : "Via SBP"}
               </button>
+              {starsHref && (
+                <a
+                  href={starsHref}
+                  className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                >
+                  <span aria-hidden>⭐</span> {starsLabel || (ru ? "Telegram Stars" : "Telegram Stars")}
+                </a>
+              )}
             </div>
             {err && <p className="text-center text-caption text-[#ff6b6b]">{err}</p>}
           </div>

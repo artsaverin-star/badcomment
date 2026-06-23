@@ -12,6 +12,8 @@ export default function CategoryGate({
   loggedIn,
   pregenDate,
   locale = "ru",
+  starsHref,
+  starsLabel,
 }: {
   slug: string;
   sellable: boolean;
@@ -19,6 +21,8 @@ export default function CategoryGate({
   loggedIn: boolean;
   pregenDate: string;
   locale?: Locale;
+  starsHref?: string;
+  starsLabel?: string;
 }) {
   const ru = locale !== "en";
 
@@ -42,6 +46,8 @@ export default function CategoryGate({
         locale={locale}
         title={ru ? "Разбор категории" : "Category breakdown"}
         subtitle={ru ? "Выводы, все идеи и разбор конкурентов ниши — открывается навсегда." : "Findings, all ideas and the competitor teardown — unlocked forever."}
+        starsHref={starsHref}
+        starsLabel={starsLabel}
       />
       {loggedIn && (
         <p className="max-w-[42ch] text-caption text-[var(--color-text-tertiary)]">

@@ -4,7 +4,7 @@ import { getAccess } from "@/lib/access";
 import { drawnCards } from "@/lib/tokens";
 import { deckIdeaSlugs } from "@/lib/deck";
 import { getLocale } from "@/lib/i18n.server";
-import { DECK_PRICE_RUB, FREE_ANON_CARDS } from "@/lib/tokenConfig";
+import { DECK_PRICE_RUB, DECK_STARS, FREE_ANON_CARDS } from "@/lib/tokenConfig";
 import insightsData from "@/data/insights.json";
 import CardDeck from "@/components/CardDeck";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
@@ -58,6 +58,8 @@ export default async function CardsPage() {
         unlimited={access.unlimited}
         deckPrice={DECK_PRICE_RUB}
         deckCount={ideasCount}
+        starsHref={access.user ? `https://t.me/${process.env.BOT_USERNAME || "inAppProBot"}?start=deck_${access.user.id}` : undefined}
+        starsLabel={`${DECK_STARS} ⭐ Telegram`}
         initialCollection={initialCollection}
         guestUsed={guestUsed}
         guestCap={FREE_ANON_CARDS}

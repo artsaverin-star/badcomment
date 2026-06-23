@@ -21,13 +21,14 @@ export async function ownsDeck(userId: string): Promise<boolean> {
 // energy. Idempotent: the payment ref guards against webhook re-delivery (a ledger
 // row tagged with that ref means we've already credited this payment). `amountRub`
 // is the real charged ₽ (from YooKassa) — the source of truth for revenue reports.
-export async function grantUnlock(userId: string, kind: BuyKind, slug: string | null, ref: string, amountRub: number): Promise<void> {
+export async function grantUnlock(userId: string, kind: BuyKind, slug: string | null, ref: string, amountRub?: number | null): Promise<void> {
   const already = await prisma.tokenLedger.findFirst({ where: { ref } });
   if (already) return;
+  const rub = amountRub ?? null; // null for Stars (no ₽ amount) — admin maps those by reason
 
   if (kind === "lifetime") {
     await prisma.user.update({ where: { id: userId }, data: { lifetime: true } });
-    await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: REASON.lifetime, ref, balanceAfter: 0, amountRub } });
+    await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: REASON.lifetime, ref, balanceAfter: 0, amountRub: rub } });
     return;
   }
 
@@ -48,5 +49,5 @@ export async function grantUnlock(userId: string, kind: BuyKind, slug: string | 
   const fresh = rows.filter((r) => !have.has(`${r.type}:${r.slug}`));
   if (fresh.length) await prisma.unlock.createMany({ data: fresh });
 
-  await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: REASON[kind], ref, balanceAfter: 0 } });
+  await prisma.tokenLedger.create({ data: { userId, delta: 0, reason: REASON[kind], ref, balanceAfter: 0, amountRub: rub } });
 }

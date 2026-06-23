@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AuthModal from "./AuthModal";
-import { DECK_PRICE_RUB, LIFETIME, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
+import { DECK_PRICE_RUB, LIFETIME, DECK_CREDIT_RUB, DECK_STARS } from "@/lib/tokenConfig";
 import type { Locale } from "@/lib/i18n";
 
 const fmt = (n: number) => n.toLocaleString("ru-RU");
@@ -152,7 +152,18 @@ export default function TokenStore({
           {ownsDeck ? (
             <p className="mt-7 rounded-full bg-[var(--color-surface-card-subtle)] px-4 py-3 text-center text-footnote font-semibold text-[var(--color-text-tertiary)]">{ru ? "Колода уже открыта ✓" : "Deck already unlocked ✓"}</p>
           ) : (
-            cardButton("deck", ru ? "Открыть колоду картой РФ" : "Unlock deck by card (RU)")
+            <>
+              {cardButton("deck", ru ? "Открыть колоду картой РФ" : "Unlock deck by card (RU)")}
+              {loggedIn ? (
+                <a href={`${botStart}deck_${uid}`} className="mt-2.5 flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+                  <span aria-hidden>⭐</span> {DECK_STARS.toLocaleString("ru-RU")} Telegram
+                </a>
+              ) : (
+                <button type="button" onClick={() => setAuth(true)} className="mt-2.5 flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)]">
+                  <span aria-hidden>⭐</span> {DECK_STARS.toLocaleString("ru-RU")} Telegram
+                </button>
+              )}
+            </>
           )}
         </div>
       </div>

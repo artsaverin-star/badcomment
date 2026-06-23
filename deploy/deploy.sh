@@ -33,5 +33,7 @@ mv .next.incoming/.next .next
 rm -rf .next.incoming .next.old next-build.tgz
 
 sudo systemctl restart badcomment
+# Restart the Telegram bot too so bot/bot.mjs changes go live (no-op if absent).
+sudo systemctl restart inappbot 2>/dev/null || true
 echo ">> Deployed (prebuilt .next). Status:"
 sudo systemctl --no-pager status badcomment | head -n 5

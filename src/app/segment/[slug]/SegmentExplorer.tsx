@@ -87,6 +87,8 @@ export default function SegmentExplorer({
   sellable,
   price,
   pregenDate,
+  starsHref,
+  starsLabel,
 }: {
   locale: Locale;
   slug: string;
@@ -97,6 +99,8 @@ export default function SegmentExplorer({
   sellable: boolean;
   price: number;
   pregenDate: string;
+  starsHref?: string;
+  starsLabel?: string;
 }) {
   const ru = locale !== "en";
   const [active, setActive] = useState<Active>(null);
@@ -138,7 +142,7 @@ export default function SegmentExplorer({
               title={ru ? `${opps.length} идей под спрос` : `${opps.length} demand-backed ideas`}
               subtitle={ru ? "Каждую люди просят сами. Внутри по каждой — что строить, для кого и как на этом заработать, с цитатами из отзывов." : "Each one users ask for themselves. Inside — what to build, for whom and how to monetize, with review quotes."}
               button={
-                <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
+                <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
               }
             />
           ) : (
@@ -195,7 +199,7 @@ export default function SegmentExplorer({
               subtitle={ru ? "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовая карта конкурентов по реальным отзывам, чтобы не повторять их ошибок." : "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor map from real reviews."}
               icons={apps.map((a) => a.icon)}
               button={
-                <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
+                <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
               }
             />
           ) : (
@@ -267,7 +271,7 @@ export default function SegmentExplorer({
                         </figure>
                       )}
                       <p className="text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? "Внутри — в чём разрыв и почему это шанс, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the gap and why it's an opening, what to build, features, monetization and evidence."}</p>
-                      <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
+                      <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
                     </div>
                   );
                 }
@@ -345,7 +349,7 @@ export default function SegmentExplorer({
 
                     {a.locked ? (
                       <div className="mt-8">
-                        <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} />
+                        <CategoryGate slug={slug} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
                       </div>
                     ) : (
                       <div className="mt-7">
