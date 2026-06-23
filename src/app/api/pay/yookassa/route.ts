@@ -55,13 +55,16 @@ export async function POST(req: Request) {
   const fwdHost = req.headers.get("x-forwarded-host") || req.headers.get("host");
   const fwdProto = req.headers.get("x-forwarded-proto") || "https";
   const origin = process.env.SITE_URL || (fwdHost ? `${fwdProto}://${fwdHost}` : new URL(req.url).origin);
+  const idem = crypto.randomUUID();
+  const skuLabel = body.kind === "deck" || body.kind === "category" || body.kind === "lifetime" ? body.kind : "pack";
   try {
     const payment = await createPayment({
       amountRub,
       description,
       metadata,
-      returnUrl: `${origin}/library`,
-      idempotenceKey: crypto.randomUUID(),
+      // The return page reads these to fire the GA4/Metrica `purchase` event.
+      returnUrl: `${origin}/library?bought=${skuLabel}&v=${amountRub}&t=${idem}`,
+      idempotenceKey: idem,
       method,
     });
     const url = payment?.confirmation?.confirmation_url ?? null;

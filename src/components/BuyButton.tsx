@@ -4,6 +4,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import AuthModal from "./AuthModal";
 import { LIFETIME } from "@/lib/tokenConfig";
+import { trackBeginCheckout, trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
 // A buy trigger that opens a payment-options popup (card РФ / СБП) for a direct-₽
@@ -50,10 +51,13 @@ export default function BuyButton({
       return;
     }
     setErr(null);
+    trackBeginCheckout({ id: kind, name: title, price });
     setOpen(true);
   }
 
   async function pay(method: "bank_card" | "sbp", payKind: "deck" | "category" | "lifetime" = kind) {
+    const payValue = payKind === "lifetime" ? lifetimePrice ?? 0 : price;
+    trackAddPaymentInfo({ id: payKind, name: payKind === "lifetime" ? "Lifetime" : title, price: payValue }, method);
     setBusy(`${payKind}:${method}`);
     setErr(null);
     try {

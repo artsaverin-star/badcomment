@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { Header } from "@saverin/ui-web";
 import { getAccess } from "@/lib/access";
 import { getLibrary, type LibItem } from "@/lib/library";
+import PurchaseTracker from "@/components/PurchaseTracker";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +13,9 @@ export default async function LibraryPage() {
 
   return (
     <main className="mx-auto w-full max-w-[640px] px-4 py-14">
+      <Suspense fallback={null}>
+        <PurchaseTracker />
+      </Suspense>
       <Header size="L" as="h1" className="mb-3 items-center text-center" title="Купленное" />
 
       {!access.loggedIn ? (

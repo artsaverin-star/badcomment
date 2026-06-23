@@ -3,6 +3,7 @@
 import { useState } from "react";
 import AuthModal from "./AuthModal";
 import { DECK_PRICE_RUB, LIFETIME, DECK_CREDIT_RUB, DECK_STARS } from "@/lib/tokenConfig";
+import { trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
 const fmt = (n: number) => n.toLocaleString("ru-RU");
@@ -35,6 +36,8 @@ export default function TokenStore({
 
   async function buy(kind: string, method: string, key: string) {
     if (!loggedIn) return setAuth(true);
+    const v = kind === "deck" ? DECK_PRICE_RUB : ownsDeck ? LIFETIME.rub - DECK_CREDIT_RUB : LIFETIME.rub;
+    trackAddPaymentInfo({ id: kind, name: kind === "deck" ? "Колода" : "Lifetime", price: v }, method);
     setBusy(key);
     setErr(null);
     try {
