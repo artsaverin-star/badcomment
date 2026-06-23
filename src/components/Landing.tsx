@@ -212,7 +212,7 @@ export default function Landing({
               key={i}
               src={src}
               alt=""
-              className={`ld-float absolute block rounded-[14px] opacity-70 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-80 ${sizes[i % sizes.length]} ${positions[i]}`}
+              className={`ld-float absolute rounded-[14px] opacity-70 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-80 ${sizes[i % sizes.length]} ${positions[i]} ${positions[i].includes("bottom") ? "hidden sm:block" : "block"}`}
               style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
             />
           ))}
@@ -238,20 +238,18 @@ export default function Landing({
 
       {/* Two feature doors: the special report + the idea deck (the third block —
           category breakdowns — is the gallery below). */}
-      <section className="mx-auto mt-2 flex w-full max-w-3xl flex-col gap-3 px-4">
+      <section className="mx-auto mt-2 grid w-full max-w-3xl grid-cols-2 gap-3 px-4">
         {[
-          { href: "/most-wanted", eyebrow: ru ? "Спец-разбор" : "Special report", title: ru ? "Приложения, которые умоляют сделать" : "Apps people beg for", sub: ru ? "Спрос огромный, а приложения нет." : "Huge demand, no app.", cta: ru ? "Читать" : "Read", emoji: "" },
-          { href: "/cards", eyebrow: ru ? "Колода идей" : "Idea deck", title: ru ? "Тяни карту — выпадет идея" : "Draw a card — get an idea", sub: ru ? "Готовая идея под подтверждённый спрос." : "A ready idea backed by proven demand.", cta: ru ? "Открыть" : "Open", emoji: "🎴" },
+          { href: "/most-wanted", eyebrow: ru ? "Спец-разбор" : "Special report", title: ru ? "Приложения, которые умоляют сделать" : "Apps people beg for", sub: ru ? "Спрос огромный, а приложения нет." : "Huge demand, no app.", cta: ru ? "Читать" : "Read" },
+          { href: "/cards", eyebrow: ru ? "Колода идей" : "Idea deck", title: ru ? "Тяни карту — выпадет идея" : "Draw a card — get an idea", sub: ru ? "Готовая идея под подтверждённый спрос." : "A ready idea backed by proven demand.", cta: ru ? "Открыть" : "Open" },
         ].map((b) => (
-          <Link key={b.href} href={b.href} className="group flex items-center justify-between gap-4 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-4 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-7 sm:py-5">
-            <div className="min-w-0">
-              <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{b.emoji ? `${b.emoji} ` : ""}{b.eyebrow}</p>
-              <h3 className="mt-1 text-[18px] font-black leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[21px]">{b.title}</h3>
-              <p className="mt-1 truncate text-[13.5px] text-[var(--color-text-tertiary)]">{b.sub}</p>
-            </div>
-            <span className="flex shrink-0 items-center gap-1.5 text-[14px] font-semibold text-[var(--color-text-primary)]">
-              <span className="hidden sm:inline">{b.cta}</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
+          <Link key={b.href} href={b.href} className="group flex flex-col rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-4 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-5 sm:py-5">
+            <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{b.eyebrow}</p>
+            <h3 className="mt-1.5 text-[15px] font-black leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{b.title}</h3>
+            <p className="mt-1.5 hidden text-[13px] leading-snug text-[var(--color-text-tertiary)] sm:line-clamp-2 sm:block">{b.sub}</p>
+            <span className="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-primary)] sm:mt-auto sm:pt-3">
+              {b.cta}
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
                 <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
@@ -261,12 +259,12 @@ export default function Landing({
 
       {/* Gallery — the third block: category breakdowns */}
       {catCards.length > 0 && (
-        <div className="mx-auto w-full max-w-5xl px-1">
-          <div className="mb-6 mt-10 text-center">
+        <div className="mx-auto w-full max-w-5xl px-4">
+          <div className="mb-3 mt-10 text-center">
             <h2 className="text-[clamp(24px,6vw,34px)] font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? "Разбор категорий" : "Niche breakdowns"}</h2>
           </div>
           {/* view toggle */}
-          <div className="mb-8 flex justify-center px-1">
+          <div className="mb-8 flex justify-center">
             <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
               {(["cards", "list"] as const).map((v) => (
                 <button
