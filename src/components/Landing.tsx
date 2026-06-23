@@ -281,7 +281,7 @@ export default function Landing({
                   ) : (
                     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="7" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="11.5" width="13" height="2" rx="1" fill="currentColor" /></svg>
                   )}
-                  <span>{v === "cards" ? (ru ? "Сеткой" : "Grid") : (ru ? "Списком" : "List")}</span>
+                  <span>{v === "cards" ? (ru ? "Карточками" : "Cards") : (ru ? "Списком" : "List")}</span>
                 </button>
               ))}
             </div>
