@@ -68,7 +68,7 @@ export default function LaunchOffer({
         aria-label={ru ? "Спецпредложение" : "Special offer"}
         className="promo-badge relative flex h-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-brand)] px-3 text-[13px] font-bold text-white"
       >
-        <span className="absolute -inset-0.5 -z-10 animate-ping rounded-full bg-[var(--color-accent-brand)] opacity-40" aria-hidden />
+        <span className="promo-ring absolute -inset-0.5 -z-10 rounded-full bg-[var(--color-accent-brand)] opacity-0" aria-hidden />
         <span className="tabular-nums">−{FRIEND_DISCOUNT_PCT}%</span>
       </button>
 

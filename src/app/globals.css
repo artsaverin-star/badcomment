@@ -431,26 +431,38 @@ html:not([data-theme="dark"]) .atmosphere {
   position: relative;
 }
 
-/* Launch-promo discount badge in the header: a soft breathing glow so it draws
-   the eye without being obnoxious. */
-@keyframes promo-glow {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 55%, transparent);
-  }
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 0 18px 2px color-mix(in srgb, var(--color-accent-brand) 45%, transparent);
-  }
+/* Launch-promo discount badge in the header: a burst of 3 quick pulses, then a
+   ~3s rest, on loop — eye-catching without being constant. */
+@keyframes promo-pulse3 {
+  0%   { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
+  4%   { transform: scale(1.09); box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 50%, transparent); }
+  9%   { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
+  13%  { transform: scale(1.09); box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 50%, transparent); }
+  18%  { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
+  22%  { transform: scale(1.09); box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 50%, transparent); }
+  27%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
+}
+@keyframes promo-ring3 {
+  0%   { transform: scale(1);   opacity: 0.45; }
+  9%   { transform: scale(1.9); opacity: 0; }
+  13%  { transform: scale(1);   opacity: 0.45; }
+  22%  { transform: scale(1.9); opacity: 0; }
+  26%  { transform: scale(1);   opacity: 0.45; }
+  35%  { transform: scale(1.9); opacity: 0; }
+  36%, 100% { opacity: 0; }
 }
 .promo-badge {
-  animation: promo-glow 2.4s ease-in-out infinite;
+  animation: promo-pulse3 4.5s ease-in-out infinite;
 }
 .promo-badge:hover {
   animation-play-state: paused;
 }
+.promo-ring {
+  animation: promo-ring3 4.5s ease-in-out infinite;
+}
 @media (prefers-reduced-motion: reduce) {
-  .promo-badge {
+  .promo-badge,
+  .promo-ring {
     animation: none;
   }
 }
