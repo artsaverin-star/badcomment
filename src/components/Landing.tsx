@@ -53,8 +53,16 @@ function metaLine(c: CatCard, ru: boolean): string {
     : `${c.observations} observations${c.ideas > 0 ? ` · ${c.ideas} ideas` : ""}`;
 }
 
-// Big "hero" tile (Apple-store featured) — bold headline, full icon row, the
-// governing thought, a blurb, stats and CTA.
+// The sharpest, complete first sentence of a governing thought — the homepage
+// cards lead with the hook, not a wall of text.
+function firstSentence(t?: string) {
+  if (!t) return "";
+  const m = t.match(/^.*?[.!?…](\s|$)/);
+  return (m ? m[0] : t).trim();
+}
+
+// Big "hero" tile (Apple-store featured) — bold headline, icon row, the hook
+// (one sentence), stats and CTA.
 function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
   const icons = c.icons.filter(Boolean).slice(0, 6);
   return (
@@ -72,8 +80,7 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
           ))}
         </div>
       )}
-      {c.hook && <p className="mt-6 text-[17px] font-light leading-[1.5] text-[var(--color-text-primary)] sm:text-[19px]">{c.hook}</p>}
-      {c.blurb && <p className="mt-4 text-[14px] leading-[1.5] text-[var(--color-text-tertiary)]">{c.blurb}</p>}
+      {c.hook && <p className="mt-6 text-[17px] font-light leading-[1.5] text-[var(--color-text-primary)] sm:text-[19px]">{firstSentence(c.hook)}</p>}
       <div className="mt-auto pt-7">
         <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
         <span className="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--color-text-primary)]">
@@ -102,7 +109,7 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
           ))}
         </div>
       )}
-      {c.hook && <p className="mt-4 line-clamp-3 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{c.hook}</p>}
+      {c.hook && <p className="mt-4 line-clamp-2 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{firstSentence(c.hook)}</p>}
       <div className="mt-auto flex items-center justify-between pt-5">
         <p className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
         <Arrow className="shrink-0" />
