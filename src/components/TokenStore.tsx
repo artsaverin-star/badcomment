@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AuthModal from "./AuthModal";
-import { DECK_PRICE_RUB, LIFETIME, DECK_CREDIT_RUB, DECK_STARS } from "@/lib/tokenConfig";
+import { DECK_PRICE_RUB, LIFETIME, DECK_CREDIT_RUB, DECK_STARS, FRIEND_PRICE_RUB, FRIEND_DISCOUNT_PCT, LAUNCH_PROMO } from "@/lib/tokenConfig";
 import { trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
@@ -36,7 +36,7 @@ export default function TokenStore({
 
   async function buy(kind: string, method: string, key: string) {
     if (!loggedIn) return setAuth(true);
-    const v = kind === "deck" ? DECK_PRICE_RUB : ownsDeck ? LIFETIME.rub - DECK_CREDIT_RUB : LIFETIME.rub;
+    const v = kind === "deck" ? DECK_PRICE_RUB : LAUNCH_PROMO ? FRIEND_PRICE_RUB : ownsDeck ? LIFETIME.rub - DECK_CREDIT_RUB : LIFETIME.rub;
     trackAddPaymentInfo({ id: kind, name: kind === "deck" ? "Колода" : "Lifetime", price: v }, method);
     setBusy(key);
     setErr(null);
@@ -65,7 +65,7 @@ export default function TokenStore({
     );
   }
 
-  const lifePrice = ownsDeck ? LIFETIME.rub - DECK_CREDIT_RUB : LIFETIME.rub;
+  const lifePrice = LAUNCH_PROMO ? FRIEND_PRICE_RUB : ownsDeck ? LIFETIME.rub - DECK_CREDIT_RUB : LIFETIME.rub;
 
   const cardButton = (kind: string, label: string) => (
     <div className="mt-auto flex flex-col gap-2.5 pt-7">
@@ -96,17 +96,24 @@ export default function TokenStore({
       <div className="mx-auto w-full max-w-[560px]">
         <div className="relative flex flex-col rounded-[var(--radius-2xl)] border-2 border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,var(--color-surface-card))] p-6">
           <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--color-accent-brand)] px-3 py-0.5 text-[11px] font-bold text-white">
-            {ru ? "🔥 Всё навсегда" : "🔥 Everything forever"}
+            {LAUNCH_PROMO ? (ru ? `🔥 −${FRIEND_DISCOUNT_PCT}% в честь запуска` : `🔥 −${FRIEND_DISCOUNT_PCT}% launch offer`) : ru ? "🔥 Всё навсегда" : "🔥 Everything forever"}
           </span>
           <div className="flex items-center justify-between gap-2">
             <span className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Lifetime" : "Lifetime"}</span>
           </div>
           <div className="mt-3">
-            {ownsDeck && <s className="block text-[14px] leading-none text-[var(--color-text-tertiary)]">{fmt(LIFETIME.rub)}&nbsp;₽</s>}
-            <span className="mt-1 block whitespace-nowrap text-[28px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{fmt(lifePrice)}&nbsp;₽</span>
+            {(LAUNCH_PROMO || ownsDeck) && <s className="block text-[14px] leading-none text-[var(--color-text-tertiary)]">{fmt(LIFETIME.rub)}&nbsp;₽</s>}
+            <div className="mt-1 flex items-end gap-2">
+              <span className="block whitespace-nowrap text-[28px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{fmt(lifePrice)}&nbsp;₽</span>
+              {LAUNCH_PROMO && <span className="mb-0.5 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>}
+            </div>
           </div>
           <div className="mt-2 text-callout font-semibold text-[var(--color-text-brand)]">{ru ? "♾️ Все ниши, разборы и идеи — навсегда" : "♾️ Every niche, breakdown and idea — forever"}</div>
-          {ownsDeck && <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">{ru ? `Колода зачтена — −${DECK_CREDIT_RUB} ₽` : `Deck credited — −${DECK_CREDIT_RUB} ₽`}</div>}
+          {LAUNCH_PROMO ? (
+            <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">{ru ? "Стань другом проекта на старте" : "Become a friend of the project at launch"}</div>
+          ) : ownsDeck ? (
+            <div className="mt-1 text-caption text-[var(--color-text-tertiary)]">{ru ? `Колода зачтена — −${DECK_CREDIT_RUB} ₽` : `Deck credited — −${DECK_CREDIT_RUB} ₽`}</div>
+          ) : null}
           <ul className="mt-5 flex flex-col gap-2 border-t border-[var(--color-border-subtle)] pt-5">
             {(ru
               ? ["Все категории и идеи открыты навсегда", "Тысячи реальных отзывов, разобранные в готовые выводы", "Платить снова не нужно"]
@@ -119,7 +126,7 @@ export default function TokenStore({
             ))}
           </ul>
           {cardButton("lifetime", ru ? "Купить картой РФ" : "Pay by card (RU)")}
-          {loggedIn ? (
+          {!LAUNCH_PROMO && (loggedIn ? (
             <a href={lifeStars} className="mt-2.5 flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
               <span aria-hidden>⭐</span> {LIFETIME.stars.toLocaleString("ru-RU")} Telegram
             </a>
@@ -127,7 +134,7 @@ export default function TokenStore({
             <button type="button" onClick={() => setAuth(true)} className="mt-2.5 flex w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-2.5 text-footnote font-semibold text-[var(--color-text-secondary)]">
               <span aria-hidden>⭐</span> {LIFETIME.stars.toLocaleString("ru-RU")} Telegram
             </button>
-          )}
+          ))}
         </div>
       </div>
 

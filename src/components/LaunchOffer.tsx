@@ -66,14 +66,9 @@ export default function LaunchOffer({
         type="button"
         onClick={openOffer}
         aria-label={ru ? "Спецпредложение" : "Special offer"}
-        className="promo-badge relative flex h-9 shrink-0 items-center gap-1 rounded-full bg-[var(--color-accent-brand)] pl-2 pr-2.5 text-[13px] font-bold text-white"
+        className="promo-badge relative flex h-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-brand)] px-3 text-[13px] font-bold text-white"
       >
         <span className="absolute -inset-0.5 -z-10 animate-ping rounded-full bg-[var(--color-accent-brand)] opacity-40" aria-hidden />
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <circle cx="6" cy="6" r="2.2" stroke="currentColor" strokeWidth="1.7" />
-          <circle cx="14" cy="14" r="2.2" stroke="currentColor" strokeWidth="1.7" />
-          <path d="M15.5 4.5 4.5 15.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-        </svg>
         <span className="tabular-nums">−{FRIEND_DISCOUNT_PCT}%</span>
       </button>
 

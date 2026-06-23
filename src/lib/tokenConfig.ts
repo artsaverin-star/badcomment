@@ -10,9 +10,12 @@ export type UnlockType = "app" | "idea" | "chapter" | "category" | "ideas" | "ap
 export const LIFETIME = { rub: 2990, stars: 1500 };
 
 // Launch promo «Друг проекта»: the same lifetime ownership at a discounted launch
-// price. Grants lifetime (metadata.kind = "lifetime" on the payment).
+// price. While LAUNCH_PROMO is on, every Lifetime surface sells at FRIEND_PRICE_RUB
+// (the old price shown struck-through). Grants lifetime on payment. Flip
+// LAUNCH_PROMO to false to end the promo everywhere in one place.
 export const FRIEND_PRICE_RUB = 990;
-export const FRIEND_DISCOUNT_PCT = Math.round((1 - FRIEND_PRICE_RUB / LIFETIME.rub) * 100); // −67%
+export const FRIEND_DISCOUNT_PCT = 70; // advertised launch discount
+export const LAUNCH_PROMO = true;
 
 // ── Direct-₽ model ─────────────────────────────────────────────────────────
 export const DECK_PRICE_RUB = 290; // unlock the whole best-of deck (top-2 × premium niches) forever

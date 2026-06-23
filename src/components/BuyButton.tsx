@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import AuthModal from "./AuthModal";
-import { LIFETIME } from "@/lib/tokenConfig";
+import { LIFETIME, FRIEND_PRICE_RUB, FRIEND_DISCOUNT_PCT, LAUNCH_PROMO } from "@/lib/tokenConfig";
 import { trackBeginCheckout, trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
@@ -55,8 +55,11 @@ export default function BuyButton({
     setOpen(true);
   }
 
+  // During the launch promo Lifetime is sold at the flat «Друг проекта» price.
+  const lifeEff = LAUNCH_PROMO ? FRIEND_PRICE_RUB : lifetimePrice ?? 0;
+
   async function pay(method: "bank_card" | "sbp", payKind: "deck" | "category" | "lifetime" = kind) {
-    const payValue = payKind === "lifetime" ? lifetimePrice ?? 0 : price;
+    const payValue = payKind === "lifetime" ? lifeEff : price;
     trackAddPaymentInfo({ id: payKind, name: payKind === "lifetime" ? "Lifetime" : title, price: payValue }, method);
     setBusy(`${payKind}:${method}`);
     setErr(null);
@@ -141,9 +144,16 @@ export default function BuyButton({
                   type="button"
                   onClick={() => setLifeOpen((v) => !v)}
                   aria-expanded={lifeOpen}
-                  className="flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]"
+                  className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]"
                 >
-                  {ru ? `♾️ Lifetime — всё навсегда, ${lifetimePrice} ₽` : `♾️ Lifetime — everything forever, ${lifetimePrice} ₽`}
+                  <span>{ru ? "♾️ Lifetime — всё навсегда" : "♾️ Lifetime — everything forever"}</span>
+                  <span className="font-bold">{lifeEff}&nbsp;₽</span>
+                  {LAUNCH_PROMO && (
+                    <>
+                      <s className="text-[var(--color-text-tertiary)]">{lifetimePrice}&nbsp;₽</s>
+                      <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+                    </>
+                  )}
                   <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" className={`transition-transform ${lifeOpen ? "rotate-180" : ""}`} aria-hidden><path d="m4 6 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </button>
                 {lifeOpen && (
@@ -165,7 +175,7 @@ export default function BuyButton({
                     <button type="button" onClick={() => pay("sbp", "lifetime")} disabled={!!busy} className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60">
                       {busy === "lifetime:sbp" ? "…" : ru ? "Через СБП" : "Via SBP"}
                     </button>
-                    {lifetimeStarsHref && (
+                    {!LAUNCH_PROMO && lifetimeStarsHref && (
                       <a href={lifetimeStarsHref} className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
                         <span aria-hidden>⭐</span> {LIFETIME.stars.toLocaleString("ru-RU")} Telegram
                       </a>

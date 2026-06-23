@@ -3,7 +3,7 @@ import { yookassaEnabled } from "@/lib/yookassa";
 import { getLocale } from "@/lib/i18n.server";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
-import { LIFETIME, DECK_PRICE_RUB } from "@/lib/tokenConfig";
+import { LIFETIME, DECK_PRICE_RUB, FRIEND_PRICE_RUB, LAUNCH_PROMO } from "@/lib/tokenConfig";
 import TokenStore from "@/components/TokenStore";
 
 export const dynamic = "force-dynamic";
@@ -31,8 +31,8 @@ export default async function TokensPage() {
         description={
           <span className="mx-auto block max-w-md">
             {ru
-              ? `Готовые идеи и выводы из тысяч реальных отзывов. Колода — ${DECK_PRICE_RUB} ₽, всё навсегда — ${LIFETIME.rub} ₽.`
-              : `Ready ideas and conclusions from thousands of real reviews. Deck — ${DECK_PRICE_RUB} ₽, everything forever — ${LIFETIME.rub} ₽.`}
+              ? `Готовые идеи и выводы из тысяч реальных отзывов. Колода — ${DECK_PRICE_RUB} ₽, всё навсегда — ${LAUNCH_PROMO ? `${FRIEND_PRICE_RUB} ₽ вместо ${LIFETIME.rub}` : `${LIFETIME.rub} ₽`}.`
+              : `Ready ideas and conclusions from thousands of real reviews. Deck — ${DECK_PRICE_RUB} ₽, everything forever — ${LAUNCH_PROMO ? `${FRIEND_PRICE_RUB} ₽ instead of ${LIFETIME.rub}` : `${LIFETIME.rub} ₽`}.`}
           </span>
         }
       />

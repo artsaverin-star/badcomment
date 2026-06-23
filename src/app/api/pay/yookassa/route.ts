@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "node:crypto";
 import { getSessionUser } from "@/lib/session";
 import { createPayment, yookassaEnabled } from "@/lib/yookassa";
-import { getPack, tokensWord, LIFETIME, FRIEND_PRICE_RUB, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
+import { getPack, tokensWord, LIFETIME, FRIEND_PRICE_RUB, LAUNCH_PROMO, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
 import { PREMIUM_NICHE_SET } from "@/lib/premiumNiches";
 import { ownsDeck } from "@/lib/unlocks";
 
@@ -37,8 +37,13 @@ export async function POST(req: Request) {
     description = "inApp — Разбор категории";
     metadata = { userId: u.id, kind: "category", slug };
   } else if (body.kind === "lifetime") {
-    const credit = (await ownsDeck(u.id)) ? DECK_CREDIT_RUB : 0;
-    amountRub = Math.max(1, LIFETIME.rub - credit);
+    if (LAUNCH_PROMO) {
+      // Launch promo: Lifetime sells at the flat «Друг проекта» price.
+      amountRub = FRIEND_PRICE_RUB;
+    } else {
+      const credit = (await ownsDeck(u.id)) ? DECK_CREDIT_RUB : 0;
+      amountRub = Math.max(1, LIFETIME.rub - credit);
+    }
     description = "inApp — Lifetime (всё навсегда)";
     metadata = { userId: u.id, kind: "lifetime" };
   } else if (body.kind === "friend") {
