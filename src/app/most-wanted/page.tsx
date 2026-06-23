@@ -1,13 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { listIdeas, type Idea } from "@/lib/ideas";
 import { PREMIUM_NICHE_SET } from "@/lib/premiumNiches";
-import { getCategoryBySlug } from "@/lib/researchCategories";
-import { getNicheThesis } from "@/lib/nicheThesis";
-import { getSegmentSummary } from "@/lib/segmentSummary";
-import { appCardsFor, descriptionFor, type RegenCard } from "@/lib/regenCards";
-import { getProductInsights } from "@/lib/insights";
-import { hasInsight } from "@/lib/readyApps";
 import { getLocale } from "@/lib/i18n.server";
 import { tg } from "@/lib/typo";
 import insightsData from "@/data/insights.json";
@@ -16,44 +11,37 @@ import Reveal from "@/components/Reveal";
 
 export const dynamic = "force-dynamic";
 
-// Cornerstone editorial: a McKinsey-style market read of the app landscape from
-// real reviews — context + named competitors (loved/hated, with quotes) + the
-// gap + what to build + synthesis. Proof-first, no invented numbers.
+// Cornerstone editorial — written as an essay (NYT-style), organized by the
+// patterns that recur across niches, not as a per-niche card grid. Argument +
+// real evidence: named apps, real review quotes (faithfully translated from the
+// store originals) and real demand numbers. The "opportunities" + scale numbers
+// are pulled live from our data; the patterns and quote translations are authored.
 
 const nf = (n: number, ru: boolean) => n.toLocaleString(ru ? "ru-RU" : "en-US");
 
-type EvLike = { app?: string; rating: number; quote: string; quoteRu?: string };
-const hasCyr = (s: string) => /[а-яё]/i.test(s);
-function quoteText(e: EvLike | undefined, ru: boolean) {
-  if (!e) return null;
-  const text = ru ? e.quoteRu ?? e.quote : e.quote;
-  if (ru && !hasCyr(text)) return null; // RU page → only Russian comments
-  return { app: e.app ?? "", rating: e.rating, text };
-}
-function topCard(cards: RegenCard[], pole: "plus" | "minus") {
-  return cards.filter((c) => (c[pole] ?? "").trim()).sort((a, b) => b.count - a.count)[0] ?? null;
-}
-function avgRating(pid: string): number | null {
-  const hist = getProductInsights(pid)?.ratingBreakdown ?? {};
-  const total = [1, 2, 3, 4, 5].reduce((s, n) => s + (hist[String(n)] ?? 0), 0);
-  if (!total) return null;
-  return [1, 2, 3, 4, 5].reduce((s, n) => s + n * (hist[String(n)] ?? 0), 0) / total;
+type Q = { text: string; app: string; rating: number };
+
+function Quote({ q }: { q: Q }) {
+  return (
+    <div className="flex flex-col gap-1">
+      <div className="msg-bubble max-w-[88%] self-start rounded-[20px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-4 py-2.5 text-[14.5px] leading-[1.45] text-[var(--color-text-primary)]">{q.text}</div>
+      <span className="pl-2 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</span>
+    </div>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const title = ru
-    ? "Приложения, которые люди умоляют сделать — а их до сих пор нет"
-    : "Apps people beg for — that still don't exist";
+  const title = ru ? "Приложения, которые люди умоляют сделать — а их до сих пор нет" : "Apps people beg for — that still don't exist";
   const description = ru
-    ? "Разбор рынка приложений по 555 000 отзывов: что любят, на что злятся и какие приложения люди умоляют сделать. С названными конкурентами, цитатами и выводами."
-    : "An app-market read from 555,000 reviews: what users love, what enrages them and which apps people beg for. Named competitors, quotes and conclusions.";
+    ? "Разбор рынка приложений по 555 000 отзывов: три паттерна, которые повторяются в каждой нише, с названными приложениями, цитатами и идеями под спрос."
+    : "An app-market read from 555,000 reviews: three patterns that recur in every niche, with named apps, quotes and demand-backed ideas.";
   const url = `https://inapp.pro/${ru ? "ru" : "en"}/most-wanted`;
   return {
     title,
     description,
-    keywords: ru ? ["идеи приложений", "какое приложение сделать", "анализ рынка приложений", "идея для стартапа", "ниши приложений 2026"] : ["app ideas", "what app to build", "app market analysis", "startup idea", "app niches 2026"],
+    keywords: ru ? ["идеи приложений", "какое приложение сделать", "анализ рынка приложений", "идея для стартапа"] : ["app ideas", "what app to build", "app market analysis", "startup idea"],
     alternates: { canonical: url, languages: { ru: "https://inapp.pro/ru/most-wanted", en: "https://inapp.pro/en/most-wanted", "x-default": "https://inapp.pro/en/most-wanted" } },
     openGraph: { title, description, type: "article", url, siteName: "inApp", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
     twitter: { card: "summary_large_image", title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
@@ -69,232 +57,176 @@ export default async function MostWantedPage() {
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
   const totalApps = (insightsData as unknown[]).length;
   const totalIdeas = ideasAll.length;
-  // Global average rating across the whole dataset — the "market health" exhibit.
   let rSum = 0, rCnt = 0;
   for (const a of insightsData as { ratingBreakdown?: Record<string, number> }[]) {
     const h = a.ratingBreakdown ?? {};
     for (const n of [1, 2, 3, 4, 5]) { rSum += n * (h[String(n)] ?? 0); rCnt += h[String(n)] ?? 0; }
   }
-  const globalAvg = rCnt ? rSum / rCnt : null;
+  const avg = rCnt ? (rSum / rCnt).toFixed(1).replace(".", ru ? "," : ".") : "—";
 
-  // Rank premium niches by the demand behind their top gap; go deep on the best 4.
-  const nicheList = [...PREMIUM_NICHE_SET]
-    .map((slug) => ({ slug, idea: ideasAll.find((i) => i.category === slug) as Idea | undefined }))
-    .filter((n): n is { slug: string; idea: Idea } => !!n.idea && !!getNicheThesis(n.slug, locale) && !!getCategoryBySlug(n.slug, locale))
-    .sort((a, b) => (b.idea.stats?.observations ?? 0) - (a.idea.stats?.observations ?? 0))
-    .slice(0, 4);
+  // Real opportunities — top gap per niche, pulled live (gap text is authored RU).
+  const seen = new Set<string>();
+  const gaps: Idea[] = [];
+  for (const i of ideasAll) {
+    if (!PREMIUM_NICHE_SET.has(i.category) || seen.has(i.category)) continue;
+    seen.add(i.category);
+    gaps.push(i);
+    if (gaps.length >= 4) break;
+  }
 
-  const sections = nicheList.map(({ slug, idea }) => {
-    const cat = getCategoryBySlug(slug, locale)!;
-    const thesis = getNicheThesis(slug, locale)!;
-    const summary = getSegmentSummary(slug);
-    const leaders = cat.apps
-      .filter((a) => hasInsight(a.productId))
-      .slice(0, 2)
-      .map((a) => {
-        const pid = a.productId as string;
-        const cards = appCardsFor(pid, locale)?.product ?? [];
-        const love = topCard(cards, "plus");
-        const flaw = topCard(cards, "minus");
-        return {
-          name: a.name,
-          icon: a.icon,
-          avg: avgRating(pid),
-          desc: descriptionFor(pid, locale, getProductInsights(pid)?.description),
-          love: love?.title ?? null,
-          flaw: flaw?.title ?? null,
-          quote: quoteText((flaw?.evidence as EvLike[] | undefined)?.[0], ru),
-        };
-      })
-      .filter((a) => a.flaw || a.love);
-    const begs = [...idea.reviewGrid]
-      .filter((q) => !ru || hasCyr(q.quote))
-      .sort((a, b) => a.rating - b.rating || a.quote.length - b.quote.length)
-      .slice(0, 2);
-    return { slug, cat, thesis, summary, idea, leaders, begs };
-  });
-
-  const stats = [
-    { n: nf(totalReviews, ru), l: ru ? "отзывов прочитано" : "reviews read" },
-    { n: nf(totalApps, ru), l: ru ? "приложений" : "apps" },
-    { n: `${PREMIUM_NICHE_SET.size}`, l: ru ? "ниш разобрано" : "niches analyzed" },
-    { n: globalAvg ? `${globalAvg.toFixed(1)}★` : "—", l: ru ? "средний рейтинг" : "avg rating" },
-  ];
-
-  const takeaways = ru
+  // Real review quotes (faithful RU translations of the store originals; EN kept for the EN page).
+  const Q1: Q[] = ru
     ? [
-        { t: "Побеждает не «больше фич», а одно дело идеально", d: "В каждой нише лидеры тонут в просьбах «верните как было» и «уберите лишнее». Победа — в скорости, надёжности и фокусе, а не в длине списка функций." },
-        { t: "Скорость и сохранность — это позиционирование", d: "«Открылось мгновенно, ничего не потерялось, всё на новом телефоне» — половина пятёрок. Это не гигиена, это причина остаться." },
-        { t: "Платная стена злит сильнее багов", d: "Самые яростные отзывы — не про вылеты, а про обрезанный функционал, навязчивые подписки и «отобрали то, к чему привык»." },
-        { t: "«Рынок переполнен» — миф", d: "Высокий средний рейтинг уживается с тысячами однотипных «1★, бесит». Спрос на «то же, но без боли» — открыт." },
+        { text: "После трёх привычек оно не дало добавить четвёртую без премиума. Пока-пока.", app: "HabitGenius", rating: 1 },
+        { text: "Я заплатил — потому что они хитро задрали цену уже после того, как ты накопил кучу заметок.", app: "Evernote", rating: 1 },
       ]
     : [
-        { t: "Not more features — one thing done perfectly", d: "In every niche the leaders drown in 'bring back the old way' and 'remove the clutter'. The win is speed, reliability and focus — not a longer feature list." },
-        { t: "Speed and data-safety are positioning", d: "'Opened instantly, nothing lost, everything on the new phone' — half of the 5-stars. Not hygiene — the reason to stay." },
-        { t: "Paywalls enrage more than bugs", d: "The angriest reviews aren't about crashes — they're about gutted features, pushy subscriptions and 'you took away what I was used to'." },
-        { t: "'The market is crowded' is a myth", d: "A high average rating coexists with thousands of identical 1-star 'this is infuriating'. Demand for 'the same, minus the pain' is wide open." },
+        { text: "After three habits, it wouldn't let me make another unless I bought premium. Bye.", app: "HabitGenius", rating: 1 },
+        { text: "I paid — because of the clever way they jacked up the price after you'd built up your notes.", app: "Evernote", rating: 1 },
       ];
+  const Q2: Q[] = ru
+    ? [
+        { text: "Приложение не восстановило ни одной моей записи. Я понятия не имею, по каким дням что поливал. С 40 растениями дома это просто катастрофа.", app: "Blossom", rating: 1 },
+        { text: "Последнее обновление перемешало или стёрло около 20% моих заметок и удалило половину сохранённых картинок.", app: "Evernote", rating: 1 },
+      ]
+    : [
+        { text: "This app didn't restore any of my data. I have no clue what days I watered. With 40 plants this is truly devastating.", app: "Blossom", rating: 1 },
+        { text: "Their latest update scrambled or erased about 20% of my notes and deleted half my pictures.", app: "Evernote", rating: 1 },
+      ];
+  const Q3: Q[] = ru
+    ? [
+        { text: "Оно советовало заливать некоторые растения — корни гнили, и растение погибало.", app: "Blossom", rating: 1 },
+        { text: "Я ушёл на бесплатные альтернативы из-за встроенного Gemini, который я не просил и которым не пользуюсь.", app: "Google Keep", rating: 1 },
+      ]
+    : [
+        { text: "It told me to grossly overwater plants — root rot, then the plant died.", app: "Blossom", rating: 1 },
+        { text: "I left for free alternatives because of the built-in Gemini I never asked for and don't use.", app: "Google Keep", rating: 1 },
+      ];
+
+  const para = "mt-5 max-w-[62ch] text-[17px] leading-[1.7] text-[var(--color-text-secondary)] sm:text-[18px]";
+  const lead = "text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-brand)]";
+  const h2 = "text-[26px] font-black leading-[1.12] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[34px]";
+  const strong = "font-semibold text-[var(--color-text-primary)]";
 
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Article", headline: ru ? "Приложения, которые люди умоляют сделать — а их до сих пор нет" : "Apps people beg for — that still don't exist", inLanguage: ru ? "ru" : "en", author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" }, publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" } },
-      { "@type": "ItemList", numberOfItems: sections.length, itemListElement: sections.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.cat.name })) },
     ],
   };
 
   return (
-    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
+    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />
 
       {/* HERO */}
-      <header className="text-center">
+      <header>
         <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Разбор рынка по отзывам" : "A market read from reviews"}</div>
-        <h1 className="glow-sweep mx-auto mt-6 max-w-[16ch] text-[clamp(32px,8.5vw,64px)] font-black leading-[0.98] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
+        <h1 className="glow-sweep mt-6 max-w-[18ch] text-[clamp(32px,8vw,58px)] font-black leading-[1.0] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
           {ru ? "Приложения, которые люди умоляют сделать" : "Apps people beg for"}
         </h1>
-        <p className="mx-auto mt-7 max-w-[56ch] text-[18px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[20px]">
-          {ru
-            ? <>Я месяц читал отзывы — <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> штук на <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> приложений. Ниши выглядят занятыми, рейтинги высокие — но под ними одна и та же фрустрация, которую никто не закрыл. Вот разбор: с конкурентами, цитатами и выводами.</>
-            : <>I spent a month reading reviews — <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> across <span className="font-semibold tabular-nums text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> apps. The niches look taken, the ratings are high — yet underneath sits the same unmet frustration. Here is the read — competitors, quotes and conclusions.</>}
+        <p className="mt-7 max-w-[60ch] text-[18px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-[20px]">
+          {ru ? (
+            <>Я месяц читал отзывы — <span className={strong}>{nf(totalReviews, ru)}</span> на <span className={strong}>{nf(totalApps, ru)}</span> приложений. Средний рейтинг — <span className={strong}>{avg}★</span>, и он усыпляет: кажется, всё уже сделано. Но звёзды ставят довольные. В хвосте из единиц повторяются три истории — и ни одна не про нехватку функций.</>
+          ) : (
+            <>I spent a month reading <span className={strong}>{nf(totalReviews, ru)}</span> reviews across <span className={strong}>{nf(totalApps, ru)}</span> apps. The average is <span className={strong}>{avg}★</span> — reassuring, like it's all been done. But stars come from the happy. In the 1-star tail, three stories repeat — none about missing features.</>
+          )}
         </p>
       </header>
 
-      {/* MARKET CONTEXT — the dataset exhibit */}
-      <section className="mt-14 rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 sm:p-9">
-        <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-brand)]">{ru ? "Контекст" : "Context"}</div>
-        <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.l} className="flex flex-col">
-              <span className="text-[28px] font-black leading-none tracking-[-0.03em] tabular-nums text-[var(--color-text-primary)] sm:text-[34px]">{s.n}</span>
-              <span className="mt-2 text-caption text-[var(--color-text-tertiary)]">{s.l}</span>
-            </div>
-          ))}
-        </div>
-        <p className="mt-7 max-w-[60ch] text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">
-          {ru
-            ? `Средний рейтинг ${globalAvg ? globalAvg.toFixed(1) : "—"}★ создаёт ощущение, что рынок занят. Но рейтинг — это медиана довольных; в хвосте из единиц и двоек повторяется один и тот же сценарий. Разберём четыре ниши, где разрыв виден яснее всего.`
-            : `An average of ${globalAvg ? globalAvg.toFixed(1) : "—"}★ makes the market feel taken. But the rating is the median of the satisfied; in the 1–2★ tail the same script repeats. Below: four niches where the gap is clearest.`}
-        </p>
-      </section>
+      {/* I — PAYWALL BEFORE VALUE */}
+      <Reveal className="mt-20 sm:mt-28">
+        <section>
+          <div className={lead}>{ru ? "Паттерн 01" : "Pattern 01"}</div>
+          <h2 className={`mt-4 ${h2}`}>{ru ? "Стену ставят ровно там, где обещали ценность" : "The wall goes up exactly where the value was promised"}</h2>
+          <p className={para}>
+            {ru
+              ? <>Самый частый сюжет плохого отзыва — не вылет и не баг. Это момент, когда приложение берёт тебя за горло там, где ты пришёл за пользой. <span className={strong}>HabitGenius</span> даёт завести три привычки — и упирает в платную стену на четвёртой. <span className={strong}>Evernote</span> ждёт, пока ты накопишь заметки за годы, и поднимает цену.</>
+              : <>The most common bad-review plot isn't a crash or a bug. It's the moment the app grabs you by the throat right where you came for value. <span className={strong}>HabitGenius</span> lets you add three habits — then walls off the fourth. <span className={strong}>Evernote</span> waits until you've piled up years of notes, then raises the price.</>}
+          </p>
+          <div className="mt-7 flex flex-col gap-3">{Q1.map((q, i) => <Quote key={i} q={q} />)}</div>
+          <p className={para}>
+            {ru
+              ? <>Паттерн один на все ниши: монетизируют именно ту секунду, ради которой скачали — диагноз больного растения, четвёртую привычку, накопленный архив. И теряют доверие за миг до ценности.</>
+              : <>One pattern across niches: they monetize the exact second you came for — the sick-plant diagnosis, the fourth habit, the archive you built. And lose trust a breath before the value.</>}
+          </p>
+        </section>
+      </Reveal>
 
-      {/* NICHE DEEP-DIVES */}
-      <div className="mt-20 flex flex-col gap-24 sm:mt-28 sm:gap-32">
-        {sections.map((s, i) => (
-          <Reveal key={s.slug}>
-            <article>
-              <div className="flex items-baseline gap-3 text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
-                <span className="text-[var(--color-text-brand)]">{`0${i + 1}`.slice(-2)}</span>
-                <span>{s.cat.name}</span>
-                {s.summary && <span className="tabular-nums">· {nf(s.summary.reviewsScanned, ru)} {ru ? "отзывов" : "reviews"}</span>}
-              </div>
+      {/* II — DATA LOSS IS BETRAYAL */}
+      <Reveal className="mt-20 sm:mt-28">
+        <section>
+          <div className={lead}>{ru ? "Паттерн 02" : "Pattern 02"}</div>
+          <h2 className={`mt-4 ${h2}`}>{ru ? "Потерять данные — значит предать" : "Lose the data, and it's a betrayal"}</h2>
+          <p className={para}>
+            {ru
+              ? <>Если первый грех — жадность, второй — беспамятство. Ни в одной нише не прощают потерю того, что уже накопили. Садовый трекер <span className={strong}>Blossom</span> теряет историю полива у человека с 40 растениями. Обновление <span className={strong}>Evernote</span> стирает пятую часть заметок.</>
+              : <>If the first sin is greed, the second is amnesia. No niche forgives losing what you've already built. The garden tracker <span className={strong}>Blossom</span> wipes a 40-plant watering history. An <span className={strong}>Evernote</span> update erases a fifth of someone's notes.</>}
+          </p>
+          <div className="mt-7 flex flex-col gap-3">{Q2.map((q, i) => <Quote key={i} q={q} />)}</div>
+          <p className={para}>
+            {ru
+              ? <>Сохранность данных — не гигиена, а само основание доверия. Сломал его обновлением — пользователь уходит и пишет об этом всем.</>
+              : <>Data-safety isn't hygiene — it's the foundation of trust. Break it with an update and the user leaves, loudly.</>}
+          </p>
+        </section>
+      </Reveal>
 
-              {/* Thesis — the lead statement (the niche name is in the eyebrow above) */}
-              {s.thesis.governing ? (
-                <h2 className="mt-6 max-w-[64ch] text-[23px] font-light leading-[1.4] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[29px]">{tg(s.thesis.governing)}</h2>
-              ) : (
-                <h2 className="mt-6 text-[26px] font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[32px]">{tg(s.cat.name)}</h2>
-              )}
+      {/* III — THE SMART THING NOBODY ASKED FOR */}
+      <Reveal className="mt-20 sm:mt-28">
+        <section>
+          <div className={lead}>{ru ? "Паттерн 03" : "Pattern 03"}</div>
+          <h2 className={`mt-4 ${h2}`}>{ru ? "«Умное», которого никто не просил" : "The 'smart' thing nobody asked for"}</h2>
+          <p className={para}>
+            {ru
+              ? <>Третий паттерн коварнее всех — команды считают его прогрессом. Это «умная» функция, которая ломается о реальность или которую никто не звал. <span className={strong}>Blossom</span> советует полив «по холодному климату» и заливает растения до гнили. <span className={strong}>Google Keep</span> встраивает Gemini, которого не просили.</>
+              : <>The third pattern is the sneakiest — teams call it progress. It's the "smart" feature that breaks on reality or that nobody invited. <span className={strong}>Blossom</span> recommends "cold-climate" watering and drowns plants into root rot. <span className={strong}>Google Keep</span> bolts on a Gemini nobody asked for.</>}
+          </p>
+          <div className="mt-7 flex flex-col gap-3">{Q3.map((q, i) => <Quote key={i} q={q} />)}</div>
+          <p className={para}>
+            {ru
+              ? <>Люди приходят за простой надёжной привычкой. Им подсовывают модель мира, которая не совпадает с их миром, — и называют это интеллектом.</>
+              : <>People come for a simple, reliable habit. They get a model of the world that doesn't match theirs — and it's called intelligence.</>}
+          </p>
+        </section>
+      </Reveal>
 
-              {/* Competitive landscape — named apps */}
-              {s.leaders.length > 0 && (
-                <div className="mt-9">
-                  <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Кто уже на рынке" : "Who's already there"}</div>
-                  <div className="mt-4 flex flex-col gap-4">
-                    {s.leaders.map((a, k) => (
-                      <div key={k} className="rounded-[20px] bg-[var(--color-surface-card-subtle)] p-5">
-                        <div className="flex items-center gap-3.5">
-                          {a.icon ? (
-                            // eslint-disable-next-line @next/next/no-img-element
-                            <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[13px] object-cover" />
-                          ) : <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)]" />}
-                          <div className="min-w-0 flex-1">
-                            <div className="flex items-center gap-2">
-                              <span className="text-[17px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                              {a.avg != null && <span className="shrink-0 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
-                            </div>
-                            {a.desc && <span className="line-clamp-1 text-[13px] text-[var(--color-text-tertiary)]">{a.desc}</span>}
-                          </div>
-                        </div>
-                        <div className="mt-3 flex flex-col gap-1.5 text-[14px] leading-snug">
-                          {a.love && <p className="text-[var(--color-text-secondary)]"><span className="font-semibold text-[#4ade80]">{ru ? "Любят:" : "Loved:"}</span> {tg(a.love)}</p>}
-                          {a.flaw && <p className="text-[var(--color-text-secondary)]"><span className="font-semibold text-[#ff8585]">{ru ? "Бесит:" : "Hated:"}</span> {tg(a.flaw)}</p>}
-                        </div>
-                        {a.quote && (
-                          <div className="mt-3.5 flex flex-col gap-1">
-                            <div className="msg-bubble max-w-[94%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-3.5 py-2.5 text-[13.5px] leading-[1.45] text-[var(--color-text-primary)]">{tg(a.quote.text)}</div>
-                            <span className="pl-1.5 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{a.quote.app} · {a.quote.rating}★</span>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+      {/* OPPORTUNITIES — the real gaps */}
+      <Reveal className="mt-24 sm:mt-32">
+        <section>
+          <div className={lead}>{ru ? "Что из этого напрашивается" : "What follows from this"}</div>
+          <h2 className={`mt-4 ${h2}`}>{ru ? "Чего на самом деле просят" : "What people are actually asking for"}</h2>
+          <p className={para}>
+            {ru
+              ? "Сложите три паттерна — и видно: просят не больше функций, а честную цену, сохранность данных и одно дело, доведённое до конца. Вот разрывы, под которыми стоит измеримый спрос."
+              : "Stack the three patterns and it's clear: not more features, but fair pricing, data-safety and one thing finished. Here are the gaps with measurable demand behind them."}
+          </p>
+          <div className="mt-10 flex flex-col divide-y divide-[var(--color-border-subtle)]">
+            {gaps.map((g, i) => (
+              <Link key={g.slug} href={`/segment/${g.category}`} className="group block py-6 first:pt-0 last:pb-0">
+                <div className="flex items-baseline gap-3 text-[12px] font-medium uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
+                  <span className="text-[var(--color-text-brand)]">{`0${i + 1}`.slice(-2)}</span>
+                  <span>{g.categoryName}</span>
+                  <span className="tabular-nums">· {nf(g.stats?.observations ?? 0, ru)} {ru ? "за спрос" : "demand signals"}</span>
                 </div>
-              )}
-
-              {/* The gap */}
-              <div className="mt-9 border-l-2 border-[var(--color-text-brand)] pl-5">
-                <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? `Разрыв · ${nf(s.idea.stats?.observations ?? 0, ru)} наблюдений спроса` : `The gap · ${nf(s.idea.stats?.observations ?? 0, ru)} demand signals`}</div>
-                <p className="mt-2.5 text-[17px] font-semibold leading-[1.45] text-[var(--color-text-primary)]">{tg(s.idea.title)}</p>
-                {s.idea.gap && <p className="mt-2 text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">{tg(s.idea.gap)}</p>}
-              </div>
-
-              {/* Begging quotes */}
-              {s.begs.length > 0 && (
-                <div className="mt-6 flex flex-col gap-3">
-                  {s.begs.map((q, j) => (
-                    <div key={j} className="flex flex-col gap-1">
-                      <div className="msg-bubble max-w-[88%] self-start rounded-[20px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-4 py-2.5 text-[14.5px] leading-[1.45] text-[var(--color-text-primary)]">{tg(q.quote)}</div>
-                      <span className="pl-2 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* What to build */}
-              {(s.idea.idea?.pitch || s.idea.idea?.monetization) && (
-                <div className="mt-7 rounded-[18px] bg-[var(--color-surface-card-subtle)] p-5">
-                  {s.idea.idea?.pitch && <p className="text-[15px] leading-[1.6] text-[var(--color-text-primary)]"><span className="font-semibold">{ru ? "Что построить. " : "What to build. "}</span>{tg(s.idea.idea.pitch)}</p>}
-                  {s.idea.idea?.monetization && <p className="mt-2 text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]"><span className="font-semibold text-[var(--color-text-secondary)]">{ru ? "Деньги. " : "Money. "}</span>{tg(s.idea.idea.monetization)}</p>}
-                </div>
-              )}
-
-              <Link href={`/segment/${s.slug}`} className="mt-7 flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 text-[15px] font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]">
-                {ru ? `Полный разбор ниши «${s.cat.name}»` : `Full niche breakdown: ${s.cat.name}`}
+                <p className="mt-2.5 text-[19px] font-bold leading-[1.25] tracking-[-0.01em] text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-text-brand)] sm:text-[21px]">{tg(g.title)}</p>
+                {g.gap && <p className="mt-2 max-w-[62ch] text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{tg(g.gap)}</p>}
               </Link>
-            </article>
-          </Reveal>
-        ))}
-      </div>
-
-      {/* SYNTHESIS */}
-      <section className="mt-24 border-t border-[var(--color-border-subtle)] pt-14 sm:mt-32">
-        <div className="text-center text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-brand)]">{ru ? "Выводы" : "Takeaways"}</div>
-        <h2 className="mt-3 text-center text-[28px] font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[36px]">{ru ? "Что это значит для тебя" : "What it means for you"}</h2>
-        <div className="mt-10 flex flex-col divide-y divide-[var(--color-border-subtle)]">
-          {takeaways.map((t, i) => (
-            <div key={i} className={i === 0 ? "pb-6" : "py-6 last:pb-0"}>
-              <div className="flex gap-4">
-                <span className="text-[15px] font-black tabular-nums text-[var(--color-text-brand)]">{`0${i + 1}`.slice(-2)}</span>
-                <div>
-                  <p className="text-[18px] font-bold leading-[1.3] tracking-[-0.01em] text-[var(--color-text-primary)]">{t.t}</p>
-                  <p className="mt-2 max-w-[62ch] text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{t.d}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </Reveal>
 
       {/* CTA */}
-      <section className="mt-20 text-center">
-        <p className="mx-auto max-w-[48ch] text-[16px] leading-[1.6] text-[var(--color-text-secondary)]">
-          {ru
-            ? `Это 4 ниши из 13 и одна идея из ${nf(totalIdeas, ru)}. По каждой нише — все идеи под спрос, полный разбор конкурентов и цитаты.`
-            : `That's 4 niches of 13 and one idea of ${nf(totalIdeas, ru)}. Per niche — all demand-backed ideas, the full competitor teardown and quotes.`}
+      <section className="mt-24 border-t border-[var(--color-border-subtle)] pt-14 text-center sm:mt-32">
+        <p className="mx-auto max-w-[44ch] text-[22px] font-light leading-[1.4] text-[var(--color-text-primary)] sm:text-[26px]">
+          {ru ? "Ниша не «занята», когда лидеры теряют доверие на каждом шагу. Она открыта." : "A niche isn't 'taken' when the leaders lose trust at every step. It's open."}
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <p className="mx-auto mt-5 max-w-[48ch] text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">
+          {ru ? `Это три паттерна и ${gaps.length} разрыва из ${nf(totalIdeas, ru)} идей под спрос. По каждой нише — все идеи, полный разбор конкурентов и цитаты.` : `Three patterns and ${gaps.length} gaps of ${nf(totalIdeas, ru)} demand-backed ideas. Per niche — all ideas, the full teardown and quotes.`}
+        </p>
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Link href="/cards" className="btn-shimmer inline-flex items-center gap-2.5 rounded-full px-8 py-4 text-[16px] font-semibold text-white shadow-[0_14px_36px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]">
             🎴 {ru ? "Колода идей — тяни карту" : "Idea deck — draw a card"}
           </Link>
@@ -302,6 +234,9 @@ export default async function MostWantedPage() {
             {ru ? "Все ниши" : "All niches"}
           </Link>
         </div>
+        <p className="mx-auto mt-10 max-w-[40ch] text-[12px] leading-[1.5] text-[var(--color-text-tertiary)]">
+          {ru ? "Цитаты — перевод реальных отзывов из App Store и Google Play. Цифры спроса — из извлечённых наблюдений." : "Quotes are translations of real App Store / Google Play reviews. Demand numbers come from extracted observations."}
+        </p>
       </section>
     </main>
   );
