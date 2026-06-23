@@ -435,30 +435,30 @@ html:not([data-theme="dark"]) .atmosphere {
    ~3s rest, on loop — eye-catching without being constant. */
 @keyframes promo-pulse3 {
   0%   { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
-  4%   { transform: scale(1.09); box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 50%, transparent); }
-  9%   { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
-  13%  { transform: scale(1.09); box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 50%, transparent); }
-  18%  { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
-  22%  { transform: scale(1.09); box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 50%, transparent); }
-  27%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
+  2%   { transform: scale(1.1);  box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 55%, transparent); }
+  4%   { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
+  6%   { transform: scale(1.1);  box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 55%, transparent); }
+  8%   { transform: scale(1);    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
+  10%  { transform: scale(1.1);  box-shadow: 0 0 18px 3px color-mix(in srgb, var(--color-accent-brand) 55%, transparent); }
+  12%, 100% { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent-brand) 0%, transparent); }
 }
 @keyframes promo-ring3 {
-  0%   { transform: scale(1);   opacity: 0.45; }
-  9%   { transform: scale(1.9); opacity: 0; }
-  13%  { transform: scale(1);   opacity: 0.45; }
-  22%  { transform: scale(1.9); opacity: 0; }
-  26%  { transform: scale(1);   opacity: 0.45; }
-  35%  { transform: scale(1.9); opacity: 0; }
-  36%, 100% { opacity: 0; }
+  0%   { transform: scale(1);   opacity: 0.5; }
+  4%   { transform: scale(1.9); opacity: 0; }
+  4.01% { transform: scale(1); opacity: 0.5; }
+  8%   { transform: scale(1.9); opacity: 0; }
+  8.01% { transform: scale(1); opacity: 0.5; }
+  12%  { transform: scale(1.9); opacity: 0; }
+  12.01%, 100% { opacity: 0; }
 }
 .promo-badge {
-  animation: promo-pulse3 4.5s ease-in-out infinite;
+  animation: promo-pulse3 10s ease-in-out infinite;
 }
 .promo-badge:hover {
   animation-play-state: paused;
 }
 .promo-ring {
-  animation: promo-ring3 4.5s ease-in-out infinite;
+  animation: promo-ring3 10s ease-in-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .promo-badge,
