@@ -204,7 +204,7 @@ export default function Landing({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-x-clip px-4 pb-12 pt-20 sm:pt-28">
+      <section className="relative overflow-x-clip px-2 pb-12 pt-20 sm:px-4 sm:pt-28">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           {floats.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
@@ -238,7 +238,7 @@ export default function Landing({
 
       {/* Two feature doors: the special report + the idea deck (the third block —
           category breakdowns — is the gallery below). */}
-      <section className="mx-auto mt-2 grid w-full max-w-3xl grid-cols-2 gap-3 px-4">
+      <section className="mx-auto mt-2 grid w-full max-w-3xl grid-cols-2 gap-3 px-2 sm:px-4">
         {[
           { href: "/most-wanted", eyebrow: ru ? "Спец-разбор" : "Special report", title: ru ? "Приложения, которые умоляют сделать" : "Apps people beg for", sub: ru ? "Спрос огромный, а приложения нет." : "Huge demand, no app.", cta: ru ? "Читать" : "Read" },
           { href: "/cards", eyebrow: ru ? "Колода идей" : "Idea deck", title: ru ? "Тяни карту — выпадет идея" : "Draw a card — get an idea", sub: ru ? "Готовая идея под подтверждённый спрос." : "A ready idea backed by proven demand.", cta: ru ? "Открыть" : "Open" },
@@ -259,7 +259,7 @@ export default function Landing({
 
       {/* Gallery — the third block: category breakdowns */}
       {catCards.length > 0 && (
-        <div className="mx-auto w-full max-w-5xl px-4">
+        <div className="mx-auto w-full max-w-5xl px-2 sm:px-4">
           <div className="mb-3 mt-10 text-center">
             <h2 className="text-[clamp(24px,6vw,34px)] font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? "Разбор категорий" : "Niche breakdowns"}</h2>
           </div>
