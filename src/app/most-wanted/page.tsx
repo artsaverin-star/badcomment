@@ -23,9 +23,12 @@ export const dynamic = "force-dynamic";
 const nf = (n: number, ru: boolean) => n.toLocaleString(ru ? "ru-RU" : "en-US");
 
 type EvLike = { app?: string; rating: number; quote: string; quoteRu?: string };
+const hasCyr = (s: string) => /[а-яё]/i.test(s);
 function quoteText(e: EvLike | undefined, ru: boolean) {
   if (!e) return null;
-  return { app: e.app ?? "", rating: e.rating, text: ru ? e.quoteRu ?? e.quote : e.quote };
+  const text = ru ? e.quoteRu ?? e.quote : e.quote;
+  if (ru && !hasCyr(text)) return null; // RU page → only Russian comments
+  return { app: e.app ?? "", rating: e.rating, text };
 }
 function topCard(cards: RegenCard[], pole: "plus" | "minus") {
   return cards.filter((c) => (c[pole] ?? "").trim()).sort((a, b) => b.count - a.count)[0] ?? null;
@@ -104,7 +107,10 @@ export default async function MostWantedPage() {
         };
       })
       .filter((a) => a.flaw || a.love);
-    const begs = [...idea.reviewGrid].sort((a, b) => a.rating - b.rating || a.quote.length - b.quote.length).slice(0, 2);
+    const begs = [...idea.reviewGrid]
+      .filter((q) => !ru || hasCyr(q.quote))
+      .sort((a, b) => a.rating - b.rating || a.quote.length - b.quote.length)
+      .slice(0, 2);
     return { slug, cat, thesis, summary, idea, leaders, begs };
   });
 
@@ -184,9 +190,12 @@ export default async function MostWantedPage() {
                 {s.summary && <span className="tabular-nums">· {nf(s.summary.reviewsScanned, ru)} {ru ? "отзывов" : "reviews"}</span>}
               </div>
 
-              {/* Thesis */}
-              <h2 className="mt-5 text-[27px] font-black leading-[1.08] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[34px]">{tg(s.cat.name)}</h2>
-              {s.thesis.governing && <p className="mt-5 max-w-[62ch] text-[19px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[21px]">{tg(s.thesis.governing)}</p>}
+              {/* Thesis — the lead statement (the niche name is in the eyebrow above) */}
+              {s.thesis.governing ? (
+                <h2 className="mt-6 max-w-[64ch] text-[23px] font-light leading-[1.4] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[29px]">{tg(s.thesis.governing)}</h2>
+              ) : (
+                <h2 className="mt-6 text-[26px] font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[32px]">{tg(s.cat.name)}</h2>
+              )}
 
               {/* Competitive landscape — named apps */}
               {s.leaders.length > 0 && (
@@ -194,7 +203,7 @@ export default async function MostWantedPage() {
                   <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Кто уже на рынке" : "Who's already there"}</div>
                   <div className="mt-4 flex flex-col gap-4">
                     {s.leaders.map((a, k) => (
-                      <div key={k} className="rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5">
+                      <div key={k} className="rounded-[20px] bg-[var(--color-surface-card-subtle)] p-5">
                         <div className="flex items-center gap-3.5">
                           {a.icon ? (
                             // eslint-disable-next-line @next/next/no-img-element
@@ -213,10 +222,10 @@ export default async function MostWantedPage() {
                           {a.flaw && <p className="text-[var(--color-text-secondary)]"><span className="font-semibold text-[#ff8585]">{ru ? "Бесит:" : "Hated:"}</span> {tg(a.flaw)}</p>}
                         </div>
                         {a.quote && (
-                          <figure className="msg-bubble mt-3 max-w-[94%] self-start rounded-[16px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-2.5">
-                            <p className="text-[13.5px] italic leading-[1.5] text-[var(--color-text-secondary)]">{tg(a.quote.text)}</p>
-                            <figcaption className="mt-1 text-[11.5px] not-italic tabular-nums text-[var(--color-text-tertiary)]">{a.quote.app} · {a.quote.rating}★</figcaption>
-                          </figure>
+                          <div className="mt-3.5 flex flex-col gap-1">
+                            <div className="msg-bubble max-w-[94%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-3.5 py-2.5 text-[13.5px] leading-[1.45] text-[var(--color-text-primary)]">{tg(a.quote.text)}</div>
+                            <span className="pl-1.5 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{a.quote.app} · {a.quote.rating}★</span>
+                          </div>
                         )}
                       </div>
                     ))}
@@ -233,12 +242,12 @@ export default async function MostWantedPage() {
 
               {/* Begging quotes */}
               {s.begs.length > 0 && (
-                <div className="mt-6 flex flex-col gap-2.5">
+                <div className="mt-6 flex flex-col gap-3">
                   {s.begs.map((q, j) => (
-                    <figure key={j} className="msg-bubble max-w-[92%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">
-                      <p className="text-[14px] italic leading-[1.55] text-[var(--color-text-secondary)]">{tg(q.quote)}</p>
-                      <figcaption className="mt-1.5 text-[12px] not-italic tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
-                    </figure>
+                    <div key={j} className="flex flex-col gap-1">
+                      <div className="msg-bubble max-w-[88%] self-start rounded-[20px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-4 py-2.5 text-[14.5px] leading-[1.45] text-[var(--color-text-primary)]">{tg(q.quote)}</div>
+                      <span className="pl-2 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</span>
+                    </div>
                   ))}
                 </div>
               )}

@@ -434,11 +434,11 @@ html:not([data-theme="dark"]) .atmosphere {
   content: "";
   position: absolute;
   bottom: 0;
-  left: -5px;
-  width: 13px;
-  height: 13px;
+  left: -6px;
+  width: 16px;
+  height: 15px;
   background: var(--color-bg-muted);
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  border-bottom-right-radius: 16px;
 }
 
 /* ── Landing (logged-out) animations ──────────────────────────────────── */
