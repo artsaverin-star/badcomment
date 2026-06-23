@@ -16,6 +16,7 @@ export default function CategoryOffer({
   appsCount,
   starsHref,
   starsLabel,
+  lifetimeStarsHref,
 }: {
   slug: string;
   categoryName?: string;
@@ -28,6 +29,7 @@ export default function CategoryOffer({
   appsCount: number;
   starsHref?: string;
   starsLabel?: string;
+  lifetimeStarsHref?: string;
 }) {
   const ru = locale !== "en";
   const sections = ru
@@ -64,6 +66,7 @@ export default function CategoryOffer({
           locale={locale}
           starsHref={starsHref}
           starsLabel={starsLabel}
+          lifetimeStarsHref={lifetimeStarsHref}
         />
       </div>
     </div>

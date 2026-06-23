@@ -59,6 +59,7 @@ export default function CardDeck({
   deckCount,
   starsHref,
   starsLabel,
+  lifetimeStarsHref,
   initialCollection = [],
   guestUsed: guestUsed0 = 0,
   guestCap = 2,
@@ -70,6 +71,7 @@ export default function CardDeck({
   deckCount: number;
   starsHref?: string;
   starsLabel?: string;
+  lifetimeStarsHref?: string;
   initialCollection?: Card[];
   guestUsed?: number;
   guestCap?: number;
@@ -279,6 +281,7 @@ export default function CardDeck({
               starsHref={starsHref}
               starsLabel={starsLabel}
               lifetimePrice={LIFETIME.rub}
+              lifetimeStarsHref={lifetimeStarsHref}
             />
           </div>
         </div>

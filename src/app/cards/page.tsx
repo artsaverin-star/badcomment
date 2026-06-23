@@ -60,6 +60,7 @@ export default async function CardsPage() {
         deckCount={ideasCount}
         starsHref={access.user ? `https://t.me/${process.env.BOT_USERNAME || "inAppProBot"}?start=deck_${access.user.id}` : undefined}
         starsLabel={`${DECK_STARS} ⭐ Telegram`}
+        lifetimeStarsHref={access.user ? `https://t.me/${process.env.BOT_USERNAME || "inAppProBot"}?start=life_${access.user.id}` : undefined}
         initialCollection={initialCollection}
         guestUsed={guestUsed}
         guestCap={FREE_ANON_CARDS}

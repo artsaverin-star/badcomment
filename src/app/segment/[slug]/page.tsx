@@ -196,6 +196,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const bot = process.env.BOT_USERNAME || "inAppProBot";
   const catStarsHref = access.user ? `https://t.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
   const catStarsLabel = `${CATEGORY_STARS} ⭐ Telegram`;
+  const lifeStarsHref = access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined;
 
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
   const ideas = listIdeas().filter((i) => i.category === slug);
@@ -422,7 +423,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
                       <PillarFull key={i} p={p} label={findingLabel(i + 1)} />
                     ))}
                   </div>
-                  <CategoryOffer slug={slug} categoryName={cat.name} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} ideasCount={opps.length} appsCount={apps.length} starsHref={catStarsHref} starsLabel={catStarsLabel} />
+                  <CategoryOffer slug={slug} categoryName={cat.name} sellable={sellable} price={catPrice} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} ideasCount={opps.length} appsCount={apps.length} starsHref={catStarsHref} starsLabel={catStarsLabel} lifetimeStarsHref={lifeStarsHref} />
                 </div>
               )}
             </div>

@@ -16,6 +16,7 @@ export default function CategoryGate({
   locale = "ru",
   starsHref,
   starsLabel,
+  lifetimeStarsHref,
 }: {
   slug: string;
   categoryName?: string;
@@ -26,6 +27,7 @@ export default function CategoryGate({
   locale?: Locale;
   starsHref?: string;
   starsLabel?: string;
+  lifetimeStarsHref?: string;
 }) {
   const ru = locale !== "en";
 
@@ -52,6 +54,7 @@ export default function CategoryGate({
         starsHref={starsHref}
         starsLabel={starsLabel}
         lifetimePrice={LIFETIME.rub}
+        lifetimeStarsHref={lifetimeStarsHref}
       />
     </div>
   );
