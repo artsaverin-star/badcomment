@@ -41,6 +41,7 @@ export default function IdeaFeed({
   const [dragX, setDragX] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
+  const dragT0 = useRef(0);
   const timers = useRef<number[]>([]);
   const lastGo = useRef(0);
 
@@ -106,15 +107,24 @@ export default function IdeaFeed({
     if (!loggedIn) setAuth(true); else setPaywall(true);
   }
 
-  function onDown(e: React.PointerEvent) { dragStart.current = e.clientX; setDragging(true); }
-  function onMove(e: React.PointerEvent) { if (dragStart.current !== null) setDrag(e.clientX - dragStart.current); }
-  function setDrag(v: number) { setDragX(v); }
+  function onDown(e: React.PointerEvent) {
+    dragStart.current = e.clientX; dragT0.current = Date.now(); setDragging(true);
+    timers.current.forEach((t) => clearTimeout(t)); timers.current = [];
+  }
+  function onMove(e: React.PointerEvent) { if (dragStart.current !== null) setDragX(e.clientX - dragStart.current); }
   function onUp() {
     if (dragStart.current === null) return;
     const d = dragX; dragStart.current = null; setDragging(false);
-    if (d < -60) { go("next"); return; }
-    if (d > 60) { go("prev"); return; }
+    const dt = Math.max(Date.now() - dragT0.current, 1);
+    const vel = -d / dt; // px/ms, positive = toward next
+    // how many cards to move: by distance dragged, plus a flick bonus by speed
+    let steps = Math.round(-d / SLOT);
+    if (Math.abs(vel) > 0.45) steps += Math.sign(vel) * Math.min(5, Math.round(Math.abs(vel) * 1.6));
+    if (steps === 0 && Math.abs(d) > 45) steps = d < 0 ? 1 : -1;
+    setModal(false);
+    setFlipped(false);
     setDragX(0);
+    if (steps !== 0) setIdx((i) => Math.max(0, Math.min(total - 1, i + steps)));
   }
 
   useEffect(() => {
@@ -130,8 +140,8 @@ export default function IdeaFeed({
   if (total === 0) return null;
 
   // Window of cards around the current one (rendered on the moving track).
-  const from = Math.max(0, idx - 4);
-  const to = Math.min(total - 1, idx + 4);
+  const from = Math.max(0, idx - 6);
+  const to = Math.min(total - 1, idx + 6);
   const win: number[] = [];
   for (let i = from; i <= to; i++) win.push(i);
   const transition = dragging ? "none" : "transform 0.42s cubic-bezier(0.22,0.61,0.36,1)";
