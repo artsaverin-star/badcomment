@@ -121,7 +121,7 @@ export default function IdeaFeed({
   const transition = dragging ? "none" : "transform 0.42s cubic-bezier(0.22,0.61,0.36,1)";
 
   return (
-    <div className="mx-auto w-full max-w-[480px]">
+    <div className="mx-auto w-full max-w-[480px] sm:max-w-[700px]">
       <div className="relative">
         {/* desktop arrows */}
         <button type="button" onClick={() => go("prev")} aria-label={ru ? "Назад" : "Previous"} disabled={idx === 0} className="absolute left-0 top-1/2 z-30 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-30 sm:flex">
