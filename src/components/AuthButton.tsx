@@ -109,6 +109,9 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
           <Link href="/library" className="text-caption font-medium text-[var(--color-text-secondary)]">
             {ru ? "Купленное" : "Library"}
           </Link>
+          <Link href="/saved" className="text-caption font-medium text-[var(--color-text-secondary)]">
+            {ru ? "Избранное" : "Saved"}
+          </Link>
           <Link href="/tokens" className="text-caption font-medium text-[var(--color-text-brand)]">
             {ru ? "Доступ" : "Access"}
           </Link>
@@ -179,6 +182,16 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
                 <path d="M4 4.5h8a1.5 1.5 0 0 1 1.5 1.5v10l-3-2-3 2V6A1.5 1.5 0 0 1 9 4.5M14 6.5h2a0 0 0 0 1 0 0v9.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               {ru ? "Купленное" : "Library"}
+            </Link>
+            <Link
+              href="/saved"
+              onClick={() => setMenu(false)}
+              className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
+                <path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+              </svg>
+              {ru ? "Избранное" : "Saved"}
             </Link>
             {me.user.isAdmin && (
               <Link

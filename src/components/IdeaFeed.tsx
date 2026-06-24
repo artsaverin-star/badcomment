@@ -42,7 +42,6 @@ export default function IdeaFeed({
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
 
-  const [view, setView] = useState<"feed" | "saved">("feed");
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [auth, setAuth] = useState(false);
   const [paywall, setPaywall] = useState(false);
@@ -52,6 +51,8 @@ export default function IdeaFeed({
   const savedSet = useMemo(() => new Set(savedList.map((s) => s.slug)), [savedList]);
   const total = order.length;
   const cur = order[idx % Math.max(total, 1)];
+  const prev = order[(idx - 1 + total) % Math.max(total, 1)];
+  const next = order[(idx + 1) % Math.max(total, 1)];
   const isSaved = cur && savedSet.has(cur.slug);
 
   useEffect(() => {
@@ -69,19 +70,15 @@ export default function IdeaFeed({
     return () => window.clearTimeout(t);
   }, [cur.slug]);
 
-  function persistSaved(next: Saved[]) {
-    setSavedList(next);
-    try { localStorage.setItem("feed:saved", JSON.stringify(next.slice(0, 100))); } catch { /* ignore */ }
-  }
-  function toggleSave(it: FeedIdea | Saved) {
-    if (savedSet.has(it.slug)) persistSaved(savedList.filter((s) => s.slug !== it.slug));
-    else persistSaved([{ slug: it.slug, category: it.category, categoryName: it.categoryName, title: it.title, oneLiner: it.oneLiner, demand: it.demand, quote: it.quote }, ...savedList]);
+  function persistSaved(nextList: Saved[]) {
+    setSavedList(nextList);
+    try { localStorage.setItem("feed:saved", JSON.stringify(nextList.slice(0, 100))); } catch { /* ignore */ }
   }
   function saveCurrent() {
     if (!cur) return;
-    const was = savedSet.has(cur.slug);
-    toggleSave(cur);
-    if (!was) setLoveTick((t) => t + 1); // red glow, no confetti
+    if (savedSet.has(cur.slug)) { persistSaved(savedList.filter((s) => s.slug !== cur.slug)); return; }
+    persistSaved([{ slug: cur.slug, category: cur.category, categoryName: cur.categoryName, title: cur.title, oneLiner: cur.oneLiner, demand: cur.demand, quote: cur.quote }, ...savedList]);
+    setLoveTick((t) => t + 1);
   }
 
   function advance(dir: "next" | "prev") {
@@ -102,14 +99,13 @@ export default function IdeaFeed({
   function onUp() {
     if (dragStart.current === null) return;
     const d = drag; dragStart.current = null; setDragging(false);
-    if (Math.abs(d) < 8) { setDrag(0); return; } // tap does nothing — open via the button
+    if (Math.abs(d) < 8) { setDrag(0); return; }
     if (d < -90) { advance("next"); return; }
     if (d > 90) { advance("prev"); return; }
     setDrag(0);
   }
 
   useEffect(() => {
-    if (view !== "feed") return;
     function onKey(e: KeyboardEvent) {
       if (e.key === "ArrowLeft") advance("prev");
       else if (e.key === "ArrowRight") advance("next");
@@ -117,81 +113,78 @@ export default function IdeaFeed({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [view, idx, exit, total]);
+  }, [idx, exit, total]);
 
   const cardTransform = exit === "l" ? "translateX(-135%) rotate(-14deg)"
     : exit === "r" ? "translateX(135%) rotate(14deg)"
       : `translateX(${drag}px) rotate(${drag * 0.04}deg)`;
+  const SIDE_FADE = "linear-gradient(to right, transparent, #000 9%, #000 91%, transparent)";
 
   if (total === 0) return null;
 
   return (
-    <div className="mx-auto w-full max-w-[460px]">
-      {/* tabs */}
-      <div className="mb-5 flex justify-center px-1">
-        <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] p-1 text-[12px] font-semibold">
-          <button type="button" onClick={() => setView("feed")} className={`rounded-full px-3 py-1 transition-colors ${view === "feed" ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)]"}`}>{ru ? "Лента" : "Feed"}</button>
-          <button type="button" onClick={() => setView("saved")} className={`rounded-full px-3 py-1 transition-colors ${view === "saved" ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)]"}`}>{ru ? `Мои · ${savedList.length}` : `Saved · ${savedList.length}`}</button>
-        </div>
-      </div>
+    <div className="mx-auto w-full max-w-[480px]">
+      {/* carousel — neighbours peek on the sides; arrows on desktop only */}
+      <div className="relative">
+        <button type="button" onClick={() => advance("prev")} aria-label={ru ? "Назад" : "Previous"} className="absolute left-0 top-1/2 z-30 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] sm:flex">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </button>
+        <button type="button" onClick={() => advance("next")} aria-label={ru ? "Дальше" : "Next"} className="absolute right-0 top-1/2 z-30 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] sm:flex">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        </button>
+        <div className="relative flex h-[490px] w-full items-center justify-center" style={{ WebkitMaskImage: SIDE_FADE, maskImage: SIDE_FADE }}>
+          <PeekCard idea={prev} side="left" />
+          <PeekCard idea={next} side="right" />
+          <div key={cur.slug} className="card-deal-in relative z-10 w-[80%] max-w-[320px]">
+          <div
+            onPointerDown={onDown}
+            onPointerMove={onMove}
+            onPointerUp={onUp}
+            onPointerCancel={onUp}
+            style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.3s ease-in, opacity 0.3s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y", perspective: "1300px" }}
+            className="relative h-[490px] w-full cursor-pointer select-none"
+          >
+            <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
+              {/* back — рубашка */}
+              <div className="flip-face overflow-hidden rounded-[24px] border border-white/15 p-2 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}>
+                <div className="card-back-pattern flex size-full items-center justify-center rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
+                  <svg width="52" height="52" viewBox="0 0 24 24" fill="none" className="text-white/85"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" /></svg>
+                </div>
+              </div>
+              {/* front — idea */}
+              <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
+                {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
+                <button
+                  type="button"
+                  onPointerDown={(e) => e.stopPropagation()}
+                  onClick={(e) => { e.stopPropagation(); saveCurrent(); }}
+                  aria-label={ru ? "В избранное" : "Save"}
+                  className={`absolute right-4 top-4 z-20 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                >
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
+                </button>
 
-      {view === "saved" ? (
-        <SavedView ru={ru} saved={savedList} onOpen={() => setView("feed")} onUnsave={(s) => toggleSave(s)} />
-      ) : (
-        <>
-          {/* swipe stage */}
-          <div className="relative w-full px-6 sm:px-0">
-            <div key={cur.slug} className="card-deal-in mx-auto max-w-[400px]">
-              <div
-                onPointerDown={onDown}
-                onPointerMove={onMove}
-                onPointerUp={onUp}
-                onPointerCancel={onUp}
-                style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.3s ease-in, opacity 0.3s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y", perspective: "1300px" }}
-                className="relative h-[500px] w-full cursor-pointer select-none"
-              >
-                <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
-                  {/* back — рубашка */}
-                  <div className="flip-face overflow-hidden rounded-[24px] border border-white/15 p-2 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}>
-                    <div className="card-back-pattern flex size-full items-center justify-center rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
-                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" className="text-white/85"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" /></svg>
+                <h2 className="pr-10 text-[23px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[25px]">{cur.title}</h2>
+                <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{cur.oneLiner}</p>
+
+                <div className="mt-auto pt-5">
+                  {cur.demand > 0 && (
+                    <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]">
+                      <span className="text-[var(--color-text-brand)]">{cur.demand}</span> {ru ? `${wordObs(cur.demand)} в отзывах` : "signals in reviews"}
                     </div>
-                  </div>
-                  {/* front — idea */}
-                  <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
-                    {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
-                    <button
-                      type="button"
-                      onPointerDown={(e) => e.stopPropagation()}
-                      onClick={(e) => { e.stopPropagation(); saveCurrent(); }}
-                      aria-label={ru ? "В избранное" : "Save"}
-                      className={`absolute right-5 top-5 z-20 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
-                    >
-                      <svg width="17" height="17" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
-                    </button>
-
-                    <h2 className="pr-11 text-[25px] font-bold leading-[1.13] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[28px]">{cur.title}</h2>
-                    <p className="mt-3.5 text-[15px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{cur.oneLiner}</p>
-
-                    <div className="mt-auto pt-6">
-                      {cur.demand > 0 && (
-                        <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]">
-                          <span className="text-[var(--color-text-brand)]">{cur.demand}</span> {ru ? `${wordObs(cur.demand)} в отзывах` : "signals in reviews"}
-                        </div>
-                      )}
-                      <button type="button" onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
-                        {cur.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
-                      </button>
-                    </div>
-                  </div>
+                  )}
+                  <button type="button" onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                    {cur.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
+                  </button>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        </div>
+      </div>
 
-          <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{(idx % total) + 1}</span> {ru ? "из" : "of"} {total}</p>
-        </>
-      )}
+      <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{(idx % total) + 1}</span> {ru ? "из" : "of"} {total}</p>
 
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
 
@@ -252,33 +245,13 @@ export default function IdeaFeed({
   );
 }
 
-function SavedView({ ru, saved, onOpen, onUnsave }: { ru: boolean; saved: Saved[]; onOpen: () => void; onUnsave: (s: Saved) => void }) {
-  if (saved.length === 0) {
-    return (
-      <div className="rounded-[22px] border border-dashed border-[var(--color-border-subtle)] p-10 text-center">
-        <div className="text-[40px]">📌</div>
-        <p className="mt-3 text-[15px] text-[var(--color-text-secondary)]">{ru ? "Пока пусто. Листай ленту и сохраняй идеи, в которые стоит вложиться." : "Empty for now. Browse the feed and save ideas worth building."}</p>
-        <button type="button" onClick={onOpen} className="mt-5 inline-flex rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-[14px] font-semibold text-[var(--color-button-primary-text)]">{ru ? "В ленту" : "To the feed"}</button>
-      </div>
-    );
-  }
+function PeekCard({ idea, side }: { idea: FeedIdea; side: "left" | "right" }) {
   return (
-    <div className="flex flex-col gap-3">
-      {saved.map((s) => (
-        <div key={s.slug} className="flex items-start gap-3 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4">
-          <Link href={`/segment/${s.category}`} className="min-w-0 flex-1">
-            <div className="flex items-center justify-between gap-2">
-              <span className="line-clamp-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{s.categoryName}</span>
-              <span className="inline-flex shrink-0 items-center gap-1 text-[11px] font-semibold tabular-nums text-[var(--color-text-tertiary)]"><MessageIcon size={12} /> {s.demand}</span>
-            </div>
-            <div className="mt-1.5 text-[16px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</div>
-            <div className="mt-1 line-clamp-2 text-[13px] leading-[1.45] text-[var(--color-text-secondary)]">{s.oneLiner}</div>
-          </Link>
-          <button type="button" onClick={() => onUnsave(s)} aria-label={ru ? "Убрать" : "Remove"} className="shrink-0 text-[#ff3b5c]">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d={HEART} /></svg>
-          </button>
-        </div>
-      ))}
+    <div
+      aria-hidden
+      className={`pointer-events-none absolute top-1/2 z-0 h-[440px] w-[80%] max-w-[320px] -translate-y-1/2 scale-[0.93] rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 opacity-45 ${side === "left" ? "left-0 -translate-x-[80%]" : "right-0 translate-x-[80%]"}`}
+    >
+      <div className="line-clamp-6 text-[23px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)]">{idea.title}</div>
     </div>
   );
 }
