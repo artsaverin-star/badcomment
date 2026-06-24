@@ -26278,8 +26278,8 @@
   "slug": "notes-pkm-4",
   "category": "notes-pkm",
   "categoryName": "Заметки и PKM",
-  "title": "Заметки без единой строчки ИИ",
-  "oneLiner": "Приложение с твёрдым обещанием: ИИ не трогает ваш текст — для тех, кому это навязали везде",
+  "title": "Заметки по клиентам, к которым не пускают ИИ",
+  "oneLiner": "Рабочие заметки для тех, кто хранит тайну клиента — психологов, юристов, бухгалтеров: ИИ не читает записи, и это можно подтвердить проверяющему",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -26288,34 +26288,39 @@
   },
   "reviewGrid": [
    {
-    "quote": "Can you please add a way to hide the ask ai?",
-    "rating": 3,
-    "app": "Notion: Notes, Tasks, AI"
-   },
-   {
     "quote": "I refuse to allow anything that had AI touch my work",
     "rating": 1,
     "app": "Notion: Notes, Tasks, AI"
    },
    {
+    "quote": "I use it to take client notes for work",
+    "rating": 5,
+    "app": "Notion: Notes, Tasks, AI"
+   },
+   {
+    "quote": "keep a consistent client file",
+    "rating": 5,
+    "app": "Notion: Notes, Tasks, AI"
+   },
+   {
+    "quote": "Locked out of my client info page",
+    "rating": 1,
+    "app": "Notion: Notes, Tasks, AI"
+   },
+   {
+    "quote": "I pay for professional use",
+    "rating": 2,
+    "app": "Evernote - Note Organizer"
+   },
+   {
     "quote": "can't disable ai",
     "rating": 1,
     "app": "Notion: Notes, Tasks, AI"
-   },
-   {
-    "quote": "full of AI slop features. Use Obsidian or Logseq instead",
-    "rating": 1,
-    "app": "Notion: Notes, Tasks, AI"
-   },
-   {
-    "quote": "Boring and not enough features. Too much cloud and AI",
-    "rating": 1,
-    "app": "Google Keep - Notes and lists"
    }
   ],
   "mechanisms": [
    {
-    "title": "Заметки без единой строчки ИИ",
+    "title": "Заметки по клиентам, к которым не пускают ИИ",
     "obsCount": 188,
     "apps": [
      "Obsidian",
@@ -26324,18 +26329,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "Целый пласт людей злится, что ИИ впихнули поверх заметок: кнопка лезет в глаза, открывается чат вместо новой заметки, выключить нельзя. Они прямо пишут «уйду в Obsidian/Logseq». Их раздражает не функция — навязывание. Никто не делает заметки, где отсутствие ИИ — это и есть обещание.",
+  "gap": "Психологи, юристы, бухгалтеры ведут записи по клиентам и обязаны хранить их тайну. Они платят за рабочие тарифы Notion и Evernote — а туда вшили ИИ, который читает текст, и отключить его нельзя. Один пишет, что не даст ИИ касаться его работы, другой ведёт «записи по клиентам». Для них это риск нарушить тайну. Места, где отсутствие ИИ — подтверждаемое обещание, нет.",
   "idea": {
-   "pitch": "Заметки с принципом: ИИ не читает и не меняет ваш текст, точка. Тихий, быстрый редактор без всплывающих помощников. Клин — доверие как продукт: для растущего сегмента, который активно бежит от навязанного ИИ, это причина платить и не уходить, а не очередная галочка в списке функций.",
+   "pitch": "Заметочник под одну работу: вести защищённые записи по клиентам там, где ИИ к тексту не подпускают. Отличие от «просто без ИИ» — справка для проверяющего: что не уходит наружу и кто открывал. Маленькая команда выигрывает: крупные игроки насаждают ИИ всем и не дают профессионалу честное «нет».",
    "features": [
-    "Твёрдое правило: ИИ не касается содержимого заметок",
-    "Чистый экран — никаких кнопок-помощников, лезущих под палец",
-    "Новая заметка открывается сразу, а не чат",
-    "Быстрый старт и мгновенный ввод — ничего не «думает» за вас",
-    "Понятный вынос данных: текст всегда ваш и читается где угодно"
+    "Записи по клиентам с прямым правилом: ИИ их не читает и не меняет",
+    "Понятная справка для проверяющего: что хранится, где и кто открывал",
+    "Папка на каждого клиента и быстрый поиск по своим записям",
+    "Вход по отпечатку и скрытие записей от чужих глаз на устройстве",
+    "Понятный вынос всех записей наружу, когда они нужны для дела"
    ],
    "antiFeatures": [],
-   "monetization": "Платит человек, которого достал навязанный ИИ и который хочет голосовать за это деньгами. Подписка или разовая покупка. Платят за принцип: этот сегмент готов платить именно за отсутствие навязанного."
+   "monetization": "Платят психологи, юристы, бухгалтеры с тайной клиента. Они уже платят за рабочие тарифы Notion и Evernote, но те насаждают ИИ поверх клиентских записей. Подписка на рабочее место. Платят, чтобы при проверке показать, что чужой текст никуда не уходил."
   }
  },
  {
@@ -27384,8 +27389,8 @@
   "slug": "calendars-tasks-7",
   "category": "calendars-tasks",
   "categoryName": "Календари и задачи",
-  "title": "Календарь, который ваш, и его можно унести",
-  "oneLiner": "Общий календарь без капкана: данные ваши, экспорт и перенос в любой момент, никакого «или плати вечно, или теряй историю».",
+  "title": "Расписание клиентов, которое можно унести",
+  "oneLiner": "Календарь записей для мастеров и небольших практик: история приёмов остаётся вашей — выгрузка в PDF и таблицу, журнал всех изменений.",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -27394,34 +27399,39 @@
   },
   "reviewGrid": [
    {
-    "quote": "There is no ability to export the calendar to any other platform (i.e. Google calendar) so you are stuck",
-    "rating": 1,
-    "app": "TimeTree - Shared Calendar"
+    "quote": "This app has helped organize my small business by allowing me to schedule my staff and follow up with their completed jobs. I use it to help with billing",
+    "rating": 5,
+    "app": "TimeTree"
    },
    {
-    "quote": "Don't use this calendar unless you wanna get stuck. No export functionality is a No-Go for Calendar apps.",
+    "quote": "so you are stuck starting a new calendar and losing your history or using TimeTree forever.",
     "rating": 1,
-    "app": "TimeTree - Shared Calendar"
+    "app": "TimeTree"
    },
    {
-    "quote": "they have changed where you can't see past 30 days without paying for gold. Now all my appointments are inaccessible without paying a ransom.",
+    "quote": "No export functionality is a No-Go for Calendar apps.",
     "rating": 1,
-    "app": "Cozi Family Organizer"
+    "app": "TimeTree"
    },
    {
-    "quote": "this app is now using your data to train AI as of April 16th 2026. One star is for allowing AI to steal my data",
+    "quote": "i cannot export PDF of my calendar",
     "rating": 1,
-    "app": "TimeTree - Shared Calendar"
+    "app": "TimeTree"
    },
    {
-    "quote": "I bought the Business Calendar 2 pro app in 2022 when it was a one time purchase and it's been working perfectly",
-    "rating": 1,
-    "app": "Business Calendar 2 Planner"
+    "quote": "work(clients appointments)",
+    "rating": 5,
+    "app": "TimeTree"
+   },
+   {
+    "quote": "follow up with their completed jobs",
+    "rating": 5,
+    "app": "TimeTree"
    }
   ],
   "mechanisms": [
    {
-    "title": "Календарь, который ваш, и его можно унести",
+    "title": "Расписание клиентов, которое можно унести",
     "obsCount": 135,
     "apps": [
      "Business Calendar 2",
@@ -27430,18 +27440,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "Люди приводят в общий календарь всю семью и друзей за годы — а потом узнают, что унести нельзя: нет экспорта, нет переноса в Google или Outlook, история заперта. Крупные игроки прячут прошлое за платной стеной, превращают разовую покупку в подписку, пускают данные в обучение ИИ. Доверие к данным — незанятая ниша.",
+  "gap": "Мастера, клиники, подрядчики ведут записи клиентов, смены сотрудников и биллинг прямо в календаре — TimeTree, Cozi, Business Calendar. Но вынести историю нельзя: «нет выгрузки — вы застряли и теряете историю». Нельзя сделать PDF, отдать клиенту или бухгалтеру выписку приёмов, доказать, что встреча была. История записей — рабочий документ для биллинга и споров, но она заперта без выгрузки и без журнала изменений.",
   "idea": {
-   "pitch": "Строим общий календарь на обещании, которое никто не даёт: это ваши данные. Экспорт в один тап, перенос в Google и Outlook, открытая история без платной стены, никакой продажи данных. Это притягивает тех, кого уже обожгли запиранием и сменой правил, — их много. Доверие не скопировать тем, чья модель на капкане.",
+   "pitch": "Календарь записей, где история — ваш актив, а не заложник приложения. Каждый приём, смена и отметка о выполненной работе пишутся в журнал, который не пропадёт тихо. В один клик — выписка за период в PDF и таблицу: для клиента, бухгалтера, спора. Отдельные календари на клиентов и сотрудников. Уходите к нам или от нас — данные забираете целиком, без «начинайте новый календарь с нуля».",
    "features": [
-    "Экспорт всего календаря и перенос в Google, Outlook, ICS в любой момент",
-    "Прошлое и история всегда открыты, не прячутся за платной стеной",
-    "Понятная политика: данные не уходят в обучение ИИ и не продаются",
-    "Разовая покупка остаётся разовой — не превращается в подписку задним числом",
-    "Общий доступ для семьи и друзей с тем же правом унести свою часть"
+    "Выгрузка истории приёмов за любой период в PDF и таблицу — для клиента, бухгалтера или спора",
+    "Журнал всех изменений: кто и когда добавил, перенёс или удалил запись — ничего не пропадает тихо",
+    "Отдельные календари на клиентов и сотрудников с отметкой «работа выполнена» под биллинг и зарплату",
+    "Полный экспорт без замка: уносите все записи в стандартном формате, если решите уйти",
+    "Месячная и недельная выписка смен на печать — то, чего нет в TimeTree и Business Calendar"
    ],
    "antiFeatures": [],
-   "monetization": "Платят те, кого уже обожгли запиранием и сменой правил — честной разовой покупкой или прозрачной подпиской. Почему платят: им продают не функцию, а гарантию владения и переноса данных, чего игроки на капкане дать не могут."
+   "monetization": "Платят мастера, небольшие клиники и подрядчики, которые уже ведут записи клиентов и смены в платных календарях (TimeTree, Cozi, Business Calendar Pro) ради биллинга и зарплаты. Подписка за рабочее место: выписка и журнал приёмов нужны им как документ для клиента и бухгалтера — за это они уже платят календарям, которые этого даже не дают."
   }
  },
  {
@@ -27837,8 +27847,8 @@
   "slug": "study-aids-7",
   "category": "study-aids",
   "categoryName": "Карточки и помощники в учёбе",
-  "title": "Помощник по учёбе: родной язык и офлайн",
-  "oneLiner": "Объясняет задачи на родном языке ученика и работает офлайн в дороге — без рекламного ада, в котором тонут конкуренты.",
+  "title": "Офлайн-репетитор под программу для центров",
+  "oneLiner": "Решатель задач с разбором на родном языке, работает без интернета и привязан к местному экзамену — продаём не студенту, а репетиторским сетям.",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -27847,34 +27857,39 @@
   },
   "reviewGrid": [
    {
-    "quote": "Too many ads to the point it's disruptive. You open it, there's an ad. You ask a question, there's an ad. You ask another question, there's an ad.",
-    "rating": 2,
-    "app": "Question.AI-Math Calculator"
+    "quote": "If you are a ICSE student then this app is of no use",
+    "rating": 1,
+    "app": "Photomath"
    },
    {
-    "quote": "I would be really happy if it had my language support which it doesn't. I do mathematics most of the time in my language.",
+    "quote": "please update the version to work in offline",
     "rating": 3,
     "app": "Photomath"
    },
    {
-    "quote": "One star. This app was perfect when it worked offline, but the new update requires a connection for simple tasks.",
-    "rating": 1,
-    "app": "Photomath"
-   },
-   {
-    "quote": "Mujhe coding seekhni hai par app mein sab English mein hai. Kya aap Hindi language add kar sakte ho?",
-    "rating": 2,
+    "quote": "ITS NOT AVAILABLE IN ALL LANGUAGES",
+    "rating": 3,
     "app": "Mimo: Learn Coding/Programming"
    },
    {
-    "quote": "very very unuseful app/one question...a million ads... drains battery terribly",
+    "quote": "When it was free without ads, it was simple and 100% educational. Now it has become capitalist garbage, unfortunately.",
     "rating": 1,
-    "app": "Question.AI-Math Calculator"
+    "app": "Sololearn: Learn to Code"
+   },
+   {
+    "quote": "good for explaining stuff when your teacher won't",
+    "rating": 4,
+    "app": "Photomath"
+   },
+   {
+    "quote": "it helps me understand math better than at school!",
+    "rating": 5,
+    "app": "Photomath"
    }
   ],
   "mechanisms": [
    {
-    "title": "Помощник по учёбе: родной язык и офлайн",
+    "title": "Офлайн-репетитор под программу для центров",
     "obsCount": 209,
     "apps": [
      "Mimo",
@@ -27885,18 +27900,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "В растущих странах спрос огромный, но его никто не закрывает. Question.AI утопили продукт в рекламе — «реклама после каждого вопроса», люди уходят к Gemini. Ученики просят язык: «делаю математику на своём языке, а поддержки нет». А Photomath без сети ломается даже на простом вычитании. Связку «родной язык плюс офлайн плюс без рекламы» не делает никто.",
+  "gap": "Photomath объясняет по-английски, требует интернет и не знает местных экзаменов: «If you are a ICSE student then this app is of no use». В растущих странах решает не язык, а программа: ребёнок готовится к ICSE или местному выпускному, а ответ даётся «вообще». Реклама и платная стена добивают: разбор не доходит до тех, кому труднее всего.",
   "idea": {
-   "pitch": "Делаем помощника по учёбе для рынков, которые крупные игроки обслуживают по остаточному принципу. Объяснения на родном языке ученика, а не только на английском. Базовые разборы работают офлайн — в дороге, в школе со слабой сетью, на дешёвом тарифе. Никакой рекламы между вопросами: учёба не должна тонуть в видеороликах. Понятно объясняем метод, а не выдаём голый ответ.",
+   "pitch": "Делаем инструмент не для ученика, а для учебных центров и курсов подготовки. Они уже платят за лицензированные учебники на каждого записанного. Даём офлайн-приложение с разбором на родном языке, привязанное к их программе и экзамену, в их брендинге. Центр выдаёт его всем ученикам без рекламы и платных стен.",
    "features": [
-    "Объяснения на родном языке ученика, не только на английском",
-    "Базовые разборы работают офлайн, без интернета",
-    "Без рекламы между вопросами — учёба не тонет в роликах",
-    "Объясняет метод и шаги, а не выдаёт голый ответ",
-    "Лёгкое приложение под недорогие телефоны и слабую сеть"
+    "Пошаговый разбор «как это решено» на родном языке, а не просто финальный ответ",
+    "Полностью офлайн: задачи, объяснения и тренажёр без интернета и без расхода трафика",
+    "Привязка к программе и экзамену (ICSE, CBSE, местный выпускной) — задачи как в учебнике центра",
+    "Брендинг и набор тем под конкретный учебный центр, выдаётся всем его ученикам разом",
+    "Панель преподавателя: видно, какие темы ученики переоткрывают чаще всего"
    ],
    "antiFeatures": [],
-   "monetization": "Платит школьник или его родитель скромной местной подпиской за версию без рекламы и с офлайном; возможны продажи школам региона. Готовы платить, потому что нынешние приложения невыносимы из-за рекламы, а офлайн и родной язык реально снимают боль. Точка опоры — недообслуженный массовый рынок, где язык и работа без сети важнее, чем гонка функций."
+   "monetization": "Платит учебный центр или курс подготовки — за каждого записанного ученика, как часть учебного пакета. Они и так закупают лицензированные учебники на каждого ребёнка; офлайн-инструмент под их программу — такая же закупка."
   }
  },
  {
@@ -29030,8 +29045,8 @@
   "slug": "weather-apps-5",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Жизненно важные оповещения для глубинки",
-  "oneLiner": "Громкое, доходящее предупреждение о смерче, граде и наводнении там, где сирен нет, а другие приложения молчат или прячут это за платной стеной.",
+  "title": "Опасная погода для бригад в поле",
+  "oneLiner": "Громко и вовремя предупреждает об опасной погоде всю бригаду, ферму или площадку — там, где люди, скот и техника под открытым небом.",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -29045,29 +29060,34 @@
     "app": "AccuWeather"
    },
    {
-    "quote": "The tornado siren went off, the news says tornado warning. But the app says lightning detected, thats it.",
-    "rating": 1,
+    "quote": "All of us at work use the same app and it's different for each of us.",
+    "rating": 3,
     "app": "AccuWeather"
    },
    {
-    "quote": "I received alerts from google but not this weather app. It actually showed no storms even in our area.",
-    "rating": 1,
+    "quote": "In my line of work I depend on accurate up to the minute informa tion,Weather Underground makes that happen",
+    "rating": 5,
     "app": "Weather Underground"
    },
    {
-    "quote": "This is a must-have app for us, as we have to track severe weather ourselves. Can't depend on the local meteorologists to send out warnings in time.",
+    "quote": "I'm a professional painter who does a lot of exterior work so it's critical that I know exactly what the temperature, humidity, chance of rain",
     "rating": 5,
-    "app": "Windy.com"
+    "app": "AccuWeather"
    },
    {
-    "quote": "I live in the country away from all alert systems and our TV goes out regularly in storms. I rely on this app for local weather notifica",
-    "rating": 2,
-    "app": "AccuWeather"
+    "quote": "livestock loaded in our trailer, ready to evacuate if needed",
+    "rating": 5,
+    "app": "Weather Underground"
+   },
+   {
+    "quote": "As a Farmer it helps to track the weather, and no weather forecast can be 100% on the forecast but 95 % it's accurate. love the radar",
+    "rating": 5,
+    "app": "Windy.com"
    }
   ],
   "mechanisms": [
    {
-    "title": "Жизненно важные оповещения для глубинки",
+    "title": "Опасная погода для бригад в поле",
     "obsCount": 180,
     "apps": [
      "MyRadar Weather Radar",
@@ -29078,18 +29098,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "Самое страшное обвинение к крупным игрокам: «the thing that saves lives, warns about tornadoes, hail, floods, is conveniently behind a pay wall». Люди в глубинке остаются без предупреждения: «I received alerts from google but not this weather app». Сирен рядом нет, связь слабая, а телевизор гаснет в грозу.",
+  "gap": "Кто работает под открытым небом, держится за погодники как за рабочий инструмент: «In my line of work I depend on accurate up to the minute information». Но обычные приложения предупреждают по области и врозь — «All of us at work use the same app and it's different for each of us», а самое важное прячут за платной стеной. Бригадиру и фермеру нужен один надёжный сигнал на всех.",
   "idea": {
-   "pitch": "Сервис заточен под одно — вовремя и громко предупредить об опасной погоде там, где нет сирен и слабая связь: смерч, крупный град, шквал, наводнение. Оповещение доходит при выключенном экране и работает на минимуме данных, без рекламы поверх жизненно важного.",
+   "pitch": "Сервис заточен под одно: громко и вовремя предупредить об опасной погоде всех, кто отвечает за людей и имущество под открытым небом — бригаду, ферму, лагерь, площадку. Шквал, град, смерч, грозу, наводнение оповещение доносит до всей команды разом, по адресу объекта, даже при слабой связи. Один сигнал останавливает работы и уводит людей, скот и технику до удара, а не после.",
    "features": [
-    "Громкое оповещение об опасной погоде даже при выключенном экране",
-    "Работа на слабой связи и при перебоях с электричеством",
-    "Точная привязка к адресу, а не к области целиком",
-    "Без рекламы поверх предупреждения и без задержек",
-    "Семейный режим: оповещение приходит и близким по их адресам"
+    "Опасная погода рассылается всей бригаде разом, а не каждому порознь",
+    "Точная привязка к адресу объекта: поле, площадка, лагерь, ферма",
+    "Громкое оповещение при выключенном экране и на слабой связи",
+    "Журнал: кто и когда получил предупреждение — для разбора и страховой",
+    "Готовый сценарий действий по тревоге: остановить работы, увести людей и скот"
    ],
    "antiFeatures": [],
-   "monetization": "Платят жители сельской глубинки, дачники и общины по подписке за надёжность: им важно, что предупреждение точно дойдёт. Сельские администрации и кооперативы берут общинные планы на район."
+   "monetization": "Платят те, кто уже закладывает деньги на безопасность под открытым небом: фермы и агропредприятия, бригады наружных работ, лагеря, организаторы площадок. Подписка по числу объектов и команд. Они уже тратятся на охрану труда и страховку — пропущенное предупреждение это травма, гибель скота и иск."
   }
  },
  {
@@ -29771,8 +29791,8 @@
   "slug": "habit-tracking-3",
   "category": "habit-tracking",
   "categoryName": "Привычки и стрики",
-  "title": "Трекер без вины за пропуск",
-  "oneLiner": "Привычки без культа непрерывной серии: пропустил день — не теряешь полгода прогресса, а спокойно идёшь дальше.",
+  "title": "Трекер привычек, который выписывает терапевт",
+  "oneLiner": "Трекер для клиентов психологов, ADHD-коучей и программ восстановления: без вины за срыв, а специалист видит, что происходит между сессиями.",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -29781,34 +29801,39 @@
   },
   "reviewGrid": [
    {
-    "quote": "the first time you miss 2 days in a row your 300+ day streak is gone",
-    "rating": 1,
-    "app": "Finch: Self-Care Pet"
-   },
-   {
-    "quote": "Your birb doesn't die if you miss a day",
-    "rating": 5,
-    "app": "Finch: Self-Care Pet"
-   },
-   {
-    "quote": "no guilt when you don't",
-    "rating": 5,
-    "app": "Habit Tracker - HabitKit"
-   },
-   {
     "quote": "the day is not over and I already lost my streak",
     "rating": 1,
     "app": "Productive - Habit tracker"
    },
    {
-    "quote": "when I broke the streak I lost motivation to start it all again",
+    "quote": "broke my 365 day streak and reset it back at day 1",
+    "rating": 1,
+    "app": "Finch: Self-Care Pet"
+   },
+   {
+    "quote": "no judgement way to hold yourself accountable for your self care",
     "rating": 5,
     "app": "Finch: Self-Care Pet"
+   },
+   {
+    "quote": "its a great springboard when your mental health is really in a ditch",
+    "rating": 5,
+    "app": "Finch: Self-Care Pet"
+   },
+   {
+    "quote": "this is definitely a good support tool for ptsd, adhd and depression",
+    "rating": 5,
+    "app": "Finch: Self-Care Pet"
+   },
+   {
+    "quote": "really enjoy the accountability of this app",
+    "rating": 5,
+    "app": "Habitify: Habit Tracker"
    }
   ],
   "mechanisms": [
    {
-    "title": "Трекер без вины за пропуск",
+    "title": "Трекер привычек, который выписывает терапевт",
     "obsCount": 157,
     "apps": [
      "Habitify",
@@ -29818,18 +29843,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "Счётчик серии дней превратился из мотиватора в источник тревоги. Люди теряют сотни дней из-за одного пропуска или сбоя — и бросают всё, потому что начинать заново нет сил. Единственное приложение, которое говорит «ты не обязан быть идеальным», обожают именно за это. Жёсткое обнуление — частый повод уйти, но почти все держатся за него как за единственный крючок.",
+  "gap": "Обычные трекеры наказывают за пропуск: «день ещё не кончился, а я уже потерял стрик», сбой обнуляет «365 дней до первого» — и люди с ADHD, тревогой и в восстановлении бросают и приложение, и сам план. А специалисты, которые их ведут, работают вслепую: между сессиями они не знают, делал клиент назначенное или нет, и узнают про срыв с опозданием на неделю.",
   "idea": {
-   "pitch": "Привычка как длинная дорога, а не хрупкая стеклянная башня. Видимый прогресс за месяцы и годы, дни передышки без наказания, акцент на «сколько раз ты вернулся», а не «сколько дней подряд». Это продукт для тех, кто уже сорвался десять раз и боится одиннадцатого: мягкое возвращение и забота о психике. Эмоционально перегруженный сегмент, который крупные игроки только пугают красным нулём.",
+   "pitch": "Не ещё один трекер для самодисциплины, а инструмент, который специалист выдаёт клиенту как часть работы. Клиент отмечает привычки в мягком приложении: срыв не обнуляет прогресс, а становится отметкой для разговора на сессии. Коуч или терапевт получает кабинет — видит, где клиент держится, где посыпался, и приходит на встречу подготовленным.",
    "features": [
-    "Дни передышки: пропуск не обнуляет прогресс, а законно заложен",
-    "Главная метрика — устойчивость за месяцы, а не серия подряд",
-    "Спокойный экран после пропуска вместо красного нуля и упрёка",
-    "История возвращений: видно, сколько раз ты снова взялся за дело",
-    "Тон поддержки в напоминаниях, без вины и давления"
+    "Срыв не обнуляет прогресс: вместо «снова день 1» — отметка для разбора, привычку можно поставить на паузу без потери истории",
+    "Кабинет специалиста: один экран на всех клиентов, видно динамику и где человек начал сходить с плана между сессиями",
+    "Назначение из кабинета: коуч заводит клиенту набор привычек и присылает приглашение, ничего не настраивая вручную",
+    "Сигнал о срыве: если клиент несколько дней не отмечается или сорвался — специалист видит это сразу, а не через неделю",
+    "Сводка к сессии: краткий отчёт по клиенту за период, чтобы прийти на встречу подготовленным"
    ],
    "antiFeatures": [],
-   "monetization": "Платят люди в восстановлении и те, кто борется с тревогой и выгоранием — подписка за инструмент, который не делает им больно. Это недообслуженный высокоценный сегмент: он остаётся надолго, потому что эмоциональная безопасность важнее цены, и охотно платит за то, что наконец-то на его стороне."
+   "monetization": "Платят психологи, ADHD- и lifestyle-коучи, программы восстановления — подписка за каждого активного клиента. Они уже платят за софт для практики и за инструменты для работы между сессиями, потому что это держит клиентов в плане и снижает отвал."
   }
  },
  {
@@ -30211,8 +30236,8 @@
   "slug": "personal-finance-3",
   "category": "personal-finance",
   "categoryName": "Личные финансы",
-  "title": "Бюджет без банка для тех, кто ценит приватность",
-  "oneLiner": "Быстрый ручной учёт расходов для людей, которые принципиально не подключают банковский счёт.",
+  "title": "Книга расходов для самозанятых без счёта",
+  "oneLiner": "Ручной учёт доходов и трат с чеками-фото и отчётом для налоговой — для частников, что держат деньги вне банковских рельсов.",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -30221,34 +30246,39 @@
   },
   "reviewGrid": [
    {
-    "quote": "i do not trust this app to gain access to my bank accounts. very disappointing that i cannot manually track a bank account or a credit",
-    "rating": 2,
+    "quote": "don't want to give access to my online banking passwords and otps",
+    "rating": 1,
+    "app": "Wallet: Budget Expense Tracker"
+   },
+   {
+    "quote": "Сам себе бухгалтерия. Не надо нанимать бухгалтера.",
+    "rating": 5,
+    "app": "Monefy - Budget & Expenses app"
+   },
+   {
+    "quote": "Helping me track spending related to personal, family, business and my 9-5 needs",
+    "rating": 5,
     "app": "Budget App & Tracker: Spendee"
    },
    {
-    "quote": "I've used this app a lot over the years so I finally subscribed. It's the simplest layout I can find that doesn't force me to connect to my bank",
-    "rating": 5,
+    "quote": "it helps to add invoice copy or transaction slips as photos in each transaction",
+    "rating": 3,
     "app": "Goodbudget: Budget & Finance"
    },
    {
-    "quote": "I like manually entering in my info with different colors and tags to help me stay organized.",
-    "rating": 5,
-    "app": "Budget App & Tracker: Spendee"
+    "quote": "is there a way to export a statement of just one account - I'm not talking about a full backup?",
+    "rating": 2,
+    "app": "Money Manager Expense & Budget"
    },
    {
-    "quote": "I'm not in the habit of handing out all the personal information required for this app ..... UNINSTALLED!",
+    "quote": "everything wants yore email and personal info. I just want a f-ing offline app",
     "rating": 1,
-    "app": "Money Lover - Money Manager"
-   },
-   {
-    "quote": "it would be nice if your balance carried over each month. Instead of manually entering ot monthly.",
-    "rating": 4,
-    "app": "Spending Tracker"
+    "app": "Wallet: Budget Expense Tracker"
    }
   ],
   "mechanisms": [
    {
-    "title": "Бюджет без банка для тех, кто ценит приватность",
+    "title": "Книга расходов для самозанятых без счёта",
     "obsCount": 200,
     "apps": [
      "Spending Tracker",
@@ -30260,18 +30290,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "Часть людей сознательно не даёт приложению доступ к счёту — из недоверия или потому что их банк не поддерживается. Но приложения толкают всех к подключению банка, прячут ручной ввод за платной стеной или делают его нудным. Тем, кто ценит именно ручной учёт, неудобно: они прямо пишут, что любят вносить вручную, но инструмент против них.",
+  "gap": "Часть людей принципиально не привязывает счёт: «don't want to give access to my online banking passwords and otps». Среди них — мастера и частники на налике, у которых рабочее путается с личным. Ручной учёт держат без вложенных чеков, и свои цифры человек раз в год сводит руками — за это и платит бухгалтеру.",
   "idea": {
-   "pitch": "Делаем приложение для тех, кто принципиально вносит траты руками и не подключает счёт. Главная ставка — внести трату за пару секунд: крупные кнопки сумм, последние категории под рукой, никаких форм на десять полей. Никакого давления «подключите банк» и сбора банковских данных. Это честный учёт для людей, которым важна приватность, а их обслуживают по остаточному принципу.",
+   "pitch": "Учёт для тех, кто ведёт дело на налике и руками: внести доход или трату за пару секунд, прикрепить фото чека, разнести «бизнес / личное» по кошелькам. Раз в квартал приложение само собирает книгу доходов и расходов с суммами и чеками — то, что иначе отдают бухгалтеру. Без привязки банка, всё на устройстве.",
    "features": [
-    "Внести трату в два-три касания без открытия лишних экранов",
-    "Подсказки последних категорий и сумм для повторных трат",
-    "Полностью работает без подключения банка и без сбора его данных",
-    "Перенос остатка на следующий месяц без ручного повторного ввода",
-    "Простые понятные отчёты без обязательной привязки счёта"
+    "Быстрый ввод дохода и траты в две секунды: крупные кнопки сумм, последние категории и кошельки под рукой",
+    "Фото чека, акта или квитанции прямо в запись — invoice copy or transaction slips as photos in each transaction",
+    "Отдельные кошельки и метки «бизнес / личное / семья», чтобы рабочее не путалось с домашним",
+    "Книга доходов и расходов за период одним нажатием: суммы по категориям плюс приложенные чеки, готово к налоговой",
+    "Всё хранится на устройстве, без привязки банка и банковских паролей; бэкап — в свой Google Drive или файлом"
    ],
    "antiFeatures": [],
-   "monetization": "Платит приватный человек, который не доверяет автоматическому доступу к счёту, — разовой покупкой за версию без рекламы и ограничений. Модель «купил один раз и владеешь» сама по себе клин: вся категория злит людей переходом на подписки, и тут защита приватности и честная цена держат клиента."
+   "monetization": "Платят самозанятые и частники, которые и так платят бухгалтеру за сведение книги расходов и подготовку к налоговой. Им продаём годовую подписку за тот же отчёт с чеками — это замена статьи «бухгалтер раз в год»."
   }
  },
  {
@@ -30732,8 +30762,8 @@
   "slug": "plant-care-4",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Безопасно ли для кота и ребёнка: честно и даром",
-  "oneLiner": "Проверка растений и насекомых на опасность для детей и питомцев — главный ответ всегда бесплатный и честный, без запугивания.",
+  "title": "Ядовито коту и ребёнку: база для ветклиник",
+  "oneLiner": "Прямой бесплатный ответ про токсичность растений для детей и питомцев — и тот же справочник как платный сервис для ветклиник и зоомагазинов.",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -30742,34 +30772,34 @@
   },
   "reviewGrid": [
    {
-    "quote": "you now have to pay to see if something is harmful to humans, plants, and animals. it used to be free",
-    "rating": 2,
-    "app": "Smart Identifier: Plant+Insect"
-   },
-   {
-    "quote": "the most important detail(whether or not something is harmful) isn't available for free",
-    "rating": 5,
-    "app": "Smart Identifier: Plant+Insect"
-   },
-   {
-    "quote": "It is not dangerous at all. I'm going to uninstall because that's just unreliable",
+    "quote": "it said that some plant isn't poisonous so my grandpa ate it and deid",
     "rating": 1,
-    "app": "Smart Identifier: Plant+Insect"
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "a lot of things are labeled as being \"harmful to humans\" which are laughably incorrect",
+    "quote": "It would be helpful to bring up a list of my plants that may be toxic to dogs/cats without going through each one.",
     "rating": 4,
-    "app": "Smart Identifier: Plant+Insect"
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "labels many as harmful to humans then says non toxic, doesn't bite. So I don't trust it",
+    "quote": "if it's safe for pets or what you could use it for",
+    "rating": 5,
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "almost get poisoned by a $12 succulent from Trader Joe",
     "rating": 2,
-    "app": "Smart Identifier: Plant+Insect"
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "features such as common pests, toxicity, draft sensitivity etc. is really helpful",
+    "rating": 5,
+    "app": "Planta: AI Plant & Garden Care"
    }
   ],
   "mechanisms": [
    {
-    "title": "Безопасно ли для кота и ребёнка: честно и даром",
+    "title": "Ядовито коту и ребёнку: база для ветклиник",
     "obsCount": 405,
     "apps": [
      "Plant Parent",
@@ -30779,18 +30809,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "Самое важное — ядовито ли растение или насекомое для ребёнка и кота — крупные приложения прячут за платной стеной, да ещё и пугают: безобидного паука помечают «опасен», чтобы выманить оплату. Люди в ярости: вопрос безопасности нельзя ставить за деньги, доверие разрушено, все уходят гуглить. Это острая, эмоциональная и очень частая боль.",
+  "gap": "Самое важное — ядовито ли растение ребёнку, кошке или собаке — крупные приложения прячут за платной стеной и ещё пугают, помечая безобидное «опасным» ради оплаты. Это вопрос жизни: люди реально едят растения и дают грызть питомцам. А у ветклиник и горячих линий нет единой выверенной базы токсичности под рукой.",
   "idea": {
-   "pitch": "Сделайте узкий честный справочник: владелец указывает растение или насекомое — сразу получает прямой и бесплатный ответ про токсичность для детей, кошек и собак, без запугивания. Не нужен свой суперраспознаватель: хватит курируемого списка популярных комнатных растений и частых домашних насекомых с выверенными данными. Защита — в репутации честности и отсутствии трюков с платной стеной, на чём крупные игроки прямо теряют пользователей.",
+   "pitch": "Соберите узкий честный справочник токсичности комнатных растений для детей, кошек и собак: человек вводит растение и сразу получает прямой бесплатный ответ без запугивания. Свой суперраспознаватель не нужен — хватит курируемого выверенного списка. Бесплатное приложение строит доверие и поток, а тот же справочник вы продаёте ветклиникам, горячим линиям и зоомагазинам.",
    "features": [
     "Прямой ответ о токсичности для детей, кошек и собак без платной стены",
-    "Без запугивания: спокойная честная оценка реальной опасности",
-    "Что делать, если питомец уже погрыз — первые шаги и когда к ветеринару",
-    "Курируемый список комнатных растений и частых домашних насекомых",
-    "Подборки безопасных растений для дома с кошкой, собакой, малышом"
+    "Что делать, если питомец или ребёнок уже погрыз: первые шаги и когда срочно к врачу",
+    "Курируемый выверенный список комнатных растений — без ложных «опасно»",
+    "Подборки безопасных растений для дома с кошкой, собакой, малышом",
+    "Платный доступ к справочнику для ветклиник и горячих линий: быстрый поиск и встраивание в их систему"
    ],
    "antiFeatures": [],
-   "monetization": "Базовый ответ о безопасности бесплатный — на нём держится доверие и поток. Деньги — на партнёрских ссылках на безопасные растения и средства плюс необязательная подписка на расширенные подборки и уход. Платят зоо- и детские бренды за честную аудиторию, а не пользователь за тревогу."
+   "monetization": "Платят ветклиники, горячие линии помощи питомцам и зоомагазины — за доступ к выверенной базе токсичности и встраивание её в свои системы. Они уже платят за справочные базы: клиент звонит «кот погрыз растение», ответ нужен сразу. Приложение для людей бесплатное."
   }
  },
  {
@@ -31769,8 +31799,8 @@
   "slug": "astrology-6",
   "category": "astrology",
   "categoryName": "Астрология и гороскопы",
-  "title": "Добрый гороскоп: без жестокости и красных дней",
-  "oneLiner": "Честный, но бережный разбор дня для тех, кого крупные приложения каждый день добивали негативом.",
+  "title": "Свой астролог: ведёт тебя, а не пугает",
+  "oneLiner": "Не очередной автогенератор, а живой астролог с именем: ведёт подписчиков через их «вызовы и победы» месяцами, разбирает карту лично и отвечает сам.",
   "asOf": "2026-06-20",
   "stats": {
    "apps": 10,
@@ -31779,34 +31809,39 @@
   },
   "reviewGrid": [
    {
-    "quote": "Nobody will ever love you",
+    "quote": "The daily “deep dive” used to guide me through challenges and wins",
     "rating": 1,
-    "app": "Co–Star Personalized Astrology"
+    "app": "Co-Star"
    },
    {
-    "quote": "told me today, on Mother's Day, that all relationships end in death",
+    "quote": "Co–Star feels less like astrology and more like negging",
     "rating": 1,
-    "app": "Co–Star Personalized Astrology"
+    "app": "Co-Star"
    },
    {
-    "quote": "Daily insights were once thought-provoking, now they're just negative, toxic and very wrong",
+    "quote": "No real astrologers worked on this",
     "rating": 1,
-    "app": "The Pattern: Astrology"
+    "app": "Co-Star"
    },
    {
-    "quote": "This app is brutal and destroys my self esteem",
-    "rating": 1,
-    "app": "Co–Star Personalized Astrology"
+    "quote": "I use it to keep myself in check and as encouragement when I need it",
+    "rating": 2,
+    "app": "Co-Star"
    },
    {
-    "quote": "This app made me profoundly depressed. Almost every single day, all my forecasts were red",
-    "rating": 1,
-    "app": "Moonly: Moon Phases & Calendar"
+    "quote": "glad to see humans actually write back to you",
+    "rating": 4,
+    "app": "Astro Future"
+   },
+   {
+    "quote": "This is by far my favorite subscription",
+    "rating": 5,
+    "app": "The Pattern"
    }
   ],
   "mechanisms": [
    {
-    "title": "Добрый гороскоп: без жестокости и красных дней",
+    "title": "Свой астролог: ведёт тебя, а не пугает",
     "obsCount": 120,
     "apps": [
      "Astro Future",
@@ -31815,18 +31850,18 @@
     "polarity": "pain"
    }
   ],
-  "gap": "Главные приложения скатились в жестокость. Co–Star выдаёт «тебя никто не полюбит» и в День матери — что все отношения кончаются смертью. Pattern с утра сообщает, что друзья делают на тебя ставки. Moonly красит почти каждый день в тревожный красный, и человек впадает в уныние. Люди пишут, что приложение бьёт по самооценке, как токсичный друг, и портит настроение на весь день. Но бросать жанр они не хотят — им нужна та же ежедневная опора, просто не садистская.",
+  "gap": "Co-Star скатился в ИИ-тексты, которые сами пользователи зовут «негованием» и жестокостью: «attacks you», «Nobody will ever love you» на Новый год. А ведь годами платили не за тон, а за глубину — за «deep dive», который вёл их через вызовы и победы, за ощущение живого человека за разбором. Когда глубину схлопнули до двух ИИ-фраз, ушло не настроение, а отношения: разбирать стало некому, следить не за кем.",
   "idea": {
-   "pitch": "Тот же ежедневный разбор, но с правилом: говорить честно и при этом бережно. Если день сложный — не пугать, а подсказать, как пройти. Никаких ударов по самооценке с утра и никаких сплошных красных дней. Тон — как у спокойного взрослого, который на твоей стороне. Защита здесь — репутация безопасного места: тех, кого крупные приложения добили, переучить обратно почти невозможно, и они приводят таких же. Бережный голос так же узнаваем и так же сложно скопировать, как и злой.",
+   "pitch": "Делаем не ленту прогнозов, а астролога-человека с именем и лицом, на которого подписываются. Он ведёт твою карту вдолгую: каждый день — личный разбор транзитов с вопросом в дневник, раз в месяц — голосовой разбор «куда движешься», в трудный момент можно написать и получить ответ автора, а не бота. Платишь не за «помягче», а за того, кто реально знает твою историю и ведёт дальше.",
    "features": [
-    "Честный разбор сложного дня без запугивания и угроз",
-    "Тон спокойного взрослого на твоей стороне, без ударов по самооценке",
-    "Никаких сплошных тревожных красных дней в календаре",
-    "Если день тяжёлый — подсказка, как его пройти, а не приговор",
-    "Можно пожаловаться на жёсткую формулировку, и тон подстроится"
+    "Закреплённый автор-астролог: профиль, голос, манера; подписка на конкретного человека, а не на безликую ленту",
+    "Личный «глубокий разбор» дня по реальным транзитам с показом, из чего он сложился, и вопросом для дневника",
+    "Дневник-трекинг: что сбылось, что прожил — астролог видит твою историю и ведёт тебя через «вызовы и победы»",
+    "Ежемесячный персональный голосовой разбор «куда движешься» от автора подписки",
+    "Личные вопросы автору в трудный момент — отвечает человек, видно, где живой ответ, а где автоматика"
    ],
    "antiFeatures": [],
-   "monetization": "Подписка от тех, кого крупные приложения добивали негативом и кто ушёл ради спокойствия. Это люди, которые уже платили за ежедневный гороскоп, — им нужна та же опора, но безопасная, и за бережный тон они держат подписку дольше."
+   "monetization": "Платят те, кто годами держал подписку на Co-Star и The Pattern ради глубины, но ушёл, когда её заменили ИИ-неговением. Модель — месячная подписка на конкретного астролога плюс платные личные разборы. Платят за отношения и ведение, а не за тон: за человека, который знает их историю и направляет дальше."
   }
  },
  {
