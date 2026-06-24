@@ -143,12 +143,10 @@ export default function IdeaFeed({
                       <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); saveCurrent(); }} aria-label={ru ? "В избранное" : "Save"} className={`absolute right-4 top-4 z-20 flex size-9 items-center justify-center rounded-full transition-all active:scale-90 ${itSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>
                         <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
                       </button>
-                      <h2 className="pr-10 text-[20px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-5 text-balance sm:text-[22px]">{it.title}</h2>
+                      <div className="pr-10 text-[13px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
+                      <h2 className="mt-2 pr-10 text-[20px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-5 text-balance sm:text-[22px]">{it.title}</h2>
                       <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{it.oneLiner}</p>
                       <div className="mt-auto pt-5">
-                        {it.demand > 0 && (
-                          <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]"><span className="text-[var(--color-text-brand)]">{it.demand}</span> {ru ? `${wordObs(it.demand)} в отзывах` : "signals in reviews"}</div>
-                        )}
                         <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                           {it.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
                         </button>
