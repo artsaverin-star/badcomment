@@ -39,20 +39,14 @@ export default function IdeaFeed({
     return [items[i], ...items.slice(0, i), ...items.slice(i + 1)];
   }, [items, dailySlug]);
 
-  // Weave native interstitials into the deck so a guest can't browse endlessly
-  // un-nudged: a sign-in card at the 4th slot (once, when logged out) and an
-  // unlock offer at the 8th slot and every 10 cards after (8, 18, 28…) while
-  // there's no access. Markers occupy visible slots; ideas still all appear.
+  // Hard gate: the deck is TRUNCATED at the wall, so normal end-of-deck clamping
+  // physically stops swiping. A guest browses 3 ideas then can't pass the sign-in
+  // card until logged in; once logged in they browse 7 then can't pass the unlock
+  // card until paid; with access the full deck opens.
   const cards = useMemo<FeedCard[]>(() => {
-    const out: FeedCard[] = [];
-    let i = 0, vis = 0;
-    while (i < order.length) {
-      vis++;
-      if (!loggedIn && vis === 4) { out.push({ kind: "auth" }); continue; }
-      if (!hasAccess && vis >= 8 && (vis - 8) % 10 === 0) { out.push({ kind: "paywall" }); continue; }
-      out.push(order[i]); i++;
-    }
-    return out;
+    if (hasAccess) return order;
+    if (!loggedIn) return [...order.slice(0, 3), { kind: "auth" }];
+    return [...order.slice(0, 7), { kind: "paywall" }];
   }, [order, loggedIn, hasAccess]);
 
   const [idx, setIdx] = useState(0);
