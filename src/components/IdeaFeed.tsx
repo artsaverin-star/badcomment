@@ -19,7 +19,9 @@ function wordObs(n: number) {
 
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
-const SLOT = 320; // px per card slot on the carousel track
+const SLOT = 320;
+const CARD_H = "h-[clamp(380px,52vh,460px)]";
+const STEP_MS = 145; // delay between single steps when paging through several cards
 
 export default function IdeaFeed({
   items, dailySlug, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
@@ -37,13 +39,14 @@ export default function IdeaFeed({
   }, [items, dailySlug]);
 
   const [idx, setIdx] = useState(0);
-  const [flipped, setFlipped] = useState(false);
   const [dragX, setDragX] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
   const dragT0 = useRef(0);
+  const idxRef = useRef(0);
+  const targetRef = useRef(0);
+  const stepping = useRef(false);
   const timers = useRef<number[]>([]);
-  const lastGo = useRef(0);
 
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [auth, setAuth] = useState(false);
@@ -54,21 +57,15 @@ export default function IdeaFeed({
   const savedSet = useMemo(() => new Set(savedList.map((s) => s.slug)), [savedList]);
   const total = order.length;
   const cur = order[idx];
-  const isSaved = cur && savedSet.has(cur.slug);
 
+  useEffect(() => { idxRef.current = idx; }, [idx]);
   useEffect(() => {
     const id = requestAnimationFrame(() => {
       try { const s = JSON.parse(localStorage.getItem("feed:saved") || "[]"); if (Array.isArray(s)) setSavedList(s); } catch { /* ignore */ }
     });
     return () => cancelAnimationFrame(id);
   }, []);
-
-  // New centred card flips to its face shortly after it settles (go() resets it
-  // to рубашка first).
-  useEffect(() => {
-    const t = window.setTimeout(() => setFlipped(true), 380);
-    return () => window.clearTimeout(t);
-  }, [idx]);
+  useEffect(() => () => { timers.current.forEach((t) => clearTimeout(t)); }, []);
 
   function persistSaved(nextList: Saved[]) {
     setSavedList(nextList);
@@ -81,50 +78,47 @@ export default function IdeaFeed({
     setLoveTick((t) => t + 1);
   }
 
-  function go(dir: "next" | "prev") {
-    if (!cur) return;
-    if (dir === "next" && idx >= total - 1) return;
-    if (dir === "prev" && idx <= 0) return;
+  // Page toward a target one card at a time — every step flips the centre card
+  // (рубашка↔лицо), so a multi-card move reads as a quick шух-шух-шух shuffle.
+  function moveTo(target: number) {
     setModal(false);
     setDragX(0);
-    setFlipped(false); // flip current card back to рубашка
-    timers.current.forEach((t) => clearTimeout(t));
-    timers.current = [];
-    const now = Date.now();
-    const rapid = now - lastGo.current < 620;
-    lastGo.current = now;
-    const step = () => setIdx((i) => (dir === "next" ? Math.min(i + 1, total - 1) : Math.max(i - 1, 0)));
-    if (rapid) {
-      // many quick taps → advance immediately, the track just slides faster
-      step();
-    } else {
-      // single deliberate step → flip to рубашка first, then slide
-      timers.current.push(window.setTimeout(step, 430));
-    }
+    targetRef.current = Math.max(0, Math.min(total - 1, target));
+    if (stepping.current) return;
+    stepping.current = true;
+    const tick = () => {
+      const c = idxRef.current;
+      if (c === targetRef.current) { stepping.current = false; return; }
+      const ni = c < targetRef.current ? c + 1 : c - 1;
+      idxRef.current = ni;
+      setIdx(ni);
+      timers.current.push(window.setTimeout(tick, STEP_MS));
+    };
+    tick();
   }
+  function go(dir: "next" | "prev") { moveTo(targetRef.current + (dir === "next" ? 1 : -1)); }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
     if (!loggedIn) setAuth(true); else setPaywall(true);
   }
 
   function onDown(e: React.PointerEvent) {
-    dragStart.current = e.clientX; dragT0.current = Date.now(); setDragging(true);
+    stepping.current = false;
     timers.current.forEach((t) => clearTimeout(t)); timers.current = [];
+    targetRef.current = idxRef.current;
+    dragStart.current = e.clientX; dragT0.current = Date.now(); setDragging(true);
   }
   function onMove(e: React.PointerEvent) { if (dragStart.current !== null) setDragX(e.clientX - dragStart.current); }
   function onUp() {
     if (dragStart.current === null) return;
     const d = dragX; dragStart.current = null; setDragging(false);
     const dt = Math.max(Date.now() - dragT0.current, 1);
-    const vel = -d / dt; // px/ms, positive = toward next
-    // how many cards to move: by distance dragged, plus a flick bonus by speed
+    const vel = -d / dt;
     let steps = Math.round(-d / SLOT);
     if (Math.abs(vel) > 0.45) steps += Math.sign(vel) * Math.min(5, Math.round(Math.abs(vel) * 1.6));
     if (steps === 0 && Math.abs(d) > 45) steps = d < 0 ? 1 : -1;
-    setModal(false);
-    setFlipped(false);
     setDragX(0);
-    if (steps !== 0) setIdx((i) => Math.max(0, Math.min(total - 1, i + steps)));
+    if (steps !== 0) moveTo(idxRef.current + steps);
   }
 
   useEffect(() => {
@@ -135,16 +129,15 @@ export default function IdeaFeed({
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [idx, total]);
+  }, [total]);
 
   if (total === 0) return null;
 
-  // Window of cards around the current one (rendered on the moving track).
   const from = Math.max(0, idx - 6);
   const to = Math.min(total - 1, idx + 6);
   const win: number[] = [];
   for (let i = from; i <= to; i++) win.push(i);
-  const transition = dragging ? "none" : "transform 0.42s cubic-bezier(0.22,0.61,0.36,1)";
+  const transition = dragging ? "none" : "transform 0.4s cubic-bezier(0.22,0.61,0.36,1)";
 
   return (
     <div className="mx-auto w-full max-w-[480px] sm:max-w-[700px]">
@@ -167,43 +160,33 @@ export default function IdeaFeed({
           onPointerCancel={onUp}
         >
           {win.map((i) => {
-            const off = (i - idx) * SLOT + dragX;
+            const it = order[i];
             const center = i === idx;
+            const off = (i - idx) * SLOT + dragX;
+            const itSaved = savedSet.has(it.slug);
             return (
-              <div
-                key={order[i].slug}
-                className="absolute left-1/2 top-1/2 w-[296px]"
-                style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}
-              >
-                {center ? (
-                  <div className="relative h-[clamp(380px,52vh,460px)] [perspective:1300px]">
-                    <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
-                      <Ruba />
-                      <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
-                        {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
-                        <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); saveCurrent(); }} aria-label={ru ? "В избранное" : "Save"} className={`absolute right-4 top-4 z-20 flex size-9 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>
-                          <svg width="17" height="17" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
+              <div key={it.slug} className="absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}>
+                <div className={`relative ${CARD_H} [perspective:1300px]`}>
+                  <div className={`flip3d size-full ${center ? "is-up" : ""}`}>
+                    <Ruba />
+                    <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${center ? "neon-reveal" : ""}`}>
+                      {center && loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
+                      <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); saveCurrent(); }} aria-label={ru ? "В избранное" : "Save"} className={`absolute right-4 top-4 z-20 flex size-9 items-center justify-center rounded-full transition-all active:scale-90 ${itSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
+                      </button>
+                      <h2 className="pr-10 text-[23px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[25px]">{it.title}</h2>
+                      <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{it.oneLiner}</p>
+                      <div className="mt-auto pt-5">
+                        {it.demand > 0 && (
+                          <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]"><span className="text-[var(--color-text-brand)]">{it.demand}</span> {ru ? `${wordObs(it.demand)} в отзывах` : "signals in reviews"}</div>
+                        )}
+                        <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                          {it.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
                         </button>
-                        <h2 className="pr-10 text-[23px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[25px]">{cur.title}</h2>
-                        <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{cur.oneLiner}</p>
-                        <div className="mt-auto pt-5">
-                          {cur.demand > 0 && (
-                            <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]"><span className="text-[var(--color-text-brand)]">{cur.demand}</span> {ru ? `${wordObs(cur.demand)} в отзывах` : "signals in reviews"}</div>
-                          )}
-                          <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
-                            {cur.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
-                          </button>
-                        </div>
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div className="h-[clamp(345px,51vh,430px)] overflow-hidden rounded-[24px] border border-white/15 p-2 opacity-85 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}>
-                    <div className="card-back-pattern flex size-full items-center justify-center rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
-                      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" className="text-white/80"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" /></svg>
-                    </div>
-                  </div>
-                )}
+                </div>
               </div>
             );
           })}
