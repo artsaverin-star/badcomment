@@ -30,7 +30,7 @@ export default async function CardsPage() {
     <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-12 pt-4 sm:pt-7">
       <AtmosphereSetter random />
 
-      <header className="mb-4 text-center">
+      <header className="mb-4 text-center sm:mb-9">
         <h1 className="glow-sweep mx-auto text-[clamp(28px,8vw,46px)] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
           {ru ? "Идеи приложений" : "App ideas"}
         </h1>

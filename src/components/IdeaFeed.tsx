@@ -133,7 +133,7 @@ export default function IdeaFeed({
 
         {/* carousel viewport — masked edges, cards slide horizontally */}
         <div
-          className="relative h-[clamp(380px,56vh,470px)] w-full select-none"
+          className="relative h-[clamp(470px,66vh,580px)] w-full select-none"
           style={{ WebkitMaskImage: SIDE_FADE, maskImage: SIDE_FADE, WebkitMaskSize: "100% 220%", maskSize: "100% 220%", WebkitMaskPosition: "center", maskPosition: "center", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", touchAction: "pan-y" }}
           onPointerDown={onDown}
           onPointerMove={onMove}
@@ -150,7 +150,7 @@ export default function IdeaFeed({
                 style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}
               >
                 {center ? (
-                  <div className="relative h-[clamp(380px,56vh,470px)] [perspective:1300px]">
+                  <div className="relative h-[clamp(380px,52vh,460px)] [perspective:1300px]">
                     <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
                       <Ruba />
                       <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
