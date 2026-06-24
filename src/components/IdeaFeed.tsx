@@ -159,11 +159,11 @@ export default function IdeaFeed({
                     </div>
                   </div>
                   {/* front — idea */}
-                  <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
+                  <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
                     {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
-                    <div className="flex items-start justify-between gap-2">
-                      <span className="line-clamp-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
-                        {isDaily && <span className="mr-1.5 rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] text-white">{ru ? "Идея дня" : "Today"}</span>}
+                    <div className="flex items-start justify-between gap-3">
+                      <span className="flex flex-wrap items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
+                        {isDaily && <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] text-white">{ru ? "Идея дня" : "Today"}</span>}
                         {cur.categoryName}
                       </span>
                       <button
@@ -171,27 +171,25 @@ export default function IdeaFeed({
                         onPointerDown={(e) => e.stopPropagation()}
                         onClick={(e) => { e.stopPropagation(); saveCurrent(); }}
                         aria-label={ru ? "В избранное" : "Save"}
-                        className={`-mr-1 -mt-1 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                        className={`-mr-1.5 -mt-1.5 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
                       >
                         <svg width="17" height="17" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
                       </button>
                     </div>
-                    <h2 className="mt-3 line-clamp-3 text-[24px] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[27px]">{cur.title}</h2>
-                    <p className="mt-2.5 line-clamp-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{cur.oneLiner}</p>
-                    {cur.demand > 0 && (
-                      <div className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full bg-[color-mix(in_srgb,var(--color-accent-brand)_12%,transparent)] px-2.5 py-1 text-[12.5px] font-semibold text-[var(--color-text-brand)]">
-                        🔥 {ru ? `${cur.demand} ${wordObs(cur.demand)} в отзывах` : `${cur.demand} signals in reviews`}
-                      </div>
-                    )}
-                    {cur.quote && (
-                      <div className="mt-4 flex flex-col gap-1">
-                        <div className="msg-bubble w-fit max-w-[92%] self-start rounded-[18px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-3.5 py-2 text-[13.5px] italic leading-[1.45] text-[var(--color-text-primary)] line-clamp-4">{cur.quote.text}</div>
-                        <span className="pl-1.5 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{cur.quote.app} · {cur.quote.rating}★</span>
-                      </div>
-                    )}
-                    <button type="button" onClick={(e) => { e.stopPropagation(); openDepth(); }} className="mt-auto w-full rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-[14px] font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]">
-                      {cur.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "🔒 Открыть разбор" : "🔒 Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
-                    </button>
+
+                    <h2 className="mt-7 text-[27px] font-bold leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[30px]">{cur.title}</h2>
+                    <p className="mt-4 text-[16px] leading-[1.55] text-[var(--color-text-secondary)] line-clamp-4">{cur.oneLiner}</p>
+
+                    <div className="mt-auto pt-6">
+                      {cur.demand > 0 && (
+                        <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]">
+                          <span className="text-[var(--color-text-brand)]">🔥 {cur.demand}</span> {ru ? `${wordObs(cur.demand)} в отзывах` : "signals in reviews"}
+                        </div>
+                      )}
+                      <button type="button" onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                        {cur.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
