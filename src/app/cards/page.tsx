@@ -1,69 +1,59 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
 import { getAccess } from "@/lib/access";
-import { drawnCards } from "@/lib/tokens";
-import { deckIdeaSlugs } from "@/lib/deck";
+import { ownsDeck } from "@/lib/unlocks";
 import { getLocale } from "@/lib/i18n.server";
-import { DECK_PRICE_RUB, DECK_STARS, FREE_ANON_CARDS } from "@/lib/tokenConfig";
+import { buildFeed } from "@/lib/ideaFeed";
+import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import insightsData from "@/data/insights.json";
-import CardDeck from "@/components/CardDeck";
+import IdeaFeed from "@/components/IdeaFeed";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Колода идей — inApp",
-  description: "Тяни карту и открывай идею приложения под подтверждённый спрос — из сотен тысяч реальных отзывов.",
+  title: "Лента идей — inApp",
+  description: "Свайпай идеи приложений, которые люди уже просят в отзывах. С доказательствами и разбором: что строить и как заработать.",
 };
 
 export default async function CardsPage() {
   const locale = await getLocale();
   const ru = locale !== "en";
   const access = await getAccess();
+  const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
 
+  const { items, dailySlug } = buildFeed(locale, owner);
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
-  const ideasCount = deckIdeaSlugs().length;
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
-
-  // Restore the player's state: logged-in → their drawn collection; guest → how many
-  // free cards they've already used (cookie, so a reload can't reset the freebies).
-  const initialCollection = access.loggedIn && access.user ? await drawnCards(access.user.id) : [];
-  const guestUsed = access.loggedIn ? 0 : Number((await cookies()).get("fc")?.value || 0);
+  const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
-    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
+    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-28 pt-16 sm:pt-24">
       <AtmosphereSetter random />
 
-      <header className="text-center">
-        <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Колода идей" : "Idea deck"}</div>
-        <h1 className="glow-sweep mx-auto mt-5 max-w-[14ch] text-[clamp(34px,9vw,64px)] font-black leading-[0.98] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
-          {ru ? "Тяни карту — открой идею" : "Draw a card — get an idea"}
+      <header className="mb-12 text-center">
+        <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Лента идей" : "Idea feed"}</div>
+        <h1 className="glow-sweep mx-auto mt-5 max-w-[16ch] text-[clamp(30px,8vw,52px)] font-black leading-[1.0] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
+          {ru ? "Идеи, которые люди уже просят" : "Ideas people already ask for"}
         </h1>
-        <p className="mx-auto mt-6 max-w-[46ch] text-[17px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[19px]">
+        <p className="mx-auto mt-5 max-w-[44ch] text-[16px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[18px]">
           {ru ? (
-            <>
-              Мы прочитали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> отзывов и отобрали <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> лучших идей из разных ниш. Тяни карту — и тебе выпадет готовая идея, что построить.
-            </>
+            <>Свайпай идеи приложений из <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> реальных отзывов. Понравилась — сохраняй. Тап — весь разбор: что строить и как заработать.</>
           ) : (
-            <>
-              We read <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> reviews and picked the <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(ideasCount)}</span> best ideas across niches. Draw a card — you get a ready idea to build.
-            </>
+            <>Swipe app ideas pulled from <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> real reviews. Like one — save it. Tap for the full breakdown: what to build and how to earn.</>
           )}
         </p>
       </header>
 
-      <CardDeck
+      <IdeaFeed
+        items={items}
+        dailySlug={dailySlug}
         locale={locale}
         loggedIn={access.loggedIn}
-        unlimited={access.unlimited}
         deckPrice={DECK_PRICE_RUB}
-        deckCount={ideasCount}
-        starsHref={access.user ? `https://t.me/${process.env.BOT_USERNAME || "inAppProBot"}?start=deck_${access.user.id}` : undefined}
+        starsHref={access.user ? `https://t.me/${bot}?start=deck_${access.user.id}` : undefined}
         starsLabel={`${DECK_STARS} ⭐ Telegram`}
-        lifetimeStarsHref={access.user ? `https://t.me/${process.env.BOT_USERNAME || "inAppProBot"}?start=life_${access.user.id}` : undefined}
-        initialCollection={initialCollection}
-        guestUsed={guestUsed}
-        guestCap={FREE_ANON_CARDS}
+        lifetimeStarsHref={access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined}
+        lifetimePrice={LIFETIME.rub}
       />
     </main>
   );
