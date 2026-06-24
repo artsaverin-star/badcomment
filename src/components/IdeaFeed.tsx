@@ -141,7 +141,7 @@ export default function IdeaFeed({
       ) : (
         <>
           {/* swipe stage */}
-          <div className="relative w-full">
+          <div className="relative w-full px-6 sm:px-0">
             <div key={cur.slug} className="card-deal-in mx-auto max-w-[400px]">
               <div
                 onPointerDown={onDown}
