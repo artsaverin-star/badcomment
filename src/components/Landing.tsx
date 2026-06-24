@@ -145,15 +145,19 @@ function ListRow({ c, ru }: { c: CatCard; ru: boolean }) {
 // Marketing landing: animated hero, then a switchable gallery of category
 // breakdowns — an Apple-store-style bento (richer niches featured larger) or a
 // compact list.
+type DailyIdea = { slug: string; category: string; categoryName: string; title: string; oneLiner: string; demand: number; quote: { text: string; app: string; rating: number } | null };
+
 export default function Landing({
   catCards = [],
   locale = "ru",
   totalReviews = 0,
+  dailyIdea = null,
 }: {
   catCards?: CatCard[];
   locale?: Locale;
   totalReviews?: number;
   loggedIn?: boolean;
+  dailyIdea?: DailyIdea | null;
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
@@ -236,12 +240,39 @@ export default function Landing({
         </div>
       </section>
 
+      {/* Front door: idea of the day → the swipe feed (the core product). */}
+      {dailyIdea && (
+        <section className="mx-auto -mt-2 w-full max-w-[460px] px-2 sm:px-4">
+          <Link href="/cards" className="group block rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.7)] transition-[border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]">
+            <div className="flex items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
+                <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] text-white">{ru ? "Идея дня" : "Today"}</span>
+                {dailyIdea.categoryName}
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-bold tabular-nums text-[var(--color-text-brand)]">🔥 {dailyIdea.demand}</span>
+            </div>
+            <h2 className="mt-3 text-[23px] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[26px]">{dailyIdea.title}</h2>
+            <p className="mt-2 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{dailyIdea.oneLiner}</p>
+            {dailyIdea.quote && (
+              <div className="mt-4 flex flex-col gap-1">
+                <div className="msg-bubble w-fit max-w-[92%] self-start rounded-[18px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-3.5 py-2 text-[13.5px] italic leading-[1.45] text-[var(--color-text-primary)]">{dailyIdea.quote.text}</div>
+                <span className="pl-1.5 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{dailyIdea.quote.app} · {dailyIdea.quote.rating}★</span>
+              </div>
+            )}
+            <span className="btn-shimmer mt-6 flex w-full items-center justify-center gap-2 rounded-full px-5 py-3.5 text-[15px] font-semibold text-white">
+              {ru ? "Смотреть идеи" : "Browse ideas"}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5"><path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </span>
+          </Link>
+        </section>
+      )}
+
       {/* Two feature doors: the special report + the idea deck (the third block —
           category breakdowns — is the gallery below). */}
       <section className="mx-auto mt-2 grid w-full max-w-3xl grid-cols-2 gap-3 px-2 sm:px-4">
         {[
           { href: "/most-wanted", eyebrow: ru ? "Спец-разбор" : "Special report", title: ru ? "Приложения, которые умоляют сделать" : "Apps people beg for", sub: ru ? "Спрос огромный, а приложения нет." : "Huge demand, no app.", cta: ru ? "Читать" : "Read" },
-          { href: "/cards", eyebrow: ru ? "Колода идей" : "Idea deck", title: ru ? "Тяни карту — выпадет идея" : "Draw a card — get an idea", sub: ru ? "Готовая идея под подтверждённый спрос." : "A ready idea backed by proven demand.", cta: ru ? "Открыть" : "Open" },
+          { href: "/cards", eyebrow: ru ? "Лента идей" : "Idea feed", title: ru ? "Свайпай проверенные идеи" : "Swipe validated ideas", sub: ru ? "Идеи, которые люди уже просят в отзывах." : "Ideas people already ask for in reviews.", cta: ru ? "Открыть" : "Open" },
         ].map((b) => (
           <Link key={b.href} href={b.href} className="group flex flex-col rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-4 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-5 sm:py-5">
             <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{b.eyebrow}</p>

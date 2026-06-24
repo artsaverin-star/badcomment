@@ -3,6 +3,8 @@ import { isPremium } from "@/lib/premium";
 import { getSessionUser } from "@/lib/session";
 import { getCatalogData } from "@/lib/catalogData";
 import { listIdeas } from "@/lib/ideas";
+import { buildFeed } from "@/lib/ideaFeed";
+import { PREMIUM_NICHES } from "@/lib/premiumNiches";
 import { getSegmentSummary } from "@/lib/segmentSummary";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { tg } from "@/lib/typo";
@@ -76,11 +78,7 @@ export default async function Home() {
   // Premium-10: the popular, vibe-coder-buildable niches we re-authored to
   // ultra quality (per-app v3 + niche synthesis). Pin them to the top of the
   // homepage list, in popularity order; everything else keeps its order below.
-  const PREMIUM = [
-    "notes-pkm", "photo-editing", "calendars-tasks", "study-aids", "nutrition-calories",
-    "document-scanners", "weather-apps", "intermittent-fasting", "affirmations", "plant-care",
-    "habit-tracking", "personal-finance", "astrology",
-  ];
+  const PREMIUM: string[] = [...PREMIUM_NICHES];
   // Drop slug duplicates (a few niches live in two domain blocks in the source).
   const seenSlugs = new Set<string>();
   for (let i = 0; i < catCards.length; ) {
@@ -90,6 +88,12 @@ export default async function Home() {
 
   const premiumRank = (slug: string) => { const i = PREMIUM.indexOf(slug); return i === -1 ? PREMIUM.length : i; };
   catCards.sort((a, b) => premiumRank(a.slug) - premiumRank(b.slug));
+
+  // Idea of the day — the front-door hook into the swipe feed.
+  const feed = buildFeed(locale, false);
+  const dailyIdea = (feed.items.find((i) => i.slug === feed.dailySlug) || feed.items[0] || null) as
+    | { slug: string; category: string; categoryName: string; title: string; oneLiner: string; demand: number; quote: { text: string; app: string; rating: number } | null }
+    | null;
 
   const lp = ru ? "ru" : "en";
   const homeJsonLd = {
@@ -113,7 +117,7 @@ export default async function Home() {
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }} />
-      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} />
+      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} dailyIdea={dailyIdea} />
     </main>
   );
 }
