@@ -52,7 +52,6 @@ export default function IdeaFeed({
   const savedSet = useMemo(() => new Set(savedList.map((s) => s.slug)), [savedList]);
   const total = order.length;
   const cur = order[idx % Math.max(total, 1)];
-  const isDaily = cur && cur.slug === dailySlug;
   const isSaved = cur && savedSet.has(cur.slug);
 
   useEffect(() => {
@@ -161,11 +160,7 @@ export default function IdeaFeed({
                   {/* front — idea */}
                   <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
                     {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
-                    <div className="flex items-start justify-between gap-3">
-                      <span className="flex flex-wrap items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
-                        {isDaily && <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] text-white">{ru ? "Идея дня" : "Today"}</span>}
-                        {cur.categoryName}
-                      </span>
+                    <div className="flex justify-end">
                       <button
                         type="button"
                         onPointerDown={(e) => e.stopPropagation()}
@@ -177,13 +172,13 @@ export default function IdeaFeed({
                       </button>
                     </div>
 
-                    <h2 className="mt-7 text-[27px] font-bold leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[30px]">{cur.title}</h2>
+                    <h2 className="mt-2 text-[27px] font-bold leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[30px]">{cur.title}</h2>
                     <p className="mt-4 text-[16px] leading-[1.55] text-[var(--color-text-secondary)] line-clamp-4">{cur.oneLiner}</p>
 
                     <div className="mt-auto pt-6">
                       {cur.demand > 0 && (
                         <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]">
-                          <span className="text-[var(--color-text-brand)]">🔥 {cur.demand}</span> {ru ? `${wordObs(cur.demand)} в отзывах` : "signals in reviews"}
+                          <span className="text-[var(--color-text-brand)]">{cur.demand}</span> {ru ? `${wordObs(cur.demand)} в отзывах` : "signals in reviews"}
                         </div>
                       )}
                       <button type="button" onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
@@ -196,7 +191,7 @@ export default function IdeaFeed({
             </div>
           </div>
 
-          <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{(idx % total) + 1}</span> {ru ? "из" : "of"} {total} · {ru ? "свайп влево/вправо или стрелки" : "swipe or arrow keys"}</p>
+          <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{(idx % total) + 1}</span> {ru ? "из" : "of"} {total}</p>
         </>
       )}
 
