@@ -27,12 +27,11 @@ export default async function CardsPage() {
   const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
-    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-28 pt-16 sm:pt-24">
+    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-28 pt-6 sm:pt-10">
       <AtmosphereSetter random />
 
-      <header className="mb-10 text-center">
-        <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Лента идей" : "Idea feed"}</div>
-        <h1 className="glow-sweep mx-auto mt-5 text-[clamp(30px,8.5vw,54px)] font-black leading-[1.0] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
+      <header className="mb-7 text-center">
+        <h1 className="glow-sweep mx-auto text-[clamp(28px,8vw,50px)] font-black leading-[1.0] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
           {ru ? "Проанализировали" : "We analyzed"}<br />
           <span className="tabular-nums">{nf(totalReviews)}</span> {ru ? "отзывов" : "reviews"}
         </h1>

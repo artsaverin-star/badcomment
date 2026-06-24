@@ -16,36 +16,32 @@ function wordObs(n: number) {
   if (d >= 2 && d <= 4) return "наблюдения";
   return "наблюдений";
 }
-const todayKey = () => { const d = new Date(); return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; };
-const yesterdayKey = () => { const d = new Date(); d.setDate(d.getDate() - 1); return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`; };
-
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
 
-// Disintegrate the card into sand — fine grains emitted across its whole width,
-// drifting toward the swipe direction and falling like sand.
-async function sand(rect: DOMRect | undefined, dir: "next" | "prev") {
+// Blow the card apart into a salute — particles burst outward from a grid of
+// points across the whole card, so it reads as the card itself exploding.
+async function burst(rect: DOMRect | undefined) {
   if (!rect) return;
   const confetti = (await import("canvas-confetti")).default;
-  const y = (rect.top + rect.height / 2) / window.innerHeight;
-  const colors = ["#e8d3a8", "#d9b98f", "#c2a06a", "#b8956a", "#efe0c4"];
-  const angle = dir === "next" ? 180 : 0;
-  const drift = dir === "next" ? -1.4 : 1.4;
-  for (let k = 0; k < 6; k++) {
-    const x = (rect.left + rect.width * (0.1 + 0.16 * k)) / window.innerWidth;
-    confetti({
-      particleCount: 24,
-      startVelocity: 20,
-      spread: 75,
-      angle,
-      origin: { x, y },
-      colors,
-      ticks: 95,
-      scalar: 0.42,
-      gravity: 1.15,
-      drift,
-      shapes: ["square"],
-      disableForReducedMotion: true,
-    });
+  const W = window.innerWidth, H = window.innerHeight;
+  const colors = ["#FFA62B", "#FF5C8A", "#B14DEA", "#4CB8F5", "#00E5FF", "#ffffff"];
+  for (let gx = 0; gx < 3; gx++) {
+    for (let gy = 0; gy < 4; gy++) {
+      const x = (rect.left + rect.width * (0.2 + 0.3 * gx)) / W;
+      const y = (rect.top + rect.height * (0.14 + 0.24 * gy)) / H;
+      confetti({
+        particleCount: 11,
+        startVelocity: 17,
+        spread: 360,
+        origin: { x, y },
+        colors,
+        ticks: 110,
+        scalar: 0.9,
+        gravity: 0.85,
+        shapes: ["square", "circle"],
+        disableForReducedMotion: true,
+      });
+    }
   }
 }
 
@@ -111,7 +107,6 @@ export default function IdeaFeed({
   const [view, setView] = useState<"feed" | "saved">("feed");
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [seen, setSeen] = useState<string[]>([]);
-  const [streak, setStreak] = useState(0);
   const [auth, setAuth] = useState(false);
   const [paywall, setPaywall] = useState(false);
   const [modal, setModal] = useState(false);
@@ -129,23 +124,15 @@ export default function IdeaFeed({
         if (Array.isArray(s)) setSavedList(s);
         const sn = JSON.parse(localStorage.getItem("feed:seen") || "[]");
         if (Array.isArray(sn)) setSeen(sn);
-        const raw = JSON.parse(localStorage.getItem("feed:streak") || "null");
-        const t = todayKey(), y = yesterdayKey();
-        let days = 1;
-        if (raw && typeof raw.days === "number") {
-          if (raw.last === t) days = raw.days;
-          else if (raw.last === y) days = raw.days + 1;
-        }
-        setStreak(days);
-        localStorage.setItem("feed:streak", JSON.stringify({ last: t, days }));
       } catch { /* ignore */ }
     });
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Auto-flip each card from its back to the idea shortly after it deals in.
+  // Auto-flip each card from its back to the idea shortly after it deals in, and
+  // count it as viewed (so the "seen" progress updates as you browse).
   useEffect(() => {
-    const t = window.setTimeout(() => setFlipped(true), 520);
+    const t = window.setTimeout(() => { setFlipped(true); markSeen(cur.slug); }, 520);
     return () => window.clearTimeout(t);
   }, [cur.slug]);
 
@@ -176,7 +163,7 @@ export default function IdeaFeed({
   function advance(dir: "next" | "prev") {
     if (exit || !cur) return;
     markSeen(cur.slug);
-    void sand(cardRef.current?.getBoundingClientRect(), dir);
+    void burst(cardRef.current?.getBoundingClientRect());
     setExit(dir === "next" ? "l" : "r");
     window.setTimeout(() => {
       setIdx((i) => (dir === "next" ? (i + 1) % total : (i - 1 + total) % total));
@@ -184,7 +171,7 @@ export default function IdeaFeed({
       setModal(false);
       setExit(null);
       setDrag(0);
-    }, 470);
+    }, 320);
   }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
@@ -204,24 +191,30 @@ export default function IdeaFeed({
     setDrag(0);
   }
 
-  // On exit the card dissolves in place (small nudge + shrink + fade) while the
-  // crumbs fly off — so it never slides into the clipped page edge.
-  const cardTransform = exit === "l"
-    ? "translateX(-44px) scale(0.86)"
-    : exit === "r"
-      ? "translateX(44px) scale(0.86)"
-      : `translateX(${drag}px) rotate(${drag * 0.02}deg)`;
+  // On exit the card collapses in place (shrink + fade) as the salute bursts —
+  // it never slides into the clipped page edge.
+  const cardTransform = exit
+    ? "scale(0.6)"
+    : `translateX(${drag}px) rotate(${drag * 0.02}deg)`;
+
+  // Keyboard: ← previous, → next.
+  useEffect(() => {
+    if (view !== "feed") return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "ArrowLeft") advance("prev");
+      else if (e.key === "ArrowRight") advance("next");
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, idx, exit, total]);
 
   if (total === 0) return null;
 
   return (
-    <div className="mx-auto w-full max-w-[384px]">
-      {/* top bar */}
-      <div className="mb-5 flex items-center justify-between gap-3 px-1">
-        <div className="flex items-center gap-2 text-[12px] font-medium text-[var(--color-text-tertiary)]">
-          <span className="tabular-nums">{ru ? `${seen.length} из ${total}` : `${seen.length} of ${total}`}</span>
-          <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[var(--color-text-secondary)]" title={ru ? "Дней подряд" : "Day streak"}>🔥 {streak}</span>
-        </div>
+    <div className="mx-auto w-full max-w-[460px]">
+      {/* top bar — tabs only */}
+      <div className="mb-5 flex justify-center px-1">
         <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] p-1 text-[12px] font-semibold">
           <button type="button" onClick={() => setView("feed")} className={`rounded-full px-3 py-1 transition-colors ${view === "feed" ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)]"}`}>{ru ? "Лента" : "Feed"}</button>
           <button type="button" onClick={() => setView("saved")} className={`rounded-full px-3 py-1 transition-colors ${view === "saved" ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)]"}`}>{ru ? `Мои · ${savedList.length}` : `Saved · ${savedList.length}`}</button>
@@ -237,15 +230,19 @@ export default function IdeaFeed({
             <button type="button" onClick={() => advance("prev")} aria-label={ru ? "Назад" : "Previous"} className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
-            <div key={cur.slug} className="card-deal-in min-w-0 flex-1 [perspective:1300px]">
+            <div
+              key={cur.slug}
+              className="card-deal-in min-w-0 flex-1"
+              style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%)" }}
+            >
             <div
               ref={cardRef}
               onPointerDown={onDown}
               onPointerMove={onMove}
               onPointerUp={onUp}
               onPointerCancel={onUp}
-              style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.46s ease-in, opacity 0.46s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y" }}
-              className={`relative h-[544px] w-full cursor-pointer select-none ${exit ? "sand-out" : ""}`}
+              style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.3s ease-in, opacity 0.3s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y", perspective: "1300px" }}
+              className="relative h-[470px] w-full cursor-pointer select-none"
             >
               <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
                 {/* back — рубашка */}
@@ -269,7 +266,7 @@ export default function IdeaFeed({
                       aria-label={ru ? "В избранное" : "Save"}
                       className={`-mr-1 -mt-1 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${savedSet.has(cur.slug) ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
                     >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill={savedSet.has(cur.slug) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" strokeLinejoin="round" /></svg>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill={savedSet.has(cur.slug) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" /></svg>
                     </button>
                   </div>
 
@@ -300,7 +297,7 @@ export default function IdeaFeed({
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
           </div>
-          <p className="mt-5 text-center text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Свайп или стрелки — листать идеи" : "Swipe or arrows to browse"}</p>
+          <p className="mt-5 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{seen.length}</span> {ru ? "из" : "of"} {total} · {ru ? "свайп или стрелки" : "swipe or arrows"}</p>
         </>
       )}
 
@@ -389,7 +386,7 @@ function SavedView({ ru, saved, onOpen, onUnsave }: { ru: boolean; saved: Saved[
             <div className="mt-1 line-clamp-2 text-[13px] leading-[1.45] text-[var(--color-text-secondary)]">{s.oneLiner}</div>
           </Link>
           <button type="button" onClick={() => onUnsave(s)} aria-label={ru ? "Убрать" : "Remove"} className="shrink-0 text-[var(--color-accent-brand)]">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" /></svg>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" /></svg>
           </button>
         </div>
       ))}
