@@ -18,26 +18,7 @@ function wordObs(n: number) {
 }
 
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
-
-// Card blows apart into a salute when skipped.
-async function burst(rect: DOMRect | undefined) {
-  if (!rect) return;
-  const confetti = (await import("canvas-confetti")).default;
-  const W = window.innerWidth, H = window.innerHeight;
-  const colors = ["#FFA62B", "#FF5C8A", "#B14DEA", "#4CB8F5", "#00E5FF", "#ffffff"];
-  for (let gx = 0; gx < 3; gx++) for (let gy = 0; gy < 4; gy++) {
-    confetti({ particleCount: 10, startVelocity: 16, spread: 360, scalar: 0.9, ticks: 100, gravity: 0.9, shapes: ["square", "circle"], colors, disableForReducedMotion: true, origin: { x: (rect.left + rect.width * (0.2 + 0.3 * gx)) / W, y: (rect.top + rect.height * (0.14 + 0.24 * gy)) / H } });
-  }
-}
-// Burst of hearts when liked.
-async function hearts(rect: DOMRect | undefined) {
-  if (!rect) return;
-  const confetti = (await import("canvas-confetti")).default;
-  const x = (rect.left + rect.width / 2) / window.innerWidth;
-  const y = (rect.top + rect.height / 2) / window.innerHeight;
-  const heart = typeof confetti.shapeFromText === "function" ? confetti.shapeFromText({ text: "❤️", scalar: 2 }) : undefined;
-  confetti({ particleCount: 34, spread: 100, startVelocity: 30, origin: { x, y }, ticks: 140, gravity: 0.6, scalar: 1.4, colors: ["#ff3b5c", "#ff6b8a", "#ff90a6", "#ff4d6d"], shapes: heart ? [heart] : ["circle"], disableForReducedMotion: true });
-}
+const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
 
 export default function IdeaFeed({
   items, dailySlug, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
@@ -60,7 +41,6 @@ export default function IdeaFeed({
   const [drag, setDrag] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
 
   const [view, setView] = useState<"feed" | "saved">("feed");
   const [savedList, setSavedList] = useState<Saved[]>([]);
@@ -104,31 +84,25 @@ export default function IdeaFeed({
     if (savedSet.has(it.slug)) persistSaved(savedList.filter((s) => s.slug !== it.slug));
     else persistSaved([{ slug: it.slug, category: it.category, categoryName: it.categoryName, title: it.title, oneLiner: it.oneLiner, demand: it.demand, quote: it.quote }, ...savedList]);
   }
+  function saveCurrent() {
+    if (!cur) return;
+    const was = savedSet.has(cur.slug);
+    toggleSave(cur);
+    if (!was) setLoveTick((t) => t + 1); // red glow, no confetti
+  }
 
-  // Tinder actions: skip (fly left), like (save + fly right), back (previous).
-  function go(kind: "skip" | "like" | "back") {
+  function advance(dir: "next" | "prev") {
     if (exit || !cur) return;
-    const rect = cardRef.current?.getBoundingClientRect();
     markSeen(cur.slug);
-    if (kind === "like") { if (!savedSet.has(cur.slug)) { toggleSave(cur); setLoveTick((t) => t + 1); } void hearts(rect); }
-    else if (kind === "skip") { void burst(rect); }
-    setExit(kind === "skip" ? "l" : "r");
+    setExit(dir === "next" ? "l" : "r");
     window.setTimeout(() => {
-      setIdx((i) => (kind === "back" ? (i - 1 + total) % total : (i + 1) % total));
+      setIdx((i) => (dir === "next" ? (i + 1) % total : (i - 1 + total) % total));
       setFlipped(false); setModal(false); setExit(null); setDrag(0);
-    }, 330);
+    }, 300);
   }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
     if (!loggedIn) setAuth(true); else setPaywall(true);
-  }
-  async function share() {
-    if (!cur) return;
-    const url = `${location.origin}/${ru ? "ru" : "en"}/segment/${cur.category}`;
-    try {
-      if (navigator.share) await navigator.share({ title: cur.title, text: cur.title, url });
-      else await navigator.clipboard.writeText(url);
-    } catch { /* cancelled */ }
   }
 
   function onDown(e: React.PointerEvent) { if (exit) return; dragStart.current = e.clientX; setDragging(true); }
@@ -137,26 +111,25 @@ export default function IdeaFeed({
     if (dragStart.current === null) return;
     const d = drag; dragStart.current = null; setDragging(false);
     if (Math.abs(d) < 8) { openDepth(); setDrag(0); return; }
-    if (d < -90) { go("skip"); return; }
-    if (d > 90) { go("like"); return; }
+    if (d < -90) { advance("next"); return; }
+    if (d > 90) { advance("prev"); return; }
     setDrag(0);
   }
 
-  // Keyboard: ← skip, → like.
   useEffect(() => {
     if (view !== "feed") return;
     function onKey(e: KeyboardEvent) {
-      if (e.key === "ArrowLeft") go("skip");
-      else if (e.key === "ArrowRight") go("like");
+      if (e.key === "ArrowLeft") advance("prev");
+      else if (e.key === "ArrowRight") advance("next");
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view, idx, exit, total]);
 
-  const cardTransform = exit === "l" ? "translateX(-135%) rotate(-16deg)"
-    : exit === "r" ? "translateX(135%) rotate(16deg)"
-      : `translateX(${drag}px) rotate(${drag * 0.045}deg)`;
+  const cardTransform = exit === "l" ? "translateX(-135%) rotate(-14deg)"
+    : exit === "r" ? "translateX(135%) rotate(14deg)"
+      : `translateX(${drag}px) rotate(${drag * 0.04}deg)`;
   const fade = "linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%)";
 
   if (total === 0) return null;
@@ -175,16 +148,15 @@ export default function IdeaFeed({
         <SavedView ru={ru} saved={savedList} onOpen={() => setView("feed")} onUnsave={(s) => toggleSave(s)} />
       ) : (
         <>
-          {/* swipe stage — fades at its left/right edges so a swiped card dissolves at the boundary */}
+          {/* swipe stage — fades the card at the left/right boundary */}
           <div className="relative w-full" style={{ WebkitMaskImage: fade, maskImage: fade }}>
             <div key={cur.slug} className="card-deal-in mx-auto max-w-[400px]">
               <div
-                ref={cardRef}
                 onPointerDown={onDown}
                 onPointerMove={onMove}
                 onPointerUp={onUp}
                 onPointerCancel={onUp}
-                style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.33s ease-in, opacity 0.33s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y", perspective: "1300px" }}
+                style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.3s ease-in, opacity 0.3s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y", perspective: "1300px" }}
                 className="relative h-[470px] w-full cursor-pointer select-none"
               >
                 <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
@@ -197,9 +169,20 @@ export default function IdeaFeed({
                   {/* front — idea */}
                   <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
                     {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
-                    <div className="flex items-center gap-2">
-                      {isDaily && <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">{ru ? "Идея дня" : "Today"}</span>}
-                      <span className="line-clamp-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{cur.categoryName}</span>
+                    <div className="flex items-start justify-between gap-2">
+                      <span className="line-clamp-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
+                        {isDaily && <span className="mr-1.5 rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] text-white">{ru ? "Идея дня" : "Today"}</span>}
+                        {cur.categoryName}
+                      </span>
+                      <button
+                        type="button"
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={(e) => { e.stopPropagation(); saveCurrent(); }}
+                        aria-label={ru ? "В избранное" : "Save"}
+                        className={`-mr-1 -mt-1 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                      >
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
+                      </button>
                     </div>
                     <h2 className="mt-3 line-clamp-3 text-[24px] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[27px]">{cur.title}</h2>
                     <p className="mt-2.5 line-clamp-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{cur.oneLiner}</p>
@@ -214,32 +197,16 @@ export default function IdeaFeed({
                         <span className="pl-1.5 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{cur.quote.app} · {cur.quote.rating}★</span>
                       </div>
                     )}
-                    <span className="mt-auto pt-4 text-[12px] font-semibold uppercase tracking-wide text-[var(--color-text-brand)]">{cur.depth ? (ru ? "Нажми — разбор" : "Tap — breakdown") : loggedIn ? (ru ? "🔒 Нажми — разбор" : "🔒 Tap — breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}</span>
+                    <button type="button" onClick={(e) => { e.stopPropagation(); openDepth(); }} className="mt-auto w-full rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-[14px] font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]">
+                      {cur.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "🔒 Открыть разбор" : "🔒 Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Tinder action bar */}
-          <div className="mt-6 flex items-center justify-center gap-3 sm:gap-4">
-            <ActionButton onClick={() => go("back")} label={ru ? "Назад" : "Rewind"} color="#b9b9c4" size={11}>
-              <path d="M4 9h11a5 5 0 0 1 0 10h-2" /><path d="M8 5 4 9l4 4" />
-            </ActionButton>
-            <ActionButton onClick={() => go("skip")} label={ru ? "Пропустить" : "Nope"} color="#FF4F6B" size={14}>
-              <path d="M6 6l12 12M18 6L6 18" />
-            </ActionButton>
-            <ActionButton onClick={openDepth} label={ru ? "Разбор" : "Open"} color="#4CB8F5" size={12} fill>
-              <path d="M12 3.5l2.4 4.86 5.36.78-3.88 3.78.92 5.34L12 15.7l-4.8 2.56.92-5.34L4.24 9.14l5.36-.78L12 3.5Z" />
-            </ActionButton>
-            <ActionButton onClick={() => go("like")} label={ru ? "Сохранить" : "Like"} color={isSaved ? "#ff3b5c" : "#46E08A"} size={14} fill={!!isSaved}>
-              <path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" />
-            </ActionButton>
-            <ActionButton onClick={share} label={ru ? "Поделиться" : "Share"} color="#5AB0FF" size={12}>
-              <path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z" />
-            </ActionButton>
-          </div>
-          <p className="mt-5 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{seen.length}</span> {ru ? "из" : "of"} {total} · {ru ? "свайп, кнопки или стрелки" : "swipe, buttons or arrows"}</p>
+          <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{seen.length}</span> {ru ? "из" : "of"} {total} · {ru ? "свайп влево/вправо или стрелки" : "swipe or arrow keys"}</p>
         </>
       )}
 
@@ -302,21 +269,6 @@ export default function IdeaFeed({
   );
 }
 
-function ActionButton({ onClick, label, color, size, fill, children }: { onClick: () => void; label: string; color: string; size: number; fill?: boolean; children: React.ReactNode }) {
-  const box = size + 30;
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={label}
-      style={{ width: box, height: box }}
-      className="flex items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] shadow-[0_8px_22px_-10px_rgba(0,0,0,0.6)] transition-transform duration-150 hover:scale-110 active:scale-90"
-    >
-      <svg width={size * 2} height={size * 2} viewBox="0 0 24 24" fill={fill ? color : "none"} stroke={color} strokeWidth={fill ? 0 : 2.1} strokeLinecap="round" strokeLinejoin="round">{children}</svg>
-    </button>
-  );
-}
-
 function SavedView({ ru, saved, onOpen, onUnsave }: { ru: boolean; saved: Saved[]; onOpen: () => void; onUnsave: (s: Saved) => void }) {
   if (saved.length === 0) {
     return (
@@ -340,7 +292,7 @@ function SavedView({ ru, saved, onOpen, onUnsave }: { ru: boolean; saved: Saved[
             <div className="mt-1 line-clamp-2 text-[13px] leading-[1.45] text-[var(--color-text-secondary)]">{s.oneLiner}</div>
           </Link>
           <button type="button" onClick={() => onUnsave(s)} aria-label={ru ? "Убрать" : "Remove"} className="shrink-0 text-[#ff3b5c]">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" /></svg>
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor"><path d={HEART} /></svg>
           </button>
         </div>
       ))}
