@@ -241,8 +241,8 @@ export default function Landing({
       <section className="mx-auto mt-3 w-full max-w-md px-2 sm:px-4">
         <Link href="/cards" className="idea-shimmer group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-5 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-6 sm:py-6">
           <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Лента идей" : "Idea feed"}</p>
-          <h3 className="mt-1.5 text-[19px] font-black leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[22px]">{ru ? "Свайпай проверенные идеи" : "Swipe validated ideas"}</h3>
-          <p className="mt-1.5 text-[13.5px] leading-snug text-[var(--color-text-tertiary)]">{ru ? "Идеи, которые люди уже просят в отзывах." : "Ideas people already ask for in reviews."}</p>
+          <h3 className="mt-1.5 text-[19px] font-black leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[22px]">{ru ? "Идеи, которые уже просят" : "Ideas people already want"}</h3>
+          <p className="mt-1.5 text-[13.5px] leading-snug text-[var(--color-text-tertiary)]">{ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews."}</p>
           <span className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-primary)]">
             {ru ? "Открыть" : "Open"}
             <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">

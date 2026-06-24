@@ -23,7 +23,7 @@ const isIdea = (c: FeedCard): c is FeedIdea => !("kind" in c);
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
 const SLOT = 320;
 // Portrait card (taller than wide) so it reads as a card, not a square.
-const CARD_H = "h-[clamp(400px,58dvh,476px)]";
+const CARD_H = "h-[clamp(400px,52dvh,452px)]";
 
 export default function IdeaFeed({
   items, dailySlug, hasAccess, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
@@ -138,7 +138,7 @@ export default function IdeaFeed({
 
         {/* carousel viewport — masked edges, cards slide horizontally */}
         <div
-          className="feed-mask relative h-[clamp(424px,61dvh,500px)] w-full select-none"
+          className="feed-mask relative h-[clamp(480px,64dvh,544px)] w-full select-none"
           style={{ touchAction: "pan-y" }}
           onPointerDown={onDown}
           onPointerMove={onMove}
@@ -165,10 +165,12 @@ export default function IdeaFeed({
                           <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); saveCurrent(); }} aria-label={ru ? "В избранное" : "Save"} className={`absolute right-4 top-4 z-20 flex size-9 items-center justify-center rounded-full transition-all active:scale-90 ${itSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>
                             <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
                           </button>
-                          <div className="pr-10 text-[13px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
-                          <h2 className="mt-2 pr-10 text-[19px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-3 text-balance sm:text-[22px] sm:line-clamp-5">{it.title}</h2>
-                          <p className="mt-2.5 text-[14px] leading-[1.45] text-[var(--color-text-secondary)] line-clamp-4 sm:mt-3 sm:text-[14.5px] sm:leading-[1.5] sm:line-clamp-6">{it.oneLiner}</p>
-                          <div className="mt-auto pt-5">
+                          <div className="flex flex-1 flex-col justify-center">
+                            <div className="pr-10 text-[13px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
+                            <h2 className="mt-2 pr-10 text-[19px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-3 text-balance sm:text-[22px] sm:line-clamp-5">{it.title}</h2>
+                            <p className="mt-2.5 text-[14px] leading-[1.45] text-[var(--color-text-secondary)] line-clamp-4 sm:mt-3 sm:text-[14.5px] sm:leading-[1.5] sm:line-clamp-6">{it.oneLiner}</p>
+                          </div>
+                          <div className="pt-5">
                             <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                               {it.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
                             </button>
@@ -176,10 +178,12 @@ export default function IdeaFeed({
                         </>
                       ) : it.kind === "auth" ? (
                         <div className="flex h-full flex-col">
-                          <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Бесплатно" : "Free"}</div>
-                          <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Войди и смотри другие идеи" : "Sign in to see more ideas"}</h2>
-                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Дальше — ещё десятки разборов: что строить и как на этом заработать. Вход бесплатный и занимает пару секунд." : "Dozens more ideas wait ahead — what to build and how it makes money. Signing in is free and takes seconds."}</p>
-                          <div className="mt-auto pt-5">
+                          <div className="flex flex-1 flex-col justify-center">
+                            <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Бесплатно" : "Free"}</div>
+                            <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Войди и смотри другие идеи" : "Sign in to see more ideas"}</h2>
+                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Дальше — ещё десятки разборов: что строить и как на этом заработать. Вход бесплатный и занимает пару секунд." : "Dozens more ideas wait ahead — what to build and how it makes money. Signing in is free and takes seconds."}</p>
+                          </div>
+                          <div className="pt-5">
                             <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setAuth(true); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                               {ru ? "Войти" : "Sign in"}
                             </button>
@@ -187,10 +191,12 @@ export default function IdeaFeed({
                         </div>
                       ) : (
                         <div className="flex h-full flex-col">
-                          <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
-                          <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
-                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? "Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда." : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
-                          <div className="mt-auto pt-5" onPointerDown={(e) => e.stopPropagation()}>
+                          <div className="flex flex-1 flex-col justify-center">
+                            <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
+                            <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
+                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? "Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда." : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
+                          </div>
+                          <div className="pt-5" onPointerDown={(e) => e.stopPropagation()}>
                             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Разбор каждой идеи под подтверждённый спрос — навсегда." : "Every idea's full breakdown, backed by real demand — forever."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
                           </div>
                         </div>

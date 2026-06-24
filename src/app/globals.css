@@ -336,36 +336,36 @@ html:not([data-theme="dark"]) .atmosphere {
   .glow-sweep { animation: none; }
 }
 
-/* Periodic glow shimmer on a CTA card — a light runs once around the border and
-   a soft bloom pulses, then rests, looping every 15s to keep drawing the eye. */
-@keyframes idea-shimmer-edge {
-  0% { --shine: 0deg; opacity: 0; }
-  1.5% { opacity: 1; }
-  16% { --shine: 360deg; opacity: 1; }
-  20%, 100% { --shine: 360deg; opacity: 0; }
+/* Periodic glow on a CTA card — a soft colour bloom pulses and a light sheen
+   sweeps across the surface, then rests, looping every 15s. The sheen lives in
+   ::before and is clipped by the card's overflow-hidden + rounded corners, so it
+   follows the rounding cleanly (no square-corner artefact). */
+@keyframes idea-shimmer-sheen {
+  0% { transform: translateX(-130%) skewX(-12deg); opacity: 0; }
+  3% { opacity: 1; }
+  13% { transform: translateX(230%) skewX(-12deg); opacity: 1; }
+  16%, 100% { transform: translateX(230%) skewX(-12deg); opacity: 0; }
 }
 @keyframes idea-shimmer-bloom {
   0%, 100% { box-shadow: 0 0 0 0 transparent; }
   8% {
     box-shadow:
-      0 0 22px -2px color-mix(in srgb, #00e5ff 38%, transparent),
-      0 0 48px 4px color-mix(in srgb, #ff2ef7 20%, transparent);
+      0 0 26px -4px color-mix(in srgb, #7c4dff 42%, transparent),
+      0 0 62px 0 color-mix(in srgb, #00e5ff 18%, transparent);
   }
-  20% { box-shadow: 0 0 0 0 transparent; }
+  22% { box-shadow: 0 0 0 0 transparent; }
 }
 .idea-shimmer { animation: idea-shimmer-bloom 15s ease-in-out infinite; }
 .idea-shimmer::before {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  padding: 1.5px;
-  background: conic-gradient(from var(--shine), transparent 0deg, #00e5ff 26deg, #ff2ef7 64deg, #7c4dff 96deg, transparent 130deg);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.09) 38%, rgba(150, 120, 255, 0.20) 50%, rgba(120, 200, 255, 0.13) 62%, transparent);
   pointer-events: none;
-  animation: idea-shimmer-edge 15s ease-in-out infinite;
+  animation: idea-shimmer-sheen 15s ease-in-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {
   .idea-shimmer, .idea-shimmer::before { animation: none; }

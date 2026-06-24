@@ -29,7 +29,9 @@ export default async function CardsPage({ searchParams }: { searchParams: Promis
   const loggedIn = previewGuest ? false : access.loggedIn;
   const hasAccess = previewGuest || preview === "paywall" ? false : owner;
 
-  const { items } = buildFeed(locale, owner);
+  // Use the effective access (honours ?preview=) so depth never leaks to a
+  // non-owner — and an owner previewing the gate sees the true locked state.
+  const { items } = buildFeed(locale, hasAccess);
   // Single honest review-count figure — same source as the homepage headline.
   const { totalReviews } = getCatalogData(locale, await isPremium());
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");

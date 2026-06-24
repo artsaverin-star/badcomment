@@ -33,7 +33,8 @@ export type FeedIdea = {
 };
 
 // How many ideas a non-owner can open in full before the depth is paywalled.
-export const FEED_FREE_DEPTH = 2;
+// 0 — browsing previews is free, but opening ANY breakdown requires access.
+export const FEED_FREE_DEPTH = 0;
 
 function quoteOf(q?: { quote: string; app: string; rating: number }): FeedQuote | null {
   if (!q || !q.quote) return null;
