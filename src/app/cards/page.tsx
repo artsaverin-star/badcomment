@@ -27,7 +27,7 @@ export default async function CardsPage() {
   const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
-    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-12 pt-4 sm:pt-7">
+    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-6 pt-4 sm:pt-6">
       <AtmosphereSetter random />
 
       <header className="mb-3 text-center sm:mb-5">

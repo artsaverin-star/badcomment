@@ -20,7 +20,7 @@ function wordObs(n: number) {
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
 const SLOT = 320;
-const CARD_H = "h-[clamp(380px,52vh,460px)]";
+const CARD_H = "h-[clamp(360px,48vh,440px)]";
 
 export default function IdeaFeed({
   items, dailySlug, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
@@ -122,7 +122,7 @@ export default function IdeaFeed({
 
         {/* carousel viewport — masked edges, cards slide horizontally */}
         <div
-          className="feed-mask relative h-[clamp(470px,66vh,580px)] w-full select-none"
+          className="feed-mask relative h-[clamp(440px,60vh,540px)] w-full select-none"
           style={{ touchAction: "pan-y" }}
           onPointerDown={onDown}
           onPointerMove={onMove}
