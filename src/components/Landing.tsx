@@ -236,25 +236,20 @@ export default function Landing({
         </div>
       </section>
 
-      {/* Two feature doors: the special report + the idea feed (the third block —
-          category breakdowns — is the gallery below). */}
-      <section className="mx-auto mt-2 grid w-full max-w-3xl grid-cols-2 gap-3 px-2 sm:px-4">
-        {[
-          { href: "/most-wanted", eyebrow: ru ? "Спец-разбор" : "Special report", title: ru ? "Приложения, которые умоляют сделать" : "Apps people beg for", sub: ru ? "Спрос огромный, а приложения нет." : "Huge demand, no app.", cta: ru ? "Читать" : "Read" },
-          { href: "/cards", eyebrow: ru ? "Лента идей" : "Idea feed", title: ru ? "Свайпай проверенные идеи" : "Swipe validated ideas", sub: ru ? "Идеи, которые люди уже просят в отзывах." : "Ideas people already ask for in reviews.", cta: ru ? "Открыть" : "Open" },
-        ].map((b) => (
-          <Link key={b.href} href={b.href} className="group flex flex-col rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-4 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-5 sm:py-5">
-            <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{b.eyebrow}</p>
-            <h3 className="mt-1.5 text-[15px] font-black leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{b.title}</h3>
-            <p className="mt-1.5 hidden text-[13px] leading-snug text-[var(--color-text-tertiary)] sm:line-clamp-2 sm:block">{b.sub}</p>
-            <span className="mt-3 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-primary)] sm:mt-auto sm:pt-3">
-              {b.cta}
-              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
-                <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </Link>
-        ))}
+      {/* Single feature door: the idea feed (category breakdowns are the gallery
+          below). A periodic glow shimmer draws the eye to the main CTA. */}
+      <section className="mx-auto mt-3 w-full max-w-md px-2 sm:px-4">
+        <Link href="/cards" className="idea-shimmer group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-5 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-6 sm:py-6">
+          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Лента идей" : "Idea feed"}</p>
+          <h3 className="mt-1.5 text-[19px] font-black leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[22px]">{ru ? "Свайпай проверенные идеи" : "Swipe validated ideas"}</h3>
+          <p className="mt-1.5 text-[13.5px] leading-snug text-[var(--color-text-tertiary)]">{ru ? "Идеи, которые люди уже просят в отзывах." : "Ideas people already ask for in reviews."}</p>
+          <span className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-primary)]">
+            {ru ? "Открыть" : "Open"}
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
+              <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </Link>
       </section>
 
       {/* Gallery — the third block: category breakdowns */}

@@ -1,10 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { type Locale } from "@/lib/i18n";
 
 // Site footer — keeps the legally-required pages (оферта, контакты, тарифы)
 // reachable from every page, which payment providers (ЮKassa) check for.
 export default function Footer({ locale = "ru" }: { locale?: Locale }) {
   const ru = locale !== "en";
+  // The idea feed is a full-screen swipe surface — no footer there.
+  const pathname = usePathname();
+  if (pathname === "/cards") return null;
   const links = [
     { href: "/apps", label: ru ? "Все приложения" : "All apps" },
     { href: "/tokens", label: ru ? "Энергия" : "Energy" },

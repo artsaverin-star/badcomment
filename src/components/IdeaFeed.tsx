@@ -22,7 +22,8 @@ type FeedCard = FeedIdea | Interstitial;
 const isIdea = (c: FeedCard): c is FeedIdea => !("kind" in c);
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
 const SLOT = 320;
-const CARD_H = "h-[clamp(340px,44dvh,410px)]";
+// Portrait card (taller than wide) so it reads as a card, not a square.
+const CARD_H = "h-[clamp(400px,58dvh,476px)]";
 
 export default function IdeaFeed({
   items, dailySlug, hasAccess, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
@@ -40,13 +41,13 @@ export default function IdeaFeed({
   }, [items, dailySlug]);
 
   // Hard gate: the deck is TRUNCATED at the wall, so normal end-of-deck clamping
-  // physically stops swiping. A guest browses 3 ideas then can't pass the sign-in
-  // card until logged in; once logged in they browse 7 then can't pass the unlock
+  // physically stops swiping. A guest browses 10 ideas then can't pass the sign-in
+  // card until logged in; once logged in they browse 14 then can't pass the unlock
   // card until paid; with access the full deck opens.
   const cards = useMemo<FeedCard[]>(() => {
     if (hasAccess) return order;
-    if (!loggedIn) return [...order.slice(0, 3), { kind: "auth" }];
-    return [...order.slice(0, 7), { kind: "paywall" }];
+    if (!loggedIn) return [...order.slice(0, 10), { kind: "auth" }];
+    return [...order.slice(0, 14), { kind: "paywall" }];
   }, [order, loggedIn, hasAccess]);
 
   const [idx, setIdx] = useState(0);
@@ -125,8 +126,8 @@ export default function IdeaFeed({
   const transition = dragging ? "none" : "transform 0.3s cubic-bezier(0.22,0.61,0.36,1)";
 
   return (
-    <div className="mx-auto w-full max-w-[480px] sm:max-w-[700px]">
-      <div className="relative">
+    <div className="mx-auto flex w-full max-w-[480px] flex-col items-center sm:max-w-[700px]">
+      <div className="relative w-full">
         {/* desktop arrows — glass, just outside the card */}
         <button type="button" onClick={() => go("prev")} aria-label={ru ? "Назад" : "Previous"} disabled={idx === 0} style={{ left: "calc(50% - 182px)", top: "50%", transform: "translate(-50%, -50%)" }} className="absolute z-30 hidden size-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-[var(--color-text-primary)] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] backdrop-blur-md transition hover:bg-white/20 disabled:opacity-25 sm:flex">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -137,7 +138,7 @@ export default function IdeaFeed({
 
         {/* carousel viewport — masked edges, cards slide horizontally */}
         <div
-          className="feed-mask relative h-[clamp(410px,52dvh,510px)] w-full select-none"
+          className="feed-mask relative h-[clamp(424px,61dvh,500px)] w-full select-none"
           style={{ touchAction: "pan-y" }}
           onPointerDown={onDown}
           onPointerMove={onMove}
@@ -210,7 +211,7 @@ export default function IdeaFeed({
         </div>
       </div>
 
-      <p className="-mt-8 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{Math.max(1, ideaOrdinal)}</span> {ru ? "из" : "of"} {ideaTotal}</p>
+      <p className="mt-2 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{Math.max(1, ideaOrdinal)}</span> {ru ? "из" : "of"} {ideaTotal}</p>
 
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
 

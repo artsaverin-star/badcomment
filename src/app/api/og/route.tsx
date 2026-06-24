@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { getCatalogData } from "@/lib/catalogData";
 
 // Locale-aware social/OG card. /api/og?l=ru → Russian, ?l=en → English. Cyrillic
 // needs a real font (Satori ships none), so we load Inter latin+cyrillic subsets
@@ -21,7 +22,10 @@ const GRAD = "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 
 
 export async function GET(req: Request) {
   const en = new URL(req.url).searchParams.get("l") === "en";
-  const headline = en ? "We analyzed 428,000 app reviews" : "Проанализировали 428 000 отзывов на приложения";
+  const { totalReviews } = getCatalogData(en ? "en" : "ru", false);
+  // Plain space (the OG font subset lacks the nbsp that toLocaleString inserts).
+  const num = totalReviews.toLocaleString(en ? "en-US" : "ru-RU").replace(/[\u00a0\u202f]/g, " ");
+  const headline = en ? `We analyzed ${num} app reviews` : `Проанализировали ${num} отзывов на приложения`;
   const sub = en
     ? "Broken down by niche, with clear conclusions and concrete ideas. Which apps people actually need."
     : "Разложили по нишам, выводам и сразу конкретным идеям. Какие приложения людям реально нужны.";

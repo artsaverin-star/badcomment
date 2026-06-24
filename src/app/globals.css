@@ -336,6 +336,41 @@ html:not([data-theme="dark"]) .atmosphere {
   .glow-sweep { animation: none; }
 }
 
+/* Periodic glow shimmer on a CTA card — a light runs once around the border and
+   a soft bloom pulses, then rests, looping every 15s to keep drawing the eye. */
+@keyframes idea-shimmer-edge {
+  0% { --shine: 0deg; opacity: 0; }
+  1.5% { opacity: 1; }
+  16% { --shine: 360deg; opacity: 1; }
+  20%, 100% { --shine: 360deg; opacity: 0; }
+}
+@keyframes idea-shimmer-bloom {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  8% {
+    box-shadow:
+      0 0 22px -2px color-mix(in srgb, #00e5ff 38%, transparent),
+      0 0 48px 4px color-mix(in srgb, #ff2ef7 20%, transparent);
+  }
+  20% { box-shadow: 0 0 0 0 transparent; }
+}
+.idea-shimmer { animation: idea-shimmer-bloom 15s ease-in-out infinite; }
+.idea-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1.5px;
+  background: conic-gradient(from var(--shine), transparent 0deg, #00e5ff 26deg, #ff2ef7 64deg, #7c4dff 96deg, transparent 130deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: idea-shimmer-edge 15s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .idea-shimmer, .idea-shimmer::before { animation: none; }
+}
+
 /* Locked-pack "deck": the front card sits on a couple of cards peeking out behind
    it, so the whole pack reads as one compact stack instead of a long blurred list. */
 .pile-peek {
@@ -509,8 +544,8 @@ html:not([data-theme="dark"]) .atmosphere {
    the card glow isn't clipped. Gentler (wider) on desktop where the centre card
    is narrow; tighter on mobile so it doesn't eat the near-full-width card. */
 .feed-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
   -webkit-mask-size: 100% 240%;
   mask-size: 100% 240%;
   -webkit-mask-position: center;
