@@ -30,17 +30,16 @@ export default async function CardsPage() {
     <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-28 pt-16 sm:pt-24">
       <AtmosphereSetter random />
 
-      <header className="mb-12 text-center">
+      <header className="mb-10 text-center">
         <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Лента идей" : "Idea feed"}</div>
-        <h1 className="glow-sweep mx-auto mt-5 max-w-[16ch] text-[clamp(30px,8vw,52px)] font-black leading-[1.0] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
-          {ru ? "Идеи, которые люди уже просят" : "Ideas people already ask for"}
+        <h1 className="glow-sweep mx-auto mt-5 text-[clamp(30px,8.5vw,54px)] font-black leading-[1.0] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
+          {ru ? "Проанализировали" : "We analyzed"}<br />
+          <span className="tabular-nums">{nf(totalReviews)}</span> {ru ? "отзывов" : "reviews"}
         </h1>
-        <p className="mx-auto mt-5 max-w-[44ch] text-[16px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[18px]">
-          {ru ? (
-            <>Свайпай идеи приложений из <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> реальных отзывов. Понравилась — сохраняй. Тап — весь разбор: что строить и как заработать.</>
-          ) : (
-            <>Swipe app ideas pulled from <span className="font-semibold text-[var(--color-text-primary)] tabular-nums">{nf(totalReviews)}</span> real reviews. Like one — save it. Tap for the full breakdown: what to build and how to earn.</>
-          )}
+        <p className="mx-auto mt-5 max-w-[46ch] text-[16px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[18px]">
+          {ru
+            ? "И собрали из них самое стоящее: идеи приложений, которые люди уже просят в отзывах — с доказательствами. Открывай карту, читай разбор, сохраняй лучшие."
+            : "And pulled out the best of it: app ideas people already ask for in reviews — with proof. Flip a card, read the breakdown, save the best."}
         </p>
       </header>
 
