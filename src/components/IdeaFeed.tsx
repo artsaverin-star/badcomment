@@ -154,7 +154,10 @@ export default function IdeaFeed({
                 <div className={`relative ${CARD_H} [perspective:1300px]`}>
                   <div className={`flip3d size-full ${center ? "is-up" : ""}`}>
                     <Ruba />
-                    <div className={`flip-face flip-front flex flex-col rounded-[24px] border p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${center ? "neon-reveal" : ""} ${isIdea(it) ? "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]" : "border-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)] bg-[color-mix(in_srgb,var(--color-text-brand)_13%,var(--color-surface-card))]"}`}>
+                    <div
+                      className={`flip-face flip-front flex flex-col rounded-[24px] border p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${center ? "neon-reveal" : ""} ${isIdea(it) ? "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]" : ""}`}
+                      style={isIdea(it) ? undefined : { background: "color-mix(in srgb, var(--color-text-brand) 13%, var(--color-surface-card))", borderColor: "color-mix(in srgb, var(--color-text-brand) 45%, transparent)" }}
+                    >
                       {isIdea(it) ? (
                         <>
                           {center && loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
