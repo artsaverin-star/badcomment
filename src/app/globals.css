@@ -466,6 +466,30 @@ html:not([data-theme="dark"]) .atmosphere {
   .neon-reveal::before { animation: none; }
 }
 
+/* Card disintegrates into sand: a tiled dot-mask whose grains shrink to nothing,
+   so the card crumbles into a field of vanishing specks as it exits. */
+@property --g {
+  syntax: "<length>";
+  initial-value: 5px;
+  inherits: false;
+}
+@keyframes sand-grain {
+  from { --g: 5px; }
+  to { --g: 0px; }
+}
+.sand-out {
+  -webkit-mask-image: radial-gradient(circle, #000 var(--g), transparent calc(var(--g) + 0.5px));
+  mask-image: radial-gradient(circle, #000 var(--g), transparent calc(var(--g) + 0.5px));
+  -webkit-mask-size: 7px 7px;
+  mask-size: 7px 7px;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  animation: sand-grain 0.46s ease-in forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sand-out { animation: none; }
+}
+
 /* Chat-message bubble: clean asymmetric radius (anchored bottom-left corner),
    no fragile pseudo-tail. */
 .msg-bubble {

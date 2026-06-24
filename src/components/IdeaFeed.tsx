@@ -21,25 +21,32 @@ const yesterdayKey = () => { const d = new Date(); d.setDate(d.getDate() - 1); r
 
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
 
-// Dissolve the card into crumbs flying in the swipe direction.
-async function crumbs(rect: DOMRect | undefined, dir: "next" | "prev") {
+// Disintegrate the card into sand — fine grains emitted across its whole width,
+// drifting toward the swipe direction and falling like sand.
+async function sand(rect: DOMRect | undefined, dir: "next" | "prev") {
   if (!rect) return;
   const confetti = (await import("canvas-confetti")).default;
-  const x = (rect.left + rect.width / 2) / window.innerWidth;
   const y = (rect.top + rect.height / 2) / window.innerHeight;
-  confetti({
-    particleCount: 80,
-    startVelocity: 34,
-    spread: 58,
-    angle: dir === "next" ? 180 : 0,
-    origin: { x, y },
-    colors: ["#FFA62B", "#FF5C8A", "#B14DEA", "#4CB8F5", "#00E5FF"],
-    ticks: 110,
-    scalar: 0.62,
-    gravity: 0.95,
-    shapes: ["square"],
-    disableForReducedMotion: true,
-  });
+  const colors = ["#e8d3a8", "#d9b98f", "#c2a06a", "#b8956a", "#efe0c4"];
+  const angle = dir === "next" ? 180 : 0;
+  const drift = dir === "next" ? -1.4 : 1.4;
+  for (let k = 0; k < 6; k++) {
+    const x = (rect.left + rect.width * (0.1 + 0.16 * k)) / window.innerWidth;
+    confetti({
+      particleCount: 24,
+      startVelocity: 20,
+      spread: 75,
+      angle,
+      origin: { x, y },
+      colors,
+      ticks: 95,
+      scalar: 0.42,
+      gravity: 1.15,
+      drift,
+      shapes: ["square"],
+      disableForReducedMotion: true,
+    });
+  }
 }
 
 export default function IdeaFeed({
@@ -140,7 +147,7 @@ export default function IdeaFeed({
   function advance(dir: "next" | "prev") {
     if (exit || !cur) return;
     markSeen(cur.slug);
-    void crumbs(cardRef.current?.getBoundingClientRect(), dir);
+    void sand(cardRef.current?.getBoundingClientRect(), dir);
     setExit(dir === "next" ? "l" : "r");
     window.setTimeout(() => {
       setIdx((i) => (dir === "next" ? (i + 1) % total : (i - 1 + total) % total));
@@ -148,7 +155,7 @@ export default function IdeaFeed({
       setModal(false);
       setExit(null);
       setDrag(0);
-    }, 440);
+    }, 470);
   }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
@@ -179,7 +186,7 @@ export default function IdeaFeed({
   if (total === 0) return null;
 
   return (
-    <div className="mx-auto w-full max-w-[440px]">
+    <div className="mx-auto w-full max-w-[384px]">
       {/* top bar */}
       <div className="mb-5 flex items-center justify-between gap-3 px-1">
         <div className="flex items-center gap-2 text-[12px] font-medium text-[var(--color-text-tertiary)]">
@@ -204,8 +211,8 @@ export default function IdeaFeed({
               onPointerMove={onMove}
               onPointerUp={onUp}
               onPointerCancel={onUp}
-              style={{ transform: cardTransform, opacity: exit ? 0 : 1, filter: exit ? "blur(3px)" : "none", transition: exit ? "transform 0.42s ease, opacity 0.42s ease, filter 0.42s ease" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y" }}
-              className="relative h-[480px] w-full cursor-pointer select-none"
+              style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.46s ease-in, opacity 0.46s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y" }}
+              className={`relative h-[544px] w-full cursor-pointer select-none ${exit ? "sand-out" : ""}`}
             >
               <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
                 {/* back — рубашка */}
