@@ -148,7 +148,7 @@ export default function IdeaFeed({
                 onPointerUp={onUp}
                 onPointerCancel={onUp}
                 style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.3s ease-in, opacity 0.3s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y", perspective: "1300px" }}
-                className="relative h-[470px] w-full cursor-pointer select-none"
+                className="relative h-[500px] w-full cursor-pointer select-none"
               >
                 <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
                   {/* back — рубашка */}
@@ -160,20 +160,18 @@ export default function IdeaFeed({
                   {/* front — idea */}
                   <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
                     {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
-                    <div className="flex justify-end">
-                      <button
-                        type="button"
-                        onPointerDown={(e) => e.stopPropagation()}
-                        onClick={(e) => { e.stopPropagation(); saveCurrent(); }}
-                        aria-label={ru ? "В избранное" : "Save"}
-                        className={`-mr-1.5 -mt-1.5 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
-                      >
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
-                      </button>
-                    </div>
+                    <button
+                      type="button"
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onClick={(e) => { e.stopPropagation(); saveCurrent(); }}
+                      aria-label={ru ? "В избранное" : "Save"}
+                      className={`absolute right-5 top-5 z-20 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${isSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                    >
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill={isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
+                    </button>
 
-                    <h2 className="mt-2 text-[27px] font-bold leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[30px]">{cur.title}</h2>
-                    <p className="mt-4 text-[16px] leading-[1.55] text-[var(--color-text-secondary)] line-clamp-4">{cur.oneLiner}</p>
+                    <h2 className="pr-11 text-[25px] font-bold leading-[1.13] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-4 sm:text-[28px]">{cur.title}</h2>
+                    <p className="mt-3.5 text-[15px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{cur.oneLiner}</p>
 
                     <div className="mt-auto pt-6">
                       {cur.demand > 0 && (
