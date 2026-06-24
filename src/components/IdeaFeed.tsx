@@ -21,7 +21,6 @@ type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "on
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
 const SLOT = 320;
 const CARD_H = "h-[clamp(380px,52vh,460px)]";
-const STEP_MS = 145; // delay between single steps when paging through several cards
 
 export default function IdeaFeed({
   items, dailySlug, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
@@ -42,11 +41,6 @@ export default function IdeaFeed({
   const [dragX, setDragX] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
-  const dragT0 = useRef(0);
-  const idxRef = useRef(0);
-  const targetRef = useRef(0);
-  const stepping = useRef(false);
-  const timers = useRef<number[]>([]);
 
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [auth, setAuth] = useState(false);
@@ -58,14 +52,12 @@ export default function IdeaFeed({
   const total = order.length;
   const cur = order[idx];
 
-  useEffect(() => { idxRef.current = idx; }, [idx]);
   useEffect(() => {
     const id = requestAnimationFrame(() => {
       try { const s = JSON.parse(localStorage.getItem("feed:saved") || "[]"); if (Array.isArray(s)) setSavedList(s); } catch { /* ignore */ }
     });
     return () => cancelAnimationFrame(id);
   }, []);
-  useEffect(() => () => { timers.current.forEach((t) => clearTimeout(t)); }, []);
 
   function persistSaved(nextList: Saved[]) {
     setSavedList(nextList);
@@ -78,47 +70,25 @@ export default function IdeaFeed({
     setLoveTick((t) => t + 1);
   }
 
-  // Page toward a target one card at a time — every step flips the centre card
-  // (рубашка↔лицо), so a multi-card move reads as a quick шух-шух-шух shuffle.
-  function moveTo(target: number) {
+  // One card per step (the centre card flips рубашка↔лицо via is-up).
+  function go(dir: "next" | "prev") {
     setModal(false);
     setDragX(0);
-    targetRef.current = Math.max(0, Math.min(total - 1, target));
-    if (stepping.current) return;
-    stepping.current = true;
-    const tick = () => {
-      const c = idxRef.current;
-      if (c === targetRef.current) { stepping.current = false; return; }
-      const ni = c < targetRef.current ? c + 1 : c - 1;
-      idxRef.current = ni;
-      setIdx(ni);
-      timers.current.push(window.setTimeout(tick, STEP_MS));
-    };
-    tick();
+    setIdx((i) => (dir === "next" ? Math.min(i + 1, total - 1) : Math.max(i - 1, 0)));
   }
-  function go(dir: "next" | "prev") { moveTo(targetRef.current + (dir === "next" ? 1 : -1)); }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
     if (!loggedIn) setAuth(true); else setPaywall(true);
   }
 
-  function onDown(e: React.PointerEvent) {
-    stepping.current = false;
-    timers.current.forEach((t) => clearTimeout(t)); timers.current = [];
-    targetRef.current = idxRef.current;
-    dragStart.current = e.clientX; dragT0.current = Date.now(); setDragging(true);
-  }
+  function onDown(e: React.PointerEvent) { dragStart.current = e.clientX; setDragging(true); }
   function onMove(e: React.PointerEvent) { if (dragStart.current !== null) setDragX(e.clientX - dragStart.current); }
   function onUp() {
     if (dragStart.current === null) return;
     const d = dragX; dragStart.current = null; setDragging(false);
-    const dt = Math.max(Date.now() - dragT0.current, 1);
-    const vel = -d / dt;
-    let steps = Math.round(-d / SLOT);
-    if (Math.abs(vel) > 0.45) steps += Math.sign(vel) * Math.min(5, Math.round(Math.abs(vel) * 1.6));
-    if (steps === 0 && Math.abs(d) > 45) steps = d < 0 ? 1 : -1;
     setDragX(0);
-    if (steps !== 0) moveTo(idxRef.current + steps);
+    if (d < -50) go("next");
+    else if (d > 50) go("prev");
   }
 
   useEffect(() => {
@@ -133,11 +103,11 @@ export default function IdeaFeed({
 
   if (total === 0) return null;
 
-  const from = Math.max(0, idx - 6);
-  const to = Math.min(total - 1, idx + 6);
+  const from = Math.max(0, idx - 4);
+  const to = Math.min(total - 1, idx + 4);
   const win: number[] = [];
   for (let i = from; i <= to; i++) win.push(i);
-  const transition = dragging ? "none" : "transform 0.4s cubic-bezier(0.22,0.61,0.36,1)";
+  const transition = dragging ? "none" : "transform 0.3s cubic-bezier(0.22,0.61,0.36,1)";
 
   return (
     <div className="mx-auto w-full max-w-[480px] sm:max-w-[700px]">
