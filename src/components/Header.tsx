@@ -50,16 +50,6 @@ export default function Header({
 
         <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
           {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
-          <Link
-            href="/search"
-            aria-label={locale === "en" ? "Search" : "Поиск"}
-            className="flex size-9 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
-          >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <circle cx="9" cy="9" r="6" />
-              <path d="m17 17-3.5-3.5" strokeLinecap="round" />
-            </svg>
-          </Link>
           <AuthButton locale={locale} />
           <SettingsMenu locale={locale} theme={theme} />
         </div>

@@ -155,7 +155,7 @@ export default function IdeaFeed({
                   <div className={`flip3d size-full ${center ? "is-up" : ""}`}>
                     <Ruba />
                     <div
-                      className={`flip-face flip-front flex flex-col rounded-[24px] border p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${center ? "neon-reveal" : ""} ${isIdea(it) ? "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]" : ""}`}
+                      className={`flip-face flip-front flex flex-col rounded-[24px] border p-5 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] sm:p-6 ${center ? "neon-reveal" : ""} ${isIdea(it) ? "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]" : ""}`}
                       style={isIdea(it) ? undefined : { background: "color-mix(in srgb, var(--color-text-brand) 13%, var(--color-surface-card))", borderColor: "color-mix(in srgb, var(--color-text-brand) 45%, transparent)" }}
                     >
                       {isIdea(it) ? (
@@ -165,8 +165,8 @@ export default function IdeaFeed({
                             <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
                           </button>
                           <div className="pr-10 text-[13px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
-                          <h2 className="mt-2 pr-10 text-[20px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-5 text-balance sm:text-[22px]">{it.title}</h2>
-                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{it.oneLiner}</p>
+                          <h2 className="mt-2 pr-10 text-[19px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-3 text-balance sm:text-[22px] sm:line-clamp-5">{it.title}</h2>
+                          <p className="mt-2.5 text-[14px] leading-[1.45] text-[var(--color-text-secondary)] line-clamp-4 sm:mt-3 sm:text-[14.5px] sm:leading-[1.5] sm:line-clamp-6">{it.oneLiner}</p>
                           <div className="mt-auto pt-5">
                             <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                               {it.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
