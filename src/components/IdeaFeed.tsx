@@ -154,7 +154,7 @@ export default function IdeaFeed({
                 <div className={`relative ${CARD_H} [perspective:1300px]`}>
                   <div className={`flip3d size-full ${center ? "is-up" : ""}`}>
                     <Ruba />
-                    <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${center ? "neon-reveal" : ""}`}>
+                    <div className={`flip-face flip-front flex flex-col rounded-[24px] border p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${center ? "neon-reveal" : ""} ${isIdea(it) ? "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]" : "border-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)] bg-[color-mix(in_srgb,var(--color-text-brand)_13%,var(--color-surface-card))]"}`}>
                       {isIdea(it) ? (
                         <>
                           {center && loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
@@ -173,8 +173,8 @@ export default function IdeaFeed({
                       ) : it.kind === "auth" ? (
                         <div className="flex h-full flex-col">
                           <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Бесплатно" : "Free"}</div>
-                          <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Сохраняй идеи и открывай разборы" : "Save ideas and open breakdowns"}</h2>
-                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Войди за пару секунд — избранное останется за тобой, а первые разборы открыты сразу." : "Sign in in seconds — your saves stay with you, and the first breakdowns are open right away."}</p>
+                          <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Войди и смотри другие идеи" : "Sign in to see more ideas"}</h2>
+                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Дальше — ещё десятки разборов: что строить и как на этом заработать. Вход бесплатный и занимает пару секунд." : "Dozens more ideas wait ahead — what to build and how it makes money. Signing in is free and takes seconds."}</p>
                           <div className="mt-auto pt-5">
                             <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setAuth(true); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                               {ru ? "Войти" : "Sign in"}
@@ -185,7 +185,7 @@ export default function IdeaFeed({
                         <div className="flex h-full flex-col">
                           <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
                           <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
-                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? "Почему это шанс, что строить, фичи и монетизация — по каждой идее, навсегда." : "The gap, what to build, features and monetization — for every idea, forever."}</p>
+                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? "Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда." : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
                           <div className="mt-auto pt-5" onPointerDown={(e) => e.stopPropagation()}>
                             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Разбор каждой идеи под подтверждённый спрос — навсегда." : "Every idea's full breakdown, backed by real demand — forever."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
                           </div>
@@ -197,6 +197,13 @@ export default function IdeaFeed({
               </div>
             );
           })}
+
+          {/* locked grey peek on the right at a gate — signals "more, but blocked" */}
+          {cur && !isIdea(cur) && (
+            <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${SLOT}px)`, transition }}>
+              <div className={`relative ${CARD_H}`}><GhostCard /></div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -263,6 +270,21 @@ export default function IdeaFeed({
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+// Greyed, locked card shown peeking to the right of a gate — the deck is
+// truncated there, so this is a static "there's more, but it's blocked" hint.
+function GhostCard() {
+  return (
+    <div className="size-full overflow-hidden rounded-[24px] border border-white/10 p-2 opacity-45 grayscale" style={{ backgroundImage: "linear-gradient(135deg,#4a4a4a 0%,#262626 100%)" }}>
+      <div className="card-back-pattern flex size-full items-center justify-center rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_85%,transparent)]">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" className="text-white/30">
+          <rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" strokeWidth="1.5" />
+          <path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      </div>
     </div>
   );
 }
