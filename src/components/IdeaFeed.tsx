@@ -123,11 +123,11 @@ export default function IdeaFeed({
   return (
     <div className="mx-auto w-full max-w-[480px] sm:max-w-[700px]">
       <div className="relative">
-        {/* desktop arrows */}
-        <button type="button" onClick={() => go("prev")} aria-label={ru ? "Назад" : "Previous"} disabled={idx === 0} className="absolute left-0 top-1/2 z-30 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-30 sm:flex">
+        {/* desktop arrows — glass, just outside the card */}
+        <button type="button" onClick={() => go("prev")} aria-label={ru ? "Назад" : "Previous"} disabled={idx === 0} style={{ left: "calc(50% - 182px)", top: "50%", transform: "translate(-50%, -50%)" }} className="absolute z-30 hidden size-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-[var(--color-text-primary)] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] backdrop-blur-md transition hover:bg-white/20 disabled:opacity-25 sm:flex">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
-        <button type="button" onClick={() => go("next")} aria-label={ru ? "Дальше" : "Next"} disabled={idx === total - 1} className="absolute right-0 top-1/2 z-30 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-30 sm:flex">
+        <button type="button" onClick={() => go("next")} aria-label={ru ? "Дальше" : "Next"} disabled={idx === total - 1} style={{ left: "calc(50% + 182px)", top: "50%", transform: "translate(-50%, -50%)" }} className="absolute z-30 hidden size-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-[var(--color-text-primary)] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.5)] backdrop-blur-md transition hover:bg-white/20 disabled:opacity-25 sm:flex">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
 
