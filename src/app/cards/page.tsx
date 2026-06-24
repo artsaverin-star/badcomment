@@ -35,7 +35,7 @@ export default async function CardsPage() {
           {ru ? "Идеи приложений" : "App ideas"}
         </h1>
         <p className="mx-auto mt-2.5 max-w-[42ch] text-[14px] text-[var(--color-text-secondary)] sm:text-[16px]">
-          {ru ? `на основе ${nf(totalReviews)} отзывов на приложения в App Store и Google Play` : `from ${nf(totalReviews)} App Store and Google Play reviews`}
+          {ru ? <>на основе {nf(totalReviews)} отзывов на приложения<br />в App Store и Google Play</> : <>from {nf(totalReviews)} app reviews<br />on App Store and Google Play</>}
         </p>
       </header>
 
