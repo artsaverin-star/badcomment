@@ -17,14 +17,17 @@ function wordObs(n: number) {
 }
 
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
+type Interstitial = { kind: "auth" | "paywall" };
+type FeedCard = FeedIdea | Interstitial;
+const isIdea = (c: FeedCard): c is FeedIdea => !("kind" in c);
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
 const SLOT = 320;
 const CARD_H = "h-[clamp(340px,44dvh,410px)]";
 
 export default function IdeaFeed({
-  items, dailySlug, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
+  items, dailySlug, hasAccess, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
 }: {
-  items: FeedIdea[]; dailySlug: string | null; locale?: Locale; loggedIn: boolean; deckPrice: number;
+  items: FeedIdea[]; dailySlug: string | null; hasAccess: boolean; locale?: Locale; loggedIn: boolean; deckPrice: number;
   starsHref?: string; starsLabel?: string; lifetimeStarsHref?: string; lifetimePrice?: number;
 }) {
   const ru = locale !== "en";
@@ -35,6 +38,16 @@ export default function IdeaFeed({
     if (i <= 0) return items;
     return [items[i], ...items.slice(0, i), ...items.slice(i + 1)];
   }, [items, dailySlug]);
+
+  // Weave native interstitials into the deck: a sign-in card at the 4th slot
+  // (only when logged out) and an unlock offer at the 8th slot (only without
+  // access). Inserted at increasing indices so each lands at its visible slot.
+  const cards = useMemo<FeedCard[]>(() => {
+    const arr: FeedCard[] = [...order];
+    if (!loggedIn && arr.length >= 3) arr.splice(3, 0, { kind: "auth" });
+    if (!hasAccess && arr.length >= 7) arr.splice(7, 0, { kind: "paywall" });
+    return arr;
+  }, [order, loggedIn, hasAccess]);
 
   const [idx, setIdx] = useState(0);
   const [dragX, setDragX] = useState(0);
@@ -48,8 +61,11 @@ export default function IdeaFeed({
   const [loveTick, setLoveTick] = useState(0);
 
   const savedSet = useMemo(() => new Set(savedList.map((s) => s.slug)), [savedList]);
-  const total = order.length;
-  const cur = order[idx];
+  const total = cards.length;
+  const cur = cards[idx];
+  const curIdea = cur && isIdea(cur) ? cur : null;
+  const ideaTotal = order.length;
+  const ideaOrdinal = cards.slice(0, idx + 1).filter(isIdea).length;
 
   useEffect(() => {
     const id = requestAnimationFrame(() => {
@@ -63,9 +79,9 @@ export default function IdeaFeed({
     try { localStorage.setItem("feed:saved", JSON.stringify(nextList.slice(0, 100))); } catch { /* ignore */ }
   }
   function saveCurrent() {
-    if (!cur) return;
-    if (savedSet.has(cur.slug)) { persistSaved(savedList.filter((s) => s.slug !== cur.slug)); return; }
-    persistSaved([{ slug: cur.slug, category: cur.category, categoryName: cur.categoryName, title: cur.title, oneLiner: cur.oneLiner, demand: cur.demand, quote: cur.quote }, ...savedList]);
+    if (!curIdea) return;
+    if (savedSet.has(curIdea.slug)) { persistSaved(savedList.filter((s) => s.slug !== curIdea.slug)); return; }
+    persistSaved([{ slug: curIdea.slug, category: curIdea.category, categoryName: curIdea.categoryName, title: curIdea.title, oneLiner: curIdea.oneLiner, demand: curIdea.demand, quote: curIdea.quote }, ...savedList]);
     setLoveTick((t) => t + 1);
   }
 
@@ -76,7 +92,7 @@ export default function IdeaFeed({
     setIdx((i) => (dir === "next" ? Math.min(i + 1, total - 1) : Math.max(i - 1, 0)));
   }
   function openDepth() {
-    if (cur?.depth) { setModal(true); return; }
+    if (curIdea?.depth) { setModal(true); return; }
     if (!loggedIn) setAuth(true); else setPaywall(true);
   }
 
@@ -129,28 +145,52 @@ export default function IdeaFeed({
           onPointerCancel={onUp}
         >
           {win.map((i) => {
-            const it = order[i];
+            const it = cards[i];
             const center = i === idx;
             const off = (i - idx) * SLOT + dragX;
-            const itSaved = savedSet.has(it.slug);
+            const itSaved = isIdea(it) && savedSet.has(it.slug);
             return (
-              <div key={it.slug} className="absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}>
+              <div key={isIdea(it) ? it.slug : it.kind} className="absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}>
                 <div className={`relative ${CARD_H} [perspective:1300px]`}>
                   <div className={`flip3d size-full ${center ? "is-up" : ""}`}>
                     <Ruba />
                     <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${center ? "neon-reveal" : ""}`}>
-                      {center && loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
-                      <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); saveCurrent(); }} aria-label={ru ? "В избранное" : "Save"} className={`absolute right-4 top-4 z-20 flex size-9 items-center justify-center rounded-full transition-all active:scale-90 ${itSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
-                      </button>
-                      <div className="pr-10 text-[13px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
-                      <h2 className="mt-2 pr-10 text-[20px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-5 text-balance sm:text-[22px]">{it.title}</h2>
-                      <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{it.oneLiner}</p>
-                      <div className="mt-auto pt-5">
-                        <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
-                          {it.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
-                        </button>
-                      </div>
+                      {isIdea(it) ? (
+                        <>
+                          {center && loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
+                          <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); saveCurrent(); }} aria-label={ru ? "В избранное" : "Save"} className={`absolute right-4 top-4 z-20 flex size-9 items-center justify-center rounded-full transition-all active:scale-90 ${itSaved ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
+                          </button>
+                          <div className="pr-10 text-[13px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
+                          <h2 className="mt-2 pr-10 text-[20px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-5 text-balance sm:text-[22px]">{it.title}</h2>
+                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{it.oneLiner}</p>
+                          <div className="mt-auto pt-5">
+                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                              {it.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
+                            </button>
+                          </div>
+                        </>
+                      ) : it.kind === "auth" ? (
+                        <div className="flex h-full flex-col">
+                          <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Бесплатно" : "Free"}</div>
+                          <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Сохраняй идеи и открывай разборы" : "Save ideas and open breakdowns"}</h2>
+                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Войди за пару секунд — избранное останется за тобой, а первые разборы открыты сразу." : "Sign in in seconds — your saves stay with you, and the first breakdowns are open right away."}</p>
+                          <div className="mt-auto pt-5">
+                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setAuth(true); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                              {ru ? "Войти" : "Sign in"}
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="flex h-full flex-col">
+                          <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
+                          <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
+                          <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? "Почему это шанс, что строить, фичи и монетизация — по каждой идее, навсегда." : "The gap, what to build, features and monetization — for every idea, forever."}</p>
+                          <div className="mt-auto pt-5" onPointerDown={(e) => e.stopPropagation()}>
+                            <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Разбор каждой идеи под подтверждённый спрос — навсегда." : "Every idea's full breakdown, backed by real demand — forever."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -160,11 +200,11 @@ export default function IdeaFeed({
         </div>
       </div>
 
-      <p className="-mt-8 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{idx + 1}</span> {ru ? "из" : "of"} {total}</p>
+      <p className="-mt-8 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{Math.max(1, ideaOrdinal)}</span> {ru ? "из" : "of"} {ideaTotal}</p>
 
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
 
-      {modal && cur?.depth && typeof document !== "undefined" && createPortal(
+      {modal && curIdea?.depth && typeof document !== "undefined" && createPortal(
         <div className="fixed inset-0 z-[80] flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
           <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setModal(false)} className="absolute inset-0 bg-black/55 backdrop-blur-md" />
           <div className="relative z-10 flex max-h-[92vh] w-full max-w-[640px] flex-col overflow-hidden rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[24px]">
@@ -173,28 +213,28 @@ export default function IdeaFeed({
             </button>
             <div className="overflow-y-auto overscroll-contain px-7 py-10 sm:px-12 sm:py-12">
               {/* eyebrow + title block */}
-              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-text-tertiary)]">{cur.categoryName}</div>
-              <h2 className="mt-4 max-w-[18ch] text-[30px] font-bold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{cur.title}</h2>
-              <p className="mt-5 max-w-[42ch] text-[18px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[20px]">{cur.oneLiner}</p>
-              <div className="mt-5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{cur.demand} {ru ? wordObs(cur.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-text-tertiary)]">{curIdea.categoryName}</div>
+              <h2 className="mt-4 max-w-[18ch] text-[30px] font-bold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{curIdea.title}</h2>
+              <p className="mt-5 max-w-[42ch] text-[18px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[20px]">{curIdea.oneLiner}</p>
+              <div className="mt-5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{curIdea.demand} {ru ? wordObs(curIdea.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
 
               <div className="mt-11 flex flex-col gap-10">
-                {cur.depth.gap && <Sw label={ru ? "Почему это шанс" : "The opening"} text={cur.depth.gap} />}
-                {cur.depth.pitch && <Sw label={ru ? "Что строить" : "What to build"} text={cur.depth.pitch} />}
-                {cur.depth.features.length > 0 && (
+                {curIdea.depth.gap && <Sw label={ru ? "Почему это шанс" : "The opening"} text={curIdea.depth.gap} />}
+                {curIdea.depth.pitch && <Sw label={ru ? "Что строить" : "What to build"} text={curIdea.depth.pitch} />}
+                {curIdea.depth.features.length > 0 && (
                   <div>
                     <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
                     <ul className="mt-4 flex flex-col">
-                      {cur.depth.features.map((f, j) => (
+                      {curIdea.depth.features.map((f, j) => (
                         <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
                       ))}
                     </ul>
                   </div>
                 )}
-                {cur.depth.monetization && <Sw label={ru ? "Монетизация" : "How it earns"} text={cur.depth.monetization} />}
-                {cur.depth.quotes.length > 0 && (
+                {curIdea.depth.monetization && <Sw label={ru ? "Монетизация" : "How it earns"} text={curIdea.depth.monetization} />}
+                {curIdea.depth.quotes.length > 0 && (
                   <div className="flex flex-col gap-6">
-                    {cur.depth.quotes.map((q, j) => (
+                    {curIdea.depth.quotes.map((q, j) => (
                       <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-5">
                         <blockquote className="text-[16px] leading-[1.55] text-[var(--color-text-primary)]">{q.text}</blockquote>
                         <figcaption className="mt-2 text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
@@ -205,7 +245,7 @@ export default function IdeaFeed({
               </div>
 
               <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-                <Link href={`/segment/${cur.category}`} className="text-[15px] font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
+                <Link href={`/segment/${curIdea.category}`} className="text-[15px] font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${curIdea.categoryName}»` : `Full niche breakdown "${curIdea.categoryName}"`} →</Link>
               </div>
             </div>
           </div>

@@ -21,7 +21,7 @@ export default async function CardsPage() {
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
 
-  const { items, dailySlug } = buildFeed(locale, owner);
+  const { items } = buildFeed(locale, owner);
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
   const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const bot = process.env.BOT_USERNAME || "inAppProBot";
@@ -41,7 +41,8 @@ export default async function CardsPage() {
 
       <IdeaFeed
         items={items}
-        dailySlug={dailySlug}
+        dailySlug={null}
+        hasAccess={owner}
         locale={locale}
         loggedIn={access.loggedIn}
         deckPrice={DECK_PRICE_RUB}

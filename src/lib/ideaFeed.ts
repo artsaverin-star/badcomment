@@ -1,7 +1,11 @@
 import { listIdeas } from "./ideas";
 import { PREMIUM_NICHE_SET } from "./premiumNiches";
 import { ideaContentEn } from "./regenCards";
+import feedOrder from "../data/ideaFeedOrder.json";
 import type { Locale } from "./i18n";
+
+// Curated best-first order (slug -> rank). Ideas not listed fall to the tail.
+const FEED_RANK = new Map((feedOrder as string[]).map((slug, i) => [slug, i]));
 
 // The idea feed — the core "Duolingo for app ideas" surface. Browsing previews
 // (niche, title, one-liner, demand, one real quote) is free and unlimited; the
@@ -49,9 +53,11 @@ function dailyIndex(len: number): number {
 
 export function buildFeed(locale: Locale, owner: boolean): { items: FeedIdea[]; dailySlug: string | null } {
   const ru = locale !== "en";
-  // Pool = the hand-finished premium niches only (their copy reads cleanly), best
-  // ideas first (listIdeas already ranks by score then demand).
-  const pool = listIdeas().filter((i) => PREMIUM_NICHE_SET.has(i.category));
+  // Pool = the hand-finished premium niches only (their copy reads cleanly),
+  // ordered by the curated best-first ranking in ideaFeedOrder.json.
+  const pool = listIdeas()
+    .filter((i) => PREMIUM_NICHE_SET.has(i.category))
+    .sort((a, b) => (FEED_RANK.get(a.slug) ?? 9999) - (FEED_RANK.get(b.slug) ?? 9999));
 
   const items: FeedIdea[] = pool.map((i, idx) => {
     const en = ru ? null : ideaContentEn(i.slug, locale);
