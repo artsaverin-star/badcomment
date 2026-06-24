@@ -51,8 +51,6 @@ export default function IdeaFeed({
   const savedSet = useMemo(() => new Set(savedList.map((s) => s.slug)), [savedList]);
   const total = order.length;
   const cur = order[idx % Math.max(total, 1)];
-  const prev = order[(idx - 1 + total) % Math.max(total, 1)];
-  const next = order[(idx + 1) % Math.max(total, 1)];
   const isSaved = cur && savedSet.has(cur.slug);
 
   useEffect(() => {
@@ -65,8 +63,9 @@ export default function IdeaFeed({
     return () => cancelAnimationFrame(id);
   }, []);
 
+  // New card arrives back-up (рубашка), then flips to its face.
   useEffect(() => {
-    const t = window.setTimeout(() => setFlipped(true), 520);
+    const t = window.setTimeout(() => setFlipped(true), 360);
     return () => window.clearTimeout(t);
   }, [cur.slug]);
 
@@ -81,13 +80,20 @@ export default function IdeaFeed({
     setLoveTick((t) => t + 1);
   }
 
+  // Flip the current card back to рубашка, then slide it out — the next one
+  // arrives back-up and flips to its face (see the effect above).
   function advance(dir: "next" | "prev") {
     if (exit || !cur) return;
-    setExit(dir === "next" ? "l" : "r");
+    setDrag(0);
+    setModal(false);
+    setFlipped(false); // flip to рубашка
     window.setTimeout(() => {
-      setIdx((i) => (dir === "next" ? (i + 1) % total : (i - 1 + total) % total));
-      setFlipped(false); setModal(false); setExit(null); setDrag(0);
-    }, 300);
+      setExit(dir === "next" ? "l" : "r"); // slide the back-facing card out
+      window.setTimeout(() => {
+        setIdx((i) => (dir === "next" ? (i + 1) % total : (i - 1 + total) % total));
+        setExit(null); setFlipped(false); setDrag(0);
+      }, 280);
+    }, 430);
   }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
@@ -118,7 +124,7 @@ export default function IdeaFeed({
   const cardTransform = exit === "l" ? "translateX(-135%) rotate(-14deg)"
     : exit === "r" ? "translateX(135%) rotate(14deg)"
       : `translateX(${drag}px) rotate(${drag * 0.04}deg)`;
-  const SIDE_FADE = "linear-gradient(to right, transparent, #000 9%, #000 91%, transparent)";
+  const SIDE_FADE = "linear-gradient(to right, transparent, #000 5%, #000 95%, transparent)";
 
   if (total === 0) return null;
 
@@ -133,8 +139,8 @@ export default function IdeaFeed({
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
         <div className="relative flex h-[490px] w-full items-center justify-center" style={{ WebkitMaskImage: SIDE_FADE, maskImage: SIDE_FADE }}>
-          <PeekCard idea={prev} side="left" />
-          <PeekCard idea={next} side="right" />
+          <PeekCard side="left" />
+          <PeekCard side="right" />
           <div key={cur.slug} className="card-deal-in relative z-10 w-[80%] max-w-[320px]">
           <div
             onPointerDown={onDown}
@@ -245,13 +251,16 @@ export default function IdeaFeed({
   );
 }
 
-function PeekCard({ idea, side }: { idea: FeedIdea; side: "left" | "right" }) {
+function PeekCard({ side }: { side: "left" | "right" }) {
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute top-1/2 z-0 h-[440px] w-[80%] max-w-[320px] -translate-y-1/2 scale-[0.93] rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 opacity-45 ${side === "left" ? "left-0 -translate-x-[80%]" : "right-0 translate-x-[80%]"}`}
+      className={`pointer-events-none absolute top-1/2 z-0 h-[440px] w-[80%] max-w-[320px] -translate-y-1/2 scale-[0.93] overflow-hidden rounded-[24px] border border-white/15 p-2 opacity-80 ${side === "left" ? "left-0 -translate-x-[80%]" : "right-0 translate-x-[80%]"}`}
+      style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}
     >
-      <div className="line-clamp-6 text-[23px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)]">{idea.title}</div>
+      <div className="card-back-pattern flex size-full items-center justify-center rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" className="text-white/85"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" /></svg>
+      </div>
     </div>
   );
 }
