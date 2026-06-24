@@ -27,16 +27,15 @@ export default async function CardsPage() {
   const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
-    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-28 pt-6 sm:pt-10">
+    <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-12 pt-4 sm:pt-7">
       <AtmosphereSetter random />
 
-      <header className="mb-7 text-center">
-        <h1 className="glow-sweep mx-auto text-[clamp(28px,8vw,50px)] font-black leading-[1.0] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
-          {ru ? "Проанализировали" : "We analyzed"}<br />
-          <span className="tabular-nums">{nf(totalReviews)}</span> {ru ? "отзывов" : "reviews"}
+      <header className="mb-4 text-center">
+        <h1 className="glow-sweep mx-auto text-[clamp(28px,8vw,46px)] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
+          {ru ? "Идеи приложений" : "App ideas"}
         </h1>
-        <p className="mx-auto mt-4 max-w-[34ch] text-[16px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[18px]">
-          {ru ? "Идеи приложений, которые люди уже просят." : "App ideas people already ask for."}
+        <p className="mx-auto mt-2.5 text-[14px] text-[var(--color-text-secondary)] sm:text-[16px]">
+          {ru ? `на основе ${nf(totalReviews)} отзывов` : `from ${nf(totalReviews)} reviews`}
         </p>
       </header>
 
