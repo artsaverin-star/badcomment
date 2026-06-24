@@ -15,11 +15,18 @@ export const metadata: Metadata = {
   description: "Свайпай идеи приложений, которые люди уже просят в отзывах. С доказательствами и разбором: что строить и как заработать.",
 };
 
-export default async function CardsPage() {
+export default async function CardsPage({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
   const locale = await getLocale();
   const ru = locale !== "en";
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
+
+  // Preview override so an owner can see the woven-in cards without logging out:
+  // ?preview=guest → both (sign-in + unlock); ?preview=paywall → unlock only.
+  const preview = (await searchParams).preview;
+  const previewGuest = preview === "guest";
+  const loggedIn = previewGuest ? false : access.loggedIn;
+  const hasAccess = previewGuest || preview === "paywall" ? false : owner;
 
   const { items } = buildFeed(locale, owner);
   const totalReviews = (insightsData as { reviewsScanned?: number }[]).reduce((s, a) => s + (a.reviewsScanned || 0), 0);
@@ -42,9 +49,9 @@ export default async function CardsPage() {
       <IdeaFeed
         items={items}
         dailySlug={null}
-        hasAccess={owner}
+        hasAccess={hasAccess}
         locale={locale}
-        loggedIn={access.loggedIn}
+        loggedIn={loggedIn}
         deckPrice={DECK_PRICE_RUB}
         starsHref={access.user ? `https://t.me/${bot}?start=deck_${access.user.id}` : undefined}
         starsLabel={`${DECK_STARS} ⭐ Telegram`}
