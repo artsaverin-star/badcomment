@@ -505,6 +505,26 @@ html:not([data-theme="dark"]) .atmosphere {
   .love-glow { animation: none; }
 }
 
+/* Idea-feed carousel edge fade — soft on the sides, with vertical headroom so
+   the card glow isn't clipped. Gentler (wider) on desktop where the centre card
+   is narrow; tighter on mobile so it doesn't eat the near-full-width card. */
+.feed-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-size: 100% 240%;
+  mask-size: 100% 240%;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+@media (min-width: 640px) {
+  .feed-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 18%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 18%, #000 82%, transparent 100%);
+  }
+}
+
 /* Chat-message bubble: clean asymmetric radius (anchored bottom-left corner),
    no fragile pseudo-tail. */
 .msg-bubble {

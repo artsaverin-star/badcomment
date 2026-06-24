@@ -30,12 +30,12 @@ export default async function CardsPage() {
     <main className="relative mx-auto w-full max-w-[760px] overflow-x-clip px-4 pb-12 pt-4 sm:pt-7">
       <AtmosphereSetter random />
 
-      <header className="mb-4 text-center sm:mb-9">
+      <header className="mb-3 text-center sm:mb-5">
         <h1 className="glow-sweep mx-auto text-[clamp(28px,8vw,46px)] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
           {ru ? "Идеи приложений" : "App ideas"}
         </h1>
-        <p className="mx-auto mt-2.5 text-[14px] text-[var(--color-text-secondary)] sm:text-[16px]">
-          {ru ? `на основе ${nf(totalReviews)} отзывов` : `from ${nf(totalReviews)} reviews`}
+        <p className="mx-auto mt-2.5 max-w-[42ch] text-[14px] text-[var(--color-text-secondary)] sm:text-[16px]">
+          {ru ? `на основе ${nf(totalReviews)} отзывов на приложения в App Store и Google Play` : `from ${nf(totalReviews)} App Store and Google Play reviews`}
         </p>
       </header>
 

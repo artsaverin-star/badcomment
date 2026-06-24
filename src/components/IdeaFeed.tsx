@@ -20,7 +20,6 @@ function wordObs(n: number) {
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
 const SLOT = 320; // px per card slot on the carousel track
-const SIDE_FADE = "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)";
 
 export default function IdeaFeed({
   items, dailySlug, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
@@ -133,8 +132,8 @@ export default function IdeaFeed({
 
         {/* carousel viewport — masked edges, cards slide horizontally */}
         <div
-          className="relative h-[clamp(470px,66vh,580px)] w-full select-none"
-          style={{ WebkitMaskImage: SIDE_FADE, maskImage: SIDE_FADE, WebkitMaskSize: "100% 220%", maskSize: "100% 220%", WebkitMaskPosition: "center", maskPosition: "center", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", touchAction: "pan-y" }}
+          className="feed-mask relative h-[clamp(470px,66vh,580px)] w-full select-none"
+          style={{ touchAction: "pan-y" }}
           onPointerDown={onDown}
           onPointerMove={onMove}
           onPointerUp={onUp}
@@ -184,7 +183,7 @@ export default function IdeaFeed({
         </div>
       </div>
 
-      <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{idx + 1}</span> {ru ? "из" : "of"} {total}</p>
+      <p className="-mt-8 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{idx + 1}</span> {ru ? "из" : "of"} {total}</p>
 
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
 
