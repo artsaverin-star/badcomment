@@ -144,7 +144,7 @@ export default function IdeaFeed({
                         <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
                       </button>
                       <h2 className="pr-10 text-[20px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-5 text-balance sm:text-[22px]">{it.title}</h2>
-                      <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{it.oneLiner}</p>
+                      <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-6">{it.oneLiner}</p>
                       <div className="mt-auto pt-5">
                         {it.demand > 0 && (
                           <div className="mb-4 text-[13px] font-medium text-[var(--color-text-tertiary)]"><span className="text-[var(--color-text-brand)]">{it.demand}</span> {ru ? `${wordObs(it.demand)} в отзывах` : "signals in reviews"}</div>
