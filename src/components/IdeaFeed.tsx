@@ -103,7 +103,7 @@ export default function IdeaFeed({
   function onUp() {
     if (dragStart.current === null) return;
     const d = drag; dragStart.current = null; setDragging(false);
-    if (Math.abs(d) < 8) { openDepth(); setDrag(0); return; }
+    if (Math.abs(d) < 8) { setDrag(0); return; } // tap does nothing — open via the button
     if (d < -90) { advance("next"); return; }
     if (d > 90) { advance("prev"); return; }
     setDrag(0);
