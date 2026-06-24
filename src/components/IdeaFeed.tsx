@@ -92,6 +92,12 @@ export default function IdeaFeed({
     return () => cancelAnimationFrame(id);
   }, []);
 
+  // Auto-flip each card from its back to the idea shortly after it deals in.
+  useEffect(() => {
+    const t = window.setTimeout(() => setFlipped(true), 520);
+    return () => window.clearTimeout(t);
+  }, [cur.slug]);
+
   function persistSaved(next: Saved[]) {
     setSavedList(next);
     try { localStorage.setItem("feed:saved", JSON.stringify(next.slice(0, 100))); } catch { /* ignore */ }
@@ -180,11 +186,10 @@ export default function IdeaFeed({
                 <div className="flip-face overflow-hidden rounded-[24px] border border-white/15 p-2 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}>
                   <div className="card-back-pattern flex size-full flex-col items-center justify-center gap-4 rounded-[18px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
                     <svg width="56" height="56" viewBox="0 0 24 24" fill="none" className="text-white/85"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" /></svg>
-                    <span className="text-[13px] font-semibold uppercase tracking-[0.18em] text-white/80">{ru ? "Тап — открыть идею" : "Tap to reveal"}</span>
                   </div>
                 </div>
                 {/* front — idea */}
-                <div className="flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)]">
+                <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
                   <div className="flex items-center justify-between gap-2">
                     <span className="line-clamp-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
                       {isDaily && <span className="mr-1.5 rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] text-white">{ru ? "Идея дня" : "Today"}</span>}
@@ -229,7 +234,7 @@ export default function IdeaFeed({
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
           </div>
-          <p className="mt-4 text-center text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Тап — открыть · свайп влево/вправо — листать" : "Tap to flip · swipe to browse"}</p>
+          <p className="mt-4 text-center text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Свайп влево/вправо — листать идеи" : "Swipe left/right to browse"}</p>
         </>
       )}
 

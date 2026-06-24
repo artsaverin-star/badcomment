@@ -425,6 +425,47 @@ html:not([data-theme="dark"]) .atmosphere {
   .flip3d { transition: none; }
 }
 
+/* Idea card reveal: a neon glow pop + a light that runs once around the border
+   the moment the card flips face-up. */
+@property --shine {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes neon-pop {
+  0% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+  35% {
+    box-shadow:
+      0 0 22px 1px color-mix(in srgb, #00e5ff 55%, transparent),
+      0 0 48px 10px color-mix(in srgb, #ff2ef7 28%, transparent);
+  }
+  100% { box-shadow: 0 28px 70px -30px rgba(0, 0, 0, 0.7); }
+}
+@keyframes edge-run {
+  0% { --shine: 0deg; opacity: 0; }
+  10% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { --shine: 360deg; opacity: 0; }
+}
+.neon-reveal { animation: neon-pop 0.9s ease-out; }
+.neon-reveal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: conic-gradient(from var(--shine), transparent 0deg, #00e5ff 26deg, #ff2ef7 64deg, #7c4dff 96deg, transparent 130deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: edge-run 1.1s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .neon-reveal,
+  .neon-reveal::before { animation: none; }
+}
+
 /* Chat-message bubble: clean asymmetric radius (anchored bottom-left corner),
    no fragile pseudo-tail. */
 .msg-bubble {
