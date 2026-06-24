@@ -38,10 +38,11 @@ export default function IdeaFeed({
 
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const [animating, setAnimating] = useState(false);
   const [dragX, setDragX] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
+  const timers = useRef<number[]>([]);
+  const lastGo = useRef(0);
 
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [auth, setAuth] = useState(false);
@@ -80,18 +81,25 @@ export default function IdeaFeed({
   }
 
   function go(dir: "next" | "prev") {
-    if (animating || !cur) return;
+    if (!cur) return;
     if (dir === "next" && idx >= total - 1) return;
     if (dir === "prev" && idx <= 0) return;
     setModal(false);
     setDragX(0);
-    setAnimating(true);
-    setFlipped(false); // 1) flip the current card back to рубашка
-    window.setTimeout(() => {
-      // 2) slide the track — the new centre arrives рубашкой and flips to face
-      setIdx((i) => (dir === "next" ? i + 1 : i - 1));
-      window.setTimeout(() => setAnimating(false), 500);
-    }, 470);
+    setFlipped(false); // flip current card back to рубашка
+    timers.current.forEach((t) => clearTimeout(t));
+    timers.current = [];
+    const now = Date.now();
+    const rapid = now - lastGo.current < 620;
+    lastGo.current = now;
+    const step = () => setIdx((i) => (dir === "next" ? Math.min(i + 1, total - 1) : Math.max(i - 1, 0)));
+    if (rapid) {
+      // many quick taps → advance immediately, the track just slides faster
+      step();
+    } else {
+      // single deliberate step → flip to рубашка first, then slide
+      timers.current.push(window.setTimeout(step, 430));
+    }
   }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
