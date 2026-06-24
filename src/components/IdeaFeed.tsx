@@ -180,34 +180,28 @@ export default function IdeaFeed({
               <p className="mt-5 max-w-[42ch] text-[18px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[20px]">{cur.oneLiner}</p>
               <div className="mt-5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{cur.demand} {ru ? wordObs(cur.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
 
-              <div className="mt-12 flex flex-col gap-11">
-                {cur.depth.gap && <Sw n="01" label={ru ? "Почему это шанс" : "The opening"} text={cur.depth.gap} />}
-                {cur.depth.pitch && <Sw n="02" label={ru ? "Что строить" : "What to build"} text={cur.depth.pitch} />}
+              <div className="mt-11 flex flex-col gap-10">
+                {cur.depth.gap && <Sw label={ru ? "Почему это шанс" : "The opening"} text={cur.depth.gap} />}
+                {cur.depth.pitch && <Sw label={ru ? "Что строить" : "What to build"} text={cur.depth.pitch} />}
                 {cur.depth.features.length > 0 && (
-                  <div className="grid grid-cols-[2.5rem_1fr] gap-x-4 sm:grid-cols-[3.5rem_1fr] sm:gap-x-6">
-                    <span className="text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">03</span>
-                    <div>
-                      <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
-                      <ul className="mt-4 flex flex-col">
-                        {cur.depth.features.map((f, j) => (
-                          <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div>
+                    <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                    <ul className="mt-4 flex flex-col">
+                      {cur.depth.features.map((f, j) => (
+                        <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
+                      ))}
+                    </ul>
                   </div>
                 )}
-                {cur.depth.monetization && <Sw n="04" label={ru ? "Монетизация" : "How it earns"} text={cur.depth.monetization} />}
+                {cur.depth.monetization && <Sw label={ru ? "Монетизация" : "How it earns"} text={cur.depth.monetization} />}
                 {cur.depth.quotes.length > 0 && (
-                  <div className="grid grid-cols-[2.5rem_1fr] gap-x-4 sm:grid-cols-[3.5rem_1fr] sm:gap-x-6">
-                    <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{ru ? "Голоса" : "Voices"}</span>
-                    <div className="flex flex-col gap-6">
-                      {cur.depth.quotes.map((q, j) => (
-                        <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-5">
-                          <blockquote className="text-[16px] leading-[1.55] text-[var(--color-text-primary)]">{q.text}</blockquote>
-                          <figcaption className="mt-2 text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
-                        </figure>
-                      ))}
-                    </div>
+                  <div className="flex flex-col gap-6">
+                    {cur.depth.quotes.map((q, j) => (
+                      <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-5">
+                        <blockquote className="text-[16px] leading-[1.55] text-[var(--color-text-primary)]">{q.text}</blockquote>
+                        <figcaption className="mt-2 text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
+                      </figure>
+                    ))}
                   </div>
                 )}
               </div>
@@ -245,15 +239,12 @@ function Ruba() {
   );
 }
 
-// Swiss numbered section: index column + tracked label + body.
-function Sw({ n, label, text }: { n: string; label: string; text: string }) {
+// Swiss section: tracked label + body, full width.
+function Sw({ label, text }: { label: string; text: string }) {
   return (
-    <div className="grid grid-cols-[2.5rem_1fr] gap-x-4 sm:grid-cols-[3.5rem_1fr] sm:gap-x-6">
-      <span className="pt-0.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">{n}</span>
-      <div>
-        <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{label}</div>
-        <p className="mt-3 text-[16.5px] leading-[1.6] text-[var(--color-text-secondary)]">{text}</p>
-      </div>
+    <div>
+      <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{label}</div>
+      <p className="mt-3 text-[16.5px] leading-[1.6] text-[var(--color-text-secondary)]">{text}</p>
     </div>
   );
 }
