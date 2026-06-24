@@ -38,6 +38,7 @@ export default function IdeaFeed({
 
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [animating, setAnimating] = useState(false);
   const [dragX, setDragX] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
@@ -79,10 +80,18 @@ export default function IdeaFeed({
   }
 
   function go(dir: "next" | "prev") {
+    if (animating || !cur) return;
+    if (dir === "next" && idx >= total - 1) return;
+    if (dir === "prev" && idx <= 0) return;
     setModal(false);
     setDragX(0);
-    setFlipped(false); // new card arrives рубашкой, effect flips it to face
-    setIdx((i) => (dir === "next" ? Math.min(i + 1, total - 1) : Math.max(i - 1, 0)));
+    setAnimating(true);
+    setFlipped(false); // 1) flip the current card back to рубашка
+    window.setTimeout(() => {
+      // 2) slide the track — the new centre arrives рубашкой and flips to face
+      setIdx((i) => (dir === "next" ? i + 1 : i - 1));
+      window.setTimeout(() => setAnimating(false), 500);
+    }, 470);
   }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
