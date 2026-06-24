@@ -21,6 +21,27 @@ const yesterdayKey = () => { const d = new Date(); d.setDate(d.getDate() - 1); r
 
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
 
+// Dissolve the card into crumbs flying in the swipe direction.
+async function crumbs(rect: DOMRect | undefined, dir: "next" | "prev") {
+  if (!rect) return;
+  const confetti = (await import("canvas-confetti")).default;
+  const x = (rect.left + rect.width / 2) / window.innerWidth;
+  const y = (rect.top + rect.height / 2) / window.innerHeight;
+  confetti({
+    particleCount: 80,
+    startVelocity: 34,
+    spread: 58,
+    angle: dir === "next" ? 180 : 0,
+    origin: { x, y },
+    colors: ["#FFA62B", "#FF5C8A", "#B14DEA", "#4CB8F5", "#00E5FF"],
+    ticks: 110,
+    scalar: 0.62,
+    gravity: 0.95,
+    shapes: ["square"],
+    disableForReducedMotion: true,
+  });
+}
+
 export default function IdeaFeed({
   items,
   dailySlug,
@@ -57,6 +78,7 @@ export default function IdeaFeed({
   const [drag, setDrag] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const [view, setView] = useState<"feed" | "saved">("feed");
   const [savedList, setSavedList] = useState<Saved[]>([]);
@@ -118,6 +140,7 @@ export default function IdeaFeed({
   function advance(dir: "next" | "prev") {
     if (exit || !cur) return;
     markSeen(cur.slug);
+    void crumbs(cardRef.current?.getBoundingClientRect(), dir);
     setExit(dir === "next" ? "l" : "r");
     window.setTimeout(() => {
       setIdx((i) => (dir === "next" ? (i + 1) % total : (i - 1 + total) % total));
@@ -125,7 +148,7 @@ export default function IdeaFeed({
       setModal(false);
       setExit(null);
       setDrag(0);
-    }, 280);
+    }, 440);
   }
   function openDepth() {
     if (cur?.depth) { setModal(true); return; }
@@ -145,10 +168,12 @@ export default function IdeaFeed({
     setDrag(0);
   }
 
+  // On exit the card dissolves in place (small nudge + shrink + fade) while the
+  // crumbs fly off — so it never slides into the clipped page edge.
   const cardTransform = exit === "l"
-    ? "translateX(-130%) rotate(-14deg)"
+    ? "translateX(-44px) scale(0.86)"
     : exit === "r"
-      ? "translateX(130%) rotate(14deg)"
+      ? "translateX(44px) scale(0.86)"
       : `translateX(${drag}px) rotate(${drag * 0.02}deg)`;
 
   if (total === 0) return null;
@@ -174,11 +199,12 @@ export default function IdeaFeed({
           {/* the deck card (deal-in on each new card) */}
           <div key={cur.slug} className="card-deal-in [perspective:1300px]">
             <div
+              ref={cardRef}
               onPointerDown={onDown}
               onPointerMove={onMove}
               onPointerUp={onUp}
               onPointerCancel={onUp}
-              style={{ transform: cardTransform, opacity: exit ? 0 : 1, transition: exit ? "transform 0.28s ease-in, opacity 0.28s ease-in" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y" }}
+              style={{ transform: cardTransform, opacity: exit ? 0 : 1, filter: exit ? "blur(3px)" : "none", transition: exit ? "transform 0.42s ease, opacity 0.42s ease, filter 0.42s ease" : dragging ? "none" : "transform 0.25s ease", touchAction: "pan-y" }}
               className="relative h-[480px] w-full cursor-pointer select-none"
             >
               <div className={`flip3d size-full ${flipped ? "is-up" : ""}`}>
