@@ -5,7 +5,6 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BuyButton from "./BuyButton";
-import MessageIcon from "./MessageIcon";
 import type { FeedIdea } from "@/lib/ideaFeed";
 import type { Locale } from "@/lib/i18n";
 
@@ -170,39 +169,51 @@ export default function IdeaFeed({
       {modal && cur?.depth && typeof document !== "undefined" && createPortal(
         <div className="fixed inset-0 z-[80] flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
           <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setModal(false)} className="absolute inset-0 bg-black/55 backdrop-blur-md" />
-          <div className="relative z-10 flex max-h-[90vh] w-full max-w-[600px] flex-col overflow-hidden rounded-t-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[28px]">
-            <div className="flex shrink-0 items-center justify-between gap-3 px-6 pt-5">
-              <Link href={`/segment/${cur.category}`} className="text-[13px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{cur.categoryName}</Link>
-              <button type="button" onClick={() => setModal(false)} className="-mr-1 flex size-9 items-center justify-center rounded-full text-[var(--color-text-tertiary)] hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
-              </button>
-            </div>
-            <div className="overflow-y-auto overscroll-contain px-6 py-7 sm:px-8">
-              <div className="flex items-center gap-2 text-[13px] font-semibold tabular-nums text-[var(--color-text-brand)]"><MessageIcon size={14} /> {cur.demand} <span className="font-normal text-[var(--color-text-tertiary)]">{ru ? wordObs(cur.demand) : "signals"}</span></div>
-              <h2 className="mt-3 text-[26px] font-black leading-[1.1] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{cur.title}</h2>
-              <p className="mt-3 text-[17px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[19px]">{cur.oneLiner}</p>
-              <div className="mt-7 flex flex-col gap-6">
-                {cur.depth.gap && <Section label={ru ? "Почему это шанс" : "Why it's an opening"} text={cur.depth.gap} strong />}
-                {cur.depth.pitch && <Section label={ru ? "Что строить" : "What to build"} text={cur.depth.pitch} />}
+          <div className="relative z-10 flex max-h-[92vh] w-full max-w-[640px] flex-col overflow-hidden rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[24px]">
+            <button type="button" onClick={() => setModal(false)} className="absolute right-4 top-4 z-10 flex size-9 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>
+            </button>
+            <div className="overflow-y-auto overscroll-contain px-7 py-10 sm:px-12 sm:py-12">
+              {/* eyebrow + title block */}
+              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-text-tertiary)]">{cur.categoryName}</div>
+              <h2 className="mt-4 max-w-[18ch] text-[30px] font-bold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{cur.title}</h2>
+              <p className="mt-5 max-w-[42ch] text-[18px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[20px]">{cur.oneLiner}</p>
+              <div className="mt-5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{cur.demand} {ru ? wordObs(cur.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
+
+              <div className="mt-12 flex flex-col gap-11">
+                {cur.depth.gap && <Sw n="01" label={ru ? "Почему это шанс" : "The opening"} text={cur.depth.gap} />}
+                {cur.depth.pitch && <Sw n="02" label={ru ? "Что строить" : "What to build"} text={cur.depth.pitch} />}
                 {cur.depth.features.length > 0 && (
-                  <div>
-                    <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
-                    <ul className="mt-3 flex flex-col gap-2.5">{cur.depth.features.map((f, j) => <li key={j} className="flex gap-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]"><span className="select-none text-[var(--color-text-tertiary)]">—</span><span>{f}</span></li>)}</ul>
+                  <div className="grid grid-cols-[2.5rem_1fr] gap-x-4 sm:grid-cols-[3.5rem_1fr] sm:gap-x-6">
+                    <span className="text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">03</span>
+                    <div>
+                      <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                      <ul className="mt-4 flex flex-col">
+                        {cur.depth.features.map((f, j) => (
+                          <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 )}
-                {cur.depth.monetization && <Section label={ru ? "Монетизация" : "Monetize"} text={cur.depth.monetization} />}
+                {cur.depth.monetization && <Sw n="04" label={ru ? "Монетизация" : "How it earns"} text={cur.depth.monetization} />}
                 {cur.depth.quotes.length > 0 && (
-                  <div className="flex flex-col gap-2">
-                    <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Из отзывов" : "From reviews"}</div>
-                    {cur.depth.quotes.map((q, j) => (
-                      <div key={j} className="flex flex-col gap-1">
-                        <div className="msg-bubble w-fit max-w-[92%] self-start rounded-[18px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-3.5 py-2 text-[13.5px] italic leading-[1.45] text-[var(--color-text-primary)]">{q.text}</div>
-                        <span className="pl-1.5 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</span>
-                      </div>
-                    ))}
+                  <div className="grid grid-cols-[2.5rem_1fr] gap-x-4 sm:grid-cols-[3.5rem_1fr] sm:gap-x-6">
+                    <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{ru ? "Голоса" : "Voices"}</span>
+                    <div className="flex flex-col gap-6">
+                      {cur.depth.quotes.map((q, j) => (
+                        <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-5">
+                          <blockquote className="text-[16px] leading-[1.55] text-[var(--color-text-primary)]">{q.text}</blockquote>
+                          <figcaption className="mt-2 text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
+                        </figure>
+                      ))}
+                    </div>
                   </div>
                 )}
-                <Link href={`/segment/${cur.category}`} className="flex items-center justify-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 text-[15px] font-medium text-[var(--color-text-primary)] transition-colors hover:border-[var(--color-border-strong)]">{ru ? `Вся ниша «${cur.categoryName}»` : `Full niche "${cur.categoryName}"`}</Link>
+              </div>
+
+              <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
+                <Link href={`/segment/${cur.category}`} className="text-[15px] font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
               </div>
             </div>
           </div>
@@ -234,11 +245,15 @@ function Ruba() {
   );
 }
 
-function Section({ label, text, strong }: { label: string; text: string; strong?: boolean }) {
+// Swiss numbered section: index column + tracked label + body.
+function Sw({ n, label, text }: { n: string; label: string; text: string }) {
   return (
-    <div className={strong ? "border-l-2 border-[var(--color-border-strong)] pl-4" : undefined}>
-      <div className="text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{label}</div>
-      <p className={`mt-2 text-[15px] leading-[1.6] ${strong ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)]"}`}>{text}</p>
+    <div className="grid grid-cols-[2.5rem_1fr] gap-x-4 sm:grid-cols-[3.5rem_1fr] sm:gap-x-6">
+      <span className="pt-0.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">{n}</span>
+      <div>
+        <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{label}</div>
+        <p className="mt-3 text-[16.5px] leading-[1.6] text-[var(--color-text-secondary)]">{text}</p>
+      </div>
     </div>
   );
 }
