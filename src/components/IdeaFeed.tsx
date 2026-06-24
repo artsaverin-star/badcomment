@@ -44,7 +44,6 @@ export default function IdeaFeed({
 
   const [view, setView] = useState<"feed" | "saved">("feed");
   const [savedList, setSavedList] = useState<Saved[]>([]);
-  const [seen, setSeen] = useState<string[]>([]);
   const [auth, setAuth] = useState(false);
   const [paywall, setPaywall] = useState(false);
   const [modal, setModal] = useState(false);
@@ -61,24 +60,19 @@ export default function IdeaFeed({
       try {
         const s = JSON.parse(localStorage.getItem("feed:saved") || "[]");
         if (Array.isArray(s)) setSavedList(s);
-        const sn = JSON.parse(localStorage.getItem("feed:seen") || "[]");
-        if (Array.isArray(sn)) setSeen(sn);
       } catch { /* ignore */ }
     });
     return () => cancelAnimationFrame(id);
   }, []);
 
   useEffect(() => {
-    const t = window.setTimeout(() => { setFlipped(true); markSeen(cur.slug); }, 520);
+    const t = window.setTimeout(() => setFlipped(true), 520);
     return () => window.clearTimeout(t);
   }, [cur.slug]);
 
   function persistSaved(next: Saved[]) {
     setSavedList(next);
     try { localStorage.setItem("feed:saved", JSON.stringify(next.slice(0, 100))); } catch { /* ignore */ }
-  }
-  function markSeen(slug: string) {
-    setSeen((prev) => { if (prev.includes(slug)) return prev; const next = [...prev, slug]; try { localStorage.setItem("feed:seen", JSON.stringify(next.slice(-500))); } catch { /* ignore */ } return next; });
   }
   function toggleSave(it: FeedIdea | Saved) {
     if (savedSet.has(it.slug)) persistSaved(savedList.filter((s) => s.slug !== it.slug));
@@ -93,7 +87,6 @@ export default function IdeaFeed({
 
   function advance(dir: "next" | "prev") {
     if (exit || !cur) return;
-    markSeen(cur.slug);
     setExit(dir === "next" ? "l" : "r");
     window.setTimeout(() => {
       setIdx((i) => (dir === "next" ? (i + 1) % total : (i - 1 + total) % total));
@@ -130,7 +123,6 @@ export default function IdeaFeed({
   const cardTransform = exit === "l" ? "translateX(-135%) rotate(-14deg)"
     : exit === "r" ? "translateX(135%) rotate(14deg)"
       : `translateX(${drag}px) rotate(${drag * 0.04}deg)`;
-  const fade = "linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%)";
 
   if (total === 0) return null;
 
@@ -148,8 +140,8 @@ export default function IdeaFeed({
         <SavedView ru={ru} saved={savedList} onOpen={() => setView("feed")} onUnsave={(s) => toggleSave(s)} />
       ) : (
         <>
-          {/* swipe stage — fades the card at the left/right boundary */}
-          <div className="relative w-full" style={{ WebkitMaskImage: fade, maskImage: fade }}>
+          {/* swipe stage */}
+          <div className="relative w-full">
             <div key={cur.slug} className="card-deal-in mx-auto max-w-[400px]">
               <div
                 onPointerDown={onDown}
@@ -206,7 +198,7 @@ export default function IdeaFeed({
             </div>
           </div>
 
-          <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{seen.length}</span> {ru ? "из" : "of"} {total} · {ru ? "свайп влево/вправо или стрелки" : "swipe or arrow keys"}</p>
+          <p className="mt-6 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{(idx % total) + 1}</span> {ru ? "из" : "of"} {total} · {ru ? "свайп влево/вправо или стрелки" : "swipe or arrow keys"}</p>
         </>
       )}
 
