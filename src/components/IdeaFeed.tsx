@@ -134,7 +134,7 @@ export default function IdeaFeed({
         {/* carousel viewport — masked edges, cards slide horizontally */}
         <div
           className="relative h-[clamp(380px,56vh,470px)] w-full select-none"
-          style={{ WebkitMaskImage: SIDE_FADE, maskImage: SIDE_FADE, touchAction: "pan-y" }}
+          style={{ WebkitMaskImage: SIDE_FADE, maskImage: SIDE_FADE, WebkitMaskSize: "100% 220%", maskSize: "100% 220%", WebkitMaskPosition: "center", maskPosition: "center", WebkitMaskRepeat: "no-repeat", maskRepeat: "no-repeat", touchAction: "pan-y" }}
           onPointerDown={onDown}
           onPointerMove={onMove}
           onPointerUp={onUp}
