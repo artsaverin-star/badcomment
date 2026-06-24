@@ -39,14 +39,20 @@ export default function IdeaFeed({
     return [items[i], ...items.slice(0, i), ...items.slice(i + 1)];
   }, [items, dailySlug]);
 
-  // Weave native interstitials into the deck: a sign-in card at the 4th slot
-  // (only when logged out) and an unlock offer at the 8th slot (only without
-  // access). Inserted at increasing indices so each lands at its visible slot.
+  // Weave native interstitials into the deck so a guest can't browse endlessly
+  // un-nudged: a sign-in card at the 4th slot (once, when logged out) and an
+  // unlock offer at the 8th slot and every 10 cards after (8, 18, 28…) while
+  // there's no access. Markers occupy visible slots; ideas still all appear.
   const cards = useMemo<FeedCard[]>(() => {
-    const arr: FeedCard[] = [...order];
-    if (!loggedIn && arr.length >= 3) arr.splice(3, 0, { kind: "auth" });
-    if (!hasAccess && arr.length >= 7) arr.splice(7, 0, { kind: "paywall" });
-    return arr;
+    const out: FeedCard[] = [];
+    let i = 0, vis = 0;
+    while (i < order.length) {
+      vis++;
+      if (!loggedIn && vis === 4) { out.push({ kind: "auth" }); continue; }
+      if (!hasAccess && vis >= 8 && (vis - 8) % 10 === 0) { out.push({ kind: "paywall" }); continue; }
+      out.push(order[i]); i++;
+    }
+    return out;
   }, [order, loggedIn, hasAccess]);
 
   const [idx, setIdx] = useState(0);
@@ -150,7 +156,7 @@ export default function IdeaFeed({
             const off = (i - idx) * SLOT + dragX;
             const itSaved = isIdea(it) && savedSet.has(it.slug);
             return (
-              <div key={isIdea(it) ? it.slug : it.kind} className="absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}>
+              <div key={isIdea(it) ? it.slug : `${it.kind}-${i}`} className="absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}>
                 <div className={`relative ${CARD_H} [perspective:1300px]`}>
                   <div className={`flip3d size-full ${center ? "is-up" : ""}`}>
                     <Ruba />
