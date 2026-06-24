@@ -49,6 +49,27 @@ async function sand(rect: DOMRect | undefined, dir: "next" | "prev") {
   }
 }
 
+// A burst of hearts from the save button (top-right of the card).
+async function hearts(rect: DOMRect | undefined) {
+  if (!rect) return;
+  const confetti = (await import("canvas-confetti")).default;
+  const x = (rect.right - 26) / window.innerWidth;
+  const y = (rect.top + 28) / window.innerHeight;
+  const heart = typeof confetti.shapeFromText === "function" ? confetti.shapeFromText({ text: "❤️", scalar: 2 }) : undefined;
+  confetti({
+    particleCount: 26,
+    spread: 70,
+    startVelocity: 26,
+    origin: { x, y },
+    ticks: 130,
+    gravity: 0.6,
+    scalar: 1.4,
+    colors: ["#ff3b5c", "#ff6b8a", "#ff90a6", "#ff4d6d"],
+    shapes: heart ? [heart] : ["circle"],
+    disableForReducedMotion: true,
+  });
+}
+
 export default function IdeaFeed({
   items,
   dailySlug,
@@ -94,6 +115,7 @@ export default function IdeaFeed({
   const [auth, setAuth] = useState(false);
   const [paywall, setPaywall] = useState(false);
   const [modal, setModal] = useState(false);
+  const [loveTick, setLoveTick] = useState(0);
 
   const savedSet = useMemo(() => new Set(savedList.map((s) => s.slug)), [savedList]);
   const total = order.length;
@@ -142,6 +164,13 @@ export default function IdeaFeed({
   function toggleSave(it: FeedIdea | Saved) {
     if (savedSet.has(it.slug)) persistSaved(savedList.filter((s) => s.slug !== it.slug));
     else persistSaved([{ slug: it.slug, category: it.category, categoryName: it.categoryName, title: it.title, oneLiner: it.oneLiner, demand: it.demand, quote: it.quote }, ...savedList]);
+  }
+  // Save the current card with a red glow + a burst of hearts (only when adding).
+  function saveCurrent() {
+    if (!cur) return;
+    const wasSaved = savedSet.has(cur.slug);
+    toggleSave(cur);
+    if (!wasSaved) { setLoveTick((t) => t + 1); void hearts(cardRef.current?.getBoundingClientRect()); }
   }
 
   function advance(dir: "next" | "prev") {
@@ -203,8 +232,12 @@ export default function IdeaFeed({
         <SavedView ru={ru} saved={savedList} onOpen={() => setView("feed")} onUnsave={(s) => toggleSave(s)} />
       ) : (
         <>
-          {/* the deck card (deal-in on each new card) */}
-          <div key={cur.slug} className="card-deal-in [perspective:1300px]">
+          {/* card flanked by prev / next arrows */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
+            <button type="button" onClick={() => advance("prev")} aria-label={ru ? "Назад" : "Previous"} className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </button>
+            <div key={cur.slug} className="card-deal-in min-w-0 flex-1 [perspective:1300px]">
             <div
               ref={cardRef}
               onPointerDown={onDown}
@@ -223,12 +256,21 @@ export default function IdeaFeed({
                 </div>
                 {/* front — idea */}
                 <div className={`flip-face flip-front flex flex-col rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] ${flipped ? "neon-reveal" : ""}`}>
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="line-clamp-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
+                  {loveTick > 0 && <span key={loveTick} aria-hidden className="love-glow pointer-events-none absolute inset-0 z-10 rounded-[24px]" />}
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="line-clamp-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">
                       {isDaily && <span className="mr-1.5 rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[10px] text-white">{ru ? "Идея дня" : "Today"}</span>}
                       {cur.categoryName}
                     </span>
-                    <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-bold tabular-nums text-[var(--color-text-brand)]"><MessageIcon size={12} /> {cur.demand}</span>
+                    <button
+                      type="button"
+                      onPointerDown={(e) => e.stopPropagation()}
+                      onClick={(e) => { e.stopPropagation(); saveCurrent(); }}
+                      aria-label={ru ? "В избранное" : "Save"}
+                      className={`-mr-1 -mt-1 flex size-9 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 ${savedSet.has(cur.slug) ? "bg-[#ff3b5c] text-white" : "bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill={savedSet.has(cur.slug) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" strokeLinejoin="round" /></svg>
+                    </button>
                   </div>
 
                   <h2 className="mt-3 line-clamp-3 text-[23px] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[26px]">{cur.title}</h2>
@@ -253,21 +295,12 @@ export default function IdeaFeed({
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* actions: prev / save / next */}
-          <div className="mt-7 flex items-center justify-center gap-5">
-            <button type="button" onClick={() => advance("prev")} aria-label={ru ? "Назад" : "Previous"} className="flex size-12 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </button>
-            <button type="button" onClick={() => cur && toggleSave(cur)} aria-label={ru ? "Сохранить" : "Save"} className={`flex size-16 items-center justify-center rounded-full border transition-all active:scale-95 ${savedSet.has(cur.slug) ? "border-transparent bg-[var(--color-accent-brand)] text-white" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"}`}>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill={savedSet.has(cur.slug) ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"><path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" strokeLinejoin="round" /></svg>
-            </button>
-            <button type="button" onClick={() => advance("next")} aria-label={ru ? "Дальше" : "Next"} className="flex size-12 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </div>
+            <button type="button" onClick={() => advance("next")} aria-label={ru ? "Дальше" : "Next"} className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-tertiary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
           </div>
-          <p className="mt-4 text-center text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Свайп влево/вправо — листать идеи" : "Swipe left/right to browse"}</p>
+          <p className="mt-5 text-center text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Свайп или стрелки — листать идеи" : "Swipe or arrows to browse"}</p>
         </>
       )}
 

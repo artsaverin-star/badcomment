@@ -490,6 +490,21 @@ html:not([data-theme="dark"]) .atmosphere {
   .sand-out { animation: none; }
 }
 
+/* Save-to-favourites: a red glow pulse around the card. */
+@keyframes love-glow-kf {
+  0% { box-shadow: 0 0 0 0 rgba(255, 59, 92, 0); }
+  30% {
+    box-shadow:
+      0 0 30px 5px rgba(255, 59, 92, 0.7),
+      inset 0 0 34px 3px rgba(255, 59, 92, 0.38);
+  }
+  100% { box-shadow: 0 0 0 0 rgba(255, 59, 92, 0); }
+}
+.love-glow { border-radius: 24px; animation: love-glow-kf 0.85s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .love-glow { animation: none; }
+}
+
 /* Chat-message bubble: clean asymmetric radius (anchored bottom-left corner),
    no fragile pseudo-tail. */
 .msg-bubble {
