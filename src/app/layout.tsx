@@ -53,7 +53,7 @@ export default async function RootLayout({
       data-brand="saverin"
       className={`${inter.variable} ${nunito.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-[100dvh] flex-col">
         <div className="atmosphere" aria-hidden />
         {/* Brand entity for search + LLM grounding (Organization + WebSite). */}
         <script
