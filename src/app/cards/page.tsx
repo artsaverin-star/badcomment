@@ -35,10 +35,8 @@ export default async function CardsPage() {
           {ru ? "Проанализировали" : "We analyzed"}<br />
           <span className="tabular-nums">{nf(totalReviews)}</span> {ru ? "отзывов" : "reviews"}
         </h1>
-        <p className="mx-auto mt-5 max-w-[46ch] text-[16px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[18px]">
-          {ru
-            ? "И собрали из них самое стоящее: идеи приложений, которые люди уже просят в отзывах — с доказательствами. Открывай карту, читай разбор, сохраняй лучшие."
-            : "And pulled out the best of it: app ideas people already ask for in reviews — with proof. Flip a card, read the breakdown, save the best."}
+        <p className="mx-auto mt-4 max-w-[34ch] text-[16px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[18px]">
+          {ru ? "Идеи приложений, которые люди уже просят." : "App ideas people already ask for."}
         </p>
       </header>
 
