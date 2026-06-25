@@ -1,6 +1,7 @@
 import { listIdeas } from "./ideas";
 import { PREMIUM_NICHE_SET } from "./premiumNiches";
 import { ideaContentEn } from "./regenCards";
+import { getCategoryBySlug } from "./researchCategories";
 import feedOrder from "../data/ideaFeedOrder.json";
 import type { Locale } from "./i18n";
 
@@ -60,13 +61,21 @@ export function buildFeed(locale: Locale, owner: boolean): { items: FeedIdea[]; 
     .filter((i) => PREMIUM_NICHE_SET.has(i.category))
     .sort((a, b) => (FEED_RANK.get(a.slug) ?? 9999) - (FEED_RANK.get(b.slug) ?? 9999));
 
+  // Localized category name from the canonical source (the EN overlay's
+  // categoryName is unreliable — some entries kept the Russian label).
+  const nameCache = new Map<string, string>();
+  const catName = (slug: string, fallback: string) => {
+    if (!nameCache.has(slug)) nameCache.set(slug, getCategoryBySlug(slug, locale)?.name ?? fallback);
+    return nameCache.get(slug)!;
+  };
+
   const items: FeedIdea[] = pool.map((i, idx) => {
     const en = ru ? null : ideaContentEn(i.slug, locale);
     const showDepth = owner || idx < FEED_FREE_DEPTH;
     return {
       slug: i.slug,
       category: i.category,
-      categoryName: en?.categoryName ?? i.categoryName,
+      categoryName: catName(i.category, i.categoryName),
       title: en?.title ?? i.title,
       oneLiner: en?.oneLiner ?? i.oneLiner,
       demand: i.stats?.observations ?? 0,
