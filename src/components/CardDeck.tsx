@@ -206,7 +206,7 @@ export default function CardDeck({
               >
                 <div className={`flip3d size-full ${s.card ? "is-up" : ""}`}>
                 {/* back */}
-                <div className="flip-face flex items-center justify-center rounded-[16px] border border-white/15 p-1.5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FFA62B 0%,#FF5C8A 35%,#B14DEA 66%,#4CB8F5 100%)" }}>
+                <div className="flip-face flex items-center justify-center rounded-[16px] border border-white/15 p-1.5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.85)]" style={{ backgroundImage: "linear-gradient(135deg,#FF5C8A 0%,#B14DEA 50%,#4CB8F5 100%)" }}>
                   <div className="card-back-pattern flex size-full items-center justify-center rounded-[12px] bg-[color-mix(in_srgb,var(--color-bg-page)_82%,transparent)]">
                     {s.loading ? (
                       <span className="text-[12px] font-medium text-white/70">…</span>

@@ -149,9 +149,9 @@ export default function SegmentExplorer({
 
   return (
     <>
-      {/* ── OPPORTUNITIES — our swipe carousel; previews are always browsable,
-            opening a locked breakdown raises the category offer ── */}
-      {opps.length > 0 && (
+      {/* ── OPPORTUNITIES — our swipe carousel (only once unlocked; while locked
+            the findings offer above covers the whole category) ── */}
+      {opps.length > 0 && !ideasLocked && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
             <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
@@ -178,8 +178,8 @@ export default function SegmentExplorer({
         </Reveal>
       )}
 
-      {/* ── COMPETITORS — synthesis + clean list → app modal; locked shows the pile ── */}
-      {apps.length > 0 && (
+      {/* ── COMPETITORS — synthesis + clean list (only once unlocked) ── */}
+      {apps.length > 0 && !appsLocked && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
