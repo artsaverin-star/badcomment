@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Locale } from "@/lib/i18n";
+import type { FeedIdea } from "@/lib/ideaFeed";
 import CategoryGate from "@/components/CategoryGate";
-import MessageIcon from "@/components/MessageIcon";
 import DeckPile from "@/components/DeckPile";
 import Reveal from "@/components/Reveal";
+import IdeaFeed from "@/components/IdeaFeed";
 
 export type ExpQuote = { app: string; rating: number; text: string };
 export type ExpObs = { title: string; plus?: string; minus?: string; count: number; tone: "up" | "down" | "mixed" | "info"; evidence: ExpQuote[] };
@@ -41,7 +42,7 @@ export type ExpApp = {
 };
 export type ExpFlaw = { label: string; color: string; n: number };
 
-type Active = { kind: "idea"; i: number } | { kind: "app"; i: number } | null;
+type Active = { kind: "idea"; i: number } | { kind: "app"; i: number } | { kind: "offer" } | null;
 
 function plural(n: number, one: string, few: string, many: string) {
   const d = n % 10;
@@ -102,6 +103,27 @@ export default function SegmentExplorer({
   const ideasLocked = opps.some((o) => o.locked);
   const appsLocked = apps.some((a) => a.locked);
 
+  // Map the niche's opportunities onto the shared idea-feed card shape so the
+  // ideas read as our swipe carousel; depth is null when locked (preview only).
+  const feedItems: FeedIdea[] = opps.map((op) => ({
+    slug: op.slug,
+    category: slug,
+    categoryName: categoryName ?? "",
+    title: op.regen?.title || op.title,
+    oneLiner: op.regen?.tagline || op.oneLiner,
+    demand: op.demand,
+    quote: op.quotes[0] ? { text: op.quotes[0].text, app: op.quotes[0].app, rating: op.quotes[0].rating } : null,
+    depth: op.locked
+      ? null
+      : {
+          gap: op.regen?.wedge || op.gap,
+          pitch: op.regen?.build || op.pitch,
+          features: op.regen?.features || op.features,
+          monetization: op.regen?.monetization || op.monetization,
+          quotes: op.quotes.slice(0, 5).map((q) => ({ text: q.text, app: q.app, rating: q.rating })),
+        },
+  }));
+
   // Lock background scroll (iOS-safe: overflow:hidden alone leaks on Safari, so
   // pin the body in place and restore the scroll position on close) + close on Esc.
   useEffect(() => {
@@ -127,57 +149,36 @@ export default function SegmentExplorer({
 
   return (
     <>
-      {/* ── OPPORTUNITIES — editorial list → idea modal (hidden when locked; the
-            unified CategoryOffer card on the page covers it) ── */}
-      {opps.length > 0 && !ideasLocked && (
+      {/* ── OPPORTUNITIES — our swipe carousel; previews are always browsable,
+            opening a locked breakdown raises the category offer ── */}
+      {opps.length > 0 && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
-          <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
-          {ideasLocked ? (
-            <DeckPile
-              title={ru ? `${opps.length} идей под спрос` : `${opps.length} demand-backed ideas`}
-              subtitle={ru ? "Каждую люди просят сами. Внутри по каждой — что строить, для кого и как на этом заработать, с цитатами из отзывов." : "Each one users ask for themselves. Inside — what to build, for whom and how to monetize, with review quotes."}
-              button={
-                <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
-              }
-            />
-          ) : (
-            <>
+            <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
             <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">
               {opps.length} {ru ? wordOpp(opps.length) : "opportunities"}
             </h2>
             <p className="mt-5 max-w-[56ch] text-[17px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-[18px]">
               {ru ? "Идеи, которые пользователи просят сами — каждая под подтверждённый спрос." : "Ideas users ask for themselves — each backed by proven demand."}
             </p>
-            <div className="deck-grid mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {opps.map((op, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setActive({ kind: "idea", i })}
-                  style={{ animationDelay: `${Math.min(i, 8) * 55}ms` }}
-                  className="deck-card group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
-                >
-                  <div className="flex w-full items-center justify-between">
-                    <span className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{ru ? `Идея ${`0${i + 1}`}` : `Idea ${`0${i + 1}`}`}</span>
-                    <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]" title={ru ? `спрос: ${op.demand} наблюдений` : `demand: ${op.demand} observations`}>
-                      <MessageIcon size={13} /> {op.demand}
-                    </span>
-                  </div>
-                  <span className="mt-3.5 block text-[19px] font-bold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{op.regen?.title || op.title}</span>
-                  <span className="mt-2 line-clamp-3 block text-[14px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[15px]">{op.regen?.tagline || op.oneLiner}</span>
-                  <span className="mt-4 inline-flex items-center gap-1 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Разобрать" : "Open"}</span>
-                </button>
-              ))}
+            <div className="mt-10">
+              <IdeaFeed
+                items={feedItems}
+                dailySlug={null}
+                fullDeck={false}
+                hasAccess={!ideasLocked}
+                loggedIn={loggedIn}
+                deckPrice={price}
+                locale={locale}
+                onLockedOpen={() => setActive({ kind: "offer" })}
+              />
             </div>
-            </>
-          )}
           </section>
         </Reveal>
       )}
 
-      {/* ── COMPETITORS — synthesis + clean list → app modal (hidden when locked) ── */}
-      {apps.length > 0 && !appsLocked && (
+      {/* ── COMPETITORS — synthesis + clean list → app modal; locked shows the pile ── */}
+      {apps.length > 0 && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
@@ -245,7 +246,7 @@ export default function SegmentExplorer({
           <div className="modal-panel relative z-10 flex max-h-[90vh] w-full max-w-[600px] flex-col overflow-hidden rounded-t-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[28px]">
             <div className="flex shrink-0 items-center justify-between gap-3 px-6 pt-5">
               <span className="text-[13px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">
-                {active.kind === "idea" ? (ru ? `Возможность ${active.i + 1}` : `Opportunity ${active.i + 1}`) : ru ? "Приложение" : "App"}
+                {active.kind === "idea" ? (ru ? `Возможность ${active.i + 1}` : `Opportunity ${active.i + 1}`) : active.kind === "app" ? (ru ? "Приложение" : "App") : (ru ? "Разбор категории" : "Category")}
               </span>
               <button type="button" onClick={() => setActive(null)} className="-mr-1 flex size-9 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
@@ -387,6 +388,15 @@ export default function SegmentExplorer({
                   </div>
                 );
               })()}
+
+              {/* OFFER — raised when a locked idea breakdown is opened */}
+              {active.kind === "offer" && (
+                <div className="flex flex-col gap-6">
+                  <h2 className="text-[26px] font-semibold leading-[1.12] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? `Откройте разбор ниши «${categoryName}»` : `Open the “${categoryName}” breakdown`}</h2>
+                  <p className="text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? "Внутри по каждой идее — почему это шанс, что строить, фичи, монетизация и доказательства из отзывов. Плюс разбор всех конкурентов ниши." : "Inside every idea — the gap, what to build, features, monetization and review evidence. Plus the full competitor teardown."}</p>
+                  <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
+                </div>
+              )}
             </div>
           </div>
         </div>,

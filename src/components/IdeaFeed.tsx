@@ -27,10 +27,14 @@ const CARD_H = "h-[clamp(400px,52dvh,452px)]";
 
 export default function IdeaFeed({
   items, dailySlug, hasAccess, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice, intro,
+  fullDeck = true, onLockedOpen,
 }: {
   items: FeedIdea[]; dailySlug: string | null; hasAccess: boolean; locale?: Locale; loggedIn: boolean; deckPrice: number;
   starsHref?: string; starsLabel?: string; lifetimeStarsHref?: string; lifetimePrice?: number;
   intro?: { title: string; sub: string };
+  // Embedded (category) mode: no 10/14 deck gates — show every item as a
+  // browsable preview; opening a locked breakdown calls onLockedOpen.
+  fullDeck?: boolean; onLockedOpen?: () => void;
 }) {
   const ru = locale !== "en";
 
@@ -46,6 +50,8 @@ export default function IdeaFeed({
   // card until logged in; once logged in they browse 14 then can't pass the unlock
   // card until paid; with access the full deck opens.
   const cards = useMemo<FeedCard[]>(() => {
+    // Embedded mode: every item is a browsable card, no deck interstitials.
+    if (!fullDeck) return [...order];
     const base: FeedCard[] = hasAccess
       ? [...order]
       : !loggedIn
@@ -55,7 +61,7 @@ export default function IdeaFeed({
     // with a card on each side — no empty space on the left.
     if (intro && base.length > 1) base.splice(1, 0, { kind: "intro" });
     return base;
-  }, [order, loggedIn, hasAccess, intro]);
+  }, [order, loggedIn, hasAccess, intro, fullDeck]);
 
   const [idx, setIdx] = useState(intro ? 1 : 0);
   const [dragX, setDragX] = useState(0);
@@ -99,6 +105,7 @@ export default function IdeaFeed({
   }
   function openDepth() {
     if (curIdea?.depth) { setModal(true); return; }
+    if (onLockedOpen) { onLockedOpen(); return; }
     if (!loggedIn) setAuth(true); else setPaywall(true);
   }
 
