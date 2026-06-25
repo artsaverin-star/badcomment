@@ -163,7 +163,10 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
-              <span className="leading-none text-[var(--color-text-brand)]" aria-hidden>✦</span>
+              <svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="shrink-0 text-[var(--color-text-brand)]">
+                <path d="M9.4 2.1c.5 3.6 1.3 4.4 4.9 4.9-3.6.5-4.4 1.3-4.9 4.9-.5-3.6-1.3-4.4-4.9-4.9 3.6-.5 4.4-1.3 4.9-4.9Z" />
+                <path d="M15.2 11.4c.26 1.5.66 1.9 2.16 2.16-1.5.26-1.9.66-2.16 2.16-.26-1.5-.66-1.9-2.16-2.16 1.5-.26 1.9-.66 2.16-2.16Z" />
+              </svg>
               <span className="flex min-w-0 flex-col">
                 <span>{ru ? "Доступ" : "Access"}</span>
                 <span className="text-caption text-[var(--color-text-tertiary)]">
@@ -178,8 +181,8 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
-              <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
-                <path d="M4 4.5h8a1.5 1.5 0 0 1 1.5 1.5v10l-3-2-3 2V6A1.5 1.5 0 0 1 9 4.5M14 6.5h2a0 0 0 0 1 0 0v9.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
+                <path d="M5 2.5h10A1.5 1.5 0 0 1 16.5 4v13.1a.65.65 0 0 1-.99.55L10 14.4l-5.51 3.25a.65.65 0 0 1-.99-.55V4A1.5 1.5 0 0 1 5 2.5Z" />
               </svg>
               {ru ? "Купленное" : "Library"}
             </Link>
@@ -188,8 +191,8 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               onClick={() => setMenu(false)}
               className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
-                <path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
+                <path d="M12 21s-7-4.35-9.5-8.5C1 9 2.5 5.5 6 5.5c2 0 3.2 1.2 4 2.3.8-1.1 2-2.3 4-2.3 3.5 0 5 3.5 3.5 7C19 16.65 12 21 12 21z" />
               </svg>
               {ru ? "Избранное" : "Saved"}
             </Link>
@@ -199,8 +202,8 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
                 onClick={() => setMenu(false)}
                 className="flex items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
               >
-                <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
-                  <path d="M10 2.5 3 5.2v4.3c0 3.4 2.7 6.5 7 8 4.3-1.5 7-4.6 7-8V5.2L10 2.5Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+                <svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
+                  <path d="M10 2.5 3 5.2v4.3c0 3.4 2.7 6.5 7 8 4.3-1.5 7-4.6 7-8V5.2L10 2.5Z" />
                 </svg>
                 {ru ? "Админка" : "Admin"}
               </Link>
@@ -210,8 +213,9 @@ export default function AuthButton({ compact = false, locale = "ru" }: { compact
               onClick={logout}
               className="flex w-full items-center gap-2.5 rounded-[var(--radius-lg)] px-3 py-2.5 text-left text-callout text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card-subtle)]"
             >
-              <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)]">
-                <path d="M8 17H4.5A1.5 1.5 0 0 1 3 15.5v-11A1.5 1.5 0 0 1 4.5 3H8M13 14l4-4-4-4M17 10H8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="17" height="17" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)]">
+                <path d="M4.5 2.5h4.2a1 1 0 0 1 1 1 .8.8 0 0 1-.8.8H6.2a1.2 1.2 0 0 0-1.2 1.2v9a1.2 1.2 0 0 0 1.2 1.2h2.7a.8.8 0 0 1 .8.8 1 1 0 0 1-1 1H4.5A1.5 1.5 0 0 1 3 16.5v-12.5A1.5 1.5 0 0 1 4.5 2.5Z" />
+                <path d="M13.4 6.2 16.8 9.5a.7.7 0 0 1 0 1l-3.4 3.3a.7.7 0 0 1-1.2-.5v-1.9H8.6a.8.8 0 0 1 0-1.6h3.6V6.7a.7.7 0 0 1 1.2-.5Z" />
               </svg>
               {ru ? "Выйти" : "Log out"}
             </button>
