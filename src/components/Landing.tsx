@@ -83,7 +83,7 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
       href={`/segment/${c.slug}`}
       className="group flex h-full transform-gpu flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[0_22px_50px_-22px_rgba(0,0,0,0.28)] sm:p-9"
     >
-      <p className="text-[12px] font-medium uppercase tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
+      <p className="text-[12px] font-medium tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
       <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
       {icons.length > 0 && (
         <div className="mt-6 flex flex-wrap items-center gap-2">

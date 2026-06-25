@@ -20,7 +20,7 @@ export type VariantMeta = {
 function Metrics({ m }: { m: VariantMeta }) {
   const cell = (label: string, value: string) => (
     <div className="flex flex-col gap-0.5">
-      <span className="text-[11px] uppercase tracking-wide text-[var(--color-text-tertiary)]">{label}</span>
+      <span className="text-[11px] tracking-wide text-[var(--color-text-tertiary)]">{label}</span>
       <span className="text-[15px] font-semibold tabular-nums text-[var(--color-text-primary)]">{value}</span>
     </div>
   );

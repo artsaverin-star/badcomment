@@ -160,7 +160,7 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
           </svg>
           {ru ? "К разбору" : "To the breakdown"}
         </Link>
-        <span className="text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "тест" : "test"}</span>
+        <span className="text-caption tracking-wide text-[var(--color-text-tertiary)]">{ru ? "тест" : "test"}</span>
       </div>
 
       <h1 className="mb-1 text-center text-[26px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{name}</h1>

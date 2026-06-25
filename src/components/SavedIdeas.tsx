@@ -49,7 +49,7 @@ export default function SavedIdeas({ locale = "ru" }: { locale?: Locale }) {
         <div key={s.slug} className="flex items-start gap-3 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4">
           <Link href={`/segment/${s.category}`} className="min-w-0 flex-1">
             <div className="flex items-center justify-between gap-2">
-              <span className="line-clamp-1 text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{s.categoryName}</span>
+              <span className="line-clamp-1 text-[11px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{s.categoryName}</span>
               <span className="inline-flex shrink-0 items-center gap-1 text-[11px] font-semibold tabular-nums text-[var(--color-text-tertiary)]"><MessageIcon size={12} /> {s.demand}</span>
             </div>
             <div className="mt-1.5 text-[16px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</div>

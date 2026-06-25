@@ -68,7 +68,7 @@ function Quotes({ list, n = 3 }: { list: ExpQuote[]; n?: number }) {
   );
 }
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{children}</div>;
+  return <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{children}</div>;
 }
 
 export default function SegmentExplorer({
@@ -246,7 +246,7 @@ export default function SegmentExplorer({
           <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setActive(null)} className="modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-md" />
           <div className="modal-panel relative z-10 flex max-h-[90vh] w-full max-w-[600px] flex-col overflow-hidden rounded-t-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[28px]">
             <div className="flex shrink-0 items-center justify-between gap-3 px-6 pt-5">
-              <span className="text-[13px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">
+              <span className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">
                 {active.kind === "idea" ? (ru ? `Возможность ${active.i + 1}` : `Opportunity ${active.i + 1}`) : active.kind === "app" ? (ru ? "Приложение" : "App") : (ru ? "Разбор категории" : "Category")}
               </span>
               <button type="button" onClick={() => setActive(null)} className="-mr-1 flex size-9 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
@@ -281,18 +281,18 @@ export default function SegmentExplorer({
                     {r && <p className="mt-4 text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]"><span className="text-[var(--color-text-secondary)]">Для кого — </span>{r.forWhom}</p>}
 
                     <div className="mt-8 border-l border-[var(--color-border-strong)] pl-5">
-                      <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Почему это шанс" : "Why it's an opening"}</div>
+                      <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Почему это шанс" : "Why it's an opening"}</div>
                       <p className="mt-2.5 text-[16px] leading-[1.65] text-[var(--color-text-primary)]">{r?.wedge || op.gap}</p>
                     </div>
 
                     <div className="mt-8 flex flex-col gap-7">
                       <div>
-                        <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</div>
+                        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</div>
                         <p className="mt-2.5 text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">{r?.build || op.pitch}</p>
                       </div>
                       {(r?.features || op.features).length > 0 && (
                         <div>
-                          <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
                           <ul className="mt-3 flex flex-col gap-2.5">
                             {(r?.features || op.features).map((f, j) => (
                               <li key={j} className="flex gap-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">
@@ -305,13 +305,13 @@ export default function SegmentExplorer({
                       )}
                       {(r?.monetization || op.monetization) && (
                         <div>
-                          <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Монетизация" : "Monetize"}</div>
+                          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Монетизация" : "Monetize"}</div>
                           <p className="mt-2.5 text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">{r?.monetization || op.monetization}</p>
                         </div>
                       )}
                       {op.gapApps.length > 0 && (
                         <div>
-                          <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Где видно" : "Where"}</div>
+                          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Где видно" : "Where"}</div>
                           <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">{op.gapApps.join("  ·  ")}</p>
                         </div>
                       )}
@@ -319,7 +319,7 @@ export default function SegmentExplorer({
 
                     {op.quotes.length > 0 && (
                       <div className="mt-8 border-t border-[var(--color-border-subtle)] pt-7">
-                        <div className="mb-4 text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Доказательства" : "Evidence"}</div>
+                        <div className="mb-4 text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Доказательства" : "Evidence"}</div>
                         <Quotes list={op.quotes} n={6} />
                       </div>
                     )}
@@ -360,7 +360,7 @@ export default function SegmentExplorer({
                           .map((g) => (
                             <div key={g.key} className="mb-8 last:mb-0">
                               <div className="flex items-baseline gap-2.5">
-                                <span className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{g.label}</span>
+                                <span className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{g.label}</span>
                                 <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{g.items.length}</span>
                               </div>
                               <div className="mt-3 border-t border-[var(--color-border-subtle)]">

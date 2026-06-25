@@ -405,7 +405,7 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
   return (
     <Frame glow="var(--color-text-brand)">
       <div className="relative mb-2">
-        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-secondary)]">
+        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[var(--color-text-secondary)]">
           {ru ? "Оценки" : "Ratings"}
         </span>
       </div>
@@ -463,7 +463,7 @@ function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
       <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />
       <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
       <div className="relative z-10 flex items-center justify-between gap-2 p-5">
-        <span className="inline-flex rounded-full bg-black/40 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+        <span className="inline-flex rounded-full bg-black/40 px-2.5 py-1 text-[11px] font-bold tracking-wide text-white backdrop-blur-sm">
           {ru ? "Экран" : "Screen"}
         </span>
         <span className="truncate text-caption font-medium text-white/85">{s.name}</span>
@@ -494,7 +494,7 @@ function Chapter({ s, ru }: { s: ChapterSlide; ru: boolean }) {
         <span className="absolute inset-0" style={{ background: "radial-gradient(60% 50% at 50% 50%, var(--color-surface-card) 30%, transparent 100%)" }} />
       </div>
       <div className="relative flex flex-1 flex-col justify-center gap-5">
-        <span className="text-caption font-bold uppercase tracking-[0.14em] text-[var(--color-text-brand)]">
+        <span className="text-caption font-bold tracking-[0.02em] text-[var(--color-text-brand)]">
           {(ru ? "Глава " : "Chapter ") + s.index} · {s.total}
         </span>
         <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[34px]">{s.heading}</h2>
@@ -539,7 +539,7 @@ function ReviewsDialog({
       <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
         <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
           <span className="flex min-w-0 flex-col gap-1">
-            <span className="w-fit rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
+            <span className="w-fit rounded-full px-2 py-0.5 text-[10px] font-bold tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
               {kicker}
             </span>
             <span className="text-lead font-semibold leading-snug">{title}</span>
@@ -590,7 +590,7 @@ function IdeaCard({ s, ru }: { s: IdeaSlide; ru: boolean }) {
   return (
     <Frame glow={glow}>
       <div className="relative mb-4 flex items-center justify-between gap-2">
-        <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
+        <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
           {ru ? "Идея" : "Idea"}
         </span>
         <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
@@ -603,7 +603,7 @@ function IdeaCard({ s, ru }: { s: IdeaSlide; ru: boolean }) {
         <p className="line-clamp-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{s.oneLiner}</p>
         {s.pitch && (
           <div className="flex flex-col gap-1.5">
-            <span className="text-caption font-semibold uppercase tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</span>
+            <span className="text-caption font-semibold tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</span>
             <p className="line-clamp-4 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{s.pitch}</p>
           </div>
         )}
@@ -651,7 +651,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
 
   const toneTag = (
     <span
-      className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide"
+      className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide"
       style={{ background: `color-mix(in srgb, ${tone.glow} 18%, transparent)`, color: tone.glow }}
     >
       {s.kicker || tone.label[ru ? "ru" : "en"]}

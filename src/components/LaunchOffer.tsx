@@ -80,7 +80,7 @@ export default function LaunchOffer({
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[var(--color-text-brand)]">{ru ? "В честь запуска" : "Launch offer"}</div>
+                <div className="text-[12px] font-semibold tracking-[0.02em] text-[var(--color-text-brand)]">{ru ? "В честь запуска" : "Launch offer"}</div>
                 <div className="mt-1.5 text-[24px] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)]">{ru ? "Стать другом проекта" : "Become a friend of the project"}</div>
               </div>
               <button type="button" onClick={() => setOpen(false)} className="shrink-0 rounded-full p-1 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>

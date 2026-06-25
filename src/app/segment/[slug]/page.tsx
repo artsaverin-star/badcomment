@@ -29,7 +29,7 @@ import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type Exp
 function PillarFull({ p, label }: { p: ExpPillar; label: string }) {
   return (
     <div>
-      <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{label}</div>
       <h3 className="mt-4 text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[34px]">{tg(p.title)}</h3>
       <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
       {p.findings.length > 0 && (
@@ -390,7 +390,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       {/* HERO */}
       <header className="ld-fade mt-12">
-        <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши" : "Niche research"}</div>
+        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши" : "Niche research"}</div>
         <h1 className="glow-sweep mt-6 text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-[var(--color-text-primary)] text-balance">{cat.name}</h1>
         {thesis ? (
           <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
@@ -413,7 +413,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       {pillars.length > 0 && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
-            <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Главное" : "Key findings"}</div>
+            <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Главное" : "Key findings"}</div>
             <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">{ru ? "Три вывода" : "Three findings"}</h2>
 
             <div className="mt-12 flex flex-col gap-12 sm:gap-16">

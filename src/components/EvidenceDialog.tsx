@@ -70,7 +70,7 @@ function FilterRow({
   if (options.length < 2) return null;
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">{label}</span>
+      <span className="text-[11px] font-medium tracking-wide text-[var(--color-text-tertiary)]">{label}</span>
       <div className="flex flex-wrap gap-1.5">
         <Chip active={selected === null} onClick={() => onSelect(null)}>
           {allLabel}
@@ -267,7 +267,7 @@ export default function EvidenceDialog({
 
       {apps && apps.length > 0 && (
         <div className="flex flex-col gap-3">
-          <span className="text-[11px] font-medium uppercase tracking-wide text-[var(--color-text-tertiary)]">
+          <span className="text-[11px] font-medium tracking-wide text-[var(--color-text-tertiary)]">
             {appsBreakdownLabel}
           </span>
           {apps.map((a) => (

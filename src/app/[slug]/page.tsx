@@ -205,7 +205,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
         href={`/segment/${ctx.catSlug}`}
         className="mt-12 flex flex-col gap-1 rounded-[20px] border border-[var(--color-border-strong)] bg-[var(--color-surface-card)] p-6 transition-colors hover:border-[var(--color-text-brand)]"
       >
-        <span className="text-[13px] font-medium uppercase tracking-[0.06em] text-[var(--color-text-brand)]">{ru ? "Вся ниша" : "The whole niche"}</span>
+        <span className="text-[13px] font-medium tracking-[0.06em] text-[var(--color-text-brand)]">{ru ? "Вся ниша" : "The whole niche"}</span>
         <span className="text-[21px] font-semibold leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[24px]">
           {ru ? `${ctx.catName}: что построить и где дыры конкурентов` : `${ctx.catName}: what to build and where rivals fall short`}
         </span>

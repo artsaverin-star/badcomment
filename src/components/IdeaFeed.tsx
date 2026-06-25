@@ -281,7 +281,7 @@ export default function IdeaFeed({
             </button>
             <div className="overflow-y-auto overscroll-contain px-7 py-10 sm:px-12 sm:py-12">
               {/* eyebrow + title block */}
-              <div className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-text-tertiary)]">{curIdea.categoryName}</div>
+              <div className="text-[11px] font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">{curIdea.categoryName}</div>
               <h2 className="mt-4 max-w-[18ch] text-[30px] font-bold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{curIdea.title}</h2>
               <p className="mt-5 max-w-[42ch] text-[18px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[20px]">{curIdea.oneLiner}</p>
               <div className="mt-5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{curIdea.demand} {ru ? wordObs(curIdea.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
@@ -291,7 +291,7 @@ export default function IdeaFeed({
                 {curIdea.depth.pitch && <Sw label={ru ? "Что строить" : "What to build"} text={curIdea.depth.pitch} />}
                 {curIdea.depth.features.length > 0 && (
                   <div>
-                    <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                    <div className="text-[12px] font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
                     <ul className="mt-4 flex flex-col">
                       {curIdea.depth.features.map((f, j) => (
                         <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
@@ -305,7 +305,7 @@ export default function IdeaFeed({
                     {curIdea.depth.quotes.map((q, j) => (
                       <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-5">
                         <blockquote className="text-[16px] leading-[1.55] text-[var(--color-text-primary)]">{q.text}</blockquote>
-                        <figcaption className="mt-2 text-[11px] uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
+                        <figcaption className="mt-2 text-[11px] tracking-[0.02em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
                       </figure>
                     ))}
                   </div>
@@ -364,7 +364,7 @@ function Ruba() {
 function Sw({ label, text }: { label: string; text: string }) {
   return (
     <div>
-      <div className="text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="text-[12px] font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">{label}</div>
       <p className="mt-3 text-[16.5px] leading-[1.6] text-[var(--color-text-secondary)]">{text}</p>
     </div>
   );

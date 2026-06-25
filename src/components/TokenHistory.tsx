@@ -110,7 +110,7 @@ export default function TokenHistory({ userId, name, display }: { userId: string
                 <>
                   {rows.length > 0 && (
                     <>
-                      <div className="px-3 pb-1 pt-2 text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">Операции</div>
+                      <div className="px-3 pb-1 pt-2 text-caption tracking-wide text-[var(--color-text-tertiary)]">Операции</div>
                       {rows.map((r) => {
                         const { icon, label } = describe(r);
                         return (
@@ -127,7 +127,7 @@ export default function TokenHistory({ userId, name, display }: { userId: string
                     </>
                   )}
 
-                  <div className="px-3 pb-1 pt-3 text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">Открытые страницы</div>
+                  <div className="px-3 pb-1 pt-3 text-caption tracking-wide text-[var(--color-text-tertiary)]">Открытые страницы</div>
                   {pages.length === 0 ? (
                     <p className="px-3 py-4 text-caption text-[var(--color-text-tertiary)]">Пока нет.</p>
                   ) : (

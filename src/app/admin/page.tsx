@@ -100,7 +100,7 @@ export default async function AdminPage() {
 
       <div className="mt-6 overflow-x-auto rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)]">
         <table className="w-full text-left">
-          <thead className="bg-[var(--color-bg-muted)] text-caption uppercase tracking-wide text-[var(--color-text-tertiary)]">
+          <thead className="bg-[var(--color-bg-muted)] text-caption tracking-wide text-[var(--color-text-tertiary)]">
             <tr>
               <th className="px-4 py-2.5 font-semibold">Пользователь</th>
               <th className="px-4 py-2.5 font-semibold">Активность</th>

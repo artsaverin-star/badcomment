@@ -77,7 +77,7 @@ function LockedIdeaCard({ idea, ru }: { idea: IdeaCard; ru: boolean }) {
       <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 55%, color-mix(in srgb, var(--color-bg-page) 45%, transparent), transparent 72%)" }} />
 
       <div className="relative z-10 flex flex-1 flex-col gap-2 p-5">
-        <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+        <span className="flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.06em] text-[var(--color-text-tertiary)]">
           <DomainIcon slug={idea.domain} />
           {idea.categoryName}
         </span>
@@ -161,7 +161,7 @@ export default function IdeasBrowser({
               <LockedIdeaCard key={idea.slug} idea={idea} ru={ru} />
             ) : (
               <Link key={idea.slug} href={`/ideas/${idea.slug}`} className="flex flex-col gap-2 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors hover:border-[var(--color-border-strong)]">
-                <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+                <span className="flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.06em] text-[var(--color-text-tertiary)]">
                   <DomainIcon slug={idea.domain} />
                   {idea.categoryName}
                 </span>

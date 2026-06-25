@@ -222,9 +222,9 @@ export default function CardDeck({
                       <div className="flex items-center justify-between">
                         <span className="inline-flex items-center gap-1 text-[11px] font-bold tabular-nums text-[var(--color-text-brand)]"><MessageIcon size={11} /> {s.card.demand}</span>
                       </div>
-                      <div className="mt-1 line-clamp-2 text-[10px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{s.card.categoryName}</div>
+                      <div className="mt-1 line-clamp-2 text-[10px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{s.card.categoryName}</div>
                       <div className="mt-auto text-[16px] font-black leading-[1.12] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[19px]">{shortName(s.card.title)}</div>
-                      <div className="mt-2.5 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-text-brand)]">{ru ? "Тап — разбор" : "Tap — open"}</div>
+                      <div className="mt-2.5 text-[10px] font-semibold tracking-wide text-[var(--color-text-brand)]">{ru ? "Тап — разбор" : "Tap — open"}</div>
                     </>
                   )}
                 </div>
@@ -295,7 +295,7 @@ export default function CardDeck({
       {/* ── opened cards collect below, landing-style ── */}
       {collection.length > 0 && (
         <div className="mt-16 w-full border-t border-[var(--color-border-subtle)] pt-12">
-          <div className="text-center text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
+          <div className="text-center text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">
             {ru ? `Твои идеи · ${collection.length}` : `Your ideas · ${collection.length}`}
           </div>
           <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -307,7 +307,7 @@ export default function CardDeck({
                 className="deck-card group flex flex-col items-start rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 text-left transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
               >
                 <div className="flex w-full items-center justify-between gap-2">
-                  <span className="line-clamp-1 text-[12px] font-medium uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{c.categoryName}</span>
+                  <span className="line-clamp-1 text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{c.categoryName}</span>
                   <span className="inline-flex shrink-0 items-center gap-1.5 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]"><MessageIcon size={13} /> {c.demand}</span>
                 </div>
                 <span className="mt-3 block text-[19px] font-bold leading-[1.18] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[20px]">{c.title}</span>
@@ -329,7 +329,7 @@ export default function CardDeck({
             <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setModal(null)} className="modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-md" />
             <div className="modal-panel relative z-10 flex max-h-[90vh] w-full max-w-[600px] flex-col overflow-hidden rounded-t-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[28px]">
               <div className="flex shrink-0 items-center justify-between gap-3 px-6 pt-5">
-                <Link href={`/segment/${modal.category}`} className="text-[13px] font-medium uppercase tracking-[0.2em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{modal.categoryName}</Link>
+                <Link href={`/segment/${modal.category}`} className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{modal.categoryName}</Link>
                 <button type="button" onClick={() => setModal(null)} className="-mr-1 flex size-9 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
                 </button>
@@ -344,7 +344,7 @@ export default function CardDeck({
                     {modal.pitch && <Section label={ru ? "Что строить" : "What to build"} text={modal.pitch} />}
                     {modal.features.length > 0 && (
                       <div>
-                        <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
                         <ul className="mt-3 flex flex-col gap-2.5">
                           {modal.features.map((f, j) => (
                             <li key={j} className="flex gap-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]"><span className="select-none text-[var(--color-text-tertiary)]">—</span><span>{f}</span></li>
@@ -375,7 +375,7 @@ export default function CardDeck({
 function Section({ label, text, strong }: { label: string; text: string; strong?: boolean }) {
   return (
     <div className={strong ? "border-l border-[var(--color-border-strong)] pl-5" : undefined}>
-      <div className="text-[13px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{label}</div>
       <p className={`mt-2.5 text-[16px] leading-[1.65] ${strong ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-secondary)]"}`}>{text}</p>
     </div>
   );

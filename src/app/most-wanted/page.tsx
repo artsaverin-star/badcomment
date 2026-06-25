@@ -145,7 +145,7 @@ export default async function MostWantedPage() {
 
   const para = "mt-5 max-w-[64ch] text-[17px] leading-[1.75] text-[var(--color-text-secondary)] sm:text-[18px]";
   const buildCls = "mt-5 max-w-[64ch] text-[17px] leading-[1.75] text-[var(--color-text-primary)] sm:text-[18px]";
-  const eyebrowCls = "text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-brand)]";
+  const eyebrowCls = "text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-brand)]";
   const h2 = "mt-3 text-[26px] font-black leading-[1.14] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[33px]";
 
   const graph = { "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: ru ? "Почему скучные приложения побеждают умные" : "Why boring apps beat the smart ones", inLanguage: ru ? "ru" : "en", author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" }, publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" } }] };
@@ -157,7 +157,7 @@ export default async function MostWantedPage() {
 
       {/* HERO */}
       <header>
-        <div className="text-[13px] font-medium uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">{ru ? "Разбор рынка по отзывам" : "A market read from reviews"}</div>
+        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Разбор рынка по отзывам" : "A market read from reviews"}</div>
         <h1 className="glow-sweep mt-6 max-w-[20ch] text-[clamp(30px,7.4vw,54px)] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
           {ru ? "Почему скучные приложения побеждают умные" : "Why boring apps beat the smart ones"}
         </h1>
@@ -189,7 +189,7 @@ export default async function MostWantedPage() {
                     ))}
                   </div>
                 )}
-                <div className="flex items-baseline gap-3 text-[12px] font-medium uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+                <div className="flex items-baseline gap-3 text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">
                   <span className="text-[var(--color-text-brand)]">{`0${i + 1}`.slice(-2)}</span>
                   <span>{ins.eyebrow}</span>
                 </div>

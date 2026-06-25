@@ -55,7 +55,7 @@ export default function SegmentSummaryView({
     <section className={embedded ? "" : "mt-14 border-t border-[var(--color-border-subtle)] pt-10"}>
       <div className="mx-auto max-w-[760px]">
         <div className="mb-6 text-center">
-          <p className="text-caption font-semibold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
+          <p className="text-caption font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">
             {ru ? "Инсайты категории" : "Category insights"}
           </p>
           <p className="mt-2 text-caption text-[var(--color-text-tertiary)]">

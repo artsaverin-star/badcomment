@@ -49,7 +49,7 @@ export default function CategoryOffer({
       <div className="flex flex-col divide-y divide-[var(--color-border-subtle)]">
         {sections.map((s, i) => (
           <div key={i} className={i === 0 ? "pb-6" : "py-6 last:pb-0"}>
-            <div className="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--color-text-brand)]">{s.eyebrow}</div>
+            <div className="text-[12px] font-semibold tracking-[0.02em] text-[var(--color-text-brand)]">{s.eyebrow}</div>
             <div className="mt-2 text-[21px] font-black tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[24px]">{s.title}</div>
             <p className="mt-2 max-w-[56ch] text-[14.5px] leading-relaxed text-[var(--color-text-secondary)]">{s.sub}</p>
           </div>
