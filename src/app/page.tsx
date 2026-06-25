@@ -1,6 +1,10 @@
 import { getLocale } from "@/lib/i18n.server";
 import { isPremium } from "@/lib/premium";
 import { getSessionUser } from "@/lib/session";
+import { getAccess } from "@/lib/access";
+import { ownsDeck } from "@/lib/unlocks";
+import { buildFeed } from "@/lib/ideaFeed";
+import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
 import { getCatalogData } from "@/lib/catalogData";
 import { listIdeas } from "@/lib/ideas";
 import { PREMIUM_NICHES } from "@/lib/premiumNiches";
@@ -44,6 +48,22 @@ export default async function Home() {
   const premium = await isPremium();
   const loggedIn = !!(await getSessionUser());
   const { domains, totalReviews } = getCatalogData(locale, premium);
+
+  // Idea feed embedded on the landing — same gating as /cards.
+  const access = await getAccess();
+  const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
+  const { items: feedItems } = buildFeed(locale, owner);
+  const bot = process.env.BOT_USERNAME || "inAppProBot";
+  const feed = {
+    items: feedItems,
+    hasAccess: owner,
+    loggedIn: access.loggedIn,
+    deckPrice: DECK_PRICE_RUB,
+    starsHref: access.user ? `https://t.me/${bot}?start=deck_${access.user.id}` : undefined,
+    starsLabel: `${DECK_STARS} ⭐ Telegram`,
+    lifetimeStarsHref: access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined,
+    lifetimePrice: LIFETIME.rub,
+  };
 
   // Beautiful per-category cover cards (salute + selling copy) for live cats.
   const catCards = domains
@@ -110,7 +130,7 @@ export default async function Home() {
     <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }} />
-      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} />
+      <Landing catCards={catCards} locale={locale} totalReviews={totalReviews} loggedIn={loggedIn} feed={feed} />
     </main>
   );
 }

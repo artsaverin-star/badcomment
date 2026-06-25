@@ -3,7 +3,20 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
+import IdeaFeed from "./IdeaFeed";
 import type { Locale } from "@/lib/i18n";
+import type { FeedIdea } from "@/lib/ideaFeed";
+
+export type LandingFeed = {
+  items: FeedIdea[];
+  hasAccess: boolean;
+  loggedIn: boolean;
+  deckPrice: number;
+  starsHref?: string;
+  starsLabel?: string;
+  lifetimeStarsHref?: string;
+  lifetimePrice?: number;
+};
 
 export type CatCard = {
   slug: string;
@@ -149,11 +162,13 @@ export default function Landing({
   catCards = [],
   locale = "ru",
   totalReviews = 0,
+  feed,
 }: {
   catCards?: CatCard[];
   locale?: Locale;
   totalReviews?: number;
   loggedIn?: boolean;
+  feed?: LandingFeed;
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
@@ -236,21 +251,28 @@ export default function Landing({
         </div>
       </section>
 
-      {/* Single feature door: the idea feed (category breakdowns are the gallery
-          below). A periodic glow shimmer draws the eye to the main CTA. */}
-      <section className="mx-auto mt-3 w-full max-w-md px-2 sm:px-4">
-        <Link href="/cards" className="idea-shimmer group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-5 py-5 transition-[border-color] duration-200 hover:border-[var(--color-border-strong)] sm:px-6 sm:py-6">
-          <p className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-text-brand)]">{ru ? "Лента идей" : "Idea feed"}</p>
-          <h3 className="mt-1.5 text-[19px] font-black leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[22px]">{ru ? "Идеи, которые уже просят" : "Ideas people already want"}</h3>
-          <p className="mt-1.5 text-[13.5px] leading-snug text-[var(--color-text-tertiary)]">{ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews."}</p>
-          <span className="mt-4 inline-flex items-center gap-1 text-[14px] font-semibold text-[var(--color-text-primary)]">
-            {ru ? "Открыть" : "Open"}
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">
-              <path d="m6 4 4 4-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
-        </Link>
-      </section>
+      {/* The idea feed, embedded right here — swipe the validated ideas inline
+          (category breakdowns are the gallery below). */}
+      {feed && feed.items.length > 0 && (
+        <section className="mx-auto mt-4 w-full max-w-3xl px-2 sm:mt-6 sm:px-4">
+          <div className="mb-3 text-center sm:mb-4">
+            <h2 className="text-[clamp(20px,5.5vw,28px)] font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? "Идеи, которые уже просят" : "Ideas people already want"}</h2>
+            <p className="mx-auto mt-1.5 max-w-[40ch] text-[13.5px] text-[var(--color-text-tertiary)]">{ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews."}</p>
+          </div>
+          <IdeaFeed
+            items={feed.items}
+            dailySlug={null}
+            hasAccess={feed.hasAccess}
+            locale={locale}
+            loggedIn={feed.loggedIn}
+            deckPrice={feed.deckPrice}
+            starsHref={feed.starsHref}
+            starsLabel={feed.starsLabel}
+            lifetimeStarsHref={feed.lifetimeStarsHref}
+            lifetimePrice={feed.lifetimePrice}
+          />
+        </section>
+      )}
 
       {/* Gallery — the third block: category breakdowns */}
       {catCards.length > 0 && (
