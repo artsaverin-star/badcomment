@@ -219,7 +219,7 @@ export default function Landing({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-x-clip px-2 pb-12 pt-20 sm:px-4 sm:pt-28">
+      <section className="relative overflow-x-clip px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-16">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           {floats.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
@@ -242,7 +242,7 @@ export default function Landing({
             )}
           </h1>
 
-          <p className="ld-fade mx-auto mt-5 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
+          <p className="ld-fade mx-auto mt-4 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
             {ru
               ? "Разложили всё по нишам, выводам и сразу конкретным идеям — какие приложения людям реально нужны."
               : "Broken down by niche, clear conclusions and concrete ideas — which apps people actually need."}
@@ -254,7 +254,7 @@ export default function Landing({
       {/* The idea feed, embedded right here — swipe the validated ideas inline
           (category breakdowns are the gallery below). */}
       {feed && feed.items.length > 0 && (
-        <section className="mx-auto mt-4 w-full max-w-3xl px-2 sm:mt-6 sm:px-4">
+        <section className="mx-auto mt-1 w-full max-w-3xl px-2 sm:mt-2 sm:px-4">
           <IdeaFeed
             items={feed.items}
             dailySlug={null}
