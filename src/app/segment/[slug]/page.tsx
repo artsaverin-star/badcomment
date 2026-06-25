@@ -184,9 +184,16 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
   const access = await getAccess();
   const { loggedIn } = access;
-  const catLocked = !access.has("category", slug);
-  // Overview: first finding free, the other two open once the category is bought.
-  const overviewUnlocked = !catLocked || access.has("chapter", slug);
+  const ideas = listIdeas().filter((i) => i.category === slug);
+  // Sold as one bundle: unlocking ANYTHING in the niche (incl. legacy per-chapter/
+  // idea/app energy buys) opens the whole category — no granular splitting.
+  const categoryUnlocked =
+    access.has("category", slug) ||
+    access.has("chapter", slug) ||
+    ideas.some((i) => access.has("idea", i.slug)) ||
+    cat.apps.some((a) => { const s = getSlugByProductId(a.productId as string); return s ? access.has("app", s) : false; });
+  const catLocked = !categoryUnlocked;
+  const overviewUnlocked = categoryUnlocked;
 
   // Only premium niches are sellable; the rest show a "in preparation" status.
   const sellable = PREMIUM_NICHE_SET.has(slug);
@@ -199,7 +206,6 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const lifeStarsHref = access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined;
 
   const readyCount = cat.apps.filter((a) => hasInsight(a.productId)).length;
-  const ideas = listIdeas().filter((i) => i.category === slug);
   const catProduct = (categoryCards(slug, locale)?.product ?? []).slice().sort((a, b) => b.count - a.count);
   const totalObs = catProduct.reduce((s, c) => s + c.count, 0);
 
@@ -235,7 +241,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
     const en = ideaContentEn(idea.slug, locale);
     return {
       slug: idea.slug,
-      locked: catLocked && !access.has("idea", idea.slug),
+      locked: catLocked,
       demand: idea.stats.observations,
       regen: regenList.find((o) => o.slug === idea.slug) ?? null,
       title: en?.title || idea.title,
@@ -265,7 +271,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         slug: aslug,
         name: a.name,
         icon: a.icon,
-        locked: catLocked && !(aslug ? access.has("app", aslug) : false),
+        locked: catLocked,
         avg,
         tag: flawTag(hook),
         hook,

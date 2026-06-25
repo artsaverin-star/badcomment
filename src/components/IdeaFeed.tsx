@@ -254,6 +254,19 @@ export default function IdeaFeed({
             );
           })}
 
+          {/* decorative back-card fills the empty side at the deck ends, so there's
+              no gap — the prev/next arrow there is simply disabled. */}
+          {idx === 0 && (
+            <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${-SLOT + dragX}px)`, transition }}>
+              <div className={`relative ${CARD_H}`}><Ruba /></div>
+            </div>
+          )}
+          {idx === total - 1 && curIdea && (
+            <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${SLOT + dragX}px)`, transition }}>
+              <div className={`relative ${CARD_H}`}><Ruba /></div>
+            </div>
+          )}
+
           {/* locked grey peek on the right at a gate — signals "more, but blocked" */}
           {cur && !isIdea(cur) && (
             <div aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${SLOT}px)`, transition }}>
