@@ -207,72 +207,77 @@ export default function Landing({
     return () => cancelAnimationFrame(id);
   }, [catCards]);
 
+  // Edge-only bands (left/right margins) so icons never sit on the centred text
+  // or cards; spread vertically across the hero+feed wrapper.
   const positions = [
-    "left-[3%] top-[6%]", "right-[5%] top-[9%]", "left-[11%] top-[33%]", "right-[8%] top-[30%]",
-    "left-[1%] bottom-[18%]", "right-[2%] bottom-[20%]", "left-[20%] top-[2%]", "right-[22%] bottom-[5%]",
-    "left-[31%] bottom-[1%]", "right-[31%] top-[3%]", "left-[16%] bottom-[3%]", "right-[13%] bottom-[8%]",
-    "left-[41%] top-[0%]", "right-[43%] bottom-[1%]",
+    "left-[2%] top-[5%]", "right-[3%] top-[8%]", "left-[6%] top-[21%]", "right-[7%] top-[19%]",
+    "left-[1%] top-[39%]", "right-[2%] top-[41%]", "left-[5%] top-[57%]", "right-[6%] top-[55%]",
+    "left-[2%] top-[75%]", "right-[3%] top-[78%]", "left-[12%] top-[12%]", "right-[13%] top-[31%]",
+    "left-[10%] top-[65%]", "right-[11%] top-[85%]",
   ];
   const sizes = ["size-10 sm:size-12 lg:size-14", "size-9 sm:size-11 lg:size-12", "size-11 sm:size-14 lg:size-16"];
   const floats = icons.slice(0, positions.length);
 
   return (
     <div className="flex flex-col">
-      {/* Hero */}
-      <section className="relative overflow-x-clip px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-16">
-        <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Hero + feed share one icon field (z-0) so the floating apps spill down
+          past the headline and around the cards; text/cards sit above (z-10). */}
+      <div className="relative overflow-x-clip">
+        <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
           {floats.map((src, i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               key={i}
               src={src}
               alt=""
-              className={`ld-float absolute rounded-[14px] opacity-70 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-80 ${sizes[i % sizes.length]} ${positions[i]} ${positions[i].includes("bottom") ? "hidden sm:block" : "block"}`}
+              className={`ld-float absolute rounded-[14px] opacity-60 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-70 ${sizes[i % sizes.length]} ${positions[i]} ${i >= 4 ? "hidden sm:block" : "block"}`}
               style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
             />
           ))}
         </div>
 
-        <div className="relative mx-auto max-w-3xl text-center">
-          <h1 className="glow-sweep ld-fade text-[clamp(27px,7.4vw,40px)] font-black leading-[1.04] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
-            {ru ? (
-              <>Проанализировали<br /><span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов</>
-            ) : (
-              <>We analyzed <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span><br />app reviews</>
-            )}
-          </h1>
+        {/* Hero */}
+        <section className="relative z-10 px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-16">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="glow-sweep ld-fade text-[clamp(27px,7.4vw,40px)] font-black leading-[1.04] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
+              {ru ? (
+                <>Проанализировали<br /><span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов</>
+              ) : (
+                <>We analyzed <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span><br />app reviews</>
+              )}
+            </h1>
 
-          <p className="ld-fade mx-auto mt-4 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
-            {ru
-              ? "Отзывы из App Store и Google Play — разложили по нишам, выводам и конкретным идеям: какие приложения людям реально нужны."
-              : "Reviews from the App Store and Google Play — broken down by niche, conclusions and concrete ideas: which apps people actually need."}
-          </p>
-
-        </div>
-      </section>
-
-      {/* The idea feed, embedded right here — swipe the validated ideas inline
-          (category breakdowns are the gallery below). */}
-      {feed && feed.items.length > 0 && (
-        <section className="mx-auto mt-1 w-full max-w-3xl px-2 sm:mt-2 sm:px-4">
-          <IdeaFeed
-            items={feed.items}
-            dailySlug={null}
-            hasAccess={feed.hasAccess}
-            locale={locale}
-            loggedIn={feed.loggedIn}
-            deckPrice={feed.deckPrice}
-            starsHref={feed.starsHref}
-            starsLabel={feed.starsLabel}
-            lifetimeStarsHref={feed.lifetimeStarsHref}
-            lifetimePrice={feed.lifetimePrice}
-            intro={{
-              title: ru ? "Идеи, которые уже просят" : "Ideas people already want",
-              sub: ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews.",
-            }}
-          />
+            <p className="ld-fade mx-auto mt-4 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
+              {ru
+                ? "Отзывы из App Store и Google Play — разложили по нишам, выводам и конкретным идеям: какие приложения людям реально нужны."
+                : "Reviews from the App Store and Google Play — broken down by niche, conclusions and concrete ideas: which apps people actually need."}
+            </p>
+          </div>
         </section>
-      )}
+
+        {/* The idea feed, embedded right here — swipe the validated ideas inline. */}
+        {feed && feed.items.length > 0 && (
+          <section className="relative z-10 mx-auto mt-1 w-full max-w-3xl px-2 sm:mt-2 sm:px-4">
+            <IdeaFeed
+              items={feed.items}
+              dailySlug={null}
+              hasAccess={feed.hasAccess}
+              locale={locale}
+              loggedIn={feed.loggedIn}
+              deckPrice={feed.deckPrice}
+              starsHref={feed.starsHref}
+              starsLabel={feed.starsLabel}
+              lifetimeStarsHref={feed.lifetimeStarsHref}
+              lifetimePrice={feed.lifetimePrice}
+              compact
+              intro={{
+                title: ru ? "Идеи, которые уже просят" : "Ideas people already want",
+                sub: ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews.",
+              }}
+            />
+          </section>
+        )}
+      </div>
 
       {/* Gallery — the third block: category breakdowns */}
       {catCards.length > 0 && (

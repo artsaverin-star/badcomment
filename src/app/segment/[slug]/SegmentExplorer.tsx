@@ -166,6 +166,7 @@ export default function SegmentExplorer({
                 items={feedItems}
                 dailySlug={null}
                 fullDeck={false}
+                compact
                 hasAccess={!ideasLocked}
                 loggedIn={loggedIn}
                 deckPrice={price}
