@@ -89,7 +89,7 @@ export default async function RootLayout({
             }),
           }}
         />
-        <Header locale={locale} theme={theme} loggedIn={access.loggedIn} showOffer={!access.unlimited} />
+        <Header locale={locale} loggedIn={access.loggedIn} showOffer={!access.unlimited} />
         <PageTracker />
         {children}
         <Footer locale={locale} />
