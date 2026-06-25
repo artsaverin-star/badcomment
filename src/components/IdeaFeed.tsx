@@ -132,24 +132,15 @@ export default function IdeaFeed({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [total]);
 
-  // Lock background scroll while the breakdown modal is open (iOS-safe pin),
-  // so the embedded feed's modal can't leave the page scrolling underneath.
+  // Lock background scroll while the modal is open — WITHOUT pinning the body
+  // (body{position:fixed} offsets the portalled fixed modal off-screen on a
+  // long, scrolled page like the homepage). Just hide overflow on <html>.
   useEffect(() => {
     if (!modal) return;
-    const body = document.body;
-    const y = window.scrollY;
-    const prev = { position: body.style.position, top: body.style.top, width: body.style.width, overflow: body.style.overflow };
-    body.style.position = "fixed";
-    body.style.top = `-${y}px`;
-    body.style.width = "100%";
-    body.style.overflow = "hidden";
-    return () => {
-      body.style.position = prev.position;
-      body.style.top = prev.top;
-      body.style.width = prev.width;
-      body.style.overflow = prev.overflow;
-      window.scrollTo(0, y);
-    };
+    const html = document.documentElement;
+    const prev = html.style.overflow;
+    html.style.overflow = "hidden";
+    return () => { html.style.overflow = prev; };
   }, [modal]);
 
   if (total === 0) return null;
