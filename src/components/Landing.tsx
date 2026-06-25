@@ -202,9 +202,9 @@ export default function Landing({
 
             <p className="ld-fade mx-auto mt-3.5 max-w-[44ch] text-[15px] leading-[1.45] text-[var(--color-text-secondary)] sm:mt-4 sm:text-[19px] sm:leading-[1.5]" style={{ animationDelay: "0.1s" }}>
               {ru ? (
-                <>Прочитали <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов в App&nbsp;Store и Google&nbsp;Play — и нашли, каких приложений людям не хватает. Готовый разбор: что строить, для кого и как на этом заработать.</>
+                <>Прочитали <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов в App&nbsp;Store и Google&nbsp;Play и видим, каких приложений людям не хватает. В разборе: что строить, для кого и как заработать.</>
               ) : (
-                <>We read <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> App&nbsp;Store and Google&nbsp;Play reviews to find the apps people are missing. A ready breakdown: what to build, for whom and how it makes money.</>
+                <>We read <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> App&nbsp;Store and Google&nbsp;Play reviews and see which apps people are missing. Inside: what to build, for whom and how it makes money.</>
               )}
             </p>
           </div>
