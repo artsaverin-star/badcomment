@@ -244,8 +244,8 @@ export default function Landing({
 
           <p className="ld-fade mx-auto mt-4 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
             {ru
-              ? "Разложили всё по нишам, выводам и сразу конкретным идеям — какие приложения людям реально нужны."
-              : "Broken down by niche, clear conclusions and concrete ideas — which apps people actually need."}
+              ? "Отзывы из App Store и Google Play — разложили по нишам, выводам и конкретным идеям: какие приложения людям реально нужны."
+              : "Reviews from the App Store and Google Play — broken down by niche, conclusions and concrete ideas: which apps people actually need."}
           </p>
 
         </div>

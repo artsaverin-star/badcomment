@@ -377,8 +377,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       <AtmosphereSetter hue={hueFromSlug(slug)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Link href="/" className="text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
-        ← {ru ? "Все ниши" : "All niches"}
+      <Link href="/" className="inline-flex items-center gap-1.5 text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        {ru ? "Все ниши" : "All niches"}
       </Link>
 
       {/* HERO */}

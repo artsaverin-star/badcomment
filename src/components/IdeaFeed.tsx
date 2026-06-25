@@ -51,11 +51,13 @@ export default function IdeaFeed({
       : !loggedIn
         ? [...order.slice(0, 10), { kind: "auth" }]
         : [...order.slice(0, 14), { kind: "paywall" }];
-    // Optional intro card leads the deck (carries the feed's title/blurb).
-    return intro ? [{ kind: "intro" }, ...base] : base;
+    // Optional intro card sits second (idea, intro, idea …) so it opens centred
+    // with a card on each side — no empty space on the left.
+    if (intro && base.length > 1) base.splice(1, 0, { kind: "intro" });
+    return base;
   }, [order, loggedIn, hasAccess, intro]);
 
-  const [idx, setIdx] = useState(0);
+  const [idx, setIdx] = useState(intro ? 1 : 0);
   const [dragX, setDragX] = useState(0);
   const [dragging, setDragging] = useState(false);
   const dragStart = useRef<number | null>(null);
@@ -119,6 +121,26 @@ export default function IdeaFeed({
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [total]);
+
+  // Lock background scroll while the breakdown modal is open (iOS-safe pin),
+  // so the embedded feed's modal can't leave the page scrolling underneath.
+  useEffect(() => {
+    if (!modal) return;
+    const body = document.body;
+    const y = window.scrollY;
+    const prev = { position: body.style.position, top: body.style.top, width: body.style.width, overflow: body.style.overflow };
+    body.style.position = "fixed";
+    body.style.top = `-${y}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+    return () => {
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.width = prev.width;
+      body.style.overflow = prev.overflow;
+      window.scrollTo(0, y);
+    };
+  }, [modal]);
 
   if (total === 0) return null;
 
@@ -237,7 +259,7 @@ export default function IdeaFeed({
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
 
       {modal && curIdea?.depth && typeof document !== "undefined" && createPortal(
-        <div className="fixed inset-0 z-[80] flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
+        <div className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center" role="dialog" aria-modal="true">
           <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setModal(false)} className="absolute inset-0 bg-black/55 backdrop-blur-md" />
           <div className="relative z-10 flex max-h-[92vh] w-full max-w-[640px] flex-col overflow-hidden rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[24px]">
             <button type="button" onClick={() => setModal(false)} className="absolute right-4 top-4 z-10 flex size-9 items-center justify-center rounded-full bg-[var(--color-bg-muted)] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
