@@ -237,7 +237,7 @@ export default function Landing({
         </div>
 
         {/* Hero */}
-        <section className="relative z-10 px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-16">
+        <section className="relative z-10 px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-7">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="glow-sweep ld-fade text-[clamp(27px,7.4vw,40px)] font-black leading-[1.04] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
               {ru ? (
