@@ -255,10 +255,6 @@ export default function Landing({
           (category breakdowns are the gallery below). */}
       {feed && feed.items.length > 0 && (
         <section className="mx-auto mt-4 w-full max-w-3xl px-2 sm:mt-6 sm:px-4">
-          <div className="mb-3 text-center sm:mb-4">
-            <h2 className="text-[clamp(20px,5.5vw,28px)] font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? "Идеи, которые уже просят" : "Ideas people already want"}</h2>
-            <p className="mx-auto mt-1.5 max-w-[40ch] text-[13.5px] text-[var(--color-text-tertiary)]">{ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews."}</p>
-          </div>
           <IdeaFeed
             items={feed.items}
             dailySlug={null}
@@ -270,6 +266,10 @@ export default function Landing({
             starsLabel={feed.starsLabel}
             lifetimeStarsHref={feed.lifetimeStarsHref}
             lifetimePrice={feed.lifetimePrice}
+            intro={{
+              title: ru ? "Идеи, которые уже просят" : "Ideas people already want",
+              sub: ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews.",
+            }}
           />
         </section>
       )}

@@ -17,7 +17,7 @@ function wordObs(n: number) {
 }
 
 type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "oneLiner" | "demand" | "quote">;
-type Interstitial = { kind: "auth" | "paywall" };
+type Interstitial = { kind: "auth" | "paywall" | "intro" };
 type FeedCard = FeedIdea | Interstitial;
 const isIdea = (c: FeedCard): c is FeedIdea => !("kind" in c);
 const HEART = "M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z";
@@ -26,10 +26,11 @@ const SLOT = 320;
 const CARD_H = "h-[clamp(400px,52dvh,452px)]";
 
 export default function IdeaFeed({
-  items, dailySlug, hasAccess, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice,
+  items, dailySlug, hasAccess, locale = "ru", loggedIn, deckPrice, starsHref, starsLabel, lifetimeStarsHref, lifetimePrice, intro,
 }: {
   items: FeedIdea[]; dailySlug: string | null; hasAccess: boolean; locale?: Locale; loggedIn: boolean; deckPrice: number;
   starsHref?: string; starsLabel?: string; lifetimeStarsHref?: string; lifetimePrice?: number;
+  intro?: { title: string; sub: string };
 }) {
   const ru = locale !== "en";
 
@@ -45,10 +46,14 @@ export default function IdeaFeed({
   // card until logged in; once logged in they browse 14 then can't pass the unlock
   // card until paid; with access the full deck opens.
   const cards = useMemo<FeedCard[]>(() => {
-    if (hasAccess) return order;
-    if (!loggedIn) return [...order.slice(0, 10), { kind: "auth" }];
-    return [...order.slice(0, 14), { kind: "paywall" }];
-  }, [order, loggedIn, hasAccess]);
+    const base: FeedCard[] = hasAccess
+      ? [...order]
+      : !loggedIn
+        ? [...order.slice(0, 10), { kind: "auth" }]
+        : [...order.slice(0, 14), { kind: "paywall" }];
+    // Optional intro card leads the deck (carries the feed's title/blurb).
+    return intro ? [{ kind: "intro" }, ...base] : base;
+  }, [order, loggedIn, hasAccess, intro]);
 
   const [idx, setIdx] = useState(0);
   const [dragX, setDragX] = useState(0);
@@ -65,8 +70,6 @@ export default function IdeaFeed({
   const total = cards.length;
   const cur = cards[idx];
   const curIdea = cur && isIdea(cur) ? cur : null;
-  const ideaTotal = order.length;
-  const ideaOrdinal = cards.slice(0, idx + 1).filter(isIdea).length;
 
   useEffect(() => {
     const id = requestAnimationFrame(() => {
@@ -150,14 +153,15 @@ export default function IdeaFeed({
             const center = i === idx;
             const off = (i - idx) * SLOT + dragX;
             const itSaved = isIdea(it) && savedSet.has(it.slug);
+            const gate = !isIdea(it) && it.kind !== "intro"; // only auth/paywall get the tinted look
             return (
               <div key={isIdea(it) ? it.slug : `${it.kind}-${i}`} className="absolute left-1/2 top-1/2 w-[296px]" style={{ transform: `translate(-50%, -50%) translateX(${off}px)`, transition }}>
                 <div className={`relative ${CARD_H} [perspective:1300px]`}>
                   <div className={`flip3d size-full ${center ? "is-up" : ""}`}>
                     <Ruba />
                     <div
-                      className={`flip-face flip-front flex flex-col rounded-[24px] border p-5 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] sm:p-6 ${center ? "neon-reveal" : ""} ${isIdea(it) ? "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]" : ""}`}
-                      style={isIdea(it) ? undefined : { background: "color-mix(in srgb, var(--color-text-brand) 13%, var(--color-surface-card))", borderColor: "color-mix(in srgb, var(--color-text-brand) 45%, transparent)" }}
+                      className={`flip-face flip-front flex flex-col rounded-[24px] border p-5 shadow-[0_28px_70px_-30px_rgba(0,0,0,0.7)] sm:p-6 ${center ? "neon-reveal" : ""} ${gate ? "" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]"}`}
+                      style={gate ? { background: "color-mix(in srgb, var(--color-text-brand) 13%, var(--color-surface-card))", borderColor: "color-mix(in srgb, var(--color-text-brand) 45%, transparent)" } : undefined}
                     >
                       {isIdea(it) ? (
                         <>
@@ -189,7 +193,7 @@ export default function IdeaFeed({
                             </button>
                           </div>
                         </div>
-                      ) : (
+                      ) : it.kind === "paywall" ? (
                         <div className="flex h-full flex-col">
                           <div className="flex flex-1 flex-col justify-center">
                             <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
@@ -198,6 +202,19 @@ export default function IdeaFeed({
                           </div>
                           <div className="pt-5" onPointerDown={(e) => e.stopPropagation()}>
                             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Разбор каждой идеи под подтверждённый спрос — навсегда." : "Every idea's full breakdown, backed by real demand — forever."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="flex h-full flex-col">
+                          <div className="flex flex-1 flex-col justify-center">
+                            <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Лента идей" : "Idea feed"}</div>
+                            <h2 className="mt-2 text-[24px] font-bold leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance sm:text-[27px]">{intro?.title}</h2>
+                            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{intro?.sub}</p>
+                          </div>
+                          <div className="pt-5">
+                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); go("next"); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                              {ru ? "Листать идеи" : "Browse ideas"}
+                            </button>
                           </div>
                         </div>
                       )}
@@ -216,8 +233,6 @@ export default function IdeaFeed({
           )}
         </div>
       </div>
-
-      <p className="mt-2 text-center text-[12px] text-[var(--color-text-tertiary)]"><span className="tabular-nums">{Math.max(1, ideaOrdinal)}</span> {ru ? "из" : "of"} {ideaTotal}</p>
 
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
 
