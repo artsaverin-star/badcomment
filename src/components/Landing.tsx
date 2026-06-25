@@ -202,9 +202,9 @@ export default function Landing({
 
             <p className="ld-fade mx-auto mt-3.5 max-w-[46ch] text-[15px] leading-[1.45] text-[var(--color-text-secondary)] sm:mt-4 sm:text-[19px] sm:leading-[1.5]" style={{ animationDelay: "0.1s" }}>
               {ru ? (
-                <>Готовые идеи приложений под реальный спрос — из <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотен тысяч"}</span> отзывов в App&nbsp;Store и Google&nbsp;Play. Плюс по каждой категории: главные выводы и разбор приложений-конкурентов.</>
+                <>Готовые идеи приложений под&nbsp;реальный спрос из&nbsp;<span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотен тысяч"}</span> отзывов в&nbsp;App&nbsp;Store и&nbsp;Google&nbsp;Play. Плюс по&nbsp;каждой категории: главные выводы и&nbsp;разбор приложений-конкурентов.</>
               ) : (
-                <>Ready app ideas backed by real demand — from <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> App&nbsp;Store and Google&nbsp;Play reviews. Plus for every category: key conclusions and a teardown of competing apps.</>
+                <>Ready app ideas backed by real demand from <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> App&nbsp;Store and Google&nbsp;Play reviews. Plus for every category: key conclusions and a teardown of competing apps.</>
               )}
             </p>
           </div>
