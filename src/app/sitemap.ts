@@ -26,13 +26,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const paths: { p: string; priority: number }[] = [
     { p: "", priority: 1 },
+    { p: "/most-wanted", priority: 0.9 },
+    { p: "/cards", priority: 0.9 },
     { p: "/catalog", priority: 0.9 },
     { p: "/apps", priority: 0.6 },
     ...cats.map((s) => ({ p: `/segment/${s}`, priority: 0.85 })),
     ...[...appSlugs].map((s) => ({ p: `/${s}`, priority: 0.7 })),
   ];
 
-  const lastModified = new Date("2026-06-20");
+  const lastModified = new Date("2026-06-25");
   return paths.map(({ p, priority }) => ({
     url: `${BASE}/ru${p || "/"}`,
     lastModified,

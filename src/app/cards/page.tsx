@@ -11,10 +11,27 @@ import AtmosphereSetter from "@/components/AtmosphereSetter";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Лента идей — inApp",
-  description: "Свайпай идеи приложений, которые люди уже просят в отзывах. С доказательствами и разбором: что строить и как заработать.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const ru = locale !== "en";
+  const lp = ru ? "ru" : "en";
+  const url = `https://inapp.pro/${lp}/cards`;
+  const title = ru ? "Лента идей приложений — inApp" : "App idea feed — inApp";
+  const description = ru
+    ? "Свайпай идеи приложений, которые люди уже просят в отзывах. По каждой — что строить, для кого и как заработать, с доказательствами из отзывов."
+    : "Swipe app ideas people already ask for in reviews. For each — what to build, for whom and how it makes money, backed by real review evidence.";
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { ru: "https://inapp.pro/ru/cards", en: "https://inapp.pro/en/cards", "x-default": "https://inapp.pro/en/cards" },
+    },
+    openGraph: { title, description, type: "website", url, siteName: "inApp", locale: ru ? "ru_RU" : "en_US", images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    twitter: { card: "summary_large_image", title, description, images: [`https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`] },
+    robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  };
+}
 
 export default async function CardsPage({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
   const locale = await getLocale();

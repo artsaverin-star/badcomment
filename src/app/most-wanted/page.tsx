@@ -5,6 +5,7 @@ import { listIdeas } from "@/lib/ideas";
 import { getCategoryBySlug } from "@/lib/researchCategories";
 import { hasInsight } from "@/lib/readyApps";
 import { getLocale } from "@/lib/i18n.server";
+import { getCatalogData } from "@/lib/catalogData";
 import insightsData from "@/data/insights.json";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import Reveal from "@/components/Reveal";
@@ -29,7 +30,9 @@ function iconsFor(slug: string, locale: Locale): string[] {
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const ru = locale !== "en";
-  const title = ru ? "Почему скучные приложения побеждают умные — разбор 555 000 отзывов" : "Why boring apps beat smart ones — a read of 555,000 reviews";
+  const { totalReviews } = getCatalogData(locale, false);
+  const nf = totalReviews.toLocaleString(ru ? "ru-RU" : "en-US");
+  const title = ru ? `Почему скучные приложения побеждают умные — разбор ${nf} отзывов` : `Why boring apps beat smart ones — a read of ${nf} reviews`;
   const description = ru
     ? "Разработчики соревнуются в уме. Люди ставят пять звёзд за обратное — за скучную работу, сделанную безупречно. Пять ниш: что хвалят зря, что держит людей и что под живой спрос никто не построил."
     : "Developers compete on intelligence. People give five stars to the opposite — the boring job done flawlessly. Five niches: what's overpraised, what keeps people, and what no one has built despite the demand.";
@@ -148,7 +151,34 @@ export default async function MostWantedPage() {
   const eyebrowCls = "text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-brand)]";
   const h2 = "mt-3 text-[26px] font-black leading-[1.14] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[33px]";
 
-  const graph = { "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: ru ? "Почему скучные приложения побеждают умные" : "Why boring apps beat the smart ones", inLanguage: ru ? "ru" : "en", author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" }, publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" } }] };
+  const articleUrl = `https://inapp.pro/${ru ? "ru" : "en"}/most-wanted`;
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        headline: ru ? "Почему скучные приложения побеждают умные" : "Why boring apps beat the smart ones",
+        description: ru
+          ? "Разбор реальных отзывов: что хвалят зря, что держит людей и что под живой спрос никто не построил."
+          : "A read of real reviews: what's overpraised, what keeps people, and what no one has built despite the demand.",
+        inLanguage: ru ? "ru" : "en",
+        url: articleUrl,
+        mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+        image: `https://inapp.pro/api/og?l=${ru ? "ru" : "en"}`,
+        datePublished: "2026-06-15",
+        dateModified: "2026-06-25",
+        author: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
+        publisher: { "@type": "Organization", name: "inApp", url: "https://inapp.pro" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: ru ? "Главная" : "Home", item: `https://inapp.pro/${ru ? "ru" : "en"}` },
+          { "@type": "ListItem", position: 2, name: ru ? "Приложения, которые умоляют сделать" : "Apps people beg for", item: articleUrl },
+        ],
+      },
+    ],
+  };
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
