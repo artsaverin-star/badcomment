@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthButton from "./AuthButton";
-import LangSwitch from "./LangSwitch";
+import LangMenu from "./LangMenu";
 import LaunchOffer from "./LaunchOffer";
 import Logo from "./Logo";
 import { type Locale } from "@/lib/i18n";
@@ -49,7 +49,7 @@ export default function Header({
         <div className="ml-auto flex items-center gap-1 sm:gap-1.5">
           {showOffer && <LaunchOffer locale={locale} loggedIn={loggedIn} />}
           <AuthButton locale={locale} />
-          <LangSwitch locale={locale} />
+          <LangMenu locale={locale} />
         </div>
       </div>
     </header>
