@@ -194,7 +194,7 @@ export default function SegmentExplorer({
           {appsLocked ? (
             <DeckPile
               title={ru ? `Разбор ${apps.length} приложений` : `${apps.length} app teardowns`}
-              subtitle={ru ? "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовая карта конкурентов по реальным отзывам, чтобы не повторять их ошибок." : "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor map from real reviews."}
+              subtitle={ru ? "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовый разбор конкурентов по реальным отзывам, чтобы не повторять их ошибок." : "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor teardown from real reviews."}
               icons={apps.map((a) => a.icon)}
               button={
                 <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} inline />

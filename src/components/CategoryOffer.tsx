@@ -36,12 +36,12 @@ export default function CategoryOffer({
     ? [
         { eyebrow: "Выводы", title: "Ещё 2 вывода", sub: "Разбор по наблюдениям и прямые цитаты из отзывов." },
         { eyebrow: "Что построить", title: `${ideasCount} идей под спрос`, sub: "Каждую люди просят сами. Внутри по каждой — что строить, для кого и как на этом заработать, с цитатами из отзывов." },
-        { eyebrow: "Конкуренты", title: `Разбор ${appsCount} приложений`, sub: "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовая карта конкурентов." },
+        { eyebrow: "Конкуренты", title: `Разбор ${appsCount} приложений`, sub: "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовый разбор конкурентов." },
       ]
     : [
         { eyebrow: "Findings", title: "2 more findings", sub: "The breakdown by observation and direct review quotes." },
         { eyebrow: "What to build", title: `${ideasCount} demand-backed ideas`, sub: "Each one users ask for themselves — what to build, for whom and how to monetize, with quotes." },
-        { eyebrow: "Competitors", title: `${appsCount} app teardowns`, sub: "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor map." },
+        { eyebrow: "Competitors", title: `${appsCount} app teardowns`, sub: "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor teardown." },
       ];
 
   return (
