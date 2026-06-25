@@ -17,6 +17,7 @@ export default function CategoryGate({
   starsHref,
   starsLabel,
   lifetimeStarsHref,
+  inline = false,
 }: {
   slug: string;
   categoryName?: string;
@@ -28,6 +29,7 @@ export default function CategoryGate({
   starsHref?: string;
   starsLabel?: string;
   lifetimeStarsHref?: string;
+  inline?: boolean;
 }) {
   const ru = locale !== "en";
 
@@ -55,6 +57,7 @@ export default function CategoryGate({
         starsLabel={starsLabel}
         lifetimePrice={LIFETIME.rub}
         lifetimeStarsHref={lifetimeStarsHref}
+        inline={inline}
       />
     </div>
   );

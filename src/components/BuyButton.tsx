@@ -8,7 +8,8 @@ import { trackBeginCheckout, trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
 // A buy trigger that opens a payment-options popup (card РФ / СБП) for a direct-₽
-// SKU (deck or category). Telegram Stars for these isn't wired yet — it needs the
+// SKU (deck or category). With `inline`, the same options render directly on the
+// page (no popup). Telegram Stars for these isn't wired yet — it needs the
 // external bot to handle deck_/cat_ commands — so only Lifetime offers Stars (in
 // the store). Sign-in is requested first if needed.
 export default function BuyButton({
@@ -24,6 +25,7 @@ export default function BuyButton({
   starsLabel,
   lifetimePrice,
   lifetimeStarsHref,
+  inline = false,
 }: {
   kind: "deck" | "category";
   slug?: string;
@@ -37,6 +39,7 @@ export default function BuyButton({
   starsLabel?: string;
   lifetimePrice?: number;
   lifetimeStarsHref?: string;
+  inline?: boolean;
 }) {
   const ru = locale !== "en";
   const [auth, setAuth] = useState(false);
@@ -79,6 +82,120 @@ export default function BuyButton({
     }
   }
 
+  // Payment methods (card РФ / СБП / Stars) + the Lifetime upsell — shared by the
+  // popup and the inline panel.
+  const methods = (
+    <>
+      <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{subtitle}</p>
+
+      <div className="flex flex-col gap-2.5">
+        <button
+          type="button"
+          onClick={() => pay("bank_card")}
+          disabled={!!busy}
+          className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
+        >
+          {busy === `${kind}:bank_card` ? "…" : ru ? "Картой РФ" : "Card (RU)"}
+        </button>
+        <button
+          type="button"
+          onClick={() => pay("sbp")}
+          disabled={!!busy}
+          className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
+        >
+          {busy === `${kind}:sbp` ? "…" : ru ? "Через СБП" : "Via SBP"}
+        </button>
+        {starsHref && (
+          <a
+            href={starsHref}
+            className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+          >
+            <span aria-hidden>⭐</span> {starsLabel || (ru ? "Telegram Stars" : "Telegram Stars")}
+          </a>
+        )}
+      </div>
+
+      {lifetimePrice ? (
+        <>
+          <div className="flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
+            <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+            {ru ? "или открой всё" : "or unlock everything"}
+            <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
+          </div>
+          <button
+            type="button"
+            onClick={() => setLifeOpen((v) => !v)}
+            aria-expanded={lifeOpen}
+            className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]"
+          >
+            <span>{ru ? "♾️ Lifetime — всё навсегда" : "♾️ Lifetime — everything forever"}</span>
+            <span className="font-bold">{lifeEff}&nbsp;₽</span>
+            {LAUNCH_PROMO && (
+              <>
+                <s className="text-[var(--color-text-tertiary)]">{lifetimePrice}&nbsp;₽</s>
+                <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+              </>
+            )}
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" className={`transition-transform ${lifeOpen ? "rotate-180" : ""}`} aria-hidden><path d="m4 6 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </button>
+          {lifeOpen && (
+            <div className="flex flex-col gap-2.5 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-4">
+              <ul className="mb-1 flex flex-col gap-2">
+                {(ru
+                  ? ["Все категории сайта — открыты навсегда", "Все новые публикации и ниши тоже входят", "Колода идей целиком", "Платить снова не нужно"]
+                  : ["Every category on the site — open forever", "All future publications and niches included", "The whole idea deck", "Never pay again"]
+                ).map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-footnote text-[var(--color-text-secondary)]">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="mt-0.5 shrink-0 text-[#4ade80]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <button type="button" onClick={() => pay("bank_card", "lifetime")} disabled={!!busy} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60">
+                {busy === "lifetime:bank_card" ? "…" : ru ? "Картой РФ" : "Card (RU)"}
+              </button>
+              <button type="button" onClick={() => pay("sbp", "lifetime")} disabled={!!busy} className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60">
+                {busy === "lifetime:sbp" ? "…" : ru ? "Через СБП" : "Via SBP"}
+              </button>
+              {!LAUNCH_PROMO && lifetimeStarsHref && (
+                <a href={lifetimeStarsHref} className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+                  <span aria-hidden>⭐</span> {LIFETIME.stars.toLocaleString("ru-RU")} Telegram
+                </a>
+              )}
+            </div>
+          )}
+        </>
+      ) : null}
+      {err && <p className="text-center text-caption text-[#ff6b6b]">{err}</p>}
+    </>
+  );
+
+  // Inline: render the options straight on the page (no trigger, no popup).
+  if (inline) {
+    return (
+      <>
+        {!loggedIn ? (
+          <button
+            type="button"
+            onClick={() => setAuth(true)}
+            className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+          >
+            {ru ? "Войти и открыть" : "Sign in to unlock"}
+          </button>
+        ) : (
+          <div className="flex w-full max-w-[420px] flex-col gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-6 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.5)]">
+            <div className="min-w-0">
+              <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{title}</div>
+              <div className="mt-1 text-[26px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{price}&nbsp;₽</div>
+            </div>
+            {methods}
+          </div>
+        )}
+        {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
+      </>
+    );
+  }
+
   return (
     <>
       <button
@@ -104,87 +221,7 @@ export default function BuyButton({
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" strokeLinecap="round" /></svg>
               </button>
             </div>
-            <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{subtitle}</p>
-
-            <div className="flex flex-col gap-2.5">
-              <button
-                type="button"
-                onClick={() => pay("bank_card")}
-                disabled={!!busy}
-                className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
-              >
-                {busy === `${kind}:bank_card` ? "…" : ru ? "Картой РФ" : "Card (RU)"}
-              </button>
-              <button
-                type="button"
-                onClick={() => pay("sbp")}
-                disabled={!!busy}
-                className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
-              >
-                {busy === `${kind}:sbp` ? "…" : ru ? "Через СБП" : "Via SBP"}
-              </button>
-              {starsHref && (
-                <a
-                  href={starsHref}
-                  className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-                >
-                  <span aria-hidden>⭐</span> {starsLabel || (ru ? "Telegram Stars" : "Telegram Stars")}
-                </a>
-              )}
-            </div>
-
-            {lifetimePrice ? (
-              <>
-                <div className="flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
-                  <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-                  {ru ? "или открой всё" : "or unlock everything"}
-                  <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setLifeOpen((v) => !v)}
-                  aria-expanded={lifeOpen}
-                  className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]"
-                >
-                  <span>{ru ? "♾️ Lifetime — всё навсегда" : "♾️ Lifetime — everything forever"}</span>
-                  <span className="font-bold">{lifeEff}&nbsp;₽</span>
-                  {LAUNCH_PROMO && (
-                    <>
-                      <s className="text-[var(--color-text-tertiary)]">{lifetimePrice}&nbsp;₽</s>
-                      <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
-                    </>
-                  )}
-                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" className={`transition-transform ${lifeOpen ? "rotate-180" : ""}`} aria-hidden><path d="m4 6 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </button>
-                {lifeOpen && (
-                  <div className="flex flex-col gap-2.5 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-4">
-                    <ul className="mb-1 flex flex-col gap-2">
-                      {(ru
-                        ? ["Все категории сайта — открыты навсегда", "Все новые публикации и ниши тоже входят", "Колода идей целиком", "Платить снова не нужно"]
-                        : ["Every category on the site — open forever", "All future publications and niches included", "The whole idea deck", "Never pay again"]
-                      ).map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-footnote text-[var(--color-text-secondary)]">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="mt-0.5 shrink-0 text-[#4ade80]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <button type="button" onClick={() => pay("bank_card", "lifetime")} disabled={!!busy} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60">
-                      {busy === "lifetime:bank_card" ? "…" : ru ? "Картой РФ" : "Card (RU)"}
-                    </button>
-                    <button type="button" onClick={() => pay("sbp", "lifetime")} disabled={!!busy} className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60">
-                      {busy === "lifetime:sbp" ? "…" : ru ? "Через СБП" : "Via SBP"}
-                    </button>
-                    {!LAUNCH_PROMO && lifetimeStarsHref && (
-                      <a href={lifetimeStarsHref} className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
-                        <span aria-hidden>⭐</span> {LIFETIME.stars.toLocaleString("ru-RU")} Telegram
-                      </a>
-                    )}
-                  </div>
-                )}
-              </>
-            ) : null}
-            {err && <p className="text-center text-caption text-[#ff6b6b]">{err}</p>}
+            {methods}
           </div>
         </div>,
         document.body,

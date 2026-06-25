@@ -67,6 +67,7 @@ export default function CategoryOffer({
           starsHref={starsHref}
           starsLabel={starsLabel}
           lifetimeStarsHref={lifetimeStarsHref}
+          inline
         />
       </div>
     </div>

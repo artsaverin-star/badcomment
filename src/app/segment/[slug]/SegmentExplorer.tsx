@@ -197,7 +197,7 @@ export default function SegmentExplorer({
               subtitle={ru ? "По каждому лидеру ниши — за что его любят, где он бесит и чего людям не хватает. Готовая карта конкурентов по реальным отзывам, чтобы не повторять их ошибок." : "For each niche leader — what it's loved for, what enrages users and what's missing. A ready competitor map from real reviews."}
               icons={apps.map((a) => a.icon)}
               button={
-                <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
+                <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} inline />
               }
             />
           ) : (
@@ -269,7 +269,7 @@ export default function SegmentExplorer({
                         </figure>
                       )}
                       <p className="text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? "Внутри — в чём разрыв и почему это шанс, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the gap and why it's an opening, what to build, features, monetization and evidence."}</p>
-                      <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
+                      <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} inline />
                     </div>
                   );
                 }
@@ -347,7 +347,7 @@ export default function SegmentExplorer({
 
                     {a.locked ? (
                       <div className="mt-8">
-                        <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
+                        <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} inline />
                       </div>
                     ) : (
                       <div className="mt-7">
@@ -395,7 +395,7 @@ export default function SegmentExplorer({
                 <div className="flex flex-col gap-6">
                   <h2 className="text-[26px] font-semibold leading-[1.12] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? `Откройте разбор ниши «${categoryName}»` : `Open the “${categoryName}” breakdown`}</h2>
                   <p className="text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? "Внутри по каждой идее — почему это шанс, что строить, фичи, монетизация и доказательства из отзывов. Плюс разбор всех конкурентов ниши." : "Inside every idea — the gap, what to build, features, monetization and review evidence. Plus the full competitor teardown."}</p>
-                  <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} />
+                  <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} inline />
                 </div>
               )}
             </div>
