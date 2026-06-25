@@ -196,18 +196,16 @@ export default function Landing({
       {/* Hero */}
       <section className="relative overflow-x-clip px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-7">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="glow-sweep ld-fade text-[clamp(27px,7.4vw,40px)] font-black leading-[1.04] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[60px]" style={{ animationDelay: "0.05s" }}>
-              {ru ? (
-                <>Проанализировали<br /><span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов</>
-              ) : (
-                <>We analyzed <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span><br />app reviews</>
-              )}
+            <h1 className="glow-sweep ld-fade text-[clamp(29px,7.4vw,42px)] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] text-balance sm:text-[54px]" style={{ animationDelay: "0.05s" }}>
+              {ru ? "Идеи приложений под подтверждённый спрос" : "App ideas backed by real demand"}
             </h1>
 
-            <p className="ld-fade mx-auto mt-4 max-w-xl text-lead text-[var(--color-text-secondary)]" style={{ animationDelay: "0.1s" }}>
-              {ru
-                ? "Отзывы из App Store и Google Play — разложили по нишам, выводам и конкретным идеям: какие приложения людям реально нужны."
-                : "Reviews from the App Store and Google Play — broken down by niche, conclusions and concrete ideas: which apps people actually need."}
+            <p className="ld-fade mx-auto mt-3.5 max-w-[44ch] text-[15px] leading-[1.45] text-[var(--color-text-secondary)] sm:mt-4 sm:text-[19px] sm:leading-[1.5]" style={{ animationDelay: "0.1s" }}>
+              {ru ? (
+                <>Прочитали <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотни тысяч"}</span> отзывов в App&nbsp;Store и Google&nbsp;Play — и нашли, каких приложений людям не хватает. Готовый разбор: что строить, для кого и как на этом заработать.</>
+              ) : (
+                <>We read <span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("en-US") : "hundreds of thousands of"}</span> App&nbsp;Store and Google&nbsp;Play reviews to find the apps people are missing. A ready breakdown: what to build, for whom and how it makes money.</>
+              )}
             </p>
           </div>
         </section>
