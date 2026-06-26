@@ -49,10 +49,12 @@ export default async function Home() {
   const loggedIn = !!(await getSessionUser());
   const { domains, totalReviews } = getCatalogData(locale, premium);
 
-  // Idea feed embedded on the landing — same gating as /cards.
+  // Idea feed embedded on the landing. Breakdowns are free to read here (open on
+  // click for everyone) — so build with depth for all; the grid gates QUANTITY
+  // (guests 6 → sign in, members 12 → unlock the rest), not the breakdown itself.
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
-  const { items: feedItems } = buildFeed(locale, owner);
+  const { items: feedItems } = buildFeed(locale, true);
   const bot = process.env.BOT_USERNAME || "inAppProBot";
   const feed = {
     items: feedItems,

@@ -41,7 +41,6 @@ export default function IdeaGrid({
   const [savedList, setSavedList] = useState<Saved[]>([]);
   const [modalSlug, setModalSlug] = useState<string | null>(null);
   const [auth, setAuth] = useState(false);
-  const [paywall, setPaywall] = useState(false);
   const savedSet = useMemo(() => new Set(savedList.map((s) => s.slug)), [savedList]);
   const cur = useMemo(() => items.find((i) => i.slug === modalSlug) ?? null, [items, modalSlug]);
 
@@ -69,9 +68,9 @@ export default function IdeaGrid({
     if (savedSet.has(it.slug)) { persistSaved(savedList.filter((s) => s.slug !== it.slug)); return; }
     persistSaved([{ slug: it.slug, category: it.category, categoryName: it.categoryName, title: it.title, oneLiner: it.oneLiner, demand: it.demand, quote: it.quote }, ...savedList]);
   }
+  // Breakdowns are free to read — clicking any visible card opens it for everyone.
   function open(it: FeedIdea) {
-    if (it.depth) { setModalSlug(it.slug); return; }
-    if (!loggedIn) setAuth(true); else setPaywall(true);
+    setModalSlug(it.slug);
   }
 
   // Gate the grid: guests see 6 previews then a sign-in CTA; logged-in without
@@ -111,7 +110,7 @@ export default function IdeaGrid({
                 ) : (
                   <span />
                 )}
-                <span className="shrink-0 text-[13px] font-semibold text-[var(--color-text-brand)]">{it.depth ? (ru ? "Раскрыть разбор" : "Open") : loggedIn ? (ru ? "Открыть разбор" : "Open") : (ru ? "Войти и открыть" : "Sign in")}</span>
+                <span className="shrink-0 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Раскрыть разбор" : "Open"}</span>
               </div>
             </div>
           );
@@ -127,8 +126,8 @@ export default function IdeaGrid({
       )}
       {gate === "paywall" && (
         <div className="mx-auto mt-6 flex max-w-[520px] flex-col items-center gap-4 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 text-center sm:mt-8">
-          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все разборы идей" : "Unlock every idea"}</div>
-          <p className="max-w-[42ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Дальше — вся колода идей с разбором: что строить, для кого и как заработать. Навсегда." : "The full idea deck opens with breakdowns — what to build, for whom and how it earns. Forever."}</p>
+          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все идеи" : "Unlock all ideas"}</div>
+          <p className="max-w-[42ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Это первые 12. Дальше — вся колода: ещё десятки идей под подтверждённый спрос. Навсегда." : "These are the first 12. The full deck has dozens more demand-backed ideas. Forever."}</p>
           <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
         </div>
       )}
@@ -181,17 +180,6 @@ export default function IdeaGrid({
           </div>
         </div>,
         document.body,
-      )}
-
-      {paywall && (
-        <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-0 backdrop-blur-sm sm:items-center sm:p-4" onClick={() => setPaywall(false)}>
-          <div className="flex w-full max-w-[440px] flex-col items-center gap-4 rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-7 text-center sm:rounded-[24px]" onClick={(e) => e.stopPropagation()}>
-            <div className="text-[20px] font-black tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все разборы идей" : "Unlock every idea"}</div>
-            <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Колода открывает разбор каждой идеи: почему это шанс, что строить, фичи и монетизация — навсегда." : "The deck opens every idea's breakdown — the gap, what to build, features and monetization — forever."}</p>
-            <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
-            <button type="button" onClick={() => setPaywall(false)} className="text-[13px] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{ru ? "Позже" : "Later"}</button>
-          </div>
-        </div>
       )}
     </>
   );
