@@ -92,7 +92,7 @@ export default function IdeaGrid({
               tabIndex={0}
               onClick={() => open(it)}
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(it); } }}
-              className="group relative flex cursor-pointer flex-col rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors duration-200 hover:border-[var(--color-border-strong)] sm:p-6"
+              className="group relative flex cursor-pointer flex-col rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,var(--color-surface-card))] sm:p-6"
             >
               <button
                 type="button"
