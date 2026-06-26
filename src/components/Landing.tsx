@@ -164,11 +164,45 @@ export default function Landing({
   const ranked = catCards;
   const FEATURED = 4;
 
+  // Hero salute — app icons flattened from the category cards, shuffled per load,
+  // floated in the left/right margins behind the headline (never over the text).
+  const [icons, setIcons] = useState<string[]>(catCards.flatMap((c) => c.icons).filter(Boolean));
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      const arr = catCards.flatMap((c) => c.icons).filter(Boolean);
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+      }
+      setIcons(arr);
+    });
+    return () => cancelAnimationFrame(id);
+  }, [catCards]);
+  const positions = [
+    "left-[2%] top-[6%]", "right-[3%] top-[10%]", "left-[7%] top-[34%]", "right-[8%] top-[30%]",
+    "left-[1%] top-[62%]", "right-[2%] top-[58%]", "left-[13%] top-[16%]", "right-[14%] top-[48%]",
+    "left-[9%] top-[80%]", "right-[10%] top-[78%]",
+  ];
+  const sizes = ["size-10 sm:size-12 lg:size-14", "size-9 sm:size-11 lg:size-12", "size-11 sm:size-14 lg:size-16"];
+  const floats = icons.slice(0, positions.length);
+
   return (
     <div className="flex flex-col">
       {/* Hero */}
       <section className="relative overflow-x-clip px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-7">
-          <div className="mx-auto max-w-3xl text-center">
+          <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
+            {floats.map((src, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={i}
+                src={src}
+                alt=""
+                className={`ld-float absolute rounded-[14px] opacity-60 shadow-[0_14px_34px_-12px_rgba(0,0,0,0.85)] sm:opacity-70 ${sizes[i % sizes.length]} ${positions[i]} ${i >= 4 ? "hidden sm:block" : "block"}`}
+                style={{ ["--d" as string]: `${4.5 + (i % 5) * 0.7}s`, ["--r" as string]: `${i % 2 ? 7 : -7}deg`, animationDelay: `${(i % 6) * 0.25}s` }}
+              />
+            ))}
+          </div>
+          <div className="relative z-10 mx-auto max-w-3xl text-center">
             <h1 className="glow-sweep ld-fade text-[clamp(30px,7.6vw,44px)] font-black leading-[1.05] tracking-[-0.03em] text-[var(--color-text-primary)] text-balance sm:text-[56px]" style={{ animationDelay: "0.05s" }}>
               {ru ? "Знай, что строить" : "Know what to build"}
             </h1>
