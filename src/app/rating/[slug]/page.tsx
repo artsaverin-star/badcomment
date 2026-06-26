@@ -65,11 +65,10 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
     })),
   };
 
-  const Field = ({ label, children }: { label: string; children: ReactNode }) => (
-    <>
-      <dt className="pt-[3px] text-[10px] font-semibold uppercase leading-none tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</dt>
-      <dd className="text-[13.5px] leading-[1.5] text-[var(--color-text-secondary)]">{children}</dd>
-    </>
+  const Line = ({ label, children }: { label: string; children: ReactNode }) => (
+    <p className="text-[15px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">
+      <span className="font-semibold text-[var(--color-text-primary)]">{label}.</span> {children}
+    </p>
   );
 
   return (
@@ -98,31 +97,30 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         </div>
       </header>
 
-      <ol className="flex flex-col">
+      <ol className="flex flex-col border-t border-[var(--color-border-subtle)]">
         {set.apps.map((a, i) => (
-          <li key={a.id} className="border-t border-[var(--color-border-subtle)] py-5 first:border-t-0 sm:py-6">
-            <div className="flex items-start gap-3.5 sm:gap-4">
-              <div className="w-6 shrink-0 pt-1 text-[14px] font-semibold tabular-nums text-[var(--color-text-tertiary)] sm:w-8 sm:text-[15px]">{i + 1}</div>
+          <li key={a.id} className="border-b border-[var(--color-border-subtle)] py-7 sm:py-8">
+            <div className="flex items-start gap-4 sm:gap-5">
+              <div className="w-5 shrink-0 pt-1.5 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)] sm:w-7 sm:text-[15px]">{i + 1}</div>
               {a.icon
                 // eslint-disable-next-line @next/next/no-img-element
-                ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover sm:size-12" />
-                : <div className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)] sm:size-12" />}
+                ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[13px] object-cover sm:size-14" />
+                : <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)] sm:size-14" />}
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline justify-between gap-4">
-                  <h2 className="min-w-0 text-[17px] font-semibold leading-[1.25] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[19px]">{a.title}</h2>
-                  <div className="shrink-0 text-[24px] font-black leading-none tabular-nums text-[var(--color-text-primary)] sm:text-[27px]">{a.realScore ?? "—"}</div>
+                  <h2 className="min-w-0 text-[21px] font-semibold leading-[1.15] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[26px]">{a.title}</h2>
+                  <div className="shrink-0 text-[17px] font-semibold tabular-nums text-[var(--color-text-primary)] sm:text-[19px]">{a.realScore ?? "—"}<span className="text-[12px] font-medium text-[var(--color-text-tertiary)]">/100</span></div>
                 </div>
-                <p className="mt-1.5 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">
+                <p className="mt-2 text-[12.5px] tabular-nums text-[var(--color-text-tertiary)]">
                   {ru ? "магазин" : "store"} {a.storeAvg?.toFixed(1) ?? "—"}★ · {nf(a.ratings)}
                   {a.authenticity ? <span className={a.authenticity === "Накручен" ? "font-semibold text-[var(--color-text-primary)]" : ""}> · {a.authenticity.toUpperCase()}</span> : null}
-                  {a.authNote ? <span className="text-[var(--color-text-tertiary)]"> — {tg(a.authNote)}</span> : null}
                 </p>
-                <p className="mt-3 text-[15px] font-medium leading-[1.5] text-[var(--color-text-primary)]">{tg(a.verdict)}</p>
-                <dl className="mt-3 grid grid-cols-[4.5rem_1fr] gap-x-3 gap-y-2 sm:grid-cols-[5rem_1fr]">
-                  <Field label={ru ? "Сильное" : "Strong"}>{tg(a.loved)}</Field>
-                  <Field label={ru ? "Слабое" : "Weak"}>{tg(a.weak)}</Field>
-                  {a.whoFor && <Field label={ru ? "Кому" : "For"}>{tg(a.whoFor)}</Field>}
-                </dl>
+                <p className="mt-4 max-w-[62ch] text-[17px] font-light leading-[1.55] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(a.verdict)}</p>
+                <div className="mt-4 flex flex-col gap-2">
+                  <Line label={ru ? "Сильное" : "Strong"}>{tg(a.loved)}</Line>
+                  <Line label={ru ? "Слабое" : "Weak"}>{tg(a.weak)}</Line>
+                  {a.whoFor && <Line label={ru ? "Кому" : "For"}>{tg(a.whoFor)}</Line>}
+                </div>
               </div>
             </div>
           </li>
