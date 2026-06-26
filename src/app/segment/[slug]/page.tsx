@@ -17,7 +17,6 @@ import { tg, deepTg } from "@/lib/typo";
 import { listIdeas } from "@/lib/ideas";
 import { getAccess } from "@/lib/access";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, PREGEN_DATE_RU, PREGEN_DATE_EN } from "@/lib/tokenConfig";
-import { PREMIUM_NICHE_SET } from "@/lib/premiumNiches";
 import { ownsDeck } from "@/lib/unlocks";
 import CategoryOffer from "@/components/CategoryOffer";
 import Reveal from "@/components/Reveal";
@@ -195,8 +194,9 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const catLocked = !categoryUnlocked;
   const overviewUnlocked = categoryUnlocked;
 
-  // Only premium niches are sellable; the rest show a "in preparation" status.
-  const sellable = PREMIUM_NICHE_SET.has(slug);
+  // Every live (active) category is sellable now that all findings + idea gaps
+  // are cleaned to the product-mechanism standard (no price/bug "чушь").
+  const sellable = isActiveCategory(slug);
   const hasDeck = access.user ? await ownsDeck(access.user.id) : false;
   const catPrice = hasDeck ? CATEGORY_PRICE_RUB - DECK_CREDIT_RUB : CATEGORY_PRICE_RUB;
   const pregenDate = ru ? PREGEN_DATE_RU : PREGEN_DATE_EN;

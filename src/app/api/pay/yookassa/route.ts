@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import { getSessionUser } from "@/lib/session";
 import { createPayment, yookassaEnabled } from "@/lib/yookassa";
 import { getPack, tokensWord, LIFETIME, FRIEND_PRICE_RUB, LAUNCH_PROMO, DECK_PRICE_RUB, CATEGORY_PRICE_RUB, DECK_CREDIT_RUB } from "@/lib/tokenConfig";
-import { PREMIUM_NICHE_SET } from "@/lib/premiumNiches";
+import { isActiveCategory } from "@/lib/categoryVisibility";
 import { ownsDeck } from "@/lib/unlocks";
 
 export const dynamic = "force-dynamic";
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     metadata = { userId: u.id, kind: "deck" };
   } else if (body.kind === "category") {
     const slug = body.slug ?? "";
-    if (!PREMIUM_NICHE_SET.has(slug)) return NextResponse.json({ error: "Категория недоступна" }, { status: 400 });
+    if (!isActiveCategory(slug)) return NextResponse.json({ error: "Категория недоступна" }, { status: 400 });
     const credit = (await ownsDeck(u.id)) ? DECK_CREDIT_RUB : 0;
     amountRub = Math.max(1, CATEGORY_PRICE_RUB - credit);
     description = "inApp — Разбор категории";
