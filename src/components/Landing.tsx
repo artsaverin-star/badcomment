@@ -133,10 +133,11 @@ function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
   const live = [
     { slug: "astrology", name: ru ? "Астрология" : "Astrology", blurb: ru ? "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды." : "100 apps by real reviews: an honest score and a rating-authenticity check." },
     { slug: "dating-apps", name: ru ? "Знакомства" : "Dating", blurb: ru ? "100 приложений: где реальные люди, а где боты и накрученные звёзды." : "100 apps: where the real people are, and where the bots and gamed stars are." },
+    { slug: "ai-avatars-headshots", name: ru ? "ИИ-фото" : "AI photo", blurb: ru ? "100 приложений: где результат правда похож на тебя, а где накрутка и обман в рекламе." : "100 apps: where the result really looks like you, and where the gamed stars and bait ads are." },
   ];
   const soon = ru
-    ? ["ИИ-фото", "Медитация", "Фоторедакторы", "Заметки"]
-    : ["AI photo", "Meditation", "Photo editors", "Notes"];
+    ? ["Медитация", "Фоторедакторы", "Заметки", "Игры"]
+    : ["Meditation", "Photo editors", "Notes", "Games"];
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {live.map((c) => (

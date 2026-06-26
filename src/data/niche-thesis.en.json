@@ -2729,93 +2729,6 @@
 			}
 		]
 	},
-	"ai-avatars-headshots": {
-		"governing": "This niche doesn't sell \"pretty pictures\" — it sells recognition of your own face. Users pay to see the best version of themselves specifically, and they leave the moment AI erases their gender, ethnicity, body type, or features. The winner will be whoever makes identity controllable and provably preserved before a single dollar changes hands.",
-		"competitorRead": "Every top app is drifting the same direction: artistic filters thrown out in favor of a generic \"face glued onto someone else's slim body\" generator, identity training getting worse, and features disappearing behind tokens with every update. This creates a gaping hole — loyal users who fled the \"ruined\" apps and professionals who need an honest business portrait are both without a product. Nobody has made identity accuracy and control over your own image the actual core of their positioning.",
-		"pillars": [
-			{
-				"title": "Identity as the product: gender, ethnicity, and body type under your control",
-				"dek": "The core job is giving people back their own face — not an averaged-out model. Right now AI systematically breaks gender by hair length, lightens skin tones, and drags every body toward \"tall and thin.\" A founder who adds explicit gender, skin-tone, and body-type controls (including curvy and average height), and trains identity on a batch of selfies for a stable face, wins everyone the current apps quietly erase. This is both the biggest driver of love and the biggest driver of churn at the same time.",
-				"match": [
-					"likeness",
-					"resembl",
-					"face",
-					"feature",
-					"gender",
-					"male",
-					"female",
-					"swap",
-					"skin",
-					"tone",
-					"race",
-					"white",
-					"dark",
-					"body",
-					"figure",
-					"curvy",
-					"skinny",
-					"train",
-					"identity",
-					"natural",
-					"person",
-					"recogniz",
-					"my face"
-				]
-			},
-			{
-				"title": "Jobs-to-be-hired: business headshot, natural retouching, bringing memories to life",
-				"dek": "Behind the avatar are concrete tasks people actually pay for: a professional headshot for LinkedIn, honest retouching without surgical alteration, animating photos of grandkids and pets. These JTBD are currently getting hidden or killed by updates, losing the most valuable users. A founder who builds around clear scenarios — \"portrait for work,\" \"fix a bad photo,\" \"family memory\" — rather than a feed of random filters, will have paying users with a real reason to stay. Each scenario carries its own monetization and its own retention loop.",
-				"match": [
-					"headshot",
-					"portrait",
-					"linkedin",
-					"professional",
-					"business",
-					"retouch",
-					"fix",
-					"natural",
-					"teeth",
-					"animat",
-					"revive",
-					"pet",
-					"dog",
-					"grandkid",
-					"memory",
-					"selfie",
-					"scenario",
-					"work",
-					"resume",
-					"photo"
-				]
-			},
-			{
-				"title": "Trust and proof: data safety, censorship, honest image, result before payment",
-				"dek": "Your face is a sensitive asset, and the whole market is burning through trust: photos sent to servers without consent, blunt NSFW filters blocking dresses and swimsuits, someone else's slim body under your face stoking catfish fear, and payment demanded before a single generation. A founder who shows the result before charging, explains what happens to photos, tunes content moderation like an adult product, and keeps the image honest will turn the most common source of one-star fury into a competitive edge. Trust here converts directly into installs and retention.",
-				"match": [
-					"trust",
-					"data",
-					"server",
-					"permission",
-					"gallery",
-					"privacy",
-					"censor",
-					"nsfw",
-					"inappropriate",
-					"catfish",
-					"honest",
-					"trial",
-					"free",
-					"preview",
-					"payment",
-					"paywall",
-					"consent",
-					"safe",
-					"secure",
-					"test"
-				]
-			}
-		]
-	},
 	"sleep-audio": {
 		"governing": "This niche does not sell \"beautiful sounds\" — it sells one reliable nightly job: continuous, seamless background audio that never cuts out, never wakes you, and sounds like the real thing rather than a generated approximation. The winner is the app people trust enough to close their eyes and never check their phone.",
 		"competitorRead": "The bigger players (Endel, Brain.fm, BetterSleep) are chasing AI music and subscription growth but stumbling on fundamentals — audio dropping mid-night, audible loop seams, onboarding walls of questions. Simpler fan and mixer apps (Sleep Aid Fan, TaoMix, Deep Relax) win affection precisely through reliability and continuity, yet lose users to battery drain, phantom auto-launches, and purchases lost on a phone upgrade. The gap in the middle: engineering-grade nighttime reliability paired with genuine respect for the light sleeper.",
@@ -6268,6 +6181,78 @@
 					"user intent",
 					"honest paywall",
 					"value exchange"
+				]
+			}
+		]
+	},
+	"ai-avatars-headshots": {
+		"governing": "The only product question in this niche is: does the result look like me or not. More than half of the apps in the market fail this test systematically, because they build their value proposition around the number of styles rather than the quality of identity transfer. The winner is whoever solves the likeness problem reliably and reproducibly: the user looks at the result and recognizes themselves immediately. An additional lever: reliable likeness for non-white users, whom the majority of competitors systematically distort or lighten. Winning in this niche is not about breadth of styles. It is about the narrowness and precision of one promise: this person in the photo.",
+		"competitorRead": "Nearly every player in the market sells a style library instead of a likeness guarantee. The ad shows a face from promo materials, not the buyer's face. After paying, the user receives a beautiful stranger in the right outfit instead of themselves in that outfit. That is the trap: competitors race to add more templates while users want one thing: to recognize themselves in the result. Another widespread failure: algorithms systematically lighten non-white users and generalize facial features toward a generic averaged type, erasing the very thing the person uploaded their photo for.",
+		"pillars": [
+			{
+				"title": "likeness as a technical moat",
+				"dek": "Across 96 apps in the corpus, only a handful earn the phrase 'that's actually me' from users. Dawn AI takes 15 to 20 photos from different angles and trains a personal model, which produces stable transfer of face shape and ethnic features. Everyone else applies a single shared generator to one photo and loses on input diversity. The technical solution to the likeness problem through personal fine-tuning is a real moat: it cannot be copied with cosmetic prompt edits. The controlled retouching of an actual photo that Retake and Peachy do also preserves identity precisely because it does not try to replace the face but works with what is already there.",
+				"match": [
+					"likeness",
+					"resemblance",
+					"recognition",
+					"face",
+					"identity",
+					"personal model",
+					"fine-tuning",
+					"doesn't look like me",
+					"different person",
+					"looks like me",
+					"my features",
+					"someone else's face",
+					"not me",
+					"accurate portrait",
+					"face match",
+					"ai headshot"
+				]
+			},
+			{
+				"title": "honest genre: stylization without promising realism",
+				"dek": "The most consistently rated apps in the corpus are those that never promise a realistic portrait. ChibiStudio builds an anime character from a catalog of parts and makes no claim of photo accuracy. Oilist paints over a photo in real time. ArtCard turns a landscape into a painting. These products win because they set the right expectations upfront: the user understands they will receive a stylized image, and that is exactly what they get. Most competitors fail in the ad itself: the promo video shows a precise copy of the face in a professional setting, and the result looks like a good-looking stranger. An honest genre contract with the audience matters more than technical sophistication. An anime builder with a real parts catalog is more reliable than a 'realistic headshot' powered by uncontrolled generation.",
+				"match": [
+					"anime",
+					"cartoon",
+					"stylization",
+					"painting",
+					"artistic",
+					"caricature",
+					"chibi",
+					"avatar",
+					"art style",
+					"style",
+					"expectations",
+					"ad mismatch",
+					"misleading ad",
+					"illustration",
+					"character creator",
+					"artistic filter"
+				]
+			},
+			{
+				"title": "non-white users: systemic discrimination as opportunity",
+				"dek": "Skin lightening and replacement of ethnic features with European ones appear as a consistent pattern across dozens of apps in the corpus. PortraitAI, Restyle, ToonMe, Faceplay, SNOW, Persona, Reface, and many others reproduce this failure stably and regardless of price tier. Users with dark skin write directly: the app changes my race. This is not a bug from one vendor. It is a systemic property of the market. An app that solves the likeness problem for dark-skinned, Asian, and Latino users with the same accuracy as for European users captures the majority of the market that competitors serve poorly or not at all. The technical answer is a diversified training dataset and a separate quality check by skin tone.",
+				"match": [
+					"dark skin",
+					"skin lightening",
+					"lighter skin",
+					"racial features",
+					"ethnic features",
+					"asian appearance",
+					"afro",
+					"latino",
+					"non-white",
+					"changes my race",
+					"different ethnicity",
+					"discrimination",
+					"diversity",
+					"skin tone",
+					"representation",
+					"bias"
 				]
 			}
 		]
