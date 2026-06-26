@@ -128,7 +128,7 @@ export default function BuyButton({
             aria-expanded={lifeOpen}
             className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]"
           >
-            <span>{ru ? "♾️ Lifetime — всё навсегда" : "♾️ Lifetime — everything forever"}</span>
+            <span>{ru ? "♾️ Весь сайт навсегда" : "♾️ The whole site, forever"}</span>
             <span className="font-bold">{lifeEff}&nbsp;₽</span>
             {LAUNCH_PROMO && (
               <>
@@ -142,8 +142,8 @@ export default function BuyButton({
             <div className="flex flex-col gap-2.5 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-4">
               <ul className="mb-1 flex flex-col gap-2">
                 {(ru
-                  ? ["Все категории сайта — открыты навсегда", "Все новые публикации и ниши тоже входят", "Колода идей целиком", "Платить снова не нужно"]
-                  : ["Every category on the site — open forever", "All future publications and niches included", "The whole idea deck", "Never pay again"]
+                  ? ["Все 98 идей, и новые каждую неделю", "Все категории: выводы и разбор конкурентов", "Все будущие публикации и ниши входят", "Платить больше не нужно"]
+                  : ["All 98 ideas, plus new ones every week", "Every category: conclusions and competitor teardowns", "All future publications and niches included", "Never pay again"]
                 ).map((f) => (
                   <li key={f} className="flex items-start gap-2 text-footnote text-[var(--color-text-secondary)]">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="mt-0.5 shrink-0 text-[#4ade80]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
