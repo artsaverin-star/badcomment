@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
-import IdeaFeed from "./IdeaFeed";
 import type { Locale } from "@/lib/i18n";
 import type { FeedIdea } from "@/lib/ideaFeed";
 
@@ -131,26 +130,25 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   );
 }
 
-// One row in list view.
-function ListRow({ c, ru }: { c: CatCard; ru: boolean }) {
-  const icons = c.icons.filter(Boolean).slice(0, 4);
+// One idea tile in the "Ideas" tab — links to the niche page where the idea is
+// detailed (good internal linking, content-rich destination).
+function IdeaTile({ it, ru }: { it: FeedIdea; ru: boolean }) {
   return (
     <Link
-      href={`/segment/${c.slug}`}
-      className="group flex items-center gap-4 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3.5 py-3.5 transition-colors hover:border-[var(--color-border-strong)] sm:gap-5 sm:px-5"
+      href={`/segment/${it.category}`}
+      className="group flex h-full flex-col rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
     >
-      <div className="hidden shrink-0 items-center -space-x-2 sm:flex">
-        {icons.map((src, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-9 rounded-[10px] object-cover ring-1 ring-[var(--color-border-subtle)] ring-offset-1 ring-offset-[var(--color-surface-page)]" />
-        ))}
+      <p className="text-[12px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</p>
+      <h3 className="mt-2 line-clamp-3 text-[17px] font-bold leading-[1.2] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[18px]">{it.title}</h3>
+      <p className="mt-2 line-clamp-3 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{it.oneLiner}</p>
+      <div className="mt-auto flex items-center justify-between pt-4">
+        {it.demand > 0 ? (
+          <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{it.demand} {ru ? "наблюдений" : "signals"}</span>
+        ) : (
+          <span />
+        )}
+        <Arrow className="shrink-0" />
       </div>
-      <div className="min-w-0 flex-1">
-        <h3 className="text-[17px] font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[18px]">{c.name}</h3>
-        {c.hook && <p className="mt-1 line-clamp-1 text-[13px] leading-snug text-[var(--color-text-tertiary)]">{c.hook}</p>}
-      </div>
-      <p className="hidden shrink-0 text-[12px] tabular-nums text-[var(--color-text-tertiary)] md:block">{metaLine(c, ru)}</p>
-      <Arrow className="shrink-0" />
     </Link>
   );
 }
@@ -172,17 +170,17 @@ export default function Landing({
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
-  const [view, setView] = useState<"cards" | "list">("cards");
+  const [view, setView] = useState<"ideas" | "categories">("ideas");
 
   useEffect(() => {
-    const saved = localStorage.getItem("home-view");
-    if (saved !== "cards" && saved !== "list") return;
+    const saved = localStorage.getItem("home-tab");
+    if (saved !== "ideas" && saved !== "categories") return;
     const id = requestAnimationFrame(() => setView(saved));
     return () => cancelAnimationFrame(id);
   }, []);
-  const setViewPersist = (v: "cards" | "list") => {
+  const setViewPersist = (v: "ideas" | "categories") => {
     setView(v);
-    try { localStorage.setItem("home-view", v); } catch { /* ignore */ }
+    try { localStorage.setItem("home-tab", v); } catch { /* ignore */ }
   };
 
   // Order comes from the server (page.tsx pins the hand-curated premium niches to
@@ -210,74 +208,45 @@ export default function Landing({
           </div>
         </section>
 
-      {/* The idea feed, embedded right here — swipe the validated ideas inline. */}
-      {feed && feed.items.length > 0 && (
-        <section className="mx-auto mt-1 w-full max-w-3xl px-2 sm:mt-2 sm:px-4">
-          <IdeaFeed
-            items={feed.items}
-            dailySlug={null}
-            hasAccess={feed.hasAccess}
-            locale={locale}
-            loggedIn={feed.loggedIn}
-            deckPrice={feed.deckPrice}
-            starsHref={feed.starsHref}
-            starsLabel={feed.starsLabel}
-            lifetimeStarsHref={feed.lifetimeStarsHref}
-            lifetimePrice={feed.lifetimePrice}
-            compact
-            intro={{
-              title: ru ? "Идеи, которые уже просят" : "Ideas people already want",
-              sub: ru ? "Листай ленту — каждая идея из реальных отзывов." : "Flip through the feed — every idea from real reviews.",
-            }}
-          />
-        </section>
-      )}
-
-      {/* Gallery — the third block: category breakdowns */}
-      {catCards.length > 0 && (
-        <div className="mx-auto w-full max-w-5xl px-2 sm:px-4">
-          <div className="mb-3 mt-10 text-center">
-            <h2 className="text-[clamp(24px,6vw,34px)] font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? "Разбор категорий" : "Niche breakdowns"}</h2>
-          </div>
-          {/* view toggle */}
-          <div className="mb-8 flex justify-center">
-            <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
-              {(["cards", "list"] as const).map((v) => (
-                <button
-                  key={v}
-                  type="button"
-                  onClick={() => setViewPersist(v)}
-                  aria-pressed={view === v}
-                  className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-semibold transition-colors ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
-                >
-                  {v === "cards" ? (
-                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /></svg>
-                  ) : (
-                    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="7" width="13" height="2" rx="1" fill="currentColor" /><rect x="1.5" y="11.5" width="13" height="2" rx="1" fill="currentColor" /></svg>
-                  )}
-                  <span>{v === "cards" ? (ru ? "Карточками" : "Cards") : (ru ? "Списком" : "List")}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {view === "cards" ? (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
-              {ranked.map((c, i) =>
-                i < FEATURED ? (
-                  <div key={c.slug} className="lg:col-span-3"><CardLarge c={c} ru={ru} /></div>
+      {/* Tabs — all ideas (cards) or all current categories (tiles). */}
+      <div className="mx-auto mt-7 w-full max-w-5xl px-2 sm:mt-9 sm:px-4">
+        <div className="mb-7 flex justify-center sm:mb-8">
+          <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
+            {(["ideas", "categories"] as const).map((v) => (
+              <button
+                key={v}
+                type="button"
+                onClick={() => setViewPersist(v)}
+                aria-pressed={view === v}
+                className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-semibold transition-colors ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+              >
+                {v === "ideas" ? (
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.5 2A2.5 2.5 0 0 0 3 4.5v7A2.5 2.5 0 0 0 5.5 14h5A2.5 2.5 0 0 0 13 11.5v-7A2.5 2.5 0 0 0 10.5 2h-5Zm.5 3.5h4a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1 0-1.5Zm0 3h2.5a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1 0-1.5Z" /></svg>
                 ) : (
-                  <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
-                )
-              )}
-            </div>
-          ) : (
-            <div className="mx-auto flex max-w-3xl flex-col gap-2.5">
-              {ranked.map((c) => <ListRow key={c.slug} c={c} ru={ru} />)}
-            </div>
-          )}
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /></svg>
+                )}
+                <span>{v === "ideas" ? (ru ? "Идеи" : "Ideas") : (ru ? "Категории" : "Categories")}</span>
+              </button>
+            ))}
+          </div>
         </div>
-      )}
+
+        {view === "ideas" ? (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {(feed?.items ?? []).map((it) => <IdeaTile key={it.slug} it={it} ru={ru} />)}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
+            {ranked.map((c, i) =>
+              i < FEATURED ? (
+                <div key={c.slug} className="lg:col-span-3"><CardLarge c={c} ru={ru} /></div>
+              ) : (
+                <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
+              )
+            )}
+          </div>
+        )}
+      </div>
 
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}
     </div>
