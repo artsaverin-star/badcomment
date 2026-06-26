@@ -173,6 +173,13 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
           );
         })}
       </ol>
+
+      <Link href={`/${ru ? "ru" : "en"}/segment/${slug}`} className="group mt-12 block border-t border-[var(--color-border-subtle)] pt-8">
+        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What they all miss"}</div>
+        <p className="mt-2 max-w-[40ch] text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[30px]">
+          {ru ? <>Разбор категории и идеи под подтверждённый спрос <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></> : <>The category breakdown and ideas backed by proven demand <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></>}
+        </p>
+      </Link>
     </main>
   );
 }

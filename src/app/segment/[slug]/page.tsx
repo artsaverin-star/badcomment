@@ -7,6 +7,7 @@ import AtmosphereSetter from "@/components/AtmosphereSetter";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
 import { isActiveCategory } from "@/lib/categoryVisibility";
+import { isUltra, hasPeoplesRating } from "@/lib/ultra";
 import { getLocale } from "@/lib/i18n.server";
 import { appCardsFor, categoryCards, ideaContentEn, descriptionFor, type RegenCard } from "@/lib/regenCards";
 import { getProductInsights } from "@/lib/insights";
@@ -390,12 +391,18 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       {/* HERO */}
       <header className="ld-fade mt-12">
-        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Исследование ниши" : "Niche research"}</div>
+        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{isUltra(slug) ? (ru ? "Разобрано ультра" : "Ultra-analyzed") : ru ? "Исследование ниши" : "Niche research"}</div>
         <h1 className="glow-sweep mt-6 text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-[var(--color-text-primary)] text-balance">{cat.name}</h1>
         {thesis ? (
           <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
         ) : (
           summary.lead && <p className="mt-8 max-w-[58ch] text-[19px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[23px]">{tg(summary.lead)}</p>
+        )}
+        {hasPeoplesRating(slug) && (
+          <Link href={`/${ru ? "ru" : "en"}/rating/${slug}`} className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2 text-[14px] font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+            {ru ? `Народный рейтинг: ${summary.appsCount} приложений по отзывам` : `People's rating: ${summary.appsCount} apps by reviews`}
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 3.25 10.75 8 6 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </Link>
         )}
 
         {/* STATS — borderless big-number band */}
