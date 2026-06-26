@@ -96,7 +96,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         </p>
         {set.inflated > 0 && (
           <p className="mt-3 rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-3 py-2 text-[13px] text-[var(--color-text-secondary)]">
-            {ru ? <>🔴 У {set.inflated} приложений рейтинг похож на накрученный: высокая звезда, но отзывы это не подтверждают.</> : <>🔴 {set.inflated} apps look rating-gamed: a high star the reviews don't back up.</>}
+            {ru ? <>🔴 У {set.inflated} приложений рейтинг похож на накрученный: высокая звезда, но отзывы это не подтверждают.</> : <>🔴 {set.inflated} apps look rating-gamed: a high star the reviews do not back up.</>}
           </p>
         )}
       </header>
