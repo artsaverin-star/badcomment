@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import BuyButton from "./BuyButton";
+import { nb } from "@/lib/nbsp";
 import type { FeedIdea } from "@/lib/ideaFeed";
 import type { Locale } from "@/lib/i18n";
 
@@ -208,7 +209,7 @@ export default function IdeaFeed({
                           <div className="flex flex-1 flex-col justify-center">
                             <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Бесплатно" : "Free"}</div>
                             <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Войди и смотри другие идеи" : "Sign in to see more ideas"}</h2>
-                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Дальше — ещё десятки разборов: что строить и как на этом заработать. Вход бесплатный и занимает пару секунд." : "Dozens more ideas wait ahead — what to build and how it makes money. Signing in is free and takes seconds."}</p>
+                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? nb("Дальше — ещё десятки разборов: что строить и как на этом заработать. Вход бесплатный и занимает пару секунд.") : "Dozens more ideas wait ahead — what to build and how it makes money. Signing in is free and takes seconds."}</p>
                           </div>
                           <div className="pt-5">
                             <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setAuth(true); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
@@ -221,7 +222,7 @@ export default function IdeaFeed({
                           <div className="flex flex-1 flex-col justify-center">
                             <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
                             <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
-                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? "Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда." : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
+                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? nb("Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда.") : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
                           </div>
                           <div className="pt-5" onPointerDown={(e) => e.stopPropagation()}>
                             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
@@ -325,7 +326,7 @@ export default function IdeaFeed({
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-0 backdrop-blur-sm sm:items-center sm:p-4" onClick={() => setPaywall(false)}>
           <div className="flex w-full max-w-[440px] flex-col items-center gap-4 rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-7 text-center sm:rounded-[24px]" onClick={(e) => e.stopPropagation()}>
             <div className="text-[20px] font-black tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все разборы идей" : "Unlock every idea"}</div>
-            <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Колода открывает разбор каждой идеи: почему это шанс, что строить, фичи и монетизация — навсегда." : "The deck opens every idea's breakdown — the gap, what to build, features and monetization — forever."}</p>
+            <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? nb("Колода открывает разбор каждой идеи: почему это шанс, что строить, фичи и монетизация — навсегда.") : "The deck opens every idea's breakdown — the gap, what to build, features and monetization — forever."}</p>
             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
             <button type="button" onClick={() => setPaywall(false)} className="text-[13px] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{ru ? "Позже" : "Later"}</button>
           </div>

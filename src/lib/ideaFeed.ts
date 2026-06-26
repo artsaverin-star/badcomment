@@ -2,6 +2,7 @@ import { listIdeas } from "./ideas";
 import { PREMIUM_NICHE_SET } from "./premiumNiches";
 import { ideaContentEn } from "./regenCards";
 import { getCategoryBySlug } from "./researchCategories";
+import { deepTg } from "./typo";
 import feedOrder from "../data/ideaFeedOrder.json";
 import type { Locale } from "./i18n";
 
@@ -93,5 +94,7 @@ export function buildFeed(locale: Locale, owner: boolean): { items: FeedIdea[]; 
   });
 
   const dailySlug = items.length ? items[dailyIndex(items.length)].slug : null;
-  return { items, dailySlug };
+  // Typograf the prose (titles, one-liners, breakdowns) so short prepositions
+  // get a non-breaking space — no "висячие предлоги" at line ends.
+  return { items: deepTg(items), dailySlug };
 }
