@@ -55,7 +55,7 @@ export default async function CardsPage({ searchParams }: { searchParams: Promis
   const bot = process.env.BOT_USERNAME || "inAppProBot";
 
   return (
-    <main className="relative mx-auto flex w-full max-w-[760px] flex-1 flex-col justify-center overflow-x-clip px-4 py-4">
+    <main className="relative mx-auto flex w-full max-w-[760px] flex-1 flex-col justify-center overflow-x-clip px-2 sm:px-4 py-4">
       <AtmosphereSetter random />
 
       <header className="mb-2 text-center sm:mb-4">

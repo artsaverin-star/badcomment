@@ -379,7 +379,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const findingLabel = (i: number) => (ru ? `Вывод ${`0${i + 1}`}` : `Finding ${`0${i + 1}`}`);
 
   return (
-    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-6 pb-28 pt-16 sm:pt-24">
+    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-2 sm:px-6 pb-28 pt-16 sm:pt-24">
       <AtmosphereSetter hue={hueFromSlug(slug)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 

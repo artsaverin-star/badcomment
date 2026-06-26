@@ -47,7 +47,7 @@ export default async function AdminPostsPage() {
   }).filter((p): p is { slug: string; name: string; caption: string } => !!p);
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-10">
+    <main className="mx-auto w-full max-w-3xl px-2 sm:px-4 py-10">
       <h1 className="text-[28px] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)]">Посты</h1>
       <p className="mt-2 text-callout text-[var(--color-text-secondary)]">
         Готовые посты по качественным нишам ({posts.length}): цепляющий текст + карусель из 7 картинок

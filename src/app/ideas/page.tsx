@@ -48,7 +48,7 @@ export default async function IdeasPage() {
   });
 
   return (
-    <main className="mx-auto w-full max-w-[720px] overflow-x-clip px-4 py-10">
+    <main className="mx-auto w-full max-w-[720px] overflow-x-clip px-2 sm:px-4 py-10">
       <Header
         size="L"
         as="h1"

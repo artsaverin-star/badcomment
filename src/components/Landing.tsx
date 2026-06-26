@@ -189,7 +189,7 @@ export default function Landing({
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="relative overflow-x-clip px-2 pb-3 pt-12 sm:px-4 sm:pb-4 sm:pt-7">
+      <section className="relative overflow-x-clip pb-3 pt-12 sm:pb-4 sm:pt-7">
           <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
             {floats.map((src, i) => (
               // eslint-disable-next-line @next/next/no-img-element
@@ -218,7 +218,7 @@ export default function Landing({
         </section>
 
       {/* Tabs — all ideas (cards) or all current categories (tiles). */}
-      <div className="mx-auto mt-7 w-full max-w-5xl px-2 sm:mt-9 sm:px-4">
+      <div className="mx-auto mt-7 w-full max-w-5xl sm:mt-9">
         <div className="mb-7 flex justify-center sm:mb-8">
           <div className="flex w-full max-w-[400px] items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
             {(["ideas", "categories"] as const).map((v) => (

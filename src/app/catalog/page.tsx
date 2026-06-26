@@ -23,7 +23,7 @@ export default async function CatalogPage({ searchParams }: { searchParams: Prom
         : "Review breakdowns by app category: what users love, hate, and which problems repeat.";
 
   return (
-    <main className="mx-auto w-full max-w-6xl overflow-x-clip px-4 py-10">
+    <main className="mx-auto w-full max-w-6xl overflow-x-clip px-2 sm:px-4 py-10">
       <h1 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{title}</h1>
       <p className="mb-8 mt-2 max-w-2xl text-callout text-[var(--color-text-secondary)]">{desc}</p>
       <CatalogBrowser domains={domains} premium={premium} apps={catalogApps} view={view} locale={locale} />
