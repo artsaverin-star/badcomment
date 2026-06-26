@@ -23,7 +23,7 @@ type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "on
 function Sw({ label, text }: { label: string; text: string }) {
   return (
     <div>
-      <div className="text-[12px] font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="text-[18px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{label}</div>
       <p className="mt-3 text-[16.5px] leading-[1.6] text-[var(--color-text-secondary)]">{text}</p>
     </div>
   );
@@ -152,7 +152,7 @@ export default function IdeaGrid({
                 {cur.depth.pitch && <Sw label={ru ? "Что строить" : "What to build"} text={cur.depth.pitch} />}
                 {cur.depth.features.length > 0 && (
                   <div>
-                    <div className="text-[12px] font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                    <div className="text-[18px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Что входит" : "Features"}</div>
                     <ul className="mt-4 flex flex-col">
                       {cur.depth.features.map((f, j) => (
                         <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
