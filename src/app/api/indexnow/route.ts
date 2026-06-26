@@ -3,6 +3,7 @@ import active from "@/data/active-categories.json";
 import { getCategoryBySlug } from "@/lib/researchCategories";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
+import { PEOPLES_RATING_SLUGS } from "@/lib/ultra";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,7 @@ export async function GET() {
   for (const loc of ["ru", "en"]) {
     urlList.push(`https://${HOST}/${loc}`, `https://${HOST}/${loc}/most-wanted`, `https://${HOST}/${loc}/cards`, `https://${HOST}/${loc}/catalog`, `https://${HOST}/${loc}/apps`);
     cats.forEach((s) => urlList.push(`https://${HOST}/${loc}/segment/${s}`));
+    PEOPLES_RATING_SLUGS.forEach((s) => urlList.push(`https://${HOST}/${loc}/rating/${s}`));
     appSlugs.forEach((s) => urlList.push(`https://${HOST}/${loc}/${s}`));
   }
   const res = await fetch("https://api.indexnow.org/indexnow", {

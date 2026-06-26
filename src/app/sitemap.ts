@@ -3,6 +3,7 @@ import active from "@/data/active-categories.json";
 import { getCategoryBySlug } from "@/lib/researchCategories";
 import { getSlugByProductId } from "@/lib/appSlugs";
 import { hasInsight } from "@/lib/readyApps";
+import { PEOPLES_RATING_SLUGS } from "@/lib/ultra";
 
 const BASE = "https://inapp.pro";
 
@@ -31,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { p: "/catalog", priority: 0.9 },
     { p: "/apps", priority: 0.6 },
     ...cats.map((s) => ({ p: `/segment/${s}`, priority: 0.85 })),
+    ...PEOPLES_RATING_SLUGS.map((s) => ({ p: `/rating/${s}`, priority: 0.95 })),
     ...[...appSlugs].map((s) => ({ p: `/${s}`, priority: 0.7 })),
   ];
 

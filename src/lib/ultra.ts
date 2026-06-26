@@ -9,7 +9,8 @@ export function isUltra(slug: string): boolean {
 }
 
 // Categories that have a published people's rating page (/rating/<slug>).
-const RATED = new Set<string>(["astrology"]);
+export const PEOPLES_RATING_SLUGS = ["astrology"] as const;
+const RATED = new Set<string>(PEOPLES_RATING_SLUGS);
 
 export function hasPeoplesRating(slug: string): boolean {
   return RATED.has(slug);
