@@ -1,5 +1,5 @@
 import { listIdeas } from "./ideas";
-import { PREMIUM_NICHE_SET } from "./premiumNiches";
+import { isActiveCategory } from "./categoryVisibility";
 import { ideaContentEn } from "./regenCards";
 import { getCategoryBySlug } from "./researchCategories";
 import { deepTg } from "./typo";
@@ -56,11 +56,17 @@ function dailyIndex(len: number): number {
 
 export function buildFeed(locale: Locale, owner: boolean): { items: FeedIdea[]; dailySlug: string | null } {
   const ru = locale !== "en";
-  // Pool = the hand-finished premium niches only (their copy reads cleanly),
-  // ordered by the curated best-first ranking in ideaFeedOrder.json.
+  // Pool = every live (active) category — the whole catalog is now cleaned to the
+  // product-mechanism standard. Premium niches keep their curated best-first order
+  // (ideaFeedOrder.json); everything else tails, sorted by demand (observations).
   const pool = listIdeas()
-    .filter((i) => PREMIUM_NICHE_SET.has(i.category))
-    .sort((a, b) => (FEED_RANK.get(a.slug) ?? 9999) - (FEED_RANK.get(b.slug) ?? 9999));
+    .filter((i) => isActiveCategory(i.category))
+    .sort((a, b) => {
+      const ra = FEED_RANK.get(a.slug) ?? 9999;
+      const rb = FEED_RANK.get(b.slug) ?? 9999;
+      if (ra !== rb) return ra - rb;
+      return (b.stats?.observations ?? 0) - (a.stats?.observations ?? 0);
+    });
 
   // Localized category name from the canonical source (the EN overlay's
   // categoryName is unreliable — some entries kept the Russian label).
