@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
+import IdeaGrid from "./IdeaGrid";
 import type { Locale } from "@/lib/i18n";
 import type { FeedIdea } from "@/lib/ideaFeed";
 
@@ -80,7 +81,7 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full transform-gpu flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow-[0_22px_50px_-22px_rgba(0,0,0,0.28)] sm:p-9"
+      className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-colors duration-200 hover:border-[var(--color-border-strong)] sm:p-9"
     >
       <p className="text-[12px] font-medium tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
       <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
@@ -110,7 +111,7 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   return (
     <Link
       href={`/segment/${c.slug}`}
-      className="group flex h-full transform-gpu flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-[transform,border-color] duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
+      className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-colors duration-200 hover:border-[var(--color-border-strong)]"
     >
       <h3 className="text-[21px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[23px]">{c.name}</h3>
       {icons.length > 0 && (
@@ -124,29 +125,6 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
       {c.hook && <p className="mt-4 line-clamp-2 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{firstSentence(c.hook)}</p>}
       <div className="mt-auto flex items-center justify-between pt-5">
         <p className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
-        <Arrow className="shrink-0" />
-      </div>
-    </Link>
-  );
-}
-
-// One idea tile in the "Ideas" tab — links to the niche page where the idea is
-// detailed (good internal linking, content-rich destination).
-function IdeaTile({ it, ru }: { it: FeedIdea; ru: boolean }) {
-  return (
-    <Link
-      href={`/segment/${it.category}`}
-      className="group flex h-full flex-col rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] sm:p-6"
-    >
-      <p className="text-[12px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</p>
-      <h3 className="mt-2 line-clamp-3 text-[17px] font-bold leading-[1.2] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[18px]">{it.title}</h3>
-      <p className="mt-2 line-clamp-3 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{it.oneLiner}</p>
-      <div className="mt-auto flex items-center justify-between pt-4">
-        {it.demand > 0 ? (
-          <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{it.demand} {ru ? "наблюдений" : "signals"}</span>
-        ) : (
-          <span />
-        )}
         <Arrow className="shrink-0" />
       </div>
     </Link>
@@ -211,30 +189,38 @@ export default function Landing({
       {/* Tabs — all ideas (cards) or all current categories (tiles). */}
       <div className="mx-auto mt-7 w-full max-w-5xl px-2 sm:mt-9 sm:px-4">
         <div className="mb-7 flex justify-center sm:mb-8">
-          <div className="inline-flex items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
+          <div className="flex w-full max-w-[400px] items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
             {(["ideas", "categories"] as const).map((v) => (
               <button
                 key={v}
                 type="button"
                 onClick={() => setViewPersist(v)}
                 aria-pressed={view === v}
-                className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-[15px] font-semibold transition-colors ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                className={`flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full px-3 py-2.5 text-[14px] font-semibold transition-colors sm:text-[15px] ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
               >
                 {v === "ideas" ? (
                   <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.5 2A2.5 2.5 0 0 0 3 4.5v7A2.5 2.5 0 0 0 5.5 14h5A2.5 2.5 0 0 0 13 11.5v-7A2.5 2.5 0 0 0 10.5 2h-5Zm.5 3.5h4a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1 0-1.5Zm0 3h2.5a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1 0-1.5Z" /></svg>
                 ) : (
                   <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /></svg>
                 )}
-                <span>{v === "ideas" ? (ru ? "Идеи" : "Ideas") : (ru ? "Категории" : "Categories")}</span>
+                <span>{v === "ideas" ? (ru ? "Идеи" : "Ideas") : (ru ? "Разбор категорий" : "Breakdowns")}</span>
               </button>
             ))}
           </div>
         </div>
 
         {view === "ideas" ? (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {(feed?.items ?? []).map((it) => <IdeaTile key={it.slug} it={it} ru={ru} />)}
-          </div>
+          <IdeaGrid
+            items={feed?.items ?? []}
+            hasAccess={feed?.hasAccess ?? false}
+            loggedIn={feed?.loggedIn ?? false}
+            locale={locale}
+            deckPrice={feed?.deckPrice ?? 0}
+            starsHref={feed?.starsHref}
+            starsLabel={feed?.starsLabel}
+            lifetimeStarsHref={feed?.lifetimeStarsHref}
+            lifetimePrice={feed?.lifetimePrice}
+          />
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
             {ranked.map((c, i) =>
