@@ -119,15 +119,15 @@ export default function IdeaGrid({
 
       {gate === "auth" && (
         <div className="mx-auto mt-6 flex max-w-[520px] flex-col items-center gap-3 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 text-center sm:mt-8">
-          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Войди — и смотри все идеи" : "Sign in to see every idea"}</div>
-          <p className="max-w-[42ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Это первые 6. За входом — ещё десятки идей под спрос. Вход бесплатный и занимает пару секунд." : "These are the first 6. Dozens more demand-backed ideas wait behind sign-in — it's free and takes seconds."}</p>
+          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Войди и смотри все идеи" : "Sign in to see every idea"}</div>
+          <p className="max-w-[44ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Это первые 6. За входом ждут ещё десятки идей под спрос по разным темам, и каждую неделю добавляются новые. Вход бесплатный, пара секунд." : "These are the first 6. Sign in for dozens more demand-backed ideas across topics, with new ones added every week. It's free and takes seconds."}</p>
           <button type="button" onClick={() => setAuth(true)} className="mt-1 rounded-full bg-[var(--color-button-primary-bg)] px-7 py-3 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">{ru ? "Войти" : "Sign in"}</button>
         </div>
       )}
       {gate === "paywall" && (
         <div className="mx-auto mt-6 flex max-w-[520px] flex-col items-center gap-4 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 text-center sm:mt-8">
           <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все идеи" : "Unlock all ideas"}</div>
-          <p className="max-w-[42ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Это первые 12. Дальше — вся колода: ещё десятки идей под подтверждённый спрос. Навсегда." : "These are the first 12. The full deck has dozens more demand-backed ideas. Forever."}</p>
+          <p className="max-w-[44ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? "Это первые 12. Внутри все 98 идей под подтверждённый спрос по разным темам, и каждую неделю добавляются новые. Доступ навсегда." : "These are the first 12. Inside: all 98 demand-backed ideas across topics, with new ones added every week. Access forever."}</p>
           <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
         </div>
       )}
