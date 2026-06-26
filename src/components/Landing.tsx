@@ -128,25 +128,30 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   );
 }
 
-// People's-rating tab — one live category (astrology) plus muted "soon" tiles.
+// People's-rating tab — live categories plus muted "soon" tiles.
 function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
+  const live = [
+    { slug: "astrology", name: ru ? "Астрология" : "Astrology", blurb: ru ? "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды." : "100 apps by real reviews: an honest score and a rating-authenticity check." },
+    { slug: "dating-apps", name: ru ? "Знакомства" : "Dating", blurb: ru ? "100 приложений: где реальные люди, а где боты и накрученные звёзды." : "100 apps: where the real people are, and where the bots and gamed stars are." },
+  ];
   const soon = ru
-    ? ["Знакомства", "ИИ-фото", "Медитация", "Фоторедакторы", "Заметки"]
-    : ["Dating", "AI photo", "Meditation", "Photo editors", "Notes"];
+    ? ["ИИ-фото", "Медитация", "Фоторедакторы", "Заметки"]
+    : ["AI photo", "Meditation", "Photo editors", "Notes"];
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <a
-        href={`/${lp}/rating/astrology`}
-        className="group flex min-h-[148px] flex-col justify-between rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
-      >
-        <div>
-          <p className="text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</p>
-          <h3 className="mt-1.5 text-[23px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{ru ? "Астрология" : "Astrology"}</h3>
-        </div>
-        <p className="text-[13.5px] leading-[1.45] text-[var(--color-text-secondary)]">
-          {ru ? "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды." : "100 apps by real reviews: an honest score and a rating-authenticity check."}
-        </p>
-      </a>
+      {live.map((c) => (
+        <a
+          key={c.slug}
+          href={`/${lp}/rating/${c.slug}`}
+          className="group flex min-h-[148px] flex-col justify-between rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
+        >
+          <div>
+            <p className="text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</p>
+            <h3 className="mt-1.5 text-[23px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{c.name}</h3>
+          </div>
+          <p className="text-[13.5px] leading-[1.45] text-[var(--color-text-secondary)]">{c.blurb}</p>
+        </a>
+      ))}
       {soon.map((name) => (
         <div
           key={name}
