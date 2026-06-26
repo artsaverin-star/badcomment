@@ -119,7 +119,7 @@ export default function BuyButton({
         <>
           <div className="flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
             <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-            {ru ? "или открой всё" : "or unlock everything"}
+            {ru ? "или доступ ко всему сайту" : "or access the whole site"}
             <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
           </div>
           <button
