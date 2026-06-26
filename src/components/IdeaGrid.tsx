@@ -110,7 +110,7 @@ export default function IdeaGrid({
                 ) : (
                   <span />
                 )}
-                <span className="shrink-0 text-[13px] font-semibold text-[var(--color-text-brand)]">{ru ? "Раскрыть разбор" : "Open"}</span>
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-[transform,color] duration-300 group-hover:translate-x-0.5 group-hover:text-[var(--color-text-primary)]"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </div>
             </div>
           );

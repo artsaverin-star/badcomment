@@ -55,7 +55,7 @@ function ideasWord(n: number): string {
 }
 
 const Arrow = ({ className = "" }: { className?: string }) => (
-  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className={`text-[var(--color-text-brand)] transition-transform duration-300 group-hover:translate-x-1 ${className}`}>
+  <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className={`text-[var(--color-text-tertiary)] transition-[transform,color] duration-300 group-hover:translate-x-1 group-hover:text-[var(--color-text-primary)] ${className}`}>
     <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
@@ -94,12 +94,9 @@ function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
         </div>
       )}
       {c.hook && <p className="mt-6 text-[17px] font-light leading-[1.5] text-[var(--color-text-primary)] sm:text-[19px]">{firstSentence(c.hook)}</p>}
-      <div className="mt-auto pt-7">
+      <div className="mt-auto flex items-center justify-between pt-7">
         <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
-        <span className="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[var(--color-text-primary)]">
-          {ru ? "Смотреть разбор" : "See the breakdown"}
-          <Arrow />
-        </span>
+        <Arrow className="shrink-0" />
       </div>
     </Link>
   );
