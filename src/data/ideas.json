@@ -6751,502 +6751,6 @@
 		}
 	},
 	{
-		"slug": "meditation-mindfulness-1",
-		"category": "meditation-mindfulness",
-		"categoryName": "Медитация и осознанность",
-		"title": "Тихий проводник: приложение, которое не мешает",
-		"oneLiner": "Медитация с радикально пустым интерфейсом — вход в одно касание, выход в тишине, ноль поп-апов и анкет.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 111
-		},
-		"reviewGrid": [
-			{
-				"quote": "i cant finish a meditation without a bunch of prompts breaking the peace of the meditation i just completed.",
-				"rating": 1,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "It takes >10 non optional screens to enter the app after installing on a new phone. This is not mindful.",
-				"rating": 2,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "I just use this app for timing my meditation. It gradually gets worse for that with more pop ups and pointless screens.",
-				"rating": 3,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "I'm finding the app has become too cluttered. Which, given what its for, decluttering the mind, is somewhat ironic.",
-				"rating": 4,
-				"app": "Headspace: Sleep & Meditation"
-			},
-			{
-				"quote": "Want to use the app? Dismis a bunch of upsales first. Every time",
-				"rating": 2,
-				"app": "Healthy Minds Program by Humin"
-			},
-			{
-				"quote": "all of the added fluff is simply added distraction.",
-				"rating": 1,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "If I need help sleeping, I don't want to have to login and jump through half a dozen hoops just to get to the sleep audio recordings",
-				"rating": 1,
-				"app": "Smiling Mind: Mental Wellbeing"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Тихий проводник: приложение, которое не мешает",
-				"obsCount": 7,
-				"apps": [
-					"Insight Timer: Meditate, Sleep",
-					"Headspace: Sleep & Meditation",
-					"Healthy Minds Program by Humin",
-					"Smiling Mind: Mental Wellbeing"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Лидеры обросли экранами и апселлом; пользователи прямо пишут, что «лишнее» разрушает спокойствие, ради которого пришли.",
-		"idea": {
-			"pitch": "Позиционирование «анти-Insight Timer»: каждый элемент UI должен оправдать своё право мешать тишине. Один экран — таймер и пресеты, после сессии — мягкое затухание и ничего больше. Это и есть продукт.",
-			"features": [
-				"Старт с экрана таймера, без ленты и промо",
-				"Чистый выход без «продолжить/финиш» и без апселла",
-				"Опциональная пост-рефлексия, по умолчанию выключена",
-				"Никаких непропускаемых интейк-опросов при возврате"
-			],
-			"antiFeatures": [],
-			"monetization": "Спокойная подписка без давления: пожизненная опция и щедрый бесплатный таймер; апселл только в настройках, никогда после практики."
-		}
-	},
-	{
-		"slug": "meditation-mindfulness-2",
-		"category": "meditation-mindfulness",
-		"categoryName": "Медитация и осознанность",
-		"title": "Стрик без стыда: привычка без надзирателя",
-		"oneLiner": "Трекинг практики, который поддерживает, а не наказывает: серии можно скрыть, нет «ты не заходил N дней».",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 72
-		},
-		"reviewGrid": [
-			{
-				"quote": "I went through a period of only using this app for my daily meditations and got up to over 200 days and actually felt it was bad for my mental health so had to purposely not use it one day so the count would reset.",
-				"rating": 4,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "A meditation app should not force streaks and should be mindful of telling users \"off\" when they've not used the app, it defeats the purpose!",
-				"rating": 3,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "Loved this app for just over 60 days, till I lost my streak and didn't use it again.",
-				"rating": 3,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "I love this app but the Current Daily Streak can change from 25 down to 2 on its own without cause or warning.",
-				"rating": 1,
-				"app": "Simple Habit Sleep, Meditation"
-			},
-			{
-				"quote": "Thinking in retrospective, it was the habit tracker that made the difference.",
-				"rating": 5,
-				"app": "Simple Habit Sleep, Meditation"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Стрик без стыда: привычка без надзирателя",
-				"obsCount": 5,
-				"apps": [
-					"Insight Timer: Meditate, Sleep",
-					"Simple Habit Sleep, Meditation"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Принудительные стрики вызывают тревогу и вину — люди намеренно ломают серию или бросают приложение после сброса.",
-		"idea": {
-			"pitch": "Переосмыслить геймификацию под ценности ниши: прогресс как мягкая карта роста, а не игровой счётчик с угрозой провала. Полное отключение серий — флагманская фича, а не закопанная настройка.",
-			"features": [
-				"Тумблер «скрыть серии и счётчики» на видном месте",
-				"Сообщения после паузы без укора («рад снова видеть»)",
-				"Прогресс как накопленный навык, а не риск обнуления",
-				"Надёжный лог сессий без ложных сбросов стрика"
-			],
-			"antiFeatures": [],
-			"monetization": "Бесплатное ядро привычки; премиум — углублённые курсы и персональные траектории, не доступ к собственной статистике."
-		}
-	},
-	{
-		"slug": "meditation-mindfulness-3",
-		"category": "meditation-mindfulness",
-		"categoryName": "Медитация и осознанность",
-		"title": "Ночной режим, который не глохнет до утра",
-		"oneLiner": "Приложение для засыпания с гарантированным непрерывным аудио всю ночь и мягким затуханием.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 62
-		},
-		"reviewGrid": [
-			{
-				"quote": "if you are using it for sleep, be cautious of the fact that it doesn't always play through the night.",
-				"rating": 4,
-				"app": "Balance: Meditation & Sleep"
-			},
-			{
-				"quote": "since the update it stops playing once you turn the screen off.",
-				"rating": 1,
-				"app": "Simple Habit Sleep, Meditation"
-			},
-			{
-				"quote": "on 3 of the 4 nights that I played a rainfall audio to help me sleep, it would stop playing out of nowhere.",
-				"rating": 1,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "I really like the app but hate how the singles just stop cold at the end of the designated time period. Can't find a setting to get it to fade out gently.",
-				"rating": 3,
-				"app": "Balance: Meditation & Sleep"
-			},
-			{
-				"quote": "I would like to set up a nighttime meditation that follows up with a sleep scape and ends with sleep music.",
-				"rating": 5,
-				"app": "Headspace: Sleep & Meditation"
-			},
-			{
-				"quote": "Everytime you play white noise and minimize the app it stops.",
-				"rating": 1,
-				"app": "Balance: Meditation & Sleep"
-			},
-			{
-				"quote": "one of the only things that helps me sleep. I highly recommend it to everyone.",
-				"rating": 5,
-				"app": "Balance: Meditation & Sleep"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Ночной режим, который не глохнет до утра",
-				"obsCount": 7,
-				"apps": [
-					"Balance: Meditation & Sleep",
-					"Simple Habit Sleep, Meditation",
-					"Insight Timer: Meditate, Sleep",
-					"Headspace: Sleep & Meditation"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Сон — массовый сценарий, но у всех конкурентов звук обрывается при выключенном экране или среди ночи и будит человека.",
-		"idea": {
-			"pitch": "Сделать надёжность ночного воспроизведения главным обещанием бренда, а не строкой в чейнджлоге. Истории и звуки, которые играют до таймера без сбоев и гаснут плавно, а не «колом».",
-			"features": [
-				"Фоновое воспроизведение всю ночь при выключенном экране",
-				"Мягкое затухание и зацикливание длинных треков",
-				"Очередь «медитация → звук → музыка» без касаний",
-				"Длинные оригинальные дорожки сна (8+ часов)"
-			],
-			"antiFeatures": [],
-			"monetization": "Подписка вокруг библиотеки сна; пробный период честный, без скрытого автосписания — доверие как часть продукта сна."
-		}
-	},
-	{
-		"slug": "meditation-mindfulness-4",
-		"category": "meditation-mindfulness",
-		"categoryName": "Медитация и осознанность",
-		"title": "Проводник по назначению врача: клинический канал",
-		"oneLiner": "Медитация, которую назначает терапевт: версия для пациентов с траекторией под КПТ и тревогу.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 62
-		},
-		"reviewGrid": [
-			{
-				"quote": "I love this app, recommended by my therapist almost 2 yrs ago. Immediate help at my fingertips!",
-				"rating": 5,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "I'm currently undergoing CBT and the therapist suggested this app and I love it.",
-				"rating": 5,
-				"app": "Healthy Minds Program by Humin"
-			},
-			{
-				"quote": "I joined in 2017 at the recommendation of my psychologist and have meditated thousands of minutes since.",
-				"rating": 5,
-				"app": "Headspace: Sleep & Meditation"
-			},
-			{
-				"quote": "this has been my favorite by far and have recommended it to many friends and clients.",
-				"rating": 5,
-				"app": "Healthy Minds Program by Humin"
-			},
-			{
-				"quote": "the 'Take a deep breath' needs to be removed from the start. PTSD victim and it just sets me off.",
-				"rating": 1,
-				"app": "Calm"
-			},
-			{
-				"quote": "I struggle with anxiety and depression and this app is helping me so much to calm myself down.",
-				"rating": 5,
-				"app": "Smiling Mind: Mental Wellbeing"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Проводник по назначению врача: клинический канал",
-				"obsCount": 6,
-				"apps": [
-					"Insight Timer: Meditate, Sleep",
-					"Healthy Minds Program by Humin",
-					"Headspace: Sleep & Meditation",
-					"Calm",
-					"Smiling Mind: Mental Wellbeing"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Огромная доля установок — по рекомендации психолога; никто не строит продукт прямо под этот канал и связку с терапией.",
-		"idea": {
-			"pitch": "Сделать врача со-проводником: панель для терапевта, которая назначает курсы, и пациентский опыт, встроенный в лечение тревоги/бессонницы/КПТ. Доверие приходит готовым из кабинета.",
-			"features": [
-				"Назначаемые терапевтом программы и «SOS при панике»",
-				"Понятная обучающая траектория для новичка, а не полка",
-				"Протоколы под тревогу, бессонницу, хроническую боль",
-				"Бережные скрипты без триггеров (без «глубоко вдохните» в лоб)"
-			],
-			"antiFeatures": [],
-			"monetization": "B2B2C: подписки клиник/терапевтов и страховых EAP; для пациента доступ бесплатный или дотированный."
-		}
-	},
-	{
-		"slug": "meditation-mindfulness-5",
-		"category": "meditation-mindfulness",
-		"categoryName": "Медитация и осознанность",
-		"title": "Светский старт без эзотерики (но без догмы)",
-		"oneLiner": "Медитация как навык на научной базе, нейтральная к вере: без нью-эйджа и без воинствующего атеизма.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 79
-		},
-		"reviewGrid": [
-			{
-				"quote": "There isn't much New Age-y \"energy\" speech (if any at all). As someone with differing beliefs, I highly appreciate this.",
-				"rating": 5,
-				"app": "Balance: Meditation & Sleep"
-			},
-			{
-				"quote": "I find the angularity and dogmatism in Sam's outspoken atheistic philosophy offputting.",
-				"rating": 3,
-				"app": "Waking Up: Meditation & Wisdom"
-			},
-			{
-				"quote": "Learning to meditate is a big deal! Having someone you can trust is important. I don't trust him at all after that.",
-				"rating": 1,
-				"app": "Waking Up: Meditation & Wisdom"
-			},
-			{
-				"quote": "Brings the benefits of the practice of meditation for your mind and body without the spiritual part.",
-				"rating": 5,
-				"app": "Happier Meditation"
-			},
-			{
-				"quote": "if you're a muslim i advice you to avoid downloading this app which is covered by knowledge but in depth it's Buddhism",
-				"rating": 1,
-				"app": "Healthy Minds Program by Humin"
-			},
-			{
-				"quote": "thanks for keeping it real and not being way too \"wooooshy!\"",
-				"rating": 5,
-				"app": "Waking Up: Meditation & Wisdom"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Светский старт без эзотерики (но без догмы)",
-				"obsCount": 6,
-				"apps": [
-					"Balance: Meditation & Sleep",
-					"Waking Up: Meditation & Wisdom",
-					"Happier Meditation",
-					"Healthy Minds Program by Humin"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Часть аудитории бежит от «энергий», часть — отталкивается жёстким атеизмом и политикой наставника; нейтральной зоны почти нет.",
-		"idea": {
-			"pitch": "Занять чистую секулярно-нейтральную позицию: наука и практика без метафизики, но и без личных взглядов автора, рвущих доверие. Проводник, которому можно доверять независимо от мировоззрения.",
-			"features": [
-				"Подача «навык внимания», подкреплённая исследованиями",
-				"Никаких политических/религиозных заявлений наставника",
-				"Опциональный духовный слой, выключаемый по желанию",
-				"Несколько проводников вместо культа одного лица"
-			],
-			"antiFeatures": [],
-			"monetization": "Подписка плюс некоммерческий/донат-режим как сигнал доверия — путь Healthy Minds и Smiling Mind как ориентир."
-		}
-	},
-	{
-		"slug": "meditation-mindfulness-6",
-		"category": "meditation-mindfulness",
-		"categoryName": "Медитация и осознанность",
-		"title": "Меню по состоянию: практика под момент",
-		"oneLiner": "Вход не через каталог, а через «как ты сейчас и сколько у тебя минут» — точная практика за два касания.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 69
-		},
-		"reviewGrid": [
-			{
-				"quote": "always something available to meet my mood, need or time of day.",
-				"rating": 5,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "'On The Go' meditation section with different time durations kept in mind, is the best.",
-				"rating": 5,
-				"app": "Simple Habit Sleep, Meditation"
-			},
-			{
-				"quote": "I love the variety of choices and that they have a meditation option for almost every situation.",
-				"rating": 5,
-				"app": "Balance: Meditation & Sleep"
-			},
-			{
-				"quote": "Hard to navigate, cannot find saved items i wanted to come back to. Now all I do is search and scroll looking for these saved items. it wastes so much time.",
-				"rating": 2,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "it's so hard to find the meditations I liked and I also find it difficult to find SOS ones when I'm feeling panicky.",
-				"rating": 3,
-				"app": "Smiling Mind: Mental Wellbeing"
-			},
-			{
-				"quote": "I just wanted guided meditation and mindfulness but struggled to find much.",
-				"rating": 3,
-				"app": "Headspace: Sleep & Meditation"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Меню по состоянию: практика под момент",
-				"obsCount": 6,
-				"apps": [
-					"Insight Timer: Meditate, Sleep",
-					"Simple Habit Sleep, Meditation",
-					"Balance: Meditation & Sleep",
-					"Smiling Mind: Mental Wellbeing",
-					"Headspace: Sleep & Meditation"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Любимая функция пользователей — подбор по настроению/времени, но в больших библиотеках она тонет, а поиск не находит даже по названию.",
-		"idea": {
-			"pitch": "Сделать ситуативный подбор главным экраном, а каталог — вторичным. Состояние + свободное время → готовая сессия. Снимаем паралич выбора, который сам по себе тревожит.",
-			"features": [
-				"Стартовый выбор: состояние (тревога/злость/одиночество) + минуты",
-				"Кнопка «SOS» для острых состояний на главном экране",
-				"Работающий поиск и фильтры (голос, фон, длина)",
-				"Надёжное «избранное», которое не теряется после обновлений"
-			],
-			"antiFeatures": [],
-			"monetization": "Бесплатный ситуативный подбор как крючок; премиум — расширенные сценарии и персонализация под повторяющиеся состояния."
-		}
-	},
-	{
-		"slug": "meditation-mindfulness-7",
-		"category": "meditation-mindfulness",
-		"categoryName": "Медитация и осознанность",
-		"title": "Гайд под разный ум: тело, боль, афантазия",
-		"oneLiner": "Адаптивные скрипты медитаций для тех, кому не подходят визуализации и шаблонные телесные подсказки.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 48
-		},
-		"reviewGrid": [
-			{
-				"quote": "it sucks if you have aphantasia (the inability or low ability to visualize).",
-				"rating": 2,
-				"app": "Insight Timer: Meditate, Sleep"
-			},
-			{
-				"quote": "narrator says \"notice how you're not aware of shape of your body\" when I'm always aware because I can touch tip of my nose with closed eyes.",
-				"rating": 2,
-				"app": "Waking Up: Meditation & Wisdom"
-			},
-			{
-				"quote": "95% of the \"meditations\" are just you visualizing yourself on a beach or in a forest, with no other options to skip.",
-				"rating": 2,
-				"app": "Balance: Meditation & Sleep"
-			},
-			{
-				"quote": "I'd suugest a section dealing with chronic pain, a challenge that lots of people meet.",
-				"rating": 4,
-				"app": "Smiling Mind: Mental Wellbeing"
-			},
-			{
-				"quote": "I live with chronic pain and this is an amazing app that truly helped me this morning",
-				"rating": 5,
-				"app": "Calm"
-			},
-			{
-				"quote": "I'm going through a rough-patch with PTSD & autism, tried the body scan and LOVE it. The ability to change so much, the background music, the narrator, an option for captions?",
-				"rating": 5,
-				"app": "Smiling Mind: Mental Wellbeing"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Гайд под разный ум: тело, боль, афантазия",
-				"obsCount": 6,
-				"apps": [
-					"Insight Timer: Meditate, Sleep",
-					"Waking Up: Meditation & Wisdom",
-					"Balance: Meditation & Sleep",
-					"Smiling Mind: Mental Wellbeing",
-					"Calm"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Стандартные «представьте пляж» и «заметьте, что не чувствуете тело» проваливаются у людей с афантазией, хронической болью и ПТСР.",
-		"idea": {
-			"pitch": "Дифференцировать гайд по типу восприятия: альтернативы визуализациям, корректные телесные инструкции, дорожки для боли и травмы. Маленькие, но яростно лояльные недообслуженные сегменты.",
-			"features": [
-				"Невизуальные практики для людей с афантазией",
-				"Корректные телесные скрипты без ложных допущений",
-				"Программа для жизни с хронической болью",
-				"Травма-чувствительные входы без резких триггеров"
-			],
-			"antiFeatures": [],
-			"monetization": "Подписка с нишевыми спец-программами; партнёрства с профильными сообществами и клиниками боли как канал."
-		}
-	},
-	{
 		"slug": "strength-training-1",
 		"category": "strength-training",
 		"categoryName": "Силовая и зал",
@@ -33336,6 +32840,806 @@
 				"нет фантазийных аватаров или художественной стилизации, только профессиональный деловой портрет"
 			],
 			"monetization": "Корпоративная подписка: от 299 долларов в месяц (до 50 активных сотрудников) до 1499 долларов в месяц (до 500 сотрудников). Разовый проект для компании без подписки: 15 долларов за голову при заказе от 20 человек. HR-бюджеты структурированы именно под такие статьи расходов. Компании из быстрорастущих секторов с высокой текучкой кадров, особенно чувствительный сегмент."
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-1",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Один учитель, один путь",
+		"oneLiner": "Приложение медитации с единственным учителем, который ведёт вас по фиксированному нарастающему курсу, без библиотеки выбора и каталога на все случаи жизни",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "I have used many of the major apps like Waking Up, HeadSpace, and Happier and while I've loved all those platforms and in many ways they introduced me to so many parts of the practice, what I found myself yearning for was more directed guidance from a single teacher rather than a buffet of options.",
+				"rating": 5,
+				"app": "The Way - Guided Meditation"
+			},
+			{
+				"quote": "Ive always thought that meditation just needs to be taught step by step. Guiding you through your physical senses. I've tried many apps and many teachers - none did it this way.",
+				"rating": 5,
+				"app": "The Way - Guided Meditation"
+			},
+			{
+				"quote": "This is such an important part of my day. I began using it and practicing meditation during the pandemic, though my practice then was rather sporadic and inconsistent, and I used it primarily during work when things got to be too much at ti",
+				"rating": 5,
+				"app": "Meditation | Down Dog"
+			},
+			{
+				"quote": "For close to 40 years, I have been trying to meditate and in the last 10 days, with FitMind, I have made great strides than I have in the last 40 years. One of the first things I heard about mediations, years ago was, just sit there with your thoughts.",
+				"rating": 5,
+				"app": "FitMind: Mental Fitness"
+			},
+			{
+				"quote": "I have come to absolutely love this app. Coming from breath-based practices like Vipassana and focused attention traditions such as Samatha meditation, I was exploring zen meditation and discovered The Way. What immediately struck me was how precise and direct the instruction was.",
+				"rating": 5,
+				"app": "The Way - Guided Meditation"
+			},
+			{
+				"quote": "i've had headspace for over a decade. for the first 3-4 years, I loved it. this app's approach toward meditation and wellness has noticeably shifted since its inception though. When I started, it was Andy Puddicombe doing all of the meditations. Now it is a rotation of many voices and AI.",
+				"rating": 2,
+				"app": "Headspace: Sleep & Meditation"
+			},
+			{
+				"quote": "I've been practicing for a couple years via Waking Up, where I found Henry Shukman's meditations. I've found his guidance is very powerful and precise, inviting us to be with all of our experience, emphasizing compassion and acceptance of all of it.",
+				"rating": 5,
+				"app": "The Way - Guided Meditation"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Все крупные приложения (Calm, Headspace, Insight Timer) превратились в платформы",
+				"obsCount": 8,
+				"apps": [
+					"The Way - Guided Meditation",
+					"Waking Up: Meditation & Wisdom",
+					"FitMind: Mental Fitness",
+					"Happier Meditation"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Все крупные приложения (Calm, Headspace, Insight Timer) превратились в платформы с сотнями голосов и тысячами треков. Пользователь открывает приложение, тратит 10 минут на выбор, закрывает так и не начав. Настоящие учителя с репутацией и педагогической глубиной остаются на YouTube или ведут живые ретриты, но не имеют собственного масштабируемого продукта. Разрыв: никто не строит полноценный платный курс вокруг одного конкретного мастера как бренда, где каждое занятие строится на предыдущем и нельзя перепрыгнуть",
+		"idea": {
+			"pitch": "Вы не выбираете медитацию из меню, вы проходите обучение у мастера. Приложение строится вокруг одного учителя с реальной традицией, фиксированным путём из 60-90 ступеней и ни единой кнопки случайного выбора. Монетизируется подпиской, но ядро доверия и удержания создаёт голос и личность учителя: люди платят годами, чтобы оставаться рядом с кем-то, кому доверяют",
+			"features": [
+				"Фиксированный линейный курс без возможности перепрыгнуть, каждое занятие открывается после предыдущего",
+				"Единственный голос учителя во всех сессиях, без гостей и разнообразия диктора",
+				"Еженедельные живые сессии вопросов-ответов с учителем как якорь удержания подписчиков",
+				"Личный дневник практики с заметками к каждой ступени курса и трекингом прогресса по пути",
+				"Мини-лекции 5-10 минут перед каждой медитацией, объясняющие механику предстоящей практики"
+			],
+			"antiFeatures": [
+				"Никакого каталога медитаций на выбор: только текущая ступень курса доступна",
+				"Никакой библиотеки «медитация на сон», «медитация на тревогу» в отрыве от основного пути",
+				"Никаких AI-голосов, генерированного контента и замены живого учителя алгоритмом"
+			],
+			"monetization": "Годовая подписка 79-99 долларов за доступ к курсу и живым сессиям. Пользователи The Way, Waking Up и FitMind уже платят 50-130 долларов в год за приложения с одним голосом, прецедент оплаты доказан. B2B: корпоративные велнес-программы покупают лицензии пакетами для команд. Учитель получает долю выручки, что создаёт взаимозависимость и мотивацию создавать контент"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-2",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Кризисный карман: паника и острая тревога",
+		"oneLiner": "Единственное приложение, созданное исключительно для момента панической атаки, без общей медитации, без курсов, только инструменты первой помощи для тех, кто уже в кризисе",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "Panic disorder took my life away from me, and the DARE teachings have helped me get it back. When I began suffering from panic disorder, I downloaded several apps related to anxiety, including DARE. At first, I didn't like this one because it wasn't what I expected.",
+				"rating": 5,
+				"app": "Dare: Panic & Anxiety Relief"
+			},
+			{
+				"quote": "Hands down best app purchase ever! If you have chronic anxiety and panic attacks, this is the best tool you'll ever find to beat chronic anxiety and live a more fulfilling life. I've suffered from chronic anxiety and sleep deprivation from panic attacks for 20+ years.",
+				"rating": 5,
+				"app": "Dare: Panic & Anxiety Relief"
+			},
+			{
+				"quote": "i have never written a review for an app before, but i felt so strongly compelled to come and sing my praises about this app. I've struggled with mild anxiety all my life but over the summer I found myself in the ER three different times due to panic attacks.",
+				"rating": 5,
+				"app": "Rootd: Panic Attacks & Anxiety"
+			},
+			{
+				"quote": "I have anxiety and panic attacks and this app is so, so helpful. A lifesaver, even. It's very intuitive and soothing and you don't have to think or count or even look at the app. You can just listen to it and it's very easy to synchronize your breathing with the sound.",
+				"rating": 5,
+				"app": "Breathing Exercises: Breathe+"
+			},
+			{
+				"quote": "This app is seriously out here changing my life. I've basically dealt with various forms of anxiety my whole life and have recently found it getting waaay worse. So I started therapy, meditating, whole bunch of self help, and loads of other things.",
+				"rating": 5,
+				"app": "Unwinding Anxiety"
+			},
+			{
+				"quote": "Hello my name is Jeremy and I have had anxiety and panic attacks for years now !! I remember my first panic attack I was sitting in a movie theater, I went by myself I had gotten out of school early I decided I was going to catch a movie. T",
+				"rating": 5,
+				"app": "Dare: Panic & Anxiety Relief"
+			},
+			{
+				"quote": "As someone who's dealt with anxiety and PTSD for most of their life, it had been your standard case of well I'm going to avoid that because it gives me anxiety. I knew my triggers and what to avoid, and what coping mechanisms may or may not work for me.",
+				"rating": 5,
+				"app": "Dare: Panic & Anxiety Relief"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Dare, Rootd и Unwinding Anxiety работают для хронической тревоги, но ни одно не ",
+				"obsCount": 7,
+				"apps": [
+					"Dare: Panic & Anxiety Relief",
+					"Rootd: Panic Attacks & Anxiety",
+					"Unwinding Anxiety",
+					"Breathing Exercises: Breathe+"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Dare, Rootd и Unwinding Anxiety работают для хронической тревоги, но ни одно не является острым кризисным инструментом с бесшовным открытием в момент атаки, с протоколом на 60-90 секунд и без единого экрана выбора. Существующие приложения требуют навигации, регистрации и подбора техники в тот момент, когда человек не способен думать. Разрыв: продукт, который открывается уже в режиме помощи, без трения, с физиологическими техниками (дыхание, тактильные якоря, голос) и немедленным действием",
+		"idea": {
+			"pitch": "Когда случается паническая атака, у человека нет времени выбирать технику из меню или читать описания упражнений. Кнопка виджета на главном экране телефона запускает протокол немедленно: голос, дыхательный ритм, сенсорный якорь. Платит тот, кто уже знает, что у него паническое расстройство и ищет инструмент, а не тот, кто просто хочет расслабиться. Эти люди платят и за терапию, и за лекарства, и за книги, они готовы платить за работающий цифровой инструмент",
+			"features": [
+				"Виджет одной кнопки на экране блокировки, запускающий аудиопротокол через 2 секунды без открытия приложения",
+				"Три фиксированных протокола (паника, навязчивые мысли, публичное место) без выбора и без навигации",
+				"Дыхательный ритм с тактильной вибрацией телефона как физиологический якорь, не требующий смотреть на экран",
+				"Дневник атак с маппингом триггеров, времени суток и локаций для передачи терапевту в PDF",
+				"Режим «рядом стоит кто-то»: короткий аудиосценарий для человека, который хочет помочь другу в панике"
+			],
+			"antiFeatures": [
+				"Никакого онбординга и курса на первом открытии, приложение работает немедленно",
+				"Никакого AI-чатбота как замены живого кризисного контакта",
+				"Никаких подписочных экранов при открытии во время атаки, монетизация только после сессии"
+			],
+			"monetization": "Разовая покупка 9-15 долларов (избегает подписочного барьера в кризис) плюс необязательный годовой план для доступа к расширенным протоколам и экспорту дневника. B2B: клиники тревожных расстройств и психотерапевты, использующие приложение как домашнее задание между сессиями. Люди с ГТР и паническим расстройством уже платят за Dare, Rootd и терапию, покупательская способность доказана"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-3",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Сон без компромиссов: хроническая бессонница",
+		"oneLiner": "Приложение для людей с хронической бессонницей, объединяющее гипноз, нарративные истории и телесные протоколы в одном продукте без кольца и без wearables",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I've had severe insomnia for 37+ years. I've tried everything you can imagine & I don't believe in hypnosis but I had nothing to lose by giving this a shot. I was amazed that before the 30 minutes of sleep hypnosis, I was sound asleep.",
+				"rating": 5,
+				"app": "Relax And Sleep Well Hypnosis"
+			},
+			{
+				"quote": "I have been a slumber user since the slumber app had its first sleep story. As someone with genetic chronic sleep issues, this app is a must. For anyone with sleep problems, slumber has guided me through nights of pain, extreme insomnia, and nights where I really needed something.",
+				"rating": 4,
+				"app": "Slumber－Calm Stories for Sleep"
+			},
+			{
+				"quote": "During COVID I began suffering from intense insomnia, panic attacks that would last for three or four days without letting up, and major major depression. I was on all these pills and nothing helped. Then I stumbled across Loóna.",
+				"rating": 5,
+				"app": "Loóna: Sleep, reduce anxiety"
+			},
+			{
+				"quote": "I am so extremely grateful for this app. I started by listening to one or two of the free recordings and I had a really good sense. 15 months ago my brother died and when he died I could not sleep well. I didn't want pharmaceuticals to help me sleep.",
+				"rating": 5,
+				"app": "Relax And Sleep Well Hypnosis"
+			},
+			{
+				"quote": "I've been using this app to fall asleep almost every night since I was around 10 years old (a decade ago), so it brings me no joy whatsoever to have to write this. I haven't been able to sleep for 3 nights because the app will not open.",
+				"rating": 1,
+				"app": "Calm"
+			},
+			{
+				"quote": "I woke up at 4am, as usual, and was up to 5/6am with my brain just running in circles about everything I need to take care of. I couldn't take it any more. I looked for an application to help and found this one. When I say OMG! I slept so fast.",
+				"rating": 5,
+				"app": "Sleep Sounds White Noise, Rain"
+			},
+			{
+				"quote": "I suffer from chronic insomnia. I've tried EVERYTHING I could think of. Including this app. It works as well as it can. Obviously since I was not properly treated fast enough my insomnia became chronic.",
+				"rating": 5,
+				"app": "Avrora Sleep Sounds & Stories"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Calm и Headspace делают sleep stories как дополнение к основной медитации. Slumb",
+				"obsCount": 7,
+				"apps": [
+					"Relax And Sleep Well Hypnosis",
+					"Slumber－Calm Stories for Sleep",
+					"Loóna: Sleep, reduce anxiety",
+					"Calm Sleep - Rest & Relax"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Calm и Headspace делают sleep stories как дополнение к основной медитации. Slumber специализируется на историях, но голос один и петли слышны. Relax And Sleep Well Hypnosis работает для части аудитории, но интерфейс устарел. Ни один продукт не строит целостный протокол для клинически сложных случаев (37 лет бессонницы, ПТСР-сопровождаемое пробуждение в 3 ночи, послеродовая бессонница). Разрыв: достаточно глубокий продукт для тех, кто перепробовал всё и остался с проблемой",
+		"idea": {
+			"pitch": "Хроническая бессонница: не поведенческая проблема, решаемая приятной музыкой. Этот продукт строит индивидуальный протокол на основе паттерна нарушения сна (проблема с засыпанием, ночные пробуждения, ранний подъём), комбинируя гипнотические аудиосессии с нарративными историями нужной длины и дыхательными якорями. Люди с бессонницей платят за всё: снотворные, трекеры, терапевтов, книги: и делают это годами, это аудитория с реальным бюджетом на проблему",
+			"features": [
+				"Онбординг-протокол: 7 вопросов о паттерне бессонницы определяют персональный маршрут из трёх типов сессий",
+				"Нарративные истории с адаптивной длиной: система запоминает, на какой минуте вы засыпаете, и подстраивает темп",
+				"Гипнотические сессии для трёх разных сценариев: не могу заснуть, проснулся в 3 ночи, ранний тревожный подъём",
+				"Протокол для пар: режим «один из нас не спит», не будящий второго партнёра, с управлением через наушники",
+				"Экспортируемый дневник сна для передачи сомнологу или терапевту с графиком паттернов за 30/90 дней"
+			],
+			"antiFeatures": [
+				"Никакого трекинга сна через камеру или микрофон, нет ложного ощущения научности без данных",
+				"Никакого форума сообщества, бессонница усиливается от чужих жалоб и обсуждений в ночи",
+				"Никаких оповещений в ночное время, даже мотивационных"
+			],
+			"monetization": "Подписка 12-15 долларов в месяц или 89 долларов в год. Люди с хронической бессонницей платят годами за Slumber, Relax And Sleep Well Hypnosis и Sleep Sounds комбинированно, средний чек выше, чем у разовых покупателей. B2B: страховые компании и работодатели, для которых плохой сон сотрудников конвертируется в измеримые потери производительности"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-4",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Доказательная база: медитация для скептика",
+		"oneLiner": "Приложение медитации без духовного языка, построенное вокруг нейронауки и доказательной базы, для образованных скептиков, которые хотят понять механизм, а не просто следовать инструкции",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "This is the most comprehensive meditation guide I've used. Learn what meditation really is with complementary Theory and Life sections. All sections — Practice, Theory, and Life — are filled with expert guest content, allowing for a comprehensive understanding.",
+				"rating": 5,
+				"app": "Waking Up: Meditation & Wisdom"
+			},
+			{
+				"quote": "I have been mediating off and on for my mental health issues for roughly 10 years. I have used multiple apps. Even gone through therapy that involve Metta (loving kindness). This is the first app that I have used that I can genuinely say is making a lasting change.",
+				"rating": 5,
+				"app": "FitMind: Mental Fitness"
+			},
+			{
+				"quote": "This is a long journey, and even after completion here, I still think my journey will continue. I've been dealing with Chronic Pain, RSD or CRPS in particular, and learning how to process my pain — not letting my mind and stress make a mountain out of a molehill.",
+				"rating": 5,
+				"app": "Healthy Minds Program by Humin"
+			},
+			{
+				"quote": "A breathing app such as this one is helpful for overall anxiety and mindfulness. Fear and anxiety disorders often include an irrational response to a stimulus or a sudden onset of emotions that activates the sympathetic nervous system. The diaphragmatic breathing used in this app helps to regulate the parasympathetic nervous system.",
+				"rating": 5,
+				"app": "Healthy Minds Program by Humin"
+			},
+			{
+				"quote": "This app is an overlooked gem. I think because it was developed by the Federal Government for Veterans people think it is sub par or not confidential. Neither is true. It's an outstanding app for both the novice and the advanced student.",
+				"rating": 5,
+				"app": "Mindfulness Coach"
+			},
+			{
+				"quote": "Anxiety is part of the human condition. We all have it to some degree. I have “dealt” with anxiety for decades, and not always so well. Anxiety is tough enough – and how we treat it (deny it) or self-medicate, can be as bad or worse than th",
+				"rating": 5,
+				"app": "Unwinding Anxiety"
+			},
+			{
+				"quote": "... and possibly just the best meditation app, period. If you're like me and find yourself put off by New Age-flavored 30-minute long meditation sessions and just want to start learning techniques for enjoying the evidence-based benefits of meditation.",
+				"rating": 5,
+				"app": "Buddhify: Guided Meditation"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Healthy Minds Program от Университета Висконсина строит правильный каркас, но UX",
+				"obsCount": 7,
+				"apps": [
+					"Healthy Minds Program by Humin",
+					"Waking Up: Meditation & Wisdom",
+					"FitMind: Mental Fitness",
+					"Mindfulness Coach"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Healthy Minds Program от Университета Висконсина строит правильный каркас, но UX разочаровывает, возвращение к конкретным сессиям невозможно. Waking Up апеллирует к науке, но через фигуру Сэма Харриса с его политическим флёром. FitMind работает как образовательный продукт, но контент обновляется редко. Разрыв: строгий учебный продукт с нейронаучным объяснением каждой техники, без духовности и без личной харизмы одного лидера мнений",
+		"idea": {
+			"pitch": "Скептики хотят понимать механизм, прежде чем практиковать, и их не удерживает ни колокольчик осознанности, ни образ монаха на обложке. Этот продукт объясняет нейробиологию каждой практики коротким текстом или аудио перед сессией, предлагает систематический курс из 10 уровней и даёт возможность отслеживать субъективные данные по тревоге, сну и фокусу. Аудитория с высшим образованием и аналитическим складом ума хорошо конвертируется в годовую подписку, когда продукт разговаривает на её языке",
+			"features": [
+				"Краткое научное объяснение (2-3 минуты аудио или текст) перед каждой медитацией о том, что именно происходит в мозге",
+				"10-уровневый структурированный курс от базового внимания до метакогниции, с зачётными сессиями на каждом уровне",
+				"Субъективный трекер: 30-секундная самооценка тревоги, фокуса и сна до и после каждой практики с накопленным графиком",
+				"Глоссарий техник с указанием исследований и эффект-сайзов для тех, кто хочет читать оригинальные статьи",
+				"Еженедельный дайджест о новых исследованиях в области медитации и осознанности в формате одного абзаца"
+			],
+			"antiFeatures": [
+				"Никаких духовных терминов, чакр, энергий и религиозных отсылок в интерфейсе",
+				"Никаких геймификационных ачивок и стриков, которые создают давление вместо внутренней мотивации",
+				"Никакого сообщества и публичного отчёта о практике, медитация здесь личная и измеримая"
+			],
+			"monetization": "Подписка 10-12 долларов в месяц. B2B: корпоративные велнес-программы для технологических компаний и финансовых структур, чьи сотрудники скептически относятся к традиционным велнес-предложениям. Healthplan-интеграция: страховые компании, покрывающие доказательные вмешательства при тревоге. Прецедент оплаты Healthy Minds и Waking Up подтверждён"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-5",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Инструмент терапевта: дополнение к сессии",
+		"oneLiner": "B2B-платформа для психотерапевтов и клиник: структурированные домашние практики между сессиями, назначаемые терапевтом, с трекингом выполнения и экспортом данных",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "This app was recommended to me by my therapist to help with my depression and panic disorder. She told me that she actually uses the app herself, especially when she wakes up in the middle of the night and has trouble falling back asleep.",
+				"rating": 5,
+				"app": "Buddhify: Guided Meditation"
+			},
+			{
+				"quote": "I've read many books, watched many videos and have taught an Eckhart Tolle group of over 200k people online daily for 4-5 years. This app, hands down is the best tool to step into mindfulness with, beginners or advanced.",
+				"rating": 5,
+				"app": "Mindfulness Coach"
+			},
+			{
+				"quote": "Anxiety is part of the human condition. We all have it to some degree. I have “dealt” with anxiety for decades, and not always so well. Anxiety is tough enough – and how we treat it (deny it) or self-medicate, can be as bad or worse than th",
+				"rating": 5,
+				"app": "Unwinding Anxiety"
+			},
+			{
+				"quote": "I have been mediating off and on for my mental health issues for roughly 10 years. I have used multiple apps. Even gone through therapy that involve Metta (loving kindness). This is the first app that I have used that I can genuinely say is making a lasting change.",
+				"rating": 5,
+				"app": "FitMind: Mental Fitness"
+			},
+			{
+				"quote": "To start, I want to give my own background as a reference. I am AFAB; I am neurodivergent, have CPTSD, chronic pain, and multiple physical disabilities; I have had over a decade of therapy (CBT, DBT, EMDR) so I have experience with meditation tools.",
+				"rating": 5,
+				"app": "Balance: Meditation & Sleep"
+			},
+			{
+				"quote": "I have tried many apps for meditation and anxiety refocusing techniques. Most were given to me as suggestions from psychiatrists and behavioral health specialists. The stuff they gave me was ok when in a pinch, but nothing I would stick to.",
+				"rating": 5,
+				"app": "Meditation Studio"
+			},
+			{
+				"quote": "I was shared the Healthy Minds App from a dear friend. At first I ignored it because for years I have been using Thich Nhat Hahn method and the Plum Village App. I figured that because this is such an ancient practice and so many new methods have emerged.",
+				"rating": 4,
+				"app": "Healthy Minds Program by Humin"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Терапевты рекомендуют пациентам Calm, Headspace или Dare как неофициальное домаш",
+				"obsCount": 7,
+				"apps": [
+					"Buddhify: Guided Meditation",
+					"Dare: Panic & Anxiety Relief",
+					"Unwinding Anxiety",
+					"Healthy Minds Program by Humin"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Терапевты рекомендуют пациентам Calm, Headspace или Dare как неофициальное домашнее задание, но не могут видеть, выполняется ли оно, не могут назначить конкретный протокол и не имеют данных о прогрессе между сессиями. Buddhify прямо упоминается терапевтами в отзывах как рекомендованный инструмент, но приложение не имеет профессионального B2B-уровня с данными для клинициста. Разрыв: CRM-интегрированный инструмент, где терапевт назначает, пациент выполняет, данные автоматически доступны на следующей сессии",
+		"idea": {
+			"pitch": "Психотерапевт тратит часть каждой сессии на обсуждение того, практиковал ли клиент дома и как это прошло, без данных и без структуры. Эта платформа даёт терапевту личный кабинет с библиотекой протоколов (КПТ, DBT, ACT), назначением конкретных практик с дедлайном и автоматическим дашбордом прогресса. Платит клиника или частный терапевт, модель B2B per-seat, пациент не платит ничего. Это не медитационное приложение, это клинический инструмент с медитацией внутри",
+			"features": [
+				"Кабинет терапевта с ведением нескольких клиентов, назначением практик по дате и типу тревожного расстройства",
+				"Библиотека из 80+ протоколов, размеченных по подходам (КПТ, DBT, ACT, соматические), с описанием показаний",
+				"Клиентское приложение с уведомлениями о назначенной практике и минимальным интерфейсом без выбора и навигации",
+				"Автоматический еженедельный отчёт для терапевта: выполнение, субъективные оценки, время практики",
+				"API-интеграция с популярными EHR-системами для внесения данных о домашних практиках в медицинскую карту"
+			],
+			"antiFeatures": [
+				"Никакого самоназначения: клиент не может выбирать практики самостоятельно без назначения терапевта",
+				"Никакого AI-терапевта или чатбота с терапевтическими функциями в приложении для клиента",
+				"Никакой публичной страницы скачивания в App Store без верификации для терапевта"
+			],
+			"monetization": "49-99 долларов в месяц за seat терапевта, включает неограниченное число активных клиентов. Клиники платят корпоративный тариф 299-599 долларов в месяц за отдел или практику. Этот сегмент не ценочувствителен: терапевт платит за инструмент, который экономит время и добавляет клиническую ценность каждой сессии. Первые клиенты находятся через психотерапевтические ассоциации и CBT-тренинговые программы"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-6",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Горе и потеря: медитация в траурный период",
+		"oneLiner": "Приложение, созданное исключительно для переживания горя, потери близкого человека или развода, без общей медитации, с контентом, который прямо называет боль вслух",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "Tyler Boss' recent devotions regarding the disruptions and changes in our lives and the uncertainties we face have been so helpful. I lost my husband to a particularly horrific cancer December 8 of last year. He was a true evangelist.",
+				"rating": 5,
+				"app": "Abide: Bible Prayer Meditation"
+			},
+			{
+				"quote": "I am so extremely grateful for this app. 15 months ago my brother died and when he died I could not sleep well. I didn't want pharmaceuticals to help me sleep. I am so happy I found this to help me through this most difficult time in my life.",
+				"rating": 5,
+				"app": "Relax And Sleep Well Hypnosis"
+			},
+			{
+				"quote": "Not sure if I've written a review for this app yet, but I use both the yoga and meditation app frequently. I'm writing this review a week after my sister passed away unexpectedly from a drug overdose. Her death came about a year after both my parents died.",
+				"rating": 5,
+				"app": "Meditation | Down Dog"
+			},
+			{
+				"quote": "This app has helped me transform my life. After loosing my child to suicide and going down a dark path, I needed someone to show me the way out as I was lost. This app with the guided meditations videos and yoga has been a guiding light.",
+				"rating": 5,
+				"app": "Sadhguru- Yoga & Meditation"
+			},
+			{
+				"quote": "The teaching of Buddhism could be the salvation of the world! Religion is often frowned upon. As a Catholic I have experienced both Conservative and Liberal extremism.\nAs human beings we all see we have differences in education and opinion.",
+				"rating": 5,
+				"app": "Plum Village: Mindfulness"
+			},
+			{
+				"quote": "In 2023 I needed a biopsy of my breast so an unusual spot could be looked at by a pathologist. Up until this point in my life, I was fortunate to have never had an anxiety attack or any other mental health challenges. However, the stress of waiting for results changed everything.",
+				"rating": 5,
+				"app": "Balance: Meditation & Sleep"
+			},
+			{
+				"quote": "I will highlight the elements to this app that I think make it great both in features and content. \n- Content: Genuine Non-Judgemental attitude surrounding how much you meditate. Once you feel non-dualism as a valid experience of life, you ",
+				"rating": 5,
+				"app": "Waking Up: Meditation & Wisdom"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Ни одно существующее приложение не специализируется на горе. Abide и Plum Villag",
+				"obsCount": 7,
+				"apps": [
+					"Plum Village: Mindfulness",
+					"Relax And Sleep Well Hypnosis",
+					"Abide: Bible Prayer Meditation",
+					"Meditation | Down Dog"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Ни одно существующее приложение не специализируется на горе. Abide и Plum Village дают поддержку через традицию, но контент не разработан специально для горя. Relax And Sleep Well Hypnosis случайно помогает людям в трауре, потому что голос тёплый и не давит. Медитационные приложения для горя называют чужую боль, говорят «это временно» или «сосредоточься на дыхании», тогда как человек в остром горе не может и не хочет «отпускать». Разрыв: продукт, который позволяет горевать, а не преодолевать горе",
+		"idea": {
+			"pitch": "Потеря близкого человека: один из немногих кризисов, при которых человек готов немедленно платить за любой инструмент, снимающий острую боль. Этот продукт не обещает справиться с потерей, он предлагает сопровождение через неё: аудиосессии, которые называют то, что происходит, без позитивной психологии и без «всё будет хорошо». Плюс протоколы на конкретные острые моменты (годовщина смерти, первый праздник без близкого, ночные волны боли)",
+			"features": [
+				"Протоколы под конкретные острые моменты: первая ночь после потери, год-ая годовщина смерти, первый День рождения без близкого",
+				"Аудиосессии, не требующие успокоения: голос прямо называет боль, не торопит к принятию и не навязывает позитив",
+				"Журнал воспоминаний как медитативный якорь: запись любимых историй и образов ушедшего человека",
+				"Режим острой волны боли: 3-5 минут телесно-ориентированной практики для физических симптомов горя (стеснение в груди, горло)",
+				"Опциональное партнёрство с хосписами и онкологическими клиниками для направления клиентов как доверенный B2B-канал"
+			],
+			"antiFeatures": [
+				"Никаких стадий горя как чёрно-белой схемы «вы должны пройти через это»",
+				"Никаких историй успеха «я справился» в главном экране как давящий эталон",
+				"Никакого форума поддержки без модерации клинициста, публичное горе в анонимном пространстве усугубляет"
+			],
+			"monetization": "Разовая покупка 29-39 долларов или подписка 9 долларов в месяц с первым месяцем бесплатно. B2B: хосписы и паллиативные службы как корпоративный партнёр, включающий приложение в пакет поддержки для семей. Страховые компании, покрывающие ресурсы психологической поддержки при тяжёлой утрате. Аудитория платит уже в момент горя за терапевта, за книги, за группы поддержки"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-7",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Дыхание как основная практика",
+		"oneLiner": "Единственное приложение, где дыхательные упражнения: не вспомогательный инструмент, а полноценный самостоятельный путь с нарастающим курсом, для людей, которым медитация наблюдения за умом не подходит",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I was looking for breathing exercise CDs, was even ready to dish out hundreds for the Resperate device to help lower my high blood pressure. Then I found this app and it's MUCH better than I expected.",
+				"rating": 5,
+				"app": "Breathing Exercises: Breathe+"
+			},
+			{
+				"quote": "I caught Covid two years ago, before the vaccine, and am still suffering from the long term effects. I've needed a breathing program to help me increase my CO2 tolerance and exercise my lungs. I've tried a number of them before I found iBreathe.",
+				"rating": 5,
+				"app": "iBreathe – Relax and Breathe"
+			},
+			{
+				"quote": "As a certified, part-time Yoga, meditation, and breath work teacher, I LOVE the Breathwrk app. It's great for strength/cardio conditioning, work-out recovery, calming nerves, easing anxiety, improving sleep, improving focus, coping with depression.",
+				"rating": 5,
+				"app": "Breathwrk: Breathing Exercises"
+			},
+			{
+				"quote": "The method is life changing, I do 3 rounds almost every day and have benefited tremendously - stable mood, a better handle on my depression, increased motivation, increased cardio output, increased confidence, I feel more youthful.",
+				"rating": 3,
+				"app": "Wim Hof Method: Breathwork"
+			},
+			{
+				"quote": "I have tried a number of breathing apps. This is the best so far. Important features are found in other apps, but this is the one with them all. Most important to me: a session timer for consistency and attentiveness of your exercises.",
+				"rating": 5,
+				"app": "Breathing Zone: Breathwork"
+			},
+			{
+				"quote": "I originally did the free trial and paid the $20 because I was amazed at how I felt especially with the nervous system reset course! I had to finish it. After financial trouble, I unfortunately had to cancel. I could not stop thinking about how good I felt.",
+				"rating": 5,
+				"app": "Open: Breathwork + Meditation"
+			},
+			{
+				"quote": "Many breathing apps and meditations where they have you inhale, hold and exhale for a certain amount of time makes me nervous because the counting just makes me anxious. For example with box breathing they will count to a number, hold for a number. This app doesn't do that.",
+				"rating": 5,
+				"app": "iBreathe – Relax and Breathe"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Breathing Zone, iBreathe, Breathwrk и Wim Hof Method решают разные подзадачи, но",
+				"obsCount": 7,
+				"apps": [
+					"Breathing Zone: Breathwork",
+					"iBreathe – Relax and Breathe",
+					"Breathwrk: Breathing Exercises",
+					"Wim Hof Method: Breathwork"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Breathing Zone, iBreathe, Breathwrk и Wim Hof Method решают разные подзадачи, но ни одно не строит нарастающий программный курс «от базового замедления дыхания до пранаямы и фридайвинга». Пользователи с тревогой, ПТСР или гиперактивностью прямо говорят: сидеть с мыслями не работает для меня, дыхание: единственное, что работает. Разрыв: глубокий дыхательный курс как альтернативный путь, а не дополнение к медитации",
+		"idea": {
+			"pitch": "Для части аудитории медитация наблюдения за умом увеличивает тревогу, а не снижает её. Дыхательные практики дают немедленный физиологический результат и измеримый прогресс. Этот продукт строит путь от базового диафрагмального дыхания до холотропных и гипервентиляционных техник с научным объяснением каждого шага, трекером прогресса и записью сессий для подтверждения личного роста",
+			"features": [
+				"Структурированный 12-недельный курс дыхания с нарастающей сложностью от базового до продвинутого уровня",
+				"Трекер задержки дыхания и вариабельности сердечного ритма через камеру телефона как объективный маркер прогресса",
+				"Библиотека из 20+ техник с показаниями: тревога, гипертония, улучшение сна, спортивное восстановление, фокус",
+				"Вибротактильное сопровождение через телефон для использования без экрана и без голоса в любом месте",
+				"Дыхательный дневник с записью ощущений и субъективных эффектов после каждой сессии"
+			],
+			"antiFeatures": [
+				"Никакой медитации наблюдения за умом или mindfulness-контента внутри продукта",
+				"Никаких экстремальных гипервентиляционных техник без предварительного прохождения базовых уровней",
+				"Никакого соревновательного сообщества с лидербордами по задержке дыхания"
+			],
+			"monetization": "Разовая покупка курса 29 долларов плюс подписка 7 долларов в месяц для доступа к полной библиотеке и трекингу. Люди с хроническим давлением, тревогой и спортсмены платят за Breathing Zone, Wim Hof и Breathwrk параллельно. B2B: спортивные клубы, клиники гипертонии и корпоративные антистресс-программы"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-8",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Медитация для верующих: межконфессиональная молитвенная практика",
+		"oneLiner": "Платформа созерцательных практик для верующих всех авраамических традиций, объединяющая молитву и медитацию без духовного туристизма и без отрыва от конкретной веры",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "Hallow has become one of the most meaningful parts of my daily prayer life. As someone who already had a strong faith, I am grateful for how this app has helped me maintain and deepen that faith while drawing even closer to God each day.",
+				"rating": 5,
+				"app": "Hallow: Prayer & Meditation"
+			},
+			{
+				"quote": "I wake up every morning to a notification of a new meditation. I lay in bed and listen for 10-15 minutes and allow myself to connect to my Heavenly Father. He brings me to a fresh start that energizes my entire day.",
+				"rating": 5,
+				"app": "Abide: Bible Prayer Meditation"
+			},
+			{
+				"quote": "Basically with this app, my relationship with God has grown so much I always thought that he didn't love me because of a sin that I have done and I repented so many times and I was losing it. I was so sad. I was crying every single day but this app helped me feel connected.",
+				"rating": 4,
+				"app": "Abide: Bible Prayer Meditation"
+			},
+			{
+				"quote": "I am a Christian and an athlete. An atheist cycling buddy of mine suggested I try meditation. I do meditate as I read my Bible, but when I was facing my third major surgery in the space of 18 months, I followed my friend's advice.",
+				"rating": 5,
+				"app": "Calm"
+			},
+			{
+				"quote": "Ten years ago I came across relevantradio.com, and couldn't stop listening to it. Then in 2023, my Lutheran pastor recommended the Bible in a Year, here on Hallow. It introduced me to the Apocrypha books, furthering my wonder at the depths of scripture.",
+				"rating": 5,
+				"app": "Hallow: Prayer & Meditation"
+			},
+			{
+				"quote": "I am an Episcopal priest and have been enjoying several of the devotions on Hallow, including the Lent challenge in the Brothers Karamazov and the series in detachment, and the daily gospel. I also have been listening to Jeff Cavins' daily studies.",
+				"rating": 3,
+				"app": "Hallow: Prayer & Meditation"
+			},
+			{
+				"quote": "I have been meditating for the last 11 years and also teach meditation. Last year I started using the Sattva app to keep track of my meditation practice and my progress everyday. I find it very simple to use and keeps me engaged.",
+				"rating": 5,
+				"app": "Sattva Meditations & Mantras"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Hallow работает для католиков, Abide: для протестантов. Оба продукта сильны внут",
+				"obsCount": 7,
+				"apps": [
+					"Hallow: Prayer & Meditation",
+					"Abide: Bible Prayer Meditation",
+					"Plum Village: Mindfulness",
+					"Sattva Meditations & Mantras"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Hallow работает для католиков, Abide: для протестантов. Оба продукта сильны внутри своей традиции, но не предлагают межконфессиональный путь. Plum Village привлекает пользователей из разных религий как самый не-коммерческий продукт, но это буддийская традиция. Несекулярный рынок огромен: христиане, мусульмане и иудеи ищут медитацию, которая не противоречит их вере. Разрыв: продукт, уважающий конкретную традицию пользователя и не заставляющий выбирать между верой и практикой",
+		"idea": {
+			"pitch": "Сотни миллионов верующих не могут использовать Calm или Headspace, потому что секулярная mindfulness звучит как замена молитве. Этот продукт строит треки внутри каждой традиции с привлечением реальных религиозных педагогов, позволяет пользователю оставаться в своей вере и обогащать практику созерцания. Hallow доказал: верующие платят больше, чем средний пользователь медитационного приложения, потому что религиозная идентичность создаёт устойчивую лояльность",
+			"features": [
+				"Четыре отдельных трека с выбором при регистрации: христианский, католический, иудейский, мусульманский, с возможностью переключения",
+				"Практики созерцания внутри каждой традиции с текстами из первоисточников и комментарием практикующего педагога",
+				"Молитвенный таймер с выбором литургического времени суток (утреня, вечерня, коранические намазы, еврейские тефилот)",
+				"Аудиосессии с представителями монастырей, йешив и медресе как подтверждение аутентичности",
+				"Семейный режим для детей: адаптированные практики, привязанные к конкретным праздникам и библейским историям"
+			],
+			"antiFeatures": [
+				"Никакого синкретизма и смешения традиций в одной сессии",
+				"Никакого AI-контента, аутентичность голоса практикующего человека является ключевой ценностью",
+				"Никакой секулярной mindfulness-обёртки поверх религиозного контента"
+			],
+			"monetization": "Подписка 8-12 долларов в месяц, семейный тариф 16 долларов в месяц. Hallow оценивается в 300+ миллионов долларов, доказав коммерческий потенциал. B2B: церкви, мечети и синагоги, покупающие лицензии для прихожан как часть программ духовного роста. Религиозные организации исторически платят за материалы для практики"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-9",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Медитация в движении: для тех, кому невозможно сидеть",
+		"oneLiner": "Практики осознанности для людей с СДВГ, высокой тревогой или хроническим болевым синдромом, которым невозможно сидеть неподвижно 20 минут, сессии встроены в движение, работу и повседневные действия",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "... and possibly just the best meditation app, period. If you're like me and find yourself put off by New Age-flavored 30-minute long meditation sessions and just want to start learning techniques for enjoying the evidence-based benefits of meditation.",
+				"rating": 5,
+				"app": "Buddhify: Guided Meditation"
+			},
+			{
+				"quote": "I've searched for apps to help me overcome some obstacles. But lots of them are ridiculously overpriced MONTHLY I would like to add, and require you to be sitting there listening for 30-60 minutes! That's nice for something like bedtime maybe.",
+				"rating": 5,
+				"app": "Buddhify: Guided Meditation"
+			},
+			{
+				"quote": "I resumed meditating when the pandemic hit, but had been in the doldrums regarding guided meditations, finding them too repetitive or too you should do this, not that, or too out of touch with the experiences of anyone who'd had past trauma.",
+				"rating": 5,
+				"app": "Meditation | Down Dog"
+			},
+			{
+				"quote": "As a teen going through puberty and high school the ability to breath using an app on your phone is something that I have wanted for a while so when I saw that the same guys behind my favorite water tracker app made one for mindfulness focus.",
+				"rating": 5,
+				"app": "Mindllama Breathe Sleep Focus"
+			},
+			{
+				"quote": "i'm never one to write reviews on things but this app has changed my life for the better and I am so grateful for it. I've used meditation apps like headspace before but balance makes meditation so much more personal and accessible than any other app.",
+				"rating": 5,
+				"app": "Balance: Meditation & Sleep"
+			},
+			{
+				"quote": "I love Chill. Even on days when I say to myself, I don't have time to meditate, The little reminders pop up throughout the day to remind me to pause and breathe.",
+				"rating": 5,
+				"app": "Chill – Mindfulness Reminders"
+			},
+			{
+				"quote": "This is the app of my dreams and I'm not even kidding. I am a young teen, and I struggle with ADHD and severe anxiety. This app has helped me so so so much with managing that. I put green noise on and I can actually focus.",
+				"rating": 4,
+				"app": "ColorSleep: Green, Brown Noise"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Buddhify позиционирует себя как «медитация во время повседневных дел» и это самы",
+				"obsCount": 7,
+				"apps": [
+					"Buddhify: Guided Meditation",
+					"Mindllama Breathe Sleep Focus",
+					"TIDE: Sleep, Focus, Meditation",
+					"Chill – Mindfulness Reminders"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Buddhify позиционирует себя как «медитация во время повседневных дел» и это самый близкий прецедент, но контент всё равно требует остановки и слушания. Mindllama обслуживает подростков краткими паузами. Ни один продукт не создаёт практику, буквально встроенную в ходьбу, мытьё посуды, приготовление кофе. Многочисленные отзывы фиксируют: «классическая медитация вызывает у меня ещё больше тревоги», «не могу заставить себя сидеть». Разрыв: продукт для людей, которым традиционная медитация противопоказана по типу нервной системы",
+		"idea": {
+			"pitch": "СДВГ диагностирован у 5-10% взрослых в западных странах, большинство из них знают, что медитация полезна, но не могут её практиковать в классической форме. Этот продукт предлагает 50+ контекстных практик, привязанных к конкретным действиям (бег, мытьё посуды, дорога пешком), и не требует остановки. Bluetooth-наушники стали стандартом, слушать аудиосессию во время ходьбы: уже привычное поведение. Аудитория с СДВГ платит за инструменты, которые адаптируются к ним, а не требуют адаптации от них",
+			"features": [
+				"50+ контекстных практик, каждая привязана к конкретному действию: ходьба, бег, готовка, уборка, душ, поездка",
+				"Режим без остановки: ни одна сессия не требует отложить телефон, закрыть глаза или замереть",
+				"Умные напоминания, определяющие паттерн дня и предлагающие практику в момент, когда вы уже в движении",
+				"Короткий формат 3-7 минут как основной, без давления на 20-30-минутные сессии",
+				"Интеграция с Apple Watch и Galaxy Watch для запуска практики без достания телефона"
+			],
+			"antiFeatures": [
+				"Никаких классических сессий с «сядьте удобно, закройте глаза» как основного формата",
+				"Никаких стриков и серий, разрушающих мотивацию при пропуске дня",
+				"Никакого сообщества в реальном времени, требующего ответа и создающего дополнительную когнитивную нагрузку"
+			],
+			"monetization": "Подписка 8 долларов в месяц или 59 долларов в год. B2B: работодатели, внедряющие велнес-программы для офисных сотрудников (рабочее движение и паузы как культура), и клиники СДВГ, рекомендующие инструменты домашней практики. Люди с СДВГ тратят значительно больше на инструменты продуктивности и здоровья, чем средний пользователь"
+		}
+	},
+	{
+		"slug": "meditation-mindfulness-10",
+		"category": "meditation-mindfulness",
+		"categoryName": "Медитация",
+		"title": "Агрессивный детокс от wellness-усталости: минималистичный инструмент",
+		"oneLiner": "Антиприложение медитации без контента, без AI, без платформы, только голый честный таймер с гонгом и журнал для людей, которых тошнит от wellness-индустрии",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 40010,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "For a simple, uncluttered, functional, FREE (*and* ad-free!) meditation timer app without any unnecessary distractions (a.k.a. features), you can't beat Meditation Time. With no social nonsense going on (meditation is a personal pursuit).",
+				"rating": 5,
+				"app": "Meditation Time 2.0"
+			},
+			{
+				"quote": "I cannot recommend this app highly enough. It is a gorgeous and highly accessible app — it has a few different types of meditations, some guided breathing techniques, and some night techniques. All are completely free and without any ads whatsoever.",
+				"rating": 5,
+				"app": "Oak - Meditation & Breathing"
+			},
+			{
+				"quote": "no payment, no account, no tracking and logging, no advertisements or sharing on social media pop ups. it's the best and it's everything that everything else should be. meditation should be free out of all of the things in the world.",
+				"rating": 5,
+				"app": "Medito: Mindfulness Meditation"
+			},
+			{
+				"quote": "i've had headspace for over a decade. for the first 3-4 years, I loved it. this app's approach toward meditation and wellness has noticeably shifted since its inception though. When I started, it was Andy Puddicombe doing all of the meditations. Now it is a rotation of many voices and AI.",
+				"rating": 2,
+				"app": "Headspace: Sleep & Meditation"
+			},
+			{
+				"quote": "I've used Headspace since 2015, so 10 years and counting. I used to love this app and referred it to so many people. I'm a paid lifetime subscriber. But it's gone way downhill. The layout has become a complete mess and you get non-stop pop ups.",
+				"rating": 2,
+				"app": "Headspace: Sleep & Meditation"
+			},
+			{
+				"quote": "I used to be a huge fan. Recommended Calm whenever I had the chance. It's been a while since I last used it now. There were things I did not like, so I sent feedback at the end of meditations or bedtime stories. Kept doing that for some time. Nothing changed.",
+				"rating": 3,
+				"app": "Calm"
+			},
+			{
+				"quote": "I have over a decade of experience meditating but have fell out of practice for a while. So I wanted to try an app to help me get back into having a consistent practice again. I tried some of the other well known apps (that also cost money)",
+				"rating": 5,
+				"app": "Oak - Meditation & Breathing"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Meditation Time 2.0, Oak и iBreathe собирают преданную аудиторию именно потому, ",
+				"obsCount": 7,
+				"apps": [
+					"Oak - Meditation & Breathing",
+					"Meditation Time 2.0",
+					"Mindfulness Bell",
+					"Medito: Mindfulness Meditation"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Meditation Time 2.0, Oak и iBreathe собирают преданную аудиторию именно потому, что делают минимум. Но ни один из них не превратил «минимализм» в явное позиционирование и защищаемое ценностное предложение. Крупные игроки (Headspace, Calm, Balance) деградируют в контентные платформы с AI-чатботами и сотнями треков. Это создаёт массовый отток аудитории, которая хочет инструмент, а не платформу. Разрыв: продукт, который честно говорит «мы только таймер» и берёт за это деньги без извинений",
+		"idea": {
+			"pitch": "Люди, разочарованные Calm и Headspace, не уходят с рынка: они ищут следующий продукт. Если этот продукт прямо говорит: без AI, без catalog-усталости, без навязчивых уведомлений, только таймер с гонгом, журнал практики и ничего лишнего: это становится дифференциатором. Разовая покупка или минимальная подписка без автоматического продления как явное политическое заявление против агрессивной монетизации индустрии. Аудитория за это платит",
+			"features": [
+				"Таймер с кастомизируемым звуком гонга и настройкой интервалов, работающий в фоне без требования открытого приложения",
+				"Простой текстовый журнал практики без оценок, стриков и геймификации, только дата и длительность",
+				"Встроенный колокол осознанности с кастомным расписанием уведомлений в течение дня",
+				"Экспорт данных о практике в CSV за всё время без ограничений и без подписки",
+				"Одноразовая покупка без автопродления как явная политика в описании приложения"
+			],
+			"antiFeatures": [
+				"Никакого контента внутри приложения, ни гайдов, ни медитаций, ни курсов",
+				"Никаких пуш-уведомлений с мотивационными цитатами и напоминаниями о стрике",
+				"Никакого AI в любой форме"
+			],
+			"monetization": "Разовая покупка 4-9 долларов в App Store. Опциональная разовая покупка «поддержать разработчика» без каких-либо дополнительных функций как честная модель. Oak и Meditation Time 2.0 доказывают, что несколько сотен тысяч человек платят за голый таймер. Отличие: прямое позиционирование против wellness-индустрии как маркетинговый нарратив, привлекающий органическое внимание медиа и сарафанное распространение среди опытных практикующих"
 		}
 	}
 ]
