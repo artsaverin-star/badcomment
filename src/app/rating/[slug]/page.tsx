@@ -160,6 +160,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
 
               <p className="mt-3 max-w-[62ch] text-[17px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">{tg(tx("verdict"))}</p>
 
+              {a.shots && a.shots.length > 0 && <RatingShots shots={a.shots} title={a.title} />}
+
               {/* Store + people scores, then a compact clickable authenticity chip */}
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
@@ -180,8 +182,6 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                 <Field label={ru ? "Слабое" : "Weak"}>{tg(tx("weak"))}</Field>
                 {tx("whoFor") && <Field label={ru ? "Кому" : "For"}>{tg(tx("whoFor"))}</Field>}
               </div>
-
-              {a.shots && a.shots.length > 0 && <RatingShots shots={a.shots} title={a.title} />}
             </li>
           );
         })}
