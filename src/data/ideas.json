@@ -23432,463 +23432,6 @@
 		}
 	},
 	{
-		"slug": "calendars-tasks-1",
-		"category": "calendars-tasks",
-		"categoryName": "Календари и задачи",
-		"title": "Расписание смен для малого бизнеса",
-		"oneLiner": "Общий календарь, заточенный под сменщиков: салоны, бригады, бэнды, волонтёрские смены. Кто когда занят, без двойных записей.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 190
-		},
-		"reviewGrid": [
-			{
-				"quote": "it works well with my two-person salon we schedule the pedicure chair making sure we're not overlapping",
-				"rating": 4,
-				"app": "TimeTree - Shared Calendar"
-			},
-			{
-				"quote": "I do hope they improve it and make it more friendly for business owners to easily plot staff sched",
-				"rating": 5,
-				"app": "TimeTree - Shared Calendar"
-			},
-			{
-				"quote": "This app has helped organize my small business by allowing me to schedule my staff and follow up with their completed jobs.",
-				"rating": 5,
-				"app": "TimeTree - Shared Calendar"
-			},
-			{
-				"quote": "Unfortunately my band uses this app for our schedule so I have to use it.",
-				"rating": 2,
-				"app": "TimeTree - Shared Calendar"
-			},
-			{
-				"quote": "The only reason I use it is my employer forced me to use team calendar.",
-				"rating": 1,
-				"app": "TimeTree - Shared Calendar"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Расписание смен для малого бизнеса",
-				"obsCount": 190,
-				"apps": [
-					"Google Tasks",
-					"Any.do",
-					"Todoist"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Салоны, бригады, музыканты и волонтёры берут общий календарь вместо программы смен — он простой, но это просто календарь. Нет ролей, нет «кресло занято», нет учёта часов и выгрузки в расчёт. Владельцы прямо просят это под бизнес, а корпоративные программы смен сделаны под большие команды и избыточны для 2-5 человек.",
-		"idea": {
-			"pitch": "Берём то, ради чего шифт-команды уже хакают общий календарь, и доводим до дела: кто в смене, какой ресурс занят, сколько часов набежало, выгрузка в оплату. Старт — салоны и бригады на 2-10 человек, где полная программа смен избыточна, а календаря мало. Команда сама затягивает новых.",
-			"features": [
-				"Смены с ролями и ресурсами: видно, что «педикюрное кресло» уже занято, без пересечений",
-				"Подтверждение смены сотрудником в один тап и журнал, кто что отработал",
-				"Сводка часов за период и выгрузка для расчёта оплаты",
-				"Замена смены: бросил клич в команду, кто свободен — забрал",
-				"Доступ для владельца и исполнителя разный: один правит график, второй смотрит и берёт"
-			],
-			"antiFeatures": [],
-			"monetization": "Платит владелец заведения — помесячно за активную команду. Почему платит: график смен напрямую про деньги (часы, оплата, не сорвать клиента), а не про личные заметки, поэтому за надёжность и учёт готовы платить."
-		}
-	},
-	{
-		"slug": "calendars-tasks-2",
-		"category": "calendars-tasks",
-		"categoryName": "Календари и задачи",
-		"title": "Напоминания, которые точно сработают",
-		"oneLiner": "Слой напоминаний поверх ваших задач, который доводит сигнал до конца — даже если приложение закрыто, телефон спал, сеть пропала.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 200
-		},
-		"reviewGrid": [
-			{
-				"quote": "I've missed more tasks because of Todoist than I likely would have had I not used it. That's because my reminders are stuck in the app, and it won't notify me",
-				"rating": 1,
-				"app": "Todoist: To Do List & Calendar"
-			},
-			{
-				"quote": "Notifications don't work! I have battery optimization off, notifications on. Nothing. App is worthless if the notifications won't work. Pixel 9 Pro",
-				"rating": 2,
-				"app": "Google Tasks"
-			},
-			{
-				"quote": "Reminders constantly drop off the tasks failing to send a notification which is key for my use.",
-				"rating": 1,
-				"app": "Todoist: To Do List & Calendar"
-			},
-			{
-				"quote": "frequently forgets to remind me. worse than useless because I think it is going to do something then I don't bother to remember.",
-				"rating": 1,
-				"app": "Google Tasks"
-			},
-			{
-				"quote": "when I travel internationally, the reminders stay in the original timezone. It's very frustrating.",
-				"rating": 1,
-				"app": "Microsoft To Do: Lists & Tasks"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Напоминания, которые точно сработают",
-				"obsCount": 200,
-				"apps": [
-					"TickTick",
-					"Microsoft To Do",
-					"Any.do"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Главная боль всех задачников разом: напоминание молча не приходит. Люди пропускают лекарства, встречи, платежи — и теряют доверие, ведь приложение расслабляет, а потом подводит. У Todoist, Google Tasks, Microsoft To Do, Any.do одно: «уведомления включены, а сигнала нет». Доставку напоминания никто не сделал профессией.",
-		"idea": {
-			"pitch": "Делаем одно, но железно: сигнал дойдёт. Полноэкранный будильник как у звонка, повтор пока не отметил «сделано», работа без сети и при закрытом приложении, верный пояс в поездке. Подключаемся к календарю и задачам, которыми человек уже пользуется, и берём на себя только надёжную доставку.",
-			"features": [
-				"Полноэкранный сигнал с повтором, который не смахнёшь мимоходом, пока не отметишь выполнение",
-				"Работа при закрытом приложении и без сети — напоминание стоит локально на устройстве",
-				"Правильный пояс в поездке: сигнал в 19:00 по месту, а не по дому",
-				"Подключение к Google Календарю, задачам и почте — берём события оттуда",
-				"Эскалация для важного: не отреагировал — повторный сигнал и запись «пропущено»"
-			],
-			"antiFeatures": [],
-			"monetization": "Платит занятой человек, для кого пропуск — это цена (лекарства, приём, оплата) — личной подпиской за надёжность. Почему платит: остальное у него уже бесплатно, но именно доставку сигнала никто не гарантирует."
-		}
-	},
-	{
-		"slug": "calendars-tasks-3",
-		"category": "calendars-tasks",
-		"categoryName": "Календари и задачи",
-		"title": "Визуальный день для слепоты ко времени",
-		"oneLiner": "Циферблат-расписание, который показывает день кругом и сколько осталось до следующего дела — для людей с СДВГ и не только.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 190
-		},
-		"reviewGrid": [
-			{
-				"quote": "Such a massive help with time blindness, especially with the widget up. This got me through my A-levels",
-				"rating": 5,
-				"app": "Sectograph. Day & Time planner"
-			},
-			{
-				"quote": "You have to pay to change the color, and since I'm colorblind that means I simply cannot use the app. Maybe try not to paywall accessibility features?",
-				"rating": 1,
-				"app": "Sectograph. Day & Time planner"
-			},
-			{
-				"quote": "As a mental health therapist and neurodivergent person myself, this organizes a schedule in an easy to read method",
-				"rating": 4,
-				"app": "Sectograph. Day & Time planner"
-			},
-			{
-				"quote": "My scheduled events constantly vanish from the watch face, which is the only reason I paid for the Pro version.",
-				"rating": 3,
-				"app": "Sectograph. Day & Time planner"
-			},
-			{
-				"quote": "Alarms with a sound. Just popping up on the notifications can be easily missed or ignored.",
-				"rating": 4,
-				"app": "Sectograph. Day & Time planner"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Визуальный день для слепоты ко времени",
-				"obsCount": 190,
-				"apps": [
-					"TimeTree",
-					"Cozi"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Группа со слепотой ко времени держится на Sectograph как на спасательном круге — но он спотыкается, где для них критично: настройка цвета и доступности не предусмотрена для колор-слепых, сигнал только тихим уведомлением, на часах расписание исчезает. Терапевты сами советуют такой формат. Сегмент платит и остаётся надолго.",
-		"idea": {
-			"pitch": "Строим инструмент для слепоты ко времени по-настоящему: круговой день виден всегда, доступность (контраст, цвета, размер) — бесплатная, а не платная. Громкий сигнал, а не только всплывашка. Заходим через терапевтов и СДВГ-сообщества: им нужно то, что они спокойно порекомендуют клиенту — канал, который не купишь рекламой.",
-			"features": [
-				"Круг дня: видно, чем занят день и сколько минут до следующего дела",
-				"Доступность в основе и бесплатно: контраст, выбор цветов, крупный шрифт, режим для колор-слепых",
-				"Громкий сигнал с кнопкой отложить, а не легко смахиваемое уведомление",
-				"Расписание на часах, которое не пропадает — главная причина, по которой платят",
-				"Тянет события из всех календарей человека и раскрашивает по их же цветам"
-			],
-			"antiFeatures": [],
-			"monetization": "Платит человек со слепотой ко времени (часто СДВГ) — личной подпиской, плюс канал через терапевтов. Почему платит: это опора в быту, а не «ещё один календарь»; доступность и надёжный сигнал стоят денег."
-		}
-	},
-	{
-		"slug": "calendars-tasks-4",
-		"category": "calendars-tasks",
-		"categoryName": "Календари и задачи",
-		"title": "Семейный штаб, где общий список не врёт",
-		"oneLiner": "Семейный календарь и общие списки с честной синхронизацией: что добавил один, мгновенно видят все, без пропаж и хаоса.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 210
-		},
-		"reviewGrid": [
-			{
-				"quote": "The biggest problem has been items disappearing from shared lists, which has been awful for grocery shopping.",
-				"rating": 2,
-				"app": "Cozi Family Organizer"
-			},
-			{
-				"quote": "Apple and Android users cannot collaborate properly with it. multiple times i have set reminders for my family, and none of them get it.",
-				"rating": 2,
-				"app": "Cozi Family Organizer"
-			},
-			{
-				"quote": "no notifications for chores/to dos leaving me to remind everybody still.",
-				"rating": 1,
-				"app": "Cozi Family Organizer"
-			},
-			{
-				"quote": "you can't buy it once and share it with the family, each individual person has to have a subscription",
-				"rating": 2,
-				"app": "TimeTree - Shared Calendar"
-			},
-			{
-				"quote": "Grandparents are also using the app as they help with shuttling kids to and from extra-curricular activities.",
-				"rating": 5,
-				"app": "TimeTree - Shared Calendar"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Семейный штаб, где общий список не врёт",
-				"obsCount": 210,
-				"apps": [
-					"TickTick",
-					"Google Tasks",
-					"Business Calendar 2",
-					"Microsoft To Do"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Семьи годами живут в Cozi и упираются в одно: общий список покупок не синхронизируется, вещи исчезают или прыгают, iPhone и Android не сходятся, по делам по дому нет напоминаний. Крупные игроки не решают главного — надёжной кроссплатформенной синхронизации для нескольких участников — и заваливают интерфейс лишним. Семья как ячейка — это встроенный сетевой эффект.",
-		"idea": {
-			"pitch": "Делаем семейный штаб, где сердце — безотказная синхронизация общих списков и дел, одинаково на iPhone и Android. Добавил молоко — все видят сразу, ничего не пропадает. Дела по дому с напоминанием каждому, а не «напомни сам». Один платит — подключает всю семью, каждый новый член затягивает следующего.",
-			"features": [
-				"Общий список покупок с мгновенной синхронизацией без пропаж и перескоков",
-				"Одинаково работает на iPhone и Android — вся семья в одном месте",
-				"Дела по дому с напоминанием конкретному человеку, а не общим списком",
-				"Развоз детей и передачи: кто кого и когда забирает, видно бабушкам и дедушкам",
-				"Один аккаунт оплачивает доступ для всей семьи, без подписки на каждого"
-			],
-			"antiFeatures": [],
-			"monetization": "Платит «хранитель расписания» семьи — одной подпиской на всю семью. Почему платит: ради надёжности общего быта (покупки, дети, дела), а план на всех снимает главный упрёк к крупным игрокам — платить за каждого."
-		}
-	},
-	{
-		"slug": "calendars-tasks-5",
-		"category": "calendars-tasks",
-		"categoryName": "Календари и задачи",
-		"title": "Повторы как в жизни: сделал поздно — сдвинулось",
-		"oneLiner": "Задачник, где повторяющиеся дела ведут себя по-человечески: отметил позже срока — следующий раз считается от факта, а не от плана.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 240
-		},
-		"reviewGrid": [
-			{
-				"quote": "if I complete a task late (e.g. change sheets), I want the next instance to be delayed.",
-				"rating": 2,
-				"app": "Google Tasks"
-			},
-			{
-				"quote": "If I forget to mark the 25-May task complete and complete it on 26-May, the app also automatically completes the 26-May task.",
-				"rating": 1,
-				"app": "Todoist: To Do List & Calendar"
-			},
-			{
-				"quote": "if for some reason you didn't complete today's occurrence, then you won't be notified about tomorrow's.",
-				"rating": 2,
-				"app": "Any.do - To do list & Calendar"
-			},
-			{
-				"quote": "it would be much better if the next reminder adjusted dynamically based on exactly when the previous task was completed",
-				"rating": 5,
-				"app": "Todoist: To Do List & Calendar"
-			},
-			{
-				"quote": "there is no way to simply 'pause' or skip a week's worth",
-				"rating": 2,
-				"app": "Google Tasks"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Повторы как в жизни: сделал поздно — сдвинулось",
-				"obsCount": 240,
-				"apps": [
-					"Sectograph"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "У всех задачников одинаково сломаны повторы. Поменял простыни на три дня позже — замена всё равно стоит по старой дате. Отметил вчерашний приём сегодня — приложение «выполняет» и сегодняшний. Пропустил раз — больше не напоминает. Люди просят: считай повтор от того, когда я реально сделал.",
-		"idea": {
-			"pitch": "Берём эту сломанную механику и делаем правильной: повтор от факта выполнения, аккуратные пропуски без «доедания» будущих дел, пауза на отпуск. Это нужно тем, у кого жизнь из гибких циклов — уход, обслуживание, здоровье, дом. Логику повторов трудно скопировать наспех и легко проверить на своих делах — поэтому переходят и остаются.",
-			"features": [
-				"Следующий повтор считается от момента, когда дело реально сделано, а не от плана",
-				"Отметил вчерашнее сегодня — закрывается только пропущенное, будущее не трогается",
-				"Пропуск на отпуск: пауза цикла без удаления и потери серии",
-				"Гибкие правила: каждые 4 недели, 3-й вторник месяца и прочее, что ломается у других",
-				"Журнал: сделал или пропустил и когда именно — видно для дел вроде здоровья и ухода"
-			],
-			"antiFeatures": [],
-			"monetization": "Платит человек, чья жизнь держится на повторяющихся делах (уход, обслуживание, здоровье) — личной подпиской. Почему платит: правильная логика повторов — это и есть ценность, без неё инструмент подводит в важном."
-		}
-	},
-	{
-		"slug": "calendars-tasks-6",
-		"category": "calendars-tasks",
-		"categoryName": "Календари и задачи",
-		"title": "Один экран всех рабочих и личных календарей",
-		"oneLiner": "Сводит Google, Outlook, несколько рабочих аккаунтов и личный в один экран и одну надёжную ленту дел — без переключения учёток.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 204
-		},
-		"reviewGrid": [
-			{
-				"quote": "As microsoft 365 of several clients, to do needs to show tasks from different in one place. instead of switching accounts which is not ideal.",
-				"rating": 1,
-				"app": "Microsoft To Do: Lists & Tasks"
-			},
-			{
-				"quote": "I can only link one email which is super unfortunate and doesn't meet my current needs.",
-				"rating": 2,
-				"app": "Todoist: To Do List & Calendar"
-			},
-			{
-				"quote": "I have two calendars, one Outlook, one Google, and I cannot sync one to the other.",
-				"rating": 4,
-				"app": "Todoist: To Do List & Calendar"
-			},
-			{
-				"quote": "it won't sync cancelled events from my organization's outlook until a day or two later, I've showed up to meetings that had been cancelled",
-				"rating": 3,
-				"app": "Business Calendar 2 Planner"
-			},
-			{
-				"quote": "no ability to switch between MS accounts to see everything I have to do. App does not combine tasks from multiple MS accounts.",
-				"rating": 1,
-				"app": "Microsoft To Do: Lists & Tasks"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Один экран всех рабочих и личных календарей",
-				"obsCount": 204,
-				"apps": [
-					"Todoist",
-					"Google Tasks",
-					"TimeTree"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Люди с несколькими аккаунтами (подрядчики на нескольких клиентских Microsoft 365, у кого Google и Outlook вместе) бьются об одну стену: задачник цепляет одну почту, не сводит дела из разных аккаунтов, заставляет переключаться. Двусторонняя синхронизация Google↔Outlook подводит: события расходятся, встречи теряются.",
-		"idea": {
-			"pitch": "Делаем честный пульт: все календари и задачи изо всех аккаунтов на одном экране, синхронизация двусторонняя и без рассинхрона. Заходим к подрядчикам и тем, кто ведёт несколько клиентских Microsoft 365 разом: для них единый экран — не удобство, а условие работы. Чем больше аккаунтов завёл, тем больнее уходить.",
-			"features": [
-				"Все аккаунты сразу: личный Google, рабочий Outlook, несколько Microsoft 365 клиентов на одном экране",
-				"Двусторонняя синхронизация Google↔Outlook без расходящихся и теряющихся встреч",
-				"Единая лента дел из всех аккаунтов, без переключения учёток",
-				"Цвет по источнику: сразу видно, чей это календарь, можно скрыть лишние",
-				"Поддержка CalDAV и независимых календарей для тех, кто ушёл от крупных игроков"
-			],
-			"antiFeatures": [],
-			"monetization": "Платят подрядчики и обслуживающие нескольких клиентов на Microsoft 365 — личной или командной подпиской. Почему платят: единый экран всех аккаунтов и надёжная двусторонняя синхронизация прямо влияют на работу с клиентами."
-		}
-	},
-	{
-		"slug": "calendars-tasks-7",
-		"category": "calendars-tasks",
-		"categoryName": "Календари и задачи",
-		"title": "Расписание клиентов, которое можно унести",
-		"oneLiner": "Календарь записей для мастеров и небольших практик: история приёмов остаётся вашей — выгрузка в PDF и таблицу, журнал всех изменений.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 135
-		},
-		"reviewGrid": [
-			{
-				"quote": "This app has helped organize my small business by allowing me to schedule my staff and follow up with their completed jobs. I use it to help with billing",
-				"rating": 5,
-				"app": "TimeTree"
-			},
-			{
-				"quote": "so you are stuck starting a new calendar and losing your history or using TimeTree forever.",
-				"rating": 1,
-				"app": "TimeTree"
-			},
-			{
-				"quote": "No export functionality is a No-Go for Calendar apps.",
-				"rating": 1,
-				"app": "TimeTree"
-			},
-			{
-				"quote": "i cannot export PDF of my calendar",
-				"rating": 1,
-				"app": "TimeTree"
-			},
-			{
-				"quote": "work(clients appointments)",
-				"rating": 5,
-				"app": "TimeTree"
-			},
-			{
-				"quote": "follow up with their completed jobs",
-				"rating": 5,
-				"app": "TimeTree"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Расписание клиентов, которое можно унести",
-				"obsCount": 135,
-				"apps": [
-					"Business Calendar 2",
-					"TimeTree"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Мастера, клиники, подрядчики ведут записи клиентов, смены сотрудников и биллинг прямо в календаре — TimeTree, Cozi, Business Calendar. Но вынести историю нельзя: «нет выгрузки — вы застряли и теряете историю». Нельзя сделать PDF, отдать клиенту или бухгалтеру выписку приёмов, доказать, что встреча была. История записей — рабочий документ для биллинга и споров, но она заперта без выгрузки и без журнала изменений.",
-		"idea": {
-			"pitch": "Календарь записей, где история — ваш актив, а не заложник приложения. Каждый приём, смена и отметка о выполненной работе пишутся в журнал, который не пропадёт тихо. В один клик — выписка за период в PDF и таблицу: для клиента, бухгалтера, спора. Отдельные календари на клиентов и сотрудников. Уходите к нам или от нас — данные забираете целиком, без «начинайте новый календарь с нуля».",
-			"features": [
-				"Выгрузка истории приёмов за любой период в PDF и таблицу — для клиента, бухгалтера или спора",
-				"Журнал всех изменений: кто и когда добавил, перенёс или удалил запись — ничего не пропадает тихо",
-				"Отдельные календари на клиентов и сотрудников с отметкой «работа выполнена» под биллинг и зарплату",
-				"Полный экспорт без замка: уносите все записи в стандартном формате, если решите уйти",
-				"Месячная и недельная выписка смен на печать — то, чего нет в TimeTree и Business Calendar"
-			],
-			"antiFeatures": [],
-			"monetization": "Платят мастера, небольшие клиники и подрядчики, которые уже ведут записи клиентов и смены в платных календарях (TimeTree, Cozi, Business Calendar Pro) ради биллинга и зарплаты. Подписка за рабочее место: выписка и журнал приёмов нужны им как документ для клиента и бухгалтера — за это они уже платят календарям, которые этого даже не дают."
-		}
-	},
-	{
 		"slug": "study-aids-1",
 		"category": "study-aids",
 		"categoryName": "Карточки и помощники в учёбе",
@@ -35477,6 +35020,806 @@
 				"Аналитика расходов по категориям как главная функция - это не категорийный трекер"
 			],
 			"monetization": "Единоразовая покупка 15–25 долларов плюс необязательная подписка за синхронизацию 2–3 доллара в месяц. Пользователи Debit & Credit платили несколько раз при переходе на подписку и не ушли - значит, ценность значительно превышает цену. Долгосрочный LTV высокий: пользователи держатся годами."
+		}
+	},
+	{
+		"slug": "calendars-tasks-1",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "BrainSync",
+		"oneLiner": "Планировщик дня, спроектированный для людей с СДВГ: видимая структура дня, голосовой захват мыслей и напоминания, которые невозможно пропустить",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "I've been struggling with ADHD since childhood, and I've tried countless apps, systems, and productivity hacks to fix my planning and follow-through. Structured is easily the most helpful tool I've ever used. The AI feature is a game changer.",
+				"rating": 5,
+				"app": "Structured: Daily Planner Todo"
+			},
+			{
+				"quote": "With ADHD, I have trouble with working memory so, even with a calendar reminder, I forget what I'm doing and don't get out the door on time. Often times I set my watch to buzz or my phone to chime but I don't remember what the buzz or chime was for.",
+				"rating": 5,
+				"app": "Reminder with Voice Reminders"
+			},
+			{
+				"quote": "I've had ADD my entire life. I think of this tool to be as important as the bowl for my keys by the front door (so I don't lose them). I've always used a paper planner and I bought one for this year. (In case Artful Agenda didn't work out)",
+				"rating": 5,
+				"app": "Artful Agenda"
+			},
+			{
+				"quote": "It's been a long time since I hated an app this much. During the set-up it asks me my main goal, I say I want stronger routines. So it asks me what I do during my morning, day, evening, etc, using premade options, and then spits out a completely useless schedule.",
+				"rating": 1,
+				"app": "Tiimo: To Do List & AI Planner"
+			},
+			{
+				"quote": "ADHD and Type A? Try it! You won't regret it! I have been using the Actions/Timepage combo for over a year now and I love it. Being able to see my schedule AND my to-do-list for the day all at once is amazing. Color coding for different Life areas is key.",
+				"rating": 5,
+				"app": "Actions: To Do List Organizer"
+			},
+			{
+				"quote": "I can't rate this app highly enough. If you have ADHD, you've probably spent a lot of time looking at apps to help manage it. And you've probably noticed most of them are useless with extremely predatory subscription models.",
+				"rating": 5,
+				"app": "Sweepy: Home Cleaning Schedule"
+			},
+			{
+				"quote": "I know this is meant for students but I've been using this in literally every aspect of my life. I'm pretty sure that I have undiagnosed ADHD. I find it difficult to keep up with routines. I have used other programs (like Asana) to help me but they were either too complicated or too distracting.",
+				"rating": 5,
+				"app": "Focus To-Do: Focus Timer&Tasks"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Structured, Tiimo и Artful Agenda берутся за СДВГ-аудиторию, но каждый провалива",
+				"obsCount": 8,
+				"apps": [
+					"Structured: Daily Planner Todo",
+					"Tiimo: To Do List & AI Planner",
+					"Artful Agenda",
+					"Focus To-Do: Focus Timer&Tasks"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Structured, Tiimo и Artful Agenda берутся за СДВГ-аудиторию, но каждый проваливается в одном из ключевых мест: Structured требует точного времени на каждую задачу (не работает при неопределённом дне), Tiimo не доводит напоминания до срабатывания, Artful Agenda тормозит при большом числе событий. Рынок сам назвал аудиторию, но никто не закрыл тройную потребность: моментальный захват без трения, визуальная шкала дня и напоминания с нарастающим сигналом, которые не даст отмахнуться",
+		"idea": {
+			"pitch": "Человек с СДВГ не забывает о задаче - он не слышит напоминание в потоке одинаковых уведомлений и не замечает момент, когда пора переключиться. BrainSync решает это тройкой: захват задачи голосом за секунду, визуальная шкала, где видны незанятые промежутки дня, и напоминание, которое повторяется с нарастанием громкости, пока не подтвердишь. Монетизация через подписку: СДВГ-аудитория уже платит Structured, Tiimo и терапевтам - она знает цену инструменту, который реально работает.",
+			"features": [
+				"Голосовой захват задачи с автоматическим разбором даты и времени на естественном языке, без формы",
+				"Визуальная шкала дня по часам с цветными блоками и явно видимыми свободными промежутками",
+				"Напоминание с нарастанием: сначала тихий сигнал, через 2 минуты громче, через 5 - голосовое зачитывание текста задачи",
+				"Режим захвата мыслей в 3 часа ночи: минимальный экран, одно поле, задача падает в inbox и не теряется",
+				"Еженедельный отчёт о паттернах: в какое время задачи выполняются чаще всего и где системный провал"
+			],
+			"antiFeatures": [
+				"Нет Eisenhower-матриц, GTD-проектов и других систем, требующих дисциплины настройки",
+				"Нет поинтового геймификации и стриков - мотивация через вину за пропуск не работает при СДВГ",
+				"Нет интеграции с корпоративными системами (Slack, Jira) - продукт для личного управления жизнью, не рабочих задач"
+			],
+			"monetization": "Подписка 8-12 долларов в месяц. Аудитория: взрослые с СДВГ, уже оплачивающие приложения-органайзеры (Structured стоит 9.99/мес, Tiimo - 7.99/мес). Дополнительно: разовая покупка пакета голосовых тем напоминаний (собственный голос близкого человека - частый запрос в отзывах)."
+		}
+	},
+	{
+		"slug": "calendars-tasks-2",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "OneDay",
+		"oneLiner": "Единый вид дня, где задачи, встречи и привычки существуют на одной шкале, а не в трёх разных приложениях",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "Like most of us, I am always searching for 'THE APP'. An app that will do it all. I try an app for a week, maybe a month, then look for a new one. However, TickTick is the only app that I have had and continue to use consistently, without replacing.",
+				"rating": 5,
+				"app": "TickTick:To-Do List & Calendar"
+			},
+			{
+				"quote": "I like how you have both the calendar and tasks on the same app it makes it useful and is the reason why I kept it after downloading so many other apps that are similar.",
+				"rating": 4,
+				"app": "Todoist: To Do List & Calendar"
+			},
+			{
+				"quote": "I have used PI for many years, and have yet to find anything that touches it in terms of customization and flexibility, especially for the price. It works great most of the time. That said, things seem to be going downhill just a bit. Here ",
+				"rating": 4,
+				"app": "Pocket Informant"
+			},
+			{
+				"quote": "As a user constantly juggling work, personal commitments, and the chaos of daily life, I can confidently say that the 24me app has become my ultimate lifesaver. This all-in-one productivity tool seamlessly blends a user-friendly interface with powerful features.",
+				"rating": 5,
+				"app": "24me: Calendar・Planner & To Do"
+			},
+			{
+				"quote": "Everything i Love about TickTick on the web I HATE about the app. I love that it took 15 minutes to learn the tool, and the relief was immediate. I love that it's not bloated with design and integration features and options.",
+				"rating": 4,
+				"app": "TickTick:To-Do List & Calendar"
+			},
+			{
+				"quote": "UPDATE.  Fantastical is still the best but\nI also use my other calendar app 24me still because it has live links for tasks in the pop-up notifications - so I can take action like make the phone call, send e-mail, etc. directly from the notification.",
+				"rating": 5,
+				"app": "Fantastical Calendar"
+			},
+			{
+				"quote": "I really liked how easy it was to get started and it was setup immediately with all my reminders and calendars. The big thing that's missing for that last star is a feature I use quite a lot for time blocking - scheduling my to-dos/tasks.",
+				"rating": 4,
+				"app": "Awesome Calendar 2"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Todoist, TickTick, Fantastical и Pocket Informant десятилетиями пытаются объедин",
+				"obsCount": 8,
+				"apps": [
+					"TickTick:To-Do List & Calendar",
+					"Todoist: To Do List & Calendar",
+					"Fantastical Calendar",
+					"Pocket Informant"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Todoist, TickTick, Fantastical и Pocket Informant десятилетиями пытаются объединить задачи и события, но в каждом продукте одно доминирует над другим: задачи без времени плывут по дню, события без контекста задач отрываются от реальной нагрузки. Привычки вообще живут в отдельном приложении. Пользователи платят за 2-3 приложения и переключаются между ними вручную - хотя требование «всё в одном месте» звучит в каждом втором отзыве",
+		"idea": {
+			"pitch": "Один экран: вертикальная шкала часов с встречами из календаря, задачами на нужное время и ежедневными привычками как блоками - всё на своём месте. Переключение между ними не нужно, потому что они всегда вместе. Зарабатывает как Todoist: подписка у профессионалов, которые уже платят за несколько приложений и готовы заплатить дважды за то, что заменит все три.",
+			"features": [
+				"Единая вертикальная шкала дня: события из Google Calendar и iCloud, задачи с временными метками и привычки в одном скролле",
+				"Задача без времени «плавает» в свободных промежутках и автоматически находит слот при перетаскивании",
+				"Еженедельный обзор: видно, сколько часов ушло на встречи vs на глубокую работу vs на рутину",
+				"Быстрый захват: одна строка сверху - ввёл задачу, указал время или нет, она упала на нужное место",
+				"Синхронизация с существующими календарями (Google, iCloud, Outlook) без замены текущего источника правды"
+			],
+			"antiFeatures": [
+				"Нет управления проектами, командных досок и иных корпоративных функций",
+				"Нет социальных функций, рейтингов и сравнения с другими пользователями",
+				"Нет встроенного заметочника - только задачи, события и привычки, три сущности и не больше"
+			],
+			"monetization": "Подписка 9-12 долларов в месяц. Целевой пользователь уже платит Todoist (4-8 долларов) плюс Fantastical (10 долларов) или TickTick (3-6 долларов) - суммарно больше. Конверсия через бесплатный месяц с полным функционалом."
+		}
+	},
+	{
+		"slug": "calendars-tasks-3",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "Anchor",
+		"oneLiner": "Напоминания как самостоятельный продукт: голосовые, нарастающие, неотключаемые - для людей, которых стандартные уведомления iPhone давно перестали трогать",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "This app is better than any medication app I've tried! How I use it: In daily reminders I put a med and what time to take it. I created a 'med' category, and I use the same sound for my med alarms. I take one med multiple times daily.",
+				"rating": 5,
+				"app": "Alarmed ~ Reminders + Timers"
+			},
+			{
+				"quote": "With ADHD, I have trouble with working memory so, even with a calendar reminder, I forget what I'm doing and don't get out the door on time. Often times I set my watch to buzz or my phone to chime but I don't remember what the buzz or chime was for.",
+				"rating": 5,
+				"app": "Reminder with Voice Reminders"
+			},
+			{
+				"quote": "I have so many notifications on my phone that I end up tuning them all out. That's bad when you forget almost everything without something reminding you. This allows me to yell at myself from my own phone about what specifically I need to do.",
+				"rating": 4,
+				"app": "Reminder, Reminders with Voice"
+			},
+			{
+				"quote": "I had been looking for ways for my calendars to give more proactive notifications other then the flash notification on my phone, that I may, or may not see. Frustrated I had missed an important reminder notification, I decided to search the App Store.",
+				"rating": 5,
+				"app": "Reminder, Reminders with Voice"
+			},
+			{
+				"quote": "Update 5-18-25: Well, you can say I'm \"not accurate\", and I can point to over 9 years of no updates and canned responses to most of the people saying the exact same thing as me: that Alarmed is increasingly glitchy and unreliable in situations that matter.",
+				"rating": 1,
+				"app": "Alarmed ~ Reminders + Timers"
+			},
+			{
+				"quote": "There are plenty of apps that do calendar notifications or wake you up. This app instead fulfills a much-needed niche - extreme flexibility. I appreciate the fact that I can set silent, visual alarms; it is hard to find an app that will do this.",
+				"rating": 5,
+				"app": "Reminder with Voice Reminders"
+			},
+			{
+				"quote": "This has been probably my most used, most useful, and most loved app on my phone for years. With the last update it quit working. When an alarm goes off, you can't stop it without opening your phone, opening the app, selecting what you want to do.",
+				"rating": 2,
+				"app": "Alarmed ~ Reminders + Timers"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Alarmed потерял поддержку и ломается после каждого обновления iOS, но у него сот",
+				"obsCount": 7,
+				"apps": [
+					"Alarmed ~ Reminders + Timers",
+					"Reminder with Voice Reminders",
+					"Reminder, Reminders with Voice",
+					"Reminders"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Alarmed потерял поддержку и ломается после каждого обновления iOS, но у него сотни отзывов от людей, которые держатся за него годами именно из-за нарастающих повторов и кастомных звуков. Reminder with Voice и Reminder, Reminders with Voice закрывают голосовой нишевый угол, но страдают от отсутствия синхронизации между устройствами. Никто не сделал надёжный, современный продукт, для которого напоминание - это единственный жанр, и сделал его непробиваемым",
+		"idea": {
+			"pitch": "Для человека, который привык игнорировать все уведомления подряд, один голосовой сигнал его собственным голосом или голосом партнёра действует иначе. Anchor строит напоминание как событие: оно нарастает, повторяется каждые N минут, зачитывает текст вслух и не исчезает, пока не подтвердишь. Аудитория уже платила Alarmed годами и продолжит платить тому, кто сделает то же самое, но без тревоги о совместимости с iOS.",
+			"features": [
+				"Напоминание с нарастанием: тихий сигнал, через 2 минуты громче, через 5 - повтор, пока не нажмёшь подтверждение",
+				"Голосовая запись напоминания своим голосом или выбором чужого из библиотеки (голос партнёра, ребёнка)",
+				"Зачитывание текста напоминания вслух при срабатывании - пользователь слышит, что нужно сделать, а не просто звук",
+				"Синхронизация между iPhone и iPad без потерь через iCloud",
+				"Тихие визуальные напоминания для людей, которым нужен экранный сигнал без звука (встречи, публичные места)"
+			],
+			"antiFeatures": [
+				"Нет встроенного календаря, вида недели или управления проектами",
+				"Нет интеграции с Google Calendar или Todoist - это не синхронизатор задач, а самостоятельный слой напоминаний",
+				"Нет стриков, геймификации и аналитики привычек - напоминание сработало, задача выполнена, история"
+			],
+			"monetization": "Разовая покупка 4.99-7.99 долларов или годовая подписка 9.99 долларов. Аудитория: люди с СДВГ и нарушениями памяти, пожилые пользователи, люди с хроническими медицинскими расписаниями - все уже платили Alarmed, Reminder with Voice и аналогам."
+		}
+	},
+	{
+		"slug": "calendars-tasks-4",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "ShiftLife",
+		"oneLiner": "Календарь для сменных работников, который сам считает зарплату, синхронизирует расписание с семьёй и не путает ночные и дневные смены",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I am a nurse who works here and there in a clinic through the week and just picked up a local travel job. This keeps me in line with both jobs and activities my grand babies have going on.",
+				"rating": 5,
+				"app": "Supershift Work Shift Calendar"
+			},
+			{
+				"quote": "Made my life so simple with complex schedules working at multiple hospitals, various shifts, complex run of shifts, traveling, vacations, doctor /dental/vision appointments etc etc. You can choose COLOR, SHIFT TIME, SHIFTS RUN TIME, add TRIPS.",
+				"rating": 5,
+				"app": "Shift Day Work Calendar: Spoke"
+			},
+			{
+				"quote": "As an ICU travel nurse working the night shift, I have a very busy schedule outside of my job. This app is perfect for me because it allows me to input my own schedule using color categories. Additionally, it enables me to track my weekly pay.",
+				"rating": 5,
+				"app": "Shift Day Work Calendar: Spoke"
+			},
+			{
+				"quote": "I have been using Shift Days since they first started (prior to subscription) that they grandfathered me in. The only down fall is the app will not allow me to share the app within my 'family'. They would have pay for a subscription. I feel this should be a free add on.",
+				"rating": 5,
+				"app": "Shift Day Work Calendar: Spoke"
+			},
+			{
+				"quote": "this app is genuinely awesome. super easy to place scheduled days down because you just create a shift, and then hit the pencil button, and jot down each shift on each day in less than a second. super fast, and super convenient.",
+				"rating": 4,
+				"app": "Supershift Work Shift Calendar"
+			},
+			{
+				"quote": "Lots of flexibility in this app to tailor it to atypical schedules. It's highly customizable to clearly differentiate shifts from events and projects and also days off. I went ahead and purchased the pro version so that I can sync it with iCloud.",
+				"rating": 5,
+				"app": "Supershift Work Shift Calendar"
+			},
+			{
+				"quote": "I use this calendar more than my iPhone calendar. It's just easier to plan my life when I can see when I work. I'm assuming you already understand. The most important features are shifts and rotations.",
+				"rating": 5,
+				"app": "Shift Day Work Calendar: Spoke"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Supershift и Shift Day (Spoke) хорошо закрывают базовый ввод смен, но у обоих од",
+				"obsCount": 7,
+				"apps": [
+					"Supershift Work Shift Calendar",
+					"Shift Day Work Calendar: Spoke",
+					"TimeTree: Shared Calendar",
+					"Shared Family Calendar: FamCal"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Supershift и Shift Day (Spoke) хорошо закрывают базовый ввод смен, но у обоих одна критическая слепая зона: смены живут в изоляции от жизни остальной семьи. Медсестра из ICU пишет, что приложение идеально для её смен, но она не может показать расписание мужу без дополнительной подписки. Рынок тоже не соединяет расчёт дохода с планированием семейных расходов",
+		"idea": {
+			"pitch": "Медики, пожарные и охрана живут по несовпадающим с рабочей неделей графикам и тратят часы на объяснение семье, когда они работают. ShiftLife ведёт ротационный шаблон, автоматически рассчитывает заработок за период и транслирует расписание в семейный канал без дополнительных настроек. Зарабатывает как Supershift Pro: сменные работники со стабильным доходом - одни из самых лояльных плательщиков среди нишевых приложений.",
+			"features": [
+				"Шаблоны смен (2/2, 3/3, 4/4, дни/ночи) с заполнением месяца в три нажатия",
+				"Автоматический расчёт зарплаты с учётом ставки, переработок и ночных коэффициентов за любой период",
+				"Семейный канал: партнёр видит смены без регистрации по ссылке или в общем виде приложения",
+				"Виджет на экране блокировки с ближайшей сменой, временем начала и длительностью",
+				"Корректный пересчёт существующих смен при изменении часового пояса при поездке"
+			],
+			"antiFeatures": [
+				"Нет управления задачами, проектами или корпоративными процессами - только личный и семейный календарь смен",
+				"Нет общего командного расписания для работодателя - это инструмент работника, не менеджера смен",
+				"Нет трекера привычек, поскольку сменный работник не живёт по повторяющимся дням недели"
+			],
+			"monetization": "Подписка 4-6 долларов в месяц или 29-39 долларов в год. Аудитория: медики, пожарные, охрана, ритейл с ротацией - tens of millions сменных работников в США и Канаде, платящих за Supershift и Spoke. Пара как единица пользователя увеличивает LTV."
+		}
+	},
+	{
+		"slug": "calendars-tasks-5",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "FamBoard",
+		"oneLiner": "Семейный планировщик, где каждый видит расписание всех остальных с первого взгляда, а задачи детей назначаются и подтверждаются прямо в приложении",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I have a big family with five kids ranging from baby to preteen. My older kids are active in multiple sports. My husband and I also have different activities we do. For example, he coaches middle school football. This is the best calendar app I have found.",
+				"rating": 5,
+				"app": "TimeTree: Shared Calendar"
+			},
+			{
+				"quote": "If you have a big family and like to know what direction everyone is going, this is the app for you, especially if you have several active teenagers like myself. Each member of the home has a color, so just a quick glance at the calendar, I know who's where.",
+				"rating": 5,
+				"app": "Shared Family Calendar: FamCal"
+			},
+			{
+				"quote": "This app has been the absolute best at getting my family organized. We used to be all over the place and miss appointments, my husband would sometimes forget which job site he was at, and my kids had no idea what a chore schedule was lol.",
+				"rating": 5,
+				"app": "FamilyWall: Family Organizer"
+			},
+			{
+				"quote": "A Game Changer for ADHD Families! This Is the One. If you have a household full of busy kids, a packed work schedule, and ADHD in the mix, you already know the struggle. Keeping everyone on track, remembering what's for dinner, making sure chores get done.",
+				"rating": 5,
+				"app": "Skylight App"
+			},
+			{
+				"quote": "I've had this app for about five years. Please listen to this if you plan to use this between your partner and you or your family as your new organization app. It's certainly better than having nothing, my partner and I have used it to keep track of events.",
+				"rating": 3,
+				"app": "Cozi Family Organizer"
+			},
+			{
+				"quote": "As a longtime solo user of Cozi Gold, I've valued its clean interface and calendar tools. But doubling the annual subscription from $19.99 to $39 in 2024? That's not just bold — that's a betrayal of the users who built this app's reputation.",
+				"rating": 2,
+				"app": "Cozi Family Organizer"
+			},
+			{
+				"quote": "Way too complicated to do a shared family calendar. It should be as easy as sending an email or text to a group chat. It doesn't have to be that hard. I'm not gonna download a third party app because even if I do it, I have to convince the whole family.",
+				"rating": 5,
+				"app": "Google Calendar: Get Organized"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Cozi слишком стар и запутан после обновлений, FamCal хорош, но слабо работает с ",
+				"obsCount": 7,
+				"apps": [
+					"Cozi Family Organizer",
+					"Shared Family Calendar: FamCal",
+					"FamilyWall: Family Organizer",
+					"TimeTree: Shared Calendar"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Cozi слишком стар и запутан после обновлений, FamCal хорош, но слабо работает с задачами детей. Skylight решает проблему через физический экран на кухне, но тысячи пользователей хотят тот же опыт без покупки железа. Ни одно из семейных приложений не решает мощно оба аспекта одновременно: совместный календарь с цветами по члену семьи и задачи с подтверждением выполнения ребёнком",
+		"idea": {
+			"pitch": "Когда в семье пятеро детей с разными секциями, два родителя с разными рабочими графиками и иногда бабушка, одним взглядом на цветную сетку сразу видно: кто где, кто свободен, кому надо ехать. FamBoard добавляет задачи детям с наградами за отметку выполненного - то, за что Skylight берёт деньги за физическое устройство. Монетизация через семейную подписку: Cozi Gold уже доказал, что семьи платят годами.",
+			"features": [
+				"Цветная сетка по членам семьи: каждый человек - свой цвет, события накладываются и не сливаются",
+				"Задачи детям с уровнями наград - ребёнок сам отмечает выполненное, родитель видит статус без вопроса",
+				"Список покупок с синхронизацией в реальном времени: отмеченный пункт исчезает у всех одновременно",
+				"Приватные события, видимые только создателю, без переключения в другое приложение",
+				"Виджет для бабушки с упрощённым видом без редактирования - только расписание детей на неделю"
+			],
+			"antiFeatures": [
+				"Нет корпоративных функций, управления командой или рабочих процессов",
+				"Нет геолокации в реальном времени - это планировщик, не трекер",
+				"Нет функции бюджета или финансового планирования, несмотря на соблазн добавить"
+			],
+			"monetization": "Семейная подписка 5-8 долларов в месяц или 49 долларов в год (до 6 участников). Cozi Gold на пике брал 29.99 в год, его пользователи активно жаловались на удвоение цены до 39 долларов - рынок открыт для честной альтернативы."
+		}
+	},
+	{
+		"slug": "calendars-tasks-6",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "LawPlan",
+		"oneLiner": "Планировщик для студентов юридических, медицинских и инженерных специальностей: расписание пар, дедлайны и подготовка к экзаменам в одной системе, которая понимает структуру семестра",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I'm in law school and time management is super important. I was looking for a feature rich app to keep me on track. I tried this app for the entirety of my 1L year. It's simply missing too many key features. It forced me to keep two separate apps open at all times.",
+				"rating": 2,
+				"app": "Pocket Schedule Planner"
+			},
+			{
+				"quote": "I used this app for the first two years of my college career. I loved it so much. I told every single student I knew about it. Then, they decided to completely overhaul the app over the summer. First, they introduced premium features. Great.",
+				"rating": 1,
+				"app": "My Study Life - School Planner"
+			},
+			{
+				"quote": "This is app is only okay. When you go to add an assignment for a class, it would be really helpful if the due date/time would automatically set to the date/time of the next class, since that's usually when assignments are due.",
+				"rating": 3,
+				"app": "Pocket Schedule Planner"
+			},
+			{
+				"quote": "I have used MSL for the past 5 years and loved it. I mainly used the task function to track class assignments. It was super easy to add all my classes for the semester and enter in the due dates of all my assignments at the beginning of the semester.",
+				"rating": 2,
+				"app": "My Study Life - School Planner"
+			},
+			{
+				"quote": "I've used computers (Macs) since the 80s. I'm no tech dummy. \n\nI tend to despise reading instruments - esp at first. I've allays preferred to use software,  & them - if/when I run into a problem, read JUST about THAT SPECIFIC issue.\n\nNo suc",
+				"rating": 1,
+				"app": "List Maker ◎"
+			},
+			{
+				"quote": "I am a full time college student who also has a million doctors appts, a wonky work schedule, and a family of 12 to schedule around. This app is the BEST. There are a million different colors to use for an unlimited amount of calendars.",
+				"rating": 5,
+				"app": "Simple Calendar: ToDo Planner"
+			},
+			{
+				"quote": "Wow! I am blown away. I am coming from Notion and other apps, trying to find what best suits my needs as a college student and software developer. Notion was great, but I tended to waste too much time configuring everything.",
+				"rating": 5,
+				"app": "Timepage: Calendar Planner"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "My Study Life растеряла пользователей после ухудшения приложения и введения плат",
+				"obsCount": 7,
+				"apps": [
+					"My Study Life - School Planner",
+					"Pocket Schedule Planner",
+					"Saturn Calendar",
+					"TickTick:To-Do List & Calendar"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "My Study Life растеряла пользователей после ухудшения приложения и введения платных функций. Saturn Calendar работает только для американских школьников и не масштабируется на колледжи. Pocket Schedule Planner не умеет автоматически проставлять срок сдачи задания из даты следующего занятия. Студенты профессиональных специальностей с плотными семестровыми структурами - огромный рынок без достойного инструмента",
+		"idea": {
+			"pitch": "Первокурсник юридической школы ведёт одновременно пять предметов с еженедельными брифами, экзаменами в конце семестра и обязательными часами clinics. Ни один обычный планировщик не понимает, что дедлайн задания - это следующее занятие по предмету, а не произвольная дата. LawPlan строит расписание вокруг семестровой структуры: предмет задаётся один раз, задания привязываются к нему, напоминания ставятся автоматически. Монетизация: студенты профессиональных программ платят за Notion, Obsidian и разные продукты - они знают ценность инструмента.",
+			"features": [
+				"Предмет как сущность: ввёл название, профессора, расписание пар - приложение само знает, когда следующая лекция",
+				"Задание привязывается к предмету, дедлайн автоматически ставится на дату следующего занятия с возможностью изменить",
+				"Вид семестра: все дедлайны всех предметов на одной временной шкале, видно кластеры перегруза",
+				"Режим экзаменационной сессии: обратный отсчёт к каждому экзамену с блоками времени для подготовки в расписании",
+				"Синхронизация с браузерным веб-приложением: лекция на ноутбуке, задания проверяются на телефоне"
+			],
+			"antiFeatures": [
+				"Нет общего расписания с одногруппниками и социальных функций - My Study Life пыталась добавить и усложнила продукт",
+				"Нет трекера привычек и рутин - студентам нужна академическая структура, не велнес",
+				"Нет интеграции с образовательными платформами (Canvas, Blackboard) на начальном этапе - сначала надёжность"
+			],
+			"monetization": "Подписка 4.99 долларов в месяц или 29.99 в год. Студенты профессиональных программ (право, медицина, инженерия) охотно платят за инструменты, которые снижают академическую тревогу. Модель freemium с ограничением в 3 предмета бесплатно."
+		}
+	},
+	{
+		"slug": "calendars-tasks-7",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "BlockWork",
+		"oneLiner": "Тайм-блокинг как продукт: фрилансер или консультант ведёт несколько клиентских потоков, видит реальную загрузку и выставляет счёт по факту потраченного времени",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "This is a great concept, and I haven't found another app like it. But it's lacking some things that would make it better. It would be nice if you could drag and drop items to a different order and have the start and stop times automatically fill in.",
+				"rating": 3,
+				"app": "TimeBloc - Daily Planner"
+			},
+			{
+				"quote": "Overall, the app does the basics of what it is intended for. Setting up Routines is incredibly tedious. Incredibly. Tedious. Tag colors are shown as a small line on each block of time, I'd prefer the entire block to have the color.",
+				"rating": 3,
+				"app": "TimeBloc - Daily Planner"
+			},
+			{
+				"quote": "I've been using Todoist for at least seven years now and I have it well integrated into my daily life. It is the one place I can throw anything at any time and not have to think about it again. Wake up at 3am with a thought, add it and I know it won't be lost.",
+				"rating": 4,
+				"app": "Todoist: To Do List & Calendar"
+			},
+			{
+				"quote": "I am a planner freak! I have always carried around a paper planner. I write everything in my planner. I've always used a paper planner to keep track of personal commitments as well as professional obligations. I am a speech-language pathologist.",
+				"rating": 5,
+				"app": "Planner Pro - Daily Planner"
+			},
+			{
+				"quote": "I find your app to be great! I use it daily for work and in our company it is a wonderful tool to have. I can't believe the app doesn't have push notifications. I schedule and run appointments for developmentally disabled individuals.",
+				"rating": 4,
+				"app": "Teamup Calendar"
+			},
+			{
+				"quote": "I primarily use my iPad Pro 12.9 5th gen for.. WORK! I have many appointments, deadlines, meeting etc. I do not use an iPhone to type reports or look over documents, let alone edit and submit via collaborations. The widgets simply DO NOTHING.",
+				"rating": 1,
+				"app": "TimeBloc - Daily Planner"
+			},
+			{
+				"quote": "I have used PI for many years, and have yet to find anything that touches it in terms of customization and flexibility, especially for the price. It works great most of the time. That said, things seem to be going downhill just a bit. Here ",
+				"rating": 4,
+				"app": "Pocket Informant"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "TimeBloc - единственный специализированный тайм-блокинг инструмент в нише, но ви",
+				"obsCount": 7,
+				"apps": [
+					"TimeBloc - Daily Planner",
+					"Todoist: To Do List & Calendar",
+					"TickTick:To-Do List & Calendar",
+					"Planner Pro - Daily Planner"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "TimeBloc - единственный специализированный тайм-блокинг инструмент в нише, но виджеты не работают, уведомления молчаливые и настройка рутины требует десятков шагов. Ни TickTick, ни Fantastical, ни Todoist не соединяют тайм-блокинг с учётом времени по клиенту. Фрилансеры и консультанты платят отдельно за Toggl или Harvest для учёта времени и отдельно за планировщик",
+		"idea": {
+			"pitch": "Консультант с тремя клиентами каждое утро решает, когда на кого работать, затем в конце недели вручную считает часы по каждому. BlockWork делает одно: блок в расписании - это одновременно план и трекер. Закрыл блок - время записано к клиенту. В конце недели - готовый отчёт. Аудитория платит Harvest, Toggl и Calendly, плюс отдельный планировщик - это четыре расходных строки, которые заменяет один продукт.",
+			"features": [
+				"Перетаскиваемые блоки на временной шкале дня с привязкой к клиенту или проекту",
+				"Автоматическая запись фактического времени при закрытии блока с возможностью скорректировать вручную",
+				"Еженедельный отчёт по клиентам: сколько часов, какой процент от рабочего времени, сравнение с планом",
+				"Шаблоны рабочей недели: типовой вторник настраивается один раз и применяется автоматически",
+				"Экспорт отчёта в CSV или PDF для выставления счёта клиенту прямо из приложения"
+			],
+			"antiFeatures": [
+				"Нет функций командного планирования и общих проектов - только личный планировщик и трекер",
+				"Нет управления задачами внутри блока - блок это единица, не контейнер для подзадач",
+				"Нет интеграции с бухгалтерскими системами на первом этапе - только экспорт данных"
+			],
+			"monetization": "Подписка 12-15 долларов в месяц. Фрилансер, который уже платит Toggl (9-18 долларов) и Calendly (8-12 долларов) - очевидный покупатель. Якорный кейс: первый правильно выставленный счёт окупает год подписки."
+		}
+	},
+	{
+		"slug": "calendars-tasks-8",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "CourierPath",
+		"oneLiner": "Планировщик маршрута и рабочего дня для курьеров, торговых представителей и медработников: оптимизация остановок плюс задачи по каждой точке в одном экране",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "Defining start/last stop/1st stop has left the chat! Want to reorganize what it calculates for you? Sorry no, ain't happening. I love that I can see all my stops on the map in one view, that is the number 1 critical detail I need.",
+				"rating": 3,
+				"app": "Route4Me Route Planner"
+			},
+			{
+				"quote": "I have been using this app since 2021 and have used it to help me deliver parcels for a company I work for. Today I needed to use it again for the first time in several months. Still very easy to use and create a route for parcels.",
+				"rating": 4,
+				"app": "Route4Me Route Planner"
+			},
+			{
+				"quote": "Defining start/last stop/1st stop has left the chat! Want to reorganize what it calculates for you? Sorry no ain’t happening. I love that I can see all my stops on the map in one view, that is the number 1 critical detail I need. But it won",
+				"rating": 3,
+				"app": "Route4Me Route Planner"
+			},
+			{
+				"quote": "Been using Square and Appointments for a very long time now. I'm a tattoo artist so for just managing one single person is my experience. They've never charged me for using their appointments app. I can add different services with set prices.",
+				"rating": 5,
+				"app": "Square Appointments: Scheduler"
+			},
+			{
+				"quote": "There is still a problem with houses that are next to each other that are not listed one after another on the route. For example, I have a combined driveway 122 and 124 of an address. They are two townhouses, one driveway and the Route put them not next to each other.",
+				"rating": 3,
+				"app": "Route4Me Route Planner"
+			},
+			{
+				"quote": "I have been using Square, and its suite of apps for 12 years. Although I love the product, the most frustrating thing that I've encountered is trying to use it for my Transportation business. I cannot farm out jobs to other drivers using their system.",
+				"rating": 5,
+				"app": "Square Appointments: Scheduler"
+			},
+			{
+				"quote": "Like most scam and greedy developers they have switched over to subscriptions, while giving us (those who paid for the app long ago) the middle finger. As long as unintelligent people keep paying for subscriptions, specially high priced subscriptions, it will continue.",
+				"rating": 1,
+				"app": "Route4Me Route Planner"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Route4Me хорошо оптимизирует маршрут, но после обновлений потерял возможность за",
+				"obsCount": 7,
+				"apps": [
+					"Route4Me Route Planner",
+					"Square Appointments: Scheduler",
+					"Todoist: To Do List & Calendar",
+					"Teamup Calendar"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Route4Me хорошо оптимизирует маршрут, но после обновлений потерял возможность задать первую и последнюю точку вручную и убрал поиск по названию бизнеса - только ввод адреса. Главное: ни один маршрутный планировщик не объединяет оптимизацию пути с задачами по каждой точке (что взять, что сказать, что оставить). Курьеры и торговые представители ведут задачи по точкам в заметках или бумаге параллельно с маршрутом",
+		"idea": {
+			"pitch": "Торговый представитель с 20 точками в день тратит час утром на порядок объездов и несёт в телефоне заметку с тем, что нужно сделать на каждой точке. CourierPath оптимизирует порядок за секунду, а каждая точка маршрута становится карточкой с задачами, контактом и историей посещений. Аудитория платит Route4Me от 40 до 80 долларов в месяц - порог хорошо установлен.",
+			"features": [
+				"Оптимизация порядка остановок за одно нажатие с возможностью зафиксировать первую и последнюю точку",
+				"Карточка точки: адрес, контакт, список задач для визита и заметка по итогу",
+				"История посещений: когда был последний визит и что было сделано",
+				"Поиск точки по названию компании или имени контакта, а не только по адресу",
+				"Экспорт итогов дня: какие точки посещены, что выполнено, что перенесено"
+			],
+			"antiFeatures": [
+				"Нет CRM-функций, воронок продаж или корпоративной аналитики - только маршрут и задачи по точкам",
+				"Нет командного планирования маршрутов для диспетчера - это инструмент водителя или представителя",
+				"Нет интеграции с ERP или системами учёта запасов на первом этапе"
+			],
+			"monetization": "Подписка 19-29 долларов в месяц. Route4Me стоит от 40 долларов, Badger Maps (аналог для торговых представителей) - от 49 долларов. Аудитория привыкла к этому ценовому диапазону и платит, когда экономия времени очевидна."
+		}
+	},
+	{
+		"slug": "calendars-tasks-9",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "SpeakTask",
+		"oneLiner": "Голосовой захват задач и идей с мгновенным разбором: сказал - расписано по проектам, датам и приоритетам без единого нажатия",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "More user friendly than Todoist- also looks better because of recent updates. I think it is the best to do list app that exists. Full stop. And I've tried way too many. The only problem it has: I use the date property in my tasks to mark the actual completion date.",
+				"rating": 5,
+				"app": "TickTick:To-Do List & Calendar"
+			},
+			{
+				"quote": "⭐️⭐️⭐️⭐️⭐️ A Seamless Productivity Powerhouse — Worth Every Cent\n\nAs a power user who relies on Todoist across iOS, the web, and the native Mac app, I can confidently say this is the most indispensable tool in my daily workflow. Whether I'm capturing a quick idea or managing complex projects.",
+				"rating": 5,
+				"app": "Todoist: To Do List & Calendar"
+			},
+			{
+				"quote": "I've been using Todoist for at least seven years now and I have it well integrated into my daily life. It is the one place I can throw anything at any time and not have to think about it again. Wake up at 3am with a thought, add it and I know it won't be lost.",
+				"rating": 4,
+				"app": "Todoist: To Do List & Calendar"
+			},
+			{
+				"quote": "I love the convenience of bringing calendar events and reminders to one widget. I love that it works natively and that I can tell Siri to add something it syncs with iCloud natively and add it to Fantastical.",
+				"rating": 5,
+				"app": "Fantastical Calendar"
+			},
+			{
+				"quote": "If you put time of event in the title OR a mention of recurrence, it automatically sets that up for you. BUT it deletes it from the title! Very frustrating and time consuming.",
+				"rating": 1,
+				"app": "Fantastical Calendar"
+			},
+			{
+				"quote": "I have so many notifications on my phone that I end up tuning them all out. That's bad when you forget almost everything without something reminding you. This allows me to yell at myself from my own phone about what specifically I need to do.",
+				"rating": 4,
+				"app": "Reminder, Reminders with Voice"
+			},
+			{
+				"quote": "I downloaded this app for one reason only. It works with Alexa. Ok, I said, I'll give it a try, so I got it and signed up for a month of premium. The rest of my morning was spent trying to figure the app out.",
+				"rating": 1,
+				"app": "Any.do: To do list & Planner"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "TickTick и Todoist имеют голосовой ввод, но через Siri или отдельную кнопку - и ",
+				"obsCount": 7,
+				"apps": [
+					"TickTick:To-Do List & Calendar",
+					"Todoist: To Do List & Calendar",
+					"Fantastical Calendar",
+					"Any.do: To do list & Planner"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "TickTick и Todoist имеют голосовой ввод, но через Siri или отдельную кнопку - и каждый требует уточнений после распознавания. Todoist Ramble (голос в задачи) - новая функция, которую пользователи хвалят, но рынок не увидел продукта, где голосовой захват стоит в центре, а не является надстройкой. Люди с СДВГ, занятые родители и профессионалы, которые думают быстрее, чем печатают, годами ищут именно это",
+		"idea": {
+			"pitch": "За рулём или в душе приходит мысль, которую через минуту не будет. SpeakTask делает одно: нажал виджет на экране блокировки, сказал всё что думаешь, приложение само разбивает поток на задачи с датами, проектами и приоритетами и складывает в нужные списки. Пользователь открывает приложение позже и видит уже разобранный inbox. Зарабатывает через подписку у людей, которые уже пробовали все остальные продукты.",
+			"features": [
+				"Виджет экрана блокировки: одно нажатие запускает запись без разблокировки телефона",
+				"Голосовое распознавание с разбором: 'напомни позвонить Ивановой во вторник по проекту Альфа' превращается в задачу с датой, тегом и проектом",
+				"Inbox с пакетной обработкой: все голосовые захваты за день собраны в одном месте, раскидать по проектам можно за минуту свайпами",
+				"Поддержка Apple Watch: диктовка прямо с запястья без телефона",
+				"Интеграция с Todoist, Things и Apple Reminders: SpeakTask как слой захвата поверх существующей системы"
+			],
+			"antiFeatures": [
+				"Нет собственной системы управления проектами - захват и разбор, организация в выбранном пользователем инструменте",
+				"Нет выделенного вида календаря - это input-инструмент, не планировщик",
+				"Нет командных функций и общего доступа к задачам"
+			],
+			"monetization": "Подписка 6-9 долларов в месяц. Целевой пользователь - человек, уже платящий Todoist или Things. Продукт позиционируется как недостающий слой захвата, а не замена органайзера. Конверсия через 14-дневный триал с полным функционалом."
+		}
+	},
+	{
+		"slug": "calendars-tasks-10",
+		"category": "calendars-tasks",
+		"categoryName": "Календари и задачи",
+		"title": "CareCalendar",
+		"oneLiner": "Планировщик для семей, ухаживающих за пожилым родителем или больным близким: расписание лекарств, визиты врачей и распределение дежурств между членами семьи",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 100,
+			"reviews": 44501,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "This app (paid version) is very helpful and it would be difficult to manage my wife's meds without it. With that said please improve reporting. The following improvements would be very helpful: Add option for csv export, Add Medication list.",
+				"rating": 5,
+				"app": "Pill Reminder - All in One"
+			},
+			{
+				"quote": "I am my dad's sole caregiver. Due to his age and declining health, he has many doctor appointments he has to attend and I'm honored to be his caregiver. Along with his many appointments I have plenty to do myself. I was looking for something to keep it all organized.",
+				"rating": 5,
+				"app": "Weekly Planner - Diary, Notes"
+			},
+			{
+				"quote": "Instead of my family using this app, I use it with my home healthcare aides to create Task lists and grocery lists. I do use the Calendar for public appts only since I haven't been able to figure out how to make certain appts only show up on specific members.",
+				"rating": 5,
+				"app": "FamilyWall: Family Organizer"
+			},
+			{
+				"quote": "I was looking for an app that I could program the times for my elderly Mom to take her medications. I'm so glad there aren't any in-app ads or purchases. That would be confusing for her or any elderly person confused with technology.",
+				"rating": 4,
+				"app": "Todo List & Reminder - Todoery"
+			},
+			{
+				"quote": "I thought this calendar was perpetual. I just realized it is keeping history for only 1 year. My family needs a calendar to keep track of medical appointments history, as well as other history. It had been particularly useful for our daughter's care.",
+				"rating": 3,
+				"app": "Teamup Calendar"
+			},
+			{
+				"quote": "I find your app to be great! I use it daily for work and in our company it is a wonderful tool to have. I schedule and run appointments for developmentally disabled individuals and most calendars simply do not cater to those with scheduling needs like this.",
+				"rating": 4,
+				"app": "Teamup Calendar"
+			},
+			{
+				"quote": "This is a great calendar to keep up with family members for planning outings and babysitting. This allows me to see my own private calendar entries OR share them with the family, which is great for medication reminders that others don't need to see.",
+				"rating": 5,
+				"app": "Shared Family Calendar: FamCal"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Pill Reminder закрывает только медицинскую часть, семейные приложения вроде FamC",
+				"obsCount": 7,
+				"apps": [
+					"Pill Reminder - All in One",
+					"Teamup Calendar",
+					"FamilyWall: Family Organizer",
+					"Cozi Family Organizer"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Pill Reminder закрывает только медицинскую часть, семейные приложения вроде FamCal и Cozi не понимают медицинскую специфику. Пользователи Teamup и FamilyWall уже используют их для координации домашних медработников, но это хак, а не продукт. Демографический тренд ясен: стареющее население, дети которых координируют уход на расстоянии - платёжеспособная и нарастающая аудитория",
+		"idea": {
+			"pitch": "Когда три брата и сестра в разных городах ухаживают за мамой с диабетом, каждый должен знать, принято ли лекарство сегодня утром, кто едет на следующий приём к кардиологу и кто забирает рецепт. CareCalendar объединяет медицинское расписание, историю препаратов и дежурства семьи в одном приложении. Монетизация: те, кто платит за уход, платят и за координацию - это не экономия, это снятие тревоги.",
+			"features": [
+				"Расписание препаратов с подтверждением приёма: член семьи отмечает, дежурный видит статус",
+				"Карточка врача: специальность, телефон, история визитов и что было назначено",
+				"Дежурный календарь: кто отвечает за уход в какой день, смена дежурства одним нажатием",
+				"Журнал наблюдений: симптомы, измерения давления, самочувствие - чтобы врач мог посмотреть историю",
+				"Упрощённый режим для самого подопечного: только «принял/не принял» и кнопка вызова дежурного"
+			],
+			"antiFeatures": [
+				"Нет функций телемедицины и консультаций с врачами внутри приложения",
+				"Нет медицинской аналитики и диагностики - только журнал и расписание",
+				"Нет профессиональных функций для клиник или домов престарелых - только семейный уход"
+			],
+			"monetization": "Семейная подписка 8-12 долларов в месяц (до 6 участников). Аудитория - дети в возрасте 35-55 лет, координирующие уход за пожилым родителем. Эта аудитория платёжеспособна, мотивирована и не переключается на другой инструмент, пока ситуация не изменится."
 		}
 	}
 ]

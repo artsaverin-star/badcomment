@@ -354,116 +354,6 @@
 			}
 		]
 	},
-	"calendars-tasks": {
-		"governing": "In this category you don't win on features but on two things at once: capture friction driven toward zero, and the absolute reliability of two atomic operations — 'don't lose what I entered' and 'nudge me on time.' Everything else (views, colors, templates) is retention layered on top of trust already built; without trust, any depth is useless.",
-		"competitorRead": "Every incumbent makes the same mistake: it complicates the product with updates that break the exact surface the daily habit rests on — the widget, the old layout, reliable recurrence, reminder delivery. They treat these as solved, while in fact they're chronically broken across the whole category. Power users literally beg to 'bring back the old version' and keep a backup app. The opening for a builder: you don't need a new feature — you need a product that does the boring basics (reminder, recurrence, sync, widget) flawlessly and DOESN'T break them with updates, and that honestly picks one pole (simplicity OR power) instead of falling between them.",
-		"pillars": [
-			{
-				"title": "The trust contract beats features: frictionless capture, reliable recurrence and reminders, zero silent data loss",
-				"dek": "People hire a planner for one guarantee — 'enter and forget, it'll remind me.' That guarantee rests on four boring things: fast (voice/text) capture, recurrence that behaves like a human, a reminder that actually nudges, and memory that loses nothing. Across the category these are exactly what's chronically broken: the parser flings a task to a random date, recurrence dies on a missed check-off, the alert drowns in the stream, a section collapses and 20 tasks are gone. Builder: make these four operations flawless before any prettiness. The parser should suggest with a preview, not act silently; recurrence should survive a miss; reminders need an insistent mode (full-screen alarm, banner on unlock); deletion needs a trash bin, history and export. That is the product.",
-				"match": [
-					"напомина",
-					"уведомл",
-					"аларм",
-					"повтор",
-					"захват",
-					"ввод",
-					"голос",
-					"парсер",
-					"распознав",
-					"дат",
-					"потер",
-					"данны",
-					"синхрон",
-					"синк",
-					"доверие",
-					"корзин",
-					"истори",
-					"экспорт",
-					"аккаунт",
-					"регистрац",
-					"барьер",
-					"сохран",
-					"исчез"
-				]
-			},
-			{
-				"title": "The single canvas and the shared layer: fuse the separated worlds and turn a personal tool into group infrastructure",
-				"dek": "The two cleanest wedges of differentiation both fuse what the market keeps apart. First: tasks + events + habits in one day, a single 'what's on today' instead of a to-do app OR a calendar; whoever doesn't do this loses the people who think of a day as one list. Second: a shared layer between people — a shared list, a shared calendar, an iPhone↔Android bridge that native apps lack. Shared data multiplies retention (the whole group leaves, not one person) and attracts the 'dispatchers' of others' schedules — the most loyal audience. Builder: build around the task↔time bridge and around the family/group as the primary unit — and charge with a family/Lifetime plan, not per-person, because the value here is collective.",
-				"match": [
-					"задач",
-					"событи",
-					"календар",
-					"привыч",
-					"единый",
-					"полотно",
-					"слия",
-					"слить",
-					"один день",
-					"общий",
-					"общие",
-					"семь",
-					"семей",
-					"группа",
-					"шаринг",
-					"поделит",
-					"расшар",
-					"список",
-					"покуп",
-					"координац",
-					"мост",
-					"iphone",
-					"android",
-					"экосистем",
-					"монетизац",
-					"подписк",
-					"тариф",
-					"lifetime",
-					"таймбок",
-					"time box",
-					"интеграц"
-				]
-			},
-			{
-				"title": "The glance surface and the choice of pole: the widget/visualization is the product, and simplicity-vs-power is a deliberate choice",
-				"dek": "The daily habit lives not in the app but on the glance-without-opening surface: the widget, the watch face, the circular clock. It's the strongest retention mechanism — and the most fragile: it breaks most often on updates and takes the ritual with it. Add color as a coding system (not cosmetics) and time visualization for those who can't feel it. In parallel the category is sharply polarized: simplicity is its own winning positioning (retains for 10+ years), while depth makes a 'life OS' for pros but drowns newcomers in chaos. Builder: make the glance surface the center of the product and keep it rock-stable; give an expandable palette; and deliberately pick a pole — either a radically simple default with power on demand (progressive disclosure), or an honestly niche tool that owns its segment completely.",
-				"match": [
-					"виджет",
-					"watch",
-					"часы",
-					"запясть",
-					"циферблат",
-					"круг",
-					"визуализ",
-					"взгляд",
-					"glance",
-					"главн",
-					"экран",
-					"цвет",
-					"палитр",
-					"кодиров",
-					"простот",
-					"минимал",
-					"мощь",
-					"глубин",
-					"кастомиз",
-					"настройк",
-					"перегруз",
-					"сложн",
-					"редизайн",
-					"обновлен",
-					"апдейт",
-					"старую верс",
-					"поляриз",
-					"вид",
-					"сетк",
-					"плотн",
-					"формат",
-					"реклам"
-				]
-			}
-		]
-	},
 	"time-tracking": {
 		"governing": "Time tracking is won not by the richest feature set but by a dependable simple core: a clean timer that actually rings with the screen off, forgives a missed clock-in, and runs for years — and it's lost when the alert stays silent, the widget freezes, and basic settings and export sit behind a paywall.",
 		"competitorRead": "Almost everyone nails the clean interface, the Pomodoro cycles, and the readable reports, but they break on the one thing that matters — the reliability of the basics: the alert won't fire on a locked screen, widgets freeze, and there's no watch or desktop. Whoever makes the timer always ring, sync across every device, and forgive a retroactive edit will earn the kind of loyalty this niche holds for years.",
@@ -5984,6 +5874,72 @@
 					"backup",
 					"data safety",
 					"data migration"
+				]
+			}
+		]
+	},
+	"calendars-tasks": {
+		"governing": "A task manager sells one promise: you will not forget anything. That promise rests on two primitives. A task is captured in a single tap, and a reminder fires at exactly the right moment. Of the hundred apps in this niche, 31 regularly lose data or break sync, and 39 draw complaints about silent notifications. Only a handful have raised both primitives to the level where users stop second-guessing whether something was actually saved. The winner is not the app with the richest feature set. It is the app that kills the anxiety: you wrote it, so it is saved, and the reminder will come. Everything else, interface, aesthetics, filters, only matters after the basic contract is honored.",
+		"competitorRead": "Almost every player solves different problems with different apps: tasks in one, events in another, habits in a third. Users say plainly that they want a single day view with tasks and events together, but the market keeps asking them to choose. TickTick and Structured offer that unified view and immediately pull ahead, even though their sync and reminders break after updates too. The core mistake competitors make is prioritizing feature breadth over primitive reliability, and they lose loyalty at the precise moment the user had fully trusted them.",
+		"pillars": [
+			{
+				"title": "one day screen instead of three apps",
+				"dek": "The market is split between task trackers, calendars, and habit trackers, and almost none of them bring all three into a single day view. TickTick, scored at 82, wins specifically for its unified view of tasks and events alongside voice input with natural language. Floret (81) eliminates mode switching: tasks and events on one screen with no menus. Structured (71) adds a visual map of free time blocks in the day, which people with ADHD find especially valuable. The entry point for a founder is a today view where a task, a meeting, and a habit live side by side with zero context switching.",
+				"match": [
+					"daily planner",
+					"task list",
+					"to do app",
+					"day view",
+					"tasks and events",
+					"unified calendar",
+					"habit tracker",
+					"schedule",
+					"time blocking",
+					"focus timer",
+					"voice input",
+					"all in one planner",
+					"today view",
+					"agenda view"
+				]
+			},
+			{
+				"title": "reliability as the product, not a feature",
+				"dek": "31 of the 100 apps in the sample have sync in their list of weak spots, and 39 draw complaints about silent reminders. Users do not leave over design or price. They leave when an important deadline passed without a sound, or when their data vanished after an update. Errands lost loyal users who had kept their lists for 12 years in a single day when sync broke in an update. A product that guarantees your notes will not disappear and your reminder will fire earns reviews like the only app I trust. For a founder this is an operational priority above any new feature: reliability is the marketing.",
+				"match": [
+					"sync",
+					"reminders",
+					"notifications",
+					"offline mode",
+					"data loss",
+					"backup",
+					"cross device",
+					"reliable reminders",
+					"widget",
+					"icloud sync",
+					"missed deadline",
+					"data disappeared",
+					"app update broke",
+					"trustworthy app"
+				]
+			},
+			{
+				"title": "users with executive function challenges are a ready segment with above-average loyalty",
+				"dek": "14 of the 100 apps explicitly name an ADHD or neurodivergent audience, and these are among the most loyal users in the niche. They write long reviews, stay for years, and recommend the app personally. Their requirements align exactly with the core primitives: frictionless fast capture and a reminder that actually fires. Structured (71) earned its score specifically for triple notifications per task and a visual day layout. Lists To Do (79) names ADHD users as its primary audience and wins through minimalism. A founder who openly builds for this audience gets an organic referral loop: the ADHD community actively shares tools in dedicated forums and groups.",
+				"match": [
+					"adhd planner",
+					"executive function",
+					"neurodivergent",
+					"focus app",
+					"routine builder",
+					"habit routine",
+					"procrastination",
+					"anxiety planner",
+					"dopamine",
+					"task initiation",
+					"adhd tools",
+					"time blindness",
+					"daily structure",
+					"brain dump"
 				]
 			}
 		]

@@ -141,6 +141,7 @@ function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
     { slug: "period-cycle", name: ru ? "Месячные" : "Period trackers", blurb: ru ? "Трекеры цикла: где прогноз точен и данные в безопасности, а где врёт и торгует приватностью." : "Cycle trackers: where the prediction is accurate and data is safe, and where it is not." },
     { slug: "habit-tracking", name: ru ? "Привычки" : "Habit trackers", blurb: ru ? "100 приложений: где отметка мгновенна и напоминание приходит, а где стрик стыдит и бросаешь." : "100 apps: where the check-off is instant and the reminder fires, and where guilt makes you quit." },
     { slug: "personal-finance", name: ru ? "Личные финансы" : "Budget apps", blurb: ru ? "100 приложений: где правда видишь и держишь траты под контролем, а где рвётся синхронизация." : "100 apps: where you actually see and control spending, and where the sync breaks." },
+    { slug: "calendars-tasks", name: ru ? "Календари и задачи" : "Calendars & tasks", blurb: ru ? "100 приложений: где напоминание приходит вовремя и ничего не теряется, а где молчит." : "100 apps: where the reminder fires on time and nothing is lost, and where it stays silent." },
   ];
   const soon = ru
     ? ["Игры", "VPN", "Погода", "Криптокошельки"]
