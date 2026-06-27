@@ -6,6 +6,7 @@ import { getLocale } from "@/lib/i18n.server";
 import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import RatingAuthBadge from "@/components/RatingAuthBadge";
+import RatingShots from "@/components/RatingShots";
 import astrology from "@/data/peoplesRating/astrology.json";
 import datingApps from "@/data/peoplesRating/dating-apps.json";
 import aiPhoto from "@/data/peoplesRating/ai-avatars-headshots.json";
@@ -29,6 +30,7 @@ type App = {
   storeAvg: number | null; ratings: number; pct5: number | null; textAvg: number | null; nrev: number;
   realScore: number | null; authenticity: string | null; authNote: string | null;
   verdict: string; loved: string; weak: string; whoFor: string | null;
+  shots?: string[];
   en?: { verdict?: string; loved?: string; weak?: string; whoFor?: string; authNote?: string };
 };
 type RatingSet = { slug: string; name: string; nameEn: string; seoName?: string; apps: App[]; totalReviews: number; count: number; inflated: number };
@@ -178,6 +180,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                 <Field label={ru ? "Слабое" : "Weak"}>{tg(tx("weak"))}</Field>
                 {tx("whoFor") && <Field label={ru ? "Кому" : "For"}>{tg(tx("whoFor"))}</Field>}
               </div>
+
+              {a.shots && a.shots.length > 0 && <RatingShots shots={a.shots} title={a.title} />}
             </li>
           );
         })}

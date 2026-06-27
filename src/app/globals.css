@@ -336,6 +336,19 @@ html:not([data-theme="dark"]) .atmosphere {
   .glow-sweep { animation: none; }
 }
 
+/* Screenshots fade-and-rise in when their row scrolls into view (lazy mounted),
+   slightly staggered per shot so a strip cascades rather than popping at once. */
+@keyframes rating-shot-in {
+  0% { opacity: 0; transform: translateY(14px) scale(0.985); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.rating-shot {
+  animation: rating-shot-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rating-shot { animation: none; }
+}
+
 /* Periodic glow on a CTA card — a soft colour bloom pulses and a light sheen
    sweeps across the surface, then rests, looping every 15s. The sheen lives in
    ::before and is clipped by the card's overflow-hidden + rounded corners, so it
