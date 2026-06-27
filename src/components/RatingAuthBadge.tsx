@@ -1,15 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 // Authenticity plaque on a rating row. Same square card shape as the
 // store/people score plaques next to it; the full explanation opens in a
-// popup on tap (keeps the row clean).
+// popup on tap. The popup is portalled to <body> (like every other modal here)
+// so no ancestor stacking/containing context can trap or hide it.
 export default function RatingAuthBadge({
   caption, label, word, note, fg, detailsLabel, closeLabel,
 }: { caption: string; label: string; word: string; note: string; fg: string; detailsLabel: string; closeLabel: string }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const hasNote = !!note?.trim();
+
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <>
       <button
@@ -29,8 +42,8 @@ export default function RatingAuthBadge({
         )}
       </button>
 
-      {open && hasNote && (
-        <div className="fixed inset-0 z-[60] flex items-end justify-center p-3 sm:items-center" onClick={() => setOpen(false)}>
+      {mounted && open && hasNote && createPortal(
+        <div className="fixed inset-0 z-[100] flex items-end justify-center p-3 sm:items-center" role="dialog" aria-modal="true" onClick={() => setOpen(false)}>
           <div className="absolute inset-0 bg-black/55 backdrop-blur-sm" />
           <div
             className="relative w-full max-w-[420px] rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-5 shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)]"
@@ -46,7 +59,8 @@ export default function RatingAuthBadge({
               {closeLabel}
             </button>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </>
   );
