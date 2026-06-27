@@ -9,6 +9,7 @@ import astrology from "@/data/peoplesRating/astrology.json";
 import datingApps from "@/data/peoplesRating/dating-apps.json";
 import aiPhoto from "@/data/peoplesRating/ai-avatars-headshots.json";
 import meditation from "@/data/peoplesRating/meditation-mindfulness.json";
+import photoEditing from "@/data/peoplesRating/photo-editing.json";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +25,7 @@ type App = {
 };
 type RatingSet = { slug: string; name: string; nameEn: string; seoName?: string; apps: App[]; totalReviews: number; count: number; inflated: number };
 
-const SETS: Record<string, RatingSet> = { astrology: astrology as RatingSet, "dating-apps": datingApps as RatingSet, "ai-avatars-headshots": aiPhoto as RatingSet, "meditation-mindfulness": meditation as RatingSet };
+const SETS: Record<string, RatingSet> = { astrology: astrology as RatingSet, "dating-apps": datingApps as RatingSet, "ai-avatars-headshots": aiPhoto as RatingSet, "meditation-mindfulness": meditation as RatingSet, "photo-editing": photoEditing as RatingSet };
 
 // Authenticity as a plain statement about the store star, plus a restrained tint.
 function authVerdict(a: string | null, ru: boolean): { word: string; bg: string; fg: string } {

@@ -135,10 +135,11 @@ function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
     { slug: "dating-apps", name: ru ? "Знакомства" : "Dating", blurb: ru ? "100 приложений: где реальные люди, а где боты и накрученные звёзды." : "100 apps: where the real people are, and where the bots and gamed stars are." },
     { slug: "ai-avatars-headshots", name: ru ? "ИИ-фото" : "AI photo", blurb: ru ? "100 приложений: где результат правда похож на тебя, а где накрутка и обман в рекламе." : "100 apps: where the result really looks like you, and where the gamed stars and bait ads are." },
     { slug: "meditation-mindfulness", name: ru ? "Медитация" : "Meditation", blurb: ru ? "100 приложений: где правда успокаивает и тёплый голос, а где пустышка." : "100 apps: which truly calm you with a warm guide, and which are hollow." },
+    { slug: "photo-editing", name: ru ? "Фоторедакторы" : "Photo editors", blurb: ru ? "100 приложений: где инструменты реально работают, а где портят фото и обманка в рекламе." : "100 apps: where the tools really work, and where they ruin the photo with bait ads." },
   ];
   const soon = ru
-    ? ["Фоторедакторы", "Заметки", "Игры", "VPN"]
-    : ["Photo editors", "Notes", "Games", "VPN"];
+    ? ["Заметки", "Игры", "VPN", "Погода"]
+    : ["Notes", "Games", "VPN", "Weather"];
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {live.map((c) => (
