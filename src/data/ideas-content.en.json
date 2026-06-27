@@ -167,167 +167,6 @@
 		"title": "Light on Any Tablet",
 		"oneLiner": "A learning app that won't freeze or crash and runs on old, low-end devices"
 	},
-	"period-cycle-1": {
-		"categoryName": "Period & Fertility",
-		"gap": "Mainstream apps anchor to a 28-day average and perpetually mark users as 'late'. For PCOS, long cycles, or double cycles, the prediction breaks and never self-corrects. A 15–20 day cap on period length and a ban on a second cycle per month exclude an entire audience.",
-		"pitch": "The algorithm never imposes an average cycle length — it learns from personal data and accommodates long, short, and double cycles from day one. When the cycle is irregular, it shows a prediction window instead of a falsely precise date, and honestly flags when there's not enough data yet. Within a couple of months, this stabilizes expectations for users with PCOS and PMDD instead of generating endless false alarms.",
-		"features": [
-			"Prediction window instead of a single date when the cycle is irregular",
-			"Support for long, short, and double cycles with no 15–20 day cap",
-			"Continuous recalculation after every new cycle",
-			"PCOS/PMDD mode with dedicated stabilization logic over a few months",
-			"Explicit low-confidence flag when data is insufficient"
-		],
-		"antiFeatures": [
-			"Does not default to 28 days and population averages",
-			"Does not display a falsely 'exact' date when data is spread out"
-		],
-		"monetization": "Subscription for the adaptive algorithm and PCOS mode; basic tracking is free without ads",
-		"mechanisms": [
-			"Cycle-start prediction accuracy — the reason users stay for years",
-			"Prediction breaks for PCOS, long cycles, and double cycles — and never recalculates"
-		],
-		"title": "Adaptive Cycle: Forecasts for PCOS and Irregular Periods",
-		"oneLiner": "A tracker that doesn't lock you into 28 days — it recalculates predictions for long, double, and irregular cycles"
-	},
-	"period-cycle-2": {
-		"categoryName": "Period & Fertility",
-		"gap": "Most apps just count days without explaining why mood and energy shift. Where phase explanations exist, the tips are generic, don't change by phase, and can sometimes be harmful — 'eat chocolate' is an example.",
-		"pitch": "The app ties every day to a phase and a hormone, explaining mood and energy changes in plain language. It gives food and workout suggestions that actually change from follicular to luteal phase. The tone is careful — no diet pressure, no body-shaming language — making it safe for users with eating disorders.",
-		"features": [
-			"Plain-language explanation of the follicular and luteal phases",
-			"Nutrition and workout tips that shift by phase",
-			"Support during tough PMDD and PMS days with a clear explanation of what's happening",
-			"In-depth content on hormones, cramps, and phases inside individual cards",
-			"Careful, pressure-free language for users with EDs"
-		],
-		"antiFeatures": [
-			"Does not give the same generic advice across all phases",
-			"Does not suggest 'eat chocolate' or similarly tone-deaf phrases"
-		],
-		"monetization": "Subscription for phase-specific guidance and in-depth content; calendar and basic tracking are free",
-		"mechanisms": [
-			"Apps teach users to understand their body, hormones, and phases — not just count days",
-			"Phase-matched tips on food, exercise, and mood — the top reason users choose an app"
-		],
-		"title": "Body in Sync: Phase-Aware Cycle Tips",
-		"oneLiner": "A calendar that explains your follicular and luteal phases and tailors food, workout, and mood advice to where you are now"
-	},
-	"period-cycle-3": {
-		"categoryName": "Period & Fertility",
-		"gap": "Many users conceive using predicted ovulation, and others rely on it for years of hormone-free contraception — but weak fertile window tracking and algorithm glitches risk a surprise pregnancy. Most apps lack a proper 'protection mode' and ignore contraception status.",
-		"pitch": "The app builds the fertile window on actual ovulation signals, not population averages, and operates in two explicit modes: conception and hormone-free protection. In protection mode, it conservatively widens the high-risk window and honestly flags low-confidence predictions to prevent false reassurance. This removes anxiety for both those trying to conceive and those trying to avoid it.",
-		"features": [
-			"Two modes: conception planning and hormone-free ovulation-based protection",
-			"Fertile window built on personal signals, not averages",
-			"Conservative high-risk window expansion in protection mode",
-			"Honest low-confidence warning when ovulation prediction is uncertain",
-			"Handles data gaps and missed entries without resetting the window"
-		],
-		"antiFeatures": [
-			"Does not present protection as an absolute guarantee",
-			"Does not narrow the high-risk window just to show a comfortable picture"
-		],
-		"monetization": "Subscription for protection mode and precise ovulation forecasting; basic tracking is free",
-		"mechanisms": [
-			"Works for conception and as hormone-free contraception based on ovulation",
-			"Can't retroactively edit or delete cycle days"
-		],
-		"title": "Fertility Window: Conceive or Prevent, Hormone-Free",
-		"oneLiner": "Precise fertile-window tracking for both goals — getting pregnant or avoiding it by ovulation, with no hormones"
-	},
-	"period-cycle-4": {
-		"categoryName": "Period & Fertility",
-		"gap": "Pregnancy and postnatal modes are valued, but switching is often broken: there's no way to mark a pregnancy to stop the cycle countdown, no postnatal mode, and due dates are wrong. Perimenopause is also almost never supported.",
-		"pitch": "One app covers every stage: cycle tracking, week-by-week pregnancy, postnatal, and perimenopause. Marking a pregnancy instantly stops the cycle countdown and false 'late' alerts; after delivery, it smoothly returns to cycle mode. Gestational age and weeks are calculated from the actual conception date or last period — not forced averages.",
-		"features": [
-			"Instant cycle countdown pause when a pregnancy is marked",
-			"Week-by-week pregnancy tracker with accurate due date calculation",
-			"Postnatal mode and smooth return to cycle tracking after delivery",
-			"Perimenopause support as a distinct life stage",
-			"Mode switching without losing accumulated history"
-		],
-		"antiFeatures": [
-			"Does not keep sending cycle predictions during pregnancy",
-			"Does not require deleting data to switch modes"
-		],
-		"monetization": "Subscription for pregnancy and postnatal modes; cycle tracking is free",
-		"mechanisms": [
-			"Pregnancy and postnatal modes are appreciated, but switching is often broken",
-			"Cycle-start prediction accuracy — the reason users stay for years"
-		],
-		"title": "One Tracker for Everything: Cycle, Pregnancy, Postpartum",
-		"oneLiner": "Switch seamlessly between cycle, week-by-week pregnancy, and postpartum without losing data or counting 'late' days"
-	},
-	"period-cycle-5": {
-		"categoryName": "Period & Fertility",
-		"gap": "Partner mode engages couples and works for same-sex pairs, but falls apart over time: invitations fail, codes have to be re-entered repeatedly, and male partners are forced to input their own nonexistent 'cycle'.",
-		"pitch": "The app gives a partner simple, persistent access to the user's phase and mood via a single invitation that never needs to be re-sent. The connection between devices stays stable for years and survives app updates and phone switches. The partner profile doesn't ask for a nonexistent cycle, and it works correctly for both opposite-sex and same-sex couples.",
-		"features": [
-			"One permanent invitation with no repeated code entry",
-			"Stable phase and mood sync between devices",
-			"Partner profile with no mandatory 'cycle' fields",
-			"Correct behavior for opposite-sex and same-sex couples",
-			"Connection survives updates and device changes"
-		],
-		"antiFeatures": [
-			"Does not ask for the code again on every login",
-			"Does not force the partner to fill in menstrual cycle fields"
-		],
-		"monetization": "Subscription for partner mode within a shared couple account; solo tracking is free",
-		"mechanisms": [
-			"Partner mode engages couples but drifts out of sync over the years",
-			"Built 'by women for women' — trust for some, exclusion for others"
-		],
-		"title": "Couples Mode That Actually Stays Connected",
-		"oneLiner": "Your partner sees your phase and mood through a stable invite — no re-entering codes, no 'add your cycle' loops"
-	},
-	"period-cycle-6": {
-		"categoryName": "Period & Fertility",
-		"gap": "After Roe was overturned, anxiety about intimate data privacy spiked: users fear their data will be sold or handed to law enforcement, yet trackers push mandatory Google sign-in. A calm, non-pink design with a discreet icon is highly valued — until cluttered redesigns ruin it.",
-		"pitch": "The app stores data locally, protects it with a password and PIN, and works fully without a mandatory account. A calm minimalist interface with dark mode and a discreet icon is not embarrassing to open in public. Privacy here isn't a marketing claim — it's an architectural choice: there's nothing to sell and nothing to hand over because data stays on the device by default.",
-		"features": [
-			"Local storage by default with no mandatory sign-in",
-			"Password and PIN protection on app entry",
-			"Discreet icon and calm, non-pink minimalist design",
-			"Dark mode that doesn't flashbang in the dark",
-			"Clean calendar without cluttered, unlabeled icons"
-		],
-		"antiFeatures": [
-			"Does not require a Google login for basic tracking",
-			"Does not send intimate data to the cloud without explicit consent"
-		],
-		"monetization": "One-time Pro purchase or subscription for advanced analytics; the core is local and free",
-		"mechanisms": [
-			"Anxiety over intimate data privacy — especially acute after Roe was overturned",
-			"Calm, non-pink design and dark mode — a real differentiator"
-		],
-		"title": "Private Cycle: Local Data, Calm Design",
-		"oneLiner": "A tracker with local storage, a PIN, and a discreet icon — no forced sign-in and no pink everywhere"
-	},
-	"period-cycle-7": {
-		"categoryName": "Period & Fertility",
-		"gap": "Without support for contraception, IUDs, and rings, the app generates false 'late' alerts and unnecessary anxiety. There's no 'protection mode', no pill reminders, no IUD option, and notifications often don't arrive at all.",
-		"pitch": "The app knows your contraception method and stops treating your cycle as unprotected: on the pill, with an IUD, or with a ring, it no longer raises false late-period alarms. It reminds you to take your pill on schedule and gives advance warning of an upcoming cycle, eliminating anxiety and unpleasant surprises. Notifications are set up to actually arrive, not get lost.",
-		"features": [
-			"'Protection mode' with contraception method awareness",
-			"Pill reminders on a user-set schedule",
-			"IUD and ring options with correct impact on the cycle prediction",
-			"Advance warning about an upcoming period",
-			"Reliable notifications that actually deliver"
-		],
-		"antiFeatures": [
-			"Does not flag a 'late' period when the cycle is suppressed by contraception",
-			"Does not stay silent when a pill reminder is critical"
-		],
-		"monetization": "Subscription for contraception mode and reminders; basic calendar is free",
-		"mechanisms": [
-			"No contraception, IUD, or ring support — app generates false 'late' alerts",
-			"Cycle-start prediction accuracy — the reason users stay for years"
-		],
-		"title": "Birth Control Mode: Pills, Reminders, No False Alarms",
-		"oneLiner": "Track pills, IUDs, and the ring with reminders — so your tracker stops flagging false 'late' days while you're on contraception"
-	},
 	"sobriety-1": {
 		"categoryName": "Quit drinking, smoking, scrolling",
 		"gap": "Many trackers have no \"I slipped\" button — a relapse resets everything and you can't change the date manually. Switching phones or reinstalling the app wipes years of progress because history isn't stored independently of the device.",
@@ -7686,5 +7525,205 @@
 			"Teaching Korean without explaining Hangul as a writing system, a fundamental failure"
 		],
 		"monetization": "Subscription at $10 per month or one-time course access for $49. The K-pop audience is young and actively spending on merch, concerts, and streaming. Willingness to pay for content tied to a beloved culture is proven by the fan merchandise market. The Japanese equivalent, WaniKani, earns $200-250 per user per year."
+	},
+	"period-cycle-1": {
+		"categoryName": "Period tracker",
+		"title": "CyclePCOS",
+		"oneLiner": "A cycle tracker built around PCOS and long irregular cycles, where Flo and Clue just average things out and get it wrong",
+		"gap": "Every mainstream tracker predicts ovulation from average cycle length and locks it to day 14. With PCOS a cycle can run 40, 60, or 90 days, ovulation shifts or disappears entirely, and the app keeps firing late-period alerts weeks before anything actually happens. No mainstream product honestly models anovulatory cycles or treats LH and BBT data as primary signals rather than calendar supplements.",
+		"pitch": "Women with PCOS make up 8 to 13 percent of women of reproductive age. They already pay for ovulation test strips, specialist consultations, and extra tools, and they still get an app that treats their cycle as an irregular edge case. CyclePCOS builds predictions entirely from biomarkers: LH strips with photo recognition, BBT, and cervical mucus, with the calendar algorithm acting only as a secondary signal. Revenue comes from monthly subscriptions and partnerships with test-strip brands that already sell consumables to this audience at real price points.",
+		"features": [
+			"Photo recognition for LH test strips with a numeric trend chart across the cycle, no more squinting at line shades",
+			"A prediction algorithm that honestly displays uncertainty during long cycles instead of faking precision",
+			"An anovulatory cycle log with a dedicated tag and multi-year pattern history",
+			"A doctor-ready PDF report with LH charts, BBT, and cycle dates for the past 6 months",
+			"Integration with Oura and Garmin smart rings for automatic temperature capture without an early-morning alarm"
+		],
+		"antiFeatures": [
+			"No fixed day-14 ovulation and no assumption of a normal 28-day cycle",
+			"No late-period alerts when the app simply does not know the next cycle date",
+			"No pregnancy content and no trying-to-conceive section inside the main tracker"
+		],
+		"monetization": "Subscription at 8 to 12 dollars per month. The audience already spends 5 to 15 dollars per month on ovulation strips plus nutritionist and reproductive specialist fees. Affiliate program with Premom, Pregmate, and similar brands for a referral cut on consumables. B2B: licensing cycle aggregate data to fertility clinics."
+	},
+	"period-cycle-2": {
+		"categoryName": "Period tracker",
+		"title": "VoltaMeno",
+		"oneLiner": "A tracker for women in perimenopause: it does not predict the next cycle but helps navigate a chaos of symptoms and build a meaningful conversation with a doctor",
+		"gap": "Perimenopause can last 2 to 10 years, during which cycles become unpredictable and symptoms like hot flashes, sleep disruption, mood swings, and brain fog appear in none of the standard trackers. The one specialized product in the dataset does not support women after hysterectomy and does not allow custom triggers. Every other app either ignores this audience entirely or suggests switching to a pregnancy mode.",
+		"pitch": "Women aged 45 to 55 have money, ongoing medical costs, and a sharp need for a tool that does not yet exist. Women in perimenopause actively search for explanations for their symptoms, consult gynecologists and endocrinologists, and spend thousands of dollars per year on supplements and therapy. A symptom tracker with hormonal context and a doctor journal solves a real problem that today gets handled in a notebook or a spreadsheet. Revenue comes from subscriptions and referral partnerships with menopause hormone therapy telemedicine platforms.",
+		"features": [
+			"A perimenopause symptom journal covering hot flashes with intensity and duration, night sweats, sleep disruption, brain fog, and heart palpitations",
+			"Irregular cycle tracking without false predictions about the next period, with an honest message that the next date is unknown",
+			"A doctor report with a symptom timeline and possible triggers for a chosen period",
+			"Support for all surgical history scenarios: hysterectomy, oophorectomy, endometrial ablation",
+			"Custom trigger fields: add coffee, alcohol, specific foods, or stress"
+		],
+		"antiFeatures": [
+			"No next-cycle prediction and no comparison against a norm",
+			"No content about conception, pregnancy, or fertility",
+			"No forced selection from a fixed list of menopause stages during onboarding"
+		],
+		"monetization": "Subscription at 10 to 15 dollars per month. The audience actively pays for telemedicine, supplements, and hormone therapy. Referral partnerships with Midi Health, Evernow, and similar platforms. B2B: a tool for gynecologists and endocrinologists that lets patients share a symptom journal before a visit."
+	},
+	"period-cycle-3": {
+		"categoryName": "Period tracker",
+		"title": "PortaPriv",
+		"oneLiner": "A cycle tracker with local data storage and an auditable privacy policy as the actual product, not a marketing tagline",
+		"gap": "After the Flo scandal involving data sharing with Facebook and abortion record disclosures following Roe v. Wade, fear of cycle trackers is real and well documented in user reviews. Most competitors claim privacy in words but store data on US servers, use third-party SDKs, and give users no way to verify anything. The one product in the dataset with genuine data protection (Belle) is not available as a fully featured mainstream tracker.",
+		"pitch": "An audience that already pays Stardust or Belle specifically for privacy exists and converts. Real privacy requires an architectural commitment: data on the device, end-to-end encryption for sync, zero third-party analytics SDKs. That creates a genuine moat that cannot be copied with marketing language. Revenue comes from a one-time purchase or subscription with no ad model.",
+		"features": [
+			"Local data storage on the device with optional encrypted backup to iCloud or Google Drive that the user controls",
+			"An annual public code and data policy audit with a concrete report accessible inside the app",
+			"Zero third-party analytics SDKs: no telemetry, no advertising identifiers",
+			"Full history export in standard CSV or JSON format in a single tap with no restrictions",
+			"A transparent permissions list that explains every request in plain language right inside the interface"
+		],
+		"antiFeatures": [
+			"No advertising of any kind including native and affiliate formats",
+			"No mandatory account creation to start using the app",
+			"No sharing of aggregated data with third parties even in anonymized form"
+		],
+		"monetization": "One-time purchase at 5 to 9 dollars or subscription at 4 to 6 dollars per month. The audience already switches between apps and is willing to pay to eliminate anxiety. Corporate licenses for employers offering women's health as an employee benefit. Partnerships with digital rights organizations as an organic growth channel."
+	},
+	"period-cycle-4": {
+		"categoryName": "Period tracker",
+		"title": "PairPeak",
+		"oneLiner": "An app for couples trying to conceive that combines LH and BBT with an interface for both partners and a shared dashboard, ending the constant 'when is it?' messages",
+		"gap": "All 70 apps in the dataset are built for a single user. Partner mode in Cycles and Flo lets you share data, but the partner only sees a date notification. There is no product where the second partner is a first-class participant with their own interface and context. Couples trying to conceive jointly buy test strips, thermometers, and consultations, meaning they already act as a shared payment unit.",
+		"pitch": "When trying to conceive, both partners care about the data but only one runs the tracker. The second partner either tunes out or finds out about the fertile window through an anxious text message. PairPeak builds an experience for the couple: whoever wants to log data can, the partner interface shows only what is actionable rather than the full medical journal, and no one has to ask. Revenue comes from a couples subscription priced above the solo tier, which is economically justified.",
+		"features": [
+			"Two profiles with configurable data visibility: the partner sees the fertile window and status but not symptom details unless the profile owner allows it",
+			"A shared attempt log where both partners mark the event and can add a note, stored for review at a clinic if needed",
+			"A partner notification 2 to 3 days before the predicted window with specific context rather than just a push alert",
+			"A pause mode: cycles without attempts are logged without deleting history",
+			"A joint history export for a reproductive specialist with an attempt timeline and cycle data"
+		],
+		"antiFeatures": [
+			"No forced access: the partner sees nothing without explicit permission from the profile owner",
+			"No lifestyle or weight advice directed at the partner",
+			"No comparison against a typical time-to-conception benchmark"
+		],
+		"monetization": "Couples subscription at 12 to 16 dollars per month alongside a solo tier at 8 dollars. Couples already spend 50 to 200 dollars per month on test strips, thermometers, and fertility vitamins. Referral agreements with consumables brands. Partnerships with fertility clinics as a data preparation tool before an initial consultation."
+	},
+	"period-cycle-5": {
+		"categoryName": "Period tracker",
+		"title": "ClinicLog",
+		"oneLiner": "A companion app for patients at fertility clinics: tracks IVF protocols, reminds about injections and appointments, and stores lab results in a readable format",
+		"gap": "IVF patients receive the most complex medical protocol of their lives, requiring daily timed injections, blood draws, ultrasounds, and dosage changes, and the apps handed to them are eIVF Patient and Prelude Connect, both scoring 4 and 11 out of 100 in the dataset. This is the only niche segment where the payer is the clinic or insurer, meaning a B2B entry is realistic. No consumer tracker supports a stimulation or IVF protocol mode.",
+		"pitch": "An IVF cycle costs upward of 15,000 dollars. Patients manage their protocols in notebooks, spreadsheets, and messaging apps because nothing else handles their actual needs. ClinicLog is built for this scenario: an injection schedule with specific drugs, doses, and times.  change notifications from the care team.  lab results stored alongside follicle growth trends. Clinics pay for a tool that reduces call center load.",
+		"features": [
+			"An injection schedule with specific medications, doses, and timing, where each notification tells the patient exactly what to inject and where",
+			"A lab results journal with key metric trends across stimulation cycles",
+			"A secure messaging channel with the clinic team with a full chronological thread stored in the app",
+			"Document storage for protocols, discharge summaries, and ultrasound images uploaded as photos",
+			"A comparison view between the current protocol and previous cycles for patients who have done multiple rounds"
+		],
+		"antiFeatures": [
+			"No algorithmic ovulation predictions: in an IVF protocol that decision belongs to the doctor",
+			"No social feed and no forum",
+			"No content about natural conception"
+		],
+		"monetization": "B2B: the clinic pays a per-active-patient license at 2 to 5 dollars per month. At 200 active patients that is 400 to 1,000 dollars per month per clinic. Alternative entry: direct patient subscription at 12 to 15 dollars per month during the protocol period. White-label partnerships with large networks such as CCRM, Shady Grove, and RMA."
+	},
+	"period-cycle-6": {
+		"categoryName": "Period tracker",
+		"title": "PMDDMap",
+		"oneLiner": "The only tracker that builds a clinically meaningful PMDD diary for diagnosis and therapy tracking rather than just logging symptoms",
+		"gap": "Diagnosing PMDD requires a prospective symptom diary across two cycles following DSM-5 criteria. No app in the dataset implements this, even though Belle targets this audience. Women currently keep diaries by hand or use printout forms from the internet. After diagnosis they need to track therapy effectiveness against a baseline, and again there is no tool for it.",
+		"pitch": "Women with PMDD have spent years being misdiagnosed and actively invest in tools that help doctors hear them. They pay for therapy, psychiatry, and gynecology. A DSM-5 compliant diagnostic diary with automatic scoring and a specialist-ready report is a concrete product with concrete value. After diagnosis, a therapy effectiveness tracker keeps users subscribed for months or years.",
+		"features": [
+			"A prospective DSM-5 symptom diary with automatic severity calculation across luteal and follicular phases",
+			"A doctor report visualizing two cycles: symptom differences by phase and alignment with PMDD criteria",
+			"Therapy tracking: the phase when a medication starts and symptom trends before and after",
+			"A quick capture journal: log a symptom or state the moment it happens without waiting for end-of-day entry",
+			"Educational content about hormonal phases explaining the mechanism, not just tips"
+		],
+		"antiFeatures": [
+			"No locked entries that cannot be edited after closing the day (a key flaw in Belle)",
+			"No fixed symptom list with no option to add custom ones",
+			"No dumbing down to a generic PMS tracker"
+		],
+		"monetization": "Subscription at 8 to 12 dollars per month. The audience already pays psychiatrists, therapists, and gynecologists and is an established medical spender. B2B: license for psychiatric and gynecological practices as a patient monitoring tool. Partnership with IAPMD (International Association for Premenstrual Disorders) as a trust channel."
+	},
+	"period-cycle-7": {
+		"categoryName": "Period tracker",
+		"title": "FirstFlow",
+		"oneLiner": "A first-period tracker for girls aged 10 to 14 where the parent sees only what the child has allowed, not the full journal",
+		"gap": "Teen apps in the dataset all miss one key requirement: no product offers a parent view with controllable transparency. Either the parent is completely locked out, or the app was not designed for a child using a shared family phone. The real need is two-sided: the teen wants privacy, the parent wants reassurance that everything is okay. Monetization is family-based, meaning the payer is the parent.",
+		"pitch": "A first period is a stressful event and a new responsibility for both a girl and her parent at the same time. The parent is willing to pay for a tool that helps without intruding. The teen wants to control what the parent sees. FirstFlow builds a flexible transparency model: the child sets what is visible, and the parent receives a notification only about anomalies if the child has granted permission.",
+		"features": [
+			"A child interface with educational content about cycle physiology in plain language with no medical jargon and no adult topics",
+			"A parent view with a configurable visibility level chosen by the child",
+			"A discreet app icon that does not reveal the app's purpose to anyone nearby",
+			"A 'need help' signal: a single button that sends a request to the parent without requiring an explanation",
+			"Educational content for the parent on how to support a teenager at the start of their cycle"
+		],
+		"antiFeatures": [
+			"No adult content, no advertising for sexual health products or contraception",
+			"No full parent access without the child's consent",
+			"No gamification tied to daily app opens"
+		],
+		"monetization": "Family subscription at 6 to 8 dollars per month with the parent as the payer. This audience already pays for educational and health apps for children. Partnerships with pediatricians and school nurses as a recommendation channel. One-time purchase of an educational course for parents on supporting a teenager at the start of their cycle."
+	},
+	"period-cycle-8": {
+		"categoryName": "Period tracker",
+		"title": "ChronoBody",
+		"oneLiner": "A tracker for women with chronic conditions (endometriosis, migraine, lupus) who want to see how the cycle drives flares, without juggling two separate apps",
+		"gap": "Women with chronic conditions run several parallel logs: the cycle in one app, disease symptoms in another, medications in a third, and none of them correlates hormonal phase with flare timing. Bearable tries to cover this for the general case but is not a dedicated cycle tracker. None of the 70 apps in the dataset automatically correlates cycle phase with chronic disease symptom patterns.",
+		"pitch": "Endometriosis affects roughly 10 percent of women of reproductive age. Chronic migraine in women has a hormonal component in about 70 percent of cases. Women with these diagnoses already pay neurologists, gynecologists, and rheumatologists and are looking for tools that let them speak to their doctor in data. ChronoBody runs a parallel log of cycle and chronic symptoms in one timeline and builds automatic correlations, for example showing that migraines are three times more common in the luteal phase.",
+		"features": [
+			"A parallel log of cycle data and user-defined chronic disease symptoms in a single timeline",
+			"Automatic correlation showing how many days before menstruation a specific symptom tends to flare",
+			"A medication log tagged by cycle phase so the relationship between intake and phase is visible",
+			"A doctor report with a chronological symptom and cycle phase history spanning 3 to 6 months",
+			"Custom symptom categories: add any parameter specific to a particular condition"
+		],
+		"antiFeatures": [
+			"No fixed symptom list with no way to add custom entries",
+			"No reduction to a cycle-plus-mood format",
+			"No pressure to switch to a standard tracker without chronic symptom logging"
+		],
+		"monetization": "Subscription at 10 to 14 dollars per month. The audience pays specialists and already spends money on chronic disease management. B2B: license for neurological, gastroenterological, and rheumatological practices. Partnerships with the Endometriosis Foundation and the American Migraine Foundation as trust channels."
+	},
+	"period-cycle-9": {
+		"categoryName": "Period tracker",
+		"title": "PostPillTrack",
+		"oneLiner": "A tracker for women who just stopped hormonal contraception and want to understand when their cycle returns and what it will look like",
+		"gap": "After stopping hormonal birth control, the cycle can take 1 to 12 months to return, and when it does, the first cycles are unstable. None of the 70 apps in the dataset has a cycle recovery mode after hormonal contraception. Every algorithm assumes an already-established cycle and immediately starts predicting ovulation, creating false expectations during a transition period.",
+		"pitch": "Millions of women stop hormonal contraception every year. Most do not know what to expect, turn to forums, pay for gynecologist consultations, and feel anxious about the uncertainty. A tracker with educational content about cycle recovery, an honest algorithm for the first unstable cycles, and a tool for tracking signs of returning fertility meets a real need at a moment of high payment motivation.",
+		"features": [
+			"A post-pill recovery mode: the app does not predict a cycle for the first 1 to 3 months but tracks signs of its return",
+			"Educational content about post-pill syndrome: what is normal and what warrants a doctor visit",
+			"A cervical mucus and BBT journal as primary indicators of returning ovulation",
+			"A recovery timeline showing how much time has passed since stopping and where that sits relative to typical timelines",
+			"Automatic transition to standard tracking mode once the cycle stabilizes, detected after 2 to 3 regular cycles"
+		],
+		"antiFeatures": [
+			"No immediate ovulation predictions after stopping contraception",
+			"No advice about returning to hormonal contraception",
+			"No content that stokes anxiety about fertility during this transition period"
+		],
+		"monetization": "Subscription at 8 to 10 dollars per month during recovery, which typically lasts 3 to 12 months. The audience is motivated and in the middle of a behavior change, so conversion to payment is higher than with a standard tracker. Partnerships with test-strip and BBT thermometer brands. Partnerships with telemedicine gynecology services for users with prolonged cycle absence."
+	},
+	"period-cycle-10": {
+		"categoryName": "Period tracker",
+		"title": "NeutralCycle",
+		"oneLiner": "A menstrual cycle tracker with no gendered design and no reproductive agenda, built for nonbinary people, trans men, and anyone who wants the function without an imposed identity",
+		"gap": "All 70 apps in the dataset use pink or pastel design, feminine iconography, and language that assumes the user identifies as a woman. Spot On from Planned Parenthood tried to address this and built a dedicated following, then lost user data after an update and became nonfunctional. Cube Period Tracker offers a visually neutral language by accident rather than as a deliberate product position.",
+		"pitch": "Nonbinary and trans users with a menstrual cycle feel invisible in this category. Cube Period Tracker collects glowing reviews from trans men precisely because it does not constantly foreground biology they do not want highlighted. NeutralCycle builds neutrality as a deliberate position across language, design, and features that work equally for any identity. This creates a switching barrier: a user whom nobody else serves stays loyal to the product that sees them.",
+		"features": [
+			"A neutral visual language with no pink, no feminine icons, and no mention of the word period on the app icon",
+			"Configurable terminology for all features: the user chooses what to call events in their own journal",
+			"Support for all contraception types without a female-versus-neutral split",
+			"A discreet widget showing a numeric countdown without revealing what it is for",
+			"Local data storage as the default option"
+		],
+		"antiFeatures": [
+			"No gendered design of any kind",
+			"No pregnancy or parenting content in the main flow",
+			"No assumption of a heterosexual partnership in tips or suggestions"
+		],
+		"monetization": "One-time purchase at 3 to 5 dollars or subscription at 4 to 6 dollars per month. The audience is small but highly loyal and without alternatives, creating strong referral growth potential through queer communities. Partnerships with queer-oriented medical platforms as a trust channel. Corporate licenses for employers with inclusive health benefit policies."
 	}
 }

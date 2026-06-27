@@ -716,656 +716,6 @@
 		}
 	},
 	{
-		"slug": "period-cycle-1",
-		"category": "period-cycle",
-		"categoryName": "Месячные и фертильность",
-		"title": "Адаптивный цикл: прогноз для ПКЯ и нерегулярных",
-		"oneLiner": "Счётчик, который не цепляется за 28 дней, а пересчитывает прогноз под длинный, двойной и нерегулярный цикл",
-		"asOf": "2026-06-16",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 309
-		},
-		"reviewGrid": [
-			{
-				"rating": 5,
-				"quote": "great for girlies like me who have longer cycles!",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 2,
-				"quote": "My cycles are usually in the 30+ day range but the app sticks to 28 days so every month my period is late",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 2,
-				"quote": "The concept of the app if fun but I find that it doesn't work if you have PCOS or irregular cycles",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "Really good app! It tracks almost perfectly, and almost exactly knows how im gonna be feeling that day",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "this app i barely ever give info to knows exactly the day im late... when when it says im going to start its correct 9/10 times",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "Timing and Behavioral insights are spot on!",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "my periods is usually a day before or after predicted arrival in the app, sometimes right on the guestimated time",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 3,
-				"quote": "Never really accurate. I'm always considered \"late\" for my period because it never changes the period dates based on previous dates ive started",
-				"app": "Lively - Period Tracker, Cycle"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Точность прогноза старта цикла — то, ради чего остаются на годы",
-				"obsCount": 212,
-				"apps": [
-					"Stardust Period Tracker",
-					"Lively - Period Tracker, Cycle",
-					"IVY Period & Pregnancy Tracker"
-				],
-				"polarity": "pain"
-			},
-			{
-				"title": "Прогноз ломается при PCOS, длинном или двойном цикле и не пересчитывается",
-				"obsCount": 97,
-				"apps": [
-					"Lively - Period Tracker, Cycle",
-					"IVY Period & Pregnancy Tracker",
-					"Femometer Fertility Tracker"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Массовые приложения цепляются за среднее 28 дней и вечно делают пользователя «опоздавшим», а при ПКЯ, длинном или двойном цикле прогноз ломается и не пересчитывается. Лимит в 15-20 дней на период и запрет второго цикла за месяц исключают целую аудиторию.",
-		"idea": {
-			"pitch": "Алгоритм с самого начала не навязывает среднюю длину, а учится на личных данных и допускает длинные, короткие и сдвоенные циклы. При нерегулярности он показывает интервал-окно, а не ложную «точную» дату, и честно говорит, когда данных мало. За пару месяцев это стабилизирует ожидания при ПКЯ и ПМДР вместо бесконечных ложных тревог.",
-			"features": [
-				"Прогноз-окно вместо одной даты, когда цикл нерегулярный",
-				"Поддержка длинного, короткого и двойного цикла без лимита в 15-20 дней",
-				"Постоянный пересчёт прогноза после каждого нового цикла",
-				"Режим ПКЯ/ПМДР с отдельной логикой стабилизации за пару месяцев",
-				"Явная отметка низкой уверенности прогноза при нехватке данных"
-			],
-			"antiFeatures": [
-				"Не подставляет 28 дней и средние по умолчанию",
-				"Не показывает фальшиво «точную» дату при разбросе"
-			],
-			"monetization": "Подписка за адаптивный алгоритм и режим ПКЯ; базовый трекинг бесплатен без рекламы"
-		}
-	},
-	{
-		"slug": "period-cycle-2",
-		"category": "period-cycle",
-		"categoryName": "Месячные и фертильность",
-		"title": "Тело и фазы: счётчик с подсказками под фазу цикла",
-		"oneLiner": "Календарь объясняет фолликулярную и лютеиновую фазу и даёт советы по питанию, тренировкам и настроению под текущую фазу",
-		"asOf": "2026-06-16",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 219
-		},
-		"reviewGrid": [
-			{
-				"rating": 5,
-				"quote": "I love the information the app provides and the witty way it's presented. I've learned so much about my cycle",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "I really enjoy the graph showing the hormones and the moon cycle, very handy to see straight away",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 3,
-				"quote": "it lacks articles and info about all sorts of things women would want to learn about their bodies",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "This app has been instrumental in understanding how each phase impacts me every month. One of the most worthwhile investments Ive made for my health.",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 5,
-				"quote": "I didn't even know what a follicular phase was until I installed this being so fr",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 5,
-				"quote": "It has been so enlightening and enabling to learn my cycle and follow my body's natural rhythm",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 5,
-				"quote": "ive learn things i didnt know at 30 about my own body & cycle",
-				"app": "Natural Cycles Fertility App"
-			},
-			{
-				"rating": 5,
-				"quote": "This app is clearly made by women, for women with the goal of empowerment through knowledge.",
-				"app": "Natural Cycles Fertility App"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Приложения учат понимать своё тело, гормоны и фазы — а не просто считают дни",
-				"obsCount": 134,
-				"apps": [
-					"Stardust Period Tracker",
-					"Lively - Period Tracker, Cycle",
-					"Natural Cycles Fertility App"
-				],
-				"polarity": "pain"
-			},
-			{
-				"title": "Подсказки под фазу — что есть, как тренироваться, что чувствовать — главная причина выбрать",
-				"obsCount": 85,
-				"apps": [
-					"Lively - Period Tracker, Cycle",
-					"Stardust Period Tracker"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Большинство приложений просто считают дни и не объясняют, почему меняются настроение и силы. Где объяснение фаз есть, советы общие, не меняются по фазам и порой ранят формулировками вроде «съешь шоколадку».",
-		"idea": {
-			"pitch": "Приложение связывает каждый день с фазой и гормоном и понятным языком объясняет перепады настроения и энергии. Под текущую фазу оно подсказывает, что есть, как тренироваться и чего ждать от себя, и эти советы реально меняются от фолликулярной к лютеиновой. Тон выбран бережно, без давления на еду и тело.",
-			"features": [
-				"Объяснение фолликулярной и лютеиновой фазы простым языком",
-				"Советы по питанию и нагрузке, меняющиеся по фазам",
-				"Поддержка в тяжёлые дни ПМДР и ПМС с понятной причиной состояния",
-				"Глубокие материалы про гормоны, спазмы и фазы внутри карточек",
-				"Бережные формулировки без давления на еду для людей с РПП"
-			],
-			"antiFeatures": [
-				"Не даёт один общий совет на все фазы",
-				"Не предлагает «съешь шоколадку» и подобные ранящие фразы"
-			],
-			"monetization": "Подписка на фазовые подсказки и углублённые материалы; календарь и трекинг бесплатны"
-		}
-	},
-	{
-		"slug": "period-cycle-3",
-		"category": "period-cycle",
-		"categoryName": "Месячные и фертильность",
-		"title": "Окно фертильности: зачатие и негормональная защита",
-		"oneLiner": "Точный учёт фертильного окна сразу для двух целей — забеременеть или предохраняться по овуляции без гормонов",
-		"asOf": "2026-06-16",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 292
-		},
-		"reviewGrid": [
-			{
-				"rating": 5,
-				"quote": "it helped get me pregnant, helps me track my symptoms, and now that I'm pregnant it updates me on the coolest things",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 3,
-				"quote": "shortly thereafter, I miscarried, when I updated the app back to trying to conceive, there was no support offered, there were no groups offered, there was no acknowledgement",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "Even the memory it kept when I was pregnant and post",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "I got pregnant from this app, I followed my cycle directly and I conceived on my said ovulation date.",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "It used to be super easy to use and enter data. It predicted my period perfectly, so much so i was able to get pregnant based on the ovulation dates it predicted.",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "Really bad since it was updated. Why on earth you cant record 'pregnant' on here seeing as alot of women use period trackers to get pregnant is beyond me.",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "I have been using natural cycles as birth control for two years after coming off the pill.",
-				"app": "Natural Cycles Fertility App"
-			},
-			{
-				"rating": 5,
-				"quote": "I've been using NC for around 5 years now and it has been fantastic help through different periods of my life",
-				"app": "Natural Cycles Fertility App"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Работает и на зачатие, и как негормональная контрацепция по овуляции",
-				"obsCount": 140,
-				"apps": [
-					"Stardust Period Tracker",
-					"IVY Period & Pregnancy Tracker",
-					"Natural Cycles Fertility App"
-				],
-				"polarity": "pain"
-			},
-			{
-				"title": "Нельзя задним числом исправить или удалить дни цикла",
-				"obsCount": 152,
-				"apps": [
-					"Stardust Period Tracker",
-					"IVY Period & Pregnancy Tracker",
-					"Clue Period & Cycle Tracker"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Многие беременеют по спрогнозированной овуляции, а другие годами предохраняются без гормонов, но слабый учёт фертильного окна и сбои алгоритма грозят «сюрприз-беременностью». Часто нет честного режима «предохраняться» и нет учёта контрацепции.",
-		"idea": {
-			"pitch": "Приложение строит фертильное окно на реальных сигналах овуляции, а не на средних, и работает в двух явных режимах: зачатие и негормональная защита. В режиме защиты оно консервативно расширяет опасные дни и честно предупреждает о низкой уверенности, чтобы не было ложного спокойствия. Это снимает тревогу и для тех, кто планирует, и для тех, кто избегает беременности.",
-			"features": [
-				"Два режима: планирование зачатия и негормональная защита по овуляции",
-				"Фертильное окно на основе личных сигналов, а не средних",
-				"Консервативное расширение опасных дней в режиме защиты",
-				"Честное предупреждение о низкой надёжности прогноза овуляции",
-				"Учёт сбоев и пропусков данных без обнуления окна"
-			],
-			"antiFeatures": [
-				"Не выдаёт защиту как абсолютную гарантию",
-				"Не сужает опасные дни ради «удобной» картинки"
-			],
-			"monetization": "Подписка на режим защиты и точный овуляционный прогноз; базовое отслеживание бесплатно"
-		}
-	},
-	{
-		"slug": "period-cycle-4",
-		"category": "period-cycle",
-		"categoryName": "Месячные и фертильность",
-		"title": "Один счётчик на всё: цикл, беременность и постнатал",
-		"oneLiner": "Бесшовное переключение между циклом, понедельной беременностью и постнаталом без потери данных и без счёта «опозданий»",
-		"asOf": "2026-06-16",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 298
-		},
-		"reviewGrid": [
-			{
-				"rating": 5,
-				"quote": "going through the pregnancy features has been my favorite part. All the suggestions and tracking during this time have been exciting",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 5,
-				"quote": "Love the kind messages and helpful tips for different stages of my cycle... help me discuss changes with my doctor as I transition into perimenopause",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 2,
-				"quote": "le app me dit rien d'intéressant sur la grossesse de ma femme, ce qui me donne aucune envie d'ouvrir l'application",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 5,
-				"quote": "thus allows me not only to track my cycle but shows trends which could indicate perimenopause. Highly recommended",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 4,
-				"quote": "as I need it while my menstrual cycle is fading off, ie I'm in the peri-menopausal time of life. Don't need to know about fertility, conception etc.",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "this app also help you note your own problems in a note area and prepare charts for the data of feelings you enter.",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "Helped me to conceive in 3 months",
-				"app": "Natural Cycles Fertility App"
-			},
-			{
-				"rating": 5,
-				"quote": "was able to get pregnant the FIRST MONTH of using this app",
-				"app": "Natural Cycles Fertility App"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Режим беременности и постнатал ценят, но переключение часто сломано",
-				"obsCount": 86,
-				"apps": [
-					"Lively - Period Tracker, Cycle",
-					"IVY Period & Pregnancy Tracker",
-					"Natural Cycles Fertility App"
-				],
-				"polarity": "pain"
-			},
-			{
-				"title": "Точность прогноза старта цикла — то, ради чего остаются на годы",
-				"obsCount": 212,
-				"apps": [
-					"Stardust Period Tracker",
-					"Lively - Period Tracker, Cycle",
-					"IVY Period & Pregnancy Tracker"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Режимы беременности и постнатала ценят, но переключение часто сломано: нельзя отметить беременность, чтобы остановить счёт цикла, нет постнатала, а срок врёт. Перименопаузу тоже почти никто не ведёт.",
-		"idea": {
-			"pitch": "Одно приложение проводит через все этапы: ведение цикла, понедельный счётчик беременности, постнатал и перименопаузу. Отметка беременности мгновенно останавливает счёт цикла и ложные «опоздания», а после родов плавно возвращает к циклу. Срок и недели считаются по реальной дате зачатия или последней менструации, а не навязанными средними.",
-			"features": [
-				"Мгновенная остановка счёта цикла при отметке беременности",
-				"Понедельный трекер беременности с корректным сроком",
-				"Постнатальный режим и плавный возврат к циклу после родов",
-				"Поддержка перименопаузы как отдельного этапа",
-				"Переключение режимов без потери накопленной истории"
-			],
-			"antiFeatures": [
-				"Не продолжает слать прогнозы цикла во время беременности",
-				"Не заставляет удалять данные ради смены режима"
-			],
-			"monetization": "Подписка на режимы беременности и постнатала; трекинг цикла бесплатный"
-		}
-	},
-	{
-		"slug": "period-cycle-5",
-		"category": "period-cycle",
-		"categoryName": "Месячные и фертильность",
-		"title": "Пара в цикле: партнёрский режим, который не отваливается",
-		"oneLiner": "Партнёр видит фазу и настроение по стабильному приглашению — без вечного повторного ввода кода и без «введи свой цикл»",
-		"asOf": "2026-06-16",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 193
-		},
-		"reviewGrid": [
-			{
-				"rating": 5,
-				"quote": "my boyfriend and I love the notifications... i live being able to see my friends' periods too!",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "Got this to use the partner mode with my wife and it doesn't even work... These are persistent technical issues",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 4,
-				"quote": "as lesbians it's amazing being able to track eachothers cycles AND get the typical partner app perks - plus the casting a spell on them is so cute",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "I love the partner sharing feature and ability to choose what type of things you're using the app for",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 1,
-				"quote": "Was great until the app kept desyncing my wife and I and I kept having to unregister and reregister partner sync... I have to go thru the ENTIRE process like we are new to the app",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 1,
-				"quote": "Partner tracking is a nightmare. Every time I want to use it I have to get the code all over again",
-				"app": "Lively - Period Tracker, Cycle"
-			},
-			{
-				"rating": 5,
-				"quote": "the partner view makes it easy for my husband to be part of our journey",
-				"app": "Natural Cycles Fertility App"
-			},
-			{
-				"rating": 2,
-				"quote": "I am not getting any notifications via the partner app. Please fix this, otherwise the partner app is almost redundant!",
-				"app": "Natural Cycles Fertility App"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Партнёрский режим вовлекает пару, но годами рассинхронизируется",
-				"obsCount": 110,
-				"apps": [
-					"Stardust Period Tracker",
-					"Lively - Period Tracker, Cycle",
-					"Natural Cycles Fertility App"
-				],
-				"polarity": "pain"
-			},
-			{
-				"title": "Сделано «женщинами для женщин» — для одних доверие, для других исключение",
-				"obsCount": 83,
-				"apps": [
-					"Stardust Period Tracker",
-					"Lively - Period Tracker, Cycle",
-					"Femometer Fertility Tracker"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Партнёрский режим вовлекает пару и работает в том числе для однополых пар, но годами рассинхронизируется: приглашение не принимается, код просят заново, а мужчину заставляют вводить собственный «цикл».",
-		"idea": {
-			"pitch": "Приложение даёт партнёру простой и устойчивый доступ к фазе и настроению по одному приглашению, которое не нужно вводить заново каждый раз. Связь между двумя устройствами держится годами и не рвётся после обновлений и смены телефона. Партнёрский профиль не требует вводить несуществующий «цикл» и одинаково корректен для разнополых и однополых пар.",
-			"features": [
-				"Одно постоянное приглашение без повторного ввода кода",
-				"Стабильная синхронизация фазы и настроения между устройствами",
-				"Партнёрский профиль без обязательного ввода собственного «цикла»",
-				"Корректная работа для разнополых и однополых пар",
-				"Сохранение связи после обновлений и смены телефона"
-			],
-			"antiFeatures": [
-				"Не просит код повторно при каждом входе",
-				"Не навязывает партнёру поля менструального цикла"
-			],
-			"monetization": "Подписка на партнёрский режим внутри общего аккаунта пары; соло-трекинг бесплатен"
-		}
-	},
-	{
-		"slug": "period-cycle-6",
-		"category": "period-cycle",
-		"categoryName": "Месячные и фертильность",
-		"title": "Приватный цикл: локальные данные и спокойный дизайн",
-		"oneLiner": "Счётчик с локальным хранением, PIN и неприметной иконкой — без обязательного входа и без розового интерфейса",
-		"asOf": "2026-06-16",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 236
-		},
-		"reviewGrid": [
-			{
-				"rating": 3,
-				"quote": "if you sign in with your Gmail it doesn't give me the option to switch emails",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "any period tracker app that requires me to sign into an account (especially Google account) is not safe and secure",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "such a mess to sign into if you have parental controls on on android I literally can't create an account because I have to \"sign in with google\"",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "Stardust was caught lying about keeping our data and info safe. DO NOT TRUST ANY APPS",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 4,
-				"quote": "they say they never sell your information, but ive been getting class action lawsuit ads, saying they do",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "there's a class action lawsuit in the making for them selling our *supposedly* encrypted and private date to third party groups",
-				"app": "Stardust Period Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "Will give your information out to police or government, this is important to know.",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 2,
-				"quote": "no privacy, sells your data",
-				"app": "IVY Period & Pregnancy Tracker"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Тревога за приватность интимных данных — после отмены Roe особенно остро",
-				"obsCount": 69,
-				"apps": [
-					"Stardust Period Tracker",
-					"IVY Period & Pregnancy Tracker",
-					"Natural Cycles Fertility App"
-				],
-				"polarity": "pain"
-			},
-			{
-				"title": "Спокойный нерозовый дизайн и тёмная тема — причина выбрать именно это",
-				"obsCount": 167,
-				"apps": [
-					"Stardust Period Tracker",
-					"Lively - Period Tracker, Cycle",
-					"IVY Period & Pregnancy Tracker"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "После отмены Roe острее всего боль за приватность интимных данных: люди боятся продажи данных и передачи полиции, а счётчики навязывают обязательный вход через Google. При этом ценят спокойный нерозовый дизайн и неприметную иконку, которые портят перегруженные редизайны.",
-		"idea": {
-			"pitch": "Приложение хранит данные локально, защищает их паролем и PIN и работает полностью без обязательного входа в аккаунт. Спокойный минималистичный интерфейс с тёмной темой и неприметной иконкой не стыдно открыть при людях. Приватность здесь не маркетинг, а архитектура: нечего продать и нечего передать, потому что данные не уходят с устройства по умолчанию.",
-			"features": [
-				"Локальное хранение по умолчанию без обязательного входа",
-				"Защита пароля и PIN на вход в приложение",
-				"Дискретная иконка и спокойный нерозовый минимализм",
-				"Тёмная тема, которая не «флешбангит» в темноте",
-				"Понятный календарь без перегруженных безымянных иконок"
-			],
-			"antiFeatures": [
-				"Не требует Google-вход для базового трекинга",
-				"Не отправляет интимные данные в облако без явного согласия"
-			],
-			"monetization": "Разовая покупка Pro или подписка за расширенную аналитику; ядро локально и бесплатно"
-		}
-	},
-	{
-		"slug": "period-cycle-7",
-		"category": "period-cycle",
-		"categoryName": "Месячные и фертильность",
-		"title": "Контрацепция и таблетки: режим защиты с напоминаниями",
-		"oneLiner": "Учёт таблеток, ВМС и кольца с напоминаниями — чтобы счётчик не выдавал ложные «опоздания» на контрацепции",
-		"asOf": "2026-06-16",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 275
-		},
-		"reviewGrid": [
-			{
-				"rating": 3,
-				"quote": "there is no reminder feature for taking your birth control and the amount of contraceptives (either 21 or 28 days).",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 4,
-				"quote": "I have an IUD and the app seems to not have that option and so it's kind of confused right now it thinks I'm on my period all month long",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 3,
-				"quote": "it don't have the option that says avoid pregnancy",
-				"app": "IVY Period & Pregnancy Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "This app doesn't take into account certain medical conditions such as endometriosis or PCOS.",
-				"app": "Glow Eve Period Tracker"
-			},
-			{
-				"rating": 2,
-				"quote": "This app is lacking for the 40+year olds who are experiencing peri-menopause",
-				"app": "Glow Eve Period Tracker"
-			},
-			{
-				"rating": 1,
-				"quote": "Terrible tracking. It doesn't know how to work with a Nuva Ring Schedule.",
-				"app": "Glow Eve Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "I wish it had better support for people using hormonal contraception. The cycle predictions seem to be based on a \"regular\" natural cycle",
-				"app": "Flo Cycle & Period Tracker"
-			},
-			{
-				"rating": 5,
-				"quote": "being on the pill can affect ovulation, bleeding, and period timing... my predictions don't align with what's actually happening",
-				"app": "Flo Cycle & Period Tracker"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Нет учёта контрацепции, ВМС и кольца — приложение выдаёт ложные «опоздания»",
-				"obsCount": 63,
-				"apps": [
-					"IVY Period & Pregnancy Tracker",
-					"Glow Eve Period Tracker",
-					"Flo Cycle & Period Tracker"
-				],
-				"polarity": "pain"
-			},
-			{
-				"title": "Точность прогноза старта цикла — то, ради чего остаются на годы",
-				"obsCount": 212,
-				"apps": [
-					"Stardust Period Tracker",
-					"Lively - Period Tracker, Cycle",
-					"IVY Period & Pregnancy Tracker"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Без учёта контрацепции, ВМС и кольца приложение выдаёт ложные «опоздания» и тревожит зря. Нет режима «предохраняться», напоминаний о таблетках и опции ВМС, а уведомления нередко вовсе не приходят.",
-		"idea": {
-			"pitch": "Приложение знает про ваш метод контрацепции и перестаёт считать дни как у незащищённого цикла: на таблетках, ВМС или кольце оно не пугает ложными «опозданиями». Оно вовремя напоминает выпить таблетку и заранее предупреждает о начале цикла, снимая тревогу и неприятные сюрпризы. Уведомления настроены так, чтобы реально доходить, а не теряться.",
-			"features": [
-				"Режим «предохраняться» с учётом метода контрацепции",
-				"Напоминания о таблетках по расписанию приёма",
-				"Опции ВМС и кольца с корректным влиянием на прогноз",
-				"Заблаговременное предупреждение о начале цикла",
-				"Надёжные уведомления, которые действительно приходят"
-			],
-			"antiFeatures": [
-				"Не считает «опоздание» там, где цикл подавлен контрацепцией",
-				"Не молчит, когда напоминание о таблетке критично"
-			],
-			"monetization": "Подписка на режим контрацепции и напоминания; базовый календарь бесплатен"
-		}
-	},
-	{
 		"slug": "kids-learning-1",
 		"category": "kids-learning",
 		"categoryName": "Обучение для детей",
@@ -34630,6 +33980,806 @@
 				"Корейский без объяснений хангыля как системы письма. фундаментальная ошибка"
 			],
 			"monetization": "Подписка 10 долларов в месяц или разовый доступ к курсу за 49 долларов. K-pop аудитория. молодые платёжеспособные люди, активно тратящие деньги на мерч, концерты, стриминг. Готовность платить за контент, связанный с любимой культурой, подтверждается рынком фан-продуктов. Японский аналог. WaniKani. зарабатывает 200-250 долларов с пользователя за год."
+		}
+	},
+	{
+		"slug": "period-cycle-1",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ЦиклСПКЯ",
+		"oneLiner": "Трекер цикла, построенный вокруг СПКЯ и длинных нерегулярных циклов, где Flo и Clue просто усредняют и ошибаются",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "I absolutely love this app. I have PCOS and had been TTC for years unsuccessfully. In 2022 I had an early miscarriage and the doctor that I saw told me about the app as she had similar issues. I began using the app to track bbt and LH and g",
+				"rating": 4,
+				"app": "Premom-Ovulation Tracker, PCOS"
+			},
+			{
+				"quote": "I really want to love Inito because the actual testing process and monitor work very well. I genuinely believe this kind of technology is an amazing step forward for helping women conceive, especially those of us with PCOS or irregular cycl",
+				"rating": 3,
+				"app": "Inito Fertility & Ovulation"
+			},
+			{
+				"quote": "There are so many other free apps out there that can do what this app does and it does not offer anything additionally special. Also, their LH tests are garbage. I’ve been using ClearBlue ovulation testing and it shows the generic ones to b",
+				"rating": 1,
+				"app": "Premom-Ovulation Tracker, PCOS"
+			},
+			{
+				"quote": "When I first downloaded this app I was overwhelmed. I had downloaded nearly every tracking app I could find. I wanted to enter data into all of them so I could determine which app was best/most accurate. Now I only use this app, the Premom ",
+				"rating": 5,
+				"app": "Fertility Friend FF Tracker"
+			},
+			{
+				"quote": "As someone with PCOS and a history of fertility struggles, I've tried nearly everything to regulate my cycle and understand my body better. But nothing has been as life-changing as the Natural Cycles app. I honestly can't express how much t",
+				"rating": 5,
+				"app": "Natural Cycles Fertility App"
+			},
+			{
+				"quote": "Even with an unusual couple of cycles this app predicted ovulation perfectly! I should have trusted it instead of premom LH strips or the inito tests! I thought the tests would be more accurate, but they were wrong! They kept telling me low",
+				"rating": 5,
+				"app": "Period Tracker and Calendar"
+			},
+			{
+				"quote": "Mira is the best fertility hormone analyzer on the market, hands down. I did copious amounts of research before purchasing, and Mira was the only product of its class (to my knowledge) to display the actual hormone levels and not just a fer",
+				"rating": 4,
+				"app": "Mira Fertility & Cycle Tracker"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Все массовые трекеры предсказывают овуляцию по усреднённой длине цикла и фиксиру",
+				"obsCount": 8,
+				"apps": [
+					"Premom-Ovulation Tracker, PCOS",
+					"Pregmate Ovulation Tracker",
+					"Fertility Friend FF Tracker",
+					"Inito Fertility & Ovulation"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Все массовые трекеры предсказывают овуляцию по усреднённой длине цикла и фиксируют её на 14-й день. При СПКЯ цикл может быть 40, 60 или 90 дней, овуляция сдвигается или вовсе отсутствует, а приложение продолжает слать уведомления о задержке неделями раньше реального события. Нет ни одного массового продукта, который честно моделирует ановуляторный цикл и работает с данными LH и ББТ как с основными сигналами, а не дополнением к календарю",
+		"idea": {
+			"pitch": "Женщины с СПКЯ составляют 8-13% женщин репродуктивного возраста, платят за тесты на овуляцию, консультации и дополнительные инструменты, и всё равно получают приложение, считающее их цикл нерегулярным исключением. ЦиклСПКЯ строит прогноз исключительно на биомаркерах: LH-полоски с распознаванием фото, ББТ и слизь, а календарный алгоритм используется только как вспомогательный сигнал. Монетизация через ежемесячную подписку и партнёрство с производителями тест-полосок, которые уже продают этой аудитории расходники за реальные деньги",
+			"features": [
+				"Распознавание фото LH-полосок с числовым графиком динамики по циклу без гадания по оттенку линии",
+				"Алгоритм прогноза, который честно показывает неопределённость при длинных циклах вместо ложной точности",
+				"Журнал ановуляторных циклов с отдельной отметкой и историей паттернов за несколько лет",
+				"Отчёт для врача в формате PDF с графиком LH, ББТ и датами цикла за последние 6 месяцев",
+				"Интеграция с умными кольцами Oura и Garmin для автоматического сбора температуры без утреннего будильника"
+			],
+			"antiFeatures": [
+				"Без фиксированного 14-го дня овуляции и без предположений о нормальном 28-дневном цикле",
+				"Без уведомлений о задержке, когда приложение просто не знает дату следующего цикла",
+				"Без контента про беременность и без раздела пробуем зачать в основном трекере"
+			],
+			"monetization": "Подписка 8-12 долларов в месяц. Аудитория уже платит за тест-полоски на овуляцию от 5 до 15 долларов в месяц, консультации нутрициолога и репродуктолога. Партнёрская программа с Premom, Pregmate и аналогами: реферальный процент с продажи расходников. B2B: лицензия агрегатов цикла репродуктологическим клиникам"
+		}
+	},
+	{
+		"slug": "period-cycle-2",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ВолтаМ",
+		"oneLiner": "Трекер для женщины в перименопаузе: не предсказывает следующий цикл, а помогает ориентироваться в хаосе симптомов и выстраивать разговор с врачом",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I’ve used this app for years to keep track of my cycles, but as I’m transitioning into Menopause (& it can take YEARS) I’d like to have something to keep track of hot flashes, intensity?, how long?, slept well?, mood?  in addition to when I",
+				"rating": 3,
+				"app": "Cycle Tracker & Period: Cycles"
+			},
+			{
+				"quote": "I am entering perimenopause and have read great things about this app, so I downloaded it and have tried it for just over 2 weeks, around and on my period. I am also comparing it with  another cycle tracker, Lively (I'm trying the free unpa",
+				"rating": 3,
+				"app": "Health & Her App"
+			},
+			{
+				"quote": "This app was recommended to me by a friend but I was disappointed to find that I was entirely unable to use it. I had a total a do mal hysterectomy at age 37 due to fibroids, and one ovary removed at 42 due to cyst growth. During the sign-u",
+				"rating": 1,
+				"app": "Health & Her App"
+			},
+			{
+				"quote": "It would be helpful to have some more symptoms and triggers — even to be able to add custom entries for each category. I’m not aware of meat being a trigger for many, but carbs/gluten are very common triggers. It would also be helpful to be",
+				"rating": 3,
+				"app": "Health & Her App"
+			},
+			{
+				"quote": "I do like using this app.  Especially that it lets me log a range of symptoms throughout the month, such as palpitations since I believe mine are hormonal.  My few issues are the save button when logging period covers the blood color so it ",
+				"rating": 4,
+				"app": "Health & Her App"
+			},
+			{
+				"quote": "Some of these things are not for me and there is no other option but to pick one that doesn’t fit my needs or physical issues.. in the stages of menopause I am only 5 months into full on menopause and I had to pick the 12 month one because ",
+				"rating": 3,
+				"app": "Health & Her App"
+			},
+			{
+				"quote": "Sep, 2020 Update:\n\nSo after months (8) of not loading, the app finally works again!!! So glad I didn’t give up on you 😂😂😓 \n\nHowever....it’s still quite glitchy: scrolling back in the calendar view is slow. Most importantly, the app freezes ",
+				"rating": 3,
+				"app": "Spot On Period Tracker"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Перименопауза может длиться от 2 до 10 лет, в течение которых цикл становится не",
+				"obsCount": 7,
+				"apps": [
+					"Health & Her App",
+					"Cycle Tracker & Period: Cycles",
+					"Cycle Tracker: Period Calendar",
+					"Bearable - Symptom Tracker"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Перименопауза может длиться от 2 до 10 лет, в течение которых цикл становится непредсказуемым, а симптомы (приливы, нарушения сна, перепады настроения, туман в голове) не входят ни в один стандартный трекер. Единственный специализированный продукт в корпусе не поддерживает женщин после гистерэктомии и не позволяет добавить собственные триггеры. Все остальные 69 приложений либо игнорируют эту аудиторию, либо предлагают переключиться на режим беременности",
+		"idea": {
+			"pitch": "Аудитория 45-55 лет имеет деньги, медицинские расходы и острую потребность в инструменте, которого не существует. Женщины в перименопаузе активно ищут объяснения симптомам, консультируются с гинекологами и эндокринологами, тратят на добавки и терапию тысячи долларов в год. Трекер симптомов с гормональным контекстом и журналом для врача закрывает реальную задачу, которую сейчас решают блокнотом или таблицей. Монетизация через подписку и партнёрство с телемедицинскими платформами менопаузальной гормональной терапии",
+			"features": [
+				"Журнал симптомов перименопаузы: приливы с интенсивностью и длительностью, ночная потливость, нарушения сна, туман в голове, сердцебиение",
+				"Трекинг нерегулярных циклов без ложных прогнозов следующей менструации: честное мы не знаем, когда будет следующая",
+				"Отчёт для врача с хронологией симптомов и возможными триггерами за выбранный период",
+				"Поддержка всех вариантов хирургической истории: гистерэктомия, удаление яичников, аблация эндометрия",
+				"Пользовательские поля триггеров: добавить кофе, алкоголь, конкретную еду, стресс"
+			],
+			"antiFeatures": [
+				"Без прогноза следующего цикла и без сравнения с нормой",
+				"Без контента о зачатии, беременности и фертильности",
+				"Без навязанного выбора из фиксированного списка стадий менопаузы при онбординге"
+			],
+			"monetization": "Подписка 10-15 долларов в месяц. Аудитория активно платит за телемедицину, добавки и гормональную терапию. Реферальные партнёрства с Midi Health, Evernow и аналогичными платформами. B2B: инструмент для гинекологов и эндокринологов, позволяющий пациентке поделиться журналом симптомов до визита"
+		}
+	},
+	{
+		"slug": "period-cycle-3",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ПортаПрайв",
+		"oneLiner": "Трекер цикла с локальным хранением данных и аудитируемой политикой конфиденциальности как основным продуктом, а не маркетинговым словом",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "I was so thrilled when I found this app for several reasons. \n\n1) Privacy-first\nI found about two apps (and that’s including Belle) that didn’t track my data. Even better, Belle is compliant with GDPR standards! The privacy factor alone mak",
+				"rating": 5,
+				"app": "Belle Period & PMDD Tracker"
+			},
+			{
+				"quote": "I’ve had PMDD for 8 years and I’ve been looking for something recently to improve my quality of life as it began to flatline. I like this app because it’s regulated by the EU and so I can trust my data will NOT be sold like apps built in th",
+				"rating": 5,
+				"app": "Belle Period & PMDD Tracker"
+			},
+			{
+				"quote": "I absolutely loveee Stardust they do an amazing job of tracking not just my period but all of my phases they protect my data and really help me feel like I’m not crazy by explaining in detail hormonal changes and how they affect my body and",
+				"rating": 5,
+				"app": "Stardust Period Tracker"
+			},
+			{
+				"quote": "I’ve been using this app for a little over a week and have been pleased so far. I look for four things when trying out a new period tracking app: No selling my data, no ads, a simple, easy to use UI, and customizable notes. I’m in my 30’s a",
+				"rating": 4,
+				"app": "Period - period tracker"
+			},
+			{
+				"quote": "I’ve tried countless period tracker apps and all of them have bombarded me with their premium plans and dangled features that I can only get if I pay for them. It was incredibly frustrating to have the ads pop up every time I opened the app",
+				"rating": 5,
+				"app": "FEMM Period Ovulation Tracker"
+			},
+			{
+				"quote": "The biggest problem they have is bc they’re exactly like flow except not owned by men selling our cycle data. They track our cycle exactly like flo, using overall numbers of our entire cycle instead of our biology of each phase. For example",
+				"rating": 2,
+				"app": "Stardust Period Tracker"
+			},
+			{
+				"quote": "I started using Clue over a decade ago and quit tracking with it a couple years ago. I keep it on my phone because of all the data that they still have, but it makes me so sad to see how downhill it has gone. What once felt like an app that",
+				"rating": 1,
+				"app": "Clue Period & Cycle Tracker"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "После скандала Flo с передачей данных в Facebook и раскрытия информации об аборт",
+				"obsCount": 8,
+				"apps": [
+					"Belle Period & PMDD Tracker",
+					"Stardust Period Tracker",
+					"Period - period tracker",
+					"Cube Period Tracker"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "После скандала Flo с передачей данных в Facebook и раскрытия информации об абортах после Roe v. Wade страх перед трекерами цикла реален и задокументирован в отзывах. Большинство конкурентов заявляют о приватности словами, но хранят данные на серверах в США, используют сторонние SDK и не дают пользователю инструмента для проверки. Единственный продукт с реальной защитой данных в корпусе (Belle) не доступен как полноценный основной трекер для широкой аудитории",
+		"idea": {
+			"pitch": "Аудитория, которая уже платит Stardust или Belle именно за приватность, существует и платит. Реальная приватность требует архитектурного решения: данные на устройстве, шифрование end-to-end при синхронизации, нулевые сторонние SDK для аналитики. Это создаёт настоящий барьер входа, который нельзя скопировать маркетингом. Монетизация через единоразовую покупку или подписку без рекламной модели",
+			"features": [
+				"Локальное хранение данных на устройстве с опциональным зашифрованным резервным копированием в iCloud или Google Drive, принадлежащим пользователю",
+				"Ежегодный публичный аудит кода и политики данных с конкретным отчётом, доступным в приложении",
+				"Нулевые сторонние аналитические SDK: никакой телеметрии, никаких рекламных идентификаторов",
+				"Экспорт всей истории в стандартном формате CSV или JSON в один клик без ограничений",
+				"Прозрачный список разрешений: объяснение каждого запроса прямо в интерфейсе на понятном языке"
+			],
+			"antiFeatures": [
+				"Без рекламы любого формата включая нативную и партнёрскую",
+				"Без обязательного создания аккаунта для начала работы",
+				"Без передачи агрегированных данных третьим лицам даже в анонимизированном виде"
+			],
+			"monetization": "Единоразовая покупка 5-9 долларов или подписка 4-6 долларов в месяц. Аудитория уже переключается между приложениями и готова платить за отсутствие тревоги. Корпоративные лицензии для работодателей, предоставляющих женское здоровье как льготу сотрудницам. Партнёрство с организациями по цифровым правам как канал органического роста"
+		}
+	},
+	{
+		"slug": "period-cycle-4",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ПарПик",
+		"oneLiner": "Приложение для пары, планирующей беременность: объединяет LH и ББТ с интерфейсом для обоих партнёров и общим дашбордом без постоянных вопросов когда",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "If you have been struggling with fertility and conceiving, GET THIS APP. This is probably the only app that I have paid for that is worth the money. I was struggling to conceive my first child for a year, up to the point of I thought that I",
+				"rating": 5,
+				"app": "Femometer Fertility Tracker"
+			},
+			{
+				"quote": "After I stopped taking my birth control in Sept. 2019, I was only using The CB Advanced Digital OPK to avoid pregnancy until I was ready to conceive. I always knew about charting but I didn’t believe in it. LOL. Also I don’t wake up at the ",
+				"rating": 5,
+				"app": "Fertility Friend FF Tracker"
+			},
+			{
+				"quote": "I love this app so much. This is the start of my second year with it now in order to keep up with periods and ovation. After three kids my husband and I are done and the app helps us to know when is safe and when we need to be careful. \nThe",
+				"rating": 4,
+				"app": "Period Tracker Period Calendar"
+			},
+			{
+				"quote": "Fertility and infertility are complex journeys. I imagine many women using Premom are, like me, navigating the challenges of conceiving and turning to this app because it’s comprehensive and helps us understand our natural cycles.\n\nThat sai",
+				"rating": 3,
+				"app": "Premom-Ovulation Tracker, PCOS"
+			},
+			{
+				"quote": "Having a calendar of my partner’s cycle and knowing potential symptoms are great. The app UI and the way one must navigate to get this information is god awful. \n\n1. Notifications - just straight up bad. So much useless garbage on “how to a",
+				"rating": 2,
+				"app": "Flo Cycle & Period Tracker"
+			},
+			{
+				"quote": "I’m a fan of this app! Recently removed my copper IUD and wanted to get more in tune with my body. I do have a fairly regular period, and this app very accurately predicts when I’ll start my bleed. I like all the symptoms and extras you can",
+				"rating": 5,
+				"app": "Femometer Fertility Tracker"
+			},
+			{
+				"quote": "I have been using this app ever since I bought their ovulation test strip kit & it has made the tracking process significantly easier. I know people track their ovulation for a multitude of reasons so whether you’re trying to conceive, tryi",
+				"rating": 5,
+				"app": "Pregmate Ovulation Tracker"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Все 70 приложений корпуса ориентированы на одного пользователя. Партнёрский режи",
+				"obsCount": 7,
+				"apps": [
+					"Fertility Friend FF Tracker",
+					"Premom-Ovulation Tracker, PCOS",
+					"Femometer Fertility Tracker",
+					"Pregmate Ovulation Tracker"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Все 70 приложений корпуса ориентированы на одного пользователя. Партнёрский режим в Cycles и Flo позволяет поделиться данными, но партнёр видит только уведомление о дате. Нет ни одного продукта, где второй партнёр является равноправным участником процесса с собственным интерфейсом и контекстом. Пары при планировании беременности совместно покупают тесты, термометры и консультации, то есть уже являются платёжным субъектом",
+		"idea": {
+			"pitch": "При планировании беременности оба партнёра заинтересованы в данных, но только один ведёт трекер. Второй партнёр либо игнорирует процесс, либо узнаёт о фертильном окне в виде тревожного сообщения в мессенджере. ПарПик строит опыт для пары: данные ведёт тот, кто хочет, интерфейс для партнёра показывает только то, что нужно для действия, а не весь медицинский журнал. Монетизация через семейную подписку дороже одиночной, что экономически обоснованно",
+			"features": [
+				"Два профиля с разными уровнями видимости данных: партнёр видит фертильное окно и статус, но не детали симптомов, если хозяин профиля так настроил",
+				"Совместный журнал попыток: оба отмечают факт и могут добавить заметку, история хранится для анализа при обращении к врачу",
+				"Уведомление партнёру за 2-3 дня до предполагаемого окна с конкретным контекстом, а не просто пушем",
+				"Режим паузы: цикл без попыток отмечается без удаления истории",
+				"Экспорт совместной истории для репродуктолога с временной шкалой попыток и данными цикла"
+			],
+			"antiFeatures": [
+				"Без принудительного доступа: партнёр не видит ничего без явного разрешения владельца профиля",
+				"Без советов по образу жизни и весу, адресованных партнёру",
+				"Без режима сравнения с нормальным временем зачатия"
+			],
+			"monetization": "Семейная подписка 12-16 долларов в месяц при одиночной 8 долларов. Пары уже тратят на тест-полоски, термометры, витамины для фертильности от 50 до 200 долларов в месяц. Реферальные соглашения с производителями расходников. Партнёрство с репродуктологическими клиниками как инструмент подготовки данных перед первичной консультацией"
+		}
+	},
+	{
+		"slug": "period-cycle-5",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "КлиникЛог",
+		"oneLiner": "Приложение-компаньон для пациенток репродуктологических клиник: ведёт протокол ЭКО, уведомляет об инъекциях и визитах, хранит результаты анализов в читаемом виде",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "Removing a star to give this one. It's the day before my FET and the app right as I was signing in decided to reset the registration ID. It tells me to go to the webpage and look it up under my profile page - it's not there. There is zero i",
+				"rating": 1,
+				"app": "eIVF Patient"
+			},
+			{
+				"quote": "This app is clunky in many ways. I hate that I can’t reply to messages. I can create a new message but then I don’t have the string of messages all in one place to easily reference. Also, even after I have looked at new lab results or read ",
+				"rating": 2,
+				"app": "eIVF Patient"
+			},
+			{
+				"quote": "This is my second IVF clinic app and by far the worst. Here are the pros: a txt to your phone when you have a new message…..and that’s about it. The cons are extensive. Hopefully by listing them here the developer can update it to make it u",
+				"rating": 1,
+				"app": "eIVF Patient"
+			},
+			{
+				"quote": "If you’re lucky enough to log in without getting a vague error message (and that’s a big if), soon enough you’ll get a startling “Unauthorized! Log out and then log back in to continue” message. But you can’t actually log out. You’ll tap “S",
+				"rating": 1,
+				"app": "Prelude Connect"
+			},
+			{
+				"quote": "The new update has me signing in every single time I open the app or go to the website. \n\nBut it’s not just signing in, it’s also two-step verification. \n\nBut it’s not just two-step verification, it’s a code sent to your email. Even though ",
+				"rating": 2,
+				"app": "Prelude Connect"
+			},
+			{
+				"quote": "As someone who understands the medicine and the hormones and all of the things, I am slightly disappointed with the ability of this app to adjust. \n\nAs a scientist, I understand the value of consistency in data. Consequently, I keep as many",
+				"rating": 3,
+				"app": "Mira Fertility & Cycle Tracker"
+			},
+			{
+				"quote": "I love the hormone tracking but I hate the app itself. I don’t understand how other fertility apps (some that are free to use as well) have the ability to sync to Apple data for the BBT, but Inito still doesn’t have that feature and you hav",
+				"rating": 2,
+				"app": "Inito Fertility & Ovulation"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Пациентки ЭКО-клиник получают самый сложный медицинский протокол в жизни, требую",
+				"obsCount": 7,
+				"apps": [
+					"eIVF Patient",
+					"Prelude Connect",
+					"Inito Fertility & Ovulation",
+					"Mira Fertility & Cycle Tracker"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Пациентки ЭКО-клиник получают самый сложный медицинский протокол в жизни, требующий ежедневных инъекций по расписанию, сдачи крови, УЗИ и изменений дозировки, а в качестве приложения им дают eIVF Patient и Prelude Connect: оба набрали 4 и 11 баллов из 100 в корпусе. Это единственная группа в нише, где плательщиком является клиника или страховая, то есть B2B-вход реален. Ни один потребительский трекер не поддерживает режим стимуляции или протокол ЭКО",
+		"idea": {
+			"pitch": "Протокол ЭКО стоит от 15 000 долларов за цикл. Пациентки ведут протоколы в блокноте, таблицах и мессенджерах, потому что ни одно приложение не справляется с их конкретными потребностями. КлиникЛог строится для этого сценария: расписание инъекций с конкретными дозами, уведомления об изменениях от врача, хранение результатов анализов с динамикой фолликулов. Клиники платят за инструмент, который снижает нагрузку на колл-центр",
+			"features": [
+				"Расписание инъекций с конкретными препаратами, дозами и временем: уведомление приходит с точным напоминанием что и куда вводить",
+				"Журнал результатов анализов с динамикой ключевых показателей по циклам стимуляции",
+				"Безопасный канал сообщений с командой клиники с сохранением всей переписки в хронологии",
+				"Хранение документов: протоколы, выписки, результаты УЗИ, загружаемые как фото",
+				"Сравнение текущего протокола с предыдущими циклами для пациенток с несколькими попытками"
+			],
+			"antiFeatures": [
+				"Без алгоритмических предсказаний овуляции: в ЭКО-протоколе их определяет врач",
+				"Без социальной ленты и без форума",
+				"Без контента о естественном зачатии"
+			],
+			"monetization": "B2B: клиника платит лицензию за каждого активного пациента от 2 до 5 долларов в месяц. При 200 активных пациентах это 400-1000 долларов в месяц на клинику. Альтернативный вход: прямая подписка пациентки 12-15 долларов в месяц на период протокола. Партнёрство с крупными сетями (CCRM, Shady Grove, RMA) как белая метка"
+		}
+	},
+	{
+		"slug": "period-cycle-6",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ПМДРкарта",
+		"oneLiner": "Единственный трекер, строящий клинически значимый журнал ПМДР для постановки диагноза и выбора терапии, а не просто фиксирующий симптомы",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "As someone with PMDD, it was wonderful to discover an app like Belle! This is so much more than a tracking app. Belle allows you to track every aspect of your cycle, and it gives you detailed data on what seems to be changing between the cy",
+				"rating": 5,
+				"app": "Belle Period & PMDD Tracker"
+			},
+			{
+				"quote": "I love that this app provides free and scientifically accurate information on hormones throughout the menstrual cycle along with infographics that make it easy to track the hormonal changes occurring. In addition, solutions to help in deali",
+				"rating": 5,
+				"app": "Belle Period & PMDD Tracker"
+			},
+			{
+				"quote": "I’ve had PMDD for 8 years and I’ve been looking for something recently to improve my quality of life as it began to flatline. I like this app because it’s regulated by the EU and so I can trust my data will NOT be sold like apps built in th",
+				"rating": 5,
+				"app": "Belle Period & PMDD Tracker"
+			},
+			{
+				"quote": "I got this app because I’d heard it was good for managing chronic illness. And it very much is! Bearable has already helped me make some correlations that have improved my quality of life— things I wouldn’t have noticed on my own. \n\nBut wit",
+				"rating": 5,
+				"app": "Bearable - Symptom Tracker"
+			},
+			{
+				"quote": "The free version is amazing on its own, but I'm a data junkie, so I chose to invest in a year of premium, and I haven't regretted it for a second. The value this app brings is worth every cent. Especially since I got it while it was on sale",
+				"rating": 5,
+				"app": "Bearable - Symptom Tracker"
+			},
+			{
+				"quote": "In the process of trying to tend to multiple overlapping short- and long- term physical and mental health matters, including a challenging diagnostic path for a possible rare genetic condition, I realized that keeping a notes file with gene",
+				"rating": 5,
+				"app": "Bearable - Symptom Tracker"
+			},
+			{
+				"quote": "Great app to discover & track your cycle length. Simple & easy to use.  As someone with PMDD, I love the PMS reminders . But that’s it. These basic features can likely be found on any other app. \n\nI’ve had the app 6 years, and insights are ",
+				"rating": 3,
+				"app": "Cycle Tracker & Period: Cycles"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "ПМДР требует для постановки диагноза проспективного дневника симптомов за два ци",
+				"obsCount": 7,
+				"apps": [
+					"Belle Period & PMDD Tracker",
+					"Bearable - Symptom Tracker",
+					"Moody Month: Hormone Tracker",
+					"Cycle Tracker & Period: Cycles"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "ПМДР требует для постановки диагноза проспективного дневника симптомов за два цикла по критериям DSM-5. Ни одно приложение в корпусе не реализует эту функцию, хотя Belle является специализированным трекером для этой аудитории. Женщины ведут дневники вручную или используют бланки из интернета. После диагноза им нужно отслеживать эффективность терапии в сравнении с базовой линией, и снова нет ни одного инструмента",
+		"idea": {
+			"pitch": "Аудитория ПМДР устала от лет неправильной диагностики и активно инвестирует в инструменты, которые помогают их услышать врачом. Они платят за психотерапию, психиатрию и гинекологию. Диагностический дневник по стандарту DSM-5 с автоматической оценкой и отчётом для специалиста является конкретным продуктом с конкретной ценностью. После диагноза трекер эффективности терапии удерживает пользователя на подписке месяцами и годами",
+			"features": [
+				"Проспективный дневник симптомов по критериям DSM-5 с автоматическим расчётом выраженности в лютеиновой и фолликулярной фазе",
+				"Отчёт для врача с визуализацией двух циклов: разница симптомов по фазам, соответствие критериям ПМДР",
+				"Трекинг терапии: фаза начала приёма препарата, динамика симптомов до и после",
+				"Экстренный журнал: быстро записать симптом или состояние в момент его появления без ожидания закрытия дня",
+				"Образовательный контент о гормональных фазах с объяснением механизма, а не просто советами"
+			],
+			"antiFeatures": [
+				"Без невозможности отредактировать запись после закрытия дня (ключевой минус Belle)",
+				"Без фиксированного списка симптомов без возможности добавить свои",
+				"Без упрощения до ПМС-трекера"
+			],
+			"monetization": "Подписка 8-12 долларов в месяц. Аудитория платит за психиатров, психотерапевтов и гинекологов, то есть уже является медицинским плательщиком. B2B: лицензия для психиатрических и гинекологических практик как инструмент мониторинга пациентов. Партнёрство с IAPMD (International Association for Premenstrual Disorders) как канал доверия"
+		}
+	},
+	{
+		"slug": "period-cycle-7",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ПервыйЦикл",
+		"oneLiner": "Трекер первого периода для девочки 10-14 лет: родитель видит только то, что ребёнок разрешил, а не весь журнал",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I'm 11 and got my period on new years and was having cramps and was bloated a week before I first got it. And I really like the feature to log symptoms before your periods. I think this is Great app for teens because it doesn't show high/ l",
+				"rating": 5,
+				"app": "Luna Period Tracker For Teens"
+			},
+			{
+				"quote": "Yes get it now. And also yes I did that font in the cover to catch your attention. I’m 11 and I got my period last month. I spent forever looking for an app scrolling through the app store.\nI came across Luna and taped on it bc I like moons",
+				"rating": 5,
+				"app": "Luna Period Tracker For Teens"
+			},
+			{
+				"quote": "I love the overall layout! It’s amazing because I have a hard feeling comfortable talking, or like using apps related to this subject so I love the fact that this app puts a fun twist on it! But it’s annoying because I’m a teenager and I do",
+				"rating": 4,
+				"app": "My period calendar Pinkllama"
+			},
+			{
+				"quote": "So, ever since I got my tracker for daily cycles, most apps were honestly very vulgar on other topics that didn’t have much to do with menstruation. I was literally just a 12 year old, and my parents didn’t want me to see such adult content",
+				"rating": 4,
+				"app": "My period calendar Pinkllama"
+			},
+			{
+				"quote": "I love this app because of it's simplicity and discreteness! I'm transgender male (ftM) and I don't like being reminded of my period for gender dysphoria reasons. Also, I don't want other people knowing that I have a period, so this app's d",
+				"rating": 5,
+				"app": "Cube Period Tracker"
+			},
+			{
+				"quote": "I thought this app was AWESOME. I’m only fifteen, and since I’ve only had my cycle for a few years, my periods can be pretty irregular. At first, I downloaded Flo, but I didn’t realize until later that it was more adult-focused and not real",
+				"rating": 5,
+				"app": "My period calendar Pinkllama"
+			},
+			{
+				"quote": "Hi! Luna is a great app for tweens and teens (for reference I’m 13). It gives appropriate informational guides and it has a really cute design! The only design thing is that at first it didn’t show me certain words and couldn’t let me click",
+				"rating": 4,
+				"app": "Luna Period Tracker For Teens"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Приложения для подростков в корпусе не решают одну ключевую задачу: нет родитель",
+				"obsCount": 7,
+				"apps": [
+					"Luna Period Tracker For Teens",
+					"My period calendar Pinkllama",
+					"Magicgirl Teen Period Tracker",
+					"Period Tracker Period Calendar"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Приложения для подростков в корпусе не решают одну ключевую задачу: нет родительской версии с контролируемой прозрачностью. Либо родитель полностью отрезан, либо приложение по умолчанию не рассчитано на то, что ребёнок пользуется семейным смартфоном. Реальная потребность двусторонняя: подросток хочет конфиденциальности, родитель хочет убедиться, что всё в порядке. Монетизация семейная, значит плательщик родитель",
+		"idea": {
+			"pitch": "Первый период для девочки и её родителя одновременно является стрессовым событием и новым ответственным процессом. Родитель готов платить за инструмент, который помогает без навязчивости. Подросток хочет контролировать, что именно видит родитель. ПервыйЦикл строит гибкую модель прозрачности: ребёнок настраивает, что разрешено видеть, а родитель получает уведомление только об аномалиях, если ребёнок дал разрешение",
+			"features": [
+				"Детский интерфейс с образовательным контентом о физиологии цикла на языке без медицинского жаргона и без взрослой тематики",
+				"Родительский вид с настраиваемым уровнем видимости: ребёнок выбирает, что открыть",
+				"Дискретный значок приложения, не раскрывающий содержание посторонним",
+				"Сигнал нужна помощь: одна кнопка для отправки запроса родителю без объяснений",
+				"Образовательный контент для родителя: как поддержать подростка в начале цикла"
+			],
+			"antiFeatures": [
+				"Без взрослого контента, рекламы продуктов для сексуального здоровья или контрацепции",
+				"Без полного доступа родителя без согласия ребёнка",
+				"Без геймификации, привязанной к ежедневному открытию приложения"
+			],
+			"monetization": "Семейная подписка 6-8 долларов в месяц, плательщик родитель. Аудитория родителей уже платит за образовательные и здоровьесберегающие приложения для детей. Партнёрство с педиатрами и школьными медсёстрами как канал рекомендаций. Единоразовая покупка образовательного курса для родителя о поддержке подростка в начале цикла"
+		}
+	},
+	{
+		"slug": "period-cycle-8",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ХронТело",
+		"oneLiner": "Трекер для женщин с хроническими заболеваниями (эндометриоз, мигрень, волчанка), которые хотят видеть, как цикл влияет на обострения, а не вести два отдельных приложения",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "In the process of trying to tend to multiple overlapping short- and long- term physical and mental health matters, including a challenging diagnostic path for a possible rare genetic condition, I realized that keeping a notes file with gene",
+				"rating": 5,
+				"app": "Bearable - Symptom Tracker"
+			},
+			{
+				"quote": "The free version is amazing on its own, but I'm a data junkie, so I chose to invest in a year of premium, and I haven't regretted it for a second. The value this app brings is worth every cent. Especially since I got it while it was on sale",
+				"rating": 5,
+				"app": "Bearable - Symptom Tracker"
+			},
+			{
+				"quote": "I LOVE this app!!! It has seriously made keeping track of my laundry list of health problems so much easier. It’s also helped me improve other areas of my life that I didn’t anticipate when I first downloaded the app, I feel so much more aw",
+				"rating": 3,
+				"app": "Bearable - Symptom Tracker"
+			},
+			{
+				"quote": "I normally don’t leave reviews but I think this app deserves it. I have used Cycles since 2018 and I went from the free version couple of years ago, to now the premium. This app has gotten me through some of the most difficult times in my h",
+				"rating": 5,
+				"app": "Cycle Tracker & Period: Cycles"
+			},
+			{
+				"quote": "I have used this app for almost 5 years and all of a sudden it stopped letting me add my periods. I'll click to add the period to my list of periods, and it will look like it saved but it won't actually show up. I have tried to reach out to",
+				"rating": 1,
+				"app": "Period Tracking Calendar"
+			},
+			{
+				"quote": "After years of trying different diets and following a lot of advice from social media (especially things like fasting and restrictive eating), my hormone‘a completely messed up. What I like about Belle is that it feels a lot more practical ",
+				"rating": 5,
+				"app": "Belle Period & PMDD Tracker"
+			},
+			{
+				"quote": "I love the app! It’s the only one I found that’s kept me updating it religiously, but It’d be even better to be able to go back and look at past symptoms to keep track. I have medical problems that correlate with my cycle and it’s hard to k",
+				"rating": 4,
+				"app": "Musa: Period & Pregnancy"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Женщины с хроническими заболеваниями ведут несколько параллельных журналов: цикл",
+				"obsCount": 7,
+				"apps": [
+					"Bearable - Symptom Tracker",
+					"Belle Period & PMDD Tracker",
+					"Health & Her App",
+					"Cycle Tracker & Period: Cycles"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Женщины с хроническими заболеваниями ведут несколько параллельных журналов: цикл в одном приложении, симптомы болезни в другом, медикаменты в третьем, и ни один не строит корреляции между фазой цикла и обострением. Bearable пытается решить эту задачу для общего случая, но не является специализированным трекером цикла. Ни одно из 70 приложений корпуса не строит автоматическую корреляцию между фазой цикла и симптомами хронического заболевания",
+		"idea": {
+			"pitch": "Эндометриоз затрагивает около 10% женщин репродуктивного возраста. Хроническая мигрень у женщин в 70% случаев имеет гормональный компонент. Женщины с этими диагнозами уже платят неврологам, гинекологам и ревматологам и ищут инструменты, которые помогут говорить с врачом на языке данных. ХронТело ведёт параллельный журнал цикла и симптомов хронического заболевания и строит автоматическую корреляцию: в лютеиновой фазе ваши мигрени в три раза чаще",
+			"features": [
+				"Параллельный журнал цикла и пользовательских симптомов хронического заболевания в одном временном потоке",
+				"Автоматическая корреляция: за сколько дней до менструации учащаются обострения конкретного симптома",
+				"Журнал медикаментов с отметкой фазы цикла: видна связь между приёмом и фазой",
+				"Отчёт для врача с хронологией симптомов и фаз цикла за 3-6 месяцев",
+				"Пользовательские категории симптомов: добавить любой параметр, специфический для конкретного заболевания"
+			],
+			"antiFeatures": [
+				"Без ограниченного списка симптомов без возможности добавить свои",
+				"Без упрощения до цикл плюс настроение",
+				"Без давления перейти на обычный трекинг без хронических симптомов"
+			],
+			"monetization": "Подписка 10-14 долларов в месяц. Аудитория платит специалистам и уже тратит деньги на управление хроническим заболеванием. B2B: лицензия для неврологических, гастроэнтерологических и ревматологических практик. Партнёрство с Endometriosis Foundation и American Migraine Foundation как канал доверия"
+		}
+	},
+	{
+		"slug": "period-cycle-9",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "ОтменаГК",
+		"oneLiner": "Трекер для женщины, которая только что отменила гормональные контрацептивы и хочет понять, когда вернётся цикл и как он будет выглядеть",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I was honestly a bit skeptical about starting this app and I’ve been seeing it all over my Facebook and my Instagram feed as an ad. Eventually, I decided that I should just try it. I’ve been on birth control now for the past 12 years and I ",
+				"rating": 4,
+				"app": "Natural Cycles Fertility App"
+			},
+			{
+				"quote": "Found this app when looking into more natural birth control methods b/c I believe strongly in trusting your body when it comes to your health instead of relying on pharmaceuticals including the birth control pills. This app has now successf",
+				"rating": 5,
+				"app": "Kindara: Fertility Tracker"
+			},
+			{
+				"quote": "In my opinion this is the best app for advanced cycle trackers or anyone who wants to learn the best way to really understand your cycle on a deeper level — if you have read Taking Charge Of Your Fertility or you know how to manually chart ",
+				"rating": 4,
+				"app": "Kindara: Fertility Tracker"
+			},
+			{
+				"quote": "I’ve started using Pregmate a couple months ago after I stopped using birth control all the other apps could never pin point for high fertility, period or anything correctly. Until I started using Pregmate which changed the game. It not onl",
+				"rating": 5,
+				"app": "Pregmate Ovulation Tracker"
+			},
+			{
+				"quote": "*** LADIES - natural cycles (NC) is a great contraceptive. This review is targeted for NC manufacturers about app function on iPhone & Apple Watch. \nDon’t let my review steer you away from freeing yourself from hormonal contraceptives, seri",
+				"rating": 4,
+				"app": "Natural Cycles Fertility App"
+			},
+			{
+				"quote": "The app is confusing to interpret as far as what the results mean-but that’s only because I’m still new to the concept of tracking c. mucus. Other than that- the FEMM app via iTunes- is what led me to the FEMM organization and what helped m",
+				"rating": 5,
+				"app": "FEMM Period Ovulation Tracker"
+			},
+			{
+				"quote": "I have struggled to find a BC that works for me. I cannot take any hormonal BC because I get really sick and extreme cramping after the 3rd month of use. I stumbled upon NC on Facebook and saw you could use and Apple Watch. Well I had an Ap",
+				"rating": 5,
+				"app": "Natural Cycles Fertility App"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "После отмены противозачаточных препаратов цикл может не возвращаться от одного д",
+				"obsCount": 7,
+				"apps": [
+					"Natural Cycles Fertility App",
+					"Kindara: Fertility Tracker",
+					"FEMM Period Ovulation Tracker",
+					"Fertility Friend FF Tracker"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "После отмены противозачаточных препаратов цикл может не возвращаться от одного до 12 месяцев, а когда возвращается, первые циклы нестабильны. Ни одно из 70 приложений корпуса не имеет режима восстановления цикла после гормональной контрацепции. Все алгоритмы ориентированы на уже установившийся цикл и сразу начинают предсказывать овуляцию, давая ложные ожидания в переходном периоде",
+		"idea": {
+			"pitch": "Миллионы женщин ежегодно отменяют гормональную контрацепцию. Большинство не знают, чего ожидать, читают форумы, платят за консультации гинеколога и испытывают тревогу от неопределённости. Трекер с обучающим контентом о восстановлении цикла, честным алгоритмом для первых нестабильных циклов и инструментом отслеживания признаков возвращения фертильности закрывает реальную потребность в момент высокой мотивации платить",
+			"features": [
+				"Режим восстановления после отмены ГК: приложение не предсказывает цикл первые 1-3 месяца, но отслеживает признаки его возвращения",
+				"Образовательный контент о ПАС (синдром отмены противозачаточных): что нормально, что требует врача",
+				"Журнал цервикальной слизи и ББТ как первичные индикаторы возвращения овуляции",
+				"Таймлайн восстановления: сколько времени прошло с отмены, на каком месте относительно типичных сроков",
+				"Переход в стандартный режим трекинга, когда цикл стабилизировался, автоматически определяется по 2-3 регулярным циклам"
+			],
+			"antiFeatures": [
+				"Без немедленных предсказаний овуляции после отмены ГК",
+				"Без советов по возвращению к гормональной контрацепции",
+				"Без контента, внушающего тревогу о фертильности в этот переходный период"
+			],
+			"monetization": "Подписка 8-10 долларов в месяц на период восстановления обычно от 3 до 12 месяцев. Аудитория мотивирована и находится в момент изменения поведения: конверсия в платёж выше, чем у обычного трекера. Партнёрство с производителями тест-полосок и ББТ-термометров. Партнёрство с телемедицинскими гинекологическими сервисами для пользователей с длительным отсутствием цикла"
+		}
+	},
+	{
+		"slug": "period-cycle-10",
+		"category": "period-cycle",
+		"categoryName": "Месячные и фертильность",
+		"title": "НейтральЦикл",
+		"oneLiner": "Трекер менструального цикла без гендерного дизайна и без репродуктивной повестки: для небинарных людей, транс-мужчин и всех, кому важна функция без навязанной идентичности",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 70,
+			"reviews": 25969,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I love this app because of it's simplicity and discreteness! I'm transgender male (ftM) and I don't like being reminded of my period for gender dysphoria reasons. Also, I don't want other people knowing that I have a period, so this app's d",
+				"rating": 5,
+				"app": "Cube Period Tracker"
+			},
+			{
+				"quote": "if you’re someone looking for an app that’s simple and functional, i can’t think of a better one. it counts down the days, avoids being overly feminine, and doesn’t focus on fertility being the main point of tracking— which is good for thos",
+				"rating": 3,
+				"app": "Cube Period Tracker"
+			},
+			{
+				"quote": "I like this app because it was created by planned parenthood. Because they're a well known reproductive health organization, I am less worried that my data will be shared or sold. \n\nAlso, the user interface and branding is very gender neutr",
+				"rating": 4,
+				"app": "Spot On Period Tracker"
+			},
+			{
+				"quote": "I gave this 5 stars for 5 reasons \nfirst off, cause of the app design it looks like a random game or a countdown.\nTwo, it’s simple and mainly focuses on telling you when you prepare for your time of the month. I feel like some apps tend to ",
+				"rating": 5,
+				"app": "Cube Period Tracker"
+			},
+			{
+				"quote": "This is the period tracker app for ME! Streamlined, minimal, and only tracks the thing I actually care about—my period (as well as other cool things that might be important for other folks, like a variety of birth control options). I love t",
+				"rating": 5,
+				"app": "Period - period tracker"
+			},
+			{
+				"quote": "I've used this app for yeeeeears and it's never let me down. I love its simplicity, the cute little widget that thankfully doesn't scream \"period tracker\", and that I have the flexibility to choose \"average\" for period length while also cho",
+				"rating": 4,
+				"app": "Cube Period Tracker"
+			},
+			{
+				"quote": "I was so thrilled when I found this app for several reasons. \n\n1) Privacy-first\nI found about two apps (and that’s including Belle) that didn’t track my data. Even better, Belle is compliant with GDPR standards! The privacy factor alone mak",
+				"rating": 5,
+				"app": "Belle Period & PMDD Tracker"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Все 70 приложений корпуса используют розовый или пастельный дизайн, женские икон",
+				"obsCount": 7,
+				"apps": [
+					"Cube Period Tracker",
+					"Spot On Period Tracker",
+					"Period - period tracker",
+					"My Cycle ؜"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Все 70 приложений корпуса используют розовый или пастельный дизайн, женские иконки и язык, исходящий из предположения, что пользователь идентифицирует себя как женщина. Spot On от Planned Parenthood пытался решить эту задачу и собрал преданную аудиторию, но после обновления потерял данные пользователей и стал нефункциональным. Cube Period Tracker предлагает нейтральный визуальный язык случайно, а не как намеренную позицию продукта",
+		"idea": {
+			"pitch": "Небинарные и транс-пользователи с менструальным циклом чувствуют себя невидимыми в категории. Cube Period Tracker собирает восторженные отзывы от транс-мужчин именно потому, что не напоминает лишний раз о биологии, которую они не хотят выделять. НейтральЦикл строит нейтральный продукт как намеренную позицию: язык, дизайн и функции одинаково работают для любой идентичности. Это создаёт барьер смены: пользователь, которого не обслуживает никто, остаётся лоялен к продукту, который его видит",
+			"features": [
+				"Нейтральный визуальный язык: нет розового, нет женских иконок, нет слова период в названии на иконке",
+				"Настраиваемые термины для всех функций: пользователь выбирает, как называть события в собственном журнале",
+				"Поддержка всех типов контрацепции без разделения на женские и нейтральные",
+				"Дискретный виджет с числовым обратным отсчётом без расшифровки назначения",
+				"Местное хранение данных как опция по умолчанию"
+			],
+			"antiFeatures": [
+				"Без гендерного дизайна в любом виде",
+				"Без контента о беременности и материнстве в основном потоке",
+				"Без предположения о гетеросексуальном партнёрстве в советах"
+			],
+			"monetization": "Единоразовая покупка 3-5 долларов или подписка 4-6 долларов в месяц. Аудитория небольшая, но лояльная и без альтернатив: потенциал реферального роста через квир-сообщества высокий. Партнёрство с квир-ориентированными медицинскими платформами как канал доверия. Корпоративные лицензии для работодателей с политикой инклюзивности"
 		}
 	}
 ]
