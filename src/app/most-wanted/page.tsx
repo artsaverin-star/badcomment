@@ -181,7 +181,7 @@ export default async function MostWantedPage() {
   };
 
   return (
-    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-2 sm:px-6 pb-28 pt-16 sm:pt-24">
+    <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 sm:px-6 pb-28 pt-16 sm:pt-24">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />
 

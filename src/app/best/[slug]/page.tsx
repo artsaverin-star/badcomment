@@ -122,7 +122,7 @@ export default async function BestPage({ params }: { params: Promise<{ slug: str
   const medal = (i: number) => (i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}`);
 
   return (
-    <main className="relative mx-auto w-full max-w-3xl overflow-x-clip px-2 sm:px-4 pb-12 pt-6">
+    <main className="relative mx-auto w-full max-w-3xl overflow-x-clip px-4 pb-12 pt-6">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 

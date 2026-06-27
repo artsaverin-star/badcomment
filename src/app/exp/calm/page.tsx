@@ -61,7 +61,7 @@ export default async function CalmExperimentPage() {
   }));
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-2 sm:px-6 py-12 sm:py-16">
+    <main className="mx-auto w-full max-w-3xl px-4 sm:px-6 py-12 sm:py-16">
       <div className="mb-8">
         <p className="text-[11px] tracking-wide text-[var(--color-text-tertiary)]">Эксперимент · выбор модели для конвейера</p>
         <h1 className="mt-1 text-[28px] font-semibold tracking-tight text-[var(--color-text-primary)]">

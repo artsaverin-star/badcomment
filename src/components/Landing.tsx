@@ -143,16 +143,13 @@ function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
     { slug: "personal-finance", name: ru ? "Личные финансы" : "Budget apps", blurb: ru ? "100 приложений: где правда видишь и держишь траты под контролем, а где рвётся синхронизация." : "100 apps: where you actually see and control spending, and where the sync breaks." },
     { slug: "calendars-tasks", name: ru ? "Календари и задачи" : "Calendars & tasks", blurb: ru ? "100 приложений: где напоминание приходит вовремя и ничего не теряется, а где молчит." : "100 apps: where the reminder fires on time and nothing is lost, and where it stays silent." },
   ];
-  const soon = ru
-    ? ["Игры", "VPN", "Погода", "Криптокошельки"]
-    : ["Games", "VPN", "Weather", "Crypto wallets"];
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
       {live.map((c) => (
         <a
           key={c.slug}
           href={`/${lp}/rating/${c.slug}`}
-          className="group flex min-h-[148px] flex-col justify-between rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
+          className="group flex min-h-[140px] flex-col justify-between rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
         >
           <div>
             <p className="text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</p>
@@ -160,16 +157,6 @@ function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
           </div>
           <p className="text-[13.5px] leading-[1.45] text-[var(--color-text-secondary)]">{c.blurb}</p>
         </a>
-      ))}
-      {soon.map((name) => (
-        <div
-          key={name}
-          className="flex min-h-[148px] flex-col justify-between rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 opacity-55 grayscale"
-          aria-disabled="true"
-        >
-          <h3 className="text-[23px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{name}</h3>
-          <span className="text-[12px] font-semibold tracking-[0.04em] text-[var(--color-text-tertiary)]">{ru ? "Скоро" : "Soon"}</span>
-        </div>
       ))}
     </div>
   );

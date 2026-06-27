@@ -159,7 +159,7 @@ export default async function AppPage({ params }: { params: Promise<{ slug: stri
   };
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-2 sm:px-4 py-10">
+    <main className="mx-auto w-full max-w-3xl px-4 py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <nav className="text-[13px] text-[var(--color-text-tertiary)]">

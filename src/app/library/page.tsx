@@ -12,7 +12,7 @@ export default async function LibraryPage() {
   const access = await getAccess();
 
   return (
-    <main className="mx-auto w-full max-w-[640px] px-2 sm:px-4 py-14">
+    <main className="mx-auto w-full max-w-[640px] px-4 py-14">
       <Suspense fallback={null}>
         <PurchaseTracker />
       </Suspense>

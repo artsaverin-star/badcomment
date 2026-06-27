@@ -149,7 +149,7 @@ export default async function CarouselTestPage({ params }: { params: Promise<{ s
   ];
 
   return (
-    <main className="mx-auto w-full max-w-2xl px-2 sm:px-4 py-10 sm:py-14">
+    <main className="mx-auto w-full max-w-2xl px-4 py-10 sm:py-14">
       <div className="mb-6 flex items-center justify-between gap-3">
         <Link
           href={`/${slug}`}

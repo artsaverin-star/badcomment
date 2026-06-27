@@ -97,7 +97,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
   );
 
   return (
-    <main className="relative mx-auto w-full max-w-2xl overflow-x-clip px-2 sm:px-4 pb-16 pt-6">
+    <main className="relative mx-auto w-full max-w-2xl overflow-x-clip px-4 pb-16 pt-6">
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
@@ -140,44 +140,43 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         {set.apps.map((a, i) => {
           const av = authVerdict(a.authenticity, ru);
           return (
-            <li key={a.id} className="border-b border-[var(--color-border-subtle)] py-8 sm:py-10">
-              <div className="flex items-start gap-4 sm:gap-5">
-                <div className="w-5 shrink-0 pt-2 text-[14px] font-medium tabular-nums text-[var(--color-text-tertiary)] sm:w-7 sm:text-[15px]">{i + 1}</div>
+            <li key={a.id} className="border-b border-[var(--color-border-subtle)] py-7 sm:py-9">
+              {/* Icon sits ABOVE the title so the title runs full width on mobile */}
+              <div className="flex items-center gap-3">
+                <span className="text-[13px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
                 {a.icon
                   // eslint-disable-next-line @next/next/no-img-element
-                  ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-12 shrink-0 rounded-[13px] object-cover sm:size-14" />
-                  : <div className="size-12 shrink-0 rounded-[13px] bg-[var(--color-bg-muted)] sm:size-14" />}
-                <div className="min-w-0 flex-1">
-                  <h2 className="text-[22px] font-semibold leading-[1.12] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[28px]">{a.title}</h2>
+                  ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
+                  : <div className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
+              </div>
 
-                  {/* Verdict — directly under the title, the editorial line */}
-                  <p className="mt-4 max-w-[60ch] text-[18px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[20px]">{tg(a.verdict)}</p>
+              <h2 className="mt-3 text-[21px] font-semibold leading-[1.15] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[26px]">{a.title}</h2>
 
-                  {/* Ratings, side by side, plus the star-authenticity verdict (tinted) */}
-                  <div className="mt-6 flex flex-wrap items-stretch gap-2.5">
-                    <div className="rounded-[13px] border border-[var(--color-border-subtle)] px-3.5 py-2.5">
-                      <div className="text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Рейтинг в сторе" : "Store rating"}</div>
-                      <div className="mt-1 text-[19px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</div>
-                      <div className="mt-1.5 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.ratings)} {ru ? "оценок" : "ratings"}</div>
-                    </div>
-                    <div className="rounded-[13px] border border-[var(--color-border-subtle)] px-3.5 py-2.5">
-                      <div className="text-[12px] text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>
-                      <div className="mt-1 text-[19px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}<span className="text-[12px] font-medium text-[var(--color-text-tertiary)]"> / 100</span></div>
-                      <div className="mt-1.5 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.nrev)} {ru ? "отзывов" : "reviews"}</div>
-                    </div>
-                    <div className="rounded-[13px] px-3.5 py-2.5" style={{ background: av.bg }}>
-                      <div className="text-[12px]" style={{ color: av.fg, opacity: 0.85 }}>{ru ? "Звезда в сторе" : "Store star"}</div>
-                      <div className="mt-1 text-[16px] font-semibold leading-none" style={{ color: av.fg }}>{av.word}</div>
-                      {a.authNote && <div className="mt-1.5 max-w-[22ch] text-[11.5px] leading-[1.3]" style={{ color: av.fg, opacity: 0.8 }}>{tg(a.authNote)}</div>}
-                    </div>
-                  </div>
+              <p className="mt-3 max-w-[62ch] text-[17px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">{tg(a.verdict)}</p>
 
-                  <div className="mt-6 flex flex-col gap-4">
-                    <Field label={ru ? "Сильное" : "Strong"}>{tg(a.loved)}</Field>
-                    <Field label={ru ? "Слабое" : "Weak"}>{tg(a.weak)}</Field>
-                    {a.whoFor && <Field label={ru ? "Кому" : "For"}>{tg(a.whoFor)}</Field>}
-                  </div>
+              {/* Ratings + authenticity verdict (tinted) */}
+              <div className="mt-4 flex flex-wrap items-stretch gap-2">
+                <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
+                  <div className="text-[11.5px] text-[var(--color-text-tertiary)]">{ru ? "В сторе" : "Store"}</div>
+                  <div className="mt-1 text-[18px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</div>
+                  <div className="mt-1 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.ratings)} {ru ? "оценок" : "ratings"}</div>
                 </div>
+                <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
+                  <div className="text-[11.5px] text-[var(--color-text-tertiary)]">{ru ? "Народный" : "People's"}</div>
+                  <div className="mt-1 text-[18px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}<span className="text-[11.5px] font-medium text-[var(--color-text-tertiary)]"> / 100</span></div>
+                  <div className="mt-1 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.nrev)} {ru ? "отзывов" : "reviews"}</div>
+                </div>
+                <div className="min-w-[8rem] flex-1 rounded-[12px] px-3 py-2" style={{ background: av.bg }}>
+                  <div className="text-[11.5px]" style={{ color: av.fg, opacity: 0.85 }}>{ru ? "Звезда" : "Star"}</div>
+                  <div className="mt-1 text-[15px] font-semibold leading-none" style={{ color: av.fg }}>{av.word}</div>
+                  {a.authNote && <div className="mt-1 text-[11px] leading-[1.3]" style={{ color: av.fg, opacity: 0.8 }}>{tg(a.authNote)}</div>}
+                </div>
+              </div>
+
+              <div className="mt-5 flex flex-col gap-3.5">
+                <Field label={ru ? "Сильное" : "Strong"}>{tg(a.loved)}</Field>
+                <Field label={ru ? "Слабое" : "Weak"}>{tg(a.weak)}</Field>
+                {a.whoFor && <Field label={ru ? "Кому" : "For"}>{tg(a.whoFor)}</Field>}
               </div>
             </li>
           );

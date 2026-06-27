@@ -15,7 +15,7 @@ export default function ContactsPage() {
     ["Сайт", l.site],
   ];
   return (
-    <main className="mx-auto w-full max-w-[680px] px-2 sm:px-4 py-14">
+    <main className="mx-auto w-full max-w-[680px] px-4 py-14">
       <h1 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">Контакты и реквизиты</h1>
       <p className="mt-3 text-callout text-[var(--color-text-secondary)]">
         {l.brand} — сервис разборов отзывов мобильных приложений с выводами. По вопросам подписки и оплаты пишите на e-mail ниже.

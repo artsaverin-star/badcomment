@@ -63,7 +63,7 @@ export default function OfferPage() {
   ];
 
   return (
-    <main className="mx-auto w-full max-w-[720px] px-2 sm:px-4 py-14">
+    <main className="mx-auto w-full max-w-[720px] px-4 py-14">
       <h1 className="text-[28px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
         Публичная оферта
       </h1>

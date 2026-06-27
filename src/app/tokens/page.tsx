@@ -22,7 +22,7 @@ export default async function TokensPage() {
   const hasDeck = access.user ? await ownsDeck(access.user.id) : false;
 
   return (
-    <main className="mx-auto w-full max-w-5xl px-2 sm:px-4 py-14">
+    <main className="mx-auto w-full max-w-5xl px-4 py-14">
       <Header
         size="L"
         as="h1"
