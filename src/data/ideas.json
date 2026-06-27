@@ -8702,497 +8702,6 @@
 		}
 	},
 	{
-		"slug": "language-learning-1",
-		"category": "language-learning",
-		"categoryName": "Изучение языков",
-		"title": "Честный тренажёр произношения",
-		"oneLiner": "Распознавание речи, которое объясняет, что именно не так, и не врёт ни в плюс, ни в минус.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 147
-		},
-		"reviewGrid": [
-			{
-				"quote": "the voice based tests are faulty, forcing me to scream at or over-exaggerate words",
-				"rating": 2,
-				"app": "Teuida: Learn Languages"
-			},
-			{
-				"quote": "you can repeat something 5x and it'll say you did it wrong, but then on the 6th time you said it right without changing anything",
-				"rating": 2,
-				"app": "Falou - Fast language learning"
-			},
-			{
-				"quote": "it passes you on tests when you haven't said that the words that it says that you have",
-				"rating": 2,
-				"app": "Falou - Fast language learning"
-			},
-			{
-				"quote": "for speaking, I have to speak like a robot to get it right a lot of times, where other apps recognize a normal, conversational tone",
-				"rating": 3,
-				"app": "Babbel - Language Learning"
-			},
-			{
-				"quote": "Microphone doesn't work properly, most of the time it doesn't even detect the word",
-				"rating": 1,
-				"app": "Teuida: Learn Languages"
-			},
-			{
-				"quote": "Most of the time it doesn't pick up when you are talking. I paid for the premium and I'm not happy",
-				"rating": 1,
-				"app": "Falou - Fast language learning"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Честный тренажёр произношения",
-				"obsCount": 6,
-				"apps": [
-					"Teuida: Learn Languages",
-					"Falou - Fast language learning",
-					"Babbel - Language Learning"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Все голосовые приложения ломаются на оценке речи: засчитывают непроизнесённое и заваливают верное. Никто не даёт прозрачной, объясняющей оценки.",
-		"idea": {
-			"pitch": "Ядро — движок произношения с регулируемой строгостью, визуализацией звуков («ты сказал X, ожидалось Y») и режимом «не торопит». Не игра, а зеркало для речи: учащийся всегда понимает, где ошибся и почему его наконец засчитали.",
-			"features": [
-				"пофонемная обратная связь с подсветкой проблемного звука",
-				"ползунок строгости (новичок/носитель)",
-				"замедленный эталон и повтор по слогам",
-				"никаких ложных зачётов: недоговорил — видно",
-				"журнал прогресса по конкретным трудным звукам"
-			],
-			"antiFeatures": [],
-			"monetization": "Подписка после честного бесплатного ядра первых уроков; B2B-лицензия движка произношения другим обучающим приложениям."
-		}
-	},
-	{
-		"slug": "language-learning-2",
-		"category": "language-learning",
-		"categoryName": "Изучение языков",
-		"title": "Грамматика-первый курс для взрослых",
-		"oneLiner": "Учим строить речь, а не зубрить слова: спряжения, род, артикли с объяснением до упражнения.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 147
-		},
-		"reviewGrid": [
-			{
-				"quote": "The grammar is very important when studying a language,and here it is missing. I studied German for 2 years and then I had the result: know couple of words and no grammar.",
-				"rating": 2,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "doesnt even explain how differences in gender are defined in the language you study then keeps asking you questions where you should know",
-				"rating": 1,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "you learn \"problema\" and not \"el problema\". This makes it so you have to learn the word and the word's gender separately.",
-				"rating": 4,
-				"app": "Mango Languages: Learning"
-			},
-			{
-				"quote": "Missing basic language framework explanations as basis or foundation to build on.",
-				"rating": 3,
-				"app": "Babbel - Language Learning"
-			},
-			{
-				"quote": "awful app. over focused on gamifying",
-				"rating": 1,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "I am learning new things, but don't feel there is a mechanism to correct my mistakes",
-				"rating": 3,
-				"app": "Mango Languages: Learning"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Грамматика-первый курс для взрослых",
-				"obsCount": 6,
-				"apps": [
-					"Duolingo: Language Lessons",
-					"Mango Languages: Learning",
-					"Babbel - Language Learning"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "После месяцев в Duolingo/Babbel остаётся набор слов без умения строить предложения; грамматику либо прячут, либо не объясняют вовсе.",
-		"idea": {
-			"pitch": "Каждое новое слово приходит со своим родом и артиклем как единое целое; перед упражнением — короткое внятное правило, после — разбор ошибки. Позиционирование «для тех, кому надоело, что их держат за ребёнка».",
-			"features": [
-				"слово вводится с артиклем и родом сразу",
-				"мини-правило перед каждым новым паттерном",
-				"разбор каждой ошибки, а не просто крестик",
-				"ветки грамматических тем по одной за раз",
-				"без энергии и серий — учись сколько хочешь"
-			],
-			"antiFeatures": [],
-			"monetization": "Помесячная подписка; разовая покупка грамматического модуля по конкретному языку для тех, кто против подписок."
-		}
-	},
-	{
-		"slug": "language-learning-3",
-		"category": "language-learning",
-		"categoryName": "Изучение языков",
-		"title": "Антипод геймификации: инструмент, а не игра",
-		"oneLiner": "Никакой энергии, серий и сундучков — чистый тренажёр с интервальным повторением для тех, кто хочет учиться без давления.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 147
-		},
-		"reviewGrid": [
-			{
-				"quote": "why the heck do I need energy for a language learning app? It's not a game. It's for learning",
-				"rating": 1,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "Please bring back the heart system or I'll lose my interest in language learning. The new update sucks",
-				"rating": 1,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "Even if I get everything right, I run out of power and game over for the day.",
-				"rating": 3,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "it makes me tap the treasure chest 4 times to get my \"prize.\" I am not a child. I am trying to learn.",
-				"rating": 1,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "What used to be a decent learning app is now complete AI slop. I want my old lessons back.",
-				"rating": 2,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "sick to death of all the badgering and incredibly annoying reminders even when I've muted them",
-				"rating": 1,
-				"app": "Duolingo: Language Lessons"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Антипод геймификации: инструмент, а не игра",
-				"obsCount": 6,
-				"apps": [
-					"Duolingo: Language Lessons"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Волна разочарованных переходом Duolingo на энергию активно ищет замену; рынок переполнен играми, но не инструментами.",
-		"idea": {
-			"pitch": "Прямое позиционирование «то, чем был Duolingo до энергии»: безлимитная практика, интервальное повторение, спокойный интерфейс, уважение ко времени взрослого. Ловим миграцию недовольных прямо в момент их оттока.",
-			"features": [
-				"безлимитные занятия, никакой энергии и жизней",
-				"интервальное повторение вместо серий-стриков",
-				"тихие, отключаемые напоминания",
-				"возврат к любому пройденному уроку",
-				"режим повторения только трудных единиц"
-			],
-			"antiFeatures": [],
-			"monetization": "Доступная годовая подписка без апселла внутри уроков; явный контраст «мы не продаём вам энергию»."
-		}
-	},
-	{
-		"slug": "language-learning-4",
-		"category": "language-learning",
-		"categoryName": "Изучение языков",
-		"title": "Диалектный курс с проверенным контентом",
-		"oneLiner": "Учи конкретный вариант языка — испанский Испании, левантийский арабский — с гарантией, что контент выверен носителями, а не ИИ.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 46
-		},
-		"reviewGrid": [
-			{
-				"quote": "I am learning levantine Arabic but I am not sure about the accuracy of Mango regarding this Arabic dialect.",
-				"rating": 3,
-				"app": "Mango Languages: Learning"
-			},
-			{
-				"quote": "I wanted to learn Spanish from Spain. Instead, I get exercises comparing Spanish across regions. what a waste.",
-				"rating": 2,
-				"app": "Babbel - Language Learning"
-			},
-			{
-				"quote": "many of the sentences are wrong in swedish, this is a learning app, should not teach wrong translation",
-				"rating": 3,
-				"app": "Falou - Fast language learning"
-			},
-			{
-				"quote": "The very first lesson tried to teach you that you say \"sayounara\" when leaving a place.",
-				"rating": 1,
-				"app": "Promova: Language Learning App"
-			},
-			{
-				"quote": "The pronunciation, in Italian for example, is completely wrong and off and sounds like an American",
-				"rating": 1,
-				"app": "Praktika – AI Language Tutor"
-			},
-			{
-				"quote": "you start to notice all the AI-slop that's been generated",
-				"rating": 2,
-				"app": "Falou - Fast language learning"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Диалектный курс с проверенным контентом",
-				"obsCount": 6,
-				"apps": [
-					"Mango Languages: Learning",
-					"Babbel - Language Learning",
-					"Falou - Fast language learning",
-					"Promova: Language Learning App",
-					"Praktika – AI Language Tutor"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Учащиеся не доверяют точности диалектов и натыкаются на ИИ-сгенерированные неверные фразы; хотят конкретную разновидность, а получают усреднённую кашу.",
-		"idea": {
-			"pitch": "Узкая специализация по регионам с явной маркировкой «выверено носителями региона X». Антитеза ИИ-слипу: каждый урок подписан и проверен. Премиальное позиционирование для серьёзных учеников и экспатов.",
-			"features": [
-				"выбор конкретного регионального варианта на старте",
-				"пометка «проверено носителем» на каждом блоке",
-				"сравнение диалектных различий по запросу, не навязчиво",
-				"аудио только от носителей региона",
-				"без ИИ-генерации в учебном ядре"
-			],
-			"antiFeatures": [],
-			"monetization": "Премиум-подписка по конкретному диалекту; партнёрства с языковыми школами и релокационными сервисами."
-		}
-	},
-	{
-		"slug": "language-learning-5",
-		"category": "language-learning",
-		"categoryName": "Изучение языков",
-		"title": "Платформа жестовых языков нового поколения",
-		"oneLiner": "Видео-обучение жестам с замедлением, диалогами и большим объёмом — то, чего не хватает единственному игроку.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 48
-		},
-		"reviewGrid": [
-			{
-				"quote": "excellent learning tool with video to show the sign in action rather than a 2D diagram",
-				"rating": 5,
-				"app": "Lingvano - Learn Sign Language"
-			},
-			{
-				"quote": "All signs are done at full speed, with NO WAY to watch in slow-motion.",
-				"rating": 1,
-				"app": "Lingvano - Learn Sign Language"
-			},
-			{
-				"quote": "I would love it if it had more dialogue though",
-				"rating": 4,
-				"app": "Lingvano - Learn Sign Language"
-			},
-			{
-				"quote": "Super helpful courses made by humans, really well made, I just wish there was more chapters",
-				"rating": 5,
-				"app": "Lingvano - Learn Sign Language"
-			},
-			{
-				"quote": "installed to learn auslan as it says it has Auslan. only has asl, bsl and Austrian. NO AUSTRALIAN",
-				"rating": 1,
-				"app": "Lingvano - Learn Sign Language"
-			},
-			{
-				"quote": "Ive learned more on this app than I did all 3 years of ASL in highschool.",
-				"rating": 5,
-				"app": "Lingvano - Learn Sign Language"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Платформа жестовых языков нового поколения",
-				"obsCount": 6,
-				"apps": [
-					"Lingvano - Learn Sign Language"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Жестовый сегмент любим и недообслужен: видеоформат ценят, но нет замедления, мало диалогов, контент быстро кончается.",
-		"idea": {
-			"pitch": "Берём подтверждённый спрос (Lingvano хвалят за видео) и закрываем его дыры: покадровое замедление, разговорные сцены, реальный объём, разные подписанты для узнавания вариативности. Расширение на региональные жестовые языки (Auslan, BSL), которых не хватает.",
-			"features": [
-				"покадровое и замедленное воспроизведение каждого жеста",
-				"диалоговые сцены, а не только отдельные слова",
-				"несколько подписантов для вариативности",
-				"региональные жестовые языки (Auslan, BSL, ASL)",
-				"распознавание жеста по камере с обратной связью"
-			],
-			"antiFeatures": [],
-			"monetization": "Подписка плюс разовая покупка курса; институциональные лицензии для школ и центров для глухих."
-		}
-	},
-	{
-		"slug": "language-learning-6",
-		"category": "language-learning",
-		"categoryName": "Изучение языков",
-		"title": "Язык на родном языке для отрезанных рынков",
-		"oneLiner": "Полный интерфейс и пары языков для носителей русского, индонезийского, персидского — рынков, которые топ-приложения игнорируют.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 125
-		},
-		"reviewGrid": [
-			{
-				"quote": "A language-learning app without Russian is a strange decision.",
-				"rating": 1,
-				"app": "Babbel - Language Learning"
-			},
-			{
-				"quote": "my native language isn't available in the options :/ i was hoping that it would've been possible for Indonesian speakers",
-				"rating": 1,
-				"app": "Mango Languages: Learning"
-			},
-			{
-				"quote": "When it makes me choose a language to learn, it forces me to learn English when I want to learn Italian.",
-				"rating": 2,
-				"app": "EWA: Learn Languages"
-			},
-			{
-				"quote": "It doesn't have teaches for Persian people. It should have.",
-				"rating": 1,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "this app looks fantastic, but it would be great if you added RUSSIAN.",
-				"rating": 5,
-				"app": "Praktika – AI Language Tutor"
-			},
-			{
-				"quote": "I speak Russian and Kazakh, it means I can't use this App",
-				"rating": 1,
-				"app": "Babbel - Language Learning"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Язык на родном языке для отрезанных рынков",
-				"obsCount": 6,
-				"apps": [
-					"Babbel - Language Learning",
-					"Mango Languages: Learning",
-					"EWA: Learn Languages",
-					"Duolingo: Language Lessons",
-					"Praktika – AI Language Tutor"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Огромные группы не могут начать: интерфейс и пары не поддерживают их родной язык, их насильно гонят учить через английский.",
-		"idea": {
-			"pitch": "Выбираем недообслуженный родной язык как точку входа и строим вокруг него полноценный продукт: интерфейс, объяснения и переводы на родном. Захват рынка, где у глобальных игроков нет даже базовой поддержки.",
-			"features": [
-				"полный интерфейс на родном языке пользователя",
-				"объяснения грамматики через родной язык, не через английский",
-				"пары «родной → целевой» вместо обязательного английского",
-				"контент с учётом культурного контекста региона",
-				"офлайн-режим для рынков со слабым интернетом"
-			],
-			"antiFeatures": [],
-			"monetization": "Локальное ценообразование по паритету покупательной способности; региональные платёжные методы."
-		}
-	},
-	{
-		"slug": "language-learning-7",
-		"category": "language-learning",
-		"categoryName": "Изучение языков",
-		"title": "Тихий режим: учись где угодно, говори когда можешь",
-		"oneLiner": "Двойной режим — речь и письмо — чтобы заниматься в транспорте, на работе и там, где нельзя говорить вслух.",
-		"asOf": "2026-06-20",
-		"stats": {
-			"apps": 10,
-			"reviews": 5000,
-			"observations": 142
-		},
-		"reviewGrid": [
-			{
-				"quote": "an option to not use my voice incase I'm in public or can't speak",
-				"rating": 3,
-				"app": "Teuida: Learn Languages"
-			},
-			{
-				"quote": "Why haven't you provided a writing option? It shouldn't be limited to just speaking; there should also be a way to write.",
-				"rating": 4,
-				"app": "Teuida: Learn Languages"
-			},
-			{
-				"quote": "goo really good but i think they should decide whether they want to speak write or both",
-				"rating": 5,
-				"app": "Duolingo: Language Lessons"
-			},
-			{
-				"quote": "The no hands practice takes forever to accomplish anything, it has 10s pause for every word said",
-				"rating": 3,
-				"app": "Mango Languages: Learning"
-			},
-			{
-				"quote": "it doesn't prompt one to speak any of the words, only to type or choose them",
-				"rating": 2,
-				"app": "SpanishDictionary.com Learning"
-			},
-			{
-				"quote": "Never even asked for microphone access",
-				"rating": 1,
-				"app": "Mango Languages: Learning"
-			}
-		],
-		"mechanisms": [
-			{
-				"title": "Тихий режим: учись где угодно, говори когда можешь",
-				"obsCount": 6,
-				"apps": [
-					"Teuida: Learn Languages",
-					"Duolingo: Language Lessons",
-					"Mango Languages: Learning",
-					"SpanishDictionary.com Learning"
-				],
-				"polarity": "pain"
-			}
-		],
-		"gap": "Голосовые приложения не дают альтернативы говорению; в общественных местах или при невозможности говорить заниматься нельзя.",
-		"idea": {
-			"pitch": "Каждое речевое упражнение имеет письменный/наборный эквивалент, переключаемый одной кнопкой, плюс беззвучный режим прослушивания. Снимаем барьер «не могу позаниматься сейчас» — а это прямой драйвер удержания и привычки.",
-			"features": [
-				"мгновенное переключение речь ↔ письмо в любом упражнении",
-				"беззвучный режим: субтитры вместо звука",
-				"клавиатурный ввод как полноценная альтернатива микрофону",
-				"напоминание подстраивается под контекст (дома — речь, вне — текст)",
-				"прогресс единый между режимами"
-			],
-			"antiFeatures": [],
-			"monetization": "Подписка; тихий режим как часть базового ценностного предложения, а не платная надстройка."
-		}
-	},
-	{
 		"slug": "focus-screentime-1",
 		"category": "focus-screentime",
 		"categoryName": "Фокус и контроль экранного времени",
@@ -34322,6 +33831,805 @@
 				"Никакой монетизации через анализ контента"
 			],
 			"monetization": "Подписка $8–10 в месяц или $60–80 в год. B2B: журналистские редакции, адвокатские бюро, правозащитные организации. Аудитория уже платила Evernote и была предана. они готовы платить за альтернативу с честным шифрованием. Notesnook показывает жизнеспособность модели."
+		}
+	},
+	{
+		"slug": "language-learning-1",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Разговорный тренажёр с разбором: ИИ-партнёр, который слышит ошибки",
+		"oneLiner": "Приложение для людей, которые годами учат язык, но не могут начать говорить: ежедневные диалоги с ИИ, живой разбор грамматики и произношения прямо в разговоре",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "I only used this app for the last 2 hours or so, in that time I realized that this is way better than Duolingo at getting you to become better at conversational Spanish, Duolingo is good for teaching you words, but how to use them in conversations with real people.",
+				"rating": 5,
+				"app": "Hablo: Speak & Learn English"
+			},
+			{
+				"quote": "I use another app to learn to speak Spanish, and I was not getting enough practice in conversation. I tried Hablo to see how it would help me practice my conversation in Spanish. It has been amazing, you interact with the AI and it corrects you.",
+				"rating": 5,
+				"app": "Hablo: Speak & Learn English"
+			},
+			{
+				"quote": "I downloaded this app to improve my speaking skills. Because there are SO many similar apps out there, it took me a while to even decide what to pay for. I chose Loora because its interface and design looked most simple. I like the app so far.",
+				"rating": 4,
+				"app": "Speak English with Loora AI"
+			},
+			{
+				"quote": "I absolutely loved my experience with Loora AI! I truly feel that I made the right choice practicing my English with Loora. It makes me feel much more comfortable than talking to a teacher, for example, and the feedback feels very natural and helpful.",
+				"rating": 5,
+				"app": "Speak English with Loora AI"
+			},
+			{
+				"quote": "I have been using Speak for a few months now learning French. I've tried Duolingo as well as over half of the major apps that pop up when you search 'learn French' in the App Store. This has become by far my favorite app for a number of reasons.",
+				"rating": 5,
+				"app": "Speak: Language Learning"
+			},
+			{
+				"quote": "I have been using Duolingo, and I feel like I wasn't learning nearly as much as I am in the six hours. I've used this app. I've learned way more.",
+				"rating": 4,
+				"app": "Speak: Language Learning"
+			},
+			{
+				"quote": "I am a B2 French speaker and bought this because I am shy and hate speaking in public, and my wife, who is much more fluent that I am will rarely speak to me in French for more than a few minutes and she is a terrible teacher.",
+				"rating": 4,
+				"app": "Praktika – AI Language Tutor"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Все крупные приложения. Duolingo, Babbel, Busuu. строятся на тестах и карточках.",
+				"obsCount": 8,
+				"apps": [
+					"italki - Language Learning",
+					"Cambly – Learn English",
+					"Speak English with Loora AI",
+					"Hablo: Speak & Learn English"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Все крупные приложения. Duolingo, Babbel, Busuu. строятся на тестах и карточках. Говорение в них либо отсутствует, либо ограничено повторением шаблонных фраз. Пользователи после трёх лет Duolingo не могут поддержать живой разговор. Loora, Hablo и Speak делают шаг к разговору, но не дают системного грамматического разбора ошибок. ИИ исправляет по ходу, но не объясняет механизм и не возвращается к паттерну на следующем занятии. Нет приложения, которое одновременно ведёт свободный диалог и строит личную карту ошибок пользователя для повторения.",
+		"idea": {
+			"pitch": "Пользователь открывает приложение и разговаривает с ИИ на выбранную тему. кофейня, собеседование, поликлиника. ИИ отвечает, слышит ошибки и в конце сессии показывает разбор: какие конструкции были неверны, почему и как правильно. Ошибка, повторяющаяся три раза, уходит в личный повторный список и всплывает в следующем диалоге через подходящий сценарий. Платит тот, кто уже платит репетитору или Cambly: это в три раза дешевле живого урока и доступно в шесть утра.",
+			"features": [
+				"Свободный голосовой диалог с ИИ по ролевым сценариям реальной жизни",
+				"Разбор ошибок после каждой сессии с объяснением грамматического правила",
+				"Личная карта ошибок: повторяющийся паттерн возвращается в следующих диалогах",
+				"Транскрипт разговора с подсветкой исправленных мест для самостоятельного анализа",
+				"Прогресс по уровням CEFR с конкретными метриками: разнообразие конструкций, точность спряжений, темп речи"
+			],
+			"antiFeatures": [
+				"Карточки и тесты с выбором варианта. это уже есть везде",
+				"Игровые механики, очки, стрики. мешают серьёзному фокусу",
+				"Ограничение по количеству минут в день. блокирует самых мотивированных"
+			],
+			"monetization": "Подписка 15-20 долларов в месяц. Платит человек, уже платящий репетитору на iTalki (15-40 долларов в час) или Cambly: знакомый с форматом платного говорения, умеющий оценить качество. B2B: корпоративные клиенты, переводящие сотрудников за рубеж, оплачивают пакетами по 10-50 лицензий."
+		}
+	},
+	{
+		"slug": "language-learning-2",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Произношение с хирургической точностью: не «засчитано / не засчитано», а «вот ваша ошибка»",
+		"oneLiner": "Тренажёр произношения, который показывает не результат «верно/неверно», а конкретный звук или интонационный паттерн, который нужно исправить, с визуализацией и примерами носителей",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "I have been using Elsa Speak for about 4 years, and until today, I was genuinely satisfied with the app. It helped me improve my pronunciation and build confidence in speaking English. However, after the latest update, I am extremely disappointed.",
+				"rating": 1,
+				"app": "ELSA Speak - English Learning"
+			},
+			{
+				"quote": "This app started with promise, but quickly devolved into a frustrating experience that feels like a complete rip-off. The core functionality, voice detection, is shockingly unreliable. Even in a perfectly quiet, closed room, with absolutely no background noise.",
+				"rating": 1,
+				"app": "ELSA Speak - English Learning"
+			},
+			{
+				"quote": "I was a late talker - my parents couldn’t understand me until I was 4.  I’m not good at auditory learning. I took American Sign Language as my foreign language in college because I could see it. I *knew* I would fail a spoken language - mis",
+				"rating": 5,
+				"app": "Pimsleur | Language Learning"
+			},
+			{
+				"quote": "I have 3 core problems: 1. Voice recording and recognition for pronunciation practice is bad. I frequently can't get it to record something even close to what I said. Also, the design of it needs a lot of improvement.",
+				"rating": 1,
+				"app": "Mondly: Learn 41 Languages"
+			},
+			{
+				"quote": "I told this app that I am in advanced English speaker, but it gives me basics such as they save and burn out. I would still be OK with practicing speaking if it could actually record my speech. When I read 'to play safe' it records 'to plea'.",
+				"rating": 1,
+				"app": "Speak English with Fluentika"
+			},
+			{
+				"quote": "The app is okay but the price is insane!! Other than that here are recommendations for the developers: \n1) Nouns should be shown with their article. For example, it should say “der Apfel” instead of “Apfel” and then a little “m” underneath ",
+				"rating": 2,
+				"app": "German by Nemo"
+			},
+			{
+				"quote": "Although my Italian husband is making some progress with the app, I don't understand why there needs to be speakers that pronounce American English with strong accents. He already has difficulty with understanding pronunciation and it absolutely undermines his learning.",
+				"rating": 1,
+				"app": "Busuu: Language Learning App"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "ELSA была лидером в произношении, но после переделки превратилась в нестабильное",
+				"obsCount": 7,
+				"apps": [
+					"ELSA Speak - English Learning",
+					"Pimsleur | Language Learning",
+					"Mondly: Learn 41 Languages",
+					"Falou - Fast language learning"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "ELSA была лидером в произношении, но после переделки превратилась в нестабильное приложение. Распознавание во всех конкурентах. Mondly, Babbel, Pimsleur, Falou. либо засчитывает любое произношение как верное, либо отклоняет правильное без объяснений. Ни одно приложение не показывает фонемный спектр голоса пользователя рядом с эталоном носителя, не объясняет положение артикуляционного аппарата и не строит трек прогресса по конкретным звукам. Люди платят репетиторам тысячи долларов за постановку акцента. мобильный продукт такого уровня не существует.",
+		"idea": {
+			"pitch": "После каждой записанной фразы приложение подсвечивает конкретный звук, по которому есть отклонение, показывает волновую форму речи пользователя рядом с эталоном носителя и объясняет, как изменить положение языка или губ. Курс строится вокруг фонемной карты конкретного языка: пользователь видит, какие звуки освоены, какие в работе. Платит профессионал, переезжающий в другую страну, студент перед IELTS Speaking или актёр, готовящийся к роли.",
+			"features": [
+				"Фонемный анализ: визуальное сравнение волновой формы пользователя и носителя по каждому звуку",
+				"Карта произношения: все звуки целевого языка с личным прогрессом по каждому",
+				"Видеоупражнения с артикуляционными подсказками для проблемных звуков",
+				"Сравнение с несколькими носителями разных диалектов для понимания нормы",
+				"Ежедневные мини-сессии с фокусом на двух-трёх звуках, требующих проработки"
+			],
+			"antiFeatures": [
+				"Бинарная оценка «верно/неверно» без объяснения. главная проблема всех конкурентов",
+				"Общий балл произношения без детализации по фонемам. бесполезен для улучшения",
+				"Игровой формат и стрики. раздражают серьёзного пользователя"
+			],
+			"monetization": "Подписка 12-18 долларов в месяц или пожизненный доступ за 79-120 долларов. B2B: корпоративные тренинги акцента для специалистов по продажам, менеджеров колл-центров, медработников. Лицензии для языковых школ."
+		}
+	},
+	{
+		"slug": "language-learning-3",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Репетитор японского: от хираганы до JLPT без смены приложения",
+		"oneLiner": "Полный путь изучения японского в одном приложении. хирагана, катакана, кандзи, грамматика JLPT N5-N2, аудирование. для людей, готовых серьёзно вложиться в сложный язык",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "I've been using the Maru Japanese app to learn hiragana, and I'm honestly really impressed. It makes something that felt overwhelming at first feel simple and even fun.",
+				"rating": 5,
+				"app": "MARU: Learn Japanese Hiragana"
+			},
+			{
+				"quote": "Listen, I love Mango Languages, I really do. But it's genuinely so progress-inhibiting to not have Kanji in the Japanese course. I understand it would be a lot to program and teach on top of what is already there.",
+				"rating": 4,
+				"app": "Mango Languages: Learning"
+			},
+			{
+				"quote": "Long review, but it is because I've been on an adventure trying to find JLPT level separated and N4+ resources. After completing Lingodeer's OG Japanese level (free because I was a beta user) and a little more than Bunpo's content.",
+				"rating": 5,
+				"app": "Bunpo: Language Learning"
+			},
+			{
+				"quote": "I want to make clear right away that this is a seriously incredible value for money. Having an SRS memorization app for all of the JLPT kanji for a one time purchase is genuinely incredible and I recommend it whole heartedly.",
+				"rating": 4,
+				"app": "Kanji Study - Learn Japanese!"
+			},
+			{
+				"quote": "im not the type of person to leave app reviews, but this app is a great supplemental tool to help my studies in japanese. i've been looking for an app that's conversational as well giving me teaching tips whenever i feel the need with grammar.",
+				"rating": 5,
+				"app": "Speak: Language Learning"
+			},
+			{
+				"quote": "Japanese learner here. The app is really good for shadowing. Repeating phrases over and over and learning this way. With some tweaking, this could be an amazing app.",
+				"rating": 4,
+				"app": "Pimsleur | Language Learning"
+			},
+			{
+				"quote": "I have used JapanesePod to help me prepare for my study abroad in Japan and this app helped me connect with my host family tremendously.",
+				"rating": 5,
+				"app": "Innovative Language Learning"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Японский. самый структурно раздробленный рынок языкового обучения. MARU и Kana д",
+				"obsCount": 8,
+				"apps": [
+					"MARU: Learn Japanese Hiragana",
+					"Kana - Hiragana and Katakana",
+					"Kanji Study - Learn Japanese!",
+					"Bunpo: Language Learning"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Японский. самый структурно раздробленный рынок языкового обучения. MARU и Kana делают только письменность, Bunpo дают грамматику без аудио, Kanji Study. кандзи без грамматики, Pimsleur и Innovative Language. аудио без письма. Пользователи вынуждены держать пять приложений и переключаться между ними. Duolingo японский. известная неудача: не объясняет логику иероглифов. Mango не добавляет кандзи принципиально. Никто не ведёт человека от нуля до N3-N2 в рамках одного продукта.",
+		"idea": {
+			"pitch": "Приложение строит единый путь: хирагана и катакана через отработанный механизм распознавания рукописного ввода, затем кандзи по уровням JLPT с этимологическими мнемониками, грамматика через контекстные предложения и диалоги, аудирование через живые записи носителей с разбором. Пользователь видит один трекер прогресса, который охватывает письменность, словарный запас и грамматику. Платит человек, уже тратящий деньги на японский. учебники Genki, подписки на WaniKani, репетитора.",
+			"features": [
+				"Рукописный ввод и квизы для хираганы и катаканы с точным распознаванием порядка черт",
+				"Кандзи по уровням JLPT с мнемониками, примерами в предложениях и практикой на понимание",
+				"Грамматические объяснения на уровне JLPT N5-N2 с упражнениями на составление предложений",
+				"Аудирование через диалоги носителей с транскриптом и разбором лексики",
+				"Единый трекер прогресса к целевому уровню JLPT с оценкой готовности"
+			],
+			"antiFeatures": [
+				"Только ромадзи без обучения реальному письму. это проблема многих конкурентов",
+				"Уроки без кандзи после базового уровня. тупик, на который жалуются пользователи Mango",
+				"Раздельные подписки за письменность, грамматику и словарь. дробление одного продукта"
+			],
+			"monetization": "Пожизненный доступ за 59-99 долларов или подписка 14 долларов в месяц. Платит аудитория, уже инвестирующая в японский: WaniKani стоит 9 долларов в месяц, Genki учебник. 50 долларов, репетитор. 20-40 долларов в час. Готовящиеся к JLPT и к переезду в Японию. платёжеспособный и мотивированный сегмент."
+		}
+	},
+	{
+		"slug": "language-learning-4",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Серьёзная грамматика: объяснения, которые работают даже для сложных языков",
+		"oneLiner": "Приложение для людей, которые хотят понять логику языка. падежи, времена, спряжения. через ясные объяснения и осмысленные упражнения, а не угадывание вариантов",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "I really like Ella verbs. I came from Duolingo and prefer Ella verbs a lot more because with Duolingo it is the same questions and verbs over and over and just like the other top viewer said, well past the point where I am ready to move on.",
+				"rating": 5,
+				"app": "Ella Verbs: Learn Spanish"
+			},
+			{
+				"quote": "I've learned more from this app than any other language learning app I've tested out. It goes over everything essential first and doesn't waste time with random vocab, it's fun without being too gamified.",
+				"rating": 5,
+				"app": "Busuu: Language Learning App"
+			},
+			{
+				"quote": "The concept of this app is really good. Unlike Duolingo, taking its sluggish unorganized pace, this app is like studying from a text book. I'm paying the subscription for the AI features, which I find very innovative.",
+				"rating": 2,
+				"app": "Bunpo: Language Learning"
+			},
+			{
+				"quote": "Today, I finally felt like I could Level Up to Level 7. Before I started this app, I was afraid I'd fail with Spanish no matter how hard I tried. I was so intimidated by Spanish verbs in all the other apps.",
+				"rating": 5,
+				"app": "Ella Verbs: Learn Spanish"
+			},
+			{
+				"quote": "I had recently downloaded four different free language learning apps, and Busuu was by far the best.\n\nI downloaded Duolingo. The Super Duolingo was far too pushed and the energy system was too frustrating to deal with.\n\nI downloaded Mondly.",
+				"rating": 5,
+				"app": "Busuu: Language Learning App"
+			},
+			{
+				"quote": "I've spent roughly a year using different language learning websites and softwares and I truly believe that Mango is among the best. From the very beginning, once it teaches you a verb tense, it has exercises asking you to speak something it didn't directly teach you.",
+				"rating": 5,
+				"app": "Mango Languages: Learning"
+			},
+			{
+				"quote": "I have been using Duolingo for years now wish a few years of Spanish in school before that. I liked Duolingo. However it has a very specific style of teaching and if you don't understand as much that way, not teaching grammar, it stops working.",
+				"rating": 4,
+				"app": "SpanishDictionary.com Learning"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Duolingo убрал грамматический блок без замены. Babbel упоминает правило один раз",
+				"obsCount": 8,
+				"apps": [
+					"Ella Verbs: Learn Spanish",
+					"ConjuGato: Learn Spanish Verbs",
+					"Bunpo: Language Learning",
+					"Airlearn - Language Learning"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Duolingo убрал грамматический блок без замены. Babbel упоминает правило один раз и не возвращается. Busuu строит структуру, но объяснения поверхностны. Airlearn и Wlingua ближе к грамматике, но не доводят до свободного использования. Bunpo хорош для японского, Ella Verbs. единственный серьёзный продукт для испанских глаголов, ConjuGato. тоже узкий. Рынок для русского, немецкого, польского, финского. языков с богатой морфологией. полностью пустой. Люди, которые учатся системно, хотят понимать механизм, а не просто запоминать паттерны.",
+		"idea": {
+			"pitch": "Каждое правило вводится через три шага: объяснение механизма (почему так устроено), демонстрация в контексте (живые примеры), и активное применение (составление предложений, не выбор варианта). Ошибка в упражнении возвращает не просто правильный ответ, а объяснение, почему именно эта форма. Курс строится по грамматическим темам с чёткой прогрессией, а не по тематическим словарным блокам. Целевой пользователь. тот, кто провалился через Duolingo и теперь готов платить за понимание.",
+			"features": [
+				"Объяснения грамматических правил с логикой языка, а не просто примерами для заучивания",
+				"Упражнения на составление предложений с нуля, а не выбор из вариантов",
+				"Немедленное объяснение ошибки: не «неверно», а «здесь нужен дательный падеж, потому что..»",
+				"Прогрессия по грамматическим темам с тестом на закрепие после каждого блока",
+				"Поддержка языков с богатой морфологией: русский, немецкий, польский, финский, турецкий"
+			],
+			"antiFeatures": [
+				"Тесты с выбором варианта как основной формат. не строит активное знание",
+				"Тематические блоки вместо грамматической прогрессии. не даёт системы языка",
+				"Геймификация и соревнования. отвлекают от сложного материала"
+			],
+			"monetization": "Подписка 10-15 долларов в месяц. Пожизненный доступ за 49-79 долларов. Платит взрослый учащийся, разочарованный в бесплатных инструментах: он уже пробовал Duolingo год и остался ни с чем, теперь готов платить за качество. B2B: языковые школы как замена учебникам."
+		}
+	},
+	{
+		"slug": "language-learning-5",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Маркетплейс репетиторов без раздражающего UX: замена устаревшему iTalki",
+		"oneLiner": "Платформа для живых уроков с репетиторами, где UX не мешает учиться: удобный поиск по специализации, встроенные инструменты для подготовки к занятию и отработки материала между сессиями",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "italki is, without a doubt, one of the best language-learning platforms available today. What truly sets it apart is the human connection: real teachers, real conversations, and lessons tailored exactly to your goals and learning style.",
+				"rating": 5,
+				"app": "italki - Language Learning"
+			},
+			{
+				"quote": "I've been using iTalki as a student for over 6 years and 800+ lessons and this new update is horrible. It's like someone who doesn't use the service has recreated the app and the website in a way that makes it unintuitive and harder to use.",
+				"rating": 1,
+				"app": "italki - Language Learning"
+			},
+			{
+				"quote": "After giving preply money for several years, I decided to stop because of some issues. Their teachers have asked me to cancel classes and when I do, I have to pay for that. It's irresponsible for teachers to want to cancel last minute.",
+				"rating": 1,
+				"app": "Preply - Language Learning App"
+			},
+			{
+				"quote": "As a new student on Preply, I had a deeply disappointing experience. I worked closely with a tutor from the very beginning. I was one of her first students and took lessons consistently while she was still charging her lower rate. But after some time she raised her rate significantly.",
+				"rating": 1,
+				"app": "Preply - Language Learning App"
+			},
+			{
+				"quote": "This app directly and easily connects me with my language learning goals. The app facilitates easy communications, payment, and scheduling with my tutors. I have three amazing credentialed Japanese tutors that diligently and patiently help me.",
+				"rating": 5,
+				"app": "italki - Language Learning"
+			},
+			{
+				"quote": "Preply is a well designed app and I appreciate the range of tutors you can find on their site, and that most of their prices are reasonable. I used Preply to learn Spanish for about 6 months, multiple times a week. However, there's a couple of things that frustrated me.",
+				"rating": 3,
+				"app": "Preply - Language Learning App"
+			},
+			{
+				"quote": "I've downloaded so many apps, paid for so many apps, bought a lifetime subscription to Rosetta Stone, and purchased a year's subscription of Pimsleur before I came across this. This is the first thing that actually has me learning to speak.",
+				"rating": 5,
+				"app": "Innovative Language Learning"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "iTalki. лидер рынка с огромной базой учителей, но пользователи с многолетним ста",
+				"obsCount": 7,
+				"apps": [
+					"italki - Language Learning",
+					"Preply - Language Learning App",
+					"Cambly – Learn English",
+					"Pimsleur | Language Learning"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "iTalki. лидер рынка с огромной базой учителей, но пользователи с многолетним стажем пишут о деградирующем приложении после редизайна. Preply страдает от отсутствия инструментов между уроками: пропустил занятие. потерял деньги и прогресс. Cambly не имеет структурированной программы. Ни одна платформа не решает задачу подготовки к сессии, закрепления материала после неё и умного расписания. Рынок репетиторов онлайн огромный и давно платёжеспособный, но продукт внутри него устарел.",
+		"idea": {
+			"pitch": "Перед каждым занятием приложение предлагает мини-сессию из пяти минут: повторение материала прошлого урока и формулировку цели на сегодня. После занятия. автоматический конспект с новой лексикой и заданиями до следующего раза. Поиск репетитора работает по конкретным целям: подготовка к IELTS Speaking, деловой английский, исправление акцента. и фильтрует по реальным результатам учеников, а не только по рейтингу. Это продукт для того, кто уже платит репетитору и хочет брать от каждого часа больше.",
+			"features": [
+				"Структурированная подготовка к занятию: повторение предыдущего материала и цель на сессию",
+				"Автоматический конспект после урока с лексикой, конструкциями и домашним заданием",
+				"Поиск репетитора по конкретной цели, языковой паре и подтверждённым результатам учеников",
+				"Встроенные инструменты для отработки между уроками: карточки, мини-диалоги по теме последнего занятия",
+				"Гибкое расписание: перенос урока без штрафа за 24 часа, асинхронный формат для занятых"
+			],
+			"antiFeatures": [
+				"Потеря оплаченного урока при отмене. главная жалоба на Preply и iTalki",
+				"Поиск только по рейтингу без фильтра по реальной специализации репетитора",
+				"Отсутствие инструментов вне живого урока. пользователь приходит неподготовленным"
+			],
+			"monetization": "Комиссия 15-20% с каждого урока как у iTalki плюс опциональная подписка 12 долларов в месяц за инструменты подготовки и закрепления. Средний чек урока 15-40 долларов, пользователи берут 4-12 уроков в месяц. оборот достаточный для комиссионной модели. Корпоративные пакеты для компаний, отправляющих сотрудников за рубеж."
+		}
+	},
+	{
+		"slug": "language-learning-6",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Иммерсия через аутентичный контент: понимание на слух через реальный медиа",
+		"oneLiner": "Платформа для изучения языка через подкасты, интервью и видео носителей с интерактивным словарём, переводом по клику и системой запоминания нового",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "This is probably the best app overall for comprehensible input. I have used many language learning apps and nothing comes close to LingQ for this approach unless you are learning Spanish, where Dreaming Spanish might be the stronger option.",
+				"rating": 5,
+				"app": "LingQ | Learn Languages"
+			},
+			{
+				"quote": "I switched to LingQ from another app that I had been using for several years. I am actually learning again now that I have been using LingQ for a few months. I would compare the two apps to riding a bicycle: one is like riding with training wheels.",
+				"rating": 5,
+				"app": "LingQ | Learn Languages"
+			},
+			{
+				"quote": "I've used this product to help me learn Russian and am currently using it for Japanese. It's great for immersing yourself in the natural spoken language. If going to a country where the language is spoken, this is a great tool.",
+				"rating": 4,
+				"app": "Innovative Language Learning"
+			},
+			{
+				"quote": "I've downloaded so many apps, paid for so many apps, bought a lifetime subscription to Rosetta Stone, and purchased a year's subscription of Pimsleur before I came across this. This is the first thing that actually has me learning to speak.",
+				"rating": 5,
+				"app": "Innovative Language Learning"
+			},
+			{
+				"quote": "First, I want to say that I love this app and genuinely think it is worth the price. I normally don't even write reviews. But I use this app daily and it is an annoyance.",
+				"rating": 4,
+				"app": "Parrot – Learn Spanish"
+			},
+			{
+				"quote": "The more I get into the nuts and bolts of this app the more I love it. Especially if you have dabbled in self-guided language learning technique like Anki flashcards, you will appreciate how they have managed to pack all the most powerful resources.",
+				"rating": 5,
+				"app": "LingQ | Learn Languages"
+			},
+			{
+				"quote": "I purchased a Premium subscription and am regretting it about a month in. The app isn't nearly as full-featured as the website, despite paying a pretty high price for a premium subscription.",
+				"rating": 2,
+				"app": "Innovative Language Learning"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "LingQ закрывает идею иммерсии через тексты и аудио, но его интерфейс признан пер",
+				"obsCount": 7,
+				"apps": [
+					"LingQ | Learn Languages",
+					"Innovative Language Learning",
+					"Parrot – Learn Spanish",
+					"Cake - Learn English & Korean"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "LingQ закрывает идею иммерсии через тексты и аудио, но его интерфейс признан перегруженным даже фанатами. Innovative Language предлагает структурированные аудиоподкасты, но мобильное приложение значительно беднее веб-версии. YouTube, Spotify и реальные подкасты доступны всем, но не интегрированы с обучением: нет словаря по клику, нет запоминания, нет адаптации к уровню. Parrot делает шаг в сторону аутентичного аудио для испанского, но без активного выхода на говорение. Пользователь уровня B1-B2, который хочет выйти на «понимаю живую речь», не имеет чистого продукта.",
+		"idea": {
+			"pitch": "Пользователь выбирает тему. технологии, кулинария, история. и уровень. Приложение подбирает реальные записи носителей: интервью, подкасты, радио. Любое незнакомое слово нажимается и тут же объясняется с произношением и контекстом, добавляется в личную колоду для повторения. После прослушивания. краткое упражнение на понимание и закрепление нового словаря. Платит пользователь уровня B1-C1, уставший от детского контента языковых приложений, готовый к реальной речи.",
+			"features": [
+				"Библиотека аутентичного аудио и видео носителей с разметкой по уровням и темам",
+				"Интерактивный транскрипт: клик на слово. произношение, значение, примеры",
+				"Личная колода из встреченных слов с контекстом оригинального предложения",
+				"Адаптация сложности: приложение предлагает контент чуть выше текущего уровня",
+				"Краткий тест после каждого материала на понимание и на запоминание новых слов"
+			],
+			"antiFeatures": [
+				"Создание учебного контента самой командой вместо использования реальных медиа",
+				"Ограничение только учебными диалогами. не готовит к реальной речи носителей",
+				"Сложный UI с десятками функций как у LingQ. отпугивает новых пользователей"
+			],
+			"monetization": "Подписка 12 долларов в месяц или 80 долларов в год. Платит серьёзный учащийся уровня B1-C1, который уже вложил деньги в языковое обучение и хочет финального шага к реальному пониманию. Партнёрство с медиаплатформами за лицензирование контента."
+		}
+	},
+	{
+		"slug": "language-learning-7",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Жестовый язык через видео и распознавание жестов: ASL и другие для слышащих профессионалов",
+		"oneLiner": "Структурированный курс американского жестового языка и других жестовых языков для медицинских работников, педагогов, родителей глухих детей и HR-специалистов. с проверкой жеста через камеру",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "After a lot of research and second guessing I finally decided to pay for the subscription to this app and, now that I am almost finished with the first section of lessons, I can say that it was worth every penny.",
+				"rating": 5,
+				"app": "Lingvano - Learn Sign Language"
+			},
+			{
+				"quote": "I used this app as much as I could for free, and it is honestly an incredible ASL learning tool. I've never learned sign faster! I would have subscribed to continue lessons in a heartbeat.",
+				"rating": 4,
+				"app": "Lingvano - Learn Sign Language"
+			},
+			{
+				"quote": "I am enjoying using Lingvano. I am on day 237 streak with this app. I also meet with a group, led by an interpreter, and are working thru the ABCs of ASL textbook.",
+				"rating": 4,
+				"app": "Lingvano - Learn Sign Language"
+			},
+			{
+				"quote": "I love the content of this app but I feel that the business-side of this app has been less than honest towards me. I started using this app last year to be able to communicate better with my extended family.",
+				"rating": 3,
+				"app": "Lingvano - Learn Sign Language"
+			},
+			{
+				"quote": "After an 800 day streak I reached out on multiple occasions to see what the designers and tech support could figure out should be next steps for learning as well as errors within their system. There's a strong disconnect.",
+				"rating": 1,
+				"app": "Lingvano - Learn Sign Language"
+			},
+			{
+				"quote": "italki is, without a doubt, one of the best language-learning platforms available today. What truly sets it apart is the human connection: real teachers, real conversations, and lessons tailored exactly to your goals and learning style.",
+				"rating": 5,
+				"app": "italki - Language Learning"
+			},
+			{
+				"quote": "I was a late talker - my parents couldn’t understand me until I was 4.  I’m not good at auditory learning. I took American Sign Language as my foreign language in college because I could see it. I *knew* I would fail a spoken language - mis",
+				"rating": 5,
+				"app": "Pimsleur | Language Learning"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Lingvano. единственный структурный продукт для ASL на мобайле, и он набирает выс",
+				"obsCount": 7,
+				"apps": [
+					"Lingvano - Learn Sign Language",
+					"italki - Language Learning",
+					"Innovative Language Learning"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Lingvano. единственный структурный продукт для ASL на мобайле, и он набирает высокий балл (68). Но пользователи с многолетним стажем сообщают о тупике после прохождения всех глав: продвинутого пути нет, поддержка не реагирует. Рынок жестовых языков нишевой, но с очень конкретным платёжеспособным сегментом: медики, учителя специального образования, переводчики. Это профессиональная компетенция, за которую платят работодатели. Корпоративный спрос полностью не закрыт ни одним продуктом.",
+		"idea": {
+			"pitch": "Курс строится вокруг профессиональных сценариев: медицинский приём, урок в классе, собеседование. После видеоурока с глухим преподавателем пользователь показывает жест в камеру. приложение оценивает форму руки и движение. Продвинутый путь включает профессиональную лексику по специализации. Работодатель покупает корпоративный пакет для всей команды: клиника, школа, HR-отдел.",
+			"features": [
+				"Видеоуроки с глухими преподавателями по профессиональным сценариям",
+				"Проверка жеста через камеру с разбором формы руки и траектории движения",
+				"Профессиональные модули: медицинская лексика, педагогические ситуации, деловое общение",
+				"Продвинутый путь за пределами базового алфавита и бытовых тем",
+				"Корпоративная панель для отслеживания прогресса команды"
+			],
+			"antiFeatures": [
+				"Только базовый алфавит и бытовые темы без профессиональной лексики",
+				"Отсутствие обратной связи по качеству жеста. учащийся не знает, правильно ли он показывает",
+				"Контент только для начинающих без пути к промежуточному и продвинутому уровню"
+			],
+			"monetization": "Потребительская подписка 10 долларов в месяц. Корпоративный пакет для клиник и школ: 200-500 долларов в месяц за 20-50 лицензий. Работодатель в США обязан обеспечивать коммуникацию с глухими сотрудниками и клиентами. это регуляторное давление создаёт корпоративный спрос."
+		}
+	},
+	{
+		"slug": "language-learning-8",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Словарный запас для академического и профессионального английского: GRE, IELTS, TOEFL, деловой контекст",
+		"oneLiner": "Приложение для расширения продвинутого словарного запаса английского через живые примеры в контексте, для людей, готовящихся к экзаменам или работающих с академическими и деловыми текстами",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "Best app for learning words that I have ever used. To use it to its fullest you do need to pay a bit of money, but if you are serious about expanding your vocabulary and you want to make your journey as fun and effortlessly as possible, this is it.",
+				"rating": 5,
+				"app": "Vocabulary Builder by Atlas"
+			},
+			{
+				"quote": "I’m feeling ambivalent (haha a word on this app!) towards this app because although its pros are undeniable, there are a couple of inconveniences that I found. Speaking solely on my own behalf, here is a list of pros and cons:\n\nPros:\n- The ",
+				"rating": 3,
+				"app": "GRE Vocabulary Flashcards"
+			},
+			{
+				"quote": "It would be super helpful if we could click to view all of the words in a category. After moving through several decks, I wanted to go back and review previous decks to make sure I was still remembering those words... it’s a bit difficult w",
+				"rating": 5,
+				"app": "GRE Vocabulary Flashcards"
+			},
+			{
+				"quote": "The modern world has no shortage of dry wit, but Etymonline is both funny and incisive, making the expository paragraphs as pleasurable to read as they are informative. An outstanding resource.",
+				"rating": 5,
+				"app": "Etymonline English Dictionary"
+			},
+			{
+				"quote": "This is the best flashcard app for language-learning. With attention to a few details, it would annihilate competitors. Automatically creates cards from imported or pasted text.",
+				"rating": 4,
+				"app": "Lingvist: Learn Languages Fast"
+			},
+			{
+				"quote": "I think I've tried every vocab app. A lot of them are more for English as a 2nd language, but I've always just wanted to have a richer vocabulary for reading and communicating. Only a few are really good and worth using long term.",
+				"rating": 5,
+				"app": "WordPal - Vocabulary Builder"
+			},
+			{
+				"quote": "I have kept my five star rating literally for years, and I've been using WordUp since right about its launch, but the app seems to have stagnated, while the competition is crushing it.",
+				"rating": 3,
+				"app": "WordUp - Vocabulary Builder"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "GRE Vocabulary Flashcards решает узкую задачу GRE, но определения расплывчаты и ",
+				"obsCount": 8,
+				"apps": [
+					"GRE Vocabulary Flashcards",
+					"Vocabulary Builder by Atlas",
+					"WordUp - Vocabulary Builder",
+					"Vocabulary.com"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "GRE Vocabulary Flashcards решает узкую задачу GRE, но определения расплывчаты и нет активного использования слов в речи. WordUp и Vocabulary Builder by Atlas хороши для B1-B2, но определения иногда неточны, а активного производства речи нет. Vocabulary.com охватывает носителей, но не даёт грамматического и произносительного контекста. Etymonline. лучший инструмент для понимания корней слов, но не учебный. Для человека, готовящегося к IELTS Academic Band 7-8 или к деловой переписке с нативными коллегами, нет одного качественного мобильного решения.",
+		"idea": {
+			"pitch": "Каждое слово подаётся через четыре слоя: произношение с транскриптом, этимология в одном предложении, три примера в живом контексте (академический, деловой, разговорный) и упражнение на самостоятельное использование в предложении. Алгоритм интервального повторения строится на активном производстве слова, а не на узнавании. Платит студент перед GRE или IELTS, специалист, пишущий деловую переписку с нативами, или аспирант, готовящий научную статью.",
+			"features": [
+				"Четырёхслойная карточка: произношение, этимология, три контекста, упражнение на использование",
+				"Готовые колоды по экзаменам: GRE, IELTS Academic, TOEFL, SAT с приоритетом по частоте встречаемости",
+				"Упражнения на вписывание слова в предложение, а не выбор из вариантов",
+				"Личные колоды из слов, встреченных пользователем в текстах с загружаемым или вставляемым контентом",
+				"Еженедельный прогресс-репорт: сколько слов перешло из пассивного в активный словарь"
+			],
+			"antiFeatures": [
+				"Только пассивное узнавание через карточки без активного производства слова. так работает большинство конкурентов",
+				"Расплывчатые определения без живых примеров. на это жалуются пользователи GRE-приложений",
+				"Только один контекст употребления без разграничения формального и неформального регистра"
+			],
+			"monetization": "Подписка 8-12 долларов в месяц или пожизненный доступ за 49 долларов. GRE-аудитория платит тысячи долларов за подготовку. 10 долларов в месяц за словарное приложение не барьер. IELTS-готовящиеся в Азии, Индии, СНГ. массовый платёжеспособный рынок."
+		}
+	},
+	{
+		"slug": "language-learning-9",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Испанский только для тех, кто уже знает основы: путь от А2 до В2 без детских игр",
+		"oneLiner": "Курс испанского для взрослых с базой, которые хотят перейти к живой речи: спряжения в контексте, реальные диалоги, разговорная практика с ИИ. без карточек начального уровня и игровых баллов",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 8
+		},
+		"reviewGrid": [
+			{
+				"quote": "The app is 100% amazing, useful, and worth your $5 if you go Pro. A little about me, I speak at around a C-1 level of Spanish, grew up in Miami, and want to be as close to fluent as possible.",
+				"rating": 5,
+				"app": "ConjuGato: Learn Spanish Verbs"
+			},
+			{
+				"quote": "I've learned more from this app than any other language learning app I've tested out. It goes over everything essential first and doesn't waste time with random vocab, it's fun without being too gamified.",
+				"rating": 5,
+				"app": "Busuu: Language Learning App"
+			},
+			{
+				"quote": "I've used other immersion style apps to try to learn French with varied success. If you really want to be confident in knowing pronunciation and grammar in a more structured way, this app is great.",
+				"rating": 5,
+				"app": "Learn French for Beginners."
+			},
+			{
+				"quote": "I was recommended to use this app by a native Spanish speaker. And I have only been using this app for a few days but I can already say that I have improved immensely. I used Duolingo on and off for a few years and could barely string a sentence together.",
+				"rating": 5,
+				"app": "Parrot – Learn Spanish"
+			},
+			{
+				"quote": "I've downloaded a million different apps but this is by far the best language app. Duolingo always frustrated me because I learned some words and conjugations by memorization but never learned how to think in Spanish.",
+				"rating": 5,
+				"app": "Learn Spanish for Beginners"
+			},
+			{
+				"quote": "I'm currently using Falou as a way to refresh my vocab and speaking skills in Vietnamese. Compared to Duolingo, this app does a good job of using words naturally without completely relying on grammar.",
+				"rating": 4,
+				"app": "Falou - Fast language learning"
+			},
+			{
+				"quote": "He tratado tantas aplicaciones en mi vida y por fin encuentro la perfecta para seguir aprendiendo inglés. Me encanta porque es como tener mi profesor de inglés en tiempo real, puedo hablar de cualquier tema.",
+				"rating": 5,
+				"app": "Hablo: Speak & Learn English"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Испанский. крупнейший рынок языкового обучения, но все главные приложения ориент",
+				"obsCount": 8,
+				"apps": [
+					"ConjuGato: Learn Spanish Verbs",
+					"Ella Verbs: Learn Spanish",
+					"Hablo: Speak & Learn English",
+					"SpanishDictionary.com Learning"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Испанский. крупнейший рынок языкового обучения, но все главные приложения ориентированы на новичков или смешивают уровни в одном курсе. Babbel заканчивается на B1-B2 и не ведёт к речи. ConjuGato и Ella Verbs закрывают только спряжения. Практика разговора есть у Hablo и Speak, но без системной грамматической прогрессии. LingQ работает для самостоятельных учащихся, но требует высокой дисциплины. Десятки миллионов носителей испанского в США, учащихся в школе и не закрепивших язык. heritage speakers. вообще не являются целевой аудиторией ни одного приложения.",
+		"idea": {
+			"pitch": "Курс начинается с входного теста, определяющего реальный уровень, и сразу помещает пользователя в контент его уровня. Грамматические темы вводятся через диалоги реальных людей. не учебные скрипты. После каждого блока. разговорная практика с ИИ по пройденной теме. Heritage speakers получают отдельный трек: не «как это переводится», а «как это правильно пишется и почему». Монетизация через сегмент, который уже платит репетиторам за переход к живой речи.",
+			"features": [
+				"Входной тест на реальный уровень с размещением в правильный этап курса без начала с нуля",
+				"Грамматическая прогрессия от A2 до B2 через живые диалоги носителей",
+				"ИИ-разговорная практика по теме каждого грамматического блока сразу после изучения",
+				"Отдельный трек для heritage speakers: орфография, формальный регистр, разрыв между устным и письменным",
+				"Расширенный словарный запас через аутентичные тексты, а не учебные фразы"
+			],
+			"antiFeatures": [
+				"Начало с нуля независимо от уровня. главное раздражение пользователей ABA English и Duolingo",
+				"Только словарные карточки без грамматического контекста. не строит речь",
+				"Детский визуальный язык и игровые очки для взрослого учащегося"
+			],
+			"monetization": "Подписка 14 долларов в месяц. Пожизненный доступ за 69 долларов. Платит взрослый, разочарованный в бесплатных инструментах после года Duolingo, и heritage speaker, хотящий писать без ошибок для профессиональных целей. Испаноязычное население США. более 60 миллионов человек с запросом на формальный испанский."
+		}
+	},
+	{
+		"slug": "language-learning-10",
+		"category": "language-learning",
+		"categoryName": "Изучение языков",
+		"title": "Корейский для фанатов: от хангыля до разговорного через K-pop и дорамы",
+		"oneLiner": "Курс корейского, использующий реальный медиаконтент K-pop и дорам как учебный материал, от чтения хангыля до понимания живой речи и разговорной практики",
+		"asOf": "2026-06-27",
+		"stats": {
+			"apps": 95,
+			"reviews": 39743,
+			"observations": 7
+		},
+		"reviewGrid": [
+			{
+				"quote": "hello! I have just started learning Korean about a week ago maybe. I've used Duolingo (until I found out it's not accurate), write it in Korean (love it), and lingo deer (but I had to pay for it so I couldn't use it anymore).",
+				"rating": 4,
+				"app": "Cake - Learn English & Korean"
+			},
+			{
+				"quote": "Definitely can vouch for all the other five star reviews! While I'm able to get pretty much everything I want for free from the app, I'm tempted to buy the premium just to support the creators!",
+				"rating": 5,
+				"app": "Teuida: Learn Languages"
+			},
+			{
+				"quote": "This app is way better than Duolingo because instead of just teaching you how to say things like Duo does, TEUIDA teaches you how to say it and explains what every word means!",
+				"rating": 5,
+				"app": "Teuida: Learn Languages"
+			},
+			{
+				"quote": "I'm fluent in Korean and I grew up there with Korean as my first language. I speak like a native and read like a native but I decided to try some Korean lessons made for English speakers just to see what's out there.",
+				"rating": 3,
+				"app": "Korean! - Learn Hangul & Speak"
+			},
+			{
+				"quote": "The app will teach you the alphabet, but its pronunciations are pretty far off. It relies too much on romanization, which you absolutely cannot go by with Korean.",
+				"rating": 3,
+				"app": "Korean! - Learn Hangul & Speak"
+			},
+			{
+				"quote": "Despite being a lifetime premium member and absolutely loving this app, I was very disappointed to find out, upon purchasing my iPad Pro M4, that 'Split View' is not supported on the app.",
+				"rating": 5,
+				"app": "LingoDeer - Learn Languages"
+			},
+			{
+				"quote": "I've been learning Korean for the past week, and I've been looking for multiple resources to do so. This app seems to hit some good marks so far, the repetition of new words helps me retain them.",
+				"rating": 5,
+				"app": "Learn Korean & Study Hangul"
+			}
+		],
+		"mechanisms": [
+			{
+				"title": "Корейский. один из самых быстрорастущих языков в мобильных приложениях, подпитыв",
+				"obsCount": 7,
+				"apps": [
+					"Cake - Learn English & Korean",
+					"Eggbun: Learn Korean Fun",
+					"Learn Korean & Study Hangul",
+					"Korean! - Learn Hangul & Speak"
+				],
+				"polarity": "pain"
+			}
+		],
+		"gap": "Корейский. один из самых быстрорастущих языков в мобильных приложениях, подпитываемый глобальным K-pop и дорамами. Eggbun предлагает мессенджерный формат, но без произношения и без новых уроков. Cake использует видеоконтент корейских медиа, но мотивация у пользователей. выучить язык через культуру, а не просто через видеоклипы. Lingodeer качественный, но универсальный. Ни одно приложение не строит системный путь от нуля до разговорного уровня специально для аудитории, мотивированной именно K-pop и дорамами, и не использует лирику и диалоги сериалов как основу учебного материала.",
+		"idea": {
+			"pitch": "Хангыль учится через реальные слова из песен, которые пользователь уже знает на слух. Грамматика вводится через строки диалогов из популярных дорам с разбором. Словарный запас строится вокруг реальных тем: идолы, фанфики, соцсети, кулинария. ИИ-практика разговора имитирует сцены из дорам. Пользователь понимает, зачем он учит каждое слово. оно есть в его плейлисте или любимом сериале.",
+			"features": [
+				"Хангыль через слова из реальных K-pop треков: буквы запоминаются через знакомый контекст",
+				"Грамматические объяснения через диалоги из дорам с разбором конкретной конструкции",
+				"Аудирование через лирику и диалоги с интерактивным транскриптом",
+				"Разговорная практика через ролевые игры по популярным сценариям из дорам",
+				"Словарь по темам корейской поп-культуры, идущий параллельно с базовой лексикой"
+			],
+			"antiFeatures": [
+				"Только картинки с подписями без системного обучения хангылю. так устроены худшие конкуренты",
+				"Нет пути после базового уровня. барьер, на который жалуются пользователи Eggbun",
+				"Корейский без объяснений хангыля как системы письма. фундаментальная ошибка"
+			],
+			"monetization": "Подписка 10 долларов в месяц или разовый доступ к курсу за 49 долларов. K-pop аудитория. молодые платёжеспособные люди, активно тратящие деньги на мерч, концерты, стриминг. Готовность платить за контент, связанный с любимой культурой, подтверждается рынком фан-продуктов. Японский аналог. WaniKani. зарабатывает 200-250 долларов с пользователя за год."
 		}
 	}
 ]

@@ -1425,92 +1425,6 @@
 			}
 		]
 	},
-	"language-learning": {
-		"governing": "The language-learning niche sells progress, but almost every player breaks the learner's trust at the critical moment — when they pronounce a word, work through grammar, or try to find their level. The winner is not the most gamified app but the most trustworthy: honest speech recognition, grammatically sound content, feedback that actually means something.",
-		"competitorRead": "Duolingo captured the habit but has eroded trust through gamification, energy mechanics, and AI replacing hand-crafted content — users are actively searching for an alternative. Voice-first newcomers (Falou, Praktika, Teuida) win on the \"speak from day one\" premise but blow it with finicky speech recognition and shallow AI wrappers. Mango and SpanishDict hold on through honesty, grammar depth, and an unconventional library-card distribution channel, but lose on interactivity.",
-		"pillars": [
-			{
-				"title": "Honest speech: recognition you can trust",
-				"dek": "The defining technical and trust failure of the niche is pronunciation scoring. A learner speaks correctly and gets \"wrong\"; trails off mid-word and gets \"correct\". Both break learning: the first demotivates, the second locks in mistakes. Whoever builds transparent, adjustable-strictness pronunciation feedback that explains exactly what went wrong will own the \"speak from day one\" segment outright.",
-				"match": [
-					"recogni",
-					"pronounc",
-					"microph",
-					"voice",
-					"speech",
-					"speak",
-					"aloud",
-					"repeat",
-					"hear",
-					"accur",
-					"credit",
-					"error",
-					"detect",
-					"accent",
-					"word",
-					"phrase",
-					"pace",
-					"slow",
-					"feedback",
-					"honest"
-				]
-			},
-			{
-				"title": "Real learning versus the retention game",
-				"dek": "Underneath the game layer — energy, streaks, loot chests, coddling avatars — learners accumulate a sense of being retained rather than taught. They leave when retention mechanics obstruct study, when AI generation replaces vetted content, when grammar, spaced repetition, and error correction are absent. The winning move is to position the product as a tool that respects the adult learner: grammar, spaced repetition, honest feedback, zero infantilizing.",
-				"match": [
-					"gramm",
-					"conjug",
-					"articl",
-					"gender",
-					"rule",
-					"gamif",
-					"energ",
-					"streak",
-					"notic",
-					"remind",
-					"repeat",
-					"reinfor",
-					"correct",
-					"level",
-					"placement",
-					"slop",
-					"generat",
-					"content",
-					"teach",
-					"adult",
-					"child",
-					"coddle"
-				]
-			},
-			{
-				"title": "Underserved segments and channels",
-				"dek": "The market is saturated for \"English to top-5-language\" pairs, but huge groups remain productless: Russian, Indonesian, and Farsi speakers with no native-language interface; dialects (Levantine Arabic, regional Spanish) that no one trusts; sign languages with the right video format but thin content; and a silent mode for public spaces. Library distribution demonstrates that the price objection is solved by channel design, not discounting.",
-				"match": [
-					"nativ",
-					"languag",
-					"russian",
-					"indonesian",
-					"persian",
-					"dialect",
-					"regional",
-					"arabic",
-					"spanish",
-					"sign",
-					"auslan",
-					"asl",
-					"segment",
-					"underserv",
-					"channel",
-					"librari",
-					"offlin",
-					"silent",
-					"written",
-					"niche"
-				]
-			}
-		]
-	},
 	"focus-screentime": {
 		"governing": "This category doesn't sell blocking — it sells friction: the value is precisely that extra barrier between impulse and screen, and it evaporates the instant the barrier becomes too easy or too bypassable. The winner is whoever makes relapse more expensive, not whoever makes access impossible.",
 		"competitorRead": "The leaders have split along barrier strength: soft (Opal, ClearSpace — pause and delay), gamified (Forest, Flora, Study Bunny — the dying tree), and physical (Brick — get off the couch). All three share the same vulnerability: Opal tanked its rating by shrinking the delay to five seconds; the gamified apps collapsed into self-distraction through challenges and ads; Brick is trivially bypassed on Android. Nobody has closed the full set — escalating penalty plus irrevocability plus honest detection plus parity on Android and desktop — all at once.",
@@ -6121,6 +6035,72 @@
 					"portability",
 					"local storage",
 					"self-hosted"
+				]
+			}
+		]
+	},
+	"language-learning": {
+		"governing": "The market sells the feeling of progress, not progress itself. The top apps by downloads win retention through streaks and points, but lose on the metric that matters: after two years of daily practice, users still cannot hold a conversation. Of 95 apps analyzed, only a handful close all three real barriers at once: live speaking with pronunciation feedback, grammar as a system rather than a collection of rules, and an honest placement test that puts users at their actual level. Whoever closes all three builds loyalty that no streak can buy.",
+		"competitorRead": "Almost every player optimizes the engagement loop instead of the mastery loop: frequent sessions, visual unit progress, automatic answer acceptance. When pronunciation is accepted without analysis, grammar is mentioned once and never revisited, and no placement test exists at entry, the app trains users to complete the app rather than learn the language. This is why the most candid reviews of Duolingo, Babbel, and Mondly all read the same way: \"I practice every day but still cannot speak.\"",
+		"pillars": [
+			{
+				"title": "Build a real speaking loop",
+				"dek": "Speaking is the single barrier left unaddressed by 34 of 95 apps in the dataset. Most simulate speaking practice through multiple choice or text input, while voice recognition is either absent or accepts any sound as correct. The apps that genuinely win this bet, Pimsleur and italki, build every lesson around speech production: the user speaks before seeing the correct answer. AI tutors (Loora, Hablo, Speak) are moving in the right direction but break down at the recognition layer: a correctly pronounced word that goes uncredited kills motivation more reliably than any paywall. A founder who solves the problem of accurate acoustic feedback at the phoneme level rather than the word level will own a scarce mechanism with no substitute.",
+				"match": [
+					"speaking practice",
+					"pronunciation feedback",
+					"voice recognition",
+					"phoneme accuracy",
+					"speech production",
+					"conversation practice",
+					"accent correction",
+					"audio feedback",
+					"dialogue practice",
+					"listening comprehension",
+					"intonation",
+					"native speaker",
+					"language tutor",
+					"speaking confidence"
+				]
+			},
+			{
+				"title": "Explain grammar as a system",
+				"dek": "Grammar is cited as a weakness in 27 of 95 apps: it is either absent entirely, or a rule appears once and is never reinforced. Users switch from Duolingo to Busuu specifically because grammar there is explained in the context of phrases rather than isolated in an optional block. LingoDeer outperforms competitors on Japanese and Korean for one reason: it presents the logic of case markers and particles as a system, not as exceptions. Ella Verbs, narrowly focused on conjugation, still scores 81 because one rule is explained deeply and with adaptive repetition. The pattern is clear: the more precisely an app answers the question of why a sentence is built that way, the longer the user stays.",
+				"match": [
+					"grammar explanation",
+					"sentence structure",
+					"verb conjugation",
+					"case system",
+					"grammar rules",
+					"syntax",
+					"particles",
+					"grammar in context",
+					"adaptive repetition",
+					"rule reinforcement",
+					"grammar logic",
+					"language structure",
+					"spaced repetition",
+					"grammar depth"
+				]
+			},
+			{
+				"title": "Place users at their real level",
+				"dek": "The absence of an honest placement test is the quiet churn driver that almost no one names directly, yet it shows up in every other mid-level review. Intermediate users abandon apps because they start with cat and dog, or land in a stream that assumes a foundation they do not have. Vocabulary Builder by Atlas earns praise for one quality: it placed me at the right point right away without making me start from zero. Busuu and Ella Verbs repeat the same adaptive-start pattern. Less common languages suffer most: Ling covers Thai and Khmer but leaves beginners without any explanation of the script. A founder who builds an honest diagnostic entry experience closes a need that every major player ignores.",
+				"match": [
+					"placement test",
+					"level assessment",
+					"adaptive start",
+					"beginner placement",
+					"intermediate learner",
+					"proficiency test",
+					"language level",
+					"skill gap",
+					"rare language",
+					"japanese script",
+					"korean script",
+					"alphabet introduction",
+					"diagnostic quiz",
+					"starting level"
 				]
 			}
 		]
