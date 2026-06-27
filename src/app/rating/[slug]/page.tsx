@@ -5,6 +5,7 @@ import Link from "next/link";
 import { getLocale } from "@/lib/i18n.server";
 import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
+import RatingAuthBadge from "@/components/RatingAuthBadge";
 import astrology from "@/data/peoplesRating/astrology.json";
 import datingApps from "@/data/peoplesRating/dating-apps.json";
 import aiPhoto from "@/data/peoplesRating/ai-avatars-headshots.json";
@@ -28,6 +29,7 @@ type App = {
   storeAvg: number | null; ratings: number; pct5: number | null; textAvg: number | null; nrev: number;
   realScore: number | null; authenticity: string | null; authNote: string | null;
   verdict: string; loved: string; weak: string; whoFor: string | null;
+  en?: { verdict?: string; loved?: string; weak?: string; whoFor?: string; authNote?: string };
 };
 type RatingSet = { slug: string; name: string; nameEn: string; seoName?: string; apps: App[]; totalReviews: number; count: number; inflated: number };
 
@@ -139,6 +141,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
       <ol className="mt-16 flex flex-col border-t border-[var(--color-border-subtle)]">
         {set.apps.map((a, i) => {
           const av = authVerdict(a.authenticity, ru);
+          // On EN, prefer the translated overlay; fall back to RU if missing.
+          const tx = (k: "verdict" | "loved" | "weak" | "whoFor" | "authNote") => (ru ? a[k] : a.en?.[k] ?? a[k]) ?? "";
           return (
             <li key={a.id} className="border-b border-[var(--color-border-subtle)] py-7 sm:py-9">
               {/* Icon sits ABOVE the title so the title runs full width on mobile */}
@@ -152,10 +156,10 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
 
               <h2 className="mt-3 text-[21px] font-semibold leading-[1.15] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[26px]">{a.title}</h2>
 
-              <p className="mt-3 max-w-[62ch] text-[17px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">{tg(a.verdict)}</p>
+              <p className="mt-3 max-w-[62ch] text-[17px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">{tg(tx("verdict"))}</p>
 
-              {/* Ratings + authenticity verdict (tinted) */}
-              <div className="mt-4 flex flex-wrap items-stretch gap-2">
+              {/* Store + people scores, then a compact clickable authenticity chip */}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
                 <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
                   <div className="text-[11.5px] text-[var(--color-text-tertiary)]">{ru ? "В сторе" : "Store"}</div>
                   <div className="mt-1 text-[18px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</div>
@@ -166,17 +170,13 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                   <div className="mt-1 text-[18px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}<span className="text-[11.5px] font-medium text-[var(--color-text-tertiary)]"> / 100</span></div>
                   <div className="mt-1 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.nrev)} {ru ? "отзывов" : "reviews"}</div>
                 </div>
-                <div className="min-w-[8rem] flex-1 rounded-[12px] px-3 py-2" style={{ background: av.bg }}>
-                  <div className="text-[11.5px]" style={{ color: av.fg, opacity: 0.85 }}>{ru ? "Звезда" : "Star"}</div>
-                  <div className="mt-1 text-[15px] font-semibold leading-none" style={{ color: av.fg }}>{av.word}</div>
-                  {a.authNote && <div className="mt-1 text-[11px] leading-[1.3]" style={{ color: av.fg, opacity: 0.8 }}>{tg(a.authNote)}</div>}
-                </div>
+                <RatingAuthBadge label={ru ? "Звезда в сторе" : "Store star"} word={av.word} note={tg(tx("authNote"))} bg={av.bg} fg={av.fg} closeLabel={ru ? "Закрыть" : "Close"} />
               </div>
 
               <div className="mt-5 flex flex-col gap-3.5">
-                <Field label={ru ? "Сильное" : "Strong"}>{tg(a.loved)}</Field>
-                <Field label={ru ? "Слабое" : "Weak"}>{tg(a.weak)}</Field>
-                {a.whoFor && <Field label={ru ? "Кому" : "For"}>{tg(a.whoFor)}</Field>}
+                <Field label={ru ? "Сильное" : "Strong"}>{tg(tx("loved"))}</Field>
+                <Field label={ru ? "Слабое" : "Weak"}>{tg(tx("weak"))}</Field>
+                {tx("whoFor") && <Field label={ru ? "Кому" : "For"}>{tg(tx("whoFor"))}</Field>}
               </div>
             </li>
           );
