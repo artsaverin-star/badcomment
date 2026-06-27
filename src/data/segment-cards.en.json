@@ -335,106 +335,6 @@
 		],
 		"hygiene": []
 	},
-	"personal-finance": {
-		"product": [
-			{
-				"title": "Manual entry isn't a relic — it's the awareness mechanism users stay for",
-				"plus": "The whole category's paradox: the happiest, most loyal segment is the one that DELIBERATELY doesn't link a bank and types every expense by hand. The moment of entry forces the question 'do I need this?', and within weeks people see for the first time that they spend recklessly. People leave automated Mint and YNAB precisely because automation made them complacent about money. For a builder this means: the core value isn't integrations — it's the act of logging itself as a behavior-change tool.",
-				"minus": null
-			},
-			{
-				"title": "The core behavioral effect isn't 'I logged it' but 'I saw it' — visualization is the product",
-				"plus": "People describe a feeling, not numbers: 'see at a glance where money goes', 'reality check', 'saw my patterns for the first time'. The category pie chart, instant feedback and the sense of control are what actually change behavior and make people cut wasteful spending. The most loyal repeat the word 'aware'. The takeaway for a builder: sell not bookkeeping but the feeling of being in control of money — and instant visual feedback matters more than report depth.",
-				"minus": null
-			},
-			{
-				"title": "Speed of a single entry is the engine of the daily habit — friction there breaks the whole product",
-				"plus": "The habit rests on logging a spend taking seconds: open, tap a category, type the amount. That instantaneity turns tracking into a daily ritual kept for years instead of dropped in a week. 'So fast to use, so little fuss' — the product wins not on features but on entering being easier than not entering. For a builder this is the alpha and omega: optimize the single most frequent micro-flow — adding an expense — to the limit; everything else is secondary.",
-				"minus": null
-			},
-			{
-				"title": "The highest-value lifecycle moment — switching phones — is exactly when products fail their most loyal users",
-				"plus": null,
-				"minus": "Local-only storage or a 'backup off by default' design turns against the long-tenured user: switching or breaking a phone wipes years of transactions, and they learn it at the worst possible moment. An app whose entire value is accumulated history fails to insure the very scenario it exists for. For a builder this is the category's sharpest hole: automatic, invisible, cross-platform backup from first launch isn't a feature — it's the precondition of trust."
-			},
-			{
-				"title": "Privacy versus sync is a fork between two opposite audiences, not one slider",
-				"plus": null,
-				"minus": "An entire segment deliberately flees automation: sync demands their net-banking username, password and OTP, and these people just want offline tracking with no account. Another segment pays precisely for data to follow them across devices and be shared with a partner. Products try to serve both and fail both: the privacy segment gets pulled into the cloud, the sync segment gets fragile sync. A builder should pick a side on purpose — either local-first with honest export, or cloud with real multi-user — and not straddle."
-			},
-			{
-				"title": "Transfers between your own accounts and money put into savings count as spending — the product lies in the key number",
-				"plus": null,
-				"minus": "The base 'every movement is income or expense' model never accounted for internal moves: shift money between your own accounts and it logs as a spend; set it aside as savings or investment and the app flags it 'gone', hiding real net-worth growth. For the core job — knowing how much you actually have free and how your wealth is growing — this is a fatal inversion. For a builder: a transfer transaction and a separate 'savings/goal' entity aren't advanced features, they're basic correctness of the data model."
-			},
-			{
-				"title": "The calendar month is the only period model, but people live on pay cycles",
-				"plus": null,
-				"minus": "Budgets and periods are hard-tied to the calendar month or 'last 30 days', yet a huge segment is paid biweekly or every four weeks (Australia especially), and some run a personal cycle from the 7th to the 7th. Being unable to shift the period start forces manual recalculation every time or quitting in the first month. For a builder: an arbitrary, payday-anchored period with 'lock' on past periods is a cheap feature that single-handedly wins back an entire underserved segment."
-			},
-			{
-				"title": "These apps record the past brilliantly but are blind to the future — and lose the planners",
-				"plus": null,
-				"minus": "The single most powerful budgeting tool — a forecast of 'how much will I have left after all my bills' — is almost everywhere missing or broken: recurring income and expenses don't roll up into a future balance. People keep a separate spreadsheet just for this and can't abandon it, and where the forecast existed and an update broke it, users drop to one star — it killed their very reason to pay. For a builder: shifting from 'tracking the past' to 'forecasting the balance' moves the product from tracker to planner — that's the category growing up."
-			},
-			{
-				"title": "A couple's shared budget is the strongest acquisition hook and simultaneously the most broken use case",
-				"plus": null,
-				"minus": "Demand for a real-time shared budget with a partner is a constant reason to pick an app, yet this scenario falls apart most often: some offer no shared access at all and lose the user at the moment of marriage; others' sync spawns duplicates, drops records and dumps the partner's transactions into the owner's main account. When the shared wallet breaks, trust is lost two users at a time. For a builder: true multi-user with change-merge (not 'last-write-wins') is both underserved demand and a natural growth path through households."
-			},
-			{
-				"title": "Control over category structure is the real moat: 'the app bends to my life, not the reverse'",
-				"plus": "The freedom to create your own categories, subcategories, accounts and to change name, icon and color creates the sense of ownership the habit feeds on: the user has invested setup time and won't start over with a rival. Where it exists, customization is named outright as the reason to stay. For a builder: a flexible, truly-yours ledger structure (including subcategories) is a cheap but powerful retention lever that many leaders underdeliver.",
-				"minus": null
-			},
-			{
-				"title": "You can't build your own structure: a new category is forced global or only under a subcategory",
-				"plus": null,
-				"minus": "The flip side: leaders' category structure is rigid. Somewhere you can't create a root category — only one under someone else's subcategory inside a bloated default list. Somewhere a new category auto-becomes global to every wallet and breaks nesting. Delete an 'unneeded' one and it vanishes everywhere, notes included. For an app whose job is to mirror YOUR money, this breaks the basic premise and reads as a loss of control, not a simplification. For a builder: let the user fully own the structure, and don't make edits destructive."
-			},
-			{
-				"title": "Gamification cracks the problem 'serious' budgeters fail at — but risks rewarding spending",
-				"plus": "The category's most underrated mechanism: turn dull logging into a game where every expense builds a building in your city, and the urge to grow the city overrides the tedium. People track not out of discipline but for fun — especially the ADHD segment, recommended it by their therapists: the 'log → dopamine' loop solves their core problem. For a builder: the emotional layer and external reward aren't cosmetic but a way to retain those a classic budgeter scares off; just reward useful behavior, not the act of spending itself.",
-				"minus": null
-			},
-			{
-				"title": "Double-entry and reconciliation hold a narrow but high-value and unbearably sticky core",
-				"plus": "The accountant-minded segment — refugees from Quicken and MS Money — wants a balance sheet, P&L and reconciliation, not a cute tracker, and lands wherever true double-entry exists after sampling dozens of rivals. The real moat here isn't features but migration: people bring decades of data, and once an entire financial life is inside, the cost of leaving is prohibitive. For a builder: this is a narrow but high-margin niche willing to pay once and forever — easy QIF/CSV import and correct double-entry capture it whole.",
-				"minus": null
-			},
-			{
-				"title": "A finance tracker sells exactly one thing — a number you can trust; lose it and it's dead",
-				"plus": null,
-				"minus": "A silently changing or doubled balance, duplicates on save, a reconciliation that won't add up — these aren't 'bugs' but the collapse of the whole reason to use it. People who trusted the totals for years start re-checking on a calculator and, once they find a mismatch, never trust them again; in a double-entry app it reaches entering fake transactions to 'force' the balance right. For a builder: in this category number correctness isn't quality but the value proposition itself; one wrong balance costs more than ten pretty features."
-			},
-			{
-				"title": "Multi-currency breaks retroactively: one FX error poisons the entire past history",
-				"plus": null,
-				"minus": "For expats and travelers conversion is the core of the value, but almost everywhere it's built fragile: rates are fixed and don't update, changing a rate rewrites all history instead of keeping the rate-as-of-date, and somewhere an update recomputed everything as 1=1 (1 won = 1 euro). The nature of it is that an FX error isn't local — it poisons every past report, fixable only by re-entering every transaction by hand. For a builder: proper multi-currency with rate-on-date is an underserved international segment the leaders lose."
-			},
-			{
-				"title": "Auto-capture from SMS and notifications is the invisible engine even the manual segment wants back",
-				"plus": null,
-				"minus": "Even among those who value manual entry, a whole segment is ready to switch to any app that parses bank SMS and push itself — auto-capture is named outright as the reason to leave. The paradox: when it works 'invisibly' nobody notices, but when an update breaks it the habit falls apart — people won't go back to typing. For a builder: optional on-device parsing of SMS/notifications (with no banking passwords handed over) closes the gap between the privacy segment and automation — the best of both worlds."
-			},
-			{
-				"title": "Attaching a receipt photo is the top request of HAPPY users: a signal of the next job-to-be-done",
-				"plus": null,
-				"minus": "4-5★ users who love the app keep hitting one ceiling: you can't attach a receipt photo to a transaction. This isn't a gripe but a beacon of the next job — people want the tracker to replace the shoebox of receipts, not just the numbers; where geo-tags and unlimited photos exist, they're called unexpectedly valuable. For a builder: receipt photo and store geo-detail turn money tracking into a proof archive and sharply raise the switching barrier — it's depth of data per transaction, not just the amount."
-			},
-			{
-				"title": "Invisible daily use for 5-15 years is the strongest moat and proof of product-market fit",
-				"plus": "A striking number of reviews measure usage in years and decades: 'since 2016', 'almost a decade', '15 years, carried phone to phone'. The highest praise is 'it's one of those apps you never think about because you use it every day and it just works'. Against a dead YNAB and a shuttered Mint, the track record itself becomes a trust argument. For a builder: the goal is to become the invisible infrastructure of a daily routine; such a habit is stickier than any feature, and it's built on simplicity and stability, not novelty.",
-				"minus": null
-			},
-			{
-				"title": "The paywall sits right at the 'tried it → built it into life' transition — activation breaks before value lands",
-				"plus": null,
-				"minus": "A strategic mistake the whole category repeats: what's hidden behind the wall isn't an advanced feature but a basic growth moment — a second wallet/account, a second category, comparing 'cash vs card', access to one's own past history. The limit sits where a person is just starting to actually budget, so it reads as confiscation of a working tool and a feeling of betrayal, not an honest demo boundary. For a builder: give away for free exactly the core loop that forms the habit and monetize ABOVE it (sync, forecast, pro reports) — otherwise you're charging to disable your own activation."
-			}
-		],
-		"hygiene": []
-	},
 	"sobriety": {
 		"product": [
 			{
@@ -6387,6 +6287,91 @@
 			{
 				"title": "Users cycle through dozens of trackers. The one that works in the first five minutes wins",
 				"plus": "The phrase I have tried thirty apps appears in the corpus dozens of times as a literal statement, not a hyperbole. The decision to stay or leave is made during onboarding: if adding the first habit requires five configuration screens, the user is already closing the app. Time from install to first check-in is the number-one product metric in this category.",
+				"minus": ""
+			}
+		],
+		"hygiene": []
+	},
+	"personal-finance": {
+		"product": [
+			{
+				"title": "entering every expense by hand creates awareness that automation cannot replicate",
+				"plus": "Users who switched from bank sync to manual entry describe it as a turning point: for the first time in years they can see where their money goes because they record every purchase themselves. The awareness does not come from a report. It happens at the moment of entry, when you have to pick a category and acknowledge the spend. That is why some users deliberately choose apps without sync even when they could technically connect their bank.",
+				"minus": ""
+			},
+			{
+				"title": "the question 'how much can I spend today' matters more than the monthly balance",
+				"plus": "A monthly budget is abstract: users, especially those on a fixed income, spend heavily early in the month and run out by the end. A single number showing 'available today', calculated by dividing the free balance by the days left in the month, changes behavior immediately and requires no complex setup. It lets people who have never managed to stick to a budget finally do so.",
+				"minus": ""
+			},
+			{
+				"title": "a weekly budget rhythm works for people who find a month too blurry a horizon",
+				"plus": "A large share of users get paid weekly or biweekly, and a monthly budget does not fit them: by the end of week two it is unclear whether current spending is fine or already too high. Splitting free funds by week instead of month gives a sense of control and lets you catch overspending before it becomes a disaster. Users who switched from monthly to weekly cycles describe it as a fundamental discovery.",
+				"minus": ""
+			},
+			{
+				"title": "bank sync breaks and erodes trust in every number shown by the app",
+				"plus": "Across all apps that pull transactions automatically through Plaid or similar services, users regularly encounter duplicate entries, missing transactions, or connection gaps lasting several days. After the first serious failure the user stops believing the balance shown in the app and starts checking the bank separately, defeating the entire value of an aggregator. This is why a segment of users insists on manual entry even when connecting a bank is technically possible.",
+				"minus": ""
+			},
+			{
+				"title": "years of transaction history are the main asset keeping users from switching apps",
+				"plus": "Users who have tracked expenses for three years or more describe the accumulated history as an asset they are not willing to leave behind. Annual comparisons, understanding seasonal spending patterns, the ability to find a transaction from two years ago: none of this can be recreated after a migration. Developers who delete history during updates or do not offer an export option lose their most loyal users first.",
+				"minus": ""
+			},
+			{
+				"title": "skipping bank sync is seen as a privacy feature, not a limitation",
+				"plus": "A significant portion of users choose apps with no bank access precisely because they do not want to hand login credentials to a third party. For them 'does not connect to your bank' is a product headline, not a downside. This stance is especially firm among people who already tried sync and were burned by its unreliability.",
+				"minus": ""
+			},
+			{
+				"title": "the envelope system makes money allocation tangible and easy for couples to share",
+				"plus": "The envelope concept, allocating money upfront and spending only from each envelope, works for people who struggle to hold a budget as abstract numbers. The physical metaphor is intuitive without any training, especially for those who grew up using cash. For couples, envelopes solve the common-language problem: both partners see the same 'cash', without arguing over categories.",
+				"minus": ""
+			},
+			{
+				"title": "managing a budget as a couple is a distinct use case that most apps ignore",
+				"plus": "Couples managing shared finances find that most apps were built for a single user: there is no split view for personal versus shared accounts, no real-time notifications when a partner spends, and no smooth entry point for two people on different phones. Couples who find a solution that works for them tend to stay for a long time, because migrating together is too much effort.",
+				"minus": ""
+			},
+			{
+				"title": "forecasting the balance on a future date: few apps do it well, but demand is huge",
+				"plus": "Users want more than a current balance. They want to know whether they will have enough money until payday, accounting for already scheduled payments. This requires logging upcoming obligations and calculating the day the balance would turn negative. Apps that implement this through a calendar view earn a devoted following, because there is almost no competition.",
+				"minus": ""
+			},
+			{
+				"title": "game mechanics keep the logging habit alive where boredom kills it",
+				"plus": "Manual entry is a tedious ritual that most users abandon within a few weeks. Games where each logged transaction builds a house in a virtual city or unlocks a new object reframe the chore into a desired action. The fear of missing a new building works as a reminder the user actually wants to receive.",
+				"minus": ""
+			},
+			{
+				"title": "auto-saving through triggers removes the barrier of forgetting to set money aside",
+				"plus": "Rules like 'round every purchase up to the dollar and save the difference' or 'transfer a fixed amount every Tuesday' let users who never managed to save build a vacation fund or safety net without conscious effort. The key mechanism: money moves before the user has a chance to spend it. People with ADHD in particular highlight this pattern as the only approach that has ever worked for them.",
+				"minus": ""
+			},
+			{
+				"title": "visual goals turn an abstract savings amount into emotional progress",
+				"plus": "A goal of 'save 50,000 rubles' triggers no emotion, but a progress bar with a photo of the desired item does. Apps where users can see a goal is 63% filled outperform those that show only a remaining balance. It changes behavior: users start adding money to the goal manually even when automation is already doing it for them.",
+				"minus": ""
+			},
+			{
+				"title": "users with ADHD and impulsive spending habits are a distinct segment with specific interface needs",
+				"plus": "Users who describe themselves as having ADHD or financial anxiety specifically highlight apps that show one main number and keep the screen count low. A complex category setup or the need to explore features kills the habit before it forms. For this audience, speed of first launch and the absence of unnecessary decisions matters more than analytical depth.",
+				"minus": ""
+			},
+			{
+				"title": "a one-time purchase instead of a subscription is a standalone product argument for a budgeting app",
+				"plus": "In the personal finance app category, users react particularly strongly against subscriptions: it feels absurd to pay monthly for a tool that is supposed to save money. Apps with a one-time price receive grateful reviews specifically for that model, and users treat it as a sign of respect. Switching from a one-time fee to a subscription reliably triggers a wave of negative reviews and churn among loyal users.",
+				"minus": ""
+			},
+			{
+				"title": "auto-detection of forgotten recurring charges delivers instant value at first launch",
+				"plus": "Users often do not know the full list of their recurring charges: streaming services, apps, and insurance plans accumulate invisibly. An app that spots 'forgotten' subscriptions on the first bank connection and surfaces exact amounts creates an immediate wow moment and real savings. This is one of the rare scenarios where the value of the tool is clear before the user has spent any time on setup.",
+				"minus": ""
+			},
+			{
+				"title": "an app people use for years is built on data reliability, not on features",
+				"plus": "The most loyal users in the dataset, those who have tracked expenses for five, seven, or ten years straight, almost never mention specific features as the reason they stay. They stay because their data is intact, the app opens today the same way it did three years ago, and the developer answered a question. Any update that breaks history or familiar gestures feels like a betrayal and triggers departures even among the most dedicated users.",
 				"minus": ""
 			}
 		],

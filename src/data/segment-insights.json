@@ -37168,1159 +37168,573 @@
 	"personal-finance": {
 		"slug": "personal-finance",
 		"lead": "",
-		"asOf": "2026-06-14",
-		"appsCount": 10,
-		"reviewsScanned": 5000,
+		"asOf": "2026-06-27",
+		"appsCount": 92,
+		"reviewsScanned": 32414,
 		"items": [
 			{
-				"id": "pf-plaid-sync-breaks",
+				"id": "pfin-ultra-0",
 				"theme": "strategy",
-				"title": "Автосинхронизация с банком нужна ради скорости, но ручной ввод надёжнее — и честнее",
-				"body": "Когда связка с банком плодит дубли и теряет транзакции, люди возвращаются к ручному вводу — и обнаруживают, что сам акт записи ценнее скорости. Продукт, который сделает ручной ввод быстрейшим в категории и автосинхронизацию лишь страховкой, выигрывает у тех, кто ставит автоматизацию в центр.",
+				"title": "ручной ввод каждой траты создаёт осознанность, которую автоматизация не даёт",
+				"body": "Пользователи, которые переходили с банковской синхронизации на ручной ввод, описывают это как разворот: впервые за годы они видят, куда уходят деньги, потому что сами фиксируют каждую покупку. Осознанность возникает не из отчёта. она возникает в момент ввода, когда нужно выбрать категорию и признать трату. Именно поэтому часть пользователей намеренно выбирает приложение без синхронизации, хотя технически могли бы подключить банк.",
 				"apps": [
-					"YNAB",
+					"Spending Tracker",
+					"Money Manager Expense & Budget",
+					"Monefy: Money Tracker",
+					"iSpending - Expense Tracker"
+				],
+				"observationCount": 38,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "This was the first budget app i ever downloaded. I continued to explore other apps with all the extra features like bank syncing, templates, receipt stores etc etc, and honestly I'm so appreciative that this app has stayed true to its simple manual entry roots. The manual entry is actually the point.",
+						"app": "Spending Tracker"
+					},
+					{
+						"rating": 4,
+						"date": "",
+						"reviewId": "",
+						"quote": "I honestly thought I knew my spending habits, but this app kept me honest! I can visually see where I'm being excessive and really tackle it to make a successful budget.",
+						"app": "Money Manager Expense & Budget"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I have been using this for a few months now and it's perfect. It keeps me accountable too. I have to look at my bank account everyday and I put in my items everyday. I see when it goes from green to red and it's helped me see patterns that I never even thought about.",
+						"app": "Monefy: Money Tracker"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-1",
+				"theme": "strategy",
+				"title": "вопрос «сколько можно потратить сегодня» важнее месячного остатка",
+				"body": "Месячный бюджет абстрактен: пользователи, особенно с фиксированным доходом, тратят всё в начале месяца и остаются без денег к концу. Единственная цифра «доступно сегодня». делением свободного остатка на дни месяца. меняет поведение немедленно и без сложной настройки. Это позволяет людям, которые годами не могли придерживаться бюджета, наконец-то это сделать.",
+				"apps": [
+					"Daily Budget Original",
+					"Today's Budget: Saving is fun!",
+					"Pennies: Budget & Bill Tracker",
+					"Weekly: Budget Planner & Bills"
+				],
+				"observationCount": 31,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "This app lets you input all of your recurring bills and expenses and how much you want to save and then divides the remainder up by the number of days in the month - then you get that amount each day like an allowance. If you don't spend it all, it rolls over to the next day. It's simple, effective, and actually works.",
+						"app": "Daily Budget Original"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I love this app! I got it a few months ago (I went all-in with the one-time purchase), and it has made it unbelievably better and easier to track my spending and create realistic savings goals. I feel like I have a much better understanding of where my money is going.",
+						"app": "Today's Budget: Saving is fun!"
+					},
+					{
+						"rating": 3,
+						"date": "",
+						"reviewId": "",
+						"quote": "I don’t understand what calculation formula they use to get daily expenses, because from what I can see it always comes out wrong. This is important to me because I don’t want to spend over my budget just because the app miscalculated it. J",
+						"app": "Daily Budget Original"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-2",
+				"theme": "strategy",
+				"title": "недельный ритм бюджета подходит тем, кому месяц слишком размытый горизонт",
+				"body": "Значительная часть пользователей получает зарплату еженедельно или раз в две недели, и месячный бюджет им не подходит: к концу второй недели непонятно, нормально ли тратить или уже нет. Деление свободных средств на недели вместо месяцев даёт ощущение управляемости и позволяет заметить перерасход до того, как он стал катастрофой. Пользователи, перешедшие с месячного на недельный ритм, описывают это как принципиальное открытие.",
+				"apps": [
+					"Weekly: Budget Planner & Bills",
+					"Fudget: Monthly Budget Planner"
+				],
+				"observationCount": 18,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I was a monthly budgeter and always thought that a Weekly budget wouldn't make sense for me because I couldn't get past thinking in terms of expenses by month. But this app has converted me to a Weekly budgeter! If you are someone who loves math like me and wants to see if your spending is on-track in real-time, this app is perfect.",
+						"app": "Weekly: Budget Planner & Bills"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I can't stop telling people about this budgeting app - the reviews are true! The philosophy behind Weekly makes a ton of sense by splitting income and expenses into weekly chunks (hence the name, duh).",
+						"app": "Weekly: Budget Planner & Bills"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I intentionally waited several months before writing a review in order to ensure I really used the app (or not). I've tried various budgeting apps over the years, including Mint, Quicken, MS Money, Excel, etc., and they all have one thing in common: I stopped using them.",
+						"app": "Weekly: Budget Planner & Bills"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-3",
+				"theme": "strategy",
+				"title": "банковская синхронизация ломается и подрывает доверие к числам в приложении",
+				"body": "Во всех приложениях с автоматической подгрузкой транзакций через Plaid или аналоги пользователи регулярно сталкиваются с задвоенными записями, пропущенными транзакциями или разрывами связи на несколько дней. После первого серьёзного сбоя пользователь перестаёт верить балансу в приложении и начинает проверять банк отдельно, сводя на нет ценность агрегатора. Именно поэтому часть аудитории принципиально выбирает ручной ввод даже при наличии технической возможности подключить банк.",
+				"apps": [
+					"Monarch: Budget & Track Money",
+					"Copilot: Track & Budget Money",
+					"Toshl Finance - Best Budget",
+					"Weekly: Budget Planner & Bills"
+				],
+				"observationCount": 44,
+				"evidence": [
+					{
+						"rating": 1,
+						"date": "",
+						"reviewId": "",
+						"quote": "The CoPilot app itself is solid. The interface is intuitive, the budgeting tools are thoughtfully designed, and the categorization engine is one of the few that actually learns user behavior instead of making a mess after every single transaction.",
+						"app": "Copilot: Track & Budget Money"
+					},
+					{
+						"rating": 1,
+						"date": "",
+						"reviewId": "",
+						"quote": "I started using Monarch in January. I didn't use every feature, but I did use the budget and the goals feature. I just wanted to make sure I understood what was going in and coming out of my account. It worked great for me. It helped me feel more in control.",
+						"app": "Monarch: Budget & Track Money"
+					},
+					{
+						"rating": 1,
+						"date": "",
+						"reviewId": "",
+						"quote": "I happily used toshl for years. It had a simple, cute interface, and allowed me to quickly enter transactions in real-time right after I made purchases. There were no problems with it. This app is not toshl, it is something different.",
+						"app": "Toshl Finance - Best Budget"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-4",
+				"theme": "strategy",
+				"title": "история транзакций за годы. главный актив, который держит пользователя в приложении",
+				"body": "Пользователи, ведущие учёт три года и больше, описывают накопленную историю как актив, ради которого они не готовы переходить на другое приложение. Годовые сравнения, понимание сезонных паттернов, возможность найти транзакцию двухлетней давности. всё это невозможно воссоздать после миграции. Разработчики, которые удаляют историю при обновлении или не дают возможности экспорта, теряют самых лояльных пользователей первыми.",
+				"apps": [
+					"XpenseTracker",
+					"Fudget: Monthly Budget Planner",
+					"Coins - Spending Tracker",
+					"Pocket Expense 6"
+				],
+				"observationCount": 26,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I generally forget to write reviews. Regardless how great or terrible an app is- I don't take the time to write one. But after telling a dozen people over the last few months to get this app- and after seeing that I have tracked 13,000 in business expenses so far this year.",
+						"app": "XpenseTracker"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I've been using this app for over ten years, and it continues to impress me. It's simple, intuitive, and incredibly powerful—everything you need for personal budgeting, all in one place. Whether you're tracking daily expenses, planning monthly budgets, or reviewing past spending, it handles everything seamlessly.",
+						"app": "Coins - Spending Tracker"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I have been using FUDGET app for last 6 years on a daily basis and I cannot thank enough to Danny, the developer for creating it. Many many years ago, I would keep my finances organized in Excel, but it would take so much time.",
+						"app": "Fudget: Monthly Budget Planner"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-5",
+				"theme": "strategy",
+				"title": "отказ от банковской синхронизации воспринимается как защита приватности, а не как ограничение",
+				"body": "Значительная часть пользователей выбирает приложения без доступа к банку именно потому, что не хочет давать третьим сторонам логины и пароли от финансовых аккаунтов. Для них «не подключается к банку». это заголовок продуктового преимущества, а не пункт в списке недостатков. Особенно устойчива эта позиция у людей, которые уже пробовали синхронизацию и разочаровались в её надёжности.",
+				"apps": [
+					"Spending Tracker",
+					"Today's Budget: Saving is fun!",
+					"Envy: Envelope Budget Planner",
+					"iSpending - Expense Tracker"
+				],
+				"observationCount": 29,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I track everything (it is an obsession I don't mind) and was using Quicken for years but Quicken needs to have you share all banking/investment & credit cards passwords and user names in order to use their services and see where your transactions are going.",
+						"app": "Spending Tracker"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "This app is exactly what my husband and I needed to get our spending under control. I love that it DOES NOT sync to your bank accounts which inevitably results in mistakes when purchases are mis-categorized. I love that it forces me to be intentional.",
+						"app": "Today's Budget: Saving is fun!"
+					},
+					{
+						"rating": 3,
+						"date": "",
+						"reviewId": "",
+						"quote": "I am looking for a budget app and came across Envy. It didn't have a lot of reviews, but I decided to try it anyway. I was pleasantly surprised. What I really liked: - privacy (no information collected!!) - price (one time purchase)",
+						"app": "Envy: Envelope Budget Planner"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-6",
+				"theme": "strategy",
+				"title": "конвертная система делает распределение денег осязаемым и понятным парам",
+				"body": "Концепция конвертов. выделить деньги заранее и тратить только из конверта. работает для людей, которым трудно удерживать бюджет на абстрактных числах. Физическая метафора понятна без обучения, особенно тем, кто вырос на наличных. Для пар конверты решают проблему общего языка: оба партнёра видят одни и те же «наличные», не споря о категориях.",
+				"apps": [
+					"Goodbudget Budget Planner",
 					"EveryDollar: Budget Management",
-					"Monarch: Budget & Track Money",
-					"NerdWallet: Smart Money App"
+					"Expense Keep: Envelope Budget",
+					"Envy: Envelope Budget Planner"
 				],
-				"observationCount": 153,
+				"observationCount": 33,
 				"evidence": [
 					{
 						"rating": 5,
-						"date": "2025-10-21",
-						"reviewId": "13298091418",
-						"quote": "The most frustrating thing is having to wait for syncing with your bank. Other budgeting apps allow you to force a refresh, but with YNAB you are at the mercy of their syncing schedule, which can take up to 3 days. I understand you can manually enter transactions, but with a large family, it would be a full-time job…",
-						"app": "YNAB"
+						"date": "",
+						"reviewId": "",
+						"quote": "My wife and I struggled for years seeking the best way to communicate our budget. I manage the accounts, she does most of the spending. We don't like cash because so much is spent online, and cards are just more convenient. Without cash envelopes we needed a digital equivalent.",
+						"app": "Goodbudget Budget Planner"
 					},
 					{
-						"rating": 4,
-						"date": "2026-05-20",
-						"reviewId": "14085323678",
-						"quote": "I’d leave 5 stars, but every 1-2 months, I get like 50-100 DUPLICATE TRANSACTIONS that I then have to manually delete, 1 by 1.",
-						"app": "EveryDollar: Budget Management"
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I have been using Good Budget for over 4 years. I first downloaded it and started using it a tiny bit before that, when it was still called EEBA (Easy Envelope Budget Assistant), but I didn't fully commit to using it until after I went through a financial coaching program.",
+						"app": "Goodbudget Budget Planner"
 					},
 					{
-						"rating": 4,
-						"date": "2025-12-14",
-						"reviewId": "13514017971",
-						"quote": "The app is pulling in both the pending transaction and the finalized transaction making it so that many of my costs are double counting.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 3,
-						"date": "2026-04-02",
-						"reviewId": "13916717846",
-						"quote": "Also only gets half my vanguard transactions, so no point in having those linked, seems like that has been an issue for over 5 years from what I could find online.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 3,
-						"date": "2025-10-04",
-						"reviewId": "13221805939",
-						"quote": "Citi Costco Visa cards haven't been working for a year. They worked fine on Copilot and Empower (formerly Personal Capital). Support has tried to change around the sync providers to no avail",
-						"app": "YNAB"
-					},
-					{
-						"rating": 2,
-						"date": "2025-11-01",
-						"reviewId": "13343325903",
-						"quote": "When it connects using the third part app, Plaid, it imports duplicate transactions. Now i have to manually go through every transaction and remove the duplicate.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 2,
-						"date": "2025-10-12",
-						"reviewId": "13258843024",
-						"quote": "Set this up side-by-side with a couple other personal finance and budgeting apps, and Every Dollar was a few cents short.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 2,
-						"date": "2025-12-08",
-						"reviewId": "13491487941",
-						"quote": "It was reasonably good at downloading our transactions from US based accounts but because my wife and I have a cross border business, it was not able to capture anything in Canada.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 2,
-						"date": "2026-03-20",
-						"reviewId": "13868515748",
-						"quote": "Really well made, but since this is something I really use it cannot keep track of it",
-						"app": "YNAB"
-					},
-					{
-						"rating": 2,
-						"date": "2026-02-11",
-						"reviewId": "13739470675",
-						"quote": "Unfortunate YNAB doesn't support Fidelity. A recent article on YNAB's site indicates a timeframe of 'unknown' for support to be provided.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-12",
-						"reviewId": "14057304631",
-						"quote": "my main bank account had syncing issues. Upon contacting support I was told there was \"nothing they could do to fix the issue\" and to \"manually import my transactions from then on\"",
-						"app": "YNAB"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-16",
-						"reviewId": "13963312041",
-						"quote": "for about half the time I've been paying for this app (4 months) my bank account activity would take over a week to update. But for weeks now, YNAB will not even connect to my bank account.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 1,
-						"date": "2025-12-05",
-						"reviewId": "13479052953",
-						"quote": "YNAB regularly takes 3-4 days to import credit card transactions. Sometimes they don't show up. Sometimes restaurant transactions are missing tips. Sometimes there are duplicates",
-						"app": "YNAB"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-27",
-						"reviewId": "14004288597",
-						"quote": "All customer support tells you to do is switch to Plaid, then back to Mastercard Connect, then back to Plaid.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-29",
-						"reviewId": "13901590370",
-						"quote": "We have a subscription to the app and have to reconnect it every time we open the app. This app makes it easier to track finances but it's not worth it having to reconnect it every time.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-27",
-						"reviewId": "13893052602",
-						"quote": "Foreign Transactions sometimes don't appear for a day or two. Meaning the app is not an up to date representation of my money.",
-						"app": "EveryDollar: Budget Management"
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I’ve left maybe one other app review in my life but this one’s a necessary to review. I’ve used this app on and off for about two years but due to over spending during the holidays, I’ve made it my New Years resolution to keep track on a da",
+						"app": "Expense Keep: Envelope Budget"
 					}
 				]
 			},
 			{
-				"id": "pf-subscription-before-service",
+				"id": "pfin-ultra-7",
 				"theme": "strategy",
-				"title": "Люди должны почувствовать результат, прежде чем их о чём-то просят",
-				"body": "Пользователи легко остаются на расширенном режиме, когда чётко видят, что именно они получили до перехода. Момент первого осознанного контроля над бюджетом — «ага, вот куда уходит» — это и есть точка, в которой человек готов сделать следующий шаг; всё что было раньше этой точки, воспринимается как обязательство без оснований.",
+				"title": "совместное ведение бюджета парой. отдельный сценарий, который большинство приложений игнорирует",
+				"body": "Пары, управляющие общими финансами, сталкиваются с тем, что большинство приложений проектировались под одного пользователя: нет раздельных видов для личных и общих счетов, нет уведомлений о тратах партнёра в реальном времени, нет удобной точки входа для двух людей с разными телефонами. Те пары, которые находят работающее решение, остаются в нём надолго. потому что переезжать вдвоём слишком трудно.",
 				"apps": [
-					"Albert: Budgeting and Banking",
-					"Credit Genie: Get Cash Advance",
-					"Lenme: Investing and Borrowing",
-					"FloatMe: Fast Cash Advance App",
-					"Monarch: Budget & Track Money",
-					"YNAB"
+					"Goodbudget Budget Planner",
+					"Honeydue: Couples Finance",
+					"HomeBudget with Sync",
+					"Spending Tracker"
 				],
-				"observationCount": 139,
+				"observationCount": 21,
 				"evidence": [
 					{
 						"rating": 5,
-						"date": "2026-03-13",
-						"reviewId": "13845034947",
-						"quote": "Was paying $4.99 per month for many months and had no idea what it was for. To my surprise I could receive a cash boost. Con is that the fee is increasing to $14.99 instead of $4.99 per month 🙄 I will read more about Credit Genie to determine if it actually helps boost your credit score.",
-						"app": "Credit Genie: Get Cash Advance"
+						"date": "",
+						"reviewId": "",
+						"quote": "Been using Honeydue for a little over two years now - SO valuable for my wife and I to manage our spending and budget. I tried all of the other apps and this one works best for us. Here's how we use it: we have all of our accounts linked, and every time either of us makes a purchase it shows up in real time.",
+						"app": "Honeydue: Couples Finance"
 					},
 					{
 						"rating": 5,
-						"date": "2026-05-21",
-						"reviewId": "14089228574",
-						"quote": "I had made an account with all my information subscribed to a reoccurring subscription then they deleted my account with my reoccurring subscription now I can't login nor can I cancel it",
-						"app": "Credit Genie: Get Cash Advance",
-						"quoteRu": "Я создал аккаунт со всеми своими данными, оформил повторяющуюся подписку, а потом они удалили мой аккаунт вместе с подпиской — теперь я не могу ни войти, ни отменить её."
+						"date": "",
+						"reviewId": "",
+						"quote": "Seriously. This app saved my marriage. No, I'm not BSing you. Aimee and I have always been on a crusade to save the economy by dumping all our cash into it. But now we are trying to save up for a baby, get our credit repaired, and basically get our financial house in order.",
+						"app": "HomeBudget with Sync"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "Before this app my wife and I weren't budget people. Since downloading Spending Tracker almost three years ago, we've completely transformed the way we handle our money for the better.",
+						"app": "Spending Tracker"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-8",
+				"theme": "strategy",
+				"title": "прогноз остатка на будущую дату. мало кто делает это хорошо, а спрос огромный",
+				"body": "Пользователи хотят не просто видеть текущий баланс, а знать: хватит ли денег до зарплаты, учитывая уже запланированные платежи. Это требует ввода будущих обязательств и расчёта дня, когда баланс уйдёт в минус. Приложения, реализующие эту механику через календарный вид, получают фанатичную аудиторию. потому что конкурентов почти нет.",
+				"apps": [
+					"Dollarbird - Budget Calendar",
+					"Debit & Credit",
+					"Money Pro: Personal Finance AR"
+				],
+				"observationCount": 19,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I discovered Dollarbird about three or four years ago. I echo another user's comments I can't understand why more people don't use this app. I have used them all. Most track budgets - as this app does as well - but the calendar cash flow view shows you what your balance will be on any future date.",
+						"app": "Dollarbird - Budget Calendar"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I have been using this app for over a year now, as my previous ledger was no longer supported on the newer versions of iOS. What a bummer. An app you've used daily for years is suddenly gone from your life. I was forced into finding a new one.",
+						"app": "Debit & Credit"
 					},
 					{
 						"rating": 4,
-						"date": "2026-05-04",
-						"reviewId": "14029532830",
-						"quote": "This app will continuously try to take money from your account account",
-						"app": "Lenme: Investing and Borrowing"
-					},
-					{
-						"rating": 3,
-						"date": "2026-05-17",
-						"reviewId": "db8888e8-c5b6-471e-8753-2dbfc537ae54",
-						"quote": "Try to bill me $212 on my debit card with out asking and price suppose to be $12.00 monthly.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 3,
-						"date": "2026-04-02",
-						"reviewId": "d9a7e317-a563-41d8-87e2-a0af92406441",
-						"quote": "i canceled it today which is the 2nd and it says that I wont be charged «again» after the 3rd",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-03",
-						"reviewId": "14138512697",
-						"quote": "I was charged fees when I didn't even have the app and never reactivated the account.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-01",
-						"reviewId": "14133748802",
-						"quote": "I opened an account with this app and so I can test the free trail and afterward I canceled but never fully canceled and then they started charging me 10$ everything month then it shot up to 20$ a month and won't even let me cancel in the app and my bank doesn't give me an opinion to report it .",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-31",
-						"reviewId": "14128318613",
-						"quote": "I deleted the app. The next month I was charged the membership and deleting your account doesn't cancel your membership.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-28",
-						"reviewId": "14115264723",
-						"quote": "Canceled subscription and service and still being charged. Their app makes it extremely difficult to try and find where to navigate to in order to cancel. I was able to figure it out but was still charged a fee this month.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-04",
-						"reviewId": "14143137999",
-						"quote": "Was using Albert for the cash advance, chose to pay nothing every month, they say I activated a membership, charged me, and are very rude and unhelpful via email when this problem was brought to their attention",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-04",
-						"reviewId": "14143116147",
-						"quote": "An account was created and it used my card info. After explaining to them several times that I never had an account recently and that I want my refund from how much they too. They told me they wouldn't give me a refund and that they can only close the account.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-01",
-						"reviewId": "14133952731",
-						"quote": "This app will randomly charge you for subscriptions you don't even mean to sign up for.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-01",
-						"reviewId": "14133835680",
-						"quote": "Idk how it’s legal you can subscribe with one click and no confirmation an then have to fight forever to un sub.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-03",
-						"reviewId": "14026025429",
-						"quote": "App hasn't worked in weeks-  you talk to support, they're working on it which is cool- but you're still charging people for an app that's broken… asked about why I was still getting charged because you can't use the app -and it seemed like I had said something crazy. Today- charged another 9.99 for an app you literally can't use.",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-01",
-						"reviewId": "14017210476",
-						"quote": "i did a subscription just so i can get a advance i never got one and i cancelled my subscription but they are still taking money out of my account i been told them to stop !!! where is my refund ???",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-29",
-						"reviewId": "14008559721",
-						"quote": "Will charge you every month and tell you your not eligible. Never get approved or not available in your state after getting previous advances. Why take my money and I don’t get access to your app benefits.",
-						"app": "Credit Genie: Get Cash Advance"
+						"date": "",
+						"reviewId": "",
+						"quote": "Dollarbird is my favorite app for budgeting forecasts and keeping track of my balances and expenses. It's so easy to set up re-occurring payments and income, while also being easy to change.",
+						"app": "Dollarbird - Budget Calendar"
 					}
 				]
 			},
 			{
-				"id": "pf-cancel-impossible",
+				"id": "pfin-ultra-9",
 				"theme": "strategy",
-				"title": "Прозрачный выход из продукта удерживает лояльных и отсекает тех, кто ошибся дверью",
-				"body": "Пользователи, которым легко уйти, реже уходят: они знают, что остаются по выбору, а не по ловушке. Те, кого удерживают насильно, уходят к конкурентам и помечают приложение как мошеннический в отзывах — и именно их голос видят люди, которые ещё только выбирают.",
+				"title": "игровая механика удерживает привычку ввода там, где скука убивает её",
+				"body": "Ручной ввод. скучный ритуал, который большинство пользователей бросают через несколько недель. Игровые приложения, где каждая запись строит дом в виртуальном городе или разблокирует новый объект, переформатируют скучный ввод в желанное действие. Страх пропустить новое здание работает как напоминание, которое пользователь сам хочет получать.",
 				"apps": [
-					"Albert: Budgeting and Banking",
-					"Credit Genie: Get Cash Advance",
-					"Grant Cash Advance",
-					"Monarch: Budget & Track Money",
-					"FloatMe: Fast Cash Advance App",
-					"NerdWallet: Smart Money App"
+					"Fortune City: Expense Tracker",
+					"Money+ Cute Expense Tracker"
 				],
-				"observationCount": 86,
+				"observationCount": 16,
 				"evidence": [
 					{
-						"rating": 2,
-						"date": "2024-10-15",
-						"reviewId": "11837153391",
-						"quote": "You are unable to change your email address on here.",
-						"app": "NerdWallet: Smart Money App"
+						"rating": 4,
+						"date": "",
+						"reviewId": "",
+						"quote": "Developers, please read this review from a normal and reasonable adult user. It's tedious to manually input expenses, but it's important because it forces you to be mindful about your spending. The point of the app is to make tracking expenses a habit, and the game mechanic does exactly that.",
+						"app": "Fortune City: Expense Tracker"
 					},
 					{
-						"rating": 1,
-						"date": "2026-06-04",
-						"reviewId": "14144408960",
-						"quote": "I'm texting Albert to cancel my subscription and they just word salad you into quitting the cancellation process.",
-						"app": "Albert: Budgeting and Banking"
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I LOVE this app and so will you. No exceptions. Sorry, I don't make the rules. The aesthetic of the app makes me much more willing (eager, even) to use it to keep track of my expenses. 10/10 would recommend.",
+						"app": "Money+ Cute Expense Tracker"
 					},
 					{
-						"rating": 1,
-						"date": "2026-05-30",
-						"reviewId": "14122782461",
-						"quote": "Misleading on subscriptions and etc . The way you have to navigate in the app it traps into signing up for things or makes it entirely difficult to cxl",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-20",
-						"reviewId": "14086969779",
-						"quote": "If you try to cancel it sends you through a dozen screens where they move the buttons around the screen and change colors to intentionally confuse you. On one screen you check a box, then the next you have to agree to something, then disagree to the next, then slide a switch. It reminds me of being on an old virus r…",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-07",
-						"reviewId": "14037727371",
-						"quote": "Trying to cancel it was an act of god. Ask so many questions and you need to make sure you tell it to permanently close the account or it will continue to access your data.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-05",
-						"reviewId": "14147355525",
-						"quote": "I had tried to close this account for months. It makes you withdrawal funds before you can close. Well it has to be over $10 FYI. Then I gave me an error message for months! And continued to charge me $19.99 for an app I was trying to get rid of. Finally got it closed requested a refund considering I had been trying…",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-05",
-						"reviewId": "14147028006",
-						"quote": "This app is a prison designed to never let you escape! Thinking about ever closing your account? The hoops they try to make you jump through in order do that are never ending. Sneaky fees and charges? You got that too! I’d recommend rocket money honestly because this is some straight bs, at least when i canceled my…",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-03",
-						"reviewId": "14140229597",
-						"quote": "The app will not let me close my account and continues to charge me $20 a month for no reason. I asked for a refund and they will not give it to me. All they do is send me a link to close my account and whenever I try to close my account, it will not let me. This is not ok.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-01",
-						"reviewId": "14130734063",
-						"quote": "won't let me deactivate account or withdraw the money.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-02",
-						"reviewId": "14137712154",
-						"quote": "They won't let you cancel unless you have a $0 balance and they these 1-2 cents to keep you in the cycle.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-01",
-						"reviewId": "14130248831",
-						"quote": "For example when I try to close it three times they said I had accumulated $.40 in my account and that I could not close the account unless the $.40 was with my personal bank account so I did that when I tried to close the account it says hold on your account balance has to be zero and it was a zero balance.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-05",
-						"reviewId": "14032386953",
-						"quote": "I have to have a zero balance to cancel, but can't withdraw less than $20",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-26",
-						"reviewId": "14000402804",
-						"quote": "If you add money to an Albert savings account, kiss it all goodbye. They make it almost impossible for you to get it out of the Albert account.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-10",
-						"reviewId": "13944672906",
-						"quote": "Been using this app for a while now and all of a sudden it quit working (loading the app) and imagine that can't get ahold of anyone to cancel my subscription. Can't do it in the app cause nothing loads!",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-01",
-						"reviewId": "13909920770",
-						"quote": "I've tried to leave this program multiple times and I'm still getting charged a monthly fee. Customer support is not helpful... As told to go to settings I have tried and it's not an option",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-17",
-						"reviewId": "13859443413",
-						"quote": "CAN NOT DEACTIVATE MY ACCOUNT AND THEN YOU EMAIL THE \"SUPPORT TEAM\" and they give you automated responses. So you can't deactivate your account and they sure keep taking 5 dollars for a account that shouldn't be active",
-						"app": "Credit Genie: Get Cash Advance"
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "For years I have been trying multiple budgeting apps that would not only help me manage my budget consistently but would keep me organized. I have used YNAB, multiple excel spreadsheets, the budget mom workbooks, workbooks from financial influencers—and nothing stuck. This app finally made it stick.",
+						"app": "Money+ Cute Expense Tracker"
 					}
 				]
 			},
 			{
-				"id": "pf-features-removed-post-update",
+				"id": "pfin-ultra-10",
 				"theme": "strategy",
-				"title": "Накопленный рабочий процесс пользователя — это актив продукта, его нельзя сносить обновлением",
-				"body": "Пользователи, ведущие бюджет годами, строят вокруг конкретных экранов ежедневные ритуалы: привычный маршрут «открыл - добавил трату - увидел остаток». Убрать этот маршрут в обновлении — значит сломать привычку, которая и есть единственная причина возвращаться каждый день.",
+				"title": "автосбережение через триггеры снимает барьер «забыл отложить»",
+				"body": "Правила типа «округли каждую покупку до доллара и отложи разницу» или «каждый вторник переводи фиксированную сумму» позволяют пользователям, которые никогда не умели откладывать, накопить на отпуск или подушку безопасности без сознательного усилия. Ключевая механика. деньги перемещаются до того, как пользователь успевает их потратить. Люди с СДВГ особо выделяют этот паттерн как единственный способ, который у них сработал.",
 				"apps": [
-					"NerdWallet: Smart Money App",
-					"YNAB",
-					"Monarch: Budget & Track Money"
+					"Qapital: The Money Saving App",
+					"Oportun: Savings & Loans"
 				],
-				"observationCount": 114,
+				"observationCount": 22,
+				"evidence": [
+					{
+						"rating": 4,
+						"date": "",
+						"reviewId": "",
+						"quote": "I have had this app for about a year and I love it so much, I have always struggled to put money aside the adhd had me spending more money if I made more money so no matter what I was living paycheck to paycheck. I love that I can set different goals and rules for how money gets moved.",
+						"app": "Qapital: The Money Saving App"
+					},
+					{
+						"rating": 3,
+						"date": "",
+						"reviewId": "",
+						"quote": "Edit: I’ve used this company even before the name change. It’s more a pain to use now. It doesn’t update your banking info from your bank often enough so even on boost savings, nothing gets moved from your banking account. It will keep an o",
+						"app": "Oportun: Savings & Loans"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "Qapital is a great app that makes saving money more of a visual experience for people like myself that are visual learners and used to compiling money in piggy banks and various envelopes when saving.",
+						"app": "Qapital: The Money Saving App"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-11",
+				"theme": "strategy",
+				"title": "визуальные цели превращают абстрактную сумму в эмоциональный прогресс",
+				"body": "Цель «накопить 50 000 рублей» не вызывает эмоции, но прогресс-бар с фотографией желанной вещи. вызывает. Приложения, где пользователь видит, что цель заполнена на 63%, работают лучше тех, которые показывают просто число остатка. Это меняет поведение: пользователи начинают добавлять деньги к цели вручную, даже когда автоматика уже работает.",
+				"apps": [
+					"Qapital: The Money Saving App",
+					"Oportun: Savings & Loans",
+					"MoneyCoach: Budget Planner"
+				],
+				"observationCount": 17,
 				"evidence": [
 					{
 						"rating": 5,
-						"date": "2025-08-09",
-						"reviewId": "12997839861",
-						"quote": "Its been so helpful with tracking my expenses and taking note of increases/decreases across different standard monthly expenses. This was the feature that made me keep you guys as a budgeting and financial health tracking tool. I've encouraged friends to get NerdWallet",
-						"app": "NerdWallet: Smart Money App"
+						"date": "",
+						"reviewId": "",
+						"quote": "I've had this app and have used it continuously for several years. I use this for savings. I have several goals set, each with their own target savings goals and savings frequency. I have found this app has profoundly helped me step up my savings game.",
+						"app": "Oportun: Savings & Loans"
 					},
 					{
 						"rating": 5,
-						"date": "2025-09-20",
-						"reviewId": "13162117589",
-						"quote": "I want to open up the app straight to my transactions page. 99 times out of 100 that's what I open the app to do. I see absolutely no use for the new home page",
-						"app": "YNAB",
-						"quoteRu": "Я хочу, чтобы приложение открывалось сразу на странице транзакций. В 99 случаях из 100 я именно ради этого его и открываю. Новая домашняя страница мне совершенно ни к чему."
+						"date": "",
+						"reviewId": "",
+						"quote": "I heard about this app on a business entrepreneur podcast. A professor discussed how lower income people can take control of their finances in a society that extorts individuals by aggressively promoting spending. She spoke about Qapital being an equalizer for those who feel they cannot save.",
+						"app": "Qapital: The Money Saving App"
 					},
 					{
 						"rating": 5,
-						"date": "2025-10-15",
-						"reviewId": "13270108797",
-						"quote": "Good grief. Why did you guys try to fix something that wasn't broken? It used to be so easy to see at a glance how much was in each category of my spending plan. How much I had spent to date in each category. But this morning I opened up the app and could not make sense of what I was seeing",
-						"app": "YNAB"
+						"date": "",
+						"reviewId": "",
+						"quote": "I've tried multiple spending tracker apps over the past 5 years and Money Coach is the only one that helped me stick to a routine. I was having a hard time saving money. I felt like my cash was just disappearing but I wasn't making huge purchases.",
+						"app": "MoneyCoach: Budget Planner"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-12",
+				"theme": "strategy",
+				"title": "люди с СДВГ и импульсивными тратами. отдельный сегмент с особыми требованиями к интерфейсу",
+				"body": "Пользователи, описывающие себя как людей с СДВГ или тревожностью вокруг денег, особо выделяют приложения с одной главной цифрой и минимальным количеством экранов. Сложная настройка категорий или необходимость разбираться в функциях убивает привычку до её формирования. Для этой аудитории скорость первого запуска и отсутствие лишних решений важнее, чем полнота аналитики.",
+				"apps": [
+					"Easy Budget Money Tracker Zeny",
+					"Daily Budget Original",
+					"Today's Budget: Saving is fun!",
+					"Qapital: The Money Saving App"
+				],
+				"observationCount": 24,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "I have an adhd brain and I wanted to track expenses. I have a budget that works for me but just wanna see during the weeks how much I have left in each of my spending categories by tracking spending. Enter in Zeny — THIS APP IS AMAZING.",
+						"app": "Easy Budget Money Tracker Zeny"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "It was unusually difficult to find a budgeting method that didn't require an online account or - at the other end of the spectrum - required me to basically be my own accountant in the worst way. This is the best mix of detail, privacy, and simplicity I've found.",
+						"app": "Daily Budget Original"
 					},
 					{
 						"rating": 4,
-						"date": "2024-09-13",
-						"reviewId": "11722022058",
-						"quote": "Lots of features, functions well… However, there are lots of paywalls.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 3,
-						"date": "2025-05-11",
-						"reviewId": "12645086186",
-						"quote": "The categories are a bit limited, the weekly insight after a while becomes very repetitive.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 3,
-						"date": "2025-09-25",
-						"reviewId": "13185323507",
-						"quote": "Not having the 'Add Transaction' button in the main nav is a brutal change. It's the number one reason you visit the app",
-						"app": "YNAB"
-					},
-					{
-						"rating": 2,
-						"date": "2025-10-07",
-						"reviewId": "13235899341",
-						"quote": "Not having the 'Add Transaction' button in the main nav is a brutal change. It's the number one reason you visit the app",
-						"app": "YNAB"
-					},
-					{
-						"rating": 2,
-						"date": "2025-09-21",
-						"reviewId": "13166211900",
-						"quote": "This last update made things like entering a transaction a pain, and requiring multiple swipes and taps instead of just a tap and having everything pop up like it used to.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 2,
-						"date": "2026-04-25",
-						"reviewId": "d3262019-8766-4727-bd70-73b7c5dcccc1",
-						"quote": "Unfortunately they have recently made the decision to separate some of our long standing requests into a new, more expensive tier, essentially breaking that core value proposition.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 2,
-						"date": "2026-04-22",
-						"reviewId": "d045244b-b52f-4624-a39b-9b0387f9837b",
-						"quote": "2 year user this is now a bait and switch app can't wait to see how many other features they hide behind there new 2 tier pay system. hey, they'll give you 77 days try they charge you 399. three hundred",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 1,
-						"date": "2025-11-01",
-						"reviewId": "13342854652",
-						"quote": "The 50/30/20 screen easily allowed you to track spending in different categories. The cash flow screen is not detailed in the same way. The most useful feature of this app is gone!",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2025-10-08",
-						"reviewId": "13242830254",
-						"quote": "Update: they got rid of the 50/30/20 tool which was the reason I downloaded the app over 2 years ago.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2025-09-19",
-						"reviewId": "13159270357",
-						"quote": "I downloaded this as a budget app— what’s the point if the 50/30/20 tracking feature is gone???",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2025-08-31",
-						"reviewId": "13084353062",
-						"quote": "I enjoy the net worth view because it's intuitive, but the whole reason why I used NerdWallet was just taken away in version 14 (budgeting by 50/30/20).",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2025-10-21",
-						"reviewId": "13294856343",
-						"quote": "removed subscription manager (or made it impossible to find), and the app is now riddled with advertisements...much my bank app doesn't already do",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2025-08-17",
-						"reviewId": "13028727988",
-						"quote": "you have 4 tab options now, 3 of which aren't even for tracking your expenses they are integrated pages solely to sell you something",
-						"app": "NerdWallet: Smart Money App"
+						"date": "",
+						"reviewId": "",
+						"quote": "I have had this app for about a year and I love it so much, I have always struggled to put money aside the adhd had me spending more money if I made more money so no matter what I was living paycheck to paycheck.",
+						"app": "Qapital: The Money Saving App"
 					}
 				]
 			},
 			{
-				"id": "pf-data-privacy-leakage",
+				"id": "pfin-ultra-13",
 				"theme": "strategy",
-				"title": "Финансовое приложение держат именно потому, что доверяют ему больше других — и это доверие хрупко",
-				"body": "Пользователи передают приложению самое чувствительное: счета, долги, привычки трат. Когда эти данные утекают к третьим сторонам, человек не просто уходит из приложения — он перестаёт доверять категории в целом. Открытая политика по данным и видимый контроль над тем, что куда идёт, снижают этот страх и напрямую влияют на выбор при первой установке.",
+				"title": "разовая оплата вместо подписки. самостоятельный продуктовый аргумент для приложения о бюджете",
+				"body": "В нише приложений для личных финансов пользователи особенно болезненно реагируют на подписку: им кажется нелепым платить ежемесячно за инструмент экономии. Приложения с разовой оплатой получают благодарные отзывы именно за эту модель. пользователи воспринимают её как знак уважения. Переход с разовой оплаты на подписку регулярно вызывает волну негатива и отток лояльных пользователей.",
 				"apps": [
-					"NerdWallet: Smart Money App",
-					"Lenme: Investing and Borrowing",
-					"FloatMe: Fast Cash Advance App",
-					"Albert: Budgeting and Banking",
-					"Monarch: Budget & Track Money"
+					"Daily Budget Original",
+					"Fudget: Monthly Budget Planner",
+					"Monefy: Money Tracker",
+					"Today's Budget: Saving is fun!"
+				],
+				"observationCount": 28,
+				"evidence": [
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "The thing I LOVE about this app is that the paid version is a ONE-TIME purchase and not a subscription. Thank you thank you thank you.",
+						"app": "Daily Budget Original"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "First off, ignore the negative comments, especially the 'money grab' comments. The developer has a right to fair pay for his work. I've had the Fudget classic for over 7 years, and made the change to this one.",
+						"app": "Fudget: Monthly Budget Planner"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "THIS APP IS AMAZING! I literally spent EIGHT HOURS trying to find a good budgeting app. There are SO MANY! And they all charge monthly, or they charge an insane amount of money. Which is fine when you're a stockbroker but I'm just a mom on one income.",
+						"app": "Monefy: Money Tracker"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-14",
+				"theme": "strategy",
+				"title": "автообнаружение забытых регулярных платежей. моментальная ценность при первом входе",
+				"body": "Пользователи часто не знают точного списка своих регулярных списаний: стриминги, приложения, страховки накапливаются незаметно. Приложение, которое с первого подключения банка находит «забытые» подписки и называет конкретные суммы, создаёт мгновенное вау-ощущение и немедленную экономию. Это один из немногих сценариев, где ценность инструмента видна раньше, чем пользователь успел потратить время на настройку.",
+				"apps": [
+					"Rocket Money - Bills & Budgets",
+					"Emma - Budget Planner Tracker"
+				],
+				"observationCount": 20,
+				"evidence": [
+					{
+						"rating": 4,
+						"date": "",
+						"reviewId": "",
+						"quote": "I really use it mainly for payday view as it cuts out a ton of mental math for me when determining how much I have left to spend aside from bills each paycheck. I also use the savings auto withdrawals feature - I save a lot more money not thinking about it.",
+						"app": "Rocket Money - Bills & Budgets"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "This app is crazy! To be able to aggregate all of your financial data into one place and be able to make sense of your finances is great. In today's world everyone usually has a few credit cards, a bank account, a mortgage, and they all need to be managed.",
+						"app": "Emma - Budget Planner Tracker"
+					},
+					{
+						"rating": 5,
+						"date": "",
+						"reviewId": "",
+						"quote": "Ive been getting charged from a site that I have genuinely no idea what it was or how it started charging me, but I could not find the site anywhere. I saw an ad for rocket money and decided to try it. It found the subscription immediately.",
+						"app": "Rocket Money - Bills & Budgets"
+					}
+				]
+			},
+			{
+				"id": "pfin-ultra-15",
+				"theme": "strategy",
+				"title": "приложение, которым пользуются годами, строится на надёжности данных, а не на функциях",
+				"body": "Самые лояльные пользователи в корпусе. те, кто ведёт учёт пять, семь, десять лет подряд. практически не упоминают конкретные функции как причину остаться. Они остаются потому, что данные никуда не пропали, приложение открылось сегодня так же, как три года назад, и разработчик ответил на вопрос. Любое обновление, ломающее историю или привычные жесты, воспринимается как предательство и вызывает уход даже у самых преданных.",
+				"apps": [
+					"Money Manager (Remove Ads)",
+					"XpenseTracker",
+					"Coins - Spending Tracker",
+					"Debit & Credit"
 				],
 				"observationCount": 32,
 				"evidence": [
 					{
-						"rating": 3,
-						"date": "2024-05-03",
-						"reviewId": "11228498271",
-						"quote": "Be warned, though, that if you check out their options for things like credit cards or personal loans, you'll be put on a marketing list that every loan company apparently has access to. I had only had the app downloaded for an hour and already have been bombarded with emails and texts.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 3,
-						"date": "2026-06-02",
-						"reviewId": "14137375033",
-						"quote": "I never had any business with this company yet since I had identity theft they had my info, charged me a ridiculous $39.99 charge for something I didn't even use and then wouldn't refund me when I even gave them a case number to look into.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 2,
-						"date": "2026-05-14",
-						"reviewId": "14064166469",
-						"quote": "They will also start sending you 3-5 marketing emails a day, and in my case have so far ignored my unsubscribe requests.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 2,
-						"date": "2024-04-08",
-						"reviewId": "11137453101",
-						"quote": "What really made me decide to stop using this app, though, was due to the fact that I started receiving ad texts for services I never requested from other companies and providers which makes me think NerdWallet might have given out my information without my permission.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 2,
-						"date": "2026-01-23",
-						"reviewId": "2fcc2655-9f3c-4302-a0c6-89f8632a1bfe",
-						"quote": "Weekly paycheck tracking breaks every couple of months, the beta broke goal tracking for saving up money and it's introducing AI that has to ask permission to use your information.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 2,
-						"date": "2025-07-10",
-						"reviewId": "12875619600",
-						"quote": "I receive occasional emails from NerdWallet about status updates regarding my financial profile, which is welcomed, but when I click the links in these emails it launches this app and this app frequently logs me out of my account so I have to sign back in each time. Got frustrated with it and unsubscribed from NerdW…",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-05",
-						"reviewId": "13817336606",
-						"quote": "After going through the usual recommendation process my phone has been spammed with multiple calls a day FOR WEEKS offering me loans...I feel like NerdWallet has betrayed my trust",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-16",
-						"reviewId": "13963543026",
-						"quote": "Do not download it is a scam , they will collect all of your info request your social security card and id. Yet never be able to help with the situation of verifying your social. They then use that personal info.",
-						"app": "Lenme: Investing and Borrowing"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-19",
-						"reviewId": "13864788878",
-						"quote": "They give you \"external offers\" which is just a link to go to another app/website that then searches for payday loans. There is never an actual offer. You can't cancel the loan request until you get an offer...your info is available to them to continue to sell. My spam has gone through the roof...they will delete my access...and they will keep it for an additional 5 years.",
-						"app": "Lenme: Investing and Borrowing"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-08",
-						"reviewId": "13828776140",
-						"quote": "They don't offer loans themselves instead this app will sell your information and spam your email with leads to loan companies that spam your email even more.",
-						"app": "Lenme: Investing and Borrowing"
-					},
-					{
-						"rating": 1,
-						"date": "2026-02-27",
-						"reviewId": "13794144250",
-						"quote": "Lenme doesn't give the loans or advances. They take your data and send it to a bunch of personal loan websites",
-						"app": "Lenme: Investing and Borrowing"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-20",
-						"reviewId": "14086720925",
-						"quote": "Do not give them any information you will get non stop automated calls from loan scammers non stop 24/7 every hour. I delete over 10 voicemails a day.",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-09",
-						"reviewId": "14045650129",
-						"quote": "False claims can offer money all they do is take your info and give it to other providers and then they still run your credit it’s a waste of time",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-26",
-						"reviewId": "14000210887",
-						"quote": "I feel totally uncomfortably having given my information to this company.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-18",
-						"reviewId": "14080450430",
-						"quote": "The make you put all your information. if you want to delete it on your end the app you can't becouse your old phone number is there",
-						"app": "Lenme: Investing and Borrowing"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-19",
-						"reviewId": "13864788878",
-						"quote": "They give you \"external offers\" which is just a link to go to another app/website that then searches for payday loans. There is never an actual offer. You can't cancel the loan request until you get an offer...your info is available to them to continue to sell. My spam has gone through the roof...they will delete my access...and they will keep it for an additional 5 years.",
-						"app": "Lenme: Investing and Borrowing"
-					}
-				]
-			},
-			{
-				"id": "pf-support-bot-wall",
-				"theme": "strategy",
-				"title": "Живой ответ в момент тревоги превращает разовый инцидент в лояльность, тишина — в публичную обиду",
-				"body": "В финансовом приложении ошибка команды стоит дороже, чем в любом другом: заблокированный доступ, потерянные годы данных или ошибочное действие нельзя закрыть шаблонным ответом. Приложения, у которых живой отклик работает быстро в критических ситуациях, получают лояльность, которую не купить никакими функциями.",
-				"apps": [
-					"EveryDollar: Budget Management",
-					"NerdWallet: Smart Money App",
-					"Credit Genie: Get Cash Advance",
-					"Albert: Budgeting and Banking",
-					"YNAB"
-				],
-				"observationCount": 56,
-				"evidence": [
-					{
-						"rating": 5,
-						"date": "2026-05-28",
-						"reviewId": "14118129222",
-						"quote": "I have contacted their customer service multiple times and they still haven't fixed the issue i have showed proof multiple times",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 3,
-						"date": "2025-09-20",
-						"reviewId": "13162355042",
-						"quote": "When I call for assistance it's very much on their schedule not mine",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 3,
-						"date": "2025-05-11",
-						"reviewId": "12645086186",
-						"quote": "If you have issues with the Treasury account you have to contact a different company and then they take a while to respond. Can’t set a budget.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 2,
-						"date": "2026-05-29",
-						"reviewId": "14118907545",
-						"quote": "Unfortunately they are releasing the app updates as they do them. Instead of making sure they work first with their beta testers. Just this week 5/22-29/26 I have had three separate issues come up.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 2,
-						"date": "2025-10-26",
-						"reviewId": "13317828576",
-						"quote": "Support is also not good. Every support issue has ended with \"it is what it is\"",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 2,
-						"date": "2026-05-04",
-						"reviewId": "14027340658",
-						"quote": "the last like year or so, it won't connect to my primary bank. Support just blames my bank and tells me to insert transactions manually \"in the meantime\" but then when it randomly does connect to my bank, I have all these duplicate transactions",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 2,
-						"date": "2026-02-02",
-						"reviewId": "13706035900",
-						"quote": "But after 2 months it stopped connecting to my bank! I was told to try another way to connect my bank (which didn't work!) or to enter my transactions manually.. which is FREE!!! When I asked for a refund for the 10 months of service I didn't use I was told no, they only give refunds during the first 30 days!",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 2,
-						"date": "2025-08-14",
-						"reviewId": "13016144286",
-						"quote": "they responded fairly quick, but \"Sorry, can't help. Just reload the accounts\"",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 1,
-						"date": "2025-10-01",
-						"reviewId": "13211556558",
-						"quote": "tech support won't respond. 3 request tickets submitted in the last month and no response at all",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 1,
-						"date": "2024-10-29",
-						"reviewId": "11890169244",
-						"quote": "None of them were addressed. No email was ever replied to.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2024-09-13",
-						"reviewId": "11721598435",
-						"quote": "There is no phone number anywhere that you can call and talk to a person. The bot is not helpful at all.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2024-08-16",
-						"reviewId": "11617666326",
-						"quote": "I redeemed a reward, and have not seen it in my emails. Tried to submit a couple of support requests, with no response.",
-						"app": "NerdWallet: Smart Money App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-28",
-						"reviewId": "14115694874",
-						"quote": "Credit genie took an extra $100 I have not been able to get it back! Their customer service is a chat bot and they just regurgitate the same msg, but no one does anything! I have filed with consumer fraud, BBB and now my state atty general’s office! Be aware of these type of online lenders!",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-23",
-						"reviewId": "13989322434",
-						"quote": "I've contacted support multiple times over several days and have only received generic responses with no actual answers or resolution.",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-17",
-						"reviewId": "13968454966",
-						"quote": "Don't count on customer service to be any help whatsoever. I've reached out multiple times only for them to send back automated responses and ignore any sort of review on the charges.",
-						"app": "Credit Genie: Get Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-03-28",
-						"reviewId": "13896417530",
-						"quote": "The customer service team has not reached out because they suck and have no live support. Everything is by email and a waiting game for no solution. POS app and company!",
-						"app": "Credit Genie: Get Cash Advance"
-					}
-				]
-			},
-			{
-				"id": "pf-advance-cycle-trap",
-				"theme": "strategy",
-				"title": "Инструмент краткосрочной ликвидности работает только когда лимит растёт вместе с доверием",
-				"body": "Люди, которые своевременно возвращают авансы, ожидают, что лимит вырастет — это интуитивная логика любых кредитных отношений. Продукт, который фиксирует лимит или снижает его без объяснений, разрушает именно ту петлю доверия, ради которой человек вообще начал пользоваться сервисом.",
-				"apps": [
-					"FloatMe: Fast Cash Advance App",
-					"Albert: Budgeting and Banking",
-					"Grant Cash Advance",
-					"Credit Genie: Get Cash Advance"
-				],
-				"observationCount": 75,
-				"evidence": [
-					{
-						"rating": 5,
-						"date": "2026-05-21",
-						"reviewId": "14091361991",
-						"quote": "I have been with this app since 2024, and they could only offer me $50.00 which is ok, while others depending on your pay performance offer you more after a while",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 5,
-						"date": "2026-05-15",
-						"reviewId": "14066227525",
-						"quote": "but wish it would raise amount I can get has been $20 since I have used it",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
 						"rating": 4,
-						"date": "2026-06-04",
-						"reviewId": "14142741190",
-						"quote": "I pay you back and I could use a bigger amount than 30.00 I've proven I can pay my float me  loan back I could pay back 50.00 to even 100.00  each month with no problem please give me a chance",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 4,
-						"date": "2026-05-29",
-						"reviewId": "14120389007",
-						"quote": "They have treated me really well. I just wish I would've qualified for more FloatMe than 40 bucks. I have always paid on time.",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 2,
-						"date": "2026-05-29",
-						"reviewId": "14119499194",
-						"quote": "I had a loan through Albert that I paid off early. Then when I went to apply for another a few months later they said I wasn't even eligible to apply and couldn't even tell me why.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 2,
-						"date": "2026-04-22",
-						"reviewId": "13985557327",
-						"quote": "Every time you pay back your advance they allow you less. This is bad business. To me they are just making money off of you",
-						"app": "Grant Cash Advance"
-					},
-					{
-						"rating": 2,
-						"date": "2026-05-24",
-						"reviewId": "14100525463",
-						"quote": "you only get approved once and then magically you're not approved for the next time what a scam , stick to only earnin and brigit ! I've been fighting for a new advance with Grant for 7 months now and I've been ignored every time",
-						"app": "Grant Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-05",
-						"reviewId": "14147147695",
-						"quote": "They make you sign up for a suscribtion only to be denied even for $10. Please don’t use this app.",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-06-03",
-						"reviewId": "14140983720",
-						"quote": "sign up but don't get an advance I've tried at least 3 -4 different times and every time they just charge you $4.99 and don't float you anything so basically I've spent money on nothing. By \"float me\" they mean you are floating them.",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-30",
-						"reviewId": "14124913499",
-						"quote": "They make you\nPay for a subscription to deny your advance",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-29",
-						"reviewId": "14121266439",
-						"quote": "Why am I paying then?",
-						"app": "FloatMe: Fast Cash Advance App"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-11",
-						"reviewId": "14054664836",
-						"quote": "When I first started using the app, my advance amount was $200. At some point, it unexpectedly dropped to $25. Even as my income increased over the years, the amount remained at $25 until recently, when I was finally approved for up to $1,000. I've since repaid the advance in full — early, not late. That's why I was extremely disappointed to see my advance amount immediately drop back down to $25 after repayment",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-08",
-						"reviewId": "14040997841",
-						"quote": "I have never got more than $25 to borrow. I have thousands in my bank account and never got an increase.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-04-30",
-						"reviewId": "14013095482",
-						"quote": "They advertise getting $50-$1000 in a few easy minutes. I only gave $25 and it cost six dollars to withdraw it.",
-						"app": "Albert: Budgeting and Banking"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-28",
-						"reviewId": "14115333593",
-						"quote": "I turn around and repay it a day early then the app only lets me advance 100.00 .",
-						"app": "Grant Cash Advance"
-					},
-					{
-						"rating": 1,
-						"date": "2026-05-10",
-						"reviewId": "14049180943",
-						"quote": "At first the app was great. They'd let you borrow 2-350 when you first download. Then after your first pay cycle comes they know you down after you already pay them 375. I went from 350 to 100 then they want you to play games the partnered with so you can spend money on other apps to get your original amount back. I…",
-						"app": "Grant Cash Advance"
-					}
-				]
-			},
-			{
-				"id": "pf-visibility-changes-behavior",
-				"theme": "strategy",
-				"title": "Ежедневная картинка трат меняет поведение быстрее любого финансового совета",
-				"body": "Пользователи, которые видят итог дня или недели в одном экране, обнаруживают забытые регулярные расходы, режут импульсивные траты и гасят долги — без консультанта и без плана. Именно этот момент «увидел и понял» удерживает людей по пять, десять и пятнадцать лет, а не набор аналитических функций.",
-				"apps": [
-					"YNAB",
-					"EveryDollar: Budget Management",
-					"Monarch: Budget & Track Money",
-					"Spending Tracker",
-					"Money Manager Expense & Budget"
-				],
-				"observationCount": 87,
-				"evidence": [
-					{
-						"rating": 5,
-						"date": "2026-03-28",
-						"reviewId": "13896751796",
-						"quote": "If you just want something that casually aggregates your spending that you check on every few months, this isn't the app for you. If instead you want something that helps you actually shift behavior",
-						"app": "YNAB",
-						"quoteRu": "Если вам нужно что-то, что просто между делом собирает ваши траты и что вы проверяете раз в несколько месяцев, — это приложение не для вас. Но если нужно то, что реально помогает изменить поведение…"
+						"date": "",
+						"reviewId": "",
+						"quote": "I've been using this app for more than four years, and overall it has been great. I even paid for the ad-free version, and I still think it was one of my best investments. What I appreciate most is that it was a one-time payment instead of a subscription.",
+						"app": "Money Manager (Remove Ads)"
 					},
 					{
 						"rating": 5,
-						"date": "2026-03-16",
-						"reviewId": "13853795891",
-						"quote": "However, YNAP quickly exposed the holes and my savings skyrocketed. After six months my furnace went out and I was basically able to cover the expense without a worry. I am a believer in the YNAP system",
-						"app": "YNAB"
+						"date": "",
+						"reviewId": "",
+						"quote": "I have been using XpenseTracker since at least 2013 and probably longer. It has the customizability to provide as much or as little detail as you need.",
+						"app": "XpenseTracker"
 					},
 					{
 						"rating": 5,
-						"date": "2026-03-06",
-						"reviewId": "13819867145",
-						"quote": "I thought budgeting was tracking where your money is spent. That is actually wrong, budgeting is having a plan for your money and actively managing to that plan. YNAB facilitated this mindset shift for my wife and I and we have never been more at peace financially than we are now.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 5,
-						"date": "2025-10-02",
-						"reviewId": "13213766401",
-						"quote": "I've been using YNAB since 2014 and it's literally changed my life. It's relieved so much financial stress. It's much better to know how much money is coming in and how much is going out than to be guessing or constantly a little worried",
-						"app": "YNAB"
-					},
-					{
-						"rating": 5,
-						"date": "2026-06-02",
-						"reviewId": "14137860101",
-						"quote": "I became debt free using this app.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-05-31",
-						"reviewId": "14126842276",
-						"quote": "We have been completely debt free including the mortgage for 5 years. We have a net worth of $ 1.5 million and will be able to retire early in 10 years. The small amount I pay every year for this app lets me see in real time where every cent is going and keeps me on track.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-04-22",
-						"reviewId": "13985243650",
-						"quote": "I've been using E$ for over 4 years. This app helped me on my journey to pay off $118k.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2025-12-30",
-						"reviewId": "13574949716",
-						"quote": "We started about 7 years ago with baby steps and paid off all debt including the mortgage at the age of 50... Recently I decided to get back on track and we just started the EveryDollar app this last week",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-06-02",
-						"reviewId": "14137860101",
-						"quote": "I became debt free using this app.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-05-06",
-						"reviewId": "14035183862",
-						"quote": "We make a good living so I thought I didn't need a budget. But when we kept coming up short after vacations I started this app and now we have money leftover almost every very month!",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-04-02",
-						"reviewId": "13916277272",
-						"quote": "Used to have the free version when we were getting out of debt. And then we could afford the paid one which is such a time saver",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-03-28",
-						"reviewId": "13896335123",
-						"quote": "I was addicted to credit cards and in a huge hole! Buy EveryDollar made it so easy after the first month because my budget was already there and guidance for the snowball! When I tried Premium and connected my bank accounts, huge game changer!! I love seeing the transactions post and matching them.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-06-05",
-						"reviewId": "66097d85-17e0-4f14-ab98-7cdb67b7c2b0",
-						"quote": "I've only had monarch for about 8 weeks and I have turned off so many subscriptions that were not serving me.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 5,
-						"date": "2026-05-13",
-						"reviewId": "29a493b2-4946-4987-afd6-b35c215758ae",
-						"quote": "Since installing Monarch we have been in the green instead of the red.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 5,
-						"date": "2026-01-26",
-						"reviewId": "80eda341-b790-4bf6-8dd9-ce772eaf0c61",
-						"quote": "Before Monarch, we felt like we were barely getting by some months, but in the first 12mo of using Monarch we were able to pay off 24k in student loans! The added transparency opened up more communication and allowed us to critically assess our expenses.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 5,
-						"date": "2026-05-06",
-						"reviewId": "30485459-b13d-47dc-9c41-23a9b05f19df",
-						"quote": "The ONLY budgeting tool I've stuck to for over a week.",
-						"app": "Monarch: Budget & Track Money"
-					}
-				]
-			},
-			{
-				"id": "pf-couples-shared-budget",
-				"theme": "strategy",
-				"title": "Общий бюджет пары превращает финансовый конфликт в совместный проект",
-				"body": "Когда оба партнёра видят одну и ту же картину в реальном времени, разговор о бюджете переходит из режима упрёков в режим совместного планирования. Продукт, который решает именно этот сценарий надёжно и без второго входа по отдельным условиям, получает двух лояльных пользователей вместо одного.",
-				"apps": [
-					"YNAB",
-					"EveryDollar: Budget Management",
-					"Monarch: Budget & Track Money",
-					"Money Manager Expense & Budget"
-				],
-				"observationCount": 53,
-				"evidence": [
-					{
-						"rating": 5,
-						"date": "2026-05-19",
-						"reviewId": "14083873076",
-						"quote": "My partner and I have different money personalities, and this has helped us have good conversations as well as become more purposeful with our funds and aligned on our goals. He likes to spend money and I don't.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 5,
-						"date": "2025-10-04",
-						"reviewId": "13222226395",
-						"quote": "My spouse and I interact with the app every day. We have a budget date every week. We put good info in and we get good info out. We've been using YNAB since 2019 and have turned 10s of thousands of credit card debt into 10s of thousands of high interest savings",
-						"app": "YNAB"
-					},
-					{
-						"rating": 5,
-						"date": "2025-10-01",
-						"reviewId": "13209381413",
-						"quote": "seamless budgeting that is on both of our phones in real time.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 5,
-						"date": "2026-06-01",
-						"reviewId": "14132942175",
-						"quote": "Budgeting discussions can be stressful but having an app where everyone sees the same information reduces a lot of that stress.",
-						"app": "YNAB"
-					},
-					{
-						"rating": 5,
-						"date": "2026-04-10",
-						"reviewId": "13944842430",
-						"quote": "My husband and I started using this as soon as we got married… and every year since!! So seamless to track and with us both having the app downloaded we know exactly where we are at form day to day",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-02-07",
-						"reviewId": "13725643436",
-						"quote": "This app was the best financial decision my wife and I have ever made. We went from overspending every month to saving thousands.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-01-26",
-						"reviewId": "13678293787",
-						"quote": "It's taken me so long to actually make a budget but me and my fiancée sat down and cranked one out in minutes with this app.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-01-06",
-						"reviewId": "13602014324",
-						"quote": "This has been a life changing app to use to get our finances in order and set financial goals for our family! I wish I had started using this decades ago.",
-						"app": "EveryDollar: Budget Management"
-					},
-					{
-						"rating": 5,
-						"date": "2026-04-03",
-						"reviewId": "d56b2833-d08a-437a-bb3c-aaaa11704360",
-						"quote": "Great for couples with shared financial responsibilities.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 5,
-						"date": "2026-04-02",
-						"reviewId": "e891bcdd-4104-4627-af4e-6b71417113c5",
-						"quote": "It's amazing the difference between a paid budget tracker built for the people vs a free one built for your data.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 5,
-						"date": "2025-11-14",
-						"reviewId": "614c9e27-0463-43fd-aeef-88a6e21e567d",
-						"quote": "What I really like is being able to add my wife – together, we can see where our money is going and what our spending priorities are.",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 5,
-						"date": "2025-11-10",
-						"reviewId": "52f62915-c2d6-4b80-927b-5d720a60e368",
-						"quote": "my partner and I love this app for managing our shared finances! its so easy and intuitive to set up",
-						"app": "Monarch: Budget & Track Money"
-					},
-					{
-						"rating": 5,
-						"date": "2025-09-14",
-						"reviewId": "13136918037",
-						"quote": "Debería de dar la posibilidad de crear varios perfiles con cuentas independientes. Por ejemplo, un perfil para mis finanzas personales y otro para las finanzas de la sociedad conyugal (o la pareja, o la asociación…)",
-						"app": "Money Manager Expense & Budget"
-					},
-					{
-						"rating": 5,
-						"date": "2025-08-24",
-						"reviewId": "13054447377",
-						"quote": "My only two feature requests are that they allow you to change currency without deleting all your data & that they allow you to share the budgeting app with other people",
-						"app": "Money Manager Expense & Budget"
-					},
-					{
-						"rating": 5,
-						"date": "2026-01-17",
-						"reviewId": "13645602330",
-						"quote": "Its one of the best money manager app in the app store, thank you for your product! Its just lacks multi-user functionality for one household",
-						"app": "Money Manager Expense & Budget"
-					},
-					{
-						"rating": 5,
-						"date": "2026-05-31",
-						"reviewId": "14128737081",
-						"quote": "Ni pagando puedo usar esta aplicación en la web desde la lapto",
-						"app": "Money Manager Expense & Budget"
+						"date": "",
+						"reviewId": "",
+						"quote": "I starting using an app back in 2016 to keep track of my finances. I paid for this other app for lifetime usage and then they decided to go subscription based and stopped offering support for their lifetime purchase customers. The app was removed and I lost years of data.",
+						"app": "Debit & Credit"
 					}
 				]
 			}
