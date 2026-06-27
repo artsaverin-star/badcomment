@@ -99,101 +99,6 @@
 		],
 		"hygiene": []
 	},
-	"habit-tracking": {
-		"product": [
-			{
-				"title": "The daily check-off gesture IS the whole product; if any link (widget, tap, reminder) breaks, the habit breaks",
-				"plus": null,
-				"minus": "The category lives on one micro-action: 'I did the habit → I checked it off.' When the widget won't react without opening the app, the check-off is buried in a swipe, undo doesn't undo, or fail/skip won't register — it isn't a feature that breaks but the very point of a tracker. Trust in the data is the entire value: if a person can't believe a tap reflects reality, the chain loses meaning and they leave. Build so the check-off takes one second and works from anywhere — widget, lock screen, notification."
-			},
-			{
-				"title": "The home-screen widget isn't a 'nice extra' but the core return mechanism: without it, people forget the app within days",
-				"plus": "A tile widget lets users tick a habit with a single tap without launching the app, and it — not the app screen — becomes the daily touchpoint. It's a passive trigger that keeps the habit in view and closes the behavioral loop. Where the widget exists and works, users explicitly credit it for making logging 'fuss-free.'",
-				"minus": null
-			},
-			{
-				"title": "The market's most common miss: the paywall lands on the basic habit check-off before the product ever works once",
-				"plus": null,
-				"minus": "It's not that 'premium is pricey' but WHERE the line is drawn: behind the wall sits habit completion itself, the widget, or a 3-4 habit cap — the atomic action the app exists for. A person creates a habit, taps 'done,' and gets 'buy premium' on day two, before any taste of success. It's activation in reverse: the wall goes up before the product shows value, and a free rival always sits right there. Let users live at least one streak for free — convert after the first win, not before it."
-			},
-			{
-				"title": "The notification is the trigger without which the habit never fires; on Android it silently fails for a whole segment",
-				"plus": null,
-				"minus": "A habit tracker sells one promise: 'I'll remind you, you'll act.' Users disable every battery-optimization setting as instructed and still get no on-time nudge — and without it the first link of the habit loop drops out, so the person 'forgets' through no fault of their own. It bites hardest for the ADHD segment that came for an external memory. Don't rely on the stock Android scheduler: use full-screen/alarm notifications and test on aggressive vendor ROMs (Samsung, Xiaomi)."
-			},
-			{
-				"title": "An unmissable full-screen alarm — an underrated weapon against procrastination",
-				"plus": "For those whose reminders work, the full-screen alarm is what holds them: it doesn't vanish into the notification shade but stays on screen until dismissed. For procrastinators and ADHD users that's the difference between 'forgot' and 'did it' — they swipe an ordinary silent push away without looking. Make the alarm style adjustable in intensity, not 'one for all.'",
-				"minus": null
-			},
-			{
-				"title": "Rigid 'daily / weekly / monthly' loses to flexible 'X times per Y days' frequency — that's how real habits actually run",
-				"plus": null,
-				"minus": "The most common real-habit frequency isn't 'every day' but '3 times a week on any days' (read, work out). The rigid model breaks the streak for anyone who takes days off and caps the run artificially. Binary 'done/failed' frustrates, and people leave for the few apps that handle irregular goals. Make frequency a first-class feature: 'N times per period,' 'weekdays/weekends,' a floating day — and a streak that respects it."
-			},
-			{
-				"title": "The streak is both the main motivator and a trap: one miss wipes weeks and kills the will to start over",
-				"plus": null,
-				"minus": "The streak is the whole reason people track habits, but the moment it breaks a long run collapses to zero and the user loses any reason to continue — exactly the psychology they came for. Worse, backfilling is often impossible: forget at night and the streak is dead with no way back. That punishes ordinary human forgetfulness. Give grace days, retro check-ins and a 'partial' streak so one slip doesn't erase a month."
-			},
-			{
-				"title": "A visual reward (a filling grid, an unbroken chain) holds harder than any gamification — the check-off itself becomes dopamine",
-				"plus": "The best trackers' retention engine isn't stats or points but the visual itself: an 'itch' to see progress, the satisfaction of a growing heat-map, the reluctance to break a beautiful run. People tick a habit not for the number but to avoid ruining the picture. It's a behavioral hook with no fanfare or forced rewards — sell not record-keeping but the pleasure of a filling board.",
-				"minus": null
-			},
-			{
-				"title": "That same visual grid punishes planned rest: an off-day stays blank and reads as a lapse",
-				"plus": null,
-				"minus": "The mechanic that motivates daily users breaks everyone on a '3-4 times a week' schedule: on a planned off-day the cell stays empty and the board looks full of holes, as if they lapsed. The visual reward becomes a visual punishment for exactly the users who deliberately don't do the habit every day. Draw hollow/neutral marks on off-days so the streak and the board respect planned rest."
-			},
-			{
-				"title": "Gamification hooks at entry but burns out in a month or two — there's no deeper engagement under it, and retention collapses before the habit locks in",
-				"plus": null,
-				"minus": "The very game engine that activates people early has a short shelf life: the novelty of battles, pets, adventures and rewards dulls, and underneath it is empty. The user is left with a 'glorified task manager' exactly when the habit hasn't yet locked in without the game's fuel. Gamification should be scaffolding, not the building: design so that by the time the game fades, the visual streak and identity already carry the load."
-			},
-			{
-				"title": "The real core market is the neurodivergent — ADHD, autism, burnout; for them a tracker isn't 'nice,' it's the only thing that works at all",
-				"plus": "A fact you couldn't guess from a brief: the most loyal base is people with ADHD, autism, AuDHD and burnout, for whom ordinary calendars and reminders don't work. An external 'nudge' closes their task-initiation deficit. It's a narrow but deep PMF: the product isn't 'for everyone who wants habits' but for those whose action-initiation is broken — and they become its most devoted advocates. Design explicitly for executive dysfunction, not an abstract self-improver.",
-				"minus": null
-			},
-			{
-				"title": "Motivation routed through caring for a character, not yourself — a bypass for guilt and low energy that no 'disciplinary' tracker has",
-				"plus": "Finch's core mechanism: a user who can't get up for their own sake gets up for the bird so as not to let it down. It removes self-directed guilt and the burden on family — care is aimed at the character and reaches the user by ricochet. That's why it lands with people in depression and burnout, where direct self-care fails. Shifting responsibility onto 'someone who depends on you' is a separate, uncovered retention mechanism.",
-				"minus": null
-			},
-			{
-				"title": "Punishment mechanics (damage, resets, shame) drive away exactly the users whose forgetfulness isn't a fault; 'no punishment' retains the vulnerable",
-				"plus": "A deliberate refusal to punish wins: when a miss doesn't kill the pet, drain health or shame you, you retain the low-motivation and perfectionist-anxious users who quit other apps after the first slip. Habitica is the opposite — a wildly out-of-scale penalty hits the most vulnerable users it explicitly targets. Frame skipping as a normal choice, not a failure — that's how you retain the core segment.",
-				"minus": null
-			},
-			{
-				"title": "No cloud sync pushes away the most loyal: the more history accumulates, the more a manual backup hurts",
-				"plus": null,
-				"minus": "Those who invested for years — multiple devices, hundreds of days of streaks — hit manual export/import as the only way to move data. A lost or broken phone threatens all progress, and for paying users it turns into a demand to pay again. The paradox: the product systematically loses exactly the audience that would otherwise stay forever. Cloud/email auto-backup from day one isn't a checkbox feature but a defense against losing your most valuable users."
-			},
-			{
-				"title": "Cross-platform (phone + browser + desktop + watch) is a rare retention lock people tolerate everything else for",
-				"plus": "Habits on phone, browser, desktop and Wear OS that actually stay in sync are rare in this niche, and people buy lifetime and stay for years for it. For someone living between Mac and Android, it's the one reason not to defect to prettier single-device rivals. Watch and desktop are the most frequent 'I'd pay more' — close connectivity before rivals and you get the stickiest segment.",
-				"minus": null
-			},
-			{
-				"title": "The 'quit something bad' segment (smoking, vaping, sugar, alcohol) is huge, yet almost every tracker is built only for 'doing,' not 'not doing'",
-				"plus": "A non-obvious but powerful segment: people use the tracker not to build habits but to quit — and watching a clean streak gives an emotional payoff that drives the most heartfelt reviews. Most apps have no 'negative habit' at all, so it's run via inversion workarounds. Make a first-class 'positive/negative' flag: a tick = abstinence, a clean-day counter, money/health 'saved.'",
-				"minus": null
-			},
-			{
-				"title": "The flexibility of rich customization retains the demanding, but the same option set drowns a newcomer in overload at the start",
-				"plus": null,
-				"minus": "Deep setup (per-weekday reminders, colors, sub-tasks, three task types) is what keeps experienced users. But the flip side is that newcomers get lost: it's unclear whether things are set up right, the difference between a 'repeating task' and a 'habit,' the AM/PM timer, settings buried deep in menus. Some leave before their first streak. The fork: ship a default 'simple mode' (pick a preset and go) and reveal depth gradually for those who grow into it."
-			},
-			{
-				"title": "People arrive for habits but stay for consolidation: '5 apps in one' kills app-switching and retains harder than the tracking itself",
-				"plus": "An unexpected hook for a tracker: the 'habits + spending + journal + mood + focus' bundle on a single screen makes people delete their other productivity apps. What retains isn't habit tracking but the fact that everything they need ended up in one place — the flood of 'add another tracker' requests (sleep, water, health) shows the product has become a daily life dashboard. One sticky module pulls the user into the other five — sell the hub and make habits the entry point.",
-				"minus": null
-			}
-		],
-		"hygiene": []
-	},
 	"kids-learning": {
 		"product": [
 			{
@@ -6397,6 +6302,91 @@
 			{
 				"title": "Using a tracker to avoid pregnancy demands high accuracy on the fertile window",
 				"plus": "Some users rely on trackers not to conceive but to avoid pregnancy without hormonal methods, and for that use case an inaccurate fertile window prediction poses a real risk. Several users directly report unintended pregnancies caused by incorrectly calculated dates. Trackers with biomarkers and the symptothermal method are described as the only reliable option for this scenario, while algorithmic forecasts without biomarkers are seen as unsafe for this kind of use.",
+				"minus": ""
+			}
+		],
+		"hygiene": []
+	},
+	"habit-tracking": {
+		"product": [
+			{
+				"title": "Widget and lock screen: the entry point everything depends on",
+				"plus": "Instant check-in without opening the app is not a convenience feature but a survival condition for the habit. When the path to a checkbox shrinks to one tap from the home screen, users log habits multiple times a day for years. Apps without a widget lose users not because they are bad but simply because a competitor is one step closer.",
+				"minus": ""
+			},
+			{
+				"title": "Haptic feedback on check-in turns the action itself into a reward",
+				"plus": "Vibration, sound, and a visual animation on tap transform a checkbox from an administrative act into a small pleasure. (Not Boring) Habits users explicitly cite the satisfaction of leveling up as the reason they keep coming back without needing a barrage of notifications. This is a game-loop mechanic: the dopamine response needs to be built into the moment of completion, not deferred to a final stats screen.",
+				"minus": ""
+			},
+			{
+				"title": "ADHD and neurodivergent users: the most loyal and highest-paying audience in the tracker space",
+				"plus": "Neurodivergent users do not just feel grateful.  they become evangelists, write the first review of their lives, and tell family members about the app. For them, routine structure solves a real clinical problem: not missing medication, leaving the house on time, not getting stuck on one thing for three hours. This segment actively looks for a tool and is willing to pay if the tool actually works rather than just looking polished.",
+				"minus": ""
+			},
+			{
+				"title": "A step-by-step routine timer matters more than a list: getting stuck is the real problem",
+				"plus": "For some users the main enemy is not forgetfulness but freezing: you start shaving and forty minutes have passed. Apps with a countdown inside each step and a voice prompt to move on solve this in a fundamentally different way than a simple to-do list. Users with ADHD describe it as a practical miracle: not magic, but the result is felt from the very first morning.",
+				"minus": ""
+			},
+			{
+				"title": "Mutual progress visibility with a partner beats any internal notification",
+				"plus": "When progress is visible to a specific person, whether a partner, friend, or coach, the accountability mechanism kicks in without extra reminders. HabitShare users write their first-ever review precisely because they want to share the discovery with someone else. The social layer does not need to be a public feed: one real observer is enough.",
+				"minus": ""
+			},
+			{
+				"title": "A real-time day counter is the best tool for quitting a bad habit",
+				"plus": "When the goal is to stop something rather than start something, users need not a schedule but an anchor: how many days without a relapse right now, accurate to the hour and minute. A live counter widget on the lock screen creates a constant reminder of progress exactly at the moment of temptation. The psychological reluctance to reset a meaningful number acts as a barrier on its own.",
+				"minus": ""
+			},
+			{
+				"title": "A streak with no forgiveness destroys motivation, especially for people who are tired or sick",
+				"plus": "Users who missed a day because of illness or travel describe losing a streak as a punishment that makes them want to quit the app for good. Apps with soft streaks or a pause feature retain users precisely at moments of vulnerability. The irony: a hard streak looks great in a marketing screenshot but hurts real retention.",
+				"minus": ""
+			},
+			{
+				"title": "Retroactive logging of missed days is honesty, not cheating",
+				"plus": "Users who completed a task but forgot to log it in the evening want to check it off the next morning, and that is reasonable. Blocking retroactive logging feels not like discipline but like unfairness: the data stops reflecting reality. The ability to edit past days is a data integrity feature, not a concession.",
+				"minus": ""
+			},
+			{
+				"title": "A visual consistency heat map motivates more than a streak count",
+				"plus": "A year-long progress grid or monthly heat map shows real completion density rather than just the current streak: you can see that October was strong even if the streak broke. This format is more honest and psychologically gentler. Users take pride in their history instead of fearing its loss. HabitKit builds its entire product around this idea, and the audience responds with year-long loyalty.",
+				"minus": ""
+			},
+			{
+				"title": "Excessive data entry kills the intention to build a habit before it starts",
+				"plus": "When adding a habit takes five minutes of configuration and a daily check-in requires three screens, the app itself becomes a task. Users describe it directly: filling everything in felt like it needed to be a habit in itself. The winners in this category are the ones who figured out what to remove, not what to add.",
+				"minus": ""
+			},
+			{
+				"title": "Flexible scheduling: three times a week or every third day cuts drop-off roughly in half",
+				"plus": "A daily requirement does not fit workouts, meditation, or calling parents. Apps that support only a daily format lose users not because of poor design but because they conflict with actual life rhythms. Flexible scheduling is not a premium-tier feature but a baseline requirement for retaining users beyond the motivational spike of the first two weeks.",
+				"minus": ""
+			},
+			{
+				"title": "A reliable reminder is the core promise of a tracker and the one most often broken",
+				"plus": "Users call notifications the core of the product and leave when they stop firing. Across the 93-app corpus, unstable reminders appear in the weaknesses of most trackers even when the apps themselves work correctly. This is a systemic iOS ecosystem issue, but users blame the app, not the OS.",
+				"minus": ""
+			},
+			{
+				"title": "Long-term users, meaning years, stay because of an honest picture, not gamification",
+				"plus": "The most loyal users in the corpus are those who have used an app for three, five, or ten consecutive years. What keeps them is not a streak or a game character but the ability to see honest dynamics: did the result improve, what changed. Historical data becomes valuable in its own right, and that creates a real barrier to switching to a competitor.",
+				"minus": ""
+			},
+			{
+				"title": "Visual schedules with picture icons open up a market beyond the typical smartphone audience",
+				"plus": "Parents of children with autism, ABA educators, and adults with severe ADHD use picture-icon apps because a text list literally does not work for their needs. This is a distinct job where usefulness is not about polished animation but about the ability to share a schedule with a child or a client. Competition in this segment is minimal and loyalty is at its highest.",
+				"minus": ""
+			},
+			{
+				"title": "Streak comparison stress drives away exactly the audience you are trying to retain",
+				"plus": "Users with chronic health loads, illnesses, or irregular schedules abandon trackers not out of laziness but because the app feels designed for people who would have been fine without it. Gentler Streak explicitly positions permission to rest as a core value, and it resonates with an audience that has grown tired of competing against their own past results.",
+				"minus": ""
+			},
+			{
+				"title": "Users cycle through dozens of trackers. The one that works in the first five minutes wins",
+				"plus": "The phrase I have tried thirty apps appears in the corpus dozens of times as a literal statement, not a hyperbole. The decision to stay or leave is made during onboarding: if adding the first habit requires five configuration screens, the user is already closing the app. Time from install to first check-in is the number-one product metric in this category.",
 				"minus": ""
 			}
 		],

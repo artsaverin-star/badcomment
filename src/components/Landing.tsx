@@ -139,6 +139,7 @@ function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
     { slug: "notes-pkm", name: ru ? "Заметки" : "Notes", blurb: ru ? "Приложения для заметок: где мысль пишется мгновенно и не теряется, а где тормозит." : "Notes apps: where a thought is captured instantly and never lost, and where it lags." },
     { slug: "language-learning", name: ru ? "Изучение языков" : "Language learning", blurb: ru ? "100 приложений: где правда доводят до речи, а где только стрики и игра." : "100 apps: which actually get you speaking, and which are just streaks and games." },
     { slug: "period-cycle", name: ru ? "Месячные" : "Period trackers", blurb: ru ? "Трекеры цикла: где прогноз точен и данные в безопасности, а где врёт и торгует приватностью." : "Cycle trackers: where the prediction is accurate and data is safe, and where it is not." },
+    { slug: "habit-tracking", name: ru ? "Привычки" : "Habit trackers", blurb: ru ? "100 приложений: где отметка мгновенна и напоминание приходит, а где стрик стыдит и бросаешь." : "100 apps: where the check-off is instant and the reminder fires, and where guilt makes you quit." },
   ];
   const soon = ru
     ? ["Игры", "VPN", "Погода", "Криптокошельки"]

@@ -13,6 +13,7 @@ import photoEditing from "@/data/peoplesRating/photo-editing.json";
 import notesPkm from "@/data/peoplesRating/notes-pkm.json";
 import languageLearning from "@/data/peoplesRating/language-learning.json";
 import periodCycle from "@/data/peoplesRating/period-cycle.json";
+import habitTracking from "@/data/peoplesRating/habit-tracking.json";
 
 export const dynamic = "force-dynamic";
 
@@ -28,7 +29,7 @@ type App = {
 };
 type RatingSet = { slug: string; name: string; nameEn: string; seoName?: string; apps: App[]; totalReviews: number; count: number; inflated: number };
 
-const SETS: Record<string, RatingSet> = { astrology: astrology as RatingSet, "dating-apps": datingApps as RatingSet, "ai-avatars-headshots": aiPhoto as RatingSet, "meditation-mindfulness": meditation as RatingSet, "photo-editing": photoEditing as RatingSet, "notes-pkm": notesPkm as RatingSet, "language-learning": languageLearning as RatingSet, "period-cycle": periodCycle as RatingSet };
+const SETS: Record<string, RatingSet> = { astrology: astrology as RatingSet, "dating-apps": datingApps as RatingSet, "ai-avatars-headshots": aiPhoto as RatingSet, "meditation-mindfulness": meditation as RatingSet, "photo-editing": photoEditing as RatingSet, "notes-pkm": notesPkm as RatingSet, "language-learning": languageLearning as RatingSet, "period-cycle": periodCycle as RatingSet, "habit-tracking": habitTracking as RatingSet };
 
 // Authenticity as a plain statement about the store star, plus a restrained tint.
 function authVerdict(a: string | null, ru: boolean): { word: string; bg: string; fg: string } {
