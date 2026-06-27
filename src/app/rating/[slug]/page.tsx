@@ -170,7 +170,7 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
                   <div className="mt-1 text-[18px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}<span className="text-[11.5px] font-medium text-[var(--color-text-tertiary)]"> / 100</span></div>
                   <div className="mt-1 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.nrev)} {ru ? "отзывов" : "reviews"}</div>
                 </div>
-                <RatingAuthBadge label={ru ? "Звезда в сторе" : "Store star"} word={av.word} note={tg(tx("authNote"))} bg={av.bg} fg={av.fg} closeLabel={ru ? "Закрыть" : "Close"} />
+                <RatingAuthBadge caption={ru ? "Честность" : "Authenticity"} label={ru ? "Звезда в сторе" : "Store star"} word={av.word} note={tg(tx("authNote"))} fg={av.fg} detailsLabel={ru ? "подробнее" : "details"} closeLabel={ru ? "Закрыть" : "Close"} />
               </div>
 
               <div className="mt-5 flex flex-col gap-3.5">

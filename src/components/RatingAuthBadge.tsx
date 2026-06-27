@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 
-// Compact authenticity chip on a rating row. Shows just the verdict word; the
-// full explanation opens in a popup on tap (keeps the row clean).
+// Authenticity plaque on a rating row. Same square card shape as the
+// store/people score plaques next to it; the full explanation opens in a
+// popup on tap (keeps the row clean).
 export default function RatingAuthBadge({
-  label, word, note, bg, fg, closeLabel,
-}: { label: string; word: string; note: string; bg: string; fg: string; closeLabel: string }) {
+  caption, label, word, note, fg, detailsLabel, closeLabel,
+}: { caption: string; label: string; word: string; note: string; fg: string; detailsLabel: string; closeLabel: string }) {
   const [open, setOpen] = useState(false);
   const hasNote = !!note?.trim();
   return (
@@ -14,13 +15,17 @@ export default function RatingAuthBadge({
       <button
         type="button"
         onClick={hasNote ? () => setOpen(true) : undefined}
-        className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[12px] font-semibold transition-opacity hover:opacity-80"
-        style={{ background: bg, color: fg, cursor: hasNote ? "pointer" : "default" }}
+        className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2 text-left transition-opacity hover:opacity-80"
+        style={{ cursor: hasNote ? "pointer" : "default" }}
         aria-haspopup={hasNote ? "dialog" : undefined}
       >
-        {word}
+        <div className="text-[11.5px] text-[var(--color-text-tertiary)]">{caption}</div>
+        <div className="mt-1 text-[18px] font-semibold leading-none" style={{ color: fg }}>{word}</div>
         {hasNote && (
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="opacity-70"><circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.2" /><path d="M6 5.2v2.6M6 3.6v.05" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" /></svg>
+          <div className="mt-1 flex items-center gap-1 text-[11px] text-[var(--color-text-tertiary)]">
+            {detailsLabel}
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="opacity-70"><circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.2" /><path d="M6 5.2v2.6M6 3.6v.05" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" /></svg>
+          </div>
         )}
       </button>
 
