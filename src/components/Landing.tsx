@@ -238,7 +238,7 @@ export default function Landing({
           </div>
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             <h1 className="glow-sweep ld-fade text-[clamp(30px,7.6vw,44px)] font-black leading-[1.05] tracking-[-0.03em] text-[var(--color-text-primary)] text-balance sm:text-[56px]" style={{ animationDelay: "0.05s" }}>
-              {ru ? "Знай, что поставить и что построить" : "Know what to install and what to build"}
+              {ru ? "Знай, что построить" : "Know what to build"}
             </h1>
 
             <p className="ld-fade mx-auto mt-3.5 max-w-[48ch] text-[15px] leading-[1.45] text-[var(--color-text-secondary)] sm:mt-4 sm:text-[19px] sm:leading-[1.5]" style={{ animationDelay: "0.1s" }}>
