@@ -215,7 +215,7 @@ const DICT: Record<Locale, Dict> = {
     themes: { empty: "No complaint themes detected yet." },
     ideas: {
       title: "App ideas",
-      desc: "We analyzed popular apps and real user reviews on the App Store and Google Play, and found fixable flaws in proven products you can address to take part of their audience. Building on demand that's already proven beats guessing.",
+      desc: "Every idea here grew out of real reviews of working apps. People say what frustrates them, what is missing and what they pay for, and we turn that into a ready product for demand that already exists. Each idea spells out what to build, for whom and how it makes money.",
       empty: "No ideas yet — run the ingest to collect reviews first.",
       all: "All",
     },

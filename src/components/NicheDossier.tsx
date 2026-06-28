@@ -179,6 +179,8 @@ export default async function NicheDossier({ slug }: { slug: string }) {
         <RatingToggleList apps={ratingApps} limit={8} more={`и ещё ${r.count - 8} приложений`} moreHref={`/ru/rating/${slug}`} />
       </Block>
 
+      {unlocked ? (
+        <>
       <Block title="Что показывают отзывы" lead={`Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса.`}>
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
@@ -211,13 +213,17 @@ export default async function NicheDossier({ slug }: { slug: string }) {
       </Block>
 
       <Block title="Что строить" lead="Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши.">
-        {unlocked ? (
-          <div className="mt-6"><IdeaCards ideas={ideaCards} /></div>
-        ) : (
-          <div className="mt-6 rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-12 text-center sm:px-10 sm:py-14">
-            <h3 className="text-[clamp(24px,5vw,32px)] font-black leading-[1.1] tracking-[-0.03em] text-[var(--color-text-primary)]">{ideas.length} идей под спрос</h3>
-            <p className="mx-auto mt-3 max-w-[46ch] text-[16px] leading-[1.55] text-[var(--color-text-secondary)]">По каждой идее: что строить, для кого и как на этом заработать, с цитатами из реальных отзывов. Открывается навсегда.</p>
-            <div className="mt-7 flex justify-center">
+        <div className="mt-6"><IdeaCards ideas={ideaCards} /></div>
+      </Block>
+        </>
+      ) : (
+        <section className="mt-24">
+          <div className="rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-14 text-center sm:px-10 sm:py-16">
+            <h3 className="text-[clamp(26px,6vw,36px)] font-black leading-[1.08] tracking-[-0.03em] text-[var(--color-text-primary)]">Выводы по отзывам и {ideas.length} идей</h3>
+            <p className="mx-auto mt-4 max-w-[48ch] text-[16px] leading-[1.55] text-pretty text-[var(--color-text-secondary)]">
+              Структурные выводы по {NF(totalObs)} наблюдениям с прямыми цитатами и {ideas.length} готовых идей под спрос: что строить, для кого и как на этом заработать. Открывается навсегда.
+            </p>
+            <div className="mt-8 flex justify-center">
               <BuyButton
                 kind="category"
                 slug={slug}
@@ -225,8 +231,8 @@ export default async function NicheDossier({ slug }: { slug: string }) {
                 label={`Открыть за ${catPrice} ₽`}
                 loggedIn={loggedIn}
                 locale="ru"
-                title={`Идеи: ${r.name}`}
-                subtitle="Все идеи ниши под подтверждённый спрос."
+                title={`Разбор: ${r.name}`}
+                subtitle="Выводы по отзывам и все идеи ниши под подтверждённый спрос."
                 starsHref={catStarsHref}
                 starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
                 lifetimePrice={LIFETIME.rub}
@@ -234,8 +240,8 @@ export default async function NicheDossier({ slug }: { slug: string }) {
               />
             </div>
           </div>
-        )}
-      </Block>
+        </section>
+      )}
         </>
       ) : (
         <DossierGate ideasCount={ideas.length} locale="ru" />
