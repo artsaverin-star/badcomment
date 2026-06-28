@@ -109,11 +109,11 @@ export default function TestDossier() {
 
       {/* ACT — HONEST RATING */}
       <Block title="Честный рейтинг" lead="Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах.">
-        <RatingToggleList apps={ratingApps} limit={8} more={`и ещё ${r.count - 8} приложений`} />
+        <RatingToggleList apps={ratingApps} limit={8} more={`и ещё ${r.count - 8} приложений`} moreHref={`/ru/rating/${SLUG}`} />
       </Block>
 
       {/* ACT — BREAKDOWN by thesis pillars (no generic "holes" label) */}
-      <Block title="Что показывают отзывы" lead={`Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса. Раскрой вывод, чтобы увидеть реальные отзывы.`}>
+      <Block title="Что показывают отзывы" lead={`Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса.`}>
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>

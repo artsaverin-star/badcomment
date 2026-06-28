@@ -21,7 +21,7 @@ const AUTH: Record<string, { w: string; c: string }> = {
 
 const NF = (n: number) => n.toLocaleString("ru-RU");
 
-export default function RatingToggleList({ apps, limit = 8, more }: { apps: RatingApp[]; limit?: number; more?: string }) {
+export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { apps: RatingApp[]; limit?: number; more?: string; moreHref?: string }) {
   const [mode, setMode] = useState<"sentiment" | "store">("sentiment");
   const sorted = [...apps].sort((a, b) =>
     mode === "sentiment"
@@ -76,7 +76,14 @@ export default function RatingToggleList({ apps, limit = 8, more }: { apps: Rati
           );
         })}
       </div>
-      {more && <div className="mt-4 text-[14px]"><span className="text-[var(--color-text-tertiary)]">{more} — </span><span className="font-medium text-[var(--color-text-primary)]">весь рейтинг</span></div>}
+      {more && (
+        <div className="mt-4 text-[14px]">
+          <span className="text-[var(--color-text-tertiary)]">{more} — </span>
+          {moreHref
+            ? <a href={moreHref} className="font-medium text-[var(--color-text-primary)] underline-offset-2 hover:underline">весь рейтинг</a>
+            : <span className="font-medium text-[var(--color-text-primary)]">весь рейтинг</span>}
+        </div>
+      )}
     </div>
   );
 }
