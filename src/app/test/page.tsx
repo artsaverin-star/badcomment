@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { tg } from "@/lib/typo";
+import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
 import rating from "@/data/peoplesRating/astrology.json";
 import thesisAll from "@/data/niche-thesis.json";
 import cardsAll from "@/data/segment-cards.json";
@@ -24,12 +25,6 @@ const cleanTitle = (t: string) => {
   const m = t.replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, "");
   return m.charAt(0).toUpperCase() + m.slice(1);
 };
-const AUTH: Record<string, { w: string; c: string }> = {
-  "Подлинный": { w: "честная звезда", c: "#30d158" },
-  "Сомнительный": { w: "сомнительная звезда", c: "#e0b400" },
-  "Накручен": { w: "накрученная звезда", c: "#ff6961" },
-};
-
 type RApp = (typeof rating.apps)[number];
 type Finding = { title: string; plus?: string; minus?: string; count?: number; apps?: string[]; evidence?: { app: string; rating: number; quote: string }[] };
 type Pillar = { title: string; dek: string; match: string[] };
@@ -62,13 +57,16 @@ export default function TestDossier() {
   const totalObs = cards.reduce((s, c) => s + (c.count || 0), 0);
   const broken = apps.filter((a) => a.authenticity === "Накручен" || a.authenticity === "Сомнительный").length;
   const great = apps.filter((a) => (a.realScore || 0) > 80).length;
-  const topApps = apps.slice(0, 8);
+  const ratingApps: RatingApp[] = apps.map((a) => ({
+    id: a.id, title: a.title, icon: a.icon, realScore: a.realScore, storeAvg: a.storeAvg, ratings: a.ratings,
+    authenticity: a.authenticity, verdict: tg(a.verdict || ""), loved: tg(a.loved || ""), weak: tg(a.weak || ""), whoFor: a.whoFor ? tg(a.whoFor) : null,
+  }));
   const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
   const leaders = byRatings.slice(0, 3);
   const top3Share = Math.round((100 * leaders.reduce((s, a) => s + (a.ratings || 0), 0)) / (totalRatings || 1));
 
   const stats = [
-    { n: NF(totalRatings), l: "оценок в нише" },
+    { n: NF(r.count), l: "приложений" },
     { n: NF(r.totalReviews), l: "отзывов прочитано" },
     { n: NF(totalObs), l: "наблюдений" },
     { n: `${ideas.length}`, l: "идей" },
@@ -83,8 +81,7 @@ export default function TestDossier() {
 
       {/* HERO */}
       <header className="mt-12">
-        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">Разбор ниши</div>
-        <h1 className="glow-sweep mt-6 text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{r.name}</h1>
+        <h1 className="glow-sweep text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{r.name}</h1>
         <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
@@ -99,7 +96,7 @@ export default function TestDossier() {
       </header>
 
       {/* ACT — MARKET OVERVIEW */}
-      <Block num="01" title="Обзор рынка" lead="Большой платящий рынок со сломанным доверием. Деньги в подписке, но почти никто не делает по-настоящему хороший продукт.">
+      <Block title="Обзор рынка" lead="Большой платящий рынок со сломанным доверием. Деньги в подписке, но почти никто не делает по-настоящему хороший продукт.">
         <dl className="mt-2 border-t border-[var(--color-border-subtle)]">
           <MarketRow k="Размер" v={`${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано`} />
           <MarketRow k="Лидеры" v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
@@ -107,56 +104,20 @@ export default function TestDossier() {
           <MarketRow k="Деньги" v="25 из 25 крупнейших приложений бесплатны, монетизация подпиской, рынок платит за удержание" />
           <MarketRow k="Доверие" v={`${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}`} />
         </dl>
-        <div className="mt-8">
-          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">Что происходит</div>
-          <p className="mt-3 max-w-[64ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead)}</p>
-        </div>
+        <p className="mt-8 max-w-[64ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead)}</p>
       </Block>
 
       {/* ACT — HONEST RATING */}
-      <Block num="02" title="Честный рейтинг" lead={`Балл по реальному качеству из отзывов, не по витринной звезде. ${great} приложений из 100 действительно хороши.`}>
-        <div className="mt-2 border-t border-[var(--color-border-subtle)]">
-          {topApps.map((a, i) => {
-            const au = AUTH[a.authenticity || ""] || { w: "", c: "var(--color-text-tertiary)" };
-            return (
-              <Disclosure
-                key={a.id}
-                head={
-                  <>
-                    <span className="w-5 shrink-0 pt-2.5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
-                    {a.icon
-                      // eslint-disable-next-line @next/next/no-img-element
-                      ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
-                      : <span className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-[16px] font-medium leading-[1.3] text-[var(--color-text-primary)]">{a.title}</span>
-                      {a.verdict && <span className="mt-1 line-clamp-2 block text-[13px] leading-[1.45] text-[var(--color-text-tertiary)]">{tg(a.verdict)}</span>}
-                    </span>
-                    <span className="shrink-0 pt-1 text-right">
-                      <span className="block text-[17px] font-bold tabular-nums leading-none text-[var(--color-text-primary)]">{a.realScore}</span>
-                      <span className="mt-1 block text-[11px]" style={{ color: au.c }}>{au.w}</span>
-                    </span>
-                  </>
-                }
-              >
-                <div className="text-[12px] text-[var(--color-text-tertiary)]">в сторе {a.storeAvg?.toFixed(1)}★ · {NF(a.ratings || 0)} оценок</div>
-                <FieldRow k="Сильное" v={a.loved} />
-                <FieldRow k="Слабое" v={a.weak} />
-                <FieldRow k="Кому" v={a.whoFor} />
-              </Disclosure>
-            );
-          })}
-        </div>
-        <div className="mt-4 text-[14px]"><span className="text-[var(--color-text-tertiary)]">и ещё {r.count - topApps.length} приложений — </span><span className="font-medium text-[var(--color-text-primary)]">весь рейтинг</span></div>
+      <Block title="Честный рейтинг" lead="Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах.">
+        <RatingToggleList apps={ratingApps} limit={8} more={`и ещё ${r.count - 8} приложений`} />
       </Block>
 
       {/* ACT — BREAKDOWN by thesis pillars (no generic "holes" label) */}
-      <Block num="03" title="Что показывают отзывы" lead={`Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса. Раскрой вывод, чтобы увидеть реальные отзывы.`}>
+      <Block title="Что показывают отзывы" lead={`Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса. Раскрой вывод, чтобы увидеть реальные отзывы.`}>
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
-              <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">Опора 0{pi + 1}</div>
-              <h3 className="mt-3 text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[32px]">{tg(p.title)}</h3>
+              <h3 className="text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[32px]">{tg(p.title)}</h3>
               <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
               {grouped[pi].length > 0 && (
                 <div className="mt-7 border-t border-[var(--color-border-subtle)]">
@@ -184,7 +145,7 @@ export default function TestDossier() {
       </Block>
 
       {/* ACT — IDEAS */}
-      <Block num="04" title="Что строить" lead="Каждая идея — реальный бизнес, под который прочитаны все отзывы ниши. На проде сидят за платной стеной, здесь раскрыты целиком.">
+      <Block title="Что строить" lead="Каждая идея — реальный бизнес, под который прочитаны все отзывы ниши. На проде сидят за платной стеной, здесь раскрыты целиком.">
         <div className="mt-4 border-t border-[var(--color-border-subtle)]">
           {ideas.map((x, i) => (
             <Disclosure
@@ -222,11 +183,10 @@ export default function TestDossier() {
   );
 }
 
-function Block({ num, title, lead, children }: { num: string; title: string; lead?: string; children: ReactNode }) {
+function Block({ title, lead, children }: { title: string; lead?: string; children: ReactNode }) {
   return (
     <section className="mt-24">
-      <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">Шаг {num}</div>
-      <h2 className="mt-3 text-[clamp(28px,7vw,44px)] font-black leading-[1.02] tracking-[-0.03em] text-[var(--color-text-primary)]">{title}</h2>
+      <h2 className="text-[clamp(28px,7vw,44px)] font-black leading-[1.02] tracking-[-0.03em] text-[var(--color-text-primary)]">{title}</h2>
       {lead && <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.6] text-pretty text-[var(--color-text-secondary)]">{lead}</p>}
       {children}
     </section>
@@ -260,13 +220,6 @@ function Bubble({ app, text }: { app: string; text: string }) {
       <p className="text-[14px] italic leading-[1.55] text-[var(--color-text-secondary)]">{tg(text.length > 320 ? text.slice(0, 320) + "…" : text)}</p>
       <figcaption className="mt-1.5 text-[12px] not-italic text-[var(--color-text-tertiary)]">{app}</figcaption>
     </figure>
-  );
-}
-
-function FieldRow({ k, v }: { k: string; v?: string | null }) {
-  if (!v) return null;
-  return (
-    <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]"><span className="font-medium text-[var(--color-text-primary)]">{k}. </span>{tg(v)}</p>
   );
 }
 
