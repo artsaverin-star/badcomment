@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
-import IdeaGrid from "./IdeaGrid";
 import type { Locale } from "@/lib/i18n";
 import type { FeedIdea } from "@/lib/ideaFeed";
 
@@ -128,39 +127,6 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
   );
 }
 
-// People's-rating tab — live categories plus muted "soon" tiles.
-function RatingsGrid({ ru, lp }: { ru: boolean; lp: string }) {
-  const live = [
-    { slug: "astrology", name: ru ? "Астрология" : "Astrology", blurb: ru ? "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды." : "100 apps by real reviews: an honest score and a rating-authenticity check." },
-    { slug: "dating-apps", name: ru ? "Знакомства" : "Dating", blurb: ru ? "100 приложений: где реальные люди, а где боты и накрученные звёзды." : "100 apps: where the real people are, and where the bots and gamed stars are." },
-    { slug: "ai-avatars-headshots", name: ru ? "ИИ-фото" : "AI photo", blurb: ru ? "100 приложений: где результат правда похож на тебя, а где накрутка и обман в рекламе." : "100 apps: where the result really looks like you, and where the gamed stars and bait ads are." },
-    { slug: "meditation-mindfulness", name: ru ? "Медитация" : "Meditation", blurb: ru ? "100 приложений: где правда успокаивает и тёплый голос, а где пустышка." : "100 apps: which truly calm you with a warm guide, and which are hollow." },
-    { slug: "photo-editing", name: ru ? "Фоторедакторы" : "Photo editors", blurb: ru ? "100 приложений: где инструменты реально работают, а где портят фото и обманка в рекламе." : "100 apps: where the tools really work, and where they ruin the photo with bait ads." },
-    { slug: "notes-pkm", name: ru ? "Заметки" : "Notes", blurb: ru ? "Приложения для заметок: где мысль пишется мгновенно и не теряется, а где тормозит." : "Notes apps: where a thought is captured instantly and never lost, and where it lags." },
-    { slug: "language-learning", name: ru ? "Изучение языков" : "Language learning", blurb: ru ? "100 приложений: где правда доводят до речи, а где только стрики и игра." : "100 apps: which actually get you speaking, and which are just streaks and games." },
-    { slug: "period-cycle", name: ru ? "Месячные" : "Period trackers", blurb: ru ? "Трекеры цикла: где прогноз точен и данные в безопасности, а где врёт и торгует приватностью." : "Cycle trackers: where the prediction is accurate and data is safe, and where it is not." },
-    { slug: "habit-tracking", name: ru ? "Привычки" : "Habit trackers", blurb: ru ? "100 приложений: где отметка мгновенна и напоминание приходит, а где стрик стыдит и бросаешь." : "100 apps: where the check-off is instant and the reminder fires, and where guilt makes you quit." },
-    { slug: "personal-finance", name: ru ? "Личные финансы" : "Budget apps", blurb: ru ? "100 приложений: где правда видишь и держишь траты под контролем, а где рвётся синхронизация." : "100 apps: where you actually see and control spending, and where the sync breaks." },
-    { slug: "calendars-tasks", name: ru ? "Календари и задачи" : "Calendars & tasks", blurb: ru ? "100 приложений: где напоминание приходит вовремя и ничего не теряется, а где молчит." : "100 apps: where the reminder fires on time and nothing is lost, and where it stays silent." },
-  ];
-  return (
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-      {live.map((c) => (
-        <a
-          key={c.slug}
-          href={`/${lp}/rating/${c.slug}`}
-          className="group flex min-h-[140px] flex-col justify-between rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-[var(--color-border-strong)]"
-        >
-          <div>
-            <p className="text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</p>
-            <h3 className="mt-1.5 text-[23px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{c.name}</h3>
-          </div>
-          <p className="text-[13.5px] leading-[1.45] text-[var(--color-text-secondary)]">{c.blurb}</p>
-        </a>
-      ))}
-    </div>
-  );
-}
 
 // Marketing landing: animated hero, then a switchable gallery of category
 // breakdowns — an Apple-store-style bento (richer niches featured larger) or a
@@ -169,7 +135,6 @@ export default function Landing({
   catCards = [],
   locale = "ru",
   totalReviews = 0,
-  feed,
 }: {
   catCards?: CatCard[];
   locale?: Locale;
@@ -179,24 +144,15 @@ export default function Landing({
 }) {
   const ru = locale !== "en";
   const [modal, setModal] = useState(false);
-  const [view, setView] = useState<"ideas" | "categories" | "ratings">("ideas");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("home-tab");
-    if (saved !== "ideas" && saved !== "categories" && saved !== "ratings") return;
-    const id = requestAnimationFrame(() => setView(saved));
-    return () => cancelAnimationFrame(id);
-  }, []);
-  const setViewPersist = (v: "ideas" | "categories" | "ratings") => {
-    setView(v);
-    try { localStorage.setItem("home-tab", v); } catch { /* ignore */ }
-  };
 
   // Order comes from the server (page.tsx pins the hand-curated premium niches to
   // the front); keep it so the gallery leads with the best breakdowns, not just
   // the highest observation counts. Featured = the first four (top premium).
-  const ranked = catCards;
-  const FEATURED = 4;
+  // Homepage leads with the niches that have a full dossier (people's rating +
+  // breakdown + ideas). Order pinned; rolled out one niche at a time.
+  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks"];
+  const ranked = ULTRA.map((s) => catCards.find((c) => c.slug === s)).filter((c): c is CatCard => !!c);
+  const FEATURED = 2;
 
   // Hero salute — app icons flattened from the category cards, shuffled per load,
   // floated in the left/right margins behind the headline (never over the text).
@@ -251,56 +207,17 @@ export default function Landing({
           </div>
         </section>
 
-      {/* Tabs — all ideas (cards) or all current categories (tiles). */}
-      <div className="mx-auto mt-7 w-full max-w-5xl sm:mt-9">
-        <div className="mb-7 flex justify-center sm:mb-8">
-          <div className="flex w-full max-w-[480px] items-center gap-1 rounded-full border border-[var(--color-border-subtle)] bg-[color-mix(in_srgb,var(--color-bg-page)_68%,transparent)] p-1.5 backdrop-blur-xl">
-            {(["ideas", "categories", "ratings"] as const).map((v) => (
-              <button
-                key={v}
-                type="button"
-                onClick={() => setViewPersist(v)}
-                aria-pressed={view === v}
-                className={`flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-2.5 text-[13px] font-semibold transition-colors sm:text-[14px] ${view === v ? "bg-[var(--color-button-primary-bg)] text-[var(--color-button-primary-text)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
-              >
-                {v === "ideas" ? (
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5.5 2A2.5 2.5 0 0 0 3 4.5v7A2.5 2.5 0 0 0 5.5 14h5A2.5 2.5 0 0 0 13 11.5v-7A2.5 2.5 0 0 0 10.5 2h-5Zm.5 3.5h4a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1 0-1.5Zm0 3h2.5a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1 0-1.5Z" /></svg>
-                ) : v === "categories" ? (
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="1.5" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="1.5" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /><rect x="9" y="9" width="5.5" height="5.5" rx="1.4" fill="currentColor" /></svg>
-                ) : (
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2 9.5A.75.75 0 0 1 2.75 8.75H4.5a.75.75 0 0 1 .75.75V13a.75.75 0 0 1-.75.75H2.75A.75.75 0 0 1 2 13V9.5Zm5-4A.75.75 0 0 1 7.75 4.75H9.5a.75.75 0 0 1 .75.75V13a.75.75 0 0 1-.75.75H7.75A.75.75 0 0 1 7 13V5.5Zm5-3a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 .75.75V13a.75.75 0 0 1-.75.75h-1.75A.75.75 0 0 1 12 13V2.5Z" /></svg>
-                )}
-                <span>{v === "ideas" ? (ru ? "Идеи" : "Ideas") : v === "categories" ? (ru ? "Разбор категорий" : "Breakdowns") : (ru ? "Рейтинг" : "Ratings")}</span>
-              </button>
-            ))}
-          </div>
+      {/* Niche breakdowns — every category with a full dossier. */}
+      <div className="mx-auto mt-9 w-full max-w-5xl px-4 sm:mt-12">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          {ranked.map((c, i) =>
+            i < FEATURED ? (
+              <div key={c.slug} className="lg:col-span-3"><CardLarge c={c} ru={ru} /></div>
+            ) : (
+              <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
+            )
+          )}
         </div>
-
-        {view === "ideas" ? (
-          <IdeaGrid
-            items={feed?.items ?? []}
-            hasAccess={feed?.hasAccess ?? false}
-            loggedIn={feed?.loggedIn ?? false}
-            locale={locale}
-            deckPrice={feed?.deckPrice ?? 0}
-            starsHref={feed?.starsHref}
-            starsLabel={feed?.starsLabel}
-            lifetimeStarsHref={feed?.lifetimeStarsHref}
-            lifetimePrice={feed?.lifetimePrice}
-          />
-        ) : view === "categories" ? (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
-            {ranked.map((c, i) =>
-              i < FEATURED ? (
-                <div key={c.slug} className="lg:col-span-3"><CardLarge c={c} ru={ru} /></div>
-              ) : (
-                <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
-              )
-            )}
-          </div>
-        ) : (
-          <RatingsGrid ru={ru} lp={ru ? "ru" : "en"} />
-        )}
       </div>
 
       {modal && <AuthModal locale={locale} onClose={() => setModal(false)} onSuccess={() => location.reload()} />}

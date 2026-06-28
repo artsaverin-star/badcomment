@@ -23,6 +23,14 @@ import CategoryOffer from "@/components/CategoryOffer";
 import Reveal from "@/components/Reveal";
 import type { Tone } from "@/components/CardCarousel";
 import SegmentExplorer, { type ExpPillar, type ExpFinding, type ExpOpp, type ExpApp, type ExpObs, type ExpQuote } from "./SegmentExplorer";
+import NicheDossier from "@/components/NicheDossier";
+
+// Categories migrated to the new dossier layout (market + audience + honest
+// rating + breakdown + idea cards). Rolled out one niche at a time.
+const DOSSIER_SLUGS = new Set([
+  "astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing",
+  "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks",
+]);
 
 // One key finding: eyebrow index · action title · dek · the routed breakdown
 // observations as quiet expandable rows (headline · count → dek + quotes).
@@ -174,6 +182,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const locale = await getLocale();
   const ru = locale !== "en";
+
+  if (DOSSIER_SLUGS.has(slug)) return <NicheDossier slug={slug} />;
 
   if (!isActiveCategory(slug)) notFound();
   const cat = getCategoryBySlug(slug, locale);

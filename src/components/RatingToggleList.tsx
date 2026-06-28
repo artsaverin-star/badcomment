@@ -78,16 +78,19 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
           const sentiment = mode === "sentiment";
           return (
             <details key={a.id} className="group/f rounded-[16px] border border-[var(--color-border-subtle)] px-4">
-              <summary className="flex cursor-pointer list-none items-start gap-4 py-4 [&::-webkit-details-marker]:hidden">
-                <span className="w-5 shrink-0 pt-2.5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
-                {a.icon
-                  // eslint-disable-next-line @next/next/no-img-element
-                  ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
-                  : <span className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
-                <span className="min-w-0 flex-1">
+              <summary className="flex cursor-pointer list-none flex-col gap-2.5 py-4 [&::-webkit-details-marker]:hidden">
+                <span className="flex w-full items-center gap-3">
+                  <span className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
+                  {a.icon
+                    // eslint-disable-next-line @next/next/no-img-element
+                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
+                    : <span className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="ml-auto shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </span>
+                <span className="min-w-0">
                   <span className="block text-[16px] font-medium leading-[1.3] text-[var(--color-text-primary)]">{a.title}</span>
-                  {a.verdict && <span className="mt-1 line-clamp-2 block text-[13px] leading-[1.45] text-[var(--color-text-tertiary)]">{a.verdict}</span>}
-                  <span className="mt-2 flex flex-wrap items-center gap-1.5">
+                  {a.verdict && <span className="mt-1 block text-[13px] leading-[1.45] text-[var(--color-text-tertiary)]">{a.verdict}</span>}
+                  <span className="mt-2.5 flex flex-wrap items-center gap-1.5">
                     <MetricChip icon="star" value={a.storeAvg?.toFixed(1) ?? "—"} label="В сторе" active={!sentiment} />
                     {au.w && <AuthChip color={au.c} word={cap(au.w)} />}
                     <MetricChip icon="bars" value={NF(a.ratings || 0)} label="Оценок" />
