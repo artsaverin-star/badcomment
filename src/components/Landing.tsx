@@ -73,18 +73,21 @@ function firstSentence(t?: string) {
   return (m ? m[0] : t).trim();
 }
 
-// Large section-nav tile (All ideas / People's rating) leading the homepage.
-function NavCard({ href, title, sub, cta }: { href: string; title: string; sub: string; cta: string }) {
+// Colourful section-nav banner (All ideas / People's rating) leading the
+// homepage — vivid gradient so it reads as a "section", not a niche card.
+function NavCard({ href, title, sub, cta, gradient }: { href: string; title: string; sub: string; cta: string; gradient: string }) {
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,var(--color-surface-card))] sm:p-9"
+      style={{ backgroundImage: gradient }}
+      className="group relative flex h-full flex-col overflow-hidden rounded-[26px] p-7 text-white shadow-[0_18px_50px_-22px_rgba(0,0,0,0.8)] transition-transform duration-200 hover:-translate-y-0.5 sm:p-9"
     >
-      <p className="text-[12px] font-medium tracking-[0.08em] text-[var(--color-text-brand)]">Раздел</p>
-      <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[38px]">{title}</h3>
-      <p className="mt-5 max-w-[42ch] text-[16px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[18px]">{sub}</p>
-      <div className="mt-auto flex items-center gap-1.5 pt-8 text-[15px] font-semibold text-[var(--color-text-primary)]">
-        {cta} <Arrow className="shrink-0" />
+      <p className="text-[12px] font-semibold tracking-[0.08em] text-white/70">Раздел</p>
+      <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-white sm:text-[38px]">{title}</h3>
+      <p className="mt-5 max-w-[42ch] text-[16px] leading-[1.5] text-white/85 sm:text-[18px]">{sub}</p>
+      <div className="mt-auto flex items-center gap-1.5 pt-8 text-[15px] font-semibold text-white">
+        {cta}
+        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </div>
     </Link>
   );
@@ -216,6 +219,7 @@ export default function Landing({
           <div className="lg:col-span-3">
             <NavCard
               href="/ideas"
+              gradient="linear-gradient(135deg, #7c3aed 0%, #ec4899 100%)"
               title={ru ? "Все идеи" : "All ideas"}
               sub={ru ? "Готовые идеи приложений под реальный спрос, собранные из всех ниш." : "Ready app ideas backed by real demand, gathered across every niche."}
               cta={ru ? "Открыть идеи" : "Open ideas"}
@@ -224,6 +228,7 @@ export default function Landing({
           <div className="lg:col-span-3">
             <NavCard
               href="/rating"
+              gradient="linear-gradient(135deg, #0ea5e9 0%, #10b981 100%)"
               title={ru ? "Народный рейтинг" : "People's rating"}
               sub={ru ? "100 приложений на нишу по реальным отзывам, с проверкой на накрутку звезды." : "100 apps per niche by real reviews, with a rating-authenticity check."}
               cta={ru ? "Открыть рейтинг" : "Open ratings"}
