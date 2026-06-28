@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { tg } from "@/lib/typo";
 import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
+import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import rating from "@/data/peoplesRating/astrology.json";
 import thesisAll from "@/data/niche-thesis.json";
 import cardsAll from "@/data/segment-cards.json";
@@ -55,6 +56,14 @@ export default function TestDossier() {
   const cards = ((cardsAll as unknown as Record<string, { product?: Finding[] }>)[SLUG]?.product ?? []).slice().sort((a, b) => (b.count || 0) - (a.count || 0));
   const ideas = (ideasAll as unknown as Idea[]).filter((x) => x.category === SLUG);
   const aud = audience as Aud;
+  const audSegments = aud.segments.map((s) => ({ ...s, name: cap(s.name), job: tg(cap(s.job)), payNote: tg(s.payNote), gap: tg(s.gap) }));
+  const ideaIcons = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
+  const ideaCards = ideas.map((x, i) => ({
+    title: cleanTitle(x.title), oneLiner: tg(x.oneLiner), gap: x.gap ? tg(x.gap) : undefined,
+    pitch: x.idea?.pitch ? tg(x.idea.pitch) : undefined, features: x.idea?.features?.map((f) => tg(f)),
+    antiFeatures: x.idea?.antiFeatures?.map((f) => tg(f)), monetization: x.idea?.monetization ? tg(x.idea.monetization) : undefined,
+    reviewGrid: x.reviewGrid, icon: ideaIcons[i % ideaIcons.length],
+  }));
   const grouped = groupFindings(thesis.pillars, cards);
 
   const totalRatings = apps.reduce((s, a) => s + (a.ratings || 0), 0);
@@ -113,32 +122,7 @@ export default function TestDossier() {
 
       {/* ACT — AUDIENCE */}
       <Block title="Аудитория" lead="«Астрология» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.">
-        <div className="mt-6 grid grid-cols-2 items-start gap-3">
-          {aud.segments.map((s, i) => {
-            const c = s.payLevel.includes("слабо") ? "#ff6961" : "#30d158";
-            return (
-              <Disclosure
-                key={i}
-                card
-                head={
-                  <span className="flex min-w-0 flex-1 flex-col gap-1.5">
-                    <span className="text-[15px] font-semibold leading-[1.25] text-[var(--color-text-primary)]">{cap(s.name)}</span>
-                    <span className="inline-flex items-center gap-1.5 text-[12px] font-medium" style={{ color: c }}>
-                      <span className="size-1.5 rounded-full" style={{ background: c }} />{s.payLevel}
-                    </span>
-                  </span>
-                }
-              >
-                <div className="flex flex-col gap-3 text-[14px] leading-[1.55]">
-                  <p className="text-[var(--color-text-secondary)]">{tg(cap(s.job))}</p>
-                  <p className="text-[var(--color-text-tertiary)]">{tg(s.payNote)}</p>
-                  <p><span className="font-medium text-[var(--color-text-primary)]">Чего не хватает. </span><span className="text-[var(--color-text-secondary)]">{tg(s.gap)}</span></p>
-                  <p className="text-[13px] text-[var(--color-text-tertiary)]">Сейчас обслуживают: {s.servedBy.join(", ")}</p>
-                </div>
-              </Disclosure>
-            );
-          })}
-        </div>
+        <div className="mt-6"><PersonaCards segments={audSegments} /></div>
         <p className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">
           <span className="font-semibold text-[var(--color-text-primary)]">Где деньги. </span>{tg(aud.takeaway)}
         </p>
@@ -183,36 +167,7 @@ export default function TestDossier() {
 
       {/* ACT — IDEAS */}
       <Block title="Что строить" lead="Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши.">
-        <div className="mt-6 grid grid-cols-2 items-start gap-3">
-          {ideas.map((x) => (
-            <Disclosure
-              key={x.slug}
-              card
-              head={
-                <span className="flex min-w-0 flex-1 flex-col gap-1">
-                  <span className="text-[18px] font-semibold leading-[1.25] text-[var(--color-text-primary)]">{cleanTitle(x.title)}</span>
-                  <span className="text-[14px] leading-[1.4] text-[var(--color-text-tertiary)]">{x.oneLiner}</span>
-                </span>
-              }
-            >
-              <div className="flex flex-col gap-4 text-[15px] leading-[1.65]">
-                {x.gap && <Para k="Чего не хватает" v={x.gap} />}
-                {x.idea?.pitch && <Para k="Что это" v={x.idea.pitch} />}
-                {!!x.idea?.features?.length && <ListBlock k="Как устроено" items={x.idea.features} mark="·" />}
-                {!!x.idea?.antiFeatures?.length && <ListBlock k="Чего не делаем" items={x.idea.antiFeatures} mark="×" />}
-                {x.idea?.monetization && <Para k="Деньги" v={x.idea.monetization} />}
-                {!!x.reviewGrid?.length && (
-                  <div>
-                    <div className="text-[13px] font-medium text-[var(--color-text-tertiary)]">Пруф из отзывов</div>
-                    <div className="mt-3 flex flex-col gap-2.5">
-                      {x.reviewGrid.slice(0, 5).map((q, j) => <Bubble key={j} app={q.app} text={q.quote} />)}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </Disclosure>
-          ))}
-        </div>
+        <div className="mt-6"><IdeaCards ideas={ideaCards} /></div>
       </Block>
 
       <p className="mt-20 text-center text-[12px] text-[var(--color-text-tertiary)]">Прототип · /test · данные реальные (астрология)</p>
@@ -260,24 +215,3 @@ function Bubble({ app, text }: { app: string; text: string }) {
   );
 }
 
-function Para({ k, v }: { k: string; v: string }) {
-  return (
-    <div>
-      <div className="text-[13px] font-medium text-[var(--color-text-tertiary)]">{k}</div>
-      <p className="mt-1 text-[var(--color-text-secondary)]">{tg(v)}</p>
-    </div>
-  );
-}
-
-function ListBlock({ k, items, mark }: { k: string; items: string[]; mark: string }) {
-  return (
-    <div>
-      <div className="text-[13px] font-medium text-[var(--color-text-tertiary)]">{k}</div>
-      <ul className="mt-1.5 flex flex-col gap-1.5">
-        {items.map((it, i) => (
-          <li key={i} className="flex gap-2.5 text-[var(--color-text-secondary)]"><span className="text-[var(--color-text-tertiary)]">{mark}</span>{tg(it)}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
