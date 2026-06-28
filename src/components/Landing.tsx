@@ -73,22 +73,16 @@ function firstSentence(t?: string) {
   return (m ? m[0] : t).trim();
 }
 
-// Colourful section-nav banner (All ideas / People's rating) leading the
-// homepage — vivid gradient so it reads as a "section", not a niche card.
-function NavCard({ href, title, sub, cta, gradient }: { href: string; title: string; sub: string; cta: string; gradient: string }) {
+// Small colourful section pill (All ideas / People's rating).
+function NavPill({ href, label, gradient }: { href: string; label: string; gradient: string }) {
   return (
     <Link
       href={href}
       style={{ backgroundImage: gradient }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-[26px] p-7 text-white shadow-[0_18px_50px_-22px_rgba(0,0,0,0.8)] transition-transform duration-200 hover:-translate-y-0.5 sm:p-9"
+      className="group inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-[14px] font-semibold text-white shadow-[0_8px_24px_-10px_rgba(0,0,0,0.7)] transition-transform duration-200 hover:-translate-y-0.5"
     >
-      <p className="text-[12px] font-semibold tracking-[0.08em] text-white/70">Раздел</p>
-      <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-white sm:text-[38px]">{title}</h3>
-      <p className="mt-5 max-w-[42ch] text-[16px] leading-[1.5] text-white/85 sm:text-[18px]">{sub}</p>
-      <div className="mt-auto flex items-center gap-1.5 pt-8 text-[15px] font-semibold text-white">
-        {cta}
-        <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-300 group-hover:translate-x-1"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-      </div>
+      {label}
+      <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </Link>
   );
 }
@@ -213,29 +207,15 @@ export default function Landing({
           </div>
         </section>
 
-      {/* Two section nav cards, then every niche with a full dossier. */}
-      <div className="mx-auto mt-9 w-full max-w-5xl px-4 sm:mt-12">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
-          <div className="lg:col-span-3">
-            <NavCard
-              href="/ideas"
-              gradient="linear-gradient(135deg, #7c3aed 0%, #ec4899 100%)"
-              title={ru ? "Все идеи" : "All ideas"}
-              sub={ru ? "Готовые идеи приложений под реальный спрос, собранные из всех ниш." : "Ready app ideas backed by real demand, gathered across every niche."}
-              cta={ru ? "Открыть идеи" : "Open ideas"}
-            />
-          </div>
-          <div className="lg:col-span-3">
-            <NavCard
-              href="/rating"
-              gradient="linear-gradient(135deg, #0ea5e9 0%, #10b981 100%)"
-              title={ru ? "Народный рейтинг" : "People's rating"}
-              sub={ru ? "100 приложений на нишу по реальным отзывам, с проверкой на накрутку звезды." : "100 apps per niche by real reviews, with a rating-authenticity check."}
-              cta={ru ? "Открыть рейтинг" : "Open ratings"}
-            />
-          </div>
+      {/* Small section pills, then every niche with a full dossier. */}
+      <div className="mx-auto mt-7 flex w-full max-w-5xl flex-wrap justify-center gap-2.5 px-4">
+        <NavPill href="/ideas" label={ru ? "Все идеи" : "All ideas"} gradient="linear-gradient(135deg, #7c3aed 0%, #ec4899 100%)" />
+        <NavPill href="/rating" label={ru ? "Народный рейтинг" : "People's rating"} gradient="linear-gradient(135deg, #0ea5e9 0%, #10b981 100%)" />
+      </div>
+      <div className="mx-auto mt-7 w-full max-w-5xl px-4 sm:mt-9">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ranked.map((c) => (
-            <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
+            <CardCompact key={c.slug} c={c} ru={ru} />
           ))}
         </div>
       </div>

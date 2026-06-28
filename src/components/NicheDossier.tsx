@@ -6,6 +6,7 @@ import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
 import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, PREGEN_DATE_RU } from "@/lib/tokenConfig";
 import CategoryOffer from "@/components/CategoryOffer";
+import DossierGate from "@/components/DossierGate";
 import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import thesisAll from "@/data/niche-thesis.json";
@@ -165,13 +166,15 @@ export default async function NicheDossier({ slug }: { slug: string }) {
       </Block>
 
       <Block title="Аудитория" lead={`«${r.name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.`}>
-        <div className="mt-6"><PersonaCards segments={audSegments} locked={!loggedIn} locale="ru" /></div>
+        <div className="mt-6"><PersonaCards segments={audSegments} locale="ru" /></div>
         <div className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5">
           <h3 className="text-[17px] font-bold text-[var(--color-text-primary)]">Где деньги</h3>
           <p className="mt-2 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
         </div>
       </Block>
 
+      {loggedIn ? (
+        <>
       <Block title="Честный рейтинг" lead="Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах.">
         <RatingToggleList apps={ratingApps} limit={8} more={`и ещё ${r.count - 8} приложений`} moreHref={`/ru/rating/${slug}`} />
       </Block>
@@ -232,6 +235,10 @@ export default async function NicheDossier({ slug }: { slug: string }) {
           </>
         )}
       </Block>
+        </>
+      ) : (
+        <DossierGate ideasCount={ideas.length} locale="ru" />
+      )}
     </main>
   );
 }
