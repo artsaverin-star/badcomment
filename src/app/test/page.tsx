@@ -63,6 +63,9 @@ export default function TestDossier() {
   const broken = apps.filter((a) => a.authenticity === "Накручен" || a.authenticity === "Сомнительный").length;
   const great = apps.filter((a) => (a.realScore || 0) > 80).length;
   const topApps = apps.slice(0, 8);
+  const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
+  const leaders = byRatings.slice(0, 3);
+  const top3Share = Math.round((100 * leaders.reduce((s, a) => s + (a.ratings || 0), 0)) / (totalRatings || 1));
 
   const stats = [
     { n: NF(totalRatings), l: "оценок в нише" },
@@ -93,14 +96,25 @@ export default function TestDossier() {
           ))}
         </div>
 
-        {/* market read — plain prose, no decoration */}
-        <p className="mt-12 max-w-[64ch] border-t border-[var(--color-border-subtle)] pt-6 text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">
-          Деньги в подписке: 25 из 25 крупнейших приложений бесплатны, рынок платит за удержание. Но доверие сломано. {broken} из 100 приложений со звездой накрученной или сомнительной, а по-настоящему хороших всего {great}. Большой платящий рынок, где почти никто не делает хороший продукт.
-        </p>
       </header>
 
+      {/* ACT — MARKET OVERVIEW */}
+      <Block num="01" title="Обзор рынка" lead="Большой платящий рынок со сломанным доверием. Деньги в подписке, но почти никто не делает по-настоящему хороший продукт.">
+        <dl className="mt-2 border-t border-[var(--color-border-subtle)]">
+          <MarketRow k="Размер" v={`${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано`} />
+          <MarketRow k="Лидеры" v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
+          <MarketRow k="Концентрация" v={`топ-3 держат ${top3Share}% всех оценок, рынок не монополизирован, место есть`} />
+          <MarketRow k="Деньги" v="25 из 25 крупнейших приложений бесплатны, монетизация подпиской, рынок платит за удержание" />
+          <MarketRow k="Доверие" v={`${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}`} />
+        </dl>
+        <div className="mt-8">
+          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">Что происходит</div>
+          <p className="mt-3 max-w-[64ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead)}</p>
+        </div>
+      </Block>
+
       {/* ACT — HONEST RATING */}
-      <Block num="01" title="Честный рейтинг" lead={`Балл по реальному качеству из отзывов, не по витринной звезде. ${great} приложений из 100 действительно хороши.`}>
+      <Block num="02" title="Честный рейтинг" lead={`Балл по реальному качеству из отзывов, не по витринной звезде. ${great} приложений из 100 действительно хороши.`}>
         <div className="mt-2 border-t border-[var(--color-border-subtle)]">
           {topApps.map((a, i) => {
             const au = AUTH[a.authenticity || ""] || { w: "", c: "var(--color-text-tertiary)" };
@@ -129,7 +143,7 @@ export default function TestDossier() {
       </Block>
 
       {/* ACT — BREAKDOWN by thesis pillars (no generic "holes" label) */}
-      <Block num="02" title="Что показывают отзывы" lead={tg(thesis.competitorRead)}>
+      <Block num="03" title="Что показывают отзывы" lead={`Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса. Раскрой вывод, чтобы увидеть реальные отзывы.`}>
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
@@ -162,7 +176,7 @@ export default function TestDossier() {
       </Block>
 
       {/* ACT — IDEAS */}
-      <Block num="03" title="Что строить" lead="Каждая идея — реальный бизнес, под который прочитаны все отзывы ниши. На проде сидят за платной стеной, здесь раскрыты целиком.">
+      <Block num="04" title="Что строить" lead="Каждая идея — реальный бизнес, под который прочитаны все отзывы ниши. На проде сидят за платной стеной, здесь раскрыты целиком.">
         <div className="mt-4 border-t border-[var(--color-border-subtle)]">
           {ideas.map((x, i) => (
             <Disclosure
@@ -220,6 +234,15 @@ function Disclosure({ head, children, defaultOpen }: { head: ReactNode; children
       </summary>
       <div className="pb-6 pr-1 sm:pr-8">{children}</div>
     </details>
+  );
+}
+
+function MarketRow({ k, v }: { k: string; v: string }) {
+  return (
+    <div className="flex flex-col gap-0.5 border-b border-[var(--color-border-subtle)] py-3.5 sm:flex-row sm:gap-6">
+      <dt className="w-32 shrink-0 text-[14px] font-medium text-[var(--color-text-tertiary)]">{k}</dt>
+      <dd className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{v}</dd>
+    </div>
   );
 }
 
