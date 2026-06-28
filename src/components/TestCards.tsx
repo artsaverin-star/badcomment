@@ -70,10 +70,10 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
 
 function CardFace({ icon, title, desc, footer, onClick }: { icon: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className="flex aspect-[4/5] flex-col items-center justify-center gap-3 rounded-[18px] border border-[var(--color-border-subtle)] p-4 text-center transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-bg-muted)]">
+    <button type="button" onClick={onClick} className="flex min-h-[190px] flex-col items-center justify-center gap-3 rounded-[18px] border border-[var(--color-border-subtle)] p-5 text-center transition-colors hover:border-[var(--color-border-strong)] hover:bg-[var(--color-bg-muted)]">
       <Icon name={icon} className="size-9 text-[var(--color-text-secondary)]" />
       <div className="text-[15px] font-semibold leading-[1.2] text-[var(--color-text-primary)]">{title}</div>
-      <div className="line-clamp-2 text-[12.5px] leading-[1.4] text-[var(--color-text-tertiary)]">{desc}</div>
+      <div className="text-[12.5px] leading-[1.4] text-[var(--color-text-tertiary)]">{desc}</div>
       {footer}
     </button>
   );
