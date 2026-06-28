@@ -4,6 +4,7 @@ import astrology from "./astrology.json";
 import calendarsTasks from "./calendars-tasks.json";
 import cryptoInvesting from "./crypto-investing.json";
 import datingApps from "./dating-apps.json";
+import foodDelivery from "./food-delivery.json";
 import habitTracking from "./habit-tracking.json";
 import languageLearning from "./language-learning.json";
 import meditationMindfulness from "./meditation-mindfulness.json";
@@ -16,5 +17,5 @@ import photoEditing from "./photo-editing.json";
 import videoStreaming from "./video-streaming.json";
 
 export const DOSSIER_BY_SLUG: Record<string, unknown> = {
-  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "video-streaming": videoStreaming,
+  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "video-streaming": videoStreaming,
 };

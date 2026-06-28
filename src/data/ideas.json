@@ -20493,559 +20493,599 @@
   "slug": "food-delivery-1",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
-  "title": "Возврат без звонка",
-  "oneLiner": "Сервис автоматического спора с площадками доставки: клиент жмёт «не получил», система собирает доказательства и добивается возврата от DoorDash, Uber Eats или Deliveroo за него",
-  "asOf": "2026-06-20",
+  "title": "Диспетчерский центр для курьеров: честный расчёт маршрутов",
+  "oneLiner": "B2B-инструмент для независимых курьерских флотилий и агрегаторов, который считает реальную доходность маршрута до принятия заказа.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
   },
   "reviewGrid": [
    {
-    "quote": "delivery driver marked my order as delivered but I have not received it scam",
+    "quote": "Why am I still getting $3-$4 orders on platinum with the +$1?",
     "rating": 1,
-    "app": "Just Eat"
+    "app": "DoorDash - Dasher"
    },
    {
-    "quote": "they just kept saying \"the GPS says they stopped at the right spot so there's nothing we can do\" even though I proved with photos the order was at the wrong address",
-    "rating": 1,
-    "app": "Postmates"
+    "quote": "I’ve been using this app for a couple years and it goes through good and bad cycles. When offers are low everything is fine and then when business picks back up I get time control violations. Sometimes I get them one after another for delivering orders late for excepting orders that are already late",
+    "rating": 3,
+    "app": "DoorDash - Dasher"
    },
    {
-    "quote": "Delivery partner marked it \"delivered\" while still km away, confirmed on Swiggy's own map",
+    "quote": "My order is wrong 9/10 and nothing is done about it they say deal with it",
     "rating": 1,
-    "app": "Swiggy"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "ordered a meal worth $45, received half of the meal as other half was out of stock, i submitted my report to be met with \"unable to refund you for that\", they ripped me off $20",
-    "rating": 1,
-    "app": "Uber Eats"
+    "quote": "Been a dash pass member for over 6 years, the last few months the service has gotten so bad i am considering canceling. Everything from late arrivals, several stops added before my delivery to the store closing before my order could be picked up cause no driver could be found. Today i try to place a",
+    "rating": 2,
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "was missing 2 items from order and they refused to refund me or have items sent",
-    "rating": 1,
-    "app": "DoorDash"
+    "quote": "5 stars for the DoorDash . 3 stars for the restaurants and 2 starts for the dasher drivers",
+    "rating": 3,
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "Typed \"Human,\" \"Escalate,\" \"Manager,\" ignored every time. One bot said refund was \"initiated,\" then said order was \"supplied.\"",
-    "rating": 1,
-    "app": "Swiggy"
-   },
-   {
-    "quote": "There is no actual way to contact support in the app. The help menu sends you in a loop through static pages that never answer your question.",
-    "rating": 1,
-    "app": "Uber Eats"
+    "quote": "I love how easy it is to make preferences when ordering from my favorite places!",
+    "rating": 5,
+    "app": "DoorDash: Food, Grocery, More"
    }
   ],
   "mechanisms": [
    {
-    "title": "Курьер отмечает «доставлено», еды нет, площадка ссылается на свою же GPS-отметку и отказывает. Человек тратит час на переписку с ботом и сдаётся.",
-    "obsCount": 7,
+    "title": "Курьеры на всех платформах принимают заказы вслепую: расстояние до ресторана не указано, оплата за дальний маршрут та же, что за ближний. Платиновый статус не д",
+    "obsCount": 6,
     "apps": [
-     "DoorDash",
-     "Uber Eats",
-     "Just Eat",
-     "Postmates"
+     "Grubhub for Drivers",
+     "DoorDash - Dasher",
+     "Instacart Shopper: Earn money",
+     "Favor Runner: Deliver & Earn"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Курьер отмечает «доставлено», еды нет, площадка ссылается на свою же GPS-отметку и отказывает. Человек тратит час на переписку с ботом и сдаётся.",
+  "gap": "Курьеры на всех платформах принимают заказы вслепую: расстояние до ресторана не указано, оплата за дальний маршрут та же, что за ближний. Платиновый статус не даёт приоритета на выгодные заказы. Курьер узнаёт реальную прибыльность заказа только после его завершения.",
   "idea": {
-   "pitch": "Пользователь даёт доступ к аккаунту доставки, сервис автоматически фиксирует несоответствия (GPS, время, фото, историю чатов) и подаёт спор в форме, которую площадка обязана обработать. Зарабатываем процент от возвращённой суммы. Аудитория уже платит за доставку и хочет получить то, за что заплатила.",
+   "pitch": "Сервис показывает курьеру до принятия заказа: сколько километров, какой доход на км, ожидаемое время ожидания в ресторане и итоговый заработок в час. Небольшие флотилии и b2b-агрегаторы подключают API и получают аналитику по всему парку. Монетизация: подписка 499-999 рублей в месяц с курьера или корпоративный тариф от 5000 рублей за флотилию.",
    "features": [
-    "Подключение аккаунтов DoorDash, Uber Eats, Deliveroo, Just Eat через OAuth",
-    "Автосбор доказательств: скриншот трека курьера, время отметки «доставлено», история переписки",
-    "Генерация шаблона жалобы под регламент каждой площадки",
-    "Автоматическая эскалация в чат поддержки с повторными попытками",
-    "Дашборд успешных возвратов и статистика по площадкам"
+    "Расчёт доходности до принятия заказа: доход на километр, итог в час",
+    "Карта горячих зон с прогнозом спроса на ближайший час",
+    "Аналитика по сменам: прибыль, километраж, среднее время ожидания",
+    "Корпоративный дашборд для флотилий: рейтинг курьеров, маршруты, расходы",
+    "Интеграция с DoorDash Dasher, Grubhub for Drivers через официальное API"
    ],
    "antiFeatures": [
-    "Нет собственной доставки и курьеров",
-    "Нет подписки на доступ к базовому функционалу",
-    "Нет ручного ввода доказательств пользователем"
+    "Не принимает и не передаёт заказы, не является агрегатором",
+    "Не помогает обойти алгоритмы платформ и не обещает повышение рейтинга",
+    "Не отслеживает клиентские данные, не хранит адреса получателей"
    ],
-   "monetization": "Успех-комиссия 20% от возвращённой суммы. Клиент уже заплатил за еду, которую не получил, и готов отдать часть, лишь бы вернуть деньги. B2B: корпоративные клиенты платят фиксированную абонплату за автоматический аудит заказов."
+   "monetization": "Курьеры уже платят за данные о трафике и маршрутах. Флотилии платят за GPS-трекинг и диспетчеризацию (Samsara, Onfleet, Circuit). Таргет: 50 долларов в месяц с независимого курьера, 200-500 долларов за флотилию из 10 человек."
   }
  },
  {
   "slug": "food-delivery-2",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
-  "title": "Горячая гарантия",
-  "oneLiner": "Подписка на доставку еды с единственной реальной гарантией: еда горячая или деньги назад без вопросов, потому что рестораны-партнёры работают только с выделенными курьерами на один заказ",
-  "asOf": "2026-06-20",
+  "title": "Корпоративные обеды с единым счётом для офисов",
+  "oneLiner": "B2B-платформа для HR-менеджеров: сотрудники выбирают обед из разных ресторанов, компания получает один налоговый счёт в конце месяца.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
   },
   "reviewGrid": [
    {
-    "quote": "They allow drivers to rack up 4 orders at once so your food takes like 50 minutes to get to you and its cold af.",
-    "rating": 1,
-    "app": "DoorDash"
+    "quote": "I did not see a way to schedule delivery this time. I would like a 6:00 pm arrival",
+    "rating": 4,
+    "app": "Grubhub: Food Delivery"
    },
    {
-    "quote": "Due to Uber allowing drivers to accept multiple orders, my food always arrives cold",
-    "rating": 1,
-    "app": "Postmates"
+    "quote": "I understand that they need to make money, but the prices are inflated compared to the restaurants pricing. Also, if the restaurant is running a deal, you won’t get the same deal from door dash…",
+    "rating": 4,
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "They make people pick up 2 orders so your food gets cold",
+    "quote": "Bogus how you guys jack up every price by 2$!",
     "rating": 1,
-    "app": "Deliveroo"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "They dont advertise the actual time your food will take, they take your money then change the delivery time.",
-    "rating": 1,
-    "app": "Uber Eats"
+    "quote": "Great option for people who can’t leave, but you’re definitely paying a premium",
+    "rating": 2,
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "It will tell you an estimated delivery time. After completing your order the estimated delivery time will change to a much later time.",
-    "rating": 1,
-    "app": "Grubhub"
+    "quote": "How do you over charge for something that’s like 2 dollars or more the full price is always 12 dollars or more",
+    "rating": 3,
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "delivery is delayed, and sometimes even postponed to the next day! Why indicate the expected time if you don't invest in it at all?",
-    "rating": 1,
-    "app": "Instacart"
-   },
-   {
-    "quote": "should not have you tip the driver before they do their job, because they oftentimes do not do a good job",
-    "rating": 1,
-    "app": "Postmates"
+    "quote": "Always reliable and consistent. Maybe a little too easy to use. Love the deals.",
+    "rating": 5,
+    "app": "DoorDash: Food, Grocery, More"
    }
   ],
   "mechanisms": [
    {
-    "title": "Платформы вешают на курьера 3-4 заказа сразу, и ваше блюдо стынет 50 минут в сумке, пока он развозит чужих. Вернуть деньги за холодную еду нельзя.",
-    "obsCount": 7,
+    "title": "Офисные сотрудники заказывают через агрегаторы на личные карты и тратят время на возмещение расходов. HR хочет предоставить питание как бенефит, но агрегаторы н",
+    "obsCount": 6,
     "apps": [
-     "DoorDash",
-     "Uber Eats",
-     "Postmates",
-     "Deliveroo"
+     "Foodsby: Local Food Delivery",
+     "Ritual - Order Local Takeout",
+     "Wonder: Food Delivery",
+     "Jimmy John's Sandwiches"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Платформы вешают на курьера три-четыре заказа сразу, и ваше блюдо стынет 50 минут в сумке, пока он развозит чужих. Вернуть деньги за холодную еду нельзя.",
+  "gap": "Офисные сотрудники заказывают через агрегаторы на личные карты и тратят время на возмещение расходов. HR хочет предоставить питание как бенефит, но агрегаторы не дают корпоративный счёт с разбивкой по сотрудникам. Foodsby решал эту задачу, но число партнёров падает и модель не масштабируется.",
   "idea": {
-   "pitch": "Сеть ресторанов-партнёров в радиусе 3 км с контрактом: один курьер, один заказ, никаких параллельных пикапов. За подписку клиент получает доступ к гарантированной горячей доставке в 20-25 минут. Рестораны платят за листинг и трафик, клиент платит за уверенность. Маржа выше, потому что не субсидируем промо и не раздаём кредиты за ошибки.",
+   "pitch": "Компания открывает корпоративный счёт и задаёт лимит на сотрудника в день. Каждый заказывает то, что хочет, из ресторанов в зоне доставки офиса. В конце месяца HR получает единый счёт с разбивкой по сотрудникам и блюдам для бухгалтерии. Никаких возмещений, никаких чеков. Рестораны платят комиссию за доступ к корпоративному трафику.",
    "features": [
-    "Карта ресторанов с гарантией горячей доставки в радиусе 3 км",
-    "Выделенный курьер на каждый заказ, без параллельных пикапов",
-    "Автоматический возврат 100% при нарушении гарантии (температурный датчик в сумке или оценка клиента)",
-    "Прозрачный трек: видно, что курьер едет только к тебе",
-    "Подписка с ежемесячным лимитом гарантированных доставок"
+    "Корпоративный кошелёк с лимитом на сотрудника и дату",
+    "Групповой заказ из нескольких ресторанов в одну доставку",
+    "Единый счёт с CSV-выгрузкой для бухгалтерии",
+    "Черный список блюд по политике компании (алкоголь, десерты)",
+    "Дашборд HR: кто и сколько тратит, популярные рестораны, статистика"
    ],
    "antiFeatures": [
-    "Нет доставки из любого ресторана города",
-    "Нет промокодов и приветственных скидок",
-    "Нет параллельных заказов для экономии на курьерах"
+    "Не работает с частными лицами, только корпоративные аккаунты",
+    "Не заменяет собственную корпоративную столовую на крупных производствах",
+    "Не выполняет доставку самостоятельно, работает с местными курьерскими партнёрами"
    ],
-   "monetization": "Ежемесячная подписка клиентов (аналог Amazon Prime для доставки). Листинговая комиссия с ресторанов за доступ к подписчикам. Рестораны уже платят DoorDash 30%, готовы платить меньше за лучший трафик."
+   "monetization": "Компании платят за корпоративное питание уже сегодня. Средний обед сотрудника в крупном городе 600-900 рублей. Команда из 50 человек 1.5 млн рублей в месяц оборота, комиссия 10-15% даёт 150-225 тысяч рублей с одного клиента."
   }
  },
  {
   "slug": "food-delivery-3",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
-  "title": "Стол на весь офис",
-  "oneLiner": "Платформа для групповых заказов в офисе: один счёт, один курьер, один приезд. Каждый сотрудник выбирает сам, компания платит одним платежом",
-  "asOf": "2026-06-20",
+  "title": "Сервис готовых наборов для конкретных диет без подписки",
+  "oneLiner": "Еженедельная доставка наборов блюд строго под кето, FODMAP или диабетический рацион без подписки, без автосписания, с полным контролем состава.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
   },
   "reviewGrid": [
    {
-    "quote": "A $14 dinner plate, if it costs $42 to get it to you, you're being ripped off.",
-    "rating": 1,
-    "app": "DoorDash"
+    "quote": "it’s comes safe!",
+    "rating": 4,
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "Prices for delivery are abusive. (A $20 pizza costs $50 delivered.)",
+    "quote": "It’s ridiculous that you still charge a ridiculous service fee when you have the DoorDash pass insane last time I used DoorDash you lie about your charges until you submit it",
+    "rating": 1,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "Like so, I did not receive an item in my order, but because one of the other items was on sale, they didn’t refund me the full price of the item that I did not received wack",
     "rating": 2,
-    "app": "Uber Eats"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "the Sub sandwich that I wanted was about $7 and the service fees came up to more then $9",
-    "rating": 1,
-    "app": "Postmates"
+    "quote": "Muy caliente bueno",
+    "rating": 3,
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "they're good about fixing delivery issues, if there are any",
+    "quote": "Always fast response and amazing service",
     "rating": 5,
-    "app": "DoorDash"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "If I have ANY issues with the restaurants or delivery, it gets resolved with customer service ASAP!!",
-    "rating": 5,
-    "app": "Grubhub"
-   },
-   {
-    "quote": "restaurant closes and i cant cancle order because its been accepted",
-    "rating": 1,
-    "app": "Grubhub"
-   },
-   {
-    "quote": "charging me the full price for the food AND keeping the driver tip is completely unreasonable",
-    "rating": 1,
-    "app": "Uber Eats"
+    "quote": "Expensive but helpful",
+    "rating": 4,
+    "app": "DoorDash: Food, Grocery, More"
    }
   ],
   "mechanisms": [
    {
-    "title": "В офисе 20 человек хотят пообедать вместе, но каждый заказывает отдельно через личное приложение. Бухгалтерия не принимает 20 разных чеков, а координировать общ",
-    "obsCount": 7,
+    "title": "Home Chef, Green Chef и Sunbasket берут деньги автоматически даже когда клиент пропустил неделю, присылают наборы с дефолтным меню вместо выбранного и не дают и",
+    "obsCount": 6,
     "apps": [
-     "DoorDash",
-     "Grubhub",
-     "Uber Eats",
-     "Just Eat"
+     "Home Chef: Meal Kit Delivery",
+     "Green Chef: Healthy Meal Kits",
+     "Sunbasket Meal Delivery",
+     "Blue Apron: Meal Kit Delivery"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "В офисе 20 человек хотят пообедать вместе, но каждый заказывает отдельно через личное приложение. Бухгалтерия не принимает 20 разных чеков, а координировать общий заказ в чате неудобно.",
+  "gap": "Home Chef, Green Chef и Sunbasket берут деньги автоматически даже когда клиент пропустил неделю, присылают наборы с дефолтным меню вместо выбранного и не дают исключить конкретный ингредиент глобально. Люди с медицинскими диетическими ограничениями не могут доверять автоматизированным подпискам.",
   "idea": {
-   "pitch": "Компания подключает платёжный метод, сотрудники получают ссылку на общий «стол». Каждый добавляет своё блюдо из меню ресторана, система собирает сводный заказ и оформляет один корпоративный счёт с разбивкой по сотрудникам. Рестораны получают крупный заказ без агрегатора. Компании нужен один чек для возмещения расходов на питание.",
+   "pitch": "Клиент выбирает протокол питания при регистрации (кето, безглютеновый, диабетический, FODMAP). Каждый заказ подтверждается вручную, автосписания нет. Состав каждого набора показывается полностью до оформления с разбивкой по нутриентам. Клиент платит дороже, чем в Blue Apron, но получает гарантию соответствия протоколу питания.",
    "features": [
-    "Корпоративный кабинет с управлением командами и лимитами на человека",
-    "Ссылка на общий «стол» с дедлайном сбора заказов",
-    "Единый счёт с разбивкой по сотрудникам для бухгалтерии",
-    "Интеграция с корпоративными картами и системами возмещения расходов",
-    "Рейтинг ресторанов по скорости обработки групповых заказов"
+    "Выбор диетического протокола при регистрации, фильтрация на уровне рецептов",
+    "Полный список ингредиентов с нутриентами до подтверждения заказа",
+    "Без автосписания: каждый заказ подтверждается вручную",
+    "Глобальное исключение ингредиентов (например, лук, глютен, молоко) для всех рецептов",
+    "Партнёрство с диетологами: каждый рецепт проверен специалистом по нутриции"
    ],
    "antiFeatures": [
-    "Нет доставки для физических лиц",
-    "Нет индивидуальных промо и кешбэков",
-    "Нет еды навынос или самовывоза"
+    "Не работает с произвольными пожеланиями вне поддерживаемых протоколов",
+    "Не доставляет быстрее двух дней, нет экспресс-опции",
+    "Не заменяет медицинскую консультацию и не лечит заболевания"
    ],
-   "monetization": "Ежемесячная подписка на компанию (по числу сотрудников). Комиссия с ресторана за групповой трафик ниже стандартной агрегаторской (15% вместо 30%). Компании уже платят за корпоративное питание через кейтеринг или индивидуальные компенсации."
+   "monetization": "Людям с диабетом, целиакией и синдромом раздражённого кишечника уже рекомендуют специальное питание врачи. Они платят за органические продукты и готовые решения 150-250 долларов в месяц. Наценка за гарантированное соответствие протоколу ещё 20-30% к цене конкурентов."
   }
  },
  {
   "slug": "food-delivery-4",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
-  "title": "Доставка для своих",
-  "oneLiner": "Сервис доставки с живым оператором вместо чат-бота: реальный человек на связи в мессенджере с момента заказа до двери, решает проблемы здесь и сейчас",
-  "asOf": "2026-06-20",
+  "title": "Маркетплейс готовой еды от домашних поваров",
+  "oneLiner": "Платформа для покупки домашней еды у соседей, которые готовят на продажу как Etsy, только с горячим ужином.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
   },
   "reviewGrid": [
    {
-    "quote": "There is no actual way to contact support in the app. The help menu sends you in a loop through static pages that never answer your question.",
+    "quote": "Unless you pay extra for “priority”, a dasher can make multiple stops for multiple orders. If your order was picked up first, the delay for getting your food is indeterminable. The other night it took an extra 45 minutes to get our pizza after it was picked up from the restaurant so it was cold and ",
     "rating": 1,
-    "app": "Uber Eats"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "the customer service was replaced with an AI chat bot that is completely useless!",
+    "quote": "I just want to order what I want and not be solicited for anything else. \nAdditionally, remove substitutes of something vs automatically allowing substitutes. That’s annoying.",
+    "rating": 2,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "It’s nice to order things but they can never keep their promise on their timeframe. They always say 30 minutes for delivery and then it takes longer. Also many times they take my order. I wait an hour especially at night and then they cancel it by the time it’s supposed to arrive. It happens quite f",
+    "rating": 3,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "Thanks for all the time I gain by using DoorDash !!!",
+    "rating": 5,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "Theres always someone scheming and they will charge for a messed up order but for the most part  great app i would recommend",
+    "rating": 4,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "To expensive this app is a scam",
     "rating": 1,
-    "app": "Postmates"
-   },
-   {
-    "quote": "He even brought my groceries inside for me!I am handicapped and he was a blessing to me for doing that!",
-    "rating": 5,
-    "app": "Instacart"
-   },
-   {
-    "quote": "I just had surgery and had no way to go get groceries myself, so this app was so much help",
-    "rating": 5,
-    "app": "DoorDash"
-   },
-   {
-    "quote": "had surgery and can't drive. Uber eats is a life saver!",
-    "rating": 5,
-    "app": "Uber Eats"
-   },
-   {
-    "quote": "i have recently had major spinal surgery and am having to rest for 12wks for it to heal. I live on my own and this makes my life so much easier",
-    "rating": 5,
-    "app": "Deliveroo"
-   },
-   {
-    "quote": "recently got a stale food delivered and the worst part there is no customer support available",
-    "rating": 1,
-    "app": "Zomato"
+    "app": "DoorDash: Food, Grocery, More"
    }
   ],
   "mechanisms": [
    {
-    "title": "Когда что-то идёт не так (нет еды, не тот адрес, испорченное), человек попадает в петлю чат-бота и никогда не добирается до живого оператора. Проблема не решает",
-    "obsCount": 7,
+    "title": "Агрегаторы возят еду из ресторанов с накруткой цен и непредсказуемым качеством. Значительная часть покупателей ищет домашнюю еду конкретной кухни (грузинская, в",
+    "obsCount": 6,
     "apps": [
-     "Uber Eats",
-     "Postmates",
-     "Deliveroo",
-     "Just Eat"
+     "CookUnity - A Chef Marketplace",
+     "Fantuan Delivery - 饭团外卖",
+     "HungryPanda熊猫外卖",
+     "Too Good To Go: End Food Waste"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Когда что-то идёт не так (нет еды, не тот адрес, испорченное), человек попадает в петлю чат-бота и никогда не добирается до живого оператора. Проблема не решается.",
+  "gap": "Агрегаторы возят еду из ресторанов с накруткой цен и непредсказуемым качеством. Значительная часть покупателей ищет домашнюю еду конкретной кухни (грузинская, вьетнамская, нигерийская, украинская) которой нет в ресторанах района. Домашние повара уже готовят на продажу в мессенджерах без защиты.",
   "idea": {
-   "pitch": "Небольшая сеть ресторанов-партнёров с гарантией живого сопровождения каждого заказа. Оператор в Telegram или WhatsApp видит ваш заказ, трек курьера и историю в реальном времени. Если что-то не так, он звонит курьеру, ресторану и решает вопрос до закрытия чата. Клиентам с хроническими заболеваниями, пожилым и людям после операции этот сервис нужен как инфраструктура, а не как роскошь.",
+   "pitch": "Повара проходят верификацию (санитарная книжка или эквивалент), выкладывают меню с фотографиями блюд и расписание готовности. Покупатели заказывают за 2-3 часа до готовности. Доставку организует сам повар или партнёрская курьерская служба. Платформа берёт 15% с каждой продажи и обеспечивает страхование заказа.",
    "features": [
-    "Живой оператор в мессенджере на каждый заказ",
-    "Оператор видит трек курьера и историю ресторана в реальном времени",
-    "Мгновенный возврат или досылка без форм и ожидания",
-    "Сохранение истории предпочтений и инструкций к доставке",
-    "Приоритетная очередь для постоянных клиентов"
+    "Профиль повара с верификацией, кухней и специализацией",
+    "Расписание готовности блюд: заказ только под конкретную партию",
+    "Система отзывов с фотографиями полученных блюд",
+    "Страхование заказа: возврат при несоответствии описанию",
+    "Карта поваров в радиусе 5 км с фильтром по типу кухни"
    ],
    "antiFeatures": [
-    "Нет полностью автоматической обработки заказов",
-    "Нет доставки из любого ресторана города",
-    "Нет ИИ-ассистента для подбора блюд"
+    "Не работает с ресторанами и профессиональными кейтеринговыми компаниями",
+    "Не гарантирует доставку за 30 минут, время зависит от расписания повара",
+    "Не предоставляет кухонное оборудование или ингредиенты поварам"
    ],
-   "monetization": "Премиум-подписка клиентов с живым сопровождением. Особая аудитория: пожилые, люди после операции, хроники, семьи с маленькими детьми. Они уже платят за доставку и особенно страдают от отказов в возврате."
+   "monetization": "Покупатели блюд этнической кухни уже платят в ресторанах 800-1500 рублей за обед. Домашний повар берёт дешевле при лучшем качестве. Поваров мотивирует легализация дохода. Комиссия 15% с транзакции стандарт для маркетплейсов (Etsy берёт 6.5%, но еда требует страхования)."
   }
  },
  {
   "slug": "food-delivery-5",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
-  "title": "Честный каталог",
-  "oneLiner": "Независимый рейтинг ресторанов с доставкой на основе реальных отзывов покупателей, не накрученных звёзд площадки. Монетизация через подписку ресторанов на аналитику.",
-  "asOf": "2026-06-20",
+  "title": "Сервис точного мониторинга качества заказов для ресторанов",
+  "oneLiner": "B2B-инструмент для ресторанов: автоматически собирает данные об ошибках заказов с агрегаторов, находит паттерны и снижает процент возвратов.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
   },
   "reviewGrid": [
    {
-    "quote": "you stopped showing user reviews on restaurants, inflating 2-star restaurants to show up as 5-star since you can't see what people are writing",
+    "quote": "My order is wrong 9/10 and nothing is done about it they say deal with it",
     "rating": 1,
-    "app": "Just Eat"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "Star ratings are not accurate, written reviews from customers are hidden",
-    "rating": 1,
-    "app": "Just Eat"
+    "quote": "Not as reliable as it used to be. Order is often wrong, very late, or cancelled last minute.",
+    "rating": 2,
+    "app": "Uber Eats: Food & Groceries"
    },
    {
-    "quote": "Just Eat manipulate their reviews to make money for people who pay them. Be very wary of trusting star-ratings!",
+    "quote": "They’re hiring young dumb drivers who can’t read and they keep delivering me the wrong food",
+    "rating": 1,
+    "app": "Grubhub: Food Delivery"
+   },
+   {
+    "quote": "Like so, I did not receive an item in my order, but because one of the other items was on sale, they didn’t refund me the full price of the item that I did not received wack",
+    "rating": 2,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "For the past week my order can’t be placed. I have an iPhone 14 I downloaded and restarted the app. It still doesn’t work! I followed the troubleshooting process and it still doesn’t work! I finally did an order on my desk top and it works. So, it’s an issue with the app on my iPhone 14.",
+    "rating": 2,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "I love DD. But am disgusted in their customer service. I was suppose to get credit. They ran me around long enough that I really had to pause in dealing with them.  I’m still dissatisfied with what happened. Yes I use them because I have no choice at times. I’m very sad that certain people get mistr",
     "rating": 3,
-    "app": "Just Eat"
-   },
-   {
-    "quote": "The prices keeps going up with every reorder.",
-    "rating": 1,
-    "app": "Zomato"
-   },
-   {
-    "quote": "if uh order and close the app and re-order again they charge moreeee nd more",
-    "rating": 1,
-    "app": "Zomato"
-   },
-   {
-    "quote": "Check out Instacart's use of EverShop & \"smart rounding\" surveillance pricing. Horribly unethical",
-    "rating": 1,
-    "app": "Instacart"
-   },
-   {
-    "quote": "they're good about fixing delivery issues, if there are any",
-    "rating": 5,
-    "app": "DoorDash"
+    "app": "DoorDash: Food, Grocery, More"
    }
   ],
   "mechanisms": [
    {
-    "title": "Площадки скрывают живые отзывы и накручивают звёзды. Выбор ресторана стал лотереей: 5 звёзд, а еда пришла холодной и не той.",
-    "obsCount": 7,
+    "title": "Рестораны теряют деньги на ошибках заказов, штрафах от DoorDash/Uber Eats за жалобы и плохих отзывах. Данные об ошибках (неверная позиция, недостача, время) раз",
+    "obsCount": 6,
     "apps": [
-     "Just Eat",
-     "DoorDash",
-     "Zomato"
+     "DoorDash: Food, Grocery, More",
+     "Uber Eats: Food & Groceries",
+     "Grubhub: Food Delivery",
+     "Instacart: Groceries & Food"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Площадки скрывают живые отзывы и накручивают звёзды. Выбор ресторана стал лотереей: 5 звёзд, а еда пришла холодной и не той.",
+  "gap": "Рестораны теряют деньги на ошибках заказов, штрафах от DoorDash/Uber Eats за жалобы и плохих отзывах. Данные об ошибках (неверная позиция, недостача, время) разбросаны по пяти платформам без единой аналитики. Менеджер ресторана не знает, в какую смену, на какой позиции и по какой причине возникают ошибки.",
   "idea": {
-   "pitch": "Независимый агрегатор отзывов о ресторанах доставки: собираем данные из открытых источников (Google Maps, Yelp, отзывы в магазинах приложений), применяем детектор накрутки и строим честный рейтинг по реальному качеству. Рестораны платят за аналитику своей репутации и сравнение с конкурентами. Клиенты пользуются бесплатно и не попадают в ловушку фиктивных звёзд.",
+   "pitch": "Сервис подключается к аккаунтам ресторана на агрегаторах через API, собирает жалобы и возвраты в единый дашборд, автоматически классифицирует тип ошибки (недостача, неверный размер, опоздание) и показывает, в какую смену и при какой нагрузке ошибки возникают чаще. Ресторан снижает процент возвратов и штрафы платформ.",
    "features": [
-    "Агрегация отзывов из множества источников с дедупликацией",
-    "Детектор накрутки: аномальный всплеск 5-звёздочных отзывов за неделю",
-    "Честный рейтинг по категориям: температура еды, скорость, комплектность заказа",
-    "Аналитический кабинет ресторана: где теряем клиентов по сравнению с конкурентом",
-    "Виджет для ресторанного сайта с независимым рейтингом"
+    "Агрегация данных об ошибках с DoorDash, Uber Eats, Grubhub, Instacart в один дашборд",
+    "Автоклассификация причин жалоб: недостача, пересорт, опоздание, температура",
+    "Привязка ошибок к смене, сотруднику, времени суток и нагрузке",
+    "Алерты при превышении порога ошибок по конкретной позиции меню",
+    "Ежемесячный отчёт с прогнозом штрафов от платформ и рекомендациями"
    ],
    "antiFeatures": [
-    "Нет собственной доставки",
-    "Нет монетизации через рекламу ресторанов",
-    "Нет платного улучшения рейтинга"
+    "Не управляет заказами напрямую и не принимает их от клиентов",
+    "Не занимается маркетингом или продвижением ресторана на платформах",
+    "Не интегрируется с кассовыми системами (POS) в базовой версии"
    ],
-   "monetization": "Подписка ресторанов на аналитическую панель. Рестораны уже платят маркетологам за работу с репутацией и не имеют честных данных. Белый лейбл для отраслевых изданий и ресторанных ассоциаций."
+   "monetization": "Рестораны платят платформам штрафы за каждую жалобу: DoorDash берёт от 5 до 25 долларов с ресторана за подтверждённую ошибку. Снижение процента ошибок с 10% до 5% при 100 заказах в день экономит 1500-3000 долларов в месяц. Тариф 299-499 долларов в месяц окупается быстро."
   }
  },
  {
   "slug": "food-delivery-6",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
-  "title": "Прямой заказ",
-  "oneLiner": "Сервис для ресторанов: приём заказов на доставку напрямую через сайт или мессенджер без агрегатора, за фиксированную плату в месяц вместо 30% комиссии",
-  "asOf": "2026-06-20",
+  "title": "Платформа спасения нераспроданной еды для ресторанов и пекарен",
+  "oneLiner": "Агрегатор surplus-еды: рестораны и пекарни выкладывают остатки за 2 часа до закрытия, покупатели берут по цене минус 50-70%.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
   },
   "reviewGrid": [
    {
-    "quote": "Prices for delivery are abusive. (A $20 pizza costs $50 delivered.)",
+    "quote": "Practical because wide array of options and times but very overpriced. Responsive when delivery doesn’t go as planned",
+    "rating": 4,
+    "app": "Uber Eats: Food & Groceries"
+   },
+   {
+    "quote": "Bogus how you guys jack up every price by 2$!",
+    "rating": 1,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "Great option for people who can’t leave, but you’re definitely paying a premium",
     "rating": 2,
-    "app": "Uber Eats"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "A $14 dinner plate, if it costs $42 to get it to you, you're being ripped off.",
-    "rating": 1,
-    "app": "DoorDash"
-   },
-   {
-    "quote": "the Sub sandwich that I wanted was about $7 and the service fees came up to more then $9",
-    "rating": 1,
-    "app": "Postmates"
-   },
-   {
-    "quote": "restaurant closes and i cant cancle order because its been accepted",
-    "rating": 1,
-    "app": "Grubhub"
-   },
-   {
-    "quote": "you cancel orders within a few minutes of placing it, they charge you for the order plus a cancelation fee with no opportunity for a refund",
-    "rating": 1,
-    "app": "Postmates"
-   },
-   {
-    "quote": "Most restaurants either don't read substitutions or don't care and send you whatever they want to.",
+    "quote": "How do you over charge for something that’s like 2 dollars or more the full price is always 12 dollars or more",
     "rating": 3,
-    "app": "DoorDash"
+    "app": "DoorDash: Food, Grocery, More"
    },
    {
-    "quote": "not one shopper ever gets my order right nor do they communicate to advise of a replacement",
+    "quote": "I really enjoy using this app because it is convenient such as on the weekend when I do not want to drag my children out of the house it comes in handy to be able to order straight to my door but I will say that it is too expensive to order food on the app. It’s like I pay double I wish that the pri",
+    "rating": 5,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "This service is always a pain.  It allowed a delivery guy on a bike be my delivery guy when he was miles away from the restaurant which is miles away from my house.  He was stationary for over 10 minutes while my delivery time kept slipping later and later, well past the original latest delivery tim",
     "rating": 1,
-    "app": "Instacart"
+    "app": "Uber Eats: Food & Groceries"
    }
   ],
   "mechanisms": [
    {
-    "title": "Ресторан платит DoorDash или Uber Eats 30% от каждого заказа. При среднем чеке 25 долларов это 7,5 долларов комиссии, а маржа у кухни и так 10-15%.",
-    "obsCount": 7,
+    "title": "Too Good To Go доказала, что рынок существует и платит. Проблема Too Good To Go: боты выкупают лоты за секунды, а при закрытом магазине поддержка не помогает. Л",
+    "obsCount": 6,
     "apps": [
-     "DoorDash",
-     "Uber Eats",
-     "Grubhub",
-     "Postmates"
+     "Too Good To Go: End Food Waste",
+     "Gopuff - Grocery Delivery",
+     "Instacart: Groceries & Food"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Ресторан платит DoorDash или Uber Eats 30% от каждого заказа. При среднем чеке 25 долларов это 7,5 доллара комиссии, а маржа у кухни и так 10-15%.",
+  "gap": "Too Good To Go доказала, что рынок существует и платит. Проблема Too Good To Go: боты выкупают лоты за секунды, а при закрытом магазине поддержка не помогает. Локальный конкурент с живой очередью и без ботов, работающий в конкретном городе, решает оба недостатка лидера.",
   "idea": {
-   "pitch": "Виджет для сайта ресторана и бот в WhatsApp или Telegram для приёма заказов без посредника. Ресторан платит фиксированную подписку, не процент от оборота. Подключение за 10 минут: меню из Google Sheets или кассовой системы, оплата через Stripe или ЮKassa. Малые рестораны и тёмные кухни уже ненавидят агрегаторы и ищут выход.",
+   "pitch": "Рестораны и пекарни публикуют остатки вечером или в обед. Покупатели встают в живую очередь на конкретный лот, а не жмут кнопку в гонке с ботами. Ресторан подтверждает количество порций и получает деньги вперёд. Платформа берёт 25% от сниженной цены. Без подписки, без ботов, с гарантией возврата при закрытом заведении.",
    "features": [
-    "Виджет заказа для сайта ресторана (встраивается как iframe)",
-    "Бот для WhatsApp/Telegram с меню и оплатой",
-    "Интеграция с кассой (IIKO, R-Keeper, iPos) для автоматической отправки заказа на кухню",
-    "Система автоматического назначения курьера через Yandex.Доставку или собственный флит",
-    "Аналитика заказов: пиковые часы, топ блюд, возвраты"
+    "Живая очередь на лот: место в очереди гарантировано, нет гонки с ботами",
+    "Уведомление о новых лотах только в радиусе 1-2 км от текущего местоположения",
+    "Подтверждение готовности заведения за 30 минут до окна выдачи",
+    "Автовозврат при закрытом заведении без обращения в поддержку",
+    "Дашборд для ресторана: сколько сохранено, средний доход с surplus-лота"
    ],
    "antiFeatures": [
-    "Нет маркетплейса для поиска клиентами новых ресторанов",
-    "Нет комиссии с оборота",
-    "Нет собственного курьерского флота"
+    "Не доставляет: только самовывоз из заведения",
+    "Не работает с лотами без точного времени выдачи",
+    "Не позволяет выбирать конкретные блюда внутри лота, только сюрприз-набор"
    ],
-   "monetization": "Ежемесячная подписка ресторана. Рестораны уже платят агрегаторам и готовы платить за инструмент, который снижает эту строку расходов. Дополнительный доход: настройка и обслуживание интеграций с кассой."
+   "monetization": "Too Good To Go оценивается в несколько миллиардов долларов с комиссией 1-1.5 доллара с каждой сделки. Ресторан получает деньги за иначе выброшенную еду. Покупатель экономит 50-70%. Комиссия 25% с лота ценой 300 рублей 75 рублей с транзакции при минимальных операционных расходах."
   }
  },
  {
   "slug": "food-delivery-7",
   "category": "food-delivery",
   "categoryName": "Доставка еды",
-  "title": "Подписка на обед",
-  "oneLiner": "Сервис подписки на обеды из одного ресторана рядом с домом: выбираешь один раз, меню меняется каждый день, платишь фиксированно в месяц",
-  "asOf": "2026-06-20",
+  "title": "Персональный ассистент для повторных заказов постоянных клиентов",
+  "oneLiner": "Приложение запоминает любимые блюда, предпочитаемые рестораны и время заказа, и размещает повторные заказы в один клик без прохождения всего интерфейса агрегатора.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 108
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
   },
   "reviewGrid": [
    {
-    "quote": "I opted out of the membership, yet I continue to be charged membership fees. There is no clear way to cancel the subscription in the app",
-    "rating": 1,
-    "app": "Uber Eats"
-   },
-   {
-    "quote": "I cancelled dash pass before the renewal date so I wouldn't be charged and they charged me anyway",
-    "rating": 1,
-    "app": "DoorDash"
-   },
-   {
-    "quote": "Charged me for a membership I never purchased.",
-    "rating": 1,
-    "app": "Instacart"
-   },
-   {
-    "quote": "Prices for delivery are abusive. (A $20 pizza costs $50 delivered.)",
+    "quote": "The app was wonderful and easy to use. They made it more complicated. Not sure if my orders go through or if I placed multiple. Bring back the old app.",
     "rating": 2,
-    "app": "Uber Eats"
+    "app": "Domino's Pizza USA"
    },
    {
-    "quote": "A $14 dinner plate, if it costs $42 to get it to you, you're being ripped off.",
-    "rating": 1,
-    "app": "DoorDash"
-   },
-   {
-    "quote": "I just had surgery and had no way to go get groceries myself, so this app was so much help",
-    "rating": 5,
-    "app": "DoorDash"
-   },
-   {
-    "quote": "Uber Eats and Postmates think it is appropriate to add their fees, delivery charge and taxes to the food cost as the basis for predetermined tip amounts",
+    "quote": "This menu used to show my recents and faves and now takes me to select a store for a mobile order.\n\nWhere in the world are my recents and faves?",
     "rating": 3,
-    "app": "Postmates"
+    "app": "McDonald's"
+   },
+   {
+    "quote": "Didn’t allow me to use promo codes as a first time order",
+    "rating": 2,
+    "app": "Uber Eats: Food & Groceries"
+   },
+   {
+    "quote": "I hate how there’s times I will be second stop makes the food out more and does not taste good at all, making us have to pay extra for us to be first priority there are times where there’s no other stop it is a little frustrating that we pay extra and just for our food to be gross",
+    "rating": 3,
+    "app": "Uber Eats: Food & Groceries"
+   },
+   {
+    "quote": "amazing da goat omg uber eats is my goat",
+    "rating": 5,
+    "app": "Uber Eats: Food & Groceries"
+   },
+   {
+    "quote": "Practical because wide array of options and times but very overpriced. Responsive when delivery doesn’t go as planned",
+    "rating": 4,
+    "app": "Uber Eats: Food & Groceries"
    }
   ],
   "mechanisms": [
    {
-    "title": "Каждый день решать, что заказать, выбирать ресторан и платить за доставку отдельно это усталость от выбора плюс непредсказуемые расходы. Сборы площадки съедают ",
-    "obsCount": 7,
+    "title": "Люди, которые заказывают еду регулярно, сталкиваются с одной и той же проблемой: каждый раз нужно заново выбирать ресторан, находить нужное блюдо, проверять кас",
+    "obsCount": 6,
     "apps": [
-     "DoorDash",
-     "Uber Eats",
-     "Instacart",
-     "Grubhub"
+     "DoorDash: Food, Grocery, More",
+     "Domino's Pizza USA",
+     "Uber Eats: Food & Groceries",
+     "Chipotle"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Каждый день решать, что заказать, выбирать ресторан и платить за доставку отдельно это усталость от выбора плюс непредсказуемые расходы. Сборы площадки съедают половину от стоимости еды.",
+  "gap": "Люди, которые заказывают еду регулярно, сталкиваются с одной и той же проблемой: каждый раз нужно заново выбирать ресторан, находить нужное блюдо, проверять кастомизацию, вводить адрес. После редизайнов приложений (Domino's, Uber Eats) быстрый повторный заказ ломается и пропадает история.",
   "idea": {
-   "pitch": "Человек подписывается на доставку обедов из конкретного ресторана рядом с домом или офисом. Меню на месяц известно заранее, можно исключить блюда или аллергены. Ресторан получает предсказуемый поток заказов и может оптимизировать закупки. Клиент экономит на сборах, ресторан экономит на маркетинге. Конкурировать не нужно: это не маркетплейс, а долгосрочный контракт между конкретным рестораном и его лояльными клиентами.",
+   "pitch": "Ассистент подключается к аккаунтам пользователя на агрегаторах (DoorDash, Uber Eats, Grubhub) через браузерное расширение или app-клипинг. Запоминает порядок заказа, кастомизацию и типичные слоты по дням недели. Один клик заказ размещён без открытия основного приложения. Монетизация через подписку 149-299 рублей в месяц или партнёрские комиссии от ресторанов за гарантированный повторный трафик.",
    "features": [
-    "Подбор ресторана по геолокации с предпросмотром недельного меню",
-    "Фиксированная цена в месяц без переменных сборов и доставки",
-    "Исключение аллергенов и нелюбимых блюд при оформлении подписки",
-    "Уведомление о завтрашнем блюде вечером, возможность пропустить день",
-    "Накопительные баллы при продлении подписки на несколько месяцев"
+    "Профили «Мой обычный обед», «Пятничный ужин», «Завтрак перед работой»",
+    "Один клик для размещения заказа по профилю без открытия агрегатора",
+    "Мониторинг изменений в меню: уведомление если любимое блюдо исчезло или подорожало",
+    "Сравнение цен на любимое блюдо между агрегаторами в реальном времени",
+    "Напоминание в нужное время дня со свайпом для подтверждения заказа"
    ],
    "antiFeatures": [
-    "Нет выбора из сотен ресторанов каждый раз",
-    "Нет разовых заказов без подписки",
-    "Нет доставки ужина или завтрака в первой версии"
+    "Не обрабатывает новые заказы из незнакомых ресторанов, только повторные",
+    "Не агрегирует рестораны самостоятельно, работает поверх существующих агрегаторов",
+    "Не хранит платёжные данные, использует токенизированные методы оплаты агрегаторов"
    ],
-   "monetization": "Ежемесячная подписка клиентов с фиксированной ценой. Небольшая платформенная наценка поверх стоимости еды (10% вместо 30%). Рестораны платят подписку за управление меню и аналитику подписчиков. Клиент уже покупает обеды каждый день и хочет сократить расходы на сборы."
+   "monetization": "DashPass и аналоги уже берут 9.99-12.99 долларов в месяц за скидки. Экономия времени на 5-10 минут ежедневного выбора и навигации стоит подписки. Рестораны платят за гарантированных возвращающихся клиентов: cost-per-reorder ниже, чем cost-per-acquisition."
+  }
+ },
+ {
+  "slug": "food-delivery-8",
+  "category": "food-delivery",
+  "categoryName": "Доставка еды",
+  "title": "Аутентификатор доставки с фото и отзывом за 30 секунд",
+  "oneLiner": "B2B-инструмент для агрегаторов и ресторанов: покупатель фотографирует полученный заказ, ИИ сверяет состав с чеком, спор разрешается за минуты без чата с поддержкой.",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 94,
+   "reviews": 32989,
+   "observations": 364
+  },
+  "reviewGrid": [
+   {
+    "quote": "My order is wrong 9/10 and nothing is done about it they say deal with it",
+    "rating": 1,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "Like so, I did not receive an item in my order, but because one of the other items was on sale, they didn’t refund me the full price of the item that I did not received wack",
+    "rating": 2,
+    "app": "DoorDash: Food, Grocery, More"
+   },
+   {
+    "quote": "First it said it will be 12 minutes then turned in 30 minutes for delivery driver never picked it up I canceled they charge 10 bucks for driver and restaurant. That’s bulls£|# never using uber again.  Worst delivery. They get paid for nothing.",
+    "rating": 1,
+    "app": "Uber Eats: Food & Groceries"
+   },
+   {
+    "quote": "Too often, my order has been delivered to the wrong address. The only recourse on the app is to call the driver. Driver never picks up at that point. I really want to reduce or completely remove my tip because why do they deserve if they deliver to the wrong address two they don’t pick up their phon",
+    "rating": 2,
+    "app": "Uber Eats: Food & Groceries"
+   },
+   {
+    "quote": "Hey guys just want to let you know I’m not tipping on here until you get this fixed, ive tipped on here twice because I usually use other delivery apps to order food. The two times I’ve tipped $2 and the first time it didn’t go through until hours later. The second time I tipped it went through but ",
+    "rating": 3,
+    "app": "Uber Eats: Food & Groceries"
+   },
+   {
+    "quote": "Uber Eats rules hunger strikes!!!",
+    "rating": 5,
+    "app": "Uber Eats: Food & Groceries"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Покупатели получают неполный или неверный заказ и тратят 20-40 минут в чате поддержки без гарантии возврата. Агрегаторы несут расходы на поддержку при огромном ",
+    "obsCount": 6,
+    "apps": [
+     "DoorDash: Food, Grocery, More",
+     "Uber Eats: Food & Groceries",
+     "Glovo: Food Delivery, Takeaway",
+     "Deliveroo: Food & Shopping"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Покупатели получают неполный или неверный заказ и тратят 20-40 минут в чате поддержки без гарантии возврата. Агрегаторы несут расходы на поддержку при огромном объёме однотипных споров. Рестораны штрафуются за жалобы, которые могут быть сфабрикованы. Сейчас нет инструмента, который объективно подтверждает факт ошибки в момент получения.",
+  "idea": {
+   "pitch": "Покупатель после получения заказа делает одно фото. Модель компьютерного зрения сравнивает содержимое с позициями чека: количество упаковок, видимые блюда, целостность упаковки. При подтверждённой недостаче возврат выплачивается автоматически. При спорной ситуации фото видит живой модератор. Агрегатор платит за API, снижая расходы на поддержку в 5-10 раз.",
+   "features": [
+    "Фото-верификация заказа за 30 секунд после получения",
+    "Автоматическое сравнение фото с позициями чека через компьютерное зрение",
+    "Автовозврат при высокой уверенности модели без участия человека",
+    "Антифрод: анализ истории пользователя, частота жалоб, паттерны сфабрикованных возвратов",
+    "API для интеграции в агрегаторы: DoorDash, Uber Eats, Glovo"
+   ],
+   "antiFeatures": [
+    "Не применяется для заказов самовывоза, только доставка с передачей из рук в руки",
+    "Не отслеживает курьера в пути и не влияет на маршрутизацию",
+    "Не работает в качестве клиентского приложения напрямую, только B2B API"
+   ],
+   "monetization": "DoorDash тратит, по оценкам, сотни миллионов долларов в год на поддержку споров. Стоимость одного звонка в поддержку 5-15 долларов, а автоматизированное разрешение стоит центы. Агрегаторы платят за снижение операционных расходов. Тариф: 0.05-0.10 доллара за проверенный заказ или 2-5% от суммы возвратов."
   }
  },
  {

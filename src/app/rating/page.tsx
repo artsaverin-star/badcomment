@@ -30,6 +30,7 @@ const NICHES = [
   { slug: "crypto-investing", name: "Крипта и инвестиции", nameEn: "Crypto & investing apps", blurb: "93 приложения: где кошелёк и биржа честны и надёжны, а где накрутка и заморозка средств." },
   { slug: "music-streaming", name: "Музыка и стриминг", nameEn: "Music streaming apps", blurb: "94 приложения: где каталог, звук и плейлисты честны и удобны, а где накрутка и потеря музыки." },
   { slug: "video-streaming", name: "Видео и стриминг", nameEn: "Video streaming apps", blurb: "95 приложений: где каталог, плеер и синхронизация честны, а где накрутка и геоблок." },
+  { slug: "food-delivery", name: "Доставка еды", nameEn: "Food delivery apps", blurb: "94 приложения: где заказ приходит точно и вовремя, а где накрутка и сломанная поддержка." },
 ];
 
 export default async function RatingIndexPage() {
