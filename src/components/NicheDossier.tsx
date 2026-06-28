@@ -2,6 +2,10 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { tg } from "@/lib/typo";
+import { getAccess } from "@/lib/access";
+import { ownsDeck } from "@/lib/unlocks";
+import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, PREGEN_DATE_RU } from "@/lib/tokenConfig";
+import CategoryOffer from "@/components/CategoryOffer";
 import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import thesisAll from "@/data/niche-thesis.json";
@@ -78,7 +82,7 @@ function groupFindings(pillars: Pillar[], cards: Finding[]) {
   );
 }
 
-export default function NicheDossier({ slug }: { slug: string }) {
+export default async function NicheDossier({ slug }: { slug: string }) {
   const r = RATING[slug];
   const dossier = DOSSIER[slug];
   const thesis = (thesisAll as unknown as Record<string, { governing: string; competitorRead: string; pillars: Pillar[] }>)[slug];
@@ -87,6 +91,17 @@ export default function NicheDossier({ slug }: { slug: string }) {
   const apps = [...r.apps].sort((a, b) => (b.realScore || 0) - (a.realScore || 0));
   const cards = ((cardsAll as unknown as Record<string, { product?: Finding[] }>)[slug]?.product ?? []).slice().sort((a, b) => (b.count || 0) - (a.count || 0));
   const ideas = (ideasAll as unknown as Idea[]).filter((x) => x.category === slug);
+
+  // Gating: market + rating + breakdown are free (SEO proof). Audience opens for
+  // a free login (lead capture). Ideas open for payment (the payload).
+  const access = await getAccess();
+  const loggedIn = access.loggedIn;
+  const unlocked = access.has("category", slug) || access.has("chapter", slug) || ideas.some((i) => access.has("idea", i.slug));
+  const hasDeck = access.user ? await ownsDeck(access.user.id) : false;
+  const catPrice = hasDeck ? CATEGORY_PRICE_RUB - DECK_CREDIT_RUB : CATEGORY_PRICE_RUB;
+  const bot = process.env.BOT_USERNAME || "inAppProBot";
+  const catStarsHref = access.user ? `https://t.me/${bot}?start=cat_${access.user.id}_${slug}` : undefined;
+  const lifeStarsHref = access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined;
   const aud = dossier.audience;
   const audSegments = aud.segments.map((s) => ({ ...s, name: cap(s.name), job: tg(cap(s.job)), payNote: tg(s.payNote), gap: tg(s.gap) }));
   const ideaIcons = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
@@ -150,7 +165,7 @@ export default function NicheDossier({ slug }: { slug: string }) {
       </Block>
 
       <Block title="Аудитория" lead={`«${r.name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.`}>
-        <div className="mt-6"><PersonaCards segments={audSegments} /></div>
+        <div className="mt-6"><PersonaCards segments={audSegments} locked={!loggedIn} locale="ru" /></div>
         <div className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5">
           <h3 className="text-[17px] font-bold text-[var(--color-text-primary)]">Где деньги</h3>
           <p className="mt-2 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
@@ -193,7 +208,29 @@ export default function NicheDossier({ slug }: { slug: string }) {
       </Block>
 
       <Block title="Что строить" lead="Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши.">
-        <div className="mt-6"><IdeaCards ideas={ideaCards} /></div>
+        {unlocked ? (
+          <div className="mt-6"><IdeaCards ideas={ideaCards} /></div>
+        ) : (
+          <>
+            <div className="mt-6"><IdeaCards ideas={ideaCards} locked /></div>
+            <div className="mt-8">
+              <CategoryOffer
+                slug={slug}
+                categoryName={r.name}
+                sellable
+                price={catPrice}
+                loggedIn={loggedIn}
+                pregenDate={PREGEN_DATE_RU}
+                locale="ru"
+                ideasCount={ideas.length}
+                appsCount={r.count}
+                starsHref={catStarsHref}
+                starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
+                lifetimeStarsHref={lifeStarsHref}
+              />
+            </div>
+          </>
+        )}
       </Block>
     </main>
   );
