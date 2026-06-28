@@ -15,9 +15,10 @@ import nutritionCalories from "./nutrition-calories.json";
 import periodCycle from "./period-cycle.json";
 import personalFinance from "./personal-finance.json";
 import photoEditing from "./photo-editing.json";
+import rideHailing from "./ride-hailing.json";
 import shoppingEcommerce from "./shopping-ecommerce.json";
 import videoStreaming from "./video-streaming.json";
 
 export const DOSSIER_BY_SLUG: Record<string, unknown> = {
-  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "shopping-ecommerce": shoppingEcommerce, "video-streaming": videoStreaming,
+  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "video-streaming": videoStreaming,
 };

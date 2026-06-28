@@ -33,6 +33,7 @@ const NICHES = [
   { slug: "food-delivery", name: "Доставка еды", nameEn: "Food delivery apps", blurb: "94 приложения: где заказ приходит точно и вовремя, а где накрутка и сломанная поддержка." },
   { slug: "messaging-apps", name: "Мессенджеры", nameEn: "Messaging apps", blurb: "94 приложения: где сообщения и звонки доходят надёжно и приватно, а где накрутка и пропавшие СМС." },
   { slug: "shopping-ecommerce", name: "Покупки и маркетплейсы", nameEn: "Shopping & ecommerce apps", blurb: "95 приложений: где товар приходит как на фото и возврат работает, а где контрафакт и фиктивная доставка." },
+  { slug: "ride-hailing", name: "Такси и поездки", nameEn: "Ride-hailing apps", blurb: "87 приложений: где машина приезжает вовремя и водителю честно платят, а где накрутка и сорванный заказ." },
 ];
 
 export default async function RatingIndexPage() {

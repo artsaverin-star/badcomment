@@ -136,7 +136,7 @@ export default function Landing({
   // the highest observation counts. Featured = the first four (top premium).
   // Homepage leads with the niches that have a full dossier (people's rating +
   // breakdown + ideas). Order pinned; rolled out one niche at a time.
-  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps", "shopping-ecommerce"];
+  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps", "shopping-ecommerce", "ride-hailing"];
   const BLURB: Record<string, string> = {
     astrology: "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды.",
     "dating-apps": "100 приложений: где реальные люди, а где боты и накрученные звёзды.",
@@ -156,6 +156,7 @@ export default function Landing({
     "food-delivery": "94 приложения: где заказ приходит точно и вовремя, а где накрутка и сломанная поддержка.",
     "messaging-apps": "94 приложения: где сообщения и звонки доходят надёжно и приватно, а где накрутка и пропавшие СМС.",
     "shopping-ecommerce": "95 приложений: где товар приходит как на фото и возврат работает, а где контрафакт и фиктивная доставка.",
+    "ride-hailing": "87 приложений: где машина приезжает вовремя и водителю честно платят, а где накрутка и сорванный заказ.",
   };
   const ranked = ULTRA
     .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: BLURB[s] ?? c.hook } : null; })

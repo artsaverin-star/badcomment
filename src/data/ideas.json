@@ -23483,560 +23483,601 @@
  {
   "slug": "ride-hailing-1",
   "category": "ride-hailing",
-  "categoryName": "Такси и каршеринг",
-  "title": "Предоплаченные поездки с гарантированной подачей водителя",
-  "oneLiner": "Сервис предоплаченных поездок с настоящей бронью для корпоративных клиентов и медицинских перевозок.",
-  "asOf": "2026-06-20",
+  "categoryName": "Такси и поездки",
+  "title": "Оптимизатор заработка для водителей нескольких платформ",
+  "oneLiner": "Единый дашборд для гиг-водителей: сводная аналитика дохода, умный трекинг пробега и налоговая отчётность по всем платформам разом",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 212
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
   },
   "reviewGrid": [
    {
-    "quote": "Don't trust the airport prebook promise. 10 minutes before the travel time, the app starts looking for taxis",
+    "quote": "Passenger smoked vape in the car while windows were up. No action taken even though the driver’s health is at risk. The rides we get are on the low side for drivers.",
     "rating": 1,
-    "app": "FREE NOW"
+    "app": "Lyft Driver"
    },
    {
-    "quote": "just five minutes before the scheduled departure, I received a message stating, \"Can you wait longer? We can't assign a driver for you,\" despite a driver having been assigned two days prior",
-    "rating": 1,
-    "app": "Cabify"
+    "quote": "Passengers are being charged more and more for rides but the drivers are getting paid less and less. Even the drivers with good ratings.",
+    "rating": 2,
+    "app": "Lyft Driver"
    },
    {
-    "quote": "Pre-booked rides are a complete shambles. They're basically \"start searching for a driver at X time\"",
-    "rating": 1,
-    "app": "Bolt"
+    "quote": "Originally composed On June 18, 2026\nIn 10 days I will have been driving Lyft for three years. The parts that I love are meeting new people having conversations and connecting the worst part about the job is how they compensate. We’re doing all the work all the way in here on the vehicles and Lyft t",
+    "rating": 4,
+    "app": "Lyft Driver"
    },
    {
-    "quote": "This app just charged me, never assigned a driver, canceled my on its own and then forced me to pay again at a higher rate than the first time. Support assisted me by telling me I had to wait a week to get my money back",
+    "quote": "Used to be great was a diamond driver  now gold because of the new update for driver to maintain 50 percent acceptance rate so it’s will be my last week delivering. Dooordash and grubhub only now and was doing probably close to 500 deliveries a month. So many driver were screwed and have now left fo",
+    "rating": 1,
+    "app": "Uber - Driver: Drive & Deliver"
+   },
+   {
+    "quote": "Their new advertising campaign is annoying taking up so much screen space when I’m just trying to book a darn ride. Then they purposely withhold hold closer AVAILABLE drivers unless you pay more, meaning drivers aren’t getting rides because Lyft is purposely blocking them.",
     "rating": 1,
     "app": "Lyft"
    },
    {
-    "quote": "I had 6 drivers assigned and cancelled on me, waited for an hour and ended up getting a taxi, they shouldn't be able to cancel without some penalty to the driver",
-    "rating": 1,
-    "app": "Cabify"
-   },
-   {
-    "quote": "if you have a problem your only option is to message in a chat and its a lot of \"im so sorry to hear that,\" and so on. in addition, they might just stop messaging you back",
-    "rating": 1,
+    "quote": "Double charged my card",
+    "rating": 3,
     "app": "Lyft"
-   },
-   {
-    "quote": "Any misbehavior by the driver, including unsafe driving and overcharging by any amount, is not their responsibility according to them. Be warned!",
-    "rating": 1,
-    "app": "Gett"
    }
   ],
   "mechanisms": [
    {
-    "title": "Предзаказ в существующих приложениях это не бронь, а отложенный поиск. за 10 минут до вылета водитель исчезает. корпорации и клиники платят за уверенность, а не",
-    "obsCount": 7,
+    "title": "Водители Uber, Lyft и курьерских сервисов работают на 2-4 платформах одновременно, но нет инструмента, который сводит всё в одну картину: реальный доход за час ",
+    "obsCount": 6,
     "apps": [
-     "Bolt",
-     "Cabify",
-     "FREE NOW",
-     "Gett"
+     "Gridwise: Gig Driver Assistant",
+     "SherpaShare - Driver Assistant",
+     "Uber - Driver: Drive & Deliver",
+     "Lyft Driver"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Предзаказ в существующих приложениях это не бронь, а отложенный поиск. За 10 минут до вылета водитель исчезает. Корпорации и клиники платят за уверенность, а не за низкую цену.",
+  "gap": "Водители Uber, Lyft и курьерских сервисов работают на 2-4 платформах одновременно, но нет инструмента, который сводит всё в одну картину: реальный доход за час с учётом расходов, горячие зоны для конкретного города, налоговый вычет по пробегу",
   "idea": {
-   "pitch": "Компании бронируют поездки на командировки, трансферы и плановые медицинские визиты через личный кабинет. Под каждый заказ закреплён конкретный водитель с подтверждением за 24 часа. Если водитель не приехал, компания получает деньги обратно и компенсацию в счёт следующего заказа.",
+   "pitch": "Gridwise доказал, что водители платят за такой инструмент, и набрал почти 28 000 оценок. Но автотрекинг пробега у него нестабилен, а аналитика по зонам работает только в крупных городах. Здесь та же идея, но с надёжным фоновым трекером, который не теряет километры, и с реальным расчётом: заработано за час минус топливо, амортизация и комиссия платформы. Монетизация подписка $9,99 в месяц или единоразово за налоговый сезон.",
    "features": [
-    "Настоящая бронь: конкретный водитель закреплён за заказом, а не поиск в момент подачи",
-    "B2B-кабинет: диспетчер бронирует поездки для всей команды, видит статусы, получает счета",
-    "SLA-гарантия с автоматической компенсацией при опоздании или срыве",
-    "Отчёты для бухгалтерии: каждая поездка с чеком, маршрутом и временем в одном экспорте",
-    "Выделенный оператор для аккаунта вместо бота"
+    "Единый дашборд дохода по всем платформам с разбивкой на часовой заработок после расходов",
+    "Надёжный фоновый трекинг пробега без потери данных при сворачивании приложения",
+    "Карта горячих зон по дням и часам на основе реальных данных водителей города",
+    "Автоформирование налогового отчёта с вычетами за пробег одним нажатием",
+    "Уведомление о пиковом тарифе и сравнение текущей ставки с исторической медианой"
    ],
    "antiFeatures": [
-    "Нет поиска по самой низкой цене здесь и сейчас",
-    "Нет анонимных поездок без привязки к компании",
-    "Нет пассажиров-физлиц без корпоративного договора"
+    "Не диспетчер заказов и не альтернатива платформе только аналитика поверх существующих",
+    "Не берёт комиссию с поездки и не вмешивается в распределение заказов",
+    "Нет геймификации и рейтингов между водителями только личная финансовая картина"
    ],
-   "monetization": "Корпоративные клиенты уже платят за командировочные трансферы через договоры с такси-парками. клиники платят за перевозку пациентов. сервис берёт абонентскую плату за кабинет плюс маржу сверх тарифа водителя."
+   "monetization": "Водители уже платят за Gridwise $9,99/мес и за SherpaShare. Налоговый сезон отдельная точка монетизации: разовая покупка отчёта $29. Потенциальный рынок около 4 миллионов активных гиг-водителей в США."
   }
  },
  {
   "slug": "ride-hailing-2",
   "category": "ride-hailing",
-  "categoryName": "Такси и каршеринг",
-  "title": "Финансовый инструмент для водителей такси и курьеров",
-  "oneLiner": "Финансовый инструмент для водителей такси: мгновенный вывод, страховка дохода и кредит под залог истории поездок.",
-  "asOf": "2026-06-20",
+  "categoryName": "Такси и поездки",
+  "title": "Гарантированный трансфер в аэропорт с фиксированной ценой",
+  "oneLiner": "Сервис предзаказа поездки в аэропорт за 2-72 часа с гарантированным появлением водителя и неизменной ценой без сюрпризов в день вылета",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 212
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
   },
   "reviewGrid": [
    {
-    "quote": "You allow riders to input and offer ridiculous fares that does not tally with current economic realities. All you care about is your commission",
+    "quote": "Booked a scheduled ride to a station. Bolt cancelled last-minute with no time to recover, and no app notification. We missed our train. Support apologized but offered nothing. Don’t trust scheduled rides here for anything time-sensitive.",
     "rating": 1,
-    "app": "inDrive"
+    "app": "Bolt: Request a Ride"
    },
    {
-    "quote": "the passenger canceled and never showed up. Drivers lose money in these situations, yet there is no compensation for wasted fuel and time. To make things worse, InDrive put my money on hold for 6 hours",
+    "quote": "I scheduled a ride and it began its search for a driver after the scheduled time and ultimately did not find a driver. Good app to raise the risk of missing a flight",
     "rating": 1,
-    "app": "inDrive"
+    "app": "Curb - Request & Pay for Taxis"
    },
    {
-    "quote": "the actual fair allows you to reduce it to 60% out of 100% and make it look very cheap to drivers. and this is the reason why many drivers play around their AC",
-    "rating": 1,
-    "app": "inDrive"
+    "quote": "Really great service and driver for first time using Lyft 😊",
+    "rating": 5,
+    "app": "Lyft"
    },
    {
-    "quote": "a driver accepted my ride, but instead of picking me up, he went to deliver another passenger. He made me wait for 20 minutes in the street and then selfishly cancelled the ride",
-    "rating": 1,
-    "app": "Bolt"
+    "quote": "It’s nice when it’s available, however, it doesn’t last a full month which it should if your dependent on a Rideshare for more than 45 days. Then it should switch to monthly. I believe it only lasts for two weeks currently",
+    "rating": 4,
+    "app": "Lyft"
    },
    {
-    "quote": "they take unauthorized holds from your bank account for a ride that you took plus the money for the ride and then you have to wait 5 to 7 business days to get your money back",
+    "quote": "LYFT PINK IS NOT WORTH IT. NO FREE CANCELLATION AND CUSTOMER SUPPORT DOES NOT HELP WITH FEES",
     "rating": 1,
     "app": "Lyft"
    },
    {
-    "quote": "Got charged 3 times for a trip I did not make and still waiting for the reimbursement",
-    "rating": 1,
-    "app": "Cabify"
-   },
-   {
-    "quote": "no cars, no service. they took money anyway",
-    "rating": 1,
-    "app": "FREE NOW"
+    "quote": "The service works well, and the app works well as well. The reason I gave this three stars instead of five stars was because rides in my view are too expensive. In particular, I disapprove of dynamic pricing which increases the price of rides significantly during busier times.",
+    "rating": 3,
+    "app": "Lyft"
    }
   ],
   "mechanisms": [
    {
-    "title": "Водитель зарабатывает ежедневно, но деньги заморожены на счёте агрегатора на 3-7 дней. отмены пассажиров, холды и высокая комиссия делают заработок непредсказуе",
-    "obsCount": 7,
+    "title": "Uber и Bolt срываются именно тогда, когда это критично: запланированная поездка на рейс не выполняется, водитель принимает заказ и отменяет в последний момент, ",
+    "obsCount": 6,
     "apps": [
-     "inDrive",
-     "Bolt",
-     "Uber"
+     "Carmel - Car, Taxi & Limo",
+     "Blacklane: Private Chauffeurs",
+     "Uber - Request a ride",
+     "Bolt: Request a Ride"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Водитель зарабатывает ежедневно, но деньги заморожены на счёте агрегатора на 3-7 дней. Отмены пассажиров, холды и высокая комиссия делают заработок непредсказуемым. Банки не дают кредит без официальной справки о доходах.",
+  "gap": "Uber и Bolt срываются именно тогда, когда это критично: запланированная поездка на рейс не выполняется, водитель принимает заказ и отменяет в последний момент, а динамический тариф в час пик бьёт по карману. Люди платят за надёжность, а не за цену.",
   "idea": {
-   "pitch": "Приложение для водителей такси и курьеров подключается к данным поездок из агрегаторов и даёт моментальный вывод заработка за комиссию 1%. На основе истории поездок водитель получает кредитный скоринг и может взять кредит или купить страховку от простоя.",
+   "pitch": "Carmel и Blacklane доказали: путешественники готовы платить надбавку за предсказуемость. Но Carmel иногда отменяет поездку в последние минуты, а Blacklane не позволяет водителю делиться геолокацией в реальном времени. Сервис с жёсткой гарантией появления (или бесплатная замена + компенсация), отслеживанием рейса и умным временем подачи решает главный страх опоздать из-за транспорта. Ценообразование: фиксированный тариф, надбавка 20-40% к рыночному, нет сюрпризов.",
    "features": [
-    "Мгновенный вывод заработка из нескольких агрегаторов за 1% комиссии",
-    "Кредитный скоринг на основе реальной истории поездок без справок из налоговой",
-    "Страховка дохода: компенсация если заказов меньше среднего три дня подряд",
-    "Аналитика заработка: какой агрегатор, район и время суток приносят больше",
-    "Налоговый помощник: автоматический расчёт и уплата налога самозанятого"
+    "Бронирование за 2-72 часа с фиксированной ценой, которая не меняется в день поездки",
+    "Автоматическое отслеживание рейса: если рейс задержан, время подачи сдвигается без звонков",
+    "Гарантия появления водителя при срыве клиент получает замену или полный возврат + компенсацию",
+    "Живой трекинг водителя с текстовым каналом связи до посадки",
+    "Фото водителя, марка и номер машины отправляются за 30 минут до подачи"
    ],
    "antiFeatures": [
-    "Не помогает с поиском пассажиров",
-    "Не работает с водителями, которые не подключены к агрегаторам",
-    "Не кредитует без хотя бы трёх месяцев истории поездок"
+    "Нет спонтанных поездок только предварительное бронирование не менее чем за 2 часа",
+    "Нет дешёвого эконом-класса сервис позиционируется как надёжный, а не бюджетный",
+    "Нет динамического ценообразования и сюрпризов по тарифу"
    ],
-   "monetization": "Водители уже платят 20-30% комиссии агрегаторам. быстрый вывод со скидкой на комиссию это прямая экономия. финтех зарабатывает на разнице ставок по кредиту и страховых премиях."
+   "monetization": "Blacklane и Carmel берут $50-150 за аэропортный трансфер в США. Надбавка за гарантию $10-20 сверху. Корпоративные клиенты и командировочные платят систематически, B2B-контракты с отелями и компаниями обеспечивают предсказуемый поток."
   }
  },
  {
   "slug": "ride-hailing-3",
   "category": "ride-hailing",
-  "categoryName": "Такси и каршеринг",
-  "title": "Такси для иностранных туристов без местной симки",
-  "oneLiner": "Мобильное приложение для туристов без местной симки: заказ через QR в аэропорту, оплата любой картой мира.",
-  "asOf": "2026-06-20",
+  "categoryName": "Такси и поездки",
+  "title": "Транспорт для пожилых и маломобильных пассажиров",
+  "oneLiner": "Подписочный транспортный сервис для пожилых людей и людей с ограниченными возможностями: проверенные водители, помощь с посадкой, фиксированный маршрут к врачу или аптеке",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 212
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
   },
   "reviewGrid": [
    {
-    "quote": "you need a number from the countries they support aka if you are a tourist, you are locked... in 2026 btw",
-    "rating": 1,
-    "app": "Cabify"
+    "quote": "This is my very first time using Uber. When the driver arrived, he did NOT help me load my suitcase. I’m a senior & could have used the help. Otherwise the driver was pleasant & good driver.",
+    "rating": 4,
+    "app": "Uber - Request a ride"
    },
    {
-    "quote": "I was visiting Spain for a short trip and had no intention of buying a Spanish SIM card. I used different app. As a result, you lost revenue from about 20 trips",
-    "rating": 1,
-    "app": "Cabify"
+    "quote": "Nice ride friendly person loved it",
+    "rating": 5,
+    "app": "Lyft"
    },
    {
-    "quote": "in Kuwait it doesn't except my asia number. I emailed customer support no reply stuck asking for taxi at stalls . not a good app for a tourist",
-    "rating": 1,
-    "app": "Careem"
+    "quote": "Cheaper than uber and drivers are great.",
+    "rating": 4,
+    "app": "Lyft"
    },
    {
-    "quote": "came up on the app 24 euro when got to destination it was 37.00 euro",
+    "quote": "Tried ordering a ride after a concert, waited 45 minutes and never even got a driver. This app is terrible.",
     "rating": 1,
-    "app": "FREE NOW"
+    "app": "Lyft"
    },
    {
-    "quote": "The final fare often differs from the amount shown upfront. Transparency and customer trust seem to be lacking",
-    "rating": 1,
-    "app": "Uber"
+    "quote": "I barely had money for a Lyft and they took $10 out of my account without asking and changing the price of my ride. If I don’t wanna tip cause I don’t have it you should not make the Lyft more than what I booked it for.",
+    "rating": 3,
+    "app": "Lyft"
    },
    {
-    "quote": "your driver MD Hasan tried to scam me by inflating my bill, he missed every turn purposely while saying the gps is not working properly",
-    "rating": 1,
-    "app": "Careem"
-   },
-   {
-    "quote": "purposely uses longer routes to raise prices. Tested multiple times using different trips",
-    "rating": 1,
-    "app": "DiDi"
+    "quote": "Felt extremely safe with this driver. I don't remember his name, but I wanted to thank you very much for helping me with my bags and being very kind during the drive. Thank you for helping me. I really appreciate it!",
+    "rating": 5,
+    "app": "Lyft"
    }
   ],
   "mechanisms": [
    {
-    "title": "Местные агрегаторы блокируют иностранный номер телефона. турист прилетает ночью и не может вызвать такси. аэропортовые таксисты берут втрое дороже, зная это",
-    "obsCount": 7,
+    "title": "UZURV закрывает часть этого рынка, но водители регулярно не приезжают именно на медицинские визиты самый критичный сценарий. Uber и Lyft не обучают помощи пожил",
+    "obsCount": 6,
     "apps": [
-     "Cabify",
-     "Careem",
-     "FREE NOW",
-     "Gett"
+     "UZURV: Book your next ride",
+     "UZURV Drive",
+     "Uber - Request a ride",
+     "Lyft"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Местные агрегаторы блокируют иностранный номер телефона. Турист прилетает ночью и не может вызвать такси. Аэропортовые таксисты берут втрое дороже, зная это.",
+  "gap": "UZURV закрывает часть этого рынка, но водители регулярно не приезжают именно на медицинские визиты самый критичный сценарий. Uber и Lyft не обучают помощи пожилым пассажирам и не гарантируют водителя с опытом работы с такой аудиторией. Семьи хотят знать, что мама доедет до врача, а не пытаться это проверить по трекеру.",
   "idea": {
-   "pitch": "Турист сканирует QR-код в аэропорту или гостинице, вводит маршрут и платит картой без регистрации и местного номера. Сервис работает через партнёрских перевозчиков с фиксированной ценой аэропорт-отель. Отели и туроператоры продают трансферы внутри своих приложений через белый лейбл.",
+   "pitch": "В США 55 миллионов человек старше 65 лет, из которых треть не водит. Рынок NEMT (non-emergency medical transport) оценивается в $8 млрд и субсидируется через Medicaid. Бизнес строится на B2B2C: контракты с поликлиниками, домами престарелых и страховщиками обеспечивают поток, а семьи доплачивают за дополнительные поездки. Водители проходят специальный инструктаж по работе с пожилыми и маломобильными пассажирами.",
    "features": [
-    "Заказ без регистрации и местного номера телефона через QR или ссылку",
-    "Фиксированная цена на маршруты аэропорт-центр-отель без сюрпризов в конце",
-    "Оплата любой международной картой и Apple Pay",
-    "Белый лейбл для отелей и туроператоров: трансфер как часть бронирования",
-    "SMS-подтверждение с данными водителя на язык телефона пассажира"
+    "Водители с сертификатом помощи при посадке: помогают с дверью, сумкой, коляской",
+    "Панель для родственников: живой трекинг, уведомления о прибытии и завершении поездки",
+    "Регулярные маршруты по подписке: раз в неделю к врачу, в аптеку, в центр дня",
+    "Возможность голосового бронирования по телефону без смартфона",
+    "Контракты с поликлиниками и страховыми для субсидированных поездок через Medicaid"
    ],
    "antiFeatures": [
-    "Нет поездок внутри города вне туристических коридоров",
-    "Нет торга по цене и нет динамического ценообразования",
-    "Не работает без предварительного партнёрства с перевозчиком в этом городе"
+    "Не маршрутное такси и не автобус только индивидуальная подача",
+    "Нет срочных поездок по запросу: минимум 2 часа на бронирование",
+    "Нет курьерской доставки только перевозка пассажиров"
    ],
-   "monetization": "Отели уже платят комиссию агентствам за трансфер. туроператоры включают трансфер в пакет. сервис берёт маржу 15% от фиксированной цены плюс SaaS-лицензию с отеля за белый лейбл."
+   "monetization": "Подписка для семьи $99/мес (8 поездок), контракты с Medicaid через MCO-брокеров, прямые договоры с домами престарелых $15-25 за поездку. UZURV собрал 1 579 оценок на этой нише рынок реальный и недообслуженный."
   }
  },
  {
   "slug": "ride-hailing-4",
   "category": "ride-hailing",
-  "categoryName": "Такси и каршеринг",
-  "title": "Перевозка детей в школу с проверенными водителями",
-  "oneLiner": "Подписка на регулярные поездки детей в школу и кружки с верифицированными водителями и трекингом для родителей.",
-  "asOf": "2026-06-20",
+  "categoryName": "Такси и поездки",
+  "title": "Защита и страхование водителей в спорных ситуациях",
+  "oneLiner": "Сервис юридической защиты и страхования для гиг-водителей: помощь при авариях, незаслуженных блокировках и мошеннических пассажирах",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 212
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
   },
   "reviewGrid": [
    {
-    "quote": "having a unsafe driver responsible for my entire family is a total deal breaker",
-    "rating": 3,
+    "quote": "Account got deactivated because rider was unhappy for what ever reason and said I was speeding didn’t even give me a chance after 4 years of driving for Lyft",
+    "rating": 1,
+    "app": "Lyft Driver"
+   },
+   {
+    "quote": "I attempted to withdraw some cash from PNC ATM machine, the machine was empty but got charged $120 They never give me my money back, I deleted the account also they have terrible service on the phone.",
+    "rating": 1,
+    "app": "Lyft Direct Powered By Payfare"
+   },
+   {
+    "quote": "We were promised a 55 minute window but Lyft needs to understand that the immigration at SFO is a huge line.  The driver left because we missed our window.  There should be a way the driver should be able to call  or message the passenger to see if they are coming or not.  Please improve on this.",
+    "rating": 4,
     "app": "Lyft"
    },
    {
-    "quote": "Řidič projel na červenou křižovatku. Když jsme ho poprosili, aby na červenou nejezdil, vyhodil nás z auta",
-    "rating": 1,
-    "app": "Bolt"
-   },
-   {
-    "quote": "Any misbehavior by the driver, including unsafe driving and overcharging by any amount, is not their responsibility according to them. Be warned!",
-    "rating": 1,
-    "app": "Gett"
-   },
-   {
-    "quote": "a driver accepted my ride, but instead of picking me up, he went to deliver another passenger. He made me wait for 20 minutes in the street and then selfishly cancelled the ride",
-    "rating": 1,
-    "app": "Bolt"
-   },
-   {
-    "quote": "if you have a problem your only option is to message in a chat and its a lot of \"im so sorry to hear that,\" and so on. in addition, they might just stop messaging you back",
+    "quote": "They WILL change the price on you AFTER you accept a ride, and it routes drivers to cross major streets without lights, and chooses the most UNSAFE route for a driver/passenger. FIX YOUR ISSUES!!! \n\nThere is ZERO customer support. I'll be moving back to uber. Hope your company collapses.",
     "rating": 1,
     "app": "Lyft"
    },
    {
-    "quote": "I had 6 drivers assigned and cancelled on me, waited for an hour and ended up getting a taxi, they shouldn't be able to cancel without some penalty to the driver",
-    "rating": 1,
-    "app": "Cabify"
+    "quote": "The driver Leonard was excellent. He was helpful, putting our bags in his trunk.  Name Leonard talked to us about New Orleans the hurricane, and my grandson was in awe when he talked about the bugs that exist in this climate.",
+    "rating": 5,
+    "app": "Lyft"
    },
    {
-    "quote": "No proper contact lost item, driver reported as having it (doesn't speak english) ... no way to contact to get item returned",
-    "rating": 2,
+    "quote": "Like the Lyft app, good UI and easy to use. I would like the option to be able to filter to only drivers using air conditioning and not windows down. Some drivers don’t have charged ACs and never turn them on.",
+    "rating": 4,
     "app": "Lyft"
    }
   ],
   "mechanisms": [
    {
-    "title": "Родители не доверяют анонимному водителю с ребёнком. стандартные агрегаторы не дают никаких гарантий безопасности. школьные автобусы не охватывают все маршруты,",
-    "obsCount": 7,
+    "title": "Uber и Lyft деактивируют водителей по жалобе пассажира без объяснений, не защищают при атаках в салоне и перекладывают решение спорных банковских транзакций на ",
+    "obsCount": 6,
     "apps": [
-     "Lyft",
-     "Bolt",
-     "Careem",
-     "Cabify"
+     "Lyft Direct Powered By Payfare",
+     "Empower Driver",
+     "Uber - Driver: Drive & Deliver",
+     "Lyft Driver"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Родители не доверяют анонимному водителю с ребёнком. Стандартные агрегаторы не дают никаких гарантий безопасности. Школьные автобусы не охватывают все маршруты, а нанять личного водителя дорого.",
+  "gap": "Uber и Lyft деактивируют водителей по жалобе пассажира без объяснений, не защищают при атаках в салоне и перекладывают решение спорных банковских транзакций на самого водителя. У водителей нет никакого независимого ресурса для защиты интересов.",
   "idea": {
-   "pitch": "Родитель оформляет подписку на регулярные маршруты ребёнка. Водители проходят расширенную проверку с полицией и психологом. В течение всей поездки родитель видит маршрут в реальном времени, получает фото посадки и высадки. Водитель специализируется только на детских поездках и ведёт одни и те же маршруты каждый день.",
+   "pitch": "Более 2 миллионов водителей в США работают без профсоюза и без реальной защиты: платформа может заблокировать аккаунт и замолчать. Бизнес строится как «профсоюз без членских взносов» водитель платит $19,99/мес и получает доступ к шаблонам апелляций, юристам по трудовым спорам и страховке на случай незаконной деактивации. Это уже рабочая модель в секторах с прекарным трудом (гиг-страхование), её просто нет в райдхейлинге.",
    "features": [
-    "Проверка водителей через МВД, психолог и учебная поездка с инспектором",
-    "Трек в реальном времени для родителя с уведомлением о посадке и высадке",
-    "Фото-подтверждение что ребёнок сел в машину и вышел у цели",
-    "Фиксированный водитель на маршруте: ребёнок знает человека в лицо",
-    "Подписочная модель на учебный год с расписанием под кружки и секции"
+    "Шаблоны апелляций и скрипты для восстановления аккаунта после несправедливой деактивации",
+    "Страхование разрыва: выплата за период вынужденного простоя при незаконной блокировке",
+    "Доступ к юристам по трудовым спорам для консультации в течение 24 часов",
+    "Документирование инцидентов в салоне: автозапись с GPS-меткой как доказательная база",
+    "Помощь при спорных транзакциях с платёжными системами платформ"
    ],
    "antiFeatures": [
-    "Нет разовых поездок без верификации взрослого сопровождающего",
-    "Нет маршрутов в ночное время",
-    "Не берёт детей без зарегистрированного взрослого аккаунта-родителя"
+    "Не профсоюз и не коллективный договор индивидуальная защита одного водителя",
+    "Нет гарантии восстановления аккаунта только помощь в процессе",
+    "Не страхует автомобиль от ДТП только потерю дохода при незаконной блокировке"
    ],
-   "monetization": "Родители уже платят за школьные автобусы, репетиторов и частные кружки. подписка 5000-8000 рублей в месяц конкурирует с ценой нянь и частных водителей. школы и детские центры платят за корпоративный тариф для учеников."
+   "monetization": "Подписка $19,99/мес на одного водителя. Партнёрство с NEMT-брокерами и ассоциациями независимых перевозчиков. При базе 50 000 водителей $12 млн ARR. Аудитория уже переплачивает за Lyft Direct и страдает от системных сбоев."
   }
  },
  {
   "slug": "ride-hailing-5",
   "category": "ride-hailing",
-  "categoryName": "Такси и каршеринг",
-  "title": "Программа управления таксопарком для небольших компаний",
-  "oneLiner": "Программа для небольших таксопарков: автоматическое распределение заказов, контроль водителей и расчёт зарплат без таблиц.",
-  "asOf": "2026-06-20",
+  "categoryName": "Такси и поездки",
+  "title": "Флит-менеджмент для небольших таксопарков",
+  "oneLiner": "Облачный диспетчер для таксопарков из 5-50 машин: единое окно заказов, контроль водителей, выплаты и налоговая отчётность без программиста",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 212
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
   },
   "reviewGrid": [
    {
-    "quote": "allows cabbies to input their own price and then pressure you to pay in cash anyways",
-    "rating": 1,
-    "app": "Gett"
+    "quote": "How am i supposed to deliver 4 deliveries in 1 hour when you are giving me orders that will keep taking me out of my zone",
+    "rating": 3,
+    "app": "Grubhub for Drivers"
    },
    {
-    "quote": "You allow riders to input and offer ridiculous fares that does not tally with current economic realities. All you care about is your commission",
+    "quote": "Uber DOES NOT CARE ABOUT THE RIDER !!! THEY ONLY CARE ABOUT THE CUSTOMER AND GETTING PAID !!!",
     "rating": 1,
-    "app": "inDrive"
+    "app": "Uber - Driver: Drive & Deliver"
    },
    {
-    "quote": "the passenger canceled and never showed up. Drivers lose money in these situations, yet there is no compensation for wasted fuel and time. To make things worse, InDrive put my money on hold for 6 hours",
-    "rating": 1,
-    "app": "inDrive"
-   },
-   {
-    "quote": "what's the point of a cab app when it doesn't give you drivers at the most important times, when it rains",
-    "rating": 1,
-    "app": "Uber"
-   },
-   {
-    "quote": "it will promise to have a driver \"within 15 minutes\" without telling you that there are no active drivers in your town or the next 3 towns over",
+    "quote": "After 3 years of 5 star rides I am no longer able to add multiple stops. Guess I’ll ride with the other guys from here on out.",
     "rating": 1,
     "app": "Lyft"
    },
    {
-    "quote": "The basic charging fee when ordering a taxi is practically non existant. It will \"search\" for drivers for hours. But once you book priority and get charged an extra 4-5€ it will magically find one in seconds",
-    "rating": 1,
-    "app": "FREE NOW"
+    "quote": "Not a bunch of endless BS chit chat, driver is a gentleman bring a much needed service after 6 whiskeys. Lifesaver",
+    "rating": 5,
+    "app": "Lyft"
    },
    {
-    "quote": "I had 6 drivers assigned and cancelled on me, waited for an hour and ended up getting a taxi, they shouldn't be able to cancel without some penalty to the driver",
+    "quote": "I’ve had great service so far! I’ve done my best to tip but I wasn’t able to tip a fantastic driver today because I had to add an extra stop to pick medicine up for my baby and I wish I had been able but I wanted to at least leave her a fantastic review! She was amazing, kind, and honest. 3 things I",
+    "rating": 4,
+    "app": "Lyft"
+   },
+   {
+    "quote": "App shows an ETA for a driver and then once you commit to the ride, the time always increases, doubles in many cases. And if you cancel to look for another option, they charge you.",
     "rating": 1,
-    "app": "Cabify"
+    "app": "Lyft"
    }
   ],
   "mechanisms": [
    {
-    "title": "Таксопарки на 10-50 машин принимают заказы по телефону, вручную записывают в блокнот или Excel, платят водителям на глазок. они теряют заказы, не видят маршруты",
-    "obsCount": 7,
+    "title": "Малые и средние таксопарки не могут позволить корпоративный диспетчерский софт за $500-2 000 в месяц, а бесплатные решения не решают задачу целиком. Владелец 20",
+    "obsCount": 6,
     "apps": [
-     "Gett",
-     "inDrive",
-     "Bolt",
-     "FREE NOW"
+     "Taximeter - Meter App",
+     "Octopus - Driver",
+     "Empower Driver",
+     "Gett: Book black taxis"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Таксопарки на 10-50 машин принимают заказы по телефону, вручную записывают в блокнот или таблицу, платят водителям на глазок. Они теряют заказы, не видят маршруты водителей и не могут конкурировать с агрегаторами.",
+  "gap": "Малые и средние таксопарки не могут позволить корпоративный диспетчерский софт за $500-2 000 в месяц, а бесплатные решения не решают задачу целиком. Владелец 20 машин управляет через WhatsApp, Excel и кассу это дыра в доходах и учёте.",
   "idea": {
-   "pitch": "Диспетчерская платформа для малых таксопарков заменяет звонок водителю на автоматическое назначение ближайшей машины. Диспетчер видит все машины на карте, клиент получает сообщение с трекингом. Система сама считает километраж, зарплату водителя и формирует акты для клиентов.",
+   "pitch": "В каждом городе мира есть сотни мелких таксопарков, работающих по старинке: диспетчер принимает звонок, сообщает по рации, водитель сдаёт выручку наличными. SaaS для этого сегмента практически не существует: крупные игроки не замечают рынок, а существующие решения вроде Taximeter имеют критические баги с расчётом в фоне. Месячная подписка $49-99 доступна даже для парка из 5 машин, а ценность экономия 2-3 часов в день на ручном учёте.",
    "features": [
-    "Автоматическое назначение ближайшего свободного водителя без звонков диспетчера",
-    "Карта всего парка в реальном времени с историей маршрутов",
-    "SMS и ссылка-трекинг для клиента без установки приложения",
-    "Расчёт зарплаты водителя: аренда, процент, штрафы в одном экране",
-    "Заказы через телефон, Telegram-бот и виджет на сайте клиента"
+    "Приём заказов через приложение, телефонный виджет и веб-форму всё в одном интерфейсе",
+    "Распределение заказов между водителями вручную или автоматически по ближайшей машине",
+    "Контроль смены: водитель открывает смену в приложении, закрывает с итоговой выручкой",
+    "Автоматический расчёт зарплаты по процентам или фиксированной ставке с историей выплат",
+    "Экспорт данных для бухгалтерии и налоговой в один клик"
    ],
    "antiFeatures": [
-    "Не строит маркетплейс: парк работает только со своими клиентами",
-    "Не управляет регулярными маршрутами больше 50 машин",
-    "Не подключается к налоговой или банку без доработки"
+    "Не платформа для пассажиров и не агрегатор только инструмент для владельца парка",
+    "Нет маркетплейса водителей парк набирает их сам",
+    "Нет интеграции с Uber и Lyft в базовом тарифе"
    ],
-   "monetization": "Таксопарки платят за диспетчерское ПО уже сегодня: устаревшие решения стоят 3000-15000 рублей в месяц. SaaS по 2000-5000 рублей с парка при пятикратно лучшем UX закрывает боль и стоит дешевле найма второго диспетчера."
+   "monetization": "SaaS $49/мес за парк до 10 машин, $99 до 30 машин, $199 до 100 машин. Дополнительно: интеграция с платёжными шлюзами за 1,5% от оборота. Taximeter и Octopus-Driver собрали аудиторию, но не решают задачу полностью это незанятый рынок."
   }
  },
  {
   "slug": "ride-hailing-6",
   "category": "ride-hailing",
-  "categoryName": "Такси и каршеринг",
-  "title": "Сервис возврата вещей, забытых в такси",
-  "oneLiner": "Сервис для поиска и возврата потерянных в такси вещей: оператор звонит водителю, забирает и доставляет владельцу.",
-  "asOf": "2026-06-20",
+  "categoryName": "Такси и поездки",
+  "title": "Безопасные поездки для женщин и ночных пассажиров",
+  "oneLiner": "Сервис вызова такси только от проверенных водителей с живым мониторингом поездки и кнопкой тревоги для женщин и тех, кто ездит ночью",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 212
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
   },
   "reviewGrid": [
    {
-    "quote": "No proper contact lost item, driver reported as having it (doesn't speak english) ... no way to contact to get item returned",
+    "quote": "Amazing driver.",
+    "rating": 5,
+    "app": "Lyft"
+   },
+   {
+    "quote": "Literally always overpriced, will be $20 more than uber every time. I’m sick of it. I’ll just use uber and call it a day. F Lyft.",
+    "rating": 1,
+    "app": "Lyft"
+   },
+   {
+    "quote": "expensive rides",
+    "rating": 1,
+    "app": "Lyft"
+   },
+   {
+    "quote": "It’s been 2 weeks since my driver responded to my message about my lost keys customer service is no help",
+    "rating": 5,
+    "app": "Lyft"
+   },
+   {
+    "quote": "I’ve never had as many problems with uber as I have since I moved to Hawaii. I chose to have my location off so when it said my driver was near I tried calling so we could coordinate and the call never went thru. Uber then canceled their cuz I didn’t get in the car. I still go charged and had to ord",
+    "rating": 1,
+    "app": "Uber - Request a ride"
+   },
+   {
+    "quote": "During a trip to São Paulo, Brazil, decided to pay $100 more to order an uber black instead of uberx because they promised a high end and premium experience. I received a Toyota Corolla that Thad nothing premium about it. I asked customer support if that was ok and they confirmed that is ok and that",
     "rating": 2,
-    "app": "Lyft"
-   },
-   {
-    "quote": "Impossible to contact the driver after a ride regarding a thing left behind. No response from customer support despite multiple attempts",
-    "rating": 1,
-    "app": "FREE NOW"
-   },
-   {
-    "quote": "intenté contactar al conductor, pero Cabify no me dio una manera de contactarlo. Me puse en contacto con el servicio al cliente, pero me ignoraron y no contactaron al conductor durante 4 días",
-    "rating": 1,
-    "app": "Cabify"
-   },
-   {
-    "quote": "if you have a problem your only option is to message in a chat and its a lot of \"im so sorry to hear that,\" and so on. in addition, they might just stop messaging you back",
-    "rating": 1,
-    "app": "Lyft"
-   },
-   {
-    "quote": "your bot keeps on repeating itself and going on circles",
-    "rating": 1,
-    "app": "Grab"
-   },
-   {
-    "quote": "Tried talking to a human and only got a bot giving irrelevant answers",
-    "rating": 1,
-    "app": "FREE NOW"
-   },
-   {
-    "quote": "This app just charged me, never assigned a driver, canceled my on its own and then forced me to pay again at a higher rate than the first time. Support assisted me by telling me I had to wait a week to get my money back",
-    "rating": 1,
-    "app": "Lyft"
+    "app": "Uber - Request a ride"
    }
   ],
   "mechanisms": [
    {
-    "title": "После поездки нет ни одного рабочего канала связи с водителем. поддержка агрегатора отвечает за дни. паспорт, ключи, ноутбук или телефон потеряны навсегда, хотя",
-    "obsCount": 7,
+    "title": "Ride Austin ввёл фильтр по полу водителя и получил за него отдельные восторженные отзывы, но сервис закрылся из-за операционных проблем, а не из-за отсутствия с",
+    "obsCount": 6,
     "apps": [
-     "Lyft",
-     "FREE NOW",
-     "Cabify",
-     "Gett"
+     "Ride Austin Non-Profit TNC",
+     "sRide - Carpool & Taxipool",
+     "Empower - Your ride, your way",
+     "Uber - Request a ride"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "После поездки нет ни одного рабочего канала связи с водителем. Поддержка агрегатора отвечает за дни. Паспорт, ключи, ноутбук или телефон потеряны навсегда, хотя водитель их нашёл.",
+  "gap": "Ride Austin ввёл фильтр по полу водителя и получил за него отдельные восторженные отзывы, но сервис закрылся из-за операционных проблем, а не из-за отсутствия спроса. Женщины и одинокие ночные пассажиры продолжают беспокоиться о безопасности в машинах, где водитель незнакомец.",
   "idea": {
-   "pitch": "Пользователь описывает пропавшую вещь и платит за поиск. Оператор звонит водителю напрямую через агрегатор или по данным поездки, забирает вещь и доставляет курьером. Сервис берёт фиксированную плату за поиск плюс стоимость доставки. Корпоративные клиенты подключают поиск к своему кабинету командировок.",
+   "pitch": "Каждый крупный агрегатор имеет истории о нападениях и преследованиях их архивирует пресса, а не рейтинги приложений. Сервис с верификацией водителей через полицейские базы, живым диспетчером на линии во время поездки и возможностью выбрать водителя по полу закрывает реальный страх. Модель: надбавка 15-20% к стандартному тарифу за верифицированную безопасность. Первый рынок студенческие города и ночной экономики.",
    "features": [
-    "Живой оператор, который звонит водителю в течение часа после обращения",
-    "Курьерская доставка найденной вещи из машины на адрес клиента",
-    "Трекинг: клиент видит статус (ищем, нашли, везём)",
-    "Корпоративный кабинет: потерянные вещи сотрудников в командировках",
-    "Гарантия возврата средств если вещь не найдена в течение 24 часов"
+    "Проверка водителей через официальные базы каждые 6 месяцев, а не только при найме",
+    "Фильтр по полу водителя: пассажир выбирает, кто его везёт",
+    "Живой мониторинг поездки диспетчером с автотревогой при отклонении маршрута",
+    "Кнопка тревоги, отправляющая геолокацию родственнику и в службу поддержки одновременно",
+    "Трансляция поездки доверенному контакту в реальном времени без регистрации с их стороны"
    ],
    "antiFeatures": [
-    "Не работает без данных о поездке (чек, время, приложение)",
-    "Не несёт ответственность за вещи стоимостью выше лимита без страховки",
-    "Не выкупает вещи у водителя если тот требует вознаграждение"
+    "Не дешевле конкурентов надбавка за безопасность обязательна",
+    "Нет анонимных поездок: верификация пассажира тоже обязательна",
+    "Нет роботакси только живые водители, прошедшие проверку"
    ],
-   "monetization": "Человек уже готов платить за срочный возврат паспорта или ноутбука. фиксированная цена поиска 500-2000 рублей плюс доставка. корпоративные клиенты платят за подписку с безлимитными обращениями сотрудников."
+   "monetization": "Надбавка 15-20% к тарифу, подписка для студенческих кампусов $15/мес. B2B: корпоративные контракты для поздних смен, партнёрства с ночными клубами и барами. Ride Austin при ограниченном масштабе набрал 10 000+ оценок рынок есть."
   }
  },
  {
   "slug": "ride-hailing-7",
   "category": "ride-hailing",
-  "categoryName": "Такси и каршеринг",
-  "title": "Плановые медицинские перевозки пациентов по подписке",
-  "oneLiner": "Плановые поездки пациентов в клиники и на процедуры по подписке для страховых компаний и клиник.",
-  "asOf": "2026-06-20",
+  "categoryName": "Такси и поездки",
+  "title": "Премиальные поездки с электромобилями и без запаха",
+  "oneLiner": "Сервис заказа чистых, тихих электромобилей без запаха табака и освежителей воздуха для аллергиков, деловых путешественников и тех, кто ценит качество салона",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 212
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
   },
   "reviewGrid": [
    {
-    "quote": "having a unsafe driver responsible for my entire family is a total deal breaker",
+    "quote": "Ac should be on on any non cold climate. Let me leave bad reviews for no AC.",
+    "rating": 2,
+    "app": "Uber - Request a ride"
+   },
+   {
+    "quote": "You could not find me an uber, asked me if I wanted to pay more so I did but I see both uber charges pending. I hope I do not get charged for both.",
     "rating": 3,
-    "app": "Lyft"
+    "app": "Uber - Request a ride"
    },
    {
-    "quote": "Any misbehavior by the driver, including unsafe driving and overcharging by any amount, is not their responsibility according to them. Be warned!",
-    "rating": 1,
-    "app": "Gett"
+    "quote": "He was wonderful to deal with. Definitely recommend!!",
+    "rating": 5,
+    "app": "Uber - Request a ride"
    },
    {
-    "quote": "barish k mosam mein aik ghanty sy hospital jany k liye ride ka wait kar raha hun. 10 sy ziada drivers available hein, lekin koi aik bhi offer nahi kar raha",
-    "rating": 1,
-    "app": "inDrive"
+    "quote": "So I Oder riders and it about forever to get drivers to pick.i mean uber is great and comfortable but please do something about the waiting time cause too much ah ah😫",
+    "rating": 4,
+    "app": "Uber - Request a ride"
    },
    {
-    "quote": "what's the point of a cab app when it doesn't give you drivers at the most important times, when it rains",
+    "quote": "Pusieron tiempos de espera de 10 minutos es orrible",
     "rating": 1,
-    "app": "Uber"
+    "app": "Uber - Request a ride"
    },
    {
-    "quote": "Don't trust the airport prebook promise. 10 minutes before the travel time, the app starts looking for taxis",
-    "rating": 1,
-    "app": "FREE NOW"
-   },
-   {
-    "quote": "just five minutes before the scheduled departure, I received a message stating, \"Can you wait longer? We can't assign a driver for you,\" despite a driver having been assigned two days prior",
-    "rating": 1,
-    "app": "Cabify"
-   },
-   {
-    "quote": "Řidič projel na červenou křižovatku. Když jsme ho poprosili, aby na červenou nejezdil, vyhodil nás z auta",
-    "rating": 1,
-    "app": "Bolt"
+    "quote": "Hey everyone so I’ve been useing uber for years now and I’ve had my fair share of long wait times and rude drivers but today was a tipping point I had ordered and uber to get to my store thats less than a mile away to get groceries however the first driver that I got was 23 mins away so I decided to",
+    "rating": 2,
+    "app": "Uber - Request a ride"
    }
   ],
   "mechanisms": [
    {
-    "title": "Пожилые пациенты и люди после операций не могут самостоятельно пользоваться обычным такси. родственники берут отгулы. машина скорой для плановой процедуры это п",
-    "obsCount": 7,
+    "title": "У Uber и Lyft нет фильтра по типу двигателя и состоянию салона водитель мылит, курит, включает музыку как хочет. Пассажиры с аллергией, беременные женщины и люд",
+    "obsCount": 6,
     "apps": [
+     "Waymo",
+     "Blacklane: Private Chauffeurs",
      "Lyft",
-     "Bolt",
-     "Careem",
-     "Cabify"
+     "Uber - Request a ride"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Пожилые пациенты и люди после операций не могут самостоятельно пользоваться обычным такси. Родственники берут отгулы. Машина скорой для плановой процедуры это перерасход. Страховые не покрывают трансфер, хотя пропуск процедуры обходится дороже.",
+  "gap": "У Uber и Lyft нет фильтра по типу двигателя и состоянию салона водитель мылит, курит, включает музыку как хочет. Пассажиры с аллергией, беременные женщины и люди с мигренью системно страдают от случайного запаха табака или агрессивной химии в машине. Waymo доказал, что тихий и предсказуемый салон имеет ценность сам по себе.",
   "idea": {
-   "pitch": "Клиника или страховая оформляет подписку на плановые трансферы пациентов. Водители прошли обучение работы с маломобильными и пожилыми людьми. Машина оборудована местом для инвалидного кресла. Оператор сопровождает пациента по телефону от двери до регистратуры.",
+   "pitch": "Кипение Careem показывает: пассажиры в арабских странах хотят опцию «без табака» и не получают её. В США Lyft Pink не даёт фильтровать кондиционер и запах. Сервис с верификацией EV-парка, ежемесячной проверкой чистоты и гарантией «нет запаха» закрывает нишу, которую крупные платформы игнорируют. Ценообразование +25% к рыночному за гарантированное качество салона.",
    "features": [
-    "Водители с обучением помощи маломобильным: посадка, подъезд, сопровождение",
-    "Машины с рампой или фиксатором для коляски",
-    "Плановое расписание: диализ, химиотерапия, физиотерапия повторяются автоматически",
-    "Оператор на линии при каждой поездке, готов помочь пациенту и водителю",
-    "Отчёт для страховой: дата, маршрут, диагноз-код для возмещения"
+    "Только электромобили или гибриды: фильтр по типу двигателя при заказе",
+    "Ежемесячный инспектор чистоты: водитель получает доступ к платформе только с действующим сертификатом",
+    "Гарантия «нет запаха табака и химии» с компенсацией при нарушении",
+    "Тихий режим по умолчанию: водитель не разговаривает, музыка не играет без запроса",
+    "Фильтр по типу кресел и пространству в ногах для пассажиров с большим багажом или мобильными ограничениями"
    ],
    "antiFeatures": [
-    "Нет экстренных вызовов и поездок скорой помощи",
-    "Не обслуживает пассажиров без медицинского показания к трансферу",
-    "Не работает без предварительного договора с клиникой или страховой"
+    "Нет бюджетного класса: EV-верификация и чистота стоят дороже среднего такси",
+    "Нет мгновенной подачи в малых городах сначала крупные рынки с плотным EV-парком",
+    "Нет маршрутных поездок и карпула"
    ],
-   "monetization": "Страховые компании уже оплачивают транспорт для льготников через ДМС и ОМС. клиники включают трансфер в стоимость плановых процедур. B2B-контракт с одной крупной страховой даёт гарантированный объём на год вперёд."
+   "monetization": "Надбавка +25% к тарифу за EV и гарантию чистоты. Подписка $29/мес неограниченные поездки с приоритетом. Корпоративные договоры с ESG-компаниями, которые уже компенсируют EV-транспорт сотрудникам."
+  }
+ },
+ {
+  "slug": "ride-hailing-8",
+  "category": "ride-hailing",
+  "categoryName": "Такси и поездки",
+  "title": "Сравнение цен такси в одном экране",
+  "oneLiner": "Агрегатор цен на поездку в реальном времени: Uber, Lyft, Bolt и локальные такси одним экраном без авторизации в каждом приложении",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 87,
+   "reviews": 19487,
+   "observations": 403
+  },
+  "reviewGrid": [
+   {
+    "quote": "App said 2’. Wait was more like 15’",
+    "rating": 3,
+    "app": "Uber - Request a ride"
+   },
+   {
+    "quote": "Price fluctuation within seconds is wild",
+    "rating": 3,
+    "app": "Uber - Request a ride"
+   },
+   {
+    "quote": "App shows an ETA for a driver and then once you commit to the ride, the time always increases, doubles in many cases. And if you cancel to look for another option, they charge you.",
+    "rating": 1,
+    "app": "Lyft"
+   },
+   {
+    "quote": "Why is a this a $30 ride when I can get an $11 uber????????????",
+    "rating": 3,
+    "app": "Waymo"
+   },
+   {
+    "quote": "I find it useful for a ride but the drivers always in a rush and most of them will ride off on the passenger before they can get in like you’re getting racially profiled before you can get in the car and then they don’t give you enough time to get out doing other stops and most of the time I can’t p",
+    "rating": 3,
+    "app": "Uber - Request a ride"
+   },
+   {
+    "quote": "Xi arrived to our house early. Her car is clean. She has a relaxed disposition. She played music in a subtle volume so you can hear it and still have a conversation with her. Great experience with Xi to T1 at the SD International Airport. I highly recommend her! Tipped her with cash. Thank you Xi. ",
+    "rating": 5,
+    "app": "Uber - Request a ride"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Obi сделал это и набрал лояльных пользователей, но авторизация Uber ломается при каждом запуске и убивает весь смысл. Пользователи хотят одного: открыть одно пр",
+    "obsCount": 6,
+    "apps": [
+     "Obi - Get the cheapest ride.",
+     "Uber - Request a ride",
+     "Lyft",
+     "Bolt: Request a Ride"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Obi сделал это и набрал лояльных пользователей, но авторизация Uber ломается при каждом запуске и убивает весь смысл. Пользователи хотят одного: открыть одно приложение, выбрать самую дешёвую или самую быструю поездку прямо сейчас и уехать",
+  "idea": {
+   "pitch": "Путешественник в незнакомом городе не знает, какой сервис там работает лучше всего и по какой цене. Открывать четыре приложения, авторизоваться в каждом и сравнивать вручную реальная боль. Obi доказал спрос (2 000+ оценок), но проиграл на технической реализации. Правильное решение надёжная OAuth-интеграция с топовыми платформами и кэш цен с 30-секундным обновлением. Монетизация: реферальные комиссии от платформ за конверсию.",
+   "features": [
+    "Сравнение цен и ETA по Uber, Lyft, Bolt и двум локальным сервисам одним запросом",
+    "Однократная авторизация в каждом сервисе токен хранится, не запрашивается повторно",
+    "Сортировка по цене, времени ожидания или рейтингу водителя по выбору пассажира",
+    "История маршрутов и статистика: какой сервис обычно дешевле в этом городе в это время",
+    "Прямой переход в выбранное приложение для финального подтверждения без лишних экранов"
+   ],
+   "antiFeatures": [
+    "Не заменяет приложения платформ: финальный заказ в родном приложении сервиса",
+    "Нет своих водителей и нет собственного диспетчинга",
+    "Не показывает динамические акции и промокоды платформ только базовую цену поездки"
+   ],
+   "monetization": "Реферальные комиссии: Uber платит $2-5 за каждого нового пользователя, Lyft аналогично. Встроенная реклама новых сервисов в городе. При 1 миллионе активных пользователей и 5 поездках в месяц $10-25M ARR от реферального трафика."
   }
  },
  {
