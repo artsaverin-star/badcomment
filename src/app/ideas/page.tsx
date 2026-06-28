@@ -1,66 +1,77 @@
-import { Header } from "@saverin/ui-web";
 import { listIdeas } from "@/lib/ideas";
-import { listDomains } from "@/lib/researchCategories";
 import { t } from "@/lib/i18n";
 import { getLocale } from "@/lib/i18n.server";
-import IdeasBrowser, { type IdeaCard } from "@/components/IdeasBrowser";
 import { ideaCard } from "@/lib/regenCards";
 import { getAccess } from "@/lib/access";
+import { ownsDeck } from "@/lib/unlocks";
+import { DECK_PRICE_RUB, DECK_STARS, LIFETIME } from "@/lib/tokenConfig";
+import IdeasDeck from "@/components/IdeasDeck";
 
 export const dynamic = "force-dynamic";
 
-// Ideas index: searchable + category-filterable grid of review-derived app
-// ideas; each card links to the full derivation (review grid → mechanisms →
-// gap → pitch). Opening an idea spends tokens (see UnlockGate).
+type FullIdea = {
+  slug: string; category: string; title: string; oneLiner: string; gap?: string;
+  idea?: { pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string };
+  reviewGrid?: { quote: string; rating: number; app: string }[];
+};
+
+const ICONS = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
+const cleanTitle = (s: string) => {
+  const m = (s || "").replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, "");
+  return m.charAt(0).toUpperCase() + m.slice(1);
+};
+
+// Ideas index — the same idea cards as the niche dossiers, with the progressive
+// gate (first 6 free, sign in for more, then unlock the whole deck).
 export default async function IdeasPage() {
   const locale = await getLocale();
   const tr = t(locale);
-  const all = listIdeas();
+  const all = listIdeas() as unknown as FullIdea[];
   const access = await getAccess();
+  const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
+  const loggedIn = access.loggedIn;
 
-  // category slug → its top-level domain (for icon pills) + localized category name.
-  const catToDomain = new Map<string, { slug: string; name: string }>();
-  const catName = new Map<string, string>();
-  for (const d of listDomains(locale)) {
-    for (const c of d.categories) {
-      catToDomain.set(c.slug, { slug: d.slug, name: d.name });
-      catName.set(c.slug, c.name);
-    }
-  }
+  const limit = owner ? all.length : loggedIn ? 12 : 6;
+  const gate: "auth" | "paywall" | null = owner ? null : loggedIn ? "paywall" : "auth";
 
-  // The idea's name + pitch are the paid part: for locked ideas we keep the
-  // category + stats (the teaser) but never ship the title/oneLiner to the client.
-  const ideas: IdeaCard[] = all.map((i) => {
-    const dom = catToDomain.get(i.category);
+  const shown = all.slice(0, limit).map((i, idx) => {
     const ov = ideaCard(i.slug, locale);
-    const locked = !access.has("idea", i.slug);
     return {
-      slug: i.slug,
-      category: i.category,
-      categoryName: catName.get(i.category) ?? i.categoryName,
-      domain: dom?.slug ?? "other",
-      domainName: dom?.name ?? "Прочее",
-      title: locked ? "" : ov?.title ?? i.title,
-      oneLiner: locked ? "" : ov?.oneLiner ?? i.oneLiner,
-      stats: i.stats,
-      locked,
+      title: cleanTitle(ov?.title ?? i.title),
+      oneLiner: ov?.oneLiner ?? i.oneLiner,
+      gap: i.gap,
+      pitch: i.idea?.pitch,
+      features: i.idea?.features,
+      antiFeatures: i.idea?.antiFeatures,
+      monetization: i.idea?.monetization,
+      reviewGrid: i.reviewGrid,
+      icon: ICONS[idx % ICONS.length],
     };
   });
 
+  const bot = process.env.BOT_USERNAME || "inAppProBot";
+
   return (
-    <main className="mx-auto w-full max-w-[720px] overflow-x-clip px-4 py-10">
-      <Header
-        size="L"
-        as="h1"
-        className="mb-8 items-center text-center"
-        title={tr.ideas.title}
-        description={<span className="mx-auto block max-w-2xl">{tr.ideas.desc}</span>}
-      />
-      {ideas.length === 0 ? (
-        <p className="mt-10 text-center text-callout text-[var(--color-text-tertiary)]">{tr.ideas.empty}</p>
-      ) : (
-        <IdeasBrowser ideas={ideas} loggedIn={access.loggedIn} locale={locale} />
-      )}
+    <main className="mx-auto w-full max-w-[860px] px-4 pb-24 pt-16 sm:pt-20">
+      <header className="text-center">
+        <h1 className="glow-sweep text-[clamp(32px,8vw,56px)] font-black leading-[1.0] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{tr.ideas.title}</h1>
+        <p className="mx-auto mt-6 max-w-[62ch] text-[17px] leading-[1.55] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">{tr.ideas.desc}</p>
+      </header>
+
+      <div className="mt-12">
+        <IdeasDeck
+          ideas={shown}
+          total={all.length}
+          gate={gate}
+          loggedIn={loggedIn}
+          locale={locale}
+          deckPrice={DECK_PRICE_RUB}
+          starsHref={access.user ? `https://t.me/${bot}?start=deck_${access.user.id}` : undefined}
+          starsLabel={`${DECK_STARS} ⭐ Telegram`}
+          lifetimeStarsHref={access.user ? `https://t.me/${bot}?start=life_${access.user.id}` : undefined}
+          lifetimePrice={LIFETIME.rub}
+        />
+      </div>
     </main>
   );
 }

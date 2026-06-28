@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { tg } from "@/lib/typo";
 import { getAccess } from "@/lib/access";
 import { ownsDeck } from "@/lib/unlocks";
-import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, PREGEN_DATE_RU } from "@/lib/tokenConfig";
-import CategoryOffer from "@/components/CategoryOffer";
+import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@/lib/tokenConfig";
+import BuyButton from "@/components/BuyButton";
 import DossierGate from "@/components/DossierGate";
 import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
@@ -214,25 +214,26 @@ export default async function NicheDossier({ slug }: { slug: string }) {
         {unlocked ? (
           <div className="mt-6"><IdeaCards ideas={ideaCards} /></div>
         ) : (
-          <>
-            <div className="mt-6"><IdeaCards ideas={ideaCards} locked /></div>
-            <div className="mt-8">
-              <CategoryOffer
+          <div className="mt-6 rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-12 text-center sm:px-10 sm:py-14">
+            <h3 className="text-[clamp(24px,5vw,32px)] font-black leading-[1.1] tracking-[-0.03em] text-[var(--color-text-primary)]">{ideas.length} идей под спрос</h3>
+            <p className="mx-auto mt-3 max-w-[46ch] text-[16px] leading-[1.55] text-[var(--color-text-secondary)]">По каждой идее: что строить, для кого и как на этом заработать, с цитатами из реальных отзывов. Открывается навсегда.</p>
+            <div className="mt-7 flex justify-center">
+              <BuyButton
+                kind="category"
                 slug={slug}
-                categoryName={r.name}
-                sellable
                 price={catPrice}
+                label={`Открыть за ${catPrice} ₽`}
                 loggedIn={loggedIn}
-                pregenDate={PREGEN_DATE_RU}
                 locale="ru"
-                ideasCount={ideas.length}
-                appsCount={r.count}
+                title={`Идеи: ${r.name}`}
+                subtitle="Все идеи ниши под подтверждённый спрос."
                 starsHref={catStarsHref}
                 starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
+                lifetimePrice={LIFETIME.rub}
                 lifetimeStarsHref={lifeStarsHref}
               />
             </div>
-          </>
+          </div>
         )}
       </Block>
         </>
