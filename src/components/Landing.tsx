@@ -136,7 +136,7 @@ export default function Landing({
   // the highest observation counts. Featured = the first four (top premium).
   // Homepage leads with the niches that have a full dossier (people's rating +
   // breakdown + ideas). Order pinned; rolled out one niche at a time.
-  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories"];
+  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing"];
   const BLURB: Record<string, string> = {
     astrology: "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды.",
     "dating-apps": "100 приложений: где реальные люди, а где боты и накрученные звёзды.",
@@ -150,6 +150,7 @@ export default function Landing({
     "personal-finance": "100 приложений: где правда видишь и держишь траты под контролем, а где рвётся синхронизация.",
     "calendars-tasks": "100 приложений: где напоминание приходит вовремя и ничего не теряется, а где молчит.",
     "nutrition-calories": "95 приложений: где подсчёт калорий честный и удобный, а где база врёт и тормозит.",
+    "crypto-investing": "93 приложения: где кошелёк и биржа честны и надёжны, а где накрутка и заморозка средств.",
   };
   const ranked = ULTRA
     .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: BLURB[s] ?? c.hook } : null; })

@@ -12688,558 +12688,600 @@
   "slug": "crypto-investing-1",
   "category": "crypto-investing",
   "categoryName": "Крипта и инвестиции",
-  "title": "Счёт под охраной: сервис восстановления доступа к крипто-аккаунту",
-  "oneLiner": "Платный сервис, который выводит тебя из замкнутого круга «нужен аккаунт, чтобы написать в поддержку заблокированного аккаунта»",
-  "asOf": "2026-06-20",
+  "title": "Налоговый учёт крипто-портфеля",
+  "oneLiner": "Сервис автоматического расчёта налоговой базы по всем биржам и кошелькам с выгрузкой готового отчёта для налоговой",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 44
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
   },
   "reviewGrid": [
    {
-    "quote": "There is no way to contact support unless I am in the app. Bottom line is my money is trapped in the app that I cannot login to",
+    "quote": "DO NOT USE THIS APP FOR YOUR TAXES! The company forces you into a yearly subscription plan just to pull tax information from all your connected wallets. They do this on purpose to squeeze every penny out of their customers. They also update their polices without informing their subscribers, so you’l",
+    "rating": 1,
+    "app": "CoinTracker: Portfolio & Taxes"
+   },
+   {
+    "quote": "This is the only app that I trust for my tax calcs. It is accurate. Tracks issues I would have missed and it’s obvious this was built by tax experts. Best of the best.",
+    "rating": 5,
+    "app": "CoinTracker: Portfolio & Taxes"
+   },
+   {
+    "quote": "Once again I cannot login. I just logged in on the website, then try the exact same id & password on the app & I get locked out for 24 hours. They say you can get your crypto taxes ready in minutes, but it’s taken me days every year. I’d try another company but I’ve sunk so much time into getting tr",
     "rating": 2,
-    "app": "Crypto.com"
+    "app": "CoinTracker: Portfolio & Taxes"
    },
    {
-    "quote": "I forgot my login and there is no way to contact customer support unless you're logged in",
-    "rating": 2,
-    "app": "Binance"
+    "quote": "This app makes it so easy to track my crypto assets even across multiple wallets.  It is easy to connect to the wallet or just add in the address of the crypto asset.  This is going to make it so easy come tax time.",
+    "rating": 5,
+    "app": "CoinTracker: Portfolio & Taxes"
    },
    {
-    "quote": "If you have issues with app you get absolutely no help! I believe I was hacked and now locked out of app and you have to have access to app to get help",
+    "quote": "This app feels like the old cable companies: it caches you with a low priced-package for then to app the cost 3 times before you can actually get what you need out of it. And each package gives very little value for the price. (Note: i am interested in the tax product. I decided to ask for a refund ",
     "rating": 1,
-    "app": "Robinhood"
+    "app": "CoinTracker: Portfolio & Taxes"
    },
    {
-    "quote": "unable to recover my account because it texts an old number I do not have. can't use any recovering feature on the app because nothing works",
+    "quote": "All these programs are nothing more than a way for financial industry to take your money, put it towards their financial gain, all well pretending to help you and make transfer of money easier the fact they limit it. Any transactions shows the truth behind what this really is away for them and the g",
     "rating": 1,
-    "app": "Coinbase"
-   },
-   {
-    "quote": "Until I changed my phone number and couldn't update it on Kraken. The support is lying about it",
-    "rating": 1,
-    "app": "Kraken"
-   },
-   {
-    "quote": "just shut down my account with funds on it for trying to change my phone number and support doesn't respond",
-    "rating": 1,
-    "app": "Crypto.com"
-   },
-   {
-    "quote": "They freeze my account without give me an explanation. Dont respond the emails i send them.",
-    "rating": 1,
-    "app": "Kraken"
+    "app": "Cash App"
    }
   ],
   "mechanisms": [
    {
-    "title": "Когда аккаунт заблокирован, единственный канал поддержки биржи спрятан внутри этого же аккаунта. Человек с деньгами внутри не может ни достучаться до живого аге",
-    "obsCount": 7,
+    "title": "Трейдер с портфелем на 3-5 биржах тратит дни на ручной сбор сделок перед налоговым сезоном. Существующие инструменты (CoinTracker, CoinTracking) берут деньги за",
+    "obsCount": 6,
     "apps": [
-     "Crypto.com",
-     "Binance",
-     "Robinhood",
-     "Coinbase"
+     "CoinTracker: Portfolio & Taxes",
+     "CoinTracking",
+     "Coinbase: Buy Crypto & Stocks",
+     "Gemini Markets & Credit Card"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Когда аккаунт заблокирован, единственный канал поддержки биржи спрятан внутри этого же аккаунта. Человек с деньгами внутри не может ни достучаться до живого агента, ни сменить номер телефона, ни пройти повторный KYC без входа. Это не баг конкретной биржи, это структурный провал всей категории, и за решение люди готовы платить.",
+  "gap": "Трейдер с портфелем на 3-5 биржах тратит дни на ручной сбор сделок перед налоговым сезоном. Существующие инструменты (CoinTracker, CoinTracking) берут деньги за подписку весь год ради одного квартала и всё равно требуют ручных правок",
   "idea": {
-   "pitch": "Специализированная юридически-техническая служба, которая берёт дело заблокированного аккаунта и доводит его до разблокировки или вывода средств: через официальные жалобы, регуляторные каналы и прямые контакты комплаенс-отделов бирж. Клиент платит процент от выведенной суммы, у команды нет стимула тянуть дело. Работает там, где бот не помог, переписка ушла в никуда, а деньги остались внутри.",
+   "pitch": "Инвестор уже платит бухгалтеру или налоговому сервису за расчёт налогов. Крипто-учёт выбивается из стандартных инструментов и ложится на плечи самого пользователя. Сервис автоматически импортирует историю сделок с бирж через API, сопоставляет входящие и исходящие позиции, выбирает метод учёта (FIFO, HIFO, LIFO) и выдаёт готовый CSV для 8949 или аналога в нужной юрисдикции. Платит один раз в год перед подачей декларации модель как у TurboTax.",
    "features": [
-    "Приём дела онлайн: скриншоты, история переписки, сумма на аккаунте",
-    "Персональный менеджер-аналитик с прямыми контактами в комплаенс Coinbase, Kraken, Binance, Crypto.com",
-    "Параллельная подача жалоб в финансовые регуляторы (FCA, FinCEN, FCA, ЦБ РФ) от имени клиента",
-    "Трекер статуса в личном кабинете: на каком этапе дело, следующий шаг, ожидаемый срок",
-    "Пакет «смена номера телефона/почты»: помогаем переоформить привязку без входа в аккаунт"
+    "Автоматический импорт с 30+ бирж и кошельков через API и CSV",
+    "Выбор метода учёта (FIFO, HIFO, LIFO) с расчётом выгоды для конкретного портфеля",
+    "Корректная классификация стейкинг-наград, эйрдропов и DeFi-транзакций",
+    "Готовый отчёт под нужную юрисдикцию (США Form 8949, UK CGT, etc.) одним нажатием",
+    "Флаги аномалий: пропущенные транзакции, мусорные токены, дублирующиеся записи"
    ],
    "antiFeatures": [
-    "Не даём юридических гарантий возврата (честно: результат зависит от биржи)",
-    "Не работаем с аккаунтами, заблокированными за реальное мошенничество",
-    "Не храним приватные ключи и пароли клиента"
+    "Не биржа и не кошелёк никакого хранения активов",
+    "Нет подписки на весь год: оплата разовая при формировании отчёта",
+    "Нет инвестиционных советов и прогнозов"
    ],
-   "monetization": "Комиссия 15-20% от выведенной суммы (success fee). Минимальный порог дела 500$. Фиксированный тариф 150$ за помощь со сменой телефона/почты. Люди уже платят юристам и «специалистам по возврату» в телеграме, только без гарантий и с риском второго скама."
+   "monetization": "Разовый платёж за налоговый отчёт: 49-149 долларов за сезон в зависимости от числа транзакций. Аудитория уже платит от 99 до 499 долларов за аналоги (CoinTracker Pro, Koinly). B2B-трек: лицензия для бухгалтерских фирм 500-2000 долларов в год на команду."
   }
  },
  {
   "slug": "crypto-investing-2",
   "category": "crypto-investing",
   "categoryName": "Крипта и инвестиции",
-  "title": "Налоговый учёт криптопортфеля для частного инвестора",
-  "oneLiner": "Сервис, который из истории транзакций на нескольких биржах собирает готовую налоговую декларацию и объясняет, сколько платить и когда",
-  "asOf": "2026-06-20",
+  "title": "Аудит безопасности крипто-кошелька",
+  "oneLiner": "Инструмент для самостоятельной проверки уязвимостей хранения: разрешения токенов, мусорные токены-ловушки, открытые апрувалы смарт-контрактов",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 44
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
   },
   "reviewGrid": [
    {
-    "quote": "They'll show you a price and a fee when you purchase something, but won't tell you there's actually a spread between your purchase and market value, so they'll deceptively sell you less than your actual purchase",
+    "quote": "Connects to a crazy set of external sites. Impossible to know if your crypto won’t suddenly be sent off in a supply chain attack.\n\nUpdate:  I don’t want secret “clarity”, I want open transparency. Publish a list of domains/IPs you knowingly use so that people who actually practice security can allow",
     "rating": 1,
-    "app": "Kraken"
+    "app": "Coinbase: Buy Crypto & Stocks"
    },
    {
-    "quote": "High hidden fees, they will reply that all their fees are competitive and disclosed, I've only noticed that this is not true after switching elsewhere",
+    "quote": "This app used to be the best crypto app but been disappointed lately security on the app is very poor lost all my crypto asset in my wallet",
     "rating": 1,
-    "app": "eToro"
+    "app": "Trust: Crypto & Bitcoin Wallet"
    },
    {
-    "quote": "Takes 2 to 3 months to verify you to your account. Once verified it still won't send because it senses a scam",
+    "quote": "My account got hacked and coinbase says they are not responsible. Lost 10k+ and they say phone is compromised… really",
     "rating": 1,
-    "app": "Coinbase"
+    "app": "Base: Built to Trade & Earn"
    },
    {
-    "quote": "They forced me to sell everything just because I live in the US. Many things not tradable elsewhere. Lost thousands just because of Binance",
-    "rating": 1,
-    "app": "Binance"
+    "quote": "I sent my 21yr old daughter $20 using Cash App on two different days and she never received either payment. I was sitting next to her on both occasions she could see that the money was never received on her end. I appealed it with Cash App and 7 days later they emailed me stating my appeals were den",
+    "rating": 2,
+    "app": "Cash App"
    },
    {
-    "quote": "This is what happens when companies constantly change their terms of service.",
-    "rating": 1,
-    "app": "Crypto.com"
-   },
-   {
-    "quote": "they will not give you any reasons why they blocked your account.",
-    "rating": 1,
-    "app": "Crypto.com"
-   },
-   {
-    "quote": "nowhere in the opening stages of creating an account does the app tell you that there are certain regions/states in which it is not available",
+    "quote": "The bar code on my deposit cash isn’t working",
     "rating": 3,
-    "app": "Binance"
+    "app": "Cash App"
+   },
+   {
+    "quote": "It’s a good app but I can’t get it bc it’s 13 plus and my stuff for some reason is 9 plus so can u pls change that so I can get it.",
+    "rating": 5,
+    "app": "Cash App"
    }
   ],
   "mechanisms": [
    {
-    "title": "Частный инвестор держит активы на 3-5 биржах, делает десятки сделок в год и не знает, как правильно рассчитать налог: что считается реализацией, как учитывать с",
-    "obsCount": 7,
+    "title": "Пользователи некастодиальных кошельков регулярно теряют активы через вредоносные апрувалы (approve), фишинговые токены-аирдропы и скомпрометированные расширения",
+    "obsCount": 6,
     "apps": [
-     "Coinbase",
-     "Kraken",
-     "Binance",
-     "eToro"
+     "MetaMask: Trade Crypto",
+     "Trust: Crypto & Bitcoin Wallet",
+     "Rainbow - Ethereum Wallet",
+     "Zerion: Crypto Wallet & DeFi"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Частный инвестор держит активы на 3-5 биржах, делает десятки сделок в год и не знает, как правильно рассчитать налог: что считается реализацией, как учитывать стейкинг, что делать с форками и аирдропами. Налоговый консультант не знает крипту, а крипто-биржи не дают нужного отчёта для налоговой. Человек либо платит наугад, либо не платит вовсе и рискует штрафом.",
+  "gap": "Пользователи некастодиальных кошельков регулярно теряют активы через вредоносные апрувалы (approve), фишинговые токены-аирдропы и скомпрометированные расширения браузера. Ни один из популярных кошельков (MetaMask, Trust, Rainbow) не показывает пользователю картину его рисков в одном месте",
   "idea": {
-   "pitch": "Инвестор подключает API бирж или загружает CSV-выгрузки, сервис автоматически рассчитывает налогооблагаемую базу по методу FIFO/LIFO/средней стоимости, формирует отчёт в формате декларации нужной страны. Встроенный модуль планирования показывает, когда выгоднее продать позицию, чтобы попасть в льготный срок владения или снизить базу убытками. Налоговые сервисы уже берут деньги за аналогичное для акций, крипто-версия с той же глубиной отсутствует.",
+   "pitch": "Серьёзный держатель крипты не знает, какие смарт-контракты имеют право тратить его токены, пока не теряет деньги. Сервис сканирует кошелёк по адресу (без приватных ключей), выводит список активных апрувалов с оценкой риска, предупреждает о фишинговых токенах и предлагает одним кликом отозвать опасные разрешения. Аудит занимает минуту и понятен без технического бэкграунда.",
    "features": [
-    "Автоматический импорт транзакций через API или CSV с 20+ бирж и кошельков",
-    "Расчёт налоговой базы по трём методам на выбор пользователя (FIFO, LIFO, средняя стоимость)",
-    "Учёт нестандартных операций: стейкинг, аирдропы, форки, конвертации",
-    "Готовый экспорт для Form 8949 (США), HMRC (Великобритания), 3-НДФЛ (Россия)",
-    "Симулятор «продай сейчас vs продай через N дней»: налоговая экономия в рублях/долларах"
+    "Сканирование апрувалов ERC-20 и NFT по публичному адресу без ключей",
+    "Классификация контрактов по репутации: верифицированный протокол, неизвестный, флаг фишинга",
+    "Детектор мусорных токенов-ловушек (honey pot, drain token) в кошельке",
+    "Одно нажатие для отзыва разрешения с предварительным расчётом газа",
+    "Еженедельный автоматический мониторинг и пуш-уведомление при появлении нового рискового апрувала"
    ],
    "antiFeatures": [
-    "Не даём налоговых советов с юридической ответственностью (только расчёты)",
-    "Не храним приватные ключи, только read-only API",
-    "Не поддерживаем DeFi-протоколы в первой версии"
+    "Не требует seed-фразы или подключения кошелька с правами на транзакции",
+    "Не хранит никаких данных пользователя на сервере",
+    "Не даёт инвестиционных рекомендаций"
    ],
-   "monetization": "Подписка 99$ в год (частный инвестор до 200 транзакций) и 199$ (без лимита). B2B: лицензия для налоговых консультантов 499$/год на неограниченное число клиентов. Налоговые консультанты уже берут 300-500$ за ручной расчёт одной декларации."
+   "monetization": "Freemium: базовый аудит бесплатно, мониторинг в реальном времени и мультикошелёк за 5-10 долларов в месяц. Уже платят: продвинутые DeFi-пользователи тратят за Revoke.cash Pro, De.fi и аналоги. B2B: корпоративные казначейства и DAO платят за аудит адресов 200-500 долларов разово."
   }
  },
  {
   "slug": "crypto-investing-3",
   "category": "crypto-investing",
   "categoryName": "Крипта и инвестиции",
-  "title": "Мониторинг крипто-кошелька с оповещением об аномалиях",
-  "oneLiner": "Сервис следит за твоим кошельком и бьёт тревогу при любом несанкционированном движении средств до того, как деньги ушли",
-  "asOf": "2026-06-20",
+  "title": "Трекер реальной доходности крипто-портфеля",
+  "oneLiner": "Портфельный аналитик, который считает реальный P&L с учётом средней цены покупки, стейкинг-наград и комиссий не только текущую цену",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 44
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
   },
   "reviewGrid": [
    {
-    "quote": "I had about 890 in usdc, next morning its gone like it never existed",
-    "rating": 1,
-    "app": "MetaMask"
+    "quote": "Wish they would show Profit and Loss plus an option where we could change the way assets are sold like HIFO VS FIFO",
+    "rating": 3,
+    "app": "Gemini Markets & Credit Card"
    },
    {
-    "quote": "all my coins were gone it said they were sent to some address an I didn't authorize anything mind you you also have to use a thumb print to get on my account so there security is trash",
-    "rating": 1,
-    "app": "Trust Wallet"
+    "quote": "Please make an option to see realized P&L% on each individual stock that has been traded, other than that it’s an outstanding broker.",
+    "rating": 4,
+    "app": "Webull: Investing & Trading"
    },
    {
-    "quote": "The balance was visible for only three days; suddenly, the funds disappeared, and the balance showed as zero. When I contacted support, they merely offered excuses",
-    "rating": 1,
-    "app": "Trust Wallet"
+    "quote": "Need average price, ASAP!",
+    "rating": 3,
+    "app": "Binance.US: Buy BTC & Crypto"
    },
    {
-    "quote": "because they have all these fakes thousands of fake addresses hoping you will choose them by mistake and trust me your crypto is gone forever",
-    "rating": 1,
-    "app": "Trust Wallet"
+    "quote": "I wanna be able to see the DCA and the realized profits from the current price. Also why do I have to confirm my bank account again I’ve been using the credit card and paying the balance the next day since sept of last year now I can’t make a payment",
+    "rating": 4,
+    "app": "Gemini Markets & Credit Card"
    },
    {
-    "quote": "it's a wallet full of fake addresses intended to look like the actual cryptocurrency",
-    "rating": 1,
-    "app": "Trust Wallet"
+    "quote": "I spent my money on my game and now it’s taking forever to pens",
+    "rating": 4,
+    "app": "Cash App"
    },
    {
-    "quote": "The most stingy exchange app in the world, lots of fake tokens here",
+    "quote": "Deactivated my account for no reason!!",
     "rating": 1,
-    "app": "KuCoin"
-   },
-   {
-    "quote": "Etherium used to be the default network. But then they changed it to BASE without saying anything. And I didn't see it and sent and LOST $.",
-    "rating": 1,
-    "app": "Coinbase"
+    "app": "Cash App"
    }
   ],
   "mechanisms": [
    {
-    "title": "В self-custody кошельках монеты исчезают ночью без команды владельца, и человек узнаёт об этом утром, когда деньги уже на чужом адресе и отыграть нечего. Ни Met",
-    "obsCount": 7,
+    "title": "Все основные кошельки и биржи (Tangem, Swan Bitcoin, Gemini, Binance US) показывают текущую стоимость, но не реализованный и нереализованный P&L, не среднюю цен",
+    "obsCount": 6,
     "apps": [
-     "MetaMask",
-     "Trust Wallet"
+     "Delta by eToro",
+     "CoinTracking",
+     "Swan Bitcoin: Buy & Save",
+     "Tangem - Crypto wallet"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "В кошельках самостоятельного хранения монеты исчезают ночью без команды владельца, и человек узнаёт об этом утром, когда деньги уже на чужом адресе и отыграть нечего. Ни MetaMask, ни Trust Wallet не присылают уведомление в момент транзакции, не предупреждают о подозрительном контракте и не блокируют исходящий перевод на паузу для подтверждения.",
+  "gap": "Все основные кошельки и биржи (Tangem, Swan Bitcoin, Gemini, Binance US) показывают текущую стоимость, но не реализованный и нереализованный P&L, не среднюю цену входа и не общую доходность с учётом всех комиссий. Пользователь не знает, заработал он или потерял в реальности",
   "idea": {
-   "pitch": "Сервис подключается к публичному адресу кошелька (не нужен приватный ключ) и мониторит мемпул и блокчейн в реальном времени. Как только появляется транзакция с кошелька, владелец получает уведомление в SMS и Telegram с деталями: куда, сколько, какой контракт вызван. Дополнительно: ежедневный скан одобренных контрактов с флагом «этот контракт уже скомпрометирован».",
+   "pitch": "Активный инвестор, держащий активы на 2-4 биржах и в нескольких кошельках, не имеет единой картины своей реальной прибыли. Каждая платформа показывает отдельный кусочек. Сервис агрегирует все транзакции, вычитает комиссии и газ, рассчитывает среднюю цену покупки по каждому активу и выдаёт честный P&L в реальном времени. Целевой пользователь тот, кто уже платит за Delta by eToro или CoinTracking, но недоволен точностью или потерял синхронизацию после обновлений.",
    "features": [
-    "Мониторинг входящих и исходящих транзакций в реальном времени (Ethereum, BNB Chain, Solana, Tron)",
-    "Уведомления в Telegram, SMS и email с полным контекстом транзакции",
-    "Еженедельный отчёт по одобренным allowances: какие контракты имеют доступ к кошельку",
-    "База скомпрометированных контрактов и адресов с пометкой «высокий риск»",
-    "Интеграция с аппаратными кошельками: уведомление отправляется до подписания, есть окно для отмены через интерфейс"
+    "Агрегация транзакций с бирж (API) и кошельков (публичный адрес) в единый портфель",
+    "Расчёт средней цены покупки по каждому активу с учётом всех входов и докупок",
+    "Реализованный и нереализованный P&L с разбивкой по активу и периоду",
+    "Учёт стейкинг-наград, кешбэка и комиссий как отдельных позиций",
+    "Экспорт истории сделок в CSV для передачи бухгалтеру или налоговому сервису"
    ],
    "antiFeatures": [
-    "Не можем заблокировать транзакцию постфактум (блокчейн необратим)",
-    "Не храним и не запрашиваем приватные ключи или seed-фразу",
-    "Не занимаемся возвратом уже украденных средств"
+    "Нет хранения активов и подключения брокерских счетов с правами на торговлю",
+    "Нет прогнозов цен и торговых сигналов",
+    "Нет геймификации и социального копитрейдинга"
    ],
-   "monetization": "Подписка 5$ в месяц (до 3 кошельков) и 15$ в месяц (без лимита). B2B: корпоративный тариф для крипто-фондов и фамильных офисов 200$/мес на 50 адресов. Аудиторские фирмы уже платят за on-chain мониторинг."
+   "monetization": "Подписка 8-15 долларов в месяц. Уже платят: пользователи Delta Pro (9.99/мес), CoinTracking (18/мес), Koinly (49/год). Аудитория готова платить за точность конкуренты теряют её из-за рассинхронизации брокеров."
   }
  },
  {
   "slug": "crypto-investing-4",
   "category": "crypto-investing",
   "categoryName": "Крипта и инвестиции",
-  "title": "Независимый аудит реальных торговых издержек биржи",
-  "oneLiner": "Платный отчёт, который считает, сколько ты реально потерял на спредах и скрытых комиссиях на своей бирже, и сравнивает с альтернативами",
-  "asOf": "2026-06-20",
+  "title": "Онбординг после первых потерь в крипте",
+  "oneLiner": "Образовательный сервис для людей, которые потеряли деньги в крипте и хотят понять, что пошло не так и как безопасно продолжить",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 44
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
   },
   "reviewGrid": [
    {
-    "quote": "They'll show you a price and a fee when you purchase something, but won't tell you there's actually a spread between your purchase and market value, so they'll deceptively sell you less than your actual purchase",
-    "rating": 1,
-    "app": "Kraken"
+    "quote": "Do not trust Coinbase with the majority of your money It's really great until you have a problem.... it's great to buy and sell, but keep most of your money in a D centralized wallet!! When I have an issue with Coinbase the customer service representatives are very nice! But nothing actually gets fi",
+    "rating": 3,
+    "app": "Coinbase: Buy Crypto & Stocks"
    },
    {
-    "quote": "High hidden fees, they will reply that all their fees are competitive and disclosed, I've only noticed that this is not true after switching elsewhere",
-    "rating": 1,
-    "app": "eToro"
+    "quote": "I just get frustrated because I really don’t know what I’m doing here. I bought Cro & XRP , but don’t understand what to do. I’ve been staking my Cro but I don’t even know or understand what I’m doing.",
+    "rating": 3,
+    "app": "Crypto.com: Buy BTC, ETH & CRO"
    },
    {
-    "quote": "the only solution they recommended is to get Pro. After just getting swindled?",
+    "quote": "The app is not user friendly. It’s difficult to figure out what the screen is asking for. As a novice, I feel the app is very difficult for a beginner to use and is not user friendly at all.",
     "rating": 1,
-    "app": "Kraken"
+    "app": "Uphold: Buy BTC, ETH and 360+"
    },
    {
-    "quote": "They will hold your money hostage. Tried to take money out of Robinhood and return it to the same account I had deposited the funds from",
-    "rating": 1,
-    "app": "Robinhood"
+    "quote": "I personally think Cash App should have a system where you can get ur money back if accidentally sent to da wrong person and that person won’t send it back.. I hate that people are greedy knowing it’s a sin but that’s my opinion.",
+    "rating": 2,
+    "app": "Cash App"
    },
    {
-    "quote": "will not let me withdraw my funds and close my accounts I started",
-    "rating": 1,
-    "app": "Crypto.com"
+    "quote": "is Cash App really supposed to just let apps and websites take money out of your card? Like that just feels absolutely stupid so I can’t be like yes or no. They just keep reminding me and telling me you’re taking it out of my wallet? Absurd!!!",
+    "rating": 3,
+    "app": "Cash App"
    },
    {
-    "quote": "they let you deposit as much as you want but God forbid the time that you want to transfer funds to out of this app in that case they will call you scams",
-    "rating": 1,
-    "app": "Crypto.com"
-   },
-   {
-    "quote": "Unable to use fiat to buy or withdraw in most countries. Why don't they have a list where this is available?",
-    "rating": 1,
-    "app": "Blockchain.com"
+    "quote": "Can do a lil better",
+    "rating": 5,
+    "app": "Cash App"
    }
   ],
   "mechanisms": [
    {
-    "title": "Биржи показывают нулевую или минимальную комиссию, но зарабатывают на спреде между рыночной ценой и ценой исполнения. Инвестор не знает, сколько он реально плат",
-    "obsCount": 7,
+    "title": "Новичок покупает монету через Coinbase или CashApp, видит минус 40% или заморозку средств, и не понимает ни механики произошедшего, ни что делать дальше. Все об",
+    "obsCount": 6,
     "apps": [
-     "Kraken",
-     "eToro",
-     "Crypto.com",
-     "Robinhood"
+     "Coinbase: Buy Crypto & Stocks",
+     "Trust: Crypto & Bitcoin Wallet",
+     "Uphold: Buy BTC, ETH and 360+",
+     "Crypto.com: Buy BTC, ETH & CRO"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Биржи показывают нулевую или минимальную комиссию, но зарабатывают на спреде между рыночной ценой и ценой исполнения. Инвестор не знает, сколько он реально платит, потому что расчёт требует сравнения цены исполнения с рыночной серединой в момент сделки. Переключиться на более дешёвую биржу нельзя, не зная реальных цифр.",
+  "gap": "Новичок покупает монету через Coinbase или CashApp, видит минус 40% или заморозку средств, и не понимает ни механики произошедшего, ни что делать дальше. Все образовательные сервисы заточены под «входи и зарабатывай», а не под «разберись в провале»",
   "idea": {
-   "pitch": "Пользователь загружает историю своих сделок (CSV из Coinbase, Robinhood, Kraken, eToro), сервис сравнивает цену исполнения каждой сделки с рыночной серединой на той же паре в ту же секунду и считает скрытую цену в долларах и процентах. Итог: персональный отчёт «сколько ты заплатил сверх рынка за год» и сравнение с тем же портфелем на трёх альтернативных биржах. B2B-версия для советников: анализ издержек клиентских портфелей.",
+   "pitch": "Сотни тысяч людей ежегодно получают первый болезненный опыт в крипте: ранний выход, замороженный аккаунт, потеря ключей или покупка на пике хайпа. Они всё ещё хотят разобраться, но стандартные обучающие материалы не отвечают на их конкретный вопрос «почему именно это со мной случилось». Сервис предлагает диагностику по сценарию потери (заблокированный аккаунт, фишинг, убыток на волатильности, мошенничество) и персонализированный путь восстановления: что было сделано не так, как это исправить, как не повторить.",
    "features": [
-    "Загрузка истории сделок из 10+ бирж через CSV или API",
-    "Расчёт реального спреда на каждой сделке по историческому mid-price (данные из Kaiko/CoinGecko Pro)",
-    "Итоговый отчёт: скрытые издержки за год в долларах и в процентах от объёма",
-    "Сравнительная таблица: те же сделки на Binance vs Interactive Brokers vs Kraken Pro",
-    "PDF-отчёт для советника с подписью «независимый анализ издержек»"
+    "Диагностика сценария потери по 10 типичным паттернам с объяснением механики",
+    "Пошаговый гайд по действиям в конкретной ситуации: заморозка, взлом, убыток",
+    "Мини-курс по безопасному хранению под уровень пользователя (новичок, средний)",
+    "Разбор реальных случаев заморозки аккаунтов: почему биржи это делают и что работает при апелляции",
+    "Чек-лист готовности перед следующим входом в рынок"
    ],
    "antiFeatures": [
-    "Не торгуем от имени пользователя и не перекладываем активы",
-    "Не даём рекомендации «куда переходить» (только факты по издержкам)",
-    "Не работаем с данными ДЕФАй-протоколов в первой версии"
+    "Не обещает возврата потерянных средств",
+    "Нет торговых сигналов и рекомендаций по конкретным монетам",
+    "Не помогает с юридическим взысканием"
    ],
-   "monetization": "Разовый отчёт 29$ (до 500 сделок), 59$ (без лимита). Подписка для советников 199$/мес: аудит портфелей нескольких клиентов. Регуляторные органы и крупные клиенты уже оплачивают TCA (transaction cost analysis) у специализированных провайдеров."
+   "monetization": "Разовая оплата за разбор сценария 19-29 долларов или подписка 9 долларов в месяц. Целевая аудитория люди, уже потратившие деньги и готовые потратить ещё немного, чтобы понять и не повторить. B2B: партнёрство с крипто-биржами, которые хотят снизить отток новичков после первых неудач."
   }
  },
  {
   "slug": "crypto-investing-5",
   "category": "crypto-investing",
   "categoryName": "Крипта и инвестиции",
-  "title": "KYC-мост: помощь с верификацией личности на крипто-биржах",
-  "oneLiner": "Платный консьерж-сервис, который проводит клиента через KYC на иностранной бирже от первого шага до первой сделки, включая повторную верификацию",
-  "asOf": "2026-06-20",
+  "title": "Мобильный терминал для нескольких бирж",
+  "oneLiner": "Единый профессиональный интерфейс для торговли на нескольких биржах одновременно с нормальным выставлением стоп-лоссов и тейк-профитов с телефона",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 44
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
   },
   "reviewGrid": [
    {
-    "quote": "Takes 2 to 3 months to verify you to your account. Once verified it still won't send because it senses a scam",
-    "rating": 1,
-    "app": "Coinbase"
+    "quote": "Be aware that manually closing a futures position does not automatically cancel attached TP/SL orders. Remaining orders can later open a new position if triggered",
+    "rating": 2,
+    "app": "Webull: Investing & Trading"
    },
    {
-    "quote": "my assets are held hostage until I upload quoted below : Video of you holding your ID along with you stating the following in the video",
-    "rating": 1,
-    "app": "Binance"
+    "quote": "I would love to see limit orders, take-profit, and stop-loss functions. Incorporating these would elevate it into a premier, all-in-one DEX",
+    "rating": 4,
+    "app": "Phantom - Trade Markets"
    },
    {
-    "quote": "all of a sudden asked for verification again even after I had been verified and was using and then couldn't do anything no explanation as to why",
-    "rating": 1,
-    "app": "Blockchain.com"
+    "quote": "This my 2nd review aside from having a Apple Watch complication the WeBull Turbo Trader is absolutely astounding for experienced traders and should be a motivation to get better at trading to start using the elite turbo trader option.",
+    "rating": 5,
+    "app": "Webull: Investing & Trading"
    },
    {
-    "quote": "They blocked without giving a single reason then I try to contact with customer support but they don't help me.",
-    "rating": 1,
-    "app": "eToro"
+    "quote": "This good very good to get money I love it",
+    "rating": 4,
+    "app": "Cash App"
    },
    {
-    "quote": "nowhere in the opening stages of creating an account does the app tell you that there are certain regions/states in which it is not available",
-    "rating": 3,
-    "app": "Binance"
+    "quote": "Don’t use them",
+    "rating": 1,
+    "app": "Cash App"
    },
    {
-    "quote": "They forced me to sell everything just because I live in the US. Many things not tradable elsewhere. Lost thousands just because of Binance",
-    "rating": 1,
-    "app": "Binance"
-   },
-   {
-    "quote": "they will not give you any reasons why they blocked your account.",
-    "rating": 1,
-    "app": "Crypto.com"
+    "quote": "Honestly horrible they took $50 out my account in my savings. They changed my card but didn’t refund my money back from what was stolen from me.",
+    "rating": 2,
+    "app": "Cash App"
    }
   ],
   "mechanisms": [
    {
-    "title": "KYC тянется неделями, срывается без объяснений, требует видео с паспортом в руках, а повторная верификация уже верифицированного аккаунта оставляет средства зам",
-    "obsCount": 7,
+    "title": "Активный трейдер вынужден переключаться между несколькими приложениями (Kraken Pro, MetaTrader, Bybit), потому что ни у одного нет полноценного мобильного управ",
+    "obsCount": 6,
     "apps": [
-     "Coinbase",
-     "Kraken",
-     "Blockchain.com",
-     "Binance"
+     "MetaTrader 5",
+     "Kraken Pro: Advanced Trading",
+     "TabTrader - crypto terminal",
+     "tastytrade: Invest & Trade"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "KYC тянется неделями, срывается без объяснений, требует видео с паспортом в руках, а повторная верификация уже верифицированного аккаунта оставляет средства замороженными на неопределённый срок. Для людей с нестандартными документами (двойное гражданство, иностранный паспорт, смена имени) стандартный поток не работает вовсе.",
+  "gap": "Активный трейдер вынужден переключаться между несколькими приложениями (Kraken Pro, MetaTrader, Bybit), потому что ни у одного нет полноценного мобильного управления позициями. Выставление стоп-лосса на MT5 с телефона, по описаниям самих пользователей, практически невозможно",
   "idea": {
-   "pitch": "Клиент получает живого ассистента, который знает требования конкретной биржи, помогает правильно сфотографировать документы, заполнить форму и подать заявку без ошибок, которые ведут к отказу. Для застрявших в повторном KYC: помогаем с составлением апелляции и прямой передачей документов в комплаенс-отдел биржи. Работаем на английском, русском и арабском.",
+   "pitch": "Трейдер, работающий с 2-3 биржами, теряет деньги не из-за плохого анализа, а из-за неудобного мобильного интерфейса в критический момент. TabTrader и аналоги пошли по пути агрессивной монетизации базовых функций вместо качественного UX. Сервис предоставляет единый терминал с подключением через биржевые API, нормальным управлением ордерами с большого пальца и синхронизацией позиций между биржами в реальном времени.",
    "features": [
-    "Пошаговая инструкция под конкретную биржу и тип документа (паспорт, ID, вид на жительство)",
-    "Живой ассистент в чате, который отвечает в течение часа и не бросает до результата",
-    "Шаблоны апелляций на английском для случаев повторной верификации и беспричинного отказа",
-    "Чек-лист «фото документа без ошибок»: освещение, угол, разрешение, видимость",
-    "База знаний: типичные причины отказа на каждой из 10 крупных бирж и как их устранить"
+    "Подключение к 10+ биржам через API без хранения ключей на сервере",
+    "Управление стоп-лоссом и тейк-профитом жестами прямо на графике",
+    "Единый экран активных позиций по всем биржам с суммарным P&L",
+    "Настраиваемые алерты по цене и объёму с гарантированной доставкой",
+    "Быстрые ордера с пресетами: один тап для входа с предустановленным риском"
    ],
    "antiFeatures": [
-    "Не берём документы клиента для самостоятельной подачи от его имени",
-    "Не гарантируем одобрение (решение всегда за биржей)",
-    "Не работаем с клиентами из санкционных юрисдикций"
+    "Не хранит активы и не является брокером",
+    "Нет торговых сигналов и автоматической торговли",
+    "Нет социального копитрейдинга"
    ],
-   "monetization": "Фиксированный тариф 49$ за сопровождение одной верификации, 89$ за повторный KYC с апелляцией. Корпоративный тариф для крипто-обменников: онбординг их клиентов 20$ за аккаунт при объёме от 50 в месяц."
+   "monetization": "Подписка 15-29 долларов в месяц. Активные трейдеры уже платят TabTrader Pro (14.99/мес), TradingView Pro (14.95/мес). Профессиональный трейдер теряет на плохом UX больше, чем стоит подписка это сильный аргумент для конверсии."
   }
  },
  {
   "slug": "crypto-investing-6",
   "category": "crypto-investing",
   "categoryName": "Крипта и инвестиции",
-  "title": "Агрегатор крипто-активов без казино и навязчивых апселлов",
-  "oneLiner": "Приложение для серьёзного крипто-инвестора, которое показывает только портфель и рынок, без предсказаний, ставок и агрессивных апселлов",
-  "asOf": "2026-06-20",
+  "title": "Сервис апелляций при блокировке крипто-аккаунта",
+  "oneLiner": "Платный сервис помощи при заморозке средств на бирже: подготовка документов, переписка с поддержкой и эскалация до регулятора",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 44
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
   },
   "reviewGrid": [
    {
-    "quote": "no option to hide the 'prediction market's' section in the app from the home page, it's essentially gambling on everything from elections to the weather, it really cheapens the feel of the app.",
+    "quote": "The application will hold your money with no basis or reasoning.\n\nThey will not respond for 6 months timeframe.\n\nI lost all my liquidity because of this.\n\nBeware! I know an entire community of people who experienced the same thing.",
     "rating": 1,
-    "app": "Robinhood"
+    "app": "Uphold: Buy BTC, ETH and 360+"
    },
    {
-    "quote": "Give us an option to remove crypto, prediction markets, and other bs from the homepage! Not all of us want to throw their money away!",
-    "rating": 2,
-    "app": "Robinhood"
-   },
-   {
-    "quote": "When entering the app it will bombard you with ads and pop ups regarding gold. Doesn't matter how much you press x or decline.",
+    "quote": "Closed my account and would not tell me why",
     "rating": 1,
-    "app": "Robinhood"
+    "app": "Gemini Markets & Credit Card"
    },
    {
-    "quote": "the vibe of a free web3 native wallet is gone. now you can smell corpo from the distance",
-    "rating": 1,
-    "app": "MetaMask"
-   },
-   {
-    "quote": "Too much bloated stuff on the UI. Also it looks like a centralized exchange's wallet rather than a self custody wallet.",
-    "rating": 2,
-    "app": "MetaMask"
-   },
-   {
-    "quote": "Fun and educational with benefits. I've learned more about crypto in 2 months with Kraken than I had learned in general the last 10 years.",
-    "rating": 5,
-    "app": "Kraken"
-   },
-   {
-    "quote": "Fantastic trading app when it works. I've lost some trades due to the app freezing and not being able to buy at the time or sell when I needed to.",
+    "quote": "Cash app is good ! i just don’t like how yall allow doordash , apple\n. etc to take money from our card even when it’s unlocked , what if we really needed that money for something  else and we can’t use it because a another app took it that isn’t good ‘",
     "rating": 3,
-    "app": "Kraken"
+    "app": "Cash App"
+   },
+   {
+    "quote": "Ok I love Cash App don’t get me wrong and I had it since I was 8 with parental controls but I just don’t like how It takes my money even when I’m not on any plans or buy stuff so I really want all my money back",
+    "rating": 4,
+    "app": "Cash App"
+   },
+   {
+    "quote": "I loved using cash it’s very convenient but they closed my account saying because it went against their terms and conditions and I’ve appealed and automatically get denied with no explanation for why the account went against their terms. My son account got closed and he barely as using it. I explain",
+    "rating": 1,
+    "app": "Cash App"
+   },
+   {
+    "quote": "Cash App used to be a simple way to send and receive money. Now it feels like a nonstop advertising platform that occasionally handles payments. The app is constantly pushing promotions, offers, and features I have no interest in using.\n\nWhat’s even more annoying is the persistent notification badge",
+    "rating": 2,
+    "app": "Cash App"
    }
   ],
   "mechanisms": [
    {
-    "title": "Инвестор, который пришёл в биткоин и ETH как в долгосрочный актив, вынужден пользоваться главным экраном биржи, заваленным рынками предсказаний, ставками на пог",
-    "obsCount": 7,
+    "title": "Биржи (Coinbase, Gemini, Uphold, Kraken, Cash App) регулярно замораживают аккаунты без объяснений. Поддержка отвечает ботами или молчит неделями. Пользователь н",
+    "obsCount": 6,
     "apps": [
-     "Robinhood",
-     "Coinbase",
-     "Kraken",
-     "eToro"
+     "Coinbase: Buy Crypto & Stocks",
+     "Gemini Markets & Credit Card",
+     "Uphold: Buy BTC, ETH and 360+",
+     "Cash App"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Инвестор, который пришёл в биткоин и ETH как в долгосрочный актив, вынужден пользоваться главным экраном биржи, заваленным рынками предсказаний, ставками на погоду, выборы и спорт, а также навязчивой рекламой. Скрыть это нельзя, отключить нельзя. Продукта «только портфель» для взрослого инвестора нет.",
+  "gap": "Биржи (Coinbase, Gemini, Uphold, Kraken, Cash App) регулярно замораживают аккаунты без объяснений. Поддержка отвечает ботами или молчит неделями. Пользователь не знает, какие документы нужны, в каком порядке эскалировать и куда жаловаться",
   "idea": {
-   "pitch": "Агрегатор читает балансы через только-чтение API с нескольких бирж и кошельков и показывает единый портфель без единого рекламного блока, предсказания или апселла. Интерфейс настраивается до уровня: только нужные монеты, только нужные графики, только нужные алерты. Монетизация честная: подписка, без торговли данными и без скрытого спреда.",
+   "pitch": "Замороженный аккаунт с реальными деньгами острая боль, и человек готов заплатить, чтобы её решить. Сервис ведёт пользователя от первичного запроса в поддержку до жалобы в финансовый регулятор (CFPB, FCA и др.): готовит шаблоны обращений под конкретную биржу, собирает доказательную базу, отслеживает сроки и автоматически напоминает о следующем шаге. Бизнес-модель как у юридических claim-сервисов: оплата за результат или фиксированный ретейнер.",
    "features": [
-    "Единый портфель из нескольких бирж и кошельков через read-only API",
-    "Кастомный главный экран: только выбранные активы, только нужные метрики",
-    "Алерты по цене, объёму и изменению за 24 часа без рекламных пушей",
-    "Исторический P&L с разбивкой по активам и периодам",
-    "Режим «чистый экран»: полное скрытие всех рыночных новостей и трендов"
+    "База знаний по политикам заморозок 20 основных бирж с типичными причинами и сроками",
+    "Генератор обращений в поддержку под конкретную биржу и тип проблемы",
+    "Пошаговая инструкция по эскалации: поддержка, соцсети, регулятор, медиация",
+    "Шаблоны жалоб в CFPB, FCA, FinCEN с заполнением из данных пользователя",
+    "Трекер статуса обращений с напоминаниями о дедлайнах"
    ],
    "antiFeatures": [
-    "Нет торгового терминала внутри приложения",
-    "Нет рекомендаций «что купить» и нет инвестиционных советов",
-    "Нет социальных функций, рейтингов трейдеров и копитрейдинга"
+    "Не является юридической фирмой и не представляет интересы в суде",
+    "Не гарантирует разморозку средств",
+    "Не работает с откровенным мошенничеством (pig butchering scams)"
    ],
-   "monetization": "Подписка 7$ в месяц или 60$ в год. Без рекламы, без продажи данных, без комиссии на торговлю. Пользователи Robinhood Gold уже платят 5$/мес за базовые функции без гарантии чистого интерфейса."
+   "monetization": "Фиксированная плата 49-99 долларов за ведение кейса или 19% от возвращённой суммы. Люди уже платят юристам по 200-500 долларов в час за аналогичные обращения. Рынок большой: только на Coinbase десятки тысяч жалоб в год по данным CFPB."
   }
  },
  {
   "slug": "crypto-investing-7",
   "category": "crypto-investing",
   "categoryName": "Крипта и инвестиции",
-  "title": "Платформа исполнения крупных ордеров для состоятельных инвесторов",
-  "oneLiner": "Брокер и агрегатор ликвидности для состоятельных инвесторов, которым нужно купить или продать крипту на сумму от 50 000 долларов без проскальзывания и без заморозки аккаунта",
-  "asOf": "2026-06-20",
+  "title": "Стратегия регулярных покупок биткоина для долгосрочных накопителей",
+  "oneLiner": "Сервис персональной стратегии DCA с расчётом оптимального расписания, учётом налоговых последствий и историческим бэктестом на реальных данных",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 44
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
   },
   "reviewGrid": [
    {
-    "quote": "Fantastic trading app when it works. I've lost some trades due to the app freezing and not being able to buy at the time or sell when I needed to.",
+    "quote": "The weekly deposit limit is $500.  Not sure what the point is, regulatory perhaps. It’s annoying.",
     "rating": 3,
-    "app": "Kraken"
+    "app": "STRIKE: Buy & Hold Bitcoin"
    },
    {
-    "quote": "This issue is costing me money because I can't reliably buy/sell when I want to (I day trade and have about $50k I trade with in my account)",
-    "rating": 1,
-    "app": "Robinhood"
+    "quote": "For me it’s worth it to pay for a monthly subscription. I’m not a big trader but it saves me on fees for sure and buys and sells . They’ve always come through for me on the customer care side also . Have never had problems with them.",
+    "rating": 4,
+    "app": "Coinbase: Buy Crypto & Stocks"
    },
    {
-    "quote": "ALWAYS fails when needed. Whenever I try to use this app for purchasing it 9/10 will freeze or just not load anything",
-    "rating": 1,
-    "app": "Kraken"
+    "quote": "It took 5 weeks to get my card",
+    "rating": 3,
+    "app": "Cash App"
    },
    {
-    "quote": "they will not give you any reasons why they blocked your account.",
-    "rating": 1,
-    "app": "Crypto.com"
+    "quote": "Love Cash App",
+    "rating": 5,
+    "app": "Cash App"
    },
    {
-    "quote": "They freeze my account without give me an explanation. Dont respond the emails i send them.",
-    "rating": 1,
-    "app": "Kraken"
+    "quote": "Sometimes Cash App just don’t wanna work even if I didn’t go over my daily limit or balance for the month",
+    "rating": 4,
+    "app": "Cash App"
    },
    {
-    "quote": "no exchange ever has taken my money & just ignored me while showing 0 balance",
+    "quote": "Cash App seems to be deactivating random accounts without reason nor will they give a reason. I opened my app today to realize my account was deactivated without warning or a reason. I called support and the representative said they could not tell me why and asked if I would like to appeal. I agreed",
     "rating": 1,
-    "app": "Kraken"
-   },
-   {
-    "quote": "They lost my money and close the chat before they solve the problem, just to avoid admitting their fault.",
-    "rating": 1,
-    "app": "Crypto.com"
+    "app": "Cash App"
    }
   ],
   "mechanisms": [
    {
-    "title": "Инвестор с 50-500 тысячами долларов пытается купить биткоин через розничное приложение и получает проскальзывание на спреде, зависший ордер в момент волатильнос",
-    "obsCount": 7,
+    "title": "Накопители биткоина (River, Swan Bitcoin) делают регулярные покупки вслепую: без понимания, оптимален ли их интервал, какой будет налоговый след через 3 года и ",
+    "obsCount": 6,
     "apps": [
-     "Kraken",
-     "Coinbase",
-     "Crypto.com",
-     "Binance"
+     "River: Buy Bitcoin",
+     "Swan Bitcoin: Buy & Save",
+     "STRIKE: Buy & Hold Bitcoin",
+     "Coinbase: Buy Crypto & Stocks"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Инвестор с 50-500 тысячами долларов пытается купить биткоин через розничное приложение и получает проскальзывание на спреде, зависший ордер в момент волатильности и последующую блокировку аккаунта «по триггеру безопасности» от нетипичной суммы. Инфраструктура для крупной сделки не отличается от инфраструктуры для покупки на 100 долларов.",
+  "gap": "Накопители биткоина (River, Swan Bitcoin) делают регулярные покупки вслепую: без понимания, оптимален ли их интервал, какой будет налоговый след через 3 года и каков реальный исторический результат разных подходов. Ни одна платформа не даёт аналитики только кнопку «купить»",
   "idea": {
-   "pitch": "Платформа агрегирует ликвидность от нескольких внебиржевых площадок и маркет-мейкеров и исполняет крупный ордер частями через нескольких контрагентов, минимизируя проскальзывание. Клиент видит реальную цену исполнения до подтверждения, получает отчёт о качестве исполнения после и звонит выделенному трейдеру, а не пишет боту. Целевой клиент: семейный офис, крипто-фонд или состоятельный частный инвестор, который уже работает с брокером для акций.",
+   "pitch": "Долгосрочный биткоин-накопитель самый дисциплинированный платящий клиент в крипте. Он готов платить за инструменты, подтверждающие правильность его стратегии. Сервис строит персональный план DCA на основе доходов пользователя, налогового статуса и горизонта, бэктестирует разные интервалы (еженедельно, двухнедельно, ежемесячно) на исторических данных и считает ожидаемый налоговый след при разных сценариях выхода. Выдаёт конкретный ответ: «при вашем горизонте 7 лет еженедельный DCA показал на 12% лучший результат, чем ежемесячный».",
    "features": [
-    "Агрегация ликвидности от 5+ OTC-деск с TWAP/VWAP-исполнением крупного ордера",
-    "Цена исполнения до подтверждения: клиент видит итоговую стоимость прежде чем нажать «купить»",
-    "Выделенный трейдер на телефоне в часы работы рынка",
-    "Отчёт TCA (Transaction Cost Analysis) по каждой сделке в PDF",
-    "Кастодиальное решение через лицензированного кастодиана или вывод на кошелёк клиента"
+    "Бэктест DCA-стратегии на данных с 2013 года с разными интервалами и суммами",
+    "Калькулятор налогового следа при выходе через 1, 3, 5, 10 лет (краткосрочные и долгосрочные прибыли)",
+    "Оптимизация расписания покупок под конкретную сумму дохода и налоговый статус",
+    "Симуляция сценариев: лучший/худший/медианный результат при текущей стратегии",
+    "Сравнение результата пользователя с историческими медианами по выбранному горизонту"
    ],
    "antiFeatures": [
-    "Не работаем с суммами ниже 50 000$ за сделку",
-    "Нет розничного приложения и не планируем",
-    "Не предлагаем маржинальную торговлю и кредитное плечо"
+    "Не биржа и не брокер не исполняет сделки",
+    "Не предсказывает цену биткоина",
+    "Не работает с альткоинами и диверсифицированными портфелями"
    ],
-   "monetization": "Комиссия 0.15-0.3% от объёма сделки (ниже биржевого спреда на крупных суммах, но прозрачная). Ежемесячная плата за обслуживание счёта 500$ для семейных офисов. Финансовые советники уже платят similar-продуктам (Genesis, FalconX) за OTC-доступ."
+   "monetization": "Разовый платёж за персональный план 29-49 долларов или годовая подписка 49 долларов. Аудитория: люди, уже покупающие биткоин на River (DCA-платформа без аналитики) или Swan Bitcoin. Дополнительно: партнёрские реферальные программы с биржами за направление клиентов."
+  }
+ },
+ {
+  "slug": "crypto-investing-8",
+  "category": "crypto-investing",
+  "categoryName": "Крипта и инвестиции",
+  "title": "Инструмент due diligence нового крипто-проекта",
+  "oneLiner": "Быстрая проверка нового токена или проекта перед покупкой: команда, контракт, история транзакций, признаки pump-and-dump",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 93,
+   "reviews": 25922,
+   "observations": 386
+  },
+  "reviewGrid": [
+   {
+    "quote": "It’s just simple too many rug pools. Simple. I get the “risk” but there’s little integrity either way 75% of coins minimum. Great opportunity but…",
+    "rating": 3,
+    "app": "Phantom - Trade Markets"
+   },
+   {
+    "quote": "I’ve made a couple of winning trades, and every time they go to skyrocket, the coin will magically disappear from Phantom, and then after the whole rush is over and it’s come all the way back down below what you originally bought it that it will magically reappear rip OFF has costed me over 3 Grand",
+    "rating": 1,
+    "app": "Phantom - Trade Markets"
+   },
+   {
+    "quote": "Not sure but the overview section seems hacked, links to projects Twitter- redit, etc are not going to the correct project anymore.  I liked that feature when checking out new Crytpo. Now it’s useless.",
+    "rating": 2,
+    "app": "Crypto Tracker by BitScreener"
+   },
+   {
+    "quote": "This is a fake wallet. Used by crypto scammers.",
+    "rating": 1,
+    "app": "Crypto.com: Onchain Wallet"
+   },
+   {
+    "quote": "banned my account for nothing. too much work to get it back.",
+    "rating": 2,
+    "app": "Cash App"
+   },
+   {
+    "quote": "Ever since the update I not able to use cash app I shouldn’t have to by a new phone for something I been using",
+    "rating": 3,
+    "app": "Cash App"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Частный инвестор покупает новый токен на DEX или по рекомендации из Telegram без возможности быстро проверить, не является ли это мошенничеством. DEX Screener и",
+    "obsCount": 6,
+    "apps": [
+     "DEX Screener",
+     "CoinGlass - Bitcoin & Crypto",
+     "Phantom - Trade Markets",
+     "Solflare: Solana Crypto Wallet"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Частный инвестор покупает новый токен на DEX или по рекомендации из Telegram без возможности быстро проверить, не является ли это мошенничеством. DEX Screener и CoinGlass дают рыночные данные, но не аналитику рисков проекта. Фильтры от скама главный незакрытый запрос у DeFi-аудитории",
+  "idea": {
+   "pitch": "Мемкоин-трейдер и охотник за новыми проектами теряет деньги не от плохой торговой стратегии, а от фронтраннинга и rug pull. Стандартные инструменты не дают ответа на вопрос «это ловушка?» за 30 секунд. Сервис анализирует смарт-контракт на наличие honey pot и drain-функций, проверяет историю распределения токенов и концентрацию кошельков, оценивает активность команды в публичных источниках и даёт итоговый риск-скор с объяснением на человеческом языке.",
+   "features": [
+    "Автоматический анализ смарт-контракта: honey pot, mint без ограничений, скрытые функции вывода",
+    "Анализ распределения токенов: концентрация топ-10 кошельков, динамика продаж команды",
+    "Проверка истории: связи с известными скам-адресами, прошлые проекты создателей",
+    "Риск-скор 0-100 с объяснением на простом языке без жаргона",
+    "История уже проверенных токенов с итогом (актив/rug pull) для обучения"
+   ],
+   "antiFeatures": [
+    "Не является инвестиционной рекомендацией и не гарантирует безопасности",
+    "Не даёт торговых сигналов и не предсказывает рост цены",
+    "Не работает с токенами на централизованных биржах (только ончейн)"
+   ],
+   "monetization": "Freemium: 5 проверок в день бесплатно, безлимит и API за 15-25 долларов в месяц. B2B: интеграция в крипто-медиа и Telegram-каналы за 200-500 долларов в месяц. Аудитория уже платит за аналитику на Token Sniffer, De.fi и GoPlus рынок существует, но инструменты технические и нечитаемые."
   }
  },
  {

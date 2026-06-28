@@ -7,18 +7,7 @@ import { tg } from "@/lib/typo";
 import AtmosphereSetter from "@/components/AtmosphereSetter";
 import RatingAuthBadge from "@/components/RatingAuthBadge";
 import RatingShots from "@/components/RatingShots";
-import astrology from "@/data/peoplesRating/astrology.json";
-import datingApps from "@/data/peoplesRating/dating-apps.json";
-import aiPhoto from "@/data/peoplesRating/ai-avatars-headshots.json";
-import meditation from "@/data/peoplesRating/meditation-mindfulness.json";
-import photoEditing from "@/data/peoplesRating/photo-editing.json";
-import notesPkm from "@/data/peoplesRating/notes-pkm.json";
-import languageLearning from "@/data/peoplesRating/language-learning.json";
-import periodCycle from "@/data/peoplesRating/period-cycle.json";
-import habitTracking from "@/data/peoplesRating/habit-tracking.json";
-import personalFinance from "@/data/peoplesRating/personal-finance.json";
-import calendarsTasks from "@/data/peoplesRating/calendars-tasks.json";
-import nutritionCalories from "@/data/peoplesRating/nutrition-calories.json";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
 
 export const dynamic = "force-dynamic";
 
@@ -36,7 +25,7 @@ type App = {
 };
 type RatingSet = { slug: string; name: string; nameEn: string; seoName?: string; apps: App[]; totalReviews: number; count: number; inflated: number };
 
-const SETS: Record<string, RatingSet> = { astrology: astrology as RatingSet, "dating-apps": datingApps as RatingSet, "ai-avatars-headshots": aiPhoto as RatingSet, "meditation-mindfulness": meditation as RatingSet, "photo-editing": photoEditing as RatingSet, "notes-pkm": notesPkm as RatingSet, "language-learning": languageLearning as RatingSet, "period-cycle": periodCycle as RatingSet, "habit-tracking": habitTracking as RatingSet, "personal-finance": personalFinance as RatingSet, "calendars-tasks": calendarsTasks as RatingSet, "nutrition-calories": nutritionCalories as RatingSet };
+const SETS = RATING_BY_SLUG as unknown as Record<string, RatingSet>;
 
 // Authenticity as a plain statement about the store star, plus a restrained tint.
 function authVerdict(a: string | null, ru: boolean): { word: string; bg: string; fg: string } {

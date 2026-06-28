@@ -13,31 +13,8 @@ import thesisAll from "@/data/niche-thesis.json";
 import cardsAll from "@/data/segment-cards.json";
 import ideasAll from "@/data/ideas.json";
 
-import rAstrology from "@/data/peoplesRating/astrology.json";
-import rDating from "@/data/peoplesRating/dating-apps.json";
-import rAiPhoto from "@/data/peoplesRating/ai-avatars-headshots.json";
-import rMeditation from "@/data/peoplesRating/meditation-mindfulness.json";
-import rPhoto from "@/data/peoplesRating/photo-editing.json";
-import rNotes from "@/data/peoplesRating/notes-pkm.json";
-import rLanguage from "@/data/peoplesRating/language-learning.json";
-import rPeriod from "@/data/peoplesRating/period-cycle.json";
-import rHabit from "@/data/peoplesRating/habit-tracking.json";
-import rFinance from "@/data/peoplesRating/personal-finance.json";
-import rCalendars from "@/data/peoplesRating/calendars-tasks.json";
-import rNutrition from "@/data/peoplesRating/nutrition-calories.json";
-
-import dAstrology from "@/data/dossier/astrology.json";
-import dDating from "@/data/dossier/dating-apps.json";
-import dAiPhoto from "@/data/dossier/ai-avatars-headshots.json";
-import dMeditation from "@/data/dossier/meditation-mindfulness.json";
-import dPhoto from "@/data/dossier/photo-editing.json";
-import dNotes from "@/data/dossier/notes-pkm.json";
-import dLanguage from "@/data/dossier/language-learning.json";
-import dPeriod from "@/data/dossier/period-cycle.json";
-import dHabit from "@/data/dossier/habit-tracking.json";
-import dFinance from "@/data/dossier/personal-finance.json";
-import dCalendars from "@/data/dossier/calendars-tasks.json";
-import dNutrition from "@/data/dossier/nutrition-calories.json";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
+import { DOSSIER_BY_SLUG } from "@/data/dossier";
 
 // The unified niche dossier: market overview, audience, honest rating (sentiment
 // vs store), breakdown by thesis pillars, and idea cards. Server component,
@@ -52,18 +29,8 @@ type Idea = { slug: string; category: string; title: string; oneLiner: string; g
 type Segment = { name: string; job: string; payLevel: string; payNote: string; servedBy: string[]; gap: string };
 type Dossier = { audience: { segments: Segment[]; takeaway: string }; market: { money: string; marketLead: string } };
 
-const RATING: Record<string, RatingFile> = {
-  astrology: rAstrology as RatingFile, "dating-apps": rDating as RatingFile, "ai-avatars-headshots": rAiPhoto as RatingFile,
-  "meditation-mindfulness": rMeditation as RatingFile, "photo-editing": rPhoto as RatingFile, "notes-pkm": rNotes as RatingFile,
-  "language-learning": rLanguage as RatingFile, "period-cycle": rPeriod as RatingFile, "habit-tracking": rHabit as RatingFile,
-  "personal-finance": rFinance as RatingFile, "calendars-tasks": rCalendars as RatingFile, "nutrition-calories": rNutrition as RatingFile,
-};
-const DOSSIER: Record<string, Dossier> = {
-  astrology: dAstrology as Dossier, "dating-apps": dDating as Dossier, "ai-avatars-headshots": dAiPhoto as Dossier,
-  "meditation-mindfulness": dMeditation as Dossier, "photo-editing": dPhoto as Dossier, "notes-pkm": dNotes as Dossier,
-  "language-learning": dLanguage as Dossier, "period-cycle": dPeriod as Dossier, "habit-tracking": dHabit as Dossier,
-  "personal-finance": dFinance as Dossier, "calendars-tasks": dCalendars as Dossier, "nutrition-calories": dNutrition as Dossier,
-};
+const RATING = RATING_BY_SLUG as Record<string, RatingFile>;
+const DOSSIER = DOSSIER_BY_SLUG as Record<string, Dossier>;
 
 const NF = (n: number) => n.toLocaleString("ru-RU");
 const cleanTitle = (t: string) => {
