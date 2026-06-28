@@ -53,15 +53,23 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
   useEffect(() => {
     const k = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", k);
-    return () => window.removeEventListener("keydown", k);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", k); document.body.style.overflow = prev; };
   }, [onClose]);
   if (typeof document === "undefined") return null;
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-end justify-center p-3 sm:items-center" onClick={onClose}>
-      <div className="absolute inset-0 bg-black/55 backdrop-blur-sm" />
-      <div className="relative max-h-[86vh] w-full max-w-[480px] overflow-y-auto rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-6 shadow-[0_-24px_70px_-24px_rgba(0,0,0,0.7)]" onClick={(e) => e.stopPropagation()}>
-        {children}
-        <button type="button" onClick={onClose} className="mt-6 w-full rounded-full bg-[var(--color-button-secondary-bg)] px-4 py-2.5 text-[14px] font-medium text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)]">Закрыть</button>
+    <div className="fixed inset-0 z-[100] flex items-end justify-center sm:items-center sm:p-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      <div
+        className="relative flex max-h-[92vh] w-full max-w-[560px] flex-col overflow-hidden rounded-t-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-24px_70px_-20px_rgba(0,0,0,0.7)] [animation:sheet-up_.3s_cubic-bezier(.22,1,.36,1)] sm:max-h-[86vh] sm:rounded-[26px]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="mx-auto mt-3 h-1 w-9 shrink-0 rounded-full bg-[var(--color-border-strong)] sm:hidden" />
+        <div className="flex-1 overflow-y-auto px-6 pb-6 pt-4 sm:pt-7">{children}</div>
+        <div className="shrink-0 border-t border-[var(--color-border-subtle)] p-4">
+          <button type="button" onClick={onClose} className="w-full rounded-full bg-[var(--color-button-secondary-bg)] px-4 py-3 text-[15px] font-medium text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)]">Закрыть</button>
+        </div>
       </div>
     </div>,
     document.body,
@@ -81,10 +89,25 @@ function CardFace({ icon, title, desc, footer, onClick }: { icon: string; title:
 
 function Sec({ k, children }: { k: string; children: React.ReactNode }) {
   return (
-    <div className="mt-4">
-      <div className="text-[12px] font-medium text-[var(--color-text-tertiary)]">{k}</div>
-      <div className="mt-1 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{children}</div>
-    </div>
+    <section className="mt-5 border-t border-[var(--color-border-subtle)] pt-4">
+      <h4 className="text-[13px] font-semibold text-[var(--color-text-tertiary)]">{k}</h4>
+      <div className="mt-2 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{children}</div>
+    </section>
+  );
+}
+
+function Bullets({ items, cross }: { items: string[]; cross?: boolean }) {
+  return (
+    <ul className="flex flex-col gap-2">
+      {items.map((f, j) => (
+        <li key={j} className="flex gap-2.5">
+          {cross
+            ? <span className="shrink-0 text-[var(--color-text-tertiary)]">×</span>
+            : <span className="mt-[8px] size-[5px] shrink-0 rounded-full bg-[var(--color-text-tertiary)]" />}
+          <span>{f}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -135,8 +158,8 @@ export function IdeaCards({ ideas }: { ideas: Idea[] }) {
           <p className="mt-2 text-[16px] leading-[1.55] text-[var(--color-text-secondary)]">{open.oneLiner}</p>
           {open.gap && <Sec k="Чего не хватает">{open.gap}</Sec>}
           {open.pitch && <Sec k="Что это">{open.pitch}</Sec>}
-          {!!open.features?.length && <Sec k="Как устроено"><ul className="flex flex-col gap-1.5">{open.features.map((f, j) => <li key={j} className="flex gap-2"><span className="text-[var(--color-text-tertiary)]">·</span>{f}</li>)}</ul></Sec>}
-          {!!open.antiFeatures?.length && <Sec k="Чего не делаем"><ul className="flex flex-col gap-1.5">{open.antiFeatures.map((f, j) => <li key={j} className="flex gap-2"><span className="text-[var(--color-text-tertiary)]">×</span>{f}</li>)}</ul></Sec>}
+          {!!open.features?.length && <Sec k="Как устроено"><Bullets items={open.features} /></Sec>}
+          {!!open.antiFeatures?.length && <Sec k="Чего не делаем"><Bullets items={open.antiFeatures} cross /></Sec>}
           {open.monetization && <Sec k="Деньги">{open.monetization}</Sec>}
           {!!open.reviewGrid?.length && (
             <Sec k="Пруф из отзывов">

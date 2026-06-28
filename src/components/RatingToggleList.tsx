@@ -72,12 +72,12 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
         </div>
       </div>
 
-      <div className="mt-6 border-t border-[var(--color-border-subtle)]">
+      <div className="mt-6 flex flex-col gap-3">
         {shown.map((a, i) => {
           const au = AUTH[a.authenticity || ""] || { w: "", c: "var(--color-text-tertiary)" };
           const sentiment = mode === "sentiment";
           return (
-            <details key={a.id} className="group/f border-b border-[var(--color-border-subtle)]">
+            <details key={a.id} className="group/f rounded-[16px] border border-[var(--color-border-subtle)] px-4">
               <summary className="flex cursor-pointer list-none items-start gap-4 py-4 [&::-webkit-details-marker]:hidden">
                 <span className="w-5 shrink-0 pt-2.5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
                 {a.icon
@@ -96,7 +96,7 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
                 </span>
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </summary>
-              <div className="pb-6 pl-9 pr-1 sm:pr-8">
+              <div className="flex flex-col gap-3.5 border-t border-[var(--color-border-subtle)] pb-5 pt-4">
                 <Field k="Сильное" v={a.loved} />
                 <Field k="Слабое" v={a.weak} />
                 <Field k="Кому" v={a.whoFor} />
@@ -132,6 +132,9 @@ function Tab({ active, onClick, children }: { active: boolean; onClick: () => vo
 function Field({ k, v }: { k: string; v?: string | null }) {
   if (!v) return null;
   return (
-    <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]"><span className="font-medium text-[var(--color-text-primary)]">{k}. </span>{v}</p>
+    <div>
+      <div className="text-[13px] font-semibold text-[var(--color-text-tertiary)]">{k}</div>
+      <p className="mt-1 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{v}</p>
+    </div>
   );
 }

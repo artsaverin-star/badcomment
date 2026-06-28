@@ -123,9 +123,10 @@ export default function TestDossier() {
       {/* ACT — AUDIENCE */}
       <Block title="Аудитория" lead="«Астрология» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.">
         <div className="mt-6"><PersonaCards segments={audSegments} /></div>
-        <p className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">
-          <span className="font-semibold text-[var(--color-text-primary)]">Где деньги. </span>{tg(aud.takeaway)}
-        </p>
+        <div className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5">
+          <h3 className="text-[17px] font-bold text-[var(--color-text-primary)]">Где деньги</h3>
+          <p className="mt-2 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
+        </div>
       </Block>
 
       {/* ACT — HONEST RATING */}
@@ -138,7 +139,7 @@ export default function TestDossier() {
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
-              <h3 className="text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[32px]">{tg(p.title)}</h3>
+              <h3 className="text-[27px] font-bold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[32px]">{tg(p.title)}</h3>
               <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
               {grouped[pi].length > 0 && (
                 <div className="mt-7 border-t border-[var(--color-border-subtle)]">
