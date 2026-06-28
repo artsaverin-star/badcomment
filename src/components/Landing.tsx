@@ -136,7 +136,7 @@ export default function Landing({
   // the highest observation counts. Featured = the first four (top premium).
   // Homepage leads with the niches that have a full dossier (people's rating +
   // breakdown + ideas). Order pinned; rolled out one niche at a time.
-  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery"];
+  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps"];
   const BLURB: Record<string, string> = {
     astrology: "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды.",
     "dating-apps": "100 приложений: где реальные люди, а где боты и накрученные звёзды.",
@@ -154,6 +154,7 @@ export default function Landing({
     "music-streaming": "94 приложения: где каталог, звук и плейлисты честны и удобны, а где накрутка и потеря музыки.",
     "video-streaming": "95 приложений: где каталог, плеер и синхронизация честны, а где накрутка и геоблок.",
     "food-delivery": "94 приложения: где заказ приходит точно и вовремя, а где накрутка и сломанная поддержка.",
+    "messaging-apps": "94 приложения: где сообщения и звонки доходят надёжно и приватно, а где накрутка и пропавшие СМС.",
   };
   const ranked = ULTRA
     .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: BLURB[s] ?? c.hook } : null; })

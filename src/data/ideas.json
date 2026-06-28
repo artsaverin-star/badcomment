@@ -22287,560 +22287,597 @@
   "slug": "messaging-apps-1",
   "category": "messaging-apps",
   "categoryName": "Мессенджеры",
-  "title": "Корпоративный мессенджер с двумя профилями на одном телефоне",
-  "oneLiner": "Корпоративный мессенджер, где у сотрудника два профиля в одном приложении без второго устройства и без утечки личного номера работодателю.",
-  "asOf": "2026-06-20",
+  "title": "Рабочий номер для фрилансера",
+  "oneLiner": "Отдельный номер телефона для клиентов, который выглядит и работает как настоящий, но не раскрывает личный.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 53
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
   },
   "reviewGrid": [
    {
-    "quote": "every time i switched account there will be a notification says \"session expired\" and my account will be automatically logged out",
-    "rating": 3,
-    "app": "Messenger"
+    "quote": "This app really helps people to have a business number so they would not mix their personal one. And the pranks are unlimited 😭🙏 I would love to have numbers of my area ❤️",
+    "rating": 4,
+    "app": "TextNow: Call + Text Unlimited"
    },
    {
-    "quote": "Having to swap accounts becomes extremely tedious via mobile to the point where I keep a second device handy",
-    "rating": 3,
-    "app": "Discord"
-   },
-   {
-    "quote": "using two number in one app by adding account keep crashing and auto log-out",
+    "quote": "I get anywhere from 1-3 spam calls a day and that’s with the paid version. Horrible for my business as it’s confusing to know who is a real person vs spam. I’m wasting time and money calling these numbers back each time. Don’t recommend !",
     "rating": 1,
-    "app": "WhatsApp"
+    "app": "TextNow: Call + Text Unlimited"
    },
    {
-    "quote": "forces me to add a number, I'm ok with email but im not giving my number just so I can simply use a chat",
-    "rating": 1,
-    "app": "Signal"
-   },
-   {
-    "quote": "Recent update removed phone number login and I am now completely locked out of my account with no recovery option.",
-    "rating": 1,
-    "app": "LINE"
-   },
-   {
-    "quote": "5 stars if you dont have to change your phone ever. 1 star if you do - you'll loose all your friends and your whole social life if you do....",
+    "quote": "Even in the middle of a phone call an Ad will pop up with music or sound completely blocking the other persons voice or there will be times where it’ll just end the call mid conversation… then wants you to pay for an “ad-free experience” or to lock your number in but it doesn’t work??",
     "rating": 2,
-    "app": "Signal"
+    "app": "TextNow: Call + Text Unlimited"
    },
    {
-    "quote": "stupid app. can't log in with new phone as keep asking me to verify from old phone which is dead.",
+    "quote": "It a good app ngl buh why the banning of acc , seriously i think u guys should make a review before banning i mean what off the bussiness ppl what are dey gonna do at this situation",
     "rating": 1,
-    "app": "LINE"
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "La mayoría de las veces no transmite mi imagen de. Ideo llamada congela mi video llamada para la otra persona , se cuelga mucho también se le va el audio, y mi teléfono no es , porque con las otras aplicaciones trabaja súper bien",
+    "rating": 2,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "I am unable to add another account. Additionally, I am facing another issue and cannot subscribe to WhatsApp Plus.",
+    "rating": 3,
+    "app": "WhatsApp Messenger"
    }
   ],
   "mechanisms": [
    {
-    "title": "Сотрудник вынужден либо светить личным номером перед работодателем, либо таскать два телефона. При смене работы рабочий чат остаётся у бывшего работодателя, а п",
-    "obsCount": 7,
+    "title": "Фрилансеры и самозанятые вынуждены давать личный номер клиентам или покупать дешёвые VoIP-номера, которые зависают на 20 секунд при запуске и теряют уведомления",
+    "obsCount": 6,
     "apps": [
-     "Messenger",
-     "Discord",
-     "WhatsApp",
-     "Signal"
+     "Burner: Second Phone Number",
+     "Google Voice",
+     "Second Texting Number:Unlisted",
+     "magicApp Calling & Messaging"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Сотрудник вынужден либо светить личным номером перед работодателем, либо таскать два телефона. При смене работы рабочий чат остаётся у бывшего работодателя, а переписка теряется навсегда.",
+  "gap": "Фрилансеры и самозанятые вынуждены давать личный номер клиентам или покупать дешёвые VoIP-номера, которые зависают на 20 секунд при запуске и теряют уведомления от незнакомых. Ни один из существующих приложений не решает это профессионально: Burner падает при загрузке, Google Voice пропускает звонки в автоответчик без сигнала вызова.",
   "idea": {
-   "pitch": "Каждый сотрудник получает рабочую личность, полностью изолированную от личной. Переключение мгновенное, без выхода из аккаунта и без «сессия истекла». Работодатель платит за рабочие номера сотрудников, а личный номер человека никогда не раскрывается.",
+   "pitch": "Отдельный рабочий номер с нормальным приложением, которое открывается мгновенно, надёжно принимает входящие и умеет отделить рабочее время от личного. Подписка на профессиональный номер без второго телефона и без VoIP-артефактов. Клиент видит реальный городской номер, фрилансер в конце дня включает режим «нерабочее время» и звонки идут на голосовую почту.",
    "features": [
-    "Два независимых профиля в одном приложении с мгновенным переключением",
-    "Виртуальный рабочий номер, который арендует компания, а не сотрудник",
-    "Полный экспорт переписки сотрудника при увольнении в его личный архив",
-    "Разграничение уведомлений: личные не пробиваются в рабочие часы",
-    "Административная панель для команды: добавить, удалить, передать историю"
+    "Мгновенный запуск приложения, входящий звонок принимается как обычный",
+    "Расписание рабочих часов: после 19:00 звонки автоматически переводятся на голосовую почту",
+    "Подпись и краткое портфолио отправляются автоматически новому контакту при первом звонке",
+    "История переписки полностью отделена от личных сообщений",
+    "Переадресация на личный номер, если срочно, по одному нажатию"
    ],
    "antiFeatures": [
-    "Нет общей ленты и stories между профилями",
-    "Нет доступа работодателя к личному профилю сотрудника",
-    "Нет принудительного мониторинга переписки без ведома сотрудника"
+    "Без VoIP-качества как у дешёвых приложений: только реальная телефонная сеть или надёжный SIP",
+    "Без социальных функций, лент и профилей",
+    "Без бесплатного тарифа с рекламой внутри звонка"
    ],
-   "monetization": "Компании уже платят за корпоративные SIM-карты и Slack. Модель: подписка на рабочие номера сотрудников, от 300 рублей в месяц на человека. Платит HR или IT-отдел."
+   "monetization": "Фрилансеры и самозанятые уже платят за Burner (9,99 USD/мес), Google Voice (10 USD/мес) или второй телефон. Подписка 12-15 USD/мес за профессиональный номер с надёжностью выше текущих решений. Целевая аудитория в США: 59 млн фрилансеров, конверсия даже 0,1% даёт 59 000 платящих."
   }
  },
  {
   "slug": "messaging-apps-2",
   "category": "messaging-apps",
   "categoryName": "Мессенджеры",
-  "title": "Защита от преследования в мессенджерах",
-  "oneLiner": "Платный сервис защиты от преследования в мессенджерах: блок, который реально работает, с человеческой поддержкой и юридическими документами.",
-  "asOf": "2026-06-20",
+  "title": "Семейная видеопочта без срочности",
+  "oneLiner": "Асинхронные видеосообщения для семей с пожилыми родственниками: запишите, посмотрят когда удобно, без звонков и без тревоги «срочно ответь».",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 53
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
   },
   "reviewGrid": [
    {
-    "quote": "Messenger still sends notifications when the blocked person attempts contact. For users dealing with stalkers, harassment, or abuse, these alerts defeat the purpose of blocking.",
-    "rating": 1,
-    "app": "Messenger"
+    "quote": "The transcript hasn’t been working and my app removed the closed captioning option so I have no way of reading what my friends are saying! Edit: They replied saying I should reach out to the support team, I already did 6 days ago with no response.",
+    "rating": 2,
+    "app": "Marco Polo - Video Messenger"
    },
    {
-    "quote": "I have blocked this person many times but he keeps making accounts and I keep blocking please please get a tighter security",
-    "rating": 3,
-    "app": "Signal"
+    "quote": "Marco Polo has helped me and my friends stay completely connected during this busy phase of life, so when we are able to get together in person there’s no “catching up” it’s just having fun together!",
+    "rating": 5,
+    "app": "Marco Polo - Video Messenger"
    },
    {
-    "quote": "I've had my profile catfished and copied and not a damn thing is done about any of the pedophiles and harassment on here",
-    "rating": 1,
-    "app": "Kik"
+    "quote": "Marco Polo always trying to get somebody to pay for stuff. I don’t need to pay for anything. I’m 74 years old. Just let me get what’s mine and leave me alone. Thank you.",
+    "rating": 2,
+    "app": "Marco Polo - Video Messenger"
    },
    {
-    "quote": "There are so many pedophiles on this app and nothing is done to stop them. Why do none of the reviews mention this?????",
-    "rating": 1,
-    "app": "Kik"
+    "quote": "Best app to keep in touch with loved ones. Especially when you live on opposite coasts/ different time zones. So convenient. Message whenever & watch when you have time! I love Marco Polo!",
+    "rating": 5,
+    "app": "Marco Polo - Video Messenger"
    },
    {
-    "quote": "Their automated system provides absolutely no way to speak to a real human or appeal the decision properly. Unfair account suspension",
-    "rating": 1,
-    "app": "Messenger"
+    "quote": "The easiest way to communicate . . .\n. . . “text messages” lead to misunderstanding a lot!",
+    "rating": 4,
+    "app": "Marco Polo - Video Messenger"
    },
    {
-    "quote": "any message you send can be reported, and you can receive multiple violations for the same exact message until your account gets deleted, all thanks to their useless bot",
-    "rating": 1,
-    "app": "Discord"
-   },
-   {
-    "quote": "It cannot distinguish between legitimate and fraudulent reports. No other app is this easy to manipulate.",
-    "rating": 1,
-    "app": "Telegram"
+    "quote": "I really like this app I love all it cool features and it is very easy to use I prefer this app then Messages",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
    }
   ],
   "mechanisms": [
    {
-    "title": "Заблокированный преследователь создаёт новый аккаунт через две минуты. Жертва получает уведомления даже от заблокированного. Платформа не реагирует на жалобы. Л",
-    "obsCount": 7,
+    "title": "Marco Polo захватил нишу, но поставил субтитры и транскрипты за пэйволл, что отрезает глухих и пожилых пользователей. Видеосообщение должно воспроизводиться в ф",
+    "obsCount": 6,
     "apps": [
-     "Messenger",
-     "Signal",
-     "Kik",
-     "Snapchat"
+     "Marco Polo - Video Messenger",
+     "Messenger Kids",
+     "Kinzoo: Fun All-Ages Messenger",
+     "JusTalk - Video Chat & Calls"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Заблокированный преследователь создаёт новый аккаунт через две минуты. Жертва получает уведомления даже от заблокированного. Платформа не реагирует на жалобы. Люди уходят с платформы, потому что инструментов нет.",
+  "gap": "Marco Polo захватил нишу, но поставил субтитры и транскрипты за пэйволл, что отрезает глухих и пожилых пользователей. Видеосообщение должно воспроизводиться в фоне, пока человек занимается делами, но это тоже платно. Пожилые люди не хотят платить подписку за «видеотексты» с родными.",
   "idea": {
-   "pitch": "Сервис не заменяет мессенджер, а работает поверх него: детектирует новые аккаунты того же человека по поведению, автоматически блокирует их, формирует доказательную базу для суда. Монетизируется подпиской жертвы или страховкой.",
+   "pitch": "Приложение для семейного видеообмена, где пожилой родственник получает простой экран: одна кнопка «запись», список видео от детей и внуков. Субтитры всегда включены бесплатно. Платит семья, а не бабушка: 5-7 USD/мес за семейное пространство с хранилищем. Без алгоритмов, без рекомендаций, только свои.",
    "features": [
-    "Детектор «второго аккаунта»: связывает новые профили с уже заблокированным по паттернам",
-    "Полный лог попыток контакта с сохранением скриншотов для суда",
-    "Автоматическая блокировка без ручного подтверждения",
-    "Живой специалист для подачи жалобы в платформу от имени пользователя",
-    "Экспорт доказательного пакета в формате, принятом полицией и судом"
+    "Субтитры и расшифровка речи включены по умолчанию, без пэйволла",
+    "Один экран для пожилого пользователя: список видео и кнопка записи",
+    "Воспроизведение в фоне, можно слушать с закрытым экраном",
+    "Семейный архив: видео хранятся постоянно, не удаляются",
+    "Уведомление родственникам «бабушка посмотрела» без прочтения чатов"
    ],
    "antiFeatures": [
-    "Нет своего мессенджера, только надстройка",
-    "Нет анонимности для подозреваемого без судебного запроса",
-    "Нет автоматического обвинения без подтверждённого паттерна"
+    "Без функций сторис, эффектов камеры и социального слоя",
+    "Без живых звонков: только асинхронные записи",
+    "Без рекламы и без бесплатного тарифа с ограничениями"
    ],
-   "monetization": "Жертвы домашнего насилия, адвокаты по семейным делам, страховые компании, ведущие дела о преследовании. Подписка 500-1500 рублей в месяц или разовый пакет сбора доказательств."
+   "monetization": "Платит организатор семьи (взрослые дети 30-45 лет) за семейное пространство. Модель: 6,99 USD/мес или 59 USD/год за до 10 участников. Аналог Marco Polo Premium стоит 9,99 USD/мес на одного. Семейный тариф дешевле и понятнее."
   }
  },
  {
   "slug": "messaging-apps-3",
   "category": "messaging-apps",
   "categoryName": "Мессенджеры",
-  "title": "Единый входящий чат для малого бизнеса",
-  "oneLiner": "B2B-инструмент: единый inbox для входящих от клиентов из WhatsApp, Telegram и Viber с историей на стороне бизнеса, а не на телефоне сотрудника.",
-  "asOf": "2026-06-20",
+  "title": "Чат для офлайн-сообщества с событиями",
+  "oneLiner": "Групповой чат и календарь событий в одном приложении для клубов, секций и локальных сообществ, с надёжными уведомлениями и поиском по истории.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 53
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
   },
   "reviewGrid": [
    {
-    "quote": "Can we have 2 versions please? A WhatsApp lite, a plain and simple messaging app and a WhatsApp Max with all the functions",
+    "quote": "Love it use it for so many groups I wish there was a way for the calendar to sync to you Apple or google calendar. The app only improves I love the calendar and reminders, the ability to pin a message, you can make different text threads I use one as the main chat and make another for forms that the",
+    "rating": 4,
+    "app": "GroupMe"
+   },
+   {
+    "quote": "With the most recent update you can’t schedule events for a specific time. Very annoying as our games start at odd times like 8:40.",
+    "rating": 1,
+    "app": "GroupMe"
+   },
+   {
+    "quote": "I have spent 45 minutes trying to create an account. Every time I get “device timed out” or “incorrect format”. Can’t sign up via google, can’t sign up via phone, can’t sign up via email. Fix your app. It sucks.",
+    "rating": 1,
+    "app": "GroupMe"
+   },
+   {
+    "quote": "У меня украли аккаунт, при включенной двухфакторной аутентификации. Никому не передавал коды из смс. Просто машенники указали что востанавливают вход с другого номера и получили туда пароль. Служба потдержки ничего не делает , вернуть аккаунт не возможно . Смс с проверкой номера не приходят больше н",
+    "rating": 1,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "Take back status to the way it was",
     "rating": 2,
-    "app": "WhatsApp"
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "They keep adding new features that noone asked for, and in meantime the core thing, texting, barely works.",
-    "rating": 2,
-    "app": "Viber"
-   },
-   {
-    "quote": "every time i switched account there will be a notification says \"session expired\" and my account will be automatically logged out",
-    "rating": 3,
-    "app": "Messenger"
-   },
-   {
-    "quote": "using two number in one app by adding account keep crashing and auto log-out",
-    "rating": 1,
-    "app": "WhatsApp"
-   },
-   {
-    "quote": "trying to be too many things at once and forcing unwanted features on the users.",
-    "rating": 1,
-    "app": "Snapchat"
-   },
-   {
-    "quote": "Recent update removed phone number login and I am now completely locked out of my account with no recovery option.",
-    "rating": 1,
-    "app": "LINE"
-   },
-   {
-    "quote": "stupid app. can't log in with new phone as keep asking me to verify from old phone which is dead.",
-    "rating": 1,
-    "app": "LINE"
+    "quote": "I couldn’t live without this app!",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
    }
   ],
   "mechanisms": [
    {
-    "title": "Малый бизнес ведёт переписку с клиентами в личном WhatsApp сотрудника. Когда сотрудник уходит, история и контакты уходят вместе с ним. Платформы запрещают такое",
-    "obsCount": 7,
+    "title": "Heylo и GroupMe закрывают часть задачи, но уведомления у обоих ненадёжны, поиска по переписке нет, а синхронизация с Apple/Google Calendar отсутствует. Организа",
+    "obsCount": 6,
     "apps": [
-     "WhatsApp",
-     "Viber",
-     "Telegram",
-     "Messenger"
+     "Heylo | Build community groups",
+     "GroupMe",
+     "Pronto Team Communication",
+     "Reach: Fast SMS Text and Email"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Малый бизнес ведёт переписку с клиентами в личном WhatsApp сотрудника. Когда сотрудник уходит, история и контакты уходят вместе с ним. Платформы запрещают такое использование, но ничего не предлагают взамен.",
+  "gap": "Heylo и GroupMe закрывают часть задачи, но уведомления у обоих ненадёжны, поиска по переписке нет, а синхронизация с Apple/Google Calendar отсутствует. Организаторы беговых клубов, вязальных кружков и спортивных секций управляют событиями в одном месте, а переписку ведут в WhatsApp-группе. Два приложения вместо одного.",
   "idea": {
-   "pitch": "Бизнес подключает один номер, и все входящие из любого мессенджера попадают в общую CRM-очередь. Любой сотрудник подхватывает диалог без потери контекста. История принадлежит компании, а не номеру телефона конкретного менеджера.",
+   "pitch": "Единственное место для организатора небольшого офлайн-сообщества: чат, события с RSVP, голосования и оповещения. Поиск по всей истории переписки сразу, синхронизация событий с системным календарём. Организатор платит за сообщество, участники пользуются бесплатно. Модель как у Slack для маленьких команд, но для офлайн-жизни.",
    "features": [
-    "Единый inbox из WhatsApp, Telegram, Viber, SMS",
-    "Теги, статусы и назначение диалогов между сотрудниками",
-    "История клиента на стороне компании независимо от текучки",
-    "Шаблоны быстрых ответов с переменными (имя, номер заказа)",
-    "Аналитика: время ответа, нагрузка, пропущенные"
+    "Полнотекстовый поиск по всей истории переписки группы",
+    "События с RSVP, которые синхронизируются с Apple Calendar и Google Calendar",
+    "Надёжные уведомления: доставляются даже при переходе в фон",
+    "Пиннинг важных сообщений и закреплённая информация о группе",
+    "Разграничение чатов: общий, для анонсов (только организатор), для конкретного события"
    ],
    "antiFeatures": [
-    "Нет собственного мессенджера, только агрегация",
-    "Нет ИИ-ответов по умолчанию (только по явному запросу)",
-    "Нет доступа к личным чатам сотрудников"
+    "Без публичных лент и возможности вступить незнакомцу без инвайта",
+    "Без функций маркетплейса или коммерции",
+    "Без глобального поиска по всем сообществам на платформе"
    ],
-   "monetization": "Малый и средний бизнес уже платит за amoCRM, Битрикс и WhatsApp Business API. Модель: подписка от 3000 рублей в месяц за команду до 5 человек плюс оплата API-сообщений."
+   "monetization": "Организаторы клубов и секций платят за инструменты управления: 9,99 USD/мес за сообщество до 150 человек. Модель Meetup Pro стоит 26 USD/мес, Slack для малых команд от 7,25 USD/мес на человека. Предложение дешевле и заточено под офлайн-ритм."
   }
  },
  {
   "slug": "messaging-apps-4",
   "category": "messaging-apps",
   "categoryName": "Мессенджеры",
-  "title": "Закрытый мессенджер для школьного класса",
-  "oneLiner": "Закрытый мессенджер для семьи и школьного класса: без рекламы, без ботов и без случайных взрослых, с верификацией участников через школу.",
-  "asOf": "2026-06-20",
+  "title": "Приватный мессенджер без номера телефона для профессионалов",
+  "oneLiner": "Зашифрованный корпоративный мессенджер для юристов, врачей и финансовых советников, которым нельзя использовать WhatsApp или Signal с клиентами по требованиям регулятора.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 53
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
   },
   "reviewGrid": [
    {
-    "quote": "There are so many pedophiles on this app and nothing is done to stop them. Why do none of the reviews mention this?????",
-    "rating": 1,
-    "app": "Kik"
-   },
-   {
-    "quote": "I've had my profile catfished and copied and not a damn thing is done about any of the pedophiles and harassment on here",
-    "rating": 1,
-    "app": "Kik"
-   },
-   {
-    "quote": "reported a lot of people who sent me nudes and they didnt even get banned",
-    "rating": 1,
-    "app": "Discord"
-   },
-   {
-    "quote": "Their automated system provides absolutely no way to speak to a real human or appeal the decision properly. Unfair account suspension",
-    "rating": 1,
-    "app": "Messenger"
-   },
-   {
-    "quote": "suddenly filled with AI and chatgpt that I can't remove or turn off. I don't want AI in my chat apps",
-    "rating": 1,
-    "app": "Viber"
-   },
-   {
-    "quote": "Too many ads to the point the data connection and messaging and usage experience is broken.",
+    "quote": "Great app but the only thing I hate bout it is that lot of times the messages won’t even sent for at least few days",
     "rating": 2,
-    "app": "Kik"
+    "app": "Signal - Private Messenger"
    },
    {
-    "quote": "these ads block my device till i restart my phone!",
+    "quote": "This app is saving countless lives in Minnesota. I could not be more grateful\n\nUpdate, June 2026: Signal is still the beating heart of our neighborhood. It’s core democracy infrastructure and we’re blessed to have it",
+    "rating": 5,
+    "app": "Signal - Private Messenger"
+   },
+   {
+    "quote": "I feel safe using signal. I am using signal more than 10 years. Thank you signal team for maintaining our information to get more secure. I trust you and keep upgrading the information security matters years to years.",
+    "rating": 5,
+    "app": "Signal - Private Messenger"
+   },
+   {
+    "quote": "Porque querer cobrar y las mejoras que supuestamente quieren hacer son absolutamente absurdas honestamente",
     "rating": 1,
-    "app": "Kik"
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "I like whatsapp a lot but i had to delete it as it was taking up 28gb of my iPhone storage because of the backups . I setted the pictures and videos to not save onto my gallery but that did not help. I wish the app would take less storage like messenger or have the option to delete only texts from t",
+    "rating": 2,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "Very good app",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
    }
   ],
   "mechanisms": [
    {
-    "title": "Родители общаются в школьных чатах в WhatsApp и Telegram, куда могут попасть посторонние, где нет модерации и где дети видят переписку взрослых. Безопасного инс",
-    "obsCount": 7,
+    "title": "Signal не работает надёжно как основной мессенджер, сообщения зависают часами. WhatsApp блокирует аккаунты за «подозрительную» переписку с клиентами. Юридически",
+    "obsCount": 6,
     "apps": [
-     "Kik",
-     "Messenger",
-     "Discord",
-     "Signal"
+     "Signal - Private Messenger",
+     "Session - Private Messenger",
+     "MySudo - Identity Protection",
+     "WhatsApp Messenger"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Родители общаются в школьных чатах в WhatsApp и Telegram, куда могут попасть посторонние, где нет модерации и где дети видят переписку взрослых. Безопасного инструмента для класса не существует.",
+  "gap": "Signal не работает надёжно как основной мессенджер, сообщения зависают часами. WhatsApp блокирует аккаунты за «подозрительную» переписку с клиентами. Юридическим фирмам нужен инструмент с архивированием, историей и E2E-шифрованием одновременно этого не даёт ни одно потребительское приложение.",
   "idea": {
-   "pitch": "Школа или классный руководитель создаёт закрытое пространство, куда попадают только верифицированные родители конкретного класса. Дети общаются в отдельной зоне с мягкой модерацией. Никакой рекламы, никаких ботов, никаких пуш-продаж.",
+   "pitch": "Мессенджер для профессиональных коммуникаций с клиентами: E2E-шифрование, обязательный архив переписки за 7 лет по требованиям регулятора, вход без личного номера телефона. Компания оплачивает доступ для своих сотрудников, клиент общается через веб-интерфейс или мобильное приложение без регистрации. Нишевый B2B: юридические фирмы, медицинские кабинеты, финансовые советники.",
    "features": [
-    "Верификация родителя через ссылку от классного руководителя, без публичной регистрации",
-    "Отдельные ветки для родителей и для учеников с разными правами",
-    "Объявления от учителя с подтверждением прочтения",
-    "Совместный календарь событий класса",
-    "Автоматическое архивирование в конце учебного года с передачей истории"
+    "E2E-шифрование с архивированием: переписка хранится в зашифрованном виде 7 лет",
+    "Вход для клиента через одноразовую ссылку, без установки приложения",
+    "Идентификация без личного номера телефона: корпоративный email или ID",
+    "Экспорт архива переписки для compliance-аудита",
+    "Раздельные клиентские пространства: юрист видит только своих клиентов"
    ],
    "antiFeatures": [
-    "Нет публичного поиска участников",
-    "Нет рекламы и монетизации за счёт данных детей",
-    "Нет входа без верификации через школу"
+    "Без групповых чатов и каналов: только переписка специалист-клиент",
+    "Без медиа-галерей, GIF и стикеров",
+    "Без бесплатного пробного периода без верификации компании"
    ],
-   "monetization": "Школы и родительские комитеты платят за безопасность детей. Модель: подписка с класса или лицензия на школу от 500 рублей в месяц. Потенциально оплачивается из школьного бюджета."
+   "monetization": "B2B-подписка: 25-40 USD/мес за сотрудника. Юридическая фирма на 10 юристов платит 3000-4800 USD/год. Рынок: 1,3 млн лицензированных адвокатов в США, медицинских специалистов ещё больше. Конкуренты типа Wickr Enterprise стоят 25 USD/пользователь."
   }
  },
  {
   "slug": "messaging-apps-5",
   "category": "messaging-apps",
   "categoryName": "Мессенджеры",
-  "title": "Защищённый чат для врачей и медицинского персонала",
-  "oneLiner": "Защищённый чат для больниц и клиник, где врач передаёт данные пациента коллеге без WhatsApp и без нарушения врачебной тайны.",
-  "asOf": "2026-06-20",
+  "title": "Массовая SMS-рассылка для малого бизнеса",
+  "oneLiner": "Инструмент для владельца небольшого бизнеса, который хочет отправить 200-500 персональных SMS за минуту, без группового чата и без рекламных платформ.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 53
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
   },
   "reviewGrid": [
    {
-    "quote": "Beats the heck out of WhatsApp in terms of privacy (WhatsApp privacy is like the TSA at airports: your baggage is locked, but they have the key.",
-    "rating": 5,
-    "app": "Signal"
+    "quote": "You guys are banning my accounts too much I am a business man if I want to message a customer first you guys will restrict me I have had like 10 numbers and you guys keep restricting this new update is really stressing me and I hate it",
+    "rating": 3,
+    "app": "WhatsApp Business"
    },
    {
-    "quote": "only messenger actually respecting its users privacy compared to all the other data mining sloppily developed apps available",
-    "rating": 5,
-    "app": "Signal"
-   },
-   {
-    "quote": "Best messaging app available if you value privacy.",
-    "rating": 5,
-    "app": "Signal"
-   },
-   {
-    "quote": "The AI is reading what you write and forcing itself into conversation. This is a brutal intrusion of privacy. I'm looking for an alternative chat now.",
+    "quote": "I can’t use the app anymore it always crashes and I can’t connect to my clients. I hope you fix the problem as soon as possible\nUpdate: after 4 updates still having the same problems",
     "rating": 1,
-    "app": "Viber"
+    "app": "WhatsApp Business"
    },
    {
-    "quote": "I often cannot receive Signal messages until I manually go and check the app.",
+    "quote": "It won’t let me update it ugh the worse🙄🔪❌",
+    "rating": 1,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "Do something about the picture quality it’s bad \nPoor video quality",
     "rating": 2,
-    "app": "Signal"
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "I consistently get notifications 20 or more minutes late. I don't even understand how it can be this bad.",
-    "rating": 1,
-    "app": "LINE"
+    "quote": "I can finally call my girls all together because someone has a Samsung while I have a iPhone",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "over 50% of the time my messages dont ever send. This use to be awesome, now it's just a headache",
+    "quote": "I changed my phone and tried to move my old contacts to my new phone via group message to tell my old contacts I’m on a new phone and I got banned. That’s terrible service now I can’t talk to my contacts and I have urgent messages to respond to. This is terrible service from this app.",
     "rating": 1,
-    "app": "Kik"
+    "app": "WhatsApp Messenger"
    }
   ],
   "mechanisms": [
    {
-    "title": "Врачи переписываются о пациентах в обычном WhatsApp, потому что никакой рабочей альтернативы нет. Это нарушение медицинской тайны, но все закрывают на это глаза",
-    "obsCount": 7,
+    "title": "Hit Em Up и Reach работают, но при больших списках зависают на середине отправки, требуют ручных нажатий и теряют надёжность. Церковные общины, тренеры, риелтор",
+    "obsCount": 6,
     "apps": [
-     "Signal",
-     "WhatsApp",
-     "Messenger",
-     "Telegram"
+     "Hit Em Up: Mass Text Bulk SMS",
+     "Reach: Fast SMS Text and Email",
+     "WhatsApp Business"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Врачи переписываются о пациентах в обычном WhatsApp, потому что никакой рабочей альтернативы нет. Это нарушение медицинской тайны, но все закрывают на это глаза. Пока не случится инцидент.",
+  "gap": "Hit Em Up и Reach работают, но при больших списках зависают на середине отправки, требуют ручных нажатий и теряют надёжность. Церковные общины, тренеры, риелторы, маленькие рестораны платят за ненадёжные инструменты или заваривают рассылку вручную.",
   "idea": {
-   "pitch": "Специализированный чат с полным шифрованием, ролевой моделью (врач, медсестра, администратор), логированием для аудита и интеграцией с медицинскими информационными системами. Клиника платит за соответствие регуляторным требованиям.",
+   "pitch": "Простой инструмент массовой SMS-рассылки для бизнеса: загрузить список, написать сообщение, нажать отправить. Каждый получатель видит личное сообщение, не групповой чат. Скорость обработки до 500 сообщений за 2 минуты без зависаний. Ответы клиентов приходят в единый ящик входящих, можно ответить лично. Подписка по числу сообщений в месяц.",
    "features": [
-    "Шифрование с ключами на стороне клиники, без доступа вендора",
-    "Роли и права: кто видит данные какого пациента",
-    "Журнал аудита всех сообщений для проверки регулятором",
-    "Интеграция с МИС для прикрепления карты пациента без копипаста",
-    "Дежурный чат с приоритетными уведомлениями для экстренных случаев"
+    "Массовая отправка до 500 SMS одним нажатием без ручного повторения",
+    "Единый ящик входящих: все ответы клиентов в одном месте с историей",
+    "Персонализация: имя и поле из списка контактов подставляются в шаблон",
+    "Импорт контактов из CSV или контактной книги телефона",
+    "Аналитика доставки: доставлено, прочитано, ответил"
    ],
    "antiFeatures": [
-    "Нет публичного профиля врача за пределами клиники",
-    "Нет хранения данных на зарубежных серверах",
-    "Нет ИИ-анализа переписки о пациентах"
+    "Без маркетинговых цепочек и сложных автоматизаций: только рассылка и ответы",
+    "Без чата между участниками рассылки",
+    "Без работы через интернет-мессенджеры: только SMS через телефонную сеть"
    ],
-   "monetization": "Частные клиники и больницы уже платят за МИС, ЭДО и защищённую почту. Лицензия на медучреждение от 15 000 рублей в месяц. Продаётся через отдел IT клиники или главврача."
+   "monetization": "Малый бизнес уже платит за SMS-маркетинг: Klaviyo от 45 USD/мес, SimpleTexting от 29 USD/мес. Более простой инструмент за 19 USD/мес до 1000 сообщений привлечёт тех, кому не нужны сложные цепочки."
   }
  },
  {
   "slug": "messaging-apps-6",
   "category": "messaging-apps",
   "categoryName": "Мессенджеры",
-  "title": "Личный архив всей переписки вне платформ",
-  "oneLiner": "Платное хранилище личной переписки: перенос из WhatsApp, Telegram и других мессенджеров в единый личный архив, который живёт вне платформы.",
-  "asOf": "2026-06-20",
+  "title": "Мессенджер-агрегатор для тех, кто разрывается между платформами",
+  "oneLiner": "Одно приложение для чтения и ответа в WhatsApp, Telegram, iMessage и Instagram Direct без переключения между приложениями.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 53
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
   },
   "reviewGrid": [
    {
-    "quote": "I'm being compelled to purchase additional monthly storage just to retain access to what was once freely available. It feels both exploitative",
+    "quote": "I can finally call my girls all together because someone has a Samsung while I have a iPhone",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "No puedo ver el tiempo d las historias  publicadas",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "Esta última actualización se pega muchísimo no deja casi hacer nada",
     "rating": 1,
-    "app": "Snapchat"
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "its cheaper to put them on a drive than pay monthly....app uninstalled. RIP snapchat",
+    "quote": "Works great for communicating when normal phone connections are not available.",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "I don’t know why you keep disabling my WhatsApp account it’s really so disgusting",
     "rating": 1,
-    "app": "Snapchat"
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "stupid app. can't log in with new phone as keep asking me to verify from old phone which is dead.",
-    "rating": 1,
-    "app": "LINE"
-   },
-   {
-    "quote": "5 stars if you dont have to change your phone ever. 1 star if you do - you'll loose all your friends and your whole social life if you do....",
-    "rating": 2,
-    "app": "Signal"
-   },
-   {
-    "quote": "media files don't stay downloaded, you have to download a media file everytime you want to use it.",
-    "rating": 3,
-    "app": "Telegram"
-   },
-   {
-    "quote": "Recent update removed phone number login and I am now completely locked out of my account with no recovery option.",
-    "rating": 1,
-    "app": "LINE"
-   },
-   {
-    "quote": "the desktop version is completely unusable for me. The setup QR code never loads, meaning I can't link my device",
-    "rating": 2,
-    "app": "Signal"
+    "quote": "I’m going to get my car fixed today I will",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
    }
   ],
   "mechanisms": [
    {
-    "title": "Годами накопленная переписка и медиафайлы исчезают при смене телефона, бане аккаунта или закрытии платформы. Люди теряют воспоминания и деловую историю не из-за",
-    "obsCount": 7,
+    "title": "Пользователи жалуются, что вынуждены держать 5 мессенджеров, потому что разные люди сидят на разных платформах. Beeper частично решал задачу, но требовал хаков ",
+    "obsCount": 6,
     "apps": [
-     "Snapchat",
-     "LINE",
-     "Signal",
-     "Telegram"
+     "WhatsApp Messenger",
+     "Telegram Messenger",
+     "Messenger",
+     "Google Chat"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Годами накопленная переписка и медиафайлы исчезают при смене телефона, бане аккаунта или закрытии платформы. Люди теряют воспоминания и деловую историю не из-за своей халатности, а потому что платформа удерживает данные на своих условиях.",
+  "gap": "Пользователи жалуются, что вынуждены держать 5 мессенджеров, потому что разные люди сидят на разных платформах. Beeper частично решал задачу, но требовал хаков и часто ломался при обновлениях. Запрос огромный: «я пропускаю сообщения, потому что не проверяю все приложения».",
   "idea": {
-   "pitch": "Сервис импортирует переписку из всех основных мессенджеров в зашифрованное личное хранилище, которое принадлежит только пользователю. Поиск по всей истории, теги, экспорт в PDF. Человек платит один раз или по подписке за то, что его данные принадлежат ему.",
+   "pitch": "Унифицированный ящик входящих, который подтягивает чаты из всех основных мессенджеров и позволяет отвечать, не открывая оригинальные приложения. Работает через официальные API там, где они есть. Платит тот, кто ценит своё время и устал переключаться. Подписка 8-12 USD/мес.",
    "features": [
-    "Импорт из WhatsApp, Telegram, Signal, Messenger, LINE без потери медиа",
-    "Полный поиск по тексту, контакту, дате и медиатипу",
-    "Шифрование на клиентском ключе, сервер не читает содержимое",
-    "Экспорт в PDF или HTML для суда, нотариуса, HR",
-    "Единый таймлайн всей переписки из разных платформ"
+    "Унифицированный список всех непрочитанных из WhatsApp, Telegram, iMessage, Instagram",
+    "Отправка ответа в нужную платформу прямо из агрегатора",
+    "Умные уведомления: одно уведомление вместо пяти параллельных",
+    "Теги и приоритеты для контактов: важное сверху независимо от платформы",
+    "Режим фокуса: только сообщения от конкретного списка людей"
    ],
    "antiFeatures": [
-    "Нет синхронизации в реальном времени с платформами",
-    "Нет отправки сообщений через архив",
-    "Нет доступа к чужим архивам без явного шаринга"
+    "Без хранения ваших сообщений на серверах агрегатора: передача напрямую",
+    "Без социального слоя и рекомендации новых контактов",
+    "Без создания новых аккаунтов в мессенджерах через приложение"
    ],
-   "monetization": "Пользователи уже платят за iCloud, Google Photos и Dropbox. Подписка от 199 рублей в месяц или единоразовая покупка хранилища. Дополнительно: экспорт для юридических нужд как платная услуга."
+   "monetization": "Платит пользователь, который работает с несколькими аудиториями: фрилансеры, малый бизнес, медиа. Подписка 9,99 USD/мес. Рынок огромный: только WhatsApp и Telegram суммарно 2,5 млрд пользователей, значимая часть сидит на обеих платформах."
   }
  },
  {
   "slug": "messaging-apps-7",
   "category": "messaging-apps",
   "categoryName": "Мессенджеры",
-  "title": "Мессенджер для диаспоры с серверами в двух странах",
-  "oneLiner": "Мессенджер для русскоязычных, арабских и латиноамериканских диаспор с привязкой к местному номеру, хранением данных в стране проживания и без зависимости от WeChat или Viber.",
-  "asOf": "2026-06-20",
+  "title": "Безопасный мессенджер для детей под контролем родителей",
+  "oneLiner": "Чат для детей 7-12 лет, где родитель управляет списком контактов, видеозвонки работают стабильно, а доступ не зависит от Facebook-аккаунта.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 53
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
   },
   "reviewGrid": [
    {
-    "quote": "Many people only use it because they need to communicate with people in China.",
+    "quote": "Can’t figure out how to use it",
     "rating": 1,
-    "app": "WeChat"
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "Yeah, still using it because of every one still uses.",
-    "rating": 3,
-    "app": "LINE"
+    "quote": "I really like using this app as an alternative to normal messages. Especially when traveling abroad!\n\nSome of my favorite features-\n• Channels - really helps me keep up to date with news\n• The filters on video call - love playing around with different filters during a call",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "still use it for some old contacts but it's not worth keeping installed. I wish they'd all move on too",
+    "quote": "All days I need to close and open to refresh send/receive it",
     "rating": 1,
-    "app": "Kik"
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "The AI is reading what you write and forcing itself into conversation. This is a brutal intrusion of privacy. I'm looking for an alternative chat now.",
-    "rating": 1,
-    "app": "Viber"
+    "quote": "I love using WhatsApp messenger but the monitoring is too much I keep keeping banned because if friends spamming messages so fast I can’t even enjoy my WhatsApp anymore you all should understand we’re using it for business and we should be allowed to text new numbers new friends please",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "suddenly filled with AI and chatgpt that I can't remove or turn off. I don't want AI in my chat apps",
+    "quote": "I’m not about to save contact and send new chat",
     "rating": 1,
-    "app": "Viber"
+    "app": "WhatsApp Messenger"
    },
    {
-    "quote": "When I ended a viber call, the viber pops out their casino ads and automatically directed me to casino website",
-    "rating": 1,
-    "app": "Viber"
-   },
-   {
-    "quote": "what do you mean by my account violations and ask me to provide my face and id card just to steal the information?",
-    "rating": 1,
-    "app": "WeChat"
+    "quote": "Quitaron los filtros/efectos de las videollamadas con la actualización 😭",
+    "rating": 2,
+    "app": "Messenger"
    }
   ],
   "mechanisms": [
    {
-    "title": "Мигрант хочет общаться с семьёй на родине, но WhatsApp заблокирован там, а WeChat принадлежит китайскому правительству. Viber превратился в рекламную платформу.",
-    "obsCount": 7,
+    "title": "Messenger Kids требует Facebook-аккаунта родителя и рушится при любом сбое метаплатформы. Видеозвонки в Kinzoo и Messenger Kids стабильно зависают. Родители не ",
+    "obsCount": 6,
     "apps": [
-     "WeChat",
-     "Viber",
-     "LINE",
-     "Kik"
+     "Messenger Kids",
+     "Kinzoo: Fun All-Ages Messenger",
+     "JusTalk - Video Chat & Calls"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Мигрант хочет общаться с семьёй на родине, но WhatsApp заблокирован там, а WeChat принадлежит китайскому правительству. Viber превратился в рекламную платформу. Человек застрял между платформами, ни одна из которых не работает нормально в обоих направлениях.",
+  "gap": "Messenger Kids требует Facebook-аккаунта родителя и рушится при любом сбое метаплатформы. Видеозвонки в Kinzoo и Messenger Kids стабильно зависают. Родители не могут создать смешанную группу из детей разного возраста. Нет ни одного решения, где всё это работает надёжно одновременно.",
   "idea": {
-   "pitch": "Мессенджер с серверами одновременно в стране проживания и в стране происхождения, без передачи данных третьей стороне. Регистрация по почте, а не по номеру. Работает там, где WhatsApp заблокирован. Монетизируется через переводы и звонки внутри диаспоры.",
+   "pitch": "Детский мессенджер с независимой инфраструктурой без привязки к соцсетям родителей. Родитель управляет контакт-листом через отдельное приложение, видит всю переписку, одобряет новых участников. Видеозвонки работают на слабом соединении. Плата за семейную подписку без рекламы, без покупок внутри.",
    "features": [
-    "Работает через собственные серверы в обеих странах без relay через США или Китай",
-    "Регистрация по email без обязательного номера телефона",
-    "Дешёвые или бесплатные звонки между участниками сервиса",
-    "Переводы денег внутри диаспоры с минимальной комиссией",
-    "Новостная лента от доверенных локальных источников, без алгоритмического продвижения"
+    "Видеозвонки с адаптивным качеством: работают даже на 3G без обрывов",
+    "Родительская панель: список одобренных контактов, история переписки, время использования",
+    "Смешанные семейные группы: дети разного возраста, бабушки, двоюродные без ограничений платформы",
+    "Сообщения исчезают по расписанию или хранятся в родительском архиве",
+    "Полная независимость от аккаунтов Meta, Apple, Google"
    ],
    "antiFeatures": [
-    "Нет сбора данных для рекламы",
-    "Нет передачи данных властям без решения суда страны хранения",
-    "Нет принудительного встраивания ИИ в переписку"
+    "Без открытого поиска контактов: только по инвайту от родителя",
+    "Без встроенных покупок и монет для детей",
+    "Без публичных каналов или рекомендованного контента"
    ],
-   "monetization": "Диаспоры платят за международные звонки и переводы. Комиссия с переводов 0.5-1%, платные звонки за пределы сети, корпоративные аккаунты для этнических бизнесов. Уже есть платящая аудитория у Western Union и Wise."
+   "monetization": "Родители платят за детскую безопасность: 4,99-7,99 USD/мес на семью. Messenger Kids бесплатный, но ненадёжный. Kinzoo платный, но зависает. Родители с детьми 7-12 лет это аудитория с высоким LTV и доверием к premium-продуктам для детей."
+  }
+ },
+ {
+  "slug": "messaging-apps-8",
+  "category": "messaging-apps",
+  "categoryName": "Мессенджеры",
+  "title": "Спутниковый мессенджер с нормальным приложением",
+  "oneLiner": "Компаньон-приложение для спутниковых коммуникаторов типа Garmin inReach, которое работает без интернета и не требует сети там, где её нет по определению.",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 94,
+   "reviews": 27176,
+   "observations": 334
+  },
+  "reviewGrid": [
+   {
+    "quote": "Works great for communicating when normal phone connections are not available.",
+    "rating": 5,
+    "app": "WhatsApp Messenger"
+   },
+   {
+    "quote": "Call froze up then dropped",
+    "rating": 1,
+    "app": "Zoom Workplace"
+   },
+   {
+    "quote": "Voice call quality sticks. Always get dropped or intermittent audio.",
+    "rating": 3,
+    "app": "Signal - Private Messenger"
+   },
+   {
+    "quote": "How can I make stickers without them bugging…",
+    "rating": 3,
+    "app": "Messenger"
+   },
+   {
+    "quote": "You can do a video call halfway around the world in seconds! Perfect sound great voice clarity.",
+    "rating": 5,
+    "app": "Messenger"
+   },
+   {
+    "quote": "Please bring back \"Write with Meta AI\" and keep it in Messenger. I used it daily for drafting messages, fixing tone, and brainstorming replies. It made Messenger way more useful. Removing it hurts the experience. Add it back and leave it there.",
+    "rating": 4,
+    "app": "Messenger"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Garmin Messenger настоящий позор мобильного UX: само устройство надёжное, приложение требует интернета для функций, которые должны работать через спутник. Bluet",
+    "obsCount": 6,
+    "apps": [
+     "Garmin Messenger™",
+     "Signal - Private Messenger",
+     "Zoom Workplace"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Garmin Messenger настоящий позор мобильного UX: само устройство надёжное, приложение требует интернета для функций, которые должны работать через спутник. Bluetooth-сопряжение ломается, интерфейс неинтуитивный. Рынок туристов, яхтсменов и охотников платит за железо 350-700 USD и получает ужасный программный слой.",
+  "idea": {
+   "pitch": "Приложение для спутниковых устройств inReach и аналогов, которое работает полностью офлайн: маршруты, сообщения, SOS-протоколы через Bluetooth без интернета. Нормальный UX на уровне обычного мессенджера, история контактов и шаблоны для быстрых сообщений в поле. Подписка на приложение поверх железа.",
+   "features": [
+    "Полная работа через Bluetooth с устройством без интернета на телефоне",
+    "Шаблоны сообщений для быстрой отправки в поле: «все в порядке», «нужна помощь», координаты",
+    "История геолокации и трек маршрута в читаемом виде",
+    "Интеграция с картами офлайн для отображения позиции без сети",
+    "Групповое трекинг: видеть местоположение всех участников похода"
+   ],
+   "antiFeatures": [
+    "Без зависимости от серверов компании для базовых функций",
+    "Без функций социальной сети или публичных треков",
+    "Без покупок внутри приложения помимо основной подписки"
+   ],
+   "monetization": "Туристы и охотники уже платят 300-700 USD за устройство Garmin inReach плюс 15-50 USD/мес за спутниковый план. Приложение за 4,99 USD/мес это мало относительно общих расходов. Рынок: 50+ млн туристов в США, яхтсмены, охотники, волонтёры МЧС."
   }
  },
  {
