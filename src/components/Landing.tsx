@@ -73,29 +73,18 @@ function firstSentence(t?: string) {
   return (m ? m[0] : t).trim();
 }
 
-// Big "hero" tile (Apple-store featured) — bold headline, icon row, the hook
-// (one sentence), stats and CTA.
-function CardLarge({ c, ru }: { c: CatCard; ru: boolean }) {
-  const icons = c.icons.filter(Boolean).slice(0, 6);
+// Large section-nav tile (All ideas / People's rating) leading the homepage.
+function NavCard({ href, title, sub, cta }: { href: string; title: string; sub: string; cta: string }) {
   return (
     <Link
-      href={`/segment/${c.slug}`}
+      href={href}
       className="group flex h-full flex-col rounded-[26px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,var(--color-surface-card))] sm:p-9"
     >
-      <p className="text-[12px] font-medium tracking-[0.08em] text-[var(--color-text-brand)]">{ru ? "Разбор ниши" : "Niche breakdown"}</p>
-      <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[38px]">{c.name}</h3>
-      {icons.length > 0 && (
-        <div className="mt-6 flex flex-wrap items-center gap-2">
-          {icons.map((src, i) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={i} src={src} alt="" loading="lazy" decoding="async" className="size-11 rounded-[13px] object-cover ring-1 ring-[var(--color-border-subtle)]" />
-          ))}
-        </div>
-      )}
-      {c.hook && <p className="mt-6 text-[17px] font-light leading-[1.5] text-[var(--color-text-primary)] sm:text-[19px]">{firstSentence(c.hook)}</p>}
-      <div className="mt-auto flex items-center justify-between pt-7">
-        <p className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
-        <Arrow className="shrink-0" />
+      <p className="text-[12px] font-medium tracking-[0.08em] text-[var(--color-text-brand)]">Раздел</p>
+      <h3 className="mt-2 text-[26px] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-[38px]">{title}</h3>
+      <p className="mt-5 max-w-[42ch] text-[16px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[18px]">{sub}</p>
+      <div className="mt-auto flex items-center gap-1.5 pt-8 text-[15px] font-semibold text-[var(--color-text-primary)]">
+        {cta} <Arrow className="shrink-0" />
       </div>
     </Link>
   );
@@ -167,7 +156,6 @@ export default function Landing({
   const ranked = ULTRA
     .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: BLURB[s] ?? c.hook } : null; })
     .filter((c): c is CatCard => !!c);
-  const FEATURED = 2;
 
   // Hero salute — app icons flattened from the category cards, shuffled per load,
   // floated in the left/right margins behind the headline (never over the text).
@@ -222,16 +210,28 @@ export default function Landing({
           </div>
         </section>
 
-      {/* Niche breakdowns — every category with a full dossier. */}
+      {/* Two section nav cards, then every niche with a full dossier. */}
       <div className="mx-auto mt-9 w-full max-w-5xl px-4 sm:mt-12">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
-          {ranked.map((c, i) =>
-            i < FEATURED ? (
-              <div key={c.slug} className="lg:col-span-3"><CardLarge c={c} ru={ru} /></div>
-            ) : (
-              <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
-            )
-          )}
+          <div className="lg:col-span-3">
+            <NavCard
+              href="/ideas"
+              title={ru ? "Все идеи" : "All ideas"}
+              sub={ru ? "Готовые идеи приложений под реальный спрос, собранные из всех ниш." : "Ready app ideas backed by real demand, gathered across every niche."}
+              cta={ru ? "Открыть идеи" : "Open ideas"}
+            />
+          </div>
+          <div className="lg:col-span-3">
+            <NavCard
+              href="/rating"
+              title={ru ? "Народный рейтинг" : "People's rating"}
+              sub={ru ? "100 приложений на нишу по реальным отзывам, с проверкой на накрутку звезды." : "100 apps per niche by real reviews, with a rating-authenticity check."}
+              cta={ru ? "Открыть рейтинг" : "Open ratings"}
+            />
+          </div>
+          {ranked.map((c) => (
+            <div key={c.slug} className="lg:col-span-2"><CardCompact c={c} ru={ru} /></div>
+          ))}
         </div>
       </div>
 
