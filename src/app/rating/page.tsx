@@ -32,6 +32,7 @@ const NICHES = [
   { slug: "video-streaming", name: "Видео и стриминг", nameEn: "Video streaming apps", blurb: "95 приложений: где каталог, плеер и синхронизация честны, а где накрутка и геоблок." },
   { slug: "food-delivery", name: "Доставка еды", nameEn: "Food delivery apps", blurb: "94 приложения: где заказ приходит точно и вовремя, а где накрутка и сломанная поддержка." },
   { slug: "messaging-apps", name: "Мессенджеры", nameEn: "Messaging apps", blurb: "94 приложения: где сообщения и звонки доходят надёжно и приватно, а где накрутка и пропавшие СМС." },
+  { slug: "shopping-ecommerce", name: "Покупки и маркетплейсы", nameEn: "Shopping & ecommerce apps", blurb: "95 приложений: где товар приходит как на фото и возврат работает, а где контрафакт и фиктивная доставка." },
 ];
 
 export default async function RatingIndexPage() {

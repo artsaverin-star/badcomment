@@ -22883,559 +22883,601 @@
  {
   "slug": "shopping-ecommerce-1",
   "category": "shopping-ecommerce",
-  "categoryName": "Шопинг и маркетплейсы",
-  "title": "Сервис возврата денег от маркетплейса за покупателя",
-  "oneLiner": "Сервис, который берётся за спор с маркетплейсом вместо покупателя и возвращает деньги на карту, а не в кредит магазина.",
-  "asOf": "2026-06-20",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Агрегатор проверенных скидок с ручной редакцией",
+  "oneLiner": "Сервис, где каждая сделка проверена человеком и гарантированно актуальна",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 106
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
   },
   "reviewGrid": [
    {
-    "quote": "my items never arrived, and there's no human customer service. ai decided my case was closed, and I'm out $400.00. this used to be a good app, but they fired all the humans and now it's a scam",
-    "rating": 1,
-    "app": "eBay"
+    "quote": "Etsy always delivers with high-quality, well-made products. Every seller has been easy to work with and passionate about what they sell. I would never buy home decor, picture, framing, art, or custom, drapery or custom table cloths and linens or anything without checking here first including antique",
+    "rating": 5,
+    "app": "Etsy: Shop Home, Style & More"
    },
    {
-    "quote": "They refused to issue a refund on an order because usps marked it as delivered. usps never did actually delivered the package, so I am just out of the money.",
-    "rating": 1,
-    "app": "AliExpress"
+    "quote": "There is currently no way to block a seller in the app. This is a major problem, as some sellers offer hundreds of products that show up when I search, and there’s no way for me to filter them out if I have a specific reason not to buy from them. It wastes so much of my time",
+    "rating": 3,
+    "app": "Etsy: Shop Home, Style & More"
    },
    {
-    "quote": "I then find out that Temu credit can't be used all at once. I need to make more purchases in order to use MY CASH. Fraudulent business practices has lost you a customer.",
+    "quote": "Now when you search for an item, instead of your options coming up, you have to wait for AI to think, it then “talks” to you and suggests things instead of letting you search. There is no way to turn it off.",
     "rating": 1,
-    "app": "Temu"
+    "app": "Amazon Shopping"
    },
    {
-    "quote": "When u request refund it automatically chooses etsy credit and it takes long time to receive the refund",
-    "rating": 1,
-    "app": "Etsy"
+    "quote": "eBay is eBay and it’s great but the app is more like spam anymore. The landing page is loaded and cluttered pushing eBay Live with videos of the spammiest sellers pushing junk like infomercials",
+    "rating": 3,
+    "app": "eBay online shopping & selling"
    },
    {
-    "quote": "THEY SEND YOU CREDIT ...So you end up spending and losing again and again",
+    "quote": "I used to absolutely love the convenience of shopping online and having my orders delivered to my door. Not anymore. The service has deteriorated so quickly and causes me more grief than it’s worth.\n\nI have received other people’s orders; received orders with half the items missing.\n\nI don’t know if",
     "rating": 1,
-    "app": "Etsy"
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "the buyer received the rugs, yet a full refund was still issued. This creates financial losses for sellers",
-    "rating": 1,
-    "app": "Etsy"
-   },
-   {
-    "quote": "Mercari allows them to cancel transactions without a reason. If you have an issue with an item and can prove it the Customer Service is terrible.",
-    "rating": 1,
-    "app": "Mercari"
+    "quote": "Slowww and freezes, sometimes crashes. Yes my app is up to date, and internet is working fine. Hard to see things completely on tablet.",
+    "rating": 2,
+    "app": "Walmart: Shopping & Savings"
    }
   ],
   "mechanisms": [
    {
-    "title": "Маркетплейсы закрывают споры по статусу «доставлено» от курьера, не возвращают деньги на карту, подменяют возврат внутренним кредитом. Покупатель остаётся без т",
-    "obsCount": 7,
+    "title": "Автоматические агрегаторы купонов показывают устаревшие и нерабочие коды покупатель тратит время, чтобы убедиться, что скидка не работает. Brad's Deals показыва",
+    "obsCount": 6,
     "apps": [
-     "eBay",
-     "AliExpress",
-     "Temu",
-     "Etsy"
+     "Brad's Deals | Curated Deals",
+     "KCL: Coupons, Deals, Discounts",
+     "Slickdeals: Deals & Discounts",
+     "DealSeek: Coupons & Discounts"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Маркетплейсы закрывают споры по статусу «доставлено» от курьера, не возвращают деньги на карту, подменяют возврат внутренним кредитом. Покупатель остаётся без товара и без денег, и не знает, к кому идти.",
+  "gap": "Автоматические агрегаторы купонов показывают устаревшие и нерабочие коды покупатель тратит время, чтобы убедиться, что скидка не работает. Brad's Deals показывает, что ручная проверка создаёт лояльную аудиторию, но её модель не масштабируется на нишевые категории.",
   "idea": {
-   "pitch": "Покупатель присылает скриншоты, переписку и трек-номер. Наша команда ведёт претензионную работу: пишет диспуты в платёжные системы, эскалирует через регуляторов и общественные каналы. Берём процент только при успехе.",
+   "pitch": "Нишевый агрегатор скидок с редакционной командой, которая проверяет каждое предложение вручную перед публикацией и немедленно снимает его при истечении. Монетизация через партнёрские ссылки, а не через рекламу, что выравнивает интересы редакции и читателей. Фокус на одной категории товаров (например, детские товары, спорт, техника) даёт возможность создать экспертизу, которую невозможно автоматизировать.",
    "features": [
-    "Приёмка дела через форму: загрузи скриншоты, чеки, переписку",
-    "Автоматический разбор шансов победить до начала работы",
-    "Команда ведёт чарджбэк через банк или диспут через платёжную систему",
-    "Трекер статуса дела в реальном времени",
-    "База прецедентов: какие доказательства работают на каком маркетплейсе"
+    "Каждая сделка проверена редактором вручную с указанием имени и времени проверки",
+    "Автоматический мониторинг срока действия с уведомлением редактора за 2 часа до истечения",
+    "Рейтинг качества продавца на основе истории выполнения сделок",
+    "Фильтрация по типу скидки: процент, фиксированная сумма, бесплатная доставка",
+    "Мгновенные push-уведомления при появлении скидки в избранной категории"
    ],
    "antiFeatures": [
-    "Не берём дела меньше 2 000 рублей (нерентабельно)",
-    "Не продаём подписку: платишь только за выигранное дело",
-    "Не даём юридических консультаций общего характера"
+    "Никакой автоматически агрегируемой рекламы без проверки",
+    "Никаких купонов с непрозрачными условиями типа «при покупке от X»",
+    "Никакого платного размещения сделок от продавцов"
    ],
-   "monetization": "Процент от возвращённой суммы (25-35%), корпоративный тариф для малого бизнеса, у которых регулярно теряются поставки на маркетплейсах"
+   "monetization": "Партнёрские комиссии 2-8% от каждой покупки через сайт. Brad's Deals зарабатывает на этом миллионы при аудитории ~40 тысяч реальных покупателей. Потенциал подписки для профессиональных покупателей-перекупщиков ($9-15/месяц)."
   }
  },
  {
   "slug": "shopping-ecommerce-2",
   "category": "shopping-ecommerce",
-  "categoryName": "Шопинг и маркетплейсы",
-  "title": "Проверка подлинности товаров для вторичного рынка",
-  "oneLiner": "Сервис проверки подлинности для продавцов и покупателей на вторичных платформах перепродажи.",
-  "asOf": "2026-06-20",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Сервис проверки подлинности товаров для частных покупателей",
+  "oneLiner": "Независимая верификация оригинальности перед покупкой на любой площадке",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 106
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
   },
   "reviewGrid": [
    {
-    "quote": "I SPENT $2000 ON SOME TCG CARDS AND THEY TURNED OUT TO BE COMPLETELY FAKE. MERCARI WILL NOT TAKE ACTIOM AGAINST THE SELLER",
-    "rating": 1,
-    "app": "Mercari"
+    "quote": "I love eBay, and it is a great place to buy anything from clothes to CDs to custom crafts. The interface is relatively intuitive and much better to navigate than, say, Poshmark or Depop. It is also quite annoying to deal with drop shippers on the site, though I will say eBay does a much better job o",
+    "rating": 5,
+    "app": "eBay online shopping & selling"
    },
    {
-    "quote": "an item was marked as Authentic and backed by AliExpress themselves...well it was a fake and when I returned they had the audacity to take $9 return fee.",
-    "rating": 1,
-    "app": "AliExpress"
-   },
-   {
-    "quote": "Sneakers (especially Jordan's), are mostly replicas. The price is too good for a reason.",
+    "quote": "Purchased a patriotic wreath that was made by veterans. However, what I received was a small wreath that took 2 months to arrive and came from China. The SHOP APP is convenient, but it’s too risky as they allow anyone to sell products with false descriptions. The Shop app doesn’t give you the option",
     "rating": 2,
-    "app": "Mercari"
+    "app": "Shop: All your favorite brands"
    },
    {
-    "quote": "The seller sent me the wrong item and they refused to process my return.",
+    "quote": "I have been selling on eBay for a long time and pay listing fees and selling fees on every transaction. Unfortunately, I feel that the platform no longer provides a fair balance between buyers and sellers.\n\nMany buyers open “Item Not As Described” claims even when the item matches the listing exactl",
     "rating": 1,
-    "app": "AliExpress"
+    "app": "eBay online shopping & selling"
    },
    {
-    "quote": "if I could give zero I would . what I ordered and what I got is a joke ! literally I don't think it's even on the site ! terrible the dress is completely different",
+    "quote": "I bought a old vintage Rolex watch in eBay. It is very small when it took the pictures this look big but after getting it it’s very small. I contacted the seller seller accepted return, but the eBay did return. I was so mad for my reason. I spent a lot of money and I didn’t Get back nothing.",
     "rating": 1,
-    "app": "SHEIN"
+    "app": "eBay online shopping & selling"
    },
    {
-    "quote": "ETSY has become a giant scam of sellers reselling off Temu. And the people that do make stuff use AI to make their garbage look better than what it will when you receive it.",
-    "rating": 1,
-    "app": "Etsy"
+    "quote": "Order cancelled and not allowed to purchase in store at same price. Reason given was store did not have case SKU code for items yet same items were delivered from same store individually.\n\nMake it make sense.",
+    "rating": 3,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "the amount of AI patterns that are on here is nuts! its almost unusable anymore. The patterns are not correct & its a real pain trying to pick them out of the legitimate ones.",
-    "rating": 2,
-    "app": "Etsy"
+    "quote": "I have been using the door delivery by signing in to the Walmart account for the last 3 months. I save money using this for gas and as well as for shipping to deliver groceries at my doorstep. Excellent and reliable service!",
+    "rating": 5,
+    "app": "Walmart: Shopping & Savings"
    }
   ],
   "mechanisms": [
    {
-    "title": "На платформах вторичной торговли контрафакт продаётся под видом оригинала. Маркетплейс не несёт ответственности, экспертиза дорогая и долгая, а покупатель теряе",
-    "obsCount": 7,
+    "title": "StockX верифицирует только то, что куплено через них. На Whatnot из 12 купленных Stanley-термосов лишь трое оказались настоящими. На Grailed, Mercari и DHgate п",
+    "obsCount": 6,
     "apps": [
-     "Mercari",
-     "AliExpress",
-     "eBay"
+     "StockX - Sneakers and Apparel",
+     "Whatnot: Shop, Sell, Connect",
+     "Grailed – Buy & Sell Fashion",
+     "Mercari: Buying & Selling App"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "На платформах вторичной торговли контрафакт продаётся под видом оригинала. Маркетплейс не несёт ответственности, экспертиза дорогая и долгая, а покупатель теряет тысячи рублей без возможности вернуть.",
+  "gap": "StockX верифицирует только то, что куплено через них. На Whatnot из 12 купленных Stanley-термосов лишь трое оказались настоящими. На Grailed, Mercari и DHgate покупатели теряют деньги на подделках без возможности вернуть. Независимого сервиса верификации, который работает с любой платформой, нет.",
   "idea": {
-   "pitch": "Покупатель или продавец загружает фото со всех ракурсов до сделки. Эксперты-аутентификаторы по узкой категории товаров (кроссовки, карточки, сумки) выносят вердикт за 2-4 часа. Продавец с нашим сертификатом продаёт дороже, покупатель берёт с гарантией.",
+   "pitch": "B2C-сервис, куда покупатель присылает товар перед оплатой (или сразу после) для проверки подлинности сертифицированным специалистом. Эксперты по конкретным категориям кроссовки, дизайнерские сумки, часы, коллекционные карточки дают заключение в течение 24-48 часов с гарантией возврата денег при ошибке. Продавцы на C2C-площадках могут заранее верифицировать свой товар, получая значок подлинности, что ускоряет продажи.",
    "features": [
-    "Загрузка фото товара с заявкой на проверку",
-    "Команда экспертов по категориям: кроссовки, коллекционные карточки, люксовые аксессуары",
-    "Сертификат подлинности с QR-кодом, который покупатель проверяет сам",
-    "База проверенных продавцов с историей подтверждённых продаж",
-    "Страховка сделки при наличии сертификата"
+    "Проверка подлинности конкретных категорий сертифицированными экспертами в течение 24-48 часов",
+    "Цифровой сертификат подлинности с уникальным номером, привязанным к конкретному товару",
+    "Программа гарантии: если сертифицированный товар окажется подделкой полная компенсация",
+    "Значок «Проверено» для продавцов на C2C-платформах, ссылающийся на верификационный номер",
+    "База данных известных признаков подделок по каждому бренду и модели"
    ],
    "antiFeatures": [
-    "Не работаем с категориями без чётких маркеров подлинности (одежда масс-маркет)",
-    "Не гарантируем проверку за 30 минут",
-    "Не продаём токены или баллы лояльности"
+    "Никаких проверок без физического осмотра товара, только по фото",
+    "Никакой работы с товарами без устоявшегося рынка подделок",
+    "Никакого партнёрства с самими продавцами для сохранения независимости"
    ],
-   "monetization": "Платит продавец за сертификат перед листингом (300-800 рублей за лот), страховые компании платят за API проверки спорных претензий"
+   "monetization": "Плата за верификацию $15-50 в зависимости от категории. StockX берёт 8-12% от сделки за схожую функцию. При 500 проверках в месяц $15-25 тысяч выручки. Потенциал B2B: платформы типа Mercari, Grailed платят за интеграцию как дополнительного доверительного слоя."
   }
  },
  {
   "slug": "shopping-ecommerce-3",
   "category": "shopping-ecommerce",
-  "categoryName": "Шопинг и маркетплейсы",
-  "title": "Маркетплейс ручной работы только от проверенных мастеров",
-  "oneLiner": "Маркетплейс ручной работы с верификацией авторов и фильтрацией перепродажа и товаров ИИ-генерации при регистрации.",
-  "asOf": "2026-06-20",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Платформа разрешения споров с маркетплейсами",
+  "oneLiner": "Независимый посредник между покупателем и маркетплейсом при конфликте или отказе в возврате",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 106
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
   },
   "reviewGrid": [
    {
-    "quote": "it's been inundated with AI generated \"creations\" and no way for buyers to filter them out of their search results. I'm disappointed every time I search for art and see pages of AI slop.",
+    "quote": "Don’t order anything from this company they do not ship they take your money. It’s been over two months. I’m still waiting for my product multiple emails and if Shop is supporting this company, shame on you.",
     "rating": 1,
-    "app": "Etsy"
+    "app": "Shop: All your favorite brands"
    },
    {
-    "quote": "ETSY has become a giant scam of sellers reselling off Temu. And the people that do make stuff use AI to make their garbage look better than what it will when you receive it.",
-    "rating": 1,
-    "app": "Etsy"
-   },
-   {
-    "quote": "the amount of AI patterns that are on here is nuts! its almost unusable anymore. The patterns are not correct & its a real pain trying to pick them out of the legitimate ones.",
+    "quote": "Need cheaper carrier shipping options, rates continue to go up and we are being charged ebay fees just to buy the customers shipping label. Customers are complaining the shipping is too high. \n\nPlease lower fees. If you make 20k in sales, you will get 9k or less, after fees and high shipping cost yo",
     "rating": 2,
-    "app": "Etsy"
+    "app": "eBay online shopping & selling"
    },
    {
-    "quote": "if I could give zero I would . what I ordered and what I got is a joke ! literally I don't think it's even on the site ! terrible the dress is completely different",
+    "quote": "I kept trying to give Walmart a chance, but this is happening officially four different times. Every time I shipped my items they Always get a third-party driver to pick it up from the store and bring it to home but the issue is it’s always items missing out of my order. If you call customer service",
     "rating": 1,
-    "app": "SHEIN"
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "Sneakers (especially Jordan's), are mostly replicas. The price is too good for a reason.",
-    "rating": 2,
-    "app": "Mercari"
-   },
-   {
-    "quote": "Putting this live nonsense front and centre on the home page is just annoying. Uninstalled, using the web site in future.",
+    "quote": "Purchase stores for over $10,000 seller never deliver the doors and Etsy would do absolutely nothing do not order anything significant on this website",
     "rating": 1,
-    "app": "eBay"
+    "app": "Etsy: Shop Home, Style & More"
    },
    {
-    "quote": "Soon as I open the app, I'm instantly greeted with 5 forced-playing videos that ALL play at the same time!",
+    "quote": "This has been helpful, but there are a few things that could be improved upon. First, the app closes unexpectedly while doing an order. Next, it would be nice if you could save the alternate pickup person. The app/account is in my name, but often my spouse will pick up. I have to add their name and ",
+    "rating": 4,
+    "app": "Walmart: Shopping & Savings"
+   },
+   {
+    "quote": "Every week. It takes me an hour or more to do my groceries. It is extremely slow. I have to keep getting out of the app and back in it. It kicks me out. It’s very frustrating.",
     "rating": 1,
-    "app": "Etsy"
+    "app": "Walmart: Shopping & Savings"
    }
   ],
   "mechanisms": [
    {
-    "title": "Etsy и аналоги захлестнул перепродаж с Temu и ИИ-контент. Настоящих мастеров не найти в поиске, а покупатели, готовые платить за ручную работу, уходят разочаров",
-    "obsCount": 7,
+    "title": "Покупатели повсеместно жалуются на то, что поддержка маркетплейсов встаёт на сторону платформы или продавца, отказывает в возврате под формальными предлогами и ",
+    "obsCount": 6,
     "apps": [
-     "Etsy",
-     "eBay",
-     "Amazon Shopping"
+     "Mercari: Buying & Selling App",
+     "Poshmark: Shop & Sell Fashion",
+     "OfferUp Buy & Sell Marketplace",
+     "FARFETCH - Shop Luxury Fashion"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Крупные площадки ручной работы захлестнул перепродаж с дешёвых оптовых сайтов и контент, созданный нейросетями. Настоящих мастеров не найти в поиске, а покупатели, готовые платить за ручную работу, уходят разочарованными.",
+  "gap": "Покупатели повсеместно жалуются на то, что поддержка маркетплейсов встаёт на сторону платформы или продавца, отказывает в возврате под формальными предлогами и не выходит на живого человека. Кредитные карты дают чарджбэк, но это ядерное оружие, и карты после него блокируют аккаунт. Между «терпи» и «иди в суд» ничего нет.",
   "idea": {
-   "pitch": "Каждый продавец проходит видеозвонок с демонстрацией мастерской или процесса создания. Товар без живого видео создания не допускается к листингу. Покупатель платит дороже, знает имя мастера и получает именно то, что видит.",
+   "pitch": "Сервис защиты покупателей, который берёт спор от имени покупателя и ведёт переговоры с маркетплейсом, используя знание регуляторных требований, прав потребителей и типовых политик возврата. В случае неудачи организует чарджбэк через банк-эмитент с подготовленной документацией. Платит покупатель только при успехе (комиссия от возвращённой суммы), что выравнивает интересы.",
    "features": [
-    "Верификация продавца через видео процесса производства перед допуском",
-    "Тег «сделано вручную» только у проверенных авторов",
-    "Возможность заказать кастомный вариант напрямую у мастера",
-    "Фильтр по материалу, технике и региону",
-    "Гарантия возврата если товар не соответствует видео процесса"
+    "Оценка шансов возврата на основе политик конкретного магазина и типа спора за 15 минут",
+    "Переписка с поддержкой магазина от имени покупателя с профессиональными аргументами",
+    "Подготовка пакета документов для чарджбэка, если досудебный путь не сработал",
+    "База данных успешных аргументов по типичным отказам конкретных магазинов",
+    "Интеграция с банковскими чарджбэк-процессами крупных эмитентов"
    ],
    "antiFeatures": [
-    "Не принимаем дропшиперов и посредников ни под каким видом",
-    "Не разрешаем листинг без видеоподтверждения процесса",
-    "Не добавляем геймификацию и спин-колёса"
+    "Не берём злоупотребительные возвраты (товар был использован, соответствовал описанию)",
+    "Никакой работы с делами на сумму менее $20 экономика не сходится",
+    "Не обещаем 100% успех при явных нарушениях со стороны покупателя"
    ],
-   "monetization": "Комиссия с продаж (6-8%), подписка для мастеров с расширенным профилем и первыми позициями в поиске"
+   "monetization": "Комиссия 20-30% от возвращённой суммы (только при успехе). Медианная оспариваемая сумма в e-commerce $60-150, комиссия $15-40 за дело. При 300 делах в месяц с конверсией 60% $30-50 тысяч. Платная подписка $8/месяц для частых покупателей с возможностью двух споров в месяц включено."
   }
  },
  {
   "slug": "shopping-ecommerce-4",
   "category": "shopping-ecommerce",
-  "categoryName": "Шопинг и маркетплейсы",
-  "title": "Расширение для браузера с полной ценой до корзины",
-  "oneLiner": "Расширение и мобильное приложение, которое показывает итоговую цену с доставкой до того, как ты добавил товар в корзину.",
-  "asOf": "2026-06-20",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Оптовая платформа для малых розничных магазинов с реальной верификацией",
+  "oneLiner": "Faire без чёрного ящика верификации: прозрачный доступ к бренд-партнёрам для небольших магазинов",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 106
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
   },
   "reviewGrid": [
    {
-    "quote": "you'll see price of something and you add it to the chart,the next thing you're seeing is x3 of the price you saw before",
-    "rating": 1,
-    "app": "SHEIN"
+    "quote": "I enjoy purchasing items from sellers on shop. Every thing I need is right here. I prefer purchasing from actual people and not corporations. Those other sites have all evolved into drop shippers for amazon . So many different varieties of coffee.",
+    "rating": 5,
+    "app": "Shop: All your favorite brands"
    },
    {
-    "quote": "after you see the price of a product and then you add it to cart, the price automatically increases by 30% to 40%. this is a total scam.",
-    "rating": 1,
-    "app": "AliExpress"
+    "quote": "Very slow, lags a lot",
+    "rating": 2,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "if you click on an item it changes prices even after you add it to your cart.",
-    "rating": 1,
-    "app": "Temu"
-   },
-   {
-    "quote": "the price doubled at the final checkout screen and it didn't say why the price had doubled up front. I had to click on a hyperlink in order to see that it doubled because of shipping costs.",
+    "quote": "When I am unable to shop due to health reasons, this service is very helpful. I just wish there was a little more care when handling the groceries. I’ve had broken eggs, smashed bread, and rotten produce. I know you wouldn’t select items in that condition for yourself, why select it for the customer",
     "rating": 3,
-    "app": "Etsy"
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "Don't believe it when it tells you that the item in your cart has Free Shipping! They LIE!",
+    "quote": "Thanks for shipping to rural Alaska.! Helps so much",
+    "rating": 5,
+    "app": "Walmart: Shopping & Savings"
+   },
+   {
+    "quote": "It was very easy to find the item that I wanted & order it.",
+    "rating": 4,
+    "app": "Walmart: Shopping & Savings"
+   },
+   {
+    "quote": "I kept trying to give Walmart a chance, but this is happening officially four different times. Every time I shipped my items they Always get a third-party driver to pick it up from the store and bring it to home but the issue is it’s always items missing out of my order. If you call customer service",
     "rating": 1,
-    "app": "Etsy"
-   },
-   {
-    "quote": "read shipping prices, 94 cents for purse sne $23 for shipping?????? bait advertisement.",
-    "rating": 3,
-    "app": "AliExpress"
-   },
-   {
-    "quote": "The selling fees are HIGH. You get 10$ when I sell a 90$ item? Why do you get so much? Depop I sent like this. The shipping is way higher too.",
-    "rating": 1,
-    "app": "Mercari"
+    "app": "Walmart: Shopping & Savings"
    }
   ],
   "mechanisms": [
    {
-    "title": "Цена в листинге и цена на экране оплаты отличаются на 30-100%: маркетплейсы прячут стоимость доставки и поднимают цену в корзине. Покупатель тратит время и злит",
-    "obsCount": 7,
+    "title": "Faire принимает или отклоняет магазины без объяснений и без права апелляции. Легитимный малый бизнес остаётся без оптового поставщика не из-за качества, а из-за",
+    "obsCount": 6,
     "apps": [
-     "SHEIN",
-     "AliExpress",
-     "Temu",
-     "Etsy"
+     "Faire Wholesale",
+     "DHgate-Online Wholesale Stores",
+     "Alibaba.com",
+     "Etsy Seller: Manage Your Shop"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Цена в листинге и цена на экране оплаты отличаются на 30-100%: маркетплейсы прячут стоимость доставки и поднимают цену в корзине. Покупатель тратит время и злится, а не покупает.",
+  "gap": "Faire принимает или отклоняет магазины без объяснений и без права апелляции. Легитимный малый бизнес остаётся без оптового поставщика не из-за качества, а из-за непрозрачного алгоритма. DHgate технически доступен, но не адаптирован для розницы и полон подделок. Между «крупный опт только для сетей» и «Ali без защиты» ничего нет.",
   "idea": {
-   "pitch": "Расширение для браузера и мобильное приложение сканируют страницу товара на крупных маркетплейсах и сразу показывают финальную цену с доставкой в твой регион. Никакого сюрприза на кассе.",
+   "pitch": "Оптовая B2B-платформа для независимых розничных магазинов с прозрачным онбордингом: магазин проходит проверку документов (регистрация, физический адрес, витрина) и получает доступ к каталогу оптовых брендов. Условия Net 30/60 для верифицированных, минимальные заказы от 3-5 единиц, а не от 50. Фокус на одной вертикали например, подарки и декор или детские товары.",
    "features": [
-    "Расширение для Chrome и Firefox: итоговая цена прямо на странице товара",
-    "Мобильное приложение: вставь ссылку, получи реальную цену",
-    "История изменения цены на конкретный товар",
-    "Сравнение цены одного товара на нескольких площадках с учётом доставки",
-    "Алерт когда цена в корзине не совпадает с ценой в листинге"
+    "Прозрачный онбординг с чёткими критериями принятия и конкретным отказом с объяснением",
+    "Минимальные партии от 3-5 единиц для небольших магазинов, начинающих с нового бренда",
+    "Net 30 условия для магазинов с историей успешных заказов от 3 месяцев",
+    "Гарантия возврата бракованного товара без вопросов в течение 14 дней",
+    "Личный менеджер для магазинов с оборотом более $2000 в месяц на платформе"
    ],
    "antiFeatures": [
-    "Не агрегируем кэшбэк и партнёрские ссылки (конфликт интересов)",
-    "Не собираем историю покупок пользователя",
-    "Не показываем рекламу"
+    "Не принимаем дропшипперов без физической витрины",
+    "Не работаем с брендами без верифицированного производственного партнёра",
+    "Не позволяем покупателям перепродавать оптовый товар обратно на маркетплейсы"
    ],
-   "monetization": "Подписка для покупателей (99-199 рублей в месяц), B2B-версия для закупочных отделов малого бизнеса, которые мониторят цены поставщиков"
+   "monetization": "Подписка для магазинов $49-99/месяц (аналог Faire) плюс комиссия с продаж 8-12%. Faire зарабатывает сотни миллионов долларов на схожей модели. При 200 активных магазинах по $60/месяц $12 тысяч только на подписках."
   }
  },
  {
   "slug": "shopping-ecommerce-5",
   "category": "shopping-ecommerce",
-  "categoryName": "Шопинг и маркетплейсы",
-  "title": "Живая поддержка покупателей для малых продавцов на маркетплейсах",
-  "oneLiner": "Аутсорсинговая команда поддержки покупателей для малых продавцов на маркетплейсах: быстро и по-человечески.",
-  "asOf": "2026-06-20",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Маркетплейс проверенной секонд-хенд одежды с детальным описанием состояния",
+  "oneLiner": "Перепродажа одежды где состояние каждой вещи описано честно и с фото каждого дефекта",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 106
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
   },
   "reviewGrid": [
    {
-    "quote": "they spend too much money on AI service that doesnt actually help real problems customers have and then its like pulling teeth to speak to a real human",
-    "rating": 1,
-    "app": "Amazon Shopping"
-   },
-   {
-    "quote": "The chat option is now fully AI (no way to escalate to a human) and if you try to report an issue with an order it just tells you how to access the functionality that errors out.",
-    "rating": 2,
-    "app": "Target"
-   },
-   {
-    "quote": "Twice, I've received damaged goods and almost a month so response from a human. AI been bringing me in circles.",
+    "quote": "What happened to be able to filter clothes by size?",
     "rating": 3,
-    "app": "SHEIN"
+    "app": "eBay online shopping & selling"
    },
    {
-    "quote": "the buyer received the rugs, yet a full refund was still issued. This creates financial losses for sellers",
-    "rating": 1,
-    "app": "Etsy"
+    "quote": "When you are getting groceries delivered to your door I recommend checking hand off to customer because most times I don’t get all of my order.",
+    "rating": 2,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "Mercari allows them to cancel transactions without a reason. If you have an issue with an item and can prove it the Customer Service is terrible.",
-    "rating": 1,
-    "app": "Mercari"
+    "quote": "App is always glitching.",
+    "rating": 3,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "This app basically forces sellers into a race to the bottom. If I run a promotion, I shouldn’t have to keep dropping my price just to stay visible.",
-    "rating": 1,
-    "app": "Mercari"
+    "quote": "They seem new and improved & a great alternative. Have been very satisfied with many purchases as of late.",
+    "rating": 5,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "they rob you blind on there fees. there auto estimates for shipping dosnt work so I may as well of kept the stuff I sold.",
+    "quote": "Always lags and it makes it terrible and wastes a lot of time waiting for it to catch up. Not only does it lag it crashes at LEAST 3 times",
     "rating": 1,
-    "app": "eBay"
+    "app": "Walmart: Shopping & Savings"
+   },
+   {
+    "quote": "I don’t like how you fluctuate in the prices",
+    "rating": 2,
+    "app": "Walmart: Shopping & Savings"
    }
   ],
   "mechanisms": [
    {
-    "title": "Малый продавец на маркетплейсе не может позволить себе команду поддержки, но бот площадки решает споры против него. Покупатель жалуется и уходит с плохим отзыво",
-    "obsCount": 7,
+    "title": "ThredUp признают, что описания состояния вещей слишком расплывчатые: пятна и дефекты не упоминаются и не показаны на фото. Покупатели Poshmark жалуются на нераб",
+    "obsCount": 6,
     "apps": [
-     "Etsy",
-     "Mercari",
-     "eBay",
-     "Amazon Shopping"
+     "ThredUp: Online Thrift Store",
+     "Poshmark: Shop & Sell Fashion",
+     "Vinted: Pre-loved marketplace",
+     "Mercari: Buying & Selling App"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Малый продавец на маркетплейсе не может позволить себе команду поддержки, но бот площадки решает споры против него. Покупатель жалуется и уходит с плохим отзывом, продавец теряет рейтинг и деньги.",
+  "gap": "ThredUp признают, что описания состояния вещей слишком расплывчатые: пятна и дефекты не упоминаются и не показаны на фото. Покупатели Poshmark жалуются на нерабочие фильтры размера. Back Market показал, что рынок платит за честное описание состояния, но в одежде этого стандарта нет ни у кого.",
   "idea": {
-   "pitch": "Продавец подключает наш виджет. Все обращения покупателей идут к нашей команде живых людей. Мы отвечаем за 15 минут, ведём переговоры по спорам, пишем ответы на негативные отзывы. Продавец не тратит время на переписку и не теряет рейтинг.",
+   "pitch": "Маркетплейс подержанной одежды, где каждый продавец проходит обязательную фотопроверку: 5+ фото с нейтральным фоном, фото каждого дефекта крупным планом, точные замеры вещи (а не размер этикетки). Платформа отклоняет листинги без детальных фото дефектов. Покупатель видит точную длину рукава, обхват груди и фото каждой затяжки. Возврат бесплатный при несоответствии описанию.",
    "features": [
-    "Единый ящик для всех площадок: Etsy, Mercari, eBay, Wildberries",
-    "Команда отвечает покупателям в течение 15 минут в рабочее время",
-    "Ведение споров и диспутов от имени продавца",
-    "Ответы на негативные отзывы по согласованному тону голоса",
-    "Отчёт по типам претензий и рекомендации по улучшению описаний"
+    "Обязательные 5+ фото с нейтральным фоном и отдельное фото каждого видимого дефекта",
+    "Точные замеры вещи (длина, обхват, длина рукава) обязательны для всех категорий",
+    "Алгоритм проверки фото перед публикацией: флагует слишком тёмные и нечёткие снимки",
+    "Стандартизированная шкала состояния с фотопримерами каждого уровня",
+    "Бесплатный возврат в течение 7 дней при несоответствии между описанием и реальностью"
    ],
    "antiFeatures": [
-    "Не автоматизируем ответы ботом (основной принцип)",
-    "Не берём продавцов с товарами-подделками",
-    "Не занимаемся рекламой или продвижением"
+    "Никаких листингов без точных замеров размер этикетки не считается",
+    "Никаких фото только в фильтрах и с плохим освещением",
+    "Никаких товаров без чёткого описания причины продажи"
    ],
-   "monetization": "Подписка с продавца по количеству обращений в месяц (от 2 000 рублей), реферальная программа для агентств, работающих с маркетплейсами"
+   "monetization": "Комиссия продавца 12-15% от продажи (ThredUp берёт 20-40% на консигнации, Poshmark 20% фиксировано). Платный листинг для ускоренного вывода товара в топ $1.5/вещь. При 1000 активных листингов по медиане $35 и 30% конверсии $13-16 тысяч/месяц комиссии."
   }
  },
  {
   "slug": "shopping-ecommerce-6",
   "category": "shopping-ecommerce",
-  "categoryName": "Шопинг и маркетплейсы",
-  "title": "Агрегатор товаров с нормальным поиском без рекламного мусора",
-  "oneLiner": "Агрегатор товаров с нормальным поиском и фильтрами поверх крупных площадок для людей, которых раздражают встроенные видео и реклама.",
-  "asOf": "2026-06-20",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Инструмент управления заказами и листингами для мелких продавцов на нескольких площадках",
+  "oneLiner": "Единый кабинет для продавца который торгует одновременно на eBay, Etsy, Mercari и Poshmark",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 106
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
   },
   "reviewGrid": [
    {
-    "quote": "Any search you make automatically pulls up an ai rather the the search results. and it takes forever to load and you have to click a separate button to see the real search results. and you can not disable this feature.",
-    "rating": 1,
-    "app": "Amazon Shopping"
+    "quote": "I’ve been reselling for many years across platforms but this is by far the best one",
+    "rating": 4,
+    "app": "eBay online shopping & selling"
    },
    {
-    "quote": "When the results do finally show it will only show 4 of a \"category\" which are all the same item over and over again.",
-    "rating": 1,
-    "app": "Amazon Shopping"
+    "quote": "No way to change email or phone number",
+    "rating": 3,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "if I filter based on item condition the app bricks and becomes totally unusable. This has been going on for over a week",
-    "rating": 1,
-    "app": "eBay"
+    "quote": "Fast and accurate",
+    "rating": 5,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "app doesn't work anymore....I can search for an item and it comes up but if I try to narrow the results using filters, the list of items goes away and it's 'searching' and never populates again.",
+    "quote": "I applied for the free shipping scam a while back. But you don’t have it for Guam & 2 other places",
     "rating": 1,
-    "app": "eBay"
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "the search feature is absolutely useless. doesn't show in stock items like Walmart does, and doesn't even show store inventory when searching for a brand or item.",
-    "rating": 1,
-    "app": "Target"
+    "quote": "The best price and delivery option",
+    "rating": 5,
+    "app": "Walmart: Shopping & Savings"
    },
    {
-    "quote": "Putting this live nonsense front and centre on the home page is just annoying. Uninstalled, using the web site in future.",
+    "quote": "They want to be Amazon and be an online retailer and ship\nFrom warehouses. Great. I go to Amazon for that. I go to Walmart when I need to pick something up in store. Can you do both? Sure. They just do it horribly. I filter by the “in store”\nOption. I want to know what’s local that I can go pick up.",
     "rating": 1,
-    "app": "eBay"
-   },
-   {
-    "quote": "It gives you all kinds of come-ons for 5 minutes before you can actually start looking for what you wanted to pick up. I gave up and went to Alibaba and Amazon.",
-    "rating": 1,
-    "app": "Temu"
+    "app": "Walmart: Shopping & Savings"
    }
   ],
   "mechanisms": [
    {
-    "title": "Поиск на крупных площадкахломается от ИИ-вставок, лайв-стримов и рекламы. Покупатель хочет ввести запрос и увидеть весь ассортимент с нормальными фильтрами, а н",
-    "obsCount": 7,
+    "title": "Мелкий продавец, работающий на 2-3 площадках одновременно, тратит время на ручную синхронизацию остатков, дублирование листингов и отслеживание заказов в разных",
+    "obsCount": 6,
     "apps": [
-     "Amazon Shopping",
-     "eBay",
-     "Target",
-     "Walmart"
+     "Etsy Seller: Manage Your Shop",
+     "Amazon Seller",
+     "Shopify: Sell online/in person",
+     "Poshmark: Shop & Sell Fashion"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Поиск на крупных площадках ломается от вставок с видеоторговлей и рекламы. Покупатель хочет ввести запрос и увидеть весь ассортимент с нормальными фильтрами, а не анимированный балаган.",
+  "gap": "Мелкий продавец, работающий на 2-3 площадках одновременно, тратит время на ручную синхронизацию остатков, дублирование листингов и отслеживание заказов в разных интерфейсах. Etsy Seller и Amazon Seller сами по себе уступают веб-версиям и не помогают с мультиплатформенностью. Существующие решения (Vendoo, List Perfectly) ориентированы на профи с большим объёмом.",
   "idea": {
-   "pitch": "Веб-приложение и расширение агрегируют товары с нескольких площадок и показывают их в чистой таблице или сетке без видео, спинов и агрессивных баннеров. Фильтры работают мгновенно. Сортировка по реальной цене с доставкой.",
+   "pitch": "SaaS для мелких перепродавцов, которые ведут 50-500 листингов на 2-4 платформах. Листинг создаётся один раз, автоматически адаптируется под требования каждой площадки (разные ограничения на фото, категории, правила описания) и публикуется везде. При продаже на одной площадке товар автоматически снимается на остальных. Стоимость ниже Vendoo, интерфейс проще.",
    "features": [
-    "Чистый интерфейс без видео, анимаций и лайв-стримов",
-    "Фильтры работают мгновенно без перезагрузки и зависания",
-    "Сортировка по итоговой цене с учётом доставки",
-    "Агрегирует одинаковый товар от разных продавцов и площадок рядом",
-    "Настройка интерфейса: сетка, список, плотность отображения"
+    "Создание листинга один раз с автоматической адаптацией под требования eBay, Etsy, Mercari, Poshmark",
+    "Синхронизация остатков в реальном времени: продан на одной площадке снят на всех остальных",
+    "Единый экран входящих заказов со всех платформ с возможностью распечатать этикетки",
+    "Автоматические скидки на стоящие листинги (настраиваемое правило: через N дней снизить цену на X%)",
+    "Аналитика по площадкам: где лучше продаётся конкретная категория товаров"
    ],
    "antiFeatures": [
-    "Не добавляем ИИ-ассистента в поиск",
-    "Не монетизируем продвижение товаров в результатах",
-    "Не запускаем push-уведомления без явного запроса"
+    "Не пытаемся заменить нативные приложения площадок для покупателей",
+    "Не берёмся за управление рекламными кампаниями внутри площадок",
+    "Не поддерживаем площадки без официального API"
    ],
-   "monetization": "Подписка для активных покупателей (149 рублей в месяц), партнёрские комиссии с переходов на площадки без ущерба для порядка результатов"
+   "monetization": "Подписка $19-49/месяц в зависимости от числа активных листингов. Vendoo стоит $14-49/месяц. Целевой сегмент: продавцы с выручкой $1000-10000/месяц, для которых инструмент окупается экономией 5-10 часов в неделю."
   }
  },
  {
   "slug": "shopping-ecommerce-7",
   "category": "shopping-ecommerce",
-  "categoryName": "Шопинг и маркетплейсы",
-  "title": "Логистика под ключ для продавцов на нескольких маркетплейсах",
-  "oneLiner": "Сервис, который берёт на себя упаковку, отправку, отслеживание и возвраты для продавцов, торгующих на нескольких площадках одновременно.",
-  "asOf": "2026-06-20",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Маркетплейс архивной и прошлосезонной одежды с гарантией цены",
+  "oneLiner": "Каталог дизайнерских вещей прошлых коллекций с защитой от ценовых манипуляций",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 106
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
   },
   "reviewGrid": [
    {
-    "quote": "The selling fees are HIGH. You get 10$ when I sell a 90$ item? Why do you get so much? Depop I sent like this. The shipping is way higher too.",
-    "rating": 1,
-    "app": "Mercari"
-   },
-   {
-    "quote": "they rob you blind on there fees. there auto estimates for shipping dosnt work so I may as well of kept the stuff I sold.",
-    "rating": 1,
-    "app": "eBay"
-   },
-   {
-    "quote": "This app basically forces sellers into a race to the bottom. If I run a promotion, I shouldn’t have to keep dropping my price just to stay visible.",
-    "rating": 1,
-    "app": "Mercari"
-   },
-   {
-    "quote": "I ordered a microwave and received a plastic organizer bin...not worth the hassle until they fix who does deliveries",
-    "rating": 1,
-    "app": "Walmart"
-   },
-   {
-    "quote": "Often delivers the wrong items. I have even received the entire order that belongs to someone else and didn't receive mine",
+    "quote": "The price has gone up way too much!! I intend to find a less expensive replacement.",
     "rating": 3,
-    "app": "Walmart"
+    "app": "Macy's: Shop, Save, and Earn"
    },
    {
-    "quote": "I ordered a recording microphone, and got a fake plastic one that doesn't work. Ordered Bluetooth headphones that never arrived.",
+    "quote": "VERY THANKFUL!",
+    "rating": 5,
+    "app": "Walmart: Shopping & Savings"
+   },
+   {
+    "quote": "Very slow and keeps crashing.",
+    "rating": 1,
+    "app": "Walmart: Shopping & Savings"
+   },
+   {
+    "quote": "I’m hoping these garbage bags solve my problem",
+    "rating": 5,
+    "app": "Walmart: Shopping & Savings"
+   },
+   {
+    "quote": "As the title states.  Every search is bogged down by this thing with no option to opt out.  I can’t shop anymore.  Like I need this thing feeding me products when I can browse all by myself.",
     "rating": 1,
     "app": "Amazon Shopping"
    },
    {
-    "quote": "the buyer received the rugs, yet a full refund was still issued. This creates financial losses for sellers",
-    "rating": 1,
-    "app": "Etsy"
+    "quote": "OK these Amazon workers said that I was gonna come earlier. They said it was gonna come at one then they said it was gonna come at two and then it switched to five then I switched to 545 and now it’s six and this dumb app doesn’t even show what time it’s gonna come don’t ever buy from this. Mark Zuc",
+    "rating": 2,
+    "app": "Amazon Shopping"
    }
   ],
   "mechanisms": [
    {
-    "title": "Продавец на Mercari, eBay и Etsy одновременно тонет в упаковке и расчёте стоимости доставки вручную. Автоматические расчёты площадок занижены, а пересчёт съедае",
-    "obsCount": 7,
+    "title": "YOOX и аналогичные сервисы привлекают архивным ассортиментом, но метки «новые скидки» иногда скрывают повышение цен, заказы отменяются после оплаты, поддержка д",
+    "obsCount": 6,
     "apps": [
-     "Mercari",
-     "eBay",
-     "Etsy",
-     "Walmart"
+     "YOOX: Shop fashion online",
+     "FARFETCH - Shop Luxury Fashion",
+     "NET-A-PORTER: Luxury Fashion",
+     "Grailed – Buy & Sell Fashion"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Продавец на нескольких маркетплейсах одновременно тонет в упаковке и расчёте стоимости доставки вручную. Автоматические расчёты площадок занижены, а пересчёт съедает прибыль.",
+  "gap": "YOOX и аналогичные сервисы привлекают архивным ассортиментом, но метки «новые скидки» иногда скрывают повышение цен, заказы отменяются после оплаты, поддержка деградировала. Покупатель находит нужную вещь и не может быть уверен, что она реально придёт по заявленной цене.",
   "idea": {
-   "pitch": "Продавец подключает все свои аккаунты, мы автоматически получаем заказы. Партнёрский склад принимает остатки, печатает этикетки по лучшему тарифу, пакует и отправляет. Возвраты уходят обратно на склад без участия продавца.",
+   "pitch": "Маркетплейс архивной дизайнерской одежды и аксессуаров с двумя жёсткими правилами: цена фиксируется при добавлении в корзину на 24 часа и не может вырасти, а отменённый заказ автоматически компенсируется купоном на 15% сверх суммы. Источник: бутики, ликвидация запасов марок, частные продавцы с верификацией подлинности. Каталог исключительно вещи из предыдущих коллекций, минимум 30% скидки от оригинальной розницы.",
    "features": [
-    "Единый дашборд заказов со всех площадок",
-    "Партнёрский мини-склад для хранения остатков",
-    "Автовыбор лучшего тарифа доставки под каждый заказ",
-    "Печать этикеток и передача в курьерскую службу без участия продавца",
-    "Обработка возвратов: приёмка, инспекция, повторный листинг или утилизация"
+    "Фиксация цены на 24 часа с момента добавления в корзину никаких неожиданностей при оплате",
+    "Гарантированная компенсация 15% при отмене заказа по вине платформы или продавца",
+    "Каталог только прошлых коллекций со скидкой не менее 30% от первоначальной розницы",
+    "Верификация подлинности каждого лота перед публикацией независимым экспертом",
+    "Фотографии с деталями конструкции: швы, ярлыки, фурнитура стандарт для каждого листинга"
    ],
    "antiFeatures": [
-    "Не работаем с крупным оптом (это FBA, не наш сегмент)",
-    "Не берём негабарит и хрупкий товар без спецупаковки",
-    "Не обещаем доставку за 2 часа (не в нашей бизнес-модели)"
+    "Никаких текущих коллекций только прошлые сезоны",
+    "Никаких продаж без физического осмотра экспертом платформы",
+    "Никакой рекламной маркировки «скидка» при повышении цен относительно предыдущей недели"
    ],
-   "monetization": "Платит продавец: абонентская плата за хранение + процент с каждой отправки, экономия на тарифах за счёт консолидированного объёма"
+   "monetization": "Комиссия продавца 18-22% (YOOX берёт по консигнации 50-60%). Покупательская плата не взимается. Средний чек на архивных дизайнерских вещах $150-400. При 100 сделках в месяц $30-80 тысяч выручки до себестоимости."
+  }
+ },
+ {
+  "slug": "shopping-ecommerce-8",
+  "category": "shopping-ecommerce",
+  "categoryName": "Покупки и маркетплейсы",
+  "title": "Сервис точности складских остатков для небольших интернет-магазинов",
+  "oneLiner": "B2B-инструмент, который синхронизирует реальные остатки магазина с онлайн-витриной в реальном времени",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 95,
+   "reviews": 34540,
+   "observations": 426
+  },
+  "reviewGrid": [
+   {
+    "quote": "I wish they would notify you when they are out of stock on a online order. I had to go to two different stores and pay than I attended in spending and still didn’t get the items I wanted in original purchase. Not doing online shopping at Target again.",
+    "rating": 1,
+    "app": "Target: Shop. Style. Save."
+   },
+   {
+    "quote": "I’m really not impressed.  I would have thought that you would be able to order the same stuff that is available IN THE STORES!!!!  This alone is very disappointing!!!",
+    "rating": 1,
+    "app": "Sam's Club Shopping & Delivery"
+   },
+   {
+    "quote": "The target app hasn’t been opening with I go to the store when I do a pickup order. It’s very frustrating. Tried 2 days in a roll to pick up my order but can’t do to the app not opening.",
+    "rating": 1,
+    "app": "Target: Shop. Style. Save."
+   },
+   {
+    "quote": "It would be great if it showed what was in stock for pick up at the location I choose.",
+    "rating": 3,
+    "app": "Macy's: Shop, Save, and Earn"
+   },
+   {
+    "quote": "I wish there was an alternative and I would switch over",
+    "rating": 3,
+    "app": "Amazon Shopping"
+   },
+   {
+    "quote": "Easy, fast, competent service that facilitates access to goods without the effort of driving and frustration of ‘hunt and gathering’ ordeals.",
+    "rating": 5,
+    "app": "Amazon Shopping"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Покупатели Target, Old Navy, Sam's Club и Kohl's регулярно заказывают товары, которые магазин помечает как «в наличии», а потом отменяет заказ. Target системно ",
+    "obsCount": 6,
+    "apps": [
+     "Target: Shop. Style. Save.",
+     "Sam's Club Shopping & Delivery",
+     "Kohl's - Shopping & Discounts",
+     "Old Navy: Shop for New Clothes"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Покупатели Target, Old Navy, Sam's Club и Kohl's регулярно заказывают товары, которые магазин помечает как «в наличии», а потом отменяет заказ. Target системно не синхронизирует онлайн-каталог с реальными складскими остатками. Old Navy показывает всё как распроданное в приложении, хотя на сайте товар есть. Для небольших интернет-магазинов на Shopify эта проблема ещё острее, потому что ни одно стандартное решение не работает в реальном времени.",
+  "idea": {
+   "pitch": "SaaS для небольших интернет-магазинов на Shopify, WooCommerce и Etsy, который подключается к физическому складу или кассовой системе и обновляет остатки онлайн-витрины в течение 60 секунд после любого движения товара. Плюс: автоматический список ожидания с уведомлением покупателя, когда товар снова появился. Фокус на магазинах с 200-5000 SKU, где ручное управление остатками уже нереально.",
+   "features": [
+    "Синхронизация остатков между кассовой системой и онлайн-витриной за 60 секунд",
+    "Автоматический список ожидания: покупатель оставляет email и получает уведомление при поступлении",
+    "Умный «буфер»: система держит последнюю единицу в резерве до физического подтверждения",
+    "Дашборд несоответствий: товары, которые онлайн числятся в наличии, но физически отсутствуют",
+    "Интеграция с основными кассовыми системами: Square, Clover, Shopify POS"
+   ],
+   "antiFeatures": [
+    "Не строим собственную кассовую или складскую систему",
+    "Не работаем с магазинами без системы учёта только синхронизация, не замена",
+    "Не обещаем абсолютной точности при ручном управлении остатками на стороне магазина"
+   ],
+   "monetization": "Подписка $39-99/месяц в зависимости от числа SKU и числа интеграций. Shopify-приложения в этом сегменте стоят $29-149/месяц. Целевой клиент: магазин с выручкой $50-500 тысяч в год, у которого отмены заказов из-за пересорта стоят дороже подписки."
   }
  },
  {
