@@ -95,7 +95,7 @@ export default function TestDossier() {
       {/* HERO */}
       <header className="mt-12">
         <h1 className="glow-sweep text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{r.name}</h1>
-        <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
+        <p className="mt-6 max-w-[60ch] text-[16px] leading-[1.6] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(thesis.governing)}</p>
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
           {stats.map((s, i) => (
