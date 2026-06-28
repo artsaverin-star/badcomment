@@ -15,6 +15,13 @@ type FullIdea = {
   reviewGrid?: { quote: string; rating: number; app: string }[];
 };
 
+// Only the niches that have a full dossier (people's rating + breakdown) on the
+// homepage. The ideas deck mirrors those sections, not every category.
+const DOSSIER = new Set([
+  "astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing",
+  "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks",
+]);
+
 const ICONS = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
 const cleanTitle = (s: string) => {
   const m = (s || "").replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, "");
@@ -26,7 +33,7 @@ const cleanTitle = (s: string) => {
 export default async function IdeasPage() {
   const locale = await getLocale();
   const tr = t(locale);
-  const all = listIdeas() as unknown as FullIdea[];
+  const all = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
   const loggedIn = access.loggedIn;
