@@ -11,7 +11,7 @@ import ideasAll from "@/data/ideas.json";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Разбор ниши — астрология (прототип)",
+  title: "Разбор ниши, астрология (прототип)",
   robots: { index: false, follow: false },
 };
 
@@ -145,11 +145,12 @@ export default function TestDossier() {
       </Block>
 
       {/* ACT — IDEAS */}
-      <Block title="Что строить" lead="Каждая идея — реальный бизнес, под который прочитаны все отзывы ниши. На проде сидят за платной стеной, здесь раскрыты целиком.">
-        <div className="mt-4 border-t border-[var(--color-border-subtle)]">
+      <Block title="Что строить" lead="Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши.">
+        <div className="mt-6 flex flex-col gap-3">
           {ideas.map((x, i) => (
             <Disclosure
               key={x.slug}
+              card
               defaultOpen={i === 0}
               head={
                 <span className="flex min-w-0 flex-1 flex-col gap-1">
@@ -193,14 +194,14 @@ function Block({ title, lead, children }: { title: string; lead?: string; childr
   );
 }
 
-function Disclosure({ head, children, defaultOpen }: { head: ReactNode; children: ReactNode; defaultOpen?: boolean }) {
+function Disclosure({ head, children, defaultOpen, card }: { head: ReactNode; children: ReactNode; defaultOpen?: boolean; card?: boolean }) {
   return (
-    <details open={defaultOpen} className="group/f border-b border-[var(--color-border-subtle)]">
+    <details open={defaultOpen} className={card ? "group/f rounded-[16px] border border-[var(--color-border-subtle)] px-5" : "group/f border-b border-[var(--color-border-subtle)]"}>
       <summary className="flex cursor-pointer list-none items-start gap-4 py-4 [&::-webkit-details-marker]:hidden">
         {head}
         <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </summary>
-      <div className="pb-6 pr-1 sm:pr-8">{children}</div>
+      <div className={card ? "pb-5 pr-1" : "pb-6 pr-1 sm:pr-8"}>{children}</div>
     </details>
   );
 }
