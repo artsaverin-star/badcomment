@@ -23,10 +23,33 @@ const AUTH: Record<string, { w: string; c: string }> = {
 const NF = (n: number) => n.toLocaleString("ru-RU");
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
-function Pill({ color, children }: { color: string; children: React.ReactNode }) {
+const ICONS: Record<string, React.ReactNode> = {
+  star: <path d="M6 1.3l1.45 2.94 3.25.47-2.35 2.29.55 3.24L6 8.71 3.1 10.23l.55-3.24L1.3 4.7l3.25-.47L6 1.3z" />,
+  bars: <path d="M2.5 10V6.5M6 10V2.5M9.5 10V7.5" />,
+  spark: <path d="M6 1.6l1.1 2.9 2.9 1.1-2.9 1.1L6 9.6 4.9 6.7 2 5.6l2.9-1.1L6 1.6z" />,
+  seal: <><circle cx="6" cy="6" r="4.4" /><path d="M4.2 6l1.25 1.25L7.9 4.6" /></>,
+};
+
+function ChipIcon({ name }: { name: string }) {
   return (
-    <span className="inline-flex items-center rounded-full px-2 py-[1.5px] text-[11px] font-medium" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
-      {children}
+    <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="shrink-0">{ICONS[name]}</svg>
+  );
+}
+
+function MetricChip({ icon, value, label, active }: { icon: string; value: string; label: string; active?: boolean }) {
+  return (
+    <span className={`inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] ${active ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>
+      <ChipIcon name={icon} />
+      <span className={active ? "font-semibold" : "font-medium"}>{value}</span>
+      <span className="opacity-70">{label}</span>
+    </span>
+  );
+}
+
+function AuthChip({ color, word }: { color: string; word: string }) {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[12px] font-medium" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
+      <ChipIcon name="seal" />{word}
     </span>
   );
 }
@@ -64,11 +87,11 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
                 <span className="min-w-0 flex-1">
                   <span className="block text-[16px] font-medium leading-[1.3] text-[var(--color-text-primary)]">{a.title}</span>
                   {a.verdict && <span className="mt-1 line-clamp-2 block text-[13px] leading-[1.45] text-[var(--color-text-tertiary)]">{a.verdict}</span>}
-                  <span className="mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12.5px] leading-[1.4] text-[var(--color-text-tertiary)]">
-                    <span className={sentiment ? "" : "font-semibold text-[var(--color-text-primary)]"}>в сторе {a.storeAvg?.toFixed(1)}★</span>
-                    {au.w && <Pill color={au.c}>{cap(au.w)}</Pill>}
-                    <span>· {NF(a.ratings || 0)} оценок ·</span>
-                    <span className={sentiment ? "font-semibold text-[var(--color-text-primary)]" : ""}>Наш балл {a.realScore}/100</span>
+                  <span className="mt-2 flex flex-wrap items-center gap-1.5">
+                    <MetricChip icon="star" value={a.storeAvg?.toFixed(1) ?? "—"} label="В сторе" active={!sentiment} />
+                    {au.w && <AuthChip color={au.c} word={cap(au.w)} />}
+                    <MetricChip icon="bars" value={NF(a.ratings || 0)} label="Оценок" />
+                    <MetricChip icon="spark" value={`${a.realScore}/100`} label="Наш балл" active={sentiment} />
                   </span>
                 </span>
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
