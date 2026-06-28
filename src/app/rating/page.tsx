@@ -26,6 +26,7 @@ const NICHES = [
   { slug: "habit-tracking", name: "Привычки", nameEn: "Habit trackers", blurb: "Где отметка мгновенна и напоминание приходит, а где стрик стыдит." },
   { slug: "personal-finance", name: "Личные финансы", nameEn: "Budget apps", blurb: "Где правда держишь траты под контролем, а где рвётся синхронизация." },
   { slug: "calendars-tasks", name: "Календари и задачи", nameEn: "Calendars & tasks", blurb: "Где напоминание приходит вовремя и ничего не теряется." },
+  { slug: "nutrition-calories", name: "Калории и питание", nameEn: "Calorie & nutrition", blurb: "Где подсчёт калорий честный и удобный, а где база врёт и тормозит." },
 ];
 
 export default async function RatingIndexPage() {

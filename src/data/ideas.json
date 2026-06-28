@@ -24911,555 +24911,600 @@
   "slug": "nutrition-calories-1",
   "category": "nutrition-calories",
   "categoryName": "Калории и питание",
-  "title": "Диабет-трекер с точным углеводным учётом",
-  "oneLiner": "Трекер питания для диабетиков и людей на инсулине, где чистые углеводы считаются точно и не требуют ручных поправок",
-  "asOf": "2026-06-20",
+  "title": "Трекер питания для людей с диабетом и CGM-сенсором",
+  "oneLiner": "Дневник еды, который видит реакцию глюкозы на каждое блюдо через связку с Libre и Dexcom, а не просто считает углеводы.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 293
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
   },
   "reviewGrid": [
    {
-    "quote": "And watching my carb, calorie, and prrotien intake has gotten me from an A1C of 13 to an A1C of 4.5.",
-    "rating": 5,
-    "app": "Cronometer"
+    "quote": "Snaq has THE best post-meal glucose reporting I've seen. I love it!!!! It tells you all you want to know: for the three hours following a meal you’ve entered, how much of that time you remained in your target range (which is customizable in the Units section of Settings), what your glucose peak was,",
+    "rating": 4,
+    "app": "SNAQ - Diabetes Food Tracker"
    },
    {
-    "quote": "if I add chia, it should be net 0 carbs. instead it tells me that its 10 net carbs and 10 fiber. the net carbs is misleading",
+    "quote": "The SNAQ app is very helpful in the fact that it connects to my LIBRE 3+, and helps me keep track of my carbs and how they affect my glucose during the day. The one drawback is the food database isn’t nearly as big as it could be. Sometimes I have to go into Myfitnesspal and find my meal and then go",
+    "rating": 4,
+    "app": "SNAQ - Diabetes Food Tracker"
+   },
+   {
+    "quote": "The latest update has made this app almost useless. Can no longer easily find previous meals and it keeps putting the wrong time when I enter an insulin dose or a meal.",
     "rating": 2,
-    "app": "Lifesum"
+    "app": "SNAQ - Diabetes Food Tracker"
    },
    {
-    "quote": "The whole entire point of low carb diets is to lower insulin or blood sugar",
+    "quote": "Do NOT like this update at all, very disappointed. please put food logging back to the home tab without having to click on another button to track. And why can I no longer see my protein and fiber for each meal? That was helpful for me as I’m trying to hit a target for each meal. Huge feature to jus",
     "rating": 1,
-    "app": "Carb Manager"
+    "app": "WeightWatchers Program"
    },
    {
-    "quote": "when you open it up the first thing they do is have you set up a calorie goal",
-    "rating": 1,
-    "app": "Carb Manager"
+    "quote": "I came back after a couple months away and the new version is awful. It’s so hard to add my frequent foods - e.g., I eat mostly the same breakfast daily but once I select the first thing the rest of the list disappears. This makes the whole thing really a hassle to use and makes me less likely to st",
+    "rating": 2,
+    "app": "WeightWatchers Program"
    },
    {
-    "quote": "I've been tracking macros for over 20 years. this is the best app and dials into micronutrients which helps manage menopause.",
-    "rating": 5,
-    "app": "Cronometer"
-   },
-   {
-    "quote": "there are a while lot of \"verified\" foods which are simply incorrect. Please clean up your database",
+    "quote": "Thanks. Mary E Dean",
     "rating": 3,
-    "app": "MyFitnessPal"
-   },
-   {
-    "quote": "no point in tracking my diet in this app if the numbers are all off anyways",
-    "rating": 1,
-    "app": "Lifesum"
+    "app": "WeightWatchers Program"
    }
   ],
   "mechanisms": [
    {
-    "title": "Людям с диабетом нужен точный учёт чистых углеводов и сахара, а все универсальные трекеры ошибаются именно здесь иногда опасно: называют чиа 10 чистыми углевода",
-    "obsCount": 7,
+    "title": "Диабетики уже платят за CGM-сенсор, но нет инструмента, который объединяет еду и кривую глюкозы в одном месте и автоматически находит персональные триггеры без ",
+    "obsCount": 6,
     "apps": [
-     "Cronometer",
-     "Carb Manager",
-     "Lifesum"
+     "SNAQ - Diabetes Food Tracker",
+     "MyDiabetes: Sugar & Meal Log",
+     "Diabetes food tracker - Gococo",
+     "Calorie Counter PRO MyNetDiary"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Людям с диабетом нужен точный учёт чистых углеводов и сахара, а все универсальные трекеры ошибаются именно здесь иногда опасно: называют чиа 10 чистыми углеводами вместо нуля, не дают задать цель вручную, по умолчанию навязывают высокоуглеводный расчёт",
+  "gap": "Диабетики уже платят за CGM-сенсор, но нет инструмента, который объединяет еду и кривую глюкозы в одном месте и автоматически находит персональные триггеры без ручного разбора графиков.",
   "idea": {
-   "pitch": "Диабетик или человек на кето уже платит: за тест-полоски, за подписку на CGM-приложение, за консультации диетолога. Единственное, чего ему не хватает, это трекера, который не врёт в одной ключевой цифре. Продукт берёт нишу с медицинской ставкой и продаёт точность как основу, а не надстройку.",
+   "pitch": "SNAQ и MyDiabetes пытаются закрыть эту нишу, но первый регулярно ломается после обновлений, а второй самопроизвольно меняет цели пользователя и берёт $42 в месяц за нерабочий продукт. Реальная задача диабетика не считать углеводы, а понять, как конкретный его рецепт, бренд, порция влияют на его личный сахар. Сервис берёт данные CGM через официальный API Freestyle Libre и Dexcom, привязывает трёхчасовой постпрандиальный профиль к каждому приёму пищи и за 30 дней строит персональный список «безопасных» и «опасных» блюд. Монетизация подписка для пациентов плюс оптовый доступ для эндокринологических клиник.",
    "features": [
-    "точный расчёт чистых углеводов с учётом клетчатки и сахарных спиртов без ручных поправок",
-    "ручной ввод целевых коридоров по углеводам, сахару и гликемическому индексу",
-    "история гликемических реакций рядом с логом блюд (интеграция с CGM-данными через файл или api)",
-    "база с верифицированными значениями для диабетической диеты, без пользовательского мусора",
-    "экспорт отчётов по неделям для врача или диетолога в pdf"
+    "Синхронизация с Libre и Dexcom через официальные API, постпрандиальный отчёт на 180 минут после каждого приёма пищи",
+    "Персональный рейтинг продуктов по реальному гликемическому отклику, а не по таблице ГИ",
+    "Дневник инсулиновых доз с привязкой к еде и кривой глюкозы",
+    "Экспорт недельного отчёта в PDF для визита к эндокринологу",
+    "Клинический режим для диетологов клиники: просмотр журналов нескольких пациентов на одном дашборде"
    ],
    "antiFeatures": [
-    "геймификация, стрики и маскоты",
-    "советы по правильному питанию и светофор «хорошая/плохая еда»",
-    "умное распознавание фото как основной способ ввода"
+    "Нет дозволенного/запрещённого списка углеводов из интернета: только данные конкретного пользователя",
+    "Нет геймификации и наград за «серии», они не уместны при хроническом заболевании",
+    "Нет общей базы рецептов с чужими данными о сахаре, у каждого своя физиология"
    ],
-   "monetization": "диабетики уже платят за CGM, тест-полоски и приложения к ним подписка 300-500 руб. в месяц или разовая покупка, диетологи, ведущие диабетиков, платят за доступ к отчётам пациентов"
+   "monetization": "Пациенты платят $15/мес или $120/год за полный доступ. Клиники и диетологические практики платят $50/мес за дашборд на 20 пациентов. Рынок: 537 млн диабетиков, из которых 8-10 млн используют CGM."
   }
  },
  {
   "slug": "nutrition-calories-2",
   "category": "nutrition-calories",
   "categoryName": "Калории и питание",
-  "title": "Кабинет диетолога с дневниками пациентов",
-  "oneLiner": "Платформа для практикующих диетологов, где каждый пациент ведёт дневник питания, а врач видит сводку в реальном времени",
-  "asOf": "2026-06-20",
+  "title": "Дневник пищевых триггеров при СРК и хронических болезнях кишечника",
+  "oneLiner": "Медицинский журнал симптомов и еды с автоматическим поиском корреляций для людей с СРК, болезнью Крона и пищевой непереносимостью.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 293
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
   },
   "reviewGrid": [
    {
-    "quote": "I've been tracking macros for over 20 years. this is the best app and dials into micronutrients which helps manage menopause.",
+    "quote": "I’ve been using this app for 4 years. It’s super easy to use, it’s convenient to scroll through BM history, and I absolutely love having the 7-day average for telling my GI at appointments.",
     "rating": 5,
-    "app": "Cronometer"
+    "app": "Bowelle - The IBS tracker"
    },
    {
-    "quote": "I switched from MyFitnessPal after 12 years because they put too many of the features I use everyday behind a paywall",
+    "quote": "This app is really helpful for my motility issues. I can track the information and have a data chart ready to share with my doc♥️",
     "rating": 5,
-    "app": "Calorie Counter - MyNetDiary"
+    "app": "Bowelle - The IBS tracker"
    },
    {
-    "quote": "just the act of logging everything you eat or drink (and you have to be honest) and you will start seeing the scales go down",
-    "rating": 5,
-    "app": "Calorie Counter by Lose It!"
+    "quote": "I’ve had stomach issues my whole life. Using this app has helped me realize what can potentially cause my IBS. I also use it when i visit my gastro to better analyze my data.",
+    "rating": 4,
+    "app": "Bowelle - The IBS tracker"
    },
    {
-    "quote": "I have tracked every meal for well over 700 days",
-    "rating": 1,
-    "app": "Lifesum"
-   },
-   {
-    "quote": "It's made tracking just a way of life. It's fast and convenient",
-    "rating": 5,
-    "app": "Calorie Counter by Lose It!"
-   },
-   {
-    "quote": "Is it healthy for an adult to set a goal of 1198 kcal? This app set that goal for me and I find it quite dangerous",
+    "quote": "Seems good in beginning but the analysis portion is horribly flawed. After weeks, it doesn’t know reasonably what has caused symptoms vs when those foods dont cause symptoms. My numbers one trigger is “water” now. Its laughable how bad this is.",
     "rating": 2,
-    "app": "Lifesum"
+    "app": "mySymptoms Food Diary"
    },
    {
-    "quote": "this app gives a much higher calorie goal than others. if I didn't question it I definitely would not be losing any weight",
-    "rating": 3,
-    "app": "Foodvisor"
+    "quote": "I am chronically ill, and this app helps me so much! To be able to keep track of all my symptoms medication’s and figuring out what helps and hurts has been a game changer!",
+    "rating": 5,
+    "app": "mySymptoms Food Diary"
+   },
+   {
+    "quote": "Easy to use. I sent 6 weeks of data to ChatGBT to look for patterns and it liked the format. And, I got good feedback.",
+    "rating": 4,
+    "app": "Bowelle - The IBS tracker"
    }
   ],
   "mechanisms": [
    {
-    "title": "Диетолог тратит половину сессии на расшифровку фото в мессенджере и ручных таблиц пациента вместо анализа и рекомендаций. Готовых b2b-инструментов для нутрициол",
-    "obsCount": 7,
+    "title": "Bowelle и mySymptoms дают журнал, но не находят паттерны автоматически: пользователю нужно самому разбираться в данных за несколько месяцев, тогда как врачу нуж",
+    "obsCount": 6,
     "apps": [
-     "Cronometer",
-     "Calorie Counter - MyNetDiary",
-     "Calorie Counter by Lose It!"
+     "Bowelle - The IBS tracker",
+     "mySymptoms Food Diary",
+     "Cronometer: Calorie Counter",
+     "AteMate Food Journal (Ate)"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Диетолог тратит половину сессии на расшифровку фото в мессенджере и ручных таблиц пациента вместо анализа и рекомендаций. Готовых b2b-инструментов для нутрициологов в России практически нет",
+  "gap": "Bowelle и mySymptoms дают журнал, но не находят паттерны автоматически: пользователю нужно самому разбираться в данных за несколько месяцев, тогда как врачу нужен готовый отчёт, а не таблица.",
   "idea": {
-   "pitch": "Нутрициолог ведёт 20-50 пациентов и получает их дневники скриншотами в whatsapp. Платформа даёт каждому пациенту простое приложение для лога, а специалисту структурированную панель со сводкой нутриентов, отклонениями от плана и историей замеров тела. Деньги берутся с практики, а не с пациента.",
+   "pitch": "Люди с СРК и болезнью Крона ведут дневник месяцами именно для того, чтобы найти триггерные продукты и показать данные гастроэнтерологу: это подтверждают и четырёхлетние пользователи Bowelle, и высокая лояльность mySymptoms. Проблема в том, что корреляции находить вручную невозможно, а алгоритм mySymptoms может назвать «воду» главным триггером. Продукт строит статистический анализ (лаг-корреляция между приёмом пищи и симптомом через 6/12/24 часа), генерирует отчёт для врача в PDF с конкретными продуктами и уровнем достоверности, и позволяет клинике подключить своих пациентов к общему дашборду. Монетизация прямая: пациент платит, клиника платит за модуль.",
    "features": [
-    "простое приложение для пациента штрихкод, поиск, быстрое повторение вчерашнего",
-    "панель нутрициолога со списком пациентов, сводкой по неделям и отклонениями от плана",
-    "задание индивидуального плана по калориям, белкам, жирам, углеводам для каждого пациента",
-    "автоматический еженедельный отчёт в pdf для отправки пациенту",
-    "сообщения от специалиста прямо внутри приложения пациента без мессенджеров"
+    "Быстрый ввод симптомов (боль, вздутие, тип стула) и еды с временной меткой",
+    "Лаг-корреляция: алгоритм ищет связь симптом-продукт с задержкой 6, 12 и 24 часа",
+    "Протокол низкого FODMAP: подсказки при вводе, какие продукты попадают в категорию",
+    "Еженедельный PDF-отчёт в формате для гастроэнтеролога с топ-5 вероятных триггеров",
+    "Режим для врача: подключение до 50 пациентов, просмотр их журналов и отчётов"
    ],
    "antiFeatures": [
-    "алгоритмические советы вместо рекомендаций живого специалиста",
-    "автоматическая постановка целей без участия специалиста",
-    "геймификация и рейтинги пациентов"
+    "Нет счётчика калорий, это не цель данной аудитории",
+    "Нет социальных функций и публичных профилей, медицинские данные приватны",
+    "Нет рекомендаций по диете от алгоритма: только вероятные корреляции, решение за врачом"
    ],
-   "monetization": "нутрициологи и диетологи платят за подписку на кабинет (план на 10 пациентов 1500 руб. в месяц, на 50 пациентов 4000 руб.), клиники платят корпоративно за доступ отдела"
+   "monetization": "Пациенты платят $10/мес или $80/год. Гастроэнтерологические практики платят $100/мес за профессиональный дашборд на 50 пациентов. Специфика: пользователи Bowelle остаются годами и платят, это подтверждённая платёжная аудитория."
   }
  },
  {
   "slug": "nutrition-calories-3",
   "category": "nutrition-calories",
   "categoryName": "Калории и питание",
-  "title": "Трекер питания для спортивных тренеров",
-  "oneLiner": "Инструмент для фитнес-тренеров, который связывает план питания подопечного с тренировочной нагрузкой и показывает, где клиент не добирает белок или углеводы",
-  "asOf": "2026-06-20",
+  "title": "Планировщик питания для еженедельного меню с точным списком покупок",
+  "oneLiner": "Сервис генерирует недельное меню под цель, бюджет и содержимое кладовой, сразу выдаёт список покупок без дубликатов.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 293
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
   },
   "reviewGrid": [
    {
-    "quote": "it DUPLICATES THE WORKOUTS FROM THE OTHER APP???? So when it says like \"Walking, 20 minutes at 01:00 PM\" it'll duplicate that entry upwards of 5 times",
-    "rating": 3,
-    "app": "MyFitnessPal"
-   },
-   {
-    "quote": "Yazio counts steps double, thus skewing the results by up to 1000kcal. I'm switching to Lifesum today.",
+    "quote": "Worked ok but it got to be the same food and recipes over and over again. Seemed to be a lot of work to enter my own recipes and ingredients. Stopped using before my subscription ended.",
     "rating": 2,
-    "app": "Yazio"
+    "app": "Eat This Much - Meal Planner"
    },
    {
-    "quote": "It adds my workouts, but not the calories burned. that's pretty much the point",
+    "quote": "Wish the cheapest grocery list and meal plan generator wasn’t also very expensive. A set budget option would be nice.",
     "rating": 3,
-    "app": "Calorie Counter by Lose It!"
+    "app": "Eat This Much - Meal Planner"
    },
    {
-    "quote": "I love that I can track my calories and weight along with my body fat %, my measurements, etc",
+    "quote": "The app needs to let us publicly rate and review recipes. Some of the recipes are horrible. However. It is amazing for tracking calories and planning meals. The groceries list feature is the best!",
+    "rating": 4,
+    "app": "Eat This Much - Meal Planner"
+   },
+   {
+    "quote": "It is a way of life for me now. I no longer live to eat, but eat to live.",
     "rating": 5,
-    "app": "Calorie Counter by Lose It!"
+    "app": "WeightWatchers Program"
    },
    {
-    "quote": "been using it for more than 309 days straight",
-    "rating": 5,
-    "app": "Calorie Counter by Lose It!"
+    "quote": "I still cannot get my sleep to track from my Garmin to the WW app but I manually add it.\nOtherwise the new update is good.",
+    "rating": 4,
+    "app": "WeightWatchers Program"
    },
    {
-    "quote": "the quick features of being able to scan a barcode, search, snap a photo, or explain what I ate to log my meals",
-    "rating": 5,
-    "app": "Foodvisor"
-   },
-   {
-    "quote": "One major advantage over myfitnesspal was its speed to enter meals",
+    "quote": "Why would you not be compatible with my MacBook Pro? Not getting my moneys worth from WW app as I can only use it on my phone and iPad.",
     "rating": 1,
-    "app": "Calorie Counter by Lose It!"
+    "app": "WeightWatchers Program"
    }
   ],
   "mechanisms": [
    {
-    "title": "Тренер назначает нагрузку и видит прогресс по весу и объёмам, но не знает, почему клиент не восстанавливается питание идёт отдельно в другом приложении или не и",
-    "obsCount": 7,
+    "title": "Eat This Much единственный планировщик с этой функцией, но рецепты повторяются, вегетарианская база слабая, и нет нормального учёта того, что уже есть дома. Люд",
+    "obsCount": 6,
     "apps": [
-     "MyFitnessPal",
-     "Cronometer",
-     "Calorie Counter by Lose It!"
+     "Eat This Much - Meal Planner",
+     "StrongrFastr Diet+Fitness AI",
+     "Diet & Meal Planner by GetFit",
+     "Calorie Counter - MyNetDiary"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Тренер назначает нагрузку и видит прогресс по весу и объёмам, но не знает, почему клиент не восстанавливается питание идёт отдельно в другом приложении или не идёт вовсе. Увязать расход от тренировок с реальным потреблением сегодня невозможно без ручной работы",
+  "gap": "Eat This Much единственный планировщик с этой функцией, но рецепты повторяются, вегетарианская база слабая, и нет нормального учёта того, что уже есть дома. Люди хотят не считать калории, а не думать, что готовить.",
   "idea": {
-   "pitch": "Фитнес-тренер ведёт 15-30 клиентов и не может контролировать их питание между сессиями. Платформа даёт клиенту простой лог с акцентом на белок и восстановительные макросы, а тренеру панель, где видно, кто из группы хронически не добирает калории в дни тренировок. Это продаётся тренерам как профессиональный инструмент, а не потребительское приложение.",
+   "pitch": "Растущая аудитория занятых семей и людей на похудении или наборе хочет одного: открыть приложение в воскресенье, получить план на неделю и пойти в магазин с готовым списком. Eat This Much это пытается, но пользователи жалуются на повторяющиеся рецепты и нереалистичные блюда. Продукт фокусируется на кулинарном качестве (проверенные рецепты, не машинная генерация), учёте уже имеющихся продуктов и объединённом списке покупок без дубликатов. Ключевое преимущество: пользователь задаёт бюджет на неделю, продукт оптимизирует меню под него. B2C подписка, дополнительно B2B лицензия для работодателей как часть корпоративного велнес-пакета.",
    "features": [
-    "акцент на белок, углеводы и время приёма пищи относительно тренировки",
-    "панель тренера: список клиентов, сводка по дням тренировок и дням отдыха",
-    "синхронизация расписания тренировок с логом питания без дублирования калорий",
-    "шаблоны плана питания для тренера разослать всей группе в один клик",
-    "уведомление тренеру, если клиент не вёл дневник более двух дней подряд"
+    "Генерация меню на неделю с учётом макроцелей, аллергий, диетических ограничений и бюджета",
+    "Сканирование кладовой: пользователь отмечает, что уже есть, и эти продукты приоритизируются в рецептах",
+    "Умный список покупок: объединяет ингредиенты всех рецептов, исключает дубликаты",
+    "Ротация рецептов: алгоритм не повторяет блюда из последних четырёх недель",
+    "Режим одного человека или семьи: масштабирование порций и бюджета"
    ],
    "antiFeatures": [
-    "умный подсчёт сожжённых калорий через фитнес-трекеры (источник ошибок и двойного счёта)",
-    "советы по технике упражнений и программы тренировок",
-    "самостоятельный режим без тренера"
+    "Нет ежедневного дневника ввода калорий, это планировщик, а не трекер",
+    "Нет ИИ-генерации рецептов из языковой модели, только проверенные редактором блюда",
+    "Нет социального фида и возможности делиться планом публично"
    ],
-   "monetization": "тренеры и онлайн-коучи платят за кабинет по числу активных клиентов, фитнес-клубы подключают весь тренерский штат по корпоративному тарифу"
+   "monetization": "Подписка $10/мес или $80/год. Корпоративный модуль для работодателей от $5 в месяц на сотрудника как часть велнес-льготы. Органический рост через то, что люди делятся списком покупок."
   }
  },
  {
   "slug": "nutrition-calories-4",
   "category": "nutrition-calories",
   "categoryName": "Калории и питание",
-  "title": "Трекер питания для локальных рынков без западной базы",
-  "oneLiner": "Приложение для учёта калорий, где база продуктов строится под конкретный рынок Индия, Турция, страны Персидского залива с реальными местными блюдами и весовыми мерами",
-  "asOf": "2026-06-20",
+  "title": "Инструмент диетолога для ведения клиентов и составления рационов",
+  "oneLiner": "Профессиональная платформа для нутрициологов и клинических диетологов: составление рационов, мониторинг клиентов и коммуникация в одном месте.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 293
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
   },
   "reviewGrid": [
    {
-    "quote": "Every recipe I've seen is in 'cups'. Only the USA uses that as a measurement. The rest of the world uses grams",
-    "rating": 2,
-    "app": "MyFitnessPal"
+    "quote": "I really enjoy using the Calorie Counter Pro MyNetDiary. By using this app I am holding myself accountable for what I eat and how I eat this is especially helpful for someone who is also trying to control sugar levels and maintaining overall health.",
+    "rating": 4,
+    "app": "Calorie Counter PRO MyNetDiary"
    },
    {
-    "quote": "the Indian and Punjabi food database is very limited. Many homemade dishes and local brands are missing, so logging meals becomes time-consuming.",
-    "rating": 2,
-    "app": "Cronometer"
-   },
-   {
-    "quote": "if you're from a non western ethnicity you will find the normal foods you eat not part of the list of food options",
-    "rating": 3,
-    "app": "Foodvisor"
-   },
-   {
-    "quote": "The free features remind me of what My Fitness Pal used to be before they got greedy.",
+    "quote": "As a woman in her 60’s, I knew I needed to eat more protein. Carbon showed me how much. Helps make sure I continue to. Best of all, I’m stronger. I’m maintaining my goal weight.",
     "rating": 5,
-    "app": "Cronometer"
+    "app": "Carbon - Macro Coach & Tracker"
    },
    {
-    "quote": "I switched from MyFitnessPal after 12 years because they put too many of the features I use everyday behind a paywall",
-    "rating": 5,
-    "app": "Calorie Counter - MyNetDiary"
-   },
-   {
-    "quote": "There's so much 'noise' with user added values it's really difficult to actually find the food with the right nutritional value",
-    "rating": 3,
-    "app": "MyFitnessPal"
-   },
-   {
-    "quote": "The app needs a \"thumbs up\" button for correct entries, so we'd know which to pick at a glance",
+    "quote": "For a company that’s been around for decades you would think they would invest in a good app since that is the way their members record food intake, water, exercise etc. but on my third day back on the program the app took several minutes to load, doesn’t recognize the user name and password that us",
     "rating": 2,
-    "app": "Calorie Counter by Lose It!"
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "This morning, I’m unable to see my weight, activity sleep, or hydration metrics.  Not an uncommon issue throughout the week various things are buggy.  The program itself is great though.",
+    "rating": 3,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "Love the WW app!!!",
+    "rating": 5,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "Only problem is i cannot be in diabetic program and glp program at the same time as i could in old app! Please fix that glitch",
+    "rating": 4,
+    "app": "WeightWatchers Program"
    }
   ],
   "mechanisms": [
    {
-    "title": "Люди за пределами США логируют домашнюю еду вручную каждый раз, потому что ни одна глобальная база не знает их продуктов. Каждый ввод это создание нового продук",
-    "obsCount": 7,
+    "title": "Диетологи сейчас используют MyFitnessPal как клиентский трекер, хотя он не предназначен для профессиональной работы: нет мультиклиентского дашборда, нет шаблоно",
+    "obsCount": 6,
     "apps": [
-     "MyFitnessPal",
-     "Cronometer",
-     "Foodvisor",
-     "Calorie Counter - MyNetDiary"
+     "Healthify: AI Calorie Tracker",
+     "Calorie Counter PRO MyNetDiary",
+     "Cronometer: Calorie Counter",
+     "Noom Weight Loss, Food Tracker"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Люди за пределами США логируют домашнюю еду вручную каждый раз, потому что ни одна глобальная база не знает их продуктов. Каждый ввод это создание нового продукта с нуля и перевод из граммов в «чашки» и обратно",
+  "gap": "Диетологи сейчас используют MyFitnessPal как клиентский трекер, хотя он не предназначен для профессиональной работы: нет мультиклиентского дашборда, нет шаблонов рационов, нет отчётов в медицинском формате.",
   "idea": {
-   "pitch": "Ни MyFitnessPal, ни Cronometer не инвестируют в базы для Индии или Ближнего Востока экономика глобальной базы против локальной всегда проигрывает. Продукт берёт один рынок, строит базу с нуля с правильными граммовыми мерами и локальными блюдами, и становится дефолтным трекером для аудитории, которую глобальные игроки тихо игнорируют.",
+   "pitch": "Нутрициологи и диетологи в клиниках платят за CRM, за облако документов и за трекер отдельно, а всё равно получают данные клиентов в мессенджерах. Продукт объединяет составление недельного рациона под конкретный диагноз, мониторинг выполнения клиентом, автоматические лабораторные показатели и коммуникацию в защищённом канале. Дополнительно встроен шаблонный банк рационов под распространённые протоколы (почечная диета, диета при гипертиреозе, онкологическое питание). Клиники и частные практики уже платят за Healthie и Cronometer Pro, но первый слишком дорогой для одиночных практиков, второй не заточен под профессиональный документооборот.",
    "features": [
-    "верифицированная база локальных продуктов и блюд с граммовым учётом",
-    "штрихкод, покрывающий местные торговые марки",
-    "стандартные меры конкретного рынка (кати, тавок, горсть с числовыми эквивалентами)",
-    "быстрое логирование домашней еды через список избранных без поиска",
-    "неделя с понедельника, часовой пояс и язык интерфейса по умолчанию под рынок"
+    "Дашборд на 50-200 клиентов с видом прогресса за неделю по ключевым нутриентам",
+    "Конструктор рационов с базой из 900 тысяч продуктов и шаблонами под медицинские протоколы",
+    "Автоматические отчёты для врача в PDF по нутриентам, весу и соблюдению плана",
+    "Защищённый чат диетолог-клиент с возможностью отправить фото блюда на проверку",
+    "Интеграция с Apple Health и Garmin для автоматической передачи данных от клиента"
    ],
    "antiFeatures": [
-    "попытка охватить все рынки сразу",
-    "умный фотолог как основной путь ввода для домашних блюд",
-    "советы по питанию по западным стандартам"
+    "Нет публичного маркетплейса диетологов, продукт только для уже работающих практиков",
+    "Нет ИИ-рекомендаций вместо диетолога, инструмент усиливает специалиста, а не заменяет его",
+    "Нет социальных функций для клиентов, конфиденциальность медицинских данных важнее"
    ],
-   "monetization": "подписка за расширенный учёт микронутриентов и экспорт, b2b-продажа корпоративным программам здоровья на локальном рынке, белый лейбл для местных страховых компаний"
+   "monetization": "Тарифы от $49/мес для одиночного практика до $299/мес для клиники на 10 специалистов. Клиент платит ноль: всё закрывает практик. Аналог Healthie стоит $150-400/мес, есть ценовой зазор для позиционирования."
   }
  },
  {
   "slug": "nutrition-calories-5",
   "category": "nutrition-calories",
   "categoryName": "Калории и питание",
-  "title": "Трекер питания при расстройствах пищевого поведения (в ремиссии)",
-  "oneLiner": "Дневник питания без оценок и светофоров для людей в ремиссии после расстройства пищевого поведения, которым нужен учёт без триггеров",
-  "asOf": "2026-06-20",
+  "title": "Трекер макросов для спортсменов силовых видов на протоколах RP и периодизации",
+  "oneLiner": "Серьёзный трекер макросов с адаптацией под фазы набора и сушки, учётом тренировочного объёма и поддержкой протоколов Renaissance Periodization.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 293
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
   },
   "reviewGrid": [
    {
-    "quote": "The advice from a mascot to change foods I like to something healthier sends me straight to my ed days.",
-    "rating": 1,
-    "app": "Yazio"
+    "quote": "I've been using this since before it became an app and was only a template. The app just makes it a thousand times easier. I've used the RP diet Coach & Planner for years of competitive sports including powerlifting, weightlifting, strongman and jiujitsu. It's helped me make weight for cuts as well ",
+    "rating": 5,
+    "app": "RP Diet Coach & Planner"
    },
    {
-    "quote": "the nuts get a \"careful\" amber rating and a warning to eat less of them. A meal of only grapes would get a green smile",
-    "rating": 1,
-    "app": "Foodvisor"
-   },
-   {
-    "quote": "It attaches colours for good or bad food inconsistently, so the same product can be listed as green and as orange",
-    "rating": 1,
-    "app": "Foodvisor"
-   },
-   {
-    "quote": "Forced Gamification, it's got a really patronizing, non skippable streak and hint pages. A calorie tracker has to be frictionless, not annoy the user in an attempt to increase engagement",
-    "rating": 1,
-    "app": "Yazio"
-   },
-   {
-    "quote": "but daily streaks, AI recommendations, diamonds? I just want to log my food and close the app, not navigate a Mini-Game",
-    "rating": 2,
-    "app": "Yazio"
-   },
-   {
-    "quote": "I just want to track calories and not participate in this interrogation",
-    "rating": 1,
-    "app": "Foodvisor"
-   },
-   {
-    "quote": "Please make all animations and Seed features optional, I think most of your users find it annoying",
+    "quote": "Until it decreases your calories to an unrealistic count. I'm now at 1358 calories a day for 5-11 40 year old with my settings at the slowest. The response for customer service is either slow, non existent or cut and paste",
     "rating": 3,
-    "app": "Foodvisor"
+    "app": "MacroFactor - Macro Tracker"
+   },
+   {
+    "quote": "I’ve had success using the fundamentals of RP but the app has gotten so complicated it’s not worth the headache any longer. Checking in meals, redistributing macros for the day (and saving that setting for the length of the diet), realistic redistribution (ie don’t tell me to eat 300g of red meat to",
+    "rating": 1,
+    "app": "RP Diet Coach & Planner"
+   },
+   {
+    "quote": "Don’t sign up for this unless you want to commit to it for a year! I tried it for two months and it wasn’t working for me and I cancelled the membership and they kept charging my account! I spoke with customer service and they told me I’m in a contract with them until the end of January 2027! And th",
+    "rating": 1,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "Why make it easy to track your food when you can make it hard and complex? Let's hide all the most important features and make it really difficult to do the most basic things. After all, if people give up and quit WW, maybe we can all get fired and get better jobs!",
+    "rating": 2,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "The first time my husband and I joined Weight Watchers was in 1968. I still remember having to eat liver once a week!😄 Since then we have had different WW leaders. By far one of the very best has been, Julie Strauss in Foster City, Ca.  Even though the environment changed from a great WW center to ",
+    "rating": 3,
+    "app": "WeightWatchers Program"
    }
   ],
   "mechanisms": [
    {
-    "title": "Людям, которые восстанавливаются после анорексии или булимии, часто рекомендуют вести дневник питания. Но все трекеры подсвечивают «плохую еду» красным, показыв",
-    "obsCount": 7,
+    "title": "RP Diet Coach сломал интерфейс после редизайна и потерял лояльных пользователей. MacroFactor режет калории без объяснений и игнорирует женскую физиологию. Серьё",
+    "obsCount": 6,
     "apps": [
-     "Yazio",
-     "Foodvisor",
-     "Noom"
+     "RP Diet Coach & Planner",
+     "MacroFactor - Macro Tracker",
+     "Carbon - Macro Coach & Tracker",
+     "MacrosFirst - Macro Tracker"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Людям, которые восстанавливаются после анорексии или булимии, часто рекомендуют вести дневник питания. Но все трекеры подсвечивают «плохую еду» красным, показывают грустные смайлики за превышение нормы и дают советы от маскота это прямые триггеры, от которых человек уходит или срывается",
+  "gap": "RP Diet Coach сломал интерфейс после редизайна и потерял лояльных пользователей. MacroFactor режет калории без объяснений и игнорирует женскую физиологию. Серьёзные атлеты платят $80-100 в год, но инструменты их подводят именно в момент соревновательной подготовки.",
   "idea": {
-   "pitch": "Психологи и диетологи, работающие с расстройствами пищевого поведения, рекомендуют структурированный дневник питания как часть восстановления, но ни одно приложение не подходит для этой задачи. Продукт убирает всё, что оценивает и стыдит, оставляет только честный учёт и передаёт данные специалисту в стандартном формате. Деньги идут от специалистов, а не от и без того уязвимых пользователей.",
+   "pitch": "Бодибилдеры, пауэрлифтеры и кроссфитеры уже платят за питание: они нанимают нутрициологов, покупают протоколы RP, оформляют подписки на MacroFactor. Они не ищут дешевизны, они ищут точность. Продукт строится вокруг трёх вещей: адаптация целей под фазу цикла (набор, поддержание, сушка), учёт макроса вокруг тренировки (до/после) и прозрачный алгоритм который объясняет каждое изменение нормы. Атлет видит, почему калории снизились на 50, а не просто получает новое число.",
    "features": [
-    "нейтральный лог без оценок, цветов и смайликов",
-    "возможность логировать регулярность приёмов пищи, а не только нутриенты",
-    "кабинет специалиста с еженедельным отчётом по структуре питания",
-    "отсутствие push-уведомлений типа «ты не ел уже 4 часа»",
-    "режим только для специалиста клиент видит log, но не видит итоговых цифр, если так назначено"
+    "Фазовый план: разные макропроцели на неделю набора, поддержки и сушки в одном цикле",
+    "Перитренировочное питание: отдельный учёт за 2 часа до и после тренировки с логикой глюкозы и белка",
+    "Адаптация нормы на основе реального веса с объяснением каждого изменения",
+    "Импорт тренировочного объёма из Hevy, Strong и других трекеров для корректировки TDEE",
+    "Учёт женского цикла: разные нормы в лютеиновую и фолликулярную фазы"
    ],
    "antiFeatures": [
-    "светофор «хорошая/плохая еда»",
-    "стрики и давление «не прерви серию»",
-    "советы по правильному питанию и рекомендации заменить блюдо"
+    "Нет фотораспознавания блюд, атлеты взвешивают еду и не нуждаются в нём",
+    "Нет встроенных рецептов и планов питания, только трекинг",
+    "Нет бесплатного уровня: аудитория готова платить с первого дня, бесплатник размывает позицию"
    ],
-   "monetization": "специалисты (психологи, диетологи, реабилитационные центры) платят за кабинет с доступом к дневникам, клиники платят корпоративно за весь поток пациентов"
+   "monetization": "Подписка $15/мес или $120/год. Потолок цены выше среднего по рынку обоснован серьёзной аудиторией: пользователи RP платят $100/год за сломанный продукт, у нас есть пространство для цены $120 при работающем."
   }
  },
  {
   "slug": "nutrition-calories-6",
   "category": "nutrition-calories",
   "categoryName": "Калории и питание",
-  "title": "Питание при менопаузе и гормональных изменениях",
-  "oneLiner": "Трекер питания и замеров для женщин в период менопаузы, где учёт микронутриентов, нужных при гормональных изменениях, встроен в базовый поток",
-  "asOf": "2026-06-20",
+  "title": "Сканер состава продуктов без мошеннических оценок для сознательных покупателей",
+  "oneLiner": "Штрихкод-сканер, который честно оценивает состав продукта по дозировке каждого ингредиента, а не просто флагует наличие «плохих» компонентов.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 293
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
   },
   "reviewGrid": [
    {
-    "quote": "I've been tracking macros for over 20 years. this is the best app and dials into micronutrients which helps manage menopause.",
-    "rating": 5,
-    "app": "Cronometer"
-   },
-   {
-    "quote": "I love that I can track my calories and weight along with my body fat %, my measurements, etc",
-    "rating": 5,
-    "app": "Calorie Counter by Lose It!"
-   },
-   {
-    "quote": "And watching my carb, calorie, and prrotien intake has gotten me from an A1C of 13 to an A1C of 4.5.",
-    "rating": 5,
-    "app": "Cronometer"
-   },
-   {
-    "quote": "The free features remind me of what My Fitness Pal used to be before they got greedy.",
-    "rating": 5,
-    "app": "Cronometer"
-   },
-   {
-    "quote": "Is it healthy for an adult to set a goal of 1198 kcal? This app set that goal for me and I find it quite dangerous",
-    "rating": 2,
-    "app": "Lifesum"
-   },
-   {
-    "quote": "you need to eat 2400 calories to lose weight. this is the fda recommendation. that is a failure of epic proportions",
-    "rating": 1,
-    "app": "Calorie Counter by Lose It!"
-   },
-   {
-    "quote": "this app gives a much higher calorie goal than others. if I didn't question it I definitely would not be losing any weight",
+    "quote": "How is Starbucks an \"A\" item? Makes me wonder how accurate the other items are that I'm logging.",
     "rating": 3,
-    "app": "Foodvisor"
+    "app": "Eato®: Calorie Tracker"
+   },
+   {
+    "quote": "I love the app and how easy it is to find things",
+    "rating": 5,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "I joined  WW in 2018 and lost over 100 pounds . Using the app it has helped with cooking, tracking, encouraging me. Gave me the tools I needed to change behaviours , attitudes, that have improved my self image. The app went with me where my leader could not go. I have learned so much along the way.",
+    "rating": 4,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "Yes, I have to go back and recreate the food. However, the typo is still there u dear the old entry. Why this option was removed I’ll never know.",
+    "rating": 1,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "Not as easy as it was to track. I feel like I have to jump through hoops to track now. Love WW",
+    "rating": 3,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "I love the app!",
+    "rating": 5,
+    "app": "WeightWatchers Program"
    }
   ],
   "mechanisms": [
    {
-    "title": "После 45 женщина перестаёт худеть по той же формуле, что работала раньше, и начинает следить за кальцием, магнием, железом и фитоэстрогенами. Ни один трекер не ",
-    "obsCount": 7,
+    "title": "Yuka показывает тысячам людей, что сахар в конце состава так же плох, как сахар в начале. Алгоритм оценивает ингредиенты по факту присутствия, а не по дозировке",
+    "obsCount": 6,
     "apps": [
-     "Cronometer",
-     "Calorie Counter by Lose It!",
-     "Calorie Counter - MyNetDiary"
+     "Yuka - Food & Cosmetic Scanner",
+     "Fooducate: Nutrition Coach",
+     "Smart - Food Score Calculator",
+     "Cronometer: Calorie Counter"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "После 45 женщина перестаёт худеть по той же формуле, что работала раньше, и начинает следить за кальцием, магнием, железом и фитоэстрогенами. Ни один трекер не делает эти нутриенты видимыми на первом экране они спрятаны за тремя кликами или за платным планом",
+  "gap": "Yuka показывает тысячам людей, что сахар в конце состава так же плох, как сахар в начале. Алгоритм оценивает ингредиенты по факту присутствия, а не по дозировке, и выдаёт несравнимые оценки для одинаковых товаров разных брендов.",
   "idea": {
-   "pitch": "Рынок добавок, программ и специалистов для женщин в менопаузе огромный и платящий. Люди в этом возрасте привыкли тратить деньги на здоровье и ищут инструмент, который учитывает их конкретную ситуацию, а не усредняет под 25-летнего человека. Продукт строится вокруг микронутриентов менопаузы, замеров тела и понятных целей и продаётся как специализированный инструмент управления здоровьем, а не просто трекер калорий.",
+   "pitch": "Yuka изменила покупательское поведение миллионов людей и доказала, что аудитория для сканера состава огромна. Но алгоритм Yuka поверхностный, и постоянные пользователи это замечают. Продукт строит оценку на трёх принципах: дозировка важнее наличия, сравнение с категорийным бенчмарком (этот йогурт лучше 78% аналогов), и прозрачное объяснение расчёта. Дополнительно контекстный анализ: если человек отметил, что у него диабет или непереносимость лактозы, рейтинг пересчитывается под его профиль.",
    "features": [
-    "первый экран показывает кальций, магний, железо, витамин d и фитоэстрогены не только кбжу",
-    "дашборд замеров тела: вес, объёмы, процент жира в динамике по месяцам",
-    "база продуктов с сортировкой по содержанию нужных микронутриентов",
-    "возможность фиксировать самочувствие рядом с логом питания (сон, приливы, энергия)",
-    "понятные цели по нутриентам с источниками без страшных медицинских терминов"
+    "Дозировочный алгоритм: ингредиент в 0.1г не весит столько же, сколько в 10г",
+    "Категорийный рейтинг: насколько продукт лучше или хуже среднего в своей группе",
+    "Персональный профиль: учёт аллергий, непереносимостей и медицинских ограничений при оценке",
+    "Прозрачное объяснение: почему продукт получил ту или иную оценку в одном предложении",
+    "Альтернативы в той же категории с более высоким баллом из того же магазина"
    ],
    "antiFeatures": [
-    "геймификация и стрики",
-    "автоматические советы по питанию от алгоритма вместо специалиста",
-    "акцент на похудении как единственной цели"
+    "Нет пользовательской базы данных без модерации, только верифицированные данные от производителей",
+    "Нет косметической базы, только продукты питания",
+    "Нет трекера потребления и дневника: только справочник для принятия решения в магазине"
    ],
-   "monetization": "женщины 45+ уже платят за добавки, анализы и консультации подписка 400-600 руб. в месяц воспринимается как часть заботы о здоровье, партнёрство с брендами кальция и магния как нативная интеграция"
+   "monetization": "Freemium: бесплатно 20 сканирований в месяц, подписка $5/мес или $36/год за неограниченный доступ и персональный профиль. Дополнительно B2B API для розничных сетей, которые хотят интегрировать оценку состава в свои приложения."
   }
  },
  {
   "slug": "nutrition-calories-7",
   "category": "nutrition-calories",
   "categoryName": "Калории и питание",
-  "title": "Корпоративная программа питания для работодателей",
-  "oneLiner": "Платформа для корпоративных программ здоровья, где hr-отдел видит агрегированную статистику питания сотрудников, а каждый сотрудник ведёт личный анонимный дневник",
-  "asOf": "2026-06-20",
+  "title": "Питание для людей на GLP-1 и Ozempic: отдельный класс трекинга",
+  "oneLiner": "Трекер питания под специфику GLP-1 терапии: маленькие порции, высокий белок, контроль потери мышц и минимальная тошнота от еды.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 293
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
   },
   "reviewGrid": [
    {
-    "quote": "It's made tracking just a way of life. It's fast and convenient",
-    "rating": 5,
-    "app": "Calorie Counter by Lose It!"
+    "quote": "Only problem is i cannot be in diabetic program and glp program at the same time as i could in old app! Please fix that glitch",
+    "rating": 4,
+    "app": "WeightWatchers Program"
    },
    {
-    "quote": "just the act of logging everything you eat or drink (and you have to be honest) and you will start seeing the scales go down",
-    "rating": 5,
-    "app": "Calorie Counter by Lose It!"
+    "quote": "Until it decreases your calories to an unrealistic count. I'm now at 1358 calories a day for 5-11 40 year old with my settings at the slowest. The response for customer service is either slow, non existent or cut and paste",
+    "rating": 3,
+    "app": "MacroFactor - Macro Tracker"
    },
    {
-    "quote": "Other apps want you to pay to use the barcode scanner or create custom foods, not Carb Manager",
+    "quote": "Love this app and the science behind it. Carbon keeps me focused on my goals and I appreciate the updates.",
     "rating": 5,
-    "app": "Carb Manager"
+    "app": "Carbon - Macro Coach & Tracker"
    },
    {
-    "quote": "I switched from MyFitnessPal after 12 years because they put too many of the features I use everyday behind a paywall",
-    "rating": 5,
-    "app": "Calorie Counter - MyNetDiary"
-   },
-   {
-    "quote": "deleted ten years of my calorie data. I'll never use it again",
+    "quote": "Initially, loved the app. Easy to use and felt the macros were appropriate, signed up to use for 6 months to help get me back on track. After two check ins, it took me down to 900 calories as a female who strength trains 3 times/week and is active daily with steps as a hospital worker. Wish I could ",
     "rating": 2,
-    "app": "Calorie Counter by Lose It!"
+    "app": "Carbon - Macro Coach & Tracker"
    },
    {
-    "quote": "after it lost my data, you lost me",
-    "rating": 1,
-    "app": "Calorie Counter by Lose It!"
+    "quote": "Good Ap! This app has helped me lose over 30 pounds while also keeping me informed of my calorie intake and my nutritional intake as well.  It's easy, helpful and pleasant to use.",
+    "rating": 5,
+    "app": "Calorie Counter PRO MyNetDiary"
    },
    {
-    "quote": "Before you can use the app, you have to answer 50 stupid questions. They even ask, how many kids you have. This is definitely not relevant for counting calories!!!",
-    "rating": 1,
-    "app": "Yazio"
+    "quote": "There are frequent changes to the app and keeping up with these updates can be frustrating!",
+    "rating": 4,
+    "app": "WeightWatchers Program"
    }
   ],
   "mechanisms": [
    {
-    "title": "Корпоративные программы здоровья сводятся к лекциям раз в квартал и скидке на зал. Работодатель платит за программу, но не знает, работает ли она. Инструмента, ",
-    "obsCount": 7,
+    "title": "Люди на Ozempic/Wegovy едят в 2-3 раза меньше, но обычные трекеры кричат «ешь больше» и рассчитывают нормы для здоровых. Никто не строил продукт специально под ",
+    "obsCount": 6,
     "apps": [
-     "Calorie Counter by Lose It!",
-     "Cronometer",
-     "Calorie Counter - MyNetDiary",
-     "Carb Manager"
+     "Calorie Counter PRO MyNetDiary",
+     "MacroFactor - Macro Tracker",
+     "Carbon - Macro Coach & Tracker",
+     "Noom Weight Loss, Food Tracker"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Корпоративные программы здоровья сводятся к лекциям раз в квартал и скидке на зал. Работодатель платит за программу, но не знает, работает ли она. Инструмента, который даёт анонимную агрегированную картину питания коллектива без нарушения приватности каждого, не существует",
+  "gap": "Люди на Ozempic/Wegovy едят в 2-3 раза меньше, но обычные трекеры кричат «ешь больше» и рассчитывают нормы для здоровых. Никто не строил продукт специально под физиологию GLP-1 пациента.",
   "idea": {
-   "pitch": "Крупные работодатели уже тратят бюджеты на корпоративное здоровье дмс, зал, психологическая поддержка. Добавить трекер питания как инструмент с измеримым результатом проще, чем запустить новую программу с нуля. Hr-менеджер видит агрегат по отделам без доступа к данным конкретного человека, а это делает программу приемлемой для сотрудников. Контракт подписывается один раз на год на всю компанию.",
+   "pitch": "В США уже 6 млн человек принимают GLP-1 препараты, и рынок растёт на 40% в год. Эти люди платят $800-1200 в месяц за укол и хотят максимальный результат. Их главная проблема потеря мышц при очень маленьких порциях: нужно получить 100-120г белка из 800-1000 ккал в день, что требует очень точного планирования. Стандартные трекеры не знают, что у человека подавлен аппетит, не дают протоколы маленьких белковых порций и не отслеживают ключевые показатели для GLP-1: мышечную массу, гидратацию, тошноту. Продукт идёт к лечащим врачам и телемедицинским платформам через B2B.",
    "features": [
-    "простое приложение для сотрудника штрихкод, поиск, быстрое логирование",
-    "анонимная агрегированная статистика для hr: доля сотрудников, попадающих в коридор белка и клетчатки",
-    "корпоративные задачи на неделю пить воду, добавить овощи без оценок",
-    "отчёт для hr раз в квартал: динамика средних показателей по отделам",
-    "без рекламы, без продажи данных сотрудников третьим лицам это часть контракта"
+    "Расчёт нормы белка под GLP-1 цель с учётом реального потребления калорий",
+    "Библиотека высокобелковых порций от 150 до 250 ккал с максимальным белком",
+    "Дневник симптомов тошноты, рвоты и уровня аппетита с привязкой к еде",
+    "Еженедельный отчёт для врача: вес, мышечная масса (из умных весов), белок, гидратация",
+    "Напоминания с адаптацией под реальное окно аппетита пользователя, а не по расписанию"
    ],
    "antiFeatures": [
-    "индивидуальные рейтинги и сравнение сотрудников между собой",
-    "доступ hr к личным данным конкретного человека",
-    "геймификация с публичными таблицами лидеров"
+    "Нет универсального трекера калорий для широкой аудитории, продукт только для GLP-1 пациентов",
+    "Нет рекомендаций по препарату, только питание",
+    "Нет социального сравнения с другими пользователями: прогресс личный и медицинский"
    ],
-   "monetization": "работодатель платит по числу сотрудников (100-200 руб. в месяц на человека по годовому контракту), hr-платформы покупают как white-label модуль для своих корпоративных порталов"
+   "monetization": "Прямая подписка $15/мес. Дополнительно лицензионная интеграция с телемедицинскими платформами типа Hims/Hers и Noom за фиксированный fee на пользователя. Рынок: 6 млн пациентов в США, из которых 1-2 млн готовы платить за специализированный инструмент."
+  }
+ },
+ {
+  "slug": "nutrition-calories-8",
+  "category": "nutrition-calories",
+  "categoryName": "Калории и питание",
+  "title": "Осознанное питание без подсчёта калорий для восстановления нормального отношения к еде",
+  "oneLiner": "Фотодневник еды без цифр для людей, которым жёсткий подсчёт калорий причиняет тревогу или поддерживает расстроенное пищевое поведение.",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 95,
+   "reviews": 29286,
+   "observations": 389
+  },
+  "reviewGrid": [
+   {
+    "quote": "I’ve been using this app for years. I cannot live without it. I have used it in so many different ways. It’s so versatile. The app is updated and continuously gets better all the time. It’s worth every penny.",
+    "rating": 5,
+    "app": "AteMate Food Journal (Ate)"
+   },
+   {
+    "quote": "Very cute, positive, easy to use. I would appreciate if I could add photos for drinks, movement, etc. instead of just food. I would also appreciate an option to track my period with it (my goal is to understand my eating patterns and hormones play a roll in that).",
+    "rating": 3,
+    "app": "AteMate Food Journal (Ate)"
+   },
+   {
+    "quote": "Мне необходимо поставить делаемый вес ниже нормы (я гимнастка); но ваше предложение не даёт это сделать",
+    "rating": 3,
+    "app": "AI Calorie Tracker by Yazio"
+   },
+   {
+    "quote": "I used to love this app. The last time I used it, I lost 60 pounds because it made tracking food quick, simple, and effective.\n\nUnfortunately, the changes have made it much harder to use. The barcode scanner barely works, and finding the correct food often takes so long that I end up giving up altog",
+    "rating": 1,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "The most recent review (6/22/26) has a significant bug. It will no longer display weight loss only three dots. The app needs to be revised.",
+    "rating": 3,
+    "app": "WeightWatchers Program"
+   },
+   {
+    "quote": "The app is like a checkbook I always see my balance see when I’m overdrawn and gives me a chance to correct the imbalance",
+    "rating": 5,
+    "app": "WeightWatchers Program"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "AteMate ближе всего к этой нише, но ИИ-оценка блюда нагнетает тревогу ошибочными вердиктами («эта фасоль бедна нутриентами»), а продукт стоит $10 в месяц без ощ",
+    "obsCount": 6,
+    "apps": [
+     "AteMate Food Journal (Ate)",
+     "Food Diary See How You Eat Log",
+     "ZOE Health: AI Meal Tracker",
+     "mySymptoms Food Diary"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "AteMate ближе всего к этой нише, но ИИ-оценка блюда нагнетает тревогу ошибочными вердиктами («эта фасоль бедна нутриентами»), а продукт стоит $10 в месяц без ощутимой ценности. Людям в восстановлении от ОКР вокруг еды нужен инструмент без числовых оценок.",
+  "idea": {
+   "pitch": "Около 30 млн человек в США имеют расстройства пищевого поведения, и всё больше специалистов в области психического здоровья ищут инструмент для мониторинга клиентов без триггерной калорийной нагрузки. AteMate движется в этом направлении, но его ИИ-вердикт «не хватает нутриентов» прямо противоположен терапевтическому подходу. Продукт фокусируется на осознанности: фото, настроение до и после еды, голод по шкале, контекст приёма пищи, без единой цифры калорий. Психотерапевты и клиники расстройств пищевого поведения могут подключить своих пациентов как B2B клиенты.",
+   "features": [
+    "Фотодневник приёмов пищи без калорий, макросов и числовых оценок",
+    "Шкала голода до и после еды, настроение, скорость еды, одиночество или компания",
+    "Паттерн-анализ для терапевта: когда клиент ест при стрессе, что чаще пропускает",
+    "Безопасные напоминания: не «не забудь залогировать», а «как ты сейчас?»",
+    "Профессиональный модуль для терапевтов и диетологов, работающих с РПП"
+   ],
+   "antiFeatures": [
+    "Нет никаких числовых оценок блюда, ни калорий, ни баллов здоровья, ни ИИ-вердикта",
+    "Нет публичной ленты и возможности сравнивать свой рацион с другими",
+    "Нет поиска по базе продуктов и штрихкод-сканера"
+   ],
+   "monetization": "Пользователи платят $8/мес или $60/год. Терапевты и клинические диетологи, работающие с РПП, платят $79/мес за профессиональный дашборд на своих пациентов. Первичный рост через рекомендации специалистов."
   }
  },
  {

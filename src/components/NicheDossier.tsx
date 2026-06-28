@@ -24,6 +24,7 @@ import rPeriod from "@/data/peoplesRating/period-cycle.json";
 import rHabit from "@/data/peoplesRating/habit-tracking.json";
 import rFinance from "@/data/peoplesRating/personal-finance.json";
 import rCalendars from "@/data/peoplesRating/calendars-tasks.json";
+import rNutrition from "@/data/peoplesRating/nutrition-calories.json";
 
 import dAstrology from "@/data/dossier/astrology.json";
 import dDating from "@/data/dossier/dating-apps.json";
@@ -36,6 +37,7 @@ import dPeriod from "@/data/dossier/period-cycle.json";
 import dHabit from "@/data/dossier/habit-tracking.json";
 import dFinance from "@/data/dossier/personal-finance.json";
 import dCalendars from "@/data/dossier/calendars-tasks.json";
+import dNutrition from "@/data/dossier/nutrition-calories.json";
 
 // The unified niche dossier: market overview, audience, honest rating (sentiment
 // vs store), breakdown by thesis pillars, and idea cards. Server component,
@@ -54,13 +56,13 @@ const RATING: Record<string, RatingFile> = {
   astrology: rAstrology as RatingFile, "dating-apps": rDating as RatingFile, "ai-avatars-headshots": rAiPhoto as RatingFile,
   "meditation-mindfulness": rMeditation as RatingFile, "photo-editing": rPhoto as RatingFile, "notes-pkm": rNotes as RatingFile,
   "language-learning": rLanguage as RatingFile, "period-cycle": rPeriod as RatingFile, "habit-tracking": rHabit as RatingFile,
-  "personal-finance": rFinance as RatingFile, "calendars-tasks": rCalendars as RatingFile,
+  "personal-finance": rFinance as RatingFile, "calendars-tasks": rCalendars as RatingFile, "nutrition-calories": rNutrition as RatingFile,
 };
 const DOSSIER: Record<string, Dossier> = {
   astrology: dAstrology as Dossier, "dating-apps": dDating as Dossier, "ai-avatars-headshots": dAiPhoto as Dossier,
   "meditation-mindfulness": dMeditation as Dossier, "photo-editing": dPhoto as Dossier, "notes-pkm": dNotes as Dossier,
   "language-learning": dLanguage as Dossier, "period-cycle": dPeriod as Dossier, "habit-tracking": dHabit as Dossier,
-  "personal-finance": dFinance as Dossier, "calendars-tasks": dCalendars as Dossier,
+  "personal-finance": dFinance as Dossier, "calendars-tasks": dCalendars as Dossier, "nutrition-calories": dNutrition as Dossier,
 };
 
 const NF = (n: number) => n.toLocaleString("ru-RU");
