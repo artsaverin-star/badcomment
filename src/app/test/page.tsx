@@ -7,6 +7,7 @@ import rating from "@/data/peoplesRating/astrology.json";
 import thesisAll from "@/data/niche-thesis.json";
 import cardsAll from "@/data/segment-cards.json";
 import ideasAll from "@/data/ideas.json";
+import audience from "@/data/test-audience.json";
 
 export const dynamic = "force-dynamic";
 
@@ -29,6 +30,7 @@ type RApp = (typeof rating.apps)[number];
 type Finding = { title: string; plus?: string; minus?: string; count?: number; apps?: string[]; evidence?: { app: string; rating: number; quote: string }[] };
 type Pillar = { title: string; dek: string; match: string[] };
 type Idea = { slug: string; category: string; title: string; oneLiner: string; gap?: string; idea?: { pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string }; reviewGrid?: { quote: string; rating: number; app: string }[] };
+type Aud = { segments: { name: string; job: string; payLevel: string; payNote: string; servedBy: string[]; gap: string }[]; takeaway: string };
 
 // route each finding under the best-matching pillar (title weighted 2×) — same
 // logic as the live /segment page.
@@ -51,6 +53,7 @@ export default function TestDossier() {
   const thesis = (thesisAll as unknown as Record<string, { governing: string; competitorRead: string; pillars: Pillar[] }>)[SLUG];
   const cards = ((cardsAll as unknown as Record<string, { product?: Finding[] }>)[SLUG]?.product ?? []).slice().sort((a, b) => (b.count || 0) - (a.count || 0));
   const ideas = (ideasAll as unknown as Idea[]).filter((x) => x.category === SLUG);
+  const aud = audience as Aud;
   const grouped = groupFindings(thesis.pillars, cards);
 
   const totalRatings = apps.reduce((s, a) => s + (a.ratings || 0), 0);
@@ -105,6 +108,35 @@ export default function TestDossier() {
           <MarketRow k="Доверие" v={`${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}`} />
         </dl>
         <p className="mt-8 max-w-[64ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead)}</p>
+      </Block>
+
+      {/* ACT — AUDIENCE */}
+      <Block title="Аудитория" lead="«Астрология» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.">
+        <div className="mt-6 flex flex-col gap-3">
+          {aud.segments.map((s, i) => {
+            const weak = s.payLevel.includes("слабо");
+            const c = weak ? "#ff6961" : "#30d158";
+            return (
+              <div key={i} className="rounded-[16px] border border-[var(--color-border-subtle)] p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-[18px] font-semibold leading-[1.25] text-[var(--color-text-primary)]">{s.name}</h3>
+                  <span className="mt-0.5 inline-flex shrink-0 items-center gap-1.5 text-[12px] font-medium" style={{ color: c }}>
+                    <span className="size-1.5 rounded-full" style={{ background: c }} />{s.payLevel}
+                  </span>
+                </div>
+                <p className="mt-2 text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{tg(s.job)}</p>
+                <p className="mt-2 text-[14px] leading-[1.55] text-[var(--color-text-tertiary)]">{tg(s.payNote)}</p>
+                <div className="mt-3.5 border-t border-[var(--color-border-subtle)] pt-3.5 text-[14px] leading-[1.55]">
+                  <p><span className="font-medium text-[var(--color-text-primary)]">Дыра. </span><span className="text-[var(--color-text-secondary)]">{tg(s.gap)}</span></p>
+                  <p className="mt-2 text-[13px] text-[var(--color-text-tertiary)]">Сейчас обслуживают: {s.servedBy.join(", ")}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <p className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">
+          <span className="font-semibold text-[var(--color-text-primary)]">Где деньги. </span>{tg(aud.takeaway)}
+        </p>
       </Block>
 
       {/* ACT — HONEST RATING */}
