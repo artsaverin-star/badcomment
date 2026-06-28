@@ -26,6 +26,21 @@ const GLYPHS: Record<string, React.ReactNode> = {
   star: <path d="M12 3l2.6 6.1L21 9.6l-5 4.2 1.6 6.6L12 16.9 6.4 20.4 8 13.8l-5-4.2 6.4-.5L12 3z" />,
 };
 
+const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+
+function PayPill({ level }: { level: string }) {
+  const weak = level.includes("слабо");
+  const color = weak ? "#ff6961" : "#30d158";
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[12px] font-medium" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        {weak ? <path d="M6 2.5v7M3 6.5l3 3 3-3" /> : <path d="M6 9.5v-7M3 5.5l3-3 3 3" />}
+      </svg>
+      {cap(level)}
+    </span>
+  );
+}
+
 function Icon({ name, className }: { name: string; className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={className}>
@@ -80,24 +95,21 @@ export function PersonaCards({ segments }: { segments: Persona[] }) {
   return (
     <>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-        {segments.map((s, i) => {
-          const c = s.payLevel.includes("слабо") ? "#ff6961" : "#30d158";
-          return (
-            <CardFace
-              key={i}
-              icon={PERSONA_ICONS[i % PERSONA_ICONS.length]}
-              title={s.name}
-              desc={s.job}
-              onClick={() => setOpen(s)}
-              footer={<span className="inline-flex items-center gap-1.5 text-[11.5px] font-medium" style={{ color: c }}><span className="size-1.5 rounded-full" style={{ background: c }} />{s.payLevel}</span>}
-            />
-          );
-        })}
+        {segments.map((s, i) => (
+          <CardFace
+            key={i}
+            icon={PERSONA_ICONS[i % PERSONA_ICONS.length]}
+            title={s.name}
+            desc={s.job}
+            onClick={() => setOpen(s)}
+            footer={<PayPill level={s.payLevel} />}
+          />
+        ))}
       </div>
       {open && (
         <Modal onClose={() => setOpen(null)}>
           <h3 className="text-[22px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{open.name}</h3>
-          <span className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-medium" style={{ color: open.payLevel.includes("слабо") ? "#ff6961" : "#30d158" }}><span className="size-1.5 rounded-full" style={{ background: open.payLevel.includes("слабо") ? "#ff6961" : "#30d158" }} />{open.payLevel}</span>
+          <div className="mt-2.5"><PayPill level={open.payLevel} /></div>
           <p className="mt-3 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{open.job}</p>
           <Sec k="Сколько платит">{open.payNote}</Sec>
           <Sec k="Чего не хватает">{open.gap}</Sec>

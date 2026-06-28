@@ -21,6 +21,15 @@ const AUTH: Record<string, { w: string; c: string }> = {
 };
 
 const NF = (n: number) => n.toLocaleString("ru-RU");
+const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+
+function Pill({ color, children }: { color: string; children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center rounded-full px-2 py-[1.5px] text-[11px] font-medium" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
+      {children}
+    </span>
+  );
+}
 
 export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { apps: RatingApp[]; limit?: number; more?: string; moreHref?: string }) {
   const [mode, setMode] = useState<"sentiment" | "store">("sentiment");
@@ -55,11 +64,11 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
                 <span className="min-w-0 flex-1">
                   <span className="block text-[16px] font-medium leading-[1.3] text-[var(--color-text-primary)]">{a.title}</span>
                   {a.verdict && <span className="mt-1 line-clamp-2 block text-[13px] leading-[1.45] text-[var(--color-text-tertiary)]">{a.verdict}</span>}
-                  <span className="mt-1.5 block text-[12.5px] leading-[1.4] text-[var(--color-text-tertiary)]">
-                    в сторе{" "}
-                    <span className={sentiment ? "" : "font-semibold"} style={{ color: au.c }}>{a.storeAvg?.toFixed(1)}★ {au.w}</span>
-                    {" · "}{NF(a.ratings || 0)} оценок{" · "}
-                    <span className={sentiment ? "font-semibold text-[var(--color-text-primary)]" : ""}>наш балл {a.realScore}/100</span>
+                  <span className="mt-1.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12.5px] leading-[1.4] text-[var(--color-text-tertiary)]">
+                    <span className={sentiment ? "" : "font-semibold text-[var(--color-text-primary)]"}>в сторе {a.storeAvg?.toFixed(1)}★</span>
+                    {au.w && <Pill color={au.c}>{cap(au.w)}</Pill>}
+                    <span>· {NF(a.ratings || 0)} оценок ·</span>
+                    <span className={sentiment ? "font-semibold text-[var(--color-text-primary)]" : ""}>Наш балл {a.realScore}/100</span>
                   </span>
                 </span>
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
