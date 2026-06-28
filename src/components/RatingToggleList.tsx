@@ -97,7 +97,6 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
                     <MetricChip icon="spark" value={`${a.realScore}/100`} label="Наш балл" active={sentiment} />
                   </span>
                 </span>
-                <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </summary>
               <div className="flex flex-col gap-3.5 border-t border-[var(--color-border-subtle)] pb-5 pt-4">
                 <Field k="Сильное" v={a.loved} />

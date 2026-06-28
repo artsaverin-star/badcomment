@@ -151,7 +151,22 @@ export default function Landing({
   // Homepage leads with the niches that have a full dossier (people's rating +
   // breakdown + ideas). Order pinned; rolled out one niche at a time.
   const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks"];
-  const ranked = ULTRA.map((s) => catCards.find((c) => c.slug === s)).filter((c): c is CatCard => !!c);
+  const BLURB: Record<string, string> = {
+    astrology: "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды.",
+    "dating-apps": "100 приложений: где реальные люди, а где боты и накрученные звёзды.",
+    "ai-avatars-headshots": "100 приложений: где результат правда похож на тебя, а где накрутка и обман в рекламе.",
+    "meditation-mindfulness": "100 приложений: где правда успокаивает и тёплый голос, а где пустышка.",
+    "photo-editing": "100 приложений: где инструменты реально работают, а где портят фото и обманка в рекламе.",
+    "notes-pkm": "Приложения для заметок: где мысль пишется мгновенно и не теряется, а где тормозит.",
+    "language-learning": "100 приложений: где правда доводят до речи, а где только стрики и игра.",
+    "period-cycle": "Трекеры цикла: где прогноз точен и данные в безопасности, а где врёт и торгует приватностью.",
+    "habit-tracking": "100 приложений: где отметка мгновенна и напоминание приходит, а где стрик стыдит и бросаешь.",
+    "personal-finance": "100 приложений: где правда видишь и держишь траты под контролем, а где рвётся синхронизация.",
+    "calendars-tasks": "100 приложений: где напоминание приходит вовремя и ничего не теряется, а где молчит.",
+  };
+  const ranked = ULTRA
+    .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: BLURB[s] ?? c.hook } : null; })
+    .filter((c): c is CatCard => !!c);
   const FEATURED = 2;
 
   // Hero salute — app icons flattened from the category cards, shuffled per load,
