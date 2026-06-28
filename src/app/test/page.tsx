@@ -26,6 +26,7 @@ const cleanTitle = (t: string) => {
   const m = t.replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, "");
   return m.charAt(0).toUpperCase() + m.slice(1);
 };
+const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 type RApp = (typeof rating.apps)[number];
 type Finding = { title: string; plus?: string; minus?: string; count?: number; apps?: string[]; evidence?: { app: string; rating: number; quote: string }[] };
 type Pillar = { title: string; dek: string; match: string[] };
@@ -112,25 +113,29 @@ export default function TestDossier() {
 
       {/* ACT — AUDIENCE */}
       <Block title="Аудитория" lead="«Астрология» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.">
-        <div className="mt-6 flex flex-col gap-3">
+        <div className="mt-6 grid grid-cols-2 items-start gap-3">
           {aud.segments.map((s, i) => {
-            const weak = s.payLevel.includes("слабо");
-            const c = weak ? "#ff6961" : "#30d158";
+            const c = s.payLevel.includes("слабо") ? "#ff6961" : "#30d158";
             return (
-              <div key={i} className="rounded-[16px] border border-[var(--color-border-subtle)] p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-[18px] font-semibold leading-[1.25] text-[var(--color-text-primary)]">{s.name}</h3>
-                  <span className="mt-0.5 inline-flex shrink-0 items-center gap-1.5 text-[12px] font-medium" style={{ color: c }}>
-                    <span className="size-1.5 rounded-full" style={{ background: c }} />{s.payLevel}
+              <Disclosure
+                key={i}
+                card
+                head={
+                  <span className="flex min-w-0 flex-1 flex-col gap-1.5">
+                    <span className="text-[15px] font-semibold leading-[1.25] text-[var(--color-text-primary)]">{cap(s.name)}</span>
+                    <span className="inline-flex items-center gap-1.5 text-[12px] font-medium" style={{ color: c }}>
+                      <span className="size-1.5 rounded-full" style={{ background: c }} />{s.payLevel}
+                    </span>
                   </span>
+                }
+              >
+                <div className="flex flex-col gap-3 text-[14px] leading-[1.55]">
+                  <p className="text-[var(--color-text-secondary)]">{tg(cap(s.job))}</p>
+                  <p className="text-[var(--color-text-tertiary)]">{tg(s.payNote)}</p>
+                  <p><span className="font-medium text-[var(--color-text-primary)]">Чего не хватает. </span><span className="text-[var(--color-text-secondary)]">{tg(s.gap)}</span></p>
+                  <p className="text-[13px] text-[var(--color-text-tertiary)]">Сейчас обслуживают: {s.servedBy.join(", ")}</p>
                 </div>
-                <p className="mt-2 text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{tg(s.job)}</p>
-                <p className="mt-2 text-[14px] leading-[1.55] text-[var(--color-text-tertiary)]">{tg(s.payNote)}</p>
-                <div className="mt-3.5 border-t border-[var(--color-border-subtle)] pt-3.5 text-[14px] leading-[1.55]">
-                  <p><span className="font-medium text-[var(--color-text-primary)]">Дыра. </span><span className="text-[var(--color-text-secondary)]">{tg(s.gap)}</span></p>
-                  <p className="mt-2 text-[13px] text-[var(--color-text-tertiary)]">Сейчас обслуживают: {s.servedBy.join(", ")}</p>
-                </div>
-              </div>
+              </Disclosure>
             );
           })}
         </div>
@@ -178,12 +183,11 @@ export default function TestDossier() {
 
       {/* ACT — IDEAS */}
       <Block title="Что строить" lead="Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши.">
-        <div className="mt-6 flex flex-col gap-3">
-          {ideas.map((x, i) => (
+        <div className="mt-6 grid grid-cols-2 items-start gap-3">
+          {ideas.map((x) => (
             <Disclosure
               key={x.slug}
               card
-              defaultOpen={i === 0}
               head={
                 <span className="flex min-w-0 flex-1 flex-col gap-1">
                   <span className="text-[18px] font-semibold leading-[1.25] text-[var(--color-text-primary)]">{cleanTitle(x.title)}</span>
@@ -192,7 +196,7 @@ export default function TestDossier() {
               }
             >
               <div className="flex flex-col gap-4 text-[15px] leading-[1.65]">
-                {x.gap && <Para k="Дыра, которую закрывает" v={x.gap} />}
+                {x.gap && <Para k="Чего не хватает" v={x.gap} />}
                 {x.idea?.pitch && <Para k="Что это" v={x.idea.pitch} />}
                 {!!x.idea?.features?.length && <ListBlock k="Как устроено" items={x.idea.features} mark="·" />}
                 {!!x.idea?.antiFeatures?.length && <ListBlock k="Чего не делаем" items={x.idea.antiFeatures} mark="×" />}
