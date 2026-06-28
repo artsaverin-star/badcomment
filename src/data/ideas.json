@@ -21650,559 +21650,597 @@
  {
   "slug": "video-streaming-1",
   "category": "video-streaming",
-  "categoryName": "Видеостриминг",
-  "title": "Платформа белой метки для владельцев видеоархивов",
-  "oneLiner": "Инструмент для владельцев прав на архивный и нишевый контент: готовый плеер под своим брендом с честной моделью без рекламы и внятной аналитикой удержания",
-  "asOf": "2026-06-20",
+  "categoryName": "Видео и стриминг",
+  "title": "Личный медиасервер для семьи с разграниченными профилями",
+  "oneLiner": "Замена Plex и Infuse для семей, которым нужны отдельные профили, общая библиотека и стабильная синхронизация прогресса между устройствами",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 104
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
   },
   "reviewGrid": [
    {
-    "quote": "Why pay for a subscription if I still have to pay extra to watch the content I want?",
+    "quote": "Yall ah billion dollar company battle paying people but yall show 2 ad minimums. Na.",
     "rating": 1,
-    "app": "Prime Video"
+    "app": "YouTube"
    },
    {
-    "quote": "I was CONNED into paying MORE to go ad-free, only to find out later that there are still SOME ads allowed to play",
-    "rating": 1,
-    "app": "Prime Video"
+    "quote": "Every update leads to more advertisements being squeezed into every possible corner of this app and it’s become significantly less enjoyable to use within the last year. Now there’s AI slop ads popping up when browsing through our own subscriptions page. There’s no reason for ads to be littering the",
+    "rating": 2,
+    "app": "YouTube"
    },
    {
-    "quote": "in general it show that the anime is available in hindi audio but in video player in audio there is no option of hindi at all",
-    "rating": 1,
-    "app": "Crunchyroll"
+    "quote": "Commercials will wake you up they are so loud and long. You will be forced to locate the remote.",
+    "rating": 3,
+    "app": "YouTube"
    },
    {
-    "quote": "after checking that it was supposed to have Hindi audio. To my absolute frustration, after making the payment, the movie is only available in its original Mandarin Chinese language.",
-    "rating": 1,
-    "app": "Netflix"
+    "quote": "Let’s you watch a wide range of videos and has short form videos. Pays video creator’s money. Only bad thing is ads😬!",
+    "rating": 5,
+    "app": "YouTube"
    },
    {
-    "quote": "the offline shows downloaded only work when you have internet. So why would I download to be offline if I need to be online?",
-    "rating": 1,
-    "app": "Disney+"
+    "quote": "Lots of comedy but the only problem is brainrot yt shorts took 1 star off because brainrot",
+    "rating": 4,
+    "app": "YouTube"
    },
    {
-    "quote": "the cancelation of the subscription is broken now because when i go to cancel the subscription it sents me to google play and theres nothing there.",
+    "quote": "Is it normal to have an advertisement every 2 minutes? I watch a 25-minute video, and from 20 minutes to 26, I watched the commercial 4 times, which had two videos. It's just horrible",
     "rating": 1,
-    "app": "Crunchyroll"
-   },
-   {
-    "quote": "12 ads in a 45 minute video, even with PAID membership.. IN THIS ECONOMY? DISRESPECTFUL.",
-    "rating": 1,
-    "app": "Hulu"
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Студии и дистрибьюторы с архивными библиотеками не могут продавать контент напрямую без разработки собственного плеера и биллинга. Они вынуждены отдавать катало",
-    "obsCount": 7,
+    "title": "Plex прячет пользовательскую библиотеку за собственным стримингом, Infuse не поддерживает семейные профили. Владельцы NAS и Jellyfin-серверов хотят единого клие",
+    "obsCount": 6,
     "apps": [
-     "Prime Video",
-     "Crunchyroll",
-     "Paramount Plus",
-     "Peacock TV"
+     "Infuse",
+     "Plex: Find Movies and TV Shows",
+     "JustWatch - Movies & TV Shows"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Студии и дистрибьюторы с архивными библиотеками не могут продавать контент напрямую без разработки собственного плеера и системы оплаты. Они вынуждены отдавать каталог на платформы, которые режут его рекламой и конкурируют за того же зрителя.",
+  "gap": "Plex прячет пользовательскую библиотеку за собственным стримингом, Infuse не поддерживает семейные профили. Владельцы NAS и Jellyfin-серверов хотят единого клиента, который не навязывает чужой контент, разграничивает доступ детей и взрослых и синхронизирует позицию просмотра между Apple TV, iPhone и iPad без сбоев.",
   "idea": {
-   "pitch": "Владелец прав на 500 старых фильмов или нишевых сериалов получает готовый плеер под своим брендом, встроенный биллинг, офлайн-просмотр и панель аналитики. Никаких технических команд и никакой рекламы поверх чужого контента. Сервис берёт фиксированный процент с каждой подписки, студия остаётся на месте и не зависит от алгоритмов крупных платформ.",
+   "pitch": "Платный нативный клиент для домашних медиасерверов (Jellyfin, Plex, SMB, WebDAV) с настоящими семейными профилями: у каждого члена семьи отдельная история просмотра, рекомендации и родительский фильтр. Синхронизация прогресса работает через собственный мини-сервер на NAS, а не через iCloud, что устраняет главную боль Infuse. Монетизация разовая покупка приложения плюс ежегодная подписка на семейный тариф.",
    "features": [
-    "Белая метка плеера: брендирование, домен, мобильные приложения под ключ",
-    "Встроенный биллинг: подписка, разовый прокат, пакеты, промокоды",
-    "Офлайн-просмотр без обязательного интернета при старте",
-    "Аналитика удержания по сериям, сценам и устройствам",
-    "Управление правами по территории и дате истечения лицензии"
+    "До 6 профилей с отдельной историей и позицией просмотра на каждом устройстве",
+    "Родительский контроль по профилю с ограничением по рейтингу и жанрам",
+    "Поддержка Jellyfin, Plex, DLNA, SMB, WebDAV из коробки",
+    "Офлайн-загрузка с истечением срока и видимым таймером",
+    "Аппаратное декодирование remux и редких форматов без лагов на Apple TV"
    ],
    "antiFeatures": [
-    "Никакой рекламы поверх оплаченного контента",
-    "Никакого общего каталога: каждый клиент изолирован",
-    "Никаких алгоритмических рекомендаций чужого контента"
+    "Собственный стриминговый каталог или реклама сторонних сервисов",
+    "Принудительная авторизация через iCloud для синхронизации",
+    "Автопроигрывание следующего эпизода без явного согласия пользователя"
    ],
-   "monetization": "Студии, дистрибьюторы и независимые правообладатели уже платят за хостинг, CDN и юридический контроль лицензий. Берём 8-12% от их выручки плюс базовую плату за инфраструктуру."
+   "monetization": "Разовая покупка 15 USD за базовое приложение + семейный тариф 20 USD в год (до 6 профилей). Целевая аудитория: владельцы NAS и домашних серверов, которые уже платят за Plex Pass (40 USD/год) и Infuse Pro (10 USD/год)."
   }
  },
  {
   "slug": "video-streaming-2",
   "category": "video-streaming",
-  "categoryName": "Видеостриминг",
-  "title": "Биллинг-аудитор для стриминговых подписок",
-  "oneLiner": "Приложение отслеживает все стриминговые подписки пользователя, предупреждает о скрытых повышениях цен, автоматически фиксирует снимки обещаний на момент оплаты и помогает требовать возврат.",
-  "asOf": "2026-06-20",
+  "categoryName": "Видео и стриминг",
+  "title": "Агрегатор подписок с единым списком просмотра и алертами об уходе контента",
+  "oneLiner": "Один список желаемого по всем стриминговым сервисам с уведомлением за 7 дней до исчезновения фильма из каталога",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 104
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
   },
   "reviewGrid": [
    {
-    "quote": "I was CONNED into paying MORE to go ad-free, only to find out later that there are still SOME ads allowed to play",
-    "rating": 1,
-    "app": "Prime Video"
-   },
-   {
-    "quote": "after checking that it was supposed to have Hindi audio. To my absolute frustration, after making the payment, the movie is only available in its original Mandarin Chinese language.",
-    "rating": 1,
-    "app": "Netflix"
-   },
-   {
-    "quote": "app show that audio available in hindi but after subscription i didn't find audio in hindi",
-    "rating": 1,
-    "app": "Prime Video"
-   },
-   {
-    "quote": "It's next to impossible to cancel your subscription. it raised my blood pressure so bad, I had to go to urgent care.",
-    "rating": 1,
-    "app": "Paramount Plus"
-   },
-   {
-    "quote": "you have to pay to watch anything! and it's the only app that has all episodes for any show! I can't even finish my favorite show because I have to pay!",
-    "rating": 1,
-    "app": "Crunchyroll"
-   },
-   {
-    "quote": "I am trying to cancel my subscription and it just keeps taking me back to where I watch stuff!",
+    "quote": "it’s good butttttttt it removes OG movies temporarily, exactly when you wanna watch them.",
     "rating": 3,
-    "app": "Paramount Plus"
+    "app": "Netflix"
    },
    {
-    "quote": "no one wants to be FORCED to add their email to each account profile...",
-    "rating": 1,
+    "quote": "Lately, I’ve been seeing older shows and movies filling the library.  It’s disappointing.",
+    "rating": 4,
     "app": "Netflix"
+   },
+   {
+    "quote": "испортили все напоминаниями о сне, пора сделать перерыв, скоро отход ко сну. И в настройках это не выключается, и еще когда в поиск вводишь что нибудь, то из-за этого напоминания весь текст в поиске сбрасывается. Ну очень навязчиво",
+    "rating": 2,
+    "app": "YouTube"
+   },
+   {
+    "quote": "The ads are out of control. AI ads feel scammy.",
+    "rating": 3,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Good crochet tutorials. Very helpful",
+    "rating": 5,
+    "app": "YouTube"
+   },
+   {
+    "quote": "YouTube really needs to fix adds they put on shorts because if u want to get ur kids YouTube put into consideration what adds they might be watching. From experience there was an add that a scrolled upon that had people doing the thing. This add had me furious because YouTube is for little kids that",
+    "rating": 4,
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Люди платят за подписку, получают другой продукт: добавляют рекламу в «премиум», убирают контент из каталога, меняют условия задним числом. Доказать это и потре",
-    "obsCount": 7,
+    "title": "JustWatch показывает, где смотреть, но не предупреждает, когда контент уходит. Netflix, Disney+, Amazon и другие регулярно удаляют фильмы и сериалы без предупре",
+    "obsCount": 6,
     "apps": [
-     "Prime Video",
-     "Hulu",
-     "Crunchyroll",
-     "Paramount Plus"
+     "JustWatch - Movies & TV Shows",
+     "Netflix",
+     "Disney+",
+     "Movies Anywhere"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Люди платят за подписку, получают другой продукт: добавляют рекламу в «премиум», убирают контент из каталога, меняют условия задним числом. Доказать это и потребовать возврат без фиксации обещаний на момент оплаты практически невозможно.",
+  "gap": "JustWatch показывает, где смотреть, но не предупреждает, когда контент уходит. Netflix, Disney+, Amazon и другие регулярно удаляют фильмы и сериалы без предупреждения именно тогда, когда их хочется пересмотреть. Пользователи жалуются на это в отзывах десятки тысяч раз.",
   "idea": {
-   "pitch": "Сервис автоматически делает снимок условий подписки при каждом платеже и хранит его как значимую запись. Когда сервис меняет условия (добавляет рекламу, убирает контент, повышает цену), пользователь получает уведомление с разницей и шаблоном жалобы в банк или в суд. Монетизация: ежемесячная подписка, которую пользователь окупает первым же успешным возвратом.",
+   "pitch": "Сервис отслеживает каталоги всех основных стриминговых платформ и заблаговременно оповещает подписчика: «Bohemian Rhapsody уйдёт с Netflix через 6 дней». Ваш список желаемого живёт в одном месте, приложение знает ваши подписки и предлагает добавить в очередь именно то, что скоро исчезнет. B2B-версия продаётся медийным изданиям и кино-блогерам как API уведомлений об изменениях каталогов.",
    "features": [
-    "Снимок условий подписки при каждом платеже с временной меткой",
-    "Уведомление об изменении условий с точным diff-ом что изменилось",
-    "Автоматический шаблон жалобы в банк, Apple/Google, регулятор",
-    "Трекер всех активных подписок с реальной стоимостью в месяц",
-    "История возвратов и статистика успешных чарджбэков по сервисам"
+    "Единый вотчлист по всем платформам с указанием, на каком сервисе доступен каждый титул",
+    "Алерты за 7, 3 и 1 день до ухода контента с выбранного сервиса",
+    "Автоматическое перемещение в очередь «смотреть срочно» при приближении даты удаления",
+    "История ротации: когда конкретный фильм уходил и возвращался на платформы",
+    "API для медиа-изданий и новостных ботов о ротации каталогов"
    ],
    "antiFeatures": [
-    "Не помогает выбрать лучший стриминг (это агрегатор, не аудитор)",
-    "Не предлагает «лучшие сделки» или партнёрские ссылки",
-    "Не собирает данные о просмотрах для рекламного профиля"
+    "Воспроизведение видео внутри приложения",
+    "Рейтинговая система или рецензии (это JustWatch и Letterboxd, не наш продукт)",
+    "Рекламная монетизация через баннеры внутри приложения"
    ],
-   "monetization": "Пользователи уже платят за стриминг и злятся на скрытые списания. Подписка 3-5$ в месяц. Дополнительно: юридические партнёры берут процент от выигранного чарджбэка."
+   "monetization": "Подписка 3 USD в месяц для частного зрителя (целевой пользователь уже тратит 40-80 USD/месяц на несколько стримингов). B2B API для изданий 50-200 USD в месяц. Аффилиатные ссылки при переходе к покупке фильма."
   }
  },
  {
   "slug": "video-streaming-3",
   "category": "video-streaming",
-  "categoryName": "Видеостриминг",
-  "title": "Надёжный стриминг крупных спортивных событий",
-  "oneLiner": "Техническая инфраструктура для организаторов лиг и федераций: стриминг крупных матчей с гарантией доступности, масштабированием под пиковый трафик и компенсацией при падении.",
-  "asOf": "2026-06-20",
+  "categoryName": "Видео и стриминг",
+  "title": "Платформа для нишевого документального кино по подписке",
+  "oneLiner": "Стриминг только документального кино для людей, которые его целенаправленно ищут, без реалити-шоу и игрового контента",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 104
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
   },
   "reviewGrid": [
    {
-    "quote": "Subscribe for World Cup andddd it crash. Can't watch and need to pay again",
-    "rating": 1,
-    "app": "Max Stream"
+    "quote": "Open history app I love the history app not only is it entertaining but educational. Most others have great stuff but it’s mostly mindless entertainment. Discovery I learn stuff. Thank you for a great app.",
+    "rating": 5,
+    "app": "discovery+ | Stream TV Shows"
    },
    {
-    "quote": "Match argentina down total. gak bisa di akses sama sekali. gak siap traffic tinggi.",
+    "quote": "Wish you still had a lot of your original content like ghost shows/hauntings and alien shows. That’s why I originally signed up because that was the majority of the content and now maybe two shows with a few episodes a year.",
+    "rating": 4,
+    "app": "discovery+ | Stream TV Shows"
+   },
+   {
+    "quote": "Great programming and easy to stream!",
+    "rating": 5,
+    "app": "PBS: Watch TV & Documentaries"
+   },
+   {
+    "quote": "Latest season of Nova was not good. The substitute for news hour weekend is awful. This app and my subscription get less valuable every season.",
     "rating": 2,
-    "app": "Max Stream"
+    "app": "PBS: Watch TV & Documentaries"
    },
    {
-    "quote": "having the stream crash during sports is infuriating. side by side yttv was solid while hulu crashed",
+    "quote": "They removed the ability to see how many ads were in a video and where they were placed, and removed the ability to see the amounts of dislikes on a video, which also removed the like/dislike ratio. Now they are removing the dislike button entirely for shorts.",
+    "rating": 1,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Algunas veces no detecta mi dedo😠",
     "rating": 2,
-    "app": "Hulu"
-   },
-   {
-    "quote": "instead of showing the soccer game it shows the people in the crowd. that's some BS",
-    "rating": 1,
-    "app": "Peacock TV"
-   },
-   {
-    "quote": "you can watch the world cup but it won't show the game and only the fans and coach",
-    "rating": 2,
-    "app": "Tubi"
-   },
-   {
-    "quote": "Trying to watch World Cup and Tubi just plays watch parties and not the actual match.",
-    "rating": 1,
-    "app": "Tubi"
-   },
-   {
-    "quote": "ads every 3 minutes is ridiculous. a 90 minute movie takes 3 hours to watch.",
-    "rating": 1,
-    "app": "Tubi"
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Федерации и организаторы турниров продают права на трансляцию крупным платформам, которые падают в самый нужный момент. Зритель платит за событие и не смотрит е",
-    "obsCount": 7,
+    "title": "Discovery+ разбавляет каталог реалити-шоу и кулинарным ТВ, PBS требует донатов, а на Netflix документалки теряются среди сериалов. Аудитория, платящая именно за",
+    "obsCount": 6,
     "apps": [
-     "Max Stream",
-     "Peacock TV",
-     "Hulu",
-     "Tubi"
+     "PBS: Watch TV & Documentaries",
+     "discovery+ | Stream TV Shows",
+     "Tubi: Movies & Live TV"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Федерации и организаторы турниров продают права на трансляцию крупным платформам, которые падают в самый нужный момент. Зритель платит за событие и не смотрит его, федерация получает репутационный ущерб и не может предъявить техническому подрядчику конкретные требования по доступности.",
+  "gap": "Discovery+ разбавляет каталог реалити-шоу и кулинарным ТВ, PBS требует донатов, а на Netflix документалки теряются среди сериалов. Аудитория, платящая именно за документальное кино (природа, история, наука, социальные темы), не имеет единой платформы без лишнего шума.",
   "idea": {
-   "pitch": "Специализированная сеть доставки и стриминговый стек под спортивные пики: автоматическое масштабирование за 10 минут до начала матча, мониторинг в реальном времени, финансовая компенсация при падении. Интеграция с кассой позволяет автоматически возвращать деньги зрителям при недоступности. Продаётся федерациям и медиаправообладателям, а не конечным зрителям.",
+   "pitch": "Узкоспециализированный стриминг исключительно документального кино и документальных сериалов, без реалити, без игрового контента. Каталог организован по темам и режиссёрам, а не по жанровым алгоритмам. Партнёрства с фестивалями (IDFA, Hot Docs, Sundance Docs) дают эксклюзивный контент, которого нет на платформах общего назначения. Целевой зритель уже платит за PBS Passport и Discovery+, но получает лишь часть нужного.",
    "features": [
-    "Автомасштабирование под пиковый трафик за 10-15 минут до эфира",
-    "SLA с финансовой компенсацией при падении стрима",
-    "Встроенный автовозврат зрителям при подтверждённом сбое",
-    "Мультикамерный режим без увеличения задержки",
-    "Дашборд для организатора: зрители, качество, география, инциденты"
+    "Каталог только документального кино: природа, история, наука, политика, культура",
+    "Партнёрство с документальными фестивалями для эксклюзивных премьер",
+    "Тематические подборки от редакторов с сопроводительными материалами",
+    "Офлайн-просмотр без скрытого таймера истечения",
+    "Субтитры и дубляж для международного контента без авто-перевода"
    ],
    "antiFeatures": [
-    "Не занимается производством контента или комментированием",
-    "Не продаёт подписки конечным зрителям напрямую",
-    "Не берёт процент от медиаправ"
+    "Реалити-шоу, кулинарные и ремонтные программы в каталоге",
+    "Алгоритмические рекомендации на основе просмотренного без редакторского слоя",
+    "Рекламный уровень подписки"
    ],
-   "monetization": "Федерации, лиги и телеканалы уже платят за права, продакшн и технический стрим. Ценится надёжность, а не дешевизна. Фиксированная плата за событие плюс месячный контракт на сезон."
+   "monetization": "Подписка 8 USD в месяц или 70 USD в год. Аудитория уже платит PBS Passport (5-10 USD в месяц) и Discovery+ (7 USD в месяц) за частично похожий контент. Образовательные лицензии для школ и библиотек B2B."
   }
  },
  {
   "slug": "video-streaming-4",
   "category": "video-streaming",
-  "categoryName": "Видеостриминг",
-  "title": "Готовый модуль синхронизации прогресса для стриминговых приложений",
-  "oneLiner": "Разработчикам стриминговых приложений: готовый модуль, который надёжно сохраняет прогресс просмотра, синхронизирует между устройствами и управляет очередью воспроизведения.",
-  "asOf": "2026-06-20",
+  "categoryName": "Видео и стриминг",
+  "title": "Профессиональный трекер сериалов с социальным слоем для ценителей",
+  "oneLiner": "Letterboxd для сериалов: полный учёт просмотренного, рейтинги по сезонам, социальная лента без мусора",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 104
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
   },
   "reviewGrid": [
    {
-    "quote": "I'll be on episode 5 and out of nowhere it'll say im on episode 2 and it does it 4 times out of five.",
-    "rating": 1,
-    "app": "Peacock TV"
+    "quote": "If I watch the first 5 to 10 minutes of something and stop, please do not filter that from my continue watching list.",
+    "rating": 5,
+    "app": "Hulu: Stream TV shows & movies"
    },
    {
-    "quote": "It never keeps track of what episode you are watching of a TV show and I have to constantly restart it",
-    "rating": 1,
-    "app": "Hulu"
+    "quote": "Let us rewatch episodes without wiping out our history",
+    "rating": 4,
+    "app": "Hulu: Stream TV shows & movies"
    },
    {
-    "quote": "The service will not remember what episode I'm on, constantly recommending an episode I watched days or weeks ago as my next one in queue.",
-    "rating": 1,
-    "app": "Paramount Plus"
-   },
-   {
-    "quote": "casting to TV often disconnects and restarts. WiFi connection is strong with speed tests.",
-    "rating": 2,
-    "app": "Prime Video"
-   },
-   {
-    "quote": "it never syncs with the browser",
-    "rating": 2,
-    "app": "Hulu"
-   },
-   {
-    "quote": "The app loses track of what I was watching and where I left off. In fact it switches to a different episode altogether",
-    "rating": 1,
-    "app": "Paramount Plus"
-   },
-   {
-    "quote": "can't remove items from continuing watching easily",
+    "quote": "I noticed recently when logging on to YouTube (on my phone) that the default font for video titles and community posts has changed. This change while new is unsightly. In my opinion this is terrible, all the words look slimed down giving it some difficulty to read. I am not a fan of this change and ",
     "rating": 3,
-    "app": "Peacock TV"
+    "app": "YouTube"
+   },
+   {
+    "quote": "They want you to pay otherwise there are too many ads, and the ads can be a minute long",
+    "rating": 4,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Pretty much every time I open the app most of the videos I am recommended have nothing to do with the channels I subscribe to. Maybe they have a different algorithm for these shorts and longform videos but either way the algorithm isn't good. \n\nThere are way too many videos made by AI or spam bots, ",
+    "rating": 1,
+    "app": "YouTube"
+   },
+   {
+    "quote": "What in the hell is this new font? It’s so hard to read! I give 3 stars because at least it made me stop scrolling. Put it back how it was. Gag",
+    "rating": 2,
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Продуктовые команды крупных сервисов годами не могут починить базовую синхронизацию прогресса и «продолжить просмотр». Это инфраструктурная проблема, которую ка",
-    "obsCount": 7,
+    "title": "TV Time хронически нестабилен, Queue и Letterboxd не заточены под эпизодное отслеживание сериалов. Людям, смотрящим 10+ шоу одновременно, нужен надёжный трекер ",
+    "obsCount": 6,
     "apps": [
-     "Hulu",
-     "Peacock TV",
-     "Paramount Plus",
-     "Crunchyroll"
+     "TV Time: Track Shows & Movies",
+     "Queue - Find Movies & Shows",
+     "JustWatch - Movies & TV Shows"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Продуктовые команды крупных сервисов годами не могут починить базовую синхронизацию прогресса и «продолжить просмотр». Это инфраструктурная проблема, которую каждый решает с нуля и всё равно делает с ошибками.",
+  "gap": "TV Time хронически нестабилен, Queue и Letterboxd не заточены под эпизодное отслеживание сериалов. Людям, смотрящим 10+ шоу одновременно, нужен надёжный трекер с правильным учётом прогресса по эпизодам, а существующие решения регулярно теряют вотчлист.",
   "idea": {
-   "pitch": "Готовый модуль для iOS, Android и веба берёт на себя весь учёт состояния просмотра: позицию в эпизоде, порядок серий, избранное, историю. Работает без сети, синхронизируется при восстановлении подключения, поддерживает несколько профилей и не теряет данные при выходе из аккаунта. Продаётся командам, у которых уже есть контент и плеер, но нет ресурсов на надёжную синхронизацию.",
+   "pitch": "Приложение, где можно отслеживать просмотренные эпизоды по сезонам, оценивать каждый сезон отдельно, вести дневник просмотра и делиться им с друзьями. Надёжность данных главный приоритет: история хранится локально с облачным бэкапом, а не зависит от нестабильных серверов. Монетизация через разовую покупку с опциональным семейным аккаунтом.",
    "features": [
-    "Офлайн-first хранилище прогресса с автосинхронизацией",
-    "Мультипрофильный режим с изоляцией данных на уровне SDK",
-    "API управления очередью: добавить, убрать, переупорядочить",
-    "Веб-хук при конфликте данных между устройствами с готовой стратегией разрешения",
-    "Дашборд метрик: потери прогресса, конфликты, drop-off по устройствам"
+    "Оценки отдельно по каждому сезону и финальной серии",
+    "Локальное хранение данных с шифрованным облачным бэкапом",
+    "Уведомления о выходе новых серий с привязкой к конкретному шоу",
+    "Статистика просмотра: часов за год, любимые жанры, темп просмотра",
+    "Социальная лента только от подписчиков, без алгоритмических вмешательств"
    ],
    "antiFeatures": [
-    "Не плеер и не CDN: только управление состоянием просмотра",
-    "Не рекомендательный движок",
-    "Не занимается DRM или защитой контента"
+    "Встроенный стриминг или переходы к контенту с аффилиатными ссылками как основная функция",
+    "Алгоритмические рекомендации, заменяющие социальную ленту",
+    "Хранение всех данных только на серверах компании без экспорта"
    ],
-   "monetization": "Продуктовые и инженерные команды стриминговых сервисов уже тратят деньги на разработку этих функций. SaaS: цена за MAU или по уровням в зависимости от числа активных профилей."
+   "monetization": "Разовая покупка 5 USD + годовая подписка за бэкап и социальные функции 12 USD в год. Целевая аудитория люди, смотрящие 5+ сериалов одновременно, которые уже платят нескольким стримингам."
   }
  },
  {
   "slug": "video-streaming-5",
   "category": "video-streaming",
-  "categoryName": "Видеостриминг",
-  "title": "Платформа дублирования и озвучки для нишевых библиотек",
-  "oneLiner": "Инструмент для дистрибьюторов: загружаете каталог, заказываете дублирование или субтитры на нужный язык через сеть профессиональных студий, получаете готовый файл с правильными метаданными.",
-  "asOf": "2026-06-20",
+  "categoryName": "Видео и стриминг",
+  "title": "Стриминг нишевого спортивного контента для фанатов одного вида спорта",
+  "oneLiner": "Вертикальный стриминг для преданного спортивного болельщика: один вид спорта, полный архив, все камеры, без багов в прямом эфире",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 104
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
   },
   "reviewGrid": [
    {
-    "quote": "in general it show that the anime is available in hindi audio but in video player in audio there is no option of hindi at all",
-    "rating": 1,
-    "app": "Crunchyroll"
+    "quote": "Why do I have to pay for subscription AND $79.99 to actually watch a boxing match?",
+    "rating": 2,
+    "app": "DAZN: Stream Live Sports"
    },
    {
-    "quote": "after checking that it was supposed to have Hindi audio. To my absolute frustration, after making the payment, the movie is only available in its original Mandarin Chinese language.",
-    "rating": 1,
-    "app": "Netflix"
+    "quote": "Very satisfied with having all the major promoters under one platform.",
+    "rating": 5,
+    "app": "DAZN: Stream Live Sports"
    },
    {
-    "quote": "app show that audio available in hindi but after subscription i didn't find audio in hindi",
-    "rating": 1,
-    "app": "Prime Video"
+    "quote": "The font in the new update is terrible! It’s impossible for people with dyslexia to read.",
+    "rating": 3,
+    "app": "YouTube"
    },
    {
-    "quote": "you have to pay to watch anything! and it's the only app that has all episodes for any show! I can't even finish my favorite show because I have to pay!",
-    "rating": 1,
-    "app": "Crunchyroll"
+    "quote": "This is the thing that my kids stop playing and destroying the house",
+    "rating": 5,
+    "app": "YouTube"
    },
    {
-    "quote": "hate this invasive app. they force you to add personal information such as email to each profile. another way to collect and sell your data.",
-    "rating": 1,
-    "app": "Netflix"
+    "quote": "You really allowed four yr olds on here but yet you got rid of by bffs channel fifty times and yet she’s the age limit to be on here, yall are sick inside, not the good kind at all, like what kind of sick person allowed this to happen, she has to repeatedly restart and you allowed four year olds to ",
+    "rating": 4,
+    "app": "YouTube"
    },
    {
-    "quote": "We pay for this service but still get plagued with ads.",
+    "quote": "Why did YouTube bring back ads back to back.",
     "rating": 1,
-    "app": "Prime Video"
-   },
-   {
-    "quote": "Why pay for a subscription if I still have to pay extra to watch the content I want?",
-    "rating": 1,
-    "app": "Prime Video"
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Небольшие дистрибьюторы и правообладатели не могут выйти на hindi-, tamil-, арабоязычные рынки из-за высокой стоимости и сложности заказа дублирования. Зритель ",
-    "obsCount": 7,
+    "title": "F1 TV, Tennis TV и DAZN показывают, что фанаты нишевого спорта платят дорого за правильный продукт, но существующие решения страдают от технических сбоев именно",
+    "obsCount": 6,
     "apps": [
-     "Crunchyroll",
-     "Netflix",
-     "Prime Video"
+     "DAZN: Stream Live Sports",
+     "F1 TV",
+     "Tennis TV - Live Streaming",
+     "Red Bull TV: Watch Live Events"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Небольшие дистрибьюторы и правообладатели не могут выйти на крупные языковые рынки из-за высокой стоимости и сложности заказа дублирования. Зритель видит обещание языка в карточке и не находит его в плеере это прямые потери подписчиков.",
+  "gap": "F1 TV, Tennis TV и DAZN показывают, что фанаты нишевого спорта платят дорого за правильный продукт, но существующие решения страдают от технических сбоев именно в прямом эфире в самый важный момент. При этом права на нишевые дисциплины (экстремальный спорт, единоборства, велоспорт, плавание) доступнее, чем права на футбол или баскетбол.",
   "idea": {
-   "pitch": "Площадка студий озвучки с единым подключением: правообладатель загружает видео и сценарий, выбирает язык и бюджет, получает дорожку в нужном формате с синхронизацией. Платформа управляет качеством через контрольные прослушивания, хранит дорожки и позволяет встраивать их в любой плеер через стандартный манифест. Отдельный инструмент верификации: проверяет соответствие задекларированных языков реальным дорожкам перед публикацией.",
+   "pitch": "Специализированная платформа для одного нишевого вида спорта (старт с боевых единоборств или велоспорта) с техническим стандартом выше DAZN: стабильный прямой эфир, сохранение позиции при выходе из потока, несколько углов камеры. Аудитория уже платила DAZN по 20 USD в месяц и была рада платить, пока сервис не начал глючить и вводить дополнительные PPV-сборы поверх подписки.",
    "features": [
-    "Маркетплейс студий озвучки с рейтингом и специализацией по языкам",
-    "Единый API для загрузки заказа и получения готового файла",
-    "Верификатор соответствия: проверка задекларированных языков перед публикацией",
-    "Хранилище дорожек с CDN и поддержкой HLS/DASH манифестов",
-    "Автоматический QA: синхронизация дорожки с видео по временным меткам"
+    "Стабильный прямой эфир с возможностью возврата к позиции после обрыва соединения",
+    "Архив всех событий за несколько лет с удобной навигацией",
+    "Несколько углов камеры и выбор комментатора во время прямой трансляции",
+    "Уведомления о начале событий с добавлением в календарь",
+    "Офлайн-просмотр архивных поединков без таймера истечения"
    ],
    "antiFeatures": [
-    "Не автоматический AI-дубляж без проверки живым человеком",
-    "Не работает напрямую с конечными зрителями",
-    "Не агрегатор субтитров с краудсорсингом"
+    "PPV-сборы поверх подписки без чёткого указания до оформления",
+    "Контент из других видов спорта, размывающий нишевую идентичность",
+    "Авторизация через телепровайдера вместо прямой подписки"
    ],
-   "monetization": "Дистрибьюторы и правообладатели уже платят за локализацию. Берём процент с каждого заказа плюс плату за хранение и CDN-раздачу дорожек."
+   "monetization": "Подписка 15-25 USD в месяц без скрытых PPV. Преданная аудитория единоборств уже платила DAZN по 20 USD и готова платить за надёжный продукт без обмана с отменой подписки."
   }
  },
  {
   "slug": "video-streaming-6",
   "category": "video-streaming",
-  "categoryName": "Видеостриминг",
-  "title": "Стриминг только завершённых сериалов",
-  "oneLiner": "Стриминг для зрителей, которые не хотят начинать сериал, зная, что его закроют без финала: только завершённые истории с защитой от удаления.",
-  "asOf": "2026-06-20",
+  "categoryName": "Видео и стриминг",
+  "title": "Инструмент монетизации для независимых авторов видео",
+  "oneLiner": "Платформа для видеоавторов, которые хотят продавать доступ к своему контенту напрямую без посредников YouTube и Patreon",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 104
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
   },
   "reviewGrid": [
    {
-    "quote": "you have wasted weeks of viewing time on a show that has no ending!",
+    "quote": "Awesome. Needs to be better. Start putting real money and time into this platform. More money and love for the people you employ…. Content creators.",
+    "rating": 4,
+    "app": "Twitch: Live Streaming"
+   },
+   {
+    "quote": "YouTube went from the greatest app ever to a grotesque cash grab that is now filled with short form slop and a gut wrenching amount of ads.",
+    "rating": 2,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Best no holding back alternative to YouTube!",
+    "rating": 5,
+    "app": "Rumble: Live Streaming, Videos"
+   },
+   {
+    "quote": "Please stop changing literally so many tiny features, like I can’t tell if I turned on the loop of a playlist or not, and all the symbols look super stupid. I’d rather it be back to the previous version where it turned blue if I clicked a button, to allow for more clarity in what you’re actually doi",
     "rating": 3,
-    "app": "Netflix"
+    "app": "YouTube"
    },
    {
-    "quote": "Stop cancelling successful shows, Like The Brothers Sun.",
+    "quote": "Make it like Musi !!!! 💨🏃🏿‍♂️‍➡️",
+    "rating": 5,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Your games are dumb.\nYour clips are dumb.\nYour podcasts are dumb.\nYour Netflix original content is [usually] dumb.\n\nYou should focus on making decent content instead of cheap slop.",
     "rating": 1,
     "app": "Netflix"
-   },
-   {
-    "quote": "hey I was watching the eminence of shadows and It disappeared mid Binge.",
-    "rating": 1,
-    "app": "Netflix"
-   },
-   {
-    "quote": "the offline shows downloaded only work when you have internet. So why would I download to be offline if I need to be online?",
-    "rating": 1,
-    "app": "Disney+"
-   },
-   {
-    "quote": "Paramount does not open or work without cell or wifi and it failed me when I wanted to watch.",
-    "rating": 1,
-    "app": "Paramount Plus"
-   },
-   {
-    "quote": "they told me that my device is not part of the netflix household for my account:) wdym i paid to watch.",
-    "rating": 1,
-    "app": "Netflix"
-   },
-   {
-    "quote": "the app constantly signs me out whenever I go offline.",
-    "rating": 1,
-    "app": "Disney+"
    }
   ],
   "mechanisms": [
    {
-    "title": "Зрители вкладывают недели в сериал, платформа закрывает его или убирает из каталога без предупреждения. Это разрушает доверие к формату длинного сериала на подп",
-    "obsCount": 7,
+    "title": "Vimeo для создателей стал слишком дорогим и сломал поиск, YouTube не даёт авторам прямого контроля над монетизацией, Twitch берёт 50% с подписок. Независимые ав",
+    "obsCount": 6,
     "apps": [
-     "Netflix",
-     "Disney+",
-     "Paramount Plus"
+     "Vimeo",
+     "Twitch: Live Streaming",
+     "YouTube"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Зрители вкладывают недели в сериал, платформа закрывает его или убирает из каталога без предупреждения. Это разрушает доверие к формату длинного сериала на подписочных платформах и создаёт спрос на «безопасный» каталог.",
+  "gap": "Vimeo для создателей стал слишком дорогим и сломал поиск, YouTube не даёт авторам прямого контроля над монетизацией, Twitch берёт 50% с подписок. Независимые авторы образовательного, документального и нишевого видео не имеют простого инструмента для продажи отдельных видео или подписок напрямую своей аудитории.",
   "idea": {
-   "pitch": "Каталог только завершённых сериалов с финалом: никаких обрывающихся историй. Лицензирование идёт напрямую у студий на уже отснятые сезоны. Пользователь знает, что начатый сериал он досмотрит до конца и контент не исчезнет. Ниша: взрослая аудитория 30-50 лет с деньгами, которая ценит время и не хочет рисковать незаконченной историей.",
+   "pitch": "SaaS для видеоавторов: заливаешь видео, устанавливаешь цену (разовая покупка, аренда или подписка), получаешь встраиваемый плеер и страницу канала. Никакой алгоритмической ленты чужого контента рядом с твоим. Комиссия 10% с транзакций против 30-50% у Patreon и YouTube. Целевая аудитория авторы образовательного контента, документалисты, фитнес-инструкторы и нишевые медиа, которые уже продают курсы или поддержку.",
    "features": [
-    "Только завершённые сериалы: все сезоны с финалом перед добавлением",
-    "Гарантия доступности: контракт обязывает не убирать тайтл без 90-дневного уведомления",
-    "Уведомление, если правообладатель всё же отзывает лицензию, с альтернативой где досмотреть",
-    "Фильтры по жанру, числу сезонов, стране производства и году финала",
-    "«Безопасный старт»: рейтинг вероятности того, что сериал уже точно закончен"
+    "Продажа видео по модели разовой покупки, аренды или подписки на канал",
+    "Встраиваемый плеер без рекламы и ссылок на чужой контент",
+    "Аналитика: сколько зрителей досмотрели до конца, откуда пришли",
+    "Купоны и скидки для управления ценообразованием",
+    "Интеграция с email-рассылками для уведомления аудитории о новых видео"
    ],
    "antiFeatures": [
-    "Никаких оригинальных производств: только уже отснятый контент",
-    "Никаких live-трансляций и новостных форматов",
-    "Никаких рекомендаций незавершённых сериалов с других платформ"
+    "Алгоритмическая лента с чужим контентом рядом с видео автора",
+    "Автоматическое снижение качества видео без согласия автора",
+    "Требование эксклюзивности контента"
    ],
-   "monetization": "Взрослая аудитория 30-50 лет с доходом уже платит за несколько стримингов. Подписка 6-8$ в месяц. Ниша небольшая, но с высокой готовностью платить за предсказуемость."
+   "monetization": "Комиссия 10% с каждой транзакции + базовый план 15 USD в месяц за хранение. Авторы, которые уже монетизируют аудиторию через Patreon или Gumroad, платят больше за хуже работающие продукты."
   }
  },
  {
   "slug": "video-streaming-7",
   "category": "video-streaming",
-  "categoryName": "Видеостриминг",
-  "title": "Центр управления рекламными вставками для бесплатных стримингов",
-  "oneLiner": "Инструмент для бесплатных стриминговых сервисов: управление рекламными вставками с нормировкой частоты, контролем громкости и фильтрацией нежелательных категорий.",
-  "asOf": "2026-06-20",
+  "categoryName": "Видео и стриминг",
+  "title": "B2B инструмент для управления правами на видеоконтент",
+  "oneLiner": "Система для небольших правообладателей и дистрибьюторов, которая отслеживает, на каких платформах лицензирован каждый титул, и автоматически уведомляет об истечении договоров",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 104
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
   },
   "reviewGrid": [
    {
-    "quote": "ads every 3 minutes is ridiculous. a 90 minute movie takes 3 hours to watch.",
-    "rating": 1,
-    "app": "Tubi"
+    "quote": "Even I pay for a reason shows that expected on here isn’t there like green arrow and more",
+    "rating": 4,
+    "app": "HBO Max: Stream Movies & TV"
    },
    {
-    "quote": "the quality of what you're watching suffers while the adds are in ultra high quality.",
-    "rating": 1,
-    "app": "Tubi"
+    "quote": "Has been lacking on new arrivals lately.",
+    "rating": 4,
+    "app": "HBO Max: Stream Movies & TV"
    },
    {
-    "quote": "It is free but 90% of the ads are either gambling or sex related.",
-    "rating": 1,
-    "app": "Tubi"
-   },
-   {
-    "quote": "commercials come on SO LOUD THAT I HAVE TO TURN THE VOLUME DOWN TO 0",
-    "rating": 1,
-    "app": "Hulu"
-   },
-   {
-    "quote": "AD VOLUME OUT OF CONTROL. Cant watch at night or while trying to fall asleep because ads are EXTREMELY LOUD!!",
-    "rating": 1,
-    "app": "Peacock TV"
-   },
-   {
-    "quote": "ads run SIGNIFICANTLY louder than vid and brightness stays elevated even using PInP",
+    "quote": "I just think it’s stupid how I’m paying over 20 dollars a month and I can’t even use airplay from my iPhone or Apple tablet, especially being that half of America, no more than half the world owns an iPhone. Yall need to fix this. Do BETTER",
     "rating": 2,
     "app": "Netflix"
    },
    {
-    "quote": "12 ads in a 45 minute video, even with PAID membership.. IN THIS ECONOMY? DISRESPECTFUL.",
-    "rating": 1,
-    "app": "Hulu"
+    "quote": "So I downloaded 9 episodes so I can watch them on the plane and they worked normally in the airport but in the plane it said I’m not connected to the internet but it’s not the first time I download episodes ANYWAYS I was trying to play a show and it said that I CANT WATCH IT ANYMORE BECAUSE OF THE M",
+    "rating": 3,
+    "app": "Netflix"
+   },
+   {
+    "quote": "Omg before Netflix I used to watch my shows on YouTube or my tv but you can’t bring your tv everywhere and YouTube is great but it didn’t feel right so I got Netflix and it’s been so much better",
+    "rating": 5,
+    "app": "Netflix"
+   },
+   {
+    "quote": "I really don’t like how you guys suggest the show or movie I want to watch and then you say you don’t have it",
+    "rating": 4,
+    "app": "Netflix"
    }
   ],
   "mechanisms": [
    {
-    "title": "Бесплатные платформы вставляют рекламу каждые 3 минуты, рекламный блок громче контента и полон объявлений азартных игр или контента для взрослых. Платформы теря",
-    "obsCount": 7,
+    "title": "Малые и средние дистрибьюторы видеоконтента (независимые студии, продюсерские компании, агенты по продажам прав) управляют портфелями из 50-500 титулов в Excel ",
+    "obsCount": 6,
     "apps": [
-     "Tubi",
-     "Pluto TV",
-     "Peacock TV",
-     "Hulu"
+     "Netflix",
+     "HBO Max: Stream Movies & TV",
+     "Amazon Prime Video",
+     "Disney+"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Бесплатные платформы вставляют рекламу каждые 3 минуты, рекламный блок громче контента и полон объявлений азартных игр или контента для взрослых. Платформы теряют аудиторию не из-за отсутствия денег у зрителя, а из-за физической невыносимости опыта. При этом рекламодатели платят за просмотры, которые никто не смотрит.",
+  "gap": "Малые и средние дистрибьюторы видеоконтента (независимые студии, продюсерские компании, агенты по продажам прав) управляют портфелями из 50-500 титулов в Excel или устаревших системах. Пропущенный срок продления контракта с Netflix или Amazon означает потерю дохода или нарушение условий эксклюзивности.",
   "idea": {
-   "pitch": "Облачный инструмент для операционных команд бесплатных стримингов: задаёте максимальную частоту вставок на час, верхнюю границу громкости, список заблокированных категорий контента. Система автоматически нормирует рекламный инвентарь, перемещает блоки в сценарно правильные паузы и генерирует отчёт по реальным досмотрам. Рекламодатель платит только за досмотренные показы, платформа продаёт инвентарь дороже за качество.",
+   "pitch": "Облачная система каталогизации прав: для каждого титула хранятся условия лицензий по каждой платформе и территории, сроки истечения, ограничения (эксклюзивность, качество). За 90/30/7 дней до истечения приходит уведомление с кратким резюме условий. Интеграция с основными платформами через их партнёрские API позволяет сверять реальное наличие контента с тем, что указано в договоре. Стартовый рынок дистрибьюторы с портфелями 50-500 названий.",
    "features": [
-    "Нормировщик частоты: не более N рекламных минут на час контента",
-    "Нормализация громкости рекламных вставок до уровня контента (LUFS)",
-    "Блок-лист по категориям: азартные игры, алкоголь, контент 18+ и другие",
-    "Определение сценарных пауз для вставок через анализ тишины и монтажных склеек",
-    "Аналитика реальных досмотров: процент зрителей, пропустивших рекламу через смену вкладки или снижение звука"
+    "Каталог прав с полями: платформа, территория, срок, ограничения, ставка роялти",
+    "Автоматические уведомления об истечении договоров за 90/30/7 дней",
+    "Сверка наличия контента на платформах с записями в системе",
+    "Экспорт отчётов для финансовой отчётности и переговоров о продлении",
+    "Совместный доступ для команды с разными уровнями прав"
    ],
    "antiFeatures": [
-    "Не рекламная биржа и не DSP",
-    "Не занимается продажей рекламного инвентаря",
-    "Не встраивает рекламу в контент самостоятельно без интеграции с существующим ad-сервером"
+    "Потребительский интерфейс или функции для конечного зрителя",
+    "Хранение самих видеофайлов (только метаданные прав)",
+    "Автоматическое продление договоров без явного подтверждения"
    ],
-   "monetization": "AVOD-платформы уже платят за рекламные серверы и аналитику. SaaS: плата за объём рекламных вставок в месяц или за количество уникальных зрителей. Возможен revenue-share от прироста CPM."
+   "monetization": "SaaS подписка 300-800 USD в месяц в зависимости от размера портфеля. Целевые клиенты: дистрибьюторы, агентства по продаже прав, независимые продюсеры. Аналоги вроде Rightsline стоят тысячи долларов в месяц и нацелены на крупные студии."
+  }
+ },
+ {
+  "slug": "video-streaming-8",
+  "category": "video-streaming",
+  "categoryName": "Видео и стриминг",
+  "title": "Приложение для коллекционеров цифрового кино с полноценным управлением библиотекой",
+  "oneLiner": "Единый менеджер купленных фильмов из всех магазинов с жанровой фильтрацией, офлайн-просмотром и стабильными загрузками",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 95,
+   "reviews": 30797,
+   "observations": 348
+  },
+  "reviewGrid": [
+   {
+    "quote": "How you go from a perfectly simple, versatile player to this legacy style player just boggles my mind.\n\nThis has really damaged the viewing experience!",
+    "rating": 1,
+    "app": "Netflix"
+   },
+   {
+    "quote": "I’ve been on my family account for years. And now, out of nowhere, I can’t watch unless I give them my email now. No thanks Netflix. You’re not worth it. You’re mostly background noise and your selection is rarely good. So tired of it.",
+    "rating": 2,
+    "app": "Netflix"
+   },
+   {
+    "quote": "We need more updated movies",
+    "rating": 3,
+    "app": "Netflix"
+   },
+   {
+    "quote": "Great shows demon slayer is a great show",
+    "rating": 5,
+    "app": "Netflix"
+   },
+   {
+    "quote": "Lately, I’ve been seeing older shows and movies filling the library.  It’s disappointing.",
+    "rating": 4,
+    "app": "Netflix"
+   },
+   {
+    "quote": "Useless and annoying",
+    "rating": 1,
+    "app": "Netflix"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Movies Anywhere объединяет купленные фильмы, но навигация по библиотеке примитивна, нет жанровой фильтрации на мобильном, скачанные копии истекают без предупреж",
+    "obsCount": 6,
+    "apps": [
+     "Movies Anywhere",
+     "Fandango at Home: Movies & TV",
+     "Apple TV",
+     "IMDb: Movies & TV Shows"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Movies Anywhere объединяет купленные фильмы, но навигация по библиотеке примитивна, нет жанровой фильтрации на мобильном, скачанные копии истекают без предупреждения. Fandango at Home (бывший Vudu) деградировал после смены владельца. Люди, купившие 200-800 фильмов цифрово, не имеют нормального инструмента управления коллекцией.",
+  "idea": {
+   "pitch": "Нативный менеджер для личной цифровой кинотеки: подключается к Movies Anywhere и напрямую к Apple, Google и Vudu, отображает всю коллекцию с жанровой фильтрацией, рейтингами IMDB и годом. Офлайн-загрузки с видимым сроком и возможностью обновления одним нажатием. Дополнительная функция: сравнение цен при покупке нового фильма между магазинами.",
+   "features": [
+    "Жанровая и хронологическая фильтрация всей купленной библиотеки",
+    "Визуальный статус офлайн-загрузок с датой истечения и кнопкой обновления",
+    "Синхронизация с Movies Anywhere, Apple, Google Play, Vudu из одного приложения",
+    "Сравнение цен при покупке нового фильма между магазинами в реальном времени",
+    "Статистика коллекции: сколько часов контента, распределение по жанрам"
+   ],
+   "antiFeatures": [
+    "Собственный стриминговый каталог бесплатного контента с рекламой",
+    "Навязчивые рекомендации купить что-то ещё внутри управления библиотекой",
+    "Хранение цифровых прав на серверах компании без экспорта"
+   ],
+   "monetization": "Разовая покупка приложения 8 USD + опциональная подписка 15 USD в год за облачный бэкап метаданных и история цен. Целевая аудитория покупатели цифрового кино с библиотеками от 100 фильмов, уже потратившие тысячи долларов на контент."
   }
  },
  {
