@@ -11,10 +11,7 @@ export default function RatingAuthBadge({
   caption, label, word, note, fg, detailsLabel, closeLabel,
 }: { caption: string; label: string; word: string; note: string; fg: string; detailsLabel: string; closeLabel: string }) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const hasNote = !!note?.trim();
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!open) return;
@@ -42,7 +39,7 @@ export default function RatingAuthBadge({
         )}
       </button>
 
-      {mounted && open && hasNote && createPortal(
+      {open && hasNote && typeof document !== "undefined" && createPortal(
         <div className="fixed inset-0 z-[100] flex items-end justify-center p-3 sm:items-center" role="dialog" aria-modal="true" onClick={() => setOpen(false)}>
           <div className="absolute inset-0 bg-black/55 backdrop-blur-sm" />
           <div

@@ -36,17 +36,6 @@ export default function TestDescentPage() {
   const firstIdea = ideas[0];
   const lockedIdeas = ideas.slice(1);
 
-  const Step = ({ n, label, active }: { n: number; label: string; active?: boolean }) => (
-    <div className="flex items-center gap-2">
-      <span
-        className={`flex size-5 items-center justify-center rounded-full text-[11px] font-semibold ${active ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]" : "border border-[var(--color-border-subtle)] text-[var(--color-text-tertiary)]"}`}
-      >
-        {n}
-      </span>
-      <span className={`text-[13px] ${active ? "font-medium text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>{label}</span>
-    </div>
-  );
-
   return (
     <main className="relative mx-auto w-full max-w-2xl px-4 pb-24 pt-6">
       {/* sticky progress: one document, three acts */}
@@ -156,6 +145,19 @@ export default function TestDescentPage() {
 
       <p className="mt-16 text-center text-[12px] text-[var(--color-text-tertiary)]">Прототип единого оффера · /test · данные реальные (астрология)</p>
     </main>
+  );
+}
+
+function Step({ n, label, active }: { n: number; label: string; active?: boolean }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span
+        className={`flex size-5 items-center justify-center rounded-full text-[11px] font-semibold ${active ? "bg-[var(--color-text-primary)] text-[var(--color-bg-page)]" : "border border-[var(--color-border-subtle)] text-[var(--color-text-tertiary)]"}`}
+      >
+        {n}
+      </span>
+      <span className={`text-[13px] ${active ? "font-medium text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>{label}</span>
+    </div>
   );
 }
 
