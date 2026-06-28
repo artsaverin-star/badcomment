@@ -21051,557 +21051,600 @@
  {
   "slug": "music-streaming-1",
   "category": "music-streaming",
-  "categoryName": "Музыкальные стримы",
-  "title": "Лицензионная музыка для заведений",
-  "oneLiner": "Сервис легального фонового звука для ресторанов, магазинов и салонов с понятной ценой и готовыми плейлистами по атмосфере",
-  "asOf": "2026-06-20",
+  "categoryName": "Музыка и стриминг",
+  "title": "Стриминг классической музыки с навигацией по произведениям",
+  "oneLiner": "Каталог классики, организованный как энциклопедия: произведение -> исполнения -> дирижёр, а не альбомы и топ-чарты.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 140
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
   },
   "reviewGrid": [
    {
-    "quote": "everything is behind a pay wall yes theirs some features but you have to pay for everything especially if you want to shuffle songs",
+    "quote": "Yall ah billion dollar company battle paying people but yall show 2 ad minimums. Na.",
     "rating": 1,
-    "app": "Spotify: Music and Podcasts"
+    "app": "YouTube"
    },
    {
-    "quote": "Worst app ever like why tf u keep playing songs I dont like when I choose a specific song and ur like \" we're playing some recommended songs u may like\"",
-    "rating": 1,
-    "app": "Anghami"
-   },
-   {
-    "quote": "Offline listening is a lie. Simple concept, if the song is downloaded, then it doesn't need to connect to the internet to play, full stop. It's insane how bad this is.",
-    "rating": 1,
-    "app": "Tidal"
-   },
-   {
-    "quote": "My actual subscription page shows only Change payment method. So the published instructions do not match the live account flow for your account.",
-    "rating": 1,
-    "app": "Deezer: Music Player, Podcast"
-   },
-   {
-    "quote": "Every day it resumes a song from a search I did over a week ago, as opposed to the playlist I had left it on yesterday.",
+    "quote": "Every update leads to more advertisements being squeezed into every possible corner of this app and it’s become significantly less enjoyable to use within the last year. Now there’s AI slop ads popping up when browsing through our own subscriptions page. There’s no reason for ads to be littering the",
     "rating": 2,
-    "app": "YouTube Music"
+    "app": "YouTube"
    },
    {
-    "quote": "Recommendations often don't reflect my musical taste or are just recycling of previous music that I've listened too.",
+    "quote": "Commercials will wake you up they are so loud and long. You will be forced to locate the remote.",
     "rating": 3,
-    "app": "Amazon Music: Songs & Podcasts"
+    "app": "YouTube"
    },
    {
-    "quote": "too many commercials. commercials after every two songs! worse than the radio!!",
+    "quote": "Let’s you watch a wide range of videos and has short form videos. Pays video creator’s money. Only bad thing is ads😬!",
+    "rating": 5,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Lots of comedy but the only problem is brainrot yt shorts took 1 star off because brainrot",
+    "rating": 4,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Is it normal to have an advertisement every 2 minutes? I watch a 25-minute video, and from 20 minutes to 26, I watched the commercial 4 times, which had two videos. It's just horrible",
     "rating": 1,
-    "app": "Pandora: Music & Podcasts"
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Кафе и магазины обязаны платить за публичное воспроизведение, но нормального инструмента для этого нет: либо дорогие брокеры, либо нелегальный Spotify (который ",
-    "obsCount": 7,
+    "title": "Все универсальные стриминги хранят классику в формате рок-альбомов: исполнитель -> альбом -> трек. Для классики единица произведение, а не альбом. Beethoven Sym",
+    "obsCount": 6,
     "apps": [
-     "Spotify: Music and Podcasts",
-     "Deezer: Music Player, Podcast",
-     "Tidal"
+     "IDAGIO Stream Classical Music",
+     "Apple Music Classical",
+     "Apple Music",
+     "Qobuz: Music & Editorial"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Кафе и магазины обязаны платить за публичное воспроизведение, но нормального инструмента для этого нет: либо дорогие посредники, либо нелегальный Spotify (который прямо запрещает коммерческое использование)",
+  "gap": "Все универсальные стриминги хранят классику в формате рок-альбомов: исполнитель -> альбом -> трек. Для классики единица произведение, а не альбом. Beethoven Symphony No. 5 существует в сотнях записей, и слушатель хочет сравнить Кариха́на с Бернштейном, а не искать «альбом Deutsche Grammophon 1963».",
   "idea": {
-   "pitch": "Малый бизнес массово использует потребительские стриминги в торговых точках, нарушая лицензионные соглашения и рискуя штрафами от РАО. Сервис предлагает готовые атмосферные плейлисты с лицензией на публичное воспроизведение, единую оплату в месяц и управление через браузер без приложений. Платящий клиент уже существует и уже платит за аренду и кофе, ему нужно только легальное и удобное решение.",
+   "pitch": "Сервис для слушателей классики, где центральная сущность произведение, а не альбом. Пользователь открывает Шостакович квартет №8, видит 40 исполнений с рейтингом критиков, читает аналитические заметки и ставит свой балл каждой записи. Монетизация подписка 12-15 долларов в месяц: аудитория уже платит за IDAGIO и Apple Music Classical, то есть платящий клиент существует.",
    "features": [
-    "Готовые плейлисты по типу заведения (кафе, барбершоп, бутик, офис) и времени суток",
-    "Единая лицензия на публичное воспроизведение включена в цену подписки",
-    "Управление через браузер без установки приложений на рабочий компьютер",
-    "Возможность задать BPM и темп под ритм работы зала",
-    "Отчёты для бухгалтерии с подтверждением легального использования"
+    "Поиск по произведению с результатами в виде всех доступных исполнений",
+    "Сравнение двух исполнений одного произведения в режиме А/Б с временной шкалой",
+    "Алфавитный быстрый переход по исполнителям и дирижёрам (жалоба на отсутствие в IDAGIO)",
+    "Редакционные заметки к каждому исполнению: оркестр, год записи, историческое значение",
+    "Личные коллекции и оценки по исполнениям, экспорт истории прослушиваний"
    ],
    "antiFeatures": [
-    "Рекомендательный алгоритм на основе вкусов слушателя",
-    "Личные плейлисты и лайки",
-    "Подкасты и разговорный контент"
+    "Никаких персональных рекомендаций по «настроению» классика ищется по произведению, не по эмоции",
+    "Никаких подкастов и радио это не агрегатор, а каталог",
+    "Никакого бесплатного уровня с рекламой аудитория не переносит рекламу в серьёзном прослушивании"
    ],
-   "monetization": "Малый бизнес платит фиксированную ежемесячную подписку за точку (аналог ASCAP/BMI в США, но оформленный как SaaS с удобным доступом). Средний чек выше потребительского, отток ниже."
+   "monetization": "Подписка 12-15 долларов в месяц. IDAGIO берёт 14.99 и имеет 15 000+ оценок в App Store. Apple Music Classical уже приучила к платной нише. Музыкальные школы и консерватории могут платить групповую лицензию 200-500 долларов в год."
   }
  },
  {
   "slug": "music-streaming-2",
   "category": "music-streaming",
-  "categoryName": "Музыкальные стримы",
-  "title": "Стриминг без искусственно созданной музыки",
-  "oneLiner": "Платформа для слушателей, которым важно, что за каждым треком стоит живой человек, с верификацией авторства и фильтром на входе в каталог",
-  "asOf": "2026-06-20",
+  "categoryName": "Музыка и стриминг",
+  "title": "Профессиональный плеер для личных FLAC-коллекций",
+  "oneLiner": "Нативный iOS/Android плеер для больших локальных и облачных фонотек: гэплесс, параметрический эквалайзер, надёжный CarPlay без подписки на чужой каталог.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 140
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
   },
   "reviewGrid": [
    {
-    "quote": "It's become impossible to comfortably use the mix function or any playlists without having AI slop shoved down my earholes. I have to check every new artist and they are A L L AI.",
-    "rating": 1,
-    "app": "YouTube Music"
-   },
-   {
-    "quote": "please add labels for AI-generated tracks/artists and a permanent option to block them from recommendations. I love discovering new music, but I want to focus on human-made art.",
+    "quote": "испортили все напоминаниями о сне, пора сделать перерыв, скоро отход ко сну. И в настройках это не выключается, и еще когда в поиск вводишь что нибудь, то из-за этого напоминания весь текст в поиске сбрасывается. Ну очень навязчиво",
     "rating": 2,
-    "app": "Tidal"
+    "app": "YouTube"
    },
    {
-    "quote": "Would be good if there were a way to report or block AI slop uploaded on another artist's name. Anybody seems to be able to upload anything with any name they want",
+    "quote": "The ads are out of control. AI ads feel scammy.",
     "rating": 3,
-    "app": "Tidal"
+    "app": "YouTube"
    },
    {
-    "quote": "Sooo much better than Spotify...Mostly because there are no ads for ICE recruitment.",
+    "quote": "Good crochet tutorials. Very helpful",
     "rating": 5,
-    "app": "Deezer: Music Player, Podcast"
+    "app": "YouTube"
    },
    {
-    "quote": "I switched from Spotify because Tidal pays artists more fairly. Overall, I'm happy, but it is frustrating as hell to use with Android Auto.",
+    "quote": "YouTube really needs to fix adds they put on shorts because if u want to get ur kids YouTube put into consideration what adds they might be watching. From experience there was an add that a scrolled upon that had people doing the thing. This add had me furious because YouTube is for little kids that",
     "rating": 4,
-    "app": "Tidal"
+    "app": "YouTube"
    },
    {
-    "quote": "I moved from Spotify because I don't want to support genocide and I know Tidal pays their artists the most. But holy, this mobile app sucks.",
-    "rating": 2,
-    "app": "Tidal"
-   },
-   {
-    "quote": "The music library is shrinking every day. Many of my favorite albums (Taylor Swift, The Neighbourhood, etc.) are suddenly unavailable.",
+    "quote": "They removed the ability to see how many ads were in a video and where they were placed, and removed the ability to see the amounts of dislikes on a video, which also removed the like/dislike ratio. Now they are removing the dislike button entirely for shorts.",
     "rating": 1,
-    "app": "Anghami"
+    "app": "YouTube"
+   },
+   {
+    "quote": "Algunas veces no detecta mi dedo😠",
+    "rating": 2,
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Слушатели всё чаще натыкаются на ИИ-генерацию под чужими именами в лентах открытий, и ни один мейджор не даёт возможности это заблокировать или даже пометить",
-    "obsCount": 7,
+    "title": "Аудиофилы держат тысячи FLAC-файлов на NAS, Plex или облаке. Существующие плееры (VLC, Flacbox, VOX, Plexamp) разваливаются на частных точках: Bluetooth обрезае",
+    "obsCount": 6,
     "apps": [
-     "YouTube Music",
-     "Tidal",
-     "Deezer: Music Player, Podcast",
-     "Napster"
+     "Plexamp",
+     "Flacbox: Hi-Res Music Player",
+     "VLC media player",
+     "VOX – MP3 & FLAC Music Player"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Слушатели всё чаще натыкаются на треки, созданные автоматически под чужими именами в лентах открытий, и ни одна крупная платформа не даёт возможности это заблокировать или даже пометить",
+  "gap": "Аудиофилы держат тысячи FLAC-файлов на NAS, Plex или облаке. Существующие плееры (VLC, Flacbox, VOX, Plexamp) разваливаются на частных точках: Bluetooth обрезает начало трека, CarPlay беден, синхронизация слетает, плейлисты зависают на первом треке. Платить 12 долларов за Plex Pass ради плеера аномалия.",
   "idea": {
-   "pitch": "Крупные платформы набиты автоматически созданной музыкой под именами реальных артистов, и у пользователей нет способа отфильтровать её из рекомендаций. Сервис верифицирует каждого загружающего артиста и не пропускает треки без подтверждённого авторства, превращая «без автоматики» в продуктовую гарантию. Монетизация строится на подписке аудитории, которая готова платить именно за это: они уже переходили с платформы на платформу по этическим причинам.",
+   "pitch": "Платный плеер один раз без подписки. Поддержка FLAC, ALAC, DSD, гэплесс-воспроизведение, параметрический эквалайзер, полноценный CarPlay с очередью, подключение к Plex, Emby, SMB, WebDAV, OneDrive. Упор на надёжность, а не на фичи: один раз настроил работает годами. Целевая аудитория уже покупает плееры (Neutron MP на Android стоит 6.99 и имеет сотни тысяч загрузок).",
    "features": [
-    "Верификация артиста при загрузке с подтверждением авторства трека",
-    "Видимый бейдж «живой автор» на каждом треке в каталоге",
-    "Фильтр новых загрузок: треки без верификации не попадают в рекомендации",
-    "Кнопка «репорт» с быстрым рассмотрением командой модераторов",
-    "Публичный отчёт о проценте верифицированных треков в каталоге"
+    "Гэплесс-воспроизведение FLAC, ALAC, DSD без пропусков между треками",
+    "Параметрический эквалайзер с пресетами для наушников и акустики",
+    "Полноценный CarPlay: очередь, поиск, перемотка внутри трека",
+    "Подключение к Plex, Emby, SMB, WebDAV, Google Drive, OneDrive одновременно",
+    "Надёжный Bluetooth без обрезки начала треков (фиксирует задержку A2DP)"
    ],
    "antiFeatures": [
-    "Алгоритмические миксы и авторадио",
-    "Контент от анонимных загрузчиков без верификации",
-    "Функции социальной сети и публичная активность"
+    "Никакого собственного каталога и стриминга только личные файлы",
+    "Никаких алгоритмических рекомендаций не нужны аудиофилу с готовой коллекцией",
+    "Никакой рекламы и freemium разовая покупка 9.99"
    ],
-   "monetization": "Подписка от слушателей, которые ушли со Spotify по этическим причинам и уже привыкли платить. Дополнительно: платное размещение верифицированных артистов в подборках."
+   "monetization": "Разовая покупка 9.99 в App Store. Дополнительные темы и пресеты EQ по 0.99-1.99. Аудиофильская аудитория покупает софт: Neutron, Poweramp, Vinyls все платные и прибыльные. Оценочная аудитория в нише: 100 000+ устройств с FLAC-коллекциями только в iOS."
   }
  },
  {
   "slug": "music-streaming-3",
   "category": "music-streaming",
-  "categoryName": "Музыкальные стримы",
-  "title": "Инструмент роялти для независимых артистов",
-  "oneLiner": "Агрегатор выплат и аналитики для независимых музыкантов: видно, откуда пришли деньги, где потеряли слушателя и какой трек окупился",
-  "asOf": "2026-06-20",
+  "categoryName": "Музыка и стриминг",
+  "title": "Дневник прослушиваний и рейтинг альбомов",
+  "oneLiner": "Letterboxd для музыки: пишешь рецензии, ставишь оценки альбомам, видишь что слушают друзья всё это как отдельный продукт, не как функция стриминга.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 140
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
   },
   "reviewGrid": [
    {
-    "quote": "I switched from Spotify because Tidal pays artists more fairly. Overall, I'm happy, but it is frustrating as hell to use with Android Auto.",
+    "quote": "I noticed recently when logging on to YouTube (on my phone) that the default font for video titles and community posts has changed. This change while new is unsightly. In my opinion this is terrible, all the words look slimed down giving it some difficulty to read. I am not a fan of this change and ",
+    "rating": 3,
+    "app": "YouTube"
+   },
+   {
+    "quote": "They want you to pay otherwise there are too many ads, and the ads can be a minute long",
     "rating": 4,
-    "app": "Tidal"
+    "app": "YouTube"
    },
    {
-    "quote": "Sound is amazing. Such an improvement from Spotify. (we moved because of the artists payments).",
-    "rating": 4,
-    "app": "Deezer: Music Player, Podcast"
-   },
-   {
-    "quote": "I canceled my Napster subscription (originally Rhapsody) last fall. However, I am still being billed as Rhapsody. There is no way to speak with anybody connected to Napster.",
+    "quote": "Pretty much every time I open the app most of the videos I am recommended have nothing to do with the channels I subscribe to. Maybe they have a different algorithm for these shorts and longform videos but either way the algorithm isn't good. \n\nThere are way too many videos made by AI or spam bots, ",
     "rating": 1,
-    "app": "Napster"
+    "app": "YouTube"
    },
    {
-    "quote": "I canceled my account in May 10th 2026. I was billed for the service on June 1st 2026. I reached out to Google play store and they told me my request for refund was denied.",
-    "rating": 1,
-    "app": "Pandora: Music & Podcasts"
-   },
-   {
-    "quote": "I used to have thousands of songs across various playlists, but it dropped to maybe 200 tops. Not worth anything anymore",
-    "rating": 1,
-    "app": "Napster"
-   },
-   {
-    "quote": "the search function is lacking, and metadata needs attention. Even when searching with song title and artist included, I often can't find what I'm looking for. Spotify is genuinely better on this front.",
+    "quote": "What in the hell is this new font? It’s so hard to read! I give 3 stars because at least it made me stop scrolling. Put it back how it was. Gag",
     "rating": 2,
-    "app": "Tidal"
+    "app": "YouTube"
    },
    {
-    "quote": "Tidal often mixes different artists that have the same name and there is no easy way to report wrongly tagged songs.",
-    "rating": 1,
-    "app": "Tidal"
+    "quote": "The font in the new update is terrible! It’s impossible for people with dyslexia to read.",
+    "rating": 3,
+    "app": "YouTube"
+   },
+   {
+    "quote": "This is the thing that my kids stop playing and destroying the house",
+    "rating": 5,
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Независимый артист получает деньги из десяти платформ в разное время в разных валютах без понятной аналитики, и не знает, на что тратить промобюджет",
-    "obsCount": 7,
+    "title": "Stats.fm потеряла функцию сравнения вкусов и сломала точность данных. Echo работает, но регулярно крашится. Letterboxd для кино стоит 3.99 в месяц и имеет милли",
+    "obsCount": 6,
     "apps": [
-     "Tidal",
-     "Deezer: Music Player, Podcast",
-     "Spotify: Music and Podcasts"
+     "Echo - Rank music!",
+     "stats.fm for Spotify Music App",
+     "Spotify: Music and Podcasts",
+     "Apple Music"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Независимый артист получает деньги из десяти платформ в разное время в разных валютах без понятной аналитики, и не знает, на что тратить промобюджет",
+  "gap": "Stats.fm потеряла функцию сравнения вкусов и сломала точность данных. Echo работает, но регулярно крашится. Letterboxd для кино стоит 3.99 в месяц и имеет миллионы платящих точно такой же сценарий потребления («куратор собственного вкуса, хочу поделиться») существует в музыке, но продукта нет.",
   "idea": {
-   "pitch": "Независимые музыканты загружают треки через дистрибьюторов, но аналитика по стримингам раздроблена по кабинетам каждой платформы, а сводного отчёта нет. Сервис агрегирует все роялти и данные прослушиваний в один дашборд, показывает, на какой платформе и каком треке конкретный артист теряет и зарабатывает. Монетизация: ежемесячная подписка от артиста, которому уже платят стриминги, то есть он уже в экономике.",
+   "pitch": "Приложение для людей, которые слушают осознанно: ставят оценки альбомам, пишут рецензии, ведут дневник с датой первого прослушивания, следят за вкусами друзей. Интеграция со Spotify и Apple Music через API для импорта истории, но само приложение не стримит оно журнал. Монетизация подписка 3.99 в месяц или 24.99 в год, как Letterboxd.",
    "features": [
-    "Подключение кабинетов всех крупных платформ через API и парсинг отчётов",
-    "Единый роялти-дашборд в рублях или долларах с историей выплат",
-    "Аналитика по трекам: где пик прослушиваний, где слушатель уходит",
-    "Прогноз следующей выплаты на основе текущего потока",
-    "Экспорт для бухгалтерии и самозанятых"
+    "Дневник прослушиваний с датой и заметкой по каждому альбому, включая задним числом",
+    "Рейтинги альбомов в системе 0.5-5 звёзд с личной рецензией",
+    "Импорт истории из Spotify Wrapped, Apple Music и Last.fm",
+    "Лента друзей: что послушал, что оценил, что рекомендует",
+    "Годовой отчёт: количество уникальных исполнителей, жанры, первые открытия года"
    ],
    "antiFeatures": [
-    "Дистрибуция треков на платформы",
-    "Инструменты записи и мастеринга",
-    "Социальный профиль артиста для слушателей"
+    "Никакого собственного плеера и стриминга только журнал поверх существующих сервисов",
+    "Никакой алгоритмической ленты контента от незнакомцев только друзья и подписки",
+    "Никакой рекламы только чистая подписка"
    ],
-   "monetization": "Подписка от независимых артистов с реальными выплатами. Дополнительно: процент от выявленных «потерянных» роялти через аудит."
+   "monetization": "Подписка 3.99 в месяц или 24.99 в год. Letterboxd генерирует десятки миллионов долларов в год с той же механикой и той же ценой. Аудитория Echo уже платит и просит функции значит, готовность платить есть."
   }
  },
  {
   "slug": "music-streaming-4",
   "category": "music-streaming",
-  "categoryName": "Музыкальные стримы",
-  "title": "Чистый аудиоплеер для ценителей звука",
-  "oneLiner": "Плеер для локальных файлов без сжатия с поддержкой внешних цифроаналоговых преобразователей и точной передачей битрейта без перекодирования на стороне приложения",
-  "asOf": "2026-06-20",
+  "categoryName": "Музыка и стриминг",
+  "title": "Плеер для диджеев: хранилище миксов и сетов",
+  "oneLiner": "Сервис для диджеев и клубных слушателей: загружай и слушай длинные миксы с полноценной перемоткой, треклистом и оффлайном без ограничений Mixcloud.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 140
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
   },
   "reviewGrid": [
    {
-    "quote": "Tidal is real to what it says and so far from my experience, all their tracks are truly lossless audio",
-    "rating": 5,
-    "app": "Tidal"
-   },
-   {
-    "quote": "all my downloaded loseless and hi res FLAC files have suddenly become low quality losey AAC. I can get that for free on spotify so it's time to ditch Tidal",
+    "quote": "u can't dislike artist or their songs so if u don't like them it's impossible to get them off ur feed",
     "rating": 1,
-    "app": "Tidal"
+    "app": "SoundCloud: The Music You Love"
    },
    {
-    "quote": "Offline listening is a lie. Simple concept, if the song is downloaded, then it doesn't need to connect to the internet to play, full stop. It's insane how bad this is.",
-    "rating": 1,
-    "app": "Tidal"
-   },
-   {
-    "quote": "Sound is amazing. Such an improvement from Spotify. (we moved because of the artists payments).",
+    "quote": "You really allowed four yr olds on here but yet you got rid of by bffs channel fifty times and yet she’s the age limit to be on here, yall are sick inside, not the good kind at all, like what kind of sick person allowed this to happen, she has to repeatedly restart and you allowed four year olds to ",
     "rating": 4,
-    "app": "Deezer: Music Player, Podcast"
+    "app": "YouTube"
    },
    {
-    "quote": "tidal connect doesn't work at all and no this issue is not at my end. forums are full with this complaint.",
+    "quote": "Why did YouTube bring back ads back to back.",
     "rating": 1,
-    "app": "Tidal"
+    "app": "YouTube"
    },
    {
-    "quote": "I moved from Spotify because I don't want to support genocide and I know Tidal pays their artists the most. But holy, this mobile app sucks.",
+    "quote": "YouTube went from the greatest app ever to a grotesque cash grab that is now filled with short form slop and a gut wrenching amount of ads.",
     "rating": 2,
-    "app": "Tidal"
+    "app": "YouTube"
    },
    {
-    "quote": "My listening time fell from 1,300 to 600 minutes because I end up bypassing the widget entirely and going straight to the app. The biggest annoyance? The old widget constantly nags me to switch to the new one",
-    "rating": 1,
-    "app": "Spotify: Music and Podcasts"
+    "quote": "Please stop changing literally so many tiny features, like I can’t tell if I turned on the loop of a playlist or not, and all the symbols look super stupid. I’d rather it be back to the previous version where it turned blue if I clicked a button, to allow for more clarity in what you’re actually doi",
+    "rating": 3,
+    "app": "YouTube"
+   },
+   {
+    "quote": "Make it like Musi !!!! 💨🏃🏿‍♂️‍➡️",
+    "rating": 5,
+    "app": "YouTube"
    }
   ],
   "mechanisms": [
    {
-    "title": "Аудиофилы хранят коллекции FLAC и хотят воспроизводить их без потери качества через внешний ЦАП, но стриминг-приложения молча перекодируют поток и не поддержива",
-    "obsCount": 7,
+    "title": "Mixcloud единственный сервис с диджейскими миксами, но убрал перемотку на 30 секунд без подписки и деградирует в стабильности. Диджеи активно платят за дистрибу",
+    "obsCount": 6,
     "apps": [
-     "Tidal",
-     "Deezer: Music Player, Podcast",
-     "Spotify: Music and Podcasts"
+     "Mixcloud: Music, Mixes & Radio",
+     "SoundCloud: The Music You Love",
+     "Audiomack - Play Music Offline",
+     "Audiomack Creator-Upload Music"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Любители качественного звука хранят коллекции в форматах без потерь и хотят воспроизводить их через внешний цифроаналоговый преобразователь, но стриминговые приложения молча перекодируют поток и не поддерживают внешнее аудиооборудование на мобильных",
+  "gap": "Mixcloud единственный сервис с диджейскими миксами, но убрал перемотку на 30 секунд без подписки и деградирует в стабильности. Диджеи активно платят за дистрибуцию и хранение своих записей. Слушатели хотят оффлайн-доступ к конкретным сетам и треклист внутри микса ни одна платформа не даёт этого нормально.",
   "idea": {
-   "pitch": "Стриминги обещают звук без потерь, но молча понижают качество на части устройств, не поддерживают внешние преобразователи и скрывают реальный битрейт воспроизведения. Сервис позиционируется как плеер для локальных файлов с честным выводом через проводное и беспроводное подключение, показывает реальный формат в режиме реального времени и не трогает поток по пути к оборудованию. Ценитель звука уже потратил десятки тысяч на железо и готов заплатить за программу, которая не мешает этому железу работать.",
+   "pitch": "Б2С: диджеи платят за хранение и распространение своих миксов (как SoundCloud для обычных артистов). Слушатели платят за подписку с оффлайном, полной перемоткой и треклистом. Уникальный угол в каждом миксе кликабельный треклист: слышишь трек на 47-й минуте, нажимаешь видишь название и можешь добавить в Spotify. Это то, чего не умеет ни Mixcloud, ни SoundCloud.",
    "features": [
-    "Воспроизведение FLAC, WAV, DSD с реальным битрейтом без пересчёта",
-    "Поддержка USB-аудио и внешних ЦАП на Android и iOS",
-    "Отображение реального формата и битрейта текущего трека в плеере",
-    "Локальная библиотека с автоматической организацией по тегам",
-    "Эквалайзер с bypass-режимом для тех, кто не хочет обработку"
+    "Кликабельный треклист внутри микса с временными метками",
+    "Полноценная перемотка внутри длинных миксов без ограничений",
+    "Оффлайн-загрузка конкретных миксов для слушателей",
+    "Панель диджея: загрузка миксов, статистика прослушиваний, монетизация через донаты",
+    "CarPlay с поддержкой длинных форматов и выбором точки входа"
    ],
    "antiFeatures": [
-    "Стриминговый каталог и рекомендации",
-    "Социальные функции и шеринг",
-    "Автоматическое обновление плеера без разрешения пользователя"
+    "Никаких одиночных треков только миксы и сеты от 30 минут",
+    "Никакого алгоритма персонализации для новых открытий поиск по диджею и жанру",
+    "Никакой ИИ-генерации музыки в ленте"
    ],
-   "monetization": "Разовая покупка приложения плюс опциональная подписка на облачную синхронизацию библиотеки. Аудитория уже тратит на железо и не экономит на софте."
+   "monetization": "Диджеи платят 9.99 в месяц за хранение и аналитику (как SoundCloud Pro). Слушатели платят 7.99 в месяц за оффлайн и полный доступ. Mixcloud берёт больше Netflix значит, ценовая чувствительность есть, но готовность платить подтверждена."
   }
  },
  {
   "slug": "music-streaming-5",
   "category": "music-streaming",
-  "categoryName": "Музыкальные стримы",
-  "title": "Музыкальная подписка для детей",
-  "oneLiner": "Стриминг детской музыки для родителей: кураторский каталог без взрослого контента, без рекламы и с родительским контролем очереди воспроизведения",
-  "asOf": "2026-06-20",
+  "categoryName": "Музыка и стриминг",
+  "title": "Стриминг для диаспоры: родное радио в эмиграции",
+  "oneLiner": "Агрегатор радио и музыки для конкретной языковой диаспоры: греки в Австралии, русские в Германии, вьетнамцы в США всё родное в одном месте.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 140
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
   },
   "reviewGrid": [
    {
-    "quote": "worst music app I have ever experienced, you literally can't choose the song you want even after watching the ad, it just goes to shuffle mode from the get go",
-    "rating": 1,
-    "app": "Anghami"
+    "quote": "I used to live on Cape Cod, and I listen to WBZ all the time on my commute.\nI live in Atlanta now, and it’s nice. I can still listen to a little bit of Home.",
+    "rating": 5,
+    "app": "iHeart: Radio, Music, Podcasts"
    },
    {
-    "quote": "too many commercials. commercials after every two songs! worse than the radio!!",
+    "quote": "Радио само ставится на паузу при потере интернета и обратно не возвращается",
     "rating": 1,
-    "app": "Pandora: Music & Podcasts"
+    "app": "TuneIn Radio: Music & Sports"
    },
    {
-    "quote": "having x2 30 second adverts after every 3.5/4 minute song is unsuitable listening. used to be every 5/10 songs. most now is every song.",
-    "rating": 1,
-    "app": "SoundCloud: The Music You Love"
-   },
-   {
-    "quote": "everything is behind a pay wall yes theirs some features but you have to pay for everything especially if you want to shuffle songs",
+    "quote": "So buggy, I can’t hop onto a jam with my Girlfriend without it completely glitching out on me. This app used to be so good and now it’s just buns!",
     "rating": 1,
     "app": "Spotify: Music and Podcasts"
    },
    {
-    "quote": "Offline listening is a lie. Simple concept, if the song is downloaded, then it doesn't need to connect to the internet to play, full stop. It's insane how bad this is.",
-    "rating": 1,
-    "app": "Tidal"
-   },
-   {
-    "quote": "Every day it resumes a song from a search I did over a week ago, as opposed to the playlist I had left it on yesterday.",
+    "quote": "Music and podcasts randomly cut out and stutter all of the time",
     "rating": 2,
-    "app": "YouTube Music"
+    "app": "Spotify: Music and Podcasts"
    },
    {
-    "quote": "love the app. use to listen on android auto however it no longer appears as an app. please fix.",
+    "quote": "Bring back the daily drive mix",
     "rating": 3,
-    "app": "Pandora: Music & Podcasts"
+    "app": "Spotify: Music and Podcasts"
+   },
+   {
+    "quote": "Hjnfvenjiveenfjjvjhneqnwhjfwejhncehjvwfejjferjnwrevhjnhdsvt",
+    "rating": 5,
+    "app": "Spotify: Music and Podcasts"
    }
   ],
   "mechanisms": [
    {
-    "title": "Родители включают ребёнку музыку через общий аккаунт Spotify или YouTube Music, но алгоритм подмешивает взрослый контент, рекламу и видео, которые не рассчитаны",
-    "obsCount": 7,
+    "title": "Греческое приложение E-Radio существует и имеет реальных лояльных пользователей за пределами Греции. Radio and Music Online держит русскую аудиторию за рубежом.",
+    "obsCount": 6,
     "apps": [
-     "Spotify: Music and Podcasts",
-     "YouTube Music",
-     "Amazon Music: Songs & Podcasts",
-     "Pandora: Music & Podcasts"
+     "E-Radio - Stream greek music",
+     "Radio and Music Online (Радио)",
+     "NCT - NhacCuaTui Nghe MP3",
+     "Anghami: Play Music & Podcasts"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Родители включают ребёнку музыку через общий аккаунт Spotify или YouTube Music, но алгоритм подмешивает взрослый контент, рекламу и видео, которые не рассчитаны на детей",
+  "gap": "Греческое приложение E-Radio существует и имеет реальных лояльных пользователей за пределами Греции. Radio and Music Online держит русскую аудиторию за рубежом. NhacCuaTui живёт на вьетнамской диаспоре годами. Общий паттерн: люди в эмиграции платят за доступ к родному контенту но каждая такая аудитория обслуживается маленьким полуживым приложением без инвестиций.",
   "idea": {
-   "pitch": "Родители платят за детские стриминги видео (Netflix Kids, YouTube Kids), но для аудио аналога с нормальным контролем нет. Сервис строится вокруг кураторского каталога детских песен, классики и аудиосказок без рекламы, с режимом, где ребёнок может выбирать только из одобренного родителем списка. Аудитория уже платит за детские подписки в видео и книгах, перенос паттерна в аудио очевиден.",
+   "pitch": "Выбрать одну крупную диаспору (начать с русскоязычной: 4+ млн человек в Германии, Израиле, США) и сделать правильный продукт: стабильный агрегатор радиостанций с удобной навигацией, оффлайн-записью прямых эфиров и персонализацией. Затем масштабировать модель на следующие диаспоры через B2B-партнёрства с радиостанциями.",
    "features": [
-    "Кураторский каталог детской музыки, классики и аудиосказок без взрослого контента",
-    "Детский режим: ребёнок слышит только то, что родитель добавил в список",
-    "Без рекламы и без автоперехода на рекомендации за пределами списка",
-    "Офлайн-загрузка для дороги без зависания и ошибок подключения",
-    "Один семейный аккаунт с отдельными профилями для каждого ребёнка"
+    "Каталог радиостанций с сортировкой по городу, формату и языку",
+    "Запись прямых эфиров для оффлайн-прослушивания",
+    "Избранные станции с синхронизацией между устройствами",
+    "Автоматическое переключение на резервный поток при обрыве",
+    "CarPlay с голосовым поиском по названию станции"
    ],
    "antiFeatures": [
-    "Открытый каталог без фильтрации контента",
-    "Рекомендательный алгоритм без родительского одобрения",
-    "Социальные функции и публичные профили детей"
+    "Никакого собственного контента только агрегация существующих потоков",
+    "Никакой универсальности один язык, одна диаспора, глубина вместо широты",
+    "Никакой рекламы внутри приложения только чистая подписка"
    ],
-   "monetization": "Ежемесячная семейная подписка. Родители уже платят за Netflix Kids, Storytel и детские приложения, паттерн оплаты отработан."
+   "monetization": "Подписка 3.99-4.99 в месяц. Диаспорная аудитория платит за доступ к родному контенту стабильнее, чем общая аудитория: это эмоциональная привязка, а не развлечение. Радиостанции могут платить за верифицированное присутствие и аналитику слушателей за рубежом."
   }
  },
  {
   "slug": "music-streaming-6",
   "category": "music-streaming",
-  "categoryName": "Музыкальные стримы",
-  "title": "Музыка для работы по подписке",
-  "oneLiner": "Стриминг специально для фокусного труда: треки без слов по жанру (лоуфай, классика, эмбиент, биофилия) с таймером и режимом без перерывов",
-  "asOf": "2026-06-20",
+  "categoryName": "Музыка и стриминг",
+  "title": "Инструмент для независимых артистов: загрузка, аналитика, выплаты",
+  "oneLiner": "Платформа для независимых музыкантов, которая реально платит в срок, даёт аналитику по аудитории и не ломается при загрузке треков.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 140
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
   },
   "reviewGrid": [
    {
-    "quote": "The DJ keeps playing Latin music despite me never listening to it and skipping it when it puts it on. This has been a problem for months now.",
+    "quote": "All the music I listen to is behind a pay wall and all the music that’s not has horrible sound quality I used to love audiomack a few years ago but they changed",
+    "rating": 1,
+    "app": "Audiomack - Play Music Offline"
+   },
+   {
+    "quote": "I love it, but if there is way too many ads",
+    "rating": 4,
+    "app": "Spotify: Music and Podcasts"
+   },
+   {
+    "quote": "Do you all still fund the construction of detention centers in the United States… for the unlawful detainment of human beings who are protected under US law?",
+    "rating": 1,
+    "app": "Spotify: Music and Podcasts"
+   },
+   {
+    "quote": "Còn nhiều hạn chế, đàn nghe nhạc tự nhiên lại có không được tuỳ ý chọn bài nữa, với nhiều quảng cáo",
+    "rating": 2,
+    "app": "Spotify: Music and Podcasts"
+   },
+   {
+    "quote": "I love the playlists and the recommendations it makes for music. However, sometimes it doesn’t work and I’ve also noticed that some songs I add later on disappear from my list which kinda sucks",
     "rating": 3,
     "app": "Spotify: Music and Podcasts"
    },
    {
-    "quote": "Carlos Santana & Stevie Ray Vaughn are in the top 5 guitarists ever. But you pull Sam Smith, Michael Jackson, Teddy Swims, Post Malone & Jelly Roll to all my channels. Totally not in the same class/genre.",
-    "rating": 2,
-    "app": "Pandora: Music & Podcasts"
-   },
-   {
-    "quote": "too many commercials. commercials after every two songs! worse than the radio!!",
-    "rating": 1,
-    "app": "Pandora: Music & Podcasts"
-   },
-   {
-    "quote": "after everytime a song plays, I get \"we've encountered a network issue. please check your connection and try again. (1:2:2000) doesnt matter if im on wifi or not. same issue. everytime. after every song",
-    "rating": 1,
-    "app": "Tidal"
-   },
-   {
-    "quote": "it still always stops playing after a few songs and says there was an error. It would be really nice if the music I'm playing to listen to would continue to play without needing to get back into the app and clear the error message every 20 minutes",
-    "rating": 2,
-    "app": "Deezer: Music Player, Podcast"
-   },
-   {
-    "quote": "Despite having a playlist with HUNDREDS of songs, this app will only play the same 40 songs. What is the point of having a playlist if the app chooses to play such a limited selection?",
-    "rating": 1,
-    "app": "Deezer: Music Player, Podcast"
-   },
-   {
-    "quote": "Recommendations often don't reflect my musical taste or are just recycling of previous music that I've listened too.",
-    "rating": 3,
-    "app": "Amazon Music: Songs & Podcasts"
+    "quote": "One thing is wrong with the app and when you pick a genre and play it after a few songs it glitches or someone calls you it will glitch out the genre and start playing all songs lol kinda annoying especially when I’m in my zone with the genre 😂",
+    "rating": 5,
+    "app": "Spotify: Music and Podcasts"
    }
   ],
   "mechanisms": [
    {
-    "title": "Люди слушают музыку во время работы, но обычный стриминг прерывается рекламой, подмешивает треки с вокалом в инструментальную подборку и не позволяет настроить ",
-    "obsCount": 7,
+    "title": "Audiomack Creator, SoundCloud для артистов и DistroKid страдают одним и тем же: выплаты с задержками на недели, загрузчик ломается после обновлений, редактирова",
+    "obsCount": 6,
     "apps": [
-     "Spotify: Music and Podcasts",
-     "YouTube Music",
-     "Amazon Music: Songs & Podcasts",
-     "Deezer: Music Player, Podcast"
+     "Audiomack Creator-Upload Music",
+     "SoundCloud: The Music You Love",
+     "Audiomack - Play Music Offline"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Люди слушают музыку во время работы, но обычный стриминг прерывается рекламой, подмешивает треки с вокалом в инструментальную подборку и не позволяет настроить бесшовный поток без пауз",
+  "gap": "Audiomack Creator, SoundCloud для артистов и DistroKid страдают одним и тем же: выплаты с задержками на недели, загрузчик ломается после обновлений, редактирование метаданных глючит. Артисты активно ищут альтернативу это подтверждают отзывы с конкретными суммами и конкретными жалобами на задержки.",
   "idea": {
-   "pitch": "Рынок инструментов для фокуса уже сформирован и платёжеспособен, но музыкальный его сегмент занят дорогими нишевыми сервисами или общими стримингами с неподходящим интерфейсом. Сервис предлагает курируемые потоки без вокала, с таймером рабочей сессии (по методу помидора или произвольный) и функцией «не прерывать» без рекламы и уведомлений. Платящий клиент: работники умственного труда, фрилансеры и студенты, уже купившие инструменты продуктивности.",
+   "pitch": "B2C-инструмент для независимых артистов с 3 обещаниями: выплата в течение 7 дней после расчётного периода, загрузчик с гарантированным возобновлением, редактирование метаданных без ограничений. Дополнительно: аналитика по аудитории с разбивкой по географии и источнику трафика. Монетизация процент от стримов плюс опциональная подписка за расширенную аналитику.",
    "features": [
-    "Потоки без вокала по жанру: лоуфай, классика, ам биент, звуки природы",
-    "Встроенный таймер рабочей сессии с мягким звуковым сигналом",
-    "Режим без пауз: переходы между треками без тишины и рекламных вставок",
-    "Выбор темпа и интенсивности внутри жанра для разного типа задач",
-    "Офлайн-доступ ко всем потокам без сетевых ошибок"
+    "Загрузка треков с автоматическим возобновлением при обрыве соединения",
+    "Редактирование метаданных включая обложку, соавторов, ISRC",
+    "Выплаты в течение 7 дней после закрытия расчётного периода с прозрачным отчётом",
+    "Аналитика по аудитории: география, источник, устройства, возраст прослушиваний",
+    "Переупорядочивание треков в альбоме без ограничений"
    ],
    "antiFeatures": [
-    "Треки с вокалом в рабочих потоках",
-    "Рекомендации «вам также понравится» во время сессии",
-    "Социальные функции и история прослушиваний"
+    "Никакой собственной платформы для слушателей только инструмент для артиста",
+    "Никаких обещаний вирусности и продвижения только инфраструктура",
+    "Никакого бесплатного уровня с урезанными функциями одна честная цена"
    ],
-   "monetization": "Ежемесячная подписка от работников умственного труда. Целевая аудитория уже платит за Notion, Figma, Superhuman и не экономит на инструментах продуктивности."
+   "monetization": "5% от стримов плюс опциональная подписка 9.99 в месяц за аналитику. DistroKid берёт 22.99 в год и имеет сотни тысяч артистов. Артисты платят за инструменты: это профессиональные расходы, не развлечение."
   }
  },
  {
   "slug": "music-streaming-7",
   "category": "music-streaming",
-  "categoryName": "Музыкальные стримы",
-  "title": "Инструмент для диджеев: подготовка сетов и поиск музыки",
-  "oneLiner": "Стриминг с инструментами для диджеев: фильтр по темпу и тональности, экспорт плейлиста в профессиональный софт, поиск по жанру и офлайн-загрузка с гарантией качества",
-  "asOf": "2026-06-20",
+  "categoryName": "Музыка и стриминг",
+  "title": "Музыкальный плеер без алгоритмов для глубокого слушания",
+  "oneLiner": "Плеер, который честно перемешивает весь плейлист без повторов и не навязывает рекомендации для людей с большими коллекциями и сформированным вкусом.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 140
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
   },
   "reviewGrid": [
    {
-    "quote": "Offline listening is a lie. Simple concept, if the song is downloaded, then it doesn't need to connect to the internet to play, full stop. It's insane how bad this is.",
+    "quote": "It locks itself into loops. Plays music not on playlist. Shuffle does not work, it recreates the same shuffle every time so you hear it in an order instead of a shuffle.",
     "rating": 1,
-    "app": "Tidal"
+    "app": "Amazon Music: Songs & Podcasts"
    },
    {
-    "quote": "I work remotely without signal for weeks at a time & pay for service I don't get.",
-    "rating": 1,
-    "app": "Deezer: Music Player, Podcast"
+    "quote": "I noticed every time i’m on a discord call with friends, and it’s only discord, that my song on spotify will pause every so often like every 30 seconds and it doesn’t keep playing until I leave the call. Please fix this it’s been like this for months and months.",
+    "rating": 4,
+    "app": "Spotify: Music and Podcasts"
    },
    {
-    "quote": "tidal connect doesn't work at all and no this issue is not at my end. forums are full with this complaint.",
-    "rating": 1,
-    "app": "Tidal"
-   },
-   {
-    "quote": "i cant play the SONGS IN ORDER. when i click on to playlists, the only thing i can choose is a short clip of the song",
+    "quote": "i've been using spotify since 2022 now and every night to sleep i play music on my tv in my room. dark mode has never been an issue, i've loved it all the years i've used it since it prevents light from being in my face when i'm trying to sleep. so imagine my surprise when spotify makes the grand de",
     "rating": 1,
     "app": "Spotify: Music and Podcasts"
    },
    {
-    "quote": "when I add songs to the queue, they never actually play in the queue.",
+    "quote": "Ads after every 2-3 songs, clunky performance, and the app literally FORCES you to indulge in paying monthly for premium at absurd prices. Greedy sad",
     "rating": 2,
-    "app": "Deezer: Music Player, Podcast"
+    "app": "Spotify: Music and Podcasts"
    },
    {
-    "quote": "if you *accidentally* press a song a little further in your play queue it'll erase all the ones you've took 30 mins adding. Stupid update, didn't do that before!",
-    "rating": 1,
-    "app": "Tidal"
+    "quote": "i like to listen to music at work but every time i actively use the app for more than three minutes or open it after having it run in the background for a bit it will crash. it also takes forever to load and 90% of the time produces an error message when trying to access a playlist/artist page/song/",
+    "rating": 3,
+    "app": "Spotify: Music and Podcasts"
    },
    {
-    "quote": "the search function is lacking, and metadata needs attention. Even when searching with song title and artist included, I often can't find what I'm looking for. Spotify is genuinely better on this front.",
-    "rating": 2,
-    "app": "Tidal"
+    "quote": "if i didn't have this app id die😙✌🏼",
+    "rating": 5,
+    "app": "Spotify: Music and Podcasts"
    }
   ],
   "mechanisms": [
    {
-    "title": "Диджеи платят за стриминг, чтобы находить новую музыку для сетов, но не могут искать по BPM и тональности, не доверяют офлайн-загрузке на выступлении и не могут",
-    "obsCount": 7,
+    "title": "Главная жалоба на Spotify, Amazon Music, Apple Music и Pandora один и тот же: перемешивание циклично возвращает одни и те же 20 треков из тысячного плейлиста. Э",
+    "obsCount": 6,
     "apps": [
-     "Tidal",
-     "Deezer: Music Player, Podcast",
-     "Spotify: Music and Podcasts"
+     "Spotify: Music and Podcasts",
+     "Amazon Music: Songs & Podcasts",
+     "Apple Music",
+     "Plexamp"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Диджеи платят за стриминг, чтобы находить новую музыку для сетов, но не могут искать по темпу и тональности, не доверяют офлайн-загрузке на выступлении и не могут экспортировать плейлист в профессиональный софт",
+  "gap": "Главная жалоба на Spotify, Amazon Music, Apple Music и Pandora один и тот же: перемешивание циклично возвращает одни и те же 20 треков из тысячного плейлиста. Это системная проблема: алгоритм оптимизирует engagement, а не покрытие. Люди с 1000+ треков в плейлисте никогда не слышат 80% своей коллекции. Никто не решил эту задачу правильно.",
   "idea": {
-   "pitch": "Диджеи активно используют специализированные магазины и стриминги, но у каждого есть ограничения: дорого или узко по жанрам. Сервис строится вокруг практических задач подготовки сета: поиск по темпу, тональности и жанру, экспорт в форматы профессиональных программ, надёжная офлайн-загрузка для выступлений. Монетизация устойчива: диджей платит за инструменты, которые экономят часы подготовки и снижают риск технического провала на мероприятии.",
+   "pitch": "Простой платный плеер с одним обещанием: настоящее равномерное перемешивание по всему плейлисту с гарантией непрерывности (трек не повторится, пока не сыграют все остальные). Плюс честный список уже сыгранных треков и предсказуемый порядок будущих. Работает как надстройка над Spotify через SDK или как автономный плеер с импортом плейлистов. Монетизация разовая покупка.",
    "features": [
-    "Поиск по каталогу с фильтрами BPM, тональности, жанра и года",
-    "Экспорт плейлиста в XML для Rekordbox и Serato",
-    "Офлайн-загрузка с верификацией файла до выступления",
-    "Подбор следующего трека по ключу (гармоническое микширование)",
-    "История сетов с возможностью восстановить предыдущий плейлист"
+    "Алгоритм равномерного перемешивания: каждый трек играет ровно один раз до повтора",
+    "Прозрачная очередь: что уже сыграло, что будет дальше",
+    "Интеграция со Spotify через официальный SDK для импорта плейлистов",
+    "Статистика покрытия: сколько треков из коллекции не играло дольше месяца",
+    "Режим «открытие забытого»: сначала треки, которые не звучали дольше всего"
    ],
    "antiFeatures": [
-    "Рекомендации на основе слушательских вкусов",
-    "Подкасты и разговорный контент",
-    "Социальный профиль для публичного шеринга треков"
+    "Никаких алгоритмических рекомендаций только то, что пользователь уже добавил",
+    "Никаких социальных функций это инструмент, не соцсеть",
+    "Никакого собственного каталога работает с уже существующими плейлистами"
    ],
-   "monetization": "Подписка от профессиональных и полупрофессиональных диджеев. Аудитория уже платит за Beatport, Rekordbox и DJ-контроллеры, привычка к платным инструментам сформирована."
+   "monetization": "Разовая покупка 4.99 или 6.99. Огромная аудитория платящих пользователей Spotify (Premium 11.99/месяц) не довольна базовой функцией перемешиванием. Это pain, за решение которого платят."
+  }
+ },
+ {
+  "slug": "music-streaming-8",
+  "category": "music-streaming",
+  "categoryName": "Музыка и стриминг",
+  "title": "Музыка для заведений: лицензированный фоновый стриминг для кафе, магазинов и отелей",
+  "oneLiner": "B2B-сервис лицензированной фоновой музыки для малого бизнеса: кафе, рестораны, магазины с правом публичного воспроизведения без риска штрафа.",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 94,
+   "reviews": 24419,
+   "observations": 271
+  },
+  "reviewGrid": [
+   {
+    "quote": "Outstanding variety of songs for all contemporary\n/modern musical tastes",
+    "rating": 4,
+    "app": "iHeart: Radio, Music, Podcasts"
+   },
+   {
+    "quote": "Easy to use and very large library of stations to listen to.",
+    "rating": 4,
+    "app": "TuneIn Radio: Music & Sports"
+   },
+   {
+    "quote": "To many adds",
+    "rating": 4,
+    "app": "Spotify: Music and Podcasts"
+   },
+   {
+    "quote": "I would like to say Spotify you are fake. No one has time to pay for Spotify premium, and no one has money for that. I am not trying to buy Spotify premium. I’m just trying to listen to my music in my playlist and I can’t listen to none of them even the ones that are not in the playlist I tried time",
+    "rating": 1,
+    "app": "Spotify: Music and Podcasts"
+   },
+   {
+    "quote": "Please for the love of god fix your SHUFFLE. It is absolutely terrible. I’m tired of hearing the same songs over and over and over with shuffle on.\n\nEdit: saw they responded. Unfortunately I’ve had the premium subscription for years.. I really hope yall can fix the shuffle issue because the app woul",
+    "rating": 2,
+    "app": "Spotify: Music and Podcasts"
+   },
+   {
+    "quote": "I don’t like the ad’s",
+    "rating": 3,
+    "app": "Spotify: Music and Podcasts"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Spotify и Apple Music запрещены для публичного воспроизведения в бизнесе. За нарушение грозят штрафы до десятков тысяч долларов. Специализированные B2B-сервисы ",
+    "obsCount": 6,
+    "apps": [
+     "Spotify: Music and Podcasts",
+     "Stingray Music: 100s of DJs",
+     "TuneIn Radio: Music & Sports",
+     "iHeart: Radio, Music, Podcasts"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Spotify и Apple Music запрещены для публичного воспроизведения в бизнесе. За нарушение грозят штрафы до десятков тысяч долларов. Специализированные B2B-сервисы (Soundtrack Your Brand, Rockbot, Mood Media) существуют, но стоят 50-150 долларов в месяц и сложны в настройке. Малый бизнес (кофейня, парикмахерская, маленький отель) либо рискует нарушением, либо платит за сложный корпоративный продукт.",
+  "idea": {
+   "pitch": "B2B-подписка для малого бизнеса: лицензированная фоновая музыка с правом публичного воспроизведения, простая настройка под тип заведения, автоматическая смена плейлистов под время суток. Ценообразование: 15-25 долларов в месяц вместо 50-150 у конкурентов. Канал продаж прямой через веб, без корпоративных переговоров.",
+   "features": [
+    "Лицензированная фоновая музыка с правом публичного воспроизведения",
+    "Настройка под тип заведения: кофейня, ресторан, магазин одежды, спортзал",
+    "Автоматическая смена настроения по времени суток (утро, обед, вечер)",
+    "Простое управление с планшета или телевизионной приставки",
+    "Ежемесячный отчёт о воспроизведении для документации соответствия требованиям"
+   ],
+   "antiFeatures": [
+    "Никакой потребительской версии только B2B",
+    "Никакого ручного выбора треков для владельца только настройка параметров жанра и настроения",
+    "Никаких разовых покупок только подписка, потому что лицензия требует активного договора"
+   ],
+   "monetization": "Подписка 15-25 долларов в месяц на точку. При 1000 заведений 180 000-300 000 долларов ARR. Soundtrack Your Brand оценивается в сотни миллионов долларов, что подтверждает рыночный размер. Малый бизнес платит за снятие правового риска."
   }
  },
  {

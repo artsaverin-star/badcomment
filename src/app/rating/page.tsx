@@ -28,6 +28,7 @@ const NICHES = [
   { slug: "calendars-tasks", name: "Календари и задачи", nameEn: "Calendars & tasks", blurb: "Где напоминание приходит вовремя и ничего не теряется." },
   { slug: "nutrition-calories", name: "Калории и питание", nameEn: "Calorie & nutrition", blurb: "Где подсчёт калорий честный и удобный, а где база врёт и тормозит." },
   { slug: "crypto-investing", name: "Крипта и инвестиции", nameEn: "Crypto & investing apps", blurb: "93 приложения: где кошелёк и биржа честны и надёжны, а где накрутка и заморозка средств." },
+  { slug: "music-streaming", name: "Музыка и стриминг", nameEn: "Music streaming apps", blurb: "94 приложения: где каталог, звук и плейлисты честны и удобны, а где накрутка и потеря музыки." },
 ];
 
 export default async function RatingIndexPage() {
