@@ -35,9 +35,9 @@ type Idea = { slug: string; category: string; title: string; oneLiner: string; g
 export default function TestDescentPage() {
   const r = rating as typeof rating;
   const apps = r.apps as RApp[];
-  const thesis = (thesisAll as Record<string, { governing: string }>)[SLUG];
-  const findings = ((cardsAll as Record<string, { product?: Finding[] }>)[SLUG]?.product ?? []).slice(0, 6);
-  const ideas = (ideasAll as Idea[]).filter((x) => x.category === SLUG);
+  const thesis = (thesisAll as unknown as Record<string, { governing: string }>)[SLUG];
+  const findings = ((cardsAll as unknown as Record<string, { product?: Finding[] }>)[SLUG]?.product ?? []).slice(0, 6);
+  const ideas = (ideasAll as unknown as Idea[]).filter((x) => x.category === SLUG);
 
   // demand signals computed live from real store data
   const totalRatings = apps.reduce((s, a) => s + (a.ratings || 0), 0);
