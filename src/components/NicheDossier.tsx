@@ -158,10 +158,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
         <div className="mt-6"><PersonaCards segments={audSegments} locale={locale} /></div>
-        <div className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5">
-          <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Где деньги" : "Where the money is"}</h3>
-          <p className="mt-2 text-callout text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
-        </div>
+        <h3 className="mt-12 text-headline text-[var(--color-text-primary)]">{ru ? "Где деньги" : "Where the money is"}</h3>
+        <p className="mt-3 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
       </Block>
 
       {loggedIn ? (
