@@ -46,15 +46,19 @@ export default function BuyButton({
   const eff = LAUNCH_PROMO ? FRIEND_PRICE_RUB : LIFETIME.rub;
 
   // Single-offer copy is owned here, not by call sites — every paywall on the
-  // site shows the same «весь сайт навсегда» wording and price. The label/title/
-  // subtitle props are still accepted (legacy call sites) but intentionally
-  // ignored so no surface can advertise a stale per-category/per-deck price.
+  // site shows the same wording and price. The label/title/subtitle props are
+  // still accepted (legacy call sites) but intentionally ignored so no surface
+  // can advertise a stale per-category/per-deck price. During the launch promo
+  // it is framed as a founding price («Доступ для первых») that will rise — honest
+  // urgency that makes raising the number later natural.
   void label; void title; void subtitle;
-  const ttl = ru ? "Весь сайт навсегда" : "The whole site, forever";
+  const ttl = LAUNCH_PROMO
+    ? (ru ? "Доступ для первых" : "Founding access")
+    : (ru ? "Весь сайт навсегда" : "The whole site, forever");
   const sub = ru
-    ? "Все разборы категорий, все идеи под спрос и народный рейтинг по всем нишам. Один платёж, доступ навсегда."
-    : "Every category breakdown, every demand-backed idea and the people's rating across all niches. One payment, access forever.";
-  const triggerLabel = ru ? `Открыть всё за ${eff} ₽` : `Unlock everything — ${eff} ₽`;
+    ? "Забираешь весь сайт навсегда: все разборы, идеи под спрос и народный рейтинг, включая всё, что выйдет дальше."
+    : "Take the whole site forever: every breakdown, demand-backed idea and the people's rating, including everything that comes next.";
+  const triggerLabel = ru ? `Открыть весь сайт за ${eff} ₽` : `Unlock the whole site — ${eff} ₽`;
 
   function onClick() {
     if (!loggedIn) {
@@ -88,8 +92,8 @@ export default function BuyButton({
 
   // Card РФ / СБП + the «what you get» list — shared by the popup and inline panel.
   const benefits = ru
-    ? ["Все идеи под подтверждённый спрос, и новые каждую неделю", "Все категории: рейтинг, выводы и разбор конкурентов", "Все будущие ниши входят без доплат", "Платишь один раз, доступ навсегда"]
-    : ["Every demand-backed idea, plus new ones weekly", "All categories: rating, conclusions and competitor teardowns", "All future niches included, no extra cost", "Pay once, access forever"];
+    ? ["Все категории и идеи под подтверждённый спрос", "Новые ниши входят без доплат", "Один платёж, доступ навсегда"]
+    : ["Every category and demand-backed idea", "New niches included, no extra cost", "One payment, access forever"];
 
   const methods = (
     <>
@@ -127,15 +131,21 @@ export default function BuyButton({
     </>
   );
 
-  // Price block (big number + struck-through original during the launch promo).
+  // Price block (big number + struck-through original + the founding-price note
+  // during the launch promo).
   const priceBlock = (
-    <div className="mt-1 flex flex-wrap items-baseline gap-2">
-      <span className="text-[26px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{eff}&nbsp;₽</span>
+    <div className="mt-1">
+      <div className="flex flex-wrap items-baseline gap-2">
+        <span className="text-[26px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{eff}&nbsp;₽</span>
+        {LAUNCH_PROMO && (
+          <>
+            <s className="text-[15px] text-[var(--color-text-tertiary)]">{LIFETIME.rub}&nbsp;₽</s>
+            <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+          </>
+        )}
+      </div>
       {LAUNCH_PROMO && (
-        <>
-          <s className="text-[15px] text-[var(--color-text-tertiary)]">{LIFETIME.rub}&nbsp;₽</s>
-          <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
-        </>
+        <p className="mt-1.5 text-caption text-[var(--color-text-tertiary)]">{ru ? "Цена для первых покупателей. Дальше дороже." : "Price for the first buyers. It goes up from here."}</p>
       )}
     </div>
   );
