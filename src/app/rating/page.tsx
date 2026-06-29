@@ -39,6 +39,7 @@ const NICHES = [
   { slug: "sleep-tracking", name: "Сон и звуки для сна", nameEn: "Sleep tracking & sounds apps", blurb: "94 приложения: где трекинг сна точен и звуки убаюкивают, а где будильник врёт и сыплет реклама." },
   { slug: "focus-productivity", name: "Фокус и продуктивность", nameEn: "Focus & productivity timer apps", blurb: "72 приложения: где таймер работает в фоне и блокировка отвлечений держит, а где гимик и накрутка." },
   { slug: "journaling-mood", name: "Дневники и настроение", nameEn: "Journaling & mood apps", blurb: "95 приложений: где писать легко и видно динамику настроения, а где давит стрик и течёт приватность." },
+  { slug: "workout-fitness", name: "Тренировки и фитнес", nameEn: "Workout & fitness apps", blurb: "91 приложение: где лог тренировки быстрый и прогрессия считается, а где накрутка и слетает история." },
 ];
 
 export default async function RatingIndexPage() {
