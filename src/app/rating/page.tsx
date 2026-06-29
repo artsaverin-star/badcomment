@@ -34,6 +34,7 @@ const NICHES = [
   { slug: "messaging-apps", name: "Мессенджеры", nameEn: "Messaging apps", blurb: "94 приложения: где сообщения и звонки доходят надёжно и приватно, а где накрутка и пропавшие СМС." },
   { slug: "shopping-ecommerce", name: "Покупки и маркетплейсы", nameEn: "Shopping & ecommerce apps", blurb: "95 приложений: где товар приходит как на фото и возврат работает, а где контрафакт и фиктивная доставка." },
   { slug: "ride-hailing", name: "Такси и поездки", nameEn: "Ride-hailing apps", blurb: "87 приложений: где машина приезжает вовремя и водителю честно платят, а где накрутка и сорванный заказ." },
+  { slug: "weather-apps", name: "Погода", nameEn: "Weather apps", blurb: "92 приложения: где прогноз сбывается и оповещение приходит вовремя, а где врёт радар и сыплет реклама." },
 ];
 
 export default async function RatingIndexPage() {

@@ -26347,557 +26347,600 @@
   "slug": "weather-apps-1",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Кровля без простоя",
-  "oneLiner": "Диспетчер погоды для кровельщиков, фасадчиков и отделочников: планируем смены на неделю вперёд, чтобы бригада не стояла",
-  "asOf": "2026-06-20",
+  "title": "Прогноз погоды для яхтсменов и морских судоходчиков",
+  "oneLiner": "Профессиональный морской метеоинструмент с точными данными по ветру, волнам и приливам для тех, кто ходит под парусом или управляет моторным судном.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 203
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
   },
   "reviewGrid": [
    {
-    "quote": "i work in construction so got to be outside it help to know when the the storm starts an ends",
-    "rating": 5,
-    "app": "MyRadar Weather Radar"
+    "quote": "I have been a long time premium user and it is the best weather app around for aviation.  However, one thing that needs to be fixed is the METAR Widget which doesn't use the units in the app settings for pressure and distance.  It always displays hPa and KM instead of inHg and SM that a user selects",
+    "rating": 3,
+    "app": "Windy.com"
    },
    {
-    "quote": "As an exteriors contractor, I use it every day to plan and schedule my jobs",
-    "rating": 5,
-    "app": "Clime NOAA Weather Radar"
+    "quote": "We love and use windy all the time for our sailing forecasting. Why was the MyLocation button removed? I’ve been told I can long tap the house but that only works 1/2 the time. Please bring back this feature.",
+    "rating": 4,
+    "app": "Windy.com"
    },
    {
-    "quote": "great app as a crane op",
+    "quote": "Love the graphics!!; the wind barbs at various altitudes, sea water temperatures including expectations of El Niño, and the tropical systems forecasts are always accurate even 4-5 days in advance!!",
     "rating": 5,
     "app": "Windy.com"
    },
    {
-    "quote": "Fix the settings backup, wipes out my layers and notifications every week when you update.",
-    "rating": 2,
-    "app": "MyRadar Weather Radar"
-   },
-   {
-    "quote": "the main reason for my 1 star is because the radar only shows the past! why do i care about seeing the weather that already happened?",
-    "rating": 1,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "I get at least 14 notifications a day. They're all for nothing.",
-    "rating": 2,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "woken up at midnight by a random notification telling me that a hurricane 2,000 miles away has been downgraded",
+    "quote": "I live on a lake. Like being able to check on the wind before I go fishing.",
     "rating": 4,
-    "app": "Clime NOAA Weather Radar"
+    "app": "Windy.com"
+   },
+   {
+    "quote": "I rely on windy app before my two 30 mile rides each week on the west coast of Florida.",
+    "rating": 5,
+    "app": "Windy.com"
+   },
+   {
+    "quote": "Be Nice and helpful for marine works but a little error with the ground or actual condition at each location still occurs.",
+    "rating": 5,
+    "app": "Windy.com"
    }
   ],
   "mechanisms": [
    {
-    "title": "Подрядчик по внешней отделке открывает обычный прогноз и сам пересчитывает: сколько часов без дождя, успеет ли герметик схватиться, можно ли завтра класть мембр",
-    "obsCount": 7,
+    "title": "Существующие приложения либо слишком универсальны (и неточны по ветру на малых скоростях), либо имеют критические пробелы в данных буи офлайн, волнение отстаёт ",
+    "obsCount": 6,
     "apps": [
-     "Clime NOAA Weather Radar",
-     "MyRadar Weather Radar",
      "Windy.com",
-     "Weather Underground"
+     "Windy.app — Wind, Tides, Radar",
+     "Windfinder: Wind & Weather map",
+     "Marine Weather Forecast Pro"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Подрядчик по внешней отделке открывает обычный прогноз и сам пересчитывает: сколько часов без дождя, успеет ли герметик схватиться, можно ли завтра класть мембрану. Это ручная работа на 20 минут каждое утро. Инструмента, который говорит «завтра можно, послезавтра нет, в четверг окно с 8 до 14» и строит расписание бригады прямо из этого ответа, нет.",
+  "gap": "Существующие приложения либо слишком универсальны (и неточны по ветру на малых скоростях), либо имеют критические пробелы в данных буи офлайн, волнение отстаёт на сутки, приливы спрятаны за платным доступом. Яхтсмены держат по 5-9 приложений и всё равно рискуют.",
   "idea": {
-   "pitch": "Продукт берёт почасовой прогноз ветра, осадков, температуры и влажности и переводит его в рабочий календарь бригады: зелёные блоки можно, жёлтые риск, красные нельзя. Прораб видит неделю вперёд и ставит задачи, не перелопачивая числа вручную. Монетизация через подписку на прораба: деньги уже платят тем, кто помогает не срывать сроки.",
+   "pitch": "Яхтсмен, рыбак или байдарочник платит не за интерфейс за уверенность выйти в воду. Ни один существующий продукт не даёт единый экран с точным ветром по высотам, реальными данными буёв, приливами и маршрутным калькулятором погоды. Это полноценный B2C-инструмент для тех, кто уже платит за навигацию и страховку.",
    "features": [
-    "Почасовой светофор по условиям для конкретного вида работ (кровля, фасад, герметик, покраска)",
-    "Окна безопасной работы на 7 дней вперёд с учётом времени высыхания материала",
-    "Уведомление бригаде: смена подтверждена или отменена за 18 часов",
-    "Интеграция с геолокацией объекта, а не общего города",
-    "История решений: когда выходили, что было по факту, отклонение прогноза"
+    "Ветер по высотам (на 10, 50, 100 и 500 м) из нескольких моделей (GFS, ECMWF, HRRR) с выбором источника",
+    "Данные буёв в реальном времени с историей за 72 часа и статусом доступности",
+    "Приливы и отливы по координатам на 14 дней с калькулятором безопасного окна выхода",
+    "Маршрутный план с почасовым прогнозом ветра и волн вдоль курса",
+    "Оффлайн-кеш прогноза на 48 часов для работы в зоне без сигнала"
    ],
    "antiFeatures": [
-    "Красивые анимации неба и иллюстрации погоды",
-    "Новости погоды и статьи о климате",
-    "Прогноз на 14 дней (нет смысла планировать смены так далеко)"
+    "Нет рекламы и рекламных баннеров внутри приложения",
+    "Нет универсального прогноза температуры воздуха в стиле массового погодного приложения",
+    "Нет геймификации, персонажей и развлекательного контента"
    ],
-   "monetization": "Строительные подрядчики уже платят за проектный менеджмент (Buildertrend, Procore). Подписка 1500-3000 рублей в месяц на прораба, пакеты на бригаду. Один спасённый рабочий день окупает год подписки."
+   "monetization": "Подписка 9-14 долларов в месяц или 79-99 долларов в год. Яхтсмены и рыбаки уже платят за Navionics (99 долларов/год), PredictWind (от 14 долларов/месяц) и страховку. Морской прогноз очевидная статья бюджета. Дополнительный B2B-тариф для яхт-клубов и чартерных компаний."
   }
  },
  {
   "slug": "weather-apps-2",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Агро-окно",
-  "oneLiner": "Погода для фермеров как операционное решение: когда косить, когда сеять, когда опрыскивать, со сроками и предупреждениями по SMS",
-  "asOf": "2026-06-20",
+  "title": "Метеоинструмент для пилотов малой авиации",
+  "oneLiner": "Авиационный метеопродукт для пилотов-любителей и частных владельцев воздушных судов: METAR, TAF, зоны обледенения и ветровые прогнозы по высотам в одном рабочем экране.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 203
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
   },
   "reviewGrid": [
    {
-    "quote": "it's local, using NWS registered home weather stations specific to my zip code",
-    "rating": 5,
-    "app": "Weather Underground"
+    "quote": "I haven’t had the weather radar in two weeks and I’m a premium user.  I’m a pilot and rely on all of the Windy functions.  Make it right please.",
+    "rating": 3,
+    "app": "Windy.com"
    },
    {
-    "quote": "you can see temperature were you are and surrounding posts reporting very local readings, from private stations that could be less than a mile appart, tell me which other app does that?",
-    "rating": 5,
-    "app": "Weather Underground"
+    "quote": "I have been a long time premium user and it is the best weather app around for aviation.  However, one thing that needs to be fixed is the METAR Widget which doesn't use the units in the app settings for pressure and distance.  It always displays hPa and KM instead of inHg and SM that a user selects",
+    "rating": 3,
+    "app": "Windy.com"
    },
    {
-    "quote": "Because it pulls data from sources in your area, it is updated with changes and gives the most accurate and up-to-date forecast I have found.",
-    "rating": 5,
-    "app": "Weather Underground"
+    "quote": "On model forecasts the selected hour does not always match the model hour. If you move the slider back and forth it will then give you the data from that hour.\n\nThis has the potential for causing issues if you care about precise timing of weather events and is super confusing.",
+    "rating": 2,
+    "app": "Windy.com"
    },
    {
-    "quote": "save lots of lives because you can track the path of typhoons and can prepare ahead for immediate action and safety",
+    "quote": "Love the graphics!!; the wind barbs at various altitudes, sea water temperatures including expectations of El Niño, and the tropical systems forecasts are always accurate even 4-5 days in advance!!",
     "rating": 5,
     "app": "Windy.com"
    },
    {
-    "quote": "new upgrade sucks. can't run the future map anymore. only back 2 hours to now. used to be the best app to see what's coming. what a disappointment",
-    "rating": 1,
-    "app": "Weather Underground"
+    "quote": "Love the interface and being able to switch weather sources on phone app but my main drawback is the bland watch complications and how it hardly syncs to current location when I move from city to city for work. I find myself having to manually relocate myself by messing with app on the phone",
+    "rating": 4,
+    "app": "CARROT Weather: Alerts & Radar"
    },
    {
-    "quote": "I've been sitting in my car for over 20 minutes in a torrential downpour, while the app still reports \"partly cloudy.\"",
-    "rating": 1,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "The option to choose between weather providers is SO USEFUL!",
+    "quote": "Carrot on any device is as fantastic an app can be. Well thought out, fully feature rich, and stable. It is a world-class application. \n\nHowever, a feature that truly helped keep me safe was the CarPlay map. While driving in torrential rain, we were able to navigate around tornado warnings and sever",
     "rating": 5,
-    "app": "Weawow Weather"
+    "app": "CARROT Weather: Alerts & Radar"
    }
   ],
   "mechanisms": [
    {
-    "title": "Фермер косит сено и смотрит на небо, потому что ни одно приложение не отвечает на его вопрос: «Успею ли я высушить и убрать до дождя?». Ему нужен ответ с учётом",
-    "obsCount": 7,
+    "title": "Пилоты малой авиации используют ForeFlight (дорогой, 200 долларов/год) или пытаются работать с Windy и Ventusky, которые не рассчитаны на авиационные стандарты ",
+    "obsCount": 6,
     "apps": [
-     "Weather Underground",
      "Windy.com",
-     "Clime NOAA Weather Radar",
-     "RainViewer"
+     "Ventusky: Weather Forecast",
+     "CARROT Weather: Alerts & Radar",
+     "Weather & Widget - Weawow"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Фермер косит сено и смотрит на небо, потому что ни одно приложение не отвечает на его вопрос: «Успею ли я высушить и убрать до дождя?». Ему нужен ответ с учётом температуры, влажности и скорости ветра на конкретном поле, а не средний прогноз по ближайшему городу в 30 км.",
+  "gap": "Пилоты малой авиации используют ForeFlight (дорогой, 200 долларов/год) или пытаются работать с Windy и Ventusky, которые не рассчитаны на авиационные стандарты и не дают нужных единиц, зон обледенения и TAF. Ошибка в прогнозе ветра на высоте реальный риск для безопасности.",
   "idea": {
-   "pitch": "Продукт принимает координаты поля и вид работы (кошение, опрыскивание, сев, уборка), берёт гиперлокальный прогноз из сети частных станций и даёт единственный ответ: «Окно 36 часов начинается в пятницу в 7 утра, риск осадков после 19:00 субботы». Алерт уходит по SMS за 4 часа до конца окна. Платит агробизнес, для которого один пропущенный урожай стоит больше годовой подписки.",
+   "pitch": "Каждый вылет из небольшого аэродрома требует проверки METAR, TAF, NOTAMs и ветра по эшелонам и это нужно делать быстро, в стандартных авиационных единицах. Продукт даёт полноценный предполётный метеобрифинг в удобном мобильном формате по цене ежемесячного кофе. Целевая аудитория 700 тысяч активных пилотов только в США, большинство которых платят за ForeFlight, но хотят альтернативу.",
    "features": [
-    "Расчёт окна сушки сена с учётом температуры и влажности по часам",
-    "Гиперлокальный прогноз по координатам поля через сеть частных станций",
-    "Оповещение по SMS и звонку за N часов до конца безопасного окна",
-    "Профили работ: кошение, опрыскивание, сев, уборка зерна",
-    "Дневник решений: план vs факт, история ошибок прогноза по конкретной точке"
+    "METAR и TAF по ИКАО-коду с автоматическим парсингом и визуальным перводом на простой язык",
+    "Ветровые прогнозы по эшелонам FL030-FL180 из двух моделей с расхождением",
+    "Зоны обледенения, турбулентности и SIGMETs на интерактивной карте",
+    "Предполётный чеклист погоды: окно вылета, подбор запасного аэродрома, верхний ветер по маршруту",
+    "Виджет-брифинг для Apple Watch: статус погоды по ближайшему аэродрому одним взглядом"
    ],
    "antiFeatures": [
-    "Общий прогноз по городу без привязки к координатам поля",
-    "Новостная лента и климатические статьи",
-    "Виджеты и иконки погоды для домашнего экрана"
+    "Нет данных для авиалайнеров и профессиональных экипажей (не конкурент ForeFlight Pro)",
+    "Нет туристических или развлекательных функций для непилотов",
+    "Нет рекламы безопасность и реклама несовместимы"
    ],
-   "monetization": "Фермерские хозяйства уже платят за агрометеорологические услуги. Подписка на поле или на хозяйство, пакеты по количеству полей. Вертикальный B2B: агродилеры, кооперативы как канал перепродажи."
+   "monetization": "Подписка 7-9 долларов в месяц или 59-79 долларов в год. Пилоты платят за ForeFlight от 200 долларов/год ниша ценочувствительна в диапазоне 50-80 долларов. B2B: аэроклубы и школы пилотов как корпоративный тариф."
   }
  },
  {
   "slug": "weather-apps-3",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Марина Про",
-  "oneLiner": "Погодный брифинг для капитанов маломерных судов: выход в море, швартовка, рыбалка с конкретным ответом «безопасно / не выходи»",
-  "asOf": "2026-06-20",
+  "title": "Погода для фермеров и агрономов",
+  "oneLiner": "Агрометеорологический инструмент с данными об осадках, заморозках, градусо-днях и почвенной влажности для принятия реальных агрономических решений.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 203
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
   },
   "reviewGrid": [
    {
-    "quote": "I'm a pilot and windy is very useful when I plan a navigation or other flight",
-    "rating": 5,
-    "app": "Windy.com"
+    "quote": "Don’t plan your life or events around this app. Our family and friends call this app “Weather Guessers” cuz it is only accurate for current temperature. It is NEVER correct at providing info about amount of rainfall or snowfall- whether in advance or right when it is happening or afterwords! My rain",
+    "rating": 2,
+    "app": "Weather"
    },
    {
-    "quote": "Compare forecast models is the most unique and killer feature that nearly makes up for it.",
-    "rating": 3,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "you can choose your source to try to get the most accuracy for your location",
-    "rating": 5,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "The option to choose between weather providers is SO USEFUL!",
-    "rating": 5,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "use windfinder instead at least u will able to plan your works correctly",
+    "quote": "Never accurate, I can’t even plan to grill outside on some days because it can’t give me at least a 6 hour forecast that’s close to being accurate.",
     "rating": 1,
-    "app": "Windy.com"
+    "app": "The Weather Channel - Radar"
    },
    {
-    "quote": "Animating global weather systems and ocean currents with the slide of a finger is educational and highly addictive!",
-    "rating": 5,
-    "app": "Flowx Weather"
+    "quote": "Somewhat clunky and low frills for the free version but for snow prediction front range and Eastern Colorado it’s by far the most accurate of the 5 or 6 weather apps I have/have used. I’d consider upgrading but for the $$ I could buy my own weather machine.",
+    "rating": 3,
+    "app": "Clime: NOAA Weather Radar Live"
    },
    {
-    "quote": "save lots of lives because you can track the path of typhoons and can prepare ahead for immediate action and safety",
-    "rating": 5,
-    "app": "Windy.com"
+    "quote": "Was my favorite weather app for many many years until the recent major update that changed a lot of things. Now it is unstable and they have removed the option of turning off future radar.  They also removed the individual rain gauge readouts they used to display and replaced it with this weird colo",
+    "rating": 3,
+    "app": "Storm Radar: Weather Tracker"
+   },
+   {
+    "quote": "I have several weather apps, as I work outside= knowing the weather is important. I usually start with weather bug bc it has a good general overview, I like the pollen and air quality indexes, tho I wish the air quality was linked to or directly from epa air now. Radar is good, tho I usually cross c",
+    "rating": 4,
+    "app": "WeatherBug: Weather Forecast"
+   },
+   {
+    "quote": "I’m trying to see the weather, why do I need to pay a subscription to be able to view without a million ads?! It’s almost impossible to check this app and not be bombarded with ads. Ridiculous",
+    "rating": 1,
+    "app": "The Weather Channel - Radar"
    }
   ],
   "mechanisms": [
    {
-    "title": "Капитан парусника или рыболовного катера должен сравнить три-четыре источника прогноза ветра и волнения, потому что в открытой воде ошибка стоит жизни. Сейчас э",
-    "obsCount": 7,
+    "title": "RainDrop систематически занижает осадки на 30-40% по сравнению с физическим дождемером ключевой проблемой для фермеров. Нет ни одного массового инструмента, кот",
+    "obsCount": 6,
     "apps": [
-     "Windy.com",
-     "Flowx Weather",
-     "Weawow Weather"
+     "RainDrop - Rain Totals & Radar",
+     "14 Day Weather Forecast",
+     "Weather forecast & NOAA Radar",
+     "Ambient Weather Network"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Капитан парусника или рыболовного катера должен сравнить три-четыре источника прогноза ветра и волнения, потому что в открытой воде ошибка стоит жизни. Сейчас это ручная работа: один сервис плюс ещё два сайта, потом вручную. Инструмента, который делает это за него и говорит итоговое «выходи» или «жди», нет.",
+  "gap": "RainDrop систематически занижает осадки на 30-40% по сравнению с физическим дождемером ключевой проблемой для фермеров. Нет ни одного массового инструмента, который бы давал агрегированную сводку: сколько осадков выпало на конкретный участок, когда ожидается заморозок, и сколько накоплено градусо-дней по культуре.",
   "idea": {
-   "pitch": "Продукт собирает прогнозы из нескольких моделей для заданной акватории, сравнивает их и выдаёт консолидированный вердикт с уровнем уверенности. Если модели расходятся, капитан видит это явно и знает, что условия непредсказуемы. Платит аудитория, для которой один неверный выход в шторм уничтожает лодку или убивает экипаж.",
+   "pitch": "Фермер принимает решения на десятки тысяч долларов когда сеять, орошать, применять химию, убирать урожай. Ни одно из популярных погодных приложений не говорит с фермером на его языке. Продукт даёт агрономически значимые расчёты поверх качественных погодных моделей и уже монетизируется через тот же канал, что и агрохимия прямая продажа фермерам по годовой подписке.",
    "features": [
-    "Сравнение нескольких метеомоделей для заданной точки акватории с визуальным расхождением",
-    "Вердикт безопасности выхода по пользовательским порогам (ветер, волна, видимость)",
-    "Прогноз на 72 часа с почасовой детализацией ветра и порывов",
-    "Офлайн-кэш последнего прогноза для зон без связи",
-    "Журнал выходов: прогноз vs реальные условия, обучение доверия"
+    "Учёт фактических осадков по координатам участка с верификацией через ближайшие станции и спутниковые данные",
+    "Прогноз заморозков с расчётом вероятности и глубины промерзания на 14 дней",
+    "Счётчик градусо-дней по любой культуре (пшеница, кукуруза, соя) от даты посева",
+    "Карта полей: разные точки на одном хозяйстве с независимыми прогнозами осадков",
+    "Журнал агрометеонаблюдений: автоматическое сохранение данных за сезон для сравнения год к году"
    ],
    "antiFeatures": [
-    "Общий прогноз погоды для сухопутных пользователей",
-    "Красивые анимации облаков и иллюстрации",
-    "Прогноз дольше 72 часов для мореплавателей (точность падает)"
+    "Нет общего прогноза погоды в стиле потребительского приложения",
+    "Нет уведомлений о грозах и экстренных алертов это не приложение безопасности",
+    "Нет рекламы и фримиум-ограничений, которые мешают работе"
    ],
-   "monetization": "Владельцы яхт и катеров платят за оборудование, марины, страховку. Годовая подписка капитана или клубная лицензия через яхт-клубы и марины как канал. Потенциал в страховых партнёрствах."
+   "monetization": "Подписка 15-25 долларов в месяц на хозяйство или 149-199 долларов в год. Фермеры платят тысячи долларов за агрохимию, технику и семена метеоинструмент за 200 долларов окупается с первой сохранённой партии урожая. Возможен агрономический тариф через партнёрство с кооперативами."
   }
  },
  {
   "slug": "weather-apps-4",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Событие без сюрпризов",
-  "oneLiner": "Погодный контроль для организаторов уличных мероприятий: мониторинг, триггеры переноса и готовый план Б",
-  "asOf": "2026-06-20",
+  "title": "Гиперточные оповещения об опасной погоде",
+  "oneLiner": "Платный сервис мгновенных и надёжных оповещений о торнадо, грозах и экстренных погодных событиях без ложных тревог и без задержек.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 203
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
   },
   "reviewGrid": [
    {
-    "quote": "Want to look at the radar to see if there's a tornado headed to your house? Can't do that without an unskippable ad",
+    "quote": "I first downloaded this app several years ago when it’s original owners and developers had it. Living in Iowa, severe weather is a thing and promptness, accuracy and reliability are THE key attributes for a severe weather alerting app to demonstrate. Storm Shield ticked all three boxes for years bot",
     "rating": 1,
-    "app": "AccuWeather"
+    "app": "Storm Shield"
    },
    {
-    "quote": "woken up at midnight by a random notification telling me that a hurricane 2,000 miles away has been downgraded",
-    "rating": 4,
-    "app": "Clime NOAA Weather Radar"
+    "quote": "Considering this is an app that I’m paying for, I expect it to function during extreme weather events. We had a tornado warning today, and while I received notifications, the alerts on the app itself did not update to match. Very disappointing.",
+    "rating": 3,
+    "app": "Storm Shield"
    },
    {
-    "quote": "Tons of useless notifications about news stories that have nothing to do with your local weather.",
-    "rating": 1,
-    "app": "AccuWeather"
+    "quote": "There’s been numerous times this app tells me there’s a serious weather threat, when there’s not a severe threat. There’s been numerous times there is no severe weather threat on this app, and the actual weather was similar to a CAT 1 hurricane.",
+    "rating": 3,
+    "app": "Clime: NOAA Weather Radar Live"
    },
    {
-    "quote": "save lots of lives because you can track the path of typhoons and can prepare ahead for immediate action and safety",
-    "rating": 5,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "the main reason for my 1 star is because the radar only shows the past! why do i care about seeing the weather that already happened?",
-    "rating": 1,
-    "app": "1Weather Forecast"
-   },
-   {
-    "quote": "Now there is an ad every 5 seconds. You don't even have the chance to see how the rain is moving before you get another ad.",
+    "quote": "This app used to be really good, but I’m getting alerts and when I click nothing is there. \nIt’s also not updating while I’m traveling, even though I refresh.",
     "rating": 2,
-    "app": "RainViewer"
+    "app": "Storm Shield"
    },
    {
-    "quote": "I've been sitting in my car for over 20 minutes in a torrential downpour, while the app still reports \"partly cloudy.\"",
-    "rating": 1,
-    "app": "1Weather Forecast"
+    "quote": "I can’t believe Storm Shield has text to speech when a notification pops up. I’m really loving it. Thank you.",
+    "rating": 5,
+    "app": "Storm Shield"
+   },
+   {
+    "quote": "The best around",
+    "rating": 2,
+    "app": "The Weather Channel - Radar"
    }
   ],
   "mechanisms": [
    {
-    "title": "Организатор фестиваля или свадьбы на открытом воздухе следит за прогнозом за месяц, но в день события не знает точно, когда начнётся дождь и насколько сильный. ",
-    "obsCount": 7,
+    "title": "Каждое второе приложение для трекинга опасной погоды либо кричит о несуществующих угрозах, либо молчит при реальном торнадо. Пользователи описывают конкретные с",
+    "obsCount": 6,
     "apps": [
-     "Windy.com",
-     "Clime NOAA Weather Radar",
-     "AccuWeather",
-     "RainViewer"
+     "Storm Shield",
+     "Emergency: Severe Weather App",
+     "Clime: NOAA Weather Radar Live",
+     "CARROT Weather: Alerts & Radar"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Организатор фестиваля или свадьбы на открытом воздухе следит за прогнозом за месяц, но в день события не знает точно, когда начнётся дождь и насколько сильный. Решение о переносе или эвакуации принимается на глаз, без чёткого порога и без заранее отработанного сценария. Это стресс и финансовые потери.",
+  "gap": "Каждое второе приложение для трекинга опасной погоды либо кричит о несуществующих угрозах, либо молчит при реальном торнадо. Пользователи описывают конкретные случаи: уведомление пришло через 20-30 минут после прохождения воронки, или алерт открылся пустым экраном без данных. Надёжность при опасной погоде это отдельный продукт, за который люди готовы платить.",
   "idea": {
-   "pitch": "Продукт ведёт мероприятие как проект: адрес, дата, время начала, пороги отмены. За 7 дней и за 24 часа шлёт брифинг с вероятностью дождя, ветра и грозы по часам. В день события даёт живой радар с проекцией на следующие 2 часа и автоматический алерт, когда порог превышен. Организаторы уже платят за страховку и логистику, платёж за погодный риск-менеджмент понятен.",
+   "pitch": "Storm Shield потерял доверие: цена выросла с 0.99 до 12 долларов в месяц при ухудшающейся надёжности. Clime шумит ложными тревогами. Emergency Severe Weather App молчит при активных торнадо. Здесь нет игры на выживание с бесплатной моделью только надёжный платный сервис для людей в торнадоопасных регионах, который работает именно тогда, когда нужен.",
    "features": [
-    "Проект мероприятия с адресом, временем и пользовательскими порогами триггера",
-    "Брифинги за 7 дней, за 48 часов и за 6 часов с вероятностями по часам",
-    "Живой радар с проекцией осадков на 2 часа для конкретной точки",
-    "Алерт команде по SMS или мессенджеру при превышении порога",
-    "Шаблон плана Б: что сделать при разных сценариях (дождь, гроза, ураган)"
+    "Оповещения с задержкой не более 60 секунд от выпуска NWS-предупреждения с гарантированной доставкой через несколько каналов",
+    "Полигонная геолокация: алерт только если угроза касается именно вашего ZIP, не округа целиком",
+    "Озвучка уведомлений вслух (text-to-speech) с возможностью разбудить устройство в ночном режиме",
+    "Мониторинг до 10 адресов одновременно для семьи и близких",
+    "Гарантия SLA: если оповещение пришло позже нормы автоматический возврат за месяц"
    ],
    "antiFeatures": [
-    "Декоративные виджеты и анимации погоды",
-    "Прогноз для путешественников и ежедневного быта",
-    "Сравнение моделей для метеоэнтузиастов"
+    "Нет ежедневного прогноза погоды это не погодное приложение, а система тревог",
+    "Нет бесплатного уровня с урезанными функциями надёжность неделима",
+    "Нет рекламы, особенно во время активных экстренных событий"
    ],
-   "monetization": "Event-агентства, свадебные организаторы, промоутеры платят за проектный инструмент. Подписка по количеству активных мероприятий или годовой план. Страховые компании как партнёр или перепродавец."
+   "monetization": "4-6 долларов в месяц или 39-49 долларов в год. Storm Shield брал 12 долларов в месяц и держал аудиторию до последнего деградационного момента. Платёжная способность аудитории в торнадоопасных штатах (Техас, Оклахома, Алабама, Айова) подтверждена: люди платят за безопасность."
   }
  },
  {
   "slug": "weather-apps-5",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Сеть дворовых станций",
-  "oneLiner": "Гиперлокальная погода от соседских метеостанций: продаём железо, собираем сеть, монетизируем данные",
-  "asOf": "2026-06-20",
+  "title": "Погода для строителей и кровельщиков",
+  "oneLiner": "Рабочий метеоинструмент для бригад, работающих на высоте и на открытых площадках: почасовые окна работы, порывы ветра и заморозки с привязкой к конкретному объекту.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 203
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
   },
   "reviewGrid": [
    {
-    "quote": "it's local, using NWS registered home weather stations specific to my zip code",
-    "rating": 5,
-    "app": "Weather Underground"
+    "quote": "Active weather notifications have stopped working. My husband and I rely on storm and lightning notifications for our business. Neither of us get notified any more unless we open the app, even with everything turned on. Please fix this as we rely on it for our personal and equipment safety!",
+    "rating": 2,
+    "app": "WeatherBug: Weather Forecast"
    },
    {
-    "quote": "you can see temperature were you are and surrounding posts reporting very local readings, from private stations that could be less than a mile appart, tell me which other app does that?",
-    "rating": 5,
-    "app": "Weather Underground"
+    "quote": "I have several weather apps, as I work outside= knowing the weather is important. I usually start with weather bug bc it has a good general overview, I like the pollen and air quality indexes, tho I wish the air quality was linked to or directly from epa air now. Radar is good, tho I usually cross c",
+    "rating": 4,
+    "app": "WeatherBug: Weather Forecast"
    },
    {
-    "quote": "Because it pulls data from sources in your area, it is updated with changes and gives the most accurate and up-to-date forecast I have found.",
-    "rating": 5,
-    "app": "Weather Underground"
-   },
-   {
-    "quote": "this app gathers data such as a 2 week precipitation forecast. That would be a \"premium\" feature on major weather apps",
-    "rating": 5,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "It feeds you with relevant data rather than the majority of apps which burry useful features under paywalls",
-    "rating": 5,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "round 3 of losing all my saved locations overnight. very frustrating app.",
+    "quote": "Never accurate, I can’t even plan to grill outside on some days because it can’t give me at least a 6 hour forecast that’s close to being accurate.",
     "rating": 1,
-    "app": "Weather Underground"
+    "app": "The Weather Channel - Radar"
    },
    {
-    "quote": "rainviewer works the same and isn't as scummy.",
-    "rating": 1,
-    "app": "MyRadar Weather Radar"
+    "quote": "Would like to see the wind speed to show current, as well as gusting speeds, please.",
+    "rating": 4,
+    "app": "FOX Weather: Daily Forecasts"
+   },
+   {
+    "quote": "This app has very attractive graphics and good info on current conditions but I miss the wind detail that was easy to see in Dark Sky. When I head outside I like to know what the wind direction, speed and gusts might be over the next several hours. This is key information for dressing appropriately.",
+    "rating": 4,
+    "app": "Weather ۬"
+   },
+   {
+    "quote": "I just want the radar. Too much other junk.",
+    "rating": 3,
+    "app": "Clime: NOAA Weather Radar Live"
    }
   ],
   "mechanisms": [
    {
-    "title": "Любители погоды и дачники хотят знать, что происходит прямо у них во дворе, а не в аэропорту в 15 км. Готовые частные станции есть, но они дорогие, а их данные ",
-    "obsCount": 7,
+    "title": "Строители, кровельщики и монтажники работают на высоте, где ветер в два раза сильнее, чем у земли. Массовые приложения дают прогноз «на город», а не на конкретн",
+    "obsCount": 6,
     "apps": [
-     "Weather Underground",
-     "RainViewer",
-     "Weawow Weather"
+     "Weather & Widget - Weawow",
+     "CARROT Weather: Alerts & Radar",
+     "Tomorrow.io: Weather Forecast",
+     "14 Day Weather Forecast"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Любители погоды и дачники хотят знать, что происходит прямо у них во дворе, а не в аэропорту в 15 км. Готовые частные станции есть, но они дорогие, а их данные разрознены. Никто не собирает их в единую сеть с красивым интерфейсом и не продаёт обратно владельцу как ценность плюс продаёт данные B2B.",
+  "gap": "Строители, кровельщики и монтажники работают на высоте, где ветер в два раза сильнее, чем у земли. Массовые приложения дают прогноз «на город», а не на конкретный адрес объекта. Не существует инструмента, который бы говорил прямо: «сегодня с 10:00 до 14:00 можно работать на кровле, потом порывы выше нормы ОТ и ТБ».",
   "idea": {
-   "pitch": "Продаём недорогую метеостанцию с подключением к облаку. Владелец видит свои данные и сравнивает с соседями в радиусе 5 км. Сеть растёт через сарафанное радио. Агрегированные анонимные данные продаём страховщикам, логистике и коммунальным службам, которым нужна гиперлокальная картина осадков. Железо как входная точка, данные как бизнес.",
+   "pitch": "Бригадир кровельщиков каждое утро смотрит в небо и несёт ответственность за безопасность команды. Один простой день стоит тысячи долларов, один неправильный выход на высоту при порывах риск для жизни. Продукт даёт чёткий ответ на один вопрос: «работать сегодня или нет» по конкретному адресу и с учётом нормативов высотных работ.",
    "features": [
-    "Компактная метеостанция с облачной синхронизацией из коробки",
-    "Личный дашборд с историей и графиками для точки владельца",
-    "Карта сети: видишь соседей в радиусе, сравниваешь показания",
-    "Алерты по собственным порогам (заморозок, сильный порыв, ливень)",
-    "API с агрегированными данными для B2B-покупателей"
+    "Расчёт рабочих окон по адресу объекта с учётом порывов ветра и нормативов высотных работ",
+    "Прогноз температуры на уровне кровли (с поправкой на высоту) и предупреждение о заморозках на поверхности",
+    "Почасовой прогноз осадков с вероятностью для планирования заливки бетона и кровельных работ",
+    "Уведомление бригаде через общий профиль: один прогноз для всей команды с пушом в чат",
+    "Журнал погодных простоев для страховых случаев и актов о форс-мажоре"
    ],
    "antiFeatures": [
-    "Прогноз из внешних источников (только реальные измерения сети)",
-    "Развлекательный контент и анимации",
-    "Универсальный прогноз для обычных пользователей без станции"
+    "Нет развлекательных функций и лишних слоёв (ураганы, тропические системы, спутник)",
+    "Нет прогноза для потребительских сценариев (поход, пикник)",
+    "Нет рекламы"
    ],
-   "monetization": "Железо: продажа станций (3000-8000 рублей). B2B-данные: подписка страховщиков, коммунальных служб, агробизнеса. Премиум для владельцев станций: расширенная история, API, интеграции."
+   "monetization": "B2B-подписка 20-40 долларов в месяц на бригаду (3-15 человек). Строительные компании тратят на ПО тысячи долларов в год метеоинструмент безопасности встаёт в один ряд с системами учёта рабочего времени. Потенциал партнёрства со страховыми компаниями, которые требуют документирование погодных простоев."
   }
  },
  {
   "slug": "weather-apps-6",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Пилот на земле",
-  "oneLiner": "Погодный брифинг для пилотов-любителей и инструкторов: маршрут, окна вылета, предупреждения по метеосводкам в одном экране",
-  "asOf": "2026-06-20",
+  "title": "Погода без рекламы для требовательного пользователя",
+  "oneLiner": "Премиальное погодное приложение с выбором источников прогноза, точным радаром и полным отсутствием рекламы для тех, кто платит за качество и не терпит компромиссов.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 203
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
   },
   "reviewGrid": [
    {
-    "quote": "I'm a pilot and windy is very useful when I plan a navigation or other flight",
-    "rating": 5,
-    "app": "Windy.com"
+    "quote": "The app simply replays the ample government radar feed yet it constantly , intrusively hawks upgrades and features to boost its revenue. MOST disgusting is that it hosts scam alerts on its site suggesting the iPhone owner has multiple viruses that need to removed immediately. Inexcusable.",
+    "rating": 2,
+    "app": "MyRadar Accurate Weather Radar"
    },
    {
-    "quote": "Compare forecast models is the most unique and killer feature that nearly makes up for it.",
-    "rating": 3,
-    "app": "Windy.com"
-   },
-   {
-    "quote": "as a cyclists I can now with confidence plan my travel to work.",
-    "rating": 5,
-    "app": "RainViewer"
-   },
-   {
-    "quote": "The option to choose between weather providers is SO USEFUL!",
-    "rating": 5,
-    "app": "Weawow Weather"
-   },
-   {
-    "quote": "the way you can play with time is just nice",
-    "rating": 5,
-    "app": "Flowx Weather"
-   },
-   {
-    "quote": "use windfinder instead at least u will able to plan your works correctly",
+    "quote": "Today you are getting a one star rating for having ads in the app, that are rotating through malicious ads where when clicked, open a browser and say that your phone is infected. I had mentioned this app to my wife and she had it on her phone for all of three seconds because no one's going to tolera",
     "rating": 1,
-    "app": "Windy.com"
+    "app": "MyRadar Accurate Weather Radar"
    },
    {
-    "quote": "you can choose your source to try to get the most accuracy for your location",
+    "quote": "Will never use the app again with the ads, one of the ads wouldn’t even let me exit. Plenty better alternatives.",
+    "rating": 1,
+    "app": "The Weather Channel - Radar"
+   },
+   {
+    "quote": "I upgraded to add free but the iOS Home Screen is still full of ads and other garbage that can’t be removed.",
+    "rating": 2,
+    "app": "The Weather Channel - Radar"
+   },
+   {
+    "quote": "Come on guys… requiring a subscription to see the weather radar? Extra for precipitation layover? God I’d rather download NOAA and get it all free… what a joke.  Develop something unique that’s worth my money… I dunno maybe something outside of the free realm…",
+    "rating": 1,
+    "app": "Weather Live° - Local Forecast"
+   },
+   {
+    "quote": "The photography is absolutely stunning and the overall aesthetic and design the most gorgeous I’ve ever seen in a weather app. Other higher priced apps can’t compare. I signed up for the premium features just because I’m a glutton for eye candy😭.",
     "rating": 5,
-    "app": "Weawow Weather"
+    "app": "Weather ۬"
    }
   ],
   "mechanisms": [
    {
-    "title": "Пилот частной авиации перед вылетом открывает три-четыре источника: один сайт за METAR, другой за TAF, третий за ветер на эшелоне. Потом вручную соображает, мож",
-    "obsCount": 7,
+    "title": "Weawow набрал 84 балла и стал лидером рейтинга именно за отсутствие рекламы и выбор источника прогноза. Accu Weather, Weather Channel, MyRadar все они деградиро",
+    "obsCount": 6,
     "apps": [
-     "Windy.com",
-     "Flowx Weather",
-     "Weawow Weather"
+     "Weather & Widget - Weawow",
+     "CARROT Weather: Alerts & Radar",
+     "(Not Boring) Weather",
+     "National Weather Forecast Data"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Пилот частной авиации перед вылетом открывает три-четыре источника: один сайт за метеосводкой, другой за прогнозом, третий за ветром на эшелоне. Потом вручную соображает, можно ли лететь. Продукта, который собирает это в единый брифинг по конкретному маршруту и говорит «можно с ограничениями» или «не летим», нет в простом мобильном формате.",
+  "gap": "Weawow набрал 84 балла и стал лидером рейтинга именно за отсутствие рекламы и выбор источника прогноза. Accu Weather, Weather Channel, MyRadar все они деградировали в агрессивную монетизацию через баннеры, фишинговые объявления и скам-попапы. Пользователи готовы платить, но платная подписка часто не убирает рекламу.",
   "idea": {
-   "pitch": "Продукт принимает маршрут из точки А в точку Б, тянет метеосводки по аэродромам маршрута, накладывает прогноз ветра и турбулентности по эшелону и выдаёт читаемый брифинг без авиационного жаргона для начинающих и с полной сырой сводкой для опытных. Платит аудитория, у которой уже есть платная лицензия и самолёт.",
+   "pitch": "Рынок погодных приложений разорван: бесплатные завалены рекламой, а платные не держат своё слово. Пользователь, готовый платить 20-30 долларов в год, не может купить просто честный точный прогноз. Продукт строится на одном обещании: вы платите раз и больше никогда не видите рекламу, никакие попапы не перекрывают радар во время шторма.",
    "features": [
-    "Маршрутный брифинг по аэродромам с расшифровкой METAR и TAF на русском",
-    "Прогноз ветра и турбулентности по эшелонам на часовой сетке",
-    "Окна вылета с пометкой ограничений по видимости, облачности и ветру",
-    "Алерт при изменении условий после планирования вылета",
-    "Офлайн-пакет брифинга для загрузки перед зоной без связи"
+    "Выбор источника прогноза из 5 моделей (ECMWF, GFS, HRRR, OpenWeather, Tomorrow.io) с визуальным сравнением",
+    "Честный радар в реальном времени без рекламных вставок перед загрузкой",
+    "Настраиваемые виджеты для домашнего экрана и экрана блокировки без подписки внутри подписки",
+    "Разовая покупка без авторекурентного сюрприза: цена фиксирована, не растёт по истечении периода",
+    "Уведомления с приоритетным каналом доставки, которые не пропадают в фоне"
    ],
    "antiFeatures": [
-    "Общий прогноз для сухопутных пользователей",
-    "Красивые иллюстрации и анимации неба",
-    "Долгосрочный прогноз дальше 48 часов для авиации"
+    "Нет бесплатного уровня с усечёнными функциями только честная цена за честный продукт",
+    "Нет персонажей, саркастических фраз и развлекательного контента",
+    "Нет партнёрских интеграций с рекламодателями ни при каких условиях"
    ],
-   "monetization": "Пилоты-любители платят за обучение, топливо, аренду. Годовая подписка на пилота. Аэроклубы и авиашколы как B2B-канал с групповой лицензией."
+   "monetization": "Разовая покупка 4-6 долларов или годовая подписка 14-19 долларов. Weawow с realScore 84 доказал, что модель работает. Dark Sky до покупки Apple зарабатывала миллионы на аудитории, которая платила за отсутствие рекламы и точность гиперлокального прогноза."
   }
  },
  {
   "slug": "weather-apps-7",
   "category": "weather-apps",
   "categoryName": "Погода",
-  "title": "Коммунальная зима",
-  "oneLiner": "Погодный диспетчер для управляющих компаний и дорожников: снегопад, гололёд и заморозок как операционный план, а не прогноз",
-  "asOf": "2026-06-20",
+  "title": "Погодный инструмент для организаторов мероприятий",
+  "oneLiner": "Профессиональный сервис прогнозирования для организаторов свадеб, фестивалей и корпоративных мероприятий под открытым небом с оценкой риска и планом Б.",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 203
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
   },
   "reviewGrid": [
    {
-    "quote": "i work in construction so got to be outside it help to know when the the storm starts an ends",
-    "rating": 5,
-    "app": "MyRadar Weather Radar"
-   },
-   {
-    "quote": "As an exteriors contractor, I use it every day to plan and schedule my jobs",
-    "rating": 5,
-    "app": "Clime NOAA Weather Radar"
-   },
-   {
-    "quote": "Tons of useless notifications about news stories that have nothing to do with your local weather.",
-    "rating": 1,
-    "app": "AccuWeather"
-   },
-   {
-    "quote": "I get at least 14 notifications a day. They're all for nothing.",
+    "quote": "After planning a party on two separate occasions because the app said it would be “sunny,” and soon realizing the party needed to be cancelled because it was POURING RAIN!  I decided to switch weather app…very happy I did.   Google, “why is weather bug so bad,” and learn.",
     "rating": 2,
-    "app": "Weather Underground"
+    "app": "WeatherBug: Weather Forecast"
    },
    {
-    "quote": "Because it pulls data from sources in your area, it is updated with changes and gives the most accurate and up-to-date forecast I have found.",
+    "quote": "I am in the middle of an in-state move and have found the Weather Bug to be a HUGE asset in this process. I can’t believe how many times I have turned to this app to schedule different aspects of our move. I couldn’t have done this without it!!!",
     "rating": 5,
-    "app": "Weather Underground"
+    "app": "WeatherBug: Weather Forecast"
    },
    {
-    "quote": "Want to look at the radar to see if there's a tornado headed to your house? Can't do that without an unskippable ad",
+    "quote": "I’ve used this app for over a decade, it is unusable now. I had a trip planned today and used Yahoo Weather throughout the week to plan. The app said there would be a 50% chance of rain at 4am, then clear, then 50% at 11am. So that didn’t sound like an absolutely massive, all morning long thundersto",
     "rating": 1,
-    "app": "AccuWeather"
+    "app": "Yahoo Weather"
    },
    {
-    "quote": "great app as a crane op",
-    "rating": 5,
-    "app": "Windy.com"
+    "quote": "Never accurate, I can’t even plan to grill outside on some days because it can’t give me at least a 6 hour forecast that’s close to being accurate.",
+    "rating": 1,
+    "app": "The Weather Channel - Radar"
+   },
+   {
+    "quote": "FOX Weather never gets back to me to correct this issue Mother’s Day is tomorrow and I just got a pop-up again that the mother’s day weather is in two months. Would you please fix your event weather.",
+    "rating": 3,
+    "app": "FOX Weather: Daily Forecasts"
+   },
+   {
+    "quote": "I don’t care for the cutesie AI daily comments.  And they’re recycled, “and that’s just fine,” except it’s not, they’re irritating.",
+    "rating": 3,
+    "app": "The Weather Channel - Radar"
    }
   ],
   "mechanisms": [
    {
-    "title": "Диспетчер управляющей компании или городской службы уборки узнаёт о снегопаде из стандартного приложения погоды вместе со всеми. У него нет инструмента, который",
-    "obsCount": 7,
+    "title": "Организатор свадьбы на 200 человек или фестиваля на тысячу гостей принимает решения за 2-3 недели до даты, когда массовые приложения ещё не дают надёжного прогн",
+    "obsCount": 6,
     "apps": [
-     "AccuWeather",
-     "Weather Underground",
-     "Clime NOAA Weather Radar",
-     "MyRadar Weather Radar"
+     "Tomorrow.io: Weather Forecast",
+     "14 Day Weather Forecast",
+     "CARROT Weather: Alerts & Radar",
+     "Weather & Widget - Weawow"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Диспетчер управляющей компании или городской службы уборки узнаёт о снегопаде из стандартного приложения погоды вместе со всеми. У него нет инструмента, который заранее переводит прогноз в операционные задачи: когда выводить технику, сколько реагента заготовить, какие участки в зоне риска гололёда. Решение принимается на глаз, техника опаздывает.",
+  "gap": "Организатор свадьбы на 200 человек или фестиваля на тысячу гостей принимает решения за 2-3 недели до даты, когда массовые приложения ещё не дают надёжного прогноза. Нет инструмента, который бы давал агрегированный риск-скор на конкретную дату и предлагал сценарное планирование.",
   "idea": {
-   "pitch": "Продукт берёт прогноз температуры, осадков и влажности и переводит его в карту рисков по участкам обслуживания: красный требует выезда до рассвета, жёлтый мониторинг. Диспетчер в одном экране видит план смен на ночь и утро, расход реагента и маршруты. Платит B2B-клиент, у которого уже есть бюджет на уборку и штрафы за несвоевременную обработку.",
+   "pitch": "Ивент-менеджер несёт финансовую и репутационную ответственность за погоду. Один дождь на свадьбе без запасного плана это разрушенный день и потеря клиента навсегда. Продукт даёт ежедневное уточнение прогноза с 30 дней до события, автоматическое обновление риск-оценки и точку принятия решения о запасном варианте.",
    "features": [
-    "Карта участков обслуживания с цветовым риском по каждому на ближайшие 24 часа",
-    "Расчёт точки замерзания и прогноз гололёда по часам",
-    "Алерт диспетчеру за 6 часов до критического момента с рекомендацией выезда",
-    "Расчёт расхода реагента на основе площади и прогноза осадков",
-    "Отчёт по смене: план vs факт, фиксация выездов"
+    "Долгосрочный мониторинг конкретной даты от 30 дней с ежедневным уточнением прогноза",
+    "Риск-скор для мероприятий под открытым небом: дождь, ветер, температурный дискомфорт в одной цифре",
+    "Клиентский отчёт: экспортируемая справка о прогнозе для переговоров с заказчиком",
+    "Сравнение нескольких дат для выбора наилучшего окна при гибком планировании",
+    "Push-алерты при критическом изменении прогноза за 72, 48 и 24 часа до события"
    ],
    "antiFeatures": [
-    "Потребительский прогноз и виджеты для телефона",
-    "Летние и весенне-осенние сценарии (продукт для зимнего операционного сезона)",
-    "Глобальная карта и сравнение моделей для метеоэнтузиастов"
+    "Нет общего ежедневного прогноза на неделю для личного использования",
+    "Нет радара и трекинга штормов в реальном времени",
+    "Нет бесплатного тарифа без ограничений по числу событий"
    ],
-   "monetization": "Управляющие компании, дорожные службы, аэропорты, логистические операторы уже платят за зимнее обслуживание. B2B-подписка на объект или на парк участков. Интеграция с городскими платформами ЖКХ."
+   "monetization": "Подписка 15-25 долларов в месяц для профессионалов или 4-8 долларов за одно событие. Организаторы платят тысячи за CRM, логистику и кейтеринг-платформы метеосервис за 20 долларов вписывается в рабочий бюджет без переговоров. Партнёрство с площадками и свадебными агентствами как B2B2C."
+  }
+ },
+ {
+  "slug": "weather-apps-8",
+  "category": "weather-apps",
+  "categoryName": "Погода",
+  "title": "Персональная домашняя метеостанция с облачным хранилищем",
+  "oneLiner": "Экосистема из физической домашней метеостанции и приложения с надёжной синхронизацией, историей наблюдений и автоматическим сравнением с официальными данными.",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 92,
+   "reviews": 24055,
+   "observations": 345
+  },
+  "reviewGrid": [
+   {
+    "quote": "…At times where I am , 50% isn’t quite accurate , just an opinion.",
+    "rating": 2,
+    "app": "Clime: NOAA Weather Radar Live"
+   },
+   {
+    "quote": "Previously, …at no cost, it worked ok for free, but, not worth paying any $ for…. often off by several degrees (once you get through their ads) here due to what I think is a delayed update or poor weather info source, maybe both. Other weather apps I use are right on for accuracy, and updated in rea",
+    "rating": 3,
+    "app": "Weather⁺"
+   },
+   {
+    "quote": "I’ve had this app for almost a decade (paid version) without issue. Recently it stopped updating real time with the weather. It WAS flawless, and I had it on an iPad in the kitchen… It was a place we all looked on our way out the door. I’ve tried reinstalling the app, refreshing the app, everything.",
+    "rating": 1,
+    "app": "Weather⁺"
+   },
+   {
+    "quote": "The app is not very intuitive but I mistakenly thought it was the best available for the rural micro climate I live in so I paid for it which unlocked longer weather radar and reduced ads. Recently there have been so many ads including a pop up when I load the app even though I pay for a subscriptio",
+    "rating": 3,
+    "app": "Weather Radar - Ora Channel"
+   },
+   {
+    "quote": "Thanks for doing your best to keep us informed as we recreate outdoors!",
+    "rating": 5,
+    "app": "The Weather Channel - Radar"
+   },
+   {
+    "quote": "Lightning causes fires and other things. Dog scared running off… \nMake the wind and lightning storms FREE for the locals lol so long as you lived here born and raised for 10 yrs or more",
+    "rating": 4,
+    "app": "The Weather Channel - Radar"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Ambient Weather Network набрала realScore 54 при аудитории владельцев реальных метеостанций. Главная боль: при смене роутера синхронизация ломается навсегда. Не",
+    "obsCount": 6,
+    "apps": [
+     "Ambient Weather Network",
+     "Weather Underground: Local Map",
+     "RainDrop - Rain Totals & Radar",
+     "National Weather Forecast Data"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Ambient Weather Network набрала realScore 54 при аудитории владельцев реальных метеостанций. Главная боль: при смене роутера синхронизация ломается навсегда. Нет удобного облачного хранилища истории, нет автоматической верификации данных станции против NWS, нет возможности поделиться своей точкой с соседями.",
+  "idea": {
+   "pitch": "Человек, купивший домашнюю метеостанцию за 150-400 долларов, готов платить за ПО, которое действительно работает. Сейчас он тратит часы на настройку роутера, теряет данные при обновлениях и не может сравнить свои показания с NWS. Продукт надёжный облачный слой для любой станции Davis, Ambient или Oregon Scientific с гарантированной синхронизацией и историей за годы.",
+   "features": [
+    "Надёжная синхронизация через облако без зависимости от конфигурации домашнего роутера",
+    "Архив измерений за неполный или полный год с графиками температуры, влажности, давления и ветра",
+    "Автоматическое сравнение показаний вашей станции с ближайшей NWS-станцией для калибровки",
+    "Публичная карта окрестностей: ваша станция видна соседям, видны их данные",
+    "Экспорт данных в CSV для личного анализа и журналов наблюдений"
+   ],
+   "antiFeatures": [
+    "Нет прогноза погоды только фактические измерения",
+    "Нет поддержки дешёвых Bluetooth-термометров без публичного API",
+    "Нет рекламы и перепродажи данных третьим лицам"
+   ],
+   "monetization": "Подписка 5-8 долларов в месяц или 49-59 долларов в год. Целевая аудитория владельцы метеостанций стоимостью 150-1000 долларов, которые уже доказали готовность тратить на оборудование. Дополнительный тариф для исследовательских групп и муниципалитетов, строящих городские сети наблюдений."
   }
  },
  {
