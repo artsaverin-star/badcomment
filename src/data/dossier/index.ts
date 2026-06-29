@@ -4,6 +4,7 @@ import astrology from "./astrology.json";
 import calendarsTasks from "./calendars-tasks.json";
 import cryptoInvesting from "./crypto-investing.json";
 import datingApps from "./dating-apps.json";
+import focusProductivity from "./focus-productivity.json";
 import foodDelivery from "./food-delivery.json";
 import habitTracking from "./habit-tracking.json";
 import languageLearning from "./language-learning.json";
@@ -23,5 +24,5 @@ import videoStreaming from "./video-streaming.json";
 import weatherApps from "./weather-apps.json";
 
 export const DOSSIER_BY_SLUG: Record<string, unknown> = {
-  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "sleep-tracking": sleepTracking, "travel-planning": travelPlanning, "video-streaming": videoStreaming, "weather-apps": weatherApps,
+  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "focus-productivity": focusProductivity, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "sleep-tracking": sleepTracking, "travel-planning": travelPlanning, "video-streaming": videoStreaming, "weather-apps": weatherApps,
 };

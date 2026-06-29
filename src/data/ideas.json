@@ -38680,5 +38680,605 @@
    ],
    "monetization": "Потребительская подписка 3-5 долларов в месяц. API-тариф для разработчиков приложений по числу запросов. Готовые рецептные приложения уже монетизируют эту функцию: значит, пользователи за неё платят, нужно сделать её отдельно и хорошо."
   }
+ },
+ {
+  "slug": "focus-productivity-1",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Таймер глубокой работы для людей с СДВГ",
+  "oneLiner": "Помодоро, заточенный под нейродивергентный мозг: короткие сессии, эмоциональный крючок и звуковой фон вместо тишины",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "I love this app a lot! I have severe ADHD and struggle with time management. I love the events they do and the fact that I can plant a cute little tree every time i set a timer! I love it so much that i got an annual subscription!",
+    "rating": 5,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "For someone neurodivergent, this has become a serious boon for my cognitive functions, specifically focus. I focus better during work, creativity, and exercise.",
+    "rating": 5,
+    "app": "Endel: Focus & Sleep Sounds"
+   },
+   {
+    "quote": "Have bad ADHD this helps",
+    "rating": 5,
+    "app": "Endel: Focus & Sleep Sounds"
+   },
+   {
+    "quote": "The ads have these incredible songs/collaborations that are not even remotely close to what is offered in Endel. Do better. \n\nThis is a nitpick, but since the app is directed towards people with ADHD and other newer divergent oddities. The fact that there is a 2 to 3 second delay in playing anything",
+    "rating": 2,
+    "app": "Endel: Focus & Sleep Sounds"
+   },
+   {
+    "quote": "This app is just there to take your money. Not going to pay $6 a week to have custom habits…",
+    "rating": 1,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "можно добавить ограниченное число задач и статистика по ним платная и по завышенной для этого цене",
+    "rating": 2,
+    "app": "Productive - Habit Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Люди с СДВГ платят за приложения фокуса, но стандартный помодоро 25/5 не работает слишком долго, нет эмоционального крючка, тишина давит. Brain.fm и Endel берут",
+    "obsCount": 6,
+    "apps": [
+     "Focus Friend, by Hank Green",
+     "Brain.fm: Focus & Sleep Music",
+     "Endel: Focus & Sleep Sounds",
+     "Session Pomodoro Focus Timer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Люди с СДВГ платят за приложения фокуса, но стандартный помодоро 25/5 не работает слишком долго, нет эмоционального крючка, тишина давит. Brain.fm и Endel берут 120 долларов в год за звук, но не дают структуры сессии. Focus Friend с бином работает у молодёжи с СДВГ лучше голых таймеров, но нет гибкой длины и нет звука. Рынок берёт деньги за инструменты, которые сделаны для нейротипичных.",
+  "idea": {
+   "pitch": "Приложение строит рабочую сессию вокруг нейродивергентного мозга: 10-15-минутные спринты вместо 25-минутных блоков, адаптивный звуковой фон без слов (доказанно помогает при СДВГ), и персонаж, которому становится плохо если выйти из приложения. Монетизируется подпиской 5-7 долларов в месяц на аудиторию, которая уже платит за Headspace, Brain.fm и Endel. Одиночный разработчик собирает ScreenTime API и AVFoundation без сложного бэкенда.",
+   "features": [
+    "Гибкая длина спринта от 5 до 20 минут с автоподбором под результаты пользователя",
+    "Встроенный нейроадаптивный звуковой фон без слов, работающий в фоне без остановки",
+    "Персонаж-компаньон с эмоциональной реакцией на выход из сессии и накопление серий",
+    "Статистика за день в одном числе без перегруза: сколько спринтов завершено",
+    "Виджет Live Activities с обратным отсчётом и персонажем прямо на экране блокировки"
+   ],
+   "antiFeatures": [
+    "Нет принудительного 25-минутного блока пользователь сам задаёт диапазон",
+    "Нет сложной аналитики и экспорта данных один экран итогов дня",
+    "Нет социальных комнат и лидербордов чистый одиночный режим"
+   ],
+   "monetization": "Подписка 4.99 долларов в месяц или 39 долларов в год. Аудитория СДВГ уже платит за Brain.fm (60 долларов/год), Endel (120 долларов/год), Forest (подписка). Конверсия из бесплатного выше чем в обычных таймерах потому что у людей с СДВГ сильная боль и они платят за всё что реально работает. Разовый пакет «без ограничений навсегда» за 14.99 долларов как альтернатива."
+  }
+ },
+ {
+  "slug": "focus-productivity-2",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Трекер учебных часов для сдачи экзаменов",
+  "oneLiner": "Считает часы подготовки к конкретному экзамену, показывает отставание от плана и держит мотивацию без лишнего",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "Great app, but it doesn’t sync across devices (e.g. iPad and iPhone). Which is disappointing considering I paid for the subscription",
+    "rating": 3,
+    "app": "Focus Keeper - Pomodoro Timer"
+   },
+   {
+    "quote": "I have a list of daily tasks that I want to make sure I track. Able to create custom hanits but it cumbersome to tick it as done. It seems you have to put in a percentage. I just want to be able to chwck it off the list. Other than that there seems to be a good platform for when you don’t have your ",
+    "rating": 3,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "Do you have to have a subscription to use this?",
+    "rating": 5,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "I just wish you didn’t have to have the ringer up to hear the sound when you swipe. I also wish you could adjust recurring tasks for more than “once every 2 weeks”. I’d love to add tasks that are once every 3 months, 6months etc.",
+    "rating": 4,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "Scam! Avoid! Keeps charging after account deletion",
+    "rating": 1,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "Good app. So not worth the price.",
+    "rating": 2,
+    "app": "Productive - Habit Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Студенты, готовящиеся к ЕГЭ, IELTS, GMAT и профессиональным сертификатам, не знают сколько часов осталось до готовности. FLIP накапливает часы и делает комнаты,",
+    "obsCount": 6,
+    "apps": [
+     "FLIP - Focus Timer for Study",
+     "YPT - Study Group",
+     "ATracker Time Tracker",
+     "Focus To-Do: Focus Timer&Tasks"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Студенты, готовящиеся к ЕГЭ, IELTS, GMAT и профессиональным сертификатам, не знают сколько часов осталось до готовности. FLIP накапливает часы и делает комнаты, но не связывает время с целью-датой. YPT считает соревновательно, но падает после обновлений. Ни одно приложение не говорит «до экзамена 40 дней, надо 120 часов, сегодня ты в минусе на 3 часа».",
+  "idea": {
+   "pitch": "Пользователь вводит экзамен и дату, приложение разбивает оставшееся время на дневные планы и отслеживает реальные часы сессий. Каждый день один виджет: сколько сделано из плана. После экзамена история часов остаётся и служит портфелем дисциплины. Монетизируется разовой покупкой 4.99 долларов студенты платят за конкретный результат, не за абстрактную продуктивность.",
+   "features": [
+    "Ввод экзамена, даты и целевого количества часов подготовки, автоматический дневной план",
+    "Таймер сессии с привязкой к конкретному предмету или теме",
+    "Виджет с ежедневным прогрессом: выполнено/план, дней до экзамена",
+    "История часов по экзаменам, экспорт в PDF для резюме или самоотчёта",
+    "Напоминание об отставании от плана не нотация, а просто число"
+   ],
+   "antiFeatures": [
+    "Нет социальных комнат и лидербордов только личный прогресс",
+    "Нет геймификации с деревьями, питомцами и монетами",
+    "Нет подписки разовая покупка или полностью бесплатно с базовым функционалом"
+   ],
+   "monetization": "Разовая покупка 3.99-4.99 долларов для разблокировки нескольких экзаменов параллельно и экспорта данных. Студенты перед платным экзаменом (GMAT 300 долларов, IELTS 250 долларов) легко платят 5 долларов за инструмент подготовки. Альтернативная монетизация разовая покупка «Разблокировать всё» без подписки: именно это хвалят в ATracker."
+  }
+ },
+ {
+  "slug": "focus-productivity-3",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Таймер с партнёром по ответственности",
+  "oneLiner": "Два человека запускают сессии вместе, видят статус друг друга в реальном времени и не могут схалтурить",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "I love this app. The simplicity and layout are perfection. There are two reasons I’ve given it: 3 stars:\n\n1. The app limits a week to 6 days! Is there a place on this earth where a week is only 6 days?\n\n2. I can not find a way to edit a habit. I’d there’s a spelling error, or a change to the habit r",
+    "rating": 3,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "I love this app it helps me clean, organize, and I have braces so it helps me brush and floss!, it helps me do stuff I don't want to do and it even has reminders!!(helpful)but the subscription pops up even when my phone just turn of for 2seconds and it's sooooooooooooooooooooooo  annoying but other ",
+    "rating": 5,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "So I bought this years ago but never used it and was checking out another app and figured I’d use this and compare it. What I would like to see here is device syncing. Calendar and Apple health integration for reading and exercise habits and with the calendar it can set you reminders and adjust if s",
+    "rating": 4,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "$99.99 a year",
+    "rating": 1,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "I was on the free plan and was tracking a few habits for over a year. They then changed their pricing model and I am not able to acces my history. Really bummed that I lost this data. It’s also way too expensive for what it is. HabitKit is much better.",
+    "rating": 2,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "Wish cloud sync would be added back to product. Almost perfect",
+    "rating": 3,
+    "app": "Productive - Habit Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Body-doubling реально работает при СДВГ и прокрастинации просто присутствие другого человека за работой снижает откладывание. Focus Town и FLIP делают это через",
+    "obsCount": 6,
+    "apps": [
+     "Focus Town: Study With Friends",
+     "FLIP - Focus Timer for Study",
+     "YPT - Study Group",
+     "Flipd: focus & study timer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Body-doubling реально работает при СДВГ и прокрастинации просто присутствие другого человека за работой снижает откладывание. Focus Town и FLIP делают это через виртуальные комнаты с незнакомцами. Но нужен инструмент для пары или небольшой группы с реальными людьми из своего окружения: коллеги, друзья, партнёры. Никто не сделал простой «парный таймер» без лишнего.",
+  "idea": {
+   "pitch": "Один человек создаёт сессию и отправляет ссылку партнёру. Оба запускают таймер одновременно, видят виджет со статусом «друг работает» или «друг отвлёкся». Нет чата, нет комментариев только присутствие. Монетизируется подпиской двух людей или групповым тарифом, что даёт вирусный рост через приглашения.",
+   "features": [
+    "Синхронный старт сессии с партнёром через ссылку, без регистрации для приглашённого",
+    "Виджет реального времени: видно работает ли партнёр прямо сейчас",
+    "Мягкое уведомление если партнёр начал сессию без тебя не давление, а напоминание",
+    "Архив совместных сессий: сколько часов сделано вместе за неделю",
+    "Режим «тихого присутствия» без уведомлений, только статус на виджете"
+   ],
+   "antiFeatures": [
+    "Нет чата и комментариев внутри сессии чистое молчаливое присутствие",
+    "Нет публичных комнат с незнакомцами",
+    "Нет геймификации и очков"
+   ],
+   "monetization": "Бесплатно для пары до 10 совместных сессий в месяц. Подписка 2.99 долларов в месяц на человека за неограниченные сессии и группы до 5 человек. Виральность встроена: каждый новый пользователь приходит по приглашению платящего пользователя. Конкурентов с этой механикой почти нет все делают анонимные комнаты."
+  }
+ },
+ {
+  "slug": "focus-productivity-4",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Трекер рабочего времени для фрилансеров",
+  "oneLiner": "Считает часы по проектам, умеет выставлять счёт клиенту прямо из таймера и не требует подписки",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "LOVE the Productive app for organization, personalization, motivation, and application!",
+    "rating": 5,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "When you’re not getting texts from your boyfriend anymore it’s nice to get a text from your goal. Everyone keep up the good work and thank you for trying",
+    "rating": 4,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "I wanted to give this have a chance except you can’t skip the tutorial it asked you a bunch of obnoxious questions and then prompt you to either pay $100 or subscribe for eight dollars a month before you even get a chance to see the interface.",
+    "rating": 1,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "The app itself is okay. I found the interface a little unintuitive but workable. However, I got a notification that the subscription would be increasing to $59.99/year. I can’t remember if the original cost was $15.99/year or $29.99/year, but either way: it’s an increase of at least 100% for the sam",
+    "rating": 2,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "This would be an amazing app, except the goal timer feature doesn’t keep time if the app is not in focus! Many apps nowadays have timers that still work in background, this just feels like a lazy throwback to smartphones from 10 years ago.",
+    "rating": 3,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "This is a great app! I love the Pomodoro timers and the notifications however unlike some other habit tracker apps it does not sync with Apple health. This means it cannot see your steps, calories, exercise minutes and etc. Please consider adding these features! \nThanks in advance!!! 😀",
+    "rating": 5,
+    "app": "Productive - Habit Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "ATracker хвалят за разовую покупку и честный трекинг, но нет выставления счёта. Harvest и Toggl веб-ориентированные с лишними функциями для командной работы. Фр",
+    "obsCount": 6,
+    "apps": [
+     "ATracker Time Tracker",
+     "Be Focused Pro - Focus Timer",
+     "Focus To-Do: Focus Timer&Tasks",
+     "Session Pomodoro Focus Timer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "ATracker хвалят за разовую покупку и честный трекинг, но нет выставления счёта. Harvest и Toggl веб-ориентированные с лишними функциями для командной работы. Фрилансер хочет: запустить таймер на «Клиент X / Задача Y», потом нажать «Выставить счёт» и получить PDF. Ни одно приложение не закрывает этот путь целиком без подписки или лишней сложности.",
+  "idea": {
+   "pitch": "Таймер с тегами проект/задача, который автоматически суммирует часы за неделю и генерирует простой счёт в PDF с именем клиента, ставкой и итоговой суммой. Всё локально, никакого бэкенда. Монетизируется разовой покупкой 7.99-9.99 долларов фрилансеры легко платят за инструмент, который помогает выставить счёт клиенту.",
+   "features": [
+    "Таймер с иерархией проект-задача, быстрый старт в одно касание",
+    "Автоматическое суммирование часов и суммы по ставке за любой период",
+    "Генерация PDF-счёта с именем клиента, периодом, детализацией по задачам и итогом",
+    "Виджет с текущим активным таймером и накопленным временем за день",
+    "Экспорт CSV для бухгалтерии или клиента"
+   ],
+   "antiFeatures": [
+    "Нет командного доступа и приглашения коллег",
+    "Нет CRM и управления проектами только таймер и счёт",
+    "Нет облачного бэкенда все данные на устройстве, экспорт вручную"
+   ],
+   "monetization": "Разовая покупка 7.99 долларов за разблокировку выставления счётов и неограниченного числа проектов. Бесплатная версия: 3 проекта без PDF-счёта. Фрилансеры платящая аудитория с высоким LTV: если приложение помогает выставить счёт на 1000 долларов, 8 долларов за инструмент не вопрос."
+  }
+ },
+ {
+  "slug": "focus-productivity-5",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Жёсткий блокировщик телефона без лазеек",
+  "oneLiner": "Блокирует телефон на выбранное время так, что его нельзя обойти через настройки или перезагрузку",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "This is actually keeping me focused during my workday!!",
+    "rating": 5,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "I find that Brick is straightforward, easy to use, and not at all overwhelming! For me, the best part is the physical component. Once the set schedule ends, you have to actually get up and tap the phone to unlock it. Since it isn’t a passive timer that just hands back access, I find that this preser",
+    "rating": 5,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "It sounds trite, but this app absolutely changed my life for the better. I have effectively cut out all social media except for one website that I allow. This app effectively broke the muscle memory habit of opening up Instagram or other endless scrolling apps whenever I had a free moment or picked ",
+    "rating": 5,
+    "app": "one sec | screen time + focus"
+   },
+   {
+    "quote": "they updated the app recently in the past month and they made it super easy to click out of the app block so now it’s virtually useless and extremely expensive. not good anymore at all",
+    "rating": 3,
+    "app": "Opal: Screen Time Control"
+   },
+   {
+    "quote": "Brick drastically reduced the value of the app to me recently by removing some of their scheduling functionality. I no longer think this app is very useful.",
+    "rating": 1,
+    "app": "Brick - Ditch Distractions"
+   },
+   {
+    "quote": "I love this app. It helps me stay motivated to complete my daily tasks/habits each day. I have this app set as a widget and the only thing I wish is that is would update with the correct number of tasks/habits I have left for the day as I complete them. Currently, it lists the number of tasks/habits",
+    "rating": 4,
+    "app": "Productive - Habit Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Brick требует физический донгл. Freedom обходится через настройки iOS. Opal после обновления ослабил блокировку и потерял половину пользователей. Все существующ",
+    "obsCount": 6,
+    "apps": [
+     "Brick - Ditch Distractions",
+     "Freedom: Screen Time Control",
+     "Opal: Screen Time Control",
+     "one sec | screen time + focus"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Brick требует физический донгл. Freedom обходится через настройки iOS. Opal после обновления ослабил блокировку и потерял половину пользователей. Все существующие блокировщики либо аппаратные, либо обходимые. Огромная аудитория взрослых с зависимостью от телефона готова платить за реальную блокировку, но рынок не может её обеспечить программно из-за ограничений Apple.",
+  "idea": {
+   "pitch": "Приложение использует Screen Time API с родительским кодом и намеренно усложняет его сброс: требует задержки 24 часа для смены кода, показывает счётчик «сколько раз ты пытался обойти блокировку сегодня». Сильная сторона честность: приложение не обещает невозможного, а создаёт максимально высокий барьер из доступных инструментов iOS. Монетизируется подпиской пользователей, которые уже платили за Brick, Freedom и Opal.",
+   "features": [
+    "Блокировка на выбранный период через Screen Time API с 24-часовой задержкой смены кода",
+    "Счётчик попыток обхода блокировки за день, видимый на главном экране",
+    "Расписание блокировки по дням недели с автозапуском",
+    "Экстренная разблокировка с обязательным письмом доверенному контакту",
+    "Ежедневный отчёт на email: сколько времени телефон был заблокирован"
+   ],
+   "antiFeatures": [
+    "Нет визуальных наград, растений или игровых механик",
+    "Нет интеграции с таймером помодоро",
+    "Нет синхронизации между устройствами только один телефон"
+   ],
+   "monetization": "Подписка 4.99 долларов в месяц или 39 долларов в год. Аудитория: взрослые 25-45 лет с осознанной проблемой экранного времени, которые уже потратили деньги на Brick (9.99 долларов + донгл), Freedom (39 долларов/год), Opal. Ключевое USP отсутствие аппаратного компонента и честное объяснение что именно блокируется и почему."
+  }
+ },
+ {
+  "slug": "focus-productivity-6",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Визуальный таймер для детей и учителей",
+  "oneLiner": "Таймер, который показывает оставшееся время визуально убывающий диск или заполняющаяся полоска без цифр и тревоги",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "I LOVE this app! It helps me focus when I practice my instruments sometimes when I am bored I will just make a timer to watch it grow it pass passes the time and I have gotten better with my instruments!",
+    "rating": 5,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "Написано что нет встроенных покупок!",
+    "rating": 1,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "I used this app for a year and found it had a positive impact on my life. However, with the annual $80 renewal approaching, I reconsidered whether it was worth the cost. I discovered other apps on the App Store that offer a similar, if not better, experience for much less. While the app works about ",
+    "rating": 2,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "I have been using this app for a few years but noticed after I purchased my subscription through the web, it did not show up in the app even when logged in with the same credentials. I reached out to support and never heard back. I really do love the app but have since cancelled. If this ever gets f",
+    "rating": 3,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "When I open the app it says update in progress and gonna take a moment but it won’t finish or end and the elements keep spinning what should i do?",
+    "rating": 5,
+    "app": "Productive - Habit Tracker"
+   },
+   {
+    "quote": "I tried creating an account and it emailed me a confirmation code, but when I tried to type it in it just keeps saying the code is incorrect or timed out. I’ve tried restarting the app and resending the codes 3 different times and typed them in in less than a minute and double checked I had typed th",
+    "rating": 1,
+    "app": "Flora - Green Focus"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Time Timer физический продукт за 30-40 долларов, его мобильная версия работает нестабильно (сигнал пропадает на заблокированном экране). Countdown Timer Aqua Ho",
+    "obsCount": 6,
+    "apps": [
+     "Countdown Timer Aqua Hourglass",
+     "Time Timer",
+     "Routine Planner, Habit Tracker",
+     "MultiTimer: Multiple timers"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Time Timer физический продукт за 30-40 долларов, его мобильная версия работает нестабильно (сигнал пропадает на заблокированном экране). Countdown Timer Aqua Hourglass делает это с водой и хвалят родители детей с СДВГ, но нет серии последовательных таймеров. Учителям нужен проекционный режим на iPad для класса. Рынок специализированных образовательных инструментов растёт, и школы платят за приложения.",
+  "idea": {
+   "pitch": "Таймер без цифр: только убывающий цветной диск или заполняющаяся полоса. Ребёнок видит сколько времени осталось без умения читать часы. Учитель проецирует на экран в классе через AirPlay. Родитель настраивает серию таймеров для вечернего ритуала: ужин → душ → чтение. Монетизируется разовой покупкой, которую покупают родители и школы.",
+   "features": [
+    "Три режима визуализации: убывающий диск, заполняющаяся вода, горящая свеча",
+    "Серия последовательных таймеров с именами этапов, запускается одной кнопкой",
+    "Режим проекции для iPad с крупным отображением на весь экран и тёмным фоном",
+    "Настройка звука завершения: мягкий гонг, аплодисменты, тишина с только вибрацией",
+    "Виджет на домашний экран с убывающим диском текущего таймера"
+   ],
+   "antiFeatures": [
+    "Нет статистики и аналитики времени",
+    "Нет помодоро и рабочих сессий только таймер и сериальные цепочки",
+    "Нет социальных функций"
+   ],
+   "monetization": "Разовая покупка 4.99 долларов за полный доступ: все визуальные темы, серийные таймеры, режим проекции. Бесплатно: один тип визуализации, один таймер. Целевые аудитории с деньгами: учителя начальной школы (покупают из своего кармана, 5 долларов не проблема), родители детей с СДВГ (уже платят за приложения), логопеды и терапевты. Возможна B2B-лицензия для школ."
+  }
+ },
+ {
+  "slug": "focus-productivity-7",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Таймер фокуса без подписки и раз и навсегда",
+  "oneLiner": "Честный помодоро с разовой оплатой и без онбординга из 20 экранов: запустил и работаешь",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "I miss when apps just did what they advertise. I remember using this app back in the day as a useful simple timer app to track study sessions. Downloaded it today and it bombards you with 10 minutes of survey questions and bloat, constant popups. Just give me a goddamn timer, stop trying to farm me ",
+    "rating": 1,
+    "app": "Focus Keeper - Pomodoro Timer"
+   },
+   {
+    "quote": "you flooded this app with unnecessary features and premium. it’s a timer.",
+    "rating": 1,
+    "app": "Focus Keeper - Pomodoro Timer"
+   },
+   {
+    "quote": "It’s extraordinary that something intended to be simple and straightforward has been unnecessarily turned into a chaotic pile of administrative goop. Want to be helpful? Have an obvious switch for “simple mode” so users can forgo the unneeded excess. Shame on all of you.",
+    "rating": 2,
+    "app": "Focus Keeper - Pomodoro Timer"
+   },
+   {
+    "quote": "Provides helpful guardrails that encourage focused time for me. I like the variety of sounds that can accompany the timer. If you need a pomodoro timer this one is straight forward and not overly complicated. It’s exactly what I needed.",
+    "rating": 5,
+    "app": "Focus Keeper - Pomodoro Timer"
+   },
+   {
+    "quote": "Yet another app goes the route of instead of paying a one-time fee, turning to an in app purchase subscription model. The ability to have access to all features up front is why I used to recommend this app to all of my friends. Do better.",
+    "rating": 1,
+    "app": "Forest: Focus for Productivity"
+   },
+   {
+    "quote": "I thought this would be really cute really great especially because you can actually plant real trees by focusing. However, it requires you to keep your phone open all the time, draining the battery. My whole point is to not be paying attention to the phone, not poking it every couple seconds to mak",
+    "rating": 2,
+    "app": "Flora - Green Focus"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Самая частая жалоба в нише: приложения берут деньги повторно, обрастают функциями, ломают простоту. Focus Keeper, Forest, Productive, Emphasis все перешли на по",
+    "obsCount": 6,
+    "apps": [
+     "ATracker Time Tracker",
+     "Bluebird Focus Timer",
+     "Be Focused Pro - Focus Timer",
+     "Focus Keeper - Pomodoro Timer"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Самая частая жалоба в нише: приложения берут деньги повторно, обрастают функциями, ломают простоту. Focus Keeper, Forest, Productive, Emphasis все перешли на подписки и получили волну гнева от лояльных пользователей. Аудитория, которая хочет просто таймер без подписки и без онбординга, огромная и злая. ATracker хвалят именно за разовую покупку и стабильность годами.",
+  "idea": {
+   "pitch": "Помодоро с настраиваемой длиной сессий, фоновым звуком, Live Activities и Apple Watch. Разовая покупка 3.99 долларов. Никакого онбординга сразу таймер. Никаких уведомлений с просьбой оценить. Никаких подписок. Позиционирование: «последний помодоро, который вам понадобится». Бизнес-модель качество и сарафанное радио без маркетинговых расходов.",
+   "features": [
+    "Помодоро с настраиваемой длиной сессии и перерыва без обязательных 25 минут",
+    "Live Activities и виджет с обратным отсчётом на экране блокировки",
+    "Apple Watch: таймер идёт независимо, тактильное уведомление в конце",
+    "Фоновый звук: белый шум, дождь, кафе работает даже при свёрнутом приложении",
+    "Простая статистика: сколько сессий сделано сегодня, на этой неделе"
+   ],
+   "antiFeatures": [
+    "Нет подписки, нет повторных платежей, нет напоминаний купить про-версию",
+    "Нет геймификации, нет питомцев, нет деревьев",
+    "Нет онбординга длиннее одного экрана"
+   ],
+   "monetization": "Разовая покупка 3.99-4.99 долларов за приложение. Опциональный дополнительный пакет звуков 0.99-1.99 долларов. Никакой подписки. Модель работает если приложение действительно простое и стабильное: лояльные пользователи рекомендуют, стоимость привлечения близка к нулю. ATracker с той же моделью realScore 74 и 4.66 текстовый рейтинг."
+  }
+ },
+ {
+  "slug": "focus-productivity-8",
+  "category": "focus-productivity",
+  "categoryName": "Фокус и продуктивность",
+  "title": "Умная пауза перед открытием соцсетей",
+  "oneLiner": "Вставляет осознанную задержку перед Instagram или TikTok дыхание, вопрос или упражнение и ломает автопилот",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 72,
+   "reviews": 17445,
+   "observations": 228
+  },
+  "reviewGrid": [
+   {
+    "quote": "This is the only app that has truly had an impact on reducing my doom scrolling and I’m so grateful!",
+    "rating": 5,
+    "app": "one sec | screen time + focus"
+   },
+   {
+    "quote": "It sounds trite, but this app absolutely changed my life for the better. I have effectively cut out all social media except for one website that I allow. This app effectively broke the muscle memory habit of opening up Instagram or other endless scrolling apps whenever I had a free moment or picked ",
+    "rating": 5,
+    "app": "one sec | screen time + focus"
+   },
+   {
+    "quote": "Will only let you put controls on one app if you don’t pay. Which is useless if you have more than one social media app.",
+    "rating": 2,
+    "app": "one sec | screen time + focus"
+   },
+   {
+    "quote": "It helps me a lot with productivity",
+    "rating": 3,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "Flora has helped me locked in for real!!! Plus it’s fun to use",
+    "rating": 5,
+    "app": "Flora - Green Focus"
+   },
+   {
+    "quote": "I love this app. It’s so cute growing different plants especially since I can keep a real plant alive. But it also helps me stay focused and busy since I want to grow my plants. Still trying to figure it out but I like it so far. I wish I could see all the different plants I’ve finished or killed bu",
+    "rating": 4,
+    "app": "Flora - Green Focus"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "One Sec делает именно это и имеет лояльных пользователей, которые пишут о реальном изменении привычки. Но бесплатная версия блокирует только одно приложение это",
+    "obsCount": 6,
+    "apps": [
+     "one sec | screen time + focus",
+     "Opal: Screen Time Control",
+     "No Scroll - Limit Screen Time",
+     "Refocus: Block Apps & Websites"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "One Sec делает именно это и имеет лояльных пользователей, которые пишут о реальном изменении привычки. Но бесплатная версия блокирует только одно приложение этого мало. Жёсткие блокировщики легко обходятся волевым усилием и требуют физического донгла. Разрыв автопилотного рефлекса через паузу работает лучше полной блокировки, но рынок это ещё не занял платным продуктом с честным UX.",
+  "idea": {
+   "pitch": "Перед открытием выбранных приложений пользователь видит 5-секундную паузу с вопросом «зачем ты сюда идёшь?» или коротким дыхательным упражнением. Можно открыть но не автоматически. Бесплатно для трёх приложений без ограничений. Платно больше приложений, кастомные интервенции и статистика того сколько раз в день ты передумал. Монетизируется через аудиторию, которая уже платила One Sec.",
+   "features": [
+    "Интервенция перед открытием выбранных приложений: вопрос, дыхание или короткое упражнение",
+    "Бесплатно для трёх приложений без ограничений по времени",
+    "Статистика: сколько раз в день ты передумал открывать приложение",
+    "Настройка длины паузы от 3 до 30 секунд в зависимости от приложения",
+    "Экспорт статистики в CSV для самоанализа или коуча"
+   ],
+   "antiFeatures": [
+    "Нет полной блокировки только задержка и вопрос",
+    "Нет геймификации и очков за сопротивление",
+    "Нет автоматического расписания по времени суток в базовой версии"
+   ],
+   "monetization": "Freemium: бесплатно три приложения без ограничений. Подписка 1.99 долларов в месяц или 14.99 долларов в год за неограниченное число приложений, кастомные вопросы и расширенную статистику. One Sec берёт 20 долларов в год и монетизируется на этом уровне цены. Ключевое отличие честная бесплатная версия которая реально работает и конвертирует без агрессии."
+  }
  }
 ]
