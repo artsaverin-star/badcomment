@@ -8,6 +8,7 @@ import { CATEGORY_PRICE_RUB, DECK_CREDIT_RUB, CATEGORY_STARS, LIFETIME } from "@
 import BuyButton from "@/components/BuyButton";
 import DossierGate from "@/components/DossierGate";
 import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
+import AppLinkedText from "@/components/AppLinkedText";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
 import { getNicheThesis } from "@/lib/nicheThesis";
 import { categoryCards } from "@/lib/regenCards";
@@ -144,7 +145,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
       <header className="mt-12">
         <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{name}</h1>
-        <p className="mt-6 max-w-[60ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(thesis.governing)}</p>
+        <AppLinkedText as="p" className="mt-6 max-w-[60ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.governing)} apps={ratingApps} locale={locale} />
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
           {stats.map((s, i) => (
@@ -156,21 +157,21 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         </div>
       </header>
 
-      <Block title={ru ? "Обзор рынка" : "Market overview"} lead={tg(dossier.market.marketLead)}>
+      <Block title={ru ? "Обзор рынка" : "Market overview"} lead={<AppLinkedText text={tg(dossier.market.marketLead)} apps={ratingApps} locale={locale} />}>
         <dl className="mt-2 border-t border-[var(--color-border-subtle)]">
           <MarketRow k={ru ? "Размер" : "Size"} v={ru ? `${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано` : `${NF(totalRatings)} ratings across ${r.count} apps, ${NF(r.totalReviews)} reviews read`} />
           <MarketRow k={ru ? "Лидеры" : "Leaders"} v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
           <MarketRow k={ru ? "Концентрация" : "Concentration"} v={ru ? `топ-3 держат ${top3Share}% всех оценок` : `the top 3 hold ${top3Share}% of all ratings`} />
-          <MarketRow k={ru ? "Деньги" : "Money"} v={tg(dossier.market.money)} />
+          <MarketRow k={ru ? "Деньги" : "Money"} v={<AppLinkedText text={tg(dossier.market.money)} apps={ratingApps} locale={locale} />} />
           <MarketRow k={ru ? "Доверие" : "Trust"} v={ru ? `${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `${broken} of 100 apps have an inflated or doubtful star, only ${great} are genuinely good`} />
         </dl>
-        <p className="mt-8 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead ?? "")}</p>
+        <AppLinkedText as="p" className="mt-8 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(thesis.competitorRead ?? "")} apps={ratingApps} locale={locale} />
       </Block>
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
         <div className="mt-6"><PersonaCards segments={audSegments} locale={locale} /></div>
         <h3 className="mt-12 text-headline text-[var(--color-text-primary)]">{ru ? "Где деньги" : "Where the money is"}</h3>
-        <p className="mt-3 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
+        <AppLinkedText as="p" className="mt-3 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(aud.takeaway)} apps={ratingApps} locale={locale} />
       </Block>
 
       {loggedIn ? (
@@ -186,7 +187,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
               <h3 className="text-title3 text-[var(--color-text-primary)]">{tg(p.title)}</h3>
-              <p className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(p.dek)}</p>
+              <AppLinkedText as="p" className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]" text={tg(p.dek)} apps={ratingApps} locale={locale} />
               {grouped[pi].length > 0 && (
                 <div className="mt-7 border-t border-[var(--color-border-subtle)]">
                   {grouped[pi].map((f, k) => (
@@ -199,7 +200,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
                         </>
                       }
                     >
-                      {(f.plus || f.minus) && <p className="text-callout text-[var(--color-text-secondary)]">{tg([f.plus, f.minus].filter(Boolean).join(" "))}</p>}
+                      {(f.plus || f.minus) && <AppLinkedText as="p" className="text-callout text-[var(--color-text-secondary)]" text={tg([f.plus, f.minus].filter(Boolean).join(" "))} apps={ratingApps} locale={locale} />}
                       <div className="mt-5 flex flex-col gap-2.5">
                         {(f.evidence || []).slice(0, 3).map((q, j) => <Bubble key={j} app={q.app} text={q.quote} />)}
                       </div>
@@ -249,7 +250,7 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
   );
 }
 
-function Block({ title, lead, children }: { title: string; lead?: string; children: ReactNode }) {
+function Block({ title, lead, children }: { title: string; lead?: ReactNode; children: ReactNode }) {
   return (
     <section className="mt-24">
       <h2 className="text-title2 text-[var(--color-text-primary)]">{title}</h2>
@@ -271,7 +272,7 @@ function Disclosure({ head, children, defaultOpen, card }: { head: ReactNode; ch
   );
 }
 
-function MarketRow({ k, v }: { k: string; v: string }) {
+function MarketRow({ k, v }: { k: string; v: ReactNode }) {
   return (
     <div className="flex flex-col gap-0.5 border-b border-[var(--color-border-subtle)] py-3.5 sm:flex-row sm:gap-6">
       <dt className="w-32 shrink-0 text-callout font-medium text-[var(--color-text-tertiary)]">{k}</dt>

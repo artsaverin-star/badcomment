@@ -87,12 +87,14 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
           return (
             <details key={a.id} className="group/f rounded-[16px] border border-[var(--color-border-subtle)] px-4">
               <summary className="flex cursor-pointer list-none flex-col gap-3 py-4 [&::-webkit-details-marker]:hidden">
-                <span className="flex w-full items-start gap-3">
+                <span className="flex w-full items-stretch gap-3">
                   {a.icon
-                    // eslint-disable-next-line @next/next/no-img-element
-                    ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
-                    : <span className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
-                  <span className="min-w-0 flex-1">
+                    ? <span className="aspect-square shrink-0 self-stretch overflow-hidden rounded-[12px]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={a.icon} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                      </span>
+                    : <span className="aspect-square shrink-0 self-stretch rounded-[12px] bg-[var(--color-bg-muted)]" />}
+                  <span className="flex min-w-0 flex-1 flex-col justify-center">
                     <span className="block text-body text-[var(--color-text-primary)]">{a.title}</span>
                     <span className="mt-2 flex flex-wrap items-center gap-1.5">
                       <MetricChip icon="star" value={a.storeAvg?.toFixed(1) ?? "—"} label={ru ? "В сторе" : "In store"} active={!sentiment} />
@@ -101,7 +103,7 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
                       <MetricChip icon="spark" value={`${a.realScore}/100`} label={ru ? "Наш балл" : "Our score"} active={sentiment} />
                     </span>
                   </span>
-                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 self-start text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
                 {a.verdict && <span className="block text-footnote text-[var(--color-text-secondary)]">{a.verdict}</span>}
               </summary>

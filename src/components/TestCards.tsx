@@ -86,14 +86,14 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
 
 function CardFace({ icon, title, desc, footer, onClick, locked }: { icon: string; title: string; desc: string; footer?: React.ReactNode; onClick: () => void; locked?: boolean }) {
   return (
-    <button type="button" onClick={onClick} className={`relative flex min-h-[190px] flex-col items-center justify-center gap-3 rounded-[18px] border border-[var(--color-border-subtle)] p-5 text-center transition-colors ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)] hover:bg-[var(--color-bg-muted)]"}`}>
+    <button type="button" onClick={onClick} className={`group/c relative flex h-full flex-col items-start gap-3 rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 text-left transition-colors ${locked ? "cursor-default" : "hover:border-[var(--color-border-strong)] hover:bg-[color-mix(in_srgb,var(--color-text-primary)_4%,var(--color-surface-card))]"}`}>
       {locked && (
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-3.5 top-3.5 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-4 top-4 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
-      <Icon name={icon} className="size-9 text-[var(--color-text-secondary)]" />
-      <div className="text-callout font-semibold text-[var(--color-text-primary)]">{title}</div>
-      <div className="text-caption text-[var(--color-text-tertiary)]">{desc}</div>
-      {footer}
+      <span className="flex size-11 items-center justify-center rounded-[12px] bg-[var(--color-bg-muted)]"><Icon name={icon} className="size-6 text-[var(--color-text-secondary)]" /></span>
+      <div className="mt-1 text-headline text-[var(--color-text-primary)]">{title}</div>
+      <div className="text-callout text-[var(--color-text-secondary)]">{desc}</div>
+      {footer && <div className="mt-auto pt-1">{footer}</div>}
     </button>
   );
 }
