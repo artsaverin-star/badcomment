@@ -172,8 +172,40 @@ export default function Landing({
     "baby-tracking": "61 приложение: где лог кормления и сна жмётся одной рукой в 3 ночи и синхронится с партнёром, а где теряются данные.",
     "ai-writing": "87 приложений: где ИИ реально помогает писать, а где тонкая обёртка над ChatGPT с накруткой (36 из 87 накручены).",
   };
+  const BLURB_EN: Record<string, string> = {
+    astrology: "100 apps by real reviews: an honest score and a check on whose star is gamed.",
+    "dating-apps": "100 apps: where the real people are, and where the bots and gamed stars are.",
+    "ai-avatars-headshots": "100 apps: where the result really looks like you, and where it's gamed and the ads lie.",
+    "meditation-mindfulness": "100 apps: where it truly calms with a warm voice, and where it's hollow.",
+    "photo-editing": "100 apps: where the tools really work, and where they wreck photos and the ads lie.",
+    "notes-pkm": "Notes apps: where a thought is written instantly and never lost, and where it lags.",
+    "language-learning": "100 apps: where they really get you talking, and where it's just streaks and a game.",
+    "period-cycle": "Cycle trackers: where the forecast is accurate and data is safe, and where it lies and sells your privacy.",
+    "habit-tracking": "100 apps: where a check-in is instant and the reminder arrives, and where the streak shames you into quitting.",
+    "personal-finance": "100 apps: where you really see and control spending, and where the sync keeps breaking.",
+    "calendars-tasks": "100 apps: where the reminder arrives on time and nothing is lost, and where it stays silent.",
+    "nutrition-calories": "95 apps: where calorie counting is honest and easy, and where the database lies and lags.",
+    "crypto-investing": "93 apps: where the wallet and exchange are honest and reliable, and where it's gamed and funds get frozen.",
+    "music-streaming": "94 apps: where the catalog, sound and playlists are honest and easy, and where it's gamed and music goes missing.",
+    "video-streaming": "95 apps: where the catalog, player and sync are honest, and where it's gamed and geo-blocked.",
+    "food-delivery": "94 apps: where the order arrives right and on time, and where it's gamed and support is broken.",
+    "messaging-apps": "94 apps: where messages and calls arrive reliably and privately, and where it's gamed and texts vanish.",
+    "shopping-ecommerce": "95 apps: where the item arrives as pictured and returns work, and where it's counterfeit and delivery is faked.",
+    "ride-hailing": "87 apps: where the car arrives on time and drivers are paid fairly, and where it's gamed and the ride falls through.",
+    "weather-apps": "92 apps: where the forecast comes true and the alert arrives on time, and where the radar lies and ads pour in.",
+    "travel-planning": "90 apps: where the itinerary and bookings hold and work offline abroad, and where it's gamed and glitches.",
+    "sleep-tracking": "94 apps: where sleep tracking is accurate and the sounds lull you, and where the alarm lies and ads pour in.",
+    "focus-productivity": "72 apps: where the timer runs in the background and blocking holds, and where it's a gimmick and gamed.",
+    "journaling-mood": "95 apps: where writing is easy and the mood trend is visible, and where the streak pushes and privacy leaks.",
+    "workout-fitness": "91 apps: where the workout log is fast and progression counts, and where it's gamed and history is lost.",
+    "recipes-meal-planning": "77 apps: where a recipe saves from the web and the shopping list builds itself, and where the collection gets lost.",
+    "plant-care": "58 apps: where watering is reminded smartly and the diagnosis is honest, and where it's gamed and the advice is generic.",
+    "baby-tracking": "61 apps: where the feeding and sleep log taps one-handed at 3am and syncs with your partner, and where data is lost.",
+    "ai-writing": "87 apps: where AI really helps you write, and where it's a thin ChatGPT wrapper with gamed reviews (36 of 87 inflated).",
+  };
+  const HOOKS = ru ? BLURB : BLURB_EN;
   const ranked = ULTRA
-    .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: BLURB[s] ?? c.hook } : null; })
+    .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: HOOKS[s] ?? c.hook } : null; })
     .filter((c): c is CatCard => !!c);
 
   // Hero salute — app icons flattened from the category cards, shuffled per load,
