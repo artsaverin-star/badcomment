@@ -136,7 +136,11 @@ export default function Landing({
   // the highest observation counts. Featured = the first four (top premium).
   // Homepage leads with the niches that have a full dossier (people's rating +
   // breakdown + ideas). Order pinned; rolled out one niche at a time.
-  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps", "shopping-ecommerce", "ride-hailing", "weather-apps", "travel-planning", "sleep-tracking", "focus-productivity", "journaling-mood", "workout-fitness", "recipes-meal-planning", "plant-care", "baby-tracking", "ai-writing"];
+  // Ordered by how realistically a solo vibe-coder can ship it: pure single-player
+  // software utilities at the top, then content/AI-heavier apps, then data-dependent
+  // ones, and non-replicable marketplaces/infra (ride-hailing, streaming, crypto) at
+  // the bottom — great for SEO but impossible to build solo.
+  const ULTRA = ["ai-writing", "journaling-mood", "focus-productivity", "habit-tracking", "notes-pkm", "sleep-tracking", "recipes-meal-planning", "plant-care", "baby-tracking", "workout-fitness", "calendars-tasks", "period-cycle", "nutrition-calories", "personal-finance", "meditation-mindfulness", "astrology", "photo-editing", "ai-avatars-headshots", "language-learning", "weather-apps", "travel-planning", "shopping-ecommerce", "food-delivery", "ride-hailing", "dating-apps", "messaging-apps", "music-streaming", "video-streaming", "crypto-investing"];
   const BLURB: Record<string, string> = {
     astrology: "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды.",
     "dating-apps": "100 приложений: где реальные люди, а где боты и накрученные звёзды.",
