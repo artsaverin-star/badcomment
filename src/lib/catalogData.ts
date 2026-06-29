@@ -1,4 +1,5 @@
 import { listDomains } from "./researchCategories";
+import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { hasInsight } from "./readyApps";
 import { getSlugByProductId } from "./appSlugs";
 import { getProductInsights } from "./insights";
@@ -76,6 +77,13 @@ export function getCatalogData(locale: Locale, premium: boolean): {
     }
   }
   const catalogApps = [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name, "ru"));
-  const totalReviews = catalogApps.reduce((s, a) => s + a.reviews, 0);
+  // The headline scale number is the people's-rating corpus — the real, traceable
+  // spine the homepage cards, breakdowns and ideas are built on (sum of each
+  // category's totalReviews, itself a sum of per-app review counts). It supersedes
+  // the smaller legacy catalog tally.
+  const totalReviews = Object.values(RATING_BY_SLUG).reduce<number>(
+    (s, r) => s + ((r as { totalReviews?: number }).totalReviews ?? 0),
+    0,
+  );
   return { domains, catalogApps, totalReviews };
 }

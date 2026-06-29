@@ -32,9 +32,9 @@ export default function IdeasDeck({
       )}
       {gate === "paywall" && (
         <div className="mx-auto mt-8 flex max-w-[520px] flex-col items-center gap-4 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 text-center">
-          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все идеи" : "Unlock all ideas"}</div>
-          <p className="max-w-[44ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? `Это первые ${ideas.length}. Внутри все ${total} идей под подтверждённый спрос по разным нишам. Доступ навсегда.` : `These are the first ${ideas.length}. Inside: all ${total} demand-backed ideas across niches. Access forever.`}</p>
-          <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ ко всем идеям под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
+          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой весь сайт" : "Unlock the whole site"}</div>
+          <p className="max-w-[44ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? `Это первые ${ideas.length}. Один платёж открывает все ${total} идей, разборы всех категорий и народный рейтинг. Навсегда.` : `These are the first ${ideas.length}. One payment unlocks all ${total} ideas, every category breakdown and the people's rating. Forever.`}</p>
+          <BuyButton kind="deck" price={deckPrice} loggedIn={loggedIn} locale={locale} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
         </div>
       )}
 

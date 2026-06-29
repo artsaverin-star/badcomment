@@ -7,46 +7,54 @@ import { LIFETIME, FRIEND_PRICE_RUB, FRIEND_DISCOUNT_PCT, LAUNCH_PROMO } from "@
 import { trackBeginCheckout, trackAddPaymentInfo } from "@/lib/track";
 import type { Locale } from "@/lib/i18n";
 
-// A buy trigger that opens a payment-options popup (card РФ / СБП) for a direct-₽
-// SKU (deck or category). With `inline`, the same options render directly on the
-// page (no popup). Telegram Stars for these isn't wired yet — it needs the
-// external bot to handle deck_/cat_ commands — so only Lifetime offers Stars (in
-// the store). Sign-in is requested first if needed.
+// ONE offer for the whole site: unlock everything forever, single price. Every
+// paywall on the site funnels into this — no per-category or per-deck SKUs, no
+// choices to agonise over. Pays via card РФ / СБП. The legacy props (kind, slug,
+// price, deck/lifetime stars) are still accepted so existing call sites compile,
+// but the purchase is always the lifetime «весь сайт навсегда».
 export default function BuyButton({
-  kind,
-  slug,
-  price,
-  label,
   loggedIn,
   locale = "ru",
+  label,
   title,
   subtitle,
-  starsHref,
-  starsLabel,
-  lifetimePrice,
-  lifetimeStarsHref,
   inline = false,
 }: {
-  kind: "deck" | "category";
-  slug?: string;
-  price: number;
-  label: string;
   loggedIn: boolean;
   locale?: Locale;
-  title: string;
-  subtitle: string;
+  label?: string;
+  title?: string;
+  subtitle?: string;
+  inline?: boolean;
+  // ── accepted for backward-compat, no longer drive the SKU ──
+  kind?: string;
+  slug?: string;
+  price?: number;
   starsHref?: string;
   starsLabel?: string;
   lifetimePrice?: number;
   lifetimeStarsHref?: string;
-  inline?: boolean;
 }) {
   const ru = locale !== "en";
   const [auth, setAuth] = useState(false);
   const [open, setOpen] = useState(false);
-  const [lifeOpen, setLifeOpen] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [err, setErr] = useState<string | null>(null);
+
+  // The single price: discounted launch price while the promo is on, else the
+  // standard lifetime price.
+  const eff = LAUNCH_PROMO ? FRIEND_PRICE_RUB : LIFETIME.rub;
+
+  // Single-offer copy is owned here, not by call sites — every paywall on the
+  // site shows the same «весь сайт навсегда» wording and price. The label/title/
+  // subtitle props are still accepted (legacy call sites) but intentionally
+  // ignored so no surface can advertise a stale per-category/per-deck price.
+  void label; void title; void subtitle;
+  const ttl = ru ? "Весь сайт навсегда" : "The whole site, forever";
+  const sub = ru
+    ? "Все разборы категорий, все идеи под спрос и народный рейтинг по всем нишам. Один платёж, доступ навсегда."
+    : "Every category breakdown, every demand-backed idea and the people's rating across all niches. One payment, access forever.";
+  const triggerLabel = ru ? `Открыть всё за ${eff} ₽` : `Unlock everything — ${eff} ₽`;
 
   function onClick() {
     if (!loggedIn) {
@@ -54,23 +62,19 @@ export default function BuyButton({
       return;
     }
     setErr(null);
-    trackBeginCheckout({ id: kind, name: title, price });
+    trackBeginCheckout({ id: "lifetime", name: "Весь сайт навсегда", price: eff });
     setOpen(true);
   }
 
-  // During the launch promo Lifetime is sold at the flat «Друг проекта» price.
-  const lifeEff = LAUNCH_PROMO ? FRIEND_PRICE_RUB : lifetimePrice ?? 0;
-
-  async function pay(method: "bank_card" | "sbp", payKind: "deck" | "category" | "lifetime" = kind) {
-    const payValue = payKind === "lifetime" ? lifeEff : price;
-    trackAddPaymentInfo({ id: payKind, name: payKind === "lifetime" ? "Lifetime" : title, price: payValue }, method);
-    setBusy(`${payKind}:${method}`);
+  async function pay(method: "bank_card" | "sbp") {
+    trackAddPaymentInfo({ id: "lifetime", name: "Весь сайт навсегда", price: eff }, method);
+    setBusy(method);
     setErr(null);
     try {
       const r = await fetch("/api/pay/yookassa", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ kind: payKind, slug: payKind === "category" ? slug : undefined, method }),
+        body: JSON.stringify({ kind: "lifetime", method }),
       });
       const d = await r.json().catch(() => ({}));
       if (r.ok && d.url) return window.location.assign(d.url);
@@ -82,11 +86,23 @@ export default function BuyButton({
     }
   }
 
-  // Payment methods (card РФ / СБП / Stars) + the Lifetime upsell — shared by the
-  // popup and the inline panel.
+  // Card РФ / СБП + the «what you get» list — shared by the popup and inline panel.
+  const benefits = ru
+    ? ["Все идеи под подтверждённый спрос, и новые каждую неделю", "Все категории: рейтинг, выводы и разбор конкурентов", "Все будущие ниши входят без доплат", "Платишь один раз, доступ навсегда"]
+    : ["Every demand-backed idea, plus new ones weekly", "All categories: rating, conclusions and competitor teardowns", "All future niches included, no extra cost", "Pay once, access forever"];
+
   const methods = (
     <>
-      <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{subtitle}</p>
+      <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{sub}</p>
+
+      <ul className="flex flex-col gap-2">
+        {benefits.map((f) => (
+          <li key={f} className="flex items-start gap-2 text-footnote text-[var(--color-text-secondary)]">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="mt-0.5 shrink-0 text-[#4ade80]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            {f}
+          </li>
+        ))}
+      </ul>
 
       <div className="flex flex-col gap-2.5">
         <button
@@ -95,7 +111,7 @@ export default function BuyButton({
           disabled={!!busy}
           className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60"
         >
-          {busy === `${kind}:bank_card` ? "…" : ru ? "Картой РФ" : "Card (RU)"}
+          {busy === "bank_card" ? "…" : ru ? "Картой РФ" : "Card (RU)"}
         </button>
         <button
           type="button"
@@ -103,74 +119,28 @@ export default function BuyButton({
           disabled={!!busy}
           className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60"
         >
-          {busy === `${kind}:sbp` ? "…" : ru ? "Через СБП" : "Via SBP"}
+          {busy === "sbp" ? "…" : ru ? "Через СБП" : "Via SBP"}
         </button>
-        {starsHref && (
-          <a
-            href={starsHref}
-            className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
-          >
-            <span aria-hidden>⭐</span> {starsLabel || (ru ? "Telegram Stars" : "Telegram Stars")}
-          </a>
-        )}
       </div>
 
-      {lifetimePrice ? (
-        <>
-          <div className="flex items-center gap-3 text-caption text-[var(--color-text-tertiary)]">
-            <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-            {ru ? "или доступ ко всему сайту" : "or access the whole site"}
-            <span className="h-px flex-1 bg-[var(--color-border-subtle)]" />
-          </div>
-          <button
-            type="button"
-            onClick={() => setLifeOpen((v) => !v)}
-            aria-expanded={lifeOpen}
-            className="flex w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full border border-[var(--color-text-brand)] bg-[color-mix(in_srgb,var(--color-text-brand)_8%,transparent)] px-4 py-3 text-callout font-semibold text-[var(--color-text-primary)] transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-brand)_14%,transparent)]"
-          >
-            <span>{ru ? "♾️ Весь сайт навсегда" : "♾️ The whole site, forever"}</span>
-            <span className="font-bold">{lifeEff}&nbsp;₽</span>
-            {LAUNCH_PROMO && (
-              <>
-                <s className="text-[var(--color-text-tertiary)]">{lifetimePrice}&nbsp;₽</s>
-                <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
-              </>
-            )}
-            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" className={`transition-transform ${lifeOpen ? "rotate-180" : ""}`} aria-hidden><path d="m4 6 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
-          </button>
-          {lifeOpen && (
-            <div className="flex flex-col gap-2.5 rounded-[18px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] p-4">
-              <ul className="mb-1 flex flex-col gap-2">
-                {(ru
-                  ? ["Все 98 идей, и новые каждую неделю", "Все категории: выводы и разбор конкурентов", "Все будущие публикации и ниши входят", "Платить больше не нужно"]
-                  : ["All 98 ideas, plus new ones every week", "Every category: conclusions and competitor teardowns", "All future publications and niches included", "Never pay again"]
-                ).map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-footnote text-[var(--color-text-secondary)]">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden className="mt-0.5 shrink-0 text-[#4ade80]"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <button type="button" onClick={() => pay("bank_card", "lifetime")} disabled={!!busy} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90 disabled:opacity-60">
-                {busy === "lifetime:bank_card" ? "…" : ru ? "Картой РФ" : "Card (RU)"}
-              </button>
-              <button type="button" onClick={() => pay("sbp", "lifetime")} disabled={!!busy} className="w-full rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:opacity-60">
-                {busy === "lifetime:sbp" ? "…" : ru ? "Через СБП" : "Via SBP"}
-              </button>
-              {!LAUNCH_PROMO && lifetimeStarsHref && (
-                <a href={lifetimeStarsHref} className="flex w-full items-center justify-center gap-1.5 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-4 py-3 text-callout font-semibold text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
-                  <span aria-hidden>⭐</span> {LIFETIME.stars.toLocaleString("ru-RU")} Telegram
-                </a>
-              )}
-            </div>
-          )}
-        </>
-      ) : null}
       {err && <p className="text-center text-caption text-[#ff6b6b]">{err}</p>}
     </>
   );
 
-  // Inline: render the options straight on the page (no trigger, no popup).
+  // Price block (big number + struck-through original during the launch promo).
+  const priceBlock = (
+    <div className="mt-1 flex flex-wrap items-baseline gap-2">
+      <span className="text-[26px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{eff}&nbsp;₽</span>
+      {LAUNCH_PROMO && (
+        <>
+          <s className="text-[15px] text-[var(--color-text-tertiary)]">{LIFETIME.rub}&nbsp;₽</s>
+          <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+        </>
+      )}
+    </div>
+  );
+
+  // Inline: render the panel straight on the page (no trigger, no popup).
   if (inline) {
     return (
       <>
@@ -185,8 +155,8 @@ export default function BuyButton({
         ) : (
           <div className="flex w-full max-w-[420px] flex-col gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-6 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.5)]">
             <div className="min-w-0">
-              <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{title}</div>
-              <div className="mt-1 text-[26px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{price}&nbsp;₽</div>
+              <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ttl}</div>
+              {priceBlock}
             </div>
             {methods}
           </div>
@@ -203,7 +173,7 @@ export default function BuyButton({
         onClick={onClick}
         className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
       >
-        {loggedIn ? label : ru ? "Войти и открыть" : "Sign in to unlock"}
+        {loggedIn ? triggerLabel : ru ? "Войти и открыть" : "Sign in to unlock"}
       </button>
 
       {open && typeof document !== "undefined" && createPortal(
@@ -214,8 +184,8 @@ export default function BuyButton({
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{title}</div>
-                <div className="mt-1 text-[26px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{price}&nbsp;₽</div>
+                <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ttl}</div>
+                {priceBlock}
               </div>
               <button type="button" onClick={() => setOpen(false)} className="shrink-0 rounded-full p-1 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" strokeLinecap="round" /></svg>

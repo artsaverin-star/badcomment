@@ -190,18 +190,15 @@ export default async function NicheDossier({ slug }: { slug: string }) {
           <div className="rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-14 text-center sm:px-10 sm:py-16">
             <h3 className="text-[clamp(26px,6vw,36px)] font-black leading-[1.08] tracking-[-0.03em] text-[var(--color-text-primary)]">Выводы по отзывам и {ideas.length} идей</h3>
             <p className="mx-auto mt-4 max-w-[48ch] text-[16px] leading-[1.55] text-pretty text-[var(--color-text-secondary)]">
-              Структурные выводы по {NF(totalObs)} наблюдениям с прямыми цитатами и {ideas.length} готовых идей под спрос: что строить, для кого и как на этом заработать. Открывается навсегда.
+              Структурные выводы по {NF(totalObs)} наблюдениям с прямыми цитатами и {ideas.length} идей под спрос: что строить, для кого и как заработать. Один платёж открывает весь сайт навсегда: все категории, все идеи и народный рейтинг.
             </p>
             <div className="mt-8 flex justify-center">
               <BuyButton
                 kind="category"
                 slug={slug}
                 price={catPrice}
-                label={`Открыть за ${catPrice} ₽`}
                 loggedIn={loggedIn}
                 locale="ru"
-                title={`Разбор: ${r.name}`}
-                subtitle="Выводы по отзывам и все идеи ниши под подтверждённый спрос."
                 starsHref={catStarsHref}
                 starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
                 lifetimePrice={LIFETIME.rub}
