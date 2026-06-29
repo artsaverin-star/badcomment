@@ -42,17 +42,28 @@ const cleanTitle = (t: string) => {
 };
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
+// Route every finding under its best-matching pillar. Findings that match no
+// pillar keyword used to all dump into pillar 0 and then get sliced off (lost) —
+// now they go to whichever pillar is currently lightest, so EVERY finding is
+// shown and the pillars stay balanced. No cap: nothing disappears.
 function groupFindings(pillars: Pillar[], cards: Finding[]) {
-  return pillars.map((_, pi) =>
-    cards.filter((c) => {
-      const title = (c.title ?? "").toLowerCase();
-      const body = `${c.plus ?? ""} ${c.minus ?? ""}`.toLowerCase();
-      const score = (kws: string[]) => kws.reduce((s, kw) => s + (title.includes(kw) ? 2 : 0) + (body.includes(kw) ? 1 : 0), 0);
-      let best = 0, bs = -1;
-      pillars.forEach((q, qi) => { const sc = score(q.match); if (sc > bs) { bs = sc; best = qi; } });
-      return best === pi;
-    }).slice(0, 6),
-  );
+  const groups: Finding[][] = pillars.map(() => []);
+  const orphans: Finding[] = [];
+  for (const c of cards) {
+    const title = (c.title ?? "").toLowerCase();
+    const body = `${c.plus ?? ""} ${c.minus ?? ""}`.toLowerCase();
+    const score = (kws: string[]) => kws.reduce((s, kw) => s + (title.includes(kw) ? 2 : 0) + (body.includes(kw) ? 1 : 0), 0);
+    let best = -1, bs = 0;
+    pillars.forEach((q, qi) => { const sc = score(q.match); if (sc > bs) { bs = sc; best = qi; } });
+    if (best >= 0) groups[best].push(c);
+    else orphans.push(c);
+  }
+  for (const c of orphans) {
+    let min = 0;
+    groups.forEach((g, i) => { if (g.length < groups[min].length) min = i; });
+    groups[min].push(c);
+  }
+  return groups;
 }
 
 export default async function NicheDossier({ slug, locale = "ru" }: { slug: string; locale?: Locale }) {
