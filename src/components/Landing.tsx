@@ -136,7 +136,7 @@ export default function Landing({
   // the highest observation counts. Featured = the first four (top premium).
   // Homepage leads with the niches that have a full dossier (people's rating +
   // breakdown + ideas). Order pinned; rolled out one niche at a time.
-  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps", "shopping-ecommerce", "ride-hailing", "weather-apps", "travel-planning", "sleep-tracking", "focus-productivity", "journaling-mood", "workout-fitness", "recipes-meal-planning"];
+  const ULTRA = ["astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing", "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps", "shopping-ecommerce", "ride-hailing", "weather-apps", "travel-planning", "sleep-tracking", "focus-productivity", "journaling-mood", "workout-fitness", "recipes-meal-planning", "plant-care"];
   const BLURB: Record<string, string> = {
     astrology: "100 приложений по реальным отзывам: честная оценка и проверка на накрутку звезды.",
     "dating-apps": "100 приложений: где реальные люди, а где боты и накрученные звёзды.",
@@ -164,6 +164,7 @@ export default function Landing({
     "journaling-mood": "95 приложений: где писать легко и видно динамику настроения, а где давит стрик и течёт приватность.",
     "workout-fitness": "91 приложение: где лог тренировки быстрый и прогрессия считается, а где накрутка и слетает история.",
     "recipes-meal-planning": "77 приложений: где рецепт сохраняется из сети и список покупок собирается сам, а где теряется коллекция.",
+    "plant-care": "58 приложений: где полив напоминается умно и диагноз честный, а где накрутка и шаблонные советы.",
   };
   const ranked = ULTRA
     .map((s) => { const c = catCards.find((x) => x.slug === s); return c ? { ...c, hook: BLURB[s] ?? c.hook } : null; })

@@ -27599,560 +27599,600 @@
   "slug": "plant-care-1",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Полив по почве",
-  "oneLiner": "Приложение корректирует расписание полива по данным влагомера и погоды, а не по таймеру",
-  "asOf": "2026-06-20",
+  "title": "Честный диагност болезней растений",
+  "oneLiner": "Сфотографировал больной лист получил конкретный диагноз и пошаговое лечение, а не «попробуйте меньше воды»",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 450
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
   },
   "reviewGrid": [
    {
-    "quote": "used the free version of the app. if I had followed the watering schedule it set, all my plants would have died.",
-    "rating": 1,
-    "app": "Planta"
+    "quote": "It is able to Identify the problems whith my plants but I can't see what I need to do unless I get the full trial 😢which sucks so most of my plants ar probably going to die 😭",
+    "rating": 4,
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "it would tell me to grossly overwater some plants causing root rot then death of the plant!",
-    "rating": 1,
-    "app": "Blossom"
-   },
-   {
-    "quote": "telling me my flowers and tomatoes were over watered so I didnt water for 2 days and they all died",
+    "quote": "Unfortunately I relied on this app more than my own instincts and killed several plants. A few started to thrive but over all I will delete this app and try something else",
     "rating": 2,
-    "app": "PictureThis"
+    "app": "PlantIn: Plant Identifier・Care"
    },
    {
-    "quote": "waste of time. it's supposed to take account of weather conditions. it just reminds me to water every 5th day.... we've just had 4 days of torrential rain, I'm not watering it again.",
-    "rating": 1,
-    "app": "Planta"
-   },
-   {
-    "quote": "the app \"smart\" schedule puts my basil in full sun indoors to be watered once every 16 days. Basically dead.",
+    "quote": "App needs a lot of updates. Sometimes I have to input it twice in order for it to update I watered on specific days. Light meter isn’t helpful and doesn’t work on app \nTook a picture of my dying hydrangea and it said nothing was wrong with it…. \nProbably Won’t be renewing my membership",
     "rating": 2,
-    "app": "Plant Parent"
+    "app": "Plant Parent: Plant Care Guide"
    },
    {
-    "quote": "Greg tells me to still water the plants every other week, but after 7 days my plants soil is already bone dry",
+    "quote": "Bought this app hoping it would help identify certain plants but that hasn’t happened properly.  I  also getting strange diagnoses that don’t tell me how to fix.",
+    "rating": 2,
+    "app": "Plant Identification ++"
+   },
+   {
+    "quote": "Misidentified every time",
     "rating": 1,
-    "app": "Greg"
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "There's no way to add details about a plant that's potted in full ground and this makes it way harder to understand when to water",
-    "rating": 3,
-    "app": "Greg"
+    "quote": "The typical long intro to find out they want your info to then make you have a subscription to do anything with the app. As all apps do these days. They have a free trial. But 40 bucks a year to identify plants? Seems like a pro price you’d pay when you do this for a living.",
+    "rating": 2,
+    "app": "PictureThis - Plant Identifier"
    }
   ],
   "mechanisms": [
    {
-    "title": "Существующие планировщики дают фиксированный шаблон: поливают после ливня, убивают переливом, игнорируют зиму. Серьёзный владелец уже купил влагомер, но приложе",
-    "obsCount": 7,
+    "title": "Все топ-приложения в нише PictureThis, PlantIn, Blossom, Planty дают шаблонный ответ «перелив/недолив/свет» независимо от реальных симптомов. Платящий пользоват",
+    "obsCount": 6,
     "apps": [
-     "Planta",
-     "Plant Parent",
-     "Greg",
-     "Blossom"
+     "PictureThis - Plant Identifier",
+     "PlantIn: Plant Identifier・Care",
+     "Blossom - Plant Care Guide",
+     "Flora - Plant ID & Diagnosis"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Существующие планировщики дают фиксированный шаблон: поливают после ливня, убивают переливом, игнорируют зиму. Серьёзный владелец уже купил влагомер, но приложение его не видит и толкает напоминания вхолостую.",
+  "gap": "Все топ-приложения в нише PictureThis, PlantIn, Blossom, Planty дают шаблонный ответ «перелив/недолив/свет» независимо от реальных симптомов. Платящий пользователь не получает конкретного лечения даже за $40/год. Это главная боль всей ниши.",
   "idea": {
-   "pitch": "Подключаешь недорогой bluetooth-датчик влажности или вводишь показание вручную после замера, и приложение сдвигает следующий полив, пока почва не просохнет до нужного уровня. Параллельно тянет осадки по геолокации и отменяет задачу, если прошёл дождь. Результат: ноль корневых гнилей от перелива и ноль засохших растений от забывчивости.",
+   "pitch": "Приложение принимает 2-4 фото больного растения (лист крупно, весь куст, корни если есть), задаёт 3-4 уточняющих вопроса (горшок, полив, почва, свет) и возвращает диагноз с конкретными действиями: название проблемы, причина, что сделать сегодня, что купить. Никакого «обратитесь к специалисту» и никакой общей справки. Монетизация разовая оплата за каждый полноценный диагноз (50-100 рублей), подписка для частых пользователей.",
    "features": [
-    "Интеграция с популярными bluetooth-датчиками влажности почвы (Xiaomi, Flower Care, Govee)",
-    "Ручной ввод показания влагомера с автосдвигом напоминания",
-    "Привязка к геолокации: автоотмена полива после осадков выше порога",
-    "Гибкий диапазон влажности по виду растения (суккулент vs тропик)",
-    "История поливов с графиком влажности по каждому горшку"
+    "Загрузка 2-4 фото с пояснениями (лист, весь куст, корни, субстрат)",
+    "Структурированный опросник: вид растения, последний полив, источник света, размер горшка",
+    "Диагноз с конкретным названием проблемы (мучнистая роса, корневая гниль, клещ, хлороз и т.д.)",
+    "Пошаговый план лечения с конкретными препаратами или домашними средствами",
+    "История диагнозов для одного растения: видно, помогло лечение или нет"
    ],
    "antiFeatures": [
-    "Распознавание растений по фото нет (это не нужно для ядровой задачи)",
-    "Общий чат и комьюнити нет",
-    "ИИ-диагностика болезней нет"
+    "Нет идентификатора видов только диагностика",
+    "Нет планировщика полива и напоминаний",
+    "Нет социальной ленты, комментариев и «сообщества»"
    ],
-   "monetization": "Серьёзные владельцы 10+ горшков уже покупают датчики по 600-1200 руб./шт. Подписка 299 руб./месяц за неограниченные растения и историю, плюс партнёрские продажи датчиков в приложении с комиссией."
+   "monetization": "Пользователи PictureThis платят $40/год именно за диагностику болезней и всё равно получают шаблонный ответ. Это подтверждённый платящий сегмент. Модель: 3 бесплатных диагноза, затем пакеты (10 диагнозов за 199 рублей) или подписка 299 рублей/месяц. Целевой ARPU 500-900 рублей в год с активного пользователя."
   }
  },
  {
   "slug": "plant-care-2",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Растение живо",
-  "oneLiner": "Диагностика болезней и вредителей по фото с честным ответом: здорово, больно, умирает",
-  "asOf": "2026-06-20",
+  "title": "Умный планировщик полива с адаптацией к виду и сезону",
+  "oneLiner": "Расписание полива подстраивается под конкретный вид, размер горшка, сезон и источник света не врёт каждый день, как большинство конкурентов",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 450
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
   },
   "reviewGrid": [
    {
-    "quote": "the one thing I downloaded it for required purchase. waste my time.",
-    "rating": 1,
-    "app": "Planta"
+    "quote": "I want this app to do one thing: tell me when to water my plants. It’s great at that. It also does another thing, which is send me regular push notifications to write a “progress update” about my plants’ health. This is annoying and unnecessary.",
+    "rating": 4,
+    "app": "Planta: Plant & Garden Care"
    },
    {
-    "quote": "I took a picture of a sick tomato plant. The app told me it was sick, but I had to sign up for the premium before I could go any further.",
-    "rating": 2,
-    "app": "PictureThis"
+    "quote": "As of the latest update, I cannot open The app. I have 150 plants and I use the app primarily for a watering schedule. I have tried everything except deleting the app because I will lose my data. Can you help?",
+    "rating": 3,
+    "app": "PlantIn: Plant Identifier・Care"
    },
    {
-    "quote": "Took a picture of the plant, didn't get a diagnosis like all of the ads showed I was directed to a counselor for diagnosis for 19.99, such a waste.",
-    "rating": 1,
-    "app": "NatureID"
+    "quote": "This is convenient and wonderful, but it keeps identifying plants in the garden that I absolutely did not plant so I’m really concerned about the accuracy of what I am getting.",
+    "rating": 3,
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "my plant is dying, but it says my plant looks healthy with no issues.",
-    "rating": 1,
-    "app": "Plant Parent"
+    "quote": "I use this app in Belize , New England and Canada ! Very accurate highly recommend",
+    "rating": 5,
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "leaf after leaf falling off and drying and app keeps saying that plant looks healthy",
-    "rating": 1,
-    "app": "Plant Parent"
+    "quote": "It is able to Identify the problems whith my plants but I can't see what I need to do unless I get the full trial 😢which sucks so most of my plants ar probably going to die 😭",
+    "rating": 4,
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "told me that w plant that is clearly dying is healthy and to keep growing buddy",
+    "quote": "trying to cancel the free trial befire it expires . cant find a way to cancel it .",
     "rating": 1,
-    "app": "PlantIn"
-   },
-   {
-    "quote": "Gives same advice for everything.",
-    "rating": 1,
-    "app": "PictureThis"
+    "app": "PictureThis - Plant Identifier"
    }
   ],
   "mechanisms": [
    {
-    "title": "Во всех приложениях диагностика закрыта платной стеной до первого результата, либо возвращает одну и ту же заглушку 'перелив или недолив' независимо от фото. Че",
-    "obsCount": 7,
+    "title": "WaterMe (реальный рейтинг 74) и Plant Daddy (72) доказали, что напоминания о поливе продаются. Но у WaterMe нет видовой логики, у Planta расписание не адаптируе",
+    "obsCount": 6,
     "apps": [
-     "Planta",
-     "PictureThis",
-     "Blossom",
-     "Plant Parent"
+     "WaterMe - Gardening Reminders",
+     "Plant Daddy — Water Reminders",
+     "Planta: Plant & Garden Care",
+     "Greg: Plant Identifier & Care"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Во всех приложениях диагностика закрыта платной стеной до первого результата, либо возвращает одну и ту же заглушку «перелив или недолив» независимо от фото. Человек приходит с гибнущим растением и уходит ни с чем.",
+  "gap": "WaterMe (реальный рейтинг 74) и Plant Daddy (72) доказали, что напоминания о поливе продаются. Но у WaterMe нет видовой логики, у Planta расписание не адаптируется к капельному поливу и постоянно требует ежедневных действий для растений с поливом раз в неделю. Greg путает орхидеи с хойей. Пользователи с 20+ растениями застряли между «слишком простым» и «слишком глючным».",
   "idea": {
-   "pitch": "Первый снимок всегда бесплатен и даёт честный вердикт: «здоровое», «есть симптомы» или «критично». Если симптомы есть, показывает конкретную причину по визуальным признакам (пятна, паутинный клещ, хлороз) и пошаговое лечение. Модель честно говорит «не уверен» вместо уверенного неверного ответа, что сразу отличает продукт от конкурентов.",
+   "pitch": "Приложение строит индивидуальное расписание на основе вида (из базы ~3000 видов), размера горшка, типа субстрата, сезона и условий освещения в конкретной комнате. Расписание показывает не «полей сегодня», а «проверь влажность» или «можно пропустить ещё 2 дня». Данные хранятся локально с опциональным iCloud-бэкапом не теряются как у Plant Daddy.",
    "features": [
-    "Бесплатный первый диагноз без регистрации (покажи ценность до обязательств)",
-    "Визуальное распознавание конкретных симптомов, а не общий шаблон",
-    "Ответ с уровнем уверенности модели и альтернативными версиями",
-    "Пошаговый протокол лечения с указанием препаратов и сроков",
-    "История болезней по каждому растению с датами и снимками"
+    "База 3000+ видов с реальными параметрами полива: частота, тип полива (верхний, нижний, погружение), сезонная поправка",
+    "Адаптация к горшку: объём, материал (терракота сохнет быстрее), тип субстрата",
+    "Режим «я уезжаю на N дней»: показывает, что нужно полить перед отъездом",
+    "Корректировка фактической влажности: отметил «сухая» расписание смещается автоматически",
+    "Локальное хранение с iCloud-бэкапом и экспортом CSV"
    ],
    "antiFeatures": [
-    "Нет определителя видов (другая задача)",
-    "Нет напоминаний о поливе (другой продукт)",
-    "Нет социальной ленты"
+    "Нет идентификатора по фото",
+    "Нет диагностики болезней",
+    "Нет социальных функций и ленты"
    ],
-   "monetization": "Владельцы редких коллекций и садоводы с дорогими растениями уже платят ботаникам за консультации. Подписка 199 руб./месяц за неограниченные диагнозы, разовый диагноз за 49 руб. Партнёрство с производителями фунгицидов и инсектицидов."
+   "monetization": "WaterMe бесплатен и имеет реальный рейтинг 74 значит аудитория есть и платит. Plant Daddy продаётся как платное приложение. Модель: бесплатно до 5 растений, разовая покупка полной версии за 299 рублей или 149 рублей/год. Малая цена с большой конверсией лучше, чем $40 с оттоком."
   }
  },
  {
   "slug": "plant-care-3",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Дневник коллекции",
-  "oneLiner": "Надёжное облачное хранилище для коллекции с поддержкой любых видов и сортов, включая редкие",
-  "asOf": "2026-06-20",
+  "title": "Органайзер для коллекционера редких растений",
+  "oneLiner": "Трекер коллекции тропических растений: карточки вида, фотодневник роста, напоминания, история ухода для тех, у кого 50+ горшков и нет подходящего инструмента",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 450
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
   },
   "reviewGrid": [
    {
-    "quote": "Can't add all the anthurium crosses on my own. Need to have them approved and added to the general database. Useless for keeping info on specific plants",
-    "rating": 1,
-    "app": "Planta"
+    "quote": "I’m trying to research this app and can’t find a way to get in touch with the developer or any customer service help. I have over 800 plants and want to know if this app will handle that inventory. Others have said yes and the app lags and jumps etc due to the inventory count.",
+    "rating": 5,
+    "app": "Blossom - Plant Care Guide"
    },
    {
-    "quote": "has no idea of individual variations like lily you only get lily. I have 60 varieties of dahlia and all it tells you is it's a dahlia.",
+    "quote": "I’ve updated my garden with each plant information over 3 times because it keeps resetting after time. I have to start all over again each time and it’s annoying",
     "rating": 2,
-    "app": "PictureThis"
+    "app": "Blossom - Plant Care Guide"
    },
    {
-    "quote": "there's no way to add or suggest a plant that doesn't already exist in the app",
-    "rating": 3,
-    "app": "Blossom"
+    "quote": "Have appreciated this app identifying plants and even evaluating the health of the plant scanned. \n\nWish the plants identified were stored for later use. I should have “fav’d”  certain plants pictured.",
+    "rating": 5,
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "This app didn't restore any of my data. I have no clue what days I had them on watering. With 40 plants in my house this is truly devastating.",
-    "rating": 1,
-    "app": "Blossom"
-   },
-   {
-    "quote": "everything I had built is gone. and the app doesn't even have an option for an account.",
+    "quote": "Wish this app wasn’t so expensive, it’s very limited and not much help unless you pay for the premium tier.",
     "rating": 2,
-    "app": "Plant Parent"
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "One second it was there and the next it was all gone. The screen just says My Garden is Empty. I had so much information with notes and pictures and now its all gone.",
-    "rating": 1,
-    "app": "Seed to Spoon"
-   },
-   {
-    "quote": "It doesn't support containers with multiple plants - I have a terrarium with three plants, a broad shallow pot with a mix of succulents and a cactus",
+    "quote": "CARE guides do not match what is advertised on Instagram. What plants might need sugar, vinegar, coffee, grounds, etc..\nHow to find out this information within the app is nonexistent as far as I can tell. Please advise!",
     "rating": 3,
-    "app": "Blossom"
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "This app is so helpful. Thankyou !!!",
+    "rating": 5,
+    "app": "PictureThis - Plant Identifier"
    }
   ],
   "mechanisms": [
    {
-    "title": "Коллекционеры антуриумов, орхидей и редких видов физически не могут завести половину растений в существующих приложениях, база ограничена каталогом. А те, кто с",
-    "obsCount": 7,
+    "title": "Planta, Flora, Plant Parent все ограничены базой из пары сотен стандартных видов. Коллекционеры с редкими филодендронами, антуриумами, алоказиями, монстерами му",
+    "obsCount": 6,
     "apps": [
-     "Planta",
-     "PictureThis",
-     "Blossom",
-     "Plant Parent"
+     "Planta: Plant & Garden Care",
+     "Plant Parent: Plant Care Guide",
+     "Flora - Plant ID & Diagnosis",
+     "Plant Daddy — Water Reminders"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Коллекционеры антуриумов, орхидей и редких видов физически не могут завести половину растений в существующих приложениях, база ограничена каталогом. А те, кто смог завести, теряют всё при обновлении или смене телефона.",
+  "gap": "Planta, Flora, Plant Parent все ограничены базой из пары сотен стандартных видов. Коллекционеры с редкими филодендронами, антуриумами, алоказиями, монстерами мутантных форм не могут добавить свой вид вручную. Потеря данных при обновлении и плохой iCloud-синхронизации системная проблема у Plant Daddy и всего этого класса приложений.",
   "idea": {
-   "pitch": "Продукт строится вокруг одной идеи: данные о растении не пропадут никогда. Любой вид добавляется вручную или по фото, включая конкретные сорта и гибриды, которых нет ни в одной базе. Аккаунт с первого дня, синхронизация в реальном времени, экспорт в CSV. Коллекционер с 200 растениями платит именно за уверенность, что история роста, фотографии и заметки сохранятся.",
+   "pitch": "Приложение для серьёзного коллекционера: любой вид добавляется вручную с произвольным именем, фото и заметками. База пустая пользователь строит её сам. Карточка растения: фото в хронологии, журнал событий (пересадка, черенкование, болезнь, покупка), напоминания. Экспорт всей коллекции в PDF или CSV для страховки. Данные только локально + iCloud.",
    "features": [
-    "Добавление любого растения вручную с произвольным названием, видом, сортом",
-    "Облачный аккаунт с первого запуска без привязки к устройству",
-    "Фотодневник с датами и заметками по каждому растению",
-    "Экспорт всей коллекции в CSV и резервная копия одним нажатием",
-    "Поддержка контейнеров с несколькими растениями (террариум, микс-горшок)"
+    "Полностью ручное добавление растения: любое название, любая фотография",
+    "Хронологическая галерея фото одного растения визуальный дневник роста",
+    "Журнал событий: пересадка, черенкование, покупка, болезнь, обработка",
+    "Напоминания с гибким интервалом: полив, подкормка, пересадка, обработка от вредителей",
+    "Экспорт всей коллекции в PDF (каталог с фото) или CSV"
    ],
    "antiFeatures": [
-    "Нет ИИ-распознавания (ненадёжно для редких видов)",
-    "Нет социальных функций",
-    "Нет диагностики болезней"
+    "Нет встроенного идентификатора по фото",
+    "Нет диагностики болезней",
+    "Нет рекомендаций по уходу от базы только то, что вводит сам пользователь"
    ],
-   "monetization": "Коллекционеры с 50+ растениями уже тратят на хобби тысячи рублей. Платная подписка 249 руб./месяц за неограниченную коллекцию и резервные копии. Разовая покупка 'навсегда' за 1490 руб."
+   "monetization": "Коллекционеры тропических растений платящая аудитория: они покупают редкие растения за тысячи рублей, посещают выставки, подписаны на нишевые каналы. Модель: разовая покупка за 599 рублей. Дополнительно премиум-экспорт (красивый PDF-каталог) за 199 рублей. Целевой рынок небольшой, но конверсия в покупку высокая."
   }
  },
  {
   "slug": "plant-care-4",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Огород по зонам",
-  "oneLiner": "Планировщик грядок с расписанием посева и высадки по вашей климатической зоне",
-  "asOf": "2026-06-20",
+  "title": "Планировщик черенкования и размножения растений",
+  "oneLiner": "Трекер для тех, кто размножает растения: когда поставил черенок, как он прогрессирует, что делать дальше",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 450
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
   },
   "reviewGrid": [
    {
-    "quote": "Just plug in your location and it'll update planting schedules based on your zone.",
-    "rating": 5,
-    "app": "Seed to Spoon"
-   },
-   {
-    "quote": "the reminders to go ahead and start seeds or set out plants because sometimes I have so many things going on I just flat forget.",
-    "rating": 5,
-    "app": "Seed to Spoon"
-   },
-   {
-    "quote": "I'm big on companion planting and found this app lists those for each plant .. that was a BIG plus for me....I just can't seem to remember from year to year!!",
-    "rating": 5,
-    "app": "Seed to Spoon"
-   },
-   {
-    "quote": "this app does not localize your region and compared everything to California when I'm in Northern Canada.",
-    "rating": 2,
-    "app": "PictureThis"
-   },
-   {
-    "quote": "A great app, but I hope it will also provide cm and ml not only ft and oz",
+    "quote": "This is a cool app, redirection for beginner plant parents. It offers basic plant care and info. It comes with a journal so you can track your progress and health solutions for when things go awry. \n\nI had hope that data entry was a bit more flexible, meaning I could enter notes with calendar dates.",
     "rating": 4,
-    "app": "Blossom"
+    "app": "Plant Identifier, Care: Planty"
    },
    {
-    "quote": "Also only uses US weather stations so forget it if you live anywhere else.",
+    "quote": "One of the features I see fascinating is its fast and easy to explore you can journal days you water your plant and days you missed",
+    "rating": 4,
+    "app": "PlantSnap - Plant Scanner"
+   },
+   {
+    "quote": "i absolutely love this app, but every time i open it, it asks me to buy the app and i have to wait a while for the cancel button to pop up. its really annoying on walks when i want to identify things",
+    "rating": 4,
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "App doesn’t work.  It couldn’t identify Black Walnut, Cedar, or Red Oak.",
     "rating": 1,
-    "app": "Seed to Spoon"
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "There's no way to add details about a plant that's potted in full ground and this makes it way harder to understand when to water",
+    "quote": "Trying to figure out why we have dry patches on our yard",
+    "rating": 2,
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "Three days in a row, I took a picture of this plant and it gave me three different strains of what this plant is…\nI know I ordered the Purple Firespike … but the app keeps telling me it’s a Mexican honeysuckle or two other varieties, I can’t remember. I looked it up, even though they are a related s",
     "rating": 3,
-    "app": "Greg"
+    "app": "PictureThis - Plant Identifier"
    }
   ],
   "mechanisms": [
    {
-    "title": "Огородники не могут планировать грядки в приложениях для комнатных горшков, а те, кто находит специализированные инструменты, получают советы с привязкой к Кали",
-    "obsCount": 7,
+    "title": "Ни одно приложение в нише не закрывает propagation workflow. Plantum, Greg, Planta все ориентированы на уход за взрослым растением. Но сообщество коллекционеров",
+    "obsCount": 6,
     "apps": [
-     "Seed to Spoon",
-     "Greg",
-     "Blossom",
-     "PictureThis"
+     "Planta: Plant & Garden Care",
+     "Plant Parent: Plant Care Guide",
+     "Plant Daddy — Water Reminders",
+     "Flora - Plant ID & Diagnosis"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Огородники не могут планировать грядки в приложениях для комнатных горшков, а те, кто находит специализированные инструменты, получают советы с привязкой к Калифорнии вместо своей зоны.",
+  "gap": "Ни одно приложение в нише не закрывает propagation workflow. Plantum, Greg, Planta все ориентированы на уход за взрослым растением. Но сообщество коллекционеров активно размножает растения: черенкует, укореняет в воде/мхе/субстрате, следит за ростом корней. Это отдельный и длинный процесс (2-12 недель), требующий своего трекинга.",
   "idea": {
-   "pitch": "Человек вводит почтовый индекс или выбирает регион, и приложение рассчитывает сроки посева на рассаду и высадки в грунт под его климатическую зону. Напоминания приходят именно когда пора действовать, а не по абстрактному «весеннему» расписанию. Дополнительно: список совместимых соседей по грядке, который большинство не держит в голове из года в год.",
+   "pitch": "Приложение закрывает один job: отслеживать процесс размножения от черенка до укоренённого растения. Пользователь фиксирует: вид растения, метод (вода, мох, субстрат, воздушный отводок), дату начала, условия. Дальше еженедельные фотографии корней и заметки. Приложение напоминает о смене воды, подрезке, переводе в субстрат. По завершении черенок конвертируется в новое растение в коллекции.",
    "features": [
-    "Расчёт сроков посева и высадки по климатической зоне (зоны USDA, российские зоны морозостойкости)",
-    "Напоминания с привязкой к дате последнего заморозка по геолокации",
-    "Планировщик грядок: схема участка, совместимость растений, севооборот",
-    "Поддержка метрических единиц и российских регионов",
-    "Журнал урожая по годам с заметками, что удалось и что нет"
+    "Запись черенка: вид, метод размножения, дата, условия (свет, температура, влажность)",
+    "Еженедельный фотодневник прогресса укоренения",
+    "Напоминания о смене воды при укоренении в воде (каждые 3-7 дней)",
+    "Алгоритм этапов: черенок → первые корни → перевод в субстрат → адаптация → взрослое растение",
+    "Конвертация укоренённого черенка в новую карточку в коллекции"
    ],
    "antiFeatures": [
-    "Нет ухода за комнатными растениями",
-    "Нет ИИ-диагностики",
-    "Нет определителя сорняков"
+    "Нет идентификатора видов",
+    "Нет общего планировщика ухода за взрослыми растениями",
+    "Нет диагностики болезней"
    ],
-   "monetization": "Дачники и огородники покупают семена, грунт, инвентарь на тысячи рублей в сезон. Подписка 199 руб./месяц или 990 руб./год. Партнёрство с семенными интернет-магазинами (комиссия с заказа, реферальная ссылка)."
+   "monetization": "Аудитория активные коллекционеры и перепродавцы черенков. Особенно актуально для нишевых тропических растений, где черенок стоит 500-5000 рублей. Модель: бесплатно до 3 активных черенков, разовая покупка за 299 рублей для неограниченного числа. Дополнительно шаблоны методов размножения для конкретных родов за малую доплату."
   }
  },
  {
   "slug": "plant-care-5",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Вырвать или оставить",
-  "oneLiner": "Определитель растений с прямым ответом: сорняк это или нет, и как с ним поступить",
-  "asOf": "2026-06-20",
+  "title": "Календарь огородника по климатической зоне",
+  "oneLiner": "Расписание посева и посадок автоматически строится под конкретный регион: никаких дат «для средней полосы», когда ты в Сибири или Краснодаре",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 450
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
   },
   "reviewGrid": [
    {
-    "quote": "I thought this app told you how to kill and get rid of weeds. I took a picture of the prickly plant, says it is considered a weed by gardeners and tells me how to keep it healthy. I want the opposite!",
-    "rating": 1,
-    "app": "PictureThis"
+    "quote": "This app is just OK. It’s not easy to use. Takes a while. I got rid of it and tried something else.",
+    "rating": 3,
+    "app": "PlantSnap - Plant Scanner"
    },
    {
-    "quote": "I downloaded based on a video to give hints about lawncare. It only told me the plant was \"doing well keep growing buddy\" they are all weeds",
-    "rating": 1,
-    "app": "PlantIn"
-   },
-   {
-    "quote": "Within 15 minutes I tried to use the app, it told me to water weeds in my lawn.",
-    "rating": 1,
-    "app": "PlantIn"
-   },
-   {
-    "quote": "I have a bad habit of planting a perennial and then not recognizing it the next year, so I pull it thinking it's a weed! This app has saved my plants from involuntary plantslaughter!",
+    "quote": "Excellent app ~ now we know which are weeds and what is veggies as they begin to grow.",
     "rating": 5,
-    "app": "PictureThis"
+    "app": "PlantIn: Plant Identifier・Care"
    },
    {
-    "quote": "has help me know the diffrence between a weed and a plant I want to keep.",
+    "quote": "I use it nearly every day in my garden and my flowers thank you so much",
     "rating": 5,
-    "app": "PictureThis"
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "When I work in other peoples yards I see what is weed and what's not ,so basically I'm not pulling out nice flowers.",
-    "rating": 5,
-    "app": "PictureThis"
+    "quote": "This app does well with most flowers I search. Appreciate that basic ID is free too",
+    "rating": 4,
+    "app": "PictureThis - Plant Identifier"
    },
    {
-    "quote": "bogus.. called a rose bush a European black berry bush...",
+    "quote": "I got this app as a recommendation to identify plants in the garden. It works well, but I was just interested in trying it, not subscribing to it! I tried to cancel on the day the trial period ends and it charged me for a full year subscription. I have been trying to cancel and get my refund since, ",
     "rating": 1,
-    "app": "PictureThis"
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "The app is pretty good, but not perfect at identifying plants. My biggest beef is that I canceled my autorenewal on Monday and apparently that wasn’t day fast enough to prevent getting charged on Thursday. Super annoying- I have requested a refund.",
+    "rating": 2,
+    "app": "PictureThis - Plant Identifier"
    }
   ],
   "mechanisms": [
    {
-    "title": "Люди приходят с конкретной задачей: понять, что растёт на грядке или в газоне, и что с этим делать. Существующие определители отвечают на другой вопрос, как сох",
-    "obsCount": 7,
+    "title": "Seed to Spoon (реальный рейтинг 72) и Seedtime (62) лучшие в нише и имеют подлинные отзывы. Но Seedtime признаётся пользователями: даты сдвинуты на месяц от реа",
+    "obsCount": 6,
     "apps": [
-     "PictureThis",
-     "PlantSnap",
-     "PlantIn",
-     "Smart Identifier"
+     "Seed to Spoon - Garden Planner",
+     "Seedtime: Garden Planner App",
+     "Farm Your Yard: Gardening App",
+     "Veggie Garden Planner"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Люди приходят с конкретной задачей: понять, что растёт на грядке или в газоне, и что с этим делать. Существующие определители отвечают на другой вопрос, как сохранить растение здоровым, а не надо ли его убрать.",
+  "gap": "Seed to Spoon (реальный рейтинг 72) и Seedtime (62) лучшие в нише и имеют подлинные отзывы. Но Seedtime признаётся пользователями: даты сдвинуты на месяц от реальных, нельзя старта с уже посеянных культур, нет мобильного интерфейса для iPad. Farm Your Yard теряет данные. Veggie Garden Planner не определяет зону автоматически.",
   "idea": {
-   "pitch": "Снимаешь незнакомое растение и получаешь прямой ответ: «это ваш многолетник, не трогайте» или «это сорняк, вот как убрать». Для сорняков показывает метод удаления (ручной, механический, химический), совместимые гербициды и когда их применять. Для полезных растений объясняет, зачем оставить и как использовать.",
+   "pitch": "Пользователь вводит почтовый индекс или выбирает регион приложение строит сезонный план посева и посадок под фактический климат: даты первых и последних заморозков, длина вегетационного сезона, окна для рассады и прямого посева. Поддерживается режим «уже посеял» план пересчитывается от факта, а не от нуля. Культуры добавляются вручную, база пополняется сообществом.",
    "features": [
-    "Классификация: полезное растение / сорняк / вредитель с прямой рекомендацией",
-    "Протокол удаления сорняка с выбором метода (механика, химия, мульчирование)",
-    "Распознавание молодых побегов и корней (до цветения, когда спутать легче всего)",
-    "База инвазивных и ядовитых растений с картой распространения по регионам",
-    "Сканирование газона: массовое определение нескольких видов сорняков с одного фото"
+    "Определение климатической зоны по геолокации или ручному вводу региона",
+    "Сезонный календарь: даты посева на рассаду, пересадки, прямого посева, уборки",
+    "Режим «уже посеял»: ввод фактических дат, пересчёт плана от них",
+    "Культурный справочник с совместимостью растений (компаньоны и враги)",
+    "Напоминания по задачам: полив рассады, закаливание, пересадка, подкормка"
    ],
    "antiFeatures": [
-    "Нет напоминаний о поливе",
-    "Нет дневника коллекции",
-    "Нет советов по уходу за комнатными растениями"
+    "Нет визуальной схемы грядок и 3D-планировщика",
+    "Нет идентификатора растений по фото",
+    "Нет трекера урожайности и финансов огорода"
    ],
-   "monetization": "Дачники и владельцы газонов тратят на гербициды и уход за участком ежегодно. Подписка 149 руб./месяц, сезонная 499 руб. Партнёрство с магазинами товаров для сада (Леруа, Петрович, OBI) с реферальными ссылками на гербициды и инвентарь."
+   "monetization": "Дачники и огородники аудитория, которая покупает семена, инструменты и удобрения. Они платят за конкретную пользу, а не за контент. Seed to Spoon с рейтингом 4.8 (подлинным) доказывает спрос. Модель: бесплатно на один сезон, подписка 199 рублей/год для сохранения истории и планов нескольких участков."
   }
  },
  {
   "slug": "plant-care-6",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Живой питомник",
-  "oneLiner": "B2B-инструмент для небольших питомников и цветочных магазинов: учёт, уход и коммуникация с покупателями",
-  "asOf": "2026-06-20",
+  "title": "Приложение для выращивания орхидей",
+  "oneLiner": "Специализированный трекер для орхидееводов: виды, цикл цветения, тип субстрата, режим покоя то, чего нет ни в одном универсальном приложении",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 450
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
   },
   "reviewGrid": [
    {
-    "quote": "The care reminders are the only way I've been able to keep 41 houseplants alive and thriving!",
-    "rating": 5,
-    "app": "Planta"
+    "quote": "The app couldn’t tell the difference between a Christmas cactus and Thanksgiving cactus. They are different and they require two different types of care.",
+    "rating": 2,
+    "app": "Plant Identifier, Care: Planty"
    },
    {
-    "quote": "This app has saved many plants and now my husband also agrees that plants are welcome in our home because they stay alive.",
-    "rating": 5,
-    "app": "Blossom"
+    "quote": "When it comes to identifying plants, this app is not accurate at all, don’t waste your money on a subscription",
+    "rating": 2,
+    "app": "Plantum - AI Plant Identifier"
    },
    {
-    "quote": "I always forget to water them but this is incredibly helpful and my plants are thriving",
-    "rating": 5,
-    "app": "Plant Parent"
-   },
-   {
-    "quote": "Emma and their development team were very proactive trying to fix the problem and gave me a year of membership for the trouble.",
-    "rating": 5,
-    "app": "Planta"
-   },
-   {
-    "quote": "Best plant app ever! I use it for plant watering reminders, but I also LOVE the community. Everyone is so kind and helpful",
-    "rating": 5,
-    "app": "Greg"
-   },
-   {
-    "quote": "Can't add all the anthurium crosses on my own. Need to have them approved and added to the general database. Useless for keeping info on specific plants",
-    "rating": 1,
-    "app": "Planta"
-   },
-   {
-    "quote": "there's no way to add or suggest a plant that doesn't already exist in the app",
+    "quote": "It’s good, too expensive.",
     "rating": 3,
-    "app": "Blossom"
+    "app": "Plantum - AI Plant Identifier"
+   },
+   {
+    "quote": "I have tried to cancel this subscription.  Even with google I cannot figure out how to do this.  They are deceptive with this.",
+    "rating": 2,
+    "app": "Plantum - AI Plant Identifier"
+   },
+   {
+    "quote": "It’s a decent app. But, this app does not cover hydro growing. Certain lights say the plant is healthy and certain lights say it’s not. This app is all AI. Even the person helping you with questions when you have plant emergency is AI. Save yourself the money and use a free app. I can literally use ",
+    "rating": 3,
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "This app is amazing.  I use it all the time.  There have been very few times where I questioned its diagnosis.  The identification has been spot on.",
+    "rating": 5,
+    "app": "PictureThis - Plant Identifier"
    }
   ],
   "mechanisms": [
    {
-    "title": "Владельцы небольших питомников и магазинов ведут учёт в Excel или на бумаге, консультируют покупателей по памяти и теряют продажи из-за невозможности объяснить ",
-    "obsCount": 7,
+    "title": "Орхидеи крупнейший сегмент комнатного цветоводства. Ни одно приложение не закрывает их специфику: режим полива зависит от субстрата (кора vs мох vs гидропоника)",
+    "obsCount": 6,
     "apps": [
-     "Planta",
-     "Greg",
-     "Blossom",
-     "Plant Parent"
+     "Planta: Plant & Garden Care",
+     "Flora - Plant ID & Diagnosis",
+     "Plant Parent: Plant Care Guide",
+     "Plantum - AI Plant Identifier"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Владельцы небольших питомников и магазинов ведут учёт в Excel или на бумаге, консультируют покупателей по памяти и теряют продажи из-за невозможности объяснить покупателю, как ухаживать за растением дома после покупки.",
+  "gap": "Орхидеи крупнейший сегмент комнатного цветоводства. Ни одно приложение не закрывает их специфику: режим полива зависит от субстрата (кора vs мох vs гидропоника), цветение требует стрессового периода с температурным перепадом, виды (фаленопсис, каттлея, дендробиум, мильтония) имеют радикально разные режимы. Greg путает орхидеи при идентификации, Plantum прямо признаётся пользователями в неточности базы орхидей.",
   "idea": {
-   "pitch": "Питомник заводит каталог своих растений с расписанием полива, удобрения и пересадки, который соблюдают сотрудники. При продаже покупатель получает QR-код с персональной карточкой ухода для своего экземпляра: вид, горшок, текущий сезон, первые шаги. Магазин снижает возвраты и жалобы, получает повторные продажи к сезону.",
+   "pitch": "Узкоспециализированный инструмент для орхидеевода: база 200+ видов с реальными агротехническими параметрами, трекер цикла цветения (вегетация → покой → цветение), журнал каждого растения с фото по стадиям. Напоминания учитывают фазу: в покое полив реже и нет подкормки, на выходе из покоя начинается стимуляция. Отдельный экран сравнения нескольких орхидей по фазам.",
    "features": [
-    "Каталог растений питомника с расписаниями для сотрудников",
-    "Генератор QR-кода с карточкой ухода для покупателя при продаже",
-    "Журнал здоровья и обработок по партиям (удобрение, пересадка, профилактика)",
-    "Уведомления покупателю через 7 и 30 дней ('пора подкормить, вот как')",
-    "Аналитика: какие виды возвращают чаще, в какой сезон больше жалоб"
+    "База 200+ видов орхидей с реальными агротехническими данными по полу/сезону/субстрату",
+    "Трекер фазы: вегетация, покой, цветение со сменой режима полива и подкормки",
+    "Журнал цветения: когда зацвела, сколько цветков, фото на пике",
+    "Напоминания под фазу: частота полива и подкормки меняются автоматически при смене стадии",
+    "Сравнительный экран нескольких орхидей: кто в какой фазе, что делать на этой неделе"
    ],
    "antiFeatures": [
-    "Нет потребительского приложения (только B2B)",
-    "Нет ИИ-диагностики для конечного пользователя",
-    "Нет интернет-магазина (отдельная задача)"
+    "Нет универсального трекера для любых растений",
+    "Нет идентификатора по фото",
+    "Нет советов по огороду и уличным растениям"
    ],
-   "monetization": "Небольшой питомник или магазин уже платит за CRM, кассовое ПО и таблицы. Подписка 1490 руб./месяц за точку продаж с неограниченным числом сотрудников. Каждая отсканированная карточка покупателем открывает возможность ремаркетинга и повторной продажи."
+   "monetization": "Орхидееводы фанатичная и платящая аудитория. Покупают специализированные удобрения, субстраты, горшки, ездят на выставки. Один вид орхидеи может стоить 3000-30000 рублей. Модель: бесплатно для 3 растений, разовая покупка 499 рублей для неограниченной коллекции. Дополнительный доход партнёрство с поставщиками орхидейного субстрата."
   }
  },
  {
   "slug": "plant-care-7",
   "category": "plant-care",
   "categoryName": "Уход за растениями",
-  "title": "Спутник натуралиста",
-  "oneLiner": "Определитель живой природы для прогулок: растения, насекомые, грибы, пауки с ответом на вопрос «опасно или нет»",
-  "asOf": "2026-06-20",
+  "title": "Определитель токсичности растений для животных",
+  "oneLiner": "Сфотографировал растение сразу узнал, опасно ли оно для кошки, собаки или ребёнка, с конкретными симптомами отравления и что делать",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 450
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
   },
   "reviewGrid": [
    {
-    "quote": "I have a child who loves bugs, and this app gives me so much peace of mind, knowing whether something is harmful or not.",
-    "rating": 5,
-    "app": "Smart Identifier"
+    "quote": "I had no idea it was poisonous.  I took a picture of it and this app was so informative….",
+    "rating": 4,
+    "app": "PlantIn: Plant Identifier・Care"
    },
    {
-    "quote": "I can finally tell spiders and reduce my fear!",
-    "rating": 5,
-    "app": "Smart Identifier"
-   },
-   {
-    "quote": "I love rocks, plants and mushrooms. the info on bugs is also beneficial to better understand what ones to welcome and what ones to not.",
-    "rating": 5,
-    "app": "NatureID"
-   },
-   {
-    "quote": "I have a bad habit of planting a perennial and then not recognizing it the next year, so I pull it thinking it's a weed! This app has saved my plants from involuntary plantslaughter!",
-    "rating": 5,
-    "app": "PictureThis"
-   },
-   {
-    "quote": "has help me know the diffrence between a weed and a plant I want to keep.",
-    "rating": 5,
-    "app": "PictureThis"
-   },
-   {
-    "quote": "app said a radish was broccoli. And an orange tree was a grapefruit tree. 2 out of 2 wrong.",
-    "rating": 1,
-    "app": "Planta"
-   },
-   {
-    "quote": "Four different pictures of the same plant ID four different matches.",
+    "quote": "This is convenient and wonderful, but it keeps identifying plants in the garden that I absolutely did not plant so I’m really concerned about the accuracy of what I am getting.",
     "rating": 3,
-    "app": "PictureThis"
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "It incorrectly identified the first 3 plants I tried , giving me results for different plants that had different care instructions which would have not been good for my actual  plants.  Risky app if you’re relying on it.",
+    "rating": 2,
+    "app": "Plant App: Plant Identifier"
+   },
+   {
+    "quote": "App doesn’t work.  It couldn’t identify Black Walnut, Cedar, or Red Oak.",
+    "rating": 1,
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "I was looking for an app that would identify unhealthy plants diagnosis, and treatment by taking a photo. I thought that that’s what I saw with this particular app, but it does not perform that function.",
+    "rating": 2,
+    "app": "Plant App: Plant Identifier"
+   },
+   {
+    "quote": "I took three pictures of the same tree and it gave me three different names. This app is garbage.",
+    "rating": 1,
+    "app": "Plant App: Plant Identifier"
    }
   ],
   "mechanisms": [
    {
-    "title": "Люди хотят быстрый ответ о конкретном живом существе рядом с ребёнком или у себя на грядке: опасно это или нет. Приложения для растений не распознают жуков и па",
-    "obsCount": 7,
+    "title": "PlantIn прямо признаётся, что информация о токсичности в поиске и на карточке расходится. Один пользователь получил ожог от ядовитого плюща из-за ошибки идентиф",
+    "obsCount": 6,
     "apps": [
-     "Smart Identifier",
-     "NatureID",
-     "PlantSnap",
-     "PictureThis"
+     "PictureThis - Plant Identifier",
+     "PlantIn: Plant Identifier・Care",
+     "Plant Identifier & Care: Ficus",
+     "Flora - Plant ID & Diagnosis"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Люди хотят быстрый ответ о конкретном живом существе рядом с ребёнком или у себя на грядке: опасно это или нет. Приложения для растений не распознают жуков и пауков, а универсальные определители перегружены и ненадёжны.",
+  "gap": "PlantIn прямо признаётся, что информация о токсичности в поиске и на карточке расходится. Один пользователь получил ожог от ядовитого плюща из-за ошибки идентификатора. Домовладельцы с кошками и собаками массово покупают растения без понимания токсичности. Это высокоставочная задача цена ошибки это ветеринарная клиника или больница.",
   "idea": {
-   "pitch": "Снимаешь что угодно на природе, а приложение отвечает первым делом на главный вопрос: «трогать можно» или «держите ребёнка подальше». Растение, жук, паук, гриб или камень распознаются единым потоком без выбора категории. Простой ответ без латинского шума, плюс короткий факт, который захочется рассказать ребёнку.",
+   "pitch": "Одна функция: фото растения результат «безопасно / осторожно / опасно» для каждого типа домашних животных (кошка, собака, кролик) и для детей. При опасности конкретные симптомы отравления, что делать в первые минуты, телефон ветеринарной скорой. Без подписки, без пейволла на главную функцию. Монетизация через разовую покупку расширенной базы.",
    "features": [
-    "Единый поток распознавания без выбора 'растение / насекомое / гриб'",
-    "Первый экран: 'безопасно / осторожно / опасно' крупно и понятно",
-    "Краткий факт о виде, интересный детям (поведение, рекорды, польза)",
-    "Оффлайн-режим для леса и парков без интернета",
-    "Личный журнал находок с картой мест (геотеги)"
+    "Идентификация растения по фото с фокусом на токсикологическую базу",
+    "Оценка токсичности: безопасно / осторожно / опасно раздельно для кошки, собаки, кролика, ребёнка",
+    "При опасности: конкретные симптомы, что делать в первые 30 минут, номер ветслужбы",
+    "База 1500+ видов комнатных и садовых растений с токсикологическими данными",
+    "Сохранение проверенных растений в «безопасный список» квартиры"
    ],
    "antiFeatures": [
-    "Нет расписания полива",
-    "Нет дневника ухода за домашними растениями",
-    "Нет диагностики болезней растений"
+    "Нет планировщика полива и напоминаний",
+    "Нет диагностики болезней",
+    "Нет огородного планировщика"
    ],
-   "monetization": "Родители и учителя начальной школы уже платят за образовательные приложения для детей. Подписка 149 руб./месяц или 890 руб./год. Семейный план на 5 устройств 249 руб./месяц. Партнёрство с производителями детских наборов натуралиста."
+   "monetization": "Владельцы домашних животных платят за безопасность питомцев. Аудитория мотивирована сильнее, чем просто «хочу знать название цветка». Средний владелец кошки тратит 5000-15000 рублей в год на питомца. Модель: 5 бесплатных проверок, затем разовая покупка за 199 рублей для неограниченного доступа. Дополнительный доход виджет «безопасный дом» для конкретных питомцев."
+  }
+ },
+ {
+  "slug": "plant-care-8",
+  "category": "plant-care",
+  "categoryName": "Уход за растениями",
+  "title": "Трекер полива суккулентов и кактусов",
+  "oneLiner": "Минималистичный трекер для тех, кто держит суккуленты и кактусы: редкий полив по виду и сезону, без ежедневных бесполезных напоминаний",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 58,
+   "reviews": 13625,
+   "observations": 239
+  },
+  "reviewGrid": [
+   {
+    "quote": "I just got it and it helped me fix my tomato plant and now it’s growing. It also helped my succulent and now my succulent is so much better and help me diagnose that my tomato was sick and I recommend using this app",
+    "rating": 5,
+    "app": "Plantum - AI Plant Identifier"
+   },
+   {
+    "quote": "I want this app to do one thing: tell me when to water my plants. It’s great at that. It also does another thing, which is send me regular push notifications to write a “progress update” about my plants’ health. This is annoying and unnecessary.",
+    "rating": 4,
+    "app": "Planta: Plant & Garden Care"
+   },
+   {
+    "quote": "I would much prefer firm. They have some ability to scan and diagnosed what is wrong with a plant accurately! It is also not exactly a user-friendly app.",
+    "rating": 2,
+    "app": "Planta: Plant & Garden Care"
+   },
+   {
+    "quote": "Very useful app, helps me and my family find out which plants are which.",
+    "rating": 4,
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "Took money from bank without notification",
+    "rating": 1,
+    "app": "PictureThis - Plant Identifier"
+   },
+   {
+    "quote": "When first installing the app, the 1 thing you want to do is upload a picture and identify a plant. The issue is the number of screens and visuals you have to watch before you do this is ridiculous. There is no skip button. Just waiting and waiting.",
+    "rating": 2,
+    "app": "PictureThis - Plant Identifier"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Суккуленты и кактусы самый массовый сегмент комнатного цветоводства среди новичков. Парадокс: их чаще всего заливают именно потому, что универсальные трекеры (P",
+    "obsCount": 6,
+    "apps": [
+     "WaterMe - Gardening Reminders",
+     "Plant Daddy — Water Reminders",
+     "Greg: Plant Identifier & Care",
+     "Planta: Plant & Garden Care"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Суккуленты и кактусы самый массовый сегмент комнатного цветоводства среди новичков. Парадокс: их чаще всего заливают именно потому, что универсальные трекеры (Planta, Greg) не умеют работать в режиме «полей раз в три недели зимой». Greg прямо указывает, что расписание не учитывает сезон. Planta напоминает каждый день там, где нужен полив раз в неделю или реже.",
+  "idea": {
+   "pitch": "Узкий трекер: суккуленты, кактусы, эхеверии, алоэ, хавортии, агавы. База 300+ видов с реальными параметрами: полив летом (раз в 7-14 дней), полив зимой (раз в 21-45 дней), тип субстрата, освещение. Приложение переключает режим автоматически по дате. Напоминание приходит «проверь субстрат» не «полей», потому что суккуленты умирают от перелива, а не недолива.",
+   "features": [
+    "База 300+ видов суккулентов и кактусов с реальными параметрами полива по сезону",
+    "Автоматическое переключение летнего и зимнего режима по дате",
+    "Напоминание «проверь субстрат», а не «полей» снижает риск перелива",
+    "Быстрое добавление: вид из базы, фото, имя за 30 секунд",
+    "Простой экран «что делать сегодня» без перегрузки задачами"
+   ],
+   "antiFeatures": [
+    "Нет поддержки тропических растений и орхидей",
+    "Нет диагностики болезней",
+    "Нет идентификатора по фото"
+   ],
+   "monetization": "Суккуленты точка входа в хобби. Новичок покупает 3-5 суккулентов, убивает их переливом, ищет решение. Аудитория огромная и постоянно пополняется. Модель: бесплатно до 10 растений хватит большинству. Разовая покупка за 149 рублей для неограниченной коллекции. Минимальная цена снижает барьер, максимизирует охват. Альтернативно поддержать разработчика разовым донатом."
   }
  },
  {
