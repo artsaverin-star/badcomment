@@ -42,6 +42,7 @@ const NICHES = [
   { slug: "workout-fitness", name: "Тренировки и фитнес", nameEn: "Workout & fitness apps", blurb: "91 приложение: где лог тренировки быстрый и прогрессия считается, а где накрутка и слетает история." },
   { slug: "recipes-meal-planning", name: "Рецепты и меню", nameEn: "Recipe & meal-planning apps", blurb: "77 приложений: где рецепт сохраняется из сети и список покупок собирается сам, а где теряется коллекция." },
   { slug: "plant-care", name: "Уход за растениями", nameEn: "Plant care & identifier apps", blurb: "58 приложений: где полив напоминается умно и диагноз честный, а где накрутка и шаблонные советы." },
+  { slug: "baby-tracking", name: "Уход за малышом", nameEn: "Baby tracking apps", blurb: "61 приложение: где лог кормления и сна жмётся одной рукой в 3 ночи и синхронится с партнёром, а где теряются данные." },
 ];
 
 export default async function RatingIndexPage() {
