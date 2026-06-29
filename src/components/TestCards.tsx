@@ -59,9 +59,11 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
   useEffect(() => {
     const k = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", k);
-    const prev = document.body.style.overflow;
+    const html = document.documentElement;
+    const prevHtml = html.style.overflow, prevBody = document.body.style.overflow;
+    html.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
-    return () => { window.removeEventListener("keydown", k); document.body.style.overflow = prev; };
+    return () => { window.removeEventListener("keydown", k); html.style.overflow = prevHtml; document.body.style.overflow = prevBody; };
   }, [onClose]);
   if (typeof document === "undefined") return null;
   return createPortal(
@@ -129,7 +131,7 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
   return (
     <>
       <div className="relative">
-        <div className={`grid grid-cols-2 gap-3 sm:grid-cols-3 ${locked ? "pointer-events-none select-none blur-[7px]" : ""}`} aria-hidden={locked || undefined}>
+        <div className={`grid grid-cols-1 gap-4 sm:grid-cols-2 ${locked ? "pointer-events-none select-none blur-[7px]" : ""}`} aria-hidden={locked || undefined}>
           {segments.map((s, i) => (
             <CardFace
               key={i}
@@ -171,7 +173,7 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
   const ru = locale !== "en";
   return (
     <>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {ideas.map((x, i) => (
           <CardFace key={i} icon={x.icon} title={x.title} desc={x.oneLiner} locked={locked} onClick={locked ? () => {} : () => setOpen(x)} />
         ))}
