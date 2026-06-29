@@ -17,9 +17,10 @@ import personalFinance from "./personal-finance.json";
 import photoEditing from "./photo-editing.json";
 import rideHailing from "./ride-hailing.json";
 import shoppingEcommerce from "./shopping-ecommerce.json";
+import travelPlanning from "./travel-planning.json";
 import videoStreaming from "./video-streaming.json";
 import weatherApps from "./weather-apps.json";
 
 export const RATING_BY_SLUG: Record<string, unknown> = {
-  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "video-streaming": videoStreaming, "weather-apps": weatherApps,
+  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "travel-planning": travelPlanning, "video-streaming": videoStreaming, "weather-apps": weatherApps,
 };

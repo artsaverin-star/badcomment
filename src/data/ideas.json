@@ -13288,545 +13288,597 @@
   "slug": "travel-planning-1",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
-  "title": "Агент-импортёр броней",
-  "oneLiner": "Сервис, который правильно подхватывает каждую бронь из почты и PDF турагента и никогда не теряет её в дороге",
-  "asOf": "2026-06-20",
+  "title": "Агрегатор загрузки рейсов для авиасотрудников",
+  "oneLiner": "Биржа реального времени по загрузке и стендбай-листам для персонала авиакомпаний, летающего по льготным билетам на чужих рейсах",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 34
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
   },
   "reviewGrid": [
    {
-    "quote": "About 1/4 of the emails actually import correctly. So, this app requires a lot of hours inputting plans manually",
-    "rating": 2,
-    "app": "Wanderlog Travel Planner"
-   },
-   {
-    "quote": "Document upload does not work when the travel itinerary comes in a pdf from a travel agent. One still has to manually load in every detail from the pdf",
-    "rating": 2,
-    "app": "TripIt"
-   },
-   {
-    "quote": "I forwarded by email airbnb reservations which it couldn't figure out. Then when I granted access to my Gmail it figured it out but put it in twice",
-    "rating": 2,
-    "app": "Wanderlog Travel Planner"
-   },
-   {
-    "quote": "Why the app isn't designed to locally cache your info to always be available is beyond me. if you can't depend on it, what is the point?",
-    "rating": 1,
-    "app": "TripIt"
-   },
-   {
-    "quote": "Bug automatically signs me out and crashes. I'm in the middle of my trip. Thanks a lot. 2 years later this is still a problem",
-    "rating": 1,
-    "app": "TripIt"
-   },
-   {
-    "quote": "allows me to just enjoy my trip and not worry about juggling all of the reservation, check-in/check-out tome, which email I have confirmation codes in",
+    "quote": "There really is no other source like this. It’s a non-rev essential!",
     "rating": 5,
-    "app": "TripIt"
+    "app": "StaffTraveler"
    },
    {
-    "quote": "In the past, I would rely on an email folder to organize and find information. Wanderlog simplified and centralized all of that",
-    "rating": 5,
-    "app": "Wanderlog Travel Planner"
+    "quote": "Get real-time flight loads and the number on standby by sharing loads with other crew members! The only improvement I would suggest is making the format identical between loads and the standby list when answering requests (one has a total and the other does not).",
+    "rating": 4,
+    "app": "StaffTraveler"
+   },
+   {
+    "quote": "Literally received loads for 2 different airlines showing +1 and +7. Less than 10 seconds later new loads were entered showing 0 and -1. The loads are unreliable 90% of the time. No action is ever taken by the app dev to block false load users. Waist of time and money",
+    "rating": 1,
+    "app": "StaffTraveler"
+   },
+   {
+    "quote": "used to be 5 stars but since the new update you cannot see the type of plane on the route. This is important for commuting to know if it has 1 or 2 jumpseats available as well as for non rev to know if it’s a wide body plane with more chance for no show passengers.",
+    "rating": 2,
+    "app": "StaffTraveler"
+   },
+   {
+    "quote": "This app is great for seat availability on OALs but don’t use the times…. I’ve seen more flights lately that are the wrong times, wrong days and sometime those flights never existed.",
+    "rating": 3,
+    "app": "StaffTraveler"
+   },
+   {
+    "quote": "Some airline employees are EXTREMELY responsive (Thx UA)\nSome leave much to be desired (I’m talking to you LATAM).\n\nBut the idea for the app and how it works when it works is brilliant.",
+    "rating": 4,
+    "app": "StaffTraveler"
+   },
+   {
+    "quote": "I had given a 5 Star in Past but have to change my rating since lately none of my flight load requests are being answered for Lufthansa, Condor etc. Not sure What changed in Past few months with Lufthansa :(",
+    "rating": 3,
+    "app": "StaffTraveler"
    }
   ],
   "mechanisms": [
    {
-    "title": "Парсинг писем от авиакомпаний и турагентов разваливается у всех конкурентов: четверть почты не подхватывается, PDF приходится вводить руками, дубли плодятся сам",
+    "title": "Сотрудник авиакомпании не знает загрузку рейса другой авиалинии звонить некуда, данные неофициальные. StaffTraveler доказал нишу (79 реального рейтинга, 6 000+ ",
     "obsCount": 7,
     "apps": [
-     "TripIt",
-     "Wanderlog Travel Planner",
-     "Tripsy travel planner"
+     "StaffTraveler",
+     "CheckMyTrip – Travel Itinerary",
+     "TripIt: Travel Planner"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Парсинг писем от авиакомпаний и турагентов разваливается у всех конкурентов: четверть почты не подхватывается, PDF приходится вводить руками, дубли плодятся сами. Путешественники, которые платят турагентам за сложные маршруты, не могут собрать всё в одном месте",
+  "gap": "Сотрудник авиакомпании не знает загрузку рейса другой авиалинии звонить некуда, данные неофициальные. StaffTraveler доказал нишу (79 реального рейтинга, 6 000+ отзывов), но платформа завязана на честность участников: фейковые нули портят данные и ни один инструмент не борется с этим системно",
   "idea": {
-   "pitch": "Сервис забирает каждое письмо и PDF от авиакомпании, отеля или турагента и собирает точный хронологический маршрут без ручного ввода. Все данные хранятся локально: даже без сети бронь доступна в любой точке маршрута. Сервис нацелен на деловых путешественников и семьи, которые бронируют через агентов и не хотят тратить часы на перенабор данных.",
+   "pitch": "Авиасотрудники летят на льготных местах, которые открываются только после коммерческих пассажиров. Решение принять лететь или нет нужно за 15 минут до борта, а достоверных данных нет. Платформа строит верифицированную биржу загрузок с репутационным рейтингом участников, системой доверия к источнику и фильтрацией по типу воздушного судна (джамбо или узкий фюзеляж = разное число мест).",
    "features": [
-    "Парсинг писем от 200+ авиакомпаний, отелей и агентств с точностью выше 95%",
-    "Распознавание PDF от турагентов через структурный анализ без шаблонов",
-    "Локальный кэш всего маршрута: доступно офлайн без входа в аккаунт",
-    "Дедупликация: одна бронь с двух форвардов не создаёт два события",
-    "Мгновенное обновление при изменении рейса без перезапуска"
+    "Верификация через ID авиакомпании при регистрации только реальный персонал",
+    "Репутационный скор у каждого участника: насколько его данные совпадали с фактом",
+    "Фильтр по типу ВС (широкий/узкий фюзеляж, наличие прыжкового сиденья)",
+    "Push за 2 часа до вылета: финальный стендбай-лист и прогноз вероятности посадки",
+    "История загрузок по маршруту учиться на паттернах конкретных рейсов"
    ],
    "antiFeatures": [
-    "Нет встроенных рекомендаций мест и туров: только то, что пользователь уже забронировал",
-    "Нет социального трекинга и публичных маршрутов",
-    "Нет принудительного ИИ-переноса расписания"
+    "Никаких коммерческих рейсов и OTA-рекламы только non-rev контент",
+    "Никакой регистрации без подтверждения трудоустройства в авиакомпании",
+    "Никаких анонимных ответов на запросы репутация привязана к аккаунту"
    ],
-   "monetization": "Деловые путешественники платят за корпоративные инструменты. B2B: турагентства платят за white-label виджет, который клиенты получают вместе с туром. Подписка 5-10 долларов в месяц для частных пользователей с большим числом поездок в год."
+   "monetization": "Подписка 5-9 USD/месяц на физическое лицо, как у StaffTraveler. Платящая аудитория авиасотрудники, которые летают non-rev регулярно и уже платят конкурентам. Ниша ~300 000 активных non-rev путешественников только в США."
   }
  },
  {
   "slug": "travel-planning-2",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
-  "title": "Планировщик маршрута для семей",
-  "oneLiner": "Инструмент совместного планирования поездки, где каждый член семьи добавляет своё, а организатор перестаёт тащить всё один",
-  "asOf": "2026-06-20",
+  "title": "Инструмент для турагентов: маршрут-пакет для клиента",
+  "oneLiner": "SaaS для независимых турагентов и небольших туроператоров: создать, отправить и сопровождать клиента по готовому маршруту со своим брендом",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 34
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
   },
   "reviewGrid": [
    {
-    "quote": "Super easy to collaborate with others while planning a trip. It has spread the responsibility for everything and made me less stressed out by being the sole planner",
+    "quote": "This automatically pulls my flight, hotel and rental car info and puts it into an easy to read itinerary. I travel so much for work so I have forgotten to book a hotel or rental car before and I was able to notice it last minute because TripIt noticed that something was missing. Thank you!",
     "rating": 5,
-    "app": "Wanderlog Travel Planner"
+    "app": "TripIt: Travel Planner"
    },
    {
-    "quote": "The best feature is being allowed to share and plan with your other travelers",
+    "quote": "Clean interface, integrated hotel booking...which is incredibly convenient.  I receive messages from TripSource before I get them from the carriers.\n\nWell done.",
     "rating": 5,
-    "app": "Wanderlog Travel Planner"
+    "app": "TripSource"
    },
    {
-    "quote": "Great for planning international 2 week trips and more local trips with collaboration with family",
-    "rating": 5,
-    "app": "Wanderlog Travel Planner"
+    "quote": "I know I’ll be able to reverse this right",
+    "rating": 1,
+    "app": "United Airlines"
    },
    {
-    "quote": "It's 2026, how is there still NO option to share your trip itinerary from the app with a link? Only option is to email people, which is so archaic",
+    "quote": "Mandating a credit card to be able to check in is not okay…at all.",
     "rating": 2,
-    "app": "TripIt"
+    "app": "United Airlines"
    },
    {
-    "quote": "my wife created a trip but I can't link it to my account in the app. yes, she has shared it with me, etc... This makes the app useless",
+    "quote": "I’ve missed my free passes due to \n‘Full, no space’. \nThe following year, the same.",
     "rating": 3,
-    "app": "TripIt"
+    "app": "United Airlines"
    },
    {
-    "quote": "I have a link for someone else's trip, asks to install the app, does NOT link the trip invitation. need to do a LOT better",
-    "rating": 2,
-    "app": "Polarsteps"
-   },
-   {
-    "quote": "Helped me organize my trip that required transit, lodging and restaurant reservations booked two months in advance, going to a new city every 2 days",
+    "quote": "The app was easy to use and straightforward",
     "rating": 5,
-    "app": "Wanderlog Travel Planner"
+    "app": "United Airlines"
    }
   ],
   "mechanisms": [
    {
-    "title": "Семьи планируют поездки совместно, но единственный организатор несёт всё один: остальные не видят план, не могут добавить пожелание и не берут ответственность. ",
-    "obsCount": 7,
+    "title": "Турагент собирает маршрут в Google Docs или PDF, клиент теряет файл и звонит с вопросами. Trip Plans (score 55) показал правильную идею, но клиент в нём ничего ",
+    "obsCount": 6,
     "apps": [
-     "Wanderlog Travel Planner",
-     "TripIt",
-     "Polarsteps"
+     "Trip Plans",
+     "Tripmasters",
+     "TripIt: Travel Planner"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Семьи планируют поездки совместно, но единственный организатор несёт всё один: остальные не видят план, не могут добавить пожелание и не берут ответственность. Пригласить человека по ссылке в 2026 году до сих пор нельзя в ключевых приложениях",
+  "gap": "Турагент собирает маршрут в Google Docs или PDF, клиент теряет файл и звонит с вопросами. Trip Plans (score 55) показал правильную идею, но клиент в нём ничего не может добавить сам, а бренд агента не виден. Полноценного B2B-инструмента для небольших агентов без дорогого enterprise-договора нет.",
   "idea": {
-   "pitch": "Планировщик строится вокруг одного принципа: у каждого участника поездки есть роль и своя часть плана. Дети добавляют активности, партнёр берёт отели, организатор только утверждает. Приглашение одним нажатием по ссылке без установки приложения для тех, кто присоединяется разово.",
+   "pitch": "Десятки тысяч независимых турагентов продают поездки через личные консультации и до сих пор делают документы в Word. Платформа позволяет агенту за 20 минут собрать красивый интерактивный маршрут под своим брендом, расшарить клиенту ссылку, а дальше общаться прямо внутри поездки без потерянных PDF и бесконечных звонков с вопросом «а в котором часу вылет?»",
    "features": [
-    "Приглашение по ссылке без обязательной регистрации для гостевых участников",
-    "Роли в поездке: организатор, участник, наблюдатель с разными правами",
-    "Голосование за активности и рестораны без конфликтов",
-    "Бюджет на семью с разбивкой по участникам и категориям",
-    "Офлайн-доступ к плану для всех участников, не только организатора"
+    "Конструктор маршрута с блоками: рейс, отель, трансфер, экскурсия, свободное время",
+    "Белый лейбл: логотип и цвета агентства на всех экранах клиента",
+    "Клиент может добавить свои бронирования и заметки поверх базы агента",
+    "Встроенный чат агент-клиент с историей внутри конкретной поездки",
+    "Push-напоминания о вылетах и заездах от имени агентства"
    ],
    "antiFeatures": [
-    "Нет каталога туров и платных предложений внутри приложения",
-    "Нет социальных профилей и публичной ленты маршрутов",
-    "Нет принудительных AI-итинерариев, которые переписывают план"
+    "Нет своего поиска и бронирования агент бронирует где привык",
+    "Нет автоматического парсинга писем агент вносит данные сам",
+    "Нет маркетплейса туров платформа не зарабатывает на комиссии с туроператоров"
    ],
-   "monetization": "Семьи платят за организацию сложных поездок: годовая подписка 30-50 долларов для организатора покрывает все семейные поездки. Разовая оплата за поездку как альтернатива. Потенциал B2B: туроператоры семейного отдыха встраивают инструмент в свой продукт."
+   "monetization": "Подписка с агента: 20-40 USD/месяц за 20-100 активных поездок. Независимых турагентов в США около 100 000, в Европе и СНГ ещё столько же. Агент уже платит за CRM и за офисный пакет инструмент для ведения клиента он купит, если видит, что клиент доволен."
   }
  },
  {
   "slug": "travel-planning-3",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
-  "title": "Журнал путешествий с фотокнигой",
-  "oneLiner": "Приложение, которое ведёт живой дневник поездки и на выходе печатает фотокнигу, за которую семья платит с удовольствием",
-  "asOf": "2026-06-20",
+  "title": "Трекер бюджета для длительных поездок и кругосветок",
+  "oneLiner": "Финансовый дневник для путешественников, которые в дороге месяцами: мультивалютный учёт, дневные лимиты по странам и экспорт для налоговой",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 34
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
   },
   "reviewGrid": [
    {
-    "quote": "The photo book created at the end of 4 weeks in Europe was so good we bought it",
-    "rating": 5,
-    "app": "Polarsteps"
+    "quote": "App seems like a great tool but having the most updated conversion rate (in this case USD > EUR) is key. Without it, the app is almost useless",
+    "rating": 2,
+    "app": "TravelSpend: Travel Budget App"
    },
    {
-    "quote": "It allows me to share my journey with others and is a great keepsake after my travels",
-    "rating": 5,
-    "app": "Polarsteps"
+    "quote": "It is great to be able to book everything through Expedia and extremely convenient, but sometimes the hotel room you book is not the same kind of room that they have reserved for you. Also with flights Expedia does not give you all of the fine details of weight limits for luggage.",
+    "rating": 4,
+    "app": "Expedia: Hotels, Flights, Cars"
    },
    {
-    "quote": "perfect for recording memories and routes from a trip. no sign of ads or other monetisation so far",
+    "quote": "I use hopper ,as a traveling musician it always comes in handy. There’s times I just drove to a city and booked a room that same night and it was very affordable. Every penny counts.",
     "rating": 5,
-    "app": "Polarsteps"
+    "app": "Hopper: Flights, Hotels & Cars"
    },
    {
-    "quote": "The app does not seem to use the location data stored in photos to add \"steps\" making it difficult to add a trip after the fact",
-    "rating": 3,
-    "app": "Polarsteps"
+    "quote": "After paying for premium, good\nluck trying to access, and you will need even more luck trying to get any support from this company. Stick with the free version only. I paid for the subscription, cannot access, cannot get technical support and of course cannot get a refund.",
+    "rating": 1,
+    "app": "TravelSpend: Travel Budget App"
    },
    {
-    "quote": "Really useful to get reminders of prices going up",
-    "rating": 5,
-    "app": "Hopper"
+    "quote": "Won’t upload",
+    "rating": 4,
+    "app": "United Airlines"
    },
    {
-    "quote": "thanks to using it i realized I had messed up some of the dates on my bookings and was able to fix them in time",
-    "rating": 5,
-    "app": "TripIt"
+    "quote": "Nothing was wrong with the old system, either print from work or home or use your electronic device. End of story, don’t complicate things like sending me an email of my boarding pass. I don’t care about your inane updates unless you are changing my itinerary, which by the way, you’ve done that on m",
+    "rating": 1,
+    "app": "United Airlines"
    }
   ],
   "mechanisms": [
    {
-    "title": "Путешественники хотят сохранить память о маршруте и поделиться им с близкими в дороге, а в конце получить физический артефакт. Сейчас трекер рисует прямые линии",
+    "title": "TravelSpend (score 65) лучший в нише, но упирается в ограниченный мобильный формат при сложных сценариях: нельзя дублировать повторяющиеся статьи, нет категорий",
     "obsCount": 6,
     "apps": [
-     "Polarsteps"
+     "TravelSpend: Travel Budget App",
+     "Wanderlog - Travel Planner",
+     "Tripomatic Trip Planner & Maps"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Путешественники хотят сохранить память о маршруте и поделиться им с близкими в дороге, а в конце получить физический артефакт. Сейчас трекер рисует прямые линии вместо реального пути, а печать книги предлагает только один игрок с техническими проблемами отслеживания",
+  "gap": "TravelSpend (score 65) лучший в нише, но упирается в ограниченный мобильный формат при сложных сценариях: нельзя дублировать повторяющиеся статьи, нет категорий по странам, нет поддержки распределённых расходов в группе. Пенсионеры-кругосветчики, цифровые кочевники и бэкпекеры месяцами живут из бюджета они платят, если инструмент честный и надёжный.",
   "idea": {
-   "pitch": "Дневник записывает маршрут точно по реальному пути, а не прямыми линиями, подтягивает фото из галереи с геотегом и строит красивую хронику дня. По возвращении пользователь получает готовую фотокнигу в несколько нажатий. Семьи и опытные путешественники платят за печать сами и без ощущения рекламной ловушки.",
+   "pitch": "Человек, едущий три месяца по десяти странам, хочет знать: сколько потрачено на жильё в Таиланде против Вьетнама, хватит ли денег до конца поездки и как не растерять квитанции для налоговой. Существующие трекеры теряют данные при смене устройства, не умеют считать суммарный бюджет по маршруту и плохо обрабатывают несколько валют параллельно.",
    "features": [
-    "Точный трекинг маршрута без прямых линий-выбросов через фильтрацию GPS-шума",
-    "Автоподтягивание фото с геотегом по точкам маршрута без ручной привязки",
-    "Живой доступ для близких дома: видят маршрут и фото в реальном времени",
-    "Фотокнига с автомакетом: хронология, карта, цитаты из дневника",
-    "Ретроспективное добавление поездки по фото из галереи"
+    "Мультивалютный ввод с мгновенной конвертацией в домашнюю валюту по курсу дня",
+    "Бюджет на поездку с разбивкой по странам и дневным лимитом",
+    "Повторяющиеся статьи (жильё посуточно, транспортная карта) без ручного ввода каждый раз",
+    "Разделение расходов при поездке вдвоём или в малой группе с итоговым балансом",
+    "CSV и PDF-экспорт с категориями для налоговых отчётов фрилансеров"
    ],
    "antiFeatures": [
-    "Нет функции бронирования и планирования наперёд",
-    "Нет социальной ленты с чужими маршрутами и рекомендациями",
-    "Нет рекламы и встроенных предложений туров"
+    "Нет планирования маршрута только финансы",
+    "Нет рекомендаций по экономии и рекламы партнёров",
+    "Нет бронирования только учёт уже потраченного"
    ],
-   "monetization": "Печать фотокниги: маржа 30-50% с заказа. Подписка за неограниченный трекинг и приватные поездки. Корпоративный подарок: компании заказывают книги для командировочных сотрудников как сувенир."
+   "monetization": "Разовая покупка 5-9 USD или подписка 2-3 USD/месяц. Целевой сегмент долгосрочные путешественники: пенсионеры на кругосветке, цифровые кочевники, студенты на gap year. Они готовы платить за надёжность данных: TravelSpend платная версия уже продаётся, аудитория подтверждена."
   }
  },
  {
   "slug": "travel-planning-4",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
-  "title": "Планировщик маршрутов для автодомов",
-  "oneLiner": "Инструмент маршрутов для путешествий на кемпере или автодоме с реальными стоянками, ограничениями по высоте и кемпингами вне зоны сети",
-  "asOf": "2026-06-20",
+  "title": "Планировщик автопутешествий с маршрутом по дням",
+  "oneLiner": "Инструмент для планирования многодневных автопоездок и путешествий на автодоме: умная разбивка по дням, стоянки для RV и оценка топлива",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 34
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
   },
   "reviewGrid": [
    {
-    "quote": "this new update (5/14) makes it nearly impossible to rearrange your stops. You drag, they don't move, and if they do, it's way too far up or down",
-    "rating": 1,
-    "app": "Roadtrippers"
-   },
-   {
-    "quote": "every other stop on your list automatically changes the dates to fill that week even when the following stops are hundreds of miles away",
-    "rating": 3,
-    "app": "Roadtrippers"
-   },
-   {
-    "quote": "Useless in the UK. Does not recognise any UK addresses to plan a road trip. Appears to be good for the USA",
-    "rating": 3,
-    "app": "Roadtrippers"
-   },
-   {
-    "quote": "Can't plug in my own addresses and places, far less usability, far more ads",
-    "rating": 1,
-    "app": "Visit A City"
-   },
-   {
-    "quote": "It has preselected tour operators , that seems what you get to choose. I wanted to add my own",
-    "rating": 3,
-    "app": "Visit A City"
-   },
-   {
-    "quote": "Why the app isn't designed to locally cache your info to always be available is beyond me. if you can't depend on it, what is the point?",
-    "rating": 1,
-    "app": "TripIt"
-   },
-   {
-    "quote": "Doesn't work in countries without Google map. China or South Korea",
+    "quote": "It can’t even logically order your waypoints. I did a start point in WA and a destination in CA. As I added stops it had me bouncing back and forth between WA and CA then OR and back. It’s not smart enough to auto sort. Deleted.",
     "rating": 2,
-    "app": "Wanderlog Travel Planner"
+    "app": "Roadie: Road Trip Planner & RV"
+   },
+   {
+    "quote": "Just bought this I am trying to create a route to bring a new R/V home to make sure it is RV friendly ... 45 minutes later still struggling (I am very IT literate)",
+    "rating": 1,
+    "app": "Road Trip Planner™"
+   },
+   {
+    "quote": "One of the best apps for road trip planning, I am able to create many roadtrips with gas, hotel, restaurants along the way, allowing me to view estimated time. Love it.",
+    "rating": 5,
+    "app": "Roadie: Road Trip Planner & RV"
+   },
+   {
+    "quote": "Easy to use and share plans.\nWish I could plan day of driving or have app auto plan days. Seeing upcoming weather and better ‘attractions’ highlights would make it a killer app.",
+    "rating": 3,
+    "app": "Roadie: Road Trip Planner & RV"
+   },
+   {
+    "quote": "The description said one thing, and then within 10 minutes of planning my first trip, every simple promised activity was betrayed by a plea for an upgrade to make it happen.  In short, I couldn’t plan one simple trip without being shaken down. Shame on you. App deleted.",
+    "rating": 1,
+    "app": "Roadie: Road Trip Planner & RV"
+   },
+   {
+    "quote": "Love the app. Helps me organize and modify all my travel in my motorcoach",
+    "rating": 5,
+    "app": "Roadie: Road Trip Planner & RV"
    }
   ],
   "mechanisms": [
    {
-    "title": "Обычные планировщики дорожных поездок рассчитаны на легковые автомобили и не знают ни одного параметра кемпера: ограничения тоннелей, платных стоянок с хуком, д",
-    "obsCount": 7,
+    "title": "Roadie (score 48) делает правильную вещь, но автосортировка маршрута нелогичная приложение гоняет туда-обратно, полезные функции быстро упираются в пейволл, а R",
+    "obsCount": 6,
     "apps": [
-     "Roadtrippers",
-     "Wanderlog Travel Planner",
-     "Rome2Rio"
+     "Roadie: Road Trip Planner & RV",
+     "Wanderlog - Travel Planner",
+     "Visit A City"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Обычные планировщики дорожных поездок рассчитаны на легковые автомобили и не знают ни одного параметра автодома: ограничения тоннелей, платных стоянок с подключением, сливных станций и кемпингов без резервирования. Владельцы автодомов тратят часы на ручную сборку маршрута из разных источников",
+  "gap": "Roadie (score 48) делает правильную вещь, но автосортировка маршрута нелогичная приложение гоняет туда-обратно, полезные функции быстро упираются в пейволл, а RV-пользователи не получают ничего специального. Нет ни одного инструмента, который думает про путешествие на автодоме: высота мостов, кемпинги с подключением электричества, дневные пробеги под объём бака.",
   "idea": {
-   "pitch": "Сервис строит маршрут с учётом длины и высоты транспортного средства, автоматически вставляет кемпинги с подключением и сливными станциями на нужных интервалах и сохраняет всё для работы без сети в дикой местности. Рынок автодомов в США и Европе растёт: 11 миллионов домохозяйств в США владеют такими машинами, и ни один инструмент не решает их задачу нативно.",
+   "pitch": "Американский рынок RV 11 миллионов единиц в активной эксплуатации, и каждый владелец планирует многодневные маршруты вручную через Google Maps. Инструмент разбивает маршрут на логичные дни с учётом усталости водителя, ищет кемпинги с нужными удобствами рядом с точками остановки и считает расход топлива для конкретного транспортного средства.",
    "features": [
-    "Профиль транспортного средства: длина, высота, вес, тип подключения",
-    "Фильтр стоянок по типу: хук, дампстанция, бесплатная федеральная земля",
-    "Офлайн-карты с кемпингами для зон без сети",
-    "Расчёт перегонов по топливу с учётом веса груза",
-    "Предупреждения о тоннелях, мостах и дорогах с ограничениями по габаритам"
+    "Ввод маршрута с автоматической разбивкой по дням (макс. пробег/день)",
+    "Поиск кемпингов и стоянок с фильтрами: электричество, вода, допустимая длина RV",
+    "Расчёт топлива для автомобиля или автодома с учётом загрузки",
+    "Погода по точкам маршрута на даты поездки",
+    "Офлайн-режим: маршрут и карта без интернета на весь путь"
    ],
    "antiFeatures": [
-    "Нет функций для городского туризма и пешеходных маршрутов",
-    "Нет интеграции с авиабилетами и отелями",
-    "Нет социальной ленты и рейтингов общего типа"
+    "Нет своей навигации передаёт маршрут в Apple Maps или Google Maps",
+    "Нет бронирования кемпингов только поиск и ссылки",
+    "Нет контента про достопримечательности только логистика"
    ],
-   "monetization": "Подписка 8-12 долларов в месяц: кемперы платят за специализированные инструменты (Campendium, iOverlander собирают деньги). Партнёрская комиссия с бронирования кемпингов через сервис. B2B: производители кемперов встраивают как фичу при продаже."
+   "monetization": "Разовая покупка 4-7 USD или подписка 3-5 USD/месяц для RV-версии с базой кемпингов. RV-путешественники платящая аудитория с высоким средним чеком на снаряжение и маршрут, они привыкли платить за приложения. Партнёрство с сетями кемпингов (KOA, Harvest Hosts) как второй источник дохода."
   }
  },
  {
   "slug": "travel-planning-5",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
-  "title": "CRM для турагентств",
-  "oneLiner": "Инструмент для малых турагентств, который собирает маршруты клиентов, рассылает итинерарии и отслеживает статус каждой брони",
-  "asOf": "2026-06-20",
+  "title": "Организатор групповой поездки с голосованием и расходами",
+  "oneLiner": "Координатор для группы из 4-15 человек: общий маршрут, голосование за активности, разделение расходов и чат без потерянных переписок в WhatsApp",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 34
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
   },
   "reviewGrid": [
    {
-    "quote": "Document upload does not work when the travel itinerary comes in a pdf from a travel agent. One still has to manually load in every detail from the pdf",
-    "rating": 2,
-    "app": "TripIt"
+    "quote": "In the most recent upgrade they got rid of group messaging. Which is really inconvenient especially since the group message we already had going with important information was deleted. Really disappointing",
+    "rating": 3,
+    "app": "Batch: Let’s Party"
    },
    {
-    "quote": "Helped me organize my trip that required transit, lodging and restaurant reservations booked two months in advance, going to a new city every 2 days",
-    "rating": 5,
-    "app": "Wanderlog Travel Planner"
-   },
-   {
-    "quote": "In the past, I would rely on an email folder to organize and find information. Wanderlog simplified and centralized all of that",
-    "rating": 5,
-    "app": "Wanderlog Travel Planner"
-   },
-   {
-    "quote": "two weeks later they are forcing me to add dob, full name and address to keep using the app. Why does an app that organizes map locations need to verify my identity?",
+    "quote": "Lots of great things about this app but the fact that they are taking away the chat options basically eliminates half its purpose. If I wanted multiple text group chats I wouldn’t have downloaded the app to begin with.",
     "rating": 1,
-    "app": "TripIt"
+    "app": "Batch: Let’s Party"
    },
    {
-    "quote": "It's 2026, how is there still NO option to share your trip itinerary from the app with a link? Only option is to email people, which is so archaic",
+    "quote": "Love this as I can share with the other travelers in my party. There are no miscommunications!",
+    "rating": 5,
+    "app": "TripIt: Travel Planner"
+   },
+   {
+    "quote": "Currently trying to plan an international trip but my itinerary is showing all out of order as far as times of reservations and the date sometimes too. I imagine it’s due to timezone differences but it’s making the app ineffective. Please fix!",
     "rating": 2,
-    "app": "TripIt"
+    "app": "Batch: Let’s Party"
    },
    {
-    "quote": "allows me to just enjoy my trip and not worry about juggling all of the reservation, check-in/check-out tome, which email I have confirmation codes in",
-    "rating": 5,
-    "app": "TripIt"
+    "quote": "The app is really slow and lags, especially when trying to make changes to flight plan after delay or cancellations of flights. Very difficult to navigate. Should have a search very easy to access at home page, and each feature should be easy to access via each tab.",
+    "rating": 2,
+    "app": "United Airlines"
    },
    {
-    "quote": "thanks to using it i realized I had messed up some of the dates on my bookings and was able to fix them in time",
-    "rating": 5,
-    "app": "TripIt"
+    "quote": "On my recent flight from SFO Fri, June 19, I was lucky enough to fly first class. A few notes: my tray table was unclean when I pulled it up to open, and my seat pocket in front was lined with trash from the previous passenger(s). My ticket cost extra for that?? I love United for their professionali",
+    "rating": 3,
+    "app": "United Airlines"
    }
   ],
   "mechanisms": [
    {
-    "title": "Малые турагентства работают в Excel и WhatsApp: клиент получает PDF вручную, агент теряет данные о броне в переписке, а при изменении рейса никто не знает, кого",
-    "obsCount": 7,
+    "title": "Batch (score 50) делает именно это, но групповой чат удалили в обновлении, временные зоны сбиваются при международных поездках, а итинерарий ломается при добавл",
+    "obsCount": 6,
     "apps": [
-     "TripIt",
-     "Wanderlog Travel Planner",
-     "Tripsy travel planner"
+     "Batch: Let's Party",
+     "Wanderlog - Travel Planner",
+     "TripIt: Travel Planner"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Малые турагентства работают в Excel и переписке: клиент получает PDF вручную, агент теряет данные о броне в чате, а при изменении рейса никто не знает, кого уведомить. Специализированного инструмента для агентств с малым объёмом нет, а крупные системы стоят тысячи долларов в месяц",
+  "gap": "Batch (score 50) делает именно это, но групповой чат удалили в обновлении, временные зоны сбиваются при международных поездках, а итинерарий ломается при добавлении событий. Реальная боль: организатор корпоратива, девичника или семейной поездки собирает мнения в пяти чатах, теряет кто за что платил и кто подтвердил участие.",
   "idea": {
-   "pitch": "Простой инструмент для турагентства собирает все брони клиента в одном месте, автоматически генерирует красивый итинерарий с логотипом агентства и уведомляет агента при изменении рейса. Клиент получает ссылку на живой маршрут вместо устаревшего файла в почте. Цена 50-150 долларов в месяц доступна малым агентствам и окупается на первом же клиенте.",
+   "pitch": "Организатор группы тратит часы на Excel с расходами, бесконечные голосования в групповом чате и ручное сведение кто сколько должен. Продукт дал бы одно место для всей группы: маршрут, опросы, подтверждения участия и автоматический расчёт долгов с интеграцией в платёжные системы.",
    "features": [
-    "Карточка клиента с историей всех поездок и предпочтениями",
-    "Автогенерация PDF-итинерария с брендингом агентства",
-    "Живая ссылка для клиента: видит актуальный маршрут без PDF",
-    "Уведомление агента при изменении рейса или статуса брони",
-    "Шаблоны маршрутов по популярным направлениям для ускорения сборки"
+    "Опросы с дедлайном: каждый голосует за даты или активности, результат виден всем",
+    "Подтверждение участия по каждому пункту программы с напоминаниями опоздавшим",
+    "Реестр расходов: кто заплатил, кто должен, итоговый баланс с кнопкой перевода",
+    "Общий итинерарий с корректной обработкой временных зон",
+    "Организатор ставит права: кто может редактировать маршрут, кто только читает"
    ],
    "antiFeatures": [
-    "Нет GDS-интеграции и прямого бронирования через систему",
-    "Нет функций для конечного туриста вне просмотра маршрута",
-    "Нет аналитики продаж и финансовой отчётности"
+    "Нет бронирования от имени группы только координация уже забронированного",
+    "Нет публичных событий и маркетплейса активностей",
+    "Нет автоматического импорта чужих бронирований без разрешения участника"
    ],
-   "monetization": "Подписка B2B: 50-150 долларов в месяц с агентства. Малые агентства в США, Европе и Латинской Америке платят за CRM-инструменты регулярно. Потенциал white-label для туроператоров."
+   "monetization": "Модель freemium: до 5 человек бесплатно, группы от 6+ человек 3-5 USD/месяц с организатора или разовый платёж за поездку 2-4 USD. Организаторы корпоративов и свадеб готовы платить за инструмент, который снимает с них головную боль. Партнёрство с сервисами бронирования активностей как CPA."
   }
  },
  {
   "slug": "travel-planning-6",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
-  "title": "Мониторинг цен и возврат денег за рейс",
-  "oneLiner": "Сервис, который сам следит за ценой купленного билета и возвращает разницу, если рейс подешевел или был отменён",
-  "asOf": "2026-06-20",
+  "title": "Надёжный импорт броней в единый маршрут",
+  "oneLiner": "Инструмент, который собирает бронирования из почты в один маршрут и не ломается именно тогда, когда нужен в дороге",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 34
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
   },
   "reviewGrid": [
    {
-    "quote": "I had no idea that HOPPER monitored. Finally flying home, HOPPER emailed me that they were fully refunding me. I sang their praises all over social media",
-    "rating": 5,
-    "app": "Hopper"
-   },
-   {
-    "quote": "Really useful to get reminders of prices going up",
-    "rating": 5,
-    "app": "Hopper"
-   },
-   {
-    "quote": "thanks to using it i realized I had messed up some of the dates on my bookings and was able to fix them in time",
-    "rating": 5,
-    "app": "TripIt"
-   },
-   {
-    "quote": "Bug automatically signs me out and crashes. I'm in the middle of my trip. Thanks a lot. 2 years later this is still a problem",
-    "rating": 1,
-    "app": "TripIt"
-   },
-   {
-    "quote": "I am worried this will happen while on my trip and it will take as much time or more than I could have just had it all in my notes",
-    "rating": 3,
-    "app": "TripIt"
-   },
-   {
-    "quote": "About 1/4 of the emails actually import correctly. So, this app requires a lot of hours inputting plans manually",
+    "quote": "Even after an update the pro version continues to crash making the app and the money paid for it worthless. Never had problem before. But when out of country I rely on this app. Not sure I can recommend this to anyone to pay for pro version now.",
     "rating": 2,
-    "app": "Wanderlog Travel Planner"
+    "app": "TripIt: Travel Planner"
    },
    {
-    "quote": "Helped me organize my trip that required transit, lodging and restaurant reservations booked two months in advance, going to a new city every 2 days",
+    "quote": "I use the app everyday. It’s started hallucinating and adding flights that I’m not taking. Like UA4 from Inverness in 200 days? Bugs are popping up and features aren’t working, and same old bugs they haven’t fixed.",
+    "rating": 1,
+    "app": "TripIt: Travel Planner"
+   },
+   {
+    "quote": "what a terrible bug, it’s been 3 months and it still freezes on mac as soon as you open app and click on any trip! Developers should be fired",
+    "rating": 1,
+    "app": "TripIt: Travel Planner"
+   },
+   {
+    "quote": "Loved the seamless process",
     "rating": 5,
-    "app": "Wanderlog Travel Planner"
+    "app": "United Airlines"
+   },
+   {
+    "quote": "I am 74 years old and at times I am confused by your web site. I get a text saying check in now but it doesn’t take to to check in and I have to read look around for where I can find check in. Not good for seniors.",
+    "rating": 4,
+    "app": "United Airlines"
+   },
+   {
+    "quote": "It took me 20 minutes to check in. That’s ridiculous.",
+    "rating": 1,
+    "app": "United Airlines"
    }
   ],
   "mechanisms": [
    {
-    "title": "Путешественники не знают, что купленный билет можно вернуть частично при изменении цены, а авиакомпании не напоминают об этом сами. Hopper делает это, но только",
-    "obsCount": 7,
+    "title": "TripIt (score 67) делает это и любим за идею, но парсинг писем периодически ломается, синхронизация на Mac падает при открытии поездки, VPN блокирует вход и всё",
+    "obsCount": 6,
     "apps": [
-     "Hopper",
-     "TripIt"
+     "TripIt: Travel Planner",
+     "CheckMyTrip – Travel Itinerary",
+     "Tripsy: Travel Planner"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Путешественники не знают, что купленный билет можно вернуть частично при изменении цены, а авиакомпании не напоминают об этом сами. Крупные агрегаторы делают это только для билетов, купленных через них. Для уже купленных билетов на стороне инструмента нет",
+  "gap": "TripIt (score 67) делает это и любим за идею, но парсинг писем периодически ломается, синхронизация на Mac падает при открытии поездки, VPN блокирует вход и всё это именно за рубежом, когда запасного плана нет. Рынок есть: 300 000+ отзывов у TripIt доказывают спрос, а обилие жалоб на надёжность что ниша открыта для замены.",
   "idea": {
-   "pitch": "Пользователь загружает бронь любого рейса, и сервис следит за его ценой и статусом. При снижении цены или при задержке больше порога сервис автоматически подаёт заявку на компенсацию и возвращает деньги на карту. Бизнес-модель простая: процент от возврата без абонентской платы, платишь только когда получил деньги.",
+   "pitch": "Частый путешественник бронирует в пяти разных системах: авиабилет через KAYAK, отель через Booking, аренда машины через Hertz, экскурсия через Viator. Пересылаешь письмо получаешь единый хронологический маршрут. Продукт живёт или умирает на одном: всегда работает, особенно за рубежом с VPN и плохим интернетом.",
    "features": [
-    "Мониторинг цены купленного билета в режиме реального времени",
-    "Автоматическая подача заявки на refund при снижении цены ниже порога",
-    "Расчёт компенсации по EU261 и DOT-правилам при задержке или отмене",
-    "Поддержка 200+ авиакомпаний без ручного ввода данных",
-    "Уведомление о праве на апгрейд при свободных местах в бизнес-классе"
+    "Парсинг писем от 500+ поставщиков с актуальными шаблонами и быстрым обновлением",
+    "Офлайн-режим первого класса: весь маршрут доступен без интернета",
+    "Push о гейте, задержке и карусели багажа без задержек быстрее авиакомпании",
+    "Работа с VPN и нестандартными почтовыми клиентами без блокировок",
+    "Экспорт маршрута в PDF и в календарь без потери данных"
    ],
    "antiFeatures": [
-    "Нет функций планирования маршрута и поиска отелей",
-    "Нет советов куда лететь и когда лучше купить",
-    "Нет социальных функций"
+    "Нет социальных функций и шеринга с незнакомцами",
+    "Нет поиска рейсов и бронирования внутри приложения",
+    "Нет ИИ-рекомендаций только то, что ты сам забронировал"
    ],
-   "monetization": "Комиссия с возврата: 20-30% от суммы, полученной для клиента. Пользователь платит только если получил деньги назад. Потенциальный объём: авиакомпании ежегодно задерживают миллиарды долларов компенсаций, которые пассажиры не требуют."
+   "monetization": "Подписка 36-50 USD/год, как TripIt Pro. Платящие частые командировочные и многосегментные путешественники, которые уже платят TripIt и уйдут к более надёжному. B2B: корпоративный план для команд через TMC или прямую продажу HR-тревел-координаторам."
   }
  },
  {
   "slug": "travel-planning-7",
   "category": "travel-planning",
   "categoryName": "Планирование путешествий",
-  "title": "Логистика дня на карте для городских поездок",
-  "oneLiner": "Инструмент, который раскладывает список мест по дням с учётом расстояний и времени пешком, чтобы не метаться по городу",
-  "asOf": "2026-06-20",
+  "title": "Платформа для проверки надёжности туроператоров",
+  "oneLiner": "B2C-сервис верификации туроператоров и экскурсий: агрегирует реальную историю выполнения туров до покупки, а не после",
+  "asOf": "2026-06-29",
   "stats": {
-   "apps": 10,
-   "reviews": 5000,
-   "observations": 34
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
   },
   "reviewGrid": [
    {
-    "quote": "It gives tourist attraction sites in proximity order, but you can rearrange the itinerary as you need. Includes walking times between attractions",
-    "rating": 5,
-    "app": "Visit A City"
-   },
-   {
-    "quote": "It even provides a map view to help with the logistics of a day full of events",
-    "rating": 5,
-    "app": "Wanderlog Travel Planner"
-   },
-   {
-    "quote": "pop in your dates and the address where you're staying and it plots out your days",
-    "rating": 5,
-    "app": "Visit A City"
-   },
-   {
-    "quote": "Visit a city still lists attractions as open that were burned down in the fire, such as the sacred Banyon tree",
+    "quote": "The company changed our time, sent the vouchers for the original time, never sent the new vouchers, guide never showed up and we missed the David. \n\nEven worse, they don’t even care that we missed the David \nDo not use these people.",
     "rating": 1,
-    "app": "Visit A City"
+    "app": "GetYourGuide: Plan & Book"
    },
    {
-    "quote": "the first thing on all the itineraries is the Viking Ship Museum. Seriously, it's closed UNTIL 2026",
+    "quote": "I had 3 tours cancelled on me 3 days in a row with 24 hours or less warning.  It has never happened to me before and I have been using Viator for years.  Not sure what is going on.",
+    "rating": 1,
+    "app": "Viator Tours & Attractions"
+   },
+   {
+    "quote": "I updated the app a few minutes ago and want to log in and it doesn’t sent me the text verification codes now. I resent twice and still nothing. So I had to change to email which then worked.",
     "rating": 2,
-    "app": "Visit A City"
+    "app": "United Airlines"
    },
    {
-    "quote": "the main sight I wanted to see was incorrectly mapped in the app, and I wasted 90 minutes of a one-day trip trying to find it",
+    "quote": "The app works OK but their customer service is abysmal.\nI called yesterday to find out about some bags for an upcoming trip and it took 35 minutes on the phone, 2 transfers and three people to answer the question.  They make it very vague and send conflicting information about baggage.",
     "rating": 3,
-    "app": "Visit A City"
+    "app": "United Airlines"
    },
    {
-    "quote": "Before you can customize your travel plans and itinerary using this app. Now it just shows paid package tours and there are no options for customization",
-    "rating": 1,
-    "app": "Visit A City"
+    "quote": "Me Encanta la buena Atención que le Proporcionan a los Viajeros…!!!",
+    "rating": 5,
+    "app": "United Airlines"
+   },
+   {
+    "quote": "When selecting my seat preference, it only remembers window or aisle. I have to go back in, every flight, to select that more leg room is more important to me than a window seat. It should remember that too. But to make matters worse, the option to select my seat preference has now completely disapp",
+    "rating": 4,
+    "app": "United Airlines"
    }
   ],
   "mechanisms": [
    {
-    "title": "Туристы добавляют 20 мест в wishlist, а потом вручную пытаются разбить их по дням так, чтобы не метаться через весь город. Ни один планировщик не решает эту зад",
-    "obsCount": 7,
+    "title": "Viator (score 46), GetYourGuide (score 44) и KKday (score 52) объединяет одна системная проблема: платформа не контролирует исполнителей, и когда тур отменяется",
+    "obsCount": 6,
     "apps": [
-     "Visit A City",
-     "Wanderlog Travel Planner",
-     "Sygic Travel Maps"
+     "Viator Tours & Attractions",
+     "GetYourGuide: Plan & Book",
+     "KKday - Your Travel Companion"
     ],
     "polarity": "pain"
    }
   ],
-  "gap": "Туристы добавляют 20 мест в список желаний, а потом вручную пытаются разбить их по дням так, чтобы не метаться через весь город. Ни один планировщик не решает эту задачу автоматически: показывают список, но не оптимизируют логистику дня",
+  "gap": "Viator (score 46), GetYourGuide (score 44) и KKday (score 52) объединяет одна системная проблема: платформа не контролирует исполнителей, и когда тур отменяется или гид не приходит клиент остаётся один. Отзывы появляются после беды. Нет ни одного сервиса, который бы агрегировал процент выполнения туров до бронирования.",
   "idea": {
-   "pitch": "Пользователь добавляет все места, которые хочет посетить, указывает отель и количество дней, а сервис строит оптимальный маршрут каждого дня с минимальными перемещениями, временем пешком между точками и учётом часов работы. Монетизация через разовую оплату за поездку без подписки и скрытых функций.",
+   "pitch": "Турист платит 100-500 USD за экскурсию и узнаёт об отмене за 24 часа или не узнаёт вообще. Сервис собирает данные об истории выполнения конкретным оператором: процент отмен, средний срок уведомления об отмене, скорость возврата денег и показывает это до покупки. Монетизация: платформа берёт комиссию за бронирования только проверенных операторов.",
    "features": [
-    "Автоматическое разбиение wishlist по дням с минимизацией перемещений",
-    "Карта каждого дня с временем пешком и транспортом между точками",
-    "Учёт часов работы из актуальной базы: не включает закрытые объекты",
-    "Перетаскивание мест между днями с мгновенным пересчётом маршрута",
-    "Экспорт дня в офлайн-карту и PDF для печати"
+    "Рейтинг оператора по выполнению: процент проведённых туров за 12 месяцев",
+    "Статистика отмен: когда в среднем сообщают, как быстро возвращают деньги",
+    "Верифицированные отзывы только от подтверждённых участников тура",
+    "Альтернативный оператор при отмене: мгновенная замена с сопоставимым маршрутом",
+    "Страховка исполнения: если тур отменён в день, компенсация от платформы"
    ],
    "antiFeatures": [
-    "Нет парсинга почты и хранения броней",
-    "Нет рекомендаций мест от редакции или алгоритма",
-    "Нет многопользовательского режима"
+    "Нет каталога самих туров без верификации оператора",
+    "Нет контента для вдохновения и открытия направлений",
+    "Нет бронирования жилья и транспорта только экскурсии"
    ],
-   "monetization": "Разовая оплата за поездку: 3-5 долларов за маршрут. Городские туристы готовы платить за конкретный результат без подписки. Партнёрства с туристическими информационными центрами и отелями как источник клиентов."
+   "monetization": "Комиссия 12-15% с бронирования верифицированных операторов, страховка исполнения как дополнительный платёж 3-5% от суммы тура. Туристы, которые уже обожглись через Viator или GetYourGuide, готовы доплачивать за гарантию. B2B: лицензия на API рейтингов для OTA."
+  }
+ },
+ {
+  "slug": "travel-planning-8",
+  "category": "travel-planning",
+  "categoryName": "Планирование путешествий",
+  "title": "eSIM-маркетплейс с реальными отзывами по странам и операторам",
+  "oneLiner": "Платформа выбора и покупки eSIM с верифицированными отзывами о скорости и надёжности по конкретным странам и операторам до того как застрял без связи",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 90,
+   "reviews": 24560,
+   "observations": 380
+  },
+  "reviewGrid": [
+   {
+    "quote": "I’ve been using a Nomad eSIM in China now for three days and it has worked amazingly well. It gets me right through the firewall, i’m able to access all my apps, and the connection is super fast, just like home.",
+    "rating": 5,
+    "app": "Nomad eSIM: Prepaid Data Plan"
+   },
+   {
+    "quote": "Agents take forever to reply. Fine print bs means that they will take your money with no according recompense.\nDo not use.",
+    "rating": 1,
+    "app": "Agoda: Cheap Flights & Hotels"
+   },
+   {
+    "quote": "An extra $500 to fly home with having to check more bags and just to choose a seat! Ridiculous!!!",
+    "rating": 1,
+    "app": "United Airlines"
+   },
+   {
+    "quote": "They changed the gate on me and I went all the way to the c terminal and got stuck waiting for the next flight.  Just make sure you check constantly once off the plane",
+    "rating": 2,
+    "app": "United Airlines"
+   },
+   {
+    "quote": "I used the app because I travel a lot and United is my preferred airline. The app mostly does everything I need overall, but it freezes so much and can take forever to load a simple HTML page. It could be a lot better if United cared",
+    "rating": 3,
+    "app": "United Airlines"
+   },
+   {
+    "quote": "Thanks for this easy way to make travel plans and organize them.",
+    "rating": 5,
+    "app": "United Airlines"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Airalo (score 60) и Nomad (score 52) продают eSIM, но выбор провайдера лотерея: в Японии летит, в Египте нет, и узнаёшь об этом уже по прилёту. Нет ни одного ме",
+    "obsCount": 6,
+    "apps": [
+     "Airalo: eSIM Travel & Internet",
+     "Nomad eSIM: Prepaid Data Plan",
+     "Booking.com: Hotels & Travel"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Airalo (score 60) и Nomad (score 52) продают eSIM, но выбор провайдера лотерея: в Японии летит, в Египте нет, и узнаёшь об этом уже по прилёту. Нет ни одного места, где можно посмотреть реальную скорость по стране конкретного оператора от живых пользователей, а не маркетинговое описание.",
+  "idea": {
+   "pitch": "Путешественник покупает eSIM за 10-25 USD на поездку, и если она не работает в нужной стране теряет деньги и остаётся без связи в чужом городе. Маркетплейс агрегирует краудсорсинговые отчёты о скорости и покрытии по стране и конкретному оператору, ранжирует предложения по реальным данным и позволяет купить лучший вариант прямо здесь.",
+   "features": [
+    "Карта покрытия по отзывам пользователей: скорость и стабильность по регионам внутри страны",
+    "Сравнение 10+ провайдеров по цене, скорости и качеству поддержки в конкретной стране",
+    "Push-инструкция по установке с пошаговым гайдом до вылета не в момент проблемы",
+    "Чат поддержки с живым оператором при сбое, а не бот",
+    "История покупок с быстрым продлением при смене страны"
+   ],
+   "antiFeatures": [
+    "Нет физических SIM-карт только eSIM",
+    "Нет телефонных номеров в eSIM только мобильный интернет",
+    "Нет собственной сети платформа только агрегирует и продаёт"
+   ],
+   "monetization": "Комиссия 20-30% с продажи eSIM от партнёрских провайдеров. Рынок туристических eSIM растёт на 30%+ в год: каждый путешественник с современным телефоном потенциальный покупатель. Средний чек 15-20 USD за поездку, повторные покупки при каждой стране."
   }
  },
  {
