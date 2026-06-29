@@ -17,6 +17,7 @@ import nutritionCalories from "./nutrition-calories.json";
 import periodCycle from "./period-cycle.json";
 import personalFinance from "./personal-finance.json";
 import photoEditing from "./photo-editing.json";
+import recipesMealPlanning from "./recipes-meal-planning.json";
 import rideHailing from "./ride-hailing.json";
 import shoppingEcommerce from "./shopping-ecommerce.json";
 import sleepTracking from "./sleep-tracking.json";
@@ -26,5 +27,5 @@ import weatherApps from "./weather-apps.json";
 import workoutFitness from "./workout-fitness.json";
 
 export const DOSSIER_BY_SLUG: Record<string, unknown> = {
-  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "focus-productivity": focusProductivity, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "journaling-mood": journalingMood, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "sleep-tracking": sleepTracking, "travel-planning": travelPlanning, "video-streaming": videoStreaming, "weather-apps": weatherApps, "workout-fitness": workoutFitness,
+  "ai-avatars-headshots": aiAvatarsHeadshots, astrology, "calendars-tasks": calendarsTasks, "crypto-investing": cryptoInvesting, "dating-apps": datingApps, "focus-productivity": focusProductivity, "food-delivery": foodDelivery, "habit-tracking": habitTracking, "journaling-mood": journalingMood, "language-learning": languageLearning, "meditation-mindfulness": meditationMindfulness, "messaging-apps": messagingApps, "music-streaming": musicStreaming, "notes-pkm": notesPkm, "nutrition-calories": nutritionCalories, "period-cycle": periodCycle, "personal-finance": personalFinance, "photo-editing": photoEditing, "recipes-meal-planning": recipesMealPlanning, "ride-hailing": rideHailing, "shopping-ecommerce": shoppingEcommerce, "sleep-tracking": sleepTracking, "travel-planning": travelPlanning, "video-streaming": videoStreaming, "weather-apps": weatherApps, "workout-fitness": workoutFitness,
 };

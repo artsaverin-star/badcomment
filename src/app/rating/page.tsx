@@ -40,6 +40,7 @@ const NICHES = [
   { slug: "focus-productivity", name: "Фокус и продуктивность", nameEn: "Focus & productivity timer apps", blurb: "72 приложения: где таймер работает в фоне и блокировка отвлечений держит, а где гимик и накрутка." },
   { slug: "journaling-mood", name: "Дневники и настроение", nameEn: "Journaling & mood apps", blurb: "95 приложений: где писать легко и видно динамику настроения, а где давит стрик и течёт приватность." },
   { slug: "workout-fitness", name: "Тренировки и фитнес", nameEn: "Workout & fitness apps", blurb: "91 приложение: где лог тренировки быстрый и прогрессия считается, а где накрутка и слетает история." },
+  { slug: "recipes-meal-planning", name: "Рецепты и меню", nameEn: "Recipe & meal-planning apps", blurb: "77 приложений: где рецепт сохраняется из сети и список покупок собирается сам, а где теряется коллекция." },
 ];
 
 export default async function RatingIndexPage() {

@@ -40480,5 +40480,605 @@
    ],
    "monetization": "Подписка 5 USD/месяц или 40 USD/год. Аудитория: спортсмены, люди на особых диетах (веганы, люди с аллергиями), те, кто следит за здоровьем на длинном горизонте. Cronometer Gold имеет платящую базу людям важен именно микронутриентный учёт, этого нет ни у одного бесплатного альтернатива."
   }
+ },
+ {
+  "slug": "recipes-meal-planning-1",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Планировщик питания для диабетиков",
+  "oneLiner": "Недельное меню и список покупок строго по гликемическому индексу и ХЕ, без случайных рецептов из общих баз",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "How about some labeling or the ability to filter for low or no salt or sugar options?",
+    "rating": 4,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "What I have ordered has been great. I do however have to pick out or not cook some things because of carbs. I have to substitute Crushed pork rinds for Panko, cauliflower rice for other rices. Mashed cauliflower for mashed potatoes.",
+    "rating": 3,
+    "app": "Home Chef: Meal Kit Delivery"
+   },
+   {
+    "quote": "I spend way too much time getting this app (which I pay handsomely for) to load. I’m constantly reloading the app, turning off my phone, and attempting to solve access issues. It’s getting to the point where I wonder if it’s worth all the hassle.",
+    "rating": 1,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "Don’t get me wrong the app will get you results but that’s not what we’re reviewing here. We’re rating the app. \n\nIt used to be a great app. And it still could be, if you can tolerate all the animations and extra bloat. Ironically, for a weight loss app, it’s become a bit bloatware itself.\n\nIf there",
+    "rating": 2,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I love Noom - I used it a few years ago and shaved off 22 lbs. Life happened and I need to get back on it to get back on track. I loved the app then as I could connect my smartwatch and the interface was easy to use. The food database is so vast and I can find all my foods and meals stored - no need",
+    "rating": 3,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "In 2024 I join NOOM for the second time. I was in such pain from bone on bone in my hip joint & my doctor wouldn’t do hip replacement until I got my BMI down.\nI was adamant about getting my weight down so I could have my surgery. And NOOM really helped me to be able to do that. \nI am so grateful tha",
+    "rating": 5,
+    "app": "Noom Weight Loss, Food Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Ни один из существующих планировщиков не умеет фильтровать рецепты по хлебным единицам, гликемическому индексу и гликемической нагрузке одновременно. Диабетики ",
+    "obsCount": 6,
+    "apps": [
+     "KetoDiet: Fasting & Meal Plans",
+     "Mealime Meal Plans & Recipes",
+     "Calorie Counter - MyNetDiary",
+     "Eat This Much - Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Ни один из существующих планировщиков не умеет фильтровать рецепты по хлебным единицам, гликемическому индексу и гликемической нагрузке одновременно. Диабетики вынуждены проверять каждый рецепт вручную или пользоваться таблицами, пока приложение показывает им каши и фрукты без предупреждений.",
+  "idea": {
+   "pitch": "Приложение строит недельный план питания только из рецептов с низким гликемическим индексом и корректным соотношением углеводов, рассчитывает ХЕ на порцию и выводит итоговый список покупок. Пользователь задаёт тип диабета, тип инсулина и суточный лимит углеводов один раз и больше не думает об этом при выборе блюда. Конкурент здесь не Mealime, а блокнот эндокринолога: платящий покупатель уже тратит деньги на консультации и тест-полоски.",
+   "features": [
+    "База из 400+ рецептов с предварительно рассчитанным ГИ, ГН и количеством ХЕ на порцию",
+    "Недельный планировщик с суточным лимитом ХЕ и распределением по приёмам пищи",
+    "Автоматический список покупок из выбранного меню с количеством в граммах",
+    "Калькулятор замены продукта: чем заменить картофель или белый рис без выброса ГИ",
+    "Экспорт дневника питания с ГИ и ХЕ в PDF для показа врачу"
+   ],
+   "antiFeatures": [
+    "Синхронизация с глюкометрами и CGM-устройствами это медицинское устройство и отдельная юрисдикция",
+    "ИИ-рекомендации дозы инсулина выходит за рамки продукта и создаёт юридические риски",
+    "Социальная лента и геймификация аудитория хочет инструмент, а не развлечение"
+   ],
+   "monetization": "Диабетики в США тратят тысячи долларов в год на лечение, 4,99 в месяц или 29,99 разовая покупка ничтожная сумма рядом с расходами на тест-полоски. Аудитория стабильная и нечувствительная к цене приложения: люди покупают CGM за 300 долларов. Можно продавать доступ семейного врача и PDF-отчёты по 2,99 за штуку."
+  }
+ },
+ {
+  "slug": "recipes-meal-planning-2",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Очиститель рецептов от блогерского текста",
+  "oneLiner": "Вставляешь URL любого кулинарного блога получаешь только ингредиенты и шаги, без истории детства автора и 40 фотографий теста",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "Seems Paprika is no longer downloading NYTCooking recipes! Have the latest iOS software updates! This is really not good! I LOVE this app but downloading recipes even from the browser is not working!",
+    "rating": 2,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "My favorite feature with this app is being able to add recipes from websites. Just paste the website & download the recipe & make little adjustments as needed.",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "The app is usually wonderful, dr and guide-person are super supportive, meds work great. Only problem I tend to have is that the app like, doesn’t want to load right from time to time. It gets very annoying when I’m trying to get ready for bed and the app won’t load right 3, 4, 5 times in a row. \nSe",
+    "rating": 4,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I was an avid fan of noom.  But then Noom decided it knows better than the paid users.  Added the concept of seeds that I do not care about.  But they will not let you opt out of seeds.   The annoying part is every so often they give you the stupid seeds as rewards and freeze up the screen for 30 se",
+    "rating": 1,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "Every time there is an update, you have to open the app at least three times to get it to load. This is very frustrating and annoying. It need to be fixed?!",
+    "rating": 2,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "This is my second time doing Noom; the first time was a great success, and this time around started off great with a bang. But then an update hit the app a couple of months ago that made it nearly unusable. The gamification has been taken to the extreme and it seems like I can’t log a meal without 5",
+    "rating": 3,
+    "app": "Noom Weight Loss, Food Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Деглазирование рекламного мусора реальная массовая боль: пользователи прокручивают тысячи слов чужой биографии, чтобы добраться до рецепта. Just the Recipe и De",
+    "obsCount": 6,
+    "apps": [
+     "Deglaze: Cooking, Simplified",
+     "Just the Recipe: Cook smarter",
+     "Paprika Recipe Manager 3",
+     "Umami - Recipe Manager"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Деглазирование рекламного мусора реальная массовая боль: пользователи прокручивают тысячи слов чужой биографии, чтобы добраться до рецепта. Just the Recipe и Deglaze решают это частично, но парсер ломается на каждом втором сайте, ручной ввод ингредиентов по одному невозможен, а в платной версии Deglaze убрали масштабирование порций.",
+  "idea": {
+   "pitch": "Приложение получает URL, извлекает только структурированные ингредиенты и шаги и сохраняет рецепт в личную коллекцию. Парсер поддерживает JSON-LD, микроразметку и грубый HTML-фолбэк, поэтому работает на 95% кулинарных блогов. Масштабирование порций, режим готовки с крупным шрифтом и автоматический список покупок включены в базовую цену без подписки.",
+   "features": [
+    "Парсинг по URL с тройным фолбэком: JSON-LD, микроразметка, HTML-эвристика",
+    "Масштабирование порций с пересчётом всех ингредиентов в одно касание",
+    "Режим готовки с крупным шрифтом и подсветкой текущего шага, экран не гаснет",
+    "Сохранение в личную коллекцию с тегами и полнотекстовым поиском",
+    "Список покупок из выбранных рецептов с объединением одинаковых ингредиентов"
+   ],
+   "antiFeatures": [
+    "Встроенная база рецептов от редакции это другой бизнес с огромными затратами на контент",
+    "Импорт из TikTok и Instagram видео требует распознавания речи, это отдельный продукт",
+    "Планировщик питания на неделю не нужен целевой аудитории, которая готовит конкретный рецепт"
+   ],
+   "monetization": "Разовая покупка 4,99 или 6,99 по модели Paprika: аудитория хорошо знает Paprika и Deglaze и устала платить подписку за то, что должно быть базовым. Mela (68 очков) доказала спрос на одноразовую покупку без подписки. Дополнительная монетизация через виджет Apple Watch за 1,99."
+  }
+ },
+ {
+  "slug": "recipes-meal-planning-3",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Готовка из того, что есть дома",
+  "oneLiner": "Вводишь продукты из холодильника приложение подбирает рецепты, где используется максимум из того, что уже есть, без лишних покупок",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "I wish you could add more than 3 ingredients to the meal maker option. Otherwise I love the app",
+    "rating": 3,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "This is a great app for planning meal and automatically adding the ingredients to your shopping list. The only downside is that I would like to be able to track my spending as I am going through the store by barcoding the prices to make sure I am staying within budget",
+    "rating": 4,
+    "app": "AnyList: Grocery Shopping List"
+   },
+   {
+    "quote": "Choose a different company",
+    "rating": 5,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I had a paid account for years (though I now realize I didn’t use most of the paid offerings) and Noom helped me lose about 8 lbs. The app can be glitchy, though, and every time there are updates things change/may not work. I now have a free account, and I don’t know if that’s why I can only track f",
+    "rating": 4,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "Don’t do it.  The “Dr’s” that oversee your plan don’t do anything and can’t even answer basic questions about doses!!!",
+    "rating": 1,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I am trying to link phone and iPad nooms.   Can’t figure out to get food connected up",
+    "rating": 2,
+    "app": "Noom Weight Loss, Food Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "SuperCook (60 очков) доказал спрос: идея рабочая, пользователи любят её. Но SuperCook технически нестабилен: рецепты открываются белым экраном, избранное не сох",
+    "obsCount": 6,
+    "apps": [
+     "SuperCook Recipe By Ingredient",
+     "Cooklist: Pantry Meals Recipes",
+     "Samsung Food: Meal Planner",
+     "MealBoard - Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "SuperCook (60 очков) доказал спрос: идея рабочая, пользователи любят её. Но SuperCook технически нестабилен: рецепты открываются белым экраном, избранное не сохраняется, приложение ведёт на сторонние сайты. Cooklist (58 очков) завязан на сканирование чека и интеграцию с магазинами эти интеграции разрываются сами по себе и не восстанавливаются месяцами.",
+  "idea": {
+   "pitch": "Пользователь один раз вводит содержимое холодильника и кладовой, а приложение ранжирует рецепты по проценту совпадения: сначала те, где не нужно ничего докупать, потом те, где не хватает одного-двух ингредиентов. Никаких интеграций с магазинами, никаких сторонних сайтов: рецепты хранятся локально и открываются мгновенно. Аудитория все, кто хочет сократить пищевые отходы и экономить на закупке.",
+   "features": [
+    "Ручной ввод продуктов с автодополнением и поиском по ингредиентам",
+    "Ранжирование рецептов: от 100% совпадения до «нужно купить 1-2 позиции»",
+    "Список недостающих ингредиентов для каждого рецепта с указанием количества",
+    "Фильтр по типу блюда, времени приготовления и диетическим ограничениям",
+    "Отметка использованных продуктов, которая автоматически обновляет остатки в кладовой"
+   ],
+   "antiFeatures": [
+    "Интеграция с магазинами и онлайн-заказ главная причина нестабильности Cooklist, не нужна",
+    "Сканирование штрихкода продуктов парсинг базы штрихкодов требует постоянной поддержки",
+    "Публичная лента и социальные функции целевая аудитория хочет утилиту, а не соцсеть"
+   ],
+   "monetization": "SuperCook набрал 21 тысячу оценок с рейтингом 4,8 при технически нестабильном продукте это огромный подавленный спрос. Разовая покупка 3,99 или подписка 1,99 в месяц. Дополнительная монетизация: платный экспорт «умного» списка покупок только недостающих позиций."
+  }
+ },
+ {
+  "slug": "recipes-meal-planning-4",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Планировщик для воскресного batch-cooking",
+  "oneLiner": "Выбираешь 4-6 блюд, приложение строит единый список покупок и пошаговое расписание готовки на воскресенье: что ставить в духовку одновременно, что резать пока варится другое",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "We love this app. We’ve tried other options over the years, but come back to eMeals every time! I do wish there was a meal prep mode that would easily tell you what and how to prep in advance!",
+    "rating": 4,
+    "app": "eMeals - Healthy Meal Plans"
+   },
+   {
+    "quote": "I was wondering if we can add an option where we can add the meals to multiple days/weeks for meal prepping instead of repeatedly adding the recipe one by one for each day. Thanks!",
+    "rating": 4,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "The app is great. My request is that the meal plans should take into account your favorite recipes when they’re created. Also, if you change one meal, it would be nice to have all other instances of that meal replaced as well.",
+    "rating": 4,
+    "app": "8fit Workouts & Meal Planner"
+   },
+   {
+    "quote": "I have been using mealime for years and it has changed the way my family eats as well as reduced my grocery spending",
+    "rating": 4,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "It’s generally very good but has been very glitchy lately",
+    "rating": 3,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I had gained 20lbs slowly over several years. I tried many times to loose and often could loose 5-10lbs or so only for it to return. In comes Noom meds. Not a miracle- a lot of hard work and learning but have been down 15lbs over 4.5 months! Highly recommend for those who want to put in time. Noom w",
+    "rating": 5,
+    "app": "Noom Weight Loss, Food Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "MealPrepPro (63 очка) справляется с batch-cooking, но не умеет учитывать то, что уже есть дома, не позволяет добавлять собственные рецепты в план и не строит ра",
+    "obsCount": 6,
+    "apps": [
+     "MealPrepPro Planner & Recipes",
+     "8fit Workouts & Meal Planner",
+     "Ollie for Meals: Meal Planning",
+     "eMeals - Healthy Meal Plans"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "MealPrepPro (63 очка) справляется с batch-cooking, но не умеет учитывать то, что уже есть дома, не позволяет добавлять собственные рецепты в план и не строит расписание параллельных процессов. 8fit (48 очков) заморожен в развитии два года. Никто из конкурентов не решает задачу «я хочу приготовить всё за 3 часа в воскресенье».",
+  "idea": {
+   "pitch": "Пользователь выбирает 4-6 рецептов на неделю, приложение объединяет все ингредиенты в один список покупок без дублей, затем строит временную шкалу: шаги, которые можно совместить по времени, выделены, духовка используется максимально эффективно. Это не просто планировщик меню это диспетчер кухонного производства для занятого человека.",
+   "features": [
+    "Выбор 2-8 рецептов с автоматическим объединением ингредиентов в единый список без дублей",
+    "Временная шкала готовки: параллельные задачи, пересечения духовки и плиты",
+    "Ввод остатков из кладовой список покупок вычитает то, что уже есть",
+    "Деление порций по контейнерам и дням недели с меткой для каждого",
+    "Импорт рецептов по URL из любого кулинарного сайта"
+   ],
+   "antiFeatures": [
+    "Ежедневный трекинг калорий это другой продукт с другой аудиторией",
+    "Социальные функции и лента рецептов аудитория batch-preppers хочет эффективность, а не вдохновение",
+    "Интеграция с умными духовками и устройствами добавляет зависимость от железа"
+   ],
+   "monetization": "Аудитория batch-preppers активно платит за экономию времени: MealPrepPro имеет 11 тысяч оценок при рейтинге 4,7. Подписка 3,99 в месяц или 24,99 в год. Дополнительно продажа готовых «batch-пакетов» (наборов из 5 совместимых рецептов для одной сессии готовки) по 1,99."
+  }
+ },
+ {
+  "slug": "recipes-meal-planning-5",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Рецепты для семьи с придирчивыми детьми",
+  "oneLiner": "Планировщик меню на неделю, где каждое блюдо проверено: нет скрытых продуктов, которые дети отказываются есть, и есть вариант адаптации для малышей",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "Busy working mom with a husband and two picky eater daughters. EMeals helps me plan and shop fast, easy and healthy. Going on 7+ years. Still love EMeals.",
+    "rating": 5,
+    "app": "eMeals - Healthy Meal Plans"
+   },
+   {
+    "quote": "Definitely love the app and it has made meal prep so much easier. I would give Mealime 5 stars if they came out with a kid-friendly category.",
+    "rating": 4,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "It doesn't have many options for foods to avoid. I’m allergic to all kinds of peppers, and very much hate most beans. There was no option to filter out those recipes. I would have liked to see that.",
+    "rating": 2,
+    "app": "Tasty: Recipes, Cooking Videos"
+   },
+   {
+    "quote": "Absolutely love this app i just wish the dietary preferences tab was working. I cant have pork and every third recipe has pork in it. And my partner doesnt like mushrooms and the other third of the recipes have those in it.",
+    "rating": 4,
+    "app": "Epicurious"
+   },
+   {
+    "quote": "Excellent platform - it truly works and I’ve achieved results I was looking for. Now I’m in the habit of logging meals, and doesn’t feel like a huge burden. Highly recommend.",
+    "rating": 4,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I didn’t even get signed in fully before you people shoved GLP ones down my throat. And then have the audacity to charge nearly $300 for your program? You do realize GLP ones do what your program will do, right? People use it to lose weight quickly. Your system is not designed to help people lose we",
+    "rating": 1,
+    "app": "Noom Weight Loss, Food Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Большинство планировщиков предлагают фильтры аллергенов, но не умеют работать с «ребёнок не ест лук» или «старший не ест рыбу, а младший не ест мясо». eMeals са",
+    "obsCount": 6,
+    "apps": [
+     "Mealime Meal Plans & Recipes",
+     "eMeals - Healthy Meal Plans",
+     "AnyList: Grocery Shopping List",
+     "Ollie for Meals: Meal Planning"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Большинство планировщиков предлагают фильтры аллергенов, но не умеют работать с «ребёнок не ест лук» или «старший не ест рыбу, а младший не ест мясо». eMeals сам признаётся в отзывах что «Kids friendly was not tested with kids». Mealime пользователи просят детскую категорию уже несколько лет. Это не нишевая боль это боль каждой второй семьи с детьми.",
+  "idea": {
+   "pitch": "Каждый член семьи задаёт свой список неприемлемых продуктов, а не просто аллергенов. Приложение предлагает только те блюда, где нет ни одного запрещённого продукта для любого участника, или показывает простую адаптацию: «для ребёнка отложи порцию до добавления специй». Список покупок строится с разбивкой по приёмам пищи и с отметкой что можно приготовить заранее.",
+   "features": [
+    "Профили членов семьи с индивидуальным списком нелюбимых и запрещённых продуктов",
+    "Фильтрация рецептов: только те, что подходят всей семье, или с пометкой «лёгкая адаптация»",
+    "Подсказки адаптации: что отложить до добавления специй или соуса для ребёнка",
+    "Недельный план с автосписком покупок и разбивкой по приёмам пищи",
+    "База из 300+ рецептов, проверенных реальными семьями с детьми-привередами"
+   ],
+   "antiFeatures": [
+    "Трекинг калорий и макросов для детей юридически чувствительная тема",
+    "Доставка продуктов логистика убьёт фокус одиночного разработчика",
+    "Детские рецепты для первого прикорма это другой рынок с другой аудиторией"
+   ],
+   "monetization": "Семьи с детьми платят без колебаний за то, что реально экономит вечернее время и нервы. Подписка 4,99 в месяц или 34,99 в год. eMeals зарабатывает на семейном сегменте давно: аудитория хорошо знает, что за хорошее планирование стоит платить."
+  }
+ },
+ {
+  "slug": "recipes-meal-planning-6",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Бюджетный планировщик питания на неделю",
+  "oneLiner": "Задаёшь бюджет на продукты приложение строит недельное меню и список покупок, которые в него укладываются, с ценами из реального магазина",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "This is a great app for planning meal and automatically adding the ingredients to your shopping list. The only downside is that I would like to be able to track my spending as I am going through the store by barcoding the prices to make sure I am staying within budget",
+    "rating": 4,
+    "app": "AnyList: Grocery Shopping List"
+   },
+   {
+    "quote": "I have been using mealime for years and it has changed the way my family eats as well as reduced my grocery spending",
+    "rating": 4,
+    "app": "Mealime Meal Plans & Recipes"
+   },
+   {
+    "quote": "The tabs at the bottom of the app have disappeared. I have deleted and reinstalled the app and every other thing I can think of to fix it. I can’t log  a free day. This defeats some of the purpose of thbe program. Tech support refused to help me and closed ticket. Happy to take my money, too lazy an",
+    "rating": 2,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "The psychology is good but the biggest place where Noom is failing its paid subscribers is there is no fiber tracking.  In 2026 when fiber & protein are what we are being told is most important, we can’t track both with  a $200 subscription?   When so many of us are on GLP-1s?Customer service just b",
+    "rating": 3,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "This is a complete Weight Loss / GLP-1 health package.  It not only addresses your physical health, but your behavioral health.  This dual action approach had set me up for success.  I love having access to tracking my food/macros, conversing with the Noom Community, being able to message my coach o",
+    "rating": 5,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I’ve decided to get my family involved in a weight loss and/or get fit challenge. We are all on this app to get healthy. It has been glitching for all 9 of us at some point or another.",
+    "rating": 4,
+    "app": "Noom Weight Loss, Food Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "AnyList (82 очка) прямо говорят пользователи: «хотел бы отслеживать бюджет прямо в списке». Ни один планировщик не строит меню с ценовым ограничением: Mealime п",
+    "obsCount": 6,
+    "apps": [
+     "AnyList: Grocery Shopping List",
+     "Mealime Meal Plans & Recipes",
+     "eMeals - Healthy Meal Plans",
+     "MealBoard - Meal Planner"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "AnyList (82 очка) прямо говорят пользователи: «хотел бы отслеживать бюджет прямо в списке». Ни один планировщик не строит меню с ценовым ограничением: Mealime предлагает рецепты без учёта стоимости ингредиентов, eMeals толкает заказы в Walmart без реальной экономии. Люди на бюджетном питании вынуждены вручную считать стоимость каждого рецепта.",
+  "idea": {
+   "pitch": "Пользователь вводит недельный бюджет на продукты, приложение предлагает меню, суммарная стоимость ингредиентов которого не превышает лимит. Цены на продукты обновляются вручную раз в месяц из открытых источников по стране или вводятся пользователем по чекам. Список покупок показывает бегущий итог и предупреждает, если корзина выходит за рамки бюджета.",
+   "features": [
+    "Ввод недельного бюджета и автоматический подбор меню с суммарной стоимостью в рамках лимита",
+    "Список покупок с ценами и бегущим итогом, который обновляется при добавлении позиций",
+    "Подстановка более дешёвых аналогов: «заменить куриное филе бедром сэкономит 3 доллара»",
+    "История расходов по неделям с графиком: сколько реально потратили vs план",
+    "Режим «максимальная экономия»: меню из сезонных продуктов с минимальным числом уникальных ингредиентов"
+   ],
+   "antiFeatures": [
+    "Интеграция с кассами магазинов в реальном времени нестабильна и требует поддержки партнёрств",
+    "Купоны и кэшбэк другая бизнес-модель с другим трафиком",
+    "Трекинг пищевой ценности и макросов размывает фокус, есть другие приложения для этого"
+   ],
+   "monetization": "Аудитория людей с ограниченным бюджетом на еду огромна и устойчива. Монетизация через разовую покупку 2,99 или подписку 1,99 в месяц нижний ценовой порог специально для этой аудитории. Дополнительная монетизация: продажа готовых «экономных меню» (наборов на 7 дней на 4 человека за 50 долларов) по 0,99 за набор."
+  }
+ },
+ {
+  "slug": "recipes-meal-planning-7",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Менеджер рецептов для кето-диеты",
+  "oneLiner": "Личная коллекция рецептов с подсчётом чистых углеводов на порцию, планировщиком на неделю и корректным списком покупок без ежемесячной подписки",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "All I want is keto recipes. I would pay a cookbook price for that. No chance in hades I’ll pay a subscription fee every month for it.",
+    "rating": 1,
+    "app": "Keto Diet App & Recipes"
+   },
+   {
+    "quote": "Love all the recipes.  However when saving recipes to my favorites for quick reference they do not save once you close out of the app.  Kinda frustrating seeing as I paid for the lifetime membership.",
+    "rating": 3,
+    "app": "Keto Diet App & Recipes"
+   },
+   {
+    "quote": "I literally never put reviews on this store. Ever.\n\nI felt I had to because I truly feel like this has been the worst customer service and app experience I’ve ever had.\n\nOrdered the GLP 1 on the 10th. Still no medication in the mail.\n\nI have not been able to open the application once because it keep",
+    "rating": 1,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "Noom is terrible now. There’s way too much going on in the app. Simpler is better. It’s overwhelming how many pages and options there are and the A.I. stuff is a turn off. On the ‘today’ page there were so many ‘suggestions’ that my page froze. Instant cancel.",
+    "rating": 2,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "I have been loving the Noom app for the last 8 months, it has really helped me lose weight and now I’m in the maintenance phase. The recent update though has been a bit irritating. I’m getting used to the seed thing, but the animation for it is so slow and time consuming. Please get rid of the seed ",
+    "rating": 3,
+    "app": "Noom Weight Loss, Food Tracker"
+   },
+   {
+    "quote": "Just like any other program it works if you work it. But Noom is non-annoying and works on proven science. I lost 30 lbs and kept 20 off for three years. Now I’m going to take off the last 20 and keep Noominh to keep them off",
+    "rating": 5,
+    "app": "Noom Weight Loss, Food Tracker"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "KetoDiet (60 очков) и Keto Diet App (28 очков) страдают от одной и той же болезни: избранные рецепты сбрасываются после закрытия приложения. Пользователи вынужд",
+    "obsCount": 6,
+    "apps": [
+     "KetoDiet: Fasting & Meal Plans",
+     "Keto Diet App & Recipes",
+     "Paprika Recipe Manager 3",
+     "Mela - Recipe Manager"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "KetoDiet (60 очков) и Keto Diet App (28 очков) страдают от одной и той же болезни: избранные рецепты сбрасываются после закрытия приложения. Пользователи вынуждены платить подписку за дырявый продукт. Главная жалоба: «All I want is keto recipes. I would pay a cookbook price for that. No chance in hades I'll pay a subscription fee every month for it.» Paprika не считает кето-макросы. Разрыв очевиден.",
+  "idea": {
+   "pitch": "Приложение хранит личную коллекцию кето-рецептов с постоянным и надёжным расчётом чистых углеводов (total carbs минус fiber) на порцию. Планировщик на неделю проверяет, что суточный лимит углеводов не превышен. Разовая покупка без подписки именно то, что просят люди в отзывах снова и снова.",
+   "features": [
+    "Расчёт чистых углеводов (total carbs минус fiber) для каждого рецепта с масштабированием порций",
+    "Импорт рецептов по URL с автоматическим парсингом КБЖУ из страниц кето-блогов",
+    "Недельный планировщик с суточным счётчиком углеводов и предупреждением при превышении лимита",
+    "Надёжное локальное хранение с iCloud-резервированием: рецепты не исчезают никогда",
+    "Список покупок из выбранного меню с объединением одинаковых ингредиентов"
+   ],
+   "antiFeatures": [
+    "Большая редакционная база рецептов от авторов слишком дорого поддерживать соло",
+    "Трекинг кетоза через анализ мочи или крови это медицинское устройство",
+    "ИИ-рекомендации по питанию и коучинг выходит за рамки инструмента"
+   ],
+   "monetization": "Кето-рынок огромен и устойчив: KetoDiet набрал 2,4 тысячи оценок, Keto Diet App 29 тысяч несмотря на рейтинг 28 из 100. Аудитория привержена диете годами и готова платить. Разовая покупка 7,99 (аналог поваренной книги, которую просят в отзывах) или 4,99 с ежегодным обновлением базы рецептов."
+  }
+ },
+ {
+  "slug": "recipes-meal-planning-8",
+  "category": "recipes-meal-planning",
+  "categoryName": "Рецепты и меню",
+  "title": "Оцифровщик семейных рецептов с бумаги",
+  "oneLiner": "Фотографируешь бабушкину карточку или страницу поваренной книги приложение распознаёт текст и превращает его в структурированный рецепт с ингредиентами и шагами",
+  "asOf": "2026-06-29",
+  "stats": {
+   "apps": 77,
+   "reviews": 22822,
+   "observations": 347
+  },
+  "reviewGrid": [
+   {
+    "quote": "I just love this app. Find a recipe online. Add to Paprika3 immediately. Find it again later. Easy peasy. I’ve even taken photos of recipes from relatives / friends. Told AI to convert the picture into YAML format then just import into Paprika. Amazing handy.",
+    "rating": 5,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "This app seems to be missing one major feature which is the ability to print or export all recipes by category into an organized cookbook.  It means that if you use this app to organization, you seem to have to use another app if you want to print a nice looking cookbook.",
+    "rating": 3,
+    "app": "Paprika Recipe Manager 3"
+   },
+   {
+    "quote": "The NY Times App installs and works on my older iPad and iOS. But there is no alternative that I s backwards compatible with this NY Time cooking App. The install is stuck in a loop - complaining that I need to install and older version of the App, which is actually not available.",
+    "rating": 1,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "This app was fine and dandy but I can no longer use it because my phone is too old :(. Same thing happened with the games app. Thanks for shutting people out of your content who can’t afford/don’t want the latest gadgets, so cool of you to do that!",
+    "rating": 2,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "This app is easy to use and has so many great recipes, however it makes my phone hot within minutes (especially when browsing). I have an iPhone 17 pro that doesn’t have this issue on any other app… so it seems it could be much better optimized.",
+    "rating": 3,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   },
+   {
+    "quote": "The many recipes make sure I never get bored cooking, love the diverse ingredients and the comments are very valuable and give space for experimentation",
+    "rating": 5,
+    "app": "NYT Cooking: Quick Tasty Meals"
+   }
+  ],
+  "mechanisms": [
+   {
+    "title": "Recipe Keeper OrganizEat (72 очка) делает это и делает хорошо, но иногда пропускает ингредиенты при OCR и требует ручной проверки. Главный незакрытый сегмент лю",
+    "obsCount": 6,
+    "apps": [
+     "Recipe Keeper - OrganizEat",
+     "Recipe Notes - My Cookbook",
+     "Recipe Keeper - Cook'n",
+     "Paprika Recipe Manager 3"
+    ],
+    "polarity": "pain"
+   }
+  ],
+  "gap": "Recipe Keeper OrganizEat (72 очка) делает это и делает хорошо, но иногда пропускает ингредиенты при OCR и требует ручной проверки. Главный незакрытый сегмент люди с сотнями рукописных семейных рецептов на карточках, в тетрадях и блокнотах. Они не хотят планировщик, не хотят соцсеть они хотят сохранить и передать коллекцию.",
+  "idea": {
+   "pitch": "Приложение заточено под один сценарий: сфотографировал карточку или страницу, OCR+LLM распознал структуру, ты быстро поправил ошибки в удобном редакторе, рецепт сохранён. Вся коллекция экспортируется в красиво оформленный PDF-cookbook для печати. Это подарок поколению, которое хочет оставить кулинарное наследие детям.",
+   "features": [
+    "OCR с LLM-постобработкой: распознаёт рукопись, выделяет ингредиенты и шаги из свободного текста",
+    "Быстрый редактор для правки ошибок распознавания: одно касание меняет распознанное слово",
+    "Организация по категориям, тегам и источнику (чья это рецептура)",
+    "Экспорт всей коллекции или отдельной категории в PDF-cookbook с фото блюд и фото оригинала",
+    "Надёжное хранение с iCloud и возможностью поделиться отдельным рецептом ссылкой"
+   ],
+   "antiFeatures": [
+    "Импорт из интернета по URL не нужен целевой аудитории и размывает фокус продукта",
+    "Планировщик меню на неделю другая задача и другая аудитория",
+    "Трекинг питания и КБЖУ аудитория хочет сохранить рецепты, а не считать калории"
+   ],
+   "monetization": "Аудитория люди 45+ с накопленными коллекциями рецептов, у которых есть деньги и сильная эмоциональная мотивация. Базовое приложение бесплатно для 20 рецептов, разовая покупка 6,99 снимает лимит. Дополнительная монетизация: экспорт в PDF-cookbook 2,99 за генерацию, печать через сторонний сервис (партнёрство)."
+  }
  }
 ]
