@@ -65,32 +65,32 @@ export default function InsightCard({
         <span
           className={
             card
-              ? "text-[15px] font-semibold leading-snug tracking-[-0.01em] text-[var(--color-text-primary)]"
-              : "text-[16px] font-normal leading-snug text-[var(--color-text-primary)]"
+              ? "text-callout font-semibold text-[var(--color-text-primary)]"
+              : "text-body text-[var(--color-text-primary)]"
           }
         >
           {title}
         </span>
-        {body && <span className="text-[13.5px] leading-[1.55] text-[var(--color-text-secondary)]">{body}</span>}
+        {body && <span className="text-callout text-[var(--color-text-secondary)]">{body}</span>}
         {plus && (
-          <span className="flex items-start gap-2 text-[13.5px] leading-[1.5]">
-            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
+          <span className="flex items-start gap-2 text-callout">
+            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-caption font-bold leading-none text-[#4ade80]">+</span>
             <span className="text-[var(--color-text-secondary)]">{plus}</span>
           </span>
         )}
         {minus && (
-          <span className="flex items-start gap-2 text-[13.5px] leading-[1.5]">
-            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
+          <span className="flex items-start gap-2 text-callout">
+            <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-footnote font-bold leading-none text-[#ff8585]">−</span>
             <span className="text-[var(--color-text-secondary)]">{minus}</span>
           </span>
         )}
         {apps && apps.length > 0 && (
-          <span className="text-[12px] leading-relaxed text-[var(--color-text-tertiary)]">{apps.join(" · ")}</span>
+          <span className="text-caption leading-relaxed text-[var(--color-text-tertiary)]">{apps.join(" · ")}</span>
         )}
         <button
           type="button"
           onClick={open}
-          className={`${card ? "mt-auto pt-1.5" : "mt-1.5"} flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 hover:bg-[var(--color-accent-brand-subtle)] hover:text-[var(--color-text-brand)] hover:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]`}
+          className={`${card ? "mt-auto pt-1.5" : "mt-1.5"} flex w-fit cursor-pointer items-center gap-1.5 rounded-full bg-[var(--color-bg-muted)] px-3 py-1.5 text-footnote font-semibold tabular-nums text-[var(--color-text-secondary)] ring-1 ring-transparent transition-all duration-200 hover:bg-[var(--color-accent-brand-subtle)] hover:text-[var(--color-text-brand)] hover:ring-[color-mix(in_srgb,var(--color-text-brand)_45%,transparent)]`}
         >
           {tone === "up" ? (
             <svg width="14" height="14" viewBox="0 0 24 24" fill="#4ade80" aria-hidden="true">

@@ -127,11 +127,11 @@ export default async function BestPage({ params }: { params: Promise<{ slug: str
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <header className="mb-5 sm:mb-7">
-        <p className="text-[12px] font-medium text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's ranking"}</p>
-        <h1 className="mt-1 text-[clamp(26px,6.5vw,42px)] font-black leading-[1.04] tracking-[-0.035em] text-[var(--color-text-primary)] text-balance">
+        <p className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's ranking"}</p>
+        <h1 className="mt-1 text-display text-[var(--color-text-primary)] text-balance">
           {ru ? `Лучшие приложения: ${cat.name}` : `Best ${cat.name} apps`}
         </h1>
-        <p className="mt-2.5 max-w-[56ch] text-[14px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[16px]">
+        <p className="mt-2.5 max-w-[56ch] text-body text-[var(--color-text-secondary)]">
           {ru
             ? <>По {nf(totalReviews)} реальным отзывам на {ranked.length} приложений. Рейтинг — не звезда из стора, а доля довольных и {" "}<span className="text-[var(--color-text-primary)]">за что любят и на что злятся</span> по словам самих пользователей.</>
             : <>From {nf(totalReviews)} real reviews of {ranked.length} apps. The rank is not the store star — it is the share of satisfied users and <span className="text-[var(--color-text-primary)]">what people love and hate</span> in their own words.</>}
@@ -145,7 +145,7 @@ export default async function BestPage({ params }: { params: Promise<{ slug: str
             className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-3.5 sm:p-4"
           >
             <div className="flex items-start gap-3">
-              <div className="flex w-7 shrink-0 justify-center pt-0.5 text-[18px] font-black tabular-nums text-[var(--color-text-tertiary)] sm:text-[20px]">{medal(i)}</div>
+              <div className="flex w-7 shrink-0 justify-center pt-0.5 text-subhead tabular-nums text-[var(--color-text-tertiary)]">{medal(i)}</div>
               {r.icon ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={r.icon} alt="" width={48} height={48} className="h-11 w-11 shrink-0 rounded-[12px] sm:h-12 sm:w-12" />
@@ -154,21 +154,21 @@ export default async function BestPage({ params }: { params: Promise<{ slug: str
               )}
               <div className="min-w-0 flex-1">
                 <div className="flex items-baseline justify-between gap-2">
-                  <h2 className="truncate text-[16px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[18px]">{r.name}</h2>
-                  <span className="shrink-0 text-[13px] font-semibold tabular-nums text-[var(--color-text-secondary)] sm:text-[14px]">★ {r.avg.toFixed(1)}</span>
+                  <h2 className="truncate text-subhead text-[var(--color-text-primary)]">{r.name}</h2>
+                  <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-secondary)]">★ {r.avg.toFixed(1)}</span>
                 </div>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">
+                <p className="mt-0.5 text-caption text-[var(--color-text-tertiary)]">
                   {ru ? `${Math.round(r.pct45 * 100)}% довольных · ${nf(r.reviews)} отзывов прочитано` : `${Math.round(r.pct45 * 100)}% satisfied · ${nf(r.reviews)} reviews read`}
                 </p>
-                {r.description && <p className="mt-1.5 text-[12.5px] leading-[1.45] text-[var(--color-text-secondary)]">{tg(r.description)}</p>}
+                {r.description && <p className="mt-1.5 text-caption text-[var(--color-text-secondary)]">{tg(r.description)}</p>}
                 <div className="mt-2.5 flex flex-col gap-1.5">
                   {r.loved && (
-                    <p className="text-[13px] leading-[1.45] text-[var(--color-text-primary)]">
+                    <p className="text-footnote text-[var(--color-text-primary)]">
                       <span className="font-semibold text-emerald-500">{ru ? "Любят:" : "Loved:"}</span> {tg(r.loved)}
                     </p>
                   )}
                   {r.hated && (
-                    <p className="text-[13px] leading-[1.45] text-[var(--color-text-primary)]">
+                    <p className="text-footnote text-[var(--color-text-primary)]">
                       <span className="font-semibold text-rose-500">{ru ? "Бесит:" : "Annoys:"}</span> {tg(r.hated)}
                     </p>
                   )}
@@ -184,15 +184,15 @@ export default async function BestPage({ params }: { params: Promise<{ slug: str
           href={`/${lp}/segment/${slug}`}
           className="group mt-6 block rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-4 sm:p-5 transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,var(--color-surface-card))]"
         >
-          <p className="text-[12px] font-medium text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What every one of them is missing"}</p>
-          <p className="mt-1 text-[17px] font-bold leading-[1.2] tracking-[-0.015em] text-[var(--color-text-primary)] sm:text-[19px]">{tg(topIdeaTitle)}</p>
-          <p className="mt-1.5 text-[13px] text-[var(--color-text-secondary)]">
+          <p className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What every one of them is missing"}</p>
+          <p className="mt-1 text-lead font-bold text-[var(--color-text-primary)]">{tg(topIdeaTitle)}</p>
+          <p className="mt-1.5 text-footnote text-[var(--color-text-secondary)]">
             {ru ? "Разбор отзывов и идеи под подтверждённый спрос" : "Review teardown and ideas backed by proven demand"} <span className="text-[var(--color-text-tertiary)] transition-colors group-hover:text-[var(--color-text-primary)]">→</span>
           </p>
         </Link>
       )}
 
-      <p className="mt-6 text-[11px] leading-[1.5] text-[var(--color-text-tertiary)]">
+      <p className="mt-6 text-caption text-[var(--color-text-tertiary)]">
         {ru
           ? "Как считаем: читаем выборку реальных отзывов из App Store и Google Play по каждому приложению и ранжируем по доле довольных пользователей, а не по витринной звезде. «Любят» и «бесит» — самые частые темы из отзывов."
           : "Method: we read a sample of real App Store and Google Play reviews per app and rank by the share of satisfied users, not the storefront star. \"Loved\" and \"annoys\" are the most frequent themes from the reviews."}

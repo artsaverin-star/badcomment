@@ -194,12 +194,12 @@ export default function IdeaFeed({
                             <svg width="17" height="17" viewBox="0 0 24 24" fill={itSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
                           </button>
                           <div className="flex flex-1 flex-col justify-center">
-                            <div className="pr-10 text-[13px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
-                            <h2 className="mt-2 pr-10 text-[19px] font-bold leading-[1.14] tracking-[-0.02em] text-[var(--color-text-primary)] line-clamp-3 text-balance sm:text-[22px] sm:line-clamp-5">{it.title}</h2>
-                            <p className="mt-2.5 text-[14px] leading-[1.45] text-[var(--color-text-secondary)] line-clamp-4 sm:mt-3 sm:text-[14.5px] sm:leading-[1.5] sm:line-clamp-6">{it.oneLiner}</p>
+                            <div className="pr-10 text-footnote font-medium text-[var(--color-text-brand)]">{it.categoryName}</div>
+                            <h2 className="mt-2 pr-10 text-headline text-[var(--color-text-primary)] line-clamp-3 text-balance sm:line-clamp-5">{it.title}</h2>
+                            <p className="mt-2.5 text-callout text-[var(--color-text-secondary)] line-clamp-4 sm:mt-3 sm:line-clamp-6">{it.oneLiner}</p>
                           </div>
                           <div className="pt-5">
-                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); openDepth(); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-body font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                               {it.depth ? (ru ? "Раскрыть разбор" : "Open the breakdown") : loggedIn ? (ru ? "Открыть разбор" : "Open the breakdown") : (ru ? "Войти и открыть" : "Sign in to open")}
                             </button>
                           </div>
@@ -207,12 +207,12 @@ export default function IdeaFeed({
                       ) : it.kind === "auth" ? (
                         <div className="flex h-full flex-col">
                           <div className="flex flex-1 flex-col justify-center">
-                            <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Бесплатно" : "Free"}</div>
-                            <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Войди и смотри другие идеи" : "Sign in to see more ideas"}</h2>
-                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? nb("Дальше — ещё десятки разборов: что строить и как на этом заработать. Вход бесплатный и занимает пару секунд.") : "Dozens more ideas wait ahead — what to build and how it makes money. Signing in is free and takes seconds."}</p>
+                            <div className="text-footnote font-medium text-[var(--color-text-brand)]">{ru ? "Бесплатно" : "Free"}</div>
+                            <h2 className="mt-2 text-headline text-[var(--color-text-primary)] text-balance">{ru ? "Войди и смотри другие идеи" : "Sign in to see more ideas"}</h2>
+                            <p className="mt-3 text-callout text-[var(--color-text-secondary)]">{ru ? nb("Дальше — ещё десятки разборов: что строить и как на этом заработать. Вход бесплатный и занимает пару секунд.") : "Dozens more ideas wait ahead — what to build and how it makes money. Signing in is free and takes seconds."}</p>
                           </div>
                           <div className="pt-5">
-                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setAuth(true); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); setAuth(true); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-body font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                               {ru ? "Войти" : "Sign in"}
                             </button>
                           </div>
@@ -220,9 +220,9 @@ export default function IdeaFeed({
                       ) : it.kind === "paywall" ? (
                         <div className="flex h-full flex-col">
                           <div className="flex flex-1 flex-col justify-center">
-                            <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
-                            <h2 className="mt-2 text-[22px] font-bold leading-[1.16] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
-                            <p className="mt-3 text-[14.5px] leading-[1.5] text-[var(--color-text-secondary)] line-clamp-4">{ru ? nb("Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда.") : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
+                            <div className="text-footnote font-medium text-[var(--color-text-brand)]">{ru ? "Колода идей" : "Idea deck"}</div>
+                            <h2 className="mt-2 text-headline text-[var(--color-text-primary)] text-balance">{ru ? "Открой все 98 разборов" : "Unlock all 98 breakdowns"}</h2>
+                            <p className="mt-3 text-callout text-[var(--color-text-secondary)] line-clamp-4">{ru ? nb("Дальше открывается с колодой: по каждой идее — почему это шанс, что строить и как заработать. Навсегда.") : "The rest opens with the deck: every idea's gap, what to build and how it earns. Forever."}</p>
                           </div>
                           <div className="pt-5" onPointerDown={(e) => e.stopPropagation()}>
                             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
@@ -231,12 +231,12 @@ export default function IdeaFeed({
                       ) : (
                         <div className="flex h-full flex-col">
                           <div className="flex flex-1 flex-col justify-center">
-                            <div className="text-[13px] font-medium text-[var(--color-text-brand)]">{ru ? "Лента идей" : "Idea feed"}</div>
-                            <h2 className="mt-2 text-[24px] font-bold leading-[1.12] tracking-[-0.02em] text-[var(--color-text-primary)] text-balance sm:text-[27px]">{intro?.title}</h2>
-                            <p className="mt-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{intro?.sub}</p>
+                            <div className="text-footnote font-medium text-[var(--color-text-brand)]">{ru ? "Лента идей" : "Idea feed"}</div>
+                            <h2 className="mt-2 text-title3 text-[var(--color-text-primary)] text-balance">{intro?.title}</h2>
+                            <p className="mt-3 text-body text-[var(--color-text-secondary)]">{intro?.sub}</p>
                           </div>
                           <div className="pt-5">
-                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); go("next"); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
+                            <button type="button" onPointerDown={(e) => e.stopPropagation()} onClick={(e) => { e.stopPropagation(); go("next"); }} className="w-full rounded-full bg-[var(--color-button-primary-bg)] px-4 py-3.5 text-body font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">
                               {ru ? "Листать идеи" : "Browse ideas"}
                             </button>
                           </div>
@@ -282,20 +282,20 @@ export default function IdeaFeed({
             </button>
             <div className="overflow-y-auto overscroll-contain px-7 py-10 sm:px-12 sm:py-12">
               {/* eyebrow + title block */}
-              <div className="text-[11px] font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">{curIdea.categoryName}</div>
-              <h2 className="mt-4 max-w-[18ch] text-[30px] font-bold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{curIdea.title}</h2>
-              <p className="mt-5 max-w-[42ch] text-[18px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[20px]">{curIdea.oneLiner}</p>
-              <div className="mt-5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{curIdea.demand} {ru ? wordObs(curIdea.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
+              <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{curIdea.categoryName}</div>
+              <h2 className="mt-4 max-w-[18ch] text-title2 text-[var(--color-text-primary)]">{curIdea.title}</h2>
+              <p className="mt-5 max-w-[42ch] text-subhead text-[var(--color-text-secondary)]">{curIdea.oneLiner}</p>
+              <div className="mt-5 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{curIdea.demand} {ru ? wordObs(curIdea.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
 
               <div className="mt-11 flex flex-col gap-10">
                 {curIdea.depth.gap && <Sw label={ru ? "Почему это шанс" : "The opening"} text={curIdea.depth.gap} />}
                 {curIdea.depth.pitch && <Sw label={ru ? "Что строить" : "What to build"} text={curIdea.depth.pitch} />}
                 {curIdea.depth.features.length > 0 && (
                   <div>
-                    <div className="text-[18px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Что входит" : "Features"}</div>
+                    <div className="text-subhead font-bold text-[var(--color-text-primary)]">{ru ? "Что входит" : "Features"}</div>
                     <ul className="mt-4 flex flex-col">
                       {curIdea.depth.features.map((f, j) => (
-                        <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
+                        <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-body text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
                       ))}
                     </ul>
                   </div>
@@ -305,8 +305,8 @@ export default function IdeaFeed({
                   <div className="flex flex-col gap-6">
                     {curIdea.depth.quotes.map((q, j) => (
                       <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-5">
-                        <blockquote className="text-[16px] leading-[1.55] text-[var(--color-text-primary)]">{q.text}</blockquote>
-                        <figcaption className="mt-2 text-[11px] tracking-[0.02em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
+                        <blockquote className="text-body text-[var(--color-text-primary)]">{q.text}</blockquote>
+                        <figcaption className="mt-2 text-caption text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
                       </figure>
                     ))}
                   </div>
@@ -314,7 +314,7 @@ export default function IdeaFeed({
               </div>
 
               <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-                <Link href={`/segment/${curIdea.category}`} className="text-[15px] font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${curIdea.categoryName}»` : `Full niche breakdown "${curIdea.categoryName}"`} →</Link>
+                <Link href={`/segment/${curIdea.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${curIdea.categoryName}»` : `Full niche breakdown "${curIdea.categoryName}"`} →</Link>
               </div>
             </div>
           </div>
@@ -325,10 +325,10 @@ export default function IdeaFeed({
       {paywall && (
         <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/60 p-0 backdrop-blur-sm sm:items-center sm:p-4" onClick={() => setPaywall(false)}>
           <div className="flex w-full max-w-[440px] flex-col items-center gap-4 rounded-t-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-7 text-center sm:rounded-[24px]" onClick={(e) => e.stopPropagation()}>
-            <div className="text-[20px] font-black tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все разборы идей" : "Unlock every idea"}</div>
-            <p className="text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? nb("Колода открывает разбор каждой идеи: почему это шанс, что строить, фичи и монетизация — навсегда.") : "The deck opens every idea's breakdown — the gap, what to build, features and monetization — forever."}</p>
+            <div className="text-subhead font-black text-[var(--color-text-primary)]">{ru ? "Открой все разборы идей" : "Unlock every idea"}</div>
+            <p className="text-callout text-[var(--color-text-secondary)]">{ru ? nb("Колода открывает разбор каждой идеи: почему это шанс, что строить, фичи и монетизация — навсегда.") : "The deck opens every idea's breakdown — the gap, what to build, features and monetization — forever."}</p>
             <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
-            <button type="button" onClick={() => setPaywall(false)} className="text-[13px] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{ru ? "Позже" : "Later"}</button>
+            <button type="button" onClick={() => setPaywall(false)} className="text-footnote text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]">{ru ? "Позже" : "Later"}</button>
           </div>
         </div>
       )}
@@ -365,8 +365,8 @@ function Ruba() {
 function Sw({ label, text }: { label: string; text: string }) {
   return (
     <div>
-      <div className="text-[18px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{label}</div>
-      <p className="mt-3 text-[16.5px] leading-[1.6] text-[var(--color-text-secondary)]">{text}</p>
+      <div className="text-subhead font-bold text-[var(--color-text-primary)]">{label}</div>
+      <p className="mt-3 text-body text-[var(--color-text-secondary)]">{text}</p>
     </div>
   );
 }

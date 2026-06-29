@@ -85,8 +85,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
 
   const Field = ({ label, children }: { label: string; children: ReactNode }) => (
     <div>
-      <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{label}</div>
-      <p className="mt-1 max-w-[60ch] text-[15px] leading-[1.6] text-pretty text-[var(--color-text-secondary)]">{children}</p>
+      <div className="text-footnote text-[var(--color-text-tertiary)]">{label}</div>
+      <p className="mt-1 max-w-[60ch] text-callout text-pretty text-[var(--color-text-secondary)]">{children}</p>
     </div>
   );
 
@@ -95,17 +95,17 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
       <AtmosphereSetter random />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Link href={`/${ru ? "ru" : "en"}`} className="inline-flex items-center gap-1.5 text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
+      <Link href={`/${ru ? "ru" : "en"}`} className="inline-flex items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "На главную" : "Home"}
       </Link>
 
       <header className="mt-12">
-        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>
-        <h1 className="glow-sweep mt-6 text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-[var(--color-text-primary)] text-balance">
+        <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>
+        <h1 className="glow-sweep mt-6 text-display text-[var(--color-text-primary)] text-balance">
           {ru ? `Лучшие приложения для ${set.seoName ?? name.toLowerCase()}` : `Best ${name.toLowerCase()} apps`}
         </h1>
-        <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">
+        <p className="mt-8 max-w-[58ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
             ? <>Топ-{set.count} по {nf(set.totalReviews)} реальным отзывам. Оценили качество самого продукта, а не витринную звезду, которую накручивают.</>
             : <>Top {set.count} by {nf(set.totalReviews)} real reviews. We scored the product itself, not the storefront star that gets gamed.</>}
@@ -114,15 +114,15 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
           {stats.map((s, i) => (
             <div key={i} className="flex flex-col">
-              <span className="glow-sweep text-[clamp(44px,12vw,64px)] font-black leading-none tracking-[-0.045em] tabular-nums text-[var(--color-text-primary)]">{s.n}</span>
-              <span className="mt-3 text-[13px] text-[var(--color-text-tertiary)]">{s.l}</span>
+              <span className="glow-sweep text-stat tabular-nums text-[var(--color-text-primary)]">{s.n}</span>
+              <span className="mt-3 text-footnote text-[var(--color-text-tertiary)]">{s.l}</span>
             </div>
           ))}
         </div>
 
         <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Как считаем" : "How we score"}</div>
-          <p className="mt-3 max-w-[64ch] text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">
+          <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Как считаем" : "How we score"}</div>
+          <p className="mt-3 max-w-[64ch] text-callout text-[var(--color-text-secondary)]">
             {ru
               ? "Читаем до 500 реальных отзывов на каждое приложение и оцениваем качество самого продукта. Смотрим на точность, глубину, авторские тексты против общей ИИ-воды. Жалобы на цену и баги игнорируем как шум. Подлинность звезды это сверка витринного рейтинга с тем, что люди пишут на деле."
               : "We read up to 500 real reviews per app and rate the product itself. We look at accuracy, depth and original writing versus generic AI filler. Price and bug complaints we ignore as noise. Star authenticity compares the storefront rating with what people actually write."}
@@ -139,30 +139,30 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
             <li key={a.id} className="border-b border-[var(--color-border-subtle)] py-7 sm:py-9">
               {/* Icon sits ABOVE the title so the title runs full width on mobile */}
               <div className="flex items-center gap-3">
-                <span className="text-[13px] font-medium tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
+                <span className="text-footnote tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
                 {a.icon
                   // eslint-disable-next-line @next/next/no-img-element
                   ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
                   : <div className="size-11 shrink-0 rounded-[12px] bg-[var(--color-bg-muted)]" />}
               </div>
 
-              <h2 className="mt-3 text-[21px] font-semibold leading-[1.15] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[26px]">{a.title}</h2>
+              <h2 className="mt-3 text-headline text-[var(--color-text-primary)]">{a.title}</h2>
 
-              <p className="mt-3 max-w-[62ch] text-[17px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">{tg(tx("verdict"))}</p>
+              <p className="mt-3 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(tx("verdict"))}</p>
 
               {a.shots && a.shots.length > 0 && <RatingShots shots={a.shots} title={a.title} />}
 
               {/* Store + people scores, then a compact clickable authenticity chip */}
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
-                  <div className="text-[11.5px] text-[var(--color-text-tertiary)]">{ru ? "В сторе" : "Store"}</div>
-                  <div className="mt-1 text-[18px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</div>
-                  <div className="mt-1 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.ratings)} {ru ? "оценок" : "ratings"}</div>
+                  <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "В сторе" : "Store"}</div>
+                  <div className="mt-1 text-subhead tabular-nums text-[var(--color-text-primary)]">{a.storeAvg?.toFixed(1) ?? "—"}★</div>
+                  <div className="mt-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">{nf(a.ratings)} {ru ? "оценок" : "ratings"}</div>
                 </div>
                 <div className="rounded-[12px] border border-[var(--color-border-subtle)] px-3 py-2">
-                  <div className="text-[11.5px] text-[var(--color-text-tertiary)]">{ru ? "Народный" : "People's"}</div>
-                  <div className="mt-1 text-[18px] font-semibold leading-none tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}<span className="text-[11.5px] font-medium text-[var(--color-text-tertiary)]"> / 100</span></div>
-                  <div className="mt-1 text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{nf(a.nrev)} {ru ? "отзывов" : "reviews"}</div>
+                  <div className="text-caption text-[var(--color-text-tertiary)]">{ru ? "Народный" : "People's"}</div>
+                  <div className="mt-1 text-subhead tabular-nums text-[var(--color-text-primary)]">{a.realScore ?? "—"}<span className="text-caption text-[var(--color-text-tertiary)]"> / 100</span></div>
+                  <div className="mt-1 text-caption tabular-nums text-[var(--color-text-tertiary)]">{nf(a.nrev)} {ru ? "отзывов" : "reviews"}</div>
                 </div>
                 <RatingAuthBadge caption={ru ? "Честность" : "Authenticity"} label={ru ? "Звезда в сторе" : "Store star"} word={av.word} note={tg(tx("authNote"))} fg={av.fg} detailsLabel={ru ? "подробнее" : "details"} closeLabel={ru ? "Закрыть" : "Close"} />
               </div>
@@ -178,8 +178,8 @@ export default async function RatingPage({ params }: { params: Promise<{ slug: s
       </ol>
 
       <Link href={`/${ru ? "ru" : "en"}/segment/${slug}`} className="group mt-12 block border-t border-[var(--color-border-subtle)] pt-8">
-        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What they all miss"}</div>
-        <p className="mt-2 max-w-[40ch] text-[24px] font-semibold leading-[1.15] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[30px]">
+        <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Чего не хватает всем по отзывам" : "What they all miss"}</div>
+        <p className="mt-2 max-w-[40ch] text-title3 text-[var(--color-text-primary)]">
           {ru ? <>Разбор категории и идеи под подтверждённый спрос <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></> : <>The category breakdown and ideas backed by proven demand <span className="inline-block text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-1">→</span></>}
         </p>
       </Link>

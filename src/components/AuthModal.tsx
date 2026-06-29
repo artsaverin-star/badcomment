@@ -355,7 +355,7 @@ export default function AuthModal({
         <div className="mb-4 flex justify-center">
           <Logo iconSize={40} textClassName="text-[30px]" />
         </div>
-        <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">
+        <h2 className="text-headline text-[var(--color-text-primary)]">
           {ru ? "Добро пожаловать в inApp" : "Welcome to inApp"}
         </h2>
         <p className="mt-1.5 text-callout text-[var(--color-text-secondary)]">

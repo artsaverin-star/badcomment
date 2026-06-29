@@ -360,13 +360,13 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img src={s.icon} alt="" className="size-20 rounded-[22px] shadow-[0_12px_36px_-12px_rgba(0,0,0,0.6)]" />
         ) : null}
-        <h1 className="text-[30px] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--color-text-primary)]">{s.name}</h1>
+        <h1 className="text-title3 text-[var(--color-text-primary)]">{s.name}</h1>
         {s.description && (
-          <p className="max-w-[30ch] text-[15px] leading-relaxed text-[var(--color-text-secondary)]">{s.description}</p>
+          <p className="max-w-[30ch] text-body text-[var(--color-text-secondary)]">{s.description}</p>
         )}
         {s.avgRating != null && (
           <div className="flex flex-col items-center gap-1">
-            <div className="text-[15px] tabular-nums tracking-tight text-[#f5b301]">
+            <div className="text-body tabular-nums tracking-tight text-[#f5b301]">
               {"★".repeat(Math.round(s.avgRating))}
               {"☆".repeat(Math.max(0, 5 - Math.round(s.avgRating)))}
             </div>
@@ -376,7 +376,7 @@ function Cover({ s, ru }: { s: CoverSlide; ru: boolean }) {
             </div>
           </div>
         )}
-        <p className="max-w-[26ch] text-[15px] leading-relaxed text-[var(--color-text-secondary)]">
+        <p className="max-w-[26ch] text-body text-[var(--color-text-secondary)]">
           {ru ? (
             <>
               Прочитали <b className="tabular-nums text-[var(--color-text-primary)]">{s.reviewsScanned.toLocaleString("ru-RU")}</b> отзывов и собрали{" "}
@@ -405,7 +405,7 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
   return (
     <Frame glow="var(--color-text-brand)">
       <div className="relative mb-2">
-        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[11px] font-bold tracking-wide text-[var(--color-text-secondary)]">
+        <span className="inline-flex rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption font-bold tracking-wide text-[var(--color-text-secondary)]">
           {ru ? "Оценки" : "Ratings"}
         </span>
       </div>
@@ -413,8 +413,8 @@ function Stats({ s, ru }: { s: StatsSlide; ru: boolean }) {
       <div className="relative flex flex-1 flex-col justify-center gap-6">
         {s.avg != null && (
           <div className="flex flex-col items-center gap-1">
-            <div className="text-[52px] font-bold leading-none tabular-nums text-[var(--color-text-primary)]">{s.avg.toFixed(1)}</div>
-            <div className="text-[18px] tabular-nums tracking-tight text-[#f5b301]">
+            <div className="text-stat font-bold leading-none tabular-nums text-[var(--color-text-primary)]">{s.avg.toFixed(1)}</div>
+            <div className="text-subhead tabular-nums tracking-tight text-[#f5b301]">
               {"★".repeat(Math.round(s.avg))}
               {"☆".repeat(Math.max(0, 5 - Math.round(s.avg)))}
             </div>
@@ -463,7 +463,7 @@ function Shot({ s, ru }: { s: ShotSlide; ru: boolean }) {
       <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent" />
       <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
       <div className="relative z-10 flex items-center justify-between gap-2 p-5">
-        <span className="inline-flex rounded-full bg-black/40 px-2.5 py-1 text-[11px] font-bold tracking-wide text-white backdrop-blur-sm">
+        <span className="inline-flex rounded-full bg-black/40 px-2.5 py-1 text-caption font-bold tracking-wide text-white backdrop-blur-sm">
           {ru ? "Экран" : "Screen"}
         </span>
         <span className="truncate text-caption font-medium text-white/85">{s.name}</span>
@@ -497,8 +497,8 @@ function Chapter({ s, ru }: { s: ChapterSlide; ru: boolean }) {
         <span className="text-caption font-bold tracking-[0.02em] text-[var(--color-text-brand)]">
           {(ru ? "Глава " : "Chapter ") + s.index} · {s.total}
         </span>
-        <h2 className="text-[30px] font-bold leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[34px]">{s.heading}</h2>
-        <p className="text-[16px] leading-relaxed text-[var(--color-text-secondary)]">{s.dek}</p>
+        <h2 className="text-title3 text-[var(--color-text-primary)]">{s.heading}</h2>
+        <p className="text-body text-[var(--color-text-secondary)]">{s.dek}</p>
       </div>
       <div className="relative flex items-center justify-end">
         <span className="text-caption font-semibold tracking-tight text-[var(--color-text-tertiary)]">inapp.pro</span>
@@ -539,7 +539,7 @@ function ReviewsDialog({
       <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
         <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
           <span className="flex min-w-0 flex-col gap-1">
-            <span className="w-fit rounded-full px-2 py-0.5 text-[10px] font-bold tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
+            <span className="w-fit rounded-full px-2 py-0.5 text-caption font-bold tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
               {kicker}
             </span>
             <span className="text-lead font-semibold leading-snug">{title}</span>
@@ -590,7 +590,7 @@ function IdeaCard({ s, ru }: { s: IdeaSlide; ru: boolean }) {
   return (
     <Frame glow={glow}>
       <div className="relative mb-4 flex items-center justify-between gap-2">
-        <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
+        <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-caption font-bold tracking-wide" style={{ background: `color-mix(in srgb, ${glow} 18%, transparent)`, color: glow }}>
           {ru ? "Идея" : "Idea"}
         </span>
         <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
@@ -599,12 +599,12 @@ function IdeaCard({ s, ru }: { s: IdeaSlide; ru: boolean }) {
       </div>
 
       <div className="relative flex flex-1 flex-col gap-3 overflow-hidden">
-        <h2 className="text-[22px] font-bold leading-[1.18] tracking-[-0.01em] text-[var(--color-text-primary)]">{s.title}</h2>
-        <p className="line-clamp-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">{s.oneLiner}</p>
+        <h2 className="text-headline text-[var(--color-text-primary)]">{s.title}</h2>
+        <p className="line-clamp-3 text-body text-[var(--color-text-secondary)]">{s.oneLiner}</p>
         {s.pitch && (
           <div className="flex flex-col gap-1.5">
             <span className="text-caption font-semibold tracking-wide text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</span>
-            <p className="line-clamp-4 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{s.pitch}</p>
+            <p className="line-clamp-4 text-callout text-[var(--color-text-secondary)]">{s.pitch}</p>
           </div>
         )}
         {s.features.length > 0 && (
@@ -623,7 +623,7 @@ function IdeaCard({ s, ru }: { s: IdeaSlide; ru: boolean }) {
           type="button"
           onClick={openReviews}
           disabled={s.evidence.length === 0}
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-footnote font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
           style={{ background: `color-mix(in srgb, ${glow} 16%, transparent)`, color: glow, ["--glow" as string]: glow }}
         >
           {s.observations} {obsWord(s.observations, ru)}
@@ -651,7 +651,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
 
   const toneTag = (
     <span
-      className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-bold tracking-wide"
+      className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-caption font-bold tracking-wide"
       style={{ background: `color-mix(in srgb, ${tone.glow} 18%, transparent)`, color: tone.glow }}
     >
       {s.kicker || tone.label[ru ? "ru" : "en"]}
@@ -668,7 +668,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
       type="button"
       onClick={openReviews}
       disabled={s.evidence.length === 0}
-      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
+      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-footnote font-semibold tabular-nums ring-1 ring-transparent transition-all duration-200 hover:ring-[color-mix(in_srgb,var(--glow)_55%,transparent)] disabled:cursor-default disabled:opacity-100"
       style={{ background: `color-mix(in srgb, ${tone.glow} 16%, transparent)`, color: tone.glow, ["--glow" as string]: tone.glow }}
     >
       {s.count} {obsWord(s.count, ru)}
@@ -689,22 +689,22 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
       </div>
 
       <div className="relative flex flex-1 flex-col gap-3 overflow-y-auto overscroll-contain [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        <h2 className="text-[20px] font-bold leading-[1.2] tracking-[-0.01em] text-[var(--color-text-primary)] sm:text-[21px]">{s.title}</h2>
+        <h2 className="text-subhead font-bold text-[var(--color-text-primary)]">{s.title}</h2>
 
         {s.body ? (
-          <p className="text-[14px] leading-[1.55] text-[var(--color-text-secondary)] sm:text-[14.5px]">{s.body}</p>
+          <p className="text-callout text-[var(--color-text-secondary)]">{s.body}</p>
         ) : s.tone === "mixed" ? (
           // Both polarities present — keep the +/− markers so they read apart.
           <>
             {s.plus && (
-              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
-                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-[12px] font-bold leading-none text-[#4ade80]">+</span>
+              <p className="flex items-start gap-2 text-callout">
+                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#4ade80_22%,transparent)] text-caption font-bold leading-none text-[#4ade80]">+</span>
                 <span className="line-clamp-4 text-[var(--color-text-secondary)]">{s.plus}</span>
               </p>
             )}
             {s.minus && (
-              <p className="flex items-start gap-2 text-[14px] leading-[1.5]">
-                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-[13px] font-bold leading-none text-[#ff8585]">−</span>
+              <p className="flex items-start gap-2 text-callout">
+                <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,#ff8585_22%,transparent)] text-footnote font-bold leading-none text-[#ff8585]">−</span>
                 <span className="line-clamp-4 text-[var(--color-text-secondary)]">{s.minus}</span>
               </p>
             )}
@@ -712,7 +712,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
         ) : (
           // The tone tag already says praise/gripe — drop the marker, just a lede.
           (s.plus || s.minus) && (
-            <p className="line-clamp-[7] text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
+            <p className="line-clamp-[7] text-body text-[var(--color-text-secondary)]">{s.plus || s.minus}</p>
           )
         )}
 
@@ -726,7 +726,7 @@ function Insight({ s, ru }: { s: InsightSlide; ru: boolean }) {
               </span>
               <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{s.quote.date}</span>
             </div>
-            <p className="line-clamp-3 text-[13px] italic leading-relaxed text-[var(--color-text-secondary)]">“{s.quote.text}”</p>
+            <p className="line-clamp-3 text-footnote italic leading-relaxed text-[var(--color-text-secondary)]">«{s.quote.text}»</p>
           </figure>
         )}
       </div>

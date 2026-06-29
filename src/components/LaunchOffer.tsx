@@ -66,7 +66,7 @@ export default function LaunchOffer({
         type="button"
         onClick={openOffer}
         aria-label={ru ? "Спецпредложение" : "Special offer"}
-        className="promo-badge relative flex h-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-brand)] px-3 text-[13px] font-bold text-white"
+        className="promo-badge relative flex h-9 shrink-0 items-center justify-center rounded-full bg-[var(--color-accent-brand)] px-3 text-footnote font-bold text-white"
       >
         <span className="promo-ring absolute -inset-0.5 -z-10 rounded-full bg-[var(--color-accent-brand)] opacity-0" aria-hidden />
         <span className="tabular-nums">−{FRIEND_DISCOUNT_PCT}%</span>
@@ -80,8 +80,8 @@ export default function LaunchOffer({
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <div className="text-[12px] font-semibold tracking-[0.02em] text-[var(--color-text-brand)]">{ru ? "В честь запуска" : "Launch offer"}</div>
-                <div className="mt-1.5 text-[24px] font-black leading-[1.1] tracking-[-0.02em] text-[var(--color-text-primary)]">{ru ? "Стать другом проекта" : "Become a friend of the project"}</div>
+                <div className="text-caption font-semibold text-[var(--color-text-brand)]">{ru ? "В честь запуска" : "Launch offer"}</div>
+                <div className="mt-1.5 text-title2 text-[var(--color-text-primary)]">{ru ? "Стать другом проекта" : "Become a friend of the project"}</div>
               </div>
               <button type="button" onClick={() => setOpen(false)} className="shrink-0 rounded-full p-1 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" strokeLinecap="round" /></svg>
@@ -95,9 +95,9 @@ export default function LaunchOffer({
             </p>
 
             <div className="flex items-end gap-3">
-              <span className="text-[34px] font-black leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{FRIEND_PRICE_RUB}&nbsp;₽</span>
-              <span className="pb-1 text-[18px] font-semibold text-[var(--color-text-tertiary)] line-through">{LIFETIME.rub}&nbsp;₽</span>
-              <span className="mb-1 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-[12px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+              <span className="text-stat text-[var(--color-text-primary)]">{FRIEND_PRICE_RUB}&nbsp;₽</span>
+              <span className="pb-1 text-subhead font-semibold text-[var(--color-text-tertiary)] line-through">{LIFETIME.rub}&nbsp;₽</span>
+              <span className="mb-1 rounded-full bg-[var(--color-accent-brand)] px-2 py-0.5 text-caption font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
             </div>
 
             <ul className="flex flex-col gap-2">

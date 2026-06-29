@@ -146,10 +146,10 @@ export default async function MostWantedPage() {
     },
   ];
 
-  const para = "mt-5 max-w-[64ch] text-[17px] leading-[1.75] text-[var(--color-text-secondary)] sm:text-[18px]";
-  const buildCls = "mt-5 max-w-[64ch] text-[17px] leading-[1.75] text-[var(--color-text-primary)] sm:text-[18px]";
-  const eyebrowCls = "text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-brand)]";
-  const h2 = "mt-3 text-[26px] font-black leading-[1.14] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[33px]";
+  const para = "mt-5 max-w-[64ch] text-lead text-[var(--color-text-secondary)]";
+  const buildCls = "mt-5 max-w-[64ch] text-lead text-[var(--color-text-primary)]";
+  const eyebrowCls = "text-caption text-[var(--color-text-brand)]";
+  const h2 = "mt-3 text-title3 text-[var(--color-text-primary)]";
 
   const articleUrl = `https://inapp.pro/${ru ? "ru" : "en"}/most-wanted`;
   const graph = {
@@ -187,11 +187,11 @@ export default async function MostWantedPage() {
 
       {/* HERO */}
       <header>
-        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Разбор рынка по отзывам" : "A market read from reviews"}</div>
-        <h1 className="glow-sweep mt-6 max-w-[20ch] text-[clamp(30px,7.4vw,54px)] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
+        <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Разбор рынка по отзывам" : "A market read from reviews"}</div>
+        <h1 className="glow-sweep mt-6 max-w-[20ch] text-display text-[var(--color-text-primary)] text-balance">
           {ru ? "Почему скучные приложения побеждают умные" : "Why boring apps beat the smart ones"}
         </h1>
-        <p className="mt-7 max-w-[62ch] text-[18px] leading-[1.65] text-[var(--color-text-secondary)] sm:text-[20px]">
+        <p className="mt-7 max-w-[62ch] text-lead text-[var(--color-text-secondary)]">
           {ru ? (
             <>Разработчики соревнуются в уме: больше ИИ, больше функций, больше геймификации. Мы прогнали через анализ <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalReviews, ru)}</span> отзывов на <span className="font-semibold text-[var(--color-text-primary)]">{nf(totalApps, ru)}</span> приложений и прочитали, за что люди ставят пять звёзд. Почти везде — за обратное: за то, что скучную, простую работу сделали безупречно. Разобрали пять ниш. В каждой — одно и то же: главную фичу хвалят зря, держит людей совсем другое, а под живой спрос приложение до сих пор никто не сделал.</>
           ) : (
@@ -207,7 +207,7 @@ export default async function MostWantedPage() {
           return (
             <Reveal key={ins.slug}>
               {i === 3 && (
-                <p className="mb-24 max-w-[18ch] text-[clamp(26px,6vw,40px)] font-black leading-[1.08] tracking-[-0.035em] text-[var(--color-text-primary)] sm:mb-32">
+                <p className="mb-24 max-w-[18ch] text-title2 text-[var(--color-text-primary)] sm:mb-32">
                   {ru ? "Люди платят не за то, что приложение умное. А за то, что оно перестаёт быть в тягость." : "People don't pay for the app being smart. They pay for it to stop being a burden."}
                 </p>
               )}
@@ -219,7 +219,7 @@ export default async function MostWantedPage() {
                     ))}
                   </div>
                 )}
-                <div className="flex items-baseline gap-3 text-[12px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">
+                <div className="flex items-baseline gap-3 text-caption text-[var(--color-text-tertiary)]">
                   <span className="text-[var(--color-text-brand)]">{`0${i + 1}`.slice(-2)}</span>
                   <span>{ins.eyebrow}</span>
                 </div>
@@ -228,8 +228,8 @@ export default async function MostWantedPage() {
                 <div className="mt-7 flex flex-col gap-3">
                   {ins.quotes.map((q, k) => (
                     <div key={k} className="flex flex-col gap-1">
-                      <div className="msg-bubble w-fit max-w-[85%] self-start rounded-[20px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-4 py-2.5 text-[14.5px] italic leading-[1.45] text-[var(--color-text-primary)]">{q.text}</div>
-                      <span className="pl-2 text-[11.5px] tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</span>
+                      <div className="msg-bubble w-fit max-w-[85%] self-start rounded-[20px] rounded-bl-[6px] bg-[var(--color-bg-muted)] px-4 py-2.5 text-callout italic text-[var(--color-text-primary)]">{q.text}</div>
+                      <span className="pl-2 text-caption tabular-nums text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</span>
                     </div>
                   ))}
                 </div>
@@ -251,13 +251,13 @@ export default async function MostWantedPage() {
               ? <>Сложите пять ниш — и виден общий закон. Все воюют за то, кто умнее: ИИ, функции, геймификация. А люди голосуют за того, кто честнее сделал скучную работу: быстро, надёжно, без выпендрёжа. Эти два почти не пересекаются — поэтому в каждой нише есть тихий лидер, который проще своих «инновационных» соседей и держит людей годами. Если мерить умом — рынок занят. Если мерить работой — он почти везде пустой.</>
               : <>Stack the five niches and a single law appears. Everyone fights over who's smarter: AI, features, gamification. People vote for whoever did the boring work more honestly: fast, reliable, no showing off. The two barely overlap — which is why every niche has a quiet leader, simpler than its "innovative" neighbors, that holds people for years. Measured by intelligence, the market is taken. Measured by the job, it's almost everywhere empty.</>}
           </p>
-          <p className="mt-8 max-w-[44ch] text-[22px] font-light leading-[1.4] text-[var(--color-text-primary)] sm:text-[26px]">
+          <p className="mt-8 max-w-[44ch] text-title3 font-light text-[var(--color-text-primary)]">
             {ru ? "Чтобы выиграть, не нужно изобретать. Нужно взять то, что уже любят, и убрать всё, что мешает любить." : "To win, you don't need to invent. Take what's already loved, and remove everything that gets in the way of loving it."}
           </p>
         </section>
       </Reveal>
 
-      <p className="mx-auto mt-16 max-w-[48ch] text-center text-[12px] leading-[1.5] text-[var(--color-text-tertiary)]">
+      <p className="mx-auto mt-16 max-w-[48ch] text-center text-caption text-[var(--color-text-tertiary)]">
         {ru ? "Отзывы проанализированы автоматически по App Store и Google Play; цитаты — перевод реальных отзывов; цифры спроса — из извлечённых наблюдений." : "Reviews analyzed automatically across App Store and Google Play; quotes are translations of real reviews; demand numbers come from extracted observations."}
         {" · "}
         <Link href="/" className="underline-offset-2 hover:text-[var(--color-text-secondary)] hover:underline">inApp</Link>

@@ -29,7 +29,7 @@ export default function MobileTabBar({ searchLabel }: { searchLabel: string }) {
         <Link
           href="/search"
           aria-current={active ? "page" : undefined}
-          className={`flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-5 py-2.5 text-footnote font-semibold shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] transition-all active:scale-95 ${
+          className={`flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-bg-muted)] px-5 py-2.5 text-callout font-semibold shadow-[0_16px_40px_-12px_rgba(0,0,0,0.85)] transition-all active:scale-95 ${
             active ? "text-[var(--color-text-brand)]" : "text-[var(--color-text-secondary)]"
           }`}
         >

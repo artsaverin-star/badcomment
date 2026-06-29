@@ -74,7 +74,7 @@ function Modal({ onClose, children }: { onClose: () => void; children: React.Rea
         <div className="mx-auto mt-3 h-1 w-9 shrink-0 rounded-full bg-[var(--color-border-strong)] sm:hidden" />
         <div className="flex-1 overflow-y-auto px-6 pb-6 pt-4 sm:pt-7">{children}</div>
         <div className="shrink-0 border-t border-[var(--color-border-subtle)] p-4">
-          <button type="button" onClick={onClose} className="w-full rounded-full bg-[var(--color-button-secondary-bg)] px-4 py-3 text-[15px] font-medium text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)]">Закрыть</button>
+          <button type="button" onClick={onClose} className="w-full rounded-full bg-[var(--color-button-secondary-bg)] px-4 py-3 text-callout font-medium text-[var(--color-text-primary)] transition-colors hover:bg-[var(--color-bg-muted)]">Закрыть</button>
         </div>
       </div>
     </div>,
@@ -89,8 +89,8 @@ function CardFace({ icon, title, desc, footer, onClick, locked }: { icon: string
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute right-3.5 top-3.5 text-[var(--color-text-tertiary)]"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor" strokeWidth="1.3" /><path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.3" /></svg>
       )}
       <Icon name={icon} className="size-9 text-[var(--color-text-secondary)]" />
-      <div className="text-[15px] font-semibold leading-[1.2] text-[var(--color-text-primary)]">{title}</div>
-      <div className="text-[12.5px] leading-[1.4] text-[var(--color-text-tertiary)]">{desc}</div>
+      <div className="text-callout font-semibold text-[var(--color-text-primary)]">{title}</div>
+      <div className="text-caption text-[var(--color-text-tertiary)]">{desc}</div>
       {footer}
     </button>
   );
@@ -99,8 +99,8 @@ function CardFace({ icon, title, desc, footer, onClick, locked }: { icon: string
 function Sec({ k, children }: { k: string; children: React.ReactNode }) {
   return (
     <section className="mt-5 border-t border-[var(--color-border-subtle)] pt-4">
-      <h4 className="text-[13px] font-semibold text-[var(--color-text-tertiary)]">{k}</h4>
-      <div className="mt-2 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{children}</div>
+      <h4 className="text-footnote font-semibold text-[var(--color-text-tertiary)]">{k}</h4>
+      <div className="mt-2 text-callout text-[var(--color-text-secondary)]">{children}</div>
     </section>
   );
 }
@@ -144,9 +144,9 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
         {locked && (
           <div className="absolute inset-0 flex items-center justify-center p-4">
             <div className="w-full max-w-[360px] rounded-[20px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] p-6 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,0.7)]">
-              <div className="text-[17px] font-bold text-[var(--color-text-primary)]">{ru ? "Кто платит в этой нише" : "Who pays in this niche"}</div>
-              <p className="mx-auto mt-2 max-w-[40ch] text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{ru ? "Войдите, чтобы увидеть сегменты аудитории и за что они готовы платить." : "Sign in to see the audience segments and what they pay for."}</p>
-              <button type="button" onClick={() => setAuth(true)} className="mt-4 w-full rounded-full bg-[var(--color-text-primary)] px-5 py-2.5 text-[14px] font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">{ru ? "Войти" : "Sign in"}</button>
+              <div className="text-subhead text-[var(--color-text-primary)]">{ru ? "Кто платит в этой нише" : "Who pays in this niche"}</div>
+              <p className="mx-auto mt-2 max-w-[40ch] text-callout text-[var(--color-text-secondary)]">{ru ? "Войдите, чтобы увидеть сегменты аудитории и за что они готовы платить." : "Sign in to see the audience segments and what they pay for."}</p>
+              <button type="button" onClick={() => setAuth(true)} className="mt-4 w-full rounded-full bg-[var(--color-text-primary)] px-5 py-2.5 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90">{ru ? "Войти" : "Sign in"}</button>
             </div>
           </div>
         )}
@@ -154,9 +154,9 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
       {open && (
         <Modal onClose={() => setOpen(null)}>
-          <h3 className="text-[22px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{open.name}</h3>
+          <h3 className="text-headline text-[var(--color-text-primary)]">{open.name}</h3>
           <div className="mt-2.5"><PayPill level={open.payLevel} locale={locale} /></div>
-          <p className="mt-3 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{open.job}</p>
+          <p className="mt-3 text-callout text-[var(--color-text-secondary)]">{open.job}</p>
           <Sec k={ru ? "Сколько платит" : "How much they pay"}>{open.payNote}</Sec>
           <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>
           <Sec k={ru ? "Сейчас обслуживают" : "Served today"}><span className="text-[var(--color-text-tertiary)]">{open.servedBy.join(", ")}</span></Sec>
@@ -178,8 +178,8 @@ export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; loc
       </div>
       {!locked && open && (
         <Modal onClose={() => setOpen(null)}>
-          <h3 className="text-[23px] font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{open.title}</h3>
-          <p className="mt-2 text-[16px] leading-[1.55] text-[var(--color-text-secondary)]">{open.oneLiner}</p>
+          <h3 className="text-headline text-[var(--color-text-primary)]">{open.title}</h3>
+          <p className="mt-2 text-body text-[var(--color-text-secondary)]">{open.oneLiner}</p>
           {open.gap && <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>}
           {open.pitch && <Sec k={ru ? "Что это" : "What it is"}>{open.pitch}</Sec>}
           {!!open.features?.length && <Sec k={ru ? "Как устроено" : "How it works"}><Bullets items={open.features} /></Sec>}

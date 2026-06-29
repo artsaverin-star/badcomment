@@ -49,22 +49,22 @@ export default async function AppsDirectory() {
 
   return (
     <main className="mx-auto w-full max-w-4xl px-4 py-10">
-      <h1 className="text-[30px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[36px]">
+      <h1 className="text-title1 text-[var(--color-text-primary)]">
         {ru ? "Все приложения" : "All apps"}
       </h1>
-      <p className="mt-2 text-[15px] text-[var(--color-text-tertiary)]">
+      <p className="mt-2 text-callout text-[var(--color-text-tertiary)]">
         {ru ? `${total} приложений с разбором отзывов в ${groups.length} нишах` : `${total} apps with review breakdowns across ${groups.length} niches`}
       </p>
 
       <div className="mt-10 flex flex-col gap-9">
         {groups.map((g) => (
           <section key={g.slug}>
-            <Link href={`/segment/${g.slug}`} className="text-[18px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
+            <Link href={`/segment/${g.slug}`} className="text-subhead text-[var(--color-text-primary)] hover:text-[var(--color-text-brand)]">
               {g.name}
             </Link>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
               {g.apps.map((a) => (
-                <Link key={a.slug} href={`/${a.slug}`} className="text-[14px] text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
+                <Link key={a.slug} href={`/${a.slug}`} className="text-callout text-[var(--color-text-secondary)] underline-offset-2 hover:text-[var(--color-text-primary)] hover:underline">
                   {a.name}
                 </Link>
               ))}

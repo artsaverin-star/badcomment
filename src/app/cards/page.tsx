@@ -59,10 +59,10 @@ export default async function CardsPage({ searchParams }: { searchParams: Promis
       <AtmosphereSetter random />
 
       <header className="mb-2 text-center sm:mb-4">
-        <h1 className="glow-sweep mx-auto text-[clamp(23px,6.2vw,40px)] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] text-balance">
+        <h1 className="glow-sweep mx-auto text-display text-[var(--color-text-primary)] text-balance">
           {ru ? "Идеи приложений" : "App ideas"}
         </h1>
-        <p className="mx-auto mt-2 max-w-[42ch] text-[13px] text-[var(--color-text-secondary)] sm:mt-2.5 sm:text-[16px]">
+        <p className="mx-auto mt-2 max-w-[42ch] text-body text-[var(--color-text-secondary)] sm:mt-2.5">
           {ru ? <>на основе {nf(totalReviews)} отзывов на приложения<br />в App Store и Google Play</> : <>from {nf(totalReviews)} app reviews<br />on App Store and Google Play</>}
         </p>
       </header>

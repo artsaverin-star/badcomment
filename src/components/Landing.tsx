@@ -79,7 +79,7 @@ function NavPill({ href, label, gradient }: { href: string; label: string; gradi
     <Link
       href={href}
       style={{ backgroundImage: gradient }}
-      className="group inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-[14px] font-semibold text-white shadow-[0_8px_24px_-10px_rgba(0,0,0,0.7)] transition-transform duration-200 hover:-translate-y-0.5"
+      className="group inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-callout text-white shadow-[0_8px_24px_-10px_rgba(0,0,0,0.7)] transition-transform duration-200 hover:-translate-y-0.5"
     >
       {label}
       <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -95,7 +95,7 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
       href={`/segment/${c.slug}`}
       className="group flex h-full flex-col rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-6 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,var(--color-surface-card))]"
     >
-      <h3 className="text-[21px] font-black leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[23px]">{c.name}</h3>
+      <h3 className="text-headline text-[var(--color-text-primary)]">{c.name}</h3>
       {icons.length > 0 && (
         <div className="mt-4 flex items-center gap-1.5">
           {icons.map((src, i) => (
@@ -104,9 +104,9 @@ function CardCompact({ c, ru }: { c: CatCard; ru: boolean }) {
           ))}
         </div>
       )}
-      {c.hook && <p className="mt-4 line-clamp-2 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{firstSentence(c.hook)}</p>}
+      {c.hook && <p className="mt-4 line-clamp-2 text-callout text-[var(--color-text-secondary)]">{firstSentence(c.hook)}</p>}
       <div className="mt-auto flex items-center justify-between pt-5">
-        <p className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
+        <p className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{metaLine(c, ru)}</p>
         <Arrow className="shrink-0" />
       </div>
     </Link>
@@ -247,11 +247,11 @@ export default function Landing({
             ))}
           </div>
           <div className="relative z-10 mx-auto max-w-3xl text-center">
-            <h1 className="glow-sweep ld-fade text-[clamp(30px,7.6vw,44px)] font-black leading-[1.05] tracking-[-0.03em] text-[var(--color-text-primary)] text-balance sm:text-[56px]" style={{ animationDelay: "0.05s" }}>
+            <h1 className="glow-sweep ld-fade text-display text-[var(--color-text-primary)] text-balance" style={{ animationDelay: "0.05s" }}>
               {ru ? "Знай, что построить" : "Know what to build"}
             </h1>
 
-            <p className="ld-fade mx-auto mt-3.5 max-w-[48ch] text-[15px] leading-[1.45] text-[var(--color-text-secondary)] sm:mt-4 sm:text-[19px] sm:leading-[1.5]" style={{ animationDelay: "0.1s" }}>
+            <p className="ld-fade mx-auto mt-3.5 max-w-[48ch] text-lead text-[var(--color-text-secondary)] sm:mt-4" style={{ animationDelay: "0.1s" }}>
               {ru ? (
                 <>Народный рейтинг приложений, разбор категорий и&nbsp;готовые идеи под&nbsp;реальный спрос из&nbsp;<span className="tabular-nums">{totalReviews > 0 ? totalReviews.toLocaleString("ru-RU") : "сотен тысяч"}</span> отзывов в&nbsp;App&nbsp;Store и&nbsp;Google&nbsp;Play.</>
               ) : (

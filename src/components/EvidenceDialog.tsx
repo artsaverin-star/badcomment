@@ -43,7 +43,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       type="button"
       onClick={onClick}
       className={
-        "inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[12px] font-medium transition-colors " +
+        "inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-caption font-medium transition-colors " +
         (active
           ? "bg-[var(--color-accent-brand)] text-[var(--color-button-primary-text)]"
           : "bg-[var(--color-bg-muted)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]")
@@ -70,7 +70,7 @@ function FilterRow({
   if (options.length < 2) return null;
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-[11px] font-medium tracking-wide text-[var(--color-text-tertiary)]">{label}</span>
+      <span className="text-caption font-medium text-[var(--color-text-tertiary)]">{label}</span>
       <div className="flex flex-wrap gap-1.5">
         <Chip active={selected === null} onClick={() => onSelect(null)}>
           {allLabel}
@@ -248,7 +248,7 @@ export default function EvidenceDialog({
               key={f.key}
               type="button"
               onClick={() => open(null, f.key)}
-              className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+              className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
             >
               {f.label}
               <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
@@ -259,7 +259,7 @@ export default function EvidenceDialog({
         <button
           type="button"
           onClick={() => open(null, null)}
-          className="self-start rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-1.5 text-[12px] font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]"
+          className="self-start rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card-subtle)] px-3 py-1.5 text-caption font-medium text-[var(--color-text-primary)] hover:bg-[var(--color-bg-muted)]"
         >
           {seeAllLabel}
         </button>
@@ -267,7 +267,7 @@ export default function EvidenceDialog({
 
       {apps && apps.length > 0 && (
         <div className="flex flex-col gap-3">
-          <span className="text-[11px] font-medium tracking-wide text-[var(--color-text-tertiary)]">
+          <span className="text-caption font-medium text-[var(--color-text-tertiary)]">
             {appsBreakdownLabel}
           </span>
           {apps.map((a) => (
@@ -281,8 +281,8 @@ export default function EvidenceDialog({
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={a.icon} alt="" className="size-6 shrink-0 rounded-[var(--radius-md)] object-cover" />
                 )}
-                <span className="text-[14px] text-[var(--color-text-primary)]">{a.name}</span>
-                <span className="tabular-nums text-[12px] text-[var(--color-accent-danger)]">{a.complaintsText}</span>
+                <span className="text-callout text-[var(--color-text-primary)]">{a.name}</span>
+                <span className="tabular-nums text-caption text-[var(--color-accent-danger)]">{a.complaintsText}</span>
               </button>
               {a.forks.length > 0 && (
                 <span className="flex flex-wrap gap-1.5">
@@ -291,7 +291,7 @@ export default function EvidenceDialog({
                       key={f.key}
                       type="button"
                       onClick={() => open(a.id, f.key)}
-                      className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-[11px] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+                      className="inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2 py-0.5 text-caption text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
                     >
                       {f.label}
                       <span className="tabular-nums text-[var(--color-text-tertiary)]">{f.mentions}</span>
@@ -315,8 +315,8 @@ export default function EvidenceDialog({
         <div className="flex max-h-[85vh] flex-col sm:max-h-[80vh]">
           <div className="flex items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] p-4">
             <div className="flex flex-col gap-0.5">
-              <span className="text-[15px] font-semibold">{title}</span>
-              <span className="text-[12px] text-[var(--color-text-tertiary)]">
+              <span className="text-callout font-semibold">{title}</span>
+              <span className="text-caption text-[var(--color-text-tertiary)]">
                 {shownWord} {reviews.length} {ofWord} {total}
               </span>
             </div>
@@ -358,11 +358,11 @@ export default function EvidenceDialog({
 
           <div className="flex flex-col gap-3 overflow-y-auto p-4">
             {loading ? (
-              <span className="py-6 text-center text-[13px] text-[var(--color-text-tertiary)]">{loadingLabel}</span>
+              <span className="py-6 text-center text-footnote text-[var(--color-text-tertiary)]">{loadingLabel}</span>
             ) : error ? (
-              <span className="py-6 text-center text-[13px] text-[var(--color-accent-danger)]">{errorLabel}</span>
+              <span className="py-6 text-center text-footnote text-[var(--color-accent-danger)]">{errorLabel}</span>
             ) : reviews.length === 0 ? (
-              <span className="py-6 text-center text-[13px] text-[var(--color-text-tertiary)]">{emptyLabel}</span>
+              <span className="py-6 text-center text-footnote text-[var(--color-text-tertiary)]">{emptyLabel}</span>
             ) : (
               <>
                 {reviews.slice(0, shown).map((e, i) => (
@@ -375,22 +375,22 @@ export default function EvidenceDialog({
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={e.icon} alt="" className="size-5 shrink-0 rounded-[var(--radius-md)] object-cover" />
                       )}
-                      {e.app && <span className="text-[13px] font-medium">{e.app}</span>}
-                      <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">
+                      {e.app && <span className="text-footnote font-medium">{e.app}</span>}
+                      <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">
                         {"★".repeat(e.rating)}
                         {"☆".repeat(Math.max(0, 5 - e.rating))}
                       </span>
                       {e.postedAt && (
-                        <span className="text-[11px] tabular-nums text-[var(--color-text-tertiary)]">{e.postedAt}</span>
+                        <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{e.postedAt}</span>
                       )}
                       {e.translated && (
-                        <span className="rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-[10px] text-[var(--color-text-tertiary)]">
+                        <span className="rounded-full bg-[var(--color-bg-muted)] px-1.5 py-0.5 text-caption text-[var(--color-text-tertiary)]">
                           {translatedLabel}
                         </span>
                       )}
                     </span>
-                    {e.title && <span className="text-[13px] font-medium">{e.title}</span>}
-                    <p className="text-[13px] italic leading-[19px] text-[var(--color-text-secondary)]">
+                    {e.title && <span className="text-footnote font-medium">{e.title}</span>}
+                    <p className="text-footnote italic text-[var(--color-text-secondary)]">
                       {highlight(e.text, e.match)}
                     </p>
                   </div>
@@ -401,7 +401,7 @@ export default function EvidenceDialog({
           </div>
 
           <div className="border-t border-[var(--color-border-subtle)] p-3">
-            <span className="text-[11px] leading-[16px] text-[var(--color-text-tertiary)]">{methodNote}</span>
+            <span className="text-caption text-[var(--color-text-tertiary)]">{methodNote}</span>
           </div>
         </div>
       </dialog>

@@ -60,15 +60,15 @@ function Quotes({ list, n = 3 }: { list: ExpQuote[]; n?: number }) {
     <div className="flex flex-col gap-2.5">
       {list.slice(0, n).map((q, j) => (
         <figure key={j} className="msg-bubble max-w-[90%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">
-          <p className="text-[14px] italic leading-[1.55] text-[var(--color-text-secondary)]">{q.text}</p>
-          <figcaption className="mt-1.5 text-[12px] not-italic text-[var(--color-text-tertiary)]">{q.app}</figcaption>
+          <p className="text-callout italic text-[var(--color-text-secondary)]">{q.text}</p>
+          <figcaption className="mt-1.5 text-caption not-italic text-[var(--color-text-tertiary)]">{q.app}</figcaption>
         </figure>
       ))}
     </div>
   );
 }
 function Eyebrow({ children }: { children: React.ReactNode }) {
-  return <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{children}</div>;
+  return <div className="text-footnote text-[var(--color-text-tertiary)]">{children}</div>;
 }
 
 export default function SegmentExplorer({
@@ -155,10 +155,10 @@ export default function SegmentExplorer({
         <Reveal className="mt-20 sm:mt-28">
           <section>
             <Eyebrow>{ru ? "Что построить" : "What to build"}</Eyebrow>
-            <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">
+            <h2 className="mt-4 text-title2 text-[var(--color-text-primary)]">
               {opps.length} {ru ? wordOpp(opps.length) : "opportunities"}
             </h2>
-            <p className="mt-5 max-w-[56ch] text-[17px] leading-[1.6] text-[var(--color-text-secondary)] sm:text-[18px]">
+            <p className="mt-5 max-w-[56ch] text-lead text-[var(--color-text-secondary)]">
               {ru ? "Идеи, которые пользователи просят сами — каждая под подтверждённый спрос." : "Ideas users ask for themselves — each backed by proven demand."}
             </p>
             <div className="mt-10">
@@ -185,10 +185,10 @@ export default function SegmentExplorer({
           <Eyebrow>{ru ? "Конкуренты" : "Competitors"}</Eyebrow>
           {!appsLocked && (
             <>
-              <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">
+              <h2 className="mt-4 text-title2 text-[var(--color-text-primary)]">
                 {apps.length} {ru ? wordApp(apps.length) : "apps"}
               </h2>
-              {competitorRead && <p className="mt-7 max-w-[60ch] text-[20px] font-light leading-[1.5] text-[var(--color-text-secondary)] sm:text-[23px]">{competitorRead}</p>}
+              {competitorRead && <p className="mt-7 max-w-[60ch] text-headline text-[var(--color-text-secondary)]">{competitorRead}</p>}
             </>
           )}
           {appsLocked ? (
@@ -218,13 +218,13 @@ export default function SegmentExplorer({
                   )}
                   <span className="flex min-w-0 flex-1 flex-col gap-1">
                     <span className="flex items-center gap-2">
-                      <span className="truncate text-[17px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{a.name}</span>
-                      {a.avg != null && <span className="shrink-0 text-[12px] font-semibold tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
+                      <span className="truncate text-body font-semibold text-[var(--color-text-primary)]">{a.name}</span>
+                      {a.avg != null && <span className="shrink-0 text-caption font-semibold tabular-nums text-[var(--color-text-tertiary)]">{a.avg.toFixed(1)}★</span>}
                     </span>
                     {a.hook ? (
-                      <span className="truncate text-[13px] leading-snug text-[var(--color-text-secondary)]">{a.hook}</span>
+                      <span className="truncate text-footnote text-[var(--color-text-secondary)]">{a.hook}</span>
                     ) : (
-                      a.description && <span className="truncate text-[13px] text-[var(--color-text-tertiary)]">{a.description}</span>
+                      a.description && <span className="truncate text-footnote text-[var(--color-text-tertiary)]">{a.description}</span>
                     )}
                   </span>
                   <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-0.5">
@@ -246,7 +246,7 @@ export default function SegmentExplorer({
           <button type="button" aria-label={ru ? "Закрыть" : "Close"} onClick={() => setActive(null)} className="modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-md" />
           <div className="modal-panel relative z-10 flex max-h-[90vh] w-full max-w-[600px] flex-col overflow-hidden rounded-t-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-page)] shadow-[0_-20px_70px_-20px_rgba(0,0,0,0.7)] sm:rounded-[28px]">
             <div className="flex shrink-0 items-center justify-between gap-3 px-6 pt-5">
-              <span className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">
+              <span className="text-footnote text-[var(--color-text-tertiary)]">
                 {active.kind === "idea" ? (ru ? `Возможность ${active.i + 1}` : `Opportunity ${active.i + 1}`) : active.kind === "app" ? (ru ? "Приложение" : "App") : (ru ? "Разбор категории" : "Category")}
               </span>
               <button type="button" onClick={() => setActive(null)} className="-mr-1 flex size-9 items-center justify-center rounded-full text-[var(--color-text-tertiary)] transition-colors hover:bg-[var(--color-bg-muted)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>
@@ -261,14 +261,14 @@ export default function SegmentExplorer({
                 if (op.locked) {
                   return (
                     <div className="flex flex-col gap-6">
-                      <h2 className="text-[26px] font-semibold leading-[1.12] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? "Готовая возможность под подтверждённый спрос" : "A ready opportunity for proven demand"}</h2>
+                      <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? "Готовая возможность под подтверждённый спрос" : "A ready opportunity for proven demand"}</h2>
                       {op.quotes[0] && (
                         <figure>
-                          <p className="text-[15px] italic leading-[1.6] text-[var(--color-text-secondary)]">“{op.quotes[0].text}”</p>
-                          <figcaption className="mt-1.5 text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{op.quotes[0].app} · {op.quotes[0].rating}★</figcaption>
+                          <p className="text-callout italic text-[var(--color-text-secondary)]">«{op.quotes[0].text}»</p>
+                          <figcaption className="mt-1.5 text-caption tabular-nums text-[var(--color-text-tertiary)]">{op.quotes[0].app} · {op.quotes[0].rating}★</figcaption>
                         </figure>
                       )}
-                      <p className="text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? "Внутри — в чём разрыв и почему это шанс, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the gap and why it's an opening, what to build, features, monetization and evidence."}</p>
+                      <p className="text-callout text-[var(--color-text-tertiary)]">{ru ? "Внутри — в чём разрыв и почему это шанс, что строить, фичи, монетизация и доказательства из отзывов." : "Inside — the gap and why it's an opening, what to build, features, monetization and evidence."}</p>
                       <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} inline />
                     </div>
                   );
@@ -276,26 +276,26 @@ export default function SegmentExplorer({
                 const r = op.regen;
                 return (
                   <div className="flex flex-col">
-                    <h2 className="text-[28px] font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[32px]">{r?.title || op.title}</h2>
-                    <p className="mt-3 text-[18px] font-light leading-[1.45] text-[var(--color-text-secondary)] sm:text-[20px]">{r?.tagline || op.oneLiner}</p>
-                    {r && <p className="mt-4 text-[14px] leading-[1.6] text-[var(--color-text-tertiary)]"><span className="text-[var(--color-text-secondary)]">Для кого — </span>{r.forWhom}</p>}
+                    <h2 className="text-title3 text-[var(--color-text-primary)]">{r?.title || op.title}</h2>
+                    <p className="mt-3 text-subhead text-[var(--color-text-secondary)]">{r?.tagline || op.oneLiner}</p>
+                    {r && <p className="mt-4 text-callout text-[var(--color-text-tertiary)]"><span className="text-[var(--color-text-secondary)]">Для кого — </span>{r.forWhom}</p>}
 
                     <div className="mt-8 border-l border-[var(--color-border-strong)] pl-5">
-                      <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Почему это шанс" : "Why it's an opening"}</div>
-                      <p className="mt-2.5 text-[16px] leading-[1.65] text-[var(--color-text-primary)]">{r?.wedge || op.gap}</p>
+                      <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Почему это шанс" : "Why it's an opening"}</div>
+                      <p className="mt-2.5 text-body text-[var(--color-text-primary)]">{r?.wedge || op.gap}</p>
                     </div>
 
                     <div className="mt-8 flex flex-col gap-7">
                       <div>
-                        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</div>
-                        <p className="mt-2.5 text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">{r?.build || op.pitch}</p>
+                        <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Что строить" : "What to build"}</div>
+                        <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{r?.build || op.pitch}</p>
                       </div>
                       {(r?.features || op.features).length > 0 && (
                         <div>
-                          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
+                          <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Что входит" : "Features"}</div>
                           <ul className="mt-3 flex flex-col gap-2.5">
                             {(r?.features || op.features).map((f, j) => (
-                              <li key={j} className="flex gap-3 text-[15px] leading-[1.5] text-[var(--color-text-secondary)]">
+                              <li key={j} className="flex gap-3 text-callout text-[var(--color-text-secondary)]">
                                 <span className="select-none text-[var(--color-text-tertiary)]">—</span>
                                 <span>{f}</span>
                               </li>
@@ -305,21 +305,21 @@ export default function SegmentExplorer({
                       )}
                       {(r?.monetization || op.monetization) && (
                         <div>
-                          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Монетизация" : "Monetize"}</div>
-                          <p className="mt-2.5 text-[16px] leading-[1.65] text-[var(--color-text-secondary)]">{r?.monetization || op.monetization}</p>
+                          <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Монетизация" : "Monetize"}</div>
+                          <p className="mt-2.5 text-body text-[var(--color-text-secondary)]">{r?.monetization || op.monetization}</p>
                         </div>
                       )}
                       {op.gapApps.length > 0 && (
                         <div>
-                          <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Где видно" : "Where"}</div>
-                          <p className="mt-2.5 text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">{op.gapApps.join("  ·  ")}</p>
+                          <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Где видно" : "Where"}</div>
+                          <p className="mt-2.5 text-callout text-[var(--color-text-tertiary)]">{op.gapApps.join("  ·  ")}</p>
                         </div>
                       )}
                     </div>
 
                     {op.quotes.length > 0 && (
                       <div className="mt-8 border-t border-[var(--color-border-subtle)] pt-7">
-                        <div className="mb-4 text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Доказательства" : "Evidence"}</div>
+                        <div className="mb-4 text-footnote text-[var(--color-text-tertiary)]">{ru ? "Доказательства" : "Evidence"}</div>
                         <Quotes list={op.quotes} n={6} />
                       </div>
                     )}
@@ -340,8 +340,8 @@ export default function SegmentExplorer({
                         <div className="size-14 shrink-0 rounded-[15px] bg-[var(--color-bg-muted)]" />
                       )}
                       <div className="flex min-w-0 flex-1 flex-col gap-1.5">
-                        <span className="text-[22px] font-semibold leading-tight tracking-[-0.02em] text-[var(--color-text-primary)]">{a.name}</span>
-                        {a.description && <span className="text-[14px] leading-snug text-[var(--color-text-tertiary)]">{a.description}</span>}
+                        <span className="text-headline font-semibold text-[var(--color-text-primary)]">{a.name}</span>
+                        {a.description && <span className="text-callout text-[var(--color-text-tertiary)]">{a.description}</span>}
                       </div>
                     </div>
 
@@ -360,19 +360,19 @@ export default function SegmentExplorer({
                           .map((g) => (
                             <div key={g.key} className="mb-8 last:mb-0">
                               <div className="flex items-baseline gap-2.5">
-                                <span className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{g.label}</span>
-                                <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{g.items.length}</span>
+                                <span className="text-footnote font-medium text-[var(--color-text-tertiary)]">{g.label}</span>
+                                <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{g.items.length}</span>
                               </div>
                               <div className="mt-3 border-t border-[var(--color-border-subtle)]">
                                 {g.items.map((s, k) => (
                                   <details key={k} className="group/f border-b border-[var(--color-border-subtle)]">
                                     <summary className="flex cursor-pointer list-none items-start gap-4 py-3.5 [&::-webkit-details-marker]:hidden">
-                                      <span className="min-w-0 flex-1 text-[15px] font-medium leading-[1.45] text-[var(--color-text-primary)]">{s.title}</span>
-                                      <span className="mt-0.5 shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{s.count}</span>
+                                      <span className="min-w-0 flex-1 text-callout font-medium text-[var(--color-text-primary)]">{s.title}</span>
+                                      <span className="mt-0.5 shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{s.count}</span>
                                       <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                                     </summary>
                                     <div className="details-reveal pb-5">
-                                      {(s.plus || s.minus) && <p className="text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{[s.plus, s.minus].filter(Boolean).join(" ")}</p>}
+                                      {(s.plus || s.minus) && <p className="text-callout text-[var(--color-text-secondary)]">{[s.plus, s.minus].filter(Boolean).join(" ")}</p>}
                                       {s.evidence.length > 0 && (
                                         <div className="mt-4">
                                           <Quotes list={s.evidence} />
@@ -393,8 +393,8 @@ export default function SegmentExplorer({
               {/* OFFER — raised when a locked idea breakdown is opened */}
               {active.kind === "offer" && (
                 <div className="flex flex-col gap-6">
-                  <h2 className="text-[26px] font-semibold leading-[1.12] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[30px]">{ru ? `Откройте разбор ниши «${categoryName}»` : `Open the “${categoryName}” breakdown`}</h2>
-                  <p className="text-[15px] leading-[1.6] text-[var(--color-text-tertiary)]">{ru ? "Внутри по каждой идее — почему это шанс, что строить, фичи, монетизация и доказательства из отзывов. Плюс разбор всех конкурентов ниши." : "Inside every idea — the gap, what to build, features, monetization and review evidence. Plus the full competitor teardown."}</p>
+                  <h2 className="text-title3 text-[var(--color-text-primary)]">{ru ? `Откройте разбор ниши «${categoryName}»` : `Open the "${categoryName}" breakdown`}</h2>
+                  <p className="text-callout text-[var(--color-text-tertiary)]">{ru ? "Внутри по каждой идее — почему это шанс, что строить, фичи, монетизация и доказательства из отзывов. Плюс разбор всех конкурентов ниши." : "Inside every idea — the gap, what to build, features, monetization and review evidence. Plus the full competitor teardown."}</p>
                   <CategoryGate slug={slug} categoryName={categoryName} sellable={sellable} price={price} loggedIn={loggedIn} pregenDate={pregenDate} locale={locale} starsHref={starsHref} starsLabel={starsLabel} inline />
                 </div>
               )}

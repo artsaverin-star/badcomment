@@ -43,7 +43,7 @@ function ChipIcon({ name }: { name: string }) {
 
 function MetricChip({ icon, value, label, active }: { icon: string; value: string; label: string; active?: boolean }) {
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-[12px] ${active ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>
+    <span className={`inline-flex items-center gap-1 rounded-full bg-[var(--color-bg-muted)] px-2.5 py-1 text-caption ${active ? "text-[var(--color-text-primary)]" : "text-[var(--color-text-tertiary)]"}`}>
       <ChipIcon name={icon} />
       <span className={active ? "font-semibold" : "font-medium"}>{value}</span>
       <span className="opacity-70">{label}</span>
@@ -53,7 +53,7 @@ function MetricChip({ icon, value, label, active }: { icon: string; value: strin
 
 function AuthChip({ color, word }: { color: string; word: string }) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[12px] font-medium" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
+    <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-caption" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
       <ChipIcon name="seal" />{word}
     </span>
   );
@@ -88,7 +88,7 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
             <details key={a.id} className="group/f rounded-[16px] border border-[var(--color-border-subtle)] px-4">
               <summary className="flex cursor-pointer list-none flex-col gap-2.5 py-4 [&::-webkit-details-marker]:hidden">
                 <span className="flex w-full items-center gap-3">
-                  <span className="text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
+                  <span className="text-footnote tabular-nums text-[var(--color-text-tertiary)]">{i + 1}</span>
                   {a.icon
                     // eslint-disable-next-line @next/next/no-img-element
                     ? <img src={a.icon} alt="" loading="lazy" decoding="async" className="size-11 shrink-0 rounded-[12px] object-cover" />
@@ -96,8 +96,8 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
                   <svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="ml-auto shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-[16px] font-medium leading-[1.3] text-[var(--color-text-primary)]">{a.title}</span>
-                  {a.verdict && <span className="mt-1 block text-[13px] leading-[1.45] text-[var(--color-text-tertiary)]">{a.verdict}</span>}
+                  <span className="block text-body text-[var(--color-text-primary)]">{a.title}</span>
+                  {a.verdict && <span className="mt-1 block text-footnote text-[var(--color-text-tertiary)]">{a.verdict}</span>}
                   <span className="mt-2.5 flex flex-wrap items-center gap-1.5">
                     <MetricChip icon="star" value={a.storeAvg?.toFixed(1) ?? "—"} label={ru ? "В сторе" : "In store"} active={!sentiment} />
                     {au.w && <AuthChip color={au.c} word={cap(au.w)} />}
@@ -116,7 +116,7 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref, loca
         })}
       </div>
       {more && (
-        <div className="mt-4 text-[14px]">
+        <div className="mt-4 text-callout">
           <span className="text-[var(--color-text-tertiary)]">{more} </span>
           {moreHref
             ? <a href={moreHref} className="font-medium text-[var(--color-text-primary)] underline-offset-2 hover:underline">{ru ? "весь рейтинг" : "full rating"}</a>
@@ -132,7 +132,7 @@ function Tab({ active, onClick, children }: { active: boolean; onClick: () => vo
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full px-5 py-1.5 text-[13px] transition-colors ${active ? "bg-[var(--color-text-primary)] font-medium text-[var(--color-bg-page)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"}`}
+      className={`rounded-full px-5 py-1.5 text-footnote transition-colors ${active ? "bg-[var(--color-text-primary)] font-medium text-[var(--color-bg-page)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"}`}
     >
       {children}
     </button>
@@ -143,8 +143,8 @@ function Field({ k, v }: { k: string; v?: string | null }) {
   if (!v) return null;
   return (
     <div>
-      <div className="text-[13px] font-semibold text-[var(--color-text-tertiary)]">{k}</div>
-      <p className="mt-1 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{v}</p>
+      <div className="text-footnote font-semibold text-[var(--color-text-tertiary)]">{k}</div>
+      <p className="mt-1 text-callout text-[var(--color-text-secondary)]">{v}</p>
     </div>
   );
 }

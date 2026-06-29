@@ -97,7 +97,7 @@ export default function BuyButton({
 
   const methods = (
     <>
-      <p className="text-footnote leading-relaxed text-[var(--color-text-secondary)]">{sub}</p>
+      <p className="text-footnote text-[var(--color-text-secondary)]">{sub}</p>
 
       <ul className="flex flex-col gap-2">
         {benefits.map((f) => (
@@ -136,11 +136,11 @@ export default function BuyButton({
   const priceBlock = (
     <div className="mt-1">
       <div className="flex flex-wrap items-baseline gap-2">
-        <span className="text-[26px] font-bold leading-none tracking-[-0.02em] text-[var(--color-text-primary)]">{eff}&nbsp;₽</span>
+        <span className="text-headline text-[var(--color-text-primary)]">{eff}&nbsp;₽</span>
         {LAUNCH_PROMO && (
           <>
-            <s className="text-[15px] text-[var(--color-text-tertiary)]">{LIFETIME.rub}&nbsp;₽</s>
-            <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-[11px] font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
+            <s className="text-callout text-[var(--color-text-tertiary)]">{LIFETIME.rub}&nbsp;₽</s>
+            <span className="rounded-full bg-[var(--color-accent-brand)] px-1.5 py-0.5 text-caption font-bold text-white">−{FRIEND_DISCOUNT_PCT}%</span>
           </>
         )}
       </div>
@@ -158,14 +158,14 @@ export default function BuyButton({
           <button
             type="button"
             onClick={() => setAuth(true)}
-            className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+            className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-body font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
           >
             {ru ? "Войти и открыть" : "Sign in to unlock"}
           </button>
         ) : (
           <div className="flex w-full max-w-[420px] flex-col gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-6 shadow-[0_28px_60px_-24px_rgba(0,0,0,0.5)]">
             <div className="min-w-0">
-              <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ttl}</div>
+              <div className="text-headline text-[var(--color-text-primary)]">{ttl}</div>
               {priceBlock}
             </div>
             {methods}
@@ -181,7 +181,7 @@ export default function BuyButton({
       <button
         type="button"
         onClick={onClick}
-        className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-[16px] font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
+        className="btn-shimmer inline-flex items-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-body font-semibold text-white shadow-[0_12px_32px_-12px_color-mix(in_srgb,var(--color-accent-brand)_70%,transparent)] transition-transform hover:scale-[1.02] active:scale-[0.99]"
       >
         {loggedIn ? triggerLabel : ru ? "Войти и открыть" : "Sign in to unlock"}
       </button>
@@ -194,7 +194,7 @@ export default function BuyButton({
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
-                <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ttl}</div>
+                <div className="text-headline text-[var(--color-text-primary)]">{ttl}</div>
                 {priceBlock}
               </div>
               <button type="button" onClick={() => setOpen(false)} className="shrink-0 rounded-full p-1 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]" aria-label={ru ? "Закрыть" : "Close"}>

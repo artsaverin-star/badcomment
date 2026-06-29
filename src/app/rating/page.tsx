@@ -52,17 +52,17 @@ export default async function RatingIndexPage() {
 
   return (
     <main className="mx-auto w-full max-w-2xl px-4 pb-24 pt-16 sm:pt-24">
-      <Link href="/" className="inline-flex items-center gap-1.5 text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
+      <Link href="/" className="inline-flex items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "На главную" : "Home"}
       </Link>
 
       <header className="mt-12">
-        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>
-        <h1 className="glow-sweep mt-5 text-[clamp(32px,8vw,56px)] font-black leading-[1.0] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">
+        <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Народный рейтинг" : "People's rating"}</div>
+        <h1 className="glow-sweep mt-5 text-display text-balance text-[var(--color-text-primary)]">
           {ru ? "Рейтинг приложений по реальным отзывам" : "App ratings by real reviews"}
         </h1>
-        <p className="mt-6 max-w-[56ch] text-[17px] leading-[1.55] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">
+        <p className="mt-6 max-w-[56ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
             ? "100 приложений на нишу, оценённых по реальному качеству из отзывов, а не по витринной звезде. Плюс проверка, у кого рейтинг накручен."
             : "100 apps per niche scored by real quality from reviews, not the storefront star. Plus a check on whose rating is gamed."}
@@ -73,8 +73,8 @@ export default async function RatingIndexPage() {
         {NICHES.map((n) => (
           <Link key={n.slug} href={`/rating/${n.slug}`} className="group flex items-center gap-4 py-5 transition-colors hover:bg-[color-mix(in_srgb,var(--color-text-primary)_4%,transparent)]">
             <div className="min-w-0 flex-1">
-              <h2 className="text-[20px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[23px]">{ru ? n.name : n.nameEn}</h2>
-              {ru && <p className="mt-1 text-[14px] leading-[1.45] text-[var(--color-text-secondary)]">{n.blurb}</p>}
+              <h2 className="text-subhead text-[var(--color-text-primary)]">{ru ? n.name : n.nameEn}</h2>
+              {ru && <p className="mt-1 text-callout text-[var(--color-text-secondary)]">{n.blurb}</p>}
             </div>
             <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-hover:translate-x-1"><path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>

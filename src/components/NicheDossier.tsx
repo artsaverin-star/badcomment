@@ -126,20 +126,20 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
-      <Link href="/" className="inline-flex items-center gap-1.5 text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
+      <Link href="/" className="inline-flex items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Все ниши" : "All niches"}
       </Link>
 
       <header className="mt-12">
-        <h1 className="glow-sweep text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{name}</h1>
-        <p className="mt-6 max-w-[60ch] text-[16px] leading-[1.6] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(thesis.governing)}</p>
+        <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{name}</h1>
+        <p className="mt-6 max-w-[60ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(thesis.governing)}</p>
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
           {stats.map((s, i) => (
             <div key={i} className="flex flex-col">
-              <span className="text-[40px] font-black leading-none tracking-[-0.04em] tabular-nums text-[var(--color-text-primary)] sm:text-[46px]">{s.n}</span>
-              <span className="mt-2.5 text-[13px] text-[var(--color-text-tertiary)]">{s.l}</span>
+              <span className="text-stat tabular-nums text-[var(--color-text-primary)]">{s.n}</span>
+              <span className="mt-2.5 text-caption text-[var(--color-text-tertiary)]">{s.l}</span>
             </div>
           ))}
         </div>
@@ -153,14 +153,14 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
           <MarketRow k={ru ? "Деньги" : "Money"} v={tg(dossier.market.money)} />
           <MarketRow k={ru ? "Доверие" : "Trust"} v={ru ? `${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `${broken} of 100 apps have an inflated or doubtful star, only ${great} are genuinely good`} />
         </dl>
-        <p className="mt-8 max-w-[64ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead ?? "")}</p>
+        <p className="mt-8 max-w-[64ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead ?? "")}</p>
       </Block>
 
       <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
         <div className="mt-6"><PersonaCards segments={audSegments} locale={locale} /></div>
         <div className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5">
-          <h3 className="text-[17px] font-bold text-[var(--color-text-primary)]">{ru ? "Где деньги" : "Where the money is"}</h3>
-          <p className="mt-2 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
+          <h3 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Где деньги" : "Where the money is"}</h3>
+          <p className="mt-2 text-callout text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
         </div>
       </Block>
 
@@ -176,8 +176,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
-              <h3 className="text-[27px] font-bold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[32px]">{tg(p.title)}</h3>
-              <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
+              <h3 className="text-title3 text-[var(--color-text-primary)]">{tg(p.title)}</h3>
+              <p className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(p.dek)}</p>
               {grouped[pi].length > 0 && (
                 <div className="mt-7 border-t border-[var(--color-border-subtle)]">
                   {grouped[pi].map((f, k) => (
@@ -185,12 +185,12 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
                       key={k}
                       head={
                         <>
-                          <span className="min-w-0 flex-1 text-[16px] font-medium leading-[1.45] text-[var(--color-text-primary)]">{tg(f.title)}</span>
-                          <span className="shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
+                          <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-primary)]">{tg(f.title)}</span>
+                          <span className="shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
                         </>
                       }
                     >
-                      {(f.plus || f.minus) && <p className="text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg([f.plus, f.minus].filter(Boolean).join(" "))}</p>}
+                      {(f.plus || f.minus) && <p className="text-callout text-[var(--color-text-secondary)]">{tg([f.plus, f.minus].filter(Boolean).join(" "))}</p>}
                       <div className="mt-5 flex flex-col gap-2.5">
                         {(f.evidence || []).slice(0, 3).map((q, j) => <Bubble key={j} app={q.app} text={q.quote} />)}
                       </div>
@@ -210,8 +210,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
       ) : (
         <section className="mt-24">
           <div className="rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-14 text-center sm:px-10 sm:py-16">
-            <h3 className="text-[clamp(26px,6vw,36px)] font-black leading-[1.08] tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? `Выводы по отзывам и ${ideas.length} идей` : `Conclusions from reviews and ${ideas.length} ideas`}</h3>
-            <p className="mx-auto mt-4 max-w-[48ch] text-[16px] leading-[1.55] text-pretty text-[var(--color-text-secondary)]">
+            <h3 className="text-title2 text-[var(--color-text-primary)]">{ru ? `Выводы по отзывам и ${ideas.length} идей` : `Conclusions from reviews and ${ideas.length} ideas`}</h3>
+            <p className="mx-auto mt-4 max-w-[48ch] text-body text-pretty text-[var(--color-text-secondary)]">
               {ru
                 ? `Структурные выводы по ${NF(totalObs)} наблюдениям с прямыми цитатами и ${ideas.length} идей под спрос: что строить, для кого и как заработать. Один платёж открывает весь сайт навсегда: все категории, все идеи и народный рейтинг.`
                 : `Structural conclusions from ${NF(totalObs)} observations with direct quotes and ${ideas.length} demand-backed ideas: what to build, for whom and how to make money. One payment unlocks the whole site forever: every category, every idea and the people's rating.`}
@@ -243,8 +243,8 @@ export default async function NicheDossier({ slug, locale = "ru" }: { slug: stri
 function Block({ title, lead, children }: { title: string; lead?: string; children: ReactNode }) {
   return (
     <section className="mt-24">
-      <h2 className="text-[clamp(28px,7vw,44px)] font-black leading-[1.02] tracking-[-0.03em] text-[var(--color-text-primary)]">{title}</h2>
-      {lead && <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.6] text-pretty text-[var(--color-text-secondary)]">{lead}</p>}
+      <h2 className="text-title2 text-[var(--color-text-primary)]">{title}</h2>
+      {lead && <p className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{lead}</p>}
       {children}
     </section>
   );
@@ -265,8 +265,8 @@ function Disclosure({ head, children, defaultOpen, card }: { head: ReactNode; ch
 function MarketRow({ k, v }: { k: string; v: string }) {
   return (
     <div className="flex flex-col gap-0.5 border-b border-[var(--color-border-subtle)] py-3.5 sm:flex-row sm:gap-6">
-      <dt className="w-32 shrink-0 text-[14px] font-medium text-[var(--color-text-tertiary)]">{k}</dt>
-      <dd className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)]">{v}</dd>
+      <dt className="w-32 shrink-0 text-callout font-medium text-[var(--color-text-tertiary)]">{k}</dt>
+      <dd className="text-callout text-[var(--color-text-secondary)]">{v}</dd>
     </div>
   );
 }
@@ -274,8 +274,8 @@ function MarketRow({ k, v }: { k: string; v: string }) {
 function Bubble({ app, text }: { app: string; text: string }) {
   return (
     <figure className="max-w-[92%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">
-      <p className="text-[14px] italic leading-[1.55] text-[var(--color-text-secondary)]">{tg(text.length > 320 ? text.slice(0, 320) + "…" : text)}</p>
-      <figcaption className="mt-1.5 text-[12px] not-italic text-[var(--color-text-tertiary)]">{app}</figcaption>
+      <p className="text-callout italic text-[var(--color-text-secondary)]">{tg(text.length > 320 ? text.slice(0, 320) + "…" : text)}</p>
+      <figcaption className="mt-1.5 text-caption not-italic text-[var(--color-text-tertiary)]">{app}</figcaption>
     </figure>
   );
 }

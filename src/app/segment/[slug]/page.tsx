@@ -37,26 +37,26 @@ const DOSSIER_SLUGS = new Set([
 function PillarFull({ p, label }: { p: ExpPillar; label: string }) {
   return (
     <div>
-      <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{label}</div>
-      <h3 className="mt-4 text-[27px] font-semibold leading-[1.12] tracking-[-0.025em] text-[var(--color-text-primary)] sm:text-[34px]">{tg(p.title)}</h3>
-      <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(p.dek)}</p>
+      <div className="text-footnote text-[var(--color-text-tertiary)]">{label}</div>
+      <h3 className="mt-4 text-title3 text-[var(--color-text-primary)]">{tg(p.title)}</h3>
+      <p className="mt-5 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tg(p.dek)}</p>
       {p.findings.length > 0 && (
         <div className="mt-8 border-t border-[var(--color-border-subtle)]">
           {p.findings.map((f: ExpFinding, k: number) => (
             <details key={k} className="group/f border-b border-[var(--color-border-subtle)]">
               <summary className="flex cursor-pointer list-none items-start gap-5 py-4 [&::-webkit-details-marker]:hidden">
-                <span className="min-w-0 flex-1 text-[16px] font-medium leading-[1.45] text-[var(--color-text-primary)] transition-colors group-hover/f:text-[var(--color-text-secondary)]">{tg(f.title)}</span>
-                <span className="mt-0.5 shrink-0 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
+                <span className="min-w-0 flex-1 text-body font-medium text-[var(--color-text-primary)] transition-colors group-hover/f:text-[var(--color-text-secondary)]">{tg(f.title)}</span>
+                <span className="mt-0.5 shrink-0 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{f.count}</span>
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none" aria-hidden="true" className="mt-1.5 shrink-0 text-[var(--color-text-tertiary)] transition-transform duration-300 group-open/f:rotate-180"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </summary>
               <div className="details-reveal pb-6 pr-1 sm:pr-8">
-                {(f.plus || f.minus) && <p className="text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg([f.plus, f.minus].filter(Boolean).join(" "))}</p>}
+                {(f.plus || f.minus) && <p className="text-callout text-[var(--color-text-secondary)]">{tg([f.plus, f.minus].filter(Boolean).join(" "))}</p>}
                 {f.quotes.length > 0 && (
                   <div className="mt-5 flex flex-col gap-2.5">
                     {f.quotes.slice(0, 3).map((q, j) => (
                       <figure key={j} className="msg-bubble max-w-[92%] self-start rounded-[18px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">
-                        <p className="text-[14px] italic leading-[1.55] text-[var(--color-text-secondary)]">{tg(q.text)}</p>
-                        <figcaption className="mt-1.5 text-[12px] not-italic text-[var(--color-text-tertiary)]">{q.app}</figcaption>
+                        <p className="text-callout italic text-[var(--color-text-secondary)]">{tg(q.text)}</p>
+                        <figcaption className="mt-1.5 text-caption not-italic text-[var(--color-text-tertiary)]">{q.app}</figcaption>
                       </figure>
                     ))}
                   </div>
@@ -394,22 +394,22 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       <AtmosphereSetter hue={hueFromSlug(slug)} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Link href="/" className="inline-flex items-center gap-1.5 text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
+      <Link href="/" className="inline-flex items-center gap-1.5 text-footnote text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
         {ru ? "Все ниши" : "All niches"}
       </Link>
 
       {/* HERO */}
       <header className="ld-fade mt-12">
-        <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{isUltra(slug) ? (ru ? "Разобрано ультра" : "Ultra-analyzed") : ru ? "Исследование ниши" : "Niche research"}</div>
-        <h1 className="glow-sweep mt-6 text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-[var(--color-text-primary)] text-balance">{cat.name}</h1>
+        <div className="text-footnote text-[var(--color-text-tertiary)]">{isUltra(slug) ? (ru ? "Разобрано ультра" : "Ultra-analyzed") : ru ? "Исследование ниши" : "Niche research"}</div>
+        <h1 className="glow-sweep mt-6 text-display text-[var(--color-text-primary)] text-balance">{cat.name}</h1>
         {thesis ? (
-          <p className="mt-8 max-w-[58ch] text-[21px] font-light leading-[1.45] text-pretty text-[var(--color-text-secondary)] sm:text-[27px]">{tg(thesis.governing)}</p>
+          <p className="mt-8 max-w-[58ch] text-title3 text-pretty text-[var(--color-text-secondary)]">{tg(thesis.governing)}</p>
         ) : (
-          summary.lead && <p className="mt-8 max-w-[58ch] text-[19px] font-light leading-[1.5] text-pretty text-[var(--color-text-secondary)] sm:text-[23px]">{tg(summary.lead)}</p>
+          summary.lead && <p className="mt-8 max-w-[58ch] text-headline text-pretty text-[var(--color-text-secondary)]">{tg(summary.lead)}</p>
         )}
         {hasPeoplesRating(slug) && (
-          <Link href={`/${ru ? "ru" : "en"}/rating/${slug}`} className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2 text-[14px] font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
+          <Link href={`/${ru ? "ru" : "en"}/rating/${slug}`} className="group mt-7 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-subtle)] px-4 py-2 text-callout font-medium text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]">
             {ru ? `Народный рейтинг: ${summary.appsCount} приложений по отзывам` : `People's rating: ${summary.appsCount} apps by reviews`}
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-[var(--color-text-tertiary)] transition-transform group-hover:translate-x-0.5"><path d="M6 3.25 10.75 8 6 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </Link>
@@ -419,8 +419,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
           {stats.map((s, i) => (
             <div key={i} className="flex flex-col">
-              <span className="text-[40px] font-black leading-none tracking-[-0.04em] tabular-nums text-[var(--color-text-primary)] sm:text-[46px]">{s.n}</span>
-              <span className="mt-2.5 text-[13px] text-[var(--color-text-tertiary)]">{s.l}</span>
+              <span className="text-stat tabular-nums text-[var(--color-text-primary)]">{s.n}</span>
+              <span className="mt-2.5 text-footnote text-[var(--color-text-tertiary)]">{s.l}</span>
             </div>
           ))}
         </div>
@@ -430,8 +430,8 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
       {pillars.length > 0 && (
         <Reveal className="mt-20 sm:mt-28">
           <section>
-            <div className="text-[13px] font-medium tracking-[0.02em] text-[var(--color-text-tertiary)]">{ru ? "Главное" : "Key findings"}</div>
-            <h2 className="mt-4 text-[34px] font-black leading-[1.02] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-[46px]">{ru ? "Три вывода" : "Three findings"}</h2>
+            <div className="text-footnote text-[var(--color-text-tertiary)]">{ru ? "Главное" : "Key findings"}</div>
+            <h2 className="mt-4 text-title2 text-[var(--color-text-primary)]">{ru ? "Три вывода" : "Three findings"}</h2>
 
             <div className="mt-12 flex flex-col gap-12 sm:gap-16">
               <PillarFull p={pillars[0]} label={findingLabel(0)} />
@@ -472,11 +472,11 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
 
       {relatedTop.length > 0 && (
         <section className="mt-20 border-t border-[var(--color-border-subtle)] pt-10 sm:mt-28">
-          <h2 className="text-[20px] font-semibold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Похожие ниши" : "Related niches"}</h2>
+          <h2 className="text-subhead text-[var(--color-text-primary)]">{ru ? "Похожие ниши" : "Related niches"}</h2>
           <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {relatedTop.map((r) => (
               <Link key={r.slug} href={`/segment/${r.slug}`} className="flex items-center rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3.5 transition-colors hover:border-[var(--color-border-strong)]">
-                <span className="text-[15px] font-medium text-[var(--color-text-primary)]">{r.name}</span>
+                <span className="text-callout font-medium text-[var(--color-text-primary)]">{r.name}</span>
               </Link>
             ))}
           </div>

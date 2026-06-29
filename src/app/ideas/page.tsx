@@ -74,8 +74,8 @@ export default async function IdeasPage() {
   return (
     <main className="mx-auto w-full max-w-[860px] px-4 pb-24 pt-16 sm:pt-20">
       <header className="text-center">
-        <h1 className="glow-sweep text-[clamp(32px,8vw,56px)] font-black leading-[1.0] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{tr.ideas.title}</h1>
-        <p className="mx-auto mt-6 max-w-[62ch] text-[17px] leading-[1.55] text-pretty text-[var(--color-text-secondary)] sm:text-[19px]">{tr.ideas.desc}</p>
+        <h1 className="glow-sweep text-display text-balance text-[var(--color-text-primary)]">{tr.ideas.title}</h1>
+        <p className="mx-auto mt-6 max-w-[62ch] text-lead text-pretty text-[var(--color-text-secondary)]">{tr.ideas.desc}</p>
       </header>
 
       <div className="mt-12">

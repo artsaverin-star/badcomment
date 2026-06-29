@@ -24,8 +24,8 @@ type Saved = Pick<FeedIdea, "slug" | "category" | "categoryName" | "title" | "on
 function Sw({ label, text }: { label: string; text: string }) {
   return (
     <div>
-      <div className="text-[18px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{label}</div>
-      <p className="mt-3 text-[16.5px] leading-[1.6] text-[var(--color-text-secondary)]">{text}</p>
+      <div className="text-subhead font-bold text-[var(--color-text-primary)]">{label}</div>
+      <p className="mt-3 text-body text-[var(--color-text-secondary)]">{text}</p>
     </div>
   );
 }
@@ -102,12 +102,12 @@ export default function IdeaGrid({
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"><path d={HEART} /></svg>
               </button>
-              <p className="pr-9 text-[12px] font-medium text-[var(--color-text-brand)]">{it.categoryName}</p>
-              <h3 className="mt-2 line-clamp-3 pr-9 text-[17px] font-bold leading-[1.2] tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-[18px]">{it.title}</h3>
-              <p className="mt-2 line-clamp-3 text-[14px] leading-[1.5] text-[var(--color-text-secondary)]">{it.oneLiner}</p>
+              <p className="pr-9 text-caption font-medium text-[var(--color-text-brand)]">{it.categoryName}</p>
+              <h3 className="mt-2 line-clamp-3 pr-9 text-headline font-bold text-[var(--color-text-primary)]">{it.title}</h3>
+              <p className="mt-2 line-clamp-3 text-callout text-[var(--color-text-secondary)]">{it.oneLiner}</p>
               <div className="mt-auto flex items-center justify-between gap-3 pt-4">
                 {it.demand > 0 ? (
-                  <span className="text-[12px] tabular-nums text-[var(--color-text-tertiary)]">{it.demand} {ru ? wordObs(it.demand) : "signals"}</span>
+                  <span className="text-caption tabular-nums text-[var(--color-text-tertiary)]">{it.demand} {ru ? wordObs(it.demand) : "signals"}</span>
                 ) : (
                   <span />
                 )}
@@ -120,15 +120,15 @@ export default function IdeaGrid({
 
       {gate === "auth" && (
         <div className="mx-auto mt-6 flex max-w-[520px] flex-col items-center gap-3 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 text-center sm:mt-8">
-          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Войди и смотри все идеи" : "Sign in to see every idea"}</div>
-          <p className="max-w-[44ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? nb("Это первые 6. За входом ждут ещё десятки идей под спрос по разным темам, и каждую неделю добавляются новые. Вход бесплатный, пара секунд.") : "These are the first 6. Sign in for dozens more demand-backed ideas across topics, with new ones added every week. It's free and takes seconds."}</p>
-          <button type="button" onClick={() => setAuth(true)} className="mt-1 rounded-full bg-[var(--color-button-primary-bg)] px-7 py-3 text-[15px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">{ru ? "Войти" : "Sign in"}</button>
+          <div className="text-subhead font-bold text-[var(--color-text-primary)]">{ru ? "Войди и смотри все идеи" : "Sign in to see every idea"}</div>
+          <p className="max-w-[44ch] text-callout text-[var(--color-text-secondary)]">{ru ? nb("Это первые 6. За входом ждут ещё десятки идей под спрос по разным темам, и каждую неделю добавляются новые. Вход бесплатный, пара секунд.") : "These are the first 6. Sign in for dozens more demand-backed ideas across topics, with new ones added every week. It's free and takes seconds."}</p>
+          <button type="button" onClick={() => setAuth(true)} className="mt-1 rounded-full bg-[var(--color-button-primary-bg)] px-7 py-3 text-body font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90">{ru ? "Войти" : "Sign in"}</button>
         </div>
       )}
       {gate === "paywall" && (
         <div className="mx-auto mt-6 flex max-w-[520px] flex-col items-center gap-4 rounded-[22px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-7 text-center sm:mt-8">
-          <div className="text-[19px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Открой все идеи" : "Unlock all ideas"}</div>
-          <p className="max-w-[44ch] text-[14px] leading-relaxed text-[var(--color-text-secondary)]">{ru ? nb("Это первые 12. Внутри все 98 идей под подтверждённый спрос по разным темам, и каждую неделю добавляются новые. Доступ навсегда.") : "These are the first 12. Inside: all 98 demand-backed ideas across topics, with new ones added every week. Access forever."}</p>
+          <div className="text-subhead font-bold text-[var(--color-text-primary)]">{ru ? "Открой все идеи" : "Unlock all ideas"}</div>
+          <p className="max-w-[44ch] text-callout text-[var(--color-text-secondary)]">{ru ? nb("Это первые 12. Внутри все 98 идей под подтверждённый спрос по разным темам, и каждую неделю добавляются новые. Доступ навсегда.") : "These are the first 12. Inside: all 98 demand-backed ideas across topics, with new ones added every week. Access forever."}</p>
           <BuyButton kind="deck" price={deckPrice} label={ru ? `Открыть колоду — ${deckPrice} ₽` : `Unlock the deck — ${deckPrice} ₽`} loggedIn={loggedIn} locale={locale} title={ru ? "Колода идей" : "Idea deck"} subtitle={ru ? "Доступ к разделу идей под подтверждённый спрос." : "Access to all ideas, backed by real demand."} starsHref={starsHref} starsLabel={starsLabel} lifetimePrice={lifetimePrice} lifetimeStarsHref={lifetimeStarsHref} />
         </div>
       )}
@@ -143,20 +143,20 @@ export default function IdeaGrid({
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" /></svg>
             </button>
             <div className="overflow-y-auto overscroll-contain px-7 py-10 sm:px-12 sm:py-12">
-              <div className="text-[11px] font-semibold tracking-[0.02em] text-[var(--color-text-tertiary)]">{cur.categoryName}</div>
-              <h2 className="mt-4 max-w-[18ch] text-[30px] font-bold leading-[1.06] tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[38px]">{cur.title}</h2>
-              <p className="mt-5 max-w-[42ch] text-[18px] leading-[1.5] text-[var(--color-text-secondary)] sm:text-[20px]">{cur.oneLiner}</p>
-              <div className="mt-5 text-[13px] tabular-nums text-[var(--color-text-tertiary)]">{cur.demand} {ru ? wordObs(cur.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
+              <div className="text-caption font-semibold text-[var(--color-text-tertiary)]">{cur.categoryName}</div>
+              <h2 className="mt-4 max-w-[18ch] text-title2 text-[var(--color-text-primary)]">{cur.title}</h2>
+              <p className="mt-5 max-w-[42ch] text-subhead text-[var(--color-text-secondary)]">{cur.oneLiner}</p>
+              <div className="mt-5 text-footnote tabular-nums text-[var(--color-text-tertiary)]">{cur.demand} {ru ? wordObs(cur.demand) : "signals"} {ru ? "в отзывах" : "in reviews"}</div>
 
               <div className="mt-11 flex flex-col gap-10">
                 {cur.depth.gap && <Sw label={ru ? "Почему это шанс" : "The opening"} text={cur.depth.gap} />}
                 {cur.depth.pitch && <Sw label={ru ? "Что строить" : "What to build"} text={cur.depth.pitch} />}
                 {cur.depth.features.length > 0 && (
                   <div>
-                    <div className="text-[18px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{ru ? "Что входит" : "Features"}</div>
+                    <div className="text-subhead font-bold text-[var(--color-text-primary)]">{ru ? "Что входит" : "Features"}</div>
                     <ul className="mt-4 flex flex-col">
                       {cur.depth.features.map((f, j) => (
-                        <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-[16px] leading-[1.5] text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
+                        <li key={j} className="border-t border-[var(--color-border-subtle)] py-3 text-body text-[var(--color-text-secondary)] first:border-t-0 first:pt-0">{f}</li>
                       ))}
                     </ul>
                   </div>
@@ -166,8 +166,8 @@ export default function IdeaGrid({
                   <div className="flex flex-col gap-6">
                     {cur.depth.quotes.map((q, j) => (
                       <figure key={j} className="border-l-2 border-[var(--color-border-strong)] pl-5">
-                        <blockquote className="text-[16px] leading-[1.55] text-[var(--color-text-primary)]">{q.text}</blockquote>
-                        <figcaption className="mt-2 text-[11px] tracking-[0.02em] text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
+                        <blockquote className="text-body text-[var(--color-text-primary)]">{q.text}</blockquote>
+                        <figcaption className="mt-2 text-caption text-[var(--color-text-tertiary)]">{q.app} · {q.rating}★</figcaption>
                       </figure>
                     ))}
                   </div>
@@ -175,7 +175,7 @@ export default function IdeaGrid({
               </div>
 
               <div className="mt-12 border-t border-[var(--color-border-subtle)] pt-6">
-                <Link href={`/segment/${cur.category}`} className="text-[15px] font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
+                <Link href={`/segment/${cur.category}`} className="text-body font-medium text-[var(--color-text-primary)] underline-offset-4 hover:underline">{ru ? `Весь разбор ниши «${cur.categoryName}»` : `Full niche breakdown "${cur.categoryName}"`} →</Link>
               </div>
             </div>
           </div>

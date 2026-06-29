@@ -19,7 +19,7 @@ export default function PostCard({ slug, name, caption }: { slug: string; name: 
 
   return (
     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] p-5 sm:p-6">
-      <h2 className="text-[20px] font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">{name}</h2>
+      <h2 className="text-headline text-[var(--color-text-primary)]">{name}</h2>
 
       <div className="mt-4 flex gap-3 overflow-x-auto pb-1">
         {[0, 1, 2, 3, 4, 5, 6].map((i) => (
@@ -49,13 +49,13 @@ export default function PostCard({ slug, name, caption }: { slug: string; name: 
         readOnly
         value={caption}
         rows={7}
-        className="mt-4 w-full resize-none rounded-[14px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] p-3.5 text-[14px] leading-relaxed text-[var(--color-text-secondary)] outline-none"
+        className="mt-4 w-full resize-none rounded-[14px] border border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] p-3.5 text-callout text-[var(--color-text-secondary)] outline-none"
       />
 
       <button
         type="button"
         onClick={copy}
-        className="mt-3 rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-[14px] font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
+        className="mt-3 rounded-full bg-[var(--color-button-primary-bg)] px-5 py-2.5 text-callout font-semibold text-[var(--color-button-primary-text)] transition-opacity hover:opacity-90"
       >
         {copied ? "Скопировано ✓" : "Скопировать текст"}
       </button>

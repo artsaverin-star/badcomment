@@ -17,10 +17,10 @@ export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount:
   return (
     <section className="mt-24">
       <div className="rounded-[28px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-14 text-center sm:px-12 sm:py-20">
-        <h2 className="text-[clamp(26px,6vw,40px)] font-black leading-[1.05] tracking-[-0.03em] text-[var(--color-text-primary)]">
+        <h2 className="text-title1 text-[var(--color-text-primary)]">
           {ru ? "Открыть весь разбор" : "Open the full breakdown"}
         </h2>
-        <p className="mx-auto mt-4 max-w-[48ch] text-[17px] leading-[1.55] text-pretty text-[var(--color-text-secondary)]">
+        <p className="mx-auto mt-4 max-w-[48ch] text-lead text-pretty text-[var(--color-text-secondary)]">
           {ru
             ? "Рынок и аудиторию ты уже видишь. За бесплатным входом — честный рейтинг, выводы по отзывам и готовые идеи под спрос."
             : "You already see the market and audience. A free sign-in opens the honest rating, the review findings and ready ideas."}
@@ -28,7 +28,7 @@ export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount:
 
         <div className="mx-auto mt-9 flex max-w-[420px] flex-col gap-2.5 text-left">
           {items.map((it, i) => (
-            <div key={i} className="flex items-center gap-3 rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3 text-[15px] text-[var(--color-text-secondary)]">
+            <div key={i} className="flex items-center gap-3 rounded-[14px] border border-[var(--color-border-subtle)] px-4 py-3 text-callout text-[var(--color-text-secondary)]">
               <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true" className="shrink-0 text-[#30d158]"><circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.4" /><path d="M5.8 9.2l2.1 2.1 4.3-4.6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               {it}
             </div>
@@ -38,11 +38,11 @@ export default function DossierGate({ ideasCount, locale = "ru" }: { ideasCount:
         <button
           type="button"
           onClick={() => setAuth(true)}
-          className="mt-9 rounded-full bg-[var(--color-text-primary)] px-8 py-3.5 text-[15px] font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90"
+          className="mt-9 rounded-full bg-[var(--color-text-primary)] px-8 py-3.5 text-callout font-semibold text-[var(--color-bg-page)] transition-opacity hover:opacity-90"
         >
           {ru ? "Войти и открыть" : "Sign in to open"}
         </button>
-        <p className="mt-3 text-[13px] text-[var(--color-text-tertiary)]">{ru ? "Бесплатно, по почте или Telegram" : "Free, by email or Telegram"}</p>
+        <p className="mt-3 text-footnote text-[var(--color-text-tertiary)]">{ru ? "Бесплатно, по почте или Telegram" : "Free, by email or Telegram"}</p>
       </div>
       {auth && <AuthModal locale={locale} onClose={() => setAuth(false)} onSuccess={() => location.reload()} />}
     </section>
