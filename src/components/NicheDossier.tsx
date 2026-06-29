@@ -9,9 +9,12 @@ import BuyButton from "@/components/BuyButton";
 import DossierGate from "@/components/DossierGate";
 import RatingToggleList, { type RatingApp } from "@/components/RatingToggleList";
 import { PersonaCards, IdeaCards } from "@/components/TestCards";
-import thesisAll from "@/data/niche-thesis.json";
-import cardsAll from "@/data/segment-cards.json";
+import { getNicheThesis } from "@/lib/nicheThesis";
+import { categoryCards } from "@/lib/regenCards";
 import ideasAll from "@/data/ideas.json";
+import ideasContentEn from "@/data/ideas-content.en.json";
+import dossierEn from "@/data/dossier.en.json";
+import type { Locale } from "@/lib/i18n";
 
 import { RATING_BY_SLUG } from "@/data/peoplesRating";
 import { DOSSIER_BY_SLUG } from "@/data/dossier";
@@ -21,7 +24,8 @@ import { DOSSIER_BY_SLUG } from "@/data/dossier";
 // fully parameterized by slug. People's-rating + dossier (audience/market) data
 // is keyed per niche; thesis/findings/ideas come from the shared keyed files.
 
-type RApp = { id: string; title: string; icon: string | null; storeAvg: number | null; ratings: number; nrev: number; realScore: number | null; authenticity: string | null; verdict: string; loved: string; weak: string; whoFor: string | null };
+type AppEn = { verdict?: string; loved?: string; weak?: string; whoFor?: string };
+type RApp = { id: string; title: string; icon: string | null; storeAvg: number | null; ratings: number; nrev: number; realScore: number | null; authenticity: string | null; verdict: string; loved: string; weak: string; whoFor: string | null; en?: AppEn };
 type RatingFile = { name: string; nameEn?: string; count: number; totalReviews: number; apps: RApp[] };
 type Finding = { title: string; plus?: string; minus?: string; count?: number; apps?: string[]; evidence?: { app: string; rating: number; quote: string }[] };
 type Pillar = { title: string; dek: string; match: string[] };
@@ -32,7 +36,6 @@ type Dossier = { audience: { segments: Segment[]; takeaway: string }; market: { 
 const RATING = RATING_BY_SLUG as Record<string, RatingFile>;
 const DOSSIER = DOSSIER_BY_SLUG as Record<string, Dossier>;
 
-const NF = (n: number) => n.toLocaleString("ru-RU");
 const cleanTitle = (t: string) => {
   const m = t.replace(/^[A-Za-z][A-Za-z0-9 ]*\.\s+/, "");
   return m.charAt(0).toUpperCase() + m.slice(1);
@@ -52,14 +55,21 @@ function groupFindings(pillars: Pillar[], cards: Finding[]) {
   );
 }
 
-export default async function NicheDossier({ slug }: { slug: string }) {
+export default async function NicheDossier({ slug, locale = "ru" }: { slug: string; locale?: Locale }) {
+  const ru = locale !== "en";
+  const NF = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
   const r = RATING[slug];
-  const dossier = DOSSIER[slug];
-  const thesis = (thesisAll as unknown as Record<string, { governing: string; competitorRead: string; pillars: Pillar[] }>)[slug];
-  if (!r || !dossier || !thesis) notFound();
+  // Dossier (market + audience) and thesis are localized; rating verdicts overlay
+  // per-app EN when present, else fall back to RU. Findings + ideas pull their EN
+  // text from the shared overlay loaders.
+  const dossier = (!ru && (dossierEn as Record<string, Dossier>)[slug]) || DOSSIER[slug];
+  const thesisLoc = getNicheThesis(slug, locale) as { governing: string; competitorRead?: string; pillars: Pillar[] } | null;
+  if (!r || !dossier || !thesisLoc) notFound();
+  const thesis = thesisLoc;
+  const enIdeas = ideasContentEn as Record<string, { title?: string; oneLiner?: string; gap?: string; pitch?: string; features?: string[]; antiFeatures?: string[]; monetization?: string }>;
 
   const apps = [...r.apps].sort((a, b) => (b.realScore || 0) - (a.realScore || 0));
-  const cards = ((cardsAll as unknown as Record<string, { product?: Finding[] }>)[slug]?.product ?? []).slice().sort((a, b) => (b.count || 0) - (a.count || 0));
+  const cards = ((categoryCards(slug, locale)?.product as Finding[] | undefined) ?? []).slice().sort((a, b) => (b.count || 0) - (a.count || 0));
   const ideas = (ideasAll as unknown as Idea[]).filter((x) => x.category === slug);
 
   // Gating: market + rating + breakdown are free (SEO proof). Audience opens for
@@ -75,42 +85,54 @@ export default async function NicheDossier({ slug }: { slug: string }) {
   const aud = dossier.audience;
   const audSegments = aud.segments.map((s) => ({ ...s, name: cap(s.name), job: tg(cap(s.job)), payNote: tg(s.payNote), gap: tg(s.gap) }));
   const ideaIcons = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
-  const ideaCards = ideas.map((x, i) => ({
-    title: cleanTitle(x.title), oneLiner: tg(x.oneLiner), gap: x.gap ? tg(x.gap) : undefined,
-    pitch: x.idea?.pitch ? tg(x.idea.pitch) : undefined, features: x.idea?.features?.map((f) => tg(f)),
-    antiFeatures: x.idea?.antiFeatures?.map((f) => tg(f)), monetization: x.idea?.monetization ? tg(x.idea.monetization) : undefined,
-    reviewGrid: x.reviewGrid, icon: ideaIcons[i % ideaIcons.length],
-  }));
+  const ideaCards = ideas.map((x, i) => {
+    const e = ru ? undefined : enIdeas[x.slug];
+    const pitch = e?.pitch ?? x.idea?.pitch;
+    const features = e?.features ?? x.idea?.features;
+    const antiFeatures = e?.antiFeatures ?? x.idea?.antiFeatures;
+    const monetization = e?.monetization ?? x.idea?.monetization;
+    const gap = e?.gap ?? x.gap;
+    return {
+      title: cleanTitle(e?.title ?? x.title), oneLiner: tg(e?.oneLiner ?? x.oneLiner), gap: gap ? tg(gap) : undefined,
+      pitch: pitch ? tg(pitch) : undefined, features: features?.map((f) => tg(f)),
+      antiFeatures: antiFeatures?.map((f) => tg(f)), monetization: monetization ? tg(monetization) : undefined,
+      reviewGrid: x.reviewGrid, icon: ideaIcons[i % ideaIcons.length],
+    };
+  });
   const grouped = groupFindings(thesis.pillars, cards);
 
   const totalRatings = apps.reduce((s, a) => s + (a.ratings || 0), 0);
   const totalObs = cards.reduce((s, c) => s + (c.count || 0), 0);
   const broken = apps.filter((a) => a.authenticity === "Накручен" || a.authenticity === "Сомнительный").length;
   const great = apps.filter((a) => (a.realScore || 0) > 80).length;
-  const ratingApps: RatingApp[] = apps.map((a) => ({
-    id: a.id, title: a.title, icon: a.icon, realScore: a.realScore, storeAvg: a.storeAvg, ratings: a.ratings,
-    authenticity: a.authenticity, verdict: tg(a.verdict || ""), loved: tg(a.loved || ""), weak: tg(a.weak || ""), whoFor: a.whoFor ? tg(a.whoFor) : null,
-  }));
+  const ratingApps: RatingApp[] = apps.map((a) => {
+    const e = ru ? undefined : a.en;
+    return {
+      id: a.id, title: a.title, icon: a.icon, realScore: a.realScore, storeAvg: a.storeAvg, ratings: a.ratings,
+      authenticity: a.authenticity, verdict: tg((e?.verdict ?? a.verdict) || ""), loved: tg((e?.loved ?? a.loved) || ""), weak: tg((e?.weak ?? a.weak) || ""), whoFor: (e?.whoFor ?? a.whoFor) ? tg((e?.whoFor ?? a.whoFor) as string) : null,
+    };
+  });
   const byRatings = [...apps].sort((a, b) => (b.ratings || 0) - (a.ratings || 0));
   const leaders = byRatings.slice(0, 3);
   const top3Share = Math.round((100 * leaders.reduce((s, a) => s + (a.ratings || 0), 0)) / (totalRatings || 1));
 
+  const name = ru ? r.name : r.nameEn ?? r.name;
   const stats = [
-    { n: NF(r.count), l: "приложений" },
-    { n: NF(r.totalReviews), l: "отзывов прочитано" },
-    { n: NF(totalObs), l: "наблюдений" },
-    { n: `${ideas.length}`, l: "идей" },
+    { n: NF(r.count), l: ru ? "приложений" : "apps" },
+    { n: NF(r.totalReviews), l: ru ? "отзывов прочитано" : "reviews read" },
+    { n: NF(totalObs), l: ru ? "наблюдений" : "observations" },
+    { n: `${ideas.length}`, l: ru ? "идей" : "ideas" },
   ];
 
   return (
     <main className="relative mx-auto w-full max-w-[720px] overflow-x-clip px-4 pb-28 pt-16 sm:px-6 sm:pt-24">
       <Link href="/" className="inline-flex items-center gap-1.5 text-[13px] text-[var(--color-text-tertiary)] transition-colors hover:text-[var(--color-text-secondary)]">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3.25 5.25 8 10 12.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-        Все ниши
+        {ru ? "Все ниши" : "All niches"}
       </Link>
 
       <header className="mt-12">
-        <h1 className="glow-sweep text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{r.name}</h1>
+        <h1 className="glow-sweep text-[clamp(30px,8vw,72px)] font-black leading-[0.98] tracking-[-0.035em] text-balance text-[var(--color-text-primary)]">{name}</h1>
         <p className="mt-6 max-w-[60ch] text-[16px] leading-[1.6] text-pretty text-[var(--color-text-secondary)] sm:text-[18px]">{tg(thesis.governing)}</p>
 
         <div className="mt-14 flex flex-wrap gap-x-12 gap-y-8">
@@ -123,34 +145,34 @@ export default async function NicheDossier({ slug }: { slug: string }) {
         </div>
       </header>
 
-      <Block title="Обзор рынка" lead={tg(dossier.market.marketLead)}>
+      <Block title={ru ? "Обзор рынка" : "Market overview"} lead={tg(dossier.market.marketLead)}>
         <dl className="mt-2 border-t border-[var(--color-border-subtle)]">
-          <MarketRow k="Размер" v={`${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано`} />
-          <MarketRow k="Лидеры" v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
-          <MarketRow k="Концентрация" v={`топ-3 держат ${top3Share}% всех оценок`} />
-          <MarketRow k="Деньги" v={tg(dossier.market.money)} />
-          <MarketRow k="Доверие" v={`${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}`} />
+          <MarketRow k={ru ? "Размер" : "Size"} v={ru ? `${NF(totalRatings)} оценок на ${r.count} приложений, ${NF(r.totalReviews)} отзывов прочитано` : `${NF(totalRatings)} ratings across ${r.count} apps, ${NF(r.totalReviews)} reviews read`} />
+          <MarketRow k={ru ? "Лидеры" : "Leaders"} v={leaders.map((a) => `${a.title} (${NF(a.ratings || 0)})`).join(", ")} />
+          <MarketRow k={ru ? "Концентрация" : "Concentration"} v={ru ? `топ-3 держат ${top3Share}% всех оценок` : `the top 3 hold ${top3Share}% of all ratings`} />
+          <MarketRow k={ru ? "Деньги" : "Money"} v={tg(dossier.market.money)} />
+          <MarketRow k={ru ? "Доверие" : "Trust"} v={ru ? `${broken} из 100 приложений со звездой накрученной или сомнительной, по-настоящему хороших всего ${great}` : `${broken} of 100 apps have an inflated or doubtful star, only ${great} are genuinely good`} />
         </dl>
-        <p className="mt-8 max-w-[64ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead)}</p>
+        <p className="mt-8 max-w-[64ch] text-[17px] leading-[1.65] text-pretty text-[var(--color-text-secondary)]">{tg(thesis.competitorRead ?? "")}</p>
       </Block>
 
-      <Block title="Аудитория" lead={`«${r.name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.`}>
-        <div className="mt-6"><PersonaCards segments={audSegments} locale="ru" /></div>
+      <Block title={ru ? "Аудитория" : "Audience"} lead={ru ? `«${name}» это не один клиент. Внутри сидят разные люди с разными работами, и платят они очень по-разному. Сначала выбираешь, для кого строишь.` : `"${name}" is not one customer. Inside are different people with different jobs, and they pay very differently. First you choose who you build for.`}>
+        <div className="mt-6"><PersonaCards segments={audSegments} locale={locale} /></div>
         <div className="mt-5 rounded-[16px] bg-[var(--color-bg-muted)] p-5">
-          <h3 className="text-[17px] font-bold text-[var(--color-text-primary)]">Где деньги</h3>
+          <h3 className="text-[17px] font-bold text-[var(--color-text-primary)]">{ru ? "Где деньги" : "Where the money is"}</h3>
           <p className="mt-2 text-[15px] leading-[1.65] text-[var(--color-text-secondary)]">{tg(aud.takeaway)}</p>
         </div>
       </Block>
 
       {loggedIn ? (
         <>
-      <Block title="Честный рейтинг" lead="Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах.">
-        <RatingToggleList apps={ratingApps} limit={8} more={`и ещё ${r.count - 8} приложений`} moreHref={`/ru/rating/${slug}`} />
+      <Block title={ru ? "Честный рейтинг" : "Honest rating"} lead={ru ? "Одна и та же сотня приложений в двух системах оценки. Переключи и смотри, как витринная звезда расходится с тем, что люди реально пишут в отзывах." : "The same hundred apps in two scoring systems. Switch and watch the storefront star diverge from what people actually write in reviews."}>
+        <RatingToggleList apps={ratingApps} limit={8} more={ru ? `и ещё ${r.count - 8} приложений` : `and ${r.count - 8} more apps`} moreHref={`/${ru ? "ru" : "en"}/rating/${slug}`} locale={locale} />
       </Block>
 
       {unlocked ? (
         <>
-      <Block title="Что показывают отзывы" lead={`Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса.`}>
+      <Block title={ru ? "Что показывают отзывы" : "What the reviews show"} lead={ru ? `Закономерности из ${NF(totalObs)} наблюдений, сгруппированные по опорам тезиса.` : `Patterns from ${NF(totalObs)} observations, grouped by the pillars of the thesis.`}>
         <div className="mt-10 flex flex-col gap-16">
           {thesis.pillars.map((p, pi) => (
             <div key={pi}>
@@ -181,16 +203,18 @@ export default async function NicheDossier({ slug }: { slug: string }) {
         </div>
       </Block>
 
-      <Block title="Что строить" lead="Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши.">
-        <div className="mt-6"><IdeaCards ideas={ideaCards} /></div>
+      <Block title={ru ? "Что строить" : "What to build"} lead={ru ? "Каждая идея это реальный бизнес, под который прочитаны все отзывы ниши." : "Every idea is a real business, built on reading all the reviews in the niche."}>
+        <div className="mt-6"><IdeaCards ideas={ideaCards} locale={locale} /></div>
       </Block>
         </>
       ) : (
         <section className="mt-24">
           <div className="rounded-[24px] border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] px-6 py-14 text-center sm:px-10 sm:py-16">
-            <h3 className="text-[clamp(26px,6vw,36px)] font-black leading-[1.08] tracking-[-0.03em] text-[var(--color-text-primary)]">Выводы по отзывам и {ideas.length} идей</h3>
+            <h3 className="text-[clamp(26px,6vw,36px)] font-black leading-[1.08] tracking-[-0.03em] text-[var(--color-text-primary)]">{ru ? `Выводы по отзывам и ${ideas.length} идей` : `Conclusions from reviews and ${ideas.length} ideas`}</h3>
             <p className="mx-auto mt-4 max-w-[48ch] text-[16px] leading-[1.55] text-pretty text-[var(--color-text-secondary)]">
-              Структурные выводы по {NF(totalObs)} наблюдениям с прямыми цитатами и {ideas.length} идей под спрос: что строить, для кого и как заработать. Один платёж открывает весь сайт навсегда: все категории, все идеи и народный рейтинг.
+              {ru
+                ? `Структурные выводы по ${NF(totalObs)} наблюдениям с прямыми цитатами и ${ideas.length} идей под спрос: что строить, для кого и как заработать. Один платёж открывает весь сайт навсегда: все категории, все идеи и народный рейтинг.`
+                : `Structural conclusions from ${NF(totalObs)} observations with direct quotes and ${ideas.length} demand-backed ideas: what to build, for whom and how to make money. One payment unlocks the whole site forever: every category, every idea and the people's rating.`}
             </p>
             <div className="mt-8 flex justify-center">
               <BuyButton
@@ -198,7 +222,7 @@ export default async function NicheDossier({ slug }: { slug: string }) {
                 slug={slug}
                 price={catPrice}
                 loggedIn={loggedIn}
-                locale="ru"
+                locale={locale}
                 starsHref={catStarsHref}
                 starsLabel={`${CATEGORY_STARS} ⭐ Telegram`}
                 lifetimePrice={LIFETIME.rub}
@@ -210,7 +234,7 @@ export default async function NicheDossier({ slug }: { slug: string }) {
       )}
         </>
       ) : (
-        <DossierGate ideasCount={ideas.length} locale="ru" />
+        <DossierGate ideasCount={ideas.length} locale={locale} />
       )}
     </main>
   );

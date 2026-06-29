@@ -30,15 +30,19 @@ const GLYPHS: Record<string, React.ReactNode> = {
 
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
-function PayPill({ level }: { level: string }) {
+// payLevel stays RU in the data (so the weak-detection stays stable); the pill
+// maps it to an English label when needed.
+const PAY_EN: Record<string, string> = { "платит охотно": "Pays eagerly", "платит слабо": "Pays a little", "платит": "Pays" };
+function PayPill({ level, locale = "ru" }: { level: string; locale?: Locale }) {
   const weak = level.includes("слабо");
   const color = weak ? "#ff6961" : "#30d158";
+  const label = locale === "en" ? PAY_EN[level.trim()] ?? cap(level) : cap(level);
   return (
     <span className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[12px] font-medium" style={{ background: `color-mix(in srgb, ${color} 15%, transparent)`, color }}>
       <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         {weak ? <path d="M6 2.5v7M3 6.5l3 3 3-3" /> : <path d="M6 9.5v-7M3 5.5l3-3 3 3" />}
       </svg>
-      {cap(level)}
+      {label}
     </span>
   );
 }
@@ -133,7 +137,7 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
               title={s.name}
               desc={s.job}
               onClick={() => setOpen(s)}
-              footer={<PayPill level={s.payLevel} />}
+              footer={<PayPill level={s.payLevel} locale={locale} />}
             />
           ))}
         </div>
@@ -151,19 +155,20 @@ export function PersonaCards({ segments, locked, locale = "ru" }: { segments: Pe
       {open && (
         <Modal onClose={() => setOpen(null)}>
           <h3 className="text-[22px] font-bold tracking-[-0.02em] text-[var(--color-text-primary)]">{open.name}</h3>
-          <div className="mt-2.5"><PayPill level={open.payLevel} /></div>
+          <div className="mt-2.5"><PayPill level={open.payLevel} locale={locale} /></div>
           <p className="mt-3 text-[15px] leading-[1.6] text-[var(--color-text-secondary)]">{open.job}</p>
-          <Sec k="Сколько платит">{open.payNote}</Sec>
-          <Sec k="Чего не хватает">{open.gap}</Sec>
-          <Sec k="Сейчас обслуживают"><span className="text-[var(--color-text-tertiary)]">{open.servedBy.join(", ")}</span></Sec>
+          <Sec k={ru ? "Сколько платит" : "How much they pay"}>{open.payNote}</Sec>
+          <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>
+          <Sec k={ru ? "Сейчас обслуживают" : "Served today"}><span className="text-[var(--color-text-tertiary)]">{open.servedBy.join(", ")}</span></Sec>
         </Modal>
       )}
     </>
   );
 }
 
-export function IdeaCards({ ideas, locked }: { ideas: Idea[]; locked?: boolean }) {
+export function IdeaCards({ ideas, locked, locale = "ru" }: { ideas: Idea[]; locked?: boolean; locale?: Locale }) {
   const [open, setOpen] = useState<Idea | null>(null);
+  const ru = locale !== "en";
   return (
     <>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -175,13 +180,13 @@ export function IdeaCards({ ideas, locked }: { ideas: Idea[]; locked?: boolean }
         <Modal onClose={() => setOpen(null)}>
           <h3 className="text-[23px] font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{open.title}</h3>
           <p className="mt-2 text-[16px] leading-[1.55] text-[var(--color-text-secondary)]">{open.oneLiner}</p>
-          {open.gap && <Sec k="Чего не хватает">{open.gap}</Sec>}
-          {open.pitch && <Sec k="Что это">{open.pitch}</Sec>}
-          {!!open.features?.length && <Sec k="Как устроено"><Bullets items={open.features} /></Sec>}
-          {!!open.antiFeatures?.length && <Sec k="Чего не делаем"><Bullets items={open.antiFeatures} cross /></Sec>}
-          {open.monetization && <Sec k="Деньги">{open.monetization}</Sec>}
+          {open.gap && <Sec k={ru ? "Чего не хватает" : "What's missing"}>{open.gap}</Sec>}
+          {open.pitch && <Sec k={ru ? "Что это" : "What it is"}>{open.pitch}</Sec>}
+          {!!open.features?.length && <Sec k={ru ? "Как устроено" : "How it works"}><Bullets items={open.features} /></Sec>}
+          {!!open.antiFeatures?.length && <Sec k={ru ? "Чего не делаем" : "What we don't do"}><Bullets items={open.antiFeatures} cross /></Sec>}
+          {open.monetization && <Sec k={ru ? "Деньги" : "Money"}>{open.monetization}</Sec>}
           {!!open.reviewGrid?.length && (
-            <Sec k="Пруф из отзывов">
+            <Sec k={ru ? "Пруф из отзывов" : "Proof from reviews"}>
               <div className="flex flex-col gap-2.5">
                 {open.reviewGrid.slice(0, 5).map((q, j) => (
                   <figure key={j} className="max-w-[92%] self-start rounded-[16px] rounded-bl-[5px] bg-[var(--color-bg-muted)] px-4 py-3">

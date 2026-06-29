@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { Locale } from "@/lib/i18n";
 
 // The honest-rating list with a toggle between our review-sentiment score and
 // the App Store star. Flipping re-sorts the list; each row shows both numbers
@@ -19,8 +20,12 @@ const AUTH: Record<string, { w: string; c: string }> = {
   "Сомнительный": { w: "сомнительная", c: "#e0b400" },
   "Накручен": { w: "накрученная", c: "#ff6961" },
 };
+const AUTH_EN: Record<string, { w: string; c: string }> = {
+  "Подлинный": { w: "genuine", c: "#30d158" },
+  "Сомнительный": { w: "doubtful", c: "#e0b400" },
+  "Накручен": { w: "inflated", c: "#ff6961" },
+};
 
-const NF = (n: number) => n.toLocaleString("ru-RU");
 const cap = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
 const ICONS: Record<string, React.ReactNode> = {
@@ -54,7 +59,10 @@ function AuthChip({ color, word }: { color: string; word: string }) {
   );
 }
 
-export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { apps: RatingApp[]; limit?: number; more?: string; moreHref?: string }) {
+export default function RatingToggleList({ apps, limit = 8, more, moreHref, locale = "ru" }: { apps: RatingApp[]; limit?: number; more?: string; moreHref?: string; locale?: Locale }) {
+  const ru = locale !== "en";
+  const nf = (n: number) => n.toLocaleString(ru ? "ru-RU" : "en-US");
+  const auth = ru ? AUTH : AUTH_EN;
   const [mode, setMode] = useState<"sentiment" | "store">("sentiment");
   const sorted = [...apps].sort((a, b) =>
     mode === "sentiment"
@@ -67,14 +75,14 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
     <div>
       <div className="mt-6 flex justify-center">
         <div className="inline-flex rounded-full border border-[var(--color-border-subtle)] p-0.5">
-          <Tab active={mode === "sentiment"} onClick={() => setMode("sentiment")}>По отзывам</Tab>
-          <Tab active={mode === "store"} onClick={() => setMode("store")}>В сторах</Tab>
+          <Tab active={mode === "sentiment"} onClick={() => setMode("sentiment")}>{ru ? "По отзывам" : "By reviews"}</Tab>
+          <Tab active={mode === "store"} onClick={() => setMode("store")}>{ru ? "В сторах" : "In stores"}</Tab>
         </div>
       </div>
 
       <div className="mt-6 flex flex-col gap-3">
         {shown.map((a, i) => {
-          const au = AUTH[a.authenticity || ""] || { w: "", c: "var(--color-text-tertiary)" };
+          const au = auth[a.authenticity || ""] || { w: "", c: "var(--color-text-tertiary)" };
           const sentiment = mode === "sentiment";
           return (
             <details key={a.id} className="group/f rounded-[16px] border border-[var(--color-border-subtle)] px-4">
@@ -91,17 +99,17 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
                   <span className="block text-[16px] font-medium leading-[1.3] text-[var(--color-text-primary)]">{a.title}</span>
                   {a.verdict && <span className="mt-1 block text-[13px] leading-[1.45] text-[var(--color-text-tertiary)]">{a.verdict}</span>}
                   <span className="mt-2.5 flex flex-wrap items-center gap-1.5">
-                    <MetricChip icon="star" value={a.storeAvg?.toFixed(1) ?? "—"} label="В сторе" active={!sentiment} />
+                    <MetricChip icon="star" value={a.storeAvg?.toFixed(1) ?? "—"} label={ru ? "В сторе" : "In store"} active={!sentiment} />
                     {au.w && <AuthChip color={au.c} word={cap(au.w)} />}
-                    <MetricChip icon="bars" value={NF(a.ratings || 0)} label="Оценок" />
-                    <MetricChip icon="spark" value={`${a.realScore}/100`} label="Наш балл" active={sentiment} />
+                    <MetricChip icon="bars" value={nf(a.ratings || 0)} label={ru ? "Оценок" : "Ratings"} />
+                    <MetricChip icon="spark" value={`${a.realScore}/100`} label={ru ? "Наш балл" : "Our score"} active={sentiment} />
                   </span>
                 </span>
               </summary>
               <div className="flex flex-col gap-3.5 border-t border-[var(--color-border-subtle)] pb-5 pt-4">
-                <Field k="Сильное" v={a.loved} />
-                <Field k="Слабое" v={a.weak} />
-                <Field k="Кому" v={a.whoFor} />
+                <Field k={ru ? "Сильное" : "Strong"} v={a.loved} />
+                <Field k={ru ? "Слабое" : "Weak"} v={a.weak} />
+                <Field k={ru ? "Кому" : "For whom"} v={a.whoFor} />
               </div>
             </details>
           );
@@ -109,10 +117,10 @@ export default function RatingToggleList({ apps, limit = 8, more, moreHref }: { 
       </div>
       {more && (
         <div className="mt-4 text-[14px]">
-          <span className="text-[var(--color-text-tertiary)]">{more} — </span>
+          <span className="text-[var(--color-text-tertiary)]">{more} </span>
           {moreHref
-            ? <a href={moreHref} className="font-medium text-[var(--color-text-primary)] underline-offset-2 hover:underline">весь рейтинг</a>
-            : <span className="font-medium text-[var(--color-text-primary)]">весь рейтинг</span>}
+            ? <a href={moreHref} className="font-medium text-[var(--color-text-primary)] underline-offset-2 hover:underline">{ru ? "весь рейтинг" : "full rating"}</a>
+            : <span className="font-medium text-[var(--color-text-primary)]">{ru ? "весь рейтинг" : "full rating"}</span>}
         </div>
       )}
     </div>

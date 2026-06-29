@@ -183,7 +183,7 @@ export default async function SegmentPage({ params }: { params: Promise<{ slug: 
   const locale = await getLocale();
   const ru = locale !== "en";
 
-  if (DOSSIER_SLUGS.has(slug)) return <NicheDossier slug={slug} />;
+  if (DOSSIER_SLUGS.has(slug)) return <NicheDossier slug={slug} locale={locale} />;
 
   if (!isActiveCategory(slug)) notFound();
   const cat = getCategoryBySlug(slug, locale);
