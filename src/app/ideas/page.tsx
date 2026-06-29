@@ -15,12 +15,15 @@ type FullIdea = {
   reviewGrid?: { quote: string; rating: number; app: string }[];
 };
 
-// Only the niches that have a full dossier (people's rating + breakdown) on the
-// homepage. The ideas deck mirrors those sections, not every category.
-const DOSSIER = new Set([
-  "astrology", "dating-apps", "ai-avatars-headshots", "meditation-mindfulness", "photo-editing",
-  "notes-pkm", "language-learning", "period-cycle", "habit-tracking", "personal-finance", "calendars-tasks", "nutrition-calories", "crypto-investing", "music-streaming", "video-streaming", "food-delivery", "messaging-apps", "shopping-ecommerce", "ride-hailing", "weather-apps", "travel-planning", "sleep-tracking", "focus-productivity", "journaling-mood", "workout-fitness", "recipes-meal-planning", "plant-care", "baby-tracking", "ai-writing",
-]);
+// Niches with a full dossier (people's rating + breakdown), ordered by how
+// realistically a solo vibe-coder can ship the idea: pure single-player software
+// first, non-replicable marketplaces/infra (ride-hailing, streaming, crypto) last.
+// Mirrors the homepage card order.
+const CATEGORY_ORDER = [
+  "ai-writing", "journaling-mood", "focus-productivity", "habit-tracking", "notes-pkm", "sleep-tracking", "recipes-meal-planning", "plant-care", "baby-tracking", "workout-fitness", "calendars-tasks", "period-cycle", "nutrition-calories", "personal-finance", "meditation-mindfulness", "astrology", "photo-editing", "ai-avatars-headshots", "language-learning", "weather-apps", "travel-planning", "shopping-ecommerce", "food-delivery", "ride-hailing", "dating-apps", "messaging-apps", "music-streaming", "video-streaming", "crypto-investing",
+];
+const DOSSIER = new Set(CATEGORY_ORDER);
+const CAT_RANK = new Map(CATEGORY_ORDER.map((s, i) => [s, i]));
 
 const ICONS = ["sparkles", "compass", "cards", "moon", "chart", "book", "bolt", "calendar", "person"];
 const cleanTitle = (s: string) => {
@@ -33,7 +36,17 @@ const cleanTitle = (s: string) => {
 export default async function IdeasPage() {
   const locale = await getLocale();
   const tr = t(locale);
-  const all = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
+  const raw = (listIdeas() as unknown as FullIdea[]).filter((i) => DOSSIER.has(i.category));
+  // Lead with the juiciest, most solo-buildable ideas: round-robin one idea per
+  // category in buildability order, so the first cards a founder sees are the top
+  // idea from each of the easiest-to-ship niches (a "this is exactly what I need"
+  // hit), not eight variations of the same category before the next one.
+  const byCat = new Map<string, FullIdea[]>();
+  for (const i of raw) { const a = byCat.get(i.category); if (a) a.push(i); else byCat.set(i.category, [i]); }
+  const cats = [...byCat.keys()].sort((a, b) => (CAT_RANK.get(a) ?? 999) - (CAT_RANK.get(b) ?? 999));
+  const maxLen = cats.reduce((m, c) => Math.max(m, byCat.get(c)!.length), 0);
+  const all: FullIdea[] = [];
+  for (let r = 0; r < maxLen; r++) for (const c of cats) { const arr = byCat.get(c)!; if (r < arr.length) all.push(arr[r]); }
   const access = await getAccess();
   const owner = access.unlimited || (access.user ? await ownsDeck(access.user.id) : false);
   const loggedIn = access.loggedIn;
